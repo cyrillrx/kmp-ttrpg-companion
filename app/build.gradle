@@ -9,11 +9,12 @@ android {
     buildToolsVersion("29.0.2")
 
     defaultConfig {
-        applicationId = "com.cyrillrx.rpg"
         minSdkVersion(26)
         targetSdkVersion(29)
+        applicationId = "com.cyrillrx.rpg"
         versionCode = 1
         versionName = "1.0"
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -49,3 +50,10 @@ dependencies {
     androidTestImplementation("androidx.test:runner:1.2.0")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.2.0")
 }
+
+//// Helper methods
+//
+//@Throws(UnknownDomainObjectException::class)
+//fun <T> NamedDomainObjectContainer<T>.release(configureAction: Action<in T>) {
+//    getByName("release", configureAction)
+//}
