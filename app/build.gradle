@@ -9,7 +9,7 @@ android {
     buildToolsVersion("29.0.2")
 
     defaultConfig {
-        minSdkVersion(26)
+        minSdkVersion(21)
         targetSdkVersion(29)
         applicationId = "com.cyrillrx.rpg"
         versionCode = 1
