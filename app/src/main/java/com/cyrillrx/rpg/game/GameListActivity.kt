@@ -1,5 +1,6 @@
 package com.cyrillrx.rpg.game
 
+import com.cyrillrx.rpg.models.Game
 import com.cyrillrx.rpg.template.ListActivity
 
 /**
@@ -12,7 +13,14 @@ class GameListActivity : ListActivity<GameAdapter>() {
 
     override fun sendRequest() {
 
-        // TODO listOf(Game("", ""))
-    }
+        val games = listOf(
+            Game("hero_dragon", "Héros et Dragons"),
+            Game("equestria", "Tales of Equestria"),
+            Game("sw_edge", "Edge of the Empire"),
+            Game("sw_rebellion", "Age of Rebellion"),
+            Game("sw_force", "Force and Destiny")
+        )
 
+        adapter.addAll(games)
+    }
 }

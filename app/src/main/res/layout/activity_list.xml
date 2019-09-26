@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/fragment_root"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fragment_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -21,8 +21,8 @@
             android:layout_height="match_parent"
             android:clipToPadding="false"
             android:overScrollMode="never"
-            android:paddingBottom="@dimen/ui_templates_spacing_common"
-            android:paddingTop="@dimen/ui_templates_spacing_common" />
+            android:paddingTop="@dimen/ui_templates_spacing_common"
+            android:paddingBottom="@dimen/ui_templates_spacing_common" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <com.cyrillrx.templates.layout.PlaceholderLayout
