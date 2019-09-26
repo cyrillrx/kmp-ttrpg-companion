@@ -41,9 +41,23 @@ abstract class ListActivity<Adapter : BaseAdapter<*>> : AppCompatActivity() {
         addItemDecoration(recyclerView, layoutManager)
 
         recyclerView.adapter = adapter
+
+        refreshLayout.setOnRefreshListener {
+            adapter.clear()
+            sendRequest()
+        }
     }
 
     protected open fun addItemDecoration(recyclerView: RecyclerView, layoutManager: LinearLayoutManager) {}
+
+    protected open fun startLoading() {
+        loader.visibility = View.VISIBLE
+    }
+
+    protected open fun stopLoading() {
+        refreshLayout.isRefreshing = false
+        loader.visibility = View.GONE
+    }
 
     protected abstract fun sendRequest()
 }

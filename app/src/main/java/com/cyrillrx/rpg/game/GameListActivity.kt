@@ -13,6 +13,8 @@ class GameListActivity : ListActivity<GameAdapter>() {
 
     override fun sendRequest() {
 
+        startLoading()
+
         val games = listOf(
             Game("hero_dragon", "Héros et Dragons"),
             Game("equestria", "Tales of Equestria"),
@@ -22,5 +24,7 @@ class GameListActivity : ListActivity<GameAdapter>() {
         )
 
         adapter.addAll(games)
+
+        stopLoading()
     }
 }
