@@ -21,5 +21,7 @@
 
         <activity android:name=".game.GameListActivity" />
 
+        <activity android:name=".group.CharacterListActivity" />
+
     </application>
 </manifest>
