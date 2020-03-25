@@ -23,5 +23,8 @@
 
         <activity android:name=".group.CharacterListActivity" />
 
+        <activity android:name=".dnd.bestiary.BestiaryActivity" />
+        <activity android:name=".dnd.spellbook.SpellBookActivity" />
+
     </application>
 </manifest>

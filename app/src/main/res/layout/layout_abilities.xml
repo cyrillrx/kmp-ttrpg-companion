@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tvStrLabel"
+        style="@style/text_ability_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@id/tvDexLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvDexLabel"
+        style="@style/text_ability_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@id/tvConLabel"
+        app:layout_constraintStart_toEndOf="@id/tvStrLabel"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvConLabel"
+        style="@style/text_ability_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@id/tvIntLabel"
+        app:layout_constraintStart_toEndOf="@id/tvDexLabel"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvIntLabel"
+        style="@style/text_ability_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@id/tvWisLabel"
+        app:layout_constraintStart_toEndOf="@id/tvConLabel"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvWisLabel"
+        style="@style/text_ability_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@id/tvChaLabel"
+        app:layout_constraintStart_toEndOf="@id/tvIntLabel"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvChaLabel"
+        style="@style/text_ability_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvWisLabel"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvStrValue"
+        style="@style/text_ability_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@id/tvDexValue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvStrLabel" />
+
+    <TextView
+        android:id="@+id/tvDexValue"
+        style="@style/text_ability_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@id/tvConValue"
+        app:layout_constraintStart_toEndOf="@id/tvStrValue"
+        app:layout_constraintTop_toTopOf="@id/tvStrValue" />
+
+    <TextView
+        android:id="@+id/tvConValue"
+        style="@style/text_ability_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@id/tvIntValue"
+        app:layout_constraintStart_toEndOf="@id/tvDexValue"
+        app:layout_constraintTop_toTopOf="@id/tvStrValue" />
+
+    <TextView
+        android:id="@+id/tvIntValue"
+        style="@style/text_ability_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@id/tvWisValue"
+        app:layout_constraintStart_toEndOf="@id/tvConValue"
+        app:layout_constraintTop_toTopOf="@id/tvStrValue" />
+
+    <TextView
+        android:id="@+id/tvWisValue"
+        style="@style/text_ability_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@id/tvChaValue"
+        app:layout_constraintStart_toEndOf="@id/tvIntValue"
+        app:layout_constraintTop_toTopOf="@id/tvStrValue" />
+
+    <TextView
+        android:id="@+id/tvChaValue"
+        style="@style/text_ability_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvWisValue"
+        app:layout_constraintTop_toTopOf="@id/tvStrValue" />
+
+</merge>
