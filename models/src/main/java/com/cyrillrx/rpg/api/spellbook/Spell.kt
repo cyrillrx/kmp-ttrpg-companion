@@ -1,6 +1,4 @@
-package com.cyrillrx.rpg.api
-
-import com.sun.xml.internal.fastinfoset.util.StringArray
+package com.cyrillrx.rpg.api.spellbook
 
 /**
  * @author Cyril Leroux
@@ -19,7 +17,10 @@ class Spell(
     fun getSpellClasses() = header.taxonomy.spell_class
 
     class Header(val taxonomy: Taxonomy) {
-
-        class Taxonomy(val spell_class: StringArray)
+        class Taxonomy(
+            val spell_school: Array<String>,
+            val spell_level: Array<String>,
+            val spell_class: Array<String>
+        )
     }
 }
