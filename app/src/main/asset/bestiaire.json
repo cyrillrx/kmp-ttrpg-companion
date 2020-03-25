@@ -1,0 +1,686 @@
+[
+    {
+      "isCustom": true,
+      "link": "/mon-bestiaire/argys",
+      "title": "Argys",
+      "header": {
+        "monster": {
+          "ac": 10,
+          "hp": "5 (1d8)",
+          "speed": "9 m",
+          "str": "10 (+0)",
+          "dex": "10 (+0)",
+          "con": "10 (+0)",
+          "int": "10 (+0)",
+          "wis": "10 (+0)",
+          "cha": "10 (+0)",
+          "saves": "",
+          "skills": "",
+          "immunities_debilities": null,
+          "senses": "Perception passive 10",
+          "languages": "une langue au choix (commun le plus souvent)",
+          "px": "0 ou 10"
+        }
+      },
+      "truetype": "Humanoïde (Humain)",
+      "size": "M",
+      "altsize": "",
+      "alignment": "Loyal bon",
+      "challenge": 0,
+      "content": "",
+      "originalSource": {
+        "custom": true,
+        "name": "Argys",
+        "type": "Humanoïde",
+        "subtype": "Humain",
+        "swarmType": "",
+        "swarmSize": "",
+        "size": {
+          "label": "Moyen",
+          "value": "M",
+          "hitDie": 8
+        },
+        "alignment": "Loyal bon",
+        "hitDice": "1",
+        "customHP": false,
+        "customHPValue": "",
+        "naturalArmorValue": "",
+        "customArmorValue": "",
+        "armorType": {
+          "label": "Aucune",
+          "value": "",
+          "maxDex": false
+        },
+        "hasShield": false,
+        "str": "10",
+        "dex": "10",
+        "con": "10",
+        "int": "10",
+        "wis": "10",
+        "cha": "10",
+        "speed": 9,
+        "speedBurrow": 0,
+        "speedSwim": 0,
+        "speedClimb": 0,
+        "speedFly": 0,
+        "blindsight": 0,
+        "darkvision": 0,
+        "tremorsense": 0,
+        "truesight": 0,
+        "saveProficiencies": {
+          "str": false,
+          "dex": false,
+          "con": false,
+          "int": false,
+          "wis": false,
+          "cha": false
+        },
+        "customSaveProficiencies": false,
+        "customSaveProficienciesValue": "",
+        "skillProficiencies": [],
+        "customSkillProficiencies": false,
+        "customSkillProficienciesValue": "",
+        "conditionImmunities": [],
+        "damageTypeResistances": [],
+        "damageTypeImmunities": [],
+        "damageTypeVulnerabilites": [],
+        "languages": "une langue au choix (commun le plus souvent)",
+        "telepathy": 0,
+        "challenge": {
+          "level": 0,
+          "xp": "0 ou 10"
+        },
+        "abilities": [],
+        "actions": [],
+        "reactions": [],
+        "legendaryDescription": "Le <NOM> peut effectuer 3 actions légendaires qu'il choisit parmi celles décrites ici. Une seule action légendaire peut être choisie à la fois et uniquement à la fin du tour d'une autre créature. Le <NOM> récupère au début de son tour l'utilisation des actions légendaires déjà effectuées.",
+        "legendaryActions": [],
+        "freeDescription": "",
+        "link": "/mon-bestiaire/argys",
+        "compiled": null,
+        "title": "Argys"
+      }
+    },
+    {
+      "isCustom": true,
+      "link": "/mon-bestiaire/chaman-bras-droit-doftrak",
+      "title": "Chaman (Bras droit d'Oftrak)",
+      "header": {
+        "monster": {
+          "ac": "11 (armure de cuir)",
+          "hp": "33 (6d8+6)",
+          "speed": "9 m",
+          "str": "15 (+2)",
+          "dex": "11 (+0)",
+          "con": "13 (+1)",
+          "int": "10 (+0)",
+          "wis": "14 (+2)",
+          "cha": "12 (+1)",
+          "saves": "",
+          "skills": "Religion +2, Persuasion +3",
+          "immunities_debilities": null,
+          "senses": "vision dans le noir 18&nbsp;m, Perception passive 12",
+          "languages": "commun,  orc",
+          "px": 450
+        }
+      },
+      "truetype": "Humanoïde (Humain)",
+      "size": "M",
+      "altsize": "",
+      "alignment": "Neutre Mauvais",
+      "challenge": 2,
+      "content": "<h2 id=\"capacites\">Capacités</h2>\n<p><strong><em>Sombre dévotion</em></strong>. Le chaman bénéficie d'un <a href=\"/utiliser-les-caracteristiques#avantage-et-désavantage\"><em>avantage</em></a> lors des jets de sauvegarde effectués pour ne pas être charmé ou terrorisé.</p>\n<p><strong><em>Incantation</em></strong>. Le chaman est un lanceur de sorts de niveau 4. Sa caractéristique d'incantation est la Sagesse (DD du <a href=\"/utiliser-les-caracteristiques#jets-de-sauvegarde\">jet de sauvegarde</a> contre les sorts 11, +3 pour toucher avec les attaques de sort). Voici les sorts de clerc préparés par le chaman :</p>\n<ul>\n<li><strong><em>Tours de magie (à volonté)</em></strong> : <a href=\"/grimoire/flamme-sacree\"><em>flamme sacrée</em></a>, <a href=\"/grimoire/resistance\"><em>résistance</em></a>, <a href=\"/grimoire/thaumaturgie\"><em>thaumaturgie</em></a></li>\n<li><strong><em>1er niveau (4 emplacements)</em></strong> : <a href=\"/grimoire/blessure\"><em>blessure</em></a>, <a href=\"/grimoire/bouclier-de-la-foi\"><em>bouclier de la foi</em></a>, <a href=\"/grimoire/injonction\"><em>injonction</em></a></li>\n<li><strong><em>2e niveau (3 emplacements)</em></strong> : <a href=\"/grimoire/arme-spirituelle\"><em>arme spirituelle</em></a>, <a href=\"/grimoire/immobiliser-un-humanoide\"><em>immobiliser un humanoïde</em></a></li>\n</ul>\n<h2 id=\"actions\">Actions</h2>\n<p><strong><em>Attaques multiples</em></strong>. Le chaman effectue deux attaques au corps à corps.</p>\n<p><strong><em>Masse</em></strong>. <em>Attaque d'arme au corps à corps</em> : +4 pour toucher, allonge 1,50 m, une créature.<br>\n<em>Touché</em> : 5 (1d6+2) dégâts contondants.</p>",
+      "originalSource": {
+        "custom": true,
+        "name": "Chaman (Bras droit d'Oftrak)",
+        "type": "Humanoïde",
+        "subtype": "Humain",
+        "swarmType": "",
+        "swarmSize": "",
+        "size": {
+          "label": "Moyen",
+          "value": "M",
+          "hitDie": 8
+        },
+        "alignment": "Neutre Mauvais",
+        "hitDice": "6",
+        "customHP": false,
+        "customHPValue": "",
+        "naturalArmorValue": "",
+        "customArmorValue": "",
+        "armorType": {
+          "label": "Armure de cuir",
+          "value": 11,
+          "maxDex": false
+        },
+        "hasShield": false,
+        "str": "15",
+        "dex": "11",
+        "con": "13",
+        "int": "10",
+        "wis": "14",
+        "cha": "12",
+        "speed": "9",
+        "speedBurrow": 0,
+        "speedSwim": 0,
+        "speedClimb": 0,
+        "speedFly": 0,
+        "blindsight": 0,
+        "darkvision": "18",
+        "tremorsense": 0,
+        "truesight": 0,
+        "saveProficiencies": {
+          "str": false,
+          "dex": false,
+          "con": false,
+          "int": false,
+          "wis": false,
+          "cha": false
+        },
+        "customSaveProficiencies": false,
+        "customSaveProficienciesValue": "",
+        "skillProficiencies": [
+          {
+            "label": "Persuasion",
+            "stat": "cha",
+            "proficiency": "proficient"
+          },
+          {
+            "label": "Religion",
+            "stat": "int",
+            "proficiency": "proficient"
+          }
+        ],
+        "customSkillProficiencies": true,
+        "customSkillProficienciesValue": "Religion +2, Persuasion +3",
+        "conditionImmunities": [],
+        "damageTypeResistances": [],
+        "damageTypeImmunities": [],
+        "damageTypeVulnerabilites": [],
+        "languages": "commun,  orc",
+        "telepathy": 0,
+        "challenge": {
+          "level": 2,
+          "xp": 450
+        },
+        "abilities": [],
+        "actions": [],
+        "reactions": [],
+        "legendaryDescription": "Le <NOM> peut effectuer 3 actions légendaires qu'il choisit parmi celles décrites ici. Une seule action légendaire peut être choisie à la fois et uniquement à la fin du tour d'une autre créature. Le <NOM> récupère au début de son tour l'utilisation des actions légendaires déjà effectuées.",
+        "legendaryActions": [],
+        "freeDescription": "<h2 id=\"capacites\">Capacités</h2>\n<p><strong><em>Sombre dévotion</em></strong>. Le chaman bénéficie d'un <a href=\"/utiliser-les-caracteristiques#avantage-et-désavantage\"><em>avantage</em></a> lors des jets de sauvegarde effectués pour ne pas être charmé ou terrorisé.</p>\n<p><strong><em>Incantation</em></strong>. Le chaman est un lanceur de sorts de niveau 4. Sa caractéristique d'incantation est la Sagesse (DD du <a href=\"/utiliser-les-caracteristiques#jets-de-sauvegarde\">jet de sauvegarde</a> contre les sorts 11, +3 pour toucher avec les attaques de sort). Voici les sorts de clerc préparés par le chaman :</p>\n<ul>\n<li><strong><em>Tours de magie (à volonté)</em></strong> : <a href=\"/grimoire/flamme-sacree\"><em>flamme sacrée</em></a>, <a href=\"/grimoire/resistance\"><em>résistance</em></a>, <a href=\"/grimoire/thaumaturgie\"><em>thaumaturgie</em></a></li>\n<li><strong><em>1er niveau (4 emplacements)</em></strong> : <a href=\"/grimoire/blessure\"><em>blessure</em></a>, <a href=\"/grimoire/bouclier-de-la-foi\"><em>bouclier de la foi</em></a>, <a href=\"/grimoire/injonction\"><em>injonction</em></a></li>\n<li><strong><em>2e niveau (3 emplacements)</em></strong> : <a href=\"/grimoire/arme-spirituelle\"><em>arme spirituelle</em></a>, <a href=\"/grimoire/immobiliser-un-humanoide\"><em>immobiliser un humanoïde</em></a></li>\n</ul>\n<h2 id=\"actions\">Actions</h2>\n<p><strong><em>Attaques multiples</em></strong>. Le chaman effectue deux attaques au corps à corps.</p>\n<p><strong><em>Masse</em></strong>. <em>Attaque d'arme au corps à corps</em> : +4 pour toucher, allonge 1,50 m, une créature.<br>\n<em>Touché</em> : 5 (1d6+2) dégâts contondants.</p>",
+        "link": "/mon-bestiaire/chaman-bras-droit-doftrak",
+        "compiled": null,
+        "title": "Chaman (Bras droit d'Oftrak)"
+      }
+    },
+    {
+      "isCustom": true,
+      "link": "/mon-bestiaire/oftrak",
+      "title": "Oftrak",
+      "header": {
+        "monster": {
+          "ac": "15 (armure de cuir clouté)",
+          "hp": "65 (10d8+20)",
+          "speed": "9 m",
+          "str": "15 (+2)",
+          "dex": "16 (+3)",
+          "con": "14 (+2)",
+          "int": "14 (+2)",
+          "wis": "11 (+0)",
+          "cha": "14 (+2)",
+          "saves": "For +4, Dex +5, Sag +2",
+          "skills": "Athlétisme +4, Supercherie +4",
+          "immunities_debilities": null,
+          "senses": "Perception passive 10",
+          "languages": "deux langues au choix",
+          "px": 450
+        }
+      },
+      "truetype": "Humanoïde (Orc)",
+      "size": "M",
+      "altsize": "",
+      "alignment": "Neutre Mauvais",
+      "challenge": 2,
+      "content": "<h2 id=\"actions\">Actions</h2>\n<p><strong><em>Attaques multiples</em></strong>. Le capitaine effectue trois attaques au corps à corps : deux avec son cimeterre et une avec sa dague, ou il effectue deux attaques à distance avec ses dagues.</p>\n<p><strong><em>Cimeterre</em></strong>. <em>Attaque d'arme au corps à corps</em> : +5 pour toucher, allonge 1,50 m, une cible.<br>\n<em>Touché</em> : 6 (1d6+3) dégâts tranchants.</p>\n<p><strong><em>Dague</em></strong>. <em>Attaque d'arme au corps à corps ou à distance</em> : +5 pour toucher, allonge 1,50 m ou portée 6/18 m, une cible.<br>\n<em>Touché</em> : 5 (1d4+3) dégâts perforants.</p>\n<h2 id=\"reactions\">Réactions</h2>\n<p><strong><em>Parade</em></strong>. Le capitaine ajoute 2 à sa CA contre une attaque au corps à corps qui devrait le toucher. Il doit voir son agresseur et manier une arme de corps à corps pour pouvoir parer de cette façon.</p>",
+      "originalSource": {
+        "custom": true,
+        "name": "Oftrak",
+        "type": "Humanoïde",
+        "subtype": "Orc",
+        "swarmType": "",
+        "swarmSize": "",
+        "size": {
+          "label": "Moyen",
+          "value": "M",
+          "hitDie": 8
+        },
+        "alignment": "Neutre Mauvais",
+        "hitDice": "10",
+        "customHP": false,
+        "customHPValue": "",
+        "naturalArmorValue": "",
+        "customArmorValue": "",
+        "armorType": {
+          "label": "Armure de cuir clouté",
+          "value": 12,
+          "maxDex": false
+        },
+        "hasShield": false,
+        "str": "15",
+        "dex": "16",
+        "con": "14",
+        "int": "14",
+        "wis": "11",
+        "cha": "14",
+        "speed": "9",
+        "speedBurrow": 0,
+        "speedSwim": 0,
+        "speedClimb": 0,
+        "speedFly": 0,
+        "blindsight": 0,
+        "darkvision": 0,
+        "tremorsense": 0,
+        "truesight": 0,
+        "saveProficiencies": {
+          "str": {
+            "label": "Force",
+            "value": "str"
+          },
+          "dex": {
+            "label": "Dextérité",
+            "value": "dex"
+          },
+          "con": false,
+          "int": false,
+          "wis": {
+            "label": "Sagesse",
+            "value": "wis"
+          },
+          "cha": false
+        },
+        "customSaveProficiencies": false,
+        "customSaveProficienciesValue": "",
+        "skillProficiencies": [
+          {
+            "label": "Athlétisme",
+            "stat": "str",
+            "proficiency": "proficient"
+          },
+          {
+            "label": "Supercherie",
+            "stat": "cha",
+            "proficiency": "proficient"
+          }
+        ],
+        "customSkillProficiencies": false,
+        "customSkillProficienciesValue": "",
+        "conditionImmunities": [],
+        "damageTypeResistances": [],
+        "damageTypeImmunities": [],
+        "damageTypeVulnerabilites": [],
+        "languages": "deux langues au choix",
+        "telepathy": 0,
+        "challenge": {
+          "level": 2,
+          "xp": 450
+        },
+        "abilities": [],
+        "actions": [],
+        "reactions": [],
+        "legendaryDescription": "Le <NOM> peut effectuer 3 actions légendaires qu'il choisit parmi celles décrites ici. Une seule action légendaire peut être choisie à la fois et uniquement à la fin du tour d'une autre créature. Le <NOM> récupère au début de son tour l'utilisation des actions légendaires déjà effectuées.",
+        "legendaryActions": [],
+        "freeDescription": "<h2 id=\"actions\">Actions</h2>\n<p><strong><em>Attaques multiples</em></strong>. Le capitaine effectue trois attaques au corps à corps : deux avec son cimeterre et une avec sa dague, ou il effectue deux attaques à distance avec ses dagues.</p>\n<p><strong><em>Cimeterre</em></strong>. <em>Attaque d'arme au corps à corps</em> : +5 pour toucher, allonge 1,50 m, une cible.<br>\n<em>Touché</em> : 6 (1d6+3) dégâts tranchants.</p>\n<p><strong><em>Dague</em></strong>. <em>Attaque d'arme au corps à corps ou à distance</em> : +5 pour toucher, allonge 1,50 m ou portée 6/18 m, une cible.<br>\n<em>Touché</em> : 5 (1d4+3) dégâts perforants.</p>\n<h2 id=\"reactions\">Réactions</h2>\n<p><strong><em>Parade</em></strong>. Le capitaine ajoute 2 à sa CA contre une attaque au corps à corps qui devrait le toucher. Il doit voir son agresseur et manier une arme de corps à corps pour pouvoir parer de cette façon.</p>",
+        "link": "/mon-bestiaire/oftrak",
+        "compiled": null,
+        "title": "Oftrak"
+      }
+    },
+    {
+      "header": {
+        "title": "Ombre",
+        "monster": {
+          "type": "Mort-vivant",
+          "subtype": "",
+          "size": "M",
+          "alignment": "Chaotique Mauvais",
+          "ac": "12",
+          "hp": "16 (3d8+3)",
+          "speed": "12 m",
+          "str": "6 (-2)",
+          "dex": "14 (+2)",
+          "con": "13 (+1)",
+          "int": "6 (-2)",
+          "wis": "10 (+0)",
+          "cha": "8 (-1)",
+          "saves": "",
+          "skills": "Discrétion +4 (+6 dans une zone faiblement éclairée ou dans l'obscurité totale)",
+          "vulnerabilities": "radiants",
+          "resistances": "d'acide, de feu, de foudre, de froid ; contondants, perforants et tranchants infligés par des attaques non-magiques",
+          "immunities": "de poison et nécrotiques",
+          "immunities_debilities": [
+            "à terre",
+            "empoigné",
+            "empoisonné",
+            "entravé",
+            "épuisé",
+            "paralysé",
+            "pétrifié",
+            "terrorisé"
+          ],
+          "senses": "vision dans le noir 18 m, Perception passive 10",
+          "languages": "—",
+          "challenge": "0.5",
+          "px": "100"
+        },
+        "taxonomy": {
+          "source": [
+            "Créatures & Oppositions"
+          ],
+          "category": [
+            "docs",
+            "meneur",
+            "monstres"
+          ],
+          "monster_category": [
+            "Monstres"
+          ],
+          "monster_challenge": [
+            "0.5"
+          ],
+          "monster_type": [
+            "Morts-vivants"
+          ],
+          "monster_environnement": [
+            ""
+          ],
+          "monster_dungeon_type": [
+            "Donjon maçonné",
+            "Ruines extérieures",
+            "Ruines souterraines"
+          ]
+        }
+      },
+      "content": "<h2 id=\"capacites\">Capacités</h2>\n<p><strong><em>Affaiblie par la lumière du soleil</em></strong>. L'ombre subit un <a href=\"/utiliser-les-caracteristiques#avantage-et-désavantage\"><em>désavantage</em></a> lors des jets d'attaque, des tests de caractéristique et des jets de sauvegarde lorsqu'elle est exposée à la lumière du soleil.</p>\n<p><strong><em>Discrétion dans les ombres</em></strong>. Tant qu'elle se trouve dans une zone faiblement éclairée ou plongée dans l'obscurité totale, l'ombre peut effectuer l'action <a href=\"/combattre#se-cacher\"><em>se cacher</em></a> par une action bonus.</p>\n<p><strong><em>Informe</em></strong>. L'ombre peut traverser sans devoir se faufiler un interstice d'une largeur au moins égale à 2 centimètres.</p>\n<h2 id=\"actions\">Actions</h2>\n<p><strong><em>Ponction de force</em></strong>. <em>Attaque d'arme au corps à corps</em> : +4 pour toucher, allonge 1,50 m, une créature.<br>\n<em>Touché</em> : 9 (2d6+2) dégâts nécrotiques et la valeur de Force de la cible est réduite de 1d4 points. La cible meurt si cet effet réduit sa valeur de Force à 0. Sinon, la réduction persiste jusqu'à la fin d'une période de repos long ou court.<br>\nSi un humanoïde non-mauvais meurt à cause de cette attaque, une nouvelle ombre surgit de son cadavre après 1d4 heures.</p>",
+      "link": "/bestiaire/ombre",
+      "title": "Ombre",
+      "category": [
+        "Monstres"
+      ],
+      "display_type": "Mort-vivant",
+      "type": "Morts-vivants",
+      "truetype": "Mort-vivant",
+      "subtype": "",
+      "size": "M",
+      "altsize": null,
+      "alignment": "Chaotique Mauvais",
+      "challenge": "0.5",
+      "environment": [
+        ""
+      ],
+      "dungeon_type": [
+        "Donjon maçonné",
+        "Ruines extérieures",
+        "Ruines souterraines"
+      ]
+    },
+    {
+      "isCustom": true,
+      "link": "/mon-bestiaire/pirates-doftrack",
+      "title": "Pirates d'Oftrack",
+      "header": {
+        "monster": {
+          "ac": "12 (armure de cuir)",
+          "hp": "11 (2d8+2)",
+          "speed": "9 m",
+          "str": "11 (+0)",
+          "dex": "12 (+1)",
+          "con": "12 (+1)",
+          "int": "10 (+0)",
+          "wis": "10 (+0)",
+          "cha": "10 (+0)",
+          "saves": "",
+          "skills": "",
+          "immunities_debilities": null,
+          "senses": "Perception passive 10",
+          "languages": "une langue au choix (commun le plus souvent)",
+          "px": 25
+        }
+      },
+      "truetype": "Humanoïde (Humain)",
+      "size": "M",
+      "altsize": "",
+      "alignment": "Loyal mauvais",
+      "challenge": 0.125,
+      "content": "<h2 id=\"actions\">Actions</h2>\n<p><strong><em>Arbalète légère</em></strong>. <em>Attaque d'arme à distance</em> : +3 pour toucher, portée 24/96 m, une cible.<br>\n<em>Touché</em> : 5 (1d8+1) dégâts perforants.</p>\n<p><strong><em>Cimeterre</em></strong>. <em>Attaque d'arme au corps à corps</em> : +3 pour toucher, allonge 1,50 m, une cible.<br>\n<em>Touché</em> : 4 (1d6+1) dégâts tranchants.</p>",
+      "originalSource": {
+        "custom": true,
+        "name": "Pirates d'Oftrack",
+        "type": "Humanoïde",
+        "subtype": "Humain",
+        "swarmType": "",
+        "swarmSize": "",
+        "size": {
+          "label": "Moyen",
+          "value": "M",
+          "hitDie": 8
+        },
+        "alignment": "Loyal mauvais",
+        "hitDice": "2",
+        "customHP": false,
+        "customHPValue": "",
+        "naturalArmorValue": "",
+        "customArmorValue": "",
+        "armorType": {
+          "label": "Armure de cuir",
+          "value": 11,
+          "maxDex": false
+        },
+        "hasShield": false,
+        "str": "11",
+        "dex": "12",
+        "con": "12",
+        "int": "10",
+        "wis": "10",
+        "cha": "10",
+        "speed": "9",
+        "speedBurrow": 0,
+        "speedSwim": 0,
+        "speedClimb": 0,
+        "speedFly": 0,
+        "blindsight": 0,
+        "darkvision": 0,
+        "tremorsense": 0,
+        "truesight": 0,
+        "saveProficiencies": {
+          "str": false,
+          "dex": false,
+          "con": false,
+          "int": false,
+          "wis": false,
+          "cha": false
+        },
+        "customSaveProficiencies": false,
+        "customSaveProficienciesValue": "",
+        "skillProficiencies": [],
+        "customSkillProficiencies": false,
+        "customSkillProficienciesValue": "",
+        "conditionImmunities": [],
+        "damageTypeResistances": [],
+        "damageTypeImmunities": [],
+        "damageTypeVulnerabilites": [],
+        "languages": "une langue au choix (commun le plus souvent)",
+        "telepathy": 0,
+        "challenge": {
+          "level": 0.125,
+          "xp": 25
+        },
+        "abilities": [],
+        "actions": [],
+        "reactions": [],
+        "legendaryDescription": "Le <NOM> peut effectuer 3 actions légendaires qu'il choisit parmi celles décrites ici. Une seule action légendaire peut être choisie à la fois et uniquement à la fin du tour d'une autre créature. Le <NOM> récupère au début de son tour l'utilisation des actions légendaires déjà effectuées.",
+        "legendaryActions": [],
+        "freeDescription": "<h2 id=\"actions\">Actions</h2>\n<p><strong><em>Arbalète légère</em></strong>. <em>Attaque d'arme à distance</em> : +3 pour toucher, portée 24/96 m, une cible.<br>\n<em>Touché</em> : 5 (1d8+1) dégâts perforants.</p>\n<p><strong><em>Cimeterre</em></strong>. <em>Attaque d'arme au corps à corps</em> : +3 pour toucher, allonge 1,50 m, une cible.<br>\n<em>Touché</em> : 4 (1d6+1) dégâts tranchants.</p>",
+        "link": "/mon-bestiaire/pirates-doftrack",
+        "compiled": null,
+        "title": "Pirates d'Oftrack"
+      }
+    },
+    {
+      "header": {
+        "title": "Squelette",
+        "monster": {
+          "type": "Mort-vivant",
+          "subtype": "",
+          "size": "M",
+          "alignment": "Loyal Mauvais",
+          "ac": "13 (débris d'armure)",
+          "hp": "13 (2d8+4)",
+          "speed": "9 m",
+          "str": "10 (+0)",
+          "dex": "14 (+2)",
+          "con": "15 (+2)",
+          "int": "6 (-2)",
+          "wis": "8 (-1)",
+          "cha": "5 (-3)",
+          "saves": "",
+          "skills": "",
+          "vulnerabilities": "contondants",
+          "resistances": "",
+          "immunities": "de poison",
+          "immunities_debilities": [
+            "empoisonné",
+            "épuisé"
+          ],
+          "senses": "vision dans le noir 18 m, Perception passive 9",
+          "languages": "comprend toutes les langues qu'il connaissait de son vivant mais ne peut pas parler",
+          "challenge": "0.25",
+          "px": "50"
+        },
+        "taxonomy": {
+          "source": [
+            "Créatures & Oppositions"
+          ],
+          "category": [
+            "docs",
+            "meneur",
+            "monstres"
+          ],
+          "monster_category": [
+            "Monstres"
+          ],
+          "monster_challenge": [
+            "0.25"
+          ],
+          "monster_type": [
+            "Morts-vivants"
+          ],
+          "monster_environnement": [
+            ""
+          ],
+          "monster_dungeon_type": [
+            "Donjon maçonné",
+            "Ruines extérieures"
+          ]
+        }
+      },
+      "content": "<h2 id=\"actions\">Actions</h2>\n<p><strong><em>Arc court</em></strong>. <em>Attaque d'arme à distance</em> : +4 pour toucher, portée 24/96 m, une cible.<br>\n<em>Touché</em> : 5 (1d6+2) dégâts perforants.</p>\n<p><strong><em>Épée courte</em></strong>. <em>Attaque d'arme au corps à corps</em> : +4 pour toucher, allonge 1,50 m, une cible.<br>\n<em>Touché</em> : 5 (1d6+2) dégâts perforants.</p>",
+      "link": "/bestiaire/squelette",
+      "title": "Squelette",
+      "category": [
+        "Monstres"
+      ],
+      "display_type": "Mort-vivant",
+      "type": "Morts-vivants",
+      "truetype": "Mort-vivant",
+      "subtype": "",
+      "size": "M",
+      "altsize": null,
+      "alignment": "Loyal Mauvais",
+      "challenge": "0.25",
+      "environment": [
+        ""
+      ],
+      "dungeon_type": [
+        "Donjon maçonné",
+        "Ruines extérieures"
+      ]
+    },
+    {
+      "header": {
+        "title": "Zombi",
+        "monster": {
+          "type": "Mort-vivant",
+          "subtype": "",
+          "size": "M",
+          "alignment": "Neutre Mauvais",
+          "ac": "8",
+          "hp": "22 (3d8+9)",
+          "speed": "6 m",
+          "str": "13 (+1)",
+          "dex": "6 (-2)",
+          "con": "16 (+3)",
+          "int": "3 (-4)",
+          "wis": "6 (-2)",
+          "cha": "5 (-3)",
+          "saves": "Sag +0",
+          "skills": "",
+          "vulnerabilities": "",
+          "resistances": "",
+          "immunities": "de poison",
+          "immunities_debilities": [
+            "empoisonné"
+          ],
+          "senses": "vision dans le noir 18 m, Perception passive 8",
+          "languages": "comprend les langues qu'il connaissait de son vivant mais ne peut pas parler",
+          "challenge": "0.25",
+          "px": "50"
+        },
+        "taxonomy": {
+          "source": [
+            "Créatures & Oppositions"
+          ],
+          "category": [
+            "docs",
+            "meneur",
+            "monstres"
+          ],
+          "monster_category": [
+            "Monstres"
+          ],
+          "monster_challenge": [
+            "0.25"
+          ],
+          "monster_type": [
+            "Morts-vivants"
+          ],
+          "monster_environnement": [
+            ""
+          ],
+          "monster_dungeon_type": [
+            ""
+          ]
+        }
+      },
+      "content": "<h2 id=\"capacites\">Capacités</h2>\n<p><strong><em>Robustesse de la non-vie</em></strong>. Si des dégâts réduisent à 0 les points de vie du zombi, celui-ci doit effectuer un <a href=\"/utiliser-les-caracteristiques#jets-de-sauvegarde\">jet de sauvegarde</a> de Constitution DD 5 + les dégâts subis, à moins que ces dégâts soient de type radiant ou infligés par un coup critique. En cas de réussite, le zombi tombe à 1 point de vie à la place.</p>\n<h2 id=\"actions\">Actions</h2>\n<p><strong><em>Coup</em></strong>. <em>Attaque d'arme au corps à corps</em> : +3 pour toucher, allonge 1,50 m, une cible.<br>\n<em>Touché</em> : 4 (1d6+1) dégâts contondants.</p>",
+      "link": "/bestiaire/zombi",
+      "title": "Zombi",
+      "category": [
+        "Monstres"
+      ],
+      "display_type": "Mort-vivant",
+      "type": "Morts-vivants",
+      "truetype": "Mort-vivant",
+      "subtype": "",
+      "size": "M",
+      "altsize": null,
+      "alignment": "Neutre Mauvais",
+      "challenge": "0.25",
+      "environment": [
+        ""
+      ],
+      "dungeon_type": [
+        ""
+      ]
+    }
+  ]
