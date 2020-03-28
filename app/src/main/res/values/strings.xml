@@ -4,4 +4,6 @@
 
     <string name="app_name">RPG Companion</string>
 
+    <string name="search_title">Search</string>
+
 </resources>
