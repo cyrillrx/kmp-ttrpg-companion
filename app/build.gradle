@@ -6,7 +6,7 @@ plugins {
 
 android {
     compileSdkVersion(29)
-    buildToolsVersion("29.0.2")
+    buildToolsVersion("29.0.3")
 
     defaultConfig {
         minSdkVersion(21)
@@ -41,13 +41,13 @@ dependencies {
     implementation("com.cyrillrx.android:core:0.5.1")
     implementation("com.cyrillrx.android:ui-templates:0.3.5")
 
-    implementation("androidx.core:core-ktx:1.1.0")
+    implementation("androidx.core:core-ktx:1.2.0")
     implementation("androidx.appcompat:appcompat:1.1.0")
-    implementation("androidx.recyclerview:recyclerview:1.0.0")
+    implementation("androidx.recyclerview:recyclerview:1.1.0")
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.0.0")
     implementation("androidx.constraintlayout:constraintlayout:2.0.0-beta4")
 
-    implementation("com.google.android.material:material:1.0.0")
+    implementation("com.google.android.material:material:1.1.0")
 
     testImplementation("junit:junit:4.12")
 

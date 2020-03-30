@@ -2,7 +2,7 @@ package com.cyrillrx.rpg
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.cyrillrx.rpg.Router.openDndSpellBook
+import com.cyrillrx.rpg.Router.openHome
 
 /**
  * @author Cyril Leroux
@@ -12,7 +12,7 @@ class SplashActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // openDndBestiary()
-        openDndSpellBook()
+
+        openHome()
     }
 }

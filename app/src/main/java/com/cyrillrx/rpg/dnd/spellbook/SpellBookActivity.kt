@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.dnd.spellbook
 
 import android.app.SearchManager
 import android.content.Context
+import android.os.Bundle
 import android.view.Menu
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,6 +12,7 @@ import com.cyrillrx.rpg.R
 import com.cyrillrx.rpg.api.spellbook.Spell
 import com.cyrillrx.rpg.template.ListActivity
 import com.cyrillrx.utils.deserialize
+import kotlinx.android.synthetic.main.activity_list.*
 import java.util.Locale
 
 /**
@@ -21,6 +23,12 @@ class SpellBookActivity : ListActivity<SpellBookAdapter>() {
 
     override val adapter = SpellBookAdapter()
     private val locale by lazy { Locale.ROOT }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        setSupportActionBar(toolbar)
+    }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         // Inflate the options menu from XML

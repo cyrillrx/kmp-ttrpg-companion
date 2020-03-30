@@ -1,10 +1,11 @@
 package com.cyrillrx.rpg.dnd.bestiary
 
+import android.os.Bundle
 import com.cyrillrx.rpg.AssetReader
 import com.cyrillrx.rpg.api.bestiary.BestiaryItem
-import com.cyrillrx.rpg.dnd.spellbook.SpellBookAdapter
 import com.cyrillrx.rpg.template.ListActivity
 import com.cyrillrx.utils.deserialize
+import kotlinx.android.synthetic.main.activity_list.*
 
 /**
  * @author Cyril Leroux
@@ -13,6 +14,12 @@ import com.cyrillrx.utils.deserialize
 class BestiaryActivity : ListActivity<BestiaryAdapter>() {
 
     override val adapter = BestiaryAdapter()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        setSupportActionBar(toolbar)
+    }
 
     override fun sendRequest() {
 

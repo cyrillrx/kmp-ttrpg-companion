@@ -2,15 +2,15 @@
     package="com.cyrillrx.rpg">
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:name=".App"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".SplashActivity" >
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
@@ -19,12 +19,20 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".HomeActivity" />
+
+        <activity
+            android:name=".dnd.spellbook.SpellBookActivity"
+            android:theme="@style/NoActionBar" />
+        <activity
+            android:name=".dnd.bestiary.BestiaryActivity"
+            android:theme="@style/NoActionBar" />
+        <activity
+            android:name=".dnd.inventory.InventoryActivity"
+            android:theme="@style/NoActionBar" />
+
         <activity android:name=".game.GameListActivity" />
-
         <activity android:name=".group.CharacterListActivity" />
-
-        <activity android:name=".dnd.bestiary.BestiaryActivity" />
-        <activity android:name=".dnd.spellbook.SpellBookActivity" />
 
     </application>
 </manifest>
