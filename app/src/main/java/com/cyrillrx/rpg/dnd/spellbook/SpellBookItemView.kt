@@ -18,7 +18,7 @@ class SpellBookItemView(parent: ViewGroup) :
 
     var tvTitle: TextView = itemView.tvTitle
     var tvSubtitle: TextView = itemView.tvSubtitle
-    var tvDescription: TextView = itemView.tvDescription
+    var tvContent: TextView = itemView.tvContent
 
     fun bind(spell: Spell) {
 
@@ -38,6 +38,6 @@ class SpellBookItemView(parent: ViewGroup) :
         itemView.tvDurationLabel.text = "Durée"
         itemView.tvDurationValue.text = spell.duration
 
-        tvDescription.setHtmlText(spell.content)
+        tvContent.setHtmlText(spell.content)
     }
 }

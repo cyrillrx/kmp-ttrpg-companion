@@ -136,7 +136,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/tvDescription"
+            android:id="@+id/tvContent"
             style="@style/text_card_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

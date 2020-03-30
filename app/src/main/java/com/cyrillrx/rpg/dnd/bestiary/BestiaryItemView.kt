@@ -20,7 +20,7 @@ class BestiaryItemView(parent: ViewGroup) :
     RecyclerView.ViewHolder(parent.inflate(R.layout.item_bestiary)) {
 
     var tvTitle: TextView = itemView.tvTitle
-    var tvDescription: TextView = itemView.tvDescription
+    var tvContent: TextView = itemView.tvContent
     var abilitiesView: AbilitiesView = itemView.abilitiesLayout
 
     fun bind(bestiaryItem: BestiaryItem) {
@@ -28,7 +28,7 @@ class BestiaryItemView(parent: ViewGroup) :
         val creature = bestiaryItem.toCreature()
 
         tvTitle.text = creature.name
-        tvDescription.setHtmlText(creature.description)
+        tvContent.setHtmlText(creature.description)
         abilitiesView.setAbilities(creature.abilities)
     }
 
