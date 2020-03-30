@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#AD1D1D"
+        android:background="@color/card_spell_outline"
         android:padding="@dimen/spacing_common">
 
         <TextView
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="1dp"
             android:layout_marginBottom="1dp"
-            android:background="@android:color/white"
+            android:background="@color/card_spell_background"
             android:gravity="center"
             android:orientation="vertical"
             app:layout_constraintEnd_toStartOf="@id/rangeContainer"
@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="1dp"
             android:layout_marginBottom="1dp"
-            android:background="@android:color/white"
+            android:background="@color/card_spell_background"
             android:gravity="center"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
@@ -89,7 +89,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
             android:layout_marginEnd="1dp"
-            android:background="@android:color/white"
+            android:background="@color/card_spell_background"
             android:gravity="center"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="@id/castingTimeContainer"
@@ -115,7 +115,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="1dp"
             android:layout_marginTop="1dp"
-            android:background="@android:color/white"
+            android:background="@color/card_spell_background"
             android:gravity="center"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="@id/rangeContainer"

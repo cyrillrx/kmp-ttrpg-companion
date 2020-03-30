@@ -6,4 +6,16 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
+    <color name="spellbook">#AD1D1D</color>
+    <color name="text_card_spellbook">@color/spellbook</color>
+
+    <color name="card_spell_outline">@color/spellbook</color>
+    <color name="card_spell_background">@android:color/white</color>
+
+    <color name="card_bestiary_outline">#AD1D1D</color>
+    <color name="card_bestiary_background">@android:color/white</color>
+
+    <color name="card_inventory_outline">#AD1D1D</color>
+    <color name="card_inventory_background">@android:color/white</color>
+
 </resources>

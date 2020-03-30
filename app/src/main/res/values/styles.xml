@@ -36,19 +36,19 @@
         <item name="android:textSize">20sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:gravity">center</item>
-        <item name="android:background">@android:color/white</item>
+        <item name="android:background">@color/card_spell_background</item>
     </style>
 
     <style name="text_card_subtitle" parent="TextAppearance.AppCompat">
         <item name="android:textSize">14sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:gravity">center</item>
-        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColor">@color/card_spell_background</item>
     </style>
 
     <style name="text_card_label" parent="TextAppearance.AppCompat">
         <item name="android:textSize">18sp</item>
-        <item name="android:textColor">#AD1D1D</item>
+        <item name="android:textColor">@color/text_card_spellbook</item>
         <item name="android:textStyle">bold</item>
     </style>
 
@@ -59,9 +59,9 @@
     <style name="text_card_content" parent="TextAppearance.AppCompat">
         <item name="android:textSize">16sp</item>
         <item name="android:minHeight">350sp</item>
-        <item name="android:background">@android:color/white</item>
         <item name="android:layout_marginTop">@dimen/ui_templates_spacing_medium</item>
         <item name="android:padding">@dimen/ui_templates_spacing_medium</item>
+        <item name="android:background">@color/card_spell_background</item>
     </style>
 
 </resources>
