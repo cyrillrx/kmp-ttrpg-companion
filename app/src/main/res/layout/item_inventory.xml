@@ -21,20 +21,32 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Space
-            android:id="@+id/divider"
+            android:id="@+id/divider1"
             android:layout_width="match_parent"
             android:layout_height="@dimen/spacing_small"
             android:background="@color/card_spell_outline"
             app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
         <TextView
+            android:id="@+id/tvSubtitle"
+            style="@style/text_card_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/divider1" />
+
+        <Space
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_small"
+            android:background="@color/card_spell_outline"
+            app:layout_constraintTop_toBottomOf="@id/tvSubtitle" />
+
+        <TextView
             android:id="@+id/tvContent"
             style="@style/text_card_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/divider" />
+            app:layout_constraintTop_toBottomOf="@id/divider2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

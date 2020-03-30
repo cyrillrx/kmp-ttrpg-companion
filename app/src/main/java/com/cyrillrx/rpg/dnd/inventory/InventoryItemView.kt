@@ -17,11 +17,16 @@ class InventoryItemView(parent: ViewGroup) :
     RecyclerView.ViewHolder(parent.inflate(R.layout.item_inventory)) {
 
     var tvTitle: TextView = itemView.tvTitle
+    var tvSubtitle: TextView = itemView.tvSubtitle
     var tvContent: TextView = itemView.tvContent
 
     fun bind(inventoryItem: InventoryItem) {
 
         tvTitle.text = inventoryItem.title
+        tvSubtitle.text = """${inventoryItem.type}
+            |${inventoryItem.rarity}
+            |${inventoryItem.attunement}"""
+            .trimMargin()
         tvContent.tvContent.setHtmlText(inventoryItem.content)
     }
 }
