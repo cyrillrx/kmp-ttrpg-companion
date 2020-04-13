@@ -14,7 +14,7 @@ class Spell(
     val duration: String,
     val header: Header
 ) {
-    fun getSpellClasses() = header.taxonomy.spell_class
+    fun getSpellClasses(): Array<String> = header.taxonomy.spell_class
 
     class Header(val taxonomy: Taxonomy) {
         class Taxonomy(

@@ -29,6 +29,8 @@ abstract class ListActivity<Adapter : BaseAdapter<*>> : AppCompatActivity() {
         placeholderLayout = findViewById(R.id.empty_layout)
         loader = findViewById(R.id.loader)
 
+        setSupportActionBar(findViewById(R.id.toolbar))
+
         setupRecycler(findViewById(R.id.recycler))
 
         sendRequest()
@@ -36,7 +38,7 @@ abstract class ListActivity<Adapter : BaseAdapter<*>> : AppCompatActivity() {
 
     protected open fun setupRecycler(recyclerView: RecyclerView) {
 
-        val layoutManager = LinearLayoutManager(this)
+        val layoutManager = createLayoutManager()
         recyclerView.layoutManager = layoutManager
         addItemDecoration(recyclerView, layoutManager)
 
@@ -48,7 +50,9 @@ abstract class ListActivity<Adapter : BaseAdapter<*>> : AppCompatActivity() {
         }
     }
 
-    protected open fun addItemDecoration(recyclerView: RecyclerView, layoutManager: LinearLayoutManager) {}
+    protected open fun createLayoutManager(): RecyclerView.LayoutManager = LinearLayoutManager(this)
+
+    protected open fun addItemDecoration(recyclerView: RecyclerView, layoutManager: RecyclerView.LayoutManager) {}
 
     protected open fun startLoading() {
         loader.visibility = View.VISIBLE
