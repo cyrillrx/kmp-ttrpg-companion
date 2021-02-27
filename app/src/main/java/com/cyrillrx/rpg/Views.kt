@@ -1,14 +1,16 @@
 package com.cyrillrx.rpg
 
 import android.os.Build
+import android.text.Editable
 import android.text.Html
+import android.text.TextWatcher
+import android.widget.EditText
 import android.widget.TextView
 
 /**
  * @author Cyril Leroux
  *         Created on 12/03/2020.
  */
-
 
 private val isNOrAbove = Build.VERSION.SDK_INT >= Build.VERSION_CODES.N
 
@@ -19,4 +21,15 @@ fun TextView.setHtmlText(html: String?) {
         isNOrAbove -> Html.fromHtml(html, Html.FROM_HTML_MODE_COMPACT)
         else -> Html.fromHtml(html)
     }
+}
+
+fun EditText.onChange(onChange: (String?) -> Unit) {
+    addTextChangedListener(object : TextWatcher {
+        override fun afterTextChanged(newText: Editable?) {
+            onChange(newText?.toString())
+        }
+
+        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+    })
 }

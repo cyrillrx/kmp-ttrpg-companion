@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.template
 
 import android.os.Bundle
 import android.view.View
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,6 +16,7 @@ import com.cyrillrx.templates.layout.PlaceholderLayout
  */
 abstract class ListActivity<Adapter : BaseAdapter<*>> : AppCompatActivity() {
 
+    protected lateinit var searchView: EditText
     protected lateinit var refreshLayout: SwipeRefreshLayout
     protected lateinit var placeholderLayout: PlaceholderLayout
     protected lateinit var loader: View
@@ -25,11 +27,10 @@ abstract class ListActivity<Adapter : BaseAdapter<*>> : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list)
 
+        searchView = findViewById(R.id.search_view)
         refreshLayout = findViewById(R.id.swipe_refresh)
         placeholderLayout = findViewById(R.id.empty_layout)
         loader = findViewById(R.id.loader)
-
-        setSupportActionBar(findViewById(R.id.toolbar))
 
         setupRecycler(findViewById(R.id.recycler))
 

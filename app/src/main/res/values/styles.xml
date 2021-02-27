@@ -2,7 +2,11 @@
 
 <resources>
 
-    <style name="Widget.Rpg.Toolbar" parent="Widget.MaterialComponents.Toolbar" />
+    <style name="Widget.Rpg.Toolbar" parent="Widget.MaterialComponents.Toolbar">
+        <item name="titleTextAppearance">@style/TextAppearance.Rpg.Toolbar</item>
+        <item name="titleTextColor">?attr/colorOnPrimary</item>
+        <item name="subtitleTextColor">?attr/colorOnPrimary</item>
+    </style>
 
     <style name="text_item_title" parent="TextAppearance.AppCompat">
         <item name="android:textSize">20sp</item>
