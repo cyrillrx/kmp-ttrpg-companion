@@ -6,4 +6,6 @@
     <dimen name="spacing_medium">8dp</dimen>
     <dimen name="spacing_small">4dp</dimen>
 
+    <dimen name="card_divider">4dp</dimen>
+
 </resources>

@@ -22,6 +22,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!-- Top header -->
+
         <TextView
             android:id="@+id/tvSubtitle"
             style="@style/text_card_subtitle"
@@ -31,109 +33,87 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
-        <LinearLayout
-            android:id="@+id/castingTimeContainer"
+        <TextView
+            android:id="@+id/tvCastingTimeLabel"
+            style="@style/text_card_label"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="1dp"
-            android:layout_marginBottom="1dp"
-            android:background="@color/card_spell_background"
-            android:gravity="center"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toStartOf="@id/rangeContainer"
+            app:layout_constraintEnd_toEndOf="@id/guideline_center_x"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvSubtitle">
+            app:layout_constraintTop_toBottomOf="@id/tvSubtitle" />
 
-            <TextView
-                android:id="@+id/tvCastingTimeLabel"
-                style="@style/text_card_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+        <!-- Casting time (top / left) -->
 
-            <TextView
-                android:id="@+id/tvCastingTimeValue"
-                style="@style/text_card_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/rangeContainer"
+        <TextView
+            android:id="@+id/tvCastingTimeValue"
+            style="@style/text_card_value"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="1dp"
-            android:layout_marginBottom="1dp"
-            android:background="@color/card_spell_background"
-            android:gravity="center"
-            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="@id/guideline_center_x"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCastingTimeLabel" />
+
+        <TextView
+            android:id="@+id/tvRangeLabel"
+            style="@style/text_card_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/castingTimeContainer"
-            app:layout_constraintTop_toBottomOf="@id/tvSubtitle">
+            app:layout_constraintStart_toStartOf="@id/guideline_center_x"
+            app:layout_constraintTop_toBottomOf="@id/tvSubtitle" />
 
-            <TextView
-                android:id="@+id/tvRangeLabel"
-                style="@style/text_card_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+        <!-- Range (top / right) -->
 
-            <TextView
-                android:id="@+id/tvRangeValue"
-                style="@style/text_card_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/componentsContainer"
+        <TextView
+            android:id="@+id/tvRangeValue"
+            style="@style/text_card_value"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="1dp"
-            android:layout_marginEnd="1dp"
-            android:background="@color/card_spell_background"
-            android:gravity="center"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="@id/castingTimeContainer"
-            app:layout_constraintStart_toStartOf="@id/castingTimeContainer"
-            app:layout_constraintTop_toBottomOf="@id/castingTimeContainer">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guideline_center_x"
+            app:layout_constraintTop_toBottomOf="@id/tvRangeLabel" />
 
-            <TextView
-                android:id="@+id/tvComponentsLabel"
-                style="@style/text_card_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/tvComponentsValue"
-                style="@style/text_card_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/durationContainer"
+        <TextView
+            android:id="@+id/tvComponentsLabel"
+            style="@style/text_card_label"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="1dp"
-            android:layout_marginTop="1dp"
-            android:background="@color/card_spell_background"
-            android:gravity="center"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="@id/rangeContainer"
-            app:layout_constraintStart_toStartOf="@id/rangeContainer"
-            app:layout_constraintTop_toBottomOf="@id/rangeContainer">
+            app:layout_constraintEnd_toEndOf="@id/guideline_center_x"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/barrier_inside_header" />
 
-            <TextView
-                android:id="@+id/tvDurationLabel"
-                style="@style/text_card_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+        <!-- Range (bottom / left) -->
 
-            <TextView
-                android:id="@+id/tvDurationValue"
-                style="@style/text_card_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
+        <TextView
+            android:id="@+id/tvComponentsValue"
+            style="@style/text_card_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@id/guideline_center_x"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvComponentsLabel" />
+
+        <TextView
+            android:id="@+id/tvDurationLabel"
+            style="@style/text_card_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guideline_center_x"
+            app:layout_constraintTop_toBottomOf="@id/barrier_inside_header" />
+
+        <!-- Duration (bottom / right) -->
+
+        <TextView
+            android:id="@+id/tvDurationValue"
+            style="@style/text_card_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guideline_center_x"
+            app:layout_constraintTop_toBottomOf="@id/tvDurationLabel" />
+
+        <!-- Spell description -->
 
         <TextView
             android:id="@+id/tvContent"
@@ -142,7 +122,61 @@
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/durationContainer" />
+            app:layout_constraintTop_toBottomOf="@id/barrier_below_header" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/card_spell_background"
+            android:elevation="-1dp" />
+
+        <View
+            android:layout_width="@dimen/card_divider"
+            android:layout_height="0dp"
+            android:background="@color/card_spell_outline"
+            app:layout_constraintBottom_toBottomOf="@id/barrier_below_header"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSubtitle" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="@dimen/card_divider"
+            android:background="@color/card_spell_outline"
+            app:layout_constraintBottom_toBottomOf="@id/barrier_inside_header"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/barrier_inside_header" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="@dimen/card_divider"
+            android:background="@color/card_spell_outline"
+            app:layout_constraintBottom_toBottomOf="@id/barrier_below_header"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/barrier_below_header" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier_inside_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="tvCastingTimeValue, tvRangeValue" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier_below_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="tvComponentsValue, tvDurationValue" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_center_x"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
