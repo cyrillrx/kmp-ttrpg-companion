@@ -2,17 +2,24 @@ package com.cyrillrx.rpg.layout
 
 import android.content.Context
 import android.util.AttributeSet
+import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.cyrillrx.rpg.R
 import com.cyrillrx.rpg.dnd.DndRules
 import com.cyrillrx.rpg.models.bestiary.Abilities
-import kotlinx.android.synthetic.main.layout_abilities.view.*
 
 /**
  * @author Cyril Leroux
  *         Created on 12/03/2020.
  */
 class AbilitiesView : ConstraintLayout {
+
+    private var tvStrValue: TextView
+    private var tvDexValue: TextView
+    private var tvConValue: TextView
+    private var tvIntValue: TextView
+    private var tvWisValue: TextView
+    private var tvChaValue: TextView
 
     constructor(context: Context)
             : this(context, null)
@@ -25,12 +32,19 @@ class AbilitiesView : ConstraintLayout {
 
         inflate(context, R.layout.layout_abilities, this)
 
-        tvStrLabel.text = "Str"
-        tvDexLabel.text = "Dex"
-        tvConLabel.text = "Con"
-        tvIntLabel.text = "Int"
-        tvWisLabel.text = "Wis"
-        tvChaLabel.text = "Cha"
+        findViewById<TextView>(R.id.tvStrLabel).text = "Str"
+        findViewById<TextView>(R.id.tvDexLabel).text = "Dex"
+        findViewById<TextView>(R.id.tvConLabel).text = "Con"
+        findViewById<TextView>(R.id.tvIntLabel).text = "Int"
+        findViewById<TextView>(R.id.tvWisLabel).text = "Wis"
+        findViewById<TextView>(R.id.tvChaLabel).text = "Cha"
+
+        tvStrValue = findViewById(R.id.tvStrValue)
+        tvDexValue = findViewById(R.id.tvDexValue)
+        tvConValue = findViewById(R.id.tvConValue)
+        tvIntValue = findViewById(R.id.tvIntValue)
+        tvWisValue = findViewById(R.id.tvWisValue)
+        tvChaValue = findViewById(R.id.tvChaValue)
     }
 
     fun setAbilities(abilities: Abilities) {

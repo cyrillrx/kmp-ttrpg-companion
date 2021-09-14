@@ -19,7 +19,7 @@ fun TextView.setHtmlText(html: String?) {
     text = when {
         html.isNullOrBlank() -> ""
         isNOrAbove -> Html.fromHtml(html, Html.FROM_HTML_MODE_COMPACT)
-        else -> Html.fromHtml(html)
+        else -> Html.fromHtml(html, Html.FROM_HTML_MODE_LEGACY)
     }
 }
 

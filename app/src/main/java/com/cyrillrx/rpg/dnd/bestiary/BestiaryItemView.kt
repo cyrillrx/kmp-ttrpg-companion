@@ -10,7 +10,6 @@ import com.cyrillrx.rpg.layout.AbilitiesView
 import com.cyrillrx.rpg.models.bestiary.Abilities
 import com.cyrillrx.rpg.models.bestiary.Creature
 import com.cyrillrx.rpg.setHtmlText
-import kotlinx.android.synthetic.main.item_bestiary.view.*
 
 /**
  * @author Cyril Leroux
@@ -19,9 +18,9 @@ import kotlinx.android.synthetic.main.item_bestiary.view.*
 class BestiaryItemView(parent: ViewGroup) :
     RecyclerView.ViewHolder(parent.inflate(R.layout.item_bestiary)) {
 
-    var tvTitle: TextView = itemView.tvTitle
-    var tvContent: TextView = itemView.tvContent
-    var abilitiesView: AbilitiesView = itemView.abilitiesLayout
+    private var tvTitle: TextView = itemView.findViewById(R.id.tvTitle)
+    private var tvContent: TextView = itemView.findViewById(R.id.tvContent)
+    private var abilitiesView: AbilitiesView = itemView.findViewById(R.id.abilitiesLayout)
 
     fun bind(bestiaryItem: BestiaryItem) {
 

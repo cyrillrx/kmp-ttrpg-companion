@@ -7,7 +7,6 @@ import com.cyrillrx.android.utils.inflate
 import com.cyrillrx.rpg.R
 import com.cyrillrx.rpg.api.spellbook.Spell
 import com.cyrillrx.rpg.setHtmlText
-import kotlinx.android.synthetic.main.item_spell.view.*
 
 /**
  * @author Cyril Leroux
@@ -16,27 +15,37 @@ import kotlinx.android.synthetic.main.item_spell.view.*
 class SpellBookItemView(parent: ViewGroup) :
     RecyclerView.ViewHolder(parent.inflate(R.layout.item_spell)) {
 
-    var tvTitle: TextView = itemView.tvTitle
-    var tvSubtitle: TextView = itemView.tvSubtitle
-    var tvContent: TextView = itemView.tvContent
+    private var tvTitle: TextView = itemView.findViewById(R.id.tvTitle)
+    private var tvSubtitle: TextView = itemView.findViewById(R.id.tvSubtitle)
+    private var tvContent: TextView = itemView.findViewById(R.id.tvContent)
+
+    private var tvCastingTimeLabel: TextView = itemView.findViewById(R.id.tvCastingTimeLabel)
+    private var tvCastingTimeValue: TextView = itemView.findViewById(R.id.tvCastingTimeValue)
+    private var tvRangeLabel: TextView = itemView.findViewById(R.id.tvRangeLabel)
+    private var tvRangeValue: TextView = itemView.findViewById(R.id.tvRangeValue)
+    private var tvComponentsLabel: TextView = itemView.findViewById(R.id.tvComponentsLabel)
+    private var tvComponentsValue: TextView = itemView.findViewById(R.id.tvComponentsValue)
+    private var tvDurationLabel: TextView = itemView.findViewById(R.id.tvDurationLabel)
+    private var tvDurationValue: TextView = itemView.findViewById(R.id.tvDurationValue)
 
     fun bind(spell: Spell) {
 
         tvTitle.text = spell.title
         val taxonomy = spell.header.taxonomy
-        tvSubtitle.text = "${taxonomy.spell_school.firstOrNull()} de niveau ${taxonomy.spell_level.firstOrNull()}"
+        tvSubtitle.text =
+            "${taxonomy.spell_school.firstOrNull()} de niveau ${taxonomy.spell_level.firstOrNull()}"
 
-        itemView.tvCastingTimeLabel.text = "Durée d'incantation"
-        itemView.tvCastingTimeValue.text = spell.casting_time
+        tvCastingTimeLabel.text = "Durée d'incantation"
+        tvCastingTimeValue.text = spell.casting_time
 
-        itemView.tvRangeLabel.text = "Portée"
-        itemView.tvRangeValue.text = spell.range
+        tvRangeLabel.text = "Portée"
+        tvRangeValue.text = spell.range
 
-        itemView.tvComponentsLabel.text = "composantes"
-        itemView.tvComponentsValue.text = spell.components
+        tvComponentsLabel.text = "composantes"
+        tvComponentsValue.text = spell.components
 
-        itemView.tvDurationLabel.text = "Durée"
-        itemView.tvDurationValue.text = spell.duration
+        tvDurationLabel.text = "Durée"
+        tvDurationValue.text = spell.duration
 
         tvContent.setHtmlText(spell.content)
     }

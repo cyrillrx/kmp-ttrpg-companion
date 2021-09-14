@@ -7,7 +7,6 @@ import com.cyrillrx.android.utils.inflate
 import com.cyrillrx.rpg.R
 import com.cyrillrx.rpg.api.inventory.InventoryItem
 import com.cyrillrx.rpg.setHtmlText
-import kotlinx.android.synthetic.main.item_inventory.view.*
 
 /**
  * @author Cyril Leroux
@@ -16,9 +15,9 @@ import kotlinx.android.synthetic.main.item_inventory.view.*
 class InventoryItemView(parent: ViewGroup) :
     RecyclerView.ViewHolder(parent.inflate(R.layout.item_inventory)) {
 
-    var tvTitle: TextView = itemView.tvTitle
-    var tvSubtitle: TextView = itemView.tvSubtitle
-    var tvContent: TextView = itemView.tvContent
+    private var tvTitle: TextView = itemView.findViewById(R.id.tvTitle)
+    private var tvSubtitle: TextView = itemView.findViewById(R.id.tvSubtitle)
+    private var tvContent: TextView = itemView.findViewById(R.id.tvContent)
 
     fun bind(inventoryItem: InventoryItem) {
 
@@ -27,6 +26,6 @@ class InventoryItemView(parent: ViewGroup) :
             |${inventoryItem.rarity}
             |${inventoryItem.attunement}"""
             .trimMargin()
-        tvContent.tvContent.setHtmlText(inventoryItem.content)
+        tvContent.setHtmlText(inventoryItem.content)
     }
 }

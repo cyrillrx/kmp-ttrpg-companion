@@ -1,11 +1,11 @@
 package com.cyrillrx.rpg
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.cyrillrx.rpg.Router.openDndBestiary
 import com.cyrillrx.rpg.Router.openDndInventory
 import com.cyrillrx.rpg.Router.openDndSpellBook
-import kotlinx.android.synthetic.main.activity_home.*
 
 /**
  * @author Cyril Leroux
@@ -17,8 +17,8 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        btnSpellbook.setOnClickListener { openDndSpellBook() }
-        btnBestiary.setOnClickListener { openDndBestiary() }
-        btnInventory.setOnClickListener { openDndInventory() }
+        findViewById<View>(R.id.btnSpellbook).setOnClickListener { openDndSpellBook() }
+        findViewById<View>(R.id.btnBestiary).setOnClickListener { openDndBestiary() }
+        findViewById<View>(R.id.btnInventory).setOnClickListener { openDndInventory() }
     }
 }

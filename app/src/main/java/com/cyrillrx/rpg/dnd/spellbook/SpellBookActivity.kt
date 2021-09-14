@@ -50,10 +50,10 @@ class SpellBookActivity : SearchListActivity<SpellBookAdapter>() {
     private fun SpellBook.filter(query: String): SpellBook = filterTo(SpellBook()) { spell -> spell.filter(query) }
 
     private fun Spell.filter(query: String): Boolean {
-        val lowerCaseQuery = query.toLowerCase(locale)
-        return title.toLowerCase(locale).contains(lowerCaseQuery) ||
-                content.toLowerCase(locale).contains(lowerCaseQuery) ||
-                lowerCaseQuery in getSpellClasses().map { it.toLowerCase(locale) }
+        val lowerCaseQuery = query.lowercase(locale)
+        return title.lowercase(locale).contains(lowerCaseQuery) ||
+                content.lowercase(locale).contains(lowerCaseQuery) ||
+                lowerCaseQuery in getSpellClasses().map { it.lowercase(locale) }
     }
 
     class SpellBook : ArrayList<Spell>()
