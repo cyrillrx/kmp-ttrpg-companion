@@ -6,4 +6,7 @@ object Version {
 
     const val minSdk = 24
     const val targetSdk = 30
+
+    const val java = "1.8"
+    const val compose = "1.0.2"
 }
