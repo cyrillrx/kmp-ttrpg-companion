@@ -5,6 +5,7 @@ import android.content.Intent
 import com.cyrillrx.rpg.dnd.bestiary.BestiaryActivity
 import com.cyrillrx.rpg.dnd.inventory.InventoryActivity
 import com.cyrillrx.rpg.dnd.spellbook.SpellBookActivity
+import com.cyrillrx.rpg.dnd.spellbook.SpellBookComposeActivity
 import com.cyrillrx.rpg.game.GameListActivity
 import com.cyrillrx.rpg.group.CharacterListActivity
 
@@ -22,6 +23,10 @@ object Router {
 
     fun Context.openDndSpellBook() {
         startActivity(Intent(applicationContext, SpellBookActivity::class.java))
+    }
+
+    fun Context.openDndSpellBookCompose() {
+        startActivity(Intent(applicationContext, SpellBookComposeActivity::class.java))
     }
 
     fun Context.openDndBestiary() {

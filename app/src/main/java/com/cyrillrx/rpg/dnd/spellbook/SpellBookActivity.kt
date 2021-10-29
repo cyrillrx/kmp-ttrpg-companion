@@ -22,39 +22,40 @@ class SpellBookActivity : SearchListActivity<SpellBookAdapter>() {
 
     override fun sendRequest() {
 
-        val spellBook: SpellBook = loadFromFile()
-        updateData(spellBook)
+        val spells: List<Spell> = loadFromFile()
+        updateData(spells)
     }
 
     override fun applyFilter(query: String) {
 
-        val spellBook: SpellBook = loadFromFile()
-        updateData(spellBook.filter(query))
+        val spells: List<Spell> = loadFromFile()
+        updateData(spells.filter(query))
     }
 
-    private fun updateData(spellBook: SpellBook) {
+    private fun updateData(spells: List<Spell>) {
 
         startLoading()
 
         adapter.clear()
-        adapter.addAll(spellBook)
+        adapter.addAll(spells)
 
         stopLoading()
     }
 
-    private fun loadFromFile(): SpellBook {
+    private fun loadFromFile(): List<Spell> {
         val serializedSpellBook = AssetReader.readAsString(this, "grimoire.json")
-        return serializedSpellBook?.deserialize() ?: SpellBook()
+        return serializedSpellBook?.deserialize<SpellBook>() ?: SpellBook()
     }
 
-    private fun SpellBook.filter(query: String): SpellBook = filterTo(SpellBook()) { spell -> spell.filter(query) }
+    private fun List<Spell>.filter(query: String): List<Spell> =
+        filterTo(ArrayList()) { spell -> spell.filter(query) }
 
     private fun Spell.filter(query: String): Boolean {
-        val lowerCaseQuery = query.lowercase(locale)
+        val lowerCaseQuery = query.trim().lowercase(locale)
         return title.lowercase(locale).contains(lowerCaseQuery) ||
                 content.lowercase(locale).contains(lowerCaseQuery) ||
                 lowerCaseQuery in getSpellClasses().map { it.lowercase(locale) }
     }
 
-    class SpellBook : ArrayList<Spell>()
+    private class SpellBook : ArrayList<Spell>()
 }

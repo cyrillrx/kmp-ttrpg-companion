@@ -12,6 +12,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.cyrillrx.rpg.Router.openDndBestiary
 import com.cyrillrx.rpg.Router.openDndInventory
 import com.cyrillrx.rpg.Router.openDndSpellBook
+import com.cyrillrx.rpg.Router.openDndSpellBookCompose
 import com.cyrillrx.rpg.ui.theme.AppTheme
 import com.cyrillrx.rpg.ui.theme.spacingMedium
 
@@ -38,6 +39,7 @@ class HomeActivity : AppCompatActivity() {
                     .padding(spacingMedium),
             ) {
                 HomeButton("Grimoire") { openDndSpellBook() }
+                HomeButton("Grimoire Compose") { openDndSpellBookCompose() }
                 HomeButton("Bestiaire") { openDndBestiary() }
                 HomeButton("Objets magiques") { openDndInventory() }
             }

@@ -50,7 +50,7 @@ class InventoryActivity : SearchListActivity<InventoryAdapter>() {
     private fun Inventory.filter(query: String): Inventory = filterTo(Inventory()) { item -> item.filter(query) }
 
     private fun InventoryItem.filter(query: String): Boolean {
-        val lowerCaseQuery = query.lowercase(locale)
+        val lowerCaseQuery = query.trim().lowercase(locale)
         return title.lowercase(locale).contains(lowerCaseQuery) ||
                 content.lowercase(locale).contains(lowerCaseQuery)
     }

@@ -25,6 +25,9 @@
             android:name=".dnd.spellbook.SpellBookActivity"
             android:theme="@style/NoActionBar" />
         <activity
+            android:name=".dnd.spellbook.SpellBookComposeActivity"
+            android:theme="@style/NoActionBar" />
+        <activity
             android:name=".dnd.bestiary.BestiaryActivity"
             android:theme="@style/NoActionBar" />
         <activity

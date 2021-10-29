@@ -31,9 +31,7 @@ class SpellBookItemView(parent: ViewGroup) :
     fun bind(spell: Spell) {
 
         tvTitle.text = spell.title
-        val taxonomy = spell.header.taxonomy
-        tvSubtitle.text =
-            "${taxonomy.spell_school.firstOrNull()} de niveau ${taxonomy.spell_level.firstOrNull()}"
+        tvSubtitle.text = spell.getFormattedSchool()
 
         tvCastingTimeLabel.text = "Durée d'incantation"
         tvCastingTimeValue.text = spell.casting_time

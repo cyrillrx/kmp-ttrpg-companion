@@ -16,6 +16,11 @@ class Spell(
 ) {
     fun getSpellClasses(): Array<String> = header.taxonomy.spell_class
 
+    fun getFormattedSchool(): String {
+        val taxonomy = header.taxonomy
+        return "${taxonomy.spell_school.firstOrNull()} de niveau ${taxonomy.spell_level.firstOrNull()}"
+    }
+
     class Header(val taxonomy: Taxonomy) {
         class Taxonomy(
             val spell_school: Array<String>,
