@@ -55,5 +55,5 @@ class InventoryActivity : SearchListActivity<InventoryAdapter>() {
                 content.lowercase(locale).contains(lowerCaseQuery)
     }
 
-    class Inventory : ArrayList<InventoryItem>()
+    private class Inventory : ArrayList<InventoryItem>()
 }

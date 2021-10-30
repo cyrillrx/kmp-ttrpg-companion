@@ -3,7 +3,15 @@ package com.cyrillrx.rpg.dnd.spellbook
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -33,9 +41,7 @@ fun SpellBookScreen(spells: List<Spell>, query: String, applyFilter: (String) ->
                 modifier = Modifier.fillMaxWidth(),
             )
 
-            LazyRow(
-                modifier = Modifier.fillMaxSize(),
-            ) {
+            LazyRow(modifier = Modifier.fillMaxSize()) {
                 items(spells) { spell ->
                     BoxWithConstraints(modifier = Modifier.fillParentMaxSize())
                     {
@@ -47,16 +53,13 @@ fun SpellBookScreen(spells: List<Spell>, query: String, applyFilter: (String) ->
     }
 }
 
-
 private val borderStroke = 8.dp
 private val textPadding = 8.dp
 
 @Composable
 fun SpellCard(spell: Spell, color: Color = Color(173, 29, 29)) {
     Card(
-        modifier = Modifier
-            .padding(4.dp)
-            .fillMaxSize(),
+        modifier = Modifier.padding(4.dp),
         shape = RoundedCornerShape(16.dp),
         border = BorderStroke(borderStroke, color)
     ) {
@@ -155,7 +158,7 @@ fun SpellGridItem(title: String, subtitle: String, color: Color) {
 @Preview
 @Composable
 fun PreviewSpellBookScreen() {
-    val spell = spellPreview()
+    val spell = sampleSpell()
     val items = listOf(spell, spell, spell)
     SpellBookScreen(items, "Search") {}
 }
@@ -163,18 +166,18 @@ fun PreviewSpellBookScreen() {
 @Preview
 @Composable
 fun PreviewSpellCard() {
-    val spell = spellPreview()
+    val spell = sampleSpell()
     SpellCard(spell)
 }
 
 @Preview
 @Composable
 fun PreviewSpellGrid() {
-    val spell = spellPreview()
+    val spell = sampleSpell()
     SpellGrid(spell, Color(173, 29, 29), 8.dp)
 }
 
-private fun spellPreview(): Spell {
+private fun sampleSpell(): Spell {
     val schools = arrayOf("Evocation")
     val levels = arrayOf("1")
     val classes = arrayOf("Clerc", "bard")

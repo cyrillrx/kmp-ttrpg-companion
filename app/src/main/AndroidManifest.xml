@@ -33,6 +33,9 @@
         <activity
             android:name=".dnd.inventory.InventoryActivity"
             android:theme="@style/NoActionBar" />
+        <activity
+            android:name=".dnd.inventory.InventoryComposeActivity"
+            android:theme="@style/NoActionBar" />
 
         <activity android:name=".game.GameListActivity" />
         <activity android:name=".group.CharacterListActivity" />

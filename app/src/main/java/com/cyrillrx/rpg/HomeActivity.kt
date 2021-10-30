@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.cyrillrx.rpg.Router.openDndBestiary
 import com.cyrillrx.rpg.Router.openDndInventory
+import com.cyrillrx.rpg.Router.openDndInventoryCompose
 import com.cyrillrx.rpg.Router.openDndSpellBook
 import com.cyrillrx.rpg.Router.openDndSpellBookCompose
 import com.cyrillrx.rpg.ui.theme.AppTheme
@@ -42,6 +43,7 @@ class HomeActivity : AppCompatActivity() {
                 HomeButton("Grimoire Compose") { openDndSpellBookCompose() }
                 HomeButton("Bestiaire") { openDndBestiary() }
                 HomeButton("Objets magiques") { openDndInventory() }
+                HomeButton("Objets magiques Compose") { openDndInventoryCompose() }
             }
         }
     }
