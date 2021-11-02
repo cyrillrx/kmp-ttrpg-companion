@@ -3,7 +3,11 @@ package com.cyrillrx.rpg
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -27,24 +31,22 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            Home()
+            AppTheme { HomeScreen() }
         }
     }
 
     @Composable
-    fun Home() {
-        AppTheme {
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(spacingMedium),
-            ) {
-                HomeButton("Grimoire") { openDndSpellBook() }
-                HomeButton("Grimoire Compose") { openDndSpellBookCompose() }
-                HomeButton("Bestiaire") { openDndBestiary() }
-                HomeButton("Objets magiques") { openDndInventory() }
-                HomeButton("Objets magiques Compose") { openDndInventoryCompose() }
-            }
+    fun HomeScreen() {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(spacingMedium),
+        ) {
+            HomeButton("Grimoire") { openDndSpellBook() }
+            HomeButton("Grimoire Compose") { openDndSpellBookCompose() }
+            HomeButton("Bestiaire") { openDndBestiary() }
+            HomeButton("Objets magiques") { openDndInventory() }
+            HomeButton("Objets magiques Compose") { openDndInventoryCompose() }
         }
     }
 
@@ -63,6 +65,6 @@ class HomeActivity : AppCompatActivity() {
     @Preview(showSystemUi = true)
     @Composable
     fun PreviewMessageCard() {
-        Home()
+        HomeScreen()
     }
 }

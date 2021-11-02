@@ -4,6 +4,6 @@
 
     <string name="app_name">RPG Companion</string>
 
-    <string name="spell_search_hint">Fire ball, Evocation, Cleric, etc.</string>
+    <string name="spell_search_hint">Boule de feu, Evocation, Clerc, etc.</string>
 
 </resources>

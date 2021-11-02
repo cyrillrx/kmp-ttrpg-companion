@@ -28,8 +28,13 @@
             android:name=".dnd.spellbook.SpellBookComposeActivity"
             android:theme="@style/NoActionBar" />
         <activity
+            android:name=".dnd.spellbook.SpellDetailActivity"
+            android:theme="@style/NoActionBar" />
+
+        <activity
             android:name=".dnd.bestiary.BestiaryActivity"
             android:theme="@style/NoActionBar" />
+
         <activity
             android:name=".dnd.inventory.InventoryActivity"
             android:theme="@style/NoActionBar" />

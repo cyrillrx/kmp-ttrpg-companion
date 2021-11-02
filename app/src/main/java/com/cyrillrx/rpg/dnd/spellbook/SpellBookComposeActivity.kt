@@ -5,6 +5,8 @@ import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.cyrillrx.rpg.AssetReader
+import com.cyrillrx.rpg.Router
+import com.cyrillrx.rpg.Router.openSpellDetail
 import com.cyrillrx.rpg.api.spellbook.Spell
 import com.cyrillrx.utils.deserialize
 
@@ -20,7 +22,11 @@ class SpellBookComposeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            SpellBookScreen(viewModel.spells, viewModel.query, viewModel::applyFilter)
+            SpellBookPeekScreen(
+                viewModel.spells,
+                viewModel.query,
+                viewModel::applyFilter,
+            ) { spell -> openSpellDetail(spell) }
         }
 
         viewModel.init(loadFromFile())

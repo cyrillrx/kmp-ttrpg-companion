@@ -2,11 +2,13 @@ package com.cyrillrx.rpg
 
 import android.content.Context
 import android.content.Intent
+import com.cyrillrx.rpg.api.spellbook.Spell
 import com.cyrillrx.rpg.dnd.bestiary.BestiaryActivity
 import com.cyrillrx.rpg.dnd.inventory.InventoryActivity
 import com.cyrillrx.rpg.dnd.inventory.InventoryComposeActivity
 import com.cyrillrx.rpg.dnd.spellbook.SpellBookActivity
 import com.cyrillrx.rpg.dnd.spellbook.SpellBookComposeActivity
+import com.cyrillrx.rpg.dnd.spellbook.SpellDetailActivity
 import com.cyrillrx.rpg.game.GameListActivity
 import com.cyrillrx.rpg.group.CharacterListActivity
 
@@ -28,6 +30,10 @@ object Router {
 
     fun Context.openDndSpellBookCompose() {
         startActivity(Intent(applicationContext, SpellBookComposeActivity::class.java))
+    }
+
+    fun Context.openSpellDetail(spell: Spell) {
+        startActivity(SpellDetailActivity.newIntent(applicationContext, spell))
     }
 
     fun Context.openDndBestiary() {

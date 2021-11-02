@@ -12,27 +12,26 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.Text
-import androidx.compose.material.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.cyrillrx.rpg.R
 import com.cyrillrx.rpg.api.inventory.MagicalItem
+import com.cyrillrx.rpg.ui.component.Search
 import com.cyrillrx.rpg.ui.theme.AppTheme
 
 @Composable
 fun InventoryScreen(magicalItems: List<MagicalItem>, query: String, applyFilter: (String) -> Unit) {
     AppTheme {
         Column {
-            TextField(
-                value = query,
-                onValueChange = applyFilter,
-                modifier = Modifier.fillMaxWidth(),
-            )
+            Search(query, applyFilter) { Text(stringResource(id = R.string.spell_search_hint)) }
 
             LazyRow(modifier = Modifier.fillMaxSize()) {
                 items(magicalItems) { item ->
@@ -53,7 +52,9 @@ private val textPadding = 8.dp
 fun MagicalItemCard(item: MagicalItem) {
     val color = item.getColor()
     Card(
-        modifier = Modifier.padding(4.dp),
+        modifier = Modifier
+            .padding(4.dp)
+            .fillMaxSize(),
         shape = RoundedCornerShape(16.dp),
         border = BorderStroke(borderStroke, color)
     ) {
@@ -88,6 +89,7 @@ fun MagicalItemCard(item: MagicalItem) {
             Text(
                 text = item.description,
                 fontSize = 16.sp,
+                overflow = TextOverflow.Ellipsis,
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(textPadding),
