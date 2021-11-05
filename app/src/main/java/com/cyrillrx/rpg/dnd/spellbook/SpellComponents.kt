@@ -20,9 +20,12 @@ import androidx.compose.foundation.shape.CutCornerShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
 import androidx.compose.material.Card
+import androidx.compose.material.Checkbox
+import androidx.compose.material.DropdownMenuItem
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
@@ -35,14 +38,18 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.cyrillrx.rpg.R
 import com.cyrillrx.rpg.api.spellbook.Spell
-import com.cyrillrx.rpg.ui.component.Search
 import com.cyrillrx.rpg.ui.theme.AppTheme
+import com.cyrillrx.rpg.ui.widget.OverflowMenu
+import com.cyrillrx.rpg.ui.widget.Search
 
 @Composable
 fun SpellBookScreen(spells: List<Spell>, query: String, applyFilter: (String) -> Unit) {
     AppTheme {
         Column {
-            Search(query = query, applyFilter = applyFilter) { Text(stringResource(id = R.string.spell_search_hint)) }
+            Search(
+                query = query,
+                applyFilter = applyFilter,
+            ) { Text(stringResource(id = R.string.spell_search_hint)) }
 
             LazyRow(modifier = Modifier.fillMaxSize()) {
                 items(spells) { spell ->
@@ -59,18 +66,30 @@ fun SpellBookScreen(spells: List<Spell>, query: String, applyFilter: (String) ->
 fun SpellBookPeekScreen(
     spells: List<Spell>,
     query: String,
+    savedOnly: Boolean,
     applyFilter: (String) -> Unit,
-    savedSpellOnly: () -> Unit,
+    savedSpellOnly: (Boolean) -> Unit,
     navigateToSpell: (Spell) -> Unit,
     saveToFavorites: (Spell) -> Unit,
 ) {
     AppTheme {
         Column {
-            Row {
-                Search(modifier = Modifier.weight(1f), query = query, applyFilter = applyFilter) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Search(
+                    modifier = Modifier.weight(1f),
+                    query = query,
+                    applyFilter = applyFilter
+                ) {
                     Text(stringResource(id = R.string.spell_search_hint))
                 }
-                Button(onClick = savedSpellOnly) { Text(text = "F") }
+                OverflowMenu {
+                    DropdownMenuItem(onClick = { savedSpellOnly(!savedOnly) }) {
+                        Row {
+                            Text(text = "savedOnly")
+                            Checkbox(savedOnly, savedSpellOnly)
+                        }
+                    }
+                }
             }
 
             LazyColumn(modifier = Modifier.fillMaxSize()) {
@@ -265,7 +284,6 @@ fun SpellGrid2(spell: Spell, modifier: Modifier) {
             Text(text = spell.range, modifier = Modifier.padding(start = 4.dp))
         }
         Row {
-
             Text(
                 text = stringResource(R.string.formatted_spell_duration),
                 fontWeight = FontWeight.Bold,
@@ -324,7 +342,13 @@ fun PreviewSpellBookScreen() {
 fun PreviewSpellBookPeekScreen() {
     val spell = sampleSpell()
     val items = listOf(spell, spell, spell)
-    SpellBookPeekScreen(items, stringResource(id = R.string.spell_search_hint), {}, {}, {}) {}
+    SpellBookPeekScreen(
+        items,
+        stringResource(id = R.string.spell_search_hint),
+        false,
+        {},
+        {},
+        {}) {}
 }
 
 @Preview

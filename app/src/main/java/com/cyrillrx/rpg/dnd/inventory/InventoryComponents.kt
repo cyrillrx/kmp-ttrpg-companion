@@ -24,14 +24,17 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.cyrillrx.rpg.R
 import com.cyrillrx.rpg.api.inventory.MagicalItem
-import com.cyrillrx.rpg.ui.component.Search
 import com.cyrillrx.rpg.ui.theme.AppTheme
+import com.cyrillrx.rpg.ui.widget.Search
 
 @Composable
 fun InventoryScreen(magicalItems: List<MagicalItem>, query: String, applyFilter: (String) -> Unit) {
     AppTheme {
         Column {
-            Search(query = query, applyFilter = applyFilter) { Text(stringResource(id = R.string.spell_search_hint)) }
+            Search(
+                query = query,
+                applyFilter = applyFilter,
+            ) { Text(stringResource(id = R.string.spell_search_hint)) }
 
             LazyRow(modifier = Modifier.fillMaxSize()) {
                 items(magicalItems) { item ->

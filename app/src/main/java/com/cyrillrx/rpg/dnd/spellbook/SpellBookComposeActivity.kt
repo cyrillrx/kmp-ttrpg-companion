@@ -24,8 +24,9 @@ class SpellBookComposeActivity : AppCompatActivity() {
             SpellBookPeekScreen(
                 viewModel.spells,
                 viewModel.query,
+                viewModel.savedOnly,
                 viewModel::applyFilter,
-                viewModel::savedSpellsOnly,
+                viewModel::savedOnly,
                 { spell -> openSpellDetail(spell) },
                 { spell -> SpellStore.save(spell) },
             )

@@ -17,6 +17,7 @@ class SpellBookViewModel : ViewModel() {
     var loading by mutableStateOf(false)
 
     var query by mutableStateOf("")
+    var savedOnly by mutableStateOf(false)
 
     var spells = mutableStateListOf<Spell>()
         private set
@@ -34,12 +35,15 @@ class SpellBookViewModel : ViewModel() {
         updateData(initialSpells.filter(query))
     }
 
-    fun savedSpellsOnly() {
-        updateData(SpellStore.savedSpells)
+    fun savedOnly(savedOnly: Boolean) {
+        this.savedOnly = savedOnly
+        updateData(initialSpells.filter(query))
     }
 
     private fun List<Spell>.filter(query: String): ArrayList<Spell> =
-        filterTo(ArrayList()) { spell -> spell.filter(query) }
+        filterTo(ArrayList()) { spell ->
+            ((savedOnly && spell in SpellStore.savedSpells) || !savedOnly) && spell.filter(query)
+        }
 
     private fun Spell.filter(query: String): Boolean {
         val lowerCaseQuery = query.trim().lowercase(locale)
