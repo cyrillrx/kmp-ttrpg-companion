@@ -5,7 +5,6 @@ import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.cyrillrx.rpg.AssetReader
-import com.cyrillrx.rpg.Router
 import com.cyrillrx.rpg.Router.openSpellDetail
 import com.cyrillrx.rpg.api.spellbook.Spell
 import com.cyrillrx.utils.deserialize
@@ -26,10 +25,13 @@ class SpellBookComposeActivity : AppCompatActivity() {
                 viewModel.spells,
                 viewModel.query,
                 viewModel::applyFilter,
-            ) { spell -> openSpellDetail(spell) }
+                viewModel::savedSpellsOnly,
+                { spell -> openSpellDetail(spell) },
+                { spell -> SpellStore.save(spell) },
+            )
         }
 
-        viewModel.init(loadFromFile())
+        viewModel.init(loadFromFile().also(SpellStore::init))
     }
 
     private fun loadFromFile(): List<Spell> {

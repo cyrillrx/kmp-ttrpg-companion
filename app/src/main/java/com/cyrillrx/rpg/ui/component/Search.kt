@@ -8,12 +8,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun Search(query: String, applyFilter: (String) -> Unit, label: @Composable (() -> Unit)? = null) {
+fun Search(modifier: Modifier = Modifier, query: String, applyFilter: (String) -> Unit, label: @Composable (() -> Unit)? = null) {
     OutlinedTextField(
         value = query,
         onValueChange = applyFilter,
         label = label,
-        modifier = Modifier
+        modifier = modifier
             .padding(4.dp)
             .fillMaxWidth(),
     )

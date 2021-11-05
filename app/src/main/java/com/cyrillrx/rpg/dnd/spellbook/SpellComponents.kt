@@ -18,6 +18,7 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CutCornerShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Button
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -41,7 +42,7 @@ import com.cyrillrx.rpg.ui.theme.AppTheme
 fun SpellBookScreen(spells: List<Spell>, query: String, applyFilter: (String) -> Unit) {
     AppTheme {
         Column {
-            Search(query, applyFilter) { Text(stringResource(id = R.string.spell_search_hint)) }
+            Search(query = query, applyFilter = applyFilter) { Text(stringResource(id = R.string.spell_search_hint)) }
 
             LazyRow(modifier = Modifier.fillMaxSize()) {
                 items(spells) { spell ->
@@ -59,28 +60,38 @@ fun SpellBookPeekScreen(
     spells: List<Spell>,
     query: String,
     applyFilter: (String) -> Unit,
+    savedSpellOnly: () -> Unit,
     navigateToSpell: (Spell) -> Unit,
+    saveToFavorites: (Spell) -> Unit,
 ) {
     AppTheme {
         Column {
-            Search(query, applyFilter) { Text(stringResource(id = R.string.spell_search_hint)) }
+            Row {
+                Search(modifier = Modifier.weight(1f), query = query, applyFilter = applyFilter) {
+                    Text(stringResource(id = R.string.spell_search_hint))
+                }
+                Button(onClick = savedSpellOnly) { Text(text = "F") }
+            }
 
             LazyColumn(modifier = Modifier.fillMaxSize()) {
                 items(spells) { spell ->
 
-                    SpellListItem(spell, Modifier
-                        .fillMaxWidth()
-                        .wrapContentHeight()
-                        .clickable { navigateToSpell(spell) })
+                    SpellListItem(
+                        spell,
+                        Modifier
+                            .fillMaxWidth()
+                            .wrapContentHeight()
+                            .clickable { navigateToSpell(spell) },
+                        saveToFavorites,
+                    )
                 }
             }
         }
     }
 }
 
-
 @Composable
-fun SpellListItem(spell: Spell, modifier: Modifier) {
+fun SpellListItem(spell: Spell, modifier: Modifier, saveToFavorites: (Spell) -> Unit) {
     val spellColor = spell.getColor()
 
     Card(
@@ -88,34 +99,42 @@ fun SpellListItem(spell: Spell, modifier: Modifier) {
         modifier = modifier.padding(4.dp),
     ) {
         Column {
-            Text(
-                text = spell.title,
-                fontSize = 18.sp,
-                fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colors.onPrimary,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(spellColor)
-                    .padding(
-                        start = textPadding,
-                        end = textPadding,
-                        top = textPadding / 2,
-                    ),
-            )
-            Text(
-                text = spell.getFormattedSchool(),
-                fontSize = 14.sp,
-                fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colors.onPrimary,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(spellColor)
-                    .padding(
-                        start = textPadding,
-                        end = textPadding,
-                        bottom = textPadding / 2,
-                    ),
-            )
+            Row {
+                Column(Modifier.weight(1f)) {
+                    Text(
+                        text = spell.title,
+                        fontSize = 18.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colors.onPrimary,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .background(spellColor)
+                            .padding(
+                                start = textPadding,
+                                end = textPadding,
+                                top = textPadding / 2,
+                            ),
+                    )
+                    Text(
+                        text = spell.getFormattedSchool(),
+                        fontSize = 14.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colors.onPrimary,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .background(spellColor)
+                            .padding(
+                                start = textPadding,
+                                end = textPadding,
+                                bottom = textPadding / 2,
+                            ),
+                    )
+                }
+                Button(onClick = { saveToFavorites(spell) }) {
+                    Text(text = "fav")
+                }
+            }
+
             SpellGrid2(
                 spell,
                 Modifier.padding(
@@ -305,7 +324,7 @@ fun PreviewSpellBookScreen() {
 fun PreviewSpellBookPeekScreen() {
     val spell = sampleSpell()
     val items = listOf(spell, spell, spell)
-    SpellBookPeekScreen(items, stringResource(id = R.string.spell_search_hint), {}) {}
+    SpellBookPeekScreen(items, stringResource(id = R.string.spell_search_hint), {}, {}, {}) {}
 }
 
 @Preview
@@ -327,7 +346,6 @@ private fun Spell.getColor(): Color = Color(173, 29, 29)
 @Composable
 fun Spell.getFormattedSchool() =
     stringResource(R.string.formatted_spell_school_level, getSchool(), level)
-
 
 private fun sampleSpell(): Spell {
     val schools = arrayOf("Evocation")

@@ -31,7 +31,7 @@ import com.cyrillrx.rpg.ui.theme.AppTheme
 fun InventoryScreen(magicalItems: List<MagicalItem>, query: String, applyFilter: (String) -> Unit) {
     AppTheme {
         Column {
-            Search(query, applyFilter) { Text(stringResource(id = R.string.spell_search_hint)) }
+            Search(query = query, applyFilter = applyFilter) { Text(stringResource(id = R.string.spell_search_hint)) }
 
             LazyRow(modifier = Modifier.fillMaxSize()) {
                 items(magicalItems) { item ->
