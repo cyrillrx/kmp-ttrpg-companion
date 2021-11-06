@@ -15,11 +15,14 @@ import java.util.Locale
 class SpellBookViewModel : ViewModel() {
 
     var loading by mutableStateOf(false)
-
+        private set
     var query by mutableStateOf("")
-    var savedOnly by mutableStateOf(false)
-
-    var spells = mutableStateListOf<Spell>()
+        private set
+    var displayedSpells = mutableStateListOf<Spell>()
+        private set
+    var savedSpells = mutableStateListOf<Spell>()
+        private set
+    var savedSpellsOnly by mutableStateOf(false)
         private set
 
     private val locale by lazy { Locale.ROOT }
@@ -27,36 +30,45 @@ class SpellBookViewModel : ViewModel() {
 
     fun init(initialSpells: List<Spell>) {
         this.initialSpells = initialSpells
-        updateData(initialSpells)
+        updateData()
     }
 
     fun applyFilter(query: String) {
         this.query = query
-        updateData(initialSpells.filter(query))
+        updateData()
     }
 
-    fun savedOnly(savedOnly: Boolean) {
-        this.savedOnly = savedOnly
-        updateData(initialSpells.filter(query))
+    fun onDisplaySavedOnlyClicked(checked: Boolean) {
+        this.savedSpellsOnly = checked
+        updateData()
+    }
+
+    fun onSaveSpell(spell: Spell) {
+        if (savedSpells.contains(spell)) {
+            savedSpells.remove(spell)
+        } else {
+            savedSpells.add(spell)
+        }
+        updateData()
     }
 
     private fun List<Spell>.filter(query: String): ArrayList<Spell> =
-        filterTo(ArrayList()) { spell ->
-            ((savedOnly && spell in SpellStore.savedSpells) || !savedOnly) && spell.filter(query)
-        }
+        filterTo(ArrayList()) { spell -> spell.matches(query) }
 
-    private fun Spell.filter(query: String): Boolean {
+    private fun Spell.matches(query: String): Boolean {
         val lowerCaseQuery = query.trim().lowercase(locale)
         return title.lowercase(locale).contains(lowerCaseQuery) ||
                 content.lowercase(locale).contains(lowerCaseQuery) ||
                 lowerCaseQuery in getSpellClasses().map { it.lowercase(locale) }
     }
 
-    private fun updateData(spellList: List<Spell>) {
+    private fun updateData() {
+        val spellList = if (savedSpellsOnly) savedSpells else initialSpells
+
         loading = true
 
-        spells.clear()
-        spells.addAll(spellList)
+        displayedSpells.clear()
+        displayedSpells.addAll(spellList.filter(query))
 
         loading = false
     }

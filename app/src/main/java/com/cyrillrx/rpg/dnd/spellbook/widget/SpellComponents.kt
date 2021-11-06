@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.dnd.spellbook
+package com.cyrillrx.rpg.dnd.spellbook.widget
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
@@ -16,9 +16,7 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.CutCornerShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Button
 import androidx.compose.material.Card
 import androidx.compose.material.Checkbox
 import androidx.compose.material.DropdownMenuItem
@@ -39,8 +37,12 @@ import androidx.compose.ui.unit.sp
 import com.cyrillrx.rpg.R
 import com.cyrillrx.rpg.api.spellbook.Spell
 import com.cyrillrx.rpg.ui.theme.AppTheme
+import com.cyrillrx.rpg.ui.theme.spacingMedium
 import com.cyrillrx.rpg.ui.widget.OverflowMenu
 import com.cyrillrx.rpg.ui.widget.Search
+
+internal val borderStroke = spacingMedium
+internal val textPadding = spacingMedium
 
 @Composable
 fun SpellBookScreen(spells: List<Spell>, query: String, applyFilter: (String) -> Unit) {
@@ -65,43 +67,34 @@ fun SpellBookScreen(spells: List<Spell>, query: String, applyFilter: (String) ->
 @Composable
 fun SpellBookPeekScreen(
     spells: List<Spell>,
+    savedSpell: List<Spell>,
     query: String,
-    savedOnly: Boolean,
+    savedSpellsOnly: Boolean,
     applyFilter: (String) -> Unit,
-    savedSpellOnly: (Boolean) -> Unit,
+    onDisplaySavedOnlyClicked: (Boolean) -> Unit,
+    onSaveClicked: (Spell) -> Unit,
     navigateToSpell: (Spell) -> Unit,
-    saveToFavorites: (Spell) -> Unit,
 ) {
     AppTheme {
         Column {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Search(
-                    modifier = Modifier.weight(1f),
-                    query = query,
-                    applyFilter = applyFilter
-                ) {
-                    Text(stringResource(id = R.string.spell_search_hint))
-                }
-                OverflowMenu {
-                    DropdownMenuItem(onClick = { savedSpellOnly(!savedOnly) }) {
-                        Row {
-                            Text(text = "savedOnly")
-                            Checkbox(savedOnly, savedSpellOnly)
-                        }
-                    }
-                }
-            }
+            SearchBarWithOverflow(
+                query = query,
+                savedSpellsOnly = savedSpellsOnly,
+                applyFilter = applyFilter,
+                onDisplaySavedSpellsClicked = onDisplaySavedOnlyClicked,
+            )
 
             LazyColumn(modifier = Modifier.fillMaxSize()) {
                 items(spells) { spell ->
 
                     SpellListItem(
-                        spell,
                         Modifier
                             .fillMaxWidth()
                             .wrapContentHeight()
                             .clickable { navigateToSpell(spell) },
-                        saveToFavorites,
+                        spell,
+                        savedSpell,
+                        onSaveClicked,
                     )
                 }
             }
@@ -110,72 +103,30 @@ fun SpellBookPeekScreen(
 }
 
 @Composable
-fun SpellListItem(spell: Spell, modifier: Modifier, saveToFavorites: (Spell) -> Unit) {
-    val spellColor = spell.getColor()
-
-    Card(
-        shape = CutCornerShape(0.dp),
-        modifier = modifier.padding(4.dp),
-    ) {
-        Column {
-            Row {
-                Column(Modifier.weight(1f)) {
-                    Text(
-                        text = spell.title,
-                        fontSize = 18.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colors.onPrimary,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .background(spellColor)
-                            .padding(
-                                start = textPadding,
-                                end = textPadding,
-                                top = textPadding / 2,
-                            ),
-                    )
-                    Text(
-                        text = spell.getFormattedSchool(),
-                        fontSize = 14.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colors.onPrimary,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .background(spellColor)
-                            .padding(
-                                start = textPadding,
-                                end = textPadding,
-                                bottom = textPadding / 2,
-                            ),
-                    )
-                }
-                Button(onClick = { saveToFavorites(spell) }) {
-                    Text(text = "fav")
+private fun SearchBarWithOverflow(
+    query: String,
+    savedSpellsOnly: Boolean,
+    applyFilter: (String) -> Unit,
+    onDisplaySavedSpellsClicked: (Boolean) -> Unit,
+) {
+    Row(verticalAlignment = Alignment.CenterVertically) {
+        Search(
+            modifier = Modifier.weight(1f),
+            query = query,
+            applyFilter = applyFilter
+        ) {
+            Text(stringResource(id = R.string.spell_search_hint))
+        }
+        OverflowMenu {
+            DropdownMenuItem(onClick = { onDisplaySavedSpellsClicked(!savedSpellsOnly) }) {
+                Row {
+                    Text(text = "Bookmarked")
+                    Checkbox(savedSpellsOnly, onDisplaySavedSpellsClicked)
                 }
             }
-
-            SpellGrid2(
-                spell,
-                Modifier.padding(
-                    horizontal = textPadding,
-                    vertical = textPadding / 2,
-                ),
-            )
-            Text(
-                text = spell.content,
-                fontSize = 16.sp,
-                overflow = TextOverflow.Ellipsis,
-                maxLines = 4,
-                modifier = Modifier
-                    .padding(textPadding)
-                    .fillMaxSize(),
-            )
         }
     }
 }
-
-private val borderStroke = 8.dp
-private val textPadding = 8.dp
 
 @Composable
 fun SpellCard(spell: Spell) {
@@ -260,40 +211,6 @@ fun SpellGrid(spell: Spell, color: Color, borderStroke: Dp) {
 }
 
 @Composable
-fun SpellGrid2(spell: Spell, modifier: Modifier) {
-    Column(modifier) {
-        Row {
-            Text(
-                text = stringResource(R.string.formatted_spell_casting_time),
-                fontWeight = FontWeight.Bold,
-            )
-            Text(text = spell.casting_time, modifier = Modifier.padding(start = 4.dp))
-        }
-        Row {
-            Text(
-                text = stringResource(R.string.formatted_spell_components),
-                fontWeight = FontWeight.Bold,
-            )
-            Text(text = spell.components, modifier = Modifier.padding(start = 4.dp))
-        }
-        Row {
-            Text(
-                text = stringResource(R.string.formatted_spell_range),
-                fontWeight = FontWeight.Bold,
-            )
-            Text(text = spell.range, modifier = Modifier.padding(start = 4.dp))
-        }
-        Row {
-            Text(
-                text = stringResource(R.string.formatted_spell_duration),
-                fontWeight = FontWeight.Bold,
-            )
-            Text(text = spell.duration, modifier = Modifier.padding(start = 4.dp))
-        }
-    }
-}
-
-@Composable
 fun SpellGridItem(title: String, subtitle: String, color: Color) {
     Column(Modifier.background(MaterialTheme.colors.surface)) {
         Text(
@@ -344,11 +261,14 @@ fun PreviewSpellBookPeekScreen() {
     val items = listOf(spell, spell, spell)
     SpellBookPeekScreen(
         items,
+        items,
         stringResource(id = R.string.spell_search_hint),
         false,
         {},
         {},
-        {}) {}
+        {},
+        {},
+    )
 }
 
 @Preview
@@ -365,29 +285,8 @@ fun PreviewSpellGrid() {
     SpellGrid(spell, spell.getColor(), borderStroke)
 }
 
-private fun Spell.getColor(): Color = Color(173, 29, 29)
+internal fun Spell.getColor(): Color = Color(173, 29, 29)
 
 @Composable
 fun Spell.getFormattedSchool() =
     stringResource(R.string.formatted_spell_school_level, getSchool(), level)
-
-private fun sampleSpell(): Spell {
-    val schools = arrayOf("Evocation")
-    val levels = arrayOf("3")
-    val classes = arrayOf("Ensorceleur/Sorcelame", "Magicien")
-    val header = Spell.Header(Spell.Header.Taxonomy(schools, levels, classes))
-    return Spell(
-        "Fire",
-        "Une traînée luisante part de votre doigt tendu et file vers un point de votre choix situé à portée et dans votre champ de vision, où elle explose dans une gerbe de flammes grondantes. Chaque créature située dans une sphère de 6 mètres de rayon centrée sur ce point doit faire un jet de sauvegarde de Dextérité. Celles qui échouent subissent 8d6 dégâts de feu, les autres la moitié seulement.\n" +
-                "\n" +
-                "Le feu s'étend en contournant les angles. Il embrase les objets inflammables de la zone, à moins que quelqu'un ne les porte ou ne les transporte.\n" +
-                "\n" +
-                "À plus haut niveau. Si vous lancez ce sort en utilisant un emplacement de niveau 4 ou supérieur, les dégâts augmentent de 1d6 par niveau au-delà du niveau 3.",
-        3,
-        "1 action",
-        "45 mètres",
-        "V, S, M (une petite boule de guano de chauve-souris et du soufre)",
-        "instantanée",
-        header
-    )
-}
