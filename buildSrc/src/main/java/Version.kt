@@ -7,5 +7,6 @@ object Version {
     const val targetSdk = 31
 
     const val java = "11"
-    const val compose = "1.0.5"
+    const val composeCompiler = "1.1.0-rc02"
+    const val compose = "1.1.0-rc01"
 }
