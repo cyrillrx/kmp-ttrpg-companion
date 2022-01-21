@@ -46,18 +46,16 @@ internal val textPadding = spacingMedium
 
 @Composable
 fun SpellBookScreen(spells: List<Spell>, query: String, applyFilter: (String) -> Unit) {
-    AppTheme {
-        Column {
-            Search(
-                query = query,
-                applyFilter = applyFilter,
-            ) { Text(stringResource(id = R.string.spell_search_hint)) }
+    Column {
+        Search(
+            query = query,
+            applyFilter = applyFilter,
+        ) { Text(stringResource(id = R.string.spell_search_hint)) }
 
-            LazyRow(modifier = Modifier.fillMaxSize()) {
-                items(spells) { spell ->
-                    BoxWithConstraints(modifier = Modifier.fillParentMaxSize()) {
-                        SpellCard(spell)
-                    }
+        LazyRow(modifier = Modifier.fillMaxSize()) {
+            items(spells) { spell ->
+                BoxWithConstraints(modifier = Modifier.fillParentMaxSize()) {
+                    SpellCard(spell)
                 }
             }
         }
@@ -248,27 +246,60 @@ fun SpellGridItem(title: String, subtitle: String, color: Color) {
 
 @Preview
 @Composable
-fun PreviewSpellBookScreen() {
+fun PreviewSpellBookScreenDark() {
     val spell = sampleSpell()
     val items = listOf(spell, spell, spell)
-    SpellBookScreen(items, stringResource(id = R.string.spell_search_hint)) {}
+    AppTheme(darkTheme = true) {
+        SpellBookScreen(items, stringResource(id = R.string.spell_search_hint)) {}
+    }
 }
 
 @Preview
 @Composable
-fun PreviewSpellBookPeekScreen() {
+fun PreviewSpellBookScreenLight() {
     val spell = sampleSpell()
     val items = listOf(spell, spell, spell)
-    SpellBookPeekScreen(
-        items,
-        items,
-        stringResource(id = R.string.spell_search_hint),
-        false,
-        {},
-        {},
-        {},
-        {},
-    )
+    AppTheme(darkTheme = false) {
+        SpellBookScreen(items, stringResource(id = R.string.spell_search_hint)) {}
+    }
+}
+
+@Preview
+@Composable
+fun PreviewSpellBookPeekScreenDark() {
+    val spell = sampleSpell()
+    val items = listOf(spell, spell, spell)
+    AppTheme(darkTheme = true) {
+        SpellBookPeekScreen(
+            items,
+            items,
+            stringResource(id = R.string.spell_search_hint),
+            false,
+            {},
+            {},
+            {},
+            {},
+        )
+    }
+}
+
+@Preview
+@Composable
+fun PreviewSpellBookPeekScreenLight() {
+    val spell = sampleSpell()
+    val items = listOf(spell, spell, spell)
+    AppTheme(darkTheme = false) {
+        SpellBookPeekScreen(
+            items,
+            items,
+            stringResource(id = R.string.spell_search_hint),
+            false,
+            {},
+            {},
+            {},
+            {},
+        )
+    }
 }
 
 @Preview

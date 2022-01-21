@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.cyrillrx.rpg.AssetReader
 import com.cyrillrx.rpg.api.inventory.InventoryItem
 import com.cyrillrx.rpg.api.inventory.MagicalItem
+import com.cyrillrx.rpg.ui.theme.AppTheme
 import com.cyrillrx.utils.deserialize
 
 /**
@@ -21,7 +22,9 @@ class InventoryComposeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            InventoryScreen(viewModel.magicalItems, viewModel.query, viewModel::applyFilter)
+            AppTheme {
+                InventoryScreen(viewModel.magicalItems, viewModel.query, viewModel::applyFilter)
+            }
         }
 
         viewModel.init(loadFromFile())

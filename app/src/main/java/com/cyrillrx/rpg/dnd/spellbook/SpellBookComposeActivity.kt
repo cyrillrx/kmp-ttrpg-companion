@@ -8,6 +8,7 @@ import com.cyrillrx.rpg.AssetReader
 import com.cyrillrx.rpg.Router.openSpellDetail
 import com.cyrillrx.rpg.api.spellbook.Spell
 import com.cyrillrx.rpg.dnd.spellbook.widget.SpellBookPeekScreen
+import com.cyrillrx.rpg.ui.theme.AppTheme
 import com.cyrillrx.utils.deserialize
 
 /**
@@ -22,15 +23,17 @@ class SpellBookComposeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            SpellBookPeekScreen(
-                viewModel.displayedSpells,
-                viewModel.savedSpells,
-                viewModel.query,
-                viewModel.savedSpellsOnly,
-                viewModel::applyFilter,
-                viewModel::onDisplaySavedOnlyClicked,
-                viewModel::onSaveSpell,
-            ) { spell -> openSpellDetail(spell) }
+            AppTheme {
+                SpellBookPeekScreen(
+                    viewModel.displayedSpells,
+                    viewModel.savedSpells,
+                    viewModel.query,
+                    viewModel.savedSpellsOnly,
+                    viewModel::applyFilter,
+                    viewModel::onDisplaySavedOnlyClicked,
+                    viewModel::onSaveSpell,
+                ) { spell -> openSpellDetail(spell) }
+            }
         }
 
         viewModel.init(loadFromFile().also(SpellStore::init))

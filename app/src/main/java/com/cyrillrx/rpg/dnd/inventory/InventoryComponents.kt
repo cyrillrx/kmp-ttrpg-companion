@@ -29,19 +29,17 @@ import com.cyrillrx.rpg.ui.widget.Search
 
 @Composable
 fun InventoryScreen(magicalItems: List<MagicalItem>, query: String, applyFilter: (String) -> Unit) {
-    AppTheme {
-        Column {
-            Search(
-                query = query,
-                applyFilter = applyFilter,
-            ) { Text(stringResource(id = R.string.spell_search_hint)) }
+    Column {
+        Search(
+            query = query,
+            applyFilter = applyFilter,
+        ) { Text(stringResource(id = R.string.spell_search_hint)) }
 
-            LazyRow(modifier = Modifier.fillMaxSize()) {
-                items(magicalItems) { item ->
-                    BoxWithConstraints(modifier = Modifier.fillParentMaxSize())
-                    {
-                        MagicalItemCard(item)
-                    }
+        LazyRow(modifier = Modifier.fillMaxSize()) {
+            items(magicalItems) { item ->
+                BoxWithConstraints(modifier = Modifier.fillParentMaxSize())
+                {
+                    MagicalItemCard(item)
                 }
             }
         }
@@ -103,10 +101,22 @@ fun MagicalItemCard(item: MagicalItem) {
 
 @Preview
 @Composable
-fun PreviewSpellBookScreen() {
+fun PreviewSpellBookScreenDark() {
     val item = sampleMagicalItem()
     val items = listOf(item, item, item)
-    InventoryScreen(items, "Search") {}
+    AppTheme(darkTheme = true) {
+        InventoryScreen(items, "Search") {}
+    }
+}
+
+@Preview
+@Composable
+fun PreviewSpellBookScreenLight() {
+    val item = sampleMagicalItem()
+    val items = listOf(item, item, item)
+    AppTheme(darkTheme = false) {
+        InventoryScreen(items, "Search") {}
+    }
 }
 
 @Preview
