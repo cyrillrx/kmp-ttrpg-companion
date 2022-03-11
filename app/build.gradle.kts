@@ -67,6 +67,8 @@ dependencies {
     implementation("com.google.android.material:material:1.5.0")
     implementation("com.google.code.gson:gson:2.8.8")
 
+    implementation("de.charlex.compose:html-text:1.1.0")
+
     testImplementation("junit:junit:4.13.2")
 
     androidTestImplementation("androidx.test:runner:1.4.0")

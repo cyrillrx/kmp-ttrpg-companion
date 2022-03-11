@@ -28,6 +28,7 @@ import com.cyrillrx.rpg.api.spellbook.Spell
 import com.cyrillrx.rpg.ui.theme.spacingCommon
 import com.cyrillrx.rpg.ui.theme.spacingSmall
 import com.cyrillrx.rpg.ui.widget.BookmarkButton
+import de.charlex.compose.HtmlText
 
 @Composable
 fun SpellListItem(
@@ -51,7 +52,7 @@ fun SpellListItem(
                 ),
             )
 
-            Text(
+            HtmlText(
                 text = spell.content,
                 fontSize = 16.sp,
                 overflow = TextOverflow.Ellipsis,

@@ -40,6 +40,7 @@ import com.cyrillrx.rpg.ui.theme.AppTheme
 import com.cyrillrx.rpg.ui.theme.spacingMedium
 import com.cyrillrx.rpg.ui.widget.OverflowMenu
 import com.cyrillrx.rpg.ui.widget.Search
+import de.charlex.compose.HtmlText
 
 internal val borderStroke = spacingMedium
 internal val textPadding = spacingMedium
@@ -163,7 +164,7 @@ fun SpellCard(spell: Spell) {
                     .padding(textPadding / 2),
             )
             SpellGrid(spell, spellColor, borderStroke)
-            Text(
+            HtmlText(
                 text = spell.content,
                 fontSize = 16.sp,
                 overflow = TextOverflow.Ellipsis,
