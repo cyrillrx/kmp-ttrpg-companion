@@ -26,8 +26,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerVersion = Version.kotlin
-        kotlinCompilerExtensionVersion = Version.composeCompiler
+        kotlinCompilerExtensionVersion = Version.compose
     }
 
     buildTypes {
@@ -42,8 +41,6 @@ android {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Version.kotlin}")
-
     implementation(project(":model"))
 
     implementation(files("$rootDir/libs/logger.2021.09.14.aar"))
