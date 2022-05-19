@@ -8,10 +8,6 @@ import com.cyrillrx.rpg.R
 import com.cyrillrx.rpg.api.spellbook.Spell
 import com.cyrillrx.rpg.setHtmlText
 
-/**
- * @author Cyril Leroux
- *         Created on 13/03/2020.
- */
 class SpellBookItemView(parent: ViewGroup) :
     RecyclerView.ViewHolder(parent.inflate(R.layout.item_spell)) {
 

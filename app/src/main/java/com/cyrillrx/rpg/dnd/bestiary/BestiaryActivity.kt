@@ -5,10 +5,6 @@ import com.cyrillrx.rpg.api.bestiary.BestiaryItem
 import com.cyrillrx.rpg.template.ListActivity
 import com.cyrillrx.utils.deserialize
 
-/**
- * @author Cyril Leroux
- *         Created on 12/03/2020.
- */
 class BestiaryActivity : ListActivity<BestiaryAdapter>() {
 
     override val adapter = BestiaryAdapter()

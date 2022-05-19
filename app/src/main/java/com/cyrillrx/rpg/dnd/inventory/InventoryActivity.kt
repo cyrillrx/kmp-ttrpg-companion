@@ -8,10 +8,6 @@ import com.cyrillrx.rpg.template.SearchListActivity
 import com.cyrillrx.utils.deserialize
 import java.util.Locale
 
-/**
- * @author Cyril Leroux
- *         Created on 30/03/2020.
- */
 class InventoryActivity : SearchListActivity<InventoryAdapter>() {
 
     override val adapter = InventoryAdapter()

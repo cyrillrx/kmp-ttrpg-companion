@@ -8,10 +8,6 @@ import androidx.lifecycle.ViewModel
 import com.cyrillrx.rpg.api.inventory.MagicalItem
 import java.util.Locale
 
-/**
- * @author Cyril Leroux
- *         Created on 30/10/2021.
- */
 class InventoryViewModel : ViewModel() {
 
     var loading by mutableStateOf(false)

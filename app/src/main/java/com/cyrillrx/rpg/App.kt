@@ -5,10 +5,6 @@ import com.cyrillrx.logger.Logger
 import com.cyrillrx.logger.Severity
 import com.cyrillrx.logger.extension.LogCat
 
-/**
- * @author Cyril Leroux
- *         Created on 24/09/2019.
- */
 class App : Application() {
 
     override fun onCreate() {

@@ -11,10 +11,6 @@ import com.cyrillrx.rpg.dnd.spellbook.widget.SpellBookPeekScreen
 import com.cyrillrx.rpg.ui.theme.AppTheme
 import com.cyrillrx.utils.deserialize
 
-/**
- * @author Cyril Leroux
- *         Created on 29/10/2021.
- */
 class SpellBookComposeActivity : AppCompatActivity() {
 
     private val viewModel by viewModels<SpellBookViewModel>()

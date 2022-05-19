@@ -12,10 +12,6 @@ import com.cyrillrx.rpg.dnd.spellbook.SpellDetailActivity
 import com.cyrillrx.rpg.game.GameListActivity
 import com.cyrillrx.rpg.group.CharacterListActivity
 
-/**
- * @author Cyril Leroux
- *         Created on 25/09/2019.
- */
 object Router {
 
     fun Context.openHome() {

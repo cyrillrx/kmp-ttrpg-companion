@@ -8,10 +8,6 @@ import com.cyrillrx.rpg.template.SearchListActivity
 import com.cyrillrx.utils.deserialize
 import java.util.Locale
 
-/**
- * @author Cyril Leroux
- *         Created on 13/03/2020.
- */
 class SpellBookActivity : SearchListActivity<SpellBookAdapter>() {
 
     override val adapter = SpellBookAdapter()

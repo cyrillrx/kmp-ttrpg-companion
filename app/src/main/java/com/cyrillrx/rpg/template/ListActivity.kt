@@ -10,10 +10,6 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.cyrillrx.rpg.R
 import com.cyrillrx.templates.layout.PlaceholderLayout
 
-/**
- * @author Cyril Leroux
- *         Created on 25/09/2019.
- */
 abstract class ListActivity<Adapter : BaseAdapter<*>> : AppCompatActivity() {
 
     protected lateinit var searchView: EditText

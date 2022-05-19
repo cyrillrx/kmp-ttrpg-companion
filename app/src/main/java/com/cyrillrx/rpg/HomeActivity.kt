@@ -21,10 +21,6 @@ import com.cyrillrx.rpg.Router.openDndSpellBookCompose
 import com.cyrillrx.rpg.ui.theme.AppTheme
 import com.cyrillrx.rpg.ui.theme.spacingMedium
 
-/**
- * @author Cyril Leroux
- *         Created on 30/03/2020.
- */
 class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

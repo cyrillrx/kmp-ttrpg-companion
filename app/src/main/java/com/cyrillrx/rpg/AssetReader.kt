@@ -4,10 +4,6 @@ import android.content.Context
 import com.cyrillrx.logger.Logger
 import java.io.IOException
 
-/**
- * @author Cyril Leroux
- *         Created on 2020-03-12.
- */
 object AssetReader {
 
     private val TAG = AssetReader::class.java.simpleName

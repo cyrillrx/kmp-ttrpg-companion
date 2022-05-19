@@ -8,10 +8,6 @@ import com.cyrillrx.rpg.R
 import com.cyrillrx.rpg.api.inventory.InventoryItem
 import com.cyrillrx.rpg.setHtmlText
 
-/**
- * @author Cyril Leroux
- *         Created on 12/03/2020.
- */
 class InventoryItemView(parent: ViewGroup) :
     RecyclerView.ViewHolder(parent.inflate(R.layout.item_inventory)) {
 

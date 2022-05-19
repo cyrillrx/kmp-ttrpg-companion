@@ -10,10 +10,6 @@ import com.cyrillrx.rpg.api.inventory.MagicalItem
 import com.cyrillrx.rpg.ui.theme.AppTheme
 import com.cyrillrx.utils.deserialize
 
-/**
- * @author Cyril Leroux
- *         Created on 30/10/2021.
- */
 class InventoryComposeActivity : AppCompatActivity() {
 
     private val viewModel by viewModels<InventoryViewModel>()

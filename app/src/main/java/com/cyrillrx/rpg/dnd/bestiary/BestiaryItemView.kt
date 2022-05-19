@@ -11,10 +11,6 @@ import com.cyrillrx.rpg.models.bestiary.Abilities
 import com.cyrillrx.rpg.models.bestiary.Creature
 import com.cyrillrx.rpg.setHtmlText
 
-/**
- * @author Cyril Leroux
- *         Created on 12/03/2020.
- */
 class BestiaryItemView(parent: ViewGroup) :
     RecyclerView.ViewHolder(parent.inflate(R.layout.item_bestiary)) {
 

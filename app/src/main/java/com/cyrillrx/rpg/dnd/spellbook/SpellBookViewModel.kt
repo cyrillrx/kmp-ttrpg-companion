@@ -8,10 +8,6 @@ import androidx.lifecycle.ViewModel
 import com.cyrillrx.rpg.api.spellbook.Spell
 import java.util.Locale
 
-/**
- * @author Cyril Leroux
- *         Created on 29/10/2021.
- */
 class SpellBookViewModel : ViewModel() {
 
     var loading by mutableStateOf(false)

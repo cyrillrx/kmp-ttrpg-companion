@@ -3,10 +3,6 @@ package com.cyrillrx.rpg.template
 import androidx.recyclerview.widget.RecyclerView
 import java.util.*
 
-/**
- * @author Cyril Leroux
- *         Created on 25/09/2019.
- */
 abstract class BaseAdapter<ItemView : RecyclerView.ViewHolder> : RecyclerView.Adapter<ItemView>() {
 
     private val items: ArrayList<Any> = ArrayList()

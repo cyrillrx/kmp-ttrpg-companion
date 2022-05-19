@@ -1,9 +1,5 @@
 package com.cyrillrx.rpg.dnd
 
-/**
- * @author Cyril Leroux
- *         Created on 12/03/2020.
- */
 object DndRules {
 
     fun getModifier(abilityValue: Int): Int = when {

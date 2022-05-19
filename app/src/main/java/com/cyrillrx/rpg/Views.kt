@@ -7,11 +7,6 @@ import android.text.TextWatcher
 import android.widget.EditText
 import android.widget.TextView
 
-/**
- * @author Cyril Leroux
- *         Created on 12/03/2020.
- */
-
 private val isNOrAbove = Build.VERSION.SDK_INT >= Build.VERSION_CODES.N
 
 fun TextView.setHtmlText(html: String?) {

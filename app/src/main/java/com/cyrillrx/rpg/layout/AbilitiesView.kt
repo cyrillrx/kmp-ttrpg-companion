@@ -8,10 +8,6 @@ import com.cyrillrx.rpg.R
 import com.cyrillrx.rpg.dnd.DndRules
 import com.cyrillrx.rpg.models.bestiary.Abilities
 
-/**
- * @author Cyril Leroux
- *         Created on 12/03/2020.
- */
 class AbilitiesView : ConstraintLayout {
 
     private var tvStrValue: TextView
