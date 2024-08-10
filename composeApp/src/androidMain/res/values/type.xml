@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <style name="TextAppearance.Rpg.Headline1" parent="TextAppearance.MaterialComponents.Headline1" />
+
+    <style name="TextAppearance.Rpg.Headline2" parent="TextAppearance.MaterialComponents.Headline2" />
+
+    <style name="TextAppearance.Rpg.Headline3" parent="TextAppearance.MaterialComponents.Headline3" />
+
+    <style name="TextAppearance.Rpg.Headline4" parent="TextAppearance.MaterialComponents.Headline4" />
+
+    <style name="TextAppearance.Rpg.Headline5" parent="TextAppearance.MaterialComponents.Headline5" />
+
+    <style name="TextAppearance.Rpg.Headline6" parent="TextAppearance.MaterialComponents.Headline6" />
+
+    <style name="TextAppearance.Rpg.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1" />
+
+    <style name="TextAppearance.Rpg.Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2" />
+
+    <style name="TextAppearance.Rpg.Body1" parent="TextAppearance.MaterialComponents.Body1" />
+
+    <style name="TextAppearance.Rpg.Body2" parent="TextAppearance.MaterialComponents.Body2" />
+
+    <style name="TextAppearance.Rpg.Button" parent="TextAppearance.MaterialComponents.Button" />
+
+    <style name="TextAppearance.Rpg.Caption" parent="TextAppearance.MaterialComponents.Caption" />
+
+    <style name="TextAppearance.Rpg.Overline" parent="TextAppearance.MaterialComponents.Overline" />
+
+    <style name="TextAppearance.Rpg.Toolbar" parent="TextAppearance.Rpg.Headline6" />
+
+</resources>

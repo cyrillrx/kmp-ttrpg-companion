@@ -1,9 +1,27 @@
 plugins {
-    id("com.android.application") version "7.1.2" apply false
-    id("com.android.library") version "7.1.2" apply false
-    id("org.jetbrains.kotlin.android") version "1.6.10" apply false
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.android.library) apply false
+    alias(libs.plugins.kotlin.android) apply false
+    alias(libs.plugins.jetbrainsCompose) apply false
+    alias(libs.plugins.compose.compiler) apply false
+
+//    alias(libs.plugins.jetbrainsCompose) apply false
+//    alias(libs.plugins.compose.compiler) apply false
+//    alias(libs.plugins.kotlinJvm) apply false
+//    alias(libs.plugins.kotlinMultiplatform) apply false
 }
 
-tasks.register("clean",Delete::class){
-    delete(rootProject.buildDir)
+buildscript {
+
+    repositories {
+        mavenCentral()
+        google()
+    }
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+        google()
+    }
 }
