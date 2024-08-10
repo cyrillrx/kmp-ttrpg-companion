@@ -1,9 +1,5 @@
 package com.cyrillrx.rpg.models.bestiary
 
-/**
- * @author Cyril Leroux
- *         Created on 10/03/2020.
- */
 open class Character(
     val name: String,
     val description: String,

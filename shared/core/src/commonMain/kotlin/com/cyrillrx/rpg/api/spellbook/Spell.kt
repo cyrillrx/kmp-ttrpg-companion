@@ -1,9 +1,5 @@
 package com.cyrillrx.rpg.api.spellbook
 
-/**
- * @author Cyril Leroux
- *         Created on 10/03/2020.
- */
 class Spell(
     val title: String,
     val content: String,

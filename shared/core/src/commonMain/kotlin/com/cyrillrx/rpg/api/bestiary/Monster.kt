@@ -1,9 +1,5 @@
 package com.cyrillrx.rpg.api.bestiary
 
-/**
- * @author Cyril Leroux
- *         Created on 10/03/2020.
- */
 class Monster {
 
     // Creature
