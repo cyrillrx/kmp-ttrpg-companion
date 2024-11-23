@@ -1,7 +1,9 @@
 package com.cyrillrx.rpg.api.bestiary
 
-class BestiaryItem {
+import kotlinx.serialization.Serializable
 
+@Serializable
+class BestiaryItem {
     val title: String? = null
     val content: String? = null
     val header: Header? = null
@@ -12,7 +14,8 @@ class BestiaryItem {
     val alignment: String? = null
     val challenge: Float? = null
 
+    @Serializable
     class Header {
-        val monster : Monster? = null
+        val monster: Monster? = null
     }
 }

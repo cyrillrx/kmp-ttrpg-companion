@@ -1,7 +1,9 @@
 package com.cyrillrx.rpg.api.bestiary
 
-class Monster {
+import kotlinx.serialization.Serializable
 
+@Serializable
+class Monster {
     // Creature
     val type: String? = null
     val subtype: String? = null

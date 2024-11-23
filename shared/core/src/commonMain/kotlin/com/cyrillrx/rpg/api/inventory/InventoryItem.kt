@@ -1,5 +1,8 @@
 package com.cyrillrx.rpg.api.inventory
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 class InventoryItem(
     val title: String,
     val content: String,
@@ -7,19 +10,22 @@ class InventoryItem(
     val subtype: String?,
     val rarity: String,
     val attunement: String?,
-    val header: Header
+    val header: Header,
 ) {
+    @Serializable
     class Header(val magicitem: MagicalItem, val taxonomy: Taxonomy) {
 
+        @Serializable
         class MagicalItem(
             val type: String,
             val rarity: String,
-            val attunement: String?
+            val attunement: String?,
         )
 
+        @Serializable
         class Taxonomy(
             val category: Array<String>,
-            val source: Array<String>
+            val source: Array<String>,
         )
     }
 }

@@ -7,6 +7,5 @@ class Creature(
     subtype: String,
     size: String,
     alignment: String,
-    abilities: Abilities
-) : Character(name, description, type, subtype, size, alignment, abilities) {
-}
+    abilities: Abilities,
+) : Character(name, description, type, subtype, size, alignment, abilities)

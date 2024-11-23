@@ -1,6 +1,7 @@
 package com.cyrillrx.rpg.models
 
-class Campaign (
+class Campaign(
     val game: Game,
     val players: Array<Player>,
-    val sessions: Array<Session>)
+    val sessions: Array<Session>,
+)

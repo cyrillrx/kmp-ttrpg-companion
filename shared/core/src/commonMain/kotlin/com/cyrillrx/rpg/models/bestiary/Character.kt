@@ -7,7 +7,7 @@ open class Character(
     val subtype: String,
     val size: String,
     val alignment: String,
-    val abilities: Abilities
+    val abilities: Abilities,
 ) {
     val ac: String? = null
     val hp: String? = null
@@ -28,7 +28,7 @@ open class Character(
         MONSTROSITY,
         OOZE,
         PLANT,
-        UNDEAD
+        UNDEAD,
     }
 
     enum class Size(label: String, shortLabel: String, space: Float, samples: String) {
@@ -49,6 +49,6 @@ open class Character(
         NEUTRAL_EVIL,
         CHAOTIC_GOOD,
         CHAOTIC_NEUTRAL,
-        CHAOTIC_EVIL
+        CHAOTIC_EVIL,
     }
 }
