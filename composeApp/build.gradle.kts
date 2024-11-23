@@ -3,10 +3,10 @@ import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
-    id("org.jetbrains.kotlin.multiplatform")
+    alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.android.application)
-    alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.jetbrains.compose)
 }
 
 kotlin {
@@ -50,8 +50,7 @@ android {
     sourceSets["main"].resources.srcDirs("src/commonMain/resources")
 
     defaultConfig {
-        minSdk = 23
-        targetSdk = 34
+        minSdk = Version.MIN_SDK
 
         applicationId = "com.cyrillrx.rpg"
         versionCode = 1
@@ -107,8 +106,8 @@ dependencies {
     implementation(files("$rootDir/libs/logger.2021.09.14.aar"))
     implementation(files("$rootDir/libs/logger.logcat.2021.09.14.aar"))
     implementation(files("$rootDir/libs/tracker.2021.09.14.aar"))
-    implementation(files("$rootDir/libs/notifier.2021.09.14.aar"))
-    implementation(files("$rootDir/libs/core.2021.09.14.aar"))
+//    implementation(files("$rootDir/libs/notifier.2021.09.14.aar"))
+//    implementation(files("$rootDir/libs/core.2021.09.14.aar"))
     implementation(files("$rootDir/libs/templates.2021.09.14.aar"))
 
     implementation("androidx.core:core-ktx:1.7.0")
