@@ -21,40 +21,45 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            AppTheme { HomeScreen() }
-        }
-    }
-
-    @Composable
-    fun HomeScreen() {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(spacingMedium),
-        ) {
-            HomeButton("Grimoire") { openDndSpellBook() }
-            HomeButton("Grimoire Compose") { openDndSpellBookCompose() }
-            HomeButton("Bestiaire") { openDndBestiary() }
-            HomeButton("Objets magiques") { openDndInventory() }
-            HomeButton("Objets magiques Compose") { openDndInventoryCompose() }
-        }
-    }
-
-    @Composable
-    fun HomeButton(text: String, onClick: () -> Unit) {
-        Button(
-            onClick = onClick,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(PaddingValues(spacingMedium)),
-        ) {
-            Text(text = text)
+            val router = Router(this)
+            AppTheme { HomeScreen(router) }
         }
     }
 
     @Preview(showSystemUi = true)
     @Composable
-    fun PreviewMessageCard() {
-        HomeScreen()
+    fun PreviewHomeScreen() {
+        HomeScreen(object : HomeRouter {})
+    }
+
+    class Router(private val context: Context) : HomeRouter {
+        override fun openSpellBook() {
+            val intent = Intent(context.applicationContext, SpellBookActivity::class.java)
+            context.startActivity(intent)
+        }
+
+        override fun openBestiary() {
+            // TODO: Implement bestiary in Compose
+        }
+
+        override fun openInventory() {
+            val intent = Intent(context.applicationContext, InventoryActivity::class.java)
+            context.startActivity(intent)
+        }
+
+        override fun openLegacySpellBook() {
+            val intent = Intent(context.applicationContext, SpellBookLegacyActivity::class.java)
+            context.startActivity(intent)
+        }
+
+        override fun openLegacyBestiary() {
+            val intent = Intent(context.applicationContext, BestiaryLegacyActivity::class.java)
+            context.startActivity(intent)
+        }
+
+        override fun openLegacyInventory() {
+            val intent = Intent(context.applicationContext, InventoryActivity::class.java)
+            context.startActivity(intent)
+        }
     }
 }
