@@ -30,14 +30,17 @@ class PlaceholderLayout : FrameLayout {
         init(context)
     }
 
-    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int)
-        : super(context, attrs, defStyleAttr) {
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
         init(context)
     }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int, defStyleRes: Int)
-        : super(context, attrs, defStyleAttr, defStyleRes) {
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int, defStyleRes: Int) : super(
+        context,
+        attrs,
+        defStyleAttr,
+        defStyleRes,
+    ) {
         init(context)
     }
 
@@ -58,7 +61,6 @@ class PlaceholderLayout : FrameLayout {
     }
 
     private fun setImageRes(drawableRes: Int?) {
-
         if (drawableRes == null) {
             ivImage.visibility = View.GONE
         } else {
@@ -68,7 +70,6 @@ class PlaceholderLayout : FrameLayout {
     }
 
     private fun setTitle(title: String?) {
-
         if (title.isNullOrBlank()) {
             tvTitle.visibility = View.GONE
         } else {
@@ -78,7 +79,6 @@ class PlaceholderLayout : FrameLayout {
     }
 
     private fun setSubtitle(subtitle: String?) {
-
         if (subtitle.isNullOrBlank()) {
             tvSubtitle.visibility = View.GONE
         } else {
@@ -88,7 +88,6 @@ class PlaceholderLayout : FrameLayout {
     }
 
     private fun setAction(label: String?, onClick: ((v: View) -> Unit)? = null) {
-
         if (label.isNullOrBlank() || onClick == null) {
             btnAction.visibility = View.GONE
         } else {

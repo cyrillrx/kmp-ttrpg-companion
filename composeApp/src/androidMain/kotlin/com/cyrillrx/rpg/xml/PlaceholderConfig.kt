@@ -8,14 +8,14 @@ import androidx.annotation.DrawableRes
  *          Created on 17/07/2018.
  */
 class PlaceholderConfig private constructor(
-        val drawableRes: Int? = null,
-        val title: String? = null,
-        val subtitle: String? = null,
-        val actionLabel: String? = null,
-        val onClick: ((v: View) -> Unit)? = null) {
+    val drawableRes: Int? = null,
+    val title: String? = null,
+    val subtitle: String? = null,
+    val actionLabel: String? = null,
+    val onClick: ((v: View) -> Unit)? = null,
+) {
 
     class Builder {
-
         private var drawableRes: Int? = null
         private var title: String? = null
         private var subtitle: String? = null
@@ -44,7 +44,7 @@ class PlaceholderConfig private constructor(
         }
 
         fun build(): PlaceholderConfig =
-                PlaceholderConfig(drawableRes, title, subtitle, actionLabel, onClick)
+            PlaceholderConfig(drawableRes, title, subtitle, actionLabel, onClick)
     }
 
     companion object {
