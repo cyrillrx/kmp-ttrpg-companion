@@ -8,7 +8,7 @@ import com.cyrillrx.rpg.template.SearchListActivity
 import com.cyrillrx.utils.deserialize
 import java.util.Locale
 
-class InventoryActivity : SearchListActivity<InventoryAdapter>() {
+class InventoryLegacyActivity : SearchListActivity<InventoryAdapter>() {
 
     override val adapter = InventoryAdapter()
     private val locale by lazy { Locale.ROOT }

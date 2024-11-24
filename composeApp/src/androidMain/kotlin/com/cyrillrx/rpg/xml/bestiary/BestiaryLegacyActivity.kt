@@ -5,7 +5,7 @@ import com.cyrillrx.rpg.api.bestiary.BestiaryItem
 import com.cyrillrx.rpg.template.ListActivity
 import com.cyrillrx.utils.deserialize
 
-class BestiaryActivity : ListActivity<BestiaryAdapter>() {
+class BestiaryLegacyActivity : ListActivity<BestiaryAdapter>() {
 
     override val adapter = BestiaryAdapter()
 

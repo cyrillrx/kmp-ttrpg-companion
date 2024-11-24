@@ -11,7 +11,7 @@ import com.cyrillrx.rpg.dnd.spellbook.widget.SpellBookPeekScreen
 import com.cyrillrx.rpg.presentation.theme.AppTheme
 import com.cyrillrx.utils.deserialize
 
-class SpellBookComposeActivity : AppCompatActivity() {
+class SpellBookActivity : AppCompatActivity() {
 
     private val viewModel by viewModels<SpellBookViewModel>()
 

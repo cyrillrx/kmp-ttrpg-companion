@@ -3,7 +3,7 @@ package com.cyrillrx.rpg.xml.group
 import com.cyrillrx.rpg.models.Character
 import com.cyrillrx.rpg.template.ListActivity
 
-class CharacterListActivity : ListActivity<CharacterAdapter>() {
+class CharacterListLegacyActivity : ListActivity<CharacterAdapter>() {
 
     override val adapter = CharacterAdapter()
 

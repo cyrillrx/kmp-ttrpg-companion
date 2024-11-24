@@ -21,7 +21,7 @@
         </activity>
 
         <activity
-            android:name=".dnd.spellbook.SpellBookComposeActivity"
+            android:name=".dnd.spellbook.SpellBookActivity"
             android:theme="@style/NoActionBar" />
 
         <activity
@@ -29,20 +29,20 @@
             android:theme="@style/NoActionBar" />
 
         <activity
-            android:name=".dnd.inventory.InventoryComposeActivity"
+            android:name=".dnd.inventory.InventoryActivity"
             android:theme="@style/NoActionBar" />
 
-        <activity android:name=".xml.game.GameListActivity" />
-        <activity android:name=".xml.group.CharacterListActivity" />
+        <activity android:name=".xml.game.GameListLegayActivity" />
+        <activity android:name=".xml.group.CharacterListLegacyActivity" />
 
         <activity
-            android:name=".xml.spellbook.SpellBookActivity"
+            android:name=".xml.spellbook.SpellBookLegacyActivity"
             android:theme="@style/NoActionBar" />
         <activity
-            android:name=".xml.bestiary.BestiaryActivity"
+            android:name=".xml.bestiary.BestiaryLegacyActivity"
             android:theme="@style/NoActionBar" />
         <activity
-            android:name=".xml.inventory.InventoryActivity"
+            android:name=".xml.inventory.InventoryLegacyActivity"
             android:theme="@style/NoActionBar" />
 
     </application>

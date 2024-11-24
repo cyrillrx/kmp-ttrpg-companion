@@ -1,25 +1,19 @@
 package com.cyrillrx.rpg
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Button
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.cyrillrx.rpg.Router.openDndBestiary
-import com.cyrillrx.rpg.Router.openDndInventory
-import com.cyrillrx.rpg.Router.openDndInventoryCompose
-import com.cyrillrx.rpg.Router.openDndSpellBook
-import com.cyrillrx.rpg.Router.openDndSpellBookCompose
+import com.cyrillrx.rpg.dnd.inventory.InventoryActivity
+import com.cyrillrx.rpg.dnd.spellbook.SpellBookActivity
+import com.cyrillrx.rpg.presentation.home.HomeRouter
+import com.cyrillrx.rpg.presentation.home.HomeScreen
 import com.cyrillrx.rpg.presentation.theme.AppTheme
-import com.cyrillrx.rpg.presentation.theme.spacingMedium
+import com.cyrillrx.rpg.xml.bestiary.BestiaryLegacyActivity
+import com.cyrillrx.rpg.xml.spellbook.SpellBookLegacyActivity
 
 class HomeActivity : AppCompatActivity() {
 

@@ -8,7 +8,7 @@ import com.cyrillrx.rpg.template.SearchListActivity
 import com.cyrillrx.utils.deserialize
 import java.util.Locale
 
-class SpellBookActivity : SearchListActivity<SpellBookAdapter>() {
+class SpellBookLegacyActivity : SearchListActivity<SpellBookAdapter>() {
 
     override val adapter = SpellBookAdapter()
     private val locale by lazy { Locale.ROOT }
