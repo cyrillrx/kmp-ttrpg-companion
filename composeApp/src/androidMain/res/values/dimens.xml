@@ -8,4 +8,15 @@
 
     <dimen name="card_divider">4dp</dimen>
 
+    <color name="ui_templates_text_primary">#27262c</color>
+    <dimen name="ui_templates_loader_height">60dp</dimen>
+    <dimen name="ui_templates_spacing_common">16dp</dimen>
+    <dimen name="ui_templates_spacing_header">32dp</dimen>
+    <dimen name="ui_templates_spacing_large">32dp</dimen>
+    <dimen name="ui_templates_spacing_medium">8dp</dimen>
+    <dimen name="ui_templates_spacing_small">4dp</dimen>
+    <dimen name="ui_templates_text_header">24sp</dimen>
+    <dimen name="ui_templates_text_subtitle">16sp</dimen>
+    <dimen name="ui_templates_text_title">22sp</dimen>
+
 </resources>

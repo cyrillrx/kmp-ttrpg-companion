@@ -25,9 +25,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.cyrillrx.rpg.R
 import com.cyrillrx.rpg.api.spellbook.Spell
-import com.cyrillrx.rpg.ui.theme.spacingCommon
-import com.cyrillrx.rpg.ui.theme.spacingSmall
-import com.cyrillrx.rpg.ui.widget.BookmarkButton
+import com.cyrillrx.rpg.presentation.theme.spacingCommon
+import com.cyrillrx.rpg.presentation.theme.spacingSmall
+import com.cyrillrx.rpg.presentation.widget.BookmarkButton
 import de.charlex.compose.HtmlText
 
 @Composable

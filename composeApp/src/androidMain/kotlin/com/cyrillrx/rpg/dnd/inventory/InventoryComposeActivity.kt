@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.cyrillrx.rpg.AssetReader
 import com.cyrillrx.rpg.api.inventory.InventoryItem
 import com.cyrillrx.rpg.api.inventory.MagicalItem
-import com.cyrillrx.rpg.ui.theme.AppTheme
+import com.cyrillrx.rpg.presentation.theme.AppTheme
 import com.cyrillrx.utils.deserialize
 
 class InventoryComposeActivity : AppCompatActivity() {
@@ -29,7 +29,7 @@ class InventoryComposeActivity : AppCompatActivity() {
 
     private fun loadFromFile(): List<MagicalItem> {
         val serializedInventory = AssetReader.readAsString(this, "objets-magiques.json")
-        val inventoryItems = serializedInventory?.deserialize() ?: Inventory()
+        val inventoryItems: List<InventoryItem> = serializedInventory?.deserialize() ?: listOf()
         return inventoryItems.map { it.toMagicalItem() }
     }
 
@@ -73,6 +73,4 @@ class InventoryComposeActivity : AppCompatActivity() {
             else -> MagicalItem.Rarety.UNCOMMON
         }
     }
-
-    private class Inventory : ArrayList<InventoryItem>()
 }

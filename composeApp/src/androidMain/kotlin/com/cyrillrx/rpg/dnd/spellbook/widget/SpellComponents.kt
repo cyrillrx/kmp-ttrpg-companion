@@ -3,7 +3,7 @@ package com.cyrillrx.rpg.dnd.spellbook.widget
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -36,10 +36,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.cyrillrx.rpg.R
 import com.cyrillrx.rpg.api.spellbook.Spell
-import com.cyrillrx.rpg.ui.theme.AppTheme
-import com.cyrillrx.rpg.ui.theme.spacingMedium
-import com.cyrillrx.rpg.ui.widget.OverflowMenu
-import com.cyrillrx.rpg.ui.widget.Search
+import com.cyrillrx.rpg.presentation.theme.AppTheme
+import com.cyrillrx.rpg.presentation.theme.spacingMedium
+import com.cyrillrx.rpg.presentation.widget.OverflowMenu
+import com.cyrillrx.rpg.presentation.widget.Search
 import de.charlex.compose.HtmlText
 
 internal val borderStroke = spacingMedium
@@ -55,7 +55,7 @@ fun SpellBookScreen(spells: List<Spell>, query: String, applyFilter: (String) ->
 
         LazyRow(modifier = Modifier.fillMaxSize()) {
             items(spells) { spell ->
-                BoxWithConstraints(modifier = Modifier.fillParentMaxSize()) {
+                Box(modifier = Modifier.fillParentMaxSize()) {
                     SpellCard(spell)
                 }
             }

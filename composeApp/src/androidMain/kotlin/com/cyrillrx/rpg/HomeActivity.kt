@@ -18,8 +18,8 @@ import com.cyrillrx.rpg.Router.openDndInventory
 import com.cyrillrx.rpg.Router.openDndInventoryCompose
 import com.cyrillrx.rpg.Router.openDndSpellBook
 import com.cyrillrx.rpg.Router.openDndSpellBookCompose
-import com.cyrillrx.rpg.ui.theme.AppTheme
-import com.cyrillrx.rpg.ui.theme.spacingMedium
+import com.cyrillrx.rpg.presentation.theme.AppTheme
+import com.cyrillrx.rpg.presentation.theme.spacingMedium
 
 class HomeActivity : AppCompatActivity() {
 

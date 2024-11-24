@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.ui.theme
+package com.cyrillrx.rpg.presentation.theme
 
 import androidx.compose.foundation.shape.CutCornerShape
 import androidx.compose.foundation.shape.RoundedCornerShape

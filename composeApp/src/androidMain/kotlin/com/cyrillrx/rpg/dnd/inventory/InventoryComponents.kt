@@ -2,7 +2,7 @@ package com.cyrillrx.rpg.dnd.inventory
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -24,8 +24,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.cyrillrx.rpg.R
 import com.cyrillrx.rpg.api.inventory.MagicalItem
-import com.cyrillrx.rpg.ui.theme.AppTheme
-import com.cyrillrx.rpg.ui.widget.Search
+import com.cyrillrx.rpg.presentation.theme.AppTheme
+import com.cyrillrx.rpg.presentation.widget.Search
 
 @Composable
 fun InventoryScreen(magicalItems: List<MagicalItem>, query: String, applyFilter: (String) -> Unit) {
@@ -37,8 +37,7 @@ fun InventoryScreen(magicalItems: List<MagicalItem>, query: String, applyFilter:
 
         LazyRow(modifier = Modifier.fillMaxSize()) {
             items(magicalItems) { item ->
-                BoxWithConstraints(modifier = Modifier.fillParentMaxSize())
-                {
+                Box(modifier = Modifier.fillParentMaxSize()) {
                     MagicalItemCard(item)
                 }
             }

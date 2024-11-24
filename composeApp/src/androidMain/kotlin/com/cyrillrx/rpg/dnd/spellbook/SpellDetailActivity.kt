@@ -7,7 +7,7 @@ import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import com.cyrillrx.rpg.api.spellbook.Spell
 import com.cyrillrx.rpg.dnd.spellbook.widget.SpellCard
-import com.cyrillrx.rpg.ui.theme.AppTheme
+import com.cyrillrx.rpg.presentation.theme.AppTheme
 import com.cyrillrx.utils.deserialize
 import com.cyrillrx.utils.serialize
 

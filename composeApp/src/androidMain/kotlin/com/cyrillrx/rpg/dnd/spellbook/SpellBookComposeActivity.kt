@@ -8,7 +8,7 @@ import com.cyrillrx.rpg.AssetReader
 import com.cyrillrx.rpg.Router.openSpellDetail
 import com.cyrillrx.rpg.api.spellbook.Spell
 import com.cyrillrx.rpg.dnd.spellbook.widget.SpellBookPeekScreen
-import com.cyrillrx.rpg.ui.theme.AppTheme
+import com.cyrillrx.rpg.presentation.theme.AppTheme
 import com.cyrillrx.utils.deserialize
 
 class SpellBookComposeActivity : AppCompatActivity() {
@@ -37,8 +37,6 @@ class SpellBookComposeActivity : AppCompatActivity() {
 
     private fun loadFromFile(): List<Spell> {
         val serializedSpellBook = AssetReader.readAsString(this, "grimoire.json")
-        return serializedSpellBook?.deserialize<SpellBook>() ?: SpellBook()
+        return serializedSpellBook?.deserialize() ?: listOf()
     }
-
-    private class SpellBook : ArrayList<Spell>()
 }
