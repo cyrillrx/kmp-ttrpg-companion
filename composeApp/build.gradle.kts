@@ -44,7 +44,7 @@ kotlin {
 
 android {
     namespace = "com.cyrillrx.rpg"
-    compileSdk = 34
+    compileSdk = Version.COMPILE_SDK
 
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     sourceSets["main"].res.srcDirs("src/androidMain/res")
@@ -103,12 +103,8 @@ compose.desktop {
 dependencies {
     implementation(projects.shared.core)
 
-    implementation(files("$rootDir/libs/logger.2021.09.14.aar"))
-    implementation(files("$rootDir/libs/logger.logcat.2021.09.14.aar"))
-    implementation(files("$rootDir/libs/tracker.2021.09.14.aar"))
-//    implementation(files("$rootDir/libs/notifier.2021.09.14.aar"))
-//    implementation(files("$rootDir/libs/core.2021.09.14.aar"))
-    implementation(files("$rootDir/libs/templates.2021.09.14.aar"))
+    implementation(files("$rootDir/libs/logger.2024-11-23.aar"))
+    implementation(files("$rootDir/libs/tracker.2024-11-23.aar"))
 
     implementation("androidx.core:core-ktx:1.7.0")
     implementation("androidx.appcompat:appcompat:1.4.1")

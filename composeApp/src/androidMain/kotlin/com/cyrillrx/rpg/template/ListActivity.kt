@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.cyrillrx.rpg.R
-import com.cyrillrx.templates.layout.PlaceholderLayout
+import com.cyrillrx.rpg.xml.PlaceholderLayout
 
 abstract class ListActivity<Adapter : BaseAdapter<*>> : AppCompatActivity() {
 
