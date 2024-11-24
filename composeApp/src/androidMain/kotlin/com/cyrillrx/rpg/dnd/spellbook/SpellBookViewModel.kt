@@ -54,8 +54,8 @@ class SpellBookViewModel : ViewModel() {
     private fun Spell.matches(query: String): Boolean {
         val lowerCaseQuery = query.trim().lowercase(locale)
         return title.lowercase(locale).contains(lowerCaseQuery) ||
-                content.lowercase(locale).contains(lowerCaseQuery) ||
-                lowerCaseQuery in getSpellClasses().map { it.lowercase(locale) }
+            content.lowercase(locale).contains(lowerCaseQuery) ||
+            lowerCaseQuery in getSpellClasses().map { it.lowercase(locale) }
     }
 
     private fun updateData() {

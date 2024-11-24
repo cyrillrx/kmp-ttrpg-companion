@@ -112,7 +112,7 @@ private fun SearchBarWithOverflow(
         Search(
             modifier = Modifier.weight(1f),
             query = query,
-            applyFilter = applyFilter
+            applyFilter = applyFilter,
         ) {
             Text(stringResource(id = R.string.spell_search_hint))
         }
@@ -135,7 +135,7 @@ fun SpellCard(spell: Spell) {
             .padding(4.dp)
             .fillMaxSize(),
         shape = RoundedCornerShape(16.dp),
-        border = BorderStroke(borderStroke, spellColor)
+        border = BorderStroke(borderStroke, spellColor),
     ) {
         Column(Modifier.padding(borderStroke)) {
             Text(
@@ -149,7 +149,7 @@ fun SpellCard(spell: Spell) {
                         start = textPadding,
                         end = textPadding,
                         top = textPadding / 2,
-                        bottom = textPadding / 2
+                        bottom = textPadding / 2,
                     ),
             )
             Text(
@@ -240,7 +240,7 @@ fun SpellGridItem(title: String, subtitle: String, color: Color) {
             Modifier
                 .fillMaxWidth()
                 .height(borderStroke)
-                .background(color)
+                .background(color),
         )
     }
 }

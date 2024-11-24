@@ -8,7 +8,6 @@ class GameListLegayActivity : ListActivity<GameAdapter>() {
     override val adapter = GameAdapter()
 
     override fun sendRequest() {
-
         startLoading()
 
         val games = listOf(

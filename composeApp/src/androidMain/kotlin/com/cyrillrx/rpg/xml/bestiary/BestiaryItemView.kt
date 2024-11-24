@@ -18,7 +18,6 @@ class BestiaryItemView(parent: ViewGroup) :
     private var abilitiesView: AbilitiesView = itemView.findViewById(R.id.abilitiesLayout)
 
     fun bind(bestiaryItem: BestiaryItem) {
-
         val creature = bestiaryItem.toCreature()
 
         tvTitle.text = creature.name
@@ -27,7 +26,6 @@ class BestiaryItemView(parent: ViewGroup) :
     }
 
     private fun BestiaryItem.toCreature(): Creature {
-
         val abilities = header?.monster
 
         return Creature(
@@ -44,7 +42,7 @@ class BestiaryItemView(parent: ViewGroup) :
                 extractAbilities(abilities?.int),
                 extractAbilities(abilities?.wis),
                 extractAbilities(abilities?.cha),
-            )
+            ),
         )
     }
 

@@ -25,7 +25,6 @@ class SpellBookItemView(parent: ViewGroup) :
     private var tvDurationValue: TextView = itemView.findViewById(R.id.tvDurationValue)
 
     fun bind(spell: Spell) {
-
         tvTitle.text = spell.title
         tvSubtitle.text = tvSubtitle.context.getString(
             R.string.formatted_spell_school_level,

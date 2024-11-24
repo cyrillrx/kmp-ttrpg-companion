@@ -34,7 +34,6 @@ abstract class ListActivity<Adapter : BaseAdapter<*>> : AppCompatActivity() {
     }
 
     protected open fun setupRecycler(recyclerView: RecyclerView) {
-
         val layoutManager = createLayoutManager()
         recyclerView.layoutManager = layoutManager
         addItemDecoration(recyclerView, layoutManager)

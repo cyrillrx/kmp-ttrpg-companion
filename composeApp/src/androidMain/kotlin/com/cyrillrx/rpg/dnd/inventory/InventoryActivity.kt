@@ -26,7 +26,6 @@ class InventoryActivity : AppCompatActivity() {
         viewModel.init(loadFromFile())
     }
 
-
     private fun loadFromFile(): List<MagicalItem> {
         val serializedInventory = AssetReader.readAsString(this, "objets-magiques.json")
         val inventoryItems: List<InventoryItem> = serializedInventory?.deserialize() ?: listOf()

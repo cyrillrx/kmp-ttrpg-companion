@@ -8,7 +8,6 @@ class CharacterListLegacyActivity : ListActivity<CharacterAdapter>() {
     override val adapter = CharacterAdapter()
 
     override fun sendRequest() {
-
         startLoading()
 
         val characters = listOf(

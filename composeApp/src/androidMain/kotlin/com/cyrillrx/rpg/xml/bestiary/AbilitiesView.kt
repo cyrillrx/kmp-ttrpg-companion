@@ -17,14 +17,11 @@ class AbilitiesView : ConstraintLayout {
     private var tvWisValue: TextView
     private var tvChaValue: TextView
 
-    constructor(context: Context)
-            : this(context, null)
+    constructor(context: Context) : this(context, null)
 
-    constructor(context: Context, attrs: AttributeSet?)
-            : this(context, attrs, 0)
+    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int)
-            : super(context, attrs, defStyleAttr) {
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
 
         inflate(context, R.layout.layout_abilities, this)
 

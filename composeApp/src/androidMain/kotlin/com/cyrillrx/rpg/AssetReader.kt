@@ -5,8 +5,7 @@ import com.cyrillrx.logger.Logger
 import java.io.IOException
 
 object AssetReader {
-
-    private val TAG = AssetReader::class.java.simpleName
+    private const val TAG = "AssetReader"
 
     fun readAsString(context: Context, fileName: String): String? {
         return try {

@@ -16,7 +16,6 @@ class InventoryItemView(parent: ViewGroup) :
     private var tvContent: TextView = itemView.findViewById(R.id.tvContent)
 
     fun bind(inventoryItem: InventoryItem) {
-
         tvTitle.text = inventoryItem.title
         tvSubtitle.text = """${inventoryItem.type}
             |${inventoryItem.rarity}

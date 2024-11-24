@@ -10,7 +10,6 @@ class BestiaryLegacyActivity : ListActivity<BestiaryAdapter>() {
     override val adapter = BestiaryAdapter()
 
     override fun sendRequest() {
-
         startLoading()
 
         val serializedBestiary = AssetReader.readAsString(this, "bestiaire.json")

@@ -17,19 +17,16 @@ class InventoryLegacyActivity : SearchListActivity<InventoryAdapter>() {
         LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
     override fun sendRequest() {
-
         val magicalItems = loadFromFile()
         updateData(magicalItems)
     }
 
     override fun applyFilter(query: String) {
-
         val magicalItems = loadFromFile()
         updateData(magicalItems.filter(query))
     }
 
     private fun updateData(magicalItems: List<InventoryItem>) {
-
         startLoading()
 
         adapter.clear()
@@ -49,6 +46,6 @@ class InventoryLegacyActivity : SearchListActivity<InventoryAdapter>() {
     private fun InventoryItem.filter(query: String): Boolean {
         val lowerCaseQuery = query.trim().lowercase(locale)
         return title.lowercase(locale).contains(lowerCaseQuery) ||
-                content.lowercase(locale).contains(lowerCaseQuery)
+            content.lowercase(locale).contains(lowerCaseQuery)
     }
 }

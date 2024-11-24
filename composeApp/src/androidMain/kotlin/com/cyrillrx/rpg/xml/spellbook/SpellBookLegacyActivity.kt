@@ -17,19 +17,16 @@ class SpellBookLegacyActivity : SearchListActivity<SpellBookAdapter>() {
         LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
     override fun sendRequest() {
-
         val spells: List<Spell> = loadFromFile()
         updateData(spells)
     }
 
     override fun applyFilter(query: String) {
-
         val spells: List<Spell> = loadFromFile()
         updateData(spells.filter(query))
     }
 
     private fun updateData(spells: List<Spell>) {
-
         startLoading()
 
         adapter.clear()
@@ -50,7 +47,7 @@ class SpellBookLegacyActivity : SearchListActivity<SpellBookAdapter>() {
     private fun Spell.filter(query: String): Boolean {
         val lowerCaseQuery = query.trim().lowercase(locale)
         return title.lowercase(locale).contains(lowerCaseQuery) ||
-                content.lowercase(locale).contains(lowerCaseQuery) ||
-                lowerCaseQuery in getSpellClasses().map { it.lowercase(locale) }
+            content.lowercase(locale).contains(lowerCaseQuery) ||
+            lowerCaseQuery in getSpellClasses().map { it.lowercase(locale) }
     }
 }

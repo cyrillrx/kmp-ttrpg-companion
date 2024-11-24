@@ -71,7 +71,6 @@ private fun Header(spell: Spell, savedSpells: List<Spell>, onSaveClicked: (Spell
         modifier = Modifier.background(spell.getColor()),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-
         Column(Modifier.weight(1f)) {
             Text(
                 text = spell.title,

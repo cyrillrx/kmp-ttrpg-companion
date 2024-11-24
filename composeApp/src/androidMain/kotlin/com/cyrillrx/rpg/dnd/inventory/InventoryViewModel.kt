@@ -36,8 +36,8 @@ class InventoryViewModel : ViewModel() {
     private fun MagicalItem.filter(query: String): Boolean {
         val lowerCaseQuery = query.trim().lowercase(locale)
         return title.lowercase(locale).contains(lowerCaseQuery) ||
-                subtitle.lowercase(locale).contains(lowerCaseQuery) ||
-                description.lowercase(locale).contains(lowerCaseQuery)
+            subtitle.lowercase(locale).contains(lowerCaseQuery) ||
+            description.lowercase(locale).contains(lowerCaseQuery)
     }
 
     private fun updateData(itemList: List<MagicalItem>) {
