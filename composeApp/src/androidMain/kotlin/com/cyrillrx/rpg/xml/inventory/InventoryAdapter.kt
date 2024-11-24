@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.dnd.inventory
+package com.cyrillrx.rpg.xml.inventory
 
 import android.view.ViewGroup
 import com.cyrillrx.rpg.api.inventory.InventoryItem

@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.group
+package com.cyrillrx.rpg.xml.group
 
 import com.cyrillrx.rpg.models.Character
 import com.cyrillrx.rpg.template.ListActivity
@@ -14,7 +14,7 @@ class CharacterListActivity : ListActivity<CharacterAdapter>() {
         val characters = listOf(
             Character("Bob"),
             Character("Lee"),
-            Character("Joe")
+            Character("Joe"),
         )
 
         adapter.addAll(characters)

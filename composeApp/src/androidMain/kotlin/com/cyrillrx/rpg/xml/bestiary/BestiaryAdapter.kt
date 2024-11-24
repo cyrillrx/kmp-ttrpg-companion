@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.dnd.bestiary
+package com.cyrillrx.rpg.xml.bestiary
 
 import android.view.ViewGroup
 import com.cyrillrx.rpg.api.bestiary.BestiaryItem

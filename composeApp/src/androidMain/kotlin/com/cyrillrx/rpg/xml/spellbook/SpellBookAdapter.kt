@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.dnd.spellbook
+package com.cyrillrx.rpg.xml.spellbook
 
 import android.view.ViewGroup
 import com.cyrillrx.rpg.api.spellbook.Spell

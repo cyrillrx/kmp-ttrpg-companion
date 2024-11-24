@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.dnd.spellbook
+package com.cyrillrx.rpg.xml.spellbook
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -40,7 +40,8 @@ class SpellBookActivity : SearchListActivity<SpellBookAdapter>() {
 
     private fun loadFromFile(): List<Spell> {
         val serializedSpellBook = AssetReader.readAsString(this, "grimoire.json")
-        return serializedSpellBook?.deserialize<SpellBook>() ?: SpellBook()
+        val spellBook: List<Spell> = serializedSpellBook?.deserialize() ?: listOf()
+        return spellBook
     }
 
     private fun List<Spell>.filter(query: String): List<Spell> =
@@ -52,6 +53,4 @@ class SpellBookActivity : SearchListActivity<SpellBookAdapter>() {
                 content.lowercase(locale).contains(lowerCaseQuery) ||
                 lowerCaseQuery in getSpellClasses().map { it.lowercase(locale) }
     }
-
-    private class SpellBook : ArrayList<Spell>()
 }

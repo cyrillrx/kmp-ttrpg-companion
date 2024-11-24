@@ -1,12 +1,12 @@
-package com.cyrillrx.rpg.dnd.spellbook
+package com.cyrillrx.rpg.xml.spellbook
 
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.cyrillrx.android.utils.inflate
 import com.cyrillrx.rpg.R
 import com.cyrillrx.rpg.api.spellbook.Spell
 import com.cyrillrx.rpg.setHtmlText
+import com.cyrillrx.rpg.xml.inflate
 
 class SpellBookItemView(parent: ViewGroup) :
     RecyclerView.ViewHolder(parent.inflate(R.layout.item_spell)) {

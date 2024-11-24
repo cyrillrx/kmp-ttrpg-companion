@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.dnd.bestiary
+package com.cyrillrx.rpg.xml.bestiary
 
 import com.cyrillrx.rpg.AssetReader
 import com.cyrillrx.rpg.api.bestiary.BestiaryItem
@@ -14,12 +14,10 @@ class BestiaryActivity : ListActivity<BestiaryAdapter>() {
         startLoading()
 
         val serializedBestiary = AssetReader.readAsString(this, "bestiaire.json")
-        val bestiary: Bestiary = serializedBestiary?.deserialize() ?: Bestiary()
+        val bestiary: List<BestiaryItem> = serializedBestiary?.deserialize() ?: listOf()
 
         adapter.addAll(bestiary)
 
         stopLoading()
     }
-
-    class Bestiary : ArrayList<BestiaryItem>()
 }

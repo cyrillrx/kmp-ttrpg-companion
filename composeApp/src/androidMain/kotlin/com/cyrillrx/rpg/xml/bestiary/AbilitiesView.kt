@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.layout
+package com.cyrillrx.rpg.xml.bestiary
 
 import android.content.Context
 import android.util.AttributeSet

@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.game
+package com.cyrillrx.rpg.xml.game
 
 import android.view.ViewGroup
 import com.cyrillrx.rpg.models.Game
