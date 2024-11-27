@@ -1,7 +1,7 @@
 package com.cyrillrx.rpg.xml.game
 
 import com.cyrillrx.rpg.models.Game
-import com.cyrillrx.rpg.template.ListActivity
+import com.cyrillrx.rpg.xml.template.ListActivity
 
 class GameListLegayActivity : ListActivity<GameAdapter>() {
 

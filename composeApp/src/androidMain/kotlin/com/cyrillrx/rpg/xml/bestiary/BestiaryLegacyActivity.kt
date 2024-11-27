@@ -2,7 +2,7 @@ package com.cyrillrx.rpg.xml.bestiary
 
 import com.cyrillrx.rpg.AssetReader
 import com.cyrillrx.rpg.api.bestiary.BestiaryItem
-import com.cyrillrx.rpg.template.ListActivity
+import com.cyrillrx.rpg.xml.template.ListActivity
 import com.cyrillrx.utils.deserialize
 
 class BestiaryLegacyActivity : ListActivity<BestiaryAdapter>() {

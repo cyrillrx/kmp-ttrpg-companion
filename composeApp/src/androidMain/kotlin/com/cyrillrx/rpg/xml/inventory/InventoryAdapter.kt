@@ -2,7 +2,7 @@ package com.cyrillrx.rpg.xml.inventory
 
 import android.view.ViewGroup
 import com.cyrillrx.rpg.api.inventory.InventoryItem
-import com.cyrillrx.rpg.template.BaseAdapter
+import com.cyrillrx.rpg.xml.template.BaseAdapter
 
 class InventoryAdapter : BaseAdapter<InventoryItemView>() {
 

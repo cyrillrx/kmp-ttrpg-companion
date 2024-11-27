@@ -4,7 +4,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.cyrillrx.rpg.AssetReader
 import com.cyrillrx.rpg.api.inventory.InventoryItem
-import com.cyrillrx.rpg.template.SearchListActivity
+import com.cyrillrx.rpg.xml.template.SearchListActivity
 import com.cyrillrx.utils.deserialize
 import java.util.Locale
 

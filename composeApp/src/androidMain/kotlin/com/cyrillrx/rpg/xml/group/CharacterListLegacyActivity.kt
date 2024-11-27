@@ -1,7 +1,7 @@
 package com.cyrillrx.rpg.xml.group
 
 import com.cyrillrx.rpg.models.Character
-import com.cyrillrx.rpg.template.ListActivity
+import com.cyrillrx.rpg.xml.template.ListActivity
 
 class CharacterListLegacyActivity : ListActivity<CharacterAdapter>() {
 

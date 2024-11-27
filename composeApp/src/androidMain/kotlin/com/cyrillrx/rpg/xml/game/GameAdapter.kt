@@ -2,7 +2,7 @@ package com.cyrillrx.rpg.xml.game
 
 import android.view.ViewGroup
 import com.cyrillrx.rpg.models.Game
-import com.cyrillrx.rpg.template.BaseAdapter
+import com.cyrillrx.rpg.xml.template.BaseAdapter
 
 class GameAdapter : BaseAdapter<GameItemView>() {
 

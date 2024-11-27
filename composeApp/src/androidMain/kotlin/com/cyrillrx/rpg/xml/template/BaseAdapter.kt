@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.template
+package com.cyrillrx.rpg.xml.template
 
 import androidx.recyclerview.widget.RecyclerView
 
