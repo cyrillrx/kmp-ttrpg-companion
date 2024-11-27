@@ -5,7 +5,4 @@ object Version {
     const val COMPILE_SDK = 35
 
     val java = JavaVersion.VERSION_17
-    const val JVM_TARGET = "17"
-
-    const val COMPOSE = "1.1.1"
 }

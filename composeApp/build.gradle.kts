@@ -14,7 +14,7 @@ kotlin {
     androidTarget {
         @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_11)
+            jvmTarget.set(JvmTarget.JVM_17)
         }
     }
 
@@ -71,12 +71,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = Version.COMPOSE
+        sourceCompatibility = Version.java
+        targetCompatibility = Version.java
     }
 
     buildFeatures {
