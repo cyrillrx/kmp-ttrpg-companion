@@ -15,13 +15,13 @@ fun HomeScreen(router: HomeRouter) {
             .fillMaxSize()
             .padding(spacingMedium),
     ) {
-        HomeButton("Grimoire") { router.openSpellBook() }
-        HomeButton("Bestiaire") { router.openBestiary() }
-        HomeButton("Objets magiques") { router.openInventory() }
+        HomeButton("Grimoire", router::openSpellBook)
+        HomeButton("Bestiaire", router::openBestiary)
+        HomeButton("Objets magiques", router::openInventory)
 
-        HomeButton("Grimoire xml") { router.openLegacySpellBook() }
-        HomeButton("Bestiaire xml") { router.openLegacyBestiary() }
-        HomeButton("Objets magiques xml") { router.openLegacyInventory() }
+        HomeButton("Grimoire xml", router::openLegacySpellBook)
+        HomeButton("Bestiaire xml", router::openLegacyBestiary)
+        HomeButton("Objets magiques xml", router::openLegacyInventory)
     }
 }
 
