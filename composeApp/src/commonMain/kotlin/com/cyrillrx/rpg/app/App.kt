@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.presentation
+package com.cyrillrx.rpg.app
 
 import androidx.compose.runtime.Composable
 import com.cyrillrx.rpg.presentation.home.HomeRouter

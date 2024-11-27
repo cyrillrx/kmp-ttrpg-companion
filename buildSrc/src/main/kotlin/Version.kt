@@ -7,5 +7,5 @@ object Version {
     val java = JavaVersion.VERSION_17
     const val JVM_TARGET = "17"
 
-    const val compose = "1.1.1"
+    const val COMPOSE = "1.1.1"
 }
