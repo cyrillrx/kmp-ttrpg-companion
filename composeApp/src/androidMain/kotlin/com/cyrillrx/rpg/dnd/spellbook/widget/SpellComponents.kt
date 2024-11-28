@@ -35,7 +35,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.cyrillrx.rpg.R
-import com.cyrillrx.rpg.api.spellbook.Spell
+import com.cyrillrx.rpg.api.spellbook.ApiSpell
 import com.cyrillrx.rpg.presentation.theme.AppTheme
 import com.cyrillrx.rpg.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.presentation.widget.OverflowMenu
@@ -46,7 +46,7 @@ internal val borderStroke = spacingMedium
 internal val textPadding = spacingMedium
 
 @Composable
-fun SpellBookScreen(spells: List<Spell>, query: String, applyFilter: (String) -> Unit) {
+fun SpellBookScreen(spells: List<ApiSpell>, query: String, applyFilter: (String) -> Unit) {
     Column {
         Search(
             query = query,
@@ -65,14 +65,14 @@ fun SpellBookScreen(spells: List<Spell>, query: String, applyFilter: (String) ->
 
 @Composable
 fun SpellBookPeekScreen(
-    spells: List<Spell>,
-    savedSpell: List<Spell>,
+    spells: List<ApiSpell>,
+    savedSpell: List<ApiSpell>,
     query: String,
     savedSpellsOnly: Boolean,
     applyFilter: (String) -> Unit,
     onDisplaySavedOnlyClicked: (Boolean) -> Unit,
-    onSaveClicked: (Spell) -> Unit,
-    navigateToSpell: (Spell) -> Unit,
+    onSaveClicked: (ApiSpell) -> Unit,
+    navigateToSpell: (ApiSpell) -> Unit,
 ) {
     AppTheme {
         Column {
@@ -128,7 +128,7 @@ private fun SearchBarWithOverflow(
 }
 
 @Composable
-fun SpellCard(spell: Spell) {
+fun SpellCard(spell: ApiSpell) {
     val spellColor = spell.getColor()
     Card(
         modifier = Modifier
@@ -177,7 +177,7 @@ fun SpellCard(spell: Spell) {
 }
 
 @Composable
-fun SpellGrid(spell: Spell, color: Color, borderStroke: Dp) {
+fun SpellGrid(spell: ApiSpell, color: Color, borderStroke: Dp) {
     Column {
         Row(Modifier.background(color)) {
             Column(Modifier.weight(1f)) {
@@ -317,8 +317,8 @@ fun PreviewSpellGrid() {
     SpellGrid(spell, spell.getColor(), borderStroke)
 }
 
-internal fun Spell.getColor(): Color = Color(173, 29, 29)
+internal fun ApiSpell.getColor(): Color = Color(173, 29, 29)
 
 @Composable
-fun Spell.getFormattedSchool() =
+fun ApiSpell.getFormattedSchool() =
     stringResource(R.string.formatted_spell_school_level, getSchool(), level)

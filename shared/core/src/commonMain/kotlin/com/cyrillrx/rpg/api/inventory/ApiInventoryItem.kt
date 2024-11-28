@@ -3,7 +3,7 @@ package com.cyrillrx.rpg.api.inventory
 import kotlinx.serialization.Serializable
 
 @Serializable
-class InventoryItem(
+class ApiInventoryItem(
     val title: String,
     val content: String,
     val type: String,

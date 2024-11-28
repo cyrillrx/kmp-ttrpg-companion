@@ -4,7 +4,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.cyrillrx.rpg.R
-import com.cyrillrx.rpg.api.spellbook.Spell
+import com.cyrillrx.rpg.api.spellbook.ApiSpell
 import com.cyrillrx.rpg.setHtmlText
 import com.cyrillrx.rpg.xml.inflate
 
@@ -24,7 +24,7 @@ class SpellBookItemView(parent: ViewGroup) :
     private var tvDurationLabel: TextView = itemView.findViewById(R.id.tvDurationLabel)
     private var tvDurationValue: TextView = itemView.findViewById(R.id.tvDurationValue)
 
-    fun bind(spell: Spell) {
+    fun bind(spell: ApiSpell) {
         tvTitle.text = spell.title
         tvSubtitle.text = tvSubtitle.context.getString(
             R.string.formatted_spell_school_level,

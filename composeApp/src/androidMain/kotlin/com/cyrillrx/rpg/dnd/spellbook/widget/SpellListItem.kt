@@ -24,7 +24,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.cyrillrx.rpg.R
-import com.cyrillrx.rpg.api.spellbook.Spell
+import com.cyrillrx.rpg.api.spellbook.ApiSpell
 import com.cyrillrx.rpg.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.presentation.widget.BookmarkButton
@@ -33,9 +33,9 @@ import de.charlex.compose.HtmlText
 @Composable
 fun SpellListItem(
     modifier: Modifier,
-    spell: Spell,
-    savedSpells: List<Spell>,
-    onSaveClicked: (Spell) -> Unit,
+    spell: ApiSpell,
+    savedSpells: List<ApiSpell>,
+    onSaveClicked: (ApiSpell) -> Unit,
 ) {
     Card(
         shape = CutCornerShape(0.dp),
@@ -66,7 +66,7 @@ fun SpellListItem(
 }
 
 @Composable
-private fun Header(spell: Spell, savedSpells: List<Spell>, onSaveClicked: (Spell) -> Unit) {
+private fun Header(spell: ApiSpell, savedSpells: List<ApiSpell>, onSaveClicked: (ApiSpell) -> Unit) {
     Row(
         modifier = Modifier.background(spell.getColor()),
         verticalAlignment = Alignment.CenterVertically,
@@ -114,7 +114,7 @@ private fun Header(spell: Spell, savedSpells: List<Spell>, onSaveClicked: (Spell
 }
 
 @Composable
-private fun SpellSpecs(spell: Spell, modifier: Modifier) {
+private fun SpellSpecs(spell: ApiSpell, modifier: Modifier) {
     Column(modifier) {
         Row {
             Text(

@@ -5,8 +5,8 @@ import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.cyrillrx.rpg.AssetReader
-import com.cyrillrx.rpg.api.inventory.InventoryItem
-import com.cyrillrx.rpg.api.inventory.MagicalItem
+import com.cyrillrx.rpg.api.inventory.ApiInventoryItem
+import com.cyrillrx.rpg.api.inventory.ApiMagicalItem
 import com.cyrillrx.rpg.presentation.theme.AppTheme
 import com.cyrillrx.utils.deserialize
 
@@ -26,15 +26,15 @@ class InventoryActivity : AppCompatActivity() {
         viewModel.init(loadFromFile())
     }
 
-    private fun loadFromFile(): List<MagicalItem> {
+    private fun loadFromFile(): List<ApiMagicalItem> {
         val serializedInventory = AssetReader.readAsString(this, "objets-magiques.json")
-        val inventoryItems: List<InventoryItem> = serializedInventory?.deserialize() ?: listOf()
+        val inventoryItems: List<ApiInventoryItem> = serializedInventory?.deserialize() ?: listOf()
         return inventoryItems.map { it.toMagicalItem() }
     }
 
     companion object {
-        private fun InventoryItem.toMagicalItem(): MagicalItem {
-            return MagicalItem(
+        private fun ApiInventoryItem.toMagicalItem(): ApiMagicalItem {
+            return ApiMagicalItem(
                 title = title,
                 subtitle = getSubtitle(),
                 description = content,
@@ -44,32 +44,32 @@ class InventoryActivity : AppCompatActivity() {
             )
         }
 
-        private fun InventoryItem.getSubtitle(): String {
+        private fun ApiInventoryItem.getSubtitle(): String {
             val attunementString = attunement?.let { " ($attunement)" } ?: ""
             return "$type, $rarity$attunementString"
         }
 
-        private fun InventoryItem.getType(): MagicalItem.Type = when (type) {
-            "Armure" -> MagicalItem.Type.ARMOR
-            "Potion" -> MagicalItem.Type.POTION
-            "Anneau" -> MagicalItem.Type.RING
-            "Septre" -> MagicalItem.Type.ROD
-            "Parchemin" -> MagicalItem.Type.SCROLL
-            "Bâton" -> MagicalItem.Type.STAFF
-            "Baguette" -> MagicalItem.Type.WAND
-            "Arme" -> MagicalItem.Type.WEAPON
-            "Objet merveilleux" -> MagicalItem.Type.WONDROUS_ITEM
-            else -> MagicalItem.Type.WONDROUS_ITEM
+        private fun ApiInventoryItem.getType(): ApiMagicalItem.Type = when (type) {
+            "Armure" -> ApiMagicalItem.Type.ARMOR
+            "Potion" -> ApiMagicalItem.Type.POTION
+            "Anneau" -> ApiMagicalItem.Type.RING
+            "Septre" -> ApiMagicalItem.Type.ROD
+            "Parchemin" -> ApiMagicalItem.Type.SCROLL
+            "Bâton" -> ApiMagicalItem.Type.STAFF
+            "Baguette" -> ApiMagicalItem.Type.WAND
+            "Arme" -> ApiMagicalItem.Type.WEAPON
+            "Objet merveilleux" -> ApiMagicalItem.Type.WONDROUS_ITEM
+            else -> ApiMagicalItem.Type.WONDROUS_ITEM
         }
 
-        private fun InventoryItem.getRarety(): MagicalItem.Rarety = when (rarity) {
-            "Courant" -> MagicalItem.Rarety.COMMON
-            "Peu courant" -> MagicalItem.Rarety.UNCOMMON
-            "Rare" -> MagicalItem.Rarety.RARE
-            "Très rare" -> MagicalItem.Rarety.VERY_RARE
-            "Légendaire" -> MagicalItem.Rarety.LEGENDARY
-            "Artefact" -> MagicalItem.Rarety.ARTIFACT
-            else -> MagicalItem.Rarety.UNCOMMON
+        private fun ApiInventoryItem.getRarety(): ApiMagicalItem.Rarety = when (rarity) {
+            "Courant" -> ApiMagicalItem.Rarety.COMMON
+            "Peu courant" -> ApiMagicalItem.Rarety.UNCOMMON
+            "Rare" -> ApiMagicalItem.Rarety.RARE
+            "Très rare" -> ApiMagicalItem.Rarety.VERY_RARE
+            "Légendaire" -> ApiMagicalItem.Rarety.LEGENDARY
+            "Artefact" -> ApiMagicalItem.Rarety.ARTIFACT
+            else -> ApiMagicalItem.Rarety.UNCOMMON
         }
     }
 }

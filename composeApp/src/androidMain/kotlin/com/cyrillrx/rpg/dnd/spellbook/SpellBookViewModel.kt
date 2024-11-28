@@ -5,7 +5,7 @@ import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
-import com.cyrillrx.rpg.api.spellbook.Spell
+import com.cyrillrx.rpg.api.spellbook.ApiSpell
 import java.util.Locale
 
 class SpellBookViewModel : ViewModel() {
@@ -14,17 +14,17 @@ class SpellBookViewModel : ViewModel() {
         private set
     var query by mutableStateOf("")
         private set
-    var displayedSpells = mutableStateListOf<Spell>()
+    var displayedSpells = mutableStateListOf<ApiSpell>()
         private set
-    var savedSpells = mutableStateListOf<Spell>()
+    var savedSpells = mutableStateListOf<ApiSpell>()
         private set
     var savedSpellsOnly by mutableStateOf(false)
         private set
 
     private val locale by lazy { Locale.ROOT }
-    private var initialSpells: List<Spell> = ArrayList()
+    private var initialSpells: List<ApiSpell> = ArrayList()
 
-    fun init(initialSpells: List<Spell>) {
+    fun init(initialSpells: List<ApiSpell>) {
         this.initialSpells = initialSpells
         updateData()
     }
@@ -39,7 +39,7 @@ class SpellBookViewModel : ViewModel() {
         updateData()
     }
 
-    fun onSaveSpell(spell: Spell) {
+    fun onSaveSpell(spell: ApiSpell) {
         if (savedSpells.contains(spell)) {
             savedSpells.remove(spell)
         } else {
@@ -48,10 +48,10 @@ class SpellBookViewModel : ViewModel() {
         updateData()
     }
 
-    private fun List<Spell>.filter(query: String): ArrayList<Spell> =
+    private fun List<ApiSpell>.filter(query: String): ArrayList<ApiSpell> =
         filterTo(ArrayList()) { spell -> spell.matches(query) }
 
-    private fun Spell.matches(query: String): Boolean {
+    private fun ApiSpell.matches(query: String): Boolean {
         val lowerCaseQuery = query.trim().lowercase(locale)
         return title.lowercase(locale).contains(lowerCaseQuery) ||
             content.lowercase(locale).contains(lowerCaseQuery) ||

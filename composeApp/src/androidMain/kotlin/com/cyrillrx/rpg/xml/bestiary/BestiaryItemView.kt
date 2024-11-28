@@ -4,7 +4,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.cyrillrx.rpg.R
-import com.cyrillrx.rpg.api.bestiary.BestiaryItem
+import com.cyrillrx.rpg.api.bestiary.ApiBestiaryItem
 import com.cyrillrx.rpg.models.bestiary.Abilities
 import com.cyrillrx.rpg.models.bestiary.Creature
 import com.cyrillrx.rpg.setHtmlText
@@ -17,7 +17,7 @@ class BestiaryItemView(parent: ViewGroup) :
     private var tvContent: TextView = itemView.findViewById(R.id.tvContent)
     private var abilitiesView: AbilitiesView = itemView.findViewById(R.id.abilitiesLayout)
 
-    fun bind(bestiaryItem: BestiaryItem) {
+    fun bind(bestiaryItem: ApiBestiaryItem) {
         val creature = bestiaryItem.toCreature()
 
         tvTitle.text = creature.name
@@ -25,7 +25,7 @@ class BestiaryItemView(parent: ViewGroup) :
         abilitiesView.setAbilities(creature.abilities)
     }
 
-    private fun BestiaryItem.toCreature(): Creature {
+    private fun ApiBestiaryItem.toCreature(): Creature {
         val abilities = header?.monster
 
         return Creature(

@@ -6,7 +6,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.cyrillrx.rpg.AssetReader
 import com.cyrillrx.rpg.Router.openSpellDetail
-import com.cyrillrx.rpg.api.spellbook.Spell
+import com.cyrillrx.rpg.api.spellbook.ApiSpell
 import com.cyrillrx.rpg.dnd.spellbook.widget.SpellBookPeekScreen
 import com.cyrillrx.rpg.presentation.theme.AppTheme
 import com.cyrillrx.utils.deserialize
@@ -35,7 +35,7 @@ class SpellBookActivity : AppCompatActivity() {
         viewModel.init(loadFromFile().also(SpellStore::init))
     }
 
-    private fun loadFromFile(): List<Spell> {
+    private fun loadFromFile(): List<ApiSpell> {
         val serializedSpellBook = AssetReader.readAsString(this, "grimoire.json")
         return serializedSpellBook?.deserialize() ?: listOf()
     }

@@ -3,7 +3,7 @@ package com.cyrillrx.rpg.api.spellbook
 import kotlinx.serialization.Serializable
 
 @Serializable
-class Spell(
+class ApiSpell(
     val title: String,
     val content: String,
     val level: Int,

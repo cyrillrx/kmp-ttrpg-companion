@@ -3,7 +3,7 @@ package com.cyrillrx.rpg.api.bestiary
 import kotlinx.serialization.Serializable
 
 @Serializable
-class BestiaryItem {
+class ApiBestiaryItem {
     val title: String? = null
     val content: String? = null
     val header: Header? = null
@@ -16,6 +16,6 @@ class BestiaryItem {
 
     @Serializable
     class Header {
-        val monster: Monster? = null
+        val monster: ApiMonster? = null
     }
 }

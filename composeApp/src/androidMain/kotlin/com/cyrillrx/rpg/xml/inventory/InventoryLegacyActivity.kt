@@ -3,7 +3,7 @@ package com.cyrillrx.rpg.xml.inventory
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.cyrillrx.rpg.AssetReader
-import com.cyrillrx.rpg.api.inventory.InventoryItem
+import com.cyrillrx.rpg.api.inventory.ApiInventoryItem
 import com.cyrillrx.rpg.xml.template.SearchListActivity
 import com.cyrillrx.utils.deserialize
 import java.util.Locale
@@ -26,7 +26,7 @@ class InventoryLegacyActivity : SearchListActivity<InventoryAdapter>() {
         updateData(magicalItems.filter(query))
     }
 
-    private fun updateData(magicalItems: List<InventoryItem>) {
+    private fun updateData(magicalItems: List<ApiInventoryItem>) {
         startLoading()
 
         adapter.clear()
@@ -35,15 +35,15 @@ class InventoryLegacyActivity : SearchListActivity<InventoryAdapter>() {
         stopLoading()
     }
 
-    private fun loadFromFile(): List<InventoryItem> {
+    private fun loadFromFile(): List<ApiInventoryItem> {
         val serializedInventory = AssetReader.readAsString(this, "objets-magiques.json")
         return serializedInventory?.deserialize() ?: listOf()
     }
 
-    private fun List<InventoryItem>.filter(query: String): List<InventoryItem> =
+    private fun List<ApiInventoryItem>.filter(query: String): List<ApiInventoryItem> =
         filterTo(arrayListOf()) { item -> item.filter(query) }
 
-    private fun InventoryItem.filter(query: String): Boolean {
+    private fun ApiInventoryItem.filter(query: String): Boolean {
         val lowerCaseQuery = query.trim().lowercase(locale)
         return title.lowercase(locale).contains(lowerCaseQuery) ||
             content.lowercase(locale).contains(lowerCaseQuery)

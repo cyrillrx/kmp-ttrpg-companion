@@ -4,7 +4,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.cyrillrx.rpg.R
-import com.cyrillrx.rpg.api.inventory.InventoryItem
+import com.cyrillrx.rpg.api.inventory.ApiInventoryItem
 import com.cyrillrx.rpg.setHtmlText
 import com.cyrillrx.rpg.xml.inflate
 
@@ -15,7 +15,7 @@ class InventoryItemView(parent: ViewGroup) :
     private var tvSubtitle: TextView = itemView.findViewById(R.id.tvSubtitle)
     private var tvContent: TextView = itemView.findViewById(R.id.tvContent)
 
-    fun bind(inventoryItem: InventoryItem) {
+    fun bind(inventoryItem: ApiInventoryItem) {
         tvTitle.text = inventoryItem.title
         tvSubtitle.text = """${inventoryItem.type}
             |${inventoryItem.rarity}

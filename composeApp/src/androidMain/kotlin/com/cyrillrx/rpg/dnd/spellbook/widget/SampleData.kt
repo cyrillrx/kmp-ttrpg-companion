@@ -1,13 +1,13 @@
 package com.cyrillrx.rpg.dnd.spellbook.widget
 
-import com.cyrillrx.rpg.api.spellbook.Spell
+import com.cyrillrx.rpg.api.spellbook.ApiSpell
 
-internal fun sampleSpell(): Spell {
+internal fun sampleSpell(): ApiSpell {
     val schools = arrayOf("Evocation")
     val levels = arrayOf("3")
     val classes = arrayOf("Ensorceleur/Sorcelame", "Magicien")
-    val header = Spell.Header(Spell.Header.Taxonomy(schools, levels, classes))
-    return Spell(
+    val header = ApiSpell.Header(ApiSpell.Header.Taxonomy(schools, levels, classes))
+    return ApiSpell(
         "Fire",
         "Une traînée luisante part de votre doigt tendu et file vers un point de votre choix situé à portée et dans votre champ de vision, où elle explose dans une gerbe de flammes grondantes. Chaque créature située dans une sphère de 6 mètres de rayon centrée sur ce point doit faire un jet de sauvegarde de Dextérité. Celles qui échouent subissent 8d6 dégâts de feu, les autres la moitié seulement.\n" +
             "\n" +

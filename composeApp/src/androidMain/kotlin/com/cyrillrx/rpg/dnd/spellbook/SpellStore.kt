@@ -1,19 +1,19 @@
 package com.cyrillrx.rpg.dnd.spellbook
 
-import com.cyrillrx.rpg.api.spellbook.Spell
+import com.cyrillrx.rpg.api.spellbook.ApiSpell
 
 object SpellStore {
-    private val spells = ArrayList<Spell>()
-    val savedSpells = ArrayList<Spell>()
+    private val spells = ArrayList<ApiSpell>()
+    val savedSpells = ArrayList<ApiSpell>()
 
-    fun init(spells: List<Spell>) {
+    fun init(spells: List<ApiSpell>) {
         this.spells.apply {
             clear()
             addAll(spells)
         }
     }
 
-    fun save(spell: Spell) {
+    fun save(spell: ApiSpell) {
         savedSpells.add(spell)
     }
 }
