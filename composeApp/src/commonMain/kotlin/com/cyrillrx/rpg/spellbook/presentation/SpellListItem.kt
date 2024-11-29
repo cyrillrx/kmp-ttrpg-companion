@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.dnd.spellbook.widget
+package com.cyrillrx.rpg.spellbook.presentation
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -8,9 +8,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CutCornerShape
-import androidx.compose.material.Card
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material3.Card
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -18,17 +18,21 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.cyrillrx.rpg.R
 import com.cyrillrx.rpg.api.spellbook.ApiSpell
-import com.cyrillrx.rpg.presentation.theme.spacingCommon
-import com.cyrillrx.rpg.presentation.theme.spacingSmall
-import com.cyrillrx.rpg.presentation.widget.BookmarkButton
-import de.charlex.compose.HtmlText
+import com.cyrillrx.rpg.common.presentation.BookmarkButton
+import com.cyrillrx.rpg.common.theme.spacingCommon
+import com.cyrillrx.rpg.common.theme.spacingMedium
+import com.cyrillrx.rpg.common.theme.spacingSmall
+import org.jetbrains.compose.resources.stringResource
+import rpg_companion.composeapp.generated.resources.Res
+import rpg_companion.composeapp.generated.resources.formatted_spell_casting_time
+import rpg_companion.composeapp.generated.resources.formatted_spell_components
+import rpg_companion.composeapp.generated.resources.formatted_spell_duration
+import rpg_companion.composeapp.generated.resources.formatted_spell_range
 
 @Composable
 fun SpellListItem(
@@ -52,13 +56,13 @@ fun SpellListItem(
                 ),
             )
 
-            HtmlText(
+            Text(
                 text = spell.content,
                 fontSize = 16.sp,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 4,
                 modifier = Modifier
-                    .padding(textPadding)
+                    .padding(spacingMedium)
                     .fillMaxSize(),
             )
         }
@@ -76,26 +80,26 @@ private fun Header(spell: ApiSpell, savedSpells: List<ApiSpell>, onSaveClicked: 
                 text = spell.title,
                 fontSize = 18.sp,
                 fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colors.onPrimary,
+                color = MaterialTheme.colorScheme.onPrimary,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(
-                        start = textPadding,
-                        end = textPadding,
-                        top = textPadding / 2,
+                        start = spacingMedium,
+                        end = spacingMedium,
+                        top = spacingMedium / 2,
                     ),
             )
             Text(
                 text = spell.getFormattedSchool(),
                 fontSize = 14.sp,
                 fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colors.onPrimary,
+                color = MaterialTheme.colorScheme.onPrimary,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(
-                        start = textPadding,
-                        end = textPadding,
-                        bottom = textPadding / 2,
+                        start = spacingMedium,
+                        end = spacingMedium,
+                        bottom = spacingMedium / 2,
                     ),
             )
         }
@@ -118,28 +122,28 @@ private fun SpellSpecs(spell: ApiSpell, modifier: Modifier) {
     Column(modifier) {
         Row {
             Text(
-                text = stringResource(R.string.formatted_spell_casting_time),
+                text = stringResource(Res.string.formatted_spell_casting_time),
                 fontWeight = FontWeight.Bold,
             )
             Text(text = spell.casting_time, modifier = Modifier.padding(start = 4.dp))
         }
         Row {
             Text(
-                text = stringResource(R.string.formatted_spell_components),
+                text = stringResource(Res.string.formatted_spell_components),
                 fontWeight = FontWeight.Bold,
             )
             Text(text = spell.components, modifier = Modifier.padding(start = 4.dp))
         }
         Row {
             Text(
-                text = stringResource(R.string.formatted_spell_range),
+                text = stringResource(Res.string.formatted_spell_range),
                 fontWeight = FontWeight.Bold,
             )
             Text(text = spell.range, modifier = Modifier.padding(start = 4.dp))
         }
         Row {
             Text(
-                text = stringResource(R.string.formatted_spell_duration),
+                text = stringResource(Res.string.formatted_spell_duration),
                 fontWeight = FontWeight.Bold,
             )
             Text(text = spell.duration, modifier = Modifier.padding(start = 4.dp))

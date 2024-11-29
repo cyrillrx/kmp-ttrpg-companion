@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <!-- Spell -->
+    <string name="formatted_spell_school_level">%1$s, Level %2$d</string>
+    <string name="spell_casting_time">Casting time</string>
+    <string name="spell_components">Components</string>
+    <string name="spell_range">Range</string>
+    <string name="spell_duration">Duration</string>
+    <string name="formatted_spell_casting_time">Casting time:</string>
+    <string name="formatted_spell_components">Components:</string>
+    <string name="formatted_spell_range">Range:</string>
+    <string name="formatted_spell_duration">Duration:</string>
+</resources>

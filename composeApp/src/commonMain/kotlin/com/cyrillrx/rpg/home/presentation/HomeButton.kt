@@ -1,13 +1,13 @@
-package com.cyrillrx.rpg.presentation.home
+package com.cyrillrx.rpg.home.presentation
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Button
-import androidx.compose.material.Text
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.cyrillrx.rpg.presentation.theme.spacingMedium
+import com.cyrillrx.rpg.common.theme.spacingMedium
 
 @Composable
 fun HomeButton(text: String, onClick: () -> Unit) {

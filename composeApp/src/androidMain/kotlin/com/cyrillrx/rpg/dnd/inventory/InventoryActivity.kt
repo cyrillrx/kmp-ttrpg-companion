@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.cyrillrx.rpg.AssetReader
 import com.cyrillrx.rpg.api.inventory.ApiInventoryItem
 import com.cyrillrx.rpg.api.inventory.ApiMagicalItem
-import com.cyrillrx.rpg.presentation.theme.AppTheme
+import com.cyrillrx.rpg.common.theme.AppTheme
 import com.cyrillrx.utils.deserialize
 
 class InventoryActivity : AppCompatActivity() {

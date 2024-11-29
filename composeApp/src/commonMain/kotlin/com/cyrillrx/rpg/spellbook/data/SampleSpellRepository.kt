@@ -1,6 +1,13 @@
-package com.cyrillrx.rpg.dnd.spellbook.widget
+package com.cyrillrx.rpg.spellbook.data
 
 import com.cyrillrx.rpg.api.spellbook.ApiSpell
+import com.cyrillrx.rpg.spellbook.domain.SpellRepository
+
+class SampleSpellRepository : SpellRepository {
+    override suspend fun getSpells(): List<ApiSpell> {
+        return listOf(sampleSpell())
+    }
+}
 
 internal fun sampleSpell(): ApiSpell {
     val schools = arrayOf("Evocation")

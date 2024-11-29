@@ -1,14 +1,17 @@
-package com.cyrillrx.rpg.dnd.spellbook
+package com.cyrillrx.rpg.spellbook.presentation
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.api.spellbook.ApiSpell
+import com.cyrillrx.rpg.spellbook.domain.SpellRepository
+import kotlinx.coroutines.launch
 import java.util.Locale
 
-class SpellBookViewModel : ViewModel() {
+class SpellBookViewModel(private val repository: SpellRepository) : ViewModel() {
 
     var loading by mutableStateOf(false)
         private set
@@ -23,6 +26,15 @@ class SpellBookViewModel : ViewModel() {
 
     private val locale by lazy { Locale.ROOT }
     private var initialSpells: List<ApiSpell> = ArrayList()
+
+    init {
+        viewModelScope.launch {
+            val spells = repository.getSpells()
+            initialSpells = spells
+            updateData()
+            loading = false
+        }
+    }
 
     fun init(initialSpells: List<ApiSpell>) {
         this.initialSpells = initialSpells

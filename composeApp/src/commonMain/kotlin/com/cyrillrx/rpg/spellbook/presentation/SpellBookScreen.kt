@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.dnd.spellbook.widget
+package com.cyrillrx.rpg.spellbook.presentation
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
@@ -17,41 +17,44 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
-import androidx.compose.material.Checkbox
-import androidx.compose.material.DropdownMenuItem
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material3.Card
+import androidx.compose.material3.Checkbox
+import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.cyrillrx.rpg.R
 import com.cyrillrx.rpg.api.spellbook.ApiSpell
-import com.cyrillrx.rpg.presentation.theme.AppTheme
-import com.cyrillrx.rpg.presentation.theme.spacingMedium
-import com.cyrillrx.rpg.presentation.widget.OverflowMenu
-import com.cyrillrx.rpg.presentation.widget.Search
-import de.charlex.compose.HtmlText
-
-internal val borderStroke = spacingMedium
-internal val textPadding = spacingMedium
+import com.cyrillrx.rpg.common.presentation.OverflowMenu
+import com.cyrillrx.rpg.common.presentation.Search
+import com.cyrillrx.rpg.common.theme.AppTheme
+import com.cyrillrx.rpg.common.theme.spacingMedium
+import com.cyrillrx.rpg.spellbook.data.sampleSpell
+import org.jetbrains.compose.resources.stringResource
+import org.jetbrains.compose.ui.tooling.preview.Preview
+import rpg_companion.composeapp.generated.resources.Res
+import rpg_companion.composeapp.generated.resources.formatted_spell_school_level
+import rpg_companion.composeapp.generated.resources.spell_casting_time
+import rpg_companion.composeapp.generated.resources.spell_components
+import rpg_companion.composeapp.generated.resources.spell_duration
+import rpg_companion.composeapp.generated.resources.spell_range
+import rpg_companion.composeapp.generated.resources.spell_search_hint
 
 @Composable
-fun SpellBookScreen(spells: List<ApiSpell>, query: String, applyFilter: (String) -> Unit) {
+fun AlternativeSpellBookScreen(spells: List<ApiSpell>, query: String, applyFilter: (String) -> Unit) {
     Column {
         Search(
             query = query,
             applyFilter = applyFilter,
-        ) { Text(stringResource(id = R.string.spell_search_hint)) }
+        ) { Text(stringResource(Res.string.spell_search_hint)) }
 
         LazyRow(modifier = Modifier.fillMaxSize()) {
             items(spells) { spell ->
@@ -64,7 +67,24 @@ fun SpellBookScreen(spells: List<ApiSpell>, query: String, applyFilter: (String)
 }
 
 @Composable
-fun SpellBookPeekScreen(
+fun SpellBookScreen(
+    viewModel: SpellBookViewModel,
+    navigateToSpell: (ApiSpell) -> Unit,
+) {
+    SpellBookScreen(
+        viewModel.displayedSpells,
+        viewModel.savedSpells,
+        viewModel.query,
+        viewModel.savedSpellsOnly,
+        viewModel::applyFilter,
+        viewModel::onDisplaySavedOnlyClicked,
+        viewModel::onSaveSpell,
+        navigateToSpell,
+    )
+}
+
+@Composable
+fun SpellBookScreen(
     spells: List<ApiSpell>,
     savedSpell: List<ApiSpell>,
     query: String,
@@ -114,15 +134,18 @@ private fun SearchBarWithOverflow(
             query = query,
             applyFilter = applyFilter,
         ) {
-            Text(stringResource(id = R.string.spell_search_hint))
+            Text(stringResource(Res.string.spell_search_hint))
         }
         OverflowMenu {
-            DropdownMenuItem(onClick = { onDisplaySavedSpellsClicked(!savedSpellsOnly) }) {
-                Row {
-                    Text(text = "Bookmarked")
-                    Checkbox(savedSpellsOnly, onDisplaySavedSpellsClicked)
-                }
-            }
+            DropdownMenuItem(
+                onClick = { onDisplaySavedSpellsClicked(!savedSpellsOnly) },
+                text = {
+                    Row {
+                        Text(text = "Bookmarked")
+                        Checkbox(savedSpellsOnly, onDisplaySavedSpellsClicked)
+                    }
+                },
+            )
         }
     }
 }
@@ -135,9 +158,9 @@ fun SpellCard(spell: ApiSpell) {
             .padding(4.dp)
             .fillMaxSize(),
         shape = RoundedCornerShape(16.dp),
-        border = BorderStroke(borderStroke, spellColor),
+        border = BorderStroke(spacingMedium, spellColor),
     ) {
-        Column(Modifier.padding(borderStroke)) {
+        Column(Modifier.padding(spacingMedium)) {
             Text(
                 text = spell.title,
                 fontSize = 20.sp,
@@ -146,10 +169,10 @@ fun SpellCard(spell: ApiSpell) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(
-                        start = textPadding,
-                        end = textPadding,
-                        top = textPadding / 2,
-                        bottom = textPadding / 2,
+                        start = spacingMedium,
+                        end = spacingMedium,
+                        top = spacingMedium / 2,
+                        bottom = spacingMedium / 2,
                     ),
             )
             Text(
@@ -161,15 +184,15 @@ fun SpellCard(spell: ApiSpell) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .background(spellColor)
-                    .padding(textPadding / 2),
+                    .padding(spacingMedium / 2),
             )
-            SpellGrid(spell, spellColor, borderStroke)
-            HtmlText(
+            SpellGrid(spell, spellColor, spacingMedium)
+            Text(
                 text = spell.content,
                 fontSize = 16.sp,
                 overflow = TextOverflow.Ellipsis,
                 modifier = Modifier
-                    .padding(textPadding)
+                    .padding(spacingMedium)
                     .fillMaxSize(),
             )
         }
@@ -177,30 +200,30 @@ fun SpellCard(spell: ApiSpell) {
 }
 
 @Composable
-fun SpellGrid(spell: ApiSpell, color: Color, borderStroke: Dp) {
+fun SpellGrid(spell: ApiSpell, color: Color, spacingMedium: Dp) {
     Column {
         Row(Modifier.background(color)) {
             Column(Modifier.weight(1f)) {
                 SpellGridItem(
-                    title = stringResource(R.string.spell_casting_time),
+                    title = stringResource(Res.string.spell_casting_time),
                     subtitle = spell.casting_time,
                     color = color,
                 )
                 SpellGridItem(
-                    title = stringResource(R.string.spell_components),
+                    title = stringResource(Res.string.spell_components),
                     subtitle = spell.components,
                     color = color,
                 )
             }
-            Spacer(Modifier.width(borderStroke))
+            Spacer(Modifier.width(spacingMedium))
             Column(Modifier.weight(1f)) {
                 SpellGridItem(
-                    title = stringResource(R.string.spell_range),
+                    title = stringResource(Res.string.spell_range),
                     subtitle = spell.range,
                     color = color,
                 )
                 SpellGridItem(
-                    title = stringResource(R.string.spell_duration),
+                    title = stringResource(Res.string.spell_duration),
                     subtitle = spell.duration,
                     color = color,
                 )
@@ -211,7 +234,7 @@ fun SpellGrid(spell: ApiSpell, color: Color, borderStroke: Dp) {
 
 @Composable
 fun SpellGridItem(title: String, subtitle: String, color: Color) {
-    Column(Modifier.background(MaterialTheme.colors.surface)) {
+    Column(Modifier.background(MaterialTheme.colorScheme.surface)) {
         Text(
             text = title,
             fontSize = 18.sp,
@@ -222,7 +245,7 @@ fun SpellGridItem(title: String, subtitle: String, color: Color) {
             overflow = TextOverflow.Ellipsis,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = textPadding, end = textPadding),
+                .padding(start = spacingMedium, end = spacingMedium),
         )
 
         Text(
@@ -233,13 +256,13 @@ fun SpellGridItem(title: String, subtitle: String, color: Color) {
             overflow = TextOverflow.Ellipsis,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = textPadding, end = textPadding),
+                .padding(start = spacingMedium, end = spacingMedium),
         )
 
         Spacer(
             Modifier
                 .fillMaxWidth()
-                .height(borderStroke)
+                .height(spacingMedium)
                 .background(color),
         )
     }
@@ -251,7 +274,7 @@ fun PreviewSpellBookScreenDark() {
     val spell = sampleSpell()
     val items = listOf(spell, spell, spell)
     AppTheme(darkTheme = true) {
-        SpellBookScreen(items, stringResource(id = R.string.spell_search_hint)) {}
+        AlternativeSpellBookScreen(items, stringResource(Res.string.spell_search_hint)) {}
     }
 }
 
@@ -261,7 +284,7 @@ fun PreviewSpellBookScreenLight() {
     val spell = sampleSpell()
     val items = listOf(spell, spell, spell)
     AppTheme(darkTheme = false) {
-        SpellBookScreen(items, stringResource(id = R.string.spell_search_hint)) {}
+        AlternativeSpellBookScreen(items, stringResource(Res.string.spell_search_hint)) {}
     }
 }
 
@@ -271,10 +294,10 @@ fun PreviewSpellBookPeekScreenDark() {
     val spell = sampleSpell()
     val items = listOf(spell, spell, spell)
     AppTheme(darkTheme = true) {
-        SpellBookPeekScreen(
+        SpellBookScreen(
             items,
             items,
-            stringResource(id = R.string.spell_search_hint),
+            stringResource(Res.string.spell_search_hint),
             false,
             {},
             {},
@@ -290,10 +313,10 @@ fun PreviewSpellBookPeekScreenLight() {
     val spell = sampleSpell()
     val items = listOf(spell, spell, spell)
     AppTheme(darkTheme = false) {
-        SpellBookPeekScreen(
+        SpellBookScreen(
             items,
             items,
-            stringResource(id = R.string.spell_search_hint),
+            stringResource(Res.string.spell_search_hint),
             false,
             {},
             {},
@@ -314,11 +337,11 @@ fun PreviewSpellCard() {
 @Composable
 fun PreviewSpellGrid() {
     val spell = sampleSpell()
-    SpellGrid(spell, spell.getColor(), borderStroke)
+    SpellGrid(spell, spell.getColor(), spacingMedium)
 }
 
-internal fun ApiSpell.getColor(): Color = Color(173, 29, 29)
+fun ApiSpell.getColor(): Color = Color(173, 29, 29)
 
 @Composable
 fun ApiSpell.getFormattedSchool() =
-    stringResource(R.string.formatted_spell_school_level, getSchool(), level)
+    stringResource(Res.string.formatted_spell_school_level, getSchool(), level)

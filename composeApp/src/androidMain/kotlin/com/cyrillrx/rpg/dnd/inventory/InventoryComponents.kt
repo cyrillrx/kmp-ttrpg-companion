@@ -24,8 +24,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.cyrillrx.rpg.R
 import com.cyrillrx.rpg.api.inventory.ApiMagicalItem
-import com.cyrillrx.rpg.presentation.theme.AppTheme
-import com.cyrillrx.rpg.presentation.widget.Search
+import com.cyrillrx.rpg.common.presentation.Search
+import com.cyrillrx.rpg.common.theme.AppTheme
 
 @Composable
 fun InventoryScreen(magicalItems: List<ApiMagicalItem>, query: String, applyFilter: (String) -> Unit) {

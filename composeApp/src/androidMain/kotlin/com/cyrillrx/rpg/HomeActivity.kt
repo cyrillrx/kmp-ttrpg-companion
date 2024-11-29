@@ -7,11 +7,12 @@ import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import com.cyrillrx.rpg.app.App
+import com.cyrillrx.rpg.common.theme.AppTheme
 import com.cyrillrx.rpg.dnd.inventory.InventoryActivity
 import com.cyrillrx.rpg.dnd.spellbook.SpellBookActivity
-import com.cyrillrx.rpg.presentation.home.HomeRouter
-import com.cyrillrx.rpg.presentation.home.HomeScreen
-import com.cyrillrx.rpg.presentation.theme.AppTheme
+import com.cyrillrx.rpg.home.presentation.HomeRouter
+import com.cyrillrx.rpg.home.presentation.HomeScreen
 import com.cyrillrx.rpg.xml.bestiary.BestiaryLegacyActivity
 import com.cyrillrx.rpg.xml.spellbook.SpellBookLegacyActivity
 
