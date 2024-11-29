@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.presentation.theme
+package com.cyrillrx.rpg.common.theme
 
 import androidx.compose.ui.graphics.Color
 
