@@ -63,7 +63,6 @@ private fun createHomeRouter(navController: NavController): HomeRouter {
             navController.navigate(Route.Inventory)
         }
 
-        override fun openLegacySpellBook() {}
         override fun openLegacyBestiary() {}
         override fun openLegacyInventory() {}
     }

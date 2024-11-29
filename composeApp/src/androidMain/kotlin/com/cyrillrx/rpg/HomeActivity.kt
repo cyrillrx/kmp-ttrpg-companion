@@ -7,14 +7,11 @@ import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.cyrillrx.rpg.app.App
 import com.cyrillrx.rpg.common.theme.AppTheme
 import com.cyrillrx.rpg.dnd.inventory.InventoryActivity
-import com.cyrillrx.rpg.dnd.spellbook.SpellBookActivity
 import com.cyrillrx.rpg.home.presentation.HomeRouter
 import com.cyrillrx.rpg.home.presentation.HomeScreen
 import com.cyrillrx.rpg.xml.bestiary.BestiaryLegacyActivity
-import com.cyrillrx.rpg.xml.spellbook.SpellBookLegacyActivity
 
 class HomeActivity : AppCompatActivity() {
 
@@ -22,8 +19,9 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
+//            App()
             val router = Router(this)
-            AppTheme { HomeScreen(router) }
+            AppTheme() { HomeScreen(router) }
         }
     }
 
@@ -34,22 +32,8 @@ class HomeActivity : AppCompatActivity() {
     }
 
     class Router(private val context: Context) : HomeRouter {
-        override fun openSpellBook() {
-            val intent = Intent(context.applicationContext, SpellBookActivity::class.java)
-            context.startActivity(intent)
-        }
-
-        override fun openBestiary() {
-            // TODO: Implement bestiary in Compose
-        }
-
         override fun openInventory() {
             val intent = Intent(context.applicationContext, InventoryActivity::class.java)
-            context.startActivity(intent)
-        }
-
-        override fun openLegacySpellBook() {
-            val intent = Intent(context.applicationContext, SpellBookLegacyActivity::class.java)
             context.startActivity(intent)
         }
 

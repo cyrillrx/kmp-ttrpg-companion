@@ -22,23 +22,12 @@
         </activity>
 
         <activity
-            android:name=".dnd.spellbook.SpellBookActivity"
-            android:theme="@style/NoActionBar" />
-
-        <activity
-            android:name=".dnd.spellbook.SpellDetailActivity"
-            android:theme="@style/NoActionBar" />
-
-        <activity
             android:name=".dnd.inventory.InventoryActivity"
             android:theme="@style/NoActionBar" />
 
         <activity android:name=".xml.game.GameListLegayActivity" />
         <activity android:name=".xml.group.CharacterListLegacyActivity" />
 
-        <activity
-            android:name=".xml.spellbook.SpellBookLegacyActivity"
-            android:theme="@style/NoActionBar" />
         <activity
             android:name=".xml.bestiary.BestiaryLegacyActivity"
             android:theme="@style/NoActionBar" />
