@@ -11,6 +11,9 @@ sealed interface Route {
     data object SpellList : Route
 
     @Serializable
+    data object AlternativeSpellList : Route
+
+    @Serializable
     data class SpellDetail(val serializedSpell: String) : Route
 
     @Serializable
@@ -20,8 +23,8 @@ sealed interface Route {
     data class BestiaryDetail(val id: String) : Route
 
     @Serializable
-    data object Inventory : Route
+    data object MagicalItems : Route
 
     @Serializable
-    data class BestiaryInventory(val id: String) : Route
+    data class MagicalItemDetail(val id: String) : Route
 }

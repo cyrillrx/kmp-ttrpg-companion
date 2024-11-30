@@ -49,24 +49,6 @@ import rpg_companion.composeapp.generated.resources.spell_range
 import rpg_companion.composeapp.generated.resources.spell_search_hint
 
 @Composable
-fun AlternativeSpellBookScreen(spells: List<ApiSpell>, query: String, applyFilter: (String) -> Unit) {
-    Column {
-        Search(
-            query = query,
-            applyFilter = applyFilter,
-        ) { Text(stringResource(Res.string.spell_search_hint)) }
-
-        LazyRow(modifier = Modifier.fillMaxSize()) {
-            items(spells) { spell ->
-                Box(modifier = Modifier.fillParentMaxSize()) {
-                    SpellCard(spell)
-                }
-            }
-        }
-    }
-}
-
-@Composable
 fun SpellBookScreen(
     viewModel: SpellBookViewModel,
     navigateToSpell: (ApiSpell) -> Unit,
@@ -115,6 +97,37 @@ fun SpellBookScreen(
                         savedSpell,
                         onSaveClicked,
                     )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun AlternativeSpellBookScreen(viewModel: SpellBookViewModel) {
+    AlternativeSpellBookScreen(
+        viewModel.displayedSpells,
+        viewModel.query,
+        viewModel::applyFilter,
+    )
+}
+
+@Composable
+fun AlternativeSpellBookScreen(
+    spells: List<ApiSpell>,
+    query: String,
+    applyFilter: (String) -> Unit,
+) {
+    Column {
+        Search(
+            query = query,
+            applyFilter = applyFilter,
+        ) { Text(stringResource(Res.string.spell_search_hint)) }
+
+        LazyRow(modifier = Modifier.fillMaxSize()) {
+            items(spells) { spell ->
+                Box(modifier = Modifier.fillParentMaxSize()) {
+                    SpellCard(spell)
                 }
             }
         }

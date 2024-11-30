@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
+    <!-- Home -->
+    <string name="btn_spell_book">Spellbook</string>
+    <string name="btn_alternative_spell_book">Alternative Spellbook</string>
+    <string name="btn_bestiary">Bestiary</string>
+    <string name="btn_inventory">Magical items</string>
+    <string name="btn_legacy_bestiary">Legacy Bestiary</string>
+    <string name="btn_legacy_inventory">Legacy Magical items</string>
+
     <!-- Spell -->
     <string name="formatted_spell_school_level">%1$s, Level %2$d</string>
     <string name="spell_casting_time">Casting time</string>
