@@ -31,9 +31,6 @@
         <activity
             android:name=".xml.bestiary.BestiaryLegacyActivity"
             android:theme="@style/NoActionBar" />
-        <activity
-            android:name=".xml.inventory.InventoryLegacyActivity"
-            android:theme="@style/NoActionBar" />
 
     </application>
 </manifest>

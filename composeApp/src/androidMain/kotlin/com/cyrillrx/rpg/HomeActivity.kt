@@ -12,7 +12,6 @@ import com.cyrillrx.rpg.dnd.inventory.InventoryActivity
 import com.cyrillrx.rpg.home.presentation.HomeRouter
 import com.cyrillrx.rpg.home.presentation.HomeScreen
 import com.cyrillrx.rpg.xml.bestiary.BestiaryLegacyActivity
-import com.cyrillrx.rpg.xml.inventory.InventoryLegacyActivity
 
 class HomeActivity : AppCompatActivity() {
 
@@ -40,11 +39,6 @@ class HomeActivity : AppCompatActivity() {
 
         override fun openLegacyBestiary() {
             val intent = Intent(context.applicationContext, BestiaryLegacyActivity::class.java)
-            context.startActivity(intent)
-        }
-
-        override fun openLegacyInventory() {
-            val intent = Intent(context.applicationContext, InventoryLegacyActivity::class.java)
             context.startActivity(intent)
         }
     }

@@ -13,7 +13,6 @@ import rpg_companion.composeapp.generated.resources.btn_alternative_spell_book
 import rpg_companion.composeapp.generated.resources.btn_bestiary
 import rpg_companion.composeapp.generated.resources.btn_inventory
 import rpg_companion.composeapp.generated.resources.btn_legacy_bestiary
-import rpg_companion.composeapp.generated.resources.btn_legacy_inventory
 import rpg_companion.composeapp.generated.resources.btn_spell_book
 
 @Composable
@@ -29,7 +28,6 @@ fun HomeScreen(router: HomeRouter) {
         HomeButton(stringResource(Res.string.btn_inventory), router::openMagicalItems)
 
         HomeButton(stringResource(Res.string.btn_legacy_bestiary), router::openLegacyBestiary)
-        HomeButton(stringResource(Res.string.btn_legacy_inventory), router::openLegacyInventory)
     }
 }
 
