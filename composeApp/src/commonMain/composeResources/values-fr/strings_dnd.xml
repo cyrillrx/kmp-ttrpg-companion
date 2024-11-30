@@ -6,7 +6,6 @@
     <string name="btn_alternative_spell_book">Grimoire alternatif</string>
     <string name="btn_bestiary">Bestiaire</string>
     <string name="btn_inventory">Objets magiques</string>
-    <string name="btn_legacy_bestiary">Bestiaire xml</string>
 
     <!-- Spell -->
     <string name="formatted_spell_school_level">%1$s de niveau %2$d</string>

@@ -29,16 +29,10 @@ class SpellBookViewModel(private val repository: SpellRepository) : ViewModel() 
 
     init {
         viewModelScope.launch {
-            val spells = repository.getSpells()
-            initialSpells = spells
+            initialSpells = repository.getSpells()
             updateData()
             loading = false
         }
-    }
-
-    fun init(initialSpells: List<ApiSpell>) {
-        this.initialSpells = initialSpells
-        updateData()
     }
 
     fun applyFilter(query: String) {

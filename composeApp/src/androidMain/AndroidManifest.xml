@@ -22,13 +22,6 @@
         </activity>
 
         <activity
-            android:name=".dnd.inventory.InventoryActivity"
-            android:theme="@style/NoActionBar" />
-
-        <activity android:name=".xml.game.GameListLegayActivity" />
-        <activity android:name=".xml.group.CharacterListLegacyActivity" />
-
-        <activity
             android:name=".xml.bestiary.BestiaryLegacyActivity"
             android:theme="@style/NoActionBar" />
 

@@ -12,7 +12,6 @@ import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.btn_alternative_spell_book
 import rpg_companion.composeapp.generated.resources.btn_bestiary
 import rpg_companion.composeapp.generated.resources.btn_inventory
-import rpg_companion.composeapp.generated.resources.btn_legacy_bestiary
 import rpg_companion.composeapp.generated.resources.btn_spell_book
 
 @Composable
@@ -26,8 +25,6 @@ fun HomeScreen(router: HomeRouter) {
         HomeButton(stringResource(Res.string.btn_alternative_spell_book), router::openAlternativeSpellBook)
         HomeButton(stringResource(Res.string.btn_bestiary), router::openBestiary)
         HomeButton(stringResource(Res.string.btn_inventory), router::openMagicalItems)
-
-        HomeButton(stringResource(Res.string.btn_legacy_bestiary), router::openLegacyBestiary)
     }
 }
 
@@ -41,8 +38,5 @@ interface HomeRouter {
     fun openSpellBook() {}
     fun openAlternativeSpellBook() {}
     fun openBestiary() {}
-
     fun openMagicalItems() {}
-    fun openLegacyBestiary() {}
-    fun openLegacyInventory() {}
 }

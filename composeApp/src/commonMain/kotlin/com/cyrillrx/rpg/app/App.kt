@@ -11,6 +11,9 @@ import androidx.navigation.toRoute
 import com.cyrillrx.rpg.common.theme.AppTheme
 import com.cyrillrx.rpg.home.presentation.HomeRouter
 import com.cyrillrx.rpg.home.presentation.HomeScreen
+import com.cyrillrx.rpg.magicalitems.data.JsonMagicalItemRepository
+import com.cyrillrx.rpg.magicalitems.presentation.InventoryScreen
+import com.cyrillrx.rpg.magicalitems.presentation.InventoryViewModel
 import com.cyrillrx.rpg.spellbook.data.JsonSpellRepository
 import com.cyrillrx.rpg.spellbook.presentation.AlternativeSpellBookScreen
 import com.cyrillrx.rpg.spellbook.presentation.SpellBookScreen
@@ -61,7 +64,8 @@ fun App() {
             }
 
             composable<Route.MagicalItems> {
-                // TODO
+                val viewModel = InventoryViewModel(JsonMagicalItemRepository())
+                InventoryScreen(viewModel.magicalItems, viewModel.query, viewModel::applyFilter)
             }
 
             composable<Route.MagicalItemDetail> {
@@ -88,8 +92,5 @@ private fun createHomeRouter(navController: NavController): HomeRouter {
         override fun openMagicalItems() {
             navController.navigate(Route.MagicalItems)
         }
-
-        override fun openLegacyBestiary() {}
-        override fun openLegacyInventory() {}
     }
 }

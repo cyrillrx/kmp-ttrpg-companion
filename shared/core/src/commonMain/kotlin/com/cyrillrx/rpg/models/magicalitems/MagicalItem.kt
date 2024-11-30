@@ -1,9 +1,9 @@
-package com.cyrillrx.rpg.api.inventory
+package com.cyrillrx.rpg.models.magicalitems
 
 import kotlinx.serialization.Serializable
 
 @Serializable
-class ApiMagicalItem(
+class MagicalItem(
     val title: String,
     val subtitle: String,
     val description: String,
