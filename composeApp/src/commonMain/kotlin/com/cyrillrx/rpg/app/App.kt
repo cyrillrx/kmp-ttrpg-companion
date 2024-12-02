@@ -8,6 +8,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
+import com.cyrillrx.rpg.bestiary.data.SampleBestiaryRepository
+import com.cyrillrx.rpg.bestiary.presentation.BestiaryScreen
 import com.cyrillrx.rpg.common.theme.AppTheme
 import com.cyrillrx.rpg.home.presentation.HomeRouter
 import com.cyrillrx.rpg.home.presentation.HomeScreen
@@ -56,7 +58,8 @@ fun App() {
             }
 
             composable<Route.Bestiary> {
-                // TODO
+                val creatures = SampleBestiaryRepository().getAll()
+                BestiaryScreen(creatures) { }
             }
 
             composable<Route.BestiaryDetail> {
@@ -85,12 +88,12 @@ private fun createHomeRouter(navController: NavController): HomeRouter {
             navController.navigate(Route.AlternativeSpellList)
         }
 
-        override fun openBestiary() {
-            navController.navigate(Route.Bestiary)
-        }
-
         override fun openMagicalItems() {
             navController.navigate(Route.MagicalItems)
+        }
+
+        override fun openBestiary() {
+            navController.navigate(Route.Bestiary)
         }
     }
 }

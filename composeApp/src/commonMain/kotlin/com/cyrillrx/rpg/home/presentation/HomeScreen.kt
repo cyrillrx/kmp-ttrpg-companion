@@ -37,6 +37,6 @@ fun PreviewHomeScreen() {
 interface HomeRouter {
     fun openSpellBook() {}
     fun openAlternativeSpellBook() {}
-    fun openBestiary() {}
     fun openMagicalItems() {}
+    fun openBestiary() {}
 }

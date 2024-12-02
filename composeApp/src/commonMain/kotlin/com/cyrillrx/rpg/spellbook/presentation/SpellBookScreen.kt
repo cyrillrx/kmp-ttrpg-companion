@@ -76,28 +76,26 @@ fun SpellBookScreen(
     onSaveClicked: (ApiSpell) -> Unit,
     navigateToSpell: (ApiSpell) -> Unit,
 ) {
-    AppTheme {
-        Column {
-            SearchBarWithOverflow(
-                query = query,
-                savedSpellsOnly = savedSpellsOnly,
-                applyFilter = applyFilter,
-                onDisplaySavedSpellsClicked = onDisplaySavedOnlyClicked,
-            )
+    Column {
+        SearchBarWithOverflow(
+            query = query,
+            savedSpellsOnly = savedSpellsOnly,
+            applyFilter = applyFilter,
+            onDisplaySavedSpellsClicked = onDisplaySavedOnlyClicked,
+        )
 
-            LazyColumn(modifier = Modifier.fillMaxSize()) {
-                items(spells) { spell ->
+        LazyColumn(modifier = Modifier.fillMaxSize()) {
+            items(spells) { spell ->
 
-                    SpellListItem(
-                        Modifier
-                            .fillMaxWidth()
-                            .wrapContentHeight()
-                            .clickable { navigateToSpell(spell) },
-                        spell,
-                        savedSpell,
-                        onSaveClicked,
-                    )
-                }
+                SpellListItem(
+                    Modifier
+                        .fillMaxWidth()
+                        .wrapContentHeight()
+                        .clickable { navigateToSpell(spell) },
+                    spell,
+                    savedSpell,
+                    onSaveClicked,
+                )
             }
         }
     }

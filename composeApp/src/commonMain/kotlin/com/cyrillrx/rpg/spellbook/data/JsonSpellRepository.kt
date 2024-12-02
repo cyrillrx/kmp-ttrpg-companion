@@ -9,7 +9,7 @@ import rpg_companion.composeapp.generated.resources.Res
 class JsonSpellRepository : SpellRepository {
 
     @OptIn(ExperimentalResourceApi::class)
-    override suspend fun getSpells(): List<ApiSpell> {
+    override suspend fun getAll(): List<ApiSpell> {
         val bytes = Res.readBytes("files/grimoire.json")
         val serializedBestiary: String = bytes.decodeToString()
         return serializedBestiary.deserialize()

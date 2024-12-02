@@ -7,6 +7,7 @@ import com.cyrillrx.rpg.R
 import com.cyrillrx.rpg.api.spellbook.ApiSpell
 import com.cyrillrx.rpg.common.theme.AppTheme
 import com.cyrillrx.rpg.common.theme.spacingMedium
+import com.cyrillrx.rpg.spellbook.data.SampleSpellRepository
 import com.cyrillrx.rpg.spellbook.data.sampleSpell
 import com.cyrillrx.rpg.spellbook.presentation.AlternativeSpellBookScreen
 import com.cyrillrx.rpg.spellbook.presentation.SpellCard
@@ -17,7 +18,7 @@ import com.cyrillrx.rpg.spellbook.presentation.getColor
 @Preview
 @Composable
 fun PreviewSpellBookScreenDark() {
-    val spell = sampleSpell()
+    val spell = SampleSpellRepository().get()
     val items = listOf(spell, spell, spell)
     AppTheme(darkTheme = true) {
         AlternativeSpellBookScreen(items, stringResource(id = R.string.spell_search_hint)) {}

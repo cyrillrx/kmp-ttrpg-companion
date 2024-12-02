@@ -1,11 +1,11 @@
 package com.cyrillrx.rpg.magicalitems.data
 
-import com.cyrillrx.rpg.magicalitems.domain.MagicalItemRepository
 import com.cyrillrx.rpg.models.magicalitems.MagicalItem
 
-class SampleMagicalItemsRepository : MagicalItemRepository {
-    override suspend fun getAll(): List<MagicalItem> {
-        return listOf(get())
+class SampleMagicalItemsRepository {
+    fun getAll(): List<MagicalItem> {
+        val sample = get()
+        return listOf(sample, sample, sample)
     }
 
     fun get(): MagicalItem {

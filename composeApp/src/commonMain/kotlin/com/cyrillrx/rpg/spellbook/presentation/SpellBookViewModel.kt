@@ -29,7 +29,7 @@ class SpellBookViewModel(private val repository: SpellRepository) : ViewModel() 
 
     init {
         viewModelScope.launch {
-            initialSpells = repository.getSpells()
+            initialSpells = repository.getAll()
             updateData()
             loading = false
         }
