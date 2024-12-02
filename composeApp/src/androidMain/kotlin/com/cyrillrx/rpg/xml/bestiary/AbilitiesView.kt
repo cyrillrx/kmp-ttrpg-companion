@@ -5,7 +5,6 @@ import android.util.AttributeSet
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.cyrillrx.rpg.R
-import com.cyrillrx.rpg.dnd.DndRules
 import com.cyrillrx.rpg.models.bestiary.Abilities
 
 class AbilitiesView : ConstraintLayout {
@@ -41,12 +40,12 @@ class AbilitiesView : ConstraintLayout {
     }
 
     fun setAbilities(abilities: Abilities) {
-        setStrength(abilities.str)
-        setDexterity(abilities.dex)
-        setConstitution(abilities.con)
-        setIntelligence(abilities.int)
-        setWisdom(abilities.wis)
-        setCharisma(abilities.cha)
+        setStrength(abilities.str.value)
+        setDexterity(abilities.dex.value)
+        setConstitution(abilities.con.value)
+        setIntelligence(abilities.int.value)
+        setWisdom(abilities.wis.value)
+        setCharisma(abilities.cha.value)
     }
 
     fun setStrength(value: String) {
@@ -99,8 +98,21 @@ class AbilitiesView : ConstraintLayout {
 
     private fun Int.addModifier(): String {
         val value = this
-        val modifier = DndRules.getModifier(value)
+        val modifier = getModifier(value)
         val signedModifier = if (modifier >= 0) "+$modifier" else "$modifier"
         return "$value ($signedModifier)"
+    }
+
+    private fun getModifier(abilityValue: Int): Int = when {
+        abilityValue < 4 -> -4
+        abilityValue < 6 -> -3
+        abilityValue < 8 -> -2
+        abilityValue < 10 -> -1
+        abilityValue < 12 -> 0
+        abilityValue < 14 -> 1
+        abilityValue < 16 -> 2
+        abilityValue < 18 -> 3
+        abilityValue < 20 -> 4
+        else -> 5
     }
 }

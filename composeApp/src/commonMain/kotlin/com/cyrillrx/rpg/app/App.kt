@@ -8,8 +8,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
-import com.cyrillrx.rpg.bestiary.data.SampleBestiaryRepository
+import com.cyrillrx.rpg.bestiary.data.JsonBestiaryRepository
 import com.cyrillrx.rpg.bestiary.presentation.BestiaryScreen
+import com.cyrillrx.rpg.bestiary.presentation.BestiaryViewModel
 import com.cyrillrx.rpg.common.theme.AppTheme
 import com.cyrillrx.rpg.home.presentation.HomeRouter
 import com.cyrillrx.rpg.home.presentation.HomeScreen
@@ -58,21 +59,13 @@ fun App() {
             }
 
             composable<Route.Bestiary> {
-                val creatures = SampleBestiaryRepository().getAll()
-                BestiaryScreen(creatures) { }
-            }
-
-            composable<Route.BestiaryDetail> {
-                // TODO
+                val viewModel = BestiaryViewModel(JsonBestiaryRepository())
+                BestiaryScreen(viewModel.creatures)
             }
 
             composable<Route.MagicalItems> {
                 val viewModel = InventoryViewModel(JsonMagicalItemRepository())
                 InventoryScreen(viewModel.magicalItems, viewModel.query, viewModel::applyFilter)
-            }
-
-            composable<Route.MagicalItemDetail> {
-                // TODO
             }
         }
     }

@@ -3,7 +3,7 @@ package com.cyrillrx.rpg.bestiary.data;
 import com.cyrillrx.rpg.models.bestiary.Abilities
 import com.cyrillrx.rpg.models.bestiary.Creature
 
-class SampleBestiaryRepository() {
+class SampleBestiaryRepository {
     fun getAll(): List<Creature> {
         val item = get()
         return listOf(item, item, item)
@@ -17,12 +17,12 @@ class SampleBestiaryRepository() {
         size = "Small",
         alignment = "Neutral Evil",
         abilities = Abilities(
-            str = 8,
-            dex = 14,
-            con = 10,
-            int = 10,
-            wis = 8,
-            cha = 8,
+            strValue = 8,
+            dexValue = 14,
+            conValue = 10,
+            intValue = 10,
+            wisValue = 8,
+            chaValue = 8,
         ),
     )
 }

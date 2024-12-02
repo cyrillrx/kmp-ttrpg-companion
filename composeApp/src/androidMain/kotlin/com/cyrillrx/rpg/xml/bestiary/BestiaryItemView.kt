@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.cyrillrx.rpg.R
 import com.cyrillrx.rpg.api.bestiary.ApiBestiaryItem
 import com.cyrillrx.rpg.models.bestiary.Abilities
+import com.cyrillrx.rpg.models.bestiary.Ability
 import com.cyrillrx.rpg.models.bestiary.Creature
 import com.cyrillrx.rpg.setHtmlText
 import com.cyrillrx.rpg.xml.inflate
@@ -51,6 +52,6 @@ class BestiaryItemView(parent: ViewGroup) :
             ?.split(" ")
             ?.firstOrNull()
             ?.toIntOrNull()
-            ?: Abilities.DEFAULT_ABILITY_VALUE
+            ?: Ability.DEFAULT_VALUE
     }
 }

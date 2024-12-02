@@ -20,11 +20,5 @@ sealed interface Route {
     data object Bestiary : Route
 
     @Serializable
-    data class BestiaryDetail(val id: String) : Route
-
-    @Serializable
     data object MagicalItems : Route
-
-    @Serializable
-    data class MagicalItemDetail(val id: String) : Route
 }

@@ -9,17 +9,24 @@ import com.cyrillrx.rpg.common.theme.AppTheme
 
 @Preview
 @Composable
-fun PreviewBestiaryScreen() {
-    val creatures = SampleBestiaryRepository().getAll()
+fun PreviewAbilitiesLayout() {
     AppTheme(darkTheme = false) {
-        BestiaryScreen(creatures) { }
+        AbilitiesLayout(
+            str = "10 (+0)",
+            dex = "16 (+3)",
+            con = "12 (+1)",
+            int = "10 (+0)",
+            wis = "18 (+4)",
+            cha = "10 (+0)",
+        )
     }
 }
 
 @Preview
 @Composable
-fun PreviewAbilitiesLayout() {
+fun PreviewBestiaryScreen() {
+    val creatures = SampleBestiaryRepository().getAll()
     AppTheme(darkTheme = false) {
-        AbilitiesLayout(14, 14, 14, 14, 14, 14)
+        BestiaryScreen(creatures)
     }
 }

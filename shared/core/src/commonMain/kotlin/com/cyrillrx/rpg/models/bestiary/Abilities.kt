@@ -1,14 +1,17 @@
 package com.cyrillrx.rpg.models.bestiary
 
 open class Abilities(
-    val str: Int = DEFAULT_ABILITY_VALUE,
-    val dex: Int = DEFAULT_ABILITY_VALUE,
-    val con: Int = DEFAULT_ABILITY_VALUE,
-    val int: Int = DEFAULT_ABILITY_VALUE,
-    val wis: Int = DEFAULT_ABILITY_VALUE,
-    val cha: Int = DEFAULT_ABILITY_VALUE,
+    strValue: Int,
+    dexValue: Int,
+    conValue: Int,
+    intValue: Int,
+    wisValue: Int,
+    chaValue: Int,
 ) {
-    companion object {
-        const val DEFAULT_ABILITY_VALUE = 10
-    }
+    val str = Ability(strValue)
+    val dex = Ability(dexValue)
+    val con = Ability(conValue)
+    val int = Ability(intValue)
+    val wis = Ability(wisValue)
+    val cha = Ability(chaValue)
 }

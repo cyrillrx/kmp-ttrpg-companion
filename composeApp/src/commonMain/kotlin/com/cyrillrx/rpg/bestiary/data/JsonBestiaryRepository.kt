@@ -3,6 +3,7 @@ package com.cyrillrx.rpg.bestiary.data
 import com.cyrillrx.rpg.api.bestiary.ApiBestiaryItem
 import com.cyrillrx.rpg.bestiary.domain.BestiaryRepository
 import com.cyrillrx.rpg.models.bestiary.Abilities
+import com.cyrillrx.rpg.models.bestiary.Ability
 import com.cyrillrx.rpg.models.bestiary.Creature
 import com.cyrillrx.utils.deserialize
 import org.jetbrains.compose.resources.ExperimentalResourceApi
@@ -49,7 +50,7 @@ class JsonBestiaryRepository : BestiaryRepository {
                 ?.split(" ")
                 ?.firstOrNull()
                 ?.toIntOrNull()
-                ?: Abilities.DEFAULT_ABILITY_VALUE
+                ?: Ability.DEFAULT_VALUE
         }
     }
 }
