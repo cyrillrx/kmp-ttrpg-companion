@@ -1,15 +1,14 @@
 package com.cyrillrx.rpg.xml.bestiary
 
+import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.annotation.LayoutRes
 import androidx.recyclerview.widget.RecyclerView
 import com.cyrillrx.rpg.R
-import com.cyrillrx.rpg.api.bestiary.ApiBestiaryItem
-import com.cyrillrx.rpg.models.bestiary.Abilities
-import com.cyrillrx.rpg.models.bestiary.Ability
 import com.cyrillrx.rpg.models.bestiary.Creature
 import com.cyrillrx.rpg.setHtmlText
-import com.cyrillrx.rpg.xml.inflate
 
 class BestiaryItemView(parent: ViewGroup) :
     RecyclerView.ViewHolder(parent.inflate(R.layout.item_bestiary)) {
@@ -18,40 +17,16 @@ class BestiaryItemView(parent: ViewGroup) :
     private var tvContent: TextView = itemView.findViewById(R.id.tvContent)
     private var abilitiesView: AbilitiesView = itemView.findViewById(R.id.abilitiesLayout)
 
-    fun bind(bestiaryItem: ApiBestiaryItem) {
-        val creature = bestiaryItem.toCreature()
-
+    fun bind(creature: Creature) {
         tvTitle.text = creature.name
         tvContent.setHtmlText(creature.description)
         abilitiesView.setAbilities(creature.abilities)
     }
 
-    private fun ApiBestiaryItem.toCreature(): Creature {
-        val abilities = header?.monster
-
-        return Creature(
-            title ?: "",
-            content ?: "",
-            type ?: "",
-            subtype ?: "",
-            size ?: "",
-            alignment ?: "",
-            Abilities(
-                extractAbilities(abilities?.str),
-                extractAbilities(abilities?.dex),
-                extractAbilities(abilities?.con),
-                extractAbilities(abilities?.int),
-                extractAbilities(abilities?.wis),
-                extractAbilities(abilities?.cha),
-            ),
-        )
-    }
-
-    private fun extractAbilities(ability: String?): Int {
-        return ability
-            ?.split(" ")
-            ?.firstOrNull()
-            ?.toIntOrNull()
-            ?: Ability.DEFAULT_VALUE
+    companion object {
+        fun ViewGroup.inflate(@LayoutRes layoutRes: Int, attachToRoot: Boolean = false): View =
+            LayoutInflater
+                .from(this.context)
+                .inflate(layoutRes, this, attachToRoot)
     }
 }

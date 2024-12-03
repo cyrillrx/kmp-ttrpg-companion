@@ -6,6 +6,7 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.cyrillrx.rpg.R
 import com.cyrillrx.rpg.models.bestiary.Abilities
+import com.cyrillrx.rpg.models.bestiary.Ability
 
 class AbilitiesView : ConstraintLayout {
 
@@ -40,79 +41,35 @@ class AbilitiesView : ConstraintLayout {
     }
 
     fun setAbilities(abilities: Abilities) {
-        setStrength(abilities.str.value)
-        setDexterity(abilities.dex.value)
-        setConstitution(abilities.con.value)
-        setIntelligence(abilities.int.value)
-        setWisdom(abilities.wis.value)
-        setCharisma(abilities.cha.value)
+        setStrength(abilities.str)
+        setDexterity(abilities.dex)
+        setConstitution(abilities.con)
+        setIntelligence(abilities.int)
+        setWisdom(abilities.wis)
+        setCharisma(abilities.cha)
     }
 
-    fun setStrength(value: String) {
-        tvStrValue.text = value
+    private fun setStrength(ability: Ability) {
+        tvStrValue.text = ability.getValueWithModifier()
     }
 
-    fun setStrength(value: Int) {
-        setStrength(value.addModifier())
+    private fun setDexterity(ability: Ability) {
+        tvDexValue.text = ability.getValueWithModifier()
     }
 
-    fun setDexterity(value: String) {
-        tvDexValue.text = value
+    private fun setConstitution(ability: Ability) {
+        tvConValue.text = ability.getValueWithModifier()
     }
 
-    fun setDexterity(value: Int) {
-        setDexterity(value.addModifier())
+    private fun setIntelligence(ability: Ability) {
+        tvIntValue.text = ability.getValueWithModifier()
     }
 
-    fun setConstitution(value: String) {
-        tvConValue.text = value
+    private fun setWisdom(ability: Ability) {
+        tvWisValue.text = ability.getValueWithModifier()
     }
 
-    fun setConstitution(value: Int) {
-        setConstitution(value.addModifier())
-    }
-
-    fun setIntelligence(value: String) {
-        tvIntValue.text = value
-    }
-
-    fun setIntelligence(value: Int) {
-        setIntelligence(value.addModifier())
-    }
-
-    fun setWisdom(value: String) {
-        tvWisValue.text = value
-    }
-
-    fun setWisdom(value: Int) {
-        setWisdom(value.addModifier())
-    }
-
-    fun setCharisma(value: String) {
-        tvChaValue.text = value
-    }
-
-    fun setCharisma(value: Int) {
-        setCharisma(value.addModifier())
-    }
-
-    private fun Int.addModifier(): String {
-        val value = this
-        val modifier = getModifier(value)
-        val signedModifier = if (modifier >= 0) "+$modifier" else "$modifier"
-        return "$value ($signedModifier)"
-    }
-
-    private fun getModifier(abilityValue: Int): Int = when {
-        abilityValue < 4 -> -4
-        abilityValue < 6 -> -3
-        abilityValue < 8 -> -2
-        abilityValue < 10 -> -1
-        abilityValue < 12 -> 0
-        abilityValue < 14 -> 1
-        abilityValue < 16 -> 2
-        abilityValue < 18 -> 3
-        abilityValue < 20 -> 4
-        else -> 5
+    private fun setCharisma(ability: Ability) {
+        tvChaValue.text = ability.getValueWithModifier()
     }
 }

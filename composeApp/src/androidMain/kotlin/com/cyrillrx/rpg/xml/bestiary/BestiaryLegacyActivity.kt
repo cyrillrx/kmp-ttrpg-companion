@@ -1,22 +1,56 @@
 package com.cyrillrx.rpg.xml.bestiary
 
-import com.cyrillrx.rpg.AssetReader
-import com.cyrillrx.rpg.api.bestiary.ApiBestiaryItem
-import com.cyrillrx.rpg.xml.template.ListActivity
-import com.cyrillrx.utils.deserialize
+import android.os.Bundle
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.cyrillrx.rpg.R
+import com.cyrillrx.rpg.bestiary.data.JsonBestiaryRepository
+import kotlinx.coroutines.launch
 
-class BestiaryLegacyActivity : ListActivity<BestiaryAdapter>() {
+class BestiaryLegacyActivity : AppCompatActivity() {
 
-    override val adapter = BestiaryAdapter()
+    private lateinit var placeholderLayout: PlaceholderLayout
+    private lateinit var loader: View
 
-    override fun sendRequest() {
-        startLoading()
+    private val adapter = BestiaryAdapter()
 
-        val serializedBestiary = AssetReader.readAsString(this, "bestiaire.json")
-        val bestiary: List<ApiBestiaryItem> = serializedBestiary?.deserialize() ?: listOf()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_list)
 
-        adapter.addAll(bestiary)
+        placeholderLayout = findViewById(R.id.empty_layout)
+        loader = findViewById(R.id.loader)
 
-        stopLoading()
+        setupRecycler(findViewById(R.id.recycler))
+
+        sendRequest()
+    }
+
+    private fun setupRecycler(recyclerView: RecyclerView) {
+        val layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = layoutManager
+        recyclerView.adapter = adapter
+    }
+
+    private fun startLoading() {
+        loader.visibility = View.VISIBLE
+    }
+
+    private fun stopLoading() {
+        loader.visibility = View.GONE
+    }
+
+    private fun sendRequest() {
+        lifecycleScope.launch {
+            startLoading()
+
+            val creatures = JsonBestiaryRepository().getAll()
+            adapter.addAll(creatures)
+
+            stopLoading()
+        }
     }
 }

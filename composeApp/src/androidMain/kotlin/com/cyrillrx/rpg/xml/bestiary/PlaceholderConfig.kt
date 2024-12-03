@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.xml
+package com.cyrillrx.rpg.xml.bestiary
 
 import android.view.View
 import androidx.annotation.DrawableRes

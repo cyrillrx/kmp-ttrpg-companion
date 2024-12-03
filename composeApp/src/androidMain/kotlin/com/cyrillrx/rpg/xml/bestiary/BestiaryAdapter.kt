@@ -1,14 +1,24 @@
 package com.cyrillrx.rpg.xml.bestiary
 
 import android.view.ViewGroup
-import com.cyrillrx.rpg.api.bestiary.ApiBestiaryItem
-import com.cyrillrx.rpg.xml.template.BaseAdapter
+import androidx.recyclerview.widget.RecyclerView
+import com.cyrillrx.rpg.models.bestiary.Creature
 
-class BestiaryAdapter : BaseAdapter<BestiaryItemView>() {
+class BestiaryAdapter : RecyclerView.Adapter<BestiaryItemView>() {
+
+    private val items: MutableList<Creature> = ArrayList()
+
+    override fun getItemCount(): Int = items.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = BestiaryItemView(parent)
 
     override fun onBindViewHolder(holder: BestiaryItemView, position: Int) {
-        holder.bind(getItem(position) as ApiBestiaryItem)
+        holder.bind(items[position])
+    }
+
+    fun addAll(newCreatures: Collection<Creature>) {
+        val startPos = items.size
+        items.addAll(newCreatures)
+        notifyItemRangeInserted(startPos, newCreatures.size)
     }
 }

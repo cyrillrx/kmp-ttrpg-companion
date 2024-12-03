@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.xml
+package com.cyrillrx.rpg.xml.bestiary
 
 import android.content.Context
 import android.os.Build
