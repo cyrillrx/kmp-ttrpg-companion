@@ -8,6 +8,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.ability_label_cha
@@ -32,36 +33,42 @@ fun AbilitiesLayout(
                 text = stringResource(Res.string.ability_label_str),
                 style = MaterialTheme.typography.bodyMedium,
                 fontWeight = FontWeight.Bold,
+                textAlign = TextAlign.Center,
                 modifier = Modifier.weight(1f),
             )
             Text(
                 text = stringResource(Res.string.ability_label_dex),
                 style = MaterialTheme.typography.bodyMedium,
                 fontWeight = FontWeight.Bold,
+                textAlign = TextAlign.Center,
                 modifier = Modifier.weight(1f),
             )
             Text(
                 text = stringResource(Res.string.ability_label_con),
                 style = MaterialTheme.typography.bodyMedium,
                 fontWeight = FontWeight.Bold,
+                textAlign = TextAlign.Center,
                 modifier = Modifier.weight(1f),
             )
             Text(
                 text = stringResource(Res.string.ability_label_int),
                 style = MaterialTheme.typography.bodyMedium,
                 fontWeight = FontWeight.Bold,
+                textAlign = TextAlign.Center,
                 modifier = Modifier.weight(1f),
             )
             Text(
                 text = stringResource(Res.string.ability_label_wis),
                 style = MaterialTheme.typography.bodyMedium,
                 fontWeight = FontWeight.Bold,
+                textAlign = TextAlign.Center,
                 modifier = Modifier.weight(1f),
             )
             Text(
                 text = stringResource(Res.string.ability_label_cha),
                 style = MaterialTheme.typography.bodyMedium,
                 fontWeight = FontWeight.Bold,
+                textAlign = TextAlign.Center,
                 modifier = Modifier.weight(1f),
             )
         }
@@ -69,31 +76,37 @@ fun AbilitiesLayout(
             Text(
                 text = str,
                 style = MaterialTheme.typography.bodySmall,
+                textAlign = TextAlign.Center,
                 modifier = Modifier.weight(1f),
             )
             Text(
                 text = dex,
                 style = MaterialTheme.typography.bodySmall,
+                textAlign = TextAlign.Center,
                 modifier = Modifier.weight(1f),
             )
             Text(
                 text = con,
                 style = MaterialTheme.typography.bodySmall,
+                textAlign = TextAlign.Center,
                 modifier = Modifier.weight(1f),
             )
             Text(
                 text = int,
                 style = MaterialTheme.typography.bodySmall,
+                textAlign = TextAlign.Center,
                 modifier = Modifier.weight(1f),
             )
             Text(
                 text = wis,
                 style = MaterialTheme.typography.bodySmall,
+                textAlign = TextAlign.Center,
                 modifier = Modifier.weight(1f),
             )
             Text(
                 text = cha,
                 style = MaterialTheme.typography.bodySmall,
+                textAlign = TextAlign.Center,
                 modifier = Modifier.weight(1f),
             )
         }
