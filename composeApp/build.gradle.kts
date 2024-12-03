@@ -27,8 +27,17 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
+            implementation(libs.androidx.appcompat)
+            implementation(libs.androidx.core.ktx)
+            implementation(libs.androidx.legacy.recyclerview)
+            implementation(libs.androidx.ui)
+            implementation(libs.androidx.ui.tooling)
+
+            implementation(libs.legacy.material)
         }
         commonMain.dependencies {
+            implementation(files("$rootDir/libs/logger.2024-11-23.aar"))
+            implementation(files("$rootDir/libs/tracker.2024-11-23.aar"))
             implementation(projects.shared.core)
 
             implementation(compose.runtime)
@@ -98,28 +107,6 @@ compose.desktop {
             packageVersion = "1.0.0"
         }
     }
-}
-
-dependencies {
-    implementation(projects.shared.core)
-
-    implementation(files("$rootDir/libs/logger.2024-11-23.aar"))
-    implementation(files("$rootDir/libs/tracker.2024-11-23.aar"))
-
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-
-    implementation(libs.androidx.legacy.recyclerview)
-    implementation(libs.androidx.legacy.swiperefreshlayout)
-
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.activity.compose)
-    implementation(libs.androidx.material)
-    implementation(libs.androidx.ui.tooling)
-
-    implementation(libs.legacy.material)
-
-    implementation(libs.html.text)
 }
 
 ktlint {
