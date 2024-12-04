@@ -29,7 +29,6 @@ kotlin {
             implementation(libs.androidx.activity.compose)
             implementation(libs.androidx.appcompat)
             implementation(libs.androidx.core.ktx)
-            implementation(libs.androidx.legacy.recyclerview)
             implementation(libs.androidx.ui)
             implementation(libs.androidx.ui.tooling)
 
