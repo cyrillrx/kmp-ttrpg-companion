@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.bestiary.presentation;
+package com.cyrillrx.rpg.bestiary.presentation
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -7,6 +7,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
+import com.cyrillrx.rpg.common.presentation.HtmlText
 import com.cyrillrx.rpg.common.theme.spacingCommon
 import com.cyrillrx.rpg.models.bestiary.Creature
 
@@ -32,9 +33,6 @@ fun CreatureItem(creature: Creature) {
             cha = abilities.cha.getValueWithModifier(),
         )
 
-        Text(
-            text = creature.description,
-            style = MaterialTheme.typography.bodyMedium,
-        )
+        HtmlText(text = creature.description)
     }
 }
