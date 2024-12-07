@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.bestiary.data
 
 import com.cyrillrx.core.data.FileReader
 import com.cyrillrx.core.data.deserialize
+import com.cyrillrx.core.domain.Result
 import com.cyrillrx.rpg.bestiary.data.api.ApiBestiaryItem
 import com.cyrillrx.rpg.bestiary.domain.Abilities
 import com.cyrillrx.rpg.bestiary.domain.Ability
@@ -16,8 +17,11 @@ class JsonBestiaryRepository(private val fileReader: FileReader) : BestiaryRepos
     }
 
     private suspend fun loadFromFile(): List<ApiBestiaryItem> {
-        val serializedBestiary: String = fileReader.readFile("files/bestiaire.json")
-        return serializedBestiary.deserialize() ?: listOf()
+        val result = fileReader.readFile("files/bestiaire.json")
+        if (result is Result.Success) {
+            return result.value.deserialize() ?: listOf()
+        }
+        return listOf()
     }
 
     companion object {

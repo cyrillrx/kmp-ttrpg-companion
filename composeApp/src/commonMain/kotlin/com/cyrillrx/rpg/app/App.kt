@@ -8,9 +8,12 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
+import com.cyrillrx.core.data.deserialize
+import com.cyrillrx.core.data.serialize
 import com.cyrillrx.rpg.bestiary.data.JsonBestiaryRepository
 import com.cyrillrx.rpg.bestiary.presentation.BestiaryScreen
 import com.cyrillrx.rpg.bestiary.presentation.BestiaryViewModel
+import com.cyrillrx.rpg.core.data.ComposeFileReader
 import com.cyrillrx.rpg.core.presentation.theme.AppTheme
 import com.cyrillrx.rpg.home.presentation.HomeRouter
 import com.cyrillrx.rpg.home.presentation.HomeScreen
@@ -22,9 +25,6 @@ import com.cyrillrx.rpg.spellbook.presentation.AlternativeSpellBookScreen
 import com.cyrillrx.rpg.spellbook.presentation.SpellBookScreen
 import com.cyrillrx.rpg.spellbook.presentation.SpellBookViewModel
 import com.cyrillrx.rpg.spellbook.presentation.SpellCard
-import com.cyrillrx.core.data.deserialize
-import com.cyrillrx.core.data.serialize
-import com.cyrillrx.rpg.core.data.FileReaderImpl
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
@@ -33,7 +33,7 @@ fun App() {
     AppTheme {
         val navController = rememberNavController()
 
-        val fileReader = FileReaderImpl()
+        val fileReader = ComposeFileReader()
         NavHost(
             navController = navController,
             startDestination = Route.Home,

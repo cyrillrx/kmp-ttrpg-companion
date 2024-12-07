@@ -18,7 +18,7 @@ kotlin {
         }
     }
 
-    jvm()
+    jvm("desktop")
 
     listOf(
         iosX64(),

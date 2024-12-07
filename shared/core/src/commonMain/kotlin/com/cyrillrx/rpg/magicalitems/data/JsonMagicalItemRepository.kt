@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.magicalitems.data
 
 import com.cyrillrx.core.data.FileReader
 import com.cyrillrx.core.data.deserialize
+import com.cyrillrx.core.domain.Result
 import com.cyrillrx.rpg.magicalitems.data.api.ApiInventoryItem
 import com.cyrillrx.rpg.magicalitems.domain.MagicalItem
 import com.cyrillrx.rpg.magicalitems.domain.MagicalItemRepository
@@ -13,9 +14,26 @@ class JsonMagicalItemRepository(private val fileReader: FileReader) : MagicalIte
         return inventoryItems.map { it.toMagicalItem() }
     }
 
+    override suspend fun filter(query: String): List<MagicalItem> {
+        return getAll().filter(query)
+    }
+
     private suspend fun loadFromFile(): List<ApiInventoryItem> {
-        val serializedBestiary: String = fileReader.readFile("files/objets-magiques.json")
-        return serializedBestiary.deserialize() ?: listOf()
+        val result = fileReader.readFile("files/objets-magiques.json")
+        if (result is Result.Success) {
+            return result.value.deserialize() ?: listOf()
+        }
+        return listOf()
+    }
+
+    private fun List<MagicalItem>.filter(query: String): ArrayList<MagicalItem> =
+        filterTo(ArrayList()) { spell -> spell.filter(query) }
+
+    private fun MagicalItem.filter(query: String): Boolean {
+        val lowerCaseQuery = query.trim().lowercase()
+        return title.lowercase().contains(lowerCaseQuery) ||
+            subtitle.lowercase().contains(lowerCaseQuery) ||
+            description.lowercase().contains(lowerCaseQuery)
     }
 
     companion object {
