@@ -9,12 +9,11 @@ import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.api.spellbook.ApiSpell
 import com.cyrillrx.rpg.spellbook.domain.SpellRepository
 import kotlinx.coroutines.launch
-import java.util.Locale
 
 class SpellBookViewModel(private val repository: SpellRepository) : ViewModel() {
 
-    var loading by mutableStateOf(false)
-        private set
+    private var loading by mutableStateOf(false)
+
     var query by mutableStateOf("")
         private set
     var displayedSpells = mutableStateListOf<ApiSpell>()
@@ -24,7 +23,6 @@ class SpellBookViewModel(private val repository: SpellRepository) : ViewModel() 
     var savedSpellsOnly by mutableStateOf(false)
         private set
 
-    private val locale by lazy { Locale.ROOT }
     private var initialSpells: List<ApiSpell> = ArrayList()
 
     init {
@@ -58,10 +56,10 @@ class SpellBookViewModel(private val repository: SpellRepository) : ViewModel() 
         filterTo(ArrayList()) { spell -> spell.matches(query) }
 
     private fun ApiSpell.matches(query: String): Boolean {
-        val lowerCaseQuery = query.trim().lowercase(locale)
-        return title.lowercase(locale).contains(lowerCaseQuery) ||
-            content.lowercase(locale).contains(lowerCaseQuery) ||
-            lowerCaseQuery in getSpellClasses().map { it.lowercase(locale) }
+        val lowerCaseQuery = query.trim().lowercase()
+        return title.lowercase().contains(lowerCaseQuery) ||
+            content.lowercase().contains(lowerCaseQuery) ||
+            lowerCaseQuery in getSpellClasses().map { it.lowercase() }
     }
 
     private fun updateData() {

@@ -9,18 +9,16 @@ import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.magicalitems.domain.MagicalItemRepository
 import com.cyrillrx.rpg.models.magicalitems.MagicalItem
 import kotlinx.coroutines.launch
-import java.util.Locale
 
 class InventoryViewModel(private val repository: MagicalItemRepository) : ViewModel() {
 
-    var loading by mutableStateOf(false)
+    private var loading by mutableStateOf(false)
 
     var query by mutableStateOf("")
 
     var magicalItems = mutableStateListOf<MagicalItem>()
         private set
 
-    private val locale by lazy { Locale.ROOT }
     private var initialItems: List<MagicalItem> = ArrayList()
 
     init {
@@ -40,10 +38,10 @@ class InventoryViewModel(private val repository: MagicalItemRepository) : ViewMo
         filterTo(ArrayList()) { spell -> spell.filter(query) }
 
     private fun MagicalItem.filter(query: String): Boolean {
-        val lowerCaseQuery = query.trim().lowercase(locale)
-        return title.lowercase(locale).contains(lowerCaseQuery) ||
-            subtitle.lowercase(locale).contains(lowerCaseQuery) ||
-            description.lowercase(locale).contains(lowerCaseQuery)
+        val lowerCaseQuery = query.trim().lowercase()
+        return title.lowercase().contains(lowerCaseQuery) ||
+            subtitle.lowercase().contains(lowerCaseQuery) ||
+            description.lowercase().contains(lowerCaseQuery)
     }
 
     private fun updateData(itemList: List<MagicalItem>) {

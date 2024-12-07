@@ -9,18 +9,16 @@ import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.bestiary.domain.BestiaryRepository
 import com.cyrillrx.rpg.models.bestiary.Creature
 import kotlinx.coroutines.launch
-import java.util.Locale
 
 class BestiaryViewModel(private val repository: BestiaryRepository) : ViewModel() {
 
-    var loading by mutableStateOf(false)
+    private var loading by mutableStateOf(false)
 
-    var query by mutableStateOf("")
+    private var query by mutableStateOf("")
 
     var creatures = mutableStateListOf<Creature>()
         private set
 
-    private val locale by lazy { Locale.ROOT }
     private var initialItems: List<Creature> = ArrayList()
 
     init {
@@ -40,8 +38,8 @@ class BestiaryViewModel(private val repository: BestiaryRepository) : ViewModel(
         filterTo(ArrayList()) { spell -> spell.filter(query) }
 
     private fun Creature.filter(query: String): Boolean {
-        val lowerCaseQuery = query.trim().lowercase(locale)
-        return name.lowercase(locale).contains(lowerCaseQuery)
+        val lowerCaseQuery = query.trim().lowercase()
+        return name.lowercase().contains(lowerCaseQuery)
     }
 
     private fun updateData(itemList: List<Creature>) {
