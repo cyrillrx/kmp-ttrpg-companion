@@ -5,7 +5,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.cyrillrx.rpg.bestiary.data.SampleBestiaryRepository
 import com.cyrillrx.rpg.bestiary.presentation.AbilitiesLayout
 import com.cyrillrx.rpg.bestiary.presentation.BestiaryScreen
-import com.cyrillrx.rpg.common.theme.AppTheme
+import com.cyrillrx.rpg.core.presentation.theme.AppTheme
 
 @Preview
 @Composable

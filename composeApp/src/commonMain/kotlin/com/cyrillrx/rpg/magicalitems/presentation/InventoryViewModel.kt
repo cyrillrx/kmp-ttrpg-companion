@@ -6,8 +6,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.cyrillrx.rpg.magicalitems.domain.MagicalItem
 import com.cyrillrx.rpg.magicalitems.domain.MagicalItemRepository
-import com.cyrillrx.rpg.models.magicalitems.MagicalItem
 import kotlinx.coroutines.launch
 
 class InventoryViewModel(private val repository: MagicalItemRepository) : ViewModel() {

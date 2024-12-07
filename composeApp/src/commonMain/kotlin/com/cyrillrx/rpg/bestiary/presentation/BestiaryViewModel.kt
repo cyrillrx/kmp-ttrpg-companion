@@ -7,7 +7,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.bestiary.domain.BestiaryRepository
-import com.cyrillrx.rpg.models.bestiary.Creature
+import com.cyrillrx.rpg.bestiary.domain.Creature
 import kotlinx.coroutines.launch
 
 class BestiaryViewModel(private val repository: BestiaryRepository) : ViewModel() {

@@ -32,12 +32,12 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.cyrillrx.rpg.api.spellbook.ApiSpell
-import com.cyrillrx.rpg.common.presentation.OverflowMenu
-import com.cyrillrx.rpg.common.presentation.Search
-import com.cyrillrx.rpg.common.theme.AppTheme
-import com.cyrillrx.rpg.common.theme.spacingMedium
-import com.cyrillrx.rpg.spellbook.data.sampleSpell
+import com.cyrillrx.rpg.core.presentation.OverflowMenu
+import com.cyrillrx.rpg.core.presentation.Search
+import com.cyrillrx.rpg.core.presentation.theme.AppTheme
+import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
+import com.cyrillrx.rpg.spellbook.data.SampleSpellRepository
+import com.cyrillrx.rpg.spellbook.data.api.ApiSpell
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
@@ -282,7 +282,7 @@ fun SpellGridItem(title: String, subtitle: String, color: Color) {
 @Preview
 @Composable
 fun PreviewSpellBookScreenDark() {
-    val spell = sampleSpell()
+    val spell = SampleSpellRepository().get()
     val items = listOf(spell, spell, spell)
     AppTheme(darkTheme = true) {
         AlternativeSpellBookScreen(items, stringResource(Res.string.spell_search_hint)) {}
@@ -292,7 +292,7 @@ fun PreviewSpellBookScreenDark() {
 @Preview
 @Composable
 fun PreviewSpellBookScreenLight() {
-    val spell = sampleSpell()
+    val spell = SampleSpellRepository().get()
     val items = listOf(spell, spell, spell)
     AppTheme(darkTheme = false) {
         AlternativeSpellBookScreen(items, stringResource(Res.string.spell_search_hint)) {}
@@ -302,7 +302,7 @@ fun PreviewSpellBookScreenLight() {
 @Preview
 @Composable
 fun PreviewSpellBookPeekScreenDark() {
-    val spell = sampleSpell()
+    val spell = SampleSpellRepository().get()
     val items = listOf(spell, spell, spell)
     AppTheme(darkTheme = true) {
         SpellBookScreen(
@@ -321,7 +321,7 @@ fun PreviewSpellBookPeekScreenDark() {
 @Preview
 @Composable
 fun PreviewSpellBookPeekScreenLight() {
-    val spell = sampleSpell()
+    val spell = SampleSpellRepository().get()
     val items = listOf(spell, spell, spell)
     AppTheme(darkTheme = false) {
         SpellBookScreen(
@@ -340,14 +340,14 @@ fun PreviewSpellBookPeekScreenLight() {
 @Preview
 @Composable
 fun PreviewSpellCard() {
-    val spell = sampleSpell()
+    val spell = SampleSpellRepository().get()
     SpellCard(spell)
 }
 
 @Preview
 @Composable
 fun PreviewSpellGrid() {
-    val spell = sampleSpell()
+    val spell = SampleSpellRepository().get()
     SpellGrid(spell, spell.getColor(), spacingMedium)
 }
 

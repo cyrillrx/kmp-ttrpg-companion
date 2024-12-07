@@ -7,7 +7,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.cyrillrx.rpg.common.theme.spacingMedium
+import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 
 @Composable
 fun HomeButton(text: String, onClick: () -> Unit) {

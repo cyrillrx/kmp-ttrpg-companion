@@ -20,14 +20,23 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.cyrillrx.rpg.common.presentation.Search
-import com.cyrillrx.rpg.common.theme.AppTheme
+import com.cyrillrx.rpg.core.presentation.Search
+import com.cyrillrx.rpg.core.presentation.theme.AppTheme
 import com.cyrillrx.rpg.magicalitems.data.SampleMagicalItemsRepository
-import com.cyrillrx.rpg.models.magicalitems.MagicalItem
+import com.cyrillrx.rpg.magicalitems.domain.MagicalItem
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.spell_search_hint
+
+@Composable
+fun InventoryScreen(inventoryViewModel: InventoryViewModel) {
+    InventoryScreen(
+        magicalItems = inventoryViewModel.magicalItems,
+        query = inventoryViewModel.query,
+        applyFilter = inventoryViewModel::applyFilter,
+    )
+}
 
 @Composable
 fun InventoryScreen(magicalItems: List<MagicalItem>, query: String, applyFilter: (String) -> Unit) {

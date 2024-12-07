@@ -7,9 +7,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
-import com.cyrillrx.rpg.common.presentation.HtmlText
-import com.cyrillrx.rpg.common.theme.spacingCommon
-import com.cyrillrx.rpg.models.bestiary.Creature
+import com.cyrillrx.rpg.core.presentation.HtmlText
+import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
+import com.cyrillrx.rpg.bestiary.domain.Creature
 
 @Composable
 fun CreatureItem(creature: Creature) {

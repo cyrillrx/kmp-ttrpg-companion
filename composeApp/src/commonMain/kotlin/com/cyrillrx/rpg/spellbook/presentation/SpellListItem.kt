@@ -22,11 +22,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.cyrillrx.rpg.api.spellbook.ApiSpell
-import com.cyrillrx.rpg.common.presentation.BookmarkButton
-import com.cyrillrx.rpg.common.theme.spacingCommon
-import com.cyrillrx.rpg.common.theme.spacingMedium
-import com.cyrillrx.rpg.common.theme.spacingSmall
+import com.cyrillrx.rpg.spellbook.data.api.ApiSpell
+import com.cyrillrx.rpg.core.presentation.BookmarkButton
+import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
+import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
+import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.formatted_spell_casting_time

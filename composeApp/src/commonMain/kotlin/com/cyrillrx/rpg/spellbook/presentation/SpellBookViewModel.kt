@@ -6,7 +6,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.cyrillrx.rpg.api.spellbook.ApiSpell
+import com.cyrillrx.rpg.spellbook.data.api.ApiSpell
 import com.cyrillrx.rpg.spellbook.domain.SpellRepository
 import kotlinx.coroutines.launch
 
