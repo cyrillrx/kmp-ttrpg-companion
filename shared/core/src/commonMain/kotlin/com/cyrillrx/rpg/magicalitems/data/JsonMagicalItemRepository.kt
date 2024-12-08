@@ -26,17 +26,17 @@ class JsonMagicalItemRepository(private val fileReader: FileReader) : MagicalIte
         return listOf()
     }
 
-    private fun List<MagicalItem>.filter(query: String): ArrayList<MagicalItem> =
-        filterTo(ArrayList()) { spell -> spell.filter(query) }
-
-    private fun MagicalItem.filter(query: String): Boolean {
-        val lowerCaseQuery = query.trim().lowercase()
-        return title.lowercase().contains(lowerCaseQuery) ||
-            subtitle.lowercase().contains(lowerCaseQuery) ||
-            description.lowercase().contains(lowerCaseQuery)
-    }
-
     companion object {
+        private fun List<MagicalItem>.filter(query: String): ArrayList<MagicalItem> =
+            filterTo(ArrayList()) { spell -> spell.filter(query) }
+
+        private fun MagicalItem.filter(query: String): Boolean {
+            val lowerCaseQuery = query.trim().lowercase()
+            return title.lowercase().contains(lowerCaseQuery) ||
+                subtitle.lowercase().contains(lowerCaseQuery) ||
+                description.lowercase().contains(lowerCaseQuery)
+        }
+
         private fun ApiInventoryItem.toMagicalItem(): MagicalItem {
             return MagicalItem(
                 title = title,

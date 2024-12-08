@@ -13,42 +13,34 @@ import kotlinx.coroutines.launch
 class InventoryViewModel(private val repository: MagicalItemRepository) : ViewModel() {
 
     private var loading by mutableStateOf(false)
+    private var error by mutableStateOf(false)
 
     var query by mutableStateOf("")
+        private set
 
     var magicalItems = mutableStateListOf<MagicalItem>()
         private set
 
-    private var initialItems: List<MagicalItem> = ArrayList()
-
     init {
-        viewModelScope.launch {
-            initialItems = repository.getAll()
-            updateData(initialItems)
-            loading = false
-        }
+        viewModelScope.launch { updateData() }
     }
 
     fun applyFilter(query: String) {
         this.query = query
-        updateData(initialItems.filter(query))
+        viewModelScope.launch { updateData(query) }
     }
 
-    private fun List<MagicalItem>.filter(query: String): ArrayList<MagicalItem> =
-        filterTo(ArrayList()) { spell -> spell.filter(query) }
-
-    private fun MagicalItem.filter(query: String): Boolean {
-        val lowerCaseQuery = query.trim().lowercase()
-        return title.lowercase().contains(lowerCaseQuery) ||
-            subtitle.lowercase().contains(lowerCaseQuery) ||
-            description.lowercase().contains(lowerCaseQuery)
-    }
-
-    private fun updateData(itemList: List<MagicalItem>) {
+    private suspend fun updateData(query: String? = null) {
         loading = true
 
-        magicalItems.clear()
-        magicalItems.addAll(itemList)
+        try {
+            magicalItems.clear()
+            val items = if (query == null) repository.getAll() else repository.filter(query)
+            magicalItems.addAll(items)
+            error = false
+        } catch (e: Exception) {
+            error = true
+        }
 
         loading = false
     }

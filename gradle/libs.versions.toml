@@ -3,7 +3,9 @@ kotlin = "2.0.21"
 ktlint = "11.5.1"
 agp = "8.7.3"
 compose-plugin = "1.7.0"
+kotlinx-coroutines-core = "1.9.0"
 kotlinx-serialization = "1.7.3"
+kotlinx-datetime = "0.6.1"
 
 androidx-compose = "1.7.5"
 androidx-appcompat = "1.7.0"
@@ -14,9 +16,13 @@ navigationCompose = "2.8.0-alpha10"
 legacy-materialVersion = "1.12.0"
 
 [libraries]
-jetbrains-compose-navigation = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref= "navigationCompose"}
+kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
+jetbrains-compose-navigation = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines-core" }
+kotlinx-coroutines-swing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing", version.ref = "kotlinx-coroutines-core" }
 kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinx-serialization" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
 
 # Android Only
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity-compose" }
@@ -25,7 +31,6 @@ androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidx
 androidx-ui = { module = "androidx.compose.ui:ui", version.ref = "androidx-compose" }
 androidx-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "androidx-compose" }
 legacy-material = { module = "com.google.android.material:material", version.ref = "legacy-materialVersion" }
-
 
 [plugins]
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }

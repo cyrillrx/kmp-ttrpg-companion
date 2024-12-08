@@ -1,75 +1,57 @@
 package com.cyrillrx.rpg.spellbook.presentation
 
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateListOf
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.cyrillrx.rpg.spellbook.data.api.ApiSpell
 import com.cyrillrx.rpg.spellbook.domain.SpellRepository
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class SpellBookViewModel(private val repository: SpellRepository) : ViewModel() {
 
-    private var loading by mutableStateOf(false)
-
-    var query by mutableStateOf("")
-        private set
-    var displayedSpells = mutableStateListOf<ApiSpell>()
-        private set
-    var savedSpells = mutableStateListOf<ApiSpell>()
-        private set
-    var savedSpellsOnly by mutableStateOf(false)
-        private set
-
-    private var initialSpells: List<ApiSpell> = ArrayList()
+    private val _state = MutableStateFlow(SpellListState())
+    val state: StateFlow<SpellListState> = _state
 
     init {
-        viewModelScope.launch {
-            initialSpells = repository.getAll()
-            updateData()
-            loading = false
+        viewModelScope.launch { updateData() }
+    }
+
+    fun onAction(action: SpellListAction) {
+        when (action) {
+            is SpellListAction.OnSearchQueryChanged -> {
+                _state.update { it.copy(searchQuery = action.query) }
+                viewModelScope.launch { updateData(action.query) }
+            }
+
+            is SpellListAction.OnSpellClicked -> {
+            }
+
+            is SpellListAction.OnSaveSpellClicked -> {
+                val savedSpells = _state.value.savedSpells.toMutableList()
+                if (savedSpells.contains(action.spell)) {
+                    savedSpells.remove(action.spell)
+                } else {
+                    savedSpells.add(action.spell)
+                }
+                _state.update { it.copy(savedSpells = savedSpells) }
+            }
         }
     }
 
-    fun applyFilter(query: String) {
-        this.query = query
-        updateData()
-    }
+    private suspend fun updateData(query: String? = null) {
+        _state.update { it.copy(isLoading = true) }
 
-    fun onDisplaySavedOnlyClicked(checked: Boolean) {
-        this.savedSpellsOnly = checked
-        updateData()
-    }
+        try {
+            _state.update { it.copy(searchResults = emptyList()) }
+            val items = if (query == null) repository.getAll() else repository.filter(query)
+            _state.update { it.copy(searchResults = items) }
 
-    fun onSaveSpell(spell: ApiSpell) {
-        if (savedSpells.contains(spell)) {
-            savedSpells.remove(spell)
-        } else {
-            savedSpells.add(spell)
+            _state.update { it.copy(errorMessage = null) }
+        } catch (e: Exception) {
+            _state.update { it.copy(errorMessage = "Error while loading") }
         }
-        updateData()
-    }
 
-    private fun List<ApiSpell>.filter(query: String): ArrayList<ApiSpell> =
-        filterTo(ArrayList()) { spell -> spell.matches(query) }
-
-    private fun ApiSpell.matches(query: String): Boolean {
-        val lowerCaseQuery = query.trim().lowercase()
-        return title.lowercase().contains(lowerCaseQuery) ||
-            content.lowercase().contains(lowerCaseQuery) ||
-            lowerCaseQuery in getSpellClasses().map { it.lowercase() }
-    }
-
-    private fun updateData() {
-        val spellList = if (savedSpellsOnly) savedSpells else initialSpells
-
-        loading = true
-
-        displayedSpells.clear()
-        displayedSpells.addAll(spellList.filter(query))
-
-        loading = false
+        _state.update { it.copy(isLoading = false) }
     }
 }

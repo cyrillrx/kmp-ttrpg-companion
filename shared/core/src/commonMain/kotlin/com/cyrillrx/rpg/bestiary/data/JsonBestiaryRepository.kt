@@ -16,6 +16,10 @@ class JsonBestiaryRepository(private val fileReader: FileReader) : BestiaryRepos
         return items.map { it.toCreature() }
     }
 
+    override suspend fun filter(query: String): List<Creature> {
+        return getAll().filter(query)
+    }
+
     private suspend fun loadFromFile(): List<ApiBestiaryItem> {
         val result = fileReader.readFile("files/bestiaire.json")
         if (result is Result.Success) {
@@ -25,6 +29,14 @@ class JsonBestiaryRepository(private val fileReader: FileReader) : BestiaryRepos
     }
 
     companion object {
+        private fun List<Creature>.filter(query: String): ArrayList<Creature> =
+            filterTo(ArrayList()) { spell -> spell.filter(query) }
+
+        private fun Creature.filter(query: String): Boolean {
+            val lowerCaseQuery = query.trim().lowercase()
+            return name.lowercase().contains(lowerCaseQuery)
+        }
+
         private fun ApiBestiaryItem.toCreature(): Creature {
             val abilities = header?.monster
 

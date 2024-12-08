@@ -13,40 +13,25 @@ import kotlinx.coroutines.launch
 class BestiaryViewModel(private val repository: BestiaryRepository) : ViewModel() {
 
     private var loading by mutableStateOf(false)
-
-    private var query by mutableStateOf("")
+    private var error by mutableStateOf(false)
 
     var creatures = mutableStateListOf<Creature>()
         private set
 
-    private var initialItems: List<Creature> = ArrayList()
-
     init {
-        viewModelScope.launch {
-            initialItems = repository.getAll()
-            updateData(initialItems)
-            loading = false
-        }
+        viewModelScope.launch { updateData() }
     }
 
-    fun applyFilter(query: String) {
-        this.query = query
-        updateData(initialItems.filter(query))
-    }
-
-    private fun List<Creature>.filter(query: String): ArrayList<Creature> =
-        filterTo(ArrayList()) { spell -> spell.filter(query) }
-
-    private fun Creature.filter(query: String): Boolean {
-        val lowerCaseQuery = query.trim().lowercase()
-        return name.lowercase().contains(lowerCaseQuery)
-    }
-
-    private fun updateData(itemList: List<Creature>) {
+    private suspend fun updateData() {
         loading = true
 
-        creatures.clear()
-        creatures.addAll(itemList)
+        try {
+            creatures.clear()
+            creatures.addAll(repository.getAll())
+            error = false
+        } catch (e: Exception) {
+            error = true
+        }
 
         loading = false
     }
