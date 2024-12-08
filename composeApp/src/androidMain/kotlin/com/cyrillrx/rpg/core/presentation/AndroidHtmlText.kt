@@ -74,8 +74,9 @@ fun AndroidHtmlText(
     overflow: TextOverflow = TextOverflow.Clip,
     softWrap: Boolean = true,
     maxLines: Int = Int.MAX_VALUE,
+    minLines: Int = 1,
     inlineContent: Map<String, InlineTextContent> = mapOf(),
-    onTextLayout: (TextLayoutResult) -> Unit = {},
+    onTextLayout: ((TextLayoutResult) -> Unit)? = {},
     style: TextStyle = LocalTextStyle.current,
     onUriClick: ((String) -> Unit)? = null,
 ) {
@@ -85,7 +86,7 @@ fun AndroidHtmlText(
         Html.fromHtml(text, Html.FROM_HTML_MODE_LEGACY)
     }.toAnnotatedString(urlSpanStyle, colorMapping)
 
-    HtmlText(
+    AndroidHtmlText(
         modifier = modifier,
         annotatedString = annotatedString,
         color = color,
@@ -100,6 +101,7 @@ fun AndroidHtmlText(
         overflow = overflow,
         softWrap = softWrap,
         maxLines = maxLines,
+        minLines = minLines,
         inlineContent = inlineContent,
         onTextLayout = onTextLayout,
         style = style,
@@ -120,7 +122,7 @@ fun AndroidHtmlText(
  * @see androidx.compose.material.Text
  */
 @Composable
-fun HtmlText(
+fun AndroidHtmlText(
     modifier: Modifier = Modifier,
     annotatedString: AnnotatedString,
     color: Color = Color.Unspecified,
@@ -135,8 +137,9 @@ fun HtmlText(
     overflow: TextOverflow = TextOverflow.Clip,
     softWrap: Boolean = true,
     maxLines: Int = Int.MAX_VALUE,
+    minLines: Int = 1,
     inlineContent: Map<String, InlineTextContent> = mapOf(),
-    onTextLayout: (TextLayoutResult) -> Unit = {},
+    onTextLayout: ((TextLayoutResult) -> Unit)? = null,
     style: TextStyle = LocalTextStyle.current,
     onUriClick: ((String) -> Unit)? = null,
 ) {
@@ -202,10 +205,11 @@ fun HtmlText(
         overflow = overflow,
         softWrap = softWrap,
         maxLines = maxLines,
+        minLines = minLines,
         inlineContent = inlineContent,
         onTextLayout = {
             layoutResult.value = it
-            onTextLayout(it)
+            onTextLayout?.invoke(it)
         },
         style = style,
     )
