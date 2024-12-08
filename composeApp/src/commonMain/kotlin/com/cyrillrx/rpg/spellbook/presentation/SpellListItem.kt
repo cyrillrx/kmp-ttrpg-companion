@@ -12,21 +12,18 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.cyrillrx.rpg.spellbook.data.api.ApiSpell
 import com.cyrillrx.rpg.core.presentation.BookmarkButton
+import com.cyrillrx.rpg.core.presentation.HtmlText
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
+import com.cyrillrx.rpg.spellbook.data.api.ApiSpell
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.formatted_spell_casting_time
@@ -56,7 +53,7 @@ fun SpellListItem(
                 ),
             )
 
-            Text(
+            HtmlText(
                 text = spell.content,
                 fontSize = 16.sp,
                 overflow = TextOverflow.Ellipsis,

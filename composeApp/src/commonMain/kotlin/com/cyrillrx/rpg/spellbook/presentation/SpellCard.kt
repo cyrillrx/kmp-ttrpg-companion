@@ -23,6 +23,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.cyrillrx.rpg.core.presentation.HtmlText
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.spellbook.data.api.ApiSpell
 import org.jetbrains.compose.resources.stringResource
@@ -70,7 +71,7 @@ fun SpellCard(spell: ApiSpell) {
                     .padding(spacingMedium / 2),
             )
             SpellGrid(spell, spellColor, spacingMedium)
-            Text(
+            HtmlText(
                 text = spell.content,
                 fontSize = 16.sp,
                 overflow = TextOverflow.Ellipsis,

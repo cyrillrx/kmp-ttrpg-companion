@@ -20,6 +20,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.cyrillrx.rpg.core.presentation.HtmlText
 import com.cyrillrx.rpg.core.presentation.SearchBar
 import com.cyrillrx.rpg.core.presentation.theme.AppTheme
 import com.cyrillrx.rpg.magicalitems.data.SampleMagicalItemsRepository
@@ -99,7 +100,7 @@ fun MagicalItemCard(item: MagicalItem) {
                         top = textPadding,
                     ),
             )
-            Text(
+            HtmlText(
                 text = item.description,
                 fontSize = 16.sp,
                 overflow = TextOverflow.Ellipsis,
