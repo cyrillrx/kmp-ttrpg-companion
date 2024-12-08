@@ -20,7 +20,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.cyrillrx.rpg.core.presentation.Search
+import com.cyrillrx.rpg.core.presentation.SearchBar
 import com.cyrillrx.rpg.core.presentation.theme.AppTheme
 import com.cyrillrx.rpg.magicalitems.data.SampleMagicalItemsRepository
 import com.cyrillrx.rpg.magicalitems.domain.MagicalItem
@@ -41,10 +41,12 @@ fun InventoryScreen(inventoryViewModel: InventoryViewModel) {
 @Composable
 fun InventoryScreen(magicalItems: List<MagicalItem>, query: String, applyFilter: (String) -> Unit) {
     Column {
-        Search(
+        SearchBar(
+            hint = stringResource(Res.string.spell_search_hint),
             query = query,
-            applyFilter = applyFilter,
-        ) { Text(stringResource(Res.string.spell_search_hint)) }
+            onQueryChanged = applyFilter,
+            onImeSearch = {},
+        )
 
         LazyRow(modifier = Modifier.fillMaxSize()) {
             items(magicalItems) { item ->
