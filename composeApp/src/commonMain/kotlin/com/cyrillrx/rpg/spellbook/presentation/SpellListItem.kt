@@ -38,7 +38,7 @@ import rpg_companion.composeapp.generated.resources.formatted_spell_range
 fun SpellListItem(
     modifier: Modifier,
     spell: ApiSpell,
-    savedSpells: List<ApiSpell>,
+    isSaved: Boolean,
     onSaveClicked: (ApiSpell) -> Unit,
 ) {
     Card(
@@ -46,7 +46,7 @@ fun SpellListItem(
         modifier = modifier.padding(spacingSmall),
     ) {
         Column {
-            Header(spell, savedSpells, onSaveClicked)
+            Header(spell, isSaved, onSaveClicked)
 
             SpellSpecs(
                 spell,
@@ -70,7 +70,7 @@ fun SpellListItem(
 }
 
 @Composable
-private fun Header(spell: ApiSpell, savedSpells: List<ApiSpell>, onSaveClicked: (ApiSpell) -> Unit) {
+private fun Header(spell: ApiSpell, isSaved: Boolean, onSaveClicked: (ApiSpell) -> Unit) {
     Row(
         modifier = Modifier.background(spell.getColor()),
         verticalAlignment = Alignment.CenterVertically,
@@ -104,14 +104,10 @@ private fun Header(spell: ApiSpell, savedSpells: List<ApiSpell>, onSaveClicked: 
             )
         }
 
-        var checked by remember { mutableStateOf(spell in savedSpells) }
         BookmarkButton(
-            checked = checked,
+            checked = isSaved,
             modifier = Modifier
-                .clickable {
-                    onSaveClicked(spell)
-                    checked = spell in savedSpells
-                }
+                .clickable { onSaveClicked(spell) }
                 .padding(spacingCommon),
         )
     }
