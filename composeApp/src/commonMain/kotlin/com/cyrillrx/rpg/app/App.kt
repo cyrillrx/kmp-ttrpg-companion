@@ -3,6 +3,7 @@ package com.cyrillrx.rpg.app
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.runtime.Composable
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -20,10 +21,10 @@ import com.cyrillrx.rpg.home.presentation.HomeScreen
 import com.cyrillrx.rpg.magicalitems.data.JsonMagicalItemRepository
 import com.cyrillrx.rpg.magicalitems.presentation.InventoryScreen
 import com.cyrillrx.rpg.magicalitems.presentation.InventoryViewModel
-import com.cyrillrx.rpg.spellbook.data.JsonSpellRepository
 import com.cyrillrx.rpg.spellbook.presentation.AlternativeSpellBookScreen
 import com.cyrillrx.rpg.spellbook.presentation.SpellBookScreen
 import com.cyrillrx.rpg.spellbook.presentation.SpellBookViewModel
+import com.cyrillrx.rpg.spellbook.presentation.SpellBookViewModelFactory
 import com.cyrillrx.rpg.spellbook.presentation.SpellCard
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
@@ -34,6 +35,8 @@ fun App() {
         val navController = rememberNavController()
 
         val fileReader = ComposeFileReader()
+        val spellBookViewModelFactory = SpellBookViewModelFactory(fileReader)
+
         NavHost(
             navController = navController,
             startDestination = Route.Home,
@@ -46,12 +49,12 @@ fun App() {
                 enterTransition = { slideInHorizontally { initialOffset -> initialOffset } },
                 exitTransition = { slideOutHorizontally { initialOffset -> initialOffset } },
             ) {
-                val viewModel = SpellBookViewModel(JsonSpellRepository(fileReader))
+                val viewModel = viewModel<SpellBookViewModel>(factory = spellBookViewModelFactory)
                 SpellBookScreen(viewModel) { spell -> navController.navigate(Route.SpellDetail(spell.serialize())) }
             }
 
             composable<Route.AlternativeSpellList> {
-                val viewModel = SpellBookViewModel(JsonSpellRepository(fileReader))
+                val viewModel = viewModel<SpellBookViewModel>(factory = spellBookViewModelFactory)
                 AlternativeSpellBookScreen(viewModel)
             }
 

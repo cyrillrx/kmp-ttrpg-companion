@@ -5,13 +5,14 @@ import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.spellbook.domain.SpellRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class SpellBookViewModel(private val repository: SpellRepository) : ViewModel() {
 
     private val _state = MutableStateFlow(SpellListState())
-    val state: StateFlow<SpellListState> = _state
+    val state: StateFlow<SpellListState> = _state.asStateFlow()
 
     init {
         viewModelScope.launch { updateData() }
