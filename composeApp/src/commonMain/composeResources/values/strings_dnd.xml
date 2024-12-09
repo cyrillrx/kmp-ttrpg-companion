@@ -7,6 +7,20 @@
     <string name="btn_bestiary">Bestiary</string>
     <string name="btn_inventory">Magical items</string>
 
+    <!-- Class -->
+    <string name="class_barbarian">Barbarian</string>
+    <string name="class_bard">Bard</string>
+    <string name="class_cleric">Cleric</string>
+    <string name="class_druid">Druid</string>
+    <string name="class_fighter">Fighter</string>
+    <string name="class_monk">Monk</string>
+    <string name="class_paladin">Paladin</string>
+    <string name="class_ranger">Ranger</string>
+    <string name="class_rogue">Rogue</string>
+    <string name="class_sorcerer">Sorcerer</string>
+    <string name="class_warlock">Warlock</string>
+    <string name="class_wizard">Wizard</string>
+
     <!-- Ability -->
     <string name="ability_label_str">Str</string>
     <string name="ability_label_dex">Dex</string>
@@ -25,4 +39,15 @@
     <string name="formatted_spell_components">Components:</string>
     <string name="formatted_spell_range">Range:</string>
     <string name="formatted_spell_duration">Duration:</string>
+
+    <!-- School -->
+    <string name="school_abjuration">Abjuration</string>
+    <string name="school_conjuration">Conjuration</string>
+    <string name="school_divination">Divination</string>
+    <string name="school_enchantment">Enchantment</string>
+    <string name="school_evocation">Evocation</string>
+    <string name="school_illusion">Illusion</string>
+    <string name="school_necromancy">Necromancy</string>
+    <string name="school_transmutation">Transmutation</string>
+
 </resources>
