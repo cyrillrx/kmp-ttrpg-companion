@@ -23,7 +23,7 @@ import com.cyrillrx.rpg.core.presentation.HtmlText
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
-import com.cyrillrx.rpg.spellbook.data.api.ApiSpell
+import com.cyrillrx.rpg.spellbook.domain.Spell
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.formatted_spell_casting_time
@@ -34,9 +34,9 @@ import rpg_companion.composeapp.generated.resources.formatted_spell_range
 @Composable
 fun SpellListItem(
     modifier: Modifier,
-    spell: ApiSpell,
+    spell: Spell,
     isSaved: Boolean,
-    onSaveClicked: (ApiSpell) -> Unit,
+    onSaveClicked: (Spell) -> Unit,
 ) {
     Card(
         shape = CutCornerShape(0.dp),
@@ -54,7 +54,7 @@ fun SpellListItem(
             )
 
             HtmlText(
-                text = spell.content,
+                text = spell.description,
                 fontSize = 16.sp,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 4,
@@ -67,7 +67,7 @@ fun SpellListItem(
 }
 
 @Composable
-private fun Header(spell: ApiSpell, isSaved: Boolean, onSaveClicked: (ApiSpell) -> Unit) {
+private fun Header(spell: Spell, isSaved: Boolean, onSaveClicked: (Spell) -> Unit) {
     Row(
         modifier = Modifier.background(spell.getColor()),
         verticalAlignment = Alignment.CenterVertically,
@@ -111,14 +111,14 @@ private fun Header(spell: ApiSpell, isSaved: Boolean, onSaveClicked: (ApiSpell) 
 }
 
 @Composable
-private fun SpellSpecs(spell: ApiSpell, modifier: Modifier) {
+private fun SpellSpecs(spell: Spell, modifier: Modifier) {
     Column(modifier) {
         Row {
             Text(
                 text = stringResource(Res.string.formatted_spell_casting_time),
                 fontWeight = FontWeight.Bold,
             )
-            Text(text = spell.casting_time, modifier = Modifier.padding(start = 4.dp))
+            Text(text = spell.castingTime, modifier = Modifier.padding(start = 4.dp))
         }
         Row {
             Text(

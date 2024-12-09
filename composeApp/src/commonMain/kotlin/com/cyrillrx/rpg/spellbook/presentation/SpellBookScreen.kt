@@ -26,7 +26,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.core.presentation.SearchBar
 import com.cyrillrx.rpg.core.presentation.theme.Purple700
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
-import com.cyrillrx.rpg.spellbook.data.api.ApiSpell
+import com.cyrillrx.rpg.spellbook.domain.Spell
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.spell_search_hint
@@ -34,7 +34,7 @@ import rpg_companion.composeapp.generated.resources.spell_search_hint
 @Composable
 fun SpellBookScreen(
     viewModel: SpellBookViewModel,
-    navigateToSpell: (ApiSpell) -> Unit,
+    navigateToSpell: (Spell) -> Unit,
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 

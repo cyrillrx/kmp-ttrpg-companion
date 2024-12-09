@@ -3,20 +3,16 @@ package com.cyrillrx.rpg.spellbook.data.api
 import kotlinx.serialization.Serializable
 
 @Serializable
-class ApiSpell(
-    val title: String,
-    val content: String,
-    val level: Int,
-    val casting_time: String,
-    val range: String,
-    val components: String,
-    val duration: String,
-    val header: Header,
+internal class ApiSpell(
+    val title: String?,
+    val content: String?,
+    val level: Int?,
+    val casting_time: String?,
+    val range: String?,
+    val components: String?,
+    val duration: String?,
+    val header: Header?,
 ) {
-    fun getSpellClasses(): Array<String> = header.taxonomy.spell_class
-
-    fun getSchool(): String = header.taxonomy.spell_school.joinToString(", ")
-
     @Serializable
     class Header(val taxonomy: Taxonomy) {
         @Serializable

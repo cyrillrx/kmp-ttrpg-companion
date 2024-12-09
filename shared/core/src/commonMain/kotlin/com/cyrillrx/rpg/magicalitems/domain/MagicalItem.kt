@@ -8,9 +8,9 @@ class MagicalItem(
     val subtitle: String,
     val description: String,
     val type: Type,
-    val rarety: Rarety,
+    val rarity: Rarity,
     val attunement: Boolean,
 ) {
     enum class Type { ARMOR, POTION, RING, ROD, SCROLL, STAFF, WAND, WEAPON, WONDROUS_ITEM }
-    enum class Rarety { COMMON, UNCOMMON, RARE, VERY_RARE, LEGENDARY, ARTIFACT }
+    enum class Rarity { COMMON, UNCOMMON, RARE, VERY_RARE, LEGENDARY, ARTIFACT }
 }

@@ -25,17 +25,25 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.cyrillrx.rpg.core.presentation.HtmlText
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
-import com.cyrillrx.rpg.spellbook.data.api.ApiSpell
+import com.cyrillrx.rpg.spellbook.domain.Spell
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.formatted_spell_school_level
+import rpg_companion.composeapp.generated.resources.school_abjuration
+import rpg_companion.composeapp.generated.resources.school_conjuration
+import rpg_companion.composeapp.generated.resources.school_divination
+import rpg_companion.composeapp.generated.resources.school_enchantment
+import rpg_companion.composeapp.generated.resources.school_evocation
+import rpg_companion.composeapp.generated.resources.school_illusion
+import rpg_companion.composeapp.generated.resources.school_necromancy
+import rpg_companion.composeapp.generated.resources.school_transmutation
 import rpg_companion.composeapp.generated.resources.spell_casting_time
 import rpg_companion.composeapp.generated.resources.spell_components
 import rpg_companion.composeapp.generated.resources.spell_duration
 import rpg_companion.composeapp.generated.resources.spell_range
 
 @Composable
-fun SpellCard(spell: ApiSpell) {
+fun SpellCard(spell: Spell) {
     val spellColor = spell.getColor()
     Card(
         modifier = Modifier
@@ -72,7 +80,7 @@ fun SpellCard(spell: ApiSpell) {
             )
             SpellGrid(spell, spellColor, spacingMedium)
             HtmlText(
-                text = spell.content,
+                text = spell.description,
                 fontSize = 16.sp,
                 overflow = TextOverflow.Ellipsis,
                 modifier = Modifier
@@ -84,13 +92,13 @@ fun SpellCard(spell: ApiSpell) {
 }
 
 @Composable
-fun SpellGrid(spell: ApiSpell, color: Color, spacingMedium: Dp) {
+fun SpellGrid(spell: Spell, color: Color, spacingMedium: Dp) {
     Column {
         Row(Modifier.background(color)) {
             Column(Modifier.weight(1f)) {
                 SpellGridItem(
                     title = stringResource(Res.string.spell_casting_time),
-                    subtitle = spell.casting_time,
+                    subtitle = spell.castingTime,
                     color = color,
                 )
                 SpellGridItem(
@@ -152,8 +160,28 @@ fun SpellGridItem(title: String, subtitle: String, color: Color) {
     }
 }
 
-fun ApiSpell.getColor(): Color = Color(173, 29, 29)
+fun Spell.getColor(): Color = Color(173, 29, 29)
 
 @Composable
-fun ApiSpell.getFormattedSchool() =
+fun Spell.getFormattedSchool() =
     stringResource(Res.string.formatted_spell_school_level, getSchool(), level)
+
+@Composable
+fun Spell.getSchool(): String {
+    return schools.map { it.toFormattedString() }.joinToString(", ")
+}
+
+@Composable
+fun Spell.School.toFormattedString(): String {
+    val stringRes = when (this) {
+        Spell.School.ABJURATION -> Res.string.school_abjuration
+        Spell.School.CONJURATION -> Res.string.school_conjuration
+        Spell.School.DIVINATION -> Res.string.school_divination
+        Spell.School.ENCHANTMENT -> Res.string.school_enchantment
+        Spell.School.EVOCATION -> Res.string.school_evocation
+        Spell.School.ILLUSION -> Res.string.school_illusion
+        Spell.School.NECROMANCY -> Res.string.school_necromancy
+        Spell.School.TRANSMUTATION -> Res.string.school_transmutation
+    }
+    return stringResource(stringRes)
+}

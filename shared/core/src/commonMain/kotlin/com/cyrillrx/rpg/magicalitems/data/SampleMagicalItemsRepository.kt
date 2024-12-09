@@ -20,7 +20,7 @@ class SampleMagicalItemsRepository {
             subtitle = "Arme (hache d'arme), unique (harmonisation exigée)",
             description = description,
             type = MagicalItem.Type.WEAPON,
-            rarety = MagicalItem.Rarety.RARE,
+            rarity = MagicalItem.Rarity.RARE,
             attunement = true,
         )
     }

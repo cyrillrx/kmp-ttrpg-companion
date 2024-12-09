@@ -43,7 +43,7 @@ class JsonMagicalItemRepository(private val fileReader: FileReader) : MagicalIte
                 subtitle = getSubtitle(),
                 description = content,
                 type = getType(),
-                rarety = getRarety(),
+                rarity = getRarity(),
                 attunement = attunement != null,
             )
         }
@@ -66,14 +66,14 @@ class JsonMagicalItemRepository(private val fileReader: FileReader) : MagicalIte
             else -> MagicalItem.Type.WONDROUS_ITEM
         }
 
-        private fun ApiInventoryItem.getRarety(): MagicalItem.Rarety = when (rarity) {
-            "Courant" -> MagicalItem.Rarety.COMMON
-            "Peu courant" -> MagicalItem.Rarety.UNCOMMON
-            "Rare" -> MagicalItem.Rarety.RARE
-            "Très rare" -> MagicalItem.Rarety.VERY_RARE
-            "Légendaire" -> MagicalItem.Rarety.LEGENDARY
-            "Artefact" -> MagicalItem.Rarety.ARTIFACT
-            else -> MagicalItem.Rarety.UNCOMMON
+        private fun ApiInventoryItem.getRarity(): MagicalItem.Rarity = when (rarity) {
+            "Courant" -> MagicalItem.Rarity.COMMON
+            "Peu courant" -> MagicalItem.Rarity.UNCOMMON
+            "Rare" -> MagicalItem.Rarity.RARE
+            "Très rare" -> MagicalItem.Rarity.VERY_RARE
+            "Légendaire" -> MagicalItem.Rarity.LEGENDARY
+            "Artefact" -> MagicalItem.Rarity.ARTIFACT
+            else -> MagicalItem.Rarity.UNCOMMON
         }
     }
 }

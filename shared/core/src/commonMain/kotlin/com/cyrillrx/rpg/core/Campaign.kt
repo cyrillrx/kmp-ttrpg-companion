@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.models
+package com.cyrillrx.rpg.core
 
 class Campaign(
     val game: Game,
