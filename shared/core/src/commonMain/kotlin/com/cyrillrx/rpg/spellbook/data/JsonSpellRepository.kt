@@ -60,10 +60,10 @@ class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository 
         private fun String.toSchool(): School? {
             return when (this) {
                 "Abjuration" -> return School.ABJURATION
-                "Conjuration" -> return School.CONJURATION
+                "Invocation" -> return School.CONJURATION
                 "Divination" -> return School.DIVINATION
-                "Enchantment" -> return School.ENCHANTMENT
-                "Evocation" -> return School.EVOCATION
+                "Enchantement" -> return School.ENCHANTMENT
+                "Évocation" -> return School.EVOCATION
                 "Illusion" -> return School.ILLUSION
                 "Nécromancie" -> return School.NECROMANCY
                 "Transmutation" -> return School.TRANSMUTATION
