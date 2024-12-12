@@ -42,11 +42,11 @@
 
     <!-- School -->
     <string name="school_abjuration">Abjuration</string>
-    <string name="school_conjuration">Conjuration</string>
+    <string name="school_conjuration">Invocation</string>
     <string name="school_divination">Divination</string>
     <string name="school_enchantment">Enchantement</string>
-    <string name="school_evocation">Evocation</string>
+    <string name="school_evocation">Évocation</string>
     <string name="school_illusion">Illusion</string>
-    <string name="school_necromancy">Necromancie</string>
+    <string name="school_necromancy">Nécromancie</string>
     <string name="school_transmutation">Transmutation</string>
 </resources>
