@@ -11,16 +11,16 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.core.data.serialize
-import com.cyrillrx.rpg.bestiary.data.JsonBestiaryRepository
 import com.cyrillrx.rpg.bestiary.presentation.BestiaryScreen
 import com.cyrillrx.rpg.bestiary.presentation.BestiaryViewModel
+import com.cyrillrx.rpg.bestiary.presentation.BestiaryViewModelFactory
 import com.cyrillrx.rpg.core.data.ComposeFileReader
 import com.cyrillrx.rpg.core.presentation.theme.AppTheme
 import com.cyrillrx.rpg.home.presentation.HomeRouter
 import com.cyrillrx.rpg.home.presentation.HomeScreen
-import com.cyrillrx.rpg.magicalitems.data.JsonMagicalItemRepository
 import com.cyrillrx.rpg.magicalitems.presentation.InventoryScreen
 import com.cyrillrx.rpg.magicalitems.presentation.InventoryViewModel
+import com.cyrillrx.rpg.magicalitems.presentation.InventoryViewModelFactory
 import com.cyrillrx.rpg.spellbook.presentation.AlternativeSpellBookScreen
 import com.cyrillrx.rpg.spellbook.presentation.SpellBookScreen
 import com.cyrillrx.rpg.spellbook.presentation.SpellBookViewModel
@@ -35,7 +35,6 @@ fun App() {
         val navController = rememberNavController()
 
         val fileReader = ComposeFileReader()
-        val spellBookViewModelFactory = SpellBookViewModelFactory(fileReader)
 
         NavHost(
             navController = navController,
@@ -49,12 +48,14 @@ fun App() {
                 enterTransition = { slideInHorizontally { initialOffset -> initialOffset } },
                 exitTransition = { slideOutHorizontally { initialOffset -> initialOffset } },
             ) {
-                val viewModel = viewModel<SpellBookViewModel>(factory = spellBookViewModelFactory)
+                val viewModelFactory = SpellBookViewModelFactory(fileReader)
+                val viewModel = viewModel<SpellBookViewModel>(factory = viewModelFactory)
                 SpellBookScreen(viewModel) { spell -> navController.navigate(Route.SpellDetail(spell.serialize())) }
             }
 
             composable<Route.AlternativeSpellList> {
-                val viewModel = viewModel<SpellBookViewModel>(factory = spellBookViewModelFactory)
+                val viewModelFactory = SpellBookViewModelFactory(fileReader)
+                val viewModel = viewModel<SpellBookViewModel>(factory = viewModelFactory)
                 AlternativeSpellBookScreen(viewModel)
             }
 
@@ -64,12 +65,14 @@ fun App() {
             }
 
             composable<Route.Bestiary> {
-                val viewModel = BestiaryViewModel(JsonBestiaryRepository(fileReader))
+                val viewModelFactory = BestiaryViewModelFactory(fileReader)
+                val viewModel = viewModel<BestiaryViewModel>(factory = viewModelFactory)
                 BestiaryScreen(viewModel.creatures)
             }
 
             composable<Route.MagicalItems> {
-                val viewModel = InventoryViewModel(JsonMagicalItemRepository(fileReader))
+                val viewModelFactory = InventoryViewModelFactory(fileReader)
+                val viewModel = viewModel<InventoryViewModel>(factory = viewModelFactory)
                 InventoryScreen(viewModel)
             }
         }
