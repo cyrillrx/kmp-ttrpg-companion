@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 
 class SpellBookViewModel(private val repository: SpellRepository) : ViewModel() {
 
-    private val _state = MutableStateFlow(SpellListState())
+    private val _state: MutableStateFlow<SpellListState> = MutableStateFlow(SpellListState.Empty(searchQuery = ""))
     val state: StateFlow<SpellListState> = _state.asStateFlow()
 
     init {
@@ -21,7 +21,6 @@ class SpellBookViewModel(private val repository: SpellRepository) : ViewModel() 
     fun onAction(action: SpellListAction) {
         when (action) {
             is SpellListAction.OnSearchQueryChanged -> {
-                _state.update { it.copy(searchQuery = action.query) }
                 viewModelScope.launch { updateData(action.query) }
             }
 
@@ -29,30 +28,29 @@ class SpellBookViewModel(private val repository: SpellRepository) : ViewModel() 
             }
 
             is SpellListAction.OnSaveSpellClicked -> {
-                val savedSpells = _state.value.savedSpells.toMutableList()
-                if (savedSpells.contains(action.spell)) {
-                    savedSpells.remove(action.spell)
-                } else {
-                    savedSpells.add(action.spell)
-                }
-                _state.update { it.copy(savedSpells = savedSpells) }
+//                val savedSpells = _state.value.savedSpells.toMutableList()
+//                if (savedSpells.contains(action.spell)) {
+//                    savedSpells.remove(action.spell)
+//                } else {
+//                    savedSpells.add(action.spell)
+//                }
+//                _state.update { it.copy(savedSpells = savedSpells) }
             }
         }
     }
 
-    private suspend fun updateData(query: String? = null) {
-        _state.update { it.copy(isLoading = true) }
+    private suspend fun updateData(query: String = "") {
+        _state.update { SpellListState.Loading(searchQuery = query) }
 
         try {
-            _state.update { it.copy(searchResults = emptyList()) }
-            val items = if (query == null) repository.getAll() else repository.filter(query)
-            _state.update { it.copy(searchResults = items) }
-
-            _state.update { it.copy(errorMessage = null) }
+            val items = if (query.isBlank()) repository.getAll() else repository.filter(query)
+            if (items.isEmpty()) {
+                _state.update { SpellListState.Empty(searchQuery = query) }
+            } else {
+                _state.update { SpellListState.WithData(searchQuery = query, searchResults = items) }
+            }
         } catch (e: Exception) {
-            _state.update { it.copy(errorMessage = "Error while loading") }
+            _state.update { SpellListState.Error(searchQuery = query, errorMessage = "Error while loading") }
         }
-
-        _state.update { it.copy(isLoading = false) }
     }
 }

@@ -15,7 +15,7 @@ import com.cyrillrx.rpg.spellbook.presentation.getColor
 @Preview
 @Composable
 fun PreviewSpellBookScreenDark() {
-    val state = SpellListState(searchResults = SampleSpellRepository().getAll())
+    val state = SpellListState.WithData("", SampleSpellRepository().getAll())
     AppTheme(darkTheme = true) {
         AlternativeSpellBookScreen(state, {})
     }
@@ -24,7 +24,7 @@ fun PreviewSpellBookScreenDark() {
 @Preview
 @Composable
 fun PreviewSpellBookScreenLight() {
-    val state = SpellListState(searchResults = SampleSpellRepository().getAll())
+    val state = SpellListState.WithData("", SampleSpellRepository().getAll())
     AppTheme(darkTheme = false) {
         AlternativeSpellBookScreen(state, {})
     }
@@ -33,7 +33,7 @@ fun PreviewSpellBookScreenLight() {
 @Preview
 @Composable
 fun PreviewSpellBookPeekScreenDark() {
-    val state = SpellListState(searchResults = SampleSpellRepository().getAll())
+    val state = SpellListState.WithData("", SampleSpellRepository().getAll())
     AppTheme(darkTheme = true) {
         SpellBookScreen(state = state, onAction = { })
     }
@@ -42,9 +42,7 @@ fun PreviewSpellBookPeekScreenDark() {
 @Preview
 @Composable
 fun PreviewSpellBookPeekScreenLight() {
-    val state = SpellListState(
-        searchResults = SampleSpellRepository().getAll(),
-    )
+    val state = SpellListState.WithData("", SampleSpellRepository().getAll())
     AppTheme(darkTheme = true) {
         SpellBookScreen(state = state, onAction = { })
     }
