@@ -1,5 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.cyrillrx.rpg">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
         android:name=".App"
@@ -8,10 +7,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@android:style/Theme.Material.Light.NoActionBar">
 
         <activity
-            android:name=".SplashActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,32 +19,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".HomeActivity" />
-
-        <activity
-            android:name=".dnd.spellbook.SpellBookActivity"
-            android:theme="@style/NoActionBar" />
-        <activity
-            android:name=".dnd.spellbook.SpellBookComposeActivity"
-            android:theme="@style/NoActionBar" />
-        <activity
-            android:name=".dnd.spellbook.SpellDetailActivity"
-            android:theme="@style/NoActionBar" />
-
-        <activity
-            android:name=".dnd.bestiary.BestiaryActivity"
-            android:theme="@style/NoActionBar" />
-
-        <activity
-            android:name=".dnd.inventory.InventoryActivity"
-            android:theme="@style/NoActionBar" />
-        <activity
-            android:name=".dnd.inventory.InventoryComposeActivity"
-            android:theme="@style/NoActionBar" />
-
-        <activity android:name=".game.GameListActivity" />
-        <activity android:name=".group.CharacterListActivity" />
 
     </application>
 </manifest>

@@ -1,21 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
-
-    <color name="colorPrimary">#563f5a</color>
-    <color name="colorPrimaryDark">#402F43</color>
-    <color name="colorAccent">#9b1c47</color>
-
-    <color name="spellbook">#AD1D1D</color>
-    <color name="text_card_spellbook">@color/spellbook</color>
-
-    <color name="card_spell_outline">@color/spellbook</color>
-    <color name="card_spell_background">@android:color/white</color>
-
-    <color name="card_bestiary_outline">#AD1D1D</color>
-    <color name="card_bestiary_background">@android:color/white</color>
-
-    <color name="card_inventory_outline">#AD1D1D</color>
-    <color name="card_inventory_background">@android:color/white</color>
-
+    <color name="logoColor">#9b1c47</color>
 </resources>

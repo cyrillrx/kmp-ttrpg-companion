@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <!-- Home -->
+    <string name="btn_spell_book">Grimoire</string>
+    <string name="btn_alternative_spell_book">Grimoire alternatif</string>
+    <string name="btn_bestiary">Bestiaire</string>
+    <string name="btn_inventory">Objets magiques</string>
+
+    <!-- Search -->
+    <string name="hint_search_spell">Boule de feu, évocation, clerc, etc.</string>
+    <string name="hint_search_magical_item">Bouclier, rare, etc.</string>
+    <string name="hint_search_creature">Dragon, loup, etc.</string>
+
+    <!-- Class -->
+    <string name="class_barbarian">Barbarian</string>
+    <string name="class_bard">Bard</string>
+    <string name="class_cleric">Cleric</string>
+    <string name="class_druid">Druid</string>
+    <string name="class_fighter">Fighter</string>
+    <string name="class_monk">Monk</string>
+    <string name="class_paladin">Paladin</string>
+    <string name="class_ranger">Ranger</string>
+    <string name="class_rogue">Rogue</string>
+    <string name="class_sorcerer">Sorcerer</string>
+    <string name="class_warlock">Warlock</string>
+    <string name="class_wizard">Wizard</string>
+
+    <!-- Ability -->
+    <string name="ability_label_str">For</string>
+    <string name="ability_label_dex">Dex</string>
+    <string name="ability_label_con">Con</string>
+    <string name="ability_label_int">Int</string>
+    <string name="ability_label_wis">Sag</string>
+    <string name="ability_label_cha">Cha</string>
+
+    <!-- Spell -->
+    <string name="formatted_spell_school_level">%1$s de niveau %2$d</string>
+    <string name="spell_casting_time">Incantation</string>
+    <string name="spell_components">Composantes</string>
+    <string name="spell_range">Portée</string>
+    <string name="spell_duration">Durée</string>
+    <string name="formatted_spell_casting_time">Incantation :</string>
+    <string name="formatted_spell_components">Composantes :</string>
+    <string name="formatted_spell_range">Portée :</string>
+    <string name="formatted_spell_duration">Durée :</string>
+
+    <!-- School -->
+    <string name="school_abjuration">Abjuration</string>
+    <string name="school_conjuration">Invocation</string>
+    <string name="school_divination">Divination</string>
+    <string name="school_enchantment">Enchantement</string>
+    <string name="school_evocation">Évocation</string>
+    <string name="school_illusion">Illusion</string>
+    <string name="school_necromancy">Nécromancie</string>
+    <string name="school_transmutation">Transmutation</string>
+</resources>

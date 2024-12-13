@@ -3,17 +3,19 @@ import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
-    id("org.jetbrains.kotlin.multiplatform")
+    alias(libs.plugins.ktlint)
+    alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.android.application)
-    alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.jetbrains.compose)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 kotlin {
     androidTarget {
         @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_11)
+            jvmTarget.set(JvmTarget.JVM_17)
         }
     }
 
@@ -25,15 +27,26 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
+            implementation(libs.androidx.appcompat)
+            implementation(libs.androidx.core.ktx)
+            implementation(libs.androidx.ui)
+            implementation(libs.androidx.ui.tooling)
+
+            implementation(libs.legacy.material)
         }
         commonMain.dependencies {
+            implementation(files("$rootDir/libs/logger.2024-11-23.aar"))
+            implementation(files("$rootDir/libs/tracker.2024-11-23.aar"))
+            implementation(projects.shared.core)
+
             implementation(compose.runtime)
             implementation(compose.foundation)
-            implementation(compose.material)
+            implementation(compose.material3)
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
-            implementation(projects.shared.core)
+
+            implementation(libs.jetbrains.compose.navigation)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
@@ -43,15 +56,14 @@ kotlin {
 
 android {
     namespace = "com.cyrillrx.rpg"
-    compileSdk = 34
+    compileSdk = Version.COMPILE_SDK
 
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     sourceSets["main"].res.srcDirs("src/androidMain/res")
     sourceSets["main"].resources.srcDirs("src/commonMain/resources")
 
     defaultConfig {
-        minSdk = 23
-        targetSdk = 34
+        minSdk = Version.MIN_SDK
 
         applicationId = "com.cyrillrx.rpg"
         versionCode = 1
@@ -71,12 +83,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = Version.compose
+        sourceCompatibility = Version.java
+        targetCompatibility = Version.java
     }
 
     buildFeatures {
@@ -100,35 +108,10 @@ compose.desktop {
     }
 }
 
-
-dependencies {
-    implementation(projects.shared.core)
-
-    implementation(files("$rootDir/libs/logger.2021.09.14.aar"))
-    implementation(files("$rootDir/libs/logger.logcat.2021.09.14.aar"))
-    implementation(files("$rootDir/libs/tracker.2021.09.14.aar"))
-    implementation(files("$rootDir/libs/notifier.2021.09.14.aar"))
-    implementation(files("$rootDir/libs/core.2021.09.14.aar"))
-    implementation(files("$rootDir/libs/templates.2021.09.14.aar"))
-
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.appcompat:appcompat:1.4.1")
-    implementation("androidx.recyclerview:recyclerview:1.2.1")
-    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.3")
-
-    implementation("androidx.compose.ui:ui:${Version.compose}")
-    implementation("androidx.activity:activity-compose:1.4.0")
-    implementation("androidx.compose.material:material:${Version.compose}")
-    implementation("androidx.compose.ui:ui-tooling:${Version.compose}")
-
-    implementation("com.google.android.material:material:1.5.0")
-    implementation("com.google.code.gson:gson:2.8.8")
-
-    implementation("de.charlex.compose:html-text:1.1.0")
-
-    testImplementation("junit:junit:4.13.2")
-
-    androidTestImplementation("androidx.test:runner:1.4.0")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
+ktlint {
+    debug.set(true)
+    verbose.set(true)
+    android.set(false)
+    outputToConsole.set(true)
+    ignoreFailures.set(true)
 }

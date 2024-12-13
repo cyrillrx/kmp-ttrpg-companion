@@ -15,7 +15,9 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "TTRPG_companion"
+rootProject.name = "RPG_companion"
 
-include(":composeApp")
-include(":shared:core")
+include(
+    ":composeApp",
+    ":shared:core",
+)

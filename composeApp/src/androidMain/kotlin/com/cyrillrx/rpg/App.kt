@@ -10,9 +10,6 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        Logger.initialize()
-        if (BuildConfig.DEBUG) {
-            Logger.addChild(LogCat(Severity.VERBOSE))
-        }
+        Logger.addChild(LogCat(Severity.VERBOSE, clickableLogs = false))
     }
 }

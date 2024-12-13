@@ -1,48 +1,61 @@
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
-    id("org.jetbrains.kotlin.multiplatform")
+    alias(libs.plugins.ktlint)
+    alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 kotlin {
     androidTarget {
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
-        compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_11)
+        compilations.all {
+            compileTaskProvider.configure {
+                compilerOptions {
+                    jvmTarget.set(JvmTarget.JVM_17)
+                }
+            }
         }
     }
 
-    jvm()
+    jvm("desktop")
 
     listOf(
         iosX64(),
         iosArm64(),
-        iosSimulatorArm64()
+        iosSimulatorArm64(),
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
-            baseName = "Shared"
+            baseName = "Core"
             isStatic = true
         }
     }
 
     sourceSets {
         commonMain.dependencies {
-            // put your Multiplatform dependencies here
+            api(libs.kotlinx.serialization.core)
+            api(libs.kotlinx.serialization.json)
         }
     }
 }
 
 android {
     namespace = "com.cyrillrx.rpg.core"
-    compileSdk = 34
+    compileSdk = Version.COMPILE_SDK
 
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
     defaultConfig {
-        minSdk = 23
+        minSdk = Version.MIN_SDK
     }
+    compileOptions {
+        sourceCompatibility = Version.java
+        targetCompatibility = Version.java
+    }
+}
+
+ktlint {
+    debug.set(true)
+    verbose.set(true)
+    android.set(false)
+    outputToConsole.set(true)
+    ignoreFailures.set(false)
 }
