@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.bestiary.presentation
+package com.cyrillrx.rpg.bestiary.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

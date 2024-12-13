@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.core.presentation
+package com.cyrillrx.rpg.core.presentation.componenent
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Done

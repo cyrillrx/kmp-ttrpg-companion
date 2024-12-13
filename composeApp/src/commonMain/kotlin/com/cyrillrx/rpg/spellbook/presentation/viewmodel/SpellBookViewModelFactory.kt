@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.spellbook.presentation
+package com.cyrillrx.rpg.spellbook.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

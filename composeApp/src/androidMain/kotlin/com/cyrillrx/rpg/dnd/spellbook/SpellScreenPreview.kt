@@ -5,19 +5,19 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.cyrillrx.rpg.core.presentation.theme.AppTheme
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.spellbook.data.SampleSpellRepository
-import com.cyrillrx.rpg.spellbook.presentation.AlternativeSpellBookScreen
-import com.cyrillrx.rpg.spellbook.presentation.SpellBookScreen
-import com.cyrillrx.rpg.spellbook.presentation.SpellCard
-import com.cyrillrx.rpg.spellbook.presentation.SpellGrid
 import com.cyrillrx.rpg.spellbook.presentation.SpellListState
-import com.cyrillrx.rpg.spellbook.presentation.getColor
+import com.cyrillrx.rpg.spellbook.presentation.component.AlternativeSpellBookScreen
+import com.cyrillrx.rpg.spellbook.presentation.component.SpellBookScreen
+import com.cyrillrx.rpg.spellbook.presentation.component.SpellCard
+import com.cyrillrx.rpg.spellbook.presentation.component.SpellGrid
+import com.cyrillrx.rpg.spellbook.presentation.component.getColor
 
 @Preview
 @Composable
 fun PreviewSpellBookScreenDark() {
     val state = SpellListState.WithData("", SampleSpellRepository().getAll())
     AppTheme(darkTheme = true) {
-        AlternativeSpellBookScreen(state, {})
+        AlternativeSpellBookScreen(state) {}
     }
 }
 
@@ -26,7 +26,7 @@ fun PreviewSpellBookScreenDark() {
 fun PreviewSpellBookScreenLight() {
     val state = SpellListState.WithData("", SampleSpellRepository().getAll())
     AppTheme(darkTheme = false) {
-        AlternativeSpellBookScreen(state, {})
+        AlternativeSpellBookScreen(state) {}
     }
 }
 
@@ -35,7 +35,7 @@ fun PreviewSpellBookScreenLight() {
 fun PreviewSpellBookPeekScreenDark() {
     val state = SpellListState.WithData("", SampleSpellRepository().getAll())
     AppTheme(darkTheme = true) {
-        SpellBookScreen(state = state, onAction = { })
+        SpellBookScreen(state) {}
     }
 }
 
@@ -44,7 +44,7 @@ fun PreviewSpellBookPeekScreenDark() {
 fun PreviewSpellBookPeekScreenLight() {
     val state = SpellListState.WithData("", SampleSpellRepository().getAll())
     AppTheme(darkTheme = true) {
-        SpellBookScreen(state = state, onAction = { })
+        SpellBookScreen(state) {}
     }
 }
 

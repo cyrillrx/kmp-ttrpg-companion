@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.bestiary.presentation
+package com.cyrillrx.rpg.bestiary.presentation.component
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -7,7 +7,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
-import com.cyrillrx.rpg.core.presentation.HtmlText
+import com.cyrillrx.rpg.core.presentation.componenent.HtmlText
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.bestiary.domain.Creature
 

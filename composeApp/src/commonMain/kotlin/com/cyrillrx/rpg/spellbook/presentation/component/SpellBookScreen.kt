@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.spellbook.presentation
+package com.cyrillrx.rpg.spellbook.presentation.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
-import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
@@ -20,17 +19,18 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.cyrillrx.rpg.core.presentation.SearchBar
+import com.cyrillrx.rpg.core.presentation.componenent.SearchBar
 import com.cyrillrx.rpg.core.presentation.theme.Purple700
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.spellbook.domain.Spell
+import com.cyrillrx.rpg.spellbook.presentation.SpellListAction
+import com.cyrillrx.rpg.spellbook.presentation.SpellListState
+import com.cyrillrx.rpg.spellbook.presentation.viewmodel.SpellBookViewModel
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.spell_search_hint
+import rpg_companion.composeapp.generated.resources.hint_search_spell
 
 @Composable
 fun SpellBookScreen(
@@ -62,7 +62,11 @@ fun SpellBookScreen(
             .statusBarsPadding(),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        SpellSearchBar(searchQuery = state.searchQuery, onAction = onAction)
+        SearchBar(
+            hint = stringResource(Res.string.hint_search_spell),
+            query = state.searchQuery,
+            onQueryChanged = { onAction(SpellListAction.OnSearchQueryChanged(it)) },
+        )
 
         when (state) {
             is SpellListState.Loading -> Loading()
@@ -90,7 +94,11 @@ fun AlternativeSpellBookScreen(
 ) {
 
     Column {
-        SpellSearchBar(searchQuery = state.searchQuery, onAction = onAction)
+        SearchBar(
+            hint = stringResource(Res.string.hint_search_spell),
+            query = state.searchQuery,
+            onQueryChanged = { onAction(SpellListAction.OnSearchQueryChanged(it)) },
+        )
 
         when (state) {
             is SpellListState.Loading -> Loading()
@@ -99,21 +107,6 @@ fun AlternativeSpellBookScreen(
             is SpellListState.WithData -> AlternativeSpellList(state = state)
         }
     }
-}
-
-@Composable
-private fun SpellSearchBar(searchQuery: String, onAction: (SpellListAction) -> Unit) {
-    val keyboardController = LocalSoftwareKeyboardController.current
-
-    SearchBar(
-        hint = stringResource(Res.string.spell_search_hint),
-        query = searchQuery,
-        onQueryChanged = { onAction(SpellListAction.OnSearchQueryChanged(it)) },
-        onImeSearch = { keyboardController?.hide() },
-        modifier = Modifier.widthIn(max = 400.dp)
-            .fillMaxWidth()
-            .padding(spacingCommon),
-    )
 }
 
 @Composable

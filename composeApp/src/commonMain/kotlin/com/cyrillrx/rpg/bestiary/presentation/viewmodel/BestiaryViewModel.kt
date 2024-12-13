@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.bestiary.presentation
+package com.cyrillrx.rpg.bestiary.presentation.viewmodel
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf

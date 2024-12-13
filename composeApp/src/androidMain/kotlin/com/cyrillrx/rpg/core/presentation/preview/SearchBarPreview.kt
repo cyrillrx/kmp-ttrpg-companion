@@ -1,20 +1,20 @@
-package com.cyrillrx.rpg.core.presentation
+package com.cyrillrx.rpg.core.presentation.preview
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import org.jetbrains.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.Preview
+import com.cyrillrx.rpg.core.presentation.componenent.SearchBar
 
 @Preview
 @Composable
-private fun SearchBarPreview () {
+private fun SearchBarPreview() {
     MaterialTheme {
         SearchBar(
             hint = "Test hint",
             query = "Test Query",
             onQueryChanged = {},
-            onImeSearch = {},
             modifier = Modifier.fillMaxWidth(),
         )
     }

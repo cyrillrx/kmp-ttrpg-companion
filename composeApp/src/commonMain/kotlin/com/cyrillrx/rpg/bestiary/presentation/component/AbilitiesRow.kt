@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.bestiary.presentation
+package com.cyrillrx.rpg.bestiary.presentation.component
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row

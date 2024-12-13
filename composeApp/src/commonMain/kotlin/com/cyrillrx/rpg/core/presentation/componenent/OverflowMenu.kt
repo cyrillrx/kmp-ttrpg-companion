@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.core.presentation
+package com.cyrillrx.rpg.core.presentation.componenent
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.material.icons.Icons

@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.spellbook.presentation
+package com.cyrillrx.rpg.spellbook.presentation.component
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
@@ -23,7 +23,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.cyrillrx.rpg.core.presentation.HtmlText
+import com.cyrillrx.rpg.core.presentation.componenent.HtmlText
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.spellbook.domain.Spell
 import org.jetbrains.compose.resources.stringResource

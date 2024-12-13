@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.bestiary.presentation
+package com.cyrillrx.rpg.bestiary.presentation.component
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn

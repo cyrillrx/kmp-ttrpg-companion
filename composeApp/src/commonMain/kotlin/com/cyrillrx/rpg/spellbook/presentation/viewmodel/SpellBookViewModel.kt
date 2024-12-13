@@ -1,8 +1,10 @@
-package com.cyrillrx.rpg.spellbook.presentation
+package com.cyrillrx.rpg.spellbook.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.spellbook.domain.SpellRepository
+import com.cyrillrx.rpg.spellbook.presentation.SpellListAction
+import com.cyrillrx.rpg.spellbook.presentation.SpellListState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -24,8 +26,7 @@ class SpellBookViewModel(private val repository: SpellRepository) : ViewModel() 
                 viewModelScope.launch { updateData(action.query) }
             }
 
-            is SpellListAction.OnSpellClicked -> {
-            }
+            is SpellListAction.OnSpellClicked -> {}
 
             is SpellListAction.OnSaveSpellClicked -> {
 //                val savedSpells = _state.value.savedSpells.toMutableList()

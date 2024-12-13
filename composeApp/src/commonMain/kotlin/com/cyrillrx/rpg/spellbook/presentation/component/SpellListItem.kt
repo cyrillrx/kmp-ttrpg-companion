@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.spellbook.presentation
+package com.cyrillrx.rpg.spellbook.presentation.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -18,8 +18,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.cyrillrx.rpg.core.presentation.BookmarkButton
-import com.cyrillrx.rpg.core.presentation.HtmlText
+import com.cyrillrx.rpg.core.presentation.componenent.BookmarkButton
+import com.cyrillrx.rpg.core.presentation.componenent.HtmlText
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall

@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.core.presentation
+package com.cyrillrx.rpg.core.presentation.componenent
 
 import androidx.compose.material3.LocalTextStyle
 import androidx.compose.runtime.Composable

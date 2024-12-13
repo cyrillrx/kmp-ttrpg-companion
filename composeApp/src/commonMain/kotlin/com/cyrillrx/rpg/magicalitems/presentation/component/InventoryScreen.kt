@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.magicalitems.presentation
+package com.cyrillrx.rpg.magicalitems.presentation.component
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
@@ -13,48 +13,55 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.cyrillrx.rpg.core.presentation.HtmlText
-import com.cyrillrx.rpg.core.presentation.SearchBar
-import com.cyrillrx.rpg.core.presentation.theme.AppTheme
-import com.cyrillrx.rpg.magicalitems.data.SampleMagicalItemsRepository
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.cyrillrx.rpg.core.presentation.componenent.HtmlText
+import com.cyrillrx.rpg.core.presentation.componenent.SearchBar
+import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.magicalitems.domain.MagicalItem
+import com.cyrillrx.rpg.magicalitems.presentation.MagicalItemListAction
+import com.cyrillrx.rpg.magicalitems.presentation.MagicalItemListState
+import com.cyrillrx.rpg.magicalitems.presentation.viewmodel.InventoryViewModel
 import org.jetbrains.compose.resources.stringResource
-import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.spell_search_hint
+import rpg_companion.composeapp.generated.resources.hint_search_magical_item
 
 @Composable
-fun InventoryScreen(inventoryViewModel: InventoryViewModel) {
+fun InventoryScreen(
+    viewModel: InventoryViewModel,
+) {
+    val state by viewModel.state.collectAsStateWithLifecycle()
     InventoryScreen(
-        magicalItems = inventoryViewModel.magicalItems,
-        query = inventoryViewModel.query,
-        applyFilter = inventoryViewModel::applyFilter,
+        state = state,
+        onAction = { action -> viewModel.onAction(action) },
     )
 }
 
 @Composable
-fun InventoryScreen(magicalItems: List<MagicalItem>, query: String, applyFilter: (String) -> Unit) {
+fun InventoryScreen(
+    state: MagicalItemListState,
+    onAction: (MagicalItemListAction) -> Unit,
+) {
     Column {
         SearchBar(
-            hint = stringResource(Res.string.spell_search_hint),
-            query = query,
-            onQueryChanged = applyFilter,
-            onImeSearch = {},
+            hint = stringResource(Res.string.hint_search_magical_item),
+            query = state.searchQuery,
+            onQueryChanged = { onAction(MagicalItemListAction.OnSearchQueryChanged(it)) },
         )
 
-        LazyRow(modifier = Modifier.fillMaxSize()) {
-            items(magicalItems) { item ->
-                Box(modifier = Modifier.fillParentMaxSize()) {
-                    MagicalItemCard(item)
-                }
-            }
+        when (state) {
+            is MagicalItemListState.Loading -> Loading()
+            is MagicalItemListState.Error -> Error(state)
+            is MagicalItemListState.Empty -> Empty(state)
+            is MagicalItemListState.WithData -> MagicalItemsList(state, onAction)
         }
     }
 }
@@ -112,31 +119,51 @@ fun MagicalItemCard(item: MagicalItem) {
     }
 }
 
-@Preview
 @Composable
-fun PreviewSpellBookScreenDark() {
-    val item = SampleMagicalItemsRepository().get()
-    val items = listOf(item, item, item)
-    AppTheme(darkTheme = true) {
-        InventoryScreen(items, "Search") {}
-    }
+private fun Loading() {
+    Text(
+        text = "Loading...",
+        textAlign = TextAlign.Center,
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(spacingCommon),
+    )
 }
 
-@Preview
 @Composable
-fun PreviewSpellBookScreenLight() {
-    val item = SampleMagicalItemsRepository().get()
-    val items = listOf(item, item, item)
-    AppTheme(darkTheme = false) {
-        InventoryScreen(items, "Search") {}
-    }
+private fun Error(state: MagicalItemListState.Error) {
+    Text(
+        text = "Error: ${state.errorMessage}",
+        textAlign = TextAlign.Center,
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(spacingCommon),
+    )
 }
 
-@Preview
 @Composable
-fun PreviewMagicalItemCard() {
-    val item = SampleMagicalItemsRepository().get()
-    MagicalItemCard(item)
+private fun Empty(state: MagicalItemListState.Empty) {
+    Text(
+        text = "No results found for '${state.searchQuery}'",
+        textAlign = TextAlign.Center,
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(spacingCommon),
+    )
+}
+
+@Composable
+private fun MagicalItemsList(
+    state: MagicalItemListState.WithData,
+    onAction: (MagicalItemListAction) -> Unit,
+) {
+    LazyRow(modifier = Modifier.fillMaxSize()) {
+        items(state.searchResults) { item ->
+            Box(modifier = Modifier.fillParentMaxSize()) {
+                MagicalItemCard(item)
+            }
+        }
+    }
 }
 
 private fun MagicalItem.getColor(): Color {

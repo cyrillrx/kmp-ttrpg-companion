@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.core.presentation
+package com.cyrillrx.rpg.core.presentation.componenent
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier

@@ -11,21 +11,21 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.core.data.serialize
-import com.cyrillrx.rpg.bestiary.presentation.BestiaryScreen
-import com.cyrillrx.rpg.bestiary.presentation.BestiaryViewModel
-import com.cyrillrx.rpg.bestiary.presentation.BestiaryViewModelFactory
+import com.cyrillrx.rpg.bestiary.presentation.component.BestiaryScreen
+import com.cyrillrx.rpg.bestiary.presentation.viewmodel.BestiaryViewModel
+import com.cyrillrx.rpg.bestiary.presentation.viewmodel.BestiaryViewModelFactory
 import com.cyrillrx.rpg.core.data.ComposeFileReader
 import com.cyrillrx.rpg.core.presentation.theme.AppTheme
 import com.cyrillrx.rpg.home.presentation.HomeRouter
 import com.cyrillrx.rpg.home.presentation.HomeScreen
-import com.cyrillrx.rpg.magicalitems.presentation.InventoryScreen
-import com.cyrillrx.rpg.magicalitems.presentation.InventoryViewModel
-import com.cyrillrx.rpg.magicalitems.presentation.InventoryViewModelFactory
-import com.cyrillrx.rpg.spellbook.presentation.AlternativeSpellBookScreen
-import com.cyrillrx.rpg.spellbook.presentation.SpellBookScreen
-import com.cyrillrx.rpg.spellbook.presentation.SpellBookViewModel
-import com.cyrillrx.rpg.spellbook.presentation.SpellBookViewModelFactory
-import com.cyrillrx.rpg.spellbook.presentation.SpellCard
+import com.cyrillrx.rpg.magicalitems.presentation.component.InventoryScreen
+import com.cyrillrx.rpg.magicalitems.presentation.viewmodel.InventoryViewModel
+import com.cyrillrx.rpg.magicalitems.presentation.viewmodel.InventoryViewModelFactory
+import com.cyrillrx.rpg.spellbook.presentation.component.AlternativeSpellBookScreen
+import com.cyrillrx.rpg.spellbook.presentation.component.SpellBookScreen
+import com.cyrillrx.rpg.spellbook.presentation.component.SpellCard
+import com.cyrillrx.rpg.spellbook.presentation.viewmodel.SpellBookViewModel
+import com.cyrillrx.rpg.spellbook.presentation.viewmodel.SpellBookViewModelFactory
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
