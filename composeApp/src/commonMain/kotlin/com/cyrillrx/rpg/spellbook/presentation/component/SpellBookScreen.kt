@@ -6,24 +6,23 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.style.TextAlign
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.cyrillrx.rpg.core.presentation.componenent.EmptySearch
+import com.cyrillrx.rpg.core.presentation.componenent.ErrorLayout
+import com.cyrillrx.rpg.core.presentation.componenent.Loader
 import com.cyrillrx.rpg.core.presentation.componenent.SearchBar
 import com.cyrillrx.rpg.core.presentation.theme.Purple700
-import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.spellbook.domain.Spell
 import com.cyrillrx.rpg.spellbook.presentation.SpellListAction
 import com.cyrillrx.rpg.spellbook.presentation.SpellListState
@@ -69,9 +68,9 @@ fun SpellBookScreen(
         )
 
         when (state) {
-            is SpellListState.Loading -> Loading()
-            is SpellListState.Empty -> Empty(state)
-            is SpellListState.Error -> Error(state)
+            is SpellListState.Loading -> Loader()
+            is SpellListState.Empty -> EmptySearch(state.searchQuery)
+            is SpellListState.Error -> ErrorLayout(state.errorMessage)
             is SpellListState.WithData -> SpellList(state.searchResults, onAction)
         }
     }
@@ -101,45 +100,12 @@ fun AlternativeSpellBookScreen(
         )
 
         when (state) {
-            is SpellListState.Loading -> Loading()
-            is SpellListState.Empty -> Empty(state = state)
-            is SpellListState.Error -> Error(state = state)
+            is SpellListState.Loading -> Loader()
+            is SpellListState.Empty -> EmptySearch(state.searchQuery)
+            is SpellListState.Error -> ErrorLayout(state.errorMessage)
             is SpellListState.WithData -> AlternativeSpellList(state = state)
         }
     }
-}
-
-@Composable
-private fun Loading() {
-    Text(
-        text = "Loading...",
-        textAlign = TextAlign.Center,
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(spacingCommon),
-    )
-}
-
-@Composable
-private fun Error(state: SpellListState.Error) {
-    Text(
-        text = "Error: ${state.errorMessage}",
-        textAlign = TextAlign.Center,
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(spacingCommon),
-    )
-}
-
-@Composable
-private fun Empty(state: SpellListState.Empty) {
-    Text(
-        text = "No results found for '${state.searchQuery}'",
-        textAlign = TextAlign.Center,
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(spacingCommon),
-    )
 }
 
 @Composable

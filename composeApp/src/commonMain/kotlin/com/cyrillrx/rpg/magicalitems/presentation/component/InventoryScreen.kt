@@ -18,14 +18,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.cyrillrx.rpg.core.presentation.componenent.EmptySearch
+import com.cyrillrx.rpg.core.presentation.componenent.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.componenent.HtmlText
+import com.cyrillrx.rpg.core.presentation.componenent.Loader
 import com.cyrillrx.rpg.core.presentation.componenent.SearchBar
-import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.magicalitems.domain.MagicalItem
 import com.cyrillrx.rpg.magicalitems.presentation.MagicalItemListAction
 import com.cyrillrx.rpg.magicalitems.presentation.MagicalItemListState
@@ -58,9 +59,9 @@ fun InventoryScreen(
         )
 
         when (state) {
-            is MagicalItemListState.Loading -> Loading()
-            is MagicalItemListState.Error -> Error(state)
-            is MagicalItemListState.Empty -> Empty(state)
+            is MagicalItemListState.Loading -> Loader()
+            is MagicalItemListState.Empty -> EmptySearch(state.searchQuery)
+            is MagicalItemListState.Error -> ErrorLayout(state.errorMessage)
             is MagicalItemListState.WithData -> MagicalItemsList(state.searchResults, onAction)
         }
     }
@@ -117,39 +118,6 @@ fun MagicalItemCard(item: MagicalItem) {
             )
         }
     }
-}
-
-@Composable
-private fun Loading() {
-    Text(
-        text = "Loading...",
-        textAlign = TextAlign.Center,
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(spacingCommon),
-    )
-}
-
-@Composable
-private fun Error(state: MagicalItemListState.Error) {
-    Text(
-        text = "Error: ${state.errorMessage}",
-        textAlign = TextAlign.Center,
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(spacingCommon),
-    )
-}
-
-@Composable
-private fun Empty(state: MagicalItemListState.Empty) {
-    Text(
-        text = "No results found for '${state.searchQuery}'",
-        textAlign = TextAlign.Center,
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(spacingCommon),
-    )
 }
 
 @Composable
