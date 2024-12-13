@@ -52,7 +52,11 @@ fun SpellCard(spell: Spell) {
         shape = RoundedCornerShape(16.dp),
         border = BorderStroke(spacingMedium, spellColor),
     ) {
-        Column(Modifier.padding(spacingMedium)) {
+        Column(
+            Modifier
+                .padding(spacingMedium)
+                .background(MaterialTheme.colorScheme.background)
+        ) {
             Text(
                 text = spell.title,
                 fontSize = 20.sp,
@@ -92,19 +96,19 @@ fun SpellCard(spell: Spell) {
 }
 
 @Composable
-fun SpellGrid(spell: Spell, color: Color, spacingMedium: Dp) {
+fun SpellGrid(spell: Spell, spellColor: Color, spacingMedium: Dp) {
     Column {
-        Row(Modifier.background(color)) {
+        Row(Modifier.background(spellColor)) {
             Column(Modifier.weight(1f)) {
                 SpellGridItem(
                     title = stringResource(Res.string.spell_casting_time),
                     subtitle = spell.castingTime,
-                    color = color,
+                    spellColor = spellColor,
                 )
                 SpellGridItem(
                     title = stringResource(Res.string.spell_components),
                     subtitle = spell.components,
-                    color = color,
+                    spellColor = spellColor,
                 )
             }
             Spacer(Modifier.width(spacingMedium))
@@ -112,12 +116,12 @@ fun SpellGrid(spell: Spell, color: Color, spacingMedium: Dp) {
                 SpellGridItem(
                     title = stringResource(Res.string.spell_range),
                     subtitle = spell.range,
-                    color = color,
+                    spellColor = spellColor,
                 )
                 SpellGridItem(
                     title = stringResource(Res.string.spell_duration),
                     subtitle = spell.duration,
-                    color = color,
+                    spellColor = spellColor,
                 )
             }
         }
@@ -125,15 +129,15 @@ fun SpellGrid(spell: Spell, color: Color, spacingMedium: Dp) {
 }
 
 @Composable
-fun SpellGridItem(title: String, subtitle: String, color: Color) {
-    Column(Modifier.background(MaterialTheme.colorScheme.surface)) {
+fun SpellGridItem(title: String, subtitle: String, spellColor: Color) {
+    Column(Modifier.background(MaterialTheme.colorScheme.background)) {
         Text(
             text = title,
             fontSize = 18.sp,
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center,
             maxLines = 1,
-            color = color,
+            color = spellColor,
             overflow = TextOverflow.Ellipsis,
             modifier = Modifier
                 .fillMaxWidth()
@@ -155,7 +159,7 @@ fun SpellGridItem(title: String, subtitle: String, color: Color) {
             Modifier
                 .fillMaxWidth()
                 .height(spacingMedium)
-                .background(color),
+                .background(spellColor),
         )
     }
 }
