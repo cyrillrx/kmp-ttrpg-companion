@@ -10,6 +10,7 @@
     <!-- Search -->
     <string name="hint_search_spell">Fire ball, Evocation, Cleric, etc.</string>
     <string name="hint_search_magical_item">Shield, Rare, etc.</string>
+    <string name="hint_search_creature">Dragon, Wolf, etc.</string>
 
     <!-- Class -->
     <string name="class_barbarian">Barbarian</string>

@@ -67,7 +67,7 @@ fun App() {
             composable<Route.Bestiary> {
                 val viewModelFactory = BestiaryViewModelFactory(fileReader)
                 val viewModel = viewModel<BestiaryViewModel>(factory = viewModelFactory)
-                BestiaryScreen(viewModel.creatures)
+                BestiaryScreen(viewModel)
             }
 
             composable<Route.MagicalItems> {

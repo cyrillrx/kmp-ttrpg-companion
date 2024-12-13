@@ -61,7 +61,7 @@ fun InventoryScreen(
             is MagicalItemListState.Loading -> Loading()
             is MagicalItemListState.Error -> Error(state)
             is MagicalItemListState.Empty -> Empty(state)
-            is MagicalItemListState.WithData -> MagicalItemsList(state, onAction)
+            is MagicalItemListState.WithData -> MagicalItemsList(state.searchResults, onAction)
         }
     }
 }
@@ -154,11 +154,11 @@ private fun Empty(state: MagicalItemListState.Empty) {
 
 @Composable
 private fun MagicalItemsList(
-    state: MagicalItemListState.WithData,
+    magicalItems: List<MagicalItem>,
     onAction: (MagicalItemListAction) -> Unit,
 ) {
     LazyRow(modifier = Modifier.fillMaxSize()) {
-        items(state.searchResults) { item ->
+        items(magicalItems) { item ->
             Box(modifier = Modifier.fillParentMaxSize()) {
                 MagicalItemCard(item)
             }

@@ -17,7 +17,7 @@ class SpellBookViewModel(private val repository: SpellRepository) : ViewModel() 
     val state: StateFlow<SpellListState> = _state.asStateFlow()
 
     init {
-        viewModelScope.launch { updateData() }
+        viewModelScope.launch { updateData(query = "") }
     }
 
     fun onAction(action: SpellListAction) {
@@ -40,7 +40,7 @@ class SpellBookViewModel(private val repository: SpellRepository) : ViewModel() 
         }
     }
 
-    private suspend fun updateData(query: String = "") {
+    private suspend fun updateData(query: String) {
         _state.update { SpellListState.Loading(searchQuery = query) }
 
         try {

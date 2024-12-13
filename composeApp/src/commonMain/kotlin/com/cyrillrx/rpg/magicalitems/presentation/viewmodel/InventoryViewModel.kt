@@ -19,7 +19,7 @@ class InventoryViewModel(private val repository: MagicalItemRepository) : ViewMo
     val state: StateFlow<MagicalItemListState> = _state.asStateFlow()
 
     init {
-        viewModelScope.launch { updateData() }
+        viewModelScope.launch { updateData(query = "") }
     }
 
     fun onAction(action: MagicalItemListAction) {
@@ -33,7 +33,7 @@ class InventoryViewModel(private val repository: MagicalItemRepository) : ViewMo
         }
     }
 
-    private suspend fun updateData(query: String = "") {
+    private suspend fun updateData(query: String) {
         _state.update { MagicalItemListState.Loading(searchQuery = query) }
 
         try {

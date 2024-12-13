@@ -70,9 +70,9 @@ fun SpellBookScreen(
 
         when (state) {
             is SpellListState.Loading -> Loading()
-            is SpellListState.Empty -> Empty(state = state)
-            is SpellListState.Error -> Error(state = state)
-            is SpellListState.WithData -> SpellList(state = state, onAction = onAction)
+            is SpellListState.Empty -> Empty(state)
+            is SpellListState.Error -> Error(state)
+            is SpellListState.WithData -> SpellList(state.searchResults, onAction)
         }
     }
 }
@@ -144,11 +144,11 @@ private fun Empty(state: SpellListState.Empty) {
 
 @Composable
 private fun SpellList(
-    state: SpellListState.WithData,
+    spells: List<Spell>,
     onAction: (SpellListAction) -> Unit,
 ) {
     val searchResultsListState = rememberLazyListState()
-    LaunchedEffect(state.searchResults) {
+    LaunchedEffect(spells) {
         searchResultsListState.animateScrollToItem(0)
     }
 
@@ -156,8 +156,7 @@ private fun SpellList(
         modifier = Modifier.fillMaxSize(),
         state = searchResultsListState,
     ) {
-        items(state.searchResults) { spell ->
-
+        items(spells) { spell ->
             SpellListItem(
                 modifier = Modifier
                     .fillMaxWidth()
