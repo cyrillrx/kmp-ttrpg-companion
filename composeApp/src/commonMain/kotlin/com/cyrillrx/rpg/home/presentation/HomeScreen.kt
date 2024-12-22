@@ -7,10 +7,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import org.jetbrains.compose.resources.stringResource
-import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.btn_alternative_spell_book
 import rpg_companion.composeapp.generated.resources.btn_bestiary
+import rpg_companion.composeapp.generated.resources.btn_character_sheets
 import rpg_companion.composeapp.generated.resources.btn_inventory
 import rpg_companion.composeapp.generated.resources.btn_spell_book
 
@@ -25,13 +25,8 @@ fun HomeScreen(router: HomeRouter) {
         HomeButton(stringResource(Res.string.btn_alternative_spell_book), router::openAlternativeSpellBook)
         HomeButton(stringResource(Res.string.btn_bestiary), router::openBestiary)
         HomeButton(stringResource(Res.string.btn_inventory), router::openMagicalItems)
+        HomeButton(stringResource(Res.string.btn_character_sheets), router::openCharacterSheets)
     }
-}
-
-@Preview
-@Composable
-fun PreviewHomeScreen() {
-    HomeScreen(object : HomeRouter {})
 }
 
 interface HomeRouter {
@@ -39,4 +34,5 @@ interface HomeRouter {
     fun openAlternativeSpellBook() {}
     fun openMagicalItems() {}
     fun openBestiary() {}
+    fun openCharacterSheets() {}
 }
