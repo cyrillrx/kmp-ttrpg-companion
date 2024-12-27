@@ -6,6 +6,7 @@
     <string name="btn_alternative_spell_book">Grimoire alternatif</string>
     <string name="btn_bestiary">Bestiaire</string>
     <string name="btn_inventory">Objets magiques</string>
+    <string name="btn_character_sheets">Fiches de perso</string>
 
     <!-- Search -->
     <string name="hint_search_spell">Boule de feu, évocation, clerc, etc.</string>
@@ -25,14 +26,6 @@
     <string name="class_sorcerer">Sorcerer</string>
     <string name="class_warlock">Warlock</string>
     <string name="class_wizard">Wizard</string>
-
-    <!-- Ability -->
-    <string name="ability_label_str">For</string>
-    <string name="ability_label_dex">Dex</string>
-    <string name="ability_label_con">Con</string>
-    <string name="ability_label_int">Int</string>
-    <string name="ability_label_wis">Sag</string>
-    <string name="ability_label_cha">Cha</string>
 
     <!-- Spell -->
     <string name="formatted_spell_school_level">%1$s de niveau %2$d</string>

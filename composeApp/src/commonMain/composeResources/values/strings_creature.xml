@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <!-- Creature header -->
+    <string name="creature_subtitle">%1$s of size %2$s, %3$s</string>
+    <string name="creature_ac">Armor class</string>
+    <string name="creature_hp">Hit point</string>
+    <string name="creature_speed">Speed</string>
+
+    <!-- Creature type -->
+    <string name="creature_type_aberration">Aberration</string>
+    <string name="creature_type_beast">Beast</string>
+    <string name="creature_type_celestial">Celestial</string>
+    <string name="creature_type_construct">Construct</string>
+    <string name="creature_type_dragon">Dragon</string>
+    <string name="creature_type_elemental">Elemental</string>
+    <string name="creature_type_fey">Fey</string>
+    <string name="creature_type_fiend">Fiend</string>
+    <string name="creature_type_giant">Giant</string>
+    <string name="creature_type_humanoid">Humanoid</string>
+    <string name="creature_type_monstrosity">Monstrosity</string>
+    <string name="creature_type_ooze">Ooze</string>
+    <string name="creature_type_plant">Plant</string>
+    <string name="creature_type_undead">Undead</string>
+    <string name="creature_type_unknown">Unknown</string>
+
+    <!-- Creature size -->
+    <string name="creature_size_tiny">Tiny</string>
+    <string name="creature_size_small">Small</string>
+    <string name="creature_size_medium">Medium</string>
+    <string name="creature_size_large">Large</string>
+    <string name="creature_size_huge">Huge</string>
+    <string name="creature_size_gargantuan">Gargantuan</string>
+    <string name="creature_size_unknown">Unknown</string>
+
+    <!-- Creature alignment -->
+    <string name="creature_alignment_lawful_good">Lawful good</string>
+    <string name="creature_alignment_neutral_good">Neutral good</string>
+    <string name="creature_alignment_chaotic_good">Chaotic good</string>
+    <string name="creature_alignment_lawful_neutral">Lawful neutral</string>
+    <string name="creature_alignment_neutral">True neutral</string>
+    <string name="creature_alignment_chaotic_neutral">Chaotic neutral</string>
+    <string name="creature_alignment_lawful_evil">Lawful evil</string>
+    <string name="creature_alignment_neutral_evil">Neutral evil</string>
+    <string name="creature_alignment_chaotic_evil">Chaotic evil</string>
+    <string name="creature_alignment_unknown">Unknown alignment</string>
+
+    <!-- Creature ability -->
+    <string name="ability_label_str">Str</string>
+    <string name="ability_label_dex">Dex</string>
+    <string name="ability_label_con">Con</string>
+    <string name="ability_label_int">Int</string>
+    <string name="ability_label_wis">Wis</string>
+    <string name="ability_label_cha">Cha</string>
+</resources>
