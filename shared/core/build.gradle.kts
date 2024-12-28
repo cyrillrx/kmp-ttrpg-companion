@@ -33,6 +33,8 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
+//            api(projects.shared.logger)
+//            api(projects.shared.tracker)
             api(libs.kotlinx.serialization.core)
             api(libs.kotlinx.serialization.json)
         }

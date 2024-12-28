@@ -46,8 +46,6 @@ kotlin {
             implementation(libs.legacy.material)
         }
         commonMain.dependencies {
-            implementation(files("$rootDir/libs/logger.2024-11-23.aar"))
-            implementation(files("$rootDir/libs/tracker.2024-11-23.aar"))
             implementation(projects.shared.core)
 
             implementation(compose.runtime)

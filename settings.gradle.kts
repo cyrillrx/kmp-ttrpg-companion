@@ -20,4 +20,6 @@ rootProject.name = "RPG_companion"
 include(
     ":composeApp",
     ":shared:core",
+//    ":shared:logger",
+//    ":shared:tracker",
 )
