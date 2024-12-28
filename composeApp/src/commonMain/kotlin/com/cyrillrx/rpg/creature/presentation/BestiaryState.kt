@@ -1,6 +1,6 @@
-package com.cyrillrx.rpg.bestiary.presentation
+package com.cyrillrx.rpg.creature.presentation
 
-import com.cyrillrx.rpg.bestiary.domain.Creature
+import com.cyrillrx.rpg.creature.domain.Creature
 
 sealed class BestiaryState(
     open val searchQuery: String = "",

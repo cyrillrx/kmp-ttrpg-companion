@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.bestiary.data.api
+package com.cyrillrx.rpg.creature.data.api
 
 import kotlinx.serialization.Serializable
 
@@ -8,8 +8,7 @@ internal class ApiBestiaryItem {
     val content: String? = null
     val header: Header? = null
 
-    val type: String? = null
-    val subtype: String? = null
+    val truetype: String? = null
     val size: String? = null
     val alignment: String? = null
     val challenge: Float? = null

@@ -1,7 +1,7 @@
-package com.cyrillrx.rpg.bestiary.data;
+package com.cyrillrx.rpg.creature.data;
 
-import com.cyrillrx.rpg.bestiary.domain.Abilities
-import com.cyrillrx.rpg.bestiary.domain.Creature
+import com.cyrillrx.rpg.creature.domain.Abilities
+import com.cyrillrx.rpg.creature.domain.Creature
 
 class SampleBestiaryRepository {
     fun getAll(): List<Creature> {
@@ -12,10 +12,10 @@ class SampleBestiaryRepository {
     fun get(): Creature = Creature(
         name = "Goblin",
         description = "A small, black-hearted creature that lairs in despoiled dungeons and other dismal settings.",
-        type = "Humanoid",
+        type = Creature.Type.HUMANOID,
         subtype = "goblinoid",
-        size = "Small",
-        alignment = "Neutral Evil",
+        size = Creature.Size.SMALL,
+        alignment = Creature.Alignment.LAWFUL_EVIL,
         abilities = Abilities(
             strValue = 8,
             dexValue = 14,
@@ -24,5 +24,9 @@ class SampleBestiaryRepository {
             wisValue = 8,
             chaValue = 8,
         ),
+        armorClass = 15,
+        maxHitPoints = 7,
+        speed = "",
+        languages = emptyList(),
     )
 }

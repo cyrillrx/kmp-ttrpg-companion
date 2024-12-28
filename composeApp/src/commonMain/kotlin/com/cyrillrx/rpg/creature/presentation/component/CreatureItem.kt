@@ -1,6 +1,7 @@
-package com.cyrillrx.rpg.bestiary.presentation.component
+package com.cyrillrx.rpg.creature.presentation.component
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -9,7 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import com.cyrillrx.rpg.core.presentation.componenent.HtmlText
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
-import com.cyrillrx.rpg.bestiary.domain.Creature
+import com.cyrillrx.rpg.creature.domain.Creature
 
 @Composable
 fun CreatureItem(creature: Creature) {
@@ -21,6 +22,11 @@ fun CreatureItem(creature: Creature) {
             text = creature.name,
             style = MaterialTheme.typography.headlineSmall,
             fontWeight = FontWeight.Bold,
+        )
+
+        MainStatLayout(
+            creature = creature,
+            modifier = Modifier.fillMaxWidth(),
         )
 
         val abilities = creature.abilities

@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.bestiary.data.api
+package com.cyrillrx.rpg.creature.data.api
 
 import kotlinx.serialization.Serializable
 

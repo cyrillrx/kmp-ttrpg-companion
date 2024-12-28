@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.bestiary.domain
+package com.cyrillrx.rpg.creature.domain
 
 interface BestiaryRepository {
     suspend fun getAll(): List<Creature>

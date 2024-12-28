@@ -1,10 +1,10 @@
-package com.cyrillrx.rpg.bestiary.presentation.viewmodel
+package com.cyrillrx.rpg.creature.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.cyrillrx.rpg.bestiary.domain.BestiaryRepository
-import com.cyrillrx.rpg.bestiary.presentation.BestiaryAction
-import com.cyrillrx.rpg.bestiary.presentation.BestiaryState
+import com.cyrillrx.rpg.creature.domain.BestiaryRepository
+import com.cyrillrx.rpg.creature.presentation.BestiaryAction
+import com.cyrillrx.rpg.creature.presentation.BestiaryState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

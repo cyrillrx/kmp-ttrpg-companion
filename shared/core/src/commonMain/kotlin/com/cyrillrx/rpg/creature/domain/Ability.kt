@@ -1,6 +1,7 @@
-package com.cyrillrx.rpg.bestiary.domain
+package com.cyrillrx.rpg.creature.domain
 
 class Ability(val value: Int) {
+    val modifier: Int = getModifier(value)
 
     fun getValueWithModifier(): String = "$value (${getSignedModifier(value)})"
 

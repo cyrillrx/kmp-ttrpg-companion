@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.bestiary.domain
+package com.cyrillrx.rpg.creature.domain
 
 open class Abilities(
     strValue: Int,

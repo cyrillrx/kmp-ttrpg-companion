@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.bestiary.presentation.component
+package com.cyrillrx.rpg.creature.presentation.component
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -9,14 +9,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.cyrillrx.rpg.bestiary.domain.Creature
-import com.cyrillrx.rpg.bestiary.presentation.BestiaryAction
-import com.cyrillrx.rpg.bestiary.presentation.BestiaryState
-import com.cyrillrx.rpg.bestiary.presentation.viewmodel.BestiaryViewModel
+import com.cyrillrx.rpg.creature.presentation.BestiaryAction
+import com.cyrillrx.rpg.creature.presentation.BestiaryState
+import com.cyrillrx.rpg.creature.presentation.viewmodel.BestiaryViewModel
 import com.cyrillrx.rpg.core.presentation.componenent.EmptySearch
 import com.cyrillrx.rpg.core.presentation.componenent.Loader
 import com.cyrillrx.rpg.core.presentation.componenent.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.componenent.SearchBar
+import com.cyrillrx.rpg.creature.domain.Creature
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.hint_search_creature
