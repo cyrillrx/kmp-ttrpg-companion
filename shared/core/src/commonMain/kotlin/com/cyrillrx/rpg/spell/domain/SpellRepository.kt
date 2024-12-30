@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.spellbook.domain
+package com.cyrillrx.rpg.spell.domain
 
 interface SpellRepository {
     suspend fun getAll(): List<Spell>

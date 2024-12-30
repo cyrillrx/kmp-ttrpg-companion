@@ -1,6 +1,6 @@
-package com.cyrillrx.rpg.spellbook.domain
+package com.cyrillrx.rpg.spell.domain
 
-import com.cyrillrx.rpg.core.domain.Character
+import com.cyrillrx.rpg.character.domain.Character
 import kotlinx.serialization.Serializable
 
 @Serializable

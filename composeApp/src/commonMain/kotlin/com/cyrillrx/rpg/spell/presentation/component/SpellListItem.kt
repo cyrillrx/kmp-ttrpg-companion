@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.spellbook.presentation.component
+package com.cyrillrx.rpg.spell.presentation.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -23,7 +23,7 @@ import com.cyrillrx.rpg.core.presentation.componenent.HtmlText
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
-import com.cyrillrx.rpg.spellbook.domain.Spell
+import com.cyrillrx.rpg.spell.domain.Spell
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.formatted_spell_casting_time

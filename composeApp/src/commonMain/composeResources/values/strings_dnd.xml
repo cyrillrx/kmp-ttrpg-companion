@@ -2,13 +2,15 @@
 
 <resources>
     <!-- Home -->
+    <string name="btn_campaign_list">Campaigns</string>
+    <string name="btn_character_sheets">Character sheets</string>
     <string name="btn_spell_book">Spellbook</string>
     <string name="btn_alternative_spell_book">Alternative Spellbook</string>
     <string name="btn_bestiary">Bestiary</string>
     <string name="btn_inventory">Magical items</string>
-    <string name="btn_character_sheets">Character sheets</string>
 
     <!-- Search -->
+    <string name="hint_search_campaign">Oblivion, The fall of London, etc.</string>
     <string name="hint_search_spell">Fire ball, Evocation, Cleric, etc.</string>
     <string name="hint_search_magical_item">Shield, Rare, etc.</string>
     <string name="hint_search_creature">Dragon, Wolf, etc.</string>

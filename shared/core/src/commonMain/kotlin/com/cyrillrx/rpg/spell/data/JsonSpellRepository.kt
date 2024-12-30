@@ -1,13 +1,12 @@
-package com.cyrillrx.rpg.spellbook.data
+package com.cyrillrx.rpg.spell.data
 
 import com.cyrillrx.core.data.FileReader
 import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.core.domain.Result
-import com.cyrillrx.rpg.core.domain.Character
-import com.cyrillrx.rpg.spellbook.data.api.ApiSpell
-import com.cyrillrx.rpg.spellbook.domain.Spell
-import com.cyrillrx.rpg.spellbook.domain.Spell.School
-import com.cyrillrx.rpg.spellbook.domain.SpellRepository
+import com.cyrillrx.rpg.spell.data.api.ApiSpell
+import com.cyrillrx.rpg.spell.domain.Spell
+import com.cyrillrx.rpg.spell.domain.Spell.School
+import com.cyrillrx.rpg.spell.domain.SpellRepository
 
 class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository {
 
@@ -71,21 +70,21 @@ class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository 
             }
         }
 
-        private fun ApiSpell.getAvailableClasses(): List<Character.Class> {
+        private fun ApiSpell.getAvailableClasses(): List<com.cyrillrx.rpg.character.domain.Character.Class> {
             val apiCharacterClasses = header?.taxonomy?.spell_class
             return apiCharacterClasses?.mapNotNull { it?.toCharacterClasses() } ?: emptyList()
         }
 
-        private fun String.toCharacterClasses(): Character.Class? {
+        private fun String.toCharacterClasses(): com.cyrillrx.rpg.character.domain.Character.Class? {
             return when (this) {
-                "Bard" -> return Character.Class.BARD
-                "Clerc" -> return Character.Class.CLERIC
-                "Druide" -> return Character.Class.DRUID
-                "Paladin" -> return Character.Class.PALADIN
-                "Ranger" -> return Character.Class.RANGER
-                "Ensorceleur/Sorcelame" -> return Character.Class.SORCERER
-                "Sorcier" -> return Character.Class.WARLOCK
-                "Magicien" -> return Character.Class.WIZARD
+                "Bard" -> return com.cyrillrx.rpg.character.domain.Character.Class.BARD
+                "Clerc" -> return com.cyrillrx.rpg.character.domain.Character.Class.CLERIC
+                "Druide" -> return com.cyrillrx.rpg.character.domain.Character.Class.DRUID
+                "Paladin" -> return com.cyrillrx.rpg.character.domain.Character.Class.PALADIN
+                "Ranger" -> return com.cyrillrx.rpg.character.domain.Character.Class.RANGER
+                "Ensorceleur/Sorcelame" -> return com.cyrillrx.rpg.character.domain.Character.Class.SORCERER
+                "Sorcier" -> return com.cyrillrx.rpg.character.domain.Character.Class.WARLOCK
+                "Magicien" -> return com.cyrillrx.rpg.character.domain.Character.Class.WIZARD
                 else -> null
             }
         }

@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.spellbook.data.api
+package com.cyrillrx.rpg.spell.data.api
 
 import kotlinx.serialization.Serializable
 

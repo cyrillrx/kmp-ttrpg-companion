@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.spellbook.presentation.component
+package com.cyrillrx.rpg.spell.presentation.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -23,36 +23,31 @@ import com.cyrillrx.rpg.core.presentation.componenent.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.componenent.Loader
 import com.cyrillrx.rpg.core.presentation.componenent.SearchBar
 import com.cyrillrx.rpg.core.presentation.theme.Purple700
-import com.cyrillrx.rpg.spellbook.domain.Spell
-import com.cyrillrx.rpg.spellbook.presentation.SpellListAction
-import com.cyrillrx.rpg.spellbook.presentation.SpellListState
-import com.cyrillrx.rpg.spellbook.presentation.viewmodel.SpellBookViewModel
+import com.cyrillrx.rpg.spell.domain.Spell
+import com.cyrillrx.rpg.spell.presentation.SpellListState
+import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellBookViewModel
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.hint_search_spell
 
 @Composable
-fun SpellBookScreen(
-    viewModel: SpellBookViewModel,
-    navigateToSpell: (Spell) -> Unit,
-) {
+fun SpellBookScreen(viewModel: SpellBookViewModel) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
     SpellBookScreen(
         state = state,
-        onAction = { action ->
-            when (action) {
-                is SpellListAction.OnSpellClicked -> navigateToSpell(action.spell)
-                else -> viewModel.onAction(action)
-            }
-        },
+        onSearchQueryChanged = viewModel::onSearchQueryChanged,
+        onSpellClicked = viewModel::onSpellClicked,
+        onSpellSaved = viewModel::onSpellSaved,
     )
 }
 
 @Composable
 fun SpellBookScreen(
     state: SpellListState,
-    onAction: (SpellListAction) -> Unit,
+    onSearchQueryChanged: (String) -> Unit,
+    onSpellClicked: (Spell) -> Unit,
+    onSpellSaved: (Spell) -> Unit,
 ) {
     Column(
         modifier = Modifier
@@ -64,14 +59,14 @@ fun SpellBookScreen(
         SearchBar(
             hint = stringResource(Res.string.hint_search_spell),
             query = state.searchQuery,
-            onQueryChanged = { onAction(SpellListAction.OnSearchQueryChanged(it)) },
+            onQueryChanged = onSearchQueryChanged,
         )
 
-        when (state) {
-            is SpellListState.Loading -> Loader()
-            is SpellListState.Empty -> EmptySearch(state.searchQuery)
-            is SpellListState.Error -> ErrorLayout(state.errorMessage)
-            is SpellListState.WithData -> SpellList(state.searchResults, onAction)
+        when (val body = state.body) {
+            is SpellListState.Body.Loading -> Loader()
+            is SpellListState.Body.Empty -> EmptySearch(state.searchQuery)
+            is SpellListState.Body.Error -> ErrorLayout(body.errorMessage)
+            is SpellListState.Body.WithData -> SpellList(body.searchResults, onSpellClicked, onSpellSaved)
         }
     }
 }
@@ -82,28 +77,28 @@ fun AlternativeSpellBookScreen(viewModel: SpellBookViewModel) {
 
     AlternativeSpellBookScreen(
         state = state,
-        onAction = { action -> viewModel.onAction(action) },
+        onSearchQueryChanged = viewModel::onSearchQueryChanged,
     )
 }
 
 @Composable
 fun AlternativeSpellBookScreen(
     state: SpellListState,
-    onAction: (SpellListAction) -> Unit,
+    onSearchQueryChanged: (String) -> Unit,
 ) {
 
     Column {
         SearchBar(
             hint = stringResource(Res.string.hint_search_spell),
             query = state.searchQuery,
-            onQueryChanged = { onAction(SpellListAction.OnSearchQueryChanged(it)) },
+            onQueryChanged = onSearchQueryChanged,
         )
 
-        when (state) {
-            is SpellListState.Loading -> Loader()
-            is SpellListState.Empty -> EmptySearch(state.searchQuery)
-            is SpellListState.Error -> ErrorLayout(state.errorMessage)
-            is SpellListState.WithData -> AlternativeSpellList(state = state)
+        when (val body = state.body) {
+            is SpellListState.Body.Loading -> Loader()
+            is SpellListState.Body.Empty -> EmptySearch(state.searchQuery)
+            is SpellListState.Body.Error -> ErrorLayout(body.errorMessage)
+            is SpellListState.Body.WithData -> AlternativeSpellList(state = body)
         }
     }
 }
@@ -111,7 +106,8 @@ fun AlternativeSpellBookScreen(
 @Composable
 private fun SpellList(
     spells: List<Spell>,
-    onAction: (SpellListAction) -> Unit,
+    onSpellClicked: (Spell) -> Unit,
+    onSpellSaved: (Spell) -> Unit,
 ) {
     val searchResultsListState = rememberLazyListState()
     LaunchedEffect(spells) {
@@ -127,17 +123,17 @@ private fun SpellList(
                 modifier = Modifier
                     .fillMaxWidth()
                     .wrapContentHeight()
-                    .clickable { onAction(SpellListAction.OnSpellClicked(spell)) },
+                    .clickable { onSpellClicked(spell) },
                 spell = spell,
                 isSaved = false,
-                onSaveClicked = { onAction(SpellListAction.OnSaveSpellClicked(it)) },
+                onSaveClicked = onSpellSaved,
             )
         }
     }
 }
 
 @Composable
-private fun AlternativeSpellList(state: SpellListState.WithData) {
+private fun AlternativeSpellList(state: SpellListState.Body.WithData) {
     val searchResultsListState = rememberLazyListState()
     LaunchedEffect(state.searchResults) {
         searchResultsListState.animateScrollToItem(0)

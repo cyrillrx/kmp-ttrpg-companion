@@ -1,7 +1,6 @@
-package com.cyrillrx.rpg.spellbook.data
+package com.cyrillrx.rpg.spell.data
 
-import com.cyrillrx.rpg.core.domain.Character
-import com.cyrillrx.rpg.spellbook.domain.Spell
+import com.cyrillrx.rpg.spell.domain.Spell
 
 class SampleSpellRepository {
     fun getAll(): List<Spell> {
@@ -22,6 +21,6 @@ class SampleSpellRepository {
         components = "V, S, M (une petite boule de guano de chauve-souris et du soufre)",
         duration = "instantanée",
         schools = listOf(Spell.School.EVOCATION),
-        availableClasses = listOf(Character.Class.SORCERER, Character.Class.WIZARD),
+        availableClasses = listOf(com.cyrillrx.rpg.character.domain.Character.Class.SORCERER, com.cyrillrx.rpg.character.domain.Character.Class.WIZARD),
     )
 }

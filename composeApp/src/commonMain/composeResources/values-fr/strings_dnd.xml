@@ -2,13 +2,15 @@
 
 <resources>
     <!-- Home -->
+    <string name="btn_campaign_list">Campagnes</string>
+    <string name="btn_character_sheets">Fiches de perso</string>
     <string name="btn_spell_book">Grimoire</string>
     <string name="btn_alternative_spell_book">Grimoire alternatif</string>
     <string name="btn_bestiary">Bestiaire</string>
     <string name="btn_inventory">Objets magiques</string>
-    <string name="btn_character_sheets">Fiches de perso</string>
 
     <!-- Search -->
+    <string name="hint_search_campaign">Oblivion, La chute de Londres, etc.</string>
     <string name="hint_search_spell">Boule de feu, évocation, clerc, etc.</string>
     <string name="hint_search_magical_item">Bouclier, rare, etc.</string>
     <string name="hint_search_creature">Dragon, loup, etc.</string>
