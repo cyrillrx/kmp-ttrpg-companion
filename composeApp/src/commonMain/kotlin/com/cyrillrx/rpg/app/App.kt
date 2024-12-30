@@ -2,18 +2,17 @@ package com.cyrillrx.rpg.app
 
 import androidx.compose.runtime.Composable
 import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import androidx.navigation.toRoute
-import com.cyrillrx.core.data.deserialize
-import com.cyrillrx.core.data.serialize
+import com.cyrillrx.rpg.campaign.presentation.navigation.handleCampaignRoutes
+import com.cyrillrx.rpg.core.data.ComposeFileReader
+import com.cyrillrx.rpg.core.presentation.theme.AppTheme
 import com.cyrillrx.rpg.creature.presentation.component.BestiaryScreen
 import com.cyrillrx.rpg.creature.presentation.viewmodel.BestiaryViewModel
 import com.cyrillrx.rpg.creature.presentation.viewmodel.BestiaryViewModelFactory
-import com.cyrillrx.rpg.home.presentation.HomeRouter
 import com.cyrillrx.rpg.home.presentation.HomeScreen
+import com.cyrillrx.rpg.home.presentation.navigation.HomeRouterImpl
 import com.cyrillrx.rpg.magicalitems.presentation.component.InventoryScreen
 import com.cyrillrx.rpg.magicalitems.presentation.viewmodel.InventoryViewModel
 import com.cyrillrx.rpg.magicalitems.presentation.viewmodel.InventoryViewModelFactory
@@ -32,9 +31,10 @@ fun App() {
             navController = navController,
             startDestination = Route.Home,
         ) {
-            val homeRouter = createHomeRouter(navController)
-
+            val homeRouter = HomeRouterImpl(navController)
             composable<Route.Home> { HomeScreen(homeRouter) }
+
+            handleCampaignRoutes(navController)
 
             handleSpellRoutes(navController, fileReader)
 
@@ -49,26 +49,12 @@ fun App() {
                 val viewModel = viewModel<InventoryViewModel>(factory = viewModelFactory)
                 InventoryScreen(viewModel)
             }
-        }
-    }
-}
 
-private fun createHomeRouter(navController: NavController): HomeRouter {
-    return object : HomeRouter {
-        override fun openSpellBook() {
-            navController.navigate(SpellRoute.List)
-        }
-
-        override fun openAlternativeSpellBook() {
-            navController.navigate(SpellRoute.AlternativeList)
-        }
-
-        override fun openMagicalItems() {
-            navController.navigate(Route.MagicalItems)
-        }
-
-        override fun openBestiary() {
-            navController.navigate(Route.Bestiary)
+            composable<Route.CharacterSheetList> {
+                val viewModelFactory = BestiaryViewModelFactory(fileReader)
+                val viewModel = viewModel<BestiaryViewModel>(factory = viewModelFactory)
+                BestiaryScreen(viewModel)
+            }
         }
     }
 }

@@ -61,6 +61,7 @@ class SpellBookViewModel(
                 _state.update { _state.value.copy(body = SpellListState.Body.WithData(spells)) }
             }
         } catch (e: Exception) {
+            // TODO translate
             _state.update { _state.value.copy(body = SpellListState.Body.Error(errorMessage = "Error while loading")) }
         }
     }
