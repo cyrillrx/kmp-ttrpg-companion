@@ -18,10 +18,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.cyrillrx.rpg.core.presentation.componenent.EmptySearch
-import com.cyrillrx.rpg.core.presentation.componenent.ErrorLayout
-import com.cyrillrx.rpg.core.presentation.componenent.Loader
-import com.cyrillrx.rpg.core.presentation.componenent.SearchBar
+import com.cyrillrx.rpg.core.presentation.component.EmptySearch
+import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
+import com.cyrillrx.rpg.core.presentation.component.Loader
+import com.cyrillrx.rpg.core.presentation.component.SearchBar
 import com.cyrillrx.rpg.core.presentation.theme.Purple700
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.presentation.SpellListState

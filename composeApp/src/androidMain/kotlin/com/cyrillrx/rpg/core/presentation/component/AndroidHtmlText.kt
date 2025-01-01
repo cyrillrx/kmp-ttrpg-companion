@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.core.presentation.componenent
+package com.cyrillrx.rpg.core.presentation.component
 
 import android.graphics.Typeface
 import android.os.Build.VERSION.SDK_INT

@@ -25,10 +25,10 @@ import com.cyrillrx.rpg.campaign.domain.Campaign
 import com.cyrillrx.rpg.campaign.domain.RuleSet
 import com.cyrillrx.rpg.campaign.presentation.CampaignListState
 import com.cyrillrx.rpg.campaign.presentation.viewmodel.CampaignListViewModel
-import com.cyrillrx.rpg.core.presentation.componenent.EmptySearch
-import com.cyrillrx.rpg.core.presentation.componenent.ErrorLayout
-import com.cyrillrx.rpg.core.presentation.componenent.Loader
-import com.cyrillrx.rpg.core.presentation.componenent.SearchBar
+import com.cyrillrx.rpg.core.presentation.component.EmptySearch
+import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
+import com.cyrillrx.rpg.core.presentation.component.Loader
+import com.cyrillrx.rpg.core.presentation.component.SearchBar
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.stringResource

@@ -4,7 +4,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.cyrillrx.rpg.core.presentation.componenent.SearchBar
+import com.cyrillrx.rpg.core.presentation.component.SearchBar
 import com.cyrillrx.rpg.core.presentation.theme.AppTheme
 
 @Preview

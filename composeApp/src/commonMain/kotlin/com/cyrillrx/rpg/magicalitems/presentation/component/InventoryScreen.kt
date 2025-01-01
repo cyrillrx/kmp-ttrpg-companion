@@ -22,11 +22,11 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.cyrillrx.rpg.core.presentation.componenent.EmptySearch
-import com.cyrillrx.rpg.core.presentation.componenent.ErrorLayout
-import com.cyrillrx.rpg.core.presentation.componenent.HtmlText
-import com.cyrillrx.rpg.core.presentation.componenent.Loader
-import com.cyrillrx.rpg.core.presentation.componenent.SearchBar
+import com.cyrillrx.rpg.core.presentation.component.EmptySearch
+import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
+import com.cyrillrx.rpg.core.presentation.component.HtmlText
+import com.cyrillrx.rpg.core.presentation.component.Loader
+import com.cyrillrx.rpg.core.presentation.component.SearchBar
 import com.cyrillrx.rpg.magicalitems.domain.MagicalItem
 import com.cyrillrx.rpg.magicalitems.presentation.MagicalItemListAction
 import com.cyrillrx.rpg.magicalitems.presentation.MagicalItemListState

@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.core.presentation.componenent
+package com.cyrillrx.rpg.core.presentation.component
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding

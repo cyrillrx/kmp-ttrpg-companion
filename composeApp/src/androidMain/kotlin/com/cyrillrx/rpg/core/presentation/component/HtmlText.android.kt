@@ -1,6 +1,5 @@
-package com.cyrillrx.rpg.core.presentation.componenent
+package com.cyrillrx.rpg.core.presentation.component
 
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -34,7 +33,7 @@ actual fun HtmlText(
     onTextLayout: ((TextLayoutResult) -> Unit)?,
     style: TextStyle,
 ) {
-    Text(
+    AndroidHtmlText(
         text = text,
         modifier = modifier,
         color = color,
