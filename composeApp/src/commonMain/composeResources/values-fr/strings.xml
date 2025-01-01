@@ -4,4 +4,6 @@
     <string name="app_name">RPG Companion</string>
 
     <string name="btn_more">Plus</string>
+    <string name="no_result_found">Aucun résultat trouvé.</string>
+    <string name="no_result_found_for_query">Aucun résultat trouvé pour '%1$s'.</string>
 </resources>
