@@ -3,6 +3,7 @@ package com.cyrillrx.rpg.core.presentation.componenent
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
@@ -27,13 +28,22 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.cyrillrx.rpg.core.presentation.theme.Purple700
+import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 
 @Composable
 fun SearchBar(
     hint: String,
     query: String,
     onQueryChanged: (String) -> Unit,
-    modifier: Modifier = Modifier,
+    modifier: Modifier = Modifier
+        .fillMaxWidth()
+        .padding(spacingMedium)
+        .widthIn(max = 400.dp)
+        .background(
+            shape = RoundedCornerShape(50),
+            color = Purple700,
+        )
+        .minimumInteractiveComponentSize(),
 ) {
     val keyboardController = LocalSoftwareKeyboardController.current
 
@@ -43,7 +53,6 @@ fun SearchBar(
             backgroundColor = Purple700,
         ),
     ) {
-
         OutlinedTextField(
             value = query,
             onValueChange = onQueryChanged,
@@ -74,14 +83,7 @@ fun SearchBar(
                     }
                 }
             },
-            modifier = modifier
-                .widthIn(max = 400.dp)
-                .fillMaxWidth()
-                .background(
-                    shape = RoundedCornerShape(50),
-                    color = Purple700,
-                )
-                .minimumInteractiveComponentSize(),
+            modifier = modifier,
         )
     }
 }
