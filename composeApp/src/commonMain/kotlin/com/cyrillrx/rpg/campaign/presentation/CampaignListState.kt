@@ -1,18 +1,19 @@
 package com.cyrillrx.rpg.campaign.presentation
 
 import com.cyrillrx.rpg.campaign.domain.Campaign
+import org.jetbrains.compose.resources.StringResource
 
 data class CampaignListState(
-    val searchQuery: String = "",
+    val searchQuery: String,
     val body: Body,
 ) {
-    sealed class Body {
-        data object Loading : Body()
+    sealed interface Body {
+        data object Loading : Body
 
-        data object Empty : Body()
+        data object Empty : Body
 
-        data class Error(val errorMessage: String) : Body()
+        data class Error(val errorMessage: StringResource) : Body
 
-        data class WithData(val searchResults: List<Campaign>) : Body()
+        data class WithData(val searchResults: List<Campaign>) : Body
     }
 }

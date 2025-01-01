@@ -1,8 +1,10 @@
 package com.cyrillrx.rpg.home.presentation.navigation
 
 import androidx.navigation.NavController
-import com.cyrillrx.rpg.app.Route
 import com.cyrillrx.rpg.campaign.presentation.navigation.CampaignRoute
+import com.cyrillrx.rpg.character.presentation.navigation.PlayerCharacterRoute
+import com.cyrillrx.rpg.creature.presentation.navigation.CreatureRoute
+import com.cyrillrx.rpg.magicalitem.presentation.navigation.MagicalItemRoute
 import com.cyrillrx.rpg.spell.presentation.navigation.SpellRoute
 
 interface HomeRouter {
@@ -21,7 +23,7 @@ class HomeRouterImpl(private val navController: NavController) : HomeRouter {
     }
 
     override fun openCharacterSheets() {
-        navController.navigate(Route.CharacterSheetList)
+        navController.navigate(PlayerCharacterRoute.List)
     }
 
     override fun openSpellBook() {
@@ -33,10 +35,10 @@ class HomeRouterImpl(private val navController: NavController) : HomeRouter {
     }
 
     override fun openMagicalItems() {
-        navController.navigate(Route.MagicalItems)
+        navController.navigate(MagicalItemRoute.List)
     }
 
     override fun openBestiary() {
-        navController.navigate(Route.Bestiary)
+        navController.navigate(CreatureRoute.List)
     }
 }

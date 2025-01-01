@@ -13,9 +13,12 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.creature.domain.Creature
 
 @Composable
-fun CreatureItem(creature: Creature) {
+fun CreatureItem(
+    creature: Creature,
+    modifier: Modifier = Modifier,
+) {
     Column(
-        modifier = Modifier
+        modifier = modifier
             .padding(spacingCommon),
     ) {
         Text(

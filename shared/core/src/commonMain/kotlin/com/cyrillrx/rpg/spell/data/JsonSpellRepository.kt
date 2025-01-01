@@ -3,6 +3,7 @@ package com.cyrillrx.rpg.spell.data
 import com.cyrillrx.core.data.FileReader
 import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.core.domain.Result
+import com.cyrillrx.rpg.character.domain.PlayerCharacter
 import com.cyrillrx.rpg.spell.data.api.ApiSpell
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.domain.Spell.School
@@ -70,21 +71,21 @@ class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository 
             }
         }
 
-        private fun ApiSpell.getAvailableClasses(): List<com.cyrillrx.rpg.character.domain.Character.Class> {
+        private fun ApiSpell.getAvailableClasses(): List<PlayerCharacter.Class> {
             val apiCharacterClasses = header?.taxonomy?.spell_class
             return apiCharacterClasses?.mapNotNull { it?.toCharacterClasses() } ?: emptyList()
         }
 
-        private fun String.toCharacterClasses(): com.cyrillrx.rpg.character.domain.Character.Class? {
+        private fun String.toCharacterClasses(): PlayerCharacter.Class? {
             return when (this) {
-                "Bard" -> return com.cyrillrx.rpg.character.domain.Character.Class.BARD
-                "Clerc" -> return com.cyrillrx.rpg.character.domain.Character.Class.CLERIC
-                "Druide" -> return com.cyrillrx.rpg.character.domain.Character.Class.DRUID
-                "Paladin" -> return com.cyrillrx.rpg.character.domain.Character.Class.PALADIN
-                "Ranger" -> return com.cyrillrx.rpg.character.domain.Character.Class.RANGER
-                "Ensorceleur/Sorcelame" -> return com.cyrillrx.rpg.character.domain.Character.Class.SORCERER
-                "Sorcier" -> return com.cyrillrx.rpg.character.domain.Character.Class.WARLOCK
-                "Magicien" -> return com.cyrillrx.rpg.character.domain.Character.Class.WIZARD
+                "Bard" -> return PlayerCharacter.Class.BARD
+                "Clerc" -> return PlayerCharacter.Class.CLERIC
+                "Druide" -> return PlayerCharacter.Class.DRUID
+                "Paladin" -> return PlayerCharacter.Class.PALADIN
+                "Ranger" -> return PlayerCharacter.Class.RANGER
+                "Ensorceleur/Sorcelame" -> return PlayerCharacter.Class.SORCERER
+                "Sorcier" -> return PlayerCharacter.Class.WARLOCK
+                "Magicien" -> return PlayerCharacter.Class.WIZARD
                 else -> null
             }
         }

@@ -6,8 +6,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
 import com.cyrillrx.core.data.deserialize
-import com.cyrillrx.core.data.serialize
-import com.cyrillrx.rpg.campaign.domain.Campaign
+import com.cyrillrx.rpg.campaign.data.RamCampaignRepository
 import com.cyrillrx.rpg.campaign.presentation.component.CampaignDetailScreen
 import com.cyrillrx.rpg.campaign.presentation.component.CampaignListScreen
 import com.cyrillrx.rpg.campaign.presentation.component.CreateCampaignScreen
@@ -29,7 +28,8 @@ interface CampaignRoute {
 fun NavGraphBuilder.handleCampaignRoutes(navController: NavController) {
     composable<CampaignRoute.List> {
         val router = CampaignRouterImpl(navController)
-        val viewModelFactory = CampaignListViewModelFactory(router)
+        val repository = RamCampaignRepository()
+        val viewModelFactory = CampaignListViewModelFactory(router, repository)
         val viewModel = viewModel<CampaignListViewModel>(factory = viewModelFactory)
         CampaignListScreen(viewModel)
     }

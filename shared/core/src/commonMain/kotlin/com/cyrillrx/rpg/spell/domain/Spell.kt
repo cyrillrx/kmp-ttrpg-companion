@@ -1,6 +1,6 @@
 package com.cyrillrx.rpg.spell.domain
 
-import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.character.domain.PlayerCharacter
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -13,7 +13,7 @@ class Spell(
     val components: String,
     val duration: String,
     val schools: List<School>,
-    val availableClasses: List<Character.Class>,
+    val availableClasses: List<PlayerCharacter.Class>,
 ) {
     enum class School {
         ABJURATION,

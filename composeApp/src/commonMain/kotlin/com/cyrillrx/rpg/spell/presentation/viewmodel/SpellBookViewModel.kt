@@ -12,6 +12,8 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import rpg_companion.composeapp.generated.resources.Res
+import rpg_companion.composeapp.generated.resources.error_while_loading_spells
 
 class SpellBookViewModel(
     private val router: SpellRouter,
@@ -20,7 +22,7 @@ class SpellBookViewModel(
 
     private var updateJob: Job? = null
     private val _state: MutableStateFlow<SpellListState> = MutableStateFlow(
-        SpellListState(searchQuery = "", body = SpellListState.Body.Loading),
+        SpellListState(searchQuery = "", body = SpellListState.Body.Empty),
     )
     val state: StateFlow<SpellListState> = _state.asStateFlow()
 
@@ -61,8 +63,7 @@ class SpellBookViewModel(
                 _state.update { _state.value.copy(body = SpellListState.Body.WithData(spells)) }
             }
         } catch (e: Exception) {
-            // TODO translate
-            _state.update { _state.value.copy(body = SpellListState.Body.Error(errorMessage = "Error while loading")) }
+            _state.update { _state.value.copy(body = SpellListState.Body.Error(errorMessage = Res.string.error_while_loading_spells)) }
         }
     }
 }

@@ -12,6 +12,8 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import rpg_companion.composeapp.generated.resources.Res
+import rpg_companion.composeapp.generated.resources.error_while_loading_campaign
 
 class CampaignListViewModel(
     private val router: CampaignRouter,
@@ -52,8 +54,7 @@ class CampaignListViewModel(
                 _state.update { _state.value.copy(body = CampaignListState.Body.WithData(campaigns))}
             }
         } catch (e: Exception) {
-            // TODO translate
-            _state.update { _state.value.copy(body = CampaignListState.Body.Error(errorMessage = "Error while loading")) }
+            _state.update { _state.value.copy(body = CampaignListState.Body.Error(errorMessage = Res.string.error_while_loading_campaign)) }
         }
     }
 }

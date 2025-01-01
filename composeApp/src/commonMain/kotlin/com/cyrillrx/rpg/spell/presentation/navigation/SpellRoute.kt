@@ -9,8 +9,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
 import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.rpg.core.data.ComposeFileReader
-import com.cyrillrx.rpg.spell.presentation.component.AlternativeSpellBookScreen
-import com.cyrillrx.rpg.spell.presentation.component.SpellBookScreen
+import com.cyrillrx.rpg.spell.data.JsonSpellRepository
+import com.cyrillrx.rpg.spell.presentation.component.AlternativeSpellListScreen
+import com.cyrillrx.rpg.spell.presentation.component.SpellListScreen
 import com.cyrillrx.rpg.spell.presentation.component.SpellCard
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellBookViewModel
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellBookViewModelFactory
@@ -33,16 +34,18 @@ fun NavGraphBuilder.handleSpellRoutes(navController: NavController, fileReader: 
         exitTransition = { slideOutHorizontally { initialOffset -> initialOffset } },
     ) {
         val router = SpellRouterImpl(navController)
-        val viewModelFactory = SpellBookViewModelFactory(router, fileReader)
+        val repository = JsonSpellRepository(fileReader)
+        val viewModelFactory = SpellBookViewModelFactory(router, repository)
         val viewModel = viewModel<SpellBookViewModel>(factory = viewModelFactory)
-        SpellBookScreen(viewModel)
+        SpellListScreen(viewModel)
     }
 
     composable<SpellRoute.AlternativeList> {
         val router = SpellRouterImpl(navController)
-        val viewModelFactory = SpellBookViewModelFactory(router, fileReader)
+        val repository = JsonSpellRepository(fileReader)
+        val viewModelFactory = SpellBookViewModelFactory(router, repository)
         val viewModel = viewModel<SpellBookViewModel>(factory = viewModelFactory)
-        AlternativeSpellBookScreen(viewModel)
+        AlternativeSpellListScreen(viewModel)
     }
 
     composable<SpellRoute.Detail> { entry ->
