@@ -3,7 +3,29 @@
 <resources>
     <string name="app_name">RPG Companion</string>
 
+    <string name="btn_back">Retour</string>
     <string name="btn_more">Plus</string>
+
+    <!--  Campaign  -->
+    <string name="title_create_campaign">Nouvelle Campagne</string>
+    <string name="label_campaign_name">Nom de la Campagne</string>
+    <string name="label_campaign_rule_set">Système de Règles :</string>
+    <string name="btn_create_campaign">Créer la Campagne</string>
+    <string name="error_empty_campaign_name">Le nom de la campagne doit être renseigné</string>
+    <string name="error_undefined_rule_set">Le système de règles doit être renseigné</string>
+    <string name="error_campaign_already_exists">Une Campagne avec le même nom existe déjà</string>
+
+    <!--  Player Character  -->
+    <string name="label_player_character_name">Nom du Personnage Joueur</string>
+    <string name="btn_create_player_character">Créer le Personnage Joueur</string>
+
+    <string name="ruleset_dnd5e">DnD 5e</string>
+    <string name="ruleset_pathfinder_2e">Pathfinder 2e</string>
+    <string name="ruleset_starfinder">Starfinder</string>
+    <string name="ruleset_call_of_cthulhu_7e">L'appel de Cthulhu 7e</string>
+    <string name="ruleset_vampire_the_masquerade_5e">Vampire : La Masquerade 5e</string>
+    <string name="ruleset_other">Other</string>
+    <string name="ruleset_undefined">Système de Règle non défini</string>
 
     <string name="error_while_loading_campaign">Erreur lors du chargement des Campagnes.</string>
     <string name="error_while_loading_characters">Erreur lors du chargement des Personnage Joueurs.</string>

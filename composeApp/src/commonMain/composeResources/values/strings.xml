@@ -3,7 +3,29 @@
 <resources>
     <string name="app_name">RPG Companion</string>
 
+    <string name="btn_back">Back</string>
     <string name="btn_more">More</string>
+
+    <!--  Campaign  -->
+    <string name="title_create_campaign">New Campaign</string>
+    <string name="label_campaign_name">Campaign name</string>
+    <string name="label_campaign_rule_set">Rule Set:</string>
+    <string name="btn_create_campaign">Create the Campaign</string>
+    <string name="error_empty_campaign_name">The Campaign name must be filled</string>
+    <string name="error_undefined_rule_set">The Rule Set must be filled</string>
+    <string name="error_campaign_already_exists">A Campaign with the same name already exists</string>
+
+    <!--  Player Character  -->
+    <string name="label_create_player_name">Player Character name</string>
+    <string name="btn_create_player_character">Create the Player Character</string>
+
+    <string name="ruleset_dnd5e">DnD 5e</string>
+    <string name="ruleset_pathfinder_2e">Pathfinder 2e</string>
+    <string name="ruleset_starfinder">Starfinder</string>
+    <string name="ruleset_call_of_cthulhu_7e">Call of Cthulhu 7e</string>
+    <string name="ruleset_vampire_the_masquerade_5e">Vampire: The Masquerade 5e</string>
+    <string name="ruleset_other">Other</string>
+    <string name="ruleset_undefined">Undefined Rule Set</string>
 
     <string name="error_while_loading_campaign">Error while loading Campaigns.</string>
     <string name="error_while_loading_characters">Error while loading Player Characters.</string>

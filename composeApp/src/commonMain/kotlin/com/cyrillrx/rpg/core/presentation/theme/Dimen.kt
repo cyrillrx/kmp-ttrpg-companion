@@ -6,3 +6,6 @@ val spacingSmall = 4.dp
 val spacingMedium = 8.dp
 val spacingCommon = 16.dp
 val spacingLarge = 32.dp
+
+val topAppBarHeight = 64.dp
+val spacingTopAppBar = topAppBarHeight + spacingCommon

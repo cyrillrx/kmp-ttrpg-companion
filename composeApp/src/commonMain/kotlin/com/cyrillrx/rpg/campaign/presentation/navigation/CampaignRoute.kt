@@ -9,7 +9,9 @@ import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.rpg.campaign.data.RamCampaignRepository
 import com.cyrillrx.rpg.campaign.presentation.component.CampaignDetailScreen
 import com.cyrillrx.rpg.campaign.presentation.component.CampaignListScreen
-import com.cyrillrx.rpg.campaign.presentation.component.CreateCampaignScreen
+import com.cyrillrx.rpg.campaign.create.CreateCampaignScreen
+import com.cyrillrx.rpg.campaign.create.viewmodel.CreateCampaignViewModel
+import com.cyrillrx.rpg.campaign.create.viewmodel.CreateCampaignViewModelFactory
 import com.cyrillrx.rpg.campaign.presentation.viewmodel.CampaignListViewModel
 import com.cyrillrx.rpg.campaign.presentation.viewmodel.CampaignListViewModelFactory
 import kotlinx.serialization.Serializable
@@ -26,9 +28,10 @@ interface CampaignRoute {
 }
 
 fun NavGraphBuilder.handleCampaignRoutes(navController: NavController) {
+    val router = CampaignRouterImpl(navController)
+    val repository = RamCampaignRepository()
+
     composable<CampaignRoute.List> {
-        val router = CampaignRouterImpl(navController)
-        val repository = RamCampaignRepository()
         val viewModelFactory = CampaignListViewModelFactory(router, repository)
         val viewModel = viewModel<CampaignListViewModel>(factory = viewModelFactory)
         CampaignListScreen(viewModel)
@@ -40,6 +43,8 @@ fun NavGraphBuilder.handleCampaignRoutes(navController: NavController) {
     }
 
     composable<CampaignRoute.Create> {
-        CreateCampaignScreen()
+        val viewModelFactory = CreateCampaignViewModelFactory(router, repository)
+        val viewModel = viewModel<CreateCampaignViewModel>(factory = viewModelFactory)
+        CreateCampaignScreen(viewModel)
     }
 }

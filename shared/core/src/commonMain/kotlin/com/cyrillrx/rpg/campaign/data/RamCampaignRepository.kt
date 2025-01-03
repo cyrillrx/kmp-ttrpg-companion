@@ -6,23 +6,23 @@ import com.cyrillrx.rpg.campaign.domain.RuleSet
 
 class RamCampaignRepository : CampaignRepository {
 
-    private val campaigns = mutableMapOf<String, Campaign>().apply {
-        put("1", Campaign("1", "Campaign 1", RuleSet.DND5E))
-        put("2", Campaign("2", "Campaign 2", RuleSet.PF2E))
-        put("3", Campaign("3", "Campaign 3", RuleSet.VAMPIRE_THE_MASQUERADE_5))
+    private val campaigns = mutableListOf<Campaign>().apply {
+        add(Campaign("1", "Campaign 1", RuleSet.DND5E))
+        add(Campaign("2", "Campaign 2", RuleSet.PATHFINDER_2E))
+        add(Campaign("3", "Campaign 3", RuleSet.VAMPIRE_THE_MASQUERADE_5E))
     }
 
-    override suspend fun getAll(): List<Campaign> = campaigns.values.toList()
+    override suspend fun getAll(): List<Campaign> = campaigns
 
-    override suspend fun filter(query: String): List<Campaign> = campaigns.values.filter { it.name.contains(query) }
+    override suspend fun filter(query: String): List<Campaign> = campaigns.filter { it.name.contains(query) }
 
-    override suspend fun get(id: String): Campaign? = campaigns[id]
+    override suspend fun get(id: String): Campaign? = campaigns.find { it.id == id }
 
     override suspend fun save(campaign: Campaign) {
-        campaigns[campaign.id] = campaign
+        campaigns.add(campaign)
     }
 
     override suspend fun delete(id: String) {
-        campaigns.remove(id)
+        campaigns.removeAll { it.id == id }
     }
 }
