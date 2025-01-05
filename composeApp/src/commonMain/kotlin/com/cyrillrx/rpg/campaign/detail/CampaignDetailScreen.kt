@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.campaign.presentation.component
+package com.cyrillrx.rpg.campaign.detail
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Text

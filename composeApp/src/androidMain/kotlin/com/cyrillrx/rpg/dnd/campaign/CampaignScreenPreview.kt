@@ -6,8 +6,8 @@ import com.cyrillrx.rpg.campaign.create.CreateCampaignScreen
 import com.cyrillrx.rpg.campaign.create.CreateCampaignState
 import com.cyrillrx.rpg.campaign.domain.Campaign
 import com.cyrillrx.rpg.campaign.domain.RuleSet
-import com.cyrillrx.rpg.campaign.presentation.CampaignListState
-import com.cyrillrx.rpg.campaign.presentation.component.CampaignListScreen
+import com.cyrillrx.rpg.campaign.list.CampaignListScreen
+import com.cyrillrx.rpg.campaign.list.CampaignListState
 import com.cyrillrx.rpg.core.presentation.theme.AppTheme
 
 private val campaigns = mutableListOf<Campaign>().apply {

@@ -1,7 +1,7 @@
 package com.cyrillrx.rpg.home.presentation.navigation
 
 import androidx.navigation.NavController
-import com.cyrillrx.rpg.campaign.presentation.navigation.CampaignRoute
+import com.cyrillrx.rpg.campaign.navigation.CampaignRoute
 import com.cyrillrx.rpg.character.presentation.navigation.PlayerCharacterRoute
 import com.cyrillrx.rpg.creature.presentation.navigation.CreatureRoute
 import com.cyrillrx.rpg.magicalitem.presentation.navigation.MagicalItemRoute

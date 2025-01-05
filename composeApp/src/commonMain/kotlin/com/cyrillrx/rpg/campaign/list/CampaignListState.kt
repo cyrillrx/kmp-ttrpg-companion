@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.campaign.presentation
+package com.cyrillrx.rpg.campaign.list
 
 import com.cyrillrx.rpg.campaign.domain.Campaign
 import org.jetbrains.compose.resources.StringResource

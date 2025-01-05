@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.campaign.presentation.navigation
+package com.cyrillrx.rpg.campaign.navigation
 
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
@@ -6,14 +6,14 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
 import com.cyrillrx.core.data.deserialize
-import com.cyrillrx.rpg.campaign.data.RamCampaignRepository
-import com.cyrillrx.rpg.campaign.presentation.component.CampaignDetailScreen
-import com.cyrillrx.rpg.campaign.presentation.component.CampaignListScreen
 import com.cyrillrx.rpg.campaign.create.CreateCampaignScreen
 import com.cyrillrx.rpg.campaign.create.viewmodel.CreateCampaignViewModel
 import com.cyrillrx.rpg.campaign.create.viewmodel.CreateCampaignViewModelFactory
-import com.cyrillrx.rpg.campaign.presentation.viewmodel.CampaignListViewModel
-import com.cyrillrx.rpg.campaign.presentation.viewmodel.CampaignListViewModelFactory
+import com.cyrillrx.rpg.campaign.data.RamCampaignRepository
+import com.cyrillrx.rpg.campaign.detail.CampaignDetailScreen
+import com.cyrillrx.rpg.campaign.list.CampaignListScreen
+import com.cyrillrx.rpg.campaign.list.viewmodel.CampaignListViewModel
+import com.cyrillrx.rpg.campaign.list.viewmodel.CampaignListViewModelFactory
 import kotlinx.serialization.Serializable
 
 interface CampaignRoute {

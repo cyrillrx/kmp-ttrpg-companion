@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.campaign.presentation.navigation
+package com.cyrillrx.rpg.campaign.navigation
 
 import androidx.navigation.NavController
 import com.cyrillrx.core.data.serialize

@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.campaign.presentation.component
+package com.cyrillrx.rpg.campaign.list
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -25,8 +25,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.campaign.domain.Campaign
-import com.cyrillrx.rpg.campaign.presentation.CampaignListState
-import com.cyrillrx.rpg.campaign.presentation.viewmodel.CampaignListViewModel
+import com.cyrillrx.rpg.campaign.list.viewmodel.CampaignListViewModel
 import com.cyrillrx.rpg.core.presentation.component.EmptySearch
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader

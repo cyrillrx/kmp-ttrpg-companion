@@ -6,7 +6,7 @@ import com.cyrillrx.rpg.campaign.create.CreateCampaignState
 import com.cyrillrx.rpg.campaign.domain.Campaign
 import com.cyrillrx.rpg.campaign.domain.CampaignRepository
 import com.cyrillrx.rpg.campaign.domain.RuleSet
-import com.cyrillrx.rpg.campaign.presentation.navigation.CampaignRouter
+import com.cyrillrx.rpg.campaign.navigation.CampaignRouter
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
