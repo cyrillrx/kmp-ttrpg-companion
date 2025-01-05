@@ -30,6 +30,10 @@ class CampaignListViewModel(
         onSearchQueryChanged(query = "")
     }
 
+    fun navigateUp() {
+        router.navigateUp()
+    }
+
     fun onSearchQueryChanged(query: String) {
         updateJob?.cancel()
         updateJob = viewModelScope.launch { updateData(query) }

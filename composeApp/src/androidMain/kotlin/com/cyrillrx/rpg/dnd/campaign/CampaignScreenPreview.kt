@@ -24,7 +24,7 @@ private val stateWithSampleData = CampaignListState(
 @Composable
 private fun PreviewCampaignListScreenLight() {
     AppTheme(darkTheme = false) {
-        CampaignListScreen(stateWithSampleData, {}, {}, {})
+        CampaignListScreen(stateWithSampleData, {}, {}, {}, {})
     }
 }
 
@@ -32,7 +32,7 @@ private fun PreviewCampaignListScreenLight() {
 @Composable
 private fun PreviewCampaignListScreenDark() {
     AppTheme(darkTheme = true) {
-        CampaignListScreen(stateWithSampleData, {}, {}, {})
+        CampaignListScreen(stateWithSampleData, {}, {}, {}, {})
     }
 }
 

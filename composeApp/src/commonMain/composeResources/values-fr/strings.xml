@@ -7,6 +7,7 @@
     <string name="btn_more">Plus</string>
 
     <!--  Campaign  -->
+    <string name="title_campaign_list">Campagnes</string>
     <string name="title_create_campaign">Nouvelle Campagne</string>
     <string name="label_campaign_name">Nom de la Campagne</string>
     <string name="label_campaign_rule_set">Système de Règles :</string>

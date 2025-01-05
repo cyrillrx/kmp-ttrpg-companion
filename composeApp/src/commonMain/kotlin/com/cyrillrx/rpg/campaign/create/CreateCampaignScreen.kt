@@ -36,7 +36,6 @@ import com.cyrillrx.rpg.campaign.domain.RuleSet
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
-import com.cyrillrx.rpg.core.presentation.theme.spacingTopAppBar
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
@@ -86,7 +85,7 @@ fun CreateCampaignScreen(
             )
         },
         snackbarHost = { SnackbarHost(hostState = snackbarHostState) },
-    ) {
+    ) { paddingValues ->
         val localizedRuleSets = RuleSet.entries
             .mapNotNull {
                 if (it == RuleSet.UNDEFINED || it == RuleSet.OTHER) return@mapNotNull null
@@ -98,7 +97,7 @@ fun CreateCampaignScreen(
 
         Column(
             Modifier.padding(
-                top = spacingTopAppBar,
+                top = paddingValues.calculateTopPadding(),
                 bottom = spacingCommon,
                 start = spacingCommon,
                 end = spacingCommon,

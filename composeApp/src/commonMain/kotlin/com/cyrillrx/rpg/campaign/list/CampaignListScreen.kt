@@ -30,16 +30,19 @@ import com.cyrillrx.rpg.core.presentation.component.EmptySearch
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SearchBar
+import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.hint_search_campaign
+import rpg_companion.composeapp.generated.resources.title_campaign_list
 
 @Composable
 fun CampaignListScreen(viewModel: CampaignListViewModel) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     CampaignListScreen(
         state = state,
+        navigateUp = viewModel::navigateUp,
         onSearchQueryChanged = viewModel::onSearchQueryChanged,
         onCampaignClicked = viewModel::onCampaignClicked,
         onCreateCampaignClicked = viewModel::onCreateCampaignClicked,
@@ -49,11 +52,25 @@ fun CampaignListScreen(viewModel: CampaignListViewModel) {
 @Composable
 fun CampaignListScreen(
     state: CampaignListState,
+    navigateUp: () -> Unit,
     onSearchQueryChanged: (String) -> Unit,
     onCampaignClicked: (Campaign) -> Unit,
     onCreateCampaignClicked: () -> Unit,
 ) {
     Scaffold(
+        topBar = {
+            Column {
+                SimpleTopBar(
+                    title = stringResource(Res.string.title_campaign_list),
+                    navigateUp = navigateUp,
+                )
+                SearchBar(
+                    hint = stringResource(Res.string.hint_search_campaign),
+                    query = state.searchQuery,
+                    onQueryChanged = onSearchQueryChanged,
+                )
+            }
+        },
         floatingActionButton = {
             IconButton(
                 onClick = onCreateCampaignClicked,
@@ -68,14 +85,8 @@ fun CampaignListScreen(
                 )
             }
         },
-    ) {
-        Column {
-            SearchBar(
-                hint = stringResource(Res.string.hint_search_campaign),
-                query = state.searchQuery,
-                onQueryChanged = onSearchQueryChanged,
-            )
-
+    ) { paddingValues ->
+        Column(Modifier.padding(paddingValues)) {
             when (val body = state.body) {
                 is CampaignListState.Body.Loading -> Loader()
                 is CampaignListState.Body.Empty -> EmptySearch(state.searchQuery)
