@@ -8,14 +8,9 @@ import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.rounded.ArrowBack
 import androidx.compose.material3.Button
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.InputChip
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -23,7 +18,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -39,13 +33,13 @@ import com.cyrillrx.rpg.campaign.common.getMessage
 import com.cyrillrx.rpg.campaign.common.getName
 import com.cyrillrx.rpg.campaign.create.viewmodel.CreateCampaignViewModel
 import com.cyrillrx.rpg.campaign.domain.RuleSet
+import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingTopAppBar
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.btn_back
 import rpg_companion.composeapp.generated.resources.btn_create_campaign
 import rpg_companion.composeapp.generated.resources.label_campaign_name
 import rpg_companion.composeapp.generated.resources.label_campaign_rule_set
@@ -65,7 +59,7 @@ fun CreateCampaignScreen(viewModel: CreateCampaignViewModel) {
     )
 }
 
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun CreateCampaignScreen(
     state: CreateCampaignState,
@@ -86,16 +80,9 @@ fun CreateCampaignScreen(
     }
     Scaffold(
         topBar = {
-            TopAppBar(
-                title = { Text(stringResource(Res.string.title_create_campaign)) },
-                navigationIcon = {
-                    IconButton(onClick = { navigateUp() }) {
-                        Icon(
-                            Icons.AutoMirrored.Rounded.ArrowBack,
-                            contentDescription = stringResource(Res.string.btn_back),
-                        )
-                    }
-                },
+            SimpleTopBar(
+                titleResource = Res.string.title_create_campaign,
+                navigateUp = navigateUp,
             )
         },
         snackbarHost = { SnackbarHost(hostState = snackbarHostState) },
