@@ -1,10 +1,13 @@
 package com.cyrillrx.rpg.core.presentation.theme
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.Box
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 
 private val LightColors = lightColorScheme(
@@ -51,5 +54,17 @@ fun AppTheme(
         typography = Typography,
         shapes = Shapes,
         content = content,
+    )
+}
+
+@Composable
+fun AppThemePreview(
+    darkTheme: Boolean,
+    content: @Composable () -> Unit,
+) {
+    val colors = if (darkTheme) DarkColors else LightColors
+    AppTheme(
+        darkTheme = darkTheme,
+        content = { Box(modifier = Modifier.background(colors.primaryContainer)) { content() } },
     )
 }

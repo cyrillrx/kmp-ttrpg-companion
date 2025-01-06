@@ -19,7 +19,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.cyrillrx.rpg.core.presentation.component.HtmlText
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
+import com.cyrillrx.rpg.magicalitem.data.SampleMagicalItemsRepository
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
+import org.jetbrains.compose.ui.tooling.preview.Preview
 
 private val borderStroke = spacingMedium
 private val textPadding = spacingMedium
@@ -93,4 +95,11 @@ private fun MagicalItem.getColor(): Color {
         MagicalItem.Type.WONDROUS_ITEM -> objectColor
         else -> objectColor
     }
+}
+
+@Preview
+@Composable
+private fun PreviewMagicalItemCard() {
+    val item = SampleMagicalItemsRepository().get()
+    MagicalItemCard(item)
 }

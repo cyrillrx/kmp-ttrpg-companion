@@ -9,7 +9,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import org.jetbrains.compose.resources.stringResource
+import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.ability_label_cha
 import rpg_companion.composeapp.generated.resources.ability_label_con
@@ -110,5 +112,20 @@ fun AbilitiesLayout(
                 modifier = Modifier.weight(1f),
             )
         }
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewAbilitiesLayout() {
+    AppThemePreview(darkTheme = false) {
+        AbilitiesLayout(
+            str = "10 (+0)",
+            dex = "16 (+3)",
+            con = "12 (+1)",
+            int = "10 (+0)",
+            wis = "18 (+4)",
+            cha = "10 (+0)",
+        )
     }
 }

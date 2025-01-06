@@ -11,8 +11,8 @@ import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.rpg.core.data.ComposeFileReader
 import com.cyrillrx.rpg.spell.data.JsonSpellRepository
 import com.cyrillrx.rpg.spell.presentation.component.AlternativeSpellListScreen
+import com.cyrillrx.rpg.spell.presentation.component.SpellCardScreen
 import com.cyrillrx.rpg.spell.presentation.component.SpellListScreen
-import com.cyrillrx.rpg.spell.presentation.component.SpellCard
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellBookViewModel
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellBookViewModelFactory
 import kotlinx.serialization.Serializable
@@ -50,6 +50,6 @@ fun NavGraphBuilder.handleSpellRoutes(navController: NavController, fileReader: 
 
     composable<SpellRoute.Detail> { entry ->
         val args = entry.toRoute<SpellRoute.Detail>()
-        SpellCard(args.serializedSpell.deserialize())
+        SpellCardScreen(args.serializedSpell.deserialize())
     }
 }

@@ -24,8 +24,10 @@ import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.Purple700
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
+import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
 fun SearchBar(
@@ -76,4 +78,28 @@ fun SearchBar(
         },
         modifier = modifier,
     )
+}
+
+@Preview
+@Composable
+private fun PreviewSearchBarLight() {
+    PreviewSearchBar(darkTheme = false)
+}
+
+@Preview
+@Composable
+private fun PreviewSearchBarDark() {
+    PreviewSearchBar(darkTheme = true)
+}
+
+@Composable
+private fun PreviewSearchBar(darkTheme: Boolean) {
+    AppThemePreview(darkTheme = darkTheme) {
+        SearchBar(
+            hint = "Test hint",
+            query = "Test Query",
+            onQueryChanged = {},
+            modifier = Modifier.fillMaxWidth(),
+        )
+    }
 }

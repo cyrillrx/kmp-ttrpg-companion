@@ -25,14 +25,17 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.campaign.domain.Campaign
+import com.cyrillrx.rpg.campaign.domain.RuleSet
 import com.cyrillrx.rpg.campaign.list.viewmodel.CampaignListViewModel
 import com.cyrillrx.rpg.core.presentation.component.EmptySearch
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SearchBar
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
+import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import org.jetbrains.compose.resources.stringResource
+import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.hint_search_campaign
 import rpg_companion.composeapp.generated.resources.title_campaign_list
@@ -141,5 +144,32 @@ private fun CampaignItem(
             text = campaign.name,
             modifier = Modifier.padding(spacingCommon),
         )
+    }
+}
+
+private val campaigns = mutableListOf<Campaign>().apply {
+    add(Campaign("1", "Campaign 1", RuleSet.DND5E))
+    add(Campaign("2", "Campaign 2", RuleSet.PATHFINDER_2E))
+    add(Campaign("3", "Campaign 3", RuleSet.VAMPIRE_THE_MASQUERADE_5E))
+}
+
+private val stateWithSampleData = CampaignListState(
+    searchQuery = "",
+    body = CampaignListState.Body.WithData(campaigns),
+)
+
+@Preview
+@Composable
+private fun PreviewCampaignListScreenLight() {
+    AppThemePreview(darkTheme = false) {
+        CampaignListScreen(stateWithSampleData, {}, {}, {}, {})
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewCampaignListScreenDark() {
+    AppThemePreview(darkTheme = true) {
+        CampaignListScreen(stateWithSampleData, {}, {}, {}, {})
     }
 }

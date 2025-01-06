@@ -34,10 +34,12 @@ import com.cyrillrx.rpg.campaign.common.getName
 import com.cyrillrx.rpg.campaign.create.viewmodel.CreateCampaignViewModel
 import com.cyrillrx.rpg.campaign.domain.RuleSet
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
+import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.stringResource
+import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.btn_create_campaign
 import rpg_companion.composeapp.generated.resources.label_campaign_name
@@ -178,5 +180,23 @@ fun ChooseRuleSetButton(
                 )
             }
         }
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewCreateCampaignScreenLight() {
+    val state = CreateCampaignState("Oblivion", RuleSet.DND5E, null)
+    AppThemePreview(darkTheme = false) {
+        CreateCampaignScreen(state, {}, {}, {}, {}, {})
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewCreateCampaignScreenDark() {
+    val state = CreateCampaignState("Oblivion", RuleSet.DND5E, null)
+    AppThemePreview(darkTheme = true) {
+        CreateCampaignScreen(state, {}, {}, {}, {}, {})
     }
 }

@@ -8,7 +8,7 @@ import androidx.navigation.toRoute
 import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.rpg.core.data.ComposeFileReader
 import com.cyrillrx.rpg.magicalitem.data.JsonMagicalItemRepository
-import com.cyrillrx.rpg.magicalitem.presentation.component.MagicalItemCard
+import com.cyrillrx.rpg.magicalitem.presentation.component.MagicalItemCardScreen
 import com.cyrillrx.rpg.magicalitem.presentation.component.MagicalItemListScreen
 import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.MagicalItemListViewModel
 import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.MagicalItemListViewModelFactory
@@ -33,6 +33,6 @@ fun NavGraphBuilder.handleMagicalItemRoutes(navController: NavController, fileRe
 
     composable<MagicalItemRoute.Detail> { entry ->
         val args = entry.toRoute<MagicalItemRoute.Detail>()
-        MagicalItemCard(args.serializedItem.deserialize())
+        MagicalItemCardScreen(args.serializedItem.deserialize())
     }
 }

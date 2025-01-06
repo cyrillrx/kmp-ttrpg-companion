@@ -25,8 +25,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.cyrillrx.rpg.core.presentation.component.HtmlText
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
+import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
+import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.spell.domain.Spell
 import org.jetbrains.compose.resources.stringResource
+import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.formatted_spell_school_level
 import rpg_companion.composeapp.generated.resources.school_abjuration
@@ -43,11 +46,11 @@ import rpg_companion.composeapp.generated.resources.spell_duration
 import rpg_companion.composeapp.generated.resources.spell_range
 
 @Composable
-fun SpellCard(spell: Spell) {
+fun SpellCard(spell: Spell, modifier: Modifier = Modifier) {
     val spellColor = spell.getColor()
     Card(
-        modifier = Modifier
-            .padding(4.dp)
+        modifier = modifier
+            .padding(spacingSmall)
             .fillMaxSize(),
         shape = RoundedCornerShape(16.dp),
         border = BorderStroke(spacingMedium, spellColor),
@@ -96,7 +99,7 @@ fun SpellCard(spell: Spell) {
 }
 
 @Composable
-fun SpellGrid(spell: Spell, spellColor: Color, spacingMedium: Dp) {
+private fun SpellGrid(spell: Spell, spellColor: Color, spacingMedium: Dp) {
     Column {
         Row(Modifier.background(spellColor)) {
             Column(Modifier.weight(1f)) {
@@ -129,7 +132,7 @@ fun SpellGrid(spell: Spell, spellColor: Color, spacingMedium: Dp) {
 }
 
 @Composable
-fun SpellGridItem(title: String, subtitle: String, spellColor: Color) {
+private fun SpellGridItem(title: String, subtitle: String, spellColor: Color) {
     Column(Modifier.background(MaterialTheme.colorScheme.background)) {
         Text(
             text = title,
@@ -171,7 +174,7 @@ fun Spell.getFormattedSchool() =
     stringResource(Res.string.formatted_spell_school_level, getSchool(), level)
 
 @Composable
-fun Spell.getSchool(): String {
+private fun Spell.getSchool(): String {
     return schools.map { it.toFormattedString() }.joinToString(", ")
 }
 
@@ -188,4 +191,18 @@ fun Spell.School.toFormattedString(): String {
         Spell.School.TRANSMUTATION -> Res.string.school_transmutation
     }
     return stringResource(stringRes)
+}
+
+@Preview
+@Composable
+private fun PreviewSpellCard() {
+    val spell = SampleSpellRepository().get()
+    SpellCard(spell)
+}
+
+@Preview
+@Composable
+private fun PreviewSpellGrid() {
+    val spell = SampleSpellRepository().get()
+    SpellGrid(spell, spell.getColor(), spacingMedium)
 }

@@ -1,17 +1,17 @@
 package com.cyrillrx.rpg.spell.presentation.component
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -22,11 +22,13 @@ import com.cyrillrx.rpg.core.presentation.component.EmptySearch
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SearchBar
-import com.cyrillrx.rpg.core.presentation.theme.Purple700
+import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
+import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.presentation.SpellListState
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellBookViewModel
 import org.jetbrains.compose.resources.stringResource
+import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.hint_search_spell
 
@@ -49,24 +51,25 @@ fun SpellListScreen(
     onSpellClicked: (Spell) -> Unit,
     onSpellSaved: (Spell) -> Unit,
 ) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Purple700)
-            .statusBarsPadding(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-    ) {
-        SearchBar(
-            hint = stringResource(Res.string.hint_search_spell),
-            query = state.searchQuery,
-            onQueryChanged = onSearchQueryChanged,
-        )
+    Scaffold { paddingValues ->
+        Column(
+            modifier = Modifier
+                .padding(paddingValues)
+                .fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            SearchBar(
+                hint = stringResource(Res.string.hint_search_spell),
+                query = state.searchQuery,
+                onQueryChanged = onSearchQueryChanged,
+            )
 
-        when (val body = state.body) {
-            is SpellListState.Body.Loading -> Loader()
-            is SpellListState.Body.Empty -> EmptySearch(state.searchQuery)
-            is SpellListState.Body.Error -> ErrorLayout(body.errorMessage)
-            is SpellListState.Body.WithData -> SpellList(body.searchResults, onSpellClicked, onSpellSaved)
+            when (val body = state.body) {
+                is SpellListState.Body.Loading -> Loader()
+                is SpellListState.Body.Empty -> EmptySearch(state.searchQuery)
+                is SpellListState.Body.Error -> ErrorLayout(body.errorMessage)
+                is SpellListState.Body.WithData -> SpellList(body.searchResults, onSpellClicked, onSpellSaved)
+            }
         }
     }
 }
@@ -88,19 +91,20 @@ fun AlternativeSpellListScreen(
     onSearchQueryChanged: (String) -> Unit,
     onSpellClicked: (Spell) -> Unit,
 ) {
+    Scaffold { paddingValues ->
+        Column(Modifier.padding(paddingValues)) {
+            SearchBar(
+                hint = stringResource(Res.string.hint_search_spell),
+                query = state.searchQuery,
+                onQueryChanged = onSearchQueryChanged,
+            )
 
-    Column {
-        SearchBar(
-            hint = stringResource(Res.string.hint_search_spell),
-            query = state.searchQuery,
-            onQueryChanged = onSearchQueryChanged,
-        )
-
-        when (val body = state.body) {
-            is SpellListState.Body.Loading -> Loader()
-            is SpellListState.Body.Empty -> EmptySearch(state.searchQuery)
-            is SpellListState.Body.Error -> ErrorLayout(body.errorMessage)
-            is SpellListState.Body.WithData -> AlternativeSpellList(body.searchResults, onSpellClicked)
+            when (val body = state.body) {
+                is SpellListState.Body.Loading -> Loader()
+                is SpellListState.Body.Empty -> EmptySearch(state.searchQuery)
+                is SpellListState.Body.Error -> ErrorLayout(body.errorMessage)
+                is SpellListState.Body.WithData -> AlternativeSpellList(body.searchResults, onSpellClicked)
+            }
         }
     }
 }
@@ -159,5 +163,42 @@ private fun AlternativeSpellList(
                 SpellCard(spell)
             }
         }
+    }
+}
+
+private val stateWithSampleData = SpellListState(
+    searchQuery = "",
+    body = SpellListState.Body.WithData(SampleSpellRepository().getAll()),
+)
+
+@Preview
+@Composable
+fun PreviewSpellBookScreenLight() {
+    AppThemePreview(darkTheme = false) {
+        AlternativeSpellListScreen(stateWithSampleData, {}, {})
+    }
+}
+
+@Preview
+@Composable
+fun PreviewSpellBookScreenDark() {
+    AppThemePreview(darkTheme = true) {
+        AlternativeSpellListScreen(stateWithSampleData, {}, {})
+    }
+}
+
+@Preview
+@Composable
+fun PreviewSpellBookPeekScreenLight() {
+    AppThemePreview(darkTheme = true) {
+        SpellListScreen(stateWithSampleData, {}, {}, {})
+    }
+}
+
+@Preview
+@Composable
+fun PreviewSpellBookPeekScreenDark() {
+    AppThemePreview(darkTheme = true) {
+        SpellListScreen(stateWithSampleData, {}, {}, {})
     }
 }
