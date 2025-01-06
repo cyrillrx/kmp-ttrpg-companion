@@ -37,7 +37,7 @@ class CreateCampaignViewModel(
 
     fun onCreateCampaignClicked() {
         val state = _state.value
-        val campaignName = state.campaignName
+        val campaignName = state.campaignName.trim()
         val selectedRuleSet = state.selectedRuleSet
 
         if (campaignName.isBlank()) {
