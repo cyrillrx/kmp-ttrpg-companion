@@ -50,6 +50,9 @@ fun NavGraphBuilder.handleSpellRoutes(navController: NavController, fileReader: 
 
     composable<SpellRoute.Detail> { entry ->
         val args = entry.toRoute<SpellRoute.Detail>()
-        SpellCardScreen(args.serializedSpell.deserialize())
+        SpellCardScreen(
+            spell = args.serializedSpell.deserialize(),
+            onNavigateUpClicked = { navController.navigateUp() },
+        )
     }
 }

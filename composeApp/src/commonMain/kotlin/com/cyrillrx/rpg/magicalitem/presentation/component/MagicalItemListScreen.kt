@@ -17,7 +17,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.core.presentation.component.EmptySearch
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
-import com.cyrillrx.rpg.core.presentation.component.SearchBar
+import com.cyrillrx.rpg.core.presentation.component.SearchBarWithBack
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.magicalitem.data.SampleMagicalItemsRepository
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
@@ -33,6 +33,7 @@ fun MagicalItemListScreen(viewModel: MagicalItemListViewModel) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     MagicalItemListScreen(
         state = state,
+        onNavigateUpClicked = viewModel::onNavigateUpClicked,
         onSearchQueryChanged = viewModel::onSearchQueryChanged,
         onMagicalItemClicked = viewModel::onItemClicked,
     )
@@ -41,17 +42,21 @@ fun MagicalItemListScreen(viewModel: MagicalItemListViewModel) {
 @Composable
 fun MagicalItemListScreen(
     state: MagicalItemListState,
+    onNavigateUpClicked: () -> Unit,
     onSearchQueryChanged: (String) -> Unit,
     onMagicalItemClicked: (MagicalItem) -> Unit,
 ) {
-    Scaffold { paddingValues ->
-        Column(Modifier.padding(paddingValues)) {
-            SearchBar(
+    Scaffold(
+        topBar = {
+            SearchBarWithBack(
                 hint = stringResource(Res.string.hint_search_magical_item),
                 query = state.searchQuery,
                 onQueryChanged = onSearchQueryChanged,
+                onNavigateUpClicked = onNavigateUpClicked,
             )
-
+        },
+    ) { paddingValues ->
+        Column(Modifier.padding(paddingValues)) {
             when (val body = state.body) {
                 is MagicalItemListState.Body.Loading -> Loader()
                 is MagicalItemListState.Body.Empty -> EmptySearch(state.searchQuery)
@@ -96,7 +101,7 @@ private val stateWithSampleData = MagicalItemListState(
 @Composable
 private fun PreviewSpellBookScreenLight() {
     AppThemePreview(darkTheme = false) {
-        MagicalItemListScreen(stateWithSampleData, {}, {})
+        MagicalItemListScreen(stateWithSampleData, {}, {}, {})
     }
 }
 
@@ -104,6 +109,6 @@ private fun PreviewSpellBookScreenLight() {
 @Composable
 private fun PreviewSpellBookScreenDark() {
     AppThemePreview(darkTheme = true) {
-        MagicalItemListScreen(stateWithSampleData, {}, {})
+        MagicalItemListScreen(stateWithSampleData, {}, {}, {})
     }
 }

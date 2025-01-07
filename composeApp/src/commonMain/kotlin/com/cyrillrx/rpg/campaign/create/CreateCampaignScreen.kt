@@ -52,7 +52,7 @@ fun CreateCampaignScreen(viewModel: CreateCampaignViewModel) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     CreateCampaignScreen(
         state = state,
-        navigateUp = viewModel::navigateUp,
+        onNavigateUpClicked = viewModel::onNavigateUpClicked,
         onCampaignNameChanged = viewModel::onCampaignNameChanged,
         onRuleSetSelected = viewModel::onRuleSetSelected,
         onCreateButtonClicked = viewModel::onCreateCampaignClicked,
@@ -64,7 +64,7 @@ fun CreateCampaignScreen(viewModel: CreateCampaignViewModel) {
 @Composable
 fun CreateCampaignScreen(
     state: CreateCampaignState,
-    navigateUp: () -> Unit,
+    onNavigateUpClicked: () -> Unit,
     onCampaignNameChanged: (String) -> Unit,
     onRuleSetSelected: (RuleSet) -> Unit,
     onCreateButtonClicked: () -> Unit,
@@ -83,7 +83,7 @@ fun CreateCampaignScreen(
         topBar = {
             SimpleTopBar(
                 titleResource = Res.string.title_create_campaign,
-                navigateUp = navigateUp,
+                navigateUp = onNavigateUpClicked,
             )
         },
         snackbarHost = { SnackbarHost(hostState = snackbarHostState) },

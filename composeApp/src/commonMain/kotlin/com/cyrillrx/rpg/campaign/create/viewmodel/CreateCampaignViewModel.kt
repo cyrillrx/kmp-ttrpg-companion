@@ -23,7 +23,7 @@ class CreateCampaignViewModel(
     )
     val state: StateFlow<CreateCampaignState> = _state.asStateFlow()
 
-    fun navigateUp() {
+    fun onNavigateUpClicked() {
         router.navigateUp()
     }
 
@@ -64,7 +64,7 @@ class CreateCampaignViewModel(
             }
 
             repository.save(newCampaign)
-            navigateUp()
+            onNavigateUpClicked()
         }
     }
 

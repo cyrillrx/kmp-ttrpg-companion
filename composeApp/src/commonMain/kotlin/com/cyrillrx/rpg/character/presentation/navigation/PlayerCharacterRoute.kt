@@ -36,10 +36,15 @@ fun NavGraphBuilder.handlePlayerCharacterRoutes(navController: NavController) {
 
     composable<PlayerCharacterRoute.Detail> { entry ->
         val args = entry.toRoute<PlayerCharacterRoute.Detail>()
-        PlayerCharacterDetailScreen(args.serializedPlayerCharacter.deserialize())
+        PlayerCharacterDetailScreen(
+            character = args.serializedPlayerCharacter.deserialize(),
+            onNavigateUpClicked = { navController.navigateUp() },
+        )
     }
 
     composable<PlayerCharacterRoute.Create> {
-        CreatePlayerCharacterScreen()
+        CreatePlayerCharacterScreen(
+            onNavigateUpClicked = { navController.navigateUp() },
+        )
     }
 }

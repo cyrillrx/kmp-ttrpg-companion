@@ -1,5 +1,6 @@
 package com.cyrillrx.rpg.magicalitem.presentation.component
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
@@ -9,11 +10,16 @@ import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
-fun MagicalItemCardScreen(magicalItem: MagicalItem) {
+fun MagicalItemCardScreen(
+    magicalItem: MagicalItem,
+    onNavigateUpClicked: () -> Unit,
+) {
     Scaffold { paddingValues ->
         MagicalItemCard(
             magicalItem = magicalItem,
-            modifier = Modifier.padding(paddingValues),
+            modifier = Modifier
+                .clickable { onNavigateUpClicked() }
+                .padding(paddingValues),
         )
     }
 }
@@ -22,5 +28,5 @@ fun MagicalItemCardScreen(magicalItem: MagicalItem) {
 @Composable
 fun PreviewMagicalItemCardScreen() {
     val magicalItem = SampleMagicalItemsRepository().get()
-    MagicalItemCardScreen(magicalItem)
+    MagicalItemCardScreen(magicalItem, {})
 }

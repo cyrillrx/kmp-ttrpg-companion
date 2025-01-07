@@ -14,7 +14,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.core.presentation.component.EmptySearch
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
-import com.cyrillrx.rpg.core.presentation.component.SearchBar
+import com.cyrillrx.rpg.core.presentation.component.SearchBarWithBack
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.creature.data.SampleCreatureRepository
 import com.cyrillrx.rpg.creature.domain.Creature
@@ -30,6 +30,7 @@ fun CreatureListScreen(viewModel: CreatureListViewModel) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     CreatureListScreen(
         state = state,
+        onNavigateUpClicked = viewModel::onNavigateUpClicked,
         onSearchQueryChanged = viewModel::onSearchQueryChanged,
         onCreatureClicked = viewModel::onCreatureClicked,
     )
@@ -40,15 +41,19 @@ fun CreatureListScreen(
     state: CreatureListState,
     onSearchQueryChanged: (String) -> Unit,
     onCreatureClicked: (Creature) -> Unit,
+    onNavigateUpClicked: () -> Unit,
 ) {
-    Scaffold { paddingValues ->
-        Column(Modifier.padding(paddingValues)) {
-            SearchBar(
+    Scaffold(
+        topBar = {
+            SearchBarWithBack(
                 hint = stringResource(Res.string.hint_search_creature),
                 query = state.searchQuery,
                 onQueryChanged = onSearchQueryChanged,
+                onNavigateUpClicked = onNavigateUpClicked,
             )
-
+        },
+    ) { paddingValues ->
+        Column(Modifier.padding(paddingValues)) {
             when (val body = state.body) {
                 is CreatureListState.Body.Loading -> Loader()
                 is CreatureListState.Body.Empty -> EmptySearch(state.searchQuery)
@@ -84,6 +89,6 @@ private fun PreviewCreatureListScreen() {
         body = CreatureListState.Body.WithData(creatures),
     )
     AppThemePreview(darkTheme = false) {
-        CreatureListScreen(state, {}, {})
+        CreatureListScreen(state, {}, {}, {})
     }
 }

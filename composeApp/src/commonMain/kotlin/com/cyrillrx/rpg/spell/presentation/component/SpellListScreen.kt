@@ -21,7 +21,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.core.presentation.component.EmptySearch
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
-import com.cyrillrx.rpg.core.presentation.component.SearchBar
+import com.cyrillrx.rpg.core.presentation.component.SearchBarWithBack
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.spell.domain.Spell
@@ -38,6 +38,7 @@ fun SpellListScreen(viewModel: SpellBookViewModel) {
 
     SpellListScreen(
         state = state,
+        onNavigateUpClicked = viewModel::onNavigateUpClicked,
         onSearchQueryChanged = viewModel::onSearchQueryChanged,
         onSpellClicked = viewModel::onSpellClicked,
         onSpellSaved = viewModel::onSpellSaved,
@@ -47,23 +48,27 @@ fun SpellListScreen(viewModel: SpellBookViewModel) {
 @Composable
 fun SpellListScreen(
     state: SpellListState,
+    onNavigateUpClicked: () -> Unit,
     onSearchQueryChanged: (String) -> Unit,
     onSpellClicked: (Spell) -> Unit,
     onSpellSaved: (Spell) -> Unit,
 ) {
-    Scaffold { paddingValues ->
+    Scaffold(
+        topBar = {
+            SearchBarWithBack(
+                hint = stringResource(Res.string.hint_search_spell),
+                query = state.searchQuery,
+                onQueryChanged = onSearchQueryChanged,
+                onNavigateUpClicked = onNavigateUpClicked,
+            )
+        },
+    ) { paddingValues ->
         Column(
             modifier = Modifier
                 .padding(paddingValues)
                 .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            SearchBar(
-                hint = stringResource(Res.string.hint_search_spell),
-                query = state.searchQuery,
-                onQueryChanged = onSearchQueryChanged,
-            )
-
             when (val body = state.body) {
                 is SpellListState.Body.Loading -> Loader()
                 is SpellListState.Body.Empty -> EmptySearch(state.searchQuery)
@@ -80,6 +85,7 @@ fun AlternativeSpellListScreen(viewModel: SpellBookViewModel) {
 
     AlternativeSpellListScreen(
         state = state,
+        onNavigateUpClicked = viewModel::onNavigateUpClicked,
         onSearchQueryChanged = viewModel::onSearchQueryChanged,
         onSpellClicked = viewModel::onSpellClicked,
     )
@@ -88,17 +94,21 @@ fun AlternativeSpellListScreen(viewModel: SpellBookViewModel) {
 @Composable
 fun AlternativeSpellListScreen(
     state: SpellListState,
+    onNavigateUpClicked: () -> Unit,
     onSearchQueryChanged: (String) -> Unit,
     onSpellClicked: (Spell) -> Unit,
 ) {
-    Scaffold { paddingValues ->
-        Column(Modifier.padding(paddingValues)) {
-            SearchBar(
+    Scaffold(
+        topBar = {
+            SearchBarWithBack(
                 hint = stringResource(Res.string.hint_search_spell),
                 query = state.searchQuery,
                 onQueryChanged = onSearchQueryChanged,
+                onNavigateUpClicked = onNavigateUpClicked,
             )
-
+        },
+    ) { paddingValues ->
+        Column(Modifier.padding(paddingValues)) {
             when (val body = state.body) {
                 is SpellListState.Body.Loading -> Loader()
                 is SpellListState.Body.Empty -> EmptySearch(state.searchQuery)
@@ -175,7 +185,7 @@ private val stateWithSampleData = SpellListState(
 @Composable
 fun PreviewSpellBookScreenLight() {
     AppThemePreview(darkTheme = false) {
-        AlternativeSpellListScreen(stateWithSampleData, {}, {})
+        AlternativeSpellListScreen(stateWithSampleData, {}, {}, {})
     }
 }
 
@@ -183,7 +193,7 @@ fun PreviewSpellBookScreenLight() {
 @Composable
 fun PreviewSpellBookScreenDark() {
     AppThemePreview(darkTheme = true) {
-        AlternativeSpellListScreen(stateWithSampleData, {}, {})
+        AlternativeSpellListScreen(stateWithSampleData, {}, {}, {})
     }
 }
 
@@ -191,7 +201,7 @@ fun PreviewSpellBookScreenDark() {
 @Composable
 fun PreviewSpellBookPeekScreenLight() {
     AppThemePreview(darkTheme = true) {
-        SpellListScreen(stateWithSampleData, {}, {}, {})
+        SpellListScreen(stateWithSampleData, {}, {}, {}, {})
     }
 }
 
@@ -199,6 +209,6 @@ fun PreviewSpellBookPeekScreenLight() {
 @Composable
 fun PreviewSpellBookPeekScreenDark() {
     AppThemePreview(darkTheme = true) {
-        SpellListScreen(stateWithSampleData, {}, {}, {})
+        SpellListScreen(stateWithSampleData, {}, {}, {}, {})
     }
 }

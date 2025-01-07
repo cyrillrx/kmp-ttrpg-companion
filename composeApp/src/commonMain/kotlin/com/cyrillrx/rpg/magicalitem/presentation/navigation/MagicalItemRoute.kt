@@ -33,6 +33,9 @@ fun NavGraphBuilder.handleMagicalItemRoutes(navController: NavController, fileRe
 
     composable<MagicalItemRoute.Detail> { entry ->
         val args = entry.toRoute<MagicalItemRoute.Detail>()
-        MagicalItemCardScreen(args.serializedItem.deserialize())
+        MagicalItemCardScreen(
+            magicalItem = args.serializedItem.deserialize(),
+            onNavigateUpClicked = { navController.navigateUp() },
+        )
     }
 }

@@ -1,6 +1,5 @@
 package com.cyrillrx.rpg.campaign.list
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -11,11 +10,10 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -30,22 +28,20 @@ import com.cyrillrx.rpg.campaign.list.viewmodel.CampaignListViewModel
 import com.cyrillrx.rpg.core.presentation.component.EmptySearch
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
-import com.cyrillrx.rpg.core.presentation.component.SearchBar
-import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
+import com.cyrillrx.rpg.core.presentation.component.SearchBarWithBack
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.hint_search_campaign
-import rpg_companion.composeapp.generated.resources.title_campaign_list
 
 @Composable
 fun CampaignListScreen(viewModel: CampaignListViewModel) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     CampaignListScreen(
         state = state,
-        navigateUp = viewModel::navigateUp,
+        onNavigateUpClicked = viewModel::onNavigateUpClicked,
         onSearchQueryChanged = viewModel::onSearchQueryChanged,
         onCampaignClicked = viewModel::onCampaignClicked,
         onCreateCampaignClicked = viewModel::onCreateCampaignClicked,
@@ -55,31 +51,24 @@ fun CampaignListScreen(viewModel: CampaignListViewModel) {
 @Composable
 fun CampaignListScreen(
     state: CampaignListState,
-    navigateUp: () -> Unit,
+    onNavigateUpClicked: () -> Unit,
     onSearchQueryChanged: (String) -> Unit,
     onCampaignClicked: (Campaign) -> Unit,
     onCreateCampaignClicked: () -> Unit,
 ) {
     Scaffold(
         topBar = {
-            Column {
-                SimpleTopBar(
-                    title = stringResource(Res.string.title_campaign_list),
-                    navigateUp = navigateUp,
-                )
-                SearchBar(
-                    hint = stringResource(Res.string.hint_search_campaign),
-                    query = state.searchQuery,
-                    onQueryChanged = onSearchQueryChanged,
-                )
-            }
+            SearchBarWithBack(
+                hint = stringResource(Res.string.hint_search_campaign),
+                query = state.searchQuery,
+                onQueryChanged = onSearchQueryChanged,
+                onNavigateUpClicked = onNavigateUpClicked,
+            )
         },
         floatingActionButton = {
-            IconButton(
+            FloatingActionButton(
                 onClick = onCreateCampaignClicked,
-                modifier = Modifier
-                    .padding(spacingCommon)
-                    .background(color = MaterialTheme.colorScheme.primary, shape = CircleShape),
+                containerColor = MaterialTheme.colorScheme.primaryContainer,
             ) {
                 Icon(
                     imageVector = Icons.Default.Add,

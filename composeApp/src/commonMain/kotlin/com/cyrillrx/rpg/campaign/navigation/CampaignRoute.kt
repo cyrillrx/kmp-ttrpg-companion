@@ -39,7 +39,10 @@ fun NavGraphBuilder.handleCampaignRoutes(navController: NavController) {
 
     composable<CampaignRoute.Detail> { entry ->
         val args = entry.toRoute<CampaignRoute.Detail>()
-        CampaignDetailScreen(args.serializedCampaign.deserialize())
+        CampaignDetailScreen(
+            campaign = args.serializedCampaign.deserialize(),
+            onNavigateUpClicked = router::navigateUp,
+        )
     }
 
     composable<CampaignRoute.Create> {

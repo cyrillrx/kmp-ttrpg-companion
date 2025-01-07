@@ -30,7 +30,7 @@ class CampaignListViewModel(
         onSearchQueryChanged(query = "")
     }
 
-    fun navigateUp() {
+    fun onNavigateUpClicked() {
         router.navigateUp()
     }
 
