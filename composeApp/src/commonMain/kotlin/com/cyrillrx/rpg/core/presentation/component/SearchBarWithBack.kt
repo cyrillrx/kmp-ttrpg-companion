@@ -1,6 +1,7 @@
 package com.cyrillrx.rpg.core.presentation.component
 
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.ArrowBack
@@ -10,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
+import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
@@ -24,7 +26,9 @@ fun SearchBarWithBack(
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier.statusBarsPadding(),
+        modifier = Modifier
+            .statusBarsPadding()
+            .padding(spacingMedium),
     ) {
         IconButton(onClick = { onNavigateUpClicked() }) {
             Icon(

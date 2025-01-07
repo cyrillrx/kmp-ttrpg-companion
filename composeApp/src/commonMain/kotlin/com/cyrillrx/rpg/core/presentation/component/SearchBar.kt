@@ -1,9 +1,7 @@
 package com.cyrillrx.rpg.core.presentation.component
 
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
@@ -23,10 +21,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
-import com.cyrillrx.rpg.core.presentation.theme.Purple700
-import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
@@ -36,12 +33,7 @@ fun SearchBar(
     onQueryChanged: (String) -> Unit,
     modifier: Modifier = Modifier
         .fillMaxWidth()
-        .padding(spacingMedium)
         .widthIn(max = 400.dp)
-        .background(
-            shape = RoundedCornerShape(50),
-            color = Purple700,
-        )
         .minimumInteractiveComponentSize(),
 ) {
     val keyboardController = LocalSoftwareKeyboardController.current
@@ -51,7 +43,11 @@ fun SearchBar(
         onValueChange = onQueryChanged,
         shape = RoundedCornerShape(50),
         colors = TextFieldDefaults.colors(),
-        placeholder = { Text(text = hint) },
+        placeholder = { Text(
+            text = hint,
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
+        ) },
         leadingIcon = {
             Icon(
                 imageVector = Icons.Default.Search,
@@ -99,7 +95,6 @@ private fun PreviewSearchBar(darkTheme: Boolean) {
             hint = "Test hint",
             query = "Test Query",
             onQueryChanged = {},
-            modifier = Modifier.fillMaxWidth(),
         )
     }
 }
