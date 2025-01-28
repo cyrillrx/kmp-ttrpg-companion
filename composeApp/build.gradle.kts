@@ -30,11 +30,9 @@ kotlin {
         }
     }
 
-    jvm("desktop")
+    jvm()
 
     sourceSets {
-        val desktopMain by getting
-
         commonMain.dependencies {
             implementation(projects.shared.core)
 
@@ -58,7 +56,7 @@ kotlin {
 
             implementation(libs.legacy.material)
         }
-        desktopMain.dependencies {
+        jvmMain.dependencies {
             implementation(compose.desktop.currentOs)
 
             implementation(libs.kotlinx.coroutines.core)
