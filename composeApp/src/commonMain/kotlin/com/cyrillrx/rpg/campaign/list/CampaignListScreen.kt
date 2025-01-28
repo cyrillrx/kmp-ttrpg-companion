@@ -58,6 +58,10 @@ fun CampaignListScreen(
     onCampaignClicked: (Campaign) -> Unit,
     onCreateCampaignClicked: () -> Unit,
 ) {
+    LifecycleEventEffect(Lifecycle.Event.ON_RESUME) {
+        onSearchQueryChanged(state.searchQuery)
+    }
+
     Scaffold(
         topBar = {
             SearchBarWithBack(

@@ -26,10 +26,6 @@ class CampaignListViewModel(
     )
     val state: StateFlow<CampaignListState> = _state.asStateFlow()
 
-    init {
-        onSearchQueryChanged(query = "")
-    }
-
     fun onNavigateUpClicked() {
         router.navigateUp()
     }
