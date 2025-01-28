@@ -22,7 +22,7 @@ kotlin {
     listOf(
         iosX64(),
         iosArm64(),
-        iosSimulatorArm64()
+        iosSimulatorArm64(),
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
             baseName = "ComposeApp"
@@ -35,16 +35,6 @@ kotlin {
     sourceSets {
         val desktopMain by getting
 
-        androidMain.dependencies {
-            implementation(compose.preview)
-            implementation(libs.androidx.activity.compose)
-            implementation(libs.androidx.appcompat)
-            implementation(libs.androidx.core.ktx)
-            implementation(libs.androidx.ui)
-            implementation(libs.androidx.ui.tooling)
-
-            implementation(libs.legacy.material)
-        }
         commonMain.dependencies {
             implementation(projects.shared.core)
 
@@ -56,6 +46,17 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
 
             implementation(libs.jetbrains.compose.navigation)
+            implementation(libs.jetbrains.lifecycle.runtime.compose)
+        }
+        androidMain.dependencies {
+            implementation(compose.preview)
+            implementation(libs.androidx.activity.compose)
+            implementation(libs.androidx.appcompat)
+            implementation(libs.androidx.core.ktx)
+            implementation(libs.androidx.ui)
+            implementation(libs.androidx.ui.tooling)
+
+            implementation(libs.legacy.material)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)

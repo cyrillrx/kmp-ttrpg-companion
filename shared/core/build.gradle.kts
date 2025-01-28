@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.sqldelight)
 }
 
 kotlin {
@@ -18,7 +19,7 @@ kotlin {
         }
     }
 
-    jvm("desktop")
+    jvm()
 
     listOf(
         iosX64(),
@@ -33,10 +34,19 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-//            api(projects.shared.logger)
-//            api(projects.shared.tracker)
             api(libs.kotlinx.serialization.core)
             api(libs.kotlinx.serialization.json)
+
+            implementation(libs.sqldelight.runtime)
+        }
+        androidMain.dependencies {
+            implementation(libs.sqldelight.android)
+        }
+        iosMain.dependencies {
+            implementation(libs.sqldelight.native)
+        }
+        jvmMain.dependencies {
+            implementation(libs.sqldelight.jvm)
         }
     }
 }
@@ -51,6 +61,14 @@ android {
     compileOptions {
         sourceCompatibility = Version.java
         targetCompatibility = Version.java
+    }
+}
+
+sqldelight {
+    databases {
+        create("AppDatabase") {
+            packageName.set("com.cyrillrx.rpg.cache")
+        }
     }
 }
 

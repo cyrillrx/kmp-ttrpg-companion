@@ -9,11 +9,12 @@ import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.rpg.campaign.create.CreateCampaignScreen
 import com.cyrillrx.rpg.campaign.create.viewmodel.CreateCampaignViewModel
 import com.cyrillrx.rpg.campaign.create.viewmodel.CreateCampaignViewModelFactory
-import com.cyrillrx.rpg.campaign.data.RamCampaignRepository
+import com.cyrillrx.rpg.campaign.data.SQLDelightCampaignRepository
 import com.cyrillrx.rpg.campaign.detail.CampaignDetailScreen
 import com.cyrillrx.rpg.campaign.list.CampaignListScreen
 import com.cyrillrx.rpg.campaign.list.viewmodel.CampaignListViewModel
 import com.cyrillrx.rpg.campaign.list.viewmodel.CampaignListViewModelFactory
+import com.cyrillrx.rpg.core.data.cache.DatabaseDriverFactory
 import kotlinx.serialization.Serializable
 
 interface CampaignRoute {
@@ -27,9 +28,9 @@ interface CampaignRoute {
     data object Create
 }
 
-fun NavGraphBuilder.handleCampaignRoutes(navController: NavController) {
+fun NavGraphBuilder.handleCampaignRoutes(navController: NavController, dbDriverFactory: DatabaseDriverFactory) {
     val router = CampaignRouterImpl(navController)
-    val repository = RamCampaignRepository()
+    val repository = SQLDelightCampaignRepository(dbDriverFactory)
 
     composable<CampaignRoute.List> {
         val viewModelFactory = CampaignListViewModelFactory(router, repository)

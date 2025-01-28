@@ -1,0 +1,18 @@
+CREATE TABLE Campaign (
+    id TEXT NOT NULL PRIMARY KEY,
+    name TEXT NOT NULL,
+    ruleSet INTEGER NOT NULL
+);
+
+insertCampaign:
+INSERT INTO Campaign(id, name, ruleSet)
+VALUES(?,?, ?);
+
+selectCampaignById:
+SELECT Campaign.* FROM Campaign WHERE id = ?;
+
+deleteCampaign:
+DELETE FROM Campaign WHERE id = ?;
+
+selectAllCampaigns:
+SELECT Campaign.* FROM Campaign;

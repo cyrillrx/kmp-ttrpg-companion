@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import com.cyrillrx.rpg.app.App
+import com.cyrillrx.rpg.core.data.cache.AndroidDatabaseDriverFactory
 
 class MainActivity : ComponentActivity() {
 
@@ -12,6 +13,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
 
-        setContent { App() }
+        val databaseDriverFactory = AndroidDatabaseDriverFactory(applicationContext)
+        setContent { App(databaseDriverFactory) }
     }
 }

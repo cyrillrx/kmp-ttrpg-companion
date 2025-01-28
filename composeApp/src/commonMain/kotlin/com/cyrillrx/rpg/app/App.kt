@@ -7,6 +7,7 @@ import androidx.navigation.compose.rememberNavController
 import com.cyrillrx.rpg.campaign.navigation.handleCampaignRoutes
 import com.cyrillrx.rpg.character.presentation.navigation.handlePlayerCharacterRoutes
 import com.cyrillrx.rpg.core.data.ComposeFileReader
+import com.cyrillrx.rpg.core.data.cache.DatabaseDriverFactory
 import com.cyrillrx.rpg.core.presentation.theme.AppTheme
 import com.cyrillrx.rpg.creature.data.JsonCreatureRepository
 import com.cyrillrx.rpg.creature.presentation.navigation.handleCreatureRoutes
@@ -18,7 +19,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
 @Preview
-fun App() {
+fun App(dbDriverFactory: DatabaseDriverFactory) {
     AppTheme {
         val navController = rememberNavController()
 
@@ -31,7 +32,7 @@ fun App() {
             val homeRouter = HomeRouterImpl(navController)
             composable<MainRoute.Home> { HomeScreen(homeRouter) }
 
-            handleCampaignRoutes(navController)
+            handleCampaignRoutes(navController, dbDriverFactory)
             handlePlayerCharacterRoutes(navController)
 
             handleSpellRoutes(navController, fileReader)
