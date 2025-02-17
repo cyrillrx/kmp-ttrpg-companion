@@ -14,7 +14,7 @@ androidx-compose = "1.7.6"
 androidx-appcompat = "1.7.0"
 androidx-coreKtx = "1.15.0"
 androidx-activity-compose = "1.10.0"
-navigationCompose = "2.8.0-alpha10"
+navigationCompose = "2.8.0-alpha13"
 
 legacy-materialVersion = "1.12.0"
 
