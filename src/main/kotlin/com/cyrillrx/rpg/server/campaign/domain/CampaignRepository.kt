@@ -1,8 +1,9 @@
 package com.cyrillrx.rpg.server.campaign.domain
 
 interface CampaignRepository {
-    suspend fun getAll(filter: CampaignFilter?): List<Campaign>
-    suspend fun get(id: String): Campaign?
-    suspend fun save(campaign: Campaign)
-    suspend fun delete(id: String)
+    fun getAll(filter: CampaignFilter?): List<Campaign>
+    fun get(id: Long): Campaign?
+    fun create(name: String, ruleSet: RuleSet)
+    fun save(campaign: Campaign)
+    fun delete(id: Long)
 }
