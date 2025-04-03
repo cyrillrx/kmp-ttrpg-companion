@@ -1,17 +1,30 @@
 package com.cyrillrx.rpg.creature.domain
 
-open class Creature(
-    val name: String,
-    val description: String,
+class Creature(
+    id: String,
+    name: String,
+    description: String,
+    size: Size,
+    alignment: Alignment,
+    abilities: Abilities,
+    armorClass: Int,
+    maxHitPoints: Int,
+    speed: String,
+    languages: List<String>,
     val type: Type,
     val subtype: String,
-    val size: Size,
-    val alignment: Alignment,
-    val abilities: Abilities,
-    val armorClass: Int,
-    val maxHitPoints: Int,
-    val speed: String,
-    val languages: List<String>,
+    val challengeRating: Float,
+) : BaseCreature(
+    id = id,
+    name = name,
+    description = description,
+    size = size,
+    alignment = alignment,
+    abilities = abilities,
+    armorClass = armorClass,
+    maxHitPoints = maxHitPoints,
+    speed = speed,
+    languages = languages,
 ) {
     enum class Type {
         ABERRATION,
@@ -28,29 +41,6 @@ open class Creature(
         OOZE,
         PLANT,
         UNDEAD,
-        UNKNOWN,
-    }
-
-    enum class Size {
-        TINY,
-        SMALL,
-        MEDIUM,
-        LARGE,
-        HUGE,
-        GARGANTUAN,
-        UNKNOWN,
-    }
-
-    enum class Alignment {
-        LAWFUL_GOOD,
-        LAWFUL_NEUTRAL,
-        LAWFUL_EVIL,
-        NEUTRAL_GOOD,
-        NEUTRAL,
-        NEUTRAL_EVIL,
-        CHAOTIC_GOOD,
-        CHAOTIC_NEUTRAL,
-        CHAOTIC_EVIL,
         UNKNOWN,
     }
 }

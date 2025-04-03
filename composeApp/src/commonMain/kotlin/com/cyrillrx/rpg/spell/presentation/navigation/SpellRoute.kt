@@ -37,7 +37,7 @@ fun NavGraphBuilder.handleSpellRoutes(navController: NavController, fileReader: 
         val repository = JsonSpellRepository(fileReader)
         val viewModelFactory = SpellBookViewModelFactory(router, repository)
         val viewModel = viewModel<SpellBookViewModel>(factory = viewModelFactory)
-        SpellListScreen(viewModel)
+        SpellListScreen(viewModel, router)
     }
 
     composable<SpellRoute.AlternativeList> {
@@ -45,7 +45,7 @@ fun NavGraphBuilder.handleSpellRoutes(navController: NavController, fileReader: 
         val repository = JsonSpellRepository(fileReader)
         val viewModelFactory = SpellBookViewModelFactory(router, repository)
         val viewModel = viewModel<SpellBookViewModel>(factory = viewModelFactory)
-        AlternativeSpellListScreen(viewModel)
+        AlternativeSpellListScreen(viewModel, router)
     }
 
     composable<SpellRoute.Detail> { entry ->

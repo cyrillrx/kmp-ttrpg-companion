@@ -3,6 +3,7 @@ package com.cyrillrx.rpg.campaign.list.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.campaign.domain.Campaign
+import com.cyrillrx.rpg.campaign.domain.CampaignFilter
 import com.cyrillrx.rpg.campaign.domain.CampaignRepository
 import com.cyrillrx.rpg.campaign.list.CampaignListState
 import com.cyrillrx.rpg.campaign.navigation.CampaignRouter
@@ -47,7 +48,8 @@ class CampaignListViewModel(
         _state.update { CampaignListState(searchQuery = query, body = CampaignListState.Body.Loading) }
 
         try {
-            val campaigns = if (query.isBlank()) repository.getAll() else repository.filter(query)
+            val filter = CampaignFilter(query = query)
+            val campaigns = repository.getAll(filter)
             if (campaigns.isEmpty()) {
                 _state.update { _state.value.copy(body = CampaignListState.Body.Empty) }
             } else {

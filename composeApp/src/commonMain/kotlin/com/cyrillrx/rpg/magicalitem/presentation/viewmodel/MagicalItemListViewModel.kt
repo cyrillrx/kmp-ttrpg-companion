@@ -3,6 +3,7 @@ package com.cyrillrx.rpg.magicalitem.presentation.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
+import com.cyrillrx.rpg.magicalitem.domain.MagicalItemFilter
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemRepository
 import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemListState
 import com.cyrillrx.rpg.magicalitem.presentation.navigation.MagicalItemRouter
@@ -48,7 +49,8 @@ class MagicalItemListViewModel(
             MagicalItemListState(searchQuery = query, body = MagicalItemListState.Body.Loading)
         }
         try {
-            val magicalItems = if (query.isBlank()) repository.getAll() else repository.filter(query)
+            val filter = MagicalItemFilter(query = query)
+            val magicalItems = repository.getAll(filter)
             if (magicalItems.isEmpty()) {
                 _state.update { _state.value.copy(body = MagicalItemListState.Body.Empty) }
             } else {

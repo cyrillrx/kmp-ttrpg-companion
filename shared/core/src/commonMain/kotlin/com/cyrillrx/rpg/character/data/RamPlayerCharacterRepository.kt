@@ -1,16 +1,20 @@
 package com.cyrillrx.rpg.character.data
 
 import com.cyrillrx.rpg.character.domain.PlayerCharacter
+import com.cyrillrx.rpg.character.domain.PlayerCharacterFilter
 import com.cyrillrx.rpg.character.domain.PlayerCharacterRepository
 
 class RamPlayerCharacterRepository : PlayerCharacterRepository {
 
     private val playerCharacters = mutableMapOf<String, PlayerCharacter>()
 
-    override suspend fun getAll(): List<PlayerCharacter> = playerCharacters.values.toList()
+    override suspend fun getAll(filter: PlayerCharacterFilter?): List<PlayerCharacter> {
+        val allPlayerCharacters = playerCharacters.values.toList()
 
-    override suspend fun filter(query: String): List<PlayerCharacter> =
-        playerCharacters.values.filter { it.name.contains(query) }
+        filter ?: return allPlayerCharacters
+
+        return allPlayerCharacters.filter(filter::matches)
+    }
 
     override suspend fun get(id: String): PlayerCharacter? = playerCharacters[id]
 

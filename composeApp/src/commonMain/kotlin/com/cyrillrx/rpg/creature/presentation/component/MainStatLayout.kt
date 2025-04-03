@@ -9,6 +9,7 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.sp
+import com.cyrillrx.rpg.creature.domain.BaseCreature
 import com.cyrillrx.rpg.creature.domain.Creature
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
@@ -128,30 +129,30 @@ private fun Creature.getFormattedType(): String {
 }
 
 @Composable
-private fun Creature.getFormattedSize(): String {
+private fun BaseCreature.getFormattedSize(): String {
     return when (size) {
-        Creature.Size.TINY -> stringResource(Res.string.creature_size_tiny)
-        Creature.Size.SMALL -> stringResource(Res.string.creature_size_small)
-        Creature.Size.MEDIUM -> stringResource(Res.string.creature_size_medium)
-        Creature.Size.LARGE -> stringResource(Res.string.creature_size_large)
-        Creature.Size.HUGE -> stringResource(Res.string.creature_size_huge)
-        Creature.Size.GARGANTUAN -> stringResource(Res.string.creature_size_gargantuan)
-        Creature.Size.UNKNOWN -> stringResource(Res.string.creature_size_unknown)
+        BaseCreature.Size.TINY -> stringResource(Res.string.creature_size_tiny)
+        BaseCreature.Size.SMALL -> stringResource(Res.string.creature_size_small)
+        BaseCreature.Size.MEDIUM -> stringResource(Res.string.creature_size_medium)
+        BaseCreature.Size.LARGE -> stringResource(Res.string.creature_size_large)
+        BaseCreature.Size.HUGE -> stringResource(Res.string.creature_size_huge)
+        BaseCreature.Size.GARGANTUAN -> stringResource(Res.string.creature_size_gargantuan)
+        BaseCreature.Size.UNKNOWN -> stringResource(Res.string.creature_size_unknown)
     }
 }
 
 @Composable
-private fun Creature.getAlignment(): String {
+private fun BaseCreature.getAlignment(): String {
     return when (alignment) {
-        Creature.Alignment.LAWFUL_GOOD -> stringResource(Res.string.creature_alignment_lawful_good)
-        Creature.Alignment.NEUTRAL_GOOD -> stringResource(Res.string.creature_alignment_neutral_good)
-        Creature.Alignment.CHAOTIC_GOOD -> stringResource(Res.string.creature_alignment_chaotic_good)
-        Creature.Alignment.LAWFUL_NEUTRAL -> stringResource(Res.string.creature_alignment_lawful_neutral)
-        Creature.Alignment.NEUTRAL -> stringResource(Res.string.creature_alignment_neutral)
-        Creature.Alignment.CHAOTIC_NEUTRAL -> stringResource(Res.string.creature_alignment_chaotic_neutral)
-        Creature.Alignment.LAWFUL_EVIL -> stringResource(Res.string.creature_alignment_lawful_evil)
-        Creature.Alignment.NEUTRAL_EVIL -> stringResource(Res.string.creature_alignment_neutral_evil)
-        Creature.Alignment.CHAOTIC_EVIL -> stringResource(Res.string.creature_alignment_chaotic_evil)
-        Creature.Alignment.UNKNOWN -> stringResource(Res.string.creature_alignment_unknown)
+        BaseCreature.Alignment.LAWFUL_GOOD -> stringResource(Res.string.creature_alignment_lawful_good)
+        BaseCreature.Alignment.NEUTRAL_GOOD -> stringResource(Res.string.creature_alignment_neutral_good)
+        BaseCreature.Alignment.CHAOTIC_GOOD -> stringResource(Res.string.creature_alignment_chaotic_good)
+        BaseCreature.Alignment.LAWFUL_NEUTRAL -> stringResource(Res.string.creature_alignment_lawful_neutral)
+        BaseCreature.Alignment.NEUTRAL -> stringResource(Res.string.creature_alignment_neutral)
+        BaseCreature.Alignment.CHAOTIC_NEUTRAL -> stringResource(Res.string.creature_alignment_chaotic_neutral)
+        BaseCreature.Alignment.LAWFUL_EVIL -> stringResource(Res.string.creature_alignment_lawful_evil)
+        BaseCreature.Alignment.NEUTRAL_EVIL -> stringResource(Res.string.creature_alignment_neutral_evil)
+        BaseCreature.Alignment.CHAOTIC_EVIL -> stringResource(Res.string.creature_alignment_chaotic_evil)
+        BaseCreature.Alignment.UNKNOWN -> stringResource(Res.string.creature_alignment_unknown)
     }
 }

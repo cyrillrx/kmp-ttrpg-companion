@@ -7,17 +7,18 @@ import com.cyrillrx.rpg.character.domain.PlayerCharacter
 import com.cyrillrx.rpg.spell.data.api.ApiSpell
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.domain.Spell.School
+import com.cyrillrx.rpg.spell.domain.SpellFilter
 import com.cyrillrx.rpg.spell.domain.SpellRepository
 
 class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository {
 
-    override suspend fun getAll(): List<Spell> {
+    override suspend fun getAll(filter: SpellFilter?): List<Spell> {
         val item = loadFromFile()
-        return item.map { it.toSpell() }
-    }
+        val allSpells = item.map { it.toSpell() }
 
-    override suspend fun filter(query: String): List<Spell> {
-        return getAll().filter(query)
+        filter ?: return allSpells
+
+        return allSpells.filter(filter::matches)
     }
 
     private suspend fun loadFromFile(): List<ApiSpell> {
@@ -29,15 +30,6 @@ class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository 
     }
 
     companion object {
-        private fun List<Spell>.filter(query: String): ArrayList<Spell> =
-            filterTo(ArrayList()) { spell -> spell.matches(query) }
-
-        private fun Spell.matches(query: String): Boolean {
-            val lowerCaseQuery = query.trim().lowercase()
-            return title.lowercase().contains(lowerCaseQuery) ||
-                description.lowercase().contains(lowerCaseQuery)
-        }
-
         private fun ApiSpell.toSpell(): Spell {
             return Spell(
                 title = title.orEmpty(),

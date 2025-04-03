@@ -3,6 +3,7 @@ package com.cyrillrx.rpg.creature.presentation.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.creature.domain.Creature
+import com.cyrillrx.rpg.creature.domain.CreatureFilter
 import com.cyrillrx.rpg.creature.domain.CreatureRepository
 import com.cyrillrx.rpg.creature.presentation.CreatureListState
 import com.cyrillrx.rpg.creature.presentation.navigation.CreatureRouter
@@ -48,7 +49,8 @@ class CreatureListViewModel(
             CreatureListState(searchQuery = query, body = CreatureListState.Body.Loading)
         }
         try {
-            val creatures = if (query.isBlank()) repository.getAll() else repository.filter(query)
+            val filter = CreatureFilter(query = query)
+            val creatures = repository.getAll(filter)
             if (creatures.isEmpty()) {
                 _state.update { _state.value.copy(body = CreatureListState.Body.Empty) }
             } else {

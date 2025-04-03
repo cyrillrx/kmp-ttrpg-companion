@@ -1,6 +1,6 @@
 package com.cyrillrx.rpg.creature.domain
 
-open class Abilities(
+class Abilities(
     strValue: Int,
     dexValue: Int,
     conValue: Int,

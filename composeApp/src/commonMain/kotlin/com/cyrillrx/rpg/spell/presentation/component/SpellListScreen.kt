@@ -26,6 +26,7 @@ import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.presentation.SpellListState
+import com.cyrillrx.rpg.spell.presentation.navigation.SpellRouter
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellBookViewModel
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -33,14 +34,14 @@ import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.hint_search_spell
 
 @Composable
-fun SpellListScreen(viewModel: SpellBookViewModel) {
+fun SpellListScreen(viewModel: SpellBookViewModel, router: SpellRouter) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
     SpellListScreen(
         state = state,
-        onNavigateUpClicked = viewModel::onNavigateUpClicked,
+        onNavigateUpClicked = router::navigateUp,
         onSearchQueryChanged = viewModel::onSearchQueryChanged,
-        onSpellClicked = viewModel::onSpellClicked,
+        onSpellClicked = router::openSpellDetail,
         onSpellSaved = viewModel::onSpellSaved,
     )
 }
@@ -80,14 +81,14 @@ fun SpellListScreen(
 }
 
 @Composable
-fun AlternativeSpellListScreen(viewModel: SpellBookViewModel) {
+fun AlternativeSpellListScreen(viewModel: SpellBookViewModel, router: SpellRouter) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
     AlternativeSpellListScreen(
         state = state,
-        onNavigateUpClicked = viewModel::onNavigateUpClicked,
+        onNavigateUpClicked = router::navigateUp,
         onSearchQueryChanged = viewModel::onSearchQueryChanged,
-        onSpellClicked = viewModel::onSpellClicked,
+        onSpellClicked = router::openSpellDetail,
     )
 }
 

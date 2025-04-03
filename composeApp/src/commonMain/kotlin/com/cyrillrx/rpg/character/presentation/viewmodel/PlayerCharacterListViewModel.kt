@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.character.PlayerCharacterListState
 import com.cyrillrx.rpg.character.domain.PlayerCharacter
+import com.cyrillrx.rpg.character.domain.PlayerCharacterFilter
 import com.cyrillrx.rpg.character.domain.PlayerCharacterRepository
 import com.cyrillrx.rpg.character.presentation.navigation.PlayerCharacterRouter
 import kotlinx.coroutines.Job
@@ -51,7 +52,8 @@ class PlayerCharacterListViewModel(
         _state.update { PlayerCharacterListState(searchQuery = "", body = PlayerCharacterListState.Body.Loading) }
 
         try {
-            val characters = if (query.isBlank()) repository.getAll() else repository.filter(query)
+            val filter = PlayerCharacterFilter(query = query)
+            val characters = repository.getAll(filter)
             if (characters.isEmpty()) {
                 _state.update { _state.value.copy(body = PlayerCharacterListState.Body.Empty) }
             } else {

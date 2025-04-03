@@ -3,22 +3,24 @@ package com.cyrillrx.rpg.creature.data
 import com.cyrillrx.core.data.FileReader
 import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.core.domain.Result
-import com.cyrillrx.rpg.creature.domain.Abilities
-import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.creature.data.api.ApiBestiaryItem
 import com.cyrillrx.rpg.creature.data.api.ApiMonster
-import com.cyrillrx.rpg.creature.domain.CreatureRepository
+import com.cyrillrx.rpg.creature.domain.Abilities
+import com.cyrillrx.rpg.creature.domain.Ability
+import com.cyrillrx.rpg.creature.domain.BaseCreature
 import com.cyrillrx.rpg.creature.domain.Creature
+import com.cyrillrx.rpg.creature.domain.CreatureFilter
+import com.cyrillrx.rpg.creature.domain.CreatureRepository
 
 class JsonCreatureRepository(private val fileReader: FileReader) : CreatureRepository {
 
-    override suspend fun getAll(): List<Creature> {
+    override suspend fun getAll(filter: CreatureFilter?): List<Creature> {
         val items = loadFromFile()
-        return items.map { it.toCreature() }
-    }
+        val allCreatures = items.map { it.toCreature() }
 
-    override suspend fun filter(query: String): List<Creature> {
-        return getAll().filter(query)
+        filter ?: return allCreatures
+
+        return allCreatures.filter(filter::matches)
     }
 
     private suspend fun loadFromFile(): List<ApiBestiaryItem> {
@@ -30,24 +32,18 @@ class JsonCreatureRepository(private val fileReader: FileReader) : CreatureRepos
     }
 
     companion object {
-        private fun List<Creature>.filter(query: String): ArrayList<Creature> =
-            filterTo(ArrayList()) { spell -> spell.filter(query) }
-
-        private fun Creature.filter(query: String): Boolean {
-            val lowerCaseQuery = query.trim().lowercase()
-            return name.lowercase().contains(lowerCaseQuery)
-        }
-
         private fun ApiBestiaryItem.toCreature(): Creature {
             val monster = header?.monster
 
             return Creature(
+                id = title ?: "",
                 name = title ?: "",
                 description = content ?: "",
                 type = getType(),
                 subtype = getSubtype(),
                 size = getSize(),
                 alignment = getAlignment(),
+                challengeRating = challengeRating(),
                 abilities = Abilities(
                     extractAbilities(monster?.str),
                     extractAbilities(monster?.dex),
@@ -92,32 +88,34 @@ class JsonCreatureRepository(private val fileReader: FileReader) : CreatureRepos
                 .orEmpty()
         }
 
-        private fun ApiBestiaryItem.getSize(): Creature.Size {
+        private fun ApiBestiaryItem.getSize(): BaseCreature.Size {
             return when (size) {
-                "TP" -> Creature.Size.TINY
-                "P" -> Creature.Size.SMALL
-                "M" -> Creature.Size.MEDIUM
-                "G" -> Creature.Size.LARGE
-                "TG" -> Creature.Size.HUGE
-                "Gig" -> Creature.Size.GARGANTUAN
-                else -> Creature.Size.UNKNOWN
+                "TP" -> BaseCreature.Size.TINY
+                "P" -> BaseCreature.Size.SMALL
+                "M" -> BaseCreature.Size.MEDIUM
+                "G" -> BaseCreature.Size.LARGE
+                "TG" -> BaseCreature.Size.HUGE
+                "Gig" -> BaseCreature.Size.GARGANTUAN
+                else -> BaseCreature.Size.UNKNOWN
             }
         }
 
-        private fun ApiBestiaryItem.getAlignment(): Creature.Alignment {
+        private fun ApiBestiaryItem.getAlignment(): BaseCreature.Alignment {
             return when (alignment) {
-                "Loyal bon" -> Creature.Alignment.LAWFUL_GOOD
-                "Loyal neutre" -> Creature.Alignment.LAWFUL_NEUTRAL
-                "Loyal mauvais" -> Creature.Alignment.LAWFUL_EVIL
-                "Neutre bon" -> Creature.Alignment.NEUTRAL_GOOD
-                "Neutre" -> Creature.Alignment.NEUTRAL
-                "Neutre mauvais" -> Creature.Alignment.NEUTRAL_EVIL
-                "Chaotique bon" -> Creature.Alignment.CHAOTIC_GOOD
-                "Chaotique neutral" -> Creature.Alignment.CHAOTIC_NEUTRAL
-                "Chaotique mauvais" -> Creature.Alignment.CHAOTIC_EVIL
-                else -> Creature.Alignment.UNKNOWN
+                "Loyal bon" -> BaseCreature.Alignment.LAWFUL_GOOD
+                "Loyal neutre" -> BaseCreature.Alignment.LAWFUL_NEUTRAL
+                "Loyal mauvais" -> BaseCreature.Alignment.LAWFUL_EVIL
+                "Neutre bon" -> BaseCreature.Alignment.NEUTRAL_GOOD
+                "Neutre" -> BaseCreature.Alignment.NEUTRAL
+                "Neutre mauvais" -> BaseCreature.Alignment.NEUTRAL_EVIL
+                "Chaotique bon" -> BaseCreature.Alignment.CHAOTIC_GOOD
+                "Chaotique neutral" -> BaseCreature.Alignment.CHAOTIC_NEUTRAL
+                "Chaotique mauvais" -> BaseCreature.Alignment.CHAOTIC_EVIL
+                else -> BaseCreature.Alignment.UNKNOWN
             }
         }
+
+        private fun ApiBestiaryItem.challengeRating(): Float = challenge ?: 0f
 
         private fun ApiMonster?.getArmorClass(): Int {
             return this?.ac?.split(' ')?.firstOrNull()?.toIntOrNull() ?: 10

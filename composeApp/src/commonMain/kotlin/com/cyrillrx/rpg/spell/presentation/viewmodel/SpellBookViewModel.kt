@@ -3,6 +3,7 @@ package com.cyrillrx.rpg.spell.presentation.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.spell.domain.Spell
+import com.cyrillrx.rpg.spell.domain.SpellFilter
 import com.cyrillrx.rpg.spell.domain.SpellRepository
 import com.cyrillrx.rpg.spell.presentation.SpellListState
 import com.cyrillrx.rpg.spell.presentation.navigation.SpellRouter
@@ -60,7 +61,8 @@ class SpellBookViewModel(
         }
 
         try {
-            val spells = if (query.isBlank()) repository.getAll() else repository.filter(query)
+            val filter = SpellFilter(query = query)
+            val spells = repository.getAll(filter)
             if (spells.isEmpty()) {
                 _state.update { _state.value.copy(body = SpellListState.Body.Empty) }
             } else {
