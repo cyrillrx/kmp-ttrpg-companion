@@ -1,0 +1,18 @@
+meta {
+  name: Create Campaign Vamp
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:8080/campaign
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "name": "La chute de Londres",
+      "ruleSet": "VAMPIRE_THE_MASQUERADE_5E"
+  }
+}
