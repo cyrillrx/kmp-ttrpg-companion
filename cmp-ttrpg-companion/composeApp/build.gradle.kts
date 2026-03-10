@@ -38,6 +38,8 @@ kotlin {
 
             implementation(compose.runtime)
             implementation(compose.foundation)
+            implementation(compose.material) // Added for Icons
+            implementation(compose.materialIconsExtended)
             implementation(compose.material3)
             implementation(compose.ui)
             implementation(compose.components.resources)
@@ -45,6 +47,7 @@ kotlin {
 
             implementation(libs.jetbrains.compose.navigation)
             implementation(libs.jetbrains.lifecycle.runtime.compose)
+            implementation(libs.jetbrains.lifecycle.viewmodel.compose)
         }
         androidMain.dependencies {
             implementation(compose.preview)
