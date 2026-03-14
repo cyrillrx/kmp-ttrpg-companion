@@ -29,32 +29,34 @@ The project is organized into several key directories:
 - **Clear Communication**: Be clear and concise in your communications (code comments, commit messages, pull request descriptions).
 - **Ask Questions**: Don't hesitate to ask questions if something is unclear.
 
-### Performance & Security
+### Code Quality & Maintainability
 
-- **Performance Awareness**: Consider performance implications when designing and implementing features.
-- **Security First**: Prioritize security in all aspects of development, especially for backend services.
+- **Readability**: Write code that is easy to understand and maintain.
+- **Consistency**: Adhere to established coding conventions and architectural patterns.
+- **Testing**: Write comprehensive tests to ensure correctness and prevent regressions.
+- **Documentation**: Document complex logic, public APIs, and architectural decisions.
 
-## 4. CI & Policies
+## 4. Project Guidelines & Conventions
 
-- **Pull Requests**: All code must be reviewed via PRs before merging into `main`.
-- **Code Quality**: PRs must pass all automated checks (linting, tests, build) on the CI pipeline.
-- **Warnings as Errors**: Treat compiler warnings seriously. Fix them proactively.
-- **Security Scans**: Integrate automated security scanning where applicable.
-
-## 5. Conventions & Guidelines
-
-For detailed guidelines, overarching principles, and technology-specific standards, please refer to the dedicated documents:
+For detailed guidelines on specific parts of the project, please refer to the following documents:
 
 ### General Conventions
-- **Git & Branching**: [`GIT_CONVENTIONS.md`](docs/conventions/GIT_CONVENTIONS.md)
-- **Clean Code & General Coding**: [`CODING_CONVENTIONS.md`](docs/conventions/CODING_CONVENTIONS.md)
 
-### Technology-Specific Conventions
-- **Client Application (KMP/CMP)**: [`KMP_CONVENTIONS.md`](docs/conventions/KMP_CONVENTIONS.md)
-- **Spring Boot Backend**: [`SPRING_BOOT_CONVENTIONS.md`](docs/conventions/SPRING_BOOT_CONVENTIONS.md)
-- **Rust Backend (Future)**: [`RUST_CONVENTIONS.md`](docs/conventions/RUST_CONVENTIONS.md)
-- **API Testing with Bruno**: [`BRUNO_CONVENTIONS.md`](docs/conventions/BRUNO_CONVENTIONS.md)
+- **General Coding Conventions**: [`CODING_CONVENTIONS.md`](docs/conventions/CODING_CONVENTIONS.md)
+- **Git & CI Conventions**: [`GIT_CONVENTIONS.md`](docs/conventions/GIT_CONVENTIONS.md)
 
-### Product & Features
+### Technology-Specific Guidelines
+
+- **Client Application (KMP/Compose Multiplatform) Conventions**:
+    - [`KMP_CONVENTIONS.md`](docs/conventions/KMP_CONVENTIONS.md)
+- **Spring Boot Backend Server Conventions**:
+    - [`SPRING_BOOT_CONVENTIONS.md`](docs/conventions/SPRING_BOOT_CONVENTIONS.md)
+- **Rust Backend (Future) Conventions**:
+    - [`RUST_CONVENTIONS.md`](docs/conventions/RUST_CONVENTIONS.md)
+- **API Testing with Bruno Conventions**:
+    - [`BRUNO_CONVENTIONS.md`](docs/conventions/BRUNO_CONVENTIONS.md)
+
+## 5. Product & Features
+
 - **Functional Specifications**: [`FUNCTIONAL_SPEC.md`](docs/specs/FUNCTIONAL_SPEC.md)
 - **Ideas & Future Features**: [`IDEAS_BOX.md`](docs/specs/IDEAS_BOX.md)

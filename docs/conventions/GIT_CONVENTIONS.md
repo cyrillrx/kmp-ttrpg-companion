@@ -44,3 +44,10 @@ We utilize a **Trunk-Based Development** branching strategy. This means:
 - **Feature Flags:** To deploy incomplete features without affecting users, feature flags (also known as feature toggles) are used to enable or disable features at runtime. This allows for continuous delivery and reduces the need for long-lived feature branches.
 
 This approach promotes continuous integration, reduces merge conflicts, and enables faster delivery of features.
+
+## 4. CI & Policies
+
+- **Pull Requests**: All code must be reviewed via PRs before merging into `main`.
+- **Code Quality**: PRs must pass all automated checks (linting, tests, build) on the CI pipeline.
+- **Warnings as Errors**: Treat compiler warnings seriously. Fix them proactively.
+- **Security Scans**: Integrate automated security scanning where applicable.

@@ -46,3 +46,14 @@ Refer to `../../AGENTS.md` for overall project guidelines.
 - **Favor Immutability**: Make data structures immutable by default to prevent side-effect bugs and ensure thread safety.
 - **Law of Demeter**: Don't chain calls through internal properties (`a.getB().getC().doSomething()`). Modules shouldn't know the inner workings of the objects they manipulate.
 - **Data Abstraction**: Hide internal implementation details. Expose interfaces that allow users to manipulate the essence of the data.
+
+## 7. Testing
+
+- **Comprehensive Coverage**: Write comprehensive tests to ensure correctness and prevent regressions.
+- **F.I.R.S.T. Principles**: Tests should be Fast, Independent, Repeatable, Self-Validating, and Timely.
+- **Clear Assertions**: Strive to have a single logical assertion or concept per test function to make failures easy to diagnose.
+
+## 8. Performance & Security
+
+- **Prioritize Readability over Performance**: Readability and maintainability almost always take precedence over performance. Avoid premature optimization. Write clean code first; optimize only when proven necessary by profiling.
+- **Security First**: Prioritize security in all aspects of development, especially for backend services. Never trust client input without validation.
