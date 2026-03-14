@@ -21,29 +21,17 @@ The project is organized into several key directories:
 - `/rust-backend` (Future): Placeholder for potential Rust backend services.
 - `/Resources`: Static assets, documentation, or other shared resources.
 
-## 3. General Principles
-
-### Collaboration & Communication
-
-- **Respectful Interaction**: All interactions should be respectful and constructive.
-- **Clear Communication**: Be clear and concise in your communications (code comments, commit messages, pull request descriptions).
-- **Ask Questions**: Don't hesitate to ask questions if something is unclear.
-
-### Code Quality & Maintainability
-
-- **Readability**: Write code that is easy to understand and maintain.
-- **Consistency**: Adhere to established coding conventions and architectural patterns.
-- **Testing**: Write comprehensive tests to ensure correctness and prevent regressions.
-- **Documentation**: Document complex logic, public APIs, and architectural decisions.
-
-## 4. Project Guidelines & Conventions
+## 3. Project Guidelines & Conventions
 
 For detailed guidelines on specific parts of the project, please refer to the following documents:
 
-### General Conventions
+### Collaboration & Communication
+
+- **Collaboration, Git & CI Conventions**: [`GIT_AND_COLLABORATION.md`](docs/conventions/GIT_AND_COLLABORATION.md)
+
+### Code Quality & Maintainability
 
 - **General Coding Conventions**: [`CODING_CONVENTIONS.md`](docs/conventions/CODING_CONVENTIONS.md)
-- **Git & CI Conventions**: [`GIT_CONVENTIONS.md`](docs/conventions/GIT_CONVENTIONS.md)
 
 ### Technology-Specific Guidelines
 

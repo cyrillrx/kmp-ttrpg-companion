@@ -1,11 +1,17 @@
-# Git Conventions
+# Git & Collaboration Conventions
 
-This document outlines the Git conventions and branching strategy used across the project.
+This document outlines the collaboration guidelines, Git conventions, and branching strategy used across the project.
 Adhering to these conventions helps maintain a clean, understandable, and traceable project history.
 
 Refer to `../../AGENTS.md` for overall project guidelines.
 
-## 1. Conventional Commits
+## 1. Collaboration & Communication
+
+- **Respectful Interaction**: All interactions should be respectful and constructive.
+- **Clear Communication**: Be clear and concise in your communications (code comments, commit messages, pull request descriptions).
+- **Ask Questions**: Don't hesitate to ask questions if something is unclear.
+
+## 2. Conventional Commits
 
 We follow **Conventional Commits** to keep the history clean and to allow automated changelog generation.
 
@@ -21,7 +27,7 @@ We follow **Conventional Commits** to keep the history clean and to allow automa
 - **Scope**: The component affected (e.g., `project`, `compose-app`, `server-auth`, `bruno-api`).
 - **Subject**: Use the imperative, present tense: "change" not "changed" nor "changes". Don't capitalize the first letter. No dot (.) at the end.
 
-## 2. Commit Examples
+## 3. Commit Examples
 
 Here are some examples of valid commit messages:
 
@@ -33,7 +39,7 @@ Here are some examples of valid commit messages:
 - test(bruno-api): add E2E test for user registration flow
 - build(compose-app): update gradle wrapper to 8.x
 
-## 3. Trunk-Based Development Branching Strategy
+## 4. Trunk-Based Development Branching Strategy
 
 We utilize a **Trunk-Based Development** branching strategy. This means:
 
@@ -45,7 +51,7 @@ We utilize a **Trunk-Based Development** branching strategy. This means:
 
 This approach promotes continuous integration, reduces merge conflicts, and enables faster delivery of features.
 
-## 4. CI & Policies
+## 5. CI & Policies
 
 - **Pull Requests**: All code must be reviewed via PRs before merging into `main`.
 - **Code Quality**: PRs must pass all automated checks (linting, tests, build) on the CI pipeline.
