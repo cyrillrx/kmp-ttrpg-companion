@@ -44,7 +44,7 @@ For detailed guidelines on specific parts of the project, please refer to the fo
 - **API Testing with Bruno Conventions**:
     - [`BRUNO_CONVENTIONS.md`](docs/conventions/BRUNO_CONVENTIONS.md)
 
-## 5. Product & Features
+## 4. Product & Features
 
 - **Functional Specifications**: [`FUNCTIONAL_SPEC.md`](docs/specs/FUNCTIONAL_SPEC.md)
 - **Ideas & Future Features**: [`IDEAS_BOX.md`](docs/specs/IDEAS_BOX.md)

@@ -66,6 +66,8 @@ The project enforces code formatting using **ktlint**.
 
 ## 5. CI & Policies
 
-- **Code Quality**: PRs must pass `ktlintCheck` and the project must build successfully for all targets (`android`, `ios`, `desktop`) on the CI pipeline.
-- **Warnings as Errors**: Treat compiler warnings seriously. Fix them proactively.
-- **Documentation**: Document complex business logic, public APIs, and architectural decisions. Use KDoc for public APIs in shared modules to clearly define their contracts.
+Refer to [`GIT_AND_COLLABORATION.md`](GIT_AND_COLLABORATION.md) for general CI policies (warnings as errors, PR requirements, security scans).
+
+KMP-specific CI requirements:
+- PRs must pass `ktlintCheck` and the project must build successfully for all targets (`android`, `ios`, `desktop`).
+- Use KDoc for public APIs in shared modules to clearly define their contracts.

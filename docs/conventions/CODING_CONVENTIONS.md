@@ -10,7 +10,6 @@ Refer to `../../AGENTS.md` for overall project guidelines.
 - **Readability**: Write code that is easy to understand and maintain. Readability and maintainability almost always take precedence over performance.
 - **Consistency**: Adhere to established coding conventions and architectural patterns.
 - **Avoid premature optimization**: Write clean code first; optimize only when proven necessary by profiling.
-- **Testing**: Write comprehensive tests to ensure correctness and prevent regressions.
 - **Security**: Prioritize security in all aspects of development, especially for backend services. Never trust client input without validation.
 - **Documentation**: Document complex logic, public APIs, and architectural decisions.
 

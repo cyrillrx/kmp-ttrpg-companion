@@ -15,17 +15,50 @@ Refer to `../../AGENTS.md` for project-wide guidelines.
 
 ## 2. Architecture
 
-The Spring Boot server will follow a layered architecture, typically including:
+The Spring Boot server follows **Clean Architecture** with a layered approach:
 
-- **Controller Layer**: Handles HTTP requests and responses, exposing RESTful APIs.
-- **Service Layer**: Contains business logic and orchestrates operations.
-- **Repository Layer**: Interacts with the database, abstracting data access.
+- **Controller Layer**: Handles HTTP requests/responses. Maps request bodies to domain models or DTOs and delegates to the Service layer. Never contains business logic.
+- **Service Layer**: Contains all business logic and orchestrates operations between repositories and external services.
+- **Repository Layer**: Abstracts data access. Returns domain models, not raw JPA entities.
+
+### Package Structure
+
+Organize by **feature/domain**, not by layer:
+
+```
+com.cyrillrx.rpg.server/
+├── campaign/
+│   ├── CampaignController.kt
+│   ├── domain/
+│   │   ├── CampaignService.kt
+│   │   └── model/
+│   └── data/
+│       ├── CampaignEntity.kt
+│       └── CampaignRepository.kt
+├── security/
+│   └── ...
+└── shared/
+    └── ...  # Cross-cutting utilities
+```
+
+### DTOs vs Domain Models
+
+- Use dedicated **request/response DTOs** at the Controller boundary (e.g., `CreateCampaignRequest`, `CampaignResponse`).
+- Keep **domain models** free of Spring/JPA annotations — they live in the `domain/model/` package.
+- Use **JPA entities** only in the `data/` package; map to/from domain models before returning from repositories.
 
 ## 3. API Design
 
 - Design RESTful APIs following principles like statelessness, resource-based URLs, and standard HTTP methods.
 - Use clear and consistent naming conventions for API endpoints and request/response bodies.
 - Implement proper error handling with appropriate HTTP status codes and informative error messages.
+
+## 3.5. Kotlin Idioms for Spring Boot
+
+- Use `data class` for request/response DTOs.
+- Avoid `lateinit var` for injected dependencies; prefer constructor injection, which works naturally with Kotlin's `val`.
+- Be explicit about nullability on JPA entity fields — Hibernate may set fields to `null` even for non-nullable Kotlin types. Use `var` with a sensible default or nullable type for JPA-managed fields.
+- Prefer Kotlin's `require()` / `check()` for precondition validation in service methods.
 
 ## 4. Security
 

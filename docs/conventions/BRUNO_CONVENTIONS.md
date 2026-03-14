@@ -44,10 +44,10 @@ bruno/
 - **Variables**: Use environment variables for host URLs, API keys, and other environment-specific values.
     - Prefix environment-specific variables with `BASE_URL`, `API_KEY`, etc.
     - Example `local.bru`:
-        ```json
-        {
-          "BASE_URL": "http://localhost:8080",
-          "AUTH_TOKEN": ""
+        ```
+        vars {
+          BASE_URL: http://localhost:8080
+          AUTH_TOKEN:
         }
         ```
 

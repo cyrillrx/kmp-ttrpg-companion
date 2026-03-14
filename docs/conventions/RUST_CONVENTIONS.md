@@ -41,6 +41,10 @@ Refer to `../../AGENTS.md` for project-wide guidelines.
 - **Memory Management**: Leverage Rust's compile-time memory safety. Avoid common pitfalls like excessive cloning.
 
 ## 7. CI & Policies
-- **Build & Test**: Ensure `cargo build` and `cargo test` pass for all pull requests.
-- **Linting**: Integrate `clippy` checks into the CI pipeline.
-- **Security Audits**: Consider `cargo audit` for checking known vulnerabilities in dependencies.
+
+Refer to [`GIT_AND_COLLABORATION.md`](GIT_AND_COLLABORATION.md) for general CI policies (warnings as errors, PR requirements, security scans).
+
+Rust-specific CI requirements:
+- `cargo build` and `cargo test` must pass for all pull requests.
+- `clippy` checks must be integrated into the CI pipeline.
+- Run `cargo audit` to check for known vulnerabilities in dependencies.

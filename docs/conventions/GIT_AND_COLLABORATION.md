@@ -45,7 +45,7 @@ We utilize a **Trunk-Based Development** branching strategy. This means:
 
 - **Single Main Branch:** All development happens directly on or very close to a single main branch (often named `main`).
 - **Small, Frequent Commits:** Developers commit small changes frequently to the main branch, often multiple times a day.
-- **Short-Lived Feature Branches:** If feature branches are used, they are kept very short-lived and merged back into the main branch as quickly as possible (typically within a day or two). Naming convention: `feature/short-description` (e.g., `feature/create-campaign`), `bugfix/issue-description`.
+- **Short-Lived Feature Branches:** If feature branches are used, they are kept very short-lived and merged back into the main branch as quickly as possible (typically within a day or two). Branch names mirror commit types: `feat/short-description`, `fix/issue-description`, `refactor/short-description`, `docs/short-description`, `chore/short-description`, etc. (e.g., `feat/create-campaign`, `fix/login-xss`).
 - **Continuous Integration:** A robust Continuous Integration (CI) system is essential to automatically build and test changes pushed to the main branch, catching integration issues early.
 - **Feature Flags:** To deploy incomplete features without affecting users, feature flags (also known as feature toggles) are used to enable or disable features at runtime. This allows for continuous delivery and reduces the need for long-lived feature branches.
 
