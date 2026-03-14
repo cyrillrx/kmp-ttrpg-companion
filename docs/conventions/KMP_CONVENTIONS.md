@@ -48,7 +48,6 @@ The project enforces code formatting using **ktlint**.
 - Use Kotlin Coroutines and Flows for asynchronous programming.
 - Use `require()`, `check()`, and `error()` for preconditions and state validation.
 - Avoid nullable types where possible. Use sealed classes/interfaces for representing exhaustive states (e.g., `Loading`, `Success`, `Error`).
-- **Comments**: Prioritize self-documenting code. Add comments only when the code's intent is not immediately obvious, or to explain *why* a particular approach was taken, rather than *what* the code does.
 
 ### Jetpack Compose Guidelines
 
@@ -69,4 +68,4 @@ The project enforces code formatting using **ktlint**.
 
 - **Code Quality**: PRs must pass `ktlintCheck` and the project must build successfully for all targets (`android`, `ios`, `desktop`) on the CI pipeline.
 - **Warnings as Errors**: Treat compiler warnings seriously. Fix them proactively.
-- **Documentation**: Document complex business logic, public APIs, and architectural decisions. Prioritize self-documenting code. Use KDoc for public APIs in shared modules to clearly define their contracts, parameters, return values, and behavior, aiding consumers in understanding how to use the API without delving into implementation details.
+- **Documentation**: Document complex business logic, public APIs, and architectural decisions. Use KDoc for public APIs in shared modules to clearly define their contracts.

@@ -21,36 +21,30 @@ The Spring Boot server will follow a layered architecture, typically including:
 - **Service Layer**: Contains business logic and orchestrates operations.
 - **Repository Layer**: Interacts with the database, abstracting data access.
 
-## 3. Coding Conventions
-
-- Follow standard Kotlin/Java coding conventions (e.g., official style guides).
-- Use meaningful names for classes, methods, and variables.
-- Favor immutability where appropriate.
-
-## 4. API Design
+## 3. API Design
 
 - Design RESTful APIs following principles like statelessness, resource-based URLs, and standard HTTP methods.
 - Use clear and consistent naming conventions for API endpoints and request/response bodies.
 - Implement proper error handling with appropriate HTTP status codes and informative error messages.
 
-## 5. Security
+## 4. Security
 
 - Implement authentication and authorization mechanisms (e.g., Spring Security with JWT).
 - Ensure sensitive data is handled securely (e.g., encryption, proper storage).
 - Validate all input to prevent common vulnerabilities like SQL injection and XSS.
 
-## 6. Testing
+## 5. Testing
 
 - **Unit Tests**: Write unit tests for business logic in the Service layer.
 - **Integration Tests**: Write integration tests for controllers and repository interactions using Spring Boot's testing utilities.
 - **End-to-End Tests**: Consider using tools like Bruno (see `BRUNO_CONVENTIONS.md`) for API end-to-end testing.
 
-## 7. Configuration
+## 6. Configuration
 
 - Manage configuration using Spring Boot's externalized configuration features (e.g., `application.properties` or `application.yml`, environment variables).
 - Avoid hardcoding sensitive information; use environment variables or a secure vault solution.
 
-## 8. Logging
+## 7. Logging
 
 - Implement consistent logging practices using a logging framework (e.g., SLF4J with Logback).
 - Configure log levels appropriately for different environments.
