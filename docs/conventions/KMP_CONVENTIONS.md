@@ -64,7 +64,7 @@ The project enforces code formatting using **ktlint**.
 - **UI Tests**: Test Compose UI components in isolation (if applicable via Android instrumented tests or Desktop UI tests).
 - Focus on behavior testing rather than implementation details.
 
-## 5. CI & Policies (KMP Specific)
+## 5. CI & Policies
 
 - **Code Quality**: PRs must pass `ktlintCheck` and the project must build successfully for all targets (`android`, `ios`, `desktop`) on the CI pipeline.
 - **Warnings as Errors**: Treat compiler warnings seriously. Fix them proactively.
