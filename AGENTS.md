@@ -21,15 +21,15 @@ The project is organized into several key directories:
 - `/rust-backend` (Future): Placeholder for potential Rust backend services.
 - `/Resources`: Static assets, documentation, or other shared resources.
 
-## 3. Project Guidelines & Conventions
+## 3. Project Guidelines and Conventions
 
 For detailed guidelines on specific parts of the project, please refer to the following documents:
 
-### Collaboration & Communication
+### Collaboration and Communication
 
 - **Collaboration, Git & CI Conventions**: [`GIT_AND_COLLABORATION.md`](docs/conventions/GIT_AND_COLLABORATION.md)
 
-### Code Quality & Maintainability
+### Code Quality and Maintainability
 
 - **General Coding Conventions**: [`CODING_CONVENTIONS.md`](docs/conventions/CODING_CONVENTIONS.md)
 
@@ -43,8 +43,3 @@ For detailed guidelines on specific parts of the project, please refer to the fo
     - [`RUST_CONVENTIONS.md`](docs/conventions/RUST_CONVENTIONS.md)
 - **API Testing with Bruno Conventions**:
     - [`BRUNO_CONVENTIONS.md`](docs/conventions/BRUNO_CONVENTIONS.md)
-
-## 4. Product & Features
-
-- **Functional Specifications**: [`FUNCTIONAL_SPEC.md`](docs/specs/FUNCTIONAL_SPEC.md)
-- **Ideas & Future Features**: [`IDEAS_BOX.md`](docs/specs/IDEAS_BOX.md)
