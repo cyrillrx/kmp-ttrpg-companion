@@ -22,32 +22,36 @@ Managing a TTRPG session involves juggling a large amount of information: spell 
 
 Roles are **not fixed account types** — they are **per-campaign roles** determined by how a user relates to a specific campaign. The same user can be a GM in one campaign and a Player in another.
 
-| Role | Abbreviation | How it is assigned |
-|---|---|---|
-| Game Master | GM | Automatically assigned to the user who **creates** the campaign. |
-| Player | P | Assigned when a user **joins a campaign by invitation**. |
-| User | U | Any user, regardless of their role in any campaign. Applies to features available to everyone. |
+| Role        | Abbreviation | How it is assigned                                                                             |
+|-------------|--------------|------------------------------------------------------------------------------------------------|
+| Game Master | GM           | Automatically assigned to the user who **creates** the campaign.                               |
+| Player      | P            | Assigned when a user **joins a campaign by invitation**.                                       |
+| User        | U            | Any user, regardless of their role in any campaign. Applies to features available to everyone. |
 
 ### Campaign Role Assignment
 
-| Situation | Role in that campaign |
-|---|---|
-| User creates a campaign | GM (full editor access) |
-| User is invited to a campaign | Player (read-only, except own PC sheets) |
+| Situation                                       | Role in that campaign                                                     |
+|-------------------------------------------------|---------------------------------------------------------------------------|
+| User creates a campaign                         | GM / owner (full access)                                                  |
+| User is invited as co-GM, or promoted by the GM | Co-GM (same as GM, except cannot delete the campaign or remove the owner) |
+| User is invited as a player                     | Player (read-only, except own PC sheets)                                  |
 
 ### Access Matrix
 
-| Action | Any User (U) | GM (in their campaign) | Player (in a shared campaign) |
-|---|---|---|---|
-| Read public reference data (spells, items, monsters) | ✅ | ✅ | ✅ |
-| Create/edit own character sheets (personal library) | ✅ | ✅ | ✅ |
-| Create and manage a campaign | ✅ | ✅ | ✅ |
-| Edit campaign content (notes, roster, settings) | — | ✅ | ✗ |
-| Read campaign content (notes, roster) | — | ✅ | ✅ |
-| Invite players to a campaign | — | ✅ | ✗ |
-| Edit own Player Character sheet within a campaign | — | ✅ | ✅ |
-| Edit other characters' sheets within a campaign | — | ✅ | ✗ |
-| Create/edit custom content (spells, monsters, items) | — | ✅ | ✗ |
+| Action                                               | Any User (U) | GM (owner) | Co-GM | Player |
+|------------------------------------------------------|--------------|------------|------|-----|
+| Read public reference data (spells, items, monsters) | ✅            | ✅          | ✅    | ✅   |
+| Create/edit own character sheets (personal library)  | ✅            | ✅          | ✅    | ✅   |
+| Create a campaign                                    | ✅            | ✅          | ✅    | ✅   |
+| Edit campaign content (notes, roster, settings)      | —            | ✅          | ✅    | ✗   |
+| View secret folders and items                        | —            | ✅          | ✅    | ✗   |
+| Read visible campaign content (notes, roster)        | —            | ✅          | ✅    | ✅   |
+| Invite players or co-GMs                             | —            | ✅          | ✅    | ✗   |
+| Promote / demote members                             | —            | ✅          | ✅     | ✗   |
+| Edit own PC sheet within a campaign                  | —            | ✅          | ✅    | ✅   |
+| Edit other characters' sheets within a campaign      | —            | ✅          | ✅    | ✗   |
+| Delete the campaign                                  | —            | ✅          | ✗    | ✗   |
+| Remove the GM (owner) from the campaign              | —            | ✗          | ✗    | ✗   |
 
 ## Connectivity Phases
 
