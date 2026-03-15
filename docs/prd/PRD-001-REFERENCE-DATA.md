@@ -34,13 +34,13 @@ All three modules follow the same structure:
 
 ### User Stories
 
-| As a… | I want to… | So that…                                                   |
-|---|---|------------------------------------------------------------|
-| User | Browse and search the full spell list | I can quickly look up a spell during a session             |
-| User | Filter spells by level and school | I can narrow down relevant options                         |
-| User | Add a spell to a personal named list (grimoire) | I can organize spells for a specific character or campaign |
-| User | Create a custom spell | I can use homebrew content                                 |
-| User | Export a spell / import a shared spell | I can exchange homebrew content with others                |
+| As a… | I want to…                                      | So that…                                                   |
+|-------|-------------------------------------------------|------------------------------------------------------------|
+| User  | Browse and search the full spell list           | I can quickly look up a spell during a session             |
+| User  | Filter spells by level and school               | I can narrow down relevant options                         |
+| User  | Add a spell to a personal named list (grimoire) | I can organize spells for a specific character or campaign |
+| User  | Create a custom spell                           | I can use homebrew content                                 |
+| User  | Export a spell / import a shared spell          | I can exchange homebrew content with others                |
 
 ### Functional Requirements
 
@@ -68,13 +68,13 @@ All three modules follow the same structure:
 
 ### User Stories
 
-| As a… | I want to… | So that…                                     |
-|-------|---|----------------------------------------------|
+| As a… | I want to…                              | So that…                                     |
+|-------|-----------------------------------------|----------------------------------------------|
 | User  | Browse and search the full item catalog | I can look up item stats and descriptions    |
-| User  | Filter items by type and rarity | I can find relevant loot for my session      |
-| User  | Add items to a personal named list | I can track loot or prepare a shop inventory |
-| User  | Create a custom item | I can use homebrew items                     |
-| User  | Export and import items | I can share custom items with others         |
+| User  | Filter items by type and rarity         | I can find relevant loot for my session      |
+| User  | Add items to a personal named list      | I can track loot or prepare a shop inventory |
+| User  | Create a custom item                    | I can use homebrew items                     |
+| User  | Export and import items                 | I can share custom items with others         |
 
 ### Functional Requirements
 
@@ -92,13 +92,13 @@ Item detail includes: name, type, rarity, description, weight, value, attunement
 
 ### User Stories
 
-| As a… | I want to… | So that…                          |
-|---|---|-----------------------------------|
-| User | Browse and search the full monster catalog | I can look up stat blocks quickly |
-| User | Filter by type and CR | I can find appropriate encounters |
-| User | Create a custom monster or NPC | I can use homebrew creatures      |
-| User | Add monsters to a personal list | I can prepare an encounter roster |
-| User | Export and import monsters | I can share custom creatures      |
+| As a… | I want to…                                 | So that…                          |
+|-------|--------------------------------------------|-----------------------------------|
+| User  | Browse and search the full monster catalog | I can look up stat blocks quickly |
+| User  | Filter by type and CR                      | I can find appropriate encounters |
+| User  | Create a custom monster or NPC             | I can use homebrew creatures      |
+| User  | Add monsters to a personal list            | I can prepare an encounter roster |
+| User  | Export and import monsters                 | I can share custom creatures      |
 
 ### Functional Requirements
 

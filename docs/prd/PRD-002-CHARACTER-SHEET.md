@@ -17,11 +17,11 @@ Campaign integration (attaching sheets to a campaign, sharing with other players
 
 ## User Stories
 
-| As a… | I want to… | So that… |
-|---|---|---|
-| User | Create a new character sheet (PC or NPC) | I have a digital record for my character |
-| User | Edit my character sheet at any time | I can update stats, HP, inventory, etc. during a session |
-| User | Delete a character sheet I own | I can remove characters I no longer use |
+| As a… | I want to…                               | So that…                                                 |
+|-------|------------------------------------------|----------------------------------------------------------|
+| User  | Create a new character sheet (PC or NPC) | I have a digital record for my character                 |
+| User  | Edit my character sheet at any time      | I can update stats, HP, inventory, etc. during a session |
+| User  | Delete a character sheet I own           | I can remove characters I no longer use                  |
 
 **Phase 3 — Campaign integration (see PRD-003)**
 
