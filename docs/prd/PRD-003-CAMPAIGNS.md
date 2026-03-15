@@ -47,7 +47,7 @@ The Campaign module allows a GM to create and manage a campaign, attach resource
 
 ### Phase 2 — Session Notes
 
-Notes are defined as standalone entities in [PRD-001](PRD-001-REFERENCE-DATA.md). In this phase, a note can be attached to a campaign, turning it into a session note.
+Notes are defined as standalone entities in [PRD-004 — Notes](PRD-004-NOTES.md). In this phase, a note can be attached to a campaign, turning it into a session note.
 
 - Attach/detach an existing note to a campaign.
 - List all notes attached to the campaign, sorted by last modified date.
