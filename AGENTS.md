@@ -5,8 +5,7 @@ For project overview, repository structure, and tech stack, see [`README.md`](RE
 
 ## 1. Product Requirements
 
-For feature specifications and product decisions, refer to the PRDs in [`docs/prd/`](docs/prd/).
-The vision and role model are defined in [`PRD-000`](docs/prd/PRD-000-VISION.md).
+For feature specifications and product decisions, refer to the [Product Requirement Documents (PRDs)](docs/prd/). The overall project vision and role model are defined in [`PRD-000`](docs/prd/PRD-000-VISION.md).
 
 ## 2. Project Guidelines and Conventions
 
