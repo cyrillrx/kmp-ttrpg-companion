@@ -3,7 +3,12 @@
 Central reference for all contributors (human or AI).
 For project overview, repository structure, and tech stack, see [`README.md`](README.md).
 
-## 1. Project Guidelines and Conventions
+## 1. Product Requirements
+
+For feature specifications and product decisions, refer to the PRDs in [`docs/prd/`](docs/prd/).
+The vision and role model are defined in [`PRD-000`](docs/prd/PRD-000-VISION.md).
+
+## 2. Project Guidelines and Conventions
 
 For detailed guidelines on specific parts of the project, please refer to the following documents:
 
