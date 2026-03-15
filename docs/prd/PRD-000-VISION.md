@@ -40,19 +40,19 @@ Roles are **not fixed account types** — they are **per-campaign roles** determ
 ### Access Matrix
 
 | Action                                               | Any User (U) | GM (owner) | Co-GM | Player |
-|------------------------------------------------------|--------------|------------|------|-----|
-| Read public reference data (spells, items, monsters) | ✅            | ✅          | ✅    | ✅   |
-| Create/edit own character sheets (personal library)  | ✅            | ✅          | ✅    | ✅   |
-| Create a campaign                                    | ✅            | ✅          | ✅    | ✅   |
-| Edit campaign content (notes, roster, settings)      | —            | ✅          | ✅    | ✗   |
-| View secret folders and items                        | —            | ✅          | ✅    | ✗   |
-| Read visible campaign content (notes, roster)        | —            | ✅          | ✅    | ✅   |
-| Invite players or co-GMs                             | —            | ✅          | ✅    | ✗   |
-| Promote / demote members                             | —            | ✅          | ✅     | ✗   |
-| Edit own PC sheet within a campaign                  | —            | ✅          | ✅    | ✅   |
-| Edit other characters' sheets within a campaign      | —            | ✅          | ✅    | ✗   |
-| Delete the campaign                                  | —            | ✅          | ✗    | ✗   |
-| Remove the GM (owner) from the campaign              | —            | ✗          | ✗    | ✗   |
+|------------------------------------------------------|--------------|------------|-------|--------|
+| Read public reference data (spells, items, monsters) | ✅            | ✅          | ✅     | ✅      |
+| Create/edit own character sheets (personal library)  | ✅            | ✅          | ✅     | ✅      |
+| Create a campaign                                    | ✅            | ✅          | ✅     | ✅      |
+| Edit campaign content (notes, roster, settings)      | —            | ✅          | ✅     | ✗      |
+| View secret folders and items                        | —            | ✅          | ✅     | ✗      |
+| Read visible campaign content (notes, roster)        | —            | ✅          | ✅     | ✅      |
+| Invite players or co-GMs                             | —            | ✅          | ✅     | ✗      |
+| Promote / demote members                             | —            | ✅          | ✅     | ✗      |
+| Edit own PC sheet within a campaign                  | —            | ✅          | ✅     | ✅      |
+| Edit other characters' sheets within a campaign      | —            | ✅          | ✅     | ✗      |
+| Delete the campaign                                  | —            | ✅          | ✗     | ✗      |
+| Remove the GM (owner) from the campaign              | —            | ✗          | ✗     | ✗      |
 
 ## Connectivity Phases
 
