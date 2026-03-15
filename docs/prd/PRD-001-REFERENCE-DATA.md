@@ -4,13 +4,17 @@
 
 ## Overview
 
-Three reference modules — **Spellbook**, **Item List**, and **Bestiary** — allow users to browse, search, and filter the official D&D 5e content catalog. They share the same core pattern: a searchable, filterable list leading to a detail view, with advanced features for personal curation and custom content creation.
+Three reference modules — **Spellbook**, **Item List**, and **Bestiary** — allow users to browse, search, and filter the official D&D 5e content catalog. They share the same core pattern: a searchable, filterable list leading to a detail view, with CRUD for custom entries.
+
+These modules are **game-system-specific** (D&D 5e). For system-agnostic content like personal notes, see [PRD-004 — Notes](PRD-004-NOTES.md).
 
 ## Goals
 
 - Give every user fast access to the full rules reference during a session.
-- Allow all users to organize content into personal named lists.
+- Allow all users to organize content into personal named lists of the same type.
 - Support offline access from day one.
+
+> **Scope note**: At this stage, all entities are independent. Lists can only group entities of the **same type** (e.g. a grimoire = a named list of spells). Cross-entity relationships — such as linking a spell to a character sheet or attaching items to a campaign — will be addressed in a later phase.
 
 ## Shared Pattern
 
@@ -105,8 +109,6 @@ Item detail includes: name, type, rarity, description, weight, value, attunement
 Same structure as Spellbook. Filters specific to monsters as listed above.
 
 Monster detail includes: name, type, size, alignment, AC, HP, speed, ability scores, skills, senses, languages, CR, traits, actions, reactions, legendary actions.
-
----
 
 ## Non-Functional Requirements
 

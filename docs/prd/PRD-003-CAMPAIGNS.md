@@ -25,7 +25,7 @@ The Campaign module allows a GM to create and manage a campaign, attach resource
 | GM     | Promote a player to co-GM                                | I can elevate a trusted player to help manage the campaign            |
 | Player | View a campaign I've been invited to                     | I can see campaign info and my character sheet                        |
 | GM     | Give an item to a player by adding it to their inventory | I can reward loot without requiring manual entry on the player's side |
-| GM     | Add and browse session notes _(Phase 2)_                 | I can track what happened in previous sessions                        |
+| GM     | Attach notes to a campaign _(Phase 2)_                   | I can track what happened in previous sessions                        |
 | GM     | Mark a note or resource as Secret _(Future)_             | Players cannot see it until I choose to reveal it                     |
 | GM     | Organize notes and resources into folders _(Future)_     | I can separate secret GM content from player-facing content           |
 | GM     | Reveal a secret note or resource to players _(Future)_   | I can progressively share information as the story unfolds            |
@@ -47,11 +47,11 @@ The Campaign module allows a GM to create and manage a campaign, attach resource
 
 ### Phase 2 — Session Notes
 
-**Session Notes**
-- Create a note with a title and free-text body.
-- List all notes for the campaign, sorted by creation date (most recent first).
-- Edit and delete notes.
-- Support linking to an external URL (e.g. a Google Doc or Notion page) as an alternative to in-app notes.
+Notes are defined as standalone entities in [PRD-001](PRD-001-REFERENCE-DATA.md). In this phase, a note can be attached to a campaign, turning it into a session note.
+
+- Attach/detach an existing note to a campaign.
+- List all notes attached to the campaign, sorted by last modified date.
+- Notes remain in the user's personal library even when detached from a campaign.
 
 ### Phase 3 — Online with Sync
 
