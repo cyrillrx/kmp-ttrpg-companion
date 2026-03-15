@@ -15,20 +15,20 @@ The Campaign module allows a GM to create and manage a campaign, attach resource
 
 ## User Stories
 
-| As a…  | I want to…                                               | So that…                                                              |
-|--------|----------------------------------------------------------|-----------------------------------------------------------------------|
-| GM     | Create a campaign with a name and description            | I have a central place to organize my session content                 |
-| GM     | Edit and delete my campaigns                             | I can keep my campaign list clean                                     |
-| GM     | Attach characters, NPCs, and monsters to a campaign      | I can access all relevant entities quickly during play                |
-| GM     | Share a campaign with specific players                   | My players can access their characters and campaign info              |
-| GM     | Invite another user as co-GM                             | I can share campaign management responsibilities                      |
-| GM     | Promote a player to co-GM                                | I can elevate a trusted player to help manage the campaign            |
-| Player | View a campaign I've been invited to                     | I can see campaign info and my character sheet                        |
-| GM     | Give an item to a player by adding it to their inventory | I can reward loot without requiring manual entry on the player's side |
-| GM     | Attach notes to a campaign _(Phase 2)_                   | I can track what happened in previous sessions                        |
-| GM     | Mark a note or resource as Secret _(Future)_             | Players cannot see it until I choose to reveal it                     |
-| GM     | Organize notes and resources into folders _(Future)_     | I can separate secret GM content from player-facing content           |
-| GM     | Reveal a secret note or resource to players _(Future)_   | I can progressively share information as the story unfolds            |
+| As a…  | I want to…                                                          | So that…                                                              |
+|--------|---------------------------------------------------------------------|-----------------------------------------------------------------------|
+| GM     | Create a campaign with a name and description                       | I have a central place to organize my session content                 |
+| GM     | Edit and delete my campaigns                                        | I can keep my campaign list clean                                     |
+| GM     | Attach characters, NPCs, and monsters to a campaign                 | I can access all relevant entities quickly during play                |
+| GM     | Share a link to invite other users as players to a campaign         | My players can access their characters and campaign info              |
+| GM     | Share a link to invite other users as co-GMs to a campaign          | I can share campaign management responsibilities                      |
+| GM     | Promote a player to co-GM                                           | I can elevate a trusted player to help manage the campaign            |
+| Player | View a campaign I've been invited to                                | I can see campaign info and my character sheet                        |
+| GM     | Give an item to a player by adding it to their inventory            | I can reward loot without requiring manual entry on the player's side |
+| GM     | Attach notes to a campaign _(Phase 2)_                              | I can track what happened in previous sessions                        |
+| GM     | Mark a note or resource as Secret _(Future)_                        | Players cannot see it until I choose to reveal it                     |
+| GM     | Organize notes and resources into folders _(Future)_                | I can separate secret GM content from player-facing content           |
+| GM     | Reveal a secret note or resource to players _(Future)_              | I can progressively share information as the story unfolds            |
 | Player | See only the notes and resources the GM has made visible _(Future)_ | I only discover what my character would know               |
 
 ## Functional Requirements
