@@ -25,6 +25,7 @@ Roles are **not fixed account types** — they are **per-campaign roles** determ
 | Role        | Abbreviation | How it is assigned                                                                             |
 |-------------|--------------|------------------------------------------------------------------------------------------------|
 | Game Master | GM           | Automatically assigned to the user who **creates** the campaign.                               |
+| Co-GM       | Co-GM        | Assigned when a user is **invited as a co-GM** or **promoted** by a GM.                        |
 | Player      | P            | Assigned when a user **joins a campaign by invitation**.                                       |
 | User        | U            | Any user, regardless of their role in any campaign. Applies to features available to everyone. |
 
