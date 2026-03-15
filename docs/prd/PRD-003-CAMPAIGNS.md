@@ -25,11 +25,11 @@ The Campaign module allows a GM to create and manage a campaign, attach resource
 | GM     | Promote a player to co-GM                                | I can elevate a trusted player to help manage the campaign            |
 | Player | View a campaign I've been invited to                     | I can see campaign info and my character sheet                        |
 | GM     | Give an item to a player by adding it to their inventory | I can reward loot without requiring manual entry on the player's side |
-| GM     | Add and browse session notes                             | I can track what happened in previous sessions                        |
-| GM     | Mark a note or resource as Secret                        | Players cannot see it until I choose to reveal it                     |
-| GM     | Organize notes and resources into folders                | I can separate secret GM content from player-facing content           |
-| GM     | Reveal a secret note or resource to players              | I can progressively share information as the story unfolds            |
-| Player | See only the notes and resources the GM has made visible | I only discover what my character would know                          |
+| GM     | Add and browse session notes _(Phase 2)_                 | I can track what happened in previous sessions                        |
+| GM     | Mark a note or resource as Secret _(Future)_             | Players cannot see it until I choose to reveal it                     |
+| GM     | Organize notes and resources into folders _(Future)_     | I can separate secret GM content from player-facing content           |
+| GM     | Reveal a secret note or resource to players _(Future)_   | I can progressively share information as the story unfolds            |
+| Player | See only the notes and resources the GM has made visible _(Future)_ | I only discover what my character would know               |
 
 ## Functional Requirements
 
@@ -44,18 +44,14 @@ The Campaign module allows a GM to create and manage a campaign, attach resource
 - Attach/detach character sheets (PCs and NPCs) from the campaign roster.
 - View the list of attached characters directly from the campaign detail screen.
 
+
+### Phase 2 — Session Notes
+
 **Session Notes**
 - Create a note with a title and free-text body.
 - List all notes for the campaign, sorted by creation date (most recent first).
 - Edit and delete notes.
 - Support linking to an external URL (e.g. a Google Doc or Notion page) as an alternative to in-app notes.
-
-**Secret Folders**
-- Notes and resources can be organized into folders.
-- Each folder (and individual item) has a visibility setting: **Secret** (GM only) or **Visible** (all campaign members).
-- The GM can toggle the visibility of any folder or item at any time.
-- Secret content is completely hidden from Players — they cannot see its existence.
-- By default, newly created notes and resources are **Secret**.
 
 ### Phase 3 — Online with Sync
 
@@ -72,9 +68,14 @@ Campaign roles and their permissions:
 - Any user can create a campaign; the creator is automatically the **GM** (owner).
 - The GM and co-GMs can invite users as Players or co-GMs via username or email.
 - The GM can promote any Player to co-GM, or demote a co-GM back to Player.
-- Secret folders and items are invisible to Players; co-GMs have full visibility.
 - The GM can revoke any member's access at any time.
-- Sync all campaign data (notes, roster, visibility state, roles) across devices in real time.
+- Sync all campaign data (notes, roles) across devices in real time.
+
+**Secret Folders (Future)**
+- Notes and resources can be organized into folders with a visibility setting: **Secret** (GM and co-GMs only) or **Visible** (all campaign members).
+- The GM can toggle the visibility of any folder or item at any time.
+- Secret content is completely hidden from Players — they cannot see its existence.
+- By default, newly created notes and resources are **Secret**.
 
 **Item Assignment (Future)**
 - The GM can assign an item from the Item catalog (or a custom item) directly to a Player's inventory.
