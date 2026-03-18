@@ -3,56 +3,80 @@
 This document tracks the macro vision and planned phases for the TTRPG Companion app.
 For detailed feature specifications, see the [PRDs](prd/).
 
-## Phase 0 — Cleanup and Revamp the `HomeScreen`
+## Phase 1 - Cleanup + `HomeScreen` revamp
 
-> Resolve open design decisions before moving forward
+> Resolve open design decisions before moving forward.
 
 - [ ] Decide on Spellbook layout (vertical list vs. horizontal cards) and remove the alternative
 - [ ] Remove the duplicate Spellbook button from `HomeScreen`
 
-## Phase 1 — Consolidate existing features: [PRD-001](prd/PRD-001-REFERENCE-DATA.md)
+## Phase 2 - Browsing & Filtering - Reference Data
 
-> Bring current implementations to a production-ready state with functional browsing and filtering.
+> Bring current implementations to a production-ready state. - [PRD-001](prd/PRD-001-REFERENCE-DATA.md)
 
-- [ ] Complete Spellbook filters (school, class) — [PRD-001a](prd/PRD-001a-SPELLBOOK.md)
-- [ ] Complete Inventory filters (type, rarity) — [PRD-001b](prd/PRD-001b-ITEM-LIST.md)
-- [ ] Complete Bestiary filters (type, CR) — [PRD-001c](prd/PRD-001c-BESTIARY.md)
+- [ ] Complete Spellbook filters (school, class) - [PRD-001a](prd/PRD-001a-SPELLBOOK.md)
+- [ ] Complete Inventory filters (type, rarity) - [PRD-001b](prd/PRD-001b-ITEM-LIST.md)
+- [ ] Complete Bestiary filters (type, CR) - [PRD-001c](prd/PRD-001c-BESTIARY.md)
 
-## Phase 2 — Character Sheets
+## Phase 3 - Local Lists
 
-> Allow users to create and manage character sheets.
+> Allow users to build and manage their own lists offline. - [PRD-001](prd/PRD-001-REFERENCE-DATA.md)
 
+*Requires: Reference Data - Browsing & Filtering*
+
+- [ ] Local spell lists - [PRD-001a](prd/PRD-001a-SPELLBOOK.md)
+- [ ] Local item lists - [PRD-001b](prd/PRD-001b-ITEM-LIST.md)
+- [ ] Local bestiary lists - [PRD-001c](prd/PRD-001c-BESTIARY.md)
+
+## Phase 4 - Backend setup and sync engine
+
+> Fetch public reference data from the server and sync user lists. - [PRD-001](prd/PRD-001-REFERENCE-DATA.md)
+
+- [ ] Setup backend service with a simple API
+- [ ] Fetch public reference data from backend (spells, items, creatures)
+- [ ] Develop the sync engine on which will rely all sync logic and conflict resolution
+- [ ] Sync user lists with backend
+
+## Phase 5 - Character Sheets
+
+> Allow users to create and manage character sheets. - [PRD-002](prd/PRD-002-CHARACTER-SHEET.md)
+
+- [ ] Create, list and edit character sheets
 - [ ] Persist `PlayerCharacter` with SQLDelight (currently RAM only)
-- [ ] Create, list and edit character sheets — [PRD-002](prd/PRD-002-CHARACTER-SHEET.md)
+- [ ] Sync character sheets with backend
 
-## Phase 3 — Campaign integration
+## Phase 6 - Notes
 
-> Connect entities together through campaigns. [PRD-003](prd/PRD-003-CAMPAIGNS.md)
+> Create and manage system-agnostic notes. - [PRD-004](prd/PRD-004-NOTES.md)
+
+- [ ] Create, list and edit notes
+- [ ] Create lists of notes
+- [ ] Sync notes with backend
+
+## Phase 7 - Campaigns
+
+> Connect entities together through campaigns. - [PRD-003](prd/PRD-003-CAMPAIGNS.md)
+
+*Requires: Notes - Local implementation*
 
 - [ ] Create, list and edit campaigns
+- [ ] Attach player to campaigns
+- [ ] Attach notes to campaigns
+- [ ] Sync campaigns with backend
 - [ ] Campaign roles (GM, Co-GM, Player)
 - [ ] Share campaigns with other users
+- [ ] Note visibility / Secret folders (GM vs. players)
 
-## Phase 4 — Local lists
+## Phase 8 - Advanced Notes
 
-> Allow users to build and manage their own lists. [PRD-001](prd/PRD-001-REFERENCE-DATA.md)
+> Allow notes to reference other entities (characters, creatures, items, other notes).
 
-- [ ] Local spell lists — [PRD-001a](prd/PRD-001a-SPELLBOOK.md)
-- [ ] Local item lists — [PRD-001b](prd/PRD-001b-ITEM-LIST.md)
-- [ ] Local bestiary lists — [PRD-001c](prd/PRD-001c-BESTIARY.md)
+- [ ] Link notes to other entities (simple reference or inline)
 
-## Phase 5 — New features
+## Standalone Features
 
-> Independent features that can be developed in parallel.
+> Independent features with no hard dependencies on other phases.
 
-- [ ] Create Notes — [PRD-004](prd/PRD-004-NOTES.md)
-- [ ] Attach notes to campaigns
-- [ ] Generator gallery (curated tables) — [PRD-005](prd/PRD-005-GENERATORS.md)
-- [ ] Dice roller — [PRD-006](prd/PRD-006-DICE.md)
-
-## Out of scope (for now)
-
-- LLM-based generators — feasibility study required ([PRD-005](prd/PRD-005-GENERATORS.md))
-- Cross-entity references in notes ([PRD-004](prd/PRD-004-NOTES.md))
-- Secret folders in campaigns ([PRD-003](prd/PRD-003-CAMPAIGNS.md))
-- Online public reference data sync ([PRD-001](prd/PRD-001-REFERENCE-DATA.md))
+- [ ] Dice roller - [PRD-006](prd/PRD-006-DICE.md)
+- [ ] Generator gallery (curated tables) - [PRD-005](prd/PRD-005-GENERATORS.md)
+- [ ] AI-based generators - feasibility study required [PRD-005](prd/PRD-005-GENERATORS.md)
