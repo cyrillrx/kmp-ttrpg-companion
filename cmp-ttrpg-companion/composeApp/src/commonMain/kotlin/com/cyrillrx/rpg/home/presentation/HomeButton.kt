@@ -7,7 +7,9 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
+import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
 fun HomeButton(text: String, onClick: () -> Unit) {
@@ -18,5 +20,21 @@ fun HomeButton(text: String, onClick: () -> Unit) {
             .padding(PaddingValues(spacingMedium)),
     ) {
         Text(text = text)
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewHomeButtonLight() {
+    AppThemePreview(darkTheme = false) {
+        HomeButton(text = "Campaigns", onClick = {})
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewHomeButtonDark() {
+    AppThemePreview(darkTheme = true) {
+        HomeButton(text = "Campaigns", onClick = {})
     }
 }
