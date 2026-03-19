@@ -23,11 +23,16 @@ fun HomeButton(text: String, onClick: () -> Unit) {
     }
 }
 
+@Composable
+fun HomeButtonPreview() {
+    HomeButton(text = "Campaigns", onClick = {})
+}
+
 @Preview
 @Composable
 private fun PreviewHomeButtonLight() {
     AppThemePreview(darkTheme = false) {
-        HomeButton(text = "Campaigns", onClick = {})
+        HomeButtonPreview()
     }
 }
 
@@ -35,6 +40,6 @@ private fun PreviewHomeButtonLight() {
 @Composable
 private fun PreviewHomeButtonDark() {
     AppThemePreview(darkTheme = true) {
-        HomeButton(text = "Campaigns", onClick = {})
+        HomeButtonPreview()
     }
 }

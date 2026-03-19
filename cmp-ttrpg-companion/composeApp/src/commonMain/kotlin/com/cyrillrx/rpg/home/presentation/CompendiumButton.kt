@@ -59,16 +59,21 @@ fun CompendiumButton(
     }
 }
 
+@Composable
+private fun CompendiumButtonPreview() {
+    CompendiumButton(
+        label = "Spellbook",
+        icon = Icons.Filled.AutoAwesome,
+        onClick = {},
+        modifier = Modifier.width(100.dp),
+    )
+}
+
 @Preview
 @Composable
 private fun PreviewCompendiumButtonLight() {
     AppThemePreview(darkTheme = false) {
-        CompendiumButton(
-            label = "Spellbook",
-            icon = Icons.Filled.AutoAwesome,
-            onClick = {},
-            modifier = Modifier.width(100.dp),
-        )
+        CompendiumButtonPreview()
     }
 }
 
@@ -76,11 +81,6 @@ private fun PreviewCompendiumButtonLight() {
 @Composable
 private fun PreviewCompendiumButtonDark() {
     AppThemePreview(darkTheme = true) {
-        CompendiumButton(
-            label = "Spellbook",
-            icon = Icons.Filled.AutoAwesome,
-            onClick = {},
-            modifier = Modifier.width(100.dp),
-        )
+        CompendiumButtonPreview()
     }
 }

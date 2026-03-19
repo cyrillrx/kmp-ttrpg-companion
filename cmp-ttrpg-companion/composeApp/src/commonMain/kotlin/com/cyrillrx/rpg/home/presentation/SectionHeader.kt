@@ -47,42 +47,40 @@ fun SectionHeaderWithAction(
     }
 }
 
+@Composable
+private fun SectionHeaderPreview() {
+    SectionHeader(title = "Compendium", modifier = Modifier.padding(spacingCommon))
+}
+
 @Preview
 @Composable
 private fun PreviewSectionHeaderLight() {
-    AppThemePreview(darkTheme = false) {
-        SectionHeader(title = "Compendium")
-    }
+    AppThemePreview(darkTheme = false) { SectionHeaderPreview() }
 }
 
 @Preview
 @Composable
 private fun PreviewSectionHeaderDark() {
-    AppThemePreview(darkTheme = true) {
-        SectionHeader(title = "Compendium")
-    }
+    AppThemePreview(darkTheme = true) { SectionHeaderPreview() }
+}
+
+@Composable
+private fun SectionHeaderWithActionPreview() {
+    SectionHeaderWithAction(
+        title = "Compendium",
+        actionLabel = "See all",
+        onActionClick = {},
+    )
 }
 
 @Preview
 @Composable
 private fun PreviewSectionHeaderWithActionLight() {
-    AppThemePreview(darkTheme = false) {
-        SectionHeaderWithAction(
-            title = "Compendium",
-            actionLabel = "See all",
-            onActionClick = {},
-        )
-    }
+    AppThemePreview(darkTheme = false) { SectionHeaderWithActionPreview() }
 }
 
 @Preview
 @Composable
 private fun PreviewSectionHeaderWithActionDark() {
-    AppThemePreview(darkTheme = true) {
-        SectionHeaderWithAction(
-            title = "Compendium",
-            actionLabel = "See all",
-            onActionClick = {},
-        )
-    }
+    AppThemePreview(darkTheme = true) { SectionHeaderWithActionPreview() }
 }
