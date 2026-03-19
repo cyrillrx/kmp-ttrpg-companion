@@ -49,11 +49,7 @@ fun HomeScreen(router: HomeRouter) {
             HomeButton(stringResource(Res.string.btn_campaign_list), router::openCampaignList)
             HomeButton(stringResource(Res.string.btn_character_sheets), router::openCharacterSheets)
 
-            Text(
-                text = "Compendium",
-                style = MaterialTheme.typography.titleMedium,
-                modifier = Modifier.padding(horizontal = spacingCommon, vertical = spacingCommon),
-            )
+            SectionHeader(title = "Compendium")
 
             Row(
                 horizontalArrangement = Arrangement.spacedBy(spacingCommon),
