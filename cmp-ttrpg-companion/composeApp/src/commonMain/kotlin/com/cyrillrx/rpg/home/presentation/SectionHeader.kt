@@ -21,8 +21,8 @@ fun SectionHeader(
 ) {
     Text(
         text = title,
-        style = MaterialTheme.typography.titleMedium,
-        modifier = modifier.padding(spacingCommon),
+        style = MaterialTheme.typography.titleLarge,
+        modifier = modifier,
     )
 }
 
@@ -36,11 +36,9 @@ fun SectionHeaderWithAction(
     Row(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(start = spacingCommon),
+        modifier = modifier.fillMaxWidth(),
     ) {
-        SectionHeader(title = title, modifier = Modifier)
+        SectionHeader(title = title)
         TextButton(onClick = onActionClick) {
             Text(text = actionLabel)
         }
