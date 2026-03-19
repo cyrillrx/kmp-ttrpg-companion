@@ -6,6 +6,9 @@
     <string name="btn_back">Retour</string>
     <string name="btn_more">Plus</string>
 
+    <!--  Home  -->
+    <string name="section_compendium">Compendium</string>
+
     <!--  Campaign  -->
     <string name="title_campaign_list">Campagnes</string>
     <string name="title_create_campaign">Nouvelle Campagne</string>
