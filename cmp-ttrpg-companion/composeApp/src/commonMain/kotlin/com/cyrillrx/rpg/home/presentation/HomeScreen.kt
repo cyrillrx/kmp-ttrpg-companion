@@ -61,19 +61,19 @@ fun HomeScreen(router: HomeRouter) {
                     .fillMaxWidth()
                     .padding(horizontal = spacingCommon),
             ) {
-                CompendiumButton(
+                IconLabelButton(
                     label = stringResource(Res.string.btn_spell_book),
                     icon = Icons.Filled.AutoAwesome,
                     onClick = router::openSpellBook,
                     modifier = Modifier.weight(1f),
                 )
-                CompendiumButton(
+                IconLabelButton(
                     label = stringResource(Res.string.btn_inventory),
                     icon = Icons.Filled.Diamond,
                     onClick = router::openMagicalItems,
                     modifier = Modifier.weight(1f),
                 )
-                CompendiumButton(
+                IconLabelButton(
                     label = stringResource(Res.string.btn_bestiary),
                     icon = Icons.Filled.Pets,
                     onClick = router::openBestiary,

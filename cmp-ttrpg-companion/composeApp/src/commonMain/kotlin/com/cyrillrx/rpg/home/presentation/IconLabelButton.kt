@@ -25,7 +25,7 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
-fun CompendiumButton(
+fun IconLabelButton(
     label: String,
     icon: ImageVector,
     onClick: () -> Unit,
@@ -60,8 +60,8 @@ fun CompendiumButton(
 }
 
 @Composable
-private fun CompendiumButtonPreview() {
-    CompendiumButton(
+private fun IconLabelButtonPreview() {
+    IconLabelButton(
         label = "Spellbook",
         icon = Icons.Filled.AutoAwesome,
         onClick = {},
@@ -71,16 +71,16 @@ private fun CompendiumButtonPreview() {
 
 @Preview
 @Composable
-private fun PreviewCompendiumButtonLight() {
+private fun PreviewIconLabelButtonLight() {
     AppThemePreview(darkTheme = false) {
-        CompendiumButtonPreview()
+        IconLabelButtonPreview()
     }
 }
 
 @Preview
 @Composable
-private fun PreviewCompendiumButtonDark() {
+private fun PreviewIconLabelButtonDark() {
     AppThemePreview(darkTheme = true) {
-        CompendiumButtonPreview()
+        IconLabelButtonPreview()
     }
 }
