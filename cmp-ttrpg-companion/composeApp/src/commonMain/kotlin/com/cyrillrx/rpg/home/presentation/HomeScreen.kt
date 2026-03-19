@@ -29,6 +29,7 @@ import rpg_companion.composeapp.generated.resources.btn_campaign_list
 import rpg_companion.composeapp.generated.resources.btn_character_sheets
 import rpg_companion.composeapp.generated.resources.btn_inventory
 import rpg_companion.composeapp.generated.resources.btn_spell_book
+import rpg_companion.composeapp.generated.resources.section_compendium
 
 @Composable
 fun HomeScreen(router: HomeRouter) {
@@ -50,7 +51,7 @@ fun HomeScreen(router: HomeRouter) {
             HomeButton(stringResource(Res.string.btn_character_sheets), router::openCharacterSheets)
 
             SectionHeader(
-                title = "Compendium",
+                title = stringResource(Res.string.section_compendium),
                 modifier = Modifier.padding(spacingCommon),
             )
 
