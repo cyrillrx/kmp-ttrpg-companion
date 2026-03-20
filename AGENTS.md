@@ -1,6 +1,6 @@
 # TTRPG Companion — Contributor Guide
 
-Central reference for all contributors (human or AI).
+Central reference for all AI contributors.
 For project overview, repository structure, and tech stack, see [`README.md`](README.md).
 
 ## 1. Product Requirements
@@ -8,8 +8,6 @@ For project overview, repository structure, and tech stack, see [`README.md`](RE
 For feature specifications and product decisions, refer to the [Product Requirement Documents (PRDs)](docs/prd/). The overall project vision and role model are defined in [`PRD-000`](docs/prd/PRD-000-VISION.md).
 
 ## 2. Project Guidelines and Conventions
-
-For detailed guidelines on specific parts of the project, please refer to the following documents:
 
 ### Collaboration and Communication
 
@@ -30,3 +28,78 @@ For detailed guidelines on specific parts of the project, please refer to the fo
     - [`RUST_CONVENTIONS.md`](docs/conventions/RUST_CONVENTIONS.md)
 - **API Testing with Bruno Conventions**:
     - [`BRUNO_CONVENTIONS.md`](docs/conventions/BRUNO_CONVENTIONS.md)
+
+## 3. KMP Client — Commands
+
+All commands run from `cmp-ttrpg-companion/`:
+
+```bash
+./gradlew build               # Build all targets
+./gradlew desktopRun          # Run on Desktop (JVM)
+./gradlew installDebug        # Install on Android
+./gradlew test                # Run all tests
+./gradlew jvmTest             # Run JVM/Desktop tests only
+./gradlew ktlintCheck         # Check formatting
+./gradlew ktlintFormat        # Auto-fix formatting
+```
+
+ktlint is **strict** in `shared/core` (`ignoreFailures=false`) and permissive in `composeApp` (`ignoreFailures=true`).
+
+## 4. KMP Client — Project-specific patterns
+
+> For full architecture (MVVM/UDF, layer separation, Compose rules), see [`KMP_CONVENTIONS.md`](docs/conventions/KMP_CONVENTIONS.md).
+
+### Module structure
+
+Two Gradle modules:
+
+**`shared/core`** — Domain + Data layers. Pure Kotlin, no UI framework.
+- `domain/` — entities, repository interfaces, filters
+- `data/` — repository implementations (JSON, RAM, SQLDelight)
+- Platform-specific: `DatabaseDriverFactory` (Android/iOS/JVM SQLite drivers)
+
+**`composeApp`** — Presentation layer only.
+- `core/presentation/` — shared components, theme, navigation utilities
+- `{feature}/presentation/` — ViewModels, screens, routers per feature
+
+### Package structure
+
+```
+com.cyrillrx.rpg.{feature}.domain     # entities, repository interfaces
+com.cyrillrx.rpg.{feature}.data       # repository implementations
+com.cyrillrx.rpg.{feature}.presentation.viewmodel
+com.cyrillrx.rpg.{feature}.presentation.component
+com.cyrillrx.rpg.{feature}.presentation.navigation  # {Feature}Route, {Feature}Router
+```
+
+Active features: `home`, `campaign`, `spell`, `creature`, `magicalitem`, `character`.
+
+### Manual DI
+
+No Hilt/Koin. Repositories and routers are instantiated inside `NavGraphBuilder` extension functions and injected via `ViewModelFactory`:
+
+```kotlin
+// In handleSpellRoutes(navController, fileReader):
+composable<SpellRoute.List> {
+    val router = SpellRouterImpl(navController)
+    val factory = SpellBookViewModelFactory(router, JsonSpellRepository(fileReader))
+    val viewModel = viewModel<SpellBookViewModel>(factory = factory)
+    SpellListScreen(viewModel, router)
+}
+```
+
+### Navigation
+
+`App.kt` is the `NavHost` root. Each feature registers its routes via a `NavGraphBuilder` extension function (`handleSpellRoutes`, `handleCampaignRoutes`, etc.). Routes are `@Serializable` objects/data classes. Complex objects are passed as serialized strings using `serialize()`/`deserialize()` helpers from `shared/core/src/commonMain/kotlin/com/cyrillrx/core/data/Serializer.kt`.
+
+### Router pattern
+
+Each feature defines a `{Feature}Router` interface and a `{Feature}RouterImpl(navController)`. The interface is injected into ViewModels; the impl lives in the navigation layer.
+
+### State
+
+`StateFlow` + sealed `Body` interface (`Loading`, `Empty`, `WithData`, `Error`) per screen.
+
+### Stateless composables
+
+Each screen has two overloads: one taking `ViewModel + Router` (runtime), one taking `State + callbacks` (previews). Always provide light and dark preview variants using `AppThemePreview(darkTheme = false/true)`.
