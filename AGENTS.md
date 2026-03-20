@@ -14,6 +14,7 @@ For detailed guidelines on specific parts of the project, please refer to the fo
 ### Collaboration and Communication
 
 - **Collaboration, Git & CI Conventions**: [`GIT_AND_COLLABORATION.md`](docs/conventions/GIT_AND_COLLABORATION.md)
+- **AI Co-authorship**: Do not add AI co-author tags (e.g. `Co-Authored-By: Claude`) to commits or pull requests.
 
 ### Code Quality and Maintainability
 
