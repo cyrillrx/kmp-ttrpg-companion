@@ -53,7 +53,31 @@ We utilize a **Trunk-Based Development** branching strategy. This means:
 
 This approach promotes continuous integration, reduces merge conflicts, and enables faster delivery of features.
 
-## 5. CI & Policies
+## 5. Atomic & Incremental Commits
+
+Each commit must be a **single, self-contained logical change**. This makes code review easier, enables clean `git bisect` and `git revert`, and keeps the project history readable.
+
+- **One commit = one change**: a commit should do one thing — add a component, update a data model, add string resources, etc. Do not mix unrelated changes or changes across different layers in the same commit.
+- **Compilable at every commit**: the project must build and all tests must pass after each individual commit.
+- **Incremental on feature branches**: progress through small, successive commits that a reviewer can validate one by one. Avoid large "big bang" commits that bundle many changes together.
+- **Easy to revert**: an atomic commit can be reverted without side effects on unrelated code.
+
+### Examples
+
+Good (atomic):
+```
+feat(spell): add spell level string resources
+feat(spell): add SampleSpellRepository with diverse spells
+feat(spell): rewrite SpellListItem as compact card
+feat(spell): update SpellListScreen to use new SpellListItem
+```
+
+Bad (monolithic):
+```
+feat(spell): redesign spell list screen with new item, samples, and strings
+```
+
+## 6. CI & Policies
 
 - **Pull Requests**: All code must be reviewed via PRs before merging into `main`.
 - **Code Quality**: PRs must pass all automated checks (linting, tests, build) on the CI pipeline.
