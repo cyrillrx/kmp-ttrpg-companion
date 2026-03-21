@@ -13,6 +13,8 @@ For feature specifications and product decisions, refer to the [Product Requirem
 
 - **Collaboration, Git & CI Conventions**: [`GIT_AND_COLLABORATION.md`](docs/conventions/GIT_AND_COLLABORATION.md)
 - **AI Co-authorship**: Do not add AI co-author tags (e.g. `Co-Authored-By: Claude`) to commits or pull requests.
+- **AI/Agent rules**: All rules applying to AI agents must be written in this file (`AGENTS.md`). Agent-specific config files (e.g. `.claude/CLAUDE.md`) must only point to this file — never duplicate or extend rules there.
+- **AI/Agent PR labeling**: PRs related to AI agent configuration or rules must use the `docs(agents)` type prefix (e.g. `docs(agents): ...`).
 
 ### Code Quality and Maintainability
 
