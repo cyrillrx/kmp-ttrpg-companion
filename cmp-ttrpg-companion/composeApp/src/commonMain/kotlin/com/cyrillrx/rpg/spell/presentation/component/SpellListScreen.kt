@@ -1,12 +1,13 @@
 package com.cyrillrx.rpg.spell.presentation.component
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
@@ -23,6 +24,8 @@ import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SearchBarWithBack
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
+import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
+import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.presentation.SpellListState
@@ -42,7 +45,6 @@ fun SpellListScreen(viewModel: SpellBookViewModel, router: SpellRouter) {
         onNavigateUpClicked = router::navigateUp,
         onSearchQueryChanged = viewModel::onSearchQueryChanged,
         onSpellClicked = router::openSpellDetail,
-        onSpellSaved = viewModel::onSpellSaved,
     )
 }
 
@@ -52,7 +54,6 @@ fun SpellListScreen(
     onNavigateUpClicked: () -> Unit,
     onSearchQueryChanged: (String) -> Unit,
     onSpellClicked: (Spell) -> Unit,
-    onSpellSaved: (Spell) -> Unit,
 ) {
     Scaffold(
         topBar = {
@@ -74,7 +75,7 @@ fun SpellListScreen(
                 is SpellListState.Body.Loading -> Loader()
                 is SpellListState.Body.Empty -> EmptySearch(state.searchQuery)
                 is SpellListState.Body.Error -> ErrorLayout(body.errorMessage)
-                is SpellListState.Body.WithData -> SpellList(body.searchResults, onSpellClicked, onSpellSaved)
+                is SpellListState.Body.WithData -> SpellList(body.searchResults, onSpellClicked)
             }
         }
     }
@@ -124,7 +125,6 @@ fun AlternativeSpellListScreen(
 private fun SpellList(
     spells: List<Spell>,
     onSpellClicked: (Spell) -> Unit,
-    onSpellSaved: (Spell) -> Unit,
 ) {
     val searchResultsListState = rememberLazyListState()
     LaunchedEffect(spells) {
@@ -134,16 +134,14 @@ private fun SpellList(
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         state = searchResultsListState,
+        contentPadding = PaddingValues(spacingMedium),
+        verticalArrangement = Arrangement.spacedBy(spacingSmall),
     ) {
         items(spells) { spell ->
             SpellListItem(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .wrapContentHeight()
-                    .clickable { onSpellClicked(spell) },
                 spell = spell,
-                isSaved = false,
-                onSaveClicked = onSpellSaved,
+                modifier = Modifier.fillMaxWidth()
+                    .clickable { onSpellClicked(spell) },
             )
         }
     }
@@ -201,8 +199,8 @@ fun PreviewSpellBookScreenDark() {
 @Preview
 @Composable
 fun PreviewSpellBookPeekScreenLight() {
-    AppThemePreview(darkTheme = true) {
-        SpellListScreen(stateWithSampleData, {}, {}, {}, {})
+    AppThemePreview(darkTheme = false) {
+        SpellListScreen(stateWithSampleData, {}, {}, {})
     }
 }
 
@@ -210,6 +208,6 @@ fun PreviewSpellBookPeekScreenLight() {
 @Composable
 fun PreviewSpellBookPeekScreenDark() {
     AppThemePreview(darkTheme = true) {
-        SpellListScreen(stateWithSampleData, {}, {}, {}, {})
+        SpellListScreen(stateWithSampleData, {}, {}, {})
     }
 }

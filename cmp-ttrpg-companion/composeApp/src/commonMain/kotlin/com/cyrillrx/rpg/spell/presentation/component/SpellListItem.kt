@@ -1,7 +1,6 @@
 package com.cyrillrx.rpg.spell.presentation.component
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -17,7 +16,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.cyrillrx.rpg.core.presentation.component.BookmarkButton
 import com.cyrillrx.rpg.core.presentation.component.HtmlText
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
@@ -37,15 +35,13 @@ import rpg_companion.composeapp.generated.resources.formatted_spell_range
 fun SpellListItem(
     modifier: Modifier,
     spell: Spell,
-    isSaved: Boolean,
-    onSaveClicked: (Spell) -> Unit,
 ) {
     Card(
         shape = CutCornerShape(0.dp),
         modifier = modifier.padding(spacingSmall),
     ) {
         Column {
-            Header(spell, isSaved, onSaveClicked)
+            Header(spell)
 
             SpellSpecs(
                 spell,
@@ -69,7 +65,7 @@ fun SpellListItem(
 }
 
 @Composable
-private fun Header(spell: Spell, isSaved: Boolean, onSaveClicked: (Spell) -> Unit) {
+private fun Header(spell: Spell) {
     Row(
         modifier = Modifier.background(spell.getColor()),
         verticalAlignment = Alignment.CenterVertically,
@@ -102,13 +98,6 @@ private fun Header(spell: Spell, isSaved: Boolean, onSaveClicked: (Spell) -> Uni
                     ),
             )
         }
-
-        BookmarkButton(
-            checked = isSaved,
-            modifier = Modifier
-                .clickable { onSaveClicked(spell) }
-                .padding(spacingCommon),
-        )
     }
 }
 
@@ -164,8 +153,6 @@ private fun SpellListItemPreview(darkTheme: Boolean) {
         SpellListItem(
             modifier = Modifier.fillMaxWidth(),
             spell = SampleSpellRepository().get(),
-            isSaved = true,
-            onSaveClicked = {},
         )
     }
 }
