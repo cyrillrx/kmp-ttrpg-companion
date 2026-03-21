@@ -90,7 +90,7 @@ composable<SpellRoute.List> {
 
 ### Navigation
 
-`App.kt` is the `NavHost` root. Each feature registers its routes via a `NavGraphBuilder` extension function (`handleSpellRoutes`, `handleCampaignRoutes`, etc.). Routes are `@Serializable` objects/data classes. Complex objects are passed as serialized strings using `serialize()`/`deserialize()` helpers from `shared/core/src/commonMain/kotlin/com/cyrillrx/core/data/Serializer.kt`.
+`App.kt` is the `NavHost` root. Each feature registers its routes via a `NavGraphBuilder` extension function (`handleSpellRoutes`, `handleCampaignRoutes`, etc.). Routes are `@Serializable` objects/data classes. Complex objects are passed as serialized strings using `serialize()`/`deserialize()` helpers from the `Serializer.kt` utility in the `shared/core` module.
 
 ### Router pattern
 
