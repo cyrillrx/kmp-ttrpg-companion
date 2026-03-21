@@ -14,7 +14,7 @@ description: Stage and commit current changes following the project's Convention
 
 Follow **Conventional Commits**: `<type>(<scope>): <subject>`
 
-**Types**: `feat`, `fix`, `refactor`, `style`, `docs`, `test`, `chore`, `ci`, `build`
+**Types**: `feat`, `fix`, `refactor`, `style`, `docs`, `test`, `chore`, `ci`, `build`, `perf`, `security`
 
 **Scope**: component affected — use short names already present in the git log (e.g. `spell`, `home`, `campaign`, `creature`, `magicalitem`, `character`, `agents`, `roadmap`, `prd`, `compose-app`, `spring-server`)
 
