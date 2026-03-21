@@ -24,7 +24,7 @@ We follow **Conventional Commits** to keep the history clean and to allow automa
 ```
 
 - **Types**: `feat`, `fix`, `refactor`, `style`, `docs`, `test`, `chore`, `ci`, `build` (and potentially `perf`, `security`).
-- **Scope**: The component affected (e.g., `project`, `compose-app`, `server-auth`, `bruno-api`).
+- **Scope**: The component affected (e.g., `project`, `compose-app`, `server-auth`, `bruno-api`, `agents`, `prd`).
 - **Subject**: Use the imperative, present tense: "change" not "changed" nor "changes". Don't capitalize the first letter. No dot (.) at the end.
 
 ## 3. Commit Examples
@@ -33,7 +33,9 @@ Here are some examples of valid commit messages:
 
 - feat(compose-app): add new campaign creation form
 - fix(server-auth): prevent XSS attack in login endpoint
-- docs(project): update AGENTS.md with new project overview
+- docs(project): update README.md with new project overview
+- docs(pdr): add product requirement document to describe spell filtering 
+- docs(agents): add co-authorship rule to AGENTS.md
 - style(compose-app): format `CampaignListScreen.kt` with ktlint
 - refactor(spring-server): extract common logging logic to a utility class
 - test(bruno-api): add E2E test for user registration flow
