@@ -1,6 +1,6 @@
 # TTRPG Companion — Contributor Guide
 
-Central reference for all AI contributors.
+Central reference for all contributors (human or AI).
 For project overview, repository structure, and tech stack, see [`README.md`](README.md).
 
 ## 1. Product Requirements
