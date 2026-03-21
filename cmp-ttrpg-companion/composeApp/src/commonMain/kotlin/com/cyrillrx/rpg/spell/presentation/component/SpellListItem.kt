@@ -20,11 +20,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.cyrillrx.rpg.core.presentation.component.BookmarkButton
 import com.cyrillrx.rpg.core.presentation.component.HtmlText
+import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
+import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.spell.domain.Spell
 import org.jetbrains.compose.resources.stringResource
+import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.formatted_spell_casting_time
 import rpg_companion.composeapp.generated.resources.formatted_spell_components
@@ -141,5 +144,29 @@ private fun SpellSpecs(spell: Spell, modifier: Modifier) {
             )
             Text(text = spell.duration, modifier = Modifier.padding(start = 4.dp))
         }
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewSpellListItemLight() {
+    SpellListItemPreview(darkTheme = false)
+}
+
+@Preview
+@Composable
+private fun PreviewSpellListItemDark() {
+    SpellListItemPreview(darkTheme = true)
+}
+
+@Composable
+private fun SpellListItemPreview(darkTheme: Boolean) {
+    AppThemePreview(darkTheme = darkTheme) {
+        SpellListItem(
+            modifier = Modifier.fillMaxWidth(),
+            spell = SampleSpellRepository().get(),
+            isSaved = true,
+            onSaveClicked = {},
+        )
     }
 }
