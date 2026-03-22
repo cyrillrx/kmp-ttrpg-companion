@@ -10,7 +10,7 @@ import androidx.navigation.toRoute
 import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.rpg.core.data.ComposeFileReader
 import com.cyrillrx.rpg.spell.data.JsonSpellRepository
-import com.cyrillrx.rpg.spell.presentation.component.AlternativeSpellListScreen
+import com.cyrillrx.rpg.spell.presentation.component.SpellCardCarouselScreen
 import com.cyrillrx.rpg.spell.presentation.component.SpellCardScreen
 import com.cyrillrx.rpg.spell.presentation.component.SpellListScreen
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellBookViewModel
@@ -22,7 +22,7 @@ interface SpellRoute {
     data object List
 
     @Serializable
-    data object AlternativeList
+    data object CardCarousel
 
     @Serializable
     data class Detail(val serializedSpell: String)
@@ -40,12 +40,12 @@ fun NavGraphBuilder.handleSpellRoutes(navController: NavController, fileReader: 
         SpellListScreen(viewModel, router)
     }
 
-    composable<SpellRoute.AlternativeList> {
+    composable<SpellRoute.CardCarousel> {
         val router = SpellRouterImpl(navController)
         val repository = JsonSpellRepository(fileReader)
         val viewModelFactory = SpellBookViewModelFactory(router, repository)
         val viewModel = viewModel<SpellBookViewModel>(factory = viewModelFactory)
-        AlternativeSpellListScreen(viewModel, router)
+        SpellCardCarouselScreen(viewModel, router)
     }
 
     composable<SpellRoute.Detail> { entry ->
