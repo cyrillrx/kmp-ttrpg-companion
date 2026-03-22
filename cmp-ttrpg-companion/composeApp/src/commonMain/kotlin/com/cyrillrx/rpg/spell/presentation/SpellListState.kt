@@ -1,10 +1,11 @@
 package com.cyrillrx.rpg.spell.presentation
 
 import com.cyrillrx.rpg.spell.domain.Spell
+import com.cyrillrx.rpg.spell.domain.SpellFilter
 import org.jetbrains.compose.resources.StringResource
 
 data class SpellListState(
-    val searchQuery: String,
+    val filter: SpellFilter = SpellFilter(),
     val body: Body,
 ) {
     sealed interface Body {

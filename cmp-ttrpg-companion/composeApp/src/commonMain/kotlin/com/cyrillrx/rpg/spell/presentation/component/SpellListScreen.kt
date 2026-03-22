@@ -56,7 +56,7 @@ fun SpellListScreen(
         topBar = {
             SearchBarWithBack(
                 hint = stringResource(Res.string.hint_search_spell),
-                query = state.searchQuery,
+                query = state.filter.query,
                 onQueryChanged = onSearchQueryChanged,
                 onNavigateUpClicked = onNavigateUpClicked,
             )
@@ -70,7 +70,7 @@ fun SpellListScreen(
         ) {
             when (val body = state.body) {
                 is SpellListState.Body.Loading -> Loader()
-                is SpellListState.Body.Empty -> EmptySearch(state.searchQuery)
+                is SpellListState.Body.Empty -> EmptySearch(state.filter.query)
                 is SpellListState.Body.Error -> ErrorLayout(body.errorMessage)
                 is SpellListState.Body.WithData -> SpellList(body.searchResults, onSpellClicked)
             }
@@ -105,7 +105,6 @@ private fun SpellList(
 }
 
 private val stateWithSampleData = SpellListState(
-    searchQuery = "",
     body = SpellListState.Body.WithData(SampleSpellRepository().getAll()),
 )
 

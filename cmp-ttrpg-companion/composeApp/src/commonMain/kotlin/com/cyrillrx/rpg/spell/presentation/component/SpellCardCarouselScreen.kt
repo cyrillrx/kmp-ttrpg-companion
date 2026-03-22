@@ -52,7 +52,7 @@ fun SpellCardCarouselScreen(
         topBar = {
             SearchBarWithBack(
                 hint = stringResource(Res.string.hint_search_spell),
-                query = state.searchQuery,
+                query = state.filter.query,
                 onQueryChanged = onSearchQueryChanged,
                 onNavigateUpClicked = onNavigateUpClicked,
             )
@@ -61,7 +61,7 @@ fun SpellCardCarouselScreen(
         Column(Modifier.padding(paddingValues)) {
             when (val body = state.body) {
                 is SpellListState.Body.Loading -> Loader()
-                is SpellListState.Body.Empty -> EmptySearch(state.searchQuery)
+                is SpellListState.Body.Empty -> EmptySearch(state.filter.query)
                 is SpellListState.Body.Error -> ErrorLayout(body.errorMessage)
                 is SpellListState.Body.WithData -> SpellCardCarousel(body.searchResults, onSpellClicked)
             }
@@ -96,7 +96,6 @@ private fun SpellCardCarousel(
 }
 
 private val stateWithSampleData = SpellListState(
-    searchQuery = "",
     body = SpellListState.Body.WithData(SampleSpellRepository().getAll()),
 )
 

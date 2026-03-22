@@ -2,12 +2,15 @@ package com.cyrillrx.rpg.spell.domain
 
 import com.cyrillrx.rpg.character.domain.PlayerCharacter
 
-class SpellFilter(
-    private val query: String = "",
-    private val schools: Set<Spell.School> = emptySet(),
-    private val playerClasses: Set<PlayerCharacter.Class> = emptySet(),
-    private val levels: Set<Int> = emptySet(),
+data class SpellFilter(
+    val query: String = "",
+    val schools: Set<Spell.School> = emptySet(),
+    val playerClasses: Set<PlayerCharacter.Class> = emptySet(),
+    val levels: Set<Int> = emptySet(),
 ) {
+    val hasActiveFilters: Boolean
+        get() = schools.isNotEmpty() || playerClasses.isNotEmpty() || levels.isNotEmpty()
+
     fun matches(spell: Spell): Boolean {
         return (schools.isEmpty() || spell.schools.any { schools.contains(it) }) &&
             (playerClasses.isEmpty() || spell.availableClasses.any { playerClasses.contains(it) }) &&
