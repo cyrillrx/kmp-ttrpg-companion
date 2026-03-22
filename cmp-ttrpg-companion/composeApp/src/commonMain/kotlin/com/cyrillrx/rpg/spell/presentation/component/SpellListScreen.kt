@@ -13,9 +13,13 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.cyrillrx.rpg.character.domain.PlayerCharacter
 import com.cyrillrx.rpg.core.presentation.component.EmptySearch
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
@@ -42,6 +46,10 @@ fun SpellListScreen(viewModel: SpellBookViewModel, router: SpellRouter) {
         onNavigateUpClicked = router::navigateUp,
         onSearchQueryChanged = viewModel::onSearchQueryChanged,
         onSpellClicked = router::openSpellDetail,
+        onLevelToggled = viewModel::onLevelToggled,
+        onSchoolToggled = viewModel::onSchoolToggled,
+        onClassToggled = viewModel::onClassToggled,
+        onResetFilters = viewModel::onResetFilters,
     )
 }
 
@@ -51,7 +59,13 @@ fun SpellListScreen(
     onNavigateUpClicked: () -> Unit,
     onSearchQueryChanged: (String) -> Unit,
     onSpellClicked: (Spell) -> Unit,
+    onLevelToggled: (Int) -> Unit,
+    onSchoolToggled: (Spell.School) -> Unit,
+    onClassToggled: (PlayerCharacter.Class) -> Unit,
+    onResetFilters: () -> Unit,
 ) {
+    var showFilterSheet by remember { mutableStateOf(false) }
+
     Scaffold(
         topBar = {
             SearchBarWithBack(
@@ -59,6 +73,8 @@ fun SpellListScreen(
                 query = state.filter.query,
                 onQueryChanged = onSearchQueryChanged,
                 onNavigateUpClicked = onNavigateUpClicked,
+                onFilterClicked = { showFilterSheet = true },
+                hasActiveFilters = state.filter.hasActiveFilters,
             )
         },
     ) { paddingValues ->
@@ -75,6 +91,17 @@ fun SpellListScreen(
                 is SpellListState.Body.WithData -> SpellList(body.searchResults, onSpellClicked)
             }
         }
+    }
+
+    if (showFilterSheet) {
+        SpellFilterBottomSheet(
+            filter = state.filter,
+            onLevelToggled = onLevelToggled,
+            onSchoolToggled = onSchoolToggled,
+            onClassToggled = onClassToggled,
+            onResetFilters = onResetFilters,
+            onDismiss = { showFilterSheet = false },
+        )
     }
 }
 
@@ -112,7 +139,7 @@ private val stateWithSampleData = SpellListState(
 @Composable
 fun PreviewSpellBookPeekScreenLight() {
     AppThemePreview(darkTheme = false) {
-        SpellListScreen(stateWithSampleData, {}, {}, {})
+        SpellListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, {})
     }
 }
 
@@ -120,6 +147,6 @@ fun PreviewSpellBookPeekScreenLight() {
 @Composable
 fun PreviewSpellBookPeekScreenDark() {
     AppThemePreview(darkTheme = true) {
-        SpellListScreen(stateWithSampleData, {}, {}, {})
+        SpellListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, {})
     }
 }

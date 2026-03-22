@@ -61,4 +61,10 @@
     <string name="school_illusion">Illusion</string>
     <string name="school_necromancy">Nécromancie</string>
     <string name="school_transmutation">Transmutation</string>
+
+    <!-- Spell Filter -->
+    <string name="title_filter_spells">Filtrer les sorts</string>
+    <string name="label_filter_level">Niveau</string>
+    <string name="label_filter_class">Classe</string>
+    <string name="label_filter_school">Ecole</string>
 </resources>

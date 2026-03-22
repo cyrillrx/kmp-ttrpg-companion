@@ -4,6 +4,8 @@
     <string name="app_name">TTRPG Companion</string>
 
     <string name="btn_back">Back</string>
+    <string name="btn_filter">Filter</string>
+    <string name="btn_reset_all">Reset All</string>
     <string name="btn_more">More</string>
 
     <!--  Home  -->
