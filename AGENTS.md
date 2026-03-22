@@ -124,7 +124,7 @@ Before creating a new composable, check `core/presentation/component/` for exist
 - `SimpleTopBar` — top app bar with optional back button
 - `SearchBar` / `SearchBarWithBack` — search input fields
 - `Loader`, `ErrorLayout`, `EmptySearch` — standard state screens
-- `BookmarkButton`, `OverflowMenu` — common interactive elements
+- `OverflowMenu` — common interactive elements
 - `HtmlText` — platform-specific HTML rendering
 
 ### Rules
