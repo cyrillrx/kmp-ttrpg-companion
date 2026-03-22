@@ -140,8 +140,8 @@ private fun SpellList(
         items(spells) { spell ->
             SpellListItem(
                 spell = spell,
-                modifier = Modifier.fillMaxWidth()
-                    .clickable { onSpellClicked(spell) },
+                onClick = { onSpellClicked(spell) },
+                modifier = Modifier.fillMaxWidth(),
             )
         }
     }
