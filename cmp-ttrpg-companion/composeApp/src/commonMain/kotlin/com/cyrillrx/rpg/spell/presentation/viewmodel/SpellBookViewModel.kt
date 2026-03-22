@@ -47,27 +47,24 @@ class SpellBookViewModel(
 
     fun onLevelToggled(level: Int) {
         _state.update {
-            val current = it.filter.levels
-            val updated = if (level in current) current - level else current + level
-            it.copy(filter = it.filter.copy(levels = updated))
+            val updatedLevels = it.filter.levels.toggled(level)
+            it.copy(filter = it.filter.copy(levels = updatedLevels))
         }
         refreshData()
     }
 
     fun onSchoolToggled(school: Spell.School) {
         _state.update {
-            val current = it.filter.schools
-            val updated = if (school in current) current - school else current + school
-            it.copy(filter = it.filter.copy(schools = updated))
+            val updatedSchools = it.filter.schools.toggled(school)
+            it.copy(filter = it.filter.copy(schools = updatedSchools))
         }
         refreshData()
     }
 
     fun onClassToggled(playerClass: PlayerCharacter.Class) {
         _state.update {
-            val current = it.filter.playerClasses
-            val updated = if (playerClass in current) current - playerClass else current + playerClass
-            it.copy(filter = it.filter.copy(playerClasses = updated))
+            val updatedClasses = it.filter.playerClasses.toggled(playerClass)
+            it.copy(filter = it.filter.copy(playerClasses = updatedClasses))
         }
         refreshData()
     }
@@ -78,6 +75,8 @@ class SpellBookViewModel(
         }
         refreshData()
     }
+
+    private fun <T> Set<T>.toggled(item: T): Set<T> = if (item in this) this - item else this + item
 
     private fun refreshData() {
         updateJob?.cancel()
