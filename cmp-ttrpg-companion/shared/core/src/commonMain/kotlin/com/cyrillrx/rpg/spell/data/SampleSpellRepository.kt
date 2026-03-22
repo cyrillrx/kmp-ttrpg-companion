@@ -77,7 +77,7 @@ class SampleSpellRepository {
             title = "Counterspell",
             description = "You attempt to interrupt a creature in the process of casting a spell.",
             level = 3,
-            castingTime = "1 reaction",
+            castingTime = "1 reaction when you see an opponent in a 10-foot radius",
             range = "60 feet",
             components = "S",
             duration = "Instantaneous",
