@@ -1,19 +1,17 @@
 package com.cyrillrx.rpg.spell.presentation.component
 
-import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.core.presentation.component.EmptySearch
@@ -21,8 +19,6 @@ import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SearchBarWithBack
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
-import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
-import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.presentation.SpellListState
@@ -34,10 +30,10 @@ import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.hint_search_spell
 
 @Composable
-fun SpellListScreen(viewModel: SpellBookViewModel, router: SpellRouter) {
+fun SpellCardCarouselScreen(viewModel: SpellBookViewModel, router: SpellRouter) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
-    SpellListScreen(
+    SpellCardCarouselScreen(
         state = state,
         onNavigateUpClicked = router::navigateUp,
         onSearchQueryChanged = viewModel::onSearchQueryChanged,
@@ -46,7 +42,7 @@ fun SpellListScreen(viewModel: SpellBookViewModel, router: SpellRouter) {
 }
 
 @Composable
-fun SpellListScreen(
+fun SpellCardCarouselScreen(
     state: SpellListState,
     onNavigateUpClicked: () -> Unit,
     onSearchQueryChanged: (String) -> Unit,
@@ -62,24 +58,19 @@ fun SpellListScreen(
             )
         },
     ) { paddingValues ->
-        Column(
-            modifier = Modifier
-                .padding(paddingValues)
-                .fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
+        Column(Modifier.padding(paddingValues)) {
             when (val body = state.body) {
                 is SpellListState.Body.Loading -> Loader()
                 is SpellListState.Body.Empty -> EmptySearch(state.searchQuery)
                 is SpellListState.Body.Error -> ErrorLayout(body.errorMessage)
-                is SpellListState.Body.WithData -> SpellList(body.searchResults, onSpellClicked)
+                is SpellListState.Body.WithData -> SpellCardCarousel(body.searchResults, onSpellClicked)
             }
         }
     }
 }
 
 @Composable
-private fun SpellList(
+private fun SpellCardCarousel(
     spells: List<Spell>,
     onSpellClicked: (Spell) -> Unit,
 ) {
@@ -88,18 +79,18 @@ private fun SpellList(
         searchResultsListState.animateScrollToItem(0)
     }
 
-    LazyColumn(
+    LazyRow(
         modifier = Modifier.fillMaxSize(),
         state = searchResultsListState,
-        contentPadding = PaddingValues(spacingMedium),
-        verticalArrangement = Arrangement.spacedBy(spacingSmall),
     ) {
         items(spells) { spell ->
-            SpellListItem(
-                spell = spell,
-                onClick = { onSpellClicked(spell) },
-                modifier = Modifier.fillMaxWidth(),
-            )
+            Box(
+                modifier = Modifier
+                    .fillParentMaxSize()
+                    .clickable { onSpellClicked(spell) },
+            ) {
+                SpellCard(spell)
+            }
         }
     }
 }
@@ -111,16 +102,16 @@ private val stateWithSampleData = SpellListState(
 
 @Preview
 @Composable
-fun PreviewSpellBookPeekScreenLight() {
+fun PreviewSpellCardCarouselScreenLight() {
     AppThemePreview(darkTheme = false) {
-        SpellListScreen(stateWithSampleData, {}, {}, {})
+        SpellCardCarouselScreen(stateWithSampleData, {}, {}, {})
     }
 }
 
 @Preview
 @Composable
-fun PreviewSpellBookPeekScreenDark() {
+fun PreviewSpellCardCarouselScreenDark() {
     AppThemePreview(darkTheme = true) {
-        SpellListScreen(stateWithSampleData, {}, {}, {})
+        SpellCardCarouselScreen(stateWithSampleData, {}, {}, {})
     }
 }

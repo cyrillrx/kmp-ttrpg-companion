@@ -31,7 +31,7 @@ class HomeRouterImpl(private val navController: NavController) : HomeRouter {
     }
 
     override fun openAlternativeSpellBook() {
-        navController.navigate(SpellRoute.AlternativeList)
+        navController.navigate(SpellRoute.CardCarousel)
     }
 
     override fun openMagicalItems() {
