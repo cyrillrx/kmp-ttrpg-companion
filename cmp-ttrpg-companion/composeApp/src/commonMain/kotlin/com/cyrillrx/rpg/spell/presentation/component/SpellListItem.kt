@@ -1,16 +1,13 @@
 package com.cyrillrx.rpg.spell.presentation.component
 
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AutoAwesome
 import androidx.compose.material.icons.filled.Bolt
@@ -28,19 +25,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
-import com.cyrillrx.rpg.core.presentation.theme.Purple300
-import com.cyrillrx.rpg.core.presentation.theme.Purple400
-import com.cyrillrx.rpg.core.presentation.theme.Purple500
-import com.cyrillrx.rpg.core.presentation.theme.Purple600
-import com.cyrillrx.rpg.core.presentation.theme.Purple700
-import com.cyrillrx.rpg.core.presentation.theme.Purple800
-import com.cyrillrx.rpg.core.presentation.theme.Purple900
-import com.cyrillrx.rpg.core.presentation.theme.Scarlet
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
@@ -67,7 +55,6 @@ fun SpellListItem(
     modifier: Modifier = Modifier,
 ) {
     val school = spell.schools.firstOrNull()
-    val schoolColor = school.toColor()
 
     Card(
         onClick = onClick,
@@ -80,22 +67,6 @@ fun SpellListItem(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.padding(spacingCommon),
         ) {
-            // School icon
-            Box(
-                contentAlignment = Alignment.Center,
-                modifier = Modifier
-                    .size(48.dp)
-                    .background(schoolColor, RoundedCornerShape(12.dp)),
-            ) {
-                Icon(
-                    imageVector = school.toIcon(),
-                    contentDescription = null,
-                    tint = Color.White,
-                    modifier = Modifier.size(24.dp),
-                )
-            }
-
-            Spacer(modifier = Modifier.width(spacingCommon))
 
             // Spell info
             Column(
@@ -166,17 +137,6 @@ private fun formattedLevel(level: Int): String = stringResource(
     },
 )
 
-private fun Spell.School?.toColor(): Color = when (this) {
-    Spell.School.ABJURATION -> Purple400
-    Spell.School.CONJURATION -> Purple700
-    Spell.School.DIVINATION -> Purple500
-    Spell.School.ENCHANTMENT -> Scarlet
-    Spell.School.EVOCATION -> Purple600
-    Spell.School.ILLUSION -> Purple800
-    Spell.School.NECROMANCY -> Purple900
-    Spell.School.TRANSMUTATION -> Purple300
-    null -> Purple500
-}
 
 private fun Spell.School?.toIcon(): ImageVector = when (this) {
     Spell.School.ABJURATION -> Icons.Filled.Shield
