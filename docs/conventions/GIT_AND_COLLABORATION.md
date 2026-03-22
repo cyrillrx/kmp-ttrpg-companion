@@ -23,7 +23,10 @@ We follow **Conventional Commits** to keep the history clean and to allow automa
 <body>
 ```
 
-- **Types**: `feat`, `fix`, `refactor`, `style`, `docs`, `test`, `chore`, `ci`, `build` (and potentially `perf`, `security`).
+- **Types**: `feat`, `fix`, `ui`, `refactor`, `style`, `docs`, `test`, `chore`, `ci`, `build` (and potentially `perf`, `security`).
+  - `feat` — new user-facing functionality
+  - `ui` — visible UI change that is not a new feature (e.g. removing an icon, adjusting layout, tweaking a component)
+  - `refactor` — internal code restructuring with **no visible change** to the user
 - **Scope**: The component affected (e.g., `project`, `compose-app`, `server-auth`, `bruno-api`, `agents`, `prd`).
 - **Subject**: Use the imperative, present tense: "change" not "changed" nor "changes". Don't capitalize the first letter. No dot (.) at the end.
 
@@ -37,6 +40,7 @@ Here are some examples of valid commit messages:
 - docs(pdr): add product requirement document to describe spell filtering 
 - docs(agents): add co-authorship rule to AGENTS.md
 - style(compose-app): format `CampaignListScreen.kt` with ktlint
+- ui(spell): remove trailing chevron from spell list item
 - refactor(spring-server): extract common logging logic to a utility class
 - test(bruno-api): add E2E test for user registration flow
 - build(compose-app): update gradle wrapper to 8.x

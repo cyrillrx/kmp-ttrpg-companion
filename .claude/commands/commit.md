@@ -14,7 +14,10 @@ description: Stage and commit current changes following the project's Convention
 
 Follow **Conventional Commits**: `<type>(<scope>): <subject>`
 
-**Types**: `feat`, `fix`, `refactor`, `style`, `docs`, `test`, `chore`, `ci`, `build`, `perf`, `security`
+**Types**: `feat`, `fix`, `ui`, `refactor`, `style`, `docs`, `test`, `chore`, `ci`, `build`, `perf`, `security`
+- `feat` — new user-facing functionality
+- `ui` — visible UI change that is not a new feature (removing an icon, adjusting layout, tweaking a component)
+- `refactor` — internal restructuring with no visible change to the user
 
 **Scope**: component affected — use short names already present in the git log (e.g. `spell`, `home`, `campaign`, `creature`, `magicalitem`, `character`, `agents`, `roadmap`, `prd`, `compose-app`, `spring-server`)
 
