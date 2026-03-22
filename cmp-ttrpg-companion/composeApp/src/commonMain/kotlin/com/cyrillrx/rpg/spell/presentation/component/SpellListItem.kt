@@ -27,6 +27,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
@@ -104,6 +105,8 @@ fun SpellListItem(
                         text = spell.castingTime,
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
                     )
                 }
             }
@@ -137,7 +140,6 @@ private fun formattedLevel(level: Int): String = stringResource(
     },
 )
 
-
 private fun Spell.School?.toIcon(): ImageVector = when (this) {
     Spell.School.ABJURATION -> Icons.Filled.Shield
     Spell.School.CONJURATION -> Icons.Filled.Flare
@@ -149,7 +151,6 @@ private fun Spell.School?.toIcon(): ImageVector = when (this) {
     Spell.School.TRANSMUTATION -> Icons.Filled.SwapHoriz
     null -> Icons.Filled.AutoAwesome
 }
-
 
 @Preview
 @Composable
