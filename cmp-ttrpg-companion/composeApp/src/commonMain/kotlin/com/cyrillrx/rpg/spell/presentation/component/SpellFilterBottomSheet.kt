@@ -30,14 +30,6 @@ import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.btn_reset_all
-import rpg_companion.composeapp.generated.resources.class_bard
-import rpg_companion.composeapp.generated.resources.class_cleric
-import rpg_companion.composeapp.generated.resources.class_druid
-import rpg_companion.composeapp.generated.resources.class_paladin
-import rpg_companion.composeapp.generated.resources.class_ranger
-import rpg_companion.composeapp.generated.resources.class_sorcerer
-import rpg_companion.composeapp.generated.resources.class_warlock
-import rpg_companion.composeapp.generated.resources.class_wizard
 import rpg_companion.composeapp.generated.resources.label_filter_class
 import rpg_companion.composeapp.generated.resources.label_filter_level
 import rpg_companion.composeapp.generated.resources.label_filter_school
@@ -130,21 +122,6 @@ fun SpellFilterBottomSheet(
             }
         }
     }
-}
-
-@Composable
-private fun PlayerCharacter.Class.toFormattedString(): String {
-    val stringRes = when (this) {
-        PlayerCharacter.Class.BARD -> Res.string.class_bard
-        PlayerCharacter.Class.CLERIC -> Res.string.class_cleric
-        PlayerCharacter.Class.DRUID -> Res.string.class_druid
-        PlayerCharacter.Class.PALADIN -> Res.string.class_paladin
-        PlayerCharacter.Class.RANGER -> Res.string.class_ranger
-        PlayerCharacter.Class.SORCERER -> Res.string.class_sorcerer
-        PlayerCharacter.Class.WARLOCK -> Res.string.class_warlock
-        PlayerCharacter.Class.WIZARD -> Res.string.class_wizard
-    }
-    return stringResource(stringRes)
 }
 
 @Preview
