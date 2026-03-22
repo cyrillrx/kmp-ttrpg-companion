@@ -40,7 +40,19 @@
     <string name="formatted_spell_range">Range:</string>
     <string name="formatted_spell_duration">Duration:</string>
 
-    <!-- School -->
+    <!-- Spell Level -->
+    <string name="spell_level_cantrip">Cantrip</string>
+    <string name="spell_level_1st">1st level</string>
+    <string name="spell_level_2nd">2nd level</string>
+    <string name="spell_level_3rd">3rd level</string>
+    <string name="spell_level_4th">4th level</string>
+    <string name="spell_level_5th">5th level</string>
+    <string name="spell_level_6th">6th level</string>
+    <string name="spell_level_7th">7th level</string>
+    <string name="spell_level_8th">8th level</string>
+    <string name="spell_level_9th">9th level</string>
+
+    <!-- Spell School -->
     <string name="school_abjuration">Abjuration</string>
     <string name="school_conjuration">Conjuration</string>
     <string name="school_divination">Divination</string>

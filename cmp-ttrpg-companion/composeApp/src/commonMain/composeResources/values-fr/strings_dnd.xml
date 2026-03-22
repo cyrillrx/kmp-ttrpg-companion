@@ -40,7 +40,19 @@
     <string name="formatted_spell_range">Portée :</string>
     <string name="formatted_spell_duration">Durée :</string>
 
-    <!-- School -->
+    <!-- Spell Level -->
+    <string name="spell_level_cantrip">Tour de magie</string>
+    <string name="spell_level_1st">Niveau 1</string>
+    <string name="spell_level_2nd">Niveau 2</string>
+    <string name="spell_level_3rd">Niveau 3</string>
+    <string name="spell_level_4th">Niveau 4</string>
+    <string name="spell_level_5th">Niveau 5</string>
+    <string name="spell_level_6th">Niveau 6</string>
+    <string name="spell_level_7th">Niveau 7</string>
+    <string name="spell_level_8th">Niveau 8</string>
+    <string name="spell_level_9th">Niveau 9</string>
+
+    <!-- Spell School -->
     <string name="school_abjuration">Abjuration</string>
     <string name="school_conjuration">Invocation</string>
     <string name="school_divination">Divination</string>

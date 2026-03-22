@@ -7,8 +7,8 @@ For detailed feature specifications, see the [PRDs](prd/).
 
 > Resolve open design decisions before moving forward.
 
-- [ ] Decide on Spellbook layout (vertical list vs. horizontal cards) and remove the alternative
-- [ ] Remove the duplicate Spellbook button from `HomeScreen`
+- [x] Decide on Spellbook layout (vertical list vs. horizontal cards) and remove the alternative
+- [x] Remove the duplicate Spellbook button from `HomeScreen`
 
 ## Phase 2 - Browsing & Filtering - Reference Data
 

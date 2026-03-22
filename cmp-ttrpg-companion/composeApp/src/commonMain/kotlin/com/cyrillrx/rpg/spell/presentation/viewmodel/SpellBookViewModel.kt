@@ -44,17 +44,6 @@ class SpellBookViewModel(
         router.openSpellDetail(spell)
     }
 
-    fun onSpellSaved(spell: Spell) {
-        // TODO
-//        val savedSpells = _state.value.savedSpells.toMutableList()
-//        if (savedSpells.contains(action.spell)) {
-//            savedSpells.remove(action.spell)
-//        } else {
-//            savedSpells.add(action.spell)
-//        }
-//        _state.update { it.copy(savedSpells = savedSpells) }
-    }
-
     private suspend fun updateData(query: String) {
         _state.update {
             SpellListState(searchQuery = query, body = SpellListState.Body.Loading)

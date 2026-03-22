@@ -105,3 +105,31 @@ Each feature defines a `{Feature}Router` interface and a `{Feature}RouterImpl(na
 ### Stateless composables
 
 Each screen has two overloads: one taking `ViewModel + Router` (runtime), one taking `State + callbacks` (previews). Always provide light and dark preview variants using `AppThemePreview(darkTheme = false/true)`.
+
+## 5. KMP Client — Design System
+
+### Theme tokens
+
+Always use constants from `core/presentation/theme/` instead of hardcoded values:
+
+- **Spacing** — `spacingSmall` (4.dp), `spacingMedium` (8.dp), `spacingCommon` (16.dp), `spacingLarge` (32.dp) from `Dimen.kt`
+- **Colors** — use `MaterialTheme.colorScheme.*` for semantic colors; add new raw colors to `Color.kt` only if needed
+- **Shapes** — use `MaterialTheme.shapes.*`; default corner radius is 16.dp (defined in `Shape.kt`)
+- **Typography** — use `MaterialTheme.typography.*` (defined in `Type.kt`)
+
+### Shared components
+
+Before creating a new composable, check `core/presentation/component/` for existing ones:
+
+- `SimpleTopBar` — top app bar with optional back button
+- `SearchBar` / `SearchBarWithBack` — search input fields
+- `Loader`, `ErrorLayout`, `EmptySearch` — standard state screens
+- `OverflowMenu` — common interactive elements
+- `HtmlText` — platform-specific HTML rendering
+
+### Rules
+
+- Never hardcode dp values for spacing; use `Dimen.kt` constants
+- Never define new colors inline; add them to `Color.kt` if the palette doesn't cover the need
+- Always use `MaterialTheme.colorScheme` for semantic color references (primary, surface, etc.)
+- Reuse shared components before creating feature-specific alternatives
