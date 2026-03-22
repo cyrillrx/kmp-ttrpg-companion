@@ -8,15 +8,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AutoAwesome
-import androidx.compose.material.icons.filled.Bolt
-import androidx.compose.material.icons.filled.Flare
-import androidx.compose.material.icons.filled.Psychology
-import androidx.compose.material.icons.filled.Shield
-import androidx.compose.material.icons.filled.SwapHoriz
-import androidx.compose.material.icons.filled.Visibility
-import androidx.compose.material.icons.outlined.Dangerous
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -25,7 +16,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
@@ -37,19 +27,7 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.spell.domain.Spell
-import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
-import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.spell_level_1st
-import rpg_companion.composeapp.generated.resources.spell_level_2nd
-import rpg_companion.composeapp.generated.resources.spell_level_3rd
-import rpg_companion.composeapp.generated.resources.spell_level_4th
-import rpg_companion.composeapp.generated.resources.spell_level_5th
-import rpg_companion.composeapp.generated.resources.spell_level_6th
-import rpg_companion.composeapp.generated.resources.spell_level_7th
-import rpg_companion.composeapp.generated.resources.spell_level_8th
-import rpg_companion.composeapp.generated.resources.spell_level_9th
-import rpg_companion.composeapp.generated.resources.spell_level_cantrip
 
 @Composable
 fun SpellListItem(
@@ -117,41 +95,13 @@ fun SpellListItem(
 
             // Level
             Text(
-                text = formattedLevel(spell.level),
+                text = spell.toFormattedLevel(),
                 style = MaterialTheme.typography.labelSmall,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.primary,
             )
         }
     }
-}
-
-@Composable
-private fun formattedLevel(level: Int): String = stringResource(
-    when (level) {
-        0 -> Res.string.spell_level_cantrip
-        1 -> Res.string.spell_level_1st
-        2 -> Res.string.spell_level_2nd
-        3 -> Res.string.spell_level_3rd
-        4 -> Res.string.spell_level_4th
-        5 -> Res.string.spell_level_5th
-        6 -> Res.string.spell_level_6th
-        7 -> Res.string.spell_level_7th
-        8 -> Res.string.spell_level_8th
-        else -> Res.string.spell_level_9th
-    },
-)
-
-private fun Spell.School?.toIcon(): ImageVector = when (this) {
-    Spell.School.ABJURATION -> Icons.Filled.Shield
-    Spell.School.CONJURATION -> Icons.Filled.Flare
-    Spell.School.DIVINATION -> Icons.Filled.Visibility
-    Spell.School.ENCHANTMENT -> Icons.Filled.Psychology
-    Spell.School.EVOCATION -> Icons.Filled.Bolt
-    Spell.School.ILLUSION -> Icons.Filled.AutoAwesome
-    Spell.School.NECROMANCY -> Icons.Outlined.Dangerous
-    Spell.School.TRANSMUTATION -> Icons.Filled.SwapHoriz
-    null -> Icons.Filled.AutoAwesome
 }
 
 @Preview

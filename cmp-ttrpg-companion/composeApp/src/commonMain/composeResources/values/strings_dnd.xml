@@ -62,4 +62,10 @@
     <string name="school_necromancy">Necromancy</string>
     <string name="school_transmutation">Transmutation</string>
 
+    <!-- Spell Filter -->
+    <string name="title_filter_spells">Filter Spells</string>
+    <string name="label_filter_level">Level</string>
+    <string name="label_filter_class">Class</string>
+    <string name="label_filter_school">School</string>
+
 </resources>
