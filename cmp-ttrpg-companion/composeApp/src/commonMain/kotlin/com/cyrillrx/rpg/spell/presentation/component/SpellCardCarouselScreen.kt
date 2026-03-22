@@ -12,8 +12,12 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.cyrillrx.rpg.character.domain.PlayerCharacter
 import com.cyrillrx.rpg.core.presentation.component.EmptySearch
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
@@ -38,6 +42,10 @@ fun SpellCardCarouselScreen(viewModel: SpellBookViewModel, router: SpellRouter) 
         onNavigateUpClicked = router::navigateUp,
         onSearchQueryChanged = viewModel::onSearchQueryChanged,
         onSpellClicked = router::openSpellDetail,
+        onLevelToggled = viewModel::onLevelToggled,
+        onSchoolToggled = viewModel::onSchoolToggled,
+        onClassToggled = viewModel::onClassToggled,
+        onResetFilters = viewModel::onResetFilters,
     )
 }
 
@@ -47,7 +55,13 @@ fun SpellCardCarouselScreen(
     onNavigateUpClicked: () -> Unit,
     onSearchQueryChanged: (String) -> Unit,
     onSpellClicked: (Spell) -> Unit,
+    onLevelToggled: (Int) -> Unit,
+    onSchoolToggled: (Spell.School) -> Unit,
+    onClassToggled: (PlayerCharacter.Class) -> Unit,
+    onResetFilters: () -> Unit,
 ) {
+    var showFilterSheet by remember { mutableStateOf(false) }
+
     Scaffold(
         topBar = {
             SearchBarWithBack(
@@ -55,6 +69,8 @@ fun SpellCardCarouselScreen(
                 query = state.filter.query,
                 onQueryChanged = onSearchQueryChanged,
                 onNavigateUpClicked = onNavigateUpClicked,
+                onFilterClicked = { showFilterSheet = true },
+                hasActiveFilters = state.filter.hasActiveFilters,
             )
         },
     ) { paddingValues ->
@@ -66,6 +82,17 @@ fun SpellCardCarouselScreen(
                 is SpellListState.Body.WithData -> SpellCardCarousel(body.searchResults, onSpellClicked)
             }
         }
+    }
+
+    if (showFilterSheet) {
+        SpellFilterBottomSheet(
+            filter = state.filter,
+            onLevelToggled = onLevelToggled,
+            onSchoolToggled = onSchoolToggled,
+            onClassToggled = onClassToggled,
+            onResetFilters = onResetFilters,
+            onDismiss = { showFilterSheet = false },
+        )
     }
 }
 
@@ -103,7 +130,7 @@ private val stateWithSampleData = SpellListState(
 @Composable
 fun PreviewSpellCardCarouselScreenLight() {
     AppThemePreview(darkTheme = false) {
-        SpellCardCarouselScreen(stateWithSampleData, {}, {}, {})
+        SpellCardCarouselScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, {})
     }
 }
 
@@ -111,6 +138,6 @@ fun PreviewSpellCardCarouselScreenLight() {
 @Composable
 fun PreviewSpellCardCarouselScreenDark() {
     AppThemePreview(darkTheme = true) {
-        SpellCardCarouselScreen(stateWithSampleData, {}, {}, {})
+        SpellCardCarouselScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, {})
     }
 }
