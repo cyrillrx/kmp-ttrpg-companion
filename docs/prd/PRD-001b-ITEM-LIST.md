@@ -25,8 +25,8 @@ Refer to [PRD-001 — Reference Data](PRD-001-REFERENCE-DATA.md) for the shared 
 
 - [x] Display a scrollable list of all items from the local seed database.
 - [x] Full-text search on name and description.
-- [ ] Filter by item type and rarity.
-- [ ] View item detail: name, type, rarity, description, weight, value, attunement requirement.
+- [x] Filter by item type and rarity.
+- [x] View item detail: name, type, rarity, description, value, attunement requirement.
 
 ### Phase 2 — Local Lists
 

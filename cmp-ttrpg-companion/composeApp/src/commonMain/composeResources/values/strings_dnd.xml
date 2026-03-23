@@ -87,4 +87,9 @@
     <string name="label_filter_class">Class</string>
     <string name="label_filter_school">School</string>
 
+    <!-- Magical Item Filter -->
+    <string name="title_filter_items">Filter Items</string>
+    <string name="label_filter_type">Type</string>
+    <string name="label_filter_rarity">Rarity</string>
+
 </resources>
