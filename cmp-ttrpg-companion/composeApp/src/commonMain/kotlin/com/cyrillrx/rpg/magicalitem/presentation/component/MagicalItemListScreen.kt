@@ -13,6 +13,9 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -41,6 +44,9 @@ fun MagicalItemListScreen(viewModel: MagicalItemListViewModel) {
         onNavigateUpClicked = viewModel::onNavigateUpClicked,
         onSearchQueryChanged = viewModel::onSearchQueryChanged,
         onMagicalItemClicked = viewModel::onItemClicked,
+        onTypeToggled = viewModel::onTypeToggled,
+        onRarityToggled = viewModel::onRarityToggled,
+        onResetFilters = viewModel::onResetFilters,
     )
 }
 
@@ -50,7 +56,12 @@ fun MagicalItemListScreen(
     onNavigateUpClicked: () -> Unit,
     onSearchQueryChanged: (String) -> Unit,
     onMagicalItemClicked: (MagicalItem) -> Unit,
+    onTypeToggled: (MagicalItem.Type) -> Unit,
+    onRarityToggled: (MagicalItem.Rarity) -> Unit,
+    onResetFilters: () -> Unit,
 ) {
+    var showFilterSheet by remember { mutableStateOf(false) }
+
     Scaffold(
         topBar = {
             SearchBarWithBack(
@@ -58,6 +69,8 @@ fun MagicalItemListScreen(
                 query = state.filter.query,
                 onQueryChanged = onSearchQueryChanged,
                 onNavigateUpClicked = onNavigateUpClicked,
+                onFilterClicked = { showFilterSheet = true },
+                hasActiveFilters = state.filter.hasActiveFilters,
             )
         },
     ) { paddingValues ->
@@ -74,6 +87,16 @@ fun MagicalItemListScreen(
                 is MagicalItemListState.Body.WithData -> MagicalItemList(body.searchResults, onMagicalItemClicked)
             }
         }
+    }
+
+    if (showFilterSheet) {
+        MagicalItemFilterBottomSheet(
+            filter = state.filter,
+            onTypeToggled = onTypeToggled,
+            onRarityToggled = onRarityToggled,
+            onResetFilters = onResetFilters,
+            onDismiss = { showFilterSheet = false },
+        )
     }
 }
 
@@ -111,7 +134,7 @@ private val stateWithSampleData = MagicalItemListState(
 @Composable
 private fun PreviewMagicalItemListScreenLight() {
     AppThemePreview(darkTheme = false) {
-        MagicalItemListScreen(stateWithSampleData, {}, {}, {})
+        MagicalItemListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {})
     }
 }
 
@@ -119,6 +142,6 @@ private fun PreviewMagicalItemListScreenLight() {
 @Composable
 private fun PreviewMagicalItemListScreenDark() {
     AppThemePreview(darkTheme = true) {
-        MagicalItemListScreen(stateWithSampleData, {}, {}, {})
+        MagicalItemListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {})
     }
 }

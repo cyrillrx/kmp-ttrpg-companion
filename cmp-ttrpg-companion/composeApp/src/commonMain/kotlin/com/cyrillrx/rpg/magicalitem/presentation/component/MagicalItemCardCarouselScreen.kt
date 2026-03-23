@@ -12,6 +12,9 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.core.presentation.component.EmptySearch
@@ -36,6 +39,9 @@ fun MagicalItemCardCarouselScreen(viewModel: MagicalItemListViewModel) {
         onNavigateUpClicked = viewModel::onNavigateUpClicked,
         onSearchQueryChanged = viewModel::onSearchQueryChanged,
         onMagicalItemClicked = viewModel::onItemClicked,
+        onTypeToggled = viewModel::onTypeToggled,
+        onRarityToggled = viewModel::onRarityToggled,
+        onResetFilters = viewModel::onResetFilters,
     )
 }
 
@@ -45,7 +51,12 @@ fun MagicalItemCardCarouselScreen(
     onNavigateUpClicked: () -> Unit,
     onSearchQueryChanged: (String) -> Unit,
     onMagicalItemClicked: (MagicalItem) -> Unit,
+    onTypeToggled: (MagicalItem.Type) -> Unit,
+    onRarityToggled: (MagicalItem.Rarity) -> Unit,
+    onResetFilters: () -> Unit,
 ) {
+    var showFilterSheet by remember { mutableStateOf(false) }
+
     Scaffold(
         topBar = {
             SearchBarWithBack(
@@ -53,6 +64,8 @@ fun MagicalItemCardCarouselScreen(
                 query = state.filter.query,
                 onQueryChanged = onSearchQueryChanged,
                 onNavigateUpClicked = onNavigateUpClicked,
+                onFilterClicked = { showFilterSheet = true },
+                hasActiveFilters = state.filter.hasActiveFilters,
             )
         },
     ) { paddingValues ->
@@ -64,6 +77,16 @@ fun MagicalItemCardCarouselScreen(
                 is MagicalItemListState.Body.WithData -> MagicalItemCardCarousel(body.searchResults, onMagicalItemClicked)
             }
         }
+    }
+
+    if (showFilterSheet) {
+        MagicalItemFilterBottomSheet(
+            filter = state.filter,
+            onTypeToggled = onTypeToggled,
+            onRarityToggled = onRarityToggled,
+            onResetFilters = onResetFilters,
+            onDismiss = { showFilterSheet = false },
+        )
     }
 }
 
@@ -100,7 +123,7 @@ private val stateWithSampleData = MagicalItemListState(
 @Composable
 private fun PreviewMagicalItemCardCarouselScreenLight() {
     AppThemePreview(darkTheme = false) {
-        MagicalItemCardCarouselScreen(stateWithSampleData, {}, {}, {})
+        MagicalItemCardCarouselScreen(stateWithSampleData, {}, {}, {}, {}, {}, {})
     }
 }
 
@@ -108,6 +131,6 @@ private fun PreviewMagicalItemCardCarouselScreenLight() {
 @Composable
 private fun PreviewMagicalItemCardCarouselScreenDark() {
     AppThemePreview(darkTheme = true) {
-        MagicalItemCardCarouselScreen(stateWithSampleData, {}, {}, {})
+        MagicalItemCardCarouselScreen(stateWithSampleData, {}, {}, {}, {}, {}, {})
     }
 }

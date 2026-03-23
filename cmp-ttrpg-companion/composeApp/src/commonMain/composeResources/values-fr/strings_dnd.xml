@@ -86,4 +86,9 @@
     <string name="label_filter_level">Niveau</string>
     <string name="label_filter_class">Classe</string>
     <string name="label_filter_school">Ecole</string>
+
+    <!-- Magical Item Filter -->
+    <string name="title_filter_items">Filtrer les objets</string>
+    <string name="label_filter_type">Type</string>
+    <string name="label_filter_rarity">Rareté</string>
 </resources>
