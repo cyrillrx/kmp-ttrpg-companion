@@ -1,10 +1,11 @@
 package com.cyrillrx.rpg.magicalitem.presentation
 
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
+import com.cyrillrx.rpg.magicalitem.domain.MagicalItemFilter
 import org.jetbrains.compose.resources.StringResource
 
 data class MagicalItemListState(
-    val searchQuery: String,
+    val filter: MagicalItemFilter = MagicalItemFilter(),
     val body: Body,
 ) {
     sealed interface Body {

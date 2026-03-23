@@ -23,12 +23,12 @@ class MagicalItemListViewModel(
 
     private var updateJob: Job? = null
     private val _state: MutableStateFlow<MagicalItemListState> = MutableStateFlow(
-        MagicalItemListState(searchQuery = "", body = MagicalItemListState.Body.Empty),
+        MagicalItemListState(body = MagicalItemListState.Body.Empty),
     )
     val state: StateFlow<MagicalItemListState> = _state.asStateFlow()
 
     init {
-        onSearchQueryChanged(query = "")
+        refreshData()
     }
 
     fun onNavigateUpClicked() {
@@ -36,28 +36,56 @@ class MagicalItemListViewModel(
     }
 
     fun onSearchQueryChanged(query: String) {
-        updateJob?.cancel()
-        updateJob = viewModelScope.launch { updateData(query) }
+        _state.update { it.copy(filter = it.filter.copy(query = query)) }
+        refreshData()
     }
 
     fun onItemClicked(magicalItem: MagicalItem) {
         router.openMagicalItemDetail(magicalItem)
     }
 
-    private suspend fun updateData(query: String) {
+    fun onTypeToggled(type: MagicalItem.Type) {
         _state.update {
-            MagicalItemListState(searchQuery = query, body = MagicalItemListState.Body.Loading)
+            val updatedTypes = it.filter.types.toggled(type)
+            it.copy(filter = it.filter.copy(types = updatedTypes))
         }
+        refreshData()
+    }
+
+    fun onRarityToggled(rarity: MagicalItem.Rarity) {
+        _state.update {
+            val updatedRarities = it.filter.rarities.toggled(rarity)
+            it.copy(filter = it.filter.copy(rarities = updatedRarities))
+        }
+        refreshData()
+    }
+
+    fun onResetFilters() {
+        _state.update {
+            it.copy(filter = MagicalItemFilter(query = it.filter.query))
+        }
+        refreshData()
+    }
+
+    private fun <T> Set<T>.toggled(item: T): Set<T> = if (item in this) this - item else this + item
+
+    private fun refreshData() {
+        updateJob?.cancel()
+        updateJob = viewModelScope.launch { updateData() }
+    }
+
+    private suspend fun updateData() {
+        _state.update { it.copy(body = MagicalItemListState.Body.Loading) }
         try {
-            val filter = MagicalItemFilter(query = query)
+            val filter = _state.value.filter
             val magicalItems = repository.getAll(filter)
             if (magicalItems.isEmpty()) {
-                _state.update { _state.value.copy(body = MagicalItemListState.Body.Empty) }
+                _state.update { it.copy(body = MagicalItemListState.Body.Empty) }
             } else {
-                _state.update { _state.value.copy(body = MagicalItemListState.Body.WithData(searchResults = magicalItems)) }
+                _state.update { it.copy(body = MagicalItemListState.Body.WithData(searchResults = magicalItems)) }
             }
         } catch (e: Exception) {
-            _state.update { _state.value.copy(body = MagicalItemListState.Body.Error(errorMessage = Res.string.error_while_loading_magical_items)) }
+            _state.update { it.copy(body = MagicalItemListState.Body.Error(errorMessage = Res.string.error_while_loading_magical_items)) }
         }
     }
 }

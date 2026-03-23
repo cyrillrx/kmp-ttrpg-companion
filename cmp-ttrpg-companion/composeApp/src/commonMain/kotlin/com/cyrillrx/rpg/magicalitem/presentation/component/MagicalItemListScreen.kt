@@ -50,7 +50,7 @@ fun MagicalItemListScreen(
         topBar = {
             SearchBarWithBack(
                 hint = stringResource(Res.string.hint_search_magical_item),
-                query = state.searchQuery,
+                query = state.filter.query,
                 onQueryChanged = onSearchQueryChanged,
                 onNavigateUpClicked = onNavigateUpClicked,
             )
@@ -59,7 +59,7 @@ fun MagicalItemListScreen(
         Column(Modifier.padding(paddingValues)) {
             when (val body = state.body) {
                 is MagicalItemListState.Body.Loading -> Loader()
-                is MagicalItemListState.Body.Empty -> EmptySearch(state.searchQuery)
+                is MagicalItemListState.Body.Empty -> EmptySearch(state.filter.query)
                 is MagicalItemListState.Body.Error -> ErrorLayout(body.errorMessage)
                 is MagicalItemListState.Body.WithData -> MagicalItemsList(body.searchResults, onMagicalItemClicked)
             }
@@ -93,7 +93,6 @@ private fun MagicalItemsList(
 }
 
 private val stateWithSampleData = MagicalItemListState(
-    searchQuery = "",
     body = MagicalItemListState.Body.WithData(SampleMagicalItemsRepository().getAll()),
 )
 
