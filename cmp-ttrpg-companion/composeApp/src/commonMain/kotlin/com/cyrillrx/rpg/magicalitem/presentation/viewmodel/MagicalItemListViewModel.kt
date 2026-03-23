@@ -68,14 +68,16 @@ class MagicalItemListViewModel(
 
     private suspend fun updateData() {
         _state.update { it.copy(body = MagicalItemListState.Body.Loading) }
+
         try {
             val filter = _state.value.filter
             val magicalItems = repository.getAll(filter)
-            if (magicalItems.isEmpty()) {
-                _state.update { it.copy(body = MagicalItemListState.Body.Empty) }
+            val body = if (magicalItems.isEmpty()) {
+                MagicalItemListState.Body.Empty
             } else {
-                _state.update { it.copy(body = MagicalItemListState.Body.WithData(searchResults = magicalItems)) }
+                MagicalItemListState.Body.WithData(searchResults = magicalItems)
             }
+            _state.update { it.copy(body = body) }
         } catch (e: Exception) {
             _state.update { it.copy(body = MagicalItemListState.Body.Error(errorMessage = Res.string.error_while_loading_magical_items)) }
         }

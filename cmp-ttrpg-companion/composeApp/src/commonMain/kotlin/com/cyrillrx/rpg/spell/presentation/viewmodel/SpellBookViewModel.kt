@@ -77,11 +77,12 @@ class SpellBookViewModel(
         try {
             val filter = _state.value.filter
             val spells = repository.getAll(filter)
-            if (spells.isEmpty()) {
-                _state.update { it.copy(body = SpellListState.Body.Empty) }
+            val body = if (spells.isEmpty()) {
+                SpellListState.Body.Empty
             } else {
-                _state.update { it.copy(body = SpellListState.Body.WithData(spells)) }
+                SpellListState.Body.WithData(spells)
             }
+            _state.update { it.copy(body = body) }
         } catch (e: Exception) {
             _state.update { it.copy(body = SpellListState.Body.Error(errorMessage = Res.string.error_while_loading_spells)) }
         }
