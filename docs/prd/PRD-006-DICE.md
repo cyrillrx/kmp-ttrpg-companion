@@ -31,25 +31,25 @@ The Virtual Dice module provides a fast, in-session dice rolling tool. It suppor
 
 ### Dice Rolling
 
-- Display all seven dice types as tappable buttons.
-- Tapping a die adds one roll of that die to the current roll pool.
-- The current roll pool shows each individual die result and the running total.
-- A **Reset** button clears the current roll pool.
-- Rolling is instantaneous with a visual result (animation optional).
+- [ ] Display all seven dice types as tappable buttons.
+- [ ] Tapping a die adds one roll of that die to the current roll pool.
+- [ ] The current roll pool shows each individual die result and the running total.
+- [ ] A **Reset** button clears the current roll pool.
+- [ ] Rolling is instantaneous with a visual result (animation optional).
 
 ### Cumulative Rolling
 
-- Multiple dice can be added to the same roll pool sequentially.
-- Total is updated after each die is added.
-- Each die in the pool shows its individual result (e.g. d20: 14, d6: 3 → Total: 17).
+- [ ] Multiple dice can be added to the same roll pool sequentially.
+- [ ] Total is updated after each die is added.
+- [ ] Each die in the pool shows its individual result (e.g. d20: 14, d6: 3 → Total: 17).
 
 ### Roll History
 
-- Each completed roll (before reset) is recorded in a history log.
-- The log entry shows: dice rolled, individual results, total, and timestamp.
-- History is persisted locally across app restarts.
-- The user can manually clear the entire history.
-- History retention policy: TBD (see Open Questions).
+- [ ] Each completed roll (before reset) is recorded in a history log.
+- [ ] The log entry shows: dice rolled, individual results, total, and timestamp.
+- [ ] History is persisted locally across app restarts.
+- [ ] The user can manually clear the entire history.
+- [ ] History retention policy: TBD (see Open Questions).
 
 ## Non-Functional Requirements
 

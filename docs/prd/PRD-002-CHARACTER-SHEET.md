@@ -35,55 +35,55 @@ Campaign integration (attaching sheets to a campaign, sharing with other players
 ### Phase 1 — MVP (Offline)
 
 **General Info**
-- Character name, player name
-- Race / Ancestry
-- Class(es) and level
-- Background
-- Alignment
+- [ ] Character name, player name
+- [ ] Race / Ancestry
+- [ ] Class(es) and level
+- [ ] Background
+- [ ] Alignment
 
 **Ability Scores & Modifiers**
-- The six core stats: Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma
-- Auto-calculated modifiers from scores
+- [ ] The six core stats: Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma
+- [ ] Auto-calculated modifiers from scores
 
 **Combat Stats**
-- Armor Class (AC)
-- Initiative
-- Speed
-- Current HP, Maximum HP, Temporary HP
-- Hit Dice
+- [ ] Armor Class (AC)
+- [ ] Initiative
+- [ ] Speed
+- [ ] Current HP, Maximum HP, Temporary HP
+- [ ] Hit Dice
 
 **Skills & Proficiencies**
-- Saving throws (with proficiency toggle)
-- Skill list with proficiency and expertise toggles
-- Passive Perception (auto-calculated)
-- Proficiency bonus (auto-calculated from level)
-- Languages and other proficiencies
+- [ ] Saving throws (with proficiency toggle)
+- [ ] Skill list with proficiency and expertise toggles
+- [ ] Passive Perception (auto-calculated)
+- [ ] Proficiency bonus (auto-calculated from level)
+- [ ] Languages and other proficiencies
 
 **Features & Traits**
-- Class features
-- Racial traits
-- Background feature
-- Feats
+- [ ] Class features
+- [ ] Racial traits
+- [ ] Background feature
+- [ ] Feats
 
 **Inventory**
-- List of items as free-form text entries (name only)
+- [ ] List of items as free-form text entries (name only)
 - _Linking items from the Item module to a character sheet is a later-phase feature_
-- Currency (CP, SP, EP, GP, PP)
-- Carrying capacity (auto-calculated from Strength)
+- [ ] Currency (CP, SP, EP, GP, PP)
+- [ ] Carrying capacity (auto-calculated from Strength)
 
 **Spells (if applicable)**
-- Spellcasting ability, spell save DC, spell attack bonus
-- Spell slots (per level, current/max)
-- Prepared/known spells as free-form text entries (name only)
+- [ ] Spellcasting ability, spell save DC, spell attack bonus
+- [ ] Spell slots (per level, current/max)
+- [ ] Prepared/known spells as free-form text entries (name only)
 - _Linking spells from the Spellbook module to a character sheet is a later-phase feature_
 
 **Notes**
-- Free-text field for backstory, session notes, roleplaying notes
+- [ ] Free-text field for backstory, session notes, roleplaying notes
 
 ### Phase 3 — Online with Sync
 
-- Sync character sheets across devices.
-- Attach a character sheet to a campaign and share it with other campaign members (see PRD-003).
+- [ ] Sync character sheets across devices.
+- [ ] Attach a character sheet to a campaign and share it with other campaign members (see PRD-003).
 
 ## Non-Functional Requirements
 

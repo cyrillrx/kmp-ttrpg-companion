@@ -49,11 +49,11 @@ Pre-written entries are bundled in the app and browsed like a gallery. No proced
 
 ### Functional Requirements
 
-- Display a browsable, searchable gallery of curated entries per category.
-- Filter by category (NPC, place, plant, etc.).
-- Save any entry as a Note (PRD-004) with one tap.
-- Edit and delete saved entries.
-- All content bundled locally — no network required.
+- [ ] Display a browsable, searchable gallery of curated entries per category.
+- [ ] Filter by category (NPC, place, plant, etc.).
+- [ ] Save any entry as a Note (PRD-004) with one tap.
+- [ ] Edit and delete saved entries.
+- [ ] All content bundled locally — no network required.
 
 ---
 
@@ -73,11 +73,11 @@ LLM-based generation using an API. The app exposes campaign context (tone, setti
 
 ### Functional Requirements
 
-- Call the LLM API with a structured prompt and campaign context via MCP.
-- Return a structured result matching the category's field schema.
-- Display the result in the same UI as Phase 1 gallery entries.
-- Save result as a Note (PRD-004).
-- Gracefully degrade to Phase 1 gallery when offline.
+- [ ] Call the LLM API with a structured prompt and campaign context via MCP.
+- [ ] Return a structured result matching the category's field schema.
+- [ ] Display the result in the same UI as Phase 1 gallery entries.
+- [ ] Save result as a Note (PRD-004).
+- [ ] Gracefully degrade to Phase 1 gallery when offline.
 
 ---
 
