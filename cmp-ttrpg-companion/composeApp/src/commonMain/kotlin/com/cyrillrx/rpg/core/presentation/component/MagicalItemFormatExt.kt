@@ -56,8 +56,12 @@ private val objectColor = Color(0, 179, 140)
 
 fun MagicalItem.getColor(): Color = when (type) {
     MagicalItem.Type.ARMOR -> armorColor
+    MagicalItem.Type.POTION -> objectColor
+    MagicalItem.Type.RING -> objectColor
     MagicalItem.Type.ROD -> weaponColor
+    MagicalItem.Type.SCROLL -> objectColor
     MagicalItem.Type.STAFF -> weaponColor
+    MagicalItem.Type.WAND -> weaponColor
     MagicalItem.Type.WEAPON -> weaponColor
-    else -> objectColor
+    MagicalItem.Type.WONDROUS_ITEM -> objectColor
 }
