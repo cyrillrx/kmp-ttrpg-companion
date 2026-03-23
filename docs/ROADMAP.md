@@ -15,7 +15,7 @@ For detailed feature specifications, see the [PRDs](prd/).
 > Bring current implementations to a production-ready state. - [PRD-001](prd/PRD-001-REFERENCE-DATA.md)
 
 - [x] Complete Spellbook filters (school, class) - [PRD-001a](prd/PRD-001a-SPELLBOOK.md)
-- [ ] Complete Inventory filters (type, rarity) - [PRD-001b](prd/PRD-001b-ITEM-LIST.md)
+- [x] Complete Inventory filters (type, rarity) - [PRD-001b](prd/PRD-001b-ITEM-LIST.md)
 - [ ] Complete Bestiary filters (type, CR) - [PRD-001c](prd/PRD-001c-BESTIARY.md)
 
 ## Phase 3 - Local Lists
