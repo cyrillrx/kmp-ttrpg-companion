@@ -1,18 +1,7 @@
 ## 📝 Description
 
-<!-- What does this PR do and why? -->
-
-## 🏷️ Type of change
-
-<!-- Check all that apply. -->
-
-- [ ] `feat` — new feature
-- [ ] `fix` — bug fix
-- [ ] `refactor` — code change that neither fixes a bug nor adds a feature
-- [ ] `style` — formatting only (ktlint, rustfmt…)
-- [ ] `docs` — documentation only
-- [ ] `test` — adding or updating tests
-- [ ] `chore` / `build` / `ci` — tooling, dependencies, configuration
+<!-- Title should follow Conventional Commits: <type>(<scope>): <subject>. See docs/conventions/GIT_AND_COLLABORATION.md for details. -->
+<!-- Description should answer: What does this PR do and why? -->
 
 ## 🖼️ Media
 
