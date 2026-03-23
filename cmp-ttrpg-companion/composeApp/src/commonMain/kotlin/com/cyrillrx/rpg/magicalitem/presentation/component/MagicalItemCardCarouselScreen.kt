@@ -29,9 +29,9 @@ import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.hint_search_magical_item
 
 @Composable
-fun MagicalItemListScreen(viewModel: MagicalItemListViewModel) {
+fun MagicalItemCardCarouselScreen(viewModel: MagicalItemListViewModel) {
     val state by viewModel.state.collectAsStateWithLifecycle()
-    MagicalItemListScreen(
+    MagicalItemCardCarouselScreen(
         state = state,
         onNavigateUpClicked = viewModel::onNavigateUpClicked,
         onSearchQueryChanged = viewModel::onSearchQueryChanged,
@@ -40,7 +40,7 @@ fun MagicalItemListScreen(viewModel: MagicalItemListViewModel) {
 }
 
 @Composable
-fun MagicalItemListScreen(
+fun MagicalItemCardCarouselScreen(
     state: MagicalItemListState,
     onNavigateUpClicked: () -> Unit,
     onSearchQueryChanged: (String) -> Unit,
@@ -61,14 +61,14 @@ fun MagicalItemListScreen(
                 is MagicalItemListState.Body.Loading -> Loader()
                 is MagicalItemListState.Body.Empty -> EmptySearch(state.filter.query)
                 is MagicalItemListState.Body.Error -> ErrorLayout(body.errorMessage)
-                is MagicalItemListState.Body.WithData -> MagicalItemsList(body.searchResults, onMagicalItemClicked)
+                is MagicalItemListState.Body.WithData -> MagicalItemCardCarousel(body.searchResults, onMagicalItemClicked)
             }
         }
     }
 }
 
 @Composable
-private fun MagicalItemsList(
+private fun MagicalItemCardCarousel(
     magicalItems: List<MagicalItem>,
     onMagicalItemClicked: (MagicalItem) -> Unit,
 ) {
@@ -98,16 +98,16 @@ private val stateWithSampleData = MagicalItemListState(
 
 @Preview
 @Composable
-private fun PreviewSpellBookScreenLight() {
+private fun PreviewMagicalItemCardCarouselScreenLight() {
     AppThemePreview(darkTheme = false) {
-        MagicalItemListScreen(stateWithSampleData, {}, {}, {})
+        MagicalItemCardCarouselScreen(stateWithSampleData, {}, {}, {})
     }
 }
 
 @Preview
 @Composable
-private fun PreviewSpellBookScreenDark() {
+private fun PreviewMagicalItemCardCarouselScreenDark() {
     AppThemePreview(darkTheme = true) {
-        MagicalItemListScreen(stateWithSampleData, {}, {}, {})
+        MagicalItemCardCarouselScreen(stateWithSampleData, {}, {}, {})
     }
 }
