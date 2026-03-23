@@ -1,6 +1,6 @@
 ## 📝 Description
 
-<!-- Title should be formatted as follow: <type>(<scope>): <subject> -->
+<!-- Title should follow Conventional Commits: <type>(<scope>): <subject>. See docs/conventions/GIT_AND_COLLABORATION.md for details. -->
 <!-- Description should answer: What does this PR do and why? -->
 
 ## 🖼️ Media
