@@ -23,21 +23,21 @@ Refer to [PRD-001 — Reference Data](PRD-001-REFERENCE-DATA.md) for the shared 
 
 ### Phase 1 — MVP (Offline)
 
-- Display a scrollable list of all items from the local seed database.
-- Full-text search on name and description.
-- Filter by item type and rarity.
-- View item detail: name, type, rarity, description, weight, value, attunement requirement.
+- [x] Display a scrollable list of all items from the local seed database.
+- [x] Full-text search on name and description.
+- [ ] Filter by item type and rarity.
+- [ ] View item detail: name, type, rarity, description, weight, value, attunement requirement.
 
 ### Phase 2 — Local Lists
 
-- Create, edit, and delete personal named item lists stored locally.
+- [ ] Create, edit, and delete personal named item lists stored locally.
 
 ### Phase 3 — Online Public Data
 
-- Sync the item catalog from the public backend (read-only).
+- [ ] Sync the item catalog from the public backend (read-only).
 
 ### Phase 4 — Advanced
 
-- Sync personal item lists across devices.
-- Create, edit, and delete custom items.
-- Export an item as a shareable format; import an item shared by another user.
+- [ ] Sync personal item lists across devices.
+- [ ] Create, edit, and delete custom items.
+- [ ] Export an item as a shareable format; import an item shared by another user.

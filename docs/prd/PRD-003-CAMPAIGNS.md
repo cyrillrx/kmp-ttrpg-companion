@@ -36,22 +36,22 @@ The Campaign module allows a GM to create and manage a campaign, attach resource
 ### Phase 1 — MVP (Offline)
 
 **Campaign CRUD**
-- Create a campaign with: name, description, game system (e.g. D&D 5e).
-- Edit and delete a campaign.
-- List all campaigns owned by the user.
+- [ ] Create a campaign with: name, description, game system (e.g. D&D 5e).
+- [ ] Edit and delete a campaign.
+- [ ] List all campaigns owned by the user.
 
 **Attached Resources**
-- Attach/detach character sheets (PCs and NPCs) from the campaign roster.
-- View the list of attached characters directly from the campaign detail screen.
+- [ ] Attach/detach character sheets (PCs and NPCs) from the campaign roster.
+- [ ] View the list of attached characters directly from the campaign detail screen.
 
 
 ### Phase 2 — Session Notes
 
 Notes are defined as standalone entities in [PRD-004 — Notes](PRD-004-NOTES.md). In this phase, a note can be attached to a campaign, turning it into a session note.
 
-- Attach/detach an existing note to a campaign.
-- List all notes attached to the campaign, sorted by last modified date.
-- Notes remain in the user's personal library even when detached from a campaign.
+- [ ] Attach/detach an existing note to a campaign.
+- [ ] List all notes attached to the campaign, sorted by last modified date.
+- [ ] Notes remain in the user's personal library even when detached from a campaign.
 
 ### Phase 3 — Online with Sync
 

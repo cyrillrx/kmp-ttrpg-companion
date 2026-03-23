@@ -24,21 +24,21 @@ Refer to [PRD-001 — Reference Data](PRD-001-REFERENCE-DATA.md) for the shared 
 
 ### Phase 1 — MVP (Offline)
 
-- Display a scrollable list of all spells from the local seed database.
-- Full-text search on name and description.
-- Filter by level, school of magic, and casting class.
-- View spell detail: name, level, school, casting time, range, components, duration, description.
+- [x] Display a scrollable list of all spells from the local seed database.
+- [x] Full-text search on name and description.
+- [x] Filter by level, school of magic, and casting class.
+- [x] View spell detail: name, level, school, casting time, range, components, duration, description.
 
 ### Phase 2 — Local Lists
 
-- Create, edit, and delete personal named spell lists (grimoires) stored locally.
+- [ ] Create, edit, and delete personal named spell lists (grimoires) stored locally.
 
 ### Phase 3 — Online Public Data
 
-- Sync the spell catalog from the public backend (read-only).
+- [ ] Sync the spell catalog from the public backend (read-only).
 
 ### Phase 4 — Advanced
 
-- Sync personal grimoires across devices.
-- Create, edit, and delete custom spells.
-- Export a spell as a shareable format; import a spell shared by another user.
+- [ ] Sync personal grimoires across devices.
+- [ ] Create, edit, and delete custom spells.
+- [ ] Export a spell as a shareable format; import a spell shared by another user.
