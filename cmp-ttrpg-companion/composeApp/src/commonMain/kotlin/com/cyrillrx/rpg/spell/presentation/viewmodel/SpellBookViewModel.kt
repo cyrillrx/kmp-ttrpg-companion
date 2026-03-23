@@ -72,10 +72,10 @@ class SpellBookViewModel(
     }
 
     private suspend fun updateData() {
+        val filter = _state.value.filter
         _state.update { it.copy(body = SpellListState.Body.Loading) }
 
         try {
-            val filter = _state.value.filter
             val spells = repository.getAll(filter)
             val body = if (spells.isEmpty()) {
                 SpellListState.Body.Empty

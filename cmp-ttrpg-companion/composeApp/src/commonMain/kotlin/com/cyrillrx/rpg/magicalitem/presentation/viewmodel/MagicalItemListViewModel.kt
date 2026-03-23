@@ -67,10 +67,10 @@ class MagicalItemListViewModel(
     }
 
     private suspend fun updateData() {
+        val filter = _state.value.filter
         _state.update { it.copy(body = MagicalItemListState.Body.Loading) }
 
         try {
-            val filter = _state.value.filter
             val magicalItems = repository.getAll(filter)
             val body = if (magicalItems.isEmpty()) {
                 MagicalItemListState.Body.Empty
