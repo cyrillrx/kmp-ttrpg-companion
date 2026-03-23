@@ -37,8 +37,7 @@ class MagicalItemListViewModel(
     }
 
     fun onSearchQueryChanged(query: String) {
-        _state.update { it.copy(filter = it.filter.copy(query = query)) }
-        refreshData()
+        updateFilter { it.copy(query = query) }
     }
 
     fun onItemClicked(magicalItem: MagicalItem) {
@@ -46,25 +45,19 @@ class MagicalItemListViewModel(
     }
 
     fun onTypeToggled(type: MagicalItem.Type) {
-        _state.update {
-            val updatedTypes = it.filter.types.toggled(type)
-            it.copy(filter = it.filter.copy(types = updatedTypes))
-        }
-        refreshData()
+        updateFilter { it.copy(types = it.types.toggled(type)) }
     }
 
     fun onRarityToggled(rarity: MagicalItem.Rarity) {
-        _state.update {
-            val updatedRarities = it.filter.rarities.toggled(rarity)
-            it.copy(filter = it.filter.copy(rarities = updatedRarities))
-        }
-        refreshData()
+        updateFilter { it.copy(rarities = it.rarities.toggled(rarity)) }
     }
 
     fun onResetFilters() {
-        _state.update {
-            it.copy(filter = MagicalItemFilter(query = it.filter.query))
-        }
+        updateFilter { MagicalItemFilter(query = it.query) }
+    }
+
+    private fun updateFilter(transform: (MagicalItemFilter) -> MagicalItemFilter) {
+        _state.update { it.copy(filter = transform(it.filter)) }
         refreshData()
     }
 

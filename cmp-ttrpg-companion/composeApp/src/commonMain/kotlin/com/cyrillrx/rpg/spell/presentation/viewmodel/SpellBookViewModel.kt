@@ -38,8 +38,7 @@ class SpellBookViewModel(
     }
 
     fun onSearchQueryChanged(query: String) {
-        _state.update { it.copy(filter = it.filter.copy(query = query)) }
-        refreshData()
+        updateFilter { it.copy(query = query) }
     }
 
     fun onSpellClicked(spell: Spell) {
@@ -47,33 +46,23 @@ class SpellBookViewModel(
     }
 
     fun onLevelToggled(level: Int) {
-        _state.update {
-            val updatedLevels = it.filter.levels.toggled(level)
-            it.copy(filter = it.filter.copy(levels = updatedLevels))
-        }
-        refreshData()
+        updateFilter { it.copy(levels = it.levels.toggled(level)) }
     }
 
     fun onSchoolToggled(school: Spell.School) {
-        _state.update {
-            val updatedSchools = it.filter.schools.toggled(school)
-            it.copy(filter = it.filter.copy(schools = updatedSchools))
-        }
-        refreshData()
+        updateFilter { it.copy(schools = it.schools.toggled(school)) }
     }
 
     fun onClassToggled(playerClass: PlayerCharacter.Class) {
-        _state.update {
-            val updatedClasses = it.filter.playerClasses.toggled(playerClass)
-            it.copy(filter = it.filter.copy(playerClasses = updatedClasses))
-        }
-        refreshData()
+        updateFilter { it.copy(playerClasses = it.playerClasses.toggled(playerClass)) }
     }
 
     fun onResetFilters() {
-        _state.update {
-            it.copy(filter = SpellFilter(query = it.filter.query))
-        }
+        updateFilter { SpellFilter(query = it.query) }
+    }
+
+    private fun updateFilter(transform: (SpellFilter) -> SpellFilter) {
+        _state.update { it.copy(filter = transform(it.filter)) }
         refreshData()
     }
 
