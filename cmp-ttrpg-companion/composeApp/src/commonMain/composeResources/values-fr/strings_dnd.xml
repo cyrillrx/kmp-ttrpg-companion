@@ -16,18 +16,18 @@
     <string name="hint_search_creature">Dragon, loup, etc.</string>
 
     <!-- Class -->
-    <string name="class_barbarian">Barbarian</string>
-    <string name="class_bard">Bard</string>
-    <string name="class_cleric">Cleric</string>
-    <string name="class_druid">Druid</string>
-    <string name="class_fighter">Fighter</string>
-    <string name="class_monk">Monk</string>
+    <string name="class_barbarian">Barbare</string>
+    <string name="class_bard">Barde</string>
+    <string name="class_cleric">Clerc</string>
+    <string name="class_druid">Druide</string>
+    <string name="class_fighter">Guerrier</string>
+    <string name="class_monk">Moine</string>
     <string name="class_paladin">Paladin</string>
-    <string name="class_ranger">Ranger</string>
-    <string name="class_rogue">Rogue</string>
-    <string name="class_sorcerer">Sorcerer</string>
-    <string name="class_warlock">Warlock</string>
-    <string name="class_wizard">Wizard</string>
+    <string name="class_ranger">Rôdeur</string>
+    <string name="class_rogue">Roublard</string>
+    <string name="class_sorcerer">Ensorceleur</string>
+    <string name="class_warlock">Occultiste</string>
+    <string name="class_wizard">Magicien</string>
 
     <!-- Spell -->
     <string name="formatted_spell_school_level">%1$s de niveau %2$d</string>
