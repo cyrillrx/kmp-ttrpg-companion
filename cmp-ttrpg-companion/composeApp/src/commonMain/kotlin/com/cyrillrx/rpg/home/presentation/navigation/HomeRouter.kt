@@ -35,7 +35,7 @@ class HomeRouterImpl(private val navController: NavController) : HomeRouter {
     }
 
     override fun openMagicalItems() {
-        navController.navigate(MagicalItemRoute.CardCarousel)
+        navController.navigate(MagicalItemRoute.List)
     }
 
     override fun openBestiary() {
