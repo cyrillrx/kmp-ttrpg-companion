@@ -1,10 +1,13 @@
 package com.cyrillrx.rpg.magicalitem.domain
 
-class MagicalItemFilter(
-    private val query: String = "",
-    private val types: Set<MagicalItem.Type> = emptySet(),
-    private val rarities: Set<MagicalItem.Rarity> = emptySet(),
+data class MagicalItemFilter(
+    val query: String = "",
+    val types: Set<MagicalItem.Type> = emptySet(),
+    val rarities: Set<MagicalItem.Rarity> = emptySet(),
 ) {
+    val hasActiveFilters: Boolean
+        get() = types.isNotEmpty() || rarities.isNotEmpty()
+
     fun matches(item: MagicalItem): Boolean {
         return (types.isEmpty() || types.contains(item.type)) &&
             (rarities.isEmpty() || rarities.contains(item.rarity)) &&

@@ -3,6 +3,7 @@ package com.cyrillrx.rpg.spell.presentation.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.character.domain.PlayerCharacter
+import com.cyrillrx.rpg.core.domain.toggled
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.domain.SpellFilter
 import com.cyrillrx.rpg.spell.domain.SpellRepository
@@ -37,8 +38,7 @@ class SpellBookViewModel(
     }
 
     fun onSearchQueryChanged(query: String) {
-        _state.update { it.copy(filter = it.filter.copy(query = query)) }
-        refreshData()
+        updateFilter { it.copy(query = query) }
     }
 
     fun onSpellClicked(spell: Spell) {
@@ -46,37 +46,25 @@ class SpellBookViewModel(
     }
 
     fun onLevelToggled(level: Int) {
-        _state.update {
-            val updatedLevels = it.filter.levels.toggled(level)
-            it.copy(filter = it.filter.copy(levels = updatedLevels))
-        }
-        refreshData()
+        updateFilter { it.copy(levels = it.levels.toggled(level)) }
     }
 
     fun onSchoolToggled(school: Spell.School) {
-        _state.update {
-            val updatedSchools = it.filter.schools.toggled(school)
-            it.copy(filter = it.filter.copy(schools = updatedSchools))
-        }
-        refreshData()
+        updateFilter { it.copy(schools = it.schools.toggled(school)) }
     }
 
     fun onClassToggled(playerClass: PlayerCharacter.Class) {
-        _state.update {
-            val updatedClasses = it.filter.playerClasses.toggled(playerClass)
-            it.copy(filter = it.filter.copy(playerClasses = updatedClasses))
-        }
-        refreshData()
+        updateFilter { it.copy(playerClasses = it.playerClasses.toggled(playerClass)) }
     }
 
     fun onResetFilters() {
-        _state.update {
-            it.copy(filter = SpellFilter(query = it.filter.query))
-        }
-        refreshData()
+        updateFilter { SpellFilter(query = it.query) }
     }
 
-    private fun <T> Set<T>.toggled(item: T): Set<T> = if (item in this) this - item else this + item
+    private fun updateFilter(transform: (SpellFilter) -> SpellFilter) {
+        _state.update { it.copy(filter = transform(it.filter)) }
+        refreshData()
+    }
 
     private fun refreshData() {
         updateJob?.cancel()
@@ -84,16 +72,17 @@ class SpellBookViewModel(
     }
 
     private suspend fun updateData() {
+        val filter = _state.value.filter
         _state.update { it.copy(body = SpellListState.Body.Loading) }
 
         try {
-            val filter = _state.value.filter
             val spells = repository.getAll(filter)
-            if (spells.isEmpty()) {
-                _state.update { it.copy(body = SpellListState.Body.Empty) }
+            val body = if (spells.isEmpty()) {
+                SpellListState.Body.Empty
             } else {
-                _state.update { it.copy(body = SpellListState.Body.WithData(spells)) }
+                SpellListState.Body.WithData(spells)
             }
+            _state.update { it.copy(body = body) }
         } catch (e: Exception) {
             _state.update { it.copy(body = SpellListState.Body.Error(errorMessage = Res.string.error_while_loading_spells)) }
         }

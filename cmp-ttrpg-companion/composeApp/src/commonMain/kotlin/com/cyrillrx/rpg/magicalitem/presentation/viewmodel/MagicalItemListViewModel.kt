@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.magicalitem.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.cyrillrx.rpg.core.domain.toggled
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemFilter
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemRepository
@@ -23,12 +24,12 @@ class MagicalItemListViewModel(
 
     private var updateJob: Job? = null
     private val _state: MutableStateFlow<MagicalItemListState> = MutableStateFlow(
-        MagicalItemListState(searchQuery = "", body = MagicalItemListState.Body.Empty),
+        MagicalItemListState(body = MagicalItemListState.Body.Empty),
     )
     val state: StateFlow<MagicalItemListState> = _state.asStateFlow()
 
     init {
-        onSearchQueryChanged(query = "")
+        refreshData()
     }
 
     fun onNavigateUpClicked() {
@@ -36,28 +37,49 @@ class MagicalItemListViewModel(
     }
 
     fun onSearchQueryChanged(query: String) {
-        updateJob?.cancel()
-        updateJob = viewModelScope.launch { updateData(query) }
+        updateFilter { it.copy(query = query) }
     }
 
     fun onItemClicked(magicalItem: MagicalItem) {
         router.openMagicalItemDetail(magicalItem)
     }
 
-    private suspend fun updateData(query: String) {
-        _state.update {
-            MagicalItemListState(searchQuery = query, body = MagicalItemListState.Body.Loading)
-        }
+    fun onTypeToggled(type: MagicalItem.Type) {
+        updateFilter { it.copy(types = it.types.toggled(type)) }
+    }
+
+    fun onRarityToggled(rarity: MagicalItem.Rarity) {
+        updateFilter { it.copy(rarities = it.rarities.toggled(rarity)) }
+    }
+
+    fun onResetFilters() {
+        updateFilter { MagicalItemFilter(query = it.query) }
+    }
+
+    private fun updateFilter(transform: (MagicalItemFilter) -> MagicalItemFilter) {
+        _state.update { it.copy(filter = transform(it.filter)) }
+        refreshData()
+    }
+
+    private fun refreshData() {
+        updateJob?.cancel()
+        updateJob = viewModelScope.launch { updateData() }
+    }
+
+    private suspend fun updateData() {
+        val filter = _state.value.filter
+        _state.update { it.copy(body = MagicalItemListState.Body.Loading) }
+
         try {
-            val filter = MagicalItemFilter(query = query)
             val magicalItems = repository.getAll(filter)
-            if (magicalItems.isEmpty()) {
-                _state.update { _state.value.copy(body = MagicalItemListState.Body.Empty) }
+            val body = if (magicalItems.isEmpty()) {
+                MagicalItemListState.Body.Empty
             } else {
-                _state.update { _state.value.copy(body = MagicalItemListState.Body.WithData(searchResults = magicalItems)) }
+                MagicalItemListState.Body.WithData(searchResults = magicalItems)
             }
+            _state.update { it.copy(body = body) }
         } catch (e: Exception) {
-            _state.update { _state.value.copy(body = MagicalItemListState.Body.Error(errorMessage = Res.string.error_while_loading_magical_items)) }
+            _state.update { it.copy(body = MagicalItemListState.Body.Error(errorMessage = Res.string.error_while_loading_magical_items)) }
         }
     }
 }
