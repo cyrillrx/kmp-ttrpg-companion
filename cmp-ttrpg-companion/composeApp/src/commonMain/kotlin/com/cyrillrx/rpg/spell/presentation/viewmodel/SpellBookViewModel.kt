@@ -3,6 +3,7 @@ package com.cyrillrx.rpg.spell.presentation.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.character.domain.PlayerCharacter
+import com.cyrillrx.rpg.core.domain.toggled
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.domain.SpellFilter
 import com.cyrillrx.rpg.spell.domain.SpellRepository
@@ -75,8 +76,6 @@ class SpellBookViewModel(
         }
         refreshData()
     }
-
-    private fun <T> Set<T>.toggled(item: T): Set<T> = if (item in this) this - item else this + item
 
     private fun refreshData() {
         updateJob?.cancel()

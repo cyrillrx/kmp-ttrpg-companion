@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.magicalitem.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.cyrillrx.rpg.core.domain.toggled
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemFilter
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemRepository
@@ -66,8 +67,6 @@ class MagicalItemListViewModel(
         }
         refreshData()
     }
-
-    private fun <T> Set<T>.toggled(item: T): Set<T> = if (item in this) this - item else this + item
 
     private fun refreshData() {
         updateJob?.cancel()
