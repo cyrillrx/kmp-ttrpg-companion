@@ -48,7 +48,7 @@ fun HomeScreen(router: HomeRouter) {
             )
 
             HomeButton(stringResource(Res.string.btn_campaign_list), router::openCampaignList)
-            HomeButton(stringResource(Res.string.btn_character_sheets), router::openCharacterSheets)
+            HomeButton(stringResource(Res.string.btn_character_sheets), router::openCharacterSheetList)
 
             SectionHeader(
                 title = stringResource(Res.string.section_compendium),
@@ -64,19 +64,19 @@ fun HomeScreen(router: HomeRouter) {
                 IconLabelButton(
                     label = stringResource(Res.string.btn_spell_book),
                     icon = Icons.Filled.AutoAwesome,
-                    onClick = router::openSpellBook,
+                    onClick = router::openSpellList,
                     modifier = Modifier.weight(1f),
                 )
                 IconLabelButton(
                     label = stringResource(Res.string.btn_inventory),
                     icon = Icons.Filled.Diamond,
-                    onClick = router::openMagicalItems,
+                    onClick = router::openMagicalItemList,
                     modifier = Modifier.weight(1f),
                 )
                 IconLabelButton(
                     label = stringResource(Res.string.btn_bestiary),
                     icon = Icons.Filled.Pets,
-                    onClick = router::openBestiary,
+                    onClick = router::openCreatureList,
                     modifier = Modifier.weight(1f),
                 )
             }

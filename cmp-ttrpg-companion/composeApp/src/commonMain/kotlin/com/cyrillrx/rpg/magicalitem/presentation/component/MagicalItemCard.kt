@@ -18,6 +18,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.cyrillrx.rpg.core.presentation.component.HtmlText
+import com.cyrillrx.rpg.core.presentation.component.getColor
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.magicalitem.data.SampleMagicalItemsRepository
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
@@ -78,25 +79,6 @@ fun MagicalItemCard(
         }
     }
 }
-
-private fun MagicalItem.getColor(): Color {
-    val weaponColor = Color(155, 11, 78)
-    val armorColor = Color(0, 122, 179)
-    val objectColor = Color(0, 179, 140)
-    return when (type) {
-        MagicalItem.Type.ARMOR -> armorColor
-        MagicalItem.Type.POTION -> objectColor
-        MagicalItem.Type.RING -> objectColor
-        MagicalItem.Type.ROD -> weaponColor
-        MagicalItem.Type.SCROLL -> objectColor
-        MagicalItem.Type.STAFF -> weaponColor
-        MagicalItem.Type.WAND -> objectColor
-        MagicalItem.Type.WEAPON -> weaponColor
-        MagicalItem.Type.WONDROUS_ITEM -> objectColor
-        else -> objectColor
-    }
-}
-
 @Preview
 @Composable
 private fun PreviewMagicalItemCard() {

@@ -9,12 +9,12 @@ import com.cyrillrx.rpg.spell.presentation.navigation.SpellRoute
 
 interface HomeRouter {
     fun openCampaignList() {}
-    fun openCharacterSheets() {}
-
-    fun openSpellBook() {}
-    fun openAlternativeSpellBook() {}
-    fun openMagicalItems() {}
-    fun openBestiary() {}
+    fun openCharacterSheetList() {}
+    fun openSpellList() {}
+    fun openSpellCardCarousel() {}
+    fun openMagicalItemList() {}
+    fun openMagicalItemCardCarousel() {}
+    fun openCreatureList() {}
 }
 
 class HomeRouterImpl(private val navController: NavController) : HomeRouter {
@@ -22,23 +22,27 @@ class HomeRouterImpl(private val navController: NavController) : HomeRouter {
         navController.navigate(CampaignRoute.List)
     }
 
-    override fun openCharacterSheets() {
+    override fun openCharacterSheetList() {
         navController.navigate(PlayerCharacterRoute.List)
     }
 
-    override fun openSpellBook() {
+    override fun openSpellList() {
         navController.navigate(SpellRoute.List)
     }
 
-    override fun openAlternativeSpellBook() {
+    override fun openSpellCardCarousel() {
         navController.navigate(SpellRoute.CardCarousel)
     }
 
-    override fun openMagicalItems() {
+    override fun openMagicalItemList() {
+        navController.navigate(MagicalItemRoute.List)
+    }
+
+    override fun openMagicalItemCardCarousel() {
         navController.navigate(MagicalItemRoute.CardCarousel)
     }
 
-    override fun openBestiary() {
+    override fun openCreatureList() {
         navController.navigate(CreatureRoute.List)
     }
 }

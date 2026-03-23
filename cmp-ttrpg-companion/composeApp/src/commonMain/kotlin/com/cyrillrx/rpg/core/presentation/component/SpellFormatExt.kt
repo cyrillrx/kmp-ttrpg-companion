@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.spell.presentation.component
+package com.cyrillrx.rpg.core.presentation.component
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AutoAwesome

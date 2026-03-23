@@ -62,6 +62,25 @@
     <string name="school_necromancy">Nécromancie</string>
     <string name="school_transmutation">Transmutation</string>
 
+    <!-- Magical Item Type -->
+    <string name="item_type_armor">Armure</string>
+    <string name="item_type_potion">Potion</string>
+    <string name="item_type_ring">Anneau</string>
+    <string name="item_type_rod">Sceptre</string>
+    <string name="item_type_scroll">Parchemin</string>
+    <string name="item_type_staff">Bâton</string>
+    <string name="item_type_wand">Baguette</string>
+    <string name="item_type_weapon">Arme</string>
+    <string name="item_type_wondrous_item">Objet merveilleux</string>
+
+    <!-- Magical Item Rarity -->
+    <string name="item_rarity_common">Commun</string>
+    <string name="item_rarity_uncommon">Peu commun</string>
+    <string name="item_rarity_rare">Rare</string>
+    <string name="item_rarity_very_rare">Très rare</string>
+    <string name="item_rarity_legendary">Légendaire</string>
+    <string name="item_rarity_artifact">Artéfact</string>
+
     <!-- Spell Filter -->
     <string name="title_filter_spells">Filtrer les sorts</string>
     <string name="label_filter_level">Niveau</string>
