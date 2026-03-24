@@ -47,7 +47,7 @@ fun CreatureListScreen(
         topBar = {
             SearchBarWithBack(
                 hint = stringResource(Res.string.hint_search_creature),
-                query = state.searchQuery,
+                query = state.filter.query,
                 onQueryChanged = onSearchQueryChanged,
                 onNavigateUpClicked = onNavigateUpClicked,
             )
@@ -56,7 +56,7 @@ fun CreatureListScreen(
         Column(Modifier.padding(paddingValues)) {
             when (val body = state.body) {
                 is CreatureListState.Body.Loading -> Loader()
-                is CreatureListState.Body.Empty -> EmptySearch(state.searchQuery)
+                is CreatureListState.Body.Empty -> EmptySearch(state.filter.query)
                 is CreatureListState.Body.Error -> ErrorLayout(body.errorMessage)
                 is CreatureListState.Body.WithData -> CreatureList(body.searchResults, onCreatureClicked)
             }
@@ -85,7 +85,6 @@ private fun CreatureList(
 private fun PreviewCreatureListScreen() {
     val creatures = SampleCreatureRepository().getAll()
     val state = CreatureListState(
-        searchQuery = "",
         body = CreatureListState.Body.WithData(creatures),
     )
     AppThemePreview(darkTheme = false) {
