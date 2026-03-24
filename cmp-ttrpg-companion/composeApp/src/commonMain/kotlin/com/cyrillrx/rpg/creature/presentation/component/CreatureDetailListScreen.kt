@@ -26,9 +26,9 @@ import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.hint_search_creature
 
 @Composable
-fun CreatureListScreen(viewModel: CreatureListViewModel) {
+fun CreatureDetailListScreen(viewModel: CreatureListViewModel) {
     val state by viewModel.state.collectAsStateWithLifecycle()
-    CreatureListScreen(
+    CreatureDetailListScreen(
         state = state,
         onNavigateUpClicked = viewModel::onNavigateUpClicked,
         onSearchQueryChanged = viewModel::onSearchQueryChanged,
@@ -37,7 +37,7 @@ fun CreatureListScreen(viewModel: CreatureListViewModel) {
 }
 
 @Composable
-fun CreatureListScreen(
+fun CreatureDetailListScreen(
     state: CreatureListState,
     onSearchQueryChanged: (String) -> Unit,
     onCreatureClicked: (Creature) -> Unit,
@@ -82,12 +82,12 @@ private fun CreatureList(
 
 @Preview
 @Composable
-private fun PreviewCreatureListScreen() {
+private fun PreviewCreatureDetailListScreen() {
     val creatures = SampleCreatureRepository().getAll()
     val state = CreatureListState(
         body = CreatureListState.Body.WithData(creatures),
     )
     AppThemePreview(darkTheme = false) {
-        CreatureListScreen(state, {}, {}, {})
+        CreatureDetailListScreen(state, {}, {}, {})
     }
 }
