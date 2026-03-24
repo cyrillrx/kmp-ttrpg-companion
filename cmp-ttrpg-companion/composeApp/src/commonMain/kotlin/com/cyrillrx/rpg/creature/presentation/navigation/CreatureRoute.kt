@@ -4,8 +4,11 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
+import androidx.navigation.toRoute
+import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.rpg.creature.domain.CreatureRepository
 import com.cyrillrx.rpg.creature.presentation.component.CreatureCompactListScreen
+import com.cyrillrx.rpg.creature.presentation.component.CreatureDetailScreen
 import com.cyrillrx.rpg.creature.presentation.component.CreatureListScreen
 import com.cyrillrx.rpg.creature.presentation.viewmodel.CreatureListViewModel
 import com.cyrillrx.rpg.creature.presentation.viewmodel.CreatureListViewModelFactory
@@ -35,5 +38,13 @@ fun NavGraphBuilder.handleCreatureRoutes(navController: NavController, repositor
         val viewModelFactory = CreatureListViewModelFactory(router, repository)
         val viewModel = viewModel<CreatureListViewModel>(factory = viewModelFactory)
         CreatureListScreen(viewModel)
+    }
+
+    composable<CreatureRoute.Detail> { entry ->
+        val args = entry.toRoute<CreatureRoute.Detail>()
+        CreatureDetailScreen(
+            creature = args.serializedCreature.deserialize(),
+            onNavigateUpClicked = { navController.navigateUp() },
+        )
     }
 }
