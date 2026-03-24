@@ -76,7 +76,7 @@ fun HomeScreen(router: HomeRouter) {
                 IconLabelButton(
                     label = stringResource(Res.string.btn_bestiary),
                     icon = Icons.Filled.Pets,
-                    onClick = router::openCreatureCompactList,
+                    onClick = router::openCreatureList,
                     modifier = Modifier.weight(1f),
                 )
             }
