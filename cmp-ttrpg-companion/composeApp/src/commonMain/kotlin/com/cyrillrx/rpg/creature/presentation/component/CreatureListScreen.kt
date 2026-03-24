@@ -81,14 +81,22 @@ private fun CreatureList(
     }
 }
 
+private val stateWithSampleData = CreatureListState(
+    body = CreatureListState.Body.WithData(SampleCreatureRepository().getAll()),
+)
+
 @Preview
 @Composable
-private fun PreviewCreatureListScreen() {
-    val creatures = SampleCreatureRepository().getAll()
-    val state = CreatureListState(
-        body = CreatureListState.Body.WithData(creatures),
-    )
+private fun PreviewCreatureListScreenLight() {
     AppThemePreview(darkTheme = false) {
-        CreatureListScreen(state, {}, {}, {})
+        CreatureListScreen(stateWithSampleData, {}, {}, {})
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewCreatureListScreenDark() {
+    AppThemePreview(darkTheme = true) {
+        CreatureListScreen(stateWithSampleData, {}, {}, {})
     }
 }
