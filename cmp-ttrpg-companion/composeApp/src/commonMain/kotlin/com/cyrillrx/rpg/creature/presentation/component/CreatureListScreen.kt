@@ -1,5 +1,6 @@
 package com.cyrillrx.rpg.creature.presentation.component
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -26,9 +27,9 @@ import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.hint_search_creature
 
 @Composable
-fun CreatureDetailListScreen(viewModel: CreatureListViewModel) {
+fun CreatureListScreen(viewModel: CreatureListViewModel) {
     val state by viewModel.state.collectAsStateWithLifecycle()
-    CreatureDetailListScreen(
+    CreatureListScreen(
         state = state,
         onNavigateUpClicked = viewModel::onNavigateUpClicked,
         onSearchQueryChanged = viewModel::onSearchQueryChanged,
@@ -37,7 +38,7 @@ fun CreatureDetailListScreen(viewModel: CreatureListViewModel) {
 }
 
 @Composable
-fun CreatureDetailListScreen(
+fun CreatureListScreen(
     state: CreatureListState,
     onSearchQueryChanged: (String) -> Unit,
     onCreatureClicked: (Creature) -> Unit,
@@ -73,7 +74,7 @@ private fun CreatureList(
         items(creatures) { creature ->
             CreatureItem(
                 creature = creature,
-//                modifier = Modifier.clickable { onCreatureClicked(creature) },
+                modifier = Modifier.clickable { onCreatureClicked(creature) },
             )
             HorizontalDivider()
         }
@@ -82,12 +83,12 @@ private fun CreatureList(
 
 @Preview
 @Composable
-private fun PreviewCreatureDetailListScreen() {
+private fun PreviewCreatureListScreen() {
     val creatures = SampleCreatureRepository().getAll()
     val state = CreatureListState(
         body = CreatureListState.Body.WithData(creatures),
     )
     AppThemePreview(darkTheme = false) {
-        CreatureDetailListScreen(state, {}, {}, {})
+        CreatureListScreen(state, {}, {}, {})
     }
 }

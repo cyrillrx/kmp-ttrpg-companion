@@ -6,7 +6,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import com.cyrillrx.rpg.creature.domain.CreatureRepository
 import com.cyrillrx.rpg.creature.presentation.component.CreatureCompactListScreen
-import com.cyrillrx.rpg.creature.presentation.component.CreatureDetailListScreen
+import com.cyrillrx.rpg.creature.presentation.component.CreatureListScreen
 import com.cyrillrx.rpg.creature.presentation.viewmodel.CreatureListViewModel
 import com.cyrillrx.rpg.creature.presentation.viewmodel.CreatureListViewModelFactory
 import kotlinx.serialization.Serializable
@@ -16,7 +16,7 @@ interface CreatureRoute {
     data object CompactList
 
     @Serializable
-    data object DetailList
+    data object List
 
     @Serializable
     data class Detail(val serializedCreature: String)
@@ -30,10 +30,10 @@ fun NavGraphBuilder.handleCreatureRoutes(navController: NavController, repositor
         CreatureCompactListScreen(viewModel)
     }
 
-    composable<CreatureRoute.DetailList> {
+    composable<CreatureRoute.List> {
         val router = CreatureRouterImpl(navController)
         val viewModelFactory = CreatureListViewModelFactory(router, repository)
         val viewModel = viewModel<CreatureListViewModel>(factory = viewModelFactory)
-        CreatureDetailListScreen(viewModel)
+        CreatureListScreen(viewModel)
     }
 }
