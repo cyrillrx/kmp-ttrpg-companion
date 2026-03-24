@@ -16,6 +16,7 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_while_loading_magical_items
+import kotlin.coroutines.cancellation.CancellationException
 
 class MagicalItemListViewModel(
     private val router: MagicalItemRouter,
@@ -78,6 +79,8 @@ class MagicalItemListViewModel(
                 MagicalItemListState.Body.WithData(searchResults = magicalItems)
             }
             _state.update { it.copy(body = body) }
+        } catch (e: CancellationException) {
+            throw e
         } catch (e: Exception) {
             _state.update { it.copy(body = MagicalItemListState.Body.Error(errorMessage = Res.string.error_while_loading_magical_items)) }
         }

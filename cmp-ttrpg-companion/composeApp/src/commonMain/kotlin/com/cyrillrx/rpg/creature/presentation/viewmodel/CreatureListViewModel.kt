@@ -16,6 +16,7 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_while_loading_creatures
+import kotlin.coroutines.cancellation.CancellationException
 
 class CreatureListViewModel(
     private val router: CreatureRouter,
@@ -78,6 +79,8 @@ class CreatureListViewModel(
                 CreatureListState.Body.WithData(searchResults = creatures)
             }
             _state.update { it.copy(body = body) }
+        } catch (e: CancellationException) {
+            throw e
         } catch (e: Exception) {
             _state.update { it.copy(body = CreatureListState.Body.Error(errorMessage = Res.string.error_while_loading_creatures)) }
         }
