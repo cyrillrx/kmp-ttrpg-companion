@@ -26,9 +26,9 @@ import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.hint_search_creature
 
 @Composable
-fun CreatureListScreen(viewModel: CreatureListViewModel) {
+fun CreatureDetailListScreen(viewModel: CreatureListViewModel) {
     val state by viewModel.state.collectAsStateWithLifecycle()
-    CreatureListScreen(
+    CreatureDetailListScreen(
         state = state,
         onNavigateUpClicked = viewModel::onNavigateUpClicked,
         onSearchQueryChanged = viewModel::onSearchQueryChanged,
@@ -37,7 +37,7 @@ fun CreatureListScreen(viewModel: CreatureListViewModel) {
 }
 
 @Composable
-fun CreatureListScreen(
+fun CreatureDetailListScreen(
     state: CreatureListState,
     onSearchQueryChanged: (String) -> Unit,
     onCreatureClicked: (Creature) -> Unit,
@@ -47,7 +47,7 @@ fun CreatureListScreen(
         topBar = {
             SearchBarWithBack(
                 hint = stringResource(Res.string.hint_search_creature),
-                query = state.searchQuery,
+                query = state.filter.query,
                 onQueryChanged = onSearchQueryChanged,
                 onNavigateUpClicked = onNavigateUpClicked,
             )
@@ -56,7 +56,7 @@ fun CreatureListScreen(
         Column(Modifier.padding(paddingValues)) {
             when (val body = state.body) {
                 is CreatureListState.Body.Loading -> Loader()
-                is CreatureListState.Body.Empty -> EmptySearch(state.searchQuery)
+                is CreatureListState.Body.Empty -> EmptySearch(state.filter.query)
                 is CreatureListState.Body.Error -> ErrorLayout(body.errorMessage)
                 is CreatureListState.Body.WithData -> CreatureList(body.searchResults, onCreatureClicked)
             }
@@ -82,13 +82,12 @@ private fun CreatureList(
 
 @Preview
 @Composable
-private fun PreviewCreatureListScreen() {
+private fun PreviewCreatureDetailListScreen() {
     val creatures = SampleCreatureRepository().getAll()
     val state = CreatureListState(
-        searchQuery = "",
         body = CreatureListState.Body.WithData(creatures),
     )
     AppThemePreview(darkTheme = false) {
-        CreatureListScreen(state, {}, {}, {})
+        CreatureDetailListScreen(state, {}, {}, {})
     }
 }

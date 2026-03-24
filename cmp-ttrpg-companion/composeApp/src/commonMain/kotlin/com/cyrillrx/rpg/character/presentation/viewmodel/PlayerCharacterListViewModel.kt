@@ -15,6 +15,7 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_while_loading_characters
+import kotlin.coroutines.cancellation.CancellationException
 
 class PlayerCharacterListViewModel(
     private val router: PlayerCharacterRouter,
@@ -59,6 +60,8 @@ class PlayerCharacterListViewModel(
             } else {
                 _state.update { _state.value.copy(body = PlayerCharacterListState.Body.WithData(characters)) }
             }
+        } catch (e: CancellationException) {
+            throw e
         } catch (e: Exception) {
             _state.update { _state.value.copy(body = PlayerCharacterListState.Body.Error(errorMessage = Res.string.error_while_loading_characters)) }
         }

@@ -5,8 +5,7 @@ data class MagicalItemFilter(
     val types: Set<MagicalItem.Type> = emptySet(),
     val rarities: Set<MagicalItem.Rarity> = emptySet(),
 ) {
-    val hasActiveFilters: Boolean
-        get() = types.isNotEmpty() || rarities.isNotEmpty()
+    val hasActiveFilters: Boolean = types.isNotEmpty() || rarities.isNotEmpty()
 
     fun matches(item: MagicalItem): Boolean {
         return (types.isEmpty() || types.contains(item.type)) &&

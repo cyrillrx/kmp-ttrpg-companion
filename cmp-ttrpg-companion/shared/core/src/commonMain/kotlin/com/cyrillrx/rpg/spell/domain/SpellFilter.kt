@@ -8,8 +8,7 @@ data class SpellFilter(
     val playerClasses: Set<PlayerCharacter.Class> = emptySet(),
     val levels: Set<Int> = emptySet(),
 ) {
-    val hasActiveFilters: Boolean
-        get() = schools.isNotEmpty() || playerClasses.isNotEmpty() || levels.isNotEmpty()
+    val hasActiveFilters: Boolean = schools.isNotEmpty() || playerClasses.isNotEmpty() || levels.isNotEmpty()
 
     fun matches(spell: Spell): Boolean {
         return (schools.isEmpty() || spell.schools.any { schools.contains(it) }) &&

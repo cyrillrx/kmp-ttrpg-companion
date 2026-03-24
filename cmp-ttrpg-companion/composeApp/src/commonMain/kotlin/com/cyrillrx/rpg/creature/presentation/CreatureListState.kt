@@ -1,10 +1,11 @@
 package com.cyrillrx.rpg.creature.presentation
 
 import com.cyrillrx.rpg.creature.domain.Creature
+import com.cyrillrx.rpg.creature.domain.CreatureFilter
 import org.jetbrains.compose.resources.StringResource
 
 data class CreatureListState(
-    val searchQuery: String,
+    val filter: CreatureFilter = CreatureFilter(),
     val body: Body,
 ) {
     sealed interface Body {

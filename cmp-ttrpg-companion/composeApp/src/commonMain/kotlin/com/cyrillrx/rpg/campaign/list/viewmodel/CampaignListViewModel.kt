@@ -15,6 +15,7 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_while_loading_campaign
+import kotlin.coroutines.cancellation.CancellationException
 
 class CampaignListViewModel(
     private val router: CampaignRouter,
@@ -55,6 +56,8 @@ class CampaignListViewModel(
             } else {
                 _state.update { _state.value.copy(body = CampaignListState.Body.WithData(campaigns)) }
             }
+        } catch (e: CancellationException) {
+            throw e
         } catch (e: Exception) {
             _state.update { _state.value.copy(body = CampaignListState.Body.Error(errorMessage = Res.string.error_while_loading_campaign)) }
         }

@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.creature.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.cyrillrx.rpg.core.domain.toggled
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.CreatureFilter
 import com.cyrillrx.rpg.creature.domain.CreatureRepository
@@ -15,6 +16,7 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_while_loading_creatures
+import kotlin.coroutines.cancellation.CancellationException
 
 class CreatureListViewModel(
     private val router: CreatureRouter,
@@ -23,12 +25,12 @@ class CreatureListViewModel(
 
     private var updateJob: Job? = null
     private val _state: MutableStateFlow<CreatureListState> = MutableStateFlow(
-        CreatureListState(searchQuery = "", body = CreatureListState.Body.Empty),
+        CreatureListState(body = CreatureListState.Body.Empty),
     )
     val state: StateFlow<CreatureListState> = _state.asStateFlow()
 
     init {
-        onSearchQueryChanged(query = "")
+        refreshData()
     }
 
     fun onNavigateUpClicked() {
@@ -36,28 +38,51 @@ class CreatureListViewModel(
     }
 
     fun onSearchQueryChanged(query: String) {
-        updateJob?.cancel()
-        updateJob = viewModelScope.launch { updateData(query) }
+        updateFilter { it.copy(query = query) }
     }
 
     fun onCreatureClicked(creature: Creature) {
         router.openCreatureDetail(creature)
     }
 
-    private suspend fun updateData(query: String) {
-        _state.update {
-            CreatureListState(searchQuery = query, body = CreatureListState.Body.Loading)
-        }
+    fun onTypeToggled(type: Creature.Type) {
+        updateFilter { it.copy(types = it.types.toggled(type)) }
+    }
+
+    fun onChallengeRatingToggled(cr: Float) {
+        updateFilter { it.copy(challengeRatings = it.challengeRatings.toggled(cr)) }
+    }
+
+    fun onResetFilters() {
+        updateFilter { CreatureFilter(query = it.query) }
+    }
+
+    private fun updateFilter(transform: (CreatureFilter) -> CreatureFilter) {
+        _state.update { it.copy(filter = transform(it.filter)) }
+        refreshData()
+    }
+
+    private fun refreshData() {
+        updateJob?.cancel()
+        updateJob = viewModelScope.launch { updateData() }
+    }
+
+    private suspend fun updateData() {
+        val filter = _state.value.filter
+        _state.update { it.copy(body = CreatureListState.Body.Loading) }
+
         try {
-            val filter = CreatureFilter(query = query)
             val creatures = repository.getAll(filter)
-            if (creatures.isEmpty()) {
-                _state.update { _state.value.copy(body = CreatureListState.Body.Empty) }
+            val body = if (creatures.isEmpty()) {
+                CreatureListState.Body.Empty
             } else {
-                _state.update { _state.value.copy(body = CreatureListState.Body.WithData(searchResults = creatures)) }
+                CreatureListState.Body.WithData(searchResults = creatures)
             }
+            _state.update { it.copy(body = body) }
+        } catch (e: CancellationException) {
+            throw e
         } catch (e: Exception) {
-            _state.update { _state.value.copy(body = CreatureListState.Body.Error(errorMessage = Res.string.error_while_loading_creatures)) }
+            _state.update { it.copy(body = CreatureListState.Body.Error(errorMessage = Res.string.error_while_loading_creatures)) }
         }
     }
 }
