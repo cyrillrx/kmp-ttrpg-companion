@@ -5,8 +5,7 @@ data class CreatureFilter(
     val types: Set<Creature.Type> = emptySet(),
     val challengeRatings: Set<Float> = emptySet(),
 ) {
-    val hasActiveFilters: Boolean
-        get() = types.isNotEmpty() || challengeRatings.isNotEmpty()
+    val hasActiveFilters: Boolean = types.isNotEmpty() || challengeRatings.isNotEmpty()
 
     fun matches(creature: Creature): Boolean {
         return (types.isEmpty() || types.contains(creature.type)) &&
