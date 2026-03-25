@@ -17,6 +17,7 @@ import com.cyrillrx.rpg.creature.data.SampleCreatureRepository
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.presentation.viewmodel.CreatureDetailViewModel
 import org.jetbrains.compose.ui.tooling.preview.Preview
+import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_creature_not_found
 
@@ -28,7 +29,7 @@ fun CreatureDetailScreen(
     val state by viewModel.state.collectAsState()
     when (val s = state) {
         DetailState.Loading -> Loader()
-        DetailState.NotFound -> ErrorLayout(Res.string.error_creature_not_found)
+        is DetailState.NotFound -> ErrorLayout(stringResource(Res.string.error_creature_not_found, s.id))
         is DetailState.Found -> CreatureDetailScreen(s.item, onNavigateUpClicked)
     }
 }

@@ -14,6 +14,7 @@ import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellDetailViewModel
 import org.jetbrains.compose.ui.tooling.preview.Preview
+import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_spell_not_found
 
@@ -25,7 +26,7 @@ fun SpellCardScreen(
     val state by viewModel.state.collectAsState()
     when (val s = state) {
         DetailState.Loading -> Loader()
-        DetailState.NotFound -> ErrorLayout(Res.string.error_spell_not_found)
+        is DetailState.NotFound -> ErrorLayout(stringResource(Res.string.error_spell_not_found, s.id))
         is DetailState.Found -> SpellCardScreen(s.item, onNavigateUpClicked)
     }
 }

@@ -19,7 +19,7 @@ class SpellDetailViewModel(
 ) : ViewModel() {
     val state: StateFlow<DetailState<Spell>> = flow {
         val item = repository.getById(spellId)
-        val state = if (item == null) DetailState.NotFound else DetailState.Found(item)
+        val state = if (item == null) DetailState.NotFound(spellId) else DetailState.Found(item)
         emit(state)
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), DetailState.Loading)
 }

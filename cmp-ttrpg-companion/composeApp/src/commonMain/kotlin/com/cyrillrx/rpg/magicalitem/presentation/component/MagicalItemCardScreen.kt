@@ -14,6 +14,7 @@ import com.cyrillrx.rpg.magicalitem.data.SampleMagicalItemRepository
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.MagicalItemDetailViewModel
 import org.jetbrains.compose.ui.tooling.preview.Preview
+import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_magical_item_not_found
 
@@ -25,7 +26,7 @@ fun MagicalItemCardScreen(
     val state by viewModel.state.collectAsState()
     when (val s = state) {
         DetailState.Loading -> Loader()
-        DetailState.NotFound -> ErrorLayout(Res.string.error_magical_item_not_found)
+        is DetailState.NotFound -> ErrorLayout(stringResource(Res.string.error_magical_item_not_found, s.id))
         is DetailState.Found -> MagicalItemCardScreen(s.item, onNavigateUpClicked)
     }
 }

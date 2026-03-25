@@ -42,7 +42,7 @@
     <string name="no_result_found">No results found.</string>
     <string name="no_result_found_for_query">No results found for '%1$s'.</string>
 
-    <string name="error_creature_not_found">Creature not found.</string>
-    <string name="error_spell_not_found">Spell not found.</string>
-    <string name="error_magical_item_not_found">Magical item not found.</string>
+    <string name="error_creature_not_found">Creature not found: %1$s</string>
+    <string name="error_spell_not_found">Spell not found: %1$s</string>
+    <string name="error_magical_item_not_found">Magical item not found: %1$s</string>
 </resources>
