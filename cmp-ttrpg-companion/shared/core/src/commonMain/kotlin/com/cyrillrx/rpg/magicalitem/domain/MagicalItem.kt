@@ -4,6 +4,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 class MagicalItem(
+    val id: String,
     val title: String,
     val subtitle: String,
     val description: String,
