@@ -142,14 +142,12 @@ fun Creature.getSubtitle(): String = stringResource(
     alignment.toFormattedString(),
 )
 
-fun Creature.toFormattedCR(): String {
-    val value = when (challengeRating) {
-        0f -> "0"
-        0.125f -> "1/8"
-        0.25f -> "1/4"
-        0.5f -> "1/2"
-        else -> if (challengeRating == challengeRating.toLong().toFloat()) challengeRating.toLong()
-            .toString() else challengeRating.toString()
-    }
-    return "CR $value"
+fun Creature.toFormattedCR(): String = "CR ${formatCRValue(challengeRating)}"
+
+fun formatCRValue(cr: Float): String = when (cr) {
+    0f -> "0"
+    0.125f -> "1/8"
+    0.25f -> "1/4"
+    0.5f -> "1/2"
+    else -> if (cr == cr.toLong().toFloat()) cr.toLong().toString() else cr.toString()
 }

@@ -10,6 +10,9 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.core.presentation.component.EmptySearch
@@ -34,16 +37,24 @@ fun CreatureListScreen(viewModel: CreatureListViewModel) {
         onNavigateUpClicked = viewModel::onNavigateUpClicked,
         onSearchQueryChanged = viewModel::onSearchQueryChanged,
         onCreatureClicked = viewModel::onCreatureClicked,
+        onTypeToggled = viewModel::onTypeToggled,
+        onChallengeRatingToggled = viewModel::onChallengeRatingToggled,
+        onResetFilters = viewModel::onResetFilters,
     )
 }
 
 @Composable
 fun CreatureListScreen(
     state: CreatureListState,
+    onNavigateUpClicked: () -> Unit,
     onSearchQueryChanged: (String) -> Unit,
     onCreatureClicked: (Creature) -> Unit,
-    onNavigateUpClicked: () -> Unit,
+    onTypeToggled: (Creature.Type) -> Unit,
+    onChallengeRatingToggled: (Float) -> Unit,
+    onResetFilters: () -> Unit,
 ) {
+    var showFilterSheet by remember { mutableStateOf(false) }
+
     Scaffold(
         topBar = {
             SearchBarWithBack(
@@ -51,6 +62,8 @@ fun CreatureListScreen(
                 query = state.filter.query,
                 onQueryChanged = onSearchQueryChanged,
                 onNavigateUpClicked = onNavigateUpClicked,
+                onFilterClicked = { showFilterSheet = true },
+                hasActiveFilters = state.filter.hasActiveFilters,
             )
         },
     ) { paddingValues ->
@@ -62,6 +75,16 @@ fun CreatureListScreen(
                 is CreatureListState.Body.WithData -> CreatureList(body.searchResults, onCreatureClicked)
             }
         }
+    }
+
+    if (showFilterSheet) {
+        CreatureFilterBottomSheet(
+            filter = state.filter,
+            onTypeToggled = onTypeToggled,
+            onChallengeRatingToggled = onChallengeRatingToggled,
+            onResetFilters = onResetFilters,
+            onDismiss = { showFilterSheet = false },
+        )
     }
 }
 
@@ -89,7 +112,7 @@ private val stateWithSampleData = CreatureListState(
 @Composable
 private fun PreviewCreatureListScreenLight() {
     AppThemePreview(darkTheme = false) {
-        CreatureListScreen(stateWithSampleData, {}, {}, {})
+        CreatureListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {})
     }
 }
 
@@ -97,6 +120,6 @@ private fun PreviewCreatureListScreenLight() {
 @Composable
 private fun PreviewCreatureListScreenDark() {
     AppThemePreview(darkTheme = true) {
-        CreatureListScreen(stateWithSampleData, {}, {}, {})
+        CreatureListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {})
     }
 }
