@@ -114,13 +114,14 @@ fun CreatureFilterBottomSheet(
     }
 }
 
+private val sampleFilter = CreatureFilter(
+    types = setOf(Creature.Type.DRAGON),
+    challengeRatings = setOf(10f),
+)
+
 @Preview
 @Composable
 private fun PreviewCreatureFilterBottomSheetLight() {
-    val sampleFilter = CreatureFilter(
-        types = setOf(Creature.Type.DRAGON),
-        challengeRatings = setOf(10f),
-    )
     AppThemePreview(darkTheme = false) {
         CreatureFilterBottomSheet(sampleFilter, {}, {}, {}, {})
     }
@@ -129,10 +130,6 @@ private fun PreviewCreatureFilterBottomSheetLight() {
 @Preview
 @Composable
 private fun PreviewCreatureFilterBottomSheetDark() {
-    val sampleFilter = CreatureFilter(
-        types = setOf(Creature.Type.DRAGON),
-        challengeRatings = setOf(10f),
-    )
     AppThemePreview(darkTheme = true) {
         CreatureFilterBottomSheet(sampleFilter, {}, {}, {}, {})
     }
