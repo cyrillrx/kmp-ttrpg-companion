@@ -152,10 +152,13 @@ fun Creature.getSubtitle(): String = stringResource(
     alignment.toFormattedString(),
 )
 
-fun Float.toFormattedCR(): String = when (this) {
-    0f -> "0"
-    0.125f -> "1/8"
-    0.25f -> "1/4"
-    0.5f -> "1/2"
-    else -> if (this == this.toLong().toFloat()) this.toLong().toString() else this.toString()
+fun Creature.toFormattedCR(): String {
+    val value = when (challengeRating) {
+        0f -> "0"
+        0.125f -> "1/8"
+        0.25f -> "1/4"
+        0.5f -> "1/2"
+        else -> if (challengeRating == challengeRating.toLong().toFloat()) challengeRating.toLong().toString() else challengeRating.toString()
+    }
+    return "CR $value"
 }

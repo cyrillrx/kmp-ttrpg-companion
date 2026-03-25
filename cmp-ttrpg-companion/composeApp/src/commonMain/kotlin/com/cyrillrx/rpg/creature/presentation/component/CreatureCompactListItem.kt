@@ -71,7 +71,7 @@ fun CreatureCompactListItem(
                 )
 
                 Text(
-                    text = "${creature.type.toFormattedString()} · CR ${creature.challengeRating.toFormattedCR()}",
+                    text = "${creature.type.toFormattedString()} · ${creature.toFormattedCR()}",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     maxLines = 1,
@@ -82,7 +82,7 @@ fun CreatureCompactListItem(
             Spacer(modifier = Modifier.width(spacingMedium))
 
             Text(
-                text = "CR ${creature.challengeRating.toFormattedCR()}",
+                text = creature.toFormattedCR(),
                 style = MaterialTheme.typography.labelSmall,
                 fontWeight = FontWeight.Bold,
                 color = creature.type.getColor(),
