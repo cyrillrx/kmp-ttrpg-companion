@@ -14,6 +14,7 @@ import androidx.compose.material.icons.filled.Shield
 import androidx.compose.material.icons.filled.SmartToy
 import androidx.compose.material.icons.filled.Water
 import androidx.compose.material.icons.filled.Whatshot
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -95,20 +96,9 @@ fun Creature.Type.toIcon(): ImageVector = when (this) {
     Creature.Type.UNKNOWN -> Icons.Filled.QuestionMark
 }
 
-private val dragonColor = Color(183, 28, 28)
-private val undeadColor = Color(74, 20, 140)
-private val fiendColor = Color(136, 14, 79)
-private val celestialColor = Color(255, 179, 0)
-private val beastColor = Color(46, 125, 50)
-private val defaultColor = Color(55, 71, 79)
-
+@Composable
 fun Creature.Type.getColor(): Color = when (this) {
-    Creature.Type.DRAGON -> dragonColor
-    Creature.Type.UNDEAD -> undeadColor
-    Creature.Type.FIEND -> fiendColor
-    Creature.Type.CELESTIAL -> celestialColor
-    Creature.Type.BEAST -> beastColor
-    else -> defaultColor
+    else -> MaterialTheme.colorScheme.primary
 }
 
 @Composable
@@ -158,7 +148,8 @@ fun Creature.toFormattedCR(): String {
         0.125f -> "1/8"
         0.25f -> "1/4"
         0.5f -> "1/2"
-        else -> if (challengeRating == challengeRating.toLong().toFloat()) challengeRating.toLong().toString() else challengeRating.toString()
+        else -> if (challengeRating == challengeRating.toLong().toFloat()) challengeRating.toLong()
+            .toString() else challengeRating.toString()
     }
     return "CR $value"
 }

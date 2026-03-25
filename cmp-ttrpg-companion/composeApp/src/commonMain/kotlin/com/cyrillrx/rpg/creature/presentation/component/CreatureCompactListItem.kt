@@ -1,13 +1,19 @@
 package com.cyrillrx.rpg.creature.presentation.component
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Favorite
+import androidx.compose.material.icons.outlined.Shield
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -18,6 +24,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.dp
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedCR
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
@@ -33,12 +40,17 @@ import com.cyrillrx.rpg.creature.data.SampleCreatureRepository
 import com.cyrillrx.rpg.creature.domain.Creature
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
+private val typeIconSize = 36.dp
+private val typeIconPadding = 8.dp
+
 @Composable
 fun CreatureCompactListItem(
     creature: Creature,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    val typeColor = creature.type.getColor()
+
     Card(
         onClick = onClick,
         shape = MaterialTheme.shapes.medium,
@@ -50,14 +62,24 @@ fun CreatureCompactListItem(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.padding(spacingCommon),
         ) {
-            Icon(
-                imageVector = creature.type.toIcon(),
-                contentDescription = null,
-                tint = creature.type.getColor(),
-                modifier = Modifier.size(iconSizeSmall),
-            )
+            Box(
+                contentAlignment = Alignment.Center,
+                modifier = Modifier
+                    .size(typeIconSize + typeIconPadding * 2)
+                    .background(
+                        color = typeColor.copy(alpha = 0.12f),
+                        shape = RoundedCornerShape(spacingMedium),
+                    ),
+            ) {
+                Icon(
+                    imageVector = creature.type.toIcon(),
+                    contentDescription = null,
+                    tint = typeColor,
+                    modifier = Modifier.size(typeIconSize),
+                )
+            }
 
-            Spacer(modifier = Modifier.width(spacingSmall))
+            Spacer(modifier = Modifier.width(spacingMedium))
 
             Column(
                 verticalArrangement = Arrangement.spacedBy(spacingSmall),
@@ -71,12 +93,51 @@ fun CreatureCompactListItem(
                 )
 
                 Text(
-                    text = "${creature.type.toFormattedString()} · ${creature.toFormattedCR()}",
+                    text = "${creature.type.toFormattedString()} · ${creature.size.name.lowercase().replaceFirstChar { it.uppercase() }}",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
                 )
+
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(spacingCommon),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Row(
+                        horizontalArrangement = Arrangement.spacedBy(spacingSmall),
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        Icon(
+                            imageVector = Icons.Outlined.Shield,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                            modifier = Modifier.size(iconSizeSmall),
+                        )
+                        Text(
+                            text = "AC ${creature.armorClass}",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
+
+                    Row(
+                        horizontalArrangement = Arrangement.spacedBy(spacingSmall),
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        Icon(
+                            imageVector = Icons.Outlined.Favorite,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                            modifier = Modifier.size(iconSizeSmall),
+                        )
+                        Text(
+                            text = "${creature.maxHitPoints} HP",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
+                }
             }
 
             Spacer(modifier = Modifier.width(spacingMedium))
@@ -85,7 +146,7 @@ fun CreatureCompactListItem(
                 text = creature.toFormattedCR(),
                 style = MaterialTheme.typography.labelSmall,
                 fontWeight = FontWeight.Bold,
-                color = creature.type.getColor(),
+                color = typeColor,
             )
         }
     }
