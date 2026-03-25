@@ -20,7 +20,7 @@ class MagicalItemDetailViewModel(
     val state: StateFlow<DetailState<MagicalItem>> = flow {
         val item = repository.getById(magicalItemId)
         emit(DetailState.of(magicalItemId, item))
-    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), DetailState.Loading)
+    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(stopTimeoutMillis = 5000), DetailState.Loading)
 }
 
 class MagicalItemDetailViewModelFactory(

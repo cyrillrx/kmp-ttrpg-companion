@@ -20,7 +20,7 @@ class SpellDetailViewModel(
     val state: StateFlow<DetailState<Spell>> = flow {
         val item = repository.getById(spellId)
         emit(DetailState.of(spellId, item))
-    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), DetailState.Loading)
+    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(stopTimeoutMillis = 5000), DetailState.Loading)
 }
 
 class SpellDetailViewModelFactory(

@@ -20,7 +20,7 @@ class CreatureDetailViewModel(
     val state: StateFlow<DetailState<Creature>> = flow {
         val item = repository.getById(creatureId)
         emit(DetailState.of(creatureId, item))
-    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), DetailState.Loading)
+    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(stopTimeoutMillis = 5000), DetailState.Loading)
 }
 
 class CreatureDetailViewModelFactory(
