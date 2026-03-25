@@ -24,7 +24,7 @@ import com.cyrillrx.rpg.core.presentation.theme.borderWidth
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
-import com.cyrillrx.rpg.magicalitem.data.SampleMagicalItemsRepository
+import com.cyrillrx.rpg.magicalitem.data.SampleMagicalItemRepository
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
@@ -81,7 +81,7 @@ fun MagicalItemListItem(
 @Composable
 private fun PreviewMagicalItemListItemLight() {
     AppThemePreview(darkTheme = false) {
-        MagicalItemListItem(magicalItem = SampleMagicalItemsRepository().get(), onClick = {})
+        MagicalItemListItem(magicalItem = SampleMagicalItemRepository().get(), onClick = {})
     }
 }
 
@@ -89,6 +89,6 @@ private fun PreviewMagicalItemListItemLight() {
 @Composable
 private fun PreviewMagicalItemListItemDark() {
     AppThemePreview(darkTheme = true) {
-        MagicalItemListItem(magicalItem = SampleMagicalItemsRepository().get(), onClick = {})
+        MagicalItemListItem(magicalItem = SampleMagicalItemRepository().get(), onClick = {})
     }
 }

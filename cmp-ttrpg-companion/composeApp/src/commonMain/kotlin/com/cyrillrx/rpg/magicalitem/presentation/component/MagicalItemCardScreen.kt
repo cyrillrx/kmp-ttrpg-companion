@@ -5,7 +5,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.cyrillrx.rpg.magicalitem.data.SampleMagicalItemsRepository
+import com.cyrillrx.rpg.magicalitem.data.SampleMagicalItemRepository
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
@@ -27,6 +27,6 @@ fun MagicalItemCardScreen(
 @Preview
 @Composable
 fun PreviewMagicalItemCardScreen() {
-    val magicalItem = SampleMagicalItemsRepository().get()
+    val magicalItem = SampleMagicalItemRepository().get()
     MagicalItemCardScreen(magicalItem, {})
 }

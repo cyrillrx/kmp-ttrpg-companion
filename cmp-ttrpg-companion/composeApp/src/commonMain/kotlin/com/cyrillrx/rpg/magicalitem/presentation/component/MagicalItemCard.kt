@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.sp
 import com.cyrillrx.rpg.core.presentation.component.HtmlText
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
-import com.cyrillrx.rpg.magicalitem.data.SampleMagicalItemsRepository
+import com.cyrillrx.rpg.magicalitem.data.SampleMagicalItemRepository
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
@@ -83,6 +83,6 @@ fun MagicalItemCard(
 @Preview
 @Composable
 private fun PreviewMagicalItemCard() {
-    val item = SampleMagicalItemsRepository().get()
+    val item = SampleMagicalItemRepository().get()
     MagicalItemCard(item)
 }

@@ -2,7 +2,7 @@ package com.cyrillrx.rpg.magicalitem.data
 
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 
-class SampleMagicalItemsRepository {
+class SampleMagicalItemRepository {
     fun getAll(): List<MagicalItem> = listOf(
         MagicalItem(
             id = "Hache du serment",

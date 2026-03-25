@@ -26,7 +26,7 @@ import com.cyrillrx.rpg.core.presentation.component.SearchBarWithBack
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
-import com.cyrillrx.rpg.magicalitem.data.SampleMagicalItemsRepository
+import com.cyrillrx.rpg.magicalitem.data.SampleMagicalItemRepository
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemListState
 import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.MagicalItemListViewModel
@@ -127,7 +127,7 @@ private fun MagicalItemList(
 }
 
 private val stateWithSampleData = MagicalItemListState(
-    body = MagicalItemListState.Body.WithData(SampleMagicalItemsRepository().getAll()),
+    body = MagicalItemListState.Body.WithData(SampleMagicalItemRepository().getAll()),
 )
 
 @Preview
