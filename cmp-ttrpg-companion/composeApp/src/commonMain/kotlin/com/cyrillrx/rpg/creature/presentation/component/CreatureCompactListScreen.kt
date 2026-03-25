@@ -13,6 +13,9 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -41,6 +44,9 @@ fun CreatureCompactListScreen(viewModel: CreatureListViewModel) {
         onNavigateUpClicked = viewModel::onNavigateUpClicked,
         onSearchQueryChanged = viewModel::onSearchQueryChanged,
         onCreatureClicked = viewModel::onCreatureClicked,
+        onTypeToggled = viewModel::onTypeToggled,
+        onChallengeRatingToggled = viewModel::onChallengeRatingToggled,
+        onResetFilters = viewModel::onResetFilters,
     )
 }
 
@@ -50,7 +56,12 @@ fun CreatureCompactListScreen(
     onNavigateUpClicked: () -> Unit,
     onSearchQueryChanged: (String) -> Unit,
     onCreatureClicked: (Creature) -> Unit,
+    onTypeToggled: (Creature.Type) -> Unit,
+    onChallengeRatingToggled: (Float) -> Unit,
+    onResetFilters: () -> Unit,
 ) {
+    var showFilterSheet by remember { mutableStateOf(false) }
+
     Scaffold(
         topBar = {
             SearchBarWithBack(
@@ -58,6 +69,8 @@ fun CreatureCompactListScreen(
                 query = state.filter.query,
                 onQueryChanged = onSearchQueryChanged,
                 onNavigateUpClicked = onNavigateUpClicked,
+                onFilterClicked = { showFilterSheet = true },
+                hasActiveFilters = state.filter.hasActiveFilters,
             )
         },
     ) { paddingValues ->
@@ -74,6 +87,16 @@ fun CreatureCompactListScreen(
                 is CreatureListState.Body.WithData -> CreatureCompactList(body.searchResults, onCreatureClicked)
             }
         }
+    }
+
+    if (showFilterSheet) {
+        CreatureFilterBottomSheet(
+            filter = state.filter,
+            onTypeToggled = onTypeToggled,
+            onChallengeRatingToggled = onChallengeRatingToggled,
+            onResetFilters = onResetFilters,
+            onDismiss = { showFilterSheet = false },
+        )
     }
 }
 
@@ -111,7 +134,7 @@ private val stateWithSampleData = CreatureListState(
 @Composable
 private fun PreviewCreatureCompactListScreenLight() {
     AppThemePreview(darkTheme = false) {
-        CreatureCompactListScreen(stateWithSampleData, {}, {}, {})
+        CreatureCompactListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {})
     }
 }
 
@@ -119,6 +142,6 @@ private fun PreviewCreatureCompactListScreenLight() {
 @Composable
 private fun PreviewCreatureCompactListScreenDark() {
     AppThemePreview(darkTheme = true) {
-        CreatureCompactListScreen(stateWithSampleData, {}, {}, {})
+        CreatureCompactListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {})
     }
 }
