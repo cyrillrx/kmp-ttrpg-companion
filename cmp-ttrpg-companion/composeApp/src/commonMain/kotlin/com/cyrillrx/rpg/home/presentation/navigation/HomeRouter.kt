@@ -14,8 +14,8 @@ interface HomeRouter {
     fun openSpellCardCarousel() {}
     fun openMagicalItemList() {}
     fun openMagicalItemCardCarousel() {}
+    fun openCreatureCompactList() {}
     fun openCreatureList() {}
-    fun openCreatureDetailList() {}
 }
 
 class HomeRouterImpl(private val navController: NavController) : HomeRouter {
@@ -43,11 +43,11 @@ class HomeRouterImpl(private val navController: NavController) : HomeRouter {
         navController.navigate(MagicalItemRoute.CardCarousel)
     }
 
-    override fun openCreatureList() {
-        navController.navigate(CreatureRoute.DetailList)
+    override fun openCreatureCompactList() {
+        navController.navigate(CreatureRoute.CompactList)
     }
 
-    override fun openCreatureDetailList() {
-        navController.navigate(CreatureRoute.DetailList)
+    override fun openCreatureList() {
+        navController.navigate(CreatureRoute.List)
     }
 }

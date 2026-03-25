@@ -1,14 +1,19 @@
 package com.cyrillrx.rpg.creature.presentation.component
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.HorizontalDivider
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.core.presentation.component.EmptySearch
@@ -16,6 +21,8 @@ import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SearchBarWithBack
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
+import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
+import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.creature.data.SampleCreatureRepository
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.presentation.CreatureListState
@@ -26,9 +33,10 @@ import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.hint_search_creature
 
 @Composable
-fun CreatureDetailListScreen(viewModel: CreatureListViewModel) {
+fun CreatureCompactListScreen(viewModel: CreatureListViewModel) {
     val state by viewModel.state.collectAsStateWithLifecycle()
-    CreatureDetailListScreen(
+
+    CreatureCompactListScreen(
         state = state,
         onNavigateUpClicked = viewModel::onNavigateUpClicked,
         onSearchQueryChanged = viewModel::onSearchQueryChanged,
@@ -37,11 +45,11 @@ fun CreatureDetailListScreen(viewModel: CreatureListViewModel) {
 }
 
 @Composable
-fun CreatureDetailListScreen(
+fun CreatureCompactListScreen(
     state: CreatureListState,
+    onNavigateUpClicked: () -> Unit,
     onSearchQueryChanged: (String) -> Unit,
     onCreatureClicked: (Creature) -> Unit,
-    onNavigateUpClicked: () -> Unit,
 ) {
     Scaffold(
         topBar = {
@@ -53,41 +61,64 @@ fun CreatureDetailListScreen(
             )
         },
     ) { paddingValues ->
-        Column(Modifier.padding(paddingValues)) {
+        Column(
+            modifier = Modifier
+                .padding(paddingValues)
+                .fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
             when (val body = state.body) {
                 is CreatureListState.Body.Loading -> Loader()
                 is CreatureListState.Body.Empty -> EmptySearch(state.filter.query)
                 is CreatureListState.Body.Error -> ErrorLayout(body.errorMessage)
-                is CreatureListState.Body.WithData -> CreatureList(body.searchResults, onCreatureClicked)
+                is CreatureListState.Body.WithData -> CreatureCompactList(body.searchResults, onCreatureClicked)
             }
         }
     }
 }
 
 @Composable
-private fun CreatureList(
+private fun CreatureCompactList(
     creatures: List<Creature>,
     onCreatureClicked: (Creature) -> Unit,
 ) {
-    LazyColumn(modifier = Modifier.fillMaxSize()) {
+    val listState = rememberLazyListState()
+    LaunchedEffect(creatures) {
+        listState.animateScrollToItem(0)
+    }
+
+    LazyColumn(
+        modifier = Modifier.fillMaxSize(),
+        state = listState,
+        contentPadding = PaddingValues(spacingMedium),
+        verticalArrangement = Arrangement.spacedBy(spacingSmall),
+    ) {
         items(creatures) { creature ->
-            CreatureItem(
+            CreatureCompactListItem(
                 creature = creature,
-//                modifier = Modifier.clickable { onCreatureClicked(creature) },
+                onClick = { onCreatureClicked(creature) },
+                modifier = Modifier.fillMaxWidth(),
             )
-            HorizontalDivider()
         }
+    }
+}
+
+private val stateWithSampleData = CreatureListState(
+    body = CreatureListState.Body.WithData(SampleCreatureRepository().getAll()),
+)
+
+@Preview
+@Composable
+private fun PreviewCreatureCompactListScreenLight() {
+    AppThemePreview(darkTheme = false) {
+        CreatureCompactListScreen(stateWithSampleData, {}, {}, {})
     }
 }
 
 @Preview
 @Composable
-private fun PreviewCreatureDetailListScreen() {
-    val creatures = SampleCreatureRepository().getAll()
-    val state = CreatureListState(
-        body = CreatureListState.Body.WithData(creatures),
-    )
-    AppThemePreview(darkTheme = false) {
-        CreatureDetailListScreen(state, {}, {}, {})
+private fun PreviewCreatureCompactListScreenDark() {
+    AppThemePreview(darkTheme = true) {
+        CreatureCompactListScreen(stateWithSampleData, {}, {}, {})
     }
 }
