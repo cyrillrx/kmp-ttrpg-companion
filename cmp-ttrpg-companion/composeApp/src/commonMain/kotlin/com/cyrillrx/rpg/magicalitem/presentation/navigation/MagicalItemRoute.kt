@@ -5,12 +5,13 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
-import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.rpg.core.data.ComposeFileReader
 import com.cyrillrx.rpg.magicalitem.data.JsonMagicalItemRepository
 import com.cyrillrx.rpg.magicalitem.presentation.component.MagicalItemCardCarouselScreen
 import com.cyrillrx.rpg.magicalitem.presentation.component.MagicalItemCardScreen
 import com.cyrillrx.rpg.magicalitem.presentation.component.MagicalItemListScreen
+import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.MagicalItemDetailViewModel
+import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.MagicalItemDetailViewModelFactory
 import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.MagicalItemListViewModel
 import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.MagicalItemListViewModelFactory
 import kotlinx.serialization.Serializable
@@ -23,7 +24,7 @@ interface MagicalItemRoute {
     data object CardCarousel
 
     @Serializable
-    data class Detail(val serializedItem: String)
+    data class Detail(val magicalItemId: String)
 }
 
 fun NavGraphBuilder.handleMagicalItemRoutes(navController: NavController, fileReader: ComposeFileReader) {
@@ -44,10 +45,11 @@ fun NavGraphBuilder.handleMagicalItemRoutes(navController: NavController, fileRe
     }
 
     composable<MagicalItemRoute.Detail> { entry ->
-        val args = entry.toRoute<MagicalItemRoute.Detail>()
-        MagicalItemCardScreen(
-            magicalItem = args.serializedItem.deserialize(),
-            onNavigateUpClicked = { navController.navigateUp() },
+        val id = entry.toRoute<MagicalItemRoute.Detail>().magicalItemId
+        val repository = JsonMagicalItemRepository(fileReader)
+        val viewModel = viewModel<MagicalItemDetailViewModel>(
+            factory = MagicalItemDetailViewModelFactory(id, repository),
         )
+        MagicalItemCardScreen(viewModel, onNavigateUpClicked = { navController.navigateUp() })
     }
 }

@@ -7,7 +7,6 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
-import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.rpg.core.data.ComposeFileReader
 import com.cyrillrx.rpg.spell.data.JsonSpellRepository
 import com.cyrillrx.rpg.spell.presentation.component.SpellCardCarouselScreen
@@ -15,6 +14,8 @@ import com.cyrillrx.rpg.spell.presentation.component.SpellCardScreen
 import com.cyrillrx.rpg.spell.presentation.component.SpellListScreen
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellBookViewModel
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellBookViewModelFactory
+import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellDetailViewModel
+import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellDetailViewModelFactory
 import kotlinx.serialization.Serializable
 
 interface SpellRoute {
@@ -25,7 +26,7 @@ interface SpellRoute {
     data object CardCarousel
 
     @Serializable
-    data class Detail(val serializedSpell: String)
+    data class Detail(val spellId: String)
 }
 
 fun NavGraphBuilder.handleSpellRoutes(navController: NavController, fileReader: ComposeFileReader) {
@@ -49,10 +50,11 @@ fun NavGraphBuilder.handleSpellRoutes(navController: NavController, fileReader: 
     }
 
     composable<SpellRoute.Detail> { entry ->
-        val args = entry.toRoute<SpellRoute.Detail>()
-        SpellCardScreen(
-            spell = args.serializedSpell.deserialize(),
-            onNavigateUpClicked = { navController.navigateUp() },
+        val id = entry.toRoute<SpellRoute.Detail>().spellId
+        val repository = JsonSpellRepository(fileReader)
+        val viewModel = viewModel<SpellDetailViewModel>(
+            factory = SpellDetailViewModelFactory(id, repository),
         )
+        SpellCardScreen(viewModel, onNavigateUpClicked = { navController.navigateUp() })
     }
 }

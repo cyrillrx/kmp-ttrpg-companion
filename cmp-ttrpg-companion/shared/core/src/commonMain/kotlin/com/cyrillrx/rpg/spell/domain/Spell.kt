@@ -5,6 +5,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 class Spell(
+    val id: String,
     val title: String,
     val description: String,
     val level: Int,

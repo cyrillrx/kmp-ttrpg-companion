@@ -1,7 +1,6 @@
 package com.cyrillrx.rpg.creature.presentation.navigation
 
 import androidx.navigation.NavController
-import com.cyrillrx.core.data.serialize
 import com.cyrillrx.rpg.creature.domain.Creature
 
 interface CreatureRouter {
@@ -15,6 +14,6 @@ class CreatureRouterImpl(private val navController: NavController) : CreatureRou
     }
 
     override fun openCreatureDetail(creature: Creature) {
-        navController.navigate(CreatureRoute.Detail(creature.serialize()))
+        navController.navigate(CreatureRoute.Detail(creature.id))
     }
 }

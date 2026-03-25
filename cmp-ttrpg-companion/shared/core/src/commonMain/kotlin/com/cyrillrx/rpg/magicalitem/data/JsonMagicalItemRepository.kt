@@ -19,6 +19,9 @@ class JsonMagicalItemRepository(private val fileReader: FileReader) : MagicalIte
         return allItems.filter(filter::matches)
     }
 
+    override suspend fun getById(id: String): MagicalItem? =
+        getAll(null).firstOrNull { it.id == id }
+
     private suspend fun loadFromFile(): List<ApiInventoryItem> {
         val result = fileReader.readFile("files/objets-magiques.json")
         if (result is Result.Success) {
@@ -30,6 +33,7 @@ class JsonMagicalItemRepository(private val fileReader: FileReader) : MagicalIte
     companion object {
         private fun ApiInventoryItem.toMagicalItem(): MagicalItem {
             return MagicalItem(
+                id = title,
                 title = title,
                 subtitle = getSubtitle(),
                 description = content,

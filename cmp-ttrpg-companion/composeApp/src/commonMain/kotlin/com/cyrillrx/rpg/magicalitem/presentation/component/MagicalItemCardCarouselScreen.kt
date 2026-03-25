@@ -22,7 +22,7 @@ import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SearchBarWithBack
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
-import com.cyrillrx.rpg.magicalitem.data.SampleMagicalItemsRepository
+import com.cyrillrx.rpg.magicalitem.data.SampleMagicalItemRepository
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemListState
 import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.MagicalItemListViewModel
@@ -116,7 +116,7 @@ private fun MagicalItemCardCarousel(
 }
 
 private val stateWithSampleData = MagicalItemListState(
-    body = MagicalItemListState.Body.WithData(SampleMagicalItemsRepository().getAll()),
+    body = MagicalItemListState.Body.WithData(SampleMagicalItemRepository().getAll()),
 )
 
 @Preview

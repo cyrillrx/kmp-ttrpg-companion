@@ -5,11 +5,12 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
-import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.rpg.creature.domain.CreatureRepository
 import com.cyrillrx.rpg.creature.presentation.component.CreatureCompactListScreen
 import com.cyrillrx.rpg.creature.presentation.component.CreatureDetailScreen
 import com.cyrillrx.rpg.creature.presentation.component.CreatureListScreen
+import com.cyrillrx.rpg.creature.presentation.viewmodel.CreatureDetailViewModel
+import com.cyrillrx.rpg.creature.presentation.viewmodel.CreatureDetailViewModelFactory
 import com.cyrillrx.rpg.creature.presentation.viewmodel.CreatureListViewModel
 import com.cyrillrx.rpg.creature.presentation.viewmodel.CreatureListViewModelFactory
 import kotlinx.serialization.Serializable
@@ -22,7 +23,7 @@ interface CreatureRoute {
     data object List
 
     @Serializable
-    data class Detail(val serializedCreature: String)
+    data class Detail(val creatureId: String)
 }
 
 fun NavGraphBuilder.handleCreatureRoutes(navController: NavController, repository: CreatureRepository) {
@@ -41,10 +42,10 @@ fun NavGraphBuilder.handleCreatureRoutes(navController: NavController, repositor
     }
 
     composable<CreatureRoute.Detail> { entry ->
-        val args = entry.toRoute<CreatureRoute.Detail>()
-        CreatureDetailScreen(
-            creature = args.serializedCreature.deserialize(),
-            onNavigateUpClicked = { navController.navigateUp() },
+        val id = entry.toRoute<CreatureRoute.Detail>().creatureId
+        val viewModel = viewModel<CreatureDetailViewModel>(
+            factory = CreatureDetailViewModelFactory(id, repository),
         )
+        CreatureDetailScreen(viewModel, onNavigateUpClicked = { navController.navigateUp() })
     }
 }
