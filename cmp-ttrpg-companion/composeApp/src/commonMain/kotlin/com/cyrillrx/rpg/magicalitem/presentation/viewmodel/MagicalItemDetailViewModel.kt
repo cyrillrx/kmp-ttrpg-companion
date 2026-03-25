@@ -19,8 +19,7 @@ class MagicalItemDetailViewModel(
 ) : ViewModel() {
     val state: StateFlow<DetailState<MagicalItem>> = flow {
         val item = repository.getById(magicalItemId)
-        val state = if (item == null) DetailState.NotFound(magicalItemId) else DetailState.Found(item)
-        emit(state)
+        emit(DetailState.of(magicalItemId, item))
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), DetailState.Loading)
 }
 

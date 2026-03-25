@@ -19,8 +19,7 @@ class CreatureDetailViewModel(
 ) : ViewModel() {
     val state: StateFlow<DetailState<Creature>> = flow {
         val item = repository.getById(creatureId)
-        val state = if (item == null) DetailState.NotFound(creatureId) else DetailState.Found(item)
-        emit(state)
+        emit(DetailState.of(creatureId, item))
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), DetailState.Loading)
 }
 
