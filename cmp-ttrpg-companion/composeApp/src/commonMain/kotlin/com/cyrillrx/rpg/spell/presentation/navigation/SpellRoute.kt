@@ -2,8 +2,6 @@ package com.cyrillrx.rpg.spell.presentation.navigation
 
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
@@ -57,9 +55,6 @@ fun NavGraphBuilder.handleSpellRoutes(navController: NavController, fileReader: 
         val viewModel = viewModel<SpellDetailViewModel>(
             factory = SpellDetailViewModelFactory(id, repository),
         )
-        val spell by viewModel.item.collectAsState()
-        spell?.let {
-            SpellCardScreen(it, onNavigateUpClicked = { navController.navigateUp() })
-        }
+        SpellCardScreen(viewModel, onNavigateUpClicked = { navController.navigateUp() })
     }
 }

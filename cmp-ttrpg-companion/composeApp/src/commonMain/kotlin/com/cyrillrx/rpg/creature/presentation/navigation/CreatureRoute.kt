@@ -1,7 +1,5 @@
 package com.cyrillrx.rpg.creature.presentation.navigation
 
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
@@ -48,9 +46,6 @@ fun NavGraphBuilder.handleCreatureRoutes(navController: NavController, repositor
         val viewModel = viewModel<CreatureDetailViewModel>(
             factory = CreatureDetailViewModelFactory(id, repository),
         )
-        val creature by viewModel.item.collectAsState()
-        creature?.let {
-            CreatureDetailScreen(it, onNavigateUpClicked = { navController.navigateUp() })
-        }
+        CreatureDetailScreen(viewModel, onNavigateUpClicked = { navController.navigateUp() })
     }
 }

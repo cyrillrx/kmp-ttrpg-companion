@@ -1,7 +1,5 @@
 package com.cyrillrx.rpg.magicalitem.presentation.navigation
 
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
@@ -52,9 +50,6 @@ fun NavGraphBuilder.handleMagicalItemRoutes(navController: NavController, fileRe
         val viewModel = viewModel<MagicalItemDetailViewModel>(
             factory = MagicalItemDetailViewModelFactory(id, repository),
         )
-        val magicalItem by viewModel.item.collectAsState()
-        magicalItem?.let {
-            MagicalItemCardScreen(it, onNavigateUpClicked = { navController.navigateUp() })
-        }
+        MagicalItemCardScreen(viewModel, onNavigateUpClicked = { navController.navigateUp() })
     }
 }
