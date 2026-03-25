@@ -42,8 +42,7 @@ class CreatureListViewModel(
     }
 
     fun onCreatureClicked(creature: Creature) {
-        // TODO : open detail
-        // router.openCreatureDetail(creature)
+        router.openCreatureDetail(creature)
     }
 
     fun onTypeToggled(type: Creature.Type) {

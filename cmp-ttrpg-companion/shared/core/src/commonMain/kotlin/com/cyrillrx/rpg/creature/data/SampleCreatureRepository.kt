@@ -134,4 +134,6 @@ class SampleCreatureRepository {
     )
 
     fun get(): Creature = getAll().first()
+
+    fun getById(id: String): Creature? = getAll().firstOrNull { it.id == id }
 }
