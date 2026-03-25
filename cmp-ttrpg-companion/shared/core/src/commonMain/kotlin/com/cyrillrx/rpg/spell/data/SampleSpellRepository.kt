@@ -14,8 +14,11 @@ class SampleSpellRepository {
 
     fun get(): Spell = fireball()
 
+    fun getById(id: String): Spell? = getAll().firstOrNull { it.id == id }
+
     companion object {
         private fun fireball() = Spell(
+            id = "Fireball",
             title = "Fireball",
             description = "A bright streak flashes from your pointing finger to a point you choose within range and then blossoms with a low roar into an explosion of flame.",
             level = 3,
@@ -31,6 +34,7 @@ class SampleSpellRepository {
         )
 
         private fun mageArmor() = Spell(
+            id = "Mage Armor",
             title = "Mage Armor",
             description = "You touch a willing creature who isn't wearing armor, and a protective magical force surrounds it until the spell ends.",
             level = 1,
@@ -43,6 +47,7 @@ class SampleSpellRepository {
         )
 
         private fun detectThoughts() = Spell(
+            id = "Detect Thoughts",
             title = "Detect Thoughts",
             description = "For the duration, you can read the thoughts of certain creatures.",
             level = 2,
@@ -58,6 +63,7 @@ class SampleSpellRepository {
         )
 
         private fun thunderwave() = Spell(
+            id = "Thunderwave",
             title = "Thunderwave",
             description = "A wave of thunderous force sweeps out from you.",
             level = 1,
@@ -74,6 +80,7 @@ class SampleSpellRepository {
         )
 
         private fun counterspell() = Spell(
+            id = "Counterspell",
             title = "Counterspell",
             description = "You attempt to interrupt a creature in the process of casting a spell.",
             level = 3,
