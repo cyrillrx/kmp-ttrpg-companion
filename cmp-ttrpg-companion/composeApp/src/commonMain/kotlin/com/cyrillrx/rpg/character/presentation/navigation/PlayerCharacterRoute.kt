@@ -6,7 +6,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
 import com.cyrillrx.core.data.deserialize
-import com.cyrillrx.rpg.character.data.RamPlayerCharacterRepository
+import com.cyrillrx.rpg.character.domain.PlayerCharacterRepository
 import com.cyrillrx.rpg.character.presentation.component.CreatePlayerCharacterScreen
 import com.cyrillrx.rpg.character.presentation.component.PlayerCharacterDetailScreen
 import com.cyrillrx.rpg.character.presentation.component.PlayerCharacterListScreen
@@ -25,10 +25,9 @@ interface PlayerCharacterRoute {
     data object Create
 }
 
-fun NavGraphBuilder.handlePlayerCharacterRoutes(navController: NavController) {
+fun NavGraphBuilder.handlePlayerCharacterRoutes(navController: NavController, repository: PlayerCharacterRepository) {
     composable<PlayerCharacterRoute.List> {
         val router = PlayerCharacterRouterImpl(navController)
-        val repository = RamPlayerCharacterRepository()
         val viewModelFactory = PlayerCharacterListViewModelFactory(router, repository)
         val viewModel = viewModel<PlayerCharacterListViewModel>(factory = viewModelFactory)
         PlayerCharacterListScreen(viewModel)

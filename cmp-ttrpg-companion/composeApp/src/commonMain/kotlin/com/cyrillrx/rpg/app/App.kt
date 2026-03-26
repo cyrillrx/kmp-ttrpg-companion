@@ -6,6 +6,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.cyrillrx.rpg.campaign.navigation.handleCampaignRoutes
 import com.cyrillrx.rpg.character.presentation.navigation.handlePlayerCharacterRoutes
+import com.cyrillrx.rpg.campaign.data.SQLDelightCampaignRepository
+import com.cyrillrx.rpg.character.data.RamPlayerCharacterRepository
 import com.cyrillrx.rpg.core.data.ComposeFileReader
 import com.cyrillrx.rpg.core.data.cache.DatabaseDriverFactory
 import com.cyrillrx.rpg.core.presentation.theme.AppTheme
@@ -13,7 +15,9 @@ import com.cyrillrx.rpg.creature.data.JsonCreatureRepository
 import com.cyrillrx.rpg.creature.presentation.navigation.handleCreatureRoutes
 import com.cyrillrx.rpg.home.presentation.HomeScreen
 import com.cyrillrx.rpg.home.presentation.navigation.HomeRouterImpl
+import com.cyrillrx.rpg.magicalitem.data.JsonMagicalItemRepository
 import com.cyrillrx.rpg.magicalitem.presentation.navigation.handleMagicalItemRoutes
+import com.cyrillrx.rpg.spell.data.JsonSpellRepository
 import com.cyrillrx.rpg.spell.presentation.navigation.handleSpellRoutes
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
@@ -32,11 +36,11 @@ fun App(dbDriverFactory: DatabaseDriverFactory) {
             val homeRouter = HomeRouterImpl(navController)
             composable<MainRoute.Home> { HomeScreen(homeRouter) }
 
-            handleCampaignRoutes(navController, dbDriverFactory)
-            handlePlayerCharacterRoutes(navController)
+            handleCampaignRoutes(navController, SQLDelightCampaignRepository(dbDriverFactory))
+            handlePlayerCharacterRoutes(navController, RamPlayerCharacterRepository())
 
-            handleSpellRoutes(navController, fileReader)
-            handleMagicalItemRoutes(navController, fileReader)
+            handleSpellRoutes(navController, JsonSpellRepository(fileReader))
+            handleMagicalItemRoutes(navController, JsonMagicalItemRepository(fileReader))
             handleCreatureRoutes(navController, JsonCreatureRepository(fileReader))
         }
     }
