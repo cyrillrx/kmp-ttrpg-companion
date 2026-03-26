@@ -16,7 +16,7 @@ For detailed feature specifications, see the [PRDs](prd/).
 
 - [x] Complete Spellbook filters (school, class) - [PRD-001a](prd/PRD-001a-SPELLBOOK.md)
 - [x] Complete Inventory filters (type, rarity) - [PRD-001b](prd/PRD-001b-ITEM-LIST.md)
-- [ ] Complete Bestiary filters (type, CR) - [PRD-001c](prd/PRD-001c-BESTIARY.md)
+- [x] Complete Bestiary filters (type, CR) - [PRD-001c](prd/PRD-001c-BESTIARY.md)
 
 ## Phase 3 - Local Lists
 
