@@ -25,6 +25,7 @@ A digital toolkit for tabletop role-playing game sessions. Designed for Game Mas
 | Document                                 | Description                                      |
 |------------------------------------------|--------------------------------------------------|
 | [`AGENTS.md`](AGENTS.md)                 | Central contributor guide — start here           |
+| [`docs/ROADMAP.md`](docs/ROADMAP.md)     | Planned phases and feature progress              |
 | [`docs/conventions/`](docs/conventions/) | Coding, Git, and technology-specific conventions |
 | [`docs/prd/`](docs/prd/)                 | Product Requirement Documents                    |
 
