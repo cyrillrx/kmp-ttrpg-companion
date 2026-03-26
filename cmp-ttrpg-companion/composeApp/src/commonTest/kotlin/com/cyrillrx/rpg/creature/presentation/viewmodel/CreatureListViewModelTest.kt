@@ -3,6 +3,7 @@ package com.cyrillrx.rpg.creature.presentation.viewmodel
 import com.cyrillrx.rpg.creature.data.SampleCreatureRepository
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.CreatureFilter
+import com.cyrillrx.rpg.creature.domain.CreatureRepository
 import com.cyrillrx.rpg.creature.presentation.CreatureListState
 import com.cyrillrx.rpg.creature.presentation.navigation.CreatureRouter
 import kotlinx.coroutines.Dispatchers
@@ -53,7 +54,7 @@ class CreatureListViewModelTest {
 
         val state = viewModel.state.value
         val body = assertIs<CreatureListState.Body.WithData>(state.body)
-        assertEquals(expected = repository.getAll(null).size, actual = body.searchResults.size)
+        assertEquals(expected = 6, actual = body.searchResults.size)
     }
 
     @Test
@@ -141,9 +142,50 @@ class CreatureListViewModelTest {
         val body = assertIs<CreatureListState.Body.WithData>(viewModel.state.value.body)
         assertEquals(expected = 6, actual = body.searchResults.size)
     }
+
+    @Test
+    fun `state is Empty when no creatures match filter`() = runTest(testDispatcher) {
+        val viewModel = CreatureListViewModel(router, repository)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        viewModel.onSearchQueryChanged("no_match")
+
+        advanceUntilIdle()
+
+        assertIs<CreatureListState.Body.Empty>(viewModel.state.value.body)
+    }
+
+    @Test
+    fun `state is Error when repository throws`() = runTest(testDispatcher) {
+        val failingRepository = FailingCreatureRepository()
+        val viewModel = CreatureListViewModel(router, failingRepository)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        assertIs<CreatureListState.Body.Error>(viewModel.state.value.body)
+    }
 }
 
 private class NoOpCreatureRouter : CreatureRouter {
     override fun navigateUp() = Unit
     override fun openCreatureDetail(creature: Creature) = Unit
+}
+
+private class FailingCreatureRepository : CreatureRepository {
+    override suspend fun getAll(filter: CreatureFilter?): List<Creature> {
+        throw RuntimeException("Simulated repository error")
+    }
+
+    override suspend fun getById(id: String): Creature? {
+        throw RuntimeException("Simulated repository error")
+    }
 }

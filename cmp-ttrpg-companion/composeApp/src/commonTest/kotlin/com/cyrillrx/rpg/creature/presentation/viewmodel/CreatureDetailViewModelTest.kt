@@ -44,7 +44,7 @@ class CreatureDetailViewModelTest {
 
     @Test
     fun `state is NotFound if creature not found`() = runTest(testDispatcher) {
-        val viewModel = CreatureDetailViewModel("dummy", repository)
+        val viewModel = CreatureDetailViewModel("no_match", repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -54,7 +54,7 @@ class CreatureDetailViewModelTest {
 
         val state = viewModel.state.value
         assertIs<DetailState.NotFound>(state)
-        assertEquals(expected = DetailState.NotFound("dummy"), actual = state)
+        assertEquals(expected = DetailState.NotFound("no_match"), actual = state)
     }
 
     @Test
