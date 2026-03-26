@@ -2,21 +2,30 @@ package com.cyrillrx.rpg.spell.data
 
 import com.cyrillrx.rpg.character.domain.PlayerCharacter
 import com.cyrillrx.rpg.spell.domain.Spell
+import com.cyrillrx.rpg.spell.domain.SpellFilter
+import com.cyrillrx.rpg.spell.domain.SpellRepository
 
-class SampleSpellRepository {
-    fun getAll(): List<Spell> = listOf(
-        fireball(),
-        mageArmor(),
-        detectThoughts(),
-        thunderwave(),
-        counterspell(),
-    )
+class SampleSpellRepository : SpellRepository {
+    override suspend fun getAll(filter: SpellFilter?): List<Spell> {
+        filter ?: return spells
+        return spells.filter(filter::matches)
+    }
 
-    fun get(): Spell = fireball()
+    override suspend fun getById(id: String): Spell? = spells.firstOrNull { it.id == id }
 
-    fun getById(id: String): Spell? = getAll().firstOrNull { it.id == id }
+    fun getAll(): List<Spell> = spells
+
+    fun get(): Spell = spells.first()
 
     companion object {
+        private val spells: List<Spell> = listOf(
+            fireball(),
+            mageArmor(),
+            detectThoughts(),
+            thunderwave(),
+            counterspell(),
+        )
+
         private fun fireball() = Spell(
             id = "Fireball",
             title = "Fireball",
