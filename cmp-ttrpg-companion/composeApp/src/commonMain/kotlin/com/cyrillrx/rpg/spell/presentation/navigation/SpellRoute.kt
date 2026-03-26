@@ -7,8 +7,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
-import com.cyrillrx.rpg.core.data.ComposeFileReader
-import com.cyrillrx.rpg.spell.data.JsonSpellRepository
+import com.cyrillrx.rpg.spell.domain.SpellRepository
 import com.cyrillrx.rpg.spell.presentation.component.SpellCardCarouselScreen
 import com.cyrillrx.rpg.spell.presentation.component.SpellCardScreen
 import com.cyrillrx.rpg.spell.presentation.component.SpellListScreen
@@ -29,13 +28,12 @@ interface SpellRoute {
     data class Detail(val spellId: String)
 }
 
-fun NavGraphBuilder.handleSpellRoutes(navController: NavController, fileReader: ComposeFileReader) {
+fun NavGraphBuilder.handleSpellRoutes(navController: NavController, repository: SpellRepository) {
     composable<SpellRoute.List>(
         enterTransition = { slideInHorizontally { initialOffset -> initialOffset } },
         exitTransition = { slideOutHorizontally { initialOffset -> initialOffset } },
     ) {
         val router = SpellRouterImpl(navController)
-        val repository = JsonSpellRepository(fileReader)
         val viewModelFactory = SpellBookViewModelFactory(router, repository)
         val viewModel = viewModel<SpellBookViewModel>(factory = viewModelFactory)
         SpellListScreen(viewModel, router)
@@ -43,7 +41,6 @@ fun NavGraphBuilder.handleSpellRoutes(navController: NavController, fileReader: 
 
     composable<SpellRoute.CardCarousel> {
         val router = SpellRouterImpl(navController)
-        val repository = JsonSpellRepository(fileReader)
         val viewModelFactory = SpellBookViewModelFactory(router, repository)
         val viewModel = viewModel<SpellBookViewModel>(factory = viewModelFactory)
         SpellCardCarouselScreen(viewModel, router)
@@ -51,7 +48,6 @@ fun NavGraphBuilder.handleSpellRoutes(navController: NavController, fileReader: 
 
     composable<SpellRoute.Detail> { entry ->
         val id = entry.toRoute<SpellRoute.Detail>().spellId
-        val repository = JsonSpellRepository(fileReader)
         val viewModel = viewModel<SpellDetailViewModel>(
             factory = SpellDetailViewModelFactory(id, repository),
         )
