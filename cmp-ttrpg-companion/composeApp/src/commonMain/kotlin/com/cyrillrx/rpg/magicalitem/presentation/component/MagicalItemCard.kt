@@ -83,6 +83,6 @@ fun MagicalItemCard(
 @Preview
 @Composable
 private fun PreviewMagicalItemCard() {
-    val item = SampleMagicalItemRepository().get()
+    val item = SampleMagicalItemRepository.getFirst()
     MagicalItemCard(item)
 }

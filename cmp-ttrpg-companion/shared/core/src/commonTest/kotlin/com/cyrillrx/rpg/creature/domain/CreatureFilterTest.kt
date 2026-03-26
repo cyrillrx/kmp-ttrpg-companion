@@ -7,9 +7,8 @@ import kotlin.test.assertTrue
 
 class CreatureFilterTest {
 
-    private val creatures = SampleCreatureRepository().getAll()
-    private val goblin = creatures.first { it.name == "Goblin" }
-    private val dragon = creatures.first { it.name == "Young Red Dragon" }
+    private val goblin = SampleCreatureRepository.goblin()
+    private val dragon = SampleCreatureRepository.youngRedDragon()
 
     @Test
     fun `default filter matches any creature`() {

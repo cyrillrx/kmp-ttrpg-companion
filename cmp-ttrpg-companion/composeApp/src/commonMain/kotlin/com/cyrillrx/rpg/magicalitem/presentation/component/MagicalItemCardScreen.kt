@@ -49,6 +49,6 @@ fun MagicalItemCardScreen(
 @Preview
 @Composable
 fun PreviewMagicalItemCardScreen() {
-    val magicalItem = SampleMagicalItemRepository().get()
+    val magicalItem = SampleMagicalItemRepository.getFirst()
     MagicalItemCardScreen(magicalItem, {})
 }

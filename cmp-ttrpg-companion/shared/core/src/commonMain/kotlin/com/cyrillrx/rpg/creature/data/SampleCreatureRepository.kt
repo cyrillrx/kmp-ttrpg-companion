@@ -14,10 +14,6 @@ class SampleCreatureRepository : CreatureRepository {
 
     override suspend fun getById(id: String): Creature? = creatures.firstOrNull { it.id == id }
 
-    fun getAll(): List<Creature> = creatures
-
-    fun get(): Creature = creatures.first()
-
     companion object {
         private val creatures: List<Creature> = listOf(
             goblin(),
@@ -28,7 +24,11 @@ class SampleCreatureRepository : CreatureRepository {
             gelatinousCube(),
         )
 
-        private fun goblin() = Creature(
+        fun getAll(): List<Creature> = creatures
+
+        fun getFirst(): Creature = creatures.first()
+
+        fun goblin() = Creature(
             id = "1",
             name = "Goblin",
             description = "A small, black-hearted creature that lairs in despoiled dungeons and other dismal settings.",
@@ -51,7 +51,7 @@ class SampleCreatureRepository : CreatureRepository {
             languages = listOf("Common", "Goblin"),
         )
 
-        private fun youngRedDragon() = Creature(
+        fun youngRedDragon() = Creature(
             id = "2",
             name = "Young Red Dragon",
             description = "A fierce dragon that breathes fire and terrorizes the countryside.",

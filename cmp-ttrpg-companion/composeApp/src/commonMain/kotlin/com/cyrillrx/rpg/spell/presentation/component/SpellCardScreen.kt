@@ -49,6 +49,6 @@ fun SpellCardScreen(
 @Preview
 @Composable
 fun PreviewSpellCardScreen() {
-    val spell = SampleSpellRepository().get()
+    val spell = SampleSpellRepository.getFirst()
     SpellCardScreen(spell, {})
 }

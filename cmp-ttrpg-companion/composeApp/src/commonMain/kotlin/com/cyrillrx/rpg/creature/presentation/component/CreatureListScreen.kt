@@ -105,7 +105,7 @@ private fun CreatureList(
 }
 
 private val stateWithSampleData = CreatureListState(
-    body = CreatureListState.Body.WithData(SampleCreatureRepository().getAll()),
+    body = CreatureListState.Body.WithData(SampleCreatureRepository.getAll()),
 )
 
 @Preview

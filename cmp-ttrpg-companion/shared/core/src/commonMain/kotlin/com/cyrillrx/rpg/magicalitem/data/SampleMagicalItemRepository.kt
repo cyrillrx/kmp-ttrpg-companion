@@ -12,10 +12,6 @@ class SampleMagicalItemRepository : MagicalItemRepository {
 
     override suspend fun getById(id: String): MagicalItem? = items.firstOrNull { it.id == id }
 
-    fun getAll(): List<MagicalItem> = items
-
-    fun get(): MagicalItem = items.first()
-
     companion object {
         private val items: List<MagicalItem> = listOf(
             oathAxe(),
@@ -27,6 +23,10 @@ class SampleMagicalItemRepository : MagicalItemRepository {
             fireballScroll(),
             staffOfPower(),
         )
+
+        fun getAll(): List<MagicalItem> = items
+
+        fun getFirst(): MagicalItem = items.first()
 
         private fun oathAxe() = MagicalItem(
             id = "Oath Axe",

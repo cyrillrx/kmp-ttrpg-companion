@@ -13,10 +13,6 @@ class SampleSpellRepository : SpellRepository {
 
     override suspend fun getById(id: String): Spell? = spells.firstOrNull { it.id == id }
 
-    fun getAll(): List<Spell> = spells
-
-    fun get(): Spell = spells.first()
-
     companion object {
         private val spells: List<Spell> = listOf(
             fireball(),
@@ -25,6 +21,10 @@ class SampleSpellRepository : SpellRepository {
             thunderwave(),
             counterspell(),
         )
+
+        fun getAll(): List<Spell> = spells
+
+        fun getFirst(): Spell = spells.first()
 
         private fun fireball() = Spell(
             id = "Fireball",

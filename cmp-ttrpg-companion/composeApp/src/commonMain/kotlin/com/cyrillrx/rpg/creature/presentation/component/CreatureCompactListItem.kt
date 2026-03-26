@@ -157,7 +157,7 @@ fun CreatureCompactListItem(
 private fun PreviewCreatureCompactListItemLight() {
     AppThemePreview(darkTheme = false) {
         Column(verticalArrangement = Arrangement.spacedBy(spacingSmall)) {
-            SampleCreatureRepository().getAll().forEach {
+            SampleCreatureRepository.getAll().forEach {
                 CreatureCompactListItem(creature = it, onClick = {})
             }
         }
@@ -169,7 +169,7 @@ private fun PreviewCreatureCompactListItemLight() {
 private fun PreviewCreatureCompactListItemDark() {
     AppThemePreview(darkTheme = true) {
         Column(verticalArrangement = Arrangement.spacedBy(spacingSmall)) {
-            SampleCreatureRepository().getAll().forEach {
+            SampleCreatureRepository.getAll().forEach {
                 CreatureCompactListItem(creature = it, onClick = {})
             }
         }

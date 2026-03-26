@@ -163,13 +163,13 @@ private fun SpellGridItem(title: String, subtitle: String, spellColor: Color) {
 @Preview
 @Composable
 private fun PreviewSpellCard() {
-    val spell = SampleSpellRepository().get()
+    val spell = SampleSpellRepository.getFirst()
     SpellCard(spell)
 }
 
 @Preview
 @Composable
 private fun PreviewSpellGrid() {
-    val spell = SampleSpellRepository().get()
+    val spell = SampleSpellRepository.getFirst()
     SpellGrid(spell, spell.getColor(), spacingMedium)
 }

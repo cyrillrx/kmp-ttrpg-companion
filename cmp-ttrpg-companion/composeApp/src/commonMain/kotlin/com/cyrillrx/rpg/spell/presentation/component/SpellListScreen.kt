@@ -132,7 +132,7 @@ private fun SpellList(
 }
 
 private val stateWithSampleData = SpellListState(
-    body = SpellListState.Body.WithData(SampleSpellRepository().getAll()),
+    body = SpellListState.Body.WithData(SampleSpellRepository.getAll()),
 )
 
 @Preview
