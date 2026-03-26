@@ -26,7 +26,7 @@ Refer to [PRD-001 — Reference Data](PRD-001-REFERENCE-DATA.md) for the shared 
 - [x] Display a scrollable list of all monsters from the local seed database.
 - [x] Full-text search on name and description.
 - [x] Filter by monster type and CR.
-- [ ] View monster detail: name, type, size, alignment, AC, HP, speed, ability scores, skills, senses, languages, CR, traits, actions, reactions, legendary actions.
+- [x] View monster detail: name, type, size, alignment, AC, HP, speed, ability scores, skills, senses, languages, CR, traits, actions, reactions, legendary actions.
 
 ### Phase 2 — Local Lists
 
