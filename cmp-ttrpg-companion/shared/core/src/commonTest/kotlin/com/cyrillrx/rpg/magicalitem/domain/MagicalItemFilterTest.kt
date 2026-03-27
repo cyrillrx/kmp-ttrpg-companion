@@ -76,4 +76,10 @@ class MagicalItemFilterTest {
         val raritiesFilter = MagicalItemFilter(rarities = setOf(MagicalItem.Rarity.RARE))
         assertTrue(raritiesFilter.hasActiveFilters)
     }
+
+    @Test
+    fun `hasActiveFilters is false when only query is set`() {
+        val queryFilter = MagicalItemFilter(query = "oath")
+        assertFalse(queryFilter.hasActiveFilters)
+    }
 }
