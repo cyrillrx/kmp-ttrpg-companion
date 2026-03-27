@@ -36,18 +36,44 @@ class CreatureFilterTest {
     }
 
     @Test
-    fun `filter by text query matches name`() {
+    fun `filter by non-matching challenge rating does not match`() {
+        val filter = CreatureFilter(challengeRatings = setOf(99f))
+        assertFalse(filter.matches(goblin))
+    }
+
+    @Test
+    fun `filter by text query matches title`() {
         val filter = CreatureFilter(query = "goblin")
         assertTrue(filter.matches(goblin))
     }
 
     @Test
+    fun `filter by text query matches title with different case`() {
+        val filter = CreatureFilter(query = "GOBLIN")
+        assertTrue(filter.matches(goblin))
+    }
+
+    @Test
+    fun `filter by text query matches description`() {
+        val filter = CreatureFilter(query = "black-hearted")
+        assertTrue(filter.matches(goblin))
+    }
+
+    @Test
     fun `hasActiveFilters is false for default filter`() {
-        assertFalse(CreatureFilter().hasActiveFilters)
+        val defaultCreatureFilter = CreatureFilter()
+        assertFalse(defaultCreatureFilter.hasActiveFilters)
     }
 
     @Test
     fun `hasActiveFilters is true when types are set`() {
-        assertTrue(CreatureFilter(types = setOf(Creature.Type.BEAST)).hasActiveFilters)
+        val beastFilter = CreatureFilter(types = setOf(Creature.Type.BEAST))
+        assertTrue(beastFilter.hasActiveFilters)
+    }
+
+    @Test
+    fun `hasActiveFilters is true when challengeRatings are set`() {
+        val challengeRatingsFilter = CreatureFilter(challengeRatings = setOf(0.25f))
+        assertTrue(challengeRatingsFilter.hasActiveFilters)
     }
 }

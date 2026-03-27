@@ -26,7 +26,7 @@ class SampleSpellRepository : SpellRepository {
 
         fun getFirst(): Spell = spells.first()
 
-        private fun fireball() = Spell(
+        fun fireball() = Spell(
             id = "Fireball",
             title = "Fireball",
             description = "A bright streak flashes from your pointing finger to a point you choose within range and then blossoms with a low roar into an explosion of flame.",
@@ -42,7 +42,7 @@ class SampleSpellRepository : SpellRepository {
             ),
         )
 
-        private fun mageArmor() = Spell(
+        fun mageArmor() = Spell(
             id = "Mage Armor",
             title = "Mage Armor",
             description = "You touch a willing creature who isn't wearing armor, and a protective magical force surrounds it until the spell ends.",
