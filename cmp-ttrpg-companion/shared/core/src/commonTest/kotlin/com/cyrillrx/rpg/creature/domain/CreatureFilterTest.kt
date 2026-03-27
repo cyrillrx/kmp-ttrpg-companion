@@ -36,6 +36,12 @@ class CreatureFilterTest {
     }
 
     @Test
+    fun `filter by non-matching challenge rating does not match`() {
+        val filter = CreatureFilter(challengeRatings = setOf(99f))
+        assertFalse(filter.matches(goblin))
+    }
+
+    @Test
     fun `filter by text query matches title`() {
         val filter = CreatureFilter(query = "goblin")
         assertTrue(filter.matches(goblin))
@@ -44,6 +50,12 @@ class CreatureFilterTest {
     @Test
     fun `filter by text query matches title with different case`() {
         val filter = CreatureFilter(query = "GOBLIN")
+        assertTrue(filter.matches(goblin))
+    }
+
+    @Test
+    fun `filter by text query matches description`() {
+        val filter = CreatureFilter(query = "black-hearted")
         assertTrue(filter.matches(goblin))
     }
 
