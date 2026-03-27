@@ -86,8 +86,8 @@ class SpellFilterTest {
 
     @Test
     fun `hasActiveFilters is true when levels are set`() {
-        val lvl1SpellFilter = SpellFilter(levels = setOf(3))
-        assertTrue(lvl1SpellFilter.hasActiveFilters)
+        val lvl3SpellFilter = SpellFilter(levels = setOf(3))
+        assertTrue(lvl3SpellFilter.hasActiveFilters)
     }
 
     @Test
