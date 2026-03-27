@@ -15,8 +15,8 @@ class SampleMagicalItemRepository : MagicalItemRepository {
     companion object {
         private val items: List<MagicalItem> = listOf(
             oathAxe(),
-            cloakOfProtection(),
             healingPotion(),
+            cloakOfProtection(),
             shieldPlus1(),
             wandOfFireballs(),
             ringOfProtection(),
@@ -28,7 +28,7 @@ class SampleMagicalItemRepository : MagicalItemRepository {
 
         fun getFirst(): MagicalItem = items.first()
 
-        private fun oathAxe() = MagicalItem(
+        fun oathAxe() = MagicalItem(
             id = "Oath Axe",
             title = "Oath Axe",
             subtitle = "Weapon (battleaxe), unique (requires attunement)",
@@ -36,6 +36,16 @@ class SampleMagicalItemRepository : MagicalItemRepository {
             type = MagicalItem.Type.WEAPON,
             rarity = MagicalItem.Rarity.RARE,
             attunement = true,
+        )
+
+        fun healingPotion() = MagicalItem(
+            id = "Healing Potion",
+            title = "Healing Potion",
+            subtitle = "Potion, common",
+            description = "You regain 2d4 + 2 hit points when you drink this potion.",
+            type = MagicalItem.Type.POTION,
+            rarity = MagicalItem.Rarity.COMMON,
+            attunement = false,
         )
 
         private fun cloakOfProtection() = MagicalItem(
@@ -46,16 +56,6 @@ class SampleMagicalItemRepository : MagicalItemRepository {
             type = MagicalItem.Type.WONDROUS_ITEM,
             rarity = MagicalItem.Rarity.UNCOMMON,
             attunement = true,
-        )
-
-        private fun healingPotion() = MagicalItem(
-            id = "Healing Potion",
-            title = "Healing Potion",
-            subtitle = "Potion, common",
-            description = "You regain 2d4 + 2 hit points when you drink this potion.",
-            type = MagicalItem.Type.POTION,
-            rarity = MagicalItem.Rarity.COMMON,
-            attunement = false,
         )
 
         private fun shieldPlus1() = MagicalItem(
