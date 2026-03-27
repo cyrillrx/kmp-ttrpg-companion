@@ -123,7 +123,7 @@ private fun PreviewSpellListItemDark() {
 private fun SpellListItemPreview(darkTheme: Boolean) {
     AppThemePreview(darkTheme = darkTheme) {
         Column(verticalArrangement = Arrangement.spacedBy(spacingSmall)) {
-            SampleSpellRepository().getAll().forEach {
+            SampleSpellRepository.getAll().forEach {
                 SpellListItem(spell = it, onClick = {})
             }
         }

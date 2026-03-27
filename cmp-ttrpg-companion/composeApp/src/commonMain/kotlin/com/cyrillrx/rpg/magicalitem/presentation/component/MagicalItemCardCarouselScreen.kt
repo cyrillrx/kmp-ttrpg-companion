@@ -116,7 +116,7 @@ private fun MagicalItemCardCarousel(
 }
 
 private val stateWithSampleData = MagicalItemListState(
-    body = MagicalItemListState.Body.WithData(SampleMagicalItemRepository().getAll()),
+    body = MagicalItemListState.Body.WithData(SampleMagicalItemRepository.getAll()),
 )
 
 @Preview

@@ -3,10 +3,32 @@ package com.cyrillrx.rpg.creature.data
 import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.BaseCreature
 import com.cyrillrx.rpg.creature.domain.Creature
+import com.cyrillrx.rpg.creature.domain.CreatureFilter
+import com.cyrillrx.rpg.creature.domain.CreatureRepository
 
-class SampleCreatureRepository {
-    fun getAll(): List<Creature> = listOf(
-        Creature(
+class SampleCreatureRepository : CreatureRepository {
+    override suspend fun getAll(filter: CreatureFilter?): List<Creature> {
+        filter ?: return creatures
+        return creatures.filter(filter::matches)
+    }
+
+    override suspend fun getById(id: String): Creature? = creatures.firstOrNull { it.id == id }
+
+    companion object {
+        private val creatures: List<Creature> = listOf(
+            goblin(),
+            youngRedDragon(),
+            skeleton(),
+            direWolf(),
+            balor(),
+            gelatinousCube(),
+        )
+
+        fun getAll(): List<Creature> = creatures
+
+        fun getFirst(): Creature = creatures.first()
+
+        fun goblin() = Creature(
             id = "1",
             name = "Goblin",
             description = "A small, black-hearted creature that lairs in despoiled dungeons and other dismal settings.",
@@ -27,8 +49,9 @@ class SampleCreatureRepository {
             maxHitPoints = 7,
             speed = "30 ft.",
             languages = listOf("Common", "Goblin"),
-        ),
-        Creature(
+        )
+
+        fun youngRedDragon() = Creature(
             id = "2",
             name = "Young Red Dragon",
             description = "A fierce dragon that breathes fire and terrorizes the countryside.",
@@ -49,8 +72,9 @@ class SampleCreatureRepository {
             maxHitPoints = 178,
             speed = "40 ft., climb 40 ft., fly 80 ft.",
             languages = listOf("Common", "Draconic"),
-        ),
-        Creature(
+        )
+
+        private fun skeleton() = Creature(
             id = "3",
             name = "Skeleton",
             description = "An animated pile of bones held together by dark magic.",
@@ -71,8 +95,9 @@ class SampleCreatureRepository {
             maxHitPoints = 13,
             speed = "30 ft.",
             languages = listOf("understands languages it knew in life"),
-        ),
-        Creature(
+        )
+
+        private fun direWolf() = Creature(
             id = "4",
             name = "Dire Wolf",
             description = "A large and fearsome wolf that hunts in packs.",
@@ -93,8 +118,9 @@ class SampleCreatureRepository {
             maxHitPoints = 37,
             speed = "50 ft.",
             languages = emptyList(),
-        ),
-        Creature(
+        )
+
+        private fun balor() = Creature(
             id = "5",
             name = "Balor",
             description = "A towering fiend wreathed in flame, wielding a whip and longsword of fire.",
@@ -115,8 +141,9 @@ class SampleCreatureRepository {
             maxHitPoints = 262,
             speed = "40 ft., fly 80 ft.",
             languages = listOf("Abyssal", "telepathy 120 ft."),
-        ),
-        Creature(
+        )
+
+        private fun gelatinousCube() = Creature(
             id = "6",
             name = "Gelatinous Cube",
             description = "A nearly transparent ooze that fills dungeon corridors.",
@@ -130,10 +157,6 @@ class SampleCreatureRepository {
             maxHitPoints = 84,
             speed = "15 ft.",
             languages = emptyList(),
-        ),
-    )
-
-    fun get(): Creature = getAll().first()
-
-    fun getById(id: String): Creature? = getAll().firstOrNull { it.id == id }
+        )
+    }
 }

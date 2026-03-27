@@ -16,8 +16,8 @@ import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.creature.data.SampleCreatureRepository
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.presentation.viewmodel.CreatureDetailViewModel
-import org.jetbrains.compose.ui.tooling.preview.Preview
 import org.jetbrains.compose.resources.stringResource
+import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_creature_not_found
 
@@ -60,7 +60,7 @@ fun CreatureDetailScreen(
 @Composable
 private fun PreviewCreatureDetailScreenLight() {
     AppThemePreview(darkTheme = false) {
-        CreatureDetailScreen(creature = SampleCreatureRepository().get(), onNavigateUpClicked = {})
+        CreatureDetailScreen(creature = SampleCreatureRepository.getFirst(), onNavigateUpClicked = {})
     }
 }
 
@@ -68,6 +68,6 @@ private fun PreviewCreatureDetailScreenLight() {
 @Composable
 private fun PreviewCreatureDetailScreenDark() {
     AppThemePreview(darkTheme = true) {
-        CreatureDetailScreen(creature = SampleCreatureRepository().get(), onNavigateUpClicked = {})
+        CreatureDetailScreen(creature = SampleCreatureRepository.getFirst(), onNavigateUpClicked = {})
     }
 }

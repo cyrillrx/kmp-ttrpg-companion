@@ -81,7 +81,7 @@ fun MagicalItemListItem(
 @Composable
 private fun PreviewMagicalItemListItemLight() {
     AppThemePreview(darkTheme = false) {
-        MagicalItemListItem(magicalItem = SampleMagicalItemRepository().get(), onClick = {})
+        MagicalItemListItem(magicalItem = SampleMagicalItemRepository.getFirst(), onClick = {})
     }
 }
 
@@ -89,6 +89,6 @@ private fun PreviewMagicalItemListItemLight() {
 @Composable
 private fun PreviewMagicalItemListItemDark() {
     AppThemePreview(darkTheme = true) {
-        MagicalItemListItem(magicalItem = SampleMagicalItemRepository().get(), onClick = {})
+        MagicalItemListItem(magicalItem = SampleMagicalItemRepository.getFirst(), onClick = {})
     }
 }

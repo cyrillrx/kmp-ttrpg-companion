@@ -16,7 +16,7 @@ data class CreatureFilter(
     private fun BaseCreature.matches(query: String): Boolean {
         val trimmedQuery = query.trim()
 
-        return name.lowercase().contains(trimmedQuery) ||
-            description.lowercase().contains(trimmedQuery)
+        return name.contains(trimmedQuery, ignoreCase = true) ||
+            description.contains(trimmedQuery, ignoreCase = true)
     }
 }
