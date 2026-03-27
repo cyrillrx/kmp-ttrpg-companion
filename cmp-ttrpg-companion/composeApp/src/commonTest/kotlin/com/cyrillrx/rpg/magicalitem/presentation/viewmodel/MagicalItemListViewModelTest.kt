@@ -91,6 +91,7 @@ class MagicalItemListViewModelTest {
         advanceUntilIdle()
 
         val state = viewModel.state.value
+        assertTrue(state.filter.rarities.contains(MagicalItem.Rarity.RARE))
         val body = assertIs<MagicalItemListState.Body.WithData>(state.body)
         assertEquals(expected = 3, actual = body.searchResults.size)
     }
