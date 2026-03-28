@@ -11,17 +11,14 @@ import com.cyrillrx.rpg.creature.domain.BaseCreature
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.CreatureFilter
 import com.cyrillrx.rpg.creature.domain.CreatureRepository
-import com.cyrillrx.rpg.creature.domain.matches
+import com.cyrillrx.rpg.creature.domain.applyFilter
 
 class JsonCreatureRepository(private val fileReader: FileReader) : CreatureRepository {
 
     override suspend fun getAll(filter: CreatureFilter?): List<Creature> {
         val items = loadFromFile()
         val allCreatures = items.map { it.toCreature() }
-
-        filter ?: return allCreatures
-
-        return allCreatures.filter { it.matches(filter) }
+        return allCreatures.applyFilter(filter)
     }
 
     override suspend fun getById(id: String): Creature? =

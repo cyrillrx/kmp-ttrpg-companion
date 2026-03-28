@@ -5,12 +5,11 @@ import com.cyrillrx.rpg.creature.domain.BaseCreature
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.CreatureFilter
 import com.cyrillrx.rpg.creature.domain.CreatureRepository
-import com.cyrillrx.rpg.creature.domain.matches
+import com.cyrillrx.rpg.creature.domain.applyFilter
 
 class SampleCreatureRepository : CreatureRepository {
     override suspend fun getAll(filter: CreatureFilter?): List<Creature> {
-        filter ?: return creatures
-        return creatures.filter { it.matches(filter) }
+        return creatures.applyFilter(filter)
     }
 
     override suspend fun getById(id: String): Creature? = creatures.firstOrNull { it.id == id }

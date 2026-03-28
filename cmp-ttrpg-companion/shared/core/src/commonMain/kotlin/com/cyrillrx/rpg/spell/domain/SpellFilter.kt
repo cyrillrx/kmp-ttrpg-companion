@@ -11,6 +11,11 @@ data class SpellFilter(
     val hasActiveFilters: Boolean = schools.isNotEmpty() || playerClasses.isNotEmpty() || levels.isNotEmpty()
 }
 
+fun List<Spell>.applyFilter(filter: SpellFilter?): List<Spell> {
+    if (filter == null) return this
+    return filter { it.matches(filter) }
+}
+
 fun Spell.matches(filter: SpellFilter): Boolean {
     return (filter.schools.isEmpty() || schools.any { filter.schools.contains(it) }) &&
         (filter.playerClasses.isEmpty() || availableClasses.any { filter.playerClasses.contains(it) }) &&

@@ -6,8 +6,3 @@ interface CampaignRepository {
     suspend fun save(campaign: Campaign)
     suspend fun delete(id: String)
 }
-
-class CampaignFilter(
-    val query: String = "",
-    val ruleSets: Set<RuleSet> = emptySet(),
-)

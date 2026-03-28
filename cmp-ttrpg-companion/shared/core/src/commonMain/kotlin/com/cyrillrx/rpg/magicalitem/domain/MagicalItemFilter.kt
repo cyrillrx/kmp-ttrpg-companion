@@ -8,6 +8,11 @@ data class MagicalItemFilter(
     val hasActiveFilters: Boolean = types.isNotEmpty() || rarities.isNotEmpty()
 }
 
+fun List<MagicalItem>.applyFilter(filter: MagicalItemFilter?): List<MagicalItem> {
+    if (filter == null) return this
+    return filter { it.matches(filter) }
+}
+
 fun MagicalItem.matches(filter: MagicalItemFilter): Boolean {
     return (filter.types.isEmpty() || filter.types.contains(type)) &&
         (filter.rarities.isEmpty() || filter.rarities.contains(rarity)) &&

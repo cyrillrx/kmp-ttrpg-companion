@@ -7,17 +7,14 @@ import com.cyrillrx.rpg.magicalitem.data.api.ApiInventoryItem
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemFilter
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemRepository
-import com.cyrillrx.rpg.magicalitem.domain.matches
+import com.cyrillrx.rpg.magicalitem.domain.applyFilter
 
 class JsonMagicalItemRepository(private val fileReader: FileReader) : MagicalItemRepository {
 
     override suspend fun getAll(filter: MagicalItemFilter?): List<MagicalItem> {
         val inventoryItems = loadFromFile()
         val allItems = inventoryItems.map { it.toMagicalItem() }
-
-        filter ?: return allItems
-
-        return allItems.filter { it.matches(filter) }
+        return allItems.applyFilter(filter)
     }
 
     override suspend fun getById(id: String): MagicalItem? =

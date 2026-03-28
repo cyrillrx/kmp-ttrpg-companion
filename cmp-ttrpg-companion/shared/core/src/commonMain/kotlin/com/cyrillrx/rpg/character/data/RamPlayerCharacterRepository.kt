@@ -3,7 +3,7 @@ package com.cyrillrx.rpg.character.data
 import com.cyrillrx.rpg.character.domain.PlayerCharacter
 import com.cyrillrx.rpg.character.domain.PlayerCharacterFilter
 import com.cyrillrx.rpg.character.domain.PlayerCharacterRepository
-import com.cyrillrx.rpg.character.domain.matches
+import com.cyrillrx.rpg.character.domain.applyFilter
 
 class RamPlayerCharacterRepository : PlayerCharacterRepository {
 
@@ -11,10 +11,7 @@ class RamPlayerCharacterRepository : PlayerCharacterRepository {
 
     override suspend fun getAll(filter: PlayerCharacterFilter?): List<PlayerCharacter> {
         val allPlayerCharacters = playerCharacters.values.toList()
-
-        filter ?: return allPlayerCharacters
-
-        return allPlayerCharacters.filter { it.matches(filter) }
+        return allPlayerCharacters.applyFilter(filter)
     }
 
     override suspend fun get(id: String): PlayerCharacter? = playerCharacters[id]
