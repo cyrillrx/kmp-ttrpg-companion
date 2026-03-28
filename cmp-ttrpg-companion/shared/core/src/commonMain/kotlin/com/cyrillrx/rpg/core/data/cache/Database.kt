@@ -68,6 +68,6 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
 
     companion object {
         const val DATABASE_NAME = "ttrpg_companion.db"
-        const val LIST_DELIMITER = "|"
+        const val LIST_DELIMITER = "\u001F"
     }
 }
