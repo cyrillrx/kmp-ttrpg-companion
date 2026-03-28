@@ -11,4 +11,9 @@
     <string name="btn_add_to_list">Add to a list</string>
 
     <string name="hint_list_name">List name</string>
+
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_delete_list">Delete</string>
+    <string name="dialog_delete_list_message">Are you sure you want to delete "%1$s"?</string>
+    <string name="dialog_remove_spell_message">Are you sure you want to remove "%1$s" from this list?</string>
 </resources>
