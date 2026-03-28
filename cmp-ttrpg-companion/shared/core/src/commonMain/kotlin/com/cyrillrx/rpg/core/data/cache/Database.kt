@@ -37,20 +37,12 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
 
     fun getUserList(id: String): UserList? = dbQuery.selectUserListById(id, ::mapUserListSelecting).executeAsOneOrNull()
 
-    fun insertUserList(list: UserList) {
-        dbQuery.insertUserList(
+    fun saveUserList(list: UserList) {
+        dbQuery.saveUserList(
             id = list.id,
             name = list.name,
             type = list.type.name,
             itemIds = list.itemIds.joinToString(LIST_DELIMITER),
-        )
-    }
-
-    fun updateUserList(list: UserList) {
-        dbQuery.updateUserList(
-            name = list.name,
-            itemIds = list.itemIds.joinToString(LIST_DELIMITER),
-            id = list.id,
         )
     }
 

@@ -24,11 +24,8 @@ CREATE TABLE UserList (
     itemIds TEXT NOT NULL DEFAULT ''
 );
 
-insertUserList:
-INSERT INTO UserList(id, name, type, itemIds) VALUES(?, ?, ?, ?);
-
-updateUserList:
-UPDATE UserList SET name = ?, itemIds = ? WHERE id = ?;
+saveUserList:
+INSERT OR REPLACE INTO UserList(id, name, type, itemIds) VALUES(?, ?, ?, ?);
 
 selectAllUserListsByType:
 SELECT * FROM UserList WHERE type = ?;

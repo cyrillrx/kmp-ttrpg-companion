@@ -13,12 +13,7 @@ class SQLDelightUserListRepository(databaseDriverFactory: DatabaseDriverFactory)
     override suspend fun get(id: String): UserList? = database.getUserList(id)
 
     override suspend fun save(list: UserList) {
-        val existing = database.getUserList(list.id)
-        if (existing == null) {
-            database.insertUserList(list)
-        } else {
-            database.updateUserList(list)
-        }
+        database.saveUserList(list)
     }
 
     override suspend fun delete(id: String) {
