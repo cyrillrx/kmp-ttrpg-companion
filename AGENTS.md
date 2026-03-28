@@ -84,8 +84,8 @@ No Hilt/Koin. Repositories and routers are instantiated inside `NavGraphBuilder`
 // In handleSpellRoutes(navController, fileReader):
 composable<SpellRoute.List> {
     val router = SpellRouterImpl(navController)
-    val factory = SpellBookViewModelFactory(router, JsonSpellRepository(fileReader))
-    val viewModel = viewModel<SpellBookViewModel>(factory = factory)
+    val factory = SpellListViewModelFactory(router, JsonSpellRepository(fileReader))
+    val viewModel = viewModel<SpellListViewModel>(factory = factory)
     SpellListScreen(viewModel, router)
 }
 ```

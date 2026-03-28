@@ -11,8 +11,8 @@ import com.cyrillrx.rpg.spell.domain.SpellRepository
 import com.cyrillrx.rpg.spell.presentation.component.SpellCardCarouselScreen
 import com.cyrillrx.rpg.spell.presentation.component.SpellCardScreen
 import com.cyrillrx.rpg.spell.presentation.component.SpellListScreen
-import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellBookViewModel
-import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellBookViewModelFactory
+import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellListViewModel
+import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellListViewModelFactory
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellDetailViewModel
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellDetailViewModelFactory
 import kotlinx.serialization.Serializable
@@ -34,15 +34,15 @@ fun NavGraphBuilder.handleSpellRoutes(navController: NavController, repository: 
         exitTransition = { slideOutHorizontally { initialOffset -> initialOffset } },
     ) {
         val router = SpellRouterImpl(navController)
-        val viewModelFactory = SpellBookViewModelFactory(router, repository)
-        val viewModel = viewModel<SpellBookViewModel>(factory = viewModelFactory)
+        val viewModelFactory = SpellListViewModelFactory(router, repository)
+        val viewModel = viewModel<SpellListViewModel>(factory = viewModelFactory)
         SpellListScreen(viewModel, router)
     }
 
     composable<SpellRoute.CardCarousel> {
         val router = SpellRouterImpl(navController)
-        val viewModelFactory = SpellBookViewModelFactory(router, repository)
-        val viewModel = viewModel<SpellBookViewModel>(factory = viewModelFactory)
+        val viewModelFactory = SpellListViewModelFactory(router, repository)
+        val viewModel = viewModel<SpellListViewModel>(factory = viewModelFactory)
         SpellCardCarouselScreen(viewModel, router)
     }
 

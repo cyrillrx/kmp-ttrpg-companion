@@ -25,7 +25,7 @@ import kotlin.test.assertIs
 import kotlin.test.assertTrue
 
 @OptIn(ExperimentalCoroutinesApi::class)
-class SpellBookViewModelTest {
+class SpellListViewModelTest {
 
     private val testDispatcher = StandardTestDispatcher()
     private val repository = SampleSpellRepository()
@@ -44,7 +44,7 @@ class SpellBookViewModelTest {
 
     @Test
     fun `initial state loads all spells`() = runTest(testDispatcher) {
-        val viewModel = SpellBookViewModel(router, repository)
+        val viewModel = SpellListViewModel(router, repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -59,7 +59,7 @@ class SpellBookViewModelTest {
 
     @Test
     fun `onSchoolToggled filters spells by school`() = runTest(testDispatcher) {
-        val viewModel = SpellBookViewModel(router, repository)
+        val viewModel = SpellListViewModel(router, repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -79,7 +79,7 @@ class SpellBookViewModelTest {
 
     @Test
     fun `onLevelToggled filters spells by level`() = runTest(testDispatcher) {
-        val viewModel = SpellBookViewModel(router, repository)
+        val viewModel = SpellListViewModel(router, repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -98,7 +98,7 @@ class SpellBookViewModelTest {
 
     @Test
     fun `onClassToggled filters spells by class`() = runTest(testDispatcher) {
-        val viewModel = SpellBookViewModel(router, repository)
+        val viewModel = SpellListViewModel(router, repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -117,7 +117,7 @@ class SpellBookViewModelTest {
 
     @Test
     fun `onSearchQueryChanged filters spells by title`() = runTest(testDispatcher) {
-        val viewModel = SpellBookViewModel(router, repository)
+        val viewModel = SpellListViewModel(router, repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -137,7 +137,7 @@ class SpellBookViewModelTest {
 
     @Test
     fun `onResetFilters clears active filters`() = runTest(testDispatcher) {
-        val viewModel = SpellBookViewModel(router, repository)
+        val viewModel = SpellListViewModel(router, repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -163,7 +163,7 @@ class SpellBookViewModelTest {
 
     @Test
     fun `state is Empty when no spells match filter`() = runTest(testDispatcher) {
-        val viewModel = SpellBookViewModel(router, repository)
+        val viewModel = SpellListViewModel(router, repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -181,7 +181,7 @@ class SpellBookViewModelTest {
     @Test
     fun `state is Error when repository throws`() = runTest(testDispatcher) {
         val failingRepository = FailingSpellRepository()
-        val viewModel = SpellBookViewModel(router, failingRepository)
+        val viewModel = SpellListViewModel(router, failingRepository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}

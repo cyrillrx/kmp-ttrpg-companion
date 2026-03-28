@@ -7,12 +7,12 @@ import com.cyrillrx.rpg.spell.domain.SpellRepository
 import com.cyrillrx.rpg.spell.presentation.navigation.SpellRouter
 import kotlin.reflect.KClass
 
-class SpellBookViewModelFactory(
+class SpellListViewModelFactory(
     private val router: SpellRouter,
     private val repository: SpellRepository,
 ) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel> create(modelClass: KClass<T>, extras: CreationExtras): T {
-        return SpellBookViewModel(router, repository) as T
+        return SpellListViewModel(router, repository) as T
     }
 }
