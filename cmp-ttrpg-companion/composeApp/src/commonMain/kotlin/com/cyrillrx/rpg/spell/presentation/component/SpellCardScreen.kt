@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -29,7 +30,6 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.btn_add_to_list
 import rpg_companion.composeapp.generated.resources.error_spell_not_found
-import androidx.compose.material3.Text
 
 @Composable
 fun SpellCardScreen(
@@ -57,7 +57,9 @@ fun SpellCardScreen(
         Column(modifier = Modifier.padding(paddingValues)) {
             SpellCard(
                 spell = spell,
-                modifier = Modifier.clickable { onNavigateUpClicked() },
+                modifier = Modifier
+                    .weight(1f)
+                    .clickable { onNavigateUpClicked() },
             )
             Button(
                 onClick = { showAddToList = true },

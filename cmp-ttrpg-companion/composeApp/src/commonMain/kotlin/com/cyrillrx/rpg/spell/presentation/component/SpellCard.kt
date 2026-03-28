@@ -44,14 +44,14 @@ fun SpellCard(spell: Spell, modifier: Modifier = Modifier) {
     Card(
         modifier = modifier
             .padding(spacingSmall)
-            .fillMaxSize(),
+            .background(MaterialTheme.colorScheme.background)
+            .fillMaxWidth(),
         shape = RoundedCornerShape(16.dp),
         border = BorderStroke(spacingMedium, spellColor),
     ) {
         Column(
             Modifier
-                .padding(spacingMedium)
-                .background(MaterialTheme.colorScheme.background),
+                .padding(spacingMedium),
         ) {
             Text(
                 text = spell.title,
@@ -85,7 +85,7 @@ fun SpellCard(spell: Spell, modifier: Modifier = Modifier) {
                 overflow = TextOverflow.Ellipsis,
                 modifier = Modifier
                     .padding(spacingMedium)
-                    .fillMaxSize(),
+                    .fillMaxWidth(),
             )
         }
     }
