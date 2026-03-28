@@ -13,7 +13,7 @@ fun List<MagicalItem>.applyFilter(filter: MagicalItemFilter?): List<MagicalItem>
     return filter { it.matches(filter) }
 }
 
-fun MagicalItem.matches(filter: MagicalItemFilter): Boolean {
+internal fun MagicalItem.matches(filter: MagicalItemFilter): Boolean {
     return (filter.types.isEmpty() || filter.types.contains(type)) &&
         (filter.rarities.isEmpty() || filter.rarities.contains(rarity)) &&
         (filter.query.isBlank() || matches(filter.query))

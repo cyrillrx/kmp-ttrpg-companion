@@ -9,7 +9,7 @@ fun List<PlayerCharacter>.applyFilter(filter: PlayerCharacterFilter?): List<Play
     return filter { it.matches(filter) }
 }
 
-fun PlayerCharacter.matches(filter: PlayerCharacterFilter): Boolean {
+internal fun PlayerCharacter.matches(filter: PlayerCharacterFilter): Boolean {
     val trimmedQuery = filter.query.trim()
 
     return name.contains(trimmedQuery, ignoreCase = true)

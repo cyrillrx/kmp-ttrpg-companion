@@ -13,7 +13,7 @@ fun List<Creature>.applyFilter(filter: CreatureFilter?): List<Creature> {
     return filter { it.matches(filter) }
 }
 
-fun Creature.matches(filter: CreatureFilter): Boolean {
+internal fun Creature.matches(filter: CreatureFilter): Boolean {
     return (filter.types.isEmpty() || filter.types.contains(type)) &&
         (filter.challengeRatings.isEmpty() || filter.challengeRatings.contains(challengeRating)) &&
         (filter.query.isBlank() || matches(filter.query))
