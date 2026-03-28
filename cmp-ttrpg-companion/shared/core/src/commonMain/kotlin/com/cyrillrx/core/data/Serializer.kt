@@ -1,7 +1,6 @@
 package com.cyrillrx.core.data
 
 import kotlinx.serialization.SerializationException
-import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 
 val defaultSerializer: Json = Json {
