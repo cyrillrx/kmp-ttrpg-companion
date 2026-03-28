@@ -61,7 +61,7 @@ class UserListRepositoryTest {
             repository.save(updated)
 
             val result = repository.get("1")
-            assertEquals(expected = listOf("spell1", "spell2"), actual = result?.itemIds)
+            assertEquals(expected = updated, actual = result)
         }
 
     @Test
