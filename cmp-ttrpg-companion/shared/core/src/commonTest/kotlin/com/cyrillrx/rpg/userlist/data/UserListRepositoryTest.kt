@@ -15,7 +15,7 @@ class UserListRepositoryTest {
         runTest {
             val repository = buildRepository()
 
-            val spellList = UserList(id = "1", name = "Grimoire", type = UserList.Type.SPELL, itemIds = emptyList())
+            val spellList = UserList(id = "1", name = "Spellbook", type = UserList.Type.SPELL, itemIds = emptyList())
             val itemList = UserList(id = "2", name = "Artefacts", type = UserList.Type.MAGICAL_ITEM, itemIds = emptyList())
 
             repository.save(spellList)
@@ -53,7 +53,7 @@ class UserListRepositoryTest {
     fun `save updates itemIds on existing list`() =
         runTest {
             val repository = buildRepository()
-            val list = UserList(id = "1", name = "Grimoire", type = UserList.Type.SPELL, itemIds = emptyList())
+            val list = UserList(id = "1", name = "Spellbook", type = UserList.Type.SPELL, itemIds = emptyList())
 
             repository.save(list)
 
@@ -68,7 +68,7 @@ class UserListRepositoryTest {
     fun `delete removes list by id`() =
         runTest {
             val repository = buildRepository()
-            val list = UserList(id = "1", name = "Grimoire", type = UserList.Type.SPELL, itemIds = emptyList())
+            val list = UserList(id = "1", name = "Spellbook", type = UserList.Type.SPELL, itemIds = emptyList())
 
             repository.save(list)
             repository.delete("1")
@@ -81,7 +81,7 @@ class UserListRepositoryTest {
     fun `getAll returns empty list when no lists of given type exist`() =
         runTest {
             val repository = buildRepository()
-            val list = UserList(id = "1", name = "Grimoire", type = UserList.Type.SPELL, itemIds = emptyList())
+            val list = UserList(id = "1", name = "Spellbook", type = UserList.Type.SPELL, itemIds = emptyList())
 
             repository.save(list)
 
