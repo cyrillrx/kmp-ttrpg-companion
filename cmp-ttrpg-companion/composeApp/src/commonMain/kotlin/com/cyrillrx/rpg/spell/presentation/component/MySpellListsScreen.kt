@@ -42,8 +42,11 @@ import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.btn_add_to_list
+import rpg_companion.composeapp.generated.resources.btn_cancel
 import rpg_companion.composeapp.generated.resources.btn_create_list
+import rpg_companion.composeapp.generated.resources.btn_delete_list
 import rpg_companion.composeapp.generated.resources.btn_my_spell_lists
+import rpg_companion.composeapp.generated.resources.dialog_delete_list_message
 import rpg_companion.composeapp.generated.resources.hint_list_name
 import rpg_companion.composeapp.generated.resources.no_result_found
 
@@ -68,6 +71,7 @@ fun MySpellListsScreen(
     onOpenList: (UserList) -> Unit,
 ) {
     var showCreateDialog by remember { mutableStateOf(false) }
+    var listToDelete by remember { mutableStateOf<UserList?>(null) }
 
     Scaffold(
         topBar = {
@@ -100,7 +104,7 @@ fun MySpellListsScreen(
                 is MySpellListsState.Body.WithData -> SpellListNames(
                     lists = body.lists,
                     onOpenList = onOpenList,
-                    onDeleteList = { onDeleteList(it.id) },
+                    onDeleteList = { listToDelete = it },
                 )
             }
         }
@@ -113,6 +117,17 @@ fun MySpellListsScreen(
                 showCreateDialog = false
             },
             onDismiss = { showCreateDialog = false },
+        )
+    }
+
+    listToDelete?.let { list ->
+        DeleteListDialog(
+            listName = list.name,
+            onConfirm = {
+                onDeleteList(list.id)
+                listToDelete = null
+            },
+            onDismiss = { listToDelete = null },
         )
     }
 }
@@ -195,6 +210,28 @@ private fun CreateListDialog(
         dismissButton = {
             TextButton(onClick = onDismiss) {
                 Text(stringResource(Res.string.btn_add_to_list))
+            }
+        },
+    )
+}
+
+@Composable
+private fun DeleteListDialog(
+    listName: String,
+    onConfirm: () -> Unit,
+    onDismiss: () -> Unit,
+) {
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        text = { Text(stringResource(Res.string.dialog_delete_list_message, listName)) },
+        confirmButton = {
+            TextButton(onClick = onConfirm) {
+                Text(stringResource(Res.string.btn_delete_list))
+            }
+        },
+        dismissButton = {
+            TextButton(onClick = onDismiss) {
+                Text(stringResource(Res.string.btn_cancel))
             }
         },
     )
