@@ -6,17 +6,17 @@ data class CreatureFilter(
     val challengeRatings: Set<Float> = emptySet(),
 ) {
     val hasActiveFilters: Boolean = types.isNotEmpty() || challengeRatings.isNotEmpty()
+}
 
-    fun matches(creature: Creature): Boolean {
-        return (types.isEmpty() || types.contains(creature.type)) &&
-            (challengeRatings.isEmpty() || challengeRatings.contains(creature.challengeRating)) &&
-            (query.isBlank() || creature.matches(query))
-    }
+fun Creature.matches(filter: CreatureFilter): Boolean {
+    return (filter.types.isEmpty() || filter.types.contains(type)) &&
+        (filter.challengeRatings.isEmpty() || filter.challengeRatings.contains(challengeRating)) &&
+        (filter.query.isBlank() || matches(filter.query))
+}
 
-    private fun BaseCreature.matches(query: String): Boolean {
-        val trimmedQuery = query.trim()
+private fun BaseCreature.matches(query: String): Boolean {
+    val trimmedQuery = query.trim()
 
-        return name.contains(trimmedQuery, ignoreCase = true) ||
-            description.contains(trimmedQuery, ignoreCase = true)
-    }
+    return name.contains(trimmedQuery, ignoreCase = true) ||
+        description.contains(trimmedQuery, ignoreCase = true)
 }

@@ -3,6 +3,7 @@ package com.cyrillrx.rpg.character.data
 import com.cyrillrx.rpg.character.domain.PlayerCharacter
 import com.cyrillrx.rpg.character.domain.PlayerCharacterFilter
 import com.cyrillrx.rpg.character.domain.PlayerCharacterRepository
+import com.cyrillrx.rpg.character.domain.matches
 
 class RamPlayerCharacterRepository : PlayerCharacterRepository {
 
@@ -13,7 +14,7 @@ class RamPlayerCharacterRepository : PlayerCharacterRepository {
 
         filter ?: return allPlayerCharacters
 
-        return allPlayerCharacters.filter(filter::matches)
+        return allPlayerCharacters.filter { it.matches(filter) }
     }
 
     override suspend fun get(id: String): PlayerCharacter? = playerCharacters[id]

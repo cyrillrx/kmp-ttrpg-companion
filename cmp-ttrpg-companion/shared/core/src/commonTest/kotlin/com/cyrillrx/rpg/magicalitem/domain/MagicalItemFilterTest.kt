@@ -13,50 +13,50 @@ class MagicalItemFilterTest {
     @Test
     fun `default filter matches any item`() {
         val filter = MagicalItemFilter()
-        assertTrue(filter.matches(oathAxe))
-        assertTrue(filter.matches(healingPotion))
+        assertTrue(oathAxe.matches(filter))
+        assertTrue(healingPotion.matches(filter))
     }
 
     @Test
     fun `filter by matching type matches`() {
         val filter = MagicalItemFilter(types = setOf(MagicalItem.Type.WEAPON))
-        assertTrue(filter.matches(oathAxe))
+        assertTrue(oathAxe.matches(filter))
     }
 
     @Test
     fun `filter by non-matching type does not match`() {
         val filter = MagicalItemFilter(types = setOf(MagicalItem.Type.POTION))
-        assertFalse(filter.matches(oathAxe))
+        assertFalse(oathAxe.matches(filter))
     }
 
     @Test
     fun `filter by matching rarity matches`() {
         val filter = MagicalItemFilter(rarities = setOf(MagicalItem.Rarity.RARE))
-        assertTrue(filter.matches(oathAxe))
+        assertTrue(oathAxe.matches(filter))
     }
 
     @Test
     fun `filter by non-matching rarity does not match`() {
         val filter = MagicalItemFilter(rarities = setOf(MagicalItem.Rarity.COMMON))
-        assertFalse(filter.matches(oathAxe))
+        assertFalse(oathAxe.matches(filter))
     }
 
     @Test
     fun `filter by text query matches title`() {
         val filter = MagicalItemFilter(query = "oath")
-        assertTrue(filter.matches(oathAxe))
+        assertTrue(oathAxe.matches(filter))
     }
 
     @Test
     fun `filter by text query matches title with different case`() {
         val filter = MagicalItemFilter(query = "OATH")
-        assertTrue(filter.matches(oathAxe))
+        assertTrue(oathAxe.matches(filter))
     }
 
     @Test
     fun `filter by text query matches description`() {
         val filter = MagicalItemFilter(query = "command word")
-        assertTrue(filter.matches(oathAxe))
+        assertTrue(oathAxe.matches(filter))
     }
 
     @Test

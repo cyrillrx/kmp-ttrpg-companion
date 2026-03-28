@@ -9,6 +9,7 @@ import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.domain.Spell.School
 import com.cyrillrx.rpg.spell.domain.SpellFilter
 import com.cyrillrx.rpg.spell.domain.SpellRepository
+import com.cyrillrx.rpg.spell.domain.matches
 
 class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository {
 
@@ -18,7 +19,7 @@ class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository 
 
         filter ?: return allSpells
 
-        return allSpells.filter(filter::matches)
+        return allSpells.filter { it.matches(filter) }
     }
 
     override suspend fun getById(id: String): Spell? =

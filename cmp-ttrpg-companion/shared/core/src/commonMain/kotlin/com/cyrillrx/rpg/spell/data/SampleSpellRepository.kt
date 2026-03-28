@@ -4,11 +4,12 @@ import com.cyrillrx.rpg.character.domain.PlayerCharacter
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.domain.SpellFilter
 import com.cyrillrx.rpg.spell.domain.SpellRepository
+import com.cyrillrx.rpg.spell.domain.matches
 
 class SampleSpellRepository : SpellRepository {
     override suspend fun getAll(filter: SpellFilter?): List<Spell> {
         filter ?: return spells
-        return spells.filter(filter::matches)
+        return spells.filter { it.matches(filter) }
     }
 
     override suspend fun getById(id: String): Spell? = spells.firstOrNull { it.id == id }

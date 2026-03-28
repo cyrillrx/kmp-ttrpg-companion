@@ -14,62 +14,62 @@ class SpellFilterTest {
     @Test
     fun `default filter matches any spell`() {
         val filter = SpellFilter()
-        assertTrue(filter.matches(fireball))
-        assertTrue(filter.matches(mageArmor))
+        assertTrue(fireball.matches(filter))
+        assertTrue(mageArmor.matches(filter))
     }
 
     @Test
     fun `filter by matching school matches`() {
         val filter = SpellFilter(schools = setOf(Spell.School.EVOCATION))
-        assertTrue(filter.matches(fireball))
+        assertTrue(fireball.matches(filter))
     }
 
     @Test
     fun `filter by non-matching school does not match`() {
         val filter = SpellFilter(schools = setOf(Spell.School.ABJURATION))
-        assertFalse(filter.matches(fireball))
+        assertFalse(fireball.matches(filter))
     }
 
     @Test
     fun `filter by matching level matches`() {
         val filter = SpellFilter(levels = setOf(3))
-        assertTrue(filter.matches(fireball))
+        assertTrue(fireball.matches(filter))
     }
 
     @Test
     fun `filter by non-matching level does not match`() {
         val filter = SpellFilter(levels = setOf(1))
-        assertFalse(filter.matches(fireball))
+        assertFalse(fireball.matches(filter))
     }
 
     @Test
     fun `filter by matching class matches`() {
         val filter = SpellFilter(playerClasses = setOf(PlayerCharacter.Class.SORCERER))
-        assertTrue(filter.matches(fireball))
+        assertTrue(fireball.matches(filter))
     }
 
     @Test
     fun `filter by non-matching class does not match`() {
         val filter = SpellFilter(playerClasses = setOf(PlayerCharacter.Class.PALADIN))
-        assertFalse(filter.matches(fireball))
+        assertFalse(fireball.matches(filter))
     }
 
     @Test
     fun `filter by text query matches title`() {
         val filter = SpellFilter(query = "fireball")
-        assertTrue(filter.matches(fireball))
+        assertTrue(fireball.matches(filter))
     }
 
     @Test
     fun `filter by text query matches title with different case`() {
         val filter = SpellFilter(query = "FIREBALL")
-        assertTrue(filter.matches(fireball))
+        assertTrue(fireball.matches(filter))
     }
 
     @Test
     fun `filter by text query matches description`() {
         val filter = SpellFilter(query = "explosion of flame")
-        assertTrue(filter.matches(fireball))
+        assertTrue(fireball.matches(filter))
     }
 
     @Test

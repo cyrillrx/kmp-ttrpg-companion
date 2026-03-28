@@ -13,50 +13,50 @@ class CreatureFilterTest {
     @Test
     fun `default filter matches any creature`() {
         val filter = CreatureFilter()
-        assertTrue(filter.matches(goblin))
-        assertTrue(filter.matches(dragon))
+        assertTrue(goblin.matches(filter))
+        assertTrue(dragon.matches(filter))
     }
 
     @Test
     fun `filter by matching type matches`() {
         val filter = CreatureFilter(types = setOf(Creature.Type.HUMANOID))
-        assertTrue(filter.matches(goblin))
+        assertTrue(goblin.matches(filter))
     }
 
     @Test
     fun `filter by non-matching type does not match`() {
         val filter = CreatureFilter(types = setOf(Creature.Type.DRAGON))
-        assertFalse(filter.matches(goblin))
+        assertFalse(goblin.matches(filter))
     }
 
     @Test
     fun `filter by matching challenge rating matches`() {
         val filter = CreatureFilter(challengeRatings = setOf(0.25f))
-        assertTrue(filter.matches(goblin))
+        assertTrue(goblin.matches(filter))
     }
 
     @Test
     fun `filter by non-matching challenge rating does not match`() {
         val filter = CreatureFilter(challengeRatings = setOf(99f))
-        assertFalse(filter.matches(goblin))
+        assertFalse(goblin.matches(filter))
     }
 
     @Test
     fun `filter by text query matches title`() {
         val filter = CreatureFilter(query = "goblin")
-        assertTrue(filter.matches(goblin))
+        assertTrue(goblin.matches(filter))
     }
 
     @Test
     fun `filter by text query matches title with different case`() {
         val filter = CreatureFilter(query = "GOBLIN")
-        assertTrue(filter.matches(goblin))
+        assertTrue(goblin.matches(filter))
     }
 
     @Test
     fun `filter by text query matches description`() {
         val filter = CreatureFilter(query = "black-hearted")
-        assertTrue(filter.matches(goblin))
+        assertTrue(goblin.matches(filter))
     }
 
     @Test

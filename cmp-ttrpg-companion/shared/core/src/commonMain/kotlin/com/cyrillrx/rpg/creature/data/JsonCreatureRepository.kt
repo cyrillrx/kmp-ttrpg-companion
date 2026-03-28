@@ -11,6 +11,7 @@ import com.cyrillrx.rpg.creature.domain.BaseCreature
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.CreatureFilter
 import com.cyrillrx.rpg.creature.domain.CreatureRepository
+import com.cyrillrx.rpg.creature.domain.matches
 
 class JsonCreatureRepository(private val fileReader: FileReader) : CreatureRepository {
 
@@ -20,7 +21,7 @@ class JsonCreatureRepository(private val fileReader: FileReader) : CreatureRepos
 
         filter ?: return allCreatures
 
-        return allCreatures.filter(filter::matches)
+        return allCreatures.filter { it.matches(filter) }
     }
 
     override suspend fun getById(id: String): Creature? =
