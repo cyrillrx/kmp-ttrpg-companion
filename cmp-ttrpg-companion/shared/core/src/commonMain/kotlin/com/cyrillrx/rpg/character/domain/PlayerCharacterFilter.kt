@@ -1,11 +1,16 @@
 package com.cyrillrx.rpg.character.domain
 
 class PlayerCharacterFilter(
-    private val query: String = "",
-) {
-    fun matches(playerCharacter: PlayerCharacter): Boolean {
-        val trimmedQuery = query.trim()
+    val query: String = "",
+)
 
-        return playerCharacter.name.contains(trimmedQuery, ignoreCase = true)
-    }
+fun List<PlayerCharacter>.applyFilter(filter: PlayerCharacterFilter?): List<PlayerCharacter> {
+    if (filter == null) return this
+    return filter { it.matches(filter) }
+}
+
+internal fun PlayerCharacter.matches(filter: PlayerCharacterFilter): Boolean {
+    val trimmedQuery = filter.query.trim()
+
+    return name.contains(trimmedQuery, ignoreCase = true)
 }

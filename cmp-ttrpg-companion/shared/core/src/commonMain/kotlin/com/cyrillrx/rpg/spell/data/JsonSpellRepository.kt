@@ -9,16 +9,14 @@ import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.domain.Spell.School
 import com.cyrillrx.rpg.spell.domain.SpellFilter
 import com.cyrillrx.rpg.spell.domain.SpellRepository
+import com.cyrillrx.rpg.spell.domain.applyFilter
 
 class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository {
 
     override suspend fun getAll(filter: SpellFilter?): List<Spell> {
         val item = loadFromFile()
         val allSpells = item.map { it.toSpell() }
-
-        filter ?: return allSpells
-
-        return allSpells.filter(filter::matches)
+        return allSpells.applyFilter(filter)
     }
 
     override suspend fun getById(id: String): Spell? =

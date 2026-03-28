@@ -3,11 +3,11 @@ package com.cyrillrx.rpg.magicalitem.data
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemFilter
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemRepository
+import com.cyrillrx.rpg.magicalitem.domain.applyFilter
 
 class SampleMagicalItemRepository : MagicalItemRepository {
     override suspend fun getAll(filter: MagicalItemFilter?): List<MagicalItem> {
-        filter ?: return items
-        return items.filter(filter::matches)
+        return items.applyFilter(filter)
     }
 
     override suspend fun getById(id: String): MagicalItem? = items.firstOrNull { it.id == id }

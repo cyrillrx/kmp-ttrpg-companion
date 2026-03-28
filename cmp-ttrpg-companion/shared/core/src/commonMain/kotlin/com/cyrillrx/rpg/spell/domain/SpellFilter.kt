@@ -9,18 +9,23 @@ data class SpellFilter(
     val levels: Set<Int> = emptySet(),
 ) {
     val hasActiveFilters: Boolean = schools.isNotEmpty() || playerClasses.isNotEmpty() || levels.isNotEmpty()
+}
 
-    fun matches(spell: Spell): Boolean {
-        return (schools.isEmpty() || spell.schools.any { schools.contains(it) }) &&
-            (playerClasses.isEmpty() || spell.availableClasses.any { playerClasses.contains(it) }) &&
-            (levels.isEmpty() || levels.contains(spell.level)) &&
-            (query.isBlank() || spell.matches(query))
-    }
+fun List<Spell>.applyFilter(filter: SpellFilter?): List<Spell> {
+    if (filter == null) return this
+    return filter { it.matches(filter) }
+}
 
-    private fun Spell.matches(query: String): Boolean {
-        val trimmedQuery = query.trim()
+internal fun Spell.matches(filter: SpellFilter): Boolean {
+    return (filter.schools.isEmpty() || schools.any { filter.schools.contains(it) }) &&
+        (filter.playerClasses.isEmpty() || availableClasses.any { filter.playerClasses.contains(it) }) &&
+        (filter.levels.isEmpty() || filter.levels.contains(level)) &&
+        (filter.query.isBlank() || matches(filter.query))
+}
 
-        return title.contains(trimmedQuery, ignoreCase = true) ||
-            description.contains(trimmedQuery, ignoreCase = true)
-    }
+private fun Spell.matches(query: String): Boolean {
+    val trimmedQuery = query.trim()
+
+    return title.contains(trimmedQuery, ignoreCase = true) ||
+        description.contains(trimmedQuery, ignoreCase = true)
 }
