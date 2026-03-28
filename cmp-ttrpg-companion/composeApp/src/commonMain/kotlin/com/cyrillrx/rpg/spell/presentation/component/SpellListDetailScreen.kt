@@ -18,9 +18,13 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.cyrillrx.rpg.core.presentation.component.ConfirmDeleteDialog
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
@@ -33,6 +37,7 @@ import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellListDetailViewModel
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
+import rpg_companion.composeapp.generated.resources.dialog_remove_spell_message
 import rpg_companion.composeapp.generated.resources.no_result_found
 
 @Composable
@@ -54,6 +59,8 @@ fun SpellListDetailScreen(
     onNavigateUpClicked: () -> Unit,
     onRemoveSpell: (String) -> Unit,
 ) {
+    var spellToRemove by remember { mutableStateOf<Spell?>(null) }
+
     Scaffold(
         topBar = {
             SimpleTopBar(
@@ -79,17 +86,28 @@ fun SpellListDetailScreen(
                 }
                 is SpellListDetailState.Body.WithData -> SpellDetailList(
                     spells = body.spells,
-                    onRemoveSpell = onRemoveSpell,
+                    onRemoveSpell = { spellToRemove = it },
                 )
             }
         }
+    }
+
+    spellToRemove?.let { spell ->
+        ConfirmDeleteDialog(
+            message = stringResource(Res.string.dialog_remove_spell_message, spell.title),
+            onConfirm = {
+                onRemoveSpell(spell.id)
+                spellToRemove = null
+            },
+            onDismiss = { spellToRemove = null },
+        )
     }
 }
 
 @Composable
 private fun SpellDetailList(
     spells: List<Spell>,
-    onRemoveSpell: (String) -> Unit,
+    onRemoveSpell: (Spell) -> Unit,
 ) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
@@ -106,7 +124,7 @@ private fun SpellDetailList(
                     onClick = {},
                     modifier = Modifier.weight(1f),
                 )
-                IconButton(onClick = { onRemoveSpell(spell.id) }) {
+                IconButton(onClick = { onRemoveSpell(spell) }) {
                     Icon(
                         imageVector = Icons.Filled.Delete,
                         contentDescription = null,

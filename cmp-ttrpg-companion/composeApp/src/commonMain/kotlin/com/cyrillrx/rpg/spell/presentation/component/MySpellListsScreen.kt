@@ -30,6 +30,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.cyrillrx.rpg.core.presentation.component.ConfirmDeleteDialog
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
@@ -41,10 +42,8 @@ import com.cyrillrx.rpg.userlist.domain.UserList
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.btn_add_to_list
 import rpg_companion.composeapp.generated.resources.btn_cancel
 import rpg_companion.composeapp.generated.resources.btn_create_list
-import rpg_companion.composeapp.generated.resources.btn_delete_list
 import rpg_companion.composeapp.generated.resources.btn_my_spell_lists
 import rpg_companion.composeapp.generated.resources.dialog_delete_list_message
 import rpg_companion.composeapp.generated.resources.hint_list_name
@@ -121,8 +120,8 @@ fun MySpellListsScreen(
     }
 
     listToDelete?.let { list ->
-        DeleteListDialog(
-            listName = list.name,
+        ConfirmDeleteDialog(
+            message = stringResource(Res.string.dialog_delete_list_message, list.name),
             onConfirm = {
                 onDeleteList(list.id)
                 listToDelete = null
@@ -205,28 +204,6 @@ private fun CreateListDialog(
                 onClick = { if (name.isNotBlank()) onConfirm(name) },
             ) {
                 Text(stringResource(Res.string.btn_create_list))
-            }
-        },
-        dismissButton = {
-            TextButton(onClick = onDismiss) {
-                Text(stringResource(Res.string.btn_add_to_list))
-            }
-        },
-    )
-}
-
-@Composable
-private fun DeleteListDialog(
-    listName: String,
-    onConfirm: () -> Unit,
-    onDismiss: () -> Unit,
-) {
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        text = { Text(stringResource(Res.string.dialog_delete_list_message, listName)) },
-        confirmButton = {
-            TextButton(onClick = onConfirm) {
-                Text(stringResource(Res.string.btn_delete_list))
             }
         },
         dismissButton = {
