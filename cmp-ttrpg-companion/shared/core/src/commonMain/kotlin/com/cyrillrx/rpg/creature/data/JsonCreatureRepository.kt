@@ -15,9 +15,13 @@ import com.cyrillrx.rpg.creature.domain.applyFilter
 
 class JsonCreatureRepository(private val fileReader: FileReader) : CreatureRepository {
 
+    private var cache: List<Creature>? = null
+
     override suspend fun getAll(filter: CreatureFilter?): List<Creature> {
-        val items = loadFromFile()
-        val allCreatures = items.map { it.toCreature() }
+        val allCreatures = cache ?: loadFromFile()
+            .map { it.toCreature() }
+            .also { cache = it }
+
         return allCreatures.applyFilter(filter)
     }
 
