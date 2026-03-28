@@ -9,25 +9,31 @@ class SpellFilterTest {
 
     @Test
     fun `hasActiveFilters is false for default filter`() {
-        val defaultSpellFilter = SpellFilter()
-        assertFalse(defaultSpellFilter.hasActiveFilters)
+        val defaultFilter = SpellFilter()
+        assertFalse(defaultFilter.hasActiveFilters)
     }
 
     @Test
     fun `hasActiveFilters is true when schools are set`() {
-        val evocationSchoolFilter = SpellFilter(schools = setOf(Spell.School.EVOCATION))
-        assertTrue(evocationSchoolFilter.hasActiveFilters)
+        val schoolsFilter = SpellFilter(schools = setOf(Spell.School.EVOCATION))
+        assertTrue(schoolsFilter.hasActiveFilters)
     }
 
     @Test
     fun `hasActiveFilters is true when levels are set`() {
-        val lvl3SpellFilter = SpellFilter(levels = setOf(3))
-        assertTrue(lvl3SpellFilter.hasActiveFilters)
+        val levelsFilter = SpellFilter(levels = setOf(3))
+        assertTrue(levelsFilter.hasActiveFilters)
     }
 
     @Test
     fun `hasActiveFilters is true when classes are set`() {
-        val wizardSpellFilter = SpellFilter(playerClasses = setOf(PlayerCharacter.Class.WIZARD))
-        assertTrue(wizardSpellFilter.hasActiveFilters)
+        val classesFilter = SpellFilter(playerClasses = setOf(PlayerCharacter.Class.WIZARD))
+        assertTrue(classesFilter.hasActiveFilters)
+    }
+
+    @Test
+    fun `hasActiveFilters is false when only query is set`() {
+        val queryFilter = SpellFilter(query = "fireball")
+        assertFalse(queryFilter.hasActiveFilters)
     }
 }

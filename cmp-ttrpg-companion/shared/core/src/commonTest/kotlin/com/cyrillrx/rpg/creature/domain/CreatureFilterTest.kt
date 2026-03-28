@@ -8,19 +8,25 @@ class CreatureFilterTest {
 
     @Test
     fun `hasActiveFilters is false for default filter`() {
-        val defaultCreatureFilter = CreatureFilter()
-        assertFalse(defaultCreatureFilter.hasActiveFilters)
+        val defaultFilter = CreatureFilter()
+        assertFalse(defaultFilter.hasActiveFilters)
     }
 
     @Test
     fun `hasActiveFilters is true when types are set`() {
-        val beastFilter = CreatureFilter(types = setOf(Creature.Type.BEAST))
-        assertTrue(beastFilter.hasActiveFilters)
+        val typesFilter = CreatureFilter(types = setOf(Creature.Type.BEAST))
+        assertTrue(typesFilter.hasActiveFilters)
     }
 
     @Test
     fun `hasActiveFilters is true when challengeRatings are set`() {
         val challengeRatingsFilter = CreatureFilter(challengeRatings = setOf(0.25f))
         assertTrue(challengeRatingsFilter.hasActiveFilters)
+    }
+
+    @Test
+    fun `hasActiveFilters is false when only query is set`() {
+        val queryFilter = CreatureFilter(query = "goblin")
+        assertFalse(queryFilter.hasActiveFilters)
     }
 }
