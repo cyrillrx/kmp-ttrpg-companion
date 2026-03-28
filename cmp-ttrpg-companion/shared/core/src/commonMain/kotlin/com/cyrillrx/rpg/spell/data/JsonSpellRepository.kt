@@ -13,9 +13,13 @@ import com.cyrillrx.rpg.spell.domain.applyFilter
 
 class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository {
 
+    private var cache: List<Spell>? = null
+
     override suspend fun getAll(filter: SpellFilter?): List<Spell> {
-        val item = loadFromFile()
-        val allSpells = item.map { it.toSpell() }
+        val allSpells = cache ?: loadFromFile()
+            .map { it.toSpell() }
+            .also { cache = it }
+        
         return allSpells.applyFilter(filter)
     }
 

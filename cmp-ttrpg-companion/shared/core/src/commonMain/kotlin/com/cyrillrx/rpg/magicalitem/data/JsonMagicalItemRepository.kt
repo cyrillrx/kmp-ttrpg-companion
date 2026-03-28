@@ -11,9 +11,13 @@ import com.cyrillrx.rpg.magicalitem.domain.applyFilter
 
 class JsonMagicalItemRepository(private val fileReader: FileReader) : MagicalItemRepository {
 
+    private var cache: List<MagicalItem>? = null
+
     override suspend fun getAll(filter: MagicalItemFilter?): List<MagicalItem> {
-        val inventoryItems = loadFromFile()
-        val allItems = inventoryItems.map { it.toMagicalItem() }
+        val allItems = cache ?: loadFromFile()
+            .map { it.toMagicalItem() }
+            .also { cache = it }
+
         return allItems.applyFilter(filter)
     }
 
