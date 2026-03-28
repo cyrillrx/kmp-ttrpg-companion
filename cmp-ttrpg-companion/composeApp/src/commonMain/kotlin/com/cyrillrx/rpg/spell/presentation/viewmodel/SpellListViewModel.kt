@@ -19,7 +19,7 @@ import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_while_loading_spells
 import kotlin.coroutines.cancellation.CancellationException
 
-class SpellBookViewModel(
+class SpellListViewModel(
     private val router: SpellRouter,
     private val repository: SpellRepository,
 ) : ViewModel() {

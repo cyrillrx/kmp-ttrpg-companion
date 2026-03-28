@@ -27,14 +27,14 @@ import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.presentation.SpellListState
 import com.cyrillrx.rpg.spell.presentation.navigation.SpellRouter
-import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellBookViewModel
+import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellListViewModel
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.hint_search_spell
 
 @Composable
-fun SpellCardCarouselScreen(viewModel: SpellBookViewModel, router: SpellRouter) {
+fun SpellCardCarouselScreen(viewModel: SpellListViewModel, router: SpellRouter) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
     SpellCardCarouselScreen(

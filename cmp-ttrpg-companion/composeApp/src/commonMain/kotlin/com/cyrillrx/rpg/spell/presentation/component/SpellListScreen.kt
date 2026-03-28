@@ -31,14 +31,14 @@ import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.presentation.SpellListState
 import com.cyrillrx.rpg.spell.presentation.navigation.SpellRouter
-import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellBookViewModel
+import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellListViewModel
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.hint_search_spell
 
 @Composable
-fun SpellListScreen(viewModel: SpellBookViewModel, router: SpellRouter) {
+fun SpellListScreen(viewModel: SpellListViewModel, router: SpellRouter) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
     SpellListScreen(
@@ -137,7 +137,7 @@ private val stateWithSampleData = SpellListState(
 
 @Preview
 @Composable
-fun PreviewSpellBookPeekScreenLight() {
+fun PreviewSpellListPeekScreenLight() {
     AppThemePreview(darkTheme = false) {
         SpellListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, {})
     }
@@ -145,7 +145,7 @@ fun PreviewSpellBookPeekScreenLight() {
 
 @Preview
 @Composable
-fun PreviewSpellBookPeekScreenDark() {
+fun PreviewSpellListPeekScreenDark() {
     AppThemePreview(darkTheme = true) {
         SpellListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, {})
     }
