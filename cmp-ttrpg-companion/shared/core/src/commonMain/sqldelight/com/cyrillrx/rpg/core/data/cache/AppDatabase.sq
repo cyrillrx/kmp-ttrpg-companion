@@ -16,3 +16,25 @@ DELETE FROM Campaign WHERE id = ?;
 
 selectAllCampaigns:
 SELECT Campaign.* FROM Campaign;
+
+CREATE TABLE UserList (
+    id TEXT NOT NULL PRIMARY KEY,
+    name TEXT NOT NULL,
+    type TEXT NOT NULL,
+    itemIds TEXT NOT NULL DEFAULT ''
+);
+
+insertUserList:
+INSERT INTO UserList(id, name, type, itemIds) VALUES(?, ?, ?, ?);
+
+updateUserList:
+UPDATE UserList SET name = ?, itemIds = ? WHERE id = ?;
+
+selectAllUserListsByType:
+SELECT * FROM UserList WHERE type = ?;
+
+selectUserListById:
+SELECT * FROM UserList WHERE id = ?;
+
+deleteUserList:
+DELETE FROM UserList WHERE id = ?;
