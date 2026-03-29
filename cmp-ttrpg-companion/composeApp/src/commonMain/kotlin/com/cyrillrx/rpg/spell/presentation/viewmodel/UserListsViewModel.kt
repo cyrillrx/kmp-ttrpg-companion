@@ -2,10 +2,10 @@ package com.cyrillrx.rpg.spell.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.cyrillrx.rpg.spell.presentation.MySpellListsState
 import com.cyrillrx.rpg.spell.presentation.navigation.SpellRouter
 import com.cyrillrx.rpg.userlist.domain.UserList
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
+import com.cyrillrx.rpg.userlist.presentation.UserListsState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -14,13 +14,13 @@ import kotlinx.coroutines.launch
 import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
-class MySpellListsViewModel(
+class UserListsViewModel(
     private val router: SpellRouter,
     private val userListRepository: UserListRepository,
 ) : ViewModel() {
 
-    private val _state = MutableStateFlow(MySpellListsState())
-    val state: StateFlow<MySpellListsState> = _state.asStateFlow()
+    private val _state = MutableStateFlow(UserListsState())
+    val state: StateFlow<UserListsState> = _state.asStateFlow()
 
     init {
         loadLists()
@@ -57,9 +57,9 @@ class MySpellListsViewModel(
 
     private fun loadLists() {
         viewModelScope.launch {
-            _state.update { it.copy(body = MySpellListsState.Body.Loading) }
+            _state.update { it.copy(body = UserListsState.Body.Loading) }
             val lists = userListRepository.getAll(UserList.Type.SPELL)
-            val body = if (lists.isEmpty()) MySpellListsState.Body.Empty else MySpellListsState.Body.WithData(lists)
+            val body = if (lists.isEmpty()) UserListsState.Body.Empty else UserListsState.Body.WithData(lists)
             _state.update { it.copy(body = body) }
         }
     }

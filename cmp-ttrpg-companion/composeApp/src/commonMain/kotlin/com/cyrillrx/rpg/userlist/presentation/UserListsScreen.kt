@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.spell.presentation.component
+package com.cyrillrx.rpg.userlist.presentation
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -30,23 +30,21 @@ import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
-import com.cyrillrx.rpg.spell.presentation.MySpellListsState
-import com.cyrillrx.rpg.spell.presentation.viewmodel.MySpellListsViewModel
+import com.cyrillrx.rpg.spell.presentation.viewmodel.UserListsViewModel
 import com.cyrillrx.rpg.userlist.domain.UserList
-import com.cyrillrx.rpg.userlist.presentation.UserListItem
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.btn_create_list
-import rpg_companion.composeapp.generated.resources.btn_my_spell_lists
 import rpg_companion.composeapp.generated.resources.dialog_delete_list_message
 import rpg_companion.composeapp.generated.resources.no_result_found
 
 @Composable
-fun MySpellListsScreen(viewModel: MySpellListsViewModel) {
+fun UserListsScreen(viewModel: UserListsViewModel, title: String) {
     val state by viewModel.state.collectAsStateWithLifecycle()
-    MySpellListsScreen(
+    UserListsScreen(
         state = state,
+        title = title,
         onNavigateUpClicked = viewModel::onNavigateUpClicked,
         onCreateList = viewModel::createList,
         onDeleteList = viewModel::deleteList,
@@ -55,8 +53,9 @@ fun MySpellListsScreen(viewModel: MySpellListsViewModel) {
 }
 
 @Composable
-fun MySpellListsScreen(
-    state: MySpellListsState,
+fun UserListsScreen(
+    state: UserListsState,
+    title: String,
     onNavigateUpClicked: () -> Unit,
     onCreateList: (String) -> Unit,
     onDeleteList: (String) -> Unit,
@@ -68,7 +67,7 @@ fun MySpellListsScreen(
     Scaffold(
         topBar = {
             SimpleTopBar(
-                title = stringResource(Res.string.btn_my_spell_lists),
+                title = title,
                 navigateUp = onNavigateUpClicked,
             )
         },
@@ -85,8 +84,8 @@ fun MySpellListsScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             when (val body = state.body) {
-                is MySpellListsState.Body.Loading -> Loader()
-                is MySpellListsState.Body.Empty -> {
+                is UserListsState.Body.Loading -> Loader()
+                is UserListsState.Body.Empty -> {
                     Text(
                         text = stringResource(Res.string.no_result_found),
                         style = MaterialTheme.typography.bodyMedium,
@@ -94,7 +93,7 @@ fun MySpellListsScreen(
                     )
                 }
 
-                is MySpellListsState.Body.WithData -> SpellListNames(
+                is UserListsState.Body.WithData -> UserLists(
                     lists = body.lists,
                     onOpenList = onOpenList,
                     onDeleteList = { listToDelete = it },
@@ -126,7 +125,7 @@ fun MySpellListsScreen(
 }
 
 @Composable
-private fun SpellListNames(
+private fun UserLists(
     lists: List<UserList>,
     onOpenList: (UserList) -> Unit,
     onDeleteList: (UserList) -> Unit,
@@ -149,17 +148,18 @@ private fun SpellListNames(
 
 @Preview
 @Composable
-private fun PreviewMySpellListsScreenLight() {
+private fun PreviewUserListsScreenLight() {
     AppThemePreview(darkTheme = false) {
-        MySpellListsScreen(
-            state = MySpellListsState(
-                body = MySpellListsState.Body.WithData(
+        UserListsScreen(
+            state = UserListsState(
+                body = UserListsState.Body.WithData(
                     lists = listOf(
                         UserList("1", "Sorts de combat", UserList.Type.SPELL, listOf("spell1")),
                         UserList("2", "Sorts de soutien", UserList.Type.SPELL, emptyList()),
                     ),
                 ),
             ),
+            title = "Mes listes",
             onNavigateUpClicked = {},
             onCreateList = {},
             onDeleteList = {},
@@ -170,10 +170,11 @@ private fun PreviewMySpellListsScreenLight() {
 
 @Preview
 @Composable
-private fun PreviewMySpellListsScreenDark() {
+private fun PreviewUserListsScreenDark() {
     AppThemePreview(darkTheme = true) {
-        MySpellListsScreen(
-            state = MySpellListsState(body = MySpellListsState.Body.Empty),
+        UserListsScreen(
+            state = UserListsState(body = UserListsState.Body.Empty),
+            title = "Mes listes",
             onNavigateUpClicked = {},
             onCreateList = {},
             onDeleteList = {},

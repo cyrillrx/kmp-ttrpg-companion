@@ -1,8 +1,8 @@
-package com.cyrillrx.rpg.spell.presentation
+package com.cyrillrx.rpg.userlist.presentation
 
 import com.cyrillrx.rpg.userlist.domain.UserList
 
-data class MySpellListsState(
+data class UserListsState(
     val body: Body = Body.Loading,
 ) {
     sealed interface Body {

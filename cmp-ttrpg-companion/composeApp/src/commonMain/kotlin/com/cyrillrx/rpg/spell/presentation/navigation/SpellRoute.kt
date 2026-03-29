@@ -8,18 +8,21 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
 import com.cyrillrx.rpg.spell.domain.SpellRepository
-import com.cyrillrx.rpg.spell.presentation.component.MySpellListsScreen
 import com.cyrillrx.rpg.spell.presentation.component.SpellCardCarouselScreen
 import com.cyrillrx.rpg.spell.presentation.component.SpellCardScreen
 import com.cyrillrx.rpg.spell.presentation.component.SpellListScreen
-import com.cyrillrx.rpg.spell.presentation.viewmodel.MySpellListsViewModel
-import com.cyrillrx.rpg.spell.presentation.viewmodel.MySpellListsViewModelFactory
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellDetailViewModel
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellDetailViewModelFactory
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellListViewModel
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellListViewModelFactory
+import com.cyrillrx.rpg.spell.presentation.viewmodel.UserListsViewModel
+import com.cyrillrx.rpg.spell.presentation.viewmodel.UserListsViewModelFactory
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
+import com.cyrillrx.rpg.userlist.presentation.UserListsScreen
 import kotlinx.serialization.Serializable
+import org.jetbrains.compose.resources.stringResource
+import rpg_companion.composeapp.generated.resources.Res
+import rpg_companion.composeapp.generated.resources.btn_my_spell_lists
 
 interface SpellRoute {
     @Serializable
@@ -32,7 +35,7 @@ interface SpellRoute {
     data class Detail(val spellId: String)
 
     @Serializable
-    data object MyLists
+    data object UserLists
 }
 
 fun NavGraphBuilder.handleSpellRoutes(
@@ -68,12 +71,15 @@ fun NavGraphBuilder.handleSpellRoutes(
         )
     }
 
-    composable<SpellRoute.MyLists> {
+    composable<SpellRoute.UserLists> {
         val router = SpellRouterImpl(navController)
-        val viewModel = viewModel<MySpellListsViewModel>(
-            factory = MySpellListsViewModelFactory(router, userListRepository),
+        val viewModel = viewModel<UserListsViewModel>(
+            factory = UserListsViewModelFactory(router, userListRepository),
         )
-        MySpellListsScreen(viewModel)
+        UserListsScreen(
+            viewModel = viewModel,
+            title = stringResource(Res.string.btn_my_spell_lists),
+        )
     }
 
 }
