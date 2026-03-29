@@ -10,11 +10,12 @@ import androidx.compose.ui.Modifier
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.state.DetailState
+import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellDetailViewModel
-import org.jetbrains.compose.ui.tooling.preview.Preview
 import org.jetbrains.compose.resources.stringResource
+import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_spell_not_found
 
@@ -48,7 +49,20 @@ fun SpellCardScreen(
 
 @Preview
 @Composable
-fun PreviewSpellCardScreen() {
-    val spell = SampleSpellRepository.getFirst()
-    SpellCardScreen(spell, {})
+fun PreviewSpellCardScreenLight() {
+    PreviewSpellCardScreen(darkTheme = false)
+}
+
+@Preview
+@Composable
+fun PreviewSpellCardScreenDark() {
+    PreviewSpellCardScreen(darkTheme = true)
+}
+
+@Composable
+private fun PreviewSpellCardScreen(darkTheme: Boolean) {
+    val spell = SampleSpellRepository.fireball()
+    AppThemePreview(darkTheme = darkTheme) {
+        SpellCardScreen(spell, {})
+    }
 }
