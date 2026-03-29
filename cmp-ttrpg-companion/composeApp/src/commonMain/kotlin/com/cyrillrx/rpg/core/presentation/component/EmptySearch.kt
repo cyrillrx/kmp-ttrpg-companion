@@ -1,14 +1,7 @@
 package com.cyrillrx.rpg.core.presentation.component
 
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.style.TextAlign
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
-import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
@@ -22,14 +15,7 @@ fun EmptySearch(searchQuery: String) {
     } else {
         stringResource(Res.string.no_result_found_for_query, searchQuery)
     }
-    Text(
-        text = text,
-        color = MaterialTheme.colorScheme.onBackground,
-        textAlign = TextAlign.Center,
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(spacingCommon),
-    )
+    ErrorLayout(text)
 }
 
 @Preview
