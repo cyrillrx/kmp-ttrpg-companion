@@ -15,7 +15,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -25,6 +24,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.core.presentation.component.ConfirmDeleteDialog
+import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
@@ -77,14 +77,8 @@ fun SpellListDetailScreen(
         ) {
             when (val body = state.body) {
                 is SpellListDetailState.Body.Loading -> Loader()
-                is SpellListDetailState.Body.Empty -> {
-                    Text(
-                        text = stringResource(Res.string.no_result_found),
-                        style = MaterialTheme.typography.bodyMedium,
-                        modifier = Modifier.padding(spacingMedium),
-                    )
-                }
-
+                is SpellListDetailState.Body.EmptyList -> ErrorLayout(Res.string.no_result_found)
+                is SpellListDetailState.Body.Error -> ErrorLayout(body.errorMessage)
                 is SpellListDetailState.Body.WithData -> SpellDetailList(
                     spells = body.spells,
                     onRemoveSpell = { spellToRemove = it },

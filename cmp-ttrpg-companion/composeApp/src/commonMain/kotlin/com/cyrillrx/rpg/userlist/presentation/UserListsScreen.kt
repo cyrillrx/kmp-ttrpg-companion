@@ -87,14 +87,7 @@ fun UserListsScreen(
         ) {
             when (val body = state.body) {
                 is UserListsState.Body.Loading -> Loader()
-                is UserListsState.Body.Empty -> {
-                    Text(
-                        text = stringResource(Res.string.no_result_found),
-                        style = MaterialTheme.typography.bodyMedium,
-                        modifier = Modifier.padding(spacingMedium),
-                    )
-                }
-
+                is UserListsState.Body.Empty -> ErrorLayout(Res.string.no_result_found)
                 is UserListsState.Body.Error -> ErrorLayout(body.errorMessage)
                 is UserListsState.Body.WithData -> UserLists(
                     lists = body.lists,

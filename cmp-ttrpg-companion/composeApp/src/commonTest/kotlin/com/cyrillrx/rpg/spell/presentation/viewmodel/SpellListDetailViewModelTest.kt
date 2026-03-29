@@ -50,7 +50,7 @@ class SpellListDetailViewModelTest {
 
         advanceUntilIdle()
 
-        assertIs<SpellListDetailState.Body.Empty>(viewModel.state.value.body)
+        assertIs<SpellListDetailState.Body.EmptyList>(viewModel.state.value.body)
         assertEquals(expected = "Grimoire", actual = viewModel.state.value.listName)
     }
 
@@ -112,6 +112,6 @@ class SpellListDetailViewModelTest {
 
         advanceUntilIdle()
 
-        assertIs<SpellListDetailState.Body.Empty>(viewModel.state.value.body)
+        assertIs<SpellListDetailState.Body.EmptyList>(viewModel.state.value.body)
     }
 }

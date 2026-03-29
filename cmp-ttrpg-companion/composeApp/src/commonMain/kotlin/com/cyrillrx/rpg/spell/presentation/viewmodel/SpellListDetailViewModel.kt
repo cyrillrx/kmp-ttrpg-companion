@@ -10,6 +10,9 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import rpg_companion.composeapp.generated.resources.Res
+import rpg_companion.composeapp.generated.resources.error_while_loading_user_list
+import kotlin.coroutines.cancellation.CancellationException
 
 class SpellListDetailViewModel(
     private val listId: String,
@@ -36,15 +39,23 @@ class SpellListDetailViewModel(
     private fun loadDetail() {
         viewModelScope.launch {
             _state.update { it.copy(body = SpellListDetailState.Body.Loading) }
-            val list = userListRepository.get(listId) ?: return@launch
-            _state.update { it.copy(listName = list.name) }
-            val spells = list.itemIds.mapNotNull { spellRepository.getById(it) }
-            val body = if (spells.isEmpty()) {
-                SpellListDetailState.Body.Empty
-            } else {
-                SpellListDetailState.Body.WithData(spells)
+
+            try {
+                val list = userListRepository.get(listId) ?: error("error_while_loading_user_list")
+                _state.update { it.copy(listName = list.name) }
+
+                val spells = list.itemIds.mapNotNull { spellRepository.getById(it) }
+                val body = if (spells.isEmpty()) {
+                    SpellListDetailState.Body.EmptyList
+                } else {
+                    SpellListDetailState.Body.WithData(spells)
+                }
+                _state.update { it.copy(body = body) }
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                _state.update { it.copy(body = SpellListDetailState.Body.Error(errorMessage = Res.string.error_while_loading_user_list)) }
             }
-            _state.update { it.copy(body = body) }
         }
     }
 }
