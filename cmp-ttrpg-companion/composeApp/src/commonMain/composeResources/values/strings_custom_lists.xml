@@ -5,8 +5,8 @@
 
     <string name="title_my_spell_lists">Spellbooks</string>
     <string name="btn_my_spell_lists">Spellbooks</string>
-    <string name="title_my_item_lists">Items</string>
-    <string name="btn_my_item_lists">Items</string>
+    <string name="title_my_item_lists">Magical items</string>
+    <string name="btn_my_item_lists">Magical items</string>
     <string name="title_my_bestiary_lists">Bestiaries</string>
     <string name="btn_my_bestiary_lists">Bestiaries</string>
 
@@ -18,5 +18,7 @@
     <string name="btn_cancel">Cancel</string>
     <string name="btn_delete_list">Delete</string>
     <string name="dialog_delete_list_message">Are you sure you want to delete "%1$s"?</string>
-    <string name="dialog_remove_spell_message">Are you sure you want to remove "%1$s" from this list?</string>
+    <string name="dialog_remove_from_list_message">Are you sure you want to remove "%1$s" from this list?</string>
+
+    <string name="message_list_is_empty">The list is empty</string>
 </resources>

@@ -18,11 +18,12 @@ import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellListDetailViewModel
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellListDetailViewModelFactory
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellListViewModel
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellListViewModelFactory
-import com.cyrillrx.rpg.spell.presentation.viewmodel.UserListsViewModel
-import com.cyrillrx.rpg.spell.presentation.viewmodel.UserListsViewModelFactory
+import com.cyrillrx.rpg.userlist.domain.UserList
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
 import com.cyrillrx.rpg.userlist.presentation.UserListsScreen
 import com.cyrillrx.rpg.userlist.presentation.navigation.UserListRouterImpl
+import com.cyrillrx.rpg.userlist.presentation.viewmodel.UserListsViewModel
+import com.cyrillrx.rpg.userlist.presentation.viewmodel.UserListsViewModelFactory
 import kotlinx.serialization.Serializable
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
@@ -82,7 +83,7 @@ fun NavGraphBuilder.handleSpellRoutes(
     composable<SpellRoute.UserLists> {
         val router = UserListRouterImpl(navController)
         val viewModel = viewModel<UserListsViewModel>(
-            factory = UserListsViewModelFactory(router, userListRepository),
+            factory = UserListsViewModelFactory(UserList.Type.SPELL, router, userListRepository),
         )
         UserListsScreen(
             viewModel = viewModel,

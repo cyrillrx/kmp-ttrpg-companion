@@ -18,6 +18,7 @@ import com.cyrillrx.rpg.core.presentation.component.AddToListBottomSheet
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.state.DetailState
+import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.spell.domain.Spell
@@ -40,7 +41,13 @@ fun SpellCardScreen(
     val state by viewModel.state.collectAsState()
     when (val s = state) {
         DetailState.Loading -> Loader()
-        is DetailState.NotFound -> ErrorLayout(stringResource(Res.string.error_spell_not_found, s.id))
+        is DetailState.NotFound -> ErrorLayout(
+            stringResource(
+                Res.string.error_spell_not_found,
+                s.id,
+            ),
+        )
+
         is DetailState.Found -> SpellCardScreen(s.item, userListRepository, onNavigateUpClicked)
     }
 }
@@ -84,7 +91,20 @@ fun SpellCardScreen(
 
 @Preview
 @Composable
-fun PreviewSpellCardScreen() {
-    val spell = SampleSpellRepository.getFirst()
-    SpellCardScreen(spell, RamUserListRepository(), {})
+fun PreviewSpellCardScreenLight() {
+    PreviewSpellCardScreen(darkTheme = false)
+}
+
+@Preview
+@Composable
+fun PreviewSpellCardScreenDark() {
+    PreviewSpellCardScreen(darkTheme = true)
+}
+
+@Composable
+private fun PreviewSpellCardScreen(darkTheme: Boolean) {
+    val spell = SampleSpellRepository.fireball()
+    AppThemePreview(darkTheme = darkTheme) {
+        SpellCardScreen(spell, RamUserListRepository(), {})
+    }
 }

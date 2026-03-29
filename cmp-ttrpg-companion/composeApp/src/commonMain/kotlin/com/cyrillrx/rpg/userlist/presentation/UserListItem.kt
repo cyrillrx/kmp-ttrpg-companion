@@ -14,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
+import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
 import com.cyrillrx.rpg.userlist.domain.UserList
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
@@ -48,21 +49,20 @@ fun UserListItem(
 @Preview
 @Composable
 private fun PreviewUserListItemLight() {
-    AppThemePreview(darkTheme = false) {
-        UserListItem(
-            list = UserList("1", "Sorts de combat", UserList.Type.SPELL, listOf("spell1")),
-            onClick = {},
-            onDelete = {},
-        )
-    }
+    UserListItemPreview(false)
 }
 
 @Preview
 @Composable
 private fun PreviewUserListItemDark() {
-    AppThemePreview(darkTheme = true) {
+    UserListItemPreview(true)
+}
+
+@Composable
+private fun UserListItemPreview(darkTheme: Boolean) {
+    AppThemePreview(darkTheme = darkTheme) {
         UserListItem(
-            list = UserList("1", "Sorts de combat", UserList.Type.SPELL, listOf("spell1")),
+            list = SampleUserListRepository.getFirst(),
             onClick = {},
             onDelete = {},
         )
