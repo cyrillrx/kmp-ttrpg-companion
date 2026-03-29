@@ -14,7 +14,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.TextField
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -35,7 +34,6 @@ import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.btn_add_to_list
 import rpg_companion.composeapp.generated.resources.btn_create_list
-import rpg_companion.composeapp.generated.resources.hint_list_name
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -70,8 +68,7 @@ private fun AddToListContent(
     onAddToList: (String) -> Unit,
     onCreateAndAdd: (String) -> Unit,
 ) {
-    var showCreateField by remember { mutableStateOf(false) }
-    var newListName by remember { mutableStateOf("") }
+    var showCreateDialog by remember { mutableStateOf(false) }
 
     Column(
         modifier = Modifier
@@ -107,37 +104,20 @@ private fun AddToListContent(
             }
         }
 
-        if (showCreateField) {
-            TextField(
-                value = newListName,
-                onValueChange = { newListName = it },
-                placeholder = { Text(stringResource(Res.string.hint_list_name)) },
-                singleLine = true,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = spacingMedium, vertical = spacingSmall),
-            )
-            Button(
-                onClick = {
-                    if (newListName.isNotBlank()) {
-                        onCreateAndAdd(newListName)
-                    }
-                },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = spacingMedium),
-            ) {
-                Text(stringResource(Res.string.btn_create_list))
-            }
-        } else {
-            TextButton(
-                onClick = { showCreateField = true },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = spacingMedium, vertical = spacingSmall),
-            ) {
-                Text(stringResource(Res.string.btn_create_list))
-            }
+        TextButton(
+            onClick = { showCreateDialog = true },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = spacingMedium, vertical = spacingSmall),
+        ) {
+            Text(stringResource(Res.string.btn_create_list))
         }
+    }
+
+    if (showCreateDialog) {
+        CreateListDialog(
+            onConfirm = { name -> onCreateAndAdd(name) },
+            onDismiss = { showCreateDialog = false },
+        )
     }
 }
