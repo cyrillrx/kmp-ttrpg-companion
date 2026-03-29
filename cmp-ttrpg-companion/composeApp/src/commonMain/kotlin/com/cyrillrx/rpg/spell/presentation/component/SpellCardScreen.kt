@@ -14,7 +14,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import com.cyrillrx.rpg.core.presentation.component.AddToListBottomSheet
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.state.DetailState
@@ -26,6 +25,7 @@ import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellDetailViewModel
 import com.cyrillrx.rpg.userlist.data.RamUserListRepository
 import com.cyrillrx.rpg.userlist.domain.UserList
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
+import com.cyrillrx.rpg.userlist.presentation.component.AddToListBottomSheet
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res

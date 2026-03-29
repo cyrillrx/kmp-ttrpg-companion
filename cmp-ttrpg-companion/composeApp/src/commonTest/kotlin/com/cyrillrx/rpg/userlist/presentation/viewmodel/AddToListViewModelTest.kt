@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.core.presentation.viewmodel
+package com.cyrillrx.rpg.userlist.presentation.viewmodel
 
 import com.cyrillrx.rpg.core.presentation.AddToListState
 import com.cyrillrx.rpg.userlist.data.RamUserListRepository

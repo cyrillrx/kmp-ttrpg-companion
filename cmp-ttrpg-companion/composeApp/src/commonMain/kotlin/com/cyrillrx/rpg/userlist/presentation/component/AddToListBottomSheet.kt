@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.core.presentation.component
+package com.cyrillrx.rpg.userlist.presentation.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -24,12 +24,14 @@ import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.cyrillrx.rpg.core.presentation.AddToListState
-import com.cyrillrx.rpg.core.presentation.viewmodel.AddToListViewModel
-import com.cyrillrx.rpg.core.presentation.viewmodel.AddToListViewModelFactory
+import com.cyrillrx.rpg.core.presentation.component.Loader
+import com.cyrillrx.rpg.core.presentation.component.dialog.CreateListDialog
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.userlist.domain.UserList
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
+import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddToListViewModel
+import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddToListViewModelFactory
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.btn_add_to_list

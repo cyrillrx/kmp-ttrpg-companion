@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.core.presentation.viewmodel
+package com.cyrillrx.rpg.userlist.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
