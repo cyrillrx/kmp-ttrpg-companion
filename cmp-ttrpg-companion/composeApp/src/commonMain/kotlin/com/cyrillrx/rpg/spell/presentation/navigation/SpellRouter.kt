@@ -7,6 +7,7 @@ interface SpellRouter {
     fun navigateUp()
     fun openSpellDetail(spell: Spell)
     fun openMySpellLists() {}
+    fun openSpellListDetail(listId: String) {}
 }
 
 class SpellRouterImpl(private val navController: NavController) : SpellRouter {
@@ -22,4 +23,7 @@ class SpellRouterImpl(private val navController: NavController) : SpellRouter {
         navController.navigate(SpellRoute.UserLists)
     }
 
+    override fun openSpellListDetail(listId: String) {
+        navController.navigate(SpellRoute.UserListDetail(listId))
+    }
 }

@@ -10,9 +10,12 @@ import androidx.navigation.toRoute
 import com.cyrillrx.rpg.spell.domain.SpellRepository
 import com.cyrillrx.rpg.spell.presentation.component.SpellCardCarouselScreen
 import com.cyrillrx.rpg.spell.presentation.component.SpellCardScreen
+import com.cyrillrx.rpg.spell.presentation.component.SpellListDetailScreen
 import com.cyrillrx.rpg.spell.presentation.component.SpellListScreen
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellDetailViewModel
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellDetailViewModelFactory
+import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellListDetailViewModel
+import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellListDetailViewModelFactory
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellListViewModel
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellListViewModelFactory
 import com.cyrillrx.rpg.spell.presentation.viewmodel.UserListsViewModel
@@ -37,6 +40,9 @@ interface SpellRoute {
 
     @Serializable
     data object UserLists
+
+    @Serializable
+    data class UserListDetail(val listId: String)
 }
 
 fun NavGraphBuilder.handleSpellRoutes(
@@ -83,4 +89,14 @@ fun NavGraphBuilder.handleSpellRoutes(
         )
     }
 
+    composable<SpellRoute.UserListDetail> { entry ->
+        val listId = entry.toRoute<SpellRoute.UserListDetail>().listId
+        val viewModel = viewModel<SpellListDetailViewModel>(
+            factory = SpellListDetailViewModelFactory(listId, userListRepository, spellRepository),
+        )
+        SpellListDetailScreen(
+            viewModel = viewModel,
+            onNavigateUpClicked = { navController.navigateUp() },
+        )
+    }
 }
