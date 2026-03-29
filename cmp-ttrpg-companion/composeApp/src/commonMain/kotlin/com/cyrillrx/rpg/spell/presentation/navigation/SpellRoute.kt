@@ -17,6 +17,7 @@ import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellListViewModel
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellListViewModelFactory
 import com.cyrillrx.rpg.spell.presentation.viewmodel.UserListsViewModel
 import com.cyrillrx.rpg.spell.presentation.viewmodel.UserListsViewModelFactory
+import com.cyrillrx.rpg.userlist.domain.UserList
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
 import com.cyrillrx.rpg.userlist.presentation.UserListsScreen
 import com.cyrillrx.rpg.userlist.presentation.navigation.UserListRouterImpl
@@ -75,12 +76,11 @@ fun NavGraphBuilder.handleSpellRoutes(
     composable<SpellRoute.UserLists> {
         val router = UserListRouterImpl(navController)
         val viewModel = viewModel<UserListsViewModel>(
-            factory = UserListsViewModelFactory(router, userListRepository),
+            factory = UserListsViewModelFactory(UserList.Type.SPELL, router, userListRepository),
         )
         UserListsScreen(
             viewModel = viewModel,
             title = stringResource(Res.string.title_my_spell_lists),
         )
     }
-
 }

@@ -15,6 +15,7 @@ import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
 class UserListsViewModel(
+    private val listType: UserList.Type,
     private val router: UserListRouter,
     private val userListRepository: UserListRepository,
 ) : ViewModel() {
@@ -58,7 +59,7 @@ class UserListsViewModel(
     private fun loadLists() {
         viewModelScope.launch {
             _state.update { it.copy(body = UserListsState.Body.Loading) }
-            val lists = userListRepository.getAll(UserList.Type.SPELL)
+            val lists = userListRepository.getAll(listType)
             val body = if (lists.isEmpty()) UserListsState.Body.Empty else UserListsState.Body.WithData(lists)
             _state.update { it.copy(body = body) }
         }
