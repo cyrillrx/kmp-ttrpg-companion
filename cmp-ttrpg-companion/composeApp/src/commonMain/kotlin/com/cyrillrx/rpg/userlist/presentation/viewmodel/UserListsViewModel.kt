@@ -62,9 +62,14 @@ class UserListsViewModel(
     private fun loadLists() {
         viewModelScope.launch {
             _state.update { it.copy(body = UserListsState.Body.Loading) }
+
             try {
                 val lists = userListRepository.getAll(listType)
-                val body = if (lists.isEmpty()) UserListsState.Body.Empty else UserListsState.Body.WithData(lists)
+                val body = if (lists.isEmpty()) {
+                    UserListsState.Body.Empty
+                } else {
+                    UserListsState.Body.WithData(lists)
+                }
                 _state.update { it.copy(body = body) }
             } catch (e: CancellationException) {
                 throw e
