@@ -28,8 +28,12 @@ import rpg_companion.composeapp.generated.resources.btn_bestiary
 import rpg_companion.composeapp.generated.resources.btn_campaign_list
 import rpg_companion.composeapp.generated.resources.btn_character_sheets
 import rpg_companion.composeapp.generated.resources.btn_inventory
+import rpg_companion.composeapp.generated.resources.btn_my_bestiary_lists
+import rpg_companion.composeapp.generated.resources.btn_my_item_lists
+import rpg_companion.composeapp.generated.resources.btn_my_spell_lists
 import rpg_companion.composeapp.generated.resources.btn_spell_book
 import rpg_companion.composeapp.generated.resources.section_compendium
+import rpg_companion.composeapp.generated.resources.section_my_lists
 
 @Composable
 fun HomeScreen(router: HomeRouter) {
@@ -77,6 +81,37 @@ fun HomeScreen(router: HomeRouter) {
                     label = stringResource(Res.string.btn_bestiary),
                     icon = Icons.Filled.Pets,
                     onClick = router::openCreatureCompactList,
+                    modifier = Modifier.weight(1f),
+                )
+            }
+
+            SectionHeader(
+                title = stringResource(Res.string.section_my_lists),
+                modifier = Modifier.padding(spacingCommon),
+            )
+
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(spacingCommon),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = spacingCommon),
+            ) {
+                IconLabelButton(
+                    label = stringResource(Res.string.btn_my_spell_lists),
+                    icon = Icons.Filled.AutoAwesome,
+                    onClick = router::openMySpellLists,
+                    modifier = Modifier.weight(1f),
+                )
+                IconLabelButton(
+                    label = stringResource(Res.string.btn_my_item_lists),
+                    icon = Icons.Filled.Diamond,
+                    onClick = router::openMyMagicalItemLists,
+                    modifier = Modifier.weight(1f),
+                )
+                IconLabelButton(
+                    label = stringResource(Res.string.btn_my_bestiary_lists),
+                    icon = Icons.Filled.Pets,
+                    onClick = router::openMyCreatureLists,
                     modifier = Modifier.weight(1f),
                 )
             }
