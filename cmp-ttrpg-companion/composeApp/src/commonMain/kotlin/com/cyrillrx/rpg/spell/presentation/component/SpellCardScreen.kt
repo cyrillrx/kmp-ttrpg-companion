@@ -42,10 +42,7 @@ fun SpellCardScreen(
     when (val s = state) {
         DetailState.Loading -> Loader()
         is DetailState.NotFound -> ErrorLayout(
-            stringResource(
-                Res.string.error_spell_not_found,
-                s.id,
-            ),
+            stringResource(Res.string.error_spell_not_found, s.id),
         )
 
         is DetailState.Found -> SpellCardScreen(s.item, userListRepository, onNavigateUpClicked)
