@@ -55,7 +55,7 @@ class HomeRouterImpl(private val navController: NavController) : HomeRouter {
     }
 
     override fun openMySpellLists() {
-        navController.navigate(SpellRoute.MyLists)
+        navController.navigate(SpellRoute.UserLists)
     }
 
     override fun openMyMagicalItemLists() {

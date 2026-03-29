@@ -19,7 +19,7 @@ class SpellRouterImpl(private val navController: NavController) : SpellRouter {
     }
 
     override fun openMySpellLists() {
-        navController.navigate(SpellRoute.MyLists)
+        navController.navigate(SpellRoute.UserLists)
     }
 
 }
