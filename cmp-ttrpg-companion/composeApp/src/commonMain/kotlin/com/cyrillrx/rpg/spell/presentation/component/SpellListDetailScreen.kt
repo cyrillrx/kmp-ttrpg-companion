@@ -38,7 +38,7 @@ import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.dialog_remove_from_list_message
-import rpg_companion.composeapp.generated.resources.no_result_found
+import rpg_companion.composeapp.generated.resources.message_list_is_empty
 
 @Composable
 fun SpellListDetailScreen(
@@ -77,7 +77,7 @@ fun SpellListDetailScreen(
         ) {
             when (val body = state.body) {
                 is SpellListDetailState.Body.Loading -> Loader()
-                is SpellListDetailState.Body.EmptyList -> ErrorLayout(Res.string.no_result_found)
+                is SpellListDetailState.Body.EmptyList -> ErrorLayout(Res.string.message_list_is_empty)
                 is SpellListDetailState.Body.Error -> ErrorLayout(body.errorMessage)
                 is SpellListDetailState.Body.WithData -> SpellDetailList(
                     spells = body.spells,

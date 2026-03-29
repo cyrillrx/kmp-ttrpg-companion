@@ -19,4 +19,6 @@
     <string name="btn_delete_list">Supprimer</string>
     <string name="dialog_delete_list_message">Êtes-vous sûr de vouloir supprimer "%1$s" ?</string>
     <string name="dialog_remove_from_list_message">Êtes-vous sûr de vouloir retirer "%1$s" de cette liste ?</string>
+
+    <string name="message_list_is_empty">La liste est vide</string>
 </resources>
