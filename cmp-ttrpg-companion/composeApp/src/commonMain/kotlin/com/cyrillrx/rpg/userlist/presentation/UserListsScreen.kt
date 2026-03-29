@@ -149,32 +149,29 @@ private fun UserLists(
 @Preview
 @Composable
 private fun PreviewUserListsScreenLight() {
-    AppThemePreview(darkTheme = false) {
-        UserListsScreen(
-            state = UserListsState(
-                body = UserListsState.Body.WithData(
-                    lists = listOf(
-                        UserList("1", "Sorts de combat", UserList.Type.SPELL, listOf("spell1")),
-                        UserList("2", "Sorts de soutien", UserList.Type.SPELL, emptyList()),
-                    ),
-                ),
-            ),
-            title = "Mes listes",
-            onNavigateUpClicked = {},
-            onAddBtnClicked = {},
-            onDeleteBtnClicked = {},
-            onListClicked = {},
-        )
-    }
+    UserListsScreenPreview(false)
 }
 
 @Preview
 @Composable
 private fun PreviewUserListsScreenDark() {
-    AppThemePreview(darkTheme = true) {
+    UserListsScreenPreview(true)
+}
+
+@Composable
+private fun UserListsScreenPreview(darkTheme: Boolean) {
+    AppThemePreview(darkTheme = darkTheme) {
         UserListsScreen(
-            state = UserListsState(body = UserListsState.Body.Empty),
-            title = "Mes listes",
+            state = UserListsState(
+                body = UserListsState.Body.WithData(
+                    lists = listOf(
+                        UserList("1", "Fights spells", UserList.Type.SPELL, listOf("spell1")),
+                        UserList("2", "Support spells", UserList.Type.SPELL, emptyList()),
+                        UserList("3", "Gandalf's spells", UserList.Type.SPELL, emptyList()),
+                    ),
+                ),
+            ),
+            title = "Spellbooks",
             onNavigateUpClicked = {},
             onAddBtnClicked = {},
             onDeleteBtnClicked = {},
