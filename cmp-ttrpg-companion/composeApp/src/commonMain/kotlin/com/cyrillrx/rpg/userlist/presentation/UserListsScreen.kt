@@ -25,13 +25,15 @@ import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.core.presentation.component.ConfirmDeleteDialog
 import com.cyrillrx.rpg.core.presentation.component.CreateListDialog
+import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
-import com.cyrillrx.rpg.spell.presentation.viewmodel.UserListsViewModel
+import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
 import com.cyrillrx.rpg.userlist.domain.UserList
+import com.cyrillrx.rpg.userlist.presentation.viewmodel.UserListsViewModel
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
@@ -93,6 +95,7 @@ fun UserListsScreen(
                     )
                 }
 
+                is UserListsState.Body.Error -> ErrorLayout(body.errorMessage)
                 is UserListsState.Body.WithData -> UserLists(
                     lists = body.lists,
                     onListClicked = onListClicked,
@@ -149,32 +152,25 @@ private fun UserLists(
 @Preview
 @Composable
 private fun PreviewUserListsScreenLight() {
-    AppThemePreview(darkTheme = false) {
-        UserListsScreen(
-            state = UserListsState(
-                body = UserListsState.Body.WithData(
-                    lists = listOf(
-                        UserList("1", "Sorts de combat", UserList.Type.SPELL, listOf("spell1")),
-                        UserList("2", "Sorts de soutien", UserList.Type.SPELL, emptyList()),
-                    ),
-                ),
-            ),
-            title = "Mes listes",
-            onNavigateUpClicked = {},
-            onAddBtnClicked = {},
-            onDeleteBtnClicked = {},
-            onListClicked = {},
-        )
-    }
+    UserListsScreenPreview(false)
 }
 
 @Preview
 @Composable
 private fun PreviewUserListsScreenDark() {
-    AppThemePreview(darkTheme = true) {
+    UserListsScreenPreview(true)
+}
+
+@Composable
+private fun UserListsScreenPreview(darkTheme: Boolean) {
+    AppThemePreview(darkTheme = darkTheme) {
         UserListsScreen(
-            state = UserListsState(body = UserListsState.Body.Empty),
-            title = "Mes listes",
+            state = UserListsState(
+                body = UserListsState.Body.WithData(
+                    lists = SampleUserListRepository.getAll(),
+                ),
+            ),
+            title = "Spellbooks",
             onNavigateUpClicked = {},
             onAddBtnClicked = {},
             onDeleteBtnClicked = {},

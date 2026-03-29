@@ -38,6 +38,7 @@
     <string name="error_while_loading_spells">Error while loading Spells.</string>
     <string name="error_while_loading_creatures">Error while loading the Bestiary.</string>
     <string name="error_while_loading_magical_items">Error while loading Magical Items.</string>
+    <string name="error_while_loading_user_lists">Error while loading User Lists.</string>
 
     <string name="no_result_found">No results found.</string>
     <string name="no_result_found_for_query">No results found for '%1$s'.</string>
