@@ -60,20 +60,23 @@ class AddToListViewModelTest {
 
         val viewModel = AddToListViewModel("spell1", UserList.Type.SPELL, repository)
 
+        val events = mutableListOf<AddToListViewModel.Event>()
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
+        }
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.events.collect { events.add(it) }
         }
 
         advanceUntilIdle()
 
-        var successCalled = false
-        viewModel.addToList("list1") { successCalled = true }
+        viewModel.addToList("list1")
 
         advanceUntilIdle()
 
-        assertTrue(successCalled)
+        assertTrue(events.isNotEmpty())
         val savedList = repository.get("list1")
-        assertTrue(savedList?.itemIds?.contains("spell1") == true)
+        assertTrue(savedList?.itemIds?.contains("spell1") ?: false)
     }
 
     @Test
@@ -89,7 +92,7 @@ class AddToListViewModelTest {
 
         advanceUntilIdle()
 
-        viewModel.addToList("list1") {}
+        viewModel.addToList("list1")
 
         advanceUntilIdle()
 
@@ -101,18 +104,21 @@ class AddToListViewModelTest {
     fun `createAndAdd creates a new list with the itemId`() = runTest(testDispatcher) {
         val viewModel = AddToListViewModel("spell1", UserList.Type.SPELL, repository)
 
+        val events = mutableListOf<AddToListViewModel.Event>()
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
+        }
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.events.collect { events.add(it) }
         }
 
         advanceUntilIdle()
 
-        var successCalled = false
-        viewModel.createAndAdd("Nouveau grimoire") { successCalled = true }
+        viewModel.createAndAdd("Nouveau grimoire")
 
         advanceUntilIdle()
 
-        assertTrue(successCalled)
+        assertTrue(events.isNotEmpty())
         val lists = repository.getAll(UserList.Type.SPELL)
         assertEquals(expected = 1, actual = lists.size)
         assertEquals(expected = "Nouveau grimoire", actual = lists.first().name)

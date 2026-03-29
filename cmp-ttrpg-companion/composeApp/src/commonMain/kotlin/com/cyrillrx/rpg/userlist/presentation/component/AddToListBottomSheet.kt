@@ -16,6 +16,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -52,14 +53,22 @@ fun AddToListBottomSheet(
     val state by viewModel.state.collectAsStateWithLifecycle()
     val sheetState = rememberModalBottomSheetState()
 
+    LaunchedEffect(viewModel) {
+        viewModel.events.collect {
+            when (it) {
+                AddToListViewModel.Event.Dismiss -> onDismiss()
+            }
+        }
+    }
+
     ModalBottomSheet(
         onDismissRequest = onDismiss,
         sheetState = sheetState,
     ) {
         AddToListContent(
             state = state,
-            onAddToList = { listId -> viewModel.addToList(listId, onDismiss) },
-            onCreateAndAdd = { name -> viewModel.createAndAdd(name, onDismiss) },
+            onAddToList = viewModel::addToList,
+            onCreateAndAdd = viewModel::createAndAdd,
         )
     }
 }
