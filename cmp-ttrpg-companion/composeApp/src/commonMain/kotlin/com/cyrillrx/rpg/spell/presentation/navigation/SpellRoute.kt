@@ -74,6 +74,7 @@ fun NavGraphBuilder.handleSpellRoutes(
         )
         SpellCardScreen(
             viewModel = viewModel,
+            userListRepository = userListRepository,
             onNavigateUpClicked = { navController.navigateUp() },
         )
     }
