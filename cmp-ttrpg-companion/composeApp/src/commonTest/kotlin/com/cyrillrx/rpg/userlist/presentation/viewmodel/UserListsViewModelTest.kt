@@ -1,6 +1,5 @@
 package com.cyrillrx.rpg.userlist.presentation.viewmodel
 
-import com.cyrillrx.rpg.spell.presentation.viewmodel.UserListsViewModel
 import com.cyrillrx.rpg.userlist.data.RamUserListRepository
 import com.cyrillrx.rpg.userlist.domain.UserList
 import com.cyrillrx.rpg.userlist.domain.UserListRepository

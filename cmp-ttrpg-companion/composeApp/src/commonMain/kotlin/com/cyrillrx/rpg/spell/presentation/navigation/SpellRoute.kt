@@ -15,12 +15,12 @@ import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellDetailViewModel
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellDetailViewModelFactory
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellListViewModel
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellListViewModelFactory
-import com.cyrillrx.rpg.spell.presentation.viewmodel.UserListsViewModel
-import com.cyrillrx.rpg.spell.presentation.viewmodel.UserListsViewModelFactory
 import com.cyrillrx.rpg.userlist.domain.UserList
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
 import com.cyrillrx.rpg.userlist.presentation.UserListsScreen
 import com.cyrillrx.rpg.userlist.presentation.navigation.UserListRouterImpl
+import com.cyrillrx.rpg.userlist.presentation.viewmodel.UserListsViewModel
+import com.cyrillrx.rpg.userlist.presentation.viewmodel.UserListsViewModelFactory
 import kotlinx.serialization.Serializable
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res

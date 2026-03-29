@@ -31,7 +31,7 @@ import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
-import com.cyrillrx.rpg.spell.presentation.viewmodel.UserListsViewModel
+import com.cyrillrx.rpg.userlist.presentation.viewmodel.UserListsViewModel
 import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
 import com.cyrillrx.rpg.userlist.domain.UserList
 import org.jetbrains.compose.resources.stringResource

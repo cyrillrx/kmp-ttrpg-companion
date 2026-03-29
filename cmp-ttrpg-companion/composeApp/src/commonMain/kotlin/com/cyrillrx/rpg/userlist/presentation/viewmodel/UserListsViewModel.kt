@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.spell.presentation.viewmodel
+package com.cyrillrx.rpg.userlist.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -40,7 +40,7 @@ class UserListsViewModel(
             val newList = UserList(
                 id = Uuid.random().toString(),
                 name = name,
-                type = UserList.Type.SPELL,
+                type = listType,
                 itemIds = emptyList(),
             )
             userListRepository.save(newList)
