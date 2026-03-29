@@ -60,8 +60,21 @@ class SpellListDetailViewModelTest {
     }
 
     @Test
+    fun `state is Error when list is not found`() = runTest(testDispatcher) {
+        val viewModel = SpellListDetailViewModel("non_existent_list", userListRepository, spellRepository)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        assertIs<SpellListDetailState.Body.Error>(viewModel.state.value.body)
+    }
+
+    @Test
     fun `state is Empty when list has no spells`() = runTest(testDispatcher) {
-        val list = UserList("list1", "Grimoire", UserList.Type.SPELL, emptyList())
+        val list = UserList("list1", "Gandalf's spells", UserList.Type.SPELL, emptyList())
         userListRepository.save(list)
 
         val viewModel = SpellListDetailViewModel("list1", userListRepository, spellRepository)
@@ -73,12 +86,12 @@ class SpellListDetailViewModelTest {
         advanceUntilIdle()
 
         assertIs<SpellListDetailState.Body.EmptyList>(viewModel.state.value.body)
-        assertEquals(expected = "Grimoire", actual = viewModel.state.value.listName)
+        assertEquals(expected = "Gandalf's spells", actual = viewModel.state.value.listName)
     }
 
     @Test
     fun `state is WithData when list has spells`() = runTest(testDispatcher) {
-        val list = UserList("list1", "Sorts de combat", UserList.Type.SPELL, listOf(spell.id))
+        val list = UserList("list1", "Fighting spells", UserList.Type.SPELL, listOf(spell.id))
         userListRepository.save(list)
 
         val viewModel = SpellListDetailViewModel("list1", userListRepository, spellRepository)
@@ -97,7 +110,7 @@ class SpellListDetailViewModelTest {
     @Test
     fun `removeSpell removes spell from list`() = runTest(testDispatcher) {
         val allSpells = SampleSpellRepository.getAll()
-        val list = UserList("list1", "Grimoire", UserList.Type.SPELL, allSpells.map { it.id })
+        val list = UserList("list1", "My Spellbook", UserList.Type.SPELL, allSpells.map { it.id })
         userListRepository.save(list)
 
         val viewModel = SpellListDetailViewModel("list1", userListRepository, spellRepository)
@@ -119,7 +132,7 @@ class SpellListDetailViewModelTest {
 
     @Test
     fun `removeSpell transitions to Empty when last spell removed`() = runTest(testDispatcher) {
-        val list = UserList("list1", "Grimoire", UserList.Type.SPELL, listOf(spell.id))
+        val list = UserList("list1", "My spellbook", UserList.Type.SPELL, listOf(spell.id))
         userListRepository.save(list)
 
         val viewModel = SpellListDetailViewModel("list1", userListRepository, spellRepository)
