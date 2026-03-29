@@ -22,10 +22,11 @@ import com.cyrillrx.rpg.spell.presentation.viewmodel.UserListsViewModel
 import com.cyrillrx.rpg.spell.presentation.viewmodel.UserListsViewModelFactory
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
 import com.cyrillrx.rpg.userlist.presentation.UserListsScreen
+import com.cyrillrx.rpg.userlist.presentation.navigation.UserListRouterImpl
 import kotlinx.serialization.Serializable
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.btn_my_spell_lists
+import rpg_companion.composeapp.generated.resources.title_my_spell_lists
 
 interface SpellRoute {
     @Serializable
@@ -38,15 +39,15 @@ interface SpellRoute {
     data class Detail(val spellId: String)
 
     @Serializable
-    data object MyLists
+    data object UserLists
 
     @Serializable
-    data class ListDetail(val listId: String)
+    data class UserListDetail(val listId: String)
 }
 
 fun NavGraphBuilder.handleSpellRoutes(
     navController: NavController,
-    repository: SpellRepository,
+    spellRepository: SpellRepository,
     userListRepository: UserListRepository,
 ) {
     composable<SpellRoute.List>(
@@ -54,14 +55,14 @@ fun NavGraphBuilder.handleSpellRoutes(
         exitTransition = { slideOutHorizontally { initialOffset -> initialOffset } },
     ) {
         val router = SpellRouterImpl(navController)
-        val viewModelFactory = SpellListViewModelFactory(router, repository)
+        val viewModelFactory = SpellListViewModelFactory(router, spellRepository)
         val viewModel = viewModel<SpellListViewModel>(factory = viewModelFactory)
         SpellListScreen(viewModel, router)
     }
 
     composable<SpellRoute.CardCarousel> {
         val router = SpellRouterImpl(navController)
-        val viewModelFactory = SpellListViewModelFactory(router, repository)
+        val viewModelFactory = SpellListViewModelFactory(router, spellRepository)
         val viewModel = viewModel<SpellListViewModel>(factory = viewModelFactory)
         SpellCardCarouselScreen(viewModel, router)
     }
@@ -69,7 +70,7 @@ fun NavGraphBuilder.handleSpellRoutes(
     composable<SpellRoute.Detail> { entry ->
         val id = entry.toRoute<SpellRoute.Detail>().spellId
         val viewModel = viewModel<SpellDetailViewModel>(
-            factory = SpellDetailViewModelFactory(id, repository),
+            factory = SpellDetailViewModelFactory(id, spellRepository),
         )
         SpellCardScreen(
             viewModel = viewModel,
@@ -78,21 +79,21 @@ fun NavGraphBuilder.handleSpellRoutes(
         )
     }
 
-    composable<SpellRoute.MyLists> {
-        val router = SpellRouterImpl(navController)
+    composable<SpellRoute.UserLists> {
+        val router = UserListRouterImpl(navController)
         val viewModel = viewModel<UserListsViewModel>(
             factory = UserListsViewModelFactory(router, userListRepository),
         )
         UserListsScreen(
             viewModel = viewModel,
-            title = stringResource(Res.string.btn_my_spell_lists),
+            title = stringResource(Res.string.title_my_spell_lists),
         )
     }
 
-    composable<SpellRoute.ListDetail> { entry ->
-        val listId = entry.toRoute<SpellRoute.ListDetail>().listId
+    composable<SpellRoute.UserListDetail> { entry ->
+        val listId = entry.toRoute<SpellRoute.UserListDetail>().listId
         val viewModel = viewModel<SpellListDetailViewModel>(
-            factory = SpellListDetailViewModelFactory(listId, userListRepository, repository),
+            factory = SpellListDetailViewModelFactory(listId, userListRepository, spellRepository),
         )
         SpellListDetailScreen(
             viewModel = viewModel,

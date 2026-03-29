@@ -46,9 +46,9 @@ fun UserListsScreen(viewModel: UserListsViewModel, title: String) {
         state = state,
         title = title,
         onNavigateUpClicked = viewModel::onNavigateUpClicked,
-        onCreateList = viewModel::createList,
-        onDeleteList = viewModel::deleteList,
-        onOpenList = viewModel::openList,
+        onAddBtnClicked = viewModel::createList,
+        onDeleteBtnClicked = viewModel::deleteList,
+        onListClicked = viewModel::openList,
     )
 }
 
@@ -57,9 +57,9 @@ fun UserListsScreen(
     state: UserListsState,
     title: String,
     onNavigateUpClicked: () -> Unit,
-    onCreateList: (String) -> Unit,
-    onDeleteList: (String) -> Unit,
-    onOpenList: (UserList) -> Unit,
+    onAddBtnClicked: (String) -> Unit,
+    onDeleteBtnClicked: (String) -> Unit,
+    onListClicked: (UserList) -> Unit,
 ) {
     var showCreateDialog by remember { mutableStateOf(false) }
     var listToDelete by remember { mutableStateOf<UserList?>(null) }
@@ -95,8 +95,8 @@ fun UserListsScreen(
 
                 is UserListsState.Body.WithData -> UserLists(
                     lists = body.lists,
-                    onOpenList = onOpenList,
-                    onDeleteList = { listToDelete = it },
+                    onListClicked = onListClicked,
+                    onDeleteBtnClicked = { listToDelete = it },
                 )
             }
         }
@@ -105,7 +105,7 @@ fun UserListsScreen(
     if (showCreateDialog) {
         CreateListDialog(
             onConfirm = { name ->
-                onCreateList(name)
+                onAddBtnClicked(name)
                 showCreateDialog = false
             },
             onDismiss = { showCreateDialog = false },
@@ -116,7 +116,7 @@ fun UserListsScreen(
         ConfirmDeleteDialog(
             message = stringResource(Res.string.dialog_delete_list_message, list.name),
             onConfirm = {
-                onDeleteList(list.id)
+                onDeleteBtnClicked(list.id)
                 listToDelete = null
             },
             onDismiss = { listToDelete = null },
@@ -127,8 +127,8 @@ fun UserListsScreen(
 @Composable
 private fun UserLists(
     lists: List<UserList>,
-    onOpenList: (UserList) -> Unit,
-    onDeleteList: (UserList) -> Unit,
+    onListClicked: (UserList) -> Unit,
+    onDeleteBtnClicked: (UserList) -> Unit,
 ) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
@@ -138,8 +138,8 @@ private fun UserLists(
         items(lists, key = { it.id }) { list ->
             UserListItem(
                 list = list,
-                onClick = { onOpenList(list) },
-                onDelete = { onDeleteList(list) },
+                onClick = { onListClicked(list) },
+                onDelete = { onDeleteBtnClicked(list) },
                 modifier = Modifier.fillMaxWidth(),
             )
         }
@@ -161,9 +161,9 @@ private fun PreviewUserListsScreenLight() {
             ),
             title = "Mes listes",
             onNavigateUpClicked = {},
-            onCreateList = {},
-            onDeleteList = {},
-            onOpenList = {},
+            onAddBtnClicked = {},
+            onDeleteBtnClicked = {},
+            onListClicked = {},
         )
     }
 }
@@ -176,9 +176,9 @@ private fun PreviewUserListsScreenDark() {
             state = UserListsState(body = UserListsState.Body.Empty),
             title = "Mes listes",
             onNavigateUpClicked = {},
-            onCreateList = {},
-            onDeleteList = {},
-            onOpenList = {},
+            onAddBtnClicked = {},
+            onDeleteBtnClicked = {},
+            onListClicked = {},
         )
     }
 }

@@ -2,10 +2,10 @@ package com.cyrillrx.rpg.spell.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.cyrillrx.rpg.spell.presentation.navigation.SpellRouter
 import com.cyrillrx.rpg.userlist.domain.UserList
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
 import com.cyrillrx.rpg.userlist.presentation.UserListsState
+import com.cyrillrx.rpg.userlist.presentation.navigation.UserListRouter
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -15,7 +15,7 @@ import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
 class UserListsViewModel(
-    private val router: SpellRouter,
+    private val router: UserListRouter,
     private val userListRepository: UserListRepository,
 ) : ViewModel() {
 
@@ -52,7 +52,7 @@ class UserListsViewModel(
     }
 
     fun openList(list: UserList) {
-        router.openSpellListDetail(list.id)
+        router.openUserList(list)
     }
 
     private fun loadLists() {
