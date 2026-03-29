@@ -38,6 +38,7 @@
     <string name="error_while_loading_spells">Erreur lors du chargement des Sorts.</string>
     <string name="error_while_loading_creatures">Erreur lors du chargement du Bestiaire.</string>
     <string name="error_while_loading_magical_items">Erreur lors du chargement des Objets Magiques.</string>
+    <string name="error_while_loading_user_lists">Erreur lors du chargement des Listes Utilisateur.</string>
 
     <string name="no_result_found">Aucun résultat trouvé.</string>
     <string name="no_result_found_for_query">Aucun résultat trouvé pour '%1$s'.</string>

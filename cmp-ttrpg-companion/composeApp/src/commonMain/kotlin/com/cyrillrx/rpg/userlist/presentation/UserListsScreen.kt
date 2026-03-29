@@ -25,6 +25,7 @@ import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.core.presentation.component.ConfirmDeleteDialog
 import com.cyrillrx.rpg.core.presentation.component.CreateListDialog
+import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
@@ -93,6 +94,7 @@ fun UserListsScreen(
                     )
                 }
 
+                is UserListsState.Body.Error -> ErrorLayout(body.errorMessage)
                 is UserListsState.Body.WithData -> UserLists(
                     lists = body.lists,
                     onListClicked = onListClicked,
