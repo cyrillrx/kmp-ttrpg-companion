@@ -4,6 +4,7 @@ import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.spell.presentation.SpellListDetailState
 import com.cyrillrx.rpg.userlist.data.RamUserListRepository
 import com.cyrillrx.rpg.userlist.domain.UserList
+import com.cyrillrx.rpg.userlist.domain.UserListRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
@@ -18,6 +19,7 @@ import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertIs
+import kotlin.test.assertTrue
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class SpellListDetailViewModelTest {
@@ -35,6 +37,26 @@ class SpellListDetailViewModelTest {
     @AfterTest
     fun tearDown() {
         Dispatchers.resetMain()
+    }
+
+    @Test
+    fun `initial state is Loading before coroutines run`() = runTest(testDispatcher) {
+        val viewModel = SpellListDetailViewModel("list1", userListRepository, spellRepository)
+
+        assertIs<SpellListDetailState.Body.Loading>(viewModel.state.value.body)
+    }
+
+    @Test
+    fun `state is Error when repository throws`() = runTest(testDispatcher) {
+        val viewModel = SpellListDetailViewModel("list1", FailingUserListRepository(), spellRepository)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        assertIs<SpellListDetailState.Body.Error>(viewModel.state.value.body)
     }
 
     @Test
@@ -92,7 +114,7 @@ class SpellListDetailViewModelTest {
 
         val body = assertIs<SpellListDetailState.Body.WithData>(viewModel.state.value.body)
         assertEquals(expected = allSpells.size - 1, actual = body.spells.size)
-        assert(body.spells.none { it.id == spell.id })
+        assertTrue(body.spells.none { it.id == spell.id })
     }
 
     @Test
@@ -114,4 +136,11 @@ class SpellListDetailViewModelTest {
 
         assertIs<SpellListDetailState.Body.EmptyList>(viewModel.state.value.body)
     }
+}
+
+private class FailingUserListRepository : UserListRepository {
+    override suspend fun getAll(type: UserList.Type): List<UserList> = error("Repository failure")
+    override suspend fun get(id: String): UserList? = error("Repository failure")
+    override suspend fun save(list: UserList) = Unit
+    override suspend fun delete(id: String) = Unit
 }
