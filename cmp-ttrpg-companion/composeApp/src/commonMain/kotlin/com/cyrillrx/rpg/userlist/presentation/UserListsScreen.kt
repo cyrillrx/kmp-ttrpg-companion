@@ -32,6 +32,7 @@ import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.spell.presentation.viewmodel.UserListsViewModel
+import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
 import com.cyrillrx.rpg.userlist.domain.UserList
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -166,11 +167,7 @@ private fun UserListsScreenPreview(darkTheme: Boolean) {
         UserListsScreen(
             state = UserListsState(
                 body = UserListsState.Body.WithData(
-                    lists = listOf(
-                        UserList("1", "Fights spells", UserList.Type.SPELL, listOf("spell1")),
-                        UserList("2", "Support spells", UserList.Type.SPELL, emptyList()),
-                        UserList("3", "Gandalf's spells", UserList.Type.SPELL, emptyList()),
-                    ),
+                    lists = SampleUserListRepository.getAll(),
                 ),
             ),
             title = "Spellbooks",
