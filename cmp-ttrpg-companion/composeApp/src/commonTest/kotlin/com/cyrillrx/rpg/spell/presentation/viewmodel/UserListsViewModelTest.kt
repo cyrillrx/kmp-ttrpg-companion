@@ -1,10 +1,9 @@
 package com.cyrillrx.rpg.spell.presentation.viewmodel
 
-import com.cyrillrx.rpg.spell.presentation.MySpellListsState
-import com.cyrillrx.rpg.spell.presentation.navigation.SpellRouter
-import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.userlist.data.RamUserListRepository
 import com.cyrillrx.rpg.userlist.domain.UserList
+import com.cyrillrx.rpg.userlist.presentation.UserListsState
+import com.cyrillrx.rpg.userlist.presentation.navigation.UserListRouter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
@@ -22,11 +21,11 @@ import kotlin.test.assertIs
 import kotlin.test.assertTrue
 
 @OptIn(ExperimentalCoroutinesApi::class)
-class MySpellListsViewModelTest {
+class UserListsViewModelTest {
 
     private val testDispatcher = StandardTestDispatcher()
     private val repository = RamUserListRepository()
-    private val router = NoOpSpellListsRouter()
+    private val router = NoOpUserListRouter()
 
     @BeforeTest
     fun setUp() {
@@ -40,7 +39,7 @@ class MySpellListsViewModelTest {
 
     @Test
     fun `initial state is Empty when no lists exist`() = runTest(testDispatcher) {
-        val viewModel = MySpellListsViewModel(router, repository)
+        val viewModel = UserListsViewModel(router, repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -48,12 +47,12 @@ class MySpellListsViewModelTest {
 
         advanceUntilIdle()
 
-        assertIs<MySpellListsState.Body.Empty>(viewModel.state.value.body)
+        assertIs<UserListsState.Body.Empty>(viewModel.state.value.body)
     }
 
     @Test
     fun `createList adds a list and transitions to WithData`() = runTest(testDispatcher) {
-        val viewModel = MySpellListsViewModel(router, repository)
+        val viewModel = UserListsViewModel(router, repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -65,7 +64,7 @@ class MySpellListsViewModelTest {
 
         advanceUntilIdle()
 
-        val body = assertIs<MySpellListsState.Body.WithData>(viewModel.state.value.body)
+        val body = assertIs<UserListsState.Body.WithData>(viewModel.state.value.body)
         assertEquals(expected = 1, actual = body.lists.size)
         assertEquals(expected = "Sorts de combat", actual = body.lists.first().name)
         assertEquals(expected = UserList.Type.SPELL, actual = body.lists.first().type)
@@ -73,7 +72,7 @@ class MySpellListsViewModelTest {
 
     @Test
     fun `deleteList removes the list`() = runTest(testDispatcher) {
-        val viewModel = MySpellListsViewModel(router, repository)
+        val viewModel = UserListsViewModel(router, repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -84,19 +83,19 @@ class MySpellListsViewModelTest {
         viewModel.createList("Sorts de combat")
         advanceUntilIdle()
 
-        val body = assertIs<MySpellListsState.Body.WithData>(viewModel.state.value.body)
+        val body = assertIs<UserListsState.Body.WithData>(viewModel.state.value.body)
         val listId = body.lists.first().id
 
         viewModel.deleteList(listId)
         advanceUntilIdle()
 
-        assertIs<MySpellListsState.Body.Empty>(viewModel.state.value.body)
+        assertIs<UserListsState.Body.Empty>(viewModel.state.value.body)
     }
 
     @Test
-    fun `openList navigates to spell list detail`() = runTest(testDispatcher) {
-        val trackingRouter = TrackingSpellRouter()
-        val viewModel = MySpellListsViewModel(trackingRouter, repository)
+    fun `openList delegates to router`() = runTest(testDispatcher) {
+        val trackingRouter = TrackingUserListRouter()
+        val viewModel = UserListsViewModel(trackingRouter, repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -107,26 +106,24 @@ class MySpellListsViewModelTest {
         viewModel.createList("Grimoire")
         advanceUntilIdle()
 
-        val body = assertIs<MySpellListsState.Body.WithData>(viewModel.state.value.body)
+        val body = assertIs<UserListsState.Body.WithData>(viewModel.state.value.body)
         val list = body.lists.first()
 
         viewModel.openList(list)
 
-        assertTrue(trackingRouter.openedListIds.contains(list.id))
+        assertTrue(trackingRouter.openedLists.contains(list))
     }
 }
 
-private class NoOpSpellListsRouter : SpellRouter {
+private class NoOpUserListRouter : UserListRouter {
     override fun navigateUp() = Unit
-    override fun openSpellDetail(spell: Spell) = Unit
 }
 
-private class TrackingSpellRouter : SpellRouter {
-    val openedListIds = mutableListOf<String>()
+private class TrackingUserListRouter : UserListRouter {
+    val openedLists = mutableListOf<UserList>()
 
     override fun navigateUp() = Unit
-    override fun openSpellDetail(spell: Spell) = Unit
-    override fun openSpellListDetail(listId: String) {
-        openedListIds.add(listId)
+    override fun openUserList(list: UserList) {
+        openedLists.add(list)
     }
 }
