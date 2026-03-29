@@ -111,6 +111,26 @@ class UserListsViewModelTest {
     }
 
     @Test
+    fun `only lists matching the configured type are shown`() = runTest(testDispatcher) {
+        val spellList = UserList("1", "Spellbook", UserList.Type.SPELL, emptyList())
+        val itemList = UserList("2", "Artefacts", UserList.Type.MAGICAL_ITEM, emptyList())
+        repository.save(spellList)
+        repository.save(itemList)
+
+        val viewModel = UserListsViewModel(UserList.Type.SPELL, router, repository)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        val body = assertIs<UserListsState.Body.WithData>(viewModel.state.value.body)
+        assertEquals(expected = 1, actual = body.lists.size)
+        assertEquals(expected = spellList, actual = body.lists.first())
+    }
+
+    @Test
     fun `openList delegates to router`() = runTest(testDispatcher) {
         val trackingRouter = TrackingUserListRouter()
         val viewModel = UserListsViewModel(UserList.Type.SPELL, trackingRouter, repository)
