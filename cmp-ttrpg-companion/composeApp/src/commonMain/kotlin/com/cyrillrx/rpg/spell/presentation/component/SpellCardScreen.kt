@@ -50,17 +50,19 @@ fun SpellCardScreen(
 @Preview
 @Composable
 fun PreviewSpellCardScreenLight() {
-    val spell = SampleSpellRepository.getFirst()
-    AppThemePreview(darkTheme = false) {
-        SpellCardScreen(spell, {})
-    }
+    PreviewSpellCardScreen(darkTheme = false)
 }
 
 @Preview
 @Composable
 fun PreviewSpellCardScreenDark() {
-    val spell = SampleSpellRepository.getFirst()
-    AppThemePreview(darkTheme = true) {
+    PreviewSpellCardScreen(darkTheme = true)
+}
+
+@Composable
+private fun PreviewSpellCardScreen(darkTheme: Boolean) {
+    val spell = SampleSpellRepository.fireball()
+    AppThemePreview(darkTheme = darkTheme) {
         SpellCardScreen(spell, {})
     }
 }
