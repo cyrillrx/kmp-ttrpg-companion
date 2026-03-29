@@ -1,17 +1,16 @@
 package com.cyrillrx.rpg.spell.presentation
 
 import com.cyrillrx.rpg.spell.domain.Spell
-import com.cyrillrx.rpg.spell.domain.SpellFilter
 import org.jetbrains.compose.resources.StringResource
 
-data class SpellListState(
-    val filter: SpellFilter = SpellFilter(),
-    val body: Body,
+data class SpellListDetailState(
+    val listName: String = "",
+    val body: Body = Body.Loading,
 ) {
     sealed interface Body {
         data object Loading : Body
-        data object Empty : Body
+        data object EmptyList : Body
         data class Error(val errorMessage: StringResource) : Body
-        data class WithData(val searchResults: List<Spell>) : Body
+        data class WithData(val spells: List<Spell>) : Body
     }
 }

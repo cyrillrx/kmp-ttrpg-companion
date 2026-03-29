@@ -31,9 +31,9 @@ import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
-import com.cyrillrx.rpg.userlist.presentation.viewmodel.UserListsViewModel
 import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
 import com.cyrillrx.rpg.userlist.domain.UserList
+import com.cyrillrx.rpg.userlist.presentation.viewmodel.UserListsViewModel
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
@@ -87,14 +87,7 @@ fun UserListsScreen(
         ) {
             when (val body = state.body) {
                 is UserListsState.Body.Loading -> Loader()
-                is UserListsState.Body.Empty -> {
-                    Text(
-                        text = stringResource(Res.string.no_result_found),
-                        style = MaterialTheme.typography.bodyMedium,
-                        modifier = Modifier.padding(spacingMedium),
-                    )
-                }
-
+                is UserListsState.Body.Empty -> ErrorLayout(Res.string.no_result_found)
                 is UserListsState.Body.Error -> ErrorLayout(body.errorMessage)
                 is UserListsState.Body.WithData -> UserLists(
                     lists = body.lists,
