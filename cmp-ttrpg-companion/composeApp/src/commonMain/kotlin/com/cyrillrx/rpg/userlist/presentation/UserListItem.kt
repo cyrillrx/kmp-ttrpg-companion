@@ -48,21 +48,20 @@ fun UserListItem(
 @Preview
 @Composable
 private fun PreviewUserListItemLight() {
-    AppThemePreview(darkTheme = false) {
-        UserListItem(
-            list = UserList("1", "Sorts de combat", UserList.Type.SPELL, listOf("spell1")),
-            onClick = {},
-            onDelete = {},
-        )
-    }
+    UserListItemPreview(false)
 }
 
 @Preview
 @Composable
 private fun PreviewUserListItemDark() {
-    AppThemePreview(darkTheme = true) {
+    UserListItemPreview(true)
+}
+
+@Composable
+private fun UserListItemPreview(darkTheme: Boolean) {
+    AppThemePreview(darkTheme = darkTheme) {
         UserListItem(
-            list = UserList("1", "Sorts de combat", UserList.Type.SPELL, listOf("spell1")),
+            list = UserList("1", "Fighting spells", UserList.Type.SPELL, listOf("spell1")),
             onClick = {},
             onDelete = {},
         )
