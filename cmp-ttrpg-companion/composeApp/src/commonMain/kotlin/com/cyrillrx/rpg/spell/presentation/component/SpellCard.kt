@@ -5,6 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -43,15 +44,12 @@ fun SpellCard(spell: Spell, modifier: Modifier = Modifier) {
     val spellColor = spell.getColor()
     Card(
         modifier = modifier
-            .padding(spacingSmall)
-            .fillMaxWidth(),
+            .fillMaxWidth()
+            .padding(spacingSmall),
         shape = RoundedCornerShape(16.dp),
         border = BorderStroke(spacingMedium, spellColor),
     ) {
-        Column(
-            Modifier
-                .padding(spacingMedium),
-        ) {
+        Column(Modifier.padding(spacingMedium)) {
             Text(
                 text = spell.title,
                 fontSize = 20.sp,
@@ -84,7 +82,7 @@ fun SpellCard(spell: Spell, modifier: Modifier = Modifier) {
                 fontSize = 16.sp,
                 overflow = TextOverflow.Ellipsis,
                 modifier = Modifier
-                    .fillMaxWidth()
+                    .fillMaxSize()
                     .background(MaterialTheme.colorScheme.background)
                     .padding(spacingMedium),
             )
