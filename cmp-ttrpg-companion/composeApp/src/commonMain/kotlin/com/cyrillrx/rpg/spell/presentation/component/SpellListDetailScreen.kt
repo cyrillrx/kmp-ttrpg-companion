@@ -37,7 +37,7 @@ import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellListDetailViewModel
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.dialog_remove_spell_message
+import rpg_companion.composeapp.generated.resources.dialog_remove_from_list_message
 import rpg_companion.composeapp.generated.resources.no_result_found
 
 @Composable
@@ -49,7 +49,7 @@ fun SpellListDetailScreen(
     SpellListDetailScreen(
         state = state,
         onNavigateUpClicked = onNavigateUpClicked,
-        onRemoveSpell = viewModel::removeSpell,
+        onRemoveSpellClicked = viewModel::removeSpell,
     )
 }
 
@@ -57,7 +57,7 @@ fun SpellListDetailScreen(
 fun SpellListDetailScreen(
     state: SpellListDetailState,
     onNavigateUpClicked: () -> Unit,
-    onRemoveSpell: (String) -> Unit,
+    onRemoveSpellClicked: (String) -> Unit,
 ) {
     var spellToRemove by remember { mutableStateOf<Spell?>(null) }
 
@@ -84,6 +84,7 @@ fun SpellListDetailScreen(
                         modifier = Modifier.padding(spacingMedium),
                     )
                 }
+
                 is SpellListDetailState.Body.WithData -> SpellDetailList(
                     spells = body.spells,
                     onRemoveSpell = { spellToRemove = it },
@@ -94,9 +95,9 @@ fun SpellListDetailScreen(
 
     spellToRemove?.let { spell ->
         ConfirmDeleteDialog(
-            message = stringResource(Res.string.dialog_remove_spell_message, spell.title),
+            message = stringResource(Res.string.dialog_remove_from_list_message, spell.title),
             onConfirm = {
-                onRemoveSpell(spell.id)
+                onRemoveSpellClicked(spell.id)
                 spellToRemove = null
             },
             onDismiss = { spellToRemove = null },
@@ -139,29 +140,26 @@ private fun SpellDetailList(
 @Preview
 @Composable
 private fun PreviewSpellListDetailScreenLight() {
-    AppThemePreview(darkTheme = false) {
-        SpellListDetailScreen(
-            state = SpellListDetailState(
-                listName = "Sorts de combat",
-                body = SpellListDetailState.Body.WithData(SampleSpellRepository.getAll()),
-            ),
-            onNavigateUpClicked = {},
-            onRemoveSpell = {},
-        )
-    }
+    SpellListDetailScreenPreview(darkTheme = false)
 }
 
 @Preview
 @Composable
 private fun PreviewSpellListDetailScreenDark() {
-    AppThemePreview(darkTheme = true) {
+    SpellListDetailScreenPreview(darkTheme = true)
+}
+
+@Composable
+private fun SpellListDetailScreenPreview(darkTheme: Boolean) {
+    val spells = SampleSpellRepository.getAll()
+    AppThemePreview(darkTheme = darkTheme) {
         SpellListDetailScreen(
             state = SpellListDetailState(
-                listName = "Sorts de combat",
-                body = SpellListDetailState.Body.Empty,
+                listName = "Gandalf's spells",
+                body = SpellListDetailState.Body.WithData(spells),
             ),
             onNavigateUpClicked = {},
-            onRemoveSpell = {},
+            onRemoveSpellClicked = {},
         )
     }
 }
