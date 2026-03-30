@@ -27,6 +27,7 @@ class AddToListViewModelTest {
     private val testDispatcher = StandardTestDispatcher()
     private val userListRepository = RamUserListRepository()
     private val spellRepository = SampleSpellRepository()
+    private val spell = SampleSpellRepository.getFirst()
 
     @BeforeTest
     fun setUp() {
@@ -43,7 +44,7 @@ class AddToListViewModelTest {
         val list = UserList("list1", "Grimoire", UserList.Type.SPELL, emptyList())
         userListRepository.save(list)
 
-        val viewModel = AddToListViewModel("spell1", UserList.Type.SPELL, userListRepository, spellRepository)
+        val viewModel = AddToListViewModel(spell.id, UserList.Type.SPELL, userListRepository, spellRepository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -58,12 +59,12 @@ class AddToListViewModelTest {
 
     @Test
     fun `initial state pre-selects lists where item is already added`() = runTest(testDispatcher) {
-        val list1 = UserList("list1", "Grimoire", UserList.Type.SPELL, listOf("spell1"))
+        val list1 = UserList("list1", "Grimoire", UserList.Type.SPELL, listOf(spell.id))
         val list2 = UserList("list2", "Other", UserList.Type.SPELL, emptyList())
         userListRepository.save(list1)
         userListRepository.save(list2)
 
-        val viewModel = AddToListViewModel("spell1", UserList.Type.SPELL, userListRepository, spellRepository)
+        val viewModel = AddToListViewModel(spell.id, UserList.Type.SPELL, userListRepository, spellRepository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -81,7 +82,7 @@ class AddToListViewModelTest {
         val list = UserList("list1", "Grimoire", UserList.Type.SPELL, emptyList())
         userListRepository.save(list)
 
-        val viewModel = AddToListViewModel("spell1", UserList.Type.SPELL, userListRepository, spellRepository)
+        val viewModel = AddToListViewModel(spell.id, UserList.Type.SPELL, userListRepository, spellRepository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -97,10 +98,10 @@ class AddToListViewModelTest {
 
     @Test
     fun `toggleSelection removes listId from pendingSelection`() = runTest(testDispatcher) {
-        val list = UserList("list1", "Grimoire", UserList.Type.SPELL, listOf("spell1"))
+        val list = UserList("list1", "Grimoire", UserList.Type.SPELL, listOf(spell.id))
         userListRepository.save(list)
 
-        val viewModel = AddToListViewModel("spell1", UserList.Type.SPELL, userListRepository, spellRepository)
+        val viewModel = AddToListViewModel(spell.id, UserList.Type.SPELL, userListRepository, spellRepository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -122,7 +123,7 @@ class AddToListViewModelTest {
         val list = UserList("list1", "Grimoire", UserList.Type.SPELL, emptyList())
         userListRepository.save(list)
 
-        val viewModel = AddToListViewModel("spell1", UserList.Type.SPELL, userListRepository, spellRepository)
+        val viewModel = AddToListViewModel(spell.id, UserList.Type.SPELL, userListRepository, spellRepository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -136,15 +137,15 @@ class AddToListViewModelTest {
         advanceUntilIdle()
 
         val savedList = userListRepository.get("list1")
-        assertTrue(savedList?.itemIds?.contains("spell1") ?: false)
+        assertTrue(savedList?.itemIds?.contains(spell.id) ?: false)
     }
 
     @Test
     fun `confirmSelection removes item from deselected lists`() = runTest(testDispatcher) {
-        val list = UserList("list1", "Grimoire", UserList.Type.SPELL, listOf("spell1"))
+        val list = UserList("list1", "Grimoire", UserList.Type.SPELL, listOf(spell.id))
         userListRepository.save(list)
 
-        val viewModel = AddToListViewModel("spell1", UserList.Type.SPELL, userListRepository, spellRepository)
+        val viewModel = AddToListViewModel(spell.id, UserList.Type.SPELL, userListRepository, spellRepository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -158,7 +159,7 @@ class AddToListViewModelTest {
         advanceUntilIdle()
 
         val savedList = userListRepository.get("list1")
-        assertFalse(savedList?.itemIds?.contains("spell1") ?: true)
+        assertFalse(savedList?.itemIds?.contains(spell.id) ?: true)
     }
 
     @Test
@@ -166,7 +167,7 @@ class AddToListViewModelTest {
         val list = UserList("list1", "Grimoire", UserList.Type.SPELL, emptyList())
         userListRepository.save(list)
 
-        val viewModel = AddToListViewModel("spell1", UserList.Type.SPELL, userListRepository, spellRepository)
+        val viewModel = AddToListViewModel(spell.id, UserList.Type.SPELL, userListRepository, spellRepository)
 
         val events = mutableListOf<AddToListViewModel.Event>()
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
@@ -188,7 +189,7 @@ class AddToListViewModelTest {
 
     @Test
     fun `createAndAdd creates a new list with the itemId`() = runTest(testDispatcher) {
-        val viewModel = AddToListViewModel("spell1", UserList.Type.SPELL, userListRepository, spellRepository)
+        val viewModel = AddToListViewModel(spell.id, UserList.Type.SPELL, userListRepository, spellRepository)
 
         val events = mutableListOf<AddToListViewModel.Event>()
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
@@ -208,6 +209,6 @@ class AddToListViewModelTest {
         val lists = userListRepository.getAll(UserList.Type.SPELL)
         assertEquals(expected = 1, actual = lists.size)
         assertEquals(expected = "Nouveau grimoire", actual = lists.first().name)
-        assertTrue(lists.first().itemIds.contains("spell1"))
+        assertTrue(lists.first().itemIds.contains(spell.id))
     }
 }
