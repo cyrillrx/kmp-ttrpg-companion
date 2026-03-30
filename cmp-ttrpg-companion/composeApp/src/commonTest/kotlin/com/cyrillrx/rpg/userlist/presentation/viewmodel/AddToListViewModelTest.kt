@@ -40,6 +40,39 @@ class AddToListViewModelTest {
     }
 
     @Test
+    fun `initial state is Loading before coroutines run`() = runTest(testDispatcher) {
+        val viewModel = AddToListViewModel(spell.id, UserList.Type.SPELL, userListRepository, spellRepository)
+
+        assertIs<AddToListState.Body.Loading>(viewModel.state.value.body)
+    }
+
+    @Test
+    fun `state is Error when spell is not found`() = runTest(testDispatcher) {
+        val viewModel = AddToListViewModel("non-existent-id", UserList.Type.SPELL, userListRepository, spellRepository)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        assertIs<AddToListState.Body.Error>(viewModel.state.value.body)
+    }
+
+    @Test
+    fun `state is Error when repository throws`() = runTest(testDispatcher) {
+        val viewModel = AddToListViewModel(spell.id, UserList.Type.SPELL, FailingAddToListRepository(), spellRepository)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        assertIs<AddToListState.Body.Error>(viewModel.state.value.body)
+    }
+
+    @Test
     fun `initial state loads existing lists of given type`() = runTest(testDispatcher) {
         val list = UserList("list1", "Grimoire", UserList.Type.SPELL, emptyList())
         userListRepository.save(list)
@@ -210,39 +243,6 @@ class AddToListViewModelTest {
         assertEquals(expected = 1, actual = lists.size)
         assertEquals(expected = "Nouveau grimoire", actual = lists.first().name)
         assertTrue(lists.first().itemIds.contains(spell.id))
-    }
-
-    @Test
-    fun `initial state is Loading before coroutines run`() = runTest(testDispatcher) {
-        val viewModel = AddToListViewModel(spell.id, UserList.Type.SPELL, userListRepository, spellRepository)
-
-        assertIs<AddToListState.Body.Loading>(viewModel.state.value.body)
-    }
-
-    @Test
-    fun `state is Error when spell is not found`() = runTest(testDispatcher) {
-        val viewModel = AddToListViewModel("non-existent-id", UserList.Type.SPELL, userListRepository, spellRepository)
-
-        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
-            viewModel.state.collect {}
-        }
-
-        advanceUntilIdle()
-
-        assertIs<AddToListState.Body.Error>(viewModel.state.value.body)
-    }
-
-    @Test
-    fun `state is Error when repository throws`() = runTest(testDispatcher) {
-        val viewModel = AddToListViewModel(spell.id, UserList.Type.SPELL, FailingAddToListRepository(), spellRepository)
-
-        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
-            viewModel.state.collect {}
-        }
-
-        advanceUntilIdle()
-
-        assertIs<AddToListState.Body.Error>(viewModel.state.value.body)
     }
 }
 
