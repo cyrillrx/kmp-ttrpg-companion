@@ -211,4 +211,44 @@ class AddToListViewModelTest {
         assertEquals(expected = "Nouveau grimoire", actual = lists.first().name)
         assertTrue(lists.first().itemIds.contains(spell.id))
     }
+
+    @Test
+    fun `initial state is Loading before coroutines run`() = runTest(testDispatcher) {
+        val viewModel = AddToListViewModel(spell.id, UserList.Type.SPELL, userListRepository, spellRepository)
+
+        assertIs<AddToListState.Body.Loading>(viewModel.state.value.body)
+    }
+
+    @Test
+    fun `state is Error when spell is not found`() = runTest(testDispatcher) {
+        val viewModel = AddToListViewModel("non-existent-id", UserList.Type.SPELL, userListRepository, spellRepository)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        assertIs<AddToListState.Body.Error>(viewModel.state.value.body)
+    }
+
+    @Test
+    fun `state is Error when repository throws`() = runTest(testDispatcher) {
+        val viewModel = AddToListViewModel(spell.id, UserList.Type.SPELL, FailingAddToListRepository(), spellRepository)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        assertIs<AddToListState.Body.Error>(viewModel.state.value.body)
+    }
+}
+
+private class FailingAddToListRepository : com.cyrillrx.rpg.userlist.domain.UserListRepository {
+    override suspend fun getAll(type: UserList.Type): List<UserList> = error("Repository failure")
+    override suspend fun get(id: String): UserList? = error("Repository failure")
+    override suspend fun save(list: UserList) = Unit
+    override suspend fun delete(id: String) = Unit
 }
