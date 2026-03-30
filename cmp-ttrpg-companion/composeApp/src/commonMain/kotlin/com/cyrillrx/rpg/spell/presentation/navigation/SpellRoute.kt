@@ -21,7 +21,10 @@ import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellListViewModelFactory
 import com.cyrillrx.rpg.userlist.domain.UserList
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
 import com.cyrillrx.rpg.userlist.presentation.UserListsScreen
+import com.cyrillrx.rpg.userlist.presentation.component.AddToListScreen
 import com.cyrillrx.rpg.userlist.presentation.navigation.UserListRouterImpl
+import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddToListViewModel
+import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddToListViewModelFactory
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.UserListsViewModel
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.UserListsViewModelFactory
 import kotlinx.serialization.Serializable
@@ -44,6 +47,9 @@ interface SpellRoute {
 
     @Serializable
     data class UserListDetail(val listId: String)
+
+    @Serializable
+    data class AddToList(val spellId: String)
 }
 
 fun NavGraphBuilder.handleSpellRoutes(
@@ -69,14 +75,31 @@ fun NavGraphBuilder.handleSpellRoutes(
     }
 
     composable<SpellRoute.Detail> { entry ->
+        val router = SpellRouterImpl(navController)
         val id = entry.toRoute<SpellRoute.Detail>().spellId
         val viewModel = viewModel<SpellDetailViewModel>(
             factory = SpellDetailViewModelFactory(id, spellRepository),
         )
         SpellCardScreen(
             viewModel = viewModel,
-            userListRepository = userListRepository,
+            onAddToListClicked = router::openAddToList,
             onNavigateUpClicked = { navController.navigateUp() },
+        )
+    }
+
+    composable<SpellRoute.AddToList> { entry ->
+        val route = entry.toRoute<SpellRoute.AddToList>()
+        val addToListViewModel = viewModel<AddToListViewModel>(
+            factory = AddToListViewModelFactory(
+                itemId = route.spellId,
+                listType = UserList.Type.SPELL,
+                userListRepository = userListRepository,
+                spellRepository = spellRepository,
+            ),
+        )
+        AddToListScreen(
+            viewModel = addToListViewModel,
+            onNavigateUp = { navController.navigateUp() },
         )
     }
 

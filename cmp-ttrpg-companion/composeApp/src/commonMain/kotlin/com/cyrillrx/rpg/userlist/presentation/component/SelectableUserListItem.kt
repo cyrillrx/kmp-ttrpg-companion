@@ -1,13 +1,14 @@
-package com.cyrillrx.rpg.userlist.presentation
+package com.cyrillrx.rpg.userlist.presentation.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material.icons.outlined.Circle
 import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -16,33 +17,39 @@ import androidx.compose.ui.Modifier
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
-import com.cyrillrx.rpg.userlist.domain.UserList
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
-fun UserListItem(
-    list: UserList,
+fun SelectableUserListItem(
+    name: String,
+    isSelected: Boolean,
     onClick: () -> Unit,
-    onDelete: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Card(onClick = onClick, modifier = modifier) {
         Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(spacingCommon),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Text(
-                text = list.name,
+                text = name,
                 style = MaterialTheme.typography.bodyLarge,
-                modifier = Modifier
-                    .padding(spacingCommon)
-                    .weight(1f),
+                modifier = Modifier.weight(1f),
             )
-            IconButton(onClick = onDelete) {
+            if (isSelected) {
                 Icon(
-                    imageVector = Icons.Filled.Delete,
+                    imageVector = Icons.Filled.CheckCircle,
                     contentDescription = null,
-                    tint = MaterialTheme.colorScheme.error,
+                    tint = MaterialTheme.colorScheme.primary,
+                )
+            } else {
+                Icon(
+                    imageVector = Icons.Outlined.Circle,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.primary,
                 )
             }
         }
@@ -51,23 +58,23 @@ fun UserListItem(
 
 @Preview
 @Composable
-private fun PreviewUserListItemLight() {
-    UserListItemPreview(false)
+private fun PreviewSelectableUserListItemLight() {
+    SelectableUserListItemPreview(false, false)
 }
 
 @Preview
 @Composable
-private fun PreviewUserListItemDark() {
-    UserListItemPreview(true)
+private fun PreviewSelectableUserListItemDark() {
+    SelectableUserListItemPreview(true, true)
 }
 
 @Composable
-private fun UserListItemPreview(darkTheme: Boolean) {
+private fun SelectableUserListItemPreview(darkTheme: Boolean, isSelected: Boolean) {
     AppThemePreview(darkTheme = darkTheme) {
-        UserListItem(
-            list = SampleUserListRepository.getFirst(),
+        SelectableUserListItem(
+            name = SampleUserListRepository.getFirst().name,
+            isSelected = isSelected,
             onClick = {},
-            onDelete = {},
         )
     }
 }

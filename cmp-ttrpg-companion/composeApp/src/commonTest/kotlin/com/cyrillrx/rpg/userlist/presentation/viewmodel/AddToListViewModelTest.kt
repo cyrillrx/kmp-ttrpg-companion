@@ -1,6 +1,7 @@
 package com.cyrillrx.rpg.userlist.presentation.viewmodel
 
 import com.cyrillrx.rpg.core.presentation.AddToListState
+import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.userlist.data.RamUserListRepository
 import com.cyrillrx.rpg.userlist.domain.UserList
 import kotlinx.coroutines.Dispatchers
@@ -16,6 +17,7 @@ import kotlin.test.AfterTest
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFalse
 import kotlin.test.assertIs
 import kotlin.test.assertTrue
 
@@ -23,7 +25,8 @@ import kotlin.test.assertTrue
 class AddToListViewModelTest {
 
     private val testDispatcher = StandardTestDispatcher()
-    private val repository = RamUserListRepository()
+    private val userListRepository = RamUserListRepository()
+    private val spellRepository = SampleSpellRepository()
 
     @BeforeTest
     fun setUp() {
@@ -38,9 +41,9 @@ class AddToListViewModelTest {
     @Test
     fun `initial state loads existing lists of given type`() = runTest(testDispatcher) {
         val list = UserList("list1", "Grimoire", UserList.Type.SPELL, emptyList())
-        repository.save(list)
+        userListRepository.save(list)
 
-        val viewModel = AddToListViewModel("spell1", UserList.Type.SPELL, repository)
+        val viewModel = AddToListViewModel("spell1", UserList.Type.SPELL, userListRepository, spellRepository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -50,15 +53,120 @@ class AddToListViewModelTest {
 
         val body = assertIs<AddToListState.Body.WithData>(viewModel.state.value.body)
         assertEquals(expected = 1, actual = body.lists.size)
-        assertEquals(expected = "Grimoire", actual = body.lists.first().name)
+        assertEquals(expected = "Grimoire", actual = body.lists.first().list.name)
     }
 
     @Test
-    fun `addToList appends itemId to existing list`() = runTest(testDispatcher) {
-        val list = UserList("list1", "Grimoire", UserList.Type.SPELL, emptyList())
-        repository.save(list)
+    fun `initial state pre-selects lists where item is already added`() = runTest(testDispatcher) {
+        val list1 = UserList("list1", "Grimoire", UserList.Type.SPELL, listOf("spell1"))
+        val list2 = UserList("list2", "Other", UserList.Type.SPELL, emptyList())
+        userListRepository.save(list1)
+        userListRepository.save(list2)
 
-        val viewModel = AddToListViewModel("spell1", UserList.Type.SPELL, repository)
+        val viewModel = AddToListViewModel("spell1", UserList.Type.SPELL, userListRepository, spellRepository)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        val body = assertIs<AddToListState.Body.WithData>(viewModel.state.value.body)
+        assertTrue("list1" in body.pendingSelection)
+        assertFalse("list2" in body.pendingSelection)
+    }
+
+    @Test
+    fun `toggleSelection adds listId to pendingSelection`() = runTest(testDispatcher) {
+        val list = UserList("list1", "Grimoire", UserList.Type.SPELL, emptyList())
+        userListRepository.save(list)
+
+        val viewModel = AddToListViewModel("spell1", UserList.Type.SPELL, userListRepository, spellRepository)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        viewModel.toggleSelection("list1")
+
+        val body = assertIs<AddToListState.Body.WithData>(viewModel.state.value.body)
+        assertTrue("list1" in body.pendingSelection)
+    }
+
+    @Test
+    fun `toggleSelection removes listId from pendingSelection`() = runTest(testDispatcher) {
+        val list = UserList("list1", "Grimoire", UserList.Type.SPELL, listOf("spell1"))
+        userListRepository.save(list)
+
+        val viewModel = AddToListViewModel("spell1", UserList.Type.SPELL, userListRepository, spellRepository)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        val bodyBefore = assertIs<AddToListState.Body.WithData>(viewModel.state.value.body)
+        assertTrue("list1" in bodyBefore.pendingSelection)
+
+        viewModel.toggleSelection("list1")
+
+        val bodyAfter = assertIs<AddToListState.Body.WithData>(viewModel.state.value.body)
+        assertFalse("list1" in bodyAfter.pendingSelection)
+    }
+
+    @Test
+    fun `confirmSelection adds item to newly selected lists`() = runTest(testDispatcher) {
+        val list = UserList("list1", "Grimoire", UserList.Type.SPELL, emptyList())
+        userListRepository.save(list)
+
+        val viewModel = AddToListViewModel("spell1", UserList.Type.SPELL, userListRepository, spellRepository)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        viewModel.toggleSelection("list1")
+        viewModel.confirmSelection()
+
+        advanceUntilIdle()
+
+        val savedList = userListRepository.get("list1")
+        assertTrue(savedList?.itemIds?.contains("spell1") ?: false)
+    }
+
+    @Test
+    fun `confirmSelection removes item from deselected lists`() = runTest(testDispatcher) {
+        val list = UserList("list1", "Grimoire", UserList.Type.SPELL, listOf("spell1"))
+        userListRepository.save(list)
+
+        val viewModel = AddToListViewModel("spell1", UserList.Type.SPELL, userListRepository, spellRepository)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        viewModel.toggleSelection("list1")
+        viewModel.confirmSelection()
+
+        advanceUntilIdle()
+
+        val savedList = userListRepository.get("list1")
+        assertFalse(savedList?.itemIds?.contains("spell1") ?: true)
+    }
+
+    @Test
+    fun `confirmSelection emits Dismiss`() = runTest(testDispatcher) {
+        val list = UserList("list1", "Grimoire", UserList.Type.SPELL, emptyList())
+        userListRepository.save(list)
+
+        val viewModel = AddToListViewModel("spell1", UserList.Type.SPELL, userListRepository, spellRepository)
 
         val events = mutableListOf<AddToListViewModel.Event>()
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
@@ -70,39 +178,17 @@ class AddToListViewModelTest {
 
         advanceUntilIdle()
 
-        viewModel.addToList("list1")
+        viewModel.confirmSelection()
 
         advanceUntilIdle()
 
         assertTrue(events.isNotEmpty())
-        val savedList = repository.get("list1")
-        assertTrue(savedList?.itemIds?.contains("spell1") ?: false)
-    }
-
-    @Test
-    fun `addToList does not duplicate itemId`() = runTest(testDispatcher) {
-        val list = UserList("list1", "Grimoire", UserList.Type.SPELL, listOf("spell1"))
-        repository.save(list)
-
-        val viewModel = AddToListViewModel("spell1", UserList.Type.SPELL, repository)
-
-        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
-            viewModel.state.collect {}
-        }
-
-        advanceUntilIdle()
-
-        viewModel.addToList("list1")
-
-        advanceUntilIdle()
-
-        val savedList = repository.get("list1")
-        assertEquals(expected = 1, actual = savedList?.itemIds?.size)
+        assertIs<AddToListViewModel.Event.Dismiss>(events.first())
     }
 
     @Test
     fun `createAndAdd creates a new list with the itemId`() = runTest(testDispatcher) {
-        val viewModel = AddToListViewModel("spell1", UserList.Type.SPELL, repository)
+        val viewModel = AddToListViewModel("spell1", UserList.Type.SPELL, userListRepository, spellRepository)
 
         val events = mutableListOf<AddToListViewModel.Event>()
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
@@ -119,7 +205,7 @@ class AddToListViewModelTest {
         advanceUntilIdle()
 
         assertTrue(events.isNotEmpty())
-        val lists = repository.getAll(UserList.Type.SPELL)
+        val lists = userListRepository.getAll(UserList.Type.SPELL)
         assertEquals(expected = 1, actual = lists.size)
         assertEquals(expected = "Nouveau grimoire", actual = lists.first().name)
         assertTrue(lists.first().itemIds.contains("spell1"))

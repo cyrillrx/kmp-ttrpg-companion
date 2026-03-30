@@ -10,9 +10,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
@@ -22,10 +19,6 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellDetailViewModel
-import com.cyrillrx.rpg.userlist.data.RamUserListRepository
-import com.cyrillrx.rpg.userlist.domain.UserList
-import com.cyrillrx.rpg.userlist.domain.UserListRepository
-import com.cyrillrx.rpg.userlist.presentation.component.AddToListBottomSheet
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
@@ -35,7 +28,7 @@ import rpg_companion.composeapp.generated.resources.error_spell_not_found
 @Composable
 fun SpellCardScreen(
     viewModel: SpellDetailViewModel,
-    userListRepository: UserListRepository,
+    onAddToListClicked: (spellId: String) -> Unit,
     onNavigateUpClicked: () -> Unit,
 ) {
     val state by viewModel.state.collectAsState()
@@ -45,18 +38,16 @@ fun SpellCardScreen(
             stringResource(Res.string.error_spell_not_found, s.id),
         )
 
-        is DetailState.Found -> SpellCardScreen(s.item, userListRepository, onNavigateUpClicked)
+        is DetailState.Found -> SpellCardScreen(s.item, onAddToListClicked, onNavigateUpClicked)
     }
 }
 
 @Composable
 fun SpellCardScreen(
     spell: Spell,
-    userListRepository: UserListRepository,
+    onAddToListClicked: (spellId: String) -> Unit,
     onNavigateUpClicked: () -> Unit,
 ) {
-    var showAddToList by remember { mutableStateOf(false) }
-
     Scaffold { paddingValues ->
         Column(modifier = Modifier.padding(paddingValues)) {
             SpellCard(
@@ -66,7 +57,7 @@ fun SpellCardScreen(
                     .clickable { onNavigateUpClicked() },
             )
             Button(
-                onClick = { showAddToList = true },
+                onClick = { onAddToListClicked(spell.id) },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = spacingMedium),
@@ -74,15 +65,6 @@ fun SpellCardScreen(
                 Text(stringResource(Res.string.btn_add_to_list))
             }
         }
-    }
-
-    if (showAddToList) {
-        AddToListBottomSheet(
-            itemId = spell.id,
-            listType = UserList.Type.SPELL,
-            userListRepository = userListRepository,
-            onDismiss = { showAddToList = false },
-        )
     }
 }
 
@@ -102,6 +84,6 @@ fun PreviewSpellCardScreenDark() {
 private fun PreviewSpellCardScreen(darkTheme: Boolean) {
     val spell = SampleSpellRepository.fireball()
     AppThemePreview(darkTheme = darkTheme) {
-        SpellCardScreen(spell, RamUserListRepository(), {})
+        SpellCardScreen(spell, onAddToListClicked = { _ -> }, onNavigateUpClicked = {})
     }
 }
