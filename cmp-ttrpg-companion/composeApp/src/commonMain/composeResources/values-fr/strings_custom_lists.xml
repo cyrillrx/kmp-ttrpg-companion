@@ -15,6 +15,7 @@
 
     <string name="hint_list_name">Nom de la liste</string>
 
+    <string name="btn_confirm">Confirmer</string>
     <string name="btn_cancel">Annuler</string>
     <string name="btn_delete_list">Supprimer</string>
     <string name="dialog_delete_list_message">Êtes-vous sûr de vouloir supprimer "%1$s" ?</string>
