@@ -20,8 +20,8 @@ import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellListViewModel
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellListViewModelFactory
 import com.cyrillrx.rpg.userlist.domain.UserList
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
-import com.cyrillrx.rpg.userlist.presentation.UserListsScreen
 import com.cyrillrx.rpg.userlist.presentation.component.AddToListScreen
+import com.cyrillrx.rpg.userlist.presentation.component.UserListsScreen
 import com.cyrillrx.rpg.userlist.presentation.navigation.UserListRouterImpl
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddToListViewModel
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddToListViewModelFactory
