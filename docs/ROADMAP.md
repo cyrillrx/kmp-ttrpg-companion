@@ -24,7 +24,7 @@ For detailed feature specifications, see the [PRDs](prd/).
 
 *Requires: Reference Data - Browsing & Filtering*
 
-- [ ] Local spell lists - [PRD-001a](prd/PRD-001a-SPELLBOOK.md)
+- [x] Local spell lists - [PRD-001a](prd/PRD-001a-SPELLBOOK.md)
 - [ ] Local item lists - [PRD-001b](prd/PRD-001b-ITEM-LIST.md)
 - [ ] Local bestiary lists - [PRD-001c](prd/PRD-001c-BESTIARY.md)
 
