@@ -2,10 +2,12 @@ package com.cyrillrx.rpg.userlist.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.cyrillrx.rpg.core.domain.toggled
 import com.cyrillrx.rpg.spell.domain.SpellRepository
 import com.cyrillrx.rpg.userlist.domain.UserList
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
 import com.cyrillrx.rpg.userlist.presentation.AddToListState
+import com.cyrillrx.rpg.userlist.presentation.AddToListState.SelectableUserList
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -40,10 +42,8 @@ class AddSpellToListViewModel(
     fun toggleSelection(listId: String) {
         _state.update { state ->
             val body = state.body as? AddToListState.Body.WithData ?: return@update state
-            val newSelection = if (listId in body.pendingSelection)
-                body.pendingSelection - listId
-            else
-                body.pendingSelection + listId
+
+            val newSelection = body.pendingSelection.toggled(listId)
             state.copy(body = body.copy(pendingSelection = newSelection))
         }
     }
@@ -51,19 +51,14 @@ class AddSpellToListViewModel(
     fun confirmSelection() {
         viewModelScope.launch {
             val body = _state.value.body as? AddToListState.Body.WithData ?: return@launch
-            body.lists.forEach { item ->
-                val wasAdded = item.alreadyAdded
-                val isSelected = item.list.id in body.pendingSelection
-                when {
-                    !wasAdded && isSelected -> {
-                        val list = userListRepository.get(item.list.id) ?: return@forEach
-                        userListRepository.save(list.copy(itemIds = list.itemIds + itemId))
-                    }
 
-                    wasAdded && !isSelected -> {
-                        val list = userListRepository.get(item.list.id) ?: return@forEach
-                        userListRepository.save(list.copy(itemIds = list.itemIds - itemId))
-                    }
+            body.lists.forEach { selectableList ->
+                val userList = selectableList.list
+                val wasAdded = selectableList.alreadyAdded
+                val isSelected = userList.id in body.pendingSelection
+                when {
+                    !wasAdded && isSelected -> userListRepository.addToList(userList, itemId)
+                    wasAdded && !isSelected -> userListRepository.removeFromList(userList, itemId)
                 }
             }
             _events.emit(Event.Dismiss)
@@ -80,7 +75,14 @@ class AddSpellToListViewModel(
                 itemIds = listOf(itemId),
             )
             userListRepository.save(newList)
-            _events.emit(Event.Dismiss)
+
+            _state.update { state ->
+                val body = state.body as? AddToListState.Body.WithData ?: return@update state
+
+                val newLists = body.lists + SelectableUserList(newList, alreadyAdded = true)
+                val newSelection = body.pendingSelection + newList.id
+                state.copy(body = body.copy(lists = newLists, pendingSelection = newSelection))
+            }
         }
     }
 
@@ -93,7 +95,7 @@ class AddSpellToListViewModel(
 
                 val lists = userListRepository.getAll(listType)
                 val selectableLists = lists.map { list ->
-                    AddToListState.SelectableUserList(list, alreadyAdded = itemId in list.itemIds)
+                    SelectableUserList(list, alreadyAdded = itemId in list.itemIds)
                 }
                 val initialSelection = selectableLists.filter { it.alreadyAdded }.map { it.list.id }.toSet()
 
