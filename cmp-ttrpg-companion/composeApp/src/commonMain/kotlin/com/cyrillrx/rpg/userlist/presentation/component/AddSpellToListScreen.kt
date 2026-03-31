@@ -18,7 +18,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.cyrillrx.rpg.core.presentation.AddToListState
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
@@ -29,7 +28,8 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
-import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddToListViewModel
+import com.cyrillrx.rpg.userlist.presentation.AddToListState
+import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddSpellToListViewModel
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
@@ -38,8 +38,8 @@ import rpg_companion.composeapp.generated.resources.btn_confirm
 import rpg_companion.composeapp.generated.resources.btn_create_list
 
 @Composable
-fun AddToListScreen(
-    viewModel: AddToListViewModel,
+fun AddSpellToListScreen(
+    viewModel: AddSpellToListViewModel,
     onNavigateUp: () -> Unit,
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
@@ -48,7 +48,7 @@ fun AddToListScreen(
     LaunchedEffect(viewModel) {
         viewModel.events.collect {
             when (it) {
-                AddToListViewModel.Event.Dismiss -> onNavigateUp()
+                AddSpellToListViewModel.Event.Dismiss -> onNavigateUp()
             }
         }
     }

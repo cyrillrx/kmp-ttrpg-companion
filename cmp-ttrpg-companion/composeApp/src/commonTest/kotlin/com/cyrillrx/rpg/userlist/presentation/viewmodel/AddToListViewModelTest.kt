@@ -1,6 +1,6 @@
 package com.cyrillrx.rpg.userlist.presentation.viewmodel
 
-import com.cyrillrx.rpg.core.presentation.AddToListState
+import com.cyrillrx.rpg.userlist.presentation.AddToListState
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.userlist.data.RamUserListRepository
 import com.cyrillrx.rpg.userlist.domain.UserList
@@ -41,14 +41,14 @@ class AddToListViewModelTest {
 
     @Test
     fun `initial state is Loading before coroutines run`() = runTest(testDispatcher) {
-        val viewModel = AddToListViewModel(spell.id, UserList.Type.SPELL, userListRepository, spellRepository)
+        val viewModel = AddSpellToListViewModel(spell.id, UserList.Type.SPELL, userListRepository, spellRepository)
 
         assertIs<AddToListState.Body.Loading>(viewModel.state.value.body)
     }
 
     @Test
     fun `state is Error when spell is not found`() = runTest(testDispatcher) {
-        val viewModel = AddToListViewModel("non-existent-id", UserList.Type.SPELL, userListRepository, spellRepository)
+        val viewModel = AddSpellToListViewModel("non-existent-id", UserList.Type.SPELL, userListRepository, spellRepository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -61,7 +61,7 @@ class AddToListViewModelTest {
 
     @Test
     fun `state is Error when repository throws`() = runTest(testDispatcher) {
-        val viewModel = AddToListViewModel(spell.id, UserList.Type.SPELL, FailingAddToListRepository(), spellRepository)
+        val viewModel = AddSpellToListViewModel(spell.id, UserList.Type.SPELL, FailingAddToListRepository(), spellRepository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -77,7 +77,7 @@ class AddToListViewModelTest {
         val list = UserList("list1", "Grimoire", UserList.Type.SPELL, emptyList())
         userListRepository.save(list)
 
-        val viewModel = AddToListViewModel(spell.id, UserList.Type.SPELL, userListRepository, spellRepository)
+        val viewModel = AddSpellToListViewModel(spell.id, UserList.Type.SPELL, userListRepository, spellRepository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -97,7 +97,7 @@ class AddToListViewModelTest {
         userListRepository.save(list1)
         userListRepository.save(list2)
 
-        val viewModel = AddToListViewModel(spell.id, UserList.Type.SPELL, userListRepository, spellRepository)
+        val viewModel = AddSpellToListViewModel(spell.id, UserList.Type.SPELL, userListRepository, spellRepository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -115,7 +115,7 @@ class AddToListViewModelTest {
         val list = UserList("list1", "Grimoire", UserList.Type.SPELL, emptyList())
         userListRepository.save(list)
 
-        val viewModel = AddToListViewModel(spell.id, UserList.Type.SPELL, userListRepository, spellRepository)
+        val viewModel = AddSpellToListViewModel(spell.id, UserList.Type.SPELL, userListRepository, spellRepository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -134,7 +134,7 @@ class AddToListViewModelTest {
         val list = UserList("list1", "Grimoire", UserList.Type.SPELL, listOf(spell.id))
         userListRepository.save(list)
 
-        val viewModel = AddToListViewModel(spell.id, UserList.Type.SPELL, userListRepository, spellRepository)
+        val viewModel = AddSpellToListViewModel(spell.id, UserList.Type.SPELL, userListRepository, spellRepository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -156,7 +156,7 @@ class AddToListViewModelTest {
         val list = UserList("list1", "Grimoire", UserList.Type.SPELL, emptyList())
         userListRepository.save(list)
 
-        val viewModel = AddToListViewModel(spell.id, UserList.Type.SPELL, userListRepository, spellRepository)
+        val viewModel = AddSpellToListViewModel(spell.id, UserList.Type.SPELL, userListRepository, spellRepository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -178,7 +178,7 @@ class AddToListViewModelTest {
         val list = UserList("list1", "Grimoire", UserList.Type.SPELL, listOf(spell.id))
         userListRepository.save(list)
 
-        val viewModel = AddToListViewModel(spell.id, UserList.Type.SPELL, userListRepository, spellRepository)
+        val viewModel = AddSpellToListViewModel(spell.id, UserList.Type.SPELL, userListRepository, spellRepository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -200,9 +200,9 @@ class AddToListViewModelTest {
         val list = UserList("list1", "Grimoire", UserList.Type.SPELL, emptyList())
         userListRepository.save(list)
 
-        val viewModel = AddToListViewModel(spell.id, UserList.Type.SPELL, userListRepository, spellRepository)
+        val viewModel = AddSpellToListViewModel(spell.id, UserList.Type.SPELL, userListRepository, spellRepository)
 
-        val events = mutableListOf<AddToListViewModel.Event>()
+        val events = mutableListOf<AddSpellToListViewModel.Event>()
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
         }
@@ -217,14 +217,14 @@ class AddToListViewModelTest {
         advanceUntilIdle()
 
         assertTrue(events.isNotEmpty())
-        assertIs<AddToListViewModel.Event.Dismiss>(events.first())
+        assertIs<AddSpellToListViewModel.Event.Dismiss>(events.first())
     }
 
     @Test
     fun `createAndAdd creates a new list with the itemId`() = runTest(testDispatcher) {
-        val viewModel = AddToListViewModel(spell.id, UserList.Type.SPELL, userListRepository, spellRepository)
+        val viewModel = AddSpellToListViewModel(spell.id, UserList.Type.SPELL, userListRepository, spellRepository)
 
-        val events = mutableListOf<AddToListViewModel.Event>()
+        val events = mutableListOf<AddSpellToListViewModel.Event>()
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
         }

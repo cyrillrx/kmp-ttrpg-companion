@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.core.presentation
+package com.cyrillrx.rpg.userlist.presentation
 
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.userlist.domain.UserList

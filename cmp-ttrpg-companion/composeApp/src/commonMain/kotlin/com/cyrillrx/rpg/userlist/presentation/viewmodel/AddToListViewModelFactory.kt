@@ -16,6 +16,6 @@ class AddToListViewModelFactory(
 ) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: KClass<T>, extras: CreationExtras): T {
         @Suppress("UNCHECKED_CAST")
-        return AddToListViewModel(itemId, listType, userListRepository, spellRepository) as T
+        return AddSpellToListViewModel(itemId, listType, userListRepository, spellRepository) as T
     }
 }

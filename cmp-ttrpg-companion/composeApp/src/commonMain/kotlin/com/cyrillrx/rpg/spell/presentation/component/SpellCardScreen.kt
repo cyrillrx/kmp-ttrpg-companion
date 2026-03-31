@@ -18,6 +18,7 @@ import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.spell.domain.Spell
+import com.cyrillrx.rpg.spell.presentation.navigation.SpellRouter
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellDetailViewModel
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -26,11 +27,7 @@ import rpg_companion.composeapp.generated.resources.btn_add_to_list
 import rpg_companion.composeapp.generated.resources.error_spell_not_found
 
 @Composable
-fun SpellCardScreen(
-    viewModel: SpellDetailViewModel,
-    onAddToListClicked: (spellId: String) -> Unit,
-    onNavigateUpClicked: () -> Unit,
-) {
+fun SpellCardScreen(viewModel: SpellDetailViewModel, router: SpellRouter) {
     val state by viewModel.state.collectAsState()
     when (val s = state) {
         DetailState.Loading -> Loader()
@@ -38,7 +35,11 @@ fun SpellCardScreen(
             stringResource(Res.string.error_spell_not_found, s.id),
         )
 
-        is DetailState.Found -> SpellCardScreen(s.item, onAddToListClicked, onNavigateUpClicked)
+        is DetailState.Found -> SpellCardScreen(
+            spell = s.item,
+            onAddToListClicked = router::openAddToList,
+            onNavigateUpClicked = router::navigateUp,
+        )
     }
 }
 

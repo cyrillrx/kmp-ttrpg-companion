@@ -2,10 +2,10 @@ package com.cyrillrx.rpg.userlist.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.cyrillrx.rpg.core.presentation.AddToListState
 import com.cyrillrx.rpg.spell.domain.SpellRepository
 import com.cyrillrx.rpg.userlist.domain.UserList
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
+import com.cyrillrx.rpg.userlist.presentation.AddToListState
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -20,7 +20,7 @@ import rpg_companion.composeapp.generated.resources.error_while_loading_spells
 import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
-class AddToListViewModel(
+class AddSpellToListViewModel(
     private val itemId: String,
     private val listType: UserList.Type,
     private val userListRepository: UserListRepository,

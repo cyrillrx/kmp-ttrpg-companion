@@ -20,10 +20,10 @@ import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellListViewModel
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellListViewModelFactory
 import com.cyrillrx.rpg.userlist.domain.UserList
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
-import com.cyrillrx.rpg.userlist.presentation.component.AddToListScreen
+import com.cyrillrx.rpg.userlist.presentation.component.AddSpellToListScreen
 import com.cyrillrx.rpg.userlist.presentation.component.UserListsScreen
 import com.cyrillrx.rpg.userlist.presentation.navigation.UserListRouterImpl
-import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddToListViewModel
+import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddSpellToListViewModel
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddToListViewModelFactory
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.UserListsViewModel
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.UserListsViewModelFactory
@@ -80,16 +80,12 @@ fun NavGraphBuilder.handleSpellRoutes(
         val viewModel = viewModel<SpellDetailViewModel>(
             factory = SpellDetailViewModelFactory(id, spellRepository),
         )
-        SpellCardScreen(
-            viewModel = viewModel,
-            onAddToListClicked = router::openAddToList,
-            onNavigateUpClicked = { navController.navigateUp() },
-        )
+        SpellCardScreen(viewModel = viewModel, router = router)
     }
 
     composable<SpellRoute.AddToList> { entry ->
         val route = entry.toRoute<SpellRoute.AddToList>()
-        val addToListViewModel = viewModel<AddToListViewModel>(
+        val viewModel = viewModel<AddSpellToListViewModel>(
             factory = AddToListViewModelFactory(
                 itemId = route.spellId,
                 listType = UserList.Type.SPELL,
@@ -97,8 +93,8 @@ fun NavGraphBuilder.handleSpellRoutes(
                 spellRepository = spellRepository,
             ),
         )
-        AddToListScreen(
-            viewModel = addToListViewModel,
+        AddSpellToListScreen(
+            viewModel = viewModel,
             onNavigateUp = { navController.navigateUp() },
         )
     }
