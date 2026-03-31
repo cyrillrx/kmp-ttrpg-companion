@@ -13,3 +13,4 @@ val spacingTopAppBar = topAppBarHeight + spacingCommon
 val borderWidth = 1.dp
 val borderAlpha = 0.3f
 val iconSizeSmall = 14.dp
+val iconSizeMedium = 20.dp

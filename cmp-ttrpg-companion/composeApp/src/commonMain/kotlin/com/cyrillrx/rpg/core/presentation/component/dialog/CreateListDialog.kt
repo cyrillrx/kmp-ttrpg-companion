@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.core.presentation.component
+package com.cyrillrx.rpg.core.presentation.component.dialog
 
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Text

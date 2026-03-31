@@ -52,6 +52,10 @@ fun Spell.getFormattedSchool() =
     stringResource(Res.string.formatted_spell_school_level, getSchool(), level)
 
 @Composable
+fun Spell.getSubtitle(): String =
+    stringResource(Res.string.formatted_spell_school_level, getSchool(), level) + " - " + castingTime
+
+@Composable
 fun Spell.getSchool(): String {
     return schools.map { it.toFormattedString() }.joinToString(", ")
 }

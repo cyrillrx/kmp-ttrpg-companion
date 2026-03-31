@@ -1,5 +1,6 @@
-package com.cyrillrx.rpg.userlist.presentation
+package com.cyrillrx.rpg.userlist.presentation.component
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -27,13 +28,15 @@ fun UserListItem(
 ) {
     Card(onClick = onClick, modifier = modifier) {
         Row(
+            horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Text(
                 text = list.name,
                 style = MaterialTheme.typography.bodyLarge,
                 modifier = Modifier
-                    .padding(spacingCommon).weight(1f),
+                    .padding(spacingCommon)
+                    .weight(1f),
             )
             IconButton(onClick = onDelete) {
                 Icon(

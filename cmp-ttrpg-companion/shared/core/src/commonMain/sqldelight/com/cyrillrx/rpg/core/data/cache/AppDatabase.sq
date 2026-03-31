@@ -28,7 +28,7 @@ saveUserList:
 INSERT OR REPLACE INTO UserList(id, name, type, itemIds) VALUES(?, ?, ?, ?);
 
 selectAllUserListsByType:
-SELECT * FROM UserList WHERE type = ?;
+SELECT * FROM UserList WHERE type = ? ORDER BY name;
 
 selectUserListById:
 SELECT * FROM UserList WHERE id = ?;

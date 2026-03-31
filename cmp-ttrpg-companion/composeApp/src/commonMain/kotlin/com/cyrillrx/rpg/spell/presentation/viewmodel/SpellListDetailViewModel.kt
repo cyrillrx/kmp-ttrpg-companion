@@ -29,10 +29,10 @@ class SpellListDetailViewModel(
 
     fun removeSpell(spellId: String) {
         viewModelScope.launch {
-            val list = userListRepository.get(listId) ?: return@launch
-            val updated = list.copy(itemIds = list.itemIds - spellId)
-            userListRepository.save(updated)
-            loadDetail()
+            val result = userListRepository.removeFromList(listId, spellId)
+            if (result is UserListRepository.Result.Success) {
+                loadDetail()
+            }
         }
     }
 

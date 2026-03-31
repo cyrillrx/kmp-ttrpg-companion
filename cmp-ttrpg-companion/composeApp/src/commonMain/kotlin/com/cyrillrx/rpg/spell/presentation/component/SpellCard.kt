@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.sp
 import com.cyrillrx.rpg.core.presentation.component.HtmlText
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
 import com.cyrillrx.rpg.core.presentation.component.dnd.getFormattedSchool
+import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
@@ -43,16 +44,12 @@ fun SpellCard(spell: Spell, modifier: Modifier = Modifier) {
     val spellColor = spell.getColor()
     Card(
         modifier = modifier
-            .padding(spacingSmall)
-            .fillMaxSize(),
+            .fillMaxWidth()
+            .padding(spacingSmall),
         shape = RoundedCornerShape(16.dp),
         border = BorderStroke(spacingMedium, spellColor),
     ) {
-        Column(
-            Modifier
-                .padding(spacingMedium)
-                .background(MaterialTheme.colorScheme.background),
-        ) {
+        Column(Modifier.padding(spacingMedium)) {
             Text(
                 text = spell.title,
                 fontSize = 20.sp,
@@ -60,6 +57,7 @@ fun SpellCard(spell: Spell, modifier: Modifier = Modifier) {
                 textAlign = TextAlign.Center,
                 modifier = Modifier
                     .fillMaxWidth()
+                    .background(MaterialTheme.colorScheme.background)
                     .padding(
                         start = spacingMedium,
                         end = spacingMedium,
@@ -84,8 +82,9 @@ fun SpellCard(spell: Spell, modifier: Modifier = Modifier) {
                 fontSize = 16.sp,
                 overflow = TextOverflow.Ellipsis,
                 modifier = Modifier
-                    .padding(spacingMedium)
-                    .fillMaxSize(),
+                    .fillMaxSize()
+                    .background(MaterialTheme.colorScheme.background)
+                    .padding(spacingMedium),
             )
         }
     }
@@ -162,14 +161,41 @@ private fun SpellGridItem(title: String, subtitle: String, spellColor: Color) {
 
 @Preview
 @Composable
-private fun PreviewSpellCard() {
-    val spell = SampleSpellRepository.getFirst()
-    SpellCard(spell)
+fun PreviewSpellCardLight() {
+    SpellCardPreview(darkTheme = false)
 }
 
 @Preview
 @Composable
-private fun PreviewSpellGrid() {
+fun PreviewSpellCardDark() {
+    SpellCardPreview(darkTheme = true)
+}
+
+@Preview
+@Composable
+fun PreviewSpellGridLight() {
+    SpellGridPreview(darkTheme = false)
+}
+
+@Preview
+@Composable
+fun PreviewSpellGridDark() {
+    SpellGridPreview(darkTheme = true)
+}
+
+@Composable
+private fun SpellCardPreview(darkTheme: Boolean) {
     val spell = SampleSpellRepository.getFirst()
-    SpellGrid(spell, spell.getColor(), spacingMedium)
+    AppThemePreview(darkTheme = darkTheme) {
+        SpellCard(spell)
+    }
+}
+
+@Composable
+private fun SpellGridPreview(darkTheme: Boolean) {
+    val spell = SampleSpellRepository.getFirst()
+
+    AppThemePreview(darkTheme = darkTheme) {
+        SpellGrid(spell, spell.getColor(), spacingMedium)
+    }
 }
