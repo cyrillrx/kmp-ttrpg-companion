@@ -39,53 +39,6 @@ class AddSpellToListViewModel(
         loadLists()
     }
 
-    fun toggleSelection(listId: String) {
-        _state.update { state ->
-            val body = state.body as? AddToListState.Body.WithData ?: return@update state
-
-            val newSelection = body.pendingSelection.toggled(listId)
-            state.copy(body = body.copy(pendingSelection = newSelection))
-        }
-    }
-
-    fun confirmSelection() {
-        viewModelScope.launch {
-            val body = _state.value.body as? AddToListState.Body.WithData ?: return@launch
-
-            body.lists.forEach { selectableList ->
-                val userList = selectableList.list
-                val wasAdded = selectableList.alreadyAdded
-                val isSelected = userList.id in body.pendingSelection
-                when {
-                    !wasAdded && isSelected -> userListRepository.addToList(userList, itemId)
-                    wasAdded && !isSelected -> userListRepository.removeFromList(userList, itemId)
-                }
-            }
-            _events.emit(Event.Dismiss)
-        }
-    }
-
-    @OptIn(ExperimentalUuidApi::class)
-    fun createAndAdd(name: String) {
-        viewModelScope.launch {
-            val newList = UserList(
-                id = Uuid.random().toString(),
-                name = name,
-                type = listType,
-                itemIds = listOf(itemId),
-            )
-            userListRepository.save(newList)
-
-            _state.update { state ->
-                val body = state.body as? AddToListState.Body.WithData ?: return@update state
-
-                val newLists = body.lists + SelectableUserList(newList, alreadyAdded = true)
-                val newSelection = body.pendingSelection + newList.id
-                state.copy(body = body.copy(lists = newLists, pendingSelection = newSelection))
-            }
-        }
-    }
-
     private fun loadLists() {
         viewModelScope.launch {
             _state.update { it.copy(body = AddToListState.Body.Loading) }
@@ -110,6 +63,53 @@ class AddSpellToListViewModel(
             } catch (e: Exception) {
                 _state.update { it.copy(body = AddToListState.Body.Error(errorMessage = Res.string.error_while_loading_spells)) }
             }
+        }
+    }
+
+    fun toggleSelection(listId: String) {
+        _state.update { state ->
+            val body = state.body as? AddToListState.Body.WithData ?: return@update state
+
+            val newSelection = body.pendingSelection.toggled(listId)
+            state.copy(body = body.copy(pendingSelection = newSelection))
+        }
+    }
+
+    @OptIn(ExperimentalUuidApi::class)
+    fun createAndAdd(name: String) {
+        viewModelScope.launch {
+            val newList = UserList(
+                id = Uuid.random().toString(),
+                name = name,
+                type = listType,
+                itemIds = listOf(itemId),
+            )
+            userListRepository.save(newList)
+
+            _state.update { state ->
+                val body = state.body as? AddToListState.Body.WithData ?: return@update state
+
+                val newLists = body.lists + SelectableUserList(newList, alreadyAdded = true)
+                val newSelection = body.pendingSelection + newList.id
+                state.copy(body = body.copy(lists = newLists, pendingSelection = newSelection))
+            }
+        }
+    }
+
+    fun confirmSelection() {
+        viewModelScope.launch {
+            val body = _state.value.body as? AddToListState.Body.WithData ?: return@launch
+
+            body.lists.forEach { selectableList ->
+                val userList = selectableList.list
+                val wasAdded = selectableList.alreadyAdded
+                val isSelected = userList.id in body.pendingSelection
+                when {
+                    !wasAdded && isSelected -> userListRepository.addToList(userList, itemId)
+                    wasAdded && !isSelected -> userListRepository.removeFromList(userList, itemId)
+                }
+            }
+            _events.emit(Event.Dismiss)
         }
     }
 
