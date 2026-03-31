@@ -145,9 +145,6 @@ class AddToListViewModelTest {
 
         advanceUntilIdle()
 
-        val bodyBefore = assertIs<AddToListState.Body.WithData>(viewModel.state.value.body)
-        assertTrue(bodyBefore.selectableLists.first { it.list.id == "list1" }.isSelected)
-
         viewModel.toggleSelection("list1")
 
         val bodyAfter = assertIs<AddToListState.Body.WithData>(viewModel.state.value.body)
@@ -200,9 +197,6 @@ class AddToListViewModelTest {
 
     @Test
     fun `confirmSelection emits Dismiss`() = runTest(testDispatcher) {
-        val list = UserList("list1", "Grimoire", UserList.Type.SPELL, emptyList())
-        userListRepository.save(list)
-
         val viewModel = AddSpellToListViewModel(spell.id, UserList.Type.SPELL, userListRepository, spellRepository)
 
         val events = mutableListOf<AddSpellToListViewModel.Event>()
@@ -241,6 +235,11 @@ class AddToListViewModelTest {
         assertEquals(expected = 1, actual = lists.size)
         assertEquals(expected = "Nouveau grimoire", actual = lists.first().name)
         assertTrue(actual = lists.first().itemIds.contains(spell.id))
+
+        val body = assertIs<AddToListState.Body.WithData>(viewModel.state.value.body)
+        val newEntry = body.selectableLists.first { it.list.name == "Nouveau grimoire" }
+        assertTrue(newEntry.alreadyAdded)
+        assertTrue(newEntry.isSelected)
     }
 }
 
