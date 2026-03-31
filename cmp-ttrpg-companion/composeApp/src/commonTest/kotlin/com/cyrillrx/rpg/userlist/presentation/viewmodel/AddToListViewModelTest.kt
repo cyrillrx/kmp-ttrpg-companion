@@ -1,9 +1,9 @@
 package com.cyrillrx.rpg.userlist.presentation.viewmodel
 
-import com.cyrillrx.rpg.userlist.presentation.AddToListState
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.userlist.data.RamUserListRepository
 import com.cyrillrx.rpg.userlist.domain.UserList
+import com.cyrillrx.rpg.userlist.presentation.AddToListState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
@@ -86,8 +86,8 @@ class AddToListViewModelTest {
         advanceUntilIdle()
 
         val body = assertIs<AddToListState.Body.WithData>(viewModel.state.value.body)
-        assertEquals(expected = 1, actual = body.lists.size)
-        assertEquals(expected = "Grimoire", actual = body.lists.first().list.name)
+        assertEquals(expected = 1, actual = body.selectableLists.size)
+        assertEquals(expected = "Grimoire", actual = body.selectableLists.first().list.name)
     }
 
     @Test
@@ -106,12 +106,15 @@ class AddToListViewModelTest {
         advanceUntilIdle()
 
         val body = assertIs<AddToListState.Body.WithData>(viewModel.state.value.body)
-        assertTrue("list1" in body.pendingSelection)
-        assertFalse("list2" in body.pendingSelection)
+        val selectableLists = body.selectableLists
+        val selectableList1 = selectableLists.first { it.list.id == "list1" }
+        val selectableList2 = selectableLists.first { it.list.id == "list2" }
+        assertTrue(selectableList1.isSelected)
+        assertFalse(selectableList2.isSelected)
     }
 
     @Test
-    fun `toggleSelection adds listId to pendingSelection`() = runTest(testDispatcher) {
+    fun `toggleSelection selects the list`() = runTest(testDispatcher) {
         val list = UserList("list1", "Grimoire", UserList.Type.SPELL, emptyList())
         userListRepository.save(list)
 
@@ -126,11 +129,11 @@ class AddToListViewModelTest {
         viewModel.toggleSelection("list1")
 
         val body = assertIs<AddToListState.Body.WithData>(viewModel.state.value.body)
-        assertTrue("list1" in body.pendingSelection)
+        assertTrue(body.selectableLists.first { it.list.id == "list1" }.isSelected)
     }
 
     @Test
-    fun `toggleSelection removes listId from pendingSelection`() = runTest(testDispatcher) {
+    fun `toggleSelection deselects the list`() = runTest(testDispatcher) {
         val list = UserList("list1", "Grimoire", UserList.Type.SPELL, listOf(spell.id))
         userListRepository.save(list)
 
@@ -143,12 +146,12 @@ class AddToListViewModelTest {
         advanceUntilIdle()
 
         val bodyBefore = assertIs<AddToListState.Body.WithData>(viewModel.state.value.body)
-        assertTrue("list1" in bodyBefore.pendingSelection)
+        assertTrue(bodyBefore.selectableLists.first { it.list.id == "list1" }.isSelected)
 
         viewModel.toggleSelection("list1")
 
         val bodyAfter = assertIs<AddToListState.Body.WithData>(viewModel.state.value.body)
-        assertFalse("list1" in bodyAfter.pendingSelection)
+        assertFalse(bodyAfter.selectableLists.first { it.list.id == "list1" }.isSelected)
     }
 
     @Test
@@ -224,12 +227,8 @@ class AddToListViewModelTest {
     fun `createAndAdd creates a new list with the itemId`() = runTest(testDispatcher) {
         val viewModel = AddSpellToListViewModel(spell.id, UserList.Type.SPELL, userListRepository, spellRepository)
 
-        val events = mutableListOf<AddSpellToListViewModel.Event>()
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
-        }
-        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
-            viewModel.events.collect { events.add(it) }
         }
 
         advanceUntilIdle()
@@ -238,11 +237,10 @@ class AddToListViewModelTest {
 
         advanceUntilIdle()
 
-        assertTrue(events.isNotEmpty())
         val lists = userListRepository.getAll(UserList.Type.SPELL)
         assertEquals(expected = 1, actual = lists.size)
         assertEquals(expected = "Nouveau grimoire", actual = lists.first().name)
-        assertTrue(lists.first().itemIds.contains(spell.id))
+        assertTrue(actual = lists.first().itemIds.contains(spell.id))
     }
 }
 

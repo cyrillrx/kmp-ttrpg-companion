@@ -7,15 +7,14 @@ import org.jetbrains.compose.resources.StringResource
 data class AddToListState(
     val body: Body = Body.Loading,
 ) {
-    data class SelectableUserList(val list: UserList, val alreadyAdded: Boolean)
+    data class SelectableUserList(val list: UserList, val alreadyAdded: Boolean, val isSelected: Boolean = alreadyAdded)
 
     sealed interface Body {
         data object Loading : Body
         data class Error(val errorMessage: StringResource) : Body
         data class WithData(
             val spell: Spell,
-            val lists: List<SelectableUserList>,
-            val pendingSelection: Set<String>,
+            val selectableLists: List<SelectableUserList>,
         ) : Body
     }
 }

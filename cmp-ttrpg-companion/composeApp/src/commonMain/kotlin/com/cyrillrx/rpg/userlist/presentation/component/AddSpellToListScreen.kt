@@ -112,10 +112,10 @@ private fun AddToListScreenContent(
                 is AddToListState.Body.Error -> item { ErrorLayout(body.errorMessage) }
                 is AddToListState.Body.WithData -> {
                     item { AddSpellHeader(body.spell) }
-                    items(body.lists, key = { it.list.id }) { item ->
+                    items(body.selectableLists, key = { it.list.id }) { item ->
                         SelectableUserListItem(
                             name = item.list.name,
-                            isSelected = item.list.id in body.pendingSelection,
+                            isSelected = item.isSelected,
                             onClick = { onToggleSelection(item.list.id) },
                             modifier = Modifier.fillMaxWidth(),
                         )
@@ -153,8 +153,7 @@ private fun PreviewAddToListScreen(darkTheme: Boolean) {
     val lists = SampleUserListRepository.getAll()
     val body = AddToListState.Body.WithData(
         spell = spell,
-        lists = lists.map { AddToListState.SelectableUserList(it, alreadyAdded = false) },
-        pendingSelection = setOf(lists.first().id),
+        selectableLists = lists.map { AddToListState.SelectableUserList(it, alreadyAdded = false) },
     )
     AppThemePreview(darkTheme = darkTheme) {
         AddToListScreenContent(

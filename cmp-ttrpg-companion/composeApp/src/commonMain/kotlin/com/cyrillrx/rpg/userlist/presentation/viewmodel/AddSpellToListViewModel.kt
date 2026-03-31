@@ -2,7 +2,6 @@ package com.cyrillrx.rpg.userlist.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.cyrillrx.rpg.core.domain.toggled
 import com.cyrillrx.rpg.spell.domain.SpellRepository
 import com.cyrillrx.rpg.userlist.domain.UserList
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
@@ -46,16 +45,12 @@ class AddSpellToListViewModel(
             try {
                 val spell = spellRepository.getById(itemId) ?: error("Could Not find spell $itemId")
 
-                val lists = userListRepository.getAll(listType)
-                val selectableLists = lists.map { list ->
-                    SelectableUserList(list, alreadyAdded = itemId in list.itemIds)
-                }
-                val initialSelection = selectableLists.filter { it.alreadyAdded }.map { it.list.id }.toSet()
-
+                val userLists = userListRepository.getAll(listType)
+                val selectableLists = userLists
+                    .map { list -> SelectableUserList(list, alreadyAdded = itemId in list.itemIds) }
                 val body = AddToListState.Body.WithData(
                     spell = spell,
-                    lists = selectableLists,
-                    pendingSelection = initialSelection,
+                    selectableLists = selectableLists,
                 )
                 _state.update { it.copy(body = body) }
             } catch (e: CancellationException) {
@@ -70,8 +65,11 @@ class AddSpellToListViewModel(
         _state.update { state ->
             val body = state.body as? AddToListState.Body.WithData ?: return@update state
 
-            val newSelection = body.pendingSelection.toggled(listId)
-            state.copy(body = body.copy(pendingSelection = newSelection))
+            val selectableLists = body.selectableLists.map { item ->
+                if (item.list.id == listId) item.copy(isSelected = !item.isSelected) else item
+            }
+
+            state.copy(body = body.copy(selectableLists = selectableLists))
         }
     }
 
@@ -89,9 +87,8 @@ class AddSpellToListViewModel(
             _state.update { state ->
                 val body = state.body as? AddToListState.Body.WithData ?: return@update state
 
-                val newLists = body.lists + SelectableUserList(newList, alreadyAdded = true)
-                val newSelection = body.pendingSelection + newList.id
-                state.copy(body = body.copy(lists = newLists, pendingSelection = newSelection))
+                val newLists = body.selectableLists + SelectableUserList(newList, alreadyAdded = true)
+                state.copy(body = body.copy(selectableLists = newLists))
             }
         }
     }
@@ -100,16 +97,15 @@ class AddSpellToListViewModel(
         viewModelScope.launch {
             val body = _state.value.body as? AddToListState.Body.WithData ?: return@launch
 
-            body.lists.forEach { selectableList ->
-                val userList = selectableList.list
-                val wasAdded = selectableList.alreadyAdded
-                val isSelected = userList.id in body.pendingSelection
-                when {
-                    !wasAdded && isSelected -> userListRepository.addToList(userList, itemId)
-                    wasAdded && !isSelected -> userListRepository.removeFromList(userList, itemId)
-                }
-            }
+            body.selectableLists.forEach { selectableList -> selectableList.confirmSelection() }
             _events.emit(Event.Dismiss)
+        }
+    }
+
+    private suspend fun SelectableUserList.confirmSelection() {
+        when {
+            !alreadyAdded && isSelected -> userListRepository.addToList(list, itemId)
+            alreadyAdded && !isSelected -> userListRepository.removeFromList(list, itemId)
         }
     }
 
