@@ -47,7 +47,7 @@ class PlayerCharacterListViewModel(
     }
 
     private suspend fun updateData(query: String) {
-        state.update { PlayerCharacterListState(searchQuery = "", body = PlayerCharacterListState.Body.Loading) }
+        state.update { PlayerCharacterListState(searchQuery = query, body = PlayerCharacterListState.Body.Loading) }
 
         try {
             val filter = PlayerCharacterFilter(query = query)
