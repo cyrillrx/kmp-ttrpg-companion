@@ -11,7 +11,6 @@ import com.cyrillrx.rpg.magicalitem.presentation.navigation.MagicalItemRouter
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import rpg_companion.composeapp.generated.resources.Res
@@ -24,10 +23,8 @@ class MagicalItemListViewModel(
 ) : ViewModel() {
 
     private var updateJob: Job? = null
-    private val _state: MutableStateFlow<MagicalItemListState> = MutableStateFlow(
-        MagicalItemListState(body = MagicalItemListState.Body.Empty),
-    )
-    val state: StateFlow<MagicalItemListState> = _state.asStateFlow()
+    val state: StateFlow<MagicalItemListState>
+        field = MutableStateFlow(MagicalItemListState(body = MagicalItemListState.Body.Empty))
 
     init {
         refreshData()
@@ -58,7 +55,7 @@ class MagicalItemListViewModel(
     }
 
     private fun updateFilter(transform: (MagicalItemFilter) -> MagicalItemFilter) {
-        _state.update { it.copy(filter = transform(it.filter)) }
+        state.update { it.copy(filter = transform(it.filter)) }
         refreshData()
     }
 
@@ -68,8 +65,8 @@ class MagicalItemListViewModel(
     }
 
     private suspend fun updateData() {
-        val filter = _state.value.filter
-        _state.update { it.copy(body = MagicalItemListState.Body.Loading) }
+        val filter = state.value.filter
+        state.update { it.copy(body = MagicalItemListState.Body.Loading) }
 
         try {
             val magicalItems = repository.getAll(filter)
@@ -78,11 +75,11 @@ class MagicalItemListViewModel(
             } else {
                 MagicalItemListState.Body.WithData(searchResults = magicalItems)
             }
-            _state.update { it.copy(body = body) }
+            state.update { it.copy(body = body) }
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {
-            _state.update { it.copy(body = MagicalItemListState.Body.Error(errorMessage = Res.string.error_while_loading_magical_items)) }
+            state.update { it.copy(body = MagicalItemListState.Body.Error(errorMessage = Res.string.error_while_loading_magical_items)) }
         }
     }
 }

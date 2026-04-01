@@ -12,8 +12,6 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asSharedFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import rpg_companion.composeapp.generated.resources.Res
@@ -28,11 +26,11 @@ class AddSpellToListViewModel(
     private val spellRepository: SpellRepository,
 ) : ViewModel() {
 
-    private val _state = MutableStateFlow(AddToListState())
-    val state: StateFlow<AddToListState> = _state.asStateFlow()
+    val state: StateFlow<AddToListState>
+        field = MutableStateFlow(AddToListState())
 
-    private val _events = MutableSharedFlow<Event>()
-    val events: SharedFlow<Event> = _events.asSharedFlow()
+    val events: SharedFlow<Event>
+        field = MutableSharedFlow<Event>()
 
     init {
         loadLists()
@@ -40,7 +38,7 @@ class AddSpellToListViewModel(
 
     private fun loadLists() {
         viewModelScope.launch {
-            _state.update { it.copy(body = AddToListState.Body.Loading) }
+            state.update { it.copy(body = AddToListState.Body.Loading) }
 
             try {
                 val spell = spellRepository.getById(itemId) ?: error("Could Not find spell $itemId")
@@ -52,17 +50,17 @@ class AddSpellToListViewModel(
                     spell = spell,
                     selectableLists = selectableLists,
                 )
-                _state.update { it.copy(body = body) }
+                state.update { it.copy(body = body) }
             } catch (e: CancellationException) {
                 throw e
             } catch (e: Exception) {
-                _state.update { it.copy(body = AddToListState.Body.Error(errorMessage = Res.string.error_while_loading_spells)) }
+                state.update { it.copy(body = AddToListState.Body.Error(errorMessage = Res.string.error_while_loading_spells)) }
             }
         }
     }
 
     fun toggleSelection(listId: String) {
-        _state.update { state ->
+        state.update { state ->
             val body = state.body as? AddToListState.Body.WithData ?: return@update state
 
             val selectableLists = body.selectableLists.map { item ->
@@ -84,7 +82,7 @@ class AddSpellToListViewModel(
             )
             userListRepository.save(newList)
 
-            _state.update { state ->
+            state.update { state ->
                 val body = state.body as? AddToListState.Body.WithData ?: return@update state
 
                 val newLists = body.selectableLists + SelectableUserList(newList, alreadyAdded = true)
@@ -95,10 +93,10 @@ class AddSpellToListViewModel(
 
     fun confirmSelection() {
         viewModelScope.launch {
-            val body = _state.value.body as? AddToListState.Body.WithData ?: return@launch
+            val body = state.value.body as? AddToListState.Body.WithData ?: return@launch
 
             body.selectableLists.forEach { selectableList -> selectableList.confirmSelection() }
-            _events.emit(Event.Dismiss)
+            events.emit(Event.Dismiss)
         }
     }
 

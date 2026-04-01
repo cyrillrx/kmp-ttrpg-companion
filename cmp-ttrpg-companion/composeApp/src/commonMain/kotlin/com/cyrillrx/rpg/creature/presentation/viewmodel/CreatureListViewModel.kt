@@ -11,7 +11,6 @@ import com.cyrillrx.rpg.creature.presentation.navigation.CreatureRouter
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import rpg_companion.composeapp.generated.resources.Res
@@ -24,10 +23,8 @@ class CreatureListViewModel(
 ) : ViewModel() {
 
     private var updateJob: Job? = null
-    private val _state: MutableStateFlow<CreatureListState> = MutableStateFlow(
-        CreatureListState(body = CreatureListState.Body.Empty),
-    )
-    val state: StateFlow<CreatureListState> = _state.asStateFlow()
+    val state: StateFlow<CreatureListState>
+        field = MutableStateFlow(CreatureListState(body = CreatureListState.Body.Empty))
 
     init {
         refreshData()
@@ -58,7 +55,7 @@ class CreatureListViewModel(
     }
 
     private fun updateFilter(transform: (CreatureFilter) -> CreatureFilter) {
-        _state.update { it.copy(filter = transform(it.filter)) }
+        state.update { it.copy(filter = transform(it.filter)) }
         refreshData()
     }
 
@@ -68,8 +65,8 @@ class CreatureListViewModel(
     }
 
     private suspend fun updateData() {
-        val filter = _state.value.filter
-        _state.update { it.copy(body = CreatureListState.Body.Loading) }
+        val filter = state.value.filter
+        state.update { it.copy(body = CreatureListState.Body.Loading) }
 
         try {
             val creatures = repository.getAll(filter)
@@ -78,11 +75,11 @@ class CreatureListViewModel(
             } else {
                 CreatureListState.Body.WithData(searchResults = creatures)
             }
-            _state.update { it.copy(body = body) }
+            state.update { it.copy(body = body) }
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {
-            _state.update { it.copy(body = CreatureListState.Body.Error(errorMessage = Res.string.error_while_loading_creatures)) }
+            state.update { it.copy(body = CreatureListState.Body.Error(errorMessage = Res.string.error_while_loading_creatures)) }
         }
     }
 }

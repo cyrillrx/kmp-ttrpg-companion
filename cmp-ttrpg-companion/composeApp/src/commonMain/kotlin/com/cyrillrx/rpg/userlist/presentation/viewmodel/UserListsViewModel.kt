@@ -8,7 +8,6 @@ import com.cyrillrx.rpg.userlist.presentation.UserListsState
 import com.cyrillrx.rpg.userlist.presentation.navigation.UserListRouter
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import rpg_companion.composeapp.generated.resources.Res
@@ -23,8 +22,8 @@ class UserListsViewModel(
     private val userListRepository: UserListRepository,
 ) : ViewModel() {
 
-    private val _state = MutableStateFlow(UserListsState())
-    val state: StateFlow<UserListsState> = _state.asStateFlow()
+    val state: StateFlow<UserListsState>
+        field = MutableStateFlow(UserListsState())
 
     init {
         loadLists()
@@ -61,7 +60,7 @@ class UserListsViewModel(
 
     private fun loadLists() {
         viewModelScope.launch {
-            _state.update { it.copy(body = UserListsState.Body.Loading) }
+            state.update { it.copy(body = UserListsState.Body.Loading) }
 
             try {
                 val lists = userListRepository.getAll(listType)
@@ -70,11 +69,11 @@ class UserListsViewModel(
                 } else {
                     UserListsState.Body.WithData(lists)
                 }
-                _state.update { it.copy(body = body) }
+                state.update { it.copy(body = body) }
             } catch (e: CancellationException) {
                 throw e
             } catch (e: Exception) {
-                _state.update { it.copy(body = UserListsState.Body.Error(errorMessage = Res.string.error_while_loading_user_lists)) }
+                state.update { it.copy(body = UserListsState.Body.Error(errorMessage = Res.string.error_while_loading_user_lists)) }
             }
         }
     }

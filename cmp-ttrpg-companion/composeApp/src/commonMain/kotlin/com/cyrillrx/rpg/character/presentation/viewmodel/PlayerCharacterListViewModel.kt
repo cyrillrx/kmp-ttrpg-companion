@@ -10,7 +10,6 @@ import com.cyrillrx.rpg.character.presentation.navigation.PlayerCharacterRouter
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import rpg_companion.composeapp.generated.resources.Res
@@ -23,10 +22,8 @@ class PlayerCharacterListViewModel(
 ) : ViewModel() {
 
     private var updateJob: Job? = null
-    private val _state: MutableStateFlow<PlayerCharacterListState> = MutableStateFlow(
-        PlayerCharacterListState(searchQuery = "", body = PlayerCharacterListState.Body.Empty),
-    )
-    val state: StateFlow<PlayerCharacterListState> = _state.asStateFlow()
+    val state: StateFlow<PlayerCharacterListState>
+        field = MutableStateFlow(PlayerCharacterListState(searchQuery = "", body = PlayerCharacterListState.Body.Empty))
 
     init {
         onSearchQueryChanged(query = "")
@@ -50,20 +47,20 @@ class PlayerCharacterListViewModel(
     }
 
     private suspend fun updateData(query: String) {
-        _state.update { PlayerCharacterListState(searchQuery = "", body = PlayerCharacterListState.Body.Loading) }
+        state.update { PlayerCharacterListState(searchQuery = query, body = PlayerCharacterListState.Body.Loading) }
 
         try {
             val filter = PlayerCharacterFilter(query = query)
             val characters = repository.getAll(filter)
             if (characters.isEmpty()) {
-                _state.update { _state.value.copy(body = PlayerCharacterListState.Body.Empty) }
+                state.update { it.copy(body = PlayerCharacterListState.Body.Empty) }
             } else {
-                _state.update { _state.value.copy(body = PlayerCharacterListState.Body.WithData(characters)) }
+                state.update { it.copy(body = PlayerCharacterListState.Body.WithData(characters)) }
             }
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {
-            _state.update { _state.value.copy(body = PlayerCharacterListState.Body.Error(errorMessage = Res.string.error_while_loading_characters)) }
+            state.update { it.copy(body = PlayerCharacterListState.Body.Error(errorMessage = Res.string.error_while_loading_characters)) }
         }
     }
 }
