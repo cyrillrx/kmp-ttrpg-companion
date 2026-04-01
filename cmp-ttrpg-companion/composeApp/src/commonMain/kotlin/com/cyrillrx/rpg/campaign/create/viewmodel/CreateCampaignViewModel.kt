@@ -9,7 +9,6 @@ import com.cyrillrx.rpg.campaign.domain.RuleSet
 import com.cyrillrx.rpg.campaign.navigation.CampaignRouter
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
@@ -18,35 +17,33 @@ class CreateCampaignViewModel(
     private val repository: CampaignRepository,
 ) : ViewModel() {
 
-    private val _state: MutableStateFlow<CreateCampaignState> = MutableStateFlow(
-        CreateCampaignState(campaignName = "", selectedRuleSet = RuleSet.UNDEFINED, error = null),
-    )
-    val state: StateFlow<CreateCampaignState> = _state.asStateFlow()
+    val state: StateFlow<CreateCampaignState>
+        field = MutableStateFlow(CreateCampaignState(campaignName = "", selectedRuleSet = RuleSet.UNDEFINED, error = null))
 
     fun onNavigateUpClicked() {
         router.navigateUp()
     }
 
     fun onCampaignNameChanged(name: String) {
-        _state.update { _state.value.copy(campaignName = name) }
+        state.update { state.value.copy(campaignName = name) }
     }
 
     fun onRuleSetSelected(ruleSet: RuleSet) {
-        _state.update { _state.value.copy(selectedRuleSet = ruleSet) }
+        state.update { state.value.copy(selectedRuleSet = ruleSet) }
     }
 
     fun onCreateCampaignClicked() {
-        val state = _state.value
-        val campaignName = state.campaignName.trim()
-        val selectedRuleSet = state.selectedRuleSet
+        val currentState = state.value
+        val campaignName = currentState.campaignName.trim()
+        val selectedRuleSet = currentState.selectedRuleSet
 
         if (campaignName.isBlank()) {
-            _state.update { _state.value.copy(error = CreateCampaignError.EmptyCampaignName) }
+            state.update { state.value.copy(error = CreateCampaignError.EmptyCampaignName) }
             return
         }
 
         if (selectedRuleSet == RuleSet.UNDEFINED) {
-            _state.update { _state.value.copy(error = CreateCampaignError.UndefinedRuleSet) }
+            state.update { state.value.copy(error = CreateCampaignError.UndefinedRuleSet) }
             return
         }
 
@@ -59,7 +56,7 @@ class CreateCampaignViewModel(
         viewModelScope.launch {
             val campaignAlreadyExists = repository.get(newCampaign.id) != null
             if (campaignAlreadyExists) {
-                _state.update { _state.value.copy(error = CreateCampaignError.CampaignAlreadyExists) }
+                state.update { state.value.copy(error = CreateCampaignError.CampaignAlreadyExists) }
                 return@launch
             }
 
@@ -69,6 +66,6 @@ class CreateCampaignViewModel(
     }
 
     fun clearError() {
-        _state.update { _state.value.copy(error = null) }
+        state.update { state.value.copy(error = null) }
     }
 }

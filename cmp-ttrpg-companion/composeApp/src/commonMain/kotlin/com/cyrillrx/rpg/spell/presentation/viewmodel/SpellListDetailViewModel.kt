@@ -7,7 +7,6 @@ import com.cyrillrx.rpg.spell.presentation.SpellListDetailState
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import rpg_companion.composeapp.generated.resources.Res
@@ -20,8 +19,8 @@ class SpellListDetailViewModel(
     private val spellRepository: SpellRepository,
 ) : ViewModel() {
 
-    private val _state = MutableStateFlow(SpellListDetailState())
-    val state: StateFlow<SpellListDetailState> = _state.asStateFlow()
+    val state: StateFlow<SpellListDetailState>
+        field = MutableStateFlow(SpellListDetailState())
 
     init {
         loadDetail()
@@ -38,11 +37,11 @@ class SpellListDetailViewModel(
 
     private fun loadDetail() {
         viewModelScope.launch {
-            _state.update { it.copy(body = SpellListDetailState.Body.Loading) }
+            state.update { it.copy(body = SpellListDetailState.Body.Loading) }
 
             try {
                 val list = userListRepository.get(listId) ?: error("error_while_loading_user_list")
-                _state.update { it.copy(listName = list.name) }
+                state.update { it.copy(listName = list.name) }
 
                 val spells = list.itemIds.mapNotNull { spellRepository.getById(it) }
                 val body = if (spells.isEmpty()) {
@@ -50,11 +49,11 @@ class SpellListDetailViewModel(
                 } else {
                     SpellListDetailState.Body.WithData(spells)
                 }
-                _state.update { it.copy(body = body) }
+                state.update { it.copy(body = body) }
             } catch (e: CancellationException) {
                 throw e
             } catch (e: Exception) {
-                _state.update { it.copy(body = SpellListDetailState.Body.Error(errorMessage = Res.string.error_while_loading_user_list)) }
+                state.update { it.copy(body = SpellListDetailState.Body.Error(errorMessage = Res.string.error_while_loading_user_list)) }
             }
         }
     }

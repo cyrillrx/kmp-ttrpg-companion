@@ -10,7 +10,6 @@ import com.cyrillrx.rpg.campaign.navigation.CampaignRouter
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import rpg_companion.composeapp.generated.resources.Res
@@ -23,10 +22,8 @@ class CampaignListViewModel(
 ) : ViewModel() {
 
     private var updateJob: Job? = null
-    private val _state: MutableStateFlow<CampaignListState> = MutableStateFlow(
-        CampaignListState(searchQuery = "", body = CampaignListState.Body.Empty),
-    )
-    val state: StateFlow<CampaignListState> = _state.asStateFlow()
+    val state: StateFlow<CampaignListState>
+        field = MutableStateFlow(CampaignListState(searchQuery = "", body = CampaignListState.Body.Empty))
 
     fun onNavigateUpClicked() {
         router.navigateUp()
@@ -46,20 +43,20 @@ class CampaignListViewModel(
     }
 
     private suspend fun updateData(query: String) {
-        _state.update { CampaignListState(searchQuery = query, body = CampaignListState.Body.Loading) }
+        state.update { CampaignListState(searchQuery = query, body = CampaignListState.Body.Loading) }
 
         try {
             val filter = CampaignFilter(query = query)
             val campaigns = repository.getAll(filter)
             if (campaigns.isEmpty()) {
-                _state.update { _state.value.copy(body = CampaignListState.Body.Empty) }
+                state.update { state.value.copy(body = CampaignListState.Body.Empty) }
             } else {
-                _state.update { _state.value.copy(body = CampaignListState.Body.WithData(campaigns)) }
+                state.update { state.value.copy(body = CampaignListState.Body.WithData(campaigns)) }
             }
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {
-            _state.update { _state.value.copy(body = CampaignListState.Body.Error(errorMessage = Res.string.error_while_loading_campaign)) }
+            state.update { state.value.copy(body = CampaignListState.Body.Error(errorMessage = Res.string.error_while_loading_campaign)) }
         }
     }
 }

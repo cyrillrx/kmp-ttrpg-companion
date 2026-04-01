@@ -12,7 +12,6 @@ import com.cyrillrx.rpg.spell.presentation.navigation.SpellRouter
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import rpg_companion.composeapp.generated.resources.Res
@@ -25,10 +24,8 @@ class SpellListViewModel(
 ) : ViewModel() {
 
     private var updateJob: Job? = null
-    private val _state: MutableStateFlow<SpellListState> = MutableStateFlow(
-        SpellListState(body = SpellListState.Body.Empty),
-    )
-    val state: StateFlow<SpellListState> = _state.asStateFlow()
+    val state: StateFlow<SpellListState>
+        field = MutableStateFlow(SpellListState(body = SpellListState.Body.Empty))
 
     init {
         refreshData()
@@ -63,7 +60,7 @@ class SpellListViewModel(
     }
 
     private fun updateFilter(transform: (SpellFilter) -> SpellFilter) {
-        _state.update { it.copy(filter = transform(it.filter)) }
+        state.update { it.copy(filter = transform(it.filter)) }
         refreshData()
     }
 
@@ -73,8 +70,8 @@ class SpellListViewModel(
     }
 
     private suspend fun updateData() {
-        val filter = _state.value.filter
-        _state.update { it.copy(body = SpellListState.Body.Loading) }
+        val filter = state.value.filter
+        state.update { it.copy(body = SpellListState.Body.Loading) }
 
         try {
             val spells = repository.getAll(filter)
@@ -83,11 +80,11 @@ class SpellListViewModel(
             } else {
                 SpellListState.Body.WithData(spells)
             }
-            _state.update { it.copy(body = body) }
+            state.update { it.copy(body = body) }
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {
-            _state.update { it.copy(body = SpellListState.Body.Error(errorMessage = Res.string.error_while_loading_spells)) }
+            state.update { it.copy(body = SpellListState.Body.Error(errorMessage = Res.string.error_while_loading_spells)) }
         }
     }
 }
