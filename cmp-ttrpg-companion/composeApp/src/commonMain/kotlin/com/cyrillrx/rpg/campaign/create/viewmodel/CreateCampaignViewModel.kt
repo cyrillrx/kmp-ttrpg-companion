@@ -25,11 +25,11 @@ class CreateCampaignViewModel(
     }
 
     fun onCampaignNameChanged(name: String) {
-        state.update { state.value.copy(campaignName = name) }
+        state.update { it.copy(campaignName = name) }
     }
 
     fun onRuleSetSelected(ruleSet: RuleSet) {
-        state.update { state.value.copy(selectedRuleSet = ruleSet) }
+        state.update { it.copy(selectedRuleSet = ruleSet) }
     }
 
     fun onCreateCampaignClicked() {
@@ -38,12 +38,12 @@ class CreateCampaignViewModel(
         val selectedRuleSet = currentState.selectedRuleSet
 
         if (campaignName.isBlank()) {
-            state.update { state.value.copy(error = CreateCampaignError.EmptyCampaignName) }
+            state.update { it.copy(error = CreateCampaignError.EmptyCampaignName) }
             return
         }
 
         if (selectedRuleSet == RuleSet.UNDEFINED) {
-            state.update { state.value.copy(error = CreateCampaignError.UndefinedRuleSet) }
+            state.update { it.copy(error = CreateCampaignError.UndefinedRuleSet) }
             return
         }
 
@@ -56,7 +56,7 @@ class CreateCampaignViewModel(
         viewModelScope.launch {
             val campaignAlreadyExists = repository.get(newCampaign.id) != null
             if (campaignAlreadyExists) {
-                state.update { state.value.copy(error = CreateCampaignError.CampaignAlreadyExists) }
+                state.update { it.copy(error = CreateCampaignError.CampaignAlreadyExists) }
                 return@launch
             }
 
@@ -66,6 +66,6 @@ class CreateCampaignViewModel(
     }
 
     fun clearError() {
-        state.update { state.value.copy(error = null) }
+        state.update { it.copy(error = null) }
     }
 }

@@ -49,14 +49,14 @@ class CampaignListViewModel(
             val filter = CampaignFilter(query = query)
             val campaigns = repository.getAll(filter)
             if (campaigns.isEmpty()) {
-                state.update { state.value.copy(body = CampaignListState.Body.Empty) }
+                state.update { it.copy(body = CampaignListState.Body.Empty) }
             } else {
-                state.update { state.value.copy(body = CampaignListState.Body.WithData(campaigns)) }
+                state.update { it.copy(body = CampaignListState.Body.WithData(campaigns)) }
             }
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {
-            state.update { state.value.copy(body = CampaignListState.Body.Error(errorMessage = Res.string.error_while_loading_campaign)) }
+            state.update { it.copy(body = CampaignListState.Body.Error(errorMessage = Res.string.error_while_loading_campaign)) }
         }
     }
 }

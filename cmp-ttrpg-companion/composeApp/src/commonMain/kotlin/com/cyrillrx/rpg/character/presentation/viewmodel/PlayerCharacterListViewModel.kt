@@ -53,14 +53,14 @@ class PlayerCharacterListViewModel(
             val filter = PlayerCharacterFilter(query = query)
             val characters = repository.getAll(filter)
             if (characters.isEmpty()) {
-                state.update { state.value.copy(body = PlayerCharacterListState.Body.Empty) }
+                state.update { it.copy(body = PlayerCharacterListState.Body.Empty) }
             } else {
-                state.update { state.value.copy(body = PlayerCharacterListState.Body.WithData(characters)) }
+                state.update { it.copy(body = PlayerCharacterListState.Body.WithData(characters)) }
             }
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {
-            state.update { state.value.copy(body = PlayerCharacterListState.Body.Error(errorMessage = Res.string.error_while_loading_characters)) }
+            state.update { it.copy(body = PlayerCharacterListState.Body.Error(errorMessage = Res.string.error_while_loading_characters)) }
         }
     }
 }
