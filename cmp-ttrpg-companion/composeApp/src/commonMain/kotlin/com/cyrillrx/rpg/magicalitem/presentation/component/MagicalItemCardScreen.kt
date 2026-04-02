@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.state.DetailState
+import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.magicalitem.data.SampleMagicalItemRepository
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
@@ -70,7 +71,20 @@ fun MagicalItemCardScreen(
 
 @Preview
 @Composable
-fun PreviewMagicalItemCardScreen() {
+fun PreviewMagicalItemCardScreenLight() {
+    PreviewMagicalItemCardScreen(darkTheme = false)
+}
+
+@Preview
+@Composable
+fun PreviewMagicalItemCardScreenDark() {
+    PreviewMagicalItemCardScreen(darkTheme = true)
+}
+
+@Composable
+private fun PreviewMagicalItemCardScreen(darkTheme: Boolean) {
     val magicalItem = SampleMagicalItemRepository.getFirst()
-    MagicalItemCardScreen(magicalItem, onAddToListClicked = {}, onNavigateUpClicked = {})
+    AppThemePreview(darkTheme = darkTheme) {
+        MagicalItemCardScreen(magicalItem, onAddToListClicked = {}, onNavigateUpClicked = {})
+    }
 }
