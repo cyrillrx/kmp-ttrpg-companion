@@ -4,7 +4,7 @@ import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.userlist.domain.UserList
 import org.jetbrains.compose.resources.StringResource
 
-data class AddToListState(
+data class AddSpellToListState(
     val body: Body = Body.Loading,
 ) {
     data class SelectableUserList(val list: UserList, val alreadyAdded: Boolean, val isSelected: Boolean = alreadyAdded)

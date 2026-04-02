@@ -26,10 +26,10 @@ import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
-import com.cyrillrx.rpg.spell.data.SampleSpellRepository
+import com.cyrillrx.rpg.magicalitem.data.SampleMagicalItemRepository
 import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
-import com.cyrillrx.rpg.userlist.presentation.AddSpellToListState
-import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddSpellToListViewModel
+import com.cyrillrx.rpg.userlist.presentation.AddMagicalItemToListState
+import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddMagicalItemToListViewModel
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
@@ -38,8 +38,8 @@ import rpg_companion.composeapp.generated.resources.btn_confirm
 import rpg_companion.composeapp.generated.resources.btn_create_list
 
 @Composable
-fun AddSpellToListScreen(
-    viewModel: AddSpellToListViewModel,
+fun AddMagicalItemToListScreen(
+    viewModel: AddMagicalItemToListViewModel,
     onNavigateUp: () -> Unit,
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
@@ -48,12 +48,12 @@ fun AddSpellToListScreen(
     LaunchedEffect(viewModel) {
         viewModel.events.collect {
             when (it) {
-                AddSpellToListViewModel.Event.Dismiss -> onNavigateUp()
+                AddMagicalItemToListViewModel.Event.Dismiss -> onNavigateUp()
             }
         }
     }
 
-    AddToListScreenContent(
+    AddMagicalItemToListScreenContent(
         body = state.body,
         onNavigateUp = onNavigateUp,
         onToggleSelection = { viewModel.toggleSelection(it) },
@@ -73,8 +73,8 @@ fun AddSpellToListScreen(
 }
 
 @Composable
-private fun AddToListScreenContent(
-    body: AddSpellToListState.Body,
+private fun AddMagicalItemToListScreenContent(
+    body: AddMagicalItemToListState.Body,
     onNavigateUp: () -> Unit,
     onToggleSelection: (String) -> Unit,
     onConfirm: () -> Unit,
@@ -108,10 +108,10 @@ private fun AddToListScreenContent(
             verticalArrangement = Arrangement.spacedBy(spacingSmall),
         ) {
             when (body) {
-                is AddSpellToListState.Body.Loading -> item { Loader() }
-                is AddSpellToListState.Body.Error -> item { ErrorLayout(body.errorMessage) }
-                is AddSpellToListState.Body.WithData -> {
-                    item { AddSpellHeader(body.spell) }
+                is AddMagicalItemToListState.Body.Loading -> item { Loader() }
+                is AddMagicalItemToListState.Body.Error -> item { ErrorLayout(body.errorMessage) }
+                is AddMagicalItemToListState.Body.WithData -> {
+                    item { AddMagicalItemHeader(body.magicalItem) }
                     items(body.selectableLists, key = { it.list.id }) { item ->
                         SelectableUserListItem(
                             name = item.list.name,
@@ -137,26 +137,26 @@ private fun AddToListScreenContent(
 
 @Preview
 @Composable
-fun PreviewAddToListScreenLight() {
-    PreviewAddToListScreen(darkTheme = false)
+fun PreviewAddMagicalItemToListScreenLight() {
+    PreviewAddMagicalItemToListScreen(darkTheme = false)
 }
 
 @Preview
 @Composable
-fun PreviewAddToListScreenDark() {
-    PreviewAddToListScreen(darkTheme = true)
+fun PreviewAddMagicalItemToListScreenDark() {
+    PreviewAddMagicalItemToListScreen(darkTheme = true)
 }
 
 @Composable
-private fun PreviewAddToListScreen(darkTheme: Boolean) {
-    val spell = SampleSpellRepository.fireball()
+private fun PreviewAddMagicalItemToListScreen(darkTheme: Boolean) {
+    val magicalItem = SampleMagicalItemRepository.getFirst()
     val lists = SampleUserListRepository.getAll()
-    val body = AddSpellToListState.Body.WithData(
-        spell = spell,
-        selectableLists = lists.map { AddSpellToListState.SelectableUserList(it, alreadyAdded = false) },
+    val body = AddMagicalItemToListState.Body.WithData(
+        magicalItem = magicalItem,
+        selectableLists = lists.map { AddMagicalItemToListState.SelectableUserList(it, alreadyAdded = false) },
     )
     AppThemePreview(darkTheme = darkTheme) {
-        AddToListScreenContent(
+        AddMagicalItemToListScreenContent(
             body = body,
             onNavigateUp = {},
             onToggleSelection = {},
