@@ -19,7 +19,6 @@ import com.cyrillrx.rpg.core.presentation.component.dnd.getSubtitle
 import com.cyrillrx.rpg.core.presentation.component.dnd.toIcon
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.iconSizeMedium
-import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
@@ -29,43 +28,38 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 @Composable
 fun AddSpellHeader(spell: Spell, modifier: Modifier = Modifier) {
     val school = spell.schools.firstOrNull()
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
-        modifier = modifier.padding(spacingCommon),
+    Column(
+        verticalArrangement = Arrangement.spacedBy(spacingSmall),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier.fillMaxWidth(),
     ) {
-        Column(
-            verticalArrangement = Arrangement.spacedBy(spacingSmall),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier.fillMaxWidth(),
+        Text(
+            text = spell.title,
+            style = MaterialTheme.typography.titleLarge,
+            fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.onSurface,
+        )
+
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(spacingSmall),
         ) {
-            Text(
-                text = spell.title,
-                style = MaterialTheme.typography.titleLarge,
-                fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.onSurface,
+            Icon(
+                imageVector = school.toIcon(),
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.size(iconSizeMedium),
             )
-
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(spacingSmall),
-            ) {
-                Icon(
-                    imageVector = school.toIcon(),
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier.size(iconSizeMedium),
-                )
-                Text(
-                    text = spell.getSubtitle(),
-                    style = MaterialTheme.typography.bodyLarge,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                )
-            }
-
-            HorizontalDivider(modifier = Modifier.padding(spacingMedium))
+            Text(
+                text = spell.getSubtitle(),
+                style = MaterialTheme.typography.bodyLarge,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+            )
         }
+
+        HorizontalDivider(modifier = Modifier.padding(spacingMedium))
     }
 }
 
