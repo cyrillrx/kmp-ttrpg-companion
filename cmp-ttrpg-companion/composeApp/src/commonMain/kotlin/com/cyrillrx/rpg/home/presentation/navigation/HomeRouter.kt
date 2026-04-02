@@ -59,7 +59,7 @@ class HomeRouterImpl(private val navController: NavController) : HomeRouter {
     }
 
     override fun openMyMagicalItemLists() {
-        // TODO: navigate to MagicalItemRoute.MyMagicalItemLists when implemented
+        navController.navigate(MagicalItemRoute.UserLists)
     }
 
     override fun openMyCreatureLists() {
