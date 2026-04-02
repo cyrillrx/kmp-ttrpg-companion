@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.magicalitem.presentation.component
+package com.cyrillrx.rpg.userlist.presentation.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
@@ -27,10 +27,9 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.magicalitem.data.SampleMagicalItemRepository
-import com.cyrillrx.rpg.magicalitem.presentation.AddMagicalItemToListState
-import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.AddMagicalItemToListViewModel
 import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
-import com.cyrillrx.rpg.userlist.presentation.component.SelectableUserListItem
+import com.cyrillrx.rpg.userlist.presentation.AddMagicalItemToListState
+import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddMagicalItemToListViewModel
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res

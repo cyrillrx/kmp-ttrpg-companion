@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.magicalitem.presentation.component
+package com.cyrillrx.rpg.userlist.presentation.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

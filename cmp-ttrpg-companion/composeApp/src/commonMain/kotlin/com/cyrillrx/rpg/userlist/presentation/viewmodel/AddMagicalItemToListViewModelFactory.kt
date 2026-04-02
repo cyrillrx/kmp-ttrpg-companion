@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.magicalitem.presentation.viewmodel
+package com.cyrillrx.rpg.userlist.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

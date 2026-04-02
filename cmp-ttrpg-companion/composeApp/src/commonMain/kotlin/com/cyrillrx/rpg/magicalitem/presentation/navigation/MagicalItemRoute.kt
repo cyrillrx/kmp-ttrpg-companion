@@ -6,13 +6,10 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemRepository
-import com.cyrillrx.rpg.magicalitem.presentation.component.AddMagicalItemToListScreen
 import com.cyrillrx.rpg.magicalitem.presentation.component.MagicalItemCardCarouselScreen
 import com.cyrillrx.rpg.magicalitem.presentation.component.MagicalItemCardScreen
 import com.cyrillrx.rpg.magicalitem.presentation.component.MagicalItemListDetailScreen
 import com.cyrillrx.rpg.magicalitem.presentation.component.MagicalItemListScreen
-import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.AddMagicalItemToListViewModel
-import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.AddMagicalItemToListViewModelFactory
 import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.MagicalItemDetailViewModel
 import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.MagicalItemDetailViewModelFactory
 import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.MagicalItemListDetailViewModel
@@ -21,8 +18,11 @@ import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.MagicalItemListViewMo
 import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.MagicalItemListViewModelFactory
 import com.cyrillrx.rpg.userlist.domain.UserList
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
+import com.cyrillrx.rpg.userlist.presentation.component.AddMagicalItemToListScreen
 import com.cyrillrx.rpg.userlist.presentation.component.UserListsScreen
 import com.cyrillrx.rpg.userlist.presentation.navigation.UserListRouterImpl
+import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddMagicalItemToListViewModel
+import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddMagicalItemToListViewModelFactory
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.UserListsViewModel
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.UserListsViewModelFactory
 import kotlinx.serialization.Serializable

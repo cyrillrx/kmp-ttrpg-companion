@@ -1,12 +1,12 @@
-package com.cyrillrx.rpg.magicalitem.presentation.viewmodel
+package com.cyrillrx.rpg.userlist.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemRepository
-import com.cyrillrx.rpg.magicalitem.presentation.AddMagicalItemToListState
-import com.cyrillrx.rpg.magicalitem.presentation.AddMagicalItemToListState.SelectableUserList
 import com.cyrillrx.rpg.userlist.domain.UserList
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
+import com.cyrillrx.rpg.userlist.presentation.AddMagicalItemToListState
+import com.cyrillrx.rpg.userlist.presentation.AddMagicalItemToListState.SelectableUserList
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
