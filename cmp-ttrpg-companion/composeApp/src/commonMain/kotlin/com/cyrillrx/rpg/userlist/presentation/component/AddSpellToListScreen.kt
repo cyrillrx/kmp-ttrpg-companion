@@ -28,7 +28,7 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
-import com.cyrillrx.rpg.userlist.presentation.AddToListState
+import com.cyrillrx.rpg.userlist.presentation.AddSpellToListState
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddSpellToListViewModel
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -74,7 +74,7 @@ fun AddSpellToListScreen(
 
 @Composable
 private fun AddToListScreenContent(
-    body: AddToListState.Body,
+    body: AddSpellToListState.Body,
     onNavigateUp: () -> Unit,
     onToggleSelection: (String) -> Unit,
     onConfirm: () -> Unit,
@@ -108,9 +108,9 @@ private fun AddToListScreenContent(
             verticalArrangement = Arrangement.spacedBy(spacingSmall),
         ) {
             when (body) {
-                is AddToListState.Body.Loading -> item { Loader() }
-                is AddToListState.Body.Error -> item { ErrorLayout(body.errorMessage) }
-                is AddToListState.Body.WithData -> {
+                is AddSpellToListState.Body.Loading -> item { Loader() }
+                is AddSpellToListState.Body.Error -> item { ErrorLayout(body.errorMessage) }
+                is AddSpellToListState.Body.WithData -> {
                     item { AddSpellHeader(body.spell) }
                     items(body.selectableLists, key = { it.list.id }) { item ->
                         SelectableUserListItem(
@@ -151,9 +151,9 @@ fun PreviewAddToListScreenDark() {
 private fun PreviewAddToListScreen(darkTheme: Boolean) {
     val spell = SampleSpellRepository.fireball()
     val lists = SampleUserListRepository.getAll()
-    val body = AddToListState.Body.WithData(
+    val body = AddSpellToListState.Body.WithData(
         spell = spell,
-        selectableLists = lists.map { AddToListState.SelectableUserList(it, alreadyAdded = false) },
+        selectableLists = lists.map { AddSpellToListState.SelectableUserList(it, alreadyAdded = false) },
     )
     AppThemePreview(darkTheme = darkTheme) {
         AddToListScreenContent(

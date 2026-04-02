@@ -3,7 +3,7 @@ package com.cyrillrx.rpg.userlist.presentation.viewmodel
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.userlist.data.RamUserListRepository
 import com.cyrillrx.rpg.userlist.domain.UserList
-import com.cyrillrx.rpg.userlist.presentation.AddToListState
+import com.cyrillrx.rpg.userlist.presentation.AddSpellToListState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
@@ -43,7 +43,7 @@ class AddToListViewModelTest {
     fun `initial state is Loading before coroutines run`() = runTest(testDispatcher) {
         val viewModel = AddSpellToListViewModel(spell.id, UserList.Type.SPELL, userListRepository, spellRepository)
 
-        assertIs<AddToListState.Body.Loading>(viewModel.state.value.body)
+        assertIs<AddSpellToListState.Body.Loading>(viewModel.state.value.body)
     }
 
     @Test
@@ -56,7 +56,7 @@ class AddToListViewModelTest {
 
         advanceUntilIdle()
 
-        assertIs<AddToListState.Body.Error>(viewModel.state.value.body)
+        assertIs<AddSpellToListState.Body.Error>(viewModel.state.value.body)
     }
 
     @Test
@@ -69,7 +69,7 @@ class AddToListViewModelTest {
 
         advanceUntilIdle()
 
-        assertIs<AddToListState.Body.Error>(viewModel.state.value.body)
+        assertIs<AddSpellToListState.Body.Error>(viewModel.state.value.body)
     }
 
     @Test
@@ -85,7 +85,7 @@ class AddToListViewModelTest {
 
         advanceUntilIdle()
 
-        val body = assertIs<AddToListState.Body.WithData>(viewModel.state.value.body)
+        val body = assertIs<AddSpellToListState.Body.WithData>(viewModel.state.value.body)
         assertEquals(expected = 1, actual = body.selectableLists.size)
         assertEquals(expected = "Grimoire", actual = body.selectableLists.first().list.name)
     }
@@ -105,7 +105,7 @@ class AddToListViewModelTest {
 
         advanceUntilIdle()
 
-        val body = assertIs<AddToListState.Body.WithData>(viewModel.state.value.body)
+        val body = assertIs<AddSpellToListState.Body.WithData>(viewModel.state.value.body)
         val selectableLists = body.selectableLists
         val selectableList1 = selectableLists.first { it.list.id == "list1" }
         val selectableList2 = selectableLists.first { it.list.id == "list2" }
@@ -128,7 +128,7 @@ class AddToListViewModelTest {
 
         viewModel.toggleSelection("list1")
 
-        val body = assertIs<AddToListState.Body.WithData>(viewModel.state.value.body)
+        val body = assertIs<AddSpellToListState.Body.WithData>(viewModel.state.value.body)
         assertTrue(body.selectableLists.first { it.list.id == "list1" }.isSelected)
     }
 
@@ -147,7 +147,7 @@ class AddToListViewModelTest {
 
         viewModel.toggleSelection("list1")
 
-        val bodyAfter = assertIs<AddToListState.Body.WithData>(viewModel.state.value.body)
+        val bodyAfter = assertIs<AddSpellToListState.Body.WithData>(viewModel.state.value.body)
         assertFalse(bodyAfter.selectableLists.first { it.list.id == "list1" }.isSelected)
     }
 
@@ -236,7 +236,7 @@ class AddToListViewModelTest {
         assertEquals(expected = "Nouveau grimoire", actual = lists.first().name)
         assertTrue(actual = lists.first().itemIds.contains(spell.id))
 
-        val body = assertIs<AddToListState.Body.WithData>(viewModel.state.value.body)
+        val body = assertIs<AddSpellToListState.Body.WithData>(viewModel.state.value.body)
         val newEntry = body.selectableLists.first { it.list.name == "Nouveau grimoire" }
         assertTrue(newEntry.alreadyAdded)
         assertTrue(newEntry.isSelected)
