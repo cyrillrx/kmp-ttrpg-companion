@@ -5,29 +5,33 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
+import com.cyrillrx.rpg.creature.data.CreatureEntityRepository
+import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.CreatureRepository
+import com.cyrillrx.rpg.creature.presentation.CreatureUiProvider
 import com.cyrillrx.rpg.creature.presentation.component.CreatureCompactListScreen
 import com.cyrillrx.rpg.creature.presentation.component.CreatureDetailScreen
-import com.cyrillrx.rpg.creature.presentation.component.CreatureListDetailScreen
 import com.cyrillrx.rpg.creature.presentation.component.CreatureListScreen
 import com.cyrillrx.rpg.creature.presentation.viewmodel.CreatureDetailViewModel
 import com.cyrillrx.rpg.creature.presentation.viewmodel.CreatureDetailViewModelFactory
-import com.cyrillrx.rpg.creature.presentation.viewmodel.CreatureListDetailViewModel
-import com.cyrillrx.rpg.creature.presentation.viewmodel.CreatureListDetailViewModelFactory
 import com.cyrillrx.rpg.creature.presentation.viewmodel.CreatureListViewModel
 import com.cyrillrx.rpg.creature.presentation.viewmodel.CreatureListViewModelFactory
 import com.cyrillrx.rpg.userlist.domain.UserList
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
-import com.cyrillrx.rpg.userlist.presentation.component.AddCreatureToListScreen
+import com.cyrillrx.rpg.userlist.presentation.component.AddToListScreen
+import com.cyrillrx.rpg.userlist.presentation.component.ListDetailScreen
 import com.cyrillrx.rpg.userlist.presentation.component.UserListsScreen
 import com.cyrillrx.rpg.userlist.presentation.navigation.UserListRouterImpl
-import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddCreatureToListViewModel
-import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddCreatureToListViewModelFactory
+import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddToListViewModel
+import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddToListViewModelFactory
+import com.cyrillrx.rpg.userlist.presentation.viewmodel.ListDetailViewModel
+import com.cyrillrx.rpg.userlist.presentation.viewmodel.ListDetailViewModelFactory
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.UserListsViewModel
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.UserListsViewModelFactory
 import kotlinx.serialization.Serializable
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
+import rpg_companion.composeapp.generated.resources.error_while_loading_creatures
 import rpg_companion.composeapp.generated.resources.title_my_bestiary_lists
 
 interface CreatureRoute {
@@ -79,17 +83,19 @@ fun NavGraphBuilder.handleCreatureRoutes(
     }
 
     composable<CreatureRoute.AddToList> { entry ->
-        val route = entry.toRoute<CreatureRoute.AddToList>()
-        val viewModel = viewModel<AddCreatureToListViewModel>(
-            factory = AddCreatureToListViewModelFactory(
-                itemId = route.creatureId,
+        val creatureId = entry.toRoute<CreatureRoute.AddToList>().creatureId
+        val viewModel = viewModel<AddToListViewModel<Creature>>(
+            factory = AddToListViewModelFactory(
+                itemId = creatureId,
                 listType = UserList.Type.CREATURE,
                 userListRepository = userListRepository,
-                creatureRepository = repository,
+                repository = CreatureEntityRepository(repository),
+                errorMessage = Res.string.error_while_loading_creatures,
             ),
         )
-        AddCreatureToListScreen(
+        AddToListScreen(
             viewModel = viewModel,
+            uiProvider = CreatureUiProvider(),
             onNavigateUp = { navController.navigateUp() },
         )
     }
@@ -107,11 +113,12 @@ fun NavGraphBuilder.handleCreatureRoutes(
 
     composable<CreatureRoute.UserListDetail> { entry ->
         val listId = entry.toRoute<CreatureRoute.UserListDetail>().listId
-        val viewModel = viewModel<CreatureListDetailViewModel>(
-            factory = CreatureListDetailViewModelFactory(listId, userListRepository, repository),
+        val viewModel = viewModel<ListDetailViewModel<Creature>>(
+            factory = ListDetailViewModelFactory(listId, userListRepository, CreatureEntityRepository(repository)),
         )
-        CreatureListDetailScreen(
+        ListDetailScreen(
             viewModel = viewModel,
+            uiProvider = CreatureUiProvider(),
             onNavigateUpClicked = { navController.navigateUp() },
         )
     }
