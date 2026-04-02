@@ -108,6 +108,6 @@ class AddSpellToListViewModel(
     }
 
     sealed class Event {
-        object Dismiss : Event()
+        data object Dismiss : Event()
     }
 }
