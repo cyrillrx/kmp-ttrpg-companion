@@ -28,6 +28,11 @@ class JsonCreatureRepository(private val fileReader: FileReader) : CreatureRepos
     override suspend fun getById(id: String): Creature? =
         getAll(null).firstOrNull { it.id == id }
 
+    override suspend fun getByIds(ids: List<String>): List<Creature> {
+        val all = getAll(null).associateBy { it.id }
+        return ids.mapNotNull { all[it] }
+    }
+
     private suspend fun loadFromFile(): List<ApiBestiaryItem> {
         val result = fileReader.readFile("files/bestiaire.json")
         if (result is Result.Success) {

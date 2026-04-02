@@ -63,6 +63,6 @@ class HomeRouterImpl(private val navController: NavController) : HomeRouter {
     }
 
     override fun openMyCreatureLists() {
-        // TODO: navigate to CreatureRoute.MyCreatureLists when implemented
+        navController.navigate(CreatureRoute.UserLists)
     }
 }

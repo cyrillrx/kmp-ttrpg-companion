@@ -1,6 +1,7 @@
 package com.cyrillrx.rpg.userlist.presentation.navigation
 
 import androidx.navigation.NavController
+import com.cyrillrx.rpg.creature.presentation.navigation.CreatureRoute
 import com.cyrillrx.rpg.magicalitem.presentation.navigation.MagicalItemRoute
 import com.cyrillrx.rpg.spell.presentation.navigation.SpellRoute
 import com.cyrillrx.rpg.userlist.domain.UserList
@@ -19,7 +20,7 @@ class UserListRouterImpl(private val navController: NavController) : UserListRou
         when (list.type) {
             UserList.Type.SPELL -> navController.navigate(SpellRoute.UserListDetail(list.id))
             UserList.Type.MAGICAL_ITEM -> navController.navigate(MagicalItemRoute.UserListDetail(list.id))
-            UserList.Type.CREATURE -> TODO()
+            UserList.Type.CREATURE -> navController.navigate(CreatureRoute.UserListDetail(list.id))
         }
     }
 }

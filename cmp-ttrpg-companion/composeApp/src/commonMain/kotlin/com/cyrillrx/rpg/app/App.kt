@@ -43,7 +43,7 @@ fun App(dbDriverFactory: DatabaseDriverFactory) {
 
             handleSpellRoutes(navController, JsonSpellRepository(fileReader), userListRepository)
             handleMagicalItemRoutes(navController, JsonMagicalItemRepository(fileReader), userListRepository)
-            handleCreatureRoutes(navController, JsonCreatureRepository(fileReader))
+            handleCreatureRoutes(navController, JsonCreatureRepository(fileReader), userListRepository)
         }
     }
 }
