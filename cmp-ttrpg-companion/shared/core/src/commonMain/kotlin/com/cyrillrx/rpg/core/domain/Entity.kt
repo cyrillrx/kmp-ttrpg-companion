@@ -1,6 +1,12 @@
 package com.cyrillrx.rpg.core.domain
 
-interface Entity {
-    val id: String
-    val displayName: String
+data class Entity(
+    val id: String,
+    val type: Type,
+) {
+    enum class Type {
+        CREATURE,
+        MAGICAL_ITEM,
+        SPELL,
+    }
 }
