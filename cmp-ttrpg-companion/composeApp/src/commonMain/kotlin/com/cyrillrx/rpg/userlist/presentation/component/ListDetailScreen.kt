@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.creature.presentation.component
+package com.cyrillrx.rpg.userlist.presentation.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -30,10 +30,11 @@ import com.cyrillrx.rpg.core.presentation.component.dialog.ConfirmDeleteDialog
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
-import com.cyrillrx.rpg.creature.data.SampleCreatureRepository
-import com.cyrillrx.rpg.creature.domain.Creature
-import com.cyrillrx.rpg.creature.presentation.CreatureListDetailState
-import com.cyrillrx.rpg.creature.presentation.viewmodel.CreatureListDetailViewModel
+import com.cyrillrx.rpg.spell.data.SampleSpellRepository
+import com.cyrillrx.rpg.spell.presentation.SpellUiProvider
+import com.cyrillrx.rpg.userlist.presentation.DeletableItemProvider
+import com.cyrillrx.rpg.userlist.presentation.ListDetailState
+import com.cyrillrx.rpg.userlist.presentation.viewmodel.ListDetailViewModel
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
@@ -41,25 +42,28 @@ import rpg_companion.composeapp.generated.resources.dialog_remove_from_list_mess
 import rpg_companion.composeapp.generated.resources.message_list_is_empty
 
 @Composable
-fun CreatureListDetailScreen(
-    viewModel: CreatureListDetailViewModel,
+fun <T> ListDetailScreen(
+    viewModel: ListDetailViewModel<T>,
+    uiProvider: DeletableItemProvider<T>,
     onNavigateUpClicked: () -> Unit,
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
-    CreatureListDetailScreen(
+    ListDetailScreen(
         state = state,
+        uiProvider = uiProvider,
         onNavigateUpClicked = onNavigateUpClicked,
-        onRemoveCreatureClicked = viewModel::removeCreature,
+        onRemoveItemClicked = viewModel::removeItem,
     )
 }
 
 @Composable
-fun CreatureListDetailScreen(
-    state: CreatureListDetailState,
+fun <T> ListDetailScreen(
+    state: ListDetailState<T>,
+    uiProvider: DeletableItemProvider<T>,
     onNavigateUpClicked: () -> Unit,
-    onRemoveCreatureClicked: (String) -> Unit,
+    onRemoveItemClicked: (String) -> Unit,
 ) {
-    var itemToRemove by remember { mutableStateOf<Creature?>(null) }
+    var itemToRemove by remember { mutableStateOf<T?>(null) }
 
     Scaffold(
         topBar = {
@@ -76,22 +80,23 @@ fun CreatureListDetailScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             when (val body = state.body) {
-                is CreatureListDetailState.Body.Loading -> Loader()
-                is CreatureListDetailState.Body.EmptyList -> ErrorLayout(Res.string.message_list_is_empty)
-                is CreatureListDetailState.Body.Error -> ErrorLayout(body.errorMessage)
-                is CreatureListDetailState.Body.WithData -> CreatureDetailList(
-                    creatures = body.creatures,
-                    onRemoveCreature = { itemToRemove = it },
+                is ListDetailState.Body.Loading -> Loader()
+                is ListDetailState.Body.EmptyList -> ErrorLayout(Res.string.message_list_is_empty)
+                is ListDetailState.Body.Error -> ErrorLayout(body.errorMessage)
+                is ListDetailState.Body.WithData -> EntityDetailList(
+                    items = body.items,
+                    uiProvider = uiProvider,
+                    onRemoveItem = { itemToRemove = it },
                 )
             }
         }
     }
 
-    itemToRemove?.let { creature ->
+    itemToRemove?.let { item ->
         ConfirmDeleteDialog(
-            message = stringResource(Res.string.dialog_remove_from_list_message, creature.name),
+            message = stringResource(Res.string.dialog_remove_from_list_message, uiProvider.getDisplayName(item)),
             onConfirm = {
-                onRemoveCreatureClicked(creature.id)
+                onRemoveItemClicked(uiProvider.getId(item))
                 itemToRemove = null
             },
             onDismiss = { itemToRemove = null },
@@ -100,26 +105,26 @@ fun CreatureListDetailScreen(
 }
 
 @Composable
-private fun CreatureDetailList(
-    creatures: List<Creature>,
-    onRemoveCreature: (Creature) -> Unit,
+private fun <T> EntityDetailList(
+    items: List<T>,
+    uiProvider: DeletableItemProvider<T>,
+    onRemoveItem: (T) -> Unit,
 ) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(spacingMedium),
         verticalArrangement = Arrangement.spacedBy(spacingSmall),
     ) {
-        items(creatures, key = { it.id }) { creature ->
+        items(items, key = { uiProvider.getId(it) }) { item ->
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier.fillMaxWidth(),
             ) {
-                CreatureCompactListItem(
-                    creature = creature,
-                    onClick = {},
+                uiProvider.ListItem(
+                    entity = item,
                     modifier = Modifier.weight(1f),
                 )
-                IconButton(onClick = { onRemoveCreature(creature) }) {
+                IconButton(onClick = { onRemoveItem(item) }) {
                     Icon(
                         imageVector = Icons.Filled.Delete,
                         contentDescription = null,
@@ -133,27 +138,27 @@ private fun CreatureDetailList(
 
 @Preview
 @Composable
-private fun PreviewCreatureListDetailScreenLight() {
-    CreatureListDetailScreenPreview(darkTheme = false)
+private fun PreviewListDetailScreenLight() {
+    ListDetailScreenPreview(darkTheme = false)
 }
 
 @Preview
 @Composable
-private fun PreviewCreatureListDetailScreenDark() {
-    CreatureListDetailScreenPreview(darkTheme = true)
+private fun PreviewListDetailScreenDark() {
+    ListDetailScreenPreview(darkTheme = true)
 }
 
 @Composable
-private fun CreatureListDetailScreenPreview(darkTheme: Boolean) {
-    val creatures = SampleCreatureRepository.getAll()
+private fun ListDetailScreenPreview(darkTheme: Boolean) {
     AppThemePreview(darkTheme = darkTheme) {
-        CreatureListDetailScreen(
-            state = CreatureListDetailState(
-                listName = "Bestiary",
-                body = CreatureListDetailState.Body.WithData(creatures),
+        ListDetailScreen(
+            state = ListDetailState(
+                listName = "Gandalf's Spells",
+                body = ListDetailState.Body.WithData(SampleSpellRepository.getAll()),
             ),
+            uiProvider = SpellUiProvider(),
             onNavigateUpClicked = {},
-            onRemoveCreatureClicked = {},
+            onRemoveItemClicked = {},
         )
     }
 }

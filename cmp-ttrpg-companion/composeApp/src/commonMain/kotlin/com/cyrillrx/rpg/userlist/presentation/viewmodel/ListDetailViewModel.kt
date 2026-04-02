@@ -1,10 +1,10 @@
-package com.cyrillrx.rpg.spell.presentation.viewmodel
+package com.cyrillrx.rpg.userlist.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.cyrillrx.rpg.spell.domain.SpellRepository
-import com.cyrillrx.rpg.spell.presentation.SpellListDetailState
+import com.cyrillrx.rpg.core.domain.EntityRepository
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
+import com.cyrillrx.rpg.userlist.presentation.ListDetailState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
@@ -13,22 +13,22 @@ import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_while_loading_user_list
 import kotlin.coroutines.cancellation.CancellationException
 
-class SpellListDetailViewModel(
+class ListDetailViewModel<T>(
     private val listId: String,
     private val userListRepository: UserListRepository,
-    private val spellRepository: SpellRepository,
+    private val repository: EntityRepository<T>,
 ) : ViewModel() {
 
-    val state: StateFlow<SpellListDetailState>
-        field = MutableStateFlow(SpellListDetailState())
+    val state: StateFlow<ListDetailState<T>>
+        field = MutableStateFlow(ListDetailState())
 
     init {
         loadDetail()
     }
 
-    fun removeSpell(spellId: String) {
+    fun removeItem(itemId: String) {
         viewModelScope.launch {
-            val result = userListRepository.removeFromList(listId, spellId)
+            val result = userListRepository.removeFromList(listId, itemId)
             if (result is UserListRepository.Result.Success) {
                 loadDetail()
             }
@@ -37,23 +37,23 @@ class SpellListDetailViewModel(
 
     private fun loadDetail() {
         viewModelScope.launch {
-            state.update { it.copy(body = SpellListDetailState.Body.Loading) }
+            state.update { it.copy(body = ListDetailState.Body.Loading) }
 
             try {
-                val list = userListRepository.get(listId) ?: error("error_while_loading_user_list")
+                val list = userListRepository.get(listId) ?: error("Could not find list $listId")
                 state.update { it.copy(listName = list.name) }
 
-                val spells = spellRepository.getByIds(list.itemIds)
-                val body = if (spells.isEmpty()) {
-                    SpellListDetailState.Body.EmptyList
+                val items = repository.getByIds(list.itemIds)
+                val body = if (items.isEmpty()) {
+                    ListDetailState.Body.EmptyList
                 } else {
-                    SpellListDetailState.Body.WithData(spells)
+                    ListDetailState.Body.WithData(items)
                 }
                 state.update { it.copy(body = body) }
             } catch (e: CancellationException) {
                 throw e
             } catch (e: Exception) {
-                state.update { it.copy(body = SpellListDetailState.Body.Error(errorMessage = Res.string.error_while_loading_user_list)) }
+                state.update { it.copy(body = ListDetailState.Body.Error(Res.string.error_while_loading_user_list)) }
             }
         }
     }

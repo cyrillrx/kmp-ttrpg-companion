@@ -1,10 +1,13 @@
 package com.cyrillrx.rpg.spell.presentation.viewmodel
 
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
-import com.cyrillrx.rpg.spell.presentation.SpellListDetailState
+import com.cyrillrx.rpg.spell.data.SpellEntityRepository
+import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.userlist.data.RamUserListRepository
 import com.cyrillrx.rpg.userlist.domain.UserList
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
+import com.cyrillrx.rpg.userlist.presentation.ListDetailState
+import com.cyrillrx.rpg.userlist.presentation.viewmodel.ListDetailViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
@@ -25,7 +28,7 @@ import kotlin.test.assertTrue
 class SpellListDetailViewModelTest {
 
     private val testDispatcher = StandardTestDispatcher()
-    private val spellRepository = SampleSpellRepository()
+    private val spellRepository = SpellEntityRepository(SampleSpellRepository())
     private val userListRepository = RamUserListRepository()
     private val spell = SampleSpellRepository.getFirst()
 
@@ -39,16 +42,19 @@ class SpellListDetailViewModelTest {
         Dispatchers.resetMain()
     }
 
+    private fun buildViewModel(listId: String, repo: UserListRepository = userListRepository) =
+        ListDetailViewModel(listId, repo, spellRepository)
+
     @Test
     fun `initial state is Loading before coroutines run`() = runTest(testDispatcher) {
-        val viewModel = SpellListDetailViewModel("list1", userListRepository, spellRepository)
+        val viewModel = buildViewModel("list1")
 
-        assertIs<SpellListDetailState.Body.Loading>(viewModel.state.value.body)
+        assertIs<ListDetailState.Body.Loading>(viewModel.state.value.body)
     }
 
     @Test
     fun `state is Error when repository throws`() = runTest(testDispatcher) {
-        val viewModel = SpellListDetailViewModel("list1", FailingUserListRepository(), spellRepository)
+        val viewModel = buildViewModel("list1", FailingUserListRepository())
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -56,12 +62,12 @@ class SpellListDetailViewModelTest {
 
         advanceUntilIdle()
 
-        assertIs<SpellListDetailState.Body.Error>(viewModel.state.value.body)
+        assertIs<ListDetailState.Body.Error>(viewModel.state.value.body)
     }
 
     @Test
     fun `state is Error when list is not found`() = runTest(testDispatcher) {
-        val viewModel = SpellListDetailViewModel("non_existent_list", userListRepository, spellRepository)
+        val viewModel = buildViewModel("non_existent_list")
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -69,7 +75,7 @@ class SpellListDetailViewModelTest {
 
         advanceUntilIdle()
 
-        assertIs<SpellListDetailState.Body.Error>(viewModel.state.value.body)
+        assertIs<ListDetailState.Body.Error>(viewModel.state.value.body)
     }
 
     @Test
@@ -77,7 +83,7 @@ class SpellListDetailViewModelTest {
         val list = UserList("list1", "Gandalf's spells", UserList.Type.SPELL, emptyList())
         userListRepository.save(list)
 
-        val viewModel = SpellListDetailViewModel("list1", userListRepository, spellRepository)
+        val viewModel = buildViewModel("list1")
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -85,7 +91,7 @@ class SpellListDetailViewModelTest {
 
         advanceUntilIdle()
 
-        assertIs<SpellListDetailState.Body.EmptyList>(viewModel.state.value.body)
+        assertIs<ListDetailState.Body.EmptyList>(viewModel.state.value.body)
         assertEquals(expected = "Gandalf's spells", actual = viewModel.state.value.listName)
     }
 
@@ -94,7 +100,7 @@ class SpellListDetailViewModelTest {
         val list = UserList("list1", "Fighting spells", UserList.Type.SPELL, listOf(spell.id))
         userListRepository.save(list)
 
-        val viewModel = SpellListDetailViewModel("list1", userListRepository, spellRepository)
+        val viewModel = buildViewModel("list1")
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -102,18 +108,18 @@ class SpellListDetailViewModelTest {
 
         advanceUntilIdle()
 
-        val body = assertIs<SpellListDetailState.Body.WithData>(viewModel.state.value.body)
-        assertEquals(expected = 1, actual = body.spells.size)
-        assertEquals(expected = spell.id, actual = body.spells.first().id)
+        val body = assertIs<ListDetailState.Body.WithData<Spell>>(viewModel.state.value.body)
+        assertEquals(expected = 1, actual = body.items.size)
+        assertEquals(expected = spell.id, actual = body.items.first().id)
     }
 
     @Test
-    fun `removeSpell removes spell from list`() = runTest(testDispatcher) {
+    fun `removeItem removes spell from list`() = runTest(testDispatcher) {
         val allSpells = SampleSpellRepository.getAll()
         val list = UserList("list1", "My Spellbook", UserList.Type.SPELL, allSpells.map { it.id })
         userListRepository.save(list)
 
-        val viewModel = SpellListDetailViewModel("list1", userListRepository, spellRepository)
+        val viewModel = buildViewModel("list1")
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -121,21 +127,21 @@ class SpellListDetailViewModelTest {
 
         advanceUntilIdle()
 
-        viewModel.removeSpell(spell.id)
+        viewModel.removeItem(spell.id)
 
         advanceUntilIdle()
 
-        val body = assertIs<SpellListDetailState.Body.WithData>(viewModel.state.value.body)
-        assertEquals(expected = allSpells.size - 1, actual = body.spells.size)
-        assertTrue(body.spells.none { it.id == spell.id })
+        val body = assertIs<ListDetailState.Body.WithData<Spell>>(viewModel.state.value.body)
+        assertEquals(expected = allSpells.size - 1, actual = body.items.size)
+        assertTrue(body.items.none { it.id == spell.id })
     }
 
     @Test
-    fun `removeSpell transitions to Empty when last spell removed`() = runTest(testDispatcher) {
+    fun `removeItem transitions to Empty when last spell removed`() = runTest(testDispatcher) {
         val list = UserList("list1", "My spellbook", UserList.Type.SPELL, listOf(spell.id))
         userListRepository.save(list)
 
-        val viewModel = SpellListDetailViewModel("list1", userListRepository, spellRepository)
+        val viewModel = buildViewModel("list1")
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -143,11 +149,11 @@ class SpellListDetailViewModelTest {
 
         advanceUntilIdle()
 
-        viewModel.removeSpell(spell.id)
+        viewModel.removeItem(spell.id)
 
         advanceUntilIdle()
 
-        assertIs<SpellListDetailState.Body.EmptyList>(viewModel.state.value.body)
+        assertIs<ListDetailState.Body.EmptyList>(viewModel.state.value.body)
     }
 }
 
