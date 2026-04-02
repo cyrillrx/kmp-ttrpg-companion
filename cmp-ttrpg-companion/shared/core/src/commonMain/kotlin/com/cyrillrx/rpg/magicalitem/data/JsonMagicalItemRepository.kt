@@ -24,6 +24,11 @@ class JsonMagicalItemRepository(private val fileReader: FileReader) : MagicalIte
     override suspend fun getById(id: String): MagicalItem? =
         getAll(null).firstOrNull { it.id == id }
 
+    override suspend fun getByIds(ids: List<String>): List<MagicalItem> {
+        val all = getAll(null).associateBy { it.id }
+        return ids.mapNotNull { all[it] }
+    }
+
     private suspend fun loadFromFile(): List<ApiInventoryItem> {
         val result = fileReader.readFile("files/objets-magiques.json")
         if (result is Result.Success) {

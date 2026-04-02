@@ -43,7 +43,7 @@ class MagicalItemListDetailViewModel(
                 val list = userListRepository.get(listId) ?: error("error_while_loading_user_list")
                 state.update { it.copy(listName = list.name) }
 
-                val magicalItems = list.itemIds.mapNotNull { magicalItemRepository.getById(it) }
+                val magicalItems = magicalItemRepository.getByIds(list.itemIds)
                 val body = if (magicalItems.isEmpty()) {
                     MagicalItemListDetailState.Body.EmptyList
                 } else {

@@ -26,6 +26,11 @@ class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository 
     override suspend fun getById(id: String): Spell? =
         getAll(null).firstOrNull { it.id == id }
 
+    override suspend fun getByIds(ids: List<String>): List<Spell> {
+        val all = getAll(null).associateBy { it.id }
+        return ids.mapNotNull { all[it] }
+    }
+
     private suspend fun loadFromFile(): List<ApiSpell> {
         val result = fileReader.readFile("files/grimoire.json")
         if (result is Result.Success) {

@@ -43,7 +43,7 @@ class SpellListDetailViewModel(
                 val list = userListRepository.get(listId) ?: error("error_while_loading_user_list")
                 state.update { it.copy(listName = list.name) }
 
-                val spells = list.itemIds.mapNotNull { spellRepository.getById(it) }
+                val spells = spellRepository.getByIds(list.itemIds)
                 val body = if (spells.isEmpty()) {
                     SpellListDetailState.Body.EmptyList
                 } else {
