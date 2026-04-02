@@ -17,9 +17,10 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import com.cyrillrx.rpg.magicalitem.presentation.component.MagicalItemListItem
-import com.cyrillrx.rpg.userlist.presentation.EntityUiProvider
+import com.cyrillrx.rpg.userlist.presentation.HeaderProvider
+import com.cyrillrx.rpg.userlist.presentation.DeletableItemProvider
 
-class MagicalItemUiProvider : EntityUiProvider<MagicalItem> {
+class MagicalItemUiProvider : DeletableItemProvider<MagicalItem>, HeaderProvider<MagicalItem> {
 
     override fun getId(entity: MagicalItem): String = entity.id
 

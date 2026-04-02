@@ -17,9 +17,10 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.presentation.component.CreatureCompactListItem
-import com.cyrillrx.rpg.userlist.presentation.EntityUiProvider
+import com.cyrillrx.rpg.userlist.presentation.HeaderProvider
+import com.cyrillrx.rpg.userlist.presentation.DeletableItemProvider
 
-class CreatureUiProvider : EntityUiProvider<Creature> {
+class CreatureUiProvider : DeletableItemProvider<Creature>, HeaderProvider<Creature> {
 
     override fun getId(entity: Creature): String = entity.id
 

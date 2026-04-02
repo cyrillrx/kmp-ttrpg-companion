@@ -95,7 +95,7 @@ fun NavGraphBuilder.handleCreatureRoutes(
         )
         AddToListScreen(
             viewModel = viewModel,
-            uiProvider = CreatureUiProvider(),
+            headerProvider = CreatureUiProvider(),
             onNavigateUp = { navController.navigateUp() },
         )
     }

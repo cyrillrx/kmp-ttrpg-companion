@@ -100,7 +100,7 @@ fun NavGraphBuilder.handleSpellRoutes(
         )
         AddToListScreen(
             viewModel = viewModel,
-            uiProvider = SpellUiProvider(),
+            headerProvider = SpellUiProvider(),
             onNavigateUp = { navController.navigateUp() },
         )
     }

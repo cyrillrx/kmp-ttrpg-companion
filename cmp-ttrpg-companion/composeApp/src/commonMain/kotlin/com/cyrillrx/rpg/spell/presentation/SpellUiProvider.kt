@@ -22,9 +22,10 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.presentation.component.SpellListItem
-import com.cyrillrx.rpg.userlist.presentation.EntityUiProvider
+import com.cyrillrx.rpg.userlist.presentation.HeaderProvider
+import com.cyrillrx.rpg.userlist.presentation.DeletableItemProvider
 
-class SpellUiProvider : EntityUiProvider<Spell> {
+class SpellUiProvider : DeletableItemProvider<Spell>, HeaderProvider<Spell> {
 
     override fun getId(entity: Spell): String = entity.id
 

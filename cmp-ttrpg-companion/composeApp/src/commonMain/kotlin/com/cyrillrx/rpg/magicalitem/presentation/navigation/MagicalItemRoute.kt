@@ -95,7 +95,7 @@ fun NavGraphBuilder.handleMagicalItemRoutes(
         )
         AddToListScreen(
             viewModel = viewModel,
-            uiProvider = MagicalItemUiProvider(),
+            headerProvider = MagicalItemUiProvider(),
             onNavigateUp = { navController.navigateUp() },
         )
     }

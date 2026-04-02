@@ -27,12 +27,16 @@ import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
 import com.cyrillrx.rpg.core.presentation.component.dialog.ConfirmDeleteDialog
+import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
-import com.cyrillrx.rpg.userlist.presentation.EntityUiProvider
+import com.cyrillrx.rpg.spell.data.SampleSpellRepository
+import com.cyrillrx.rpg.spell.presentation.SpellUiProvider
+import com.cyrillrx.rpg.userlist.presentation.DeletableItemProvider
 import com.cyrillrx.rpg.userlist.presentation.ListDetailState
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.ListDetailViewModel
 import org.jetbrains.compose.resources.stringResource
+import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.dialog_remove_from_list_message
 import rpg_companion.composeapp.generated.resources.message_list_is_empty
@@ -40,7 +44,7 @@ import rpg_companion.composeapp.generated.resources.message_list_is_empty
 @Composable
 fun <T> ListDetailScreen(
     viewModel: ListDetailViewModel<T>,
-    uiProvider: EntityUiProvider<T>,
+    uiProvider: DeletableItemProvider<T>,
     onNavigateUpClicked: () -> Unit,
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
@@ -55,7 +59,7 @@ fun <T> ListDetailScreen(
 @Composable
 fun <T> ListDetailScreen(
     state: ListDetailState<T>,
-    uiProvider: EntityUiProvider<T>,
+    uiProvider: DeletableItemProvider<T>,
     onNavigateUpClicked: () -> Unit,
     onRemoveItemClicked: (String) -> Unit,
 ) {
@@ -103,7 +107,7 @@ fun <T> ListDetailScreen(
 @Composable
 private fun <T> EntityDetailList(
     items: List<T>,
-    uiProvider: EntityUiProvider<T>,
+    uiProvider: DeletableItemProvider<T>,
     onRemoveItem: (T) -> Unit,
 ) {
     LazyColumn(
@@ -129,5 +133,32 @@ private fun <T> EntityDetailList(
                 }
             }
         }
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewListDetailScreenLight() {
+    ListDetailScreenPreview(darkTheme = false)
+}
+
+@Preview
+@Composable
+private fun PreviewListDetailScreenDark() {
+    ListDetailScreenPreview(darkTheme = true)
+}
+
+@Composable
+private fun ListDetailScreenPreview(darkTheme: Boolean) {
+    AppThemePreview(darkTheme = darkTheme) {
+        ListDetailScreen(
+            state = ListDetailState(
+                listName = "Gandalf's Spells",
+                body = ListDetailState.Body.WithData(SampleSpellRepository.getAll()),
+            ),
+            uiProvider = SpellUiProvider(),
+            onNavigateUpClicked = {},
+            onRemoveItemClicked = {},
+        )
     }
 }

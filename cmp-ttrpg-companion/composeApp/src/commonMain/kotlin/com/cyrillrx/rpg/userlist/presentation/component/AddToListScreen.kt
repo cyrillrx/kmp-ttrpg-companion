@@ -22,13 +22,18 @@ import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
 import com.cyrillrx.rpg.core.presentation.component.dialog.CreateListDialog
+import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
+import com.cyrillrx.rpg.spell.data.SampleSpellRepository
+import com.cyrillrx.rpg.spell.presentation.SpellUiProvider
+import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
 import com.cyrillrx.rpg.userlist.presentation.AddToListState
-import com.cyrillrx.rpg.userlist.presentation.EntityUiProvider
+import com.cyrillrx.rpg.userlist.presentation.HeaderProvider
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddToListViewModel
 import org.jetbrains.compose.resources.stringResource
+import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.btn_add_to_list
 import rpg_companion.composeapp.generated.resources.btn_confirm
@@ -37,7 +42,7 @@ import rpg_companion.composeapp.generated.resources.btn_create_list
 @Composable
 fun <T> AddToListScreen(
     viewModel: AddToListViewModel<T>,
-    uiProvider: EntityUiProvider<T>,
+    headerProvider: HeaderProvider<T>,
     onNavigateUp: () -> Unit,
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
@@ -53,7 +58,7 @@ fun <T> AddToListScreen(
 
     AddToListScreenContent(
         body = state.body,
-        uiProvider = uiProvider,
+        headerProvider = headerProvider,
         onNavigateUp = onNavigateUp,
         onToggleSelection = viewModel::toggleSelection,
         onConfirm = viewModel::confirmSelection,
@@ -74,7 +79,7 @@ fun <T> AddToListScreen(
 @Composable
 private fun <T> AddToListScreenContent(
     body: AddToListState.Body<T>,
-    uiProvider: EntityUiProvider<T>,
+    headerProvider: HeaderProvider<T>,
     onNavigateUp: () -> Unit,
     onToggleSelection: (String) -> Unit,
     onConfirm: () -> Unit,
@@ -111,7 +116,7 @@ private fun <T> AddToListScreenContent(
                 is AddToListState.Body.Loading -> item { Loader() }
                 is AddToListState.Body.Error -> item { ErrorLayout(body.errorMessage) }
                 is AddToListState.Body.WithData -> {
-                    item { uiProvider.Header(body.item) }
+                    item { headerProvider.Header(body.item) }
                     items(body.selectableLists, key = { it.list.id }) { item ->
                         SelectableUserListItem(
                             name = item.list.name,
@@ -132,5 +137,38 @@ private fun <T> AddToListScreenContent(
                 }
             }
         }
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewAddToListScreenLight() {
+    AddToListScreenPreview(darkTheme = false)
+}
+
+@Preview
+@Composable
+private fun PreviewAddToListScreenDark() {
+    AddToListScreenPreview(darkTheme = true)
+}
+
+@Composable
+private fun AddToListScreenPreview(darkTheme: Boolean) {
+    val spell = SampleSpellRepository.getFirst()
+    val body = AddToListState.Body.WithData(
+        item = spell,
+        selectableLists = SampleUserListRepository.getAll().map {
+            AddToListState.SelectableUserList(it, alreadyAdded = it.itemIds.contains(spell.id))
+        },
+    )
+    AppThemePreview(darkTheme = darkTheme) {
+        AddToListScreenContent(
+            body = body,
+            headerProvider = SpellUiProvider(),
+            onNavigateUp = {},
+            onToggleSelection = {},
+            onConfirm = {},
+            onCreateListClicked = {},
+        )
     }
 }
