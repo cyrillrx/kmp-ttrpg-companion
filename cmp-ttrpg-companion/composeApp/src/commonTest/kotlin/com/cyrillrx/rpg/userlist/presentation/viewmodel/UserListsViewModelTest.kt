@@ -2,7 +2,6 @@ package com.cyrillrx.rpg.userlist.presentation.viewmodel
 
 import com.cyrillrx.rpg.userlist.data.RamUserListRepository
 import com.cyrillrx.rpg.userlist.domain.UserList
-import com.cyrillrx.rpg.userlist.domain.UserListRepository
 import com.cyrillrx.rpg.userlist.presentation.UserListsState
 import com.cyrillrx.rpg.userlist.presentation.navigation.UserListRouter
 import kotlinx.coroutines.Dispatchers
@@ -154,13 +153,6 @@ class UserListsViewModelTest {
 
 private class NoOpUserListRouter : UserListRouter {
     override fun navigateUp() = Unit
-}
-
-private class FailingUserListRepository : UserListRepository {
-    override suspend fun getAll(type: UserList.Type): List<UserList> = error("Repository failure")
-    override suspend fun get(id: String): UserList? = null
-    override suspend fun save(list: UserList) = Unit
-    override suspend fun delete(id: String) = Unit
 }
 
 private class TrackingUserListRouter : UserListRouter {
