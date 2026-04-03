@@ -8,7 +8,8 @@ import androidx.navigation.toRoute
 import com.cyrillrx.rpg.creature.data.CreatureEntityRepository
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.CreatureRepository
-import com.cyrillrx.rpg.creature.presentation.CreatureUiProvider
+import com.cyrillrx.rpg.creature.presentation.CreatureHeaderProvider
+import com.cyrillrx.rpg.creature.presentation.CreatureItemProvider
 import com.cyrillrx.rpg.creature.presentation.component.CreatureCompactListScreen
 import com.cyrillrx.rpg.creature.presentation.component.CreatureDetailScreen
 import com.cyrillrx.rpg.creature.presentation.component.CreatureListScreen
@@ -75,9 +76,9 @@ fun NavGraphBuilder.handleCreatureRoutes(
 
     composable<CreatureRoute.Detail> { entry ->
         val router = CreatureRouterImpl(navController)
-        val id = entry.toRoute<CreatureRoute.Detail>().creatureId
+        val creatureId = entry.toRoute<CreatureRoute.Detail>().creatureId
         val viewModel = viewModel<CreatureDetailViewModel>(
-            factory = CreatureDetailViewModelFactory(id, repository),
+            factory = CreatureDetailViewModelFactory(creatureId, repository),
         )
         CreatureDetailScreen(viewModel = viewModel, router = router)
     }
@@ -95,7 +96,7 @@ fun NavGraphBuilder.handleCreatureRoutes(
         )
         AddToListScreen(
             viewModel = viewModel,
-            headerProvider = CreatureUiProvider(),
+            headerProvider = CreatureHeaderProvider(),
             onNavigateUp = { navController.navigateUp() },
         )
     }
@@ -116,10 +117,11 @@ fun NavGraphBuilder.handleCreatureRoutes(
         val viewModel = viewModel<ListDetailViewModel<Creature>>(
             factory = ListDetailViewModelFactory(listId, userListRepository, CreatureEntityRepository(repository)),
         )
+        val router = CreatureRouterImpl(navController)
         ListDetailScreen(
             viewModel = viewModel,
-            uiProvider = CreatureUiProvider(),
-            onNavigateUpClicked = { navController.navigateUp() },
+            itemProvider = CreatureItemProvider(onItemClicked = router::openDetail),
+            onNavigateUp = { navController.navigateUp() },
         )
     }
 }

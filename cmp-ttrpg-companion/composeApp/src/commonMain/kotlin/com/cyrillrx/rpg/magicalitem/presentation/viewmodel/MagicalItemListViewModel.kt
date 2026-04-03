@@ -39,7 +39,7 @@ class MagicalItemListViewModel(
     }
 
     fun onItemClicked(magicalItem: MagicalItem) {
-        router.openMagicalItemDetail(magicalItem)
+        router.openDetail(magicalItem.id)
     }
 
     fun onTypeToggled(type: MagicalItem.Type) {

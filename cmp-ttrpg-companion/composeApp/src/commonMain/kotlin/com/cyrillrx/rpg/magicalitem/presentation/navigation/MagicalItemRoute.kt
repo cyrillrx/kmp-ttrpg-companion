@@ -8,7 +8,8 @@ import androidx.navigation.toRoute
 import com.cyrillrx.rpg.magicalitem.data.MagicalItemEntityRepository
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemRepository
-import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemUiProvider
+import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemHeaderProvider
+import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemItemProvider
 import com.cyrillrx.rpg.magicalitem.presentation.component.MagicalItemCardCarouselScreen
 import com.cyrillrx.rpg.magicalitem.presentation.component.MagicalItemCardScreen
 import com.cyrillrx.rpg.magicalitem.presentation.component.MagicalItemListScreen
@@ -95,7 +96,7 @@ fun NavGraphBuilder.handleMagicalItemRoutes(
         )
         AddToListScreen(
             viewModel = viewModel,
-            headerProvider = MagicalItemUiProvider(),
+            headerProvider = MagicalItemHeaderProvider(),
             onNavigateUp = { navController.navigateUp() },
         )
     }
@@ -116,10 +117,11 @@ fun NavGraphBuilder.handleMagicalItemRoutes(
         val viewModel = viewModel<ListDetailViewModel<MagicalItem>>(
             factory = ListDetailViewModelFactory(listId, userListRepository, MagicalItemEntityRepository(repository)),
         )
+        val router = MagicalItemRouterImpl(navController)
         ListDetailScreen(
             viewModel = viewModel,
-            uiProvider = MagicalItemUiProvider(),
-            onNavigateUpClicked = { navController.navigateUp() },
+            itemProvider = MagicalItemItemProvider(onItemClicked = router::openDetail),
+            onNavigateUp = { navController.navigateUp() },
         )
     }
 }

@@ -1,11 +1,10 @@
 package com.cyrillrx.rpg.spell.presentation.navigation
 
 import androidx.navigation.NavController
-import com.cyrillrx.rpg.spell.domain.Spell
 
 interface SpellRouter {
     fun navigateUp()
-    fun openSpellDetail(spell: Spell)
+    fun openDetail(id: String)
     fun openMySpellLists() {}
     fun openSpellListDetail(listId: String) {}
     fun openAddToList(spellId: String) {}
@@ -16,8 +15,8 @@ class SpellRouterImpl(private val navController: NavController) : SpellRouter {
         navController.navigateUp()
     }
 
-    override fun openSpellDetail(spell: Spell) {
-        navController.navigate(SpellRoute.Detail(spell.id))
+    override fun openDetail(id: String) {
+        navController.navigate(SpellRoute.Detail(id))
     }
 
     override fun openMySpellLists() {

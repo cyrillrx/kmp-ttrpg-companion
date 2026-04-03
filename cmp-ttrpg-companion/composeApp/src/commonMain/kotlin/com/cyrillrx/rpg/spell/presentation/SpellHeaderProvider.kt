@@ -21,15 +21,9 @@ import com.cyrillrx.rpg.core.presentation.theme.iconSizeMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.spell.domain.Spell
-import com.cyrillrx.rpg.spell.presentation.component.SpellListItem
 import com.cyrillrx.rpg.userlist.presentation.HeaderProvider
-import com.cyrillrx.rpg.userlist.presentation.DeletableItemProvider
 
-class SpellUiProvider : DeletableItemProvider<Spell>, HeaderProvider<Spell> {
-
-    override fun getId(entity: Spell): String = entity.id
-
-    override fun getDisplayName(entity: Spell): String = entity.title
+class SpellHeaderProvider : HeaderProvider<Spell> {
 
     @Composable
     override fun Header(entity: Spell) {
@@ -65,10 +59,5 @@ class SpellUiProvider : DeletableItemProvider<Spell>, HeaderProvider<Spell> {
             }
             HorizontalDivider(modifier = Modifier.padding(spacingMedium))
         }
-    }
-
-    @Composable
-    override fun ListItem(entity: Spell, modifier: Modifier) {
-        SpellListItem(spell = entity, onClick = {}, modifier = modifier)
     }
 }

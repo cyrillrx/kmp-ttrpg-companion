@@ -10,7 +10,8 @@ import androidx.navigation.toRoute
 import com.cyrillrx.rpg.spell.data.SpellEntityRepository
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.domain.SpellRepository
-import com.cyrillrx.rpg.spell.presentation.SpellUiProvider
+import com.cyrillrx.rpg.spell.presentation.SpellHeaderProvider
+import com.cyrillrx.rpg.spell.presentation.SpellItemProvider
 import com.cyrillrx.rpg.spell.presentation.component.SpellCardCarouselScreen
 import com.cyrillrx.rpg.spell.presentation.component.SpellCardScreen
 import com.cyrillrx.rpg.spell.presentation.component.SpellListScreen
@@ -80,9 +81,9 @@ fun NavGraphBuilder.handleSpellRoutes(
 
     composable<SpellRoute.Detail> { entry ->
         val router = SpellRouterImpl(navController)
-        val id = entry.toRoute<SpellRoute.Detail>().spellId
+        val spellId = entry.toRoute<SpellRoute.Detail>().spellId
         val viewModel = viewModel<SpellDetailViewModel>(
-            factory = SpellDetailViewModelFactory(id, spellRepository),
+            factory = SpellDetailViewModelFactory(spellId, spellRepository),
         )
         SpellCardScreen(viewModel = viewModel, router = router)
     }
@@ -100,7 +101,7 @@ fun NavGraphBuilder.handleSpellRoutes(
         )
         AddToListScreen(
             viewModel = viewModel,
-            headerProvider = SpellUiProvider(),
+            headerProvider = SpellHeaderProvider(),
             onNavigateUp = { navController.navigateUp() },
         )
     }
@@ -121,10 +122,11 @@ fun NavGraphBuilder.handleSpellRoutes(
         val viewModel = viewModel<ListDetailViewModel<Spell>>(
             factory = ListDetailViewModelFactory(listId, userListRepository, SpellEntityRepository(spellRepository)),
         )
+        val router = SpellRouterImpl(navController)
         ListDetailScreen(
             viewModel = viewModel,
-            uiProvider = SpellUiProvider(),
-            onNavigateUpClicked = { navController.navigateUp() },
+            itemProvider = SpellItemProvider(onItemClicked = router::openDetail),
+            onNavigateUp = { navController.navigateUp() },
         )
     }
 }

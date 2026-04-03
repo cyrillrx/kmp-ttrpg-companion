@@ -3,7 +3,7 @@ package com.cyrillrx.rpg.userlist.presentation
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
-interface DeletableItemProvider<T> {
+interface ListItemProvider<T> {
     fun getId(entity: T): String
     fun getDisplayName(entity: T): String
 

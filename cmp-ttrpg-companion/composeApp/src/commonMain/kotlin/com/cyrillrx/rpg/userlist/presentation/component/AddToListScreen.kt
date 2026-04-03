@@ -27,7 +27,7 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
-import com.cyrillrx.rpg.spell.presentation.SpellUiProvider
+import com.cyrillrx.rpg.spell.presentation.SpellHeaderProvider
 import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
 import com.cyrillrx.rpg.userlist.presentation.AddToListState
 import com.cyrillrx.rpg.userlist.presentation.HeaderProvider
@@ -164,7 +164,7 @@ private fun AddToListScreenPreview(darkTheme: Boolean) {
     AppThemePreview(darkTheme = darkTheme) {
         AddToListScreenContent(
             body = body,
-            headerProvider = SpellUiProvider(),
+            headerProvider = SpellHeaderProvider(),
             onNavigateUp = {},
             onToggleSelection = {},
             onConfirm = {},

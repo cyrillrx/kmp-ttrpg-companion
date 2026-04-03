@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.spell.presentation.viewmodel
+package com.cyrillrx.rpg.userlist.presentation.viewmodel
 
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.spell.data.SpellEntityRepository
@@ -7,7 +7,6 @@ import com.cyrillrx.rpg.userlist.data.RamUserListRepository
 import com.cyrillrx.rpg.userlist.domain.UserList
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
 import com.cyrillrx.rpg.userlist.presentation.ListDetailState
-import com.cyrillrx.rpg.userlist.presentation.viewmodel.ListDetailViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
@@ -25,7 +24,7 @@ import kotlin.test.assertIs
 import kotlin.test.assertTrue
 
 @OptIn(ExperimentalCoroutinesApi::class)
-class SpellListDetailViewModelTest {
+class ListDetailViewModelTest {
 
     private val testDispatcher = StandardTestDispatcher()
     private val spellRepository = SpellEntityRepository(SampleSpellRepository())
@@ -155,11 +154,4 @@ class SpellListDetailViewModelTest {
 
         assertIs<ListDetailState.Body.EmptyList>(viewModel.state.value.body)
     }
-}
-
-private class FailingUserListRepository : UserListRepository {
-    override suspend fun getAll(type: UserList.Type): List<UserList> = error("Repository failure")
-    override suspend fun get(id: String): UserList = error("Repository failure")
-    override suspend fun save(list: UserList) = Unit
-    override suspend fun delete(id: String) = Unit
 }

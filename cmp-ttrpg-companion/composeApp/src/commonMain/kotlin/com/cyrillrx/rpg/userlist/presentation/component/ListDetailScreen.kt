@@ -31,9 +31,9 @@ import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
-import com.cyrillrx.rpg.spell.presentation.SpellUiProvider
-import com.cyrillrx.rpg.userlist.presentation.DeletableItemProvider
+import com.cyrillrx.rpg.spell.presentation.SpellItemProvider
 import com.cyrillrx.rpg.userlist.presentation.ListDetailState
+import com.cyrillrx.rpg.userlist.presentation.ListItemProvider
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.ListDetailViewModel
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -44,14 +44,14 @@ import rpg_companion.composeapp.generated.resources.message_list_is_empty
 @Composable
 fun <T> ListDetailScreen(
     viewModel: ListDetailViewModel<T>,
-    uiProvider: DeletableItemProvider<T>,
-    onNavigateUpClicked: () -> Unit,
+    itemProvider: ListItemProvider<T>,
+    onNavigateUp: () -> Unit,
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     ListDetailScreen(
         state = state,
-        uiProvider = uiProvider,
-        onNavigateUpClicked = onNavigateUpClicked,
+        itemProvider = itemProvider,
+        onNavigateUpClicked = onNavigateUp,
         onRemoveItemClicked = viewModel::removeItem,
     )
 }
@@ -59,7 +59,7 @@ fun <T> ListDetailScreen(
 @Composable
 fun <T> ListDetailScreen(
     state: ListDetailState<T>,
-    uiProvider: DeletableItemProvider<T>,
+    itemProvider: ListItemProvider<T>,
     onNavigateUpClicked: () -> Unit,
     onRemoveItemClicked: (String) -> Unit,
 ) {
@@ -85,7 +85,7 @@ fun <T> ListDetailScreen(
                 is ListDetailState.Body.Error -> ErrorLayout(body.errorMessage)
                 is ListDetailState.Body.WithData -> EntityDetailList(
                     items = body.items,
-                    uiProvider = uiProvider,
+                    uiProvider = itemProvider,
                     onRemoveItem = { itemToRemove = it },
                 )
             }
@@ -94,9 +94,9 @@ fun <T> ListDetailScreen(
 
     itemToRemove?.let { item ->
         ConfirmDeleteDialog(
-            message = stringResource(Res.string.dialog_remove_from_list_message, uiProvider.getDisplayName(item)),
+            message = stringResource(Res.string.dialog_remove_from_list_message, itemProvider.getDisplayName(item)),
             onConfirm = {
-                onRemoveItemClicked(uiProvider.getId(item))
+                onRemoveItemClicked(itemProvider.getId(item))
                 itemToRemove = null
             },
             onDismiss = { itemToRemove = null },
@@ -107,7 +107,7 @@ fun <T> ListDetailScreen(
 @Composable
 private fun <T> EntityDetailList(
     items: List<T>,
-    uiProvider: DeletableItemProvider<T>,
+    uiProvider: ListItemProvider<T>,
     onRemoveItem: (T) -> Unit,
 ) {
     LazyColumn(
@@ -156,7 +156,7 @@ private fun ListDetailScreenPreview(darkTheme: Boolean) {
                 listName = "Gandalf's Spells",
                 body = ListDetailState.Body.WithData(SampleSpellRepository.getAll()),
             ),
-            uiProvider = SpellUiProvider(),
+            itemProvider = SpellItemProvider(onItemClicked = {}),
             onNavigateUpClicked = {},
             onRemoveItemClicked = {},
         )
