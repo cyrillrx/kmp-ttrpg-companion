@@ -121,10 +121,11 @@ fun NavGraphBuilder.handleSpellRoutes(
         val viewModel = viewModel<ListDetailViewModel<Spell>>(
             factory = ListDetailViewModelFactory(listId, userListRepository, SpellEntityRepository(spellRepository)),
         )
+        val router = SpellRouterImpl(navController)
         ListDetailScreen(
             viewModel = viewModel,
+            router = router,
             uiProvider = SpellUiProvider(),
-            onNavigateUpClicked = { navController.navigateUp() },
         )
     }
 }

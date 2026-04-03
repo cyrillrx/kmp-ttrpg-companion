@@ -40,7 +40,7 @@ class SpellListViewModel(
     }
 
     fun onSpellClicked(spell: Spell) {
-        router.openSpellDetail(spell)
+        router.openDetail(spell.id)
     }
 
     fun onLevelToggled(level: Int) {

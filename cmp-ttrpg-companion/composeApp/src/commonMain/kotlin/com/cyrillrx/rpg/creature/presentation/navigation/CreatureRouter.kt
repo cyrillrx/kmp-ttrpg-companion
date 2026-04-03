@@ -1,21 +1,21 @@
 package com.cyrillrx.rpg.creature.presentation.navigation
 
 import androidx.navigation.NavController
-import com.cyrillrx.rpg.creature.domain.Creature
+import com.cyrillrx.rpg.userlist.presentation.navigation.ListDetailRouter
 
 interface CreatureRouter {
     fun navigateUp()
-    fun openCreatureDetail(creature: Creature)
+    fun openDetail(id: String)
     fun openAddToList(creatureId: String) {}
 }
 
-class CreatureRouterImpl(private val navController: NavController) : CreatureRouter {
+class CreatureRouterImpl(private val navController: NavController) : CreatureRouter, ListDetailRouter {
     override fun navigateUp() {
         navController.navigateUp()
     }
 
-    override fun openCreatureDetail(creature: Creature) {
-        navController.navigate(CreatureRoute.Detail(creature.id))
+    override fun openDetail(id: String) {
+        navController.navigate(CreatureRoute.Detail(id))
     }
 
     override fun openAddToList(creatureId: String) {

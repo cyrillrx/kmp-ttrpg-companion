@@ -1,5 +1,6 @@
 package com.cyrillrx.rpg.userlist.presentation.component
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -34,6 +35,7 @@ import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.spell.presentation.SpellUiProvider
 import com.cyrillrx.rpg.userlist.presentation.DeletableItemProvider
 import com.cyrillrx.rpg.userlist.presentation.ListDetailState
+import com.cyrillrx.rpg.userlist.presentation.navigation.ListDetailRouter
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.ListDetailViewModel
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -44,15 +46,16 @@ import rpg_companion.composeapp.generated.resources.message_list_is_empty
 @Composable
 fun <T> ListDetailScreen(
     viewModel: ListDetailViewModel<T>,
+    router: ListDetailRouter,
     uiProvider: DeletableItemProvider<T>,
-    onNavigateUpClicked: () -> Unit,
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     ListDetailScreen(
         state = state,
         uiProvider = uiProvider,
-        onNavigateUpClicked = onNavigateUpClicked,
+        onNavigateUpClicked = router::navigateUp,
         onRemoveItemClicked = viewModel::removeItem,
+        onItemClicked = router::openDetail,
     )
 }
 
@@ -62,6 +65,7 @@ fun <T> ListDetailScreen(
     uiProvider: DeletableItemProvider<T>,
     onNavigateUpClicked: () -> Unit,
     onRemoveItemClicked: (String) -> Unit,
+    onItemClicked: (String) -> Unit = {},
 ) {
     var itemToRemove by remember { mutableStateOf<T?>(null) }
 
@@ -86,6 +90,7 @@ fun <T> ListDetailScreen(
                 is ListDetailState.Body.WithData -> EntityDetailList(
                     items = body.items,
                     uiProvider = uiProvider,
+                    onItemClicked = onItemClicked,
                     onRemoveItem = { itemToRemove = it },
                 )
             }
@@ -108,6 +113,7 @@ fun <T> ListDetailScreen(
 private fun <T> EntityDetailList(
     items: List<T>,
     uiProvider: DeletableItemProvider<T>,
+    onItemClicked: (String) -> Unit,
     onRemoveItem: (T) -> Unit,
 ) {
     LazyColumn(
@@ -118,7 +124,9 @@ private fun <T> EntityDetailList(
         items(items, key = { uiProvider.getId(it) }) { item ->
             Row(
                 verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable { onItemClicked(uiProvider.getId(item)) },
             ) {
                 uiProvider.ListItem(
                     entity = item,

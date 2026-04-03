@@ -45,7 +45,7 @@ fun SpellListScreen(viewModel: SpellListViewModel, router: SpellRouter) {
         state = state,
         onNavigateUpClicked = router::navigateUp,
         onSearchQueryChanged = viewModel::onSearchQueryChanged,
-        onSpellClicked = router::openSpellDetail,
+        onSpellClicked = { spell -> router.openDetail(spell.id) },
         onLevelToggled = viewModel::onLevelToggled,
         onSchoolToggled = viewModel::onSchoolToggled,
         onClassToggled = viewModel::onClassToggled,

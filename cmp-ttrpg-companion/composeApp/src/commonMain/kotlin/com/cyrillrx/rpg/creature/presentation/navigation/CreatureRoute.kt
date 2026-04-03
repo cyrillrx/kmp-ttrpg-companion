@@ -116,10 +116,11 @@ fun NavGraphBuilder.handleCreatureRoutes(
         val viewModel = viewModel<ListDetailViewModel<Creature>>(
             factory = ListDetailViewModelFactory(listId, userListRepository, CreatureEntityRepository(repository)),
         )
+        val router = CreatureRouterImpl(navController)
         ListDetailScreen(
             viewModel = viewModel,
+            router = router,
             uiProvider = CreatureUiProvider(),
-            onNavigateUpClicked = { navController.navigateUp() },
         )
     }
 }
