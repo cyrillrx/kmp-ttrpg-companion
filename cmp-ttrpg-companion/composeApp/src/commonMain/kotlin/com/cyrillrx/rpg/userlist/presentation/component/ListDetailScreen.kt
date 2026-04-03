@@ -1,6 +1,5 @@
 package com.cyrillrx.rpg.userlist.presentation.component
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -32,10 +31,9 @@ import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
-import com.cyrillrx.rpg.spell.presentation.SpellUiProvider
-import com.cyrillrx.rpg.userlist.presentation.DeletableItemProvider
+import com.cyrillrx.rpg.spell.presentation.SpellItemProvider
 import com.cyrillrx.rpg.userlist.presentation.ListDetailState
-import com.cyrillrx.rpg.userlist.presentation.navigation.ListDetailRouter
+import com.cyrillrx.rpg.userlist.presentation.ListItemProvider
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.ListDetailViewModel
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -46,26 +44,24 @@ import rpg_companion.composeapp.generated.resources.message_list_is_empty
 @Composable
 fun <T> ListDetailScreen(
     viewModel: ListDetailViewModel<T>,
-    router: ListDetailRouter,
-    uiProvider: DeletableItemProvider<T>,
+    itemProvider: ListItemProvider<T>,
+    onNavigateUp: () -> Unit,
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     ListDetailScreen(
         state = state,
-        uiProvider = uiProvider,
-        onNavigateUpClicked = router::navigateUp,
+        itemProvider = itemProvider,
+        onNavigateUpClicked = onNavigateUp,
         onRemoveItemClicked = viewModel::removeItem,
-        onItemClicked = router::openDetail,
     )
 }
 
 @Composable
 fun <T> ListDetailScreen(
     state: ListDetailState<T>,
-    uiProvider: DeletableItemProvider<T>,
+    itemProvider: ListItemProvider<T>,
     onNavigateUpClicked: () -> Unit,
     onRemoveItemClicked: (String) -> Unit,
-    onItemClicked: (String) -> Unit = {},
 ) {
     var itemToRemove by remember { mutableStateOf<T?>(null) }
 
@@ -89,8 +85,7 @@ fun <T> ListDetailScreen(
                 is ListDetailState.Body.Error -> ErrorLayout(body.errorMessage)
                 is ListDetailState.Body.WithData -> EntityDetailList(
                     items = body.items,
-                    uiProvider = uiProvider,
-                    onItemClicked = onItemClicked,
+                    uiProvider = itemProvider,
                     onRemoveItem = { itemToRemove = it },
                 )
             }
@@ -99,9 +94,9 @@ fun <T> ListDetailScreen(
 
     itemToRemove?.let { item ->
         ConfirmDeleteDialog(
-            message = stringResource(Res.string.dialog_remove_from_list_message, uiProvider.getDisplayName(item)),
+            message = stringResource(Res.string.dialog_remove_from_list_message, itemProvider.getDisplayName(item)),
             onConfirm = {
-                onRemoveItemClicked(uiProvider.getId(item))
+                onRemoveItemClicked(itemProvider.getId(item))
                 itemToRemove = null
             },
             onDismiss = { itemToRemove = null },
@@ -112,8 +107,7 @@ fun <T> ListDetailScreen(
 @Composable
 private fun <T> EntityDetailList(
     items: List<T>,
-    uiProvider: DeletableItemProvider<T>,
-    onItemClicked: (String) -> Unit,
+    uiProvider: ListItemProvider<T>,
     onRemoveItem: (T) -> Unit,
 ) {
     LazyColumn(
@@ -124,9 +118,7 @@ private fun <T> EntityDetailList(
         items(items, key = { uiProvider.getId(it) }) { item ->
             Row(
                 verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .clickable { onItemClicked(uiProvider.getId(item)) },
+                modifier = Modifier.fillMaxWidth(),
             ) {
                 uiProvider.ListItem(
                     entity = item,
@@ -164,7 +156,7 @@ private fun ListDetailScreenPreview(darkTheme: Boolean) {
                 listName = "Gandalf's Spells",
                 body = ListDetailState.Body.WithData(SampleSpellRepository.getAll()),
             ),
-            uiProvider = SpellUiProvider(),
+            itemProvider = SpellItemProvider(onItemClicked = {}),
             onNavigateUpClicked = {},
             onRemoveItemClicked = {},
         )

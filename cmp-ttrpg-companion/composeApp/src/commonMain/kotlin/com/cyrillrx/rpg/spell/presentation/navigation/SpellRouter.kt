@@ -1,7 +1,6 @@
 package com.cyrillrx.rpg.spell.presentation.navigation
 
 import androidx.navigation.NavController
-import com.cyrillrx.rpg.userlist.presentation.navigation.ListDetailRouter
 
 interface SpellRouter {
     fun navigateUp()
@@ -11,7 +10,7 @@ interface SpellRouter {
     fun openAddToList(spellId: String) {}
 }
 
-class SpellRouterImpl(private val navController: NavController) : SpellRouter, ListDetailRouter {
+class SpellRouterImpl(private val navController: NavController) : SpellRouter {
     override fun navigateUp() {
         navController.navigateUp()
     }

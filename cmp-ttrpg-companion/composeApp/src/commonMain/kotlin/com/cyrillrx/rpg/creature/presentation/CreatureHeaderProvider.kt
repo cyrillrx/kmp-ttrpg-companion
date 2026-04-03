@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.magicalitem.presentation
+package com.cyrillrx.rpg.creature.presentation
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -15,32 +15,26 @@ import androidx.compose.ui.text.style.TextOverflow
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
-import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
-import com.cyrillrx.rpg.magicalitem.presentation.component.MagicalItemListItem
+import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.userlist.presentation.HeaderProvider
-import com.cyrillrx.rpg.userlist.presentation.DeletableItemProvider
 
-class MagicalItemUiProvider : DeletableItemProvider<MagicalItem>, HeaderProvider<MagicalItem> {
-
-    override fun getId(entity: MagicalItem): String = entity.id
-
-    override fun getDisplayName(entity: MagicalItem): String = entity.title
+class CreatureHeaderProvider : HeaderProvider<Creature> {
 
     @Composable
-    override fun Header(entity: MagicalItem) {
+    override fun Header(entity: Creature) {
         Column(
             verticalArrangement = Arrangement.spacedBy(spacingSmall),
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier.fillMaxWidth(),
         ) {
             Text(
-                text = entity.title,
+                text = entity.name,
                 style = MaterialTheme.typography.titleLarge,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.onSurface,
             )
             Text(
-                text = "${entity.type.toFormattedString()} · ${entity.rarity.toFormattedString()}",
+                text = entity.type.toFormattedString(),
                 style = MaterialTheme.typography.bodyLarge,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 maxLines = 1,
@@ -48,10 +42,5 @@ class MagicalItemUiProvider : DeletableItemProvider<MagicalItem>, HeaderProvider
             )
             HorizontalDivider(modifier = Modifier.padding(spacingMedium))
         }
-    }
-
-    @Composable
-    override fun ListItem(entity: MagicalItem, modifier: Modifier) {
-        MagicalItemListItem(magicalItem = entity, onClick = {}, modifier = modifier)
     }
 }

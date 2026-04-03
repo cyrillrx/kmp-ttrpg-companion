@@ -1,7 +1,6 @@
 package com.cyrillrx.rpg.magicalitem.presentation.navigation
 
 import androidx.navigation.NavController
-import com.cyrillrx.rpg.userlist.presentation.navigation.ListDetailRouter
 
 interface MagicalItemRouter {
     fun navigateUp()
@@ -9,7 +8,7 @@ interface MagicalItemRouter {
     fun openAddToList(magicalItemId: String) {}
 }
 
-class MagicalItemRouterImpl(private val navController: NavController) : MagicalItemRouter, ListDetailRouter {
+class MagicalItemRouterImpl(private val navController: NavController) : MagicalItemRouter {
     override fun navigateUp() {
         navController.navigateUp()
     }
