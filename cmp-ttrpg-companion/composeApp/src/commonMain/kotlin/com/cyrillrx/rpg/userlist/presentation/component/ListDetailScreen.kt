@@ -39,7 +39,6 @@ import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.dialog_remove_from_list_message
-import rpg_companion.composeapp.generated.resources.message_list_is_empty
 
 @Composable
 fun <T> ListDetailScreen(
@@ -81,7 +80,7 @@ fun <T> ListDetailScreen(
         ) {
             when (val body = state.body) {
                 is ListDetailState.Body.Loading -> Loader()
-                is ListDetailState.Body.EmptyList -> ErrorLayout(Res.string.message_list_is_empty)
+                is ListDetailState.Body.EmptyList -> itemProvider.EmptyLayout()
                 is ListDetailState.Body.Error -> ErrorLayout(body.errorMessage)
                 is ListDetailState.Body.WithData -> EntityDetailList(
                     items = body.items,

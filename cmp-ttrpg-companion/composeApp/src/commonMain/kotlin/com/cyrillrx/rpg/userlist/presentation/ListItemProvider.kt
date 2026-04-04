@@ -9,4 +9,7 @@ interface ListItemProvider<T> {
 
     @Composable
     fun ListItem(entity: T, modifier: Modifier)
+
+    @Composable
+    fun EmptyLayout()
 }

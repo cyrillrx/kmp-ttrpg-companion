@@ -22,4 +22,8 @@
     <string name="dialog_remove_from_list_message">Are you sure you want to remove "%1$s" from this list?</string>
 
     <string name="message_list_is_empty">The list is empty</string>
+
+    <string name="empty_list_browse_spells">Browse spells</string>
+    <string name="empty_list_browse_creatures">Browse creatures</string>
+    <string name="empty_list_browse_magical_items">Browse magical items</string>
 </resources>

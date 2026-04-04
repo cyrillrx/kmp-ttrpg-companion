@@ -120,7 +120,10 @@ fun NavGraphBuilder.handleMagicalItemRoutes(
         val router = MagicalItemRouterImpl(navController)
         ListDetailScreen(
             viewModel = viewModel,
-            itemProvider = MagicalItemItemProvider(onItemClicked = router::openDetail),
+            itemProvider = MagicalItemItemProvider(
+                onItemClicked = router::openDetail,
+                onAddItemsClicked = { navController.navigate(MagicalItemRoute.List) },
+            ),
             onNavigateUp = { navController.navigateUp() },
         )
     }
