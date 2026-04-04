@@ -6,6 +6,8 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import com.cyrillrx.rpg.userlist.presentation.component.EmptyListLayout
 import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
+import rpg_companion.composeapp.generated.resources.Res
+import rpg_companion.composeapp.generated.resources.message_list_is_empty
 
 interface ListItemProvider<T> {
     fun getId(entity: T): String
@@ -22,6 +24,7 @@ interface ListItemProvider<T> {
     fun EmptyLayout() {
         EmptyListLayout(
             icon = emptyLayoutIcon,
+            message = stringResource(Res.string.message_list_is_empty),
             btnText = stringResource(emptyLayoutBtnText),
             onBtnClicked = onEmptyLayoutBtnClicked,
         )

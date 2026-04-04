@@ -18,14 +18,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
-import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
-import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.message_list_is_empty
 
 @Composable
 fun EmptyListLayout(
     icon: ImageVector,
+    message: String,
     btnText: String,
     onBtnClicked: () -> Unit,
 ) {
@@ -42,7 +40,7 @@ fun EmptyListLayout(
         )
         Spacer(modifier = Modifier.height(16.dp))
         Text(
-            text = stringResource(Res.string.message_list_is_empty),
+            text = message,
             color = MaterialTheme.colorScheme.onBackground,
             style = MaterialTheme.typography.bodyLarge,
         )
@@ -70,6 +68,7 @@ private fun EmptyListLayoutPreview(darkTheme: Boolean) {
     AppThemePreview(darkTheme = darkTheme) {
         EmptyListLayout(
             icon = Icons.AutoMirrored.Outlined.MenuBook,
+            message = "The list is empty",
             btnText = "Browse spells",
             onBtnClicked = {},
         )
