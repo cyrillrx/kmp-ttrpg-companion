@@ -120,7 +120,10 @@ fun NavGraphBuilder.handleCreatureRoutes(
         val router = CreatureRouterImpl(navController)
         ListDetailScreen(
             viewModel = viewModel,
-            itemProvider = CreatureItemProvider(onItemClicked = router::openDetail),
+            itemProvider = CreatureItemProvider(
+                onItemClicked = router::openDetail,
+                onEmptyLayoutBtnClicked = { navController.navigate(CreatureRoute.List) },
+            ),
             onNavigateUp = { navController.navigateUp() },
         )
     }

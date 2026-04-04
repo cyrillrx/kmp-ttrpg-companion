@@ -125,7 +125,10 @@ fun NavGraphBuilder.handleSpellRoutes(
         val router = SpellRouterImpl(navController)
         ListDetailScreen(
             viewModel = viewModel,
-            itemProvider = SpellItemProvider(onItemClicked = router::openDetail),
+            itemProvider = SpellItemProvider(
+                onItemClicked = router::openDetail,
+                onEmptyLayoutBtnClicked = { navController.navigate(SpellRoute.List) },
+            ),
             onNavigateUp = { navController.navigateUp() },
         )
     }
