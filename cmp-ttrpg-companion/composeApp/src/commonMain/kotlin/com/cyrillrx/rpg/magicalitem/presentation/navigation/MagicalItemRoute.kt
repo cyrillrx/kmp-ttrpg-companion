@@ -122,7 +122,7 @@ fun NavGraphBuilder.handleMagicalItemRoutes(
             viewModel = viewModel,
             itemProvider = MagicalItemItemProvider(
                 onItemClicked = router::openDetail,
-                onAddItemsClicked = { navController.navigate(MagicalItemRoute.List) },
+                onEmptyLayoutBtnClicked = { navController.navigate(MagicalItemRoute.List) },
             ),
             onNavigateUp = { navController.navigateUp() },
         )

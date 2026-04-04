@@ -127,7 +127,7 @@ fun NavGraphBuilder.handleSpellRoutes(
             viewModel = viewModel,
             itemProvider = SpellItemProvider(
                 onItemClicked = router::openDetail,
-                onAddItemsClicked = { navController.navigate(SpellRoute.List) },
+                onEmptyLayoutBtnClicked = { navController.navigate(SpellRoute.List) },
             ),
             onNavigateUp = { navController.navigateUp() },
         )

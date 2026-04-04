@@ -122,7 +122,7 @@ fun NavGraphBuilder.handleCreatureRoutes(
             viewModel = viewModel,
             itemProvider = CreatureItemProvider(
                 onItemClicked = router::openDetail,
-                onAddItemsClicked = { navController.navigate(CreatureRoute.List) },
+                onEmptyLayoutBtnClicked = { navController.navigate(CreatureRoute.List) },
             ),
             onNavigateUp = { navController.navigateUp() },
         )
