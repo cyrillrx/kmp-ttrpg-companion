@@ -161,3 +161,30 @@ private fun ListDetailScreenPreview(darkTheme: Boolean) {
         )
     }
 }
+
+@Preview
+@Composable
+private fun PreviewEmptyListDetailScreenLight() {
+    EmptyListDetailScreenPreview(darkTheme = false)
+}
+
+@Preview
+@Composable
+private fun PreviewEmptyListDetailScreenDark() {
+    EmptyListDetailScreenPreview(darkTheme = true)
+}
+
+@Composable
+private fun EmptyListDetailScreenPreview(darkTheme: Boolean) {
+    AppThemePreview(darkTheme = darkTheme) {
+        ListDetailScreen(
+            state = ListDetailState(
+                listName = "Gandalf's Spells",
+                body = ListDetailState.Body.EmptyList,
+            ),
+            itemProvider = SpellItemProvider(onItemClicked = {}),
+            onNavigateUpClicked = {},
+            onRemoveItemClicked = {},
+        )
+    }
+}
