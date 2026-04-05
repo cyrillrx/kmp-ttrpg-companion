@@ -42,6 +42,7 @@ import com.cyrillrx.rpg.userlist.presentation.ListDetailState
 import com.cyrillrx.rpg.userlist.presentation.ListItemProvider
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.ListDetailViewModel
 import kotlinx.coroutines.launch
+import org.jetbrains.compose.resources.getString
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
@@ -76,16 +77,16 @@ fun <T> ListDetailScreen(
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
     val coroutineScope = rememberCoroutineScope()
-    val removedMessage = stringResource(Res.string.snackbar_removed_from_list)
     val undoLabel = stringResource(Res.string.btn_undo)
 
     fun onRemoveItem(item: T) {
-        val message = removedMessage.replace("%s", itemProvider.getDisplayName(item))
         val pending = onRemoveItemOptimistically(itemProvider.getId(item), item) ?: return
 
         coroutineScope.launch {
+            val displayName = itemProvider.getDisplayName(item)
+            val removedMessage = getString(Res.string.snackbar_removed_from_list, displayName)
             val result = snackbarHostState.showSnackbar(
-                message = message,
+                message = removedMessage,
                 actionLabel = undoLabel,
                 duration = SnackbarDuration.Short,
             )
