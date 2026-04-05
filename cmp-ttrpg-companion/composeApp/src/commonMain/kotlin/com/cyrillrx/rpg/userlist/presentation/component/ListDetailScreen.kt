@@ -70,14 +70,31 @@ fun <T> ListDetailScreen(
     state: ListDetailState<T>,
     itemProvider: ListItemProvider<T>,
     onNavigateUpClicked: () -> Unit,
-    onRemoveItemOptimistically: (id: String, item: T) -> Unit,
-    onUndoRemoval: () -> Unit,
-    onCommitRemoval: () -> Unit,
+    onRemoveItemOptimistically: (id: String, item: T) -> ListDetailViewModel.PendingRemoval<T>?,
+    onUndoRemoval: (ListDetailViewModel.PendingRemoval<T>) -> Unit,
+    onCommitRemoval: (ListDetailViewModel.PendingRemoval<T>) -> Unit,
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
     val coroutineScope = rememberCoroutineScope()
     val removedMessage = stringResource(Res.string.snackbar_removed_from_list)
     val undoLabel = stringResource(Res.string.btn_undo)
+
+    fun onRemoveItem(item: T) {
+        val message = removedMessage.replace("%s", itemProvider.getDisplayName(item))
+        val pending = onRemoveItemOptimistically(itemProvider.getId(item), item) ?: return
+
+        coroutineScope.launch {
+            val result = snackbarHostState.showSnackbar(
+                message = message,
+                actionLabel = undoLabel,
+                duration = SnackbarDuration.Short,
+            )
+            when (result) {
+                SnackbarResult.ActionPerformed -> onUndoRemoval(pending)
+                SnackbarResult.Dismissed -> onCommitRemoval(pending)
+            }
+        }
+    }
 
     Scaffold(
         topBar = {
@@ -101,21 +118,7 @@ fun <T> ListDetailScreen(
                 is ListDetailState.Body.WithData -> EntityDetailList(
                     items = body.items,
                     uiProvider = itemProvider,
-                    onRemoveItem = { item ->
-                        val message = removedMessage.replace("%s", itemProvider.getDisplayName(item))
-                        onRemoveItemOptimistically(itemProvider.getId(item), item)
-                        coroutineScope.launch {
-                            val result = snackbarHostState.showSnackbar(
-                                message = message,
-                                actionLabel = undoLabel,
-                                duration = SnackbarDuration.Short,
-                            )
-                            when (result) {
-                                SnackbarResult.ActionPerformed -> onUndoRemoval()
-                                SnackbarResult.Dismissed -> onCommitRemoval()
-                            }
-                        }
-                    },
+                    onRemoveItem = ::onRemoveItem,
                 )
             }
         }
@@ -210,7 +213,7 @@ private fun ListDetailScreenPreview(darkTheme: Boolean) {
             ),
             itemProvider = SpellItemProvider(onItemClicked = {}),
             onNavigateUpClicked = {},
-            onRemoveItemOptimistically = { _, _ -> },
+            onRemoveItemOptimistically = { _, _ -> null },
             onUndoRemoval = {},
             onCommitRemoval = {},
         )
@@ -239,7 +242,7 @@ private fun EmptyListDetailScreenPreview(darkTheme: Boolean) {
             ),
             itemProvider = SpellItemProvider(onItemClicked = {}),
             onNavigateUpClicked = {},
-            onRemoveItemOptimistically = { _, _ -> },
+            onRemoveItemOptimistically = { _, _ -> null },
             onUndoRemoval = {},
             onCommitRemoval = {},
         )

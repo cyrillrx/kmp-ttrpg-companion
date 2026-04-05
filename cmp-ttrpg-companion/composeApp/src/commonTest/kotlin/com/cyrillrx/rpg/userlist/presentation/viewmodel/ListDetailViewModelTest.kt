@@ -113,7 +113,7 @@ class ListDetailViewModelTest {
     }
 
     @Test
-    fun `removeItem removes spell from list`() = runTest(testDispatcher) {
+    fun `removeItemOptimistically then commit removes spell from list`() = runTest(testDispatcher) {
         val allSpells = SampleSpellRepository.getAll()
         val list = UserList("list1", "My Spellbook", UserList.Type.SPELL, allSpells.map { it.id })
         userListRepository.save(list)
@@ -126,7 +126,8 @@ class ListDetailViewModelTest {
 
         advanceUntilIdle()
 
-        viewModel.removeItem(spell.id)
+        val pending = requireNotNull(viewModel.removeItemOptimistically(spell.id, spell))
+        viewModel.commitRemoval(pending)
 
         advanceUntilIdle()
 
@@ -136,7 +137,7 @@ class ListDetailViewModelTest {
     }
 
     @Test
-    fun `removeItem transitions to Empty when last spell removed`() = runTest(testDispatcher) {
+    fun `removeItemOptimistically then commit transitions to Empty when last spell removed`() = runTest(testDispatcher) {
         val list = UserList("list1", "My spellbook", UserList.Type.SPELL, listOf(spell.id))
         userListRepository.save(list)
 
@@ -148,7 +149,8 @@ class ListDetailViewModelTest {
 
         advanceUntilIdle()
 
-        viewModel.removeItem(spell.id)
+        val pending = requireNotNull(viewModel.removeItemOptimistically(spell.id, spell))
+        viewModel.commitRemoval(pending)
 
         advanceUntilIdle()
 

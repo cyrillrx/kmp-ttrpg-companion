@@ -22,21 +22,22 @@ class ListDetailViewModel<T>(
     val state: StateFlow<ListDetailState<T>>
         field = MutableStateFlow(ListDetailState())
 
-    private data class PendingRemoval<T>(val itemId: String, val index: Int, val item: T)
+    data class PendingRemoval<T>(val itemId: String, val index: Int, val item: T)
 
-    private var pendingRemoval: PendingRemoval<T>? = null
+    private val pendingRemovals: MutableList<PendingRemoval<T>> = mutableListOf()
 
     init {
         loadDetail()
     }
 
-    fun removeItemOptimistically(itemId: String, item: T) {
-        pendingRemoval?.let { commitRemoval() }
-
-        val currentState = state.value.body as? ListDetailState.Body.WithData ?: return
+    fun removeItemOptimistically(itemId: String, item: T): PendingRemoval<T>? {
+        val currentState = state.value.body as? ListDetailState.Body.WithData ?: return null
 
         val index = currentState.items.indexOf(item)
-        pendingRemoval = PendingRemoval(itemId, index, item)
+        if (index == -1) return null
+
+        val pending = PendingRemoval(itemId, index, item)
+        pendingRemovals.add(pending)
         val updatedItems = currentState.items - item
         val newBody = if (updatedItems.isEmpty()) {
             ListDetailState.Body.EmptyList
@@ -44,25 +45,26 @@ class ListDetailViewModel<T>(
             ListDetailState.Body.WithData(updatedItems)
         }
         state.update { it.copy(body = newBody) }
+        return pending
     }
 
-    fun undoRemoval() {
-        val (_, index, item) = pendingRemoval ?: return
-        pendingRemoval = null
+    fun undoRemoval(pending: PendingRemoval<T>) {
+        if (!pendingRemovals.remove(pending)) return
+
         val currentItems = when (val body = state.value.body) {
             is ListDetailState.Body.WithData -> body.items
             is ListDetailState.Body.EmptyList -> emptyList()
             else -> return
         }
-        val restoredItems = currentItems.toMutableList().apply { add(index.coerceAtMost(size), item) }
+        val restoredItems = currentItems.toMutableList().apply { add(pending.index.coerceAtMost(size), pending.item) }
         state.update { it.copy(body = ListDetailState.Body.WithData(restoredItems)) }
     }
 
-    fun commitRemoval() {
-        val (itemId, _, _) = pendingRemoval ?: return
-        pendingRemoval = null
+    fun commitRemoval(pending: PendingRemoval<T>) {
+        if (!pendingRemovals.remove(pending)) return
+
         viewModelScope.launch {
-            userListRepository.removeFromList(listId, itemId)
+            userListRepository.removeFromList(listId, pending.itemId)
         }
     }
 
