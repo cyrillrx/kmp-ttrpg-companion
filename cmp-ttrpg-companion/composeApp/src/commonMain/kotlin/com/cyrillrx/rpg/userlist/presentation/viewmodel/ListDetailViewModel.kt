@@ -22,7 +22,9 @@ class ListDetailViewModel<T>(
     val state: StateFlow<ListDetailState<T>>
         field = MutableStateFlow(ListDetailState())
 
-    private var pendingRemoval: Pair<String, T>? = null
+    private data class PendingRemoval<T>(val itemId: String, val index: Int, val item: T)
+
+    private var pendingRemoval: PendingRemoval<T>? = null
 
     init {
         loadDetail()
@@ -33,7 +35,8 @@ class ListDetailViewModel<T>(
 
         val currentState = state.value.body as? ListDetailState.Body.WithData ?: return
 
-        pendingRemoval = Pair(itemId, item)
+        val index = currentState.items.indexOf(item)
+        pendingRemoval = PendingRemoval(itemId, index, item)
         val updatedItems = currentState.items - item
         val newBody = if (updatedItems.isEmpty()) {
             ListDetailState.Body.EmptyList
@@ -44,19 +47,19 @@ class ListDetailViewModel<T>(
     }
 
     fun undoRemoval() {
-        val (_, item) = pendingRemoval ?: return
-
+        val (_, index, item) = pendingRemoval ?: return
         pendingRemoval = null
         val currentItems = when (val body = state.value.body) {
             is ListDetailState.Body.WithData -> body.items
             is ListDetailState.Body.EmptyList -> emptyList()
             else -> return
         }
-        state.update { it.copy(body = ListDetailState.Body.WithData(currentItems + item)) }
+        val restoredItems = currentItems.toMutableList().apply { add(index.coerceAtMost(size), item) }
+        state.update { it.copy(body = ListDetailState.Body.WithData(restoredItems)) }
     }
 
     fun commitRemoval() {
-        val (itemId, _) = pendingRemoval ?: return
+        val (itemId, _, _) = pendingRemoval ?: return
         pendingRemoval = null
         viewModelScope.launch {
             userListRepository.removeFromList(listId, itemId)
