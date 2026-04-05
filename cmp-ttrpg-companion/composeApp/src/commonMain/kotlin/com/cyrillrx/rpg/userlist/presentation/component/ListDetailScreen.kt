@@ -15,14 +15,17 @@ import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarDuration
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.SwipeToDismissBox
 import androidx.compose.material3.SwipeToDismissBoxValue
 import androidx.compose.material3.rememberSwipeToDismissBoxState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -30,7 +33,6 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
-import com.cyrillrx.rpg.core.presentation.component.dialog.ConfirmDeleteDialog
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
@@ -39,10 +41,12 @@ import com.cyrillrx.rpg.spell.presentation.SpellItemProvider
 import com.cyrillrx.rpg.userlist.presentation.ListDetailState
 import com.cyrillrx.rpg.userlist.presentation.ListItemProvider
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.ListDetailViewModel
+import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.dialog_remove_from_list_message
+import rpg_companion.composeapp.generated.resources.btn_undo
+import rpg_companion.composeapp.generated.resources.snackbar_removed_from_list
 
 @Composable
 fun <T> ListDetailScreen(
@@ -55,7 +59,9 @@ fun <T> ListDetailScreen(
         state = state,
         itemProvider = itemProvider,
         onNavigateUpClicked = onNavigateUp,
-        onRemoveItemClicked = viewModel::removeItem,
+        onRemoveItemOptimistically = viewModel::removeItemOptimistically,
+        onUndoRemoval = viewModel::undoRemoval,
+        onCommitRemoval = viewModel::commitRemoval,
     )
 }
 
@@ -64,9 +70,14 @@ fun <T> ListDetailScreen(
     state: ListDetailState<T>,
     itemProvider: ListItemProvider<T>,
     onNavigateUpClicked: () -> Unit,
-    onRemoveItemClicked: (String) -> Unit,
+    onRemoveItemOptimistically: (id: String, item: T) -> Unit,
+    onUndoRemoval: () -> Unit,
+    onCommitRemoval: () -> Unit,
 ) {
-    var itemToRemove by remember { mutableStateOf<T?>(null) }
+    val snackbarHostState = remember { SnackbarHostState() }
+    val coroutineScope = rememberCoroutineScope()
+    val removedMessage = stringResource(Res.string.snackbar_removed_from_list)
+    val undoLabel = stringResource(Res.string.btn_undo)
 
     Scaffold(
         topBar = {
@@ -75,6 +86,7 @@ fun <T> ListDetailScreen(
                 navigateUp = onNavigateUpClicked,
             )
         },
+        snackbarHost = { SnackbarHost(snackbarHostState) },
     ) { paddingValues ->
         Column(
             modifier = Modifier
@@ -89,21 +101,24 @@ fun <T> ListDetailScreen(
                 is ListDetailState.Body.WithData -> EntityDetailList(
                     items = body.items,
                     uiProvider = itemProvider,
-                    onRemoveItem = { itemToRemove = it },
+                    onRemoveItem = { item ->
+                        val message = removedMessage.replace("%s", itemProvider.getDisplayName(item))
+                        onRemoveItemOptimistically(itemProvider.getId(item), item)
+                        coroutineScope.launch {
+                            val result = snackbarHostState.showSnackbar(
+                                message = message,
+                                actionLabel = undoLabel,
+                                duration = SnackbarDuration.Short,
+                            )
+                            when (result) {
+                                SnackbarResult.ActionPerformed -> onUndoRemoval()
+                                SnackbarResult.Dismissed -> onCommitRemoval()
+                            }
+                        }
+                    },
                 )
             }
         }
-    }
-
-    itemToRemove?.let { item ->
-        ConfirmDeleteDialog(
-            message = stringResource(Res.string.dialog_remove_from_list_message, itemProvider.getDisplayName(item)),
-            onConfirm = {
-                onRemoveItemClicked(itemProvider.getId(item))
-                itemToRemove = null
-            },
-            onDismiss = { itemToRemove = null },
-        )
     }
 }
 
@@ -192,7 +207,9 @@ private fun ListDetailScreenPreview(darkTheme: Boolean) {
             ),
             itemProvider = SpellItemProvider(onItemClicked = {}),
             onNavigateUpClicked = {},
-            onRemoveItemClicked = {},
+            onRemoveItemOptimistically = { _, _ -> },
+            onUndoRemoval = {},
+            onCommitRemoval = {},
         )
     }
 }
@@ -219,7 +236,9 @@ private fun EmptyListDetailScreenPreview(darkTheme: Boolean) {
             ),
             itemProvider = SpellItemProvider(onItemClicked = {}),
             onNavigateUpClicked = {},
-            onRemoveItemClicked = {},
+            onRemoveItemOptimistically = { _, _ -> },
+            onUndoRemoval = {},
+            onCommitRemoval = {},
         )
     }
 }

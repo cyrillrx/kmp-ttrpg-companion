@@ -22,16 +22,44 @@ class ListDetailViewModel<T>(
     val state: StateFlow<ListDetailState<T>>
         field = MutableStateFlow(ListDetailState())
 
+    private var pendingRemoval: Pair<String, T>? = null
+
     init {
         loadDetail()
     }
 
-    fun removeItem(itemId: String) {
+    fun removeItemOptimistically(itemId: String, item: T) {
+        pendingRemoval?.let { commitRemoval() }
+
+        val currentState = state.value.body as? ListDetailState.Body.WithData ?: return
+
+        pendingRemoval = Pair(itemId, item)
+        val updatedItems = currentState.items - item
+        val newBody = if (updatedItems.isEmpty()) {
+            ListDetailState.Body.EmptyList
+        } else {
+            ListDetailState.Body.WithData(updatedItems)
+        }
+        state.update { it.copy(body = newBody) }
+    }
+
+    fun undoRemoval() {
+        val (_, item) = pendingRemoval ?: return
+
+        pendingRemoval = null
+        val currentItems = when (val body = state.value.body) {
+            is ListDetailState.Body.WithData -> body.items
+            is ListDetailState.Body.EmptyList -> emptyList()
+            else -> return
+        }
+        state.update { it.copy(body = ListDetailState.Body.WithData(currentItems + item)) }
+    }
+
+    fun commitRemoval() {
+        val (itemId, _) = pendingRemoval ?: return
+        pendingRemoval = null
         viewModelScope.launch {
-            val result = userListRepository.removeFromList(listId, itemId)
-            if (result is UserListRepository.Result.Success) {
-                loadDetail()
-            }
+            userListRepository.removeFromList(listId, itemId)
         }
     }
 
