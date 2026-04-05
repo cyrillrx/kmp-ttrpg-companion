@@ -153,6 +153,7 @@ class UserListsViewModelTest {
 
 private class NoOpUserListRouter : UserListRouter {
     override fun navigateUp() = Unit
+    override fun openUserList(list: UserList) = Unit
 }
 
 private class TrackingUserListRouter : UserListRouter {
