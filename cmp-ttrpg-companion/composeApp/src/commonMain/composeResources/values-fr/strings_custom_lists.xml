@@ -23,7 +23,7 @@
 
     <string name="message_list_is_empty">La liste est vide</string>
 
-    <string name="snackbar_removed_from_list">%s supprimé de la liste</string>
+    <string name="snackbar_removed_from_list">'%s' a été supprimé de la liste</string>
     <string name="btn_undo">Annuler</string>
 
     <string name="empty_list_browse_spells">Parcourir les sorts</string>
