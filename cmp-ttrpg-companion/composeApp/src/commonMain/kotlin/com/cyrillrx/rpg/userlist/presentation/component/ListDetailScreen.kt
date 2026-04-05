@@ -138,6 +138,7 @@ private fun <T> EntityDetailList(
                 item = item,
                 uiProvider = uiProvider,
                 onRemoveItem = onRemoveItem,
+                modifier = Modifier.animateItem(),
             )
         }
     }
@@ -148,6 +149,7 @@ private fun <T> SwipeableListItem(
     item: T,
     uiProvider: ListItemProvider<T>,
     onRemoveItem: (T) -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     val dismissState = rememberSwipeToDismissBoxState(
         confirmValueChange = { value ->
@@ -159,6 +161,7 @@ private fun <T> SwipeableListItem(
     )
     SwipeToDismissBox(
         state = dismissState,
+        modifier = modifier,
         enableDismissFromStartToEnd = false,
         enableDismissFromEndToStart = true,
         backgroundContent = {
