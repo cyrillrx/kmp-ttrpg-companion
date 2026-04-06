@@ -7,6 +7,7 @@ import com.cyrillrx.rpg.userlist.domain.UserListRepository
 import com.cyrillrx.rpg.userlist.presentation.ListDetailState
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.IO
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
@@ -95,7 +96,7 @@ class ListDetailViewModel<T>(
         pendingRemovals.clear()
         if (toCommit.isEmpty()) return
 
-        CoroutineScope(Dispatchers.Main).launch {
+        CoroutineScope(Dispatchers.IO).launch {
             toCommit.forEach { pending ->
                 userListRepository.removeFromList(listId, pending.itemId)
             }
