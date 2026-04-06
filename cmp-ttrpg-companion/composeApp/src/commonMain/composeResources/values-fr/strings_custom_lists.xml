@@ -24,6 +24,7 @@
     <string name="message_list_is_empty">La liste est vide</string>
 
     <string name="snackbar_removed_from_list">'%1$s' a été supprimé de la liste</string>
+    <string name="snackbar_error_removing_from_list">Erreur lors de la suppression de '%1$s'.</string>
     <string name="btn_undo">Annuler</string>
 
     <string name="empty_list_browse_spells">Parcourir les sorts</string>

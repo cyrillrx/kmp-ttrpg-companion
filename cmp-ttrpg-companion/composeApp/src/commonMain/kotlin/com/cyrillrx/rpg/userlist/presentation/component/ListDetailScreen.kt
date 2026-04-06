@@ -23,6 +23,7 @@ import androidx.compose.material3.SwipeToDismissBox
 import androidx.compose.material3.SwipeToDismissBoxValue
 import androidx.compose.material3.rememberSwipeToDismissBoxState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -41,12 +42,15 @@ import com.cyrillrx.rpg.spell.presentation.SpellItemProvider
 import com.cyrillrx.rpg.userlist.presentation.ListDetailState
 import com.cyrillrx.rpg.userlist.presentation.ListItemProvider
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.ListDetailViewModel
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.getString
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.btn_undo
+import rpg_companion.composeapp.generated.resources.snackbar_error_removing_from_list
 import rpg_companion.composeapp.generated.resources.snackbar_removed_from_list
 
 @Composable
@@ -58,6 +62,7 @@ fun <T> ListDetailScreen(
     val state by viewModel.state.collectAsStateWithLifecycle()
     ListDetailScreen(
         state = state,
+        events = viewModel.events,
         itemProvider = itemProvider,
         onNavigateUpClicked = onNavigateUp,
         onRemoveItemOptimistically = viewModel::removeItemOptimistically,
@@ -69,6 +74,7 @@ fun <T> ListDetailScreen(
 @Composable
 fun <T> ListDetailScreen(
     state: ListDetailState<T>,
+    events: SharedFlow<ListDetailViewModel.Event<T>>,
     itemProvider: ListItemProvider<T>,
     onNavigateUpClicked: () -> Unit,
     onRemoveItemOptimistically: (id: String, item: T) -> ListDetailViewModel.PendingRemoval<T>?,
@@ -78,6 +84,21 @@ fun <T> ListDetailScreen(
     val snackbarHostState = remember { SnackbarHostState() }
     val coroutineScope = rememberCoroutineScope()
     val undoLabel = stringResource(Res.string.btn_undo)
+
+    LaunchedEffect(events) {
+        events.collect { event ->
+            when (event) {
+                is ListDetailViewModel.Event.RemovalError -> {
+                    val displayName = itemProvider.getDisplayName(event.item)
+                    val errorMessage = getString(Res.string.snackbar_error_removing_from_list, displayName)
+                    snackbarHostState.showSnackbar(
+                        message = errorMessage,
+                        duration = SnackbarDuration.Short,
+                    )
+                }
+            }
+        }
+    }
 
     fun onRemoveItem(item: T) {
         val pending = onRemoveItemOptimistically(itemProvider.getId(item), item) ?: return
@@ -212,6 +233,7 @@ private fun ListDetailScreenPreview(darkTheme: Boolean) {
                 listName = "Gandalf's Spells",
                 body = ListDetailState.Body.WithData(SampleSpellRepository.getAll()),
             ),
+            events = MutableSharedFlow(),
             itemProvider = SpellItemProvider(onItemClicked = {}),
             onNavigateUpClicked = {},
             onRemoveItemOptimistically = { _, _ -> null },
@@ -241,6 +263,7 @@ private fun EmptyListDetailScreenPreview(darkTheme: Boolean) {
                 listName = "Gandalf's Spells",
                 body = ListDetailState.Body.EmptyList,
             ),
+            events = MutableSharedFlow(),
             itemProvider = SpellItemProvider(onItemClicked = {}),
             onNavigateUpClicked = {},
             onRemoveItemOptimistically = { _, _ -> null },

@@ -7,7 +7,9 @@ import com.cyrillrx.rpg.userlist.domain.UserListRepository
 import com.cyrillrx.rpg.userlist.presentation.ListDetailState
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -24,7 +26,14 @@ class ListDetailViewModel<T>(
     val state: StateFlow<ListDetailState<T>>
         field = MutableStateFlow(ListDetailState())
 
+    val events: SharedFlow<Event<T>>
+        field = MutableSharedFlow<Event<T>>()
+
     data class PendingRemoval<T>(val itemId: String, val index: Int, val item: T)
+
+    sealed interface Event<out T> {
+        data class RemovalError<T>(val item: T) : Event<T>
+    }
 
     private val pendingRemovals: MutableList<PendingRemoval<T>> = mutableListOf()
 
@@ -74,7 +83,9 @@ class ListDetailViewModel<T>(
         viewModelScope.launch {
             val result = userListRepository.removeFromList(listId, pending.itemId)
             if (result !is UserListRepository.Result.Success) {
+                pendingRemovals.add(pending)
                 undoRemoval(pending)
+                events.emit(Event.RemovalError(pending.item))
             }
         }
     }
