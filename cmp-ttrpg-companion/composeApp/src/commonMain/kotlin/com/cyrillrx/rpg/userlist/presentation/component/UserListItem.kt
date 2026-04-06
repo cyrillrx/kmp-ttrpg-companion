@@ -11,16 +11,20 @@ import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
 import com.cyrillrx.rpg.userlist.domain.UserList
-import kotlinx.datetime.TimeZone
-import kotlinx.datetime.toLocalDateTime
+import kotlin.time.Clock
 import org.jetbrains.compose.resources.pluralStringResource
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.creature_count
 import rpg_companion.composeapp.generated.resources.magical_item_count
-import rpg_companion.composeapp.generated.resources.modified_on
 import rpg_companion.composeapp.generated.resources.spell_count
+import rpg_companion.composeapp.generated.resources.time_ago_days
+import rpg_companion.composeapp.generated.resources.time_ago_hours
+import rpg_companion.composeapp.generated.resources.time_ago_minutes
+import rpg_companion.composeapp.generated.resources.time_ago_months
+import rpg_companion.composeapp.generated.resources.time_ago_now
+import rpg_companion.composeapp.generated.resources.time_ago_years
 
 @Composable
 fun UserListItem(
@@ -29,7 +33,7 @@ fun UserListItem(
     modifier: Modifier = Modifier,
 ) {
     val count = list.itemIds.size
-    val countText = pluralStringResource(
+    val countItemText = pluralStringResource(
         resource = when (list.type) {
             UserList.Type.SPELL -> Res.plurals.spell_count
             UserList.Type.MAGICAL_ITEM -> Res.plurals.magical_item_count
@@ -38,11 +42,29 @@ fun UserListItem(
         quantity = count,
         count,
     )
-    val dateText = list.lastModified
+    val relativeTimeText = list.lastModified
         .takeIf { it.toEpochMilliseconds() != 0L }
-        ?.toLocalDateTime(TimeZone.currentSystemDefault())
-        ?.date
-        ?.let { "${it.dayOfMonth}/${it.monthNumber}/${it.year}" }
+        ?.let { Clock.System.now() - it }
+        ?.let { elapsed ->
+            val minutes = elapsed.inWholeMinutes.toInt()
+            val hours = elapsed.inWholeHours.toInt()
+            val days = elapsed.inWholeDays.toInt()
+            when {
+                minutes < 1 -> stringResource(Res.string.time_ago_now)
+                hours < 1 -> pluralStringResource(Res.plurals.time_ago_minutes, minutes, minutes)
+                days < 1 -> pluralStringResource(Res.plurals.time_ago_hours, hours, hours)
+                days < 30 -> pluralStringResource(Res.plurals.time_ago_days, days, days)
+                days < 365 -> {
+                    val months = (days / 30).coerceAtLeast(1)
+                    pluralStringResource(Res.plurals.time_ago_months, months, months)
+                }
+                else -> {
+                    val years = (days / 365).coerceAtLeast(1)
+                    pluralStringResource(Res.plurals.time_ago_years, years, years)
+                }
+            }
+        }
+    val subtitle = if (relativeTimeText == null) countItemText else "$countItemText - $relativeTimeText"
     Card(onClick = onClick, modifier = modifier) {
         Column(modifier = Modifier.padding(spacingCommon)) {
             Text(
@@ -50,15 +72,9 @@ fun UserListItem(
                 style = MaterialTheme.typography.bodyLarge,
             )
             Text(
-                text = countText,
+                text = subtitle,
                 style = MaterialTheme.typography.bodySmall,
             )
-            if (dateText != null) {
-                Text(
-                    text = stringResource(Res.string.modified_on, dateText),
-                    style = MaterialTheme.typography.labelSmall,
-                )
-            }
         }
     }
 }

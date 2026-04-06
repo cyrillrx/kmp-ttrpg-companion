@@ -15,4 +15,24 @@
         <item quantity="one">1 item</item>
         <item quantity="other">%1$d items</item>
     </plurals>
+    <plurals name="time_ago_minutes">
+        <item quantity="one">modified 1 minute ago</item>
+        <item quantity="other">modified %1$d minutes ago</item>
+    </plurals>
+    <plurals name="time_ago_hours">
+        <item quantity="one">modified 1 hour ago</item>
+        <item quantity="other">modified %1$d hours ago</item>
+    </plurals>
+    <plurals name="time_ago_days">
+        <item quantity="one">modified 1 day ago</item>
+        <item quantity="other">modified %1$d days ago</item>
+    </plurals>
+    <plurals name="time_ago_months">
+        <item quantity="one">modified 1 month ago</item>
+        <item quantity="other">modified %1$d months ago</item>
+    </plurals>
+    <plurals name="time_ago_years">
+        <item quantity="one">modified 1 year ago</item>
+        <item quantity="other">modified %1$d years ago</item>
+    </plurals>
 </resources>
