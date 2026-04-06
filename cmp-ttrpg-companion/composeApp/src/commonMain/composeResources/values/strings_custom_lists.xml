@@ -17,14 +17,14 @@
 
     <string name="btn_confirm">Confirm</string>
     <string name="btn_cancel">Cancel</string>
-    <string name="btn_delete_list">Delete</string>
-    <string name="dialog_delete_list_message">Are you sure you want to delete "%1$s"?</string>
     <string name="dialog_remove_from_list_message">Are you sure you want to remove "%1$s" from this list?</string>
 
     <string name="message_list_is_empty">The list is empty</string>
 
     <string name="snackbar_removed_from_list">'%1$s' was removed from the list</string>
     <string name="snackbar_error_removing_from_list">Error removing '%1$s' from the list.</string>
+    <string name="snackbar_list_deleted">List '%1$s' was deleted</string>
+    <string name="snackbar_error_deleting_list">Error deleting list '%1$s'.</string>
     <string name="btn_undo">Undo</string>
 
     <string name="empty_list_browse_spells">Browse spells</string>

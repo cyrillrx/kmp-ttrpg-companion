@@ -42,7 +42,7 @@ class ListDetailViewModelTest {
     }
 
     private fun buildViewModel(listId: String, repo: UserListRepository = userListRepository) =
-        ListDetailViewModel(listId, repo, spellRepository)
+        ListDetailViewModel(listId, repo, spellRepository, testDispatcher)
 
     @Test
     fun `initial state is Loading before coroutines run`() = runTest(testDispatcher) {
@@ -134,6 +134,26 @@ class ListDetailViewModelTest {
         val body = assertIs<ListDetailState.Body.WithData<Spell>>(viewModel.state.value.body)
         assertEquals(expected = allSpells.size - 1, actual = body.items.size)
         assertTrue(body.items.none { it.id == spell.id })
+    }
+
+    @Test
+    fun `undoRemoval restores the item`() = runTest(testDispatcher) {
+        val list = UserList("list1", "My Spellbook", UserList.Type.SPELL, listOf(spell.id))
+        userListRepository.save(list)
+
+        val viewModel = buildViewModel("list1")
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        val pending = requireNotNull(viewModel.removeItemOptimistically(spell.id, spell))
+        viewModel.undoRemoval(pending)
+
+        val restoredBody = assertIs<ListDetailState.Body.WithData<Spell>>(viewModel.state.value.body)
+        assertEquals(spell, restoredBody.items.first())
     }
 
     @Test

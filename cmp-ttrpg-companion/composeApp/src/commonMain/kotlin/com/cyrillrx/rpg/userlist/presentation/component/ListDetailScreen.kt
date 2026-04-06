@@ -109,7 +109,7 @@ fun <T> ListDetailScreen(
             val result = snackbarHostState.showSnackbar(
                 message = removedMessage,
                 actionLabel = undoLabel,
-                duration = SnackbarDuration.Short,
+                duration = SnackbarDuration.Long,
             )
             when (result) {
                 SnackbarResult.ActionPerformed -> onUndoRemoval(pending)
