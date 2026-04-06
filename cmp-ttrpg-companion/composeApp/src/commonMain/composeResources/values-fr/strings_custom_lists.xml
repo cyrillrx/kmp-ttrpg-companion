@@ -23,7 +23,7 @@
 
     <string name="snackbar_removed_from_list">'%1$s' a été supprimé de la liste</string>
     <string name="snackbar_error_removing_from_list">Erreur lors de la suppression de '%1$s'.</string>
-    <string name="snackbar_list_deleted">La list '%1$s' a été supprimée</string>
+    <string name="snackbar_list_deleted">La liste '%1$s' a été supprimée</string>
     <string name="snackbar_error_deleting_list">Erreur lors de la suppression de la list '%1$s'.</string>
     <string name="btn_undo">Annuler</string>
 
