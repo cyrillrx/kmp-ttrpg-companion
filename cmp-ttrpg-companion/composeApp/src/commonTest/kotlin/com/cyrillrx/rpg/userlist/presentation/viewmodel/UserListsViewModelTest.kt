@@ -39,7 +39,7 @@ class UserListsViewModelTest {
     }
 
     private fun buildViewModel(repo: UserListRepository = repository) =
-        UserListsViewModel(UserList.Type.SPELL, router, repo)
+        UserListsViewModel(UserList.Type.SPELL, router, repo, testDispatcher)
 
     @Test
     fun `initial state is Loading before coroutines run`() = runTest(testDispatcher) {

@@ -6,6 +6,7 @@ import com.cyrillrx.rpg.userlist.domain.UserList
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
 import com.cyrillrx.rpg.userlist.presentation.UserListsState
 import com.cyrillrx.rpg.userlist.presentation.navigation.UserListRouter
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
@@ -25,6 +26,7 @@ class UserListsViewModel(
     private val listType: UserList.Type,
     private val router: UserListRouter,
     private val userListRepository: UserListRepository,
+    private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
 ) : ViewModel() {
 
     val state: StateFlow<UserListsState>
@@ -124,7 +126,7 @@ class UserListsViewModel(
         pendingDeletions.clear()
         if (toCommit.isEmpty()) return
 
-        CoroutineScope(Dispatchers.IO).launch {
+        CoroutineScope(ioDispatcher).launch {
             toCommit.forEach { pending ->
                 userListRepository.delete(pending.list.id)
             }
