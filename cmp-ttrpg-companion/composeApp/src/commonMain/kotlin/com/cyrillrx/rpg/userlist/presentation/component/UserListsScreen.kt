@@ -114,7 +114,7 @@ fun UserListsScreen(
             val result = snackbarHostState.showSnackbar(
                 message = deletedMessage,
                 actionLabel = undoLabel,
-                duration = SnackbarDuration.Short,
+                duration = SnackbarDuration.Long,
             )
             when (result) {
                 SnackbarResult.ActionPerformed -> onUndoDeletion(pending)
