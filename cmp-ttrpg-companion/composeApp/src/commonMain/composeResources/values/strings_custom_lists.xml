@@ -31,5 +31,5 @@
     <string name="empty_list_browse_creatures">Browse creatures</string>
     <string name="empty_list_browse_magical_items">Browse magical items</string>
 
-    <string name="time_ago_now">modified just now</string>
+    <string name="time_ago_now">Just now</string>
 </resources>
