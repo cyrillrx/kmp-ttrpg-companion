@@ -186,7 +186,9 @@ private fun UserLists(
                 list = list,
                 onClick = { onListClicked(list) },
                 onDelete = { onDeleteList(list) },
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .animateItem(),
             )
         }
     }
