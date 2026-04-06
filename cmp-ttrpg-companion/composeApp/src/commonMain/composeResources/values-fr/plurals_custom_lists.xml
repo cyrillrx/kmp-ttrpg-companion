@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="spell_count">
+        <item quantity="zero">Aucun sort</item>
+        <item quantity="one">1 sort</item>
+        <item quantity="other">%1$d sorts</item>
+    </plurals>
+    <plurals name="creature_count">
+        <item quantity="zero">Aucune créature</item>
+        <item quantity="one">1 créature</item>
+        <item quantity="other">%1$d créatures</item>
+    </plurals>
+    <plurals name="magical_item_count">
+        <item quantity="zero">Aucun objet</item>
+        <item quantity="one">1 objet</item>
+        <item quantity="other">%1$d objets</item>
+    </plurals>
+
+    <plurals name="time_ago_minutes">
+        <item quantity="one">Il y a 1 minute</item>
+        <item quantity="other">Il y a %1$d minutes</item>
+    </plurals>
+    <plurals name="time_ago_hours">
+        <item quantity="one">Il y a 1 heure</item>
+        <item quantity="other">Il y a %1$d heures</item>
+    </plurals>
+    <plurals name="time_ago_days">
+        <item quantity="one">Il y a 1 jour</item>
+        <item quantity="other">Il y a %1$d jours</item>
+    </plurals>
+    <plurals name="time_ago_months">
+        <item quantity="one">Il y a 1 mois</item>
+        <item quantity="other">Il y a %1$d mois</item>
+    </plurals>
+    <plurals name="time_ago_years">
+        <item quantity="one">Il y a 1 an</item>
+        <item quantity="other">Il y a %1$d ans</item>
+    </plurals>
+</resources>

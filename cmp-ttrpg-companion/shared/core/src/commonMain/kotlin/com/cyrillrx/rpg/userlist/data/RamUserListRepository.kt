@@ -6,7 +6,10 @@ import com.cyrillrx.rpg.userlist.domain.UserListRepository
 class RamUserListRepository : UserListRepository {
     private val lists = mutableMapOf<String, UserList>()
 
-    override suspend fun getAll(type: UserList.Type): List<UserList> = lists.values.filter { it.type == type }
+    override suspend fun getAll(type: UserList.Type): List<UserList> =
+        lists.values
+            .filter { it.type == type }
+            .sortedByDescending { it.lastModified }
 
     override suspend fun get(id: String): UserList? = lists[id]
 

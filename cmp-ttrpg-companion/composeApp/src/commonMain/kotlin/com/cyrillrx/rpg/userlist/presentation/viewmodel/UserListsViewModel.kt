@@ -16,6 +16,7 @@ import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import kotlin.time.Clock
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_while_loading_user_lists
 import kotlin.coroutines.cancellation.CancellationException
@@ -65,6 +66,7 @@ class UserListsViewModel(
                 name = name,
                 type = listType,
                 itemIds = emptyList(),
+                lastModified = Clock.System.now(),
             )
             userListRepository.save(newList)
             loadLists()

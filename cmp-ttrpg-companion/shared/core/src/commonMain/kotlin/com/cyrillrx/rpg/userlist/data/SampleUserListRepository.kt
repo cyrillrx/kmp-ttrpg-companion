@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.userlist.data
 
 import com.cyrillrx.rpg.userlist.domain.UserList
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
+import kotlinx.datetime.Instant
 
 class SampleUserListRepository : UserListRepository {
 
@@ -37,6 +38,7 @@ class SampleUserListRepository : UserListRepository {
             name = "Combat Spells",
             type = UserList.Type.SPELL,
             itemIds = listOf("Fireball", "Thunderwave", "Counterspell"),
+            lastModified = Instant.parse("2024-01-15T10:30:00Z"),
         )
 
         private fun supportSpells() = UserList(
@@ -44,6 +46,7 @@ class SampleUserListRepository : UserListRepository {
             name = "Support Spells",
             type = UserList.Type.SPELL,
             itemIds = listOf("Mage Armor", "Detect Thoughts"),
+            lastModified = Instant.parse("2024-01-10T08:00:00Z"),
         )
 
         private fun gandalfSpells() = UserList(
@@ -51,6 +54,7 @@ class SampleUserListRepository : UserListRepository {
             name = "Gandalf's Spells",
             type = UserList.Type.SPELL,
             itemIds = listOf("Fireball", "Thunderwave", "Counterspell"),
+            lastModified = Instant.parse("2024-01-20T14:00:00Z"),
         )
     }
 }
