@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.userlist.presentation.viewmodel
 
 import com.cyrillrx.rpg.userlist.data.RamUserListRepository
 import com.cyrillrx.rpg.userlist.domain.UserList
+import com.cyrillrx.rpg.userlist.domain.UserListRepository
 import com.cyrillrx.rpg.userlist.presentation.UserListsState
 import com.cyrillrx.rpg.userlist.presentation.navigation.UserListRouter
 import kotlinx.coroutines.Dispatchers
@@ -37,16 +38,19 @@ class UserListsViewModelTest {
         Dispatchers.resetMain()
     }
 
+    private fun buildViewModel(repo: UserListRepository = repository) =
+        UserListsViewModel(UserList.Type.SPELL, router, repo)
+
     @Test
     fun `initial state is Loading before coroutines run`() = runTest(testDispatcher) {
-        val viewModel = UserListsViewModel(UserList.Type.SPELL, router, repository)
+        val viewModel = buildViewModel()
 
         assertIs<UserListsState.Body.Loading>(viewModel.state.value.body)
     }
 
     @Test
     fun `state is Error when repository throws`() = runTest(testDispatcher) {
-        val viewModel = UserListsViewModel(UserList.Type.SPELL, router, FailingUserListRepository())
+        val viewModel = buildViewModel(FailingUserListRepository())
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -59,7 +63,7 @@ class UserListsViewModelTest {
 
     @Test
     fun `initial state is Empty when no lists exist`() = runTest(testDispatcher) {
-        val viewModel = UserListsViewModel(UserList.Type.SPELL, router, repository)
+        val viewModel = buildViewModel()
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -72,7 +76,7 @@ class UserListsViewModelTest {
 
     @Test
     fun `createList adds a list and transitions to WithData`() = runTest(testDispatcher) {
-        val viewModel = UserListsViewModel(UserList.Type.SPELL, router, repository)
+        val viewModel = buildViewModel()
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -89,8 +93,8 @@ class UserListsViewModelTest {
     }
 
     @Test
-    fun `deleteList removes the list`() = runTest(testDispatcher) {
-        val viewModel = UserListsViewModel(UserList.Type.SPELL, router, repository)
+    fun `deleteListOptimistically removes the list from UI`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel()
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -101,12 +105,77 @@ class UserListsViewModelTest {
         advanceUntilIdle()
 
         val body = assertIs<UserListsState.Body.WithData>(viewModel.state.value.body)
-        val listId = body.lists.first().id
+        val list = body.lists.first()
 
-        viewModel.deleteList(listId)
-        advanceUntilIdle()
+        viewModel.deleteListOptimistically(list)
 
         assertIs<UserListsState.Body.Empty>(viewModel.state.value.body)
+    }
+
+    @Test
+    fun `undoDeletion restores the list`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel()
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+        viewModel.createList("Fighting spells")
+        advanceUntilIdle()
+
+        val body = assertIs<UserListsState.Body.WithData>(viewModel.state.value.body)
+        val list = body.lists.first()
+
+        val pending = requireNotNull(viewModel.deleteListOptimistically(list))
+        viewModel.undoDeletion(pending)
+
+        val restoredBody = assertIs<UserListsState.Body.WithData>(viewModel.state.value.body)
+        assertEquals(list, restoredBody.lists.first())
+    }
+
+    @Test
+    fun `commitDeletion removes the list from repository`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel()
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+        viewModel.createList("Fighting spells")
+        advanceUntilIdle()
+
+        val body = assertIs<UserListsState.Body.WithData>(viewModel.state.value.body)
+        val list = body.lists.first()
+
+        val pending = requireNotNull(viewModel.deleteListOptimistically(list))
+        viewModel.commitDeletion(pending)
+        advanceUntilIdle()
+
+        assertTrue(repository.getAll(UserList.Type.SPELL).isEmpty())
+    }
+
+    @Test
+    fun `commitAllPendingDeletions commits pending deletions`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel()
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+        viewModel.createList("Fighting spells")
+        advanceUntilIdle()
+
+        val body = assertIs<UserListsState.Body.WithData>(viewModel.state.value.body)
+        val list = body.lists.first()
+
+        viewModel.deleteListOptimistically(list) // no commit
+        viewModel.commitAllPendingDeletions() // simulate onCleared
+        advanceUntilIdle()
+
+        assertTrue(repository.getAll(UserList.Type.SPELL).isEmpty())
     }
 
     @Test
@@ -116,7 +185,7 @@ class UserListsViewModelTest {
         repository.save(spellList)
         repository.save(itemList)
 
-        val viewModel = UserListsViewModel(UserList.Type.SPELL, router, repository)
+        val viewModel = buildViewModel()
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
