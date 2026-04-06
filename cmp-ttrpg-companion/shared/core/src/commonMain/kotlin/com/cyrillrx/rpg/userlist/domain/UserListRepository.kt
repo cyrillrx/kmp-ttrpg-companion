@@ -21,7 +21,7 @@ interface UserListRepository {
     }
 
     suspend fun removeFromList(list: UserList, itemId: String): Result {
-        val updatedList = list.copy(itemIds = list.itemIds - itemId, lastModified = Clock.System.now()))
+        val updatedList = list.copy(itemIds = list.itemIds - itemId, lastModified = Clock.System.now())
         save(updatedList)
         return Result.Success
     }

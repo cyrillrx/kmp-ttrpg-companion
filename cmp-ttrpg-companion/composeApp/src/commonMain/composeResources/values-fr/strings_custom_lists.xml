@@ -30,4 +30,6 @@
     <string name="empty_list_browse_spells">Parcourir les sorts</string>
     <string name="empty_list_browse_creatures">Parcourir les créatures</string>
     <string name="empty_list_browse_magical_items">Parcourir les objets magiques</string>
+
+    <string name="modified_on">Modifié le %s</string>
 </resources>

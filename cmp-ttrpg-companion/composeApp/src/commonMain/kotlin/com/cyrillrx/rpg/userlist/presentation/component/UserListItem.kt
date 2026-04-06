@@ -11,11 +11,15 @@ import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
 import com.cyrillrx.rpg.userlist.domain.UserList
+import kotlinx.datetime.TimeZone
+import kotlinx.datetime.toLocalDateTime
 import org.jetbrains.compose.resources.pluralStringResource
+import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.creature_count
 import rpg_companion.composeapp.generated.resources.magical_item_count
+import rpg_companion.composeapp.generated.resources.modified_on
 import rpg_companion.composeapp.generated.resources.spell_count
 
 @Composable
@@ -34,6 +38,11 @@ fun UserListItem(
         quantity = count,
         count,
     )
+    val dateText = list.lastModified
+        .takeIf { it.toEpochMilliseconds() != 0L }
+        ?.toLocalDateTime(TimeZone.currentSystemDefault())
+        ?.date
+        ?.let { "${it.dayOfMonth}/${it.monthNumber}/${it.year}" }
     Card(onClick = onClick, modifier = modifier) {
         Column(modifier = Modifier.padding(spacingCommon)) {
             Text(
@@ -44,6 +53,12 @@ fun UserListItem(
                 text = countText,
                 style = MaterialTheme.typography.bodySmall,
             )
+            if (dateText != null) {
+                Text(
+                    text = stringResource(Res.string.modified_on, dateText),
+                    style = MaterialTheme.typography.labelSmall,
+                )
+            }
         }
     }
 }

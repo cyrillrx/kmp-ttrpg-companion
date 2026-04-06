@@ -30,4 +30,6 @@
     <string name="empty_list_browse_spells">Browse spells</string>
     <string name="empty_list_browse_creatures">Browse creatures</string>
     <string name="empty_list_browse_magical_items">Browse magical items</string>
+
+    <string name="modified_on">Modified %s</string>
 </resources>
