@@ -72,7 +72,10 @@ class ListDetailViewModel<T>(
         if (!pendingRemovals.remove(pending)) return
 
         viewModelScope.launch {
-            userListRepository.removeFromList(listId, pending.itemId)
+            val result = userListRepository.removeFromList(listId, pending.itemId)
+            if (result !is UserListRepository.Result.Success) {
+                undoRemoval(pending)
+            }
         }
     }
 
