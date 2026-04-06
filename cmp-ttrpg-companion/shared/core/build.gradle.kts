@@ -73,7 +73,6 @@ sqldelight {
     databases {
         create("AppDatabase") {
             packageName.set("com.cyrillrx.rpg.cache")
-            schemaVersion = 2
         }
     }
 }

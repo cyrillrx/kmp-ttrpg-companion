@@ -1,6 +1,6 @@
 package com.cyrillrx.rpg.userlist.domain
 
-import kotlinx.datetime.Clock
+import kotlin.time.Clock
 
 interface UserListRepository {
     suspend fun getAll(type: UserList.Type): List<UserList>
