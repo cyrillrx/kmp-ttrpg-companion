@@ -125,7 +125,7 @@ private fun SpellList(
         contentPadding = PaddingValues(spacingMedium),
         verticalArrangement = Arrangement.spacedBy(spacingSmall),
     ) {
-        items(spells) { spell ->
+        items(spells, key = { it.id }) { spell ->
             SwipeToAddBox(onAdd = { onAddToListClicked(spell) }) {
                 SpellListItem(
                     spell = spell,

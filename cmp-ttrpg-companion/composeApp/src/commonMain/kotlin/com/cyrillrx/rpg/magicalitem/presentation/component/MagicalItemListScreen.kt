@@ -120,7 +120,7 @@ private fun MagicalItemList(
         contentPadding = PaddingValues(spacingMedium),
         verticalArrangement = Arrangement.spacedBy(spacingSmall),
     ) {
-        items(magicalItems) { item ->
+        items(magicalItems, key = { it.id }) { item ->
             SwipeToAddBox(onAdd = { onAddToListClicked(item) }) {
                 MagicalItemListItem(
                     magicalItem = item,
