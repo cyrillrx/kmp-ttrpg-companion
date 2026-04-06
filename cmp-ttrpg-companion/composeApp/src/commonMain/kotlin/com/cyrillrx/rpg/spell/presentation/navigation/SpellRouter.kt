@@ -4,10 +4,8 @@ import androidx.navigation.NavController
 
 interface SpellRouter {
     fun navigateUp()
-    fun openDetail(id: String)
-    fun openMySpellLists() {}
-    fun openSpellListDetail(listId: String) {}
-    fun openAddToList(spellId: String) {}
+    fun openDetail(spellId: String)
+    fun openAddToList(spellId: String)
 }
 
 class SpellRouterImpl(private val navController: NavController) : SpellRouter {
@@ -15,16 +13,8 @@ class SpellRouterImpl(private val navController: NavController) : SpellRouter {
         navController.navigateUp()
     }
 
-    override fun openDetail(id: String) {
-        navController.navigate(SpellRoute.Detail(id))
-    }
-
-    override fun openMySpellLists() {
-        navController.navigate(SpellRoute.UserLists)
-    }
-
-    override fun openSpellListDetail(listId: String) {
-        navController.navigate(SpellRoute.UserListDetail(listId))
+    override fun openDetail(spellId: String) {
+        navController.navigate(SpellRoute.Detail(spellId))
     }
 
     override fun openAddToList(spellId: String) {

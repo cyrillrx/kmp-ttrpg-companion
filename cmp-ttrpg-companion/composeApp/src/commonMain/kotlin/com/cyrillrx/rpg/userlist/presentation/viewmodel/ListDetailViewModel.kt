@@ -5,7 +5,11 @@ import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.core.domain.EntityRepository
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
 import com.cyrillrx.rpg.userlist.presentation.ListDetailState
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -22,15 +26,78 @@ class ListDetailViewModel<T>(
     val state: StateFlow<ListDetailState<T>>
         field = MutableStateFlow(ListDetailState())
 
+    val events: SharedFlow<Event<T>>
+        field = MutableSharedFlow<Event<T>>()
+
+    data class PendingRemoval<T>(val itemId: String, val index: Int, val item: T)
+
+    sealed interface Event<out T> {
+        data class RemovalError<T>(val item: T) : Event<T>
+    }
+
+    private val pendingRemovals: MutableList<PendingRemoval<T>> = mutableListOf()
+
     init {
         loadDetail()
     }
 
-    fun removeItem(itemId: String) {
+    override fun onCleared() {
+        super.onCleared()
+
+        commitAllPendingRemovals()
+    }
+
+    fun removeItemOptimistically(itemId: String, item: T): PendingRemoval<T>? {
+        val currentState = state.value.body as? ListDetailState.Body.WithData ?: return null
+
+        val index = currentState.items.indexOf(item)
+        if (index == -1) return null
+
+        val pending = PendingRemoval(itemId, index, item)
+        pendingRemovals.add(pending)
+        val updatedItems = currentState.items - item
+        val newBody = if (updatedItems.isEmpty()) {
+            ListDetailState.Body.EmptyList
+        } else {
+            ListDetailState.Body.WithData(updatedItems)
+        }
+        state.update { it.copy(body = newBody) }
+        return pending
+    }
+
+    fun undoRemoval(pending: PendingRemoval<T>) {
+        if (!pendingRemovals.remove(pending)) return
+
+        val currentItems = when (val body = state.value.body) {
+            is ListDetailState.Body.WithData -> body.items
+            is ListDetailState.Body.EmptyList -> emptyList()
+            else -> return
+        }
+        val restoredItems = currentItems.toMutableList().apply { add(pending.index.coerceAtMost(size), pending.item) }
+        state.update { it.copy(body = ListDetailState.Body.WithData(restoredItems)) }
+    }
+
+    fun commitRemoval(pending: PendingRemoval<T>) {
+        if (!pendingRemovals.remove(pending)) return
+
         viewModelScope.launch {
-            val result = userListRepository.removeFromList(listId, itemId)
-            if (result is UserListRepository.Result.Success) {
-                loadDetail()
+            val result = userListRepository.removeFromList(listId, pending.itemId)
+            if (result !is UserListRepository.Result.Success) {
+                pendingRemovals.add(pending)
+                undoRemoval(pending)
+                events.emit(Event.RemovalError(pending.item))
+            }
+        }
+    }
+
+    internal fun commitAllPendingRemovals() {
+        val toCommit = pendingRemovals.toList()
+        pendingRemovals.clear()
+        if (toCommit.isEmpty()) return
+
+        CoroutineScope(Dispatchers.Main).launch {
+            toCommit.forEach { pending ->
+                userListRepository.removeFromList(listId, pending.itemId)
             }
         }
     }

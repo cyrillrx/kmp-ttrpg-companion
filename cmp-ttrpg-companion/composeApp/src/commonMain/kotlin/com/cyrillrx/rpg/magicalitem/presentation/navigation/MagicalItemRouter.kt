@@ -4,8 +4,8 @@ import androidx.navigation.NavController
 
 interface MagicalItemRouter {
     fun navigateUp()
-    fun openDetail(id: String)
-    fun openAddToList(magicalItemId: String) {}
+    fun openDetail(magicalItemId: String)
+    fun openAddToList(magicalItemId: String)
 }
 
 class MagicalItemRouterImpl(private val navController: NavController) : MagicalItemRouter {
@@ -13,8 +13,8 @@ class MagicalItemRouterImpl(private val navController: NavController) : MagicalI
         navController.navigateUp()
     }
 
-    override fun openDetail(id: String) {
-        navController.navigate(MagicalItemRoute.Detail(id))
+    override fun openDetail(magicalItemId: String) {
+        navController.navigate(MagicalItemRoute.Detail(magicalItemId))
     }
 
     override fun openAddToList(magicalItemId: String) {

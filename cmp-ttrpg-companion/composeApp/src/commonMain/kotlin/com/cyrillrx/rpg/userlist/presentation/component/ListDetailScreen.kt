@@ -1,9 +1,10 @@
 package com.cyrillrx.rpg.userlist.presentation.component
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -12,21 +13,27 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarDuration
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.SnackbarResult
+import androidx.compose.material3.SwipeToDismissBox
+import androidx.compose.material3.SwipeToDismissBoxValue
+import androidx.compose.material3.rememberSwipeToDismissBoxState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
-import com.cyrillrx.rpg.core.presentation.component.dialog.ConfirmDeleteDialog
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
@@ -35,10 +42,16 @@ import com.cyrillrx.rpg.spell.presentation.SpellItemProvider
 import com.cyrillrx.rpg.userlist.presentation.ListDetailState
 import com.cyrillrx.rpg.userlist.presentation.ListItemProvider
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.ListDetailViewModel
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.launch
+import org.jetbrains.compose.resources.getString
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.dialog_remove_from_list_message
+import rpg_companion.composeapp.generated.resources.btn_undo
+import rpg_companion.composeapp.generated.resources.snackbar_error_removing_from_list
+import rpg_companion.composeapp.generated.resources.snackbar_removed_from_list
 
 @Composable
 fun <T> ListDetailScreen(
@@ -49,20 +62,61 @@ fun <T> ListDetailScreen(
     val state by viewModel.state.collectAsStateWithLifecycle()
     ListDetailScreen(
         state = state,
+        events = viewModel.events,
         itemProvider = itemProvider,
         onNavigateUpClicked = onNavigateUp,
-        onRemoveItemClicked = viewModel::removeItem,
+        onRemoveItemOptimistically = viewModel::removeItemOptimistically,
+        onUndoRemoval = viewModel::undoRemoval,
+        onCommitRemoval = viewModel::commitRemoval,
     )
 }
 
 @Composable
 fun <T> ListDetailScreen(
     state: ListDetailState<T>,
+    events: SharedFlow<ListDetailViewModel.Event<T>>,
     itemProvider: ListItemProvider<T>,
     onNavigateUpClicked: () -> Unit,
-    onRemoveItemClicked: (String) -> Unit,
+    onRemoveItemOptimistically: (id: String, item: T) -> ListDetailViewModel.PendingRemoval<T>?,
+    onUndoRemoval: (ListDetailViewModel.PendingRemoval<T>) -> Unit,
+    onCommitRemoval: (ListDetailViewModel.PendingRemoval<T>) -> Unit,
 ) {
-    var itemToRemove by remember { mutableStateOf<T?>(null) }
+    val snackbarHostState = remember { SnackbarHostState() }
+    val coroutineScope = rememberCoroutineScope()
+    val undoLabel = stringResource(Res.string.btn_undo)
+
+    LaunchedEffect(events) {
+        events.collect { event ->
+            when (event) {
+                is ListDetailViewModel.Event.RemovalError -> {
+                    val displayName = itemProvider.getDisplayName(event.item)
+                    val errorMessage = getString(Res.string.snackbar_error_removing_from_list, displayName)
+                    snackbarHostState.showSnackbar(
+                        message = errorMessage,
+                        duration = SnackbarDuration.Short,
+                    )
+                }
+            }
+        }
+    }
+
+    fun onRemoveItem(item: T) {
+        val pending = onRemoveItemOptimistically(itemProvider.getId(item), item) ?: return
+
+        coroutineScope.launch {
+            val displayName = itemProvider.getDisplayName(item)
+            val removedMessage = getString(Res.string.snackbar_removed_from_list, displayName)
+            val result = snackbarHostState.showSnackbar(
+                message = removedMessage,
+                actionLabel = undoLabel,
+                duration = SnackbarDuration.Short,
+            )
+            when (result) {
+                SnackbarResult.ActionPerformed -> onUndoRemoval(pending)
+                SnackbarResult.Dismissed -> onCommitRemoval(pending)
+            }
+        }
+    }
 
     Scaffold(
         topBar = {
@@ -71,6 +125,7 @@ fun <T> ListDetailScreen(
                 navigateUp = onNavigateUpClicked,
             )
         },
+        snackbarHost = { SnackbarHost(snackbarHostState) },
     ) { paddingValues ->
         Column(
             modifier = Modifier
@@ -85,21 +140,10 @@ fun <T> ListDetailScreen(
                 is ListDetailState.Body.WithData -> EntityDetailList(
                     items = body.items,
                     uiProvider = itemProvider,
-                    onRemoveItem = { itemToRemove = it },
+                    onRemoveItem = ::onRemoveItem,
                 )
             }
         }
-    }
-
-    itemToRemove?.let { item ->
-        ConfirmDeleteDialog(
-            message = stringResource(Res.string.dialog_remove_from_list_message, itemProvider.getDisplayName(item)),
-            onConfirm = {
-                onRemoveItemClicked(itemProvider.getId(item))
-                itemToRemove = null
-            },
-            onDismiss = { itemToRemove = null },
-        )
     }
 }
 
@@ -115,23 +159,57 @@ private fun <T> EntityDetailList(
         verticalArrangement = Arrangement.spacedBy(spacingSmall),
     ) {
         items(items, key = { uiProvider.getId(it) }) { item ->
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.fillMaxWidth(),
-            ) {
-                uiProvider.ListItem(
-                    entity = item,
-                    modifier = Modifier.weight(1f),
-                )
-                IconButton(onClick = { onRemoveItem(item) }) {
-                    Icon(
-                        imageVector = Icons.Filled.Delete,
-                        contentDescription = null,
-                        tint = MaterialTheme.colorScheme.error,
-                    )
-                }
-            }
+            SwipeableListItem(
+                item = item,
+                uiProvider = uiProvider,
+                onRemoveItem = onRemoveItem,
+                modifier = Modifier.animateItem(),
+            )
         }
+    }
+}
+
+@Composable
+private fun <T> SwipeableListItem(
+    item: T,
+    uiProvider: ListItemProvider<T>,
+    onRemoveItem: (T) -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    val dismissState = rememberSwipeToDismissBoxState(
+        confirmValueChange = { value ->
+            if (value == SwipeToDismissBoxValue.EndToStart) {
+                onRemoveItem(item)
+            }
+            false
+        },
+    )
+    SwipeToDismissBox(
+        state = dismissState,
+        modifier = modifier,
+        enableDismissFromStartToEnd = false,
+        enableDismissFromEndToStart = true,
+        backgroundContent = {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .clip(MaterialTheme.shapes.medium)
+                    .background(MaterialTheme.colorScheme.errorContainer)
+                    .padding(end = spacingMedium),
+                contentAlignment = Alignment.CenterEnd,
+            ) {
+                Icon(
+                    imageVector = Icons.Filled.Delete,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.onErrorContainer,
+                )
+            }
+        },
+    ) {
+        uiProvider.ListItem(
+            entity = item,
+            modifier = Modifier.fillMaxWidth(),
+        )
     }
 }
 
@@ -155,9 +233,12 @@ private fun ListDetailScreenPreview(darkTheme: Boolean) {
                 listName = "Gandalf's Spells",
                 body = ListDetailState.Body.WithData(SampleSpellRepository.getAll()),
             ),
+            events = MutableSharedFlow(),
             itemProvider = SpellItemProvider(onItemClicked = {}),
             onNavigateUpClicked = {},
-            onRemoveItemClicked = {},
+            onRemoveItemOptimistically = { _, _ -> null },
+            onUndoRemoval = {},
+            onCommitRemoval = {},
         )
     }
 }
@@ -182,9 +263,12 @@ private fun EmptyListDetailScreenPreview(darkTheme: Boolean) {
                 listName = "Gandalf's Spells",
                 body = ListDetailState.Body.EmptyList,
             ),
+            events = MutableSharedFlow(),
             itemProvider = SpellItemProvider(onItemClicked = {}),
             onNavigateUpClicked = {},
-            onRemoveItemClicked = {},
+            onRemoveItemOptimistically = { _, _ -> null },
+            onUndoRemoval = {},
+            onCommitRemoval = {},
         )
     }
 }

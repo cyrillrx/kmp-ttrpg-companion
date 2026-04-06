@@ -8,7 +8,7 @@ import com.cyrillrx.rpg.userlist.domain.UserList
 
 interface UserListRouter {
     fun navigateUp()
-    fun openUserList(list: UserList) {}
+    fun openUserList(list: UserList)
 }
 
 class UserListRouterImpl(private val navController: NavController) : UserListRouter {
