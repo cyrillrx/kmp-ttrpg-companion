@@ -84,6 +84,6 @@ feat(spell): redesign spell list screen with new item, samples, and strings
 ## 6. CI & Policies
 
 - **Pull Requests**: All code must be reviewed via PRs before merging into `main`.
-- **Code Quality**: PRs must pass all automated checks (linting, tests, build) on the CI pipeline.
+- **Code Quality**: PRs must pass all automated checks (linting, tests, build) on the CI pipeline. The CI pipeline (`.github/workflows/ci.yml`) runs `KMP Client - JVM Tests` (`./gradlew jvmTest` in `cmp-ttrpg-companion/`) on every PR targeting the default branch. It must pass for a PR to be mergeable.
 - **Warnings as Errors**: Treat compiler warnings seriously. Fix them proactively.
 - **Security Scans**: Integrate automated security scanning where applicable.
