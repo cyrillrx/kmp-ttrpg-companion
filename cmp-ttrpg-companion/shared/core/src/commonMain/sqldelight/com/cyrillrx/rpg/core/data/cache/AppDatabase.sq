@@ -21,14 +21,15 @@ CREATE TABLE UserList (
     id TEXT NOT NULL PRIMARY KEY,
     name TEXT NOT NULL,
     type TEXT NOT NULL,
-    itemIds TEXT NOT NULL DEFAULT ''
+    itemIds TEXT NOT NULL DEFAULT '',
+    lastModified INTEGER NOT NULL DEFAULT 0
 );
 
 saveUserList:
-INSERT OR REPLACE INTO UserList(id, name, type, itemIds) VALUES(?, ?, ?, ?);
+INSERT OR REPLACE INTO UserList(id, name, type, itemIds, lastModified) VALUES(?, ?, ?, ?, ?);
 
 selectAllUserListsByType:
-SELECT * FROM UserList WHERE type = ? ORDER BY name;
+SELECT * FROM UserList WHERE type = ? ORDER BY lastModified DESC;
 
 selectUserListById:
 SELECT * FROM UserList WHERE id = ?;

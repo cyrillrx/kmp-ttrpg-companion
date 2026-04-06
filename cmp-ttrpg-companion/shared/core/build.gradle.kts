@@ -36,6 +36,7 @@ kotlin {
         commonMain.dependencies {
             api(libs.kotlinx.serialization.core)
             api(libs.kotlinx.serialization.json)
+            api(libs.kotlinx.datetime)
 
             implementation(libs.sqldelight.runtime)
         }
@@ -72,6 +73,7 @@ sqldelight {
     databases {
         create("AppDatabase") {
             packageName.set("com.cyrillrx.rpg.cache")
+            schemaVersion = 2
         }
     }
 }
