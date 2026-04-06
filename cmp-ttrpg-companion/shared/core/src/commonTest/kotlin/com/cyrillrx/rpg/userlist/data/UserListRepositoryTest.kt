@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.userlist.data
 
 import com.cyrillrx.rpg.userlist.domain.UserList
 import kotlinx.coroutines.test.runTest
+import kotlinx.datetime.Instant
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
@@ -87,5 +88,32 @@ class UserListRepositoryTest {
 
             val creatureLists = repository.getAll(UserList.Type.CREATURE)
             assertTrue(creatureLists.isEmpty())
+        }
+
+    @Test
+    fun `lists are returned sorted by lastModified descending`() =
+        runTest {
+            val repository = buildRepository()
+            val older = UserList(
+                id = "1",
+                name = "Older",
+                type = UserList.Type.SPELL,
+                itemIds = emptyList(),
+                lastModified = Instant.fromEpochMilliseconds(1000L),
+            )
+            val newer = UserList(
+                id = "2",
+                name = "Newer",
+                type = UserList.Type.SPELL,
+                itemIds = emptyList(),
+                lastModified = Instant.fromEpochMilliseconds(2000L),
+            )
+
+            repository.save(older)
+            repository.save(newer)
+
+            val result = repository.getAll(UserList.Type.SPELL)
+            assertEquals(expected = newer, actual = result.first())
+            assertEquals(expected = older, actual = result.last())
         }
 }

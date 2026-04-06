@@ -1,5 +1,7 @@
 package com.cyrillrx.rpg.userlist.domain
 
+import kotlinx.datetime.Clock
+
 interface UserListRepository {
     suspend fun getAll(type: UserList.Type): List<UserList>
     suspend fun get(id: String): UserList?
@@ -7,7 +9,7 @@ interface UserListRepository {
     suspend fun delete(id: String)
 
     suspend fun addToList(list: UserList, itemId: String): Result {
-        val updatedList = list.copy(itemIds = list.itemIds + itemId)
+        val updatedList = list.copy(itemIds = list.itemIds + itemId, lastModified = Clock.System.now())
         save(updatedList)
         return Result.Success
     }
@@ -19,7 +21,7 @@ interface UserListRepository {
     }
 
     suspend fun removeFromList(list: UserList, itemId: String): Result {
-        val updatedList = list.copy(itemIds = list.itemIds - itemId)
+        val updatedList = list.copy(itemIds = list.itemIds - itemId, lastModified = Clock.System.now()))
         save(updatedList)
         return Result.Success
     }
