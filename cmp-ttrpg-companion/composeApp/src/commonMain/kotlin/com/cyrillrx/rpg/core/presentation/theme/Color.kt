@@ -22,5 +22,7 @@ val Purple800 = Color(0xFF4527A0)
 val Purple900 = Color(0xFF311B92)
 val Scarlet = Color(0xff9b1c47)
 
+val Green500 = Color(0xFF4CAF50)
+
 val DarkerGrey = Color(0xFF2C2C2C)
 val DarkGrey = Color(0xFF414040)

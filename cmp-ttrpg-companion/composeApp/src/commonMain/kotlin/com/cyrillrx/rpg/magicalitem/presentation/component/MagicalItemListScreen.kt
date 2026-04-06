@@ -23,6 +23,7 @@ import com.cyrillrx.rpg.core.presentation.component.EmptySearch
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SearchBarWithBack
+import com.cyrillrx.rpg.core.presentation.component.SwipeToAddBox
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
@@ -44,6 +45,7 @@ fun MagicalItemListScreen(viewModel: MagicalItemListViewModel) {
         onNavigateUpClicked = viewModel::onNavigateUpClicked,
         onSearchQueryChanged = viewModel::onSearchQueryChanged,
         onMagicalItemClicked = viewModel::onItemClicked,
+        onAddToListClicked = viewModel::onItemAddToListClicked,
         onTypeToggled = viewModel::onTypeToggled,
         onRarityToggled = viewModel::onRarityToggled,
         onResetFilters = viewModel::onResetFilters,
@@ -56,6 +58,7 @@ fun MagicalItemListScreen(
     onNavigateUpClicked: () -> Unit,
     onSearchQueryChanged: (String) -> Unit,
     onMagicalItemClicked: (MagicalItem) -> Unit,
+    onAddToListClicked: (MagicalItem) -> Unit,
     onTypeToggled: (MagicalItem.Type) -> Unit,
     onRarityToggled: (MagicalItem.Rarity) -> Unit,
     onResetFilters: () -> Unit,
@@ -84,7 +87,7 @@ fun MagicalItemListScreen(
                 is MagicalItemListState.Body.Loading -> Loader()
                 is MagicalItemListState.Body.Empty -> EmptySearch(state.filter.query)
                 is MagicalItemListState.Body.Error -> ErrorLayout(body.errorMessage)
-                is MagicalItemListState.Body.WithData -> MagicalItemList(body.searchResults, onMagicalItemClicked)
+                is MagicalItemListState.Body.WithData -> MagicalItemList(body.searchResults, onMagicalItemClicked, onAddToListClicked)
             }
         }
     }
@@ -104,6 +107,7 @@ fun MagicalItemListScreen(
 private fun MagicalItemList(
     magicalItems: List<MagicalItem>,
     onMagicalItemClicked: (MagicalItem) -> Unit,
+    onAddToListClicked: (MagicalItem) -> Unit,
 ) {
     val listState = rememberLazyListState()
     LaunchedEffect(magicalItems) {
@@ -116,12 +120,14 @@ private fun MagicalItemList(
         contentPadding = PaddingValues(spacingMedium),
         verticalArrangement = Arrangement.spacedBy(spacingSmall),
     ) {
-        items(magicalItems) { item ->
-            MagicalItemListItem(
-                magicalItem = item,
-                onClick = { onMagicalItemClicked(item) },
-                modifier = Modifier.fillMaxWidth(),
-            )
+        items(magicalItems, key = { it.id }) { item ->
+            SwipeToAddBox(onAdd = { onAddToListClicked(item) }) {
+                MagicalItemListItem(
+                    magicalItem = item,
+                    onClick = { onMagicalItemClicked(item) },
+                    modifier = Modifier.fillMaxWidth(),
+                )
+            }
         }
     }
 }
@@ -134,7 +140,7 @@ private val stateWithSampleData = MagicalItemListState(
 @Composable
 private fun PreviewMagicalItemListScreenLight() {
     AppThemePreview(darkTheme = false) {
-        MagicalItemListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {})
+        MagicalItemListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, {})
     }
 }
 
@@ -142,6 +148,6 @@ private fun PreviewMagicalItemListScreenLight() {
 @Composable
 private fun PreviewMagicalItemListScreenDark() {
     AppThemePreview(darkTheme = true) {
-        MagicalItemListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {})
+        MagicalItemListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, {})
     }
 }
