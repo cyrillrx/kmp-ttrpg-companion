@@ -5,6 +5,8 @@ import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.core.domain.EntityRepository
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
 import com.cyrillrx.rpg.userlist.presentation.ListDetailState
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
@@ -28,6 +30,12 @@ class ListDetailViewModel<T>(
 
     init {
         loadDetail()
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+
+        commitAllPendingRemovals()
     }
 
     fun removeItemOptimistically(itemId: String, item: T): PendingRemoval<T>? {
@@ -65,6 +73,18 @@ class ListDetailViewModel<T>(
 
         viewModelScope.launch {
             userListRepository.removeFromList(listId, pending.itemId)
+        }
+    }
+
+    internal fun commitAllPendingRemovals() {
+        val toCommit = pendingRemovals.toList()
+        pendingRemovals.clear()
+        if (toCommit.isEmpty()) return
+
+        CoroutineScope(Dispatchers.Main).launch {
+            toCommit.forEach { pending ->
+                userListRepository.removeFromList(listId, pending.itemId)
+            }
         }
     }
 

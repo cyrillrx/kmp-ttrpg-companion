@@ -137,8 +137,30 @@ class ListDetailViewModelTest {
     }
 
     @Test
-    fun `removeItemOptimistically then commit transitions to Empty when last spell removed`() = runTest(testDispatcher) {
-        val list = UserList("list1", "My spellbook", UserList.Type.SPELL, listOf(spell.id))
+    fun `removeItemOptimistically then commit transitions to Empty when last spell removed`() =
+        runTest(testDispatcher) {
+            val list = UserList("list1", "My spellbook", UserList.Type.SPELL, listOf(spell.id))
+            userListRepository.save(list)
+
+            val viewModel = buildViewModel("list1")
+
+            backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+                viewModel.state.collect {}
+            }
+
+            advanceUntilIdle()
+
+            val pending = requireNotNull(viewModel.removeItemOptimistically(spell.id, spell))
+            viewModel.commitRemoval(pending)
+
+            advanceUntilIdle()
+
+            assertIs<ListDetailState.Body.EmptyList>(viewModel.state.value.body)
+        }
+
+    @Test
+    fun `onCleared commits pending removals that were never confirmed`() = runTest(testDispatcher) {
+        val list = UserList("list1", "My Spellbook", UserList.Type.SPELL, listOf(spell.id))
         userListRepository.save(list)
 
         val viewModel = buildViewModel("list1")
@@ -146,14 +168,13 @@ class ListDetailViewModelTest {
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
         }
-
         advanceUntilIdle()
 
-        val pending = requireNotNull(viewModel.removeItemOptimistically(spell.id, spell))
-        viewModel.commitRemoval(pending)
-
+        viewModel.removeItemOptimistically(spell.id, spell) // no commit
+        viewModel.commitAllPendingRemovals() // simulate navigation away
         advanceUntilIdle()
 
-        assertIs<ListDetailState.Body.EmptyList>(viewModel.state.value.body)
+        val updatedList = userListRepository.get("list1")!!
+        assertTrue(updatedList.itemIds.none { it == spell.id })
     }
 }
