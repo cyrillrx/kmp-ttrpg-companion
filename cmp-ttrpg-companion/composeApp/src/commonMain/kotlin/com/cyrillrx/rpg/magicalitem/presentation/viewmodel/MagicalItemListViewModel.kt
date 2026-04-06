@@ -42,6 +42,10 @@ class MagicalItemListViewModel(
         router.openDetail(magicalItem.id)
     }
 
+    fun onItemAddToListClicked(item: MagicalItem) {
+        router.openAddToList(item.id)
+    }
+
     fun onTypeToggled(type: MagicalItem.Type) {
         updateFilter { it.copy(types = it.types.toggled(type)) }
     }

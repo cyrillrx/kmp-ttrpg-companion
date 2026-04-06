@@ -19,6 +19,7 @@ import com.cyrillrx.rpg.core.presentation.component.EmptySearch
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SearchBarWithBack
+import com.cyrillrx.rpg.core.presentation.component.SwipeToAddBox
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.creature.data.SampleCreatureRepository
 import com.cyrillrx.rpg.creature.domain.Creature
@@ -37,6 +38,7 @@ fun CreatureListScreen(viewModel: CreatureListViewModel) {
         onNavigateUpClicked = viewModel::onNavigateUpClicked,
         onSearchQueryChanged = viewModel::onSearchQueryChanged,
         onCreatureClicked = viewModel::onCreatureClicked,
+        onAddToListClicked = viewModel::onCreatureAddToListClicked,
         onTypeToggled = viewModel::onTypeToggled,
         onChallengeRatingToggled = viewModel::onChallengeRatingToggled,
         onResetFilters = viewModel::onResetFilters,
@@ -49,6 +51,7 @@ fun CreatureListScreen(
     onNavigateUpClicked: () -> Unit,
     onSearchQueryChanged: (String) -> Unit,
     onCreatureClicked: (Creature) -> Unit,
+    onAddToListClicked: (Creature) -> Unit,
     onTypeToggled: (Creature.Type) -> Unit,
     onChallengeRatingToggled: (Float) -> Unit,
     onResetFilters: () -> Unit,
@@ -72,7 +75,7 @@ fun CreatureListScreen(
                 is CreatureListState.Body.Loading -> Loader()
                 is CreatureListState.Body.Empty -> EmptySearch(state.filter.query)
                 is CreatureListState.Body.Error -> ErrorLayout(body.errorMessage)
-                is CreatureListState.Body.WithData -> CreatureList(body.searchResults, onCreatureClicked)
+                is CreatureListState.Body.WithData -> CreatureList(body.searchResults, onCreatureClicked, onAddToListClicked)
             }
         }
     }
@@ -92,13 +95,16 @@ fun CreatureListScreen(
 private fun CreatureList(
     creatures: List<Creature>,
     onCreatureClicked: (Creature) -> Unit,
+    onAddToListClicked: (Creature) -> Unit,
 ) {
     LazyColumn(modifier = Modifier.fillMaxSize()) {
         items(creatures) { creature ->
-            CreatureItem(
-                creature = creature,
-                modifier = Modifier.clickable { onCreatureClicked(creature) },
-            )
+            SwipeToAddBox(onAdd = { onAddToListClicked(creature) }) {
+                CreatureItem(
+                    creature = creature,
+                    modifier = Modifier.clickable { onCreatureClicked(creature) },
+                )
+            }
             HorizontalDivider()
         }
     }
@@ -112,7 +118,7 @@ private val stateWithSampleData = CreatureListState(
 @Composable
 private fun PreviewCreatureListScreenLight() {
     AppThemePreview(darkTheme = false) {
-        CreatureListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {})
+        CreatureListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, {})
     }
 }
 
@@ -120,6 +126,6 @@ private fun PreviewCreatureListScreenLight() {
 @Composable
 private fun PreviewCreatureListScreenDark() {
     AppThemePreview(darkTheme = true) {
-        CreatureListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {})
+        CreatureListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, {})
     }
 }

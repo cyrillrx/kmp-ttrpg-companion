@@ -24,6 +24,7 @@ import com.cyrillrx.rpg.core.presentation.component.EmptySearch
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SearchBarWithBack
+import com.cyrillrx.rpg.core.presentation.component.SwipeToAddBox
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
@@ -46,6 +47,7 @@ fun SpellListScreen(viewModel: SpellListViewModel, router: SpellRouter) {
         onNavigateUpClicked = router::navigateUp,
         onSearchQueryChanged = viewModel::onSearchQueryChanged,
         onSpellClicked = { spell -> router.openDetail(spell.id) },
+        onAddToListClicked = { spell -> router.openAddToList(spell.id) },
         onLevelToggled = viewModel::onLevelToggled,
         onSchoolToggled = viewModel::onSchoolToggled,
         onClassToggled = viewModel::onClassToggled,
@@ -59,6 +61,7 @@ fun SpellListScreen(
     onNavigateUpClicked: () -> Unit,
     onSearchQueryChanged: (String) -> Unit,
     onSpellClicked: (Spell) -> Unit,
+    onAddToListClicked: (Spell) -> Unit,
     onLevelToggled: (Int) -> Unit,
     onSchoolToggled: (Spell.School) -> Unit,
     onClassToggled: (PlayerCharacter.Class) -> Unit,
@@ -88,7 +91,7 @@ fun SpellListScreen(
                 is SpellListState.Body.Loading -> Loader()
                 is SpellListState.Body.Empty -> EmptySearch(state.filter.query)
                 is SpellListState.Body.Error -> ErrorLayout(body.errorMessage)
-                is SpellListState.Body.WithData -> SpellList(body.searchResults, onSpellClicked)
+                is SpellListState.Body.WithData -> SpellList(body.searchResults, onSpellClicked, onAddToListClicked)
             }
         }
     }
@@ -109,6 +112,7 @@ fun SpellListScreen(
 private fun SpellList(
     spells: List<Spell>,
     onSpellClicked: (Spell) -> Unit,
+    onAddToListClicked: (Spell) -> Unit,
 ) {
     val searchResultsListState = rememberLazyListState()
     LaunchedEffect(spells) {
@@ -122,11 +126,13 @@ private fun SpellList(
         verticalArrangement = Arrangement.spacedBy(spacingSmall),
     ) {
         items(spells) { spell ->
-            SpellListItem(
-                spell = spell,
-                onClick = { onSpellClicked(spell) },
-                modifier = Modifier.fillMaxWidth(),
-            )
+            SwipeToAddBox(onAdd = { onAddToListClicked(spell) }) {
+                SpellListItem(
+                    spell = spell,
+                    onClick = { onSpellClicked(spell) },
+                    modifier = Modifier.fillMaxWidth(),
+                )
+            }
         }
     }
 }
@@ -139,7 +145,7 @@ private val stateWithSampleData = SpellListState(
 @Composable
 fun PreviewSpellListPeekScreenLight() {
     AppThemePreview(darkTheme = false) {
-        SpellListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, {})
+        SpellListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, {}, {})
     }
 }
 
@@ -147,6 +153,6 @@ fun PreviewSpellListPeekScreenLight() {
 @Composable
 fun PreviewSpellListPeekScreenDark() {
     AppThemePreview(darkTheme = true) {
-        SpellListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, {})
+        SpellListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, {}, {})
     }
 }
