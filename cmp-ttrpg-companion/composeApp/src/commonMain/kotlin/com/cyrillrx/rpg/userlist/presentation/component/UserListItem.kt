@@ -1,5 +1,6 @@
 package com.cyrillrx.rpg.userlist.presentation.component
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
@@ -10,7 +11,12 @@ import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
 import com.cyrillrx.rpg.userlist.domain.UserList
+import org.jetbrains.compose.resources.pluralStringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
+import rpg_companion.composeapp.generated.resources.Res
+import rpg_companion.composeapp.generated.resources.creature_count
+import rpg_companion.composeapp.generated.resources.magical_item_count
+import rpg_companion.composeapp.generated.resources.spell_count
 
 @Composable
 fun UserListItem(
@@ -18,12 +24,27 @@ fun UserListItem(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    val count = list.itemIds.size
+    val countText = pluralStringResource(
+        resource = when (list.type) {
+            UserList.Type.SPELL -> Res.plurals.spell_count
+            UserList.Type.MAGICAL_ITEM -> Res.plurals.magical_item_count
+            UserList.Type.CREATURE -> Res.plurals.creature_count
+        },
+        quantity = count,
+        count,
+    )
     Card(onClick = onClick, modifier = modifier) {
-        Text(
-            text = list.name,
-            style = MaterialTheme.typography.bodyLarge,
-            modifier = Modifier.padding(spacingCommon),
-        )
+        Column(modifier = Modifier.padding(spacingCommon)) {
+            Text(
+                text = list.name,
+                style = MaterialTheme.typography.bodyLarge,
+            )
+            Text(
+                text = countText,
+                style = MaterialTheme.typography.bodySmall,
+            )
+        }
     }
 }
 

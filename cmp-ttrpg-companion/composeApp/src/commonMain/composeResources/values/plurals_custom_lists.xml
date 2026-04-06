@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="spell_count">
+        <item quantity="zero">No spells</item>
+        <item quantity="one">1 spell</item>
+        <item quantity="other">%1$d spells</item>
+    </plurals>
+    <plurals name="creature_count">
+        <item quantity="zero">No creatures</item>
+        <item quantity="one">1 creature</item>
+        <item quantity="other">%1$d creatures</item>
+    </plurals>
+    <plurals name="magical_item_count">
+        <item quantity="zero">No items</item>
+        <item quantity="one">1 item</item>
+        <item quantity="other">%1$d items</item>
+    </plurals>
+</resources>

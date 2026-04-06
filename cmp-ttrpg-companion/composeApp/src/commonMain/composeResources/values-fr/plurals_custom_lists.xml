@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="spell_count">
+        <item quantity="zero">Aucun sort</item>
+        <item quantity="one">1 sort</item>
+        <item quantity="other">%1$d sorts</item>
+    </plurals>
+    <plurals name="creature_count">
+        <item quantity="zero">Aucune créature</item>
+        <item quantity="one">1 créature</item>
+        <item quantity="other">%1$d créatures</item>
+    </plurals>
+    <plurals name="magical_item_count">
+        <item quantity="zero">Aucun objet</item>
+        <item quantity="one">1 objet</item>
+        <item quantity="other">%1$d objets</item>
+    </plurals>
+</resources>
