@@ -121,7 +121,7 @@ private fun MagicalItemList(
         verticalArrangement = Arrangement.spacedBy(spacingSmall),
     ) {
         items(magicalItems, key = { it.id }) { item ->
-            SwipeToAddBox(onAdd = { onAddToListClicked(item) }) {
+            SwipeToAddBox(onSwiped = { onAddToListClicked(item) }) {
                 MagicalItemListItem(
                     magicalItem = item,
                     onClick = { onMagicalItemClicked(item) },

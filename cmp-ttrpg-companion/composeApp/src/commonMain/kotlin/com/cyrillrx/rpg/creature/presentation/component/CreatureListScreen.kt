@@ -99,7 +99,7 @@ private fun CreatureList(
 ) {
     LazyColumn(modifier = Modifier.fillMaxSize()) {
         items(creatures, key = { it.id }) { creature ->
-            SwipeToAddBox(onAdd = { onAddToListClicked(creature) }) {
+            SwipeToAddBox(onSwiped = { onAddToListClicked(creature) }) {
                 CreatureItem(
                     creature = creature,
                     modifier = Modifier.clickable { onCreatureClicked(creature) },

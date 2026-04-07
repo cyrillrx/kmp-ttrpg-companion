@@ -31,8 +31,8 @@ import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_while_loading_spells
 
 class SpellAddToListProvider(
-    val spellRepository: SpellRepository,
-    val userListRepository: UserListRepository,
+    private val spellRepository: SpellRepository,
+    private val userListRepository: UserListRepository,
 ) : AddToListProvider<Spell> {
 
     override fun createViewModelFactory(entityId: String): AddToListViewModelFactory<Spell> {

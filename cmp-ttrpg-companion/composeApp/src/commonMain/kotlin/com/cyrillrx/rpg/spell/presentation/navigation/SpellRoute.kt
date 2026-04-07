@@ -10,7 +10,7 @@ import androidx.navigation.toRoute
 import com.cyrillrx.rpg.spell.data.SpellEntityRepository
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.domain.SpellRepository
-import com.cyrillrx.rpg.spell.presentation.SpellHeaderProvider
+import com.cyrillrx.rpg.spell.presentation.SpellAddToListProvider
 import com.cyrillrx.rpg.spell.presentation.SpellItemProvider
 import com.cyrillrx.rpg.spell.presentation.component.SpellCardCarouselScreen
 import com.cyrillrx.rpg.spell.presentation.component.SpellCardScreen
@@ -21,12 +21,9 @@ import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellListViewModel
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellListViewModelFactory
 import com.cyrillrx.rpg.userlist.domain.UserList
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
-import com.cyrillrx.rpg.userlist.presentation.component.AddToListScreen
 import com.cyrillrx.rpg.userlist.presentation.component.ListDetailScreen
 import com.cyrillrx.rpg.userlist.presentation.component.UserListsScreen
 import com.cyrillrx.rpg.userlist.presentation.navigation.UserListRouterImpl
-import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddToListViewModel
-import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddToListViewModelFactory
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.ListDetailViewModel
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.ListDetailViewModelFactory
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.UserListsViewModel
@@ -34,7 +31,6 @@ import com.cyrillrx.rpg.userlist.presentation.viewmodel.UserListsViewModelFactor
 import kotlinx.serialization.Serializable
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.error_while_loading_spells
 import rpg_companion.composeapp.generated.resources.title_my_spell_lists
 
 interface SpellRoute {
@@ -52,9 +48,6 @@ interface SpellRoute {
 
     @Serializable
     data class UserListDetail(val listId: String)
-
-    @Serializable
-    data class AddToList(val spellId: String)
 }
 
 fun NavGraphBuilder.handleSpellRoutes(
@@ -69,7 +62,13 @@ fun NavGraphBuilder.handleSpellRoutes(
         val router = SpellRouterImpl(navController)
         val viewModelFactory = SpellListViewModelFactory(router, spellRepository)
         val viewModel = viewModel<SpellListViewModel>(factory = viewModelFactory)
-        SpellListScreen(viewModel, router)
+
+        val bottomSheetProvider = SpellAddToListProvider(
+            spellRepository = spellRepository,
+            userListRepository = userListRepository,
+        )
+
+        SpellListScreen(viewModel, router, bottomSheetProvider)
     }
 
     composable<SpellRoute.CardCarousel> {
@@ -85,25 +84,13 @@ fun NavGraphBuilder.handleSpellRoutes(
         val viewModel = viewModel<SpellDetailViewModel>(
             factory = SpellDetailViewModelFactory(spellId, spellRepository),
         )
-        SpellCardScreen(viewModel = viewModel, router = router)
-    }
 
-    composable<SpellRoute.AddToList> { entry ->
-        val spellId = entry.toRoute<SpellRoute.AddToList>().spellId
-        val viewModel = viewModel<AddToListViewModel<Spell>>(
-            factory = AddToListViewModelFactory(
-                itemId = spellId,
-                listType = UserList.Type.SPELL,
-                userListRepository = userListRepository,
-                repository = SpellEntityRepository(spellRepository),
-                errorMessage = Res.string.error_while_loading_spells,
-            ),
+        val bottomSheetProvider = SpellAddToListProvider(
+            spellRepository = spellRepository,
+            userListRepository = userListRepository,
         )
-        AddToListScreen(
-            viewModel = viewModel,
-            headerProvider = SpellHeaderProvider(),
-            onNavigateUp = { navController.navigateUp() },
-        )
+
+        SpellCardScreen(viewModel = viewModel, router = router, bottomSheetProvider = bottomSheetProvider)
     }
 
     composable<SpellRoute.UserLists> {
