@@ -12,6 +12,7 @@
 
     <string name="btn_create_list">New List</string>
     <string name="btn_add_to_list">Add to a list</string>
+    <string name="title_save_to_list">Save to...</string>
 
     <string name="hint_list_name">List name</string>
 

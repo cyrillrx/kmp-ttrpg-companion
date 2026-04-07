@@ -38,9 +38,9 @@ import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddToListViewModel
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.btn_add_to_list
 import rpg_companion.composeapp.generated.resources.btn_confirm
 import rpg_companion.composeapp.generated.resources.btn_create_list
+import rpg_companion.composeapp.generated.resources.title_save_to_list
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -92,14 +92,6 @@ private fun <T> ColumnScope.AddToListBottomSheetContent(
     onConfirm: () -> Unit,
     onCreateListClicked: () -> Unit,
 ) {
-    Text(
-        text = stringResource(Res.string.btn_add_to_list),
-        style = MaterialTheme.typography.titleLarge,
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = spacingMedium),
-    )
-
     LazyColumn(
         modifier = Modifier.weight(1f, fill = false),
         contentPadding = PaddingValues(
@@ -115,6 +107,16 @@ private fun <T> ColumnScope.AddToListBottomSheetContent(
             is AddToListState.Body.Error -> item { ErrorLayout(body.errorMessage) }
             is AddToListState.Body.WithData -> {
                 item { header(body.item) }
+                item {
+                    Text(
+                        text = stringResource(Res.string.title_save_to_list),
+                        style = MaterialTheme.typography.titleMedium,
+                        color = MaterialTheme.colorScheme.onSurface,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(spacingMedium),
+                    )
+                }
                 items(body.selectableLists, key = { it.list.id }) { item ->
                     SelectableUserListItem(
                         name = item.list.name,
