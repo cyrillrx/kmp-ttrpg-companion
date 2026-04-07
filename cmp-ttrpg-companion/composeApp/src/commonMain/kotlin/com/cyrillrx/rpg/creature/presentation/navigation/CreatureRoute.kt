@@ -8,7 +8,7 @@ import androidx.navigation.toRoute
 import com.cyrillrx.rpg.creature.data.CreatureEntityRepository
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.CreatureRepository
-import com.cyrillrx.rpg.creature.presentation.CreatureHeaderProvider
+import com.cyrillrx.rpg.creature.presentation.CreatureAddToListProvider
 import com.cyrillrx.rpg.creature.presentation.CreatureItemProvider
 import com.cyrillrx.rpg.creature.presentation.component.CreatureCompactListScreen
 import com.cyrillrx.rpg.creature.presentation.component.CreatureDetailScreen
@@ -19,12 +19,9 @@ import com.cyrillrx.rpg.creature.presentation.viewmodel.CreatureListViewModel
 import com.cyrillrx.rpg.creature.presentation.viewmodel.CreatureListViewModelFactory
 import com.cyrillrx.rpg.userlist.domain.UserList
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
-import com.cyrillrx.rpg.userlist.presentation.component.AddToListScreen
 import com.cyrillrx.rpg.userlist.presentation.component.ListDetailScreen
 import com.cyrillrx.rpg.userlist.presentation.component.UserListsScreen
 import com.cyrillrx.rpg.userlist.presentation.navigation.UserListRouterImpl
-import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddToListViewModel
-import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddToListViewModelFactory
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.ListDetailViewModel
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.ListDetailViewModelFactory
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.UserListsViewModel
@@ -32,7 +29,6 @@ import com.cyrillrx.rpg.userlist.presentation.viewmodel.UserListsViewModelFactor
 import kotlinx.serialization.Serializable
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.error_while_loading_creatures
 import rpg_companion.composeapp.generated.resources.title_my_bestiary_lists
 
 interface CreatureRoute {
@@ -50,9 +46,6 @@ interface CreatureRoute {
 
     @Serializable
     data class UserListDetail(val listId: String)
-
-    @Serializable
-    data class AddToList(val creatureId: String)
 }
 
 fun NavGraphBuilder.handleCreatureRoutes(
@@ -71,7 +64,8 @@ fun NavGraphBuilder.handleCreatureRoutes(
         val router = CreatureRouterImpl(navController)
         val viewModelFactory = CreatureListViewModelFactory(router, repository)
         val viewModel = viewModel<CreatureListViewModel>(factory = viewModelFactory)
-        CreatureListScreen(viewModel)
+        val addToListProvider = CreatureAddToListProvider(repository, userListRepository)
+        CreatureListScreen(viewModel, addToListProvider)
     }
 
     composable<CreatureRoute.Detail> { entry ->
@@ -80,25 +74,8 @@ fun NavGraphBuilder.handleCreatureRoutes(
         val viewModel = viewModel<CreatureDetailViewModel>(
             factory = CreatureDetailViewModelFactory(creatureId, repository),
         )
-        CreatureDetailScreen(viewModel = viewModel, router = router)
-    }
-
-    composable<CreatureRoute.AddToList> { entry ->
-        val creatureId = entry.toRoute<CreatureRoute.AddToList>().creatureId
-        val viewModel = viewModel<AddToListViewModel<Creature>>(
-            factory = AddToListViewModelFactory(
-                itemId = creatureId,
-                listType = UserList.Type.CREATURE,
-                userListRepository = userListRepository,
-                entityRepository = CreatureEntityRepository(repository),
-                errorMessage = Res.string.error_while_loading_creatures,
-            ),
-        )
-        AddToListScreen(
-            viewModel = viewModel,
-            headerProvider = CreatureHeaderProvider(),
-            onNavigateUp = { navController.navigateUp() },
-        )
+        val addToListProvider = CreatureAddToListProvider(repository, userListRepository)
+        CreatureDetailScreen(viewModel = viewModel, router = router, addToListProvider = addToListProvider)
     }
 
     composable<CreatureRoute.UserLists> {

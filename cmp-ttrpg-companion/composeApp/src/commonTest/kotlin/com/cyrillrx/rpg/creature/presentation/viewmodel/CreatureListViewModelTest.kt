@@ -178,7 +178,6 @@ class CreatureListViewModelTest {
 private class NoOpCreatureRouter : CreatureRouter {
     override fun navigateUp() = Unit
     override fun openDetail(creatureId: String) = Unit
-    override fun openAddToList(creatureId: String) = Unit
 }
 
 private class FailingCreatureRepository : CreatureRepository {
