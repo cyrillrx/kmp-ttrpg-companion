@@ -31,10 +31,9 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
-import com.cyrillrx.rpg.spell.presentation.SpellHeaderProvider
+import com.cyrillrx.rpg.spell.presentation.SpellAddToListProvider
 import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
 import com.cyrillrx.rpg.userlist.presentation.AddToListState
-import com.cyrillrx.rpg.userlist.presentation.HeaderProvider
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddToListViewModel
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -47,7 +46,7 @@ import rpg_companion.composeapp.generated.resources.btn_create_list
 @Composable
 fun <T> AddToListBottomSheet(
     viewModel: AddToListViewModel<T>,
-    headerProvider: HeaderProvider<T>,
+    header: @Composable (T) -> Unit,
     onDismiss: () -> Unit,
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
@@ -67,7 +66,7 @@ fun <T> AddToListBottomSheet(
     ) {
         AddToListBottomSheetContent(
             body = state.body,
-            headerProvider = headerProvider,
+            header = header,
             onToggleSelection = viewModel::toggleSelection,
             onConfirm = viewModel::confirmSelection,
             onCreateListClicked = { showCreateDialog = true },
@@ -88,7 +87,7 @@ fun <T> AddToListBottomSheet(
 @Composable
 private fun <T> ColumnScope.AddToListBottomSheetContent(
     body: AddToListState.Body<T>,
-    headerProvider: HeaderProvider<T>,
+    header: @Composable (T) -> Unit,
     onToggleSelection: (String) -> Unit,
     onConfirm: () -> Unit,
     onCreateListClicked: () -> Unit,
@@ -115,7 +114,7 @@ private fun <T> ColumnScope.AddToListBottomSheetContent(
             is AddToListState.Body.Loading -> item { Loader() }
             is AddToListState.Body.Error -> item { ErrorLayout(body.errorMessage) }
             is AddToListState.Body.WithData -> {
-                item { headerProvider.Header(body.item) }
+                item { header(body.item) }
                 items(body.selectableLists, key = { it.list.id }) { item ->
                     SelectableUserListItem(
                         name = item.list.name,
@@ -162,6 +161,10 @@ private fun PreviewAddToListBottomSheetDark() {
 @Composable
 private fun AddToListBottomSheetPreview(darkTheme: Boolean) {
     val spell = SampleSpellRepository.getFirst()
+    val spellRepository = SampleSpellRepository()
+    val userListRepository = SampleUserListRepository()
+    val bottomSheetProvider = SpellAddToListProvider(spellRepository, userListRepository)
+
     val body = AddToListState.Body.WithData(
         item = spell,
         selectableLists = SampleUserListRepository.getAll().map {
@@ -172,7 +175,7 @@ private fun AddToListBottomSheetPreview(darkTheme: Boolean) {
         Column {
             AddToListBottomSheetContent(
                 body = body,
-                headerProvider = SpellHeaderProvider(),
+                header = bottomSheetProvider::Header,
                 onToggleSelection = {},
                 onConfirm = {},
                 onCreateListClicked = {},

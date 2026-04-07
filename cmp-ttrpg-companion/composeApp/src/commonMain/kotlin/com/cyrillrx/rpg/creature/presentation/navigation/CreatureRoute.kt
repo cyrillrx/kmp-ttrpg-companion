@@ -90,7 +90,7 @@ fun NavGraphBuilder.handleCreatureRoutes(
                 itemId = creatureId,
                 listType = UserList.Type.CREATURE,
                 userListRepository = userListRepository,
-                repository = CreatureEntityRepository(repository),
+                entityRepository = CreatureEntityRepository(repository),
                 errorMessage = Res.string.error_while_loading_creatures,
             ),
         )

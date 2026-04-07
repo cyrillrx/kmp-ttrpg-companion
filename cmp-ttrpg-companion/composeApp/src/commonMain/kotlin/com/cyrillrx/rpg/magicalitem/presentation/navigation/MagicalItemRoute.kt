@@ -90,7 +90,7 @@ fun NavGraphBuilder.handleMagicalItemRoutes(
                 itemId = magicalItemId,
                 listType = UserList.Type.MAGICAL_ITEM,
                 userListRepository = userListRepository,
-                repository = MagicalItemEntityRepository(repository),
+                entityRepository = MagicalItemEntityRepository(repository),
                 errorMessage = Res.string.error_while_loading_magical_items,
             ),
         )

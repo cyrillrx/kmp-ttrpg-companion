@@ -10,15 +10,15 @@ import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.message_list_is_empty
 
 interface ListItemProvider<T> {
+    val emptyLayoutIcon: ImageVector
+    val emptyLayoutBtnText: StringResource
+    val onEmptyLayoutBtnClicked: () -> Unit get() = {}
+
     fun getId(entity: T): String
     fun getDisplayName(entity: T): String
 
     @Composable
     fun ListItem(entity: T, modifier: Modifier)
-
-    val emptyLayoutIcon: ImageVector
-    val emptyLayoutBtnText: StringResource
-    val onEmptyLayoutBtnClicked: () -> Unit get() = {}
 
     @Composable
     fun EmptyLayout() {
