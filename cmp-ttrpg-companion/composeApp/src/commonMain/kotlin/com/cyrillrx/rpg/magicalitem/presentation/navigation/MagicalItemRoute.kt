@@ -6,6 +6,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
 import com.cyrillrx.rpg.magicalitem.data.MagicalItemEntityRepository
+import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemRepository
 import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemAddToListProvider
 import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemItemProvider
