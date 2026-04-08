@@ -5,6 +5,7 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -41,7 +42,9 @@ fun App(dbDriverFactory: DatabaseDriverFactory) {
         NavHost(
             navController = navController,
             startDestination = MainRoute.Home,
-            modifier = Modifier.background(MaterialTheme.colorScheme.background),
+            Modifier
+                .fillMaxSize()
+                .background(MaterialTheme.colorScheme.background),
             enterTransition = { slideInHorizontally(initialOffsetX = { it }) + fadeIn() },
             exitTransition = { slideOutHorizontally(targetOffsetX = { -it }) + fadeOut() },
             popEnterTransition = { slideInHorizontally(initialOffsetX = { -it }) + fadeIn() },
