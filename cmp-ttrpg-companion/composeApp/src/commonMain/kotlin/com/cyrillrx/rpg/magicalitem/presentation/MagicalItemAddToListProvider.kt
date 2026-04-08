@@ -26,19 +26,16 @@ import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_while_loading_magical_items
 
 class MagicalItemAddToListProvider(
-    private val repository: MagicalItemRepository,
-    private val userListRepository: UserListRepository,
+    repository: MagicalItemRepository,
+    userListRepository: UserListRepository,
 ) : AddToListProvider<MagicalItem> {
 
-    override fun createViewModelFactory(entityId: String): AddToListViewModelFactory<MagicalItem> {
-        return AddToListViewModelFactory(
-            itemId = entityId,
-            listType = UserList.Type.MAGICAL_ITEM,
-            userListRepository = userListRepository,
-            entityRepository = MagicalItemEntityRepository(repository),
-            errorMessage = Res.string.error_while_loading_magical_items,
-        )
-    }
+    override val viewModelFactory = AddToListViewModelFactory(
+        listType = UserList.Type.MAGICAL_ITEM,
+        userListRepository = userListRepository,
+        entityRepository = MagicalItemEntityRepository(repository),
+        errorMessage = Res.string.error_while_loading_magical_items,
+    )
 
     @Composable
     override fun Header(entity: MagicalItem) {

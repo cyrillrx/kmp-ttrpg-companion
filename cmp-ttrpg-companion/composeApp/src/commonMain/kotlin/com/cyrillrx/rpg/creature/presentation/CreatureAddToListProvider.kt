@@ -26,19 +26,16 @@ import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_while_loading_creatures
 
 class CreatureAddToListProvider(
-    private val repository: CreatureRepository,
-    private val userListRepository: UserListRepository,
+    repository: CreatureRepository,
+    userListRepository: UserListRepository,
 ) : AddToListProvider<Creature> {
 
-    override fun createViewModelFactory(entityId: String): AddToListViewModelFactory<Creature> {
-        return AddToListViewModelFactory(
-            itemId = entityId,
-            listType = UserList.Type.CREATURE,
-            userListRepository = userListRepository,
-            entityRepository = CreatureEntityRepository(repository),
-            errorMessage = Res.string.error_while_loading_creatures,
-        )
-    }
+    override val viewModelFactory = AddToListViewModelFactory(
+        listType = UserList.Type.CREATURE,
+        userListRepository = userListRepository,
+        entityRepository = CreatureEntityRepository(repository),
+        errorMessage = Res.string.error_while_loading_creatures,
+    )
 
     @Composable
     override fun Header(entity: Creature) {

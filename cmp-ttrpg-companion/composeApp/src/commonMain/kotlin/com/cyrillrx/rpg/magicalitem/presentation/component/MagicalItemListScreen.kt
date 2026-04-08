@@ -13,7 +13,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.key
+
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -115,12 +115,10 @@ fun MagicalItemListScreen(
     }
 
     itemToAdd?.let { item ->
-        key(item) {
-            addToListProvider.BottomSheet(
-                entityId = item.id,
-                onDismiss = { itemToAdd = null },
-            )
-        }
+        addToListProvider.BottomSheet(
+            entityId = item.id,
+            onDismiss = { itemToAdd = null },
+        )
     }
 }
 

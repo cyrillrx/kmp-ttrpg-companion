@@ -31,19 +31,16 @@ import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_while_loading_spells
 
 class SpellAddToListProvider(
-    private val spellRepository: SpellRepository,
-    private val userListRepository: UserListRepository,
+    spellRepository: SpellRepository,
+    userListRepository: UserListRepository,
 ) : AddToListProvider<Spell> {
 
-    override fun createViewModelFactory(entityId: String): AddToListViewModelFactory<Spell> {
-        return AddToListViewModelFactory(
-            itemId = entityId,
-            listType = UserList.Type.SPELL,
-            userListRepository = userListRepository,
-            entityRepository = SpellEntityRepository(spellRepository),
-            errorMessage = Res.string.error_while_loading_spells,
-        )
-    }
+    override val viewModelFactory = AddToListViewModelFactory(
+        listType = UserList.Type.SPELL,
+        userListRepository = userListRepository,
+        entityRepository = SpellEntityRepository(spellRepository),
+        errorMessage = Res.string.error_while_loading_spells,
+    )
 
     @Composable
     override fun Header(entity: Spell) {

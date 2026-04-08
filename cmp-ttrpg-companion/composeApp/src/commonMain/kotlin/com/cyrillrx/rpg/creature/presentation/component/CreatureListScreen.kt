@@ -10,7 +10,7 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.key
+
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -103,12 +103,10 @@ fun CreatureListScreen(
     }
 
     creatureToAdd?.let { creature ->
-        key(creature) {
-            addToListProvider.BottomSheet(
-                entityId = creature.id,
-                onDismiss = { creatureToAdd = null },
-            )
-        }
+        addToListProvider.BottomSheet(
+            entityId = creature.id,
+            onDismiss = { creatureToAdd = null },
+        )
     }
 }
 
