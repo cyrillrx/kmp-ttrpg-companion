@@ -8,6 +8,7 @@ import com.cyrillrx.rpg.userlist.domain.UserListRepository
 import com.cyrillrx.rpg.userlist.presentation.AddToListState
 import com.cyrillrx.rpg.userlist.presentation.AddToListState.SelectableUserList
 import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
@@ -19,7 +20,6 @@ import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
 class AddToListViewModel<T>(
-    private val itemId: String,
     private val listType: UserList.Type,
     private val userListRepository: UserListRepository,
     private val repository: EntityRepository<T>,
@@ -32,26 +32,29 @@ class AddToListViewModel<T>(
     val events: SharedFlow<Event>
         field = MutableSharedFlow<Event>()
 
-    init {
-        loadLists()
+    private var itemId: String = ""
+    private var loadJob: Job? = null
+
+    fun loadEntity(entityId: String) {
+        itemId = entityId
+        loadJob?.cancel()
+        loadJob = viewModelScope.launch { loadLists() }
     }
 
-    private fun loadLists() {
-        viewModelScope.launch {
-            state.update { it.copy(body = AddToListState.Body.Loading) }
+    private suspend fun loadLists() {
+        state.update { it.copy(body = AddToListState.Body.Loading) }
 
-            try {
-                val item = repository.getById(itemId) ?: error("Could not find item $itemId")
+        try {
+            val item = repository.getById(itemId) ?: error("Could not find item $itemId")
 
-                val userLists = userListRepository.getAll(listType)
-                val selectableLists = userLists
-                    .map { list -> SelectableUserList(list, alreadyAdded = itemId in list.itemIds) }
-                state.update { it.copy(body = AddToListState.Body.WithData(item, selectableLists)) }
-            } catch (e: CancellationException) {
-                throw e
-            } catch (e: Exception) {
-                state.update { it.copy(body = AddToListState.Body.Error(errorMessage)) }
-            }
+            val userLists = userListRepository.getAll(listType)
+            val selectableLists = userLists
+                .map { list -> SelectableUserList(list, alreadyAdded = itemId in list.itemIds) }
+            state.update { it.copy(body = AddToListState.Body.WithData(item, selectableLists)) }
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            state.update { it.copy(body = AddToListState.Body.Error(errorMessage)) }
         }
     }
 

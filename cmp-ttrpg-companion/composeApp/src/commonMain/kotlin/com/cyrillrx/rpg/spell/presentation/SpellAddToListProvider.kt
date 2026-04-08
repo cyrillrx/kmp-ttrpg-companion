@@ -20,10 +20,27 @@ import com.cyrillrx.rpg.core.presentation.component.dnd.toIcon
 import com.cyrillrx.rpg.core.presentation.theme.iconSizeMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
+import com.cyrillrx.rpg.spell.data.SpellEntityRepository
 import com.cyrillrx.rpg.spell.domain.Spell
-import com.cyrillrx.rpg.userlist.presentation.HeaderProvider
+import com.cyrillrx.rpg.spell.domain.SpellRepository
+import com.cyrillrx.rpg.userlist.domain.UserList
+import com.cyrillrx.rpg.userlist.domain.UserListRepository
+import com.cyrillrx.rpg.userlist.presentation.AddToListProvider
+import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddToListViewModelFactory
+import rpg_companion.composeapp.generated.resources.Res
+import rpg_companion.composeapp.generated.resources.error_while_loading_spells
 
-class SpellHeaderProvider : HeaderProvider<Spell> {
+class SpellAddToListProvider(
+    spellRepository: SpellRepository,
+    userListRepository: UserListRepository,
+) : AddToListProvider<Spell> {
+
+    override val viewModelFactory = AddToListViewModelFactory(
+        listType = UserList.Type.SPELL,
+        userListRepository = userListRepository,
+        entityRepository = SpellEntityRepository(spellRepository),
+        errorMessage = Res.string.error_while_loading_spells,
+    )
 
     @Composable
     override fun Header(entity: Spell) {

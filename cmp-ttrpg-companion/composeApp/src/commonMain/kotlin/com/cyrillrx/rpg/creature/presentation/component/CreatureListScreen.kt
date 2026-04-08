@@ -10,6 +10,7 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -23,25 +24,31 @@ import com.cyrillrx.rpg.core.presentation.component.SwipeToAddBox
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.creature.data.SampleCreatureRepository
 import com.cyrillrx.rpg.creature.domain.Creature
+import com.cyrillrx.rpg.creature.presentation.CreatureAddToListProvider
 import com.cyrillrx.rpg.creature.presentation.CreatureListState
 import com.cyrillrx.rpg.creature.presentation.viewmodel.CreatureListViewModel
+import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
+import com.cyrillrx.rpg.userlist.presentation.AddToListProvider
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.hint_search_creature
 
 @Composable
-fun CreatureListScreen(viewModel: CreatureListViewModel) {
+fun CreatureListScreen(
+    viewModel: CreatureListViewModel,
+    addToListProvider: AddToListProvider<Creature>,
+) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     CreatureListScreen(
         state = state,
         onNavigateUpClicked = viewModel::onNavigateUpClicked,
         onSearchQueryChanged = viewModel::onSearchQueryChanged,
         onCreatureClicked = viewModel::onCreatureClicked,
-        onAddToListClicked = viewModel::onCreatureAddToListClicked,
         onTypeToggled = viewModel::onTypeToggled,
         onChallengeRatingToggled = viewModel::onChallengeRatingToggled,
         onResetFilters = viewModel::onResetFilters,
+        addToListProvider = addToListProvider,
     )
 }
 
@@ -51,12 +58,13 @@ fun CreatureListScreen(
     onNavigateUpClicked: () -> Unit,
     onSearchQueryChanged: (String) -> Unit,
     onCreatureClicked: (Creature) -> Unit,
-    onAddToListClicked: (Creature) -> Unit,
     onTypeToggled: (Creature.Type) -> Unit,
     onChallengeRatingToggled: (Float) -> Unit,
     onResetFilters: () -> Unit,
+    addToListProvider: AddToListProvider<Creature>,
 ) {
     var showFilterSheet by remember { mutableStateOf(false) }
+    var creatureToAdd by remember { mutableStateOf<Creature?>(null) }
 
     Scaffold(
         topBar = {
@@ -75,7 +83,11 @@ fun CreatureListScreen(
                 is CreatureListState.Body.Loading -> Loader()
                 is CreatureListState.Body.Empty -> EmptySearch(state.filter.query)
                 is CreatureListState.Body.Error -> ErrorLayout(body.errorMessage)
-                is CreatureListState.Body.WithData -> CreatureList(body.searchResults, onCreatureClicked, onAddToListClicked)
+                is CreatureListState.Body.WithData -> CreatureList(
+                    creatures = body.searchResults,
+                    onCreatureClicked = onCreatureClicked,
+                    showAddToList = { creature -> creatureToAdd = creature },
+                )
             }
         }
     }
@@ -89,17 +101,24 @@ fun CreatureListScreen(
             onDismiss = { showFilterSheet = false },
         )
     }
+
+    creatureToAdd?.let { creature ->
+        addToListProvider.BottomSheet(
+            entityId = creature.id,
+            onDismiss = { creatureToAdd = null },
+        )
+    }
 }
 
 @Composable
 private fun CreatureList(
     creatures: List<Creature>,
     onCreatureClicked: (Creature) -> Unit,
-    onAddToListClicked: (Creature) -> Unit,
+    showAddToList: (Creature) -> Unit,
 ) {
     LazyColumn(modifier = Modifier.fillMaxSize()) {
         items(creatures, key = { it.id }) { creature ->
-            SwipeToAddBox(onAdd = { onAddToListClicked(creature) }) {
+            SwipeToAddBox(onSwiped = { showAddToList(creature) }) {
                 CreatureItem(
                     creature = creature,
                     modifier = Modifier.clickable { onCreatureClicked(creature) },
@@ -117,15 +136,17 @@ private val stateWithSampleData = CreatureListState(
 @Preview
 @Composable
 private fun PreviewCreatureListScreenLight() {
-    AppThemePreview(darkTheme = false) {
-        CreatureListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, {})
-    }
+    AppThemePreview(darkTheme = false) { CreatureListScreenPreview() }
 }
 
 @Preview
 @Composable
 private fun PreviewCreatureListScreenDark() {
-    AppThemePreview(darkTheme = true) {
-        CreatureListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, {})
-    }
+    AppThemePreview(darkTheme = true) { CreatureListScreenPreview() }
+}
+
+@Composable
+private fun CreatureListScreenPreview() {
+    val addToListProvider = CreatureAddToListProvider(SampleCreatureRepository(), SampleUserListRepository())
+    CreatureListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, addToListProvider)
 }

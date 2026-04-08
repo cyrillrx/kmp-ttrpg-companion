@@ -5,7 +5,6 @@ import androidx.navigation.NavController
 interface CreatureRouter {
     fun navigateUp()
     fun openDetail(creatureId: String)
-    fun openAddToList(creatureId: String)
 }
 
 class CreatureRouterImpl(private val navController: NavController) : CreatureRouter {
@@ -15,9 +14,5 @@ class CreatureRouterImpl(private val navController: NavController) : CreatureRou
 
     override fun openDetail(creatureId: String) {
         navController.navigate(CreatureRoute.Detail(creatureId))
-    }
-
-    override fun openAddToList(creatureId: String) {
-        navController.navigate(CreatureRoute.AddToList(creatureId))
     }
 }

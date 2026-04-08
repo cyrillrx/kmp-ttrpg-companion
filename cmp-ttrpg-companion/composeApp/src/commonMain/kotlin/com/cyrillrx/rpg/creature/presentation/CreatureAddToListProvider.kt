@@ -15,10 +15,27 @@ import androidx.compose.ui.text.style.TextOverflow
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
+import com.cyrillrx.rpg.creature.data.CreatureEntityRepository
 import com.cyrillrx.rpg.creature.domain.Creature
-import com.cyrillrx.rpg.userlist.presentation.HeaderProvider
+import com.cyrillrx.rpg.creature.domain.CreatureRepository
+import com.cyrillrx.rpg.userlist.domain.UserList
+import com.cyrillrx.rpg.userlist.domain.UserListRepository
+import com.cyrillrx.rpg.userlist.presentation.AddToListProvider
+import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddToListViewModelFactory
+import rpg_companion.composeapp.generated.resources.Res
+import rpg_companion.composeapp.generated.resources.error_while_loading_creatures
 
-class CreatureHeaderProvider : HeaderProvider<Creature> {
+class CreatureAddToListProvider(
+    repository: CreatureRepository,
+    userListRepository: UserListRepository,
+) : AddToListProvider<Creature> {
+
+    override val viewModelFactory = AddToListViewModelFactory(
+        listType = UserList.Type.CREATURE,
+        userListRepository = userListRepository,
+        entityRepository = CreatureEntityRepository(repository),
+        errorMessage = Res.string.error_while_loading_creatures,
+    )
 
     @Composable
     override fun Header(entity: Creature) {

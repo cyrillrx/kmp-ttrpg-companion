@@ -8,7 +8,7 @@ import androidx.navigation.toRoute
 import com.cyrillrx.rpg.magicalitem.data.MagicalItemEntityRepository
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemRepository
-import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemHeaderProvider
+import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemAddToListProvider
 import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemItemProvider
 import com.cyrillrx.rpg.magicalitem.presentation.component.MagicalItemCardCarouselScreen
 import com.cyrillrx.rpg.magicalitem.presentation.component.MagicalItemCardScreen
@@ -19,12 +19,9 @@ import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.MagicalItemListViewMo
 import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.MagicalItemListViewModelFactory
 import com.cyrillrx.rpg.userlist.domain.UserList
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
-import com.cyrillrx.rpg.userlist.presentation.component.AddToListScreen
 import com.cyrillrx.rpg.userlist.presentation.component.ListDetailScreen
 import com.cyrillrx.rpg.userlist.presentation.component.UserListsScreen
 import com.cyrillrx.rpg.userlist.presentation.navigation.UserListRouterImpl
-import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddToListViewModel
-import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddToListViewModelFactory
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.ListDetailViewModel
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.ListDetailViewModelFactory
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.UserListsViewModel
@@ -32,7 +29,6 @@ import com.cyrillrx.rpg.userlist.presentation.viewmodel.UserListsViewModelFactor
 import kotlinx.serialization.Serializable
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.error_while_loading_magical_items
 import rpg_companion.composeapp.generated.resources.title_my_item_lists
 
 interface MagicalItemRoute {
@@ -50,9 +46,6 @@ interface MagicalItemRoute {
 
     @Serializable
     data class UserListDetail(val listId: String)
-
-    @Serializable
-    data class AddToList(val magicalItemId: String)
 }
 
 fun NavGraphBuilder.handleMagicalItemRoutes(
@@ -64,7 +57,8 @@ fun NavGraphBuilder.handleMagicalItemRoutes(
         val router = MagicalItemRouterImpl(navController)
         val viewModelFactory = MagicalItemListViewModelFactory(router, repository)
         val viewModel = viewModel<MagicalItemListViewModel>(factory = viewModelFactory)
-        MagicalItemListScreen(viewModel)
+        val addToListProvider = MagicalItemAddToListProvider(repository, userListRepository)
+        MagicalItemListScreen(viewModel, addToListProvider)
     }
 
     composable<MagicalItemRoute.CardCarousel> {
@@ -80,25 +74,8 @@ fun NavGraphBuilder.handleMagicalItemRoutes(
         val viewModel = viewModel<MagicalItemDetailViewModel>(
             factory = MagicalItemDetailViewModelFactory(id, repository),
         )
-        MagicalItemCardScreen(viewModel = viewModel, router = router)
-    }
-
-    composable<MagicalItemRoute.AddToList> { entry ->
-        val magicalItemId = entry.toRoute<MagicalItemRoute.AddToList>().magicalItemId
-        val viewModel = viewModel<AddToListViewModel<MagicalItem>>(
-            factory = AddToListViewModelFactory(
-                itemId = magicalItemId,
-                listType = UserList.Type.MAGICAL_ITEM,
-                userListRepository = userListRepository,
-                repository = MagicalItemEntityRepository(repository),
-                errorMessage = Res.string.error_while_loading_magical_items,
-            ),
-        )
-        AddToListScreen(
-            viewModel = viewModel,
-            headerProvider = MagicalItemHeaderProvider(),
-            onNavigateUp = { navController.navigateUp() },
-        )
+        val addToListProvider = MagicalItemAddToListProvider(repository, userListRepository)
+        MagicalItemCardScreen(viewModel = viewModel, router = router, addToListProvider = addToListProvider)
     }
 
     composable<MagicalItemRoute.UserLists> {

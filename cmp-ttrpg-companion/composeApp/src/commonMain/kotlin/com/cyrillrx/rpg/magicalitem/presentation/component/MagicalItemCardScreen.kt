@@ -10,6 +10,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
@@ -18,8 +21,11 @@ import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.magicalitem.data.SampleMagicalItemRepository
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
+import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemAddToListProvider
 import com.cyrillrx.rpg.magicalitem.presentation.navigation.MagicalItemRouter
 import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.MagicalItemDetailViewModel
+import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
+import com.cyrillrx.rpg.userlist.presentation.AddToListProvider
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
@@ -30,25 +36,28 @@ import rpg_companion.composeapp.generated.resources.error_magical_item_not_found
 fun MagicalItemCardScreen(
     viewModel: MagicalItemDetailViewModel,
     router: MagicalItemRouter,
+    addToListProvider: AddToListProvider<MagicalItem>,
 ) {
     val state by viewModel.state.collectAsState()
     when (val s = state) {
         DetailState.Loading -> Loader()
         is DetailState.NotFound -> ErrorLayout(stringResource(Res.string.error_magical_item_not_found, s.id))
-        is DetailState.Found -> MagicalItemCardScreen(
+        is DetailState.Found -> MagicalItemCardContent(
             magicalItem = s.item,
-            onAddToListClicked = router::openAddToList,
             onNavigateUpClicked = router::navigateUp,
+            addToListProvider = addToListProvider,
         )
     }
 }
 
 @Composable
-fun MagicalItemCardScreen(
+private fun MagicalItemCardContent(
     magicalItem: MagicalItem,
-    onAddToListClicked: (magicalItemId: String) -> Unit,
     onNavigateUpClicked: () -> Unit,
+    addToListProvider: AddToListProvider<MagicalItem>,
 ) {
+    var showAddToListBottomSheet by remember { mutableStateOf(false) }
+
     Scaffold { paddingValues ->
         Column(modifier = Modifier.padding(paddingValues)) {
             MagicalItemCard(
@@ -58,7 +67,7 @@ fun MagicalItemCardScreen(
                     .clickable { onNavigateUpClicked() },
             )
             Button(
-                onClick = { onAddToListClicked(magicalItem.id) },
+                onClick = { showAddToListBottomSheet = true },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = spacingMedium),
@@ -66,6 +75,13 @@ fun MagicalItemCardScreen(
                 Text(stringResource(Res.string.btn_add_to_list))
             }
         }
+    }
+
+    if (showAddToListBottomSheet) {
+        addToListProvider.BottomSheet(
+            entityId = magicalItem.id,
+            onDismiss = { showAddToListBottomSheet = false },
+        )
     }
 }
 
@@ -84,7 +100,8 @@ fun PreviewMagicalItemCardScreenDark() {
 @Composable
 private fun PreviewMagicalItemCardScreen(darkTheme: Boolean) {
     val magicalItem = SampleMagicalItemRepository.getFirst()
+    val addToListProvider = MagicalItemAddToListProvider(SampleMagicalItemRepository(), SampleUserListRepository())
     AppThemePreview(darkTheme = darkTheme) {
-        MagicalItemCardScreen(magicalItem, onAddToListClicked = {}, onNavigateUpClicked = {})
+        MagicalItemCardContent(magicalItem, onNavigateUpClicked = {}, addToListProvider = addToListProvider)
     }
 }

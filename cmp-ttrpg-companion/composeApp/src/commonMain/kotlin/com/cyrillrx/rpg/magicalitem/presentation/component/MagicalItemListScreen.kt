@@ -13,6 +13,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -29,15 +30,21 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.magicalitem.data.SampleMagicalItemRepository
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
+import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemAddToListProvider
 import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemListState
 import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.MagicalItemListViewModel
+import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
+import com.cyrillrx.rpg.userlist.presentation.AddToListProvider
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.hint_search_magical_item
 
 @Composable
-fun MagicalItemListScreen(viewModel: MagicalItemListViewModel) {
+fun MagicalItemListScreen(
+    viewModel: MagicalItemListViewModel,
+    addToListProvider: AddToListProvider<MagicalItem>,
+) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
     MagicalItemListScreen(
@@ -45,10 +52,10 @@ fun MagicalItemListScreen(viewModel: MagicalItemListViewModel) {
         onNavigateUpClicked = viewModel::onNavigateUpClicked,
         onSearchQueryChanged = viewModel::onSearchQueryChanged,
         onMagicalItemClicked = viewModel::onItemClicked,
-        onAddToListClicked = viewModel::onItemAddToListClicked,
         onTypeToggled = viewModel::onTypeToggled,
         onRarityToggled = viewModel::onRarityToggled,
         onResetFilters = viewModel::onResetFilters,
+        addToListProvider = addToListProvider,
     )
 }
 
@@ -58,12 +65,13 @@ fun MagicalItemListScreen(
     onNavigateUpClicked: () -> Unit,
     onSearchQueryChanged: (String) -> Unit,
     onMagicalItemClicked: (MagicalItem) -> Unit,
-    onAddToListClicked: (MagicalItem) -> Unit,
     onTypeToggled: (MagicalItem.Type) -> Unit,
     onRarityToggled: (MagicalItem.Rarity) -> Unit,
     onResetFilters: () -> Unit,
+    addToListProvider: AddToListProvider<MagicalItem>,
 ) {
     var showFilterSheet by remember { mutableStateOf(false) }
+    var itemToAdd by remember { mutableStateOf<MagicalItem?>(null) }
 
     Scaffold(
         topBar = {
@@ -87,7 +95,11 @@ fun MagicalItemListScreen(
                 is MagicalItemListState.Body.Loading -> Loader()
                 is MagicalItemListState.Body.Empty -> EmptySearch(state.filter.query)
                 is MagicalItemListState.Body.Error -> ErrorLayout(body.errorMessage)
-                is MagicalItemListState.Body.WithData -> MagicalItemList(body.searchResults, onMagicalItemClicked, onAddToListClicked)
+                is MagicalItemListState.Body.WithData -> MagicalItemList(
+                    magicalItems = body.searchResults,
+                    onMagicalItemClicked = onMagicalItemClicked,
+                    showAddToList = { item -> itemToAdd = item },
+                )
             }
         }
     }
@@ -101,13 +113,20 @@ fun MagicalItemListScreen(
             onDismiss = { showFilterSheet = false },
         )
     }
+
+    itemToAdd?.let { item ->
+        addToListProvider.BottomSheet(
+            entityId = item.id,
+            onDismiss = { itemToAdd = null },
+        )
+    }
 }
 
 @Composable
 private fun MagicalItemList(
     magicalItems: List<MagicalItem>,
     onMagicalItemClicked: (MagicalItem) -> Unit,
-    onAddToListClicked: (MagicalItem) -> Unit,
+    showAddToList: (MagicalItem) -> Unit,
 ) {
     val listState = rememberLazyListState()
     LaunchedEffect(magicalItems) {
@@ -121,7 +140,7 @@ private fun MagicalItemList(
         verticalArrangement = Arrangement.spacedBy(spacingSmall),
     ) {
         items(magicalItems, key = { it.id }) { item ->
-            SwipeToAddBox(onAdd = { onAddToListClicked(item) }) {
+            SwipeToAddBox(onSwiped = { showAddToList(item) }) {
                 MagicalItemListItem(
                     magicalItem = item,
                     onClick = { onMagicalItemClicked(item) },
@@ -139,15 +158,17 @@ private val stateWithSampleData = MagicalItemListState(
 @Preview
 @Composable
 private fun PreviewMagicalItemListScreenLight() {
-    AppThemePreview(darkTheme = false) {
-        MagicalItemListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, {})
-    }
+    AppThemePreview(darkTheme = false) { MagicalItemListScreenPreview() }
 }
 
 @Preview
 @Composable
 private fun PreviewMagicalItemListScreenDark() {
-    AppThemePreview(darkTheme = true) {
-        MagicalItemListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, {})
-    }
+    AppThemePreview(darkTheme = true) { MagicalItemListScreenPreview() }
+}
+
+@Composable
+private fun MagicalItemListScreenPreview() {
+    val addToListProvider = MagicalItemAddToListProvider(SampleMagicalItemRepository(), SampleUserListRepository())
+    MagicalItemListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, addToListProvider)
 }

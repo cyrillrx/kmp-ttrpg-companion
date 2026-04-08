@@ -43,13 +43,16 @@ class AddToListViewModelTest {
         Dispatchers.resetMain()
     }
 
-    private fun buildViewModel(itemId: String = spell.id) = AddToListViewModel(
-        itemId = itemId,
-        listType = UserList.Type.SPELL,
-        userListRepository = userListRepository,
-        repository = spellRepository,
-        errorMessage = Res.string.error_while_loading_spells,
-    )
+    private fun buildViewModel(itemId: String = spell.id): AddToListViewModel<Spell> {
+        val vm = AddToListViewModel(
+            listType = UserList.Type.SPELL,
+            userListRepository = userListRepository,
+            repository = spellRepository,
+            errorMessage = Res.string.error_while_loading_spells,
+        )
+        vm.loadEntity(itemId)
+        return vm
+    }
 
     @Test
     fun `initial state is Loading before coroutines run`() = runTest(testDispatcher) {
@@ -73,13 +76,13 @@ class AddToListViewModelTest {
 
     @Test
     fun `state is Error when repository throws`() = runTest(testDispatcher) {
-        val viewModel = AddToListViewModel<Spell>(
-            itemId = spell.id,
+        val viewModel = AddToListViewModel(
             listType = UserList.Type.SPELL,
             userListRepository = FailingAddToListRepository(),
             repository = spellRepository,
             errorMessage = Res.string.error_while_loading_spells,
         )
+        viewModel.loadEntity(spell.id)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}

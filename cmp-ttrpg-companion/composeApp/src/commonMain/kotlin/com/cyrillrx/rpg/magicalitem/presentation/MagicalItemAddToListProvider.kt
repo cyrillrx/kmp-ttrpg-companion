@@ -15,10 +15,27 @@ import androidx.compose.ui.text.style.TextOverflow
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
+import com.cyrillrx.rpg.magicalitem.data.MagicalItemEntityRepository
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
-import com.cyrillrx.rpg.userlist.presentation.HeaderProvider
+import com.cyrillrx.rpg.magicalitem.domain.MagicalItemRepository
+import com.cyrillrx.rpg.userlist.domain.UserList
+import com.cyrillrx.rpg.userlist.domain.UserListRepository
+import com.cyrillrx.rpg.userlist.presentation.AddToListProvider
+import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddToListViewModelFactory
+import rpg_companion.composeapp.generated.resources.Res
+import rpg_companion.composeapp.generated.resources.error_while_loading_magical_items
 
-class MagicalItemHeaderProvider : HeaderProvider<MagicalItem> {
+class MagicalItemAddToListProvider(
+    repository: MagicalItemRepository,
+    userListRepository: UserListRepository,
+) : AddToListProvider<MagicalItem> {
+
+    override val viewModelFactory = AddToListViewModelFactory(
+        listType = UserList.Type.MAGICAL_ITEM,
+        userListRepository = userListRepository,
+        entityRepository = MagicalItemEntityRepository(repository),
+        errorMessage = Res.string.error_while_loading_magical_items,
+    )
 
     @Composable
     override fun Header(entity: MagicalItem) {

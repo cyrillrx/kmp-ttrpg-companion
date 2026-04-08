@@ -42,10 +42,6 @@ class CreatureListViewModel(
         router.openDetail(creature.id)
     }
 
-    fun onCreatureAddToListClicked(creature: Creature) {
-        router.openAddToList(creature.id)
-    }
-
     fun onTypeToggled(type: Creature.Type) {
         updateFilter { it.copy(types = it.types.toggled(type)) }
     }

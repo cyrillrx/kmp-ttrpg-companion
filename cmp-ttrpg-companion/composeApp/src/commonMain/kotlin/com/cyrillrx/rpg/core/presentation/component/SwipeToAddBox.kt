@@ -27,7 +27,7 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 
 @Composable
 fun SwipeToAddBox(
-    onAdd: () -> Unit,
+    onSwiped: () -> Unit,
     modifier: Modifier = Modifier,
     content: @Composable RowScope.() -> Unit,
 ) {
@@ -36,7 +36,7 @@ fun SwipeToAddBox(
         confirmValueChange = { value ->
             if (value == SwipeToDismissBoxValue.StartToEnd && !confirmed) {
                 confirmed = true
-                onAdd()
+                onSwiped()
             }
             false
         },

@@ -13,6 +13,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -30,16 +31,23 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.spell.domain.Spell
+import com.cyrillrx.rpg.spell.presentation.SpellAddToListProvider
 import com.cyrillrx.rpg.spell.presentation.SpellListState
 import com.cyrillrx.rpg.spell.presentation.navigation.SpellRouter
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellListViewModel
+import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
+import com.cyrillrx.rpg.userlist.presentation.AddToListProvider
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.hint_search_spell
 
 @Composable
-fun SpellListScreen(viewModel: SpellListViewModel, router: SpellRouter) {
+fun SpellListScreen(
+    viewModel: SpellListViewModel,
+    router: SpellRouter,
+    addToListProvider: AddToListProvider<Spell>,
+) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
     SpellListScreen(
@@ -47,11 +55,11 @@ fun SpellListScreen(viewModel: SpellListViewModel, router: SpellRouter) {
         onNavigateUpClicked = router::navigateUp,
         onSearchQueryChanged = viewModel::onSearchQueryChanged,
         onSpellClicked = { spell -> router.openDetail(spell.id) },
-        onAddToListClicked = { spell -> router.openAddToList(spell.id) },
         onLevelToggled = viewModel::onLevelToggled,
         onSchoolToggled = viewModel::onSchoolToggled,
         onClassToggled = viewModel::onClassToggled,
         onResetFilters = viewModel::onResetFilters,
+        addToListProvider = addToListProvider,
     )
 }
 
@@ -61,13 +69,14 @@ fun SpellListScreen(
     onNavigateUpClicked: () -> Unit,
     onSearchQueryChanged: (String) -> Unit,
     onSpellClicked: (Spell) -> Unit,
-    onAddToListClicked: (Spell) -> Unit,
     onLevelToggled: (Int) -> Unit,
     onSchoolToggled: (Spell.School) -> Unit,
     onClassToggled: (PlayerCharacter.Class) -> Unit,
     onResetFilters: () -> Unit,
+    addToListProvider: AddToListProvider<Spell>,
 ) {
     var showFilterSheet by remember { mutableStateOf(false) }
+    var spellToAdd by remember { mutableStateOf<Spell?>(null) }
 
     Scaffold(
         topBar = {
@@ -91,7 +100,11 @@ fun SpellListScreen(
                 is SpellListState.Body.Loading -> Loader()
                 is SpellListState.Body.Empty -> EmptySearch(state.filter.query)
                 is SpellListState.Body.Error -> ErrorLayout(body.errorMessage)
-                is SpellListState.Body.WithData -> SpellList(body.searchResults, onSpellClicked, onAddToListClicked)
+                is SpellListState.Body.WithData -> SpellList(
+                    spells = body.searchResults,
+                    onSpellClicked = onSpellClicked,
+                    showAddToList = { spell -> spellToAdd = spell },
+                )
             }
         }
     }
@@ -106,13 +119,20 @@ fun SpellListScreen(
             onDismiss = { showFilterSheet = false },
         )
     }
+
+    spellToAdd?.let { spell ->
+        addToListProvider.BottomSheet(
+            entityId = spell.id,
+            onDismiss = { spellToAdd = null },
+        )
+    }
 }
 
 @Composable
 private fun SpellList(
     spells: List<Spell>,
     onSpellClicked: (Spell) -> Unit,
-    onAddToListClicked: (Spell) -> Unit,
+    showAddToList: (Spell) -> Unit,
 ) {
     val searchResultsListState = rememberLazyListState()
     LaunchedEffect(spells) {
@@ -126,7 +146,7 @@ private fun SpellList(
         verticalArrangement = Arrangement.spacedBy(spacingSmall),
     ) {
         items(spells, key = { it.id }) { spell ->
-            SwipeToAddBox(onAdd = { onAddToListClicked(spell) }) {
+            SwipeToAddBox(onSwiped = { showAddToList(spell) }) {
                 SpellListItem(
                     spell = spell,
                     onClick = { onSpellClicked(spell) },
@@ -137,22 +157,26 @@ private fun SpellList(
     }
 }
 
-private val stateWithSampleData = SpellListState(
-    body = SpellListState.Body.WithData(SampleSpellRepository.getAll()),
-)
-
 @Preview
 @Composable
 fun PreviewSpellListPeekScreenLight() {
-    AppThemePreview(darkTheme = false) {
-        SpellListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, {}, {})
-    }
+    AppThemePreview(darkTheme = false) { SpellListPeekScreenPreview() }
 }
 
 @Preview
 @Composable
 fun PreviewSpellListPeekScreenDark() {
-    AppThemePreview(darkTheme = true) {
-        SpellListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, {}, {})
-    }
+    AppThemePreview(darkTheme = true) { SpellListPeekScreenPreview() }
+}
+
+@Composable
+private fun SpellListPeekScreenPreview() {
+    val userListRepository = SampleUserListRepository()
+    val spellRepository = SampleSpellRepository()
+    val stateWithSampleData = SpellListState(
+        body = SpellListState.Body.WithData(SampleSpellRepository.getAll()),
+    )
+    val bottomSheetProvider = SpellAddToListProvider(spellRepository, userListRepository)
+
+    SpellListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, {}, bottomSheetProvider)
 }
