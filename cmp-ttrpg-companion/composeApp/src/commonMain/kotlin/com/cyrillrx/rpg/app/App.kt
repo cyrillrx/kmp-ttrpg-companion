@@ -1,6 +1,13 @@
 package com.cyrillrx.rpg.app
 
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
+import androidx.compose.foundation.background
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -34,6 +41,11 @@ fun App(dbDriverFactory: DatabaseDriverFactory) {
         NavHost(
             navController = navController,
             startDestination = MainRoute.Home,
+            modifier = Modifier.background(MaterialTheme.colorScheme.background),
+            enterTransition = { slideInHorizontally(initialOffsetX = { it }) + fadeIn() },
+            exitTransition = { slideOutHorizontally(targetOffsetX = { -it }) + fadeOut() },
+            popEnterTransition = { slideInHorizontally(initialOffsetX = { -it }) + fadeIn() },
+            popExitTransition = { slideOutHorizontally(targetOffsetX = { it }) + fadeOut() },
         ) {
             val homeRouter = HomeRouterImpl(navController)
             composable<MainRoute.Home> { HomeScreen(homeRouter) }
