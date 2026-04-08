@@ -34,7 +34,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.compose.LifecycleEventEffect
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
@@ -62,6 +64,11 @@ import rpg_companion.composeapp.generated.resources.snackbar_list_deleted
 @Composable
 fun UserListsScreen(viewModel: UserListsViewModel, title: String) {
     val state by viewModel.state.collectAsStateWithLifecycle()
+
+    LifecycleEventEffect(Lifecycle.Event.ON_RESUME) {
+        viewModel.silentRefresh()
+    }
+
     UserListsScreen(
         state = state,
         title = title,
@@ -114,7 +121,7 @@ fun UserListsScreen(
             val result = snackbarHostState.showSnackbar(
                 message = deletedMessage,
                 actionLabel = undoLabel,
-                duration = SnackbarDuration.Long,
+                duration = SnackbarDuration.Short,
             )
             when (result) {
                 SnackbarResult.ActionPerformed -> onUndoDeletion(pending)

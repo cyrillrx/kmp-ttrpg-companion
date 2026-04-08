@@ -199,6 +199,34 @@ class UserListsViewModelTest {
     }
 
     @Test
+    fun `refresh updates state with fresh data without showing Loading`() = runTest(testDispatcher) {
+        val spellList = UserList("1", "Spellbook", UserList.Type.SPELL, emptyList())
+        repository.save(spellList)
+
+        val viewModel = buildViewModel()
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        val updatedList = spellList.copy(name = "Updated Spellbook")
+        repository.save(updatedList)
+
+        viewModel.silentRefresh()
+
+        // State must not be Loading during refresh
+        assertIs<UserListsState.Body.WithData>(viewModel.state.value.body)
+
+        advanceUntilIdle()
+
+        val body = assertIs<UserListsState.Body.WithData>(viewModel.state.value.body)
+        assertEquals(expected = 1, actual = body.lists.size)
+        assertEquals(expected = "Updated Spellbook", actual = body.lists.first().name)
+    }
+
+    @Test
     fun `openList delegates to router`() = runTest(testDispatcher) {
         val trackingRouter = TrackingUserListRouter()
         val viewModel = UserListsViewModel(UserList.Type.SPELL, trackingRouter, repository)
