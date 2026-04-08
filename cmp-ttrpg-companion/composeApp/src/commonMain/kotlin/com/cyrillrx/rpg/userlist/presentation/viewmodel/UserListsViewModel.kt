@@ -16,10 +16,10 @@ import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import kotlin.time.Clock
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_while_loading_user_lists
 import kotlin.coroutines.cancellation.CancellationException
+import kotlin.time.Clock
 import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
@@ -135,23 +135,40 @@ class UserListsViewModel(
         }
     }
 
+    fun silentRefresh() {
+        viewModelScope.launch {
+            // No loader to prevent view from flashing
+            try {
+                fetchAndUpdateUserLists()
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                // Keep existing state on refresh failure
+            }
+        }
+    }
+
     private fun loadLists() {
         viewModelScope.launch {
             state.update { it.copy(body = UserListsState.Body.Loading) }
 
             try {
-                val lists = userListRepository.getAll(listType)
-                val body = if (lists.isEmpty()) {
-                    UserListsState.Body.Empty
-                } else {
-                    UserListsState.Body.WithData(lists)
-                }
-                state.update { it.copy(body = body) }
+                fetchAndUpdateUserLists()
             } catch (e: CancellationException) {
                 throw e
             } catch (e: Exception) {
                 state.update { it.copy(body = UserListsState.Body.Error(errorMessage = Res.string.error_while_loading_user_lists)) }
             }
         }
+    }
+
+    private suspend fun fetchAndUpdateUserLists() {
+        val lists = userListRepository.getAll(listType)
+        val body = if (lists.isEmpty()) {
+            UserListsState.Body.Empty
+        } else {
+            UserListsState.Body.WithData(lists)
+        }
+        state.update { it.copy(body = body) }
     }
 }
