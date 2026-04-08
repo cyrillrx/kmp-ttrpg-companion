@@ -1,7 +1,5 @@
 package com.cyrillrx.rpg.spell.presentation.navigation
 
-import androidx.compose.animation.slideInHorizontally
-import androidx.compose.animation.slideOutHorizontally
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
@@ -55,10 +53,7 @@ fun NavGraphBuilder.handleSpellRoutes(
     spellRepository: SpellRepository,
     userListRepository: UserListRepository,
 ) {
-    composable<SpellRoute.List>(
-        enterTransition = { slideInHorizontally { initialOffset -> initialOffset } },
-        exitTransition = { slideOutHorizontally { initialOffset -> initialOffset } },
-    ) {
+    composable<SpellRoute.List> {
         val router = SpellRouterImpl(navController)
         val viewModelFactory = SpellListViewModelFactory(router, spellRepository)
         val viewModel = viewModel<SpellListViewModel>(factory = viewModelFactory)
