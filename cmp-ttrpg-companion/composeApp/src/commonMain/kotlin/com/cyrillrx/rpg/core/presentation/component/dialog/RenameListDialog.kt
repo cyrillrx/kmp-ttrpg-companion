@@ -36,9 +36,10 @@ fun RenameListDialog(
             )
         },
         confirmButton = {
+            val trimmedName = name.trim()
             TextButton(
-                onClick = { onConfirm(name) },
-                enabled = name.isNotBlank() && name != currentName,
+                onClick = { onConfirm(trimmedName) },
+                enabled = trimmedName.isNotBlank() && trimmedName != currentName,
             ) {
                 Text(stringResource(Res.string.btn_confirm))
             }
