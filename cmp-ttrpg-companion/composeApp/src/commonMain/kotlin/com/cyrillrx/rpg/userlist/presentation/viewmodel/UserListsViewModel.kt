@@ -136,6 +136,8 @@ class UserListsViewModel(
     }
 
     fun silentRefresh() {
+        if (state.value.body is UserListsState.Body.Loading) return
+
         viewModelScope.launch {
             // No loader to prevent view from flashing
             try {
