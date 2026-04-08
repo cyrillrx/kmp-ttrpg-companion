@@ -3,6 +3,7 @@ package com.cyrillrx.rpg.userlist.presentation.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.core.domain.EntityRepository
+import com.cyrillrx.rpg.userlist.domain.UserList
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
 import com.cyrillrx.rpg.userlist.presentation.ListDetailState
 import kotlinx.coroutines.CoroutineDispatcher
@@ -15,6 +16,7 @@ import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import kotlin.time.Clock
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_while_loading_user_list
 import kotlin.coroutines.cancellation.CancellationException
@@ -39,6 +41,7 @@ class ListDetailViewModel<T>(
     }
 
     private val pendingRemovals: MutableList<PendingRemoval<T>> = mutableListOf()
+    private var currentList: UserList? = null
 
     init {
         loadDetail()
@@ -48,6 +51,15 @@ class ListDetailViewModel<T>(
         super.onCleared()
 
         commitAllPendingRemovals()
+    }
+
+    fun renameList(newName: String) {
+        val list = currentList ?: return
+        viewModelScope.launch {
+            userListRepository.save(list.copy(name = newName, lastModified = Clock.System.now()))
+            currentList = currentList?.copy(name = newName)
+            state.update { it.copy(listName = newName) }
+        }
     }
 
     fun removeItemOptimistically(itemId: String, item: T): PendingRemoval<T>? {
@@ -111,6 +123,7 @@ class ListDetailViewModel<T>(
 
             try {
                 val list = userListRepository.get(listId) ?: error("Could not find list $listId")
+                currentList = list
                 state.update { it.copy(listName = list.name) }
 
                 val items = repository.getByIds(list.itemIds)

@@ -12,7 +12,9 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarDuration
@@ -25,8 +27,10 @@ import androidx.compose.material3.rememberSwipeToDismissBoxState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -34,6 +38,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
+import com.cyrillrx.rpg.core.presentation.component.dialog.RenameListDialog
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
@@ -49,6 +54,7 @@ import org.jetbrains.compose.resources.getString
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
+import rpg_companion.composeapp.generated.resources.btn_rename_list
 import rpg_companion.composeapp.generated.resources.btn_undo
 import rpg_companion.composeapp.generated.resources.snackbar_error_removing_from_list
 import rpg_companion.composeapp.generated.resources.snackbar_removed_from_list
@@ -65,6 +71,7 @@ fun <T> ListDetailScreen(
         events = viewModel.events,
         itemProvider = itemProvider,
         onNavigateUpClicked = onNavigateUp,
+        onRenameList = viewModel::renameList,
         onRemoveItemOptimistically = viewModel::removeItemOptimistically,
         onUndoRemoval = viewModel::undoRemoval,
         onCommitRemoval = viewModel::commitRemoval,
@@ -77,6 +84,7 @@ fun <T> ListDetailScreen(
     events: SharedFlow<ListDetailViewModel.Event<T>>,
     itemProvider: ListItemProvider<T>,
     onNavigateUpClicked: () -> Unit,
+    onRenameList: (String) -> Unit,
     onRemoveItemOptimistically: (id: String, item: T) -> ListDetailViewModel.PendingRemoval<T>?,
     onUndoRemoval: (ListDetailViewModel.PendingRemoval<T>) -> Unit,
     onCommitRemoval: (ListDetailViewModel.PendingRemoval<T>) -> Unit,
@@ -84,6 +92,7 @@ fun <T> ListDetailScreen(
     val snackbarHostState = remember { SnackbarHostState() }
     val coroutineScope = rememberCoroutineScope()
     val undoLabel = stringResource(Res.string.btn_undo)
+    var showRenameDialog by remember { mutableStateOf(false) }
 
     LaunchedEffect(events) {
         events.collect { event ->
@@ -118,11 +127,27 @@ fun <T> ListDetailScreen(
         }
     }
 
+    if (showRenameDialog) {
+        RenameListDialog(
+            currentName = state.listName,
+            onConfirm = { newName ->
+                onRenameList(newName)
+                showRenameDialog = false
+            },
+            onDismiss = { showRenameDialog = false },
+        )
+    }
+
     Scaffold(
         topBar = {
             SimpleTopBar(
                 title = state.listName,
                 navigateUp = onNavigateUpClicked,
+                actions = {
+                    IconButton(onClick = { showRenameDialog = true }) {
+                        Icon(Icons.Default.Edit, contentDescription = stringResource(Res.string.btn_rename_list))
+                    }
+                },
             )
         },
         snackbarHost = { SnackbarHost(snackbarHostState) },
@@ -236,6 +261,7 @@ private fun ListDetailScreenPreview(darkTheme: Boolean) {
             events = MutableSharedFlow(),
             itemProvider = SpellItemProvider(onItemClicked = {}),
             onNavigateUpClicked = {},
+            onRenameList = {},
             onRemoveItemOptimistically = { _, _ -> null },
             onUndoRemoval = {},
             onCommitRemoval = {},
@@ -266,6 +292,7 @@ private fun EmptyListDetailScreenPreview(darkTheme: Boolean) {
             events = MutableSharedFlow(),
             itemProvider = SpellItemProvider(onItemClicked = {}),
             onNavigateUpClicked = {},
+            onRenameList = {},
             onRemoveItemOptimistically = { _, _ -> null },
             onUndoRemoval = {},
             onCommitRemoval = {},

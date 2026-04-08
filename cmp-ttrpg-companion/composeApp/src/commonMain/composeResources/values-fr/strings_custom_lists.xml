@@ -33,4 +33,7 @@
     <string name="empty_list_browse_magical_items">Parcourir les objets magiques</string>
 
     <string name="time_ago_now">À l'instant</string>
+
+    <string name="btn_rename_list">Renommer</string>
+    <string name="dialog_rename_list_title">Renommer la liste</string>
 </resources>

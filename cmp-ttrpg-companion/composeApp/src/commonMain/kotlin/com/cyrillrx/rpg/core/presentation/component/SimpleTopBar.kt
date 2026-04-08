@@ -1,5 +1,6 @@
 package com.cyrillrx.rpg.core.presentation.component
 
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -16,8 +17,12 @@ import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.btn_back
 
 @Composable
-fun SimpleTopBar(titleResource: StringResource, navigateUp: () -> Unit) {
-    SimpleTopBar(stringResource(titleResource), navigateUp)
+fun SimpleTopBar(
+    titleResource: StringResource,
+    navigateUp: () -> Unit,
+    actions: @Composable RowScope.() -> Unit = {},
+) {
+    SimpleTopBar(stringResource(titleResource), navigateUp, actions)
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -25,6 +30,7 @@ fun SimpleTopBar(titleResource: StringResource, navigateUp: () -> Unit) {
 fun SimpleTopBar(
     title: String,
     navigateUp: () -> Unit,
+    actions: @Composable RowScope.() -> Unit = {},
 ) {
     TopAppBar(
         title = { Text(title) },
@@ -36,6 +42,7 @@ fun SimpleTopBar(
                 )
             }
         },
+        actions = actions,
         colors = TopAppBarDefaults.topAppBarColors(containerColor = MaterialTheme.colorScheme.background),
     )
 }
