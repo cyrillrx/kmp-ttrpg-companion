@@ -16,10 +16,10 @@ import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import kotlin.time.Clock
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_while_loading_user_list
 import kotlin.coroutines.cancellation.CancellationException
+import kotlin.time.Clock
 
 class ListDetailViewModel<T>(
     private val listId: String,
@@ -55,10 +55,16 @@ class ListDetailViewModel<T>(
 
     fun renameList(newName: String) {
         val list = currentList ?: return
+
         viewModelScope.launch {
-            userListRepository.save(list.copy(name = newName, lastModified = Clock.System.now()))
-            currentList = currentList?.copy(name = newName)
-            state.update { it.copy(listName = newName) }
+            val updatedList = list.copy(name = newName, lastModified = Clock.System.now())
+            try {
+                userListRepository.save(updatedList)
+                currentList = updatedList
+                state.update { it.copy(listName = newName) }
+            } catch (e: Exception) {
+                // TODO: Emit an event to notify UI about the error
+            }
         }
     }
 
