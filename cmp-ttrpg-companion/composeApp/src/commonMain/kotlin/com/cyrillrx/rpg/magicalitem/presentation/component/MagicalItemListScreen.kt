@@ -71,7 +71,7 @@ fun MagicalItemListScreen(
     addToListProvider: AddToListProvider<MagicalItem>,
 ) {
     var showFilterSheet by remember { mutableStateOf(false) }
-    var addToListItemId by remember { mutableStateOf<String?>(null) }
+    var itemToAdd by remember { mutableStateOf<MagicalItem?>(null) }
 
     Scaffold(
         topBar = {
@@ -98,7 +98,7 @@ fun MagicalItemListScreen(
                 is MagicalItemListState.Body.WithData -> MagicalItemList(
                     magicalItems = body.searchResults,
                     onMagicalItemClicked = onMagicalItemClicked,
-                    showAddToList = { item -> addToListItemId = item.id },
+                    showAddToList = { item -> itemToAdd = item },
                 )
             }
         }
@@ -114,11 +114,11 @@ fun MagicalItemListScreen(
         )
     }
 
-    addToListItemId?.let { id ->
-        key(id) {
+    itemToAdd?.let { item ->
+        key(item) {
             addToListProvider.BottomSheet(
-                entityId = id,
-                onDismiss = { addToListItemId = null },
+                entityId = item.id,
+                onDismiss = { itemToAdd = null },
             )
         }
     }

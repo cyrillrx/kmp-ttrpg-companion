@@ -64,7 +64,7 @@ fun CreatureListScreen(
     addToListProvider: AddToListProvider<Creature>,
 ) {
     var showFilterSheet by remember { mutableStateOf(false) }
-    var addToListCreatureId by remember { mutableStateOf<String?>(null) }
+    var creatureToAdd by remember { mutableStateOf<Creature?>(null) }
 
     Scaffold(
         topBar = {
@@ -86,7 +86,7 @@ fun CreatureListScreen(
                 is CreatureListState.Body.WithData -> CreatureList(
                     creatures = body.searchResults,
                     onCreatureClicked = onCreatureClicked,
-                    showAddToList = { creature -> addToListCreatureId = creature.id },
+                    showAddToList = { creature -> creatureToAdd = creature },
                 )
             }
         }
@@ -102,11 +102,11 @@ fun CreatureListScreen(
         )
     }
 
-    addToListCreatureId?.let { id ->
-        key(id) {
+    creatureToAdd?.let { creature ->
+        key(creature) {
             addToListProvider.BottomSheet(
-                entityId = id,
-                onDismiss = { addToListCreatureId = null },
+                entityId = creature.id,
+                onDismiss = { creatureToAdd = null },
             )
         }
     }

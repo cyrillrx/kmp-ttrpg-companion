@@ -56,7 +56,7 @@ private fun MagicalItemCardContent(
     onNavigateUpClicked: () -> Unit,
     addToListProvider: AddToListProvider<MagicalItem>,
 ) {
-    var addToListItemId by remember { mutableStateOf<String?>(null) }
+    var showAddToListBottomSheet by remember { mutableStateOf(false) }
 
     Scaffold { paddingValues ->
         Column(modifier = Modifier.padding(paddingValues)) {
@@ -67,7 +67,7 @@ private fun MagicalItemCardContent(
                     .clickable { onNavigateUpClicked() },
             )
             Button(
-                onClick = { addToListItemId = magicalItem.id },
+                onClick = { showAddToListBottomSheet = true },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = spacingMedium),
@@ -77,10 +77,10 @@ private fun MagicalItemCardContent(
         }
     }
 
-    addToListItemId?.let { id ->
+    if (showAddToListBottomSheet) {
         addToListProvider.BottomSheet(
-            entityId = id,
-            onDismiss = { addToListItemId = null },
+            entityId = magicalItem.id,
+            onDismiss = { showAddToListBottomSheet = false },
         )
     }
 }

@@ -57,7 +57,7 @@ private fun CreatureDetailContent(
     onNavigateUpClicked: () -> Unit,
     addToListProvider: AddToListProvider<Creature>,
 ) {
-    var addToListCreatureId by remember { mutableStateOf<String?>(null) }
+    var showAddToListBottomSheet by remember { mutableStateOf(false) }
 
     Scaffold(
         topBar = {
@@ -68,7 +68,7 @@ private fun CreatureDetailContent(
         },
         bottomBar = {
             Button(
-                onClick = { addToListCreatureId = creature.id },
+                onClick = { showAddToListBottomSheet = true },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = spacingMedium),
@@ -85,10 +85,10 @@ private fun CreatureDetailContent(
         )
     }
 
-    addToListCreatureId?.let { id ->
+    if (showAddToListBottomSheet) {
         addToListProvider.BottomSheet(
-            entityId = id,
-            onDismiss = { addToListCreatureId = null },
+            entityId = creature.id,
+            onDismiss = { showAddToListBottomSheet = false },
         )
     }
 }

@@ -76,7 +76,7 @@ fun SpellListScreen(
     addToListProvider: AddToListProvider<Spell>,
 ) {
     var showFilterSheet by remember { mutableStateOf(false) }
-    var addToListSpellId by remember { mutableStateOf<String?>(null) }
+    var spellToAdd by remember { mutableStateOf<Spell?>(null) }
 
     Scaffold(
         topBar = {
@@ -103,7 +103,7 @@ fun SpellListScreen(
                 is SpellListState.Body.WithData -> SpellList(
                     spells = body.searchResults,
                     onSpellClicked = onSpellClicked,
-                    showAddToList = { spell -> addToListSpellId = spell.id },
+                    showAddToList = { spell -> spellToAdd = spell },
                 )
             }
         }
@@ -120,11 +120,11 @@ fun SpellListScreen(
         )
     }
 
-    addToListSpellId?.let { spellId ->
-        key(spellId) {
+    spellToAdd?.let { spell ->
+        key(spell) {
             addToListProvider.BottomSheet(
-                entityId = spellId,
-                onDismiss = { addToListSpellId = null },
+                entityId = spell.id,
+                onDismiss = { spellToAdd = null },
             )
         }
     }

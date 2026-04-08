@@ -48,7 +48,7 @@ fun SpellCardScreen(
         is DetailState.Found -> SpellCardContent(
             spell = s.item,
             onNavigateUpClicked = router::navigateUp,
-            bottomSheetProvider = bottomSheetProvider,
+            addToListProvider = bottomSheetProvider,
         )
     }
 }
@@ -57,9 +57,9 @@ fun SpellCardScreen(
 private fun SpellCardContent(
     spell: Spell,
     onNavigateUpClicked: () -> Unit,
-    bottomSheetProvider: AddToListProvider<Spell>,
+    addToListProvider: AddToListProvider<Spell>,
 ) {
-    var addToListSpellId by remember { mutableStateOf<String?>(null) }
+    var showAddToListBottomSheet by remember { mutableStateOf(false) }
 
     Scaffold { paddingValues ->
         Column(modifier = Modifier.padding(paddingValues)) {
@@ -70,7 +70,7 @@ private fun SpellCardContent(
                     .clickable { onNavigateUpClicked() },
             )
             Button(
-                onClick = { addToListSpellId = spell.id },
+                onClick = { showAddToListBottomSheet = true },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = spacingMedium),
@@ -80,10 +80,10 @@ private fun SpellCardContent(
         }
     }
 
-    addToListSpellId?.let { spellId ->
-        bottomSheetProvider.BottomSheet(
-            entityId = spellId,
-            onDismiss = { addToListSpellId = null },
+    if (showAddToListBottomSheet) {
+        addToListProvider.BottomSheet(
+            entityId = spell.id,
+            onDismiss = { showAddToListBottomSheet = false },
         )
     }
 }
@@ -108,6 +108,6 @@ private fun PreviewSpellCardScreen(darkTheme: Boolean) {
     val bottomSheetProvider = SpellAddToListProvider(spellRepository, userListRepository)
 
     AppThemePreview(darkTheme = darkTheme) {
-        SpellCardContent(spell, onNavigateUpClicked = {}, bottomSheetProvider = bottomSheetProvider)
+        SpellCardContent(spell, onNavigateUpClicked = {}, addToListProvider = bottomSheetProvider)
     }
 }
