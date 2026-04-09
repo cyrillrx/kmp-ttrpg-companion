@@ -26,7 +26,7 @@ import com.cyrillrx.rpg.core.presentation.theme.Green500
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 
 @Composable
-fun SwipeToAddBox(
+fun SwipeToAdd(
     onSwiped: () -> Unit,
     modifier: Modifier = Modifier,
     content: @Composable RowScope.() -> Unit,

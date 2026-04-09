@@ -3,6 +3,7 @@ package com.cyrillrx.rpg.creature.presentation.component
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -20,7 +21,7 @@ import com.cyrillrx.rpg.core.presentation.component.EmptySearch
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SearchBarWithBack
-import com.cyrillrx.rpg.core.presentation.component.SwipeToAddBox
+import com.cyrillrx.rpg.core.presentation.component.SwipeToAdd
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.creature.data.SampleCreatureRepository
 import com.cyrillrx.rpg.creature.domain.Creature
@@ -118,7 +119,10 @@ private fun CreatureList(
 ) {
     LazyColumn(modifier = Modifier.fillMaxSize()) {
         items(creatures, key = { it.id }) { creature ->
-            SwipeToAddBox(onSwiped = { showAddToList(creature) }) {
+            SwipeToAdd(
+                onSwiped = { showAddToList(creature) },
+                modifier = Modifier.fillMaxWidth(),
+            ) {
                 CreatureItem(
                     creature = creature,
                     modifier = Modifier.clickable { onCreatureClicked(creature) },
