@@ -24,7 +24,7 @@ import com.cyrillrx.rpg.core.presentation.component.EmptySearch
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SearchBarWithBack
-import com.cyrillrx.rpg.core.presentation.component.SwipeToAddBox
+import com.cyrillrx.rpg.core.presentation.component.SwipeToAdd
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
@@ -140,11 +140,13 @@ private fun MagicalItemList(
         verticalArrangement = Arrangement.spacedBy(spacingSmall),
     ) {
         items(magicalItems, key = { it.id }) { item ->
-            SwipeToAddBox(onSwiped = { showAddToList(item) }) {
+            SwipeToAdd(
+                onSwiped = { showAddToList(item) },
+                modifier = Modifier.fillMaxWidth(),
+            ) {
                 MagicalItemListItem(
                     magicalItem = item,
                     onClick = { onMagicalItemClicked(item) },
-                    modifier = Modifier.fillMaxWidth(),
                 )
             }
         }

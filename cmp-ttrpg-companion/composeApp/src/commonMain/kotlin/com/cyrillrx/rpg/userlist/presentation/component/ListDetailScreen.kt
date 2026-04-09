@@ -179,12 +179,9 @@ private fun <T> EntityDetailList(
         items(items, key = { uiProvider.getId(it) }) { item ->
             SwipeToDelete(
                 onSwiped = { onRemoveItem(item) },
-                modifier = Modifier.animateItem(),
+                modifier = Modifier.fillMaxWidth().animateItem(),
             ) {
-                uiProvider.ListItem(
-                    entity = item,
-                    modifier = Modifier.fillMaxWidth(),
-                )
+                uiProvider.ListItem(entity = item, modifier = Modifier)
             }
         }
     }
