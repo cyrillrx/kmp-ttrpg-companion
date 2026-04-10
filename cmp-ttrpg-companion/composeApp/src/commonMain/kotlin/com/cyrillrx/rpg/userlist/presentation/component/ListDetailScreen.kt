@@ -181,7 +181,7 @@ private fun <T> EntityDetailList(
                 onSwiped = { onRemoveItem(item) },
                 modifier = Modifier.fillMaxWidth().animateItem(),
             ) {
-                uiProvider.ListItem(entity = item, modifier = Modifier)
+                uiProvider.ListItem(entity = item, modifier = Modifier.fillMaxWidth())
             }
         }
     }

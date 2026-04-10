@@ -147,6 +147,7 @@ private fun MagicalItemList(
                 MagicalItemListItem(
                     magicalItem = item,
                     onClick = { onMagicalItemClicked(item) },
+                    modifier = Modifier.fillMaxWidth(),
                 )
             }
         }
