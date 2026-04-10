@@ -1,5 +1,6 @@
 package com.cyrillrx.rpg.creature.presentation.component
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -8,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -126,17 +128,16 @@ private fun CreatureList(
             ) {
                 CreatureItem(
                     creature = creature,
-                    modifier = Modifier.fillMaxWidth().clickable { onCreatureClicked(creature) },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable { onCreatureClicked(creature) }
+                        .background(MaterialTheme.colorScheme.background),
                 )
             }
             HorizontalDivider()
         }
     }
 }
-
-private val stateWithSampleData = CreatureListState(
-    body = CreatureListState.Body.WithData(SampleCreatureRepository.getAll()),
-)
 
 @Preview
 @Composable
@@ -152,6 +153,9 @@ private fun PreviewCreatureListScreenDark() {
 
 @Composable
 private fun CreatureListScreenPreview() {
+    val stateWithSampleData = CreatureListState(
+        body = CreatureListState.Body.WithData(SampleCreatureRepository.getAll()),
+    )
     val addToListProvider = CreatureAddToListProvider(SampleCreatureRepository(), SampleUserListRepository())
     CreatureListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, addToListProvider)
 }

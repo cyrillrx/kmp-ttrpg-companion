@@ -34,6 +34,7 @@ fun AbilitiesLayout(
             Text(
                 text = stringResource(Res.string.ability_label_str),
                 style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onBackground,
                 fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.weight(1f),
@@ -41,6 +42,7 @@ fun AbilitiesLayout(
             Text(
                 text = stringResource(Res.string.ability_label_dex),
                 style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onBackground,
                 fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.weight(1f),
@@ -48,6 +50,7 @@ fun AbilitiesLayout(
             Text(
                 text = stringResource(Res.string.ability_label_con),
                 style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onBackground,
                 fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.weight(1f),
@@ -55,6 +58,7 @@ fun AbilitiesLayout(
             Text(
                 text = stringResource(Res.string.ability_label_int),
                 style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onBackground,
                 fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.weight(1f),
@@ -62,6 +66,7 @@ fun AbilitiesLayout(
             Text(
                 text = stringResource(Res.string.ability_label_wis),
                 style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onBackground,
                 fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.weight(1f),
@@ -69,6 +74,7 @@ fun AbilitiesLayout(
             Text(
                 text = stringResource(Res.string.ability_label_cha),
                 style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onBackground,
                 fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.weight(1f),
@@ -78,36 +84,42 @@ fun AbilitiesLayout(
             Text(
                 text = str,
                 style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onBackground,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.weight(1f),
             )
             Text(
                 text = dex,
                 style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onBackground,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.weight(1f),
             )
             Text(
                 text = con,
                 style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onBackground,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.weight(1f),
             )
             Text(
                 text = int,
                 style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onBackground,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.weight(1f),
             )
             Text(
                 text = wis,
                 style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onBackground,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.weight(1f),
             )
             Text(
                 text = cha,
                 style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onBackground,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.weight(1f),
             )
@@ -117,15 +129,28 @@ fun AbilitiesLayout(
 
 @Preview
 @Composable
-private fun PreviewAbilitiesLayout() {
+private fun PreviewAbilitiesLayoutLight() {
     AppThemePreview(darkTheme = false) {
-        AbilitiesLayout(
-            str = "10 (+0)",
-            dex = "16 (+3)",
-            con = "12 (+1)",
-            int = "10 (+0)",
-            wis = "18 (+4)",
-            cha = "10 (+0)",
-        )
+        AbilitiesLayoutPreview()
     }
+}
+
+@Preview
+@Composable
+private fun PreviewAbilitiesLayoutDark() {
+    AppThemePreview(darkTheme = true) {
+        AbilitiesLayoutPreview()
+    }
+}
+
+@Composable
+private fun AbilitiesLayoutPreview() {
+    AbilitiesLayout(
+        str = "10 (+0)",
+        dex = "16 (+3)",
+        con = "12 (+1)",
+        int = "10 (+0)",
+        wis = "18 (+4)",
+        cha = "10 (+0)",
+    )
 }

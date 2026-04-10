@@ -1,6 +1,7 @@
 package com.cyrillrx.rpg.creature.presentation.component
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -10,8 +11,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.sp
 import com.cyrillrx.rpg.core.presentation.component.dnd.getSubtitle
+import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
+import com.cyrillrx.rpg.creature.data.SampleCreatureRepository
 import com.cyrillrx.rpg.creature.domain.Creature
 import org.jetbrains.compose.resources.stringResource
+import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.creature_ac
 import rpg_companion.composeapp.generated.resources.creature_hp
@@ -34,6 +38,7 @@ fun MainStatLayout(
                     append(creature.getSubtitle())
                 }
             },
+            color = MaterialTheme.colorScheme.onBackground,
         )
         Text(
             buildAnnotatedString {
@@ -43,6 +48,7 @@ fun MainStatLayout(
                 }
                 append(creature.armorClass.toString())
             },
+            color = MaterialTheme.colorScheme.onBackground,
         )
         Text(
             buildAnnotatedString {
@@ -52,6 +58,7 @@ fun MainStatLayout(
                 }
                 append(creature.maxHitPoints.toString())
             },
+            color = MaterialTheme.colorScheme.onBackground,
         )
         Text(
             buildAnnotatedString {
@@ -65,6 +72,23 @@ fun MainStatLayout(
                 }
                 append(creature.speed)
             },
+            color = MaterialTheme.colorScheme.onBackground,
         )
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewMainStatLayoutLight() {
+    AppThemePreview(darkTheme = false) {
+        MainStatLayout(creature = SampleCreatureRepository.getFirst())
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewMainStatLayoutDark() {
+    AppThemePreview(darkTheme = true) {
+        MainStatLayout(creature = SampleCreatureRepository.getFirst())
     }
 }
