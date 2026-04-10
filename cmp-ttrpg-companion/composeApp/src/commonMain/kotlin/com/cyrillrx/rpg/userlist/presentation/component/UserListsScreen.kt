@@ -191,6 +191,7 @@ private fun UserLists(
                 UserListItem(
                     list = list,
                     onClick = { onListClicked(list) },
+                    modifier = Modifier.fillMaxWidth(),
                 )
             }
         }

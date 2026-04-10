@@ -153,6 +153,7 @@ private fun SpellList(
                 SpellListItem(
                     spell = spell,
                     onClick = { onSpellClicked(spell) },
+                    modifier = Modifier.fillMaxWidth(),
                 )
             }
         }

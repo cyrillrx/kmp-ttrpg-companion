@@ -125,7 +125,7 @@ private fun CreatureList(
             ) {
                 CreatureItem(
                     creature = creature,
-                    modifier = Modifier.clickable { onCreatureClicked(creature) },
+                    modifier = Modifier.fillMaxWidth().clickable { onCreatureClicked(creature) },
                 )
             }
             HorizontalDivider()
