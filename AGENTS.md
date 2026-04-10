@@ -92,11 +92,11 @@ composable<SpellRoute.List> {
 
 ### Navigation
 
-`App.kt` is the `NavHost` root. Each feature registers its routes via a `NavGraphBuilder` extension function (`handleSpellRoutes`, `handleCampaignRoutes`, etc.). Routes are `@Serializable` objects/data classes. Complex objects are passed as serialized strings using `serialize()`/`deserialize()` helpers from the `Serializer.kt` utility in the `shared/core` module.
+`App.kt` is the `NavDisplay` root. The back stack is a `SnapshotStateList<Any>` created with `rememberNavBackStack(savedStateConfig, startKey)`. Each feature registers its routes via an `EntryProviderBuilder<Any>` extension function (`handleSpellRoutes`, `handleCampaignRoutes`, etc.) inside the `entryProvider { }` block. Routes are `@Serializable` objects/data classes. A `SavedStateConfiguration` with polymorphic serializers for every route type is required for non-JVM targets (iOS). Complex objects are passed as serialized strings using `serialize()`/`deserialize()` helpers from the `Serializer.kt` utility in the `shared/core` module.
 
 ### Router pattern
 
-Each feature defines a `{Feature}Router` interface and a `{Feature}RouterImpl(navController)`. The interface is injected into ViewModels; the impl lives in the navigation layer.
+Each feature defines a `{Feature}Router` interface and a `{Feature}RouterImpl(backStack: MutableList<Any>)`. The interface is injected into ViewModels; the impl lives in the navigation layer. Navigation calls use `backStack.add(route)` to push and `backStack.removeLastOrNull()` to pop.
 
 ### State
 
