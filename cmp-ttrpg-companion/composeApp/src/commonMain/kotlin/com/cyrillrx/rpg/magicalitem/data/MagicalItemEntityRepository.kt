@@ -5,7 +5,7 @@ import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemRepository
 
 class MagicalItemEntityRepository(
-    private val delegate: MagicalItemRepository,
+    private val magicalItemRepository: MagicalItemRepository,
 ) : EntityRepository<MagicalItem> {
-    override suspend fun getById(id: String): MagicalItem? = delegate.getById(id)
+    override suspend fun getById(id: String): MagicalItem? = magicalItemRepository.getById(id)
 }

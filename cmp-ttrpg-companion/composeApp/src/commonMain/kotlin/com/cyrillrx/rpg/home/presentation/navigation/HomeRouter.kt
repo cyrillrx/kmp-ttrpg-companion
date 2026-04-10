@@ -1,6 +1,7 @@
 package com.cyrillrx.rpg.home.presentation.navigation
 
-import androidx.navigation.NavController
+import androidx.navigation3.runtime.NavBackStack
+import androidx.navigation3.runtime.NavKey
 import com.cyrillrx.rpg.campaign.navigation.CampaignRoute
 import com.cyrillrx.rpg.character.presentation.navigation.PlayerCharacterRoute
 import com.cyrillrx.rpg.creature.presentation.navigation.CreatureRoute
@@ -21,48 +22,48 @@ interface HomeRouter {
     fun openMyCreatureLists() {}
 }
 
-class HomeRouterImpl(private val navController: NavController) : HomeRouter {
+class HomeRouterImpl(private val backStack: NavBackStack<NavKey>) : HomeRouter {
     override fun openCampaignList() {
-        navController.navigate(CampaignRoute.List)
+        backStack.add(CampaignRoute.List)
     }
 
     override fun openCharacterSheetList() {
-        navController.navigate(PlayerCharacterRoute.List)
+        backStack.add(PlayerCharacterRoute.List)
     }
 
     override fun openSpellList() {
-        navController.navigate(SpellRoute.List)
+        backStack.add(SpellRoute.List)
     }
 
     override fun openSpellCardCarousel() {
-        navController.navigate(SpellRoute.CardCarousel)
+        backStack.add(SpellRoute.CardCarousel)
     }
 
     override fun openMagicalItemList() {
-        navController.navigate(MagicalItemRoute.List)
+        backStack.add(MagicalItemRoute.List)
     }
 
     override fun openMagicalItemCardCarousel() {
-        navController.navigate(MagicalItemRoute.CardCarousel)
+        backStack.add(MagicalItemRoute.CardCarousel)
     }
 
     override fun openCreatureCompactList() {
-        navController.navigate(CreatureRoute.CompactList)
+        backStack.add(CreatureRoute.CompactList)
     }
 
     override fun openCreatureList() {
-        navController.navigate(CreatureRoute.List)
+        backStack.add(CreatureRoute.List)
     }
 
     override fun openMySpellLists() {
-        navController.navigate(SpellRoute.UserLists)
+        backStack.add(SpellRoute.UserLists)
     }
 
     override fun openMyMagicalItemLists() {
-        navController.navigate(MagicalItemRoute.UserLists)
+        backStack.add(MagicalItemRoute.UserLists)
     }
 
     override fun openMyCreatureLists() {
-        navController.navigate(CreatureRoute.UserLists)
+        backStack.add(CreatureRoute.UserLists)
     }
 }

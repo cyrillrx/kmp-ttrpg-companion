@@ -1,18 +1,24 @@
 package com.cyrillrx.rpg.creature.presentation.navigation
 
-import androidx.navigation.NavController
+import androidx.navigation3.runtime.NavBackStack
+import androidx.navigation3.runtime.NavKey
 
 interface CreatureRouter {
     fun navigateUp()
+    fun openList()
     fun openDetail(creatureId: String)
 }
 
-class CreatureRouterImpl(private val navController: NavController) : CreatureRouter {
+class CreatureRouterImpl(private val backStack: NavBackStack<NavKey>) : CreatureRouter {
     override fun navigateUp() {
-        navController.navigateUp()
+        if (backStack.size > 1) backStack.removeAt(backStack.size - 1)
+    }
+
+    override fun openList() {
+        backStack.add(CreatureRoute.List)
     }
 
     override fun openDetail(creatureId: String) {
-        navController.navigate(CreatureRoute.Detail(creatureId))
+        backStack.add(CreatureRoute.Detail(creatureId))
     }
 }

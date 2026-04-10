@@ -1,10 +1,9 @@
 package com.cyrillrx.rpg.creature.presentation.navigation
 
 import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.NavController
-import androidx.navigation.NavGraphBuilder
-import androidx.navigation.compose.composable
-import androidx.navigation.toRoute
+import androidx.navigation3.runtime.EntryProviderScope
+import androidx.navigation3.runtime.NavBackStack
+import androidx.navigation3.runtime.NavKey
 import com.cyrillrx.rpg.creature.data.CreatureEntityRepository
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.CreatureRepository
@@ -27,81 +26,92 @@ import com.cyrillrx.rpg.userlist.presentation.viewmodel.ListDetailViewModelFacto
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.UserListsViewModel
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.UserListsViewModelFactory
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.modules.PolymorphicModuleBuilder
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.title_my_bestiary_lists
 
 interface CreatureRoute {
     @Serializable
-    data object CompactList
+    data object CompactList : NavKey
 
     @Serializable
-    data object List
+    data object List : NavKey
 
     @Serializable
-    data class Detail(val creatureId: String)
+    data class Detail(val creatureId: String) : NavKey
 
     @Serializable
-    data object UserLists
+    data object UserLists : NavKey
 
     @Serializable
-    data class UserListDetail(val listId: String)
+    data class UserListDetail(val listId: String) : NavKey
 }
 
-fun NavGraphBuilder.handleCreatureRoutes(
-    navController: NavController,
+fun PolymorphicModuleBuilder<NavKey>.declareCreatureRoutes() {
+    subclass(CreatureRoute.CompactList::class, CreatureRoute.CompactList.serializer())
+    subclass(CreatureRoute.List::class, CreatureRoute.List.serializer())
+    subclass(CreatureRoute.Detail::class, CreatureRoute.Detail.serializer())
+    subclass(CreatureRoute.UserLists::class, CreatureRoute.UserLists.serializer())
+    subclass(CreatureRoute.UserListDetail::class, CreatureRoute.UserListDetail.serializer())
+}
+
+fun EntryProviderScope<NavKey>.handleCreatureRoutes(
+    backStack: NavBackStack<NavKey>,
     repository: CreatureRepository,
     userListRepository: UserListRepository,
 ) {
-    composable<CreatureRoute.CompactList> {
-        val router = CreatureRouterImpl(navController)
+    entry<CreatureRoute.CompactList> {
+        val router = CreatureRouterImpl(backStack)
         val viewModelFactory = CreatureListViewModelFactory(router, repository)
         val viewModel = viewModel<CreatureListViewModel>(factory = viewModelFactory)
         CreatureCompactListScreen(viewModel)
     }
 
-    composable<CreatureRoute.List> {
-        val router = CreatureRouterImpl(navController)
+    entry<CreatureRoute.List> {
+        val router = CreatureRouterImpl(backStack)
         val viewModelFactory = CreatureListViewModelFactory(router, repository)
         val viewModel = viewModel<CreatureListViewModel>(factory = viewModelFactory)
         val addToListProvider = CreatureAddToListProvider(repository, userListRepository)
         CreatureListScreen(viewModel, addToListProvider)
     }
 
-    composable<CreatureRoute.Detail> { entry ->
-        val router = CreatureRouterImpl(navController)
-        val creatureId = entry.toRoute<CreatureRoute.Detail>().creatureId
-        val viewModel = viewModel<CreatureDetailViewModel>(
-            factory = CreatureDetailViewModelFactory(creatureId, repository),
-        )
+    entry<CreatureRoute.Detail> { route ->
+        val router = CreatureRouterImpl(backStack)
+        val viewModelFactory = CreatureDetailViewModelFactory(route.creatureId, repository)
+        val viewModel = viewModel<CreatureDetailViewModel>(factory = viewModelFactory)
         val addToListProvider = CreatureAddToListProvider(repository, userListRepository)
-        CreatureDetailScreen(viewModel = viewModel, router = router, addToListProvider = addToListProvider)
+        CreatureDetailScreen(viewModel, router, addToListProvider)
     }
 
-    composable<CreatureRoute.UserLists> {
-        val router = UserListRouterImpl(navController)
-        val viewModel = viewModel<UserListsViewModel>(
-            factory = UserListsViewModelFactory(UserList.Type.CREATURE, router, userListRepository),
+    entry<CreatureRoute.UserLists> {
+        val router = UserListRouterImpl(backStack)
+        val viewModelFactory = UserListsViewModelFactory(
+            listType = UserList.Type.CREATURE,
+            router = router,
+            userListRepository = userListRepository,
         )
-        UserListsScreen(
-            viewModel = viewModel,
-            title = stringResource(Res.string.title_my_bestiary_lists),
-        )
+        val viewModel = viewModel<UserListsViewModel>(factory = viewModelFactory)
+        val screenTitle = stringResource(Res.string.title_my_bestiary_lists)
+        UserListsScreen(viewModel = viewModel, title = screenTitle)
     }
 
-    composable<CreatureRoute.UserListDetail> { entry ->
-        val listId = entry.toRoute<CreatureRoute.UserListDetail>().listId
-        val viewModel = viewModel<ListDetailViewModel<Creature>>(
-            factory = ListDetailViewModelFactory(listId, userListRepository, CreatureEntityRepository(repository)),
+    entry<CreatureRoute.UserListDetail> { route ->
+        val viewModelFactory = ListDetailViewModelFactory(
+            listId = route.listId,
+            userListRepository = userListRepository,
+            repository = CreatureEntityRepository(repository),
         )
-        val router = CreatureRouterImpl(navController)
+        val viewModel = viewModel<ListDetailViewModel<Creature>>(factory = viewModelFactory)
+        val router = CreatureRouterImpl(backStack)
+        val itemProvider = CreatureItemProvider(
+            onItemClicked = router::openDetail,
+            onEmptyLayoutBtnClicked = router::openList,
+        )
         ListDetailScreen(
             viewModel = viewModel,
-            itemProvider = CreatureItemProvider(
-                onItemClicked = router::openDetail,
-                onEmptyLayoutBtnClicked = { navController.navigate(CreatureRoute.List) },
-            ),
-            onNavigateUp = { navController.navigateUp() },
+            itemProvider = itemProvider,
+            onNavigateUp = router::navigateUp,
         )
     }
 }

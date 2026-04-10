@@ -1,6 +1,7 @@
 package com.cyrillrx.rpg.campaign.navigation
 
-import androidx.navigation.NavController
+import androidx.navigation3.runtime.NavBackStack
+import androidx.navigation3.runtime.NavKey
 import com.cyrillrx.core.data.serialize
 import com.cyrillrx.rpg.campaign.domain.Campaign
 
@@ -10,16 +11,16 @@ interface CampaignRouter {
     fun openCreateCampaign()
 }
 
-class CampaignRouterImpl(private val navController: NavController) : CampaignRouter {
+class CampaignRouterImpl(private val backStack: NavBackStack<NavKey>) : CampaignRouter {
     override fun navigateUp() {
-        navController.navigateUp()
+        if (backStack.size > 1) backStack.removeAt(backStack.size - 1)
     }
 
     override fun openCreateCampaign() {
-        navController.navigate(CampaignRoute.Create)
+        backStack.add(CampaignRoute.Create)
     }
 
     override fun openCampaignDetail(campaign: Campaign) {
-        navController.navigate(CampaignRoute.Detail(campaign.serialize()))
+        backStack.add(CampaignRoute.Detail(campaign.serialize()))
     }
 }

@@ -1,10 +1,9 @@
 package com.cyrillrx.rpg.spell.presentation.navigation
 
 import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.NavController
-import androidx.navigation.NavGraphBuilder
-import androidx.navigation.compose.composable
-import androidx.navigation.toRoute
+import androidx.navigation3.runtime.EntryProviderScope
+import androidx.navigation3.runtime.NavBackStack
+import androidx.navigation3.runtime.NavKey
 import com.cyrillrx.rpg.spell.data.SpellEntityRepository
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.domain.SpellRepository
@@ -27,91 +26,101 @@ import com.cyrillrx.rpg.userlist.presentation.viewmodel.ListDetailViewModelFacto
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.UserListsViewModel
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.UserListsViewModelFactory
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.modules.PolymorphicModuleBuilder
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.title_my_spell_lists
 
 interface SpellRoute {
     @Serializable
-    data object List
+    data object List : NavKey
 
     @Serializable
-    data object CardCarousel
+    data object CardCarousel : NavKey
 
     @Serializable
-    data class Detail(val spellId: String)
+    data class Detail(val spellId: String) : NavKey
 
     @Serializable
-    data object UserLists
+    data object UserLists : NavKey
 
     @Serializable
-    data class UserListDetail(val listId: String)
+    data class UserListDetail(val listId: String) : NavKey
 }
 
-fun NavGraphBuilder.handleSpellRoutes(
-    navController: NavController,
+fun PolymorphicModuleBuilder<NavKey>.declareSpellRoutes() {
+    subclass(SpellRoute.CardCarousel::class, SpellRoute.CardCarousel.serializer())
+    subclass(SpellRoute.List::class, SpellRoute.List.serializer())
+    subclass(SpellRoute.Detail::class, SpellRoute.Detail.serializer())
+    subclass(SpellRoute.UserLists::class, SpellRoute.UserLists.serializer())
+    subclass(SpellRoute.UserListDetail::class, SpellRoute.UserListDetail.serializer())
+}
+
+fun EntryProviderScope<NavKey>.handleSpellRoutes(
+    backStack: NavBackStack<NavKey>,
     spellRepository: SpellRepository,
     userListRepository: UserListRepository,
 ) {
-    composable<SpellRoute.List> {
-        val router = SpellRouterImpl(navController)
+    entry<SpellRoute.List> {
+        val router = SpellRouterImpl(backStack)
         val viewModelFactory = SpellListViewModelFactory(router, spellRepository)
         val viewModel = viewModel<SpellListViewModel>(factory = viewModelFactory)
-
         val bottomSheetProvider = SpellAddToListProvider(
             spellRepository = spellRepository,
             userListRepository = userListRepository,
         )
-
         SpellListScreen(viewModel, router, bottomSheetProvider)
     }
 
-    composable<SpellRoute.CardCarousel> {
-        val router = SpellRouterImpl(navController)
+    entry<SpellRoute.CardCarousel> {
+        val router = SpellRouterImpl(backStack)
         val viewModelFactory = SpellListViewModelFactory(router, spellRepository)
         val viewModel = viewModel<SpellListViewModel>(factory = viewModelFactory)
         SpellCardCarouselScreen(viewModel, router)
     }
 
-    composable<SpellRoute.Detail> { entry ->
-        val router = SpellRouterImpl(navController)
-        val spellId = entry.toRoute<SpellRoute.Detail>().spellId
-        val viewModel = viewModel<SpellDetailViewModel>(
-            factory = SpellDetailViewModelFactory(spellId, spellRepository),
-        )
-
+    entry<SpellRoute.Detail> { route ->
+        val router = SpellRouterImpl(backStack)
+        val viewModelFactory = SpellDetailViewModelFactory(route.spellId, spellRepository)
+        val viewModel = viewModel<SpellDetailViewModel>(factory = viewModelFactory)
         val bottomSheetProvider = SpellAddToListProvider(
             spellRepository = spellRepository,
             userListRepository = userListRepository,
         )
-
-        SpellCardScreen(viewModel = viewModel, router = router, bottomSheetProvider = bottomSheetProvider)
+        SpellCardScreen(viewModel, router, bottomSheetProvider)
     }
 
-    composable<SpellRoute.UserLists> {
-        val router = UserListRouterImpl(navController)
-        val viewModel = viewModel<UserListsViewModel>(
-            factory = UserListsViewModelFactory(UserList.Type.SPELL, router, userListRepository),
-        )
-        UserListsScreen(
-            viewModel = viewModel,
-            title = stringResource(Res.string.title_my_spell_lists),
-        )
+    entry<SpellRoute.UserLists> {
+        val router = UserListRouterImpl(backStack)
+        val viewModelFactory = UserListsViewModelFactory(UserList.Type.SPELL, router, userListRepository)
+        val viewModel = viewModel<UserListsViewModel>(factory = viewModelFactory)
+        val screenTitle = stringResource(Res.string.title_my_spell_lists)
+        UserListsScreen(viewModel = viewModel, title = screenTitle)
     }
 
-    composable<SpellRoute.UserListDetail> { entry ->
-        val listId = entry.toRoute<SpellRoute.UserListDetail>().listId
-        val viewModel = viewModel<ListDetailViewModel<Spell>>(
-            factory = ListDetailViewModelFactory(listId, userListRepository, SpellEntityRepository(spellRepository)),
+    entry<SpellRoute.UserListDetail> { route ->
+        val viewModelFactory = ListDetailViewModelFactory(
+            listId = route.listId,
+            userListRepository = userListRepository,
+            repository = SpellEntityRepository(spellRepository),
         )
-        val router = SpellRouterImpl(navController)
+        val viewModel = viewModel<ListDetailViewModel<Spell>>(factory = viewModelFactory)
+        val router = SpellRouterImpl(backStack)
+        val itemProvider = SpellItemProvider(
+            onItemClicked = router::openDetail,
+            onEmptyLayoutBtnClicked = { backStack.add(SpellRoute.List) },
+        )
         ListDetailScreen(
             viewModel = viewModel,
-            itemProvider = SpellItemProvider(
-                onItemClicked = router::openDetail,
-                onEmptyLayoutBtnClicked = { navController.navigate(SpellRoute.List) },
-            ),
-            onNavigateUp = { navController.navigateUp() },
+            itemProvider = itemProvider,
+            onNavigateUp = {
+                if (backStack.size > 1) {
+                    backStack.removeAt(backStack.size - 1)
+                    true
+                } else {
+                    false
+                }
+            },
         )
     }
 }

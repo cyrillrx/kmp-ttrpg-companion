@@ -1,6 +1,7 @@
 package com.cyrillrx.rpg.character.presentation.navigation
 
-import androidx.navigation.NavController
+import androidx.navigation3.runtime.NavBackStack
+import androidx.navigation3.runtime.NavKey
 import com.cyrillrx.core.data.serialize
 import com.cyrillrx.rpg.character.domain.PlayerCharacter
 
@@ -10,16 +11,16 @@ interface PlayerCharacterRouter {
     fun openCreatePlayerCharacter()
 }
 
-class PlayerCharacterRouterImpl(private val navController: NavController) : PlayerCharacterRouter {
+class PlayerCharacterRouterImpl(private val backStack: NavBackStack<NavKey>) : PlayerCharacterRouter {
     override fun navigateUp() {
-        navController.navigateUp()
+        if (backStack.size > 1) backStack.removeAt(backStack.size - 1)
     }
 
     override fun openCreatePlayerCharacter() {
-        navController.navigate(PlayerCharacterRoute.Create)
+        backStack.add(PlayerCharacterRoute.Create)
     }
 
     override fun openPlayerCharacterDetail(character: PlayerCharacter) {
-        navController.navigate(PlayerCharacterRoute.Detail(character.serialize()))
+        backStack.add(PlayerCharacterRoute.Detail(character.serialize()))
     }
 }
