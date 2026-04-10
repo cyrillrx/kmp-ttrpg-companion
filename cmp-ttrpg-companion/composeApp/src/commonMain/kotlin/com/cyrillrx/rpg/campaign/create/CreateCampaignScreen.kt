@@ -33,6 +33,7 @@ import com.cyrillrx.rpg.campaign.common.getMessage
 import com.cyrillrx.rpg.campaign.common.getName
 import com.cyrillrx.rpg.campaign.create.viewmodel.CreateCampaignViewModel
 import com.cyrillrx.rpg.campaign.domain.RuleSet
+import com.cyrillrx.rpg.campaign.navigation.CampaignRouter
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
@@ -48,11 +49,11 @@ import rpg_companion.composeapp.generated.resources.ruleset_other
 import rpg_companion.composeapp.generated.resources.title_create_campaign
 
 @Composable
-fun CreateCampaignScreen(viewModel: CreateCampaignViewModel) {
+fun CreateCampaignScreen(viewModel: CreateCampaignViewModel, router: CampaignRouter) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     CreateCampaignScreen(
         state = state,
-        onNavigateUpClicked = viewModel::onNavigateUpClicked,
+        onNavigateUpClicked = router::navigateUp,
         onCampaignNameChanged = viewModel::onCampaignNameChanged,
         onRuleSetSelected = viewModel::onRuleSetSelected,
         onCreateButtonClicked = viewModel::onCreateCampaignClicked,
@@ -83,7 +84,7 @@ fun CreateCampaignScreen(
         topBar = {
             SimpleTopBar(
                 titleResource = Res.string.title_create_campaign,
-                navigateUp = onNavigateUpClicked,
+                onNavigateUpClicked = onNavigateUpClicked,
             )
         },
         snackbarHost = { SnackbarHost(hostState = snackbarHostState) },

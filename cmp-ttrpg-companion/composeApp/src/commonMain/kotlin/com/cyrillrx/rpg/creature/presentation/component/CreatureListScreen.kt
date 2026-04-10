@@ -11,7 +11,6 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -27,6 +26,7 @@ import com.cyrillrx.rpg.creature.data.SampleCreatureRepository
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.presentation.CreatureAddToListProvider
 import com.cyrillrx.rpg.creature.presentation.CreatureListState
+import com.cyrillrx.rpg.creature.presentation.navigation.CreatureRouter
 import com.cyrillrx.rpg.creature.presentation.viewmodel.CreatureListViewModel
 import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
 import com.cyrillrx.rpg.userlist.presentation.AddToListProvider
@@ -38,12 +38,13 @@ import rpg_companion.composeapp.generated.resources.hint_search_creature
 @Composable
 fun CreatureListScreen(
     viewModel: CreatureListViewModel,
+    router: CreatureRouter,
     addToListProvider: AddToListProvider<Creature>,
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     CreatureListScreen(
         state = state,
-        onNavigateUpClicked = viewModel::onNavigateUpClicked,
+        onNavigateUpClicked = router::navigateUp,
         onSearchQueryChanged = viewModel::onSearchQueryChanged,
         onCreatureClicked = viewModel::onCreatureClicked,
         onTypeToggled = viewModel::onTypeToggled,

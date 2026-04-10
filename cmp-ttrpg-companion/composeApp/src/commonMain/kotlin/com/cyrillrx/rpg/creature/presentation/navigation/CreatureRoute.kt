@@ -65,7 +65,7 @@ fun EntryProviderScope<NavKey>.handleCreatureRoutes(
         val router = CreatureRouterImpl(backStack)
         val viewModelFactory = CreatureListViewModelFactory(router, repository)
         val viewModel = viewModel<CreatureListViewModel>(factory = viewModelFactory)
-        CreatureCompactListScreen(viewModel)
+        CreatureCompactListScreen(viewModel, router)
     }
 
     entry<CreatureRoute.List> {
@@ -73,7 +73,7 @@ fun EntryProviderScope<NavKey>.handleCreatureRoutes(
         val viewModelFactory = CreatureListViewModelFactory(router, repository)
         val viewModel = viewModel<CreatureListViewModel>(factory = viewModelFactory)
         val addToListProvider = CreatureAddToListProvider(repository, userListRepository)
-        CreatureListScreen(viewModel, addToListProvider)
+        CreatureListScreen(viewModel, router, addToListProvider)
     }
 
     entry<CreatureRoute.Detail> { route ->
@@ -92,8 +92,8 @@ fun EntryProviderScope<NavKey>.handleCreatureRoutes(
             userListRepository = userListRepository,
         )
         val viewModel = viewModel<UserListsViewModel>(factory = viewModelFactory)
-        val screenTitle = stringResource(Res.string.title_my_bestiary_lists)
-        UserListsScreen(viewModel = viewModel, title = screenTitle)
+        val title = stringResource(Res.string.title_my_bestiary_lists)
+        UserListsScreen(viewModel, router, title)
     }
 
     entry<CreatureRoute.UserListDetail> { route ->

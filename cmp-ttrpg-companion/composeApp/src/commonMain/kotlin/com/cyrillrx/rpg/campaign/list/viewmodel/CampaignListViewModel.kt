@@ -25,10 +25,6 @@ class CampaignListViewModel(
     val state: StateFlow<CampaignListState>
         field = MutableStateFlow(CampaignListState(searchQuery = "", body = CampaignListState.Body.Empty))
 
-    fun onNavigateUpClicked() {
-        router.navigateUp()
-    }
-
     fun onSearchQueryChanged(query: String) {
         updateJob?.cancel()
         updateJob = viewModelScope.launch { updateData(query) }

@@ -29,6 +29,7 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.creature.data.SampleCreatureRepository
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.presentation.CreatureListState
+import com.cyrillrx.rpg.creature.presentation.navigation.CreatureRouter
 import com.cyrillrx.rpg.creature.presentation.viewmodel.CreatureListViewModel
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -36,12 +37,12 @@ import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.hint_search_creature
 
 @Composable
-fun CreatureCompactListScreen(viewModel: CreatureListViewModel) {
+fun CreatureCompactListScreen(viewModel: CreatureListViewModel, router: CreatureRouter) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
     CreatureCompactListScreen(
         state = state,
-        onNavigateUpClicked = viewModel::onNavigateUpClicked,
+        onNavigateUpClicked = router::navigateUp,
         onSearchQueryChanged = viewModel::onSearchQueryChanged,
         onCreatureClicked = viewModel::onCreatureClicked,
         onTypeToggled = viewModel::onTypeToggled,

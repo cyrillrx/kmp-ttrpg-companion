@@ -4,6 +4,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation3.runtime.EntryProviderScope
 import androidx.navigation3.runtime.NavBackStack
 import androidx.navigation3.runtime.NavKey
+import com.cyrillrx.rpg.core.navigation.navigateUp
 import com.cyrillrx.rpg.spell.data.SpellEntityRepository
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.domain.SpellRepository
@@ -92,10 +93,14 @@ fun EntryProviderScope<NavKey>.handleSpellRoutes(
 
     entry<SpellRoute.UserLists> {
         val router = UserListRouterImpl(backStack)
-        val viewModelFactory = UserListsViewModelFactory(UserList.Type.SPELL, router, userListRepository)
+        val viewModelFactory = UserListsViewModelFactory(
+            listType = UserList.Type.SPELL,
+            router = router,
+            userListRepository = userListRepository,
+        )
         val viewModel = viewModel<UserListsViewModel>(factory = viewModelFactory)
-        val screenTitle = stringResource(Res.string.title_my_spell_lists)
-        UserListsScreen(viewModel = viewModel, title = screenTitle)
+        val title = stringResource(Res.string.title_my_spell_lists)
+        UserListsScreen(viewModel, router, title)
     }
 
     entry<SpellRoute.UserListDetail> { route ->
@@ -108,19 +113,12 @@ fun EntryProviderScope<NavKey>.handleSpellRoutes(
         val router = SpellRouterImpl(backStack)
         val itemProvider = SpellItemProvider(
             onItemClicked = router::openDetail,
-            onEmptyLayoutBtnClicked = { backStack.add(SpellRoute.List) },
+            onEmptyLayoutBtnClicked = router::openList,
         )
         ListDetailScreen(
             viewModel = viewModel,
             itemProvider = itemProvider,
-            onNavigateUp = {
-                if (backStack.size > 1) {
-                    backStack.removeAt(backStack.size - 1)
-                    true
-                } else {
-                    false
-                }
-            },
+            onNavigateUp = backStack::navigateUp,
         )
     }
 }

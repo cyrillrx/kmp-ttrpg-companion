@@ -23,6 +23,7 @@ import com.cyrillrx.rpg.character.presentation.navigation.declareCharacterRoutes
 import com.cyrillrx.rpg.character.presentation.navigation.handlePlayerCharacterRoutes
 import com.cyrillrx.rpg.core.data.ComposeFileReader
 import com.cyrillrx.rpg.core.data.cache.DatabaseDriverFactory
+import com.cyrillrx.rpg.core.navigation.navigateUp
 import com.cyrillrx.rpg.core.presentation.theme.AppTheme
 import com.cyrillrx.rpg.creature.data.JsonCreatureRepository
 import com.cyrillrx.rpg.creature.presentation.navigation.declareCreatureRoutes
@@ -69,7 +70,7 @@ fun App(dbDriverFactory: DatabaseDriverFactory) {
             modifier = Modifier
                 .fillMaxSize()
                 .background(MaterialTheme.colorScheme.background),
-            onBack = { if (backStack.size > 1) backStack.removeAt(backStack.size - 1) },
+            onBack = backStack::navigateUp,
             transitionSpec = {
                 slideInHorizontally(initialOffsetX = { it }) + fadeIn() togetherWith
                     slideOutHorizontally(targetOffsetX = { -it }) + fadeOut()

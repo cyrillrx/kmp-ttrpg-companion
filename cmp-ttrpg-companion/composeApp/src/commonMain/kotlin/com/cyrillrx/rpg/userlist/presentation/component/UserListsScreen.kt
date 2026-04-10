@@ -27,8 +27,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.compose.LifecycleEventEffect
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
@@ -40,6 +40,7 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
 import com.cyrillrx.rpg.userlist.domain.UserList
 import com.cyrillrx.rpg.userlist.presentation.UserListsState
+import com.cyrillrx.rpg.userlist.presentation.navigation.UserListRouter
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.UserListsViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
@@ -55,7 +56,7 @@ import rpg_companion.composeapp.generated.resources.snackbar_error_deleting_list
 import rpg_companion.composeapp.generated.resources.snackbar_list_deleted
 
 @Composable
-fun UserListsScreen(viewModel: UserListsViewModel, title: String) {
+fun UserListsScreen(viewModel: UserListsViewModel, router: UserListRouter, title: String) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
     LifecycleEventEffect(Lifecycle.Event.ON_RESUME) {
@@ -66,7 +67,7 @@ fun UserListsScreen(viewModel: UserListsViewModel, title: String) {
         state = state,
         title = title,
         events = viewModel.events,
-        onNavigateUpClicked = viewModel::onNavigateUpClicked,
+        onNavigateUpClicked = router::navigateUp,
         onAddBtnClicked = viewModel::createList,
         onDeleteListOptimistically = viewModel::deleteListOptimistically,
         onUndoDeletion = viewModel::undoDeletion,
@@ -127,7 +128,7 @@ fun UserListsScreen(
         topBar = {
             SimpleTopBar(
                 title = title,
-                navigateUp = onNavigateUpClicked,
+                onNavigateUpClicked = onNavigateUpClicked,
             )
         },
         floatingActionButton = {

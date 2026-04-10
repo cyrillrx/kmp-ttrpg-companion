@@ -32,6 +32,7 @@ import com.cyrillrx.rpg.magicalitem.data.SampleMagicalItemRepository
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemAddToListProvider
 import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemListState
+import com.cyrillrx.rpg.magicalitem.presentation.navigation.MagicalItemRouter
 import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.MagicalItemListViewModel
 import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
 import com.cyrillrx.rpg.userlist.presentation.AddToListProvider
@@ -43,13 +44,14 @@ import rpg_companion.composeapp.generated.resources.hint_search_magical_item
 @Composable
 fun MagicalItemListScreen(
     viewModel: MagicalItemListViewModel,
+    router: MagicalItemRouter,
     addToListProvider: AddToListProvider<MagicalItem>,
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
     MagicalItemListScreen(
         state = state,
-        onNavigateUpClicked = viewModel::onNavigateUpClicked,
+        onNavigateUpClicked = router::navigateUp,
         onSearchQueryChanged = viewModel::onSearchQueryChanged,
         onMagicalItemClicked = viewModel::onItemClicked,
         onTypeToggled = viewModel::onTypeToggled,

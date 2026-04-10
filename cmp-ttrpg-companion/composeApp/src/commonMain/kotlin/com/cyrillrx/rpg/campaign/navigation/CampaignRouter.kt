@@ -4,6 +4,7 @@ import androidx.navigation3.runtime.NavBackStack
 import androidx.navigation3.runtime.NavKey
 import com.cyrillrx.core.data.serialize
 import com.cyrillrx.rpg.campaign.domain.Campaign
+import com.cyrillrx.rpg.core.navigation.navigateUp
 
 interface CampaignRouter {
     fun navigateUp()
@@ -13,7 +14,7 @@ interface CampaignRouter {
 
 class CampaignRouterImpl(private val backStack: NavBackStack<NavKey>) : CampaignRouter {
     override fun navigateUp() {
-        if (backStack.size > 1) backStack.removeAt(backStack.size - 1)
+        backStack.navigateUp()
     }
 
     override fun openCreateCampaign() {

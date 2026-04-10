@@ -66,14 +66,14 @@ fun EntryProviderScope<NavKey>.handleMagicalItemRoutes(
         val viewModelFactory = MagicalItemListViewModelFactory(router, repository)
         val viewModel = viewModel<MagicalItemListViewModel>(factory = viewModelFactory)
         val addToListProvider = MagicalItemAddToListProvider(repository, userListRepository)
-        MagicalItemListScreen(viewModel, addToListProvider)
+        MagicalItemListScreen(viewModel, router, addToListProvider)
     }
 
     entry<MagicalItemRoute.CardCarousel> {
         val router = MagicalItemRouterImpl(backStack)
         val viewModelFactory = MagicalItemListViewModelFactory(router, repository)
         val viewModel = viewModel<MagicalItemListViewModel>(factory = viewModelFactory)
-        MagicalItemCardCarouselScreen(viewModel)
+        MagicalItemCardCarouselScreen(viewModel, router)
     }
 
     entry<MagicalItemRoute.Detail> { route ->
@@ -86,10 +86,14 @@ fun EntryProviderScope<NavKey>.handleMagicalItemRoutes(
 
     entry<MagicalItemRoute.UserLists> {
         val router = UserListRouterImpl(backStack)
-        val viewModelFactory = UserListsViewModelFactory(UserList.Type.MAGICAL_ITEM, router, userListRepository)
+        val viewModelFactory = UserListsViewModelFactory(
+            listType = UserList.Type.MAGICAL_ITEM,
+            router = router,
+            userListRepository = userListRepository,
+        )
         val viewModel = viewModel<UserListsViewModel>(factory = viewModelFactory)
-        val screenTitle = stringResource(Res.string.title_my_item_lists)
-        UserListsScreen(viewModel = viewModel, title = screenTitle)
+        val title = stringResource(Res.string.title_my_item_lists)
+        UserListsScreen(viewModel, router, title)
     }
 
     entry<MagicalItemRoute.UserListDetail> { route ->
@@ -102,7 +106,7 @@ fun EntryProviderScope<NavKey>.handleMagicalItemRoutes(
         val router = MagicalItemRouterImpl(backStack)
         val itemProvider = MagicalItemItemProvider(
             onItemClicked = router::openDetail,
-            onEmptyLayoutBtnClicked = { backStack.add(MagicalItemRoute.List) },
+            onEmptyLayoutBtnClicked = router::openList,
         )
         ListDetailScreen(
             viewModel = viewModel,

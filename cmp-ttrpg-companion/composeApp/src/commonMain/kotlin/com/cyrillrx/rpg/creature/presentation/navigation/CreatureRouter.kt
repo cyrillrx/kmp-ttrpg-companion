@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.creature.presentation.navigation
 
 import androidx.navigation3.runtime.NavBackStack
 import androidx.navigation3.runtime.NavKey
+import com.cyrillrx.rpg.core.navigation.navigateUp
 
 interface CreatureRouter {
     fun navigateUp()
@@ -11,7 +12,7 @@ interface CreatureRouter {
 
 class CreatureRouterImpl(private val backStack: NavBackStack<NavKey>) : CreatureRouter {
     override fun navigateUp() {
-        if (backStack.size > 1) backStack.removeAt(backStack.size - 1)
+        backStack.navigateUp()
     }
 
     override fun openList() {

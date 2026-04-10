@@ -39,7 +39,7 @@ fun EntryProviderScope<NavKey>.handleCampaignRoutes(backStack: NavBackStack<NavK
     entry<CampaignRoute.List> {
         val viewModelFactory = CampaignListViewModelFactory(router, repository)
         val viewModel = viewModel<CampaignListViewModel>(factory = viewModelFactory)
-        CampaignListScreen(viewModel)
+        CampaignListScreen(viewModel, router)
     }
 
     entry<CampaignRoute.Detail> { route ->
@@ -52,6 +52,6 @@ fun EntryProviderScope<NavKey>.handleCampaignRoutes(backStack: NavBackStack<NavK
     entry<CampaignRoute.Create> {
         val viewModelFactory = CreateCampaignViewModelFactory(router, repository)
         val viewModel = viewModel<CreateCampaignViewModel>(factory = viewModelFactory)
-        CreateCampaignScreen(viewModel)
+        CreateCampaignScreen(viewModel, router)
     }
 }

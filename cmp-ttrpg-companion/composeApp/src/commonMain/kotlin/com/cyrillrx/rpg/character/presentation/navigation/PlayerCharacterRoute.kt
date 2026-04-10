@@ -11,6 +11,7 @@ import com.cyrillrx.rpg.character.presentation.component.PlayerCharacterDetailSc
 import com.cyrillrx.rpg.character.presentation.component.PlayerCharacterListScreen
 import com.cyrillrx.rpg.character.presentation.viewmodel.PlayerCharacterListViewModel
 import com.cyrillrx.rpg.character.presentation.viewmodel.PlayerCharacterListViewModelFactory
+import com.cyrillrx.rpg.core.navigation.navigateUp
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.modules.PolymorphicModuleBuilder
 
@@ -39,33 +40,19 @@ fun EntryProviderScope<NavKey>.handlePlayerCharacterRoutes(
         val router = PlayerCharacterRouterImpl(backStack)
         val viewModelFactory = PlayerCharacterListViewModelFactory(router, repository)
         val viewModel = viewModel<PlayerCharacterListViewModel>(factory = viewModelFactory)
-        PlayerCharacterListScreen(viewModel)
+        PlayerCharacterListScreen(viewModel, router)
     }
 
     entry<PlayerCharacterRoute.Detail> { route ->
         PlayerCharacterDetailScreen(
             character = route.serializedPlayerCharacter.deserialize(),
-            onNavigateUpClicked = {
-                if (backStack.size > 1) {
-                    backStack.removeAt(backStack.size - 1)
-                    true
-                } else {
-                    false
-                }
-            },
+            onNavigateUpClicked = backStack::navigateUp,
         )
     }
 
     entry<PlayerCharacterRoute.Create> {
         CreatePlayerCharacterScreen(
-            onNavigateUpClicked = {
-                if (backStack.size > 1) {
-                    backStack.removeAt(backStack.size - 1)
-                    true
-                } else {
-                    false
-                }
-            },
+            onNavigateUpClicked = backStack::navigateUp,
         )
     }
 }

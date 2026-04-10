@@ -135,7 +135,7 @@ fun <T> ListDetailScreen(
         topBar = {
             SimpleTopBar(
                 title = state.listName,
-                navigateUp = onNavigateUpClicked,
+                onNavigateUpClicked = onNavigateUpClicked,
                 actions = {
                     IconButton(onClick = { showRenameDialog = true }) {
                         Icon(Icons.Default.Edit, contentDescription = stringResource(Res.string.btn_rename_list))

@@ -27,6 +27,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.campaign.domain.Campaign
 import com.cyrillrx.rpg.campaign.domain.RuleSet
 import com.cyrillrx.rpg.campaign.list.viewmodel.CampaignListViewModel
+import com.cyrillrx.rpg.campaign.navigation.CampaignRouter
 import com.cyrillrx.rpg.core.presentation.component.EmptySearch
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
@@ -39,11 +40,11 @@ import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.hint_search_campaign
 
 @Composable
-fun CampaignListScreen(viewModel: CampaignListViewModel) {
+fun CampaignListScreen(viewModel: CampaignListViewModel, router: CampaignRouter) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     CampaignListScreen(
         state = state,
-        onNavigateUpClicked = viewModel::onNavigateUpClicked,
+        onNavigateUpClicked = router::navigateUp,
         onSearchQueryChanged = viewModel::onSearchQueryChanged,
         onCampaignClicked = viewModel::onCampaignClicked,
         onCreateCampaignClicked = viewModel::onCreateCampaignClicked,
