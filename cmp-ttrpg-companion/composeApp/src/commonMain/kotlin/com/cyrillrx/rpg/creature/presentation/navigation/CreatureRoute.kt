@@ -85,13 +85,13 @@ fun EntryProviderScope<NavKey>.handleCreatureRoutes(
     }
 
     entry<CreatureRoute.UserLists> {
+        val listType = UserList.Type.CREATURE
         val router = UserListRouterImpl(backStack)
-        val viewModelFactory = UserListsViewModelFactory(
-            listType = UserList.Type.CREATURE,
-            router = router,
-            userListRepository = userListRepository,
+        val viewModelFactory = UserListsViewModelFactory(listType, router, userListRepository)
+        val viewModel = viewModel<UserListsViewModel>(
+            key = listType.name,
+            factory = viewModelFactory,
         )
-        val viewModel = viewModel<UserListsViewModel>(factory = viewModelFactory)
         val title = stringResource(Res.string.title_my_bestiary_lists)
         UserListsScreen(viewModel, router, title)
     }
@@ -102,7 +102,10 @@ fun EntryProviderScope<NavKey>.handleCreatureRoutes(
             userListRepository = userListRepository,
             repository = CreatureEntityRepository(repository),
         )
-        val viewModel = viewModel<ListDetailViewModel<Creature>>(factory = viewModelFactory)
+        val viewModel = viewModel<ListDetailViewModel<Creature>>(
+            key = "Creature_${route.listId}",
+            factory = viewModelFactory,
+        )
         val router = CreatureRouterImpl(backStack)
         val itemProvider = CreatureItemProvider(
             onItemClicked = router::openDetail,

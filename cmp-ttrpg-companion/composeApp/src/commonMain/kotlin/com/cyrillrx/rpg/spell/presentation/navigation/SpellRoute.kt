@@ -92,13 +92,13 @@ fun EntryProviderScope<NavKey>.handleSpellRoutes(
     }
 
     entry<SpellRoute.UserLists> {
+        val listType = UserList.Type.SPELL
         val router = UserListRouterImpl(backStack)
-        val viewModelFactory = UserListsViewModelFactory(
-            listType = UserList.Type.SPELL,
-            router = router,
-            userListRepository = userListRepository,
+        val viewModelFactory = UserListsViewModelFactory(listType, router, userListRepository)
+        val viewModel = viewModel<UserListsViewModel>(
+            key = listType.name,
+            factory = viewModelFactory,
         )
-        val viewModel = viewModel<UserListsViewModel>(factory = viewModelFactory)
         val title = stringResource(Res.string.title_my_spell_lists)
         UserListsScreen(viewModel, router, title)
     }
@@ -109,7 +109,10 @@ fun EntryProviderScope<NavKey>.handleSpellRoutes(
             userListRepository = userListRepository,
             repository = SpellEntityRepository(spellRepository),
         )
-        val viewModel = viewModel<ListDetailViewModel<Spell>>(factory = viewModelFactory)
+        val viewModel = viewModel<ListDetailViewModel<Spell>>(
+            key = "Spell_${route.listId}",
+            factory = viewModelFactory,
+        )
         val router = SpellRouterImpl(backStack)
         val itemProvider = SpellItemProvider(
             onItemClicked = router::openDetail,

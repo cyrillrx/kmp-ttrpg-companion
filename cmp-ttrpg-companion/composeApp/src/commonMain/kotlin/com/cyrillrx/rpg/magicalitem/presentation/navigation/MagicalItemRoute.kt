@@ -85,13 +85,13 @@ fun EntryProviderScope<NavKey>.handleMagicalItemRoutes(
     }
 
     entry<MagicalItemRoute.UserLists> {
+        val listType = UserList.Type.MAGICAL_ITEM
         val router = UserListRouterImpl(backStack)
-        val viewModelFactory = UserListsViewModelFactory(
-            listType = UserList.Type.MAGICAL_ITEM,
-            router = router,
-            userListRepository = userListRepository,
+        val viewModelFactory = UserListsViewModelFactory(listType, router, userListRepository)
+        val viewModel = viewModel<UserListsViewModel>(
+            key = listType.name,
+            factory = viewModelFactory,
         )
-        val viewModel = viewModel<UserListsViewModel>(factory = viewModelFactory)
         val title = stringResource(Res.string.title_my_item_lists)
         UserListsScreen(viewModel, router, title)
     }
@@ -102,7 +102,10 @@ fun EntryProviderScope<NavKey>.handleMagicalItemRoutes(
             userListRepository = userListRepository,
             repository = MagicalItemEntityRepository(repository),
         )
-        val viewModel = viewModel<ListDetailViewModel<MagicalItem>>(factory = viewModelFactory)
+        val viewModel = viewModel<ListDetailViewModel<MagicalItem>>(
+            key = "MagicalItem_${route.listId}",
+            factory = viewModelFactory,
+        )
         val router = MagicalItemRouterImpl(backStack)
         val itemProvider = MagicalItemItemProvider(
             onItemClicked = router::openDetail,
