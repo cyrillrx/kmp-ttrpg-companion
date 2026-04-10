@@ -48,7 +48,7 @@ interface CreatureRoute {
     data class UserListDetail(val listId: String) : NavKey
 }
 
-fun PolymorphicModuleBuilder<NavKey>.declareCreatureRoutes() {
+fun PolymorphicModuleBuilder<NavKey>.registerCreatureRoutes() {
     subclass(CreatureRoute.CompactList::class, CreatureRoute.CompactList.serializer())
     subclass(CreatureRoute.List::class, CreatureRoute.List.serializer())
     subclass(CreatureRoute.Detail::class, CreatureRoute.Detail.serializer())

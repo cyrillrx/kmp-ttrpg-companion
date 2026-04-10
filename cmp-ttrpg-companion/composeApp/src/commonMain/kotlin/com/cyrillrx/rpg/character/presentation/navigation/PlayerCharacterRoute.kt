@@ -26,7 +26,7 @@ interface PlayerCharacterRoute {
     data object Create : NavKey
 }
 
-fun PolymorphicModuleBuilder<NavKey>.declareCharacterRoutes() {
+fun PolymorphicModuleBuilder<NavKey>.registerCharacterRoutes() {
     subclass(PlayerCharacterRoute.List::class, PlayerCharacterRoute.List.serializer())
     subclass(PlayerCharacterRoute.Detail::class, PlayerCharacterRoute.Detail.serializer())
     subclass(PlayerCharacterRoute.Create::class, PlayerCharacterRoute.Create.serializer())

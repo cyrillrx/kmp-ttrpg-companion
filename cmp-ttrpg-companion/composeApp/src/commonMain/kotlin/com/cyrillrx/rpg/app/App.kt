@@ -16,26 +16,26 @@ import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
 import androidx.savedstate.serialization.SavedStateConfiguration
 import com.cyrillrx.rpg.campaign.data.SQLDelightCampaignRepository
-import com.cyrillrx.rpg.campaign.navigation.declareCampaignRoutes
 import com.cyrillrx.rpg.campaign.navigation.handleCampaignRoutes
+import com.cyrillrx.rpg.campaign.navigation.registerCampaignRoutes
 import com.cyrillrx.rpg.character.data.RamPlayerCharacterRepository
-import com.cyrillrx.rpg.character.presentation.navigation.declareCharacterRoutes
 import com.cyrillrx.rpg.character.presentation.navigation.handlePlayerCharacterRoutes
+import com.cyrillrx.rpg.character.presentation.navigation.registerCharacterRoutes
 import com.cyrillrx.rpg.core.data.ComposeFileReader
 import com.cyrillrx.rpg.core.data.cache.DatabaseDriverFactory
 import com.cyrillrx.rpg.core.navigation.navigateUp
 import com.cyrillrx.rpg.core.presentation.theme.AppTheme
 import com.cyrillrx.rpg.creature.data.JsonCreatureRepository
-import com.cyrillrx.rpg.creature.presentation.navigation.declareCreatureRoutes
 import com.cyrillrx.rpg.creature.presentation.navigation.handleCreatureRoutes
+import com.cyrillrx.rpg.creature.presentation.navigation.registerCreatureRoutes
 import com.cyrillrx.rpg.home.presentation.HomeScreen
 import com.cyrillrx.rpg.home.presentation.navigation.HomeRouterImpl
 import com.cyrillrx.rpg.magicalitem.data.JsonMagicalItemRepository
-import com.cyrillrx.rpg.magicalitem.presentation.navigation.declareMagicalItemRoutes
 import com.cyrillrx.rpg.magicalitem.presentation.navigation.handleMagicalItemRoutes
+import com.cyrillrx.rpg.magicalitem.presentation.navigation.registerMagicalItemRoutes
 import com.cyrillrx.rpg.spell.data.JsonSpellRepository
-import com.cyrillrx.rpg.spell.presentation.navigation.declareSpellRoutes
 import com.cyrillrx.rpg.spell.presentation.navigation.handleSpellRoutes
+import com.cyrillrx.rpg.spell.presentation.navigation.registerSpellRoutes
 import com.cyrillrx.rpg.userlist.data.SQLDelightUserListRepository
 import kotlinx.serialization.modules.SerializersModule
 import kotlinx.serialization.modules.polymorphic
@@ -46,12 +46,12 @@ private val navSavedStateConfig = SavedStateConfiguration {
         polymorphic(NavKey::class) {
             subclass(MainRoute.Home::class, MainRoute.Home.serializer())
 
-            declareCampaignRoutes()
-            declareCharacterRoutes()
+            registerCampaignRoutes()
+            registerCharacterRoutes()
 
-            declareSpellRoutes()
-            declareMagicalItemRoutes()
-            declareCreatureRoutes()
+            registerSpellRoutes()
+            registerMagicalItemRoutes()
+            registerCreatureRoutes()
         }
     }
 }

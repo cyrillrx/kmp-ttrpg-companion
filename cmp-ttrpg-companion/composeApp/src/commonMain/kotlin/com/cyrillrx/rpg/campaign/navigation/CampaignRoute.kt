@@ -27,7 +27,7 @@ sealed interface CampaignRoute {
     data object Create : NavKey
 }
 
-fun PolymorphicModuleBuilder<NavKey>.declareCampaignRoutes() {
+fun PolymorphicModuleBuilder<NavKey>.registerCampaignRoutes() {
     subclass(CampaignRoute.List::class, CampaignRoute.List.serializer())
     subclass(CampaignRoute.Detail::class, CampaignRoute.Detail.serializer())
     subclass(CampaignRoute.Create::class, CampaignRoute.Create.serializer())

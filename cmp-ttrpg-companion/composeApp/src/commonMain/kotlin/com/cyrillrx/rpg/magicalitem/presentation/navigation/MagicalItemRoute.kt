@@ -48,7 +48,7 @@ interface MagicalItemRoute {
     data class UserListDetail(val listId: String) : NavKey
 }
 
-fun PolymorphicModuleBuilder<NavKey>.declareMagicalItemRoutes() {
+fun PolymorphicModuleBuilder<NavKey>.registerMagicalItemRoutes() {
     subclass(MagicalItemRoute.CardCarousel::class, MagicalItemRoute.CardCarousel.serializer())
     subclass(MagicalItemRoute.List::class, MagicalItemRoute.List.serializer())
     subclass(MagicalItemRoute.Detail::class, MagicalItemRoute.Detail.serializer())

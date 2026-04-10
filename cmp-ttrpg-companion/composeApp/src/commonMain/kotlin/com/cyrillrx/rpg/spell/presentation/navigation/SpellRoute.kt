@@ -49,7 +49,7 @@ interface SpellRoute {
     data class UserListDetail(val listId: String) : NavKey
 }
 
-fun PolymorphicModuleBuilder<NavKey>.declareSpellRoutes() {
+fun PolymorphicModuleBuilder<NavKey>.registerSpellRoutes() {
     subclass(SpellRoute.CardCarousel::class, SpellRoute.CardCarousel.serializer())
     subclass(SpellRoute.List::class, SpellRoute.List.serializer())
     subclass(SpellRoute.Detail::class, SpellRoute.Detail.serializer())
