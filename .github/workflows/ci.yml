@@ -30,7 +30,7 @@ jobs:
 
       - name: Run JVM tests and generate Kover reports
         working-directory: cmp-ttrpg-companion
-        run: ./gradlew jvmTest koverXmlReport --no-daemon
+        run: ./gradlew jvmTest koverXmlReportJvm --no-daemon
 
       - name: SonarCloud analysis
         working-directory: cmp-ttrpg-companion

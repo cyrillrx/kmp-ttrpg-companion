@@ -13,7 +13,7 @@ plugins {
 
 sonar {
     properties {
-        property("sonar.projectKey", "cyrillrx_ttrpg-companion-kmp")
+        property("sonar.projectKey", "cyrillrx_ttrpg-companion")
         property("sonar.organization", "cyrillrx")
         property("sonar.host.url", "https://sonarcloud.io")
         property(
@@ -35,8 +35,8 @@ sonar {
         )
         property(
             "sonar.coverage.jacoco.xmlReportPaths",
-            "composeApp/build/reports/kover/report.xml," +
-                "shared/core/build/reports/kover/report.xml",
+            "composeApp/build/reports/kover/reportJvm.xml," +
+                "shared/core/build/reports/kover/reportJvm.xml",
         )
     }
 }

@@ -45,3 +45,6 @@ proguard/
 .externalNativeBuild
 .cxx
 xcuserdata
+
+# SonarScanner
+.scannerwork/
