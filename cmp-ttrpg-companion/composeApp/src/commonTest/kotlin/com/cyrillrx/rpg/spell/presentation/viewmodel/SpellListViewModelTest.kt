@@ -195,7 +195,7 @@ class SpellListViewModelTest {
 
 private class NoOpSpellRouter : SpellRouter {
     override fun navigateUp() = Unit
-    override fun openList() = Unit
+    override fun openCompendium() = Unit
     override fun openDetail(spellId: String) = Unit
 }
 

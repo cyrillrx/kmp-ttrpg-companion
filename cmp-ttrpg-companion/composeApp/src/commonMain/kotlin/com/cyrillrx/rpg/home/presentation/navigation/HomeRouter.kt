@@ -7,16 +7,14 @@ import com.cyrillrx.rpg.character.presentation.navigation.PlayerCharacterRoute
 import com.cyrillrx.rpg.creature.presentation.navigation.CreatureRoute
 import com.cyrillrx.rpg.magicalitem.presentation.navigation.MagicalItemRoute
 import com.cyrillrx.rpg.spell.presentation.navigation.SpellRoute
+import com.cyrillrx.rpg.userlist.presentation.navigation.UserListRoute
 
 interface HomeRouter {
     fun openCampaignList() {}
     fun openCharacterSheetList() {}
-    fun openSpellList() {}
-    fun openSpellCardCarousel() {}
-    fun openMagicalItemList() {}
-    fun openMagicalItemCardCarousel() {}
-    fun openCreatureCompactList() {}
-    fun openCreatureList() {}
+    fun openSpellCompendium() {}
+    fun openMagicalItemCompendium() {}
+    fun openCreatureCompendium() {}
     fun openMySpellLists() {}
     fun openMyMagicalItemLists() {}
     fun openMyCreatureLists() {}
@@ -31,39 +29,27 @@ class HomeRouterImpl(private val backStack: NavBackStack<NavKey>) : HomeRouter {
         backStack.add(PlayerCharacterRoute.List)
     }
 
-    override fun openSpellList() {
-        backStack.add(SpellRoute.List)
+    override fun openSpellCompendium() {
+        backStack.add(SpellRoute.Compendium)
     }
 
-    override fun openSpellCardCarousel() {
-        backStack.add(SpellRoute.CardCarousel)
+    override fun openMagicalItemCompendium() {
+        backStack.add(MagicalItemRoute.Compendium)
     }
 
-    override fun openMagicalItemList() {
-        backStack.add(MagicalItemRoute.List)
-    }
-
-    override fun openMagicalItemCardCarousel() {
-        backStack.add(MagicalItemRoute.CardCarousel)
-    }
-
-    override fun openCreatureCompactList() {
-        backStack.add(CreatureRoute.CompactList)
-    }
-
-    override fun openCreatureList() {
-        backStack.add(CreatureRoute.List)
+    override fun openCreatureCompendium() {
+        backStack.add(CreatureRoute.Compendium)
     }
 
     override fun openMySpellLists() {
-        backStack.add(SpellRoute.UserLists)
+        backStack.add(UserListRoute.Spell)
     }
 
     override fun openMyMagicalItemLists() {
-        backStack.add(MagicalItemRoute.UserLists)
+        backStack.add(UserListRoute.MagicalItem)
     }
 
     override fun openMyCreatureLists() {
-        backStack.add(CreatureRoute.UserLists)
+        backStack.add(UserListRoute.Creature)
     }
 }

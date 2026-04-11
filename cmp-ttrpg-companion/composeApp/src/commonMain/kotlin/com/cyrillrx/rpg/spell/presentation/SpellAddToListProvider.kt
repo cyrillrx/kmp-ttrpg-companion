@@ -34,9 +34,10 @@ class SpellAddToListProvider(
     spellRepository: SpellRepository,
     userListRepository: UserListRepository,
 ) : AddToListProvider<Spell> {
+    override val listType: UserList.Type = UserList.Type.SPELL
 
     override val viewModelFactory = AddToListViewModelFactory(
-        listType = UserList.Type.SPELL,
+        listType = listType,
         userListRepository = userListRepository,
         entityRepository = SpellEntityRepository(spellRepository),
         errorMessage = Res.string.error_while_loading_spells,

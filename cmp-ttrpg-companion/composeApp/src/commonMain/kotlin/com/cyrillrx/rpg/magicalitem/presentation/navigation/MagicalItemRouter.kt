@@ -6,7 +6,7 @@ import com.cyrillrx.rpg.core.navigation.navigateUp
 
 interface MagicalItemRouter {
     fun navigateUp()
-    fun openList()
+    fun openCompendium()
     fun openDetail(magicalItemId: String)
 }
 
@@ -15,8 +15,8 @@ class MagicalItemRouterImpl(private val backStack: NavBackStack<NavKey>) : Magic
         backStack.navigateUp()
     }
 
-    override fun openList() {
-        backStack.add(MagicalItemRoute.List)
+    override fun openCompendium() {
+        backStack.add(MagicalItemRoute.Compendium)
     }
 
     override fun openDetail(magicalItemId: String) {

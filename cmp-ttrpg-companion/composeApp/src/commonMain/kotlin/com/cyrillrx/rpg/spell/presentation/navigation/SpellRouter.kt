@@ -6,7 +6,7 @@ import com.cyrillrx.rpg.core.navigation.navigateUp
 
 interface SpellRouter {
     fun navigateUp()
-    fun openList()
+    fun openCompendium()
     fun openDetail(spellId: String)
 }
 
@@ -15,8 +15,8 @@ class SpellRouterImpl(private val backStack: NavBackStack<NavKey>) : SpellRouter
         backStack.navigateUp()
     }
 
-    override fun openList() {
-        backStack.add(SpellRoute.List)
+    override fun openCompendium() {
+        backStack.add(SpellRoute.Compendium)
     }
 
     override fun openDetail(spellId: String) {

@@ -6,7 +6,7 @@ import com.cyrillrx.rpg.core.navigation.navigateUp
 
 interface CreatureRouter {
     fun navigateUp()
-    fun openList()
+    fun openCompendium()
     fun openDetail(creatureId: String)
 }
 
@@ -15,8 +15,8 @@ class CreatureRouterImpl(private val backStack: NavBackStack<NavKey>) : Creature
         backStack.navigateUp()
     }
 
-    override fun openList() {
-        backStack.add(CreatureRoute.List)
+    override fun openCompendium() {
+        backStack.add(CreatureRoute.Compendium)
     }
 
     override fun openDetail(creatureId: String) {
