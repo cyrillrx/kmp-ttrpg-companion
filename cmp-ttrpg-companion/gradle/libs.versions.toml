@@ -65,3 +65,5 @@ compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "
 ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
 
 sqldelight = { id = "app.cash.sqldelight", version.ref = "sqlDelight" }
+sonarqube = { id = "org.sonarqube", version = "7.2.3.7755" }
+kover = { id = "org.jetbrains.kotlinx.kover", version = "0.9.8" }
