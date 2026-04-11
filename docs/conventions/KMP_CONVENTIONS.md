@@ -59,10 +59,44 @@ The project enforces code formatting using **ktlint**.
 
 ## 4. Testing
 
-- **Unit Tests**: Test pure business logic (Domain layer) and ViewModels in the `commonTest` source set.
-- **Coroutines Testing**: Use `runTest` and inject test dispatchers for predictable coroutine execution.
-- **UI Tests**: Test Compose UI components in isolation (if applicable via Android instrumented tests or Desktop UI tests).
-- Focus on behavior testing rather than implementation details.
+### Rules
+
+- Every ViewModel must have a test file in `composeApp/src/commonTest/`.
+- Every new public method on an existing ViewModel must be covered by at least one test.
+- Every bug fix must be accompanied by a regression test that fails before the fix and passes after.
+
+### ViewModel tests — required cases
+
+Use `StandardTestDispatcher` + `runTest`. Inject repositories via constructor; use in-memory fakes (`RamUserListRepository`, `SampleXxxRepository`).
+
+| Case                                    | Description                                              |
+|-----------------------------------------|----------------------------------------------------------|
+| Initial `Loading` state                 | Before coroutines have run                               |
+| `Error` state                           | When the repository throws                               |
+| Happy path `WithData`                   | Data loaded and displayed correctly                      |
+| `silentRefresh` reflects repo changes   | After mutating the repo, `silentRefresh()` updates state |
+| `silentRefresh` does not show `Loading` | State does not regress to `Loading` during refresh       |
+| `silentRefresh` no-op when `Loading`    | Early call has no effect                                 |
+
+For ViewModels with mutations (delete, rename, add): test optimistic mutation, undo, commit, and repository persistence.
+
+### Domain tests
+
+- Every filter predicate → `{Feature}FilterTest`, `{Feature}MatchesFilterTest`
+- Every bulk filter operation → `{Feature}ApplyFilterTest`
+- Every pure extension function → dedicated unit test
+
+### E2E tests (Maestro — to be set up)
+
+Happy paths and navigation flows live in `.maestro/flows/`. Priority flows:
+- Add item to list, navigate back, verify item appears
+- Swipe-to-delete with undo
+- Create list and rename it
+
+### What does NOT need tests
+
+- Pure layout composables — covered by Compose previews
+- `RouterImpl` — trivial delegation, covered indirectly by ViewModel tests
 
 ## 5. CI & Policies
 
