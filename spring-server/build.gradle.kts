@@ -5,6 +5,8 @@ plugins {
     id("org.springframework.boot") version "3.4.2"
     id("io.spring.dependency-management") version "1.1.7"
     id("org.jetbrains.kotlin.plugin.serialization") version "2.0.21"
+    id("org.sonarqube") version "7.2.3.7755"
+    id("org.jetbrains.kotlinx.kover") version "0.9.8"
 }
 
 group = "com.cyrillrx"
@@ -47,6 +49,18 @@ dependencyManagement {
 kotlin {
     compilerOptions {
         freeCompilerArgs.addAll("-Xjsr305=strict")
+    }
+}
+
+sonar {
+    properties {
+        property("sonar.projectKey", "cyrillrx_ttrpg-companion")
+        property("sonar.organization", "cyrillrx")
+        property("sonar.host.url", "https://sonarcloud.io")
+        property(
+            "sonar.coverage.jacoco.xmlReportPaths",
+            "${layout.buildDirectory.get()}/reports/kover/report.xml",
+        )
     }
 }
 
