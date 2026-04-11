@@ -23,6 +23,10 @@ import kotlin.test.assertEquals
 import kotlin.test.assertIs
 import kotlin.test.assertTrue
 
+private const val TEST_LIST_ID = "list1"
+private const val LIST_NAME = "Name of the list"
+private const val RENAMED_LIST_NAME = "New Name"
+
 @OptIn(ExperimentalCoroutinesApi::class)
 class ListDetailViewModelTest {
 
@@ -47,14 +51,14 @@ class ListDetailViewModelTest {
 
     @Test
     fun `initial state is Loading before coroutines run`() = runTest(testDispatcher) {
-        val viewModel = buildViewModel("list1")
+        val viewModel = buildViewModel(TEST_LIST_ID)
 
         assertIs<ListDetailState.Body.Loading>(viewModel.state.value.body)
     }
 
     @Test
     fun `state is Error when repository throws`() = runTest(testDispatcher) {
-        val viewModel = buildViewModel("list1", FailingUserListRepository())
+        val viewModel = buildViewModel(TEST_LIST_ID, FailingUserListRepository())
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -80,10 +84,10 @@ class ListDetailViewModelTest {
 
     @Test
     fun `state is Empty when list has no spells`() = runTest(testDispatcher) {
-        val list = UserList("list1", "Gandalf's spells", UserList.Type.SPELL, emptyList())
+        val list = UserList(TEST_LIST_ID, LIST_NAME, UserList.Type.SPELL, emptyList())
         userListRepository.save(list)
 
-        val viewModel = buildViewModel("list1")
+        val viewModel = buildViewModel(TEST_LIST_ID)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -92,15 +96,15 @@ class ListDetailViewModelTest {
         advanceUntilIdle()
 
         assertIs<ListDetailState.Body.EmptyList>(viewModel.state.value.body)
-        assertEquals(expected = "Gandalf's spells", actual = viewModel.state.value.listName)
+        assertEquals(expected = LIST_NAME, actual = viewModel.state.value.listName)
     }
 
     @Test
     fun `state is WithData when list has spells`() = runTest(testDispatcher) {
-        val list = UserList("list1", "Fighting spells", UserList.Type.SPELL, listOf(spell.id))
+        val list = UserList(TEST_LIST_ID, LIST_NAME, UserList.Type.SPELL, listOf(spell.id))
         userListRepository.save(list)
 
-        val viewModel = buildViewModel("list1")
+        val viewModel = buildViewModel(TEST_LIST_ID)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -116,10 +120,10 @@ class ListDetailViewModelTest {
     @Test
     fun `removeItemOptimistically then commit removes spell from list`() = runTest(testDispatcher) {
         val allSpells = SampleSpellRepository.getAll()
-        val list = UserList("list1", "My Spellbook", UserList.Type.SPELL, allSpells.map { it.id })
+        val list = UserList(TEST_LIST_ID, LIST_NAME, UserList.Type.SPELL, allSpells.map { it.id })
         userListRepository.save(list)
 
-        val viewModel = buildViewModel("list1")
+        val viewModel = buildViewModel(TEST_LIST_ID)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -139,10 +143,10 @@ class ListDetailViewModelTest {
 
     @Test
     fun `undoRemoval restores the item`() = runTest(testDispatcher) {
-        val list = UserList("list1", "My Spellbook", UserList.Type.SPELL, listOf(spell.id))
+        val list = UserList(TEST_LIST_ID, LIST_NAME, UserList.Type.SPELL, listOf(spell.id))
         userListRepository.save(list)
 
-        val viewModel = buildViewModel("list1")
+        val viewModel = buildViewModel(TEST_LIST_ID)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -160,10 +164,10 @@ class ListDetailViewModelTest {
     @Test
     fun `removeItemOptimistically then commit transitions to Empty when last spell removed`() =
         runTest(testDispatcher) {
-            val list = UserList("list1", "My spellbook", UserList.Type.SPELL, listOf(spell.id))
+            val list = UserList(TEST_LIST_ID, LIST_NAME, UserList.Type.SPELL, listOf(spell.id))
             userListRepository.save(list)
 
-            val viewModel = buildViewModel("list1")
+            val viewModel = buildViewModel(TEST_LIST_ID)
 
             backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
                 viewModel.state.collect {}
@@ -181,10 +185,10 @@ class ListDetailViewModelTest {
 
     @Test
     fun `silentRefresh reflects new items added to repository`() = runTest(testDispatcher) {
-        val list = UserList("list1", "My Spellbook", UserList.Type.SPELL, listOf(spell.id))
+        val list = UserList(TEST_LIST_ID, LIST_NAME, UserList.Type.SPELL, listOf(spell.id))
         userListRepository.save(list)
 
-        val viewModel = buildViewModel("list1")
+        val viewModel = buildViewModel(TEST_LIST_ID)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -207,10 +211,10 @@ class ListDetailViewModelTest {
 
     @Test
     fun `silentRefresh does not transition to Loading state`() = runTest(testDispatcher) {
-        val list = UserList("list1", "My Spellbook", UserList.Type.SPELL, listOf(spell.id))
+        val list = UserList(TEST_LIST_ID, LIST_NAME, UserList.Type.SPELL, listOf(spell.id))
         userListRepository.save(list)
 
-        val viewModel = buildViewModel("list1")
+        val viewModel = buildViewModel(TEST_LIST_ID)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -229,10 +233,10 @@ class ListDetailViewModelTest {
 
     @Test
     fun `silentRefresh does nothing when state is already Loading`() = runTest(testDispatcher) {
-        val list = UserList("list1", "My Spellbook", UserList.Type.SPELL, listOf(spell.id))
+        val list = UserList(TEST_LIST_ID, LIST_NAME, UserList.Type.SPELL, listOf(spell.id))
         userListRepository.save(list)
 
-        val viewModel = buildViewModel("list1")
+        val viewModel = buildViewModel(TEST_LIST_ID)
 
         assertIs<ListDetailState.Body.Loading>(viewModel.state.value.body)
 
@@ -243,10 +247,10 @@ class ListDetailViewModelTest {
 
     @Test
     fun `renameList updates list name in state`() = runTest(testDispatcher) {
-        val list = UserList("list1", "Old Name", UserList.Type.SPELL, listOf(spell.id))
+        val list = UserList(TEST_LIST_ID, LIST_NAME, UserList.Type.SPELL, listOf(spell.id))
         userListRepository.save(list)
 
-        val viewModel = buildViewModel("list1")
+        val viewModel = buildViewModel(TEST_LIST_ID)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -254,18 +258,18 @@ class ListDetailViewModelTest {
 
         advanceUntilIdle()
 
-        viewModel.renameList("New Name")
+        viewModel.renameList(RENAMED_LIST_NAME)
         advanceUntilIdle()
 
-        assertEquals(expected = "New Name", actual = viewModel.state.value.listName)
+        assertEquals(expected = RENAMED_LIST_NAME, actual = viewModel.state.value.listName)
     }
 
     @Test
     fun `renameList persists updated name to repository`() = runTest(testDispatcher) {
-        val list = UserList("list1", "Old Name", UserList.Type.SPELL, listOf(spell.id))
+        val list = UserList(TEST_LIST_ID, LIST_NAME, UserList.Type.SPELL, listOf(spell.id))
         userListRepository.save(list)
 
-        val viewModel = buildViewModel("list1")
+        val viewModel = buildViewModel(TEST_LIST_ID)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -273,19 +277,19 @@ class ListDetailViewModelTest {
 
         advanceUntilIdle()
 
-        viewModel.renameList("New Name")
+        viewModel.renameList(RENAMED_LIST_NAME)
         advanceUntilIdle()
 
-        val savedList = userListRepository.get("list1")
-        assertEquals(expected = "New Name", actual = savedList?.name)
+        val savedList = userListRepository.get(TEST_LIST_ID)
+        assertEquals(expected = RENAMED_LIST_NAME, actual = savedList?.name)
     }
 
     @Test
     fun `onCleared commits pending removals that were never confirmed`() = runTest(testDispatcher) {
-        val list = UserList("list1", "My Spellbook", UserList.Type.SPELL, listOf(spell.id))
+        val list = UserList(TEST_LIST_ID, LIST_NAME, UserList.Type.SPELL, listOf(spell.id))
         userListRepository.save(list)
 
-        val viewModel = buildViewModel("list1")
+        val viewModel = buildViewModel(TEST_LIST_ID)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -296,7 +300,7 @@ class ListDetailViewModelTest {
         viewModel.commitAllPendingRemovals() // simulate navigation away
         advanceUntilIdle()
 
-        val updatedList = userListRepository.get("list1")!!
+        val updatedList = userListRepository.get(TEST_LIST_ID)!!
         assertTrue(updatedList.itemIds.none { it == spell.id })
     }
 }
