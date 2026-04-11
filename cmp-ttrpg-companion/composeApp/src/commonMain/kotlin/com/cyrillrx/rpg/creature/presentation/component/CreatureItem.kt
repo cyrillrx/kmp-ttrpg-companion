@@ -1,5 +1,6 @@
 package com.cyrillrx.rpg.creature.presentation.component
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -9,22 +10,25 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import com.cyrillrx.rpg.core.presentation.component.HtmlText
+import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
+import com.cyrillrx.rpg.creature.data.SampleCreatureRepository
 import com.cyrillrx.rpg.creature.domain.Creature
+import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
 fun CreatureItem(
     creature: Creature,
     modifier: Modifier = Modifier,
 ) {
-    Column(
-        modifier = modifier
-            .padding(spacingCommon),
-    ) {
+    Column(modifier = modifier
+        .background(MaterialTheme.colorScheme.background)
+        .padding(spacingCommon)) {
         Text(
             text = creature.name,
             style = MaterialTheme.typography.headlineSmall,
             fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.onBackground,
         )
 
         MainStatLayout(
@@ -43,5 +47,21 @@ fun CreatureItem(
         )
 
         HtmlText(text = creature.description)
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewCreatureItemLight() {
+    AppThemePreview(darkTheme = false) {
+        CreatureItem(creature = SampleCreatureRepository.getFirst())
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewCreatureItemDark() {
+    AppThemePreview(darkTheme = true) {
+        CreatureItem(creature = SampleCreatureRepository.getFirst())
     }
 }

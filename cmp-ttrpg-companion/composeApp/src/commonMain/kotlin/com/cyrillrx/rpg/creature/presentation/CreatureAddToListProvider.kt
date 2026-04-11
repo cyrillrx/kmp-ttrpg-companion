@@ -29,9 +29,10 @@ class CreatureAddToListProvider(
     repository: CreatureRepository,
     userListRepository: UserListRepository,
 ) : AddToListProvider<Creature> {
+    override val listType: UserList.Type = UserList.Type.CREATURE
 
     override val viewModelFactory = AddToListViewModelFactory(
-        listType = UserList.Type.CREATURE,
+        listType = listType,
         userListRepository = userListRepository,
         entityRepository = CreatureEntityRepository(repository),
         errorMessage = Res.string.error_while_loading_creatures,

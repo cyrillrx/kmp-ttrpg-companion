@@ -54,10 +54,6 @@ class UserListsViewModel(
         commitAllPendingDeletions()
     }
 
-    fun onNavigateUpClicked() {
-        router.navigateUp()
-    }
-
     @OptIn(ExperimentalUuidApi::class)
     fun createList(name: String) {
         viewModelScope.launch {

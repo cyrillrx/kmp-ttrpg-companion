@@ -1,52 +1,57 @@
 package com.cyrillrx.rpg.campaign.navigation
 
 import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.NavController
-import androidx.navigation.NavGraphBuilder
-import androidx.navigation.compose.composable
-import androidx.navigation.toRoute
+import androidx.navigation3.runtime.EntryProviderScope
+import androidx.navigation3.runtime.NavBackStack
+import androidx.navigation3.runtime.NavKey
 import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.rpg.campaign.create.CreateCampaignScreen
 import com.cyrillrx.rpg.campaign.create.viewmodel.CreateCampaignViewModel
 import com.cyrillrx.rpg.campaign.create.viewmodel.CreateCampaignViewModelFactory
-import com.cyrillrx.rpg.campaign.domain.CampaignRepository
 import com.cyrillrx.rpg.campaign.detail.CampaignDetailScreen
+import com.cyrillrx.rpg.campaign.domain.CampaignRepository
 import com.cyrillrx.rpg.campaign.list.CampaignListScreen
 import com.cyrillrx.rpg.campaign.list.viewmodel.CampaignListViewModel
 import com.cyrillrx.rpg.campaign.list.viewmodel.CampaignListViewModelFactory
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.modules.PolymorphicModuleBuilder
 
-interface CampaignRoute {
+sealed interface CampaignRoute {
     @Serializable
-    data object List
-
-    @Serializable
-    data class Detail(val serializedCampaign: String)
+    data object List : NavKey
 
     @Serializable
-    data object Create
+    data class Detail(val serializedCampaign: String) : NavKey
+
+    @Serializable
+    data object Create : NavKey
 }
 
-fun NavGraphBuilder.handleCampaignRoutes(navController: NavController, repository: CampaignRepository) {
-    val router = CampaignRouterImpl(navController)
+fun PolymorphicModuleBuilder<NavKey>.registerCampaignRoutes() {
+    subclass(CampaignRoute.List::class, CampaignRoute.List.serializer())
+    subclass(CampaignRoute.Detail::class, CampaignRoute.Detail.serializer())
+    subclass(CampaignRoute.Create::class, CampaignRoute.Create.serializer())
+}
 
-    composable<CampaignRoute.List> {
+fun EntryProviderScope<NavKey>.handleCampaignRoutes(backStack: NavBackStack<NavKey>, repository: CampaignRepository) {
+    val router = CampaignRouterImpl(backStack)
+
+    entry<CampaignRoute.List> {
         val viewModelFactory = CampaignListViewModelFactory(router, repository)
         val viewModel = viewModel<CampaignListViewModel>(factory = viewModelFactory)
-        CampaignListScreen(viewModel)
+        CampaignListScreen(viewModel, router)
     }
 
-    composable<CampaignRoute.Detail> { entry ->
-        val args = entry.toRoute<CampaignRoute.Detail>()
+    entry<CampaignRoute.Detail> { route ->
         CampaignDetailScreen(
-            campaign = args.serializedCampaign.deserialize(),
+            campaign = route.serializedCampaign.deserialize(),
             onNavigateUpClicked = router::navigateUp,
         )
     }
 
-    composable<CampaignRoute.Create> {
+    entry<CampaignRoute.Create> {
         val viewModelFactory = CreateCampaignViewModelFactory(router, repository)
         val viewModel = viewModel<CreateCampaignViewModel>(factory = viewModelFactory)
-        CreateCampaignScreen(viewModel)
+        CreateCampaignScreen(viewModel, router)
     }
 }

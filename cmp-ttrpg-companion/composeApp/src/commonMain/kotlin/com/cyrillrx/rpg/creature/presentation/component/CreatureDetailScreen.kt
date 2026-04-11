@@ -63,7 +63,7 @@ private fun CreatureDetailContent(
         topBar = {
             SimpleTopBar(
                 title = creature.name,
-                navigateUp = onNavigateUpClicked,
+                onNavigateUpClicked = onNavigateUpClicked,
             )
         },
         bottomBar = {

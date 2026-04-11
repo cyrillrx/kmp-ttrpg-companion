@@ -176,6 +176,7 @@ class MagicalItemListViewModelTest {
 
 private class NoOpMagicalItemRouter : MagicalItemRouter {
     override fun navigateUp() = Unit
+    override fun openCompendium() = Unit
     override fun openDetail(magicalItemId: String) = Unit
 }
 

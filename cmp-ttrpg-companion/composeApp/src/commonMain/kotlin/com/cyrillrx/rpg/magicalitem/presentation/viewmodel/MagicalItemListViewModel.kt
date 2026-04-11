@@ -30,10 +30,6 @@ class MagicalItemListViewModel(
         refreshData()
     }
 
-    fun onNavigateUpClicked() {
-        router.navigateUp()
-    }
-
     fun onSearchQueryChanged(query: String) {
         updateFilter { it.copy(query = query) }
     }

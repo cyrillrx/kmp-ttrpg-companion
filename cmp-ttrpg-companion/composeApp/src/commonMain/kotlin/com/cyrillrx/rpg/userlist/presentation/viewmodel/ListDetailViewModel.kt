@@ -123,27 +123,45 @@ class ListDetailViewModel<T>(
         }
     }
 
+    fun silentRefresh() {
+        if (state.value.body is ListDetailState.Body.Loading) return
+
+        viewModelScope.launch {
+            try {
+                fetchDetail()
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                // Silently ignore — don't overwrite existing content with an error
+            }
+        }
+    }
+
     private fun loadDetail() {
         viewModelScope.launch {
             state.update { it.copy(body = ListDetailState.Body.Loading) }
 
             try {
-                val list = userListRepository.get(listId) ?: error("Could not find list $listId")
-                currentList = list
-                state.update { it.copy(listName = list.name) }
-
-                val items = repository.getByIds(list.itemIds)
-                val body = if (items.isEmpty()) {
-                    ListDetailState.Body.EmptyList
-                } else {
-                    ListDetailState.Body.WithData(items)
-                }
-                state.update { it.copy(body = body) }
+                fetchDetail()
             } catch (e: CancellationException) {
                 throw e
             } catch (e: Exception) {
                 state.update { it.copy(body = ListDetailState.Body.Error(Res.string.error_while_loading_user_list)) }
             }
         }
+    }
+
+    private suspend fun fetchDetail() {
+        val list = userListRepository.get(listId) ?: error("Could not find list $listId")
+        currentList = list
+        state.update { it.copy(listName = list.name) }
+
+        val items = repository.getByIds(list.itemIds)
+        val body = if (items.isEmpty()) {
+            ListDetailState.Body.EmptyList
+        } else {
+            ListDetailState.Body.WithData(items)
+        }
+        state.update { it.copy(body = body) }
     }
 }

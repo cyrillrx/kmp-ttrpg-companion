@@ -1,68 +1,55 @@
 package com.cyrillrx.rpg.home.presentation.navigation
 
-import androidx.navigation.NavController
+import androidx.navigation3.runtime.NavBackStack
+import androidx.navigation3.runtime.NavKey
 import com.cyrillrx.rpg.campaign.navigation.CampaignRoute
 import com.cyrillrx.rpg.character.presentation.navigation.PlayerCharacterRoute
 import com.cyrillrx.rpg.creature.presentation.navigation.CreatureRoute
 import com.cyrillrx.rpg.magicalitem.presentation.navigation.MagicalItemRoute
 import com.cyrillrx.rpg.spell.presentation.navigation.SpellRoute
+import com.cyrillrx.rpg.userlist.presentation.navigation.UserListRoute
 
 interface HomeRouter {
     fun openCampaignList() {}
     fun openCharacterSheetList() {}
-    fun openSpellList() {}
-    fun openSpellCardCarousel() {}
-    fun openMagicalItemList() {}
-    fun openMagicalItemCardCarousel() {}
-    fun openCreatureCompactList() {}
-    fun openCreatureList() {}
+    fun openSpellCompendium() {}
+    fun openMagicalItemCompendium() {}
+    fun openCreatureCompendium() {}
     fun openMySpellLists() {}
     fun openMyMagicalItemLists() {}
     fun openMyCreatureLists() {}
 }
 
-class HomeRouterImpl(private val navController: NavController) : HomeRouter {
+class HomeRouterImpl(private val backStack: NavBackStack<NavKey>) : HomeRouter {
     override fun openCampaignList() {
-        navController.navigate(CampaignRoute.List)
+        backStack.add(CampaignRoute.List)
     }
 
     override fun openCharacterSheetList() {
-        navController.navigate(PlayerCharacterRoute.List)
+        backStack.add(PlayerCharacterRoute.List)
     }
 
-    override fun openSpellList() {
-        navController.navigate(SpellRoute.List)
+    override fun openSpellCompendium() {
+        backStack.add(SpellRoute.Compendium)
     }
 
-    override fun openSpellCardCarousel() {
-        navController.navigate(SpellRoute.CardCarousel)
+    override fun openMagicalItemCompendium() {
+        backStack.add(MagicalItemRoute.Compendium)
     }
 
-    override fun openMagicalItemList() {
-        navController.navigate(MagicalItemRoute.List)
-    }
-
-    override fun openMagicalItemCardCarousel() {
-        navController.navigate(MagicalItemRoute.CardCarousel)
-    }
-
-    override fun openCreatureCompactList() {
-        navController.navigate(CreatureRoute.CompactList)
-    }
-
-    override fun openCreatureList() {
-        navController.navigate(CreatureRoute.List)
+    override fun openCreatureCompendium() {
+        backStack.add(CreatureRoute.Compendium)
     }
 
     override fun openMySpellLists() {
-        navController.navigate(SpellRoute.UserLists)
+        backStack.add(UserListRoute.Spell)
     }
 
     override fun openMyMagicalItemLists() {
-        navController.navigate(MagicalItemRoute.UserLists)
+        backStack.add(UserListRoute.MagicalItem)
     }
 
     override fun openMyCreatureLists() {
-        navController.navigate(CreatureRoute.UserLists)
+        backStack.add(UserListRoute.Creature)
     }
 }

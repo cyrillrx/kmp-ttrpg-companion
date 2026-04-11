@@ -1,10 +1,9 @@
 package com.cyrillrx.rpg.character.presentation.navigation
 
 import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.NavController
-import androidx.navigation.NavGraphBuilder
-import androidx.navigation.compose.composable
-import androidx.navigation.toRoute
+import androidx.navigation3.runtime.EntryProviderScope
+import androidx.navigation3.runtime.NavBackStack
+import androidx.navigation3.runtime.NavKey
 import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.rpg.character.domain.PlayerCharacterRepository
 import com.cyrillrx.rpg.character.presentation.component.CreatePlayerCharacterScreen
@@ -12,38 +11,48 @@ import com.cyrillrx.rpg.character.presentation.component.PlayerCharacterDetailSc
 import com.cyrillrx.rpg.character.presentation.component.PlayerCharacterListScreen
 import com.cyrillrx.rpg.character.presentation.viewmodel.PlayerCharacterListViewModel
 import com.cyrillrx.rpg.character.presentation.viewmodel.PlayerCharacterListViewModelFactory
+import com.cyrillrx.rpg.core.navigation.navigateUp
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.modules.PolymorphicModuleBuilder
 
 interface PlayerCharacterRoute {
     @Serializable
-    data object List
+    data object List : NavKey
 
     @Serializable
-    data class Detail(val serializedPlayerCharacter: String)
+    data class Detail(val serializedPlayerCharacter: String) : NavKey
 
     @Serializable
-    data object Create
+    data object Create : NavKey
 }
 
-fun NavGraphBuilder.handlePlayerCharacterRoutes(navController: NavController, repository: PlayerCharacterRepository) {
-    composable<PlayerCharacterRoute.List> {
-        val router = PlayerCharacterRouterImpl(navController)
+fun PolymorphicModuleBuilder<NavKey>.registerCharacterRoutes() {
+    subclass(PlayerCharacterRoute.List::class, PlayerCharacterRoute.List.serializer())
+    subclass(PlayerCharacterRoute.Detail::class, PlayerCharacterRoute.Detail.serializer())
+    subclass(PlayerCharacterRoute.Create::class, PlayerCharacterRoute.Create.serializer())
+}
+
+fun EntryProviderScope<NavKey>.handlePlayerCharacterRoutes(
+    backStack: NavBackStack<NavKey>,
+    repository: PlayerCharacterRepository,
+) {
+    entry<PlayerCharacterRoute.List> {
+        val router = PlayerCharacterRouterImpl(backStack)
         val viewModelFactory = PlayerCharacterListViewModelFactory(router, repository)
         val viewModel = viewModel<PlayerCharacterListViewModel>(factory = viewModelFactory)
-        PlayerCharacterListScreen(viewModel)
+        PlayerCharacterListScreen(viewModel, router)
     }
 
-    composable<PlayerCharacterRoute.Detail> { entry ->
-        val args = entry.toRoute<PlayerCharacterRoute.Detail>()
+    entry<PlayerCharacterRoute.Detail> { route ->
         PlayerCharacterDetailScreen(
-            character = args.serializedPlayerCharacter.deserialize(),
-            onNavigateUpClicked = { navController.navigateUp() },
+            character = route.serializedPlayerCharacter.deserialize(),
+            onNavigateUpClicked = backStack::navigateUp,
         )
     }
 
-    composable<PlayerCharacterRoute.Create> {
+    entry<PlayerCharacterRoute.Create> {
         CreatePlayerCharacterScreen(
-            onNavigateUpClicked = { navController.navigateUp() },
+            onNavigateUpClicked = backStack::navigateUp,
         )
     }
 }

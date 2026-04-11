@@ -29,10 +29,6 @@ class PlayerCharacterListViewModel(
         onSearchQueryChanged(query = "")
     }
 
-    fun onNavigateUpClicked() {
-        router.navigateUp()
-    }
-
     fun onSearchQueryChanged(query: String) {
         updateJob?.cancel()
         updateJob = viewModelScope.launch { updateData(query) }

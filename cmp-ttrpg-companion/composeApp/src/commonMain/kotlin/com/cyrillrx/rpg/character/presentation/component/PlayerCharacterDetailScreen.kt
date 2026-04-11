@@ -12,12 +12,12 @@ import com.cyrillrx.rpg.character.domain.PlayerCharacter
 @Composable
 fun PlayerCharacterDetailScreen(
     character: PlayerCharacter,
-    onNavigateUpClicked: () -> Boolean,
+    onNavigateUpClicked: () -> Unit,
 ) {
     Scaffold { paddingValues ->
         Text(
             text = character.name,
-            Modifier.clickable { onNavigateUpClicked() }
+            Modifier.clickable(onClick = onNavigateUpClicked)
                 .padding(paddingValues)
                 .fillMaxSize(),
         )

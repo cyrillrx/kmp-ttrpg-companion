@@ -20,10 +20,6 @@ class CreateCampaignViewModel(
     val state: StateFlow<CreateCampaignState>
         field = MutableStateFlow(CreateCampaignState(campaignName = "", selectedRuleSet = RuleSet.UNDEFINED, error = null))
 
-    fun onNavigateUpClicked() {
-        router.navigateUp()
-    }
-
     fun onCampaignNameChanged(name: String) {
         state.update { it.copy(campaignName = name) }
     }
@@ -61,7 +57,7 @@ class CreateCampaignViewModel(
             }
 
             repository.save(newCampaign)
-            onNavigateUpClicked()
+            router.navigateUp()
         }
     }
 

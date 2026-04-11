@@ -1,18 +1,25 @@
 package com.cyrillrx.rpg.spell.presentation.navigation
 
-import androidx.navigation.NavController
+import androidx.navigation3.runtime.NavBackStack
+import androidx.navigation3.runtime.NavKey
+import com.cyrillrx.rpg.core.navigation.navigateUp
 
 interface SpellRouter {
     fun navigateUp()
+    fun openCompendium()
     fun openDetail(spellId: String)
 }
 
-class SpellRouterImpl(private val navController: NavController) : SpellRouter {
+class SpellRouterImpl(private val backStack: NavBackStack<NavKey>) : SpellRouter {
     override fun navigateUp() {
-        navController.navigateUp()
+        backStack.navigateUp()
+    }
+
+    override fun openCompendium() {
+        backStack.add(SpellRoute.Compendium)
     }
 
     override fun openDetail(spellId: String) {
-        navController.navigate(SpellRoute.Detail(spellId))
+        backStack.add(SpellRoute.Detail(spellId))
     }
 }

@@ -1,6 +1,8 @@
 package com.cyrillrx.rpg.userlist.presentation.navigation
 
-import androidx.navigation.NavController
+import androidx.navigation3.runtime.NavBackStack
+import androidx.navigation3.runtime.NavKey
+import com.cyrillrx.rpg.core.navigation.navigateUp
 import com.cyrillrx.rpg.creature.presentation.navigation.CreatureRoute
 import com.cyrillrx.rpg.magicalitem.presentation.navigation.MagicalItemRoute
 import com.cyrillrx.rpg.spell.presentation.navigation.SpellRoute
@@ -11,16 +13,16 @@ interface UserListRouter {
     fun openUserList(list: UserList)
 }
 
-class UserListRouterImpl(private val navController: NavController) : UserListRouter {
+class UserListRouterImpl(private val backStack: NavBackStack<NavKey>) : UserListRouter {
     override fun navigateUp() {
-        navController.navigateUp()
+        backStack.navigateUp()
     }
 
     override fun openUserList(list: UserList) {
         when (list.type) {
-            UserList.Type.SPELL -> navController.navigate(SpellRoute.UserListDetail(list.id))
-            UserList.Type.MAGICAL_ITEM -> navController.navigate(MagicalItemRoute.UserListDetail(list.id))
-            UserList.Type.CREATURE -> navController.navigate(CreatureRoute.UserListDetail(list.id))
+            UserList.Type.SPELL -> backStack.add(SpellRoute.UserListDetail(list.id))
+            UserList.Type.MAGICAL_ITEM -> backStack.add(MagicalItemRoute.UserListDetail(list.id))
+            UserList.Type.CREATURE -> backStack.add(CreatureRoute.UserListDetail(list.id))
         }
     }
 }

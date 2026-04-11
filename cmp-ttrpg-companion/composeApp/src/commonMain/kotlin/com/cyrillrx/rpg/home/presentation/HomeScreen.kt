@@ -68,19 +68,19 @@ fun HomeScreen(router: HomeRouter) {
                 IconLabelButton(
                     label = stringResource(Res.string.btn_spell_book),
                     icon = Icons.Filled.AutoAwesome,
-                    onClick = router::openSpellList,
+                    onClick = router::openSpellCompendium,
                     modifier = Modifier.weight(1f),
                 )
                 IconLabelButton(
                     label = stringResource(Res.string.btn_inventory),
                     icon = Icons.Filled.Diamond,
-                    onClick = router::openMagicalItemList,
+                    onClick = router::openMagicalItemCompendium,
                     modifier = Modifier.weight(1f),
                 )
                 IconLabelButton(
                     label = stringResource(Res.string.btn_bestiary),
                     icon = Icons.Filled.Pets,
-                    onClick = router::openCreatureCompactList,
+                    onClick = router::openCreatureCompendium,
                     modifier = Modifier.weight(1f),
                 )
             }

@@ -1,107 +1,80 @@
 package com.cyrillrx.rpg.magicalitem.presentation.navigation
 
 import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.NavController
-import androidx.navigation.NavGraphBuilder
-import androidx.navigation.compose.composable
-import androidx.navigation.toRoute
+import androidx.navigation3.runtime.EntryProviderScope
+import androidx.navigation3.runtime.NavKey
 import com.cyrillrx.rpg.magicalitem.data.MagicalItemEntityRepository
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemRepository
 import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemAddToListProvider
 import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemItemProvider
-import com.cyrillrx.rpg.magicalitem.presentation.component.MagicalItemCardCarouselScreen
 import com.cyrillrx.rpg.magicalitem.presentation.component.MagicalItemCardScreen
 import com.cyrillrx.rpg.magicalitem.presentation.component.MagicalItemListScreen
 import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.MagicalItemDetailViewModel
 import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.MagicalItemDetailViewModelFactory
 import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.MagicalItemListViewModel
 import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.MagicalItemListViewModelFactory
-import com.cyrillrx.rpg.userlist.domain.UserList
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
 import com.cyrillrx.rpg.userlist.presentation.component.ListDetailScreen
-import com.cyrillrx.rpg.userlist.presentation.component.UserListsScreen
-import com.cyrillrx.rpg.userlist.presentation.navigation.UserListRouterImpl
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.ListDetailViewModel
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.ListDetailViewModelFactory
-import com.cyrillrx.rpg.userlist.presentation.viewmodel.UserListsViewModel
-import com.cyrillrx.rpg.userlist.presentation.viewmodel.UserListsViewModelFactory
 import kotlinx.serialization.Serializable
-import org.jetbrains.compose.resources.stringResource
-import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.title_my_item_lists
+import kotlinx.serialization.modules.PolymorphicModuleBuilder
 
 interface MagicalItemRoute {
     @Serializable
-    data object List
+    data object Compendium : NavKey
 
     @Serializable
-    data object CardCarousel
+    data class Detail(val magicalItemId: String) : NavKey
 
     @Serializable
-    data class Detail(val magicalItemId: String)
-
-    @Serializable
-    data object UserLists
-
-    @Serializable
-    data class UserListDetail(val listId: String)
+    data class UserListDetail(val listId: String) : NavKey
 }
 
-fun NavGraphBuilder.handleMagicalItemRoutes(
-    navController: NavController,
+fun PolymorphicModuleBuilder<NavKey>.registerMagicalItemRoutes() {
+    subclass(MagicalItemRoute.Compendium::class, MagicalItemRoute.Compendium.serializer())
+    subclass(MagicalItemRoute.Detail::class, MagicalItemRoute.Detail.serializer())
+    subclass(MagicalItemRoute.UserListDetail::class, MagicalItemRoute.UserListDetail.serializer())
+}
+
+fun EntryProviderScope<NavKey>.handleMagicalItemRoutes(
+    router: MagicalItemRouter,
     repository: MagicalItemRepository,
     userListRepository: UserListRepository,
 ) {
-    composable<MagicalItemRoute.List> {
-        val router = MagicalItemRouterImpl(navController)
+    entry<MagicalItemRoute.Compendium> {
         val viewModelFactory = MagicalItemListViewModelFactory(router, repository)
         val viewModel = viewModel<MagicalItemListViewModel>(factory = viewModelFactory)
         val addToListProvider = MagicalItemAddToListProvider(repository, userListRepository)
-        MagicalItemListScreen(viewModel, addToListProvider)
+        MagicalItemListScreen(viewModel, router, addToListProvider)
+        // MagicalItemCardCarouselScreen(viewModel, router)
     }
 
-    composable<MagicalItemRoute.CardCarousel> {
-        val router = MagicalItemRouterImpl(navController)
-        val viewModelFactory = MagicalItemListViewModelFactory(router, repository)
-        val viewModel = viewModel<MagicalItemListViewModel>(factory = viewModelFactory)
-        MagicalItemCardCarouselScreen(viewModel)
-    }
-
-    composable<MagicalItemRoute.Detail> { entry ->
-        val router = MagicalItemRouterImpl(navController)
-        val id = entry.toRoute<MagicalItemRoute.Detail>().magicalItemId
-        val viewModel = viewModel<MagicalItemDetailViewModel>(
-            factory = MagicalItemDetailViewModelFactory(id, repository),
-        )
+    entry<MagicalItemRoute.Detail> { route ->
+        val magicalItemId = route.magicalItemId
+        val viewModelFactory = MagicalItemDetailViewModelFactory(magicalItemId, repository)
+        val viewModel = viewModel<MagicalItemDetailViewModel>(key = magicalItemId, factory = viewModelFactory)
         val addToListProvider = MagicalItemAddToListProvider(repository, userListRepository)
-        MagicalItemCardScreen(viewModel = viewModel, router = router, addToListProvider = addToListProvider)
+        MagicalItemCardScreen(viewModel, router, addToListProvider)
     }
 
-    composable<MagicalItemRoute.UserLists> {
-        val router = UserListRouterImpl(navController)
-        val viewModel = viewModel<UserListsViewModel>(
-            factory = UserListsViewModelFactory(UserList.Type.MAGICAL_ITEM, router, userListRepository),
+    entry<MagicalItemRoute.UserListDetail> { route ->
+        val listId = route.listId
+        val viewModelFactory = ListDetailViewModelFactory(
+            listId = listId,
+            userListRepository = userListRepository,
+            repository = MagicalItemEntityRepository(repository),
         )
-        UserListsScreen(
-            viewModel = viewModel,
-            title = stringResource(Res.string.title_my_item_lists),
+        val viewModel = viewModel<ListDetailViewModel<MagicalItem>>(key = listId, factory = viewModelFactory)
+        val itemProvider = MagicalItemItemProvider(
+            onItemClicked = router::openDetail,
+            onEmptyLayoutBtnClicked = router::openCompendium,
         )
-    }
-
-    composable<MagicalItemRoute.UserListDetail> { entry ->
-        val listId = entry.toRoute<MagicalItemRoute.UserListDetail>().listId
-        val viewModel = viewModel<ListDetailViewModel<MagicalItem>>(
-            factory = ListDetailViewModelFactory(listId, userListRepository, MagicalItemEntityRepository(repository)),
-        )
-        val router = MagicalItemRouterImpl(navController)
         ListDetailScreen(
             viewModel = viewModel,
-            itemProvider = MagicalItemItemProvider(
-                onItemClicked = router::openDetail,
-                onEmptyLayoutBtnClicked = { navController.navigate(MagicalItemRoute.List) },
-            ),
-            onNavigateUp = { navController.navigateUp() },
+            itemProvider = itemProvider,
+            onNavigateUp = router::navigateUp,
         )
     }
 }

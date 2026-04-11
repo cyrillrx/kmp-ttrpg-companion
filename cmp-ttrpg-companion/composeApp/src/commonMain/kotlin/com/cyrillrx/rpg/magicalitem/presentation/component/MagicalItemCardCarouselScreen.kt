@@ -25,6 +25,7 @@ import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.magicalitem.data.SampleMagicalItemRepository
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemListState
+import com.cyrillrx.rpg.magicalitem.presentation.navigation.MagicalItemRouter
 import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.MagicalItemListViewModel
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -32,11 +33,11 @@ import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.hint_search_magical_item
 
 @Composable
-fun MagicalItemCardCarouselScreen(viewModel: MagicalItemListViewModel) {
+fun MagicalItemCardCarouselScreen(viewModel: MagicalItemListViewModel, router: MagicalItemRouter) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     MagicalItemCardCarouselScreen(
         state = state,
-        onNavigateUpClicked = viewModel::onNavigateUpClicked,
+        onNavigateUpClicked = router::navigateUp,
         onSearchQueryChanged = viewModel::onSearchQueryChanged,
         onMagicalItemClicked = viewModel::onItemClicked,
         onTypeToggled = viewModel::onTypeToggled,
@@ -74,7 +75,10 @@ fun MagicalItemCardCarouselScreen(
                 is MagicalItemListState.Body.Loading -> Loader()
                 is MagicalItemListState.Body.Empty -> EmptySearch(state.filter.query)
                 is MagicalItemListState.Body.Error -> ErrorLayout(body.errorMessage)
-                is MagicalItemListState.Body.WithData -> MagicalItemCardCarousel(body.searchResults, onMagicalItemClicked)
+                is MagicalItemListState.Body.WithData -> MagicalItemCardCarousel(
+                    body.searchResults,
+                    onMagicalItemClicked,
+                )
             }
         }
     }

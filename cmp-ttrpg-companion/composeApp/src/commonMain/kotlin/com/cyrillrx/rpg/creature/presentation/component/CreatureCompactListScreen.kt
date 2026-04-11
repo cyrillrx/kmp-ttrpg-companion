@@ -23,30 +23,40 @@ import com.cyrillrx.rpg.core.presentation.component.EmptySearch
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SearchBarWithBack
+import com.cyrillrx.rpg.core.presentation.component.SwipeToAdd
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.creature.data.SampleCreatureRepository
 import com.cyrillrx.rpg.creature.domain.Creature
+import com.cyrillrx.rpg.creature.presentation.CreatureAddToListProvider
 import com.cyrillrx.rpg.creature.presentation.CreatureListState
+import com.cyrillrx.rpg.creature.presentation.navigation.CreatureRouter
 import com.cyrillrx.rpg.creature.presentation.viewmodel.CreatureListViewModel
+import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
+import com.cyrillrx.rpg.userlist.presentation.AddToListProvider
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.hint_search_creature
 
 @Composable
-fun CreatureCompactListScreen(viewModel: CreatureListViewModel) {
+fun CreatureCompactListScreen(
+    viewModel: CreatureListViewModel,
+    router: CreatureRouter,
+    addToListProvider: AddToListProvider<Creature>,
+) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
     CreatureCompactListScreen(
         state = state,
-        onNavigateUpClicked = viewModel::onNavigateUpClicked,
+        onNavigateUpClicked = router::navigateUp,
         onSearchQueryChanged = viewModel::onSearchQueryChanged,
         onCreatureClicked = viewModel::onCreatureClicked,
         onTypeToggled = viewModel::onTypeToggled,
         onChallengeRatingToggled = viewModel::onChallengeRatingToggled,
         onResetFilters = viewModel::onResetFilters,
+        addToListProvider = addToListProvider,
     )
 }
 
@@ -59,8 +69,10 @@ fun CreatureCompactListScreen(
     onTypeToggled: (Creature.Type) -> Unit,
     onChallengeRatingToggled: (Float) -> Unit,
     onResetFilters: () -> Unit,
+    addToListProvider: AddToListProvider<Creature>,
 ) {
     var showFilterSheet by remember { mutableStateOf(false) }
+    var creatureToAdd by remember { mutableStateOf<Creature?>(null) }
 
     Scaffold(
         topBar = {
@@ -84,7 +96,11 @@ fun CreatureCompactListScreen(
                 is CreatureListState.Body.Loading -> Loader()
                 is CreatureListState.Body.Empty -> EmptySearch(state.filter.query)
                 is CreatureListState.Body.Error -> ErrorLayout(body.errorMessage)
-                is CreatureListState.Body.WithData -> CreatureCompactList(body.searchResults, onCreatureClicked)
+                is CreatureListState.Body.WithData -> CreatureCompactList(
+                    creatures = body.searchResults,
+                    onCreatureClicked = onCreatureClicked,
+                    showAddToList = { creature -> creatureToAdd = creature },
+                )
             }
         }
     }
@@ -98,12 +114,20 @@ fun CreatureCompactListScreen(
             onDismiss = { showFilterSheet = false },
         )
     }
+
+    creatureToAdd?.let { creature ->
+        addToListProvider.BottomSheet(
+            entityId = creature.id,
+            onDismiss = { creatureToAdd = null },
+        )
+    }
 }
 
 @Composable
 private fun CreatureCompactList(
     creatures: List<Creature>,
     onCreatureClicked: (Creature) -> Unit,
+    showAddToList: (Creature) -> Unit,
 ) {
     val listState = rememberLazyListState()
     LaunchedEffect(creatures) {
@@ -116,25 +140,26 @@ private fun CreatureCompactList(
         contentPadding = PaddingValues(spacingMedium),
         verticalArrangement = Arrangement.spacedBy(spacingSmall),
     ) {
-        items(creatures) { creature ->
-            CreatureCompactListItem(
-                creature = creature,
-                onClick = { onCreatureClicked(creature) },
+        items(creatures, key = { it.id }) { creature ->
+            SwipeToAdd(
+                onSwiped = { showAddToList(creature) },
                 modifier = Modifier.fillMaxWidth(),
-            )
+            ) {
+                CreatureCompactListItem(
+                    creature = creature,
+                    onClick = { onCreatureClicked(creature) },
+                    modifier = Modifier.fillMaxWidth(),
+                )
+            }
         }
     }
 }
-
-private val stateWithSampleData = CreatureListState(
-    body = CreatureListState.Body.WithData(SampleCreatureRepository.getAll()),
-)
 
 @Preview
 @Composable
 private fun PreviewCreatureCompactListScreenLight() {
     AppThemePreview(darkTheme = false) {
-        CreatureCompactListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {})
+        CreatureCompactListScreenPreview()
     }
 }
 
@@ -142,6 +167,15 @@ private fun PreviewCreatureCompactListScreenLight() {
 @Composable
 private fun PreviewCreatureCompactListScreenDark() {
     AppThemePreview(darkTheme = true) {
-        CreatureCompactListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {})
+        CreatureCompactListScreenPreview()
     }
+}
+
+@Composable
+private fun CreatureCompactListScreenPreview() {
+    val stateWithSampleData = CreatureListState(
+        body = CreatureListState.Body.WithData(SampleCreatureRepository.getAll()),
+    )
+    val addToListProvider = CreatureAddToListProvider(SampleCreatureRepository(), SampleUserListRepository())
+    CreatureCompactListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, addToListProvider)
 }
