@@ -69,14 +69,14 @@ The project enforces code formatting using **ktlint**.
 
 Use `StandardTestDispatcher` + `runTest`. Inject repositories via constructor; use in-memory fakes (`RamUserListRepository`, `SampleXxxRepository`).
 
-| Case | Description |
-|------|-------------|
-| Initial `Loading` state | Before coroutines have run |
-| `Error` state | When the repository throws |
-| Happy path `WithData` | Data loaded and displayed correctly |
-| `silentRefresh` reflects repo changes | After mutating the repo, `silentRefresh()` updates state |
-| `silentRefresh` does not show `Loading` | State does not regress to `Loading` during refresh |
-| `silentRefresh` no-op when `Loading` | Early call has no effect |
+| Case                                    | Description                                              |
+|-----------------------------------------|----------------------------------------------------------|
+| Initial `Loading` state                 | Before coroutines have run                               |
+| `Error` state                           | When the repository throws                               |
+| Happy path `WithData`                   | Data loaded and displayed correctly                      |
+| `silentRefresh` reflects repo changes   | After mutating the repo, `silentRefresh()` updates state |
+| `silentRefresh` does not show `Loading` | State does not regress to `Loading` during refresh       |
+| `silentRefresh` no-op when `Loading`    | Early call has no effect                                 |
 
 For ViewModels with mutations (delete, rename, add): test optimistic mutation, undo, commit, and repository persistence.
 
