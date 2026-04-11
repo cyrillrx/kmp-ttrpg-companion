@@ -21,6 +21,10 @@ import kotlin.test.assertEquals
 import kotlin.test.assertIs
 import kotlin.test.assertTrue
 
+private const val TEST_LIST_ID = "1"
+private const val LIST_NAME = "Name of the list"
+private const val UPDATED_LIST_NAME = "Updated name of the list"
+
 @OptIn(ExperimentalCoroutinesApi::class)
 class UserListsViewModelTest {
 
@@ -83,12 +87,12 @@ class UserListsViewModelTest {
         }
 
         advanceUntilIdle()
-        viewModel.createList("Fighting spells")
+        viewModel.createList(LIST_NAME)
         advanceUntilIdle()
 
         val body = assertIs<UserListsState.Body.WithData>(viewModel.state.value.body)
         assertEquals(expected = 1, actual = body.lists.size)
-        assertEquals(expected = "Fighting spells", actual = body.lists.first().name)
+        assertEquals(expected = LIST_NAME, actual = body.lists.first().name)
         assertEquals(expected = UserList.Type.SPELL, actual = body.lists.first().type)
     }
 
@@ -101,7 +105,7 @@ class UserListsViewModelTest {
         }
 
         advanceUntilIdle()
-        viewModel.createList("Fighting spells")
+        viewModel.createList(LIST_NAME)
         advanceUntilIdle()
 
         val body = assertIs<UserListsState.Body.WithData>(viewModel.state.value.body)
@@ -121,7 +125,7 @@ class UserListsViewModelTest {
         }
 
         advanceUntilIdle()
-        viewModel.createList("Fighting spells")
+        viewModel.createList(LIST_NAME)
         advanceUntilIdle()
 
         val body = assertIs<UserListsState.Body.WithData>(viewModel.state.value.body)
@@ -143,7 +147,7 @@ class UserListsViewModelTest {
         }
 
         advanceUntilIdle()
-        viewModel.createList("Fighting spells")
+        viewModel.createList(LIST_NAME)
         advanceUntilIdle()
 
         val body = assertIs<UserListsState.Body.WithData>(viewModel.state.value.body)
@@ -165,7 +169,7 @@ class UserListsViewModelTest {
         }
 
         advanceUntilIdle()
-        viewModel.createList("Fighting spells")
+        viewModel.createList(LIST_NAME)
         advanceUntilIdle()
 
         val body = assertIs<UserListsState.Body.WithData>(viewModel.state.value.body)
@@ -180,7 +184,7 @@ class UserListsViewModelTest {
 
     @Test
     fun `only lists matching the configured type are shown`() = runTest(testDispatcher) {
-        val spellList = UserList("1", "Spellbook", UserList.Type.SPELL, emptyList())
+        val spellList = UserList(TEST_LIST_ID, LIST_NAME, UserList.Type.SPELL, emptyList())
         val itemList = UserList("2", "Artefacts", UserList.Type.MAGICAL_ITEM, emptyList())
         repository.save(spellList)
         repository.save(itemList)
@@ -200,7 +204,7 @@ class UserListsViewModelTest {
 
     @Test
     fun `silentRefresh updates state with fresh data without showing Loading`() = runTest(testDispatcher) {
-        val spellList = UserList("1", "Spellbook", UserList.Type.SPELL, emptyList())
+        val spellList = UserList(TEST_LIST_ID, LIST_NAME, UserList.Type.SPELL, emptyList())
         repository.save(spellList)
 
         val viewModel = buildViewModel()
@@ -211,7 +215,7 @@ class UserListsViewModelTest {
 
         advanceUntilIdle()
 
-        val updatedList = spellList.copy(name = "Updated Spellbook")
+        val updatedList = spellList.copy(name = UPDATED_LIST_NAME)
         repository.save(updatedList)
 
         viewModel.silentRefresh()
@@ -223,7 +227,7 @@ class UserListsViewModelTest {
 
         val body = assertIs<UserListsState.Body.WithData>(viewModel.state.value.body)
         assertEquals(expected = 1, actual = body.lists.size)
-        assertEquals(expected = "Updated Spellbook", actual = body.lists.first().name)
+        assertEquals(expected = UPDATED_LIST_NAME, actual = body.lists.first().name)
     }
 
     @Test
@@ -247,7 +251,7 @@ class UserListsViewModelTest {
         }
 
         advanceUntilIdle()
-        viewModel.createList("Spellbook")
+        viewModel.createList(LIST_NAME)
         advanceUntilIdle()
 
         val body = assertIs<UserListsState.Body.WithData>(viewModel.state.value.body)
