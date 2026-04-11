@@ -30,6 +30,7 @@ class ListDetailViewModelTest {
     private val spellRepository = SpellEntityRepository(SampleSpellRepository())
     private val userListRepository = RamUserListRepository()
     private val spell = SampleSpellRepository.getFirst()
+    private val secondSpell = SampleSpellRepository.getAll()[1]
 
     @BeforeTest
     fun setUp() {
@@ -177,6 +178,107 @@ class ListDetailViewModelTest {
 
             assertIs<ListDetailState.Body.EmptyList>(viewModel.state.value.body)
         }
+
+    @Test
+    fun `silentRefresh reflects new items added to repository`() = runTest(testDispatcher) {
+        val list = UserList("list1", "My Spellbook", UserList.Type.SPELL, listOf(spell.id))
+        userListRepository.save(list)
+
+        val viewModel = buildViewModel("list1")
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        val initialBody = assertIs<ListDetailState.Body.WithData<Spell>>(viewModel.state.value.body)
+        assertEquals(expected = 1, actual = initialBody.items.size)
+
+        val updatedList = list.copy(itemIds = list.itemIds + secondSpell.id)
+        userListRepository.save(updatedList)
+
+        viewModel.silentRefresh()
+        advanceUntilIdle()
+
+        val refreshedBody = assertIs<ListDetailState.Body.WithData<Spell>>(viewModel.state.value.body)
+        assertEquals(expected = 2, actual = refreshedBody.items.size)
+    }
+
+    @Test
+    fun `silentRefresh does not transition to Loading state`() = runTest(testDispatcher) {
+        val list = UserList("list1", "My Spellbook", UserList.Type.SPELL, listOf(spell.id))
+        userListRepository.save(list)
+
+        val viewModel = buildViewModel("list1")
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        viewModel.silentRefresh()
+
+        assertIs<ListDetailState.Body.WithData<Spell>>(viewModel.state.value.body)
+
+        advanceUntilIdle()
+
+        assertIs<ListDetailState.Body.WithData<Spell>>(viewModel.state.value.body)
+    }
+
+    @Test
+    fun `silentRefresh does nothing when state is already Loading`() = runTest(testDispatcher) {
+        val list = UserList("list1", "My Spellbook", UserList.Type.SPELL, listOf(spell.id))
+        userListRepository.save(list)
+
+        val viewModel = buildViewModel("list1")
+
+        assertIs<ListDetailState.Body.Loading>(viewModel.state.value.body)
+
+        viewModel.silentRefresh()
+
+        assertIs<ListDetailState.Body.Loading>(viewModel.state.value.body)
+    }
+
+    @Test
+    fun `renameList updates list name in state`() = runTest(testDispatcher) {
+        val list = UserList("list1", "Old Name", UserList.Type.SPELL, listOf(spell.id))
+        userListRepository.save(list)
+
+        val viewModel = buildViewModel("list1")
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        viewModel.renameList("New Name")
+        advanceUntilIdle()
+
+        assertEquals(expected = "New Name", actual = viewModel.state.value.listName)
+    }
+
+    @Test
+    fun `renameList persists updated name to repository`() = runTest(testDispatcher) {
+        val list = UserList("list1", "Old Name", UserList.Type.SPELL, listOf(spell.id))
+        userListRepository.save(list)
+
+        val viewModel = buildViewModel("list1")
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        viewModel.renameList("New Name")
+        advanceUntilIdle()
+
+        val savedList = userListRepository.get("list1")
+        assertEquals(expected = "New Name", actual = savedList?.name)
+    }
 
     @Test
     fun `onCleared commits pending removals that were never confirmed`() = runTest(testDispatcher) {

@@ -199,7 +199,7 @@ class UserListsViewModelTest {
     }
 
     @Test
-    fun `refresh updates state with fresh data without showing Loading`() = runTest(testDispatcher) {
+    fun `silentRefresh updates state with fresh data without showing Loading`() = runTest(testDispatcher) {
         val spellList = UserList("1", "Spellbook", UserList.Type.SPELL, emptyList())
         repository.save(spellList)
 
@@ -224,6 +224,17 @@ class UserListsViewModelTest {
         val body = assertIs<UserListsState.Body.WithData>(viewModel.state.value.body)
         assertEquals(expected = 1, actual = body.lists.size)
         assertEquals(expected = "Updated Spellbook", actual = body.lists.first().name)
+    }
+
+    @Test
+    fun `silentRefresh does nothing when state is already Loading`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel()
+
+        assertIs<UserListsState.Body.Loading>(viewModel.state.value.body)
+
+        viewModel.silentRefresh()
+
+        assertIs<UserListsState.Body.Loading>(viewModel.state.value.body)
     }
 
     @Test

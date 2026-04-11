@@ -237,6 +237,33 @@ class AddToListViewModelTest {
     }
 
     @Test
+    fun `loadEntity reflects fresh list data when called again after repository changes`() =
+        runTest(testDispatcher) {
+            val viewModel = buildViewModel()
+
+            backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+                viewModel.state.collect {}
+            }
+
+            advanceUntilIdle()
+
+            val initialBody = assertIs<AddToListState.Body.WithData<Spell>>(viewModel.state.value.body)
+            assertTrue(initialBody.selectableLists.isEmpty())
+
+            // Simulate: spell was added to a new list externally (e.g. from another screen)
+            val newList = UserList("list1", "Grimoire", UserList.Type.SPELL, listOf(spell.id))
+            userListRepository.save(newList)
+
+            // Re-call loadEntity — simulates the bottom sheet being re-opened
+            viewModel.loadEntity(spell.id)
+            advanceUntilIdle()
+
+            val refreshedBody = assertIs<AddToListState.Body.WithData<Spell>>(viewModel.state.value.body)
+            assertEquals(expected = 1, actual = refreshedBody.selectableLists.size)
+            assertTrue(refreshedBody.selectableLists.first().alreadyAdded)
+        }
+
+    @Test
     fun `createAndAdd creates a new list with the itemId`() = runTest(testDispatcher) {
         val viewModel = buildViewModel()
 
