@@ -222,13 +222,15 @@ class ListDetailViewModelTest {
 
         advanceUntilIdle()
 
+        val emittedBodies = mutableListOf<ListDetailState.Body<Spell>>()
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect { emittedBodies.add(it.body) }
+        }
+
         viewModel.silentRefresh()
-
-        assertIs<ListDetailState.Body.WithData<Spell>>(viewModel.state.value.body)
-
         advanceUntilIdle()
 
-        assertIs<ListDetailState.Body.WithData<Spell>>(viewModel.state.value.body)
+        assertTrue(emittedBodies.none { it is ListDetailState.Body.Loading })
     }
 
     @Test

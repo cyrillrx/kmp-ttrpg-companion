@@ -218,13 +218,15 @@ class UserListsViewModelTest {
         val updatedList = spellList.copy(name = UPDATED_LIST_NAME)
         repository.save(updatedList)
 
+        val emittedBodies = mutableListOf<UserListsState.Body>()
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect { emittedBodies.add(it.body) }
+        }
+
         viewModel.silentRefresh()
-
-        // State must not be Loading during refresh
-        assertIs<UserListsState.Body.WithData>(viewModel.state.value.body)
-
         advanceUntilIdle()
 
+        assertTrue(emittedBodies.none { it is UserListsState.Body.Loading })
         val body = assertIs<UserListsState.Body.WithData>(viewModel.state.value.body)
         assertEquals(expected = 1, actual = body.lists.size)
         assertEquals(expected = UPDATED_LIST_NAME, actual = body.lists.first().name)
