@@ -13,7 +13,7 @@ plugins {
 
 sonar {
     properties {
-        property("sonar.projectKey", "cyrillrx_ttrpg-companion")
+        property("sonar.projectKey", "cyrillrx_ttrpg-companion_client-cmp")
         property("sonar.organization", "cyrillrx")
         property("sonar.host.url", "https://sonarcloud.io")
         property(
