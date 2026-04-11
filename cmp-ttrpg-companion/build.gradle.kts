@@ -17,23 +17,6 @@ sonar {
         property("sonar.organization", "cyrillrx")
         property("sonar.host.url", "https://sonarcloud.io")
         property(
-            "sonar.sources",
-            "composeApp/src/commonMain/kotlin," +
-                "composeApp/src/jvmMain/kotlin," +
-                "shared/core/src/commonMain/kotlin," +
-                "shared/core/src/jvmMain/kotlin",
-        )
-        property(
-            "sonar.tests",
-            "composeApp/src/commonTest/kotlin," +
-                "shared/core/src/commonTest/kotlin",
-        )
-        property(
-            "sonar.java.binaries",
-            "composeApp/build/classes/kotlin/jvm/main," +
-                "shared/core/build/classes/kotlin/jvm/main",
-        )
-        property(
             "sonar.coverage.jacoco.xmlReportPaths",
             "composeApp/build/reports/kover/reportJvm.xml," +
                 "shared/core/build/reports/kover/reportJvm.xml",
