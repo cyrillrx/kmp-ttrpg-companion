@@ -60,6 +60,12 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
 }
 
+// androidApp is a no-source shell module; exclude it at the Gradle level so the Sonar plugin
+// does not try to access AppExtension (removed in AGP 9) during the configuration phase.
+sonar {
+    isSkipProject = true
+}
+
 // Ensure compose resources are assembled before assets are merged into the APK
 tasks.configureEach {
     if (name.startsWith("merge") && name.endsWith("Assets")) {
