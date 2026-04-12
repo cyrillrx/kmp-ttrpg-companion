@@ -7,9 +7,9 @@ plugins {
 
 // com.android.kotlin.multiplatform.library does not register compose resources as AAR assets
 // (variant.sources.assets is null for KotlinMultiplatformAndroidVariant, so
-// CopyResourcesToAndroidAssetsTask.outputDirectory is never wired). We bypass the broken task
-// and pull compose resources from composeApp's jvmMain assembled output, which has the same
-// content (commonMain resources) and the correct directory structure for Android assets.
+// CopyResourcesToAndroidAssetsTask.outputDirectory is never wired and the AAR has no assets).
+// We bypass the broken task and pull compose resources from composeApp's jvmMain assembled
+// output, which has the same content (commonMain resources) and the correct directory structure.
 val composeResourcesAssetsDir = project(":composeApp").projectDir.resolve(
     "build/generated/compose/resourceGenerator/assembledResources/jvmMain",
 )
