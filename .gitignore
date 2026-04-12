@@ -48,3 +48,6 @@ xcuserdata
 
 # SonarScanner
 .scannerwork/
+
+# Rust
+server-rust/target/
