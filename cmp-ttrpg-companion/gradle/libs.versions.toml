@@ -1,7 +1,7 @@
 [versions]
 kotlin = "2.3.20"
 ktlint = "14.2.0"
-agp = "9.1.0"
+agp = "9.0.1"
 compose-plugin = "1.10.3"
 kotlinx-coroutines-core = "1.10.2"
 kotlinx-serialization = "1.11.0"
