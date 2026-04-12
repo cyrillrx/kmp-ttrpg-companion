@@ -32,7 +32,7 @@ class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository 
     }
 
     private suspend fun loadFromFile(): List<ApiSpell> {
-        val result = fileReader.readFile("files/grimoire.json")
+        val result = fileReader.readFile("files/spells.json")
         if (result is Result.Success) {
             return result.value.deserialize() ?: listOf()
         }
