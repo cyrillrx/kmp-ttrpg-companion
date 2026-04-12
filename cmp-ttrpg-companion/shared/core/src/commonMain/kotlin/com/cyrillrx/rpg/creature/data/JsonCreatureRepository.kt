@@ -34,7 +34,7 @@ class JsonCreatureRepository(private val fileReader: FileReader) : CreatureRepos
     }
 
     private suspend fun loadFromFile(): List<ApiBestiaryItem> {
-        val result = fileReader.readFile("files/bestiaire.json")
+        val result = fileReader.readFile("files/creatures.json")
         if (result is Result.Success) {
             return result.value.deserialize() ?: listOf()
         }

@@ -30,7 +30,7 @@ class JsonMagicalItemRepository(private val fileReader: FileReader) : MagicalIte
     }
 
     private suspend fun loadFromFile(): List<ApiInventoryItem> {
-        val result = fileReader.readFile("files/objets-magiques.json")
+        val result = fileReader.readFile("files/magical-items.json")
         if (result is Result.Success) {
             return result.value.deserialize() ?: listOf()
         }

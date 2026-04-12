@@ -1,0 +1,2171 @@
+[
+    {
+      "header": {
+        "title": "Amulette d'antidétection",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant",
+          "attunement": "harmonisation requise"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Tant que vous portez cette amulette, vous êtes caché aux yeux de la magie de divination. Ce genre de magie ne peut plus vous prendre pour cible et ne vous perçoit plus à travers ses organes de scrutation magiques.</p>",
+      "link": "/liste-objets-magiques/amulette-dantidetection",
+      "title": "Amulette d'antidétection",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": "harmonisation requise"
+    },
+    {
+      "header": {
+        "title": "Amulette de cicatrisation",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant",
+          "attunement": "harmonisation requise"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Tant que vous portez ce pendentif, vous vous stabilisez automatiquement au début de votre tour si vous êtes mourant. De plus, à chaque fois que vous lancez un dé de vie pour récupérer des points de vie, vous doublez le nombre de points de vie rendus.</p>",
+      "link": "/liste-objets-magiques/amulette-de-cicatrisation",
+      "title": "Amulette de cicatrisation",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": "harmonisation requise"
+    },
+    {
+      "header": {
+        "title": "Amulette de santé",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Tant que vous portez ce pendentif, vous êtes immunisé contre toutes les maladies. Si vous êtes déjà malade, les effets de la maladie sont supprimés tant que vous portez l'amulette.</p>",
+      "link": "/liste-objets-magiques/amulette-de-sante",
+      "title": "Amulette de santé",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Anneau de chaleur",
+        "magicitem": {
+          "type": "Anneau",
+          "rarity": "Peu courant",
+          "attunement": "harmonisation requise"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Vous bénéficiez d'une résistance contre les dégâts de froid tant que vous portez cet anneau au doigt. De plus, vous et tout l'équipement que vous portez êtes protégés contre les températures extrêmement basses (jusque -10 degrés Celsius).</p>",
+      "link": "/liste-objets-magiques/anneau-de-chaleur",
+      "title": "Anneau de chaleur",
+      "type": "Anneau",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": "harmonisation requise"
+    },
+    {
+      "header": {
+        "title": "Anneau de marche sur l'eau",
+        "magicitem": {
+          "type": "Anneau",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Vous pouvez vous tenir debout sur toute surface liquide et vous déplacer dessus comme si elle était solide.</p>",
+      "link": "/liste-objets-magiques/anneau-de-marche-sur-leau",
+      "title": "Anneau de marche sur l'eau",
+      "type": "Anneau",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Anneau de nage",
+        "magicitem": {
+          "type": "Anneau",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Vous possédez une vitesse de déplacement à la nage de 12 mètres tant que vous portez cet anneau au doigt.</p>",
+      "link": "/liste-objets-magiques/anneau-de-nage",
+      "title": "Anneau de nage",
+      "type": "Anneau",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Anneau de protection mentale",
+        "magicitem": {
+          "type": "Anneau",
+          "rarity": "Peu courant",
+          "attunement": "harmonisation requise"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Tant que vous portez cet anneau, vous êtes immunisé à la magie utilisée par d'autres créatures pour lire vos pensées, déterminer si vous mentez, connaître votre alignement ou le type de créature que vous êtes. Les créatures peuvent communiquer par télépathie avec vous seulement si vous les y autorisez.</p>\n<p>Vous pouvez utiliser une action pour que l'anneau devienne <a href=\"/gerer-la-sante-du-personnage#invisible\"><em>invisible</em></a> jusqu'à ce que vous utilisiez une autre action pour le rendre visible, que vous le retiriez ou que vous mourriez.</p>\n<p>Si vous perdez la vie avec l'anneau au doigt, votre âme se réfugie à l'intérieur, à moins qu'il ne contienne déjà une âme. Vous pouvez rester dans l'anneau ou vous en aller pour l'après-vie. Tant que votre âme est à l'intérieur de l'anneau, vous pouvez communiquer par télépathie avec la créature qui l'enfile. Un porteur ne peut pas empêcher cette communication télépathique.</p>",
+      "link": "/liste-objets-magiques/anneau-de-protection-mentale",
+      "title": "Anneau de protection mentale",
+      "type": "Anneau",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": "harmonisation requise"
+    },
+    {
+      "header": {
+        "title": "Anneau de saut",
+        "magicitem": {
+          "type": "Anneau",
+          "rarity": "Peu courant",
+          "attunement": "harmonisation requise"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Vous pouvez lancer le sort de <a href=\"/grimoire/saut\"><em>saut</em></a>, à volonté et par une action bonus, tant que vous portez cet anneau au doigt. Seul vous bénéficiez des effets de ce sort.</p>",
+      "link": "/liste-objets-magiques/anneau-de-saut",
+      "title": "Anneau de saut",
+      "type": "Anneau",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": "harmonisation requise"
+    },
+    {
+      "header": {
+        "title": "Arme +1",
+        "magicitem": {
+          "type": "Arme",
+          "subtype": "N'importe quelle arme",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Vous bénéficiez d'un bonus de +1 aux jets d'attaque et de dégâts effectués avec cette arme magique.</p>",
+      "link": "/liste-objets-magiques/arme-1",
+      "title": "Arme +1",
+      "type": "Arme",
+      "subtype": "N'importe quelle arme",
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Armure de mithral",
+        "magicitem": {
+          "type": "Armure",
+          "subtype": "Intermédiaire ou lourde mais pas en peau",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Le mithral est un métal léger et flexible, à tel point qu'on peut porter une chemise de mailles ou une cuirasse de cette matière sous des vêtements normaux. Si le type d'armure impose d'ordinaire un <a href=\"/utiliser-les-caracteristiques#avantage-et-désasavantage\"><em>désavantage</em></a> lors des tests de Dextérité (Discrétion) ou si une certaine valeur de Force figure parmi ses conditions requises, ce n'est pas le cas de sa version en mithral.</p>",
+      "link": "/liste-objets-magiques/armure-de-mithral",
+      "title": "Armure de mithral",
+      "type": "Armure",
+      "subtype": "Intermédiaire ou lourde mais pas en peau",
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Armure en adamantium",
+        "magicitem": {
+          "type": "Armure",
+          "subtype": "Intermédiaire ou lourde, mais pas en peau",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Cette armure est renforcée à base d'adamantium, l'une des substances les plus solides au monde. Tant que vous la portez, tous les coups critiques réussis contre vous se muent en coups normaux.</p>",
+      "link": "/liste-objets-magiques/armure-en-adamantium",
+      "title": "Armure en adamantium",
+      "type": "Armure",
+      "subtype": "Intermédiaire ou lourde, mais pas en peau",
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Baguette de détection de la magie",
+        "magicitem": {
+          "type": "Baguette",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Cette baguette contient 3 charges. Avec cette baguette en main, vous pouvez dépenser 1 charge par une action pour lancer le sort <a href=\"/grimoire/detection-de-la-magie\">détection de la magie</a> par son biais. La baguette récupère 1d3 charges dépensées chaque jour, à l'aube.</p>",
+      "link": "/liste-objets-magiques/baguette-de-detection-de-la-magie",
+      "title": "Baguette de détection de la magie",
+      "type": "Baguette",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Baguette de projectiles magiques",
+        "magicitem": {
+          "type": "Baguette",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Cette baguette contient 7 charges. Avec cette baguette en main, vous pouvez utiliser une action pour dépenser 1 ou plusieurs charges et lancer le sort de <a href=\"/grimoire/projectile-magique\"><em>projectile magique</em></a> par son biais. Pour 1 charge, vous lancez la version de niveau 1 de ce sort. Vous pouvez augmenter de un le niveau de l'emplacement du sort pour chaque charge supplémentaire que vous dépensez.</p>\n<p>La baguette récupère 1d6+1 charges dépensées chaque jour, à l'aube. Lancez un d20 si vous dépensez la dernière charge. La baguette est détruite et tombe en cendres sur un résultat de 1.</p>",
+      "link": "/liste-objets-magiques/baguette-de-projectiles-magiques",
+      "title": "Baguette de projectiles magiques",
+      "type": "Baguette",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Baguette des secrets",
+        "magicitem": {
+          "type": "Baguette",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Cette baguette contient 3 charges. Avec cette baguette en main, vous pouvez utiliser une action pour dépenser 1 de ses charges et, si une porte secrète ou un piège est présent à 9 mètres ou moins de vous, la baguette se met à pulser et pointe dans la direction du plus proche de vous. La baguette récupère 1d3 charges dépensées chaque jour, à l'aube.</p>",
+      "link": "/liste-objets-magiques/baguette-des-secrets",
+      "title": "Baguette des secrets",
+      "type": "Baguette",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Baguette du mage de guerre +1",
+        "magicitem": {
+          "type": "Baguette",
+          "rarity": "Peu courant",
+          "attunement": "harmonisation avec un lanceur de sorts exigée"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Avec cette baguette en main, vous bénéficiez d'un bonus de +1 aux jets d'attaque des sorts. En outre, vous ignorez les abris partiels lorsque vous effectuez une attaque de sort.</p>",
+      "link": "/liste-objets-magiques/baguette-du-mage-de-guerre-1",
+      "title": "Baguette du mage de guerre +1",
+      "type": "Baguette",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": "harmonisation avec un lanceur de sorts exigée"
+    },
+    {
+      "header": {
+        "title": "Baguette entoilée",
+        "magicitem": {
+          "type": "Baguette",
+          "rarity": "Peu courant",
+          "attunement": "harmonisation avec un lanceur de sorts exigée"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Cette baguette contient 7 charges. Avec cette baguette en main, vous pouvez utiliser une action pour dépenser 1 de ses charges et lancer le sort <a href=\"/grimoire/toile-daraignee\"><em>toile d'araignée</em></a> (DD des jets de sauvegarde contre le sort 15) par son biais.</p>\n<p>La baguette récupère 1d6+1 charges dépensées chaque jour, à l'aube. Lancez un d20 si vous dépensez la dernière charge. La baguette est détruite et tombe en cendres sur un résultat de 1.</p>",
+      "link": "/liste-objets-magiques/baguette-entoilee",
+      "title": "Baguette entoilée",
+      "type": "Baguette",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": "harmonisation avec un lanceur de sorts exigée"
+    },
+    {
+      "header": {
+        "title": "Balai volant",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Ce balai de bois pèse 1,5 kilo et fonctionne comme un balai ordinaire, à moins que vous ne vous mettiez à califourchon dessus et prononciez son mot de commande. Il se met alors à flotter et vous pouvez le chevaucher pour vous déplacer dans les airs. Il dispose d'une vitesse de vol de 15 mètres et porte jusqu'à 200 kilos, mais sa vitesse se réduit à 9 mètres si la charge dépasse les 100 kilos. Le balai cesse de flotter dès que vous atterrissez.</p>\n<p>Vous pouvez envoyer le balai rejoindre seul une destination située dans un rayon de 1,5 kilomètre, à condition de prononcer le mot de commande, le nom de la destination et de bien connaître cette dernière. Le balai revient à vous quand vous prononcez un autre mot de commande, à condition qu'il se trouve encore dans un rayon de 1,5 kilomètre autour de vous.</p>",
+      "link": "/liste-objets-magiques/balai-volant",
+      "title": "Balai volant",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Bandeau d'intelligence",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant",
+          "attunement": "harmonisation requise"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Tant que vous portez ce bandeau, votre Intelligence passe à 19. Si elle est déjà de 19 ou plus, il n'a aucun effet sur vous.</p>",
+      "link": "/liste-objets-magiques/bandeau-dintelligence",
+      "title": "Bandeau d'intelligence",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": "harmonisation requise"
+    },
+    {
+      "header": {
+        "title": "Bâton du python",
+        "magicitem": {
+          "type": "Bâton",
+          "rarity": "Peu courant",
+          "attunement": "harmonisation avec un clerc, un druide ou un sorcier exigée"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Vous pouvez utiliser une action pour prononcer le mot de commande de ce bâton et le lancer par terre, à 3 mètres ou moins de vous. Le bâton se transforme alors en <a href=\"/bestiaire/serpent-constricteur-geant\">serpent constricteur géant</a>. Il agit lors de son propre décompte d'initiative mais reste sous votre contrôle. En utilisant une action bonus pour prononcer une nouvelle fois le mot de commande, le bâton reprend sa forme normale dans le dernier espace occupé lorsqu'il était serpent.</p>\n<p>Lors de votre tour, vous pouvez mentalement diriger le serpent si celui-ci se situe à 18 mètres ou moins de vous et si vous n'êtes pas <a href=\"/gerer-la-sante-du-personnage#neutralisé\"><em>neutralisé</em></a>. Vous choisissez l'action qu'entreprend le serpent et l'endroit vers lequel il se déplace lors de son prochain tour. Vous pouvez également donner un ordre moins spécifique (attaquer vos ennemis ou protéger un endroit).</p>\n<p>Si le nombre de points de vie du serpent tombe à 0, il meurt et reprend sa forme de bâton. Le bâton est alors détruit et vole en éclats. Si le serpent reprend sa forme de bâton avant de perdre la totalité de ses points de vie, il les récupère tous.</p>",
+      "link": "/liste-objets-magiques/baton-du-python",
+      "title": "Bâton du python",
+      "type": "Bâton",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": "harmonisation avec un clerc, un druide ou un sorcier exigée"
+    },
+    {
+      "header": {
+        "title": "Baume revigorant",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Ce pot en verre de 7 à 8 centimètres de diamètre contient 1d4+1 doses d'une mixture épaisse qui sent légèrement l'aloès. Le pot et son contenu pèsent un total de 250 grammes.</p>\n<p>Par une action, il est possible d'avaler ou d'appliquer sur la peau une dose de baume. La créature qui en bénéficie récupère 2d8+2 points de vie, elle n'est plus <a href=\"/gerer-la-sante-du-personnage#empoisonné\"><em>empoisonnée</em></a> et toutes les maladies dont elle est victime sont soignées.</p>",
+      "link": "/liste-objets-magiques/baume-revigorant",
+      "title": "Baume revigorant",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Bottes ailées",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant",
+          "attunement": "harmonisation requise"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Tant que vous portez ces bottes aux pieds, vous disposez d'une vitesse de déplacement en vol égale à votre vitesse au sol. Vous pouvez utiliser les bottes pour voler pendant un maximum de 4 heures d'affilée ou lors de vols plus courts. Toutefois, chaque utilisation dépense au minimum 1 minute de cette durée. Si vous volez au moment où cette durée prend fin, vous descendez à une vitesse de 9 mètres par round jusqu'à toucher le sol.</p>\n<p>Les bottes récupèrent 2 heures de capacité de vol pour chaque période de 12 heures passées sans être utilisées.</p>",
+      "link": "/liste-objets-magiques/bottes-ailees",
+      "title": "Bottes ailées",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": "harmonisation requise"
+    },
+    {
+      "header": {
+        "title": "Bottes de marche et de saut",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant",
+          "attunement": "harmonisation requise"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Tant que vous portez ces bottes, votre vitesse au sol passe à 9 mètres (à moins qu'elle ne soit déjà supérieure) et elle ne se réduit pas si vous êtes encombré ou portez une armure lourde. De plus, vous pouvez sauter trois fois plus loin que la normale, sans dépasser la distance que vous pourriez parcourir avec la distance de déplacement qui vous reste.</p>",
+      "link": "/liste-objets-magiques/bottes-de-marche-et-de-saut",
+      "title": "Bottes de marche et de saut",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": "harmonisation requise"
+    },
+    {
+      "header": {
+        "title": "Bottes des terres gelées",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant",
+          "attunement": "harmonisation requise"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Ces bottes fourrées sont chaudes et bien douillettes. Tant que vous les portez, vous bénéficiez des avantages suivants.</p>\n<ul>\n<li>Vous êtes résistants aux dégâts de froid.</li>\n<li>Vous ignorez les terrains rendus difficiles à cause de la glace ou de la neige.</li>\n<li>Vous supportez des températures descendant jusqu'à -45°C sans protection supplémentaire. Si vous portez des vêtements chauds, vous supportez des températures allant jusqu'à -75°C.</li>\n</ul>",
+      "link": "/liste-objets-magiques/bottes-des-terres-gelees",
+      "title": "Bottes des terres gelées",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": "harmonisation requise"
+    },
+    {
+      "header": {
+        "title": "Bottes elfiques",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Tant que vous portez ces bottes, vos pas ne s'accompagnent d'aucun bruit, quelle que soit la surface que vous traversez. Vous obtenez également l'<a href=\"/utiliser-les-caracteristiques#avantage-et-désasavantage\"><em>avantage</em></a> lors des tests de Dextérité (Discrétion) basés sur le silence de vos déplacements.</p>",
+      "link": "/liste-objets-magiques/bottes-elfiques",
+      "title": "Bottes elfiques",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Bouclier +1",
+        "magicitem": {
+          "type": "Armure",
+          "subtype": "Bouclier",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Tant que vous tenez ce bouclier, vous bénéficiez d'un bonus de +1 à la CA. Ce bonus vient en plus du bonus normal à la CA que le bouclier confère.</p>",
+      "link": "/liste-objets-magiques/bouclier-1",
+      "title": "Bouclier +1",
+      "type": "Armure",
+      "subtype": "Bouclier",
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Bouteille fumigène",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>De la fumée s'échappe du goulot de cette bouteille pourtant scellée au plomb et pesant 0,5 kilo. Quand vous utilisez une action pour la déboucher, un épais nuage de fumée se déverse dans un rayon de 18 mètres autour de la bouteille. La visibilité est nulle dans le nuage. À chaque fois que la bouteille passe une minute ouverte au sein du nuage, le rayon de ce dernier augmente de 3 mètres, jusqu'à ce qu'il atteigne son rayon maximum, à savoir 36 mètres.</p>\n<p>Le nuage persiste tant que la bouteille est ouverte. Pour la fermer, vous devez prononcer son mot de commande par une action. Une fois la bouteille fermée, le nuage se dissipe en 10 minutes. Un vent modéré (16 à 30 km/h) disperse la fumée en 1 minute tandis qu'un vent fort (31 km/h ou plus) la dissipe en 1 round.</p>",
+      "link": "/liste-objets-magiques/bouteille-fumigene",
+      "title": "Bouteille fumigène",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Bracelets d'archerie",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant",
+          "attunement": "harmonisation requise"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Tant que vous portez ces bracelets, vous maîtrisez l'arc long et l'arc court et gagnez un bonus de +2 aux jets de dégâts des attaques à distance avec ces armes.</p>",
+      "link": "/liste-objets-magiques/bracelets-darcherie",
+      "title": "Bracelets d'archerie",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": "harmonisation requise"
+    },
+    {
+      "header": {
+        "title": "Broche de protection",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant",
+          "attunement": "harmonisation requise"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Tant que vous portez cette broche, vous êtes résistant aux dégâts de force et vous êtes immunisé contre les dégâts du sort de <a href=\"/grimoire/projectile-magique\"><em>projectile magique</em></a>.</p>",
+      "link": "/liste-objets-magiques/broche-de-protection",
+      "title": "Broche de protection",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": "harmonisation requise"
+    },
+    {
+      "header": {
+        "title": "Cape de la raie manta",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Tant que vous portez cette cape avec le capuchon tiré, vous pouvez respirer sous l'eau et vous bénéficiez d'une vitesse de nage de 18 mètres. Il faut dépenser une action pour coiffer le capuchon ou le repousser.</p>",
+      "link": "/liste-objets-magiques/cape-de-la-raie-manta",
+      "title": "Cape de la raie manta",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Cape de protection",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant",
+          "attunement": "harmonisation requise"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Vous gagnez un bonus de +1 à la CA et aux jets de sauvegarde tant que vous portez cette cape.</p>",
+      "link": "/liste-objets-magiques/cape-de-protection",
+      "title": "Cape de protection",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": "harmonisation requise"
+    },
+    {
+      "header": {
+        "title": "Cape elfique",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant",
+          "attunement": "harmonisation requise"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Tant que vous portez cette cape avec le capuchon tiré, les créatures qui tentent un test de Sagesse (Perception) pour vous voir subissent un <a href=\"/utiliser-les-caracteristiques#avantage-et-désasavantage\"><em>désavantage</em></a>, tandis que vous obtenez l'<a href=\"/utiliser-les-caracteristiques#avantage-et-désasavantage\"><em>avantage</em></a> sur les tests de Dextérité (Discrétion) effectués pour vous cacher, car les teintes de la cape se modifient pour vous camoufler au mieux. Il faut une action pour tirer ou rabattre la capuche.</p>",
+      "link": "/liste-objets-magiques/cape-elfique",
+      "title": "Cape elfique",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": "harmonisation requise"
+    },
+    {
+      "header": {
+        "title": "Carafe intarissable",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Cette carafe coiffée d'un couvercle fait un bruit de liquide quand on la secoue, comme si elle contenait de l'eau. Elle pèse 1 kilo.</p>\n<p>Vous pouvez dépenser une action pour enlever le couvercle et prononcer l'un des trois mots de commande. De l'eau douce ou salée (à vous de choisir) se déverse alors. Elle cesse de couler au début de votre prochain tour. Choisissez l'une des options suivantes.</p>\n<ul>\n<li>« Ruisseau » produit 3,5 litres d'eau.</li>\n<li>« Fontaine » produit 17,5 litres d'eau.</li>\n<li>« Geyser » produit 105 litres d'eau qui jaillissent en un geyser de 9 mètres de long pour 30 centimètres de large. Vous pouvez utiliser une action bonus tout en tenant la carafe pour diriger le geyser contre une créature située dans un rayon de 9 mètres autour de vous. Elle doit réussir un jet de sauvegarde de Force DD 13 ou subir 1d4 dégâts contondants et tomber <a href=\"/gerer-la-sante-du-personnage#à-terre\"><em>à terre</em></a>. Vous pouvez viser un objet au lieu d'une créature, à condition que personne ne l'ait équipé ou ne le transporte et qu'il pèse au maximum 100 kilos. L'objet est renversé ou repoussé à 4,50 mètres de vous.</li>\n</ul>",
+      "link": "/liste-objets-magiques/carafe-intarissable",
+      "title": "Carafe intarissable",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Carquois efficace",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Ce carquois dispose de trois compartiments, chacun étant relié à un espace extradimensionnel qui lui permet de contenir de nombreux objets sans jamais peser plus de 1 kilo. Le compartiment le plus court peut accueillir jusqu'à soixante flèches, carreaux ou objets similaires. Le compartiment de taille intermédiaire peut recevoir jusqu'à dix-huit javelines ou objets similaires et le plus long peut contenir six objets tout en longueur, comme des arcs, des bâtons ou des lances.</p>\n<p>Vous pouvez tirer ces objets du carquois comme vous le feriez avec un carquois ou un fourreau ordinaire.</p>",
+      "link": "/liste-objets-magiques/carquois-efficace",
+      "title": "Carquois efficace",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Cartes d'illusion",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Cette boîte contient un jeu de cartes faites de parchemin. Le jeu complet compte 34 cartes mais, quand on trouve un jeu, il lui manque souvent 1d20 - 1 cartes.</p>\n<p>La magie du jeu fonctionne uniquement si on tire les cartes au hasard (vous pouvez utiliser un jeu de cartes ordinaire modifié pour simuler les <em>cartes d'illusion</em>). Vous pouvez dépenser une action pour tirer une carte au hasard dans le jeu et la lancer au sol, à une distance maximum de 9 mètres.</p>\n<p>L'illusion d'une ou plusieurs créatures se forme au-dessus de la carte lancée et persiste jusqu'à dissipation. Une créature illusoire semble réelle. Elle est de la taille appropriée et se comporte comme un véritable membre de son espèce, si ce n'est qu'elle ne peut pas causer le moindre mal. Tant que vous vous trouvez dans un rayon de 36 mètres autour de la créature illusoire et que vous la voyez, vous pouvez utiliser une action pour la déplacer magiquement n'importe où dans un rayon de 9 mètres autour de sa carte. Toute interaction physique avec la créature révèle qu'elle n'est qu'une illusion, car les objets la traversent. Quelqu'un qui utilise une action pour inspecter visuellement la créature illusoire comprend qu'elle n'est pas réelle s'il réussit un test d'Intelligence (Investigation) DD 15. La créature lui paraît ensuite translucide.</p>\n<p>L'illusion persiste jusqu'à ce qu'on la dissipe ou que l'on déplace la carte. Quand l'illusion se termine, l'image de la carte s'efface et on ne peut plus s'en servir.</p>\n<div class='simple-responsive-table'><div><table>\n<thead>\n<tr>\n<th style=\"text-align: left;\">Carte à jouer</th>\n<th style=\"text-align: left;\">Illusion</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td style=\"text-align: left;\"><strong>As de cœur</strong></td>\n<td style=\"text-align: left;\">Dragon rouge</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>Roi de cœur</strong></td>\n<td style=\"text-align: left;\">Chevalier et quatre gardes</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>Dame de cœur</strong></td>\n<td style=\"text-align: left;\">Succube ou incube</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>Valet de cœur</strong></td>\n<td style=\"text-align: left;\">Druide</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>10 de cœur</strong></td>\n<td style=\"text-align: left;\">Géant des nuages</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>9 de cœur</strong></td>\n<td style=\"text-align: left;\">Ettin</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>8 de cœur</strong></td>\n<td style=\"text-align: left;\">Gobelours</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>2 de cœur</strong></td>\n<td style=\"text-align: left;\">Gobelin</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>As de carreau</strong></td>\n<td style=\"text-align: left;\">Tyrannœil</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>Roi de carreau</strong></td>\n<td style=\"text-align: left;\">Archimage et apprenti mage</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>Dame de carreau</strong></td>\n<td style=\"text-align: left;\">Guenaude nocturne</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>Valet de carreau</strong></td>\n<td style=\"text-align: left;\">Assassin</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>10 de carreau</strong></td>\n<td style=\"text-align: left;\">Géant du feu</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>9 de carreau</strong></td>\n<td style=\"text-align: left;\">Ogre mage</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>8 de carreau</strong></td>\n<td style=\"text-align: left;\">Gnoll</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>2 de carreau</strong></td>\n<td style=\"text-align: left;\">Kobold</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>As de pique</strong></td>\n<td style=\"text-align: left;\">Liche</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>Roi de pique</strong></td>\n<td style=\"text-align: left;\">Clerc et deux acolytes</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>Dame de pique</strong></td>\n<td style=\"text-align: left;\">Méduse</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>Valet de pique</strong></td>\n<td style=\"text-align: left;\">Vétéran</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>10 de pique</strong></td>\n<td style=\"text-align: left;\">Géant du givre</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>9 de pique</strong></td>\n<td style=\"text-align: left;\">Troll</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>8 de pique</strong></td>\n<td style=\"text-align: left;\">Hobgobelin</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>2 de pique</strong></td>\n<td style=\"text-align: left;\">Gobelin</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>As de trèfle</strong></td>\n<td style=\"text-align: left;\">Golem de fer</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>Roi de trèfle</strong></td>\n<td style=\"text-align: left;\">Capitaine des bandits et trois bandits</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>Dame de trèfle</strong></td>\n<td style=\"text-align: left;\">Érinyes</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>Valet de trèfle</strong></td>\n<td style=\"text-align: left;\">Berserker</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>10 de trèfle</strong></td>\n<td style=\"text-align: left;\">Géant des collines</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>9 de trèfle</strong></td>\n<td style=\"text-align: left;\">Ogre</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>8 de trèfle</strong></td>\n<td style=\"text-align: left;\">Orc</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>2 de trèfle</strong></td>\n<td style=\"text-align: left;\">Kobold</td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>Joker</strong></td>\n<td style=\"text-align: left;\">Vous (le propriétaire des cartes)</td>\n</tr>\n</tbody>\n</table></div></div>",
+      "link": "/liste-objets-magiques/cartes-dillusion",
+      "title": "Cartes d'illusion",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Chapeau de déguisement",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant",
+          "attunement": "harmonisation requise"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Tant que vous portez ce chapeau, vous pouvez lancer <a href=\"/grimoire/deguisement\"><em>déguisement</em></a> sur vous par son intermédiaire, et ce à volonté. Le sort se termine si vous enlevez le chapeau.</p>",
+      "link": "/liste-objets-magiques/chapeau-de-deguisement",
+      "title": "Chapeau de déguisement",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": "harmonisation requise"
+    },
+    {
+      "header": {
+        "title": "Chaussons de l'araignée",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant",
+          "attunement": "harmonisation requise"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Tant que vous portez ces souliers légers aux pieds, vous pouvez vous déplacer vers le haut, le bas et le long de surfaces verticales, ou la tête en bas le long de plafonds, tout en gardant les mains libres. Vous disposez d'une vitesse d'escalade égale à votre vitesse au sol. Les chaussons ne permettent toutefois pas de se déplacer de cette façon sur des surfaces glissantes, si elles sont recouvertes de glace ou d'huile, par exemple.</p>",
+      "link": "/liste-objets-magiques/chaussons-de-laraignee",
+      "title": "Chaussons de l'araignée",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": "harmonisation requise"
+    },
+    {
+      "header": {
+        "title": "Collier d'adaptation",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant",
+          "attunement": "harmonisation requise"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Tant que vous portez ce collier, vous pouvez respirer normalement quel que soit l'environnement dans lequel vous vous trouvez, et vous obtenez l'<a href=\"/utiliser-les-caracteristiques#avantage-et-désasavantage\"><em>avantage</em></a> lors des jets de sauvegarde contre les gaz et vapeurs toxiques (comme un <a href=\"/grimoire/nuage-mortel\"><em>nuage mortel</em></a> ou un <a href=\"/grimoire/nuage-puant\"><em>nuage puant</em></a>, un poison par inhalation ou le souffle de certains dragons).</p>",
+      "link": "/liste-objets-magiques/collier-dadaptation",
+      "title": "Collier d'adaptation",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": "harmonisation requise"
+    },
+    {
+      "header": {
+        "title": "Corde d'escalade",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Cette corde en soie de 18 mètres de long pèse 1,5 kilo et peut soutenir un maximum de 1500 kilos. La corde s'anime si vous tenez en main une extrémité et utilisez une action pour prononcer le mot de commande. Pour une action bonus, vous pouvez ordonner à l'autre extrémité de se déplacer vers la destination de votre choix. Cette extrémité se déplace de 3 mètres lors du tour où vous lui avez donné l'ordre et de 3 mètres lors de chacun de vos tours, jusqu'à ce qu'elle atteigne sa destination, que sa longueur maximale soit atteinte ou que vous lui ordonniez de s'arrêter. Vous pouvez également ordonner à la corde de s'attacher fermement à un objet ou de s'en détacher, de se nouer ou se dénouer, ou de s'enrouler pour faciliter son transport.</p>\n<p>Si vous ordonnez à la corde de se nouer, des gros nœuds apparaissent sur sa longueur à 30 centimètres les uns des autres. Nouée de la sorte, la corde ne fait plus que 15 mètres de long et permet d'obtenir l'<a href=\"/utiliser-les-caracteristiques#avantage-et-désasavantage\"><em>avantage</em></a> lors des tests effectués pour la grimper.</p>\n<p>La corde possède une CA de 20 et 20 points de vie. Elle récupère 1 point de vie toutes les 5 minutes tant qu'il lui reste au moins 1 point de vie. Elle est détruite si son nombre de points de vie tombe à 0.</p>",
+      "link": "/liste-objets-magiques/corde-descalade",
+      "title": "Corde d'escalade",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Diadème de destruction",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Tant que vous portez ce diadème, vous pouvez utiliser votre action pour lancer le sort <a href=\"/grimoire/rayon-ardent\"><em>rayon ardent</em></a> par son intermédiaire. Quand vous effectuez l'attaque de sort, votre bonus d'attaque est de +5. Il faut attendre l'aube suivante avant d'utiliser de nouveau le diadème de cette manière.</p>",
+      "link": "/liste-objets-magiques/diademe-de-destruction",
+      "title": "Diadème de destruction",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Éventail enchanté",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Avec cet éventail en main, vous pouvez utiliser une action pour lancer le sort <a href=\"/grimoire/bourrasque\"><em>bourrasque</em></a> (DD des jets de sauvegarde contre le sort 13). Suite à cette première utilisation, l'éventail ne peut plus être utilisé sans risque de l'abîmer avant l'aube suivante. Chaque fois qu'il est utilisé une fois de plus avant l'aube prochaine, il y a 20% de chances cumulatives qu'il ne fonctionne pas et se casse pour devenir un éventail déchiré ordinaire et inutile.</p>",
+      "link": "/liste-objets-magiques/eventail-enchante",
+      "title": "Éventail enchanté",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Figurine merveilleuse de corbeau d'argent",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Une <em>figurine merveilleuse</em> est une statuette représentant un animal et assez petite pour tenir dans une poche. Si vous utilisez une action pour prononcer le mot de commande et lancez la figurine au sol dans un rayon de 18 mètres autour de vous, elle se change en créature vivante. Si l'emplacement qu'elle devrait occuper accueille déjà d'autres créatures ou objets, ou s'il n'y a pas assez de place pour l'animal, la figurine ne se métamorphose pas.</p>\n<p>La créature issue de la figurine existe pendant une durée dépendant de sa statuette. Ensuite, elle se change de nouveau en bibelot. Elle reprend sa forme de figurine avant cela si elle tombe à 0 point de vie ou si vous utilisez une action pour prononcer de nouveau le mot de commande en la touchant. Une fois la créature redevenue bibelot, il faut attendre un certain temps avant qu'elle puisse se transformer de nouveau, comme indiqué dans sa description.</p>\n<p>Cette statuette de corbeau en argent peut se changer en véritable <a href=\"/bestiaire/corbeau\">corbeau</a> pendant un maximum de 12 heures. Ensuite, il faut attendre 2 jours avant de pouvoir s'en servir de nouveau. Sous forme de corbeau, la figurine vous permet de lancer le sort <a href=\"/grimoire/messager-animal\"><em>messager animal</em></a> sur elle à volonté.</p>",
+      "link": "/liste-objets-magiques/figurine-merveilleuse-de-corbeau-dargent",
+      "title": "Figurine merveilleuse de corbeau d'argent",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Flûte des égouts",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant",
+          "attunement": "harmonisation requise"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Vous devez maîtriser les instruments à vent si vous voulez jouer de cette flûte. Tant que vous êtes harmonisé avec elle, les rats ordinaires et les rats géants sont indifférents envers vous et ne vous attaquent pas, à moins que vous ne les menaciez ou les blessiez.</p>\n<p>La flûte a trois charges. Si vous utilisez une action pour jouer de la flûte, vous pouvez dépenser une action bonus pour utiliser de 1 à 3 charges et appeler une <a href=\"/bestiaire/nuee-de-rats\">nuée de rats</a> par charge dépensée, à condition qu'il y ait assez de rats dans un rayon d'un kilomètre pour répondre ainsi à votre appel (c'est au MJ d'en décider). S'il n'y a pas assez de rats pour former une nuée, la charge est gaspillée. Une nuée ainsi appelée se précipite vers l'origine de la musique par le chemin le plus court, mais vous ne la contrôlez pas. Chaque jour à l'aube, la flûte récupère 1d3 charges dépensées.</p>\n<p>Quand une <a href=\"/bestiaire/nuee-de-rats\">nuée de rats</a> qui ne se trouve pas sous le contrôle d'une tierce personne arrive dans un rayon de 9 mètres autour de vous alors que vous jouez de la flûte, vous pouvez faire un test de Charisme opposé au test de Sagesse de la nuée. Si vous perdez, la nuée se comporte comme elle le ferait d'ordinaire et ne se laisse plus influencer par la musique de la flûte pendant les 24 heures qui suivent. Si vous l'emportez, la nuée est envoûtée par votre mélodie et se montre amicale envers vous et vos compagnons tant que vous continuez de jouer en dépensant une action à chaque round. Une nuée amicale obéit à vos ordres. Si vous n'en donnez pas, elle se défend mais, en dehors de cela, elle n'entreprend pas la moindre action. Si une nuée est amicale mais débute son tour dans l'incapacité d'entendre la flûte, vous en perdez le contrôle et elle se comporte comme le veut sa nature. La musique de la flûte ne l'influence plus pendant les 24 heures suivantes.</p>",
+      "link": "/liste-objets-magiques/flute-des-egouts",
+      "title": "Flûte des égouts",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": "harmonisation requise"
+    },
+    {
+      "header": {
+        "title": "Flûte terrifiante",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Vous devez maîtriser les instruments à vent si vous voulez jouer de cette flûte dotée de 3 charges. Vous pouvez utiliser une action pour jouer et dépenser une charge pour créer une étrange mélodie envoûtante. Chaque créature qui se situe dans un rayon de 9 mètres autour de vous et vous entend jouer doit réussir un jet de sauvegarde de Sagesse DD 15, sans quoi vous la <em>terrorisez</em> pendant 1 minute. Si vous le désirez, toutes les créatures qui ne sont pas hostiles envers vous mais sont présentes dans la zone réussissent automatiquement leur jet de sauvegarde. Une créature qui a raté son jet de sauvegarde peut le refaire à la fin de chacun de ses tours. L'effet se termine pour elle dès qu'elle le réussit. Si une créature réussit son jet de sauvegarde contre la flûte, elle est immunisée contre ses effets pendant 24 heures. Chaque matin à l'aube, la flûte récupère 1d3 charges dépensées.</p>",
+      "link": "/liste-objets-magiques/flute-terrifiante",
+      "title": "Flûte terrifiante",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Gantelets de puissance d'ogre",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant",
+          "attunement": "harmonisation requise"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Tant que vous portez ces gants, votre valeur de Force est de 19. Si elle est déjà de 19 ou plus, ils n'ont aucun effet sur vous.</p>",
+      "link": "/liste-objets-magiques/gantelets-de-puissance-dogre",
+      "title": "Gantelets de puissance d'ogre",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": "harmonisation requise"
+    },
+    {
+      "header": {
+        "title": "Gants de nage et d'escalade",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant",
+          "attunement": "harmonisation requise"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Tant que vous portez ces gants, la natation et l'escalade ne vous demandent pas de déplacement supplémentaire et vous gagnez un bonus de +5 aux tests de Force (Athlétisme) pour grimper ou nager.</p>",
+      "link": "/liste-objets-magiques/gants-de-nage-et-descalade",
+      "title": "Gants de nage et d'escalade",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": "harmonisation requise"
+    },
+    {
+      "header": {
+        "title": "Gants piégeurs de projectiles",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant",
+          "attunement": "harmonisation requise"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Quand vous enfliez ces gants, ils semblent presque fusionner avec votre peau. Quand vous êtes touché par une attaque d'arme à distance alors que vous les portez, vous pouvez utiliser votre réaction pour réduire les dégâts subis de 1d10 + votre modificateur de Dextérité, à condition que vous ayez une main libre. Si vous réduisez les dégâts à 0, vous attrapez le projectile (s'il est de taille assez réduite pour que vous puissiez le tenir d'une main).</p>",
+      "link": "/liste-objets-magiques/gants-piegeurs-de-projectiles",
+      "title": "Gants piégeurs de projectiles",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": "harmonisation requise"
+    },
+    {
+      "header": {
+        "title": "Gemme élémentaire",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Cette gemme contient une particule d'énergie élémentaire. Quand vous brisez la gemme par une action, un élémentaire apparaît, comme si vous l'aviez invoqué avec un sort d'<a href=\"/grimoire/invoquer-un-elementaire\"><em>invoquer un élémentaire</em></a> et la gemme perd toute magie. Le type d'élémentaire invoqué dépend de la gemme utilisée.</p>\n<div class='simple-responsive-table'><div><table>\n<thead>\n<tr>\n<th style=\"text-align: left;\">Gemme</th>\n<th style=\"text-align: left;\">Élémentaire invoqué</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td style=\"text-align: left;\"><strong>Saphir bleu</strong></td>\n<td style=\"text-align: left;\"><a href=\"/bestiaire/elementaire-de-lair\">Élémentaire de l'air</a></td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>Diamant jaune</strong></td>\n<td style=\"text-align: left;\"><a href=\"/bestiaire/elementaire-de-la-terre\">Élémentaire de la terre</a></td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>Corindon rouge</strong></td>\n<td style=\"text-align: left;\"><a href=\"/bestiaire/elementaire-du-feu\">Élémentaire du feu</a></td>\n</tr>\n<tr>\n<td style=\"text-align: left;\"><strong>Émeraude</strong></td>\n<td style=\"text-align: left;\"><a href=\"/bestiaire/elementaire-de-leau\">Élémentaire de l'eau</a></td>\n</tr>\n</tbody>\n</table></div></div>",
+      "link": "/liste-objets-magiques/gemme-elementaire",
+      "title": "Gemme élémentaire",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Heaume de compréhension des langages",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Tant que vous portez ce heaume, vous pouvez utiliser une action pour lancer <a href=\"/grimoire/comprehension-des-langues\"><em>compréhension des langues</em></a> à volonté par son intermédiaire.</p>",
+      "link": "/liste-objets-magiques/heaume-de-comprehension-des-langages",
+      "title": "Heaume de compréhension des langages",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Heaume de télépathie",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant",
+          "attunement": "harmonisation requise"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Tant que vous portez ce heaume, vous pouvez utiliser une action pour lancer <a href=\"/grimoire/detection-des-pensees\"><em>détection des pensées</em></a> (DD 13) par son intermédiaire. Tant que vous restez concentré sur le sort, vous pouvez utiliser une action bonus pour envoyer un message télépathique à une créature sur laquelle vous vous concentrez. Elle peut vous répondre (en utilisant une action bonus) tant que vous restez concentré sur elle.</p>\n<p>Tant que vous vous concentrez sur une créature avec <a href=\"/grimoire/detection-des-pensees\"><em>détection des pensées</em></a>, vous pouvez utiliser une action pour lancer le sort <a href=\"/grimoire/suggestion\"><em>suggestion</em></a> (DD 13) sur elle par l'intermédiaire du heaume. Une fois que vous avez utilisé ce pouvoir, vous devez attendre l'aube suivante avant de pouvoir recommencer.</p>",
+      "link": "/liste-objets-magiques/heaume-de-telepathie",
+      "title": "Heaume de télépathie",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": "harmonisation requise"
+    },
+    {
+      "header": {
+        "title": "Huile glissante",
+        "magicitem": {
+          "type": "Potion",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Cet épais onguent noir est dense et lourd tant qu'il reste dans son récipient, mais il coule avec fluidité dès qu'on le verse. Il permet de recouvrir une créature de taille M ou inférieure (il faut verser une fiole de plus pour chaque catégorie de taille au-dessus de M). Il faut 10 minutes pour appliquer l'huile. La créature affectée bénéficie alors des effets du sort <a href=\"/grimoire/liberte-de-mouvement\"><em>liberté de mouvement</em></a> pendant 8 heures.</p>\n<p>Sinon, vous pouvez verser l'huile à terre par une action. Elle recouvre une zone de 3 mètres de côté et produit les mêmes effets que le sort <a href=\"/grimoire/graisse\"><em>graisse</em></a>.</p>",
+      "link": "/liste-objets-magiques/huile-glissante",
+      "title": "Huile glissante",
+      "type": "Potion",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Javeline de foudre",
+        "magicitem": {
+          "type": "Arme",
+          "subtype": "Javeline",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Cette javeline est une arme magique. Quand vous la lancez et prononcez son mot de commande, elle se transforme en éclair, formant une ligne de 1,50 mètre de large qui s'étend de votre personne jusqu'à une cible située à une distance maximale de 36 mètres. Chaque créature présente sur cette ligne, à l'exception de vous et de votre cible, doit faire un jet de sauvegarde de Dextérité DD 13. Celles qui échouent subissent 4d6 points de dégâts de foudre, les autres la moitié seulement. L'éclair reprend sa forme de javeline quand il atteint sa cible. Faites une attaque d'arme à distance contre elle. Si vous touchez, la cible subit les dégâts habituels de la javeline plus 4d6 dégâts de foudre.</p>\n<p>Il faut attendre l'aube suivante pour se servir de nouveau de cette propriété de la javeline. En attendant, elle fonctionne tout de même comme une arme magique.</p>",
+      "link": "/liste-objets-magiques/javeline-de-foudre",
+      "title": "Javeline de foudre",
+      "type": "Arme",
+      "subtype": "Javeline",
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Lanterne de révélation",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Quand cette lanterne à capote est allumée, elle brûle pendant 6 heures en consommant 0,5 litre d'huile. Elle émet alors une vive lumière dans un rayon de 9 mètres et une faible lumière dans un rayon de 9 mètres de plus. Les créatures et les objets <a href=\"/gerer-la-sante-du-personnage#invisible\"><em>invisibles</em></a> situés dans la zone de vive lumière de la lanterne deviennent visibles. Vous pouvez utiliser une action pour baisser la capote et réduire la luminosité à une faible lumière dans un rayon de 1,50 mètre.</p>",
+      "link": "/liste-objets-magiques/lanterne-de-revelation",
+      "title": "Lanterne de révélation",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Lentilles de netteté",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Ces lentilles de cristal se portent sur les yeux. Tant que vous les portez, votre vue est bien meilleure que d'habitude dans un rayon de 30 centimètres. Vous obtenez l'<a href=\"/utiliser-les-caracteristiques#avantage-et-désasavantage\"><em>avantage</em></a> lors des tests d'Intelligence (Investigation) basés sur la vue quand vous fouillez une zone ou étudiez un objet situé dans ce rayon.</p>",
+      "link": "/liste-objets-magiques/lentilles-de-nettete",
+      "title": "Lentilles de netteté",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Lunettes nocturnes",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Quand vous portez ces verres sombres, vous bénéficiez de la vision dans le noir à 18 mètres. Si vous disposez déjà de ce pouvoir, son rayon augmente de 18 mètres.</p>",
+      "link": "/liste-objets-magiques/lunettes-nocturnes",
+      "title": "Lunettes nocturnes",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Médaillon des pensées",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant",
+          "attunement": "harmonisation requise"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Le médaillon a 3 charges. Tant que vous le portez, vous pouvez utiliser une action et dépenser une charge pour lancer <a href=\"/grimoire/detection-des-pensees\"><em>détection des pensées</em></a> (DD 13) par son intermédiaire. Chaque matin à l'aube, il récupère 1d3 charges dépensées.</p>",
+      "link": "/liste-objets-magiques/medaillon-des-pensees",
+      "title": "Médaillon des pensées",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": "harmonisation requise"
+    },
+    {
+      "header": {
+        "title": "Munition +1",
+        "magicitem": {
+          "type": "Arme",
+          "subtype": "N'importe quelle munition",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Vous bénéficiez d'un bonus aux jets d'attaque et de dégâts de +1 effectués avec cette munition. Cette dernière perd toute magie dès qu'elle a touché une cible.</p>",
+      "link": "/liste-objets-magiques/munition-1",
+      "title": "Munition +1",
+      "type": "Arme",
+      "subtype": "N'importe quelle munition",
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Œil de lynx",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant",
+          "attunement": "harmonisation requise"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Ces lentilles de cristal se portent sur les yeux. Tant que vous les portez, vous obtenez l'<a href=\"/utiliser-les-caracteristiques#avantage-et-désasavantage\"><em>avantage</em></a> lors des tests de Sagesse (Perception) basés sur la vue. Si la visibilité est bien dégagée, vous percevez tous les détails des créatures et des objets, même très éloignés, à conditions que ces créatures et objets fassent au moins 60 centimètres de large.</p>",
+      "link": "/liste-objets-magiques/oeil-de-lynx",
+      "title": "Œil de lynx",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": "harmonisation requise"
+    },
+    {
+      "header": {
+        "title": "Parchemin magique (Niveau 1)",
+        "magicitem": {
+          "type": "Parchemin",
+          "rarity": "Courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Sur un <em>parchemin magique</em> est inscrite la formule d'un unique sort, rédigée tel un message mystique crypté. Si le sort est présent dans la liste de sorts de votre classe de personnage, vous pouvez utiliser une action pour lire le parchemin et lancer le sort qu'il contient sans devoir fournir aucune de ses composantes. Sinon, le sort est incompréhensible.</p>\n<p>Si le sort est présent dans la liste de sorts de votre classe de personnage mais d'un niveau supérieur à ceux que vous êtes normalement capable de lancer, vous devez effectuer un test de caractéristique en utilisant votre caractéristique d'incantation pour déterminer si vous parvenez à le lancer. Le DD est égal à 10 + le niveau du sort. En cas de test raté, le sort disparaît du parchemin sans produire d'effet.</p>\n<p>Une fois le sort lancé, la formule disparaît de la surface du parchemin qui tombe ensuite en poussière.</p>\n<p><strong>DD du jet de sauvegarde</strong> : 13<br>\n<strong>Bonus à l'attaque</strong> : +5</p>\n<p>Un sort de magicien inscrit sur un <em>parchemin magique</em> peut être recopié, tout comme on recopie les sorts dans un grimoire. Quand un sort est recopié depuis un <em>parchemin magique</em>, celui qui s'y adonne doit réussir un test d'Intelligence (Arcanes) contre un DD égal à 10 + le niveau du sort. En cas de réussite sur ce test, le sort est recopié avec succès. Le <em>parchemin magique</em> est détruit quel que la soit le résultat du test.</p>",
+      "link": "/liste-objets-magiques/parchemin-magique-1",
+      "title": "Parchemin magique (Niveau 1)",
+      "type": "Parchemin",
+      "subtype": null,
+      "rarity": "Courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Parchemin magique (Niveau 2)",
+        "magicitem": {
+          "type": "Parchemin",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Sur un <em>parchemin magique</em> est inscrite la formule d'un unique sort, rédigée tel un message mystique crypté. Si le sort est présent dans la liste de sorts de votre classe de personnage, vous pouvez utiliser une action pour lire le parchemin et lancer le sort qu'il contient sans devoir fournir aucune de ses composantes. Sinon, le sort est incompréhensible.</p>\n<p>Si le sort est présent dans la liste de sorts de votre classe de personnage mais d'un niveau supérieur à ceux que vous êtes normalement capable de lancer, vous devez effectuer un test de caractéristique en utilisant votre caractéristique d'incantation pour déterminer si vous parvenez à le lancer. Le DD est égal à 10 + le niveau du sort. En cas de test raté, le sort disparaît du parchemin sans produire d'effet.</p>\n<p>Une fois le sort lancé, la formule disparaît de la surface du parchemin qui tombe ensuite en poussière.</p>\n<p><strong>DD du jet de sauvegarde</strong> : 13<br>\n<strong>Bonus à l'attaque</strong> : +5</p>\n<p>Un sort de magicien inscrit sur un <em>parchemin magique</em> peut être recopié, tout comme on recopie les sorts dans un grimoire. Quand un sort est recopié depuis un <em>parchemin magique</em>, celui qui s'y adonne doit réussir un test d'Intelligence (Arcanes) contre un DD égal à 10 + le niveau du sort. En cas de réussite sur ce test, le sort est recopié avec succès. Le <em>parchemin magique</em> est détruit quel que la soit le résultat du test.</p>",
+      "link": "/liste-objets-magiques/parchemin-magique-2",
+      "title": "Parchemin magique (Niveau 2)",
+      "type": "Parchemin",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Parchemin magique (Niveau 3)",
+        "magicitem": {
+          "type": "Parchemin",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Sur un <em>parchemin magique</em> est inscrite la formule d'un unique sort, rédigée tel un message mystique crypté. Si le sort est présent dans la liste de sorts de votre classe de personnage, vous pouvez utiliser une action pour lire le parchemin et lancer le sort qu'il contient sans devoir fournir aucune de ses composantes. Sinon, le sort est incompréhensible.</p>\n<p>Si le sort est présent dans la liste de sorts de votre classe de personnage mais d'un niveau supérieur à ceux que vous êtes normalement capable de lancer, vous devez effectuer un test de caractéristique en utilisant votre caractéristique d'incantation pour déterminer si vous parvenez à le lancer. Le DD est égal à 10 + le niveau du sort. En cas de test raté, le sort disparaît du parchemin sans produire d'effet.</p>\n<p>Une fois le sort lancé, la formule disparaît de la surface du parchemin qui tombe ensuite en poussière.</p>\n<p><strong>DD du jet de sauvegarde</strong> : 15<br>\n<strong>Bonus à l'attaque</strong> : +7</p>\n<p>Un sort de magicien inscrit sur un <em>parchemin magique</em> peut être recopié, tout comme on recopie les sorts dans un grimoire. Quand un sort est recopié depuis un <em>parchemin magique</em>, celui qui s'y adonne doit réussir un test d'Intelligence (Arcanes) contre un DD égal à 10 + le niveau du sort. En cas de réussite sur ce test, le sort est recopié avec succès. Le <em>parchemin magique</em> est détruit quel que la soit le résultat du test.</p>",
+      "link": "/liste-objets-magiques/parchemin-magique-3",
+      "title": "Parchemin magique (Niveau 3)",
+      "type": "Parchemin",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Parchemin magique (Tour de magie)",
+        "magicitem": {
+          "type": "Parchemin",
+          "rarity": "Courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Sur un <em>parchemin magique</em> est inscrite la formule d'un unique sort, rédigée tel un message mystique crypté. Si le sort est présent dans la liste de sorts de votre classe de personnage, vous pouvez utiliser une action pour lire le parchemin et lancer le sort qu'il contient sans devoir fournir aucune de ses composantes. Sinon, le sort est incompréhensible.</p>\n<p>Si le sort est présent dans la liste de sorts de votre classe de personnage mais d'un niveau supérieur à ceux que vous êtes normalement capable de lancer, vous devez effectuer un test de caractéristique en utilisant votre caractéristique d'incantation pour déterminer si vous parvenez à le lancer. Le DD est égal à 10 + le niveau du sort. En cas de test raté, le sort disparaît du parchemin sans produire d'effet.</p>\n<p>Une fois le sort lancé, la formule disparaît de la surface du parchemin qui tombe ensuite en poussière.</p>\n<p><strong>DD du jet de sauvegarde</strong> : 13<br>\n<strong>Bonus à l'attaque</strong> : +5</p>\n<p>Un sort de magicien inscrit sur un <em>parchemin magique</em> peut être recopié, tout comme on recopie les sorts dans un grimoire. Quand un sort est recopié depuis un <em>parchemin magique</em>, celui qui s'y adonne doit réussir un test d'Intelligence (Arcanes) contre un DD égal à 10 + le niveau du sort. En cas de réussite sur ce test, le sort est recopié avec succès. Le <em>parchemin magique</em> est détruit quel que la soit le résultat du test.</p>",
+      "link": "/liste-objets-magiques/parchemin-magique-0",
+      "title": "Parchemin magique (Tour de magie)",
+      "type": "Parchemin",
+      "subtype": null,
+      "rarity": "Courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Perle de puissance",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant",
+          "attunement": "harmonisation requise avec un lanceur de sorts"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Tant que vous portez cette perle sur vous, vous pouvez utiliser une action pour prononcer son mot de commande et récupérer un emplacement de sort dépensé. En revanche, si ce dernier est de niveau 4 ou supérieur, le nouvel emplacement est de niveau 3. Une fois que vous avez utilisé la perle, vous devez attendre l'aube suivante pour vous en servir à nouveau.</p>",
+      "link": "/liste-objets-magiques/perle-de-puissance",
+      "title": "Perle de puissance",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": "harmonisation requise avec un lanceur de sorts"
+    },
+    {
+      "header": {
+        "title": "Philtre d'amour",
+        "magicitem": {
+          "type": "Potion",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Dans les 10 minutes qui suivent l'absorption de cette potion, vous êtes <a href=\"/gerer-la-sante-du-personnage#charmé\"><em>charmé</em></a> pendant 1 heure par la première créature que vous voyez. Si cette créature est d'une espèce et d'un sexe pour lesquels vous êtes susceptible de ressentir une attirance naturelle, vous considérez vos sentiments comme un amour véritable pendant toute la durée du charme. La potion est effervescente et de teinte rose et contient une bulle en forme de cœur, mais on peut facilement ne pas la voir parmi les autres.</p>",
+      "link": "/liste-objets-magiques/philtre-damour",
+      "title": "Philtre d'amour",
+      "type": "Potion",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Pierre porte-bonheur",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant",
+          "attunement": "harmonisation requise"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Tant que vous portez sur vous cette agate lustrée, vous bénéficiez d'un bonus de +1 aux tests de caractéristique et aux jets de sauvegarde.</p>",
+      "link": "/liste-objets-magiques/pierre-porte-bonheur",
+      "title": "Pierre porte-bonheur",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": "harmonisation requise"
+    },
+    {
+      "header": {
+        "title": "Potion d'agrandissement",
+        "magicitem": {
+          "type": "Potion",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Quand vous buvez cette potion, vous êtes affecté par la version « <em>agrandir</em> » du sort <a href=\"/grimoire/agrandir-retrecir\"><em>agrandir/rétrécir</em></a> pendant 1d4 heures (sans avoir besoin de vous concentrer). Une tache rouge dans le liquide s'étend jusqu'à colorer tout le liquide translucide et se rétracte pour former une petite bille. Ce cycle se répète sans cesse sans interruption, même si on secoue la bouteille.</p>",
+      "link": "/liste-objets-magiques/potion-dagrandissement",
+      "title": "Potion d'agrandissement",
+      "type": "Potion",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Potion d'amitié avec les animaux",
+        "magicitem": {
+          "type": "Potion",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Quand vous buvez cette potion, vous pouvez lancer le sort <a href=\"/grimoire/amitie-avec-les-animaux\"><em>amitié avec les animaux</em></a> (DD 13) à volonté pendant 1 heure. Si on agite ce liquide trouble, on distingue de petits morceaux : une écaille de poisson, une langue de colibri, une griffe de chat ou des poils d'écureuil.</p>",
+      "link": "/liste-objets-magiques/potion-damitie-avec-les-animaux",
+      "title": "Potion d'amitié avec les animaux",
+      "type": "Potion",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Potion d'escalade",
+        "magicitem": {
+          "type": "Potion",
+          "rarity": "Courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Quand vous buvez cette potion, vous gagnez une vitesse d'escalade égale à votre vitesse au sol pendant 1 heure. Pendant tout ce temps, vous obtenez l'<a href=\"/utiliser-les-caracteristiques#avantage-et-désasavantage\"><em>avantage</em></a> lors des tests de Force (Escalade) que vous effectuez pour grimper. La potion se divise en couches brunes, argent et grises qui rappellent des stries dans la roche. Les couleurs ne se mélangent pas, même quand on agite la bouteille.</p>",
+      "link": "/liste-objets-magiques/potion-descalade",
+      "title": "Potion d'escalade",
+      "type": "Potion",
+      "subtype": null,
+      "rarity": "Courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Potion de force de géant des collines",
+        "magicitem": {
+          "type": "Potion",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Quand vous buvez cette potion, votre valeur de Force est égale à 21 pendant 1 heure. La potion n'a aucun effet si votre Force est déjà égale ou supérieure à cette valeur.</p>\n<p>Une rognure d'ongle d'un géant du type approprié flotte dans cette potion transparente.</p>",
+      "link": "/liste-objets-magiques/potion-de-force-de-geant-des-collines",
+      "title": "Potion de force de géant des collines",
+      "type": "Potion",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Potion de poison",
+        "magicitem": {
+          "type": "Potion",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Cette concoction ressemble, tant au niveau du goût, de l'odeur et de l'aspect visuel, à une <a href=\"/liste-objets-magiques/potion-de-soins\"><em>potion de soins</em></a> ou autre potion bénéfique. C'est pourtant du poison dissimulé par une magie illusoire, et un sort d'<a href=\"/grimoire/identification\"><em>identification</em></a> révèle sa véritable nature.</p>\n<p>Vous subissez 3d6 dégâts de poison et devez réussir un jet de sauvegarde de Constitution DD 13 pour ne pas être <a href=\"/gerer-la-sante-du-personnage#empoisonné\"><em>empoisonné</em></a> si vous la buvez. Vous subissez 3d6 dégâts de poison au début de chacun de vos tours tant que vous êtes <a href=\"/gerer-la-sante-du-personnage#empoisonné\"><em>empoisonné</em></a> de cette façon. À la fin de chacun de vos tours, vous pouvez retenter le jet de sauvegarde. En cas de réussite, les dégâts de poison subis lors des tours suivants diminuent de 1d6, et le poison disparaît quand les dégâts sont réduits à 0.</p>",
+      "link": "/liste-objets-magiques/potion-de-poison",
+      "title": "Potion de poison",
+      "type": "Potion",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Potion de résistance",
+        "magicitem": {
+          "type": "Potion",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Vous bénéficiez d'une résistance à un type spécifique de dégâts pendant 1 heure après avoir bu cette potion. Le MJ choisit le type ou le détermine au hasard parmi les potions suivantes.</p>\n<div class='simple-responsive-table'><div><table>\n<thead>\n<tr>\n<th style=\"text-align: center;\">D10</th>\n<th style=\"text-align: center;\">Type de dégâts</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td style=\"text-align: center;\"><strong>1</strong></td>\n<td style=\"text-align: center;\">Acide</td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>2</strong></td>\n<td style=\"text-align: center;\">Froid</td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>3</strong></td>\n<td style=\"text-align: center;\">Feu</td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>4</strong></td>\n<td style=\"text-align: center;\">Force</td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>5</strong></td>\n<td style=\"text-align: center;\">Foudre</td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>6</strong></td>\n<td style=\"text-align: center;\">Nécrotique</td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>7</strong></td>\n<td style=\"text-align: center;\">Poison</td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>8</strong></td>\n<td style=\"text-align: center;\">Psychique</td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>9</strong></td>\n<td style=\"text-align: center;\">Radiant</td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>10</strong></td>\n<td style=\"text-align: center;\">Tonnerre</td>\n</tr>\n</tbody>\n</table></div></div>",
+      "link": "/liste-objets-magiques/potion-de-resistance",
+      "title": "Potion de résistance",
+      "type": "Potion",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Potion de respiration aquatique",
+        "magicitem": {
+          "type": "Potion",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Vous pouvez respirer sous l'eau pendant 1 heure après avoir bu cette potion. Le liquide vert et trouble qu'elle contient, dans lequel flotte une bulle à l'aspect de méduse, sent la mer.</p>",
+      "link": "/liste-objets-magiques/potion-de-respiration-aquatique",
+      "title": "Potion de respiration aquatique",
+      "type": "Potion",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Potion de soins",
+        "magicitem": {
+          "type": "Potion",
+          "rarity": "Courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Vous récupérez 2d4+2 points de vie quand vous buvez cette potion. Son liquide rouge scintille quand on l'agite.</p>",
+      "link": "/liste-objets-magiques/potion-de-soins",
+      "title": "Potion de soins",
+      "type": "Potion",
+      "subtype": null,
+      "rarity": "Courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Potion de soins supérieurs",
+        "magicitem": {
+          "type": "Potion",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Vous récupérez 4d4+4 points de vie quand vous buvez cette potion. Son liquide rouge scintille quand on l'agite.</p>",
+      "link": "/liste-objets-magiques/potion-de-soins-superieurs",
+      "title": "Potion de soins supérieurs",
+      "type": "Potion",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Poussière à éternuer",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Cette poudre se trouve dans un petit récipient et ressemble à du sable fin. On dirait de la <a href=\"/liste-objets-magiques/poussiere-de-disparition\"><em>poussière de disparition</em></a> et le sort d'<a href=\"/grimoire/identification\"><em>identification</em></a> confirme cette erreur. Il y en a assez pour une seule utilisation.</p>\n<p>Quand vous utilisez une action pour jeter une poignée de poussière dans les airs, vous et chaque créature qui a besoin de respirer et se trouve dans un rayon de 9 mètres autour de vous doit réussir un jet de sauvegarde de Constitution DD 15 ou se retrouver incapable de respirer tant elle tousse. Une créature ainsi affectée est <a href=\"/gerer-la-sante-du-personnage#neutralisé\"><em>neutralisée</em></a> et suffoque. Tant qu'elle est consciente, la créature peut refaire le jet de sauvegarde à la fin de chacun de ses tours, sachant que l'effet se termine pour elle si elle réussit. Le sort de <a href=\"/grimoire/restauration-inferieure\"><em>restauration inférieure</em></a> met aussi un terme à l'effet sur la créature qu'il touche.</p>",
+      "link": "/liste-objets-magiques/poussiere-a-eternuer",
+      "title": "Poussière à éternuer",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Poussière d'assèchement",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Ce petit paquet contient 1d6+4 pincées de poussière. Vous pouvez dépenser une action pour en saupoudrer une sur l'eau. La poussière transforme un cube d'eau de 4,50 mètres d'arête en une boulette de la taille d'une bille. Elle flotte ou repose près de l'endroit où vous avez saupoudré la poussière. Son poids est négligeable.</p>\n<p>Quelqu'un peut utiliser une action pour briser la boulette contre une surface solide : elle éclate alors et libère l'eau absorbée. La magie de la boulette disparaît alors.</p>\n<p>Un élémentaire majoritairement composé d'eau exposé à la poussière doit faire un jet de sauvegarde de Constitution. S'il échoue, il subit 10d6 dégâts nécrotiques, la moitié seulement sinon.</p>",
+      "link": "/liste-objets-magiques/poussiere-dassechement",
+      "title": "Poussière d'assèchement",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Poussière de disparition",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Cette poudre se trouve dans un petit paquet et ressemble à du sable fin. Il y en a assez pour une utilisation. Si vous utilisez une action pour lancer la poussière en l'air, vous et chaque créature et objet situé dans un rayon de 3 mètres autour de vous devenez <a href=\"/gerer-la-sante-du-personnage#invisible\"><em>invisible</em></a> pendant 2d4 minutes. La durée est la même pour toutes les cibles et la poussière est entièrement consumée dès que sa magie fait effet. Si une créature affectée par la poussière attaque ou lance un sort, l'invisibilité se termine pour elle.</p>",
+      "link": "/liste-objets-magiques/poussiere-de-disparition",
+      "title": "Poussière de disparition",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Regard charmeur",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant",
+          "attunement": "harmonisation requise"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Ces lentilles de cristal se portent sur les yeux et possèdent trois charges. Tant que vous les portez, vous pouvez dépenser une charge pour lancer le sort <a href=\"/grimoire/charme-personne\"><em>charme-personne</em></a> (DD 13) sur un humanoïde situé dans un rayon de 9 mètres, à condition que vous voyiez la cible et qu'elle vous voie. Chaque jour à l'aube, les lentilles régénèrent toutes les charges dépensées.</p>",
+      "link": "/liste-objets-magiques/regard-charmeur",
+      "title": "Regard charmeur",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": "harmonisation requise"
+    },
+    {
+      "header": {
+        "title": "Robe d'objets pratiques",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Cette robe est couverte de pièces de tissu de formes et de couleurs diverses. Tant que vous portez ce vêtement, vous pouvez effectuer une action pour détacher une des pièces et provoquer sa transformation en l'objet ou la créature qu'elle représente. Dès que la dernière pièce est détachée, la robe devient un vêtement ordinaire.</p>\n<p>Deux pièces de chacun des éléments suivants sont cousues sur la robe :</p>\n<ul>\n<li>Dague</li>\n<li>Lanterne sourde (remplie et allumée)</li>\n<li>Miroir en acier</li>\n<li>Perche de 3 mètres</li>\n<li>Corde de chanvre (15 mètres, enroulée)</li>\n<li>Sac</li>\n</ul>\n<p>En outre, la robe se compose de 4d4 autres pièces. Le MJ choisit ces pièces ou les détermine au hasard.</p>\n<div class='simple-responsive-table'><div><table>\n<thead>\n<tr>\n<th style=\"text-align: center;\">D100</th>\n<th style=\"text-align: left;\">Pièce</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td style=\"text-align: center;\"><strong>01-08</strong></td>\n<td style=\"text-align: left;\">100 po dans un sac</td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>09-15</strong></td>\n<td style=\"text-align: left;\">Coffre en argent (30 centimètres de long, 15 centimètres de large et de profondeur) d'une valeur de 500 po</td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>16-22</strong></td>\n<td style=\"text-align: left;\">Porte en fer (d'une largeur et d'une hauteur maximales de 3 mètres, barrée du côté de votre choix) que vous pouvez placer dans une ouverture à votre portée ; la taille s'adapte aux dimensions de l'ouverture et s'y fixe d'elle-même.</td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>23-30</strong></td>\n<td style=\"text-align: left;\">10 pierres précieuses d'une valeur de 100 po chacune</td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>34-44</strong></td>\n<td style=\"text-align: left;\">Échelle en bois de 7,30 mètres de long</td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>45-51</strong></td>\n<td style=\"text-align: left;\">Cheval de selle avec fontes</td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>52-59</strong></td>\n<td style=\"text-align: left;\">Fosse (cube de 3 mètres d'arête) que vous pouvez placer dans le sol à 3 mètres ou moins de vous</td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>60-68</strong></td>\n<td style=\"text-align: left;\">4 potions de soins</td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>69-75</strong></td>\n<td style=\"text-align: left;\">Barque (3,60 mètres de long)</td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>76-83</strong></td>\n<td style=\"text-align: left;\">Parchemin magique contenant un sort de niveau 1 à 3</td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>84-90</strong></td>\n<td style=\"text-align: left;\">2 <a href=\"/bestiaire/mastiff\">molosses</a></td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>91-96</strong></td>\n<td style=\"text-align: left;\">Fenêtre (60 centimètres sur 1,20 mètre et jusqu'à 60 centimètres d'épaisseur) que vous pouvez placer sur une surface verticale à votre portée</td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>97-00</strong></td>\n<td style=\"text-align: left;\">Bélier portable</td>\n</tr>\n</tbody>\n</table></div></div>",
+      "link": "/liste-objets-magiques/robe-dobjets-pratiques",
+      "title": "Robe d'objets pratiques",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Sac à malice",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Ce banal sac gris, rouille ou brun semble vide. Cependant, si l'on plonge la main à l'intérieur, on sent un petit objet duveteux. Le sac pèse 250 grammes.</p>\n<p>Vous pouvez dépenser une action pour sortir l'objet duveteux du sac et le lancer à une distance maximale de 6 mètres. Quand il atterrit, il se transforme en une créature que vous déterminez en lançant un d8 dans la table correspondant à la couleur du sac.</p>\n<p>La créature se montre amicale envers vous et vos compagnons et agit à votre tour. Vous pouvez utiliser une action bonus pour gérer ses déplacements et son action lors de son prochain tour ou pour lui donner des ordres génériques, comme d'attaquer vos ennemis. En l'absence d'ordre, la créature se comporte en accord avec sa nature.</p>\n<p>Une fois que vous avez sorti trois objets duveteux du sac, il devient inutile jusqu'à l'aube suivante.</p>\n<div  class=\"table-container\">\n<h2 id=\"sac-a-malice-gris\">Sac à malice gris</h2>\n<div class='simple-responsive-table'><div><table>\n<thead>\n<tr>\n<th style=\"text-align: center;\">D8</th>\n<th style=\"text-align: left;\">Créature</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td style=\"text-align: center;\"><strong>1</strong></td>\n<td style=\"text-align: left;\"><a href=\"/bestiaire/belette\">Belette</a></td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>2</strong></td>\n<td style=\"text-align: left;\"><a href=\"/bestiaire/rat-geant\">Rat géant</a></td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>3</strong></td>\n<td style=\"text-align: left;\"><a href=\"/bestiaire/blaireau\">Blaireau</a></td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>4</strong></td>\n<td style=\"text-align: left;\"><a href=\"/bestiaire/sanglier\">Sanglier</a></td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>5</strong></td>\n<td style=\"text-align: left;\"><a href=\"/bestiaire/panthere\">Panthère</a></td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>6</strong></td>\n<td style=\"text-align: left;\"><a href=\"/bestiaire/blaireau-geant\">Blaireau géant</a></td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>7</strong></td>\n<td style=\"text-align: left;\"><a href=\"/bestiaire/loup-sanguinaire\">Loup sanguinaire</a></td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>8</strong></td>\n<td style=\"text-align: left;\"><a href=\"/bestiaire/elan-geant\">Élan géant</a></td>\n</tr>\n</tbody>\n</table></div></div>\n</div>\n<div  class=\"table-container\">\n<h2 id=\"sac-a-malice-rouille\">Sac à malice rouille</h2>\n<div class='simple-responsive-table'><div><table>\n<thead>\n<tr>\n<th style=\"text-align: center;\">D8</th>\n<th style=\"text-align: left;\">Créature</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td style=\"text-align: center;\"><strong>1</strong></td>\n<td style=\"text-align: left;\"><a href=\"/bestiaire/rat\">Rat</a></td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>2</strong></td>\n<td style=\"text-align: left;\"><a href=\"/bestiaire/chouette\">Chouette</a></td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>3</strong></td>\n<td style=\"text-align: left;\"><a href=\"/bestiaire/mastiff\">Mastiff</a></td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>4</strong></td>\n<td style=\"text-align: left;\"><a href=\"/bestiaire/chevre\">Chèvre</a></td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>5</strong></td>\n<td style=\"text-align: left;\"><a href=\"/bestiaire/chevre-geante\">Chèvre géante</a></td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>6</strong></td>\n<td style=\"text-align: left;\"><a href=\"/bestiaire/sanglier-geant\">Sanglier géant</a></td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>7</strong></td>\n<td style=\"text-align: left;\"><a href=\"/bestiaire/lion\">Lion</a></td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>8</strong></td>\n<td style=\"text-align: left;\"><a href=\"/bestiaire/ours-brun\">Ours brun</a></td>\n</tr>\n</tbody>\n</table></div></div>\n</div>\n<div  class=\"table-container\">\n<h2 id=\"sac-a-malice-brun\">Sac à malice brun</h2>\n<div class='simple-responsive-table'><div><table>\n<thead>\n<tr>\n<th style=\"text-align: center;\">D8</th>\n<th style=\"text-align: left;\">Créature</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td style=\"text-align: center;\"><strong>1</strong></td>\n<td style=\"text-align: left;\"><a href=\"/bestiaire/chacal\">Chacal</a></td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>2</strong></td>\n<td style=\"text-align: left;\"><a href=\"/bestiaire/grand-singe\">Grand singe</a></td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>3</strong></td>\n<td style=\"text-align: left;\"><a href=\"/bestiaire/babouin\">Babouin</a></td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>4</strong></td>\n<td style=\"text-align: left;\"><a href=\"/bestiaire/bec-de-hache\">Bec de hache</a></td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>5</strong></td>\n<td style=\"text-align: left;\"><a href=\"/bestiaire/ours-noir\">Ours noir</a></td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>6</strong></td>\n<td style=\"text-align: left;\"><a href=\"/bestiaire/belette-geante\">Belette géante</a></td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>7</strong></td>\n<td style=\"text-align: left;\"><a href=\"/bestiaire/hyene-geante\">Hyène géante</a></td>\n</tr>\n<tr>\n<td style=\"text-align: center;\"><strong>8</strong></td>\n<td style=\"text-align: left;\"><a href=\"/bestiaire/tigre\">Tigre</a></td>\n</tr>\n</tbody>\n</table></div></div>\n</div>",
+      "link": "/liste-objets-magiques/sac-a-malice",
+      "title": "Sac à malice",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Sac sans fond",
+        "magicitem": {
+          "type": "Objet merveilleux",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Ce sac abrite un espace intérieur bien plus grand que ce que ses dimensions extérieures laissent présager. Visuellement, il fait une soixantaine de centimètres de diamètre au niveau de l'ouverture pour 1,20 mètre de profondeur. En revanche, il peut contenir jusqu'à 250 kilos de matière, sans dépasser un volume de 2000 litres. Le sac pèse 7,5 kilos, quel que soit son contenu. Il faut dépenser une action pour récupérer un objet dans le sac.</p>\n<p>Si le sac est surchargé, percé ou déchiré, il se découd complètement. Il est alors détruit et son contenu s'éparpille sur le plan Astral. Si on retourne le sac sur l'envers, son contenu se répand à terre, sans dommage, mais il faut le remettre sur l'endroit avant de pouvoir s'en servir de nouveau. Si l'on place une créature ayant besoin de respirer dans le sac, sa survie est limitée : elle peut y rester un nombre de minutes égal à 10 divisé par le nombre de créatures présentes dans le sac (une minute au minimum), ensuite, elle commence à suffoquer.</p>\n<p>Si l'on place un sac sans fond dans l'espace extradimensionnel né d'un <a href=\"/liste-objets-magiques/havresac-magique\"><em>havresac magique</em></a>, d'un <a href=\"/liste-objets-magiques/puits-portatif\"><em>puits portatif</em></a> ou d'un objet similaire, les deux objets sont instantanément détruits et un portail s'ouvre vers le plan Astral. Il apparaît là où l'on a placé le premier objet dans le second et toutes les créatures situées dans un rayon de 3 mètres autour de ce portail sont emportées vers un endroit aléatoire du plan Astral. Le portail se referme ensuite, sachant qu'il est à sens unique et qu'il est impossible de le rouvrir.</p>",
+      "link": "/liste-objets-magiques/sac-sans-fond",
+      "title": "Sac sans fond",
+      "type": "Objet merveilleux",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Sceptre inamovible",
+        "magicitem": {
+          "type": "Sceptre",
+          "rarity": "Peu courant"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Ce sceptre plat en fer est équipé d'un bouton sur une extrémité. Vous pouvez utiliser une action pour appuyer dessus : il se fixe alors par magie à l'endroit où il se trouve. Il ne bouge plus tant que vous ou une tierce personne n'utilisez pas une action pour appuyer de nouveau sur le bouton, même s'il doit pour cela défier les lois de la gravité. Le sceptre peut soutenir jusqu'à 4 tonnes. Il se désactive et tombe si on lui fait porter plus de poids. Une créature peut utiliser une action pour faire un test de Force DD 30 afin de déplacer le sceptre. Si elle réussit, il bouge d'au maximum 3 mètres.</p>",
+      "link": "/liste-objets-magiques/sceptre-inamovible",
+      "title": "Sceptre inamovible",
+      "type": "Sceptre",
+      "subtype": null,
+      "rarity": "Peu courant",
+      "attunement": null
+    },
+    {
+      "header": {
+        "title": "Trident de domination aquatique",
+        "magicitem": {
+          "type": "Arme",
+          "subtype": "Trident",
+          "rarity": "Peu courant",
+          "attunement": "harmonisation requise"
+        },
+        "taxonomy": {
+          "category": [
+            "docs",
+            "meneur",
+            "objets magiques"
+          ],
+          "source": [
+            "Cadre de campagne"
+          ]
+        }
+      },
+      "content": "<p>Ce trident est une arme magique. Il contient 3 charges. Tant que vous le portez sur vous, vous pouvez utiliser une action et dépenser 1 charge pour lancer <a href=\"/grimoire/dominer-une-bete\"><em>dominer une bête</em></a> (DD du jet de sauvegarde 15) par son biais sur une créature qui sait nager de manière innée et possède une vitesse à la nage. Le trident récupère 1d3 charges dépensées chaque jour, à l'aube.</p>",
+      "link": "/liste-objets-magiques/trident-de-domination-aquatique",
+      "title": "Trident de domination aquatique",
+      "type": "Arme",
+      "subtype": "Trident",
+      "rarity": "Peu courant",
+      "attunement": "harmonisation requise"
+    }
+  ]
