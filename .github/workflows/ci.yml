@@ -40,6 +40,31 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: ./gradlew sonar --no-daemon --no-configuration-cache
 
+  rust-server-tests:
+    name: Rust Server - Build, Test & Clippy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy
+
+      - name: Build
+        working-directory: server-rust
+        run: cargo build
+
+      - name: Test
+        working-directory: server-rust
+        run: cargo test
+
+      - name: Clippy
+        working-directory: server-rust
+        run: cargo clippy -- -D warnings
+
   spring-server-tests:
     name: Spring Server - Tests & Sonar
     runs-on: ubuntu-latest
