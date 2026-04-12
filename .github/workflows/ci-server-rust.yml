@@ -1,0 +1,36 @@
+name: Rust Server CI
+
+on:
+  pull_request:
+    branches: [main]
+    paths: ['server-rust/**']
+  push:
+    branches: [main]
+    paths: ['server-rust/**']
+  workflow_dispatch:
+
+jobs:
+  rust-server-tests:
+    name: Rust Server - Build, Test & Clippy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy
+
+      - name: Build
+        working-directory: server-rust
+        run: cargo build
+
+      - name: Test
+        working-directory: server-rust
+        run: cargo test
+
+      - name: Clippy
+        working-directory: server-rust
+        run: cargo clippy -- -D warnings
