@@ -18,6 +18,7 @@ dependencyResolutionManagement {
 rootProject.name = "RPG_companion"
 
 include(
+    ":androidApp",
     ":composeApp",
     ":shared:core",
 )
