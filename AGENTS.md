@@ -27,8 +27,10 @@ For feature specifications and product decisions, refer to the [Product Requirem
     - [`KMP_CONVENTIONS.md`](docs/conventions/KMP_CONVENTIONS.md)
 - **Spring Boot Backend Server Conventions**:
     - [`SPRING_BOOT_CONVENTIONS.md`](docs/conventions/SPRING_BOOT_CONVENTIONS.md)
-- **Rust Backend (Future) Conventions**:
+- **Rust Backend Server Conventions**:
     - [`RUST_CONVENTIONS.md`](docs/conventions/RUST_CONVENTIONS.md)
+- **Go Backend Server Conventions**:
+    - [`GO_CONVENTIONS.md`](docs/conventions/GO_CONVENTIONS.md)
 - **API Testing with Bruno Conventions**:
     - [`BRUNO_CONVENTIONS.md`](docs/conventions/BRUNO_CONVENTIONS.md)
 
