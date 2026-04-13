@@ -48,3 +48,6 @@ xcuserdata
 
 # SonarScanner
 .scannerwork/
+
+# Go
+server-go/server-go
