@@ -1,0 +1,37 @@
+name: Go Server CI
+
+on:
+  pull_request:
+    branches: [main]
+    paths: ['server-go/**']
+  push:
+    branches: [main]
+    paths: ['server-go/**']
+  workflow_dispatch:
+
+jobs:
+  go-server-tests:
+    name: Go Server - Build, Test & Vet
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.23'
+          cache-dependency-path: server-go/go.sum
+
+      - name: Build
+        working-directory: server-go
+        run: go build ./...
+
+      - name: Test
+        working-directory: server-go
+        run: go test ./...
+
+      - name: Vet
+        working-directory: server-go
+        run: go vet ./...
