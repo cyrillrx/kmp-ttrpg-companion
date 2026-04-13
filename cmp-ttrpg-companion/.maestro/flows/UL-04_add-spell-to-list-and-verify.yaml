@@ -1,0 +1,46 @@
+appId: com.cyrillrx.rpg
+---
+- launchApp:
+    clearState: true
+
+# Step 1 – create a spell list from the home screen
+- tapOn:
+    text: "Spellbooks"
+- tapOn:
+    accessibilityText: "Create"
+- tapOn:
+    id: "input_list_name"
+- typeText: "My Spells"
+- tapOn:
+    text: "Create"
+- assertVisible:
+    text: "My Spells"
+- tapOn:
+    accessibilityText: "Back"
+
+# Step 2 – navigate to the Spellbook compendium
+- tapOn:
+    text: "Spellbook"
+
+# Step 3 – swipe RIGHT (StartToEnd) on the first spell to open the Add-to-List sheet
+# "Aspersion acide" is the first entry in grimoire.json (file order preserved, no sort)
+- swipe:
+    direction: RIGHT
+    from:
+      text: "Aspersion acide"
+
+# Step 4 – select the list and confirm
+- tapOn:
+    text: "My Spells"
+- tapOn:
+    text: "Confirm"
+
+# Step 5 – navigate back to home then into the list to verify the spell is there
+- tapOn:
+    accessibilityText: "Back"
+- tapOn:
+    text: "Spellbooks"
+- tapOn:
+    text: "My Spells"
+- assertVisible:
+    text: "Aspersion acide"

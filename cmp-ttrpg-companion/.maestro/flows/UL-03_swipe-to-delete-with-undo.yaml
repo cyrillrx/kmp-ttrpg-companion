@@ -1,0 +1,35 @@
+appId: com.cyrillrx.rpg
+---
+- launchApp:
+    clearState: true
+
+# Navigate to My Spell Lists and create a list to delete
+- tapOn:
+    text: "Spellbooks"
+- tapOn:
+    accessibilityText: "Create"
+- tapOn:
+    id: "input_list_name"
+- typeText: "List to Delete"
+- tapOn:
+    text: "Create"
+- assertVisible:
+    text: "List to Delete"
+
+# Swipe LEFT (EndToStart) to trigger the optimistic delete
+- swipe:
+    direction: LEFT
+    from:
+      text: "List to Delete"
+
+# Snackbar with Undo should appear
+- assertVisible:
+    text: "Undo"
+
+# Tap Undo to restore the list
+- tapOn:
+    text: "Undo"
+
+# Verify the list is still visible
+- assertVisible:
+    text: "List to Delete"

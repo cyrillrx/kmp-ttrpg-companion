@@ -1,0 +1,21 @@
+appId: com.cyrillrx.rpg
+---
+- launchApp:
+    clearState: true
+
+# Navigate to My Spell Lists
+- tapOn:
+    text: "Spellbooks"
+
+# Open the create-list dialog
+- tapOn:
+    accessibilityText: "Create"
+- tapOn:
+    id: "input_list_name"
+- typeText: "My Test Spellbook"
+- tapOn:
+    text: "Create"
+
+# Verify the list appears in the Spellbooks screen
+- assertVisible:
+    text: "My Test Spellbook"

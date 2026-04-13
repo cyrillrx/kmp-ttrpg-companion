@@ -9,6 +9,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.btn_cancel
@@ -32,6 +34,7 @@ fun CreateListDialog(
                 onValueChange = { name = it },
                 placeholder = { Text(stringResource(Res.string.hint_list_name)) },
                 singleLine = true,
+                modifier = Modifier.testTag("input_list_name"),
             )
         },
         confirmButton = {
