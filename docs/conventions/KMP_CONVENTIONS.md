@@ -86,12 +86,18 @@ For ViewModels with mutations (delete, rename, add): test optimistic mutation, u
 - Every bulk filter operation → `{Feature}ApplyFilterTest`
 - Every pure extension function → dedicated unit test
 
-### E2E tests (Maestro — to be set up)
+### E2E tests (Maestro)
 
-Happy paths and navigation flows live in `.maestro/flows/`. Priority flows:
-- Add item to list, navigate back, verify item appears
-- Swipe-to-delete with undo
-- Create list and rename it
+Test scenarios per feature are documented in [`docs/testing/E2E_TEST_CASES.md`](../../docs/testing/E2E_TEST_CASES.md).
+Automated flows live in `.maestro/flows/`.
+
+Run all flows (requires a connected Android device or emulator):
+
+```bash
+cd cmp-ttrpg-companion
+./gradlew installDebug
+maestro test .maestro/flows/
+```
 
 ### What does NOT need tests
 

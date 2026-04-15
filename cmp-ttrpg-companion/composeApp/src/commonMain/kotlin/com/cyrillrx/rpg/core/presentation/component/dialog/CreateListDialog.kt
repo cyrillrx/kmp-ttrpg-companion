@@ -9,11 +9,14 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
+import com.cyrillrx.rpg.core.presentation.component.accessibilityId
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.btn_cancel
 import rpg_companion.composeapp.generated.resources.btn_create_list
 import rpg_companion.composeapp.generated.resources.hint_list_name
+import rpg_companion.composeapp.generated.resources.title_create_list
 
 @Composable
 fun CreateListDialog(
@@ -24,13 +27,14 @@ fun CreateListDialog(
 
     AlertDialog(
         onDismissRequest = onDismiss,
-        title = { Text(stringResource(Res.string.btn_create_list)) },
+        title = { Text(stringResource(Res.string.title_create_list)) },
         text = {
             TextField(
                 value = name,
                 onValueChange = { name = it },
                 placeholder = { Text(stringResource(Res.string.hint_list_name)) },
                 singleLine = true,
+                modifier = Modifier.accessibilityId("input_list_name"),
             )
         },
         confirmButton = {
