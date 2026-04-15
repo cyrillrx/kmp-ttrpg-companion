@@ -7,16 +7,16 @@ appId: com.cyrillrx.rpg
 - tapOn:
     text: "Spellbooks"
 - tapOn:
-    accessibilityText: "Create"
+    text: "Create"
 - tapOn:
     id: "input_list_name"
-- typeText: "My Spells"
+- inputText: "My Spells"
 - tapOn:
     text: "Create"
 - assertVisible:
     text: "My Spells"
 - tapOn:
-    accessibilityText: "Back"
+    text: "Back"
 
 # Step 2 – navigate to the Spellbook compendium
 - tapOn:
@@ -26,6 +26,7 @@ appId: com.cyrillrx.rpg
 # "Aspersion acide" is the first entry in grimoire.json (file order preserved, no sort)
 - swipe:
     direction: RIGHT
+    duration: 100
     from:
       text: "Aspersion acide"
 
@@ -37,7 +38,7 @@ appId: com.cyrillrx.rpg
 
 # Step 5 – navigate back to home then into the list to verify the spell is there
 - tapOn:
-    accessibilityText: "Back"
+    text: "Back"
 - tapOn:
     text: "Spellbooks"
 - tapOn:

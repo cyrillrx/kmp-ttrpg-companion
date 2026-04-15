@@ -7,10 +7,10 @@ appId: com.cyrillrx.rpg
 - tapOn:
     text: "Spellbooks"
 - tapOn:
-    accessibilityText: "Create"
+    text: "Create"
 - tapOn:
     id: "input_list_name"
-- typeText: "My Test Spellbook"
+- inputText: "My Test Spellbook"
 - tapOn:
     text: "Create"
 
@@ -20,11 +20,11 @@ appId: com.cyrillrx.rpg
 
 # Rename the list
 - tapOn:
-    accessibilityText: "Rename"
+    text: "Rename"
 - tapOn:
     id: "input_list_name"
-- clearText
-- typeText: "Renamed Spellbook"
+- eraseText
+- inputText: "Renamed Spellbook"
 - tapOn:
     text: "Confirm"
 

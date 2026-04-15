@@ -9,10 +9,10 @@ appId: com.cyrillrx.rpg
 
 # Open the create-list dialog
 - tapOn:
-    accessibilityText: "Create"
+    text: "Create"
 - tapOn:
     id: "input_list_name"
-- typeText: "My Test Spellbook"
+- inputText: "My Test Spellbook"
 - tapOn:
     text: "Create"
 

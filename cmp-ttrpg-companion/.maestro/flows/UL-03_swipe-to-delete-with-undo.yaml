@@ -7,10 +7,10 @@ appId: com.cyrillrx.rpg
 - tapOn:
     text: "Spellbooks"
 - tapOn:
-    accessibilityText: "Create"
+    text: "Create"
 - tapOn:
     id: "input_list_name"
-- typeText: "List to Delete"
+- inputText: "List to Delete"
 - tapOn:
     text: "Create"
 - assertVisible:
@@ -19,6 +19,7 @@ appId: com.cyrillrx.rpg
 # Swipe LEFT (EndToStart) to trigger the optimistic delete
 - swipe:
     direction: LEFT
+    duration: 100
     from:
       text: "List to Delete"
 
