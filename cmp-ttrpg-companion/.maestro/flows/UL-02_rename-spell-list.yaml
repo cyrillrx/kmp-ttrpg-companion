@@ -1,0 +1,33 @@
+appId: com.cyrillrx.rpg
+---
+- launchApp:
+    clearState: true
+
+# Setup: create a list to rename
+- tapOn:
+    text: "Spellbooks"
+- tapOn:
+    text: "Create"
+- tapOn:
+    id: "input_list_name"
+- inputText: "My Test Spellbook"
+- tapOn:
+    text: "Create"
+
+# Open the list detail
+- tapOn:
+    text: "My Test Spellbook"
+
+# Rename the list
+- tapOn:
+    text: "Rename"
+- tapOn:
+    id: "input_list_name"
+- eraseText
+- inputText: "Renamed Spellbook"
+- tapOn:
+    text: "Confirm"
+
+# Verify the updated name is shown in the top bar
+- assertVisible:
+    text: "Renamed Spellbook"
