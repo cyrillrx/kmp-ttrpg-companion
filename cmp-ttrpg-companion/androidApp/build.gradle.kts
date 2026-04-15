@@ -60,19 +60,13 @@ android.sourceSets.getByName("main").assets.srcDir(
 )
 
 // Register the copy task and task dependencies after both projects are evaluated.
+val copyCmpResourcesToAssets = tasks.register("copyCmpResourcesToAssets", Copy::class.java) {
+    dependsOn(":composeApp:prepareComposeResourcesTaskForCommonMain")
+    from(project(":composeApp").layout.buildDirectory.dir("generated/compose/resourceGenerator/preparedResources/commonMain/composeResources"))
+    into(layout.buildDirectory.dir("generated/cmpResources/assets/composeResources/rpg_companion.composeapp.generated.resources"))
+}
+
 afterEvaluate {
-    val cmpResourcesSrc = project(":composeApp").projectDir
-        .resolve("build/generated/compose/resourceGenerator/preparedResources/commonMain/composeResources")
-
-    val cmpResourcesDest = projectDir
-        .resolve("build/generated/cmpResources/assets/composeResources/rpg_companion.composeapp.generated.resources")
-
-    val copyCmpResourcesToAssets = tasks.register("copyCmpResourcesToAssets", Copy::class.java) {
-        dependsOn(":composeApp:prepareComposeResourcesTaskForCommonMain")
-        from(cmpResourcesSrc)
-        into(cmpResourcesDest)
-    }
-
     tasks.named("mergeDebugAssets") { dependsOn(copyCmpResourcesToAssets) }
     tasks.named("mergeReleaseAssets") { dependsOn(copyCmpResourcesToAssets) }
 }
