@@ -153,3 +153,74 @@ func TestMagicalItemFromJson_attunementEmpty(t *testing.T) {
 		t.Errorf("expected attunement=false, got %+v", item)
 	}
 }
+
+// ── parseAC ───────────────────────────────────────────────────────────────────
+
+func TestParseAC_fromNumber(t *testing.T) {
+	m := &model.MonsterJson{AC: json.RawMessage(`15`)}
+	if got := parseAC(m); got != 15 {
+		t.Errorf("got %v", got)
+	}
+}
+
+func TestParseAC_fromStringWithNote(t *testing.T) {
+	m := &model.MonsterJson{AC: json.RawMessage(`"13 (armure naturelle)"`)}
+	if got := parseAC(m); got != 13 {
+		t.Errorf("got %v", got)
+	}
+}
+
+func TestParseAC_nullDefaultsTo10(t *testing.T) {
+	m := &model.MonsterJson{AC: json.RawMessage(`null`)}
+	if got := parseAC(m); got != 10 {
+		t.Errorf("got %v", got)
+	}
+}
+
+// ── parseHP ───────────────────────────────────────────────────────────────────
+
+func TestParseHP_extractsFirstNumber(t *testing.T) {
+	hp := "52 (8d8 + 16)"
+	m := &model.MonsterJson{HP: &hp}
+	if got := parseHP(m); got != 52 {
+		t.Errorf("got %v", got)
+	}
+}
+
+func TestParseHP_emptyDefaultsTo0(t *testing.T) {
+	empty := ""
+	m := &model.MonsterJson{HP: &empty}
+	if got := parseHP(m); got != 0 {
+		t.Errorf("got %v", got)
+	}
+}
+
+// ── parseAbilityScore ─────────────────────────────────────────────────────────
+
+func TestParseAbilityScore_withModifier(t *testing.T) {
+	s16 := "16 (+3)"
+	if got := parseAbilityScore(&s16); got != 16 {
+		t.Errorf("got %v", got)
+	}
+	s8 := "8 (-1)"
+	if got := parseAbilityScore(&s8); got != 8 {
+		t.Errorf("got %v", got)
+	}
+}
+
+func TestParseAbilityScore_emptyDefaultsTo10(t *testing.T) {
+	empty := ""
+	if got := parseAbilityScore(&empty); got != 10 {
+		t.Errorf("got %v", got)
+	}
+}
+
+// ── parseLanguages (empty string) ─────────────────────────────────────────────
+
+func TestParseLanguages_emptyStringReturnsEmpty(t *testing.T) {
+	empty := ""
+	m := &model.MonsterJson{Languages: &empty}
+	if langs := parseLanguages(m); len(langs) != 0 {
+		t.Errorf("got %v", langs)
+	}
+}

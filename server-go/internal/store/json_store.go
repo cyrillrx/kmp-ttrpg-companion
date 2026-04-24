@@ -211,7 +211,7 @@ func parseChallenge(raw json.RawMessage) float32 {
 
 // parseAC handles both integer and string AC values.
 func parseAC(m *model.MonsterJson) int {
-	if m == nil || len(m.AC) == 0 {
+	if m == nil || len(m.AC) == 0 || string(m.AC) == "null" {
 		return 10
 	}
 	var i int
