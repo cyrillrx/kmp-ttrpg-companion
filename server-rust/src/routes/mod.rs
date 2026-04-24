@@ -38,3 +38,69 @@ pub fn create_router<S: CompendiumStore + 'static>(state: AppState<S>) -> Router
         .with_state(Arc::new(state))
         .layer(build_cors_layer())
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use axum::{body::Body, http::{Request, StatusCode}};
+    use tower::ServiceExt;
+
+    use crate::models::{Creature, MagicalItem, Spell};
+
+    struct MockStore;
+
+    impl CompendiumStore for MockStore {
+        fn get_spells(&self) -> &[Spell] { &[] }
+        fn get_creatures(&self) -> &[Creature] { &[] }
+        fn get_magical_items(&self) -> &[MagicalItem] { &[] }
+    }
+
+    fn mock_router() -> Router {
+        create_router(AppState::new(MockStore))
+    }
+
+    #[tokio::test]
+    async fn health_returns_200() {
+        let res = mock_router()
+            .oneshot(Request::builder().uri("/health").body(Body::empty()).unwrap())
+            .await
+            .unwrap();
+        assert_eq!(res.status(), StatusCode::OK);
+    }
+
+    #[tokio::test]
+    async fn list_spells_returns_200() {
+        let res = mock_router()
+            .oneshot(Request::builder().uri("/compendium/spells").body(Body::empty()).unwrap())
+            .await
+            .unwrap();
+        assert_eq!(res.status(), StatusCode::OK);
+    }
+
+    #[tokio::test]
+    async fn list_creatures_returns_200() {
+        let res = mock_router()
+            .oneshot(Request::builder().uri("/compendium/creatures").body(Body::empty()).unwrap())
+            .await
+            .unwrap();
+        assert_eq!(res.status(), StatusCode::OK);
+    }
+
+    #[tokio::test]
+    async fn list_magical_items_returns_200() {
+        let res = mock_router()
+            .oneshot(Request::builder().uri("/compendium/magical-items").body(Body::empty()).unwrap())
+            .await
+            .unwrap();
+        assert_eq!(res.status(), StatusCode::OK);
+    }
+
+    #[tokio::test]
+    async fn unknown_route_returns_404() {
+        let res = mock_router()
+            .oneshot(Request::builder().uri("/unknown").body(Body::empty()).unwrap())
+            .await
+            .unwrap();
+        assert_eq!(res.status(), StatusCode::NOT_FOUND);
+    }
+}

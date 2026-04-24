@@ -286,3 +286,87 @@ fn magical_item_from_json(raw: MagicalItemJson) -> Option<MagicalItem> {
         attunement: raw.attunement.is_some_and(|a| !a.is_empty()),
     })
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use serde_json::json;
+
+    #[test]
+    fn parse_type_subtype_with_subtype() {
+        let (t, s) = parse_type_subtype("Humanoïde (Goblinoïde)");
+        assert_eq!(t, "Humanoïde");
+        assert_eq!(s, "Goblinoïde");
+    }
+
+    #[test]
+    fn parse_type_subtype_without_subtype() {
+        let (t, s) = parse_type_subtype("Bête");
+        assert_eq!(t, "Bête");
+        assert_eq!(s, "");
+    }
+
+    #[test]
+    fn parse_ability_score_with_modifier() {
+        assert_eq!(parse_ability_score("16 (+3)"), 16);
+        assert_eq!(parse_ability_score("8 (-1)"), 8);
+    }
+
+    #[test]
+    fn parse_ability_score_empty_defaults_to_10() {
+        assert_eq!(parse_ability_score(""), 10);
+    }
+
+    #[test]
+    fn parse_hp_extracts_first_number() {
+        assert_eq!(parse_hp("52 (8d8 + 16)"), 52);
+    }
+
+    #[test]
+    fn parse_hp_empty_defaults_to_0() {
+        assert_eq!(parse_hp(""), 0);
+    }
+
+    #[test]
+    fn parse_challenge_from_number() {
+        assert_eq!(parse_challenge(&json!(1.0)), 1.0f32);
+        assert_eq!(parse_challenge(&json!(0)), 0.0f32);
+    }
+
+    #[test]
+    fn parse_challenge_from_string() {
+        assert_eq!(parse_challenge(&json!("0.5")), 0.5f32);
+    }
+
+    #[test]
+    fn parse_challenge_from_null_defaults_to_0() {
+        assert_eq!(parse_challenge(&json!(null)), 0.0f32);
+    }
+
+    #[test]
+    fn parse_ac_from_number() {
+        assert_eq!(parse_ac(&json!(15)), 15);
+    }
+
+    #[test]
+    fn parse_ac_from_string_with_note() {
+        assert_eq!(parse_ac(&json!("13 (armure naturelle)")), 13);
+    }
+
+    #[test]
+    fn parse_ac_from_null_defaults_to_10() {
+        assert_eq!(parse_ac(&json!(null)), 10);
+    }
+
+    #[test]
+    fn parse_languages_splits_on_comma() {
+        let langs = parse_languages("commun, gobelin");
+        assert_eq!(langs, vec!["commun", "gobelin"]);
+    }
+
+    #[test]
+    fn parse_languages_filters_empty() {
+        let langs = parse_languages("");
+        assert!(langs.is_empty());
+    }
+}
