@@ -1,6 +1,6 @@
 use serde::Serialize;
 
-#[derive(Serialize, Clone)]
+#[derive(Serialize, Clone, Debug)]
 #[serde(rename_all = "camelCase")]
 pub struct Abilities {
     pub str: i32,
@@ -11,7 +11,7 @@ pub struct Abilities {
     pub cha: i32,
 }
 
-#[derive(Serialize, Clone)]
+#[derive(Serialize, Clone, Debug)]
 #[serde(rename_all = "camelCase")]
 pub struct Creature {
     pub id: String,
