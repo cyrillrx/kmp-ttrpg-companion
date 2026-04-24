@@ -1,0 +1,11 @@
+server-rust/target/
+.git/
+.github/
+androidApp/
+cmp-ttrpg-companion/
+gradle/
+.gradle/
+build/
+*.md
+*.iml
+.idea/

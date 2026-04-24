@@ -3,10 +3,10 @@ name: Rust Server CI
 on:
   pull_request:
     branches: [main]
-    paths: ['server-rust/**']
+    paths: ['server-rust/**', 'data/compendium/**']
   push:
     branches: [main]
-    paths: ['server-rust/**']
+    paths: ['server-rust/**', 'data/compendium/**']
   workflow_dispatch:
 
 jobs:

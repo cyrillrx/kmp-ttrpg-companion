@@ -1,0 +1,20 @@
+meta {
+  name: Get Magical Items
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/compendium/magical-items
+  body: none
+  auth: none
+}
+
+tests {
+  test("status is 200", function() {
+    expect(res.status).to.equal(200);
+  });
+  test("response is a non-empty array", function() {
+    expect(res.body).to.be.an('array').that.is.not.empty;
+  });
+}
