@@ -5,9 +5,11 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strings"
 
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
+	"github.com/go-chi/cors"
 
 	"ttrpg-companion/server-go/internal/handler"
 	"ttrpg-companion/server-go/internal/store"
@@ -26,6 +28,7 @@ func main() {
 
 	r := chi.NewRouter()
 	r.Use(middleware.Logger)
+	r.Use(buildCORSMiddleware())
 
 	r.Get("/health", func(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
@@ -43,4 +46,16 @@ func main() {
 	if err := http.ListenAndServe(addr, r); err != nil {
 		log.Fatal(err)
 	}
+}
+
+func buildCORSMiddleware() func(http.Handler) http.Handler {
+	allowedOrigins := os.Getenv("ALLOWED_ORIGINS")
+	if allowedOrigins == "" {
+		return cors.AllowAll().Handler
+	}
+	return cors.Handler(cors.Options{
+		AllowedOrigins: strings.Split(allowedOrigins, ","),
+		AllowedMethods: []string{"GET", "OPTIONS"},
+		AllowedHeaders: []string{"Accept", "Content-Type"},
+	})
 }
