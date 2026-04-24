@@ -1,0 +1,51 @@
+name: Bruno API Tests
+
+on:
+  pull_request:
+    branches: [main]
+    paths: ['bruno/**', 'server-rust/**', 'data/compendium/**']
+  push:
+    branches: [main]
+    paths: ['bruno/**', 'server-rust/**', 'data/compendium/**']
+  workflow_dispatch:
+
+jobs:
+  bruno-tests:
+    name: Bruno - Compendium API Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Build Rust server
+        working-directory: server-rust
+        run: cargo build --release
+
+      - name: Start Rust server
+        working-directory: server-rust
+        run: ./target/release/server-rust &
+        env:
+          DATA_DIR: ../data/compendium
+
+      - name: Wait for server to be ready
+        run: until curl -sf http://localhost:3000/health; do sleep 1; done
+        timeout-minutes: 1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run Bruno tests
+        run: npx --yes @usebruno/cli run bruno/ --env local --reporter-junit results.xml
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bruno-test-results
+          path: results.xml
