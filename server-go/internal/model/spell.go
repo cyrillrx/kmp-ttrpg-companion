@@ -10,7 +10,7 @@ type Spell struct {
 	Range           string   `json:"range"`
 	Components      string   `json:"components"`
 	Duration        string   `json:"duration"`
-	Schools         []string `json:"schools"`
+	Schools          []string `json:"schools"`
 	AvailableClasses []string `json:"availableClasses"`
 }
 

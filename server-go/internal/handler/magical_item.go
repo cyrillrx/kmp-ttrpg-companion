@@ -2,6 +2,7 @@ package handler
 
 import (
 	"encoding/json"
+	"log"
 	"net/http"
 
 	"ttrpg-companion/server-go/internal/store"
@@ -10,6 +11,8 @@ import (
 func ListMagicalItems(s store.CompendiumStore) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
-		json.NewEncoder(w).Encode(s.GetMagicalItems())
+		if err := json.NewEncoder(w).Encode(s.GetMagicalItems()); err != nil {
+			log.Printf("encode magical items: %v", err)
+		}
 	}
 }
