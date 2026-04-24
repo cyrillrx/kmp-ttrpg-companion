@@ -1,0 +1,20 @@
+meta {
+  name: Get Creatures
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://localhost:3000/compendium/creatures
+  body: none
+  auth: none
+}
+
+tests {
+  test("status is 200", function() {
+    expect(res.status).to.equal(200);
+  });
+  test("response is a non-empty array", function() {
+    expect(res.body).to.be.an('array').that.is.not.empty;
+  });
+}
