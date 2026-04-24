@@ -21,6 +21,15 @@ jobs:
       - name: Set up Rust toolchain
         uses: dtolnay/rust-toolchain@stable
 
+      - name: Cache Rust dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            server-rust/target
+          key: ${{ runner.os }}-cargo-${{ hashFiles('server-rust/Cargo.lock') }}
+
       - name: Build Rust server
         working-directory: server-rust
         run: cargo build --release
@@ -41,11 +50,4 @@ jobs:
           node-version: '20'
 
       - name: Run Bruno tests
-        run: npx --yes @usebruno/cli run bruno/ --env local --reporter-junit results.xml
-
-      - name: Upload test results
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: bruno-test-results
-          path: results.xml
+        run: npx --yes @usebruno/cli@1 run bruno/ --env local
