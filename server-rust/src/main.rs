@@ -10,6 +10,8 @@ use store::json_store::JsonCompendiumStore;
 
 #[tokio::main]
 async fn main() {
+    tracing_subscriber::fmt::init();
+
     let data_dir =
         std::env::var("DATA_DIR").unwrap_or_else(|_| "../data/compendium".to_string());
 
@@ -24,7 +26,9 @@ async fn main() {
         .and_then(|p| p.parse().ok())
         .unwrap_or(3000);
     let addr = SocketAddr::from(([0, 0, 0, 0], port));
-    println!("Listening on {addr}");
-    let listener = tokio::net::TcpListener::bind(addr).await.unwrap();
-    axum::serve(listener, app).await.unwrap();
+    tracing::info!("Listening on {addr}");
+    let listener = tokio::net::TcpListener::bind(addr)
+        .await
+        .expect("Failed to bind TCP listener");
+    axum::serve(listener, app).await.expect("Server error");
 }
