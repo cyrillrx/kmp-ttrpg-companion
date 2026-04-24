@@ -27,11 +27,18 @@ func main() {
 	r := chi.NewRouter()
 	r.Use(middleware.Logger)
 
+	r.Get("/health", func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
+	})
 	r.Get("/compendium/spells", handler.ListSpells(s))
 	r.Get("/compendium/creatures", handler.ListCreatures(s))
 	r.Get("/compendium/magical-items", handler.ListMagicalItems(s))
 
-	addr := ":8080"
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+	addr := ":" + port
 	fmt.Printf("Listening on %s\n", addr)
 	if err := http.ListenAndServe(addr, r); err != nil {
 		log.Fatal(err)
