@@ -30,9 +30,7 @@ func main() {
 	r.Use(middleware.Logger)
 	r.Use(buildCORSMiddleware())
 
-	r.Get("/health", func(w http.ResponseWriter, r *http.Request) {
-		w.WriteHeader(http.StatusOK)
-	})
+	r.Get("/health", handler.Health)
 	r.Get("/compendium/spells", handler.ListSpells(s))
 	r.Get("/compendium/creatures", handler.ListCreatures(s))
 	r.Get("/compendium/magical-items", handler.ListMagicalItems(s))

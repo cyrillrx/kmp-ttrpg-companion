@@ -22,9 +22,7 @@ var _ store.CompendiumStore = (*mockStore)(nil)
 
 func newTestRouter(s store.CompendiumStore) http.Handler {
 	r := chi.NewRouter()
-	r.Get("/health", func(w http.ResponseWriter, r *http.Request) {
-		w.WriteHeader(http.StatusOK)
-	})
+	r.Get("/health", handler.Health)
 	r.Get("/compendium/spells", handler.ListSpells(s))
 	r.Get("/compendium/creatures", handler.ListCreatures(s))
 	r.Get("/compendium/magical-items", handler.ListMagicalItems(s))
