@@ -10,7 +10,8 @@ import (
 
 func ListSpells(s store.CompendiumStore) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		if err := json.NewEncoder(w).Encode(s.GetSpells()); err != nil {
+		err := json.NewEncoder(w).Encode(s.GetSpells())
+		if err != nil {
 			log.Printf("encode spells: %v", err)
 		}
 	}

@@ -55,7 +55,8 @@ func loadSpells(path string) ([]model.Spell, error) {
 	}
 
 	var raw []model.SpellJson
-	if err := json.Unmarshal(data, &raw); err != nil {
+	err = json.Unmarshal(data, &raw)
+	if err != nil {
 		return nil, err
 	}
 
@@ -75,7 +76,8 @@ func loadCreatures(path string) ([]model.Creature, error) {
 	}
 
 	var raw []model.CreatureJson
-	if err := json.Unmarshal(data, &raw); err != nil {
+	err = json.Unmarshal(data, &raw)
+	if err != nil {
 		return nil, err
 	}
 
@@ -95,7 +97,8 @@ func loadMagicalItems(path string) ([]model.MagicalItem, error) {
 	}
 
 	var raw []model.MagicalItemJson
-	if err := json.Unmarshal(data, &raw); err != nil {
+	err = json.Unmarshal(data, &raw)
+	if err != nil {
 		return nil, err
 	}
 
@@ -197,13 +200,16 @@ func parseChallenge(raw json.RawMessage) float32 {
 		return 0
 	}
 	var f float64
-	if err := json.Unmarshal(raw, &f); err == nil {
+	err := json.Unmarshal(raw, &f)
+	if err == nil {
 		return float32(f)
 	}
 	var s string
-	if err := json.Unmarshal(raw, &s); err == nil {
-		if f, err := strconv.ParseFloat(s, 32); err == nil {
-			return float32(f)
+	err = json.Unmarshal(raw, &s)
+	if err == nil {
+		fParsed, parseErr := strconv.ParseFloat(s, 32)
+		if parseErr == nil {
+			return float32(fParsed)
 		}
 	}
 	return 0
@@ -215,11 +221,13 @@ func parseAC(m *model.MonsterJson) int {
 		return 10
 	}
 	var i int
-	if err := json.Unmarshal(m.AC, &i); err == nil {
+	err := json.Unmarshal(m.AC, &i)
+	if err == nil {
 		return i
 	}
 	var s string
-	if err := json.Unmarshal(m.AC, &s); err == nil {
+	err = json.Unmarshal(m.AC, &s)
+	if err == nil {
 		return parseFirstInt(s, 10)
 	}
 	return 10

@@ -10,7 +10,8 @@ import (
 
 func ListCreatures(s store.CompendiumStore) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		if err := json.NewEncoder(w).Encode(s.GetCreatures()); err != nil {
+		err := json.NewEncoder(w).Encode(s.GetCreatures())
+		if err != nil {
 			log.Printf("encode creatures: %v", err)
 		}
 	}
