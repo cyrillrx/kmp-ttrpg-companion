@@ -51,3 +51,6 @@ xcuserdata
 
 # Rust
 server-rust/target/
+
+# Go
+server-go/server-go
