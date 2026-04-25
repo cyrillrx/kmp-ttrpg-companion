@@ -31,9 +31,12 @@ func main() {
 	r.Use(buildCORSMiddleware())
 
 	r.Get("/health", handler.Health)
-	r.Get("/compendium/spells", handler.ListSpells(s))
-	r.Get("/compendium/creatures", handler.ListCreatures(s))
-	r.Get("/compendium/magical-items", handler.ListMagicalItems(s))
+	r.Route("/compendium", func(r chi.Router) {
+		r.Use(middleware.SetHeader("Content-Type", "application/json"))
+		r.Get("/spells", handler.ListSpells(s))
+		r.Get("/creatures", handler.ListCreatures(s))
+		r.Get("/magical-items", handler.ListMagicalItems(s))
+	})
 
 	port := os.Getenv("PORT")
 	if port == "" {

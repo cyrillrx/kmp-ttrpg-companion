@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/go-chi/chi/v5"
+	"github.com/go-chi/chi/v5/middleware"
 
 	"ttrpg-companion/server-go/internal/handler"
 	"ttrpg-companion/server-go/internal/model"
@@ -23,9 +24,12 @@ var _ store.CompendiumStore = (*mockStore)(nil)
 func newTestRouter(s store.CompendiumStore) http.Handler {
 	r := chi.NewRouter()
 	r.Get("/health", handler.Health)
-	r.Get("/compendium/spells", handler.ListSpells(s))
-	r.Get("/compendium/creatures", handler.ListCreatures(s))
-	r.Get("/compendium/magical-items", handler.ListMagicalItems(s))
+	r.Route("/compendium", func(r chi.Router) {
+		r.Use(middleware.SetHeader("Content-Type", "application/json"))
+		r.Get("/spells", handler.ListSpells(s))
+		r.Get("/creatures", handler.ListCreatures(s))
+		r.Get("/magical-items", handler.ListMagicalItems(s))
+	})
 	return r
 }
 

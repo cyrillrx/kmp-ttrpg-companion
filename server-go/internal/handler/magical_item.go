@@ -10,7 +10,6 @@ import (
 
 func ListMagicalItems(s store.CompendiumStore) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Content-Type", "application/json")
 		if err := json.NewEncoder(w).Encode(s.GetMagicalItems()); err != nil {
 			log.Printf("encode magical items: %v", err)
 		}
