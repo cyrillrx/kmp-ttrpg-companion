@@ -25,14 +25,19 @@ For detailed feature specifications, see the [PRDs](prd/).
 *Requires: Reference Data - Browsing & Filtering*
 
 - [x] Local spell lists - [PRD-001a](prd/PRD-001a-SPELLBOOK.md)
-- [ ] Local item lists - [PRD-001b](prd/PRD-001b-ITEM-LIST.md)
-- [ ] Local bestiary lists - [PRD-001c](prd/PRD-001c-BESTIARY.md)
+- [x] Local item lists - [PRD-001b](prd/PRD-001b-ITEM-LIST.md)
+- [x] Local bestiary lists - [PRD-001c](prd/PRD-001c-BESTIARY.md)
 
 ## Phase 4 - Backend setup and sync engine
 
 > Fetch public reference data from the server and sync user lists. - [PRD-001](prd/PRD-001-REFERENCE-DATA.md)
 
-- [ ] Setup backend service with a simple API
+- [x] Setup backend service with a simple API
+- [ ] Data quality & coherence — DB-ready models, i18n, source tracking
+  - [x] Architecture decisions & SRD translation map ([ADR-001](adr/ADR-001-data-model.md), [i18n](i18n/srd-fr-en.md))
+  - [ ] Spells: structured components, concentration/ritual flags, complete class list
+  - [ ] Magical items: typed fields normalized
+  - [ ] Creatures: full stat block (speed, senses, skills, saving throws, damage affinities); character model coherence
 - [ ] Fetch public reference data from backend (spells, items, creatures)
 - [ ] Develop the sync engine on which will rely all sync logic and conflict resolution
 - [ ] Sync user lists with backend
