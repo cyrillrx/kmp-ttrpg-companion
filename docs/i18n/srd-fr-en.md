@@ -105,14 +105,14 @@ All JSON enum values use the **English key** column in lowercase with underscore
 
 > Applies to: `srd_5.1`, `srd_5.2`
 
-| English key  | Display EN | Display FR   | FR code |
-|--------------|------------|--------------|---------|
-| `tiny`       | Tiny       | Très petite  | TP      |
-| `small`      | Small      | Petite       | P       |
-| `medium`     | Medium     | Moyenne      | M       |
-| `large`      | Large      | Grande       | G       |
-| `huge`       | Huge       | Très grande  | TG      |
-| `gargantuan` | Gargantuan | Gigantesque  | Gig     |
+| English key  | Display EN | EN code | Display FR   | FR code |
+|--------------|------------|---------|--------------|---------|
+| `tiny`       | Tiny       | T       | Très petite  | TP      |
+| `small`      | Small      | S       | Petite       | P       |
+| `medium`     | Medium     | M       | Moyenne      | M       |
+| `large`      | Large      | L       | Grande       | G       |
+| `huge`       | Huge       | H       | Très grande  | TG      |
+| `gargantuan` | Gargantuan | G       | Gigantesque  | Gig     |
 
 ---
 

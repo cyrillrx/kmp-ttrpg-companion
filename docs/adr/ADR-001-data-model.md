@@ -109,15 +109,7 @@ skillModifier    = abilityModifier                          (Proficiency.NONE)
                  = abilityModifier + proficiencyBonus × 2   (Proficiency.EXPERT)
 ```
 
-### Proficiency Bonus by CR / Level
-| CR or Level | Proficiency Bonus |
-|-------------|-------------------|
-| 0–4         | +2                |
-| 5–8         | +3                |
-| 9–12        | +4                |
-| 13–16       | +5                |
-| 17–20       | +6                |
-| 21+         | +7 (creatures only) |
+Proficiency bonus table (game rule): see [`docs/rules/dnd-5e.md`](../rules/dnd-5e.md).
 
 ### Rationale
 - Storing pre-computed modifiers duplicates data derivable from ability scores and proficiency level.
