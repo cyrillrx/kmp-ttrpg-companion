@@ -170,7 +170,6 @@ For the data model decisions behind these formats, see [`docs/adr/ADR-001-data-m
 - [ ] `senses` — only present senses, in meters
 - [ ] `damageAffinities` — see [Damage Affinities](srd-fr-en.md#damage-affinities)
 - [ ] `conditionImmunities` — see [Conditions](srd-fr-en.md#conditions)
-- [ ] `isCustom` — boolean
 - [ ] `translations.fr.name`
 - [ ] `translations.fr.languages` — array of strings
 - [ ] `translations.fr.description` — HTML
