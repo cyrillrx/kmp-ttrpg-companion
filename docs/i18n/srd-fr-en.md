@@ -72,7 +72,7 @@ All JSON enum values use the **English key** column in lowercase with underscore
 | `paladin`    | Paladin    | Paladin               |
 | `ranger`     | Ranger     | Rôdeur                |
 | `rogue`      | Rogue      | Roublard              |
-| `sorcerer`   | Sorcerer   | Ensorceleur/Sorcelame |
+| `sorcerer`   | Sorcerer   | Ensorceleur           |
 | `warlock`    | Warlock    | Occultiste            |
 | `wizard`     | Wizard     | Magicien              |
 
