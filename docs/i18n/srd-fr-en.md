@@ -172,26 +172,26 @@ All JSON enum values use the **English key** column in lowercase with underscore
 
 > Applies to: `srd_5.1`, `srd_5.2`
 
-| English key      | Display EN      | Display FR      | Ability |
-|------------------|-----------------|-----------------|---------|
-| `athletics`      | Athletics       | Athlétisme      | STR     |
-| `acrobatics`     | Acrobatics      | Acrobaties      | DEX     |
-| `sleightOfHand`  | Sleight of Hand | Escamotage      | DEX     |
-| `stealth`        | Stealth         | Discrétion      | DEX     |
-| `arcana`         | Arcana          | Arcanes         | INT     |
-| `history`        | History         | Histoire        | INT     |
-| `investigation`  | Investigation   | Investigation   | INT     |
-| `nature`         | Nature          | Nature          | INT     |
-| `religion`       | Religion        | Religion        | INT     |
-| `animalHandling` | Animal Handling | Dressage        | WIS     |
-| `insight`        | Insight         | Intuition       | WIS     |
-| `medicine`       | Medicine        | Médecine        | WIS     |
-| `perception`     | Perception      | Perception      | WIS     |
-| `survival`       | Survival        | Survie          | WIS     |
-| `deception`      | Deception       | Tromperie       | CHA     |
-| `intimidation`   | Intimidation    | Intimidation    | CHA     |
-| `performance`    | Performance     | Représentation  | CHA     |
-| `persuasion`     | Persuasion      | Persuasion      | CHA     |
+| English key      | Display EN      | Display FR      |
+|------------------|-----------------|-----------------|
+| `athletics`      | Athletics       | Athlétisme      |
+| `acrobatics`     | Acrobatics      | Acrobaties      |
+| `sleightOfHand`  | Sleight of Hand | Escamotage      |
+| `stealth`        | Stealth         | Discrétion      |
+| `arcana`         | Arcana          | Arcanes         |
+| `history`        | History         | Histoire        |
+| `investigation`  | Investigation   | Investigation   |
+| `nature`         | Nature          | Nature          |
+| `religion`       | Religion        | Religion        |
+| `animalHandling` | Animal Handling | Dressage        |
+| `insight`        | Insight         | Intuition       |
+| `medicine`       | Medicine        | Médecine        |
+| `perception`     | Perception      | Perception      |
+| `survival`       | Survival        | Survie          |
+| `deception`      | Deception       | Tromperie       |
+| `intimidation`   | Intimidation    | Intimidation    |
+| `performance`    | Performance     | Représentation  |
+| `persuasion`     | Persuasion      | Persuasion      |
 
 ---
 

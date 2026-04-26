@@ -55,16 +55,16 @@ Every entity has a `source` field — a single string identifying its origin.
 ```
 
 ### Known Values
-| Value       | Description                                   |
-|-------------|-----------------------------------------------|
-| `srd_5.1`   | D&D 5e SRD 2014 (5.1)                         |
-| `srd_5.2`   | D&D 5e SRD 2024 (5.2)                         |
-| `phb_2014`  | Player's Handbook 2014                        |
-| `phb_2024`  | Player's Handbook 2024                        |
-| `tasha`     | Tasha's Cauldron of Everything                |
-| `xanathar`  | Xanathar's Guide to Everything                |
-| `fateforge` | Fateforge (Black Book Éditions)               |
-| `custom`    | User-created content                          |
+| Value       | Description                             |
+|-------------|-----------------------------------------|
+| `srd_5.1`   | D&D 5e SRD 2014                         |
+| `srd_5.2`   | D&D 5e SRD 2024                         |
+| `phb_2014`  | Player's Handbook 2014                  |
+| `phb_2024`  | Player's Handbook 2024                  |
+| `tasha`     | Tasha's Cauldron of Everything          |
+| `xanathar`  | Xanathar's Guide to Everything          |
+| `fateforge` | Fateforge (Studio Agate)                |
+| `custom`    | User-created content                    |
 
 ### Rationale
 - A single string is the simplest model that supports filtering by source and distinguishing official from user-created content.
@@ -166,27 +166,7 @@ data class Skills(
 - Named properties give compile-time safety: a typo in a skill name is a compile error, not a silent null.
 - DB-ready: maps directly to columns without requiring a join table.
 
-### Skill → Ability Mapping (D&D 5e SRD)
-| Skill           | Ability |
-|-----------------|---------|
-| Athletics       | STR     |
-| Acrobatics      | DEX     |
-| Sleight of Hand | DEX     |
-| Stealth         | DEX     |
-| Arcana          | INT     |
-| History         | INT     |
-| Investigation   | INT     |
-| Nature          | INT     |
-| Religion        | INT     |
-| Animal Handling | WIS     |
-| Insight         | WIS     |
-| Medicine        | WIS     |
-| Perception      | WIS     |
-| Survival        | WIS     |
-| Deception       | CHA     |
-| Intimidation    | CHA     |
-| Performance     | CHA     |
-| Persuasion      | CHA     |
+Skill → ability mapping (game rule, not architecture): see [`docs/rules/dnd-5e.md`](../rules/dnd-5e.md).
 
 ---
 
@@ -267,18 +247,4 @@ For `PlayerCharacter`, hit dice are computed from `level` and `clazz.hitDie` —
 - For creatures, `hitDice` cannot be derived (there is no fixed "class" for monsters), so it must be stored explicitly.
 - The D&D 5e SRD displays stat blocks as `"33 (6d8+6)"` — `maxHitPoints` is the average, `hitDice` is the formula used when rolling HP.
 
-### Hit Die Per Class (computed, never stored on PlayerCharacter)
-| Class     | Hit Die |
-|-----------|---------|
-| Barbarian | d12     |
-| Fighter   | d10     |
-| Paladin   | d10     |
-| Ranger    | d10     |
-| Bard      | d8      |
-| Cleric    | d8      |
-| Druid     | d8      |
-| Monk      | d8      |
-| Rogue     | d8      |
-| Warlock   | d8      |
-| Sorcerer  | d6      |
-| Wizard    | d6      |
+Hit die per class (game rule): see [`docs/rules/dnd-5e.md`](../rules/dnd-5e.md).

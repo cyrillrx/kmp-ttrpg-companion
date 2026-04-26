@@ -11,23 +11,11 @@ For the data model decisions behind these formats, see [`docs/adr/ADR-001-data-m
 
 - All enum values use **lowercase English with underscores** (e.g., `"conjuration"`, `"wondrous_item"`).
 - All keys are in English. French content belongs only inside `translations.fr`.
-- The `source` field identifies the origin of the entry. See [known source values](#known-source-values).
+- The `source` field identifies the origin of the entry — see [known source values](../adr/ADR-001-data-model.md#2-source-field).
 - Ability scores are **integers only** — never strings like `"15 (+2)"`.
 - Armor class is an **integer only** — the armor type belongs in the creature description.
 - No pre-computed modifiers — store scores and proficiency levels only.
 - An entity with an empty `translations` map is considered malformed.
-
-### Known Source Values
-| Value       | Description                             |
-|-------------|-----------------------------------------|
-| `srd_5.1`   | D&D 5e SRD 2014                         |
-| `srd_5.2`   | D&D 5e SRD 2024                         |
-| `phb_2014`  | Player's Handbook 2014                  |
-| `phb_2024`  | Player's Handbook 2024                  |
-| `tasha`     | Tasha's Cauldron of Everything          |
-| `xanathar`  | Xanathar's Guide to Everything          |
-| `fateforge` | Fateforge (Black Book Éditions)         |
-| `custom`    | User-created content                    |
 
 ---
 
