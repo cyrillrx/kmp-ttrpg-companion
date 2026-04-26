@@ -133,7 +133,6 @@ For the data model decisions behind these formats, see [`docs/adr/ADR-001-data-m
   "senses": { "darkvision": 18 },
   "damageAffinities": {},
   "conditionImmunities": {},
-  "isCustom": false,
   "translations": {
     "fr": {
       "name": "Gobelin",

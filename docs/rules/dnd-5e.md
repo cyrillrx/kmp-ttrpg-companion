@@ -83,7 +83,7 @@ skillModifier = abilityModifier                          (Proficiency.NONE)
 
 ## Hit Die Per Class
 
-Used to compute `hitDice` for `PlayerCharacter` (never stored, always derived from `level` and `class`).
+A character's hit dice formula (e.g., `"6d8"` for a level-6 Cleric) is derived at runtime from `level × hitDie` — it is never stored.
 
 | Class     | Hit Die |
 |-----------|---------|
