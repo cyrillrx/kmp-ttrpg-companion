@@ -145,7 +145,7 @@ For the data model decisions behind these formats, see [`docs/adr/ADR-001-data-m
 
 ### Notes
 - `abilities`: raw integer scores only; `savingThrowProficiency` is `"proficient"` or `"expert"` when applicable
-- `skills`: all 18 keys required; only non-`none` values need to be set
+- `skills`: all 18 keys required (set to "none" if the creature is not proficient)
 - `senses`: only include present senses (distances in meters); omit null senses entirely
 - `damageAffinities`: only include non-`none` values; omit the rest
 - `conditionImmunities`: only include `true` values; omit the rest
