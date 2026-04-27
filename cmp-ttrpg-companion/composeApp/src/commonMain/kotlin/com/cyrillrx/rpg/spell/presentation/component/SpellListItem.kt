@@ -38,7 +38,7 @@ fun SpellListItem(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val school = spell.schools.firstOrNull()
+    val school = spell.school
 
     Card(
         onClick = onClick,
@@ -75,7 +75,7 @@ fun SpellListItem(
                     )
                     Spacer(modifier = Modifier.width(spacingSmall))
                     Text(
-                        text = school?.toFormattedString() ?: "",
+                        text = school.toFormattedString(),
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )

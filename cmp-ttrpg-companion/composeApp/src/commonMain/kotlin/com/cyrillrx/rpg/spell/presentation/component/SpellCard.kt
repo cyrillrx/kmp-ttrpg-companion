@@ -102,7 +102,7 @@ private fun SpellGrid(spell: Spell, spellColor: Color, spacingMedium: Dp) {
                 )
                 SpellGridItem(
                     title = stringResource(Res.string.spell_components),
-                    subtitle = spell.components,
+                    subtitle = spell.components.toDisplayString(),
                     spellColor = spellColor,
                 )
             }

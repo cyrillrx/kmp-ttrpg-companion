@@ -45,7 +45,7 @@ class SpellAddToListProvider(
 
     @Composable
     override fun Header(entity: Spell) {
-        val school = entity.schools.firstOrNull()
+        val school = entity.school
         Column(
             verticalArrangement = Arrangement.spacedBy(spacingSmall),
             horizontalAlignment = Alignment.CenterHorizontally,
