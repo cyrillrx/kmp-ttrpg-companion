@@ -20,12 +20,13 @@ internal fun Spell.matches(filter: SpellFilter): Boolean {
     return (filter.schools.isEmpty() || school in filter.schools) &&
         (filter.playerClasses.isEmpty() || availableClasses.any { filter.playerClasses.contains(it) }) &&
         (filter.levels.isEmpty() || filter.levels.contains(level)) &&
-        (filter.query.isBlank() || matches(filter.query))
+        (filter.query.isBlank() || matchesQuery(filter.query))
 }
 
-private fun Spell.matches(query: String): Boolean {
-    val trimmedQuery = query.trim()
-
-    return title.contains(trimmedQuery, ignoreCase = true) ||
-        description.contains(trimmedQuery, ignoreCase = true)
+private fun Spell.matchesQuery(query: String): Boolean {
+    val trimmed = query.trim()
+    return translations.values.any { translation ->
+        translation.name.contains(trimmed, ignoreCase = true) ||
+            translation.description.contains(trimmed, ignoreCase = true)
+    }
 }
