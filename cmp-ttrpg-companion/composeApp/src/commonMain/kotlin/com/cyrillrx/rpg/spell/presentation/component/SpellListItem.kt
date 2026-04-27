@@ -18,9 +18,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
+import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedLevel
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.component.dnd.toIcon
+import com.cyrillrx.rpg.spell.domain.resolve
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.borderAlpha
 import com.cyrillrx.rpg.core.presentation.theme.borderWidth
@@ -38,6 +40,7 @@ fun SpellListItem(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    val translation = spell.translations.resolve(currentLocale())
     val school = spell.school
 
     Card(
@@ -59,7 +62,7 @@ fun SpellListItem(
             ) {
                 // Title
                 Text(
-                    text = spell.title,
+                    text = translation?.name.orEmpty(),
                     style = MaterialTheme.typography.titleSmall,
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.onSurface,
@@ -85,7 +88,7 @@ fun SpellListItem(
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
                     Text(
-                        text = spell.castingTime,
+                        text = translation?.castingTime.orEmpty(),
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         maxLines = 1,

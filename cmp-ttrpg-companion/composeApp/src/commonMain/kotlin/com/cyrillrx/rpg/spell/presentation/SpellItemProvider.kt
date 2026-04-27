@@ -5,7 +5,9 @@ import androidx.compose.material.icons.outlined.MenuBook
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.spell.domain.Spell
+import com.cyrillrx.rpg.spell.domain.resolve
 import com.cyrillrx.rpg.spell.presentation.component.SpellListItem
 import com.cyrillrx.rpg.userlist.presentation.ListItemProvider
 import org.jetbrains.compose.resources.StringResource
@@ -22,7 +24,8 @@ class SpellItemProvider(
 
     override fun getId(entity: Spell): String = entity.id
 
-    override fun getDisplayName(entity: Spell): String = entity.title
+    override fun getDisplayName(entity: Spell): String =
+        entity.translations.resolve(currentLocale())?.name.orEmpty()
 
     @Composable
     override fun ListItem(entity: Spell, modifier: Modifier) {

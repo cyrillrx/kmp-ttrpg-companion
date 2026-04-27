@@ -12,9 +12,11 @@ import androidx.compose.material.icons.outlined.Dangerous
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.character.domain.PlayerCharacter
 import com.cyrillrx.rpg.core.presentation.theme.Red900
 import com.cyrillrx.rpg.spell.domain.Spell
+import com.cyrillrx.rpg.spell.domain.resolve
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.class_barbarian
@@ -56,8 +58,10 @@ fun Spell.getFormattedSchool() =
     stringResource(Res.string.formatted_spell_school_level, getSchool(), level)
 
 @Composable
-fun Spell.getSubtitle(): String =
-    stringResource(Res.string.formatted_spell_school_level, getSchool(), level) + " - " + castingTime
+fun Spell.getSubtitle(): String {
+    val castingTime = translations.resolve(currentLocale())?.castingTime.orEmpty()
+    return stringResource(Res.string.formatted_spell_school_level, getSchool(), level) + " - " + castingTime
+}
 
 @Composable
 fun Spell.getSchool(): String = school.toFormattedString()
