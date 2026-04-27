@@ -7,7 +7,9 @@ A digital toolkit for tabletop role-playing game sessions. Designed for Game Mas
 | Directory              | Description                                             |
 |------------------------|---------------------------------------------------------|
 | `cmp-ttrpg-companion/` | Kotlin Multiplatform client app (Android, iOS, Desktop) |
-| `spring-server/`       | Spring Boot backend server (REST API, PostgreSQL)       |
+| `server-rust/`         | Rust backend server (Axum, REST API)                    |
+| `server-go/`           | Go backend server (chi, REST API)                       |
+| `data/`                | Shared compendium data (JSON files used by servers)     |
 | `bruno/`               | API testing collections (Bruno)                         |
 | `docs/`                | Project documentation (conventions, PRDs, specs)        |
 | `Resources/`           | Shared static assets                                    |
@@ -17,7 +19,7 @@ A digital toolkit for tabletop role-playing game sessions. Designed for Game Mas
 | Component     | Stack                                                                  |
 |---------------|------------------------------------------------------------------------|
 | **Client**    | Kotlin Multiplatform · Compose Multiplatform · SQLDelight · Coroutines |
-| **Server**    | Kotlin · Spring Boot · PostgreSQL · Spring Data JPA                    |
+| **Server**    | Rust · Axum · Go · chi                                                 |
 | **API Tests** | Bruno                                                                  |
 
 ## Documentation
@@ -36,8 +38,8 @@ A digital toolkit for tabletop role-playing game sessions. Designed for Game Mas
 | [`CODING_CONVENTIONS.md`](docs/conventions/CODING_CONVENTIONS.md)           | Clean Code principles (all technologies)   |
 | [`GIT_AND_COLLABORATION.md`](docs/conventions/GIT_AND_COLLABORATION.md)     | Commit format, branching, CI policies      |
 | [`KMP_CONVENTIONS.md`](docs/conventions/KMP_CONVENTIONS.md)                 | KMP/Compose Multiplatform architecture     |
-| [`SPRING_BOOT_CONVENTIONS.md`](docs/conventions/SPRING_BOOT_CONVENTIONS.md) | Spring Boot architecture and Kotlin idioms |
-| [`RUST_CONVENTIONS.md`](docs/conventions/RUST_CONVENTIONS.md)               | Rust conventions (future)                  |
+| [`RUST_CONVENTIONS.md`](docs/conventions/RUST_CONVENTIONS.md)               | Rust conventions (Axum, server patterns)   |
+| [`GO_CONVENTIONS.md`](docs/conventions/GO_CONVENTIONS.md)                   | Go conventions (chi, server patterns)      |
 | [`BRUNO_CONVENTIONS.md`](docs/conventions/BRUNO_CONVENTIONS.md)             | API testing with Bruno                     |
 
 ### Product Requirements
@@ -61,14 +63,23 @@ cd cmp-ttrpg-companion
 ./gradlew build
 ```
 
-### Server (Spring Boot)
+### Server (Rust)
 
 ```bash
-cd spring-server
-./gradlew bootRun
+cd server-rust
+cargo run
 ```
 
-> Requires a running PostgreSQL instance. Configure connection in `application.yml`.
+> Listens on port `3000` by default. Set `DATA_DIR` to override the path to `data/compendium/`.
+
+### Server (Go)
+
+```bash
+cd server-go
+go run cmd/server/main.go
+```
+
+> Listens on port `8080` by default. Set `DATA_DIR` to override the path to `data/compendium/`.
 
 ### API Tests (Bruno)
 
