@@ -55,7 +55,9 @@ fun Spell.getColor(): Color = Red900
 fun Spell.getFormattedSchool() =
     stringResource(Res.string.formatted_spell_school_level, getSchool(), level)
 
-fun Spell.Components.toDisplayString(): String = buildList {
+fun Spell.getFormattedComponents(): String = components.toFormattedString()
+
+private fun Spell.Components.toFormattedString(): String = buildList {
     if (verbal) add("V")
     if (somatic) add("S")
     if (material) add("M")
