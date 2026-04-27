@@ -99,26 +99,26 @@ private fun SpellGrid(spell: Spell, translation: Spell.Translation, spellColor: 
         Row(Modifier.background(spellColor)) {
             Column(Modifier.weight(1f)) {
                 SpellGridItem(
-                    title = stringResource(Res.string.spell_casting_time),
-                    subtitle = translation.castingTime,
+                    label = stringResource(Res.string.spell_casting_time),
+                    value = translation.castingTime,
                     spellColor = spellColor,
                 )
                 SpellGridItem(
-                    title = stringResource(Res.string.spell_components),
-                    subtitle = spell.getFormattedComponents(),
+                    label = stringResource(Res.string.spell_components),
+                    value = spell.getFormattedComponents(),
                     spellColor = spellColor,
                 )
             }
             Spacer(Modifier.width(spacingMedium))
             Column(Modifier.weight(1f)) {
                 SpellGridItem(
-                    title = stringResource(Res.string.spell_range),
-                    subtitle = translation.range,
+                    label = stringResource(Res.string.spell_range),
+                    value = translation.range,
                     spellColor = spellColor,
                 )
                 SpellGridItem(
-                    title = stringResource(Res.string.spell_duration),
-                    subtitle = translation.duration,
+                    label = stringResource(Res.string.spell_duration),
+                    value = translation.duration,
                     spellColor = spellColor,
                 )
             }
@@ -127,10 +127,10 @@ private fun SpellGrid(spell: Spell, translation: Spell.Translation, spellColor: 
 }
 
 @Composable
-private fun SpellGridItem(title: String, subtitle: String, spellColor: Color) {
+private fun SpellGridItem(label: String, value: String, spellColor: Color) {
     Column(Modifier.background(MaterialTheme.colorScheme.background)) {
         Text(
-            text = title,
+            text = label,
             fontSize = 18.sp,
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center,
@@ -143,7 +143,7 @@ private fun SpellGridItem(title: String, subtitle: String, spellColor: Color) {
         )
 
         Text(
-            text = subtitle,
+            text = value,
             fontSize = 16.sp,
             textAlign = TextAlign.Center,
             maxLines = 1,
