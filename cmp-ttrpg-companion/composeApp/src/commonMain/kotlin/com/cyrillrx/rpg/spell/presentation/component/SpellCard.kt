@@ -79,7 +79,7 @@ fun SpellCard(spell: Spell, modifier: Modifier = Modifier) {
                     .background(spellColor)
                     .padding(spacingMedium / 2),
             )
-            SpellGrid(spell, translation, spellColor, spacingMedium)
+            SpellGrid(spell, spellColor, spacingMedium)
             HtmlText(
                 text = translation.description,
                 fontSize = 16.sp,
@@ -94,7 +94,9 @@ fun SpellCard(spell: Spell, modifier: Modifier = Modifier) {
 }
 
 @Composable
-private fun SpellGrid(spell: Spell, translation: Spell.Translation, spellColor: Color, spacingMedium: Dp) {
+private fun SpellGrid(spell: Spell, spellColor: Color, spacingMedium: Dp) {
+    val translation = spell.resolveTranslation(currentLocale())
+
     Column {
         Row(Modifier.background(spellColor)) {
             Column(Modifier.weight(1f)) {
@@ -201,7 +203,6 @@ private fun SpellGridPreview(darkTheme: Boolean) {
     AppThemePreview(darkTheme = darkTheme) {
         SpellGrid(
             spell = spell,
-            translation = spell.resolveTranslation(currentLocale()),
             spellColor = spell.getColor(),
             spacingMedium = spacingMedium,
         )
