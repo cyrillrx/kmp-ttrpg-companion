@@ -71,4 +71,28 @@ class SpellMatchesFilterTest {
         val filter = SpellFilter(query = "explosion of flame")
         assertTrue(fireball.matches(filter))
     }
+
+    @Test
+    fun `filter by french query matches french title`() {
+        val filter = SpellFilter(query = "boule de feu")
+        assertTrue(fireball.matches(filter))
+    }
+
+    @Test
+    fun `filter by french query matches french description`() {
+        val filter = SpellFilter(query = "explosion de flammes")
+        assertTrue(fireball.matches(filter))
+    }
+
+    @Test
+    fun `english query still matches when spell has both translations`() {
+        val filter = SpellFilter(query = "fireball")
+        assertTrue(fireball.matches(filter))
+    }
+
+    @Test
+    fun `french query does not match english-only spell`() {
+        val filter = SpellFilter(query = "armure de mage")
+        assertFalse(mageArmor.matches(filter))
+    }
 }

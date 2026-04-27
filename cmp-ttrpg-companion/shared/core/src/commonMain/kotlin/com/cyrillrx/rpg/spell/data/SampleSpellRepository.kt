@@ -48,6 +48,14 @@ class SampleSpellRepository : SpellRepository {
                     materialDescription = "a tiny ball of bat guano and sulfur",
                     description = "A bright streak flashes from your pointing finger to a point you choose within range and then blossoms with a low roar into an explosion of flame.",
                 ),
+                "fr" to Spell.Translation(
+                    name = "Boule de feu",
+                    castingTime = "1 action",
+                    range = "45 mètres",
+                    duration = "Instantanée",
+                    materialDescription = "une minuscule bille de fiente de chauve-souris et de soufre",
+                    description = "Un trait lumineux jaillit de votre doigt pointé vers un point choisi à portée, puis explose dans un grondement sourd en une explosion de flammes.",
+                ),
             ),
         )
 
