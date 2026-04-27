@@ -6,7 +6,7 @@ import com.cyrillrx.core.domain.Result
 import com.cyrillrx.rpg.character.domain.PlayerCharacter
 import com.cyrillrx.rpg.spell.data.api.ApiSpell
 import com.cyrillrx.rpg.spell.domain.Spell
-import com.cyrillrx.rpg.spell.domain.Spell.School
+import com.cyrillrx.rpg.spell.domain.SpellComponents
 import com.cyrillrx.rpg.spell.domain.SpellFilter
 import com.cyrillrx.rpg.spell.domain.SpellRepository
 import com.cyrillrx.rpg.spell.domain.applyFilter
@@ -17,9 +17,9 @@ class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository 
 
     override suspend fun getAll(filter: SpellFilter?): List<Spell> {
         val allSpells = cache ?: loadFromFile()
-            .map { it.toSpell() }
+            .mapNotNull { it.toSpell() }
             .also { cache = it }
-        
+
         return allSpells.applyFilter(filter)
     }
 
@@ -40,57 +40,43 @@ class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository 
     }
 
     companion object {
-        private fun ApiSpell.toSpell(): Spell {
+        private fun ApiSpell.toSpell(): Spell? {
+            val id = id ?: return null
+            val translation = translations.resolve() ?: return null
+            val school = school?.toSchool() ?: return null
+            val apiComponents = components ?: return null
+
             return Spell(
-                id = title.orEmpty(),
-                title = title.orEmpty(),
-                description = content.orEmpty(),
+                id = id,
+                source = source ?: "srd_5.1",
+                title = translation.name.orEmpty(),
+                description = translation.description.orEmpty(),
                 level = level ?: 0,
-                castingTime = casting_time.orEmpty(),
-                range = range.orEmpty(),
-                components = components.orEmpty(),
-                duration = duration.orEmpty(),
-                schools = getSchools(),
-                availableClasses = getAvailableClasses(),
+                school = school,
+                concentration = concentration ?: false,
+                ritual = ritual ?: false,
+                castingTime = translation.castingTime.orEmpty(),
+                range = translation.range.orEmpty(),
+                duration = translation.duration.orEmpty(),
+                components = SpellComponents(
+                    verbal = apiComponents.verbal,
+                    somatic = apiComponents.somatic,
+                    material = apiComponents.material,
+                ),
+                materialDescription = translation.materialDescription,
+                availableClasses = availableClasses?.mapNotNull { it.toPlayerClass() } ?: emptyList(),
             )
         }
 
-        private fun ApiSpell.getSchools(): List<School> {
-            val apiSchool = header?.taxonomy?.spell_school
-            return apiSchool?.mapNotNull { it.toSchool() } ?: emptyList()
+        private fun Map<String, ApiSpell.Translation>?.resolve(locale: String = "fr"): ApiSpell.Translation? {
+            if (isNullOrEmpty()) return null
+            return get(locale) ?: get("en") ?: entries.minByOrNull { it.key }?.value
         }
 
-        private fun String.toSchool(): School? {
-            return when (this) {
-                "Abjuration" -> return School.ABJURATION
-                "Invocation" -> return School.CONJURATION
-                "Divination" -> return School.DIVINATION
-                "Enchantement" -> return School.ENCHANTMENT
-                "Évocation" -> return School.EVOCATION
-                "Illusion" -> return School.ILLUSION
-                "Nécromancie" -> return School.NECROMANCY
-                "Transmutation" -> return School.TRANSMUTATION
-                else -> null
-            }
-        }
+        private fun String.toSchool(): Spell.School? =
+            Spell.School.entries.firstOrNull { it.name.lowercase() == this.lowercase() }
 
-        private fun ApiSpell.getAvailableClasses(): List<PlayerCharacter.Class> {
-            val apiCharacterClasses = header?.taxonomy?.spell_class
-            return apiCharacterClasses?.mapNotNull { it?.toCharacterClasses() } ?: emptyList()
-        }
-
-        private fun String.toCharacterClasses(): PlayerCharacter.Class? {
-            return when (this) {
-                "Bard" -> return PlayerCharacter.Class.BARD
-                "Clerc" -> return PlayerCharacter.Class.CLERIC
-                "Druide" -> return PlayerCharacter.Class.DRUID
-                "Paladin" -> return PlayerCharacter.Class.PALADIN
-                "Ranger" -> return PlayerCharacter.Class.RANGER
-                "Ensorceleur/Sorcelame" -> return PlayerCharacter.Class.SORCERER
-                "Sorcier" -> return PlayerCharacter.Class.WARLOCK
-                "Magicien" -> return PlayerCharacter.Class.WIZARD
-                else -> null
-            }
-        }
+        private fun String.toPlayerClass(): PlayerCharacter.Class? =
+            PlayerCharacter.Class.entries.firstOrNull { it.name.lowercase() == this.lowercase() }
     }
 }
