@@ -70,6 +70,6 @@ class SpellDetailViewModelTest {
         val state = viewModel.state.value
         assertIs<DetailState.Found<Spell>>(state)
         assertEquals(expected = spell.id, actual = state.item.id)
-        assertEquals(expected = spell.title, actual = state.item.title)
+        assertEquals(expected = spell.translations, actual = state.item.translations)
     }
 }

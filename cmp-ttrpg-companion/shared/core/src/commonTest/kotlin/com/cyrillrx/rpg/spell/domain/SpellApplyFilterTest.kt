@@ -47,7 +47,7 @@ class SpellApplyFilterTest {
     fun `filter by query keeps only matching spells`() {
         val result = allSpells.applyFilter(SpellFilter(query = "fireball"))
         assertEquals(1, result.size)
-        assertEquals("Fireball", result.first().title)
+        assertEquals("Fireball", result.first().translations["en"]?.name)
     }
 
     @Test

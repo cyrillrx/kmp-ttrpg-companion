@@ -125,14 +125,15 @@ class SpellListViewModelTest {
 
         advanceUntilIdle()
 
-        viewModel.onSearchQueryChanged(spell.title)
+        val spellName = spell.translations["en"]?.name.orEmpty()
+        viewModel.onSearchQueryChanged(spellName)
 
         advanceUntilIdle()
 
         val state = viewModel.state.value
         val body = assertIs<SpellListState.Body.WithData>(state.body)
         assertEquals(expected = 1, actual = body.searchResults.size)
-        assertEquals(expected = spell.title, actual = body.searchResults.first().title)
+        assertEquals(expected = spellName, actual = body.searchResults.first().translations["en"]?.name)
     }
 
     @Test
