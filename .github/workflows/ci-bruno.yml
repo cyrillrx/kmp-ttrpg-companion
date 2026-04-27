@@ -52,4 +52,6 @@ jobs:
           node-version: '20'
 
       - name: Run Bruno tests
-        run: npx --yes @usebruno/cli@1 run bruno/Server bruno/Compendium --env local
+        run: |
+          npx --yes @usebruno/cli@1 run bruno/Server --env local
+          npx --yes @usebruno/cli@1 run bruno/Compendium --env local
