@@ -10,16 +10,23 @@ import com.cyrillrx.rpg.spell.domain.SpellFilter
 import com.cyrillrx.rpg.spell.domain.SpellRepository
 import com.cyrillrx.rpg.spell.domain.applyFilter
 
+private typealias SpellResult = Result<Spell, SpellImportError>
+
 class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository {
 
     private var cache: List<Spell>? = null
 
     override suspend fun getAll(filter: SpellFilter?): List<Spell> {
-        val allSpells = cache ?: loadFromFile()
-            .mapNotNull { it.toSpell() }
-            .also { cache = it }
-
+        val allSpells = cache ?: loadAndParse()
         return allSpells.applyFilter(filter)
+    }
+
+    private suspend fun loadAndParse(): List<Spell> {
+        val results = loadFromFile().map { it.toSpell() }
+        val failures = results.filterIsInstance<Result.Failure<SpellImportError>>()
+        val successes = results.filterIsInstance<Result.Success<Spell>>()
+        failures.forEach { println("WARNING: spell import error: ${it.error}") }
+        return successes.map { it.value }.also { cache = it }
     }
 
     override suspend fun getById(id: String): Spell? =
@@ -39,29 +46,37 @@ class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository 
     }
 
     companion object {
-        private fun ApiSpell.toSpell(): Spell? {
-            val id = id ?: return null
+        private fun ApiSpell.toSpell(): SpellResult {
+            val id = id ?: return Result.Failure(SpellImportError.MissingId)
+            val source = source ?: return Result.Failure(SpellImportError.MissingSource(id))
+            val level = level ?: return Result.Failure(SpellImportError.MissingLevel(id))
+            val school = school?.toSchool()
+                ?: return Result.Failure(SpellImportError.UnknownSchool(id, school.orEmpty()))
+            val concentration = concentration ?: return Result.Failure(SpellImportError.MissingConcentration(id))
+            val ritual = ritual ?: return Result.Failure(SpellImportError.MissingRitual(id))
+            val apiComponents = components ?: return Result.Failure(SpellImportError.MissingComponents(id))
+            val availableClasses = availableClasses ?: return Result.Failure(SpellImportError.MissingAvailableClasses(id))
             val translations = translations
                 ?.mapValues { (_, t) -> t.toDomain() }
                 ?.takeIf { it.isNotEmpty() }
-                ?: return null
-            val school = school?.toSchool() ?: return null
-            val apiComponents = components ?: return null
+                ?: return Result.Failure(SpellImportError.MissingTranslations(id))
 
-            return Spell(
-                id = id,
-                source = source ?: "srd_5.1",
-                level = level ?: 0,
-                school = school,
-                concentration = concentration ?: false,
-                ritual = ritual ?: false,
-                components = Spell.Components(
-                    verbal = apiComponents.verbal,
-                    somatic = apiComponents.somatic,
-                    material = apiComponents.material,
-                ),
-                availableClasses = availableClasses?.mapNotNull { it.toPlayerClass() } ?: emptyList(),
-                translations = translations,
+            return Result.Success(
+                Spell(
+                    id = id,
+                    source = source,
+                    level = level,
+                    school = school,
+                    concentration = concentration,
+                    ritual = ritual,
+                    components = Spell.Components(
+                        verbal = apiComponents.verbal,
+                        somatic = apiComponents.somatic,
+                        material = apiComponents.material,
+                    ),
+                    availableClasses = availableClasses.mapNotNull { it.toPlayerClass() },
+                    translations = translations,
+                )
             )
         }
 
