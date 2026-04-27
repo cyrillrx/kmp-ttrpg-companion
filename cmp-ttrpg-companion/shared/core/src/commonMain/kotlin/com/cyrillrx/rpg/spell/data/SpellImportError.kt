@@ -10,6 +10,8 @@ sealed interface SpellImportError : Error {
     data class MissingRitual(val id: String) : SpellImportError
     data class MissingComponents(val id: String) : SpellImportError
     data class MissingAvailableClasses(val id: String) : SpellImportError
+    data class EmptyAvailableClasses(val id: String) : SpellImportError
     data class MissingTranslations(val id: String) : SpellImportError
+    data class InvalidTranslation(val id: String, val locale: String) : SpellImportError
     data class UnknownSchool(val id: String, val raw: String) : SpellImportError
 }

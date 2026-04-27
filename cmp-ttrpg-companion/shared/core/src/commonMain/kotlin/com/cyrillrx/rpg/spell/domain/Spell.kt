@@ -24,8 +24,9 @@ class Spell(
     fun resolveTranslation(locale: String): Translation =
         translations[locale]
             ?: translations[FALLBACK_LOCALE]
-            ?: translations.entries.minByOrNull { it.key }?.value
-            ?: error("Spell $id has empty translations")
+            ?: requireNotNull(translations.entries.minByOrNull { it.key }?.value) {
+                "Spell $id has empty translations"
+            }
 
     enum class School {
         ABJURATION,
