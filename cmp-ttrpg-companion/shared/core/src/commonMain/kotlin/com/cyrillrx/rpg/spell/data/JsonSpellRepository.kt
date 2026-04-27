@@ -11,13 +11,16 @@ import com.cyrillrx.rpg.spell.domain.SpellFilter
 import com.cyrillrx.rpg.spell.domain.SpellRepository
 import com.cyrillrx.rpg.spell.domain.applyFilter
 
-class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository {
+class JsonSpellRepository(
+    private val fileReader: FileReader,
+    private val locale: String,
+) : SpellRepository {
 
     private var cache: List<Spell>? = null
 
     override suspend fun getAll(filter: SpellFilter?): List<Spell> {
         val allSpells = cache ?: loadFromFile()
-            .mapNotNull { it.toSpell() }
+            .mapNotNull { it.toSpell(locale) }
             .also { cache = it }
 
         return allSpells.applyFilter(filter)
@@ -40,9 +43,11 @@ class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository 
     }
 
     companion object {
-        private fun ApiSpell.toSpell(): Spell? {
+        private const val FALLBACK_LOCALE = "en"
+
+        private fun ApiSpell.toSpell(locale: String): Spell? {
             val id = id ?: return null
-            val translation = translations.resolve() ?: return null
+            val translation = translations.resolve(locale) ?: return null
             val school = school?.toSchool() ?: return null
             val apiComponents = components ?: return null
 
@@ -68,9 +73,9 @@ class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository 
             )
         }
 
-        private fun Map<String, ApiSpell.Translation>?.resolve(locale: String = "fr"): ApiSpell.Translation? {
+        private fun Map<String, ApiSpell.Translation>?.resolve(locale: String): ApiSpell.Translation? {
             if (isNullOrEmpty()) return null
-            return get(locale) ?: get("en") ?: entries.minByOrNull { it.key }?.value
+            return get(locale) ?: get(FALLBACK_LOCALE) ?: entries.minByOrNull { it.key }?.value
         }
 
         private fun String.toSchool(): Spell.School? =
