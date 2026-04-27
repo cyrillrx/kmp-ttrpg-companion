@@ -96,7 +96,7 @@ fun App(dbDriverFactory: DatabaseDriverFactory) {
 
                 handleSpellRoutes(
                     router = SpellRouterImpl(backStack),
-                    spellRepository = JsonSpellRepository(fileReader, currentLocale()),
+                    spellRepository = JsonSpellRepository(fileReader),
                     userListRepository = userListRepository,
                 )
                 handleMagicalItemRoutes(

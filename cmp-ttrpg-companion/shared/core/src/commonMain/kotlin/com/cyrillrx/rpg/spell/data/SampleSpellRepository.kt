@@ -30,99 +30,119 @@ class SampleSpellRepository : SpellRepository {
         fun fireball() = Spell(
             id = "fireball",
             source = "srd_5.1",
-            title = "Fireball",
-            description = "A bright streak flashes from your pointing finger to a point you choose within range and then blossoms with a low roar into an explosion of flame.",
             level = 3,
             school = Spell.School.EVOCATION,
             concentration = false,
             ritual = false,
-            castingTime = "1 action",
-            range = "45 meters",
-            duration = "Instantaneous",
             components = SpellComponents(verbal = true, somatic = true, material = true),
-            materialDescription = "a tiny ball of bat guano and sulfur",
             availableClasses = listOf(
                 PlayerCharacter.Class.SORCERER,
                 PlayerCharacter.Class.WIZARD,
+            ),
+            translations = mapOf(
+                "en" to Spell.Translation(
+                    name = "Fireball",
+                    castingTime = "1 action",
+                    range = "150 feet",
+                    duration = "Instantaneous",
+                    materialDescription = "a tiny ball of bat guano and sulfur",
+                    description = "A bright streak flashes from your pointing finger to a point you choose within range and then blossoms with a low roar into an explosion of flame.",
+                ),
             ),
         )
 
         fun mageArmor() = Spell(
             id = "mage-armor",
             source = "srd_5.1",
-            title = "Mage Armor",
-            description = "You touch a willing creature who isn't wearing armor, and a protective magical force surrounds it until the spell ends.",
             level = 1,
             school = Spell.School.ABJURATION,
             concentration = false,
             ritual = false,
-            castingTime = "1 action",
-            range = "Touch",
-            duration = "8 hours",
             components = SpellComponents(verbal = true, somatic = true, material = true),
-            materialDescription = "a piece of cured leather",
             availableClasses = listOf(PlayerCharacter.Class.WIZARD),
+            translations = mapOf(
+                "en" to Spell.Translation(
+                    name = "Mage Armor",
+                    castingTime = "1 action",
+                    range = "Touch",
+                    duration = "8 hours",
+                    materialDescription = "a piece of cured leather",
+                    description = "You touch a willing creature who isn't wearing armor, and a protective magical force surrounds it until the spell ends.",
+                ),
+            ),
         )
 
         private fun detectThoughts() = Spell(
             id = "detect-thoughts",
             source = "srd_5.1",
-            title = "Detect Thoughts",
-            description = "For the duration, you can read the thoughts of certain creatures.",
             level = 2,
             school = Spell.School.DIVINATION,
             concentration = true,
             ritual = false,
-            castingTime = "1 action",
-            range = "Self",
-            duration = "Concentration, up to 1 minute",
             components = SpellComponents(verbal = true, somatic = true, material = true),
-            materialDescription = "a copper piece",
             availableClasses = listOf(
                 PlayerCharacter.Class.SORCERER,
                 PlayerCharacter.Class.WIZARD,
+            ),
+            translations = mapOf(
+                "en" to Spell.Translation(
+                    name = "Detect Thoughts",
+                    castingTime = "1 action",
+                    range = "Self",
+                    duration = "Concentration, up to 1 minute",
+                    materialDescription = "a copper piece",
+                    description = "For the duration, you can read the thoughts of certain creatures.",
+                ),
             ),
         )
 
         private fun thunderwave() = Spell(
             id = "thunderwave",
             source = "srd_5.1",
-            title = "Thunderwave",
-            description = "A wave of thunderous force sweeps out from you.",
             level = 1,
             school = Spell.School.EVOCATION,
             concentration = false,
             ritual = false,
-            castingTime = "1 action",
-            range = "Self (15-foot cube)",
-            duration = "Instantaneous",
             components = SpellComponents(verbal = true, somatic = true, material = false),
-            materialDescription = null,
             availableClasses = listOf(
                 PlayerCharacter.Class.BARD,
                 PlayerCharacter.Class.SORCERER,
                 PlayerCharacter.Class.WIZARD,
+            ),
+            translations = mapOf(
+                "en" to Spell.Translation(
+                    name = "Thunderwave",
+                    castingTime = "1 action",
+                    range = "Self (15-foot cube)",
+                    duration = "Instantaneous",
+                    materialDescription = null,
+                    description = "A wave of thunderous force sweeps out from you.",
+                ),
             ),
         )
 
         private fun counterspell() = Spell(
             id = "counterspell",
             source = "srd_5.1",
-            title = "Counterspell",
-            description = "You attempt to interrupt a creature in the process of casting a spell.",
             level = 3,
             school = Spell.School.ABJURATION,
             concentration = false,
             ritual = false,
-            castingTime = "1 reaction when you see an opponent in a 10-foot radius",
-            range = "60 feet",
-            duration = "Instantaneous",
             components = SpellComponents(verbal = false, somatic = true, material = false),
-            materialDescription = null,
             availableClasses = listOf(
                 PlayerCharacter.Class.SORCERER,
                 PlayerCharacter.Class.WARLOCK,
                 PlayerCharacter.Class.WIZARD,
+            ),
+            translations = mapOf(
+                "en" to Spell.Translation(
+                    name = "Counterspell",
+                    castingTime = "1 reaction",
+                    range = "60 feet",
+                    duration = "Instantaneous",
+                    materialDescription = null,
+                    description = "You attempt to interrupt a creature in the process of casting a spell.",
+                ),
             ),
         )
     }

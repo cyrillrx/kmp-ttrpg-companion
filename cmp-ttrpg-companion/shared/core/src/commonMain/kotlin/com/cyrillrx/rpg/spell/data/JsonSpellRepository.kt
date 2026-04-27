@@ -11,16 +11,13 @@ import com.cyrillrx.rpg.spell.domain.SpellFilter
 import com.cyrillrx.rpg.spell.domain.SpellRepository
 import com.cyrillrx.rpg.spell.domain.applyFilter
 
-class JsonSpellRepository(
-    private val fileReader: FileReader,
-    private val locale: String,
-) : SpellRepository {
+class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository {
 
     private var cache: List<Spell>? = null
 
     override suspend fun getAll(filter: SpellFilter?): List<Spell> {
         val allSpells = cache ?: loadFromFile()
-            .mapNotNull { it.toSpell(locale) }
+            .mapNotNull { it.toSpell() }
             .also { cache = it }
 
         return allSpells.applyFilter(filter)
@@ -43,40 +40,40 @@ class JsonSpellRepository(
     }
 
     companion object {
-        private const val FALLBACK_LOCALE = "en"
-
-        private fun ApiSpell.toSpell(locale: String): Spell? {
+        private fun ApiSpell.toSpell(): Spell? {
             val id = id ?: return null
-            val translation = translations.resolve(locale) ?: return null
+            val translations = translations
+                ?.mapValues { (_, t) -> t.toDomain() }
+                ?.takeIf { it.isNotEmpty() }
+                ?: return null
             val school = school?.toSchool() ?: return null
             val apiComponents = components ?: return null
 
             return Spell(
                 id = id,
                 source = source ?: "srd_5.1",
-                title = translation.name.orEmpty(),
-                description = translation.description.orEmpty(),
                 level = level ?: 0,
                 school = school,
                 concentration = concentration ?: false,
                 ritual = ritual ?: false,
-                castingTime = translation.castingTime.orEmpty(),
-                range = translation.range.orEmpty(),
-                duration = translation.duration.orEmpty(),
                 components = SpellComponents(
                     verbal = apiComponents.verbal,
                     somatic = apiComponents.somatic,
                     material = apiComponents.material,
                 ),
-                materialDescription = translation.materialDescription,
                 availableClasses = availableClasses?.mapNotNull { it.toPlayerClass() } ?: emptyList(),
+                translations = translations,
             )
         }
 
-        private fun Map<String, ApiSpell.Translation>?.resolve(locale: String): ApiSpell.Translation? {
-            if (isNullOrEmpty()) return null
-            return get(locale) ?: get(FALLBACK_LOCALE) ?: entries.minByOrNull { it.key }?.value
-        }
+        private fun ApiSpell.Translation.toDomain() = Spell.Translation(
+            name = name.orEmpty(),
+            castingTime = castingTime.orEmpty(),
+            range = range.orEmpty(),
+            duration = duration.orEmpty(),
+            materialDescription = materialDescription,
+            description = description.orEmpty(),
+        )
 
         private fun String.toSchool(): Spell.School? =
             Spell.School.entries.firstOrNull { it.name.lowercase() == this.lowercase() }
