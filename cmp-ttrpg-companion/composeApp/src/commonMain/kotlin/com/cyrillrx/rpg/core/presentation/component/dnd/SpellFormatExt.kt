@@ -12,7 +12,6 @@ import androidx.compose.material.icons.outlined.Dangerous
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
-import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.character.domain.PlayerCharacter
 import com.cyrillrx.rpg.core.presentation.theme.Red900
 import com.cyrillrx.rpg.spell.domain.Spell
@@ -55,12 +54,6 @@ fun Spell.getColor(): Color = Red900
 @Composable
 fun Spell.getFormattedSchool() =
     stringResource(Res.string.formatted_spell_school_level, getSchool(), level)
-
-@Composable
-fun Spell.getSubtitle(): String {
-    val castingTime = resolveTranslation(currentLocale()).castingTime
-    return stringResource(Res.string.formatted_spell_school_level, getSchool(), level) + " - " + castingTime
-}
 
 fun Spell.Components.toDisplayString(): String = buildList {
     if (verbal) add("V")
