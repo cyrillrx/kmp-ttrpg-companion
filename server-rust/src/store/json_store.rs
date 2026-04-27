@@ -49,6 +49,7 @@ impl CompendiumStore for JsonCompendiumStore {
 // ── Raw JSON structs ──────────────────────────────────────────────────────────
 
 #[derive(Deserialize)]
+#[serde(rename_all = "camelCase")]
 struct SpellJson {
     id: Option<String>,
     source: Option<String>,
