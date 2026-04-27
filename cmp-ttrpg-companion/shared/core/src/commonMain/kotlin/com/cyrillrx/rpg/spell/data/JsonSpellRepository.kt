@@ -6,7 +6,6 @@ import com.cyrillrx.core.domain.Result
 import com.cyrillrx.rpg.character.domain.PlayerCharacter
 import com.cyrillrx.rpg.spell.data.api.ApiSpell
 import com.cyrillrx.rpg.spell.domain.Spell
-import com.cyrillrx.rpg.spell.domain.SpellComponents
 import com.cyrillrx.rpg.spell.domain.SpellFilter
 import com.cyrillrx.rpg.spell.domain.SpellRepository
 import com.cyrillrx.rpg.spell.domain.applyFilter
@@ -56,7 +55,7 @@ class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository 
                 school = school,
                 concentration = concentration ?: false,
                 ritual = ritual ?: false,
-                components = SpellComponents(
+                components = Spell.Components(
                     verbal = apiComponents.verbal,
                     somatic = apiComponents.somatic,
                     material = apiComponents.material,

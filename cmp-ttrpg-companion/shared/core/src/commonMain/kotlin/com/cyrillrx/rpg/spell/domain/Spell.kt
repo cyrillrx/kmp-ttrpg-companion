@@ -13,7 +13,7 @@ class Spell(
     val school: School,
     val concentration: Boolean,
     val ritual: Boolean,
-    val components: SpellComponents,
+    val components: Components,
     val availableClasses: List<PlayerCharacter.Class>,
     val translations: Map<String, Translation>,
 ) {
@@ -37,6 +37,13 @@ class Spell(
         NECROMANCY,
         TRANSMUTATION,
     }
+
+    @Serializable
+    data class Components(
+        val verbal: Boolean,
+        val somatic: Boolean,
+        val material: Boolean,
+    )
 
     @Serializable
     data class Translation(

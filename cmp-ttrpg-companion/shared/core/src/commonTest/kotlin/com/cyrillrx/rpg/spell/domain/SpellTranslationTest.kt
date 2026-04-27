@@ -17,7 +17,7 @@ class SpellTranslationTest {
                 school = Spell.School.EVOCATION,
                 concentration = false,
                 ritual = false,
-                components = SpellComponents(verbal = false, somatic = false, material = false),
+                components = Spell.Components(verbal = false, somatic = false, material = false),
                 availableClasses = emptyList(),
                 translations = emptyMap(),
             )
@@ -52,7 +52,7 @@ class SpellTranslationTest {
         school = Spell.School.EVOCATION,
         concentration = false,
         ritual = false,
-        components = SpellComponents(verbal = false, somatic = false, material = false),
+        components = Spell.Components(verbal = false, somatic = false, material = false),
         availableClasses = listOf(PlayerCharacter.Class.WIZARD),
         translations = locales.associateWith { locale ->
             Spell.Translation(
