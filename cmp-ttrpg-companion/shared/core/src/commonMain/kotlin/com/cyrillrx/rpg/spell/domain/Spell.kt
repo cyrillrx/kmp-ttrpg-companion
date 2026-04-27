@@ -6,14 +6,18 @@ import kotlinx.serialization.Serializable
 @Serializable
 class Spell(
     val id: String,
+    val source: String,
     val title: String,
     val description: String,
     val level: Int,
+    val school: School,
+    val concentration: Boolean,
+    val ritual: Boolean,
     val castingTime: String,
     val range: String,
-    val components: String,
     val duration: String,
-    val schools: List<School>,
+    val components: SpellComponents,
+    val materialDescription: String?,
     val availableClasses: List<PlayerCharacter.Class>,
 ) {
     enum class School {

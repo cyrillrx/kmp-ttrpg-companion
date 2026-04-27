@@ -17,7 +17,7 @@ fun List<Spell>.applyFilter(filter: SpellFilter?): List<Spell> {
 }
 
 internal fun Spell.matches(filter: SpellFilter): Boolean {
-    return (filter.schools.isEmpty() || schools.any { filter.schools.contains(it) }) &&
+    return (filter.schools.isEmpty() || school in filter.schools) &&
         (filter.playerClasses.isEmpty() || availableClasses.any { filter.playerClasses.contains(it) }) &&
         (filter.levels.isEmpty() || filter.levels.contains(level)) &&
         (filter.query.isBlank() || matches(filter.query))
