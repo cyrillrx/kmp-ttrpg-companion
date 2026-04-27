@@ -16,7 +16,7 @@ import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.character.domain.PlayerCharacter
 import com.cyrillrx.rpg.core.presentation.theme.Red900
 import com.cyrillrx.rpg.spell.domain.Spell
-import com.cyrillrx.rpg.spell.domain.resolve
+import com.cyrillrx.rpg.spell.domain.SpellComponents
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.class_barbarian
@@ -59,9 +59,15 @@ fun Spell.getFormattedSchool() =
 
 @Composable
 fun Spell.getSubtitle(): String {
-    val castingTime = translations.resolve(currentLocale())?.castingTime.orEmpty()
+    val castingTime = resolveTranslation(currentLocale()).castingTime
     return stringResource(Res.string.formatted_spell_school_level, getSchool(), level) + " - " + castingTime
 }
+
+fun SpellComponents.toDisplayString(): String = buildList {
+    if (verbal) add("V")
+    if (somatic) add("S")
+    if (material) add("M")
+}.joinToString(", ")
 
 @Composable
 fun Spell.getSchool(): String = school.toFormattedString()

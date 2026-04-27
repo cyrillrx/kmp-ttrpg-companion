@@ -18,7 +18,6 @@ import androidx.compose.ui.text.style.TextOverflow
 import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.dnd.getSubtitle
 import com.cyrillrx.rpg.core.presentation.component.dnd.toIcon
-import com.cyrillrx.rpg.spell.domain.resolve
 import com.cyrillrx.rpg.core.presentation.theme.iconSizeMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
@@ -47,7 +46,7 @@ class SpellAddToListProvider(
 
     @Composable
     override fun Header(entity: Spell) {
-        val translation = entity.translations.resolve(currentLocale())
+        val translation = entity.resolveTranslation(currentLocale())
         val school = entity.school
         Column(
             verticalArrangement = Arrangement.spacedBy(spacingSmall),
@@ -55,7 +54,7 @@ class SpellAddToListProvider(
             modifier = Modifier.fillMaxWidth(),
         ) {
             Text(
-                text = translation?.name.orEmpty(),
+                text = translation.name,
                 style = MaterialTheme.typography.titleLarge,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.onSurface,

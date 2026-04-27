@@ -3,6 +3,8 @@ package com.cyrillrx.rpg.spell.domain
 import com.cyrillrx.rpg.character.domain.PlayerCharacter
 import kotlinx.serialization.Serializable
 
+private const val FALLBACK_LOCALE = "en"
+
 @Serializable
 class Spell(
     val id: String,
@@ -15,6 +17,16 @@ class Spell(
     val availableClasses: List<PlayerCharacter.Class>,
     val translations: Map<String, Translation>,
 ) {
+    init {
+        require(translations.isNotEmpty()) { "Spell $id must have at least one translation" }
+    }
+
+    fun resolveTranslation(locale: String): Translation =
+        translations[locale]
+            ?: translations[FALLBACK_LOCALE]
+            ?: translations.entries.minByOrNull { it.key }?.value
+            ?: error("Spell $id has empty translations")
+
     enum class School {
         ABJURATION,
         CONJURATION,
@@ -35,11 +47,4 @@ class Spell(
         val materialDescription: String?,
         val description: String,
     )
-}
-
-private const val FALLBACK_LOCALE = "en"
-
-fun Map<String, Spell.Translation>.resolve(locale: String): Spell.Translation? {
-    if (isEmpty()) return null
-    return get(locale) ?: get(FALLBACK_LOCALE) ?: entries.minByOrNull { it.key }?.value
 }

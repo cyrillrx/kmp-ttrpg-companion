@@ -27,7 +27,7 @@ import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.HtmlText
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
 import com.cyrillrx.rpg.core.presentation.component.dnd.getFormattedSchool
-import com.cyrillrx.rpg.spell.domain.resolve
+import com.cyrillrx.rpg.core.presentation.component.dnd.toDisplayString
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
@@ -43,7 +43,7 @@ import rpg_companion.composeapp.generated.resources.spell_range
 
 @Composable
 fun SpellCard(spell: Spell, modifier: Modifier = Modifier) {
-    val translation = spell.translations.resolve(currentLocale())
+    val translation = spell.resolveTranslation(currentLocale())
     val spellColor = spell.getColor()
     Card(
         modifier = modifier
@@ -54,7 +54,7 @@ fun SpellCard(spell: Spell, modifier: Modifier = Modifier) {
     ) {
         Column(Modifier.padding(spacingMedium)) {
             Text(
-                text = translation?.name.orEmpty(),
+                text = translation.name,
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.Center,
@@ -81,7 +81,7 @@ fun SpellCard(spell: Spell, modifier: Modifier = Modifier) {
             )
             SpellGrid(spell, translation, spellColor, spacingMedium)
             HtmlText(
-                text = translation?.description.orEmpty(),
+                text = translation.description,
                 fontSize = 16.sp,
                 overflow = TextOverflow.Ellipsis,
                 modifier = Modifier
@@ -94,13 +94,13 @@ fun SpellCard(spell: Spell, modifier: Modifier = Modifier) {
 }
 
 @Composable
-private fun SpellGrid(spell: Spell, translation: Spell.Translation?, spellColor: Color, spacingMedium: Dp) {
+private fun SpellGrid(spell: Spell, translation: Spell.Translation, spellColor: Color, spacingMedium: Dp) {
     Column {
         Row(Modifier.background(spellColor)) {
             Column(Modifier.weight(1f)) {
                 SpellGridItem(
                     title = stringResource(Res.string.spell_casting_time),
-                    subtitle = translation?.castingTime.orEmpty(),
+                    subtitle = translation.castingTime,
                     spellColor = spellColor,
                 )
                 SpellGridItem(
@@ -113,12 +113,12 @@ private fun SpellGrid(spell: Spell, translation: Spell.Translation?, spellColor:
             Column(Modifier.weight(1f)) {
                 SpellGridItem(
                     title = stringResource(Res.string.spell_range),
-                    subtitle = translation?.range.orEmpty(),
+                    subtitle = translation.range,
                     spellColor = spellColor,
                 )
                 SpellGridItem(
                     title = stringResource(Res.string.spell_duration),
-                    subtitle = translation?.duration.orEmpty(),
+                    subtitle = translation.duration,
                     spellColor = spellColor,
                 )
             }
@@ -199,6 +199,11 @@ private fun SpellGridPreview(darkTheme: Boolean) {
     val spell = SampleSpellRepository.getFirst()
 
     AppThemePreview(darkTheme = darkTheme) {
-        SpellGrid(spell, spell.getColor(), spacingMedium)
+        SpellGrid(
+            spell = spell,
+            translation = spell.resolveTranslation(currentLocale()),
+            spellColor = spell.getColor(),
+            spacingMedium = spacingMedium,
+        )
     }
 }
