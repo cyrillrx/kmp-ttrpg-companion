@@ -55,8 +55,7 @@ func loadSpells(path string) ([]model.Spell, error) {
 	}
 
 	var raw []model.SpellJson
-	err = json.Unmarshal(data, &raw)
-	if err != nil {
+	if err = json.Unmarshal(data, &raw); err != nil {
 		return nil, err
 	}
 
@@ -113,28 +112,71 @@ func loadMagicalItems(path string) ([]model.MagicalItem, error) {
 
 // ── Converters ────────────────────────────────────────────────────────────────
 
-func spellFromJson(r model.SpellJson) (model.Spell, bool) {
-	if r.Title == nil || *r.Title == "" {
+func spellFromJson(spell model.SpellJson) (model.Spell, bool) {
+	if spell.ID == nil || *spell.ID == "" {
+		fmt.Println("WARNING: skipping spell with missing id")
+		return model.Spell{}, false
+	}
+	id := *spell.ID
+	if spell.Source == nil {
+		fmt.Printf("WARNING: skipping spell '%s': missing source\n", id)
+		return model.Spell{}, false
+	}
+	if spell.Level == nil {
+		fmt.Printf("WARNING: skipping spell '%s': missing level\n", id)
+		return model.Spell{}, false
+	}
+	if spell.School == nil {
+		fmt.Printf("WARNING: skipping spell '%s': missing school\n", id)
+		return model.Spell{}, false
+	}
+	if spell.Concentration == nil {
+		fmt.Printf("WARNING: skipping spell '%s': missing concentration\n", id)
+		return model.Spell{}, false
+	}
+	if spell.Ritual == nil {
+		fmt.Printf("WARNING: skipping spell '%s': missing ritual\n", id)
+		return model.Spell{}, false
+	}
+	if spell.Components == nil {
+		fmt.Printf("WARNING: skipping spell '%s': missing components\n", id)
+		return model.Spell{}, false
+	}
+	if spell.AvailableClasses == nil {
+		fmt.Printf("WARNING: skipping spell '%s': missing availableClasses\n", id)
+		return model.Spell{}, false
+	}
+	if len(spell.Translations) == 0 {
+		fmt.Printf("WARNING: skipping spell '%s': missing translations\n", id)
 		return model.Spell{}, false
 	}
 
-	var schools, classes []string
-	if r.Header != nil && r.Header.Taxonomy != nil {
-		schools = r.Header.Taxonomy.SpellSchool
-		classes = r.Header.Taxonomy.SpellClass
+	translations := make(map[string]model.SpellTranslation, len(spell.Translations))
+	for locale, t := range spell.Translations {
+		translations[locale] = model.SpellTranslation{
+			Name:                derefString(t.Name),
+			CastingTime:         derefString(t.CastingTime),
+			Range:               derefString(t.Range),
+			Duration:            derefString(t.Duration),
+			MaterialDescription: t.MaterialDescription,
+			Description:         derefString(t.Description),
+		}
 	}
 
 	return model.Spell{
-		ID:               *r.Title,
-		Title:            *r.Title,
-		Description:      derefString(r.Content),
-		Level:            derefInt(r.Level),
-		CastingTime:      derefString(r.CastingTime),
-		Range:            derefString(r.Range),
-		Components:       derefString(r.Components),
-		Duration:         derefString(r.Duration),
-		Schools:          orEmptySlice(schools),
-		AvailableClasses: orEmptySlice(classes),
+		ID:            id,
+		Source:        *spell.Source,
+		Level:         *spell.Level,
+		School:        *spell.School,
+		Concentration: *spell.Concentration,
+		Ritual:        *spell.Ritual,
+		Components: model.SpellComponents{
+			Verbal:   spell.Components.Verbal,
+			Somatic:  spell.Components.Somatic,
+			Material: spell.Components.Material,
+		},
+		AvailableClasses: spell.AvailableClasses,
+		Translations:     translations,
 	}, true
 }
 
