@@ -19,5 +19,4 @@ fun <T, Data, E : Error> List<T>.partitionBy(
     return successes to failures
 }
 
-fun <Data, E : Error> List<Result<Data, E>>.partition(): Pair<List<Data>, List<E>> =
-    partitionBy { it }
+fun <Data, E : Error> List<Result<Data, E>>.partition(): Pair<List<Data>, List<E>> = partitionBy { it }
