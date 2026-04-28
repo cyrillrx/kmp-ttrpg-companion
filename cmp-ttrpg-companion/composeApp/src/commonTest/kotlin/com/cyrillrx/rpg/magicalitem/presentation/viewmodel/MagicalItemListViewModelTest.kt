@@ -106,7 +106,7 @@ class MagicalItemListViewModelTest {
 
         advanceUntilIdle()
 
-        val itemName = requireNotNull(item.translations["en"]).name
+        val itemName = item.resolveTranslation("en").name
         viewModel.onSearchQueryChanged(itemName)
 
         advanceUntilIdle()
@@ -114,7 +114,7 @@ class MagicalItemListViewModelTest {
         val state = viewModel.state.value
         val body = assertIs<MagicalItemListState.Body.WithData>(state.body)
         assertEquals(expected = 1, actual = body.searchResults.size)
-        assertEquals(expected = itemName, actual = requireNotNull(body.searchResults.first().translations["en"]).name)
+        assertEquals(expected = itemName, actual = body.searchResults.first().resolveTranslation("en").name)
     }
 
     @Test
