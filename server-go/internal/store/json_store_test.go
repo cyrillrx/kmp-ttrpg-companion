@@ -165,23 +165,52 @@ func TestSpellFromJson_nilId(t *testing.T) {
 
 // ── magicalItemFromJson ───────────────────────────────────────────────────────
 
-func TestMagicalItemFromJson_attunementPresent(t *testing.T) {
-	title := "Anneau de protection"
-	att := "Oui"
-	r := model.MagicalItemJson{Title: &title, Attunement: &att}
-	item, ok := magicalItemFromJson(r)
-	if !ok || !item.Attunement {
-		t.Errorf("expected attunement=true, got %+v", item)
+func makeMagicalItemJson(id, source, itemType, rarity string, attunement bool, translations map[string]model.MagicalItemTranslationJson) model.MagicalItemJson {
+	att := attunement
+	return model.MagicalItemJson{
+		ID:           &id,
+		Source:       &source,
+		Type:         &itemType,
+		Rarity:       &rarity,
+		Attunement:   &att,
+		Translations: translations,
 	}
 }
 
-func TestMagicalItemFromJson_attunementEmpty(t *testing.T) {
-	title := "Épée longue +1"
-	empty := ""
-	r := model.MagicalItemJson{Title: &title, Attunement: &empty}
+func TestMagicalItemFromJson_valid(t *testing.T) {
+	name := "Ring of Protection"
+	desc := "<p>...</p>"
+	r := makeMagicalItemJson("ring-of-protection", "srd_5.1", "ring", "rare", true, map[string]model.MagicalItemTranslationJson{
+		"en": {Name: &name, Description: &desc},
+	})
+	item, ok := magicalItemFromJson(r)
+	if !ok {
+		t.Fatal("expected ok")
+	}
+	if item.ID != "ring-of-protection" || item.Type != "ring" || item.Rarity != "rare" || !item.Attunement {
+		t.Errorf("got %+v", item)
+	}
+	if _, hasEn := item.Translations["en"]; !hasEn {
+		t.Error("expected 'en' translation")
+	}
+}
+
+func TestMagicalItemFromJson_attunementFalse(t *testing.T) {
+	name := "Long Sword +1"
+	desc := "<p>...</p>"
+	r := makeMagicalItemJson("long-sword-plus-1", "srd_5.1", "weapon", "uncommon", false, map[string]model.MagicalItemTranslationJson{
+		"en": {Name: &name, Description: &desc},
+	})
 	item, ok := magicalItemFromJson(r)
 	if !ok || item.Attunement {
 		t.Errorf("expected attunement=false, got %+v", item)
+	}
+}
+
+func TestMagicalItemFromJson_missingId(t *testing.T) {
+	_, ok := magicalItemFromJson(model.MagicalItemJson{})
+	if ok {
+		t.Fatal("expected !ok for missing id")
 	}
 }
 

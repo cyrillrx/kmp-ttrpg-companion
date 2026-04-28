@@ -209,17 +209,58 @@ func creatureFromJson(r model.CreatureJson) (model.Creature, bool) {
 }
 
 func magicalItemFromJson(r model.MagicalItemJson) (model.MagicalItem, bool) {
-	if r.Title == nil || *r.Title == "" {
+	if r.ID == nil || *r.ID == "" {
+		fmt.Println("WARNING: skipping magical item with missing id")
+		return model.MagicalItem{}, false
+	}
+	id := *r.ID
+	if r.Source == nil {
+		fmt.Printf("WARNING: skipping magical item '%s': missing source\n", id)
+		return model.MagicalItem{}, false
+	}
+	if r.Type == nil {
+		fmt.Printf("WARNING: skipping magical item '%s': missing type\n", id)
+		return model.MagicalItem{}, false
+	}
+	if r.Rarity == nil {
+		fmt.Printf("WARNING: skipping magical item '%s': missing rarity\n", id)
+		return model.MagicalItem{}, false
+	}
+	if len(r.Translations) == 0 {
+		fmt.Printf("WARNING: skipping magical item '%s': missing translations\n", id)
 		return model.MagicalItem{}, false
 	}
 
+	translations := make(map[string]model.MagicalItemTranslation, len(r.Translations))
+	for locale, t := range r.Translations {
+		if t.Name == nil {
+			fmt.Printf("WARNING: magical item '%s' locale '%s': missing name\n", id, locale)
+			continue
+		}
+		if t.Description == nil {
+			fmt.Printf("WARNING: magical item '%s' locale '%s': missing description\n", id, locale)
+			continue
+		}
+		translations[locale] = model.MagicalItemTranslation{
+			Name:        *t.Name,
+			Subtype:     t.Subtype,
+			Description: *t.Description,
+		}
+	}
+	if len(translations) == 0 {
+		fmt.Printf("WARNING: skipping magical item '%s': no valid translations\n", id)
+		return model.MagicalItem{}, false
+	}
+
+	attunement := r.Attunement != nil && *r.Attunement
+
 	return model.MagicalItem{
-		ID:          *r.Title,
-		Title:       *r.Title,
-		Description: derefString(r.Content),
-		Type:        derefString(r.Type),
-		Rarity:      derefString(r.Rarity),
-		Attunement:  r.Attunement != nil && *r.Attunement != "",
+		ID:           id,
+		Source:       *r.Source,
+		Type:         *r.Type,
+		Rarity:       *r.Rarity,
+		Attunement:   attunement,
+		Translations: translations,
 	}, true
 }
 
