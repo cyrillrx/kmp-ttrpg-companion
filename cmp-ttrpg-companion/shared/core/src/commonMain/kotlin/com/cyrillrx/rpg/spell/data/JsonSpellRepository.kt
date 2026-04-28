@@ -63,28 +63,19 @@ class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository 
                 ?: return Result.Failure(SpellImportError.MissingComponents(id))
             val apiAvailableClasses = availableClasses
                 ?: return Result.Failure(SpellImportError.MissingAvailableClasses(id))
-            val availableClasses = apiAvailableClasses.mapNotNull { apiClass ->
-                val playerClass = apiClass.toPlayerClass()
-                if (playerClass == null) println("WARNING: spell '$id': unknown class '$apiClass'")
-                playerClass
+            val (availableClasses, classErrors) = apiAvailableClasses.partitionBy { apiClass ->
+                apiClass.toPlayerClass()?.let { Result.Success(it) }
+                    ?: Result.Failure(SpellImportError.UnknownClass(id, apiClass))
             }
-            if (availableClasses.isEmpty()) {
-                return Result.Failure(SpellImportError.EmptyAvailableClasses(id))
-            }
+            classErrors.forEach { println("WARNING: $it") }
+            if (availableClasses.isEmpty()) return Result.Failure(SpellImportError.EmptyAvailableClasses(id))
             val apiTranslations = translations
                 ?: return Result.Failure(SpellImportError.MissingTranslations(id))
-            val translations = apiTranslations
-                .mapNotNull { (locale, t) ->
-                    when (val result = t.toDomain(id, locale)) {
-                        is Result.Success -> locale to result.value
-                        is Result.Failure -> {
-                            println("WARNING: spell import error: ${result.error}")
-                            null
-                        }
-                    }
-                }
-                .toMap()
-                .takeIf { it.isNotEmpty() }
+            val (translationMap, translationErrors) = apiTranslations.partitionBy { locale, t ->
+                t.toDomain(id, locale)
+            }
+            translationErrors.forEach { println("WARNING: spell import error: $it") }
+            val translations = translationMap.takeIf { it.isNotEmpty() }
                 ?: return Result.Failure(SpellImportError.MissingTranslations(id))
 
             return Result.Success(
