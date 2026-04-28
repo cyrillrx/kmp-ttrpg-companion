@@ -4,9 +4,8 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
-private object TestError : Error
-
 class MapPartitionByExtTest {
+    private object TestError : Error
 
     @Test
     fun `partitionBy all successes returns full map and empty errors`() {
