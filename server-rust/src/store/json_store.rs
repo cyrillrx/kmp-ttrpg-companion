@@ -5,7 +5,7 @@ use serde_json::Value;
 
 use crate::models::{
     creature::{Abilities, Creature},
-    magical_item::MagicalItem,
+    magical_item::{MagicalItem, MagicalItemTranslation},
     spell::{Spell, SpellComponents, SpellTranslation},
 };
 use crate::store::CompendiumStore;
@@ -105,12 +105,20 @@ struct MonsterJson {
 
 #[derive(Deserialize)]
 struct MagicalItemJson {
-    title: Option<String>,
-    content: Option<String>,
+    id: Option<String>,
+    source: Option<String>,
     #[serde(rename = "type")]
     item_type: Option<String>,
     rarity: Option<String>,
-    attunement: Option<String>,
+    attunement: Option<bool>,
+    translations: Option<std::collections::HashMap<String, MagicalItemTranslationJson>>,
+}
+
+#[derive(Deserialize)]
+struct MagicalItemTranslationJson {
+    name: Option<String>,
+    subtype: Option<String>,
+    description: Option<String>,
 }
 
 // ── Parsing helpers ───────────────────────────────────────────────────────────
@@ -306,15 +314,54 @@ fn parse_magical_items(json: &str) -> Result<Vec<MagicalItem>, Box<dyn std::erro
 }
 
 fn magical_item_from_json(raw: MagicalItemJson) -> Option<MagicalItem> {
-    let title = raw.title.filter(|t| !t.is_empty())?;
+    let id = raw.id.filter(|s| !s.is_empty()).or_else(|| {
+        eprintln!("WARNING: skipping magical item with missing id");
+        None
+    })?;
+    let source = raw.source.or_else(|| {
+        eprintln!("WARNING: skipping magical item '{id}': missing source");
+        None
+    })?;
+    let item_type = raw.item_type.or_else(|| {
+        eprintln!("WARNING: skipping magical item '{id}': missing type");
+        None
+    })?;
+    let rarity = raw.rarity.or_else(|| {
+        eprintln!("WARNING: skipping magical item '{id}': missing rarity");
+        None
+    })?;
+    let raw_translations = raw.translations.filter(|t| !t.is_empty()).or_else(|| {
+        eprintln!("WARNING: skipping magical item '{id}': missing translations");
+        None
+    })?;
+
+    let translations = raw_translations
+        .into_iter()
+        .filter_map(|(locale, t)| {
+            let name = t.name.or_else(|| {
+                eprintln!("WARNING: magical item '{id}' locale '{locale}': missing name");
+                None
+            })?;
+            let description = t.description.or_else(|| {
+                eprintln!("WARNING: magical item '{id}' locale '{locale}': missing description");
+                None
+            })?;
+            Some((locale, MagicalItemTranslation { name, subtype: t.subtype, description }))
+        })
+        .collect::<std::collections::HashMap<_, _>>();
+
+    if translations.is_empty() {
+        eprintln!("WARNING: skipping magical item '{id}': no valid translations");
+        return None;
+    }
 
     Some(MagicalItem {
-        id: title.clone(),
-        title,
-        description: raw.content.unwrap_or_default(),
-        item_type: raw.item_type.unwrap_or_default(),
-        rarity: raw.rarity.unwrap_or_default(),
-        attunement: raw.attunement.is_some_and(|a| !a.is_empty()),
+        id,
+        source,
+        item_type,
+        rarity,
+        attunement: raw.attunement.unwrap_or(false),
+        translations,
     })
 }
 
