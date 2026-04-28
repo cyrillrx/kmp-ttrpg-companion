@@ -70,14 +70,15 @@ For the data model decisions behind these formats, see [`docs/adr/ADR-001-data-m
 
 ```json
 {
-  "id": "amulet-of-health",
+  "id": "shield-plus-1",
   "source": "srd_5.1",
-  "type": "wondrous_item",
+  "type": "armor",
   "rarity": "uncommon",
-  "attunement": true,
+  "attunement": false,
   "translations": {
     "fr": {
-      "name": "Amulette de cicatrisation",
+      "name": "Bouclier +1",
+      "subtype": "Bouclier",
       "description": "<p>...</p>"
     }
   }
@@ -95,6 +96,7 @@ For the data model decisions behind these formats, see [`docs/adr/ADR-001-data-m
 - [ ] `rarity` — see [Magical Item Rarities](srd-fr-en.md#magical-item-rarities)
 - [ ] `attunement` — boolean
 - [ ] `translations.fr.name`
+- [ ] `translations.fr.subtype` — optional; weapon/armor sub-category (locale-specific)
 - [ ] `translations.fr.description` — HTML
 
 ---
