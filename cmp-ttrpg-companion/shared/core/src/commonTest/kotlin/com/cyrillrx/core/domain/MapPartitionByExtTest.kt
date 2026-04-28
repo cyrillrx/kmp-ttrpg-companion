@@ -47,4 +47,11 @@ class MapPartitionByExtTest {
         val (result, _) = input.partitionBy<String, String, String, Error> { _, v -> Result.Success(v.uppercase()) }
         assertEquals(expected = "VALUE", actual = result["locale"])
     }
+
+    @Test
+    fun `partitionBy preserves insertion order of input map`() {
+        val input = linkedMapOf("c" to 3, "a" to 1, "b" to 2)
+        val (result, _) = input.partitionBy<String, Int, Int, Error> { _, v -> Result.Success(v) }
+        assertEquals(expected = listOf("c", "a", "b"), actual = result.keys.toList())
+    }
 }
