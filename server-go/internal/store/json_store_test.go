@@ -113,22 +113,53 @@ func TestParseLanguages_nil(t *testing.T) {
 // ── spellFromJson ─────────────────────────────────────────────────────────────
 
 func TestSpellFromJson_valid(t *testing.T) {
-	title := "Boule de feu"
+	id := "fireball"
+	source := "srd_5.1"
 	lvl := 3
-	r := model.SpellJson{Title: &title, Level: &lvl}
-	s, ok := spellFromJson(r)
+	school := "evocation"
+	conc := false
+	ritual := false
+	name := "Fireball"
+	castingTime := "1 action"
+	rnge := "150 feet"
+	duration := "Instantaneous"
+	desc := "A bright streak flashes from your pointing finger."
+
+	spell := model.SpellJson{
+		ID:            &id,
+		Source:        &source,
+		Level:         &lvl,
+		School:        &school,
+		Concentration: &conc,
+		Ritual:        &ritual,
+		Components:    &model.SpellComponentsJson{Verbal: true, Somatic: true, Material: true},
+		AvailableClasses: []string{"sorcerer", "wizard"},
+		Translations: map[string]model.SpellTranslationJson{
+			"en": {
+				Name:        &name,
+				CastingTime: &castingTime,
+				Range:       &rnge,
+				Duration:    &duration,
+				Description: &desc,
+			},
+		},
+	}
+	s, ok := spellFromJson(spell)
 	if !ok {
 		t.Fatal("expected ok")
 	}
-	if s.Title != "Boule de feu" || s.Level != 3 {
+	if s.ID != "fireball" || s.Level != 3 || s.School != "evocation" {
 		t.Errorf("got %+v", s)
+	}
+	if _, hasEn := s.Translations["en"]; !hasEn {
+		t.Error("expected 'en' translation")
 	}
 }
 
-func TestSpellFromJson_nilTitle(t *testing.T) {
+func TestSpellFromJson_nilId(t *testing.T) {
 	_, ok := spellFromJson(model.SpellJson{})
 	if ok {
-		t.Fatal("expected !ok for nil title")
+		t.Fatal("expected !ok for nil id")
 	}
 }
 

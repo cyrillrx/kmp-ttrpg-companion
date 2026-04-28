@@ -6,7 +6,7 @@ use serde_json::Value;
 use crate::models::{
     creature::{Abilities, Creature},
     magical_item::MagicalItem,
-    spell::Spell,
+    spell::{Spell, SpellComponents, SpellTranslation},
 };
 use crate::store::CompendiumStore;
 
@@ -49,26 +49,24 @@ impl CompendiumStore for JsonCompendiumStore {
 // ── Raw JSON structs ──────────────────────────────────────────────────────────
 
 #[derive(Deserialize)]
+#[serde(rename_all = "camelCase")]
 struct SpellJson {
-    title: Option<String>,
-    content: Option<String>,
+    id: Option<String>,
+    source: Option<String>,
     level: Option<i32>,
-    casting_time: Option<String>,
-    range: Option<String>,
-    components: Option<String>,
-    duration: Option<String>,
-    header: Option<SpellHeaderJson>,
+    school: Option<String>,
+    concentration: Option<bool>,
+    ritual: Option<bool>,
+    components: Option<SpellComponentsJson>,
+    available_classes: Option<Vec<String>>,
+    translations: Option<std::collections::HashMap<String, SpellTranslation>>,
 }
 
 #[derive(Deserialize)]
-struct SpellHeaderJson {
-    taxonomy: Option<SpellTaxonomy>,
-}
-
-#[derive(Deserialize)]
-struct SpellTaxonomy {
-    spell_school: Option<Vec<String>>,
-    spell_class: Option<Vec<String>>,
+struct SpellComponentsJson {
+    verbal: bool,
+    somatic: bool,
+    material: bool,
 }
 
 #[derive(Deserialize)]
@@ -181,24 +179,57 @@ fn parse_spells(json: &str) -> Result<Vec<Spell>, Box<dyn std::error::Error>> {
 }
 
 fn spell_from_json(raw: SpellJson) -> Option<Spell> {
-    let title = raw.title.filter(|t| !t.is_empty())?;
-    let taxonomy = raw.header.as_ref()?.taxonomy.as_ref();
+    let id = raw.id.filter(|s| !s.is_empty()).or_else(|| {
+        eprintln!("WARNING: skipping spell with missing id");
+        None
+    })?;
+    let source = raw.source.or_else(|| {
+        eprintln!("WARNING: skipping spell '{id}': missing source");
+        None
+    })?;
+    let level = raw.level.or_else(|| {
+        eprintln!("WARNING: skipping spell '{id}': missing level");
+        None
+    })?;
+    let school = raw.school.or_else(|| {
+        eprintln!("WARNING: skipping spell '{id}': missing school");
+        None
+    })?;
+    let concentration = raw.concentration.or_else(|| {
+        eprintln!("WARNING: skipping spell '{id}': missing concentration");
+        None
+    })?;
+    let ritual = raw.ritual.or_else(|| {
+        eprintln!("WARNING: skipping spell '{id}': missing ritual");
+        None
+    })?;
+    let raw_components = raw.components.or_else(|| {
+        eprintln!("WARNING: skipping spell '{id}': missing components");
+        None
+    })?;
+    let available_classes = raw.available_classes.or_else(|| {
+        eprintln!("WARNING: skipping spell '{id}': missing availableClasses");
+        None
+    })?;
+    let translations = raw.translations.filter(|t| !t.is_empty()).or_else(|| {
+        eprintln!("WARNING: skipping spell '{id}': missing translations");
+        None
+    })?;
 
     Some(Spell {
-        id: title.clone(),
-        title,
-        description: raw.content.unwrap_or_default(),
-        level: raw.level.unwrap_or(0),
-        casting_time: raw.casting_time.unwrap_or_default(),
-        range: raw.range.unwrap_or_default(),
-        components: raw.components.unwrap_or_default(),
-        duration: raw.duration.unwrap_or_default(),
-        schools: taxonomy
-            .and_then(|t| t.spell_school.clone())
-            .unwrap_or_default(),
-        available_classes: taxonomy
-            .and_then(|t| t.spell_class.clone())
-            .unwrap_or_default(),
+        id,
+        source,
+        level,
+        school,
+        concentration,
+        ritual,
+        components: SpellComponents {
+            verbal: raw_components.verbal,
+            somatic: raw_components.somatic,
+            material: raw_components.material,
+        },
+        available_classes,
+        translations,
     })
 }
 

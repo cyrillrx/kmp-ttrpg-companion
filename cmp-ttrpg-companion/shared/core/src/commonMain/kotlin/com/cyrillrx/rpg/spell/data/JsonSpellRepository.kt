@@ -6,7 +6,6 @@ import com.cyrillrx.core.domain.Result
 import com.cyrillrx.rpg.character.domain.PlayerCharacter
 import com.cyrillrx.rpg.spell.data.api.ApiSpell
 import com.cyrillrx.rpg.spell.domain.Spell
-import com.cyrillrx.rpg.spell.domain.Spell.School
 import com.cyrillrx.rpg.spell.domain.SpellFilter
 import com.cyrillrx.rpg.spell.domain.SpellRepository
 import com.cyrillrx.rpg.spell.domain.applyFilter
@@ -16,11 +15,18 @@ class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository 
     private var cache: List<Spell>? = null
 
     override suspend fun getAll(filter: SpellFilter?): List<Spell> {
-        val allSpells = cache ?: loadFromFile()
-            .map { it.toSpell() }
-            .also { cache = it }
-        
+        val allSpells = cache ?: loadAndParse()
         return allSpells.applyFilter(filter)
+    }
+
+    private suspend fun loadAndParse(): List<Spell> {
+        val apiSpells = loadFromFile()
+        val results = apiSpells.map { it.toSpell() }
+
+        val failures = results.filterIsInstance<Result.Failure<SpellImportError>>()
+        val successes = results.filterIsInstance<Result.Success<Spell>>()
+        failures.forEach { println("WARNING: spell import error: ${it.error}") }
+        return successes.map { it.value }.also { cache = it }
     }
 
     override suspend fun getById(id: String): Spell? =
@@ -40,57 +46,91 @@ class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository 
     }
 
     companion object {
-        private fun ApiSpell.toSpell(): Spell {
-            return Spell(
-                id = title.orEmpty(),
-                title = title.orEmpty(),
-                description = content.orEmpty(),
-                level = level ?: 0,
-                castingTime = casting_time.orEmpty(),
-                range = range.orEmpty(),
-                components = components.orEmpty(),
-                duration = duration.orEmpty(),
-                schools = getSchools(),
-                availableClasses = getAvailableClasses(),
+        private typealias SpellResult = Result<Spell, SpellImportError>
+
+        private fun ApiSpell.toSpell(): SpellResult {
+            val id = id
+                ?: return Result.Failure(SpellImportError.MissingId)
+            val source = source
+                ?: return Result.Failure(SpellImportError.MissingSource(id))
+            val level = level
+                ?: return Result.Failure(SpellImportError.MissingLevel(id))
+            val apiSchool = school
+            val school = apiSchool?.toSchool()
+                ?: return Result.Failure(SpellImportError.UnknownSchool(id, apiSchool.orEmpty()))
+            val concentration = concentration
+                ?: return Result.Failure(SpellImportError.MissingConcentration(id))
+            val ritual = ritual
+                ?: return Result.Failure(SpellImportError.MissingRitual(id))
+            val components = components
+                ?: return Result.Failure(SpellImportError.MissingComponents(id))
+            val apiAvailableClasses = availableClasses
+                ?: return Result.Failure(SpellImportError.MissingAvailableClasses(id))
+            val availableClasses = apiAvailableClasses.mapNotNull { apiClass ->
+                val playerClass = apiClass.toPlayerClass()
+                if (playerClass == null) println("WARNING: spell '$id': unknown class '$apiClass'")
+                playerClass
+            }
+            if (availableClasses.isEmpty()) {
+                return Result.Failure(SpellImportError.EmptyAvailableClasses(id))
+            }
+            val apiTranslations = translations
+                ?: return Result.Failure(SpellImportError.MissingTranslations(id))
+            val translations = apiTranslations
+                .mapNotNull { (locale, t) ->
+                    when (val result = t.toDomain(id, locale)) {
+                        is Result.Success -> locale to result.value
+                        is Result.Failure -> {
+                            println("WARNING: spell import error: ${result.error}")
+                            null
+                        }
+                    }
+                }
+                .toMap()
+                .takeIf { it.isNotEmpty() }
+                ?: return Result.Failure(SpellImportError.MissingTranslations(id))
+
+            return Result.Success(
+                Spell(
+                    id = id,
+                    source = source,
+                    level = level,
+                    school = school,
+                    concentration = concentration,
+                    ritual = ritual,
+                    components = Spell.Components(
+                        verbal = components.verbal,
+                        somatic = components.somatic,
+                        material = components.material,
+                    ),
+                    availableClasses = availableClasses,
+                    translations = translations,
+                )
             )
         }
 
-        private fun ApiSpell.getSchools(): List<School> {
-            val apiSchool = header?.taxonomy?.spell_school
-            return apiSchool?.mapNotNull { it.toSchool() } ?: emptyList()
+        private fun ApiSpell.Translation.toDomain(spellId: String, locale: String): Result<Spell.Translation, SpellImportError> {
+            val name = name ?: return Result.Failure(SpellImportError.InvalidTranslation(spellId, locale))
+            val castingTime = castingTime ?: return Result.Failure(SpellImportError.InvalidTranslation(spellId, locale))
+            val range = range ?: return Result.Failure(SpellImportError.InvalidTranslation(spellId, locale))
+            val duration = duration ?: return Result.Failure(SpellImportError.InvalidTranslation(spellId, locale))
+            val description = description ?: return Result.Failure(SpellImportError.InvalidTranslation(spellId, locale))
+            return Result.Success(
+                Spell.Translation(
+                    name = name,
+                    castingTime = castingTime,
+                    range = range,
+                    duration = duration,
+                    materialDescription = materialDescription,
+                    description = description,
+                )
+            )
         }
 
-        private fun String.toSchool(): School? {
-            return when (this) {
-                "Abjuration" -> return School.ABJURATION
-                "Invocation" -> return School.CONJURATION
-                "Divination" -> return School.DIVINATION
-                "Enchantement" -> return School.ENCHANTMENT
-                "Évocation" -> return School.EVOCATION
-                "Illusion" -> return School.ILLUSION
-                "Nécromancie" -> return School.NECROMANCY
-                "Transmutation" -> return School.TRANSMUTATION
-                else -> null
-            }
-        }
+        private fun String.toSchool(): Spell.School? =
+            Spell.School.entries.find { it.name.equals(this, ignoreCase = true) }
 
-        private fun ApiSpell.getAvailableClasses(): List<PlayerCharacter.Class> {
-            val apiCharacterClasses = header?.taxonomy?.spell_class
-            return apiCharacterClasses?.mapNotNull { it?.toCharacterClasses() } ?: emptyList()
-        }
-
-        private fun String.toCharacterClasses(): PlayerCharacter.Class? {
-            return when (this) {
-                "Bard" -> return PlayerCharacter.Class.BARD
-                "Clerc" -> return PlayerCharacter.Class.CLERIC
-                "Druide" -> return PlayerCharacter.Class.DRUID
-                "Paladin" -> return PlayerCharacter.Class.PALADIN
-                "Ranger" -> return PlayerCharacter.Class.RANGER
-                "Ensorceleur/Sorcelame" -> return PlayerCharacter.Class.SORCERER
-                "Sorcier" -> return PlayerCharacter.Class.WARLOCK
-                "Magicien" -> return PlayerCharacter.Class.WIZARD
-                else -> null
-            }
-        }
+        private fun String.toPlayerClass(): PlayerCharacter.Class? =
+            PlayerCharacter.Class.entries.find { it.name.equals(this, ignoreCase = true) }
     }
 }

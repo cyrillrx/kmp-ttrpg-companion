@@ -17,11 +17,15 @@ import com.cyrillrx.rpg.core.presentation.theme.Red900
 import com.cyrillrx.rpg.spell.domain.Spell
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
+import rpg_companion.composeapp.generated.resources.class_barbarian
 import rpg_companion.composeapp.generated.resources.class_bard
 import rpg_companion.composeapp.generated.resources.class_cleric
 import rpg_companion.composeapp.generated.resources.class_druid
+import rpg_companion.composeapp.generated.resources.class_fighter
+import rpg_companion.composeapp.generated.resources.class_monk
 import rpg_companion.composeapp.generated.resources.class_paladin
 import rpg_companion.composeapp.generated.resources.class_ranger
+import rpg_companion.composeapp.generated.resources.class_rogue
 import rpg_companion.composeapp.generated.resources.class_sorcerer
 import rpg_companion.composeapp.generated.resources.class_warlock
 import rpg_companion.composeapp.generated.resources.class_wizard
@@ -51,14 +55,16 @@ fun Spell.getColor(): Color = Red900
 fun Spell.getFormattedSchool() =
     stringResource(Res.string.formatted_spell_school_level, getSchool(), level)
 
-@Composable
-fun Spell.getSubtitle(): String =
-    stringResource(Res.string.formatted_spell_school_level, getSchool(), level) + " - " + castingTime
+fun Spell.getFormattedComponents(): String = components.toFormattedString()
+
+private fun Spell.Components.toFormattedString(): String = buildList {
+    if (verbal) add("V")
+    if (somatic) add("S")
+    if (material) add("M")
+}.joinToString(", ")
 
 @Composable
-fun Spell.getSchool(): String {
-    return schools.map { it.toFormattedString() }.joinToString(", ")
-}
+fun Spell.getSchool(): String = school.toFormattedString()
 
 @Composable
 fun Spell.School.toFormattedString(): String {
@@ -90,11 +96,15 @@ fun Spell.School?.toIcon(): ImageVector = when (this) {
 @Composable
 fun PlayerCharacter.Class.toFormattedString(): String {
     val stringRes = when (this) {
+        PlayerCharacter.Class.BARBARIAN -> Res.string.class_barbarian
         PlayerCharacter.Class.BARD -> Res.string.class_bard
         PlayerCharacter.Class.CLERIC -> Res.string.class_cleric
         PlayerCharacter.Class.DRUID -> Res.string.class_druid
+        PlayerCharacter.Class.FIGHTER -> Res.string.class_fighter
+        PlayerCharacter.Class.MONK -> Res.string.class_monk
         PlayerCharacter.Class.PALADIN -> Res.string.class_paladin
         PlayerCharacter.Class.RANGER -> Res.string.class_ranger
+        PlayerCharacter.Class.ROGUE -> Res.string.class_rogue
         PlayerCharacter.Class.SORCERER -> Res.string.class_sorcerer
         PlayerCharacter.Class.WARLOCK -> Res.string.class_warlock
         PlayerCharacter.Class.WIZARD -> Res.string.class_wizard

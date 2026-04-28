@@ -25,7 +25,7 @@ class SpellApplyFilterTest {
     @Test
     fun `filter by school keeps only matching spells`() {
         val result = allSpells.applyFilter(SpellFilter(schools = setOf(Spell.School.EVOCATION)))
-        assertTrue(result.all { it.schools.contains(Spell.School.EVOCATION) })
+        assertTrue(result.all { it.school == Spell.School.EVOCATION })
         assertEquals(2, result.size)
     }
 
@@ -47,7 +47,7 @@ class SpellApplyFilterTest {
     fun `filter by query keeps only matching spells`() {
         val result = allSpells.applyFilter(SpellFilter(query = "fireball"))
         assertEquals(1, result.size)
-        assertEquals("Fireball", result.first().title)
+        assertEquals("Fireball", result.first().translations["en"]?.name)
     }
 
     @Test
