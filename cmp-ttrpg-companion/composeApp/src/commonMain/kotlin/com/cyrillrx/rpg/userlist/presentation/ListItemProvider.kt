@@ -15,7 +15,7 @@ interface ListItemProvider<T> {
     val onEmptyLayoutBtnClicked: () -> Unit get() = {}
 
     fun getId(entity: T): String
-    fun getDisplayName(entity: T): String
+    fun getDisplayName(entity: T, locale: String): String
 
     @Composable
     fun ListItem(entity: T, modifier: Modifier)

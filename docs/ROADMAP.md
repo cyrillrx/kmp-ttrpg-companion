@@ -15,7 +15,7 @@ For detailed feature specifications, see the [PRDs](prd/).
 > Bring current implementations to a production-ready state. - [PRD-001](prd/PRD-001-REFERENCE-DATA.md)
 
 - [x] Complete Spellbook filters (school, class) - [PRD-001a](prd/PRD-001a-SPELLBOOK.md)
-- [x] Complete Inventory filters (type, rarity) - [PRD-001b](prd/PRD-001b-ITEM-LIST.md)
+- [x] Complete Magical item filters (type, rarity) - [PRD-001b](prd/PRD-001b-ITEM-LIST.md)
 - [x] Complete Bestiary filters (type, CR) - [PRD-001c](prd/PRD-001c-BESTIARY.md)
 
 ## Phase 3 - Local Lists
@@ -35,8 +35,8 @@ For detailed feature specifications, see the [PRDs](prd/).
 - [x] Setup backend service with a simple API
 - [ ] Data quality & coherence — DB-ready models, i18n, source tracking
   - [x] Architecture decisions & SRD translation map ([ADR-001](adr/ADR-001-data-model.md), [i18n](i18n/srd-fr-en.md))
-  - [ ] Spells: structured components, concentration/ritual flags, complete class list
-  - [ ] Magical items: typed fields normalized
+  - [x] Spells: structured components, concentration/ritual flags, complete class list
+  - [x] Magical items: typed fields normalized
   - [ ] Creatures: full stat block (speed, senses, skills, saving throws, damage affinities); character model coherence
 - [ ] Fetch public reference data from backend (spells, items, creatures)
 - [ ] Develop the sync engine on which will rely all sync logic and conflict resolution

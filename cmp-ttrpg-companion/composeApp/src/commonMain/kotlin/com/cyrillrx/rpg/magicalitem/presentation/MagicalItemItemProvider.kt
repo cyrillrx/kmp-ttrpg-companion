@@ -22,7 +22,8 @@ class MagicalItemItemProvider(
 
     override fun getId(entity: MagicalItem): String = entity.id
 
-    override fun getDisplayName(entity: MagicalItem): String = entity.title
+    override fun getDisplayName(entity: MagicalItem, locale: String): String =
+        entity.resolveTranslation(locale).name
 
     @Composable
     override fun ListItem(entity: MagicalItem, modifier: Modifier) {

@@ -27,7 +27,7 @@ import rpg_companion.composeapp.generated.resources.app_name
 import rpg_companion.composeapp.generated.resources.btn_bestiary
 import rpg_companion.composeapp.generated.resources.btn_campaign_list
 import rpg_companion.composeapp.generated.resources.btn_character_sheets
-import rpg_companion.composeapp.generated.resources.btn_inventory
+import rpg_companion.composeapp.generated.resources.btn_magical_items
 import rpg_companion.composeapp.generated.resources.btn_my_bestiary_lists
 import rpg_companion.composeapp.generated.resources.btn_my_item_lists
 import rpg_companion.composeapp.generated.resources.btn_my_spell_lists
@@ -72,7 +72,7 @@ fun HomeScreen(router: HomeRouter) {
                     modifier = Modifier.weight(1f),
                 )
                 IconLabelButton(
-                    label = stringResource(Res.string.btn_inventory),
+                    label = stringResource(Res.string.btn_magical_items),
                     icon = Icons.Filled.Diamond,
                     onClick = router::openMagicalItemCompendium,
                     modifier = Modifier.weight(1f),

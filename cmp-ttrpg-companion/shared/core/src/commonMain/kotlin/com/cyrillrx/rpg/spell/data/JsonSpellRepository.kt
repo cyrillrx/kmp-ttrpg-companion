@@ -3,6 +3,7 @@ package com.cyrillrx.rpg.spell.data
 import com.cyrillrx.core.data.FileReader
 import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.core.domain.Result
+import com.cyrillrx.core.domain.partitionBy
 import com.cyrillrx.rpg.character.domain.PlayerCharacter
 import com.cyrillrx.rpg.spell.data.api.ApiSpell
 import com.cyrillrx.rpg.spell.domain.Spell
@@ -15,18 +16,10 @@ class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository 
     private var cache: List<Spell>? = null
 
     override suspend fun getAll(filter: SpellFilter?): List<Spell> {
-        val allSpells = cache ?: loadAndParse()
+        val allSpells = cache ?: loadFromFile()
+            .parse()
+            .also { cache = it }
         return allSpells.applyFilter(filter)
-    }
-
-    private suspend fun loadAndParse(): List<Spell> {
-        val apiSpells = loadFromFile()
-        val results = apiSpells.map { it.toSpell() }
-
-        val failures = results.filterIsInstance<Result.Failure<SpellImportError>>()
-        val successes = results.filterIsInstance<Result.Success<Spell>>()
-        failures.forEach { println("WARNING: spell import error: ${it.error}") }
-        return successes.map { it.value }.also { cache = it }
     }
 
     override suspend fun getById(id: String): Spell? =
@@ -46,9 +39,13 @@ class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository 
     }
 
     companion object {
-        private typealias SpellResult = Result<Spell, SpellImportError>
+        private fun List<ApiSpell>.parse(): List<Spell> {
+            val (spells, errors) = partitionBy { it.toSpell() }
+            errors.forEach { println("WARNING: spell import error: $it") }
+            return spells
+        }
 
-        private fun ApiSpell.toSpell(): SpellResult {
+        private fun ApiSpell.toSpell(): Result<Spell, SpellImportError> {
             val id = id
                 ?: return Result.Failure(SpellImportError.MissingId)
             val source = source
@@ -66,28 +63,19 @@ class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository 
                 ?: return Result.Failure(SpellImportError.MissingComponents(id))
             val apiAvailableClasses = availableClasses
                 ?: return Result.Failure(SpellImportError.MissingAvailableClasses(id))
-            val availableClasses = apiAvailableClasses.mapNotNull { apiClass ->
-                val playerClass = apiClass.toPlayerClass()
-                if (playerClass == null) println("WARNING: spell '$id': unknown class '$apiClass'")
-                playerClass
+            val (availableClasses, classErrors) = apiAvailableClasses.partitionBy { apiClass ->
+                apiClass.toPlayerClass()?.let { Result.Success(it) }
+                    ?: Result.Failure(SpellImportError.UnknownClass(id, apiClass))
             }
-            if (availableClasses.isEmpty()) {
-                return Result.Failure(SpellImportError.EmptyAvailableClasses(id))
-            }
+            classErrors.forEach { println("WARNING: $it") }
+            if (availableClasses.isEmpty()) return Result.Failure(SpellImportError.EmptyAvailableClasses(id))
             val apiTranslations = translations
                 ?: return Result.Failure(SpellImportError.MissingTranslations(id))
-            val translations = apiTranslations
-                .mapNotNull { (locale, t) ->
-                    when (val result = t.toDomain(id, locale)) {
-                        is Result.Success -> locale to result.value
-                        is Result.Failure -> {
-                            println("WARNING: spell import error: ${result.error}")
-                            null
-                        }
-                    }
-                }
-                .toMap()
-                .takeIf { it.isNotEmpty() }
+            val (translationMap, translationErrors) = apiTranslations.partitionBy { locale, t ->
+                t.toDomain(id, locale)
+            }
+            translationErrors.forEach { println("WARNING: spell import error: $it") }
+            val translations = translationMap.takeIf { it.isNotEmpty() }
                 ?: return Result.Failure(SpellImportError.MissingTranslations(id))
 
             return Result.Success(
@@ -105,11 +93,14 @@ class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository 
                     ),
                     availableClasses = availableClasses,
                     translations = translations,
-                )
+                ),
             )
         }
 
-        private fun ApiSpell.Translation.toDomain(spellId: String, locale: String): Result<Spell.Translation, SpellImportError> {
+        private fun ApiSpell.Translation.toDomain(
+            spellId: String,
+            locale: String,
+        ): Result<Spell.Translation, SpellImportError> {
             val name = name ?: return Result.Failure(SpellImportError.InvalidTranslation(spellId, locale))
             val castingTime = castingTime ?: return Result.Failure(SpellImportError.InvalidTranslation(spellId, locale))
             val range = range ?: return Result.Failure(SpellImportError.InvalidTranslation(spellId, locale))
@@ -123,7 +114,7 @@ class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository 
                     duration = duration,
                     materialDescription = materialDescription,
                     description = description,
-                )
+                ),
             )
         }
 

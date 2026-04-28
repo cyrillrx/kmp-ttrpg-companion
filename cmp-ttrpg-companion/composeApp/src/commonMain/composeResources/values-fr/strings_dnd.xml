@@ -7,7 +7,7 @@
     <string name="btn_spell_book">Grimoire</string>
     <string name="btn_alternative_spell_book">Grimoire alternatif</string>
     <string name="btn_bestiary">Bestiaire</string>
-    <string name="btn_inventory">Objets magiques</string>
+    <string name="btn_magical_items">Objets magiques</string>
 
     <!-- Search -->
     <string name="hint_search_campaign">Oblivion, La chute de Londres, etc.</string>

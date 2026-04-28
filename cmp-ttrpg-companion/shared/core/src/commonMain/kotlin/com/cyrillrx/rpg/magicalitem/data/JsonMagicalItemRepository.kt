@@ -3,7 +3,8 @@ package com.cyrillrx.rpg.magicalitem.data
 import com.cyrillrx.core.data.FileReader
 import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.core.domain.Result
-import com.cyrillrx.rpg.magicalitem.data.api.ApiInventoryItem
+import com.cyrillrx.core.domain.partitionBy
+import com.cyrillrx.rpg.magicalitem.data.api.ApiMagicalItem
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemFilter
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemRepository
@@ -15,9 +16,8 @@ class JsonMagicalItemRepository(private val fileReader: FileReader) : MagicalIte
 
     override suspend fun getAll(filter: MagicalItemFilter?): List<MagicalItem> {
         val allItems = cache ?: loadFromFile()
-            .map { it.toMagicalItem() }
+            .parse()
             .also { cache = it }
-
         return allItems.applyFilter(filter)
     }
 
@@ -29,7 +29,7 @@ class JsonMagicalItemRepository(private val fileReader: FileReader) : MagicalIte
         return ids.mapNotNull { all[it] }
     }
 
-    private suspend fun loadFromFile(): List<ApiInventoryItem> {
+    private suspend fun loadFromFile(): List<ApiMagicalItem> {
         val result = fileReader.readFile("files/magical-items.json")
         if (result is Result.Success) {
             return result.value.deserialize() ?: listOf()
@@ -38,44 +38,66 @@ class JsonMagicalItemRepository(private val fileReader: FileReader) : MagicalIte
     }
 
     companion object {
-        private fun ApiInventoryItem.toMagicalItem(): MagicalItem {
-            return MagicalItem(
-                id = title,
-                title = title,
-                subtitle = getSubtitle(),
-                description = content,
-                type = getType(),
-                rarity = getRarity(),
-                attunement = attunement != null,
+        private fun List<ApiMagicalItem>.parse(): List<MagicalItem> {
+            val (items, errors) = partitionBy { it.toMagicalItem() }
+            errors.forEach { println("WARNING: magical item import error: $it") }
+            return items
+        }
+
+        private fun ApiMagicalItem.toMagicalItem(): Result<MagicalItem, MagicalItemImportError> {
+            val id = id
+                ?: return Result.Failure(MagicalItemImportError.MissingId)
+            val source = source
+                ?: return Result.Failure(MagicalItemImportError.MissingSource(id))
+            val apiType = type
+                ?: return Result.Failure(MagicalItemImportError.MissingType(id))
+            val type = apiType.toType()
+                ?: return Result.Failure(MagicalItemImportError.UnknownType(id, apiType))
+            val apiRarity = rarity
+                ?: return Result.Failure(MagicalItemImportError.MissingRarity(id))
+            val rarity = apiRarity.toRarity()
+                ?: return Result.Failure(MagicalItemImportError.UnknownRarity(id, apiRarity))
+            val apiTranslations = translations
+                ?: return Result.Failure(MagicalItemImportError.MissingTranslations(id))
+            val (translationMap, translationErrors) = apiTranslations.partitionBy { locale, t ->
+                t.toDomain(id, locale)
+            }
+            translationErrors.forEach { println("WARNING: magical item import error: $it") }
+            val translations = translationMap.takeIf { it.isNotEmpty() }
+                ?: return Result.Failure(MagicalItemImportError.MissingTranslations(id))
+
+            return Result.Success(
+                MagicalItem(
+                    id = id,
+                    source = source,
+                    type = type,
+                    rarity = rarity,
+                    attunement = attunement ?: false,
+                    translations = translations,
+                ),
             )
         }
 
-        private fun ApiInventoryItem.getSubtitle(): String {
-            val attunementString = attunement?.let { " ($attunement)" } ?: ""
-            return "$type, $rarity$attunementString"
+        private fun ApiMagicalItem.Translation.toDomain(
+            itemId: String,
+            locale: String,
+        ): Result<MagicalItem.Translation, MagicalItemImportError> {
+            val name = name ?: return Result.Failure(MagicalItemImportError.InvalidTranslation(itemId, locale))
+            val description =
+                description ?: return Result.Failure(MagicalItemImportError.InvalidTranslation(itemId, locale))
+            return Result.Success(
+                MagicalItem.Translation(
+                    name = name,
+                    subtype = subtype,
+                    description = description,
+                ),
+            )
         }
 
-        private fun ApiInventoryItem.getType(): MagicalItem.Type = when (type) {
-            "Armure" -> MagicalItem.Type.ARMOR
-            "Potion" -> MagicalItem.Type.POTION
-            "Anneau" -> MagicalItem.Type.RING
-            "Septre" -> MagicalItem.Type.ROD
-            "Parchemin" -> MagicalItem.Type.SCROLL
-            "Bâton" -> MagicalItem.Type.STAFF
-            "Baguette" -> MagicalItem.Type.WAND
-            "Arme" -> MagicalItem.Type.WEAPON
-            "Objet merveilleux" -> MagicalItem.Type.WONDROUS_ITEM
-            else -> MagicalItem.Type.WONDROUS_ITEM
-        }
+        private fun String.toType(): MagicalItem.Type? =
+            MagicalItem.Type.entries.find { it.name.equals(this, ignoreCase = true) }
 
-        private fun ApiInventoryItem.getRarity(): MagicalItem.Rarity = when (rarity) {
-            "Courant" -> MagicalItem.Rarity.COMMON
-            "Peu courant" -> MagicalItem.Rarity.UNCOMMON
-            "Rare" -> MagicalItem.Rarity.RARE
-            "Très rare" -> MagicalItem.Rarity.VERY_RARE
-            "Légendaire" -> MagicalItem.Rarity.LEGENDARY
-            "Artefact" -> MagicalItem.Rarity.ARTIFACT
-            else -> MagicalItem.Rarity.UNCOMMON
-        }
+        private fun String.toRarity(): MagicalItem.Rarity? =
+            MagicalItem.Rarity.entries.find { it.name.equals(this, ignoreCase = true) }
     }
 }

@@ -22,7 +22,7 @@ class CreatureItemProvider(
 
     override fun getId(entity: Creature): String = entity.id
 
-    override fun getDisplayName(entity: Creature): String = entity.name
+    override fun getDisplayName(entity: Creature, locale: String): String = entity.name
 
     @Composable
     override fun ListItem(entity: Creature, modifier: Modifier) {

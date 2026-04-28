@@ -41,6 +41,7 @@ import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.spell.presentation.SpellItemProvider
 import com.cyrillrx.rpg.userlist.presentation.ListDetailState
 import com.cyrillrx.rpg.userlist.presentation.ListItemProvider
+import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.ListDetailViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
@@ -98,7 +99,7 @@ fun <T> ListDetailScreen(
         events.collect { event ->
             when (event) {
                 is ListDetailViewModel.Event.RemovalError -> {
-                    val displayName = itemProvider.getDisplayName(event.item)
+                    val displayName = itemProvider.getDisplayName(event.item, currentLocale())
                     val errorMessage = getString(Res.string.snackbar_error_removing_from_list, displayName)
                     snackbarHostState.showSnackbar(
                         message = errorMessage,
@@ -113,7 +114,7 @@ fun <T> ListDetailScreen(
         val pending = onRemoveItemOptimistically(itemProvider.getId(item), item) ?: return
 
         coroutineScope.launch {
-            val displayName = itemProvider.getDisplayName(item)
+            val displayName = itemProvider.getDisplayName(item, currentLocale())
             val removedMessage = getString(Res.string.snackbar_removed_from_list, displayName)
             val result = snackbarHostState.showSnackbar(
                 message = removedMessage,

@@ -54,14 +54,14 @@ class MagicalItemMatchesFilterTest {
     }
 
     @Test
-    fun `filter by text query matches subtitle`() {
-        val filter = MagicalItemFilter(query = "axe")
+    fun `filter by text query matches description`() {
+        val filter = MagicalItemFilter(query = "command word")
         assertTrue(oathAxe.matches(filter))
     }
 
     @Test
-    fun `filter by text query matches description`() {
-        val filter = MagicalItemFilter(query = "command word")
-        assertTrue(oathAxe.matches(filter))
+    fun `filter by text query matches name in translation`() {
+        val filter = MagicalItemFilter(query = "Potion de soin")
+        assertTrue(healingPotion.matches(filter))
     }
 }
