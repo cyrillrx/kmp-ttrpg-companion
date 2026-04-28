@@ -70,6 +70,6 @@ class MagicalItemDetailViewModelTest {
         val state = viewModel.state.value
         assertIs<DetailState.Found<MagicalItem>>(state)
         assertEquals(expected = item.id, actual = state.item.id)
-        assertEquals(expected = item.title, actual = state.item.title)
+        assertEquals(expected = item.translations, actual = state.item.translations)
     }
 }
