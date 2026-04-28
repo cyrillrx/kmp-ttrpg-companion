@@ -17,6 +17,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.HtmlText
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
@@ -32,6 +33,7 @@ fun MagicalItemCard(
     magicalItem: MagicalItem,
     modifier: Modifier = Modifier,
 ) {
+    val translation = magicalItem.resolveTranslation(currentLocale())
     val color = magicalItem.getColor()
     Card(
         modifier = modifier
@@ -42,7 +44,7 @@ fun MagicalItemCard(
     ) {
         Column(Modifier.padding(borderStroke)) {
             Text(
-                text = magicalItem.title,
+                text = translation.name,
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold,
                 color = Color.White,
@@ -56,20 +58,22 @@ fun MagicalItemCard(
                         bottom = textPadding / 2,
                     ),
             )
-            Text(
-                text = magicalItem.subtitle,
-                fontSize = 14.sp,
-                fontStyle = FontStyle.Italic,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(
-                        start = textPadding,
-                        end = textPadding,
-                        top = textPadding,
-                    ),
-            )
+            translation.subtype?.let { subtype ->
+                Text(
+                    text = subtype,
+                    fontSize = 14.sp,
+                    fontStyle = FontStyle.Italic,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(
+                            start = textPadding,
+                            end = textPadding,
+                            top = textPadding,
+                        ),
+                )
+            }
             HtmlText(
-                text = magicalItem.description,
+                text = translation.description,
                 fontSize = 16.sp,
                 overflow = TextOverflow.Ellipsis,
                 modifier = Modifier

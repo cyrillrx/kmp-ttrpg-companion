@@ -5,6 +5,7 @@ import androidx.compose.material.icons.outlined.Stars
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import com.cyrillrx.rpg.magicalitem.presentation.component.MagicalItemListItem
 import com.cyrillrx.rpg.userlist.presentation.ListItemProvider
@@ -22,7 +23,8 @@ class MagicalItemItemProvider(
 
     override fun getId(entity: MagicalItem): String = entity.id
 
-    override fun getDisplayName(entity: MagicalItem): String = entity.title
+    override fun getDisplayName(entity: MagicalItem): String =
+        entity.resolveTranslation(currentLocale()).name
 
     @Composable
     override fun ListItem(entity: MagicalItem, modifier: Modifier) {

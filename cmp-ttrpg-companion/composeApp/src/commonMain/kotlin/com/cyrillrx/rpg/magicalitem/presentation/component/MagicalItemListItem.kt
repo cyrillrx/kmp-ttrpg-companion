@@ -16,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
+import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
@@ -34,6 +35,7 @@ fun MagicalItemListItem(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    val translation = magicalItem.resolveTranslation(currentLocale())
     Card(
         onClick = onClick,
         shape = MaterialTheme.shapes.medium,
@@ -50,19 +52,21 @@ fun MagicalItemListItem(
                 modifier = Modifier.weight(1f),
             ) {
                 Text(
-                    text = magicalItem.title,
+                    text = translation.name,
                     style = MaterialTheme.typography.titleSmall,
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.onSurface,
                 )
 
-                Text(
-                    text = magicalItem.subtitle,
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                )
+                translation.subtype?.let { subtype ->
+                    Text(
+                        text = subtype,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+                }
             }
 
             Spacer(modifier = Modifier.width(spacingMedium))
