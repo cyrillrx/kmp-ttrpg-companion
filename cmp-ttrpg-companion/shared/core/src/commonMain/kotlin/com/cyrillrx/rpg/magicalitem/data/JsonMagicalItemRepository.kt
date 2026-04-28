@@ -3,6 +3,7 @@ package com.cyrillrx.rpg.magicalitem.data
 import com.cyrillrx.core.data.FileReader
 import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.core.domain.Result
+import com.cyrillrx.core.domain.partition
 import com.cyrillrx.rpg.magicalitem.data.api.ApiMagicalItem
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemFilter
@@ -27,13 +28,9 @@ class JsonMagicalItemRepository(private val fileReader: FileReader) : MagicalIte
     }
 
     private suspend fun loadAndParse(): List<MagicalItem> {
-        val apiItems = loadFromFile()
-        val results = apiItems.map { it.toMagicalItem() }
-
-        val failures = results.filterIsInstance<Result.Failure<MagicalItemImportError>>()
-        val successes = results.filterIsInstance<Result.Success<MagicalItem>>()
-        failures.forEach { println("WARNING: magical item import error: ${it.error}") }
-        return successes.map { it.value }.also { cache = it }
+        val (items, errors) = loadFromFile().map { it.toMagicalItem() }.partition()
+        errors.forEach { println("WARNING: magical item import error: $it") }
+        return items.also { cache = it }
     }
 
     private suspend fun loadFromFile(): List<ApiMagicalItem> {
@@ -45,9 +42,7 @@ class JsonMagicalItemRepository(private val fileReader: FileReader) : MagicalIte
     }
 
     companion object {
-        private typealias ItemResult = Result<MagicalItem, MagicalItemImportError>
-
-        private fun ApiMagicalItem.toMagicalItem(): ItemResult {
+        private fun ApiMagicalItem.toMagicalItem(): Result<MagicalItem, MagicalItemImportError> {
             val id = id
                 ?: return Result.Failure(MagicalItemImportError.MissingId)
             val source = source
@@ -84,7 +79,7 @@ class JsonMagicalItemRepository(private val fileReader: FileReader) : MagicalIte
                     rarity = rarity,
                     attunement = attunement ?: false,
                     translations = translations,
-                )
+                ),
             )
         }
 
@@ -93,13 +88,14 @@ class JsonMagicalItemRepository(private val fileReader: FileReader) : MagicalIte
             locale: String,
         ): Result<MagicalItem.Translation, MagicalItemImportError> {
             val name = name ?: return Result.Failure(MagicalItemImportError.InvalidTranslation(itemId, locale))
-            val description = description ?: return Result.Failure(MagicalItemImportError.InvalidTranslation(itemId, locale))
+            val description =
+                description ?: return Result.Failure(MagicalItemImportError.InvalidTranslation(itemId, locale))
             return Result.Success(
                 MagicalItem.Translation(
                     name = name,
                     subtype = subtype,
                     description = description,
-                )
+                ),
             )
         }
 
