@@ -20,3 +20,17 @@ fun <T, Data, E : Error> List<T>.partitionBy(
 }
 
 fun <Data, E : Error> List<Result<Data, E>>.partition(): Pair<List<Data>, List<E>> = partitionBy { it }
+
+fun <K, V, NewV, E : Error> Map<K, V>.partitionBy(
+    transform: (K, V) -> Result<NewV, E>,
+): Pair<Map<K, NewV>, List<E>> {
+    val successes = mutableMapOf<K, NewV>()
+    val failures = mutableListOf<E>()
+    for ((key, value) in this) {
+        when (val result = transform(key, value)) {
+            is Result.Success -> successes[key] = result.value
+            is Result.Failure -> failures.add(result.error)
+        }
+    }
+    return successes to failures
+}
