@@ -3,6 +3,7 @@ package com.cyrillrx.rpg.spell.data
 import com.cyrillrx.core.data.FileReader
 import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.core.domain.Result
+import com.cyrillrx.core.domain.partition
 import com.cyrillrx.rpg.character.domain.PlayerCharacter
 import com.cyrillrx.rpg.spell.data.api.ApiSpell
 import com.cyrillrx.rpg.spell.domain.Spell
@@ -19,22 +20,18 @@ class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository 
         return allSpells.applyFilter(filter)
     }
 
-    private suspend fun loadAndParse(): List<Spell> {
-        val apiSpells = loadFromFile()
-        val results = apiSpells.map { it.toSpell() }
-
-        val failures = results.filterIsInstance<Result.Failure<SpellImportError>>()
-        val successes = results.filterIsInstance<Result.Success<Spell>>()
-        failures.forEach { println("WARNING: spell import error: ${it.error}") }
-        return successes.map { it.value }.also { cache = it }
-    }
-
     override suspend fun getById(id: String): Spell? =
         getAll(null).firstOrNull { it.id == id }
 
     override suspend fun getByIds(ids: List<String>): List<Spell> {
         val all = getAll(null).associateBy { it.id }
         return ids.mapNotNull { all[it] }
+    }
+
+    private suspend fun loadAndParse(): List<Spell> {
+        val (spells, errors) = loadFromFile().map { it.toSpell() }.partition()
+        errors.forEach { println("WARNING: spell import error: $it") }
+        return spells.also { cache = it }
     }
 
     private suspend fun loadFromFile(): List<ApiSpell> {
@@ -46,9 +43,7 @@ class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository 
     }
 
     companion object {
-        private typealias SpellResult = Result<Spell, SpellImportError>
-
-        private fun ApiSpell.toSpell(): SpellResult {
+        private fun ApiSpell.toSpell(): Result<Spell, SpellImportError> {
             val id = id
                 ?: return Result.Failure(SpellImportError.MissingId)
             val source = source
@@ -105,11 +100,14 @@ class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository 
                     ),
                     availableClasses = availableClasses,
                     translations = translations,
-                )
+                ),
             )
         }
 
-        private fun ApiSpell.Translation.toDomain(spellId: String, locale: String): Result<Spell.Translation, SpellImportError> {
+        private fun ApiSpell.Translation.toDomain(
+            spellId: String,
+            locale: String,
+        ): Result<Spell.Translation, SpellImportError> {
             val name = name ?: return Result.Failure(SpellImportError.InvalidTranslation(spellId, locale))
             val castingTime = castingTime ?: return Result.Failure(SpellImportError.InvalidTranslation(spellId, locale))
             val range = range ?: return Result.Failure(SpellImportError.InvalidTranslation(spellId, locale))
@@ -123,7 +121,7 @@ class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository 
                     duration = duration,
                     materialDescription = materialDescription,
                     description = description,
-                )
+                ),
             )
         }
 
