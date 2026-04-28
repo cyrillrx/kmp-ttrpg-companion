@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.spell.data
 
 import com.cyrillrx.core.data.FileReader
 import com.cyrillrx.core.data.deserialize
+import com.cyrillrx.core.domain.Result
 import com.cyrillrx.core.domain.partitionBy
 import com.cyrillrx.rpg.character.domain.PlayerCharacter
 import com.cyrillrx.rpg.spell.data.api.ApiSpell
@@ -15,7 +16,9 @@ class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository 
     private var cache: List<Spell>? = null
 
     override suspend fun getAll(filter: SpellFilter?): List<Spell> {
-        val allSpells = cache ?: loadAndParse()
+        val allSpells = cache ?: loadFromFile()
+            .parse()
+            .also { cache = it }
         return allSpells.applyFilter(filter)
     }
 
@@ -27,12 +30,6 @@ class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository 
         return ids.mapNotNull { all[it] }
     }
 
-    private suspend fun loadAndParse(): List<Spell> {
-        val (spells, errors) = loadFromFile().partitionBy { it.toSpell() }
-        errors.forEach { println("WARNING: spell import error: $it") }
-        return spells.also { cache = it }
-    }
-
     private suspend fun loadFromFile(): List<ApiSpell> {
         val result = fileReader.readFile("files/spells.json")
         if (result is Result.Success) {
@@ -42,6 +39,12 @@ class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository 
     }
 
     companion object {
+        private fun List<ApiSpell>.parse(): List<Spell> {
+            val (spells, errors) = partitionBy { it.toSpell() }
+            errors.forEach { println("WARNING: spell import error: $it") }
+            return spells
+        }
+
         private fun ApiSpell.toSpell(): Result<Spell, SpellImportError> {
             val id = id
                 ?: return Result.Failure(SpellImportError.MissingId)

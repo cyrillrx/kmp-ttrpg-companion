@@ -15,7 +15,9 @@ class JsonMagicalItemRepository(private val fileReader: FileReader) : MagicalIte
     private var cache: List<MagicalItem>? = null
 
     override suspend fun getAll(filter: MagicalItemFilter?): List<MagicalItem> {
-        val allItems = cache ?: loadAndParse()
+        val allItems = cache ?: loadFromFile()
+            .parse()
+            .also { cache = it }
         return allItems.applyFilter(filter)
     }
 
@@ -27,12 +29,6 @@ class JsonMagicalItemRepository(private val fileReader: FileReader) : MagicalIte
         return ids.mapNotNull { all[it] }
     }
 
-    private suspend fun loadAndParse(): List<MagicalItem> {
-        val (items, errors) = loadFromFile().partitionBy { it.toMagicalItem() }
-        errors.forEach { println("WARNING: magical item import error: $it") }
-        return items.also { cache = it }
-    }
-
     private suspend fun loadFromFile(): List<ApiMagicalItem> {
         val result = fileReader.readFile("files/magical-items.json")
         if (result is Result.Success) {
@@ -42,6 +38,12 @@ class JsonMagicalItemRepository(private val fileReader: FileReader) : MagicalIte
     }
 
     companion object {
+        private fun List<ApiMagicalItem>.parse(): List<MagicalItem> {
+            val (items, errors) = partitionBy { it.toMagicalItem() }
+            errors.forEach { println("WARNING: magical item import error: $it") }
+            return items
+        }
+
         private fun ApiMagicalItem.toMagicalItem(): Result<MagicalItem, MagicalItemImportError> {
             val id = id
                 ?: return Result.Failure(MagicalItemImportError.MissingId)
