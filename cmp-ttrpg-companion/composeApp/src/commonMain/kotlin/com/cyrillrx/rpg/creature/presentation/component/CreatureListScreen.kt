@@ -25,7 +25,7 @@ import com.cyrillrx.rpg.core.presentation.component.SearchBarWithBack
 import com.cyrillrx.rpg.core.presentation.component.SwipeToAdd
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.creature.data.SampleCreatureRepository
-import com.cyrillrx.rpg.creature.domain.Creature
+import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.creature.presentation.CreatureAddToListProvider
 import com.cyrillrx.rpg.creature.presentation.CreatureListState
 import com.cyrillrx.rpg.creature.presentation.navigation.CreatureRouter
@@ -41,7 +41,7 @@ import rpg_companion.composeapp.generated.resources.hint_search_creature
 fun CreatureListScreen(
     viewModel: CreatureListViewModel,
     router: CreatureRouter,
-    addToListProvider: AddToListProvider<Creature>,
+    addToListProvider: AddToListProvider<Monster>,
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     CreatureListScreen(
@@ -61,14 +61,14 @@ fun CreatureListScreen(
     state: CreatureListState,
     onNavigateUpClicked: () -> Unit,
     onSearchQueryChanged: (String) -> Unit,
-    onCreatureClicked: (Creature) -> Unit,
-    onTypeToggled: (Creature.Type) -> Unit,
+    onCreatureClicked: (Monster) -> Unit,
+    onTypeToggled: (Monster.Type) -> Unit,
     onChallengeRatingToggled: (Float) -> Unit,
     onResetFilters: () -> Unit,
-    addToListProvider: AddToListProvider<Creature>,
+    addToListProvider: AddToListProvider<Monster>,
 ) {
     var showFilterSheet by remember { mutableStateOf(false) }
-    var creatureToAdd by remember { mutableStateOf<Creature?>(null) }
+    var creatureToAdd by remember { mutableStateOf<Monster?>(null) }
 
     Scaffold(
         topBar = {
@@ -116,9 +116,9 @@ fun CreatureListScreen(
 
 @Composable
 private fun CreatureList(
-    creatures: List<Creature>,
-    onCreatureClicked: (Creature) -> Unit,
-    showAddToList: (Creature) -> Unit,
+    creatures: List<Monster>,
+    onCreatureClicked: (Monster) -> Unit,
+    showAddToList: (Monster) -> Unit,
 ) {
     LazyColumn(modifier = Modifier.fillMaxSize()) {
         items(creatures, key = { it.id }) { creature ->

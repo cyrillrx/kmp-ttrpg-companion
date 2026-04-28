@@ -25,8 +25,8 @@ import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingLarge
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
-import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.CreatureFilter
+import com.cyrillrx.rpg.creature.domain.Monster
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
@@ -46,7 +46,7 @@ private val commonCRs = listOf(
 @Composable
 fun CreatureFilterBottomSheet(
     filter: CreatureFilter,
-    onTypeToggled: (Creature.Type) -> Unit,
+    onTypeToggled: (Monster.Type) -> Unit,
     onChallengeRatingToggled: (Float) -> Unit,
     onResetFilters: () -> Unit,
     onDismiss: () -> Unit,
@@ -84,7 +84,7 @@ fun CreatureFilterBottomSheet(
             FlowRow(
                 horizontalArrangement = Arrangement.spacedBy(spacingMedium),
             ) {
-                Creature.Type.entries.forEach { type ->
+                Monster.Type.entries.forEach { type ->
                     FilterChip(
                         selected = type in filter.types,
                         onClick = { onTypeToggled(type) },
@@ -115,7 +115,7 @@ fun CreatureFilterBottomSheet(
 }
 
 private val sampleFilter = CreatureFilter(
-    types = setOf(Creature.Type.DRAGON),
+    types = setOf(Monster.Type.DRAGON),
     challengeRatings = setOf(10f),
 )
 

@@ -19,13 +19,13 @@ class CreatureMatchesFilterTest {
 
     @Test
     fun `filter by matching type matches`() {
-        val filter = CreatureFilter(types = setOf(Creature.Type.HUMANOID))
+        val filter = CreatureFilter(types = setOf(Monster.Type.HUMANOID))
         assertTrue(goblin.matches(filter))
     }
 
     @Test
     fun `filter by non-matching type does not match`() {
-        val filter = CreatureFilter(types = setOf(Creature.Type.DRAGON))
+        val filter = CreatureFilter(types = setOf(Monster.Type.DRAGON))
         assertFalse(goblin.matches(filter))
     }
 

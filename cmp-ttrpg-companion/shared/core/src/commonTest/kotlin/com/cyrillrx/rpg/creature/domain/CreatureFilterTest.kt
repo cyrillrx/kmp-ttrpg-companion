@@ -14,7 +14,7 @@ class CreatureFilterTest {
 
     @Test
     fun `hasActiveFilters is true when types are set`() {
-        val typesFilter = CreatureFilter(types = setOf(Creature.Type.BEAST))
+        val typesFilter = CreatureFilter(types = setOf(Monster.Type.BEAST))
         assertTrue(typesFilter.hasActiveFilters)
     }
 

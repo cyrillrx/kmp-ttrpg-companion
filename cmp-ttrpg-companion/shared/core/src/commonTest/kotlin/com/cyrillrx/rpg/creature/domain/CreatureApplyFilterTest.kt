@@ -23,8 +23,8 @@ class CreatureApplyFilterTest {
 
     @Test
     fun `filter by type keeps only matching creatures`() {
-        val result = allCreatures.applyFilter(CreatureFilter(types = setOf(Creature.Type.HUMANOID)))
-        assertTrue(result.all { it.type == Creature.Type.HUMANOID })
+        val result = allCreatures.applyFilter(CreatureFilter(types = setOf(Monster.Type.HUMANOID)))
+        assertTrue(result.all { it.type == Monster.Type.HUMANOID })
         assertEquals(1, result.size)
     }
 

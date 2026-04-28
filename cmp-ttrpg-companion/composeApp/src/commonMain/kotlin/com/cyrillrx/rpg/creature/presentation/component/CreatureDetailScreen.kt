@@ -21,7 +21,7 @@ import com.cyrillrx.rpg.core.presentation.state.DetailState
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.creature.data.SampleCreatureRepository
-import com.cyrillrx.rpg.creature.domain.Creature
+import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.creature.presentation.CreatureAddToListProvider
 import com.cyrillrx.rpg.creature.presentation.navigation.CreatureRouter
 import com.cyrillrx.rpg.creature.presentation.viewmodel.CreatureDetailViewModel
@@ -37,7 +37,7 @@ import rpg_companion.composeapp.generated.resources.error_creature_not_found
 fun CreatureDetailScreen(
     viewModel: CreatureDetailViewModel,
     router: CreatureRouter,
-    addToListProvider: AddToListProvider<Creature>,
+    addToListProvider: AddToListProvider<Monster>,
 ) {
     val state by viewModel.state.collectAsState()
     when (val s = state) {
@@ -53,9 +53,9 @@ fun CreatureDetailScreen(
 
 @Composable
 private fun CreatureDetailContent(
-    creature: Creature,
+    creature: Monster,
     onNavigateUpClicked: () -> Unit,
-    addToListProvider: AddToListProvider<Creature>,
+    addToListProvider: AddToListProvider<Monster>,
 ) {
     var showAddToListBottomSheet by remember { mutableStateOf(false) }
 

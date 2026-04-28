@@ -37,7 +37,7 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.creature.data.SampleCreatureRepository
-import com.cyrillrx.rpg.creature.domain.Creature
+import com.cyrillrx.rpg.creature.domain.Monster
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 private val typeIconSize = 36.dp
@@ -45,7 +45,7 @@ private val typeIconPadding = 8.dp
 
 @Composable
 fun CreatureCompactListItem(
-    creature: Creature,
+    creature: Monster,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {

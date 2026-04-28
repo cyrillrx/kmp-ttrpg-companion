@@ -16,8 +16,8 @@ import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.creature.data.CreatureEntityRepository
-import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.CreatureRepository
+import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.userlist.domain.UserList
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
 import com.cyrillrx.rpg.userlist.presentation.AddToListProvider
@@ -28,7 +28,7 @@ import rpg_companion.composeapp.generated.resources.error_while_loading_creature
 class CreatureAddToListProvider(
     repository: CreatureRepository,
     userListRepository: UserListRepository,
-) : AddToListProvider<Creature> {
+) : AddToListProvider<Monster> {
     override val listType: UserList.Type = UserList.Type.CREATURE
 
     override val viewModelFactory = AddToListViewModelFactory(
@@ -39,7 +39,7 @@ class CreatureAddToListProvider(
     )
 
     @Composable
-    override fun Header(entity: Creature) {
+    override fun Header(entity: Monster) {
         Column(
             verticalArrangement = Arrangement.spacedBy(spacingSmall),
             horizontalAlignment = Alignment.CenterHorizontally,

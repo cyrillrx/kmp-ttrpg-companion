@@ -13,12 +13,12 @@ import com.cyrillrx.rpg.core.presentation.component.HtmlText
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.creature.data.SampleCreatureRepository
-import com.cyrillrx.rpg.creature.domain.Creature
+import com.cyrillrx.rpg.creature.domain.Monster
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
 fun CreatureItem(
-    creature: Creature,
+    creature: Monster,
     modifier: Modifier = Modifier,
 ) {
     Column(modifier = modifier

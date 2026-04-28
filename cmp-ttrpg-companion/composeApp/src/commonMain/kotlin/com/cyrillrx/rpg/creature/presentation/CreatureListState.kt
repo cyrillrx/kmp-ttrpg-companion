@@ -1,7 +1,7 @@
 package com.cyrillrx.rpg.creature.presentation
 
-import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.CreatureFilter
+import com.cyrillrx.rpg.creature.domain.Monster
 import org.jetbrains.compose.resources.StringResource
 
 data class CreatureListState(
@@ -12,6 +12,6 @@ data class CreatureListState(
         data object Loading : Body
         data object Empty : Body
         data class Error(val errorMessage: StringResource) : Body
-        data class WithData(val searchResults: List<Creature>) : Body
+        data class WithData(val searchResults: List<Monster>) : Body
     }
 }

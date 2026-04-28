@@ -1,9 +1,9 @@
 package com.cyrillrx.rpg.creature.presentation.viewmodel
 
 import com.cyrillrx.rpg.creature.data.SampleCreatureRepository
-import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.CreatureFilter
 import com.cyrillrx.rpg.creature.domain.CreatureRepository
+import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.creature.presentation.CreatureListState
 import com.cyrillrx.rpg.creature.presentation.navigation.CreatureRouter
 import kotlinx.coroutines.Dispatchers
@@ -67,12 +67,12 @@ class CreatureListViewModelTest {
 
         advanceUntilIdle()
 
-        viewModel.onTypeToggled(Creature.Type.DRAGON)
+        viewModel.onTypeToggled(Monster.Type.DRAGON)
 
         advanceUntilIdle()
 
         val state = viewModel.state.value
-        assertTrue(state.filter.types.contains(Creature.Type.DRAGON))
+        assertTrue(state.filter.types.contains(Monster.Type.DRAGON))
         val body = assertIs<CreatureListState.Body.WithData>(state.body)
         assertEquals(expected = 1, actual = body.searchResults.size)
         assertEquals(expected = dragon.name, actual = body.searchResults.first().name)
@@ -127,7 +127,7 @@ class CreatureListViewModelTest {
 
         advanceUntilIdle()
 
-        viewModel.onTypeToggled(Creature.Type.DRAGON)
+        viewModel.onTypeToggled(Monster.Type.DRAGON)
 
         advanceUntilIdle()
 
@@ -182,11 +182,11 @@ private class NoOpCreatureRouter : CreatureRouter {
 }
 
 private class FailingCreatureRepository : CreatureRepository {
-    override suspend fun getAll(filter: CreatureFilter?): List<Creature> {
+    override suspend fun getAll(filter: CreatureFilter?): List<Monster> {
         throw RuntimeException("Simulated repository error")
     }
 
-    override suspend fun getById(id: String): Creature? {
+    override suspend fun getById(id: String): Monster? {
         throw RuntimeException("Simulated repository error")
     }
 }

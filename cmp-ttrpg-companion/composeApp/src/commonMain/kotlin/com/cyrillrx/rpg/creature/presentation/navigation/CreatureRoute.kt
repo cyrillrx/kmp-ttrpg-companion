@@ -4,8 +4,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation3.runtime.EntryProviderScope
 import androidx.navigation3.runtime.NavKey
 import com.cyrillrx.rpg.creature.data.CreatureEntityRepository
-import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.CreatureRepository
+import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.creature.presentation.CreatureAddToListProvider
 import com.cyrillrx.rpg.creature.presentation.CreatureItemProvider
 import com.cyrillrx.rpg.creature.presentation.component.CreatureCompactListScreen
@@ -67,7 +67,7 @@ fun EntryProviderScope<NavKey>.handleCreatureRoutes(
             userListRepository = userListRepository,
             repository = CreatureEntityRepository(repository),
         )
-        val viewModel = viewModel<ListDetailViewModel<Creature>>(key = listId, factory = viewModelFactory)
+        val viewModel = viewModel<ListDetailViewModel<Monster>>(key = listId, factory = viewModelFactory)
         val itemProvider = CreatureItemProvider(
             onItemClicked = router::openDetail,
             onEmptyLayoutBtnClicked = router::openCompendium,

@@ -7,17 +7,17 @@ import com.cyrillrx.rpg.creature.data.api.ApiBestiaryItem
 import com.cyrillrx.rpg.creature.data.api.ApiMonster
 import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.Ability
-import com.cyrillrx.rpg.creature.domain.BaseCreature
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.CreatureFilter
 import com.cyrillrx.rpg.creature.domain.CreatureRepository
+import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.creature.domain.applyFilter
 
 class JsonCreatureRepository(private val fileReader: FileReader) : CreatureRepository {
 
-    private var cache: List<Creature>? = null
+    private var cache: List<Monster>? = null
 
-    override suspend fun getAll(filter: CreatureFilter?): List<Creature> {
+    override suspend fun getAll(filter: CreatureFilter?): List<Monster> {
         val allCreatures = cache ?: loadFromFile()
             .map { it.toCreature() }
             .also { cache = it }
@@ -25,10 +25,10 @@ class JsonCreatureRepository(private val fileReader: FileReader) : CreatureRepos
         return allCreatures.applyFilter(filter)
     }
 
-    override suspend fun getById(id: String): Creature? =
+    override suspend fun getById(id: String): Monster? =
         getAll(null).firstOrNull { it.id == id }
 
-    override suspend fun getByIds(ids: List<String>): List<Creature> {
+    override suspend fun getByIds(ids: List<String>): List<Monster> {
         val all = getAll(null).associateBy { it.id }
         return ids.mapNotNull { all[it] }
     }
@@ -42,10 +42,10 @@ class JsonCreatureRepository(private val fileReader: FileReader) : CreatureRepos
     }
 
     companion object {
-        private fun ApiBestiaryItem.toCreature(): Creature {
+        private fun ApiBestiaryItem.toCreature(): Monster {
             val monster = header?.monster
 
-            return Creature(
+            return Monster(
                 id = title ?: "",
                 name = title ?: "",
                 description = content ?: "",
@@ -69,24 +69,24 @@ class JsonCreatureRepository(private val fileReader: FileReader) : CreatureRepos
             )
         }
 
-        private fun ApiBestiaryItem.getType(): Creature.Type {
+        private fun ApiBestiaryItem.getType(): Monster.Type {
             val type = truetype?.split(" (")?.getOrNull(0) ?: ""
             return when (type) {
-                "Aberration" -> Creature.Type.ABERRATION
-                "Bête" -> Creature.Type.BEAST
-                "Céleste" -> Creature.Type.CELESTIAL
-                "Créature artificielle" -> Creature.Type.CONSTRUCT
-                "Dragon" -> Creature.Type.DRAGON
-                "Élémentaire" -> Creature.Type.ELEMENTAL
-                "Fée" -> Creature.Type.FEY
-                "Fiélon" -> Creature.Type.FIEND
-                "Géant" -> Creature.Type.GIANT
-                "Humanoïde" -> Creature.Type.HUMANOID
-                "Créature monstrueuse" -> Creature.Type.MONSTROSITY
-                "Vase" -> Creature.Type.OOZE
-                "Plant" -> Creature.Type.PLANT
-                "Undead" -> Creature.Type.UNDEAD
-                else -> Creature.Type.UNKNOWN
+                "Aberration" -> Monster.Type.ABERRATION
+                "Bête" -> Monster.Type.BEAST
+                "Céleste" -> Monster.Type.CELESTIAL
+                "Créature artificielle" -> Monster.Type.CONSTRUCT
+                "Dragon" -> Monster.Type.DRAGON
+                "Élémentaire" -> Monster.Type.ELEMENTAL
+                "Fée" -> Monster.Type.FEY
+                "Fiélon" -> Monster.Type.FIEND
+                "Géant" -> Monster.Type.GIANT
+                "Humanoïde" -> Monster.Type.HUMANOID
+                "Créature monstrueuse" -> Monster.Type.MONSTROSITY
+                "Vase" -> Monster.Type.OOZE
+                "Plant" -> Monster.Type.PLANT
+                "Undead" -> Monster.Type.UNDEAD
+                else -> Monster.Type.UNKNOWN
             }
         }
 
@@ -98,30 +98,30 @@ class JsonCreatureRepository(private val fileReader: FileReader) : CreatureRepos
                 .orEmpty()
         }
 
-        private fun ApiBestiaryItem.getSize(): BaseCreature.Size {
+        private fun ApiBestiaryItem.getSize(): Creature.Size {
             return when (size) {
-                "TP" -> BaseCreature.Size.TINY
-                "P" -> BaseCreature.Size.SMALL
-                "M" -> BaseCreature.Size.MEDIUM
-                "G" -> BaseCreature.Size.LARGE
-                "TG" -> BaseCreature.Size.HUGE
-                "Gig" -> BaseCreature.Size.GARGANTUAN
-                else -> BaseCreature.Size.UNKNOWN
+                "TP" -> Creature.Size.TINY
+                "P" -> Creature.Size.SMALL
+                "M" -> Creature.Size.MEDIUM
+                "G" -> Creature.Size.LARGE
+                "TG" -> Creature.Size.HUGE
+                "Gig" -> Creature.Size.GARGANTUAN
+                else -> Creature.Size.UNKNOWN
             }
         }
 
-        private fun ApiBestiaryItem.getAlignment(): BaseCreature.Alignment {
+        private fun ApiBestiaryItem.getAlignment(): Creature.Alignment {
             return when (alignment) {
-                "Loyal bon" -> BaseCreature.Alignment.LAWFUL_GOOD
-                "Loyal neutre" -> BaseCreature.Alignment.LAWFUL_NEUTRAL
-                "Loyal mauvais" -> BaseCreature.Alignment.LAWFUL_EVIL
-                "Neutre bon" -> BaseCreature.Alignment.NEUTRAL_GOOD
-                "Neutre" -> BaseCreature.Alignment.NEUTRAL
-                "Neutre mauvais" -> BaseCreature.Alignment.NEUTRAL_EVIL
-                "Chaotique bon" -> BaseCreature.Alignment.CHAOTIC_GOOD
-                "Chaotique neutral" -> BaseCreature.Alignment.CHAOTIC_NEUTRAL
-                "Chaotique mauvais" -> BaseCreature.Alignment.CHAOTIC_EVIL
-                else -> BaseCreature.Alignment.UNKNOWN
+                "Loyal bon" -> Creature.Alignment.LAWFUL_GOOD
+                "Loyal neutre" -> Creature.Alignment.LAWFUL_NEUTRAL
+                "Loyal mauvais" -> Creature.Alignment.LAWFUL_EVIL
+                "Neutre bon" -> Creature.Alignment.NEUTRAL_GOOD
+                "Neutre" -> Creature.Alignment.NEUTRAL
+                "Neutre mauvais" -> Creature.Alignment.NEUTRAL_EVIL
+                "Chaotique bon" -> Creature.Alignment.CHAOTIC_GOOD
+                "Chaotique neutral" -> Creature.Alignment.CHAOTIC_NEUTRAL
+                "Chaotique mauvais" -> Creature.Alignment.CHAOTIC_EVIL
+                else -> Creature.Alignment.UNKNOWN
             }
         }
 

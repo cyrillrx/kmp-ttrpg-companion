@@ -1,7 +1,7 @@
 package com.cyrillrx.rpg.character.domain
 
 import com.cyrillrx.rpg.creature.domain.Abilities
-import com.cyrillrx.rpg.creature.domain.BaseCreature
+import com.cyrillrx.rpg.creature.domain.Creature
 
 class PlayerCharacter(
     id: String,
@@ -18,7 +18,7 @@ class PlayerCharacter(
     val clazz: Class,
     val initiativeModifier: Int = abilities.dex.modifier,
     val skills: Skills,
-) : BaseCreature(
+) : Creature(
     id = id,
     name = name,
     description = description,

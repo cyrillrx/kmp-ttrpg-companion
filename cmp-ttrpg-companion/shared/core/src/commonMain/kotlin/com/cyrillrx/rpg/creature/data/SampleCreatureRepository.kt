@@ -1,21 +1,21 @@
 package com.cyrillrx.rpg.creature.data
 
 import com.cyrillrx.rpg.creature.domain.Abilities
-import com.cyrillrx.rpg.creature.domain.BaseCreature
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.CreatureFilter
 import com.cyrillrx.rpg.creature.domain.CreatureRepository
+import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.creature.domain.applyFilter
 
 class SampleCreatureRepository : CreatureRepository {
-    override suspend fun getAll(filter: CreatureFilter?): List<Creature> {
+    override suspend fun getAll(filter: CreatureFilter?): List<Monster> {
         return creatures.applyFilter(filter)
     }
 
-    override suspend fun getById(id: String): Creature? = creatures.firstOrNull { it.id == id }
+    override suspend fun getById(id: String): Monster? = creatures.firstOrNull { it.id == id }
 
     companion object {
-        private val creatures: List<Creature> = listOf(
+        private val creatures: List<Monster> = listOf(
             goblin(),
             youngRedDragon(),
             skeleton(),
@@ -24,18 +24,18 @@ class SampleCreatureRepository : CreatureRepository {
             gelatinousCube(),
         )
 
-        fun getAll(): List<Creature> = creatures
+        fun getAll(): List<Monster> = creatures
 
-        fun getFirst(): Creature = creatures.first()
+        fun getFirst(): Monster = creatures.first()
 
-        fun goblin() = Creature(
+        fun goblin() = Monster(
             id = "1",
             name = "Goblin",
             description = "A small, black-hearted creature that lairs in despoiled dungeons and other dismal settings.",
-            type = Creature.Type.HUMANOID,
+            type = Monster.Type.HUMANOID,
             subtype = "goblinoid",
-            size = BaseCreature.Size.SMALL,
-            alignment = BaseCreature.Alignment.NEUTRAL_EVIL,
+            size = Creature.Size.SMALL,
+            alignment = Creature.Alignment.NEUTRAL_EVIL,
             challengeRating = 0.25f,
             abilities = Abilities(
                 strValue = 8,
@@ -51,14 +51,14 @@ class SampleCreatureRepository : CreatureRepository {
             languages = listOf("Common", "Goblin"),
         )
 
-        fun youngRedDragon() = Creature(
+        fun youngRedDragon() = Monster(
             id = "2",
             name = "Young Red Dragon",
             description = "A fierce dragon that breathes fire and terrorizes the countryside.",
-            type = Creature.Type.DRAGON,
+            type = Monster.Type.DRAGON,
             subtype = "",
-            size = BaseCreature.Size.LARGE,
-            alignment = BaseCreature.Alignment.CHAOTIC_EVIL,
+            size = Creature.Size.LARGE,
+            alignment = Creature.Alignment.CHAOTIC_EVIL,
             challengeRating = 10f,
             abilities = Abilities(
                 strValue = 23,
@@ -74,14 +74,14 @@ class SampleCreatureRepository : CreatureRepository {
             languages = listOf("Common", "Draconic"),
         )
 
-        private fun skeleton() = Creature(
+        private fun skeleton() = Monster(
             id = "3",
             name = "Skeleton",
             description = "An animated pile of bones held together by dark magic.",
-            type = Creature.Type.UNDEAD,
+            type = Monster.Type.UNDEAD,
             subtype = "",
-            size = BaseCreature.Size.MEDIUM,
-            alignment = BaseCreature.Alignment.LAWFUL_EVIL,
+            size = Creature.Size.MEDIUM,
+            alignment = Creature.Alignment.LAWFUL_EVIL,
             challengeRating = 0.25f,
             abilities = Abilities(
                 strValue = 10,
@@ -97,14 +97,14 @@ class SampleCreatureRepository : CreatureRepository {
             languages = listOf("understands languages it knew in life"),
         )
 
-        private fun direWolf() = Creature(
+        private fun direWolf() = Monster(
             id = "4",
             name = "Dire Wolf",
             description = "A large and fearsome wolf that hunts in packs.",
-            type = Creature.Type.BEAST,
+            type = Monster.Type.BEAST,
             subtype = "",
-            size = BaseCreature.Size.LARGE,
-            alignment = BaseCreature.Alignment.NEUTRAL,
+            size = Creature.Size.LARGE,
+            alignment = Creature.Alignment.NEUTRAL,
             challengeRating = 1f,
             abilities = Abilities(
                 strValue = 17,
@@ -120,14 +120,14 @@ class SampleCreatureRepository : CreatureRepository {
             languages = emptyList(),
         )
 
-        private fun balor() = Creature(
+        private fun balor() = Monster(
             id = "5",
             name = "Balor",
             description = "A towering fiend wreathed in flame, wielding a whip and longsword of fire.",
-            type = Creature.Type.FIEND,
+            type = Monster.Type.FIEND,
             subtype = "demon",
-            size = BaseCreature.Size.HUGE,
-            alignment = BaseCreature.Alignment.CHAOTIC_EVIL,
+            size = Creature.Size.HUGE,
+            alignment = Creature.Alignment.CHAOTIC_EVIL,
             challengeRating = 19f,
             abilities = Abilities(
                 strValue = 26,
@@ -143,14 +143,14 @@ class SampleCreatureRepository : CreatureRepository {
             languages = listOf("Abyssal", "telepathy 120 ft."),
         )
 
-        private fun gelatinousCube() = Creature(
+        private fun gelatinousCube() = Monster(
             id = "6",
             name = "Gelatinous Cube",
             description = "A nearly transparent ooze that fills dungeon corridors.",
-            type = Creature.Type.OOZE,
+            type = Monster.Type.OOZE,
             subtype = "",
-            size = BaseCreature.Size.LARGE,
-            alignment = BaseCreature.Alignment.NEUTRAL,
+            size = Creature.Size.LARGE,
+            alignment = Creature.Alignment.NEUTRAL,
             challengeRating = 2f,
             abilities = Abilities(strValue = 14, dexValue = 3, conValue = 20, intValue = 1, wisValue = 6, chaValue = 1),
             armorClass = 6,

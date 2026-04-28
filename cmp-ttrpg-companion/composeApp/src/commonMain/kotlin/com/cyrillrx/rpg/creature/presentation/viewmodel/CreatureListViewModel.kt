@@ -3,9 +3,9 @@ package com.cyrillrx.rpg.creature.presentation.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.core.domain.toggled
-import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.CreatureFilter
 import com.cyrillrx.rpg.creature.domain.CreatureRepository
+import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.creature.presentation.CreatureListState
 import com.cyrillrx.rpg.creature.presentation.navigation.CreatureRouter
 import kotlinx.coroutines.Job
@@ -34,11 +34,11 @@ class CreatureListViewModel(
         updateFilter { it.copy(query = query) }
     }
 
-    fun onCreatureClicked(creature: Creature) {
+    fun onCreatureClicked(creature: Monster) {
         router.openDetail(creature.id)
     }
 
-    fun onTypeToggled(type: Creature.Type) {
+    fun onTypeToggled(type: Monster.Type) {
         updateFilter { it.copy(types = it.types.toggled(type)) }
     }
 

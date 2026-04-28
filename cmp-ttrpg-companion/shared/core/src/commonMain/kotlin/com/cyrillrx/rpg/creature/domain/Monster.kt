@@ -1,0 +1,46 @@
+package com.cyrillrx.rpg.creature.domain
+
+class Monster(
+    id: String,
+    name: String,
+    description: String,
+    size: Size,
+    alignment: Alignment,
+    abilities: Abilities,
+    armorClass: Int,
+    maxHitPoints: Int,
+    speed: String,
+    languages: List<String>,
+    val type: Type,
+    val subtype: String,
+    val challengeRating: Float,
+) : Creature(
+    id = id,
+    name = name,
+    description = description,
+    size = size,
+    alignment = alignment,
+    abilities = abilities,
+    armorClass = armorClass,
+    maxHitPoints = maxHitPoints,
+    speed = speed,
+    languages = languages,
+) {
+    enum class Type {
+        ABERRATION,
+        BEAST,
+        CELESTIAL,
+        CONSTRUCT,
+        DRAGON,
+        ELEMENTAL,
+        FEY,
+        FIEND,
+        GIANT,
+        HUMANOID,
+        MONSTROSITY,
+        OOZE,
+        PLANT,
+        UNDEAD,
+        UNKNOWN,
+    }
+}

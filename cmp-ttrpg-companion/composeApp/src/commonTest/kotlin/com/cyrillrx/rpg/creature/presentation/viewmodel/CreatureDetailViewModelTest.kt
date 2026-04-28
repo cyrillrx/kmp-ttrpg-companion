@@ -2,7 +2,7 @@ package com.cyrillrx.rpg.creature.presentation.viewmodel
 
 import com.cyrillrx.rpg.core.presentation.state.DetailState
 import com.cyrillrx.rpg.creature.data.SampleCreatureRepository
-import com.cyrillrx.rpg.creature.domain.Creature
+import com.cyrillrx.rpg.creature.domain.Monster
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
@@ -68,7 +68,7 @@ class CreatureDetailViewModelTest {
         advanceUntilIdle()
 
         val state = viewModel.state.value
-        assertIs<DetailState.Found<Creature>>(state)
+        assertIs<DetailState.Found<Monster>>(state)
         assertEquals(expected = creature.id, actual = state.item.id)
         assertEquals(expected = creature.name, actual = state.item.name)
     }

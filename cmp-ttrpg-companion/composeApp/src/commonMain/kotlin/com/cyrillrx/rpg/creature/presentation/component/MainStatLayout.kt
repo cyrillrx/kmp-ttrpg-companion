@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.sp
 import com.cyrillrx.rpg.core.presentation.component.dnd.getSubtitle
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.creature.data.SampleCreatureRepository
-import com.cyrillrx.rpg.creature.domain.Creature
+import com.cyrillrx.rpg.creature.domain.Monster
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
@@ -23,7 +23,7 @@ import rpg_companion.composeapp.generated.resources.creature_speed
 
 @Composable
 fun MainStatLayout(
-    creature: Creature,
+    creature: Monster,
     modifier: Modifier = Modifier,
 ) {
     Column(modifier) {
