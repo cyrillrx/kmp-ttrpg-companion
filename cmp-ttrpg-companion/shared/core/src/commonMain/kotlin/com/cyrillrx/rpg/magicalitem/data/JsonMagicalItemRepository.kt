@@ -3,7 +3,7 @@ package com.cyrillrx.rpg.magicalitem.data
 import com.cyrillrx.core.data.FileReader
 import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.core.domain.Result
-import com.cyrillrx.rpg.magicalitem.data.api.ApiInventoryItem
+import com.cyrillrx.rpg.magicalitem.data.api.ApiMagicalItem
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemFilter
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemRepository
@@ -36,7 +36,7 @@ class JsonMagicalItemRepository(private val fileReader: FileReader) : MagicalIte
         return successes.map { it.value }.also { cache = it }
     }
 
-    private suspend fun loadFromFile(): List<ApiInventoryItem> {
+    private suspend fun loadFromFile(): List<ApiMagicalItem> {
         val result = fileReader.readFile("files/magical-items.json")
         if (result is Result.Success) {
             return result.value.deserialize() ?: listOf()
@@ -47,7 +47,7 @@ class JsonMagicalItemRepository(private val fileReader: FileReader) : MagicalIte
     companion object {
         private typealias ItemResult = Result<MagicalItem, MagicalItemImportError>
 
-        private fun ApiInventoryItem.toMagicalItem(): ItemResult {
+        private fun ApiMagicalItem.toMagicalItem(): ItemResult {
             val id = id
                 ?: return Result.Failure(MagicalItemImportError.MissingId)
             val source = source
@@ -88,7 +88,7 @@ class JsonMagicalItemRepository(private val fileReader: FileReader) : MagicalIte
             )
         }
 
-        private fun ApiInventoryItem.Translation.toDomain(
+        private fun ApiMagicalItem.Translation.toDomain(
             itemId: String,
             locale: String,
         ): Result<MagicalItem.Translation, MagicalItemImportError> {
