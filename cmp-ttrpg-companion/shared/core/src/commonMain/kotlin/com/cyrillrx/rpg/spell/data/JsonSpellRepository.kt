@@ -2,8 +2,7 @@ package com.cyrillrx.rpg.spell.data
 
 import com.cyrillrx.core.data.FileReader
 import com.cyrillrx.core.data.deserialize
-import com.cyrillrx.core.domain.Result
-import com.cyrillrx.core.domain.partition
+import com.cyrillrx.core.domain.partitionBy
 import com.cyrillrx.rpg.character.domain.PlayerCharacter
 import com.cyrillrx.rpg.spell.data.api.ApiSpell
 import com.cyrillrx.rpg.spell.domain.Spell
@@ -29,7 +28,7 @@ class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository 
     }
 
     private suspend fun loadAndParse(): List<Spell> {
-        val (spells, errors) = loadFromFile().map { it.toSpell() }.partition()
+        val (spells, errors) = loadFromFile().partitionBy { it.toSpell() }
         errors.forEach { println("WARNING: spell import error: $it") }
         return spells.also { cache = it }
     }

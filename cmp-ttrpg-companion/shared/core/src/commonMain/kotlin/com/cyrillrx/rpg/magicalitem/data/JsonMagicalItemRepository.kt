@@ -3,7 +3,7 @@ package com.cyrillrx.rpg.magicalitem.data
 import com.cyrillrx.core.data.FileReader
 import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.core.domain.Result
-import com.cyrillrx.core.domain.partition
+import com.cyrillrx.core.domain.partitionBy
 import com.cyrillrx.rpg.magicalitem.data.api.ApiMagicalItem
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemFilter
@@ -28,7 +28,7 @@ class JsonMagicalItemRepository(private val fileReader: FileReader) : MagicalIte
     }
 
     private suspend fun loadAndParse(): List<MagicalItem> {
-        val (items, errors) = loadFromFile().map { it.toMagicalItem() }.partition()
+        val (items, errors) = loadFromFile().partitionBy { it.toMagicalItem() }
         errors.forEach { println("WARNING: magical item import error: $it") }
         return items.also { cache = it }
     }
