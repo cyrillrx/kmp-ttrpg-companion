@@ -14,6 +14,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
@@ -62,7 +63,7 @@ private fun CreatureDetailContent(
     Scaffold(
         topBar = {
             SimpleTopBar(
-                title = creature.name,
+                title = creature.resolveTranslation(currentLocale())?.name ?: creature.name,
                 onNavigateUpClicked = onNavigateUpClicked,
             )
         },

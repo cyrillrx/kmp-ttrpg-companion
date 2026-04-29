@@ -19,9 +19,10 @@ internal fun Monster.matches(filter: CreatureFilter): Boolean {
         (filter.query.isBlank() || matches(filter.query))
 }
 
-private fun Creature.matches(query: String): Boolean {
+private fun Monster.matches(query: String): Boolean {
     val trimmedQuery = query.trim()
-
-    return name.contains(trimmedQuery, ignoreCase = true) ||
-        description.contains(trimmedQuery, ignoreCase = true)
+    return translations.values.any { t ->
+        t.name.contains(trimmedQuery, ignoreCase = true) ||
+            t.description.contains(trimmedQuery, ignoreCase = true)
+    } || name.contains(trimmedQuery, ignoreCase = true)
 }

@@ -9,6 +9,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
+import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.HtmlText
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
@@ -21,11 +22,12 @@ fun CreatureItem(
     creature: Monster,
     modifier: Modifier = Modifier,
 ) {
+    val translation = creature.resolveTranslation(currentLocale())
     Column(modifier = modifier
         .background(MaterialTheme.colorScheme.background)
         .padding(spacingCommon)) {
         Text(
-            text = creature.name,
+            text = translation?.name ?: creature.name,
             style = MaterialTheme.typography.headlineSmall,
             fontWeight = FontWeight.Bold,
             color = MaterialTheme.colorScheme.onBackground,
@@ -46,7 +48,7 @@ fun CreatureItem(
             cha = abilities.cha.getValueWithModifier(),
         )
 
-        HtmlText(text = creature.description)
+        HtmlText(text = translation?.description ?: creature.description)
     }
 }
 

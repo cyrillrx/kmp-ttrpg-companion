@@ -37,6 +37,7 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.creature.data.SampleCreatureRepository
+import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.creature.domain.Monster
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
@@ -49,6 +50,7 @@ fun CreatureCompactListItem(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    val translation = creature.resolveTranslation(currentLocale())
     val typeColor = creature.type.getColor()
 
     Card(
@@ -86,7 +88,7 @@ fun CreatureCompactListItem(
                 modifier = Modifier.weight(1f),
             ) {
                 Text(
-                    text = creature.name,
+                    text = translation?.name ?: creature.name,
                     style = MaterialTheme.typography.titleSmall,
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.onSurface,

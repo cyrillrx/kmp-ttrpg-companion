@@ -10,6 +10,7 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.sp
+import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.dnd.getSubtitle
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.creature.data.SampleCreatureRepository
@@ -26,6 +27,7 @@ fun MainStatLayout(
     creature: Monster,
     modifier: Modifier = Modifier,
 ) {
+    val translation = creature.resolveTranslation(currentLocale())
     Column(modifier) {
         Text(
             buildAnnotatedString {
@@ -70,7 +72,7 @@ fun MainStatLayout(
                     append(stringResource(Res.string.creature_speed))
                     append(" ")
                 }
-                append(creature.speed)
+                append(translation?.speed ?: creature.speed)
             },
             color = MaterialTheme.colorScheme.onBackground,
         )

@@ -22,7 +22,8 @@ class CreatureItemProvider(
 
     override fun getId(entity: Monster): String = entity.id
 
-    override fun getDisplayName(entity: Monster, locale: String): String = entity.name
+    override fun getDisplayName(entity: Monster, locale: String): String =
+        entity.resolveTranslation(locale)?.name ?: entity.name
 
     @Composable
     override fun ListItem(entity: Monster, modifier: Modifier) {
