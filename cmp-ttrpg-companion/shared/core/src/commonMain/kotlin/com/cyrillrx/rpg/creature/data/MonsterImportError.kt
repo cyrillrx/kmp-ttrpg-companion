@@ -11,6 +11,7 @@ sealed interface MonsterImportError : Error {
     data class UnknownSize(val id: String, val raw: String) : MonsterImportError
     data class MissingAlignment(val id: String) : MonsterImportError
     data class UnknownAlignment(val id: String, val raw: String) : MonsterImportError
+    data class MissingAbilities(val id: String) : MonsterImportError
     data class MissingTranslations(val id: String) : MonsterImportError
     data class InvalidTranslation(val id: String, val locale: String) : MonsterImportError
 }

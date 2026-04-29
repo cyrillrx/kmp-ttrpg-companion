@@ -3,14 +3,19 @@ package com.cyrillrx.rpg.creature.data
 import com.cyrillrx.core.data.FileReader
 import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.core.domain.Result
-import com.cyrillrx.rpg.creature.data.api.ApiBestiaryItem
+import com.cyrillrx.core.domain.partitionBy
 import com.cyrillrx.rpg.creature.data.api.ApiMonster
 import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.Ability
+import com.cyrillrx.rpg.creature.domain.ConditionImmunities
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.CreatureFilter
 import com.cyrillrx.rpg.creature.domain.CreatureRepository
+import com.cyrillrx.rpg.creature.domain.DamageAffinity
+import com.cyrillrx.rpg.creature.domain.DamageAffinities
 import com.cyrillrx.rpg.creature.domain.Monster
+import com.cyrillrx.rpg.creature.domain.Proficiency
+import com.cyrillrx.rpg.creature.domain.Skills
 import com.cyrillrx.rpg.creature.domain.applyFilter
 
 class JsonCreatureRepository(private val fileReader: FileReader) : CreatureRepository {
@@ -18,11 +23,8 @@ class JsonCreatureRepository(private val fileReader: FileReader) : CreatureRepos
     private var cache: List<Monster>? = null
 
     override suspend fun getAll(filter: CreatureFilter?): List<Monster> {
-        val allCreatures = cache ?: loadFromFile()
-            .map { it.toCreature() }
-            .also { cache = it }
-
-        return allCreatures.applyFilter(filter)
+        val all = cache ?: loadFromFile().parse().also { cache = it }
+        return all.applyFilter(filter)
     }
 
     override suspend fun getById(id: String): Monster? =
@@ -33,8 +35,8 @@ class JsonCreatureRepository(private val fileReader: FileReader) : CreatureRepos
         return ids.mapNotNull { all[it] }
     }
 
-    private suspend fun loadFromFile(): List<ApiBestiaryItem> {
-        val result = fileReader.readFile("files/creatures.json")
+    private suspend fun loadFromFile(): List<ApiMonster> {
+        val result = fileReader.readFile("files/monsters.json")
         if (result is Result.Success) {
             return result.value.deserialize() ?: listOf()
         }
@@ -42,107 +44,186 @@ class JsonCreatureRepository(private val fileReader: FileReader) : CreatureRepos
     }
 
     companion object {
-        private fun ApiBestiaryItem.toCreature(): Monster {
-            val monster = header?.monster
+        private fun List<ApiMonster>.parse(): List<Monster> {
+            val (monsters, errors) = partitionBy { it.toMonster() }
+            errors.forEach { println("WARNING: monster import error: $it") }
+            return monsters
+        }
 
-            return Monster(
-                id = title ?: "",
-                name = title ?: "",
-                description = content ?: "",
-                source = "srd_5.1",
-                type = getType(),
-                size = getSize(),
-                alignment = getAlignment(),
-                challengeRating = challengeRating(),
-                hitDice = header?.monster.getHitDice(),
-                abilities = Abilities(
-                    str = Ability(extractAbilities(monster?.str)),
-                    dex = Ability(extractAbilities(monster?.dex)),
-                    con = Ability(extractAbilities(monster?.con)),
-                    int = Ability(extractAbilities(monster?.int)),
-                    wis = Ability(extractAbilities(monster?.wis)),
-                    cha = Ability(extractAbilities(monster?.cha)),
+        private fun ApiMonster.toMonster(): Result<Monster, MonsterImportError> {
+            val id = id
+                ?: return Result.Failure(MonsterImportError.MissingId)
+            val source = source
+                ?: return Result.Failure(MonsterImportError.MissingSource(id))
+            val apiType = type
+                ?: return Result.Failure(MonsterImportError.MissingType(id))
+            val type = apiType.toType()
+                ?: return Result.Failure(MonsterImportError.UnknownType(id, apiType))
+            val apiSize = size
+                ?: return Result.Failure(MonsterImportError.MissingSize(id))
+            val size = apiSize.toSize()
+                ?: return Result.Failure(MonsterImportError.UnknownSize(id, apiSize))
+            val apiAlignment = alignment
+                ?: return Result.Failure(MonsterImportError.MissingAlignment(id))
+            val alignment = apiAlignment.toAlignment()
+                ?: return Result.Failure(MonsterImportError.UnknownAlignment(id, apiAlignment))
+            val apiAbilities = abilities
+                ?: return Result.Failure(MonsterImportError.MissingAbilities(id))
+            val apiTranslations = translations
+                ?: return Result.Failure(MonsterImportError.MissingTranslations(id))
+            val (translationMap, translationErrors) = apiTranslations.partitionBy { locale, t ->
+                t.toDomain(id, locale)
+            }
+            translationErrors.forEach { println("WARNING: monster import error: $it") }
+            val translations = translationMap.takeIf { it.isNotEmpty() }
+                ?: return Result.Failure(MonsterImportError.MissingTranslations(id))
+
+            val enTranslation = translations["en"] ?: translations.values.first()
+
+            return Result.Success(
+                Monster(
+                    id = id,
+                    name = enTranslation.name,
+                    description = enTranslation.description,
+                    source = source,
+                    type = type,
+                    size = size,
+                    alignment = alignment,
+                    challengeRating = challengeRating ?: -1f,
+                    hitDice = hitDice.orEmpty(),
+                    abilities = apiAbilities.toDomain(),
+                    armorClass = armorClass ?: 10,
+                    maxHitPoints = maxHitPoints ?: 0,
+                    speed = enTranslation.speed,
+                    languages = enTranslation.languages ?: emptyList(),
+                    skills = skills.toSkills(),
+                    damageAffinities = damageAffinities.toDamageAffinities(),
+                    conditionImmunities = conditionImmunities.toConditionImmunities(),
+                    translations = translations,
                 ),
-                armorClass = monster.getArmorClass(),
-                maxHitPoints = monster.getHitPoints(),
-                speed = monster?.speed ?: "",
-                languages = emptyList(),
             )
         }
 
-        private fun ApiBestiaryItem.getType(): Monster.Type {
-            val type = truetype?.split(" (")?.getOrNull(0) ?: ""
-            return when (type) {
-                "Aberration" -> Monster.Type.ABERRATION
-                "Bête" -> Monster.Type.BEAST
-                "Céleste" -> Monster.Type.CELESTIAL
-                "Créature artificielle" -> Monster.Type.CONSTRUCT
-                "Dragon" -> Monster.Type.DRAGON
-                "Élémentaire" -> Monster.Type.ELEMENTAL
-                "Fée" -> Monster.Type.FEY
-                "Fiélon" -> Monster.Type.FIEND
-                "Géant" -> Monster.Type.GIANT
-                "Humanoïde" -> Monster.Type.HUMANOID
-                "Créature monstrueuse" -> Monster.Type.MONSTROSITY
-                "Vase" -> Monster.Type.OOZE
-                "Plant" -> Monster.Type.PLANT
-                "Undead" -> Monster.Type.UNDEAD
-                else -> Monster.Type.UNKNOWN
-            }
+        private fun ApiMonster.Translation.toDomain(
+            monsterId: String,
+            locale: String,
+        ): Result<Monster.Translation, MonsterImportError> {
+            val name = name
+                ?: return Result.Failure(MonsterImportError.InvalidTranslation(monsterId, locale))
+            val description = description
+                ?: return Result.Failure(MonsterImportError.InvalidTranslation(monsterId, locale))
+            val speed = speed
+                ?: return Result.Failure(MonsterImportError.InvalidTranslation(monsterId, locale))
+            val senses = senses
+                ?: return Result.Failure(MonsterImportError.InvalidTranslation(monsterId, locale))
+            return Result.Success(
+                Monster.Translation(
+                    name = name,
+                    subtype = subtype,
+                    description = description,
+                    speed = speed,
+                    senses = senses,
+                    languages = languages ?: emptyList(),
+                ),
+            )
         }
 
-        private fun ApiBestiaryItem.getSize(): Creature.Size {
-            return when (size) {
-                "TP" -> Creature.Size.TINY
-                "P" -> Creature.Size.SMALL
-                "M" -> Creature.Size.MEDIUM
-                "G" -> Creature.Size.LARGE
-                "TG" -> Creature.Size.HUGE
-                "Gig" -> Creature.Size.GARGANTUAN
-                else -> Creature.Size.UNKNOWN
-            }
+        private fun ApiMonster.ApiAbilities.toDomain(): Abilities =
+            Abilities(
+                str = Ability(str?.value ?: Ability.DEFAULT_VALUE, str?.savingThrowProficiency.toProficiency()),
+                dex = Ability(dex?.value ?: Ability.DEFAULT_VALUE, dex?.savingThrowProficiency.toProficiency()),
+                con = Ability(con?.value ?: Ability.DEFAULT_VALUE, con?.savingThrowProficiency.toProficiency()),
+                int = Ability(int?.value ?: Ability.DEFAULT_VALUE, int?.savingThrowProficiency.toProficiency()),
+                wis = Ability(wis?.value ?: Ability.DEFAULT_VALUE, wis?.savingThrowProficiency.toProficiency()),
+                cha = Ability(cha?.value ?: Ability.DEFAULT_VALUE, cha?.savingThrowProficiency.toProficiency()),
+            )
+
+        private fun String?.toProficiency(): Proficiency = when (this) {
+            "proficient" -> Proficiency.PROFICIENT
+            "expert" -> Proficiency.EXPERT
+            else -> Proficiency.NONE
         }
 
-        private fun ApiBestiaryItem.getAlignment(): Creature.Alignment {
-            return when (alignment) {
-                "Loyal bon" -> Creature.Alignment.LAWFUL_GOOD
-                "Loyal neutre" -> Creature.Alignment.LAWFUL_NEUTRAL
-                "Loyal mauvais" -> Creature.Alignment.LAWFUL_EVIL
-                "Neutre bon" -> Creature.Alignment.NEUTRAL_GOOD
-                "Neutre" -> Creature.Alignment.NEUTRAL
-                "Neutre mauvais" -> Creature.Alignment.NEUTRAL_EVIL
-                "Chaotique bon" -> Creature.Alignment.CHAOTIC_GOOD
-                "Chaotique neutral" -> Creature.Alignment.CHAOTIC_NEUTRAL
-                "Chaotique mauvais" -> Creature.Alignment.CHAOTIC_EVIL
-                else -> Creature.Alignment.UNKNOWN
-            }
+        private fun Map<String, String>?.toSkills(): Skills {
+            if (this == null) return Skills()
+            return Skills(
+                acrobatics = get("acrobatics").toProficiency(),
+                animalHandling = get("animalHandling").toProficiency(),
+                arcana = get("arcana").toProficiency(),
+                athletics = get("athletics").toProficiency(),
+                deception = get("deception").toProficiency(),
+                history = get("history").toProficiency(),
+                insight = get("insight").toProficiency(),
+                intimidation = get("intimidation").toProficiency(),
+                investigation = get("investigation").toProficiency(),
+                medicine = get("medicine").toProficiency(),
+                nature = get("nature").toProficiency(),
+                perception = get("perception").toProficiency(),
+                performance = get("performance").toProficiency(),
+                persuasion = get("persuasion").toProficiency(),
+                religion = get("religion").toProficiency(),
+                sleightOfHand = get("sleightOfHand").toProficiency(),
+                stealth = get("stealth").toProficiency(),
+                survival = get("survival").toProficiency(),
+            )
         }
 
-        private fun ApiBestiaryItem.challengeRating(): Float = challenge ?: 0f
-
-        private fun ApiMonster?.getArmorClass(): Int {
-            return this?.ac?.split(' ')?.firstOrNull()?.toIntOrNull() ?: 10
+        private fun Map<String, String>?.toDamageAffinities(): DamageAffinities {
+            if (this == null) return DamageAffinities()
+            return DamageAffinities(
+                acid = get("acid").toDamageAffinity(),
+                bludgeoning = get("bludgeoning").toDamageAffinity(),
+                cold = get("cold").toDamageAffinity(),
+                fire = get("fire").toDamageAffinity(),
+                force = get("force").toDamageAffinity(),
+                lightning = get("lightning").toDamageAffinity(),
+                necrotic = get("necrotic").toDamageAffinity(),
+                piercing = get("piercing").toDamageAffinity(),
+                poison = get("poison").toDamageAffinity(),
+                psychic = get("psychic").toDamageAffinity(),
+                radiant = get("radiant").toDamageAffinity(),
+                slashing = get("slashing").toDamageAffinity(),
+                thunder = get("thunder").toDamageAffinity(),
+                bludgeoningNonMagical = get("bludgeoningNonMagical").toDamageAffinity(),
+                piercingNonMagical = get("piercingNonMagical").toDamageAffinity(),
+                slashingNonMagical = get("slashingNonMagical").toDamageAffinity(),
+            )
         }
 
-        private fun ApiMonster?.getHitPoints(): Int {
-            return this?.hp?.split(' ')?.firstOrNull()?.toIntOrNull() ?: 10
+        private fun String?.toDamageAffinity(): DamageAffinity = when (this) {
+            "resistant" -> DamageAffinity.RESISTANT
+            "immune" -> DamageAffinity.IMMUNE
+            "vulnerable" -> DamageAffinity.VULNERABLE
+            else -> DamageAffinity.NONE
         }
 
-        private fun ApiMonster?.getHitDice(): String {
-            // hp format: "7 (2d6)" or "262 (19d12 + 114)"
-            return this?.hp
-                ?.substringAfter("(", "")
-                ?.substringBefore(")", "")
-                ?.replace(" ", "")
-                .orEmpty()
+        private fun Map<String, Boolean>?.toConditionImmunities(): ConditionImmunities {
+            if (this == null) return ConditionImmunities()
+            return ConditionImmunities(
+                blinded = get("blinded") ?: false,
+                charmed = get("charmed") ?: false,
+                deafened = get("deafened") ?: false,
+                exhaustion = get("exhaustion") ?: false,
+                frightened = get("frightened") ?: false,
+                grappled = get("grappled") ?: false,
+                incapacitated = get("incapacitated") ?: false,
+                paralyzed = get("paralyzed") ?: false,
+                petrified = get("petrified") ?: false,
+                poisoned = get("poisoned") ?: false,
+                prone = get("prone") ?: false,
+                restrained = get("restrained") ?: false,
+                stunned = get("stunned") ?: false,
+                unconscious = get("unconscious") ?: false,
+            )
         }
 
-        private fun extractAbilities(ability: String?): Int {
-            return ability
-                ?.split(" ")
-                ?.firstOrNull()
-                ?.toIntOrNull()
-                ?: Ability.DEFAULT_VALUE
-        }
+        private fun String.toType(): Monster.Type? =
+            Monster.Type.entries.find { it.name.equals(this, ignoreCase = true) }
+
+        private fun String.toSize(): Creature.Size? =
+            Creature.Size.entries.find { it.name.equals(this, ignoreCase = true) }
+
+        private fun String.toAlignment(): Creature.Alignment? =
+            Creature.Alignment.entries.find { it.name.equals(this, ignoreCase = true) }
     }
 }
