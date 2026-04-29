@@ -97,7 +97,7 @@ fun MonsterListScreen(
                 is MonsterListState.Body.Empty -> EmptySearch(state.filter.query)
                 is MonsterListState.Body.Error -> ErrorLayout(body.errorMessage)
                 is MonsterListState.Body.WithData -> MonsterList(
-                    creatures = body.searchResults,
+                    monsters = body.searchResults,
                     onMonsterClicked = onMonsterClicked,
                     showAddToList = { creature -> creatureToAdd = creature },
                 )
@@ -125,12 +125,12 @@ fun MonsterListScreen(
 
 @Composable
 private fun MonsterList(
-    creatures: List<Monster>,
+    monsters: List<Monster>,
     onMonsterClicked: (Monster) -> Unit,
     showAddToList: (Monster) -> Unit,
 ) {
     val listState = rememberLazyListState()
-    LaunchedEffect(creatures) {
+    LaunchedEffect(monsters) {
         listState.animateScrollToItem(0)
     }
 
@@ -140,7 +140,7 @@ private fun MonsterList(
         contentPadding = PaddingValues(spacingMedium),
         verticalArrangement = Arrangement.spacedBy(spacingSmall),
     ) {
-        items(creatures, key = { it.id }) { creature ->
+        items(monsters, key = { it.id }) { creature ->
             SwipeToAdd(
                 onSwiped = { showAddToList(creature) },
                 modifier = Modifier.fillMaxWidth(),
