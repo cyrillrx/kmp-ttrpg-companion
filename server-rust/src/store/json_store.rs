@@ -4,7 +4,7 @@ use std::path::Path;
 use serde::Deserialize;
 
 use crate::models::{
-    creature::{Abilities, Ability, Monster, Translation},
+    monster::{Abilities, Ability, Monster, Translation},
     magical_item::{MagicalItem, MagicalItemTranslation},
     spell::{Spell, SpellComponents, SpellTranslation},
 };

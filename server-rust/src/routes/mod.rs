@@ -1,4 +1,4 @@
-pub mod creature;
+pub mod monster;
 pub mod magical_item;
 pub mod spell;
 
@@ -33,7 +33,7 @@ pub fn create_router<S: CompendiumStore + 'static>(state: AppState<S>) -> Router
     Router::new()
         .route("/health", get(health))
         .route("/compendium/spells", get(spell::list_spells))
-        .route("/compendium/monsters", get(creature::list_monsters))
+        .route("/compendium/monsters", get(monster::list_monsters))
         .route("/compendium/magical-items", get(magical_item::list_magical_items))
         .with_state(Arc::new(state))
         .layer(build_cors_layer())
