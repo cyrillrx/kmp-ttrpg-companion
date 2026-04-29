@@ -5,6 +5,13 @@
     <string name="creature_hp">Hit point</string>
     <string name="creature_speed">Speed</string>
 
+    <!-- Speed types -->
+    <string name="speed_label_fly">Fly</string>
+    <string name="speed_label_swim">Swim</string>
+    <string name="speed_label_climb">Climb</string>
+    <string name="speed_label_burrow">Burrow</string>
+    <string name="speed_label_hover">hover</string>
+
     <!-- Creature size -->
     <string name="creature_size_tiny">Tiny</string>
     <string name="creature_size_small">Small</string>

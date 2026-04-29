@@ -5,6 +5,13 @@
     <string name="creature_hp">Point de vie</string>
     <string name="creature_speed">Vitesse</string>
 
+    <!-- Speed types -->
+    <string name="speed_label_fly">vol</string>
+    <string name="speed_label_swim">nage</string>
+    <string name="speed_label_climb">escalade</string>
+    <string name="speed_label_burrow">fouissage</string>
+    <string name="speed_label_hover">vol stationnaire</string>
+
     <!-- Creature size -->
     <string name="creature_size_tiny">Minuscule</string>
     <string name="creature_size_small">Petit</string>
