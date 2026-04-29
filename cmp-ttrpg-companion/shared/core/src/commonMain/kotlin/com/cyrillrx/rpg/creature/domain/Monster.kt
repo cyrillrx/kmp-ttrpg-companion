@@ -2,8 +2,6 @@ package com.cyrillrx.rpg.creature.domain
 
 class Monster(
     id: String,
-    name: String,
-    description: String,
     size: Size,
     alignment: Alignment,
     abilities: Abilities,
@@ -21,8 +19,6 @@ class Monster(
     val translations: Map<String, Translation> = emptyMap(),
 ) : Creature(
     id = id,
-    name = name,
-    description = description,
     size = size,
     alignment = alignment,
     abilities = abilities,

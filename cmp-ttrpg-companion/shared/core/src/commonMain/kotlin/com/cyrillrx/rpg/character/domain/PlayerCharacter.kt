@@ -6,8 +6,8 @@ import com.cyrillrx.rpg.creature.domain.Skills
 
 class PlayerCharacter(
     id: String,
-    name: String,
-    description: String,
+    val name: String,
+    val description: String,
     size: Size,
     alignment: Alignment,
     abilities: Abilities,
@@ -21,8 +21,6 @@ class PlayerCharacter(
     val skills: Skills,
 ) : Creature(
     id = id,
-    name = name,
-    description = description,
     size = size,
     alignment = alignment,
     abilities = abilities,

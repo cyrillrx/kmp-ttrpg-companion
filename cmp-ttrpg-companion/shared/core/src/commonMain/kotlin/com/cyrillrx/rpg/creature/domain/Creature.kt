@@ -2,8 +2,6 @@ package com.cyrillrx.rpg.creature.domain
 
 abstract class Creature(
     val id: String,
-    val name: String,
-    val description: String,
     val size: Size,
     val alignment: Alignment,
     val abilities: Abilities,
