@@ -77,10 +77,10 @@ func makeMonsterJson() model.MonsterJson {
 	intel := 10
 	wis := 8
 	cha := 8
+	walk := 30
 	name := "Goblin"
 	subtype := "Goblinoid"
 	desc := "A small creature."
-	speed := "30 ft."
 	senses := "Darkvision 60 ft."
 	return model.MonsterJson{
 		ID:              &id,
@@ -100,12 +100,12 @@ func makeMonsterJson() model.MonsterJson {
 			Wis: &model.AbilityJson{Value: &wis},
 			Cha: &model.AbilityJson{Value: &cha},
 		},
+		Speeds: &model.SpeedsJson{Walk: &walk},
 		Translations: map[string]model.TranslationJson{
 			"en": {
 				Name:        &name,
 				Subtype:     &subtype,
 				Description: &desc,
-				Speed:       &speed,
 				Senses:      &senses,
 				Languages:   []string{"Common", "Goblin"},
 			},

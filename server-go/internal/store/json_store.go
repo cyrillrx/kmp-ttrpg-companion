@@ -217,10 +217,6 @@ func monsterFromJson(r model.MonsterJson) (model.Monster, bool) {
 			fmt.Printf("WARNING: monster '%s' locale '%s': missing description\n", id, locale)
 			continue
 		}
-		if t.Speed == nil {
-			fmt.Printf("WARNING: monster '%s' locale '%s': missing speed\n", id, locale)
-			continue
-		}
 		if t.Senses == nil {
 			fmt.Printf("WARNING: monster '%s' locale '%s': missing senses\n", id, locale)
 			continue
@@ -229,7 +225,6 @@ func monsterFromJson(r model.MonsterJson) (model.Monster, bool) {
 			Name:        *t.Name,
 			Subtype:     t.Subtype,
 			Description: *t.Description,
-			Speed:       *t.Speed,
 			Senses:      *t.Senses,
 			Languages:   orEmptySlice(t.Languages),
 		}
@@ -263,11 +258,27 @@ func monsterFromJson(r model.MonsterJson) (model.Monster, bool) {
 		MaxHitPoints:        hp,
 		HitDice:             derefString(r.HitDice),
 		Abilities:           abilityGroupFromJson(r.Abilities),
+		Speeds:              speedsFromJson(r.Speeds),
 		Skills:              orEmptyStringMap(r.Skills),
 		DamageAffinities:    orEmptyStringMap(r.DamageAffinities),
 		ConditionImmunities: orEmptyBoolMap(r.ConditionImmunities),
 		Translations:        translations,
 	}, true
+}
+
+func speedsFromJson(s *model.SpeedsJson) model.Speeds {
+	if s == nil {
+		return model.Speeds{}
+	}
+	hover := s.Hover != nil && *s.Hover
+	return model.Speeds{
+		Walk:   s.Walk,
+		Fly:    s.Fly,
+		Swim:   s.Swim,
+		Climb:  s.Climb,
+		Burrow: s.Burrow,
+		Hover:  hover,
+	}
 }
 
 func abilityGroupFromJson(a *model.AbilitiesJson) model.Abilities {

@@ -12,10 +12,21 @@ type Monster struct {
 	MaxHitPoints        int                    `json:"maxHitPoints"`
 	HitDice             string                 `json:"hitDice"`
 	Abilities           Abilities              `json:"abilities"`
+	Speeds              Speeds                 `json:"speeds"`
 	Skills              map[string]string      `json:"skills"`
 	DamageAffinities    map[string]string      `json:"damageAffinities"`
 	ConditionImmunities map[string]bool        `json:"conditionImmunities"`
 	Translations        map[string]Translation `json:"translations"`
+}
+
+// Speeds holds the different movement speeds of a monster (values in feet).
+type Speeds struct {
+	Walk   *int  `json:"walk"`
+	Fly    *int  `json:"fly"`
+	Swim   *int  `json:"swim"`
+	Climb  *int  `json:"climb"`
+	Burrow *int  `json:"burrow"`
+	Hover  bool  `json:"hover"`
 }
 
 // Ability holds a single D&D ability score with an optional saving throw proficiency.
@@ -39,7 +50,6 @@ type Translation struct {
 	Name        string   `json:"name"`
 	Subtype     *string  `json:"subtype"`
 	Description string   `json:"description"`
-	Speed       string   `json:"speed"`
 	Senses      string   `json:"senses"`
 	Languages   []string `json:"languages"`
 }
@@ -56,6 +66,7 @@ type MonsterJson struct {
 	MaxHitPoints        *int                       `json:"maxHitPoints"`
 	HitDice             *string                    `json:"hitDice"`
 	Abilities           *AbilitiesJson             `json:"abilities"`
+	Speeds              *SpeedsJson                `json:"speeds"`
 	Skills              map[string]string          `json:"skills"`
 	DamageAffinities    map[string]string          `json:"damageAffinities"`
 	ConditionImmunities map[string]bool            `json:"conditionImmunities"`
@@ -76,11 +87,19 @@ type AbilityJson struct {
 	SavingThrowProficiency *string `json:"savingThrowProficiency"`
 }
 
+type SpeedsJson struct {
+	Walk   *int  `json:"walk"`
+	Fly    *int  `json:"fly"`
+	Swim   *int  `json:"swim"`
+	Climb  *int  `json:"climb"`
+	Burrow *int  `json:"burrow"`
+	Hover  *bool `json:"hover"`
+}
+
 type TranslationJson struct {
 	Name        *string  `json:"name"`
 	Subtype     *string  `json:"subtype"`
 	Description *string  `json:"description"`
-	Speed       *string  `json:"speed"`
 	Senses      *string  `json:"senses"`
 	Languages   []string `json:"languages"`
 }
