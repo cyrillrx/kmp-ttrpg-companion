@@ -39,7 +39,7 @@ class MonsterApplyFilterTest {
     fun `filter by query keeps only matching creatures`() {
         val result = monsters.applyFilter(MonsterFilter(query = "goblin"))
         assertEquals(1, result.size)
-        assertEquals("Goblin", result.first().name)
+        assertEquals("Goblin", result.first().resolveTranslation("en").name)
     }
 
     @Test

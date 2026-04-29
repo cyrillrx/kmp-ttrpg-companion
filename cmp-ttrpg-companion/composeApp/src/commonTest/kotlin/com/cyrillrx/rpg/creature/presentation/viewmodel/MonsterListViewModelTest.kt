@@ -75,7 +75,7 @@ class MonsterListViewModelTest {
         assertTrue(state.filter.types.contains(Monster.Type.DRAGON))
         val body = assertIs<MonsterListState.Body.WithData>(state.body)
         assertEquals(expected = 1, actual = body.searchResults.size)
-        assertEquals(expected = dragon.name, actual = body.searchResults.first().name)
+        assertEquals(expected = dragon.resolveTranslation("en").name, actual = body.searchResults.first().resolveTranslation("en").name)
     }
 
     @Test
@@ -107,14 +107,14 @@ class MonsterListViewModelTest {
 
         advanceUntilIdle()
 
-        viewModel.onSearchQueryChanged(goblin.name)
+        viewModel.onSearchQueryChanged(goblin.resolveTranslation("en").name)
 
         advanceUntilIdle()
 
         val state = viewModel.state.value
         val body = assertIs<MonsterListState.Body.WithData>(state.body)
         assertEquals(expected = 1, actual = body.searchResults.size)
-        assertEquals(expected = goblin.name, actual = body.searchResults.first().name)
+        assertEquals(expected = goblin.resolveTranslation("en").name, actual = body.searchResults.first().resolveTranslation("en").name)
     }
 
     @Test
