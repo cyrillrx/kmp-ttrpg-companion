@@ -12,17 +12,17 @@ class MonsterFormatExtTest {
     }
 
     @Test
-    fun `formatCRValue returns 1-8 for 0,125`() {
+    fun `formatCRValue returns 1-8 for 0 125`() {
         assertEquals(expected = "1/8", actual = formatCRValue(0.125f))
     }
 
     @Test
-    fun `formatCRValue returns 1-4 for 0,25`() {
+    fun `formatCRValue returns 1-4 for 0 25`() {
         assertEquals(expected = "1/4", actual = formatCRValue(0.25f))
     }
 
     @Test
-    fun `formatCRValue returns 1-2 for 0,5`() {
+    fun `formatCRValue returns 1-2 for 0 5`() {
         assertEquals(expected = "1/2", actual = formatCRValue(0.5f))
     }
 
