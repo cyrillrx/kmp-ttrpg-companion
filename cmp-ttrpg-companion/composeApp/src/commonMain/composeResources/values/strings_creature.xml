@@ -10,7 +10,7 @@
     <string name="speed_label_swim">Swim</string>
     <string name="speed_label_climb">Climb</string>
     <string name="speed_label_burrow">Burrow</string>
-    <string name="speed_label_hover">hover</string>
+    <string name="speed_label_hover">Hover</string>
 
     <!-- Creature size -->
     <string name="creature_size_tiny">Tiny</string>

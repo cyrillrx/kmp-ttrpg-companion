@@ -25,7 +25,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedCR
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.component.dnd.toIcon
@@ -51,7 +50,7 @@ fun MonsterListItem(
     modifier: Modifier = Modifier,
 ) {
     val translation = monster.resolveTranslation(currentLocale())
-    val typeColor = monster.type.getColor()
+    val typeColor = MaterialTheme.colorScheme.primary
 
     Card(
         onClick = onClick,
