@@ -34,8 +34,8 @@ class MonsterListViewModel(
         updateFilter { it.copy(query = query) }
     }
 
-    fun onMonsterClicked(creature: Monster) {
-        router.openDetail(creature.id)
+    fun onMonsterClicked(monster: Monster) {
+        router.openDetail(monster.id)
     }
 
     fun onTypeToggled(type: Monster.Type) {
@@ -65,11 +65,11 @@ class MonsterListViewModel(
         state.update { it.copy(body = MonsterListState.Body.Loading) }
 
         try {
-            val creatures = repository.getAll(filter)
-            val body = if (creatures.isEmpty()) {
+            val monsters = repository.getAll(filter)
+            val body = if (monsters.isEmpty()) {
                 MonsterListState.Body.Empty
             } else {
-                MonsterListState.Body.WithData(searchResults = creatures)
+                MonsterListState.Body.WithData(searchResults = monsters)
             }
             state.update { it.copy(body = body) }
         } catch (e: CancellationException) {

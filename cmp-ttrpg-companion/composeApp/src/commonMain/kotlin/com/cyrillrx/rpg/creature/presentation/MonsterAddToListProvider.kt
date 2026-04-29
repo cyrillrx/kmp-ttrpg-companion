@@ -29,7 +29,7 @@ class MonsterAddToListProvider(
     repository: MonsterRepository,
     userListRepository: UserListRepository,
 ) : AddToListProvider<Monster> {
-    override val listType: UserList.Type = UserList.Type.CREATURE
+    override val listType: UserList.Type = UserList.Type.MONSTER
 
     override val viewModelFactory = AddToListViewModelFactory(
         listType = listType,

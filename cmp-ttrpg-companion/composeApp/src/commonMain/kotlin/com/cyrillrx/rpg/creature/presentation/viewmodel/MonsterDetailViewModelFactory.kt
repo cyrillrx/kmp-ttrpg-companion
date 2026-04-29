@@ -7,11 +7,11 @@ import com.cyrillrx.rpg.creature.domain.MonsterRepository
 import kotlin.reflect.KClass
 
 class MonsterDetailViewModelFactory(
-    private val creatureId: String,
+    private val monsterId: String,
     private val repository: MonsterRepository,
 ) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: KClass<T>, extras: CreationExtras): T {
         @Suppress("UNCHECKED_CAST")
-        return MonsterDetailViewModel(creatureId, repository) as T
+        return MonsterDetailViewModel(monsterId, repository) as T
     }
 }

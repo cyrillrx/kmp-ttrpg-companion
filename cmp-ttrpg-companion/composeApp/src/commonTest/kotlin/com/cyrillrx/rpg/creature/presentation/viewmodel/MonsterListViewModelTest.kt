@@ -43,7 +43,7 @@ class MonsterListViewModelTest {
     }
 
     @Test
-    fun `initial state loads all creatures`() = runTest(testDispatcher) {
+    fun `initial state loads all monsters`() = runTest(testDispatcher) {
         val viewModel = MonsterListViewModel(router, repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
@@ -58,7 +58,7 @@ class MonsterListViewModelTest {
     }
 
     @Test
-    fun `onTypeToggled filters creatures by type`() = runTest(testDispatcher) {
+    fun `onTypeToggled filters monsters by type`() = runTest(testDispatcher) {
         val viewModel = MonsterListViewModel(router, repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
@@ -79,7 +79,7 @@ class MonsterListViewModelTest {
     }
 
     @Test
-    fun `onChallengeRatingToggled filters creatures by CR`() = runTest(testDispatcher) {
+    fun `onChallengeRatingToggled filters monsters by CR`() = runTest(testDispatcher) {
         val viewModel = MonsterListViewModel(router, repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
@@ -98,7 +98,7 @@ class MonsterListViewModelTest {
     }
 
     @Test
-    fun `onSearchQueryChanged filters creatures by name`() = runTest(testDispatcher) {
+    fun `onSearchQueryChanged filters monsters by name`() = runTest(testDispatcher) {
         val viewModel = MonsterListViewModel(router, repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
@@ -144,7 +144,7 @@ class MonsterListViewModelTest {
     }
 
     @Test
-    fun `state is Empty when no creatures match filter`() = runTest(testDispatcher) {
+    fun `state is Empty when no monsters match filter`() = runTest(testDispatcher) {
         val viewModel = MonsterListViewModel(router, repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
@@ -178,7 +178,7 @@ class MonsterListViewModelTest {
 private class NoOpMonsterRouter : MonsterRouter {
     override fun navigateUp() = Unit
     override fun openCompendium() = Unit
-    override fun openDetail(creatureId: String) = Unit
+    override fun openDetail(monsterId: String) = Unit
 }
 
 private class FailingMonsterRepository : MonsterRepository {

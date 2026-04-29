@@ -11,11 +11,11 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.stateIn
 
 class MonsterDetailViewModel(
-    creatureId: String,
+    monsterId: String,
     repository: MonsterRepository,
 ) : ViewModel() {
     val state: StateFlow<DetailState<Monster>> = flow {
-        val item = repository.getById(creatureId)
-        emit(DetailState.of(creatureId, item))
+        val item = repository.getById(monsterId)
+        emit(DetailState.of(monsterId, item))
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(stopTimeoutMillis = 5000), DetailState.Loading)
 }

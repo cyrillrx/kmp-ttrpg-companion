@@ -26,7 +26,7 @@ interface MonsterRoute {
     data object Compendium : NavKey
 
     @Serializable
-    data class Detail(val creatureId: String) : NavKey
+    data class Detail(val monsterId: String) : NavKey
 
     @Serializable
     data class UserListDetail(val listId: String) : NavKey
@@ -51,9 +51,9 @@ fun EntryProviderScope<NavKey>.handleMonsterRoutes(
     }
 
     entry<MonsterRoute.Detail> { route ->
-        val creatureId = route.creatureId
-        val viewModelFactory = MonsterDetailViewModelFactory(creatureId, repository)
-        val viewModel = viewModel<MonsterDetailViewModel>(key = creatureId, factory = viewModelFactory)
+        val monsterId = route.monsterId
+        val viewModelFactory = MonsterDetailViewModelFactory(monsterId, repository)
+        val viewModel = viewModel<MonsterDetailViewModel>(key = monsterId, factory = viewModelFactory)
         val addToListProvider = MonsterAddToListProvider(repository, userListRepository)
         MonsterDetailScreen(viewModel, router, addToListProvider)
     }

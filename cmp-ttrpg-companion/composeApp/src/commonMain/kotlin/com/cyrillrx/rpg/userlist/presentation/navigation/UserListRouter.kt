@@ -22,7 +22,7 @@ class UserListRouterImpl(private val backStack: NavBackStack<NavKey>) : UserList
         when (list.type) {
             UserList.Type.SPELL -> backStack.add(SpellRoute.UserListDetail(list.id))
             UserList.Type.MAGICAL_ITEM -> backStack.add(MagicalItemRoute.UserListDetail(list.id))
-            UserList.Type.CREATURE -> backStack.add(MonsterRoute.UserListDetail(list.id))
+            UserList.Type.MONSTER -> backStack.add(MonsterRoute.UserListDetail(list.id))
         }
     }
 }

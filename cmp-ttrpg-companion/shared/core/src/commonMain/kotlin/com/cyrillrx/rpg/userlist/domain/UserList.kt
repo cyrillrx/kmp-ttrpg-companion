@@ -9,5 +9,5 @@ data class UserList(
     val itemIds: List<String>,
     val lastModified: Instant = Instant.fromEpochMilliseconds(0L),
 ) {
-    enum class Type { SPELL, MAGICAL_ITEM, CREATURE }
+    enum class Type { SPELL, MAGICAL_ITEM, MONSTER }
 }

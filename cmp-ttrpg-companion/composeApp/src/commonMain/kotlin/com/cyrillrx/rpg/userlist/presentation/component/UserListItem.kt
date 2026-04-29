@@ -60,7 +60,7 @@ private fun UserList.formattedCount(): String {
         resource = when (type) {
             UserList.Type.SPELL -> Res.plurals.spell_count
             UserList.Type.MAGICAL_ITEM -> Res.plurals.magical_item_count
-            UserList.Type.CREATURE -> Res.plurals.creature_count
+            UserList.Type.MONSTER -> Res.plurals.creature_count
         },
         quantity = count,
         count,

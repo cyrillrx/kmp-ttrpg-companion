@@ -86,8 +86,8 @@ class UserListRepositoryTest {
 
             repository.save(list)
 
-            val creatureLists = repository.getAll(UserList.Type.CREATURE)
-            assertTrue(creatureLists.isEmpty())
+            val monsterLists = repository.getAll(UserList.Type.MONSTER)
+            assertTrue(monsterLists.isEmpty())
         }
 
     @Test
