@@ -42,17 +42,10 @@ fun Creature.Size.toFormattedString(): String {
     return stringResource(stringRes)
 }
 
-private val FEET_TO_METERS: Map<Int, String> = mapOf(
-    5 to "1,5", 10 to "3", 15 to "4,5", 20 to "6", 25 to "7,5",
-    30 to "9", 40 to "12", 50 to "15", 60 to "18",
-    80 to "24", 90 to "27", 120 to "36", 150 to "45",
-)
-
-private fun Int.toMetersDisplay(): String =
-    FEET_TO_METERS[this] ?: run {
-        val m = this * 3f / 10f
-        if (m % 1f == 0f) m.toInt().toString() else m.toString().replace(".", ",")
-    }
+private fun Int.toMetersDisplay(): String {
+    val halfMeters = this * 3 / 5
+    return if (halfMeters % 2 == 0) "${halfMeters / 2} m" else "${halfMeters / 2},5 m"
+}
 
 @Composable
 fun Speeds.toFormattedString(useFeet: Boolean): String {
@@ -62,7 +55,7 @@ fun Speeds.toFormattedString(useFeet: Boolean): String {
     val burrowLabel = stringResource(Res.string.speed_label_burrow)
     val hoverLabel = stringResource(Res.string.speed_label_hover)
 
-    fun Int.format() = if (useFeet) "$this ft." else "${toMetersDisplay()} m"
+    fun Int.format() = if (useFeet) "$this ft." else toMetersDisplay()
 
     return buildList {
         walk?.let { add(it.format()) }
