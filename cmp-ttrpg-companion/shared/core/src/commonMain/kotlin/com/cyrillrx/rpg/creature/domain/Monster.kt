@@ -13,7 +13,6 @@ class Monster(
     languages: List<String>,
     val source: String,
     val type: Type,
-    val subtype: String?,
     val challengeRating: Float,
     val hitDice: String,
     val skills: Skills = Skills(),
@@ -34,6 +33,7 @@ class Monster(
 ) {
     data class Translation(
         val name: String,
+        val subtype: String? = null,
         val description: String,
         val speed: String,
         val senses: String,

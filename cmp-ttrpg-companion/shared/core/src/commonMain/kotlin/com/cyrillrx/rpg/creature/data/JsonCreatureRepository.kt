@@ -51,7 +51,6 @@ class JsonCreatureRepository(private val fileReader: FileReader) : CreatureRepos
                 description = content ?: "",
                 source = "srd_5.1",
                 type = getType(),
-                subtype = getSubtype(),
                 size = getSize(),
                 alignment = getAlignment(),
                 challengeRating = challengeRating(),
