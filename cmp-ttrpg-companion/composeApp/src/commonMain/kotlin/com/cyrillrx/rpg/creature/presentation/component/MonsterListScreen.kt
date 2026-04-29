@@ -96,7 +96,7 @@ fun MonsterListScreen(
                 is MonsterListState.Body.Loading -> Loader()
                 is MonsterListState.Body.Empty -> EmptySearch(state.filter.query)
                 is MonsterListState.Body.Error -> ErrorLayout(body.errorMessage)
-                is MonsterListState.Body.WithData -> MonsterCompactList(
+                is MonsterListState.Body.WithData -> MonsterList(
                     creatures = body.searchResults,
                     onMonsterClicked = onMonsterClicked,
                     showAddToList = { creature -> creatureToAdd = creature },
@@ -124,7 +124,7 @@ fun MonsterListScreen(
 }
 
 @Composable
-private fun MonsterCompactList(
+private fun MonsterList(
     creatures: List<Monster>,
     onMonsterClicked: (Monster) -> Unit,
     showAddToList: (Monster) -> Unit,
