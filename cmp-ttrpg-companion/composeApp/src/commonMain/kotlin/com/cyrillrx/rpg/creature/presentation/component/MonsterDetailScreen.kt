@@ -63,7 +63,7 @@ private fun MonsterDetailContent(
     Scaffold(
         topBar = {
             SimpleTopBar(
-                title = monster.resolveTranslation(currentLocale())?.name.orEmpty(),
+                title = monster.resolveTranslation(currentLocale()).name,
                 onNavigateUpClicked = onNavigateUpClicked,
             )
         },

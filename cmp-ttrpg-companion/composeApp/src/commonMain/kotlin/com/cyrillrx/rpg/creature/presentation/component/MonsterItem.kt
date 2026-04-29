@@ -27,7 +27,7 @@ fun MonsterItem(
         .background(MaterialTheme.colorScheme.background)
         .padding(spacingCommon)) {
         Text(
-            text = translation?.name.orEmpty(),
+            text = translation.name,
             style = MaterialTheme.typography.headlineSmall,
             fontWeight = FontWeight.Bold,
             color = MaterialTheme.colorScheme.onBackground,
@@ -48,7 +48,7 @@ fun MonsterItem(
             cha = abilities.cha.getValueWithModifier(),
         )
 
-        HtmlText(text = translation?.description.orEmpty())
+        HtmlText(text = translation.description)
     }
 }
 

@@ -72,7 +72,7 @@ fun MainStatLayout(
                     append(stringResource(Res.string.creature_speed))
                     append(" ")
                 }
-                append(translation?.speed ?: monster.speed)
+                append(translation.speed)
             },
             color = MaterialTheme.colorScheme.onBackground,
         )
