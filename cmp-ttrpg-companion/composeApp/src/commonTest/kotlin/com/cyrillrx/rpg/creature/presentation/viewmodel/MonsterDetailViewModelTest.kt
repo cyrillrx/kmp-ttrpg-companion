@@ -23,7 +23,7 @@ class MonsterDetailViewModelTest {
 
     private val testDispatcher = StandardTestDispatcher()
     val repository = SampleMonsterRepository()
-    val creature = SampleMonsterRepository.getFirst()
+    val monster = SampleMonsterRepository.getFirst()
 
     @BeforeTest
     fun setUp() {
@@ -37,7 +37,7 @@ class MonsterDetailViewModelTest {
 
     @Test
     fun `state is Loading initially`() = runTest(testDispatcher) {
-        val viewModel = MonsterDetailViewModel(creature.id, repository)
+        val viewModel = MonsterDetailViewModel(monster.id, repository)
 
         assertEquals(expected = DetailState.Loading, actual = viewModel.state.value)
     }
@@ -59,7 +59,7 @@ class MonsterDetailViewModelTest {
 
     @Test
     fun `state emits Found for valid creature id`() = runTest(testDispatcher) {
-        val viewModel = MonsterDetailViewModel(creature.id, repository)
+        val viewModel = MonsterDetailViewModel(monster.id, repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -69,7 +69,7 @@ class MonsterDetailViewModelTest {
 
         val state = viewModel.state.value
         assertIs<DetailState.Found<Monster>>(state)
-        assertEquals(expected = creature.id, actual = state.item.id)
-        assertEquals(expected = creature.resolveTranslation("en").name, actual = state.item.resolveTranslation("en").name)
+        assertEquals(expected = monster.id, actual = state.item.id)
+        assertEquals(expected = monster.resolveTranslation("en").name, actual = state.item.resolveTranslation("en").name)
     }
 }
