@@ -1,7 +1,6 @@
 package com.cyrillrx.rpg.userlist.presentation.viewmodel
 
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
-import com.cyrillrx.rpg.spell.data.SpellEntityRepository
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.userlist.data.RamUserListRepository
 import com.cyrillrx.rpg.userlist.domain.UserList
@@ -31,7 +30,7 @@ private const val RENAMED_LIST_NAME = "New Name"
 class ListDetailViewModelTest {
 
     private val testDispatcher = StandardTestDispatcher()
-    private val spellRepository = SpellEntityRepository(SampleSpellRepository())
+    private val spellRepository = SampleSpellRepository()
     private val userListRepository = RamUserListRepository()
     private val spell = SampleSpellRepository.getFirst()
     private val secondSpell = SampleSpellRepository.getAll()[1]

@@ -1,7 +1,7 @@
 package com.cyrillrx.rpg.magicalitem.domain
 
-interface MagicalItemRepository {
+import com.cyrillrx.rpg.core.domain.EntityRepository
+
+interface MagicalItemRepository : EntityRepository<MagicalItem> {
     suspend fun getAll(filter: MagicalItemFilter?): List<MagicalItem>
-    suspend fun getById(id: String): MagicalItem?
-    suspend fun getByIds(ids: List<String>): List<MagicalItem> = ids.mapNotNull { getById(it) }
 }

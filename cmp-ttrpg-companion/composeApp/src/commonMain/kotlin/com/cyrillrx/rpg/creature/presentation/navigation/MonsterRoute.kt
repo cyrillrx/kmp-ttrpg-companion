@@ -3,7 +3,6 @@ package com.cyrillrx.rpg.creature.presentation.navigation
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation3.runtime.EntryProviderScope
 import androidx.navigation3.runtime.NavKey
-import com.cyrillrx.rpg.creature.data.MonsterEntityRepository
 import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.creature.domain.MonsterRepository
 import com.cyrillrx.rpg.creature.presentation.MonsterAddToListProvider
@@ -64,7 +63,7 @@ fun EntryProviderScope<NavKey>.handleMonsterRoutes(
         val viewModelFactory = ListDetailViewModelFactory(
             listId = listId,
             userListRepository = userListRepository,
-            repository = MonsterEntityRepository(repository),
+            repository = repository,
         )
         val viewModel = viewModel<ListDetailViewModel<Monster>>(key = listId, factory = viewModelFactory)
         val itemProvider = MonsterItemProvider(

@@ -1,7 +1,7 @@
 package com.cyrillrx.rpg.spell.domain
 
-interface SpellRepository {
+import com.cyrillrx.rpg.core.domain.EntityRepository
+
+interface SpellRepository : EntityRepository<Spell> {
     suspend fun getAll(filter: SpellFilter?): List<Spell>
-    suspend fun getById(id: String): Spell?
-    suspend fun getByIds(ids: List<String>): List<Spell> = ids.mapNotNull { getById(it) }
 }

@@ -16,7 +16,6 @@ import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
-import com.cyrillrx.rpg.creature.data.MonsterEntityRepository
 import com.cyrillrx.rpg.creature.domain.MonsterRepository
 import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.userlist.domain.UserList
@@ -35,7 +34,7 @@ class MonsterAddToListProvider(
     override val viewModelFactory = AddToListViewModelFactory(
         listType = listType,
         userListRepository = userListRepository,
-        entityRepository = MonsterEntityRepository(repository),
+        entityRepository = repository,
         errorMessage = Res.string.error_while_loading_monsters,
     )
 

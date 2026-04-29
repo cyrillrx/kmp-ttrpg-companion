@@ -21,7 +21,6 @@ import com.cyrillrx.rpg.core.presentation.component.dnd.toIcon
 import com.cyrillrx.rpg.core.presentation.theme.iconSizeMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
-import com.cyrillrx.rpg.spell.data.SpellEntityRepository
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.domain.SpellRepository
 import com.cyrillrx.rpg.userlist.domain.UserList
@@ -40,7 +39,7 @@ class SpellAddToListProvider(
     override val viewModelFactory = AddToListViewModelFactory(
         listType = listType,
         userListRepository = userListRepository,
-        entityRepository = SpellEntityRepository(spellRepository),
+        entityRepository = spellRepository,
         errorMessage = Res.string.error_while_loading_spells,
     )
 
