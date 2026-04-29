@@ -6,7 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.cyrillrx.rpg.creature.domain.Monster
-import com.cyrillrx.rpg.creature.presentation.component.MonsterCompactListItem
+import com.cyrillrx.rpg.creature.presentation.component.MonsterListItem
 import com.cyrillrx.rpg.userlist.presentation.ListItemProvider
 import org.jetbrains.compose.resources.StringResource
 import rpg_companion.composeapp.generated.resources.Res
@@ -27,6 +27,6 @@ class MonsterItemProvider(
 
     @Composable
     override fun ListItem(entity: Monster, modifier: Modifier) {
-        MonsterCompactListItem(creature = entity, onClick = { onItemClicked(entity.id) }, modifier = modifier)
+        MonsterListItem(creature = entity, onClick = { onItemClicked(entity.id) }, modifier = modifier)
     }
 }

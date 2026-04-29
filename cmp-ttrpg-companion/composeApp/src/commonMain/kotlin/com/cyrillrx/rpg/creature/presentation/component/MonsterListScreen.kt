@@ -1,21 +1,22 @@
 package com.cyrillrx.rpg.creature.presentation.component
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.HorizontalDivider
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.core.presentation.component.EmptySearch
@@ -24,6 +25,8 @@ import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SearchBarWithBack
 import com.cyrillrx.rpg.core.presentation.component.SwipeToAdd
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
+import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
+import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.creature.data.SampleMonsterRepository
 import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.creature.presentation.MonsterAddToListProvider
@@ -44,6 +47,7 @@ fun MonsterListScreen(
     addToListProvider: AddToListProvider<Monster>,
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
+
     MonsterListScreen(
         state = state,
         onNavigateUpClicked = router::navigateUp,
@@ -82,12 +86,17 @@ fun MonsterListScreen(
             )
         },
     ) { paddingValues ->
-        Column(Modifier.padding(paddingValues)) {
+        Column(
+            modifier = Modifier
+                .padding(paddingValues)
+                .fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
             when (val body = state.body) {
                 is MonsterListState.Body.Loading -> Loader()
                 is MonsterListState.Body.Empty -> EmptySearch(state.filter.query)
                 is MonsterListState.Body.Error -> ErrorLayout(body.errorMessage)
-                is MonsterListState.Body.WithData -> MonsterList(
+                is MonsterListState.Body.WithData -> MonsterCompactList(
                     creatures = body.searchResults,
                     onMonsterClicked = onMonsterClicked,
                     showAddToList = { creature -> creatureToAdd = creature },
@@ -115,26 +124,33 @@ fun MonsterListScreen(
 }
 
 @Composable
-private fun MonsterList(
+private fun MonsterCompactList(
     creatures: List<Monster>,
     onMonsterClicked: (Monster) -> Unit,
     showAddToList: (Monster) -> Unit,
 ) {
-    LazyColumn(modifier = Modifier.fillMaxSize()) {
+    val listState = rememberLazyListState()
+    LaunchedEffect(creatures) {
+        listState.animateScrollToItem(0)
+    }
+
+    LazyColumn(
+        modifier = Modifier.fillMaxSize(),
+        state = listState,
+        contentPadding = PaddingValues(spacingMedium),
+        verticalArrangement = Arrangement.spacedBy(spacingSmall),
+    ) {
         items(creatures, key = { it.id }) { creature ->
             SwipeToAdd(
                 onSwiped = { showAddToList(creature) },
                 modifier = Modifier.fillMaxWidth(),
             ) {
-                MonsterItem(
+                MonsterListItem(
                     creature = creature,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .clickable { onMonsterClicked(creature) }
-                        .background(MaterialTheme.colorScheme.background),
+                    onClick = { onMonsterClicked(creature) },
+                    modifier = Modifier.fillMaxWidth(),
                 )
             }
-            HorizontalDivider()
         }
     }
 }
@@ -142,13 +158,17 @@ private fun MonsterList(
 @Preview
 @Composable
 private fun PreviewMonsterListScreenLight() {
-    AppThemePreview(darkTheme = false) { MonsterListScreenPreview() }
+    AppThemePreview(darkTheme = false) {
+        MonsterListScreenPreview()
+    }
 }
 
 @Preview
 @Composable
 private fun PreviewMonsterListScreenDark() {
-    AppThemePreview(darkTheme = true) { MonsterListScreenPreview() }
+    AppThemePreview(darkTheme = true) {
+        MonsterListScreenPreview()
+    }
 }
 
 @Composable

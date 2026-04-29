@@ -8,8 +8,8 @@ import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.creature.domain.MonsterRepository
 import com.cyrillrx.rpg.creature.presentation.MonsterAddToListProvider
 import com.cyrillrx.rpg.creature.presentation.MonsterItemProvider
-import com.cyrillrx.rpg.creature.presentation.component.MonsterCompactListScreen
 import com.cyrillrx.rpg.creature.presentation.component.MonsterDetailScreen
+import com.cyrillrx.rpg.creature.presentation.component.MonsterListScreen
 import com.cyrillrx.rpg.creature.presentation.viewmodel.MonsterDetailViewModel
 import com.cyrillrx.rpg.creature.presentation.viewmodel.MonsterDetailViewModelFactory
 import com.cyrillrx.rpg.creature.presentation.viewmodel.MonsterListViewModel
@@ -48,7 +48,7 @@ fun EntryProviderScope<NavKey>.handleMonsterRoutes(
         val viewModelFactory = MonsterListViewModelFactory(router, repository)
         val viewModel = viewModel<MonsterListViewModel>(factory = viewModelFactory)
         val addToListProvider = MonsterAddToListProvider(repository, userListRepository)
-        MonsterCompactListScreen(viewModel, router, addToListProvider)
+        MonsterListScreen(viewModel, router, addToListProvider)
     }
 
     entry<MonsterRoute.Detail> { route ->

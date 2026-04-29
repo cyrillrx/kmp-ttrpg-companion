@@ -45,7 +45,7 @@ private val typeIconSize = 36.dp
 private val typeIconPadding = 8.dp
 
 @Composable
-fun MonsterCompactListItem(
+fun MonsterListItem(
     creature: Monster,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
@@ -156,11 +156,11 @@ fun MonsterCompactListItem(
 
 @Preview
 @Composable
-private fun PreviewMonsterCompactListItemLight() {
+private fun PreviewMonsterListItemLight() {
     AppThemePreview(darkTheme = false) {
         Column(verticalArrangement = Arrangement.spacedBy(spacingSmall)) {
             SampleMonsterRepository.getAll().forEach {
-                MonsterCompactListItem(creature = it, onClick = {})
+                MonsterListItem(creature = it, onClick = {})
             }
         }
     }
@@ -168,11 +168,11 @@ private fun PreviewMonsterCompactListItemLight() {
 
 @Preview
 @Composable
-private fun PreviewMonsterCompactListItemDark() {
+private fun PreviewMonsterListItemDark() {
     AppThemePreview(darkTheme = true) {
         Column(verticalArrangement = Arrangement.spacedBy(spacingSmall)) {
             SampleMonsterRepository.getAll().forEach {
-                MonsterCompactListItem(creature = it, onClick = {})
+                MonsterListItem(creature = it, onClick = {})
             }
         }
     }
