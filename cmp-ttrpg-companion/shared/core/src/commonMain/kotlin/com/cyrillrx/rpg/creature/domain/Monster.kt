@@ -1,5 +1,7 @@
 package com.cyrillrx.rpg.creature.domain
 
+private const val FALLBACK_LOCALE = "en"
+
 class Monster(
     id: String,
     size: Size,
@@ -7,7 +9,6 @@ class Monster(
     abilities: Abilities,
     armorClass: Int,
     maxHitPoints: Int,
-    speed: String,
     languages: List<String>,
     val source: String,
     val type: Type,
@@ -16,7 +17,7 @@ class Monster(
     val skills: Skills = Skills(),
     val damageAffinities: DamageAffinities = DamageAffinities(),
     val conditionImmunities: ConditionImmunities = ConditionImmunities(),
-    val translations: Map<String, Translation> = emptyMap(),
+    val translations: Map<String, Translation>,
 ) : Creature(
     id = id,
     size = size,
@@ -24,9 +25,19 @@ class Monster(
     abilities = abilities,
     armorClass = armorClass,
     maxHitPoints = maxHitPoints,
-    speed = speed,
     languages = languages,
 ) {
+    init {
+        require(translations.isNotEmpty()) { "Monster $id must have at least one translation" }
+    }
+
+    fun resolveTranslation(locale: String): Translation =
+        translations[locale]
+            ?: translations[FALLBACK_LOCALE]
+            ?: requireNotNull(translations.entries.minByOrNull { it.key }?.value) {
+                "Monster $id has empty translations"
+            }
+
     data class Translation(
         val name: String,
         val subtype: String? = null,
@@ -35,11 +46,6 @@ class Monster(
         val senses: String,
         val languages: List<String>,
     )
-
-    fun resolveTranslation(locale: String): Translation? =
-        translations[locale]
-            ?: translations["en"]
-            ?: translations.entries.minByOrNull { it.key }?.value
 
     enum class Type {
         ABERRATION,

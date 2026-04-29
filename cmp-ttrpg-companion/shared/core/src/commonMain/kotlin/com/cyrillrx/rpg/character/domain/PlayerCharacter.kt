@@ -8,12 +8,12 @@ class PlayerCharacter(
     id: String,
     val name: String,
     val description: String,
+    val speed: String,
     size: Size,
     alignment: Alignment,
     abilities: Abilities,
     armorClass: Int,
     maxHitPoints: Int,
-    speed: String,
     languages: List<String>,
     val level: Int,
     val clazz: Class,
@@ -26,7 +26,6 @@ class PlayerCharacter(
     abilities = abilities,
     armorClass = armorClass,
     maxHitPoints = maxHitPoints,
-    speed = speed,
     languages = languages,
 ) {
     val proficiencyBonus: Int = when (level) {

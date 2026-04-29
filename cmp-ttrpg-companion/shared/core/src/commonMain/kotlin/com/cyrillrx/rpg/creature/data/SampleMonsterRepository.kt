@@ -47,7 +47,6 @@ class SampleMonsterRepository : MonsterRepository {
             ),
             armorClass = 15,
             maxHitPoints = 7,
-            speed = "30 ft.",
             languages = listOf("Common", "Goblin"),
             translations = mapOf(
                 "en" to Monster.Translation(
@@ -78,7 +77,6 @@ class SampleMonsterRepository : MonsterRepository {
             ),
             armorClass = 18,
             maxHitPoints = 178,
-            speed = "40 ft., climb 40 ft., fly 80 ft.",
             languages = listOf("Common", "Draconic"),
             translations = mapOf(
                 "en" to Monster.Translation(
@@ -109,7 +107,6 @@ class SampleMonsterRepository : MonsterRepository {
             ),
             armorClass = 13,
             maxHitPoints = 13,
-            speed = "30 ft.",
             languages = listOf("understands languages it knew in life"),
             translations = mapOf(
                 "en" to Monster.Translation(
@@ -140,7 +137,6 @@ class SampleMonsterRepository : MonsterRepository {
             ),
             armorClass = 14,
             maxHitPoints = 37,
-            speed = "50 ft.",
             languages = emptyList(),
             translations = mapOf(
                 "en" to Monster.Translation(
@@ -171,7 +167,6 @@ class SampleMonsterRepository : MonsterRepository {
             ),
             armorClass = 19,
             maxHitPoints = 262,
-            speed = "40 ft., fly 80 ft.",
             languages = listOf("Abyssal", "telepathy 120 ft."),
             translations = mapOf(
                 "en" to Monster.Translation(
@@ -202,7 +197,6 @@ class SampleMonsterRepository : MonsterRepository {
             ),
             armorClass = 6,
             maxHitPoints = 84,
-            speed = "15 ft.",
             languages = emptyList(),
             translations = mapOf(
                 "en" to Monster.Translation(

@@ -92,7 +92,6 @@ class JsonMonsterRepository(private val fileReader: FileReader) : MonsterReposit
                     abilities = apiAbilities.toDomain(),
                     armorClass = armorClass ?: 10,
                     maxHitPoints = maxHitPoints ?: 0,
-                    speed = enTranslation.speed,
                     languages = enTranslation.languages ?: emptyList(),
                     skills = skills.toSkills(),
                     damageAffinities = damageAffinities.toDamageAffinities(),
