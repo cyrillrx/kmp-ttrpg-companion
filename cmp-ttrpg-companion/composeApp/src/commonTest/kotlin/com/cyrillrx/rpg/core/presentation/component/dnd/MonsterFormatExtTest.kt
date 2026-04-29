@@ -1,10 +1,10 @@
 package com.cyrillrx.rpg.core.presentation.component.dnd
 
-import com.cyrillrx.rpg.creature.data.SampleCreatureRepository
+import com.cyrillrx.rpg.creature.data.SampleMonsterRepository
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class CreatureFormatExtTest {
+class MonsterFormatExtTest {
 
     @Test
     fun `formatCRValue returns 0 for zero`() {
@@ -38,7 +38,7 @@ class CreatureFormatExtTest {
 
     @Test
     fun `toFormattedCR returns CR prefix with formatted value`() {
-        val goblin = SampleCreatureRepository.goblin()
+        val goblin = SampleMonsterRepository.goblin()
         assertEquals(expected = "CR 1/4", actual = goblin.toFormattedCR())
     }
 }

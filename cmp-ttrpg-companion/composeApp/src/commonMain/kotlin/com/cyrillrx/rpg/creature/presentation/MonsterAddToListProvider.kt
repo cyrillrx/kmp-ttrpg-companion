@@ -16,8 +16,8 @@ import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
-import com.cyrillrx.rpg.creature.data.CreatureEntityRepository
-import com.cyrillrx.rpg.creature.domain.CreatureRepository
+import com.cyrillrx.rpg.creature.data.MonsterEntityRepository
+import com.cyrillrx.rpg.creature.domain.MonsterRepository
 import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.userlist.domain.UserList
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
@@ -26,8 +26,8 @@ import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddToListViewModelFactor
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_while_loading_creatures
 
-class CreatureAddToListProvider(
-    repository: CreatureRepository,
+class MonsterAddToListProvider(
+    repository: MonsterRepository,
     userListRepository: UserListRepository,
 ) : AddToListProvider<Monster> {
     override val listType: UserList.Type = UserList.Type.CREATURE
@@ -35,7 +35,7 @@ class CreatureAddToListProvider(
     override val viewModelFactory = AddToListViewModelFactory(
         listType = listType,
         userListRepository = userListRepository,
-        entityRepository = CreatureEntityRepository(repository),
+        entityRepository = MonsterEntityRepository(repository),
         errorMessage = Res.string.error_while_loading_creatures,
     )
 
@@ -47,7 +47,7 @@ class CreatureAddToListProvider(
             modifier = Modifier.fillMaxWidth(),
         ) {
             Text(
-                text = entity.resolveTranslation(currentLocale())?.name ?: entity.name,
+                text = entity.resolveTranslation(currentLocale())?.name.orEmpty(),
                 style = MaterialTheme.typography.titleLarge,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.onSurface,

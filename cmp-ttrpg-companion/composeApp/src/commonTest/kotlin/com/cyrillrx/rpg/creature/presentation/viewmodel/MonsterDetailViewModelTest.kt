@@ -1,7 +1,7 @@
 package com.cyrillrx.rpg.creature.presentation.viewmodel
 
 import com.cyrillrx.rpg.core.presentation.state.DetailState
-import com.cyrillrx.rpg.creature.data.SampleCreatureRepository
+import com.cyrillrx.rpg.creature.data.SampleMonsterRepository
 import com.cyrillrx.rpg.creature.domain.Monster
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -19,11 +19,11 @@ import kotlin.test.assertEquals
 import kotlin.test.assertIs
 
 @OptIn(ExperimentalCoroutinesApi::class)
-class CreatureDetailViewModelTest {
+class MonsterDetailViewModelTest {
 
     private val testDispatcher = StandardTestDispatcher()
-    val repository = SampleCreatureRepository()
-    val creature = SampleCreatureRepository.getFirst()
+    val repository = SampleMonsterRepository()
+    val creature = SampleMonsterRepository.getFirst()
 
     @BeforeTest
     fun setUp() {
@@ -37,14 +37,14 @@ class CreatureDetailViewModelTest {
 
     @Test
     fun `state is Loading initially`() = runTest(testDispatcher) {
-        val viewModel = CreatureDetailViewModel(creature.id, repository)
+        val viewModel = MonsterDetailViewModel(creature.id, repository)
 
         assertEquals(expected = DetailState.Loading, actual = viewModel.state.value)
     }
 
     @Test
     fun `state is NotFound if creature not found`() = runTest(testDispatcher) {
-        val viewModel = CreatureDetailViewModel("no_match", repository)
+        val viewModel = MonsterDetailViewModel("no_match", repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -59,7 +59,7 @@ class CreatureDetailViewModelTest {
 
     @Test
     fun `state emits Found for valid creature id`() = runTest(testDispatcher) {
-        val viewModel = CreatureDetailViewModel(creature.id, repository)
+        val viewModel = MonsterDetailViewModel(creature.id, repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -70,6 +70,6 @@ class CreatureDetailViewModelTest {
         val state = viewModel.state.value
         assertIs<DetailState.Found<Monster>>(state)
         assertEquals(expected = creature.id, actual = state.item.id)
-        assertEquals(expected = creature.name, actual = state.item.name)
+        assertEquals(expected = creature.resolveTranslation("en")?.name, actual = state.item.resolveTranslation("en")?.name)
     }
 }

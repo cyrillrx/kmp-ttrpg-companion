@@ -3,15 +3,16 @@ package com.cyrillrx.rpg.creature.presentation.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.CreationExtras
-import com.cyrillrx.rpg.creature.domain.CreatureRepository
+import com.cyrillrx.rpg.creature.domain.MonsterRepository
+import com.cyrillrx.rpg.creature.presentation.navigation.MonsterRouter
 import kotlin.reflect.KClass
 
-class CreatureDetailViewModelFactory(
-    private val creatureId: String,
-    private val repository: CreatureRepository,
+class MonsterListViewModelFactory(
+    private val router: MonsterRouter,
+    private val repository: MonsterRepository,
 ) : ViewModelProvider.Factory {
+
     override fun <T : ViewModel> create(modelClass: KClass<T>, extras: CreationExtras): T {
-        @Suppress("UNCHECKED_CAST")
-        return CreatureDetailViewModel(creatureId, repository) as T
+        return MonsterListViewModel(router, repository) as T
     }
 }

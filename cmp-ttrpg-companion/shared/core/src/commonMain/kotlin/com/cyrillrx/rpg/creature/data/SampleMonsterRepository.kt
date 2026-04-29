@@ -3,13 +3,13 @@ package com.cyrillrx.rpg.creature.data
 import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.creature.domain.Creature
-import com.cyrillrx.rpg.creature.domain.CreatureFilter
-import com.cyrillrx.rpg.creature.domain.CreatureRepository
+import com.cyrillrx.rpg.creature.domain.MonsterFilter
+import com.cyrillrx.rpg.creature.domain.MonsterRepository
 import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.creature.domain.applyFilter
 
-class SampleCreatureRepository : CreatureRepository {
-    override suspend fun getAll(filter: CreatureFilter?): List<Monster> {
+class SampleMonsterRepository : MonsterRepository {
+    override suspend fun getAll(filter: MonsterFilter?): List<Monster> {
         return creatures.applyFilter(filter)
     }
 
@@ -31,8 +31,6 @@ class SampleCreatureRepository : CreatureRepository {
 
         fun goblin() = Monster(
             id = "1",
-            name = "Goblin",
-            description = "A small, black-hearted creature that lairs in despoiled dungeons and other dismal settings.",
             source = "srd_5.1",
             type = Monster.Type.HUMANOID,
             size = Creature.Size.SMALL,
@@ -51,12 +49,19 @@ class SampleCreatureRepository : CreatureRepository {
             maxHitPoints = 7,
             speed = "30 ft.",
             languages = listOf("Common", "Goblin"),
+            translations = mapOf(
+                "en" to Monster.Translation(
+                    name = "Goblin",
+                    description = "A small, black-hearted creature that lairs in despoiled dungeons and other dismal settings.",
+                    speed = "30 ft.",
+                    senses = "Darkvision 60 ft.",
+                    languages = listOf("Common", "Goblin"),
+                ),
+            ),
         )
 
         fun youngRedDragon() = Monster(
             id = "2",
-            name = "Young Red Dragon",
-            description = "A fierce dragon that breathes fire and terrorizes the countryside.",
             source = "srd_5.1",
             type = Monster.Type.DRAGON,
             size = Creature.Size.LARGE,
@@ -75,12 +80,19 @@ class SampleCreatureRepository : CreatureRepository {
             maxHitPoints = 178,
             speed = "40 ft., climb 40 ft., fly 80 ft.",
             languages = listOf("Common", "Draconic"),
+            translations = mapOf(
+                "en" to Monster.Translation(
+                    name = "Young Red Dragon",
+                    description = "A fierce dragon that breathes fire and terrorizes the countryside.",
+                    speed = "40 ft., climb 40 ft., fly 80 ft.",
+                    senses = "Blindsight 30 ft., Darkvision 120 ft.",
+                    languages = listOf("Common", "Draconic"),
+                ),
+            ),
         )
 
         private fun skeleton() = Monster(
             id = "3",
-            name = "Skeleton",
-            description = "An animated pile of bones held together by dark magic.",
             source = "srd_5.1",
             type = Monster.Type.UNDEAD,
             size = Creature.Size.MEDIUM,
@@ -99,12 +111,19 @@ class SampleCreatureRepository : CreatureRepository {
             maxHitPoints = 13,
             speed = "30 ft.",
             languages = listOf("understands languages it knew in life"),
+            translations = mapOf(
+                "en" to Monster.Translation(
+                    name = "Skeleton",
+                    description = "An animated pile of bones held together by dark magic.",
+                    speed = "30 ft.",
+                    senses = "Darkvision 60 ft.",
+                    languages = listOf("understands languages it knew in life"),
+                ),
+            ),
         )
 
         private fun direWolf() = Monster(
             id = "4",
-            name = "Dire Wolf",
-            description = "A large and fearsome wolf that hunts in packs.",
             source = "srd_5.1",
             type = Monster.Type.BEAST,
             size = Creature.Size.LARGE,
@@ -123,12 +142,19 @@ class SampleCreatureRepository : CreatureRepository {
             maxHitPoints = 37,
             speed = "50 ft.",
             languages = emptyList(),
+            translations = mapOf(
+                "en" to Monster.Translation(
+                    name = "Dire Wolf",
+                    description = "A large and fearsome wolf that hunts in packs.",
+                    speed = "50 ft.",
+                    senses = "Passive Perception 13",
+                    languages = emptyList(),
+                ),
+            ),
         )
 
         private fun balor() = Monster(
             id = "5",
-            name = "Balor",
-            description = "A towering fiend wreathed in flame, wielding a whip and longsword of fire.",
             source = "srd_5.1",
             type = Monster.Type.FIEND,
             size = Creature.Size.HUGE,
@@ -147,12 +173,19 @@ class SampleCreatureRepository : CreatureRepository {
             maxHitPoints = 262,
             speed = "40 ft., fly 80 ft.",
             languages = listOf("Abyssal", "telepathy 120 ft."),
+            translations = mapOf(
+                "en" to Monster.Translation(
+                    name = "Balor",
+                    description = "A towering fiend wreathed in flame, wielding a whip and longsword of fire.",
+                    speed = "40 ft., fly 80 ft.",
+                    senses = "Truesight 120 ft.",
+                    languages = listOf("Abyssal", "telepathy 120 ft."),
+                ),
+            ),
         )
 
         private fun gelatinousCube() = Monster(
             id = "6",
-            name = "Gelatinous Cube",
-            description = "A nearly transparent ooze that fills dungeon corridors.",
             source = "srd_5.1",
             type = Monster.Type.OOZE,
             size = Creature.Size.LARGE,
@@ -171,6 +204,15 @@ class SampleCreatureRepository : CreatureRepository {
             maxHitPoints = 84,
             speed = "15 ft.",
             languages = emptyList(),
+            translations = mapOf(
+                "en" to Monster.Translation(
+                    name = "Gelatinous Cube",
+                    description = "A nearly transparent ooze that fills dungeon corridors.",
+                    speed = "15 ft.",
+                    senses = "Blindsight 60 ft.",
+                    languages = emptyList(),
+                ),
+            ),
         )
     }
 }

@@ -25,7 +25,7 @@ import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingLarge
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
-import com.cyrillrx.rpg.creature.domain.CreatureFilter
+import com.cyrillrx.rpg.creature.domain.MonsterFilter
 import com.cyrillrx.rpg.creature.domain.Monster
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -44,8 +44,8 @@ private val commonCRs = listOf(
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable
-fun CreatureFilterBottomSheet(
-    filter: CreatureFilter,
+fun MonsterFilterBottomSheet(
+    filter: MonsterFilter,
     onTypeToggled: (Monster.Type) -> Unit,
     onChallengeRatingToggled: (Float) -> Unit,
     onResetFilters: () -> Unit,
@@ -114,23 +114,23 @@ fun CreatureFilterBottomSheet(
     }
 }
 
-private val sampleFilter = CreatureFilter(
+private val sampleFilter = MonsterFilter(
     types = setOf(Monster.Type.DRAGON),
     challengeRatings = setOf(10f),
 )
 
 @Preview
 @Composable
-private fun PreviewCreatureFilterBottomSheetLight() {
+private fun PreviewMonsterFilterBottomSheetLight() {
     AppThemePreview(darkTheme = false) {
-        CreatureFilterBottomSheet(sampleFilter, {}, {}, {}, {})
+        MonsterFilterBottomSheet(sampleFilter, {}, {}, {}, {})
     }
 }
 
 @Preview
 @Composable
-private fun PreviewCreatureFilterBottomSheetDark() {
+private fun PreviewMonsterFilterBottomSheetDark() {
     AppThemePreview(darkTheme = true) {
-        CreatureFilterBottomSheet(sampleFilter, {}, {}, {}, {})
+        MonsterFilterBottomSheet(sampleFilter, {}, {}, {}, {})
     }
 }

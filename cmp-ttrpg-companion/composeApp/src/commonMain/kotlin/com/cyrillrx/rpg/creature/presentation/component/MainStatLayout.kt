@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.sp
 import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.dnd.getSubtitle
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
-import com.cyrillrx.rpg.creature.data.SampleCreatureRepository
+import com.cyrillrx.rpg.creature.data.SampleMonsterRepository
 import com.cyrillrx.rpg.creature.domain.Monster
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -83,7 +83,7 @@ fun MainStatLayout(
 @Composable
 private fun PreviewMainStatLayoutLight() {
     AppThemePreview(darkTheme = false) {
-        MainStatLayout(creature = SampleCreatureRepository.getFirst())
+        MainStatLayout(creature = SampleMonsterRepository.getFirst())
     }
 }
 
@@ -91,6 +91,6 @@ private fun PreviewMainStatLayoutLight() {
 @Composable
 private fun PreviewMainStatLayoutDark() {
     AppThemePreview(darkTheme = true) {
-        MainStatLayout(creature = SampleCreatureRepository.getFirst())
+        MainStatLayout(creature = SampleMonsterRepository.getFirst())
     }
 }

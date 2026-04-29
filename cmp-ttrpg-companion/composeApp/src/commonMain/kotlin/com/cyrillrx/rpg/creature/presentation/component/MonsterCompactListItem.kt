@@ -36,7 +36,7 @@ import com.cyrillrx.rpg.core.presentation.theme.iconSizeSmall
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
-import com.cyrillrx.rpg.creature.data.SampleCreatureRepository
+import com.cyrillrx.rpg.creature.data.SampleMonsterRepository
 import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.creature.domain.Monster
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -45,7 +45,7 @@ private val typeIconSize = 36.dp
 private val typeIconPadding = 8.dp
 
 @Composable
-fun CreatureCompactListItem(
+fun MonsterCompactListItem(
     creature: Monster,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
@@ -88,7 +88,7 @@ fun CreatureCompactListItem(
                 modifier = Modifier.weight(1f),
             ) {
                 Text(
-                    text = translation?.name ?: creature.name,
+                    text = translation?.name.orEmpty(),
                     style = MaterialTheme.typography.titleSmall,
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.onSurface,
@@ -156,11 +156,11 @@ fun CreatureCompactListItem(
 
 @Preview
 @Composable
-private fun PreviewCreatureCompactListItemLight() {
+private fun PreviewMonsterCompactListItemLight() {
     AppThemePreview(darkTheme = false) {
         Column(verticalArrangement = Arrangement.spacedBy(spacingSmall)) {
-            SampleCreatureRepository.getAll().forEach {
-                CreatureCompactListItem(creature = it, onClick = {})
+            SampleMonsterRepository.getAll().forEach {
+                MonsterCompactListItem(creature = it, onClick = {})
             }
         }
     }
@@ -168,11 +168,11 @@ private fun PreviewCreatureCompactListItemLight() {
 
 @Preview
 @Composable
-private fun PreviewCreatureCompactListItemDark() {
+private fun PreviewMonsterCompactListItemDark() {
     AppThemePreview(darkTheme = true) {
         Column(verticalArrangement = Arrangement.spacedBy(spacingSmall)) {
-            SampleCreatureRepository.getAll().forEach {
-                CreatureCompactListItem(creature = it, onClick = {})
+            SampleMonsterRepository.getAll().forEach {
+                MonsterCompactListItem(creature = it, onClick = {})
             }
         }
     }

@@ -25,10 +25,10 @@ import com.cyrillrx.rpg.core.data.ComposeFileReader
 import com.cyrillrx.rpg.core.data.cache.DatabaseDriverFactory
 import com.cyrillrx.rpg.core.navigation.navigateUp
 import com.cyrillrx.rpg.core.presentation.theme.AppTheme
-import com.cyrillrx.rpg.creature.data.JsonCreatureRepository
-import com.cyrillrx.rpg.creature.presentation.navigation.CreatureRouterImpl
-import com.cyrillrx.rpg.creature.presentation.navigation.handleCreatureRoutes
-import com.cyrillrx.rpg.creature.presentation.navigation.registerCreatureRoutes
+import com.cyrillrx.rpg.creature.data.JsonMonsterRepository
+import com.cyrillrx.rpg.creature.presentation.navigation.MonsterRouterImpl
+import com.cyrillrx.rpg.creature.presentation.navigation.handleMonsterRoutes
+import com.cyrillrx.rpg.creature.presentation.navigation.registerMonsterRoutes
 import com.cyrillrx.rpg.home.presentation.HomeScreen
 import com.cyrillrx.rpg.home.presentation.navigation.HomeRouterImpl
 import com.cyrillrx.rpg.magicalitem.data.JsonMagicalItemRepository
@@ -57,7 +57,7 @@ private val navSavedStateConfig = SavedStateConfiguration {
 
             registerSpellRoutes()
             registerMagicalItemRoutes()
-            registerCreatureRoutes()
+            registerMonsterRoutes()
 
             registerUserListRoutes()
         }
@@ -104,9 +104,9 @@ fun App(dbDriverFactory: DatabaseDriverFactory) {
                     repository = JsonMagicalItemRepository(fileReader),
                     userListRepository = userListRepository,
                 )
-                handleCreatureRoutes(
-                    router = CreatureRouterImpl(backStack),
-                    repository = JsonCreatureRepository(fileReader),
+                handleMonsterRoutes(
+                    router = MonsterRouterImpl(backStack),
+                    repository = JsonMonsterRepository(fileReader),
                     userListRepository = userListRepository,
                 )
 

@@ -4,7 +4,7 @@ import androidx.navigation3.runtime.NavBackStack
 import androidx.navigation3.runtime.NavKey
 import com.cyrillrx.rpg.campaign.navigation.CampaignRoute
 import com.cyrillrx.rpg.character.presentation.navigation.PlayerCharacterRoute
-import com.cyrillrx.rpg.creature.presentation.navigation.CreatureRoute
+import com.cyrillrx.rpg.creature.presentation.navigation.MonsterRoute
 import com.cyrillrx.rpg.magicalitem.presentation.navigation.MagicalItemRoute
 import com.cyrillrx.rpg.spell.presentation.navigation.SpellRoute
 import com.cyrillrx.rpg.userlist.presentation.navigation.UserListRoute
@@ -14,10 +14,10 @@ interface HomeRouter {
     fun openCharacterSheetList() {}
     fun openSpellCompendium() {}
     fun openMagicalItemCompendium() {}
-    fun openCreatureCompendium() {}
+    fun openMonsterCompendium() {}
     fun openMySpellLists() {}
     fun openMyMagicalItemLists() {}
-    fun openMyCreatureLists() {}
+    fun openMyMonsterLists() {}
 }
 
 class HomeRouterImpl(private val backStack: NavBackStack<NavKey>) : HomeRouter {
@@ -37,8 +37,8 @@ class HomeRouterImpl(private val backStack: NavBackStack<NavKey>) : HomeRouter {
         backStack.add(MagicalItemRoute.Compendium)
     }
 
-    override fun openCreatureCompendium() {
-        backStack.add(CreatureRoute.Compendium)
+    override fun openMonsterCompendium() {
+        backStack.add(MonsterRoute.Compendium)
     }
 
     override fun openMySpellLists() {
@@ -49,7 +49,7 @@ class HomeRouterImpl(private val backStack: NavBackStack<NavKey>) : HomeRouter {
         backStack.add(UserListRoute.MagicalItem)
     }
 
-    override fun openMyCreatureLists() {
+    override fun openMyMonsterLists() {
         backStack.add(UserListRoute.Creature)
     }
 }

@@ -13,12 +13,12 @@ import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.HtmlText
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
-import com.cyrillrx.rpg.creature.data.SampleCreatureRepository
+import com.cyrillrx.rpg.creature.data.SampleMonsterRepository
 import com.cyrillrx.rpg.creature.domain.Monster
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
-fun CreatureItem(
+fun MonsterItem(
     creature: Monster,
     modifier: Modifier = Modifier,
 ) {
@@ -27,7 +27,7 @@ fun CreatureItem(
         .background(MaterialTheme.colorScheme.background)
         .padding(spacingCommon)) {
         Text(
-            text = translation?.name ?: creature.name,
+            text = translation?.name.orEmpty(),
             style = MaterialTheme.typography.headlineSmall,
             fontWeight = FontWeight.Bold,
             color = MaterialTheme.colorScheme.onBackground,
@@ -48,22 +48,22 @@ fun CreatureItem(
             cha = abilities.cha.getValueWithModifier(),
         )
 
-        HtmlText(text = translation?.description ?: creature.description)
+        HtmlText(text = translation?.description.orEmpty())
     }
 }
 
 @Preview
 @Composable
-private fun PreviewCreatureItemLight() {
+private fun PreviewMonsterItemLight() {
     AppThemePreview(darkTheme = false) {
-        CreatureItem(creature = SampleCreatureRepository.getFirst())
+        MonsterItem(creature = SampleMonsterRepository.getFirst())
     }
 }
 
 @Preview
 @Composable
-private fun PreviewCreatureItemDark() {
+private fun PreviewMonsterItemDark() {
     AppThemePreview(darkTheme = true) {
-        CreatureItem(creature = SampleCreatureRepository.getFirst())
+        MonsterItem(creature = SampleMonsterRepository.getFirst())
     }
 }

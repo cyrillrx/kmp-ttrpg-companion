@@ -9,8 +9,8 @@ import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.creature.domain.ConditionImmunities
 import com.cyrillrx.rpg.creature.domain.Creature
-import com.cyrillrx.rpg.creature.domain.CreatureFilter
-import com.cyrillrx.rpg.creature.domain.CreatureRepository
+import com.cyrillrx.rpg.creature.domain.MonsterFilter
+import com.cyrillrx.rpg.creature.domain.MonsterRepository
 import com.cyrillrx.rpg.creature.domain.DamageAffinity
 import com.cyrillrx.rpg.creature.domain.DamageAffinities
 import com.cyrillrx.rpg.creature.domain.Monster
@@ -18,11 +18,11 @@ import com.cyrillrx.rpg.creature.domain.Proficiency
 import com.cyrillrx.rpg.creature.domain.Skills
 import com.cyrillrx.rpg.creature.domain.applyFilter
 
-class JsonCreatureRepository(private val fileReader: FileReader) : CreatureRepository {
+class JsonMonsterRepository(private val fileReader: FileReader) : MonsterRepository {
 
     private var cache: List<Monster>? = null
 
-    override suspend fun getAll(filter: CreatureFilter?): List<Monster> {
+    override suspend fun getAll(filter: MonsterFilter?): List<Monster> {
         val all = cache ?: loadFromFile().parse().also { cache = it }
         return all.applyFilter(filter)
     }
@@ -83,8 +83,6 @@ class JsonCreatureRepository(private val fileReader: FileReader) : CreatureRepos
             return Result.Success(
                 Monster(
                     id = id,
-                    name = enTranslation.name,
-                    description = enTranslation.description,
                     source = source,
                     type = type,
                     size = size,

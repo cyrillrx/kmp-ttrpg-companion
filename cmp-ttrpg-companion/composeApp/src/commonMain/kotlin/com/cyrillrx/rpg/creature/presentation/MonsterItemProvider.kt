@@ -6,13 +6,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.cyrillrx.rpg.creature.domain.Monster
-import com.cyrillrx.rpg.creature.presentation.component.CreatureCompactListItem
+import com.cyrillrx.rpg.creature.presentation.component.MonsterCompactListItem
 import com.cyrillrx.rpg.userlist.presentation.ListItemProvider
 import org.jetbrains.compose.resources.StringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.empty_list_browse_creatures
 
-class CreatureItemProvider(
+class MonsterItemProvider(
     private val onItemClicked: (String) -> Unit,
     override val onEmptyLayoutBtnClicked: () -> Unit = {},
 ) : ListItemProvider<Monster> {
@@ -23,10 +23,10 @@ class CreatureItemProvider(
     override fun getId(entity: Monster): String = entity.id
 
     override fun getDisplayName(entity: Monster, locale: String): String =
-        entity.resolveTranslation(locale)?.name ?: entity.name
+        entity.resolveTranslation(locale)?.name.orEmpty()
 
     @Composable
     override fun ListItem(entity: Monster, modifier: Modifier) {
-        CreatureCompactListItem(creature = entity, onClick = { onItemClicked(entity.id) }, modifier = modifier)
+        MonsterCompactListItem(creature = entity, onClick = { onItemClicked(entity.id) }, modifier = modifier)
     }
 }

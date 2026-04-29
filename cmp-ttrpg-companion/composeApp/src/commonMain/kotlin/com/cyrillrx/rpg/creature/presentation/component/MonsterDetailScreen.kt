@@ -21,11 +21,11 @@ import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
 import com.cyrillrx.rpg.core.presentation.state.DetailState
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
-import com.cyrillrx.rpg.creature.data.SampleCreatureRepository
+import com.cyrillrx.rpg.creature.data.SampleMonsterRepository
 import com.cyrillrx.rpg.creature.domain.Monster
-import com.cyrillrx.rpg.creature.presentation.CreatureAddToListProvider
-import com.cyrillrx.rpg.creature.presentation.navigation.CreatureRouter
-import com.cyrillrx.rpg.creature.presentation.viewmodel.CreatureDetailViewModel
+import com.cyrillrx.rpg.creature.presentation.MonsterAddToListProvider
+import com.cyrillrx.rpg.creature.presentation.navigation.MonsterRouter
+import com.cyrillrx.rpg.creature.presentation.viewmodel.MonsterDetailViewModel
 import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
 import com.cyrillrx.rpg.userlist.presentation.AddToListProvider
 import org.jetbrains.compose.resources.stringResource
@@ -35,16 +35,16 @@ import rpg_companion.composeapp.generated.resources.btn_add_to_list
 import rpg_companion.composeapp.generated.resources.error_creature_not_found
 
 @Composable
-fun CreatureDetailScreen(
-    viewModel: CreatureDetailViewModel,
-    router: CreatureRouter,
+fun MonsterDetailScreen(
+    viewModel: MonsterDetailViewModel,
+    router: MonsterRouter,
     addToListProvider: AddToListProvider<Monster>,
 ) {
     val state by viewModel.state.collectAsState()
     when (val s = state) {
         DetailState.Loading -> Loader()
         is DetailState.NotFound -> ErrorLayout(stringResource(Res.string.error_creature_not_found, s.id))
-        is DetailState.Found -> CreatureDetailContent(
+        is DetailState.Found -> MonsterDetailContent(
             creature = s.item,
             onNavigateUpClicked = router::navigateUp,
             addToListProvider = addToListProvider,
@@ -53,7 +53,7 @@ fun CreatureDetailScreen(
 }
 
 @Composable
-private fun CreatureDetailContent(
+private fun MonsterDetailContent(
     creature: Monster,
     onNavigateUpClicked: () -> Unit,
     addToListProvider: AddToListProvider<Monster>,
@@ -63,7 +63,7 @@ private fun CreatureDetailContent(
     Scaffold(
         topBar = {
             SimpleTopBar(
-                title = creature.resolveTranslation(currentLocale())?.name ?: creature.name,
+                title = creature.resolveTranslation(currentLocale())?.name.orEmpty(),
                 onNavigateUpClicked = onNavigateUpClicked,
             )
         },
@@ -78,7 +78,7 @@ private fun CreatureDetailContent(
             }
         },
     ) { paddingValues ->
-        CreatureItem(
+        MonsterItem(
             creature = creature,
             modifier = Modifier
                 .padding(paddingValues)
@@ -96,21 +96,21 @@ private fun CreatureDetailContent(
 
 @Preview
 @Composable
-private fun PreviewCreatureDetailScreenLight() {
-    AppThemePreview(darkTheme = false) { CreatureDetailContentPreview() }
+private fun PreviewMonsterDetailScreenLight() {
+    AppThemePreview(darkTheme = false) { MonsterDetailContentPreview() }
 }
 
 @Preview
 @Composable
-private fun PreviewCreatureDetailScreenDark() {
-    AppThemePreview(darkTheme = true) { CreatureDetailContentPreview() }
+private fun PreviewMonsterDetailScreenDark() {
+    AppThemePreview(darkTheme = true) { MonsterDetailContentPreview() }
 }
 
 @Composable
-private fun CreatureDetailContentPreview() {
-    val addToListProvider = CreatureAddToListProvider(SampleCreatureRepository(), SampleUserListRepository())
-    CreatureDetailContent(
-        creature = SampleCreatureRepository.getFirst(),
+private fun MonsterDetailContentPreview() {
+    val addToListProvider = MonsterAddToListProvider(SampleMonsterRepository(), SampleUserListRepository())
+    MonsterDetailContent(
+        creature = SampleMonsterRepository.getFirst(),
         onNavigateUpClicked = {},
         addToListProvider = addToListProvider,
     )

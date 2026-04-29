@@ -27,12 +27,12 @@ import com.cyrillrx.rpg.core.presentation.component.SwipeToAdd
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
-import com.cyrillrx.rpg.creature.data.SampleCreatureRepository
+import com.cyrillrx.rpg.creature.data.SampleMonsterRepository
 import com.cyrillrx.rpg.creature.domain.Monster
-import com.cyrillrx.rpg.creature.presentation.CreatureAddToListProvider
-import com.cyrillrx.rpg.creature.presentation.CreatureListState
-import com.cyrillrx.rpg.creature.presentation.navigation.CreatureRouter
-import com.cyrillrx.rpg.creature.presentation.viewmodel.CreatureListViewModel
+import com.cyrillrx.rpg.creature.presentation.MonsterAddToListProvider
+import com.cyrillrx.rpg.creature.presentation.MonsterListState
+import com.cyrillrx.rpg.creature.presentation.navigation.MonsterRouter
+import com.cyrillrx.rpg.creature.presentation.viewmodel.MonsterListViewModel
 import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
 import com.cyrillrx.rpg.userlist.presentation.AddToListProvider
 import org.jetbrains.compose.resources.stringResource
@@ -41,18 +41,18 @@ import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.hint_search_creature
 
 @Composable
-fun CreatureCompactListScreen(
-    viewModel: CreatureListViewModel,
-    router: CreatureRouter,
+fun MonsterCompactListScreen(
+    viewModel: MonsterListViewModel,
+    router: MonsterRouter,
     addToListProvider: AddToListProvider<Monster>,
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
-    CreatureCompactListScreen(
+    MonsterCompactListScreen(
         state = state,
         onNavigateUpClicked = router::navigateUp,
         onSearchQueryChanged = viewModel::onSearchQueryChanged,
-        onCreatureClicked = viewModel::onCreatureClicked,
+        onMonsterClicked = viewModel::onMonsterClicked,
         onTypeToggled = viewModel::onTypeToggled,
         onChallengeRatingToggled = viewModel::onChallengeRatingToggled,
         onResetFilters = viewModel::onResetFilters,
@@ -61,11 +61,11 @@ fun CreatureCompactListScreen(
 }
 
 @Composable
-fun CreatureCompactListScreen(
-    state: CreatureListState,
+fun MonsterCompactListScreen(
+    state: MonsterListState,
     onNavigateUpClicked: () -> Unit,
     onSearchQueryChanged: (String) -> Unit,
-    onCreatureClicked: (Monster) -> Unit,
+    onMonsterClicked: (Monster) -> Unit,
     onTypeToggled: (Monster.Type) -> Unit,
     onChallengeRatingToggled: (Float) -> Unit,
     onResetFilters: () -> Unit,
@@ -93,12 +93,12 @@ fun CreatureCompactListScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             when (val body = state.body) {
-                is CreatureListState.Body.Loading -> Loader()
-                is CreatureListState.Body.Empty -> EmptySearch(state.filter.query)
-                is CreatureListState.Body.Error -> ErrorLayout(body.errorMessage)
-                is CreatureListState.Body.WithData -> CreatureCompactList(
+                is MonsterListState.Body.Loading -> Loader()
+                is MonsterListState.Body.Empty -> EmptySearch(state.filter.query)
+                is MonsterListState.Body.Error -> ErrorLayout(body.errorMessage)
+                is MonsterListState.Body.WithData -> MonsterCompactList(
                     creatures = body.searchResults,
-                    onCreatureClicked = onCreatureClicked,
+                    onMonsterClicked = onMonsterClicked,
                     showAddToList = { creature -> creatureToAdd = creature },
                 )
             }
@@ -106,7 +106,7 @@ fun CreatureCompactListScreen(
     }
 
     if (showFilterSheet) {
-        CreatureFilterBottomSheet(
+        MonsterFilterBottomSheet(
             filter = state.filter,
             onTypeToggled = onTypeToggled,
             onChallengeRatingToggled = onChallengeRatingToggled,
@@ -124,9 +124,9 @@ fun CreatureCompactListScreen(
 }
 
 @Composable
-private fun CreatureCompactList(
+private fun MonsterCompactList(
     creatures: List<Monster>,
-    onCreatureClicked: (Monster) -> Unit,
+    onMonsterClicked: (Monster) -> Unit,
     showAddToList: (Monster) -> Unit,
 ) {
     val listState = rememberLazyListState()
@@ -145,9 +145,9 @@ private fun CreatureCompactList(
                 onSwiped = { showAddToList(creature) },
                 modifier = Modifier.fillMaxWidth(),
             ) {
-                CreatureCompactListItem(
+                MonsterCompactListItem(
                     creature = creature,
-                    onClick = { onCreatureClicked(creature) },
+                    onClick = { onMonsterClicked(creature) },
                     modifier = Modifier.fillMaxWidth(),
                 )
             }
@@ -157,25 +157,25 @@ private fun CreatureCompactList(
 
 @Preview
 @Composable
-private fun PreviewCreatureCompactListScreenLight() {
+private fun PreviewMonsterCompactListScreenLight() {
     AppThemePreview(darkTheme = false) {
-        CreatureCompactListScreenPreview()
+        MonsterCompactListScreenPreview()
     }
 }
 
 @Preview
 @Composable
-private fun PreviewCreatureCompactListScreenDark() {
+private fun PreviewMonsterCompactListScreenDark() {
     AppThemePreview(darkTheme = true) {
-        CreatureCompactListScreenPreview()
+        MonsterCompactListScreenPreview()
     }
 }
 
 @Composable
-private fun CreatureCompactListScreenPreview() {
-    val stateWithSampleData = CreatureListState(
-        body = CreatureListState.Body.WithData(SampleCreatureRepository.getAll()),
+private fun MonsterCompactListScreenPreview() {
+    val stateWithSampleData = MonsterListState(
+        body = MonsterListState.Body.WithData(SampleMonsterRepository.getAll()),
     )
-    val addToListProvider = CreatureAddToListProvider(SampleCreatureRepository(), SampleUserListRepository())
-    CreatureCompactListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, addToListProvider)
+    val addToListProvider = MonsterAddToListProvider(SampleMonsterRepository(), SampleUserListRepository())
+    MonsterCompactListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, addToListProvider)
 }

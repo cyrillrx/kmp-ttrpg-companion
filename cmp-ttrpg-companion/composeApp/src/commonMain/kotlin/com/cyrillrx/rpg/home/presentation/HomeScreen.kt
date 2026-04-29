@@ -80,7 +80,7 @@ fun HomeScreen(router: HomeRouter) {
                 IconLabelButton(
                     label = stringResource(Res.string.btn_bestiary),
                     icon = Icons.Filled.Pets,
-                    onClick = router::openCreatureCompendium,
+                    onClick = router::openMonsterCompendium,
                     modifier = Modifier.weight(1f),
                 )
             }
@@ -111,7 +111,7 @@ fun HomeScreen(router: HomeRouter) {
                 IconLabelButton(
                     label = stringResource(Res.string.btn_my_bestiary_lists),
                     icon = Icons.Filled.Pets,
-                    onClick = router::openMyCreatureLists,
+                    onClick = router::openMyMonsterLists,
                     modifier = Modifier.weight(1f),
                 )
             }
