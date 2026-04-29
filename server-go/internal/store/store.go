@@ -6,6 +6,6 @@ import "ttrpg-companion/server-go/internal/model"
 // Implementations can load from JSON files, a database, or any other source.
 type CompendiumStore interface {
 	GetSpells() []model.Spell
-	GetCreatures() []model.Creature
+	GetMonsters() []model.Monster
 	GetMagicalItems() []model.MagicalItem
 }

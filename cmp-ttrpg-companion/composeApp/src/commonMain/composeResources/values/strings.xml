@@ -36,7 +36,7 @@
     <string name="error_while_loading_campaign">Error while loading Campaigns.</string>
     <string name="error_while_loading_characters">Error while loading Player Characters.</string>
     <string name="error_while_loading_spells">Error while loading Spells.</string>
-    <string name="error_while_loading_creatures">Error while loading the Bestiary.</string>
+    <string name="error_while_loading_monsters">Error while loading the Bestiary.</string>
     <string name="error_while_loading_magical_items">Error while loading Magical Items.</string>
     <string name="error_while_loading_user_lists">Error while loading User Lists.</string>
     <string name="error_while_loading_user_list">Error while loading User List.</string>
@@ -44,7 +44,7 @@
     <string name="no_result_found">No results found.</string>
     <string name="no_result_found_for_query">No results found for '%1$s'.</string>
 
-    <string name="error_creature_not_found">Creature not found: %1$s</string>
+    <string name="error_monster_not_found">Monster not found: %1$s</string>
     <string name="error_spell_not_found">Spell not found: %1$s</string>
     <string name="error_magical_item_not_found">Magical item not found: %1$s</string>
 </resources>

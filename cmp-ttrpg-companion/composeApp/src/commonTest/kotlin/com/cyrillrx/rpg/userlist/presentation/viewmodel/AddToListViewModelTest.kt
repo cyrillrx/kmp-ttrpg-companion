@@ -1,7 +1,6 @@
 package com.cyrillrx.rpg.userlist.presentation.viewmodel
 
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
-import com.cyrillrx.rpg.spell.data.SpellEntityRepository
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.userlist.data.RamUserListRepository
 import com.cyrillrx.rpg.userlist.domain.UserList
@@ -35,7 +34,7 @@ class AddToListViewModelTest {
 
     private val testDispatcher = StandardTestDispatcher()
     private val userListRepository = RamUserListRepository()
-    private val spellRepository = SpellEntityRepository(SampleSpellRepository())
+    private val spellRepository = SampleSpellRepository()
     private val spell = SampleSpellRepository.getFirst()
 
     @BeforeTest

@@ -10,10 +10,13 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.sp
+import com.cyrillrx.rpg.app.LOCALE_FR
+import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.dnd.getSubtitle
+import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
-import com.cyrillrx.rpg.creature.data.SampleCreatureRepository
-import com.cyrillrx.rpg.creature.domain.Creature
+import com.cyrillrx.rpg.creature.data.SampleMonsterRepository
+import com.cyrillrx.rpg.creature.domain.Monster
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
@@ -23,9 +26,10 @@ import rpg_companion.composeapp.generated.resources.creature_speed
 
 @Composable
 fun MainStatLayout(
-    creature: Creature,
+    monster: Monster,
     modifier: Modifier = Modifier,
 ) {
+    val useFeet = !currentLocale().startsWith(LOCALE_FR)
     Column(modifier) {
         Text(
             buildAnnotatedString {
@@ -35,7 +39,7 @@ fun MainStatLayout(
                         fontSize = 18.sp,
                     ),
                 ) {
-                    append(creature.getSubtitle())
+                    append(monster.getSubtitle())
                 }
             },
             color = MaterialTheme.colorScheme.onBackground,
@@ -46,7 +50,7 @@ fun MainStatLayout(
                     append(stringResource(Res.string.creature_ac))
                     append(" ")
                 }
-                append(creature.armorClass.toString())
+                append(monster.armorClass.toString())
             },
             color = MaterialTheme.colorScheme.onBackground,
         )
@@ -56,21 +60,17 @@ fun MainStatLayout(
                     append(stringResource(Res.string.creature_hp))
                     append(" ")
                 }
-                append(creature.maxHitPoints.toString())
+                append(monster.maxHitPoints.toString())
             },
             color = MaterialTheme.colorScheme.onBackground,
         )
         Text(
             buildAnnotatedString {
-                withStyle(
-                    SpanStyle(
-                        fontWeight = FontWeight.Bold,
-                    ),
-                ) {
+                withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {
                     append(stringResource(Res.string.creature_speed))
                     append(" ")
                 }
-                append(creature.speed)
+                append(monster.speeds.toFormattedString(useFeet))
             },
             color = MaterialTheme.colorScheme.onBackground,
         )
@@ -81,7 +81,7 @@ fun MainStatLayout(
 @Composable
 private fun PreviewMainStatLayoutLight() {
     AppThemePreview(darkTheme = false) {
-        MainStatLayout(creature = SampleCreatureRepository.getFirst())
+        MainStatLayout(monster = SampleMonsterRepository.getFirst())
     }
 }
 
@@ -89,6 +89,6 @@ private fun PreviewMainStatLayoutLight() {
 @Composable
 private fun PreviewMainStatLayoutDark() {
     AppThemePreview(darkTheme = true) {
-        MainStatLayout(creature = SampleCreatureRepository.getFirst())
+        MainStatLayout(monster = SampleMonsterRepository.getFirst())
     }
 }

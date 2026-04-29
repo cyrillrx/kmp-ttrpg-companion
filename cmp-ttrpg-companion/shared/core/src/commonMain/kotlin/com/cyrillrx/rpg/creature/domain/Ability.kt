@@ -1,6 +1,9 @@
 package com.cyrillrx.rpg.creature.domain
 
-class Ability(val value: Int) {
+class Ability(
+    val value: Int,
+    val savingThrowProficiency: Proficiency = Proficiency.NONE,
+) {
     val modifier: Int = getModifier(value)
 
     fun getValueWithModifier(): String = "$value (${getSignedModifier(value)})"

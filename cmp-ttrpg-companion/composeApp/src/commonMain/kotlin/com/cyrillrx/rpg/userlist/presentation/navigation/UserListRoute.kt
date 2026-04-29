@@ -60,7 +60,7 @@ fun EntryProviderScope<NavKey>.handleUserListRoutes(
     }
 
     entry<UserListRoute.Creature> {
-        val listType = UserList.Type.CREATURE
+        val listType = UserList.Type.MONSTER
         val viewModelFactory = UserListsViewModelFactory(listType, router, userListRepository)
         val viewModel = viewModel<UserListsViewModel>(
             key = listType.name,

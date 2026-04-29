@@ -34,7 +34,7 @@ func main() {
 	r.Route("/compendium", func(r chi.Router) {
 		r.Use(middleware.SetHeader("Content-Type", "application/json"))
 		r.Get("/spells", handler.ListSpells(s))
-		r.Get("/creatures", handler.ListCreatures(s))
+		r.Get("/monsters", handler.ListMonsters(s))
 		r.Get("/magical-items", handler.ListMagicalItems(s))
 	})
 

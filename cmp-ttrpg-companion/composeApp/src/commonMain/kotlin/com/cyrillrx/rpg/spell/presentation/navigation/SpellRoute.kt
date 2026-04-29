@@ -3,7 +3,6 @@ package com.cyrillrx.rpg.spell.presentation.navigation
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation3.runtime.EntryProviderScope
 import androidx.navigation3.runtime.NavKey
-import com.cyrillrx.rpg.spell.data.SpellEntityRepository
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.domain.SpellRepository
 import com.cyrillrx.rpg.spell.presentation.SpellAddToListProvider
@@ -70,7 +69,7 @@ fun EntryProviderScope<NavKey>.handleSpellRoutes(
         val viewModelFactory = ListDetailViewModelFactory(
             listId = listId,
             userListRepository = userListRepository,
-            repository = SpellEntityRepository(spellRepository),
+            repository = spellRepository,
         )
         val viewModel = viewModel<ListDetailViewModel<Spell>>(key = listId, factory = viewModelFactory)
         val itemProvider = SpellItemProvider(

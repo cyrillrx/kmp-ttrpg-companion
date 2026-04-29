@@ -8,11 +8,11 @@ import (
 	"ttrpg-companion/server-go/internal/store"
 )
 
-func ListCreatures(s store.CompendiumStore) http.HandlerFunc {
+func ListMonsters(s store.CompendiumStore) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		err := json.NewEncoder(w).Encode(s.GetCreatures())
+		err := json.NewEncoder(w).Encode(s.GetMonsters())
 		if err != nil {
-			log.Printf("encode creatures: %v", err)
+			log.Printf("encode monsters: %v", err)
 		}
 	}
 }

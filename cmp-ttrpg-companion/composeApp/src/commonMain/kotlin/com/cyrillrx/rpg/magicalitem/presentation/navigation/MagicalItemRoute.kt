@@ -3,7 +3,6 @@ package com.cyrillrx.rpg.magicalitem.presentation.navigation
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation3.runtime.EntryProviderScope
 import androidx.navigation3.runtime.NavKey
-import com.cyrillrx.rpg.magicalitem.data.MagicalItemEntityRepository
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemRepository
 import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemAddToListProvider
@@ -64,7 +63,7 @@ fun EntryProviderScope<NavKey>.handleMagicalItemRoutes(
         val viewModelFactory = ListDetailViewModelFactory(
             listId = listId,
             userListRepository = userListRepository,
-            repository = MagicalItemEntityRepository(repository),
+            repository = repository,
         )
         val viewModel = viewModel<ListDetailViewModel<MagicalItem>>(key = listId, factory = viewModelFactory)
         val itemProvider = MagicalItemItemProvider(

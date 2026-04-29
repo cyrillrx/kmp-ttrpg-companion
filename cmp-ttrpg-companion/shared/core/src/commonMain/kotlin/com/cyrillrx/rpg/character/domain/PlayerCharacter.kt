@@ -1,33 +1,33 @@
 package com.cyrillrx.rpg.character.domain
 
 import com.cyrillrx.rpg.creature.domain.Abilities
-import com.cyrillrx.rpg.creature.domain.BaseCreature
+import com.cyrillrx.rpg.creature.domain.Creature
+import com.cyrillrx.rpg.creature.domain.Skills
+import com.cyrillrx.rpg.creature.domain.Speeds
 
 class PlayerCharacter(
     id: String,
-    name: String,
-    description: String,
+    val name: String,
+    val description: String,
     size: Size,
     alignment: Alignment,
     abilities: Abilities,
     armorClass: Int,
     maxHitPoints: Int,
-    speed: String,
+    speeds: Speeds,
     languages: List<String>,
     val level: Int,
     val clazz: Class,
     val initiativeModifier: Int = abilities.dex.modifier,
     val skills: Skills,
-) : BaseCreature(
+) : Creature(
     id = id,
-    name = name,
-    description = description,
     size = size,
     alignment = alignment,
     abilities = abilities,
     armorClass = armorClass,
     maxHitPoints = maxHitPoints,
-    speed = speed,
+    speeds = speeds,
     languages = languages,
 ) {
     val proficiencyBonus: Int = when (level) {

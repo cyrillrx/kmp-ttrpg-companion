@@ -9,7 +9,7 @@ For project-wide guidelines, see [`AGENTS.md`](../AGENTS.md).
 - **Campaign Management**: Create and manage your TTRPG campaigns.
 - **Character Sheets**: Create and manage character sheets for PCs and NPCs.
 - **Spellbook**: Browse, search, and filter the D&D 5e spell catalog.
-- **Bestiary**: Browse and manage a bestiary of creatures and NPCs.
+- **Bestiary**: Browse and manage a bestiary of monsters.
 - **Item List**: Access and manage magical items and equipment.
 - **Virtual Dice**: Roll d4 to d100 with cumulative rolls and history.
 

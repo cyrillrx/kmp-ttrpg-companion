@@ -54,3 +54,6 @@ server-rust/target/
 
 # Go
 server-go/server-go
+
+# Data — raw sources and migration scripts (not committed)
+data/scripts/
