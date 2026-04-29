@@ -1,58 +1,86 @@
 package model
 
-import "encoding/json"
+// Monster is the API response model for a compendium monster.
+type Monster struct {
+	ID                  string                 `json:"id"`
+	Source              string                 `json:"source"`
+	Type                string                 `json:"type"`
+	Size                string                 `json:"size"`
+	Alignment           string                 `json:"alignment"`
+	ChallengeRating     float32                `json:"challengeRating"`
+	ArmorClass          int                    `json:"armorClass"`
+	MaxHitPoints        int                    `json:"maxHitPoints"`
+	HitDice             string                 `json:"hitDice"`
+	Abilities           Abilities              `json:"abilities"`
+	Skills              map[string]string      `json:"skills"`
+	DamageAffinities    map[string]string      `json:"damageAffinities"`
+	ConditionImmunities map[string]bool        `json:"conditionImmunities"`
+	Translations        map[string]Translation `json:"translations"`
+}
 
-// Creature is the API response model for a compendium creature.
-type Creature struct {
-	ID              string    `json:"id"`
-	Name            string    `json:"name"`
-	Description     string    `json:"description"`
-	Type            string    `json:"type"`
-	Subtype         string    `json:"subtype"`
-	Size            string    `json:"size"`
-	Alignment       string    `json:"alignment"`
-	ChallengeRating float32   `json:"challengeRating"`
-	ArmorClass      int       `json:"armorClass"`
-	MaxHitPoints    int       `json:"maxHitPoints"`
-	Speed           string    `json:"speed"`
-	Languages       []string  `json:"languages"`
-	Abilities       Abilities `json:"abilities"`
+// Ability holds a single D&D ability score with an optional saving throw proficiency.
+type Ability struct {
+	Value                  int     `json:"value"`
+	SavingThrowProficiency *string `json:"savingThrowProficiency"`
 }
 
 // Abilities holds the six D&D ability scores.
 type Abilities struct {
-	Str int `json:"str"`
-	Dex int `json:"dex"`
-	Con int `json:"con"`
-	Int int `json:"int"`
-	Wis int `json:"wis"`
-	Cha int `json:"cha"`
+	Str Ability `json:"str"`
+	Dex Ability `json:"dex"`
+	Con Ability `json:"con"`
+	Int Ability `json:"int"`
+	Wis Ability `json:"wis"`
+	Cha Ability `json:"cha"`
 }
 
-// CreatureJson mirrors the raw JSON structure of creatures.json.
-type CreatureJson struct {
-	Title     *string            `json:"title"`
-	Content   *string            `json:"content"`
-	TrueType  *string            `json:"truetype"`
-	Size      *string            `json:"size"`
-	Alignment *string            `json:"alignment"`
-	Challenge json.RawMessage    `json:"challenge"`
-	Header    *CreatureHeaderJson `json:"header"`
+// Translation holds locale-specific text for a monster.
+type Translation struct {
+	Name        string   `json:"name"`
+	Subtype     *string  `json:"subtype"`
+	Description string   `json:"description"`
+	Speed       string   `json:"speed"`
+	Senses      string   `json:"senses"`
+	Languages   []string `json:"languages"`
 }
 
-type CreatureHeaderJson struct {
-	Monster *MonsterJson `json:"monster"`
-}
-
+// MonsterJson mirrors the raw JSON structure of monsters.json.
 type MonsterJson struct {
-	AC        json.RawMessage `json:"ac"`
-	HP        *string         `json:"hp"`
-	Speed     *string         `json:"speed"`
-	Str       *string         `json:"str"`
-	Dex       *string         `json:"dex"`
-	Con       *string         `json:"con"`
-	Int       *string         `json:"int"`
-	Wis       *string         `json:"wis"`
-	Cha       *string         `json:"cha"`
-	Languages *string         `json:"languages"`
+	ID                  *string                    `json:"id"`
+	Source              *string                    `json:"source"`
+	Type                *string                    `json:"type"`
+	Size                *string                    `json:"size"`
+	Alignment           *string                    `json:"alignment"`
+	ChallengeRating     *float32                   `json:"challengeRating"`
+	ArmorClass          *int                       `json:"armorClass"`
+	MaxHitPoints        *int                       `json:"maxHitPoints"`
+	HitDice             *string                    `json:"hitDice"`
+	Abilities           *AbilitiesJson             `json:"abilities"`
+	Skills              map[string]string          `json:"skills"`
+	DamageAffinities    map[string]string          `json:"damageAffinities"`
+	ConditionImmunities map[string]bool            `json:"conditionImmunities"`
+	Translations        map[string]TranslationJson `json:"translations"`
+}
+
+type AbilitiesJson struct {
+	Str *AbilityJson `json:"str"`
+	Dex *AbilityJson `json:"dex"`
+	Con *AbilityJson `json:"con"`
+	Int *AbilityJson `json:"int"`
+	Wis *AbilityJson `json:"wis"`
+	Cha *AbilityJson `json:"cha"`
+}
+
+type AbilityJson struct {
+	Value                  *int    `json:"value"`
+	SavingThrowProficiency *string `json:"savingThrowProficiency"`
+}
+
+type TranslationJson struct {
+	Name        *string  `json:"name"`
+	Subtype     *string  `json:"subtype"`
+	Description *string  `json:"description"`
+	Speed       *string  `json:"speed"`
+	Senses      *string  `json:"senses"`
+	Languages   []string `json:"languages"`
 }

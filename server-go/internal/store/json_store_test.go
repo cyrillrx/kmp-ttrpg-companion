@@ -1,114 +1,10 @@
 package store
 
 import (
-	"encoding/json"
 	"testing"
 
 	"ttrpg-companion/server-go/internal/model"
 )
-
-// ── parseTypeSubtype ──────────────────────────────────────────────────────────
-
-func TestParseTypeSubtype_withSubtype(t *testing.T) {
-	typ, sub := parseTypeSubtype("Humanoïde (Goblinoïde)")
-	if typ != "Humanoïde" || sub != "Goblinoïde" {
-		t.Errorf("got (%q, %q)", typ, sub)
-	}
-}
-
-func TestParseTypeSubtype_withoutSubtype(t *testing.T) {
-	typ, sub := parseTypeSubtype("Bête")
-	if typ != "Bête" || sub != "" {
-		t.Errorf("got (%q, %q)", typ, sub)
-	}
-}
-
-func TestParseTypeSubtype_empty(t *testing.T) {
-	typ, sub := parseTypeSubtype("")
-	if typ != "" || sub != "" {
-		t.Errorf("got (%q, %q)", typ, sub)
-	}
-}
-
-// ── parseChallenge ────────────────────────────────────────────────────────────
-
-func TestParseChallenge_integer(t *testing.T) {
-	raw, _ := json.Marshal(5)
-	if got := parseChallenge(raw); got != 5 {
-		t.Errorf("got %v", got)
-	}
-}
-
-func TestParseChallenge_float(t *testing.T) {
-	raw, _ := json.Marshal(0.5)
-	if got := parseChallenge(raw); got != 0.5 {
-		t.Errorf("got %v", got)
-	}
-}
-
-func TestParseChallenge_stringFraction(t *testing.T) {
-	raw, _ := json.Marshal("1/4")
-	// "1/4" is not a valid float — expect fallback 0
-	if got := parseChallenge(raw); got != 0 {
-		t.Errorf("got %v, want 0", got)
-	}
-}
-
-func TestParseChallenge_stringFloat(t *testing.T) {
-	raw, _ := json.Marshal("0.5")
-	if got := parseChallenge(raw); got != 0.5 {
-		t.Errorf("got %v", got)
-	}
-}
-
-func TestParseChallenge_empty(t *testing.T) {
-	if got := parseChallenge(nil); got != 0 {
-		t.Errorf("got %v", got)
-	}
-}
-
-// ── parseFirstInt ─────────────────────────────────────────────────────────────
-
-func TestParseFirstInt_plain(t *testing.T) {
-	if got := parseFirstInt("15", 0); got != 15 {
-		t.Errorf("got %v", got)
-	}
-}
-
-func TestParseFirstInt_withModifier(t *testing.T) {
-	if got := parseFirstInt("18 (+4)", 0); got != 18 {
-		t.Errorf("got %v", got)
-	}
-}
-
-func TestParseFirstInt_invalid(t *testing.T) {
-	if got := parseFirstInt("abc", 42); got != 42 {
-		t.Errorf("got %v", got)
-	}
-}
-
-func TestParseFirstInt_empty(t *testing.T) {
-	if got := parseFirstInt("", 7); got != 7 {
-		t.Errorf("got %v", got)
-	}
-}
-
-// ── parseLanguages ────────────────────────────────────────────────────────────
-
-func TestParseLanguages_commaSeparated(t *testing.T) {
-	s := "Commun, Elfique, Nain"
-	m := &model.MonsterJson{Languages: &s}
-	langs := parseLanguages(m)
-	if len(langs) != 3 || langs[0] != "Commun" || langs[2] != "Nain" {
-		t.Errorf("got %v", langs)
-	}
-}
-
-func TestParseLanguages_nil(t *testing.T) {
-	if langs := parseLanguages(nil); len(langs) != 0 {
-		t.Errorf("got %v", langs)
-	}
-}
 
 // ── spellFromJson ─────────────────────────────────────────────────────────────
 
@@ -163,6 +59,100 @@ func TestSpellFromJson_nilId(t *testing.T) {
 	}
 }
 
+// ── monsterFromJson ───────────────────────────────────────────────────────────
+
+func makeMonsterJson() model.MonsterJson {
+	id := "goblin"
+	source := "mm2024"
+	monsterType := "humanoid"
+	size := "small"
+	alignment := "neutral_evil"
+	cr := float32(0.25)
+	ac := 15
+	hp := 7
+	hitDice := "2d6"
+	str := 8
+	dex := 14
+	con := 10
+	intel := 10
+	wis := 8
+	cha := 8
+	name := "Goblin"
+	subtype := "Goblinoid"
+	desc := "A small creature."
+	speed := "30 ft."
+	senses := "Darkvision 60 ft."
+	return model.MonsterJson{
+		ID:              &id,
+		Source:          &source,
+		Type:            &monsterType,
+		Size:            &size,
+		Alignment:       &alignment,
+		ChallengeRating: &cr,
+		ArmorClass:      &ac,
+		MaxHitPoints:    &hp,
+		HitDice:         &hitDice,
+		Abilities: &model.AbilitiesJson{
+			Str: &model.AbilityJson{Value: &str},
+			Dex: &model.AbilityJson{Value: &dex},
+			Con: &model.AbilityJson{Value: &con},
+			Int: &model.AbilityJson{Value: &intel},
+			Wis: &model.AbilityJson{Value: &wis},
+			Cha: &model.AbilityJson{Value: &cha},
+		},
+		Translations: map[string]model.TranslationJson{
+			"en": {
+				Name:        &name,
+				Subtype:     &subtype,
+				Description: &desc,
+				Speed:       &speed,
+				Senses:      &senses,
+				Languages:   []string{"Common", "Goblin"},
+			},
+		},
+	}
+}
+
+func TestMonsterFromJson_valid(t *testing.T) {
+	m, ok := monsterFromJson(makeMonsterJson())
+	if !ok {
+		t.Fatal("expected ok")
+	}
+	if m.ID != "goblin" || m.Type != "humanoid" || m.Size != "small" {
+		t.Errorf("unexpected fields: %+v", m)
+	}
+	if m.Abilities.Str.Value != 8 || m.Abilities.Dex.Value != 14 {
+		t.Errorf("unexpected abilities: %+v", m.Abilities)
+	}
+	en, hasEn := m.Translations["en"]
+	if !hasEn {
+		t.Fatal("expected 'en' translation")
+	}
+	if en.Name != "Goblin" {
+		t.Errorf("got name %q", en.Name)
+	}
+	if en.Subtype == nil || *en.Subtype != "Goblinoid" {
+		t.Errorf("got subtype %v", en.Subtype)
+	}
+	if len(en.Languages) != 2 {
+		t.Errorf("got languages %v", en.Languages)
+	}
+}
+
+func TestMonsterFromJson_missingId(t *testing.T) {
+	_, ok := monsterFromJson(model.MonsterJson{})
+	if ok {
+		t.Fatal("expected !ok for missing id")
+	}
+}
+
+func TestAbilityFromJson_defaultsTo10WhenNil(t *testing.T) {
+	a := abilityFromJson(nil)
+	if a.Value != 10 || a.SavingThrowProficiency != nil {
+		t.Errorf("got %+v", a)
+	}
+}
+
 // ── magicalItemFromJson ───────────────────────────────────────────────────────
 
 func makeMagicalItemJson(id, source, itemType, rarity string, attunement bool, translations map[string]model.MagicalItemTranslationJson) model.MagicalItemJson {
@@ -211,76 +201,5 @@ func TestMagicalItemFromJson_missingId(t *testing.T) {
 	_, ok := magicalItemFromJson(model.MagicalItemJson{})
 	if ok {
 		t.Fatal("expected !ok for missing id")
-	}
-}
-
-// ── parseAC ───────────────────────────────────────────────────────────────────
-
-func TestParseAC_fromNumber(t *testing.T) {
-	m := &model.MonsterJson{AC: json.RawMessage(`15`)}
-	if got := parseAC(m); got != 15 {
-		t.Errorf("got %v", got)
-	}
-}
-
-func TestParseAC_fromStringWithNote(t *testing.T) {
-	m := &model.MonsterJson{AC: json.RawMessage(`"13 (armure naturelle)"`)}
-	if got := parseAC(m); got != 13 {
-		t.Errorf("got %v", got)
-	}
-}
-
-func TestParseAC_nullDefaultsTo10(t *testing.T) {
-	m := &model.MonsterJson{AC: json.RawMessage(`null`)}
-	if got := parseAC(m); got != 10 {
-		t.Errorf("got %v", got)
-	}
-}
-
-// ── parseHP ───────────────────────────────────────────────────────────────────
-
-func TestParseHP_extractsFirstNumber(t *testing.T) {
-	hp := "52 (8d8 + 16)"
-	m := &model.MonsterJson{HP: &hp}
-	if got := parseHP(m); got != 52 {
-		t.Errorf("got %v", got)
-	}
-}
-
-func TestParseHP_emptyDefaultsTo0(t *testing.T) {
-	empty := ""
-	m := &model.MonsterJson{HP: &empty}
-	if got := parseHP(m); got != 0 {
-		t.Errorf("got %v", got)
-	}
-}
-
-// ── parseAbilityScore ─────────────────────────────────────────────────────────
-
-func TestParseAbilityScore_withModifier(t *testing.T) {
-	s16 := "16 (+3)"
-	if got := parseAbilityScore(&s16); got != 16 {
-		t.Errorf("got %v", got)
-	}
-	s8 := "8 (-1)"
-	if got := parseAbilityScore(&s8); got != 8 {
-		t.Errorf("got %v", got)
-	}
-}
-
-func TestParseAbilityScore_emptyDefaultsTo10(t *testing.T) {
-	empty := ""
-	if got := parseAbilityScore(&empty); got != 10 {
-		t.Errorf("got %v", got)
-	}
-}
-
-// ── parseLanguages (empty string) ─────────────────────────────────────────────
-
-func TestParseLanguages_emptyStringReturnsEmpty(t *testing.T) {
-	empty := ""
-	m := &model.MonsterJson{Languages: &empty}
-	if langs := parseLanguages(m); len(langs) != 0 {
-		t.Errorf("got %v", langs)
 	}
 }
