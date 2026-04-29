@@ -32,7 +32,7 @@ import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.btn_add_to_list
-import rpg_companion.composeapp.generated.resources.error_creature_not_found
+import rpg_companion.composeapp.generated.resources.error_monster_not_found
 
 @Composable
 fun MonsterDetailScreen(
@@ -43,7 +43,7 @@ fun MonsterDetailScreen(
     val state by viewModel.state.collectAsState()
     when (val s = state) {
         DetailState.Loading -> Loader()
-        is DetailState.NotFound -> ErrorLayout(stringResource(Res.string.error_creature_not_found, s.id))
+        is DetailState.NotFound -> ErrorLayout(stringResource(Res.string.error_monster_not_found, s.id))
         is DetailState.Found -> MonsterDetailContent(
             monster = s.item,
             onNavigateUpClicked = router::navigateUp,

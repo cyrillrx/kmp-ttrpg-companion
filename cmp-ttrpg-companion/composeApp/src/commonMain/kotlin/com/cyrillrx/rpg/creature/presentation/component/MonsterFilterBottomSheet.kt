@@ -33,7 +33,7 @@ import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.btn_reset_all
 import rpg_companion.composeapp.generated.resources.label_filter_cr
 import rpg_companion.composeapp.generated.resources.label_filter_type
-import rpg_companion.composeapp.generated.resources.title_filter_creatures
+import rpg_companion.composeapp.generated.resources.title_filter_monsters
 
 private val commonCRs = listOf(
     0f, 0.125f, 0.25f, 0.5f,
@@ -68,7 +68,7 @@ fun MonsterFilterBottomSheet(
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 Text(
-                    text = stringResource(Res.string.title_filter_creatures),
+                    text = stringResource(Res.string.title_filter_monsters),
                     style = MaterialTheme.typography.titleLarge,
                 )
                 TextButton(onClick = onResetFilters) {

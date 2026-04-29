@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.error_while_loading_creatures
+import rpg_companion.composeapp.generated.resources.error_while_loading_monsters
 import kotlin.coroutines.cancellation.CancellationException
 
 class MonsterListViewModel(
@@ -75,7 +75,7 @@ class MonsterListViewModel(
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {
-            state.update { it.copy(body = MonsterListState.Body.Error(errorMessage = Res.string.error_while_loading_creatures)) }
+            state.update { it.copy(body = MonsterListState.Body.Error(errorMessage = Res.string.error_while_loading_monsters)) }
         }
     }
 }

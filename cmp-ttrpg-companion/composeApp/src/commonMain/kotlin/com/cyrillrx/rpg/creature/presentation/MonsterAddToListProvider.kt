@@ -24,7 +24,7 @@ import com.cyrillrx.rpg.userlist.domain.UserListRepository
 import com.cyrillrx.rpg.userlist.presentation.AddToListProvider
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddToListViewModelFactory
 import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.error_while_loading_creatures
+import rpg_companion.composeapp.generated.resources.error_while_loading_monsters
 
 class MonsterAddToListProvider(
     repository: MonsterRepository,
@@ -36,7 +36,7 @@ class MonsterAddToListProvider(
         listType = listType,
         userListRepository = userListRepository,
         entityRepository = MonsterEntityRepository(repository),
-        errorMessage = Res.string.error_while_loading_creatures,
+        errorMessage = Res.string.error_while_loading_monsters,
     )
 
     @Composable
