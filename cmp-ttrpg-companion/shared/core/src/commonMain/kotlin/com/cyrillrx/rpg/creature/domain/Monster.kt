@@ -11,9 +11,15 @@ class Monster(
     maxHitPoints: Int,
     speed: String,
     languages: List<String>,
+    val source: String,
     val type: Type,
-    val subtype: String,
+    val subtype: String?,
     val challengeRating: Float,
+    val hitDice: String,
+    val skills: Skills = Skills(),
+    val damageAffinities: DamageAffinities = DamageAffinities(),
+    val conditionImmunities: ConditionImmunities = ConditionImmunities(),
+    val translations: Map<String, Translation> = emptyMap(),
 ) : Creature(
     id = id,
     name = name,
@@ -26,6 +32,19 @@ class Monster(
     speed = speed,
     languages = languages,
 ) {
+    data class Translation(
+        val name: String,
+        val description: String,
+        val speed: String,
+        val senses: String,
+        val languages: List<String>,
+    )
+
+    fun resolveTranslation(locale: String): Translation? =
+        translations[locale]
+            ?: translations["en"]
+            ?: translations.entries.minByOrNull { it.key }?.value
+
     enum class Type {
         ABERRATION,
         BEAST,

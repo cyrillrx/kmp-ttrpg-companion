@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.character.domain
 
 import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.Creature
+import com.cyrillrx.rpg.creature.domain.Skills
 
 class PlayerCharacter(
     id: String,

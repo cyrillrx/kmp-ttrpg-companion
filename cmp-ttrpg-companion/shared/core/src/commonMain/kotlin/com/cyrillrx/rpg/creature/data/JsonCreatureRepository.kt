@@ -49,18 +49,20 @@ class JsonCreatureRepository(private val fileReader: FileReader) : CreatureRepos
                 id = title ?: "",
                 name = title ?: "",
                 description = content ?: "",
+                source = "srd_5.1",
                 type = getType(),
                 subtype = getSubtype(),
                 size = getSize(),
                 alignment = getAlignment(),
                 challengeRating = challengeRating(),
+                hitDice = header?.monster.getHitDice(),
                 abilities = Abilities(
-                    extractAbilities(monster?.str),
-                    extractAbilities(monster?.dex),
-                    extractAbilities(monster?.con),
-                    extractAbilities(monster?.int),
-                    extractAbilities(monster?.wis),
-                    extractAbilities(monster?.cha),
+                    str = Ability(extractAbilities(monster?.str)),
+                    dex = Ability(extractAbilities(monster?.dex)),
+                    con = Ability(extractAbilities(monster?.con)),
+                    int = Ability(extractAbilities(monster?.int)),
+                    wis = Ability(extractAbilities(monster?.wis)),
+                    cha = Ability(extractAbilities(monster?.cha)),
                 ),
                 armorClass = monster.getArmorClass(),
                 maxHitPoints = monster.getHitPoints(),
@@ -90,12 +92,12 @@ class JsonCreatureRepository(private val fileReader: FileReader) : CreatureRepos
             }
         }
 
-        private fun ApiBestiaryItem.getSubtype(): String {
+        private fun ApiBestiaryItem.getSubtype(): String? {
             return truetype
                 ?.split(" (")
                 ?.getOrNull(1)
                 ?.replace(")", "")
-                .orEmpty()
+                ?.takeIf { it.isNotBlank() }
         }
 
         private fun ApiBestiaryItem.getSize(): Creature.Size {
@@ -133,6 +135,15 @@ class JsonCreatureRepository(private val fileReader: FileReader) : CreatureRepos
 
         private fun ApiMonster?.getHitPoints(): Int {
             return this?.hp?.split(' ')?.firstOrNull()?.toIntOrNull() ?: 10
+        }
+
+        private fun ApiMonster?.getHitDice(): String {
+            // hp format: "7 (2d6)" or "262 (19d12 + 114)"
+            return this?.hp
+                ?.substringAfter("(", "")
+                ?.substringBefore(")", "")
+                ?.replace(" ", "")
+                .orEmpty()
         }
 
         private fun extractAbilities(ability: String?): Int {

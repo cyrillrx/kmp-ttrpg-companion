@@ -1,17 +1,10 @@
 package com.cyrillrx.rpg.creature.domain
 
 class Abilities(
-    strValue: Int,
-    dexValue: Int,
-    conValue: Int,
-    intValue: Int,
-    wisValue: Int,
-    chaValue: Int,
-) {
-    val str = Ability(strValue)
-    val dex = Ability(dexValue)
-    val con = Ability(conValue)
-    val int = Ability(intValue)
-    val wis = Ability(wisValue)
-    val cha = Ability(chaValue)
-}
+    val str: Ability,
+    val dex: Ability,
+    val con: Ability,
+    val int: Ability,
+    val wis: Ability,
+    val cha: Ability,
+)
