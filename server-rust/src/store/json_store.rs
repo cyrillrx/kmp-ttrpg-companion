@@ -1,10 +1,10 @@
+use std::collections::HashMap;
 use std::path::Path;
 
 use serde::Deserialize;
-use serde_json::Value;
 
 use crate::models::{
-    creature::{Abilities, Creature},
+    creature::{Abilities, Ability, Monster, Translation},
     magical_item::{MagicalItem, MagicalItemTranslation},
     spell::{Spell, SpellComponents, SpellTranslation},
 };
@@ -12,7 +12,7 @@ use crate::store::CompendiumStore;
 
 pub struct JsonCompendiumStore {
     spells: Vec<Spell>,
-    creatures: Vec<Creature>,
+    monsters: Vec<Monster>,
     magical_items: Vec<MagicalItem>,
 }
 
@@ -21,14 +21,14 @@ impl JsonCompendiumStore {
         let base = Path::new(data_dir);
 
         let spells_json = std::fs::read_to_string(base.join("spells.json"))?;
-        let creatures_json = std::fs::read_to_string(base.join("creatures.json"))?;
+        let monsters_json = std::fs::read_to_string(base.join("monsters.json"))?;
         let items_json = std::fs::read_to_string(base.join("magical-items.json"))?;
 
         let spells = parse_spells(&spells_json)?;
-        let creatures = parse_creatures(&creatures_json)?;
+        let monsters = parse_monsters(&monsters_json)?;
         let magical_items = parse_magical_items(&items_json)?;
 
-        Ok(Self { spells, creatures, magical_items })
+        Ok(Self { spells, monsters, magical_items })
     }
 }
 
@@ -37,8 +37,8 @@ impl CompendiumStore for JsonCompendiumStore {
         &self.spells
     }
 
-    fn get_creatures(&self) -> &[Creature] {
-        &self.creatures
+    fn get_monsters(&self) -> &[Monster] {
+        &self.monsters
     }
 
     fn get_magical_items(&self) -> &[MagicalItem] {
@@ -59,7 +59,7 @@ struct SpellJson {
     ritual: Option<bool>,
     components: Option<SpellComponentsJson>,
     available_classes: Option<Vec<String>>,
-    translations: Option<std::collections::HashMap<String, SpellTranslation>>,
+    translations: Option<HashMap<String, SpellTranslation>>,
 }
 
 #[derive(Deserialize)]
@@ -70,37 +70,53 @@ struct SpellComponentsJson {
 }
 
 #[derive(Deserialize)]
-struct CreatureJson {
-    title: Option<String>,
-    content: Option<String>,
-    truetype: Option<String>,
+#[serde(rename_all = "camelCase")]
+struct MonsterJson {
+    id: Option<String>,
+    source: Option<String>,
+    #[serde(rename = "type")]
+    monster_type: Option<String>,
     size: Option<String>,
     alignment: Option<String>,
+    challenge_rating: Option<f32>,
+    armor_class: Option<i32>,
+    max_hit_points: Option<i32>,
+    hit_dice: Option<String>,
+    abilities: Option<AbilitiesJson>,
     #[serde(default)]
-    challenge: Value,
-    header: Option<CreatureHeaderJson>,
+    skills: HashMap<String, String>,
+    #[serde(default)]
+    damage_affinities: HashMap<String, String>,
+    #[serde(default)]
+    condition_immunities: HashMap<String, bool>,
+    translations: Option<HashMap<String, TranslationJson>>,
 }
 
 #[derive(Deserialize)]
-struct CreatureHeaderJson {
-    monster: Option<MonsterJson>,
+struct AbilitiesJson {
+    str: Option<AbilityJson>,
+    dex: Option<AbilityJson>,
+    con: Option<AbilityJson>,
+    int: Option<AbilityJson>,
+    wis: Option<AbilityJson>,
+    cha: Option<AbilityJson>,
 }
 
 #[derive(Deserialize)]
-struct MonsterJson {
-    #[serde(default)]
-    ac: Value,
-    hp: Option<String>,
+#[serde(rename_all = "camelCase")]
+struct AbilityJson {
+    value: Option<i32>,
+    saving_throw_proficiency: Option<String>,
+}
+
+#[derive(Deserialize)]
+struct TranslationJson {
+    name: Option<String>,
+    subtype: Option<String>,
+    description: Option<String>,
     speed: Option<String>,
-    #[serde(rename = "str")]
-    strength: Option<String>,
-    dex: Option<String>,
-    con: Option<String>,
-    #[serde(rename = "int")]
-    intelligence: Option<String>,
-    wis: Option<String>,
-    cha: Option<String>,
-    languages: Option<String>,
+    senses: Option<String>,
+    languages: Option<Vec<String>>,
 }
 
 #[derive(Deserialize)]
@@ -111,7 +127,7 @@ struct MagicalItemJson {
     item_type: Option<String>,
     rarity: Option<String>,
     attunement: Option<bool>,
-    translations: Option<std::collections::HashMap<String, MagicalItemTranslationJson>>,
+    translations: Option<HashMap<String, MagicalItemTranslationJson>>,
 }
 
 #[derive(Deserialize)]
@@ -119,64 +135,6 @@ struct MagicalItemTranslationJson {
     name: Option<String>,
     subtype: Option<String>,
     description: Option<String>,
-}
-
-// ── Parsing helpers ───────────────────────────────────────────────────────────
-
-fn parse_ability_score(s: &str) -> i32 {
-    s.split_whitespace()
-        .next()
-        .and_then(|n| n.parse().ok())
-        .unwrap_or(10)
-}
-
-fn parse_hp(s: &str) -> i32 {
-    s.split_whitespace()
-        .next()
-        .and_then(|n| n.parse().ok())
-        .unwrap_or(0)
-}
-
-fn parse_challenge(v: &Value) -> f32 {
-    match v {
-        Value::Number(n) => n.as_f64().unwrap_or(0.0) as f32,
-        Value::String(s) => s.parse().unwrap_or(0.0),
-        _ => 0.0,
-    }
-}
-
-fn parse_ac(v: &Value) -> i32 {
-    match v {
-        Value::Number(n) => n.as_i64().unwrap_or(10) as i32,
-        Value::String(s) => s
-            .split_whitespace()
-            .next()
-            .and_then(|n| n.parse().ok())
-            .unwrap_or(10),
-        _ => 10,
-    }
-}
-
-/// Parses "Humanoïde (Goblinoïde)" into ("Humanoïde", "Goblinoïde").
-fn parse_type_subtype(truetype: &str) -> (String, String) {
-    match truetype.find('(') {
-        Some(idx) => {
-            let creature_type = truetype[..idx].trim().to_string();
-            let subtype = truetype[idx + 1..]
-                .trim_end_matches(')')
-                .trim()
-                .to_string();
-            (creature_type, subtype)
-        }
-        None => (truetype.trim().to_string(), String::new()),
-    }
-}
-
-fn parse_languages(s: &str) -> Vec<String> {
-    s.split(',')
-        .map(|l| l.trim().to_string())
-        .filter(|l| !l.is_empty())
-        .collect()
 }
 
 // ── Converters ────────────────────────────────────────────────────────────────
@@ -241,71 +199,109 @@ fn spell_from_json(raw: SpellJson) -> Option<Spell> {
     })
 }
 
-fn parse_creatures(json: &str) -> Result<Vec<Creature>, Box<dyn std::error::Error>> {
-    let raw: Vec<CreatureJson> = serde_json::from_str(json)?;
-    Ok(raw.into_iter().filter_map(creature_from_json).collect())
+fn parse_monsters(json: &str) -> Result<Vec<Monster>, Box<dyn std::error::Error>> {
+    let raw: Vec<MonsterJson> = serde_json::from_str(json)?;
+    Ok(raw.into_iter().filter_map(monster_from_json).collect())
 }
 
-fn creature_from_json(raw: CreatureJson) -> Option<Creature> {
-    let name = raw.title.filter(|t| !t.is_empty())?;
-    let monster = raw.header.as_ref()?.monster.as_ref();
+fn monster_from_json(raw: MonsterJson) -> Option<Monster> {
+    let id = raw.id.filter(|s| !s.is_empty()).or_else(|| {
+        eprintln!("WARNING: skipping monster with missing id");
+        None
+    })?;
+    let source = raw.source.or_else(|| {
+        eprintln!("WARNING: skipping monster '{id}': missing source");
+        None
+    })?;
+    let monster_type = raw.monster_type.or_else(|| {
+        eprintln!("WARNING: skipping monster '{id}': missing type");
+        None
+    })?;
+    let size = raw.size.or_else(|| {
+        eprintln!("WARNING: skipping monster '{id}': missing size");
+        None
+    })?;
+    let alignment = raw.alignment.or_else(|| {
+        eprintln!("WARNING: skipping monster '{id}': missing alignment");
+        None
+    })?;
+    let api_abilities = raw.abilities.or_else(|| {
+        eprintln!("WARNING: skipping monster '{id}': missing abilities");
+        None
+    })?;
+    let raw_translations = raw.translations.filter(|t| !t.is_empty()).or_else(|| {
+        eprintln!("WARNING: skipping monster '{id}': missing translations");
+        None
+    })?;
 
-    let (creature_type, subtype) = raw
-        .truetype
-        .as_deref()
-        .map(parse_type_subtype)
-        .unwrap_or_default();
+    let translations: HashMap<String, Translation> = raw_translations
+        .into_iter()
+        .filter_map(|(locale, t)| {
+            let name = t.name.or_else(|| {
+                eprintln!("WARNING: monster '{id}' locale '{locale}': missing name");
+                None
+            })?;
+            let description = t.description.or_else(|| {
+                eprintln!("WARNING: monster '{id}' locale '{locale}': missing description");
+                None
+            })?;
+            let speed = t.speed.or_else(|| {
+                eprintln!("WARNING: monster '{id}' locale '{locale}': missing speed");
+                None
+            })?;
+            let senses = t.senses.or_else(|| {
+                eprintln!("WARNING: monster '{id}' locale '{locale}': missing senses");
+                None
+            })?;
+            Some((locale, Translation {
+                name,
+                subtype: t.subtype,
+                description,
+                speed,
+                senses,
+                languages: t.languages.unwrap_or_default(),
+            }))
+        })
+        .collect();
 
-    let abilities = Abilities {
-        str: monster
-            .and_then(|m| m.strength.as_deref())
-            .map(parse_ability_score)
-            .unwrap_or(10),
-        dex: monster
-            .and_then(|m| m.dex.as_deref())
-            .map(parse_ability_score)
-            .unwrap_or(10),
-        con: monster
-            .and_then(|m| m.con.as_deref())
-            .map(parse_ability_score)
-            .unwrap_or(10),
-        int: monster
-            .and_then(|m| m.intelligence.as_deref())
-            .map(parse_ability_score)
-            .unwrap_or(10),
-        wis: monster
-            .and_then(|m| m.wis.as_deref())
-            .map(parse_ability_score)
-            .unwrap_or(10),
-        cha: monster
-            .and_then(|m| m.cha.as_deref())
-            .map(parse_ability_score)
-            .unwrap_or(10),
-    };
+    if translations.is_empty() {
+        eprintln!("WARNING: skipping monster '{id}': no valid translations");
+        return None;
+    }
 
-    Some(Creature {
-        id: name.clone(),
-        name,
-        description: raw.content.unwrap_or_default(),
-        creature_type,
-        subtype,
-        size: raw.size.unwrap_or_default(),
-        alignment: raw.alignment.unwrap_or_default(),
-        challenge_rating: parse_challenge(&raw.challenge),
-        armor_class: monster.map(|m| parse_ac(&m.ac)).unwrap_or(10),
-        max_hit_points: monster
-            .and_then(|m| m.hp.as_deref())
-            .map(parse_hp)
-            .unwrap_or(0),
-        speed: monster
-            .and_then(|m| m.speed.clone())
-            .unwrap_or_default(),
-        languages: monster
-            .and_then(|m| m.languages.as_deref())
-            .map(parse_languages)
-            .unwrap_or_default(),
-        abilities,
+    Some(Monster {
+        id,
+        source,
+        monster_type,
+        size,
+        alignment,
+        challenge_rating: raw.challenge_rating.unwrap_or(0.0),
+        armor_class: raw.armor_class.unwrap_or(10),
+        max_hit_points: raw.max_hit_points.unwrap_or(0),
+        hit_dice: raw.hit_dice.unwrap_or_default(),
+        abilities: Abilities {
+            str: ability_from_json(api_abilities.str),
+            dex: ability_from_json(api_abilities.dex),
+            con: ability_from_json(api_abilities.con),
+            int: ability_from_json(api_abilities.int),
+            wis: ability_from_json(api_abilities.wis),
+            cha: ability_from_json(api_abilities.cha),
+        },
+        skills: raw.skills,
+        damage_affinities: raw.damage_affinities,
+        condition_immunities: raw.condition_immunities,
+        translations,
     })
+}
+
+fn ability_from_json(raw: Option<AbilityJson>) -> Ability {
+    match raw {
+        Some(a) => Ability {
+            value: a.value.unwrap_or(10),
+            saving_throw_proficiency: a.saving_throw_proficiency,
+        },
+        None => Ability { value: 10, saving_throw_proficiency: None },
+    }
 }
 
 fn parse_magical_items(json: &str) -> Result<Vec<MagicalItem>, Box<dyn std::error::Error>> {
@@ -348,7 +344,7 @@ fn magical_item_from_json(raw: MagicalItemJson) -> Option<MagicalItem> {
             })?;
             Some((locale, MagicalItemTranslation { name, subtype: t.subtype, description }))
         })
-        .collect::<std::collections::HashMap<_, _>>();
+        .collect::<HashMap<_, _>>();
 
     if translations.is_empty() {
         eprintln!("WARNING: skipping magical item '{id}': no valid translations");
@@ -368,83 +364,75 @@ fn magical_item_from_json(raw: MagicalItemJson) -> Option<MagicalItem> {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use serde_json::json;
 
     #[test]
-    fn parse_type_subtype_with_subtype() {
-        let (t, s) = parse_type_subtype("Humanoïde (Goblinoïde)");
-        assert_eq!(t, "Humanoïde");
-        assert_eq!(s, "Goblinoïde");
+    fn monster_from_json_valid() {
+        let raw = MonsterJson {
+            id: Some("goblin".into()),
+            source: Some("mm2024".into()),
+            monster_type: Some("humanoid".into()),
+            size: Some("small".into()),
+            alignment: Some("neutral_evil".into()),
+            challenge_rating: Some(0.25),
+            armor_class: Some(15),
+            max_hit_points: Some(7),
+            hit_dice: Some("2d6".into()),
+            abilities: Some(AbilitiesJson {
+                str: Some(AbilityJson { value: Some(8), saving_throw_proficiency: None }),
+                dex: Some(AbilityJson { value: Some(14), saving_throw_proficiency: None }),
+                con: Some(AbilityJson { value: Some(10), saving_throw_proficiency: None }),
+                int: Some(AbilityJson { value: Some(10), saving_throw_proficiency: None }),
+                wis: Some(AbilityJson { value: Some(8), saving_throw_proficiency: None }),
+                cha: Some(AbilityJson { value: Some(8), saving_throw_proficiency: None }),
+            }),
+            skills: HashMap::new(),
+            damage_affinities: HashMap::new(),
+            condition_immunities: HashMap::new(),
+            translations: Some(HashMap::from([(
+                "en".into(),
+                TranslationJson {
+                    name: Some("Goblin".into()),
+                    subtype: Some("Goblinoid".into()),
+                    description: Some("A small creature.".into()),
+                    speed: Some("30 ft.".into()),
+                    senses: Some("Darkvision 60 ft.".into()),
+                    languages: Some(vec!["Common".into(), "Goblin".into()]),
+                },
+            )])),
+        };
+        let monster = monster_from_json(raw).expect("should parse");
+        assert_eq!(monster.id, "goblin");
+        assert_eq!(monster.monster_type, "humanoid");
+        assert_eq!(monster.abilities.str.value, 8);
+        assert_eq!(monster.translations["en"].name, "Goblin");
+        assert_eq!(monster.translations["en"].subtype, Some("Goblinoid".into()));
     }
 
     #[test]
-    fn parse_type_subtype_without_subtype() {
-        let (t, s) = parse_type_subtype("Bête");
-        assert_eq!(t, "Bête");
-        assert_eq!(s, "");
+    fn monster_from_json_missing_id_returns_none() {
+        let raw = MonsterJson {
+            id: None,
+            source: None,
+            monster_type: None,
+            size: None,
+            alignment: None,
+            challenge_rating: None,
+            armor_class: None,
+            max_hit_points: None,
+            hit_dice: None,
+            abilities: None,
+            skills: HashMap::new(),
+            damage_affinities: HashMap::new(),
+            condition_immunities: HashMap::new(),
+            translations: None,
+        };
+        assert!(monster_from_json(raw).is_none());
     }
 
     #[test]
-    fn parse_ability_score_with_modifier() {
-        assert_eq!(parse_ability_score("16 (+3)"), 16);
-        assert_eq!(parse_ability_score("8 (-1)"), 8);
-    }
-
-    #[test]
-    fn parse_ability_score_empty_defaults_to_10() {
-        assert_eq!(parse_ability_score(""), 10);
-    }
-
-    #[test]
-    fn parse_hp_extracts_first_number() {
-        assert_eq!(parse_hp("52 (8d8 + 16)"), 52);
-    }
-
-    #[test]
-    fn parse_hp_empty_defaults_to_0() {
-        assert_eq!(parse_hp(""), 0);
-    }
-
-    #[test]
-    fn parse_challenge_from_number() {
-        assert_eq!(parse_challenge(&json!(1.0)), 1.0f32);
-        assert_eq!(parse_challenge(&json!(0)), 0.0f32);
-    }
-
-    #[test]
-    fn parse_challenge_from_string() {
-        assert_eq!(parse_challenge(&json!("0.5")), 0.5f32);
-    }
-
-    #[test]
-    fn parse_challenge_from_null_defaults_to_0() {
-        assert_eq!(parse_challenge(&json!(null)), 0.0f32);
-    }
-
-    #[test]
-    fn parse_ac_from_number() {
-        assert_eq!(parse_ac(&json!(15)), 15);
-    }
-
-    #[test]
-    fn parse_ac_from_string_with_note() {
-        assert_eq!(parse_ac(&json!("13 (armure naturelle)")), 13);
-    }
-
-    #[test]
-    fn parse_ac_from_null_defaults_to_10() {
-        assert_eq!(parse_ac(&json!(null)), 10);
-    }
-
-    #[test]
-    fn parse_languages_splits_on_comma() {
-        let langs = parse_languages("commun, gobelin");
-        assert_eq!(langs, vec!["commun", "gobelin"]);
-    }
-
-    #[test]
-    fn parse_languages_filters_empty() {
-        let langs = parse_languages("");
-        assert!(langs.is_empty());
+    fn ability_from_json_defaults_to_10_when_none() {
+        let ability = ability_from_json(None);
+        assert_eq!(ability.value, 10);
+        assert!(ability.saving_throw_proficiency.is_none());
     }
 }

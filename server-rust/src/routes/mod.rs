@@ -33,7 +33,7 @@ pub fn create_router<S: CompendiumStore + 'static>(state: AppState<S>) -> Router
     Router::new()
         .route("/health", get(health))
         .route("/compendium/spells", get(spell::list_spells))
-        .route("/compendium/creatures", get(creature::list_creatures))
+        .route("/compendium/monsters", get(creature::list_monsters))
         .route("/compendium/magical-items", get(magical_item::list_magical_items))
         .with_state(Arc::new(state))
         .layer(build_cors_layer())
@@ -45,13 +45,13 @@ mod tests {
     use axum::{body::Body, http::{Request, StatusCode}};
     use tower::ServiceExt;
 
-    use crate::models::{Creature, MagicalItem, Spell};
+    use crate::models::{Monster, MagicalItem, Spell};
 
     struct MockStore;
 
     impl CompendiumStore for MockStore {
         fn get_spells(&self) -> &[Spell] { &[] }
-        fn get_creatures(&self) -> &[Creature] { &[] }
+        fn get_monsters(&self) -> &[Monster] { &[] }
         fn get_magical_items(&self) -> &[MagicalItem] { &[] }
     }
 
@@ -78,9 +78,9 @@ mod tests {
     }
 
     #[tokio::test]
-    async fn list_creatures_returns_200() {
+    async fn list_monsters_returns_200() {
         let res = mock_router()
-            .oneshot(Request::builder().uri("/compendium/creatures").body(Body::empty()).unwrap())
+            .oneshot(Request::builder().uri("/compendium/monsters").body(Body::empty()).unwrap())
             .await
             .unwrap();
         assert_eq!(res.status(), StatusCode::OK);
