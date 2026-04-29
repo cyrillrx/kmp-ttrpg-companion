@@ -7,6 +7,7 @@ abstract class Creature(
     val abilities: Abilities,
     val armorClass: Int,
     val maxHitPoints: Int,
+    val speeds: Speeds,
     val languages: List<String>,
 ) {
     enum class Size {

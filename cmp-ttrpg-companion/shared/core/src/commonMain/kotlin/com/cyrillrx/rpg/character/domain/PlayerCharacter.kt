@@ -3,17 +3,18 @@ package com.cyrillrx.rpg.character.domain
 import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.Skills
+import com.cyrillrx.rpg.creature.domain.Speeds
 
 class PlayerCharacter(
     id: String,
     val name: String,
     val description: String,
-    val speed: String,
     size: Size,
     alignment: Alignment,
     abilities: Abilities,
     armorClass: Int,
     maxHitPoints: Int,
+    speeds: Speeds,
     languages: List<String>,
     val level: Int,
     val clazz: Class,
@@ -26,6 +27,7 @@ class PlayerCharacter(
     abilities = abilities,
     armorClass = armorClass,
     maxHitPoints = maxHitPoints,
+    speeds = speeds,
     languages = languages,
 ) {
     val proficiencyBonus: Int = when (level) {

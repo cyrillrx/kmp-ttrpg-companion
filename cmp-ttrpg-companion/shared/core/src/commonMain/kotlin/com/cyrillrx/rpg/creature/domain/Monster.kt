@@ -9,6 +9,7 @@ class Monster(
     abilities: Abilities,
     armorClass: Int,
     maxHitPoints: Int,
+    speeds: Speeds,
     languages: List<String>,
     val source: String,
     val type: Type,
@@ -25,6 +26,7 @@ class Monster(
     abilities = abilities,
     armorClass = armorClass,
     maxHitPoints = maxHitPoints,
+    speeds = speeds,
     languages = languages,
 ) {
     init {
@@ -42,7 +44,6 @@ class Monster(
         val name: String,
         val subtype: String? = null,
         val description: String,
-        val speed: String,
         val senses: String,
         val languages: List<String>,
     )

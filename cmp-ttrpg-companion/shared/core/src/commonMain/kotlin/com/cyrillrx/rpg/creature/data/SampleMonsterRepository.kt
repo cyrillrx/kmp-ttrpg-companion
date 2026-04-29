@@ -6,6 +6,7 @@ import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.MonsterFilter
 import com.cyrillrx.rpg.creature.domain.MonsterRepository
 import com.cyrillrx.rpg.creature.domain.Monster
+import com.cyrillrx.rpg.creature.domain.Speeds
 import com.cyrillrx.rpg.creature.domain.applyFilter
 
 class SampleMonsterRepository : MonsterRepository {
@@ -47,12 +48,12 @@ class SampleMonsterRepository : MonsterRepository {
             ),
             armorClass = 15,
             maxHitPoints = 7,
+            speeds = Speeds(walk = 30),
             languages = listOf("Common", "Goblin"),
             translations = mapOf(
                 "en" to Monster.Translation(
                     name = "Goblin",
                     description = "A small, black-hearted creature that lairs in despoiled dungeons and other dismal settings.",
-                    speed = "30 ft.",
                     senses = "Darkvision 60 ft.",
                     languages = listOf("Common", "Goblin"),
                 ),
@@ -77,12 +78,12 @@ class SampleMonsterRepository : MonsterRepository {
             ),
             armorClass = 18,
             maxHitPoints = 178,
+            speeds = Speeds(walk = 40, climb = 40, fly = 80),
             languages = listOf("Common", "Draconic"),
             translations = mapOf(
                 "en" to Monster.Translation(
                     name = "Young Red Dragon",
                     description = "A fierce dragon that breathes fire and terrorizes the countryside.",
-                    speed = "40 ft., climb 40 ft., fly 80 ft.",
                     senses = "Blindsight 30 ft., Darkvision 120 ft.",
                     languages = listOf("Common", "Draconic"),
                 ),
@@ -107,12 +108,12 @@ class SampleMonsterRepository : MonsterRepository {
             ),
             armorClass = 13,
             maxHitPoints = 13,
+            speeds = Speeds(walk = 30),
             languages = listOf("understands languages it knew in life"),
             translations = mapOf(
                 "en" to Monster.Translation(
                     name = "Skeleton",
                     description = "An animated pile of bones held together by dark magic.",
-                    speed = "30 ft.",
                     senses = "Darkvision 60 ft.",
                     languages = listOf("understands languages it knew in life"),
                 ),
@@ -137,12 +138,12 @@ class SampleMonsterRepository : MonsterRepository {
             ),
             armorClass = 14,
             maxHitPoints = 37,
+            speeds = Speeds(walk = 50),
             languages = emptyList(),
             translations = mapOf(
                 "en" to Monster.Translation(
                     name = "Dire Wolf",
                     description = "A large and fearsome wolf that hunts in packs.",
-                    speed = "50 ft.",
                     senses = "Passive Perception 13",
                     languages = emptyList(),
                 ),
@@ -167,12 +168,12 @@ class SampleMonsterRepository : MonsterRepository {
             ),
             armorClass = 19,
             maxHitPoints = 262,
+            speeds = Speeds(walk = 40, fly = 80),
             languages = listOf("Abyssal", "telepathy 120 ft."),
             translations = mapOf(
                 "en" to Monster.Translation(
                     name = "Balor",
                     description = "A towering fiend wreathed in flame, wielding a whip and longsword of fire.",
-                    speed = "40 ft., fly 80 ft.",
                     senses = "Truesight 120 ft.",
                     languages = listOf("Abyssal", "telepathy 120 ft."),
                 ),
@@ -197,12 +198,12 @@ class SampleMonsterRepository : MonsterRepository {
             ),
             armorClass = 6,
             maxHitPoints = 84,
+            speeds = Speeds(walk = 15),
             languages = emptyList(),
             translations = mapOf(
                 "en" to Monster.Translation(
                     name = "Gelatinous Cube",
                     description = "A nearly transparent ooze that fills dungeon corridors.",
-                    speed = "15 ft.",
                     senses = "Blindsight 60 ft.",
                     languages = emptyList(),
                 ),

@@ -16,6 +16,7 @@ import com.cyrillrx.rpg.creature.domain.DamageAffinities
 import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.creature.domain.Proficiency
 import com.cyrillrx.rpg.creature.domain.Skills
+import com.cyrillrx.rpg.creature.domain.Speeds
 import com.cyrillrx.rpg.creature.domain.applyFilter
 
 class JsonMonsterRepository(private val fileReader: FileReader) : MonsterRepository {
@@ -92,6 +93,7 @@ class JsonMonsterRepository(private val fileReader: FileReader) : MonsterReposit
                     abilities = apiAbilities.toDomain(),
                     armorClass = armorClass ?: 10,
                     maxHitPoints = maxHitPoints ?: 0,
+                    speeds = speeds.toDomain(),
                     languages = enTranslation.languages ?: emptyList(),
                     skills = skills.toSkills(),
                     damageAffinities = damageAffinities.toDamageAffinities(),
@@ -101,6 +103,15 @@ class JsonMonsterRepository(private val fileReader: FileReader) : MonsterReposit
             )
         }
 
+        private fun ApiMonster.ApiSpeeds?.toDomain(): Speeds = Speeds(
+            walk = this?.walk,
+            fly = this?.fly,
+            swim = this?.swim,
+            climb = this?.climb,
+            burrow = this?.burrow,
+            hover = this?.hover ?: false,
+        )
+
         private fun ApiMonster.Translation.toDomain(
             monsterId: String,
             locale: String,
@@ -109,8 +120,6 @@ class JsonMonsterRepository(private val fileReader: FileReader) : MonsterReposit
                 ?: return Result.Failure(MonsterImportError.InvalidTranslation(monsterId, locale))
             val description = description
                 ?: return Result.Failure(MonsterImportError.InvalidTranslation(monsterId, locale))
-            val speed = speed
-                ?: return Result.Failure(MonsterImportError.InvalidTranslation(monsterId, locale))
             val senses = senses
                 ?: return Result.Failure(MonsterImportError.InvalidTranslation(monsterId, locale))
             return Result.Success(
@@ -118,7 +127,6 @@ class JsonMonsterRepository(private val fileReader: FileReader) : MonsterReposit
                     name = name,
                     subtype = subtype,
                     description = description,
-                    speed = speed,
                     senses = senses,
                     languages = languages ?: emptyList(),
                 ),

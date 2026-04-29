@@ -14,6 +14,7 @@ internal class ApiMonster(
     val maxHitPoints: Int?,
     val hitDice: String?,
     val abilities: ApiAbilities?,
+    val speeds: ApiSpeeds?,
     val skills: Map<String, String>?,
     val damageAffinities: Map<String, String>?,
     val conditionImmunities: Map<String, Boolean>?,
@@ -36,11 +37,20 @@ internal class ApiMonster(
     )
 
     @Serializable
+    class ApiSpeeds(
+        val walk: Int?,
+        val fly: Int?,
+        val swim: Int?,
+        val climb: Int?,
+        val burrow: Int?,
+        val hover: Boolean?,
+    )
+
+    @Serializable
     class Translation(
         val name: String?,
         val subtype: String?,
         val description: String?,
-        val speed: String?,
         val senses: String?,
         val languages: List<String>?,
     )
