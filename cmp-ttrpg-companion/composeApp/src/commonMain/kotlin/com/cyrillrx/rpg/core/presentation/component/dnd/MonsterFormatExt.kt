@@ -14,7 +14,9 @@ import androidx.compose.material.icons.filled.Shield
 import androidx.compose.material.icons.filled.SmartToy
 import androidx.compose.material.icons.filled.Water
 import androidx.compose.material.icons.filled.Whatshot
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.cyrillrx.rpg.creature.domain.Monster
 import org.jetbrains.compose.resources.stringResource
@@ -74,6 +76,11 @@ fun Monster.Type.toIcon(): ImageVector = when (this) {
     Monster.Type.PLANT -> Icons.Filled.Forest
     Monster.Type.UNDEAD -> Icons.Filled.Dangerous
     Monster.Type.UNKNOWN -> Icons.Filled.QuestionMark
+}
+
+@Composable
+fun Monster.Type.getColor(): Color = when (this) {
+    else -> MaterialTheme.colorScheme.primary
 }
 
 @Composable
