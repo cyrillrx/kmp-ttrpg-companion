@@ -12,10 +12,6 @@ For the data model decisions behind these formats, see [`docs/adr/ADR-001-data-m
 - All enum values use **lowercase English with underscores** (e.g., `"humanoid"`, `"neutral_evil"`).
 - All keys are in English. French content belongs only inside `translations.fr`.
 - The `source` field identifies the origin of the entry — see [known source values](../docs/adr/ADR-001-data-model.md#2-source-field).
-- Ability scores are **integers only** — never strings like `"15 (+2)"`.
-- Armor class is an **integer only** — the armor type belongs in the description.
-- No pre-computed modifiers — store scores and proficiency levels only.
-- Speed and senses are **locale-specific text** — stored in `translations`, not at the top level.
 - An entity with an empty `translations` map is considered malformed.
 
 ---
@@ -122,11 +118,11 @@ For the data model decisions behind these formats, see [`docs/adr/ADR-001-data-m
 
 ## Damage Affinity Values
 
-| Key | Meaning |
-|-----|---------|
-| `"none"` | No special affinity |
-| `"resistant"` | Takes half damage |
-| `"immune"` | Takes no damage |
+| Key            | Meaning             |
+|----------------|---------------------|
+| `"none"`       | No special affinity |
+| `"resistant"`  | Takes half damage   |
+| `"immune"`     | Takes no damage     |
 | `"vulnerable"` | Takes double damage |
 
 The 16 damage type keys: `acid`, `bludgeoning`, `cold`, `fire`, `force`, `lightning`,
