@@ -10,13 +10,13 @@ import com.cyrillrx.rpg.creature.domain.applyFilter
 
 class SampleMonsterRepository : MonsterRepository {
     override suspend fun getAll(filter: MonsterFilter?): List<Monster> {
-        return creatures.applyFilter(filter)
+        return monsters.applyFilter(filter)
     }
 
-    override suspend fun getById(id: String): Monster? = creatures.firstOrNull { it.id == id }
+    override suspend fun getById(id: String): Monster? = monsters.firstOrNull { it.id == id }
 
     companion object {
-        private val creatures: List<Monster> = listOf(
+        private val monsters: List<Monster> = listOf(
             goblin(),
             youngRedDragon(),
             skeleton(),
@@ -25,9 +25,9 @@ class SampleMonsterRepository : MonsterRepository {
             gelatinousCube(),
         )
 
-        fun getAll(): List<Monster> = creatures
+        fun getAll(): List<Monster> = monsters
 
-        fun getFirst(): Monster = creatures.first()
+        fun getFirst(): Monster = monsters.first()
 
         fun goblin() = Monster(
             id = "1",

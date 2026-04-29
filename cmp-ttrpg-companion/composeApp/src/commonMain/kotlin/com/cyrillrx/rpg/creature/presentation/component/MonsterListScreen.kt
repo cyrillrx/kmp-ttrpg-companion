@@ -146,7 +146,7 @@ private fun MonsterCompactList(
                 modifier = Modifier.fillMaxWidth(),
             ) {
                 MonsterListItem(
-                    creature = creature,
+                    monster = creature,
                     onClick = { onMonsterClicked(creature) },
                     modifier = Modifier.fillMaxWidth(),
                 )

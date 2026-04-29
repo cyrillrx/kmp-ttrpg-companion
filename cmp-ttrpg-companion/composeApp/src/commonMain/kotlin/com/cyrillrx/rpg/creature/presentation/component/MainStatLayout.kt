@@ -24,10 +24,10 @@ import rpg_companion.composeapp.generated.resources.creature_speed
 
 @Composable
 fun MainStatLayout(
-    creature: Monster,
+    monster: Monster,
     modifier: Modifier = Modifier,
 ) {
-    val translation = creature.resolveTranslation(currentLocale())
+    val translation = monster.resolveTranslation(currentLocale())
     Column(modifier) {
         Text(
             buildAnnotatedString {
@@ -37,7 +37,7 @@ fun MainStatLayout(
                         fontSize = 18.sp,
                     ),
                 ) {
-                    append(creature.getSubtitle())
+                    append(monster.getSubtitle())
                 }
             },
             color = MaterialTheme.colorScheme.onBackground,
@@ -48,7 +48,7 @@ fun MainStatLayout(
                     append(stringResource(Res.string.creature_ac))
                     append(" ")
                 }
-                append(creature.armorClass.toString())
+                append(monster.armorClass.toString())
             },
             color = MaterialTheme.colorScheme.onBackground,
         )
@@ -58,7 +58,7 @@ fun MainStatLayout(
                     append(stringResource(Res.string.creature_hp))
                     append(" ")
                 }
-                append(creature.maxHitPoints.toString())
+                append(monster.maxHitPoints.toString())
             },
             color = MaterialTheme.colorScheme.onBackground,
         )
@@ -72,7 +72,7 @@ fun MainStatLayout(
                     append(stringResource(Res.string.creature_speed))
                     append(" ")
                 }
-                append(translation?.speed ?: creature.speed)
+                append(translation?.speed ?: monster.speed)
             },
             color = MaterialTheme.colorScheme.onBackground,
         )
@@ -83,7 +83,7 @@ fun MainStatLayout(
 @Composable
 private fun PreviewMainStatLayoutLight() {
     AppThemePreview(darkTheme = false) {
-        MainStatLayout(creature = SampleMonsterRepository.getFirst())
+        MainStatLayout(monster = SampleMonsterRepository.getFirst())
     }
 }
 
@@ -91,6 +91,6 @@ private fun PreviewMainStatLayoutLight() {
 @Composable
 private fun PreviewMainStatLayoutDark() {
     AppThemePreview(darkTheme = true) {
-        MainStatLayout(creature = SampleMonsterRepository.getFirst())
+        MainStatLayout(monster = SampleMonsterRepository.getFirst())
     }
 }

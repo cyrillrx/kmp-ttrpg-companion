@@ -27,6 +27,6 @@ class MonsterItemProvider(
 
     @Composable
     override fun ListItem(entity: Monster, modifier: Modifier) {
-        MonsterListItem(creature = entity, onClick = { onItemClicked(entity.id) }, modifier = modifier)
+        MonsterListItem(monster = entity, onClick = { onItemClicked(entity.id) }, modifier = modifier)
     }
 }

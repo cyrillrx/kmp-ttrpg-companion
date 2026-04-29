@@ -5,7 +5,7 @@ import com.cyrillrx.rpg.creature.domain.MonsterRepository
 import com.cyrillrx.rpg.creature.domain.Monster
 
 class MonsterEntityRepository(
-    private val creatureRepository: MonsterRepository,
+    private val repository: MonsterRepository,
 ) : EntityRepository<Monster> {
-    override suspend fun getById(id: String): Monster? = creatureRepository.getById(id)
+    override suspend fun getById(id: String): Monster? = repository.getById(id)
 }

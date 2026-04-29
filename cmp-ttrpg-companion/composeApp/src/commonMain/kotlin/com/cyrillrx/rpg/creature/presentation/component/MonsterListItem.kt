@@ -46,12 +46,12 @@ private val typeIconPadding = 8.dp
 
 @Composable
 fun MonsterListItem(
-    creature: Monster,
+    monster: Monster,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val translation = creature.resolveTranslation(currentLocale())
-    val typeColor = creature.type.getColor()
+    val translation = monster.resolveTranslation(currentLocale())
+    val typeColor = monster.type.getColor()
 
     Card(
         onClick = onClick,
@@ -74,7 +74,7 @@ fun MonsterListItem(
                     ),
             ) {
                 Icon(
-                    imageVector = creature.type.toIcon(),
+                    imageVector = monster.type.toIcon(),
                     contentDescription = null,
                     tint = typeColor,
                     modifier = Modifier.size(typeIconSize),
@@ -95,7 +95,7 @@ fun MonsterListItem(
                 )
 
                 Text(
-                    text = "${creature.type.toFormattedString()} · ${creature.size.name.lowercase().replaceFirstChar { it.uppercase() }}",
+                    text = "${monster.type.toFormattedString()} · ${monster.size.name.lowercase().replaceFirstChar { it.uppercase() }}",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     maxLines = 1,
@@ -117,7 +117,7 @@ fun MonsterListItem(
                             modifier = Modifier.size(iconSizeSmall),
                         )
                         Text(
-                            text = "AC ${creature.armorClass}",
+                            text = "AC ${monster.armorClass}",
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                         )
@@ -134,7 +134,7 @@ fun MonsterListItem(
                             modifier = Modifier.size(iconSizeSmall),
                         )
                         Text(
-                            text = "${creature.maxHitPoints} HP",
+                            text = "${monster.maxHitPoints} HP",
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                         )
@@ -145,7 +145,7 @@ fun MonsterListItem(
             Spacer(modifier = Modifier.width(spacingMedium))
 
             Text(
-                text = creature.toFormattedCR(),
+                text = monster.toFormattedCR(),
                 style = MaterialTheme.typography.labelSmall,
                 fontWeight = FontWeight.Bold,
                 color = typeColor,
@@ -160,7 +160,7 @@ private fun PreviewMonsterListItemLight() {
     AppThemePreview(darkTheme = false) {
         Column(verticalArrangement = Arrangement.spacedBy(spacingSmall)) {
             SampleMonsterRepository.getAll().forEach {
-                MonsterListItem(creature = it, onClick = {})
+                MonsterListItem(monster = it, onClick = {})
             }
         }
     }
@@ -172,7 +172,7 @@ private fun PreviewMonsterListItemDark() {
     AppThemePreview(darkTheme = true) {
         Column(verticalArrangement = Arrangement.spacedBy(spacingSmall)) {
             SampleMonsterRepository.getAll().forEach {
-                MonsterListItem(creature = it, onClick = {})
+                MonsterListItem(monster = it, onClick = {})
             }
         }
     }

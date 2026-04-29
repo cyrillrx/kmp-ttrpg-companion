@@ -5,7 +5,7 @@ import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.domain.SpellRepository
 
 class SpellEntityRepository(
-    private val spellRepository: SpellRepository,
+    private val repository: SpellRepository,
 ) : EntityRepository<Spell> {
-    override suspend fun getById(id: String): Spell? = spellRepository.getById(id)
+    override suspend fun getById(id: String): Spell? = repository.getById(id)
 }

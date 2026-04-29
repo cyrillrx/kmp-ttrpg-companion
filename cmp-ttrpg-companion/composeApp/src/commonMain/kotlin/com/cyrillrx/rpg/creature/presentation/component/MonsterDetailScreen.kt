@@ -45,7 +45,7 @@ fun MonsterDetailScreen(
         DetailState.Loading -> Loader()
         is DetailState.NotFound -> ErrorLayout(stringResource(Res.string.error_creature_not_found, s.id))
         is DetailState.Found -> MonsterDetailContent(
-            creature = s.item,
+            monster = s.item,
             onNavigateUpClicked = router::navigateUp,
             addToListProvider = addToListProvider,
         )
@@ -54,7 +54,7 @@ fun MonsterDetailScreen(
 
 @Composable
 private fun MonsterDetailContent(
-    creature: Monster,
+    monster: Monster,
     onNavigateUpClicked: () -> Unit,
     addToListProvider: AddToListProvider<Monster>,
 ) {
@@ -63,7 +63,7 @@ private fun MonsterDetailContent(
     Scaffold(
         topBar = {
             SimpleTopBar(
-                title = creature.resolveTranslation(currentLocale())?.name.orEmpty(),
+                title = monster.resolveTranslation(currentLocale())?.name.orEmpty(),
                 onNavigateUpClicked = onNavigateUpClicked,
             )
         },
@@ -79,7 +79,7 @@ private fun MonsterDetailContent(
         },
     ) { paddingValues ->
         MonsterItem(
-            creature = creature,
+            monster = monster,
             modifier = Modifier
                 .padding(paddingValues)
                 .verticalScroll(rememberScrollState()),
@@ -88,7 +88,7 @@ private fun MonsterDetailContent(
 
     if (showAddToListBottomSheet) {
         addToListProvider.BottomSheet(
-            entityId = creature.id,
+            entityId = monster.id,
             onDismiss = { showAddToListBottomSheet = false },
         )
     }
@@ -110,7 +110,7 @@ private fun PreviewMonsterDetailScreenDark() {
 private fun MonsterDetailContentPreview() {
     val addToListProvider = MonsterAddToListProvider(SampleMonsterRepository(), SampleUserListRepository())
     MonsterDetailContent(
-        creature = SampleMonsterRepository.getFirst(),
+        monster = SampleMonsterRepository.getFirst(),
         onNavigateUpClicked = {},
         addToListProvider = addToListProvider,
     )

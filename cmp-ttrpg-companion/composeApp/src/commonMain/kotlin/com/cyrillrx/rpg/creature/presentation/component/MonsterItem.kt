@@ -19,10 +19,10 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
 fun MonsterItem(
-    creature: Monster,
+    monster: Monster,
     modifier: Modifier = Modifier,
 ) {
-    val translation = creature.resolveTranslation(currentLocale())
+    val translation = monster.resolveTranslation(currentLocale())
     Column(modifier = modifier
         .background(MaterialTheme.colorScheme.background)
         .padding(spacingCommon)) {
@@ -34,11 +34,11 @@ fun MonsterItem(
         )
 
         MainStatLayout(
-            creature = creature,
+            monster = monster,
             modifier = Modifier.fillMaxWidth(),
         )
 
-        val abilities = creature.abilities
+        val abilities = monster.abilities
         AbilitiesLayout(
             str = abilities.str.getValueWithModifier(),
             dex = abilities.dex.getValueWithModifier(),
@@ -56,7 +56,7 @@ fun MonsterItem(
 @Composable
 private fun PreviewMonsterItemLight() {
     AppThemePreview(darkTheme = false) {
-        MonsterItem(creature = SampleMonsterRepository.getFirst())
+        MonsterItem(monster = SampleMonsterRepository.getFirst())
     }
 }
 
@@ -64,6 +64,6 @@ private fun PreviewMonsterItemLight() {
 @Composable
 private fun PreviewMonsterItemDark() {
     AppThemePreview(darkTheme = true) {
-        MonsterItem(creature = SampleMonsterRepository.getFirst())
+        MonsterItem(monster = SampleMonsterRepository.getFirst())
     }
 }
