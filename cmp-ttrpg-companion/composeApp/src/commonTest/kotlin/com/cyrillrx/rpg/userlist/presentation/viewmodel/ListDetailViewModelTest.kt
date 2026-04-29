@@ -119,8 +119,8 @@ class ListDetailViewModelTest {
 
     @Test
     fun `removeItemOptimistically then commit removes spell from list`() = runTest(testDispatcher) {
-        val allSpells = SampleSpellRepository.getAll()
-        val list = UserList(TEST_LIST_ID, LIST_NAME, UserList.Type.SPELL, allSpells.map { it.id })
+        val spells = SampleSpellRepository.getAll()
+        val list = UserList(TEST_LIST_ID, LIST_NAME, UserList.Type.SPELL, spells.map { it.id })
         userListRepository.save(list)
 
         val viewModel = buildViewModel(TEST_LIST_ID)
@@ -137,7 +137,7 @@ class ListDetailViewModelTest {
         advanceUntilIdle()
 
         val body = assertIs<ListDetailState.Body.WithData<Spell>>(viewModel.state.value.body)
-        assertEquals(expected = allSpells.size - 1, actual = body.items.size)
+        assertEquals(expected = spells.size - 1, actual = body.items.size)
         assertTrue(body.items.none { it.id == spell.id })
     }
 
