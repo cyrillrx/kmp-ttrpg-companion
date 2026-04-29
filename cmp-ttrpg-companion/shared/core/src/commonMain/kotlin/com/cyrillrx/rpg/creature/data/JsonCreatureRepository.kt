@@ -91,14 +91,6 @@ class JsonCreatureRepository(private val fileReader: FileReader) : CreatureRepos
             }
         }
 
-        private fun ApiBestiaryItem.getSubtype(): String? {
-            return truetype
-                ?.split(" (")
-                ?.getOrNull(1)
-                ?.replace(")", "")
-                ?.takeIf { it.isNotBlank() }
-        }
-
         private fun ApiBestiaryItem.getSize(): Creature.Size {
             return when (size) {
                 "TP" -> Creature.Size.TINY
