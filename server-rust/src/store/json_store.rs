@@ -4,7 +4,7 @@ use std::path::Path;
 use serde::Deserialize;
 
 use crate::models::{
-    monster::{Abilities, Ability, Monster, Translation},
+    monster::{Abilities, Ability, Monster, Speeds, Translation},
     magical_item::{MagicalItem, MagicalItemTranslation},
     spell::{Spell, SpellComponents, SpellTranslation},
 };
@@ -83,6 +83,7 @@ struct MonsterJson {
     max_hit_points: Option<i32>,
     hit_dice: Option<String>,
     abilities: Option<AbilitiesJson>,
+    speeds: Option<SpeedsJson>,
     #[serde(default)]
     skills: HashMap<String, String>,
     #[serde(default)]
@@ -90,6 +91,16 @@ struct MonsterJson {
     #[serde(default)]
     condition_immunities: HashMap<String, bool>,
     translations: Option<HashMap<String, TranslationJson>>,
+}
+
+#[derive(Deserialize)]
+struct SpeedsJson {
+    walk: Option<i32>,
+    fly: Option<i32>,
+    swim: Option<i32>,
+    climb: Option<i32>,
+    burrow: Option<i32>,
+    hover: Option<bool>,
 }
 
 #[derive(Deserialize)]
@@ -114,7 +125,6 @@ struct TranslationJson {
     name: Option<String>,
     subtype: Option<String>,
     description: Option<String>,
-    speed: Option<String>,
     senses: Option<String>,
     languages: Option<Vec<String>>,
 }
@@ -245,10 +255,6 @@ fn monster_from_json(raw: MonsterJson) -> Option<Monster> {
                 eprintln!("WARNING: monster '{id}' locale '{locale}': missing description");
                 None
             })?;
-            let speed = t.speed.or_else(|| {
-                eprintln!("WARNING: monster '{id}' locale '{locale}': missing speed");
-                None
-            })?;
             let senses = t.senses.or_else(|| {
                 eprintln!("WARNING: monster '{id}' locale '{locale}': missing senses");
                 None
@@ -257,7 +263,6 @@ fn monster_from_json(raw: MonsterJson) -> Option<Monster> {
                 name,
                 subtype: t.subtype,
                 description,
-                speed,
                 senses,
                 languages: t.languages.unwrap_or_default(),
             }))
@@ -287,11 +292,26 @@ fn monster_from_json(raw: MonsterJson) -> Option<Monster> {
             wis: ability_from_json(api_abilities.wis),
             cha: ability_from_json(api_abilities.cha),
         },
+        speeds: speeds_from_json(raw.speeds),
         skills: raw.skills,
         damage_affinities: raw.damage_affinities,
         condition_immunities: raw.condition_immunities,
         translations,
     })
+}
+
+fn speeds_from_json(raw: Option<SpeedsJson>) -> Speeds {
+    match raw {
+        None => Speeds { walk: None, fly: None, swim: None, climb: None, burrow: None, hover: false },
+        Some(s) => Speeds {
+            walk: s.walk,
+            fly: s.fly,
+            swim: s.swim,
+            climb: s.climb,
+            burrow: s.burrow,
+            hover: s.hover.unwrap_or(false),
+        },
+    }
 }
 
 fn ability_from_json(raw: Option<AbilityJson>) -> Ability {

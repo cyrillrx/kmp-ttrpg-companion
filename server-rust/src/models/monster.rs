@@ -22,11 +22,21 @@ pub struct Abilities {
 
 #[derive(Serialize, Clone, Debug)]
 #[serde(rename_all = "camelCase")]
+pub struct Speeds {
+    pub walk: Option<i32>,
+    pub fly: Option<i32>,
+    pub swim: Option<i32>,
+    pub climb: Option<i32>,
+    pub burrow: Option<i32>,
+    pub hover: bool,
+}
+
+#[derive(Serialize, Clone, Debug)]
+#[serde(rename_all = "camelCase")]
 pub struct Translation {
     pub name: String,
     pub subtype: Option<String>,
     pub description: String,
-    pub speed: String,
     pub senses: String,
     pub languages: Vec<String>,
 }
@@ -45,6 +55,7 @@ pub struct Monster {
     pub max_hit_points: i32,
     pub hit_dice: String,
     pub abilities: Abilities,
+    pub speeds: Speeds,
     pub skills: HashMap<String, String>,
     pub damage_affinities: HashMap<String, String>,
     pub condition_immunities: HashMap<String, bool>,
