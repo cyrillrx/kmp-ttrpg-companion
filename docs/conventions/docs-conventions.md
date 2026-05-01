@@ -3,7 +3,7 @@
 ## File naming
 
 - All documentation files use `lowercase-with-hyphens.md`.
-- Exception: root-level standard files (`README.md`, `AGENTS.md`, `CLAUDE.md`) stay uppercase — they are industry-standard names recognized by GitHub and tooling.
+- Exception: well-known tooling files (`README.md`, `AGENTS.md`, `CLAUDE.md`) stay uppercase — they are industry-standard names recognized by GitHub, Claude Code, or other tooling.
 - Structured documents keep their lowercase prefix: `prd-001-vision.md`, `adr-001-data-model.md`.
 
 ## Ruleset-scoped docs
@@ -26,7 +26,7 @@ The ruleset prefix does NOT apply here — it is reserved for data content in `d
 ## Markdown tables
 
 - Always align table columns with spaces so pipes are vertically aligned.
-- Include a separator row after the header row.
+- Include a separator row (`| --- | --- |`) after the header row.
 - Every table cell must have at least one space of padding on each side.
 
 Example:
