@@ -42,7 +42,7 @@ Refer to `../../AGENTS.md` for project-wide guidelines.
 
 ## 7. CI & Policies
 
-Refer to [`GIT_AND_COLLABORATION.md`](GIT_AND_COLLABORATION.md) for general CI policies (warnings as errors, PR requirements, security scans).
+Refer to [`git-and-collaboration.md`](git-and-collaboration.md) for general CI policies (warnings as errors, PR requirements, security scans).
 
 Rust-specific CI requirements:
 - `cargo build` and `cargo test` must pass for all pull requests.

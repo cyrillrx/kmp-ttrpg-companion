@@ -4,10 +4,10 @@
 
 ## Overview
 
-The Notes module allows users to create, browse, search, and manage free-form personal notes. It is **game-system-agnostic** and follows the same list/detail/CRUD pattern as the reference data modules ([PRD-001 — Reference Data](PRD-001-REFERENCE-DATA.md)).
-Notes are standalone entities at this stage; attaching them to a campaign is a later-phase cross-entity relationship (see [PRD-003 — Campaigns](PRD-003-CAMPAIGNS.md)).
+The Notes module allows users to create, browse, search, and manage free-form personal notes. It is **game-system-agnostic** and follows the same list/detail/CRUD pattern as the reference data modules ([PRD-001 — Reference Data](prd-001-reference-data.md)).
+Notes are standalone entities at this stage; attaching them to a campaign is a later-phase cross-entity relationship (see [PRD-003 — Campaigns](prd-003-campaigns.md)).
 
-The Notes module also serves as the foundation for the Generators module ([PRD-005](PRD-005-GENERATORS.md)): generated content (NPCs, names, plants, etc.) is saved as notes and managed through the same pattern.
+The Notes module also serves as the foundation for the Generators module ([PRD-005](prd-005-generators.md)): generated content (NPCs, names, plants, etc.) is saved as notes and managed through the same pattern.
 
 ## Goals
 

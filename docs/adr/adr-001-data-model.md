@@ -90,7 +90,7 @@ All enum values in JSON source files and API responses use **lowercase English w
 - **Go**: lowercase string in JSON struct tags
 
 ### Reference
-Complete FR↔EN mapping tables: [`docs/i18n/srd-fr-en.md`](../i18n/srd-fr-en.md)
+Complete FR↔EN mapping tables: [`docs/data/srd-fr-en.md`](../data/srd-fr-en.md)
 
 ---
 
@@ -109,7 +109,7 @@ skillModifier    = abilityModifier                          (Proficiency.NONE)
                  = abilityModifier + proficiencyBonus × 2   (Proficiency.EXPERT)
 ```
 
-Proficiency bonus table (game rule): see [`docs/rules/dnd-5e.md`](../rules/dnd-5e.md).
+Proficiency bonus table (game rule): see [`docs/rules/5e-srd.md`](../rules/5e-srd.md).
 
 ### Rationale
 - Storing pre-computed modifiers duplicates data derivable from ability scores and proficiency level.
@@ -158,7 +158,7 @@ data class Skills(
 - Named properties give compile-time safety: a typo in a skill name is a compile error, not a silent null.
 - DB-ready: maps directly to columns without requiring a join table.
 
-Skill → ability mapping (game rule, not architecture): see [`docs/rules/dnd-5e.md`](../rules/dnd-5e.md).
+Skill → ability mapping (game rule, not architecture): see [`docs/rules/5e-srd.md`](../rules/5e-srd.md).
 
 ---
 
@@ -239,4 +239,4 @@ For `PlayerCharacter`, hit dice are computed from `level` and `clazz.hitDie` —
 - For creatures, `hitDice` cannot be derived (there is no fixed "class" for monsters), so it must be stored explicitly.
 - The D&D 5e SRD displays stat blocks as `"33 (6d8+6)"` — `maxHitPoints` is the average, `hitDice` is the formula used when rolling HP.
 
-Hit die per class (game rule): see [`docs/rules/dnd-5e.md`](../rules/dnd-5e.md).
+Hit die per class (game rule): see [`docs/rules/5e-srd.md`](../rules/5e-srd.md).

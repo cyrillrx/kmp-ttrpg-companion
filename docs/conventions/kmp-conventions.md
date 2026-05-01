@@ -88,7 +88,7 @@ For ViewModels with mutations (delete, rename, add): test optimistic mutation, u
 
 ### E2E tests (Maestro)
 
-Test scenarios per feature are documented in [`docs/testing/E2E_TEST_CASES.md`](../../docs/testing/E2E_TEST_CASES.md).
+Test scenarios per feature are documented in [`docs/testing/e2e-test-cases.md`](../../docs/testing/e2e-test-cases.md).
 Automated flows live in `.maestro/flows/`.
 
 Run all flows (requires a connected Android device or emulator):
@@ -106,7 +106,7 @@ maestro test .maestro/flows/
 
 ## 5. CI & Policies
 
-Refer to [`GIT_AND_COLLABORATION.md`](GIT_AND_COLLABORATION.md) for general CI policies (warnings as errors, PR requirements, security scans).
+Refer to [`git-and-collaboration.md`](git-and-collaboration.md) for general CI policies (warnings as errors, PR requirements, security scans).
 
 KMP-specific CI requirements:
 - PRs must pass `ktlintCheck` and the project must build successfully for all targets (`android`, `ios`, `desktop`).

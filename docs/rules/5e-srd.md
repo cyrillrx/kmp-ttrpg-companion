@@ -1,8 +1,8 @@
-# D&D 5e — Rules Reference
+# 5e-Compatible — Rules Reference
 
-Game mechanics reference for D&D 5e (SRD 5.1 and 5.2).
+Game mechanics reference common to the 5e-compatible family (D&D 2014, D&D 2024, Fateforge, Héros & Dragons, Role n Play, etc.).
 
-This document contains rules that drive computed values in the app — modifier formulas, proficiency tables, class hit dice. It is distinct from translations ([`docs/i18n/srd-fr-en.md`](../i18n/srd-fr-en.md)) and architecture decisions ([`docs/adr/ADR-001-data-model.md`](../adr/ADR-001-data-model.md)).
+This document contains rules that drive computed values in the app — modifier formulas, proficiency tables, class hit dice. It is distinct from translations ([`docs/data/srd-fr-en.md`](../data/srd-fr-en.md)) and architecture decisions ([`docs/adr/adr-001-data-model.md`](../adr/adr-001-data-model.md)).
 
 ---
 

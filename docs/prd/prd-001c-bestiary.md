@@ -2,7 +2,7 @@
 
 > **Status**: Draft | **Version**: 0.1 | **Last updated**: 2026-03-15
 
-Refer to [PRD-001 — Reference Data](PRD-001-REFERENCE-DATA.md) for the shared pattern, goals, and non-functional requirements.
+Refer to [PRD-001 — Reference Data](prd-001-reference-data.md) for the shared pattern, goals, and non-functional requirements.
 
 ## Filters
 
