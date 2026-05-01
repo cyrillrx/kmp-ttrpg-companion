@@ -2,8 +2,8 @@
 
 Guide for contributors adding or migrating magical item data into the normalized JSON format.
 
-For the complete FR↔EN term mapping, see [`docs/i18n/srd-fr-en.md`](../docs/i18n/srd-fr-en.md).  
-For the data model decisions behind these formats, see [`docs/adr/ADR-001-data-model.md`](../docs/adr/ADR-001-data-model.md).
+For the complete FR↔EN term mapping, see [`docs/data/srd-fr-en.md`](srd-fr-en.md).  
+For the data model decisions behind these formats, see [`docs/adr/adr-001-data-model.md`](../adr/adr-001-data-model.md).
 
 ---
 
@@ -11,7 +11,7 @@ For the data model decisions behind these formats, see [`docs/adr/ADR-001-data-m
 
 - All enum values use **lowercase English with underscores** (e.g., `"wondrous_item"`, `"uncommon"`).
 - All keys are in English. French content belongs only inside `translations.fr`.
-- The `source` field identifies the origin of the entry — see [known source values](../docs/adr/ADR-001-data-model.md#2-source-field).
+- The `source` field identifies the origin of the entry — see [known source values](../adr/adr-001-data-model.md#2-source-field).
 - An entity with an empty `translations` map is considered malformed.
 
 ---
@@ -50,8 +50,8 @@ For the data model decisions behind these formats, see [`docs/adr/ADR-001-data-m
 
 - [ ] `id` — slugified English name
 - [ ] `source` — source string from known values
-- [ ] `type` — see [Magical Item Types](../docs/i18n/srd-fr-en.md#magical-item-types)
-- [ ] `rarity` — see [Magical Item Rarities](../docs/i18n/srd-fr-en.md#magical-item-rarities)
+- [ ] `type` — see [Magical Item Types](srd-fr-en.md#magical-item-types)
+- [ ] `rarity` — see [Magical Item Rarities](srd-fr-en.md#magical-item-rarities)
 - [ ] `attunement` — boolean
 - [ ] `translations.{locale}.name`
 - [ ] `translations.{locale}.subtype` — optional
@@ -61,4 +61,4 @@ For the data model decisions behind these formats, see [`docs/adr/ADR-001-data-m
 
 ## Validation Rules
 
-- **No unknown fallback without documentation**: if a source value has no matching entry in the translation map, document it in [`srd-fr-en.md`](../docs/i18n/srd-fr-en.md) before adding it to the data file.
+- **No unknown fallback without documentation**: if a source value has no matching entry in the translation map, document it in [`srd-fr-en.md`](srd-fr-en.md) before adding it to the data file.

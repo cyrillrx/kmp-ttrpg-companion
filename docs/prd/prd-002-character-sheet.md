@@ -7,7 +7,7 @@
 The Character Sheet module allows users to create, view, edit, and delete character sheets for both Player Characters (PCs) and Non-Player Characters (NPCs). It serves as the central record for a character's identity, stats, abilities, and inventory.
 
 At this stage, character sheets live in the user's personal library and are independent of any campaign.
-Campaign integration (attaching sheets to a campaign, sharing with other players, access control) is a later phase covered in [PRD-003 — Campaigns](PRD-003-CAMPAIGNS.md).
+Campaign integration (attaching sheets to a campaign, sharing with other players, access control) is a later phase covered in [PRD-003 — Campaigns](prd-003-campaigns.md).
 
 ## Goals
 

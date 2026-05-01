@@ -2,8 +2,8 @@
 
 Guide for contributors adding or migrating monster data into the normalized JSON format.
 
-For the complete FR↔EN term mapping, see [`docs/i18n/srd-fr-en.md`](../docs/i18n/srd-fr-en.md).  
-For the data model decisions behind these formats, see [`docs/adr/ADR-001-data-model.md`](../docs/adr/ADR-001-data-model.md).
+For the complete FR↔EN term mapping, see [`docs/data/srd-fr-en.md`](srd-fr-en.md).  
+For the data model decisions behind these formats, see [`docs/adr/adr-001-data-model.md`](../adr/adr-001-data-model.md).
 
 ---
 
@@ -11,7 +11,7 @@ For the data model decisions behind these formats, see [`docs/adr/ADR-001-data-m
 
 - All enum values use **lowercase English with underscores** (e.g., `"humanoid"`, `"neutral_evil"`).
 - All keys are in English. French content belongs only inside `translations.fr`.
-- The `source` field identifies the origin of the entry — see [known source values](../docs/adr/ADR-001-data-model.md#2-source-field).
+- The `source` field identifies the origin of the entry — see [known source values](../adr/adr-001-data-model.md#2-source-field).
 - An entity with an empty `translations` map is considered malformed.
 
 ---
@@ -104,9 +104,9 @@ For the data model decisions behind these formats, see [`docs/adr/ADR-001-data-m
 
 - [ ] `id` — slugified English name (e.g., `"goblin"`, `"young-red-dragon"`)
 - [ ] `source` — source string from known values
-- [ ] `type` — see [Creature Types](../docs/i18n/srd-fr-en.md#creature-types)
-- [ ] `size` — see [Creature Sizes](../docs/i18n/srd-fr-en.md#creature-sizes)
-- [ ] `alignment` — see [Alignments](../docs/i18n/srd-fr-en.md#alignments)
+- [ ] `type` — see [Creature Types](srd-fr-en.md#creature-types)
+- [ ] `size` — see [Creature Sizes](srd-fr-en.md#creature-sizes)
+- [ ] `alignment` — see [Alignments](srd-fr-en.md#alignments)
 - [ ] `challengeRating` — float (e.g., `0.25`, `0.5`, `1.0`, `20.0`)
 - [ ] `armorClass` — integer only (no armor type string)
 - [ ] `maxHitPoints` — integer (average)
@@ -141,10 +141,10 @@ The 16 damage type keys: `acid`, `bludgeoning`, `cold`, `fire`, `force`, `lightn
 
 ## Validation Rules
 
-- **No unknown fallback without documentation**: if a source value has no matching entry in the translation map, document it in [`srd-fr-en.md`](../docs/i18n/srd-fr-en.md) before adding it to the data file.
+- **No unknown fallback without documentation**: if a source value has no matching entry in the translation map, document it in [`srd-fr-en.md`](srd-fr-en.md) before adding it to the data file.
 - **Ability scores must be integers**: reject `"15 (+2)"` — store `15` only.
 - **AC must be an integer**: reject `"11 (armure de cuir)"` — store `11` only.
-- **Speed and senses belong in `translations`**: never store them as locale-independent integers.
+- **Senses belong in `translations`**: never store them as locale-independent data. Speeds are stored as integers at the root level (e.g. `"walk": 30`) for automatic unit conversion.
 - **Languages belong in `translations`**: never store language names as locale-independent data.
 - **No pre-computed modifiers**: store scores and proficiency levels; let the app compute bonuses.
 - **All bounded objects must be exhaustive**: `skills` (18 keys), `damageAffinities` (16 keys), `conditionImmunities` (14 keys) — all keys always present.

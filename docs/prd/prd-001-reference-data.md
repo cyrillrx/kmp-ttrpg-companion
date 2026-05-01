@@ -4,13 +4,13 @@
 
 ## Overview
 
-Three reference modules allow users to browse, search, and filter the official D&D 5e content catalog. These modules are **game-system-specific** (D&D 5e). For system-agnostic content like personal notes, see [PRD-004 — Notes](PRD-004-NOTES.md).
+Three reference modules allow users to browse, search, and filter the official D&D 5e content catalog. These modules are **game-system-specific** (D&D 5e). For system-agnostic content like personal notes, see [PRD-004 — Notes](prd-004-notes.md).
 
 | Module    | PRD                                           |
 |-----------|-----------------------------------------------|
-| Spellbook | [PRD-001a — Spellbook](PRD-001a-SPELLBOOK.md) |
-| Item List | [PRD-001b — Item List](PRD-001b-ITEM-LIST.md) |
-| Bestiary  | [PRD-001c — Bestiary](PRD-001c-BESTIARY.md)   |
+| Spellbook | [PRD-001a — Spellbook](prd-001a-spellbook.md) |
+| Item List | [PRD-001b — Item List](prd-001b-item-list.md) |
+| Bestiary  | [PRD-001c — Bestiary](prd-001c-bestiary.md)   |
 
 ## Goals
 

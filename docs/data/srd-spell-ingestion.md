@@ -2,8 +2,8 @@
 
 Guide for contributors adding or migrating spell data into the normalized JSON format.
 
-For the complete FR↔EN term mapping, see [`docs/i18n/srd-fr-en.md`](../docs/i18n/srd-fr-en.md).  
-For the data model decisions behind these formats, see [`docs/adr/ADR-001-data-model.md`](../docs/adr/ADR-001-data-model.md).
+For the complete FR↔EN term mapping, see [`docs/data/srd-fr-en.md`](srd-fr-en.md).  
+For the data model decisions behind these formats, see [`docs/adr/adr-001-data-model.md`](../adr/adr-001-data-model.md).
 
 ---
 
@@ -11,7 +11,7 @@ For the data model decisions behind these formats, see [`docs/adr/ADR-001-data-m
 
 - All enum values use **lowercase English with underscores** (e.g., `"conjuration"`, `"evocation"`).
 - All keys are in English. French content belongs only inside `translations.fr`.
-- The `source` field identifies the origin of the entry — see [known source values](../docs/adr/ADR-001-data-model.md#2-source-field).
+- The `source` field identifies the origin of the entry — see [known source values](../adr/adr-001-data-model.md#2-source-field).
 - An entity with an empty `translations` map is considered malformed.
 
 ---
@@ -56,7 +56,7 @@ For the data model decisions behind these formats, see [`docs/adr/ADR-001-data-m
 ### Notes
 
 - `level` — `0` for cantrips
-- `availableClasses` — see [Character Classes](../docs/i18n/srd-fr-en.md#character-classes)
+- `availableClasses` — see [Character Classes](srd-fr-en.md#character-classes)
 - `translations.{locale}.range` — locale-specific raw text (English uses feet, French uses metres)
 - `translations.{locale}.materialDescription` — string or `null`
 
@@ -65,7 +65,7 @@ For the data model decisions behind these formats, see [`docs/adr/ADR-001-data-m
 - [ ] `id` — slugified English name (e.g., `"acid-splash"`, `"fireball"`)
 - [ ] `source` — source string from known values
 - [ ] `level` — integer, `0` for cantrips
-- [ ] `school` — see [Spell Schools](../docs/i18n/srd-fr-en.md#spell-schools)
+- [ ] `school` — see [Spell Schools](srd-fr-en.md#spell-schools)
 - [ ] `concentration` — boolean
 - [ ] `ritual` — boolean
 - [ ] `components.verbal`, `components.somatic`, `components.material` — booleans
@@ -81,5 +81,5 @@ For the data model decisions behind these formats, see [`docs/adr/ADR-001-data-m
 
 ## Validation Rules
 
-- **No unknown fallback without documentation**: if a source value has no matching entry in the translation map, document it in [`srd-fr-en.md`](../docs/i18n/srd-fr-en.md) before adding it to the data file.
+- **No unknown fallback without documentation**: if a source value has no matching entry in the translation map, document it in [`srd-fr-en.md`](srd-fr-en.md) before adding it to the data file.
 - **No pre-computed modifiers**: store levels and flags; let the app compute display strings.

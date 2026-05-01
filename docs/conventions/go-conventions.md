@@ -56,7 +56,7 @@ internal/
 
 ## 6. CI & Policies
 
-Refer to [`GIT_AND_COLLABORATION.md`](GIT_AND_COLLABORATION.md) for general CI policies.
+Refer to [`git-and-collaboration.md`](git-and-collaboration.md) for general CI policies.
 
 Go-specific CI requirements (`.github/workflows/ci-server-go.yml`):
 - `go build ./...` must pass.

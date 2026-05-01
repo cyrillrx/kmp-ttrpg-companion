@@ -5,13 +5,14 @@ For project overview, repository structure, and tech stack, see [`README.md`](RE
 
 ## 1. Product Requirements
 
-For feature specifications and product decisions, refer to the [Product Requirement Documents (PRDs)](docs/prd/). The overall project vision and role model are defined in [`PRD-000`](docs/prd/PRD-000-VISION.md).
+For feature specifications and product decisions, refer to the [Product Requirement Documents (PRDs)](docs/prd/). The overall project vision and role model are defined in [`prd-000`](docs/prd/prd-000-vision.md).
 
 ## 2. Project Guidelines and Conventions
 
 ### Collaboration and Communication
 
-- **Collaboration, Git & CI Conventions**: [`GIT_AND_COLLABORATION.md`](docs/conventions/GIT_AND_COLLABORATION.md)
+- **Collaboration, Git & CI Conventions**: [`git-and-collaboration.md`](docs/conventions/git-and-collaboration.md)
+- **Documentation Conventions** (file naming, ruleset prefixes, Markdown tables): [`docs-conventions.md`](docs/conventions/docs-conventions.md)
 - **Documentation language**: All documentation, comments, commit messages, and PR descriptions must be written in English.
 - **AI Co-authorship**: Do not add AI co-author tags (e.g. `Co-Authored-By: Claude`) to commits or pull requests.
 - **AI/Agent rules**: All rules applying to AI agents must be written in this file (`AGENTS.md`). Agent-specific config files (e.g. `.claude/CLAUDE.md`) must only point to this file — never duplicate or extend rules there.
@@ -19,18 +20,18 @@ For feature specifications and product decisions, refer to the [Product Requirem
 
 ### Code Quality and Maintainability
 
-- **General Coding Conventions**: [`CODING_CONVENTIONS.md`](docs/conventions/CODING_CONVENTIONS.md)
+- **General Coding Conventions**: [`coding-conventions.md`](docs/conventions/coding-conventions.md)
 
 ### Technology-Specific Guidelines
 
 - **Client Application (KMP/Compose Multiplatform) Conventions**:
-    - [`KMP_CONVENTIONS.md`](docs/conventions/KMP_CONVENTIONS.md)
+    - [`kmp-conventions.md`](docs/conventions/kmp-conventions.md)
 - **Rust Backend Server Conventions**:
-    - [`RUST_CONVENTIONS.md`](docs/conventions/RUST_CONVENTIONS.md)
+    - [`rust-conventions.md`](docs/conventions/rust-conventions.md)
 - **Go Backend Server Conventions**:
-    - [`GO_CONVENTIONS.md`](docs/conventions/GO_CONVENTIONS.md)
+    - [`go-conventions.md`](docs/conventions/go-conventions.md)
 - **API Testing with Bruno Conventions**:
-    - [`BRUNO_CONVENTIONS.md`](docs/conventions/BRUNO_CONVENTIONS.md)
+    - [`bruno-conventions.md`](docs/conventions/bruno-conventions.md)
 
 ## 3. KMP Client — Commands
 
@@ -50,7 +51,7 @@ ktlint is **strict** in `shared/core` (`ignoreFailures=false`) and permissive in
 
 ## 4. KMP Client — Project-specific patterns
 
-> For full architecture (MVVM/UDF, layer separation, Compose rules), see [`KMP_CONVENTIONS.md`](docs/conventions/KMP_CONVENTIONS.md).
+> For full architecture (MVVM/UDF, layer separation, Compose rules), see [`kmp-conventions.md`](docs/conventions/kmp-conventions.md).
 
 ### Module structure
 

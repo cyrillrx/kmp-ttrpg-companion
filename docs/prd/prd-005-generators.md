@@ -14,7 +14,7 @@ The approach evolves across phases:
 - **Phase 3**: LLM-powered generation via API, contextually aware of the campaign via MCP.
 - **Future exploration**: Local model running on a separate client, pushing results to the server as notes in the user's account or campaign.
 
-Generated content is saved as **Notes** (see [PRD-004](PRD-004-NOTES.md)) and managed through the same list/search/CRUD pattern.
+Generated content is saved as **Notes** (see [PRD-004](prd-004-notes.md)) and managed through the same list/search/CRUD pattern.
 
 ## Goals
 
