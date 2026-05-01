@@ -144,7 +144,7 @@ The 16 damage type keys: `acid`, `bludgeoning`, `cold`, `fire`, `force`, `lightn
 - **No unknown fallback without documentation**: if a source value has no matching entry in the translation map, document it in [`srd-fr-en.md`](srd-fr-en.md) before adding it to the data file.
 - **Ability scores must be integers**: reject `"15 (+2)"` — store `15` only.
 - **AC must be an integer**: reject `"11 (armure de cuir)"` — store `11` only.
-- **Speed and senses belong in `translations`**: never store them as locale-independent integers.
+- **Senses belong in `translations`**: never store them as locale-independent data. Speeds are stored as integers at the root level (e.g. `"walk": 30`) for automatic unit conversion.
 - **Languages belong in `translations`**: never store language names as locale-independent data.
 - **No pre-computed modifiers**: store scores and proficiency levels; let the app compute bonuses.
 - **All bounded objects must be exhaustive**: `skills` (18 keys), `damageAffinities` (16 keys), `conditionImmunities` (14 keys) — all keys always present.

@@ -4,7 +4,7 @@
 
 - All documentation files use `lowercase-with-hyphens.md`.
 - Exception: well-known tooling files (`README.md`, `AGENTS.md`, `CLAUDE.md`) stay uppercase — they are industry-standard names recognized by GitHub, Claude Code, or other tooling.
-- Structured documents keep their lowercase prefix: `prd-001-vision.md`, `adr-001-data-model.md`.
+- Structured documents keep their lowercase prefix: `prd-000-vision.md`, `adr-001-data-model.md`.
 
 ## Ruleset-scoped docs
 

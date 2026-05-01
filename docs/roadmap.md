@@ -34,7 +34,7 @@ For detailed feature specifications, see the [PRDs](prd/).
 
 - [x] Setup backend service with a simple API
 - [ ] Data quality & coherence — DB-ready models, i18n, source tracking
-  - [x] Architecture decisions & SRD translation map ([ADR-001](adr/adr-001-data-model.md), [i18n](data/srd-fr-en.md))
+  - [x] Architecture decisions & SRD translation map ([ADR-001](adr/adr-001-data-model.md), [Translation Map](data/srd-fr-en.md))
   - [x] Spells: structured components, concentration/ritual flags, complete class list
   - [x] Magical items: typed fields normalized
   - [ ] Creatures: full stat block (speed, senses, skills, saving throws, damage affinities); character model coherence
