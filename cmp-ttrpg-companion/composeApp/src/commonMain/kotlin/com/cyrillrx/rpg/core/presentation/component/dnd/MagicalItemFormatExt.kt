@@ -11,6 +11,7 @@ import rpg_companion.composeapp.generated.resources.item_rarity_legendary
 import rpg_companion.composeapp.generated.resources.item_rarity_rare
 import rpg_companion.composeapp.generated.resources.item_rarity_uncommon
 import rpg_companion.composeapp.generated.resources.item_rarity_very_rare
+import rpg_companion.composeapp.generated.resources.item_requires_attunement
 import rpg_companion.composeapp.generated.resources.item_type_armor
 import rpg_companion.composeapp.generated.resources.item_type_potion
 import rpg_companion.composeapp.generated.resources.item_type_ring
@@ -48,6 +49,13 @@ fun MagicalItem.Rarity.toFormattedString(): String {
         MagicalItem.Rarity.ARTIFACT -> Res.string.item_rarity_artifact
     }
     return stringResource(stringRes)
+}
+
+@Composable
+fun MagicalItem.getSubtitle(translation: MagicalItem.Translation): String {
+    val subtypeStr = translation.subtype?.let { " ($it)" } ?: ""
+    val attunementStr = if (attunement) " - ${stringResource(Res.string.item_requires_attunement)}" else ""
+    return "${type.toFormattedString()}$subtypeStr - ${rarity.toFormattedString()}$attunementStr"
 }
 
 private val weaponColor = Color(155, 11, 78)
