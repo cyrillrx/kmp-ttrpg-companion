@@ -20,6 +20,7 @@ import androidx.compose.ui.unit.sp
 import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.HtmlText
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
+import com.cyrillrx.rpg.core.presentation.component.dnd.getSubtitle
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.magicalitem.data.SampleMagicalItemRepository
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
@@ -58,20 +59,18 @@ fun MagicalItemCard(
                         bottom = textPadding / 2,
                     ),
             )
-            translation.subtype?.let { subtype ->
-                Text(
-                    text = subtype,
-                    fontSize = 14.sp,
-                    fontStyle = FontStyle.Italic,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(
-                            start = textPadding,
-                            end = textPadding,
-                            top = textPadding,
-                        ),
-                )
-            }
+            Text(
+                text = magicalItem.getSubtitle(translation),
+                fontSize = 14.sp,
+                fontStyle = FontStyle.Italic,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(
+                        start = textPadding,
+                        end = textPadding,
+                        top = textPadding,
+                    ),
+            )
             HtmlText(
                 text = translation.description,
                 fontSize = 16.sp,
