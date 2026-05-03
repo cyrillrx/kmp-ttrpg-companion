@@ -57,7 +57,7 @@ For the data model decisions behind these formats, see [`docs/adr/adr-001-data-m
 
 - `level` — `0` for cantrips
 - `availableClasses` — see [Character Classes](srd-fr-en.md#character-classes)
-- `translations.{locale}.name` — when multiple official names exist (e.g. old and new edition), separate them with ` / ` (e.g. `"Immobilisation de monstre / Immobilisation de créature"`). Never use `|` as a separator.
+- `translations.{locale}.name` — when multiple official names exist (e.g. old and new edition), separate them with ` / ` (e.g. `"Immobilisation une personne / un humanoïde"`). Never use `|` as a separator.
 - `translations.{locale}.range` — locale-specific raw text (English uses feet, French uses metres)
 - `translations.{locale}.materialDescription` — string or `null`
 
