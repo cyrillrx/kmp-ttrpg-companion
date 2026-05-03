@@ -82,8 +82,8 @@ English key is the slugified EN name used as `id` in `magical-items.json`.
 | dancing-sword                                  | Dancing Sword                                  | Épée dansante                                   |
 | dark-shard-amulet                              | Dark Shard Amulet                              | Amulette de sombre éclat                        |
 | decanter-of-endless-water                      | Decanter of Endless Water                      | Carafe intarissable                             |
-| deck-of-illusions                              | Deck of Illusions                              | Cartes d'illusion|Tarot fantasmagorique         |
-| deck-of-many-things                            | Deck of Many Things                            | Cartes merveilleuses|Tarot merveilleux          |
+| deck-of-illusions                              | Deck of Illusions                              | Cartes d'illusion / Tarot fantasmagorique       |
+| deck-of-many-things                            | Deck of Many Things                            | Cartes merveilleuses / Tarot merveilleux        |
 | defender                                       | Defender                                       | Gardienne                                       |
 | demon-armor                                    | Demon Armor                                    | Armure démoniaque                               |
 | demonomicon-of-iggwilv                         | Demonomicon of Iggwilv                         | Demonomicon d'Iggwilv                           |
@@ -99,7 +99,7 @@ English key is the slugified EN name used as `id` in `magical-items.json`.
 | dwarven-thrower                                | Dwarven Thrower                                | Marteau volant des nains                        |
 | ear-horn-of-hearing                            | Ear Horn of Hearing                            | Cornet acoustique                               |
 | efficient-quiver                               | Efficient Quiver                               | Carquois efficace                               |
-| efreeti-bottle                                 | Efreeti Bottle                                 | Bouteille de l'éfrit|du mauvais génie           |
+| efreeti-bottle                                 | Efreeti Bottle                                 | Bouteille de l'éfrit / du mauvais génie         |
 | efreeti-chain                                  | Efreeti Chain                                  | Mailles de l'éfrit                              |
 | elemental-gem                                  | Elemental Gem                                  | Gemme élémentaire                               |
 | elixir-of-health                               | Elixir of Health                               | Élixir de santé                                 |
@@ -128,7 +128,7 @@ English key is the slugified EN name used as `id` in `magical-items.json`.
 | gloves-of-missile-snaring                      | Gloves of Missile Snaring                      | Gants piégeurs de projectiles                   |
 | gloves-of-swimming-and-climbing                | Gloves of Swimming and Climbing                | Gants de nage et d'escalade                     |
 | gloves-of-thievery                             | Gloves of Thievery                             | Gants de chapardeur                             |
-| goggles-of-night                               | Goggles of Night                               | Lunettes de nuit|du nyctalope                   |
+| goggles-of-night                               | Goggles of Night                               | Lunettes de nuit / du nyctalope                 |
 | hag-eye                                        | Hag Eye                                        | Oeil de guenaude                                |
 | hammer-of-thunderbolts                         | Hammer of Thunderbolts                         | Marteau de tonnerre                             |
 | hat-of-disguise                                | Hat of Disguise                                | Chapeau de déguisement                          |
@@ -179,7 +179,7 @@ English key is the slugified EN name used as `id` in `magical-items.json`.
 | nature-s-mantle                                | Nature's Mantle                                | Mante de dame Nature                            |
 | necklace-of-adaptation                         | Necklace of Adaptation                         | Collier d'adaptation                            |
 | necklace-of-fireballs                          | Necklace of Fireballs                          | Collier de boules de feu                        |
-| necklace-of-prayer-beads                       | Necklace of Prayer Beads                       | Collier de prière|Chapelet mystique             |
+| necklace-of-prayer-beads                       | Necklace of Prayer Beads                       | Collier de prière / Chapelet mystique           |
 | nine-lives-stealer                             | Nine Lives Stealer                             | Voleuse de vie                                  |
 | nolzur-s-marvelous-pigments                    | Nolzur's Marvelous Pigments                    | Pigments merveilleux de Nolzur                  |
 | oathbow                                        | Oathbow                                        | Arc du serment                                  |
@@ -189,7 +189,7 @@ English key is the slugified EN name used as `id` in `magical-items.json`.
 | orb-of-direction                               | Orb of Direction                               | Orbe boussole                                   |
 | orb-of-dragonkind                              | Orb of Dragonkind                              | Orbe des dragons                                |
 | orb-of-time                                    | Orb of Time                                    | Orbe horloge                                    |
-| pearl-of-power                                 | Pearl of Power                                 | Perle de pouvoir|de thaumaturgie                |
+| pearl-of-power                                 | Pearl of Power                                 | Perle de pouvoir / de thaumaturgie              |
 | perfume-of-bewitching                          | Perfume of Bewitching                          | Parfum envoûtant                                |
 | periapt-of-health                              | Periapt of Health                              | Amulette de santé                               |
 | periapt-of-proof-against-poison                | Periapt of Proof against Poison                | Amulette de protection contre le poison         |
@@ -219,7 +219,7 @@ English key is the slugified EN name used as `id` in `magical-items.json`.
 | potion-of-invulnerability                      | Potion of Invulnerability                      | Potion d'invulnérabilité                        |
 | potion-of-longevity                            | Potion of Longevity                            | Élixir de jouvence                              |
 | potion-of-mind-reading                         | Potion of Mind Reading                         | Potion de lecture des pensées                   |
-| potion-of-poison                               | Potion of Poison                               | Potion de poison|Potion toxique                 |
+| potion-of-poison                               | Potion of Poison                               | Potion de poison / Potion toxique               |
 | potion-of-pugilism                             | Potion of Pugilism                             | Potion des pugilistes                           |
 | potion-of-resistance                           | Potion of Resistance                           | Potion de résistance                            |
 | potion-of-speed                                | Potion of Speed                                | Potion de vitesse                               |
@@ -269,7 +269,7 @@ English key is the slugified EN name used as `id` in `magical-items.json`.
 | rope-of-entanglement                           | Rope of Entanglement                           | Corde d'enchevêtrement                          |
 | rope-of-mending                                | Rope of Mending                                | Corde remaillante                               |
 | ruby-of-the-war-mage                           | Ruby of the War Mage                           | Rubis du mage de guerre                         |
-| saddle-of-the-cavalier                         | Saddle of the Cavalier                         | Selle du cavalier|du hussard                    |
+| saddle-of-the-cavalier                         | Saddle of the Cavalier                         | Selle du cavalier / du hussard                  |
 | scarab-of-protection                           | Scarab of Protection                           | Scarabée de protection                          |
 | scimitar-of-speed                              | Scimitar of Speed                              | Cimeterre de célérité                           |
 | scroll-of-protection                           | Scroll of Protection                           | Parchemin de protection                         |
@@ -279,7 +279,7 @@ English key is the slugified EN name used as `id` in `magical-items.json`.
 | shield-1-2-or-3                                | Shield, +1, +2, or +3                          | Bouclier +1, +2 ou +3                           |
 | shield-of-expression                           | Shield of Expression                           | Bouclier expressif                              |
 | shield-of-missile-attraction                   | Shield of Missile Attraction                   | Bouclier d'attraction des projectiles           |
-| shield-of-the-cavalier                         | Shield of the Cavalier                         | Bouclier du cavalier|du hussard                 |
+| shield-of-the-cavalier                         | Shield of the Cavalier                         | Bouclier du cavalier / du hussard               |
 | silvered-weapon                                | Silvered Weapon                                | Arme en argent                                  |
 | slippers-of-spider-climbing                    | Slippers of Spider Climbing                    | Chaussons de l'araignée                         |
 | smoldering-armor                               | Smoldering Armor                               | Armure fumante                                  |
@@ -335,7 +335,7 @@ English key is the slugified EN name used as `id` in `magical-items.json`.
 | wand-of-conducting                             | Wand of Conducting                             | Baguette du chef d'orchestre                    |
 | wand-of-enemy-detection                        | Wand of Enemy Detection                        | Baguette de détection de l'ennemi               |
 | wand-of-entanglement                           | Wand of Entanglement                           | Baguette entoilée                               |
-| wand-of-fear                                   | Wand of Fear                                   | Baguette de peur|de terreur                     |
+| wand-of-fear                                   | Wand of Fear                                   | Baguette de peur / de terreur                   |
 | wand-of-fireballs                              | Wand of Fireballs                              | Baguette de boules de feu                       |
 | wand-of-lightning-bolts                        | Wand of Lightning Bolts                        | Baguette d'éclairs                              |
 | wand-of-magic-detection                        | Wand of Magic Detection                        | Baguette de détection de la magie               |
@@ -346,7 +346,7 @@ English key is the slugified EN name used as `id` in `magical-items.json`.
 | wand-of-pyrotechnics                           | Wand of Pyrotechnics                           | Baguette du pyrotechnicien                      |
 | wand-of-secrets                                | Wand of Secrets                                | Baguette des secrets                            |
 | wand-of-the-war-mage-1-2-or-3                  | Wand of the War Mage, +1, +2, or +3            | Baguette du mage de guerre +1, +2 ou +3         |
-| wand-of-web                                    | Wand of Web                                    | Baguette de toile d'araignée|des toiles         |
+| wand-of-web                                    | Wand of Web                                    | Baguette de toile d'araignée / des toiles       |
 | wand-of-wonder                                 | Wand of Wonder                                 | Baguette des merveilles                         |
 | wave                                           | Wave                                           | Vague                                           |
 | weapon-1-2-or-3                                | Weapon, +1, +2, or +3                          | Arme +1, +2 ou +3                               |

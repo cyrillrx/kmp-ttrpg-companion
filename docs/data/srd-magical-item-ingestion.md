@@ -44,6 +44,7 @@ For the data model decisions behind these formats, see [`docs/adr/adr-001-data-m
 
 - `attunement`: any non-null French source string (e.g., `"harmonisation requise"`) maps to `true`
 - `translations.{locale}.subtype` — optional locale-specific weapon/armor sub-category
+- `translations.{locale}.name` — when multiple official names exist (e.g. old and new edition), separate them with ` / ` (e.g. `"Selle du cavalier / du hussard"`). Never use `|` as a separator.
 - The display subtitle (`"Objet merveilleux · Peu courant · Harmonisation"`) is computed by the client from typed fields — not stored
 
 ### Item Checklist
