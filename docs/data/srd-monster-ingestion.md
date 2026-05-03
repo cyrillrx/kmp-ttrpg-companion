@@ -95,6 +95,7 @@ For the data model decisions behind these formats, see [`docs/adr/adr-001-data-m
 - `conditionImmunities` — all 14 keys required; `false` when not immune (ADR-001 §7)
 - `hitDice` — format `"NdX"` or `"NdX+Y"` (e.g., `"2d6"`, `"23d8+92"`) (ADR-001 §9)
 - `speeds` — all speed values in **feet** (integers); `null` when the movement type does not apply; `hover: true` when the creature hovers; the app converts to metres for FR display (× 0.3, i.e. `feet * 3 / 5` half-metres)
+- `translations.{locale}.name` — when multiple official names exist (e.g. old and new edition), separate them with ` / ` (e.g. `"Ours-hibou / Hibours"`). Never use `|` as a separator.
 - `translations.{locale}.subtype` — locale-specific subtype string (e.g. EN `"Goblinoid"`, FR `"Gobelinoïde"`), or `null` if the monster has no subtype
 - `translations.{locale}.senses` — raw locale text; EN uses feet, FR uses rounded metres
 - `translations.{locale}.languages` — array of strings (locale-specific names)

@@ -5491,7 +5491,7 @@
         "languages": []
       },
       "fr": {
-        "name": "Bec de hache|Autrache",
+        "name": "Bec de hache / Autrache",
         "subtype": null,
         "description": "<h2 class=\"rub\">Actions</h2><p><strong><em>Bec</em></strong>. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 6 (1d8 + 2) dégâts tranchants.</p>",
         "senses": "Perception passive 10",
@@ -13718,7 +13718,7 @@
         ]
       },
       "fr": {
-        "name": "Griffe rampante|Sénestre",
+        "name": "Griffe rampante / Sénestre",
         "subtype": null,
         "description": "<h2 class=\"rub\">Actions</h2><p><strong><em>Coup</em></strong>. <em>Corps à corps</em> : +3, allonge 1,50 m. <em>Touché</em> : 2 dégâts nécrotiques.</p>",
         "senses": "Vision aveugle 9 m, Perception passive 10",
@@ -13956,7 +13956,7 @@
         ]
       },
       "fr": {
-        "name": "Cultiste|Sectateur",
+        "name": "Cultiste / Sectateur",
         "subtype": null,
         "description": "<h2 class=\"rub\">Actions</h2><p><strong><em>Serpe rituelle</em></strong>. <em>Corps à corps</em> : +3, allonge 1,50 m. <em>Touché</em> : 3 (1d4 +1) dégâts tranchants plus 1 dégât nécrotique.</p>",
         "senses": "Perception passive 10",
@@ -15509,7 +15509,7 @@
         ]
       },
       "fr": {
-        "name": "Cerf|Petit cervidé",
+        "name": "Cerf / Petit cervidé",
         "subtype": null,
         "description": "<h2 class=\"rub\">Traits</h2><p><strong><em>Agile</em></strong>. Le cerf ne provoque pas d'attaque d'Opportunité lorsqu'il quitte l'allonge d'un ennemi en se déplaçant.</p><h2 class=\"rub\">Actions</h2><p><strong><em>Coup de bélier</em></strong>. <em>Corps à corps</em> : +2, allonge 1,50 m. <em>Touché</em> : 2 (1d4) dégâts contondants.</p>",
         "senses": "Vision dans le noir 18 m, Perception passive 14",
@@ -18389,7 +18389,7 @@
         ]
       },
       "fr": {
-        "name": "Élan|Grand cervidé",
+        "name": "Élan / Grand cervidé",
         "subtype": null,
         "description": "<h2 class=\"rub\">Actions</h2><p><strong><em>Coup de bélier</em></strong>. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 6 (1d6 + 3) dégâts contondants. Si l'élan s'est déplacé d'au moins 6 m en ligne droite vers la cible juste avant de la toucher, la cible subit 3 (1d6) dégâts contondants supplémentaires et, si elle est de taille TG ou inférieure, elle subit l'état À terre.</p>",
         "senses": "Vision dans le noir 18 m, Perception passive 12",
@@ -21968,7 +21968,7 @@
         "languages": []
       },
       "fr": {
-        "name": "Bec de hache géant|Autrache géante",
+        "name": "Bec de hache géant / Autrache géante",
         "subtype": null,
         "description": "<h2 class=\"rub\">Actions</h2><p><strong><em>Attaques multiples</em></strong>. Le bec de hache effectue une attaque de Bec acéré et une attaque de Serres.</p><p><strong><em>Bec acéré</em></strong>. <em>Corps à corps</em> : +8, allonge 3 m. <em>Touché</em> : 18 (2d12 + 5) dégâts tranchants, et une créature dans un rayon de 1,50 m autour de la cible (au choix du bec de hache) reçoit 6 (1d12) dégâts tranchants.</p><p><strong><em>Serres</em></strong>. <em>Corps à corps</em> : +8, allonge 1,50 m. <em>Touché</em> : 14 (2d8 + 5) dégâts perforants. Si la cible est une créature de taille G ou inférieure, elle subit l'état À terre.</p>",
         "senses": "Perception passive 14",
@@ -23039,7 +23039,7 @@
         ]
       },
       "fr": {
-        "name": "Élan géant|Cervidé géant",
+        "name": "Élan géant / Cervidé géant",
         "subtype": null,
         "description": "<h2 class=\"rub\">Actions</h2><p><strong><em>Ramure</em></strong>. <em>Corps à corps</em> : +6, allonge 3 m. <em>Touché</em> : 11 (2d6 + 4) dégâts contondants plus 5 (2d4) dégâts radiants. Si la cible est une créature de taille TG ou inférieure et si l'élan s'est déplacé en ligne droite d'un minimum de 6 m juste avant de la toucher, la cible subit 5 (2d4) dégâts contondants supplémentaires, ainsi que l'état À terre.</p>",
         "senses": "Vision dans le noir 27 m, Perception passive 14",
@@ -38336,7 +38336,7 @@
         ]
       },
       "fr": {
-        "name": "Seigneur momie|Momie auguste",
+        "name": "Seigneur momie / Momie auguste",
         "subtype": "Clerc",
         "description": "<h2 class=\"rub\">Traits</h2><p><strong><em>Résistance à la magie</em></strong>. La momie a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.</p><p><strong><em>Résistance légendaire (3/jour, ou 4/jour dans son antre)</em></strong>. Si la momie rate un jet de sauvegarde, elle peut décider de le réussir tout de même.</p><p><strong><em>Restauration funeste</em></strong>. Si elle est détruite, la momie reçoit un nouveau corps en 24 heures si son coeur est intact, en récupérant tous ses points de vie. Le nouveau corps apparaît en un espace inoccupé dans l'antre de la momie. Le coeur est un objet de taille TP avec le profil suivant : CA 17, 10 pv, Immunité contre tous les dégâts sauf le feu.</p><h2 class=\"rub\">Actions</h2><p><strong><em>Attaques multiples</em></strong>. La momie effectue une attaque de Poing putréfié ou de Conduit d'énergie négative, et recourt à Regard effroyable.</p><p><strong><em>Poing putréfié</em></strong>. <em>Corps à corps</em> : +9, allonge 1,50 m. <em>Touché</em> : 15 (2d10 + 4) dégâts contondants plus 10 (3d6) dégâts nécrotiques. Si la cible est une créature, elle est maudite. Ainsi maudite, la cible ne peut pas récupérer de points de vie et ne reçoit aucun bénéfice en terminant un Repos long, tandis que son maximum de points de vie est réduit de 10 (3d6) toutes les 24 heures. Une créature que cette attaque fait tomber à 0 point de vie meurt, réduite en poussière.</p><p><strong><em>Conduit d'énergie négative</em></strong>. <em>À distance</em> : +9, portée 18 m. <em>Touché</em> : 25 (6d6 + 4) dégâts nécrotiques.</p><p><strong><em>Incantation</em></strong>. La momie lance l'un des sorts suivants sans composantes matérielles, le Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 17, +9 pour toucher) :</p>À volonté : <em><a href=\"https://www.aidedd.org/spell/fr/dissipation-de-la-magie\">dissipation de la magie</a>, <a href=\"https://www.aidedd.org/spell/fr/thaumaturgie\">thaumaturgie</a></em><br/>1/jour chacun : <em>animation des morts, contamination, fléau d'insectes</em> (au niveau 7)<br/><p><strong><em>Regard effroyable</em></strong>. <em>JdS Sagesse</em> : DD 17, une créature que la momie voit dans un rayon de 18 m. <em>Échec</em> : 25 (6d6 + 4) dégâts psychiques, et la cible subit l'état Paralysé jusqu'à la fin du tour suivant de la momie.</p><h2 class=\"rub\">Réactions</h2><p><strong><em>Tourbillon de sable</em></strong>. <em>Déclencheur</em> : la momie est touchée par un jet d'attaque. <em>Conséquences</em> : la momie ajoute 2 à sa CA contre l'attaque, ce qui peut faire rater celle-ci, et se téléporte d'un maximum de 18 m dans un espace inoccupé qu'elle voit. Chaque créature de son choix parmi celles qu'elle voit dans un rayon de 1,50 m de son espace de destination subit l'état Aveuglé jusqu'à la fin du tour suivant de la momie.</p><h2 class=\"rub\">Actions Légendaires</h2><div class=\"legend\">Utilisations d'action Légendaire : 3 (4 dans son antre). Aussitôt après le tour d'une autre créature, la momie peut dépenser une utilisation pour entreprendre l'une des actions ci-après. La momie récupère toutes ses utilisations dépensées au début de chacun de ses tours.\n</div><p><strong><em>Frappe nécrotique</em></strong>. La momie effectue une attaque de Poing putréfié ou de Conduit d'énergie négative.</p><p><strong><em>Injonction effroyable</em></strong>. La momie lance <em><a href=\"https://www.aidedd.org/spell/fr/injonction\">injonction</a></em> (au niveau 2), avec la même caractéristique d'incantation que pour Incantation. La momie ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.</p><p><strong><em>Regard de biais</em></strong>. La momie recourt à Regard effroyable. La momie ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.</p>",
         "senses": "vision véritable 18 m, Perception passive 19",
@@ -40972,7 +40972,7 @@
         ]
       },
       "fr": {
-        "name": "Ours-hibou|Hibours",
+        "name": "Ours-hibou / Hibours",
         "subtype": null,
         "description": "<h2 class=\"rub\">Actions</h2><p><strong><em>Attaques multiples</em></strong>. L'ours-hibou effectue deux attaques de Saignée.</p><p><strong><em>Saignée</em></strong>. <em>Corps à corps</em> : +7, allonge 1,50 m. <em>Touché</em> : 14 (2d8 + 5) dégâts tranchants.</p>",
         "senses": "Vision dans le noir 18 m, Perception passive 15",
@@ -41925,7 +41925,7 @@
         ]
       },
       "fr": {
-        "name": "Perceur|Perforateur",
+        "name": "Perceur / Perforateur",
         "subtype": null,
         "description": "<h2 class=\"rub\">Traits</h2><p><strong><em>Pattes d'araignée</em></strong>. Le perceur peut parcourir les parois les plus difficiles à escalader, y compris les plafonds, sans passer par un jet de caractéristique.</p><h2 class=\"rub\">Actions</h2><p><strong><em>Morsure</em></strong>. <em>Corps à corps</em> : +3, allonge 1,50 m. <em>Touché</em> : 5 (1d8 + 1) dégâts perforants.</p><p><strong><em>Chute</em></strong>. Le perceur chute. <em>JdS Dextérité</em> : DD 11, une créature directement sous le perceur. <em>Échec</em> : 10 (3d6) dégâts perforants. <em>Échec ou réussite</em> : le perceur réduit de 20 les dégâts qu'il subit lors de la chute.</p>",
         "senses": "Vision aveugle 9 m, Vision dans le noir 18 m, Perception passive 8",
@@ -48580,7 +48580,7 @@
         ]
       },
       "fr": {
-        "name": "Garde bouclier|animé",
+        "name": "Garde bouclier / animé",
         "subtype": null,
         "description": "<h2 class=\"rub\">Traits</h2><p><strong><em>Pacte magique</em></strong>. Le garde bouclier est magiquement lié à une amulette. Tant que le garde et son amulette sont sur le même plan d'existence, le porteur de l'amulette peut ordonner télépathiquement au garde de se rendre auprès de l'objet, l'Artificiel ayant une notion précise de la distance qui le sépare de l'amulette et de sa direction. Si le garde se trouve dans un rayon de 18 m du porteur de l'amulette, la moitié des dégâts subis par le porteur (arrondis au supérieur) sont en fait transférés sur le garde.</p><p><strong><em>Régénération</em></strong>. Le garde bouclier récupère 10 points de vie au début de chacun de ses tours s'il lui reste au moins 1 point de vie.</p><p><strong><em>Stockage de sort</em></strong>. Un incantateur qui porte l'amulette du garde bouclier peut stocker un sort du niveau 4 ou inférieur dans l'Artificiel. Pour ce faire, le porteur doit lancer le sort sur le garde bouclier en étant à 1,50 m ou moins de lui. Le sort n'a aucun effet immédiat ; il est stocké dans le garde. Tout sort précédemment stocké est perdu quand on en stocke un nouveau. Le garde bouclier peut lancer le sort stocké avec tous les paramètres choisis par l'incantateur de départ, sans composantes de sort et en prenant la caractéristique d'incantation de cet incantateur. Le sort stocké est alors perdu.</p><h2 class=\"rub\">Actions</h2><p><strong><em>Attaques multiples</em></strong>. Le garde bouclier effectue deux attaques de Poing.</p><p><strong><em>Poing</em></strong>. <em>Corps à corps</em> : +7, allonge 3 m. <em>Touché</em> : 11 (2d6 + 4) dégâts contondants plus 7 (2d6) dégâts de force.</p><h2 class=\"rub\">Réactions</h2><p><strong><em>Protection</em></strong>. <em>Déclencheur</em> : un jet d'attaque touche le porteur de l'amulette du garde bouclier alors qu'ils sont dans un rayon de 1,50 m l'un de l'autre. <em>Conséquences</em> : le porteur reçoit un bonus de +5 à la CA, y compris contre l'attaque correspondante (ce qui peut la faire rater), jusqu'au début du tour suivant du garde bouclier.</p>",
         "senses": "Vision aveugle 3 m, Vision dans le noir 18 m, Perception passive 10",
@@ -51699,7 +51699,7 @@
         ]
       },
       "fr": {
-        "name": "Nuée de griffes rampantes|sénestres",
+        "name": "Nuée de griffes rampantes / sénestres",
         "subtype": null,
         "description": "<h2 class=\"rub\">Traits</h2><p><strong><em>Nuée</em></strong>. La nuée peut occuper l'espace d'une autre créature et réciproquement, et elle peut se déplacer par toute ouverture assez large pour une créature de taille TP. La nuée ne peut ni récupérer de points de vie ni recevoir de points de vie temporaires.</p><h2 class=\"rub\">Actions</h2><p><strong><em>Nuée de sénestres</em></strong>. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 20 (4d8 + 2) dégâts nécrotiques, ou 11 (2d8 + 2) dégâts nécrotiques si la nuée est En péril. Si la cible est une créature de taille M ou inférieure, elle subit l'état À terre.</p>",
         "senses": "Vision aveugle 9 m, Perception passive 10",
@@ -56344,7 +56344,7 @@
         ]
       },
       "fr": {
-        "name": "Cheval de guerre|Destrier",
+        "name": "Cheval de guerre / Destrier",
         "subtype": null,
         "description": "<h2 class=\"rub\">Actions</h2><p><strong><em>Sabots</em></strong>. <em>Corps à corps</em> : +6, allonge 1,50 m. <em>Touché</em> : 9 (2d4 + 4) dégâts contondants. Si le cheval s'est déplacé d'au moins 6 m en ligne droite vers la cible juste avant de la toucher, la cible subit 5 (2d4) dégâts contondants supplémentaires et, si elle est de taille TG ou inférieure, elle subit l'état À terre.</p>",
         "senses": "Perception passive 11",
@@ -58010,7 +58010,7 @@
         ]
       },
       "fr": {
-        "name": "Nécrophage|Nécronte",
+        "name": "Nécrophage / Nécronte",
         "subtype": null,
         "description": "<h2 class=\"rub\">Traits</h2><p><strong><em>Sensibilité au soleil</em></strong>. Tant qu'il est exposé à la lumière du soleil, le nécrophage subit un Désavantage aux jets de caractéristique et aux jets d'attaque.</p><h2 class=\"rub\">Actions</h2><p><strong><em>Attaques multiples</em></strong>. Le nécrophage effectue deux attaques, réparties à sa guise entre Épée nécrotique et Arc nécrotique. Il peut remplacer l'une de ces attaques par une utilisation d'Absorption de vie.</p><p><strong><em>Épée nécrotique</em></strong>. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 6 (1d8 + 2) dégâts tranchants plus 4 (1d8) dégâts nécrotiques.</p><p><strong><em>Arc nécrotique</em></strong>. <em>À distance</em> : +4, portée 45/180 m. <em>Touché</em> : 6 (1d8 + 2) dégâts perforants plus 4 (1d8) dégâts nécrotiques.</p><p><strong><em>Absorption de vie</em></strong>. <em>JdS Constitution</em> : DD 13, une créature dans un rayon de 1,50 m. <em>Échec</em> : 6 (1d8 + 2) dégâts nécrotiques, et le maximum de points de vie de la cible est réduit d'un montant égal aux dégâts nécrotiques subis. Un Humanoïde tué par cette attaque se relève 24 heures plus tard comme <strong>zombi</strong> sous le contrôle du nécrophage, sauf si l'Humanoïde est préalablement ramené à la vie ou si son corps est détruit. Le nécrophage ne peut ainsi contrôler plus de douze zombis à la fois.</p>",
         "senses": "Vision dans le noir 18 m, Perception passive 13",
@@ -58847,7 +58847,7 @@
         "languages": []
       },
       "fr": {
-        "name": "Wyverne|Vouivre",
+        "name": "Wyverne / Vouivre",
         "subtype": null,
         "description": "<h2 class=\"rub\">Actions</h2><p><strong><em>Attaques multiples</em></strong>. La wyverne effectue une attaque de Dard et une de Morsure.</p><p><strong><em>Dard</em></strong>. <em>Corps à corps</em> : +7, allonge 3 m. <em>Touché</em> : 11 (2d6 + 4) dégâts perforants plus 24 (7d6) dégâts de poison, et la cible subit l'état Empoisonné jusqu'au début du tour suivant de la wyverne.</p><p><strong><em>Morsure</em></strong>. <em>Corps à corps</em> : +7, allonge 1,50 m. <em>Touché</em> : 13 (2d8 + 4) dégâts perforants.</p>",
         "senses": "Vision dans le noir 36 m, Perception passive 14",
