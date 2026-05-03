@@ -1773,15 +1773,15 @@
     "rarity": "uncommon",
     "attunement": false,
     "translations": {
+      "en": {
+        "name": "Efficient Quiver",
+        "subtype": null,
+        "description": "<p>This quiver has three compartments, each connected to an extradimensional space that allows it to hold many objects without ever weighing more than 2 pounds. The shortest compartment can hold up to sixty arrows, bolts, or similar objects. The medium-sized compartment can hold up to eighteen javelins or similar objects, and the longest can hold up to six long objects, such as bows, staffs, or spears.</p>\n<p>You can draw these objects from the quiver as you would from a normal quiver or scabbard.</p>"
+      },
       "fr": {
         "name": "Carquois efficace",
         "subtype": null,
         "description": "<p>Ce carquois dispose de trois compartiments, chacun étant relié à un espace extradimensionnel qui lui permet de contenir de nombreux objets sans jamais peser plus de 1 kilo. Le compartiment le plus court peut accueillir jusqu'à soixante flèches, carreaux ou objets similaires. Le compartiment de taille intermédiaire peut recevoir jusqu'à dix-huit javelines ou objets similaires et le plus long peut contenir six objets tout en longueur, comme des arcs, des bâtons ou des lances.</p>\n<p>Vous pouvez tirer ces objets du carquois comme vous le feriez avec un carquois ou un fourreau ordinaire.</p>"
-      },
-      "en": {
-        "name": "Efficient Quiver",
-        "subtype": null,
-        "description": ""
       }
     }
   },
@@ -6257,15 +6257,15 @@
     "rarity": "uncommon",
     "attunement": true,
     "translations": {
+      "en": {
+        "name": "Wand of Entanglement",
+        "subtype": null,
+        "description": "<p>This wand has 7 charges. While holding it, you can use an action to expend 1 of its charges to cast the <em>web</em> spell (save DC 15) from it.</p>\n<p>The wand regains 1d6+1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand crumbles into ashes and is destroyed.</p>"
+      },
       "fr": {
         "name": "Baguette entoilée",
         "subtype": null,
         "description": "<p>Cette baguette contient 7 charges. Avec cette baguette en main, vous pouvez utiliser une action pour dépenser 1 de ses charges et lancer le sort <a href=\"/grimoire/toile-daraignee\"><em>toile d'araignée</em></a> (DD des jets de sauvegarde contre le sort 15) par son biais.</p>\n<p>La baguette récupère 1d6+1 charges dépensées chaque jour, à l'aube. Lancez un d20 si vous dépensez la dernière charge. La baguette est détruite et tombe en cendres sur un résultat de 1.</p>"
-      },
-      "en": {
-        "name": "Wand of Entanglement",
-        "subtype": null,
-        "description": ""
       }
     }
   },
