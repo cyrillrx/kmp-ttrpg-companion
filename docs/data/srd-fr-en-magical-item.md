@@ -8,9 +8,9 @@ English key is the slugified EN name used as `id` in `magical-items.json`.
 | adamantine-armor                               | Adamantine Armor                               | Armure en adamantium                            |
 | adamantine-weapon                              | Adamantine Weapon                              | Arme en adamantium                              |
 | alchemy-jug                                    | Alchemy Jug                                    | Cruche alchimique                               |
-| ammunition-1-2-or-3                            | Ammunition, +1, +2, or +3                      | Munition +1                                     |
+| ammunition-1-2-or-3                            | Ammunition, +1, +2, or +3                      | Projectile +1, +2 ou +3                         |
 | ammunition-of-slaying                          | Ammunition of Slaying                          | Projectile tueur                                |
-| amulet-of-health                               | Amulet of Health                               | Amulette de santé                               |
+| amulet-of-health                               | Amulet of Health                               | Amulette de bonne santé                         |
 | amulet-of-proof-against-detection-and-location | Amulet of Proof against Detection and Location | Amulette d'antidétection                        |
 | amulet-of-the-planes                           | Amulet of the Planes                           | Amulette des plans                              |
 | animated-shield                                | Animated Shield                                | Bouclier animé                                  |
@@ -21,35 +21,35 @@ English key is the slugified EN name used as `id` in `magical-items.json`.
 | armor-of-resistance                            | Armor of Resistance                            | Armure de résistance                            |
 | armor-of-vulnerability                         | Armor of Vulnerability                         | Armure de vulnérabilité                         |
 | arrow-catching-shield                          | Arrow-Catching Shield                          | Bouclier antiprojectiles                        |
-| axe-of-the-dwarvish-lords                      | Axe of the Dwarvish Lords                      | Épée de Kas                                     |
+| axe-of-the-dwarvish-lords                      | Axe of the Dwarvish Lords                      | Hache des seigneurs nains                       |
 | baba-yaga-s-dancing-broom                      | Baba Yaga's Dancing Broom                      | Balai dansant de Baba Yaga                      |
 | bag-of-beans                                   | Bag of Beans                                   | Sac de haricots magiques                        |
 | bag-of-devouring                               | Bag of Devouring                               | Sac dévoreur                                    |
 | bag-of-holding                                 | Bag of Holding                                 | Sac sans fond                                   |
-| bag-of-tricks                                  | Bag of Tricks                                  | Sac à malice                                    |
+| bag-of-tricks                                  | Bag of Tricks                                  | Sac à malices                                   |
 | bead-of-force                                  | Bead of Force                                  | Perle de force                                  |
 | bead-of-nourishment                            | Bead of Nourishment                            | Perle nutritive                                 |
-| bead-of-refreshment                            | Bead of Refreshment                            | Orbe horloge                                    |
+| bead-of-refreshment                            | Bead of Refreshment                            | Perle désaltérante                              |
 | belt-of-dwarvenkind                            | Belt of Dwarvenkind                            | Ceinturon des nains                             |
 | belt-of-giant-strength                         | Belt of Giant Strength                         | Ceinturon de force de géant                     |
 | berserker-axe                                  | Berserker Axe                                  | Hache du berserker                              |
-| blackrazor                                     | Blackrazor                                     | Déluge                                          |
-| book-of-exalted-deeds                          | Book of Exalted Deeds                          | Oeil et Main de Vecna                           |
-| book-of-vile-darkness                          | Book of Vile Darkness                          | Orbe des dragons                                |
+| blackrazor                                     | Blackrazor                                     | Noirtranchant                                   |
+| book-of-exalted-deeds                          | Book of Exalted Deeds                          | Les Chapitres Sacrés                            |
+| book-of-vile-darkness                          | Book of Vile Darkness                          | Les Chapitres Interdits                         |
 | boots-of-elvenkind                             | Boots of Elvenkind                             | Bottes elfiques                                 |
 | boots-of-false-tracks                          | Boots of False Tracks                          | Bottes aux empreintes factices                  |
 | boots-of-levitation                            | Boots of Levitation                            | Bottes de lévitation                            |
 | boots-of-speed                                 | Boots of Speed                                 | Bottes de rapidité                              |
-| boots-of-striding-and-springing                | Boots of Striding and Springing                | Bottes de marche et de saut                     |
+| boots-of-striding-and-springing                | Boots of Striding and Springing                | Bottes de sept lieues                           |
 | boots-of-the-winterlands                       | Boots of the Winterlands                       | Bottes des terres gelées                        |
 | bowl-of-commanding-water-elementals            | Bowl of Commanding Water Elementals            | Jatte de contrôle des élémentaires de l'eau     |
-| bracers-of-archery                             | Bracers of Archery                             | Bracelets d'archerie                            |
+| bracers-of-archery                             | Bracers of Archery                             | Bracelets d'archer                              |
 | bracers-of-defense                             | Bracers of Defense                             | Bracelets de défense                            |
 | brazier-of-commanding-fire-elementals          | Brazier of Commanding Fire Elementals          | Brasero de contrôle des élémentaires du feu     |
-| brooch-of-shielding                            | Brooch of Shielding                            | Broche de protection                            |
+| brooch-of-shielding                            | Brooch of Shielding                            | Broche de défense                               |
 | broom-of-flying                                | Broom of Flying                                | Balai volant                                    |
 | candle-of-invocation                           | Candle of Invocation                           | Cierge d'invocation                             |
-| candle-of-the-deep                             | Candle of the Deep                             | Grimoire résistant                              |
+| candle-of-the-deep                             | Candle of the Deep                             | Chandelle des profondeurs                       |
 | cap-of-water-breathing                         | Cap of Water Breathing                         | Capuchon de respiration aquatique               |
 | cape-of-the-mountebank                         | Cape of the Mountebank                         | Cape du prestidigitateur                        |
 | carpet-of-flying                               | Carpet of Flying                               | Tapis volant                                    |
@@ -60,15 +60,15 @@ English key is the slugified EN name used as `id` in `magical-items.json`.
 | chime-of-opening                               | Chime of Opening                               | Carillon d'ouverture                            |
 | circlet-of-blasting                            | Circlet of Blasting                            | Diadème de destruction                          |
 | cloak-of-arachnida                             | Cloak of Arachnida                             | Cape de l'arachnide                             |
-| cloak-of-billowing                             | Cloak of Billowing                             | Heaume effrayant                                |
+| cloak-of-billowing                             | Cloak of Billowing                             | Cape virevoltante                               |
 | cloak-of-displacement                          | Cloak of Displacement                          | Cape de déplacement                             |
 | cloak-of-elvenkind                             | Cloak of Elvenkind                             | Cape elfique                                    |
 | cloak-of-invisibility                          | Cloak of Invisibility                          | Cape d'invisibilité                             |
-| cloak-of-many-fashions                         | Cloak of Many Fashions                         | Pot d'éveil                                     |
+| cloak-of-many-fashions                         | Cloak of Many Fashions                         | Cape à la mode                                  |
 | cloak-of-protection                            | Cloak of Protection                            | Cape de protection                              |
 | cloak-of-the-bat                               | Cloak of the Bat                               | Cape de la chauve-souris                        |
 | cloak-of-the-manta-ray                         | Cloak of the Manta Ray                         | Cape de la raie manta                           |
-| clockwork-amulet                               | Clockwork Amulet                               | Corde remaillante                               |
+| clockwork-amulet                               | Clockwork Amulet                               | Amulette mécanique                              |
 | clothes-of-mending                             | Clothes of Mending                             | Habits autoréparateurs                          |
 | crystal-ball                                   | Crystal Ball                                   | Boule de cristal                                |
 | crystal-ball-of-mind-reading                   | Crystal Ball of Mind Reading                   | Boule de cristal de lecture des pensées         |
@@ -76,48 +76,48 @@ English key is the slugified EN name used as `id` in `magical-items.json`.
 | crystal-ball-of-true-seeing                    | Crystal Ball of True Seeing                    | Boule de cristal de vision suprême              |
 | cube-of-force                                  | Cube of Force                                  | Cube de force                                   |
 | cube-of-summoning                              | Cube of Summoning                              | Cube de convocation                             |
-| cubic-gate                                     | Cubic Gate                                     | Puits des mondes                                |
+| cubic-gate                                     | Cubic Gate                                     | Cube des plans                                  |
 | daern-s-instant-fortress                       | Daern's Instant Fortress                       | Forteresse instantanée de Daern                 |
 | dagger-of-venom                                | Dagger of Venom                                | Dague venimeuse                                 |
-| dancing-sword                                  | Dancing Sword                                  | Arc du serment                                  |
+| dancing-sword                                  | Dancing Sword                                  | Épée dansante                                   |
 | dark-shard-amulet                              | Dark Shard Amulet                              | Amulette de sombre éclat                        |
 | decanter-of-endless-water                      | Decanter of Endless Water                      | Carafe intarissable                             |
-| deck-of-illusions                              | Deck of Illusions                              | Cartes d'illusion                               |
-| deck-of-many-things                            | Deck of Many Things                            | Cartes merveilleuses                            |
+| deck-of-illusions                              | Deck of Illusions                              | Cartes d'illusion|Tarot fantasmagorique         |
+| deck-of-many-things                            | Deck of Many Things                            | Cartes merveilleuses|Tarot merveilleux          |
 | defender                                       | Defender                                       | Gardienne                                       |
 | demon-armor                                    | Demon Armor                                    | Armure démoniaque                               |
 | demonomicon-of-iggwilv                         | Demonomicon of Iggwilv                         | Demonomicon d'Iggwilv                           |
 | dimensional-shackles                           | Dimensional Shackles                           | Menottes dimensionnelles                        |
 | dragon-scale-mail                              | Dragon Scale Mail                              | Armure d'écailles de dragon                     |
 | dragon-slayer                                  | Dragon Slayer                                  | Tueuse de dragons                               |
-| dread-helm                                     | Dread Helm                                     | Cape virevoltante                               |
+| dread-helm                                     | Dread Helm                                     | Heaume effrayant                                |
 | driftglobe                                     | Driftglobe                                     | Globe flottant                                  |
 | dust-of-disappearance                          | Dust of Disappearance                          | Poussière de disparition                        |
-| dust-of-dryness                                | Dust of Dryness                                | Poussière d'assèchement                         |
-| dust-of-sneezing-and-choking                   | Dust of Sneezing and Choking                   | Poussière à éternuer                            |
+| dust-of-dryness                                | Dust of Dryness                                | Poudre dessiccative                             |
+| dust-of-sneezing-and-choking                   | Dust of Sneezing and Choking                   | Poudre à éternuer                               |
 | dwarven-plate                                  | Dwarven Plate                                  | Harnois nain                                    |
 | dwarven-thrower                                | Dwarven Thrower                                | Marteau volant des nains                        |
 | ear-horn-of-hearing                            | Ear Horn of Hearing                            | Cornet acoustique                               |
 | efficient-quiver                               | Efficient Quiver                               | Carquois efficace                               |
-| efreeti-bottle                                 | Efreeti Bottle                                 | Manuel des golems                               |
+| efreeti-bottle                                 | Efreeti Bottle                                 | Bouteille de l'éfrit|du mauvais génie           |
 | efreeti-chain                                  | Efreeti Chain                                  | Mailles de l'éfrit                              |
 | elemental-gem                                  | Elemental Gem                                  | Gemme élémentaire                               |
-| elixir-of-health                               | Elixir of Health                               | Potion de lecture des pensées                   |
+| elixir-of-health                               | Elixir of Health                               | Élixir de santé                                 |
 | elven-chain                                    | Elven Chain                                    | Mailles elfiques                                |
-| enduring-spellbook                             | Enduring Spellbook                             | Chandelle des profondeurs                       |
+| enduring-spellbook                             | Enduring Spellbook                             | Grimoire résistant                              |
 | energy-bow                                     | Energy Bow                                     | Arc à énergie                                   |
 | enspelled-armor                                | Enspelled Armor                                | Armure-sortilège                                |
 | enspelled-staff                                | Enspelled Staff                                | Bâton-sortilège                                 |
 | enspelled-weapon                               | Enspelled Weapon                               | Arme-sortilège                                  |
-| ersatz-eye                                     | Ersatz Eye                                     | Membre artificiel                               |
-| eversmoking-bottle                             | Eversmoking Bottle                             | Bouteille fumigène                              |
+| ersatz-eye                                     | Ersatz Eye                                     | Oeil artificiel                                 |
+| eversmoking-bottle                             | Eversmoking Bottle                             | Urne fumigène                                   |
 | executioner-s-axe                              | Executioner's Axe                              | Hache du bourreau                               |
-| eye-and-hand-of-vecna                          | Eye and Hand of Vecna                          | Les Chapitres Interdits                         |
+| eye-and-hand-of-vecna                          | Eye and Hand of Vecna                          | Oeil et Main de Vecna                           |
 | eyes-of-charming                               | Eyes of Charming                               | Regard charmeur                                 |
 | eyes-of-minute-seeing                          | Eyes of Minute Seeing                          | Lentilles de netteté                            |
-| eyes-of-the-eagle                              | Eyes of the Eagle                              | Œil de lynx                                     |
+| eyes-of-the-eagle                              | Eyes of the Eagle                              | Yeux de lynx                                    |
 | figurine-of-wondrous-power                     | Figurine of Wondrous Power                     | Figurine merveilleuse                           |
-| flame-tongue                                   | Flame Tongue                                   | Masse d'anéantissement                          |
+| flame-tongue                                   | Flame Tongue                                   | Arme ardente                                    |
 | folding-boat                                   | Folding Boat                                   | Bateau pliable                                  |
 | frost-brand                                    | Frost Brand                                    | Fer gelé                                        |
 | gauntlets-of-ogre-power                        | Gauntlets of Ogre Power                        | Gantelets de puissance d'ogre                   |
@@ -128,7 +128,7 @@ English key is the slugified EN name used as `id` in `magical-items.json`.
 | gloves-of-missile-snaring                      | Gloves of Missile Snaring                      | Gants piégeurs de projectiles                   |
 | gloves-of-swimming-and-climbing                | Gloves of Swimming and Climbing                | Gants de nage et d'escalade                     |
 | gloves-of-thievery                             | Gloves of Thievery                             | Gants de chapardeur                             |
-| goggles-of-night                               | Goggles of Night                               | Lunettes nocturnes                              |
+| goggles-of-night                               | Goggles of Night                               | Lunettes de nuit|du nyctalope                   |
 | hag-eye                                        | Hag Eye                                        | Oeil de guenaude                                |
 | hammer-of-thunderbolts                         | Hammer of Thunderbolts                         | Marteau de tonnerre                             |
 | hat-of-disguise                                | Hat of Disguise                                | Chapeau de déguisement                          |
@@ -137,11 +137,11 @@ English key is the slugified EN name used as `id` in `magical-items.json`.
 | hat-of-wizardry                                | Hat of Wizardry                                | Chapeau de magicien                             |
 | headband-of-intellect                          | Headband of Intellect                          | Bandeau d'intelligence                          |
 | helm-of-brilliance                             | Helm of Brilliance                             | Heaume scintillant                              |
-| helm-of-comprehending-languages                | Helm of Comprehending Languages                | Heaume de compréhension des langages            |
+| helm-of-comprehending-languages                | Helm of Comprehending Languages                | Heaume de compréhension des langues             |
 | helm-of-telepathy                              | Helm of Telepathy                              | Heaume de télépathie                            |
 | helm-of-teleportation                          | Helm of Teleportation                          | Heaume de téléportation                         |
 | heward-s-handy-haversack                       | Heward's Handy Haversack                       | Havresac d'Huard                                |
-| heward-s-handy-spice-pouch                     | Heward's Handy Spice Pouch                     | Amulette mécanique                              |
+| heward-s-handy-spice-pouch                     | Heward's Handy Spice Pouch                     | Bourse à épices d'Huard                         |
 | holy-avenger                                   | Holy Avenger                                   | Vengeresse sacrée                               |
 | horn-of-blasting                               | Horn of Blasting                               | Cor de dévastation                              |
 | horn-of-silent-alarm                           | Horn of Silent Alarm                           | Cor d'alarme silencieuse                        |
@@ -156,19 +156,19 @@ English key is the slugified EN name used as `id` in `magical-items.json`.
 | iron-bands-of-bilarro                          | Iron Bands of Bilarro                          | Liens de fer de Bilarro                         |
 | iron-flask                                     | Iron Flask                                     | Flasque de fer                                  |
 | javelin-of-lightning                           | Javelin of Lightning                           | Javeline de foudre                              |
-| keoghtom-s-ointment                            | Keoghtom's Ointment                            | Baume revigorant                                |
+| keoghtom-s-ointment                            | Keoghtom's Ointment                            | Baume de Keoghtom                               |
 | lantern-of-revealing                           | Lantern of Revealing                           | Lanterne de révélation                          |
-| lock-of-trickery                               | Lock of Trickery                               | Orbe boussole                                   |
+| lock-of-trickery                               | Lock of Trickery                               | Cadenas sournois                                |
 | luck-blade                                     | Luck Blade                                     | Lame porte-bonheur                              |
 | lute-of-thunderous-thumping                    | Lute of Thunderous Thumping                    | Luth tonitruant                                 |
-| mace-of-disruption                             | Mace of Disruption                             | Arme ardente                                    |
+| mace-of-disruption                             | Mace of Disruption                             | Masse d'anéantissement                          |
 | mace-of-smiting                                | Mace of Smiting                                | Masse destructrice                              |
 | mace-of-terror                                 | Mace of Terror                                 | Masse terrifiante                               |
 | mantle-of-spell-resistance                     | Mantle of Spell Resistance                     | Manteau de résistance aux sorts                 |
 | manual-of-bodily-health                        | Manual of Bodily Health                        | Manuel de vitalité                              |
 | manual-of-gainful-exercise                     | Manual of Gainful Exercise                     | Manuel d'exercices physiques                    |
-| manual-of-golems                               | Manual of Golems                               | Bouteille de l'éfrit                            |
-| manual-of-quickness-of-action                  | Manual of Quickness of Action                  | Traité d'autorité et d'influence                |
+| manual-of-golems                               | Manual of Golems                               | Manuel des golems                               |
+| manual-of-quickness-of-action                  | Manual of Quickness of Action                  | Manuel de vivacité                              |
 | mariner-s-armor                                | Mariner's Armor                                | Armure du matelot                               |
 | medallion-of-thoughts                          | Medallion of Thoughts                          | Médaillon des pensées                           |
 | mirror-of-life-trapping                        | Mirror of Life Trapping                        | Miroir d'emprisonnement                         |
@@ -182,51 +182,51 @@ English key is the slugified EN name used as `id` in `magical-items.json`.
 | necklace-of-prayer-beads                       | Necklace of Prayer Beads                       | Collier de prière|Chapelet mystique             |
 | nine-lives-stealer                             | Nine Lives Stealer                             | Voleuse de vie                                  |
 | nolzur-s-marvelous-pigments                    | Nolzur's Marvelous Pigments                    | Pigments merveilleux de Nolzur                  |
-| oathbow                                        | Oathbow                                        | Épée dansante                                   |
+| oathbow                                        | Oathbow                                        | Arc du serment                                  |
 | oil-of-etherealness                            | Oil of Etherealness                            | Huile éthérée                                   |
 | oil-of-sharpness                               | Oil of Sharpness                               | Huile d'affûtage                                |
-| oil-of-slipperiness                            | Oil of Slipperiness                            | Huile glissante                                 |
-| orb-of-direction                               | Orb of Direction                               | Perle désaltérante                              |
-| orb-of-dragonkind                              | Orb of Dragonkind                              | Les Chapitres Sacrés                            |
-| orb-of-time                                    | Orb of Time                                    | Perche du pêcheur                               |
-| pearl-of-power                                 | Pearl of Power                                 | Perle de puissance                              |
-| perfume-of-bewitching                          | Perfume of Bewitching                          | Pipe des monstres de fumée                      |
+| oil-of-slipperiness                            | Oil of Slipperiness                            | Huile d'insaisissabilité                        |
+| orb-of-direction                               | Orb of Direction                               | Orbe boussole                                   |
+| orb-of-dragonkind                              | Orb of Dragonkind                              | Orbe des dragons                                |
+| orb-of-time                                    | Orb of Time                                    | Orbe horloge                                    |
+| pearl-of-power                                 | Pearl of Power                                 | Perle de pouvoir|de thaumaturgie                |
+| perfume-of-bewitching                          | Perfume of Bewitching                          | Parfum envoûtant                                |
 | periapt-of-health                              | Periapt of Health                              | Amulette de santé                               |
 | periapt-of-proof-against-poison                | Periapt of Proof against Poison                | Amulette de protection contre le poison         |
 | periapt-of-wound-closure                       | Periapt of Wound Closure                       | Amulette de cicatrisation                       |
 | philter-of-love                                | Philter of Love                                | Philtre d'amour                                 |
-| pipe-of-smoke-monsters                         | Pipe of Smoke Monsters                         | Perche rétractable                              |
+| pipe-of-smoke-monsters                         | Pipe of Smoke Monsters                         | Pipe des monstres de fumée                      |
 | pipes-of-haunting                              | Pipes of Haunting                              | Flûte terrifiante                               |
 | pipes-of-the-sewers                            | Pipes of the Sewers                            | Flûte des égouts                                |
 | plate-armor-of-etherealness                    | Plate Armor of Etherealness                    | Harnois éthéré                                  |
-| pole-of-angling                                | Pole of Angling                                | Cadenas sournois                                |
-| pole-of-collapsing                             | Pole of Collapsing                             | Parfum envoûtant                                |
+| pole-of-angling                                | Pole of Angling                                | Perche du pêcheur                               |
+| pole-of-collapsing                             | Pole of Collapsing                             | Perche rétractable                              |
 | portable-hole                                  | Portable Hole                                  | Puits portable                                  |
-| pot-of-awakening                               | Pot of Awakening                               | Bourse à épices d'Huard                         |
+| pot-of-awakening                               | Pot of Awakening                               | Pot d'éveil                                     |
 | potion-of-animal-friendship                    | Potion of Animal Friendship                    | Potion d'amitié avec les animaux                |
 | potion-of-clairvoyance                         | Potion of Clairvoyance                         | Potion de clairvoyance                          |
 | potion-of-climbing                             | Potion of Climbing                             | Potion d'escalade                               |
 | potion-of-comprehension                        | Potion of Comprehension                        | Potion de compréhension                         |
 | potion-of-diminution                           | Potion of Diminution                           | Potion de diminution                            |
 | potion-of-fire-breath                          | Potion of Fire Breath                          | Potion de souffle enflammé                      |
-| potion-of-flying                               | Potion of Flying                               | Élixir de jouvence                              |
-| potion-of-gaseous-form                         | Potion of Gaseous Form                         | Potion d'invisibilité                           |
+| potion-of-flying                               | Potion of Flying                               | Potion de vol                                   |
+| potion-of-gaseous-form                         | Potion of Gaseous Form                         | Potion de forme gazeuse                         |
 | potion-of-giant-strength                       | Potion of Giant Strength                       | Potion de force de géant                        |
 | potion-of-greater-invisibility                 | Potion of Greater Invisibility                 | Potion d'invisibilité suprême                   |
 | potion-of-growth                               | Potion of Growth                               | Potion d'agrandissement                         |
-| potion-of-heroism                              | Potion of Heroism                              | Potion de forme gazeuse                         |
-| potion-of-invisibility                         | Potion of Invisibility                         | Potion d'héroïsme                               |
+| potion-of-heroism                              | Potion of Heroism                              | Potion d'héroïsme                               |
+| potion-of-invisibility                         | Potion of Invisibility                         | Potion d'invisibilité                           |
 | potion-of-invulnerability                      | Potion of Invulnerability                      | Potion d'invulnérabilité                        |
-| potion-of-longevity                            | Potion of Longevity                            | Potion de vol                                   |
-| potion-of-mind-reading                         | Potion of Mind Reading                         | Élixir de santé                                 |
-| potion-of-poison                               | Potion of Poison                               | Potion de poison                                |
+| potion-of-longevity                            | Potion of Longevity                            | Élixir de jouvence                              |
+| potion-of-mind-reading                         | Potion of Mind Reading                         | Potion de lecture des pensées                   |
+| potion-of-poison                               | Potion of Poison                               | Potion de poison|Potion toxique                 |
 | potion-of-pugilism                             | Potion of Pugilism                             | Potion des pugilistes                           |
 | potion-of-resistance                           | Potion of Resistance                           | Potion de résistance                            |
 | potion-of-speed                                | Potion of Speed                                | Potion de vitesse                               |
 | potion-of-vitality                             | Potion of Vitality                             | Potion de vitalité                              |
 | potion-of-water-breathing                      | Potion of Water Breathing                      | Potion de respiration aquatique                 |
 | potions-of-healing                             | Potions of Healing                             | Potions de guérison                             |
-| prosthetic-limb                                | Prosthetic Limb                                | Cape à la mode                                  |
+| prosthetic-limb                                | Prosthetic Limb                                | Membre artificiel                               |
 | quaal-s-feather-token                          | Quaal's Feather Token                          | Plume de Quaal                                  |
 | quarterstaff-of-the-acrobat                    | Quarterstaff of the Acrobat                    | Bâton de l'acrobate                             |
 | quiver-of-ehlonna                              | Quiver of Ehlonna                              | Carquois d'Ehlonna                              |
@@ -238,7 +238,7 @@ English key is the slugified EN name used as `id` in `magical-items.json`.
 | ring-of-free-action                            | Ring of Free Action                            | Anneau d'action libre                           |
 | ring-of-invisibility                           | Ring of Invisibility                           | Anneau d'invisibilité                           |
 | ring-of-jumping                                | Ring of Jumping                                | Anneau de saut                                  |
-| ring-of-mind-shielding                         | Ring of Mind Shielding                         | Anneau de protection mentale                    |
+| ring-of-mind-shielding                         | Ring of Mind Shielding                         | Anneau de barrière mentale                      |
 | ring-of-protection                             | Ring of Protection                             | Anneau de protection                            |
 | ring-of-regeneration                           | Ring of Regeneration                           | Anneau de régénération                          |
 | ring-of-resistance                             | Ring of Resistance                             | Anneau de résistance                            |
@@ -249,15 +249,15 @@ English key is the slugified EN name used as `id` in `magical-items.json`.
 | ring-of-telekinesis                            | Ring of Telekinesis                            | Anneau de télékinésie                           |
 | ring-of-the-ram                                | Ring of the Ram                                | Anneau du bélier                                |
 | ring-of-three-wishes                           | Ring of Three Wishes                           | Anneau de triple souhait                        |
-| ring-of-warmth                                 | Ring of Warmth                                 | Anneau de chaleur                               |
+| ring-of-warmth                                 | Ring of Warmth                                 | Anneau de chaleur constante                     |
 | ring-of-water-walking                          | Ring of Water Walking                          | Anneau de marche sur l'eau                      |
 | ring-of-x-ray-vision                           | Ring of X-ray Vision                           | Anneau de rayons X                              |
 | rival-coin                                     | Rival Coin                                     | Pièce des rivaux                                |
 | robe-of-eyes                                   | Robe of Eyes                                   | Robe de vision totale                           |
 | robe-of-scintillating-colors                   | Robe of Scintillating Colors                   | Robe prismatique                                |
 | robe-of-stars                                  | Robe of Stars                                  | Robe aux étoiles                                |
-| robe-of-the-archmagi                           | Robe of the Archmagi                           | Talisman de la sphère                           |
-| robe-of-useful-items                           | Robe of Useful Items                           | Robe d'objets pratiques                         |
+| robe-of-the-archmagi                           | Robe of the Archmagi                           | Robe de l'archimage                             |
+| robe-of-useful-items                           | Robe of Useful Items                           | Robe du camelot                                 |
 | rod-of-absorption                              | Rod of Absorption                              | Sceptre d'absorption                            |
 | rod-of-alertness                               | Rod of Alertness                               | Sceptre de vigilance                            |
 | rod-of-lordly-might                            | Rod of Lordly Might                            | Sceptre de puissance seigneuriale               |
@@ -265,9 +265,9 @@ English key is the slugified EN name used as `id` in `magical-items.json`.
 | rod-of-rulership                               | Rod of Rulership                               | Sceptre de suzeraineté                          |
 | rod-of-security                                | Rod of Security                                | Sceptre de sécurité                             |
 | rod-of-the-pact-keeper                         | Rod of the Pact Keeper                         | Sceptre du gardien des pactes                   |
-| rope-of-climbing                               | Rope of Climbing                               | Corde d'escalade                                |
+| rope-of-climbing                               | Rope of Climbing                               | Corde d'ascension                               |
 | rope-of-entanglement                           | Rope of Entanglement                           | Corde d'enchevêtrement                          |
-| rope-of-mending                                | Rope of Mending                                | Oeil artificiel                                 |
+| rope-of-mending                                | Rope of Mending                                | Corde remaillante                               |
 | ruby-of-the-war-mage                           | Ruby of the War Mage                           | Rubis du mage de guerre                         |
 | saddle-of-the-cavalier                         | Saddle of the Cavalier                         | Selle du cavalier|du hussard                    |
 | scarab-of-protection                           | Scarab of Protection                           | Scarabée de protection                          |
@@ -276,10 +276,10 @@ English key is the slugified EN name used as `id` in `magical-items.json`.
 | scroll-of-titan-summoning                      | Scroll of Titan Summoning                      | Parchemin de convocation de titan               |
 | sending-stones                                 | Sending Stones                                 | Pierres messagères                              |
 | sentinel-shield                                | Sentinel Shield                                | Bouclier sentinelle                             |
-| shield-1-2-or-3                                | Shield, +1, +2, or +3                          | Bouclier +1                                     |
+| shield-1-2-or-3                                | Shield, +1, +2, or +3                          | Bouclier +1, +2 ou +3                           |
 | shield-of-expression                           | Shield of Expression                           | Bouclier expressif                              |
 | shield-of-missile-attraction                   | Shield of Missile Attraction                   | Bouclier d'attraction des projectiles           |
-| shield-of-the-cavalier                         | Shield of the Cavalier                         | Bouclier du cavalier                            |
+| shield-of-the-cavalier                         | Shield of the Cavalier                         | Bouclier du cavalier|du hussard                 |
 | silvered-weapon                                | Silvered Weapon                                | Arme en argent                                  |
 | slippers-of-spider-climbing                    | Slippers of Spider Climbing                    | Chaussons de l'araignée                         |
 | smoldering-armor                               | Smoldering Armor                               | Armure fumante                                  |
@@ -308,23 +308,23 @@ English key is the slugified EN name used as `id` in `magical-items.json`.
 | stone-of-good-luck-luckstone                   | Stone of Good Luck (Luckstone)                 | Pierre porte-bonheur                            |
 | sun-blade                                      | Sun Blade                                      | Épée radieuse                                   |
 | sword-of-answering                             | Sword of Answering                             | Épée de réponse                                 |
-| sword-of-kas                                   | Sword of Kas                                   | Vague                                           |
+| sword-of-kas                                   | Sword of Kas                                   | Épée de Kas                                     |
 | sword-of-life-stealing                         | Sword of Life Stealing                         | Épée voleuse de vie                             |
 | sword-of-sharpness                             | Sword of Sharpness                             | Épée acérée                                     |
 | sword-of-vengeance                             | Sword of Vengeance                             | Épée vengeresse                                 |
 | sword-of-wounding                              | Sword of Wounding                              | Épée mordante                                   |
 | sylvan-talon                                   | Sylvan Talon                                   | Serre sylvestre                                 |
-| talisman-of-pure-good                          | Talisman of Pure Good                          | Talisman du mal absolu                          |
-| talisman-of-the-sphere                         | Talisman of the Sphere                         | Robe de l'archimage                             |
-| talisman-of-ultimate-evil                      | Talisman of Ultimate Evil                      | Tome de la langue nouée                         |
+| talisman-of-pure-good                          | Talisman of Pure Good                          | Talisman du bien ultime                         |
+| talisman-of-the-sphere                         | Talisman of the Sphere                         | Talisman de la sphère                           |
+| talisman-of-ultimate-evil                      | Talisman of Ultimate Evil                      | Talisman du mal absolu                          |
 | talking-doll                                   | Talking Doll                                   | Poupée qui parle                                |
 | tankard-of-sobriety                            | Tankard of Sobriety                            | Chope de sobriété                               |
 | tentacle-rod                                   | Tentacle Rod                                   | Sceptre-tentacule                               |
 | thunderous-greatclub                           | Thunderous Greatclub                           | Massue tonnante                                 |
 | tome-of-clear-thought                          | Tome of Clear Thought                          | Traité de perspicacité                          |
-| tome-of-leadership-and-influence               | Tome of Leadership and Influence               | Traité de compréhension                         |
-| tome-of-the-stilled-tongue                     | Tome of the Stilled Tongue                     | Talisman du bien ultime                         |
-| tome-of-understanding                          | Tome of Understanding                          | Manuel de vivacité                              |
+| tome-of-leadership-and-influence               | Tome of Leadership and Influence               | Traité d'autorité et d'influence                |
+| tome-of-the-stilled-tongue                     | Tome of the Stilled Tongue                     | Tome de la langue nouée                         |
+| tome-of-understanding                          | Tome of Understanding                          | Traité de compréhension                         |
 | trident-of-fish-command                        | Trident of Fish Command                        | Trident de domination aquatique                 |
 | universal-solvent                              | Universal Solvent                              | Solvant universel                               |
 | veteran-s-cane                                 | Veteran's Cane                                 | Canne du vétéran                                |
@@ -335,8 +335,8 @@ English key is the slugified EN name used as `id` in `magical-items.json`.
 | wand-of-conducting                             | Wand of Conducting                             | Baguette du chef d'orchestre                    |
 | wand-of-enemy-detection                        | Wand of Enemy Detection                        | Baguette de détection de l'ennemi               |
 | wand-of-entanglement                           | Wand of Entanglement                           | Baguette entoilée                               |
-| wand-of-fear                                   | Wand of Fear                                   | Baguette de boules de feu                       |
-| wand-of-fireballs                              | Wand of Fireballs                              | Baguette de peur                                |
+| wand-of-fear                                   | Wand of Fear                                   | Baguette de peur|de terreur                     |
+| wand-of-fireballs                              | Wand of Fireballs                              | Baguette de boules de feu                       |
 | wand-of-lightning-bolts                        | Wand of Lightning Bolts                        | Baguette d'éclairs                              |
 | wand-of-magic-detection                        | Wand of Magic Detection                        | Baguette de détection de la magie               |
 | wand-of-magic-missiles                         | Wand of Magic Missiles                         | Baguette de projectiles magiques                |
@@ -345,14 +345,14 @@ English key is the slugified EN name used as `id` in `magical-items.json`.
 | wand-of-polymorph                              | Wand of Polymorph                              | Baguette de métamorphose                        |
 | wand-of-pyrotechnics                           | Wand of Pyrotechnics                           | Baguette du pyrotechnicien                      |
 | wand-of-secrets                                | Wand of Secrets                                | Baguette des secrets                            |
-| wand-of-the-war-mage-1-2-or-3                  | Wand of the War Mage, +1, +2, or +3            | Baguette du mage de guerre +1                   |
+| wand-of-the-war-mage-1-2-or-3                  | Wand of the War Mage, +1, +2, or +3            | Baguette du mage de guerre +1, +2 ou +3         |
 | wand-of-web                                    | Wand of Web                                    | Baguette de toile d'araignée|des toiles         |
 | wand-of-wonder                                 | Wand of Wonder                                 | Baguette des merveilles                         |
-| wave                                           | Wave                                           | Hache des seigneurs nains                       |
-| weapon-1-2-or-3                                | Weapon, +1, +2, or +3                          | Arme +1                                         |
+| wave                                           | Wave                                           | Vague                                           |
+| weapon-1-2-or-3                                | Weapon, +1, +2, or +3                          | Arme +1, +2 ou +3                               |
 | weapon-of-warning                              | Weapon of Warning                              | Arme vigilante                                  |
-| well-of-many-worlds                            | Well of Many Worlds                            | Cube des plans                                  |
-| whelm                                          | Whelm                                          | Noirtranchant                                   |
+| well-of-many-worlds                            | Well of Many Worlds                            | Puits des mondes                                |
+| whelm                                          | Whelm                                          | Déluge                                          |
 | wind-fan                                       | Wind Fan                                       | Éventail enchanté                               |
 | winged-boots                                   | Winged Boots                                   | Bottes ailées                                   |
 | wings-of-flying                                | Wings of Flying                                | Cape de vol                                     |
