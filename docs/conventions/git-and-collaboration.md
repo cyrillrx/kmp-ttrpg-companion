@@ -87,3 +87,15 @@ feat(spell): redesign spell list screen with new item, samples, and strings
 - **Code Quality**: PRs must pass all automated checks (linting, tests, build) on the CI pipeline. The CI pipeline (`.github/workflows/ci.yml`) runs `KMP Client - JVM Tests` (`./gradlew jvmTest` in `cmp-ttrpg-companion/`) on every PR targeting the default branch. It must pass for a PR to be mergeable.
 - **Warnings as Errors**: Treat compiler warnings seriously. Fix them proactively.
 - **Security Scans**: Integrate automated security scanning where applicable.
+
+## 7. Architecture Decision Records (ADRs)
+
+For any change that significantly affects the data model, source format, or technical architecture, an **ADR must be created or updated before starting the implementation**.
+
+ADRs live in [`docs/adr/`](../adr/) and follow the naming convention `adr-###-kebab-case-title.md`. Creating the ADR in a dedicated commit (or early in the implementation PR) before the bulk of the implementation is strongly encouraged — it gives reviewers context and prevents costly rework.
+
+Changes that require an ADR include, but are not limited to:
+- Compendium source format or schema changes
+- Data distribution format changes (JSON structure, API contracts)
+- New cross-cutting architectural patterns (deeplink conventions, navigation model, etc.)
+- Database schema changes with migration implications
