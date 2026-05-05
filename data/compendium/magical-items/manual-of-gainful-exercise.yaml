@@ -1,0 +1,21 @@
+id: manual-of-gainful-exercise
+source: dmg_2024
+type: wondrous_item
+rarity: very_rare
+attunement: false
+translations:
+  en:
+    name: Manual of Gainful Exercise
+    subtype: null
+    description: <p>This book describes fitness exercises, and its words are charged
+      with magic. If you spend 48 hours over a period of 6 days or fewer studying
+      the book's contents and practicing its guidelines, your Strength increases by
+      2, to a maximum of 30. The manual then loses its magic but regains it in a century.</p>
+  fr:
+    name: Manuel d'exercices physiques
+    subtype: null
+    description: <p>Ce livre décrit des exercices de fitness et ses mots sont chargés
+      de magie. Si vous passez 48 heures sur une période de 6 jours ou moins à étudier
+      le contenu du livre et à mettre en pratique ses conseils, votre Force augmente
+      de 2, jusqu'à un maximum de 30. Le manuel perd alors sa magie mais il la retrouvera
+      au bout d'un siècle.</p>

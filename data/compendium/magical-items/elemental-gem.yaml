@@ -1,0 +1,28 @@
+id: elemental-gem
+source: dmg_2024
+type: wondrous_item
+rarity: uncommon
+attunement: false
+translations:
+  en:
+    name: Elemental Gem
+    subtype: null
+    description: |-
+      <p>This gem contains a mote of elemental energy. When you take a Utilize action to break the gem, an elemental is summoned, and the gem ceases to be magical. The elemental appears in an unoccupied space as close to the broken gem as possible, understands your languages, obeys your commands, and takes its turn immediately after you on your Initiative count. The elemental disappears after 1 hour, when it dies, or when you dismiss it as a Bonus Action. The type of gem determines the elemental, as shown in the following table.<br />
+      Gem| Summoned Elemental<br />
+      ---|---<br />
+      Blue sapphire| <a href="https://www.aidedd.org/monster/air-elemental">Air Elemental</a><br />
+      Emerald| <a href="https://www.aidedd.org/monster/water-elemental">Water Elemental</a><br />
+      Red corundum| <a href="https://www.aidedd.org/monster/fire-elemental">Fire Elemental</a><br />
+      Yellow diamond| <a href="https://www.aidedd.org/monster/earth-elemental">Earth Elemental</a></p>
+  fr:
+    name: Gemme élémentaire
+    subtype: null
+    description: |-
+      <p>Cette gemme contient une particule d'énergie élémentaire. Lorsque vous prenez une action Utilisation pour la briser, un élémentaire est convoqué et la gemme perd son pouvoir magique. L'élémentaire apparaît dans un espace libre, aussi proche que possible de la gemme brisée, comprend vos langues, obéit à vos ordres et intervient immédiatement après vous dans l'ordre d'Initiative. L'élémentaire disparaît après 1 heure, lorsqu'il meurt ou lorsque vous le renvoyez par une action Bonus. Le type de gemme détermine l'élémentaire, comme indiqué dans la table suivante.<br />
+      Gemme| Élémentaire convoqué<br />
+      ---|---<br />
+      Saphir bleu| <a href="https://www.aidedd.org/monster/fr/elementaire-de-l-air">Élémentaire de l'air</a><br />
+      Émeraude| <a href="https://www.aidedd.org/monster/fr/elementaire-de-l-eau">Élémentaire de l'eau</a><br />
+      Corindon rouge| <a href="https://www.aidedd.org/monster/fr/elementaire-du-feu">Élémentaire du feu</a><br />
+      Diamant jaune| <a href="https://www.aidedd.org/monster/fr/elementaire-de-la-terre">Élémentaire de la terre</a></p>

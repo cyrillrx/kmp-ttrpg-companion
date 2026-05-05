@@ -1,0 +1,26 @@
+id: staff-of-thunder-and-lightning
+source: dmg_2024
+type: staff
+rarity: very_rare
+attunement: true
+translations:
+  en:
+    name: Staff of Thunder and Lightning
+    subtype: null
+    description: |-
+      <p>This staff can be wielded as a magic Quarterstaff that grants a +2 bonus to attack rolls and damage rolls made with it. It also has the following additional properties. Once one of these properties is used, it can't be used again until the next dawn.<br />
+      <strong>Lightning</strong>. When you hit with a melee attack using the staff, you can cause the target to take an extra 2d6 Lightning damage (no action required).<br />
+      <strong>Thunder</strong>. When you hit with a melee attack using the staff, you can cause the staff to emit a crack of thunder audible out to 300 feet (no action required). The target you hit must succeed on a DC 17 Constitution saving throw or have the Stunned condition until the end of your next turn.<br />
+      <strong>Thunder and Lightning</strong>. Immediately after you hit with a melee attack using the staff, you can take a Bonus Action to use the Lightning and Thunder properties (see above) at the same time. Doing so doesn't expend the daily use of those properties, only the use of this one.<br />
+      <strong>Lightning Strike</strong>. You can take a Magic action to cause a bolt of lightning to leap from the staff's tip in a Line that is 5 feet wide and 120 feet long. Each creature in that Line makes a DC 17 Dexterity saving throw, taking 9d6 Lightning damage on a failed save or half as much damage on a successful one.<br />
+      <strong>Thunderclap</strong>. You can take a Magic action to cause the staff to produce a thunderclap audible out to 600 feet. Every creature within a 60-foot Emanation originating from you makes a DC 17 Constitution saving throw. On a failed save, a creature takes 2d6 Thunder damage and has the Deafened condition for 1 minute. On a successful save, a creature takes half as much damage only.</p>
+  fr:
+    name: Bâton de tonnerre et de foudre
+    subtype: null
+    description: |-
+      <p>Ce bâton peut être utilisé comme un bâton magique, conférant un bonus de +2 aux jets d'attaque et de dégâts. Il possède également les propriétés supplémentaires suivantes. Une fois l'une de ces propriétés utilisée, elle ne peut plus être utilisée avant l'aube suivante.<br />
+      <strong>Foudre</strong>. Lorsque vous touchez une cible au corps à corps avec le bâton, vous pouvez lui infliger 2d6 dégâts de foudre supplémentaires (aucune action requise).<br />
+      <strong>Tonnerre</strong>. Lorsque vous touchez une cible au corps à corps avec le bâton, vous pouvez provoquer un coup de tonnerre audible à 90 mètres (aucune action requise). La cible touchée doit réussir un jet de sauvegarde de Constitution DD 17 ou subir l'état Étourdi jusqu'à la fin de votre prochain tour.<br />
+      <strong>Tonnerre et foudre</strong>. Immédiatement après avoir touché une cible au corps à corps avec le bâton, vous pouvez prendre une action Bonus pour utiliser simultanément les propriétés Foudre et Tonnerre (voir ci-dessus). Cela ne consomme pas l'utilisation quotidienne de ces propriétés, seulement celle-ci.<br />
+      <strong>Trait foudroyant</strong>. Vous pouvez prendre une action Magie pour faire jaillir un éclair de la pointe du bâton sur une Ligne de 1,50 mètre de large et 36 mètres de long. Chaque créature sur cette Ligne effectue un jet de sauvegarde de Dextérité DD 17, subissant 9d6 dégâts de foudre en cas d'échec ou la moitié de ces dégâts en cas de réussite.<br />
+      <strong>Coup de tonnerre</strong>. Vous pouvez prendre une action Magie pour que le bâton produise un coup de tonnerre audible à 180 mètres. Toute créature située dans une Émanation de 18 mètres centrée sur vous effectue un jet de sauvegarde de Constitution DD 17. En cas d'échec, une créature subit 2d6 dégâts de tonnerre et l'état Assourdi pendant 1 minute. En cas de réussite, une créature subit seulement la moitié de ces dégâts.</p>

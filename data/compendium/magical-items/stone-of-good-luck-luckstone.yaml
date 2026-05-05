@@ -1,0 +1,16 @@
+id: stone-of-good-luck-luckstone
+source: dmg_2024
+type: wondrous_item
+rarity: uncommon
+attunement: true
+translations:
+  en:
+    name: Stone of Good Luck (Luckstone)
+    subtype: null
+    description: <p>While this polished agate is on your person, you gain a +1 bonus
+      to ability checks and saving throws.</p>
+  fr:
+    name: Pierre porte-bonheur
+    subtype: null
+    description: <p>Lorsque vous portez cette agate polie sur vous, vous obtenez un
+      bonus de +1 aux jets de caractéristique et de sauvegarde.</p>

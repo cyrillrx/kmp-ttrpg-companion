@@ -1,0 +1,16 @@
+id: smoldering-armor
+source: dmg_2024
+type: armor
+rarity: common
+attunement: false
+translations:
+  en:
+    name: Smoldering Armor
+    subtype: Any Heavy, Medium, or Light
+    description: <p>Wisps of harmless, odorless smoke rise from this armor while it
+      is worn.</p>
+  fr:
+    name: Armure fumante
+    subtype: légère, intermédiaire ou lourde
+    description: <p>Des volutes de fumée inoffensive et inodore s'élèvent de cette
+      armure lorsqu'elle est portée.</p>

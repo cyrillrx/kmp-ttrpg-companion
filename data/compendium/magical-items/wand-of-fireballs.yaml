@@ -1,0 +1,18 @@
+id: wand-of-fireballs
+source: dmg_2024
+type: wand
+rarity: rare
+attunement: true
+translations:
+  en:
+    name: Wand of Fireballs
+    subtype: null
+    description: |-
+      <p>This wand has 7 charges. While holding it, you can expend no more than 3 charges to cast <em><a href="https://www.aidedd.org/spell/fireball">Fireball</a></em> (save DC 15) from it. For 1 charge, you cast the level 3 version of the spell. You can increase the spell's level by 1 for each additional charge you expend.<br />
+      <strong>Regaining Charges</strong>. The wand regains 1d6 + 1 expended charges daily at dawn. If you expend the wand's last charge, roll 1d20. On a 1, the wand crumbles into ashes and is destroyed.</p>
+  fr:
+    name: Baguette de boules de feu
+    subtype: null
+    description: |-
+      <p>Cette baguette possède 7 charges. Lorsque vous la tenez, vous ne pouvez pas dépenser plus de 3 charges pour lancer <em><a href="https://www.aidedd.org/spell/fr/boule-de-feu">boule de feu</a></em> (sauvegarde DD 15). Pour 1 charge, vous lancez la version niveau 3 du sort. Vous pouvez augmenter le niveau du sort de 1 pour chaque charge supplémentaire dépensée.<br />
+      <strong>Récupération des charges</strong>. La baguette récupère 1d6 + 1 charges dépensées chaque jour à l'aube. Si vous dépensez la dernière charge de la baguette, lancez 1d20. Sur un 1, la baguette se réduit en cendres et est détruite.</p>

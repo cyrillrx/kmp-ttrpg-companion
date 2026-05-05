@@ -1,0 +1,14 @@
+id: demonomicon-of-iggwilv
+source: dmg_2024
+type: wondrous_item
+rarity: artifact
+attunement: true
+translations:
+  en:
+    name: Demonomicon of Iggwilv
+    subtype: null
+    description: ''
+  fr:
+    name: Demonomicon d'Iggwilv
+    subtype: null
+    description: ''

@@ -1,0 +1,30 @@
+id: staff-of-healing
+source: dmg_2024
+type: staff
+rarity: rare
+attunement: true
+translations:
+  en:
+    name: Staff of Healing
+    subtype: null
+    description: |-
+      <p>This staff has 10 charges. While holding the staff, you can cast one of the spells on the following table from it, using your spellcasting ability modifier. The table indicates how many charges you must expend to cast the spell.<br />
+      Spell| Charge Cost<br />
+      ---|---<br />
+      <em><a href="https://www.aidedd.org/spell/cure-wounds">Cure Wounds</a></em>|  1 charge per spell level<br />
+      (maximum 4 for a level 4 spell)<br />
+      <em><a href="https://www.aidedd.org/spell/lesser-restoration">Lesser Restoration</a></em>|  2<br />
+      <em><a href="https://www.aidedd.org/spell/mass-cure-wounds">Mass Cure Wounds</a></em>|  5  </p>
+      <p><strong>Regaining Charges</strong>. The staff regains 1d6 + 4 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff vanishes in a flash of light, lost forever.</p>
+  fr:
+    name: Bâton de guérison
+    subtype: null
+    description: |-
+      <p>Ce bâton possède 10 charges. Lorsque vous le tenez, vous pouvez lancer l'un des sorts de la table suivante, en utilisant votre modificateur de caractéristique d'incantation. La table indique le nombre de charges nécessaires pour lancer le sort.<br />
+      Sort| Coût en charges<br />
+      ---|---<br />
+      <em><a href="https://www.aidedd.org/spell/fr/soins">soins</a></em>|  1 charge par niveau de sort<br />
+      (maximum 4 pour un sort de niveau 4)<br />
+      <em><a href="https://www.aidedd.org/spell/fr/restauration-partielle">restauration partielle</a></em>|  2<br />
+      <em><a href="https://www.aidedd.org/spell/fr/soins-de-groupe&quot;">soins de groupe</a></em>|  5  </p>
+      <p><strong>Récupération des charges</strong>. Le bâton récupère 1d6 + 4 charges dépensées chaque jour à l'aube. Si vous dépensez la dernière charge, lancez 1d20. Sur un 1, le bâton disparaît dans un éclair de lumière, perdu à jamais.</p>

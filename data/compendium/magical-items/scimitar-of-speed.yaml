@@ -1,0 +1,18 @@
+id: scimitar-of-speed
+source: dmg_2024
+type: weapon
+rarity: very_rare
+attunement: true
+translations:
+  en:
+    name: Scimitar of Speed
+    subtype: Scimitar
+    description: <p>You gain a +2 bonus to attack rolls and damage rolls made with
+      this magic weapon. In addition, you can make one attack with it as a Bonus Action
+      on each of your turns.</p>
+  fr:
+    name: Cimeterre de célérité
+    subtype: cimeterre
+    description: <p>Vous obtenez un bonus de +2 aux jets d'attaque et de dégâts effectués
+      avec cette arme magique. De plus, vous pouvez effectuer une attaque avec elle
+      en tant qu'action Bonus à chacun de vos tours.</p>

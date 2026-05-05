@@ -1,0 +1,18 @@
+id: defender
+source: dmg_2024
+type: weapon
+rarity: legendary
+attunement: true
+translations:
+  en:
+    name: Defender
+    subtype: Any Melee Weapon
+    description: |-
+      <p>You gain a +3 bonus to attack rolls and damage rolls made with this magic weapon.<br />
+      The first time you attack with the weapon on each of your turns, you can transfer some or all of the weapon's bonus to your Armor Class. For example, you could reduce the bonus to your attack rolls and damage rolls to +1 and gain a +2 bonus to Armor Class. The adjusted bonuses remain in effect until the start of your next turn, although you must hold the weapon to gain a bonus to AC from it.</p>
+  fr:
+    name: Gardienne
+    subtype: toute arme de corps à corps
+    description: |-
+      <p>Vous obtenez un bonus de +3 aux jets d'attaque et de dégâts effectués avec cette arme magique.<br />
+      La première fois que vous attaquez avec cette arme à chacun de vos tours, vous pouvez transférer tout ou partie de son bonus à votre CA. Par exemple, vous pouvez réduire le bonus à vos jets d'attaque et de dégâts à +1 et obtenir un bonus de +2 à votre CA. Ces bonus ajustés restent en vigueur jusqu'au début de votre prochain tour, mais vous devez tenir l'arme pour en bénéficier.</p>

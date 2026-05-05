@@ -1,0 +1,18 @@
+id: wand-of-conducting
+source: dmg_2024
+type: wand
+rarity: common
+attunement: false
+translations:
+  en:
+    name: Wand of Conducting
+    subtype: null
+    description: |-
+      <p>This wand has 3 charges. While holding it, you can take a Magic action to expend 1 charge and create orchestral music by waving it around. The music can be heard out to 120 feet and ends when you stop waving the wand.<br />
+      <strong>Regaining Charges</strong>. The wand regains all expended charges daily at dawn. If you expend the wand's last charge, roll 1d20. On a 1, a sad tuba sound plays as the wand crumbles into dust and is destroyed.</p>
+  fr:
+    name: Baguette du chef d'orchestre
+    subtype: null
+    description: |-
+      <p>Cette baguette possède 3 charges. Lorsque vous la tenez, vous pouvez prendre une action Magie pour dépenser 1 charge et créer une musique orchestrale en l'agitant. La musique est audible jusqu'à 36 mètres et s'arrête lorsque vous cessez d'agiter la baguette.<br />
+      <strong>Récupération des charges</strong>. La baguette récupère toutes ses charges dépensées chaque jour à l'aube. Si vous dépensez la dernière charge de la baguette, lancez 1d20. Sur un 1, un son de tuba mélancolique retentit tandis que la baguette se désintègre en poussière et est détruite.</p>

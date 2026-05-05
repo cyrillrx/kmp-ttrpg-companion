@@ -1,0 +1,14 @@
+id: eye-and-hand-of-vecna
+source: dmg_2024
+type: wondrous_item
+rarity: artifact
+attunement: true
+translations:
+  en:
+    name: Eye and Hand of Vecna
+    subtype: null
+    description: ''
+  fr:
+    name: Oeil et Main de Vecna
+    subtype: null
+    description: ''

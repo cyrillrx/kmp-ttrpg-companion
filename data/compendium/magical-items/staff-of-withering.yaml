@@ -1,0 +1,25 @@
+id: staff-of-withering
+source: dmg_2024
+type: staff
+rarity: rare
+attunement: true
+translations:
+  en:
+    name: Staff of Withering
+    subtype: null
+    description: <p>This staff has 3 charges and regains 1d3 expended charges daily
+      at dawn. The staff can be wielded as a magic Quarterstaff. On a hit, it deals
+      damage as a normal Quarterstaff, and you can expend 1 charge to deal an extra
+      2d10 Necrotic damage to the target and force it to make a DC 15 Constitution
+      saving throw. On a failed save, the target has Disadvantage for 1 hour on any
+      ability check or saving throw that uses Strength or Constitution.</p>
+  fr:
+    name: Bâton de flétrissement
+    subtype: null
+    description: <p>Ce bâton possède 3 charges et récupère 1d3 charges dépensées chaque
+      jour à l'aube. Il peut être utilisé comme un bâton magique. S'il touche, il
+      inflige des dégâts comme un bâton normal, et vous pouvez dépenser 1 charge pour
+      infliger 2d10 dégâts nécrotiques supplémentaires à la cible et la forcer à effectuer
+      un jet de sauvegarde de Constitution DD 15. En cas d'échec, la cible a un Désavantage
+      pendant 1 heure à tous ses jets de caractéristique ou de sauvegarde utilisant
+      la Force ou la Constitution.</p>

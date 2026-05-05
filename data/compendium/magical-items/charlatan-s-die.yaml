@@ -1,0 +1,16 @@
+id: charlatan-s-die
+source: dmg_2024
+type: wondrous_item
+rarity: common
+attunement: true
+translations:
+  en:
+    name: Charlatan's Die
+    subtype: null
+    description: <p>Whenever you roll this six-sided die, you can control which number
+      it rolls.</p>
+  fr:
+    name: Dé du charlatan
+    subtype: null
+    description: <p>Chaque fois que vous lancez ce dé à six faces, vous pouvez contrôler
+      le nombre qu'il obtient.</p>

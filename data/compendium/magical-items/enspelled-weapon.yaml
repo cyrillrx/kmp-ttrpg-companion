@@ -1,0 +1,14 @@
+id: enspelled-weapon
+source: dmg_2024
+type: weapon
+rarity: varies
+attunement: true
+translations:
+  en:
+    name: Enspelled Weapon
+    subtype: Any Simple or Martial
+    description: ''
+  fr:
+    name: Arme-sortilège
+    subtype: courante ou de guerre
+    description: ''

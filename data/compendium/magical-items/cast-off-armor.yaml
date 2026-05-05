@@ -1,0 +1,14 @@
+id: cast-off-armor
+source: dmg_2024
+type: armor
+rarity: common
+attunement: false
+translations:
+  en:
+    name: Cast-Off Armor
+    subtype: Any Light, Medium, or Heavy
+    description: <p>You can doff this armor as a Magic action.</p>
+  fr:
+    name: Armure rapide
+    subtype: légère, intermédiaire ou lourde
+    description: <p>Vous pouvez retirer cette armure par une action Magie.</p>

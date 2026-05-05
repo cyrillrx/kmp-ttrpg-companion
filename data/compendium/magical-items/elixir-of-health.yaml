@@ -1,0 +1,18 @@
+id: elixir-of-health
+source: dmg_2024
+type: potion
+rarity: rare
+attunement: false
+translations:
+  en:
+    name: Elixir of Health
+    subtype: null
+    description: |-
+      <p>When you drink this potion, you are cured of all magical contagions. In addition, the following conditions end on you: Blinded, Deafened, Paralyzed, and Poisoned.<br />
+      The clear, red liquid has tiny bubbles of light in it.</p>
+  fr:
+    name: Élixir de santé
+    subtype: null
+    description: |-
+      <p>Lorsque vous buvez cette potion, vous êtes guéri de toute contagion magique. De plus, les états suivants prennent fin : Aveuglé, Assourdi, Paralysé et Empoisonné.<br />
+      Le liquide rouge clair contient de minuscules bulles de lumière.</p>

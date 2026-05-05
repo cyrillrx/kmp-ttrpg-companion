@@ -1,0 +1,45 @@
+id: spell-scroll
+source: dmg_2024
+type: scroll
+rarity: varies
+attunement: false
+translations:
+  en:
+    name: Spell Scroll
+    subtype: null
+    description: |-
+      <p>A <em>Spell Scroll</em> bears the words of a single spell, written in a mystical cipher. If the spell is on your spell list, you can read the scroll and cast its spell without Material components. Otherwise, the scroll is unintelligible. Casting the spell by reading the scroll requires the spell's normal casting time. Once the spell is cast, the scroll crumbles to dust. If the casting is interrupted, the scroll isn't lost.<br />
+      If the spell is on your spell list but of a higher level than you can normally cast, you make an ability check using your spellcasting ability to determine whether you cast the spell. The DC equals 10 plus the spell's level. On a failed check, the spell disappears from the scroll with no other effect.<br />
+      The level of the spell on the scroll determines the spell's saving throw DC and attack bonus, as well as the scroll's rarity, as shown in the following table.<br />
+      Spell Level| Rarity| Save DC| Attack Bonus<br />
+      ---|---|---|---<br />
+      Cantrip| Common| 13| +5<br />
+      1| Common| 13| +5<br />
+      2| Uncommon| 13| +5<br />
+      3| Uncommon| 15| +7<br />
+      4| Rare| 15| +7<br />
+      5| Rare| 17| +9<br />
+      6| Very Rare| 17| +9<br />
+      7| Very Rare| 18| +10<br />
+      8| Very Rare| 18| +10<br />
+      9| Legendary| 19| +11  </p>
+      <p><strong>Copying a Scroll into a Spellbook</strong>. A Wizard spell on a <em>Spell Scroll</em> can be copied into a spellbook. When a spell is copied in this way, the copier must succeed on an Intelligence (Arcana) check with a DC equal to 10 plus the spell's level. On a successful check, the spell is copied. Whether the check succeeds or fails, the <em>Spell Scroll</em> is destroyed.</p>
+  fr:
+    name: Parchemin de sort
+    subtype: null
+    description: |-
+      <p>Un <em>parchemin de sort</em> contient les mots d'un sort unique, écrits en un code mystique. Si le sort figure dans votre liste de sorts, vous pouvez le lire et le lancer sans composante matérielle. Sinon, le parchemin est inintelligible. Lancer le sort en le lisant nécessite son temps d'incantation normal. Une fois lancé, le parchemin tombe en poussière. Si l'incantation est interrompue, le parchemin n'est pas perdu.<br />
+      Si le sort figure dans votre liste de sorts, mais que son niveau est supérieur à celui que vous pouvez lancer normalement, effectuez un jet de caractéristique en utilisant votre caractéristique d'incantation pour déterminer si vous pouvez le lancer. Le DD est égal à 10 plus le niveau du sort. En cas d'échec, le sort disparaît du parchemin sans autre effet.<br />
+      Le niveau du sort sur le parchemin détermine le DD du jet de sauvegarde et le bonus d'attaque du sort, ainsi que sa rareté, comme indiqué dans la table suivante.<br />
+      Niveau du sort| Rareté| DD de sauvegarde| Bonus à l'attaque<br />
+      ---|---|---|---<br />
+      Sort mineur| Courant| 13| +5<br />
+      1| Courant| 13| +5<br />
+      2| Peu courant| 13| +5| 3| Peu courant| 15| +7<br />
+      4| Rare| 15| +7<br />
+      5| Rare| 17| +9<br />
+      6| Très rare| 17| +9<br />
+      7| Très rare| 18| +10<br />
+      8| Très rare| 18| +10<br />
+      9| Légendaire| 19| +11  </p>
+      <p><strong>Copier un parchemin dans un grimoire</strong>. Un sort de magicien contenu dans un <em>parchemin de sort</em> peut être copié dans un grimoire. Lorsqu'un sort est copié de cette manière, le copiste doit réussir un jet d'Intelligence (Arcanes) avec un DD égal à 10 plus le niveau du sort. En cas de réussite, le sort est copié. Que le jet réussisse ou échoue, le <em>parchemin de sort</em> est détruit.</p>

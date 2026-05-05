@@ -1,0 +1,24 @@
+id: hammer-of-thunderbolts
+source: dmg_2024
+type: weapon
+rarity: legendary
+attunement: true
+translations:
+  en:
+    name: Hammer of Thunderbolts
+    subtype: Maul or Warhammer
+    description: |-
+      <p>You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon.<br />
+      The weapon has 5 charges. You can expend 1 charge and make a ranged attack with the weapon, hurling it as if it had the Thrown property with a normal range of 20 feet and a long range of 60 feet. If the attack hits, the weapon unleashes a thunderclap audible out to 300 feet. The target and every creature within 30 feet of it other than you must succeed on a DC 17 Constitution saving throw or have the Stunned condition until the end of your next turn. Immediately after hitting or missing, the weapon flies back to your hand. The weapon regains 1d4 + 1 expended charges daily at dawn.<br />
+      <strong>Giant's Bane</strong>. While you are attuned to the weapon and wearing either a <em>Belt of Giant Strength</em> or <em>Gauntlets of Ogre Power</em> to which you are also attuned, you gain the following benefits:<br />
+      <strong>Giants' Bane</strong>. When you roll a 20 on the d20 for an attack roll made with this weapon against a Giant, the creature must succeed on a DC 17 Constitution saving throw or die.<br />
+      <strong>Might of Giants</strong>. The Strength score bestowed by your <em>Belt of Giant Strength</em> or <em>Gauntlets of Ogre Power</em> increases by 4, to a maximum of 30.</p>
+  fr:
+    name: Marteau de tonnerre
+    subtype: maillet ou marteau de guerre
+    description: |-
+      <p>Vous bénéficiez d'un bonus de +1 aux jets d'attaque et de dégâts effectués avec cette arme magique.<br />
+      L'arme possède 5 charges. Vous pouvez dépenser 1 charge pour effectuer une attaque à distance avec l'arme, la lançant comme si elle avait la propriété Lancer, avec une portée nominale de 6 mètres et une portée longue de 18 mètres. Si l'attaque touche, l'arme déclenche un coup de tonnerre audible à 90 mètres. La cible et toutes les créatures dans un rayon de 9 mètres, sauf vous, doivent réussir un jet de sauvegarde de Constitution DD 17 ou subir l'état Étourdi jusqu'à la fin de votre prochain tour. Immédiatement après avoir touché ou raté, l'arme revient dans votre main. L'arme récupère 1d4 + 1 charges dépensées chaque jour à l'aube.<br />
+      <strong>Souveraineté gigante</strong>. Si vous êtes lié à l'arme et portez un <em>ceinturon de force de géant</em> ou des <em>gantelets de puissance d'ogre</em> auxquels vous êtes également lié, vous bénéficiez des avantages suivants :<br />
+      <strong>Fléau des géants</strong>. Lorsque vous obtenez un 20 sur le d20 d'un jet d'attaque effectué avec cette arme contre un Géant, la créature doit réussir un jet de sauvegarde de Constitution DD 17 ou mourir.<br />
+      <strong>Puissance gigante</strong>. La valeur de Force conférée par votre <em>ceinturon de force de géant</em> ou vos <em>gantelets de puissance d'ogre</em> augmente de 4, jusqu'à un maximum de 30.</p>

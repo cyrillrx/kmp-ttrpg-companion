@@ -1,0 +1,16 @@
+id: ring-of-jumping
+source: dmg_2024
+type: ring
+rarity: uncommon
+attunement: true
+translations:
+  en:
+    name: Ring of Jumping
+    subtype: null
+    description: <p>While wearing this ring, you can cast <em><a href="https://www.aidedd.org/spell/jump">Jump</a></em>
+      from it, but can target only yourself when you do so.</p>
+  fr:
+    name: Anneau de saut
+    subtype: null
+    description: <p>Lorsque vous portez cet anneau, vous pouvez lancer <em><a href="https://www.aidedd.org/spell/fr/saut">saut</a></em>
+      par son biais, mais vous ne pouvez cibler que vous-même lorsque vous le faites.</p>

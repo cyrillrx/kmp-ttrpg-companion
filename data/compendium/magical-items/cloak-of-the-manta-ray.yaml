@@ -1,0 +1,16 @@
+id: cloak-of-the-manta-ray
+source: dmg_2024
+type: wondrous_item
+rarity: uncommon
+attunement: true
+translations:
+  en:
+    name: Cloak of the Manta Ray
+    subtype: null
+    description: <p>While wearing this cloak, you can breathe underwater, and you
+      have a Swim Speed of 60 feet.</p>
+  fr:
+    name: Cape de la raie manta
+    subtype: null
+    description: <p>En portant cette cape, vous pouvez respirer sous l'eau et vous
+      avez une Vitesse de nage de 18 mètres.</p>

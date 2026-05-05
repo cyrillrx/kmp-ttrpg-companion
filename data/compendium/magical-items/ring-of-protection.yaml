@@ -1,0 +1,16 @@
+id: ring-of-protection
+source: dmg_2024
+type: ring
+rarity: rare
+attunement: true
+translations:
+  en:
+    name: Ring of Protection
+    subtype: null
+    description: <p>You gain a +1 bonus to Armor Class and saving throws while wearing
+      this ring.</p>
+  fr:
+    name: Anneau de protection
+    subtype: null
+    description: <p>Vous obtenez un bonus de +1 à la CA et aux jets de sauvegarde
+      lorsque vous portez cet anneau.</p>

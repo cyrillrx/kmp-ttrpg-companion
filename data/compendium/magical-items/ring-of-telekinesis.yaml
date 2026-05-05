@@ -1,0 +1,16 @@
+id: ring-of-telekinesis
+source: dmg_2024
+type: ring
+rarity: very_rare
+attunement: true
+translations:
+  en:
+    name: Ring of Telekinesis
+    subtype: null
+    description: <p>While wearing this ring, you can cast <em><a href="https://www.aidedd.org/spell/telekinesis">Telekinesis</a></em>
+      from it.</p>
+  fr:
+    name: Anneau de télékinésie
+    subtype: null
+    description: <p>Lorsque vous portez cet anneau, vous pouvez lancer <em><a href="https://www.aidedd.org/spell/fr/telekinesie">télékinésie</a></em>
+      depuis celle-ci.</p>

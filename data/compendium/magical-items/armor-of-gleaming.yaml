@@ -1,0 +1,14 @@
+id: armor-of-gleaming
+source: dmg_2024
+type: armor
+rarity: common
+attunement: false
+translations:
+  en:
+    name: Armor of Gleaming
+    subtype: Any Light, Medium, or Heavy
+    description: <p>This armor never gets dirty.</p>
+  fr:
+    name: Armure impeccable
+    subtype: légère, intermédiaire ou lourde
+    description: <p>Cette armure ne se salit jamais.</p>

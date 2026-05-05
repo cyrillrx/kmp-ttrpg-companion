@@ -1,0 +1,18 @@
+id: nature-s-mantle
+source: dmg_2024
+type: wondrous_item
+rarity: uncommon
+attunement: true
+translations:
+  en:
+    name: Nature's Mantle
+    subtype: null
+    description: |-
+      <p>This cloak shifts color and texture to blend with the terrain surrounding you. While wearing the cloak, you can use it as a Spellcasting Focus for your Druid and Ranger spells.<br />
+      While you are in an area that is Lightly Obscured, you can Hide as a Bonus Action even if you are being directly observed.</p>
+  fr:
+    name: Mante de dame Nature
+    subtype: null
+    description: |-
+      <p>Cette cape change de couleur et de texture pour se fondre dans le paysage. Lorsque vous la portez, vous pouvez l'utiliser comme focaliseur d'incantation pour vos sorts de druide et de rôdeur.<br />
+      Dans une zone à Visibilité réduite, vous pouvez prendre l'action Furtivité par une action Bonus, même si on vous observe directement.</p>

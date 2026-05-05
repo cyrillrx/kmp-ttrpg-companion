@@ -1,0 +1,32 @@
+id: belt-of-giant-strength
+source: dmg_2024
+type: wondrous_item
+rarity: varies
+attunement: true
+translations:
+  en:
+    name: Belt of Giant Strength
+    subtype: null
+    description: |-
+      <p>While wearing this belt, your Strength changes to a score granted by the belt. The type of giant determines the score (see the table below). The item has no effect on you if your Strength without the belt is equal to or greater than the belt's score.<br />
+      Belt| Str.| Rarity<br />
+      ---|---|---<br />
+      Belt of Giant Strength (hill)| 21| Rare<br />
+      Belt of Giant Strength (frost) or<br />
+      Belt of Giant Strength (stone)| 23| Very Rare<br />
+      Belt of Giant Strength (fire)| 25| Very Rare<br />
+      Belt of Giant Strength (cloud)| 27| Legendary<br />
+      Belt of Giant Strength (storm)| 29| Legendary</p>
+  fr:
+    name: Ceinturon de force de géant
+    subtype: null
+    description: |-
+      <p>Si vous portez ce ceinturon, votre valeur de Force est modifiée. Le type de géant détermine la nouvelle valeur (voir la table ci-dessous). L'objet n'a aucun effet sur vous si votre Force sans le ceinturon est égale ou supérieure à la valeur du ceinturon.<br />
+      Ceinturon| Force| Rareté<br />
+      ---|---|---<br />
+      Ceinturon de force de géant (collines)| 21| Rare<br />
+      Ceinturon de force de géant (givre) ou<br />
+      Ceinturon de force de géant (pierres)| 23| Très rare<br />
+      Ceinturon de force de géant (feu)| 25| Très rare<br />
+      Ceinturon de force de géant (nuages)| 27| Légendaire<br />
+      Ceinturon de force de géant (tempêtes)| 29| Légendaire</p>

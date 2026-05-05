@@ -1,0 +1,24 @@
+id: eyes-of-charming
+source: dmg_2024
+type: wondrous_item
+rarity: uncommon
+attunement: true
+translations:
+  en:
+    name: Eyes of Charming
+    subtype: null
+    description: <p>These crystal lenses fit over the eyes. They have 3 charges. While
+      wearing them, you can expend 1 or more charges to cast <em><a href="https://www.aidedd.org/spell/charm-person">Charm
+      Person</a></em> (save DC 13). For 1 charge, you cast the level 1 version of
+      the spell. You increase the spell's level by one for each additional charge
+      you expend. The lenses regain all expended charges daily at dawn.</p>
+  fr:
+    name: Regard charmeur
+    subtype: null
+    description: <p>Ces lentilles en cristal s'adaptent aux yeux. Elles possèdent
+      3 charges. En les portant, vous pouvez dépenser une ou plusieurs charges pour
+      lancer <em><a href="https://www.aidedd.org/spell/fr/charme-personne">charme-personne</a></em>
+      (sauvegarde DD 13). Pour 1 charge, vous lancez la version de niveau 1 du sort.
+      Vous augmentez le niveau du sort d'un niveau pour chaque charge supplémentaire
+      dépensée. Les lentilles récupèrent toutes les charges dépensées chaque jour
+      à l'aube.</p>

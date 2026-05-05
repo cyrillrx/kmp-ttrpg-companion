@@ -1,0 +1,16 @@
+id: armor-1-2-or-3
+source: dmg_2024
+type: armor
+rarity: rare
+attunement: false
+translations:
+  en:
+    name: Armor, +1, +2, or +3
+    subtype: Any Light, Medium, or Heavy
+    description: <p>You have a bonus to Armor Class while wearing this armor. The
+      bonus is determined by its rarity.</p>
+  fr:
+    name: Armure +1, +2 ou +3
+    subtype: légère, intermédiaire ou lourde
+    description: <p>Vous obtenez un bonus à la CA lorsque vous portez cette armure.
+      Ce bonus est déterminé par sa rareté.</p>

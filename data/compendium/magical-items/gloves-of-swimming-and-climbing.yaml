@@ -1,0 +1,18 @@
+id: gloves-of-swimming-and-climbing
+source: dmg_2024
+type: wondrous_item
+rarity: uncommon
+attunement: true
+translations:
+  en:
+    name: Gloves of Swimming and Climbing
+    subtype: null
+    description: <p>While wearing these gloves, you have a Climb Speed and a Swim
+      Speed equal to your Speed, and you gain a +5 bonus to Strength (Athletics) checks
+      made to climb or swim.</p>
+  fr:
+    name: Gants de nage et d'escalade
+    subtype: null
+    description: <p>Lorsque vous portez ces gants, vous obtenez une Vitesse d'escalade
+      et une Vitesse de nage égales à votre Vitesse, et vous obtenez un bonus de +5
+      aux jets de Force (Athlétisme) effectués pour escalader ou nager.</p>

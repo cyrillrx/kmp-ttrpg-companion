@@ -1,0 +1,18 @@
+id: potion-of-comprehension
+source: dmg_2024
+type: potion
+rarity: common
+attunement: false
+translations:
+  en:
+    name: Potion of Comprehension
+    subtype: null
+    description: |-
+      <p>When you drink this potion, you gain the effect of the <em>Comprehend Languages</em> spell for 1 hour.<br />
+      This potion's liquid is a clear concoction with bits of salt and soot swirling in it.</p>
+  fr:
+    name: Potion de compréhension
+    subtype: null
+    description: |-
+      <p>Lorsque vous buvez cette potion, vous bénéficiez de l'effet du sort <em>compréhension des langues</em> pendant 1 heure.<br />
+      Le liquide de cette potion est une mixture limpide contenant des particules de sel et de suie.</p>

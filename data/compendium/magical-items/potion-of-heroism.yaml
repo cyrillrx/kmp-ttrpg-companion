@@ -1,0 +1,18 @@
+id: potion-of-heroism
+source: dmg_2024
+type: potion
+rarity: rare
+attunement: false
+translations:
+  en:
+    name: Potion of Heroism
+    subtype: null
+    description: |-
+      <p>When you drink this potion, you gain 10 Temporary Hit Points that last for 1 hour. For the same duration, you are under the effect of the <em><a href="https://www.aidedd.org/spell/bless">Bless</a></em> spell (no Concentration required).<br />
+      This potion's blue liquid bubbles and steams as if boiling.</p>
+  fr:
+    name: Potion d'héroïsme
+    subtype: null
+    description: |-
+      <p>Lorsque vous buvez cette potion, vous gagnez 10 points de vie temporaires pendant 1 heure. Pendant cette même durée, vous êtes sous l'effet du sort <em><a href="https://www.aidedd.org/spell/fr/benediction">bénédiction</a></em> (aucune concentration requise).<br />
+      Le liquide bleu de cette potion bouillonne et fume comme s'il était en ébullition.</p>

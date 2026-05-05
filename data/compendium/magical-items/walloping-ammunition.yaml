@@ -1,0 +1,16 @@
+id: walloping-ammunition
+source: dmg_2024
+type: weapon
+rarity: common
+attunement: false
+translations:
+  en:
+    name: Walloping Ammunition
+    subtype: Any Ammunition
+    description: <p>A creature hit by this ammunition must succeed on a DC 10 Strength
+      saving throw or have the Prone condition.</p>
+  fr:
+    name: Projectile percutant
+    subtype: tout projectile
+    description: <p>Une créature touchée par ce projectile doit réussir un jet de
+      sauvegarde de Force DD 10 ou subir l'état À terre.</p>

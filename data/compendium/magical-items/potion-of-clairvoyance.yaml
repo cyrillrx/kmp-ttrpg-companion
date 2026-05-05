@@ -1,0 +1,18 @@
+id: potion-of-clairvoyance
+source: dmg_2024
+type: potion
+rarity: rare
+attunement: false
+translations:
+  en:
+    name: Potion of Clairvoyance
+    subtype: null
+    description: |-
+      <p>When you drink this potion, you gain the effect of the <em><a href="https://www.aidedd.org/spell/clairvoyance">Clairvoyance</a></em> spell (no Concentration required).<br />
+      An eyeball bobs in this potion's yellowish liquid but vanishes when the potion is opened.</p>
+  fr:
+    name: Potion de clairvoyance
+    subtype: null
+    description: |-
+      <p>Lorsque vous buvez cette potion, vous bénéficiez de l'effet du sort <em><a href="https://www.aidedd.org/spell/fr/clairvoyance">clairvoyance</a></em> (aucune concentration requise).<br />
+      Un œil flotte dans le liquide jaunâtre de cette potion, mais il disparaît à l'ouverture.</p>

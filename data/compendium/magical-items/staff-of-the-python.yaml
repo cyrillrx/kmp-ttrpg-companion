@@ -1,0 +1,20 @@
+id: staff-of-the-python
+source: dmg_2024
+type: staff
+rarity: uncommon
+attunement: true
+translations:
+  en:
+    name: Staff of the Python
+    subtype: null
+    description: |-
+      <p>As a Magic action, you can throw this staff so that it lands in an unoccupied space within 10 feet of you, causing the staff to become a <strong><a href="https://www.aidedd.org/monster/giant-constrictor-snake">Giant Constrictor Snake</a></strong> in that space. The snake is under your control and shares your Initiative count, taking its turn immediately after yours.<br />
+      On your turn, you can mentally command the snake (no action required) if it is within 60 feet of you and you don't have the Incapacitated condition. You decide what action the snake takes and where it moves during its turn, or you can issue it a general command, such as to attack your enemies or guard a location. Absent commands from you, the snake defends itself.<br />
+      As a Bonus Action, you can command the snake to revert to staff form in its current space, and you can't use the staff's property again for 1 hour. If the snake is reduced to 0 Hit Points, it dies and reverts to its staff form; the staff then shatters and is destroyed. If the snake reverts to staff form before losing all its Hit Points, it regains all of them.</p>
+  fr:
+    name: Bâton du python
+    subtype: null
+    description: |-
+      <p>Par une action Magie, vous pouvez lancer ce bâton pour qu'il atterrisse dans un espace libre dans un rayon de 3 mètres autour de vous, le transformant en <strong><a href="https://www.aidedd.org/monster/fr/serpent-constricteur-geant">serpent constricteur géant</a></strong> dans cet espace. Le serpent est sous votre contrôle et partage votre initiative, jouant son tour immédiatement après le vôtre.<br />
+      À votre tour, vous pouvez commander mentalement le serpent (aucune action requise) s'il se trouve dans un rayon de 18 mètres et que vous n'êtes pas en état Incapable d'agir. Vous décidez de l'action du serpent et de ses déplacements pendant son tour, ou vous pouvez lui donner un ordre général, comme attaquer vos ennemis ou protéger un emplacement. Sans ordre de votre part, le serpent se défend.<br />
+      Par une action Bonus, vous pouvez ordonner au serpent de reprendre sa forme de bâton dans son espace actuel, et vous ne pouvez alors plus utiliser la propriété du bâton pendant 1 heure. Si le serpent est réduit à 0 point de vie, il meurt et reprend sa forme de bâton ; le bâton se brise alors et est détruit. Si le serpent revient à sa forme de bâton avant de perdre tous ses points de vie, il les récupère tous.</p>

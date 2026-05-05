@@ -1,0 +1,14 @@
+id: blackrazor
+source: dmg_2024
+type: weapon
+rarity: artifact
+attunement: true
+translations:
+  en:
+    name: Blackrazor
+    subtype: Greatsword
+    description: ''
+  fr:
+    name: Noirtranchant
+    subtype: épée à deux mains
+    description: ''

@@ -1,0 +1,14 @@
+id: enspelled-staff
+source: dmg_2024
+type: staff
+rarity: varies
+attunement: true
+translations:
+  en:
+    name: Enspelled Staff
+    subtype: null
+    description: ''
+  fr:
+    name: Bâton-sortilège
+    subtype: null
+    description: ''

@@ -1,0 +1,16 @@
+id: headband-of-intellect
+source: dmg_2024
+type: wondrous_item
+rarity: uncommon
+attunement: true
+translations:
+  en:
+    name: Headband of Intellect
+    subtype: null
+    description: <p>Your Intelligence is 19 while you wear this headband. It has no
+      effect on you if your Intelligence is 19 or higher without it.</p>
+  fr:
+    name: Bandeau d'intelligence
+    subtype: null
+    description: <p>Votre Intelligence est de 19 lorsque vous portez ce bandeau. Il
+      n'a aucun effet sur vous si votre Intelligence est de 19 ou plus sans cela.</p>

@@ -1,0 +1,14 @@
+id: enspelled-armor
+source: dmg_2024
+type: armor
+rarity: varies
+attunement: true
+translations:
+  en:
+    name: Enspelled Armor
+    subtype: Any Light, Medium, or Heavy
+    description: ''
+  fr:
+    name: Armure-sortilège
+    subtype: légère, intermédiaire ou lourde
+    description: ''

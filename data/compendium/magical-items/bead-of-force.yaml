@@ -1,0 +1,20 @@
+id: bead-of-force
+source: dmg_2024
+type: wondrous_item
+rarity: rare
+attunement: false
+translations:
+  en:
+    name: Bead of Force
+    subtype: null
+    description: |-
+      <p>This small black sphere measures 3/4 of an inch in diameter and weighs an ounce. Typically, 1d4 + 4 <em>Beads of Force</em> are found together.<br />
+      You can take a Magic action to throw the bead up to 60 feet. The bead explodes in a 10-foot-radius Sphere on impact and is destroyed. Each creature in the Sphere must succeed on a DC 15 Dexterity saving throw or take 5d4 Force damage. A sphere of transparent force then encloses the area for 1 minute. Any creature that failed the save and is completely within the area is trapped inside this sphere. Creatures that succeeded on the save or are partially within the area are pushed away from the center of the sphere until they are no longer inside it. Only breathable air can pass through the sphere's wall. No attack or other effect can pass through.<br />
+      An enclosed creature can take a Utilize action to push against the sphere's wall, moving the sphere up to half the creature's Speed. The sphere can be picked up, and its magic causes it to weigh only 1 pound, regardless of the weight of creatures inside.</p>
+  fr:
+    name: Perle de force
+    subtype: null
+    description: |-
+      <p>Cette petite sphère noire mesure 2 cm de diamètre et pèse 30 g. On trouve généralement 1d4 + 4 <em>perles de force</em> ensemble.<br />
+      Vous pouvez prendre une action Magie pour lancer la perle jusqu'à 18 mètres. À l'impact, elle explose dans une Sphère de 3 mètres de rayon et est détruite. Chaque créature dans la Sphère doit réussir un jet de sauvegarde de Dextérité DD 15 sous peine de subir 5d4 dégâts de force. Une sphère de force transparente entoure alors la zone pendant 1 minute. Toute créature ayant raté son jet de sauvegarde et se trouvant entièrement dans la zone est piégée à l'intérieur de cette sphère. Les créatures ayant réussi son jet de sauvegarde ou se trouvant partiellement dans la zone sont repoussées du centre de la sphère jusqu'à ce qu'elles ne s'y trouvent plus. Seul l'air respirable peut traverser la paroi de la sphère. Aucune attaque ni aucun autre effet ne peut la traverser.<br />
+      Une créature enfermée peut prendre une action Utilisation pour pousser la paroi de la sphère, déplaçant la sphère jusqu'à la moitié de sa Vitesse. La sphère peut être ramassée et sa magie fait qu'elle ne pèse que 500 g, quel que soit le poids des créatures à l'intérieur.</p>

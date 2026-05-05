@@ -1,0 +1,20 @@
+id: horn-of-silent-alarm
+source: dmg_2024
+type: wondrous_item
+rarity: common
+attunement: false
+translations:
+  en:
+    name: Horn of Silent Alarm
+    subtype: null
+    description: <p>This horn has 4 charges and regains 1d4 expended charges daily
+      at dawn. As a Magic action, you can blow the horn while expending 1 charge.
+      One creature of your choice hears the horn's blare, provided that creature is
+      within 600 feet of the horn. No other creature hears the horn.</p>
+  fr:
+    name: Cor d'alarme silencieuse
+    subtype: null
+    description: <p>Ce cor possède 4 charges et récupère 1d4 charges dépensées chaque
+      jour à l'aube. Par une action Magie, vous pouvez sonner du cor en dépensant
+      1 charge. Une créature de votre choix entend le son du cor, à condition qu'elle
+      se trouve à 180 mètres ou moins de celui-ci. Aucune autre créature ne l'entend.</p>

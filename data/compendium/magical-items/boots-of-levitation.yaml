@@ -1,0 +1,16 @@
+id: boots-of-levitation
+source: dmg_2024
+type: wondrous_item
+rarity: rare
+attunement: true
+translations:
+  en:
+    name: Boots of Levitation
+    subtype: null
+    description: <p>While you wear these boots, you can cast <em><a href="https://www.aidedd.org/spell/levitate">Levitate</a></em>
+      on yourself.</p>
+  fr:
+    name: Bottes de lévitation
+    subtype: null
+    description: <p>Lorsque vous portez ces bottes, vous pouvez lancer <em><a href="https://www.aidedd.org/spell/fr/levitation">lévitation</a></em>
+      sur vous-même.</p>

@@ -1,0 +1,26 @@
+id: stone-of-controlling-earth-elementals
+source: dmg_2024
+type: wondrous_item
+rarity: rare
+attunement: false
+translations:
+  en:
+    name: Stone of Controlling Earth Elementals
+    subtype: null
+    description: <p>While touching this 5-pound stone to the ground, you can take
+      a Magic action to summon an <strong><a href="https://www.aidedd.org/monster/earth-elemental">Earth
+      Elemental</a></strong>. The elemental appears in an unoccupied space you choose
+      within 30 feet of yourself, obeys your commands, and takes its turn immediately
+      after you on your Initiative count. The elemental disappears after 1 hour, when
+      it dies, or when you dismiss it as a Bonus Action. The stone can't be used this
+      way again until the next dawn.</p>
+  fr:
+    name: Pierre de contrôle des élémentaires de la terre
+    subtype: null
+    description: <p>En posant cette pierre de 2,5 kg au sol, vous pouvez prendre une
+      action Magie pour invoquer un <strong><a href="https://www.aidedd.org/monster/fr/elementaire-de-la-terre">élémentaire
+      de la terre</a></strong>. L'élémentaire apparaît dans un espace libre de votre
+      choix dans un rayon de 9 mètres, obéit à vos ordres et agit immédiatement après
+      vous dans l'ordre d'initiative. L'élémentaire disparaît après 1 heure, lorsqu'il
+      meurt ou lorsque vous le renvoyez par une action Bonus. La pierre ne peut plus
+      être utilisée de cette façon avant l'aube suivante.</p>

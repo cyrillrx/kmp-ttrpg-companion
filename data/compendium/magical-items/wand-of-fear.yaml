@@ -1,0 +1,28 @@
+id: wand-of-fear
+source: dmg_2024
+type: wand
+rarity: rare
+attunement: true
+translations:
+  en:
+    name: Wand of Fear
+    subtype: null
+    description: |-
+      <p>This wand has 7 charges.<br />
+      <strong>Spells</strong>. While holding the wand, you can cast one of the spells (save DC 15) on the following table from it. The table indicates how many charges you must expend to cast the spell.<br />
+      Spell| Charge Cost<br />
+      ---|---<br />
+      <em><a href="https://www.aidedd.org/spell/command">Command</a></em> ("flee" or "grovel" only)| 1<br />
+      <em><a href="https://www.aidedd.org/spell/fear">Fear</a></em> (60-foot Cone)| 3  </p>
+      <p><strong>Regaining Charges</strong>. The wand regains 1d6 + 1 expended charges daily at dawn. If you expend the wand's last charge, roll 1d20. On a 1, the wand crumbles into ashes and is destroyed.</p>
+  fr:
+    name: Baguette de peur / de terreur
+    subtype: null
+    description: |-
+      <p>Cette baguette possède 7 charges.<br />
+      <strong>Sorts</strong>. Lorsque vous tenez la baguette, vous pouvez lancer l'un des sorts (DD 15) de la table suivante. La table indique le nombre de charges à dépenser pour lancer le sort.<br />
+      Sort| Coût en charges<br />
+      ---|---<br />
+      <em><a href="https://www.aidedd.org/spell/fr/injonction">injonction</a></em> (« fuir » ou « rampe » uniquement)| 1<br />
+      <em><a href="https://www.aidedd.org/spell/fr/peur-terreur">peur</a></em> (Cône de 18 m)| 3  </p>
+      <p><strong>Récupération des charges</strong>. La baguette récupère 1d6 + 1 charges dépensées chaque jour à l'aube. Si vous dépensez la dernière charge de la baguette, lancez 1d20. Sur un 1, la baguette tombe en cendres et est détruite.</p>

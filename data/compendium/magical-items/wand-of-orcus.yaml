@@ -1,0 +1,14 @@
+id: wand-of-orcus
+source: dmg_2024
+type: wand
+rarity: artifact
+attunement: true
+translations:
+  en:
+    name: Wand of Orcus
+    subtype: null
+    description: ''
+  fr:
+    name: Baguette d'Orcus
+    subtype: null
+    description: ''

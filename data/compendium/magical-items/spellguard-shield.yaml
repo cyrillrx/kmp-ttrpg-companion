@@ -1,0 +1,18 @@
+id: spellguard-shield
+source: dmg_2024
+type: armor
+rarity: very_rare
+attunement: true
+translations:
+  en:
+    name: Spellguard Shield
+    subtype: Shield
+    description: <p>While holding this Shield, you have Advantage on saving throws
+      against spells and other magical effects, and spell attack rolls have Disadvantage
+      against you.</p>
+  fr:
+    name: Bouclier gardesort
+    subtype: bouclier
+    description: <p>Lorsque vous tenez ce bouclier, vous avez un Avantage aux jets
+      de sauvegarde contre les sorts et autres effets magiques, et les jets d'attaque
+      de sorts ont un Désavantage contre vous.</p>

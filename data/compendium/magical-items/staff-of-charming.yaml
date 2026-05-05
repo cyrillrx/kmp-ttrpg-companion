@@ -1,0 +1,24 @@
+id: staff-of-charming
+source: dmg_2024
+type: staff
+rarity: rare
+attunement: true
+translations:
+  en:
+    name: Staff of Charming
+    subtype: null
+    description: |-
+      <p>This staff has 10 charges. While holding the staff, you can use any of its properties:<br />
+      <strong>Cast Spell</strong>. You can expend 1 of the staff's charges to cast <em><a href="https://www.aidedd.org/spell/charm-person">Charm Person</a></em> , <em><a href="https://www.aidedd.org/spell/command">Command</a></em> , or <em><a href="https://www.aidedd.org/spell/comprehend-languages">Comprehend Languages</a></em> from it using your spell save DC.<br />
+      <strong>Reflect Enchantment</strong>. If you succeed on a saving throw against an Enchantment spell that targets only you, you can take a Reaction to expend 1 charge from the staff and turn the spell back on its caster as if you had cast the spell.<br />
+      <strong>Resist Enchantment</strong>. If you fail a saving throw against an Enchantment spell that targets only you, you can turn your failed save into a successful one. You can't use this property of the staff again until the next dawn.<br />
+      <strong>Regaining Charges</strong>. The staff regains 1d8 + 2 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff crumbles to dust and is destroyed.</p>
+  fr:
+    name: Bâton d'envoûtement
+    subtype: null
+    description: |-
+      <p>Ce bâton possède 10 charges. Si vous le tenez, vous pouvez utiliser n'importe laquelle de ses propriétés :<br />
+      <strong>Incantation</strong>. Vous pouvez dépenser 1 charge du bâton pour lancer <em><a href="https://www.aidedd.org/spell/fr/charme-personne">charme-personne</a></em> , <em><a href="https://www.aidedd.org/spell/fr/injonction">injonction</a></em> ou <em><a href="https://www.aidedd.org/spell/fr/comprehension-des-langues">compréhension des langues</a></em> en utilisant votre DD de sauvegarde des sorts.<br />
+      <strong>Renvoi d'enchantement</strong>. Si vous réussissez un jet de sauvegarde contre un sort d'Enchantement qui ne cible que vous, vous pouvez prendre une Réaction pour dépenser 1 charge du bâton et renvoyer le sort sur son lanceur comme si vous l'aviez lancé.<br />
+      <strong>Résistance aux enchantements</strong>. Si vous ratez un jet de sauvegarde contre un sort d'Enchantement qui ne cible que vous, vous pouvez transformer votre échec en réussite. Vous ne pouvez plus utiliser cette propriété du bâton avant l'aube suivante.<br />
+      <strong>Récupération des charges</strong>. Le bâton récupère 1d8 + 2 charges dépensées chaque jour à l'aube. Si vous dépensez la dernière charge, lancez 1d20. Sur un 1, le bâton tombe en poussière et est détruit.</p>

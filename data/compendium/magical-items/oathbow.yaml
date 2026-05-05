@@ -1,0 +1,20 @@
+id: oathbow
+source: dmg_2024
+type: weapon
+rarity: very_rare
+attunement: true
+translations:
+  en:
+    name: Oathbow
+    subtype: Longbow or Shortbow
+    description: |-
+      <p>When you nock an arrow on this bow, it whispers in Elvish, "Swift defeat to my enemies." When you use this weapon to make a ranged attack, you can utter or sign the following command words: "Swift death to you who have wronged me." The target of your attack becomes your sworn enemy until it dies or until dawn 7 days later. You can have only one such sworn enemy at a time. When your sworn enemy dies, you can choose a new one after the next dawn.<br />
+      When you make a ranged attack roll with this weapon against your sworn enemy, you have Advantage on the roll. In addition, your target gains no benefit from Half Cover or Three-Quarters Cover, and you suffer no Disadvantage due to long range. If the attack hits, your sworn enemy takes an extra 3d6 Piercing damage.<br />
+      While your sworn enemy lives, you have Disadvantage on attack rolls with all other weapons.</p>
+  fr:
+    name: Arc du serment
+    subtype: arc court ou arc long
+    description: |-
+      <p>Lorsque vous encochez une flèche sur cet arc, celui-ci murmure en elfique : « Défaite rapide à mes ennemis ». Lorsque vous utilisez cette arme pour effectuer une attaque à distance, vous pouvez prononcer ou signer les mots de commandement suivants : « Mort rapide à vous qui m'avez fait du tort !» La cible de votre attaque devient votre ennemi juré jusqu'à sa mort ou jusqu'à l'aube, 7 jours plus tard. Vous ne pouvez avoir qu'un seul ennemi juré à la fois. Lorsque votre ennemi juré meurt, vous pouvez en choisir un nouveau après l'aube suivante.<br />
+      Lorsque vous effectuez un jet d'attaque à distance avec cette arme contre votre ennemi juré, vous bénéficiez d'un Avantage. De plus, votre cible ne bénéficie pas d'un Abri partiel (1/2) ni d'un Abri important (3/4), et vous ne subissez aucun Désavantage dû aux longues portées. Si l'attaque touche, votre ennemi juré subit 3d6 dégâts perforants supplémentaires.<br />
+      Tant que votre ennemi juré est en vie, vous bénéficiez d'un Désavantage sur vos jets d'attaque avec toutes les autres armes.</p>

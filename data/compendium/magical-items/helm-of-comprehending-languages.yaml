@@ -1,0 +1,16 @@
+id: helm-of-comprehending-languages
+source: dmg_2024
+type: wondrous_item
+rarity: uncommon
+attunement: false
+translations:
+  en:
+    name: Helm of Comprehending Languages
+    subtype: null
+    description: <p>While wearing this helm, you can cast <em><a href="https://www.aidedd.org/spell/comprehend-languages">Comprehend
+      Languages</a></em> from it.</p>
+  fr:
+    name: Heaume de compréhension des langues
+    subtype: null
+    description: <p>Lorsque vous portez ce heaume, vous pouvez lancer <em><a href="https://www.aidedd.org/spell/fr/comprehension-des-langues">compréhension
+      des langues</a></em> par son biais.</p>

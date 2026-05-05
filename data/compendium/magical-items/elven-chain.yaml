@@ -1,0 +1,18 @@
+id: elven-chain
+source: dmg_2024
+type: armor
+rarity: rare
+attunement: false
+translations:
+  en:
+    name: Elven Chain
+    subtype: Chain Mail or Chain Shirt
+    description: <p>You gain a +1 bonus to Armor Class while you wear this armor.
+      You are considered trained with this armor even if you lack training with Medium
+      or Heavy armor.</p>
+  fr:
+    name: Mailles elfiques
+    subtype: cotte de mailles ou chemise de mailles
+    description: <p>Vous obtenez un bonus de +1 à la CA lorsque vous portez cette
+      armure. Vous êtes considéré comme formé au port de cette armure, même si vous
+      ne possédez pas la formation aux armures intermédiaires et lourdes.</p>

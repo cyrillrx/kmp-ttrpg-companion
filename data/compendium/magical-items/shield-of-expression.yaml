@@ -1,0 +1,17 @@
+id: shield-of-expression
+source: dmg_2024
+type: armor
+rarity: common
+attunement: false
+translations:
+  en:
+    name: Shield of Expression
+    subtype: Shield
+    description: <p>The front of this Shield is shaped in the likeness of a face.
+      While bearing the Shield, you can take a Bonus Action to alter the face's expression.</p>
+  fr:
+    name: Bouclier expressif
+    subtype: bouclier
+    description: <p>La face avant de ce bouclier est façonné à l'image d'un visage.
+      Si vous portez le bouclier, vous pouvez prendre une action Bonus pour modifier
+      l'expression du visage.</p>

@@ -1,0 +1,18 @@
+id: quiver-of-ehlonna
+source: dmg_2024
+type: wondrous_item
+rarity: uncommon
+attunement: false
+translations:
+  en:
+    name: Quiver of Ehlonna
+    subtype: null
+    description: |-
+      <p>Each of the quiver's three compartments connects to an extradimensional space that allows the quiver to hold numerous items while never weighing more than 2 pounds. The shortest compartment can hold up to 60 Arrows, Bolts, or similar objects. The midsize compartment holds up to 18 Javelins or similar objects. The longest compartment holds up to 6 long objects, such as bows, Quarterstaffs, or Spears.<br />
+      You can draw any item the quiver contains as if doing so from a regular quiver or scabbard.</p>
+  fr:
+    name: Carquois d'Ehlonna
+    subtype: null
+    description: |-
+      <p>Chacun des trois compartiments du carquois est relié à un espace extradimensionnel qui permet au carquois de contenir de nombreux objets sans jamais peser plus d'un kilo. Le compartiment le plus court peut contenir jusqu'à 60 flèches, carreaux ou objets similaires. Le compartiment moyen peut contenir jusqu'à 18 javelots ou objets similaires. Le compartiment le plus long peut contenir jusqu'à 6 objets longs, comme des arcs, des bâtons ou des lances.<br />
+      Vous pouvez dégainer n'importe quel objet du carquois comme s'il s'agissait d'un carquois ou d'un fourreau classique.</p>

@@ -1,0 +1,18 @@
+id: wand-of-paralysis
+source: dmg_2024
+type: wand
+rarity: rare
+attunement: true
+translations:
+  en:
+    name: Wand of Paralysis
+    subtype: null
+    description: |-
+      <p>This wand has 7 charges. While holding it, you can take a Magic action to expend 1 charge to cause a thin blue ray to streak from the tip toward a creature you can see within 60 feet of yourself. The target must succeed on a DC 15 Constitution saving throw or have the Paralyzed condition for 1 minute. At the end of each of the target's turns, it repeats the save, ending the effect on itself on a success.<br />
+      <strong>Regaining Charges</strong>. The wand regains 1d6 + 1 expended charges daily at dawn. If you expend the wand's last charge, roll 1d20. On a 1, the wand crumbles into ashes and is destroyed.</p>
+  fr:
+    name: Baguette de paralysie
+    subtype: null
+    description: |-
+      <p>Cette baguette possède 7 charges. Lorsque vous la tenez, vous pouvez prendre une action Magie pour dépenser 1 charge et projeter un fin rayon bleu depuis sa pointe vers une créature que vous pouvez voir dans un rayon de 18 mètres. La cible doit réussir un jet de sauvegarde de Constitution DD 15 ou subir l'état Paralysé pendant 1 minute. À la fin de chacun de ses tours, la cible renouvelle son jet de sauvegarde, mettant fin à l'effet en cas de réussite.<br />
+      <strong>Récupération des charges</strong>. La baguette récupère 1d6 + 1 charges dépensées chaque jour à l'aube. Si vous dépensez la dernière charge de la baguette, lancez 1d20. Sur un 1, la baguette se réduit en cendres et est détruite.</p>

@@ -1,0 +1,18 @@
+id: wand-of-polymorph
+source: dmg_2024
+type: wand
+rarity: very_rare
+attunement: true
+translations:
+  en:
+    name: Wand of Polymorph
+    subtype: null
+    description: |-
+      <p>This wand has 7 charges. While holding it, you can expend 1 charge to cast <em><a href="https://www.aidedd.org/spell/polymorph">Polymorph</a></em> (save DC 15) from it.<br />
+      <strong>Regaining Charges</strong>. The wand regains 1d6 + 1 expended charges daily at dawn. If you expend the wand's last charge, roll 1d20. On a 1, the wand crumbles into ashes and is destroyed.</p>
+  fr:
+    name: Baguette de métamorphose
+    subtype: null
+    description: |-
+      <p>Cette baguette possède 7 charges. Lorsque vous la tenez, vous pouvez dépenser 1 charge pour lancer <em><a href="https://www.aidedd.org/spell/fr/metamorphose">métamorphose</a></em> (sauvegarde DD 15).<br />
+      <strong>Récupération des charges</strong>. La baguette récupère 1d6 + 1 charges dépensées chaque jour à l'aube. Si vous dépensez la dernière charge de la baguette, lancez 1d20. Sur un 1, la baguette se réduit en cendres et est détruite.</p>

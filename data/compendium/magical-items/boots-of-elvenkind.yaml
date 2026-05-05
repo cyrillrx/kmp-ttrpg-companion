@@ -1,0 +1,18 @@
+id: boots-of-elvenkind
+source: dmg_2024
+type: wondrous_item
+rarity: uncommon
+attunement: false
+translations:
+  en:
+    name: Boots of Elvenkind
+    subtype: null
+    description: <p>While you wear these boots, your steps make no sound, regardless
+      of the surface you are moving across. You also have Advantage on Dexterity (Stealth)
+      checks.</p>
+  fr:
+    name: Bottes elfiques
+    subtype: null
+    description: <p>Lorsque vous portez ces bottes, vos pas sont silencieux, quelle
+      que soit la surface sur laquelle vous évoluez. Vous avez également un Avantage
+      aux jets de Dextérité (Discrétion).</p>

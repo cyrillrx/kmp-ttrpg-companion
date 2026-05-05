@@ -1,0 +1,22 @@
+id: rope-of-mending
+source: dmg_2024
+type: wondrous_item
+rarity: common
+attunement: false
+translations:
+  en:
+    name: Rope of Mending
+    subtype: null
+    description: <p>This 50-foot coil of rope can repair itself when cut into any
+      number of smaller pieces. As a Magic action, you can cause all pieces of the
+      rope that are in contact with each other and not otherwise in use to knit back
+      together. A <em>Rope of Mending</em> is forever shortened if a section of it
+      is lost or destroyed.</p>
+  fr:
+    name: Corde remaillante
+    subtype: null
+    description: <p>Cette corde enroulée de 15 mètres peut se réparer d'elle-même
+      lorsqu'elle est coupée en plusieurs morceaux. Par une action Magie, vous pouvez
+      faire en sorte que tous les morceaux de corde en contact les uns avec les autres
+      et qui ne sont pas utilisés se rejoignent. Une <em>corde remaillante</em> est
+      définitivement raccourcie si une partie de celle-ci est perdue ou détruite.</p>

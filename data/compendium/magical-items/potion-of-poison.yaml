@@ -1,0 +1,18 @@
+id: potion-of-poison
+source: dmg_2024
+type: potion
+rarity: uncommon
+attunement: false
+translations:
+  en:
+    name: Potion of Poison
+    subtype: null
+    description: |-
+      <p>This concoction looks, smells, and tastes like a <em><a href="./potions-of-healing">Potion of Healing</a></em> or another beneficial potion. However, it is actually poison masked by illusion magic. <em><a href="https://www.aidedd.org/spell/identify">Identify</a></em> reveals its true nature.<br />
+      If you drink this potion, you take 4d6 Poison damage and must succeed on a DC 13 Constitution saving throw or have the Poisoned condition for 1 hour.</p>
+  fr:
+    name: Potion de poison / Potion toxique
+    subtype: null
+    description: |-
+      <p>Cette concoction a l'apparence, l'odeur et le goût d'une <em><a href="./fr/potions-de-guerison">potion de guérison</a></em> ou de toute autre potion bénéfique. Mais il s'agit en réalité d'un poison masqué par une magie d'illusion. Le sort <em><a href="https://www.aidedd.org/spell/fr/identification">identification</a></em> révèle sa véritable nature.<br />
+      Si vous buvez cette potion, vous subissez 4d6 dégâts de poison et devez réussir un jet de sauvegarde de Constitution DD 13 pour ne pas avoir l'état Empoisonné pendant 1 heure.</p>

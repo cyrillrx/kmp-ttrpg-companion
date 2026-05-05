@@ -1,0 +1,18 @@
+id: sovereign-glue
+source: dmg_2024
+type: wondrous_item
+rarity: legendary
+attunement: false
+translations:
+  en:
+    name: Sovereign Glue
+    subtype: null
+    description: |-
+      <p>This viscous, milky-white substance can form a permanent adhesive bond between any two objects. It must be stored in a jar or flask that has been coated inside with <em>Oil of Slipperiness</em>. When found, a container contains 1d6 + 1 ounces.<br />
+      One ounce of the glue can cover a 1-foot square surface. Applying an ounce of <em>Sovereign Glue</em> takes a Utilize action, and the applied glue takes 1 minute to set. Once it has done so, the bond it creates can be broken only by the application of <em>Universal Solvent</em> or <em>Oil of Etherealness</em> , or with a <em>Wish</em> spell.</p>
+  fr:
+    name: Colle universelle
+    subtype: null
+    description: |-
+      <p>Cette substance visqueuse, d'un blanc laiteux, peut former une liaison adhésive permanente entre deux objets. Elle doit être conservée dans un bocal ou une fiole enduite intérieurement d'<em>huile d'insaisissabilité</em>. Une fois trouvé, un récipient contient 1d6 + 1 doses de 30 g.<br />
+      30 g de colle peut recouvrir une surface de 30 cm de côté. Appliquer 30 g de <em>colle universelle</em> nécessite une action Utilisation, et la colle met 1 minute à sécher. Une fois cette action terminée, la liaison créée ne peut être rompue que par l'application de <em>solvant universel</em> , d'<em>huile éthérée</em> ou par un sort de <em>souhait</em>.</p>

@@ -1,0 +1,17 @@
+id: amulet-of-proof-against-detection-and-location
+source: dmg_2024
+type: wondrous_item
+rarity: uncommon
+attunement: true
+translations:
+  en:
+    name: Amulet of Proof against Detection and Location
+    subtype: null
+    description: <p>While wearing this amulet, you can't be targeted by Divination
+      spells or perceived through magical scrying sensors unless you allow it.</p>
+  fr:
+    name: Amulette d'antidétection
+    subtype: null
+    description: <p>Lorsque vous portez cette amulette, vous ne pouvez pas être ciblé
+      par des sorts de divination ou perçu par des capteurs de divination magique,
+      sauf si vous le permettez.</p>

@@ -1,0 +1,21 @@
+id: pole-of-collapsing
+source: dmg_2024
+type: wondrous_item
+rarity: common
+attunement: false
+translations:
+  en:
+    name: Pole of Collapsing
+    subtype: null
+    description: <p>This item functions as a Pole. While holding it, you can take
+      a Magic action to collapse it into a 1-foot-long rod for ease of storage (the
+      pole's weight doesn't change) or cause the 1-foot-long rod to revert to a Pole.
+      The rod elongates only as far as the surrounding space allows.</p>
+  fr:
+    name: Perche rétractable
+    subtype: null
+    description: <p>Cet objet fonctionne comme une perche. Lorsque vous le tenez,
+      vous pouvez prendre une action Magie pour le replier en une tige de 30 cm afin
+      de faciliter son rangement (le poids de la perche reste inchangé) ou pour que
+      la tige de 30 cm reprenne sa forme de perche. La tige ne peut s'allonger que
+      dans la limite de l'espace disponible.</p>

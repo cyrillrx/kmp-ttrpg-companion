@@ -1,0 +1,17 @@
+id: necklace-of-adaptation
+source: dmg_2024
+type: wondrous_item
+rarity: uncommon
+attunement: true
+translations:
+  en:
+    name: Necklace of Adaptation
+    subtype: null
+    description: <p>While wearing this necklace, you can breathe normally in any environment,
+      and you have Advantage on saving throws made to avoid or end the Poisoned condition.</p>
+  fr:
+    name: Collier d'adaptation
+    subtype: null
+    description: <p>Si vous portez ce collier, vous pouvez respirer normalement dans
+      n'importe quel environnement et bénéficiez d'un Avantage aux jets de sauvegarde
+      effectués pour éviter ou mettre fin à l'état Empoisonné.</p>

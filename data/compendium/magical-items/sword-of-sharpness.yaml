@@ -1,0 +1,18 @@
+id: sword-of-sharpness
+source: dmg_2024
+type: weapon
+rarity: very_rare
+attunement: true
+translations:
+  en:
+    name: Sword of Sharpness
+    subtype: Glaive, Greatsword, Longsword, or Scimitar
+    description: |-
+      <p>When you attack an object with this magic weapon and hit, maximize your weapon damage dice against the target.<br />
+      When you attack a creature with this weapon and roll a 20 on the d20 for the attack roll, that target takes an extra 14 Slashing damage and gains 1 Exhaustion level.</p>
+  fr:
+    name: Épée acérée
+    subtype: coutille, épée à deux mains, épée longue ou cimeterre
+    description: |-
+      <p>Lorsque vous attaquez un objet avec cette arme magique et que vous le touchez, maximisez vos dés de dégâts d'arme contre la cible.<br />
+      Lorsque vous attaquez une créature avec cette arme et obtenez un 20 au jet d'attaque, la cible subit 14 dégâts tranchants supplémentaires et gagne 1 niveau d'Épuisement.</p>

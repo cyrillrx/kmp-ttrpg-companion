@@ -1,0 +1,38 @@
+id: instrument-of-the-bards
+source: dmg_2024
+type: wondrous_item
+rarity: varies
+attunement: true
+translations:
+  en:
+    name: Instrument of the Bards
+    subtype: null
+    description: |-
+      <p>An <em>Instrument of the Bards</em> is superior to an ordinary instrument in every way. Seven types of these instruments exist, each named after a bard college. The Instruments of the Bards table lists the spells common to all instruments, as well as the spells specific to each one and its rarity. A creature that attempts to play the instrument without being attuned to it must succeed on a DC 15 Wisdom saving throw or take 2d4 Psychic damage.<br />
+      You can play the instrument to cast one of its spells. Once the instrument has been used to cast a spell, it can’t be used to cast that spell again until the next dawn. The spells use your spellcasting ability and spell save DC.<br />
+      Instrument| Rarity| Spells<br />
+      ---|---|---<br />
+      All| -| <em>Fly, Invisibility, Levitate, Protection from Evil and Good</em> , plus the spells listed for the particular instrument<br />
+      Anstruth harp| Very Rare|  <em><a href="https://www.aidedd.org/spell/cure-wounds">Cure Wounds</a></em> (level 5), <em>Ice Storm, Wall of Thorns</em><br />
+      Canaith mandolin| Rare|  <em><a href="https://www.aidedd.org/spell/cure-wounds">Cure Wounds</a></em> (level 3), <em><a href="https://www.aidedd.org/spell/dispel-magic">Dispel Magic</a>, Protection from Energy</em> (Lightning damage only)<br />
+      Cli lyre| Rare|  <em>Stone Shape, Wall of Fire, Wind Wall</em><br />
+      Doss lute| Uncommon|  <em><a href="https://www.aidedd.org/spell/animal-friendship">Animal Friendship</a>, Protection from Energy</em> (Fire damage only), <em>Protection from Poison</em><br />
+      Fochlucan bandore| Uncommon|  <em>Entangle, Faerie Fire, Shillelagh, Speak with Animals</em><br />
+      Mac-Fuirmidh cittern| Uncommon|  <em><a href="https://www.aidedd.org/spell/barkskin">Barkskin</a>, <a href="https://www.aidedd.org/spell/cure-wounds">Cure Wounds</a>, Fog Cloud</em><br />
+      Ollamh harp| Legendary|  <em>Confusion, Control Weather, Fire Storm</em></p>
+  fr:
+    name: Instrument des bardes
+    subtype: null
+    description: |-
+      <p>Un <em>instrument des bardes</em> est supérieur à un instrument ordinaire en tous points. Il en existe sept types, chacun portant le nom d'un collège de bardes. Le tableau ci-dessous répertorie les sorts communs à tous les instruments, ainsi que les sorts spécifiques à chacun, et sa rareté. Une créature qui tente de jouer de l'instrument sans y être lié doit réussir un jet de sauvegarde de Sagesse DD 15 ou subir 2d4 dégâts psychiques.<br />
+      Vous pouvez jouer de l'instrument pour lancer l'un de ses sorts. Une fois l'instrument utilisé pour lancer un sort, il ne peut plus servir à lancer ce sort avant l'aube suivante. Les sorts utilisent votre caractéristique d'incantation et votre DD de sauvegarde.<br />
+      Instrument| Rareté| Sorts<br />
+      ---|---|---<br />
+      Tous| -| <em>vol, invisibilité, lévitation, protection contre le mal et le bien</em> , plus les sorts listés pour chaque instrument<br />
+      Harpe d'Anstruth| Très rare|  <em>soins</em> (au niveau 5), <em>tempête de grêle, mur d'épines</em><br />
+      Mandoline de Canaith| Rare|  <em>soins</em> (au niveau 3), <em>dissipation de la magie, protection contre l'énergie</em> (dégâts de foudre uniquement)<br />
+      Lyre de Cli| Rare|  <em>façonnage de la pierre, mur de feu, mur de vent</em><br />
+      Luth de Doss| Peu courant|  <em>amitié avec les animaux, protection contre l'énergie</em> (dégâts de feu uniquement), <em>protection contre le poison</em><br />
+      Bandore de Fochlucan| Peu courant|  <em>enchevêtrement, lueurs féeriques, crosse des druides, communication avec les animaux</em><br />
+      Cistre de MacFuirmidh| Peu courant|  <em>peu d'écorce, soins, nappe de brouillard</em><br />
+      Harpe d'Ollamh| Légendaire|  <em>confusion, contrôle du climat, tempête de feu</em></p>

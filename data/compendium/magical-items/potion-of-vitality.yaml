@@ -1,0 +1,18 @@
+id: potion-of-vitality
+source: dmg_2024
+type: potion
+rarity: very_rare
+attunement: false
+translations:
+  en:
+    name: Potion of Vitality
+    subtype: null
+    description: |-
+      <p>When you drink this potion, it removes any Exhaustion levels you have and ends the Poisoned condition on you. For the next 24 hours, you regain the maximum number of Hit Points for any Hit Point Die you spend.<br />
+      This potion's crimson liquid regularly pulses with dull light, calling to mind a heartbeat.</p>
+  fr:
+    name: Potion de vitalité
+    subtype: null
+    description: |-
+      <p>Lorsque vous buvez cette potion, elle supprime vos niveaux d'Épuisement et met fin à l'état Empoisonné. Pendant les 24 heures suivantes, vous récupérez le maximum de points de vie pour chaque dé de vie dépensé.<br />
+      Le liquide cramoisi de cette potion émet régulièrement une lumière tamisée, rappelant un battement de cœur.</p>

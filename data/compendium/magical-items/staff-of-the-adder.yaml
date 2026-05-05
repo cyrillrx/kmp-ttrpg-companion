@@ -1,0 +1,20 @@
+id: staff-of-the-adder
+source: dmg_2024
+type: staff
+rarity: uncommon
+attunement: true
+translations:
+  en:
+    name: Staff of the Adder
+    subtype: null
+    description: |-
+      <p>As a Bonus Action, you can turn the head of this staff into that of an animate, venomous snake for 1 minute or revert the staff to its inanimate form.<br />
+      When you take the Attack action, you can make one of the attack rolls using the animated snake head, which has a reach of 5 feet. Apply your Proficiency Bonus and Wisdom modifier to the attack roll. On a hit, the target takes 1d6 Piercing damage and 3d6 Poison damage.<br />
+      The snake head can be attacked while it is animate. It has AC 15, HP 20, and Immunity to Poison and Psychic damage. If the head drops to 0 Hit Points, the staff is destroyed. As long as it's not destroyed, the staff regains all lost Hit Points when it reverts to its inanimate form.</p>
+  fr:
+    name: Bâton de la vipère
+    subtype: null
+    description: |-
+      <p>Par une action bonus, vous pouvez transformer la tête de ce bâton en un serpent venimeux animé pendant 1 minute ou le ramener à sa forme inanimée.<br />
+      Lorsque vous prenez l'action Attaque, vous pouvez effectuer un jet d'attaque avec la tête de serpent animée, qui a une allonge de 1,50 mètre. Appliquez votre bonus de maîtrise et votre modificateur de Sagesse au jet d'attaque. En cas de réussite, la cible subit 1d6 dégâts perforants et 3d6 dégâts de poison.<br />
+      La tête de serpent peut être attaquée quand elle est animée. Elle possède une CA de 15, 20 pv et est immunisée contre le poison et les dégâts psychiques. Si ses pv tombent à 0, le bâton est détruit. Tant qu'il n'est pas détruit, le bâton récupère tous ses pv perdus lorsqu'il reprend sa forme inanimée.</p>

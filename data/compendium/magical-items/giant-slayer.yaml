@@ -1,0 +1,19 @@
+id: giant-slayer
+source: dmg_2024
+type: weapon
+rarity: rare
+attunement: false
+translations:
+  en:
+    name: Giant Slayer
+    subtype: Any Simple or Martial
+    description: |-
+      <p>You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon.<br />
+      When you hit a Giant with this weapon, the Giant takes an extra 2d6 damage of the weapon's type and must succeed on a DC 15 Strength saving throw or have the Prone condition.</p>
+  fr:
+    name: Tueuse de géants
+    subtype: courante ou de guerre
+    description: <p>Vous bénéficiez d'un bonus de +1 aux jets d'attaque et de dégâts
+      effectués avec cette arme magique. Lorsque vous touchez un Géant avec cette
+      arme, celui-ci subit 2d6 dégâts supplémentaires du même type que l'arme et doit
+      réussir un jet de sauvegarde de Force DD 15 ou subir l'état À terre.</p>

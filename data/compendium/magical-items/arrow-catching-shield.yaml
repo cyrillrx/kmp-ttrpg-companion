@@ -1,0 +1,18 @@
+id: arrow-catching-shield
+source: dmg_2024
+type: armor
+rarity: rare
+attunement: true
+translations:
+  en:
+    name: Arrow-Catching Shield
+    subtype: Shield
+    description: |-
+      <p>You gain a +2 bonus to Armor Class against ranged attack rolls while you wield this Shield. This bonus is in addition to the Shield's normal bonus to AC.<br />
+      Whenever an attacker makes a ranged attack roll against a target within 5 feet of you, you can take a Reaction to become the target of the attack instead.</p>
+  fr:
+    name: Bouclier antiprojectiles
+    subtype: bouclier
+    description: |-
+      <p>Vous obtenez un bonus de +2 à la CA contre les jets d'attaque à distance lorsque vous portez ce bouclier. Ce bonus s'ajoute au bonus normal du bouclier à la CA.<br />
+      Lorsqu'un attaquant effectue un jet d'attaque à distance contre une cible dans un rayon de 1,50 mètre autour de vous, vous pouvez prendre une Réaction pour devenir la cible de l'attaque.</p>

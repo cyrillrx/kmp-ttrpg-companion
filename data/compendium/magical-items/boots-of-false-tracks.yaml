@@ -1,0 +1,16 @@
+id: boots-of-false-tracks
+source: dmg_2024
+type: wondrous_item
+rarity: common
+attunement: true
+translations:
+  en:
+    name: Boots of False Tracks
+    subtype: null
+    description: <p>While wearing these boots, you can have them leave tracks like
+      those of any kind of Humanoid of your size.</p>
+  fr:
+    name: Bottes aux empreintes factices
+    subtype: null
+    description: <p>En portant ces bottes, vous pouvez laisser des traces semblables
+      à celles de n'importe quel humanoïde de votre taille.</p>

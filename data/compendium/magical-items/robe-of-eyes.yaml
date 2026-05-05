@@ -1,0 +1,22 @@
+id: robe-of-eyes
+source: dmg_2024
+type: wondrous_item
+rarity: rare
+attunement: true
+translations:
+  en:
+    name: Robe of Eyes
+    subtype: null
+    description: |-
+      <p>This robe is adorned with eyelike patterns. While you wear the robe, you gain the following benefits:<br />
+      <strong>All-Around Vision</strong>. The robe gives you Advantage on Wisdom (Perception) checks that rely on sight.<br />
+      <strong>Special Senses</strong>. You have Darkvision and Truesight, both with a range of 120 feet.<br />
+      <strong>Drawbacks</strong>. A <em><a href="https://www.aidedd.org/spell/light">Light</a></em> spell cast on the robe or a <em><a href="https://www.aidedd.org/spell/daylight">Daylight</a></em> spell cast within 5 feet of the robe gives you the Blinded condition for 1 minute. At the end of each of your turns, you make a Constitution saving throw (DC 11 for <em>Light</em> or DC 15 for <em>Daylight</em>), ending the condition on yourself on a success.</p>
+  fr:
+    name: Robe de vision totale
+    subtype: null
+    description: |-
+      <p>Cette robe est ornée de motifs représentant des yeux. Lorsque vous la portez, vous bénéficiez des avantages suivants :<br />
+      <strong>Vision panoramique</strong>. La robe vous confère un Avantage aux jets de Sagesse (Perception) qui utilisent la vue.<br />
+      <strong>Sens spéciaux</strong>. Vous possédez Vision dans le noir et Vision véritable, tous deux sur une portée de 36 mètres.<br />
+      <strong>Inconvénients</strong>. Un sort de <em><a href="https://www.aidedd.org/spell/fr/lumiere">lumière</a></em> lancé sur la robe ou un sort de <em><a href="https://www.aidedd.org/spell/fr/lumiere-du-jour">lumière du jour</a></em> lancé à 1,50 mètre ou moins de la robe vous fait subir l'effet Aveuglé pendant 1 minute. À la fin de chacun de vos tours, vous effectuez un jet de sauvegarde de Constitution (DD 11 pour <em>lumière</em> ou DD 15 pour <em>lumière du jour</em>), mettant fin à l'état en cas de réussite.</p>

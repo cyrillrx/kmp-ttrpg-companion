@@ -1,0 +1,34 @@
+id: sphere-of-annihilation
+source: dmg_2024
+type: wondrous_item
+rarity: legendary
+attunement: false
+translations:
+  en:
+    name: Sphere of Annihilation
+    subtype: null
+    description: |-
+      <p>This 2-foot-diameter black sphere is a hole in the multiverse, hovering in space and stabilized by a magical field surrounding it.<br />
+      The sphere obliterates all matter it passes through and all matter that passes through it. Artifacts are the exception. Unless an Artifact is susceptible to damage from a <em>Sphere of Annihilation</em> , it passes through the sphere unscathed. Anything else that touches the sphere but isn't wholly engulfed and obliterated by it takes 8d10 Force damage.<br />
+      <strong>Controlling the Sphere</strong>. A <em>Sphere of Annihilation</em> is stationary until someone takes control of it. If you are within 60 feet of a sphere, you can take a Magic action to make a DC 25 Intelligence (Arcana) check. On a successful check, you control the sphere until the start of your next turn, and if it was under another creature's control, that creature loses control of the sphere. On a failed check, the sphere moves 10 feet toward you in a straight line.<br />
+      While in control of the sphere, you can take a Bonus Action to cause it to move in one direction of your choice, up to a number of feet equal to 5 times your Intelligence modifier (minimum 5 feet). Any creature whose space the sphere enters must succeed on a DC 19 Dexterity saving throw or be touched by it, taking 8d10 Force damage. A creature reduced to 0 Hit Points by this damage is obliterated, leaving its possessions behind but no other physical remains.<br />
+      <strong>Sphere Interactions</strong>. If the sphere comes into contact with a planar portal (such as that created by the <em><a href="https://www.aidedd.org/spell/gate">Gate</a></em> spell) or an extradimensional space (such as that within a <em>Portable Hole</em>), the DM determines randomly what happens using the following table.<br />
+      1d100| Result<br />
+      ---|---<br />
+      01–50| The sphere is destroyed.<br />
+      51–85| The sphere moves through the portal or into the extradimensional space.<br />
+      86–00| A spatial rift sends the sphere and each creature and object within 180 feet of the sphere to a random plane of existence.</p>
+  fr:
+    name: Sphère d'annihilation
+    subtype: null
+    description: |-
+      <p>Cette sphère noire de 60 cm de diamètre est un trou dans le multivers, flottant dans l'espace et stabilisée par un champ magique qui l'entoure.<br />
+      La sphère annihile toute matière qu'elle traverse et toute matière qui la traverse. Les Artefacts font exception. À moins qu'un Artefact ne soit susceptible d'être endommagé par une <em>sphère d'annihilation</em> , il la traverse indemne. Tout autre objet qui touche la sphère mais n'est pas entièrement englouti et oblitéré par elle subit 8d10 dégâts de force.<br />
+      <strong>Contrôler la sphère</strong>. Une <em>sphère d'annihilation</em> est immobile jusqu'à ce que quelqu'un en prenne le contrôle. Si vous êtes dans un rayon de 18 mètres d'une sphère, vous pouvez prendre une action Magie pour effectuer un jet d'Intelligence (Arcanes) DD 25. En cas de réussite, vous contrôlez la sphère jusqu'au début de votre prochain tour. Si elle était sous le contrôle d'une autre créature, cette dernière perd le contrôle de la sphère. En cas d'échec, la sphère se déplace de 3 mètres vers vous en ligne droite.<br />
+      Si vous contrôlez la sphère, vous pouvez prendre une action Bonus pour la déplacer dans la direction de votre choix, jusqu'à un nombre de mètres égal à 1,5 fois votre modificateur d'Intelligence (minimum 1,50 mètre). Toute créature dans l'espace où la sphère pénètre doit réussir un jet de sauvegarde de Dextérité DD 19 pour ne pas être touchée par elle, ou subir 8d10 dégâts de force. Une créature réduite à 0 point de vie par ces dégâts est anéantie, abandonnant ses biens, sans aucun autre élément physique.<br />
+      <strong>Interactions avec la sphère</strong> Si la sphère entre en contact avec un portail planaire (tel que celui créé par le sort <em><a href="https://www.aidedd.org/spell/fr/portail">portail</a></em>) ou un espace extradimensionnel (tel que celui d'un <em>puits portable</em>), le MD détermine aléatoirement ce qui se passe à l'aide de la table suivante.<br />
+      1d100| Résultat<br />
+      ---|---<br />
+      01–50| La sphère est détruite.<br />
+      51–85| La sphère traverse le portail ou pénètre dans l'espace extradimensionnel.<br />
+      86–00| Une faille spatiale envoie la sphère, ainsi que toute créature et objet dans un rayon de 54 mètres, vers un plan d'existence aléatoire.</p>

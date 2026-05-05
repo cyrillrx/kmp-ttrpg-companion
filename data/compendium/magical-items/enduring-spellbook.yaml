@@ -1,0 +1,17 @@
+id: enduring-spellbook
+source: dmg_2024
+type: wondrous_item
+rarity: common
+attunement: false
+translations:
+  en:
+    name: Enduring Spellbook
+    subtype: null
+    description: <p>This spellbook, along with anything written on its pages, can't
+      be damaged by ﬁre or water. In addition, the spellbook doesn't deteriorate with
+      age.</p>
+  fr:
+    name: Grimoire résistant
+    subtype: null
+    description: <p>Ce grimoire, ainsi que tout ce qui y est écrit, ne peut être endommagé
+      ni par le feu ni par l'eau. De plus, il ne se détériore pas avec le temps.</p>

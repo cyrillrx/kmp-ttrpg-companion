@@ -1,0 +1,26 @@
+id: brazier-of-commanding-fire-elementals
+source: dmg_2024
+type: wondrous_item
+rarity: rare
+attunement: false
+translations:
+  en:
+    name: Brazier of Commanding Fire Elementals
+    subtype: null
+    description: <p>While you are within 5 feet of this brazier, you can take a Magic
+      action to summon a <strong><a href="https://www.aidedd.org/monster/fire-elemental">Fire
+      Elemental</a></strong>. The elemental appears in an unoccupied space as close
+      to the brazier as possible, understands your languages, obeys your commands,
+      and takes its turn immediately after you on your Initiative count. The elemental
+      disappears after 1 hour, when it dies, or when you dismiss it as a Bonus Action.
+      The brazier can't be used this way again until the next dawn.</p>
+  fr:
+    name: Brasero de contrôle des élémentaires du feu
+    subtype: null
+    description: <p>Lorsque vous êtes à 1,50 mètre ou moins de ce brasero, vous pouvez
+      prendre une action Magie pour invoquer un <strong><a href="https://www.aidedd.org/monster/fr/elementaire-du-feu">élémentaire
+      du feu</a></strong>. L'élémentaire apparaît dans un espace libre aussi proche
+      que possible du brasero, comprend vos langues, obéit à vos ordres et agit immédiatement
+      après vous dans l'ordre d'initiative. L'élémentaire disparaît après 1 heure,
+      lorsqu'il meurt ou lorsque vous le renvoyez par une action Bonus. Le brasero
+      ne peut plus être utilisé de cette façon avant l'aube suivante.</p>
