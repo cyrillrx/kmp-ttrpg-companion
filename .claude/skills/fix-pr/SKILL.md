@@ -102,4 +102,8 @@ mutation($threadId:ID!) {
 
 ### Step 6 — Re-run /review
 
-Invoke the `/review` skill on the same PR number to verify the state of the PR after fixes.
+Invoke the `/review` skill with the same PR number to verify the state of the PR after fixes:
+
+```
+/review <PR_NUMBER>
+```
