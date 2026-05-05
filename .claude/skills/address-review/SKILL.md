@@ -85,7 +85,9 @@ Wait for the user to confirm, adjust, or override each recommendation before pro
 
 ### Step 4 — Apply fixes and reply to all threads
 
-For each thread, apply the outcome and post a reply via the GitHub REST API:
+For each thread, apply the outcome and post a reply via the GitHub REST API.
+
+For **inline** review comments (attached to a file and line):
 
 ```bash
 gh api repos/<OWNER>/<REPO>/pulls/comments/<COMMENT_DATABASE_ID>/replies \
@@ -93,6 +95,13 @@ gh api repos/<OWNER>/<REPO>/pulls/comments/<COMMENT_DATABASE_ID>/replies \
 ```
 
 Use the `databaseId` of the **first** comment in the thread as `<COMMENT_DATABASE_ID>`.
+
+For **general** PR comments (no associated file/line — the above endpoint returns 404):
+
+```bash
+gh api repos/<OWNER>/<REPO>/issues/<PR_NUMBER>/comments \
+  -X POST -f body="<reply>"
+```
 
 **Reply tone per outcome:**
 
@@ -105,6 +114,8 @@ Do not touch code for ⚠️ or ❌ threads.
 ### Step 5 — Ask for git permission
 
 **Do NOT run any git commit, push, or rebase commands without explicit user approval.**
+
+Note: `git add`, `git commit`, and `git push` are intentionally absent from `allowed-tools` so that each git operation requires explicit user confirmation in the Claude Code UI — in addition to the approval requested below.
 
 Summarise the fixes made (files changed, what was fixed), then ask:
 > "May I commit and push these changes? Branch: `<branch>`, suggested commit message: `<conventional-commit-message>`"
