@@ -64,17 +64,31 @@ gh repo view --json owner,name -q '"\(.owner.login) \(.name)"'
 
 Filter for `isResolved: false` threads. If there are none, inform the user and stop.
 
-### Step 3 — Understand and fix each comment
+### Step 3 — Triage comments
 
-For each unresolved thread:
-1. Read the file at `path` around the relevant `line`
-2. Understand what the reviewer is asking
-3. Apply the fix using Edit or Write
-4. Note the thread `id` for Step 5
+For each unresolved thread, read the file at `path` around the relevant `line`, then present a triage table to the user:
 
-If a comment requires judgment (e.g. design decision, ambiguous intent), explain the issue to the user and ask how to proceed before making the change.
+| # | File | Comment summary | Recommendation |
+|---|------|-----------------|----------------|
+| 1 | `path:line` | one-line summary | ✅ Apply / ⚠️ Discuss / ❌ Skip |
+| … | | | |
 
-### Step 4 — Ask for git permission
+**Recommendation criteria:**
+- ✅ **Apply** — comment is valid, clear, and consistent with project conventions
+- ⚠️ **Discuss** — comment requires a design decision, is ambiguous, or contradicts existing conventions
+- ❌ **Skip** — comment is factually wrong, out of scope, or already addressed
+
+Wait for the user to confirm, adjust, or override each recommendation before proceeding.
+
+### Step 4 — Apply approved fixes
+
+For each comment the user approved (✅):
+1. Apply the fix using Edit or Write
+2. Note the thread `id` for Step 7
+
+Do not touch comments marked ⚠️ until the user has clarified intent. Do not touch comments marked ❌.
+
+### Step 5 — Ask for git permission
 
 **Do NOT run any git commit, push, or rebase commands without explicit user approval.**
 
@@ -83,13 +97,13 @@ Summarise the fixes made (files changed, what was fixed), then ask:
 
 Wait for approval before proceeding.
 
-### Step 5 — Commit, push, and resolve threads
+### Step 6 — Commit, push, and resolve threads
 
 Once the user approves:
 
 1. Stage and commit the changes using the approved message.
 2. Push to the current branch.
-3. For each thread fixed, resolve it via GraphQL:
+3. For each thread fixed (✅ only), resolve it via GraphQL:
 
 ```bash
 gh api graphql -f query='
@@ -100,7 +114,7 @@ mutation($threadId:ID!) {
 }' -f threadId=<THREAD_ID>
 ```
 
-### Step 6 — Re-run /review
+### Step 7 — Re-run /review
 
 Invoke the `/review` skill with the same PR number to verify the state of the PR after fixes:
 
