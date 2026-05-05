@@ -3,17 +3,18 @@
 Build script: aggregates YAML source files into the three JSON compendium files
 consumed by the KMP app and the Rust server.
 
+Descriptions are kept as-is (HTML for now). Markdown conversion is deferred to
+Phase 2, alongside the Compose renderer update.
+
 Usage:
-    pip install pyyaml markdown
+    pip install pyyaml
     python scripts/build_compendium.py
 
 Output:
     data/compendium/spells.json
     data/compendium/monsters.json
     data/compendium/magical-items.json
-    cmp-ttrpg-companion/composeApp/src/commonMain/composeResources/files/spells.json
-    cmp-ttrpg-companion/composeApp/src/commonMain/composeResources/files/monsters.json
-    cmp-ttrpg-companion/composeApp/src/commonMain/composeResources/files/magical-items.json
+    (app resource files are symlinks to the above — no copy needed)
 
 CI mode (--check):
     Verifies that the committed JSON files are up to date with the YAML source.
@@ -21,7 +22,6 @@ CI mode (--check):
 """
 
 import argparse
-import copy
 import glob
 import json
 import os
@@ -32,11 +32,6 @@ try:
     import yaml
 except ImportError:
     sys.exit("Missing dependency: pip install pyyaml")
-
-try:
-    import markdown as markdown_lib
-except ImportError:
-    sys.exit("Missing dependency: pip install markdown")
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(REPO_ROOT, "data", "compendium")
@@ -50,14 +45,6 @@ APP_RESOURCES_DIR = os.path.join(
     "files",
 )
 
-_MD_EXTENSIONS = ["tables", "nl2br"]
-
-
-def markdown_to_html(text: str | None) -> str | None:
-    if not text:
-        return text
-    return markdown_lib.markdown(text, extensions=_MD_EXTENSIONS)
-
 
 def load_yaml_dir(directory: str) -> list[dict]:
     pattern = os.path.join(directory, "*.yaml")
@@ -70,18 +57,6 @@ def load_yaml_dir(directory: str) -> list[dict]:
             entity = yaml.safe_load(f)
         entities.append(entity)
     return entities
-
-
-def convert_descriptions_to_html(entities: list[dict]) -> list[dict]:
-    """Return a deep copy with all description fields converted Markdown → HTML."""
-    result = []
-    for entity in entities:
-        e = copy.deepcopy(entity)
-        for locale, t in (e.get("translations") or {}).items():
-            if t.get("description"):
-                t["description"] = markdown_to_html(t["description"])
-        result.append(e)
-    return result
 
 
 def write_json(path: str, data: list[dict]) -> None:
@@ -110,14 +85,15 @@ def build_type(type_name: str, check: bool) -> tuple[int, bool]:
     app_path = os.path.join(APP_RESOURCES_DIR, f"{type_name}.json")
 
     entities = load_yaml_dir(src_dir)
-    converted = convert_descriptions_to_html(entities)
 
     if check:
-        ok = check_json(out_path, converted)
+        ok = check_json(out_path, entities)
         return len(entities), ok
 
-    write_json(out_path, converted)
-    shutil.copy2(out_path, app_path)
+    write_json(out_path, entities)
+    # The app resource files are symlinks to data/compendium/ — no copy needed.
+    if os.path.exists(app_path) and not os.path.samefile(out_path, app_path):
+        shutil.copy2(out_path, app_path)
     print(f"  {type_name}: {len(entities)} entities → {out_path}")
     return len(entities), True
 

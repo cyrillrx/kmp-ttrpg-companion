@@ -17,7 +17,7 @@ For the source format decision, see [`docs/adr/adr-002-compendium-source-format.
 - All keys are in English. French content belongs only inside `translations.fr`.
 - The `source` field identifies the origin of the entry — see [known source values](../adr/adr-001-data-model.md#2-source-field).
 - An entity with an empty `translations` map is considered malformed.
-- Descriptions use **GitHub Flavored Markdown** (GFM). The build script converts them to HTML for distribution.
+- Descriptions are currently **HTML** (Phase 1). Migration to GFM Markdown is deferred to Phase 2, alongside the Compose renderer update.
 
 ---
 
@@ -66,7 +66,7 @@ translations:
 - `translations.{locale}.name` — when multiple official names exist (e.g. old and new edition), separate them with ` / ` (e.g. `"Immobilisation une personne / un humanoïde"`). Never use `|` as a separator.
 - `translations.{locale}.range` — locale-specific raw text (English uses feet, French uses metres)
 - `translations.{locale}.materialDescription` — string or `null`; always present, never omitted
-- `translations.{locale}.description` — GFM Markdown; use `|` block scalar for multiline content
+- `translations.{locale}.description` — HTML (Phase 1); use `|` block scalar for multiline content
 
 ### Spell Checklist
 
@@ -83,7 +83,7 @@ translations:
 - [ ] `translations.{locale}.range`
 - [ ] `translations.{locale}.duration`
 - [ ] `translations.{locale}.materialDescription` — string or `null`
-- [ ] `translations.{locale}.description` — GFM Markdown
+- [ ] `translations.{locale}.description` — HTML
 
 ---
 

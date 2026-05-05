@@ -17,7 +17,7 @@ For the source format decision, see [`docs/adr/adr-002-compendium-source-format.
 - All keys are in English. French content belongs only inside `translations.fr`.
 - The `source` field identifies the origin of the entry — see [known source values](../adr/adr-001-data-model.md#2-source-field).
 - An entity with an empty `translations` map is considered malformed.
-- Descriptions use **GitHub Flavored Markdown** (GFM). The build script converts them to HTML for distribution.
+- Descriptions are currently **HTML** (Phase 1). Migration to GFM Markdown is deferred to Phase 2, alongside the Compose renderer update.
 
 ---
 
@@ -49,7 +49,7 @@ translations:
 - `attunement` — boolean; any non-null French source string (e.g., `"harmonisation requise"`) maps to `true`
 - `translations.{locale}.subtype` — optional locale-specific weapon/armor sub-category; always present, set to `null` if absent
 - `translations.{locale}.name` — when multiple official names exist, separate with ` / ` (e.g. `"Selle du cavalier / du hussard"`). Never use `|` as a separator.
-- `translations.{locale}.description` — GFM Markdown
+- `translations.{locale}.description` — HTML (Phase 1)
 - The display subtitle (`"Objet merveilleux · Peu courant · Harmonisation"`) is computed by the client from typed fields — not stored
 
 ### Item Checklist

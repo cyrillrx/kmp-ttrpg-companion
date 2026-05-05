@@ -17,7 +17,7 @@ For the source format decision, see [`docs/adr/adr-002-compendium-source-format.
 - All keys are in English. French content belongs only inside `translations.fr`.
 - The `source` field identifies the origin of the entry — see [known source values](../adr/adr-001-data-model.md#2-source-field).
 - An entity with an empty `translations` map is considered malformed.
-- Descriptions use **GitHub Flavored Markdown** (GFM). The build script converts them to HTML for distribution.
+- Descriptions are currently **HTML** (Phase 1). Migration to GFM Markdown is deferred to Phase 2, alongside the Compose renderer update.
 
 ---
 
@@ -149,7 +149,7 @@ translations:
 - `translations.{locale}.subtype` — locale-specific string or `null`; always present, never omitted
 - `translations.{locale}.senses` — raw locale text; EN uses feet, FR uses rounded metres
 - `translations.{locale}.languages` — array of strings (locale-specific names)
-- `translations.{locale}.description` — GFM Markdown containing traits, actions, reactions, and legendary actions; use `|` block scalar for multiline content
+- `translations.{locale}.description` — HTML containing traits, actions, reactions, and legendary actions; use `|` block scalar for multiline content
 
 ### Monster Checklist
 
@@ -169,7 +169,7 @@ translations:
 - [ ] `conditionImmunities` — all 14 keys present
 - [ ] `translations.{locale}.name`
 - [ ] `translations.{locale}.subtype` — locale-specific string or `null`
-- [ ] `translations.{locale}.description` — GFM Markdown (traits, actions, reactions, legendary actions)
+- [ ] `translations.{locale}.description` — HTML (traits, actions, reactions, legendary actions)
 - [ ] `translations.{locale}.senses` — raw text
 - [ ] `translations.{locale}.languages` — array of strings
 

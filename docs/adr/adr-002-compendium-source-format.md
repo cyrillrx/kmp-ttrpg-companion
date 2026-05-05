@@ -39,19 +39,21 @@ YAML keys use **camelCase**, identical to the JSON output, to keep a 1:1 mapping
 
 ---
 
-## 2. Markdown Descriptions
+## 2. Description Format — Phase 1: HTML, Phase 2: Markdown
 
-### Decision
+### Phase 1 Decision (current)
 
-The `description` field (and any other prose field) in source YAML files uses **GitHub Flavored Markdown (GFM)**. Tables use the GFM pipe syntax.
+Description fields are kept as **HTML** in the YAML source files, identical to the current JSON format. The build script aggregates them unchanged. No conversion is performed.
 
-The build script converts Markdown to HTML for the distributed JSON files (backward compatible with the existing `HtmlText` renderer). In Phase 2 (tracked separately), the Compose renderer will be updated to consume Markdown directly so that tables render natively.
+### Phase 2 Decision (future — tracked separately)
+
+Description fields will be migrated to **GitHub Flavored Markdown (GFM)** when the Compose renderer is updated to consume Markdown directly. At that point, the build script will convert Markdown → HTML for backward compatibility until all clients are updated.
 
 ### Rationale
 
-- HTML tables are painful to write and read by hand. GFM tables are significantly easier to edit, especially before a dedicated editing tool exists.
-- Markdown is renderable as-is in most editors (VS Code, Obsidian, GitHub) — contributors get a live preview for free.
-- Converting Markdown → HTML at build time is trivial and reversible. Converting HTML → Markdown at migration time is a one-off cost.
+- Automated HTML → Markdown conversion produces artifacts on complex content (notably `<strong><em>` combinations in stat blocks). 507 of 513 monster descriptions are affected, making automated migration unsafe for Phase 1.
+- Deferring to Phase 2 keeps the data migration risk-free: round-trip fidelity (YAML → JSON) is exact.
+- Markdown descriptions remain a firm goal: GFM tables are significantly easier to edit than HTML tables, especially before a dedicated editing tool exists.
 
 ---
 
