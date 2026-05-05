@@ -81,7 +81,22 @@ Bad (monolithic):
 feat(spell): redesign spell list screen with new item, samples, and strings
 ```
 
-## 6. CI & Policies
+## 6. Pull Request Etiquette
+
+### Authors
+
+- Keep the diff under 200 lines and 10 files when possible. For mechanical changes (renaming, moving files), exceptions are acceptable.
+- Proofread your own PR before submitting — check diff, description, and comments.
+- Assign reviewers directly on GitHub.
+
+### Reviewers
+
+- Review PRs within 24 hours when possible. If you're short on time, don't rush — an unreviewed PR is better than a rubber-stamped one.
+- Be constructive and kind: critique the code, not the author.
+- Back your comments with sources (docs, articles, benchmarks) rather than personal preference. Don't request changes you can't justify.
+- Use [Code Review Emojis](https://github.com/cyrillrx/coding-conventions/blob/main/code-review-emojis.md) to add meaning to your comments (blocking vs. non-blocking, suggestion vs. question, etc.).
+
+## 7. CI & Policies
 
 - **Pull Requests**: All code must be reviewed via PRs before merging into `main`.
 - **Code Quality**: PRs must pass all automated checks (linting, tests, build) on the CI pipeline. The CI pipeline (`.github/workflows/ci.yml`) runs `KMP Client - JVM Tests` (`./gradlew jvmTest` in `cmp-ttrpg-companion/`) on every PR targeting the default branch. It must pass for a PR to be mergeable.
