@@ -61,7 +61,7 @@ translations:
 - [ ] `attunement` — boolean
 - [ ] `translations.{locale}.name`
 - [ ] `translations.{locale}.subtype` — locale-specific string or `null`
-- [ ] `translations.{locale}.description` — GFM Markdown
+- [ ] `translations.{locale}.description` — HTML (Phase 1)
 
 ---
 

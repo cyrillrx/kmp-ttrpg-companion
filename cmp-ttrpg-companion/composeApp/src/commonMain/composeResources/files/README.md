@@ -16,4 +16,4 @@ To update the compendium data:
 2. Run `python scripts/build_compendium.py` from the repository root
 3. Commit both the YAML changes and the regenerated JSON
 
-See [`docs/adr/adr-002-compendium-source-format.md`](../../../../../../../../docs/adr/adr-002-compendium-source-format.md) for the full rationale.
+See [`docs/adr/adr-002-compendium-source-format.md`](../../../../../../docs/adr/adr-002-compendium-source-format.md) for the full rationale.
