@@ -1,6 +1,6 @@
 ---
 name: address-review
-description: Address open review comments on a PR, resolve threads, then re-run /review
+description: Address open review comments on a PR, reply to each thread, resolve approved ones, then re-run /review
 argument-hint: <pr-number>
 allowed-tools:
   - Bash(gh api:*)
@@ -43,6 +43,7 @@ query($owner:String!, $repo:String!, $pr:Int!) {
           isResolved
           comments(first:10) {
             nodes {
+              databaseId
               body
               path
               line
@@ -74,19 +75,32 @@ For each unresolved thread, read the file at `path` around the relevant `line`, 
 | … | | | |
 
 **Recommendation criteria:**
-- ✅ **Apply** — comment is valid, clear, and consistent with project conventions
+- ✅ **Apply** — comment is valid, clear, consistent with project conventions, and backed by a justification or source
 - ⚠️ **Discuss** — comment requires a design decision, is ambiguous, or contradicts existing conventions
-- ❌ **Skip** — comment is factually wrong, out of scope, or already addressed
+- ❌ **Skip** — comment is factually wrong, out of scope, already addressed, or not backed by any source or justification
+
+Per project conventions, reviewers are expected to back their requests with sources (docs, articles, benchmarks). A comment that expresses personal preference without justification should be marked ❌ or ⚠️.
 
 Wait for the user to confirm, adjust, or override each recommendation before proceeding.
 
-### Step 4 — Apply approved fixes
+### Step 4 — Apply fixes and reply to all threads
 
-For each comment the user approved (✅):
-1. Apply the fix using Edit or Write
-2. Note the thread `id` for Step 7
+For each thread, apply the outcome and post a reply via the GitHub REST API:
 
-Do not touch comments marked ⚠️ until the user has clarified intent. Do not touch comments marked ❌.
+```bash
+gh api repos/<OWNER>/<REPO>/pulls/comments/<COMMENT_DATABASE_ID>/replies \
+  -X POST -f body="<reply>"
+```
+
+Use the `databaseId` of the **first** comment in the thread as `<COMMENT_DATABASE_ID>`.
+
+**Reply tone per outcome:**
+
+- ✅ **Apply**: briefly confirm what was changed (e.g. "Fixed — renamed `X` to `Y` in `path/to/file.kt`.")
+- ⚠️ **Discuss**: ask for clarification or a source (e.g. "Could you point to a reference or clarify the intent? Happy to adjust once the approach is clearer.")
+- ❌ **Skip**: explain concisely why the comment is being declined, citing conventions or sources where applicable (e.g. "Keeping the current approach — it follows the pattern established in `docs/conventions/X.md`. Feel free to reopen if you disagree.")
+
+Do not touch code for ⚠️ or ❌ threads.
 
 ### Step 5 — Ask for git permission
 
@@ -103,7 +117,7 @@ Once the user approves:
 
 1. Stage and commit the changes using the approved message.
 2. Push to the current branch.
-3. For each thread fixed (✅ only), resolve it via GraphQL:
+3. For each ✅ thread only, resolve it via GraphQL:
 
 ```bash
 gh api graphql -f query='
@@ -113,6 +127,8 @@ mutation($threadId:ID!) {
   }
 }' -f threadId=<THREAD_ID>
 ```
+
+⚠️ and ❌ threads are left open for the reviewer to follow up.
 
 ### Step 7 — Re-run /review
 
