@@ -71,6 +71,8 @@ cmp-ttrpg-companion/composeApp/src/commonMain/composeResources/files/
 
 A CI workflow (`.github/workflows/ci-compendium.yml`) runs the build script on every PR that touches `data/compendium/**/*.yaml` and verifies that the committed JSON files are up to date.
 
+The JSON files in `cmp-ttrpg-companion/composeApp/src/commonMain/composeResources/files/` are **symlinks** to `data/compendium/*.json`. Writing to `data/compendium/spells.json` automatically updates the app resources — no copy step is needed. Do not replace these symlinks with regular files.
+
 A migration script (`scripts/migrate_json_to_yaml.py`) handles the one-time conversion from the current JSON format to the new YAML source files (HTML → Markdown via `html2text`).
 
 ### Rationale
