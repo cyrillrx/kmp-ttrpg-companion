@@ -5,7 +5,7 @@ argument-hint: <entity-type> <source-file>
 allowed-tools:
   - Bash(python3 scripts/build_compendium.py*)
   - Bash(ls data/compendium/*)
-  - Bash(gh repo view:*)
+  - Bash(git branch:*)
   - Read
   - Edit
   - Write
@@ -47,6 +47,7 @@ Read `<source-file>`. It may contain one entity or a list.
 Detect the format:
 - **JSON**: parse as object or array
 - **YAML**: parse as mapping or sequence
+- **Unknown**: if the format cannot be detected (HTML, CSV, plain text, etc.), stop and ask the user how to proceed before attempting any parsing.
 
 ### Step 4 — Normalize and triage
 
@@ -67,6 +68,8 @@ Then present a triage table:
 - The `id` is not a valid slug (lowercase, hyphens only, English)
 
 For each ⚠️, propose a resolution and ask the user to confirm before writing.
+
+Once the full triage table is presented, **wait for explicit user confirmation** before proceeding to Step 5. Do not write any file until the user approves the triage as a whole.
 
 ### Step 5 — Write YAML files
 
