@@ -1,5 +1,5 @@
 ---
-name: fix-pr
+name: address-review
 description: Address open review comments on a PR, resolve threads, then re-run /review
 argument-hint: <pr-number>
 allowed-tools:
