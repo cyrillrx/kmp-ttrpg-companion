@@ -41,7 +41,7 @@ query($owner:String!, $repo:String!, $pr:Int!) {
         nodes {
           id
           isResolved
-          comments(first:1) {
+          comments(first:10) {
             nodes {
               body
               path
@@ -53,7 +53,13 @@ query($owner:String!, $repo:String!, $pr:Int!) {
       }
     }
   }
-}' -f owner=cyrillrx -f repo=kmp-ttrpg-companion -F pr=<PR_NUMBER>
+}' -f owner=<OWNER> -f repo=<REPO> -F pr=<PR_NUMBER>
+```
+
+Determine `<OWNER>` and `<REPO>` dynamically before running the query:
+
+```bash
+gh repo view --json owner,name -q '"\(.owner.login) \(.name)"'
 ```
 
 Filter for `isResolved: false` threads. If there are none, inform the user and stop.
@@ -73,7 +79,7 @@ If a comment requires judgment (e.g. design decision, ambiguous intent), explain
 **Do NOT run any git commit, push, or rebase commands without explicit user approval.**
 
 Summarise the fixes made (files changed, what was fixed), then ask:
-> "Puis-je committer et pusher ces changements ? Branche : `<branch>`, message de commit suggéré : `<conventional-commit-message>`"
+> "May I commit and push these changes? Branch: `<branch>`, suggested commit message: `<conventional-commit-message>`"
 
 Wait for approval before proceeding.
 
