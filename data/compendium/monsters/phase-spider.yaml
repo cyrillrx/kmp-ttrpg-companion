@@ -1,0 +1,117 @@
+id: phase-spider
+source: monster_manual_2024
+type: monstrosity
+size: large
+alignment: unaligned
+challengeRating: 3.0
+armorClass: 14
+maxHitPoints: 45
+hitDice: 7d10+7
+abilities:
+  str:
+    value: 15
+    savingThrowProficiency: none
+  dex:
+    value: 16
+    savingThrowProficiency: none
+  con:
+    value: 12
+    savingThrowProficiency: none
+  int:
+    value: 6
+    savingThrowProficiency: none
+  wis:
+    value: 10
+    savingThrowProficiency: none
+  cha:
+    value: 6
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: null
+  swim: null
+  climb: 30
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: proficient
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Phase Spider
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Ethereal Sight</em>**. The spider can see 60 feet into the Ethereal Plane while on the Material Plane and vice versa.</p>
+      <p><strong><em>Spider Climb</em></strong>. The spider can climb difficult surfaces, including along ceilings, without needing to make an ability check.</p>
+      <p><strong><em>Web Walker</em></strong>. The spider ignores movement restrictions caused by webs, and the spider knows the location of any other creature in contact with the same web.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The spider makes two Bite attacks.</p>
+      <p><strong><em>Bite</em></strong>. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 8 (1d10 + 3) Piercing damage plus 9 (2d8) Poison damage. If this damage reduces the target to 0 Hit Points, the target becomes Stable, and it has the Poisoned condition for 1 hour. While Poisoned, the target also has the Paralyzed condition.</p>
+      <h2>Bonus actions</h2>
+      <p>** <em>Ethereal Jaunt</em>**. The spider teleports from the Material Plane to the Ethereal Plane or vice versa.</p>
+    senses: Darkvision 60 ft., Passive Perception 10
+    languages: []
+  fr:
+    name: Araignée de phase
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Marche dans les toiles</em>**. L'araignée n'est pas soumise aux contraintes de déplacement imposées par les toiles et connaît la position de toute autre créature en contact avec la même toile qu'elle.</p>
+      <p><strong><em>Pattes d'araignée</em></strong>. L'araignée peut parcourir les parois les plus difficiles à escalader, y compris les plafonds, sans passer par un jet de caractéristique.</p>
+      <p><strong><em>Vision éthérée</em></strong>. L'araignée voit à 18 m dans le Plan Éthéré quand elle est sur le Plan Matériel, et inversement.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. L'araignée effectue deux attaques de Morsure.</p>
+      <p><strong><em>Morsure</em></strong>. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 8 (1d10 + 3) dégâts perforants plus 9 (2d8) dégâts de poison. Si ces dégâts réduisent la cible à 0 point de vie, celle-ci devient Stabilisée et subit l'état Empoisonné pendant 1 heure. Tant qu'elle est ainsi Empoisonnée, la cible subit en outre l'état Paralysé.</p>
+      <h2>Actions Bonus</h2>
+      <p>** <em>Saut éthéré</em>**. L'araignée se téléporte du Plan Matériel vers le Plan Éthéré ou vice versa.</p>
+    senses: Vision dans le noir 18 m, Perception passive 10
+    languages: []

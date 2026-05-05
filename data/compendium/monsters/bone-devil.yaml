@@ -1,0 +1,117 @@
+id: bone-devil
+source: monster_manual_2024
+type: fiend
+size: large
+alignment: lawful_evil
+challengeRating: 9.0
+armorClass: 16
+maxHitPoints: 161
+hitDice: 17d10+68
+abilities:
+  str:
+    value: 18
+    savingThrowProficiency: proficient
+  dex:
+    value: 16
+    savingThrowProficiency: none
+  con:
+    value: 18
+    savingThrowProficiency: none
+  int:
+    value: 13
+    savingThrowProficiency: proficient
+  wis:
+    value: 14
+    savingThrowProficiency: proficient
+  cha:
+    value: 16
+    savingThrowProficiency: proficient
+speeds:
+  walk: 40
+  fly: 40
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: proficient
+  history: none
+  insight: proficient
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: resistant
+  fire: immune
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: immune
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: true
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Bone Devil
+    subtype: Devil
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Diabolical Restoration</em>**. If the devil dies outside the Nine Hells, its body disappears in sulfurous smoke, and it gains a new body instantly, reviving with all its Hit Points somewhere in the Nine Hells.</p>
+      <p><strong><em>Magic Resistance</em></strong>. The devil has Advantage on saving throws against spells and other magical effects.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The devil makes two Claw attacks and one Infernal Sting attack.</p>
+      <p><strong><em>Claw</em></strong>. <em>Melee Attack Roll</em> : +8, reach 10 ft. <em>Hit</em> : 13 (2d8 + 4) Slashing damage.</p>
+      <p><strong><em>Infernal Sting</em></strong>. <em>Melee Attack Roll</em> : +8, reach 10 ft. <em>Hit</em> : 15 (2d10 + 4) Piercing damage plus 18 (4d8) Poison damage, and the target has the Poisoned condition until the start of the devil's next turn. While Poisoned, the target can't regain Hit Points.</p>
+    senses: Darkvision 120 ft. (unimpeded by magical Darkness), Passive Perception
+      12
+    languages:
+    - Infernal; telepathy 120 ft.
+  fr:
+    name: Diable osseux
+    subtype: Diable
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Résistance à la magie</em>**. Le diable a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.</p>
+      <p><strong><em>Restauration diabolique</em></strong>. Si le diable meurt hors des Neuf Enfers, son corps disparaît dans un nuage de fumée sulfureuse, tandis qu'il en acquiert aussitôt un nouveau et revient à la vie avec tous ses pv quelque part dans les Neuf Enfers.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le diable effectue deux attaques de Griffe et une de Dard infernal.</p>
+      <p><strong><em>Dard infernal</em></strong>. <em>Corps à corps</em> : +8, allonge 3 m. <em>Touché</em> : 15 (2d10 + 4) dégâts perforants plus 18 (4d8) dégâts de poison, et la cible subit l'état Empoisonné jusqu'au début du tour suivant du diable. Ainsi Empoisonnée, la cible ne peut pas récupérer de points de vie.</p>
+      <p><strong><em>Griffe</em></strong>. <em>Corps à corps</em> : +8, allonge 3 m. <em>Touché</em> : 13 (2d8 + 4) dégâts tranchants.</p>
+    senses: Vision dans le noir 36 m (perce les Ténèbres magiques), Perception passive
+      12
+    languages:
+    - infernal ; télépathie 36 m

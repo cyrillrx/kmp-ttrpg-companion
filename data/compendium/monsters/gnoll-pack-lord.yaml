@@ -1,0 +1,115 @@
+id: gnoll-pack-lord
+source: monster_manual_2024
+type: fiend
+size: medium
+alignment: chaotic_evil
+challengeRating: 2.0
+armorClass: 15
+maxHitPoints: 49
+hitDice: 9d8+9
+abilities:
+  str:
+    value: 16
+    savingThrowProficiency: none
+  dex:
+    value: 14
+    savingThrowProficiency: none
+  con:
+    value: 13
+    savingThrowProficiency: none
+  int:
+    value: 8
+    savingThrowProficiency: none
+  wis:
+    value: 11
+    savingThrowProficiency: none
+  cha:
+    value: 9
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Gnoll Pack Lord
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The gnoll makes two attacks, using Bone Whip or Bone Javelin in any combination, and it uses Incite Rampage if available.</p>
+      <p><strong><em>Bone Whip</em></strong>. <em>Melee Attack Roll</em> : +5, reach 10 ft. <em>Hit</em> : 8 (2d4 + 3) Slashing damage.</p>
+      <p><strong><em>Bone Javelin</em></strong>. <em>Ranged Attack Roll</em> : +5, range 30/120 ft. <em>Hit</em> : 7 (1d8 + 3) Piercing damage.</p>
+      <p><strong><em>Incite Rampage (Recharge 5–6)</em></strong>. The gnoll targets another creature it can see within 60 feet of itself that has the Rampage Bonus Action. The target can take a Reaction to make one melee attack.</p>
+      <h2>Bonus actions</h2>
+      <p>** <em>Rampage (2/Day)</em>**. Immediately after dealing damage to a creature that is already Bloodied, the gnoll moves up to half its Speed, and it makes one Bone Whip attack.</p>
+    senses: Darkvision 60 ft., Passive Perception 10
+    languages:
+    - Gnoll
+  fr:
+    name: Gnoll, chef de meute
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le gnoll effectue deux attaques, réparties à sa guise entre Fouet osseux et Javeline osseuse, et il utilise Incitation au déchaînement si disponible.</p>
+      <p><strong><em>Fouet osseux</em></strong>. <em>Corps à corps</em> : +5, allonge 3 m. <em>Touché</em> : 8 (2d4 + 3) dégâts tranchants.</p>
+      <p><strong><em>Javeline osseuse</em></strong>. <em>À distance</em> : +5, portée 30/36 m. <em>Touché</em> : 7 (1d8 + 3) dégâts perforants.</p>
+      <p><strong><em>Incitation au déchaînement (recharge 5–6)</em></strong>. Le gnoll cible une autre créature qu'il peut voir dans un rayon de 18 m et qui possède l'action Bonus Déchaînement. La cible peut utiliser sa Réaction pour effectuer une attaque au corps à corps.</p>
+      <h2>Actions Bonus</h2>
+      <p>** <em>Déchaînement (2/jour)</em>**. Immédiatement après avoir infligé des dégâts à une créature déjà En péril, le gnoll se déplace jusqu'à la moitié de sa Vitesse et effectue une attaque de Fouet osseux.</p>
+    senses: Vision dans le noir 18 m, Perception passive 10
+    languages:
+    - Gnoll

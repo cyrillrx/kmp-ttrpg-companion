@@ -1,0 +1,109 @@
+id: noble
+source: monster_manual_2024
+type: humanoid
+size: medium_or_small
+alignment: neutral
+challengeRating: 0.125
+armorClass: 15
+maxHitPoints: 9
+hitDice: 2d8
+abilities:
+  str:
+    value: 11
+    savingThrowProficiency: none
+  dex:
+    value: 12
+    savingThrowProficiency: none
+  con:
+    value: 11
+    savingThrowProficiency: none
+  int:
+    value: 12
+    savingThrowProficiency: none
+  wis:
+    value: 14
+    savingThrowProficiency: none
+  cha:
+    value: 16
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: proficient
+  history: none
+  insight: proficient
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: proficient
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Noble
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Rapier</em>**. <em>Melee Attack Roll</em> : +3, reach 5 ft. <em>Hit</em> : 5 (1d8 + 1) Piercing damage.</p>
+      <h2>Reactions</h2>
+      <p>** <em>Parry</em>**. <em>Trigger</em> : The noble is hit by a melee attack roll while holding a weapon. <em>Response</em> : The noble adds 2 to its AC against that attack, possibly causing it to miss.</p>
+    senses: Passive Perception 12
+    languages:
+    - Common plus two other languages
+  fr:
+    name: Noble
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Rapière</em>**. <em>Corps à corps</em> : +3, allonge 1,50 m. <em>Touché</em> : 5 (1d8 + 1) dégâts perforants.</p>
+      <h2>Réactions</h2>
+      <p>** <em>Parade</em>**. <em>Déclencheur</em> : le noble est touché par un jet d'attaque au corps-à-corps alors qu'il tient une arme. <em>Conséquences</em> : le noble ajoute 2 à sa CA contre cette attaque, ce qui peut la faire rater.</p>
+    senses: Perception passive 12
+    languages:
+    - commun plus deux autres langues

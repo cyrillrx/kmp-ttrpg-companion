@@ -1,0 +1,111 @@
+id: lemure
+source: monster_manual_2024
+type: fiend
+size: medium
+alignment: lawful_evil
+challengeRating: 0.0
+armorClass: 9
+maxHitPoints: 9
+hitDice: 2d8
+abilities:
+  str:
+    value: 10
+    savingThrowProficiency: none
+  dex:
+    value: 5
+    savingThrowProficiency: none
+  con:
+    value: 11
+    savingThrowProficiency: none
+  int:
+    value: 1
+    savingThrowProficiency: none
+  wis:
+    value: 11
+    savingThrowProficiency: none
+  cha:
+    value: 3
+    savingThrowProficiency: none
+speeds:
+  walk: 20
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: resistant
+  fire: immune
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: immune
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: true
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: true
+  petrified: false
+  frightened: true
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Lemure
+    subtype: Devil
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Hellish Restoration</em>**. If the lemure dies in the Nine Hells, it revives with all its Hit Points in 1d10 days unless it is killed by a creature under the effects of a <em><a href="https://www.aidedd.org/spell/bless">Bless</a></em> spell or its remains are sprinkled with Holy Water.</p>
+      <h2>Actions</h2>
+      <p>** <em>Vile Slime</em>**. <em>Melee Attack Roll</em> : +2, reach 5 ft. <em>Hit</em> : 2 (1d4) Poison damage.</p>
+    senses: Darkvision 120 ft. (unimpeded by magical Darkness), Passive Perception
+      10
+    languages:
+    - Understands Infernal but can't speak
+  fr:
+    name: Lémure
+    subtype: Diable
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Restauration infernale</em>**. Si le lémure meurt dans les Neuf Enfers, il revient à la vie avec tous ses pv en 1d10 jours sauf s'il est tué par une créature sous les effets du sort <em><a href="https://www.aidedd.org/spell/fr/benediction">bénédiction</a></em> ou si ce qu'il en reste est aspergé d'eau bénite.</p>
+      <h2>Actions</h2>
+      <p>** <em>Limon abject</em>**. <em>Corps à corps</em> : +2, allonge 1,50 m. <em>Touché</em> : 2 (1d4) dégâts de poison.</p>
+    senses: Vision dans le noir 36 m (perce les Ténèbres magiques), Perception passive
+      10
+    languages:
+    - comprend l'infernal mais ne parle pas

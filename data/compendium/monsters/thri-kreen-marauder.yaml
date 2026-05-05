@@ -1,0 +1,113 @@
+id: thri-kreen-marauder
+source: monster_manual_2024
+type: monstrosity
+size: medium
+alignment: neutral
+challengeRating: 1.0
+armorClass: 15
+maxHitPoints: 33
+hitDice: 6d8+6
+abilities:
+  str:
+    value: 12
+    savingThrowProficiency: none
+  dex:
+    value: 15
+    savingThrowProficiency: none
+  con:
+    value: 13
+    savingThrowProficiency: none
+  int:
+    value: 8
+    savingThrowProficiency: none
+  wis:
+    value: 12
+    savingThrowProficiency: none
+  cha:
+    value: 7
+    savingThrowProficiency: none
+speeds:
+  walk: 40
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: proficient
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: proficient
+  survival: proficient
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Thri-kreen Marauder
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The thri-kreen makes two attacks, using Gythka or Chatkcha in any combination.</p>
+      <p><strong><em>Gythka</em></strong>. <em>Melee Attack Roll</em> : +3, reach 5 ft. <em>Hit</em> : 5 (1d8 + 1) Slashing damage plus 2 (1d4) Poison damage.</p>
+      <p><strong><em>Chatkcha</em></strong>. <em>Ranged Attack Roll</em> : +4, range 30/120 ft. <em>Hit</em> : 5 (1d6 + 2) Slashing damage.</p>
+      <h2>Bonus actions</h2>
+      <p>** <em>Leap</em>**. The thri-kreen jumps up to 15 feet by spending 5 feet of movement.</p>
+    senses: Darkvision 60 ft., Passive Perception 13
+    languages:
+    - Thri-kreen; telepathy 60 ft.
+  fr:
+    name: Thri-kreen, maraudeur
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le thri-kreen effectue deux attaques, réparties à sa guise entre Gythka et Chatkcha.</p>
+      <p><strong><em>Gythka</em></strong>. <em>Corps à corps</em> : +3, allonge 1,50 m. <em>Touché</em> : 5 (1d8 + 1) dégâts tranchants plus 2 (1d4) dégâts de poison.</p>
+      <p><strong><em>Chatkcha</em></strong>. <em>À distance</em> : +4, portée 30/36 m. <em>Touché</em> : 5 (1d6 + 2) dégâts tranchants.</p>
+      <h2>Actions Bonus</h2>
+      <p>** <em>Bond</em>**. Le thri-kreen effectue un saut d'un maximum de 4,50 m en dépensant 1,50 m de déplacement.</p>
+    senses: Vision dans le noir 18 m, Perception passive 13
+    languages:
+    - thri-kreen ; télépathie 18 m

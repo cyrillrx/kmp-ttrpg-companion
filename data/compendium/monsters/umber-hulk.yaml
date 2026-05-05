@@ -1,0 +1,122 @@
+id: umber-hulk
+source: monster_manual_2024
+type: monstrosity
+size: large
+alignment: chaotic_evil
+challengeRating: 5.0
+armorClass: 18
+maxHitPoints: 93
+hitDice: 11d10+33
+abilities:
+  str:
+    value: 20
+    savingThrowProficiency: none
+  dex:
+    value: 13
+    savingThrowProficiency: none
+  con:
+    value: 16
+    savingThrowProficiency: none
+  int:
+    value: 9
+    savingThrowProficiency: none
+  wis:
+    value: 10
+    savingThrowProficiency: none
+  cha:
+    value: 10
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: null
+  swim: null
+  climb: null
+  burrow: 20
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Umber Hulk
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Tunneler</em>**. The umber hulk can burrow through solid rock at half its Burrow Speed and leaves a 10-foot-diameter tunnel in its wake.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The umber hulk makes three Rend attacks.</p>
+      <p><strong><em>Rend</em></strong>. <em>Melee Attack Roll</em> : +8, reach 10 ft. <em>Hit</em> : 12 (2d6 + 5) Slashing damage.</p>
+      <h2>Bonus actions</h2>
+      <p>** <em>Confusing Gaze (Recharge 5–6)</em>**. <em>Wisdom Saving Throw</em> : DC 14, each creature in a 30-foot Cone. <em>Failure</em> : The target can't take Reactions until the start of the umber hulk's next turn, and the target rolls 1d8 to determine what it does on its next turn:</p>
+      <p><strong><em>1-4</em></strong>. The target does nothing.</p>
+      <p><strong><em>5-6</em></strong>. The target takes no action or Bonus Action and uses all its movement to move in a random direction.</p>
+      <p><strong><em>7-8</em></strong>. The target makes a melee attack against a random creature within its reach or does nothing if it can't make such an attack.</p>
+    senses: Darkvision 120 ft., Tremorsense 60 ft., Passive Perception 10
+    languages:
+    - Umber Hulk
+  fr:
+    name: Mastodonte des ombres
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Fouisseur</em>**. Le mastodonte des ombres peut creuser à travers la roche solide à la moitié de sa Vitesse de fouissement et laisse derrière lui un tunnel de 3 m de diamètre.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le mastodonte des ombres effectue trois attaques de Saignée.</p>
+      <p><strong><em>Saignée</em></strong>. <em>Corps à corps</em> : +8, allonge 3 m. <em>Touché</em> : 12 (2d6 + 5) dégâts tranchants.</p>
+      <h2>Actions Bonus</h2>
+      <p>** <em>Regard déroutant (recharge 5–6)</em>**. <em>JdS Sagesse</em> : DD 14, chaque créature dans un Cône de 9 m. <em>Échec</em> : la cible ne peut pas prendre de Réactions jusqu'au début du prochain tour du mastodonte des ombres, et elle lance 1d8 pour déterminer son action à son prochain tour :</p>
+      <p><strong><em>1-4</em></strong>. La cible ne fait rien.</p>
+      <p><strong><em>5-6</em></strong>. La cible ne prend aucune action ni action Bonus et utilise tout son mouvement pour se déplacer dans une direction aléatoire.</p>
+      <p><strong><em>7-8</em></strong>. La cible effectue une attaque de corps à corps contre une créature aléatoire à portée, ou ne fait rien si elle ne peut pas effectuer une telle attaque.</p>
+    senses: Vision dans le noir 36 m, perception des vibrations 18 m, Perception passive
+      10
+    languages:
+    - mastodonte des ombres

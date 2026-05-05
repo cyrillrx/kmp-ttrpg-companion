@@ -1,0 +1,115 @@
+id: spy-master
+source: monster_manual_2024
+type: humanoid
+size: medium_or_small
+alignment: neutral
+challengeRating: 10.0
+armorClass: 19
+maxHitPoints: 137
+hitDice: 25d8+25
+abilities:
+  str:
+    value: 10
+    savingThrowProficiency: none
+  dex:
+    value: 20
+    savingThrowProficiency: proficient
+  con:
+    value: 12
+    savingThrowProficiency: proficient
+  int:
+    value: 18
+    savingThrowProficiency: proficient
+  wis:
+    value: 16
+    savingThrowProficiency: proficient
+  cha:
+    value: 16
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: null
+  swim: null
+  climb: 30
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: proficient
+  history: none
+  insight: proficient
+  intimidation: none
+  investigation: proficient
+  medicine: none
+  nature: none
+  perception: proficient
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: proficient
+  stealth: proficient
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Spy Master
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The spy makes three attacks, using Rapier or Hand Crossbow in any combination.</p>
+      <p><strong><em>Rapier</em></strong>. <em>Melee Attack Roll</em> : +9, reach 5 ft. <em>Hit</em> : 14 (2d8 + 5) Piercing damage plus 7 (2d6) Poison damage.</p>
+      <p><strong><em>Hand Crossbow</em></strong>. <em>Ranged Attack Roll</em> : +9, range 30/120 ft. <em>Hit</em> : 12 (2d6 + 5) Piercing damage plus 9 (2d8) Poison damage.</p>
+      <p><strong><em>Smoke Bomb (1/Day)</em></strong>. The spy throws a bomb to a point it can see within 30 feet of itself. <em>Constitution Saving Throw</em> : DC 16, each creature in a 20-foot-radius Sphere centered on that point. <em>Failure</em> : 28 (8d6) Poison damage, and the target has the Blinded condition until the end of the spy's next turn. <em>Success</em> : Half damage only.</p>
+      <h2>Bonus actions</h2>
+      <p>** <em>Cunning Action</em>**. The spy takes the Dash, Disengage, or Hide action.</p>
+    senses: Passive Perception 21
+    languages:
+    - Common plus two other languages
+  fr:
+    name: Espion, maître
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. L'espion réalise trois attaques, réparties à sa guise entre Rapière et Arbalète de poing.</p>
+      <p><strong><em>Rapière</em></strong>. <em>Corps à corps</em> : +9, allonge 1,50 m. <em>Touché</em> : 14 (2d8 + 5) dégâts perforants plus 7 (2d6) dégâts de poison.</p>
+      <p><strong><em>Arbalète de poing</em></strong>. <em>À distance</em> : +9, portée 9/36 m. <em>Touché</em> : 12 (2d6 + 5) dégâts perforants plus 9 (2d8) dégâts de poison.</p>
+      <p><strong><em>Bombe fumigène (1/jour)</em></strong>. L'espion lance une bombe vers un point qu'il peut voir dans un rayon de 9 m. <em>JdS Constitution</em> : DD 16, chaque créature dans une Sphère de 6 m de rayon centrée sur ce point. <em>Échec</em> : 28 (8d6) dégâts de poison, et la cible subit l'état Aveuglé jusqu'à la fin du prochain tour de l'espion. <em>Réussite</em> : demi-dégâts uniquement.</p>
+      <h2>Actions Bonus</h2>
+      <p>** <em>Ruse</em>**. L'espion prend l'action Se désengager, Se cacher ou Foncer.</p>
+    senses: Perception passive 21
+    languages:
+    - commun plus deux autres langues

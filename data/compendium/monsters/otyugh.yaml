@@ -1,0 +1,112 @@
+id: otyugh
+source: monster_manual_2024
+type: aberration
+size: large
+alignment: neutral
+challengeRating: 5.0
+armorClass: 14
+maxHitPoints: 104
+hitDice: 11d10+44
+abilities:
+  str:
+    value: 16
+    savingThrowProficiency: none
+  dex:
+    value: 11
+    savingThrowProficiency: none
+  con:
+    value: 19
+    savingThrowProficiency: proficient
+  int:
+    value: 6
+    savingThrowProficiency: none
+  wis:
+    value: 13
+    savingThrowProficiency: none
+  cha:
+    value: 6
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Otyugh
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The otyugh makes one Bite attack and two Tentacle attacks.</p>
+      <p><strong><em>Bite</em></strong>. <em>Melee Attack Roll</em> : +6, reach 5 ft. <em>Hit</em> : 12 (2d8 + 3) Piercing damage, and the target has the Poisoned condition. Whenever the Poisoned target finishes a Long Rest, it is subjected to the following effect. <em>Constitution Saving Throw</em> : DC 15. <em>Failure</em> : The target's Hit Point maximum decreases by 5 (1d10) and doesn't return to normal until the Poisoned condition ends on the target. <em>Success</em> : The Poisoned condition ends.</p>
+      <p><strong><em>Tentacle</em></strong>. <em>Melee Attack Roll</em> : +6, reach 10 ft. <em>Hit</em> : 12 (2d8 + 3) Piercing damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 13) from one of two tentacles.</p>
+      <p><strong><em>Tentacle Slam</em></strong>. <em>Constitution Saving Throw</em> : DC 14, each creature Grappled by the otyugh. <em>Failure</em> : 16 (3d8 + 3) Bludgeoning damage, and the target has the Stunned condition until the start of the otyugh's next turn. <em>Success</em> : Half damage only.</p>
+    senses: Darkvision 120 ft., Passive Perception 11
+    languages:
+    - Otyugh; telepathy 120 ft. (doesn't allow the receiving creature to respond telepathically)
+  fr:
+    name: Otyugh
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. L'otyugh effectue une attaque de Morsure et deux de Tentacule.</p>
+      <p><strong><em>Morsure</em></strong>. <em>Corps à corps</em> : +6, allonge 1,50 m. <em>Touché</em> : 12 (2d8 + 3) dégâts perforants, et la cible subit l'état Empoisonné. Chaque fois que la cible Empoisonnée termine un Repos long, elle subit l'effet suivant. <em>JdS Constitution</em> : DD 15. <em>Échec</em> : le maximum de points de vie de la cible est réduit de 5 (1d10) et ne revient pas à la normale tant que l'état Empoisonné persiste sur la cible. <em>Réussite</em> : l'état Empoisonné prend fin.</p>
+      <p><strong><em>Tentacule</em></strong>. <em>Corps à corps</em> : +6, allonge 3 m. <em>Touché</em> : 12 (2d8 + 3) dégâts perforants. Si la cible est une créature de taille M ou inférieure, elle subit l'état Agrippé (évasion DD 13) par l'un des deux tentacules.</p>
+      <p><strong><em>Coup de tentacule</em></strong>. <em>JdS Constitution</em> : DD 14, chaque créature Agrippée par l'otyugh. <em>Échec</em> : 16 (3d8 + 3) dégâts contondants, et la cible subit l'état Étourdi jusqu'au début du tour suivant de l'otyugh. <em>Réussite</em> : demi-dégâts uniquement.</p>
+    senses: Vision dans le noir 36 m, Perception passive 11
+    languages:
+    - otyugh ; télépathie 36 m (ne permet pas à la créature réceptrice de répondre
+      par télépathie)

@@ -1,0 +1,117 @@
+id: gibbering-mouther
+source: monster_manual_2024
+type: aberration
+size: medium
+alignment: chaotic_neutral
+challengeRating: 2.0
+armorClass: 9
+maxHitPoints: 52
+hitDice: 7d8+21
+abilities:
+  str:
+    value: 10
+    savingThrowProficiency: none
+  dex:
+    value: 8
+    savingThrowProficiency: none
+  con:
+    value: 16
+    savingThrowProficiency: none
+  int:
+    value: 3
+    savingThrowProficiency: none
+  wis:
+    value: 10
+    savingThrowProficiency: none
+  cha:
+    value: 6
+    savingThrowProficiency: none
+speeds:
+  walk: 20
+  fly: null
+  swim: 20
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: true
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Gibbering Mouther
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Aberrant Ground</em>**. The ground in a 10-foot Emanation originating from the mouther is Difficult Terrain.</p>
+      <p><strong><em>Gibbering</em></strong>. The mouther babbles incoherently while it doesn't have the Incapacitated condition. <em>Wisdom Saving Throw</em> : DC 10, any creature that starts its turn within 20 feet of the mouther while it is babbling. <em>Failure</em> : The target rolls 1d8 to determine what it does during the current turn:</p>
+      <p><strong><em>1–4</em></strong>. The target does nothing.</p>
+      <p><strong><em>5–6</em></strong>. The target takes no action or Bonus Action and uses all its movement to move in a random direction.</p>
+      <p><strong><em>7–8</em></strong>. The target makes a melee attack against a randomly determined creature within its reach or does nothing if it can't make such an attack.</p>
+      <h2>Actions</h2>
+      <p>** <em>Bite</em>**. <em>Melee Attack Roll</em> : +2, reach 5 ft. <em>Hit</em> : 7 (2d6) Piercing damage. If the target is a Medium or smaller creature, it has the Prone condition. The target dies if it is reduced to 0 Hit Points by this attack. Its body is then absorbed into the mouther, leaving only equipment behind.</p>
+      <p><strong><em>Blinding Spittle (Recharge 5–6)</em></strong>. <em>Dexterity Saving Throw</em> : DC 10, each creature in a 10-foot-radius Sphere centered on a point within 30 feet. <em>Failure</em> : 7 (2d6) Radiant damage, and the target has the Blinded condition until the end of the mouther's next turn.</p>
+    senses: Darkvision 60 ft., Passive Perception 10
+    languages: []
+  fr:
+    name: Babélien
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Charabia</em>**. Le babélien bredouille de façon incohérente tant qu'il ne subit pas l'état Incapable d'agir. <em>JdS Sagesse</em> : DD 10, toute créature qui commence son tour dans un rayon de 6 m du babélien alors qu'il bredouille. <em>Échec</em> : la cible lance 1d8 pour déterminer ce qu'elle fait pour le tour en cours :</p>
+      <p><strong><em>1–4</em></strong>. La cible ne fait rien.</p>
+      <p><strong><em>5–6</em></strong>. La cible n'entreprend ni action ni action Bonus, et consacre tout son déplacement dans une direction aléatoire.</p>
+      <p><strong><em>7–8</em></strong>. La cible effectue une attaque de corps à corps contre une créature déterminée aléatoirement à portée d'allonge (elle ne fait rien si une telle attaque n'est pas possible).</p>
+      <p><strong><em>Sol aberrant</em></strong>. Le sol dans une Émanation de 3 m centrée sur le babélien est un Terrain difficile.</p>
+      <h2>Actions</h2>
+      <p>** <em>Morsure</em>**. <em>Corps à corps</em> : +2, allonge 1,50 m. <em>Touché</em> : 7 (2d6) dégâts perforants. Si la cible est une créature de taille M ou inférieure, elle subit l'état À terre. La cible meurt si cette attaque la fait tomber à 0 point de vie. Son corps est alors absorbé par le babélien en ne laissant que son équipement.</p>
+      <p><strong><em>Crachat aveuglant (recharge 5–6)</em></strong>. <em>JdS Dextérité</em> : DD 10, chaque créature dans une Sphère de 3 m de rayon centrée sur un point dans un rayon de 9 m. <em>Échec</em> : 7 (2d6) dégâts radiants, et la cible subit l'état Aveuglé jusqu'à la fin du tour suivant du babélien.</p>
+    senses: Vision dans le noir 18 m, Perception passive 10
+    languages: []

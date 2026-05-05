@@ -1,0 +1,113 @@
+id: white-dragon-wyrmling
+source: monster_manual_2024
+type: dragon
+size: medium
+alignment: chaotic_evil
+challengeRating: 2.0
+armorClass: 16
+maxHitPoints: 32
+hitDice: 5d8+10
+abilities:
+  str:
+    value: 14
+    savingThrowProficiency: none
+  dex:
+    value: 10
+    savingThrowProficiency: proficient
+  con:
+    value: 14
+    savingThrowProficiency: none
+  int:
+    value: 5
+    savingThrowProficiency: none
+  wis:
+    value: 10
+    savingThrowProficiency: proficient
+  cha:
+    value: 11
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: 60
+  swim: 30
+  climb: null
+  burrow: 15
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: proficient
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: proficient
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: immune
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: White Dragon Wyrmling
+    subtype: Chromatic
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Ice Walk</em>**. The dragon can move across and climb icy surfaces without needing to make an ability check. Additionally, Difficult Terrain composed of ice or snow doesn't cost it extra movement.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The dragon makes two Rend attacks.</p>
+      <p><strong><em>Rend</em></strong>. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 6 (1d8 + 2) Slashing damage plus 2 (1d4) Cold damage.</p>
+      <p><strong><em>Cold Breath (Recharge 5–6)</em></strong>. <em>Constitution Saving Throw</em> : DC 12, each creature in a 15-foot Cone. <em>Failure</em> : 22 (5d8) Cold damage. <em>Success</em> : Half damage.</p>
+    senses: Blindsight 10 ft., Darkvision 60 ft., Passive Perception 14
+    languages:
+    - Draconic
+  fr:
+    name: Dragon blanc, dragonnet
+    subtype: Chromatique
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Marche sur la glace</em>**. Le dragon peut parcourir et gravir toute surface gelée sans passer par le moindre jet de caractéristique. En outre, tout Terrain difficile composé de glace ou de neige ne lui demande aucune dépense de déplacement supplémentaire.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le dragon effectue deux attaques de Saignée.</p>
+      <p><strong><em>Saignée</em></strong>. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 6 (1d8 + 2) dégâts tranchants plus 2 (1d4) dégâts de froid.</p>
+      <p><strong><em>Souffle glacial (recharge 5–6)</em></strong>. <em>JdS Constitution</em> : DD 12, chaque créature dans un Cône de 4,50 m. <em>Échec</em> : 22 (5d8) dégâts de froid. <em>Réussite</em> : demi-dégâts.</p>
+    senses: Vision aveugle 3 m, Vision dans le noir 18 m, Perception passive 14
+    languages:
+    - draconique

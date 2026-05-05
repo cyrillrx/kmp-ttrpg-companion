@@ -1,0 +1,115 @@
+id: steam-mephit
+source: monster_manual_2024
+type: elemental
+size: small
+alignment: neutral_evil
+challengeRating: 0.25
+armorClass: 10
+maxHitPoints: 17
+hitDice: 5d6
+abilities:
+  str:
+    value: 5
+    savingThrowProficiency: none
+  dex:
+    value: 11
+    savingThrowProficiency: none
+  con:
+    value: 10
+    savingThrowProficiency: none
+  int:
+    value: 11
+    savingThrowProficiency: none
+  wis:
+    value: 10
+    savingThrowProficiency: none
+  cha:
+    value: 12
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: 30
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: proficient
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: immune
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: immune
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: true
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: true
+  stunned: false
+translations:
+  en:
+    name: Steam Mephit
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Blurred Form</em>**. Attack rolls against the mephit are made with Disadvantage unless the mephit has the Incapacitated condition.</p>
+      <p><strong><em>Death Burst</em></strong>. The mephit explodes when it dies. <em>Dexterity Saving Throw</em> : DC 10, each creature in a 5-foot Emanation originating from the mephit. <em>Failure</em> : 5 (2d4) Fire damage. <em>Success</em> : Half damage.</p>
+      <h2>Actions</h2>
+      <p>** <em>Claw</em>**. <em>Melee Attack Roll</em> : +2, reach 5 ft. <em>Hit</em> : 2 (1d4) Slashing damage plus 2 (1d4) Fire damage.</p>
+      <p><strong><em>Steam Breath (Recharge 6)</em></strong>. <em>Constitution Saving Throw</em> : DC 10, each creature in a 15-foot Cone. <em>Failure</em> : 5 (2d4) Fire damage, and the target's Speed decreases by 10 feet until the end of the mephit's next turn. <em>Success</em> : Half damage only. <em>Failure or Success</em> : Being underwater doesn't grant Resistance to this Fire damage.</p>
+    senses: Darkvision 60 ft., Passive Perception 10
+    languages:
+    - Primordial (Aquan
+    - Ignan)
+  fr:
+    name: Méphite vaporeux
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Explosion finale</em>**. Le méphite explose quand il meurt. <em>JdS Dextérité</em> : DD 10, chaque créature dans une Émanation de 1,50 m centrée sur le méphite. <em>Échec</em> : 5 (2d4) dégâts de feu. <em>Réussite</em> : demi-dégâts.</p>
+      <p><strong><em>Forme floue</em></strong>. Les jets d'attaque contre le méphite subissent un Désavantage sauf si le méphite subit l'état Incapable d'agir.</p>
+      <h2>Actions</h2>
+      <p>** <em>Griffe</em>**. <em>Corps à corps</em> : +2, allonge 1,50 m. <em>Touché</em> : 2 (1d4) dégâts tranchants plus 2 (1d4) dégâts de feu.</p>
+      <p><strong><em>Souffle de vapeur (recharge 6)</em></strong>. <em>JdS Constitution</em> : DD 10, chaque créature dans un Cône de 4,50 m. <em>Échec</em> : 5 (2d4) dégâts de feu, et la Vitesse de la cible est réduite de 3 m jusqu'à la fin du tour suivant du méphite. <em>Réussite</em> : demi-dégâts uniquement. <em>Échec ou réussite</em> : être immergé dans l'eau n'octroie pas la Résistance à ces dégâts de feu.</p>
+    senses: Vision dans le noir 18 m, Perception passive 10
+    languages:
+    - primordial (aquatique
+    - igné)

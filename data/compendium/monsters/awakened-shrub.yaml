@@ -1,0 +1,105 @@
+id: awakened-shrub
+source: monster_manual_2024
+type: plant
+size: small
+alignment: neutral
+challengeRating: 0.0
+armorClass: 9
+maxHitPoints: 10
+hitDice: 3d6
+abilities:
+  str:
+    value: 3
+    savingThrowProficiency: none
+  dex:
+    value: 8
+    savingThrowProficiency: none
+  con:
+    value: 11
+    savingThrowProficiency: none
+  int:
+    value: 10
+    savingThrowProficiency: none
+  wis:
+    value: 10
+    savingThrowProficiency: none
+  cha:
+    value: 6
+    savingThrowProficiency: none
+speeds:
+  walk: 20
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: vulnerable
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: resistant
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Awakened Shrub
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Rake</em>**. <em>Melee Attack Roll</em> : +1, reach 5 ft. <em>Hit</em> : 1 Slashing damage.</p>
+    senses: Passive Perception 10
+    languages:
+    - Common plus one other language
+  fr:
+    name: Arbuste éveillé
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Ratissage</em>**. <em>Corps à corps</em> : +1, allonge 1,50 m. <em>Touché</em> : 1 dégât tranchant.</p>
+    senses: Perception passive 10
+    languages:
+    - commun plus une autre langue

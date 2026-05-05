@@ -1,0 +1,111 @@
+id: shambling-mound
+source: monster_manual_2024
+type: plant
+size: large
+alignment: unaligned
+challengeRating: 5.0
+armorClass: 15
+maxHitPoints: 110
+hitDice: 13d10+39
+abilities:
+  str:
+    value: 18
+    savingThrowProficiency: none
+  dex:
+    value: 8
+    savingThrowProficiency: none
+  con:
+    value: 16
+    savingThrowProficiency: none
+  int:
+    value: 5
+    savingThrowProficiency: none
+  wis:
+    value: 10
+    savingThrowProficiency: none
+  cha:
+    value: 5
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: null
+  swim: 20
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: proficient
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: resistant
+  fire: resistant
+  force: none
+  lightning: immune
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: true
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: true
+  stunned: false
+translations:
+  en:
+    name: Shambling Mound
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Lightning Absorption</em>**. Whenever the shambling mound is subjected to Lightning damage, it regains a number of Hit Points equal to the Lightning damage dealt.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The shambling mound makes three Charged Tendril attacks. It can replace one attack with a use of Engulf.</p>
+      <p><strong><em>Charged Tendril</em></strong>. <em>Melee Attack Roll</em> : +7, reach 10 ft. <em>Hit</em> : 7 (1d6 + 4) Bludgeoning damage plus 5 (2d4) Lightning damage. If the target is a Medium or smaller creature, the shambling mound pulls the target 5 feet straight toward itself.</p>
+      <p><strong><em>Engulf</em></strong>. <em>Strength Saving Throw</em> : DC 15, one Medium or smaller creature within 5 feet. <em>Failure</em> : The target is pulled into the shambling mound's space and has the Grappled condition (escape DC 14). Until the grapple ends, the target has the Blinded and Restrained conditions, and it takes 10 (3d6) Lightning damage at the start of each of its turns. When the shambling mound moves, the Grappled target moves with it, costing it no extra movement. The shambling mound can have only one creature Grappled by this action at a time.</p>
+    senses: Blindsight 60 ft., Passive Perception 10
+    languages: []
+  fr:
+    name: Tertre errant
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Absorption de la foudre</em>**. Chaque fois que le tertre errant est soumis à des dégâts de foudre, il récupère en fait autant de points de vie que les dégâts de foudre infligés.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le tertre errant effectue trois attaques de Vrille électrisée. Il peut remplacer l'une de ces attaques par une utilisation d'Enveloppement.</p>
+      <p><strong><em>Vrille électrisée</em></strong>. <em>Corps à corps</em> : +7, allonge 3 m. <em>Touché</em> : 7 (1d6 + 4) dégâts contondants plus 5 (2d4) dégâts de foudre. Si la cible est une créature de Taille M ou inférieure, le tertre errant la tire en ligne droite vers lui de 1,50 m.</p>
+      <p><strong><em>Enveloppement</em></strong>. <em>JdS Force</em> : DD 15, une créature de taille M ou inférieure dans un rayon de 1,50 m. <em>Échec</em> : la cible est tirée dans l'espace du tertre errant et subit l'état Agrippé (évasion DD 14). Tant qu'elle est agrippée, la cible subit les états Aveuglé et Entravé, ainsi que 10 (3d6) dégâts de foudre au début de chacun de ses tours. Quand le tertre errant se déplace, la cible Agrippée l'accompagne, sans dépense supplémentaire en déplacement. Si le tertre errant a déjà une créature Agrippée par cette action, il ne peut pas en avoir une autre.</p>
+    senses: Vision aveugle 18 m, Perception passive 10
+    languages: []

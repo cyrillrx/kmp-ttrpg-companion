@@ -1,0 +1,113 @@
+id: stone-giant
+source: monster_manual_2024
+type: giant
+size: huge
+alignment: neutral
+challengeRating: 7.0
+armorClass: 17
+maxHitPoints: 126
+hitDice: 11d12+55
+abilities:
+  str:
+    value: 23
+    savingThrowProficiency: none
+  dex:
+    value: 15
+    savingThrowProficiency: proficient
+  con:
+    value: 20
+    savingThrowProficiency: proficient
+  int:
+    value: 10
+    savingThrowProficiency: none
+  wis:
+    value: 12
+    savingThrowProficiency: proficient
+  cha:
+    value: 9
+    savingThrowProficiency: none
+speeds:
+  walk: 40
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: proficient
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: proficient
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: proficient
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Stone Giant
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The giant makes two attacks, using Stone Club or Boulder in any combination.</p>
+      <p><strong><em>Stone Club</em></strong>. <em>Melee Attack Roll</em> : +9, reach 15 ft. <em>Hit</em> : 22 (3d10 + 6) Bludgeoning damage.</p>
+      <p><strong><em>Boulder</em></strong>. <em>Ranged Attack Roll</em> : +9, range 60/240 ft. <em>Hit</em> : 15 (2d8 + 6) Bludgeoning damage. If the target is a Large or smaller creature, it has the Prone condition.</p>
+      <h2>Reactions</h2>
+      <p>** <em>Deflect Missile (Recharge 5–6)</em>**. <em>Trigger</em> : The giant is hit by a ranged attack roll and takes Bludgeoning, Piercing, or Slashing damage from it. <em>Response</em> : The giant reduces the damage it takes from the attack by 11 (1d10 + 6), and if that damage is reduced to 0, the giant can redirect some of the attack's force. <em>Dexterity Saving Throw</em> : DC 17, one creature the giant can see within 60 feet. <em>Failure</em> : 11 (1d10 + 6) Force damage.</p>
+    senses: Darkvision 60 ft., Passive Perception 14
+    languages:
+    - Giant
+  fr:
+    name: Géant des pierres
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le géant effectue deux attaques, réparties à sa guise entre Gourdin de pierre et Rocher.</p>
+      <p><strong><em>Gourdin de pierre</em></strong>. <em>Corps à corps</em> : +9, allonge 4,50 m. <em>Touché</em> : 22 (3d10 + 6) dégâts contondants.</p>
+      <p><strong><em>Rocher</em></strong>. <em>À distance</em> : +9, portée 18/72 m. <em>Touché</em> : 15 (2d8 + 6) dégâts contondants. Si la cible est une créature de taille G ou inférieure, elle subit l'état À terre.</p>
+      <h2>Réactions</h2>
+      <p>** <em>Parade de projectile (recharge 5–6)</em>**. <em>Déclencheur</em> : le géant est touché par un jet d'attaque à distance qui lui inflige des dégâts contondants, perforants ou tranchants. <em>Conséquences</em> : le géant réduit les dégâts infligés par l'attaque de 11 (1d10 + 6) ; si ces dégâts sont réduits à 0, le géant peut réorienter une partie de l'impact. <em>JdS Dextérité</em> : DD 17, une créature que le géant voit dans un rayon de 18 m. <em>Échec</em> : 11 (1d10 + 6) dégâts de force.</p>
+    senses: Vision dans le noir 18 m, Perception passive 14
+    languages:
+    - géant

@@ -1,0 +1,119 @@
+id: fey-spirit
+source: monster_manual_2024
+type: fey
+size: small
+alignment: neutral
+challengeRating: -1.0
+armorClass: 12
+maxHitPoints: 30
+hitDice: ''
+abilities:
+  str:
+    value: 13
+    savingThrowProficiency: none
+  dex:
+    value: 16
+    savingThrowProficiency: none
+  con:
+    value: 14
+    savingThrowProficiency: none
+  int:
+    value: 14
+    savingThrowProficiency: none
+  wis:
+    value: 11
+    savingThrowProficiency: none
+  cha:
+    value: 16
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: 30
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: true
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Fey Spirit
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The spirit makes a number of Fey Blade attacks equal to half this spell's level (round down).</p>
+      <p><strong><em>Fey Blade</em></strong>. <em>Melee Attack Roll</em> : Bonus equals your spell attack modifier, reach 5 ft. <em>Hit</em> : 2d6 + 3 + the spell's level Force damage.</p>
+      <h2>Bonus actions</h2>
+      <p>** <em>Fey Step</em>**. The spirit magically teleports up to 30 feet to an unoccupied space it can see. Then one of the following effects occurs, based on the spirit's chosen mood:</p>
+      <p><strong><em>Fuming</em></strong>. The spirit has Advantage on the next attack roll it makes before the end of this turn.</p>
+      <p><strong><em>Mirthful</em></strong>. <em>Wisdom Saving Throw</em> : DC equals your spell save DC, one creature the spirit can see within 10 feet of itself. <em>Failure</em> : The target is Charmed by you and the spirit for 1 minute or until the target takes any damage.</p>
+      <p><strong><em>Tricksy</em></strong>. The spirit fills a 10-foot Cube within 5 feet of it with magical Darkness, which lasts until the end of its next turn.</p>
+    senses: Darkvision 60 ft., Passive Perception 10
+    languages:
+    - Sylvan
+    - understands the languages you know
+  fr:
+    name: Esprit féerique
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. L'esprit effectue un nombre d'attaques de Lame féerique égal à la moitié du niveau de ce sort (arrondir à l'inférieur).</p>
+      <p><strong><em>Lame féerique</em></strong>. <em>Corps à corps</em> : bonus égal à votre modificateur d'attaque des sorts, allonge 1,50 m. <em>Touché</em> : 2d6 + 3 + le niveau du sort dégâts de force.</p>
+      <h2>Actions Bonus</h2>
+      <p>** <em>Foulée féerique</em>**. L'esprit se téléporte magiquement jusqu'à 9 m dans un espace inoccupé qu'il peut voir. Ensuite, l'un des effets suivants se produit, selon l'humeur choisie par l'esprit :</p>
+      <p><strong><em>Furibond</em></strong>. L'esprit a un Avantage à son prochain jet d'attaque avant la fin de ce tour.</p>
+      <p><strong><em>Rieur</em></strong>. <em>JdS Sagesse</em> : DD égal à votre DD de sauvegarde des sorts, une créature que l'esprit peut voir dans un rayon de 3 m. <em>Échec</em> : la cible est Charmée par vous et l'esprit pendant 1 minute ou jusqu'à ce qu'elle subisse des dégâts.</p>
+      <p><strong><em>Espiègle</em></strong>. L'esprit remplit un cube de 3 m de côté, dans un rayon de 1,50 m autour de lui, de Ténèbres magiques. L'effet jusqu'à la fin de son prochain tour.</p>
+    senses: Vision dans le noir 18 m, Perception passive 10
+    languages:
+    - sylvestre
+    - comprend les langues que vous connaissez

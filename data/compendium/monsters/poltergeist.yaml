@@ -1,0 +1,117 @@
+id: poltergeist
+source: monster_manual_2024
+type: undead
+size: medium_or_small
+alignment: chaotic_neutral
+challengeRating: 2.0
+armorClass: 12
+maxHitPoints: 22
+hitDice: 5d8
+abilities:
+  str:
+    value: 1
+    savingThrowProficiency: none
+  dex:
+    value: 14
+    savingThrowProficiency: none
+  con:
+    value: 11
+    savingThrowProficiency: none
+  int:
+    value: 10
+    savingThrowProficiency: none
+  wis:
+    value: 10
+    savingThrowProficiency: none
+  cha:
+    value: 14
+    savingThrowProficiency: none
+speeds:
+  walk: 5
+  fly: 50
+  swim: null
+  climb: null
+  burrow: null
+  hover: true
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: resistant
+  bludgeoning: resistant
+  cold: resistant
+  fire: resistant
+  force: none
+  lightning: resistant
+  necrotic: immune
+  piercing: resistant
+  poison: immune
+  psychic: none
+  radiant: none
+  slashing: resistant
+  thunder: resistant
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: true
+  deafened: false
+  grappled: true
+  incapacitated: false
+  paralyzed: true
+  restrained: true
+  unconscious: true
+  poisoned: true
+  petrified: true
+  frightened: false
+  blinded: false
+  prone: true
+  exhaustion: true
+  stunned: false
+translations:
+  en:
+    name: Poltergeist
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Incorporeal Movement</em>**. The poltergeist can move through other creatures and objects as if they were Difficult Terrain. It takes 5 (1d10) Force damage if it ends its turn inside an object.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The poltergeist makes one Object Slam attack and uses Telekinetic Thrust.</p>
+      <p><strong><em>Object Slam</em></strong>. <em>Melee or Ranged Attack Roll</em> : +4, reach 5 ft. or range 30 ft. <em>Hit</em> : 7 (2d4 + 2) Bludgeoning damage.</p>
+      <p><strong><em>Telekinetic Thrust</em></strong>. <em>Strength Saving Throw</em> : DC 12, one creature the poltergeist can see within 30 feet. <em>Failure</em> : 9 (2d6 + 2) Force damage, and the target is pushed up to 30 feet straight away from the poltergeist.</p>
+      <h2>Bonus actions</h2>
+      <p>** <em>Vanish</em>**. The poltergeist gives itself the Invisible condition or ends that condition on itself.</p>
+    senses: Darkvision 60 ft., Passive Perception 10
+    languages:
+    - Common plus one other language
+  fr:
+    name: Poltergeist
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Déplacement intangible</em>**. Le poltergeist peut traverser d'autres créatures et objets comme s'il s'agissait d'un Terrain difficile. Il subit 5 (1d10) dégâts de force s'il termine son tour à l'intérieur d'un objet.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le poltergeist effectue une attaque de Frappe d'objet et utilise Poussée télékinétique.</p>
+      <p><strong><em>Frappe d'objet</em></strong>. <em>Corps à corps ou à distance</em> : +4, allonge 1,50 m ou portée 9 m. <em>Touché</em> : 7 (2d4 + 2) dégâts contondants.</p>
+      <p><strong><em>Poussée télékinétique</em></strong>. <em>JdS Force</em> : DD 12, une créature que le poltergeist peut voir dans un rayon de 9 m. <em>Échec</em> : 9 (2d6 + 2) dégâts de Force, et la cible est repoussée en ligne droite jusqu'à 9 m du poltergeist.</p>
+      <h2>Actions Bonus</h2>
+      <p>** <em>Disparition</em>**. Le poltergeist s'octroie l'état Invisible ou y met fin.</p>
+    senses: Vision dans le noir 18 m, Perception passive 10
+    languages:
+    - commun plus une autre langue

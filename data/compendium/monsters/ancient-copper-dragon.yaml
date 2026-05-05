@@ -1,0 +1,133 @@
+id: ancient-copper-dragon
+source: monster_manual_2024
+type: dragon
+size: gargantuan
+alignment: chaotic_good
+challengeRating: 21.0
+armorClass: 21
+maxHitPoints: 367
+hitDice: 21d20+147
+abilities:
+  str:
+    value: 27
+    savingThrowProficiency: none
+  dex:
+    value: 12
+    savingThrowProficiency: proficient
+  con:
+    value: 25
+    savingThrowProficiency: none
+  int:
+    value: 20
+    savingThrowProficiency: none
+  wis:
+    value: 17
+    savingThrowProficiency: proficient
+  cha:
+    value: 22
+    savingThrowProficiency: none
+speeds:
+  walk: 40
+  fly: 80
+  swim: null
+  climb: 40
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: proficient
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: proficient
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: proficient
+  survival: none
+damageAffinities:
+  acid: immune
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Ancient Copper Dragon
+    subtype: Metallic
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Legendary Resistance (4/Day, or 5/Day in Lair)</em>**. If the dragon fails a saving throw, it can choose to succeed instead.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The dragon makes three Rend attacks. It can replace one attack with a use of (A) Slowing Breath or (B) Spellcasting to cast <em><a href="https://www.aidedd.org/spell/mind-spike">Mind Spike</a></em> (level 5 version).</p>
+      <p><strong><em>Rend</em></strong>. <em>Melee Attack Roll</em> : +15, reach 15 ft. <em>Hit</em> : 19 (2d10 + 8) Slashing damage plus 9 (2d8) Acid damage.</p>
+      <p><strong><em>Acid Breath (Recharge 5–6)</em></strong>. <em>Dexterity Saving Throw</em> : DC 22, each creature in an 90-foot-long, 10-foot-wide Line. <em>Failure</em> : 63 (14d8) Acid damage. <em>Success</em> : Half damage.</p>
+      <p><strong><em>Slowing Breath</em></strong>. <em>Constitution Saving Throw</em> : DC 22, each creature in a 90-foot Cone. <em>Failure</em> : The target can't take Reactions; its Speed is halved; and it can take either an action or a Bonus Action on its turn, not both. This effect lasts until the end of its next turn.</p>
+      <p><strong><em>Spellcasting</em></strong>. The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 21):</p>
+      <p>At Will: <em><a href="https://www.aidedd.org/spell/detect-magic">Detect Magic</a>, <a href="https://www.aidedd.org/spell/mind-spike">Mind Spike</a></em> (level 5 version), <em><a href="https://www.aidedd.org/spell/minor-illusion">Minor Illusion</a>, <a href="https://www.aidedd.org/spell/shapechange">Shapechange</a></em> (Beast or Humanoid form only, no Temporary Hit Points gained from the spell, and no Concentration or Temporary Hit Points required to maintain the spell)<br />
+      1/Day Each: <em><a href="https://www.aidedd.org/spell/greater-restoration">Greater Restoration</a>, <a href="https://www.aidedd.org/spell/major-image">Major Image</a>, Project Image</em>  </p>
+      <h2>Legendary actions</h2>
+      <p>Legendary Action Uses: 3 (4 in Lair). Immediately after another creature's turn, the dragon can expend a use to take one of the following actions. The dragon regains all expended uses at the start of each of its turns. </p>
+      <p><strong><em>Giggling Magic</em></strong>. <em>Charisma Saving Throw</em> : DC 21, one creature the dragon can see within 120 feet. <em>Failure</em> : 31 (9d6) Psychic damage. Until the end of its next turn, the target rolls 1d8 whenever it makes an ability check or attack roll and subtracts the number rolled from the D20 Test. <em>Failure or Success</em> : The dragon can't take this action again until the start of its next turn.</p>
+      <p><strong><em>Mind Jolt</em></strong>. The dragon uses Spellcasting to cast <em><a href="https://www.aidedd.org/spell/mind-spike">Mind Spike</a></em> (level 5 version). The dragon can't take this action again until the start of its next turn.</p>
+      <p><strong><em>Pounce</em></strong>. The dragon moves up to half its Speed, and it makes one Rend attack.</p>
+    senses: Blindsight 60 ft., Darkvision 120 ft., Passive Perception 27
+    languages:
+    - Common
+    - Draconic
+  fr:
+    name: Dragon de cuivre, ancien
+    subtype: Métallique
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Résistance légendaire (4/jour, ou 5/jour dans son antre)</em>**. Si le dragon rate un jet de sauvegarde, il peut décider de le réussir tout de même.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le dragon effectue trois attaques de Saignée. Il peut remplacer l'une de ces attaques par une utilisation de (A) Incantation pour lancer <em>épine mentale</em> (au niveau 5) ou (B) Souffle ralentissant.</p>
+      <p><strong><em>Saignée</em></strong>. <em>Corps à corps</em> : +15, allonge 4,50 m. <em>Touché</em> : 19 (2d10 + 8) dégâts tranchants plus 9 (2d8) dégâts d'acide.</p>
+      <p><strong><em>Incantation</em></strong>. Le dragon lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 21) :</p>
+      <p>À volonté : <em><a href="https://www.aidedd.org/spell/fr/changement-de-forme">changement de forme</a></em> (Bête ou Humanoïde uniquement, le sort ne fait pas gagner de points de vie temporaires, ni Concentration ni points de vie temporaires nécessaires pour maintenir le sort), <em><a href="https://www.aidedd.org/spell/fr/detection-de-la-magie">détection de la magie</a>, épine mentale</em> (au niveau 5), <em><a href="https://www.aidedd.org/spell/fr/illusion-mineure">illusion mineure</a></em><br />
+      1/jour chacun : <em><a href="https://www.aidedd.org/spell/fr/image-majeure">image majeure</a>, image projetée, <a href="https://www.aidedd.org/spell/fr/restauration-supreme">restauration suprême</a></em>  </p>
+      <p>** <em>Souffle d'acide (recharge 5–6)</em>**. <em>JdS Dextérité</em> : DD 22, chaque créature dans une Ligne de 27 m de long sur 3 m de large. <em>Échec</em> : 63 (14d8) dégâts d'acide. <em>Réussite</em> : demi-dégâts.</p>
+      <p><strong><em>Souffle ralentissant</em></strong>. <em>JdS Constitution</em> : DD 22, chaque créature dans un Cône de 27 m. <em>Échec</em> : la cible voit sa Vitesse réduite de moitié, ne peut pas jouer de Réaction et peut entreprendre une action ou une action Bonus à son tour, mais pas les deux. L'effet persiste jusqu'à la fin de son tour suivant.</p>
+      <h2>Actions Légendaires</h2>
+      <p>Utilisations d'action Légendaire : 3 (4 dans son antre). Aussitôt après le tour d'une autre créature, le dragon peut dépenser une utilisation pour entreprendre l'une des actions ci-après. Le dragon récupère toutes ses utilisations dépensées au début de chacun de ses tours. </p>
+      <p><strong><em>Assaut incisif</em></strong>. Le dragon se déplace à concurrence de la moitié de sa Vitesse et effectue une attaque de Saignée.</p>
+      <p><strong><em>Décharge mentale</em></strong>. Le dragon recourt à Incantation pour lancer <em>épine mentale</em> (au niveau 5). Le dragon ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.</p>
+      <p><strong><em>Gloussement magique</em></strong>. <em>JdS Charisme</em> : DD 21, une créature que le dragon voit dans un rayon de 36 m. <em>Échec</em> : 31 (9d6) dégâts psychiques. Jusqu'à la fin de son tour suivant, la cible lance 1d8 chaque fois qu'elle effectue un jet de caractéristique ou un jet d'attaque et soustrait le résultat obtenu au jet de d20. <em>Échec ou réussite</em> : Le dragon ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.</p>
+    senses: Vision aveugle 18 m, Vision dans le noir 36 m, Perception passive 27
+    languages:
+    - commun
+    - draconique

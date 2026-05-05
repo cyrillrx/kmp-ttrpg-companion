@@ -1,0 +1,105 @@
+id: venomous-snake
+source: monster_manual_2024
+type: beast
+size: tiny
+alignment: unaligned
+challengeRating: 0.125
+armorClass: 12
+maxHitPoints: 5
+hitDice: 2d4
+abilities:
+  str:
+    value: 2
+    savingThrowProficiency: none
+  dex:
+    value: 15
+    savingThrowProficiency: none
+  con:
+    value: 11
+    savingThrowProficiency: none
+  int:
+    value: 1
+    savingThrowProficiency: none
+  wis:
+    value: 10
+    savingThrowProficiency: none
+  cha:
+    value: 3
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: null
+  swim: 30
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Venomous Snake
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Bite</em>**. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 4 (1d4 + 2) Piercing damage plus 3 (1d6) Poison damage.</p>
+    senses: Blindsight 10 ft., Passive Perception 10
+    languages:
+    - None
+  fr:
+    name: Serpent venimeux
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Morsure</em>**. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 4 (1d4 + 2) dégâts perforants plus 3 (1d6) dégâts de poison.</p>
+    senses: Vision aveugle 3 m, Perception passive 10
+    languages:
+    - aucune

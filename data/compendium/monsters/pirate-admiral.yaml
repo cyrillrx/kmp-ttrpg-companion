@@ -1,0 +1,121 @@
+id: pirate-admiral
+source: monster_manual_2024
+type: humanoid
+size: medium_or_small
+alignment: neutral
+challengeRating: 12.0
+armorClass: 20
+maxHitPoints: 182
+hitDice: 28d8+56
+abilities:
+  str:
+    value: 14
+    savingThrowProficiency: proficient
+  dex:
+    value: 22
+    savingThrowProficiency: proficient
+  con:
+    value: 14
+    savingThrowProficiency: none
+  int:
+    value: 12
+    savingThrowProficiency: none
+  wis:
+    value: 14
+    savingThrowProficiency: proficient
+  cha:
+    value: 19
+    savingThrowProficiency: proficient
+speeds:
+  walk: 30
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: proficient
+  animalHandling: none
+  arcana: none
+  athletics: proficient
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: proficient
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Pirate Admiral
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The pirate makes three attacks, using Scimitar or Pistol in any combination.</p>
+      <p><strong><em>Scimitar</em></strong>. <em>Melee Attack Roll</em> : +10, reach 5 ft. <em>Hit</em> : 16 (3d6 + 6) Slashing damage plus 7 (2d6) Poison damage, and the target suffers one of the following effects of the pirate's choice:</p>
+      <p><strong><em>Awestruck</em></strong>. The target has the Charmed condition until the start of the pirate's next turn.</p>
+      <p><strong><em>Poison</em></strong>. The target has the Poisoned condition until the start of the pirate's next turn.</p>
+      <p><strong><em>Pistol</em></strong>. <em>Ranged Attack Roll</em> : +10, range 30/90 ft. <em>Hit</em> : 28 (4d10 + 6) Piercing damage.</p>
+      <h2>Bonus actions</h2>
+      <p>** <em>Rally (1/Day)</em>**. The pirate chooses up to three other creatures it can see within 30 feet. Until the start of the pirate's next turn, the targets have Advantage on attack rolls and saving throws.</p>
+      <h2>Reactions</h2>
+      <p>** <em>Defensive Stance</em>**. <em>Trigger</em> : The pirate is hit by a melee attack roll while holding a weapon. <em>Response</em> : The pirate adds 4 to its AC against melee attack rolls (including the triggering attack) until the start of its next turn, possibly causing the attacks to miss.</p>
+    senses: Passive Perception 16
+    languages:
+    - Common plus one other language
+  fr:
+    name: Pirate, amiral
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le pirate effectue trois attaques, réparties à sa guise entre Cimeterre et Pistolet.</p>
+      <p><strong><em>Cimeterre</em></strong>. <em>Corps à corps</em> : +10, allonge 1,50 m. <em>Touché</em> : 16 (3d6 + 6) dégâts tranchants plus 7 (2d6) dégâts de poison, et la cible souffre de l'un des effets suivants au choix du pirate :</p>
+      <p><strong><em>Béat d'admiration</em></strong>. La cible subit l'état Charmé jusqu'au début du prochain tour du pirate.</p>
+      <p><strong><em>Poison</em></strong>. La cibles subit l'état Empoisonné jusqu'au début du prochain tour du pirate.</p>
+      <p><strong><em>Pistolet</em></strong>. <em>À distance</em> : +10, portée 9/27 m. <em>Touché</em> : 28 (4d10 + 6) dégâts perforants.</p>
+      <h2>Actions Bonus</h2>
+      <p>** <em>Ressaisissement (1/jour)</em>**. Le pirate choisit jusqu'à trois autres créatures qu'il peut voir dans un rayon de 9 m. Jusqu'au début de son prochain tour, ces cibles bénéficient d'un Avantage aux jets d'attaque et de sauvegarde.</p>
+      <h2>Réactions</h2>
+      <p>** <em>Posture défensive</em>**. <em>Déclencheur</em> : le pirate est touché par un jet d'attaque au corps à corps alors qu'il tient une arme. <em>Conséquences</em> : le pirate ajoute 4 à sa CA contre les jets d'attaque au corps à corps (y compris contre l'attaque déclenchante) jusqu'au début de son prochain tour, ce qui peut faire échouer des attaques.</p>
+    senses: Perception passive 16
+    languages:
+    - commun plus une autre langue

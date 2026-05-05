@@ -1,0 +1,111 @@
+id: spy
+source: monster_manual_2024
+type: humanoid
+size: medium_or_small
+alignment: neutral
+challengeRating: 1.0
+armorClass: 12
+maxHitPoints: 27
+hitDice: 6d8
+abilities:
+  str:
+    value: 10
+    savingThrowProficiency: none
+  dex:
+    value: 15
+    savingThrowProficiency: none
+  con:
+    value: 10
+    savingThrowProficiency: none
+  int:
+    value: 12
+    savingThrowProficiency: none
+  wis:
+    value: 14
+    savingThrowProficiency: none
+  cha:
+    value: 16
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: null
+  swim: null
+  climb: 30
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: proficient
+  history: none
+  insight: proficient
+  intimidation: none
+  investigation: proficient
+  medicine: none
+  nature: none
+  perception: proficient
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: proficient
+  stealth: proficient
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Spy
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Shortsword</em>**. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 5 (1d6 + 2) Piercing damage plus 7 (2d6) Poison damage.</p>
+      <p><strong><em>Hand Crossbow</em></strong>. <em>Ranged Attack Roll</em> : +4, range 30/120 ft. <em>Hit</em> : 5 (1d6 + 2) Piercing damage plus 7 (2d6) Poison damage.</p>
+      <h2>Bonus actions</h2>
+      <p>** <em>Cunning Action</em>**. The spy takes the Dash, Disengage, or Hide action.</p>
+    senses: Passive Perception 16
+    languages:
+    - Common plus one other language
+  fr:
+    name: Espion
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Épée courte</em>**. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 5 (1d6 + 2) dégâts perforants plus 7 (2d6) dégâts de poison.</p>
+      <p><strong><em>Arbalète de poing</em></strong>. <em>À distance</em> : +4, portée 30/36 m. <em>Touché</em> : 5 (1d6 + 2) dégâts perforants plus 7 (2d6) dégâts de poison.</p>
+      <h2>Actions Bonus</h2>
+      <p>** <em>Ruse</em>**. L'espion prend l'action Se désengager, Se cacher ou Foncer.</p>
+    senses: Perception passive 16
+    languages:
+    - commun plus une autre langue

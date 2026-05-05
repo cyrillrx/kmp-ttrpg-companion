@@ -1,0 +1,119 @@
+id: performer-legend
+source: monster_manual_2024
+type: humanoid
+size: medium_or_small
+alignment: neutral
+challengeRating: 10.0
+armorClass: 20
+maxHitPoints: 162
+hitDice: 25d8+50
+abilities:
+  str:
+    value: 12
+    savingThrowProficiency: none
+  dex:
+    value: 20
+    savingThrowProficiency: proficient
+  con:
+    value: 14
+    savingThrowProficiency: none
+  int:
+    value: 15
+    savingThrowProficiency: proficient
+  wis:
+    value: 16
+    savingThrowProficiency: proficient
+  cha:
+    value: 20
+    savingThrowProficiency: proficient
+speeds:
+  walk: 30
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: proficient
+  animalHandling: none
+  arcana: none
+  athletics: proficient
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: proficient
+  performance: proficient
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: proficient
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Performer Legend
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The performer makes three Bejeweled Baton attacks.</p>
+      <p><strong><em>Bejeweled Baton</em></strong>. <em>Melee Attack Roll</em> : +9, reach 5 ft. <em>Hit</em> : 10 (2d4 + 5) Bludgeoning damage plus 10 (3d6) Psychic damage.</p>
+      <p><strong><em>Majestic Song</em></strong>. <em>Wisdom Saving Throw</em> : DC 17, each creature in a 20-foot-radius Sphere centered on a point within 120 feet. <em>Failure</em> : 22 (4d8 + 4) Psychic damage, and the target has the Charmed or Frightened condition (performer's choice) until the end of the performer's next turn. <em>Success</em> : Half damage only.</p>
+      <p><strong><em>Spellcasting</em></strong>. The performer casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 17):</p>
+      <p>At will: <em><a href="https://www.aidedd.org/spell/mage-hand">Mage Hand</a>, <a href="https://www.aidedd.org/spell/minor-illusion">Minor Illusion</a>, <a href="https://www.aidedd.org/spell/prestidigitation">Prestidigitation</a></em><br />
+      1/day each: <em><a href="https://www.aidedd.org/spell/major-image">Major Image</a>, <a href="https://www.aidedd.org/spell/project-image">Project Image</a></em>  </p>
+      <h2>Reactions</h2>
+      <p>** <em>Warding Charm</em>**. <em>Trigger</em> : A creature hits the performer with an attack roll. Response— <em>Wisdom Saving Throw</em> : DC 17, the triggering creature. <em>Failure</em> : The attack roll misses the performer, and the target has the Charmed condition until the end of the performer's next turn.</p>
+    senses: Passive Perception 17
+    languages:
+    - Common plus two other languages
+  fr:
+    name: Saltimbanque, légende
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le saltimbanque effectue trois attaques de Canne gémmée.</p>
+      <p><strong><em>Canne gémmée</em></strong>. <em>Corps à corps</em> : +9, allonge 1,50 m. <em>Touché</em> : 10 (2d4 + 5) dégâts contondants plus 10 (3d6) dégâts psychiques.</p>
+      <p><strong><em>Chant majestueux</em></strong>. <em>JdS Sagesse</em> : DD 17, chaque créature dans une Sphère de 6 m de rayon centrée sur un point situé dans un rayon de 36 m. <em>Échec</em> : 22 (4d8 + 4) dégâts psychiques, et la cible subit l'état Charmé ou Effrayé (au choix du saltimbanque) jusqu'à la fin du prochain tour du saltimbanque. <em>Réussite</em> : demi-dégâts uniquement.</p>
+      <p><strong><em>Incantation</em></strong>. Le saltimbanque lance l'un des sorts suivants, sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 17) :</p>
+      <p>À volonté : <em><a href="https://www.aidedd.org/spell/fr/main-de-mage">main de mage</a>, <a href="https://www.aidedd.org/spell/fr/illusion-mineure">illusion mineure</a>, <a href="https://www.aidedd.org/spell/fr/prestidigitation">prestidigitation</a></em><br />
+      1/jour chacun : <em><a href="https://www.aidedd.org/spell/fr/image-majeure">image majeure</a>, <a href="https://www.aidedd.org/spell/fr/image-projetee">image projetée</a></em>  </p>
+      <h2>Réactions</h2>
+      <p>** <em>Charme protecteur</em>**. <em>Déclencheur</em> : une créature touche le saltimbanque avec un jet d'attaque. <em>Conséquences—JdS Sagesse</em> : DD 17, la créature ayant déclenché le sort. <em>Échec</em> : le jet d'attaque rate le saltimbanque, et la cible subit l'état Charmé jusqu'à la fin du prochain tour du saltimbanque.</p>
+    senses: Perception passive 17
+    languages:
+    - commun plus deux autres langues

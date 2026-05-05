@@ -1,0 +1,115 @@
+id: young-black-dragon
+source: monster_manual_2024
+type: dragon
+size: large
+alignment: chaotic_evil
+challengeRating: 7.0
+armorClass: 18
+maxHitPoints: 127
+hitDice: 15d10+45
+abilities:
+  str:
+    value: 19
+    savingThrowProficiency: none
+  dex:
+    value: 14
+    savingThrowProficiency: proficient
+  con:
+    value: 17
+    savingThrowProficiency: none
+  int:
+    value: 12
+    savingThrowProficiency: none
+  wis:
+    value: 11
+    savingThrowProficiency: proficient
+  cha:
+    value: 15
+    savingThrowProficiency: none
+speeds:
+  walk: 40
+  fly: 80
+  swim: 40
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: proficient
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: proficient
+  survival: none
+damageAffinities:
+  acid: immune
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Young Black Dragon
+    subtype: Chromatic
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Amphibious</em>**. The dragon can breathe air and water.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The dragon makes three Rend attacks.</p>
+      <p><strong><em>Rend</em></strong>. <em>Melee Attack Roll</em> : +7, reach 10 ft. <em>Hit</em> : 9 (2d4 + 4) Slashing damage plus 3 (1d6) Acid damage.</p>
+      <p><strong><em>Acid Breath (Recharge 5–6)</em></strong>. <em>Dexterity Saving Throw</em> : DC 14, each creature in a 30-foot-long, 5-foot-wide Line. <em>Failure</em> : 49 (14d6) Acid damage. <em>Success</em> : Half damage.</p>
+    senses: Blindsight 30 ft., Darkvision 120 ft., Passive Perception 16
+    languages:
+    - Common
+    - Draconic
+  fr:
+    name: Dragon noir, jeune
+    subtype: Chromatique
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Amphibie</em>**. Le dragon peut respirer sous l'eau comme à l'air libre.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le dragon effectue trois attaques de Saignée.</p>
+      <p><strong><em>Saignée</em></strong>. <em>Corps à corps</em> : +7, allonge 3 m. <em>Touché</em> : 9 (2d4 + 4) dégâts tranchants plus 3 (1d6) dégâts d'acide.</p>
+      <p><strong><em>Souffle d'acide (recharge 5–6)</em></strong>. <em>JdS Dextérité</em> : DD 14, chaque créature dans une Ligne de 9 m de long sur 1,50 m de large. <em>Échec</em> : 49 (14d6) dégâts d'acide. <em>Réussite</em> : demi-dégâts.</p>
+    senses: Vision aveugle 9 m, Vision dans le noir 36 m, Perception passive 16
+    languages:
+    - commun
+    - draconique

@@ -1,0 +1,119 @@
+id: shield-guardian
+source: monster_manual_2024
+type: construct
+size: large
+alignment: unaligned
+challengeRating: 7.0
+armorClass: 17
+maxHitPoints: 142
+hitDice: 15d10+60
+abilities:
+  str:
+    value: 18
+    savingThrowProficiency: none
+  dex:
+    value: 8
+    savingThrowProficiency: none
+  con:
+    value: 18
+    savingThrowProficiency: none
+  int:
+    value: 7
+    savingThrowProficiency: none
+  wis:
+    value: 10
+    savingThrowProficiency: none
+  cha:
+    value: 3
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: immune
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: true
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: true
+  restrained: false
+  unconscious: false
+  poisoned: true
+  petrified: true
+  frightened: true
+  blinded: false
+  prone: false
+  exhaustion: true
+  stunned: false
+translations:
+  en:
+    name: Shield Guardian
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Bound</em>**. The guardian is magically bound to an amulet. While the guardian and its amulet are on the same plane of existence, the amulet's wearer can telepathically call the guardian to travel to it, and the guardian knows the distance and direction to the amulet. If the guardian is within 60 feet of the amulet's wearer, half of any damage the wearer takes (round up) is transferred to the guardian.</p>
+      <p><strong><em>Regeneration</em></strong>. The guardian regains 10 Hit Points at the start of each of its turns if it has at least 1 Hit Point.</p>
+      <p><strong><em>Spell Storing</em></strong>. A spellcaster who wears the guardian's amulet can cause the guardian to store one spell of level 4 or lower. To do so, the wearer must cast the spell on the guardian while within 5 feet of it. The spell has no effect but is stored within the guardian. Any previously stored spell is lost when a new spell is stored. The guardian can cast the spell stored with any parameters set by the original caster, requiring no spell components and using the caster's spellcasting ability. The stored spell is then lost.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The guardian makes two Fist attacks.</p>
+      <p><strong><em>Fist</em></strong>. <em>Melee Attack Roll</em> : +7, reach 10 ft. <em>Hit</em> : 11 (2d6 + 4) Bludgeoning damage plus 7 (2d6) Force damage.</p>
+      <h2>Reactions</h2>
+      <p>** <em>Protection</em>**. <em>Trigger</em> : An attack roll hits the wearer of the guardian's amulet while the wearer is within 5 feet of the guardian. <em>Response</em> : The wearer gains a +5 bonus to AC, including against the triggering attack and possibly causing it to miss, until the start of the guardian's next turn.</p>
+    senses: Blindsight 10 ft., Darkvision 60 ft., Passive Perception 10
+    languages:
+    - Understands commands given in any language but can't speak
+  fr:
+    name: Garde bouclier / animé
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Pacte magique</em>**. Le garde bouclier est magiquement lié à une amulette. Tant que le garde et son amulette sont sur le même plan d'existence, le porteur de l'amulette peut ordonner télépathiquement au garde de se rendre auprès de l'objet, l'Artificiel ayant une notion précise de la distance qui le sépare de l'amulette et de sa direction. Si le garde se trouve dans un rayon de 18 m du porteur de l'amulette, la moitié des dégâts subis par le porteur (arrondis au supérieur) sont en fait transférés sur le garde.</p>
+      <p><strong><em>Régénération</em></strong>. Le garde bouclier récupère 10 points de vie au début de chacun de ses tours s'il lui reste au moins 1 point de vie.</p>
+      <p><strong><em>Stockage de sort</em></strong>. Un incantateur qui porte l'amulette du garde bouclier peut stocker un sort du niveau 4 ou inférieur dans l'Artificiel. Pour ce faire, le porteur doit lancer le sort sur le garde bouclier en étant à 1,50 m ou moins de lui. Le sort n'a aucun effet immédiat ; il est stocké dans le garde. Tout sort précédemment stocké est perdu quand on en stocke un nouveau. Le garde bouclier peut lancer le sort stocké avec tous les paramètres choisis par l'incantateur de départ, sans composantes de sort et en prenant la caractéristique d'incantation de cet incantateur. Le sort stocké est alors perdu.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le garde bouclier effectue deux attaques de Poing.</p>
+      <p><strong><em>Poing</em></strong>. <em>Corps à corps</em> : +7, allonge 3 m. <em>Touché</em> : 11 (2d6 + 4) dégâts contondants plus 7 (2d6) dégâts de force.</p>
+      <h2>Réactions</h2>
+      <p>** <em>Protection</em>**. <em>Déclencheur</em> : un jet d'attaque touche le porteur de l'amulette du garde bouclier alors qu'ils sont dans un rayon de 1,50 m l'un de l'autre. <em>Conséquences</em> : le porteur reçoit un bonus de +5 à la CA, y compris contre l'attaque correspondante (ce qui peut la faire rater), jusqu'au début du tour suivant du garde bouclier.</p>
+    senses: Vision aveugle 3 m, Vision dans le noir 18 m, Perception passive 10
+    languages:
+    - comprend les ordres donnés dans n'importe quelle langue mais ne parle pas

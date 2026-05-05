@@ -1,0 +1,115 @@
+id: bearded-devil
+source: monster_manual_2024
+type: fiend
+size: medium
+alignment: lawful_evil
+challengeRating: 3.0
+armorClass: 13
+maxHitPoints: 58
+hitDice: 9d8+18
+abilities:
+  str:
+    value: 16
+    savingThrowProficiency: proficient
+  dex:
+    value: 15
+    savingThrowProficiency: none
+  con:
+    value: 15
+    savingThrowProficiency: proficient
+  int:
+    value: 9
+    savingThrowProficiency: none
+  wis:
+    value: 11
+    savingThrowProficiency: none
+  cha:
+    value: 14
+    savingThrowProficiency: proficient
+speeds:
+  walk: 30
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: resistant
+  fire: immune
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: immune
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: true
+  petrified: false
+  frightened: true
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Bearded Devil
+    subtype: Devil
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Magic Resistance</em>**. The devil has Advantage on saving throws against spells and other magical effects.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The devil makes one Beard attack and one Infernal Glaive attack.</p>
+      <p><strong><em>Beard</em></strong>. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 7 (1d8 + 3) Piercing damage, and the target has the Poisoned condition until the start of the devil's next turn. Until this poison ends, the target can't regain Hit Points.</p>
+      <p><strong><em>Infernal Glaive</em></strong>. <em>Melee Attack Roll</em> : +5, reach 10 ft. <em>Hit</em> : 8 (1d10 + 3) Slashing damage. If the target is a creature and doesn't already have an infernal wound, it is subjected to the following effect. <em>Constitution Saving Throw</em> : DC 12. <em>Failure</em> : The target receives an infernal wound. While wounded, the target loses 5 (1d10) Hit Points at the start of each of its turns. The wound closes after 1 minute, after a spell restores Hit Points to the target, or after the target or a creature within 5 feet of it takes an action to stanch the wound, doing so by succeeding on a DC 12 Wisdom (Medicine) check.</p>
+    senses: Darkvision 120 ft. (unimpeded by magical Darkness), Passive Perception
+      10
+    languages:
+    - Infernal; telepathy 120 ft.
+  fr:
+    name: Diable barbu
+    subtype: Diable
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Résistance à la magie</em>**. Le diable a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le diable effectue une attaque de Barbe et une de Coutille infernale.</p>
+      <p><strong><em>Barbe</em></strong>. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 7 (1d8 + 3) dégâts perforants, et la cible subit l'état Empoisonné jusqu'au début du tour suivant du diable. Tant que persiste l'empoisonnement, la cible ne peut pas récupérer de points de vie.</p>
+      <p><strong><em>Coutille infernale</em></strong>. <em>Corps à corps</em> : +5, allonge 3 m. <em>Touché</em> : 8 (1d10 + 3) dégâts tranchants. Si la cible est une créature et ne souffre pas déjà d'une plaie infernale, elle est soumise à l'effet suivant. <em>JdS Constitution</em> : DD 12. <em>Échec</em> : la cible subit une plaie infernale. Ainsi blessée, la cible perd 5 (1d10) points de vie au début de chacun de ses tours. La plaie se referme au bout de 1 minute, si un sort lui restitue des points de vie ou si elle-même ou une créature dans un rayon de 1,50 m d'elle consacre une action à panser la plaie et réussit un jet de Sagesse (Médecine) DD 12.</p>
+    senses: Vision dans le noir 36 m (perce les Ténèbres magiques), Perception passive
+      10
+    languages:
+    - infernal ; télépathie 36 m

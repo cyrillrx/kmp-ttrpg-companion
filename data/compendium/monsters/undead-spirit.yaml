@@ -1,0 +1,117 @@
+id: undead-spirit
+source: monster_manual_2024
+type: undead
+size: medium
+alignment: neutral
+challengeRating: -1.0
+armorClass: 11
+maxHitPoints: 30
+hitDice: Ghostly and Putrid only
+abilities:
+  str:
+    value: 12
+    savingThrowProficiency: none
+  dex:
+    value: 16
+    savingThrowProficiency: none
+  con:
+    value: 15
+    savingThrowProficiency: none
+  int:
+    value: 4
+    savingThrowProficiency: none
+  wis:
+    value: 10
+    savingThrowProficiency: none
+  cha:
+    value: 9
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: 40
+  swim: null
+  climb: null
+  burrow: null
+  hover: true
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: immune
+  piercing: none
+  poison: immune
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: true
+  restrained: false
+  unconscious: false
+  poisoned: true
+  petrified: false
+  frightened: true
+  blinded: false
+  prone: false
+  exhaustion: true
+  stunned: false
+translations:
+  en:
+    name: Undead Spirit
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Festering Aura (Putrid Only)</em>**. <em>Constitution Saving Throw</em> : DC equals your spell save DC, any creature (other than you) that starts its turn within a 5-foot Emanation originating from the spirit. <em>Failure</em> : The creature has the Poisoned condition until the start of its next turn.</p>
+      <p><strong><em>Incorporeal Passage (Ghostly Only)</em></strong>. The spirit can move through other creatures and objects as if they were Difficult Terrain. If it ends its turn inside an object, it is shunted to the nearest unoccupied space and takes 1d10 Force damage for every 5 feet traveled.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The spirit makes a number of attacks equal to half this spell's level (round down).</p>
+      <p><strong><em>Deathly Touch (Ghostly Only)</em></strong>. <em>Melee Attack Roll</em> : Bo- nus equals your spell attack modifier, reach 5 ft. <em>Hit</em> : 1d8 + 3 + the spell's level Necrotic damage, and the target has the Frightened condition until the end of its next turn.</p>
+      <p><strong><em>Grave Bolt (Skeletal Only)</em></strong>. <em>Ranged Attack Roll</em> : Bonus equals your spell attack modifier, range 150 ft. <em>Hit</em> : 2d4 + 3 + the spell's level Necrotic damage.</p>
+      <p><strong><em>Rotting Claw (Putrid Only)</em></strong>. <em>Melee Attack Roll</em> : Bonus equals your spell attack modifier, reach 5 ft. <em>Hit</em> : 1d6 + 3 + the spell's level Slashing damage. If the target has the Poisoned condition, it has the Paralyzed condition until the end of its next turn.</p>
+    senses: Darkvision 60 ft., Passive Perception 10
+    languages:
+    - Understands the languages you know
+  fr:
+    name: Esprit mort-vivant
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Aura suppurante (putride uniquement)</em>**. <em>JdS Constitution</em> : DD égal à votre DD de sauvegarde des sorts, toute créature (autre que vous) qui commence son tour dans une Émanation de 1,50 m centrée sur l'esprit. <em>Échec</em> : la créature subit l'état Empoisonné jusqu'au début de son prochain tour.</p>
+      <p><strong><em>Passage intangible (fantomatique uniquement)</em></strong>. L'esprit peut traverser les autres créatures et les objets comme s'il s'agissait d'un Terrain difficile. S'il termine son tour à l'intérieur d'un objet, il est repoussé vers l'espace inoccupé le plus proche et subit 1d10 dégâts de force par tranche de 1,50 m ainsi parcouru.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Attaques multiples. L'esprit effectue un nombre d'attaques égal à la moitié du niveau de ce sort (arrondir à l'inférieur).</p>
+      <p><strong><em>Contact funeste (fantomatique uniquement)</em></strong>. <em>Corps à corps</em> : bonus égal à votre modificateur d'attaque des sorts, allonge 1,50 m. <em>Touché</em> : 1d8 + 3 + le niveau du sort dégâts nécrotiques, et la cible subit l'état Effrayé jusqu'à la fin de son prochain tour.</p>
+      <p><strong><em>Trait sépulcral (squelettique uniquement)</em></strong>. <em>À distance</em> : bonus égal à votre modificateur d'attaque des sorts, portée 45 m. <em>Touché</em> : 2d4 + 3 + le niveau du sort dégâts nécrotiques.</p>
+      <p><strong><em>Griffe putréfiée (putride uniquement)</em></strong>. <em>Corps à corps</em> : bonus égal à votre modificateur d'attaque des sorts, allonge 1,50 m. <em>Touché</em> : 1d6 + 3 + le niveau du sort dégâts tranchants. Si la cible est empoisonnée, elle subit l'état Paralysé jusqu'à la fin de son prochain tour.</p>
+    senses: Vision dans le noir 18 m, Perception passive 10
+    languages:
+    - comprend les langues que vous connaissez

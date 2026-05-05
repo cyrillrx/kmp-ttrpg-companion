@@ -1,0 +1,115 @@
+id: performer-maestro
+source: monster_manual_2024
+type: humanoid
+size: medium_or_small
+alignment: neutral
+challengeRating: 6.0
+armorClass: 18
+maxHitPoints: 110
+hitDice: 17d8+34
+abilities:
+  str:
+    value: 12
+    savingThrowProficiency: none
+  dex:
+    value: 18
+    savingThrowProficiency: proficient
+  con:
+    value: 14
+    savingThrowProficiency: none
+  int:
+    value: 13
+    savingThrowProficiency: none
+  wis:
+    value: 14
+    savingThrowProficiency: none
+  cha:
+    value: 19
+    savingThrowProficiency: proficient
+speeds:
+  walk: 30
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: proficient
+  animalHandling: none
+  arcana: none
+  athletics: proficient
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: proficient
+  performance: proficient
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: proficient
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Performer Maestro
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The performer makes three Rapier attacks.</p>
+      <p><strong><em>Rapier</em></strong>. <em>Melee Attack Roll</em> : +7, reach 5 ft. <em>Hit</em> : 8 (1d8 + 4) Piercing damage plus 7 (2d6) Psychic damage.</p>
+      <p><strong><em>Beguiling Song</em></strong>. <em>Wisdom Saving Throw</em> : DC 15, each creature in a 20-foot-radius Sphere centered on a point within 120 feet. <em>Failure</em> : 20 (3d10 + 4) Psychic damage, and the target has the Charmed condition until the end of the performer's next turn. <em>Success</em> : Half damage only.</p>
+      <p><strong><em>Spellcasting</em></strong>. The performer casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 15):</p>
+      <p>At will: <em><a href="https://www.aidedd.org/spell/minor-illusion">Minor Illusion</a>, <a href="https://www.aidedd.org/spell/prestidigitation">Prestidigitation</a></em><br />
+      1/day: <em><a href="https://www.aidedd.org/spell/tasha-s-hideous-laughter">Tasha's Hideous Laughter</a></em> (level 3 version)</p>
+    senses: Passive Perception 15
+    languages:
+    - Common plus one other language
+  fr:
+    name: Saltimbanque, maestro
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le saltimbanque effectue trois attaques de Rapière.</p>
+      <p><strong><em>Rapière</em></strong>. <em>Corps à corps</em> : +7, allonge 1,50 m. <em>Touché</em> : 8 (1d8 + 4) dégâts perforants plus 7 (2d6) dégâts psychiques.</p>
+      <p><strong><em>Chant envoûtant</em></strong>. <em>JdS Sagesse</em> : DD 15, chaque créature dans une Sphère de 6 m de rayon centrée sur un point dans un rayon de 36 m. <em>Échec</em> : 20 (3d10 + 4) dégâts psychiques, et la cible subit l'état Charmé jusqu'à la fin du prochain tour du saltimbanque. <em>Réussite</em> : demi-dégâts uniquement.</p>
+      <p><strong><em>Incantation</em></strong>. Le saltimbanque lance l'un des sorts suivants, sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 15) :</p>
+      <p>À volonté : <em><a href="https://www.aidedd.org/spell/fr/illusion-mineure">illusion mineure</a>, <a href="https://www.aidedd.org/spell/fr/prestidigitation">prestidigitation</a></em><br />
+      1/jour : <em><a href="https://www.aidedd.org/spell/fr/fou-rire-de-tasha">fou rire de Tasha</a></em> (au niveau 3)</p>
+    senses: Perception passive 15
+    languages:
+    - commun plus une autre langue

@@ -1,0 +1,109 @@
+id: ghoul
+source: monster_manual_2024
+type: undead
+size: medium
+alignment: chaotic_evil
+challengeRating: 1.0
+armorClass: 12
+maxHitPoints: 22
+hitDice: 5d8
+abilities:
+  str:
+    value: 13
+    savingThrowProficiency: none
+  dex:
+    value: 15
+    savingThrowProficiency: none
+  con:
+    value: 10
+    savingThrowProficiency: none
+  int:
+    value: 7
+    savingThrowProficiency: none
+  wis:
+    value: 10
+    savingThrowProficiency: none
+  cha:
+    value: 6
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: immune
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: true
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: true
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: true
+  stunned: false
+translations:
+  en:
+    name: Ghoul
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The ghoul makes two Bite attacks.</p>
+      <p><strong><em>Bite</em></strong>. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 5 (1d6 + 2) Piercing damage plus 3 (1d6) Necrotic damage.</p>
+      <p><strong><em>Claw</em></strong>. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 4 (1d4 + 2) Slashing damage. If the target is a creature that isn't an Undead or elf, it is subjected to the following effect. <em>Constitution Saving Throw</em> : DC 10. <em>Failure</em> : The target has the Paralyzed condition until the end of its next turn.</p>
+    senses: Darkvision 60 ft., Passive Perception 10
+    languages:
+    - Common
+  fr:
+    name: Goule
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. La goule effectue deux attaques de Morsure.</p>
+      <p><strong><em>Griffe</em></strong>. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 4 (1d4 + 2) dégâts tranchants. Si la cible est une créature qui n'est ni un Mort-vivant ni un elfe, elle est soumise à l'effet suivant. <em>JdS Constitution</em> : DD 10. <em>Échec</em> : la cible subit l'état Paralysé jusqu'à la fin de son tour suivant.</p>
+      <p><strong><em>Morsure</em></strong>. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 5 (1d6 + 2) dégâts perforants plus 3 (1d6) dégâts nécrotiques.</p>
+    senses: Vision dans le noir 18 m, Perception passive 10
+    languages:
+    - commun

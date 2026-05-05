@@ -1,0 +1,125 @@
+id: sahuagin-priest
+source: monster_manual_2024
+type: fiend
+size: medium
+alignment: lawful_evil
+challengeRating: 2.0
+armorClass: 12
+maxHitPoints: 38
+hitDice: 7d8+7
+abilities:
+  str:
+    value: 13
+    savingThrowProficiency: none
+  dex:
+    value: 11
+    savingThrowProficiency: none
+  con:
+    value: 12
+    savingThrowProficiency: none
+  int:
+    value: 12
+    savingThrowProficiency: none
+  wis:
+    value: 14
+    savingThrowProficiency: none
+  cha:
+    value: 13
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: null
+  swim: 40
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: proficient
+  performance: none
+  persuasion: none
+  religion: proficient
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: resistant
+  bludgeoning: none
+  cold: resistant
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Sahuagin Priest
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Blood Frenzy</em>**. The sahuagin has Advantage on attack rolls against any creature that doesn't have all its Hit Points.</p>
+      <p><strong><em>Limited Amphibiousness</em></strong>. The sahuagin can breathe air and water, but it must be submerged at least once every 4 hours to avoid suffocating outside water.</p>
+      <p><strong><em>Shark Telepathy</em></strong>. The sahuagin can magically control sharks within 120 feet of itself, using a special telepathy.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The sahuagin makes two Spectral Jaws attacks.</p>
+      <p><strong><em>Spectral Jaws</em></strong>. <em>Melee or Ranged Attack Roll</em> : +4, reach 5 ft. or range 120 ft. <em>Hit</em> : 11 (2d8 + 2) Force damage.</p>
+      <p><strong><em>Spellcasting</em></strong>. The sahuagin casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 12):</p>
+      <p>At will: <em><a href="https://www.aidedd.org/spell/thaumaturgy">Thaumaturgy</a></em><br />
+      2/day each: <em><a href="https://www.aidedd.org/spell/hold-person">Hold Person</a>, <a href="https://www.aidedd.org/spell/tongues">Tongues</a></em>  </p>
+      <h2>Bonus actions</h2>
+      <p>** <em>Fiendish Aid (2/Day)</em>**. The sahuagin casts <em><a href="https://www.aidedd.org/spell/bless">Bless</a></em> or <em><a href="https://www.aidedd.org/spell/healing-word">Healing Word</a></em> , using the same spellcasting ability as Spellcasting.</p>
+    senses: Darkvision 120 ft., Passive Perception 16
+    languages:
+    - Sahuagin
+  fr:
+    name: Sahuagin, prêtre
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Frénésie sanguinaire</em>**. Le sahuagin a un Avantage aux jets d'attaque contre toute créature à laquelle il manque des points de vie.</p>
+      <p><strong><em>Amphibiose partielle</em></strong>. Le sahuagin peut respirer aussi bien sous l'eau qu'à l'air libre, mais il doit s'immerger dans l'eau au moins une fois toutes les 4 heures sous peine de s'asphyxier.</p>
+      <p><strong><em>Télépathie avec les requins</em></strong>. Le sahuagin peut contrôler magiquement les requins dans un rayon de 36 m, par le biais d'une télépathie spéciale.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le sahuagin effectue deux attaques de Mâchoire spectrale.</p>
+      <p><strong><em>Mâchoire spectrale</em></strong>. <em>Corps à corps ou à distance</em> : +4, allonge 1,50 m ou portée 36 m. <em>Touché</em> : 11 (2d8 + 2) dégâts de force.</p>
+      <p><strong><em>Incantation</em></strong>. Le sahuagin lance l'un des sorts suivants sans composantes matérielles, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 12) :</p>
+      <p>À volonté : <em><a href="https://www.aidedd.org/spell/fr/thaumaturgie">thaumaturgie</a></em><br />
+      2/jour chacun : <em><a href="https://www.aidedd.org/spell/fr/immobilisation-de-personne">immobilisation de personne</a>, <a href="https://www.aidedd.org/spell/fr/don-des-langues">don des langues</a></em>  </p>
+      <h2>Actions Bonus</h2>
+      <p>** <em>Assistance fiélonne (2/jour)</em>**. Le sahuagin lance <em><a href="https://www.aidedd.org/spell/fr/benediction">bénédiction</a></em> ou <em><a href="https://www.aidedd.org/spell/fr/mot-de-guerison">mot de guérison</a></em> , en utilisant la même caractéristique d'incantation que pour Incantation.</p>
+    senses: Vision dans le noir 36 m, Perception passive 16
+    languages:
+    - sahuagin

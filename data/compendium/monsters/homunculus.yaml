@@ -1,0 +1,109 @@
+id: homunculus
+source: monster_manual_2024
+type: construct
+size: tiny
+alignment: neutral
+challengeRating: 0.0
+armorClass: 13
+maxHitPoints: 4
+hitDice: 1d4+2
+abilities:
+  str:
+    value: 4
+    savingThrowProficiency: none
+  dex:
+    value: 15
+    savingThrowProficiency: none
+  con:
+    value: 14
+    savingThrowProficiency: none
+  int:
+    value: 10
+    savingThrowProficiency: none
+  wis:
+    value: 10
+    savingThrowProficiency: proficient
+  cha:
+    value: 7
+    savingThrowProficiency: proficient
+speeds:
+  walk: 20
+  fly: 40
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: immune
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: true
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: true
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Homunculus
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Telepathic Bond</em>**. While the homunculus is on the same plane of existence as its master, the two of them can communicate telepathically with each other.</p>
+      <h2>Actions</h2>
+      <p>** <em>Bite</em>**. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 1 Piercing damage, and the target is subjected to the following effect. <em>Constitution Saving Throw</em> : DC 12. <em>Failure</em> : The target has the Poisoned condition until the end of the homunculus's next turn. Failure by 5 or More: The target has the Poisoned condition for 1 minute. While Poisoned, the target has the Unconscious condition, which ends early if the target takes any damage.</p>
+    senses: Darkvision 60 ft., Passive Perception 10
+    languages:
+    - Understands Common plus one other language but can't speak
+  fr:
+    name: Homoncule
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Lien télépathique</em>**. Tant que l'homoncule et son maître se trouvent sur le même plan d'existence, ils peuvent communiquer entre eux par télépathie.</p>
+      <h2>Actions</h2>
+      <p>** <em>Morsure</em>**. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 1 dégât perforant, et la cible subit l'effet suivant. <em>JdS Constitution</em> : DD 12. <em>Échec</em> : la cible subit l'état Empoisonné jusqu'à la fin du tour suivant de l'homoncule. Échec de 5 ou plus : La cible subit l'état Empoisonné pendant 1 minute. Ainsi Empoisonnée, la cible subit en outre l'état Inconscient, qui prend fin prématurément si la cible subit des dégâts.</p>
+    senses: Vision dans le noir 18 m, Perception passive 10
+    languages:
+    - comprend le commun plus une autre langue mais ne parle pas

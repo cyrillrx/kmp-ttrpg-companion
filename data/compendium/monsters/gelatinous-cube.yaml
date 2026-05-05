@@ -1,0 +1,113 @@
+id: gelatinous-cube
+source: monster_manual_2024
+type: ooze
+size: large
+alignment: unaligned
+challengeRating: 2.0
+armorClass: 6
+maxHitPoints: 63
+hitDice: 6d10+30
+abilities:
+  str:
+    value: 14
+    savingThrowProficiency: none
+  dex:
+    value: 3
+    savingThrowProficiency: none
+  con:
+    value: 20
+    savingThrowProficiency: none
+  int:
+    value: 1
+    savingThrowProficiency: none
+  wis:
+    value: 6
+    savingThrowProficiency: none
+  cha:
+    value: 1
+    savingThrowProficiency: none
+speeds:
+  walk: 15
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: immune
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: true
+  deafened: true
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: true
+  blinded: true
+  prone: true
+  exhaustion: true
+  stunned: false
+translations:
+  en:
+    name: Gelatinous Cube
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Ooze Cube</em>**. The cube fills its entire space and is transparent. Other creatures can enter that space, but a creature that does so is subjected to the cube's Engulf and has Disadvantage on the saving throw. Creatures inside the cube have Total Cover, and the cube can hold one Large creature or up to four Medium or Small creatures inside itself at a time. As an action, a creature within 5 feet of the cube can pull a creature or an object out of the cube by succeeding on a DC 12 Strength (Athletics) check, and the puller takes 10 (3d6) Acid damage.</p>
+      <p><strong><em>Transparent</em></strong>. Even when the cube is in plain sight, a creature must succeed on a DC 15 Wisdom (Perception) check to notice the cube if the creature hasn't witnessed the cube move or otherwise act.</p>
+      <h2>Actions</h2>
+      <p>** <em>Pseudopod</em>**. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 12 (3d6 + 2) Acid damage.</p>
+      <p><strong><em>Engulf</em></strong>. The cube moves up to its Speed without provoking Opportunity Attacks. The cube can move through the spaces of Large or smaller creatures if it has room inside itself to contain them (see the Ooze Cube trait). <em>Dexterity Saving Throw</em> : DC 12, each creature whose space the cube enters for the first time during this move. <em>Failure</em> : 10 (3d6) Acid damage, and the target is engulfed. An engulfed target is suffocating, can't cast spells with a Verbal component, has the Restrained condition, and takes 10 (3d6) Acid damage at the start of each of the cube's turns. When the cube moves, the engulfed target moves with it. An engulfed target can try to escape by taking an action to make a DC 12 Strength (Athletics) check. On a successful check, the target escapes and enters the nearest unoccupied space. <em>Success</em> : Half damage, and the target moves to an unoccupied space within 5 feet of the cube. If there is no unoccupied space, the target fails the save instead.</p>
+    senses: Blindsight 60 ft., Passive Perception 8
+    languages:
+    - None
+  fr:
+    name: Cube gélatineux
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Cube de vase</em>**. Le cube emplit la totalité de son espace et il est transparent. D'autres créatures peuvent entrer dans cet espace, mais ce faisant, elles se soumettent à l'Enveloppement du cube en subissant un Désavantage au jet de sauvegarde. Les créatures dans le cube bénéficient d'un Abri total, sachant que le cube peut contenir une créature de taille G ou jusqu'à quatre créatures de taille M ou P. Au prix d'une action, une créature dans un rayon de 1,50 m du cube peut en extraire une autre ou un objet à condition de réussir un jet de Force (Athlétisme) DD 12, l'opération lui infligeant 10 (3d6) dégâts d'acide.</p>
+      <p><strong><em>Transparent</em></strong>. Même lorsque rien ne cache le cube, une créature doit réussir un jet de Sagesse (Perception) DD 15 pour remarquer sa présence si elle ne l'a pas déjà vu se déplacer ni agir.</p>
+      <h2>Actions</h2>
+      <p>** <em>Pseudopode</em>**. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 12 (3d6 + 2) dégâts d'acide.</p>
+      <p><strong><em>Enveloppement</em></strong>. Le cube se déplace dans les limites de sa Vitesse sans provoquer d'attaque d'Opportunité. Il peut se déplacer à travers les espaces de créatures de taille G ou inférieure s'il a encore de la place pour les accueillir dans sa masse (voir le trait Cube de vase). <em>JdS Dextérité</em> : DD 12, chaque créature dans l'espace de laquelle le cube pénètre pour la première fois de ce déplacement. <em>Échec</em> : 10 (3d6) dégâts d'acide, et la cible est enveloppée. Une cible enveloppée s'asphyxie, ne peut pas lancer de sorts à composante verbale, subit l'état Entravé, ainsi que 10 (3d6) dégâts d'acide au début de chacun des tours du cube. Quand le cube se déplace, la cible enveloppée l'accompagne. Une créature enveloppée peut tenter de s'extraire du cube au prix d'une action et d'un jet de Force (Athlétisme) DD 12. En cas de réussite, la cible s'évade dans l'espace inoccupé le plus proche. <em>Réussite</em> : demi-dégâts, et la cible se déplace en un espace inoccupé dans un rayon de 1,50 m du cube. S'il n'y a pas d'espace inoccupé dans ce rayon, la cible rate en fait son JdS.</p>
+    senses: Vision aveugle 18 m, Perception passive 8
+    languages:
+    - aucune

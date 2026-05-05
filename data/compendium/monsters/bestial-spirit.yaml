@@ -1,0 +1,115 @@
+id: bestial-spirit
+source: monster_manual_2024
+type: beast
+size: small
+alignment: neutral
+challengeRating: -1.0
+armorClass: 11
+maxHitPoints: 20
+hitDice: Air only
+abilities:
+  str:
+    value: 18
+    savingThrowProficiency: none
+  dex:
+    value: 11
+    savingThrowProficiency: none
+  con:
+    value: 16
+    savingThrowProficiency: none
+  int:
+    value: 4
+    savingThrowProficiency: none
+  wis:
+    value: 14
+    savingThrowProficiency: none
+  cha:
+    value: 5
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: 30
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Bestial Spirit
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Flyby (Air Only)</em>**. The spirit doesn't provoke Opportunity Attacks when it flies out of an enemy's reach.</p>
+      <p><strong><em>Pack Tactics (Land and Water Only)</em></strong>. The spirit has Advantage on an attack roll against a creature if at least one of the spirit's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.</p>
+      <p><strong><em>Water Breathing (Water Only)</em></strong>. The spirit can breathe only underwater.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The spirit makes a number of Rend attacks equal to half this spell's level (round down).</p>
+      <p><strong><em>Rend</em></strong>. <em>Melee Attack Roll</em> : Bonus equals your spell attack modifier, reach 5 ft. <em>Hit</em> : 1d8 + 4 + the spell's level Piercing damage.</p>
+    senses: Darkvision 60 ft., Passive Perception 12
+    languages:
+    - understands the languages you know
+  fr:
+    name: Esprit bestial
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Repli aérien (air uniquement)</em>**. L'esprit ne provoque pas d'attaque d'Opportunité lorsqu'il quitte l'allonge d'un ennemi en volant.</p>
+      <p><strong><em>Tactique de meute (terre et eau uniquement)</em></strong>. L'esprit a un Avantage au jet d'attaque contre une créature si au moins un de ses alliés se trouve dans un rayon de 1,50 m autour de la créature et si cet allié ne subit pas l'état Incapable d'agir.</p>
+      <p><strong><em>Respiration aquatique (eau uniquement)</em></strong>. L'esprit ne peut respirer que sous l'eau.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. L'esprit effectue un nombre d'attaques de Saignée égal à la moitié du niveau de ce sort (arrondir à l'inférieur).</p>
+      <p><strong><em>Saignée</em></strong>. <em>Corps à corps</em> : bonus égal à votre modificateur d'attaque des sorts, allonge 1,50 m. <em>Touché</em> : 1d8 + 4 + le niveau du sort dégâts perforants.</p>
+    senses: Vision dans le noir 18 m, Perception passive 12
+    languages:
+    - comprend les langues que vous connaissez

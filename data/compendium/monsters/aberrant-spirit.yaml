@@ -1,0 +1,119 @@
+id: aberrant-spirit
+source: monster_manual_2024
+type: aberration
+size: medium
+alignment: neutral
+challengeRating: -1.0
+armorClass: 11
+maxHitPoints: 40
+hitDice: ''
+abilities:
+  str:
+    value: 16
+    savingThrowProficiency: none
+  dex:
+    value: 10
+    savingThrowProficiency: none
+  con:
+    value: 15
+    savingThrowProficiency: none
+  int:
+    value: 16
+    savingThrowProficiency: none
+  wis:
+    value: 10
+    savingThrowProficiency: none
+  cha:
+    value: 6
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: 30
+  swim: null
+  climb: null
+  burrow: null
+  hover: true
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: immune
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Aberrant Spirit
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Regeneration (Slaad Only)</em>**. The spirit regains 5 Hit Points at the start of its turn if it has at least 1 Hit Point.</p>
+      <p><strong><em>Whispering Aura (Mind Flayer Only)</em></strong>. At the start of each of the spirit's turns, the spirit emits psionic energy if it doesn't have the Incapacitated condition. <em>Wisdom Saving Throw</em> : DC equals your spell save DC, each creature (other than you) within 5 feet of the spirit. <em>Failure</em> : 2d6 Psychic damage.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The spirit makes a number of attacks equal to half this spell's level (round down).</p>
+      <p><strong><em>Claw (Slaad Only)</em></strong>. <em>Melee Attack Roll</em> : Bonus equals your spell attack modifier, reach 5 ft. <em>Hit</em> : 1d10 + 3 + the spell's level Slashing damage, and the target can't regain Hit Points until the start of the spirit's next turn.</p>
+      <p><strong><em>Eye Ray (Beholderkin Only)</em></strong>. <em>Ranged Attack Roll</em> : Bonus equals your spell attack modifier, range 150 ft. <em>Hit</em> : 1d8 + 3 + the spell's level Psychic damage.</p>
+      <p><strong><em>Psychic Slam (Mind Flayer Only)</em></strong>. <em>Melee Attack Roll</em> : Bonus equals your spell attack modifier, reach 5 ft. <em>Hit</em> : 1d8 + 3 + the spell's level Psychic damage.</p>
+    senses: Darkvision 60 ft., Passive Perception 10
+    languages:
+    - Deep Speech
+    - understands the languages you know
+  fr:
+    name: Esprit aberrant
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Régénération (slaad uniquement)</em>**. L'esprit récupère 5 points de vie au début de son tour s'il lui reste au moins 1 point de vie.</p>
+      <p><strong><em>Aura des murmures (flagelleur mental uniquement)</em></strong>. Au début de chaque tour de l'esprit, celui-ci émet des énergies psioniques s'il ne subit pas l'état Incapable d'agir. <em>JdS Sagesse</em> : DD égal à votre DD de sauvegarde des sorts, chaque créature (autre que vous) dans un rayon de 1,50 m autour de l'esprit. <em>Échec</em> : 2d6 dégâts psychiques.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. L'esprit effectue un nombre d'attaques égal à la moitié du niveau de ce sort (arrondir à l'inférieur).</p>
+      <p><strong><em>Griffes (slaad uniquement)</em></strong>. <em>Corps à corps</em> : bonus égal à votre modificateur d'attaque des sorts, allonge 1,50 m. <em>Touché</em> : 1d10 + 3 + le niveau du sort dégâts perforants, et la cible ne peut pas récupérer de points de vie avant le début du prochain tour de l'esprit.</p>
+      <p><strong><em>Rayon oculaire (tyrannoeillidé uniquement)</em></strong>. <em>À distance</em> : bonus égal à votre modificateur d'attaque des sorts, portée 45 m. <em>Touché</em> : 1d8 + 3 + le niveau du sort dégâts psychiques.</p>
+      <p><strong><em>Choc psychique (flagelleur mental uniquement)</em></strong>. <em>Corps à corps</em> : bonus égal à votre modificateur d'attaque des sorts, allonge 1,50 m. <em>Touché</em> : 1d8 + 3 + le niveau du sort dégâts psychiques.</p>
+    senses: Vision dans le noir 18 m, Perception passive 10
+    languages:
+    - profond
+    - comprend les langues que vous connaissez

@@ -1,0 +1,125 @@
+id: demilich
+source: monster_manual_2024
+type: undead
+size: tiny
+alignment: neutral_evil
+challengeRating: 18.0
+armorClass: 20
+maxHitPoints: 180
+hitDice: 72d4
+abilities:
+  str:
+    value: 1
+    savingThrowProficiency: none
+  dex:
+    value: 20
+    savingThrowProficiency: none
+  con:
+    value: 10
+    savingThrowProficiency: proficient
+  int:
+    value: 20
+    savingThrowProficiency: proficient
+  wis:
+    value: 17
+    savingThrowProficiency: proficient
+  cha:
+    value: 20
+    savingThrowProficiency: none
+speeds:
+  walk: 5
+  fly: 30
+  swim: null
+  climb: null
+  burrow: null
+  hover: true
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: resistant
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: immune
+  piercing: resistant
+  poison: immune
+  psychic: immune
+  radiant: none
+  slashing: resistant
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: true
+  deafened: true
+  grappled: false
+  incapacitated: false
+  paralyzed: true
+  restrained: false
+  unconscious: false
+  poisoned: true
+  petrified: true
+  frightened: true
+  blinded: false
+  prone: true
+  exhaustion: true
+  stunned: true
+translations:
+  en:
+    name: Demilich
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Legendary Resistance (3/Day, or 4/Day in Lair)</em>**. If the demilich fails a saving throw, it can choose to succeed instead.</p>
+      <p><strong><em>Undead Restoration</em></strong>. If the demilich is destroyed, it reforms and regains all its Hit Points in 1d10 days unless a <em><a href="https://www.aidedd.org/spell/wish">Wish</a></em> spell is cast on its remains.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The demilich makes three Necrotic Burst attacks.</p>
+      <p><strong><em>Necrotic Burst</em></strong>. <em>Melee or Ranged Attack Roll</em> : +11, reach 5 ft. or range 120 ft. <em>Hit</em> : 24 (7d6) Necrotic damage.</p>
+      <p><strong><em>Howl (Recharge 5–6)</em></strong>. <em>Constitution Saving Throw</em> : DC 19, each creature in a 30-foot Emanation originating from the demilich. <em>Failure</em> : 70 (20d6) Psychic damage. <em>Failure or Success</em> : The target has the Frightened condition until the start of the demilich's next turn.</p>
+      <h2>Legendary actions</h2>
+      <p>Legendary Action Uses: 3 (4 in Lair). Immediately after another creature's turn, the demilich can expend a use to take one of the following actions. The demilich regains all expended uses at the start of each of its turns. </p>
+      <p><strong><em>Energy Drain</em></strong>. <em>Constitution Saving Throw</em> : DC 19, one creature the demilich can see within 120 feet. <em>Failure</em> : The target's Hit Point maximum decreases by 14 (4d6). <em>Failure or Success</em> : The demilich can't take this action again until the start of its next turn.</p>
+      <p><strong><em>Grave-Dust Flight</em></strong>. The demilich flies up to its Fly Speed, shedding grave dust. Each creature within 5 feet of the demilich as it moves is targeted once by the following effect. <em>Constitution Saving Throw</em> : DC 19. <em>Failure</em> : The target has the Blinded condition until the end of the demilich's next turn. <em>Failure or Success</em> : The demilich can't take this action again until the start of its next turn.</p>
+      <p><strong><em>Necrosis</em></strong>. The demilich makes one Necrotic Burst attack.</p>
+    senses: Truesight 120 ft., Passive Perception 13
+    languages:
+    - None
+  fr:
+    name: Demi-liche
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Résistance légendaire (3/jour, ou 4/jour dans son antre)</em>**. Si la demi-liche rate un jet de sauvegarde, elle peut décider de le réussir tout de même.</p>
+      <p><strong><em>Restauration funeste</em></strong>. Si elle est détruite, la demi-liche se reforme et récupère tous ses points de vie en 1d10 jours à moins qu'un sort <em><a href="https://www.aidedd.org/spell/fr/souhait">souhait</a></em> ne soit lancé sur ses restes.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le demi-liche effectue trois attaques de Décharge nécrotique.</p>
+      <p><strong><em>Décharge nécrotique</em></strong>. <em>Corps à corps ou à distance</em> : +11, allonge 1,50 m ou portée 36 m. <em>Touché</em> : 24 (7d6) dégâts nécrotiques.</p>
+      <p><strong><em>Hurlement (recharge 5–6)</em></strong>. <em>JdS Constitution</em> : DD 19, chaque créature dans une Émanation de 9 m centrée sur la demi-liche. <em>Échec</em> : 70 (20d6) dégâts psychiques. <em>Échec ou réussite</em> : la cible subit l'état Effrayé jusqu'au début du prochain tour de la demi-liche.</p>
+      <h2>Actions Légendaires</h2>
+      <p>Utilisations d'action Légendaire : 3 (4 dans son antre). Aussitôt après le tour d'une autre créature, la demi-liche peut dépenser une utilisation pour entreprendre l'une des actions ci-après. La demi-liche récupère toutes ses utilisations dépensées au début de chacun de ses tours. </p>
+      <p><strong><em>Absorption d'énergie</em></strong>. <em>JdS Constitution</em> : DD 19, une créature que la demi-liche peut voir dans un rayon de 36 m. <em>Échec</em> : les points de vie maximum de la cible diminuent de 14 (4d6). <em>Échec ou réussite</em> : la demi-liche ne peut plus utiliser cette action jusqu'au début de son prochain tour.</p>
+      <p><strong><em>Envol funéraire</em></strong>. Le demi-liche s'envole à sa Vitesse de vol, laissant derrière elle de la poussière funéraire. Chaque créature située dans un rayon de 1,50 m autour de la demi-liche au moment où elle se déplace est affectée une fois par l'effet suivant. <em>JdS Constitution</em> : DD 19. <em>Échec</em> : la cible subit l'état Aveuglé jusqu'à la fin du prochain tour de la demi-liche. <em>Échec ou réussite</em> : la demi-liche ne peut plus utiliser cette action jusqu'au début de son prochain tour.</p>
+      <p><strong><em>Nécrose</em></strong>. Le demi-liche effectue une attaque de Décharge nécrotique.</p>
+    senses: vision véritable 36 m, Perception passive 13
+    languages:
+    - aucune

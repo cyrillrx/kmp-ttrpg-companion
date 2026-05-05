@@ -1,0 +1,111 @@
+id: mage-apprentice
+source: monster_manual_2024
+type: humanoid
+size: medium_or_small
+alignment: neutral
+challengeRating: 2.0
+armorClass: 15
+maxHitPoints: 49
+hitDice: 9d8+9
+abilities:
+  str:
+    value: 8
+    savingThrowProficiency: none
+  dex:
+    value: 14
+    savingThrowProficiency: none
+  con:
+    value: 12
+    savingThrowProficiency: none
+  int:
+    value: 16
+    savingThrowProficiency: proficient
+  wis:
+    value: 13
+    savingThrowProficiency: proficient
+  cha:
+    value: 10
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: proficient
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: proficient
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Mage Apprentice
+    subtype: Wizard
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Arcane Burst</em>**. <em>Melee or Ranged Attack Roll</em> : +5, reach 5 ft. or range 120 ft. <em>Hit</em> : 14 (2d10 + 3) Force damage.</p>
+      <p><strong><em>Spellcasting</em></strong>. The mage casts one of the following spells, using Intelligence as the spellcasting ability (spell save DC 13, +5 to hit with spell attacks):</p>
+      <p>At will: <em><a href="https://www.aidedd.org/spell/mage-hand">Mage Hand</a>, <a href="https://www.aidedd.org/spell/prestidigitation">Prestidigitation</a></em><br />
+      1/day each: <em><a href="https://www.aidedd.org/spell/disguise-self">Disguise Self</a>, <a href="https://www.aidedd.org/spell/ice-knife">Ice Knife</a>, <a href="https://www.aidedd.org/spell/mage-armor">Mage Armor</a></em> (included in AC), <em><a href="https://www.aidedd.org/spell/thunderwave">Thunderwave</a></em></p>
+    senses: Passive Perception 13
+    languages:
+    - Common plus one other language
+  fr:
+    name: Mage, apprenti
+    subtype: Magicien
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Jaillissement arcanique</em>**. <em>Corps à corps ou à distance</em> : +5, allonge 1,50 m ou portée 36 m. <em>Touché</em> : 14 (2d10 + 3) dégâts de force.</p>
+      <p><strong><em>Incantation</em></strong>. Le mage lance l'un des sorts suivants, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 13, +5 pour toucher) :</p>
+      <p>À volonté : <em><a href="https://www.aidedd.org/spell/fr/main-de-mage">main de mage</a>, <a href="https://www.aidedd.org/spell/fr/prestidigitation">prestidigitation</a></em><br />
+      1/jour chacun : <em><a href="https://www.aidedd.org/spell/fr/armure-de-mage">armure de mage</a></em> (compris dans la CA), <em>couteau de glace, déguisement, vague tonnante</em></p>
+    senses: Perception passive 13
+    languages:
+    - commun plus une autre langue

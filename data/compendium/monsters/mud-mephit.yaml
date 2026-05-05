@@ -1,0 +1,113 @@
+id: mud-mephit
+source: monster_manual_2024
+type: elemental
+size: small
+alignment: neutral_evil
+challengeRating: 0.25
+armorClass: 11
+maxHitPoints: 13
+hitDice: 3d6+3
+abilities:
+  str:
+    value: 8
+    savingThrowProficiency: none
+  dex:
+    value: 12
+    savingThrowProficiency: none
+  con:
+    value: 12
+    savingThrowProficiency: none
+  int:
+    value: 9
+    savingThrowProficiency: none
+  wis:
+    value: 11
+    savingThrowProficiency: none
+  cha:
+    value: 7
+    savingThrowProficiency: none
+speeds:
+  walk: 20
+  fly: 20
+  swim: 20
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: proficient
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: immune
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: true
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: true
+  stunned: false
+translations:
+  en:
+    name: Mud Mephit
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Death Burst</em>**. The mephit explodes when it dies. <em>Dexterity Saving Throw</em> : DC 11, each creature in a 5-foot Emanation originating from the mephit. <em>Failure</em> : The target has the Restrained condition until the end of its next turn.</p>
+      <h2>Actions</h2>
+      <p>** <em>Slam</em>**. <em>Melee Attack Roll</em> : +3, reach 5 ft. <em>Hit</em> : 4 (1d6 + 1) Bludgeoning damage.</p>
+      <p><strong><em>Mud Breath (Recharge 6)</em></strong>. <em>Dexterity Saving Throw</em> : DC 11, one creature the mephit can see within 15 feet. <em>Failure</em> : The target has the Restrained condition until the end of the mephit's next turn.</p>
+    senses: Darkvision 60 ft., Passive Perception 10
+    languages:
+    - Primordial (Aquan
+    - Terran)
+  fr:
+    name: Méphite boueux
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Explosion finale</em>**. Le méphite explose quand il meurt. <em>JdS Dextérité</em> : DD 11, chaque créature dans une Émanation de 1,50 m centrée sur le méphite. <em>Échec</em> : la cible subit l'état Entravé jusqu'à la fin de son prochain tour.</p>
+      <h2>Actions</h2>
+      <p>** <em>Coup</em>**. <em>Corps à corps</em> : +3, allonge 1,50 m. <em>Touché</em> : 4 (1d6 + 1) dégâts contondants.</p>
+      <p><strong><em>Souffle de boue (recharge 6)</em></strong>. <em>JdS Dextérité</em> : DD 11, une créature que le méphite peut voir dans un rayon de 4,50 m. <em>Échec</em> : la cible subit l'état Entravé jusqu'à la fin du prochain tour du méphite.</p>
+    senses: Vision dans le noir 18 m, Perception passive 10
+    languages:
+    - primordial (aquatique
+    - terreux)

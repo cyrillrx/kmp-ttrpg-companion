@@ -1,0 +1,121 @@
+id: clay-golem
+source: monster_manual_2024
+type: construct
+size: large
+alignment: unaligned
+challengeRating: 9.0
+armorClass: 14
+maxHitPoints: 123
+hitDice: 13d10+52
+abilities:
+  str:
+    value: 20
+    savingThrowProficiency: none
+  dex:
+    value: 9
+    savingThrowProficiency: none
+  con:
+    value: 18
+    savingThrowProficiency: none
+  int:
+    value: 3
+    savingThrowProficiency: none
+  wis:
+    value: 8
+    savingThrowProficiency: none
+  cha:
+    value: 1
+    savingThrowProficiency: none
+speeds:
+  walk: 20
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: immune
+  bludgeoning: resistant
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: resistant
+  poison: immune
+  psychic: immune
+  radiant: none
+  slashing: resistant
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: true
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: true
+  restrained: false
+  unconscious: false
+  poisoned: true
+  petrified: true
+  frightened: true
+  blinded: false
+  prone: false
+  exhaustion: true
+  stunned: false
+translations:
+  en:
+    name: Clay Golem
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Acid Absorption</em>**. Whenever the golem is subjected to Acid damage, it takes no damage and instead regains a number of Hit Points equal to the Acid damage dealt.</p>
+      <p><strong><em>Berserk</em></strong>. Whenever the golem starts its turn Bloodied, roll 1d6. On a 6, the golem goes berserk. On each of its turns while berserk, the golem attacks the nearest creature it can see. If no creature is near enough to move to and attack, the golem attacks an object. Once the golem goes berserk, it continues to be berserk until it is destroyed or it is no longer Bloodied.</p>
+      <p><strong><em>Immutable Form</em></strong>. The golem can't shape-shift.</p>
+      <p><strong><em>Magic Resistance</em></strong>. The golem has Advantage on saving throws against spells and other magical effects.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The golem makes two Slam attacks, or it makes three Slam attacks if it used Hasten this turn.</p>
+      <p><strong><em>Slam</em></strong>. <em>Melee Attack Roll</em> : +9, reach 5 ft. <em>Hit</em> : 10 (1d10 + 5) Bludgeoning damage plus 6 (1d12) Acid damage, and the target's Hit Point maximum decreases by an amount equal to the Acid damage taken.</p>
+      <h2>Bonus actions</h2>
+      <p>** <em>Hasten (Recharge 5–6)</em>**. The golem takes the Dash and Disengage actions.</p>
+    senses: Darkvision 60 ft., Passive Perception 9
+    languages:
+    - Common plus one other language
+  fr:
+    name: Golem d'argile
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Absorption de l'acide</em>**. Chaque fois que le golem est soumis à des dégâts d'acide, il ne subit aucun dégât et récupère en fait autant de points de vie que les dégâts d'acide ainsi évités.</p>
+      <p><strong><em>Folie furieuse</em></strong>. Chaque fois que le golem commence son tour En péril, lancez 1d6. Sur un résultat de 6, il devient fou. À chacun de ses tours tant qu'il est dans cet état, le golem attaque la créature la plus proche qu'il voit. Si aucune créature n'est assez proche pour qu'il puisse se déplacer et l'attaquer, le golem s'en prend à un objet. Une fois le golem devenu fou, il continue à l'être jusqu'à sa destruction ou qu'il ne soit plus En péril.</p>
+      <p><strong><em>Forme immuable</em></strong>. Le golem ne peut pas être métamorphosé.</p>
+      <p><strong><em>Résistance à la magie</em></strong>. Le golem a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le golem effectue deux attaques de Coup, ou trois attaques de Coup s'il a utilisé Accélération ce tour-ci.</p>
+      <p><strong><em>Coup</em></strong>. <em>Corps à corps</em> : +9, allonge 1,50 m. <em>Touché</em> : 10 (1d10 + 5) dégâts contondants plus 6 (1d12) dégâts d'acide, et le maximum de points de vie de la cible diminue d'un montant égal aux dégâts d'acide subis.</p>
+      <h2>Actions Bonus</h2>
+      <p>** <em>Accélération (recharge 5–6)</em>**. Le golem entreprend les actions Désengagement et Pointe.</p>
+    senses: Vision dans le noir 18 m, Perception passive 9
+    languages:
+    - commun plus une autre langue

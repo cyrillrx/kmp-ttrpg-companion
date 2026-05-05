@@ -1,0 +1,133 @@
+id: ancient-green-dragon
+source: monster_manual_2024
+type: dragon
+size: gargantuan
+alignment: lawful_evil
+challengeRating: 22.0
+armorClass: 21
+maxHitPoints: 402
+hitDice: 23d20+161
+abilities:
+  str:
+    value: 27
+    savingThrowProficiency: none
+  dex:
+    value: 12
+    savingThrowProficiency: proficient
+  con:
+    value: 25
+    savingThrowProficiency: none
+  int:
+    value: 20
+    savingThrowProficiency: none
+  wis:
+    value: 17
+    savingThrowProficiency: proficient
+  cha:
+    value: 22
+    savingThrowProficiency: none
+speeds:
+  walk: 40
+  fly: 80
+  swim: 40
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: proficient
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: proficient
+  performance: none
+  persuasion: proficient
+  religion: none
+  sleightOfHand: none
+  stealth: proficient
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: immune
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: true
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Ancient Green Dragon
+    subtype: Chromatic
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Amphibious</em>**. The dragon can breathe air and water.</p>
+      <p><strong><em>Legendary Resistance (4/Day, or 5/Day in Lair)</em></strong>. If the dragon fails a saving throw, it can choose to succeed instead.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The dragon makes three Rend attacks. It can replace one attack with a use of Spellcasting to cast <em><a href="https://www.aidedd.org/spell/mind-spike">Mind Spike</a></em> (level 5 version).</p>
+      <p><strong><em>Rend</em></strong>. <em>Melee Attack Roll</em> : +15, reach 15 ft. <em>Hit</em> : 17 (2d8 + 8) Slashing damage plus 10 (3d6) Poison damage.</p>
+      <p><strong><em>Poison Breath (Recharge 5–6)</em></strong>. <em>Constitution Saving Throw</em> : DC 22, each creature in a 90-foot Cone. <em>Failure</em> : 77 (22d6) Poison damage. <em>Success</em> : Half damage.</p>
+      <p><strong><em>Spellcasting</em></strong>. The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 21):</p>
+      <p>At will: <em><a href="https://www.aidedd.org/spell/detect-magic">Detect Magic</a>, <a href="https://www.aidedd.org/spell/mind-spike">Mind Spike</a></em> (level 5 version)<br />
+      1/day each: <em><a href="https://www.aidedd.org/spell/geas">Geas</a>, <a href="https://www.aidedd.org/spell/modify-memory">Modify Memory</a></em>  </p>
+      <h2>Legendary actions</h2>
+      <p>Legendary Action Uses: 3 (4 in Lair). Immediately after another creature's turn, The dragon can expend a use to take one of the following actions. The dragon regains all expended uses at the start of each of its turns. </p>
+      <p><strong><em>Mind Invasion</em></strong>. The dragon uses Spellcasting to cast <em><a href="https://www.aidedd.org/spell/mind-spike">Mind Spike</a></em> (level 5 version).</p>
+      <p><strong><em>Noxious Miasma</em></strong>. <em>Constitution Saving Throw</em> : DC 21, each creature in a 30-foot-radius Sphere centered on a point the dragon can see within 90 feet. <em>Failure</em> : 17 (5d6) Poison damage, and the target takes a -2 penalty to AC until the end of its next turn. <em>Failure or Success</em> : The dragon can't take this action again until the start of its next turn.</p>
+      <p><strong><em>Pounce</em></strong>. The dragon moves up to half its Speed, and it makes one Rend attack.</p>
+    senses: Blindsight 60 ft., Darkvision 120 ft., Passive Perception 27
+    languages:
+    - Common
+    - Draconic
+  fr:
+    name: Dragon vert, ancien
+    subtype: Chromatique
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Amphibie</em>**. Le dragon peut respirer sous l'eau comme à l'air libre.</p>
+      <p><strong><em>Résistance légendaire (4/jour, ou 5/jour dans son antre)</em></strong>. Si le dragon rate un jet de sauvegarde, il peut décider de le réussir tout de même.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le dragon effectue trois attaques de Saignée. Il peut remplacer l'une de ces attaques par une utilisation d'Incantation pour lancer <em>épine mentale</em> (au niveau 5).</p>
+      <p><strong><em>Saignée</em></strong>. <em>Corps à corps</em> : +15, allonge 4,50 m. <em>Touché</em> : 17 (2d8 + 8) dégâts tranchants plus 10 (3d6) dégâts de poison.</p>
+      <p><strong><em>Incantation</em></strong>. Le dragon lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 21) :</p>
+      <p>À volonté : <em><a href="https://www.aidedd.org/spell/fr/detection-de-la-magie">détection de la magie</a>, épine mentale</em> (au niveau 5)<br />
+      1/jour chacun : <em>modification de mémoire, quête</em>  </p>
+      <p>** <em>Souffle empoisonné (recharge 5–6)</em>**. <em>JdS Constitution</em> : DD 22, chaque créature dans un Cône de 27 m. <em>Échec</em> : 77 (22d6) dégâts de poison. <em>Réussite</em> : demi-dégâts.</p>
+      <h2>Actions Légendaires</h2>
+      <p>Utilisations d'action Légendaire : 3 (4 dans son antre). Aussitôt après le tour d'une autre créature, le dragon peut dépenser une utilisation pour entreprendre l'une des actions ci-après. Le dragon récupère toutes ses utilisations dépensées au début de chacun de ses tours. </p>
+      <p><strong><em>Assaut incisif</em></strong>. Le dragon se déplace à concurrence de la moitié de sa Vitesse et effectue une attaque de Saignée.</p>
+      <p><strong><em>Invasion mentale</em></strong>. Le dragon recourt à Incantation pour lancer <em>épine mentale</em> (au niveau 5).</p>
+      <p><strong><em>Miasmes nocifs</em></strong>. <em>JdS Constitution</em> : DD 21, chaque créature dans une Sphère de 9 m de rayon centrée sur un point que le dragon voit dans un rayon de 27 m. <em>Échec</em> : 17 (5d6) dégâts de poison, et la cible subit un malus de −2 à la CA jusqu'à la fin de son tour suivant. <em>Échec ou réussite</em> : le dragon ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.</p>
+    senses: Vision aveugle 18 m, Vision dans le noir 36 m, Perception passive 27
+    languages:
+    - commun
+    - draconique

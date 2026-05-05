@@ -1,0 +1,125 @@
+id: incubus
+source: monster_manual_2024
+type: fiend
+size: medium
+alignment: neutral_evil
+challengeRating: 4.0
+armorClass: 15
+maxHitPoints: 66
+hitDice: 12d8+12
+abilities:
+  str:
+    value: 8
+    savingThrowProficiency: none
+  dex:
+    value: 17
+    savingThrowProficiency: none
+  con:
+    value: 13
+    savingThrowProficiency: none
+  int:
+    value: 15
+    savingThrowProficiency: none
+  wis:
+    value: 12
+    savingThrowProficiency: none
+  cha:
+    value: 20
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: 60
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: proficient
+  history: none
+  insight: proficient
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: proficient
+  performance: none
+  persuasion: proficient
+  religion: none
+  sleightOfHand: none
+  stealth: proficient
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: resistant
+  fire: resistant
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: resistant
+  psychic: resistant
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Incubus
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Succubus Form</em>**. When the incubus finishes a Long Rest, it can shape-shift into a <a href="./succubus">Succubus</a>, using that stat block instead of this one. Any equipment it is wearing or carrying isn't transformed.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The incubus makes two Restless Touch attacks.</p>
+      <p><strong><em>Restless Touch</em></strong>. <em>Melee Attack Roll</em> : +7, reach 5 ft. <em>Hit</em> : 15 (3d6 + 5) Psychic damage, and the target is cursed for 24 hours or until the incubus dies. Until the curse ends, the target gains no benefit from finishing Short Rests.</p>
+      <p><strong><em>Spellcasting</em></strong>. The incubus casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 15):</p>
+      <p>At Will: <em><a href="https://www.aidedd.org/spell/disguise-self">Disguise Self</a>, <a href="https://www.aidedd.org/spell/etherealness">Etherealness</a></em><br />
+      1/Day Each: <em><a href="https://www.aidedd.org/spell/dream">Dream</a>, <a href="https://www.aidedd.org/spell/hypnotic-pattern">Hypnotic Pattern</a></em>  </p>
+      <h2>Bonus actions</h2>
+      <p>** <em>Nightmare (Recharge 6)</em>**. <em>Wisdom Saving Throw</em> : DC 15, one creature the incubus can see within 60 feet. <em>Failure</em> : If the target has 20 Hit Points or fewer, it has the Unconscious condition for 1 hour, until it takes damage, or until a creature within 5 feet of it takes an action to wake it. Otherwise, the target takes 18 (4d8) Psychic damage.</p>
+    senses: Darkvision 60 ft., Passive Perception 15
+    languages:
+    - Abyssal
+    - Common
+    - Infernal; telepathy 60 ft.
+  fr:
+    name: Incube
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Forme de succube</em><strong>. Lorsque l'incube termine un Repos long, il peut se transformer en </strong>succube** , le profil de celle-ci remplaçant alors le sien. Rien de ce qu'il porte n'est transformé.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. L'incube effectue deux attaques de Contact fébrile.</p>
+      <p><strong><em>Contact fébrile</em></strong>. <em>Corps à corps</em> : +7, allonge 1,50 m. <em>Touché</em> : 15 (3d6 + 5) dégâts psychiques, et la cible est maudite pendant 24 heures ou jusqu'à ce que l'incube meure. Tant que persiste la malédiction, la cible ne reçoit aucun bénéfice en terminant un Repos court.</p>
+      <p><strong><em>Incantation</em></strong>. L'incube lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 15) :</p>
+      <p>À volonté : <em>déguisement, forme éthérée</em><br />
+      1/jour chacun : <em>motif hypnotique, songe</em>  </p>
+      <h2>Actions Bonus</h2>
+      <p>** <em>Cauchemar (recharge 6)</em>**. <em>JdS Sagesse</em> : DD 15, une créature que l'incube voit dans un rayon de 18 m. <em>Échec</em> : si la cible a 20 points de vie ou moins, elle subit l'état Inconscient pendant 1 heure, jusqu'à ce qu'elle subisse des dégâts ou qu'une créature dans un rayon de 1,50 m consacre une action à la réveiller. Sinon, la cible subit 18 (4d8) dégâts psychiques.</p>
+    senses: Vision dans le noir 18 m, Perception passive 15
+    languages:
+    - abyssal
+    - commun
+    - infernal ; télépathie 18 m

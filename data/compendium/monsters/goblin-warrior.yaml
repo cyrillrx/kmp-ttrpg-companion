@@ -1,0 +1,113 @@
+id: goblin-warrior
+source: monster_manual_2024
+type: fey
+size: small
+alignment: chaotic_neutral
+challengeRating: 0.25
+armorClass: 15
+maxHitPoints: 10
+hitDice: 3d6
+abilities:
+  str:
+    value: 8
+    savingThrowProficiency: none
+  dex:
+    value: 15
+    savingThrowProficiency: none
+  con:
+    value: 10
+    savingThrowProficiency: none
+  int:
+    value: 10
+    savingThrowProficiency: none
+  wis:
+    value: 8
+    savingThrowProficiency: none
+  cha:
+    value: 8
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: proficient
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Goblin Warrior
+    subtype: Goblinoid
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Scimitar</em>**. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 5 (1d6 + 2) Slashing damage, plus 2 (1d4) Slashing damage if the attack roll had Advantage.</p>
+      <p><strong><em>Shortbow</em></strong>. <em>Ranged Attack Roll</em> : +4, range 80/320 ft. <em>Hit</em> : 5 (1d6 + 2) Piercing damage, plus 2 (1d4) Piercing damage if the attack roll had Advantage.</p>
+      <h2>Bonus actions</h2>
+      <p>** <em>Nimble Escape</em>**. The goblin takes the Disengage or Hide action.</p>
+    senses: Darkvision 60 ft., Passive Perception 9
+    languages:
+    - Common
+    - Goblin
+  fr:
+    name: Gobelin, combattant
+    subtype: Gobelinoïde
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Cimeterre</em>**. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 5 (1d6 + 2) dégâts tranchants, plus 2 (1d4) dégâts tranchants si le jet d'attaque avait un Avantage.</p>
+      <p><strong><em>Arc court</em></strong>. <em>À distance</em> : +4, portée 24/96 m. <em>Touché</em> : 5 (1d6 + 2) dégâts perforants, plus 2 (1d4) dégâts perforants si le jet d'attaque avait un Avantage.</p>
+      <h2>Actions Bonus</h2>
+      <p>** <em>Fuite agile</em>**. Le gobelin entreprend l'action Désengagement ou Furtivité.</p>
+    senses: Vision dans le noir 18 m, Perception passive 9
+    languages:
+    - commun
+    - gobelin

@@ -1,0 +1,112 @@
+id: bulette
+source: monster_manual_2024
+type: monstrosity
+size: large
+alignment: unaligned
+challengeRating: 5.0
+armorClass: 17
+maxHitPoints: 94
+hitDice: 9d10+45
+abilities:
+  str:
+    value: 19
+    savingThrowProficiency: none
+  dex:
+    value: 11
+    savingThrowProficiency: none
+  con:
+    value: 21
+    savingThrowProficiency: none
+  int:
+    value: 2
+    savingThrowProficiency: none
+  wis:
+    value: 10
+    savingThrowProficiency: none
+  cha:
+    value: 5
+    savingThrowProficiency: none
+speeds:
+  walk: 40
+  fly: null
+  swim: null
+  climb: null
+  burrow: 40
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: proficient
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Bulette
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The bulette makes two Bite attacks.</p>
+      <p><strong><em>Bite</em></strong>. <em>Melee Attack Roll</em> : +7, reach 5 ft. <em>Hit</em> : 17 (2d12 + 4) Piercing damage.</p>
+      <p><strong><em>Deadly Leap</em></strong>. The bulette spends 5 feet of movement to jump to a space within 15 feet that contains one or more Large or smaller creatures. <em>Dexterity Saving Throw</em> : DC 15, each creature in the bulette's destination space. <em>Failure</em> : 19 (3d12) Bludgeoning damage, and the target has the Prone condition. <em>Success</em> : Half damage, and the target is pushed 5 feet straight away from the bulette.</p>
+      <h2>Bonus actions</h2>
+      <p>** <em>Leap</em>**. The bulette jumps up to 30 feet by spending 10 feet of movement.</p>
+    senses: Darkvision 60 ft., Tremorsense 120 ft., Passive Perception 16
+    languages: []
+  fr:
+    name: Bulette
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. La bulette effectue deux attaques de Morsure.</p>
+      <p><strong><em>Morsure</em></strong>. <em>Corps à corps</em> : +7, allonge 1,50 m. <em>Touché</em> : 17 (2d12 + 4) dégâts perforants.</p>
+      <p><strong><em>Saut meurtrier</em></strong>. Au prix de 1,50 m de déplacement, la bulette saute en un espace situé dans un rayon de 4,50 m et contenant une ou plusieurs créatures de taille G ou inférieure. <em>JdS Dextérité</em> : DD 15, chaque créature dans l'espace de destination de la bulette. <em>Échec</em> : 19 (3d12) dégâts contondants, et la cible subit l'état À terre. <em>Réussite</em> : demi-dégâts, et la cible est repoussée sur 1,50 m en ligne droite de la bulette.</p>
+      <h2>Actions Bonus</h2>
+      <p>** <em>Bond</em>**. La bulette effectue un saut d'un maximum de 9 m en dépensant 3 m de déplacement.</p>
+    senses: Vision dans le noir 18 m, perception des vibrations 36 m, Perception passive
+      16
+    languages: []

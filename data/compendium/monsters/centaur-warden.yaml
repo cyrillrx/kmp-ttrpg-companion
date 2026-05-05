@@ -1,0 +1,121 @@
+id: centaur-warden
+source: monster_manual_2024
+type: fey
+size: large
+alignment: neutral_good
+challengeRating: 7.0
+armorClass: 16
+maxHitPoints: 105
+hitDice: 14d10+28
+abilities:
+  str:
+    value: 18
+    savingThrowProficiency: none
+  dex:
+    value: 14
+    savingThrowProficiency: none
+  con:
+    value: 14
+    savingThrowProficiency: proficient
+  int:
+    value: 9
+    savingThrowProficiency: none
+  wis:
+    value: 18
+    savingThrowProficiency: proficient
+  cha:
+    value: 11
+    savingThrowProficiency: none
+speeds:
+  walk: 50
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: proficient
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: proficient
+  perception: proficient
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Centaur Warden
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The centaur makes two attacks, using Forest Staff or Sun Ray in any combination.</p>
+      <p><strong><em>Forest Staff</em></strong>. <em>Melee Attack Roll</em> : +7, reach 5 ft. <em>Hit</em> : 13 (2d8 + 4) Bludgeoning damage plus 14 (4d6) Poison damage.</p>
+      <p><strong><em>Spellcasting</em></strong>. The centaur casts one of the following spells, using Wisdom as the spellcasting ability (spell save DC 15):</p>
+      <p>At will: <em><a href="https://www.aidedd.org/spell/druidcraft">Druidcraft</a>, <a href="https://www.aidedd.org/spell/speak-with-animals">Speak with Animals</a></em>  </p>
+      <p>** <em>Sun Ray</em>**. <em>Ranged Attack Roll</em> : +7, range 90 ft. <em>Hit</em> : 14 (3d6 + 4) Radiant damage, and the target has the Blinded condition until the start of the centaur's next turn.</p>
+      <h2>Bonus actions</h2>
+      <p>** <em>Entangling Trail (Recharge 5–6)</em>**. The centaur moves up to its Speed without provoking Opportunity Attacks. Each creature within 5 feet of the centaur as it moves is targeted once by the following effect. <em>Strength Saving Throw</em> : DC 15. <em>Failure</em> : 11 (2d6 + 4) Bludgeoning damage, and the target has the Restrained condition until the end of its next turn.</p>
+    senses: Passive Perception 17
+    languages:
+    - Druidic
+    - Elvish
+    - Sylvan
+  fr:
+    name: Centaure, gardien
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le centaure effectue deux attaques, réparties à sa guise entre Bâton forestier et Rayon du soleil.</p>
+      <p><strong><em>Bâton forestier</em></strong>. <em>Corps à corps</em> : +7, allonge 1,50 m. <em>Touché</em> : 13 (2d8 + 4) dégâts contondants plus 14 (4d6) dégâts de poison.</p>
+      <p><strong><em>Rayon du soleil</em></strong>. <em>À distance</em> : +7, portée 27 m. <em>Touché</em> : 14 (3d6 + 4) dégâts radiants, et la cible subit l'état Aveuglé jusqu'au début du prochain tour du centaure.</p>
+      <p><strong><em>Incantation</em></strong>. Le centaure lance l'un des sorts suivants, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 15) :</p>
+      <p>À volonté : <em><a href="https://www.aidedd.org/spell/fr/druidisme">druidisme</a>, <a href="https://www.aidedd.org/spell/fr/communication-avec-les-animaux">communication avec les animaux</a></em>  </p>
+      <h2>Actions Bonus</h2>
+      <p>** <em>Foulées piégeuses (recharge 5–6)</em>**. Le centaure se déplace jusqu'à sa Vitesse sans provoquer d'attaques d'Opportunité. Chaque créature dans un rayon de 1,50 m du centaure pendant son déplacement est affectée une fois par l'effet suivant. JdS Force : DD 15. Échec : 11 (2d6 + 4) dégâts contondants, et la cible subit l'état Entravé jusqu'à la fin de son prochain tour.</p>
+    senses: Perception passive 17
+    languages:
+    - druidique
+    - elfe
+    - sylvestre

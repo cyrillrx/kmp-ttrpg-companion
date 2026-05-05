@@ -1,0 +1,127 @@
+id: bullywug-bog-sage
+source: monster_manual_2024
+type: fey
+size: medium
+alignment: neutral
+challengeRating: 4.0
+armorClass: 16
+maxHitPoints: 52
+hitDice: 8d8+16
+abilities:
+  str:
+    value: 8
+    savingThrowProficiency: none
+  dex:
+    value: 16
+    savingThrowProficiency: none
+  con:
+    value: 14
+    savingThrowProficiency: proficient
+  int:
+    value: 10
+    savingThrowProficiency: none
+  wis:
+    value: 16
+    savingThrowProficiency: proficient
+  cha:
+    value: 12
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: null
+  swim: 30
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: proficient
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: proficient
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Bullywug Bog Sage
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Amphibious</em>**. The bullywug can breathe air and water.</p>
+      <p><strong><em>Speak with Frogs and Toads</em></strong>. The bullywug can communicate simple concepts to frogs and toads when it speaks in Bullywug.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The bullywug makes two Bog Staff attacks. It can replace any attack with a use of Spellcasting to cast <em><a href="https://www.aidedd.org/spell/ray-of-sickness">Ray of Sickness</a></em>.</p>
+      <p><strong><em>Bog Staff</em></strong>. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 7 (1d8 + 3) Bludgeoning damage plus 10 (3d6) Poison damage.</p>
+      <p><strong><em>Spellcasting</em></strong>. The bullywug casts one of the following spells, using Wisdom as the spellcasting ability (spell save DC 13, +5 to hit with spell attacks):</p>
+      <p>At Will: <em><a href="https://www.aidedd.org/spell/dancing-lights">Dancing Lights</a>, <a href="https://www.aidedd.org/spell/druidcraft">Druidcraft</a>, <a href="https://www.aidedd.org/spell/ray-of-sickness">Ray of Sickness</a></em><br />
+      1/Day Each: <em><a href="https://www.aidedd.org/spell/speak-with-plants">Speak with Plants</a>, <a href="https://www.aidedd.org/spell/vitriolic-sphere">Vitriolic Sphere</a></em>  </p>
+      <h2>Bonus actions</h2>
+      <p>** <em>Leap</em>**. The bullywug jumps up to 30 feet by spending 10 feet of movement.</p>
+    senses: Passive Perception 13
+    languages:
+    - Bullywug
+    - Common
+    - Sylvan
+  fr:
+    name: Brutacien, sage du marais
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Amphibie</em>**. Le brutacien peut respirer sous l'eau comme à l'air libre.</p>
+      <p><strong><em>Communication avec les grenouilles et les crapauds</em></strong>. Le brutacien peut communiquer des idées simples aux grenouilles et aux crapauds lorsqu'il s'exprime en brutacien.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le brutacien effectue deux attaques de Bâton du marais. Il peut remplacer l'une de ces attaques par une utilisation d'Incantation pour lancer <em>rayon empoisonné</em>.</p>
+      <p><strong><em>Bâton du marais</em></strong>. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 7 (1d8 + 3) dégâts contondants plus 10 (3d6) dégâts de poison.</p>
+      <p><strong><em>Incantation</em></strong>. Le brutacien lance l'un des sorts suivants, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 13, +5 pour toucher) :</p>
+      <p>À volonté : <em><a href="https://www.aidedd.org/spell/fr/druidisme">druidisme</a>, lumières dansantes, rayon empoisonné</em><br />
+      1/jour chacun : <em>communication avec les plantes, sphère de vitriol</em>  </p>
+      <h2>Actions Bonus</h2>
+      <p>** <em>Bond</em>**. Le brutacien effectue un saut d'un maximum de 9 m en dépensant 3 m de déplacement.</p>
+    senses: Perception passive 13
+    languages:
+    - brutacien
+    - commun
+    - sylvestre

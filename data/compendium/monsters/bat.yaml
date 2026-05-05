@@ -1,0 +1,105 @@
+id: bat
+source: monster_manual_2024
+type: beast
+size: tiny
+alignment: unaligned
+challengeRating: 0.0
+armorClass: 12
+maxHitPoints: 1
+hitDice: 1d4-1
+abilities:
+  str:
+    value: 2
+    savingThrowProficiency: none
+  dex:
+    value: 15
+    savingThrowProficiency: none
+  con:
+    value: 8
+    savingThrowProficiency: none
+  int:
+    value: 2
+    savingThrowProficiency: none
+  wis:
+    value: 12
+    savingThrowProficiency: none
+  cha:
+    value: 4
+    savingThrowProficiency: proficient
+speeds:
+  walk: 5
+  fly: 30
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Bat
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Bite</em>**. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 1 Piercing damage.</p>
+    senses: Blindsight 60 ft., Passive Perception 11
+    languages:
+    - None
+  fr:
+    name: Chauve-souris
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Morsure</em>**. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 1 dégât perforant.</p>
+    senses: Vision aveugle 18 m, Perception passive 11
+    languages:
+    - aucune

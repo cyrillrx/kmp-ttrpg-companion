@@ -1,0 +1,120 @@
+id: aarakocra-aeromancer
+source: monster_manual_2024
+type: elemental
+size: medium
+alignment: neutral
+challengeRating: 4.0
+armorClass: 16
+maxHitPoints: 66
+hitDice: 12d8+12
+abilities:
+  str:
+    value: 10
+    savingThrowProficiency: none
+  dex:
+    value: 16
+    savingThrowProficiency: proficient
+  con:
+    value: 12
+    savingThrowProficiency: none
+  int:
+    value: 13
+    savingThrowProficiency: none
+  wis:
+    value: 17
+    savingThrowProficiency: proficient
+  cha:
+    value: 12
+    savingThrowProficiency: none
+speeds:
+  walk: 20
+  fly: 50
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: proficient
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: proficient
+  perception: proficient
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Aarakocra Aeromancer
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The aarakocra makes two Wind Staff attacks, and it can use Spellcasting to cast <em><a href="https://www.aidedd.org/spell/gust-of-wind">Gust of Wind</a></em>.</p>
+      <p><strong><em>Spellcasting</em></strong>. The aarakocra casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 13):</p>
+      <p>At will: <em><a href="https://www.aidedd.org/spell/elementalism">Elementalism</a>, <a href="https://www.aidedd.org/spell/gust-of-wind">Gust of Wind</a>, <a href="https://www.aidedd.org/spell/mage-hand">Mage Hand</a>, <a href="https://www.aidedd.org/spell/message">Message</a></em><br />
+      1/day: <em><a href="https://www.aidedd.org/spell/lightning-bolt">Lightning Bolt</a></em>  </p>
+      <p>** <em>Wind Staff</em>**. <em>Melee or Ranged Attack Roll</em> : +5, reach 5 ft. or range 120 ft. <em>Hit</em> : 7 (1d8 + 3) Bludgeoning damage plus 11 (2d10) Lightning damage.</p>
+      <h2>Reactions</h2>
+      <p>** <em>Feather Fall (1/Day)</em>**. The aarakocra casts <em><a href="https://www.aidedd.org/spell/feather-fall">Feather Fall</a></em> in response to that spell's trigger, using the same spellcasting ability as Spellcasting.</p>
+    senses: Passive Perception 17
+    languages:
+    - Aarakocra
+    - Primordial (Auran)
+  fr:
+    name: Aarakocre, aéromancien
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. L'aarakocre effectue deux attaques de Bâton des vents, et peut utiliser Incantation pour lancer <em><a href="https://www.aidedd.org/spell/fr/bourrasque">bourrasque</a></em>.</p>
+      <p><strong><em>Bâton des vents</em></strong>. <em>Corps à corps ou à distance</em> : +5, allonge 1,50 m ou portée 36 m. <em>Touché</em> : 7 (1d8 + 3) dégâts contondants plus 11 (2d10) dégâts de foudre.</p>
+      <p><strong><em>Incantation</em></strong>. L'aarakocre lance l'un des sorts suivants sans composantes matérielles, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 13) :</p>
+      <p>À volonté : <em><a href="https://www.aidedd.org/spell/fr/elementalisme">élémentalisme</a>, <a href="https://www.aidedd.org/spell/fr/bourrasque">bourrasque</a>, <a href="https://www.aidedd.org/spell/fr/main-de-mage">main de mage</a>, <a href="https://www.aidedd.org/spell/fr/message">message</a></em><br />
+      1/jour : <em><a href="https://www.aidedd.org/spell/fr/eclair">Éclair</a></em>  </p>
+      <p>** <em>Bâton de vent</em>**. Jet d'attaque au corps à corps ou à distance : +5, portée 1,5 m ou 36 m. Touché : 7 (1d8 + 3) dégâts contondants plus 11 (2d10) dégâts de foudre.</p>
+      <h2>Réactions</h2>
+      <p>** <em>Feuille morte (1/jour)</em>**. L'aarakocre lance <em><a href="https://www.aidedd.org/spell/fr/feuille-morte">feuille morte</a></em> en réponse au déclencheur de ce sort, en utilisant la même caractéristique d'incantation que pour Incantation.</p>
+    senses: Perception passive 17
+    languages:
+    - aarakocre
+    - primordial (aérien)

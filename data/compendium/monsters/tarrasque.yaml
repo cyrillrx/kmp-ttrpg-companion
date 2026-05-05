@@ -1,0 +1,135 @@
+id: tarrasque
+source: monster_manual_2024
+type: monstrosity
+size: gargantuan
+alignment: unaligned
+challengeRating: 30.0
+armorClass: 25
+maxHitPoints: 697
+hitDice: 34d20+340
+abilities:
+  str:
+    value: 30
+    savingThrowProficiency: none
+  dex:
+    value: 11
+    savingThrowProficiency: proficient
+  con:
+    value: 30
+    savingThrowProficiency: none
+  int:
+    value: 3
+    savingThrowProficiency: proficient
+  wis:
+    value: 11
+    savingThrowProficiency: proficient
+  cha:
+    value: 11
+    savingThrowProficiency: proficient
+speeds:
+  walk: 60
+  fly: null
+  swim: null
+  climb: 60
+  burrow: 40
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: proficient
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: resistant
+  cold: none
+  fire: immune
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: resistant
+  poison: immune
+  psychic: none
+  radiant: none
+  slashing: resistant
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: true
+  deafened: true
+  grappled: false
+  incapacitated: false
+  paralyzed: true
+  restrained: false
+  unconscious: false
+  poisoned: true
+  petrified: false
+  frightened: true
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Tarrasque
+    subtype: Titan
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Legendary Resistance (6/Day)</em>**. If the tarrasque fails a saving throw, it can choose to succeed instead.</p>
+      <p><strong><em>Magic Resistance</em></strong>. The tarrasque has Advantage on saving throws against spells and other magical effects.</p>
+      <p><strong><em>Reflective Carapace</em></strong>. If the tarrasque is targeted by a <em><a href="https://www.aidedd.org/spell/magic-missile">Magic Missile</a></em> spell or a spell that requires a ranged attack roll, roll 1d6. On a 1-5, the tarrasque is unaffected. On a 6, the tarrasque is unaffected and reflects the spell, turning the caster into the target.</p>
+      <p><strong><em>Siege Monster</em></strong>. The tarrasque deals double damage to objects and structures.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The tarrasque makes one Bite attack and three other attacks, using Claw or Tail in any combination.</p>
+      <p><strong><em>Bite</em></strong>. <em>Melee Attack Roll</em> : +19, reach 15 ft. <em>Hit</em> : 36 (4d12 + 10) Piercing damage, and the target has the Grappled condition (escape DC 20). Until the grapple ends, the target has the Restrained condition and can't teleport.</p>
+      <p><strong><em>Claw</em></strong>. <em>Melee Attack Roll</em> : +19, reach 15 ft. <em>Hit</em> : 28 (4d8 + 10) Slashing damage.</p>
+      <p><strong><em>Tail</em></strong>. <em>Melee Attack Roll</em> : +19, reach 30 ft. <em>Hit</em> : 23 (3d8 + 10) Bludgeoning damage. If the target is a Huge or smaller creature, it has the Prone condition.</p>
+      <p><strong><em>Thunderous Bellow (Recharge 5–6)</em></strong>. <em>Constitution Saving Throw</em> : DC 27, each creature and each object that isn't being worn or carried in a 150-foot Cone. <em>Failure</em> : 78 (12d12) Thunder damage, and the target has the Deafened and Frightened conditions until the end of its next turn. <em>Success</em> : Half damage only.</p>
+      <h2>Bonus actions</h2>
+      <p>** <em>Swallow</em>**. <em>Strength Saving Throw</em> : DC 27, one Large or smaller creature Grappled by the tarrasque (it can have up to six creatures swallowed at a time). <em>Failure</em> : The target is swallowed, and the Grappled condition ends. A swallowed creature has the Blinded and Restrained conditions and can't teleport, it has Total Cover against attacks and other effects outside the tarrasque, and it takes 56 (16d6) Acid damage at the start of each of the tarrasque's turns. If the tarrasque takes 60 damage or more on a single turn from a creature inside it, the tarrasque must succeed on a DC 20 Constitution saving throw at the end of that turn or regurgitate all swallowed creatures, each of which falls in a space within 10 feet of the tarrasque and has the Prone condition. If the tarrasque dies, any swallowed creature no longer has the Restrained condition and can escape from the corpse using 20 feet of movement, exiting Prone.</p>
+      <h2>Legendary actions</h2>
+      <p>Legendary Action Uses: 3. Immediately after another creature's turn, The tarrasque can expend a use to take one of the following actions. The tarrasque regains all expended uses at the start of each of its turns. </p>
+      <p><strong><em>Onslaught</em></strong>. The tarrasque moves up to half its Speed, and it makes one Claw or Tail attack.</p>
+      <p><strong><em>World-Shaking Movement</em></strong>. The tarrasque moves up to its Speed. At the end of this movement, the tarrasque creates an instantaneous shock wave in a 60-foot Emanation originating from itself. Creatures in that area lose Concentration and, if Medium or smaller, have the Prone condition. The tarrasque can't take this action again until the start of its next turn.</p>
+    senses: Blindsight 120 ft., Passive Perception 19
+    languages:
+    - None
+  fr:
+    name: Tarasque
+    subtype: Titan
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Carapace réfléchissante</em>**. Si la tarasque est la cible du sort <em>projectile magique</em> ou de tout autre sort qui nécessite un jet d'attaque à distance, lancez 1d6. Sur un résultat de 1 à 5, la tarasque n'est pas affectée. Sur un 6, la tarasque n'est pas affectée et renvoie le sort, l'incantateur en devenant la cible.</p>
+      <p><strong><em>Monstre de siège</em></strong>. La tarasque inflige des dégâts doublés aux objets et aux structures.</p>
+      <p><strong><em>Résistance à la magie</em></strong>. La tarasque a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.</p>
+      <p><strong><em>Résistance légendaire (6/jour)</em></strong>. Si La tarasque rate un jet de sauvegarde, elle peut décider de le réussir tout de même.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. La tarasque effectue une attaque de Morsure et trois autres attaques, réparties à sa guise entre Griffe et Queue.</p>
+      <p><strong><em>Griffe</em></strong>. <em>Corps à corps</em> : +19, allonge 4,50 m. <em>Touché</em> : 28 (4d8 + 10) dégâts tranchants.</p>
+      <p><strong><em>Morsure</em></strong>. <em>Corps à corps</em> : +19, allonge 4,50 m. <em>Touché</em> : 36 (4d12 + 10) dégâts perforants, et la cible subit l'état Agrippé (évasion DD 20). Tant qu'elle est agrippée, la cible subit en outre l'état Entravé et la téléportation lui est impossible.</p>
+      <p><strong><em>Queue</em></strong>. <em>Corps à corps</em> : +19, allonge 9 m. <em>Touché</em> : 23 (3d8 + 10) dégâts contondants. Si la cible est une créature de taille TG ou inférieure, elle subit l'état À terre.</p>
+      <p><strong><em>Mugissement tonitruant (recharge 5–6)</em></strong>. <em>JdS Constitution</em> : DD 27, chaque créature et chaque objet qui n'est porté par personne dans un Cône de 45 m. <em>Échec</em> : 78 (12d12) dégâts de tonnerre, et la cible subit les états Assourdi et Effrayé jusqu'à la fin de son tour suivant. <em>Réussite</em> : demi-dégâts uniquement.</p>
+      <h2>Actions Bonus</h2>
+      <p>** <em>Engloutissement</em>**. <em>JdS Force</em> : DD 27, une créature de taille G ou inférieure Agrippée par la tarasque (qui peut contenir simultanément un maximum de six créatures). <em>Échec</em> : la cible est engloutie, et l'état Agrippé prend fin. La créature engloutie subit les états Aveuglé et Entravé, la téléportation lui est impossible, elle bénéficie d'un Abri total contre les attaques et effets émanant de l'extérieur de la tarasque, et subit 56 (16d6) dégâts d'acide au début de chacun des tours du monstre. Si la tarasque subit 60 dégâts ou plus lors d'un même tour de la part d'une créature engloutie, elle doit réussir un jet de sauvegarde de Constitution DD 20 à la fin de ce tour sous peine de régurgiter toutes les créatures englouties, chacune tombant dans un espace situé dans un rayon de 3 m d'elle et subissant l'état À terre. Si la tarasque meurt, les créatures englouties ne subissent plus l'état Entravé et peuvent s'extraire du cadavre en dépensant 6 m de déplacement, pour se retrouver avec l'état À terre.</p>
+      <h2>Actions Légendaires</h2>
+      <p>Utilisations d'action Légendaire : 3. Aussitôt après le tour d'une autre créature, la tarasque peut dépenser une utilisation pour entreprendre l'une des actions ci-après. La tarasque récupère toutes ses utilisations dépensées au début de chacun de ses tours. </p>
+      <p><strong><em>Déplacement sismique</em></strong>. La tarasque se déplace dans les limites de sa Vitesse. À l'issue de ce déplacement, elle produit une onde de choc instantanée sous forme d'une Émanation de 18 m centrée sur elle-même. Les créatures de la zone perdent leur Concentration, celles de taille M et inférieure subissant en outre l'état À terre. La tarasque ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.</p>
+      <p><strong><em>Offensive</em></strong>. La tarasque se déplace à concurrence de la moitié de sa Vitesse et effectue une attaque de Griffe ou de Queue.</p>
+    senses: Vision aveugle 36 m, Perception passive 19
+    languages:
+    - aucune

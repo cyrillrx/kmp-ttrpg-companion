@@ -1,0 +1,113 @@
+id: kobold-warrior
+source: monster_manual_2024
+type: dragon
+size: small
+alignment: neutral
+challengeRating: 0.125
+armorClass: 14
+maxHitPoints: 7
+hitDice: 3d6-3
+abilities:
+  str:
+    value: 7
+    savingThrowProficiency: none
+  dex:
+    value: 15
+    savingThrowProficiency: none
+  con:
+    value: 9
+    savingThrowProficiency: none
+  int:
+    value: 8
+    savingThrowProficiency: none
+  wis:
+    value: 7
+    savingThrowProficiency: none
+  cha:
+    value: 8
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Kobold Warrior
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Pack Tactics</em>**. The kobold has Advantage on an attack roll against a creature if at least one of the kobold's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.</p>
+      <p><strong><em>Sunlight Sensitivity</em></strong>. While in sunlight, the kobold has Disadvantage on ability checks and attack rolls.</p>
+      <h2>Actions</h2>
+      <p>** <em>Dagger</em>**. <em>Melee or Ranged Attack Roll</em> : +4, reach 5 ft. or range 20/60 ft. <em>Hit</em> : 4 (1d4 + 2) Piercing damage.</p>
+    senses: Darkvision 60 ft., Passive Perception 8
+    languages:
+    - Common
+    - Draconic
+  fr:
+    name: Kobold, combattant
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Sensibilité au soleil</em>**. Tant qu'il est exposé à la lumière du soleil, le kobold subit un Désavantage aux jets de caractéristique et aux jets d'attaque.</p>
+      <p><strong><em>Tactique de meute</em></strong>. Quand au moins un de ses alliés non Incapable d'agir se situe dans un rayon de 1,50 m de la créature qu'il cible, le kobold a un Avantage au jet d'attaque correspondant.</p>
+      <h2>Actions</h2>
+      <p>** <em>Dague</em>**. <em>Corps à corps ou à distance</em> : +4, allonge 1,50 m ou portée 6/18 m. <em>Touché</em> : 4 (1d4 + 2) dégâts perforants.</p>
+    senses: Vision dans le noir 18 m, Perception passive 8
+    languages:
+    - commun
+    - draconique

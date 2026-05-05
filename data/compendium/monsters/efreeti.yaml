@@ -1,0 +1,123 @@
+id: efreeti
+source: monster_manual_2024
+type: elemental
+size: large
+alignment: neutral
+challengeRating: 11.0
+armorClass: 17
+maxHitPoints: 212
+hitDice: 17d10+119
+abilities:
+  str:
+    value: 22
+    savingThrowProficiency: none
+  dex:
+    value: 12
+    savingThrowProficiency: none
+  con:
+    value: 24
+    savingThrowProficiency: none
+  int:
+    value: 16
+    savingThrowProficiency: none
+  wis:
+    value: 15
+    savingThrowProficiency: proficient
+  cha:
+    value: 19
+    savingThrowProficiency: proficient
+speeds:
+  walk: 40
+  fly: 60
+  swim: null
+  climb: null
+  burrow: null
+  hover: true
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: immune
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Efreeti
+    subtype: Genie
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Elemental Restoration</em>**. If the efreeti dies outside the Elemental Plane of Fire, its body dissolves into ash, and it gains a new body in 1d4 days, reviving with all its Hit Points somewhere on the Plane of Fire.</p>
+      <p><strong><em>Magic Resistance</em></strong>. The efreeti has Advantage on saving throws against spells and other magical effects.</p>
+      <p><strong><em>Wishes</em></strong>. The efreeti has a 30 percent chance of knowing the <em><a href="https://www.aidedd.org/spell/wish">Wish</a></em> spell. If the efreeti knows it, the efreeti can cast it only on behalf of a non-genie creature who communicates a wish in a way the efreeti can understand. If the efreeti casts the spell for the creature, the efreeti suffers none of the spell's stress. Once the efreeti has cast it three times, the efreeti can't do so again for 365 days.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The efreeti makes three attacks, using Heated Blade or Hurl Flame in any combination.</p>
+      <p><strong><em>Heated Blade</em></strong>. <em>Melee Attack Roll</em> : +10, reach 5 ft. <em>Hit</em> : 13 (2d6 + 6) Slashing damage plus 13 (2d12) Fire damage.</p>
+      <p><strong><em>Hurl Flame</em></strong>. <em>Ranged Attack Roll</em> : +8, range 120 ft. <em>Hit</em> : 24 (7d6) Fire damage.</p>
+      <p><strong><em>Spellcasting</em></strong>. The efreeti casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 16):</p>
+      <p>At Will: <em><a href="https://www.aidedd.org/spell/detect-magic">Detect Magic</a>, <a href="https://www.aidedd.org/spell/elementalism">Elementalism</a></em><br />
+      1/Day Each: <em><a href="https://www.aidedd.org/spell/gaseous-form">Gaseous Form</a>, <a href="https://www.aidedd.org/spell/invisibility">Invisibility</a>, <a href="https://www.aidedd.org/spell/major-image">Major Image</a>, <a href="https://www.aidedd.org/spell/plane-shift">Plane Shift</a>, <a href="https://www.aidedd.org/spell/tongues">Tongues</a>, <a href="https://www.aidedd.org/spell/wall-of-fire">Wall of Fire</a></em> (level 7 version)</p>
+    senses: Darkvision 120 ft., Passive Perception 12
+    languages:
+    - Primordial (Ignan)
+  fr:
+    name: Éfrit
+    subtype: Génie
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Résistance à la magie</em>**. L'éfrit a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.</p>
+      <p><strong><em>Restauration élémentaire</em></strong>. Si l'éfrit meurt hors du Plan Élémentaire du Feu, son corps se réduit en cendres et il en acquiert un nouveau en 1d4 jours, pour revenir à la vie avec tous ses pv quelque part dans le Plan du Feu.</p>
+      <p><strong><em>Souhaits</em></strong>. L'éfrit a 30 % de chances de connaître le sort <em>souhait</em>. Si tel est le cas, il ne peut le lancer que pour une créature autre qu'un génie, qui doit communiquer son souhait d'une manière intelligible pour l'éfrit. Si l'éfrit lance le sort pour la créature, il ne subit pas les effets délétères normalement liés à cette épreuve. Après que l'éfrit a lancé trois fois ce sort, il doit attendre 365 jours pour pouvoir le relancer.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. L'éfrit effectue trois attaques, réparties à sa guise entre Lame incandescente et Jet de flammes.</p>
+      <p><strong><em>Lame incandescente</em></strong>. <em>Corps à corps</em> : +10, allonge 1,50 m. <em>Touché</em> : 13 (2d6 + 6) dégâts tranchants plus 13 (2d12) dégâts de feu.</p>
+      <p><strong><em>Jet de flammes</em></strong>. <em>À distance</em> : +8, portée 36 m. <em>Touché</em> : 24 (7d6) dégâts de feu.</p>
+      <p><strong><em>Incantation</em></strong>. L'éfrit lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 16) :</p>
+      <p>À volonté : <em><a href="https://www.aidedd.org/spell/fr/detection-de-la-magie">détection de la magie</a>, élémentalisme</em><br />
+      1/jour chacun : <em><a href="https://www.aidedd.org/spell/fr/changement-de-plan">changement de plan</a>, don des langues, forme gazeuse, <a href="https://www.aidedd.org/spell/fr/image-majeure">image majeure</a>, <a href="https://www.aidedd.org/spell/fr/invisibilite">invisibilité</a>, mur de feu</em> (au niveau 7)</p>
+    senses: Vision dans le noir 36 m, Perception passive 12
+    languages:
+    - primordial (igné)

@@ -1,0 +1,109 @@
+id: warrior-infantry
+source: monster_manual_2024
+type: humanoid
+size: medium_or_small
+alignment: neutral
+challengeRating: 0.125
+armorClass: 13
+maxHitPoints: 9
+hitDice: 2d8
+abilities:
+  str:
+    value: 13
+    savingThrowProficiency: none
+  dex:
+    value: 11
+    savingThrowProficiency: none
+  con:
+    value: 11
+    savingThrowProficiency: none
+  int:
+    value: 8
+    savingThrowProficiency: none
+  wis:
+    value: 11
+    savingThrowProficiency: none
+  cha:
+    value: 8
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Warrior Infantry
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Pack Tactics</em>**. The warrior has Advantage on an attack roll against a creature if at least one of the warrior's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.</p>
+      <h2>Actions</h2>
+      <p>** <em>Spear</em>**. <em>Melee or Ranged Attack Roll</em> : +3, reach 5 ft. or range 20/60 ft. <em>Hit</em> : 4 (1d6 + 1) Piercing damage.</p>
+    senses: Passive Perception 10
+    languages:
+    - Common
+  fr:
+    name: Combattant, fantassin
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Tactique de meute</em>**. Quand au moins un de ses alliés non Incapable d'agir se situe dans un rayon de 1,50 m de la créature qu'il cible, le combattant a un Avantage au jet d'attaque correspondant.</p>
+      <h2>Actions</h2>
+      <p>** <em>Lance</em>**. <em>Corps à corps ou à distance</em> : +3, allonge 1,50 m ou portée 6/18 m. <em>Touché</em> : 4 (1d6 + 1) dégâts perforants.</p>
+    senses: Perception passive 10
+    languages:
+    - commun

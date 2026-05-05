@@ -1,0 +1,121 @@
+id: warrior-commander
+source: monster_manual_2024
+type: humanoid
+size: medium_or_small
+alignment: neutral
+challengeRating: 10.0
+armorClass: 18
+maxHitPoints: 161
+hitDice: 19d8+76
+abilities:
+  str:
+    value: 21
+    savingThrowProficiency: proficient
+  dex:
+    value: 20
+    savingThrowProficiency: proficient
+  con:
+    value: 18
+    savingThrowProficiency: proficient
+  int:
+    value: 14
+    savingThrowProficiency: none
+  wis:
+    value: 16
+    savingThrowProficiency: proficient
+  cha:
+    value: 14
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: proficient
+  deception: none
+  history: none
+  insight: proficient
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: proficient
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Warrior Commander
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The warrior makes three attacks, using Greatsword or Longbow in any combination.</p>
+      <p><strong><em>Greatsword</em></strong>. <em>Melee Attack Roll</em> : +9, reach 5 ft. <em>Hit</em> : 19 (4d6 + 5) Slashing damage. The warrior also creates one of the following effects:</p>
+      <p><strong><em>Sap</em></strong>. The target has Disadvantage on its next attack roll before the start of the warrior's next turn.</p>
+      <p><strong><em>Maneuver</em></strong>. One ally who can see or hear the warrior can take a Reaction to move up to half the ally's Speed without provoking Opportunity Attacks.</p>
+      <p><strong><em>Longbow</em></strong>. <em>Ranged Attack Roll</em> : +9, range 150/600 ft. <em>Hit</em> : 18 (3d8 + 5) Piercing damage, and the target's Speed decreases by 10 feet until the end of the target's next turn.</p>
+      <h2>Bonus actions</h2>
+      <p>** <em>Tactical Charge</em>**. The warrior moves up to half its Speed straight toward an enemy it can see without provoking Opportunity Attacks.</p>
+      <h2>Reactions</h2>
+      <p>** <em>Counterattack</em>**. <em>Trigger</em> : The warrior is hit by an attack roll. <em>Response</em> : The warrior adds 4 to its AC against that attack, possibly causing it to miss. On a miss, the warrior can make one Greatsword or Longbow attack against the attacker.</p>
+    senses: Passive Perception 17
+    languages:
+    - Common plus one other language
+  fr:
+    name: Combattant, commandant
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le guerrier effectue trois attaques, réparties à sa guise entre Épée à deux mains et Arc long.</p>
+      <p><strong><em>Épée à deux mains</em></strong>. <em>Corps à corps</em> : +9, allonge 1,50 m. <em>Touché</em> : 19 (4d6 + 5) dégâts tranchants. Le combattant provoque également l'un des effets suivants :</p>
+      <p><strong><em>Sape</em></strong>. La cible a un Désavantage sur son prochain jet d'attaque avant le début du prochain tour du combattant.</p>
+      <p><strong><em>Manoeuvre</em></strong>. Un allié qui peut voir ou entendre le combattant peut prendre une Réaction pour se déplacer jusqu'à la moitié de la Vitesse de l'allié sans provoquer d'attaques d'Opportunité.</p>
+      <p><strong><em>Arc long</em></strong>. <em>À distance</em> : +9, portée 45/180 m. <em>Touché</em> : 18 (3d8 + 5) dégâts perforants, et la Vitesse de la cible est réduite de 3 m jusqu'à la fin du prochain tour de la cible.</p>
+      <h2>Actions Bonus</h2>
+      <p>** <em>Charge tactique</em>**. Le combattant se déplace en ligne droite à concurrence de la moitié de sa Vitesse vers un ennemi qu'il voit sans provoquer d'attaques d'Opportunité.</p>
+      <h2>Réactions</h2>
+      <p>** <em>Contre-attaque</em>**. <em>Déclencheur</em> : le combattant est touché par un jet d'attaque. <em>Conséquences</em> : le combattant ajoute 4 à sa CA contre cette attaque, ce qui peut la faire rater. En cas d'échec, le combattant peut effectuer une attaque à l'Épée à deux mains ou à l'Arc long contre l'attaquant.</p>
+    senses: Perception passive 17
+    languages:
+    - commun plus une autre langue

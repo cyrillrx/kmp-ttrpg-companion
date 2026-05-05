@@ -1,0 +1,121 @@
+id: beholder-zombie
+source: monster_manual_2024
+type: undead
+size: large
+alignment: neutral_evil
+challengeRating: 5.0
+armorClass: 15
+maxHitPoints: 93
+hitDice: 11d10+33
+abilities:
+  str:
+    value: 14
+    savingThrowProficiency: none
+  dex:
+    value: 8
+    savingThrowProficiency: none
+  con:
+    value: 16
+    savingThrowProficiency: none
+  int:
+    value: 3
+    savingThrowProficiency: none
+  wis:
+    value: 8
+    savingThrowProficiency: proficient
+  cha:
+    value: 5
+    savingThrowProficiency: none
+speeds:
+  walk: 5
+  fly: 20
+  swim: null
+  climb: null
+  burrow: null
+  hover: true
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: immune
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: true
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: true
+  exhaustion: true
+  stunned: false
+translations:
+  en:
+    name: Beholder Zombie
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Undead Fortitude</em>**. If damage reduces the zombie to 0 Hit Points, it makes a Constitution saving throw (DC 5 plus the damage taken) unless the damage is Radiant or from a Critical Hit. On a successful save, the zombie drops to 1 Hit Point instead.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The zombie uses Eye Rays twice.</p>
+      <p><strong><em>Bite</em></strong>. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 16 (4d6 + 2) Piercing damage.</p>
+      <p><strong><em>Eye Rays</em></strong>. The zombie randomly shoots one of the following magical rays at a target it can see within 120 feet of itself (roll 1d4; reroll if the zombie has already used that ray during this turn):</p>
+      <p><strong><em>1: Paralyzing Ray</em></strong>. <em>Constitution Saving Throw</em> : DC 14. <em>Failure</em> : The target has the Paralyzed condition and repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically.</p>
+      <p><strong><em>2: Fear Ray</em></strong>. <em>Wisdom Saving Throw</em> : DC 14. <em>Failure</em> : 13 (3d8) Psychic damage, and the target has the Frightened condition until the end of its next turn.</p>
+      <p><strong><em>3: Enervation Ray</em></strong>. <em>Constitution Saving Throw</em> : DC 14. <em>Failure</em> : 10 (3d6) Necrotic damage, and the target has the Poisoned condition until the end of its next turn. While Poisoned, the target can't regain Hit Points. <em>Success</em> : Half damage only.</p>
+      <p><strong><em>4: Disintegration Ray</em></strong>. <em>Dexterity Saving Throw</em> : DC 14. <em>Failure</em> : 27 (5d10) Force damage. If the target is a nonmagical object or a creation of magical force, a 10-foot Cube of it disintegrates into dust. <em>Success</em> : Half damage. <em>Failure or Success</em> : If the target is a creature and this damage reduces it to 0 Hit Points, it disintegrates into dust.</p>
+    senses: Darkvision 60 ft., Passive Perception 9
+    languages:
+    - Understands Deep Speech and Undercommon but can't speak
+  fr:
+    name: Tyrannoeil zombi
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Robustesse de la non-vie</em>**. Si des dégâts font tomber le zombi à 0 point de vie, il effectue un jet de sauvegarde de Constitution (DD 5 + les dégâts subis), sauf en cas de dégâts radiants ou de Coup critique. En cas de réussite, le zombi se retrouve en fait à 1 point de vie.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le zombie utilise Rayons oculaires à deux reprises.</p>
+      <p><strong><em>Morsure</em></strong>. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 16 (4d6 + 2) dégâts perforants.</p>
+      <p><strong><em>Rayons oculaires</em></strong>. Le zombie tire aléatoirement l'un des rayons magiques suivants sur une cible qu'il peut voir dans un rayon de 36 m (lancez 1d4 ; relancez si le zombie a déjà utilisé ce rayon pendant ce tour) :</p>
+      <p><strong><em>1 : Rayon paralysant</em></strong>. <em>JdS Constitution</em> : DD 14. <em>Échec</em> : la cible subit l'état Paralysé et doit retenter le jet de sauvegarde à la fin de chacun de ses tours. En cas de réussite, l'effet prend fin. Après 1 minute, la cible réussit automatiquement.</p>
+      <p><strong><em>2 : Rayon de terreur</em></strong>. <em>JdS Sagesse</em> : DD 14. <em>Échec</em> : 13 (3d8) dégâts psychiques et la cible subit l'état Effrayé jusqu'à la fin de son prochain tour.</p>
+      <p><strong><em>3 : Rayon de nécrose</em></strong>. <em>JdS Constitution</em> : DD 14. <em>Échec</em> : 10 (3d6) dégâts nécrotiques et la cible subit l'état Empoisonné jusqu'à la fin de son prochain tour. Tant qu'elle est empoisonnée, la cible ne peut pas récupérer de points de vie. <em>Réussite</em> : demi-dégâts uniquement.</p>
+      <p><strong><em>4 : Rayon de désintégration</em></strong>. <em>JdS Dextérité</em> : DD 14. <em>Échec</em> : 27 (5d10) dégâts de force. Si la cible est un objet non magique ou une création de force magique, un Cube de 3 mètres de côté se désintègre en poussière. <em>Réussite</em> : demi-dégâts. <em>Échec ou réussite</em> : si la cible est une créature et que ces dégâts la réduisent à 0 point de vie, elle se désintègre en poussière.</p>
+    senses: Vision dans le noir 18 m, Perception passive 9
+    languages:
+    - comprend le profond et le commun des profondeurs mais ne parle pas

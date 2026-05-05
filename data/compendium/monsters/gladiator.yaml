@@ -1,0 +1,113 @@
+id: gladiator
+source: monster_manual_2024
+type: humanoid
+size: medium_or_small
+alignment: neutral
+challengeRating: 5.0
+armorClass: 16
+maxHitPoints: 112
+hitDice: 15d8+45
+abilities:
+  str:
+    value: 18
+    savingThrowProficiency: proficient
+  dex:
+    value: 15
+    savingThrowProficiency: proficient
+  con:
+    value: 16
+    savingThrowProficiency: proficient
+  int:
+    value: 10
+    savingThrowProficiency: none
+  wis:
+    value: 12
+    savingThrowProficiency: proficient
+  cha:
+    value: 15
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: proficient
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: proficient
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Gladiator
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The gladiator makes three Spear attacks. It can replace one attack with a use of Shield Bash.</p>
+      <p><strong><em>Spear</em></strong>. <em>Melee or Ranged Attack Roll</em> : +7, reach 5 ft. or range 20/60 ft. <em>Hit</em> : 11 (2d6 + 4) Piercing damage.</p>
+      <p><strong><em>Shield Bash</em></strong>. <em>Strength Saving Throw</em> : DC 15, one creature within 5 feet that the gladiator can see. <em>Failure</em> : 9 (2d4 + 4) Bludgeoning damage. If the target is a Medium or smaller creature, it has the Prone condition.</p>
+      <h2>Reactions</h2>
+      <p>** <em>Parry</em>**. <em>Trigger</em> : The gladiator is hit by a melee attack roll while holding a weapon. <em>Response</em> : The gladiator adds 3 to its AC against that attack, possibly causing it to miss.</p>
+    senses: Passive Perception 11
+    languages:
+    - Common
+  fr:
+    name: Gladiateur
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le gladiateur effectue trois attaques de Lance. Il peut remplacer l'une de ces attaques par une utilisation de Coup de bouclier.</p>
+      <p><strong><em>Lance</em></strong>. <em>Corps à corps ou à distance</em> : +7, allonge 1,50 m ou portée 6/18 m. <em>Touché</em> : 11 (2d6 + 4) dégâts perforants.</p>
+      <p><strong><em>Coup de bouclier</em></strong>. <em>JdS Force</em> : DD 15, une créature dans un rayon de 1,50 m que le gladiateur voit. <em>Échec</em> : 9 (2d4 + 4) dégâts contondants. Si la cible est une créature de taille M ou inférieure, elle subit l'état À terre.</p>
+      <h2>Réactions</h2>
+      <p>** <em>Parade</em>**. <em>Déclencheur</em> : le gladiateur est touché par un jet d'attaque de corps à corps alors qu'il tient une arme. <em>Conséquences</em> : le gladiateur ajoute 3 à sa CA contre cette attaque, ce qui peut la faire rater.</p>
+    senses: Perception passive 11
+    languages:
+    - commun

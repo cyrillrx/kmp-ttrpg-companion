@@ -1,0 +1,121 @@
+id: treant
+source: monster_manual_2024
+type: plant
+size: huge
+alignment: chaotic_good
+challengeRating: 9.0
+armorClass: 16
+maxHitPoints: 138
+hitDice: 12d12+60
+abilities:
+  str:
+    value: 23
+    savingThrowProficiency: none
+  dex:
+    value: 8
+    savingThrowProficiency: none
+  con:
+    value: 21
+    savingThrowProficiency: none
+  int:
+    value: 12
+    savingThrowProficiency: none
+  wis:
+    value: 16
+    savingThrowProficiency: none
+  cha:
+    value: 12
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: resistant
+  cold: none
+  fire: vulnerable
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: resistant
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Treant
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Siege Monster</em>**. The treant deals double damage to objects and structures.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The treant makes two Slam attacks.</p>
+      <p><strong><em>Slam</em></strong>. <em>Melee Attack Roll</em> : +10, reach 5 ft. <em>Hit</em> : 16 (3d6 + 6) Bludgeoning damage.</p>
+      <p><strong><em>Hail of Bark</em></strong>. <em>Ranged Attack Roll</em> : +10, range 180 ft. <em>Hit</em> : 28 (4d10 + 6) Piercing damage.</p>
+      <p><strong><em>Animate Trees (1/Day)</em></strong>. The treant magically animates up to two trees it can see within 60 feet of itself. Each tree uses the Treant stat block, except it has Intelligence and Charisma scores of 1, it can't speak, and it lacks this action. The tree takes its turn immediately after the treant on the same Initiative count, and it obeys the treant. A tree remains animate for 1 day or until it dies, the treant dies, or it is more than 120 feet from the treant. The tree then takes root if possible.</p>
+    senses: Passive Perception 13
+    languages:
+    - Common
+    - Druidic
+    - Elvish
+    - Sylvan
+  fr:
+    name: Sylvanien
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Monstre de siège</em>**. Le sylvanien inflige des dégâts doublés aux objets et aux structures.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le sylvanien effectue deux attaques de Coup.</p>
+      <p><strong><em>Coup</em></strong>. <em>Corps à corps</em> : +10, allonge 1,50 m. <em>Touché</em> : 16 (3d6 + 6) dégâts contondants.</p>
+      <p><strong><em>Pluie d'écorce</em></strong>. <em>À distance</em> : +10, portée 54 m. <em>Touché</em> : 28 (4d10 + 6) dégâts perforants.</p>
+      <p><strong><em>Animation des arbres (1/jour)</em></strong>. Le sylvanien anime magiquement un ou deux arbres qu'il voit dans un rayon de 18 m. Chaque arbre reprend le profil du <strong>sylvanien</strong> , si ce n'est que ses valeurs d'Intelligence et de Charisme sont de 1, qu'il ne parle pas et ne dispose pas de la présente action. L'arbre joue son tour juste après le sylvanien, au même rang d'initiative, et obéit à celui-ci. Cette animation dure 1 jour, mais prend fin prématurément si l'arbre ou le sylvanien meurt, ou si les deux se retrouvent éloignés de plus de 36 m. L'arbre prend alors racine, si possible.</p>
+    senses: Perception passive 13
+    languages:
+    - commun
+    - druidique
+    - elfe
+    - sylvestre
