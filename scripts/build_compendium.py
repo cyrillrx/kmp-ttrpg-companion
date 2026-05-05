@@ -55,7 +55,10 @@ def load_yaml_dir(directory: str) -> list[dict]:
     for path in paths:
         with open(path, encoding="utf-8") as f:
             entity = yaml.safe_load(f)
-        entities.append(entity)
+        if entity is not None:
+            entities.append(entity)
+        else:
+            print(f"  WARNING: skipping empty file {path}", file=sys.stderr)
     return entities
 
 

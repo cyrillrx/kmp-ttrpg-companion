@@ -163,7 +163,7 @@ translations:
 - [ ] `maxHitPoints` — integer (average)
 - [ ] `hitDice` — string (e.g., `2d6`, `23d8+92`)
 - [ ] `abilities` — all 6 keys, each with integer `value` and `savingThrowProficiency`
-- [ ] `speeds` — all 5 movement keys + `hover`; values in feet or `null`
+- [ ] `speeds` — all 6 keys (`walk`, `fly`, `swim`, `climb`, `burrow`, `hover`); values in feet or `null`
 - [ ] `skills` — all 18 keys present
 - [ ] `damageAffinities` — all 16 keys present
 - [ ] `conditionImmunities` — all 14 keys present
