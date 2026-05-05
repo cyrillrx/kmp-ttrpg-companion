@@ -46,22 +46,6 @@ APP_RESOURCES_DIR = os.path.join(
 )
 
 
-def load_yaml_dir(directory: str) -> list[dict]:
-    pattern = os.path.join(directory, "*.yaml")
-    paths = sorted(glob.glob(pattern))
-    if not paths:
-        print(f"  WARNING: no YAML files found in {directory}", file=sys.stderr)
-    entities = []
-    for path in paths:
-        with open(path, encoding="utf-8") as f:
-            entity = yaml.safe_load(f)
-        if entity is not None:
-            entities.append(entity)
-        else:
-            print(f"  WARNING: skipping empty file {path}", file=sys.stderr)
-    return entities
-
-
 def write_json(path: str, data: list[dict]) -> None:
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
@@ -87,7 +71,21 @@ def build_type(type_name: str, check: bool) -> tuple[int, bool]:
     out_path = os.path.join(DATA_DIR, f"{type_name}.json")
     app_path = os.path.join(APP_RESOURCES_DIR, f"{type_name}.json")
 
-    entities = load_yaml_dir(src_dir)
+    yaml_files = sorted(glob.glob(os.path.join(src_dir, "*.yaml")))
+    if not yaml_files:
+        print(f"  WARNING: no YAML files found in {src_dir}", file=sys.stderr)
+        if check:
+            print(f"  SKIPPED: {type_name} (no YAML source files — migration pending)")
+            return 0, True
+
+    entities = []
+    for path in yaml_files:
+        with open(path, encoding="utf-8") as f:
+            entity = yaml.safe_load(f)
+        if entity is not None:
+            entities.append(entity)
+        else:
+            print(f"  WARNING: skipping empty file {path}", file=sys.stderr)
 
     if check:
         ok = check_json(out_path, entities)
