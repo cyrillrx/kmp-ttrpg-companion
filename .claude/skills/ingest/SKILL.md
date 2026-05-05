@@ -1,6 +1,6 @@
 ---
 name: ingest
-description: Ingest new compendium entities from an external source file (JSON or YAML) into the normalized YAML format
+description: Ingest new compendium entities from an external source file (JSON, YAML, or HTML) into the normalized YAML format
 argument-hint: <entity-type> <source-file>
 allowed-tools:
   - Bash(python3 scripts/build_compendium.py*)
@@ -47,7 +47,22 @@ Read `<source-file>`. It may contain one entity or a list.
 Detect the format:
 - **JSON**: parse as object or array
 - **YAML**: parse as mapping or sequence
-- **Unknown**: if the format cannot be detected (HTML, CSV, plain text, etc.), stop and ask the user how to proceed before attempting any parsing.
+- **HTML**: see extraction guidance below
+- **Unknown**: if the format cannot be detected (CSV, plain text, etc.), stop and ask the user how to proceed before attempting any parsing.
+
+#### HTML extraction guidance
+
+HTML sources vary significantly by origin (D&D Beyond, aidedd.org, homebrew, etc.). For each entity block in the HTML:
+
+1. Identify the repeating structure that delimits one entity (e.g. `<div class="monster">`, `<section>`, `<h2>` headings, etc.)
+2. Extract fields by mapping HTML content to schema fields using the ingestion guide as reference:
+   - Headings and labels → field names
+   - Inline text, `<p>`, `<td>` → field values
+   - `<table>` → structured data (speeds, abilities, damage affinities, etc.)
+   - `<em>`, `<strong>` → formatting hints, not field boundaries
+3. Preserve HTML markup in `description` fields — do not strip tags (descriptions are stored as HTML in Phase 1).
+4. If the source locale cannot be determined from the HTML, ask the user.
+5. If a field is ambiguous or cannot be reliably extracted, flag it as ⚠️ in the triage table rather than guessing.
 
 ### Step 4 — Normalize and triage
 
