@@ -44,11 +44,19 @@ Also read `docs/data/srd-fr-en.md` for enum mappings (schools, classes, types, r
 
 Read `<source-file>`. It may contain one entity or a list.
 
-Detect the format:
+Detect the format by file extension first, then by content if the extension is absent or ambiguous:
+
+| Extension | Format |
+|-----------|--------|
+| `.json` | JSON |
+| `.yaml`, `.yml` | YAML |
+| `.html`, `.htm` | HTML |
+| other / none | inspect content: starts with `{` or `[` → JSON, starts with `<` → HTML, otherwise YAML or unknown |
+
 - **JSON**: parse as object or array
 - **YAML**: parse as mapping or sequence
 - **HTML**: see extraction guidance below
-- **Unknown**: if the format cannot be detected (CSV, plain text, etc.), stop and ask the user how to proceed before attempting any parsing.
+- **Unknown**: if the format still cannot be determined, stop and ask the user before attempting any parsing.
 
 #### HTML extraction guidance
 
