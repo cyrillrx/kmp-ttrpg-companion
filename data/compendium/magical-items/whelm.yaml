@@ -20,7 +20,7 @@ translations:
   fr:
     name: Déluge
     subtype: marteau de guerre
-    description: |
+    description: |-
       <em>Whelm</em> is a powerful warhammer forged by dwarves and lost in the dungeon of White Plume Mountain.
       <br>You gain a +3 bonus to attack and damage rolls made with this magic weapon. At dawn the day after you first make an attack roll with <em>Whelm</em>, you develop a fear of being outdoors that persists as long as you remain attuned to the weapon. This causes you to have disadvantage on attack rolls, saving throws, and ability checks while you can see the daytime sky.
       <br><strong>Thrown Weapon</strong>. <em>Whelm</em> has the thrown property, with a normal range of 20 feet and a long range of 60 feet. When you hit with a ranged weapon attack using it, the target takes an extra 1d8 bludgeoning damage, or an extra 2d8 bludgeoning damage if the target is a giant. Each time you throw the weapon, it flies back to your hand after the attack. If you don't have a hand free, the weapon lands at your feet.

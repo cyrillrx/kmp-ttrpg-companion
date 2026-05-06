@@ -7,7 +7,7 @@ translations:
   en:
     name: Demonomicon of Iggwilv
     subtype: null
-    description: |
+    description: |-
       <p><em>Wondrous item, artifact (requires attunement)</em></p>
       <p>An expansive treatise documenting the Abyss's infinite layers and inhabitants, the <em>Demonomicon of Iggwilv</em> is the most thorough and blasphemous tome of demonology in the multiverse. The tome recounts both the oldest and most current profanities of the Abyss and demons. Demons have attempted to censor the text, and while sections have been ripped from the book's spine, the general chapters remain, ever revealing demonic secrets. And the book holds more than blasphemies. Caged behind lines of script roils a secret piece of the Abyss itself, which keeps the book up-to-date, no matter how many pages are removed, and it longs to be more than mere reference material.</p>
       <p><strong><em>Random Properties.</em></strong> The artifact has the following random properties, which you can determine by rolling on the tables in the "Artifacts" section of the <em>Dungeon Master's Guide</em>:</p>
@@ -27,7 +27,7 @@ translations:
   fr:
     name: Demonomicon d'Iggwilv
     subtype: null
-    description: |
+    description: |-
       <p><em>Objet merveilleux, artefact (harmonisation requise)</em></p>
       <p>Traité exhaustif documentant les couches infinies de l'Abîme et leurs habitants, le <em>Demonomicon d'Iggwilv</em> est le tome de démonologie le plus complet et le plus blasphématoire du multivers. Le tome recense aussi bien les plus anciennes que les plus récentes profanations de l'Abîme et des démons. Des démons ont tenté de censurer le texte, et bien que certaines sections aient été arrachées de la reliure, les chapitres généraux demeurent, révélant sans cesse les secrets démoniaques. Et le livre contient bien plus que des blasphèmes. Emprisonné derrière des lignes de texte grouille un fragment secret de l'Abîme lui-même, qui maintient le livre à jour, peu importe le nombre de pages arrachées, et qui aspire à être bien plus qu'un simple ouvrage de référence.</p>
       <p><strong><em>Propriétés aléatoires.</em></strong> L'artefact possède les propriétés aléatoires suivantes, que vous pouvez déterminer en lançant des dés sur les tables de la section « Artefacts » du <em>Manuel du Maître du Donjon</em> :</p>

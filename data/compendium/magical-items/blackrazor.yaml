@@ -7,7 +7,7 @@ translations:
   en:
     name: Blackrazor
     subtype: Greatsword
-    description: |
+    description: |-
       Hidden in the dungeon of White Plume Mountain, <em>Blackrazor</em> shines like a piece of night sky filled with stars. Its black scabbard is decorated with pieces of cut obsidian.
       <br>You gain a +3 bonus to attack and damage rolls made with this magic weapon. It has the following additional properties.
       <br><strong>Devour Soul</strong>. Whenever you use it to reduce a creature to 0 hit points, the sword slays the creature and devours its soul, unless it is a construct or an undead. A creature whose soul has been devoured by <em>Blackrazor</em> can be restored to life only by a <em><a href="https://www.aidedd.org/dnd/sorts.php?vo=wish">wish</a></em> spell.
@@ -24,7 +24,7 @@ translations:
   fr:
     name: Noirtranchant
     subtype: épée à deux mains
-    description: |
+    description: |-
       Dissimulée dans le donjon de la Montagne de la Plume Blanche, <em>Noir rasoir</em> scintille tel un pan de ciel nocturne constellé d'étoiles. Son fourreau noir est décoré de fragments d'obsidienne.
       <br>Vous obtenez un bonus de +3 aux jets d'attaque et de dégâts effectués avec cette arme magique. Elle possède les propriétés supplémentaires suivantes.
       <br><strong>Dévoreur d'âme</strong>. À chaque fois qu'en utilisant cette arme vous faîtes tomber les points de vie d'une créature à 0, l'épée tue la créature et dévore son âme, à moins que ce ne soit un artificiel ou un mort-vivant. Une créature dont l'âme a été dévorée par <em>Noir rasoir</em> ne peut être ramenée à la vie que par un sort de <em><a href="https://www.aidedd.org/dnd/sorts.php?vf=souhait">souhait</a></em>.

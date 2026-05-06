@@ -7,7 +7,7 @@ translations:
   en:
     name: Enspelled Armor
     subtype: Any Light, Medium, or Heavy
-    description: |
+    description: |-
       <p><em>Armor (Any Light, Medium, or Heavy), Rarity Varies (Requires Attunement)</em></p>
       <p>Bound into this armor is a spell of level 8 or lower. The spell is determined when the armor is created and must belong to the Abjuration or Illusion school of magic. The armor has 6 charges and regains 1d6 expended charges daily at dawn. While wearing the armor, you can expend 1 charge to cast its spell.</p>
       <p>The level of the spell bound into the armor determines the spell’s saving throw DC and attack bonus, as well as the armor’s rarity, as shown in the following table.</p>
@@ -76,7 +76,7 @@ translations:
   fr:
     name: Armure-sortilège
     subtype: légère, intermédiaire ou lourde
-    description: |
+    description: |-
       <p><em>Armure (légère, intermédiaire ou lourde), rareté variable (harmonisation requise)</em></p>
       <p>Un sort de niveau 8 ou inférieur est lié à cette armure. Le sort est déterminé lors de la création de l'armure et doit appartenir à l'école d'Abjuration ou d'Illusion. L'armure possède 6 charges et récupère 1d6 charges dépensées chaque jour à l'aube. Lorsque vous portez l'armure, vous pouvez dépenser 1 charge pour lancer son sort.</p>
       <p>Le niveau du sort lié à l'armure détermine le DD de sauvegarde et le bonus d'attaque du sort, ainsi que la rareté de l'armure, comme indiqué dans le tableau suivant.</p>

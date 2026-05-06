@@ -22,7 +22,7 @@ translations:
   fr:
     name: Vague
     subtype: trident
-    description: |
+    description: |-
       Held in the dungeon of White Plume Mountain, this trident is an exquisite weapon engraved with images of waves, shells, and sea creatures. Although you must worship a god of the sea to attune to this weapon, <em>Wave</em> happily accepts new converts.
       <br>You gain a +3 bonus to attack and damage rolls made with this magic weapon. If you score a critical hit with it, the target takes extra necrotic damage equal to half its hit point maximum.
       <br>The weapon also functions as a <em><a href="https://www.aidedd.org/dnd/om.php?vo=trident-of-fish-command">trident of fish command</a></em> and a <em><a href="https://www.aidedd.org/dnd/om.php?vo=weapon-of-warning">weapon of warning</a></em>. It can confer the benefit of a <em><a href="https://www.aidedd.org/dnd/om.php?vo=cap-of-water-breathing">cap of water breathing</a></em> while you hold it, and you can use it as a <em><a href="https://www.aidedd.org/dnd/om.php?vo=cube-of-force">cube of force</a></em> by choosing the effect, instead of pressing cube sides to select it.
