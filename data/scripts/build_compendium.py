@@ -8,7 +8,7 @@ Phase 2, alongside the Compose renderer update.
 
 Usage:
     pip install pyyaml
-    python scripts/build_compendium.py
+    python data/scripts/build_compendium.py
 
 Output:
     data/compendium/spells.json
@@ -33,7 +33,7 @@ try:
 except ImportError:
     sys.exit("Missing dependency: pip install pyyaml")
 
-REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 DATA_DIR = os.path.join(REPO_ROOT, "data", "compendium")
 APP_RESOURCES_DIR = os.path.join(
     REPO_ROOT,
