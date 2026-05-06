@@ -33,13 +33,13 @@ translations:
   en:
     name: "Shield, +1"
     subtype: Shield
-    description: |
+    description: |-
       While holding this shield, you have a +1 bonus to AC.
       This bonus is in addition to the shield's normal bonus to AC.
   fr:
     name: Bouclier +1
     subtype: Bouclier
-    description: |
+    description: |-
       Lorsque vous tenez ce bouclier, vous bénéficiez d'un bonus de +1 à la CA.
       Ce bonus s'ajoute au bonus normal du bouclier à la CA.
 ```
@@ -51,6 +51,13 @@ translations:
 - `translations.{locale}.name` — when multiple official names exist, separate with ` / ` (e.g. `"Selle du cavalier / du hussard"`). Never use `|` as a separator.
 - `translations.{locale}.description` — HTML (Phase 1)
 - The display subtitle (`"Objet merveilleux · Peu courant · Harmonisation"`) is computed by the client from typed fields — not stored
+
+### Empty Descriptions
+
+When a description field is empty after parsing the source:
+
+- **One locale missing** — translate from the available locale. Both `en` and `fr` are required; do not leave a description field empty.
+- **Both locales missing** — stop and ask the user to provide an alternative source (e.g. wikidot, D&D Beyond, official PDF) before writing the file.
 
 ### Item Checklist
 
