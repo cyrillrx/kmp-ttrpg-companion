@@ -114,7 +114,7 @@ translations:
   en:
     name: Goblin
     subtype: Goblinoid
-    description: |
+    description: |-
       ## Actions
 
       **Scimitar.** *Melee Weapon Attack:* +4 to hit, reach 5 ft., one target.
@@ -126,7 +126,7 @@ translations:
   fr:
     name: Gobelin
     subtype: Gobelinoïde
-    description: |
+    description: |-
       ## Actions
 
       **Cimeterre.** *Attaque d'arme au corps à corps :* +4 pour toucher, allonge 1,50 m, une cible.
@@ -149,7 +149,14 @@ translations:
 - `translations.{locale}.subtype` — locale-specific string or `null`; always present, never omitted
 - `translations.{locale}.senses` — raw locale text; EN uses feet, FR uses rounded metres
 - `translations.{locale}.languages` — array of strings (locale-specific names)
-- `translations.{locale}.description` — HTML containing traits, actions, reactions, and legendary actions; use `|` block scalar for multiline content
+- `translations.{locale}.description` — HTML containing traits, actions, reactions, and legendary actions; use `|-` block scalar (strip chomping, no trailing newline)
+
+### Empty Descriptions
+
+When a description field is empty after parsing the source:
+
+- **One locale missing** — translate from the available locale. Both `en` and `fr` are required; do not leave a description field empty.
+- **Both locales missing** — stop and ask the user to provide an alternative source (e.g. wikidot, D&D Beyond, official PDF) before writing the file.
 
 ### Monster Checklist
 
