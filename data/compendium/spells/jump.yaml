@@ -1,0 +1,37 @@
+id: jump
+source: phb_2024
+level: 1
+school: transmutation
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- druid
+- ranger
+- sorcerer
+- wizard
+translations:
+  en:
+    name: Jump
+    castingTime: Bonus Action
+    range: Touch
+    duration: 1 minute
+    materialDescription: a grasshopper's hind leg
+    description: You touch a willing creature. Once on each of its turns until the
+      spell ends, that creature can jump up to 30 feet by spending 10 feet of movement.<br/><strong><em>Using
+      a Higher-Level Spell Slot</em></strong>. You can target one additional creature
+      for each spell slot level above 1.<br/>
+  fr:
+    name: Saut
+    castingTime: Action bonus
+    range: Contact
+    duration: 1 minute
+    materialDescription: une patte arrière de sauterelle
+    description: Vous touchez une créature consentante. Une fois à chacun de ses tours
+      jusqu'à la fin du sort, cette créature peut sauter jusqu'à 9 mètres en dépensant
+      3 mètres de mouvement.<br/><strong><em>Emplacement de niveau supérieur</em></strong>.
+      Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement
+      de sort supérieur à 1.<br/>

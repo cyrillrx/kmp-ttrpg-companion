@@ -1,0 +1,35 @@
+id: destructive-wave
+source: phb_2024
+level: 5
+school: evocation
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: false
+  material: false
+availableClasses:
+- paladin
+translations:
+  en:
+    name: Destructive Wave
+    castingTime: Action
+    range: Self
+    duration: Instantaneous
+    materialDescription: null
+    description: Destructive energy ripples outward from you in a 30-foot Emanation.
+      Each creature you choose in the Emanation makes a Constitution saving throw.
+      On a failed save, a target takes 5d6 Thunder damage and 5d6 Radiant or Necrotic
+      damage (your choice) and has the Prone condition. On a successful save, a target
+      takes half as much damage only.<br/>
+  fr:
+    name: Vague destructrice
+    castingTime: Action
+    range: Personnelle
+    duration: Instantanée
+    materialDescription: null
+    description: Une énergie destructrice se propage autour de vous dans une Émanation
+      de 9 mètres. Chaque créature choisie dans l'Émanation effectue un jet de sauvegarde
+      de Constitution. En cas d'échec, la cible subit 5d6 dégâts de tonnerre et 5d6
+      dégâts radiants ou nécrotiques (selon votre choix) ainsi que l'état À terre.
+      En cas de réussite, la cible subit seulement la moitié des dégâts.<br/>

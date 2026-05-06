@@ -1,0 +1,38 @@
+id: maze
+source: phb_2024
+level: 8
+school: conjuration
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: false
+availableClasses:
+- wizard
+translations:
+  en:
+    name: Maze
+    castingTime: Action
+    range: 60 feet
+    duration: Concentration, up to 10 minutes
+    materialDescription: null
+    description: You banish a creature that you can see within range into a labyrinthine
+      demiplane. The target remains there for the duration or until it escapes the
+      maze.<br/>The target can take a Study action to try to escape. When it does
+      so, it makes a DC 20 Intelligence (Investigation) check. If it succeeds, it
+      escapes, and the spell ends.<br/>When the spell ends, the target reappears in
+      the space it left or, if that space is occupied, in the nearest unoccupied space.<br/>
+  fr:
+    name: Dédale
+    castingTime: Action
+    range: 18 m
+    duration: Concentration, jusqu'à 10 minutes
+    materialDescription: null
+    description: Vous bannissez une créature que vous voyez à portée dans un demi-plan
+      labyrinthique. La cible y reste pour toute la durée, à moins qu'elle n'en trouve
+      la sortie.<br/>La cible peut entreprendre l'action Étude pour tenter de s'évader.
+      Ce faisant, elle effectue un jet d'Intelligence (Investigation) DD 20. En cas
+      de réussite, elle s'évade et le sort prend fin.<br/>Lorsque le sort prend fin,
+      la cible réapparaît dans l'espace qu'elle avait quitté ou, si celui-ci n'est
+      plus libre, dans l'espace inoccupé le plus proche.<br/>

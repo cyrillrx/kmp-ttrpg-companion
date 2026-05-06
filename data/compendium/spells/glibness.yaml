@@ -1,0 +1,33 @@
+id: glibness
+source: phb_2024
+level: 8
+school: enchantment
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: false
+  material: false
+availableClasses:
+- bard
+- warlock
+translations:
+  en:
+    name: Glibness
+    castingTime: Action
+    range: Self
+    duration: 1 hour
+    materialDescription: null
+    description: Until the spell ends, when you make a Charisma check, you can replace
+      the number you roll with a 15. Additionally, no matter what you say, magic that
+      would determine if you are telling the truth indicates that you are being truthful.<br/>
+  fr:
+    name: Bagou
+    castingTime: Action
+    range: Personnelle
+    duration: 1 heure
+    materialDescription: null
+    description: Jusqu'à la fin du sort, chaque fois que vous effectuez un jet de
+      Charisme, vous pouvez substituer 15 au nombre que vous obtenez sur le dé. De
+      plus, quoi que vous disiez, toute magie censée vérifier que vous ne mentez pas
+      identifie vos paroles comme sincères.<br/>

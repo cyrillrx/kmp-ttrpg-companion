@@ -1,0 +1,60 @@
+id: phantasmal-force
+source: phb_2024
+level: 2
+school: illusion
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- bard
+- sorcerer
+- wizard
+translations:
+  en:
+    name: Phantasmal Force
+    castingTime: Action
+    range: 60 feet
+    duration: Concentration, up to 1 minute
+    materialDescription: a bit of fleece
+    description: You attempt to craft an illusion in the mind of a creature you can
+      see within range. The target makes an Intelligence saving throw. On a failed
+      save, you create a phantasmal object, creature, or other phenomenon that is
+      no larger than a 10-foot Cube and that is perceivable only to the target for
+      the duration. The phantasm includes sound, temperature, and other stimuli.<br/>The
+      target can take a Study action to examine the phantasm with an Intelligence
+      (Investigation) check against your spell save DC. If the check succeeds, the
+      target realizes that the phantasm is an illusion, and the spell ends.<br/>While
+      affected by the spell, the target treats the phantasm as if it were real and
+      rationalizes any illogical outcomes from interacting with it. For example, if
+      the target steps through a phantasmal bridge and survives the fall, it believes
+      the bridge exists and something else caused it to fall.<br/>An affected target
+      can even take damage from the illusion if the phantasm represents a dangerous
+      creature or hazard. On each of your turns, such a phantasm can deal 2d8 Psychic
+      damage to the target if it is in the phantasm's area or within 5 feet of the
+      phantasm. The target perceives the damage as a type appropriate to the illusion.<br/>
+  fr:
+    name: Force fantasmagorique
+    castingTime: Action
+    range: 18 m
+    duration: Concentration, jusqu'à 1 minute
+    materialDescription: un peu de laine brute
+    description: Vous tentez de créer une illusion dans l'esprit d'une créature que
+      vous pouvez voir à portée. La cible effectue un jet de sauvegarde d'Intelligence.
+      En cas d'échec, vous créez un objet, une créature ou tout autre phénomène fantasmatique
+      ne dépassant pas un Cube de 3 mètres de côté qui est perceptible uniquement
+      par la cible pendant la durée du sort. Le fantasme inclut du son, de la température
+      et d'autres stimuli.<br/>La cible peut prendre une action Étude pour examiner
+      le fantasme avec un jet d'Intelligence (Investigation) contre le DD de sauvegarde
+      de votre sort. En cas de réussite, la cible réalise que le fantasme est une
+      illusion et le sort prend fin.<br/>Sous l'effet du sort, la cible traite le
+      fantasme comme s'il était réel et rationalise toute conséquence illogique de
+      son interaction avec lui. Par exemple, si la cible traverse un pont fantasmatique
+      et survit à sa chute, elle croit que le pont existe et que quelque chose d'autre
+      a provoqué sa chute.<br/>Une cible affectée peut même subir des dégâts de l'illusion
+      si le fantasme représente une créature dangereuse ou un danger. À chacun de
+      vos tours, un tel fantasme peut infliger 2d8 dégâts psychiques à la cible si
+      elle se trouve dans sa zone ou dans un rayon de 1,50 mètre. La cible perçoit
+      les dégâts comme étant d'un type approprié à l'illusion.<br/>

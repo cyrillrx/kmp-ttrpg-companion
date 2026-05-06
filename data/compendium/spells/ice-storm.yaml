@@ -1,0 +1,42 @@
+id: ice-storm
+source: phb_2024
+level: 4
+school: evocation
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- druid
+- sorcerer
+- wizard
+translations:
+  en:
+    name: Ice Storm
+    castingTime: Action
+    range: 300 feet
+    duration: Instantaneous
+    materialDescription: a mitten
+    description: Hail falls in a 20-foot-radius, 40-foot-high Cylinder centered on
+      a point within range. Each creature in the Cylinder makes a Dexterity saving
+      throw. A creature takes 2d10 Bludgeoning damage and 4d6 Cold damage on a failed
+      save or half as much damage on a successful one.<br/>Hailstones turn ground
+      in the Cylinder into Difficult Terrain until the end of your next turn.<br/><strong><em>Using
+      a Higher-Level Spell Slot</em></strong>. The Bludgeoning damage increases by
+      1d10 for each spell slot level above 4.<br/>
+  fr:
+    name: Tempête de grêle
+    castingTime: Action
+    range: 90 m
+    duration: Instantanée
+    materialDescription: une moufle
+    description: La grêle tombe dans un Cylindre de 6 mètres de rayon et 12 mètres
+      de haut, centré sur un point à portée. Toute créature dans le Cylindre effectue
+      un jet de sauvegarde de Dextérité. Une créature subit 2d10 dégâts contondants
+      et 4d6 dégâts de froid en cas d'échec, ou la moitié de ces dégâts en cas de
+      réussite.<br/>Les grêlons transforment le sol du Cylindre en Terrain difficile
+      jusqu'à la fin de votre prochain tour.<br/><strong><em>Emplacement de niveau
+      supérieur</em></strong>. Les dégâts contondants augmentent de 1d10 pour chaque
+      niveau d'emplacement de sort supérieur à 4.<br/>

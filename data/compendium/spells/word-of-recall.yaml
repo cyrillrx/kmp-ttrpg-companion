@@ -1,0 +1,38 @@
+id: word-of-recall
+source: phb_2024
+level: 6
+school: conjuration
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: false
+  material: false
+availableClasses:
+- cleric
+translations:
+  en:
+    name: Word of Recall
+    castingTime: Action
+    range: 5 feet
+    duration: Instantaneous
+    materialDescription: null
+    description: You and up to five willing creatures within 5 feet of you instantly
+      teleport to a previously designated sanctuary. You and any creatures that teleport
+      with you appear in the nearest unoccupied space to the spot you designated when
+      you prepared your sanctuary (see below). If you cast this spell without first
+      preparing a sanctuary, the spell has no effect.<br/>You must designate a location,
+      such as a temple, as a sanctuary by casting this spell there.<br/>
+  fr:
+    name: Mot de retour
+    castingTime: Action
+    range: 1,50 m
+    duration: Instantanée
+    materialDescription: null
+    description: Vous-même et un maximum de cinq créatures consentantes situées dans
+      un rayon de 1,50 m vous téléportez en un sanctuaire désigné à l'avance. Vous
+      et les créatures téléportées apparaissez dans les espaces inoccupés les plus
+      proches du point désigné quand vous avez préparé votre sanctuaire (voir plus
+      loin). Si vous lancez ce sort sans avoir préparé de sanctuaire, il est sans
+      effet.<br/>Le sanctuaire se désigne au préalable en lançant ce sort en un lieu,
+      tel qu'un temple.<br/>

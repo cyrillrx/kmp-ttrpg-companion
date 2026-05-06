@@ -1,0 +1,38 @@
+id: starry-wisp
+source: phb_2024
+level: 0
+school: evocation
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: false
+availableClasses:
+- bard
+- druid
+translations:
+  en:
+    name: Starry Wisp
+    castingTime: Action
+    range: 60 feet
+    duration: Instantaneous
+    materialDescription: null
+    description: You launch a mote of light at one creature or object within range.
+      Make a ranged spell attack against the target. On a hit, the target takes 1d8
+      Radiant damage, and until the end of your next turn, it emits Dim Light in a
+      10-foot radius and can't benefit from the Invisible condition.<br/><strong><em>Cantrip
+      Upgrade</em></strong>. The damage increases by 1d8 when you reach levels 5 (2d8),
+      11 (3d8), and 17 (4d8).<br/>
+  fr:
+    name: Poussière d'étoile
+    castingTime: Action
+    range: 18 m
+    duration: Instantanée
+    materialDescription: null
+    description: Vous lancez un rayon de lumière sur une créature ou un objet à portée.
+      Effectuez une attaque avec un sort à distance contre la cible. Si l'attaque
+      touche, la cible subit 1d8 dégâts radiants et, jusqu'à la fin de votre prochain
+      tour, émet une Lumière faible dans un rayon de 3 mètres et ne peut bénéficier
+      de l'état Invisibilité.<br/><strong><em>Amélioration de sort mineur</em></strong>.
+      Les dégâts augmentent de 1d8 aux niveaux 5 (2d8), 11 (3d8) et 17 (4d8).<br/>

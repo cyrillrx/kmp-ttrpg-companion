@@ -1,0 +1,37 @@
+id: prayer-of-healing
+source: phb_2024
+level: 2
+school: abjuration
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: false
+  material: false
+availableClasses:
+- cleric
+- paladin
+translations:
+  en:
+    name: Prayer of Healing
+    castingTime: 10 minutes
+    range: 30 feet
+    duration: Instantaneous
+    materialDescription: null
+    description: Up to five creatures of your choice who remain within range for the
+      spell's entire casting gain the benefits of a Short Rest and also regain 2d8
+      Hit Points. A creature can't be affected by this spell again until that creature
+      finishes a Long Rest.<br/><strong><em>Using a Higher-Level Spell Slot</em></strong>.
+      The healing increases by 1d8 for each spell slot level above 2.<br/>
+  fr:
+    name: Prière de guérison
+    castingTime: 10 minutes
+    range: 9 m
+    duration: Instantanée
+    materialDescription: null
+    description: Jusqu'à cinq créatures de votre choix restant à portée pendant toute
+      la durée du sort bénéficient d'un Repos court et récupèrent 2d8 points de vie.
+      Une créature ne peut plus être affectée par ce sort avant d'avoir terminé un
+      Repos long.<br/><strong><em>Emplacement de niveau supérieur</em></strong>. Les
+      soins augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à
+      2.<br/>

@@ -1,0 +1,37 @@
+id: fire-bolt
+source: phb_2024
+level: 0
+school: evocation
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: false
+availableClasses:
+- sorcerer
+- wizard
+translations:
+  en:
+    name: Fire Bolt
+    castingTime: Action
+    range: 120 feet
+    duration: Instantaneous
+    materialDescription: null
+    description: You hurl a mote of fire at a creature or an object within range.
+      Make a ranged spell attack against the target. On a hit, the target takes 1d10
+      Fire damage. A flammable object hit by this spell starts burning if it isn't
+      being worn or carried.<br/><strong><em>Cantrip Upgrade</em></strong>. The damage
+      increases by 1d10 when you reach levels 5 (2d10), 11 (3d10), and 17 (4d10).<br/>
+  fr:
+    name: Trait de feu
+    castingTime: Action
+    range: 36 m
+    duration: Instantanée
+    materialDescription: null
+    description: Vous lancez une particule de feu sur une créature ou un objet à portée.
+      Effectuez une attaque de sort à distance contre la cible. Si l'attaque touche,
+      la cible subit 1d10 dégâts de feu. Un objet inflammable touché par ce sort commence
+      à brûler s'il n'est pas porté.<br/><strong><em>Amélioration de sort mineur</em></strong>.
+      Les dégâts augmentent de 1d10 lorsque vous atteignez les niveaux 5 (2d10), 11
+      (3d10) et 17 (4d10).<br/>

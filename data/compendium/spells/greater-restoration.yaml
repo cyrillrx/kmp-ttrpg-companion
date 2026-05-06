@@ -1,0 +1,40 @@
+id: greater-restoration
+source: phb_2024
+level: 5
+school: abjuration
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- bard
+- cleric
+- druid
+- paladin
+- ranger
+translations:
+  en:
+    name: Greater Restoration
+    castingTime: Action
+    range: Touch
+    duration: Instantaneous
+    materialDescription: diamond dust worth 100+ GP, which the spell consumes
+    description: You touch a creature and magically remove one of the following effects
+      from it:<br/>• 1 Exhaustion level<br/>• The Charmed or Petrified condition<br/>•
+      A curse, including the target's Attunement to a cursed magic item<br/>• Any
+      reduction to one of the target's ability scores<br/>• Any reduction to the target's
+      Hit Point maximum<br/>
+  fr:
+    name: Restauration suprême
+    castingTime: Action
+    range: Contact
+    duration: Instantanée
+    materialDescription: poudre de diamant d'une valeur minimale de 100 po, que le
+      sort consomme
+    description: Vous touchez une créature et lui retirez magiquement l'un des effets
+      suivants :<br/>• 1 niveau d'Épuisement<br/>• L'état Charmé ou Pétrifié<br/>•
+      Une malédiction, y compris le lien de la cible avec un objet magique maudit<br/>•
+      Toute réduction d'une des valeurs de caractéristique de la cible<br/>• Toute
+      réduction du maximum de points de vie de la cible<br/>

@@ -1,0 +1,30 @@
+id: wardaway
+source: heroes_of_faerun
+level: 1
+school: abjuration
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- bard
+- cleric
+- paladin
+- wizard
+translations:
+  en:
+    name: Wardaway
+    castingTime: Action
+    range: 60 feet
+    duration: Instantaneous
+    materialDescription: a miniature clay hand
+    description: You hurl a disorienting magical force toward one creature within range. The target makes a Constitution saving throw; Constructs and Undead automatically succeed on this save.<br/>On a failed save, the target takes 2d4 Force damage, its Speed is halved until the start of your next turn, and on its next turn, it can take only an action or a Bonus Action (but not both). On a successful save, the target takes half as much damage only.<br/><strong>Using a Higher-Level Spell Slot.</strong> The damage increases by 2d4 for every spell slot level above 1.<br/>
+  fr:
+    name: Écartement
+    castingTime: Action
+    range: 18 m
+    duration: Instantanée
+    materialDescription: une main miniature en argile
+    description: Vous projetez une force magique désorientante vers une créature à portée. La cible effectue un jet de sauvegarde de Constitution ; les Artificiels et les Morts-vivants réussissent automatiquement ce jet de sauvegarde.<br/>En cas d'échec, la cible subit 2d4 dégâts de force, sa Vitesse est réduite de moitié jusqu'au début de votre prochain tour, et lors de son prochain tour, elle ne peut effectuer qu'une action ou une action bonus (mais pas les deux). En cas de réussite, la cible ne subit que la moitié de ces dégâts.<br/><strong>Emplacement de niveau supérieur.</strong> Les dégâts augmentent de 2d4 par niveau d'emplacement au-delà du 1er.<br/>

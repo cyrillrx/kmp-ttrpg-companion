@@ -1,0 +1,51 @@
+id: otiluke-s-resilient-sphere
+source: phb_2024
+level: 4
+school: evocation
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- wizard
+translations:
+  en:
+    name: Otiluke's Resilient Sphere
+    castingTime: Action
+    range: 30 feet
+    duration: Concentration, up to 1 minute
+    materialDescription: a glass sphere
+    description: A shimmering sphere encloses a Large or smaller creature or object
+      within range. An unwilling creature must succeed on a Dexterity saving throw
+      or be enclosed for the duration.<br/>Nothing-not physical objects, energy, or
+      other spell effects can pass through the barrier, in or out, though a creature
+      in the sphere can breathe there. The sphere is immune to all damage, and a creature
+      or object inside can't be damaged by attacks or effects originating from outside,
+      nor can a creature inside the sphere damage anything outside it.<br/>The sphere
+      is weightless and just large enough to contain the creature or object inside.
+      An enclosed creature can take an action to push against the sphere's walls and
+      thus roll the sphere at up to half the creature's Speed. Similarly, the globe
+      can be picked up and moved by other creatures.<br/>A <em>Disintegrate</em> spell
+      targeting the globe destroys it without harming anything inside.<br/>
+  fr:
+    name: Sphère résiliente d'Otiluke
+    castingTime: Action
+    range: 9 m
+    duration: Concentration, jusqu'à 1 minute
+    materialDescription: une sphère de verre
+    description: Une sphère scintillante enferme une créature ou un objet de taille
+      G ou inférieure à portée. Une créature réticente doit réussir un jet de sauvegarde
+      de Dextérité ou rester enfermée pendant toute la durée du sort.<br/>Rien, ni
+      des objets physiques, ni de l'énergie, ni d'autres effets de sorts, ne peut
+      traverser la barrière, ni entrer ni sortir, bien qu'une créature dans la sphère
+      puisse y respirer. La sphère est immunisée contre tous les dégâts, et une créature
+      ou un objet à l'intérieur ne peut être blessé par des attaques ou des effets
+      de l'extérieurs, ni endommager quoi que ce soit à l'extérieur.<br/>La sphère
+      est légère et juste assez grande pour contenir la créature ou l'objet qu'elle
+      contient. Une créature enfermée peut prendre une action pour pousser les parois
+      de la sphère et ainsi faire rouler la sphère à une vitesse pouvant atteindre
+      la moitié de sa Vitesse. De même, le globe peut être soulevé et déplacé par
+      d'autres créatures.<br/>Un sort de <em>désintégration</em> ciblant le globe
+      le détruit sans blesser quoi que ce soit à l'intérieur.<br/>

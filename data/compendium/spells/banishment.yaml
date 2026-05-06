@@ -1,0 +1,49 @@
+id: banishment
+source: phb_2024
+level: 4
+school: abjuration
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- cleric
+- paladin
+- sorcerer
+- warlock
+- wizard
+translations:
+  en:
+    name: Banishment
+    castingTime: Action
+    range: 30 feet
+    duration: Concentration, up to 1 minute
+    materialDescription: a pentacle
+    description: One creature that you can see within range must succeed on a Charisma
+      saving throw or be transported to a harmless demiplane for the duration. While
+      there, the target has the Incapacitated condition. When the spell ends, the
+      target reappears in the space it left or in the nearest unoccupied space if
+      that space is occupied.<br/>If the target is an Aberration, a Celestial, an
+      Elemental, a Fey, or a Fiend, the target doesn't return if the spell lasts for
+      1 minute. The target is instead transported to a random location on a plane
+      (DM's choice) associated with its creature type.<br/><strong><em>Using a Higher-Level
+      Spell Slot</em></strong>. You can target one additional creature for each spell
+      slot level above 4.<br/>
+  fr:
+    name: Bannissement
+    castingTime: Action
+    range: 9 m
+    duration: Concentration, jusqu'à 1 minute
+    materialDescription: un pentacle
+    description: Une créature que vous pouvez voir à portée doit réussir un jet de
+      sauvegarde de Charisme ou être transportée sur un demi-plan inoffensif pendant
+      la durée du sort. Là, la cible subit l'état Incapable d'agir. À la fin du sort,
+      la cible réapparaît dans la case qu'elle a quittée ou dans la case libre la
+      plus proche si cette case est occupée.<br/>Si la cible est une aberration, un
+      céleste, un élémentaire, une fée ou un fiélon, elle ne revient pas si le sort
+      dure 1 minute. Elle est transportée vers un emplacement aléatoire sur un plan
+      (au choix du MD) associé à son type de créature.<br/><strong><em>Emplacement
+      de niveau supérieur</em></strong>. Vous pouvez cibler une créature supplémentaire
+      pour chaque niveau d'emplacement de sort supérieur à 4.<br/>

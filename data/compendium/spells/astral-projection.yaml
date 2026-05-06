@@ -1,0 +1,67 @@
+id: astral-projection
+source: phb_2024
+level: 9
+school: necromancy
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- cleric
+- warlock
+- wizard
+translations:
+  en:
+    name: Astral Projection
+    castingTime: 1 hour
+    range: 10 feet
+    duration: Until dispelled
+    materialDescription: for each of the spell's targets, one jacinth worth 1,000+
+      GP and one silver bar worth 100+ GP, all of which the spell consumes
+    description: You and up to eight willing creatures within range project your astral
+      bodies into the Astral Plane (the spell ends instantly if you are already on
+      that plane). Each target's body is left behind in a state of suspended animation;
+      it has the Unconscious condition, doesn't need food or air, and doesn't age.<br/>A
+      target's astral form resembles its body in almost every way, replicating its
+      game statistics and possessions. The principal difference is the addition of
+      a silvery cord that trails from between the shoulder blades of the astral form.
+      The cord fades from view after 1 foot. If the cord is cut—which happens only
+      when an effect states that it does so—the target's body and astral form both
+      die.<br/>A target's astral form can travel through the Astral Plane. The moment
+      an astral form leaves that plane, the target's body and possessions travel along
+      the silver cord, causing the target to re-enter its body on the new plane.<br/>Any
+      damage or other effects that apply to an astral form have no effect on the target's
+      body and vice versa. If a target's body or astral form drops to 0 Hit Points,
+      the spell ends for that target. The spell ends for all the targets if you take
+      a Magic action to dismiss it.<br/>When the spell ends for a target who isn't
+      dead, the target reappears in its body and exits the state of suspended animation.<br/>
+  fr:
+    name: Projection astrale
+    castingTime: 1 heure
+    range: 3 m
+    duration: Jusqu'à dissipation
+    materialDescription: pour chaque cible du sort, une jacinthe d'une valeur minimale
+      de 1000 po et un lingot d'argent ouvragé d'une valeur minimale de 100 po, que
+      le sort consomme
+    description: Vous et un maximum de huit créatures consentantes à portée projetez
+      vos corps astraux dans le Plan Astral (le sort prend aussitôt fin si vous occupez
+      déjà ce plan). Le corps abandonné par chaque cible reçoit l'état Inconscient,
+      dans un état d'animation suspendue ; il n'a pas besoin de s'alimenter ni de
+      respirer et ne vieillit pas.<br/>Le corps astral d'une cible ressemble en tout
+      point à sa forme mortelle et reprend son profil de jeu, ainsi que ses biens.
+      La différence principale réside dans l'ajout d'une cordelette d'argent qui part
+      d'un point entre les omoplates de la forme astrale. Ce lien n'est plus visible
+      au bout de 30 cm. Si la cordelette est sectionnée, ce qui ne peut arriver que
+      lorsqu'un effet le mentionne spécifiquement, le corps de la cible et la forme
+      astrale meurent aussitôt.<br/>La forme astrale d'une cible peut voyager dans
+      le Plan Astral. Dès qu'une forme astrale quitte ce plan, le corps de la cible
+      et ses biens remontent le long de la corde argentée, et la cible reprend possession
+      de son corps sur le nouveau plan.<br/>Tous les dégâts et effets qui s'appliquent
+      à une forme astrale ne concernent aucunement le corps physique de la cible,
+      et réciproquement. Si le corps d'origine d'une cible ou sa forme astrale tombe
+      à 0 point de vie, le sort prend fin pour elle. Le sort prend fin pour toutes
+      les cibles si vous consacrez l'action Magie à le révoquer.<br/>Quand le sort
+      prend fin pour une cible qui n'est pas morte, celle-ci réapparaît dans son corps
+      et émerge de son animation suspendue.<br/>

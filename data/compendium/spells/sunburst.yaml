@@ -1,0 +1,44 @@
+id: sunburst
+source: phb_2024
+level: 8
+school: evocation
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- cleric
+- druid
+- sorcerer
+- wizard
+translations:
+  en:
+    name: Sunburst
+    castingTime: Action
+    range: 150 feet
+    duration: Instantaneous
+    materialDescription: piece of sunstone
+    description: Brilliant sunlight flashes in a 60-foot-radius Sphere centered on
+      a point you choose within range. Each creature in the Sphere makes a Constitution
+      saving throw. On a failed save, a creature takes 12d6 Radiant damage and has
+      the Blinded condition for 1 minute. On a successful save, it takes half as much
+      damage only.<br/>A creature Blinded by this spell makes another Constitution
+      saving throw at the end of each of its turns, ending the effect on itself on
+      a success.<br/>This spell dispels Darkness in its area that was created by any
+      spell.<br/>
+  fr:
+    name: Éclat du soleil
+    castingTime: Action
+    range: 45 m
+    duration: Instantanée
+    materialDescription: un morceau d'héliolite
+    description: La lumière du soleil brille soudain dans une Sphère de 18 m de rayon,
+      centrée sur un point que vous choisissez à portée. Chaque créature prise dans
+      la Sphère effectue un jet de sauvegarde de Constitution. En cas d'échec, elle
+      subit 12d6 dégâts radiants, ainsi que l'état Aveuglé pendant 1 minute. En cas
+      de réussite, elle subit uniquement la moitié de ces dégâts.<br/>Une créature
+      Aveuglée par ce sort réitère le jet de sauvegarde de Constitution à la fin de
+      chacun de ses tours et met un terme à l'effet sur elle-même en cas de réussite.<br/>Le
+      sort dissipe dans la zone toutes les Ténèbres qui résultent d'un sort.<br/>

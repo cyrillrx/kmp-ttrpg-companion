@@ -1,0 +1,31 @@
+id: elemental-weapon
+source: phb_2024
+level: 3
+school: transmutation
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: false
+availableClasses:
+- druid
+- paladin
+- ranger
+translations:
+  en:
+    name: Elemental Weapon
+    castingTime: Action
+    range: Touch
+    duration: Concentration, up to 1 hour
+    materialDescription: null
+    description: |-
+      A nonmagical weapon you touch becomes a magic weapon. Choose one of the following damage types: Acid, Cold, Fire, Lightning, or Thunder. For the duration, the weapon has a +1 bonus to attack rolls and deals an extra 1d4 damage of the chosen type when it hits.<br/><strong><em>Using a Higher-Level Spell Slot</em></strong>. If you use a level 5-6 spell slot, the bonus to attack rolls increases to +2, and the extra damage increases to 2d4. If you use a level 7+ spell slot, the bonus increases to +3, and the extra damage increases to 3d4.<br/>
+  fr:
+    name: Arme élémentaire
+    castingTime: Action
+    range: Contact
+    duration: Concentration, jusqu'à 1 heure
+    materialDescription: null
+    description: |-
+      Une arme non magique que vous touchez devient une arme magique. Choisissez l'un des types de dégâts suivants : acide, froid, feu, foudre ou tonnerre. Pendant la durée du sort, l'arme bénéficie d'un bonus de +1 aux jets d'attaque et inflige 1d4 dégâts supplémentaires du type choisi lorsqu'elle touche.<br/><strong><em>Emplacement de niveau supérieur</em></strong>. Si vous utilisez un emplacement de sort de niveau 5 ou 6, le bonus aux jets d'attaque passe à +2 et les dégâts supplémentaires à 2d4. Si vous utilisez un emplacement de sort de niveau 7 ou supérieur, le bonus passe à +3 et les dégâts supplémentaires à 3d4.<br/>

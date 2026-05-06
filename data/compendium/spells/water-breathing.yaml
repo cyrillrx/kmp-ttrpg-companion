@@ -1,0 +1,34 @@
+id: water-breathing
+source: phb_2024
+level: 3
+school: transmutation
+concentration: false
+ritual: true
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- druid
+- ranger
+- sorcerer
+- wizard
+translations:
+  en:
+    name: Water Breathing
+    castingTime: Action or Ritual
+    range: 30 feet
+    duration: 24 hours
+    materialDescription: a short reed
+    description: This spell grants up to ten willing creatures of your choice within
+      range the ability to breathe underwater until the spell ends. Affected creatures
+      also retain their normal mode of respiration.<br/>
+  fr:
+    name: Respiration aquatique
+    castingTime: Action ou Rituel
+    range: 9 m
+    duration: 24 heures
+    materialDescription: un court roseau
+    description: Ce sort confère à un maximum de dix créatures consentantes de votre
+      choix à portée la capacité de respirer sous l'eau jusqu'à la fin du sort. Les
+      créatures affectées conservent également leur respiration normale.<br/>

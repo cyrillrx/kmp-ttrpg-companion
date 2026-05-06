@@ -1,0 +1,42 @@
+id: mislead
+source: phb_2024
+level: 5
+school: illusion
+concentration: true
+ritual: false
+components:
+  verbal: false
+  somatic: true
+  material: false
+availableClasses:
+- bard
+- warlock
+- wizard
+translations:
+  en:
+    name: Mislead
+    castingTime: Action
+    range: Self
+    duration: Concentration, up to 1 hour
+    materialDescription: null
+    description: You gain the Invisible condition at the same time that an illusory
+      double of you appears where you are standing. The double lasts for the duration,
+      but the invisibility ends immediately after you make an attack roll, deal damage,
+      or cast a spell.<br/>As a Magic action, you can move the illusory double up
+      to twice your Speed and make it gesture, speak, and behave in whatever way you
+      choose. It is intangible and invulnerable.<br/>You can see through its eyes
+      and hear through its ears as if you were located where it is.<br/>
+  fr:
+    name: Double illusoire
+    castingTime: Action
+    range: Personnelle
+    duration: Concentration, jusqu'à 1 heure
+    materialDescription: null
+    description: Vous obtenez l'état Invisible au moment où un double illusoire apparaît
+      à votre place. Ce double dure toute la durée du sort, mais l'invisibilité prend
+      fin immédiatement si vous effectuez un jet d'attaque, infligez des dégâts ou
+      lancez un sort.<br/>Par une action Magie, vous pouvez déplacer le double illusoire
+      jusqu'à deux fois votre Vitesse et lui faire faire des gestes, le faire parler
+      et le faire se comporter comme vous le souhaitez. Il est intangible et invulnérable.<br/>Vous
+      pouvez voir à travers ses yeux et entendre à travers ses oreilles comme si vous
+      étiez à sa place.<br/>

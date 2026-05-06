@@ -1,0 +1,28 @@
+id: sylune-s-viper
+source: heroes_of_faerun
+level: 3
+school: conjuration
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- druid
+- wizard
+translations:
+  en:
+    name: Syluné's Viper
+    castingTime: Bonus Action
+    range: Self
+    duration: 1 hour
+    materialDescription: a snake fang
+    description: A shimmering, spectral snake encircles your body for the duration. You gain 15 Temporary Hit Points; the spell ends early if you have no Temporary Hit Points left.<br/>While the spell is active, you gain the following benefits:<br/><strong>Climbing.</strong> You gain a Climb Speed equal to your Speed.<br/><strong>Venomous Bite.</strong> As a Magic action, you can make a ranged spell attack using the snake against one creature within 50 feet. On a hit, the target takes 1d6 Force damage and has the Poisoned condition until the start of your next turn. While Poisoned, the target has the Incapacitated condition.<br/><strong>Using a Higher-Level Spell Slot.</strong> For each spell slot level above 3, the number of Temporary Hit Points you gain from this spell increases by 5, and the damage of Venomous Bite increases by 1d6.<br/>
+  fr:
+    name: Vipère de Syluné
+    castingTime: Action bonus
+    range: Personnelle
+    duration: 1 heure
+    materialDescription: une dent de serpent
+    description: Un serpent spectral chatoyant vous entoure le corps pour toute la durée. Vous gagnez 15 points de vie temporaires ; le sort prend fin prématurément si vous n'avez plus de points de vie temporaires.<br/>Tant que le sort est actif, vous bénéficiez des avantages suivants :<br/><strong>Escalade.</strong> Vous gagnez une Vitesse d'escalade égale à votre Vitesse.<br/><strong>Morsure venimeuse.</strong> En tant qu'action de Magie, vous pouvez effectuer une attaque de sort à distance à l'aide du serpent contre une créature à 15 mètres ou moins. En cas de coup, la cible subit 1d6 dégâts de force et subit l'état Empoisonné jusqu'au début de votre prochain tour. Tant qu'elle est Empoisonnée, la cible subit également l'état Incapacité.<br/><strong>Emplacement de niveau supérieur.</strong> Par niveau d'emplacement au-delà du 3e, le nombre de points de vie temporaires gagnés grâce à ce sort augmente de 5, et les dégâts de la Morsure venimeuse augmentent de 1d6.<br/>

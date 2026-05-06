@@ -1,0 +1,43 @@
+id: cloud-of-daggers
+source: phb_2024
+level: 2
+school: conjuration
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- bard
+- sorcerer
+- warlock
+- wizard
+translations:
+  en:
+    name: Cloud of Daggers
+    castingTime: Action
+    range: 60 feet
+    duration: Concentration, up to 1 minute
+    materialDescription: a sliver of glass
+    description: You conjure spinning daggers in a 5-foot Cube centered on a point
+      within range. Each creature in that area takes 4d4 Slashing damage. A creature
+      also takes this damage if it enters the Cube or ends its turn there or if the
+      Cube moves into its space. A creature takes this damage only once per turn.<br/>On
+      your later turns, you can take a Magic action to teleport the Cube up to 30
+      feet.<br/><strong><em>Using a Higher-Level Spell Slot</em></strong>. The damage
+      increases by 2d4 for each spell slot level above 2.<br/>
+  fr:
+    name: Nuée de dagues
+    castingTime: Action
+    range: 18 m
+    duration: Concentration, jusqu'à 1 minute
+    materialDescription: un fragment de verre
+    description: Vous invoquez des dagues tournoyantes dans un Cube de 1,50 mètres
+      centré sur un point à portée. Chaque créature dans cette zone subit 4d4 dégâts
+      tranchants. Une créature subit également ces dégâts si elle entre dans le Cube,
+      y termine son tour ou si le Cube se déplace dans son emplacement. Une créature
+      ne subit ces dégâts qu'une fois par tour.<br/>Lors de vos tours suivants, vous
+      pouvez prendre une action Magie pour téléporter le Cube jusqu'à 9 mètres.<br/><strong><em>Emplacement
+      de niveau supérieur</em></strong>. Les dégâts augmentent de 2d4 pour chaque
+      niveau d'emplacement de sort supérieur à 2.<br/>

@@ -1,0 +1,49 @@
+id: nystul-s-magic-aura
+source: phb_2024
+level: 2
+school: illusion
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- wizard
+translations:
+  en:
+    name: Nystul's Magic Aura
+    castingTime: Action
+    range: Touch
+    duration: 24 hours
+    materialDescription: a small square of silk
+    description: With a touch, you place an illusion on a willing creature or an object
+      that isn't being worn or carried. A creature gains the Mask effect below, and
+      an object gains the False Aura effect below. The effect lasts for the duration.
+      If you cast the spell on the same target every day for 30 days, the illusion
+      lasts until dispelled.<br/><strong>Mask (Creature)</strong>. Choose a creature
+      type other than the target's actual type. Spells and other magical effects treat
+      the target as if it were a creature of the chosen type.<br/><strong>False Aura
+      (Object)</strong>. You change the way the target appears to spells and magical
+      effects that detect magical auras, such as <em>Detect Magic</em>. You can make
+      a nonmagical object appear magical, make a magic item appear nonmagical, or
+      change the object's aura so that it appears to belong to a school of magic you
+      choose.<br/>
+  fr:
+    name: Aura magique de Nystul
+    castingTime: Action
+    range: Contact
+    duration: 24 heures
+    materialDescription: un petit carré de soie
+    description: D'un simple contact, vous placez une illusion sur une créature consentante
+      ou sur un objet qui n'est pas porté. Une créature bénéficie de l'effet Masque
+      et un objet de l'effet Aura factice (voir ci-dessous). L'effet dure toute la
+      durée du sort. Si vous lancez le sort sur la même cible chaque jour pendant
+      30 jours, l'illusion persiste jusqu'à dissipation.<br/><strong>Masque (créature)</strong>.
+      Choisissez un type de créature différent du type réel de la cible. Les sorts
+      et autres effets magiques traitent la cible comme si elle était une créature
+      du type choisi.<br/><strong>Aura factice (objet)</strong>. Vous modifiez l'apparence
+      de la cible aux sorts et effets magiques qui détectent les auras magiques, comme
+      <em>détection de la magie</em>. Vous pouvez donner à un objet non magique une
+      apparence magique, à un objet magique une apparence non magique, ou modifier
+      l'aura de l'objet pour qu'il semble appartenir à l'école de magie de votre choix.<br/>

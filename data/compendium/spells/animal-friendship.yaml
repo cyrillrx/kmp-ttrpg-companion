@@ -1,0 +1,38 @@
+id: animal-friendship
+source: phb_2024
+level: 1
+school: enchantment
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- bard
+- druid
+- ranger
+translations:
+  en:
+    name: Animal Friendship
+    castingTime: Action
+    range: 30 feet
+    duration: 24 hours
+    materialDescription: a morsel of food
+    description: Target a Beast that you can see within range. The target must succeed
+      on a Wisdom saving throw or have the Charmed condition for the duration. If
+      you or one of your allies deals damage to the target, the spell ends.<br/><strong><em>Using
+      a Higher-Level Spell Slot</em></strong>. You can target one additional Beast
+      for each spell slot level above 1.<br/>
+  fr:
+    name: Amitié avec les animaux
+    castingTime: Action
+    range: 9 m
+    duration: 24 heures
+    materialDescription: un peu de nourriture
+    description: Ciblez une bête que vous pouvez voir à portée. La cible doit réussir
+      un jet de sauvegarde de Sagesse ou subir l'état Charmé pendant toute la durée
+      du sort. Si vous ou l'un de vos alliés infligez des dégâts à la cible, le sort
+      prend fin.<br/><strong><em>Emplacement de niveau supérieur</em></strong>. Vous
+      pouvez cibler une bête supplémentaire pour chaque niveau d'emplacement de sort
+      supérieur à 1.<br/>

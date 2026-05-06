@@ -1,0 +1,37 @@
+id: detect-poison-and-disease
+source: phb_2024
+level: 1
+school: divination
+concentration: true
+ritual: true
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- cleric
+- druid
+- paladin
+- ranger
+translations:
+  en:
+    name: Detect Poison and Disease
+    castingTime: Action or Ritual
+    range: Self
+    duration: Concentration, up to 10 minutes
+    materialDescription: a yew leaf
+    description: For the duration, you sense the location of poisons, poisonous or
+      venomous creatures, and magical contagions within 30 feet of yourself. You sense
+      the kind of poison, creature, or contagion in each case.<br/>The spell is blocked
+      by 1 foot of stone, dirt, or wood; 1 inch of metal; or a thin sheet of lead.<br/>
+  fr:
+    name: Détection du poison et des maladies
+    castingTime: Action ou Rituel
+    range: Personnelle
+    duration: Concentration, jusqu'à 10 minutes
+    materialDescription: une feuille d'if
+    description: Pendant la durée du sort, vous détectez l'emplacement des poisons,
+      des créatures venimeuses ou toxiques, et des contagions magiques dans un rayon
+      de 9 mètres autour de vous. Vous détectez le type de poison, de créature ou
+      de contagion dans chaque cas.<br/>Le sort est bloqué par 30 cm de pierre, de
+      terre ou de bois, par 2,50 cm de métal, ou par une fine feuille de plomb.<br/>

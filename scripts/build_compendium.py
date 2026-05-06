@@ -76,7 +76,9 @@ def build_type(type_name: str, check: bool) -> tuple[int, bool]:
         print(f"  WARNING: no YAML files found in {src_dir}", file=sys.stderr)
         if check:
             print(f"  SKIPPED: {type_name} (no YAML source files — migration pending)")
-            return 0, True
+        else:
+            print(f"  SKIPPED: {type_name} (no YAML source files — keeping existing JSON)")
+        return 0, True
 
     entities = []
     for path in yaml_files:

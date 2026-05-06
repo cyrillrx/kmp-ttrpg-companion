@@ -1,0 +1,28 @@
+id: dirge
+source: heroes_of_faerun
+level: 6
+school: enchantment
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: false
+  material: false
+availableClasses:
+- bard
+- cleric
+translations:
+  en:
+    name: Dirge
+    castingTime: Action
+    range: Self
+    duration: Concentration, up to 1 minute
+    materialDescription: null
+    description: Deathly power fills a 60-foot Emanation originating from you for the duration.<br/>When you cast this spell, you can designate creatures to be unaffected by it. Any other creature can't regain Hit Points while in the Emanation. Whenever the Emanation enters a creature's space and whenever a creature enters the Emanation or ends its turn there, the creature makes a Constitution saving throw. On a failed save, the creature takes 3d10 Necrotic damage and has the Prone condition. On a successful save, the creature takes half as much damage and its Speed is halved. A creature makes this save only once per turn.<br/><strong>Casting as a Circle Spell.</strong> Casting this as a Circle spell requires a minimum of two secondary casters. If the spell is cast as a Circle spell, its duration becomes Concentration, up to 10 minutes.<br/>A creature that fails its save against the spell's effect also gains 1 Exhaustion level. While the creature has Exhaustion levels, finishing a Long Rest neither restores lost Hit Points nor reduces the creature's Exhaustion level.<br/>When the spell is cast, each secondary caster must expend a level 4+ spell slot; otherwise, the spell fails.<br/>
+  fr:
+    name: Chant funèbre
+    castingTime: Action
+    range: Personnelle
+    duration: Concentration, jusqu'à 1 minute
+    materialDescription: null
+    description: Une puissance mortelle remplit une Émanation de 18 mètres autour de vous pour toute la durée.<br/>Lorsque vous lancez ce sort, vous pouvez désigner des créatures pour qu'elles ne soient pas affectées. Toute autre créature ne peut pas récupérer de points de vie tant qu'elle se trouve dans l'Émanation. Lorsque l'Émanation pénètre dans l'espace d'une créature et lorsqu'une créature entre dans l'Émanation ou y termine son tour, elle effectue un jet de sauvegarde de Constitution. En cas d'échec, la créature subit 3d10 dégâts nécrotiques et subit l'état À terre. En cas de réussite, la créature subit la moitié de ces dégâts et sa Vitesse est réduite de moitié. Une créature n'effectue ce jet de sauvegarde qu'une seule fois par tour.<br/><strong>Incantation en tant que sort de Cercle.</strong> L'incantation de ce sort en tant que sort de Cercle requiert au minimum deux incantateurs secondaires. Si le sort est lancé en tant que sort de Cercle, sa durée devient Concentration, jusqu'à 10 minutes.<br/>Une créature qui rate son jet de sauvegarde contre l'effet du sort gagne également 1 niveau d'Épuisement. Tant que la créature a des niveaux d'Épuisement, achever un Repos long ne lui permet ni de récupérer des points de vie perdus ni de réduire son niveau d'Épuisement.<br/>Lors du lancement du sort, chaque incantateur secondaire doit dépenser un emplacement de sort de niveau 4 ou supérieur ; sinon, le sort échoue.<br/>

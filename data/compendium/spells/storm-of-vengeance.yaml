@@ -1,0 +1,58 @@
+id: storm-of-vengeance
+source: phb_2024
+level: 9
+school: conjuration
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: false
+availableClasses:
+- druid
+translations:
+  en:
+    name: Storm of Vengeance
+    castingTime: Action
+    range: 1 mile
+    duration: Concentration, up to 1 minute
+    materialDescription: null
+    description: A churning storm cloud forms for the duration, centered on a point
+      within range and spreading to a radius of 300 feet. Each creature under the
+      cloud when it appears must succeed on a Constitution saving throw or take 2d6
+      Thunder damage and have the Deafened condition for the duration.<br/>At the
+      start of each of your later turns, the storm produces different effects, as
+      detailed below.<br/><strong>Turn 2</strong>. Acidic rain falls. Each creature
+      and object under the cloud takes 4d6 Acid damage.<br/><strong>Turn 3</strong>.
+      You call six bolts of lightning from the cloud to strike six different creatures
+      or objects beneath it. Each target makes a Dexterity saving throw, taking 10d6
+      Lightning damage on a failed save or half as much damage on a successful one.<br/><strong>Turn
+      4</strong>. Hailstones rain down. Each creature under the cloud takes 2d6 Bludgeoning
+      damage.<br/><strong>Turns 5-10</strong>. Gusts and freezing rain assail the
+      area under the cloud. Each creature there takes 1d6 Cold damage. Until the spell
+      ends, the area is Difficult Terrain and Heavily Obscured, ranged attacks with
+      weapons are impossible there, and strong wind blows through the area.<br/>
+  fr:
+    name: Tempête vengeresse
+    castingTime: Action
+    range: 1,5 km
+    duration: Concentration, jusqu'à 1 minute
+    materialDescription: null
+    description: Un nuage menaçant se forme pour toute la durée, centré sur un point
+      à portée, et se déploie sur un rayon de 90 m. Chaque créature prise dans le
+      nuage à son apparition doit réussir un jet de sauvegarde de Constitution sous
+      peine de subir 2d6 dégâts de tonnerre, ainsi que l'état Assourdi pour toute
+      la durée.<br/>Au début de chacun de vos tours suivants, la tempête produit des
+      effets différents, comme détaillé ci-après.<br/><strong>Tour 2</strong>. Une
+      pluie acide s'abat. Tous les objets et créatures directement dominés par le
+      nuage subissent 4d6 dégâts d'acide.<br/><strong>Tour 3</strong>. Vous invoquez
+      six éclairs qui jaillissent du nuage pour frapper six créatures ou objets dominés
+      par le nuage. Chaque cible effectue un jet de sauvegarde de Dextérité, et subit
+      10d6 dégâts de foudre en cas d'échec, la moitié en cas de réussite.<br/><strong>Tour
+      4</strong>. La grêle s'abat depuis le nuage. Toute créature directement dominée
+      par le nuage subit 2d6 dégâts contondants.<br/><strong>Tours 5 à 10</strong>.
+      La zone directement dominée par le nuage est assaillie de bourrasques et d'une
+      pluie glaciale. Toute créature qui s'y trouve subit 1d6 dégâts de froid. Jusqu'à
+      la fin du sort, la zone constitue un Terrain difficile et présente une Visibilité
+      nulle, les attaques à distance avec une arme y sont impossibles et un vent fort
+      souffle dans toute la zone.<br/>

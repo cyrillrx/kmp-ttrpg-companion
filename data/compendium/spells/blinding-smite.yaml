@@ -1,0 +1,39 @@
+id: blinding-smite
+source: phb_2024
+level: 3
+school: evocation
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: false
+  material: false
+availableClasses:
+- paladin
+translations:
+  en:
+    name: Blinding Smite
+    castingTime: Bonus Action, which you take immediately after hitting a creature
+      with a Melee weapon or an Unarmed Strike
+    range: Self
+    duration: 1 minute
+    materialDescription: null
+    description: The target hit by the strike takes an extra 3d8 Radiant damage from
+      the attack, and the target has the Blinded condition until the spell ends. At
+      the end of each of its turns, the Blinded target makes a Constitution saving
+      throw, ending the spell on itself on a success.<br/><strong><em>Using a Higher-Level
+      Spell Slot</em></strong>. The extra damage increases by 1d8 for each spell slot
+      level above 3.<br/>
+  fr:
+    name: Châtiment de cécité
+    castingTime: Action bonus, que vous prenez immédiatement après avoir touché une
+      créature avec une arme de corps au corps ou une frappe à mains nues
+    range: Personnelle
+    duration: 1 minute
+    materialDescription: null
+    description: La cible touchée subit 3d8 dégâts radiants supplémentaires et subit
+      l'état Aveuglé jusqu'à la fin du sort. À la fin de chacun de ses tours, la cible
+      aveuglée effectue un jet de sauvegarde de Constitution, mettant fin au sort
+      en cas de réussite.<br/><strong><em>Emplacement de niveau supérieur</em></strong>.
+      Les dégâts supplémentaires augmentent de 1d8 pour chaque niveau d'emplacement
+      de sort supérieur à 3.<br/>

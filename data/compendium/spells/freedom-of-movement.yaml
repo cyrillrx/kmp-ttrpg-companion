@@ -1,0 +1,45 @@
+id: freedom-of-movement
+source: phb_2024
+level: 4
+school: abjuration
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- bard
+- cleric
+- druid
+- ranger
+translations:
+  en:
+    name: Freedom of Movement
+    castingTime: Action
+    range: Touch
+    duration: 1 hour
+    materialDescription: a leather strap
+    description: You touch a willing creature. For the duration, the target's movement
+      is unaffected by Difficult Terrain, and spells and other magical effects can
+      neither reduce the target's Speed nor cause the target to have the Paralyzed
+      or Restrained conditions. The target also has a Swim Speed equal to its Speed.<br/>In
+      addition, the target can spend 5 feet of movement to automatically escape from
+      nonmagical restraints, such as manacles or a creature imposing the Grappled
+      condition on it.<br/><strong><em>Using a Higher-Level Spell Slot</em></strong>.
+      You can target one additional creature for each spell slot level above 4.<br/>
+  fr:
+    name: Liberté de mouvement
+    castingTime: Action
+    range: Contact
+    duration: 1 heure
+    materialDescription: une bandelette de cuir
+    description: Vous touchez une créature consentante. Pendant la durée du sort,
+      les mouvements de la cible ne sont pas affectés par un Terrain difficile, et
+      les sorts et autres effets magiques ne peuvent ni réduire sa Vitesse ni lui
+      infliger les états Paralysé ou Entravé. La cible a également une Vitesse de
+      nage égale à sa Vitesse.<br/>De plus, la cible peut utiliser 1,50 mètre de mouvement
+      pour s'échapper automatiquement des entraves non magiques, comme des menottes
+      ou une créature lui imposant l'état Agrippé.<br/><strong><em>Emplacement de
+      niveau supérieur</em></strong>. Vous pouvez cibler une créature supplémentaire
+      pour chaque niveau d'emplacement de sort supérieur à 4.<br/>

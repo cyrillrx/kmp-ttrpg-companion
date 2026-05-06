@@ -1,0 +1,43 @@
+id: meteor-swarm
+source: phb_2024
+level: 9
+school: evocation
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: false
+availableClasses:
+- sorcerer
+- wizard
+translations:
+  en:
+    name: Meteor Swarm
+    castingTime: Action
+    range: 1 mile
+    duration: Instantaneous
+    materialDescription: null
+    description: Blazing orbs of fire plummet to the ground at four different points
+      you can see within range. Each creature in a 40-foot-radius Sphere centered
+      on each of those points makes a Dexterity saving throw. A creature takes 20d6
+      Fire damage and 20d6 Bludgeoning damage on a failed save or half as much damage
+      on a successful one. A creature in the area of more than one fiery Sphere is
+      affected only once.<br/>A nonmagical object that isn't being worn or carried
+      also takes the damage if it's in the spell's area, and the object starts burning
+      if it's flammable.<br/>
+  fr:
+    name: Nuée de météores
+    castingTime: Action
+    range: 1,5 km
+    duration: Instantanée
+    materialDescription: null
+    description: Des orbes embrasés s'abattent au sol en quatre points différents
+      que vous voyez à portée. Toute créature prise dans une Sphère d'un rayon de
+      12 m centrée sur l'un des quatre points effectue un jet de sauvegarde de Dextérité.
+      Une créature subit 20d6 dégâts de feu et 20d6 dégâts contondants en cas d'échec,
+      la moitié en cas de réussite. Une créature prise dans les zones de plus d'une
+      Sphère ardente n'est affectée qu'une fois.<br/>Un objet non magique qui n'est
+      porté par personne subit lui aussi les dégâts s'il est dans la zone d'effet
+      du sort, et il s'embrase s'il est inflammable.<br/>Le nuage s'éloigne de 3 m
+      de vous au début de chacun de vos tours, dans la direction de votre choix.<br/>

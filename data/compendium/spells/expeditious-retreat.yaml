@@ -1,0 +1,31 @@
+id: expeditious-retreat
+source: phb_2024
+level: 1
+school: transmutation
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: false
+availableClasses:
+- sorcerer
+- warlock
+- wizard
+translations:
+  en:
+    name: Expeditious Retreat
+    castingTime: Bonus Action
+    range: Self
+    duration: Concentration, up to 10 minutes
+    materialDescription: null
+    description: You take the Dash action, and until the spell ends, you can take
+      that action again as a Bonus Action.<br/>
+  fr:
+    name: Repli expéditif
+    castingTime: Action bonus
+    range: Personnelle
+    duration: Concentration, jusqu'à 10 minutes
+    materialDescription: null
+    description: Vous prenez l'action Pointe et, jusqu'à la fin du sort, vous pouvez
+      prendre de nouveau cette action en tant qu'action Bonus.<br/>

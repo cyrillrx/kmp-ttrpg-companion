@@ -1,0 +1,42 @@
+id: hypnotic-pattern
+source: phb_2024
+level: 3
+school: illusion
+concentration: true
+ritual: false
+components:
+  verbal: false
+  somatic: true
+  material: true
+availableClasses:
+- bard
+- sorcerer
+- warlock
+- wizard
+translations:
+  en:
+    name: Hypnotic Pattern
+    castingTime: Action
+    range: 120 feet
+    duration: Concentration, up to 1 minute
+    materialDescription: a pinch of confetti
+    description: You create a twisting pattern of colors in a 30-foot Cube within
+      range. The pattern appears for a moment and vanishes. Each creature in the area
+      who can see the pattern must succeed on a Wisdom saving throw or have the Charmed
+      condition for the duration. While Charmed, the creature has the Incapacitated
+      condition and a Speed of 0.<br/>The spell ends for an affected creature if it
+      takes any damage or if someone else uses an action to shake the creature out
+      of its stupor.<br/>
+  fr:
+    name: Motif hypnotique
+    castingTime: Action
+    range: 36 m
+    duration: Concentration, jusqu'à 1 minute
+    materialDescription: une pincée de confettis
+    description: Vous créez un motif coloré tourbillonnant dans un Cube de 9 mètres
+      à portée. Le motif apparaît un instant puis disparaît. Toute créature présente
+      dans la zone et pouvant le voir doit réussir un jet de sauvegarde de Sagesse
+      ou subir l'état Charmé pendant toute la durée du sort. Tant qu'elle est charmée,
+      la créature est Incapable d'agir et sa Vitesse est de 0.<br/>Le sort prend fin
+      pour la créature affectée si elle subit des dégâts ou si quelqu'un d'autre utilise
+      une action pour la sortir de sa torpeur.<br/>

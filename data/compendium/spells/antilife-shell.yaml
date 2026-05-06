@@ -1,0 +1,36 @@
+id: antilife-shell
+source: phb_2024
+level: 5
+school: abjuration
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: false
+availableClasses:
+- druid
+translations:
+  en:
+    name: Antilife Shell
+    castingTime: Action
+    range: Self
+    duration: Concentration, up to 1 hour
+    materialDescription: null
+    description: An aura extends from you in a 10-foot Emanation for the duration.
+      The aura prevents creatures other than Constructs and Undead from passing or
+      reaching through it. An affected creature can cast spells or make attacks with
+      Ranged or Reach weapons through the barrier.<br/>If you move so that an affected
+      creature is forced to pass through the barrier, the spell ends.<br/>
+  fr:
+    name: Coquille antivie
+    castingTime: Action
+    range: Personnelle
+    duration: Concentration, jusqu'à 1 heure
+    materialDescription: null
+    description: Une aura s'étend autour de vous sous forme d'Émanation de 3 mètres
+      pendant toute la durée du sort. Elle empêche les créatures autres que les créatures
+      artificielles et les morts-vivants de la traverser. Une créature affectée peut
+      lancer des sorts ou effectuer des attaques avec des armes à distance ou à allonge
+      à travers la barrière.<br/>Si vous vous déplacez de manière à forcer une créature
+      affectée à traverser la barrière, le sort prend fin.<br/>

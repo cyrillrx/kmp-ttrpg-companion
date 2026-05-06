@@ -1,0 +1,35 @@
+id: scorching-ray
+source: phb_2024
+level: 2
+school: evocation
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: false
+availableClasses:
+- sorcerer
+- wizard
+translations:
+  en:
+    name: Scorching Ray
+    castingTime: Action
+    range: 120 feet
+    duration: Instantaneous
+    materialDescription: null
+    description: You hurl three fiery rays. You can hurl them at one target within
+      range or at several. Make a ranged spell attack for each ray. On a hit, the
+      target takes 2d6 Fire damage.<br/><strong><em>Using a Higher-Level Spell Slot</em></strong>.
+      You create one additional ray for each spell slot level above 2.<br/>
+  fr:
+    name: Rayon ardent
+    castingTime: Action
+    range: 36 m
+    duration: Instantanée
+    materialDescription: null
+    description: Vous lancez trois rayons de feu. Vous pouvez les lancer sur une cible
+      à portée ou sur plusieurs. Effectuez une attaque de sort à distance pour chaque
+      rayon. Si l'attaque touche, la cible subit 2d6 dégâts de Feu.<br/><strong><em>Emplacement
+      de niveau supérieur</em></strong>. Vous créez un rayon supplémentaire pour chaque
+      niveau d'emplacement de sort supérieur à 2.<br/>

@@ -1,0 +1,48 @@
+id: cordon-of-arrows
+source: phb_2024
+level: 2
+school: transmutation
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- ranger
+translations:
+  en:
+    name: Cordon of Arrows
+    castingTime: Action
+    range: Touch
+    duration: 8 hours
+    materialDescription: an ornamental braid
+    description: You touch up to four nonmagical Arrows or Bolts and plant them in
+      the ground in your space. Until the spell ends, the ammunition can't be physically
+      uprooted, and whenever a creature other than you enters a space within 30 feet
+      of the ammunition for the first time on a turn or ends its turn there, one piece
+      of ammunition flies up to strike it. The creature must succeed on a Dexterity
+      saving throw or take 2d4 Piercing damage. The piece of ammunition is then destroyed.
+      The spell ends when none of the ammunition remains planted in the ground.<br/>When
+      you cast this spell, you can designate any creatures you choose, and the spell
+      ignores them.<br/><strong><em>Using a Higher-Level Spell Slot</em></strong>.
+      The amount of ammunition that can be affected increases by two for each spell
+      slot level above 2.<br/>
+  fr:
+    name: Cordon de flèches
+    castingTime: Action
+    range: Contact
+    duration: 8 heures
+    materialDescription: une tresse décorative
+    description: Vous touchez jusqu'à quatre flèches ou carreaux non magiques et les
+      plantez dans le sol de votre espace. Jusqu'à la fin du sort, les munitions ne
+      peuvent pas être physiquement déracinées, et chaque fois qu'une créature autre
+      que vous pénètre dans un espace dans un rayon de 9 mètres des munitions pour
+      la première fois au cours d'un tour ou y termine son tour, une munition s'envole
+      pour la frapper. La créature doit réussir un jet de sauvegarde de Dextérité
+      sous peine de subir 2d4 dégâts perforants. La munition est alors détruite. Le
+      sort prend fin lorsqu'il ne reste plus aucune munition plantée dans le sol.<br/>Lorsque
+      vous lancez ce sort, vous pouvez désigner les créatures de votre choix, et le
+      sort les ignore.<br/><strong><em>Emplacement de niveau supérieur</em></strong>.
+      La quantité de munitions pouvant être affectée augmente de deux pour chaque
+      niveau d'emplacement de sort supérieur à 2.<br/>

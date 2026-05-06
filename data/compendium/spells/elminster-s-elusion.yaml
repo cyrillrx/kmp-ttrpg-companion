@@ -1,0 +1,27 @@
+id: elminster-s-elusion
+source: heroes_of_faerun
+level: 2
+school: abjuration
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: false
+availableClasses:
+- wizard
+translations:
+  en:
+    name: Elminster's Elusion
+    castingTime: Bonus Action
+    range: Self
+    duration: Concentration, up to 10 minutes
+    materialDescription: null
+    description: Arcane wards protect you against magic for the duration. You have Advantage on saving throws against spells and magical effects. Additionally, if you succeed on a saving throw against a spell or magical effect and would normally take half as much damage, you instead take no damage.<br/>
+  fr:
+    name: Esquive d'Elminster
+    castingTime: Action bonus
+    range: Personnelle
+    duration: Concentration, jusqu'à 10 minutes
+    materialDescription: null
+    description: Des protections arcaniques vous défendent contre la magie pour toute la durée. Vous bénéficiez de l'Avantage aux jets de sauvegarde contre les sorts et les effets magiques. De plus, si vous réussissez un jet de sauvegarde contre un sort ou un effet magique qui vous ferait normalement subir la moitié des dégâts, vous ne subissez aucun dégât à la place.<br/>

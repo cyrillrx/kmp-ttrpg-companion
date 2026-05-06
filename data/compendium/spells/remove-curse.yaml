@@ -1,0 +1,35 @@
+id: remove-curse
+source: phb_2024
+level: 3
+school: abjuration
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: false
+availableClasses:
+- cleric
+- paladin
+- warlock
+- wizard
+translations:
+  en:
+    name: Remove Curse
+    castingTime: Action
+    range: Touch
+    duration: Instantaneous
+    materialDescription: null
+    description: At your touch, all curses affecting one creature or object end. If
+      the object is a cursed magic item, its curse remains, but the spell breaks its
+      owner's Attunement to the object so it can be removed or discarded.<br/>
+  fr:
+    name: Délivrance des malédictions
+    castingTime: Action
+    range: Contact
+    duration: Instantanée
+    materialDescription: null
+    description: À votre contact, toutes les malédictions affectant une créature ou
+      un objet disparaissent. Si l'objet est un objet magique maudit, sa malédiction
+      demeure, mais le sort brise le lien de son propriétaire avec l'objet, ce qui
+      permet de le retirer ou de l'écarter.<br/>

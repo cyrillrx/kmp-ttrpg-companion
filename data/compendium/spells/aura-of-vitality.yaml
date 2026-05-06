@@ -1,0 +1,34 @@
+id: aura-of-vitality
+source: phb_2024
+level: 3
+school: abjuration
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: false
+  material: false
+availableClasses:
+- cleric
+- druid
+- paladin
+translations:
+  en:
+    name: Aura of Vitality
+    castingTime: Action
+    range: Self
+    duration: Concentration, up to 1 minute
+    materialDescription: null
+    description: An aura radiates from you in a 30-foot Emanation for the duration.
+      When you create the aura and at the start of each of your turns while it persists,
+      you can restore 2d6 Hit Points to one creature in it.<br/>
+  fr:
+    name: Aura de vitalité
+    castingTime: Action
+    range: Personnelle
+    duration: Concentration, jusqu'à 1 minute
+    materialDescription: null
+    description: Une aura rayonne autour de vous sous forme d'Émanation de 9 mètres
+      pour toute la durée du sort. Lorsque vous créez l'aura et au début de chacun
+      de vos tours tant qu'elle persiste, vous pouvez restaurer 2d6 points de vie
+      à une créature qui s'y trouve.<br/>

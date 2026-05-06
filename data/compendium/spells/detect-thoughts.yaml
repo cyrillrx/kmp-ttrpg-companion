@@ -1,0 +1,65 @@
+id: detect-thoughts
+source: phb_2024
+level: 2
+school: divination
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- bard
+- sorcerer
+- wizard
+translations:
+  en:
+    name: Detect Thoughts
+    castingTime: Action
+    range: Self
+    duration: Concentration, up to 1 minute
+    materialDescription: a copper piece
+    description: You activate one of the effects below. Until the spell ends, you
+      can activate either effect as a Magic action on your later turns.<br/><strong>Sense
+      Thoughts</strong>. You sense the presence of thoughts within 30 feet of yourself
+      that belong to creatures that know languages or are telepathic. You don't read
+      the thoughts, but you know that a thinking creature is present.<br/>The spell
+      is blocked by 1 foot of stone, dirt, or wood; 1 inch of metal; or a thin sheet
+      of lead.<br/><strong>Read Thoughts</strong>. Target one creature you can see
+      within 30 feet of yourself or one creature within 30 feet of yourself that you
+      detected with the Sense Thoughts option. You learn what is most on the target's
+      mind right now. If the target doesn't know any languages and isn't telepathic,
+      you learn nothing.<br/>As a Magic action on your next turn, you can try to probe
+      deeper into the target's mind. If you probe deeper, the target makes a Wisdom
+      saving throw. On a failed save, you discern the target's reasoning, emotions,
+      and something that looms large in its mind (such as a worry, love, or hate).
+      On a successful save, the spell ends. Either way, the target knows that you
+      are probing into its mind, and until you shift your attention away from the
+      target's mind, the target can take an action on its turn to make an Intelligence
+      (Arcana) check against your spell save DC, ending the spell on a success.<br/>
+  fr:
+    name: Détection des pensées
+    castingTime: Action
+    range: Personnelle
+    duration: Concentration, jusqu'à 1 minute
+    materialDescription: une pièce de cuivre
+    description: Vous activez l'un des effets ci-dessous. Jusqu'à la fin du sort,
+      vous pouvez activer l'un ou l'autre par une action Magie lors de vos prochains
+      tours.<br/><strong>Perception des pensées</strong>. Vous percevez la présence
+      de pensées appartenant à des créatures qui connaissent des langues ou sont télépathes
+      dans un rayon de 9 mètres. Vous ne lisez pas ces pensées, mais vous savez qu'une
+      créature pensante est présente.<br/>Le sort est bloqué par 30 cm de pierre,
+      de terre ou de bois, par 2,50 cm de métal, ou par une fine feuille de plomb.<br/><strong>Lecture
+      des pensées</strong>. Ciblez une créature que vous pouvez voir dans un rayon
+      de 9 mètres ou une créature dans un rayon de 9 mètres détectée avec l'option
+      Perception des pensées. Vous savez ce qui préoccupe le plus la cible à ce moment
+      précis. Si la cible ne connaît aucune langue et n'est pas télépathe, vous n'apprenez
+      rien.<br/>Par une action Magie lors de votre prochain tour, vous pouvez tenter
+      d'explorer plus profondément l'esprit de la cible. Dans ce cas, la cible effectue
+      un jet de sauvegarde de Sagesse. En cas d'échec, vous discernez le raisonnement
+      et les émotions de la cible, ainsi qu'une préoccupation majeure (comme une inquiétude,
+      de l'amour ou de la haine). En cas de réussite, le sort prend fin. Dans tous
+      les cas, la cible sait que vous sondez son esprit, et tant que vous ne détournez
+      pas votre attention de son esprit, elle peut effectuer un jet d'Intelligence
+      (Arcanes) contre le DD de sauvegarde de votre sort, mettant fin au sort en cas
+      de réussite.<br/>

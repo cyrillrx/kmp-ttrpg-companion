@@ -1,0 +1,36 @@
+id: heal
+source: phb_2024
+level: 6
+school: abjuration
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: false
+availableClasses:
+- cleric
+- druid
+translations:
+  en:
+    name: Heal
+    castingTime: Action
+    range: 60 feet
+    duration: Instantaneous
+    materialDescription: null
+    description: Choose a creature that you can see within range. Positive energy
+      washes through the target, restoring 70 Hit Points. This spell also ends the
+      Blinded, Deafened, and Poisoned conditions on the target.<br/><strong><em>Using
+      a Higher-Level Spell Slot</em></strong>. The healing increases by 10 for each
+      spell slot level above 6.<br/>
+  fr:
+    name: Guérison
+    castingTime: Action
+    range: 18 m
+    duration: Instantanée
+    materialDescription: null
+    description: Choisissez une créature que vous voyez à portée. Une vague d'énergie
+      positive baigne la créature, qui récupère 70 points de vie. Ce sort met également
+      fin aux éventuels états Assourdi, Aveuglé et Empoisonné de la cible.<br/><strong><em>Emplacement
+      de niveau supérieur</em></strong>. Les soins augmentent de 10 pour chaque niveau
+      d'emplacement de sort supérieur à 6.<br/>

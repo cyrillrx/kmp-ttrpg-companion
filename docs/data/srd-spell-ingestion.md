@@ -44,7 +44,7 @@ translations:
     range: 60 feet
     duration: Instantaneous
     materialDescription: null
-    description: |
+    description: |-
       You hurl a bubble of acid. Choose one or two creatures you can see within range.
       If you choose two, they must be within 5 feet of each other.
       A target must succeed on a Dexterity saving throw or take **1d6 acid damage**.
@@ -54,7 +54,7 @@ translations:
     range: 18 mètres
     duration: instantanée
     materialDescription: null
-    description: |
+    description: |-
       Vous lancez une bulle d'acide. Choisissez une ou deux créatures visibles dans la portée.
       Si vous en choisissez deux, elles doivent se trouver à 1,50 mètre l'une de l'autre.
 ```
@@ -66,7 +66,14 @@ translations:
 - `translations.{locale}.name` — when multiple official names exist (e.g. old and new edition), separate them with ` / ` (e.g. `"Immobilisation une personne / un humanoïde"`). Never use `|` as a separator.
 - `translations.{locale}.range` — locale-specific raw text (English uses feet, French uses metres)
 - `translations.{locale}.materialDescription` — string or `null`; always present, never omitted
-- `translations.{locale}.description` — HTML (Phase 1); use `|` block scalar for multiline content
+- `translations.{locale}.description` — HTML (Phase 1); use `|-` block scalar (strip chomping, no trailing newline)
+
+### Empty Descriptions
+
+When a description field is empty after parsing the source:
+
+- **One locale missing** — translate from the available locale. Both `en` and `fr` are required; do not leave a description field empty.
+- **Both locales missing** — stop and ask the user to provide an alternative source (e.g. wikidot, D&D Beyond, official PDF) before writing the file.
 
 ### Spell Checklist
 

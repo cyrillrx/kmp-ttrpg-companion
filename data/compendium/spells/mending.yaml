@@ -1,0 +1,40 @@
+id: mending
+source: phb_2024
+level: 0
+school: transmutation
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- bard
+- cleric
+- druid
+- sorcerer
+- wizard
+translations:
+  en:
+    name: Mending
+    castingTime: 1 minute
+    range: Touch
+    duration: Instantaneous
+    materialDescription: two lodestones
+    description: This spell repairs a single break or tear in an object you touch,
+      such as a broken chain link, two halves of a broken key, a torn cloak, or a
+      leaking wineskin. As long as the break or tear is no larger than 1 foot in any
+      dimension, you mend it, leaving no trace of the former damage.<br/>This spell
+      can physically repair a magic item, but it can't restore magic to such an object.<br/>
+  fr:
+    name: Réparation
+    castingTime: 1 minute
+    range: Contact
+    duration: Instantanée
+    materialDescription: deux magnétites
+    description: Ce sort répare une cassure ou une déchirure sur un objet que vous
+      touchez, comme un maillon de chaîne brisé, les deux moitiés d'une clé cassée,
+      une cape déchirée ou une outre qui fuit. Tant que la déchirure ne dépasse pas
+      30 cm dans une dimension, vous la réparez et ne laissez aucune trace du dommage
+      initial.<br/>Ce sort peut réparer physiquement un objet magique, mais il ne
+      peut pas restaurer sa magie.<br/>

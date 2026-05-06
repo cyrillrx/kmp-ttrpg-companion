@@ -1,0 +1,31 @@
+id: antipathy-sympathy
+source: phb_2024
+level: 8
+school: enchantment
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- bard
+- druid
+- wizard
+translations:
+  en:
+    name: Antipathy/Sympathy
+    castingTime: 1 hour
+    range: 60 feet
+    duration: 10 days
+    materialDescription: a mix of vinegar and honey
+    description: |-
+      As you cast the spell, choose whether it creates antipathy or sympathy, and target one creature or object that is Huge or smaller. Then specify a kind of creature, such as red dragons, goblins, or vampires. A creature of the chosen kind makes a Wisdom saving throw when it comes within 120 feet of the target. Your choice of antipathy or sympathy determines what happens to a creature when it fails that save:<br/><strong>Antipathy</strong>. The creature has the Frightened condition. The Frightened creature must use its movement on its turns to get as far away as possible from the target, moving by the safest route.<br/><strong>Sympathy</strong>. The creature has the Charmed condition. The Charmed creature must use its movement on its turns to get as close as possible to the target, moving by the safest route. If the creature is within 5 feet of the target, the creature can't willingly move away. If the target damages the Charmed creature, that creature can make a Wisdom saving throw to end the effect, as described below.<br/><strong><em>Ending the Effect</em></strong>. If the Frightened or Charmed creature ends its turn more than 120 feet away from the target, the creature makes a Wisdom saving throw. On a successful save, the creature is no longer affected by the target. A creature that successfully saves against this effect is immune to it for 1 minute, after which it can be affected again.<br/>
+  fr:
+    name: Aversion/attirance
+    castingTime: 1 heure
+    range: 18 m
+    duration: 10 jours
+    materialDescription: un mélange de vinaigre et de miel
+    description: |-
+      À l'incantation, choisissez si le sort produit de l'aversion ou de l'attirance, et ciblez une créature ou un objet de taille TG ou inférieure. Spécifiez alors une catégorie de créatures, comme les dragons rouges, les gobelins ou les vampires. Toute créature de la catégorie désignée effectue un jet de sauvegarde de Sagesse quand elle entre dans un rayon de 36 m de la cible. Ce qui arrive à une telle créature si elle rate son JdS dépend de votre choix : attirance ou aversion.<br/><strong>Attirance</strong>. La créature subit l'état Charmé. La créature Charmée doit consacrer le déplacement de ses tours à se rapprocher autant que possible de la cible par le chemin le plus sûr. Si la créature se trouve dans un rayon de 1,50 m de la cible, elle ne peut s'en éloigner volontairement. Si la cible inflige des dégâts à la créature Charmée, cette dernière peut réitérer le JdS Sagesse pour mettre un terme à l'effet, comme décrit ci-après.<br/><strong>Aversion</strong>. La créature subit l'état Effrayé. La créature Effrayée doit consacrer le déplacement de ses tours à s'éloigner autant que possible de la cible par le chemin le plus sûr.<br/><strong><em>Mettre fin à l'effet</em></strong>. Une créature ainsi Charmée ou Effrayée qui termine son tour au-delà de 36 m de la cible effectue un jet de sauvegarde de Sagesse. En cas de réussite, la créature n'est plus affectée par la cible. Une créature qui réussit son JdS contre cet effet est immunisée contre celui-ci pendant 1 minute, après quoi elle peut de nouveau être affectée.<br/>

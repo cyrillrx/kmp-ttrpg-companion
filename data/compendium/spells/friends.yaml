@@ -1,0 +1,43 @@
+id: friends
+source: phb_2024
+level: 0
+school: enchantment
+concentration: true
+ritual: false
+components:
+  verbal: false
+  somatic: true
+  material: true
+availableClasses:
+- bard
+- sorcerer
+- warlock
+- wizard
+translations:
+  en:
+    name: Friends
+    castingTime: Action
+    range: 10 feet
+    duration: Concentration, up to 1 minute
+    materialDescription: some makeup
+    description: You magically emanate a sense of friendship toward one creature you
+      can see within range. The target must succeed on a Wisdom saving throw or have
+      the Charmed condition for the duration. The target succeeds automatically if
+      it isn't a Humanoid, if you're fighting it, or if you have cast this spell on
+      it within the past 24 hours.<br/>The spell ends early if the target takes damage
+      or if you make an attack roll, deal damage, or force anyone to make a saving
+      throw. When the spell ends, the target knows it was Charmed by you.<br/>
+  fr:
+    name: Amis
+    castingTime: Action
+    range: 3 m
+    duration: Concentration, jusqu'à 1 minute
+    materialDescription: un peu de maquillage
+    description: Vous émettez magiquement un sentiment d'amitié envers une créature
+      que vous pouvez voir à portée. La cible doit réussir un jet de sauvegarde de
+      Sagesse ou subir l'état Charmé pendant toute la durée du sort. La cible réussit
+      automatiquement si elle n'est pas humanoïde, si vous la combattez ou si vous
+      avez lancé ce sort sur elle au cours des dernières 24 heures.<br/>Le sort prend
+      fin prématurément si la cible subit des dégâts, si vous effectuez un jet d'attaque,
+      infligez des dégâts ou forcez quelqu'un à effectuer un jet de sauvegarde. À
+      la fin du sort, la cible sait que vous l'avez charmée.<br/>

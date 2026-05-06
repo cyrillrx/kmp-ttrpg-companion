@@ -1,0 +1,40 @@
+id: dissonant-whispers
+source: phb_2024
+level: 1
+school: enchantment
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: false
+  material: false
+availableClasses:
+- bard
+translations:
+  en:
+    name: Dissonant Whispers
+    castingTime: Action
+    range: 60 feet
+    duration: Instantaneous
+    materialDescription: null
+    description: One creature of your choice that you can see within range hears a
+      discordant melody in its mind. The target makes a Wisdom saving throw. On a
+      failed save, it takes 3d6 Psychic damage and must immediately use its Reaction,
+      if available, to move as far away from you as it can, using the safest route.
+      On a successful save, the target takes half as much damage only.<br/><strong><em>Using
+      a Higher-Level Spell Slot</em></strong>. The damage increases by 1d6 for each
+      spell slot level above 1.<br/>
+  fr:
+    name: Murmures dissonants
+    castingTime: Action
+    range: 18 m
+    duration: Instantanée
+    materialDescription: null
+    description: Une créature de votre choix que vous pouvez voir portée entend une
+      mélodie discordante dans son esprit. La cible effectue un jet de sauvegarde
+      de Sagesse. En cas d'échec, elle subit 3d6 dégâts psychiques et doit immédiatement
+      utiliser sa Réaction, si elle en a une, pour s'éloigner le plus loin possible
+      de vous, en empruntant le chemin le plus sûr. En cas de réussite, la cible subit
+      seulement la moitié des dégâts.<br/><strong><em>Emplacement de niveau supérieur</em></strong>.
+      Les dégâts augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur
+      à 1.<br/>

@@ -1,0 +1,29 @@
+id: blade-of-disaster
+source: heroes_of_faerun
+level: 9
+school: conjuration
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: false
+availableClasses:
+- sorcerer
+- warlock
+- wizard
+translations:
+  en:
+    name: Blade of Disaster
+    castingTime: Bonus Action
+    range: 60 feet
+    duration: Concentration, up to 1 minute
+    materialDescription: null
+    description: You create a 3-foot-long blade-shaped planar rift that lasts for the duration. The rift appears within range in a space of your choice, and you can immediately make up to two melee spell attacks, each one against a creature or object within 5 feet of the rift. On a hit, the target takes 10d6 Force damage. This attack scores a Critical Hit if the number on the d20 is 18 or higher.<br/>As a Bonus Action on your later turns, you can move the rift up to 60 feet and repeat the two attacks against a creature or an object within 5 feet of it. You can direct the attacks at the same target or at different ones.<br/>The blade can harmlessly pass through any barrier, including ones created by spells like Wall of Force.<br/>
+  fr:
+    name: Lame de désastre
+    castingTime: Action bonus
+    range: 18 m
+    duration: Concentration, jusqu'à 1 minute
+    materialDescription: null
+    description: Vous créez une faille planaire en forme de lame d'1 mètre de long, qui persiste pour toute la durée. La faille apparaît à portée dans un espace de votre choix, et vous pouvez immédiatement effectuer jusqu'à deux attaques de sort au corps à corps, chacune contre une créature ou un objet situé à 1,50 mètre ou moins de la faille. En cas de coup, la cible subit 10d6 dégâts de force. Cette attaque est un coup critique si le résultat du d20 est 18 ou plus.<br/>Au cours de vos tours suivants, vous pouvez utiliser une action bonus pour déplacer la faille de 18 mètres et répéter les deux attaques contre une créature ou un objet situé à 1,50 mètre ou moins. Vous pouvez diriger les attaques vers la même cible ou vers des cibles différentes.<br/>La lame peut traverser sans risque n'importe quelle barrière, y compris celles créées par des sorts tels que Mur de force.<br/>

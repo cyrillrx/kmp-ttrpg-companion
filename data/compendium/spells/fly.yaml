@@ -1,0 +1,38 @@
+id: fly
+source: phb_2024
+level: 3
+school: transmutation
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- sorcerer
+- warlock
+- wizard
+translations:
+  en:
+    name: Fly
+    castingTime: Action
+    range: Touch
+    duration: Concentration, up to 10 minutes
+    materialDescription: a feather
+    description: You touch a willing creature. For the duration, the target gains
+      a Fly Speed of 60 feet and can hover. When the spell ends, the target falls
+      if it is still aloft unless it can stop the fall.<br/><strong><em>Using a Higher-Level
+      Spell Slot</em></strong>. You can target one additional creature for each spell
+      slot level above 3.<br/>
+  fr:
+    name: Vol
+    castingTime: Action
+    range: Contact
+    duration: Concentration, jusqu'à 10 minutes
+    materialDescription: une plume
+    description: Vous touchez une créature consentante. Pendant la durée du sort,
+      la cible gagne une Vitesse de vol de 18 mètres et réaliser un vol stationnaire.
+      À la fin du sort, la cible tombe si elle est encore en l'air, à moins qu'elle
+      ne puisse arrêter sa chute.<br/><strong><em>Emplacement de niveau supérieur</em></strong>.
+      Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement
+      de sort supérieur à 3.<br/>

@@ -1,0 +1,37 @@
+id: steel-wind-strike
+source: phb_2024
+level: 5
+school: conjuration
+concentration: false
+ritual: false
+components:
+  verbal: false
+  somatic: true
+  material: true
+availableClasses:
+- ranger
+- wizard
+translations:
+  en:
+    name: Steel Wind Strike
+    castingTime: Action
+    range: 30 feet
+    duration: Instantaneous
+    materialDescription: a Melee weapon worth 1+ SP
+    description: You flourish the weapon used in the casting and then vanish to strike
+      like the wind. Choose up to five creatures you can see within range. Make a
+      melee spell attack against each target. On a hit, a target takes 6d10 Force
+      damage.<br/>You then teleport to an unoccupied space you can see within 5 feet
+      of one of the targets.<br/>
+  fr:
+    name: Frappe du vent d'acier
+    castingTime: Action
+    range: 9 m
+    duration: Instantanée
+    materialDescription: une arme de corps à corps d'une valeur minimale de 1 pa
+    description: Vous brandissez l'arme utilisée pour l'incantation, puis disparaissez
+      pour frapper comme le vent. Choisissez jusqu'à cinq créatures que vous pouvez
+      voir à portée. Effectuez une attaque de sort au corps à corps contre chaque
+      cible. En cas de succès, la cible subit 6d10 dégâts de force. Vous vous téléportez
+      ensuite dans un espace libre que vous pouvez voir dans un rayon de 1,50 mètre
+      autour de l'une des cibles.<br/>

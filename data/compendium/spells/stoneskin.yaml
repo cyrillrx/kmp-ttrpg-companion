@@ -1,0 +1,33 @@
+id: stoneskin
+source: phb_2024
+level: 4
+school: transmutation
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- druid
+- ranger
+- sorcerer
+- wizard
+translations:
+  en:
+    name: Stoneskin
+    castingTime: Action
+    range: Touch
+    duration: Concentration, up to 1 hour
+    materialDescription: diamond dust worth 100+ GP, which the spell consumes
+    description: Until the spell ends, one willing creature you touch has Resistance
+      to Bludgeoning, Piercing, and Slashing damage.<br/>
+  fr:
+    name: Peau de pierre
+    castingTime: Action
+    range: Contact
+    duration: Concentration, jusqu'à 1 heure
+    materialDescription: poudre de diamant d'une valeur minimale de 100 po, que le
+      sort consomme
+    description: Jusqu'à la fin du sort, une créature consentante que vous touchez
+      obtient la résistance aux dégâts contondants, perforants et tranchants.<br/>

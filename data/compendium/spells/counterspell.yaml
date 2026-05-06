@@ -1,0 +1,40 @@
+id: counterspell
+source: phb_2024
+level: 3
+school: abjuration
+concentration: false
+ritual: false
+components:
+  verbal: false
+  somatic: true
+  material: false
+availableClasses:
+- sorcerer
+- warlock
+- wizard
+translations:
+  en:
+    name: Counterspell
+    castingTime: Reaction, which you take when you see a creature within 60 feet of
+      yourself casting a spell with Verbal, Somatic, or Material components
+    range: 60 feet
+    duration: Instantaneous
+    materialDescription: null
+    description: You attempt to interrupt a creature in the process of casting a spell.
+      The creature must make a Constitution saving throw. On a failed save, the spell
+      dissipates with no effect, and the action, Bonus Action, or Reaction used to
+      cast it is wasted. If that spell was cast with a spell slot, the slot isn't
+      expended.<br/>
+  fr:
+    name: Contresort
+    castingTime: Réaction, que vous prenez lorsque vous voyez une créature dans un
+      rayon de 18 mètres lancer un sort avec des composantes verbales, somatiques
+      ou matérielles
+    range: 18 m
+    duration: Instantanée
+    materialDescription: null
+    description: Vous tentez d'interrompre une créature en train de lancer un sort.
+      La créature doit effectuer un jet de sauvegarde de Constitution. En cas d'échec,
+      le sort se dissipe sans effet, et l'action, l'action Bonus ou la Réaction utilisée
+      pour le lancer est perdue. Si ce sort a été lancé avec un emplacement de sort,
+      celui-ci n'est pas dépensé.<br/>

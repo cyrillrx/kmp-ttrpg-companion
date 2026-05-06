@@ -1,0 +1,47 @@
+id: phantasmal-killer
+source: phb_2024
+level: 4
+school: illusion
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: false
+availableClasses:
+- bard
+- wizard
+translations:
+  en:
+    name: Phantasmal Killer
+    castingTime: Action
+    range: 120 feet
+    duration: Concentration, up to 1 minute
+    materialDescription: null
+    description: You tap into the nightmares of a creature you can see within range
+      and create an illusion of its deepest fears, visible only to that creature.
+      The target makes a Wisdom saving throw. On a failed save, the target takes 4d10
+      Psychic damage and has Disadvantage on ability checks and attack rolls for the
+      duration. On a successful save, the target takes half as much damage, and the
+      spell ends.<br/>For the duration, the target makes a Wisdom saving throw at
+      the end of each of its turns. On a failed save, it takes the Psychic damage
+      again. On a successful save, the spell ends.<br/><strong><em>Using a Higher-Level
+      Spell Slot</em></strong>. The damage increases by 1d10 for each spell slot level
+      above 4.<br/>
+  fr:
+    name: Assassin imaginaire
+    castingTime: Action
+    range: 36 m
+    duration: Concentration, jusqu'à 1 minute
+    materialDescription: null
+    description: Vous sondez les cauchemars d'une créature que vous pouvez voir à
+      portée et créez une illusion de ses peurs les plus profondes, visible uniquement
+      par cette créature. La cible effectue un jet de sauvegarde de Sagesse. En cas
+      d'échec, elle subit 4d10 dégâts psychiques et subit un Désavantage aux jets
+      de caractéristique et d'attaque pendant toute la durée du sort. En cas de réussite,
+      elle subit seulement la moitié des dégâts et le sort prend fin.<br/>Pendant
+      toute la durée du sort, la cible effectue un jet de sauvegarde de Sagesse à
+      la fin de chacun de ses tours. En cas d'échec, elle subit à nouveau les dégâts
+      psychiques. En cas de réussite, le sort prend fin.<br/><strong><em>Emplacement
+      de niveau supérieur</em></strong>. Les dégâts augmentent de 1d10 pour chaque
+      niveau d'emplacement de sort supérieur à 4.<br/>

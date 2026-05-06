@@ -1,0 +1,35 @@
+id: word-of-radiance
+source: phb_2024
+level: 0
+school: evocation
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: false
+  material: true
+availableClasses:
+- cleric
+translations:
+  en:
+    name: Word of Radiance
+    castingTime: Action
+    range: Self
+    duration: Instantaneous
+    materialDescription: a sunburst token
+    description: Burning radiance erupts from you in a 5-foot Emanation. Each creature
+      of your choice that you can see in it must succeed on a Constitution saving
+      throw or take 1d6 Radiant damage.<br/><strong><em>Cantrip Upgrade</em></strong>.
+      The damage increases by 1d6 when you reach levels 5 (2d6), 11 (3d6), and 17
+      (4d6).<br/>
+  fr:
+    name: Mot de radiance
+    castingTime: Action
+    range: Personnelle
+    duration: Instantanée
+    materialDescription: un symbole en forme de soleil
+    description: Une radiance brûlante jaillit de vous sous forme d'Émanation de 1,50
+      mètre. Chaque créature de votre choix que vous pouvez voir doit réussir un jet
+      de sauvegarde de Constitution ou subir 1d6 dégâts radiants.<br/><strong><em>Amélioration
+      de sort mineur</em></strong>. Les dégâts augmentent de 1d6 aux niveaux 5 (2d6),
+      11 (3d6) et 17 (4d6).<br/>

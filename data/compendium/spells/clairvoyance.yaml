@@ -1,0 +1,49 @@
+id: clairvoyance
+source: phb_2024
+level: 3
+school: divination
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- bard
+- cleric
+- sorcerer
+- wizard
+translations:
+  en:
+    name: Clairvoyance
+    castingTime: 10 minutes
+    range: 1 mile
+    duration: Concentration, up to 10 minutes
+    materialDescription: a focus worth 100+ GP, either a jeweled horn for hearing
+      or a glass eye for seeing
+    description: You create an Invisible sensor within range in a location familiar
+      to you (a place you have visited or seen before) or in an obvious location that
+      is unfamiliar to you (such as behind a door, around a corner, or in a grove
+      of trees). The intangible, invulnerable sensor remains in place for the duration.<br/>When
+      you cast the spell, choose seeing or hearing. You can use the chosen sense through
+      the sensor as if you were in its space. As a Bonus Action, you can switch between
+      seeing and hearing.<br/>A creature that sees the sensor (such as a creature
+      benefiting from <em><a href="./see-invisibility">See Invisibility</a></em> or
+      Truesight) sees a luminous orb about the size of your fist.<br/>
+  fr:
+    name: Clairvoyance
+    castingTime: 10 minutes
+    range: 1,5 km
+    duration: Concentration, jusqu'à 10 minutes
+    materialDescription: un focaliseur d'une valeur minimale de 100 po ; une corne
+      ornée pour écouter ou un oeil de verre pour observer
+    description: Vous créez un capteur invisible à portée, dans un lieu familier (un
+      endroit que vous avez déjà visité ou vu) ou dans un lieu évident qui vous est
+      inconnu (comme derrière une porte, au coin d'un couloir ou dans un bosquet).
+      Le capteur intangible et invulnérable reste en place pendant toute la durée
+      du sort.<br/>Lorsque vous lancez le sort, choisissez la vue ou l'ouïe. Vous
+      pouvez utiliser le sens choisi à travers le capteur comme si vous étiez dans
+      son espace. Par une action Bonus, vous pouvez alterner entre la vue et l'ouïe.<br/>Une
+      créature qui voit le capteur (comme une créature bénéficiant de <em><a href="./fr/detection-de-l-invisibilite">détection
+      de l'invisibilité</a></em> ou de Vision véritable) voit un orbe lumineux de
+      la taille de votre poing.<br/>

@@ -1,0 +1,33 @@
+id: locate-animals-or-plants
+source: phb_2024
+level: 2
+school: divination
+concentration: false
+ritual: true
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- bard
+- druid
+- ranger
+translations:
+  en:
+    name: Locate Animals or Plants
+    castingTime: Action or Ritual
+    range: Self
+    duration: Instantaneous
+    materialDescription: fur from a bloodhound
+    description: Describe or name a specific kind of Beast, Plant creature, or nonmagical
+      plant. You learn the direction and distance to the closest creature or plant
+      of that kind within 5 miles, if any are present.<br/>
+  fr:
+    name: Localisation d'animaux ou de plantes
+    castingTime: Action ou Rituel
+    range: Personnelle
+    duration: Instantanée
+    materialDescription: une touffe de poils de limier
+    description: Décrivez ou nommez une créature de type bête ou plante, ou une plante
+      non magique. Vous connaissez la direction et la distance entre vous et la créature
+      ou plante correspondante la plus proche dans un rayon de 7,5 km, le cas échéant.<br/>

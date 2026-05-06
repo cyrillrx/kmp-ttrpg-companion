@@ -1,0 +1,65 @@
+id: alter-self
+source: phb_2024
+level: 2
+school: transmutation
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: false
+availableClasses:
+- sorcerer
+- wizard
+translations:
+  en:
+    name: Alter Self
+    castingTime: Action
+    range: Self
+    duration: Concentration, up to 1 hour
+    materialDescription: null
+    description: You alter your physical form. Choose one of the following options.
+      Its effects last for the duration, during which you can take a Magic action
+      to replace the option you chose with a different one.<br/><strong>Aquatic Adaptation</strong>.
+      You sprout gills and grow webs between your fingers. You can breathe underwater
+      and gain a Swim Speed equal to your Speed.<br/><strong>Change Appearance</strong>.
+      You alter your appearance. You decide what you look like, including your height,
+      weight, facial features, sound of your voice, hair length, coloration, and other
+      distinguishing characteristics. You can make yourself appear as a member of
+      another species, though none of your statistics change. You can't appear as
+      a creature of a different size, and your basic shape stays the same; if you're
+      bipedal, you can't use this spell to become quadrupedal, for instance. For the
+      duration, you can take a Magic action to change your appearance in this way
+      again.<br/><strong>Natural Weapons</strong>. You grow claws (Slashing), fangs
+      (Piercing), horns (Piercing), or hooves (Bludgeoning). When you use your Unarmed
+      Strike to deal damage with that new growth, it deals 1d6 damage of the type
+      in parentheses instead of dealing the normal damage for your Unarmed Strike,
+      and you use your spellcasting ability modifier for the attack and damage rolls
+      rather than using Strength.<br/>
+  fr:
+    name: Modification d'apparence
+    castingTime: Action
+    range: Personnelle
+    duration: Concentration, jusqu'à 1 heure
+    materialDescription: null
+    description: Vous modifiez votre forme physique. Choisissez l'une des options
+      suivantes. Ses effets durent toute la durée du sort, pendant laquelle vous pouvez
+      prendre une action Magie pour remplacer l'option choisie par une autre.<br/><strong>Adaptation
+      aquatique</strong>. Vous vous faites pousser des branchies et vos mains deviennent
+      palmée. Vous pouvez respirer sous l'eau et obtenez une Vitesse de nage égale
+      à votre Vitesse.<br/><strong>Changement d'aspect</strong>. Vous modifiez votre
+      aspect. Vous décidez de votre apparence, notamment de votre taille, de votre
+      poids, des traits de votre visage, du son de votre voix, de la longueur de vos
+      cheveux, de votre couleur de peau et d'autres caractéristiques distinctives.
+      Vous pouvez vous faire passer pour un membre d'une autre espèce, mais vos statistiques
+      restent inchangées. Vous ne pouvez pas apparaître comme une créature d'une taille
+      différente et votre silhouette reste la même ; par exemple, si vous êtes bipède,
+      vous ne pouvez pas utiliser ce sort pour devenir quadrupède. Pendant la durée
+      du sort, vous pouvez prendre une action Magie pour modifier à nouveau votre
+      apparence de cette manière.<br/><strong>Armes naturelles</strong>. Vous faites
+      pousser des griffes (tranchants), des crocs (perforants), des cornes (perforants)
+      ou des sabots (contondants). Lorsque vous utilisez votre Frappe à mains nues
+      pour infliger des dégâts avec ces nouveaux appendices, celle-ci inflige 1d6
+      dégâts du type indiqué entre parenthèses au lieu des dégâts normaux de votre
+      Frappe à mains nues, et vous utilisez votre modificateur de caractéristique
+      d'invocation pour les jets d'attaque et de dégâts plutôt que la Force.<br/>

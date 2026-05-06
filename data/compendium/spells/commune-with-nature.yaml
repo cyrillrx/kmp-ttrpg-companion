@@ -1,0 +1,51 @@
+id: commune-with-nature
+source: phb_2024
+level: 5
+school: divination
+concentration: false
+ritual: true
+components:
+  verbal: true
+  somatic: true
+  material: false
+availableClasses:
+- druid
+- ranger
+translations:
+  en:
+    name: Commune with Nature
+    castingTime: 1 minute or Ritual
+    range: Self
+    duration: Instantaneous
+    materialDescription: null
+    description: You commune with nature spirits and gain knowledge of the surrounding
+      area. In the outdoors, the spell gives you knowledge of the area within 3 miles
+      of you. In caves and other natural underground settings, the radius is limited
+      to 300 feet. The spell doesn't function where nature has been replaced by construction,
+      such as in castles and settlements.<br/>Choose three of the following facts;
+      you learn those facts as they pertain to the spell's area:<br/>• Locations of
+      settlements<br/>• Locations of portals to other planes of existence<br/>• Location
+      of one Challenge Rating 10+ creature (DM's choice) that is a Celestial, an Elemental,
+      a Fey, a Fiend, or an Undead<br/>• The most prevalent kind of plant, mineral,
+      or Beast (you choose which to learn)<br/>• Locations of bodies of water<br/>For
+      example, you could determine the location of a powerful monster in the area,
+      the locations of bodies of water, and the locations of any towns.<br/>
+  fr:
+    name: Communion avec la nature
+    castingTime: 1 minute ou Rituel
+    range: Personnelle
+    duration: Instantanée
+    materialDescription: null
+    description: Vous communiez avec les esprits de la nature et acquérez des connaissances
+      sur les environs. En extérieur, le sort vous permet de connaître la zone dans
+      un rayon de 4,5 km autour de vous. Dans les grottes et autres environnements
+      souterrains naturels, le rayon est limité à 90 mètres. Le sort ne fonctionne
+      pas là où la nature a été remplacée par des constructions, comme dans les châteaux
+      et les bourgs.<br/>Choisissez trois des informations suivantes ; vous en prendrez
+      connaissance en fonction de la zone d'effet du sort :<br/>• Position des peuplements<br/>•
+      Position des portails vers d'autres plans d'existence<br/>• Position d'une créature
+      de FP 10 ou plus (au choix du MD) et du type Céleste, Élémentaire, Fée, Fiélon
+      ou Mort-vivant<br/>• L'espèce de plante, minéral ou bête la plus répandue (choisissez
+      celle que vous souhaitez apprendre)<br/>• Position des étendues d'eau<br/>Par
+      exemple, vous pouvez déterminer l'emplacement d'un monstre puissant dans la
+      zone, l'emplacement des étendues d'eau et l'emplacement des peuplements.<br/>

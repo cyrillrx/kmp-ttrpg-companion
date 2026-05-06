@@ -1,0 +1,37 @@
+id: continual-flame
+source: phb_2024
+level: 2
+school: evocation
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- cleric
+- druid
+- wizard
+translations:
+  en:
+    name: Continual Flame
+    castingTime: Action
+    range: Touch
+    duration: Until dispelled
+    materialDescription: ruby dust worth 50+ GP, which the spell consumes
+    description: A flame springs from an object that you touch. The effect casts Bright
+      Light in a 20-foot radius and Dim Light for an additional 20 feet. It looks
+      like a regular flame, but it creates no heat and consumes no fuel. The flame
+      can be covered or hidden but not smothered or quenched.<br/>
+  fr:
+    name: Flamme éternelle
+    castingTime: Action
+    range: Contact
+    duration: Jusqu'à dissipation
+    materialDescription: poudre de rubis d'une valeur minimale de 50 po, que le sort
+      consomme
+    description: Une flamme jaillit d'un objet que vous touchez. L'effet projette
+      une Lumière vive sur un rayon de 6 mètres et une Lumière faible sur 6 mètres
+      supplémentaires. Elle ressemble à une flamme normale, mais ne produit pas de
+      chaleur et ne consomme pas de combustible. La flamme peut être recouverte ou
+      dissimulée, mais elle ne peut être ni étouffée ni éteinte.<br/>
