@@ -519,7 +519,7 @@
         "range": "500 feet",
         "duration": "Concentration, up to 10 minutes",
         "materialDescription": null,
-        "description": ""
+        "description": "You create linked teleportation portals. Choose two Large, unoccupied spaces on the ground that you can see, one space within range and the other one within 10 feet of you. A circular portal opens in each of those spaces and remains for the duration.<br/>The portals are two-dimensional glowing rings filled with mist that blocks sight. They hover inches from the ground and are perpendicular to it.<br/>A portal is open on only one side (you choose which). Anything entering the open side of a portal exits from the open side of the other portal as if the two were adjacent to each other. As a Bonus Action, you can change the facing of the open sides.<br/>"
       },
       "fr": {
         "name": "Portail arcanique",
@@ -527,7 +527,7 @@
         "range": "90 m",
         "duration": "Concentration, jusqu'à 10 minutes",
         "materialDescription": null,
-        "description": ""
+        "description": "Vous créez des portails de téléportation reliés entre eux. Choisissez deux espaces de taille G inoccupés sur le sol que vous pouvez voir, l'un à portée et l'autre à 3 mètres ou moins de vous. Un portail circulaire s'ouvre dans chacun de ces espaces et demeure pour toute la durée.<br/>Les portails sont des anneaux lumineux bidimensionnels remplis d'un brouillard qui bloque la vue. Ils flottent à quelques centimètres du sol et lui sont perpendiculaires.<br/>Un portail n'est ouvert que d'un seul côté (vous choisissez lequel). Tout ce qui entre par le côté ouvert d'un portail sort par le côté ouvert de l'autre portail, comme s'ils étaient adjacents. En tant qu'action bonus, vous pouvez modifier l'orientation des côtés ouverts.<br/>"
       }
     }
   },
@@ -906,7 +906,7 @@
         "range": "60 feet",
         "duration": "Instantaneous",
         "materialDescription": null,
-        "description": ""
+        "description": "You ward yourself against destructive energy, reducing the damage taken by 4d6 plus your spellcasting ability modifier.<br/>If the triggering damage was from a creature within range, you can force the creature to make a Constitution saving throw. The creature takes 4d6 Force damage on a failed save or half as much damage on a successful one.<br/><strong>Using a Higher-Level Spell Slot.</strong> The damage reduction and Force damage from this spell both increase by 1d6 for every spell slot level above 4.<br/>"
       },
       "fr": {
         "name": "Contrecoup",
@@ -914,7 +914,7 @@
         "range": "18 m",
         "duration": "Instantanée",
         "materialDescription": null,
-        "description": ""
+        "description": "Vous vous protégez contre une énergie destructrice, réduisant les dégâts subis de 4d6 plus votre modificateur de caractéristique d'incantation.<br/>Si les dégâts déclencheurs provenaient d'une créature à portée, vous pouvez la forcer à effectuer un jet de sauvegarde de Constitution. La créature subit 4d6 dégâts de force en cas d'échec, ou la moitié de ces dégâts en cas de réussite.<br/><strong>Emplacement de niveau supérieur.</strong> La réduction de dégâts et les dégâts de force augmentent chacun de 1d6 par niveau d'emplacement au-delà du 4e.<br/>"
       }
     }
   },
@@ -1295,7 +1295,7 @@
         "range": "60 feet",
         "duration": "Concentration, up to 1 minute",
         "materialDescription": null,
-        "description": ""
+        "description": "You create a 3-foot-long blade-shaped planar rift that lasts for the duration. The rift appears within range in a space of your choice, and you can immediately make up to two melee spell attacks, each one against a creature or object within 5 feet of the rift. On a hit, the target takes 10d6 Force damage. This attack scores a Critical Hit if the number on the d20 is 18 or higher.<br/>As a Bonus Action on your later turns, you can move the rift up to 60 feet and repeat the two attacks against a creature or an object within 5 feet of it. You can direct the attacks at the same target or at different ones.<br/>The blade can harmlessly pass through any barrier, including ones created by spells like Wall of Force.<br/>"
       },
       "fr": {
         "name": "Lame de désastre",
@@ -1303,7 +1303,7 @@
         "range": "18 m",
         "duration": "Concentration, jusqu'à 1 minute",
         "materialDescription": null,
-        "description": ""
+        "description": "Vous créez une faille planaire en forme de lame d'1 mètre de long, qui persiste pour toute la durée. La faille apparaît à portée dans un espace de votre choix, et vous pouvez immédiatement effectuer jusqu'à deux attaques de sort au corps à corps, chacune contre une créature ou un objet situé à 1,50 mètre ou moins de la faille. En cas de coup, la cible subit 10d6 dégâts de force. Cette attaque est un coup critique si le résultat du d20 est 18 ou plus.<br/>Au cours de vos tours suivants, vous pouvez utiliser une action bonus pour déplacer la faille de 18 mètres et répéter les deux attaques contre une créature ou un objet situé à 1,50 mètre ou moins. Vous pouvez diriger les attaques vers la même cible ou vers des cibles différentes.<br/>La lame peut traverser sans risque n'importe quelle barrière, y compris celles créées par des sorts tels que Mur de force.<br/>"
       }
     }
   },
@@ -1616,7 +1616,7 @@
         "range": "Self",
         "duration": "Concentration, up to 10 minutes",
         "materialDescription": null,
-        "description": ""
+        "description": "Thunderous reverberations fill a 10-foot Emanation originating from you for the duration. Whenever the Emanation enters a creature's space and whenever a creature enters the Emanation or ends its turn there, the creature makes a Constitution saving throw. On a failed save, the creature takes 3d6 Thunder damage and has the Deafened condition until the start of your next turn. On a successful save, the creature takes half as much damage only. A creature makes this save only once per turn. When you cast this spell, you can designate creatures to be unaffected by it.<br/>In addition, you have Resistance to Thunder damage, and ranged attack rolls against you are made with Disadvantage.<br/><strong>Using a Higher-Level Spell Slot.</strong> The damage increases by 1d6 for each spell slot level above 3.<br/>"
       },
       "fr": {
         "name": "Bouclier cacophonique",
@@ -1624,7 +1624,7 @@
         "range": "Personnelle",
         "duration": "Concentration, jusqu'à 10 minutes",
         "materialDescription": null,
-        "description": ""
+        "description": "Des vibrations tonnantes remplissent une Émanation de 3 mètres autour de vous pour toute la durée. Lorsque l'Émanation pénètre dans l'espace d'une créature et lorsqu'une créature entre dans l'Émanation ou y termine son tour, elle effectue un jet de sauvegarde de Constitution. En cas d'échec, la créature subit 3d6 dégâts de tonnerre et subit l'état Assourdi jusqu'au début de votre prochain tour. En cas de réussite, la créature ne subit que la moitié de ces dégâts. Une créature n'effectue ce jet de sauvegarde qu'une seule fois par tour. Lorsque vous lancez ce sort, vous pouvez désigner des créatures pour qu'elles ne soient pas affectées.<br/>En outre, vous bénéficiez de la Résistance aux dégâts de tonnerre, et les jets d'attaque à distance contre vous sont effectués avec le Désavantage.<br/><strong>Emplacement de niveau supérieur.</strong> Les dégâts augmentent de 1d6 par niveau d'emplacement au-delà du 3e.<br/>"
       }
     }
   },
@@ -2536,7 +2536,7 @@
         "range": "60 feet",
         "duration": "Concentration, up to 10 minutes",
         "materialDescription": "a brass cog",
-        "description": ""
+        "description": "You conjure a group of intangible, orderly spirits that appear as a Medium group of modrons or other Constructs in an unoccupied space you can see within range. The spirits last for the duration.<br/>When you cast this spell and as a Magic action on subsequent turns, you can command the spirits to target one creature or object you can see within 5 feet of the spirits and create one of the following effects:<br/><strong>Clockwork Force.</strong> The target makes a Dexterity saving throw, taking 3d6 Force damage on a failed save or half as much damage on a successful one.<br/><strong>Orderly Ward.</strong> The target gains Temporary Hit Points equal to 1d6 plus your spellcasting ability modifier.<br/>When you move on your turn, you can also move the spirits up to 30 feet to an unoccupied space you can see.<br/><strong>Using a Higher-Level Spell Slot.</strong> The damage and Temporary Hit Points both increase by 1d6 for each spell slot level above 3.<br/>"
       },
       "fr": {
         "name": "Invocation d'artificiels",
@@ -2544,7 +2544,7 @@
         "range": "18 m",
         "duration": "Concentration, jusqu'à 10 minutes",
         "materialDescription": "un engrenage en laiton",
-        "description": ""
+        "description": "Vous invoquez un groupe d'esprits intangibles et ordonnés qui apparaissent comme un groupe de taille M de modrons ou d'autres Artificiels dans un espace inoccupé que vous pouvez voir à portée. Les esprits persistent pour toute la durée.<br/>Lorsque vous lancez ce sort et en tant qu'action de Magie lors des tours suivants, vous pouvez ordonner aux esprits de cibler une créature ou un objet que vous voyez à 1,50 mètre ou moins des esprits, créant l'un des effets suivants :<br/><strong>Force mécanique.</strong> La cible effectue un jet de sauvegarde de Dextérité, subissant 3d6 dégâts de force en cas d'échec, ou la moitié en cas de réussite.<br/><strong>Protection ordonnée.</strong> La cible gagne un nombre de points de vie temporaires égal à 1d6 plus votre modificateur de caractéristique d'incantation.<br/>Lorsque vous vous déplacez lors de votre tour, vous pouvez également déplacer les esprits de 9 mètres vers un espace inoccupé que vous pouvez voir.<br/><strong>Emplacement de niveau supérieur.</strong> Les dégâts et les points de vie temporaires augmentent chacun de 1d6 par niveau d'emplacement au-delà du 3e.<br/>"
       }
     }
   },
@@ -3423,7 +3423,7 @@
         "range": "Touch",
         "duration": "1 hour",
         "materialDescription": "an onyx worth 50+ GP, which the spell consumes",
-        "description": ""
+        "description": "For the duration, an inky aura surrounds one creature you touch. The target has Advantage on Death Saving Throws, and once per turn, when a creature within 5 feet of the target hits it with a melee attack roll, the attacker takes 2d4 Necrotic damage.<br/>"
       },
       "fr": {
         "name": "Armure de mort",
@@ -3431,7 +3431,7 @@
         "range": "Contact",
         "duration": "1 heure",
         "materialDescription": "un onyx d'une valeur minimale de 50 po, que le sort consomme",
-        "description": ""
+        "description": "Pour toute la durée du sort, une aura sombre entoure une créature que vous touchez. La cible bénéficie de l'Avantage à ses jets de sauvegarde contre la mort, et une fois par tour, lorsqu'une créature à 1,50 mètre ou moins de la cible la touche avec un jet d'attaque au corps à corps, l'attaquant subit 2d4 dégâts nécrotiques.<br/>"
       }
     }
   },
@@ -3564,7 +3564,7 @@
         "range": "Self",
         "duration": "8 hours",
         "materialDescription": "powdered gemstones worth 100+ GP, which the spell consumes, and one set of Artisan's Tools with which you have proficiency",
-        "description": ""
+        "description": "You summon a group of helpful spirits, which lasts for the duration. The spirits appear as homunculi or as another Construct of your choice but are intangible and invulnerable, and they are considered to have proficiency in the Arcana skill and with the set of Artisan's Tools used in the spell's casting.<br/>If you are crafting an item, the spirits function as a single assistant for your crafting, halving the crafting time.<br/>"
       },
       "fr": {
         "name": "Homoncules serviables de Deryan",
@@ -3572,7 +3572,7 @@
         "range": "Personnelle",
         "duration": "8 heures",
         "materialDescription": "poudre de pierres précieuses d'une valeur minimale de 100+ GP, que le sort consomme, et des outils d'artisan que vous maîtrisez",
-        "description": ""
+        "description": "Vous invoquez un groupe d'esprits serviables, qui persistent pour toute la durée. Les esprits apparaissent sous la forme d'homoncules ou d'un autre Artificiel de votre choix, mais sont intangibles et invulnérables ; ils sont considérés comme ayant la maîtrise de la compétence Arcanes et de l'ensemble d'outils d'artisan utilisé lors de l'incantation du sort.<br/>Si vous fabriquez un objet, les esprits agissent comme un unique assistant pour votre travail, réduisant de moitié le temps de fabrication.<br/>"
       }
     }
   },
@@ -3819,7 +3819,7 @@
         "range": "Self",
         "duration": "Concentration, up to 1 minute",
         "materialDescription": null,
-        "description": ""
+        "description": "Deathly power fills a 60-foot Emanation originating from you for the duration.<br/>When you cast this spell, you can designate creatures to be unaffected by it. Any other creature can't regain Hit Points while in the Emanation. Whenever the Emanation enters a creature's space and whenever a creature enters the Emanation or ends its turn there, the creature makes a Constitution saving throw. On a failed save, the creature takes 3d10 Necrotic damage and has the Prone condition. On a successful save, the creature takes half as much damage and its Speed is halved. A creature makes this save only once per turn.<br/><strong>Casting as a Circle Spell.</strong> Casting this as a Circle spell requires a minimum of two secondary casters. If the spell is cast as a Circle spell, its duration becomes Concentration, up to 10 minutes.<br/>A creature that fails its save against the spell's effect also gains 1 Exhaustion level. While the creature has Exhaustion levels, finishing a Long Rest neither restores lost Hit Points nor reduces the creature's Exhaustion level.<br/>When the spell is cast, each secondary caster must expend a level 4+ spell slot; otherwise, the spell fails.<br/>"
       },
       "fr": {
         "name": "Chant funèbre",
@@ -3827,7 +3827,7 @@
         "range": "Personnelle",
         "duration": "Concentration, jusqu'à 1 minute",
         "materialDescription": null,
-        "description": ""
+        "description": "Une puissance mortelle remplit une Émanation de 18 mètres autour de vous pour toute la durée.<br/>Lorsque vous lancez ce sort, vous pouvez désigner des créatures pour qu'elles ne soient pas affectées. Toute autre créature ne peut pas récupérer de points de vie tant qu'elle se trouve dans l'Émanation. Lorsque l'Émanation pénètre dans l'espace d'une créature et lorsqu'une créature entre dans l'Émanation ou y termine son tour, elle effectue un jet de sauvegarde de Constitution. En cas d'échec, la créature subit 3d10 dégâts nécrotiques et subit l'état À terre. En cas de réussite, la créature subit la moitié de ces dégâts et sa Vitesse est réduite de moitié. Une créature n'effectue ce jet de sauvegarde qu'une seule fois par tour.<br/><strong>Incantation en tant que sort de Cercle.</strong> L'incantation de ce sort en tant que sort de Cercle requiert au minimum deux incantateurs secondaires. Si le sort est lancé en tant que sort de Cercle, sa durée devient Concentration, jusqu'à 10 minutes.<br/>Une créature qui rate son jet de sauvegarde contre l'effet du sort gagne également 1 niveau d'Épuisement. Tant que la créature a des niveaux d'Épuisement, achever un Repos long ne lui permet ni de récupérer des points de vie perdus ni de réduire son niveau d'Épuisement.<br/>Lors du lancement du sort, chaque incantateur secondaire doit dépenser un emplacement de sort de niveau 4 ou supérieur ; sinon, le sort échoue.<br/>"
       }
     }
   },
@@ -4283,7 +4283,7 @@
         "range": "120 feet",
         "duration": "Concentration, up to 1 minute",
         "materialDescription": "soot and a dried eel",
-        "description": ""
+        "description": "You create a 20-foot-radius Sphere of inky fog within range. The fog is magical Darkness and lasts for the duration or until a strong wind (such as the one created by the Gust of Wind spell) disperses it, ending the spell.<br/>Each creature in the Sphere when it appears makes a Wisdom saving throw. On a failed save, a creature takes 5d6 Psychic damage and subtracts 1d6 from its saving throws until the end of its next turn. On a successful save, a creature takes half as much damage only. A creature also makes this save when the Sphere moves into its space, when it enters the Sphere, or when it ends its turn inside the Sphere. A creature makes this save only once per turn.<br/>The Sphere moves 10 feet away from you at the start of each of your turns.<br/><strong>Casting as a Circle Spell.</strong> Casting this as a Circle spell requires a minimum of five secondary casters. In addition to the spell's usual components, you must provide a special component (a string of three black pearls from Pandemonium), which the spell consumes. The spell's range increases to 1 mile, and its duration increases to until dispelled (no Concentration required). The spell ends early if any caster who participated in this casting contributes to another casting of Doomtide as a Circle spell.<br/>When the spell is cast, each secondary caster must expend a level 3+ spell slot; otherwise, the spell fails.<br/>"
       },
       "fr": {
         "name": "Marée de malheur",
@@ -4291,7 +4291,7 @@
         "range": "36 m",
         "duration": "Concentration, jusqu'à 1 minute",
         "materialDescription": "de la suie et une anguille séchée",
-        "description": ""
+        "description": "Vous créez une Sphère de brouillard obscur d'un rayon de 6 mètres à portée. Le brouillard est une Obscurité magique et persiste pour toute la durée ou jusqu'à ce qu'un vent violent (tel que celui créé par le sort Bourrasque) le disperse, mettant fin au sort.<br/>Chaque créature dans la Sphère lorsqu'elle apparaît effectue un jet de sauvegarde de Sagesse. En cas d'échec, une créature subit 5d6 dégâts psychiques et soustrait 1d6 de ses jets de sauvegarde jusqu'à la fin de son prochain tour. En cas de réussite, une créature ne subit que la moitié de ces dégâts. Une créature effectue également ce jet de sauvegarde lorsque la Sphère se déplace dans son espace, lorsqu'elle entre dans la Sphère ou lorsqu'elle termine son tour à l'intérieur. Une créature n'effectue ce jet de sauvegarde qu'une seule fois par tour.<br/>La Sphère se déplace de 3 mètres en s'éloignant de vous au début de chacun de vos tours.<br/><strong>Incantation en tant que sort de Cercle.</strong> L'incantation de ce sort en tant que sort de Cercle requiert au minimum cinq incantateurs secondaires. En plus des composantes habituelles du sort, vous devez fournir une composante spéciale (un chapelet de trois perles noires de Pandémonium), que le sort consomme. La portée du sort passe à 1,5 km, et sa durée devient jusqu'à dissipation (sans nécessiter de Concentration). Le sort prend fin prématurément si l'un des incantateurs ayant participé à ce lancement contribue à un autre lancement de Marée funeste en tant que sort de Cercle.<br/>Lors du lancement du sort, chaque incantateur secondaire doit dépenser un emplacement de sort de niveau 3 ou supérieur ; sinon, le sort échoue.<br/>"
       }
     }
   },
@@ -4600,7 +4600,7 @@
         "range": "Self",
         "duration": "1 hour",
         "materialDescription": "an opal worth 1,000 GP+",
-        "description": ""
+        "description": "Six chromatic spheres orbit you for the duration.<br/>While the spheres are present, you can expend spheres to create the following effects:<br/><strong>Absorb Energy.</strong> When you take Acid, Cold, Fire, Lightning, or Thunder damage, you can take a Reaction to expend one sphere and give yourself Resistance to the triggering damage type until the start of your next turn.<br/><strong>Energy Blast.</strong> As a Bonus Action, you send one sphere hurtling toward a target within 120 feet of yourself. Make a ranged spell attack. On a hit, the target takes 3d6 Acid, Cold, Fire, Lightning, or Thunder damage (your choice). Regardless of whether you hit, the sphere is expended.<br/>The spell ends early if you have no more spheres remaining.<br/><strong>Using a Higher-Level Spell Slot.</strong> The number of spheres increases by 1 for every spell slot level above 6.<br/>"
       },
       "fr": {
         "name": "Sphères éclatantes d'Elminster",
@@ -4608,7 +4608,7 @@
         "range": "Personnelle",
         "duration": "1 heure",
         "materialDescription": "une opale d'une valeur minimale de 1000 po",
-        "description": ""
+        "description": "Six sphères chromatiques orbitent autour de vous pour toute la durée.<br/>Tant que les sphères sont présentes, vous pouvez en dépenser pour créer les effets suivants :<br/><strong>Absorption d'énergie.</strong> Lorsque vous subissez des dégâts d'acide, de froid, de feu, de foudre ou de tonnerre, vous pouvez utiliser une Réaction pour dépenser une sphère et vous octroyer la Résistance au type de dégâts déclencheur jusqu'au début de votre prochain tour.<br/><strong>Explosion d'énergie.</strong> En tant qu'action bonus, vous envoyez une sphère se précipiter vers une cible à 36 mètres ou moins de vous. Effectuez une attaque de sort à distance. En cas de coup, la cible subit 3d6 dégâts d'acide, de froid, de feu, de foudre ou de tonnerre (au choix). Que vous touchiez ou non, la sphère est dépensée.<br/>Le sort prend fin prématurément si vous n'avez plus de sphères restantes.<br/><strong>Emplacement de niveau supérieur.</strong> Le nombre de sphères augmente de 1 par niveau d'emplacement au-delà du 6e.<br/>"
       }
     }
   },
@@ -4634,7 +4634,7 @@
         "range": "Self",
         "duration": "Concentration, up to 10 minutes",
         "materialDescription": null,
-        "description": ""
+        "description": "Arcane wards protect you against magic for the duration. You have Advantage on saving throws against spells and magical effects. Additionally, if you succeed on a saving throw against a spell or magical effect and would normally take half as much damage, you instead take no damage.<br/>"
       },
       "fr": {
         "name": "Esquive d'Elminster",
@@ -4642,7 +4642,7 @@
         "range": "Personnelle",
         "duration": "Concentration, jusqu'à 10 minutes",
         "materialDescription": null,
-        "description": ""
+        "description": "Des protections arcaniques vous défendent contre la magie pour toute la durée. Vous bénéficiez de l'Avantage aux jets de sauvegarde contre les sorts et les effets magiques. De plus, si vous réussissez un jet de sauvegarde contre un sort ou un effet magique qui vous ferait normalement subir la moitié des dégâts, vous ne subissez aucun dégât à la place.<br/>"
       }
     }
   },
@@ -7126,7 +7126,7 @@
         "range": "Self",
         "duration": "Concentration, up to 1 minute",
         "materialDescription": null,
-        "description": ""
+        "description": "You create a glowing mote of energy that hovers above you for the duration. The mote sheds Bright Light in a 5-foot radius and Dim Light for an additional 5 feet.<br/>When you cast this spell and as a Bonus Action on later turns, you can unleash a shining bolt from the mote, targeting one creature within 120 feet of yourself. Make a ranged spell attack. On a hit, the target takes Force or Radiant damage (your choice) equal to 4d10 plus your spellcasting ability modifier.<br/>In addition, while the mote is present, you have Three-Quarters Cover, and if you succeed on a saving throw against a spell of level 7 or lower that targeted only you and didn't create an area of effect, you can take a Reaction to deflect that spell back at the spell's caster; the caster makes a saving throw against that spell using that caster's own spell save DC.<br/>"
       },
       "fr": {
         "name": "Étoile sacrée de Mystra",
@@ -7134,7 +7134,7 @@
         "range": "Personnelle",
         "duration": "Concentration, jusqu'à 1 minute",
         "materialDescription": null,
-        "description": ""
+        "description": "Vous créez un point d'énergie lumineux qui flotte au-dessus de vous pour toute la durée. Ce point diffuse une Lumière vive sur un rayon de 1,50 mètre et une Lumière faible sur 1,50 mètre supplémentaire.<br/>Lorsque vous lancez ce sort et en tant qu'action bonus lors de vos tours suivants, vous pouvez déchaîner un rayon brillant depuis le point, ciblant une créature à 36 mètres ou moins de vous. Effectuez une attaque de sort à distance. En cas de coup, la cible subit des dégâts de force ou radieux (au choix) égaux à 4d10 plus votre modificateur de caractéristique d'incantation.<br/>En outre, tant que le point est présent, vous bénéficiez d'un Abri aux trois quarts, et si vous réussissez un jet de sauvegarde contre un sort de niveau 7 ou inférieur qui vous ciblait uniquement et ne créait pas de zone d'effet, vous pouvez utiliser une Réaction pour renvoyer ce sort sur son incantateur ; l'incantateur effectue un jet de sauvegarde contre ce sort en utilisant son propre DD de sauvegarde de sorts.<br/>"
       }
     }
   },
@@ -7160,7 +7160,7 @@
         "range": "10 feet",
         "duration": "Instantaneous",
         "materialDescription": "a gem worth 100+ GP",
-        "description": ""
+        "description": "You summon a special homunculus in an unoccupied space within range. This creature uses the Homunculus Servant stat block. If you already have a homunculus from this spell, the homunculus is replaced by the new one. You determine the homunculus's appearance, such as a mechanical-looking bird, winged vials, or miniature animate cauldrons.<br/><strong>Combat</strong><br/>The homunculus is an ally to you and your allies. In combat, it shares your Initiative count, but it takes its turn immediately after yours. It obeys your commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its movement to avoid danger.<br/><strong>Using a Higher-Level Spell Slot</strong><br/>Use the spell slot's level for the spell's level in the stat block.<br/>"
       },
       "fr": {
         "name": "Serviteur homoncule",
@@ -7168,7 +7168,7 @@
         "range": "3 m",
         "duration": "Instantanée",
         "materialDescription": "une gemme d'une valeur minimale de 100 po",
-        "description": ""
+        "description": "Vous invoquez un homoncule spécial dans un espace inoccupé à portée. Cette créature utilise le profil Serviteur homoncule. Si vous possédez déjà un homoncule issu de ce sort, il est remplacé par le nouveau. Vous déterminez l'apparence de l'homoncule, par exemple un oiseau mécanique, des flacons ailés ou des chaudrons miniatures animés.<br/><strong>Combat</strong><br/>L'homoncule est un allié pour vous et vos compagnons. En combat, il partage votre compte d'Initiative, mais prend son tour immédiatement après le vôtre. Il obéit à vos ordres (sans que vous ayez besoin d'utiliser une action). En l'absence d'ordre, il utilise l'action Esquiver et se déplace pour éviter le danger.<br/><strong>Emplacement de niveau supérieur</strong><br/>Utilisez le niveau de l'emplacement de sort comme niveau du sort dans le profil.<br/>"
       }
     }
   },
@@ -7730,7 +7730,7 @@
         "range": "Self",
         "duration": "Instantaneous",
         "materialDescription": "a silver pin worth 250+ GP",
-        "description": ""
+        "description": "Silver energy bursts out from you in a 120-foot-long, 5-foot-wide Line. Each creature of your choice in the Line makes a Strength saving throw. On a failed save, a creature takes 3d10 Force damage and has the Prone condition. On a successful save, a creature takes half as much damage only.<br/><strong>Using a Higher-Level Spell Slot.</strong> The damage increases by 1d10 for every spell slot level above 3.<br/>"
       },
       "fr": {
         "name": "Lance d'argent de Laeral",
@@ -7738,7 +7738,7 @@
         "range": "Personnelle",
         "duration": "Instantanée",
         "materialDescription": "une épingle en argent d'une valeur minimale de 250 po",
-        "description": ""
+        "description": "Une énergie argentée jaillit de vous en une Ligne de 36 mètres de long et 1,50 mètre de large. Chaque créature de votre choix dans la Ligne effectue un jet de sauvegarde de Force. En cas d'échec, une créature subit 3d10 dégâts de force et subit l'état À terre. En cas de réussite, une créature ne subit que la moitié de ces dégâts.<br/><strong>Emplacement de niveau supérieur.</strong> Les dégâts augmentent de 1d10 par niveau d'emplacement au-delà du 3e.<br/>"
       }
     }
   },
@@ -9942,7 +9942,7 @@
         "range": "60 feet",
         "duration": "Instantaneous",
         "materialDescription": null,
-        "description": ""
+        "description": "You fortify up to six creatures you can see within range. The spell bestows 120 Temporary Hit Points, which you divide among the spell's recipients.<br/>"
       },
       "fr": {
         "name": "Mot de pouvoir fortifiant",
@@ -9950,7 +9950,7 @@
         "range": "18 m",
         "duration": "Instantanée",
         "materialDescription": null,
-        "description": ""
+        "description": "Vous fortifiez jusqu'à six créatures que vous pouvez voir à portée. Le sort octroie 120 points de vie temporaires, que vous répartissez entre les bénéficiaires du sort.<br/>"
       }
     }
   },
@@ -11575,7 +11575,7 @@
         "range": "Touch",
         "duration": "1 hour",
         "materialDescription": null,
-        "description": ""
+        "description": "You imbue one creature you touch with magical healing energy for the duration. Whenever the target casts a spell using a spell slot, the target can immediately roll a number of unexpended Hit Point Dice equal to the spell slot's level and regain Hit Points equal to the roll's total plus your spellcasting ability modifier; those dice are then expended.<br/>"
       },
       "fr": {
         "name": "Transcurateur de la Simbul",
@@ -11583,7 +11583,7 @@
         "range": "Contact",
         "duration": "1 heure",
         "materialDescription": null,
-        "description": ""
+        "description": "Vous insufflez une énergie magique curative à une créature que vous touchez, pour toute la durée. Lorsque la cible lance un sort en utilisant un emplacement de sort, elle peut immédiatement lancer un nombre de dés de vie inutilisés égal au niveau de l'emplacement de sort et récupérer un nombre de points de vie égal au total obtenu plus votre modificateur de caractéristique d'incantation ; ces dés sont ensuite dépensés.<br/>"
       }
     }
   },
@@ -11753,7 +11753,7 @@
         "range": "Self",
         "duration": "Concentration, up to 1 minute",
         "materialDescription": "a pearl worth 100+ GP",
-        "description": ""
+        "description": "You imbue yourself with the elemental power of genies. You gain the following benefits until the spell ends:<br/><strong>Elemental Immunity.</strong> When you cast this spell, choose one of the following damage types: Acid, Cold, Fire, Lightning, or Thunder. You have Resistance to the chosen damage type.<br/><strong>Elemental Pulse.</strong> When you cast this spell and at the start of each of your subsequent turns, you release a burst of elemental energy in a 15-foot Emanation originating from yourself. Each creature of your choice in that area makes a Dexterity saving throw. On a failed save, a creature takes 2d6 Acid, Cold, Fire, Lightning, or Thunder damage (your choice) and has the Prone condition. On a successful save, a creature takes half as much damage only.<br/><strong>Flight.</strong> You gain a Fly Speed of 30 feet and can hover.<br/><strong>Casting as a Circle Spell.</strong> If the spell is cast as a Circle spell, its casting time increases to 1 minute, and its duration increases to Concentration, up to 10 minutes. For each secondary caster who participates in the casting, you can choose one additional creature, to a maximum of nine additional creatures. The chosen creatures also gain the benefits of the spell for its duration.<br/>When the spell is cast, each secondary caster must expend a level 2+ spell slot; otherwise, the spell fails.<br/>"
       },
       "fr": {
         "name": "Imprégnation élémentaire de Songal",
@@ -11761,7 +11761,7 @@
         "range": "Personnelle",
         "duration": "Concentration, jusqu'à 1 minute",
         "materialDescription": "une perle d'une valeur minimale de 100 po",
-        "description": ""
+        "description": "Vous vous imprégnez du pouvoir élémentaire des génies. Vous bénéficiez des avantages suivants jusqu'à la fin du sort :<br/><strong>Immunité élémentaire.</strong> Lorsque vous lancez ce sort, choisissez l'un des types de dégâts suivants : acide, froid, feu, foudre ou tonnerre. Vous bénéficiez de la Résistance au type de dégâts choisi.<br/><strong>Impulsion élémentaire.</strong> Lorsque vous lancez ce sort et au début de chacun de vos tours suivants, vous libérez une déflagration d'énergie élémentaire dans une Émanation de 4,50 mètres autour de vous. Chaque créature de votre choix dans cette zone effectue un jet de sauvegarde de Dextérité. En cas d'échec, une créature subit 2d6 dégâts d'acide, de froid, de feu, de foudre ou de tonnerre (au choix) et subit l'état À terre. En cas de réussite, la créature ne subit que la moitié de ces dégâts.<br/><strong>Vol.</strong> Vous gagnez une Vitesse de vol de 9 mètres et pouvez planer.<br/><strong>Incantation en tant que sort de Cercle.</strong> Si le sort est lancé en tant que sort de Cercle, son temps d'incantation passe à 1 minute et sa durée devient Concentration, jusqu'à 10 minutes. Pour chaque incantateur secondaire participant à l'incantation, vous pouvez choisir une créature supplémentaire, dans la limite de neuf créatures supplémentaires. Les créatures choisies bénéficient également des effets du sort pour toute sa durée.<br/>Lors du lancement du sort, chaque incantateur secondaire doit dépenser un emplacement de sort de niveau 2 ou supérieur ; sinon, le sort échoue.<br/>"
       }
     }
   },
@@ -11966,7 +11966,7 @@
         "range": "60 feet",
         "duration": "Instantaneous",
         "materialDescription": null,
-        "description": ""
+        "description": "You unleash a blast of brilliant fire. Make a ranged spell attack against a target within range; a target gains no benefit from Half Cover or Three-Quarters Cover for this attack roll. On a hit, the target takes 2d10 Radiant damage.<br/><strong>Using a Higher-Level Spell Slot.</strong> You create an additional blast for each spell slot level above 1. You can direct the blasts at the same target or at different ones. Make a separate attack roll for each blast.<br/>"
       },
       "fr": {
         "name": "Lueur de magefeu",
@@ -11974,7 +11974,7 @@
         "range": "18 m",
         "duration": "Instantanée",
         "materialDescription": null,
-        "description": ""
+        "description": "Vous déchaînez une déflagration de feu brillant. Effectuez une attaque de sort à distance contre une cible à portée ; la cible ne bénéficie d'aucun avantage de la Demi-couverture ou de l'Abri aux trois quarts pour ce jet d'attaque. En cas de coup, la cible subit 2d10 dégâts radieux.<br/><strong>Emplacement de niveau supérieur.</strong> Vous créez une déflagration supplémentaire par niveau d'emplacement au-delà du 1er. Vous pouvez diriger les déflagrations vers la même cible ou vers des cibles différentes. Effectuez un jet d'attaque séparé pour chaque déflagration.<br/>"
       }
     }
   },
@@ -12001,7 +12001,7 @@
         "range": "60 feet",
         "duration": "Concentration, up to 1 minute",
         "materialDescription": null,
-        "description": ""
+        "description": "You conjure a pillar of spellfire in a 20-foot-radius, 20-foot-high Cylinder centered on a point within range. The area of the Cylinder is Bright Light, and each creature in it when it appears makes a Constitution saving throw, taking 4d10 Radiant damage on a failed save or half as much damage on a successful one. A creature also makes this save when it enters the spell's area for the first time on a turn or ends its turn there. A creature makes this save only once per turn.<br/>In addition, whenever a creature in the Cylinder casts a spell, that creature makes a Constitution saving throw. On a failed save, the spell dissipates with no effect, and the action, Bonus Action, or Reaction used to cast it is wasted. If that spell was cast with a spell slot, the slot isn't expended.<br/>When you cast this spell, you can designate creatures to be unaffected by it.<br/><strong>Casting as a Circle Spell.</strong> In addition to the spell's usual components, you must provide a special component (a blue star sapphire worth 25,000+ GP), which the spell consumes. The spell's range increases to 1 mile, and it no longer requires Concentration. When the spell is cast, each secondary caster must expend a level 3+ spell slot; otherwise, the spell fails.<br/><strong>Using a Higher-Level Spell Slot.</strong> The damage increases by 1d10 for every spell slot level above 4.<br/>The number of secondary casters determines the spell's area of effect and duration, as shown in the table below. The spell ends early if any caster who participated in this casting contributes to another casting of Spellfire Storm as a Circle spell.<br/>"
       },
       "fr": {
         "name": "Tempête de magefeu",
@@ -12009,7 +12009,7 @@
         "range": "18 m",
         "duration": "Concentration, jusqu'à 1 minute",
         "materialDescription": null,
-        "description": ""
+        "description": "Vous invoquez un pilier de flamme arcaniste dans un Cylindre de 6 mètres de rayon et 6 mètres de haut, centré sur un point à portée. La zone du Cylindre est illuminée d'une Lumière vive, et chaque créature qui s'y trouve lorsqu'il apparaît effectue un jet de sauvegarde de Constitution, subissant 4d10 dégâts radieux en cas d'échec, ou la moitié en cas de réussite. Une créature effectue également ce jet de sauvegarde lorsqu'elle entre dans la zone du sort pour la première fois lors d'un tour ou y termine son tour. Une créature n'effectue ce jet de sauvegarde qu'une seule fois par tour.<br/>En outre, lorsqu'une créature dans le Cylindre lance un sort, elle effectue un jet de sauvegarde de Constitution. En cas d'échec, le sort se dissipe sans effet, et l'action, l'action bonus ou la Réaction utilisée pour le lancer est gaspillée. Si ce sort a été lancé avec un emplacement de sort, l'emplacement n'est pas dépensé.<br/>Lorsque vous lancez ce sort, vous pouvez désigner des créatures pour qu'elles ne soient pas affectées.<br/><strong>Incantation en tant que sort de Cercle.</strong> En plus des composantes habituelles du sort, vous devez fournir une composante spéciale (un saphir étoilé bleu d'une valeur minimale de 25 000 po), que le sort consomme. La portée du sort passe à 1,5 km et ne nécessite plus de Concentration. Lors du lancement du sort, chaque incantateur secondaire doit dépenser un emplacement de sort de niveau 3 ou supérieur ; sinon, le sort échoue.<br/><strong>Emplacement de niveau supérieur.</strong> Les dégâts augmentent de 1d10 par niveau d'emplacement au-delà du 4e.<br/>Le nombre d'incantateurs secondaires détermine la zone d'effet et la durée du sort, comme indiqué dans le tableau ci-dessous. Le sort prend fin prématurément si l'un des incantateurs ayant participé à ce lancement contribue à un autre lancement de Tempête de flamme arcaniste en tant que sort de Cercle.<br/>"
       }
     }
   },
@@ -12883,7 +12883,7 @@
         "range": "Self",
         "duration": "1 hour",
         "materialDescription": "a snake fang",
-        "description": ""
+        "description": "A shimmering, spectral snake encircles your body for the duration. You gain 15 Temporary Hit Points; the spell ends early if you have no Temporary Hit Points left.<br/>While the spell is active, you gain the following benefits:<br/><strong>Climbing.</strong> You gain a Climb Speed equal to your Speed.<br/><strong>Venomous Bite.</strong> As a Magic action, you can make a ranged spell attack using the snake against one creature within 50 feet. On a hit, the target takes 1d6 Force damage and has the Poisoned condition until the start of your next turn. While Poisoned, the target has the Incapacitated condition.<br/><strong>Using a Higher-Level Spell Slot.</strong> For each spell slot level above 3, the number of Temporary Hit Points you gain from this spell increases by 5, and the damage of Venomous Bite increases by 1d6.<br/>"
       },
       "fr": {
         "name": "Vipère de Syluné",
@@ -12891,7 +12891,7 @@
         "range": "Personnelle",
         "duration": "1 heure",
         "materialDescription": "une dent de serpent",
-        "description": ""
+        "description": "Un serpent spectral chatoyant vous entoure le corps pour toute la durée. Vous gagnez 15 points de vie temporaires ; le sort prend fin prématurément si vous n'avez plus de points de vie temporaires.<br/>Tant que le sort est actif, vous bénéficiez des avantages suivants :<br/><strong>Escalade.</strong> Vous gagnez une Vitesse d'escalade égale à votre Vitesse.<br/><strong>Morsure venimeuse.</strong> En tant qu'action de Magie, vous pouvez effectuer une attaque de sort à distance à l'aide du serpent contre une créature à 15 mètres ou moins. En cas de coup, la cible subit 1d6 dégâts de force et subit l'état Empoisonné jusqu'au début de votre prochain tour. Tant qu'elle est Empoisonnée, la cible subit également l'état Incapacité.<br/><strong>Emplacement de niveau supérieur.</strong> Par niveau d'emplacement au-delà du 3e, le nombre de points de vie temporaires gagnés grâce à ce sort augmente de 5, et les dégâts de la Morsure venimeuse augmentent de 1d6.<br/>"
       }
     }
   },
@@ -13097,7 +13097,7 @@
         "range": "Unlimited",
         "duration": "24 hours",
         "materialDescription": "a pair of linked silver rings",
-        "description": ""
+        "description": "You create a telepathic link between yourself and a willing creature with which you are familiar. The creature can be anywhere on the same plane of existence as you. The spell ends if you or the target are no longer on the same plane.<br/>Until the spell ends, you and the target can instantly share words, images, sounds, and other sensory messages with each other through the link, and the target recognizes you as the creature it is communicating with. The spell enables a creature to understand the meaning of your words and any sensory messages you send to it.<br/>"
       },
       "fr": {
         "name": "Télépathie",
@@ -13105,7 +13105,7 @@
         "range": "Illimitée",
         "duration": "24 heures",
         "materialDescription": "deux bagues jointes en argent",
-        "description": ""
+        "description": "Vous créez un lien télépathique entre vous et une créature consentante que vous connaissez. La créature peut se trouver n'importe où sur le même plan d'existence que vous. Le sort prend fin si vous ou la cible n'êtes plus sur le même plan.<br/>Jusqu'à la fin du sort, vous et la cible pouvez instantanément vous partager des mots, des images, des sons et d'autres messages sensoriels via ce lien, et la cible vous reconnaît comme la créature avec laquelle elle communique. Le sort permet à une créature de comprendre le sens de vos mots et de tous les messages sensoriels que vous lui envoyez.<br/>"
       }
     }
   },
@@ -14091,7 +14091,7 @@
         "range": "60 feet",
         "duration": "Instantaneous",
         "materialDescription": "a miniature clay hand",
-        "description": ""
+        "description": "You hurl a disorienting magical force toward one creature within range. The target makes a Constitution saving throw; Constructs and Undead automatically succeed on this save.<br/>On a failed save, the target takes 2d4 Force damage, its Speed is halved until the start of your next turn, and on its next turn, it can take only an action or a Bonus Action (but not both). On a successful save, the target takes half as much damage only.<br/><strong>Using a Higher-Level Spell Slot.</strong> The damage increases by 2d4 for every spell slot level above 1.<br/>"
       },
       "fr": {
         "name": "Écartement",
@@ -14099,7 +14099,7 @@
         "range": "18 m",
         "duration": "Instantanée",
         "materialDescription": "une main miniature en argile",
-        "description": ""
+        "description": "Vous projetez une force magique désorientante vers une créature à portée. La cible effectue un jet de sauvegarde de Constitution ; les Artificiels et les Morts-vivants réussissent automatiquement ce jet de sauvegarde.<br/>En cas d'échec, la cible subit 2d4 dégâts de force, sa Vitesse est réduite de moitié jusqu'au début de votre prochain tour, et lors de son prochain tour, elle ne peut effectuer qu'une action ou une action bonus (mais pas les deux). En cas de réussite, la cible ne subit que la moitié de ces dégâts.<br/><strong>Emplacement de niveau supérieur.</strong> Les dégâts augmentent de 2d4 par niveau d'emplacement au-delà du 1er.<br/>"
       }
     }
   },

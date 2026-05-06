@@ -19,11 +19,11 @@ translations:
     range: Self
     duration: 1 hour
     materialDescription: an opal worth 1,000 GP+
-    description: ''
+    description: Six chromatic spheres orbit you for the duration.<br/>While the spheres are present, you can expend spheres to create the following effects:<br/><strong>Absorb Energy.</strong> When you take Acid, Cold, Fire, Lightning, or Thunder damage, you can take a Reaction to expend one sphere and give yourself Resistance to the triggering damage type until the start of your next turn.<br/><strong>Energy Blast.</strong> As a Bonus Action, you send one sphere hurtling toward a target within 120 feet of yourself. Make a ranged spell attack. On a hit, the target takes 3d6 Acid, Cold, Fire, Lightning, or Thunder damage (your choice). Regardless of whether you hit, the sphere is expended.<br/>The spell ends early if you have no more spheres remaining.<br/><strong>Using a Higher-Level Spell Slot.</strong> The number of spheres increases by 1 for every spell slot level above 6.<br/>
   fr:
     name: Sphères éclatantes d'Elminster
     castingTime: Action
     range: Personnelle
     duration: 1 heure
     materialDescription: une opale d'une valeur minimale de 1000 po
-    description: ''
+    description: Six sphères chromatiques orbitent autour de vous pour toute la durée.<br/>Tant que les sphères sont présentes, vous pouvez en dépenser pour créer les effets suivants :<br/><strong>Absorption d'énergie.</strong> Lorsque vous subissez des dégâts d'acide, de froid, de feu, de foudre ou de tonnerre, vous pouvez utiliser une Réaction pour dépenser une sphère et vous octroyer la Résistance au type de dégâts déclencheur jusqu'au début de votre prochain tour.<br/><strong>Explosion d'énergie.</strong> En tant qu'action bonus, vous envoyez une sphère se précipiter vers une cible à 36 mètres ou moins de vous. Effectuez une attaque de sort à distance. En cas de coup, la cible subit 3d6 dégâts d'acide, de froid, de feu, de foudre ou de tonnerre (au choix). Que vous touchiez ou non, la sphère est dépensée.<br/>Le sort prend fin prématurément si vous n'avez plus de sphères restantes.<br/><strong>Emplacement de niveau supérieur.</strong> Le nombre de sphères augmente de 1 par niveau d'emplacement au-delà du 6e.<br/>

@@ -17,11 +17,11 @@ translations:
     range: 10 feet
     duration: Instantaneous
     materialDescription: a gem worth 100+ GP
-    description: ''
+    description: You summon a special homunculus in an unoccupied space within range. This creature uses the Homunculus Servant stat block. If you already have a homunculus from this spell, the homunculus is replaced by the new one. You determine the homunculus's appearance, such as a mechanical-looking bird, winged vials, or miniature animate cauldrons.<br/><strong>Combat</strong><br/>The homunculus is an ally to you and your allies. In combat, it shares your Initiative count, but it takes its turn immediately after yours. It obeys your commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its movement to avoid danger.<br/><strong>Using a Higher-Level Spell Slot</strong><br/>Use the spell slot's level for the spell's level in the stat block.<br/>
   fr:
     name: Serviteur homoncule
     castingTime: 1 heure ou Rituel
     range: 3 m
     duration: Instantanée
     materialDescription: une gemme d'une valeur minimale de 100 po
-    description: ''
+    description: Vous invoquez un homoncule spécial dans un espace inoccupé à portée. Cette créature utilise le profil Serviteur homoncule. Si vous possédez déjà un homoncule issu de ce sort, il est remplacé par le nouveau. Vous déterminez l'apparence de l'homoncule, par exemple un oiseau mécanique, des flacons ailés ou des chaudrons miniatures animés.<br/><strong>Combat</strong><br/>L'homoncule est un allié pour vous et vos compagnons. En combat, il partage votre compte d'Initiative, mais prend son tour immédiatement après le vôtre. Il obéit à vos ordres (sans que vous ayez besoin d'utiliser une action). En l'absence d'ordre, il utilise l'action Esquiver et se déplace pour éviter le danger.<br/><strong>Emplacement de niveau supérieur</strong><br/>Utilisez le niveau de l'emplacement de sort comme niveau du sort dans le profil.<br/>
