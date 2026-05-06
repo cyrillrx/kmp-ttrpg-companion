@@ -77,4 +77,20 @@ translations:
   fr:
     name: Bâton-sortilège
     subtype: null
-    description: ''
+    description: |
+      <p>Source : Manuel du Maître du Donjon</p>
+      <p><em>Bâton, rareté variable (harmonisation requise par un lanceur de sorts)</em></p>
+      <p>Un sort de niveau 8 ou inférieur est lié à ce bâton. Le sort est déterminé lors de la création du bâton et peut appartenir à n'importe quelle école de magie. Le bâton possède 6 charges et récupère 1d6 charges dépensées chaque jour à l'aube. Lorsque vous tenez le bâton, vous pouvez dépenser 1 charge pour lancer son sort. Si vous dépensez la dernière charge du bâton, lancez 1d20. Sur un résultat de 1, le bâton perd ses propriétés et devient un bâton de combat non magique.</p>
+      <p>Le niveau du sort lié au bâton détermine le DD de sauvegarde et le bonus d'attaque du sort, ainsi que la rareté du bâton, comme indiqué dans le tableau suivant.</p>
+      <table>
+      <tr><th>Niveau du sort</th><th>Rareté</th><th>DD de sauvegarde</th><th>Bonus d'attaque</th></tr>
+      <tr><td>Tour de magie</td><td>Peu courant</td><td>13</td><td>+5</td></tr>
+      <tr><td>1</td><td>Peu courant</td><td>13</td><td>+5</td></tr>
+      <tr><td>2</td><td>Rare</td><td>13</td><td>+5</td></tr>
+      <tr><td>3</td><td>Rare</td><td>15</td><td>+7</td></tr>
+      <tr><td>4</td><td>Très rare</td><td>15</td><td>+7</td></tr>
+      <tr><td>5</td><td>Très rare</td><td>17</td><td>+9</td></tr>
+      <tr><td>6</td><td>Légendaire</td><td>17</td><td>+9</td></tr>
+      <tr><td>7</td><td>Légendaire</td><td>18</td><td>+10</td></tr>
+      <tr><td>8</td><td>Légendaire</td><td>18</td><td>+10</td></tr>
+      </table>
