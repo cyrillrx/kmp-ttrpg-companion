@@ -90,7 +90,11 @@ Then present a triage table:
 - Only one locale is present (both `en` and `fr` are required)
 - The `id` is not a valid slug (lowercase, hyphens only, English)
 
-For each ⚠️, propose a resolution and ask the user to confirm before writing.
+**Empty description handling (before flagging):**
+- If one locale has a description and the other does not — translate from the available locale. Do not flag as ⚠️; resolve it yourself.
+- If both locales have an empty description — stop and ask the user for an alternative source (wikidot, D&D Beyond, official PDF, etc.) before writing any file.
+
+For each remaining ⚠️, propose a resolution and ask the user to confirm before writing.
 
 Once the full triage table is presented, **wait for explicit user confirmation** before proceeding to Step 5. Do not write any file until the user approves the triage as a whole.
 
@@ -100,7 +104,7 @@ For each validated entity, write a YAML file to `data/compendium/<type>/<id>.yam
 
 Follow the style conventions:
 - All keys in camelCase
-- Multiline strings use block scalar style (`|`)
+- Multiline strings use block scalar style with strip chomping (`|-`)
 - Null values written explicitly as `null`
 - No trailing whitespace
 
