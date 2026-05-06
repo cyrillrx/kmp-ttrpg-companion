@@ -1,0 +1,30 @@
+id: deryan-s-helpful-homunculi
+source: heroes_of_faerun
+level: 2
+school: conjuration
+concentration: false
+ritual: true
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- cleric
+- wizard
+translations:
+  en:
+    name: Deryan's Helpful Homunculi
+    castingTime: Action or Ritual
+    range: Self
+    duration: 8 hours
+    materialDescription: powdered gemstones worth 100+ GP, which the spell consumes,
+      and one set of Artisan's Tools with which you have proficiency
+    description: ''
+  fr:
+    name: Homoncules serviables de Deryan
+    castingTime: Action ou Rituel
+    range: Personnelle
+    duration: 8 heures
+    materialDescription: poudre de pierres précieuses d'une valeur minimale de 100+
+      GP, que le sort consomme, et des outils d'artisan que vous maîtrisez
+    description: ''

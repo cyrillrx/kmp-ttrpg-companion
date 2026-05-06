@@ -1,0 +1,50 @@
+id: grasping-vine
+source: phb_2024
+level: 4
+school: conjuration
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: false
+availableClasses:
+- druid
+- ranger
+translations:
+  en:
+    name: Grasping Vine
+    castingTime: Bonus Action
+    range: 60 feet
+    duration: Concentration, up to 1 minute
+    materialDescription: null
+    description: You conjure a vine that sprouts from a surface in an unoccupied space
+      that you can see within range. The vine lasts for the duration.<br/>Make a melee
+      spell attack against a creature within 30 feet of the vine. On a hit, the target
+      takes 4d8 Bludgeoning damage and is pulled up to 30 feet toward the vine; if
+      the target is Huge or smaller, it has the Grappled condition (escape DC equal
+      to your spell save DC). The vine can grapple only one creature at a time, and
+      you can cause the vine to release a Grappled creature (no action required).<br/>As
+      a Bonus Action on your later turns, you can repeat the attack against a creature
+      within 30 feet of the vine.<br/><strong><em>Using a Higher-Level Spell Slot</em></strong>.
+      The number of creatures the vine can grapple increases by one for each spell
+      slot level above 4.<br/>
+  fr:
+    name: Liane avide
+    castingTime: Action bonus
+    range: 18 m
+    duration: Concentration, jusqu'à 1 minute
+    materialDescription: null
+    description: Vous invoquez une liane qui pousse sur une surface dans un espace
+      libre que vous pouvez voir à portée. La liane persiste pour toute la durée du
+      sort.<br/>Effectuez une attaque de sort au corps à corps contre une créature
+      dans un rayon de 9 mètres autour de la liane. Si l'attaque touche, la cible
+      subit 4d8 dégâts contondants et la liane l'attire de jusqu'à 9 mètres vers elle ;
+      si la cible est de taille G ou inférieure, elle subit l'etat Agrippé (évasion
+      DD égal au DD de sauvegarde de votre sort). La liane ne peut agripper qu'une
+      seule créature à la fois, et vous pouvez lui faire libérer une créature agrippée
+      (aucune action requise).<br/>Par une action Bonus lors de vos tours suivants,
+      vous pouvez répéter l'attaque contre une créature dans un rayon de 9 mètres
+      autour de la liane.<br/><strong><em>Emplacement de niveau supérieur</em></strong>.
+      Le nombre de créatures que la liane peut agripper augmente de un pour chaque
+      niveau d'emplacement de sort supérieur à 4.<br/>

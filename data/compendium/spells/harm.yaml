@@ -1,0 +1,36 @@
+id: harm
+source: phb_2024
+level: 6
+school: necromancy
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: false
+availableClasses:
+- cleric
+translations:
+  en:
+    name: Harm
+    castingTime: Action
+    range: 60 feet
+    duration: Instantaneous
+    materialDescription: null
+    description: You unleash virulent magic on a creature you can see within range.
+      The target makes a Constitution saving throw. On a failed save, it takes 14d6
+      Necrotic damage, and its Hit Point maximum is reduced by an amount equal to
+      the Necrotic damage it took. On a successful save, it takes half as much damage
+      only. This spell can't reduce a target's Hit Point maximum below 1.<br/>
+  fr:
+    name: Contamination
+    castingTime: Action
+    range: 18 m
+    duration: Instantanée
+    materialDescription: null
+    description: Vous libérez une magie virulente sur une créature que vous voyez
+      à portée. La cible effectue un jet de sauvegarde de Constitution. En cas d'échec,
+      elle subit 14d6 dégâts nécrotiques et son maximum de points de vie est réduit
+      d'autant que les dégâts nécrotiques subis. En cas de réussite, elle subit uniquement
+      la moitié de ces dégâts. Ce sort ne peut réduire son maximum de points de vie
+      en dessous de 1.<br/>

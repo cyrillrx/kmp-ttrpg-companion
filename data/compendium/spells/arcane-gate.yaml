@@ -1,0 +1,29 @@
+id: arcane-gate
+source: phb_2024
+level: 6
+school: conjuration
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: false
+availableClasses:
+- sorcerer
+- warlock
+- wizard
+translations:
+  en:
+    name: Arcane Gate
+    castingTime: Action
+    range: 500 feet
+    duration: Concentration, up to 10 minutes
+    materialDescription: null
+    description: ''
+  fr:
+    name: Portail arcanique
+    castingTime: Action
+    range: 90 m
+    duration: Concentration, jusqu'à 10 minutes
+    materialDescription: null
+    description: ''

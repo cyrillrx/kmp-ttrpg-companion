@@ -1,0 +1,38 @@
+id: flame-strike
+source: phb_2024
+level: 5
+school: evocation
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- cleric
+translations:
+  en:
+    name: Flame Strike
+    castingTime: Action
+    range: 60 feet
+    duration: Instantaneous
+    materialDescription: a pinch of sulfur
+    description: A vertical column of brilliant fire roars down from above. Each creature
+      in a 10-foot-radius, 40-foot-high Cylinder centered on a point within range
+      makes a Dexterity saving throw, taking 5d6 Fire damage and 5d6 Radiant damage
+      on a failed save or half as much damage on a successful one.<br/><strong><em>Using
+      a Higher-Level Spell Slot</em></strong>. The Fire damage and the Radiant damage
+      increase by 1d6 for each spell slot level above 5.<br/>
+  fr:
+    name: Colonne de flamme
+    castingTime: Action
+    range: 18 m
+    duration: Instantanée
+    materialDescription: une pincée de souffre
+    description: Une colonne verticale de feu fulgurant tombe du ciel. Toute créature
+      dans un Cylindre de 3 mètres de rayon et 12 mètres de haut centré sur un point
+      à portée effectue un jet de sauvegarde de Dextérité, subissant 5d6 dégâts de
+      feu et 5d6 dégâts radiants en cas d'échec, ou la moitié de ces dégâts en cas
+      de réussite.<br/><strong><em>Emplacement de niveau supérieur</em></strong>.
+      Les dégâts de feu et radiants augmentent de 1d6 pour chaque niveau d'emplacement
+      de sort supérieur à 5.<br/>

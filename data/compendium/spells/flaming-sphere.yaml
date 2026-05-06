@@ -1,0 +1,55 @@
+id: flaming-sphere
+source: phb_2024
+level: 2
+school: conjuration
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- druid
+- sorcerer
+- wizard
+translations:
+  en:
+    name: Flaming Sphere
+    castingTime: Action
+    range: 60 feet
+    duration: Concentration, up to 1 minute
+    materialDescription: a ball of wax
+    description: You create a 5-foot-diameter Sphere of fire in an unoccupied space
+      on the ground within range. It lasts for the duration. Any creature that ends
+      its turn within 5 feet of the sphere makes a Dexterity saving throw, taking
+      2d6 Fire damage on a failed save or half as much damage on a successful one.<br/>As
+      a Bonus Action, you can move the sphere up to 30 feet, rolling it along the
+      ground. If you move the sphere into a creature's space, that creature makes
+      the save against the sphere, and the sphere stops moving for the turn.<br/>When
+      you move the sphere, you can direct it over barriers up to 5 feet tall and jump
+      it across pits up to 10 feet wide. Flammable objects that aren't being worn
+      or carried start burning if touched by the sphere, and it sheds Bright Light
+      in a 20-foot radius and Dim Light for an additional 20 feet.<br/><strong><em>Using
+      a Higher-Level Spell Slot</em></strong>. The damage increases by 1d6 for each
+      spell slot level above 2.<br/>
+  fr:
+    name: Sphère de feu
+    castingTime: Action
+    range: 18 m
+    duration: Concentration, jusqu'à 1 minute
+    materialDescription: une boule de cire
+    description: Vous créez une Sphère de feu de 1,50 mètre de diamètre dans un espace
+      libre au sol à portée. Elle dure toute la durée du sort. Toute créature qui
+      termine son tour dans un rayon de 1,50 mètre autour de la sphère effectue un
+      jet de sauvegarde de Dextérité, subissant 2d6 dégâts de feu en cas d'échec,
+      ou la moitié de ces dégâts en cas de réussite.<br/>Par une action Bonus, vous
+      pouvez déplacer la sphère jusqu'à 9 mètres et la faire rouler au sol. Si vous
+      déplacez la sphère dans l'espace d'une créature, cette dernière effectue son
+      jet de sauvegarde contre la sphère, et la sphère s'immobilise pour le tour.<br/>Lorsque
+      vous déplacez la sphère, vous pouvez la diriger par-dessus des barrières jusqu'à
+      1,50 mètre de haut et la faire sauter par-dessus des fosses jusqu'à 3 mètres
+      de large. Les objets inflammables non portés commencent à brûler au contact
+      de la sphère, qui diffuse une Lumière vive sur un rayon de 6 mètres et une Lumière
+      faible sur 6 mètres supplémentaires.<br/><strong><em>Emplacement de niveau supérieur</em></strong>.
+      Les dégâts augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur
+      à 2.<br/>

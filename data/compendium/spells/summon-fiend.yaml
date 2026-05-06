@@ -1,0 +1,48 @@
+id: summon-fiend
+source: phb_2024
+level: 6
+school: conjuration
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- warlock
+- wizard
+translations:
+  en:
+    name: Summon Fiend
+    castingTime: Action
+    range: 90 feet
+    duration: Concentration, up to 1 hour
+    materialDescription: a bloody vial worth 600+ GP
+    description: You call forth a fiendish spirit. It manifests in an unoccupied space
+      that you can see within range and uses the <strong><a href="https://www.aidedd.org/monster/fiendish-spirit">Fiendish
+      Spirit</a></strong> stat block. When you cast the spell, choose Demon, Devil,
+      or Yugoloth. The creature resembles a Fiend of the chosen type, which determines
+      certain details in its stat block. The creature disappears when it drops to
+      0 Hit Points or when the spell ends.<br/>The creature is an ally to you and
+      your allies. In combat, the creature shares your Initiative count, but it takes
+      its turn immediately after yours. It obeys your verbal commands (no action required
+      by you). If you don't issue any, it takes the Dodge action and uses its movement
+      to avoid danger.<br/><strong><em>Using a Higher-Level Spell Slot</em></strong>.
+      Use the spell slot's level for the spell's level in the stat block.<br/>
+  fr:
+    name: Convocation de fiélon
+    castingTime: Action
+    range: 27 m
+    duration: Concentration, jusqu'à 1 heure
+    materialDescription: une fiole de sang d'une valeur minimale de 600 po
+    description: Vous invoquez un esprit fiélon. Il se manifeste dans un espace inoccupé
+      que vous pouvez voir à portée et utilise le profil de l'<strong><a href="https://www.aidedd.org/monster/fr/esprit-fielon">esprit
+      fiélon</a></strong>. Lorsque vous lancez le sort, choisissez entre démon, diable
+      ou yugoloth. La créature ressemble à un fiélon du type choisi, ce qui détermine
+      certains détails de son profil. La créature disparaît lorsqu'elle tombe à 0
+      point de vie ou à la fin du sort.<br/>Cette créature est votre alliée et celle
+      de vos alliés. En combat, elle partage votre Initiative, mais son tour commence
+      immédiatement après le vôtre. Elle obéit à vos ordres verbaux (aucune action
+      requise). Si vous n'en donnez pas, elle prend l'action Esquive et utilise son
+      mouvement pour éviter le danger.<br/><strong><em>Emplacement de niveau supérieur</em></strong>.
+      Utilisez le niveau de l'emplacement de sort pour le niveau du sort dans le profil.<br/>

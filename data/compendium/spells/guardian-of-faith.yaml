@@ -1,0 +1,40 @@
+id: guardian-of-faith
+source: phb_2024
+level: 4
+school: conjuration
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: false
+  material: false
+availableClasses:
+- cleric
+translations:
+  en:
+    name: Guardian of Faith
+    castingTime: Action
+    range: 30 feet
+    duration: 8 hours
+    materialDescription: null
+    description: A Large spectral guardian appears and hovers for the duration in
+      an unoccupied space that you can see within range. The guardian occupies that
+      space and is invulnerable, and it appears in a form appropriate for your deity
+      or pantheon.<br/>Any enemy that moves to a space within 10 feet of the guardian
+      for the first time on a turn or starts its turn there makes a Dexterity saving
+      throw, taking 20 Radiant damage on a failed save or half as much damage on a
+      successful one. The guardian vanishes when it has dealt a total of 60 damage.<br/>
+  fr:
+    name: Gardien de la foi
+    castingTime: Action
+    range: 9 m
+    duration: 8 heures
+    materialDescription: null
+    description: Un gardien spectral de taille G apparaît et flotte dans un espace
+      libre que vous pouvez voir à portée pendant la durée du sort. Le gardien occupe
+      cet espace, est invulnérable, et apparait sous une forme adaptée à votre divinité
+      ou à votre panthéon.<br/>Tout ennemi qui se déplace dans un rayon de 3 mètres
+      autour du gardien pour la première fois au cours d'un tour, ou qui y commence
+      son tour, effectue un jet de sauvegarde de Dextérité, subissant 20 dégâts radiants
+      en cas d'échec, ou la moitié de ces dégâts en cas de réussite. Le gardien disparaît
+      après avoir infligé un total de 60 dégâts.<br/>

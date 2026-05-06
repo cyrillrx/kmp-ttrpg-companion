@@ -1,0 +1,38 @@
+id: shining-smite
+source: phb_2024
+level: 2
+school: transmutation
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: false
+  material: false
+availableClasses:
+- paladin
+translations:
+  en:
+    name: Shining Smite
+    castingTime: Bonus Action, which you take immediately after hitting a creature
+      with a Melee weapon or an Unarmed Strike
+    range: Self
+    duration: Concentration, up to 1 minute
+    materialDescription: null
+    description: The target hit by the strike takes an extra 2d6 Radiant damage from
+      the attack. Until the spell ends, the target sheds Bright Light in a 5-foot
+      radius, attack rolls against it have Advantage, and it can't benefit from the
+      Invisible condition.<br/><strong><em>Using a Higher-Level Spell Slot</em></strong>.
+      The damage increases by 1d6 for each spell slot level above 2.<br/>
+  fr:
+    name: Châtiment de révélation
+    castingTime: Action bonus, que vous prenez immédiatement après avoir touché une
+      créature avec une arme de corps au corps ou une frappe à mains nues
+    range: Personnelle
+    duration: Concentration, jusqu'à 1 minute
+    materialDescription: null
+    description: La cible touchée subit 2d6 dégâts radiants supplémentaires. Jusqu'à
+      la fin du sort, la cible projette une Lumière vive sur un rayon de 1,50 mètre.
+      Les jets d'attaque contre elle bénéficient d'un Avantage et elle ne peut bénéficier
+      de l'état Invisible.<br/><strong><em>Emplacement de niveau supérieur</em></strong>.
+      Les dégâts augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur
+      à 2.<br/>

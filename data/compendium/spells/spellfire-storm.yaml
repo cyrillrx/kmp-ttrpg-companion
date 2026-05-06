@@ -1,0 +1,28 @@
+id: spellfire-storm
+source: heroes_of_faerun
+level: 4
+school: evocation
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: false
+availableClasses:
+- sorcerer
+- wizard
+translations:
+  en:
+    name: Spellfire Storm
+    castingTime: Action
+    range: 60 feet
+    duration: Concentration, up to 1 minute
+    materialDescription: null
+    description: ''
+  fr:
+    name: Tempête de magefeu
+    castingTime: Action
+    range: 18 m
+    duration: Concentration, jusqu'à 1 minute
+    materialDescription: null
+    description: ''

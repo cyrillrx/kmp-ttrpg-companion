@@ -1,0 +1,45 @@
+id: detect-magic
+source: phb_2024
+level: 1
+school: divination
+concentration: true
+ritual: true
+components:
+  verbal: true
+  somatic: true
+  material: false
+availableClasses:
+- bard
+- cleric
+- druid
+- paladin
+- ranger
+- sorcerer
+- warlock
+- wizard
+translations:
+  en:
+    name: Detect Magic
+    castingTime: Action or Ritual
+    range: Self
+    duration: Concentration, up to 10 minutes
+    materialDescription: null
+    description: For the duration, you sense the presence of magical effects within
+      30 feet of yourself. If you sense such effects, you can take the Magic action
+      to see a faint aura around any visible creature or object in the area that bears
+      the magic, and if an effect was created by a spell, you learn the spell's school
+      of magic.<br/>The spell is blocked by 1 foot of stone, dirt, or wood; 1 inch
+      of metal; or a thin sheet of lead.<br/>
+  fr:
+    name: Détection de la magie
+    castingTime: Action ou Rituel
+    range: Personnelle
+    duration: Concentration, jusqu'à 10 minutes
+    materialDescription: null
+    description: Pendant la durée du sort, vous ressentez la présence d'effets magiques
+      dans un rayon de 9 mètres autour de vous. Si vous ressentez ces effets, vous
+      pouvez utiliser l'action Magie pour voir une faible aura autour de toute créature
+      ou objet visible dans la zone qui porte la magie. Si un effet a été créé par
+      un sort, vous connaissez l'école de magie du sort.<br/>Le sort est bloqué par
+      30 cm de pierre, de terre ou de bois, par 2,50 cm de métal, ou par une fine
+      feuille de plomb.<br/>

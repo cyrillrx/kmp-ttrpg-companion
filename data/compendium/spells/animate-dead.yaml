@@ -1,0 +1,69 @@
+id: animate-dead
+source: phb_2024
+level: 3
+school: necromancy
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- cleric
+- wizard
+translations:
+  en:
+    name: Animate Dead
+    castingTime: 1 minute
+    range: 10 feet
+    duration: Instantaneous
+    materialDescription: a drop of blood, a piece of flesh, and a pinch of bone dust
+    description: 'Choose a pile of bones or a corpse of a Medium or Small Humanoid
+      within range. The target becomes an Undead creature: a <strong><a href="https://www.aidedd.org/monster/skeleton">Skeleton</a></strong>
+      if you chose bones or a <strong><a href="https://www.aidedd.org/monster/zombie">Zombie</a></strong>
+      if you chose a corpse.<br/>On each of your turns, you can take a Bonus Action
+      to mentally command any creature you made with this spell if the creature is
+      within 60 feet of you (if you control multiple creatures, you can command any
+      of them at the same time, issuing the same command to each one). You decide
+      what action the creature will take and where it will move on its next turn,
+      or you can issue a general command, such as to guard a chamber or corridor.
+      If you issue no commands, the creature takes the Dodge action and moves only
+      to avoid harm. Once given an order, the creature continues to follow it until
+      its task is complete.<br/>The creature is under your control for 24 hours, after
+      which it stops obeying any command you''ve given it. To maintain control of
+      the creature for another 24 hours, you must cast this spell on the creature
+      again before the current 24-hour period ends. This use of the spell reasserts
+      your control over up to four creatures you have animated with this spell rather
+      than animating a new creature.<br/><strong><em>Using a Higher-Level Spell Slot</em></strong>.
+      You animate or reassert control over two additional Undead creatures for each
+      spell slot level above 3. Each of the creatures must come from a different corpse
+      or pile of bones.<br/>'
+  fr:
+    name: Animation des morts
+    castingTime: 1 minute
+    range: 3 m
+    duration: Instantanée
+    materialDescription: une goutte de sang, un morceau de chair et une pincée de
+      poudre d'os
+    description: 'Choisissez un tas d''os ou le cadavre d''un humanoïde de taille
+      M ou S à portée. La cible devient une créature morte-vivante : un <strong><a
+      href="https://www.aidedd.org/monster/fr/squelette">squelette</a></strong> si
+      vous choisissez des os ou un <strong><a href="https://www.aidedd.org/monster/fr/zombi">zombi</a></strong>
+      si vous choisissez un cadavre.<br/>À chacun de vos tours, vous pouvez prendre
+      une action Bonus pour commander mentalement toute créature créée avec ce sort
+      si elle se trouve dans un rayon de 18 mètres autour de vous (si vous contrôlez
+      plusieurs créatures, vous pouvez les toutes commander simultanément, en leur
+      donnant le même ordre). Vous décidez de l''action que la créature effectuera
+      et de son mouvement lors de son prochain tour, ou vous pouvez lui donner un
+      ordre général, comme garder une chambre ou un couloir. Si vous ne donnez aucun
+      ordre, la créature prend l''action Esquive et se déplace uniquement pour éviter
+      d''être blessée. Une fois l''ordre donné, la créature continue de l''exécuter
+      jusqu''à ce que sa tâche soit accomplie.<br/>La créature est sous votre contrôle
+      pendant 24 heures, après quoi elle cesse d''obéir à vos ordres. Pour conserver
+      le contrôle de la créature pendant 24 heures supplémentaires, vous devez relancer
+      ce sort sur elle avant la fin de la période de 24 heures en cours. Cette utilisation
+      du sort rétablit votre contrôle sur un maximum de quatre créatures animées avec
+      ce sort, au lieu d''en animer une nouvelle.<br/><strong><em>Emplacement de niveau
+      supérieur</em></strong>. Vous animez ou rétablissez le contrôle sur deux morts-vivants
+      supplémentaires pour chaque niveau d''emplacement de sort supérieur à 3. Chaque
+      créature doit provenir d''un cadavre ou d''un tas d''ossements différent.<br/>'

@@ -1,0 +1,46 @@
+id: mind-spike
+source: phb_2024
+level: 2
+school: divination
+concentration: true
+ritual: false
+components:
+  verbal: false
+  somatic: true
+  material: false
+availableClasses:
+- sorcerer
+- warlock
+- wizard
+translations:
+  en:
+    name: Mind Spike
+    castingTime: Action
+    range: 120 feet
+    duration: Concentration, up to 1 hour
+    materialDescription: null
+    description: You drive a spike of psionic energy into the mind of one creature
+      you can see within range. The target makes a Wisdom saving throw, taking 3d8
+      Psychic damage on a failed save or half as much damage on a successful one.
+      On a failed save, you also always know the target's location until the spell
+      ends, but only while the two of you are on the same plane of existence. While
+      you have this knowledge, the target can't become hidden from you, and if it
+      has the Invisible condition, it gains no benefit from that condition against
+      you.<br/><strong><em>Using a Higher-Level Spell Slot</em></strong>. The damage
+      increases by 1d8 for each spell slot level above 2.<br/>
+  fr:
+    name: Épine mentale
+    castingTime: Action
+    range: 36 m
+    duration: Concentration, jusqu'à 1 heure
+    materialDescription: null
+    description: Vous envoyez une décharge d'énergie psionique dans l'esprit d'une
+      créature que vous pouvez voir à portée. La cible effectue un jet de sauvegarde
+      de Sagesse et subit 3d8 dégâts psychiques en cas d'échec, ou la moitié en cas
+      de réussite. En cas d'échec, vous connaissez toujours l'emplacement de la cible
+      jusqu'à la fin du sort, à condition d'être sur le même plan d'existence qu'elle.
+      Tant que vous avez cette connaissance, la cible ne peut pas se cacher de vous,
+      et si elle subit l'état Invisible, elle ne bénéficie d'aucun avantage de cet
+      état contre vous.<br/><strong><em>Emplacement de niveau supérieur</em></strong>.
+      Les dégâts augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur
+      à 2.<br/>

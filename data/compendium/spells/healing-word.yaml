@@ -1,0 +1,35 @@
+id: healing-word
+source: phb_2024
+level: 1
+school: abjuration
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: false
+  material: false
+availableClasses:
+- bard
+- cleric
+- druid
+translations:
+  en:
+    name: Healing Word
+    castingTime: Bonus Action
+    range: 60 feet
+    duration: Instantaneous
+    materialDescription: null
+    description: A creature of your choice that you can see within range regains Hit
+      Points equal to 2d4 plus your spellcasting ability modifier.<br/><strong><em>Using
+      a Higher-Level Spell Slot</em></strong>. The healing increases by 2d4 for each
+      spell slot level above 1.<br/>
+  fr:
+    name: Mot de guérison
+    castingTime: Action bonus
+    range: 18 m
+    duration: Instantanée
+    materialDescription: null
+    description: Une créature de votre choix que vous pouvez voir à portée récupère
+      2d4 points de vie plus le modificateur de votre caractéristique d'incantation.<br/><strong><em>Emplacement
+      de niveau supérieur</em></strong>. Les soins augmentent de 2d4 pour chaque niveau
+      d'emplacement de sort supérieur à 1.<br/>

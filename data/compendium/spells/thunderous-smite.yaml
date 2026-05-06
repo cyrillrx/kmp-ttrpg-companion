@@ -1,0 +1,39 @@
+id: thunderous-smite
+source: phb_2024
+level: 1
+school: evocation
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: false
+  material: false
+availableClasses:
+- paladin
+translations:
+  en:
+    name: Thunderous Smite
+    castingTime: Bonus Action, which you take immediately after hitting a target with
+      a Melee weapon or an Unarmed Strike
+    range: Self
+    duration: Instantaneous
+    materialDescription: null
+    description: Your strike rings with thunder that is audible within 300 feet of
+      you, and the target takes an extra 2d6 Thunder damage from the attack. Additionally,
+      if the target is a creature, it must succeed on a Strength saving throw or be
+      pushed 10 feet away from you and have the Prone condition.<br/><strong><em>Using
+      a Higher-Level Spell Slot</em></strong>. The damage increases by 1d6 for each
+      spell slot level above 1.<br/>
+  fr:
+    name: Châtiment de tonnerre
+    castingTime: Action bonus, que vous prenez immédiatement après avoir touché une
+      cible avec une arme de corps à corps ou une frappe à mains nues
+    range: Personnelle
+    duration: Instantanée
+    materialDescription: null
+    description: Votre coup retentit comme le tonnerre dans un rayon de 90 mètres,
+      et la cible subit 2d6 dégâts de tonnerre supplémentaires. De plus, si la cible
+      est une créature, elle doit réussir un jet de sauvegarde de Force ou être repoussée
+      à 3 mètres de vous et subir l'état À terre.<br/><strong><em>Emplacement de niveau
+      supérieur</em></strong>. Les dégâts augmentent de 1d6 pour chaque niveau d'emplacement
+      de sort supérieur à 1.<br/>

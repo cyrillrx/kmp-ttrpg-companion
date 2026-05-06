@@ -1,0 +1,50 @@
+id: suggestion
+source: phb_2024
+level: 2
+school: enchantment
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: false
+  material: true
+availableClasses:
+- bard
+- sorcerer
+- warlock
+- wizard
+translations:
+  en:
+    name: Suggestion
+    castingTime: Action
+    range: 30 feet
+    duration: Concentration, up to 8 hours
+    materialDescription: a drop of honey
+    description: You suggest a course of activity—described in no more than 25 words—to
+      one creature you can see within range that can hear and understand you. The
+      suggestion must sound achievable and not involve anything that would obviously
+      deal damage to the target or its allies. For example, you could say, “Fetch
+      the key to the cult's treasure vault, and give the key to me.” Or you could
+      say, “Stop fighting, leave this library peacefully, and don't return.”<br/>The
+      target must succeed on a Wisdom saving throw or have the Charmed condition for
+      the duration or until you or your allies deal damage to the target. The Charmed
+      target pursues the suggestion to the best of its ability. The suggested activity
+      can continue for the entire duration, but if the suggested activity can be completed
+      in a shorter time, the spell ends for the target upon completing it.<br/>
+  fr:
+    name: Suggestion
+    castingTime: Action
+    range: 9 m
+    duration: Concentration, jusqu'à 8 heures
+    materialDescription: une goutte de miel
+    description: Vous suggérez une activité (décrite en 25 mots maximum) à une créature
+      que vous pouvez voir à portée, capable de vous entendre et de vous comprendre.
+      La suggestion doit paraître réalisable et ne pas impliquer d'actions susceptibles
+      d'infliger des dégâts à la cible ou à ses alliés. Par exemple, vous pourriez
+      dire « Va chercher la clé du coffre du trésor du culte et donne-la-moi» ou encore « Arrête
+      de te battre, quitte cette bibliothèque paisiblement et ne revient pas ».<br/>La
+      cible doit réussir un jet de sauvegarde de Sagesse ou subir l'état Charmé pendant
+      toute la durée du sort, ou jusqu'à ce que vous ou vos alliés lui infligiez des
+      dégâts. La cible charmée suit la suggestion du mieux qu'elle peut. L'activité
+      suggérée peut se poursuivre pendant toute la durée du sort, mais si elle peut
+      être réalisée plus rapidement, le sort prend fin pour la cible dès sa réalisation.<br/>

@@ -1,0 +1,32 @@
+id: beacon-of-hope
+source: phb_2024
+level: 3
+school: abjuration
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: false
+availableClasses:
+- cleric
+translations:
+  en:
+    name: Beacon of Hope
+    castingTime: Action
+    range: 30 feet
+    duration: Concentration, up to 1 minute
+    materialDescription: null
+    description: Choose any number of creatures within range. For the duration, each
+      target has Advantage on Wisdom saving throws and Death Saving Throws and regains
+      the maximum number of Hit Points possible from any healing.<br/>
+  fr:
+    name: Lueur d'espoir
+    castingTime: Action
+    range: 9 m
+    duration: Concentration, jusqu'à 1 minute
+    materialDescription: null
+    description: Choisissez autant de créatures que vous le souhaitez à portée. Pendant
+      toute la durée du sort, chaque cible bénéficie d'un Avantage aux jets de sauvegarde
+      de Sagesse et aux jets de sauvegarde contre la Mort, et elle récupère le maximum
+      de points de vie possible lors de soins.<br/>

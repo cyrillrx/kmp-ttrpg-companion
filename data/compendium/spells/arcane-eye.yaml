@@ -1,0 +1,38 @@
+id: arcane-eye
+source: phb_2024
+level: 4
+school: divination
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- wizard
+translations:
+  en:
+    name: Arcane Eye
+    castingTime: Action
+    range: 30 feet
+    duration: Concentration, up to 1 hour
+    materialDescription: a bit of bat fur
+    description: You create an Invisible, invulnerable eye within range that hovers
+      for the duration. You mentally receive visual information from the eye, which
+      can see in every direction. It also has Darkvision with a range of 30 feet.<br/>As
+      a Bonus Action, you can move the eye up to 30 feet in any direction. A solid
+      barrier blocks the eye's movement, but the eye can pass through an opening as
+      small as 1 inch in diameter.<br/>
+  fr:
+    name: Oeil du mage
+    castingTime: Action
+    range: 9 m
+    duration: Concentration, jusqu'à 1 heure
+    materialDescription: une touffe de poils de chauve-souris
+    description: Vous créez un œil invisible et invulnérable à portée, qui flotte
+      pendant toute la durée du sort. Vous recevez mentalement des informations visuelles
+      de l'œil, qui peut voir dans toutes les directions. Il possède également Vision
+      dans le noir avec une portée de 9 mètres.<br/>Par une action Bonus, vous pouvez
+      déplacer l'œil jusqu'à 9 mètres dans n'importe quelle direction. Une barrière
+      solide bloque le mouvement de l'œil, mais celui-ci peut passer à travers une
+      ouverture de 2,50 cm de diamètre.<br/>

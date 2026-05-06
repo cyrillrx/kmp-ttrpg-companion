@@ -1,0 +1,34 @@
+id: true-seeing
+source: phb_2024
+level: 6
+school: divination
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- bard
+- cleric
+- sorcerer
+- warlock
+- wizard
+translations:
+  en:
+    name: True Seeing
+    castingTime: Action
+    range: Touch
+    duration: 1 hour
+    materialDescription: mushroom powder worth 25+ GP, which the spell consumes
+    description: For the duration, the willing creature you touch has Truesight with
+      a range of 120 feet.<br/>
+  fr:
+    name: Vision suprême
+    castingTime: Action
+    range: Contact
+    duration: 1 heure
+    materialDescription: poudre de champignons d'une valeur minimale de 25 po, que
+      le sort consomme
+    description: Pour toute la durée, une créature consentante que vous touchez physiquement
+      acquiert la Vision véritable sur 36 m.<br/>

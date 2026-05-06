@@ -1,0 +1,29 @@
+id: cacophonic-shield
+source: heroes_of_faerun
+level: 3
+school: evocation
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: false
+availableClasses:
+- bard
+- sorcerer
+- wizard
+translations:
+  en:
+    name: Cacophonic Shield
+    castingTime: Action
+    range: Self
+    duration: Concentration, up to 10 minutes
+    materialDescription: null
+    description: ''
+  fr:
+    name: Bouclier cacophonique
+    castingTime: Action
+    range: Personnelle
+    duration: Concentration, jusqu'à 10 minutes
+    materialDescription: null
+    description: ''

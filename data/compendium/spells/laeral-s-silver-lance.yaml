@@ -1,0 +1,29 @@
+id: laeral-s-silver-lance
+source: heroes_of_faerun
+level: 3
+school: evocation
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- cleric
+- sorcerer
+- wizard
+translations:
+  en:
+    name: Laeral's Silver Lance
+    castingTime: Action
+    range: Self
+    duration: Instantaneous
+    materialDescription: a silver pin worth 250+ GP
+    description: ''
+  fr:
+    name: Lance d'argent de Laeral
+    castingTime: Action
+    range: Personnelle
+    duration: Instantanée
+    materialDescription: une épingle en argent d'une valeur minimale de 250 po
+    description: ''

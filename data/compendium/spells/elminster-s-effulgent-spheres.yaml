@@ -1,0 +1,29 @@
+id: elminster-s-effulgent-spheres
+source: heroes_of_faerun
+level: 6
+school: evocation
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- druid
+- sorcerer
+- wizard
+translations:
+  en:
+    name: Elminster's Effulgent Spheres
+    castingTime: Action
+    range: Self
+    duration: 1 hour
+    materialDescription: an opal worth 1,000 GP+
+    description: ''
+  fr:
+    name: Sphères éclatantes d'Elminster
+    castingTime: Action
+    range: Personnelle
+    duration: 1 heure
+    materialDescription: une opale d'une valeur minimale de 1000 po
+    description: ''

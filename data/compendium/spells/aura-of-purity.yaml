@@ -1,0 +1,35 @@
+id: aura-of-purity
+source: phb_2024
+level: 4
+school: abjuration
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: false
+  material: false
+availableClasses:
+- cleric
+- paladin
+translations:
+  en:
+    name: Aura of Purity
+    castingTime: Action
+    range: Self
+    duration: Concentration, up to 10 minutes
+    materialDescription: null
+    description: An aura radiates from you in a 30-foot Emanation for the duration.
+      While in the aura, you and your allies have Resistance to Poison damage and
+      Advantage on saving throws to avoid or end effects that include the Blinded,
+      Charmed, Deafened, Frightened, Paralyzed, Poisoned, or Stunned condition.<br/>
+  fr:
+    name: Aura de pureté
+    castingTime: Action
+    range: Personnelle
+    duration: Concentration, jusqu'à 10 minutes
+    materialDescription: null
+    description: Une aura rayonne autour de vous sous forme d'Émanation de 9 mètres
+      pendant toute la durée du sort. Tant que vous êtes dans l'aura, vous et vos
+      alliés bénéficiez d'une résistance aux dégâts de poison et d'un Avantage aux
+      jets de sauvegarde pour éviter ou mettre fin aux états Aveuglé, Charmé, Assourdi,
+      Effrayé, Paralysé, Empoisonné ou Étourdi.<br/>

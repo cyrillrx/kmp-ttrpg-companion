@@ -1,0 +1,42 @@
+id: divination
+source: phb_2024
+level: 4
+school: divination
+concentration: false
+ritual: true
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- cleric
+- druid
+- wizard
+translations:
+  en:
+    name: Divination
+    castingTime: Action or Ritual
+    range: Self
+    duration: Instantaneous
+    materialDescription: incense worth 25+ GP, which the spell consumes
+    description: This spell puts you in contact with a god or a god's servants. You
+      ask one question about a specific goal, event, or activity to occur within 7
+      days. The DM offers a truthful reply, which might be a short phrase or cryptic
+      rhyme. The spell doesn't account for circumstances that might change the answer,
+      such as the casting of other spells.<br/>If you cast the spell more than once
+      before finishing a Long Rest, there is a cumulative 25 percent chance for each
+      casting after the first that you get no answer.<br/>
+  fr:
+    name: Divination
+    castingTime: Action ou Rituel
+    range: Personnelle
+    duration: Instantanée
+    materialDescription: encens d'une valeur minimale de 25 po, que le sort consomme
+    description: Ce sort vous met en contact avec un dieu ou ses serviteurs. Vous
+      posez une question concernant un objectif, un événement ou une activité spécifique
+      devant se produire dans les 7 prochains jours. Le MD vous donne une réponse
+      sincère, qui peut être une courte phrase ou une prose cryptique. Le sort ne
+      tient pas compte des circonstances susceptibles de modifier la réponse, comme
+      l'incantation d'autres sorts.<br/>Si vous lancez le sort plusieurs fois avant
+      la fin d'un Repos long, vous avez 25 % de chances cumulées pour chaque incantation
+      après la première de ne pas obtenir de réponse.<br/>

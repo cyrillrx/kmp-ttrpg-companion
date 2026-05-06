@@ -1,0 +1,38 @@
+id: finger-of-death
+source: phb_2024
+level: 7
+school: necromancy
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: false
+availableClasses:
+- sorcerer
+- warlock
+- wizard
+translations:
+  en:
+    name: Finger of Death
+    castingTime: Action
+    range: 60 feet
+    duration: Instantaneous
+    materialDescription: null
+    description: You unleash negative energy toward a creature you can see within
+      range. The target makes a Constitution saving throw, taking 7d8 + 30 Necrotic
+      damage on a failed save or half as much damage on a successful one.<br/>A Humanoid
+      killed by this spell rises at the start of your next turn as a <strong><a href="https://www.aidedd.org/monster/zombie">Zombie</a></strong>
+      that follows your verbal orders.<br/>
+  fr:
+    name: Doigt de mort
+    castingTime: Action
+    range: 18 m
+    duration: Instantanée
+    materialDescription: null
+    description: Vous libérez des énergies négatives vers une créature que vous voyez
+      à portée. La cible effectue un jet de sauvegarde de Constitution et subit 7d8
+      + 30 dégâts nécrotiques en cas d'échec, la moitié en cas de réussite.<br/>Un
+      Humanoïde tué par ce sort se relève au début de votre tour suivant comme <strong><a
+      href="https://www.aidedd.org/monster/fr/zombi">zombi</a></strong> obéissant
+      à vos instructions verbales.<br/>

@@ -1,0 +1,46 @@
+id: locate-object
+source: phb_2024
+level: 2
+school: divination
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- bard
+- cleric
+- druid
+- paladin
+- ranger
+- wizard
+translations:
+  en:
+    name: Locate Object
+    castingTime: Action
+    range: Self
+    duration: Concentration, up to 10 minutes
+    materialDescription: a forked twig
+    description: Describe or name an object that is familiar to you. You sense the
+      direction to the object's location if that object is within 1,000 feet of you.
+      If the object is in motion, you know the direction of its movement.<br/>The
+      spell can locate a specific object known to you if you have seen it up close—within
+      30 feet—at least once. Alternatively, the spell can locate the nearest object
+      of a particular kind, such as a certain kind of apparel, jewelry, furniture,
+      tool, or weapon.<br/>This spell can't locate an object if any thickness of lead
+      blocks a direct path between you and the object.<br/>
+  fr:
+    name: Localisation d'objet
+    castingTime: Action
+    range: Personnelle
+    duration: Concentration, jusqu'à 10 minutes
+    materialDescription: une brindille fourchue
+    description: Décrivez ou nommez un objet qui vous est familier. Vous percevez
+      la direction de l'objet s'il se trouve dans un rayon de 300 mètres autour de
+      vous. S'il est en mouvement, vous savez dans quelle direction il se dirige.<br/>Le
+      sort peut localiser un objet spécifique que vous connaissez si vous l'avez vu
+      de près (à 9 mètres ou moins) au moins une fois. Il peut également localiser
+      l'objet le plus proche d'un type particulier, comme un vêtement, un bijou, un
+      meuble, un outil ou une arme.<br/>Ce sort ne peut localiser un objet si une
+      épaisseur de plomb bloque un chemin direct entre vous et l'objet.<br/>

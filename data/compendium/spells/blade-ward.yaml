@@ -1,0 +1,32 @@
+id: blade-ward
+source: phb_2024
+level: 0
+school: abjuration
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: false
+availableClasses:
+- bard
+- sorcerer
+- warlock
+- wizard
+translations:
+  en:
+    name: Blade Ward
+    castingTime: Action
+    range: Self
+    duration: Concentration, up to 1 minute
+    materialDescription: null
+    description: Whenever a creature makes an attack roll against you before the spell
+      ends, the attacker subtracts 1d4 from the attack roll.<br/>
+  fr:
+    name: Voile défensif
+    castingTime: Action
+    range: Personnelle
+    duration: Concentration, jusqu'à 1 minute
+    materialDescription: null
+    description: Chaque fois qu'une créature vous attaque avant la fin du sort, l'attaquant
+      soustrait 1d4 à son jet d'attaque.<br/>

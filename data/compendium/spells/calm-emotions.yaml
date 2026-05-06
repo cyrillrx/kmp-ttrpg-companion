@@ -1,0 +1,44 @@
+id: calm-emotions
+source: phb_2024
+level: 2
+school: enchantment
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: false
+availableClasses:
+- bard
+- cleric
+translations:
+  en:
+    name: Calm Emotions
+    castingTime: Action
+    range: 60 feet
+    duration: Concentration, up to 1 minute
+    materialDescription: null
+    description: Each Humanoid in a 20-foot-radius Sphere centered on a point you
+      choose within range must succeed on a Charisma saving throw or be affected by
+      one of the following effects (choose for each creature):<br/>• The creature
+      has Immunity to the Charmed and Frightened conditions until the spell ends.
+      If the creature was already Charmed or Frightened, those conditions are suppressed
+      for the duration.<br/>• The creature becomes Indifferent about creatures of
+      your choice that it's Hostile toward. This indifference ends if the target takes
+      damage or witnesses its allies taking damage. When the spell ends, the creature's
+      attitude returns to normal.<br/>
+  fr:
+    name: Apaisement des émotions
+    castingTime: Action
+    range: 18 m
+    duration: Concentration, jusqu'à 1 minute
+    materialDescription: null
+    description: Tout humanoïde dans une Sphère de 6 mètres de rayon centrée sur un
+      point de votre choix à portée doit réussir un jet de sauvegarde de Charisme
+      ou être affecté par l'un des effets suivants (à choisir pour chaque créature) :<br/>•
+      La créature est immunisée contre les états Charmé et Effrayé jusqu'à la fin
+      du sort. Si la créature était déjà charmée ou effrayée, ces conditions sont
+      supprimées pendant la durée du sort.<br/>• La créature devient indifférente
+      aux créatures de votre choix envers lesquelles elle est hostile. Cette indifférence
+      prend fin si la cible subit des dégâts ou voit ses alliés subir des dégâts.
+      À la fin du sort, l'attitude de la créature redevient normale.<br/>

@@ -1,0 +1,27 @@
+id: elminster-s-elusion
+source: heroes_of_faerun
+level: 2
+school: abjuration
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: false
+availableClasses:
+- wizard
+translations:
+  en:
+    name: Elminster's Elusion
+    castingTime: Bonus Action
+    range: Self
+    duration: Concentration, up to 10 minutes
+    materialDescription: null
+    description: ''
+  fr:
+    name: Esquive d'Elminster
+    castingTime: Action bonus
+    range: Personnelle
+    duration: Concentration, jusqu'à 10 minutes
+    materialDescription: null
+    description: ''

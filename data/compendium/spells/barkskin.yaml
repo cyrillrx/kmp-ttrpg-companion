@@ -1,0 +1,32 @@
+id: barkskin
+source: phb_2024
+level: 2
+school: transmutation
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- druid
+- ranger
+translations:
+  en:
+    name: Barkskin
+    castingTime: Bonus Action
+    range: Touch
+    duration: 1 hour
+    materialDescription: a handful of bark
+    description: You touch a willing creature. Until the spell ends, the target's
+      skin assumes a bark-like appearance, and the target has an Armor Class of 17
+      if its AC is lower than that.<br/>
+  fr:
+    name: Peau d'écorce
+    castingTime: Action bonus
+    range: Contact
+    duration: 1 heure
+    materialDescription: une poignée d'écorce
+    description: Vous touchez une créature consentante. Jusqu'à la fin du sort, la
+      peau de la cible prend une apparence d'écorce, et sa CA est de 17 si elle était
+      inférieure.<br/>

@@ -1,0 +1,49 @@
+id: heat-metal
+source: phb_2024
+level: 2
+school: transmutation
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- bard
+- druid
+translations:
+  en:
+    name: Heat Metal
+    castingTime: Action
+    range: 60 feet
+    duration: Concentration, up to 1 minute
+    materialDescription: a piece of iron and a flame
+    description: Choose a manufactured metal object, such as a metal weapon or a suit
+      of Heavy or Medium metal armor, that you can see within range. You cause the
+      object to glow red-hot. Any creature in physical contact with the object takes
+      2d8 Fire damage when you cast the spell. Until the spell ends, you can take
+      a Bonus Action on each of your later turns to deal this damage again if the
+      object is within range.<br/>If a creature is holding or wearing the object and
+      takes the damage from it, the creature must succeed on a Constitution saving
+      throw or drop the object if it can. If it doesn't drop the object, it has Disadvantage
+      on attack rolls and ability checks until the start of your next turn.<br/><strong><em>Using
+      a Higher-Level Spell Slot</em></strong>. The damage increases by 1d8 for each
+      spell slot level above 2.<br/>
+  fr:
+    name: Métal brûlant
+    castingTime: Action
+    range: 18 m
+    duration: Concentration, jusqu'à 1 minute
+    materialDescription: un bout de fer et une flamme
+    description: Choisissez un objet métallique manufacturé, comme une arme en métal
+      ou une armure lourde ou moyenne, que vous pouvez voir à portée. Vous le faites
+      briller d'un rougeoiement intense. Toute créature en contact physique avec l'objet
+      subit 2d8 dégâts de feu lorsque vous lancez le sort. Jusqu'à la fin du sort,
+      vous pouvez prendre une action Bonus à chacun de vos tours suivants pour infliger
+      à nouveau ces dégâts si l'objet est à portée.<br/>Si une créature tient ou porte
+      l'objet et subit des dégâts, elle doit réussir un jet de sauvegarde de Constitution
+      ou laisser tomber l'objet si elle le peut. Si elle ne le laisse pas tomber,
+      elle subit un Désavantage aux jets d'attaque et de caractéristique jusqu'au
+      début de votre prochain tour.<br/><strong><em>Emplacement de niveau supérieur</em></strong>.
+      Les dégâts augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur
+      à 2.<br/>

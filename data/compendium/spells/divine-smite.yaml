@@ -1,0 +1,35 @@
+id: divine-smite
+source: phb_2024
+level: 1
+school: evocation
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: false
+  material: false
+availableClasses:
+- paladin
+translations:
+  en:
+    name: Divine Smite
+    castingTime: Bonus Action, which you take immediately after hitting a target with
+      a Melee weapon or an Unarmed Strike
+    range: Self
+    duration: Instantaneous
+    materialDescription: null
+    description: The target takes an extra 2d8 Radiant damage from the attack. The
+      damage increases by 1d8 if the target is a Fiend or an Undead.<br/><strong><em>Using
+      a Higher-Level Spell Slot</em></strong>. The damage increases by 1d8 for each
+      spell slot level above 1.<br/>
+  fr:
+    name: Châtiment divin
+    castingTime: Action bonus, que vous prenez immédiatement après avoir touché une
+      cible avec une arme de corps à corps ou une frappe à mains nues
+    range: Personnelle
+    duration: Instantanée
+    materialDescription: null
+    description: La cible subit 2d8 dégâts radiants supplémentaires suite à l'attaque.
+      Les dégâts augmentent de 1d8 si la cible est un fiélon ou un mort-vivant.<br/><strong><em>Emplacement
+      de niveau supérieur</em></strong>. Les dégâts augmentent de 1d8 pour chaque
+      niveau d'emplacement de sort supérieur à 1.<br/>

@@ -1,0 +1,33 @@
+id: lesser-restoration
+source: phb_2024
+level: 2
+school: abjuration
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: false
+availableClasses:
+- bard
+- cleric
+- druid
+- paladin
+- ranger
+translations:
+  en:
+    name: Lesser Restoration
+    castingTime: Bonus Action
+    range: Touch
+    duration: Instantaneous
+    materialDescription: null
+    description: 'You touch a creature and end one condition on it: Blinded, Deafened,
+      Paralyzed, or Poisoned.<br/>'
+  fr:
+    name: Restauration partielle
+    castingTime: Action bonus
+    range: Contact
+    duration: Instantanée
+    materialDescription: null
+    description: 'Vous touchez une créature et mettez fin à un état sur elle : Aveuglé,
+      Assourdi, Paralysé ou Empoisonné.<br/>'

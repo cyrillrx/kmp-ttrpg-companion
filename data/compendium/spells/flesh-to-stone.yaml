@@ -1,0 +1,52 @@
+id: flesh-to-stone
+source: phb_2024
+level: 6
+school: transmutation
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- druid
+- sorcerer
+- wizard
+translations:
+  en:
+    name: Flesh to Stone
+    castingTime: Action
+    range: 60 feet
+    duration: Concentration, up to 1 minute
+    materialDescription: a cockatrice feather
+    description: You attempt to turn one creature that you can see within range into
+      stone. The target makes a Constitution saving throw. On a failed save, it has
+      the Restrained condition for the duration. On a successful save, its Speed is
+      0 until the start of your next turn. Constructs automatically succeed on the
+      save.<br/>A Restrained target makes another Constitution saving throw at the
+      end of each of its turns. If it successfully saves against this spell three
+      times, the spell ends. If it fails its saves three times, it is turned to stone
+      and has the Petrified condition for the duration. The successes and failures
+      needn't be consecutive; keep track of both until the target collects three of
+      a kind.<br/>If you maintain your Concentration on this spell for the entire
+      possible duration, the target is Petrified until the condition is ended by <em><a
+      href="./greater-restoration">Greater Restoration</a></em> or similar magic.<br/>
+  fr:
+    name: Pétrification
+    castingTime: Action
+    range: 18 m
+    duration: Concentration, jusqu'à 1 minute
+    materialDescription: une plume de cockatrice
+    description: Vous tentez de transformer en pierre une créature que vous voyez
+      à portée. La cible effectue un jet de sauvegarde de Constitution. En cas d'échec,
+      elle subit l'état Entravé pour toute la durée. En cas de réussite, sa vitesse
+      tombe à 0 jusqu'au début de votre tour suivant. Les Artificiels réussissent
+      automatiquement ce JdS.<br/>Une créature ainsi Entravée réitère le jet de sauvegarde
+      de Constitution à la fin de chacun de ses tours. Si elle se sauvegarde trois
+      fois contre le sort, celui-ci prend fin. Si elle rate son JdS trois fois, elle
+      se transforme en pierre et reste soumise à l'état Pétrifié pour toute la durée.
+      Ces réussites et échecs n'ont pas besoin ce que la cible atteigne un total de
+      trois pour l'un ou l'autre.<br/>Si vous maintenez votre Concentration sur ce
+      sort pendant toute la durée possible, la cible est Pétrifiée jusqu'à ce que
+      l'état soit éliminé par <em><a href="./fr/restauration-supreme">restauration
+      suprême</a></em> ou une magie équivalente.<br/>

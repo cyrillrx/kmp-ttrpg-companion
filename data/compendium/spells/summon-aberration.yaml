@@ -1,0 +1,51 @@
+id: summon-aberration
+source: phb_2024
+level: 4
+school: conjuration
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- warlock
+- wizard
+translations:
+  en:
+    name: Summon Aberration
+    castingTime: Action
+    range: 90 feet
+    duration: Concentration, up to 1 hour
+    materialDescription: a pickled tentacle and an eyeball in a platinum-inlaid vial
+      worth 400+ GP
+    description: You call forth an aberrant spirit. It manifests in an unoccupied
+      space that you can see within range and uses the <strong><a href="https://www.aidedd.org/monster/aberrant-spirit">Aberrant
+      Spirit</a></strong> stat block. When you cast the spell, choose Beholderkin,
+      Mind Flayer, or Slaad. The creature resembles an Aberration of that kind, which
+      determines certain details in its stat block. The creature disappears when it
+      drops to 0 Hit Points or when the spell ends.<br/>The creature is an ally to
+      you and your allies. In combat, it shares your Initiative count, but it takes
+      its turn immediately after yours. It obeys your verbal commands (no action required
+      by you). If you don't issue any, it takes the Dodge action and uses its movement
+      to avoid danger.<br/><strong><em>Using a Higher-Level Spell Slot</em></strong>.
+      Use the spell slot's level for the spell's level in the stat block.<br/>
+  fr:
+    name: Convocation d'aberration
+    castingTime: Action
+    range: 27 m
+    duration: Concentration, jusqu'à 1 heure
+    materialDescription: un tentacule mariné et un globe oculaire dans un flacon incrusté
+      de platine d'une valeur minimale de 400 po
+    description: Vous invoquez l'esprit d'une aberration. Celui-ci se manifeste dans
+      un espace libre que vous pouvez voir à portée et utilise le profil de l'<strong><a
+      href="https://www.aidedd.org/monster/fr/esprit-aberrant">esprit aberrant</a></strong>.
+      Lorsque vous lancez le sort, choisissez entre tyrannoeillidé, slaad ou flagelleur
+      mental. La créature ressemble à une Aberration de ce type, ce qui détermine
+      certains détails de son profil. La créature disparaît lorsqu'elle tombe à 0
+      point de vie ou à la fin du sort.<br/>Cette créature est votre alliée et celle
+      de vos alliés. En combat, elle partage votre Initiative, mais son tour commence
+      immédiatement après le vôtre. Elle obéit à vos ordres verbaux (aucune action
+      requise). Si vous n'en donnez pas, elle prend l'action Esquive et utilise son
+      mouvement pour éviter le danger.<br/><strong><em>Emplacement de niveau supérieur</em></strong>.
+      Utilisez le niveau de l'emplacement de sort pour le niveau du sort dans le profil.<br/>

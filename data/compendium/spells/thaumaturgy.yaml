@@ -1,0 +1,50 @@
+id: thaumaturgy
+source: phb_2024
+level: 0
+school: transmutation
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: false
+  material: false
+availableClasses:
+- cleric
+translations:
+  en:
+    name: Thaumaturgy
+    castingTime: Action
+    range: 30 feet
+    duration: Up to 1 minute
+    materialDescription: null
+    description: You manifest a minor wonder within range. You create one of the effects
+      below within range. If you cast this spell multiple times, you can have up to
+      three of its 1-minute effects active at a time.<br/><strong>Altered Eyes</strong>.
+      You alter the appearance of your eyes for 1 minute.<br/><strong>Booming Voice</strong>.
+      Your voice booms up to three times as loud as normal for 1 minute. For the duration,
+      you have Advantage on Charisma (Intimidation) checks.<br/><strong>Fire Play</strong>.
+      You cause flames to flicker, brighten, dim, or change color for 1 minute.<br/><strong>Invisible
+      Hand</strong>. You instantaneously cause an unlocked door or window to fly open
+      or slam shut.<br/><strong>Phantom Sound</strong>. You create an instantaneous
+      sound that originates from a point of your choice within range, such as a rumble
+      of thunder, the cry of a raven, or ominous whispers.<br/><strong>Tremors</strong>.
+      You cause harmless tremors in the ground for 1 minute.<br/>
+  fr:
+    name: Thaumaturgie
+    castingTime: Action
+    range: 9 m
+    duration: Jusqu'à 1 minute
+    materialDescription: null
+    description: Vous engendrez un petit miracle dans la portée du sort. Choisissez
+      l'effet dans les options ci-dessous. Si vous lancez ce sort plusieurs fois,
+      vous pouvez garder actif jusqu'à trois de ses effets d'une minute simultanément.<br/><strong>Yeux
+      modifiés</strong>. Vous modifiez l'apparence de vos yeux pendant 1 minute.<br/><strong>Voix
+      retentissante</strong>. Votre voix résonne jusqu'à trois fois plus fort que
+      d'habitude pendant 1 minute. Pendant cette durée, vous obtenez un Avantage aux
+      jets de Charisme (Intimidation).<br/><strong>Jeu avec le feu</strong>. Vous
+      faites scintiller, s'intensifier, s'atténuer ou changer de couleur des flammes
+      pendant 1 minute.<br/><strong>Main invisible</strong>. Vous ouvrez ou fermez
+      instantanément une porte ou une fenêtre non verrouillée.<br/><strong>Bruit fantôme</strong>.
+      Vous créez un son bref provenant d'un point de votre choix à portée, comme un
+      grondement de tonnerre, le cri d'un corbeau ou des murmures inquiétants.<br/><strong>Secousse</strong>.
+      Vous provoquez un tremblement de terre inoffensif pendant 1 minute.<br/>

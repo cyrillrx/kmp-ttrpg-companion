@@ -1,0 +1,130 @@
+id: prismatic-wall
+source: phb_2024
+level: 9
+school: abjuration
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: false
+availableClasses:
+- bard
+- wizard
+translations:
+  en:
+    name: Prismatic Wall
+    castingTime: Action
+    range: 60 feet
+    duration: 10 minutes
+    materialDescription: null
+    description: 'A shimmering, multicolored plane of light forms a vertical opaque
+      wall—up to 90 feet long, 30 feet high, and 1 inch thick—centered on a point
+      within range. Alternatively, you shape the wall into a globe up to 30 feet in
+      diameter centered on a point within range. The wall lasts for the duration.
+      If you position the wall in a space occupied by a creature, the spell ends instantly
+      without effect.<br/>The wall sheds Bright Light within 100 feet and Dim Light
+      for an additional 100 feet. You and creatures you designate when you cast the
+      spell can pass through and be near the wall without harm. If another creature
+      that can see the wall moves within 20 feet of it or starts its turn there, the
+      creature must succeed on a Constitution saving throw or have the Blinded condition
+      for 1 minute.<br/>The wall consists of seven layers, each with a different color.
+      When a creature reaches into or passes through the wall, it does so one layer
+      at a time through all the layers. Each layer forces the creature to make a Dexterity
+      saving throw or be affected by that layer''s properties as described in the
+      Prismatic Layers table.<br/>The wall, which has AC 10, can be destroyed one
+      layer at a time, in order from red to violet, by means specific to each layer.
+      If a layer is destroyed, it is gone for the duration. <em>Antimagic Field</em>
+      has no effect on the wall, and <em><a href="./dispel-magic">Dispel Magic</a></em>
+      can affect only the violet layer.<br/><table><tr><th>Order</th><th>Effects</th></tr><tr><td
+      class="center">1</td><td><strong>Red</strong>. <em>Failed Save</em>: 12d6 Fire
+      damage. <em>Successful Save</em>: Half as much damage. <em>Additional Effects</em>:
+      Nonmagical ranged attacks can''t pass through this layer, which is destroyed
+      if it takes at least 25 Cold damage.</td></tr><tr><td class="center">2</td><td><strong>Orange</strong>.
+      <em>Failed Save</em>: 12d6 Acid damage. <em>Successful Save</em>: Half as much
+      damage. <em>Additional Effects</em>: Magical ranged attacks can''t pass through
+      this layer, which is destroyed by a strong wind (such as the one created by
+      <em><a href="./gust-of-wind">Gust of Wind</a></em>).</td></tr><tr><td class="center">3</td><td><strong>Yellow</strong>.
+      <em>Failed Save</em>: 12d6 Lightning damage. <em>Successful Save</em>: Half
+      as much damage. <em>Additional Effects</em>: The layer is destroyed if it takes
+      at least 60 Force damage.</td></tr><tr><td class="center">4</td><td><strong>Green</strong>.
+      <em>Failed Save</em>: 12d6 Poison damage. <em>Successful Save</em>: Half as
+      much damage. <em>Additional Effects</em>: A <em>Passwall</em> spell, or another
+      spell of equal or greater level that can open a portal on a solid surface, destroys
+      this layer.</td></tr><tr><td class="center">5</td><td><strong>Blue</strong>.
+      <em>Failed Save</em>: 12d6 Cold damage. <em>Successful Save</em>: Half as much
+      damage. <em>Additional Effects</em>: The layer is destroyed if it takes at least
+      25 Fire damage.</td></tr><tr><td class="center">6</td><td><strong>Indigo</strong>.
+      <em>Failed Save</em>: The target has the Restrained condition and makes a Constitution
+      saving throw at the end of each of its turns. If it successfully saves three
+      times, the condition ends. If it fails three times, it has the Petrified condition
+      until it is freed by an effect like the <em><a href="./greater-restoration">Greater
+      Restoration</a></em> spell. The successes and failures needn''t be consecutive;
+      keep track of both until the target collects three of a kind. <em>Additional
+      Effects</em>: Spells can''t be cast through this layer, which is destroyed by
+      Bright Light shed by the <em>Daylight</em> spell.</td></tr><tr><td class="center">7</td><td><strong>Violet</strong>.
+      <em>Failed Save</em>: The target has the Blinded condition and makes a Wisdom
+      saving throw at the start of your next turn. On a <em>Successful Save</em>,
+      the condition ends. On a <em>Failed Save</em>, the condition ends, and the creature
+      teleports to another plane of existence (DM''s choice). <em>Additional Effects</em>:
+      This layer is destroyed by <em><a href="./dispel-magic">Dispel Magic</a></em>.</td></tr></table><br/>'
+  fr:
+    name: Mur prismatique
+    castingTime: Action
+    range: 18 m
+    duration: 10 minutes
+    materialDescription: null
+    description: 'Un plan multicolore de lueurs chatoyantes s''érige sous forme d''un
+      mur vertical opaque centré sur un point à portée, avec les dimensions maximales
+      suivantes : longueur 27 m, hauteur 9 m et épaisseur 2,50 cm. Vous pouvez au
+      lieu de cela lui donner la forme d''un globe d''un diamètre maximal de 9 m,
+      centré sur un point à portée. Le mur persiste pour toute la durée. Si vous positionnez
+      le mur en un espace occupé par une créature, le sort prend aussitôt fin sans
+      effet.<br/>Le mur produit une Lumière vive sur une distance de 30 m et une Lumière
+      faible sur 30 m de plus. Vous et les créatures que vous désignez à l''incantation
+      du sort pouvez sans risque traverser le mur et rester à proximité. Si une autre
+      créature qui voit le mur s''approche dans un rayon de 6 m de sa zone ou y commence
+      son tour, elle doit réussir un jet de sauvegarde de Constitution sous peine
+      de subir l''état Aveuglé pendant 1 minute.<br/>Le mur est constitué de sept
+      couches, chacune d''une couleur différente. Lorsqu''une créature tente de pénétrer
+      le mur ou de le traverser, elle le fait couche après couche jusqu''à toutes
+      les avoir franchies. Chaque couche contraint la créature à un jet de sauvegarde
+      de Dextérité pour éviter d''être affectée par les propriétés de la couche, décrites
+      dans la table ci-dessous.<br/>On peut détruire le mur (CA 10), couche par couche,
+      de la rouge à la violette, par des moyens propres à chaque couche. Quand une
+      couche est détruite, elle disparaît pour toute la durée. Un champ antimagie
+      reste sans effet sur le mur, tandis que <em><a href="./fr/dissipation-de-la-magie">dissipation
+      de la magie</a></em> n''affecte que la couche violette.<br/><table><tr><th>Ordre</th><th>Effets</th></tr><tr><td
+      class="center">1</td><td><strong>Rouge</strong>. <em>Échec au JdS</em> : 12d6
+      dégâts de feu. <em>JdS réussi</em> : 1/2 dégâts. <em>Effets supplémentaires</em>
+      : les attaques à distance non magiques ne peuvent traverser cette couche, détruite
+      si elle subit au moins 25 dégâts de froid.</td></tr><tr><td class="center">2</td><td><strong>Orange</strong>.
+      <em>Échec au JdS</em> : 12d6 dégâts d''acide. <em>JdS réussi</em> : 1/2 dégâts.
+      <em>Effets supplémentaires</em> : les attaques à distance magiques ne peuvent
+      traverser cette couche, détruite par un vent fort (comme celui produit par <em><a
+      href="./fr/bourrasque">bourrasque</a></em>).</td></tr><tr><td class="center">3</td><td><strong>Jaune</strong>.
+      <em>Échec au JdS</em> : 112d6 dégâts de foudre. <em>JdS réussi</em> : 1/2 dégâts.
+      <em>Effets supplémentaires</em> : la couche est détruite si elle subit au moins
+      60 dégâts de force.</td></tr><tr><td class="center">4</td><td><strong>Verte</strong>.
+      <em>Échec au JdS</em> : 12d6 dégâts de poison. <em>JdS réussi</em> : 1/2 dégâts.
+      <em>Effets supplémentaires</em> : le sort <em>passe-muraille</em>, ou un autre
+      sort de niveau supérieur ou égal capable d''ouvrir un portail sur une surface
+      solide, détruit cette couche.</td></tr><tr><td class="center">5</td><td><strong>Bleue</strong>.
+      <em>Échec au JdS</em> : 12d6 dégâts de froid. <em>JdS réussi</em> : 1/2 dégâts.
+      <em>Effets supplémentaires</em> : la couche est détruite si elle subit au moins
+      25 dégâts de feu.</td></tr><tr><td class="center">6</td><td><strong>Indigo</strong>.
+      <em>Échec au JdS</em> : la cible subit l''état Entravé et effectue un jet de
+      sauvegarde de Constitution à la fin de chacun de ses tours. Si elle se sauvegarde
+      trois fois, l''état prend fin. Si elle rate trois fois le JdS, elle subit l''état
+      Pétrifié jusqu''à en être libérée par un effet tel que <em><a href="./fr/restauration-supreme">restauration
+      suprême</a></em>. Ces réussites et échecs n''ont pas besoin d''être consécutifs
+      ; notez-les quelque part, jusqu''à ce que la cible atteigne un total de trois
+      pour l''un ou l''autre. <em>Effets supplémentaires</em> : les sorts ne peuvent
+      pas traverser cette couche, détruite par la Lumière vive du sort <em>lumière
+      du jour</em>.</td></tr><tr><td class="center">7</td><td><strong>Violette</strong>.
+      <em>Échec au JdS</em> : la cible subit l''état Aveuglé et effectue un jet de
+      sauvegarde de Sagesse au début de votre tour suivant. En cas de réussite, l''état
+      prend fin. En cas d''échec, l''état prend fin, et la créature est téléportée
+      dans un autre plan d''existence (choisi par le MD). <em>Effets supplémentaires</em>
+      : <em><a href="./fr/dissipation-de-la-magie">dissipation de la magie</a></em>
+      détruit cette couche.</td></tr></table><br/>'

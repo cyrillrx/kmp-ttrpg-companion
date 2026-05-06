@@ -1,0 +1,30 @@
+id: backlash
+source: heroes_of_faerun
+level: 4
+school: abjuration
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: false
+  material: false
+availableClasses:
+- bard
+- sorcerer
+- warlock
+- wizard
+translations:
+  en:
+    name: Backlash
+    castingTime: Reaction, which you take in response to taking damage
+    range: 60 feet
+    duration: Instantaneous
+    materialDescription: null
+    description: ''
+  fr:
+    name: Contrecoup
+    castingTime: Réaction, que vous prenez en réponse à des dégâts subis
+    range: 18 m
+    duration: Instantanée
+    materialDescription: null
+    description: ''

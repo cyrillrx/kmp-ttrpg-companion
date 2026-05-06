@@ -1,0 +1,28 @@
+id: spellfire-flare
+source: heroes_of_faerun
+level: 1
+school: evocation
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: false
+availableClasses:
+- sorcerer
+- wizard
+translations:
+  en:
+    name: Spellfire Flare
+    castingTime: Action
+    range: 60 feet
+    duration: Instantaneous
+    materialDescription: null
+    description: ''
+  fr:
+    name: Lueur de magefeu
+    castingTime: Action
+    range: 18 m
+    duration: Instantanée
+    materialDescription: null
+    description: ''

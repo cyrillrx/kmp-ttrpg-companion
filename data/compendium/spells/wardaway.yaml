@@ -1,0 +1,30 @@
+id: wardaway
+source: heroes_of_faerun
+level: 1
+school: abjuration
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- bard
+- cleric
+- paladin
+- wizard
+translations:
+  en:
+    name: Wardaway
+    castingTime: Action
+    range: 60 feet
+    duration: Instantaneous
+    materialDescription: a miniature clay hand
+    description: ''
+  fr:
+    name: Écartement
+    castingTime: Action
+    range: 18 m
+    duration: Instantanée
+    materialDescription: une main miniature en argile
+    description: ''

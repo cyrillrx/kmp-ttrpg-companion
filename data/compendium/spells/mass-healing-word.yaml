@@ -1,0 +1,35 @@
+id: mass-healing-word
+source: phb_2024
+level: 3
+school: abjuration
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: false
+  material: false
+availableClasses:
+- bard
+- cleric
+translations:
+  en:
+    name: Mass Healing Word
+    castingTime: Bonus Action
+    range: 60 feet
+    duration: Instantaneous
+    materialDescription: null
+    description: Up to six creatures of your choice that you can see within range
+      regain Hit Points equal to 2d4 plus your spellcasting ability modifier.<br/><strong><em>Using
+      a Higher-Level Spell Slot</em></strong>. The healing increases by 1d4 for each
+      spell slot level above 3.<br/>
+  fr:
+    name: Mot de guérison de groupe
+    castingTime: Action bonus
+    range: 18 m
+    duration: Instantanée
+    materialDescription: null
+    description: Jusqu'à six créatures de votre choix que vous pouvez voir à portée
+      regagnent des points de vie équivalents à 2d4 plus le modificateur de votre
+      caractéristique d'incantations.<br/><strong><em>Emplacement de niveau supérieur</em></strong>.
+      Les soins augmentent de 1d4 pour chaque niveau d'emplacement de sort supérieur
+      à 3.<br/>

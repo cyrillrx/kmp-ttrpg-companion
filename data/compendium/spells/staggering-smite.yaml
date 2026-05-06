@@ -1,0 +1,37 @@
+id: staggering-smite
+source: phb_2024
+level: 4
+school: enchantment
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: false
+  material: false
+availableClasses:
+- paladin
+translations:
+  en:
+    name: Staggering Smite
+    castingTime: Bonus Action, which you take immediately after hitting a creature
+      with a Melee weapon or an Unarmed Strike
+    range: Self
+    duration: Instantaneous
+    materialDescription: null
+    description: The target takes an extra 4d6 Psychic damage from the attack, and
+      the target must succeed on a Wisdom saving throw or have the Stunned condition
+      until the end of your next turn.<br/><strong><em>Using a Higher-Level Spell
+      Slot</em></strong>. The extra damage increases by 1d6 for each spell slot level
+      above 4.<br/>
+  fr:
+    name: Châtiment de stupeur
+    castingTime: Action bonus, que vous prenez immédiatement après avoir touché une
+      créature avec une arme de corps au corps ou une frappe à mains nues
+    range: Personnelle
+    duration: Instantanée
+    materialDescription: null
+    description: La cible subit 4d6 dégâts psychiques supplémentaires suite à l'attaque,
+      et doit réussir un jet de sauvegarde de Sagesse ou subir l'état Étourdi jusqu'à
+      la fin de votre prochain tour.<br/><strong><em>Emplacement de niveau supérieur</em></strong>.
+      Les dégâts supplémentaires augmentent de 1d6 pour chaque niveau d'emplacement
+      de sort supérieur à 4.<br/>

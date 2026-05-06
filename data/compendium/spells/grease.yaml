@@ -1,0 +1,37 @@
+id: grease
+source: phb_2024
+level: 1
+school: conjuration
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- sorcerer
+- wizard
+translations:
+  en:
+    name: Grease
+    castingTime: Action
+    range: 60 feet
+    duration: 1 minute
+    materialDescription: a bit of pork rind or butter
+    description: Nonflammable grease covers the ground in a 10-foot square centered
+      on a point within range and turns it into Difficult Terrain for the duration.<br/>When
+      the grease appears, each creature standing in its area must succeed on a Dexterity
+      saving throw or have the Prone condition. A creature that enters the area or
+      ends its turn there must also succeed on that save or fall Prone.<br/>
+  fr:
+    name: Graisse
+    castingTime: Action
+    range: 18 m
+    duration: 1 minute
+    materialDescription: un peu de couenne de porc ou de beurre
+    description: De la graisse ininflammable recouvre le sol sur une surface carrée
+      de 3 mètres de côté centrée sur un point à portée et le transforme en Terrain
+      difficile pendant toute la durée du sort.<br/>Lorsque la graisse apparaît, toute
+      créature se trouvant dans sa zone doit réussir un jet de sauvegarde de Dextérité
+      ou subir l'état À terre. Une créature qui entre dans la zone ou y termine son
+      tour doit également réussir ce jet de sauvegarde ou subir l'état À terre.<br/>

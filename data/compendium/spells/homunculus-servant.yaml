@@ -1,0 +1,27 @@
+id: homunculus-servant
+source: forge_of_the_artificer
+level: 2
+school: conjuration
+concentration: false
+ritual: true
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- artificer
+translations:
+  en:
+    name: Homunculus Servant
+    castingTime: 1 hour or Ritual
+    range: 10 feet
+    duration: Instantaneous
+    materialDescription: a gem worth 100+ GP
+    description: ''
+  fr:
+    name: Serviteur homoncule
+    castingTime: 1 heure ou Rituel
+    range: 3 m
+    duration: Instantanée
+    materialDescription: une gemme d'une valeur minimale de 100 po
+    description: ''

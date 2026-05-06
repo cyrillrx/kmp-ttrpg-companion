@@ -1,0 +1,53 @@
+id: creation
+source: phb_2024
+level: 5
+school: illusion
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- sorcerer
+- wizard
+translations:
+  en:
+    name: Creation
+    castingTime: 1 minute
+    range: 30 feet
+    duration: Special
+    materialDescription: a paintbrush
+    description: You pull wisps of shadow material from the Shadowfell to create an
+      object within range. It is either an object of vegetable matter (soft goods,
+      rope, wood, and the like) or mineral matter (stone, crystal, metal, and the
+      like). The object must be no larger than a 5-foot Cube, and the object must
+      be of a form and material that you have seen.<br/>The spell's duration depends
+      on the object's material, as shown in the Materials table. If the object is
+      composed of multiple materials, use the shortest duration. Using any object
+      created by this spell as another spell's Material component causes the other
+      spell to fail.<br/><table><tr><th>Material</th><th>Duration</th></tr><tr><td>Vegetable
+      matter</td><td>24 hours</td></tr><tr><td>Stone or crystal</td><td>12 hours</td></tr><tr><td>Precious
+      metals</td><td>1 hour</td></tr><tr><td>Gems</td><td>10 minutes</td></tr><tr><td>Adamantine
+      or mithral</td><td>1 minute</td></tr></table><br/><strong><em>Using a Higher-Level
+      Spell Slot</em></strong>. The Cube increases by 5 feet for each spell slot level
+      above 5.<br/>
+  fr:
+    name: Création
+    castingTime: 1 minute
+    range: 9 m
+    duration: Spéciale
+    materialDescription: un pinceau
+    description: Vous extrayez des volutes de matière d'ombre de la Gisombre pour
+      créer un objet à portée. Il peut s'agir d'un objet végétal (matière souple,
+      corde, bois, etc) ou minéral (pierre, cristal, métal, etc). L'objet ne doit
+      pas dépasser un cube de 1,50 mètre de côté, et sa forme et sa matière doivent
+      être connues.<br/>La durée du sort dépend de la matière de l'objet, comme indiqué
+      dans la table ci-dessous. Si l'objet est composé de plusieurs matériaux, utilisez
+      la durée la plus courte. Utiliser un objet créé par ce sort comme matière d'un
+      autre sort entraîne l'échec de ce dernier.<br/><table><tr><th>Matière</th><th>Durée</th></tr><tr><td>Matière
+      végétale</td><td>24 heures</td></tr><tr><td>Pierre ou cristal</td><td>12 heures</td></tr><tr><td>Métal
+      précieux</td><td>1 heure</td></tr><tr><td>Gemme</td><td>10 minutes</td></tr><tr><td>Adamantium
+      ou mithral</td><td>1 minute</td></tr></table><br/><strong><em>Emplacement de
+      niveau supérieur</em></strong>. La taille du cube augmente de 1,50 mètre pour
+      chaque niveau d'emplacement de sort supérieur à 5.<br/>

@@ -1,0 +1,31 @@
+id: purify-food-and-drink
+source: phb_2024
+level: 1
+school: transmutation
+concentration: false
+ritual: true
+components:
+  verbal: true
+  somatic: true
+  material: false
+availableClasses:
+- cleric
+- druid
+- paladin
+translations:
+  en:
+    name: Purify Food and Drink
+    castingTime: Action or Ritual
+    range: 10 feet
+    duration: Instantaneous
+    materialDescription: null
+    description: You remove poison and rot from nonmagical food and drink in a 5-foot-radius
+      Sphere centered on a point within range.<br/>
+  fr:
+    name: Purification de la nourriture et de l'eau
+    castingTime: Action ou Rituel
+    range: 3 m
+    duration: Instantanée
+    materialDescription: null
+    description: Vous éliminez le poison et la pourriture des aliments et boissons
+      non magiques dans une sphère de 1,50 mètre de rayon centrée sur un point à portée.<br/>

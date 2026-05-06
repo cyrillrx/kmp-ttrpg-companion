@@ -1,0 +1,40 @@
+id: sleet-storm
+source: phb_2024
+level: 3
+school: conjuration
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- druid
+- sorcerer
+- wizard
+translations:
+  en:
+    name: Sleet Storm
+    castingTime: Action
+    range: 150 feet
+    duration: Concentration, up to 1 minute
+    materialDescription: a miniature umbrella
+    description: Until the spell ends, sleet falls in a 40-foot-tall, 20-foot-radius
+      Cylinder centered on a point you choose within range. The area is Heavily Obscured,
+      and exposed flames in the area are doused.<br/>Ground in the Cylinder is Difficult
+      Terrain. When a creature enters the Cylinder for the first time on a turn or
+      starts its turn there, it must succeed on a Dexterity saving throw or have the
+      Prone condition and lose Concentration.<br/>
+  fr:
+    name: Tempête de neige
+    castingTime: Action
+    range: 45 m
+    duration: Concentration, jusqu'à 1 minute
+    materialDescription: un parapluie miniature
+    description: Jusqu'à la fin du sort, de la neige tombe dans un Cylindre de 12
+      mètres de haut et 6 mètres de rayon centré sur un point que vous choisissez
+      à portée. La zone a une Visibilité nulle et les flammes exposées sont éteintes.
+      Le sol du Cylindre est un Terrain difficile. Lorsqu'une créature pénètre dans
+      le Cylindre pour la première fois au cours d'un tour ou y commence son tour,
+      elle doit réussir un jet de sauvegarde de Dextérité ou subir l'état À terre
+      et perdre sa concentration.<br/>

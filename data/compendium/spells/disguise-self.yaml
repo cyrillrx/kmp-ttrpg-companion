@@ -1,0 +1,47 @@
+id: disguise-self
+source: phb_2024
+level: 1
+school: illusion
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: false
+availableClasses:
+- bard
+- sorcerer
+- wizard
+translations:
+  en:
+    name: Disguise Self
+    castingTime: Action
+    range: Self
+    duration: 1 hour
+    materialDescription: null
+    description: You make yourself—including your clothing, armor, weapons, and other
+      belongings on your person—look different until the spell ends. You can seem
+      1 foot shorter or taller and can appear heavier or lighter. You must adopt a
+      form that has the same basic arrangement of limbs as you have. Otherwise, the
+      extent of the illusion is up to you.<br/>The changes wrought by this spell fail
+      to hold up to physical inspection. For example, if you use this spell to add
+      a hat to your outfit, objects pass through the hat, and anyone who touches it
+      would feel nothing.<br/>To discern that you are disguised, a creature must take
+      the Study action to inspect your appearance and succeed on an Intelligence (Investigation)
+      check against your spell save DC.<br/>
+  fr:
+    name: Déguisement
+    castingTime: Action
+    range: Personnelle
+    duration: 1 heure
+    materialDescription: null
+    description: Vous vous transformez (vêtements, armure, armes et autres effets
+      personnels inclus) jusqu'à la fin du sort. Vous pouvez paraître plus petit ou
+      plus grand de 30 cm, et paraître plus lourd ou plus léger. Vous devez adopter
+      une forme dont la disposition des membres est identique à la vôtre. Mis à part
+      cela, l'ampleur de l'illusion dépend de vous.<br/>Les changements apportés par
+      ce sort ne résistent pas à une inspection physique. Par exemple, si vous utilisez
+      ce sort pour ajouter un chapeau à votre tenue, les objets le traversent et quiconque
+      le touche ne ressent rien.<br/>Pour discerner que vous êtes déguisé, une créature
+      doit prendre l'action Étude pour inspecter votre apparence et réussir un jet
+      d'Intelligence (Investigation) contre le DD de sauvegarde de votre sort.<br/>

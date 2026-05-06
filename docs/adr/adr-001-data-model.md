@@ -55,16 +55,18 @@ Every entity has a `source` field — a single string identifying its origin.
 ```
 
 ### Known Values
-| Value       | Description                             |
-|-------------|-----------------------------------------|
-| `srd_5.1`   | D&D 5e SRD 2014                         |
-| `srd_5.2`   | D&D 5e SRD 2024                         |
-| `phb_2014`  | Player's Handbook 2014                  |
-| `phb_2024`  | Player's Handbook 2024                  |
-| `tasha`     | Tasha's Cauldron of Everything          |
-| `xanathar`  | Xanathar's Guide to Everything          |
-| `fateforge` | Fateforge (Studio Agate)                |
-| `custom`    | User-created content                    |
+| Value                    | Description                             |
+|--------------------------|------------------------------------------|
+| `srd_5.1`                | D&D 5e SRD 2014                         |
+| `srd_5.2`                | D&D 5e SRD 2024                         |
+| `phb_2014`               | Player's Handbook 2014                  |
+| `phb_2024`               | Player's Handbook 2024                  |
+| `tasha`                  | Tasha's Cauldron of Everything          |
+| `xanathar`               | Xanathar's Guide to Everything          |
+| `fateforge`              | Fateforge (Studio Agate)                |
+| `heroes_of_faerun`       | Forgotten Realms: Heroes of Faerûn      |
+| `forge_of_the_artificer` | Eberron: Forge of the Artificer         |
+| `custom`                 | User-created content                    |
 
 ### Rationale
 - A single string is the simplest model that supports filtering by source and distinguishing official from user-created content.

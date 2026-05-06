@@ -1,0 +1,38 @@
+id: tongues
+source: phb_2024
+level: 3
+school: divination
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: false
+  material: true
+availableClasses:
+- bard
+- cleric
+- sorcerer
+- warlock
+- wizard
+translations:
+  en:
+    name: Tongues
+    castingTime: Action
+    range: Touch
+    duration: 1 hour
+    materialDescription: a miniature ziggurat
+    description: This spell grants the creature you touch the ability to understand
+      any spoken or signed language that it hears or sees. Moreover, when the target
+      communicates by speaking or signing, any creature that knows at least one language
+      can understand it if that creature can hear the speech or see the signing.<br/>
+  fr:
+    name: Don des langues
+    castingTime: Action
+    range: Contact
+    duration: 1 heure
+    materialDescription: une ziggourat miniature
+    description: Ce sort confère à la créature que vous touchez la capacité de comprendre
+      toute langue parlée qu'elle entend ainsi que le langage des signes. De plus,
+      lorsque la cible communique par la parole ou par des signes, toute créature
+      connaissant au moins une langue peut la comprendre si elle peut entendre la
+      parole ou voir les signes.<br/>

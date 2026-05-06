@@ -1,0 +1,28 @@
+id: death-armor
+source: heroes_of_faerun
+level: 2
+school: necromancy
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- sorcerer
+- wizard
+translations:
+  en:
+    name: Death Armor
+    castingTime: Action
+    range: Touch
+    duration: 1 hour
+    materialDescription: an onyx worth 50+ GP, which the spell consumes
+    description: ''
+  fr:
+    name: Armure de mort
+    castingTime: Action
+    range: Contact
+    duration: 1 heure
+    materialDescription: un onyx d'une valeur minimale de 50 po, que le sort consomme
+    description: ''

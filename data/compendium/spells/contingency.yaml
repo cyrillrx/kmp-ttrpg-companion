@@ -1,0 +1,57 @@
+id: contingency
+source: phb_2024
+level: 6
+school: abjuration
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- wizard
+translations:
+  en:
+    name: Contingency
+    castingTime: 10 minutes
+    range: Self
+    duration: 10 days
+    materialDescription: a gem-incrusted statuette of yourself worth 1,500+ GP
+    description: Choose a spell of level 5 or lower that you can cast, that has a
+      casting time of an action, and that can target you. You cast that spell—called
+      the contingent spell—as part of casting <em>Contingency</em>, expending spell
+      slots for both, but the contingent spell doesn't come into effect. Instead,
+      it takes effect when a certain trigger occurs. You describe that trigger when
+      you cast the two spells. For example, a <em>Contingency</em> cast with <em>Water
+      Breathing</em> might stipulate that Water Breathing comes into effect when you
+      are engulfed in water or a similar liquid.<br/>The contingent spell takes effect
+      immediately after the trigger occurs for the first time, whether or not you
+      want it to, and then <em>Contingency</em> ends.<br/>The contingent spell takes
+      effect only on you, even if it can normally target others. You can use only
+      one <em>Contingency</em> spell at a time. If you cast this spell again, the
+      effect of another <em>Contingency</em> spell on you ends. Also, <em>Contingency</em>
+      ends on you if its material component is ever not on your person.<br/>
+  fr:
+    name: Préméditation
+    castingTime: 10 minutes
+    range: Personnelle
+    duration: 10 jours
+    materialDescription: une statuette à votre effigie incrustée de gemmes d'une valeur
+      minimale de 1500 po
+    description: 'Choisissez un sort de niveau 5 ou inférieur que vous pouvez lancer,
+      dont le temps d''incantation est d''une action et qui peut vous cibler. Vous
+      lancez le sort concerné, qu''on appellera « sort prémédité », dans le cadre
+      de l''incantation de <em>préméditation</em>, et acquittez les emplacements des
+      deux sorts. Le sort prémédité n''agit toutefois pas aussitôt. Au lieu de cela,
+      il ne prendra effet que lorsqu''un déclencheur précis se présentera. Vous décrivez
+      ce déclencheur à l''incantation des deux sorts. Exemple : une <em>préméditation</em>
+      lancée en conjonction avec <em>respiration aquatique</em> pourrait stipuler
+      que respiration aquatique prendra effet lorsque vous serez englouti par les
+      eaux ou un liquide comparable.<br/>Le sort prémédité prend effet aussitôt après
+      que les conditions sont réunies pour la première fois, que vous le vouliez ou
+      non, puis la <em>préméditation</em> prend fin.<br/>Le sort prémédité ne prend
+      effet que sur vous, même s''il est susceptible d''avoir d''autres cibles en
+      temps normal. Vous ne pouvez recourir qu''à un sort de <em>préméditation</em>
+      à la fois. Si vous relancez ce sort, la <em>préméditation</em> qui vous affectait
+      déjà prend fin. La <em>préméditation</em> prend également fin si sa composante
+      matérielle n''est plus sur vous.<br/>'

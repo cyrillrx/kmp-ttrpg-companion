@@ -1,0 +1,39 @@
+id: speak-with-animals
+source: phb_2024
+level: 1
+school: divination
+concentration: false
+ritual: true
+components:
+  verbal: true
+  somatic: true
+  material: false
+availableClasses:
+- bard
+- druid
+- ranger
+- warlock
+translations:
+  en:
+    name: Speak with Animals
+    castingTime: Action or Ritual
+    range: Self
+    duration: 10 minutes
+    materialDescription: null
+    description: For the duration, you can comprehend and verbally communicate with
+      Beasts, and you can use any of the Influence action's skill options with them.<br/>Most
+      Beasts have little to say about topics that don't pertain to survival or companionship,
+      but at minimum, a Beast can give you information about nearby locations and
+      monsters, including whatever it has perceived within the past day.<br/>
+  fr:
+    name: Communication avec les animaux
+    castingTime: Action ou Rituel
+    range: Personnelle
+    duration: 10 minutes
+    materialDescription: null
+    description: Pendant toute la durée du sort, vous pouvez comprendre et communiquer
+      verbalement avec des bêtes, et utiliser avec elles toutes les compétences de
+      l'action Influencer.<br/>La plupart des bêtes ont peu de choses à dire sur des
+      sujets autres que la survie ou la camaraderie, mais au minimum, une bête peut
+      vous donner des informations sur les lieux et les monstres à proximité, y compris
+      tout ce qu'elle a perçu au cours de la dernière journée.<br/>

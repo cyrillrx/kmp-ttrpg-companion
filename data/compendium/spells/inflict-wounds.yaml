@@ -1,0 +1,34 @@
+id: inflict-wounds
+source: phb_2024
+level: 1
+school: necromancy
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: false
+availableClasses:
+- cleric
+translations:
+  en:
+    name: Inflict Wounds
+    castingTime: Action
+    range: Touch
+    duration: Instantaneous
+    materialDescription: null
+    description: A creature you touch makes a Constitution saving throw, taking 2d10
+      Necrotic damage on a failed save or half as much damage on a successful one.<br/><strong><em>Using
+      a Higher-Level Spell Slot</em></strong>. The damage increases by 1d10 for each
+      spell slot level above 1.<br/>
+  fr:
+    name: Blessure
+    castingTime: Action
+    range: Contact
+    duration: Instantanée
+    materialDescription: null
+    description: Une créature que vous touchez effectue un jet de sauvegarde de Constitution
+      et subit 2d10 dégâts nécrotiques en cas d'échec, ou la moitié de ces dégâts
+      en cas de réussite.<br/><strong><em>Emplacement de niveau supérieur</em></strong>.
+      Les dégâts augmentent de 1d10 pour chaque niveau d'emplacement de sort supérieur
+      à 1.<br/>

@@ -1,0 +1,29 @@
+id: doomtide
+source: heroes_of_faerun
+level: 4
+school: conjuration
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- bard
+- cleric
+- warlock
+translations:
+  en:
+    name: Doomtide
+    castingTime: Action
+    range: 120 feet
+    duration: Concentration, up to 1 minute
+    materialDescription: soot and a dried eel
+    description: ''
+  fr:
+    name: Marée de malheur
+    castingTime: Action
+    range: 36 m
+    duration: Concentration, jusqu'à 1 minute
+    materialDescription: de la suie et une anguille séchée
+    description: ''

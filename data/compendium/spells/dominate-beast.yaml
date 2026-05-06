@@ -1,0 +1,56 @@
+id: dominate-beast
+source: phb_2024
+level: 4
+school: enchantment
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: false
+availableClasses:
+- druid
+- ranger
+- sorcerer
+translations:
+  en:
+    name: Dominate Beast
+    castingTime: Action
+    range: 60 feet
+    duration: Concentration, up to 1 minute
+    materialDescription: null
+    description: One Beast you can see within range must succeed on a Wisdom saving
+      throw or have the Charmed condition for the duration. The target has Advantage
+      on the save if you or your allies are fighting it. Whenever the target takes
+      damage, it repeats the save, ending the spell on itself on a success.<br/>You
+      have a telepathic link with the Charmed target while the two of you are on the
+      same plane of existence. On your turn, you can use this link to issue commands
+      to the target (no action required), such as "Attack that creature," "Move over
+      there," or "Fetch that object." The target does its best to obey on its turn.
+      If it completes an order and doesn't receive further direction from you, it
+      acts and moves as it likes, focusing on protecting itself.<br/>You can command
+      the target to take a Reaction but must take your own Reaction to do so.<br/><strong><em>Using
+      a Higher-Level Spell Slot</em></strong>. Your Concentration can last longer
+      with a spell slot of level 5 (up to 10 minutes), 6 (up to 1 hour), or 7+ (up
+      to 8 hours).<br/>
+  fr:
+    name: Domination de bête
+    castingTime: Action
+    range: 18 m
+    duration: Concentration, jusqu'à 1 minute
+    materialDescription: null
+    description: Une bête que vous pouvez voir à portée doit réussir un jet de sauvegarde
+      de Sagesse ou subir l'état Charmé pendant toute la durée du sort. La cible bénéficie
+      d'un Avantage pour ce jet si vous ou vos alliés la combattez. Chaque fois que
+      la cible subit des dégâts, elle renouvelle le jet de sauvegarde, mettant fin
+      au sort en cas de réussite.<br/>Vous disposez d'un lien télépathique avec la
+      cible charmée tant que vous êtes sur le même plan d'existence. À votre tour,
+      vous pouvez utiliser ce lien pour lui donner des ordres (aucune action requise),
+      tels que « Attaque cette créature », « Va là-bas » ou « Récupère cet objet ».
+      La cible fait de son mieux pour obéir pendant son tour. Si elle exécute un ordre
+      et ne reçoit aucune autre instruction de votre part, elle agit et se déplace
+      à sa guise, se concentrant sur sa protection.<br/>Vous pouvez ordonner à la
+      cible de prendre une Réaction, mais vous devez prendre votre propre Réaction
+      pour cela.<br/><strong><em>Emplacement de niveau supérieur</em></strong>. Votre
+      concentration peut durer plus longtemps avec un emplacement de sort de niveau
+      5 (jusqu'à 10 minutes), 6 (jusqu'à 1 heure) ou 7 ou plus (jusqu'à 8 heures).<br/>

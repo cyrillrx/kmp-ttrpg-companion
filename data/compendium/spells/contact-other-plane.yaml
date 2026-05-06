@@ -1,0 +1,49 @@
+id: contact-other-plane
+source: phb_2024
+level: 5
+school: divination
+concentration: false
+ritual: true
+components:
+  verbal: true
+  somatic: false
+  material: false
+availableClasses:
+- warlock
+- wizard
+translations:
+  en:
+    name: Contact Other Plane
+    castingTime: 1 minute or Ritual
+    range: Self
+    duration: 1 minute
+    materialDescription: null
+    description: You mentally contact a demigod, the spirit of a long-dead sage, or
+      some other knowledgeable entity from another plane. Contacting this otherworldly
+      intelligence can break your mind. When you cast this spell, make a DC 15 Intelligence
+      saving throw. On a successful save, you can ask the entity up to five questions.
+      You must ask your questions before the spell ends. The DM answers each question
+      with one word, such as "yes," "no," "maybe," "never," "irrelevant," or "unclear"
+      (if the entity doesn't know the answer to the question). If a one-word answer
+      would be misleading, the DM might instead offer a short phrase as an answer.<br/>On
+      a failed save, you take 6d6 Psychic damage and have the Incapacitated condition
+      until you finish a Long Rest. A <em><a href="./greater-restoration">Greater
+      Restoration</a></em> spell cast on you ends this effect.<br/>
+  fr:
+    name: Contact avec les plans
+    castingTime: 1 minute ou Rituel
+    range: Personnelle
+    duration: 1 minute
+    materialDescription: null
+    description: Vous contactez mentalement un demi-dieu, l'esprit d'un sage mort
+      depuis longtemps ou une autre entité érudite venue d'un autre plan. Contacter
+      cette intelligence surnaturelle peut vous briser l'esprit. Lorsque vous lancez
+      ce sort, effectuez un jet de sauvegarde d'Intelligence DD 15. En cas de réussite,
+      vous pouvez poser jusqu'à cinq questions à l'entité. Vous devez poser vos questions
+      avant la fin du sort. Le MD répond à chaque question par un mot, tel que « oui »,
+      « non », « peut-être », « jamais », « hors sujet » ou « peu clair » (si l'entité
+      ne connaît pas la réponse). Si une réponse en un seul mot est trompeuse, le
+      MD peut proposer une courte phrase.<br/>En cas d'échec, vous subissez 6d6 dégâts
+      psychiques et l'état Incapable d'agir jusqu'à la fin d'un Repos long. Un sort
+      de <em><a href="./fr/restauration-supreme">restauration suprême</a></em> lancé
+      sur vous met fin à cet effet.<br/>

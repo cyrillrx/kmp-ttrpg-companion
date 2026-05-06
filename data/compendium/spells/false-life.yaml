@@ -1,0 +1,32 @@
+id: false-life
+source: phb_2024
+level: 1
+school: necromancy
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- sorcerer
+- wizard
+translations:
+  en:
+    name: False Life
+    castingTime: Action
+    range: Self
+    duration: Instantaneous
+    materialDescription: a drop of alcohol
+    description: You gain 2d4 + 4 Temporary Hit Points.<br/><strong><em>Using a Higher-Level
+      Spell Slot</em></strong>. You gain 5 additional Temporary Hit Points for each
+      spell slot level above 1.<br/>
+  fr:
+    name: Simulacre de vie
+    castingTime: Action
+    range: Personnelle
+    duration: Instantanée
+    materialDescription: une goutte d'alcool
+    description: Vous gagnez 2d4 + 4 points de vie temporaires.<br/><strong><em>Emplacement
+      de niveau supérieur</em></strong>. Vous gagnez 5 points de vie temporaires supplémentaires
+      pour chaque niveau d'emplacement de sort supérieur à 1.<br/>

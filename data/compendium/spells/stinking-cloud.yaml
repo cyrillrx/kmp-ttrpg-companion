@@ -1,0 +1,42 @@
+id: stinking-cloud
+source: phb_2024
+level: 3
+school: conjuration
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- bard
+- sorcerer
+- wizard
+translations:
+  en:
+    name: Stinking Cloud
+    castingTime: Action
+    range: 90 feet
+    duration: Concentration, up to 1 minute
+    materialDescription: a rotten egg
+    description: You create a 20-foot-radius Sphere of yellow, nauseating gas centered
+      on a point within range. The cloud is Heavily Obscured. The cloud lingers in
+      the air for the duration or until a strong wind (such as the one created by
+      <em><a href="./gust-of-wind">Gust of Wind</a></em>) disperses it.<br/>Each creature
+      that starts its turn in the Sphere must succeed on a Constitution saving throw
+      or have the Poisoned condition until the end of the current turn. While Poisoned
+      in this way, the creature can't take an action or a Bonus Action.<br/>
+  fr:
+    name: Nuage nauséabond
+    castingTime: Action
+    range: 27 m
+    duration: Concentration, jusqu'à 1 minute
+    materialDescription: un oeuf pourri
+    description: Vous créez une Sphère de 6 mètres de rayon remplie d'un gaz jaune
+      nauséabond et centrée sur un point à portée. Le nuage est une zone à Visibilité
+      nulle. Il persiste dans l'air pendant toute la durée du sort ou jusqu'à ce qu'un
+      vent fort (comme celui créé par <em><a href="./fr/bourrasque">bourrasque</a></em>)
+      le disperse.<br/>Toute créature qui commence son tour dans la Sphère doit réussir
+      un jet de sauvegarde de Constitution ou subir l'état Empoisonné jusqu'à la fin
+      du tour en cours. Tant qu'elle est empoisonnée de cette manière, la créature
+      ne peut effectuer aucune action ni action Bonus.<br/>

@@ -1,0 +1,50 @@
+id: spirit-guardians
+source: phb_2024
+level: 3
+school: conjuration
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- cleric
+translations:
+  en:
+    name: Spirit Guardians
+    castingTime: Action
+    range: Self
+    duration: Concentration, up to 10 minutes
+    materialDescription: a prayer scroll
+    description: Protective spirits flit around you in a 15-foot Emanation for the
+      duration. If you are good or neutral, their spectral form appears angelic or
+      fey (your choice). If you are evil, they appear fiendish.<br/>When you cast
+      this spell, you can designate creatures to be unaffected by it. Any other creature's
+      Speed is halved in the Emanation, and whenever the Emanation enters a creature's
+      space and whenever a creature enters the Emanation or ends its turn there, the
+      creature must make a Wisdom saving throw. On a failed save, the creature takes
+      3d8 Radiant damage (if you are good or neutral) or 3d8 Necrotic damage (if you
+      are evil). On a successful save, the creature takes half as much damage. A creature
+      makes this save only once per turn.<br/><strong><em>Using a Higher-Level Spell
+      Slot</em></strong>. The damage increases by 1d8 for each spell slot level above
+      3.<br/>
+  fr:
+    name: Esprits gardiens
+    castingTime: Action
+    range: Personnelle
+    duration: Concentration, jusqu'à 10 minutes
+    materialDescription: un parchemin de prière
+    description: Des esprits protecteurs vous entourent dans une Émanation de 4,50
+      mètres pendant toute la durée du sort. Si vous êtes bon ou neutre, leur forme
+      spectrale apparaît angélique ou féerique (selon votre choix). Si vous êtes mauvais,
+      ils apparaissent comme des fiélons.<br/>Lorsque vous lancez ce sort, vous pouvez
+      désigner des créatures qui ne seront pas affectées. La Vitesse de toute autre
+      créature est divisée par deux dans l'Émanation, et chaque fois que l'Émanation
+      entre dans l'espace d'une créature ou qu'une créature y entre ou y termine son
+      tour, elle doit effectuer un jet de sauvegarde de Sagesse. En cas d'échec, la
+      créature subit 3d8 dégâts radiants (si vous êtes bon ou neutre) ou 3d8 dégâts
+      nécrotiques (si vous êtes mauvais). En cas de réussite, la créature subit seulement
+      la moitié des dégâts. Une créature n'effectue ce jet qu'une seule fois par tour.<br/><strong><em>Emplacement
+      de niveau supérieur</em></strong>. Les dégâts augmentent de 1d8 pour chaque
+      niveau d'emplacement de sort supérieur à 3.<br/>

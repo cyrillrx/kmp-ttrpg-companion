@@ -1,0 +1,41 @@
+id: blindness-deafness
+source: phb_2024
+level: 2
+school: transmutation
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: false
+  material: false
+availableClasses:
+- bard
+- cleric
+- sorcerer
+- wizard
+translations:
+  en:
+    name: Blindness/Deafness
+    castingTime: Action
+    range: 120 feet
+    duration: 1 minute
+    materialDescription: null
+    description: One creature that you can see within range must succeed on a Constitution
+      saving throw, or it has the Blinded or Deafened condition (your choice) for
+      the duration. At the end of each of its turns, the target repeats the save,
+      ending the spell on itself on a success.<br/><strong><em>Using a Higher-Level
+      Spell Slot</em></strong>. You can target one additional creature for each spell
+      slot level above 2.<br/>
+  fr:
+    name: Cécité/surdité
+    castingTime: Action
+    range: 36 m
+    duration: 1 minute
+    materialDescription: null
+    description: Une créature que vous pouvez voir à portée doit réussir un jet de
+      sauvegarde de Constitution, ou subir l'état Aveuglé ou Assourdi (selon votre
+      choix) pendant toute la durée du sort. À la fin de chacun de ses tours, la cible
+      renouvelle son jet de sauvegarde, mettant fin au sort sur elle-même en cas de
+      réussite.<br/><strong><em>Emplacement de niveau supérieur</em></strong>. Vous
+      pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de
+      sort supérieur à 2.<br/>

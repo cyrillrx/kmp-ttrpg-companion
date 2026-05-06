@@ -1,0 +1,48 @@
+id: slow
+source: phb_2024
+level: 3
+school: transmutation
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- bard
+- sorcerer
+- wizard
+translations:
+  en:
+    name: Slow
+    castingTime: Action
+    range: 120 feet
+    duration: Concentration, up to 1 minute
+    materialDescription: a drop of molasses
+    description: You alter time around up to six creatures of your choice in a 40-foot
+      Cube within range. Each target must succeed on a Wisdom saving throw or be affected
+      by this spell for the duration.<br/>An affected target's Speed is halved, it
+      takes a −2 penalty to AC and Dexterity saving throws, and it can't take Reactions.
+      On its turns, it can take either an action or a Bonus Action, not both, and
+      it can make only one attack if it takes the Attack action. If it casts a spell
+      with a Somatic component, there is a 25 percent chance the spell fails as a
+      result of the target making the spell's gestures too slowly.<br/>An affected
+      target repeats the save at the end of each of its turns, ending the spell on
+      itself on a success.<br/>
+  fr:
+    name: Lenteur
+    castingTime: Action
+    range: 36 m
+    duration: Concentration, jusqu'à 1 minute
+    materialDescription: une goutte de mélasse
+    description: Vous modifiez le temps pour un maximum de six créatures de votre
+      choix dans un Cube de 12 mètres de côté à portée. Chaque cible doit réussir
+      un jet de sauvegarde de Sagesse ou être affectée pendant toute la durée du sort.<br/>La
+      Vitesse de la cible affectée est divisée par deux, elle subit un malus de -2
+      à la CA et à ses jets de sauvegarde de Dextérité, et elle ne peut pas prendre
+      de Réactions. À chacun de ses tours, elle peut prendre soit une action, soit
+      une action Bonus, mais pas les deux, et elle ne peut effectuer qu'une seule
+      attaque si elle prend l'action Attaque. Si elle lance un sort à composante somatique,
+      il y a 25 % de chances que le sort échoue car la cible effectue les gestes du
+      sort trop lentement.<br/>Une cible affectée refait son jet de sauvegarde à la
+      fin de chacun de ses tours, mettant fin au sort sur elle-même en cas de réussite.<br/>

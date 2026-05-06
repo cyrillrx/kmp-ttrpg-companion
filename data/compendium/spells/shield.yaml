@@ -1,0 +1,35 @@
+id: shield
+source: phb_2024
+level: 1
+school: abjuration
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: false
+availableClasses:
+- sorcerer
+- wizard
+translations:
+  en:
+    name: Shield
+    castingTime: Reaction, which you take when you are hit by an attack roll or targeted
+      by theMagic Missilespell
+    range: Self
+    duration: 1 round
+    materialDescription: null
+    description: An imperceptible barrier of magical force protects you. Until the
+      start of your next turn, you have a +5 bonus to AC, including against the triggering
+      attack, and you take no damage from <em><a href="./magic-missile">Magic Missile</a></em>.<br/>
+  fr:
+    name: Bouclier
+    castingTime: Réaction, que vous prenez lorsque vous êtes touché par un jet d'attaque
+      ou ciblé par le sortprojectile magique
+    range: Personnelle
+    duration: 1 round
+    materialDescription: null
+    description: Une barrière imperceptible de force magique vous protège. Jusqu'au
+      début de votre prochain tour, vous bénéficiez d'un bonus de +5 à la CA, y compris
+      contre l'attaque déclenchante, et vous ne subissez aucun dégât de <em><a href="./fr/projectile-magique">projectile
+      magique</a></em>.<br/>

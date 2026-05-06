@@ -1,0 +1,30 @@
+id: alustriel-s-mooncloak
+source: heroes_of_faerun
+level: 5
+school: abjuration
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- bard
+- druid
+- ranger
+- wizard
+translations:
+  en:
+    name: Alustriel's Mooncloak
+    castingTime: Action
+    range: Self
+    duration: Concentration, up to 1 minute
+    materialDescription: a moonstone worth 50+ GP
+    description: ''
+  fr:
+    name: Manteau de lune d'Alustriel
+    castingTime: Action
+    range: Personnelle
+    duration: Concentration, jusqu'à 1 minute
+    materialDescription: une pierre de lune d'une valeur minimale de 50 po
+    description: ''

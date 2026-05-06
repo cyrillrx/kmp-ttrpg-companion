@@ -1,0 +1,73 @@
+id: scrying
+source: phb_2024
+level: 5
+school: divination
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- bard
+- cleric
+- druid
+- warlock
+- wizard
+translations:
+  en:
+    name: Scrying
+    castingTime: 10 minutes
+    range: Self
+    duration: Concentration, up to 10 minutes
+    materialDescription: a focus worth 1,000+ GP, such as a crystal ball, mirror,
+      or water-filled font
+    description: You can see and hear a creature you choose that is on the same plane
+      of existence as you. The target makes a Wisdom saving throw, which is modified
+      (see the tables below) by how well you know the target and the sort of physical
+      connection you have to it. The target doesn't know what it is making the save
+      against, only that it feels uneasy.<br/><table><tr><th>Your Knowledge of the
+      Target Is...</th><th>Save Modifier</th></tr><tr><td>Secondhand (heard of the
+      target)</td><td class="center">+5</td></tr><tr><td>Firsthand (met the target)</td><td
+      class="center">+0</td></tr><tr><td>Extensive (know the target well)</td><td
+      class="center">−5</td></tr></table><br/><table><tr><th>You Have the Target's...</th><th>Save
+      Modifier</th></tr><tr><td>Picture or other likeness</td><td class="center">−2</td></tr><tr><td>Garment
+      or other possession</td><td class="center">−4</td></tr><tr><td>Body part, lock
+      of hair, or bit of nail</td><td class="center">−10</td></tr></table><br/>On
+      a successful save, the target isn't affected, and you can't use this spell on
+      it again for 24 hours.<br/>On a failed save, the spell creates an Invisible,
+      intangible sensor within 10 feet of the target. You can see and hear through
+      the sensor as if you were there. The sensor moves with the target, remaining
+      within 10 feet of it for the duration. If something can see the sensor, it appears
+      as a luminous orb about the size of your fist.<br/>Instead of targeting a creature,
+      you can target a location you have seen. When you do so, the sensor appears
+      at that location and doesn't move.<br/>
+  fr:
+    name: Scrutation
+    castingTime: 10 minutes
+    range: Personnelle
+    duration: Concentration, jusqu'à 10 minutes
+    materialDescription: un focaliseur d'une valeur minimale de 1000 po, comme une
+      boule de cristal, un miroir en argent ou une vasque remplie d'eau bénite
+    description: Vous pouvez voir et entendre une créature de votre choix qui se trouve
+      sur le même plan d'existence que vous. La cible effectue un jet de sauvegarde
+      de Sagesse, qui est modifié (voir les tables ci-dessous) par votre connaissance
+      de la cible et le type de connexion physique que vous entretenez avec elle.
+      La cible ne sait pas contre quoi elle effectue ce jet de sauvegarde, juste qu'elle
+      ressent un malaise.<br/><table><tr><th>Votre connaissance de la cible est...</th><th>Modificateur
+      au JdS</th></tr><tr><td>Indirecte (vous avez entendu parler d'elle)</td><td
+      class="center">+5</td></tr><tr><td>Direct (vous l'avez rencontrée)</td><td class="center">+0</td></tr><tr><td>Intime
+      (vous la connaissez bien)</td><td class="center">−5</td></tr></table><br/><table><tr><th>Vous
+      disposez...</th><th>Modificateur au JdS</th></tr><tr><td>De son portrait ou
+      autre représentation</td><td class="center">−2</td></tr><tr><td>D'un vêtement
+      ou autre bien personnel</td><td class="center">−4</td></tr><tr><td>D'une partie
+      de son corps, mèche de cheveux ou bout d'ongle</td><td class="center">−10</td></tr></table><br/>En
+      cas de sauvegarde réussie, la cible n'est pas affectée et vous ne pouvez plus
+      utiliser ce sort sur elle pendant 24 heures.<br/>En cas d'échec, le sort crée
+      un capteur invisible et intangible dans un rayon de 3 mètres autour de la cible.
+      Vous pouvez voir et entendre à travers le capteur comme si vous y étiez. Le
+      capteur se déplace avec la cible et reste à 3 mètres ou moins d'elle pendant
+      toute la durée du sort. Si quelque chose peut voir le capteur, il apparaît comme
+      un orbe lumineux de la taille de votre poing.<br/>Au lieu de cibler une créature,
+      vous pouvez cibler un lieu que vous avez vu. Dans ce cas, le capteur apparaît
+      à cet endroit et reste immobile.<br/>

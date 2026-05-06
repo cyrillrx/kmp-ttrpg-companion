@@ -1,0 +1,45 @@
+id: sunbeam
+source: phb_2024
+level: 6
+school: evocation
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- cleric
+- druid
+- sorcerer
+- wizard
+translations:
+  en:
+    name: Sunbeam
+    castingTime: Action
+    range: Self
+    duration: Concentration, up to 1 minute
+    materialDescription: a magnifying glass
+    description: You launch a sunbeam in a 5-foot-wide, 60-foot-long Line. Each creature
+      in the Line makes a Constitution saving throw. On a failed save, a creature
+      takes 6d8 Radiant damage and has the Blinded condition until the start of your
+      next turn. On a successful save, it takes half as much damage only.<br/>Until
+      the spell ends, you can take a Magic action to create a new Line of radiance.<br/>For
+      the duration, a mote of brilliant radiance shines above you. It sheds Bright
+      Light in a 30-foot radius and Dim Light for an additional 30 feet. This light
+      is sunlight.<br/>
+  fr:
+    name: Rayon de soleil
+    castingTime: Action
+    range: Personnelle
+    duration: Concentration, jusqu'à 1 minute
+    materialDescription: une loupe
+    description: Vous projetez un rayon de soleil sous forme d'une Ligne de 18 m de
+      long et 1,50 m de large. Chaque créature prise dans la Ligne effectue un jet
+      de sauvegarde de Constitution. En cas d'échec, elle subit 6d8 dégâts radiants,
+      ainsi que l'état Aveuglé jusqu'au début de votre tour suivant. En cas de réussite,
+      elle subit uniquement la moitié de ces dégâts.<br/>Jusqu'à la fin du sort, vous
+      pouvez entreprendre l'action Magie pour produire une nouvelle Ligne de radiance.<br/>Pour
+      toute la durée, un point de radiance brille juste au-dessus de vous. Il émet
+      une Lumière vive sur un rayon de 9 m et une Lumière faible sur 9 m de plus.
+      Cette lumière est celle du soleil.<br/>

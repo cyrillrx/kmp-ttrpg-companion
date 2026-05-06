@@ -1,0 +1,39 @@
+id: banishing-smite
+source: phb_2024
+level: 5
+school: conjuration
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: false
+  material: false
+availableClasses:
+- paladin
+translations:
+  en:
+    name: Banishing Smite
+    castingTime: Bonus Action, which you take immediately after hitting a creature
+      with a Melee weapon or an Unarmed Strike
+    range: Self
+    duration: Concentration, up to 1 minute
+    materialDescription: null
+    description: The target hit by the attack roll takes an extra 5d10 Force damage
+      from the attack. If the attack reduces the target to 50 Hit Points or fewer,
+      the target must succeed on a Charisma saving throw or be transported to a harmless
+      demiplane for the duration. While there, the target has the Incapacitated condition.
+      When the spell ends, the target reappears in the space it left or in the nearest
+      unoccupied space if that space is occupied.<br/>
+  fr:
+    name: Châtiment du ban
+    castingTime: Action bonus, que vous prenez immédiatement après avoir touché une
+      créature avec une arme de corps au corps ou une frappe à mains nues
+    range: Personnelle
+    duration: Concentration, jusqu'à 1 minute
+    materialDescription: null
+    description: La cible touchée par le jet d'attaque subit 5d10 points de dégâts
+      de force supplémentaires. Si l'attaque réduit la cible à 50 points de vie ou
+      moins, celle-ci doit réussir un jet de sauvegarde de Charisme ou être transportée
+      dans un demi-plan inoffensif pour la durée du sort. Là, la cible subit l'état
+      Incapable d'agir. À la fin du sort, la cible réapparaît dans la case qu'elle
+      a quittée ou dans la case inoccupée la plus proche si celle-ci est occupée.<br/>

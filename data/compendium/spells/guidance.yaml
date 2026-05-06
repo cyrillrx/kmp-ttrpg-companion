@@ -1,0 +1,31 @@
+id: guidance
+source: phb_2024
+level: 0
+school: divination
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: false
+availableClasses:
+- cleric
+- druid
+translations:
+  en:
+    name: Guidance
+    castingTime: Action
+    range: Touch
+    duration: Concentration, up to 1 minute
+    materialDescription: null
+    description: You touch a willing creature and choose a skill. Until the spell
+      ends, the creature adds 1d4 to any ability check using the chosen skill.<br/>
+  fr:
+    name: Assistance
+    castingTime: Action
+    range: Contact
+    duration: Concentration, jusqu'à 1 minute
+    materialDescription: null
+    description: Vous touchez une créature consentante et choisissez une compétence.
+      Jusqu'à la fin du sort, la créature ajoute 1d4 à tout jet de caractéristique
+      utilisant la compétence choisie.<br/>

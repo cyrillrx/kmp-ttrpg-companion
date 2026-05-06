@@ -1,0 +1,37 @@
+id: feather-fall
+source: phb_2024
+level: 1
+school: transmutation
+concentration: false
+ritual: false
+components:
+  verbal: true
+  somatic: false
+  material: true
+availableClasses:
+- bard
+- sorcerer
+- wizard
+translations:
+  en:
+    name: Feather Fall
+    castingTime: Reaction, which you take when you or a creature you can see within
+      60 feet of you falls
+    range: 60 feet
+    duration: 1 minute
+    materialDescription: a small feather or piece of down
+    description: Choose up to five falling creatures within range. A falling creature's
+      rate of descent slows to 60 feet per round until the spell ends. If a creature
+      lands before the spell ends, the creature takes no damage from the fall, and
+      the spell ends for that creature.<br/>
+  fr:
+    name: Feuille morte
+    castingTime: Réaction, que vous prenez lorsque vous ou une créature que vous pouvez
+      voir dans un rayon de 18 mètres tombe
+    range: 18 m
+    duration: 1 minute
+    materialDescription: une petite plume ou un peu de duvet
+    description: Choisissez jusqu'à cinq créatures à portée qui sont en chute libre.
+      La vitesse de chute d'une créature est réduite à 18 mètres par round jusqu'à
+      la fin du sort. Si une créature atterrit avant la fin du sort, elle ne subit
+      aucun dégât de la chute et le sort prend fin pour elle.<br/>

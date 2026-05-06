@@ -1,0 +1,29 @@
+id: songal-s-elemental-suffusion
+source: heroes_of_faerun
+level: 5
+school: transmutation
+concentration: true
+ritual: false
+components:
+  verbal: true
+  somatic: true
+  material: true
+availableClasses:
+- druid
+- sorcerer
+- wizard
+translations:
+  en:
+    name: Songal's Elemental Suffusion
+    castingTime: Action
+    range: Self
+    duration: Concentration, up to 1 minute
+    materialDescription: a pearl worth 100+ GP
+    description: ''
+  fr:
+    name: Imprégnation élémentaire de Songal
+    castingTime: Action
+    range: Personnelle
+    duration: Concentration, jusqu'à 1 minute
+    materialDescription: une perle d'une valeur minimale de 100 po
+    description: ''
