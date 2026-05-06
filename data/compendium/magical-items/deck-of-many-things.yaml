@@ -72,27 +72,27 @@ translations:
       (jeu de 22 cartes)| Carte<br />
       ---|---|---<br />
       —| 01–05| La Balance<br />
-      01–08| 06–10| Le Bouffon<br />
-      09–16| 11–15| Le Chevalier<br />
-      17–24| 16–20| La Clef<br />
-      —| 21–25| La Comète<br />
-      25–32| 26–29| Le Crâne<br />
-      —| 30–33| Le Donjon<br />
-      —| 34–37| L'Énigme<br />
-      33–40| 38–42| L'Étoile<br />
-      41–48| 43–46| Euryale<br />
-      49–56| 47–50| Les Flammes<br />
-      —| 51–54| Le Fou<br />
-      —| 55–59| La Gemme<br />
-      57–64| 60–64| La Lune<br />
-      65–68| 65–68| Le Néant<br />
-      —| 69–73| Les Parques<br />
-      69–76| 74–77| La Ruine<br />
-      —| 78–81| Les Serres<br />
-      77–84| 82–86| Le Soleil<br />
-      85–92| 87–90| Le Traître<br />
-      93–100| 91–95| Le Trône<br />
-      —| 96–00| Le Vizir  </p>
+      —| 06–10| La Comète<br />
+      —| 11–14| Le Donjon<br />
+      01–08| 15–18| Euryale<br />
+      —| 19–23| Les Parques<br />
+      09–16| 24–27| Les Flammes<br />
+      —| 28–31| Le Fou<br />
+      —| 32–36| La Gemme<br />
+      17–24| 37–41| Le Bouffon<br />
+      25–32| 42–46| La Clef<br />
+      33–40| 47–51| Le Chevalier<br />
+      41–48| 52–56| La Lune<br />
+      —| 57–60| L'Énigme<br />
+      49–56| 61–64| Le Traître<br />
+      57–64| 65–68| La Ruine<br />
+      —| 69–73| Le Vizir<br />
+      65–72| 74–77| Le Crâne<br />
+      73–80| 78–82| L'Étoile<br />
+      81–88| 83–87| Le Soleil<br />
+      —| 88–91| Les Serres<br />
+      89–96| 92–96| Le Trône<br />
+      97–00| 97–00| Le Néant  </p>
       <p>L'effet de chaque carte est décrit ci-dessous.<br />
       <strong>La Balance</strong>. Vous pouvez augmenter de 2 l'une de vos valeurs de caractéristique, jusqu'à un maximum de 22, à condition de diminuer une autre valeur de caractéristique de 2. Il vous est interdit de diminuer une caractéristique dont la valeur est inférieure ou égale à 5. Vous pouvez également choisir de ne pas modifier vos valeurs de caractéristique, auquel cas cette lame est sans effet.<br />
       <strong>Le Bouffon</strong>. Vous bénéficiez de l'Avantage aux jets de d20 pendant les 72 prochaines heures, ou bien vous pouvez piocher deux cartes en plus du chiffre annoncé.<br />

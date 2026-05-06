@@ -25,7 +25,8 @@ translations:
     description: |-
       <p>Ce cube de taille TP ressemble à une boîte à surprises. Lorsque vous remontez sa manivelle par une action Magie, une mélodie joyeuse s'échappe de la boîte, le couvercle s'ouvre, une créature apparaît dans l'espace libre le plus proche, puis le couvercle se referme. Il est impossible d'ouvrir le couvercle autrement.<br />
       Lancez un dé sur la table ci-dessous pour déterminer le sort que le cube lance pour invoquer la créature. Le sort est lancé au niveau 5 (DD de sauvegarde 17, bonus d'attaque +9) et ne requiert pas de Concentration, mais à part cela vous êtes considéré comme le lanceur du sort.<br />
-      Une fois que le cube a invoqué une créature, il ne peut plus le refaire avant l'aube suivante. 1d6| Sort<br />
+      Une fois que le cube a invoqué une créature, il ne peut plus le refaire avant l'aube suivante.<br />
+      1d6| Sort<br />
       ---|---<br />
       1|  <em><a href="https://www.aidedd.org/spell/fr/convocation-d-aberration">convocation d'aberration</a></em><br />
       2|  <em><a href="https://www.aidedd.org/spell/fr/convocation-de-bete">convocation de bête</a></em><br />

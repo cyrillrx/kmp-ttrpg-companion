@@ -35,7 +35,8 @@ translations:
       ---|---|---|---<br />
       Sort mineur| Courant| 13| +5<br />
       1| Courant| 13| +5<br />
-      2| Peu courant| 13| +5| 3| Peu courant| 15| +7<br />
+      2| Peu courant| 13| +5<br />
+      3| Peu courant| 15| +7<br />
       4| Rare| 15| +7<br />
       5| Rare| 17| +9<br />
       6| Très rare| 17| +9<br />
