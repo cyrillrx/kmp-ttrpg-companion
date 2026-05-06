@@ -1,0 +1,16 @@
+id: amulet-of-health
+source: dmg_2024
+type: wondrous_item
+rarity: rare
+attunement: true
+translations:
+  en:
+    name: Amulet of Health
+    subtype: null
+    description: <p>Your Constitution is 19 while you wear this amulet. It has no
+      effect on you if your Constitution is 19 or higher without it.</p>
+  fr:
+    name: Amulette de bonne santé
+    subtype: null
+    description: <p>Votre Constitution est de 19 lorsque vous portez cette amulette.
+      Elle n'a aucun effet sur vous si votre Constitution est de 19 ou plus sans cela.</p>

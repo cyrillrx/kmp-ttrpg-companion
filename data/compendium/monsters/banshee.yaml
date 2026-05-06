@@ -1,0 +1,119 @@
+id: banshee
+source: monster_manual_2024
+type: undead
+size: medium
+alignment: chaotic_evil
+challengeRating: 4.0
+armorClass: 12
+maxHitPoints: 54
+hitDice: 12d8
+abilities:
+  str:
+    value: 1
+    savingThrowProficiency: none
+  dex:
+    value: 14
+    savingThrowProficiency: none
+  con:
+    value: 10
+    savingThrowProficiency: none
+  int:
+    value: 12
+    savingThrowProficiency: none
+  wis:
+    value: 11
+    savingThrowProficiency: proficient
+  cha:
+    value: 17
+    savingThrowProficiency: none
+speeds:
+  walk: 5
+  fly: 40
+  swim: null
+  climb: null
+  burrow: null
+  hover: true
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: resistant
+  bludgeoning: resistant
+  cold: immune
+  fire: resistant
+  force: none
+  lightning: resistant
+  necrotic: immune
+  piercing: resistant
+  poison: immune
+  psychic: none
+  radiant: none
+  slashing: resistant
+  thunder: resistant
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: true
+  deafened: false
+  grappled: true
+  incapacitated: false
+  paralyzed: true
+  restrained: true
+  unconscious: false
+  poisoned: true
+  petrified: true
+  frightened: true
+  blinded: false
+  prone: true
+  exhaustion: true
+  stunned: false
+translations:
+  en:
+    name: Banshee
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Detect Life</em>**. The banshee magically senses the direction of creatures up to 1 mile away that aren't Constructs or Undead.</p>
+      <p><strong><em>Incorporeal Movement</em></strong>. The banshee can move through other creatures and objects as if they were Difficult Terrain. It takes 5 (1d10) Force damage if it ends its turn inside an object.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The banshee makes two Corrupting Touch attacks and uses Horrify.</p>
+      <p><strong><em>Corrupting Touch</em></strong>. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 7 (1d8 + 3) Necrotic damage.</p>
+      <p><strong><em>Horrify</em></strong>. <em>Wisdom Saving Throw</em> : DC 13, one creature the banshee can see within 60 feet that can see the banshee. <em>Failure</em> : The target has the Frightened condition until the start of the banshee's next turn. <em>Success</em> : The target is immune to this banshee's Horrify for 24 hours.</p>
+      <p><strong><em>Deathly Wail (1/Day)</em></strong>. The banshee releases a mournful wail if it isn't in sunlight. <em>Constitution Saving Throw</em> : DC 13, each creature within 30 feet that can hear the wail and isn't a Construct or an Undead. <em>Failure</em> : If the target has 25 Hit Points or fewer, it drops to 0 Hit Points. Otherwise, the target takes 10 (3d6) Psychic damage.</p>
+    senses: Darkvision 60 ft., Passive Perception 10
+    languages:
+    - Common
+    - Elvish
+  fr:
+    name: Banshie
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Détection de vie</em>**. La banshie perçoit magiquement la direction dans laquelle se trouvent des créatures situées jusqu'à 1,5 km de distance, à l'exception des Artificiels et des Morts-vivants.</p>
+      <p><strong><em>Déplacement intangible</em></strong>. La banshie peut traverser d'autres créatures et objets comme s'il s'agissait d'un Terrain difficile. Elle subit 5 (1d10) dégâts de force si elle termine son tour à l'intérieur d'un objet.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. La banshie effectue deux attaques de Contact corrupteur et utilise Horreur.</p>
+      <p><strong><em>Contact corrupteur</em></strong>. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 7 (1d8 + 3) dégâts nécrotiques.</p>
+      <p><strong><em>Horreur</em></strong>. <em>JdS Sagesse</em> : DD 13, une créature que la banshie peut voir dans un rayon de 18 m et qui peut voir la banshie. <em>Échec</em> : la cible subit l'état Effrayé jusqu'au début du prochain tour de la banshie. <em>Réussite</em> : la cible est immunisée contre l'effet Horreur de cette banshie pendant 24 heures.</p>
+      <p><strong><em>Plainte funeste (1/jour)</em></strong>. La banshie pousse un gémissement funèbre si elle n'est pas exposée à la lumière du soleil. <em>JdS Constitution</em> : DD 13, chaque créature dans un rayon de 9 m qui peut entendre le gémissement et qui n'est ni un Artificiel ni un Mort-vivant. <em>Échec</em> : si la cible a 25 points de vie ou moins, elle tombe à 0 point de vie. Sinon, elle subit 10 (3d6) dégâts psychiques.</p>
+    senses: Vision dans le noir 18 m, Perception passive 10
+    languages:
+    - commun
+    - elfe

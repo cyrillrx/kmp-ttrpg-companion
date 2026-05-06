@@ -1,0 +1,17 @@
+id: vicious-weapon
+source: dmg_2024
+type: weapon
+rarity: rare
+attunement: false
+translations:
+  en:
+    name: Vicious Weapon
+    subtype: Any Simple or Martial
+    description: <p>This magic weapon deals an extra 2d6 damage to any creature it
+      hits. This extra damage is of the same type as the weapon's normal damage.</p>
+  fr:
+    name: Arme brutale
+    subtype: courante ou de guerre
+    description: <p>Cette arme magique inflige 2d6 dégâts supplémentaires à toute
+      créature touchée. Ces dégâts supplémentaires sont du même type que les dégâts
+      normaux de l'arme.</p>

@@ -1,0 +1,28 @@
+id: helm-of-brilliance
+source: dmg_2024
+type: wondrous_item
+rarity: very_rare
+attunement: true
+translations:
+  en:
+    name: Helm of Brilliance
+    subtype: null
+    description: |-
+      <p>This helm is set with 1d10 diamonds, 2d10 rubies, 3d10 fire opals, and 4d10 opals. Any gem pried from the helm crumbles to dust. When all the gems are removed or destroyed, the helm loses its magic.<br />
+      You gain the following benefits while wearing the helm.<br />
+      <strong>Diamond Light</strong>. As long as it has at least one diamond, the helm emits a 30-foot Emanation. When at least one Undead is within that area, the Emanation is filled with Dim Light. Any Undead that starts its turn in that area takes 1d6 Radiant damage.<br />
+      <strong>Fire Opal Flames</strong>. As long as the helm has at least one fire opal, you can take a Magic action to cause one weapon you are holding to burst into flames. The flames emit Bright Light in a 10-foot radius and Dim Light for an additional 10 feet. The flames are harmless to you and the weapon. When you hit with an attack using the blazing weapon, the target takes an extra 1d6 Fire damage. The flames last until you take a Bonus Action to extinguish them or until you drop or stow the weapon.<br />
+      <strong>Ruby Resistance</strong>. As long as the helm has at least one ruby, you have Resistance to Fire damage.<br />
+      <strong>Spells</strong>. You can cast one of the following spells (save DC 18), using one of the helm's gems of the specified type as a component: <em><a href="https://www.aidedd.org/spell/daylight">Daylight</a></em> (opal), <em><a href="https://www.aidedd.org/spell/fireball">Fireball</a></em> (fire opal), <em><a href="https://www.aidedd.org/spell/prismatic-spray">Prismatic Spray</a></em> (diamond), or <em><a href="https://www.aidedd.org/spell/wall-of-fire">Wall of Fire</a></em> (ruby). The gem is destroyed when the spell is cast and disappears from the helm.<br />
+      <strong>Taking Fire Damage</strong>. Roll 1d20 if you are wearing the helm and take Fire damage as a result of failing a saving throw against a spell. On a roll of 1, the helm emits beams of light from its remaining gems and is then destroyed. Each creature within a 60-foot Emanation originating from you must succeed on a DC 17 Dexterity saving throw or be struck by a beam, taking Radiant damage equal to the number of gems in the helm.</p>
+  fr:
+    name: Heaume scintillant
+    subtype: null
+    description: |-
+      <p>Ce heaume est serti de 1d10 diamants, 2d10 rubis, 3d10 opales de feu et 4d10 opales. Toute gemme extraite du heaume tombe en poussière. Lorsque toutes les gemmes sont retirées ou détruites, le heaume perd sa magie.<br />
+      Vous bénéficiez des avantages suivants lorsque vous portez le heaume :<br />
+      <strong>Lumière diamantine</strong>. Tant qu'il contient au moins un diamant, le heaume émet une Émanation de 9 mètres. Lorsqu'au moins un Mort-vivant se trouve dans cette zone, l'Émanation est emplie d'une Lumière faible. Tout Mort-vivant qui commence son tour dans cette zone subit 1d6 dégâts radiants.<br />
+      <strong>Flammes d'opale de feu</strong>. Si le heaume contient au moins une opale de feu, vous pouvez prendre une action Magie pour enflammer une arme que vous tenez. Les flammes émettent une Lumière vive sur un rayon de 3 mètres et une Lumière faible sur 3 mètres supplémentaires. Les flammes sont inoffensives pour vous et pour l'arme. Lorsque vous touchez avec une attaque utilisant l'arme enflammée, la cible subit 1d6 dégâts de feu supplémentaires. Les flammes persistent jusqu'à ce que vous preniez une action Bonus pour les éteindre ou que vous laissiez tomber l'arme ou la rangez.<br />
+      <strong>Résistance rubis</strong>. Si le heaume contient au moins un rubis, vous bénéficiez d'une Résistance aux dégâts de feu.<br />
+      <strong>Sorts</strong>. Vous pouvez lancer l'un des sorts suivants (sauvegarde DD 18) en utilisant l'une des gemmes du heaume du type spécifié comme composant : <em><a href="https://www.aidedd.org/spell/fr/lumiere-du-jour">lumière du jour</a></em> (opale), <em><a href="https://www.aidedd.org/spell/fr/boule-de-feu">boule de feu</a></em> (opale de feu), <em><a href="https://www.aidedd.org/spell/fr/embruns-prismatiques">embruns prismatiques</a></em> (diamant) ou <em><a href="https://www.aidedd.org/spell/fr/mur-de-feu">mur de feu</a></em> (rubis). La gemme est détruite au lancement du sort et disparaît du heaume.<br />
+      <strong>Subir des dégâts de feu</strong>. Lancez 1d20 si vous portez le heaume et subissez des dégâts de feu suite à un échec à un jet de sauvegarde contre un sort. Sur un jet de 1, le heaume émet des rayons de lumière provenant des gemmes restantes, puis est détruit. Chaque créature dans une Émanation de 18 mètres centrée sur vous doit réussir un jet de sauvegarde de Dextérité DD 17 pour ne pas être touchée par un rayon, subissant des dégâts radiants égaux au nombre de gemmes contenues dans le heaume.</p>

@@ -1,0 +1,20 @@
+id: saddle-of-the-cavalier
+source: dmg_2024
+type: wondrous_item
+rarity: uncommon
+attunement: false
+translations:
+  en:
+    name: Saddle of the Cavalier
+    subtype: null
+    description: |-
+      <p>This saddle confers the following benefits while you are seated in it and astride a mount.<br />
+      <strong>Protected Mount</strong>. Attack rolls against the mount have Disadvantage.<br />
+      <strong>Secure Rider</strong>. You can't be dismounted against your will. This property is suppressed while you have the Incapacitated condition.</p>
+  fr:
+    name: Selle du cavalier / du hussard
+    subtype: null
+    description: |-
+      <p>Cette selle vous confère les avantages suivants si elle est fixée sur une monture et que vous êtes assis dessus.<br />
+      <strong>Monture protégée</strong>. Les jets d'attaque contre la monture ont un Désavantage.<br />
+      <strong>Cavalier sûr</strong>. Vous ne pouvez pas être désarçonné contre votre gré. Cette propriété ne fonctionne pas si vous subissez l'état Incapable d'agir.</p>

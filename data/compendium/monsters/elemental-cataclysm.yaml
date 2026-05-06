@@ -1,0 +1,127 @@
+id: elemental-cataclysm
+source: monster_manual_2024
+type: elemental
+size: gargantuan
+alignment: chaotic_neutral
+challengeRating: 22.0
+armorClass: 20
+maxHitPoints: 370
+hitDice: 20d20+160
+abilities:
+  str:
+    value: 26
+    savingThrowProficiency: none
+  dex:
+    value: 19
+    savingThrowProficiency: proficient
+  con:
+    value: 27
+    savingThrowProficiency: proficient
+  int:
+    value: 9
+    savingThrowProficiency: none
+  wis:
+    value: 14
+    savingThrowProficiency: proficient
+  cha:
+    value: 9
+    savingThrowProficiency: proficient
+speeds:
+  walk: 60
+  fly: 80
+  swim: 80
+  climb: null
+  burrow: 60
+  hover: true
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: immune
+  bludgeoning: none
+  cold: immune
+  fire: immune
+  force: none
+  lightning: immune
+  necrotic: none
+  piercing: none
+  poison: immune
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: immune
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: true
+  deafened: true
+  grappled: true
+  incapacitated: false
+  paralyzed: true
+  restrained: true
+  unconscious: true
+  poisoned: true
+  petrified: true
+  frightened: true
+  blinded: true
+  prone: true
+  exhaustion: true
+  stunned: true
+translations:
+  en:
+    name: Elemental Cataclysm
+    subtype: Titan
+    description: |-
+      <h2>Traits</h2>
+      <p>Earth Glide.<br />
+      Legendary Resistance (4/Day).<br />
+      Siege Monster.  </p>
+      <h2>Actions</h2>
+      <p>Multiattack.<br />
+      Elemental Burst.<br />
+      Cataclysmic Event (Recharge 4–6).<br />
+      Control Weather.  </p>
+      <h2>Legendary actions</h2>
+      <p>Legendary Action Uses: 3. </p>
+      <p>Eruption.<br />
+      Rumbling Movement.</p>
+    senses: Truesight 150 ft., Passive Perception 12
+    languages:
+    - Primordial
+  fr:
+    name: Cataclysme élémentaire
+    subtype: Titan
+    description: |-
+      <h2>Traits</h2>
+      <p>Déplacement tellurique.<br />
+      Résistance légendaire (4/jour).<br />
+      Monstre de siège.  </p>
+      <h2>Actions</h2>
+      <p>Attaques multiples.<br />
+      Décharge élémentaire.<br />
+      Événement cataclysmique (recharge 4–6).<br />
+      Contrôle du climat.  </p>
+      <h2>Actions Légendaires</h2>
+      <p>Utilisations d'action Légendaire : 3. </p>
+      <p>Éruption.<br />
+      Déplacement cataclysmal.</p>
+    senses: vision véritable 45 m, Perception passive 12
+    languages:
+    - primordial

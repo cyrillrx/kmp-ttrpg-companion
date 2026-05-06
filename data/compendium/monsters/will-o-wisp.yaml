@@ -1,0 +1,119 @@
+id: will-o-wisp
+source: monster_manual_2024
+type: undead
+size: tiny
+alignment: chaotic_evil
+challengeRating: 2.0
+armorClass: 19
+maxHitPoints: 27
+hitDice: 11d4
+abilities:
+  str:
+    value: 1
+    savingThrowProficiency: none
+  dex:
+    value: 28
+    savingThrowProficiency: none
+  con:
+    value: 10
+    savingThrowProficiency: none
+  int:
+    value: 13
+    savingThrowProficiency: none
+  wis:
+    value: 14
+    savingThrowProficiency: none
+  cha:
+    value: 11
+    savingThrowProficiency: none
+speeds:
+  walk: 5
+  fly: 50
+  swim: null
+  climb: null
+  burrow: null
+  hover: true
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: resistant
+  bludgeoning: resistant
+  cold: resistant
+  fire: resistant
+  force: none
+  lightning: immune
+  necrotic: resistant
+  piercing: resistant
+  poison: immune
+  psychic: none
+  radiant: none
+  slashing: resistant
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: true
+  incapacitated: false
+  paralyzed: true
+  restrained: true
+  unconscious: true
+  poisoned: true
+  petrified: true
+  frightened: false
+  blinded: false
+  prone: true
+  exhaustion: true
+  stunned: false
+translations:
+  en:
+    name: Will-o'-Wisp
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Ephemeral</em>**. The wisp can't wear or carry anything.</p>
+      <p><strong><em>Illumination</em></strong>. The wisp sheds Bright Light in a 20-foot radius and Dim Light for an additional 20 feet.</p>
+      <p><strong><em>Incorporeal Movement</em></strong>. The wisp can move through other creatures and objects as if they were Difficult Terrain. It takes 5 (1d10) Force damage if it ends its turn inside an object.</p>
+      <h2>Actions</h2>
+      <p>** <em>Shock</em>**. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 11 (2d8 + 2) Lightning damage.</p>
+      <h2>Bonus actions</h2>
+      <p>** <em>Consume Life</em>**. <em>Constitution Saving Throw</em> : DC 10, one living creature the wisp can see within 5 feet that has 0 Hit Points. <em>Failure</em> : The target dies, and the wisp regains 10 (3d6) Hit Points.</p>
+      <p><strong><em>Vanish</em></strong>. The wisp and its light have the Invisible condition until the wisp's Concentration ends on this effect, which ends early immediately after the wisp makes an attack roll or uses Consume Life.</p>
+    senses: Darkvision 120 ft., Passive Perception 12
+    languages:
+    - Common plus one other language
+  fr:
+    name: Feu follet
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Déplacement intangible</em>**. Le feu follet peut traverser d'autres créatures et objets comme s'il s'agissait d'un Terrain difficile. Il subit 5 (1d10) dégâts de force s'il termine son tour à l'intérieur d'un objet.</p>
+      <p><strong><em>Fugace</em></strong>. Le feu follet ne peut rien porter.</p>
+      <p><strong><em>Illumination</em></strong>. Le feu follet émet une Lumière vive sur un rayon de 6 m et une Lumière faible sur 6 m de plus.</p>
+      <h2>Actions</h2>
+      <p>** <em>Décharge</em>**. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 11 (2d8 + 2) dégâts de foudre.</p>
+      <h2>Actions Bonus</h2>
+      <p>** <em>Disparition</em>**. Le feu follet et sa lumière ont l'état Invisible jusqu'à ce qu'il rompe sa Concentration sur cet effet, mais l'état prend fin prématurément juste après que le feu follet effectue un jet d'attaque ou recourt à Festin d'essence vitale.</p>
+      <p><strong><em>Festin d'essence vitale</em></strong>. <em>JdS Constitution</em> : DD 10, une créature vivante à 0 point de vie que le feu follet voit dans un rayon de 1,50 m. <em>Échec</em> : La cible meurt et le feu follet récupère 10 (3d6) points de vie.</p>
+    senses: Vision dans le noir 36 m, Perception passive 12
+    languages:
+    - commun plus une autre langue

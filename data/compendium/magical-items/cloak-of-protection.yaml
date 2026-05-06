@@ -1,0 +1,16 @@
+id: cloak-of-protection
+source: dmg_2024
+type: wondrous_item
+rarity: uncommon
+attunement: true
+translations:
+  en:
+    name: Cloak of Protection
+    subtype: null
+    description: <p>You gain a +1 bonus to Armor Class and saving throws while you
+      wear this cloak.</p>
+  fr:
+    name: Cape de protection
+    subtype: null
+    description: <p>Vous obtenez un bonus de +1 à la CA et aux jets de sauvegarde
+      lorsque vous portez cette cape.</p>

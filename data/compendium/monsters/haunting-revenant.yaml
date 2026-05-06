@@ -1,0 +1,115 @@
+id: haunting-revenant
+source: monster_manual_2024
+type: undead
+size: gargantuan
+alignment: neutral
+challengeRating: 10.0
+armorClass: 20
+maxHitPoints: 203
+hitDice: 14d20+56
+abilities:
+  str:
+    value: 20
+    savingThrowProficiency: none
+  dex:
+    value: 12
+    savingThrowProficiency: none
+  con:
+    value: 18
+    savingThrowProficiency: proficient
+  int:
+    value: 16
+    savingThrowProficiency: none
+  wis:
+    value: 18
+    savingThrowProficiency: proficient
+  cha:
+    value: 20
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: resistant
+  piercing: none
+  poison: immune
+  psychic: resistant
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: true
+  deafened: false
+  grappled: true
+  incapacitated: false
+  paralyzed: true
+  restrained: true
+  unconscious: true
+  poisoned: true
+  petrified: true
+  frightened: true
+  blinded: false
+  prone: true
+  exhaustion: true
+  stunned: false
+translations:
+  en:
+    name: Haunting Revenant
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Haunted Zone</em>**. <em>Constitution Saving Throw</em> : DC 17, any creature that casts a spell while inside the revenant's space. <em>Failure</em> : The spell fails and is wasted.</p>
+      <p><strong><em>Undead Restoration</em></strong>. If the revenant dies, it revives 24 hours later unless <em><a href="https://www.aidedd.org/spell/dispel-evil-and-good">Dispel Evil and Good</a></em> is cast on its remains. If it revives, it animates another Gargantuan object or structure elsewhere on the same plane of existence; it now looks different but uses the same stat block and returns with all its Hit Points.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The revenant makes two Object Slam attacks and uses Invitation.</p>
+      <p><strong><em>Object Slam</em></strong>. <em>Melee or Ranged Attack Roll</em> : +9 (with Advantage if the target is inside the revenant's space), reach 10 ft. or range 30/90 ft. <em>Hit</em> : 27 (5d8+ 5) Bludgeoning damage.</p>
+      <p><strong><em>Invitation</em></strong>. <em>Charisma Saving Throw</em> : DC 17, each creature in a 60-foot Cone. <em>Failure</em> : The target is teleported inside the revenant's space and swallowed. A swallowed creature has Total Cover against attacks and other effects outside the revenant. While the revenant has Hit Points, a swallowed creature can leave the revenant's space only by using magic that enables planar travel, such as the <em><a href="https://www.aidedd.org/spell/plane-shift">Plane Shift</a></em> spell.</p>
+    senses: Truesight 60 ft., Passive Perception 14
+    languages:
+    - Common plus two other languages
+  fr:
+    name: Revenant, tourmenteur
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>Zone hantée.<br />
+      Restauration funeste.  </p>
+      <h2>Actions</h2>
+      <p>Attaques multiples.<br />
+      Frappe d'objet.<br />
+      Invitation.</p>
+    senses: vision véritable 18 m, Perception passive 14
+    languages:
+    - commun plus deux autres langues

@@ -1,0 +1,113 @@
+id: giant-crocodile
+source: monster_manual_2024
+type: beast
+size: huge
+alignment: unaligned
+challengeRating: 5.0
+armorClass: 14
+maxHitPoints: 85
+hitDice: 9d12+27
+abilities:
+  str:
+    value: 21
+    savingThrowProficiency: none
+  dex:
+    value: 9
+    savingThrowProficiency: none
+  con:
+    value: 17
+    savingThrowProficiency: none
+  int:
+    value: 2
+    savingThrowProficiency: none
+  wis:
+    value: 10
+    savingThrowProficiency: none
+  cha:
+    value: 7
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: null
+  swim: 50
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: proficient
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Giant Crocodile
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Hold Breath</em>**. The crocodile can hold its breath for 1 hour.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The crocodile makes one Bite attack and one Tail attack.</p>
+      <p><strong><em>Bite</em></strong>. <em>Melee Attack Roll</em> : +8, reach 5 ft. <em>Hit</em> : 21 (3d10 + 5) Piercing damage. If the target is a Large or smaller creature, it has the Grappled condition (escape DC 15). While Grappled, the target has the Restrained condition and can't be targeted by the crocodile's Tail.</p>
+      <p><strong><em>Tail</em></strong>. <em>Melee Attack Roll</em> : +8, reach 10 ft. <em>Hit</em> : 18 (3d8 + 5) Bludgeoning damage. If the target is a Large or smaller creature, it has the Prone condition.</p>
+    senses: Passive Perception 10
+    languages:
+    - None
+  fr:
+    name: Crocodile géant
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Apnée</em>**. Le crocodile peut retenir son souffle pendant 1 heure.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le crocodile effectue une attaque de Morsure et une de Queue.</p>
+      <p><strong><em>Morsure</em></strong>. <em>Corps à corps</em> : +8, allonge 1,50 m. <em>Touché</em> : 21 (3d10 + 5) dégâts perforants. Si la cible est une créature de taille G ou inférieure, elle subit l'état Agrippé (évasion DD 15). Ainsi Agrippée, la cible subit aussi l'état Entravé et ne peut pas être ciblée par la Queue du crocodile.</p>
+      <p><strong><em>Queue</em></strong>. <em>Corps à corps</em> : +8, allonge 3 m. <em>Touché</em> : 18 (3d8 + 5) dégâts contondants. Si la cible est une créature de taille G ou inférieure, elle subit l'état À terre.</p>
+    senses: Perception passive 10
+    languages:
+    - aucune

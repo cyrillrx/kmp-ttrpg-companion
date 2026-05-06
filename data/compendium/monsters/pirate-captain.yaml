@@ -1,0 +1,117 @@
+id: pirate-captain
+source: monster_manual_2024
+type: humanoid
+size: medium_or_small
+alignment: any_alignment
+challengeRating: 6.0
+armorClass: 17
+maxHitPoints: 84
+hitDice: 13d8+26
+abilities:
+  str:
+    value: 10
+    savingThrowProficiency: proficient
+  dex:
+    value: 18
+    savingThrowProficiency: proficient
+  con:
+    value: 14
+    savingThrowProficiency: none
+  int:
+    value: 10
+    savingThrowProficiency: none
+  wis:
+    value: 14
+    savingThrowProficiency: proficient
+  cha:
+    value: 17
+    savingThrowProficiency: proficient
+speeds:
+  walk: 30
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: proficient
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: proficient
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Pirate Captain
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The pirate makes three attacks, using Rapier or Pistol in any combination.</p>
+      <p><strong><em>Rapier</em></strong>. <em>Melee Attack Roll</em> : +7, reach 5 ft. <em>Hit</em> : 13 (2d8 + 4) Piercing damage, and the pirate has Advantage on the next attack roll it makes before the end of this turn.</p>
+      <p><strong><em>Pistol</em></strong>. <em>Ranged Attack Roll</em> : +7, range 30/90 ft. <em>Hit</em> : 15 (2d10+ 4) Piercing damage.</p>
+      <h2>Bonus actions</h2>
+      <p>** <em>Captain's Charm</em>**. <em>Wisdom Saving Throw</em> : DC 14, one creature the pirate can see within 30 feet. <em>Failure</em> : The target has the Charmed condition until the start of the pirate's next turn.</p>
+      <h2>Reactions</h2>
+      <p>** <em>Riposte</em>**. <em>Trigger</em> : The pirate is hit by a melee attack roll while holding a weapon. <em>Response</em> : The pirate adds 3 to its AC against that attack, possibly causing the attack to miss. On a miss, the pirate makes one Rapier attack against the triggering creature if within range.</p>
+    senses: Passive Perception 15
+    languages:
+    - Common plus one other language
+  fr:
+    name: Pirate, capitaine
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le pirate effectue trois attaques, réparties à sa guise entre Rapière et Pistolet.</p>
+      <p><strong><em>Rapière</em></strong>. <em>Corps à corps</em> : +7, allonge 1,50 m. <em>Touché</em> : 13 (2d8 + 4) dégâts perforants, et le pirate a un Avantage au prochain jet d'attaque qu'il effectue avant la fin de ce tour.</p>
+      <p><strong><em>Pistolet</em></strong>. <em>À distance</em> : +7, portée 9/27 m. <em>Touché</em> : 15 (2d10 + 4) dégâts perforants.</p>
+      <h2>Actions Bonus</h2>
+      <p>** <em>Charme du capitaine</em>**. <em>JdS Sagesse</em> : DD 14, une créature que le pirate voit dans un rayon de 9 m. <em>Échec</em> : la cible subit l'état Charmé jusqu'au début du tour suivant du pirate.</p>
+      <h2>Réactions</h2>
+      <p>** <em>Parade-riposte</em>**. <em>Déclencheur</em> : le pirate est touché par un jet d'attaque de corps à corps alors qu'il tient une arme. <em>Conséquences</em> : le pirate ajoute 3 à sa CA contre cette attaque, ce qui peut la faire rater. En cas d'échec, le pirate effectue une attaque de Rapière contre la créature qui a déclenché sa Réaction si celle-ci est à portée.</p>
+    senses: Perception passive 15
+    languages:
+    - commun plus une autre langue

@@ -1,0 +1,116 @@
+id: earth-elemental
+source: monster_manual_2024
+type: elemental
+size: large
+alignment: neutral
+challengeRating: 5.0
+armorClass: 17
+maxHitPoints: 147
+hitDice: 14d10+70
+abilities:
+  str:
+    value: 20
+    savingThrowProficiency: none
+  dex:
+    value: 8
+    savingThrowProficiency: none
+  con:
+    value: 20
+    savingThrowProficiency: none
+  int:
+    value: 5
+    savingThrowProficiency: none
+  wis:
+    value: 10
+    savingThrowProficiency: none
+  cha:
+    value: 5
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: null
+  swim: null
+  climb: null
+  burrow: 30
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: immune
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: vulnerable
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: true
+  restrained: false
+  unconscious: true
+  poisoned: true
+  petrified: true
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: true
+  stunned: false
+translations:
+  en:
+    name: Earth Elemental
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Earth Glide</em>**. The elemental can burrow through nonmagical, unworked earth and stone. While doing so, the elemental doesn't disturb the material it moves through.</p>
+      <p><strong><em>Siege Monster</em></strong>. The elemental deals double damage to objects and structures.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The elemental makes two attacks, using Slam or Rock Launch in any combination.</p>
+      <p><strong><em>Slam</em></strong>. <em>Melee Attack Roll</em> : +8, reach 10 ft. <em>Hit</em> : 14 (2d8 + 5) Bludgeoning damage.</p>
+      <p><strong><em>Rock Launch</em></strong>. <em>Ranged Attack Roll</em> : +8, range 60 ft. <em>Hit</em> : 8 (1d6 + 5) Bludgeoning damage. If the target is a Large or smaller creature, it has the Prone condition.</p>
+    senses: Darkvision 60 ft., Tremorsense 60 ft., Passive Perception 10
+    languages:
+    - Primordial (Terran)
+  fr:
+    name: Élémentaire de la terre
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Déplacement tellurique</em>**. L'élémentaire peut se déplacer par fouissement dans la pierre et la terre brutes et non magiques. Ce faisant, il laisse intacte la structure de ce qu'il traverse.</p>
+      <p><strong><em>Monstre de siège</em></strong>. L'élémentaire inflige des dégâts doublés aux objets et aux structures.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. L'élémentaire effectue deux attaques, réparties à sa guise entre Coup et Projection de rocher.</p>
+      <p><strong><em>Coup</em></strong>. <em>Corps à corps</em> : +8, allonge 3 m. <em>Touché</em> : 14 (2d8 + 5) dégâts contondants.</p>
+      <p><strong><em>Projection de rocher</em></strong>. <em>À distance</em> : +8, portée 18 m. <em>Touché</em> : 8 (1d6 + 5) dégâts contondants. Si la cible est une créature de taille G ou inférieure, elle subit l'état À terre.</p>
+    senses: Vision dans le noir 18 m, perception des vibrations 18 m, Perception passive
+      10
+    languages:
+    - primordial (terreux)

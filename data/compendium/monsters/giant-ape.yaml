@@ -1,0 +1,113 @@
+id: giant-ape
+source: monster_manual_2024
+type: beast
+size: huge
+alignment: unaligned
+challengeRating: 7.0
+armorClass: 12
+maxHitPoints: 168
+hitDice: 16d12+64
+abilities:
+  str:
+    value: 23
+    savingThrowProficiency: none
+  dex:
+    value: 14
+    savingThrowProficiency: none
+  con:
+    value: 18
+    savingThrowProficiency: none
+  int:
+    value: 5
+    savingThrowProficiency: none
+  wis:
+    value: 12
+    savingThrowProficiency: none
+  cha:
+    value: 7
+    savingThrowProficiency: none
+speeds:
+  walk: 40
+  fly: null
+  swim: null
+  climb: 40
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: proficient
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: proficient
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: proficient
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Giant Ape
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The ape makes two Fist attacks.</p>
+      <p><strong><em>Fist</em></strong>. <em>Melee Attack Roll</em> : +9, reach 10 ft. <em>Hit</em> : 22 (3d10 + 6) Bludgeoning damage.</p>
+      <p><strong><em>Boulder Toss (Recharge 6)</em></strong>. The ape hurls a boulder at a point it can see within 90 feet. <em>Dexterity Saving Throw</em> : DC 17, each creature in a 5-foot-radius Sphere centered on that point. <em>Failure</em> : 24 (7d6) Bludgeoning damage. If the target is a Large or smaller creature, it has the Prone condition. <em>Success</em> : Half damage only.</p>
+      <h2>Bonus actions</h2>
+      <p>** <em>Leap</em>**. The ape jumps up to 30 feet by spending 10 feet of movement.</p>
+    senses: Passive Perception 14
+    languages:
+    - None
+  fr:
+    name: Singe géant
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le singe effectue deux attaques de Poing.</p>
+      <p><strong><em>Poing</em></strong>. <em>Corps à corps</em> : +9, allonge 3 m. <em>Touché</em> : 22 (3d10 + 6) dégâts contondants.</p>
+      <p><strong><em>Jet de rocher (recharge 6)</em></strong>. Le singe projette un rocher en un point qu'il voit dans un rayon de 27 m. <em>JdS Dextérité</em> : DD 17, chaque créature dans une Sphère de 1,50 m centrée sur ce point. <em>Échec</em> : 24 (7d6) dégâts contondants. Si la cible est une créature de taille G ou inférieure, elle subit l'état À terre. <em>Réussite</em> : demi-dégâts uniquement.</p>
+      <h2>Actions Bonus</h2>
+      <p>** <em>Bond</em>**. Le singe effectue un saut d'un maximum de 9 m en dépensant 3 m de déplacement.</p>
+    senses: Perception passive 14
+    languages:
+    - aucune

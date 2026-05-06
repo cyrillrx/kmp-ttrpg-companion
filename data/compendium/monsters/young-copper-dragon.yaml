@@ -1,0 +1,113 @@
+id: young-copper-dragon
+source: monster_manual_2024
+type: dragon
+size: large
+alignment: chaotic_good
+challengeRating: 7.0
+armorClass: 17
+maxHitPoints: 119
+hitDice: 14d10+42
+abilities:
+  str:
+    value: 19
+    savingThrowProficiency: none
+  dex:
+    value: 12
+    savingThrowProficiency: proficient
+  con:
+    value: 17
+    savingThrowProficiency: none
+  int:
+    value: 16
+    savingThrowProficiency: none
+  wis:
+    value: 13
+    savingThrowProficiency: proficient
+  cha:
+    value: 15
+    savingThrowProficiency: none
+speeds:
+  walk: 40
+  fly: 80
+  swim: null
+  climb: 40
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: proficient
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: proficient
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: proficient
+  survival: none
+damageAffinities:
+  acid: immune
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Young Copper Dragon
+    subtype: Metallic
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The dragon makes three Rend attacks. It can replace one attack with a use of Slowing Breath.</p>
+      <p><strong><em>Rend</em></strong>. <em>Melee Attack Roll</em> : +7, reach 10 ft. <em>Hit</em> : 15 (2d10 + 4) Slashing damage.</p>
+      <p><strong><em>Acid Breath (Recharge 5–6)</em></strong>. <em>Dexterity Saving Throw</em> : DC 14, each creature in a 40-foot-long, 5-foot-wide Line. <em>Failure</em> : 40 (9d8) Acid damage. <em>Success</em> : Half damage.</p>
+      <p><strong><em>Slowing Breath</em></strong>. <em>Constitution Saving Throw</em> : DC 14, each creature in a 30-foot Cone. <em>Failure</em> : The target can't take Reactions; its Speed is halved; and it can take either an action or a Bonus Action on its turn, not both. This effect lasts until the end of its next turn.</p>
+    senses: Blindsight 30 ft., Darkvision 120 ft., Passive Perception 17
+    languages:
+    - Common
+    - Draconic
+  fr:
+    name: Dragon de cuivre, jeune
+    subtype: Métallique
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le dragon effectue trois attaques de Saignée. Il peut remplacer l'une de ces attaques par une utilisation de Souffle ralentissant.</p>
+      <p><strong><em>Saignée</em></strong>. <em>Corps à corps</em> : +7, allonge 3 m. <em>Touché</em> : 15 (2d10 + 4) dégâts tranchants.</p>
+      <p><strong><em>Souffle d'acide (recharge 5–6)</em></strong>. <em>JdS Dextérité</em> : DD 14, chaque créature dans une Ligne de 12 m de long sur 1,50 m de large. <em>Échec</em> : 40 (9d8) dégâts d'acide. <em>Réussite</em> : demi-dégâts.</p>
+      <p><strong><em>Souffle ralentissant</em></strong>. <em>JdS Constitution</em> : DD 14, chaque créature dans un Cône de 9 m. <em>Échec</em> : la cible voit sa Vitesse réduite de moitié, ne peut pas jouer de Réaction et peut entreprendre une action ou une action Bonus à son tour, mais pas les deux. L'effet persiste jusqu'à la fin de son tour suivant.</p>
+    senses: Vision aveugle 9 m, Vision dans le noir 36 m, Perception passive 17
+    languages:
+    - commun
+    - draconique

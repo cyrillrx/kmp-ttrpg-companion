@@ -1,0 +1,18 @@
+id: adamantine-weapon
+source: dmg_2024
+type: weapon
+rarity: uncommon
+attunement: false
+translations:
+  en:
+    name: Adamantine Weapon
+    subtype: Any Ammunition or Melee Weapon
+    description: <p>This weapon or piece of ammunition is made of adamantine, one
+      of the hardest substances in existence. Whenever this weapon or piece of ammunition
+      hits an object, the hit is a Critical Hit.</p>
+  fr:
+    name: Arme en adamantium
+    subtype: tout projectile ou arme de corps à corps
+    description: <p>Cette arme ou projectile est fabriqué en adamantium, l'une des
+      substances les plus dures qui soient. Chaque fois que cette arme ou projectile
+      touche un objet, le coup est un Coup critique.</p>

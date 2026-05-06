@@ -1,0 +1,18 @@
+id: cape-of-the-mountebank
+source: dmg_2024
+type: wondrous_item
+rarity: rare
+attunement: false
+translations:
+  en:
+    name: Cape of the Mountebank
+    subtype: null
+    description: |-
+      <p>This cape smells faintly of brimstone. While wearing it, you can use it to cast <em><a href="https://www.aidedd.org/spell/dimension-door">Dimension Door</a></em> as a Magic action. This property can't be used again until the next dawn.<br />
+      When you teleport with that spell, you leave behind a cloud of smoke. The space you left is Lightly Obscured by that smoke until the end of your next turn.</p>
+  fr:
+    name: Cape du prestidigitateur
+    subtype: null
+    description: |-
+      <p>Cette cape dégage une légère odeur de soufre. Si vous la portez, vous pouvez lancer <em><a href="https://www.aidedd.org/spell/fr/porte-dimensionnelle">porte dimensionnelle</a></em> par une action Magie. Cette propriété ne peut être réutilisée qu'à l'aube suivante.<br />
+      Lorsque vous vous téléportez avec ce sort, vous laissez derrière vous un nuage de fumée. L'espace ainsi laissé a une Visibilité réduite à cause de cette fumée jusqu'à la fin de votre prochain tour.</p>

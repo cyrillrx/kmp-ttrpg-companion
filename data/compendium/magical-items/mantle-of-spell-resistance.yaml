@@ -1,0 +1,16 @@
+id: mantle-of-spell-resistance
+source: dmg_2024
+type: wondrous_item
+rarity: rare
+attunement: true
+translations:
+  en:
+    name: Mantle of Spell Resistance
+    subtype: null
+    description: <p>You have Advantage on saving throws against spells while you wear
+      this cloak.</p>
+  fr:
+    name: Manteau de résistance aux sorts
+    subtype: null
+    description: <p>Vous avez un Avantage aux jets de sauvegarde contre les sorts
+      lorsque vous portez cette cape.</p>

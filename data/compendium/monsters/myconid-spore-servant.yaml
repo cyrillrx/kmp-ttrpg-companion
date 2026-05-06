@@ -1,0 +1,105 @@
+id: myconid-spore-servant
+source: monster_manual_2024
+type: plant
+size: medium_or_small
+alignment: unaligned
+challengeRating: 1.0
+armorClass: 13
+maxHitPoints: 37
+hitDice: 5d8+15
+abilities:
+  str:
+    value: 16
+    savingThrowProficiency: none
+  dex:
+    value: 12
+    savingThrowProficiency: none
+  con:
+    value: 16
+    savingThrowProficiency: none
+  int:
+    value: 2
+    savingThrowProficiency: none
+  wis:
+    value: 6
+    savingThrowProficiency: none
+  cha:
+    value: 1
+    savingThrowProficiency: none
+speeds:
+  walk: 20
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: immune
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: true
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: true
+  restrained: false
+  unconscious: false
+  poisoned: true
+  petrified: false
+  frightened: true
+  blinded: true
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Myconid Spore Servant
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Slom</em>**. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> :6 (1d6 + 3) Bludgeoning damage plus 2 (1d4) Poison damage.</p>
+    senses: Blindsight 30 ft., Passive Perception 8
+    languages:
+    - Telepathy 30 ft.
+  fr:
+    name: Myconide, serviteur des spores
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Coup</em>**. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> :6 (1d6 + 3) dégâts contondants plus 2 (1d4) dégâts de poison.</p>
+    senses: Vision aveugle 9 m, Perception passive 8
+    languages:
+    - télépathie 9 m

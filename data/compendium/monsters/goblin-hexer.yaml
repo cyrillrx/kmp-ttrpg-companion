@@ -1,0 +1,119 @@
+id: goblin-hexer
+source: monster_manual_2024
+type: fey
+size: small
+alignment: chaotic_neutral
+challengeRating: 3.0
+armorClass: 13
+maxHitPoints: 45
+hitDice: 10d6+10
+abilities:
+  str:
+    value: 8
+    savingThrowProficiency: none
+  dex:
+    value: 16
+    savingThrowProficiency: none
+  con:
+    value: 12
+    savingThrowProficiency: none
+  int:
+    value: 16
+    savingThrowProficiency: none
+  wis:
+    value: 10
+    savingThrowProficiency: none
+  cha:
+    value: 10
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: proficient
+  stealth: proficient
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Goblin Hexer
+    subtype: Goblinoid
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The goblin makes two Hex Stick attacks. It can replace one attack with a use of Spellcasting.</p>
+      <p><strong><em>Hex Stick</em></strong>. <em>Melee or Ranged Attack Roll</em> : +5, reach 5 ft. or range 60 ft. <em>Hit</em> : 12 (2d8 + 3) Psychic damage.</p>
+      <p><strong><em>Spellcasting</em></strong>. The goblin casts one of the following spells, using Intelligence as the spellcasting ability (spell save DC 13):</p>
+      <p>At will: <em><a href="https://www.aidedd.org/spell/minor-illusion">Minor Illusion</a></em><br />
+      1/day each: <em><a href="https://www.aidedd.org/spell/blindness-deafness">Blindness/Deafness</a>, <a href="https://www.aidedd.org/spell/faerie-fire">Faerie Fire</a>, <a href="https://www.aidedd.org/spell/grease">Grease</a></em>  </p>
+      <h2>Reactions</h2>
+      <p>** <em>Jinx</em>**. <em>Trigger</em> : A creature the goblin can see hits it with an attack roll. Response— <em>Wisdom Saving Throw</em> : DC 13, the triggering creature. <em>Failure</em> : The attack misses instead.</p>
+    senses: Darkvision 60 ft., Passive Perception 10
+    languages:
+    - Common
+    - Goblin
+  fr:
+    name: Gobelin, maléficeur
+    subtype: Gobelinoïde
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le gobelin effectue deux attaques de Bâton à maléfice. Il peut remplacer une attaque par l'utilisation d'Incantation.</p>
+      <p><strong><em>Bâton à maléfice</em></strong>. <em>Corps à corps ou à distance</em> : +5, allonge 1,50 m ou portée 18 m. <em>Touché</em> : 12 (2d8 + 3) dégâts psychiques.</p>
+      <p><strong><em>Incantation</em></strong>. Le gobelin lance l'un des sorts suivants, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 13) :</p>
+      <p>À volonté : <em><a href="https://www.aidedd.org/spell/fr/illusion-mineure">illusion mineure</a></em><br />
+      1 /jour chacun : <em><a href="https://www.aidedd.org/spell/fr/cecite-surdite">cécité/surdité</a>, <a href="https://www.aidedd.org/spell/fr/lueurs-feeriques">lueurs féeriques</a>, <a href="https://www.aidedd.org/spell/fr/graisse">graisse</a></em>  </p>
+      <h2>Réactions</h2>
+      <p>** <em>Mauvais sort</em>**. <em>Déclencheur</em> : une créature que le gobelin peut voir effectue un jet d'attaque. <em>Conséquences—JdS Sagesse</em> : DD 13, la créature ayant déclenché la Réaction. <em>Échec</em> : l'attaque rate.</p>
+    senses: Vision dans le noir 18 m, Perception passive 10
+    languages:
+    - commun
+    - gobelin

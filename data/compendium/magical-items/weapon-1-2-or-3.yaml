@@ -1,0 +1,16 @@
+id: weapon-1-2-or-3
+source: dmg_2024
+type: weapon
+rarity: uncommon
+attunement: false
+translations:
+  en:
+    name: Weapon, +1, +2, or +3
+    subtype: Any Simple or Martial
+    description: <p>You have a bonus to attack rolls and damage rolls made with this
+      magic weapon. The bonus is determined by the weapon's rarity.</p>
+  fr:
+    name: Arme +1, +2 ou +3
+    subtype: courante ou de guerre
+    description: <p>Vous obtenez un bonus aux jets d'attaque et de dégâts effectués
+      avec cette arme magique. Ce bonus est déterminé par la rareté de l'arme.</p>

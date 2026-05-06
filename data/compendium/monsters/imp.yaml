@@ -1,0 +1,117 @@
+id: imp
+source: monster_manual_2024
+type: fiend
+size: tiny
+alignment: lawful_evil
+challengeRating: 1.0
+armorClass: 13
+maxHitPoints: 21
+hitDice: 6d4+6
+abilities:
+  str:
+    value: 6
+    savingThrowProficiency: none
+  dex:
+    value: 17
+    savingThrowProficiency: none
+  con:
+    value: 13
+    savingThrowProficiency: none
+  int:
+    value: 11
+    savingThrowProficiency: none
+  wis:
+    value: 12
+    savingThrowProficiency: none
+  cha:
+    value: 14
+    savingThrowProficiency: none
+speeds:
+  walk: 20
+  fly: 40
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: proficient
+  history: none
+  insight: proficient
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: proficient
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: resistant
+  fire: immune
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: immune
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: true
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Imp
+    subtype: Devil
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Magic Resistance</em>**. The imp has Advantage on saving throws against spells and other magical effects.</p>
+      <h2>Actions</h2>
+      <p>** <em>Sting</em>**. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 6 (1d6 + 3) Piercing damage plus 7 (2d6) Poison damage.</p>
+      <p><strong><em>Invisibility</em></strong>. The imp casts <em><a href="https://www.aidedd.org/spell/invisibility">Invisibility</a></em> on itself, requiring no spell components and using Charisma as the spellcasting ability.</p>
+      <p><strong><em>Shape-Shift</em></strong>. The imp shape-shifts to resemble a rat (Speed 20 ft.), a raven (20 ft., Fly 60 ft.), or a spider (20 ft., Climb 20 ft.), or it returns to its true form. Its statistics are the same in each form, except for its Speed. Any equipment it's wearing or carrying isn't transformed.</p>
+    senses: Darkvision 120 ft. (unimpeded by magical Darkness), Passive Perception
+      11
+    languages:
+    - Common
+    - Infernal
+  fr:
+    name: Diablotin
+    subtype: Diable
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Résistance à la magie</em>**. Le diablotin a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.</p>
+      <h2>Actions</h2>
+      <p>** <em>Dard</em>**. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 6 (1d6 + 3) dégâts perforants plus 7 (2d6) dégâts de poison.</p>
+      <p><strong><em>Invisibilité</em></strong>. Le diablotin lance <em><a href="https://www.aidedd.org/spell/fr/invisibilite">invisibilité</a></em> sur lui-même, sans avoir besoin de composantes de sort et en utilisant le Charisme comme caractéristique d'incantation.</p>
+      <p><strong><em>Changement d'aspect</em></strong>. Le diablotin se métamorphose en une bête qui ressemble à un rat (Vitesse 6 m), un corbeau (6 m, vol 18 m) ou une araignée (6 m, escalade 6 m), ou reprend sa forme véritable. Mise à part sa Vitesse, ses statistiques sont les mêmes quelle que soit la forme. Rien de ce qu'il porte n'est transformé.</p>
+    senses: Vision dans le noir 36 m (perce les Ténèbres magiques), Perception passive
+      11
+    languages:
+    - commun
+    - infernal

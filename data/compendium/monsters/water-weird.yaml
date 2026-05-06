@@ -1,0 +1,111 @@
+id: water-weird
+source: monster_manual_2024
+type: elemental
+size: large
+alignment: neutral
+challengeRating: 3.0
+armorClass: 13
+maxHitPoints: 65
+hitDice: 10d10+10
+abilities:
+  str:
+    value: 17
+    savingThrowProficiency: none
+  dex:
+    value: 16
+    savingThrowProficiency: none
+  con:
+    value: 13
+    savingThrowProficiency: none
+  int:
+    value: 11
+    savingThrowProficiency: none
+  wis:
+    value: 10
+    savingThrowProficiency: none
+  cha:
+    value: 10
+    savingThrowProficiency: none
+speeds:
+  walk: 5
+  fly: null
+  swim: 60
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: resistant
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: immune
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: true
+  incapacitated: false
+  paralyzed: true
+  restrained: true
+  unconscious: true
+  poisoned: true
+  petrified: true
+  frightened: false
+  blinded: false
+  prone: true
+  exhaustion: true
+  stunned: false
+translations:
+  en:
+    name: Water Weird
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Invisible in Water</em>**. The water weird has the Invisible condition while fully immersed in water.</p>
+      <p><strong><em>Water Bound</em></strong>. The water weird dies if it leaves the water to which it is bound or if that water is destroyed.</p>
+      <h2>Actions</h2>
+      <p>** <em>Surge</em>**. <em>Melee Attack Roll</em> : +5, reach 10 ft. <em>Hit</em> : 13 (3d6 + 3) Cold damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 13), and it has the Restrained condition until the grapple ends.</p>
+    senses: Blindsight 30 ft., Passive Perception 10
+    languages:
+    - Understands Primordial but can't speak
+  fr:
+    name: Sibylle de l'eau
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Invisibilité aquatique</em>**. La sibylle de l'eau est invisible lorsqu'elle est complètement immergée dans l'eau.</p>
+      <p><strong><em>Dépendance aquatique</em></strong>. La sibylle de l'eau meurt si elle quitte l'eau à laquelle elle est liée ou si cette eau est détruite.</p>
+      <h2>Actions</h2>
+      <p>** <em>Brisant</em>**. <em>Corps à corps</em> : +5, allonge 3 m. <em>Touché</em> : 13 (3d6 + 3) dégâts de froid. Si la cible est une créature de taille M ou inférieure, elle subit l'état Agrippé (évasion DD 13) et l'état Entravé tant qu'elle est agrippée.</p>
+    senses: Vision aveugle 9 m, Perception passive 10
+    languages:
+    - comprend le primordial mais ne parle pas

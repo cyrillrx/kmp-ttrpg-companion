@@ -1,0 +1,17 @@
+id: orb-of-time
+source: dmg_2024
+type: wondrous_item
+rarity: common
+attunement: false
+translations:
+  en:
+    name: Orb of Time
+    subtype: null
+    description: |-
+      <p>This orb can be used as an Arcane Focus.<br />
+      While holding the orb, you can take a Magic action to determine whether it is morning, afternoon, evening, or nighttime. This property functions only on the Material Plane.</p>
+  fr:
+    name: Orbe horloge
+    subtype: null
+    description: |-
+      <p>Lorsque vous tenez l'orbe, vous pouvez prendre une action Magie pour déterminer dans quelle période de la journée vous êtes : matin, après-midi, soir ou nuit. Cette propriété ne fonctionne que sur le plan Matériel.</p>

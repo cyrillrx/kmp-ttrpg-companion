@@ -1,0 +1,111 @@
+id: quaggoth
+source: monster_manual_2024
+type: monstrosity
+size: medium
+alignment: chaotic_neutral
+challengeRating: 2.0
+armorClass: 13
+maxHitPoints: 45
+hitDice: 6d8+18
+abilities:
+  str:
+    value: 17
+    savingThrowProficiency: none
+  dex:
+    value: 12
+    savingThrowProficiency: none
+  con:
+    value: 16
+    savingThrowProficiency: none
+  int:
+    value: 6
+    savingThrowProficiency: none
+  wis:
+    value: 12
+    savingThrowProficiency: none
+  cha:
+    value: 7
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: null
+  swim: null
+  climb: 30
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: proficient
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: immune
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: true
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Quaggoth
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Bloodied Fury</em>**. While Bloodied, the quaggoth has Advantage on attack rolls.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The quaggoth makes two Claw attacks.</p>
+      <p><strong><em>Claw</em></strong>. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 6 (1d6 + 3) Slashing damage, or 13 (3d6 + 3) Slashing damage if the quaggoth is Bloodied.</p>
+    senses: Darkvision 120 ft., Passive Perception 11
+    languages:
+    - Undercommon
+  fr:
+    name: Quaggoth
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Fureur du péril</em>**. Lorsqu'il est En péril, le quaggoth a un Avantage aux jets d'attaque.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le quaggoth effectue deux attaques de Griffe.</p>
+      <p><strong><em>Griffe</em></strong>. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 6 (1d6 + 3) dégâts tranchants, ou 13 (3d6 + 3) dégâts tranchants si le quaggoth es En péril.</p>
+    senses: Vision dans le noir 36 m, Perception passive 11
+    languages:
+    - commun des profondeurs

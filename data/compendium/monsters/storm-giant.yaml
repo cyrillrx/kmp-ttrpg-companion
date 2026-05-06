@@ -1,0 +1,123 @@
+id: storm-giant
+source: monster_manual_2024
+type: giant
+size: huge
+alignment: chaotic_good
+challengeRating: 13.0
+armorClass: 16
+maxHitPoints: 230
+hitDice: 20d12+100
+abilities:
+  str:
+    value: 29
+    savingThrowProficiency: proficient
+  dex:
+    value: 14
+    savingThrowProficiency: none
+  con:
+    value: 20
+    savingThrowProficiency: proficient
+  int:
+    value: 16
+    savingThrowProficiency: none
+  wis:
+    value: 20
+    savingThrowProficiency: proficient
+  cha:
+    value: 18
+    savingThrowProficiency: proficient
+speeds:
+  walk: 50
+  fly: 25
+  swim: 50
+  climb: null
+  burrow: null
+  hover: true
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: proficient
+  athletics: proficient
+  deception: none
+  history: proficient
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: proficient
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: resistant
+  fire: none
+  force: none
+  lightning: immune
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: immune
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Storm Giant
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Amphibious</em>**. The giant can breathe air and water.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The giant makes two attacks, using Storm Sword or Thunderbolt in any combination.</p>
+      <p><strong><em>Storm Sword</em></strong>. <em>Melee Attack Roll</em> : +14, reach 10 ft. <em>Hit</em> : 23 (4d6 + 9) Slashing damage plus 13 (3d8) Lightning damage.</p>
+      <p><strong><em>Thunderbolt</em></strong>. <em>Ranged Attack Roll</em> : +14, range 500 ft. <em>Hit</em> : 22 (2d12 + 9) Lightning damage, and the target has the Blinded and Deafened conditions until the start of the giant's next turn.</p>
+      <p><strong><em>Lightning Storm (Recharge 5–6)</em></strong>. <em>Dexterity Saving Throw</em> : DC 18, each creature in a 10-foot-radius, 40-foot-high Cylinder originating from a point the giant can see within 500 feet. <em>Failure</em> : 55 (10d10) Lightning damage. <em>Success</em> : Half damage.</p>
+      <p><strong><em>Spellcasting</em></strong>. The giant casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 18):</p>
+      <p>At Will: <em><a href="https://www.aidedd.org/spell/detect-magic">Detect Magic</a>, Light</em><br />
+      1/Day: <em><a href="https://www.aidedd.org/spell/control-weather">Control Weather</a></em></p>
+    senses: Darkvision 120 ft., Truesight 30 ft., Passive Perception 20
+    languages:
+    - Common
+    - Giant
+  fr:
+    name: Géant des tempêtes
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Amphibie</em>**. Le géant peut respirer sous l'eau comme à l'air libre.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le géant effectue deux attaques, réparties à sa guise entre Épée des orages et Foudroiement.</p>
+      <p><strong><em>Épée des orages</em></strong>. <em>Corps à corps</em> : +14, allonge 3 m. <em>Touché</em> : 23 (4d6 + 9) dégâts tranchants plus 13 (3d8) dégâts de foudre.</p>
+      <p><strong><em>Foudroiement</em></strong>. <em>À distance</em> : +14, portée 150 m. <em>Touché</em> : 22 (2d12 + 9) dégâts de foudre, et la cible subit les états Assourdi et Aveuglé jusqu'au début du tour suivant du géant.</p>
+      <p><strong><em>Incantation</em></strong>. Le géant lance l'un des sorts suivants, sans composantes matérielles, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 18) :</p>
+      <p>À volonté : <em><a href="https://www.aidedd.org/spell/fr/detection-de-la-magie">détection de la magie</a>, lumière</em><br />
+      1/jour : <em>contrôle du climat</em>  </p>
+      <p>** <em>Tempête foudroyante (recharge 5–6)</em>**. <em>JdS Dextérité</em> : DD 18, chaque créature dans un Cylindre de 3 m de rayon et 12 m de haut émanant d'un point que le géant voit dans un rayon de 150 m. <em>Échec</em> : 55 (10d10) dégâts de foudre. <em>Réussite</em> : demi-dégâts.</p>
+    senses: Vision dans le noir 36 m, vision véritable 9 m, Perception passive 20
+    languages:
+    - commun
+    - géant

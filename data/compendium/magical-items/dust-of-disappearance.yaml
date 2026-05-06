@@ -1,0 +1,26 @@
+id: dust-of-disappearance
+source: dmg_2024
+type: wondrous_item
+rarity: uncommon
+attunement: false
+translations:
+  en:
+    name: Dust of Disappearance
+    subtype: null
+    description: <p>This powder resembles fine sand. There is enough of it for one
+      use. When you take a Utilize action to throw the dust into the air, you and
+      each creature and object within a 10-foot Emanation originating from you have
+      the Invisible condition for 2d4 minutes. The duration is the same for all subjects,
+      and the dust is consumed when its magic takes effect. Immediately after an affected
+      creature makes an attack roll, deals damage, or casts a spell, the Invisible
+      condition ends for that creature.</p>
+  fr:
+    name: Poussière de disparition
+    subtype: null
+    description: <p>Cette poudre ressemble à du sable fin. Il y en a suffisamment
+      pour une seule utilisation. Lorsque vous prenez une action Utilisation pour
+      projeter la poussière en l'air, vous, et toutes créatures et objets dans un
+      rayon de 3 mètres, obtenez l'état Invisible pendant 2d4 minutes. La durée est
+      la même pour tous les sujets, et la poussière est consumée lorsque sa magie
+      prend effet. Immédiatement après qu'une créature affectée effectue un jet d'attaque,
+      inflige des dégâts ou lance un sort, son état Invisible prend fin.</p>

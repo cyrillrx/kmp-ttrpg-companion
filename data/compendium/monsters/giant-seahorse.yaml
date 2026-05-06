@@ -1,0 +1,113 @@
+id: giant-seahorse
+source: monster_manual_2024
+type: beast
+size: large
+alignment: unaligned
+challengeRating: 0.5
+armorClass: 14
+maxHitPoints: 16
+hitDice: 3d10
+abilities:
+  str:
+    value: 15
+    savingThrowProficiency: none
+  dex:
+    value: 12
+    savingThrowProficiency: none
+  con:
+    value: 11
+    savingThrowProficiency: none
+  int:
+    value: 2
+    savingThrowProficiency: none
+  wis:
+    value: 12
+    savingThrowProficiency: none
+  cha:
+    value: 5
+    savingThrowProficiency: none
+speeds:
+  walk: 5
+  fly: null
+  swim: 40
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Giant Seahorse
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Water Breathing</em>**. The seahorse can breathe only underwater.</p>
+      <h2>Actions</h2>
+      <p>** <em>Ram</em>**. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 9 (2d6 + 2) Bludgeoning damage, or 11 (2d8 + 2) Bludgeoning damage if the seahorse moved 20+ feet straight toward the target immediately before the hit.</p>
+      <h2>Bonus actions</h2>
+      <p>** <em>Bubble Dash</em>**. While underwater, the seahorse moves up to half its Swim Speed without provoking Opportunity Attacks.</p>
+    senses: Passive Perception 11
+    languages:
+    - None
+  fr:
+    name: Hippocampe géant
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Respiration aquatique</em>**. L'hippocampe ne peut respirer que sous l'eau.</p>
+      <h2>Actions</h2>
+      <p>** <em>Coup de bélier</em>**. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 9 (2d6 + 2) dégâts contondants, ou 11 (2d8 + 2) dégâts contondants si l'hippocampe s'est déplacé d'au moins 6 m en ligne droite vers la cible juste avant de la toucher.</p>
+      <h2>Actions Bonus</h2>
+      <p>** <em>Accélération bulleuse</em>**. Sous l'eau, l'hippocampe se déplace jusqu'à la moitié de sa Vitesse de nage sans provoquer d'attaque d'Opportunité.</p>
+    senses: Perception passive 11
+    languages:
+    - aucune

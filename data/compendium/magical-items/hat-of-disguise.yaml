@@ -1,0 +1,16 @@
+id: hat-of-disguise
+source: dmg_2024
+type: wondrous_item
+rarity: uncommon
+attunement: true
+translations:
+  en:
+    name: Hat of Disguise
+    subtype: null
+    description: <p>While wearing this hat, you can cast the <em><a href="https://www.aidedd.org/spell/disguise-self">Disguise
+      Self</a></em> spell. The spell ends if the hat is removed.</p>
+  fr:
+    name: Chapeau de déguisement
+    subtype: null
+    description: <p>En portant ce chapeau, vous pouvez lancer le sort <em><a href="https://www.aidedd.org/spell/fr/deguisement">déguisement</a></em>.
+      Le sort prend fin si vous retirez le chapeau.</p>

@@ -1,0 +1,115 @@
+id: shadow
+source: monster_manual_2024
+type: undead
+size: medium
+alignment: chaotic_evil
+challengeRating: 0.5
+armorClass: 12
+maxHitPoints: 27
+hitDice: 5d8+5
+abilities:
+  str:
+    value: 6
+    savingThrowProficiency: none
+  dex:
+    value: 14
+    savingThrowProficiency: none
+  con:
+    value: 13
+    savingThrowProficiency: none
+  int:
+    value: 6
+    savingThrowProficiency: none
+  wis:
+    value: 10
+    savingThrowProficiency: none
+  cha:
+    value: 8
+    savingThrowProficiency: none
+speeds:
+  walk: 40
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: proficient
+  survival: none
+damageAffinities:
+  acid: resistant
+  bludgeoning: none
+  cold: resistant
+  fire: resistant
+  force: none
+  lightning: resistant
+  necrotic: immune
+  piercing: none
+  poison: immune
+  psychic: none
+  radiant: vulnerable
+  slashing: none
+  thunder: resistant
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: true
+  incapacitated: false
+  paralyzed: true
+  restrained: true
+  unconscious: true
+  poisoned: true
+  petrified: true
+  frightened: true
+  blinded: false
+  prone: true
+  exhaustion: true
+  stunned: false
+translations:
+  en:
+    name: Shadow
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Amorphous</em>**. The shadow can move through a space as narrow as 1 inch without expending extra movement to do so.</p>
+      <p><strong><em>Sunlight Weakness</em></strong>. While in sunlight, the shadow has Disadvantage on D20 Tests.</p>
+      <h2>Actions</h2>
+      <p>** <em>Draining Swipe</em>**. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 5 (1d6 + 2) Necrotic damage, and the target's Strength score decreases by 1d4. The target dies if this reduces that score to 0. If a Humanoid is slain by this attack, a Shadow rises from the corpse 1d4 hours later.</p>
+      <h2>Bonus actions</h2>
+      <p>** <em>Shadow Stealth</em>**. While in Dim Light or Darkness, the shadow takes the Hide action.</p>
+    senses: Darkvision 60 ft., Passive Perception 10
+    languages:
+    - None
+  fr:
+    name: Ombre
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Informe</em>**. L'ombre peut se déplacer dans un espace étroit d'une largeur minimale de 2,50 cm sans dépense supplémentaire en déplacement.</p>
+      <p><strong><em>Morsure du soleil</em></strong>. Tant qu'elle est exposée à la lumière du soleil, l'ombre subit un Désavantage aux jets de d20.</p>
+      <h2>Actions</h2>
+      <p>** <em>Caresse dévitalisante</em><strong>. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 5 (1d6 + 2) dégâts nécrotiques, et la valeur de Force de la cible est réduite de 1d4. La cible meurt si l'effet fait tomber cette valeur à 0. Si un Humanoïde est tué par cette attaque, une </strong>ombre** émerge de son cadavre 1d4 heures plus tard.</p>
+      <h2>Actions Bonus</h2>
+      <p>** <em>Discrétion dans les ombres</em>**. Tant qu'elle reste dans les Ténèbres ou sous une Lumière faible, l'ombre peut prendre l'action Furtivité.</p>
+    senses: Vision dans le noir 18 m, Perception passive 10
+    languages:
+    - aucune

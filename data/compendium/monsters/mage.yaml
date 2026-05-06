@@ -1,0 +1,123 @@
+id: mage
+source: monster_manual_2024
+type: humanoid
+size: medium_or_small
+alignment: neutral
+challengeRating: 6.0
+armorClass: 15
+maxHitPoints: 81
+hitDice: 18d8
+abilities:
+  str:
+    value: 9
+    savingThrowProficiency: none
+  dex:
+    value: 14
+    savingThrowProficiency: none
+  con:
+    value: 11
+    savingThrowProficiency: none
+  int:
+    value: 17
+    savingThrowProficiency: proficient
+  wis:
+    value: 12
+    savingThrowProficiency: proficient
+  cha:
+    value: 11
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: proficient
+  athletics: none
+  deception: none
+  history: proficient
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: proficient
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Mage
+    subtype: Wizard
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The mage makes three Arcane Burst attacks.</p>
+      <p><strong><em>Arcane Burst</em></strong>. <em>Melee or Ranged Attack Roll</em> : +6, reach 5 ft. or range 120 ft. <em>Hit</em> : 16 (3d8 + 3) Force damage.</p>
+      <p><strong><em>Spellcasting</em></strong>. The mage casts one of the following spells, using Intelligence as the spellcasting ability (spell save DC 14):</p>
+      <p>At Will: <em><a href="https://www.aidedd.org/spell/detect-magic">Detect Magic</a>, <a href="https://www.aidedd.org/spell/light">Light</a>, <a href="https://www.aidedd.org/spell/mage-armor">Mage Armor</a></em> (included in AC), <em><a href="https://www.aidedd.org/spell/mage-hand">Mage Hand</a>, <a href="https://www.aidedd.org/spell/prestidigitation">Prestidigitation</a></em><br />
+      2/Day Each: <em><a href="https://www.aidedd.org/spell/fireball">Fireball</a></em> (level 4 version), <em><a href="https://www.aidedd.org/spell/invisibility">Invisibility</a></em><br />
+      1/Day Each: <em><a href="https://www.aidedd.org/spell/cone-of-cold">Cone of Cold</a>, <a href="https://www.aidedd.org/spell/fly">Fly</a></em>  </p>
+      <h2>Bonus actions</h2>
+      <p>** <em>Misty Step (3/Day)</em>**. The mage casts <em><a href="https://www.aidedd.org/spell/misty-step">Misty Step</a></em> , using the same spellcasting ability as Spellcasting.</p>
+      <h2>Reactions</h2>
+      <p>** <em>Protective Magic (3/Day)</em>**. The mage casts <em><a href="https://www.aidedd.org/spell/counterspell">Counterspell</a></em> or <em><a href="https://www.aidedd.org/spell/shield">Shield</a></em> in response to the spell's trigger, using the same spellcasting ability as Spellcasting.</p>
+    senses: Passive Perception 14
+    languages:
+    - Common plus three other languages
+  fr:
+    name: Mage
+    subtype: Magicien
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le mage effectue trois attaques de Jaillissement arcanique.</p>
+      <p><strong><em>Jaillissement arcanique</em></strong>. <em>Corps à corps ou à distance</em> : +6, allonge 1,50 m ou portée 36 m. <em>Touché</em> : 16 (3d8 + 3) dégâts de force.</p>
+      <p><strong><em>Incantation</em></strong>. Le mage lance l'un des sorts suivants, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 14) :</p>
+      <p>À volonté : <em><a href="https://www.aidedd.org/spell/fr/armure-de-mage">armure de mage</a></em> (compris dans la CA), <em><a href="https://www.aidedd.org/spell/fr/detection-de-la-magie">détection de la magie</a>, lumière, <a href="https://www.aidedd.org/spell/fr/main-de-mage">main de mage</a>, <a href="https://www.aidedd.org/spell/fr/prestidigitation">prestidigitation</a></em><br />
+      2/jour chacun : <em><a href="https://www.aidedd.org/spell/fr/boule-de-feu">boule de feu</a></em> (au niveau 4), <em><a href="https://www.aidedd.org/spell/fr/invisibilite">invisibilité</a></em><br />
+      1/jour chacun : <em>cône de froid, vol</em>  </p>
+      <h2>Actions Bonus</h2>
+      <p>** <em>Foulée brumeuse (3/jour)</em>**. Le mage lance <em><a href="https://www.aidedd.org/spell/fr/foulee-brumeuse">foulée brumeuse</a></em> , avec la même caractéristique d'incantation que pour Incantation.</p>
+      <h2>Réactions</h2>
+      <p>** <em>Magie protectrice (3/jour)</em>**. Le mage lance <em><a href="https://www.aidedd.org/spell/fr/bouclier">bouclier</a></em> ou <em><a href="https://www.aidedd.org/spell/fr/contresort">contresort</a></em> en réponse au déclencheur du sort correspondant, avec la même caractéristique d'incantation que pour Incantation.</p>
+    senses: Perception passive 14
+    languages:
+    - commun plus trois autres langues

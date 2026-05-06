@@ -1,0 +1,108 @@
+id: dretch
+source: monster_manual_2024
+type: fiend
+size: small
+alignment: chaotic_evil
+challengeRating: 0.25
+armorClass: 11
+maxHitPoints: 18
+hitDice: 4d6+4
+abilities:
+  str:
+    value: 12
+    savingThrowProficiency: none
+  dex:
+    value: 11
+    savingThrowProficiency: none
+  con:
+    value: 12
+    savingThrowProficiency: none
+  int:
+    value: 5
+    savingThrowProficiency: none
+  wis:
+    value: 8
+    savingThrowProficiency: none
+  cha:
+    value: 3
+    savingThrowProficiency: none
+speeds:
+  walk: 20
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: resistant
+  fire: resistant
+  force: none
+  lightning: resistant
+  necrotic: none
+  piercing: none
+  poison: immune
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: true
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Dretch
+    subtype: Demon
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Rend</em>**. <em>Melee Attack Roll</em> : +3, reach 5 ft. <em>Hit</em> : 4 (1d6 + 1) Slashing damage.</p>
+      <p><strong><em>Fetid Cloud (1/Day)</em></strong>. <em>Constitution Saving Throw</em> : DC 11, each creature in a 10-foot Emanation originating from the dretch. <em>Failure</em> : The target has the Poisoned condition until the end of its next turn. While Poisoned, the creature can take either an action or a Bonus Action on its turn, not both, and it can't take Reactions.</p>
+    senses: Darkvision 60 ft., Passive Perception 9
+    languages:
+    - Abyssal; telepathy 60 ft. (works only with creatures that understand Abyssal)
+  fr:
+    name: Dretch
+    subtype: Démon
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Saignée</em>**. <em>Corps à corps</em> : +3, allonge 1,50 m. <em>Touché</em> : 4 (1d6 + 1) dégâts tranchants.</p>
+      <p><strong><em>Nuage fétide (1/jour)</em></strong>. <em>JdS Constitution</em> : DD 11, chaque créature dans une Émanation de 3 m centrée sur le dretch. <em>Échec</em> : la cible subit l'état Empoisonné jusqu'à la fin de son tour suivant. Tant qu'elle est ainsi Empoisonnée, la créature ne peut pas jouer de Réaction et n'a droit qu'à une action ou une action Bonus lors de son tour (pas les deux).</p>
+    senses: Vision dans le noir 18 m, Perception passive 9
+    languages:
+    - abyssal ; télépathie 18 m (ne fonctionne qu'avec des créatures qui comprennent
+      l'abyssal)

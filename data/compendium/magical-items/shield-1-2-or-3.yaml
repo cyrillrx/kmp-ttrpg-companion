@@ -1,0 +1,17 @@
+id: shield-1-2-or-3
+source: dmg_2024
+type: armor
+rarity: uncommon
+attunement: false
+translations:
+  en:
+    name: Shield, +1, +2, or +3
+    subtype: Shield
+    description: <p>While holding this Shield, you have a bonus to Armor Class determined
+      by the Shield's rarity, in addition to the Shield's normal bonus to AC.</p>
+  fr:
+    name: Bouclier +1, +2 ou +3
+    subtype: bouclier
+    description: <p>Lorsque vous tenez ce bouclier, vous obtenez un bonus à la CA
+      déterminé par la rareté du bouclier, en plus du bonus normal du bouclier à la
+      CA.</p>

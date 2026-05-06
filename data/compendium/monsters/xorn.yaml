@@ -1,0 +1,120 @@
+id: xorn
+source: monster_manual_2024
+type: elemental
+size: medium
+alignment: neutral
+challengeRating: 5.0
+armorClass: 19
+maxHitPoints: 84
+hitDice: 8d8+48
+abilities:
+  str:
+    value: 17
+    savingThrowProficiency: none
+  dex:
+    value: 10
+    savingThrowProficiency: none
+  con:
+    value: 22
+    savingThrowProficiency: none
+  int:
+    value: 11
+    savingThrowProficiency: none
+  wis:
+    value: 10
+    savingThrowProficiency: none
+  cha:
+    value: 11
+    savingThrowProficiency: none
+speeds:
+  walk: 20
+  fly: null
+  swim: null
+  climb: null
+  burrow: 20
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: proficient
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: proficient
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: immune
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: true
+  restrained: false
+  unconscious: false
+  poisoned: true
+  petrified: true
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Xorn
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Earth Glide</em>**. The xorn can burrow through nonmagical, unworked earth and stone. While doing so, the xorn doesn't disturb the material it moves through.</p>
+      <p><strong><em>Treasure Sense</em></strong>. The xorn can pinpoint the location of precious metals and stones within 60 feet of itself.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The xorn makes one Bite attack and three Claw attacks.</p>
+      <p><strong><em>Bite</em></strong>. <em>Melee Attack Roll</em> : +6, reach 5 ft. <em>Hit</em> : 17 (4d6 + 3) Piercing damage.</p>
+      <p><strong><em>Claw</em></strong>. <em>Melee Attack Roll</em> : +6, reach 5 ft. <em>Hit</em> : 8 (1d10 + 3) Slashing damage.</p>
+      <h2>Bonus actions</h2>
+      <p>** <em>Charge</em>**. The xorn moves up to its Speed or Burrow Speed straight toward an enemy it can sense.</p>
+    senses: Darkvision 60 ft., Tremorsense 60 ft., Passive Perception 16
+    languages:
+    - Primordial (Terran)
+  fr:
+    name: Xorn
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Déplacement tellurique</em>**. Le xorn peut se déplacer par fouissement dans la pierre et la terre brutes et non magiques. Ce faisant, il laisse intacte la structure de ce qu'il traverse.</p>
+      <p><strong><em>Perception des trésors</em></strong>. Le xorn localise précisément les pierres et métaux précieux dans un rayon de 18 m.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le xorn effectue trois attaques de Griffe et une de Morsure.</p>
+      <p><strong><em>Griffe</em></strong>. <em>Corps à corps</em> : +6, allonge 1,50 m. <em>Touché</em> : 8 (1d10 + 3) dégâts tranchants.</p>
+      <p><strong><em>Morsure</em></strong>. <em>Corps à corps</em> : +6, allonge 1,50 m. <em>Touché</em> : 17 (4d6 + 3) dégâts perforants.</p>
+      <h2>Actions Bonus</h2>
+      <p>** <em>Charge</em>**. Le xorn se déplace en ligne droite dans les limites de sa Vitesse ou de sa Vitesse de fouissement vers un ennemi qu'il perçoit.</p>
+    senses: Vision dans le noir 18 m, perception des vibrations 18 m, Perception passive
+      16
+    languages:
+    - primordial (terreux)

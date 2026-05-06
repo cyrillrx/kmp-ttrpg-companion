@@ -1,0 +1,115 @@
+id: swarm-of-lemures
+source: monster_manual_2024
+type: swarm_of_medium_fiends
+size: large
+alignment: lawful_evil
+challengeRating: 3.0
+armorClass: 12
+maxHitPoints: 45
+hitDice: 6d10+12
+abilities:
+  str:
+    value: 14
+    savingThrowProficiency: none
+  dex:
+    value: 7
+    savingThrowProficiency: none
+  con:
+    value: 14
+    savingThrowProficiency: none
+  int:
+    value: 1
+    savingThrowProficiency: none
+  wis:
+    value: 12
+    savingThrowProficiency: none
+  cha:
+    value: 3
+    savingThrowProficiency: none
+speeds:
+  walk: 40
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: resistant
+  cold: resistant
+  fire: immune
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: resistant
+  poison: immune
+  psychic: none
+  radiant: none
+  slashing: resistant
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: true
+  deafened: false
+  grappled: true
+  incapacitated: false
+  paralyzed: true
+  restrained: true
+  unconscious: false
+  poisoned: true
+  petrified: true
+  frightened: true
+  blinded: false
+  prone: true
+  exhaustion: false
+  stunned: true
+translations:
+  en:
+    name: Swarm of Lemures
+    subtype: Devil
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Hellish Restoration</em>**. If the swarm dies in the Nine Hells, it revives with all its Hit Points in 1d10 days unless it is killed by a creature under the effects of a <em><a href="https://www.aidedd.org/spell/bless">Bless</a></em> spell or its remains are sprinkled with Holy Water.</p>
+      <p><strong><em>Swarm</em></strong>. The swarm can occupy another creature's space and vice versa, and the swarm can move through an opening large enough for a Medium creature. The swarm can't regain Hit Points or gain Temporary Hit Points.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The swarm makes two Vile Slime attacks.</p>
+      <p><strong><em>Vile Slime</em></strong>. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 11 (2d8 + 2) Poison damage, or 9 (2d6 + 2) Poison damage if the swarm is Bloodied.</p>
+    senses: Darkvision 120 ft. (unimpeded by magical Darkness), Passive Perception
+      11
+    languages:
+    - Understands Infernal but can't speak
+  fr:
+    name: Nuée de lémures
+    subtype: Diable
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Restauration infernale</em>**. Si la nuée meurt dans les Neuf Enfers, elle revient à la vie avec tous ses pv en 1d10 jours sauf si elle est tuée par une créature sous les effets du sort <em><a href="https://www.aidedd.org/spell/fr/benediction">bénédiction</a></em> ou si ce qu'il en reste est aspergé d'eau bénite.</p>
+      <p><strong><em>Nuée</em></strong>. La nuée peut occuper l'espace d'une autre créature et réciproquement, et elle peut se déplacer par toute ouverture assez large pour une créature de taille M. La nuée ne peut ni récupérer de points de vie ni recevoir de points de vie temporaires.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. La nuée effectue deux attaques de Limon abject.</p>
+      <p><strong><em>Limon abject</em></strong>. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 11 (2d8 + 2) dégâts de poison, ou 9 (2d6 + 2) dégâts de poison si la nuée est En péril.</p>
+    senses: Vision dans le noir 36 m (perce les Ténèbres magiques), Perception passive
+      11
+    languages:
+    - comprend l'infernal mais ne parle pas

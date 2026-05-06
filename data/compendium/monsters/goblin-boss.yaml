@@ -1,0 +1,119 @@
+id: goblin-boss
+source: monster_manual_2024
+type: fey
+size: small
+alignment: chaotic_neutral
+challengeRating: 1.0
+armorClass: 17
+maxHitPoints: 21
+hitDice: 6d6
+abilities:
+  str:
+    value: 10
+    savingThrowProficiency: none
+  dex:
+    value: 15
+    savingThrowProficiency: none
+  con:
+    value: 10
+    savingThrowProficiency: none
+  int:
+    value: 10
+    savingThrowProficiency: none
+  wis:
+    value: 8
+    savingThrowProficiency: none
+  cha:
+    value: 10
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: proficient
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Goblin Boss
+    subtype: Goblinoid
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The goblin makes two attacks, using Scimitar or Shortbow in any combination.</p>
+      <p><strong><em>Scimitar</em></strong>. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 5 (1d6 + 2) Slashing damage, plus 2 (1d4) Slashing damage if the attack roll had Advantage.</p>
+      <p><strong><em>Shortbow</em></strong>. <em>Ranged Attack Roll</em> : +4, range 80/320 ft. <em>Hit</em> : 5 (1d6 + 2) Piercing damage, plus 2 (1d4) Piercing damage if the attack roll had Advantage.</p>
+      <h2>Bonus actions</h2>
+      <p>** <em>Nimble Escape</em>**. The goblin takes the Disengage or Hide action.</p>
+      <h2>Reactions</h2>
+      <p>** <em>Redirect Attack</em>**. <em>Trigger</em> : A creature the goblin can see makes an attack roll against it. <em>Response</em> : The goblin chooses a Medium or Small ally within 5 feet of itself. The goblin and that ally swap places, and the ally becomes the target of the attack instead.</p>
+    senses: Darkvision 60 ft., Passive Perception 9
+    languages:
+    - Common
+    - Goblin
+  fr:
+    name: Gobelin, chef
+    subtype: Gobelinoïde
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le gobelin effectue deux attaques, réparties à sa guise entre Cimeterre et Arc court.</p>
+      <p><strong><em>Cimeterre</em></strong>. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 5 (1d6 + 2) dégâts tranchants, plus 2 (1d4) dégâts tranchants si le jet d'attaque avait un Avantage.</p>
+      <p><strong><em>Arc court</em></strong>. <em>À distance</em> : +4, portée 24/96 m. <em>Touché</em> : 5 (1d6 + 2) dégâts perforants, plus 2 (1d4) dégâts perforants si le jet d'attaque avait un Avantage.</p>
+      <h2>Actions Bonus</h2>
+      <p>** <em>Fuite agile</em>**. Le gobelin entreprend l'action Désengagement ou Furtivité.</p>
+      <h2>Réactions</h2>
+      <p>** <em>Attaque redirigée</em>**. <em>Déclencheur</em> : une créature que le gobelin voit effectue un jet d'attaque contre lui. <em>Conséquences</em> : le gobelin choisit un allié de taille P ou M dans un rayon de 1,50 m. Le gobelin et cet allié échangent leurs places ; l'allié devient la nouvelle cible de l'attaque.</p>
+    senses: Vision dans le noir 18 m, Perception passive 9
+    languages:
+    - commun
+    - gobelin

@@ -1,0 +1,18 @@
+id: potion-of-diminution
+source: dmg_2024
+type: potion
+rarity: rare
+attunement: false
+translations:
+  en:
+    name: Potion of Diminution
+    subtype: null
+    description: |-
+      <p>When you drink this potion, you gain the "reduce" effect of the <em><a href="https://www.aidedd.org/spell/enlarge-reduce">Enlarge/Reduce</a></em> spell for 1d4 hours (no Concentration required).<br />
+      The red in the potion's liquid continuously contracts to a tiny bead and then expands to color the clear liquid around it. Shaking the bottle fails to interrupt this process.</p>
+  fr:
+    name: Potion de diminution
+    subtype: null
+    description: |-
+      <p>Lorsque vous buvez cette potion, vous bénéficiez de l'effet « rapetissement » du sort <em><a href="https://www.aidedd.org/spell/fr/agrandissement-rapetissement">agrandissement/rapetissement</a></em> pendant 1d4 heure (aucune concentration requise).<br />
+      Le rouge contenu dans le liquide de la potion se contracte continuellement en une minuscule perle, puis s'étend pour colorer le liquide transparent qui l'entoure. Agiter la bouteille n'interrompt pas ce processus.</p>

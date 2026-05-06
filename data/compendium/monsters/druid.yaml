@@ -1,0 +1,121 @@
+id: druid
+source: monster_manual_2024
+type: humanoid
+size: medium_or_small
+alignment: neutral
+challengeRating: 2.0
+armorClass: 13
+maxHitPoints: 44
+hitDice: 8d8+8
+abilities:
+  str:
+    value: 10
+    savingThrowProficiency: none
+  dex:
+    value: 12
+    savingThrowProficiency: none
+  con:
+    value: 13
+    savingThrowProficiency: none
+  int:
+    value: 12
+    savingThrowProficiency: none
+  wis:
+    value: 16
+    savingThrowProficiency: none
+  cha:
+    value: 11
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: proficient
+  nature: proficient
+  perception: proficient
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Druid
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The druid makes two attacks, using Vine Staff or Verdant Wisp in any combination.</p>
+      <p><strong><em>Vine Staff</em></strong>. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 7 (1d8 + 3) Bludgeoning damage plus 2 (1d4) Poison damage.</p>
+      <p><strong><em>Verdant Wisp</em></strong>. <em>Ranged Attack Roll</em> : +5, range 90 ft. <em>Hit</em> : 10 (3d6) Radiant damage.</p>
+      <p><strong><em>Spellcasting</em></strong>. The druid casts one of the following spells, using Wisdom as the spellcasting ability (spell save DC 13):</p>
+      <p>At will: <em><a href="https://www.aidedd.org/spell/druidcraft">Druidcraft</a>, <a href="https://www.aidedd.org/spell/speak-with-animals">Speak with Animals</a></em><br />
+      2/day each: <em><a href="https://www.aidedd.org/spell/entangle">Entangle</a>, <a href="https://www.aidedd.org/spell/thunderwave">Thunderwave</a></em><br />
+      1/day each: <em><a href="https://www.aidedd.org/spell/animal-messenger">Animal Messenger</a>, <a href="https://www.aidedd.org/spell/longstrider">Longstrider</a>, <a href="https://www.aidedd.org/spell/moonbeam">Moonbeam</a></em></p>
+    senses: Passive Perception 15
+    languages:
+    - Common
+    - Druidic
+    - Sylvan
+  fr:
+    name: Druide
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le druide effectue deux attaques, réparties à sa guise entre Bâton-lierre et Éclat verdoyant.</p>
+      <p><strong><em>Bâton-lierre</em></strong>. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 7 (1d8 + 3) dégâts contondants plus 2 (1d4) dégâts de poison.</p>
+      <p><strong><em>Éclat verdoyant</em></strong>. <em>À distance</em> : +5, portée 27 m. <em>Touché</em> : 10 (3d6) dégâts radiants.</p>
+      <p><strong><em>Incantation</em></strong>. Le druide lance l'un des sorts suivants, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 13) :</p>
+      <p>À volonté : <em><a href="https://www.aidedd.org/spell/fr/communication-avec-les-animaux">communication avec les animaux</a>, <a href="https://www.aidedd.org/spell/fr/druidisme">druidisme</a></em><br />
+      2/jour chacun : <em><a href="https://www.aidedd.org/spell/fr/enchevetrement">enchevêtrement</a>, vague tonnante</em><br />
+      1/jour chacun : <em>grande foulée, messager animal, rayon de lune</em></p>
+    senses: Perception passive 15
+    languages:
+    - commun
+    - druidique
+    - sylvestre

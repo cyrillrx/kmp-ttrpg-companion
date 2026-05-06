@@ -1,0 +1,16 @@
+id: bracers-of-defense
+source: dmg_2024
+type: wondrous_item
+rarity: rare
+attunement: true
+translations:
+  en:
+    name: Bracers of Defense
+    subtype: null
+    description: <p>While wearing these bracers, you gain a +2 bonus to Armor Class
+      if you are wearing no armor and using no Shield.</p>
+  fr:
+    name: Bracelets de défense
+    subtype: null
+    description: <p>Lorsque vous portez ces bracelets, vous obtenez un bonus de +2
+      à la CA si vous ne portez pas d'armure et n'utilisez pas de bouclier.</p>

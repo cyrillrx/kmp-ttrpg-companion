@@ -1,0 +1,115 @@
+id: flumph
+source: monster_manual_2024
+type: aberration
+size: small
+alignment: lawful_good
+challengeRating: 0.125
+armorClass: 12
+maxHitPoints: 7
+hitDice: 2d6
+abilities:
+  str:
+    value: 6
+    savingThrowProficiency: none
+  dex:
+    value: 15
+    savingThrowProficiency: none
+  con:
+    value: 10
+    savingThrowProficiency: none
+  int:
+    value: 14
+    savingThrowProficiency: none
+  wis:
+    value: 14
+    savingThrowProficiency: none
+  cha:
+    value: 11
+    savingThrowProficiency: none
+speeds:
+  walk: 5
+  fly: 30
+  swim: null
+  climb: null
+  burrow: null
+  hover: true
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: proficient
+  athletics: none
+  deception: none
+  history: proficient
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: proficient
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: vulnerable
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Flumph
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Advanced Telepathy</em>**. The flumph perceives the content of any telepathic communication within 60 feet of it.</p>
+      <p><strong><em>Prone Deficiency</em></strong>. If the flumph receives the Prone condition, roll a die. On an odd number, it has the Incapacitated condition. At the end of each of its turns, the flumph makes a DC 10 Dexterity saving throw, ending the Incapacitated condition on a success.</p>
+      <p><strong><em>Telepathic Shroud</em></strong>. The flumph's thoughts can't be read by any means, and magic can't detect its location or observe it remotely.</p>
+      <h2>Actions</h2>
+      <p>** <em>Tentacle</em>**. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 4 (1d4 + 2) Acid damage.</p>
+      <p><strong><em>Stench Spray (1/Day)</em></strong>. <em>Dexterity Saving Throw</em> : DC 10, one creature the flumph can see within 15 feet. <em>Failure</em> : The target is coated in a foul-smelling liquid, exudes a stench for 1d4 hours, and has the Poisoned condition while the stench lasts. Other creatures have the Poisoned condition while in a 5-foot Emanation originating from the coated target. The target can remove the stench on itself if it bathes during a Short or Long Rest.</p>
+    senses: Darkvision 60 ft., Passive Perception 12
+    languages:
+    - Understands Undercommon but can't speak; telepathy 60 ft.
+  fr:
+    name: Flumph
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Télépathie avancée</em>**. Le flumph perçoit le contenu de toute communication télépathique dans un rayon de 18 m autour de lui.</p>
+      <p><strong><em>Syndrome de la tortue</em></strong>. Si le flumph subit l'état À terre, lancez un dé. Sur un résultat impair, il subit également l'état Incapable d'agir. À la fin de chacun de ses tours, le flumph effectue un jet de sauvegarde de Dextérité DD 10, mettant fin à l'état Incapable d'agir en cas de réussite.</p>
+      <p><strong><em>Camouflage télépathique</em></strong>. Les pensées du flumph sont impossibles à lire par aucun moyen, et la magie ne peut ni détecter sa position ni l'observer à distance.</p>
+      <h2>Actions</h2>
+      <p>** <em>Tentacule</em>**. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 4 (1d4 + 2) dégâts d'acide.</p>
+      <p><strong><em>Aspersion nauséabonde (1/jour)</em></strong>. <em>JdS Dextérité</em> : DD 10, une créature que le flumph peut voir dans un rayon de 4,50 m. <em>Échec</em> : la cible est recouverte d'un liquide nauséabond, dégage une puanteur pendant 1d4 heures et subit l'état Empoisonné tant que dure l'odeur. Les autres créatures subissent l'état Empoisonné tant qu'elles sont dans une Émanation de 1,50 m de rayon centrée sur la cible recouverte. La cible peut se débarrasser de la puanteur en prenant un bain pendant un Repos court ou long.</p>
+    senses: Vision dans le noir 18 m, Perception passive 12
+    languages:
+    - comprend le commun des profondeurs mais ne parle pas ; télépathie 18 m

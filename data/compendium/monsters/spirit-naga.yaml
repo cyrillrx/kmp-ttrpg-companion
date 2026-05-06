@@ -1,0 +1,121 @@
+id: spirit-naga
+source: monster_manual_2024
+type: fiend
+size: large
+alignment: chaotic_evil
+challengeRating: 8.0
+armorClass: 17
+maxHitPoints: 135
+hitDice: 18d10+36
+abilities:
+  str:
+    value: 18
+    savingThrowProficiency: none
+  dex:
+    value: 17
+    savingThrowProficiency: proficient
+  con:
+    value: 14
+    savingThrowProficiency: proficient
+  int:
+    value: 16
+    savingThrowProficiency: none
+  wis:
+    value: 15
+    savingThrowProficiency: proficient
+  cha:
+    value: 16
+    savingThrowProficiency: proficient
+speeds:
+  walk: 40
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: immune
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: true
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: true
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Spirit Naga
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Fiendish Restoration</em>**. If it dies, the naga returns to life in 1d6 days and regains all its Hit Points. Only a <em><a href="https://www.aidedd.org/spell/wish">Wish</a></em> spell can prevent this trait from functioning.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The naga makes three attacks, using Bite or Necrotic Ray in any combination.</p>
+      <p><strong><em>Bite</em></strong>. <em>Melee Attack Roll</em> : +7, reach 10 ft. <em>Hit</em> : 7 (1d6 + 4) Piercing damage plus 14 (4d6) Poison damage.</p>
+      <p><strong><em>Necrotic Ray</em></strong>. <em>Ranged Attack Roll</em> : +6, range 60 ft. <em>Hit</em> : 21 (6d6) Necrotic damage.</p>
+      <p><strong><em>Spellcasting</em></strong>. The naga casts one of the following spells, requiring no Somatic or Material components and using Intelligence as the spellcasting ability (spell save DC 14):</p>
+      <p>At Will: <em><a href="https://www.aidedd.org/spell/detect-magic">Detect Magic</a>, <a href="https://www.aidedd.org/spell/mage-hand">Mage Hand</a>, <a href="https://www.aidedd.org/spell/minor-illusion">Minor Illusion</a>, <a href="https://www.aidedd.org/spell/water-breathing">Water Breathing</a></em><br />
+      2/Day Each: <em><a href="https://www.aidedd.org/spell/detect-thoughts">Detect Thoughts</a>, <a href="https://www.aidedd.org/spell/dimension-door">Dimension Door</a>, <a href="https://www.aidedd.org/spell/hold-person">Hold Person</a></em> (level 3 version), <em><a href="https://www.aidedd.org/spell/lightning-bolt">Lightning Bolt</a></em> (level 4 version)</p>
+    senses: Darkvision 60 ft., Passive Perception 12
+    languages:
+    - Abyssal
+    - Common
+  fr:
+    name: Naga corrupteur
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Restauration fiélonne</em>**. S'il meurt, le naga revient à la vie en 1d6 jours et récupère tous ses points de vie. Seul le sort <em>souhait</em> peut empêcher ce trait de fonctionner.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le naga effectue trois attaques, réparties à sa guise entre Morsure et Rayon nécrotique.</p>
+      <p><strong><em>Morsure</em></strong>. <em>Corps à corps</em> : +7, allonge 3 m. <em>Touché</em> : 7 (1d6 + 4) dégâts perforants plus 14 (4d6) dégâts de poison.</p>
+      <p><strong><em>Rayon nécrotique</em></strong>. <em>À distance</em> : +6, portée 18 m. <em>Touché</em> : 21 (6d6) dégâts nécrotiques.</p>
+      <p><strong><em>Incantation</em></strong>. Le naga lance l'un des sorts suivants sans composantes matérielles ni somatiques, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 14) :</p>
+      <p>À volonté : <em><a href="https://www.aidedd.org/spell/fr/detection-de-la-magie">détection de la magie</a>, <a href="https://www.aidedd.org/spell/fr/illusion-mineure">illusion mineure</a>, <a href="https://www.aidedd.org/spell/fr/main-de-mage">main de mage</a>, <a href="https://www.aidedd.org/spell/fr/respiration-aquatique">respiration aquatique</a></em><br />
+      2/jour chacun : <em><a href="https://www.aidedd.org/spell/fr/detection-des-pensees">détection des pensées</a>, <a href="https://www.aidedd.org/spell/fr/eclair">éclair</a></em> (au niveau 4), <em><a href="https://www.aidedd.org/spell/fr/immobilisation-de-personne">immobilisation de personne</a></em> (au niveau 3), <em><a href="https://www.aidedd.org/spell/fr/porte-dimensionnelle">porte dimensionnelle</a></em></p>
+    senses: Vision dans le noir 18 m, Perception passive 12
+    languages:
+    - abyssal
+    - commun

@@ -1,0 +1,115 @@
+id: yeti
+source: monster_manual_2024
+type: monstrosity
+size: large
+alignment: chaotic_evil
+challengeRating: 3.0
+armorClass: 12
+maxHitPoints: 51
+hitDice: 6d10+18
+abilities:
+  str:
+    value: 18
+    savingThrowProficiency: none
+  dex:
+    value: 13
+    savingThrowProficiency: none
+  con:
+    value: 16
+    savingThrowProficiency: none
+  int:
+    value: 8
+    savingThrowProficiency: none
+  wis:
+    value: 12
+    savingThrowProficiency: none
+  cha:
+    value: 7
+    savingThrowProficiency: none
+speeds:
+  walk: 40
+  fly: null
+  swim: null
+  climb: 40
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: proficient
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: proficient
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: immune
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Yeti
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Fear of Fire</em>**. If the yeti takes Fire damage, it has Disadvantage on attack rolls and ability checks until the end of its next turn.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The yeti can use its Chilling Gaze and makes two attacks, using Claw or Ice Throw in any combination.</p>
+      <p><strong><em>Claw</em></strong>. <em>Melee Attack Roll</em> : +6, reach 5 ft. <em>Hit</em> : 7 (1d6 + 4) Slashing damage plus 3 (1d6) Cold damage.</p>
+      <p><strong><em>Ice Throw</em></strong>. <em>Ranged Attack Roll</em> : +6, range 30/120 ft. <em>Hit</em> : 6 (1d4 + 4) Bludgeoning damage plus 2 (1d4) Cold damage.</p>
+      <p><strong><em>Chilling Gaze</em></strong>. <em>Constitution Saving Throw</em> : DC 13, one creature the yeti can see within 30 feet. <em>Failure</em> : 5 (2d4) Cold damage, and the target has the Paralyzed condition until the start of the yeti's next turn unless the target has Immunity to Cold damage. <em>Success</em> : The target is immune to the Chilling Gaze of all yetis (but not abominable yetis) for 1 hour.</p>
+    senses: Darkvision 60 ft., Passive Perception 15
+    languages:
+    - Yeti
+  fr:
+    name: Yéti
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Aversion du feu</em>**. Si le yéti subit des dégâts de Feu, il a un Désavantage aux jets d'attaque et aux jets de caractéristique jusqu'à la fin de son prochain tour.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le yéti peut utiliser son Regard glaçant et effectuer deux attaques, réparties à sa guise entre Griffe et Lancer de glace.</p>
+      <p><strong><em>Griffe</em></strong>. <em>Corps à corps</em> : +6, allonge 1,50 m. <em>Touché</em> : 7 (1d6 + 4) dégâts tranchants plus 3 (1d6) dégâts de froid.</p>
+      <p><strong><em>Lancer de glace</em></strong>. <em>À distance</em> : +6, portée 30/36 m. <em>Touché</em> : 6 (1d4 + 4) dégâts contondants plus 2 (1d4) dégâts de froid.</p>
+      <p><strong><em>Regard glaçant</em></strong>. <em>JdS Constitution</em> : DD 13, une créature que le yéti peut voir dans un rayon de 9 m. <em>Échec</em> : 5 (2d4) dégâts de froid, et la cible subit l'état Paralysé jusqu'au début du prochain tour du yéti, sauf si elle est immunisée contre les dégâts de froid. <em>Réussite</em> : la cible est immunisée contre le Regard glaçant de tous les yétis (sauf les yétis abominables) pendant 1 heure.</p>
+    senses: Vision dans le noir 18 m, Perception passive 15
+    languages:
+    - yéti

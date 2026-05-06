@@ -1,0 +1,46 @@
+id: ring-of-elemental-command
+source: dmg_2024
+type: ring
+rarity: legendary
+attunement: true
+translations:
+  en:
+    name: Ring of Elemental Command
+    subtype: null
+    description: |-
+      <p>Each <em>Ring of Elemental Command</em> is linked to one of the four Elemental Planes. The DM chooses or randomly determines the linked plane. For example, a <em>Ring of Elemental Command</em> (air) is linked to the Elemental Plane of Air.<br />
+      Every <em>Ring of Elemental Command</em> has the following two properties:<br />
+      <strong>Elemental Bane</strong>. While wearing the ring, you have Advantage on attack rolls against Elementals and they have Disadvantage on attack rolls against you.<br />
+      <strong>Elemental Compulsion</strong>. While wearing the ring, you can take a Magic action to try to compel an Elemental you see within 60 feet of yourself. The Elemental makes a DC 18 Wisdom saving throw. On a failed save, the Elemental has the Charmed condition until the start your next turn, and you determine what it does with its move and action on its next turn.<br />
+      <strong>Elemental Focus</strong>. While wearing the ring, you benefit from additional properties corresponding to the ring's linked Elemental Plane:<br />
+      <strong>Air</strong>. You know Auran, you have Resistance to Lightning damage, and you have a Fly Speed equal to your Speed and can hover.<br />
+      <strong>Earth</strong>. You know Terran, and you have Resistance to Acid damage. Terrain composed of rubble, rocks, or dirt isn't Difficult Terrain for you. In addition, you can move through solid earth or rock as if those areas were Difficult Terrain without disturbing the matter through which you pass. If you end your turn in solid earth or rock, you are shunted out to the nearest unoccupied space you last occupied.<br />
+      <strong>Fire</strong>. You know Ignan, and you have Immunity to Fire damage.<br />
+      <strong>Water</strong>. You know Aquan, you gain a Swim Speed of 60 feet, and you can breathe underwater.<br />
+      <strong>Spellcasting</strong>. The ring has 5 charges and regains 1d4 + 1 expended charges daily at dawn. While wearing the ring, you can cast a spell from it. Choose the spell from the list of available spells based on the Elemental Plane the ring is linked to, as shown in the following table. The table indicates how many charges you must expend to cast the spell, which has a save DC of 18.<br />
+      Plane| Spells (Charges)<br />
+      ---|---<br />
+      Air|  <em>Chain Lightning</em> (3 charges), <em>Feather Fall</em> (0 charges), <em><a href="https://www.aidedd.org/spell/gust-of-wind">Gust of Wind</a></em> (2 charges), <em>Wind Wall</em> (1 charge)<br />
+      Earth|  <em>Earthquake</em> (5 charges), <em>Stone Shape</em> (2 charges), <em>Stoneskin</em> (3 charges), <em>Wall of Stone</em> (3 charges)<br />
+      Fire|  <em>Burning Hands</em> (1 charge), <em>Fireball</em> (2 charges), <em>Fire Storm</em> (4 charges), <em>Wall of Fire</em> (3 charges)<br />
+      Water|  <em>Create or Destroy Water</em> (1 charge), <em>Ice Storm</em> (2 charges), <em>Tsunami</em> (5 charges), <em>Wall of Ice</em> (3 charges), <em>Water Walk</em> (2 charges)</p>
+  fr:
+    name: Anneau de maîtrise élémentaire
+    subtype: null
+    description: |-
+      <p>Chaque <em>anneau de maîtrise élémentaire</em> est lié à l'un des quatre plans Élémentaires. Le MD choisit ou détermine aléatoirement le plan lié. Par exemple, un <em>anneau de maîtrise élémentaire</em> (air) est lié au plan Élémentaire de l'Air.<br />
+      Chaque <em>anneau de maîtrise élémentaire</em> possède les deux propriétés suivantes :<br />
+      <strong>Fléau élémentaire</strong>. Lorsque vous portez l'anneau, vous bénéficiez d'un Avantage aux jets d'attaque contre les Élémentaires, et ces derniers bénéficient d'un Désavantage aux jets d'attaque contre vous.<br />
+      <strong>Coercition élémentaire</strong>. Lorsque vous portez l'anneau, vous pouvez prendre une action Magie pour tenter de contraindre un Élémentaire que vous pouvez voir dans un rayon de 18 mètres. L'Élémentaire effectue un jet de sauvegarde de Sagesse DD 18. En cas d'échec, l'Élémentaire subit l'état Charmé jusqu'au début de votre prochain tour, et vous déterminez ce qu'il fera de son mouvement et de son action lors de son prochain tour.<br />
+      <strong>Affinité élémentaire</strong>. Lorsque vous portez l'anneau, vous bénéficiez de propriétés supplémentaires correspondant au plan élémentaire auquel il est lié :<br />
+      <strong>Air</strong>. Vous parlez l'aérien, bénéficiez d'une Résistance aux dégâts de foudre et d'une Vitesse de vol égale à votre vitesse avec vol stationnaire.<br />
+      <strong>Eau</strong>. Vous parlez l'aquatique, bénéficiez d'une Vitesse de nage de 18 mètres et vous pouvez respirer sous l'eau.<br />
+      <strong>Feu</strong>. Vous parlez l'igné et êtes immunisé aux dégâts de feu.<br />
+      <strong>Terre</strong>. Vous parlez le terreux et bénéficiez d'une Résistance aux dégâts d'acide. Les terrains composés de gravats, de rochers ou de terre ne sont pas des Terrains difficiles pour vous. De plus, vous pouvez vous déplacer sur de la terre ou des rochers comme si ces zones étaient des Terrains difficiles sans perturber la matière traversée. Si vous terminez votre tour sur de la terre ou des rochers, vous êtes renvoyé vers la case libre la plus proche que vous occupiez en dernier.<br />
+      <strong>Sorts</strong>. L'anneau possède 5 charges et récupère 1d4 + 1 charges dépensées chaque jour à l'aube. Lorsque vous portez l'anneau, vous pouvez lancer un sort par son biais. Choisissez le sort parmi ceux disponibles en fonction du plan élémentaire auquel l'anneau est lié, comme indiqué dans la table suivante. La table indique le nombre de charges à dépenser pour lancer ce sort, dont le DD de sauvegarde est de 18.<br />
+      Plan| Sorts (charges)<br />
+      ---|---<br />
+      Air|  <em>chaîne d'éclairs</em> (3 charges), <em>feuille morte</em> (0 charge), <em><a href="https://www.aidedd.org/spell/fr/bourrasque">bourrasque</a></em> (2 charges), <em>mur de vent</em> (1 charge)<br />
+      Eau|  <em>création ou destruction d'eau</em> (1 charge), <em>tempête de grêle</em> (2 charges), <em>tsunami</em> (5 charges), <em>mur de glace</em> (3 charges), <em>marche sur l'eau</em> (2 charges)<br />
+      Feu|  <em>mains brûlantes</em> (1 charge), <em>boule de feu</em> (2 charges), <em>tempête de feu</em> (4 charges), <em>mur de feu</em> (3 charges)<br />
+      Terre|  <em>tremblement de terre</em> (5 charges), <em>façonnage de la pierre</em> (2 charges), <em>peau de pierre</em> (3 charges), <em>mur de pierre</em> (3 charges)</p>

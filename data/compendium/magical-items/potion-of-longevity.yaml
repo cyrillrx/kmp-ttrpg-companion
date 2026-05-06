@@ -1,0 +1,18 @@
+id: potion-of-longevity
+source: dmg_2024
+type: potion
+rarity: very_rare
+attunement: false
+translations:
+  en:
+    name: Potion of Longevity
+    subtype: null
+    description: |-
+      <p>When you drink this potion, your physical age is reduced by 1d6 + 6 years, to a minimum of 13 years. Each time you subsequently drink a <em>Potion of Longevity</em> , there is 10 percent cumulative chance that you instead age by 1d6 + 6 years.<br />
+      Suspended in this amber liquid is a tiny heart that, against all reason, is still beating. These ingredients vanish when the potion is opened.</p>
+  fr:
+    name: Élixir de jouvence
+    subtype: null
+    description: |-
+      <p>Lorsque vous buvez cette potion, votre âge physique est réduit de 1d6 + 6 ans, jusqu'à un minimum de 13 ans. Chaque fois que vous buvez de nouveau un <em>élixir de jouvence</em> , vous avez 10 % de chances cumulées de vieillir de 1d6 + 6 ans.<br />
+      Ce liquide ambré contient un minuscule cœur qui, contre toute attente, bat encore. Ces ingrédients disparaissent à l'ouverture de la potion.</p>

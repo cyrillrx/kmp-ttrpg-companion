@@ -1,0 +1,113 @@
+id: giant-toad
+source: monster_manual_2024
+type: beast
+size: large
+alignment: unaligned
+challengeRating: 1.0
+armorClass: 11
+maxHitPoints: 39
+hitDice: 6d10+6
+abilities:
+  str:
+    value: 15
+    savingThrowProficiency: none
+  dex:
+    value: 13
+    savingThrowProficiency: none
+  con:
+    value: 13
+    savingThrowProficiency: none
+  int:
+    value: 2
+    savingThrowProficiency: none
+  wis:
+    value: 10
+    savingThrowProficiency: none
+  cha:
+    value: 3
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: null
+  swim: 30
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Giant Toad
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Amphibious</em>**. The toad can breathe air and water.</p>
+      <p><strong><em>Standing Leap</em></strong>. The toad's Long Jump is up to 20 feet and its High Jump is up to 10 feet with or without a running start.</p>
+      <h2>Actions</h2>
+      <p>** <em>Bite</em>**. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 5 (1d6 + 2) Piercing damage plus 5 (2d4) Poison damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 12).</p>
+      <p><strong><em>Swallow</em></strong>. The toad swallows a Medium or smaller target it is grappling. While swallowed, the target isn't Grappled but has the Blinded and Restrained conditions, and it has Total Cover against attacks and other effects outside the toad. In addition, the target takes 10 (3d6) Acid damage at the end of each of the toad's turns. The toad can have only one target swallowed at a time, and it can't use Bite while it has a swallowed target. If the toad dies, a swallowed creature is no longer Restrained and can escape from the corpse using 5 feet of movement, exiting with the Prone condition.</p>
+    senses: Darkvision 60 ft., Passive Perception 10
+    languages:
+    - None
+  fr:
+    name: Crapaud géant
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Amphibie</em>**. Le crapaud peut respirer sous l'eau comme à l'air libre.</p>
+      <p><strong><em>Saut sans élan</em></strong>. Les sauts en longueur du crapaud peuvent atteindre 6 m et ses sauts en hauteur 3 m, avec ou sans élan.</p>
+      <h2>Actions</h2>
+      <p>** <em>Morsure</em>**. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 5 (1d6 + 2) dégâts perforants plus 5 (2d4) dégâts de poison. Si la cible est une créature de taille M ou inférieure, elle subit l'état Agrippé (évasion DD 12).</p>
+      <p><strong><em>Engloutissement</em></strong>. Le crapaud engloutit une cible de taille M ou inférieure qu'il agrippe. Tant qu'elle est engloutie, la cible n'est pas Agrippée mais subit les états Aveuglé et Entravé, et bénéficie d'un Abri total contre les attaques et autres effets émanant de l'extérieur du crapaud. En outre, la cible subit 10 (3d6) dégâts d'acide à la fin de chacun des tours du crapaud. Le crapaud ne peut pas engloutir plus d'une cible à la fois, et il ne peut pas recourir à Morsure quand il maintient une cible engloutie. Si le crapaud meurt, la créature engloutie n'est plus Entravée et peut s'en extraire en dépensant 1,50 m de déplacement, pour se retrouver avec l'état À terre près du cadavre.</p>
+    senses: Vision dans le noir 18 m, Perception passive 10
+    languages:
+    - aucune

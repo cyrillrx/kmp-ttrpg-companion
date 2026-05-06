@@ -1,0 +1,52 @@
+id: scroll-of-protection
+source: dmg_2024
+type: scroll
+rarity: rare
+attunement: false
+translations:
+  en:
+    name: Scroll of Protection
+    subtype: null
+    description: |-
+      <p>Each <em>Scroll of Protection</em> works against creatures of a specific creature type chosen by the DM or determined by rolling on the following table.<br />
+      1d100| Creature Type<br />
+      ---|---<br />
+      01-10| Aberrations<br />
+      11-15| Beasts<br />
+      16-20| Celestials<br />
+      21-25| Constructs<br />
+      26-35| Dragons<br />
+      36-45| Elementals<br />
+      46-50| Humanoids<br />
+      51-60| Fey<br />
+      61-70| Fiends<br />
+      71-75| Giants<br />
+      76-80| Monstrosities<br />
+      81-85| Oozes<br />
+      86-90| Plants<br />
+      91-00| Undead  </p>
+      <p>Using a Magic action to read the scroll creates a 5-foot Emanation originating from you. For 5 minutes, creatures of the specified type can't enter or affect anything in the area. However, if you move in such a way that a creature of the specified type would be inside the area, the effect ends.<br />
+      As a Magic action, a creature within 5 feet of the Emanation can attempt to overcome it, which forces the creature to make a DC 15 Charisma saving throw. On a successful save, the creature ceases to be affected by the Emanation.</p>
+  fr:
+    name: Parchemin de protection
+    subtype: null
+    description: |-
+      <p>Chaque <em>parchemin de protection</em> agit contre les créatures d'un type spécifique choisi par le MD ou déterminé par un jet de dé sur la table suivante.<br />
+      1d100| Type de créature<br />
+      ---|---<br />
+      01-10| Aberrations<br />
+      11-15| Bêtes<br />
+      16-20| Célestes<br />
+      21-25| Artificiels<br />
+      26-35| Dragons<br />
+      36-45| Élémentaires<br />
+      46-50| Humanoïdes<br />
+      51-60| Fées<br />
+      61-70| Fiélons<br />
+      71-75| Géants<br />
+      76-80| Monstruosités<br />
+      81-85| Vases<br />
+      86-90| Plantes<br />
+      91-00| Morts-vivants  </p>
+      <p>Utiliser une action Magie pour lire le parchemin crée une Émanation de 1,50 mètre de rayon centrée sur vous. Pendant 5 minutes, les créatures du type spécifié ne peuvent ni entrer dans la zone ni interagir avec quoi que ce soit. Toutefois, si vous vous déplacez de telle sorte qu'une créature du type spécifié se trouverait dans la zone, l'effet prend fin.<br />
+      Par une action Magie, une créature située dans le rayon de 1,50 mètre de l'Émanation peut tenter de la surmonter, ce qui l'oblige à effectuer un jet de sauvegarde de Charisme DD 15. En cas de réussite, la créature cesse d'être affectée par l'Émanation.</p>

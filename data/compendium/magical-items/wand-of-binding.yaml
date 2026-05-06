@@ -1,0 +1,28 @@
+id: wand-of-binding
+source: dmg_2024
+type: wand
+rarity: rare
+attunement: true
+translations:
+  en:
+    name: Wand of Binding
+    subtype: null
+    description: |-
+      <p>This wand has 7 charges.<br />
+      <strong>Spells</strong>. While holding the wand, you can cast one of the spells (save DC 17) on the following table from it. The table indicates how many charges you must expend to cast the spell.<br />
+      Spell| Charge Cost<br />
+      ---|---<br />
+      <em><a href="https://www.aidedd.org/spell/hold-monster">Hold Monster</a></em>|  5<br />
+      <em><a href="https://www.aidedd.org/spell/hold-person">Hold Person</a></em>|  2  </p>
+      <p><strong>Regaining Charges</strong>. The wand regains 1d6 + 1 expended charges daily at dawn. If you expend the wand's last charge, roll 1d20. On a 1, the wand crumbles into ashes and is destroyed.</p>
+  fr:
+    name: Baguette des entraves
+    subtype: null
+    description: |-
+      <p>Cette baguette possède 7 charges.<br />
+      <strong>Sorts</strong>. Lorsque vous tenez la baguette, vous pouvez lancer l'un des sorts (DD 17) de la table suivante. Cette table indique le nombre de charges à dépenser pour lancer le sort.<br />
+      Sort| Coût en charges<br />
+      ---|---<br />
+      <em><a href="https://www.aidedd.org/spell/fr/immobilisation-de-monstre">immobilisation de monstre</a></em>|  5<br />
+      <em><a href="https://www.aidedd.org/spell/fr/immobilisation-de-personne">immobilisation de personne</a></em>|  2  </p>
+      <p><strong>Récupération des charges</strong>. La baguette récupère 1d6 + 1 charges dépensées chaque jour à l'aube. Si vous dépensez la dernière charge de la baguette, lancez 1d20. Sur un 1, la baguette tombe en cendres et est détruite.</p>

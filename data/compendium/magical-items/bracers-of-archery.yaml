@@ -1,0 +1,17 @@
+id: bracers-of-archery
+source: dmg_2024
+type: wondrous_item
+rarity: uncommon
+attunement: true
+translations:
+  en:
+    name: Bracers of Archery
+    subtype: null
+    description: <p>While wearing these bracers, you have proficiency with the Longbow
+      and Shortbow, and you gain a +2 bonus to damage rolls made with such weapons.</p>
+  fr:
+    name: Bracelets d'archer
+    subtype: null
+    description: <p>Lorsque vous portez ces bracelets, vous maîtrisez l'arc long et
+      l'arc court, et vous obtenez un bonus de +2 aux jets de dégâts effectués avec
+      ces armes.</p>

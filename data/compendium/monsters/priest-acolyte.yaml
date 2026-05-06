@@ -1,0 +1,115 @@
+id: priest-acolyte
+source: monster_manual_2024
+type: humanoid
+size: medium_or_small
+alignment: neutral
+challengeRating: 0.25
+armorClass: 13
+maxHitPoints: 11
+hitDice: 2d8+2
+abilities:
+  str:
+    value: 14
+    savingThrowProficiency: none
+  dex:
+    value: 10
+    savingThrowProficiency: none
+  con:
+    value: 12
+    savingThrowProficiency: none
+  int:
+    value: 10
+    savingThrowProficiency: none
+  wis:
+    value: 14
+    savingThrowProficiency: none
+  cha:
+    value: 11
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: proficient
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: proficient
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Priest Acolyte
+    subtype: Cleric
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Mace</em>**. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 5 (1d6 + 2) Bludgeoning damage plus 2 (1d4) Radiant damage.</p>
+      <p><strong><em>Radiant Flame</em></strong>. <em>Ranged Attack Roll</em> : +4, range 60 ft. <em>Hit</em> : 7 (2d6) Radiant damage.</p>
+      <p><strong><em>Spellcasting</em></strong>. The priest casts one of the following spells, using Wisdom as the spellcasting ability:</p>
+      <p>At will: <em><a href="https://www.aidedd.org/spell/light">Light</a>, <a href="https://www.aidedd.org/spell/thaumaturgy">Thaumaturgy</a></em>  </p>
+      <h2>Bonus actions</h2>
+      <p>** <em>Divine Aid (1/Day)</em>**. The priest casts <em><a href="https://www.aidedd.org/spell/bless">Bless</a>, <a href="https://www.aidedd.org/spell/healing-word">Healing Word</a></em>, or <em><a href="https://www.aidedd.org/spell/sanctuary">Sanctuary</a></em> , using the same spellcasting ability as Spellcasting.</p>
+    senses: Passive Perception 12
+    languages:
+    - Common
+  fr:
+    name: Prêtre, acolyte
+    subtype: Clerc
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Masse d'armes</em>**. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 5 (1d6 + 2) dégâts contondants plus 2 (1d4) dégâts radiants.</p>
+      <p><strong><em>Flamme radiante</em></strong>. <em>À distance</em> : +4, portée 18 m. <em>Touché</em> : 7 (2d6) dégâts radiants.</p>
+      <p><strong><em>Incantation</em></strong>. Le prêtre lance l'un des sorts suivants, la Sagesse étant sa caractéristique d'incantation :</p>
+      <p>À volonté : <em>lumière,<a href="https://www.aidedd.org/spell/fr/thaumaturgie">thaumaturgie</a></em>  </p>
+      <h2>Actions Bonus</h2>
+      <p>** <em>Soutien divin (1/jour)</em>**. L'acolyte lance <em>bénédiction, mot de guérison</em> ou <em>sanctuaire</em> , avec la même caractéristique d'incantation que pour Incantation.</p>
+    senses: Perception passive 12
+    languages:
+    - commun

@@ -1,0 +1,127 @@
+id: blob-of-annihilation
+source: monster_manual_2024
+type: ooze
+size: gargantuan
+alignment: neutral_evil
+challengeRating: 23.0
+armorClass: 18
+maxHitPoints: 448
+hitDice: 23d20+207
+abilities:
+  str:
+    value: 27
+    savingThrowProficiency: none
+  dex:
+    value: 14
+    savingThrowProficiency: proficient
+  con:
+    value: 28
+    savingThrowProficiency: proficient
+  int:
+    value: 10
+    savingThrowProficiency: none
+  wis:
+    value: 16
+    savingThrowProficiency: none
+  cha:
+    value: 10
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: immune
+  bludgeoning: resistant
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: immune
+  piercing: resistant
+  poison: immune
+  psychic: none
+  radiant: none
+  slashing: resistant
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: true
+  deafened: false
+  grappled: true
+  incapacitated: false
+  paralyzed: true
+  restrained: true
+  unconscious: true
+  poisoned: true
+  petrified: true
+  frightened: true
+  blinded: false
+  prone: true
+  exhaustion: true
+  stunned: true
+translations:
+  en:
+    name: Blob of Annihilation
+    subtype: Titan
+    description: |-
+      <h2>Traits</h2>
+      <p>Astral Implosion.<br />
+      Legendary Resistance (4/Day).<br />
+      Magic Resistance.  </p>
+      <h2>Actions</h2>
+      <p>Multiattack.<br />
+      Pseudopod.<br />
+      Engulf.<br />
+      Restraining Glob.  </p>
+      <h2>Legendary actions</h2>
+      <p>Legendary Action Uses: 3. </p>
+      <p>Decay.<br />
+      Grasping Glob.<br />
+      Lashing Goop.</p>
+    senses: Blindsight 120 ft., Passive Perception 13
+    languages: []
+  fr:
+    name: Blob d'annihilation
+    subtype: Titan
+    description: |-
+      <h2>Traits</h2>
+      <p>Implosion astrale.<br />
+      Résistance légendaire (4/jour).<br />
+      Résistance à la magie.  </p>
+      <h2>Actions</h2>
+      <p>Attaques multiples.<br />
+      Pseudopode.<br />
+      Enveloppement.<br />
+      Amas entraveur.  </p>
+      <h2>Actions Légendaires</h2>
+      <p>Utilisations d'action Légendaire : 3. </p>
+      <p>Décomposition.<br />
+      Chiquenaude visqueuse.<br />
+      Happement.</p>
+    senses: Vision aveugle 36 m, Perception passive 13
+    languages: []

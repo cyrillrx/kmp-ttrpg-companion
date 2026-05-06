@@ -1,0 +1,117 @@
+id: questing-knight
+source: monster_manual_2024
+type: humanoid
+size: medium_or_small
+alignment: neutral
+challengeRating: 12.0
+armorClass: 18
+maxHitPoints: 202
+hitDice: 27d8+81
+abilities:
+  str:
+    value: 20
+    savingThrowProficiency: proficient
+  dex:
+    value: 16
+    savingThrowProficiency: none
+  con:
+    value: 16
+    savingThrowProficiency: proficient
+  int:
+    value: 11
+    savingThrowProficiency: none
+  wis:
+    value: 12
+    savingThrowProficiency: proficient
+  cha:
+    value: 18
+    savingThrowProficiency: proficient
+speeds:
+  walk: 30
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: proficient
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: proficient
+  performance: none
+  persuasion: proficient
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: true
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: true
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Questing Knight
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Aura of Bravery</em>**. Creatures of the knight's choice in a 30-foot Emanation originating from it have Immunity to the Charmed and Frightened conditions while there.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The knight makes three attacks, using Greatsword or Longbow in any combination.</p>
+      <p><strong><em>Greatsword</em></strong>. <em>Melee Attack Roll</em> : +9, reach 5 ft. <em>Hit</em> : 12 (2d6 + 5) Slashing damage plus 22 (5d8) Radiant damage.</p>
+      <p><strong><em>Longbow</em></strong>. <em>Ranged Attack Roll</em> : +7, range 150/600 ft. <em>Hit</em> : 12 (2d8 + 3) Piercing damage plus 22 (5d8) Radiant damage.</p>
+      <p><strong><em>Spellcasting</em></strong>. The knight casts one of the following spells, using Charisma as the spellcasting ability (spell save DC 16):</p>
+      <p>1/day each: <em><a href="https://www.aidedd.org/spell/daylight">Daylight</a>, <a href="https://www.aidedd.org/spell/dispel-evil-and-good">Dispel Evil and Good</a>, <a href="https://www.aidedd.org/spell/greater-restoration">Greater Restoration</a>, <a href="https://www.aidedd.org/spell/phantom-steed">Phantom Steed</a></em></p>
+    senses: Passive Perception 15
+    languages:
+    - Common plus one other language
+  fr:
+    name: Chevalier errant
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Aura de bravoure</em>**. Les créatures choisies par le chevalier dans une Émanation de 9 m centrée sur celui-ci bénéficient d'une Immunité aux états Charmé et Effrayé tant qu'elles s'y trouvent.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le chevalier effectue trois attaques, réparties à sa guise entre Épée à deux mains et Arc long.</p>
+      <p><strong><em>Épée à deux mains</em></strong>. <em>Corps à corps</em> : +9, allonge 1,50 m. <em>Touché</em> : 12 (2d6 + 5) dégâts tranchants plus 22 (5d8) dégâts radiants.</p>
+      <p><strong><em>Arc long</em></strong>. <em>À distance</em> : +7, portée 45/180 m. <em>Touché</em> : 12 (2d8 + 3) dégâts perforants plus 22 (5d8) dégâts radiants.</p>
+      <p><strong><em>Incantation</em></strong>. Le chevalier lance l'un des sorts suivants, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 16) :</p>
+      <p>1/jour chacun : <em><a href="https://www.aidedd.org/spell/fr/lumiere-du-jour">lumière du jour</a>, <a href="https://www.aidedd.org/spell/fr/dissipation-du-mal-et-du-bien">dissipation du mal et du bien</a>, <a href="https://www.aidedd.org/spell/fr/restauration-supreme">restauration suprême</a>, <a href="https://www.aidedd.org/spell/fr/monture-fantome">monture fantôme </a></em></p>
+    senses: Perception passive 15
+    languages:
+    - commun plus une autre langue

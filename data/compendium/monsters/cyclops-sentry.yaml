@@ -1,0 +1,113 @@
+id: cyclops-sentry
+source: monster_manual_2024
+type: giant
+size: huge
+alignment: chaotic_neutral
+challengeRating: 6.0
+armorClass: 14
+maxHitPoints: 138
+hitDice: 12d12+60
+abilities:
+  str:
+    value: 22
+    savingThrowProficiency: none
+  dex:
+    value: 11
+    savingThrowProficiency: none
+  con:
+    value: 20
+    savingThrowProficiency: none
+  int:
+    value: 8
+    savingThrowProficiency: none
+  wis:
+    value: 6
+    savingThrowProficiency: none
+  cha:
+    value: 10
+    savingThrowProficiency: none
+speeds:
+  walk: 40
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Cyclops Sentry
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The cyclops makes two attacks, using Stone Club or Rock in any combination.</p>
+      <p><strong><em>Stone Club</em></strong>. <em>Melee Attack Roll</em> : +9, reach 10 ft. <em>Hit</em> : 16 (3d6 + 6) Bludgeoning damage. If the target is a Huge or smaller creature, it has the Prone condition.</p>
+      <p><strong><em>Rock</em></strong>. <em>Ranged Attack Roll</em> : +9, range 30/120 ft. <em>Hit</em> : 22 (3d10 + 6) Bludgeoning damage.</p>
+      <h2>Reactions</h2>
+      <p>** <em>Limited Foresight (Recharge 6)</em>**. <em>Trigger</em> : A creature the cyclops can see makes an attack roll against it. <em>Response</em> : The cyclops imposes Disadvantage on the roll, and the cyclops gains Advantage on attack rolls against the target until the end of the cyclops's next turn.</p>
+    senses: Passive Perception 8
+    languages:
+    - Giant
+  fr:
+    name: Cyclope, sentinelle
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le cyclope effectue deux attaques, réparties à sa guise entre Gourdin de pierre et Rocher.</p>
+      <p><strong><em>Gourdin de pierre</em></strong>. <em>Corps à corps</em> : +9, allonge 3 m. <em>Touché</em> : 16 (3d6 + 6) dégâts contondants. Si la cible est une créature de taille TG ou inférieure, elle subit l'état À terre.</p>
+      <p><strong><em>Rocher</em></strong>. <em>À distance</em> : +9, portée 30/36 m. <em>Touché</em> : 22 (3d10 + 6) dégâts contondants.</p>
+      <h2>Réactions</h2>
+      <p>** <em>Prémonition limitée (recharge 6)</em>**. <em>Déclencheur</em> : une créature que le cyclope peut voir effectue un jet d'attaque contre lui. Conséquence : le cyclope impose un Désavantage au jet et obtient un Avantage aux jets d'attaque contre la cible jusqu'à la fin de son prochain tour.</p>
+    senses: Perception passive 8
+    languages:
+    - géant

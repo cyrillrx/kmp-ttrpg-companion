@@ -1,0 +1,40 @@
+id: ring-of-resistance
+source: dmg_2024
+type: ring
+rarity: rare
+attunement: false
+translations:
+  en:
+    name: Ring of Resistance
+    subtype: null
+    description: |-
+      <p>You have Resistance to one damage type while wearing this ring. The gemstone in the ring indicates the type, which the DM chooses or determines randomly by rolling on the following table.<br />
+      1d10| Damage Type| Gemstone<br />
+      ---|---|---<br />
+      1| Acid| Pearl<br />
+      2| Cold| Tourmaline<br />
+      3| Fire| Garnet<br />
+      4| Force| Sapphire<br />
+      5| Lightning| Citrine<br />
+      6| Necrotic| Jet<br />
+      7| Poison| Amethyst<br />
+      8| Psychic| Jade<br />
+      9| Radiant| Topaz<br />
+      10| Thunder| Spinel</p>
+  fr:
+    name: Anneau de résistance
+    subtype: null
+    description: |-
+      <p>Vous bénéficiez d'une Résistance à un type de dégâts lorsque vous portez cet anneau. La pierre précieuse de l'anneau indique le type de dégâts, que le MD choisit ou détermine aléatoirement en utilisant la table suivante.<br />
+      1d10| Type de dégâts| Gemmes<br />
+      ---|---|---<br />
+      1| Acide| Perle<br />
+      2| Froid| Tourmaline<br />
+      3| Feu| Grenat<br />
+      4| Force| Saphir<br />
+      5| Foudre| Citrine<br />
+      6| Nécrotique| Jais<br />
+      7| Poison| Améthyste<br />
+      8| Psychique| Jade<br />
+      9| Radiant| Topaze<br />
+      10| Tonnerre| Spinelle</p>

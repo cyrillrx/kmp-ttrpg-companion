@@ -1,0 +1,22 @@
+id: shield-of-the-cavalier
+source: dmg_2024
+type: armor
+rarity: very_rare
+attunement: true
+translations:
+  en:
+    name: Shield of the Cavalier
+    subtype: Shield
+    description: |-
+      <p>While holding this Shield, you have a +2 bonus to Armor Class. This bonus is in addition to the Shield's normal bonus to AC.<br />
+      The Shield has the following additional properties that you can use while holding it.<br />
+      <strong>Forceful Bash</strong>. When you take the Attack action, you can make one of the attack rolls using the Shield against a target within 5 feet of yourself. Apply your Proficiency Bonus and Strength modifier to the attack roll. On a hit, the Shield deals Force damage to the target equal to 2d6 + 2 plus your Strength modifier, and if the target is a creature, you can push it up to 10 feet directly away from yourself. If the creature is your size or smaller, you can also knock it down, giving it the Prone condition.<br />
+      <strong>Protective Field</strong>. As a Reaction, when you or an ally you can see within 5 feet of you is targeted by an attack or makes a saving throw against an area of effect, you can use the Shield to create an immobile 5-foot Emanation originating from you. When the Emanation appears, any creatures or objects not fully contained within it are pushed into the nearest unoccupied spaces outside it. The attack or area of effect that triggered the Reaction has no effect on creatures and objects inside the Emanation, which lasts as long as you maintain Concentration, up to 1 minute. Nothing can pass into or out of the Emanation. A creature or object inside the Emanation can't be damaged by attacks or effects originating from outside, nor can a creature inside the Emanation damage anything outside it. Once this property is used, it can't be used again until the next dawn.</p>
+  fr:
+    name: Bouclier du cavalier / du hussard
+    subtype: bouclier
+    description: |-
+      <p>Lorsque vous portez ce bouclier, vous bénéficiez d'un bonus de +2 à la CA. Ce bonus s'ajoute au bonus normal du bouclier à la CA.<br />
+      Le bouclier possède les propriétés supplémentaires suivantes, que vous pouvez utiliser lorsque vous le portez :<br />
+      <strong>Taquet</strong>. Lorsque vous prenez l'action Attaque, vous pouvez effectuer un jet d'attaque avec le bouclier contre une cible dans un rayon de 1,50 m. Appliquez votre bonus de maîtrise et votre modificateur de Force au jet d'attaque. En cas de réussite, le bouclier inflige des dégâts de force à la cible égaux à 2d6 + 2 plus votre modificateur de Force. Si la cible est une créature, vous pouvez la repousser jusqu'à 3 m de vous. Si la créature est de votre taille ou plus petite, vous pouvez également la faire tomber, lui infligeant l'état À terre.<br />
+      <strong>Champ protecteur</strong>. Par une Réaction, lorsque vous ou un allié que vous pouvez voir dans un rayon de 1,50 mètre êtes ciblé par une attaque ou effectuez un jet de sauvegarde contre une zone d'effet, vous pouvez utiliser le bouclier pour créer une Émanation immobile de 1,50 mètre centrée sur vous. Lorsque l'Émanation apparaît, toutes les créatures ou objets qui ne sont pas entièrement contenus à l'intérieur sont repoussés vers les espaces libres les plus proches. L'attaque ou la zone d'effet qui a déclenché la Réaction n'a aucun effet sur les créatures et objets à l'intérieur de l'Émanation, et cet effet dure tant que vous maintenez votre Concentration, jusqu'à 1 minute. Rien ne peut entrer ou sortir de l'Émanation. Une créature ou un objet à l'intérieur de l'Émanation ne peut être blessé par des attaques ou des effets extérieurs, et une créature à l'intérieur de l'Émanation ne peut blesser qui que ce soit à l'extérieur. Une fois cette propriété utilisée, elle ne peut plus être utilisée avant l'aube suivante.</p>

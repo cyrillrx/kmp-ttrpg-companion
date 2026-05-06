@@ -1,0 +1,115 @@
+id: manes-vaporspawn
+source: monster_manual_2024
+type: fiend
+size: medium
+alignment: chaotic_evil
+challengeRating: 1.0
+armorClass: 13
+maxHitPoints: 19
+hitDice: 3d8+6
+abilities:
+  str:
+    value: 14
+    savingThrowProficiency: none
+  dex:
+    value: 12
+    savingThrowProficiency: none
+  con:
+    value: 15
+    savingThrowProficiency: none
+  int:
+    value: 5
+    savingThrowProficiency: none
+  wis:
+    value: 8
+    savingThrowProficiency: none
+  cha:
+    value: 3
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: resistant
+  fire: resistant
+  force: none
+  lightning: resistant
+  necrotic: none
+  piercing: none
+  poison: immune
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: true
+  deafened: false
+  grappled: true
+  incapacitated: false
+  paralyzed: false
+  restrained: true
+  unconscious: false
+  poisoned: true
+  petrified: false
+  frightened: true
+  blinded: false
+  prone: false
+  exhaustion: true
+  stunned: false
+translations:
+  en:
+    name: Manes Vaporspawn
+    subtype: Demon
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Contortionist</em>**. The manes can move through a space as narrow as 1 inch without expending extra movement to do so.</p>
+      <p><strong><em>Sickening Vapors</em></strong>. <em>Constitution Saving Throw</em> : DC 12, each creature in a 5-foot Emanation originating from the manes at the end of the manes's turn. <em>Failure</em> : The target has the Incapacitated condition until the end of its next turn. <em>Success</em> : The target is immune to this manes's Sickening Vapors for 24 hours.</p>
+      <h2>Actions</h2>
+      <p>** <em>Claw</em>**. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 5 (1d6 + 2) Slashing damage plus 5 (2d4) Necrotic damage.</p>
+      <h2>Bonus actions</h2>
+      <p>** <em>Shadow Stealth</em>**. While in Dim Light or Darkness, the manes takes the Hide action.</p>
+    senses: Darkvision 60 ft., Passive Perception 9
+    languages:
+    - Understands Abyssal but can't speak
+  fr:
+    name: Mâne vaporeux
+    subtype: Démon
+    description: |-
+      <h2>Traits</h2>
+      <p>Contortionniste.<br />
+      Vapeurs morbides.  </p>
+      <h2>Actions</h2>
+      <p>Griffes.  </p>
+      <h2>Actions Bonus</h2>
+      <p>Discrétion dans les ombres.</p>
+    senses: Vision dans le noir 18 m, Perception passive 9
+    languages:
+    - comprend l'abyssal mais ne parle pas

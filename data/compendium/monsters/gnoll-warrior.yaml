@@ -1,0 +1,111 @@
+id: gnoll-warrior
+source: monster_manual_2024
+type: fiend
+size: medium
+alignment: chaotic_evil
+challengeRating: 0.5
+armorClass: 15
+maxHitPoints: 27
+hitDice: 6d8
+abilities:
+  str:
+    value: 14
+    savingThrowProficiency: none
+  dex:
+    value: 12
+    savingThrowProficiency: none
+  con:
+    value: 11
+    savingThrowProficiency: none
+  int:
+    value: 6
+    savingThrowProficiency: none
+  wis:
+    value: 10
+    savingThrowProficiency: none
+  cha:
+    value: 7
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Gnoll Warrior
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Rend</em>**. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 5 (1d6 + 2) Piercing damage.</p>
+      <p><strong><em>Bone Bow</em></strong>. <em>Ranged Attack Roll</em> : +3, range 150/600 ft. <em>Hit</em> : 6 (1d10 + 1) Piercing damage.</p>
+      <h2>Bonus actions</h2>
+      <p>** <em>Rampage (1/Day)</em>**. Immediately after dealing damage to a creature that is already Bloodied, the gnoll moves up to half its Speed, and it makes one Rend attack.</p>
+    senses: Darkvision 60 ft., Passive Perception 10
+    languages:
+    - Gnoll
+  fr:
+    name: Gnoll, combattant
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Saignée</em>**. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 5 (1d6 + 2) dégâts perforants.</p>
+      <p><strong><em>Arc en os</em></strong>. <em>À distance</em> : +3, portée 45/180 m. <em>Touché</em> : 6 (1d10 + 1) dégâts perforants.</p>
+      <h2>Actions Bonus</h2>
+      <p>** <em>Déchaînement (1/jour)</em>**. Aussitôt après avoir infligé des dégâts à une créature déjà En péril, le gnoll se déplace à concurrence de la moitié de sa Vitesse et effectue une attaque de Saignée.</p>
+    senses: Vision dans le noir 18 m, Perception passive 10
+    languages:
+    - gnoll

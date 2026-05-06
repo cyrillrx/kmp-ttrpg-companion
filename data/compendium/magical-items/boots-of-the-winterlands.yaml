@@ -1,0 +1,20 @@
+id: boots-of-the-winterlands
+source: dmg_2024
+type: wondrous_item
+rarity: uncommon
+attunement: true
+translations:
+  en:
+    name: Boots of the Winterlands
+    subtype: null
+    description: |-
+      <p>These furred boots are snug and feel warm. While wearing them, you gain the following benefits.<br />
+      <strong>Cold Resistance</strong>. You have Resistance to Cold damage and can tolerate temperatures of 0 degrees Fahrenheit or lower without any additional protection.<br />
+      <strong>Winter Strider</strong>. You ignore Difficult Terrain created by ice or snow.</p>
+  fr:
+    name: Bottes des terres gelées
+    subtype: null
+    description: |-
+      <p>Ces bottes fourrées sont confortables et chaudes. Lorsque vous les portez, vous bénéficiez des avantages suivants :<br />
+      <strong>Résistance au froid</strong>. Vous bénéficiez d'une Résistance aux dégâts de froid et pouvez supporter des températures inférieures ou égales à -18 °C sans protection supplémentaire.<br />
+      <strong>Arpenteur de l'hiver</strong>. Vous ignorez les Terrains difficiles créés par la glace ou la neige.</p>

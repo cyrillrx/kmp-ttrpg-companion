@@ -1,0 +1,127 @@
+id: marid
+source: monster_manual_2024
+type: elemental
+size: large
+alignment: chaotic_neutral
+challengeRating: 11.0
+armorClass: 17
+maxHitPoints: 229
+hitDice: 17d10+136
+abilities:
+  str:
+    value: 22
+    savingThrowProficiency: none
+  dex:
+    value: 12
+    savingThrowProficiency: proficient
+  con:
+    value: 26
+    savingThrowProficiency: none
+  int:
+    value: 18
+    savingThrowProficiency: none
+  wis:
+    value: 17
+    savingThrowProficiency: none
+  cha:
+    value: 18
+    savingThrowProficiency: proficient
+speeds:
+  walk: 30
+  fly: 60
+  swim: 90
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: resistant
+  bludgeoning: none
+  cold: resistant
+  fire: none
+  force: none
+  lightning: resistant
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Marid
+    subtype: Genie
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Amphibious</em>**. The marid can breathe air and water.</p>
+      <p><strong><em>Elemental Restoration</em></strong>. If the marid dies outside the Elemental Plane of Water, its body dissolves into brine, and it gains a new body in 1d4 days, reviving with all its Hit Points somewhere on the Plane of Water.</p>
+      <p><strong><em>Wishes</em></strong>. The marid has a 30 percent chance of knowing the <em><a href="https://www.aidedd.org/spell/wish">Wish</a></em> spell. If the marid knows it, the marid can cast it only on behalf of a non-genie creature who communicates a wish in a way the marid can understand. If the marid casts the spell for the creature, the marid suffers none of the spell's stress. Once the marid has cast it three times, the marid can't do so again for 365 days.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The marid makes three Aquatic Lash attacks.</p>
+      <p><strong><em>Aquatic Lash</em></strong>. <em>Melee Attack Roll</em> : +10, reach 15 ft. <em>Hit</em> : 15 (2d8 + 6) Slashing damage plus 9 (2d8) Cold damage.</p>
+      <p><strong><em>Spellcasting</em></strong>. The marid casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 16):</p>
+      <p>At will: <em><a href="https://www.aidedd.org/spell/create-or-destroy-water">Create or Destroy Water</a>, <a href="https://www.aidedd.org/spell/detect-evil-and-good">Detect Evil and Good</a>, <a href="https://www.aidedd.org/spell/detect-magic">Detect Magic</a>, Purify Food and Drink</em><br />
+      1/day each: <em><a href="https://www.aidedd.org/spell/control-water">Control Water</a>, <a href="https://www.aidedd.org/spell/gaseous-form">Gaseous Form</a>, <a href="https://www.aidedd.org/spell/invisibility">Invisibility</a>, <a href="https://www.aidedd.org/spell/plane-shift">Plane Shift</a>, <a href="https://www.aidedd.org/spell/tongues">Tongues</a></em>  </p>
+      <p>** <em>Water Jet</em>**. <em>Dexterity Saving Throw</em> : DC 18, each creature in a 60-foot-long, 10-foot-wide Line. <em>Failure</em> : 31 (9d6) Cold damage. If the target is a Huge or smaller creature, it is pushed up to 20 feet straight away from the marid and has the Prone condition. <em>Success</em> : Half damage only.</p>
+      <h2>Bonus actions</h2>
+      <p>** <em>Misty Veil (Recharge 5–6)</em>**. The marid casts <em><a href="https://www.aidedd.org/spell/fog-cloud">Fog Cloud</a></em> , using the same spellcasting ability as Spellcasting.</p>
+    senses: Blindsight 30 ft., Darkvision 120 ft., Passive Perception 13
+    languages:
+    - Primordial (Aquan)
+  fr:
+    name: Maride
+    subtype: Génie
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Amphibie</em>**. Le maride peut respirer sous l'eau comme à l'air libre.</p>
+      <p><strong><em>Restauration élémentaire</em></strong>. Si le maride meurt en dehors du plan Élémentaire de l'Eau, son corps se dissout en eau salée et il acquiert un nouveau corps en 1d4 jours, ressuscitant avec tous ses points de vie quelque part sur le plan de l'Eau.</p>
+      <p><strong><em>Souhaits</em></strong>. Le maride a 30 % de chances de connaître le sort <em><a href="https://www.aidedd.org/spell/fr/souhait">souhait</a></em>. S'il le connaît, il ne peut le lancer que pour le compte d'une créature autre qu'un génie qui lui adresse un souhait de manière compréhensible. S'il lance le sort pour la créature, il n'en subit pas les effets néfastes. Après l'avoir lancé trois fois, la maride ne peut plus le faire pendant 365 jours.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le maride effectue trois attaques de Gifle des profondeurs.</p>
+      <p><strong><em>Gifle des profondeurs</em></strong>. <em>Corps à corps</em> : +10, allonge 4,50 m. <em>Touché</em> : 15 (2d8 + 6) dégâts tranchants plus 9 (2d8) dégâts de froid.</p>
+      <p><strong><em>Incantation</em></strong>. Le maride lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 16) :</p>
+      <p>À volonté : <em><a href="https://www.aidedd.org/spell/fr/creation-ou-destruction-d-eau">création ou destruction d'eau</a>, <a href="https://www.aidedd.org/spell/fr/detection-du-mal-et-du-bien">détection du mal ou du bien</a>, <a href="https://www.aidedd.org/spell/fr/detection-de-la-magie">détection de la magie</a>, <a href="https://www.aidedd.org/spell/fr/purification-de-la-nourriture-et-de-l-eau">purification de la nourriture et de l'eau</a></em><br />
+      1/jour chacun : <em><a href="https://www.aidedd.org/spell/fr/controle-de-l-eau">contrôle de l'eau</a>, <a href="https://www.aidedd.org/spell/fr/forme-gazeuse">forme gazeuse</a>, <a href="https://www.aidedd.org/spell/fr/invisibilite">invisibilité</a>, <a href="https://www.aidedd.org/spell/fr/changement-de-plan&quot;">changement de plan</a>, <a href="https://www.aidedd.org/spell/fr/don-des-langues">don des langues</a></em>  </p>
+      <p>** <em>Jet d'eau froide</em>**. <em>JdS Dextérité</em> : DD 18, chaque créature sur une Ligne de 18 m de long et 3 m de large. <em>Échec</em> : 31 (9d6) dégâts de froid. Si la cible est une créature de taille Gig ou inférieure, elle est repoussée du maride jusqu'à 6 m en ligne droite et subit l'état À terre. <em>Réussite</em> : demi-dégâts uniquement.</p>
+      <h2>Actions Bonus</h2>
+      <p>** <em>Voile brumeux (recharge 5–6)</em>**. Le maride lance <em><a href="https://www.aidedd.org/spell/fr/nappe-de-brouillard">nappe de brouillard</a></em> , en utilisant la même capacité d'incantation que pour Incantation.</p>
+    senses: Vision aveugle 9 m, Vision dans le noir 36 m, Perception passive 13
+    languages:
+    - primordial (aquatique)

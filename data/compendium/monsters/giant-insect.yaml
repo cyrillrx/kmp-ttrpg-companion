@@ -1,0 +1,117 @@
+id: giant-insect
+source: monster_manual_2024
+type: beast
+size: large
+alignment: unaligned
+challengeRating: -1.0
+armorClass: 11
+maxHitPoints: 30
+hitDice: ''
+abilities:
+  str:
+    value: 17
+    savingThrowProficiency: none
+  dex:
+    value: 13
+    savingThrowProficiency: none
+  con:
+    value: 15
+    savingThrowProficiency: none
+  int:
+    value: 4
+    savingThrowProficiency: none
+  wis:
+    value: 14
+    savingThrowProficiency: none
+  cha:
+    value: 3
+    savingThrowProficiency: none
+speeds:
+  walk: 40
+  fly: 40
+  swim: null
+  climb: 40
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Giant Insect
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Spider Climb</em>**. The insect can climb difficult surfaces, including along ceilings, without needing to make an ability check.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The insect makes a number of attacks equal to half this spell's level (round down).</p>
+      <p><strong><em>Poison Jab</em></strong>. <em>Melee Attack Roll</em> : Bonus equals your spell attack modifier, reach 10 ft. <em>Hit</em> : 1d6 + 3 + the spell's level Piercing damage plus 1d4 Poison damage.</p>
+      <p><strong><em>Web Bolt (Spider Only)</em></strong>. <em>Ranged Attack Roll</em> : Bonus equals your spell attack modifier, range 60 ft. <em>Hit</em> : 1d10 + 3 + the spell's level Bludgeoning damage, and the target's Speed is reduced to 0 until the start of the insect's next turn.</p>
+      <h2>Bonus actions</h2>
+      <p>** <em>Venomous Spew (Centipede Only)</em>**. <em>Constitution Saving Throw</em> : DC equals your spell save DC, one creature the insect can see within 10 feet. <em>Failure</em> : The target has the Poisoned condition until the start of the insect's next turn.</p>
+    senses: Darkvision 60 ft., Passive Perception 12
+    languages:
+    - Understands the languages you know
+  fr:
+    name: Insecte géant
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Pattes d'araignée</em>**. L'insecte peut escalader des surfaces difficiles, y compris le long des plafonds, sans avoir besoin de faire un jet de caractéristique.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. L'insecte effectue un nombre d'attaques égal à la moitié du niveau de ce sort (arrondir à l'inférieur).</p>
+      <p><strong><em>Piqûre toxique</em></strong>. <em>Corps à corps</em> : bonus égal à votre modificateur d'attaque des sorts, allonge 3 m. <em>Touché</em> : 1d6 + 3 + le niveau du sort dégâts perforants plus 1d4 dégâts de poison.</p>
+      <p><strong><em>Jet de toile (araignée uniquement)</em></strong>. <em>À distance</em> : bonus égal à votre modificateur d'attaque des sorts, portée 18 m. <em>Touché</em> : 1d10 + 3 + le niveau du sort dégâts contondants, et la Vitesse de la cible est réduite à 0 jusqu'au début du prochain tour de l'insecte.</p>
+      <h2>Actions Bonus</h2>
+      <p>** <em>Crachat venimeux (mille-pattes uniquement)</em>**. <em>JdS Constitution</em> : DD égal au DD de sauvegarde de vos sorts, une créature que l'insecte peut voir dans un rayon de 3 m. <em>Échec</em> : la cible subit l'état Empoisonné jusqu'au début du prochain tour de l'insecte.</p>
+    senses: Vision dans le noir 18 m, Perception passive 12
+    languages:
+    - comprend les langues que vous connaissez

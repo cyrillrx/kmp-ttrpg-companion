@@ -1,0 +1,118 @@
+id: giant-owl
+source: monster_manual_2024
+type: celestial
+size: large
+alignment: neutral
+challengeRating: 0.25
+armorClass: 12
+maxHitPoints: 19
+hitDice: 3d10+3
+abilities:
+  str:
+    value: 13
+    savingThrowProficiency: none
+  dex:
+    value: 15
+    savingThrowProficiency: none
+  con:
+    value: 12
+    savingThrowProficiency: none
+  int:
+    value: 10
+    savingThrowProficiency: none
+  wis:
+    value: 14
+    savingThrowProficiency: proficient
+  cha:
+    value: 10
+    savingThrowProficiency: none
+speeds:
+  walk: 5
+  fly: 60
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: proficient
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: proficient
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: resistant
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: resistant
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Giant Owl
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Flyby</em>**. The owl doesn't provoke an Opportunity Attack when it flies out of an enemy's reach.</p>
+      <h2>Actions</h2>
+      <p>** <em>Talons</em>**. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 7 (1d10 + 2) Slashing damage.</p>
+      <p><strong><em>Spellcasting</em></strong>. The owl casts one of the following spells, requiring no spell components and using Wisdom as the spellcasting ability:</p>
+      <p>At will: <em><a href="https://www.aidedd.org/spell/detect-evil-and-good">Detect Evil and Good</a>, <a href="https://www.aidedd.org/spell/detect-magic">Detect Magic</a></em><br />
+      1/day: <em><a href="https://www.aidedd.org/spell/clairvoyance">Clairvoyance</a></em></p>
+    senses: Darkvision 120 ft., Passive Perception 16
+    languages:
+    - Celestial; understands Common
+    - Elvish
+    - and Sylvan but can't speak them
+  fr:
+    name: Chouette géante
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Repli aérien</em>**. La chouette ne provoque pas d'attaque d'Opportunité lorsqu'elle quitte la zone d'allonge d'un ennemi en volant.</p>
+      <h2>Actions</h2>
+      <p>** <em>Serres</em>**. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 7 (1d10 + 2) dégâts tranchants.</p>
+      <p><strong><em>Incantation</em></strong>. La chouette lance l'un des sorts suivants sans composantes, la Sagesse étant sa caractéristique d'incantation :</p>
+      <p>À volonté : <em>détection de la magie, détection du mal et du bien</em><br />
+      1/jour : <em>clairvoyance</em></p>
+    senses: Vision dans le noir 36 m, Perception passive 16
+    languages:
+    - céleste ; comprend le commun
+    - l'elfique et le sylvestre mais ne peut pas les parler

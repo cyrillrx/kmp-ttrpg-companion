@@ -1,0 +1,117 @@
+id: lizardfolk-geomancer
+source: monster_manual_2024
+type: elemental
+size: medium
+alignment: neutral
+challengeRating: 2.0
+armorClass: 13
+maxHitPoints: 33
+hitDice: 6d8+6
+abilities:
+  str:
+    value: 15
+    savingThrowProficiency: none
+  dex:
+    value: 10
+    savingThrowProficiency: none
+  con:
+    value: 13
+    savingThrowProficiency: none
+  int:
+    value: 10
+    savingThrowProficiency: none
+  wis:
+    value: 15
+    savingThrowProficiency: none
+  cha:
+    value: 8
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: null
+  swim: 30
+  climb: null
+  burrow: 20
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: proficient
+  perception: proficient
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: proficient
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Lizardfolk Geomancer
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The lizardfolk makes two Earth Burst attacks.</p>
+      <p><strong><em>Earth Burst</em></strong>. <em>Melee or Ranged Attack Roll</em> : +4, reach 5 ft. or range 60 ft. <em>Hit</em> : 9 (2d6 + 2) Bludgeoning damage.</p>
+      <p><strong><em>Hail of Stone (Recharge 5–6)</em></strong>. <em>Constitution Saving Throw</em> : DC 12, each creature in a 20-foot-radius, 40-foot-high Cylinder centered on a point the lizardfolk can see within 60 feet. <em>Failure</em> : 15 (6d4) Bludgeoning damage, and the target has the Prone condition. <em>Success</em> : Half damage only.</p>
+      <p><strong><em>Spellcasting</em></strong>. The lizardfolk casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 12):</p>
+      <p>At will: <em><a href="https://www.aidedd.org/spell/elementalism">Elementalism</a></em><br />
+      1/day each: <em><a href="https://www.aidedd.org/spell/meld-into-stone">Meld into Stone</a>, <a href="https://www.aidedd.org/spell/speak-with-plants">Speak with Plants</a>, <a href="https://www.aidedd.org/spell/spike-growth">Spike Growth</a></em></p>
+    senses: Passive Perception 14
+    languages:
+    - Draconic
+    - Primordial (Terran)
+  fr:
+    name: Saurial, géomancien
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le saurial effectue deux attaques d'Explosion terreuse.</p>
+      <p><strong><em>Explosion terreuse</em></strong>. <em>Corps à corps ou à distance</em> : +4, allonge 1,50 m ou portée 18 m. <em>Touché</em> : 9 (2d6 + 2) dégâts contondants.</p>
+      <p><strong><em>Grêle de pierres (recharge 5–6)</em></strong>. JdS Constitution : DD 12, chaque créature dans un Cylindre de 6 m de rayon et 12 m de haut centré sur un point que le saurial peut voir dans un rayon de 18 m. Échec : 15 (6d4) dégâts contondants, et la cible subit l'état À terre. Succès : demi-dégâts uniquement.</p>
+      <p><strong><em>Incantation</em></strong>. Le saurial lance l'un des sorts suivants sans composantes matérielles, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 12) :</p>
+      <p>À volonté : <em><a href="https://www.aidedd.org/spell/fr/elementalisme">élementalisme</a></em><br />
+      1/jour chacun : <em><a href="https://www.aidedd.org/spell/fr/fusion-dans-la-pierre">fusion dans la pierre</a>, <a href="https://www.aidedd.org/spell/fr/communication-avec-les-plantes">communication avec les plantes</a>, <a href="https://www.aidedd.org/spell/fr/croissance-d-epines">croissance d'épines</a></em></p>
+    senses: Perception passive 14
+    languages:
+    - draconique
+    - primordial (terreux)

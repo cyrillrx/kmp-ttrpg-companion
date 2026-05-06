@@ -1,0 +1,109 @@
+id: mummy
+source: monster_manual_2024
+type: undead
+size: medium_or_small
+alignment: lawful_evil
+challengeRating: 3.0
+armorClass: 11
+maxHitPoints: 58
+hitDice: 9d8+18
+abilities:
+  str:
+    value: 16
+    savingThrowProficiency: none
+  dex:
+    value: 8
+    savingThrowProficiency: none
+  con:
+    value: 15
+    savingThrowProficiency: none
+  int:
+    value: 6
+    savingThrowProficiency: none
+  wis:
+    value: 12
+    savingThrowProficiency: proficient
+  cha:
+    value: 12
+    savingThrowProficiency: none
+speeds:
+  walk: 20
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: vulnerable
+  force: none
+  lightning: none
+  necrotic: immune
+  piercing: none
+  poison: immune
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: true
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: true
+  restrained: false
+  unconscious: false
+  poisoned: true
+  petrified: false
+  frightened: true
+  blinded: false
+  prone: false
+  exhaustion: true
+  stunned: false
+translations:
+  en:
+    name: Mummy
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The mummy makes two Rotting Fist attacks and uses Dreadful Glare.</p>
+      <p><strong><em>Rotting Fist</em></strong>. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 8 (1d10 + 3) Bludgeoning damage plus 10 (3d6) Necrotic damage. If the target is a creature, it is cursed. While cursed, the target can't regain Hit Points, its Hit Point maximum doesn't return to normal when finishing a Long Rest, and its Hit Point maximum decreases by 10 (3d6) every 24 hours that elapse. A creature dies and turns to dust if reduced to 0 Hit Points by this attack.</p>
+      <p><strong><em>Dreadful Glare</em></strong>. <em>Wisdom Saving Throw</em> : DC 11, one creature the mummy can see within 60 feet. <em>Failure</em> : The target has the Frightened condition until the end of the mummy's next turn. <em>Success</em> : The target is immune to this mummy's Dreadful Glare for 24 hours.</p>
+    senses: Darkvision 60 ft., Passive Perception 11
+    languages:
+    - Common plus two other languages
+  fr:
+    name: Momie
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. La momie effectue deux attaques de Poing putréfié et recourt à Regard effroyable.</p>
+      <p><strong><em>Poing putréfié</em></strong>. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 8 (1d10 + 3) dégâts contondants plus 10 (3d6) dégâts nécrotiques. Si la cible est une créature, elle est maudite. Ainsi maudite, la cible ne peut pas récupérer de points de vie, son maximum de points de vie ne revient pas à la normale quand elle termine un Repos long, et diminue même de 10 (3d6) toutes les 24 heures. Une créature que cette attaque fait tomber à 0 point de vie meurt, réduite en poussière.</p>
+      <p><strong><em>Regard effroyable</em></strong>. <em>JdS Sagesse</em> : DD 11, une créature que la momie voit dans un rayon de 18 m. <em>Échec</em> : la cible subit l'état Effrayé jusqu'à la fin du tour suivant de la momie. <em>Réussite</em> : la cible est immunisée contre le Regard effroyable de cette momie pendant 24 heures.</p>
+    senses: Vision dans le noir 18 m, Perception passive 11
+    languages:
+    - commun plus deux autres langues

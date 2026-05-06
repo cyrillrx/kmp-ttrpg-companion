@@ -1,0 +1,20 @@
+id: periapt-of-wound-closure
+source: dmg_2024
+type: wondrous_item
+rarity: uncommon
+attunement: true
+translations:
+  en:
+    name: Periapt of Wound Closure
+    subtype: null
+    description: |-
+      <p>While wearing this pendant, you gain the following benefits.<br />
+      <strong>Life Preservation</strong>. Whenever you make a Death Saving Throw, you can change a roll of 9 or lower to a 10, turning a failed save into a successful one.<br />
+      <strong>Natural Healing Boost</strong>. Whenever you roll a Hit Point Die to regain Hit Points, double the number of Hit Points it restores.</p>
+  fr:
+    name: Amulette de cicatrisation
+    subtype: null
+    description: |-
+      <p>Si vous portez ce pendentif, vous bénéficiez des avantages suivants :<br />
+      <strong>Préservation de vie</strong>. À chaque jet de sauvegarde contre la mort, vous pouvez transformer un résultat de 9 ou moins en 10, transformant ainsi un échec en réussite.<br />
+      <strong>Stimulation de la guérison</strong>. À chaque jet de dé de vie pour regagner des points de vie, vous doublez le nombre de points de vie restaurés.</p>

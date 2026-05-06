@@ -1,0 +1,119 @@
+id: jackalwere
+source: monster_manual_2024
+type: fiend
+size: small
+alignment: chaotic_evil
+challengeRating: 0.5
+armorClass: 12
+maxHitPoints: 18
+hitDice: 4d6+4
+abilities:
+  str:
+    value: 11
+    savingThrowProficiency: none
+  dex:
+    value: 15
+    savingThrowProficiency: none
+  con:
+    value: 12
+    savingThrowProficiency: none
+  int:
+    value: 13
+    savingThrowProficiency: none
+  wis:
+    value: 11
+    savingThrowProficiency: none
+  cha:
+    value: 10
+    savingThrowProficiency: none
+speeds:
+  walk: 40
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: proficient
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: proficient
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: proficient
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Jackalwere
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Pack Tactics</em>**. The jackalwere has Advantage on an attack roll against a creature if at least one of the jackalwere's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The jackalwere makes two Rend or Slam attacks.</p>
+      <p><strong><em>Rend (Jackal or Hybrid Form Only)</em></strong>. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 5 (1d6 + 2) Piercing damage.</p>
+      <p><strong><em>Slam (Human or Hybrid Form Only)</em></strong>. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 4 (1d4 + 2) Bludgeoning damage.</p>
+      <p><strong><em>Sleep Gaze (Recharge 5–6)</em></strong>. <em>Wisdom Saving Throw</em> : DC 10, one creature the jackalwere can see within 30 feet (Constructs and Undead succeed automatically). <em>Failure</em> : The target has the Unconscious condition for 10 minutes or until it takes damage or a creature within 5 feet of it takes an action to wake it. <em>Success</em> : The target is immune to this jackalwere's Sleep Gaze for 24 hours.</p>
+      <h2>Bonus actions</h2>
+      <p>** <em>Shape-Shift</em>**. The jackalwere shape-shifts into a Medium human or a Medium jackal-humanoid hybrid, or it returns to its true form (that of a Small jackal). Other than its size, its game statistics are the same in each form. Any equipment it is wearing or carrying isn't transformed.</p>
+    senses: Darkvision 90 ft., Passive Perception 14
+    languages:
+    - Common
+  fr:
+    name: Garou-chacal
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>Tactique de meute.  </p>
+      <h2>Actions</h2>
+      <p>Attaques multiples.<br />
+      Saignée (forme de chacal ou hybride uniquement).<br />
+      Coup (forme humaine ou hybride uniquement).<br />
+      Regard soporifique (recharge 5–6).  </p>
+      <h2>Actions Bonus</h2>
+      <p>Changement d'aspect.</p>
+    senses: Vision dans le noir 27 m, Perception passive 14
+    languages:
+    - commun

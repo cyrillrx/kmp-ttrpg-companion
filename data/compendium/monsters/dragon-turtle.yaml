@@ -1,0 +1,117 @@
+id: dragon-turtle
+source: monster_manual_2024
+type: dragon
+size: gargantuan
+alignment: neutral
+challengeRating: 17.0
+armorClass: 20
+maxHitPoints: 356
+hitDice: 23d20+115
+abilities:
+  str:
+    value: 25
+    savingThrowProficiency: none
+  dex:
+    value: 10
+    savingThrowProficiency: none
+  con:
+    value: 20
+    savingThrowProficiency: proficient
+  int:
+    value: 10
+    savingThrowProficiency: none
+  wis:
+    value: 12
+    savingThrowProficiency: proficient
+  cha:
+    value: 12
+    savingThrowProficiency: none
+speeds:
+  walk: 20
+  fly: null
+  swim: 50
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: resistant
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Dragon Turtle
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Amphibious</em>**. The dragon can breathe air and water.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The dragon makes three Bite attacks. It can replace one attack with a Tail attack.</p>
+      <p><strong><em>Bite</em></strong>. <em>Melee Attack Roll</em> : +13, reach 15 ft. <em>Hit</em> : 23 (3d10 + 7) Piercing damage plus 7 (2d6) Fire damage. Being underwater doesn't grant Resistance to this Fire damage.</p>
+      <p><strong><em>Tail</em></strong>. <em>Melee Attack Roll</em> : +13, reach 15 ft. <em>Hit</em> : 18 (2d10 + 7) Bludgeoning damage. If the target is a Huge or smaller creature, it has the Prone condition.</p>
+      <p><strong><em>Steam Breath (Recharge 5–6)</em></strong>. <em>Constitution Saving Throw</em> : DC 19, each creature in a 60-foot Cone. <em>Failure</em> : 56 (16d6) Fire damage. <em>Success</em> : Half damage. <em>Failure or Success</em> : Being underwater doesn't grant Resistance to this Fire damage.</p>
+    senses: Darkvision 120 ft., Passive Perception 11
+    languages:
+    - Draconic
+    - Primordial (Aquan)
+  fr:
+    name: Dragon-tortue
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Amphibie</em>**. Le dragon peut respirer sous l'eau comme à l'air libre.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le dragon effectue trois attaques de Morsure. Il peut en remplacer une par une attaque de Queue.</p>
+      <p><strong><em>Morsure</em></strong>. <em>Corps à corps</em> : +13, allonge 4,50 m. <em>Touché</em> : 23 (3d10 + 7) dégâts perforants plus 7 (2d6) dégâts de feu. Être immergé dans l'eau n'octroie pas la Résistance à ces dégâts de feu.</p>
+      <p><strong><em>Queue</em></strong>. <em>Corps à corps</em> : +13, allonge 4,50 m. <em>Touché</em> : 18 (2d10 + 7) dégâts contondants. Si la cible est une créature de taille TG ou inférieure, elle subit l'état À terre.</p>
+      <p><strong><em>Souffle de vapeur (recharge 5–6)</em></strong>. <em>JdS Constitution</em> : DD 19, chaque créature dans un Cône de 18 m. <em>Échec</em> : 56 (16d6) dégâts de feu. <em>Réussite</em> : demi-dégâts. <em>Échec ou réussite</em> : être immergé dans l'eau n'octroie pas la Résistance à ces dégâts de feu.</p>
+    senses: Vision dans le noir 36 m, Perception passive 11
+    languages:
+    - draconique
+    - primordial (aquatique)

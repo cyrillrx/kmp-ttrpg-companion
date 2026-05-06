@@ -1,0 +1,109 @@
+id: giant-crab
+source: monster_manual_2024
+type: beast
+size: medium
+alignment: unaligned
+challengeRating: 0.125
+armorClass: 15
+maxHitPoints: 13
+hitDice: 3d8
+abilities:
+  str:
+    value: 13
+    savingThrowProficiency: none
+  dex:
+    value: 13
+    savingThrowProficiency: none
+  con:
+    value: 11
+    savingThrowProficiency: none
+  int:
+    value: 1
+    savingThrowProficiency: none
+  wis:
+    value: 9
+    savingThrowProficiency: none
+  cha:
+    value: 3
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: null
+  swim: 30
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: proficient
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Giant Crab
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Amphibious</em>**. The crab can breathe air and water.</p>
+      <h2>Actions</h2>
+      <p>** <em>Claw</em>**. <em>Melee Attack Roll</em> : +3, reach 5 ft. <em>Hit</em> : 4 (1d6 + 1) Bludgeoning damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 11) from one of two claws.</p>
+    senses: Blindsight 30 ft., Passive Perception 9
+    languages:
+    - None
+  fr:
+    name: Crabe géant
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Amphibie</em>**. Le crabe peut respirer aussi bien à l'air libre que sous l'eau.</p>
+      <h2>Actions</h2>
+      <p>** <em>Pince</em>**. <em>Corps à corps</em> : +3, allonge 1,50 m. <em>Touché</em> : 4 (1d6 + 1) dégâts contondants. Si la cible est de taille M ou inférieure, elle subit l'état Agrippé (évasion DD 11) par l'une des deux pinces.</p>
+    senses: Vision aveugle 9 m, Perception passive 9
+    languages:
+    - aucune

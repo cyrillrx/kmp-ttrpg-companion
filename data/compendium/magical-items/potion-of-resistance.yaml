@@ -1,0 +1,40 @@
+id: potion-of-resistance
+source: dmg_2024
+type: potion
+rarity: uncommon
+attunement: false
+translations:
+  en:
+    name: Potion of Resistance
+    subtype: null
+    description: |-
+      <p>When you drink this potion, you have Resistance to one type of damage for 1 hour. The DM chooses the type or determines it randomly by rolling on the following table.<br />
+      1d10| Damage Type<br />
+      ---|---<br />
+      1| Acid<br />
+      2| Cold<br />
+      3| Fire<br />
+      4| Force<br />
+      5| Lightning<br />
+      6| Necrotic<br />
+      7| Poison<br />
+      8| Psychic<br />
+      9| Radiant<br />
+      10| Thunder</p>
+  fr:
+    name: Potion de résistance
+    subtype: null
+    description: |-
+      <p>Lorsque vous buvez cette potion, vous bénéficiez d'une Résistance à un type de dégâts pendant 1 heure. Le MD choisit le type de dégâts ou le détermine aléatoirement en effectuant un jet sur la table suivante.<br />
+      1d10| Type de dégâts<br />
+      ---|---<br />
+      1| Acide<br />
+      2| Froid<br />
+      3| Feu<br />
+      4| Force<br />
+      5| Foudre<br />
+      6| Nécrotique<br />
+      7| Poison<br />
+      8| Psychique<br />
+      9| Radiant<br />
+      10| Tonnerre</p>

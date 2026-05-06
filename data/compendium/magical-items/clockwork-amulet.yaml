@@ -1,0 +1,18 @@
+id: clockwork-amulet
+source: dmg_2024
+type: wondrous_item
+rarity: common
+attunement: false
+translations:
+  en:
+    name: Clockwork Amulet
+    subtype: null
+    description: |-
+      <p>This copper amulet contains tiny interlocking gears and is powered by magic from Mechanus, a plane of clockwork predictability. Faint ticking and whirring noises emanate from within.<br />
+      When you make an attack roll while wearing the amulet, you can forgo rolling the d20 to get a 10 on the die. Once used, this property can't be used again until the next dawn.</p>
+  fr:
+    name: Amulette mécanique
+    subtype: null
+    description: |-
+      <p>Cette amulette de cuivre renferme de minuscules engrenages imbriqués et est alimentée par la magie de Méchanus, un plan d'une précision mécanique absolue. De légers tic-tac et vrombissements s'en échappent.<br />
+      Lorsque vous effectuez un jet d'attaque tout en portant l'amulette, vous pouvez vous dispenser de lancer le d20 pour obtenir un 10. Une fois utilisée, cette propriété ne peut être réutilisée avant l'aube suivante.</p>

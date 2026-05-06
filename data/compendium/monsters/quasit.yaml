@@ -1,0 +1,117 @@
+id: quasit
+source: monster_manual_2024
+type: fiend
+size: tiny
+alignment: chaotic_evil
+challengeRating: 1.0
+armorClass: 13
+maxHitPoints: 25
+hitDice: 10d4
+abilities:
+  str:
+    value: 5
+    savingThrowProficiency: none
+  dex:
+    value: 17
+    savingThrowProficiency: none
+  con:
+    value: 10
+    savingThrowProficiency: none
+  int:
+    value: 7
+    savingThrowProficiency: none
+  wis:
+    value: 10
+    savingThrowProficiency: none
+  cha:
+    value: 10
+    savingThrowProficiency: none
+speeds:
+  walk: 40
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: proficient
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: resistant
+  fire: resistant
+  force: none
+  lightning: resistant
+  necrotic: none
+  piercing: none
+  poison: immune
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: true
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Quasit
+    subtype: Demon
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Magic Resistance</em>**. The quasit has Advantage on saving throws against spells and other magical effects.</p>
+      <h2>Actions</h2>
+      <p>** <em>Rend</em>**. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 5 (1d4 + 3) Slashing damage, and the target has the Poisoned condition until the start of the quasit's next turn.</p>
+      <p><strong><em>Invisibility</em></strong>. The quasit casts <em><a href="https://www.aidedd.org/spell/invisibility">Invisibility</a></em> on itself, requiring no spell components and using Charisma as the spellcasting ability.</p>
+      <p><strong><em>Scare (1/Day)</em></strong>. <em>Wisdom Saving Throw</em> : DC 10, one creature within 20 feet. <em>Failure</em> : The target has the Frightened condition. At the end of each of its turns, the target repeats the save, ending the effect on itself on a success. After 1 minute, it succeeds automatically.</p>
+      <p><strong><em>Shape-Shift</em></strong>. The quasit shape-shifts to resemble a bat (Speed 10 ft., Fly 40 ft.), a centipede (40 ft., Climb 40 ft.), or a toad (40 ft., Swim 40 ft.), or it returns to its true form. Its statistics are the same in each form, except for its Speed. Any equipment it's wearing or carrying isn't transformed.</p>
+    senses: Darkvision 120 ft., Passive Perception 10
+    languages:
+    - Abyssal
+    - Common
+  fr:
+    name: Quasit
+    subtype: Démon
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Résistance à la magie</em>**. Le quasit a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.</p>
+      <h2>Actions</h2>
+      <p>** <em>Saignée</em>**. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 5 (1d4 + 3) dégâts tranchants, et la cible subit l'état Empoisonné jusqu'au début du prochain tour du quasit.</p>
+      <p><strong><em>Invisibilité</em></strong>. Le quasit lance <em><a href="https://www.aidedd.org/spell/fr/invisibilite">invisibilité</a></em> sur lui-même, sans avoir besoin de composantes de sort et en utilisant le Charisme comme caractéristique d'incantation.</p>
+      <p><strong><em>Frayeur (1/jour)</em></strong>. <em>JdS Sagesse</em> : DD 10, une créature dans un rayon de 6 m. <em>Échec</em> : la cible à l'état Effrayé. À la fin de chacun de ses tours, la cible retente son jet de sauvegarde, mettant fin à l'effet sur elle-même en cas de réussite. Au bout d'une minute, la réussite est automatique.</p>
+      <p><strong><em>Changement d'aspect</em></strong>. Le quasit se métamorphose en une bête qui ressemble à une chauve-souris (Vitesse 3 m, vol 12 m), un mille-pattes (12 m, escalade 12 m) ou un crapaud (12 m, nage 12 m), ou reprend sa forme véritable. Mise à part sa Vitesse, ses statistiques sont les mêmes quelle que soit la forme. Rien de ce qu'il porte n'est transformé.</p>
+    senses: Vision dans le noir 36 m, Perception passive 10
+    languages:
+    - abyssal
+    - commun

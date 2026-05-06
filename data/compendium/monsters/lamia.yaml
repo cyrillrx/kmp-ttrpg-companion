@@ -1,0 +1,121 @@
+id: lamia
+source: monster_manual_2024
+type: fiend
+size: large
+alignment: chaotic_evil
+challengeRating: 4.0
+armorClass: 13
+maxHitPoints: 97
+hitDice: 13d10+26
+abilities:
+  str:
+    value: 16
+    savingThrowProficiency: none
+  dex:
+    value: 13
+    savingThrowProficiency: none
+  con:
+    value: 15
+    savingThrowProficiency: none
+  int:
+    value: 14
+    savingThrowProficiency: none
+  wis:
+    value: 15
+    savingThrowProficiency: none
+  cha:
+    value: 16
+    savingThrowProficiency: none
+speeds:
+  walk: 40
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: proficient
+  history: none
+  insight: proficient
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: proficient
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Lamia
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The lamia makes two Claw attacks. It can replace one attack with a use of Corrupting Touch.</p>
+      <p><strong><em>Claw</em></strong>. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 7 (1d8 + 3) Slashing damage plus 7 (2d6) Psychic damage.</p>
+      <p><strong><em>Corrupting Touch</em></strong>. <em>Wisdom Saving Throw</em> : DC 13, one creature the lamia can see within 5 feet. <em>Failure</em> : 13 (3d8) Psychic damage, and the target is cursed for 1 hour. Until the curse ends, the target has the Charmed and Poisoned conditions.</p>
+      <p><strong><em>Spellcasting</em></strong>. The lamia casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 13):</p>
+      <p>At Will: <em><a href="https://www.aidedd.org/spell/disguise-self">Disguise Self</a></em> (can appear as a Large or Medium biped), <em><a href="https://www.aidedd.org/spell/minor-illusion">Minor Illusion</a></em><br />
+      1/Day Each: <em><a href="https://www.aidedd.org/spell/geas">Geas</a>, <a href="https://www.aidedd.org/spell/major-image">Major Image</a>, <a href="https://www.aidedd.org/spell/scrying">Scrying</a></em>  </p>
+      <h2>Bonus actions</h2>
+      <p>** <em>Leap</em>**. The lamia jumps up to 30 feet by spending 10 feet of movement.</p>
+    senses: Darkvision 60 ft., Passive Perception 12
+    languages:
+    - Abyssal
+    - Common
+  fr:
+    name: Lamie
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. La lamie effectue deux attaques de Griffe. Elle peut remplacer l'une de ces attaques par une utilisation de Contact corrupteur.</p>
+      <p><strong><em>Griffe</em></strong>. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 7 (1d8 + 3) dégâts tranchants plus 7 (2d6) dégâts psychiques.</p>
+      <p><strong><em>Contact corrupteur</em></strong>. <em>JdS Sagesse</em> : DD 13, une créature que la lamie voit dans un rayon de 1,50 m. <em>Échec</em> : 13 (3d8) dégâts psychiques, et la cible est maudite pendant 1 heure. Tant que persiste la malédiction, la cible subit les états Charmé et Empoisonné.</p>
+      <p><strong><em>Incantation</em></strong>. La lamie lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 13) :</p>
+      <p>À volonté : <em>déguisement</em> (comme bipède de taille M ou G), <em><a href="https://www.aidedd.org/spell/fr/illusion-mineure">illusion mineure</a></em><br />
+      1/jour chacun : <em><a href="https://www.aidedd.org/spell/fr/image-majeure">image majeure</a>, quête, <a href="https://www.aidedd.org/spell/fr/scrutation">scrutation</a></em>  </p>
+      <h2>Actions Bonus</h2>
+      <p>** <em>Bond</em>**. La lamie effectue un saut d'un maximum de 9 m en dépensant 3 m de déplacement.</p>
+    senses: Vision dans le noir 18 m, Perception passive 12
+    languages:
+    - abyssal
+    - commun

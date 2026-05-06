@@ -1,0 +1,131 @@
+id: adult-red-dragon
+source: monster_manual_2024
+type: dragon
+size: huge
+alignment: chaotic_evil
+challengeRating: 17.0
+armorClass: 19
+maxHitPoints: 256
+hitDice: 19d12+133
+abilities:
+  str:
+    value: 27
+    savingThrowProficiency: none
+  dex:
+    value: 10
+    savingThrowProficiency: proficient
+  con:
+    value: 25
+    savingThrowProficiency: none
+  int:
+    value: 16
+    savingThrowProficiency: none
+  wis:
+    value: 13
+    savingThrowProficiency: proficient
+  cha:
+    value: 23
+    savingThrowProficiency: none
+speeds:
+  walk: 40
+  fly: 80
+  swim: null
+  climb: 40
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: proficient
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: proficient
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: immune
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Adult Red Dragon
+    subtype: Chromatic
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Legendary Resistance (3/Day, or 4/Day in Lair)</em>**. If the dragon fails a saving throw, it can choose to succeed instead.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The dragon makes three Rend attacks. It can replace one attack with a use of Spellcasting to cast <em><a href="https://www.aidedd.org/spell/scorching-ray">Scorching Ray</a></em>.</p>
+      <p><strong><em>Rend</em></strong>. <em>Melee Attack Roll</em> : +14, reach 10 ft. <em>Hit</em> : 13 (1d10 + 8) Slashing damage plus 5 (2d4) Fire damage.</p>
+      <p><strong><em>Fire Breath (Recharge 5–6)</em></strong>. <em>Dexterity Saving Throw</em> : DC 21, each creature in a 60-foot Cone. <em>Failure</em> : 59 (17d6) Fire damage. <em>Success</em> : Half damage.</p>
+      <p><strong><em>Spellcasting</em></strong>. The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 20, +12 to hit with spell attacks):</p>
+      <p>At will: <em><a href="https://www.aidedd.org/spell/command">Command</a></em> (level 2 version), <em><a href="https://www.aidedd.org/spell/detect-magic">Detect Magic</a>, <a href="https://www.aidedd.org/spell/scorching-ray">Scorching Ray</a></em><br />
+      1/day: <em><a href="https://www.aidedd.org/spell/fireball">Fireball</a></em>  </p>
+      <h2>Legendary actions</h2>
+      <p>Legendary Action Uses: 3 (4 in Lair). Immediately after another creature's turn, The dragon can expend a use to take one of the following actions. The dragon regains all expended uses at the start of each of its turns. </p>
+      <p><strong><em>Commanding Presence</em></strong>. The dragon uses Spellcasting to cast <em><a href="https://www.aidedd.org/spell/command">Command</a></em> (level 2 version). The dragon can't take this action again until the start of its next turn.</p>
+      <p><strong><em>Fiery Rays</em></strong>. The dragon uses Spellcasting to cast <em><a href="https://www.aidedd.org/spell/scorching-ray">Scorching Ray</a></em>. The dragon can't take this action again until the start of its next turn.</p>
+      <p><strong><em>Pounce</em></strong>. The dragon moves up to half its Speed, and it makes one Rend attack.</p>
+    senses: Blindsight 60 ft., Darkvision 120 ft., Passive Perception 23
+    languages:
+    - Common
+    - Draconic
+  fr:
+    name: Dragon rouge, adulte
+    subtype: Chromatique
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Résistance légendaire (3/jour, ou 4/jour dans son antre)</em>**. Si le dragon rate un jet de sauvegarde, il peut décider de le réussir tout de même.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le dragon effectue trois attaques de Saignée. Il peut remplacer l'une de ces attaques par une utilisation d'Incantation pour lancer <em><a href="https://www.aidedd.org/spell/fr/rayon-ardent">rayon ardent</a></em>.</p>
+      <p><strong><em>Saignée</em></strong>. <em>Corps à corps</em> : +14, allonge 3 m. <em>Touché</em> : 13 (1d10 + 8) dégâts tranchants plus 5 (2d4) dégâts de feu.</p>
+      <p><strong><em>Incantation</em></strong>. Le dragon lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 20, +12 pour toucher) :</p>
+      <p>À volonté : <em><a href="https://www.aidedd.org/spell/fr/detection-de-la-magie">détection de la magie</a>, <a href="https://www.aidedd.org/spell/fr/injonction">injonction</a></em> (au niveau 2), <em><a href="https://www.aidedd.org/spell/fr/rayon-ardent">rayon ardent</a></em><br />
+      1/jour : <em><a href="https://www.aidedd.org/spell/fr/boule-de-feu">boule de feu</a></em>  </p>
+      <p>** <em>Souffle de feu (recharge 5–6)</em>**. <em>JdS Dextérité</em> : DD 21, chaque créature dans un Cône de 18 m. <em>Échec</em> : 59 (17d6) dégâts de feu. <em>Réussite</em> : demi-dégâts.</p>
+      <h2>Actions Légendaires</h2>
+      <p>Utilisations d'action Légendaire : 3 (4 dans son antre). Aussitôt après le tour d'une autre créature, le dragon peut dépenser une utilisation pour entreprendre l'une des actions ci-après. Le dragon récupère toutes ses utilisations dépensées au début de chacun de ses tours. </p>
+      <p><strong><em>Assaut incisif</em></strong>. Le dragon se déplace à concurrence de la moitié de sa Vitesse et effectue une attaque de Saignée.</p>
+      <p><strong><em>Autorité naturelle</em></strong>. Le dragon recourt à Incantation pour lancer <em><a href="https://www.aidedd.org/spell/fr/injonction">injonction</a></em> (au niveau 2). Le dragon ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.</p>
+      <p><strong><em>Rayons ignés</em></strong>. Le dragon recourt à Incantation pour lancer <em><a href="https://www.aidedd.org/spell/fr/rayon-ardent">rayon ardent</a></em>. Le dragon ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.</p>
+    senses: Vision aveugle 18 m, Vision dans le noir 36 m, Perception passive 23
+    languages:
+    - commun
+    - draconique

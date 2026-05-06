@@ -1,0 +1,111 @@
+id: gray-ooze
+source: monster_manual_2024
+type: ooze
+size: medium
+alignment: unaligned
+challengeRating: 0.5
+armorClass: 9
+maxHitPoints: 22
+hitDice: 3d8+9
+abilities:
+  str:
+    value: 12
+    savingThrowProficiency: none
+  dex:
+    value: 6
+    savingThrowProficiency: none
+  con:
+    value: 16
+    savingThrowProficiency: none
+  int:
+    value: 1
+    savingThrowProficiency: none
+  wis:
+    value: 6
+    savingThrowProficiency: none
+  cha:
+    value: 2
+    savingThrowProficiency: none
+speeds:
+  walk: 10
+  fly: null
+  swim: null
+  climb: 10
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: proficient
+  survival: none
+damageAffinities:
+  acid: resistant
+  bludgeoning: none
+  cold: resistant
+  fire: resistant
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: true
+  deafened: true
+  grappled: true
+  incapacitated: false
+  paralyzed: false
+  restrained: true
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: true
+  blinded: true
+  prone: true
+  exhaustion: true
+  stunned: false
+translations:
+  en:
+    name: Gray Ooze
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Amorphous</em>**. The ooze can move through a space as narrow as 1 inch without expending extra movement to do so.</p>
+      <p><strong><em>Corrosive Form</em></strong>. Nonmagical ammunition is destroyed immediately after hitting the ooze and dealing any damage. Any nonmagical weapon takes a cumulative -1 penalty to attack rolls immediately after dealing damage to the ooze and coming into contact with it. The weapon is destroyed if the penalty reaches -5. The penalty can be removed by casting the <em><a href="https://www.aidedd.org/spell/mending">Mending</a></em> spell on the weapon. The ooze can eat through 2-inch-thick, nonmagical metal or wood in 1 round.</p>
+      <h2>Actions</h2>
+      <p>** <em>Pseudopod</em>**. <em>Melee Attack Roll</em> : +3, reach 5 ft. <em>Hit</em> : 10 (2d8 + 1) Acid damage. Nonmagical armor worn by the target takes a -1 penalty to the AC it offers. The armor is destroyed if the penalty reduces its AC to 10. The penalty can be removed by casting the <em><a href="https://www.aidedd.org/spell/mending">Mending</a></em> spell on the armor.</p>
+    senses: Blindsight 60 ft., Passive Perception 8
+    languages:
+    - None
+  fr:
+    name: Vase grise
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Informe</em>**. La vase peut se déplacer dans un espace étroit d'une largeur minimale de 2,50 cm sans dépense supplémentaire en déplacement.</p>
+      <p><strong><em>Masse corrosive</em></strong>. Les projectiles non magiques sont détruits dès qu'ils ont touché la vase et infligé le moindre dégât. Toute arme non magique qui inflige des dégâts à la vase en la touchant physiquement subit aussitôt un malus cumulatif de –1 aux jets d'attaque. L'arme est détruite si ce malus atteint –5. On peut annuler ce malus en lançant le sort <em>réparation</em> sur l'arme. La vase ronge le métal et le bois non magiques à raison de 5 cm d'épaisseur par round.</p>
+      <h2>Actions</h2>
+      <p>** <em>Pseudopode</em>**. <em>Corps à corps</em> : +3, allonge 1,50 m. <em>Touché</em> : 10 (2d8 + 1) dégâts d'acide. Toute armure non magique portée par la cible subit un malus cumulatif de –1 à la CA qu'elle confère. L'armure est détruite si ce malus réduit sa CA à 10. On peut annuler ce malus en lançant le sort <em>réparation</em> sur l'armure.</p>
+    senses: Vision aveugle 18 m, Perception passive 8
+    languages:
+    - aucune

@@ -1,0 +1,18 @@
+id: executioner-s-axe
+source: dmg_2024
+type: weapon
+rarity: very_rare
+attunement: false
+translations:
+  en:
+    name: Executioner's Axe
+    subtype: Battleaxe, Greataxe, Halberd, or Handaxe
+    description: |-
+      <p>You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon.<br />
+      Any Humanoid you hit with the weapon takes an extra 2d6 Slashing damage, and you gain Temporary Hit Points equal to the extra damage dealt.</p>
+  fr:
+    name: Hache du bourreau
+    subtype: hache d'armes, hache à deux mains, hallebarde ou hachette
+    description: |-
+      <p>Vous obtenez un bonus de +1 aux jets d'attaque et de dégâts effectués avec cette arme magique.<br />
+      Tout humanoïde touché par l'arme subit 2d6 dégâts tranchants supplémentaires, et vous gagnez des points de vie temporaires égaux aux dégâts supplémentaires infligés.</p>

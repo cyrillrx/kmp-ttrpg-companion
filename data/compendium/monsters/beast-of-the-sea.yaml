@@ -1,0 +1,111 @@
+id: beast-of-the-sea
+source: monster_manual_2024
+type: beast
+size: medium
+alignment: neutral
+challengeRating: -1.0
+armorClass: 13
+maxHitPoints: 5
+hitDice: ''
+abilities:
+  str:
+    value: 14
+    savingThrowProficiency: none
+  dex:
+    value: 14
+    savingThrowProficiency: none
+  con:
+    value: 15
+    savingThrowProficiency: none
+  int:
+    value: 8
+    savingThrowProficiency: none
+  wis:
+    value: 14
+    savingThrowProficiency: none
+  cha:
+    value: 11
+    savingThrowProficiency: none
+speeds:
+  walk: 5
+  fly: null
+  swim: 60
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Beast of the Sea
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Amphibious</em>**. The beast can breathe air and water.</p>
+      <p><strong><em>Primal Bond</em></strong>. Add your Proficiency Bonus to any ability check or saving throw the beast makes.</p>
+      <h2>Actions</h2>
+      <p>** <em>Beast's Strike</em>**. <em>Melee Attack Roll</em> : Bonus equals your spell attack modifier, reach 5 ft. <em>Hit</em> : 1d6 + 2 plus your Wisdom modifier Bludgeoning or Piercing damage (your choice when you summon the beast), and the target has the Grappled condition (escape DC equals your spell save DC).</p>
+    senses: Darkvision 90 ft., Passive Perception 12
+    languages:
+    - Understands the languages you know
+  fr:
+    name: Bête des mers
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Amphibie</em>**. La bête peut respirer sous l'eau comme à l'air libre.</p>
+      <p><strong><em>Lien primordial</em></strong>. Ajoutez votre bonus de maîtrise à tout jet de caractéristique ou de sauvegarde effectué par la bête.</p>
+      <h2>Actions</h2>
+      <p>** <em>Frappe de la Bête</em>**. <em>Corps à corps</em> : bonus égal à votre modificateur d'attaque des sorts, allonge 1,50 m. <em>Touché</em> : 1d6 + 2 + votre modificateur de Sagesse dégâts contondants ou perforants (à votre choix lorsque vous invoquez la bête), et la cible subit l'état Agrippé (évasion DD égal à votre DD de sauvegarde des sorts).</p>
+    senses: Vision dans le noir 27 m, Perception passive 12
+    languages:
+    - comprend les langues que vous parlez

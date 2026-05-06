@@ -1,0 +1,120 @@
+id: stone-golem
+source: monster_manual_2024
+type: construct
+size: large
+alignment: unaligned
+challengeRating: 10.0
+armorClass: 18
+maxHitPoints: 220
+hitDice: 21d10+105
+abilities:
+  str:
+    value: 22
+    savingThrowProficiency: none
+  dex:
+    value: 9
+    savingThrowProficiency: none
+  con:
+    value: 20
+    savingThrowProficiency: none
+  int:
+    value: 3
+    savingThrowProficiency: none
+  wis:
+    value: 11
+    savingThrowProficiency: none
+  cha:
+    value: 1
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: immune
+  psychic: immune
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: true
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: true
+  restrained: false
+  unconscious: false
+  poisoned: true
+  petrified: true
+  frightened: true
+  blinded: false
+  prone: false
+  exhaustion: true
+  stunned: false
+translations:
+  en:
+    name: Stone Golem
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Immutable Form</em>**. The golem can't shape-shift.</p>
+      <p><strong><em>Magic Resistance</em></strong>. The golem has Advantage on saving throws against spells and other magical effects.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The golem makes two attacks, using Slam or Force Bolt in any combination.</p>
+      <p><strong><em>Slam</em></strong>. <em>Melee Attack Roll</em> : +10, reach 5 ft. <em>Hit</em> : 15 (2d8 + 6) Bludgeoning damage plus 9 (2d8) Force damage.</p>
+      <p><strong><em>Force Bolt</em></strong>. <em>Ranged Attack Roll</em> : +9, range 90 ft. <em>Hit</em> : 26 (4d12) Force damage.</p>
+      <h2>Bonus actions</h2>
+      <p>** <em>Slow (Recharge 5–6)</em>**. The golem casts the <em><a href="https://www.aidedd.org/spell/slow">Slow</a></em> spell, requiring no spell components and using Constitution as the spellcasting ability (spell save DC 17).</p>
+    senses: Darkvision 120 ft., Passive Perception 10
+    languages:
+    - Understands Common plus two other languages but can't speak
+  fr:
+    name: Golem de pierre
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Forme immuable</em>**. Le golem ne peut pas être métamorphosé.</p>
+      <p><strong><em>Résistance à la magie</em></strong>. Le golem a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le golem effectue deux attaques, réparties à sa guise entre Coup et Trait de force.</p>
+      <p><strong><em>Coup</em></strong>. <em>Corps à corps</em> : +10, allonge 1,50 m. <em>Touché</em> : 15 (2d8 + 6) dégâts contondants plus 9 (2d8) dégâts de force.</p>
+      <p><strong><em>Trait de force</em></strong>. <em>À distance</em> : +9, portée 36 m. <em>Touché</em> : 22 (4d10) dégâts de force.</p>
+      <h2>Actions Bonus</h2>
+      <p>** <em>Lenteur (recharge 5–6)</em>**. Le golem lance <em>lenteur</em> , sans composantes de sort, la Constitution étant sa caractéristique d'incantation (DD de sauvegarde 17).</p>
+    senses: Vision dans le noir 36 m, Perception passive 10
+    languages:
+    - comprend le commun plus deux autres langues
+    - mais ne parle pas

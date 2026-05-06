@@ -1,0 +1,131 @@
+id: aboleth
+source: monster_manual_2024
+type: aberration
+size: large
+alignment: lawful_evil
+challengeRating: 10.0
+armorClass: 17
+maxHitPoints: 150
+hitDice: 20d10+40
+abilities:
+  str:
+    value: 21
+    savingThrowProficiency: none
+  dex:
+    value: 9
+    savingThrowProficiency: proficient
+  con:
+    value: 15
+    savingThrowProficiency: proficient
+  int:
+    value: 18
+    savingThrowProficiency: proficient
+  wis:
+    value: 15
+    savingThrowProficiency: proficient
+  cha:
+    value: 18
+    savingThrowProficiency: none
+speeds:
+  walk: 10
+  fly: null
+  swim: 40
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: proficient
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: proficient
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Aboleth
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Amphibious</em>**. The aboleth can breathe air and water.</p>
+      <p><strong><em>Eldritch Restoration</em></strong>. If destroyed, the aboleth gains a new body in 5d10 days, reviving with all its Hit Points in the Far Realm or another location chosen by the DM.</p>
+      <p><strong><em>Legendary Resistance (3/Day, or 4/Day in Lair)</em></strong>. If the aboleth fails a saving throw, it can choose to succeed instead.</p>
+      <p><strong><em>Mucus Cloud</em></strong>. While underwater, the aboleth is surrounded by mucus. <em>Constitution Saving Throw</em> : DC 14, each creature in a 5-foot Emanation originating from the aboleth at the end of the aboleth's turn. <em>Failure</em> : The target is cursed. Until the curse ends, the target's skin becomes slimy, the target can breathe air and water, and it can't regain Hit Points unless it is underwater. While the cursed creature is outside a body of water, the creature takes 6 (1d12) Acid damage at the end of every 10 minutes unless moisture is applied to its skin before those minutes have passed.</p>
+      <p><strong><em>Probing Telepathy</em></strong>. If a creature the aboleth can see communicates telepathically with the aboleth, the aboleth learns the creature's greatest desires.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The aboleth makes two Tentacle attacks and uses either Consume Memories or Dominate Mind if available.</p>
+      <p><strong><em>Tentacle</em></strong>. <em>Melee Attack Roll</em> : +9, reach 15 ft. <em>Hit</em> : 12 (2d6 + 5) Bludgeoning damage. If the target is a Large or smaller creature, it has the Grappled condition (escape DC 14) from one of four tentacles.</p>
+      <p><strong><em>Consume Memories</em></strong>. <em>Intelligence Saving Throw</em> : DC 16, one creature within 30 feet that is Charmed or Grappled by the aboleth. <em>Failure</em> : 10 (3d6) Psychic damage. <em>Success</em> : Half damage. <em>Failure or Success</em> : The aboleth gains the target's memories if the target is a Humanoid and is reduced to 0 Hit Points by this action.</p>
+      <p><strong><em>Dominate Mind (2/Day)</em></strong>. <em>Wisdom Saving Throw</em> : DC 16, one creature the aboleth can see within 30 feet. <em>Failure</em> : The target has the Charmed condition until the aboleth dies or is on a different plane of existence from the target. While Charmed, the target acts as an ally to the aboleth and is under its control while within 60 feet of it. In addition, the aboleth and the target can communicate telepathically with each other over any distance. The target repeats the save whenever it takes damage as well as after every 24 hours it spends at least 1 mile away from the aboleth, ending the effect on itself on a success.</p>
+      <h2>Legendary actions</h2>
+      <p>Legendary Action Uses: 3 (4 in Lair). Immediately after another creature's turn, the aboleth can expend a use to take one of the following actions. The aboleth regains all expended uses at the start of each of its turns. </p>
+      <p><strong><em>Lash</em></strong>. The aboleth makes one Tentacle attack.</p>
+      <p><strong><em>Psychic Drain</em></strong>. If the aboleth has at least one creature Charmed or Grappled, it uses Consume Memories and regains 5 (1d10) Hit Points.</p>
+    senses: Darkvision 120 ft., Passive Perception 20
+    languages:
+    - Deep Speech; telepathy 120 ft.
+  fr:
+    name: Aboleth
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Amphibie</em>**. L'aboleth peut respirer sous l'eau comme à l'air libre.</p>
+      <p><strong><em>Nuage de mucus</em></strong>. Tant qu'il est sous l'eau, l'aboleth est entouré d'un mucus réactif. <em>JdS Constitution</em> : DD 14, chaque créature dans une Émanation de 1,50 m centrée sur l'aboleth, à la fin du tour de celui-ci. <em>Échec</em> : la cible est maudite. Jusqu'à la fin de la malédiction, la cible présente une peau visqueuse, elle peut respirer sous l'eau comme à l'air libre et ne peut récupérer de points de vie que si elle est sous l'eau. Quand la créature maudite n'est pas dans l'eau, elle subit 6 (1d12) dégâts d'acide à la fin de chaque période de 10 minutes, sauf si sa peau est humidifiée dans l'intervalle.</p>
+      <p><strong><em>Résistance légendaire (3/jour, ou 4/jour dans son antre)</em></strong>. Si l'aboleth rate un jet de sauvegarde, il peut décider de le réussir tout de même.</p>
+      <p><strong><em>Restauration occulte</em></strong>. S'il est détruit, l'aboleth acquiert un nouveau corps en 5d10 jours et revient à la vie avec tous ses pv dans le Royaume Lointain (ou en un autre lieu choisi par le MD).</p>
+      <p><strong><em>Télépathie inquisitrice</em></strong>. Si une créature communique par télépathie avec l'aboleth, ce dernier a conscience des désirs profonds de la créature.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. L'aboleth effectue deux attaques de Tentacule et recourt à Assimilation de mémoire ou Domination d'esprit si disponible.</p>
+      <p><strong><em>Tentacule</em></strong>. <em>Corps à corps</em> : +9, allonge 4,50 m. <em>Touché</em> : 12 (2d6 + 5) dégâts contondants. Si la cible est une créature de taille G ou inférieure, elle subit l'état Agrippé (évasion DD 14) par l'un des quatre tentacules.</p>
+      <p><strong><em>Assimilation de mémoire</em></strong>. <em>JdS Intelligence</em> : DD 16, une créature dans un rayon de 9 m Charmée ou Agrippée par l'aboleth. <em>Échec</em> : 10 (3d6) dégâts psychiques. <em>Réussite</em> : demi-dégâts. <em>Échec ou réussite</em> : L'aboleth acquiert les souvenirs de la cible si elle est Humanoïde et si cette action la fait tomber à 0 point de vie.</p>
+      <p><strong><em>Domination d'esprit (2/jour)</em></strong>. <em>JdS Sagesse</em> : DD 16, une créature que l'aboleth voit dans un rayon de 9 m. <em>Échec</em> : la cible subit l'état Charmé jusqu'à ce que l'aboleth meure ou soit sur un autre plan d'existence qu'elle. Ainsi Charmée, la cible se comporte en alliée de l'aboleth ; elle est directement sous son contrôle tant qu'elle reste dans un rayon de 18 m de lui. L'aboleth et la cible peuvent en outre communiquer télépathiquement l'un avec l'autre, quelle que soit la distance qui les sépare. La cible réitère le JdS chaque fois qu'elle subit des dégâts, ainsi qu'à la fin de toute période de 24 heures passée à plus de 1,5 km de l'aboleth, et met un terme à l'effet sur elle-même en cas de réussite.</p>
+      <h2>Actions Légendaires</h2>
+      <p>Utilisations d'action Légendaire : 3 (4 dans son antre). Aussitôt après le tour d'une autre créature, l'aboleth peut dépenser une utilisation pour entreprendre l'une des actions ci-après. L'aboleth récupère toutes ses utilisations dépensées au début de chacun de ses tours. </p>
+      <p><strong><em>Coup de tentacule</em></strong>. L'aboleth effectue une attaque de Tentacule.</p>
+      <p><strong><em>Succion psychique</em></strong>. Si l'aboleth maintient au moins une créature Charmée ou Agrippée, il recourt à Assimilation de mémoire et récupère 5 (1d10) points de vie.</p>
+    senses: Vision dans le noir 36 m, Perception passive 20
+    languages:
+    - profond ; télépathie 36 m

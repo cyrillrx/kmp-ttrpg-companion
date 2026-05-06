@@ -1,0 +1,109 @@
+id: guard-captain
+source: monster_manual_2024
+type: humanoid
+size: medium_or_small
+alignment: neutral
+challengeRating: 4.0
+armorClass: 18
+maxHitPoints: 75
+hitDice: 10d8+30
+abilities:
+  str:
+    value: 18
+    savingThrowProficiency: none
+  dex:
+    value: 14
+    savingThrowProficiency: none
+  con:
+    value: 16
+    savingThrowProficiency: none
+  int:
+    value: 12
+    savingThrowProficiency: none
+  wis:
+    value: 14
+    savingThrowProficiency: none
+  cha:
+    value: 13
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: proficient
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: proficient
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Guard Captain
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The guard makes two attacks, using Javelin or Longsword in any combination.</p>
+      <p><strong><em>Javelin</em></strong>. <em>Melee or Ranged Attack Roll</em> : +6, reach 5 ft. or range 30/120 ft. <em>Hit</em> : 14 (3d6 + 4) Piercing damage.</p>
+      <p><strong><em>Longsword</em></strong>. <em>Melee Attack Roll</em> : +6, reach 5 ft. <em>Hit</em> : 15 (2d10 + 4) Slashing damage.</p>
+    senses: Passive Perception 14
+    languages:
+    - Common
+  fr:
+    name: Garde, capitaine
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le garde effectue deux attaques, réparties à sa guise entre Épée longue et Javeline.</p>
+      <p><strong><em>Épée longue</em></strong>. <em>Corps à corps</em> : +6, allonge 1,50 m. <em>Touché</em> : 15 (2d10 + 4) dégâts tranchants.</p>
+      <p><strong><em>Javeline</em></strong>. <em>Corps à corps ou à distance</em> : +6, allonge 1,50 m ou portée 9/36 m. <em>Touché</em> : 14 (3d6 + 4) dégâts perforants.</p>
+    senses: Perception passive 14
+    languages:
+    - commun

@@ -1,0 +1,105 @@
+id: draft-horse
+source: monster_manual_2024
+type: beast
+size: large
+alignment: unaligned
+challengeRating: 0.25
+armorClass: 10
+maxHitPoints: 15
+hitDice: 2d10+4
+abilities:
+  str:
+    value: 18
+    savingThrowProficiency: none
+  dex:
+    value: 10
+    savingThrowProficiency: none
+  con:
+    value: 15
+    savingThrowProficiency: none
+  int:
+    value: 2
+    savingThrowProficiency: none
+  wis:
+    value: 11
+    savingThrowProficiency: none
+  cha:
+    value: 7
+    savingThrowProficiency: none
+speeds:
+  walk: 40
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Draft Horse
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Hooves</em>**. <em>Melee Attack Roll</em> : +6, reach 5 ft. <em>Hit</em> : 6 (1d4 + 4) Bludgeoning damage.</p>
+    senses: Passive Perception 10
+    languages:
+    - None
+  fr:
+    name: Cheval de trait
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Sabots</em>**. <em>Corps à corps</em> : +6, allonge 1,50 m. <em>Touché</em> : 6 (1d4 + 4) dégâts contondants.</p>
+    senses: Perception passive 10
+    languages:
+    - aucune

@@ -1,0 +1,127 @@
+id: archmage
+source: monster_manual_2024
+type: humanoid
+size: medium_or_small
+alignment: neutral
+challengeRating: 12.0
+armorClass: 17
+maxHitPoints: 170
+hitDice: 31d8+31
+abilities:
+  str:
+    value: 10
+    savingThrowProficiency: none
+  dex:
+    value: 14
+    savingThrowProficiency: none
+  con:
+    value: 12
+    savingThrowProficiency: none
+  int:
+    value: 20
+    savingThrowProficiency: proficient
+  wis:
+    value: 15
+    savingThrowProficiency: proficient
+  cha:
+    value: 16
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: proficient
+  athletics: none
+  deception: none
+  history: proficient
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: proficient
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: immune
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Archmage
+    subtype: Wizard
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Magic Resistance</em>**. The archmage has Advantage on saving throws against spells and other magical effects.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The archmage makes four Arcane Burst attacks.</p>
+      <p><strong><em>Arcane Burst</em></strong>. <em>Melee or Ranged Attack Roll</em> : +9, reach 5 ft. or range 150 ft. <em>Hit</em> : 27 (4d10 + 5) Force damage.</p>
+      <p><strong><em>Spellcasting</em></strong>. The archmage casts one of the following spells, using Intelligence as the spellcasting ability (spell save DC 17):</p>
+      <p>At will: <em><a href="https://www.aidedd.org/spell/detect-magic">Detect Magic</a>, <a href="https://www.aidedd.org/spell/detect-thoughts">Detect Thoughts</a>, <a href="https://www.aidedd.org/spell/disguise-self">Disguise Self</a>, <a href="https://www.aidedd.org/spell/invisibility">Invisibility</a>, <a href="https://www.aidedd.org/spell/light">Light</a>, <a href="https://www.aidedd.org/spell/mage-armor">Mage Armor</a></em> (included in AC), <em><a href="https://www.aidedd.org/spell/mage-hand">Mage Hand</a>, <a href="https://www.aidedd.org/spell/prestidigitation">Prestidigitation</a></em><br />
+      2/day each: <em><a href="https://www.aidedd.org/spell/fly">Fly</a>, <a href="https://www.aidedd.org/spell/lightning-bolt">Lightning Bolt</a></em> (level 7 version)<br />
+      1/day each: <em><a href="https://www.aidedd.org/spell/cone-of-cold">Cone of Cold</a></em> (level 9 version), <em><a href="https://www.aidedd.org/spell/mind-blank">Mind Blank</a></em> (cast before combat), <em><a href="https://www.aidedd.org/spell/scrying">Scrying</a>, <a href="https://www.aidedd.org/spell/teleport">Teleport</a></em>  </p>
+      <h2>Bonus actions</h2>
+      <p>** <em>Misty Step (3/Day)</em>**. The mage casts <em><a href="https://www.aidedd.org/spell/misty-step">Misty Step</a></em> , using the same spellcasting ability as Spellcasting.</p>
+      <h2>Reactions</h2>
+      <p>** <em>Protective Magic (3/Day)</em>**. The archmage casts <em><a href="https://www.aidedd.org/spell/counterspell">Counterspell</a></em> or <em><a href="https://www.aidedd.org/spell/shield">Shield</a></em> in response to the spell's trigger, using the same spellcasting ability as Spellcasting.</p>
+    senses: Passive Perception 16
+    languages:
+    - Common plus five other languages
+  fr:
+    name: Archimage
+    subtype: Magicien
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Résistance à la magie</em>**. L'archimage a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. L'archimage effectue quatre attaques de Jaillissement arcanique.</p>
+      <p><strong><em>Jaillissement arcanique</em></strong>. <em>Corps à corps ou à distance</em> : +9, allonge 1,50 m ou portée 45 m. <em>Touché</em> : 27 (4d10 + 5) dégâts de force.</p>
+      <p><strong><em>Incantation</em></strong>. L'archimage lance l'un des sorts suivants, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 17) :</p>
+      <p>À volonté : <em><a href="https://www.aidedd.org/spell/fr/armure-de-mage">armure de mage</a></em> (compris dans la CA), <em><a href="https://www.aidedd.org/spell/fr/deguisement">déguisement</a>, <a href="https://www.aidedd.org/spell/fr/detection-de-la-magie">détection de la magie</a>, <a href="https://www.aidedd.org/spell/fr/detection-des-pensees">détection des pensées</a>, <a href="https://www.aidedd.org/spell/fr/invisibilite">invisibilité</a>, <a href="https://www.aidedd.org/spell/fr/lumiere">lumière</a>, <a href="https://www.aidedd.org/spell/fr/main-de-mage">main de mage</a>, <a href="https://www.aidedd.org/spell/fr/prestidigitation">prestidigitation</a></em><br />
+      2/jour chacun : <em><a href="https://www.aidedd.org/spell/fr/eclair">éclair</a></em> (au niveau 7), <em><a href="https://www.aidedd.org/spell/fr/vol">vol</a></em><br />
+      1/jour chacun : <em><a href="https://www.aidedd.org/spell/fr/cone-de-froid">cône de froid</a></em> (au niveau 9), <em><a href="https://www.aidedd.org/spell/fr/esprit-impenetrable">esprit impénétrable</a></em> (lancé avant un combat), <em><a href="https://www.aidedd.org/spell/fr/scrutation">scrutation</a>, <a href="https://www.aidedd.org/spell/fr/teleportation">téléportation</a></em>  </p>
+      <h2>Actions Bonus</h2>
+      <p>** <em>Foulée brumeuse (3/jour)</em>**. Le mage lance <em><a href="https://www.aidedd.org/spell/fr/foulee-brumeuse">foulée brumeuse</a></em> , avec la même caractéristique d'incantation que pour Incantation.</p>
+      <h2>Réactions</h2>
+      <p>** <em>Magie protectrice (3/jour)</em>**. L'archimage lance <em><a href="https://www.aidedd.org/spell/fr/bouclier">bouclier</a></em> ou <em><a href="https://www.aidedd.org/spell/fr/contresort">contresort</a></em> en réponse au déclencheur du sort correspondant, avec la même caractéristique d'incantation que pour Incantation.</p>
+    senses: Perception passive 16
+    languages:
+    - commun plus cinq autres langues

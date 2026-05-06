@@ -1,0 +1,113 @@
+id: celestial-spirit
+source: monster_manual_2024
+type: celestial
+size: large
+alignment: neutral
+challengeRating: -1.0
+armorClass: 11
+maxHitPoints: 40
+hitDice: ''
+abilities:
+  str:
+    value: 16
+    savingThrowProficiency: none
+  dex:
+    value: 14
+    savingThrowProficiency: none
+  con:
+    value: 16
+    savingThrowProficiency: none
+  int:
+    value: 10
+    savingThrowProficiency: none
+  wis:
+    value: 14
+    savingThrowProficiency: none
+  cha:
+    value: 16
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: 40
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: resistant
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: true
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: true
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Celestial Spirit
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The spirit makes a number of attacks equal to half this spell's level (round down).</p>
+      <p><strong><em>Radiant Bow (Avenger Only)</em></strong>. <em>Ranged Attack Roll</em> : Bonus equals your spell attack modifier, range 600 ft. <em>Hit</em> : 2d6 + 2 + the spell's level Radiant damage.</p>
+      <p><strong><em>Radiant Mace (Defender Only)</em></strong>. <em>Melee Attack Roll</em> : Bonus equals your spell attack modifier, reach 5 ft. <em>Hit</em> : 1d10 + 3 + the spell's level Radiant damage, and the spirit can choose itself or another creature it can see within 10 feet of the target. The chosen creature gains 1d10 Temporary Hit Points.</p>
+      <p><strong><em>Healing Touch (1/Day)</em></strong>. The spirit touches another creature. The target regains Hit Points equal to 2d8 + the spell's level.</p>
+    senses: Darkvision 60 ft., Passive Perception 12
+    languages:
+    - Celestial
+    - understands the languages you know
+  fr:
+    name: Esprit céleste
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. L'esprit effectue un nombre d'attaques égal à la moitié du niveau de ce sort (arrondir à l'inférieur).</p>
+      <p><strong><em>Arc radiant (vengeur uniquement)</em></strong>. <em>À distance</em> : bonus égal à votre modificateur d'attaque des sorts, portée 180 m. <em>Touché</em> : 2d6 + 2 + le niveau du sort dégâts radiants.</p>
+      <p><strong><em>Masse d'armes radiante (protecteur uniquement)</em></strong>. <em>Corps à corps</em> : bonus égal à votre modificateur d'attaque des sorts, allonge 1,50 m. <em>Touché</em> : 1d10 + 3 + le niveau du sort dégâts radiants, et l'esprit peut choisir lui-même ou une autre créature qu'il peut voir dans un rayon de 3 m autour de la cible. La créature choisie gagne 1d10 points de vie temporaires.</p>
+      <p><strong><em>Contact guérisseur (1/jour)</em></strong>. L'esprit touche une autre créature. La cible récupère un nombre de points de vie égal à 2d8 + le niveau du sort.</p>
+    senses: Vision dans le noir 18 m, Perception passive 12
+    languages:
+    - céleste
+    - comprend les langues que vous connaissez

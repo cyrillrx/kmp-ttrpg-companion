@@ -1,0 +1,18 @@
+id: brooch-of-shielding
+source: dmg_2024
+type: wondrous_item
+rarity: uncommon
+attunement: true
+translations:
+  en:
+    name: Brooch of Shielding
+    subtype: null
+    description: <p>While wearing this brooch, you have Resistance to Force damage,
+      and you have Immunity to damage from the <em><a href="https://www.aidedd.org/spell/magic-missile">Magic
+      Missile</a></em> spell.</p>
+  fr:
+    name: Broche de défense
+    subtype: null
+    description: <p>Lorsque vous portez cette broche, vous bénéficiez d'une Résistance
+      aux dégâts de force et d'une Immunité aux dégâts du sort <em><a href="https://www.aidedd.org/spell/fr/projectile-magique">projectile
+      magique</a></em>.</p>

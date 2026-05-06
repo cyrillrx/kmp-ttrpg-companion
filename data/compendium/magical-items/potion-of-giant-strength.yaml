@@ -1,0 +1,34 @@
+id: potion-of-giant-strength
+source: dmg_2024
+type: potion
+rarity: varies
+attunement: false
+translations:
+  en:
+    name: Potion of Giant Strength
+    subtype: null
+    description: |-
+      <p>When you drink this potion, your Strength score changes for 1 hour. The type of giant determines the score (see the table below). The potion has no effect on you if your Strength is equal to or greater than that score.<br />
+      This potion's transparent liquid has floating in it a sliver of light resembling a giant's fingernail.<br />
+      Potion| Str.| Rarity<br />
+      ---|---|---<br />
+      Potion of Giant Strength (hill)| 21| Uncommon<br />
+      Potion of Giant Strength (frost) or<br />
+      Potion of Giant Strength (stone)| 23| Rare<br />
+      Potion of Giant Strength (fire)| 25| Rare<br />
+      Potion of Giant Strength (cloud)| 27| Very Rare<br />
+      Potion of Giant Strength (storm)| 29| Legendary</p>
+  fr:
+    name: Potion de force de géant
+    subtype: null
+    description: |-
+      <p>Lorsque vous buvez cette potion, votre valeur de Force change pendant 1 heure. Le type de géant détermine la valeur (voir la table ci-dessous). La potion n'a aucun effet sur vous si votre Force est égale ou supérieure à cette valeur.<br />
+      Le liquide transparent de cette potion contient un éclat de lumière ressemblant à l'ongle d'un géant.<br />
+      Potion| Force| Rareté<br />
+      ---|---|---<br />
+      Potion de force de géant (collines)| 21| Peu courante<br />
+      Potion de force de géant (givre) ou<br />
+      Potion de force de géant (pierres)| 23| Rare<br />
+      Potion de force de géant (feu)| 25| Rare<br />
+      Potion de force de géant (nuages)| 27| Très rare<br />
+      Potion de force de géant (tempêtes)| 29| Légendaire</p>

@@ -1,0 +1,18 @@
+id: ring-of-warmth
+source: dmg_2024
+type: ring
+rarity: uncommon
+attunement: true
+translations:
+  en:
+    name: Ring of Warmth
+    subtype: null
+    description: |-
+      <p>If you take Cold damage while wearing this ring, the ring reduces the damage you take by 2d8.<br />
+      In addition, while wearing this ring, you and everything you wear and carry are unharmed by temperatures of 0 degrees Fahrenheit or lower.</p>
+  fr:
+    name: Anneau de chaleur constante
+    subtype: null
+    description: |-
+      <p>Si vous subissez des dégâts de froid alors que vous portez cet anneau, celui-ci réduit les dégâts que vous subissez de 2d8.<br />
+      De plus, lorsque vous portez cet anneau, vous et tout ce que vous portez ne subissez aucun dommage à des températures inférieures ou égales à -18 °C.</p>

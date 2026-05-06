@@ -1,0 +1,115 @@
+id: centaur-trooper
+source: monster_manual_2024
+type: fey
+size: large
+alignment: neutral_good
+challengeRating: 2.0
+armorClass: 16
+maxHitPoints: 45
+hitDice: 6d10+12
+abilities:
+  str:
+    value: 18
+    savingThrowProficiency: none
+  dex:
+    value: 14
+    savingThrowProficiency: none
+  con:
+    value: 14
+    savingThrowProficiency: none
+  int:
+    value: 9
+    savingThrowProficiency: none
+  wis:
+    value: 13
+    savingThrowProficiency: none
+  cha:
+    value: 11
+    savingThrowProficiency: none
+speeds:
+  walk: 50
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: proficient
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: proficient
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Centaur Trooper
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The centaur makes two attacks, using Pike or Longbow in any combination.</p>
+      <p><strong><em>Pike</em></strong>. <em>Melee Attack Roll</em> : +6, reach 10 ft. <em>Hit</em> : 9 (1d10 + 4) Piercing damage.</p>
+      <p><strong><em>Longbow</em></strong>. <em>Ranged Attack Roll</em> : +4, range 150/600 ft. <em>Hit</em> : 6 (1d8 + 2) Piercing damage.</p>
+      <h2>Bonus actions</h2>
+      <p>** <em>Trampling Charge (Recharge 5–6)</em>**. The centaur moves up to its Speed without provoking Opportunity Attacks and can move through the spaces of Medium or smaller creatures. Each creature whose space the centaur enters is targeted once by the following effect. <em>Strength Saving Throw</em> : DC 14. <em>Failure</em> : 7 (1d6 + 4) Bludgeoning damage, and the target has the Prone condition.</p>
+    senses: Passive Perception 13
+    languages:
+    - Elvish
+    - Sylvan
+  fr:
+    name: Centaure, soldat
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le centaure effectue deux attaques, réparties à sa guise entre Pique et Arc long.</p>
+      <p><strong><em>Pique</em></strong>. <em>Corps à corps</em> : +6, allonge 3 m. <em>Touché</em> : 9 (1d10 + 4) dégâts perforants.</p>
+      <p><strong><em>Arc long</em></strong>. <em>À distance</em> : +4, portée 45/180 m. <em>Touché</em> : 6 (1d8 + 2) dégâts perforants.</p>
+      <h2>Actions Bonus</h2>
+      <p>** <em>Charge écrasante (recharge 5–6)</em>**. Le centaure se déplace dans les limites de sa Vitesse sans provoquer d'attaque d'Opportunité et peut traverser les espaces des créatures de taille M ou inférieure. Chaque créature dont l'espace est traversé par le centaure est la cible de l'effet suivant. <em>JdS Force</em> : DD 14. <em>Échec</em> : 7 (1d6 + 4) dégâts contondants, et la cible subit l'état À terre.</p>
+    senses: Perception passive 13
+    languages:
+    - elfe
+    - sylvestre

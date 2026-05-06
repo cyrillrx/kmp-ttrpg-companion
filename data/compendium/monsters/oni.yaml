@@ -1,0 +1,125 @@
+id: oni
+source: monster_manual_2024
+type: fiend
+size: large
+alignment: lawful_evil
+challengeRating: 7.0
+armorClass: 17
+maxHitPoints: 119
+hitDice: 14d10+42
+abilities:
+  str:
+    value: 19
+    savingThrowProficiency: none
+  dex:
+    value: 11
+    savingThrowProficiency: proficient
+  con:
+    value: 16
+    savingThrowProficiency: proficient
+  int:
+    value: 14
+    savingThrowProficiency: none
+  wis:
+    value: 12
+    savingThrowProficiency: proficient
+  cha:
+    value: 15
+    savingThrowProficiency: proficient
+speeds:
+  walk: 30
+  fly: 30
+  swim: null
+  climb: null
+  burrow: null
+  hover: true
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: proficient
+  athletics: none
+  deception: proficient
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: proficient
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: resistant
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Oni
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Regeneration</em>**. The oni regains 10 Hit Points at the start of each of its turns if it has at least 1 Hit Point.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The oni makes two Claw or Nightmare Ray attacks. It can replace one attack with a use of Spellcasting.</p>
+      <p><strong><em>Claw</em></strong>. <em>Melee Attack Roll</em> : +7, reach 10 ft. <em>Hit</em> : 10 (1d12 + 4) Slashing damage plus 9 (2d8) Necrotic damage.</p>
+      <p><strong><em>Nightmare Ray</em></strong>. <em>Ranged Attack Roll</em> : +5, range 60 ft. <em>Hit</em> : 9 (2d6 + 2) Psychic damage, and the target has the Frightened condition until the start of the oni's next turn.</p>
+      <p><strong><em>Shape-Shift</em></strong>. The oni shape-shifts into a Small or Medium Humanoid or a Large Giant, or it returns to its true form. Other than its size, its game statistics are the same in each form. Any equipment it is wearing or carrying isn't transformed.</p>
+      <p><strong><em>Spellcasting</em></strong>. The oni casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 13):</p>
+      <p>1/Day Each: <em><a href="https://www.aidedd.org/spell/charm-person">Charm Person</a></em> (level 2 version), <em><a href="https://www.aidedd.org/spell/darkness">Darkness</a>, <a href="https://www.aidedd.org/spell/gaseous-form">Gaseous Form</a>, <a href="https://www.aidedd.org/spell/sleep">Sleep</a></em>  </p>
+      <h2>Bonus actions</h2>
+      <p>** <em>Invisibility</em>**. The oni casts <em><a href="https://www.aidedd.org/spell/invisibility">Invisibility</a></em> on itself, requiring no spell components and using the same spellcasting ability as Spellcasting.</p>
+    senses: Darkvision 60 ft., Passive Perception 14
+    languages:
+    - Common
+    - Giant
+  fr:
+    name: Oni
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Régénération</em>**. L'oni récupère 10 points de vie au début de chacun de ses tours s'il lui reste au moins 1 point de vie.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. L'oni effectue deux attaques de Griffe ou de Rayon de cauchemar. Il peut remplacer l'une de ces attaques par une utilisation d'Incantation.</p>
+      <p><strong><em>Griffe</em></strong>. <em>Corps à corps</em> : +7, allonge 3 m. <em>Touché</em> : 10 (1d12 + 4) dégâts tranchants plus 9 (2d8) dégâts nécrotiques.</p>
+      <p><strong><em>Rayon de cauchemar</em></strong>. <em>À distance</em> : +5, portée 18 m. <em>Touché</em> : 9 (2d6 + 2) dégâts psychiques, et la cible subit l'état Effrayé jusqu'au début du tour suivant de l'oni.</p>
+      <p><strong><em>Changement d'aspect</em></strong>. L'oni se transforme en Humanoïde de taille P ou M, en Géant de taille G ou bien retrouve sa forme véritable. Hormis sa catégorie de taille, son profil reste le même, quelle que soit sa forme. Rien de ce qu'il porte n'est transformé.</p>
+      <p><strong><em>Incantation</em></strong>. L'oni lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 13) :</p>
+      <p>1/jour chacun : <em>charme-personne</em> (au niveau 2), <em>forme gazeuse, sommeil, ténèbres</em>  </p>
+      <h2>Actions Bonus</h2>
+      <p>** <em>Invisibilité</em>**. L'oni lance <em><a href="https://www.aidedd.org/spell/fr/invisibilite">invisibilité</a></em> sur lui-même, sans composantes de sort, avec la même caractéristique d'incantation que pour Incantation.</p>
+    senses: Vision dans le noir 18 m, Perception passive 14
+    languages:
+    - commun
+    - géant

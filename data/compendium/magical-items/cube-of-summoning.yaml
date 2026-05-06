@@ -1,0 +1,36 @@
+id: cube-of-summoning
+source: dmg_2024
+type: wondrous_item
+rarity: rare
+attunement: false
+translations:
+  en:
+    name: Cube of Summoning
+    subtype: null
+    description: |-
+      <p>This Tiny cube looks like a jack-in-the-box. When you wind its crank as a Magic action, a merry tune emits from the box, the lid pops open, a creature appears in the nearest unoccupied space, and the lid closes. The lid can't otherwise be opened.<br />
+      Roll on the fllowing table to determine which spell the cube casts to summon the creature. The spell is cast at level 5 (save DC 17, +9 attack bonus) and doesn’t require Concentration, but you otherwise function as the spell’s caster.<br />
+      Once the cube summons a creature, the cube can't do so again until the next dawn.<br />
+      1d6| Spell<br />
+      ---|---<br />
+      1|  <em><a href="https://www.aidedd.org/spell/summon-aberration">Summon Aberration</a></em><br />
+      2|  <em><a href="https://www.aidedd.org/spell/summon-beast">Summon Beast</a></em><br />
+      3|  <em><a href="https://www.aidedd.org/spell/summon-construct">Summon Construct</a></em><br />
+      4|  <em><a href="https://www.aidedd.org/spell/summon-dragon">Summon Dragon</a></em><br />
+      5|  <em><a href="https://www.aidedd.org/spell/summon-elemental">Summon Elemental</a></em><br />
+      6|  <em><a href="https://www.aidedd.org/spell/summon-fey">Summon Fey</a></em></p>
+  fr:
+    name: Cube de convocation
+    subtype: null
+    description: |-
+      <p>Ce cube de taille TP ressemble à une boîte à surprises. Lorsque vous remontez sa manivelle par une action Magie, une mélodie joyeuse s'échappe de la boîte, le couvercle s'ouvre, une créature apparaît dans l'espace libre le plus proche, puis le couvercle se referme. Il est impossible d'ouvrir le couvercle autrement.<br />
+      Lancez un dé sur la table ci-dessous pour déterminer le sort que le cube lance pour invoquer la créature. Le sort est lancé au niveau 5 (DD de sauvegarde 17, bonus d'attaque +9) et ne requiert pas de Concentration, mais à part cela vous êtes considéré comme le lanceur du sort.<br />
+      Une fois que le cube a invoqué une créature, il ne peut plus le refaire avant l'aube suivante.<br />
+      1d6| Sort<br />
+      ---|---<br />
+      1|  <em><a href="https://www.aidedd.org/spell/fr/convocation-d-aberration">convocation d'aberration</a></em><br />
+      2|  <em><a href="https://www.aidedd.org/spell/fr/convocation-de-bete">convocation de bête</a></em><br />
+      3|  <em><a href="https://www.aidedd.org/spell/fr/convocation-d-artificiel">convocation d'artificiel</a></em><br />
+      4|  <em><a href="https://www.aidedd.org/spell/fr/convocation-de-dragon">convocation de dragon</a></em><br />
+      5|  <em><a href="https://www.aidedd.org/spell/fr/convocation-d-elementaire">convocation d'élémentaire</a></em><br />
+      6|  <em><a href="https://www.aidedd.org/spell/fr/convocation-de-fee">convocation de fée</a></em></p>

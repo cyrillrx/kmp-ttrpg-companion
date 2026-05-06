@@ -1,0 +1,103 @@
+id: grimlock
+source: monster_manual_2024
+type: aberration
+size: medium
+alignment: neutral_evil
+challengeRating: 0.25
+armorClass: 11
+maxHitPoints: 11
+hitDice: 2d8+2
+abilities:
+  str:
+    value: 16
+    savingThrowProficiency: none
+  dex:
+    value: 12
+    savingThrowProficiency: none
+  con:
+    value: 12
+    savingThrowProficiency: none
+  int:
+    value: 9
+    savingThrowProficiency: none
+  wis:
+    value: 8
+    savingThrowProficiency: none
+  cha:
+    value: 6
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: null
+  swim: null
+  climb: 30
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: proficient
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: proficient
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: proficient
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Grimlock
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Bone Cudgel</em>**. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 6 (1d6 + 3) Bludgeoning damage plus 2 (1d4) Psychic damage.</p>
+    senses: Blindsight 30 ft., Passive Perception 13
+    languages: []
+  fr:
+    name: Torve
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Gourdin en os</em>**. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 6 (1d6 + 3) dégâts contondants plus 2 (1d4) dégâts psychiques.</p>
+    senses: Vision aveugle 9 m, Perception passive 13
+    languages: []

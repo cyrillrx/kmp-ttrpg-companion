@@ -1,0 +1,18 @@
+id: potion-of-pugilism
+source: dmg_2024
+type: potion
+rarity: uncommon
+attunement: false
+translations:
+  en:
+    name: Potion of Pugilism
+    subtype: null
+    description: |-
+      <p>After you drink this potion, each Unarmed Strike you make deals an extra 1d6 Force damage on a hit. This effect lasts 10 minutes.<br />
+      This potion is a thick green fluid that tastes like spinach.</p>
+  fr:
+    name: Potion des pugilistes
+    subtype: null
+    description: |-
+      <p>Après avoir bu cette potion, chaque Frappe à mains nues inflige 1d6 points de dégâts de force supplémentaires quand elle touche. Cet effet dure 10 minutes.<br />
+      Cette potion est un liquide vert épais au goût d'épinards.</p>

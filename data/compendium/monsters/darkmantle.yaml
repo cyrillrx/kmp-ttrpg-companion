@@ -1,0 +1,107 @@
+id: darkmantle
+source: monster_manual_2024
+type: aberration
+size: small
+alignment: unaligned
+challengeRating: 0.5
+armorClass: 11
+maxHitPoints: 22
+hitDice: 5d6+5
+abilities:
+  str:
+    value: 16
+    savingThrowProficiency: none
+  dex:
+    value: 12
+    savingThrowProficiency: none
+  con:
+    value: 13
+    savingThrowProficiency: none
+  int:
+    value: 2
+    savingThrowProficiency: none
+  wis:
+    value: 10
+    savingThrowProficiency: none
+  cha:
+    value: 5
+    savingThrowProficiency: none
+speeds:
+  walk: 10
+  fly: 30
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: proficient
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Darkmantle
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Crush</em>**. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 6 (1d6 + 3) Bludgeoning damage, and the darkmantle attaches to the target. If the target is a Medium or smaller creature and the darkmantle had Advantage on the attack roll, it covers the target, which has the Blinded condition and is suffocating while the darkmantle is attached in this way. While attached to a target, the darkmantle can attack only the target but has Advantage on its attack rolls. Its Speed becomes 0, it can't benefit from any bonus to its Speed, and it moves with the target. A creature can take an action to try to detach the darkmantle from itself, doing so with a successful DC 13 Strength (Athletics) check. On its turn, the darkmantle can detach itself by using 5 feet of movement.</p>
+      <p><strong><em>Darkness Aura (1/Day)</em></strong>. Magical Darkness fills a 15-foot Emanation originating from the darkmantle. This effect lasts while the darkmantle maintains Concentration on it, up to 10 minutes. Darkvision can't penetrate this area, and no light can illuminate it.</p>
+    senses: Blindsight 60 ft., Passive Perception 10
+    languages:
+    - None
+  fr:
+    name: Mante obscure
+    subtype: null
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Écrasement</em>**. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 6 (1d6 + 3) dégâts contondants, et la mante obscure se fixe à la cible. Si la cible est une créature de taille M ou inférieure et si la mante obscure avait un Avantage au jet d'attaque, elle recouvre la cible qui subit l'état Aveuglé et s'asphyxie tant que la mante obscure reste ainsi fixée à elle. Tant qu'elle est fixée à une cible, la mante obscure ne peut attaquer que cette cible mais elle a un Avantage à ses jets d'attaque contre elle. Sa Vitesse passe à 0, elle ne peut profiter d'aucun bonus de Vitesse et suit les déplacements de sa cible. Une créature peut entreprendre une action pour tenter de détacher la mante obscure fixée à elle, ce qui nécessite de réussir un jet de Force (Athlétisme) DD 13. À son tour, la mante obscure peut se détacher en y consacrant 1,50 m de déplacement.</p>
+      <p><strong><em>Aura de ténèbres (1/jour)</em></strong>. Des ténèbres magiques emplissent une Émanation de 4,50 m centrée sur la mante obscure. Cet effet persiste tant que la mante obscure maintient sa Concentration, à concurrence de 10 minutes. La Vision dans le noir échoue à percer cette zone, qu'aucune source de lumière ne parvient à éclairer.</p>
+    senses: Vision aveugle 18 m, Perception passive 10
+    languages:
+    - aucune

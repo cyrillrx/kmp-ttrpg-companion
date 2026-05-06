@@ -1,0 +1,18 @@
+id: gem-of-seeing
+source: dmg_2024
+type: wondrous_item
+rarity: rare
+attunement: true
+translations:
+  en:
+    name: Gem of Seeing
+    subtype: null
+    description: <p>This gem has 3 charges. As a Magic action, you can expend 1 charge.
+      For the next 10 minutes, you have Truesight out to 120 feet when you peer through
+      the gem.</p>
+  fr:
+    name: Gemme de vision
+    subtype: null
+    description: <p>Cette gemme possède 3 charges. Par une action Magie, vous pouvez
+      dépenser 1 charge. Pendant les 10 prochaines minutes, vous bénéficiez de Vision
+      véritable jusqu'à 36 mètres lorsque vous regardez à travers la gemme.</p>

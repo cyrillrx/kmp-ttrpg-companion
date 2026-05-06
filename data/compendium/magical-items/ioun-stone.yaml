@@ -1,0 +1,56 @@
+id: ioun-stone
+source: dmg_2024
+type: wondrous_item
+rarity: varies
+attunement: true
+translations:
+  en:
+    name: Ioun Stone
+    subtype: null
+    description: |-
+      <p>Roughly marble sized, <em>Ioun Stones</em> are named after Ioun, a god of knowledge and prophecy revered on some worlds. Many types of <em>Ioun Stones</em> exist, each type a distinct combination of shape and color.<br />
+      When you take a Magic action to toss an <em>Ioun Stone</em> into the air, the stone orbits your head at a distance of 1d3 feet, conferring its benefit to you while doing so. You can have up to three <em>Ioun Stones</em> orbiting your head at the same time.<br />
+      Each <em>Ioun Stone</em> orbiting your head is considered to be an object you are wearing. The orbiting stone avoids contact with other creatures and objects, adjusting its orbit to avoid collisions and thwarting all attempts by other creatures to attack or snatch it.<br />
+      As a Utilize action, you can seize and stow any number of <em>Ioun Stones</em> orbiting your head. If your Attunement to an <em>Ioun Stone</em> ends while it's orbiting your head, the stone falls as though you had dropped it.<br />
+      The type of stone determines its rarity and effects.<br />
+      <strong>Absorption (Very Rare)</strong>. While this pale lavender ellipsoid orbits your head, you can take a Reaction to cancel a spell of level 4 or lower cast by a creature you can see. A canceled spell has no effect, and any resources used to cast it are wasted. Once the stone has canceled 20 levels of spells, it burns out, turns dull gray, and loses its magic.<br />
+      <strong>Agility (Very Rare)</strong>. Your Dexterity increases by 2, to a maximum of 20, while this deep-red sphere orbits your head.<br />
+      <strong>Awareness (Rare)</strong>. While this dark-blue rhomboid orbits your head, you have Advantage on Initiative rolls and Wisdom (Perception) checks.<br />
+      <strong>Fortitude (Very Rare)</strong>. Your Constitution increases by 2, to a maximum of 20, while this pink rhomboid orbits your head.<br />
+      <strong>Greater Absorption (Legendary)</strong>. While this marbled lavender and green ellipsoid orbits your head, you can take a Reaction to cancel a spell of level 8 or lower cast by a creature you can see. A canceled spell has no effect, and any resources used to cast it are wasted. Once the stone has canceled 20 levels of spells, it burns out, turns dull gray, and loses its magic.<br />
+      <strong>Insight (Very Rare)</strong>. Your Wisdom increases by 2, to a maximum of 20, while this incandescent blue sphere orbits your head.<br />
+      <strong>Intellect (Very Rare)</strong>. Your Intelligence increases by 2, to a maximum of 20, while this marbled scarlet and blue sphere orbits your head.<br />
+      <strong>Leadership (Very Rare)</strong>. Your Charisma increases by 2, to a maximum of 20, while this marbled pink and green sphere orbits your head.<br />
+      <strong>Mastery (Legendary)</strong>. Your Proficiency Bonus increases by 1 while this pale green prism orbits your head.<br />
+      <strong>Protection (Rare)</strong>. You gain a +1 bonus to Armor Class while this dusty-rose prism orbits your head.<br />
+      <strong>Regeneration (Legendary)</strong>. You regain 15 Hit Points at the end of each hour this pearly white spindle orbits your head if you have at least 1 Hit Point.<br />
+      <strong>Reserve (Rare)</strong>. This vibrant purple prism stores spells cast into it, holding them until you use them. The stone can store up to 4 levels of spells at a time. When found, it contains 1d4 levels of stored spells chosen by the DM.<br />
+      Any creature can cast a spell of level 1 through 4 into the stone by touching it as the spell is cast. The spell has no effect, other than to be stored in the stone. If the stone can't hold the spell, the spell is expended without effect. The level of the slot used to cast the spell determines how much space it uses.<br />
+      While this stone orbits your head, you can cast any spell stored in it. The spell uses the slot level, spell save DC, spell attack bonus, and spellcasting ability of the original caster but is otherwise treated as if you cast the spell. The spell cast from the stone is no longer stored in it, freeing up space.<br />
+      <strong>Strength (Very Rare)</strong>. Your Strength increases by 2, to a maximum of 20, while this pale blue rhomboid orbits your head.<br />
+      <strong>Sustenance (Rare)</strong>. You don't need to eat or drink while this clear spindle orbits your head.</p>
+  fr:
+    name: Pierre de Ioun
+    subtype: null
+    description: |-
+      <p>De la taille d'une bille, les <em>pierres de Ioun</em> doivent leur nom à Ioun, dieu du savoir et des prophéties vénéré sur certains mondes. Il existe de nombreux types de <em>pierres de Ioun</em> , chacune combinant forme et couleur.<br />
+      Lorsque vous prenez une action Magie pour lancer une <em>pierre de Ioun</em> en l'air, elle tourne autour de votre tête à une distance de 1d3 x 30 cm, vous conférant ainsi ses bienfaits. Vous pouvez avoir jusqu'à trois <em>pierres de Ioun</em> en orbite autour de votre tête en même temps.<br />
+      Chaque <em>pierre de Ioun</em> en orbite autour de votre tête est considérée comme un objet que vous portez. La pierre en orbite évite tout contact avec les autres créatures et objets, ajustant son orbite pour éviter les collisions et contrecarrant toute tentative d'attaque ou de vol.<br />
+      Par une action Utilisation, vous pouvez saisir et ranger autant de <em>pierres de Ioun</em> en orbite autour de votre tête que vous le souhaitez. Si votre lien avec une <em>pierre de Ioun</em> prend fin alors qu'elle est en orbite autour de votre tête, la pierre tombe comme si vous l'aviez laissée tomber.<br />
+      Le type de pierre détermine sa rareté et ses effets.<br />
+      <strong>Absorption (très rare)</strong>. Lorsque cet ellipsoïde lavande pâle gravite autour de votre tête, vous pouvez prendre une Réaction pour annuler un sort de niveau 4 ou inférieur lancé par une créature que vous pouvez voir. Un sort annulé est sans effet et toutes les ressources utilisées pour le lancer sont gaspillées. Une fois que la pierre a annulé 20 niveaux de sorts, elle brûle, devient gris terne et perd sa magie.<br />
+      <strong>Agilité (très rare)</strong>. Votre Dextérité augmente de 2, jusqu'à un maximum de 20, tant que cette sphère rouge foncé gravite autour de votre tête.<br />
+      <strong>Vigilance (rare)</strong>. Lorsque ce losange bleu foncé gravite autour de votre tête, vous bénéficiez d'un Avantage aux jets d'Initiative et de Sagesse (Perception).<br />
+      <strong>Vigueur (très rare)</strong>. Votre Constitution augmente de 2, jusqu'à un maximum de 20, tant que ce losange rose gravite autour de votre tête.<br />
+      <strong>Absorption supérieure (légendaire)</strong>. Tant que cette ellipsoïde marbrée lavande et vert orbite autour de votre tête, vous pouvez prendre une Réaction pour annuler un sort de niveau 8 ou inférieur lancé par une créature que vous pouvez voir. Un sort annulé est sans effet et toutes les ressources utilisées pour le lancer sont gaspillées. Une fois que la pierre a annulé 20 niveaux de sorts, elle brûle, devient gris terne et perd sa magie.<br />
+      <strong>Intuition (très rare)</strong>. Votre Sagesse augmente de 2, jusqu'à un maximum de 20, tant que cette sphère bleue incandescente orbite autour de votre tête.<br />
+      <strong>Intellect (très rare)</strong>. Votre Intelligence augmente de 2, jusqu'à un maximum de 20, tant que cette sphère marbrée écarlate et bleue orbite autour de votre tête.<br />
+      <strong>Commandement (très rare)</strong>. Votre Charisme augmente de 2, jusqu'à un maximum de 20, tant que cette sphère marbrée rose et verte gravite autour de votre tête.<br />
+      <strong>Maîtrise (légendaire)</strong>. Votre Bonus de Maîtrise augmente de 1 tant que ce prisme vert pâle gravite autour de votre tête.<br />
+      <strong>Protection (rare)</strong>. Vous gagnez un bonus de +1 à la Classe d'Armure tant que ce prisme rose poudré gravite autour de votre tête.<br />
+      <strong>Régénération (légendaire)</strong>. Vous regagnez 15 points de vie à la fin de chaque heure si ce fuseau blanc nacré gravite autour de votre tête et si vous avez au moins 1 point de vie.<br />
+      <strong>Réserve (rare)</strong>. Ce prisme violet vif emmagasine les sorts lancés jusqu'à leur utilisation. La pierre peut stocker jusqu'à 4 niveaux de sorts à la fois. Quand on la trouve, elle contient 1d4 niveaux de sorts stockés, choisis par le MD.<br />
+      Toute créature peut lancer un sort de niveau 1 à 4 dans la pierre en la touchant au moment de l'incantation. Le sort n'a aucun effet, si ce n'est qu'il est stocké dans la pierre. Si la pierre ne peut pas contenir le sort, celui-ci est dépensé sans effet. Le niveau de l'emplacement utilisé pour lancer le sort détermine l'espace occupé.<br />
+      Tant que cette pierre est en orbite autour de votre tête, vous pouvez lancer n'importe quel sort qui y est stocké. Le sort utilise le niveau d'emplacement, le DD de sauvegarde contre les sorts, le bonus d'attaque de sorts et la caractéristique d'incantation du lanceur initial, mais est traité comme si vous l'aviez lancé. Le sort lancé depuis la pierre n'y est plus stocké, ce qui libère l'espace.<br />
+      <strong>Force (très rare)</strong>. Votre Force augmente de 2, jusqu'à un maximum de 20, tant que ce losange bleu pâle est en orbite autour de votre tête.<br />
+      <strong>Subsistance (rare)</strong>. Vous n'avez pas besoin de manger ni de boire tant que ce fuseau transparent est en orbite autour de votre tête.</p>

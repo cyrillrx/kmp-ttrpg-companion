@@ -1,0 +1,19 @@
+id: bead-of-refreshment
+source: dmg_2024
+type: wondrous_item
+rarity: common
+attunement: false
+translations:
+  en:
+    name: Bead of Refreshment
+    subtype: null
+    description: <p>This flavorless, gelatinous bead dissolves in liquid, transforming
+      up to a pint of the liquid into fresh, cold drinking water. The bead has no
+      effect on magical liquids or harmful substances such as poison.</p>
+  fr:
+    name: Perle désaltérante
+    subtype: null
+    description: <p>Cette perle gélatineuse sans saveur se dissout dans les liquides,
+      transformant jusqu'à un demi-litre de liquide en eau potable fraîche et froide.
+      Elle est sans effet sur les liquides magiques ou les substances nocives comme
+      le poison.</p>

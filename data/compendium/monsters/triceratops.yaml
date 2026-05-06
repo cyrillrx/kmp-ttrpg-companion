@@ -1,0 +1,107 @@
+id: triceratops
+source: monster_manual_2024
+type: beast
+size: huge
+alignment: unaligned
+challengeRating: 5.0
+armorClass: 14
+maxHitPoints: 114
+hitDice: 12d12+36
+abilities:
+  str:
+    value: 22
+    savingThrowProficiency: none
+  dex:
+    value: 9
+    savingThrowProficiency: none
+  con:
+    value: 17
+    savingThrowProficiency: none
+  int:
+    value: 2
+    savingThrowProficiency: none
+  wis:
+    value: 11
+    savingThrowProficiency: none
+  cha:
+    value: 5
+    savingThrowProficiency: none
+speeds:
+  walk: 50
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Triceratops
+    subtype: Dinosaur
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The triceratops makes two Gore attacks.</p>
+      <p><strong><em>Gore</em></strong>. <em>Melee Attack Roll</em> : +9, reach 5 ft. <em>Hit</em> : 19 (2d12 + 6) Piercing damage. If the target is Huge or smaller and the triceratops moved 20+ feet straight toward it immediately before the hit, the target takes an extra 9 (2d8) Piercing damage and has the Prone condition.</p>
+    senses: Passive Perception 10
+    languages:
+    - None
+  fr:
+    name: Tricératops
+    subtype: Dinosaure
+    description: |-
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le tricératops effectue deux attaques de Coup de corne.</p>
+      <p><strong><em>Coup de corne</em></strong>. <em>Corps à corps</em> : +9, allonge 1,50 m. <em>Touché</em> : 19 (2d12 + 6) dégâts perforants. Si la cible est une créature de taille TG ou inférieure et si le tricératops s'est déplacé en ligne droite d'un minimum de 6 m juste avant de la toucher, la cible subit 9 (2d8) dégâts perforants supplémentaires, ainsi que l'état À terre.</p>
+    senses: Perception passive 10
+    languages:
+    - aucune

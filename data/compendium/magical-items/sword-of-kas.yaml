@@ -1,0 +1,52 @@
+id: sword-of-kas
+source: dmg_2024
+type: weapon
+rarity: artifact
+attunement: true
+translations:
+  en:
+    name: Sword of Kas
+    subtype: Longsword
+    description: |-
+      <p>Kas was a powerful warrior who served Vecna and whose loyalty was rewarded with this sword. As Kas's power grew, so did his hubris. The sword urged Kas to destroy Vecna and usurp his throne. Legend says Vecna's destruction came at Kas's hand, but Vecna also wrought his rebellious lieutenant's doom, leaving only Kas's sword behind.<br />
+      <strong>Bloodthirst</strong>. The sword thirsts for blood. If the sword doesn't taste blood on its blade within 1 minute of being drawn from its scabbard, its wielder makes a DC 15 Charisma saving throw. On a successful save, the wielder takes 3d6 Psychic damage. On a failed save, the wielder is dominated by the sword, as if by the <em>Dominate Monster</em> spell, and the sword demands blood. The spell effect ends when the sword's demand is met.<br />
+      <strong>Magic Weapon</strong>. You gain a +3 bonus to attack rolls and damage rolls made with the sword, which scores a Critical Hit on a roll of 19 or 20 on the d20 and deals an extra 2d10 Slashing damage to Undead.<br />
+      <strong>Random Properties</strong>. The sword has the following random properties (see the <em>Dungeon Master's Guide</em>):<br />
+      • 1 minor beneficial property<br />
+      • 1 major beneficial property<br />
+      • 1 minor detrimental property<br />
+      • 1 major detrimental property<br />
+      <strong>Spells</strong>. While the sword is on your person, you can cast the following spells (save DC 18) from it:<br />
+      • <em>Call Lightning</em><br />
+      • <em>Divine Word</em><br />
+      • <em>Finger of Death</em><br />
+      Once you use the sword to cast a spell, you can't cast that spell again from it until the next dawn.<br />
+      <strong>Spirit of Kas</strong>. While the sword is on your person, you gain the following benefits:<br />
+      <strong>Battle Hunger</strong>. You add 1d10 to your Initiative rolls.<br />
+      <strong>Blade of Defense</strong>. When you take an action to attack with the sword, you can transfer some or all of its attack bonus to your Armor Class instead. The adjusted bonuses remain in effect until the start of your next turn.<br />
+      <strong>Necrotic Resistance</strong>. You have Resistance to Necrotic damage.<br />
+      <strong>Sentience</strong>. The <em>Sword of Kas</em> is a sentient Chaotic Evil weapon with an Intelligence of 15, a Wisdom of 13, and a Charisma of 16. It has hearing and Darkvision out to 120 feet.<br />
+      The weapon communicates telepathically with its wielder and speaks Common.<br />
+      <strong>Personality</strong>. The sword's purpose is to bring ruin to Vecna. Killing Vecna's worshipers, destroying the lich's works, and foiling his machinations all help to fulfill this goal.<br />
+      The <em>Sword of Kas</em> also seeks to destroy anyone corrupted by the Eye and Hand of Vecna.<br />
+      <strong>Destroying the Sword</strong>. A creature attuned to both the Eye of Vecna and the Hand of Vecna can use the Wish property of those combined Artifacts to unmake the <em>Sword of Kas</em> , provided the sword is within 30 feet of the spell's caster. Upon casting Wish, the creature makes a DC 18 Charisma saving throw. On a failed save, nothing happens, and the Wish spell is wasted. On a successful save, the <em>Sword of Kas</em> is destroyed.</p>
+  fr:
+    name: Épée de Kas
+    subtype: épée longue
+    description: |-
+      When Vecna grew in power, he appointed an evil and ruthless lieutenant, Kas the Bloody Handed, to act as his bodyguard and right hand. This despicable villain served as advisor, warlord, and assassin. His successes earned him Vecna's admiration and a reward: a sword with as dark a pedigree as the man who would wield it.
+      <br>For a long time, Kas faithfully served the lich but as Kas's power grew, so did his hubris. His sword urged him to supplant Vecna, so that they could rule the lich's empire in Vecna's stead. Legend says Vecna's destruction came at Kas's hand, but Vecna also wrought his rebellious lieutenant's doom, leaving only Kas's sword behind. The world was made brighter thereby.
+      <br>The <em>Sword of Kas</em> is a magic, sentient longsword that grants a +3 bonus to attack and damage rolls made with it. It scores a critical hit on a roll of 19 or 20, and deals an extra 2d10 slashing damage to undead.
+      <br>If the sword isn't bathed in blood within 1 minute of being drawn from its scabbard, its wielder must make a DC 15 Charisma saving throw. On a successful save, the wielder take 3d6 psychic damage. On a failed save, the wielder is dominated by the sword, as if by the <em>dominate monster</em> spell, and the sword demands that it be bathed in blood. The spell effect ends when the sword's demand is met.
+      <br><strong>Random Properties</strong>. The <em>Sword of Kas</em> has the following random properties:
+      <br>• 1 minor beneficial property
+      <br>• 1 major beneficial property
+      <br>• 1 minor detrimental property
+      <br>• 1 major detrimental property
+      <br><strong>Spirit of Kas</strong>. While the sword is on your person, you add a d10 to your initiative at the start of every combat. In addition, when you use an action to attack with the sword, you can transfer some or all of its attack bonus to your Armor Class instead. The adjusted bonuses remain effect until the start of your next turn.
+      <br><strong>Spells</strong>. While the sword is on your person, you can use an action to cast one of the following spells (save 18) from it: <em>call lightning, divine word</em>, or <em>finger of death</em>. Once you use the sword to cast a spell, you can't cast that spell again from it until the next dawn.
+      <br><strong>Sentience</strong>. The <em>Sword of Kas</em> is a sentient chaotic evil weapon with an Intelligence of 15, a Wisdom of 13, and a Charisma of 16. It has hearing and darkvision out to 2 range of 120 feet. The weapon communicates telepathically with its wielder and can speak, read, and understand Common.
+      <br><strong>Personality</strong>. The sword's purpose is to bring ruin to Vecna. Killing Vecna's worshipers, destroying the lich's works, and foiling his machinations all help to fulfill this goal.
+      <br>The <em>Sword of Kas</em> also seeks to destroy anyone corrupted by the Eye and Hand of Vecna. The sword's obsession with those artifacts eventually becomes a fixation for its wielder.
+      <br><strong>Destroying the Sword</strong>. A creature attuned to both the Eye of Vecna and the Hand of Vecna can use the wish property of those combined artifacts to unmake the <em>Sword of Kas</em>. The creature must cast the <em><a href="https://www.aidedd.org/dnd/sorts.php?vo=wish">wish</a></em> spell and make a Charisma check contested by the Charisma check of the sword. The sword must be within 30 feet of the creature, or the spell fails. If the sword wins the contest, nothing happens, and the <em><a href="https://www.aidedd.org/dnd/sorts.php?vo=wish">wish</a></em> spell is wasted. If the sword loses the contest, it is destroyed.
+      <br>

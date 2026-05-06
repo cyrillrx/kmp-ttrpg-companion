@@ -5,12 +5,12 @@ on:
     branches: [main]
     paths:
       - 'data/compendium/**/*.yaml'
-      - 'scripts/build_compendium.py'
+      - 'data/scripts/build_compendium.py'
   push:
     branches: [main]
     paths:
       - 'data/compendium/**/*.yaml'
-      - 'scripts/build_compendium.py'
+      - 'data/scripts/build_compendium.py'
   workflow_dispatch:
 
 jobs:
@@ -31,4 +31,4 @@ jobs:
         run: pip install pyyaml
 
       - name: Check compendium JSON is up to date
-        run: python scripts/build_compendium.py --check
+        run: python data/scripts/build_compendium.py --check

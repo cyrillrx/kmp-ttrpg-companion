@@ -1,0 +1,109 @@
+id: boar
+source: monster_manual_2024
+type: beast
+size: medium
+alignment: unaligned
+challengeRating: 0.25
+armorClass: 11
+maxHitPoints: 13
+hitDice: 2d8+4
+abilities:
+  str:
+    value: 13
+    savingThrowProficiency: none
+  dex:
+    value: 11
+    savingThrowProficiency: none
+  con:
+    value: 14
+    savingThrowProficiency: none
+  int:
+    value: 2
+    savingThrowProficiency: none
+  wis:
+    value: 9
+    savingThrowProficiency: none
+  cha:
+    value: 5
+    savingThrowProficiency: proficient
+speeds:
+  walk: 40
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Boar
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Bloodied Fury</em>**. While Bloodied, the boar has Advantage on attack rolls.</p>
+      <h2>Actions</h2>
+      <p>** <em>Gore</em>**. <em>Melee Attack Roll</em> : +3, reach 5 ft. <em>Hit</em> : 4 (1d6 + 1) Piercing damage. If the target is a Medium or smaller creature and the boar moved 20+ feet straight toward it immediately before the hit, the target takes an extra 3 (1d6) Piercing damage and has the Prone condition.</p>
+    senses: Passive Perception 9
+    languages:
+    - None
+  fr:
+    name: Sanglier
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Fureur du péril</em>**. Tant qu'il est En péril, le sanglier a un Avantage aux jets d'attaque.</p>
+      <h2>Actions</h2>
+      <p>** <em>Coup de défense</em>**. <em>Corps à corps</em> : +3, allonge 1,50 m. <em>Touché</em> : 4 (1d6 + 1) dégâts perforants. Si la cible est une créature de taille M ou inférieure et que le sanglier s'est déplacé d'au moins 6 m en ligne droite juste avant de toucher, la cible subit 3 (1d6) dégâts perforants supplémentaires et subit l'état À terre.</p>
+    senses: Perception passive 9
+    languages:
+    - aucune

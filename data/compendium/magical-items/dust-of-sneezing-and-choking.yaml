@@ -1,0 +1,20 @@
+id: dust-of-sneezing-and-choking
+source: dmg_2024
+type: wondrous_item
+rarity: uncommon
+attunement: false
+translations:
+  en:
+    name: Dust of Sneezing and Choking
+    subtype: null
+    description: |-
+      <p>Found in a small container, this powder resembles <em>Dust of Disappearance</em> , and <em><a href="https://www.aidedd.org/spell/identify">Identify</a></em> reveals it to be such. There is enough of it for one use.<br />
+      As a Utilize action, you can throw the dust into the air, forcing yourself and every creature in a 30-foot Emanation originating from you to make a DC 15 Constitution saving throw. Constructs, Elementals, Oozes, Plants, and Undead succeed on the save automatically.<br />
+      On a failed save, a creature begins sneezing uncontrollably; it has the Incapacitated condition and is suffocating. The creature repeats the save at the end of each of its turns, ending the effect on itself on a success. The effect also ends on any creature targeted by a <em><a href="https://www.aidedd.org/spell/lesser-restoration">Lesser Restoration</a></em> spell.</p>
+  fr:
+    name: Poudre à éternuer
+    subtype: null
+    description: |-
+      <p>Trouvée dans un petit récipient, cette poudre ressemble à de la <em>poussière de disparition</em> , et le sort <em><a href="https://www.aidedd.org/spell/fr/identification">identification</a></em> la perçoit comme telle. Il y en a suffisamment pour une utilisation.<br />
+      Par une action Utilisation, vous pouvez lancer la poussière en l'air, vous obligeant, ainsi que toutes les créatures dans une Émanation de 9 mètres centrée sur vous, à effectuer un jet de sauvegarde de Constitution DD 15. Les Artificiels, Élémentaires, Vases, Plantes et Morts-vivants réussissent automatiquement ce jet de sauvegarde.<br />
+      En cas d'échec, une créature se met à éternuer de manière incontrôlable ; elle subit l'état Incapable d'agir et suffoque. La créature refait le jet de sauvegarde à la fin de chacun de ses tours, mettant fin à l'effet sur elle-même en cas de réussite. L'effet prend également fin sur toute créature ciblée par un sort de <em><a href="https://www.aidedd.org/spell/fr/restauration-partielle">restauration partielle</a></em>.</p>

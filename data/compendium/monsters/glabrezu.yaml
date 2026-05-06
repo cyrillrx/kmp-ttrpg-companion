@@ -1,0 +1,121 @@
+id: glabrezu
+source: monster_manual_2024
+type: fiend
+size: large
+alignment: chaotic_evil
+challengeRating: 9.0
+armorClass: 17
+maxHitPoints: 189
+hitDice: 18d10+90
+abilities:
+  str:
+    value: 20
+    savingThrowProficiency: proficient
+  dex:
+    value: 15
+    savingThrowProficiency: none
+  con:
+    value: 21
+    savingThrowProficiency: proficient
+  int:
+    value: 19
+    savingThrowProficiency: none
+  wis:
+    value: 17
+    savingThrowProficiency: proficient
+  cha:
+    value: 16
+    savingThrowProficiency: proficient
+speeds:
+  walk: 40
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: proficient
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: proficient
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: resistant
+  fire: resistant
+  force: none
+  lightning: resistant
+  necrotic: none
+  piercing: none
+  poison: immune
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: true
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Glabrezu
+    subtype: Demon
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Demonic Restoration</em>**. If the glabrezu dies outside the Abyss, its body dissolves into ichor, and it gains a new body instantly, reviving with all its Hit Points somewhere in the Abyss.</p>
+      <p><strong><em>Magic Resistance</em></strong>. The glabrezu has Advantage on saving throws against spells and other magical effects.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The glabrezu makes two Pincer attacks and uses Pummel or Spellcasting.</p>
+      <p><strong><em>Pincer</em></strong>. <em>Melee Attack Roll</em> : +9, reach 10 ft. <em>Hit</em> : 16 (2d10 + 5) Slashing damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 15) from one of two pincers.</p>
+      <p><strong><em>Pummel</em></strong>. <em>Dexterity Saving Throw</em> : DC 17, one creature Grappled by the glabrezu. <em>Failure</em> : 15 (3d6 + 5) Bludgeoning damage. <em>Success</em> : Half damage.</p>
+      <p><strong><em>Spellcasting</em></strong>. The glabrezu casts one of the following spells, requiring no Material components and using Intelligence as the spellcasting ability (spell save DC 16):</p>
+      <p>At Will: <em><a href="https://www.aidedd.org/spell/darkness">Darkness</a>, <a href="https://www.aidedd.org/spell/detect-magic">Detect Magic</a>, <a href="https://www.aidedd.org/spell/dispel-magic">Dispel Magic</a></em><br />
+      1/Day Each: <em><a href="https://www.aidedd.org/spell/confusion">Confusion</a>, <a href="https://www.aidedd.org/spell/fly">Fly</a>, <a href="https://www.aidedd.org/spell/power-word-stun">Power Word Stun</a></em></p>
+    senses: Truesight 120 ft., Passive Perception 17
+    languages:
+    - Abyssal; telepathy 120 ft.
+  fr:
+    name: Glabrezu
+    subtype: Démon
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Résistance à la magie</em>**. Le glabrezu a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.</p>
+      <p><strong><em>Restauration démoniaque</em></strong>. Si le glabrezu meurt hors des Abysses, son corps se dissout en ichor et il en acquiert aussitôt un nouveau en revenant à la vie avec tous ses pv, quelque part dans les Abysses.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le glabrezu effectue deux attaques de Pince et recourt à Incantation ou Rincée.</p>
+      <p><strong><em>Pince</em></strong>. <em>Corps à corps</em> : +9, allonge 3 m. <em>Touché</em> : 16 (2d10 + 5) dégâts tranchants. Si la cible est une créature de taille M ou inférieure, elle subit l'état Agrippé (évasion DD 15) par l'une des deux pinces.</p>
+      <p><strong><em>Incantation</em></strong>. Le glabrezu lance l'un des sorts suivants sans composantes matérielles, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 16) :</p>
+      <p>À volonté : <em><a href="https://www.aidedd.org/spell/fr/detection-de-la-magie">détection de la magie</a>, <a href="https://www.aidedd.org/spell/fr/dissipation-de-la-magie">dissipation de la magie</a>, ténèbres</em><br />
+      1/jour chacun : <em>confusion, mot de pouvoir étourdissant, vol</em>  </p>
+      <p>** <em>Rincée</em>**. <em>JdS Dextérité</em> : DD 17, une créature Agrippée par le glabrezu. <em>Échec</em> : 15 (3d6 + 5) dégâts contondants. <em>Réussite</em> : demi-dégâts.</p>
+    senses: vision véritable 36 m, Perception passive 17
+    languages:
+    - abyssal ; télépathie 36 m

@@ -1,0 +1,15 @@
+id: ring-of-swimming
+source: dmg_2024
+type: ring
+rarity: uncommon
+attunement: false
+translations:
+  en:
+    name: Ring of Swimming
+    subtype: null
+    description: <p>You have a Swim Speed of 40 feet while wearing this ring.</p>
+  fr:
+    name: Anneau de nage
+    subtype: null
+    description: <p>Vous avez une Vitesse de nage de 12 mètres lorsque vous portez
+      cet anneau.</p>

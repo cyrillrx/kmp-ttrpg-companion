@@ -1,0 +1,113 @@
+id: carrion-crawler
+source: monster_manual_2024
+type: monstrosity
+size: large
+alignment: unaligned
+challengeRating: 2.0
+armorClass: 13
+maxHitPoints: 51
+hitDice: 6d10+18
+abilities:
+  str:
+    value: 14
+    savingThrowProficiency: none
+  dex:
+    value: 13
+    savingThrowProficiency: none
+  con:
+    value: 16
+    savingThrowProficiency: none
+  int:
+    value: 1
+    savingThrowProficiency: none
+  wis:
+    value: 12
+    savingThrowProficiency: none
+  cha:
+    value: 5
+    savingThrowProficiency: none
+speeds:
+  walk: 30
+  fly: null
+  swim: null
+  climb: 30
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: proficient
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Carrion Crawler
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Spider Climb</em>**. The carrion crawler can climb difficult surfaces, including along ceilings, without needing to make an ability check.</p>
+      <h2>Actions</h2>
+      <p>** <em>Multiattack</em>**. The carrion crawler uses Paralyzing Tentacles and makes one Bite attack.</p>
+      <p><strong><em>Bite</em></strong>. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 7 (2d4 + 2) Piercing damage plus 3 (1d6) Poison damage.</p>
+      <p><strong><em>Paralyzing Tentacles</em></strong>. <em>Constitution Saving Throw</em> : DC 12, one creature the carrion crawler can see within 10 feet. <em>Failure</em> : The target has the Poisoned condition and repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically. While Poisoned, the target has the Paralyzed condition.</p>
+    senses: Darkvision 60 ft., Passive Perception 15
+    languages:
+    - None
+  fr:
+    name: Charognard rampant
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Pattes d'araignée</em>**. Le charognard rampant peut parcourir les parois les plus difficiles à escalader, y compris les plafonds, sans passer par un jet de caractéristique.</p>
+      <h2>Actions</h2>
+      <p>** <em>Attaques multiples</em>**. Le charognard rampant recourt à Tentacules paralysants et effectue une attaque de Morsure.</p>
+      <p><strong><em>Morsure</em></strong>. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 7 (2d4 + 2) dégâts perforants plus 3 (1d6) dégâts de poison.</p>
+      <p><strong><em>Tentacules paralysants</em></strong>. <em>JdS Constitution</em> : DD 12, une créature que le charognard rampant voit dans un rayon de 3 m. <em>Échec</em> : la cible subit l'état Empoisonné et réitère le JdS à la fin de chacun de ses tours ; elle met un terme à l'effet sur elle-même en cas de réussite. Au bout de 1 minute, elle réussit automatiquement ce JdS. Tant qu'elle est ainsi Empoisonnée, la cible subit l'état Paralysé.</p>
+    senses: Vision dans le noir 18 m, Perception passive 15
+    languages:
+    - aucune

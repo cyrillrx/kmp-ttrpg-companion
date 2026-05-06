@@ -1,0 +1,113 @@
+id: myconid-adult
+source: monster_manual_2024
+type: plant
+size: medium
+alignment: lawful_neutral
+challengeRating: 0.5
+armorClass: 12
+maxHitPoints: 16
+hitDice: 3d8+3
+abilities:
+  str:
+    value: 10
+    savingThrowProficiency: none
+  dex:
+    value: 10
+    savingThrowProficiency: none
+  con:
+    value: 12
+    savingThrowProficiency: none
+  int:
+    value: 10
+    savingThrowProficiency: none
+  wis:
+    value: 13
+    savingThrowProficiency: none
+  cha:
+    value: 7
+    savingThrowProficiency: none
+speeds:
+  walk: 20
+  fly: null
+  swim: null
+  climb: null
+  burrow: null
+  hover: false
+skills:
+  acrobatics: none
+  animalHandling: none
+  arcana: none
+  athletics: none
+  deception: none
+  history: none
+  insight: none
+  intimidation: none
+  investigation: none
+  medicine: none
+  nature: none
+  perception: none
+  performance: none
+  persuasion: none
+  religion: none
+  sleightOfHand: none
+  stealth: none
+  survival: none
+damageAffinities:
+  acid: none
+  bludgeoning: none
+  cold: none
+  fire: none
+  force: none
+  lightning: none
+  necrotic: none
+  piercing: none
+  poison: none
+  psychic: none
+  radiant: none
+  slashing: none
+  thunder: none
+  bludgeoningNonMagical: none
+  piercingNonMagical: none
+  slashingNonMagical: none
+conditionImmunities:
+  charmed: false
+  deafened: false
+  grappled: false
+  incapacitated: false
+  paralyzed: false
+  restrained: false
+  unconscious: false
+  poisoned: false
+  petrified: false
+  frightened: false
+  blinded: false
+  prone: false
+  exhaustion: false
+  stunned: false
+translations:
+  en:
+    name: Myconid Adult
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Sun Sickness</em>**. While in sunlight, the myconid has Disadvantage on D20 Tests. The myconid dies if it spends more than 1 hour in sunlight.</p>
+      <h2>Actions</h2>
+      <p>** <em>Slam</em>**. <em>Melee Attack Roll</em> : +2, reach 5 ft. <em>Hit</em> : 4 (1d8) Bludgeoning damage plus 3 (1d6) Poison damage.</p>
+      <p><strong><em>Pacifying Spores (1/Day)</em></strong>. <em>Constitution Saving Throw</em> : DC 11, one creature the myconid can see within 10 feet. <em>Failure</em> : The target has the Stunned condition and repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically.</p>
+      <p><strong><em>Rapport Spores</em></strong>. The myconid expels spores in a 30-foot Emanation originating from itself. Creatures in that area with an Intelligence score of 2 or higher that aren't Constructs, Elementals, or Undead gain telepathy with a range of 30 feet for 1 hour.</p>
+    senses: Darkvision 120 ft., Passive Perception 11
+    languages:
+    - Telepathy 240 ft.
+  fr:
+    name: Myconide, adulte
+    subtype: null
+    description: |-
+      <h2>Traits</h2>
+      <p>** <em>Soleillite aiguë</em>**. Exposé au soleil, le myconide subit un Désavantage aux jets de d20. Il meurt s'il reste plus d'une heure au soleil.</p>
+      <h2>Actions</h2>
+      <p>** <em>Coup</em>**. <em>Corps à corps</em> : +2, allonge 1,50 m. <em>Touché</em> : 4 (1d8) dégâts contondants plus 3 (1d6) dégâts de poison.</p>
+      <p><strong><em>Spores pacificatrices (1/jour)</em></strong>. <em>JdS Constitution</em> : DD 11, une créature que le myconide peut voir dans un rayon de 3 m. <em>Échec</em> : la cible subit l'état Étourdi et doit refaire le jet à la fin de chacun de ses tours. En cas de réussite, l'effet prend fin. Après 1 minute, la réussite est automatique.</p>
+      <p><strong><em>Spores de communication</em></strong>. Le myconide expulse des spores sous forme d'une Émanation de 9 m de rayon centrée sur lui-même. Les créatures présentes dans cette zone qui possèdent une Intelligence de 2 ou plus, à l'exception des Artificiels, des Élémentaires et des Morts-vivants, acquièrent la télépathie sur 9 m pendant 1 heure.</p>
+    senses: Vision dans le noir 36 m, Perception passive 11
+    languages:
+    - télépathie 72 m

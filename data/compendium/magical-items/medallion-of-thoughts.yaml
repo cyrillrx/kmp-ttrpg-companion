@@ -1,0 +1,20 @@
+id: medallion-of-thoughts
+source: dmg_2024
+type: wondrous_item
+rarity: uncommon
+attunement: true
+translations:
+  en:
+    name: Medallion of Thoughts
+    subtype: null
+    description: <p>The medallion has 5 charges. While wearing it, you can expend
+      1 charge to cast <em><a href="https://www.aidedd.org/spell/detect-thoughts">Detect
+      Thoughts</a></em> (save DC 13) from it. The medallion regains 1d4 expended charges
+      daily at dawn.</p>
+  fr:
+    name: Médaillon des pensées
+    subtype: null
+    description: <p>Le médaillon possède 5 charges. Lorsque vous le portez, vous pouvez
+      dépenser 1 charge pour lancer <em><a href="https://www.aidedd.org/spell/fr/detection-des-pensees">détection
+      des pensées</a></em> (sauvegarde DD 13). Le médaillon récupère 1d4 charges dépensées
+      chaque jour à l'aube.</p>

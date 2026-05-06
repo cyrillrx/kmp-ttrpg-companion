@@ -1,0 +1,20 @@
+id: eyes-of-minute-seeing
+source: dmg_2024
+type: wondrous_item
+rarity: uncommon
+attunement: false
+translations:
+  en:
+    name: Eyes of Minute Seeing
+    subtype: null
+    description: <p>These crystal lenses fit over the eyes. While wearing them, your
+      vision improves significantly out to a range of 1 foot, granting you Darkvision
+      within that range and Advantage on Intelligence (Investigation) checks made
+      to examine something within that range.</p>
+  fr:
+    name: Lentilles de netteté
+    subtype: null
+    description: <p>Ces lentilles en cristal s'adaptent aux yeux. En les portant,
+      votre vision s'améliore considérablement jusqu'à 30 cm, vous permettant ainsi
+      de bénéficier de la Vision dans le noir et d'un Avantage aux jets d'Intelligence
+      (Investigation) effectués pour examiner un objet à cette distance.</p>

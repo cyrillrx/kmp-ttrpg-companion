@@ -1,0 +1,18 @@
+id: bowl-of-commanding-water-elementals
+source: dmg_2024
+type: wondrous_item
+rarity: rare
+attunement: false
+translations:
+  en:
+    name: Bowl of Commanding Water Elementals
+    subtype: null
+    description: |-
+      <p>While this bowl is filled with water and you are within 5 feet of it, you can take a Magic action to summon a <strong><a href="https://www.aidedd.org/monster/water-elemental">Water Elemental</a></strong>. The elemental appears in an unoccupied space as close to the bowl as possible, understands your languages, obeys your commands, and takes its turn immediately after you on your Initiative count. The elemental disappears after 1 hour, when it dies, or when you dismiss it as a Bonus Action. The bowl can't be used this way again until the next dawn.<br />
+      The bowl is about 1 foot in diameter and half as deep. It holds about 3 gallons.</p>
+  fr:
+    name: Jatte de contrôle des élémentaires de l'eau
+    subtype: null
+    description: |-
+      <p>Lorsque ce bol est rempli d'eau et que vous vous trouvez à 1,50 mètre ou moins de lui, vous pouvez prendre une action Magie pour invoquer un <strong><a href="https://www.aidedd.org/monster/fr/elementaire-de-l-eau">élémentaire de l'eau</a></strong>. L'élémentaire apparaît dans un espace libre aussi près que possible du bol, comprend vos langues, obéit à vos ordres et agit immédiatement après vous dans l'ordre d'initiative. L'élémentaire disparaît au bout d'une heure, lorsqu'il meurt ou lorsque vous le renvoyez par une action Bonus. Le bol ne peut plus être utilisé de cette façon avant l'aube suivante.<br />
+      Le bol mesure environ 30 cm de diamètre et est deux fois moins profond. Il contient environ 12 litres.</p>
