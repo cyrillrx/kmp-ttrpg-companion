@@ -18,36 +18,13 @@ translations:
     range: 60 feet
     duration: Concentration, up to 10 minutes
     materialDescription: null
-    description: 'You conjure a Large, intangible spirit from the Elemental Planes
-      that appears in an unoccupied space within range. Choose the spirit''s element,
-      which determines its damage type: air (Lightning), earth (Thunder), fire (Fire),
-      or water (Cold). The spirit lasts for the duration.<br/>Whenever a creature
-      you can see enters the spirit''s space or starts its turn within 5 feet of the
-      spirit, you can force that creature to make a Dexterity saving throw if the
-      spirit has no creature Restrained. On failed save, the target takes 8d8 damage
-      of the spirit''s type, and the target has the Restrained condition until the
-      spell ends. At the start of each of its turns, the Restrained target repeats
-      the save. On a failed save, the target takes 4d8 damage of the spirit''s type.
-      On a successful save, the target isn''t Restrained by the spirit.<br/><strong><em>Using
-      a Higher-Level Spell Slot</em></strong>. The damage increases by 1d8 for each
-      spell slot level above 5*.<br/>'
+    description: |-
+      You conjure a Large, intangible spirit from the Elemental Planes that appears in an unoccupied space within range. Choose the spirit's element, which determines its damage type: air (Lightning), earth (Thunder), fire (Fire), or water (Cold). The spirit lasts for the duration.<br/>Whenever a creature you can see enters the spirit's space or starts its turn within 5 feet of the spirit, you can force that creature to make a Dexterity saving throw if the spirit has no creature Restrained. On failed save, the target takes 8d8 damage of the spirit's type, and the target has the Restrained condition until the spell ends. At the start of each of its turns, the Restrained target repeats the save. On a failed save, the target takes 4d8 damage of the spirit's type. On a successful save, the target isn't Restrained by the spirit.<br/><strong><em>Using a Higher-Level Spell Slot</em></strong>. The damage increases by 1d8 for each spell slot level above 5*.<br/>
   fr:
     name: Invocation d'élémentaire
     castingTime: Action
     range: 18 m
     duration: Concentration, jusqu'à 10 minutes
     materialDescription: null
-    description: 'Vous invoquez un esprit intangible de taille G, issu des plans élémentaires,
-      qui apparaît dans un espace libre à portée. Choisissez l''élément de l''esprit,
-      qui détermine le type de dégâts : air (foudre), terre (tonnerre), feu (feu)
-      ou eau (froid). L''esprit persiste pendant toute la durée du sort.<br/>Chaque
-      fois qu''une créature que vous pouvez voir entre dans l''espace de l''esprit
-      ou commence son tour à 1,50 m ou moins de lui, vous pouvez la forcer à effectuer
-      un jet de sauvegarde de Dextérité si l''esprit n''a entravée aucune autre créature.
-      En cas d''échec, la cible subit 8d8 dégâts du type de l''esprit et subit aussi
-      l''état Entravée jusqu''à la fin du sort. Au début de chacun de ses tours, la
-      cible entravée refait son jet de sauvegarde. En cas d''échec, la cible subit
-      4d8 dégâts du type de l''esprit. En cas de réussite, la cible n''est plus entravée
-      par l''esprit.<br/><strong><em>Emplacement de niveau supérieur</em></strong>.
-      Les dégâts augmentent de 1d8 pour chaque niveau d''emplacement de sort supérieur
-      à 5.<br/>'
+    description: |-
+      Vous invoquez un esprit intangible de taille G, issu des plans élémentaires, qui apparaît dans un espace libre à portée. Choisissez l'élément de l'esprit, qui détermine le type de dégâts : air (foudre), terre (tonnerre), feu (feu) ou eau (froid). L'esprit persiste pendant toute la durée du sort.<br/>Chaque fois qu'une créature que vous pouvez voir entre dans l'espace de l'esprit ou commence son tour à 1,50 m ou moins de lui, vous pouvez la forcer à effectuer un jet de sauvegarde de Dextérité si l'esprit n'a entravée aucune autre créature. En cas d'échec, la cible subit 8d8 dégâts du type de l'esprit et subit aussi l'état Entravée jusqu'à la fin du sort. Au début de chacun de ses tours, la cible entravée refait son jet de sauvegarde. En cas d'échec, la cible subit 4d8 dégâts du type de l'esprit. En cas de réussite, la cible n'est plus entravée par l'esprit.<br/><strong><em>Emplacement de niveau supérieur</em></strong>. Les dégâts augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 5.<br/>

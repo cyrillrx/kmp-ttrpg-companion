@@ -20,42 +20,13 @@ translations:
     range: 10 feet
     duration: 1 round
     materialDescription: rare inks worth 50+ GP, which the spell consumes
-    description: As you cast the spell, you draw a 5-foot-radius circle on the ground
-      inscribed with sigils that link your location to a permanent teleportation circle
-      of your choice whose sigil sequence you know and that is on the same plane of
-      existence as you. A shimmering portal opens within the circle you drew and remains
-      open until the end of your next turn. Any creature that enters the portal instantly
-      appears within 5 feet of the destination circle or in the nearest unoccupied
-      space if that space is occupied.<br/>Many major temples, guildhalls, and other
-      important places have permanent teleportation circles. Each circle includes
-      a unique sigil sequence—a string of runes arranged in a particular pattern.<br/>When
-      you first gain the ability to cast this spell, you learn the sigil sequences
-      for two destinations on the Material Plane, determined by the DM. You might
-      learn additional sigil sequences during your adventures. You can commit a new
-      sigil sequence to memory after studying it for 1 minute.<br/>You can create
-      a permanent teleportation circle by casting this spell in the same location
-      every day for 365 days.<br/>
+    description: |-
+      As you cast the spell, you draw a 5-foot-radius circle on the ground inscribed with sigils that link your location to a permanent teleportation circle of your choice whose sigil sequence you know and that is on the same plane of existence as you. A shimmering portal opens within the circle you drew and remains open until the end of your next turn. Any creature that enters the portal instantly appears within 5 feet of the destination circle or in the nearest unoccupied space if that space is occupied.<br/>Many major temples, guildhalls, and other important places have permanent teleportation circles. Each circle includes a unique sigil sequence—a string of runes arranged in a particular pattern.<br/>When you first gain the ability to cast this spell, you learn the sigil sequences for two destinations on the Material Plane, determined by the DM. You might learn additional sigil sequences during your adventures. You can commit a new sigil sequence to memory after studying it for 1 minute.<br/>You can create a permanent teleportation circle by casting this spell in the same location every day for 365 days.<br/>
   fr:
     name: Cercle de téléportation
     castingTime: 1 minute
     range: 3 m
     duration: 1 round
-    materialDescription: encres rares d'une valeur minimale de 50 po, que le sort
-      consomme
-    description: 'En lançant le sort, vous dessinez au sol un cercle de 1,50 mètre
-      de rayon, gravé de sceaux qui relient votre position à un cercle de téléportation
-      permanent de votre choix, dont vous connaissez la séquence de sceaux et qui
-      se trouve sur le même plan d''existence que vous. Un portail scintillant s''ouvre
-      à l''intérieur du cercle dessiné et reste ouvert jusqu''à la fin de votre prochain
-      tour. Toute créature qui pénètre dans le portail apparaît instantanément 1,50
-      mètre ou moins du cercle de destination ou dans l''emplacement libre le plus
-      proche si cet emplacement est occupé.<br/>De nombreux temples, guilde et autres
-      lieux importants possèdent des cercles de téléportation permanents. Chaque cercle
-      comprend une séquence de sceaux unique : une suite de runes disposées selon
-      un motif particulier.<br/>Lorsque vous obtenez la capacité de lancer ce sort,
-      vous connaissez les séquences de sceaux de deux destinations sur le plan Matériel,
-      déterminées par le MD. Vous pourrez apprendre d''autres séquences de sceaux
-      au cours de vos aventures. Vous pouvez mémoriser une nouvelle séquence de sceaux
-      après l''avoir étudiée pendant 1 minute.<br/>Vous pouvez créer un cercle de
-      téléportation permanent en lançant ce sort au même endroit chaque jour pendant
-      365 jours.<br/>'
+    materialDescription: encres rares d'une valeur minimale de 50 po, que le sort consomme
+    description: |-
+      En lançant le sort, vous dessinez au sol un cercle de 1,50 mètre de rayon, gravé de sceaux qui relient votre position à un cercle de téléportation permanent de votre choix, dont vous connaissez la séquence de sceaux et qui se trouve sur le même plan d'existence que vous. Un portail scintillant s'ouvre à l'intérieur du cercle dessiné et reste ouvert jusqu'à la fin de votre prochain tour. Toute créature qui pénètre dans le portail apparaît instantanément 1,50 mètre ou moins du cercle de destination ou dans l'emplacement libre le plus proche si cet emplacement est occupé.<br/>De nombreux temples, guilde et autres lieux importants possèdent des cercles de téléportation permanents. Chaque cercle comprend une séquence de sceaux unique : une suite de runes disposées selon un motif particulier.<br/>Lorsque vous obtenez la capacité de lancer ce sort, vous connaissez les séquences de sceaux de deux destinations sur le plan Matériel, déterminées par le MD. Vous pourrez apprendre d'autres séquences de sceaux au cours de vos aventures. Vous pouvez mémoriser une nouvelle séquence de sceaux après l'avoir étudiée pendant 1 minute.<br/>Vous pouvez créer un cercle de téléportation permanent en lançant ce sort au même endroit chaque jour pendant 365 jours.<br/>

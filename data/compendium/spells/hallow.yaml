@@ -17,66 +17,13 @@ translations:
     range: Touch
     duration: Until dispelled
     materialDescription: incense worth 1,000+ GP, which the spell consumes
-    description: 'You touch a point and infuse an area around it with holy or unholy
-      power. The area can have a radius up to 60 feet, and the spell fails if the
-      radius includes an area already under the effect of <em>Hallow</em>. The affected
-      area has the following effects.<br/><em><strong>Hallowed Ward</strong></em>.
-      Choose any of these creature types: Aberration, Celestial, Elemental, Fey, Fiend,
-      or Undead. Creatures of the chosen types can''t willingly enter the area, and
-      any creature that is possessed by or that has the Charmed or Frightened condition
-      from such creatures isn''t possessed, Charmed, or Frightened by them while in
-      the area.<br/><em><strong>Extra Effect</strong></em>. You bind an extra effect
-      to the area from the list below:<br/>  <strong>Courage</strong>. Creatures of
-      any types you choose can''t gain the Frightened condition while in the area.<br/> 
-      <strong>Darkness</strong>. Darkness fills the area. Normal light, as well as
-      magical light created by spells of a level lower than this spell, can''t illuminate
-      the area.<br/>  <strong>Daylight</strong>. Bright light fills the area. Magical
-      Darkness created by spells of a level lower than this spell can''t extinguish
-      the light.<br/>  <strong>Peaceful Rest</strong>. Dead bodies interred in the
-      area can''t be turned into Undead.<br/>  <strong>Extradimensional Interference</strong>.
-      Creatures of any types you choose can''t enter or exit the area using teleportation
-      or interplanar travel.<br/>  <strong>Fear</strong>. Creatures of any types you
-      choose have the Frightened condition while in the area.<br/>  <strong>Resistance</strong>.
-      Creatures of any types you choose have Resistance to one damage type of your
-      choice while in the area.<br/>  <strong>Silence</strong>. No sound can emanate
-      from within the area, and no sound can reach into it.<br/>  <strong>Tongues</strong>.
-      Creatures of any types you choose can communicate with any other creature in
-      the area even if they don''t share a common language.<br/>  <strong>Vulnerability</strong>.
-      Creatures of any types you choose have Vulnerability to one damage type of your
-      choice while in the area.<br/>'
+    description: |-
+      You touch a point and infuse an area around it with holy or unholy power. The area can have a radius up to 60 feet, and the spell fails if the radius includes an area already under the effect of <em>Hallow</em>. The affected area has the following effects.<br/><em><strong>Hallowed Ward</strong></em>. Choose any of these creature types: Aberration, Celestial, Elemental, Fey, Fiend, or Undead. Creatures of the chosen types can't willingly enter the area, and any creature that is possessed by or that has the Charmed or Frightened condition from such creatures isn't possessed, Charmed, or Frightened by them while in the area.<br/><em><strong>Extra Effect</strong></em>. You bind an extra effect to the area from the list below:<br/>  <strong>Courage</strong>. Creatures of any types you choose can't gain the Frightened condition while in the area.<br/>  <strong>Darkness</strong>. Darkness fills the area. Normal light, as well as magical light created by spells of a level lower than this spell, can't illuminate the area.<br/>  <strong>Daylight</strong>. Bright light fills the area. Magical Darkness created by spells of a level lower than this spell can't extinguish the light.<br/>  <strong>Peaceful Rest</strong>. Dead bodies interred in the area can't be turned into Undead.<br/>  <strong>Extradimensional Interference</strong>. Creatures of any types you choose can't enter or exit the area using teleportation or interplanar travel.<br/>  <strong>Fear</strong>. Creatures of any types you choose have the Frightened condition while in the area.<br/>  <strong>Resistance</strong>. Creatures of any types you choose have Resistance to one damage type of your choice while in the area.<br/>  <strong>Silence</strong>. No sound can emanate from within the area, and no sound can reach into it.<br/>  <strong>Tongues</strong>. Creatures of any types you choose can communicate with any other creature in the area even if they don't share a common language.<br/>  <strong>Vulnerability</strong>. Creatures of any types you choose have Vulnerability to one damage type of your choice while in the area.<br/>
   fr:
     name: Sanctification
     castingTime: 24 heures
     range: Contact
     duration: Jusqu'à dissipation
     materialDescription: encens d'une valeur minimale de 1000 po, que le sort consomme
-    description: 'Vous touchez un point et imprégnez une zone environnante de puissance
-      sacrée ou impie. La zone peut avoir un rayon maximal de 18 mètres, et le sort
-      échoue si le rayon inclut une zone déjà sous l''effet de <em>sanctification</em>.
-      La zone affectée a les effets suivants :<br/><em><strong>Barrière sacrée</strong></em>.
-      Choisissez un ou plusieurs des types de créatures suivants : Aberration, Céleste,
-      Élémentaire, Fée, Fiélon ou Mort-vivant. Les créatures des types choisis ne
-      peuvent pas entrer volontairement dans la zone, et toute créature possédée par
-      ces créatures ou souffrant de l''état Charmé ou Effrayé par elles n''est ni
-      possédée, ni charmée, ni effrayée par celles-ci tant qu''elles se trouvent dans
-      la zone.<br/><em><strong>Effet supplémentaire</strong></em>. Vous liez un effet
-      supplémentaire à la zone parmi la liste ci-dessous :<br/>  <strong>Courage</strong>.
-      Les créatures des types choisis ne peuvent avoir l''état Effrayé tant qu''elles
-      se trouvent dans la zone.<br/>  <strong>Ténèbres</strong>. Les Ténèbres emplissent
-      la zone. La lumière normale, ainsi que la lumière magique créée par des sorts
-      d''un niveau inférieur à celui-ci, ne peuvent pas éclairer la zone.<br/>  <strong>Lumière
-      du jour</strong>. Une Lumière vive emplit la zone. Les Ténèbres magiques créées
-      par des sorts d''un niveau inférieur à celui-ci ne peuvent pas éteindre la lumière.<br/> 
-      <strong>Repos paisible</strong>. Les cadavres enterrés dans la zone ne peuvent
-      pas être transformés en morts-vivants.<br/>  <strong>Interférence extradimensionnelle</strong>.
-      Les créatures des types choisis ne peuvent entrer ou sortir de la zone par téléportation
-      ou voyage interplanaire.<br/>  <strong>Peur</strong>. Les créatures des types
-      choisis ont l''état Effrayé lorsqu''elles se trouvent dans la zone.<br/>  <strong>Résistance</strong>.
-      Les créatures des types choisis ont une Résistance à un type de dégâts de votre
-      choix lorsqu''elles se trouvent dans la zone.<br/>  <strong>Silence</strong>.
-      Aucun son ne peut émaner de la zone, et aucun son ne peut l''atteindre.<br/> 
-      <strong>Don des langues</strong>. Les créatures des types choisis peuvent communiquer
-      avec n''importe quelle autre créature dans la zone, même si elles ne partagent
-      pas la même langue.<br/>  <strong>Vulnérabilité</strong>. Les créatures des
-      types choisis ont une Vulnérabilité à un type de dégâts de votre choix lorsqu''elles
-      se trouvent dans la zone.<br/>'
+    description: |-
+      Vous touchez un point et imprégnez une zone environnante de puissance sacrée ou impie. La zone peut avoir un rayon maximal de 18 mètres, et le sort échoue si le rayon inclut une zone déjà sous l'effet de <em>sanctification</em>. La zone affectée a les effets suivants :<br/><em><strong>Barrière sacrée</strong></em>. Choisissez un ou plusieurs des types de créatures suivants : Aberration, Céleste, Élémentaire, Fée, Fiélon ou Mort-vivant. Les créatures des types choisis ne peuvent pas entrer volontairement dans la zone, et toute créature possédée par ces créatures ou souffrant de l'état Charmé ou Effrayé par elles n'est ni possédée, ni charmée, ni effrayée par celles-ci tant qu'elles se trouvent dans la zone.<br/><em><strong>Effet supplémentaire</strong></em>. Vous liez un effet supplémentaire à la zone parmi la liste ci-dessous :<br/>  <strong>Courage</strong>. Les créatures des types choisis ne peuvent avoir l'état Effrayé tant qu'elles se trouvent dans la zone.<br/>  <strong>Ténèbres</strong>. Les Ténèbres emplissent la zone. La lumière normale, ainsi que la lumière magique créée par des sorts d'un niveau inférieur à celui-ci, ne peuvent pas éclairer la zone.<br/>  <strong>Lumière du jour</strong>. Une Lumière vive emplit la zone. Les Ténèbres magiques créées par des sorts d'un niveau inférieur à celui-ci ne peuvent pas éteindre la lumière.<br/>  <strong>Repos paisible</strong>. Les cadavres enterrés dans la zone ne peuvent pas être transformés en morts-vivants.<br/>  <strong>Interférence extradimensionnelle</strong>. Les créatures des types choisis ne peuvent entrer ou sortir de la zone par téléportation ou voyage interplanaire.<br/>  <strong>Peur</strong>. Les créatures des types choisis ont l'état Effrayé lorsqu'elles se trouvent dans la zone.<br/>  <strong>Résistance</strong>. Les créatures des types choisis ont une Résistance à un type de dégâts de votre choix lorsqu'elles se trouvent dans la zone.<br/>  <strong>Silence</strong>. Aucun son ne peut émaner de la zone, et aucun son ne peut l'atteindre.<br/>  <strong>Don des langues</strong>. Les créatures des types choisis peuvent communiquer avec n'importe quelle autre créature dans la zone, même si elles ne partagent pas la même langue.<br/>  <strong>Vulnérabilité</strong>. Les créatures des types choisis ont une Vulnérabilité à un type de dégâts de votre choix lorsqu'elles se trouvent dans la zone.<br/>

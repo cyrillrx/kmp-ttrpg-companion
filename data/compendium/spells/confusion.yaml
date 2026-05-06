@@ -20,41 +20,13 @@ translations:
     range: 90 feet
     duration: Concentration, up to 1 minute
     materialDescription: three nut shells
-    description: 'Each creature in a 10-foot-radius Sphere centered on a point you
-      choose within range must succeed on a Wisdom saving throw, or that target can''t
-      take Bonus Actions or Reactions and must roll 1d10 at the start of each of its
-      turns to determine its behavior for that turn, consulting the table below.<br/><table><tr><th>1d10</th><th>Behavior
-      for the Turn</th></tr><tr><td class="center">1</td><td>The target doesn''t take
-      an action, and it uses all its movement to move. Roll 1d4 for the direction:
-      1, north; 2, east; 3, south; or 4, west.</td></tr><tr><td class="center">2–6</td><td>The
-      target doesn''t move or take actions.</td></tr><tr><td class="center">7–8</td><td>The
-      target doesn''t move, and it takes the Attack action to make one melee attack
-      against a random creature within reach. If none are within reach, the target
-      takes no action.</td></tr><tr><td class="center">9–10</td><td>The target chooses
-      its behavior.</td></tr></table><br/>At the end of each of its turns, an affected
-      target repeats the save, ending the spell on itself on a success.<br/><strong><em>Using
-      a Higher-Level Spell Slot</em></strong>. The Sphere''s radius increases by 5
-      feet for each spell slot level above 4.<br/>'
+    description: |-
+      Each creature in a 10-foot-radius Sphere centered on a point you choose within range must succeed on a Wisdom saving throw, or that target can't take Bonus Actions or Reactions and must roll 1d10 at the start of each of its turns to determine its behavior for that turn, consulting the table below.<br/><table><tr><th>1d10</th><th>Behavior for the Turn</th></tr><tr><td class="center">1</td><td>The target doesn't take an action, and it uses all its movement to move. Roll 1d4 for the direction: 1, north; 2, east; 3, south; or 4, west.</td></tr><tr><td class="center">2–6</td><td>The target doesn't move or take actions.</td></tr><tr><td class="center">7–8</td><td>The target doesn't move, and it takes the Attack action to make one melee attack against a random creature within reach. If none are within reach, the target takes no action.</td></tr><tr><td class="center">9–10</td><td>The target chooses its behavior.</td></tr></table><br/>At the end of each of its turns, an affected target repeats the save, ending the spell on itself on a success.<br/><strong><em>Using a Higher-Level Spell Slot</em></strong>. The Sphere's radius increases by 5 feet for each spell slot level above 4.<br/>
   fr:
     name: Confusion
     castingTime: Action
     range: 27 m
     duration: Concentration, jusqu'à 1 minute
     materialDescription: trois coquilles de noix
-    description: 'Chaque créature dans une Sphère de 3 mètres de rayon centrée sur
-      un point que vous choisissez à portée doit réussir un jet de sauvegarde de Sagesse,
-      sinon cette cible ne peut pas prendre d''actions Bonus ou de Réactions et doit
-      lancer 1d10 au début de chacun de ses tours pour déterminer son comportement
-      pour ce tour, en consultant la table ci-dessous.<br/><table><tr><th>1d10</th><th>Comportement
-      pour le tour</th></tr><tr><td class="center">1</td><td>La cible ne prend aucune
-      action et utilise tout son mouvement pour se déplacer. Lancez 1d4 pour la direction :
-      1=nord, 2=est, 3=sud ou 4=ouest.</td></tr><tr><td class="center">2–6</td><td>La
-      cible ne bouge pas et ne prend aucune action.</td></tr><tr><td class="center">7–8</td><td>La
-      cible ne bouge pas et prend l''action Attaque pour effectuer une attaque au
-      corps à corps contre une créature aléatoire à sa portée. Si aucune créature
-      n''est à sa portée, la cible ne prend aucune action.</td></tr><tr><td class="center">9–10</td><td>La
-      cible choisit son comportement.</td></tr></table><br/>À la fin de chacun de
-      ses tours, une cible affectée refait son jet de sauvegarde, mettant fin au sort
-      sur elle-même en cas de réussite.<br/><strong><em>Emplacement de niveau supérieur</em></strong>.
-      Le rayon de la Sphère augmente de 1,50 mètre pour chaque niveau d''emplacement
-      de sort supérieur à 4.<br/>'
+    description: |-
+      Chaque créature dans une Sphère de 3 mètres de rayon centrée sur un point que vous choisissez à portée doit réussir un jet de sauvegarde de Sagesse, sinon cette cible ne peut pas prendre d'actions Bonus ou de Réactions et doit lancer 1d10 au début de chacun de ses tours pour déterminer son comportement pour ce tour, en consultant la table ci-dessous.<br/><table><tr><th>1d10</th><th>Comportement pour le tour</th></tr><tr><td class="center">1</td><td>La cible ne prend aucune action et utilise tout son mouvement pour se déplacer. Lancez 1d4 pour la direction : 1=nord, 2=est, 3=sud ou 4=ouest.</td></tr><tr><td class="center">2–6</td><td>La cible ne bouge pas et ne prend aucune action.</td></tr><tr><td class="center">7–8</td><td>La cible ne bouge pas et prend l'action Attaque pour effectuer une attaque au corps à corps contre une créature aléatoire à sa portée. Si aucune créature n'est à sa portée, la cible ne prend aucune action.</td></tr><tr><td class="center">9–10</td><td>La cible choisit son comportement.</td></tr></table><br/>À la fin de chacun de ses tours, une cible affectée refait son jet de sauvegarde, mettant fin au sort sur elle-même en cas de réussite.<br/><strong><em>Emplacement de niveau supérieur</em></strong>. Le rayon de la Sphère augmente de 1,50 mètre pour chaque niveau d'emplacement de sort supérieur à 4.<br/>
