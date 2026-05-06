@@ -38,7 +38,7 @@ translations:
   fr:
     name: Sphère glacée d'Otiluke
     castingTime: Action
-    range: 45 m
+    range: 90 m
     duration: Instantanée
     materialDescription: une sphère miniature en cristal
     description: Un globe glacial jaillit de vous vers un point que vous choisissez

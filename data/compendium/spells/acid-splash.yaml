@@ -9,6 +9,7 @@ components:
   somatic: true
   material: false
 availableClasses:
+- bard
 - sorcerer
 - wizard
 translations:

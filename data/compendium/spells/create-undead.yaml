@@ -46,7 +46,7 @@ translations:
     castingTime: 1 minute
     range: 3 m
     duration: Instantanée
-    materialDescription: un onyx noir d'une valeur minimale de 15 po pour chaque cadavre
+    materialDescription: un onyx noir d'une valeur minimale de 150 po pour chaque cadavre
     description: Vous ne pouvez lancer ce sort que de nuit. Choisissez jusqu'à trois
       cadavres d'Humanoïdes de taille M ou P à portée. Chaque cadavre devient une
       <strong><a href="https://www.aidedd.org/monster/fr/goule">goule</a></strong>

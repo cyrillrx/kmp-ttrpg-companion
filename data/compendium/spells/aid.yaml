@@ -9,7 +9,6 @@ components:
   somatic: true
   material: true
 availableClasses:
-- bard
 - cleric
 - druid
 - paladin

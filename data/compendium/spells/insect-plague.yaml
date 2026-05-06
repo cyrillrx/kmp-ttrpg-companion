@@ -31,7 +31,7 @@ translations:
   fr:
     name: Fléau d'insectes
     castingTime: Action
-    range: 45 m
+    range: 90 m
     duration: Concentration, jusqu'à 10 minutes
     materialDescription: un criquet
     description: Des essaims de sauterelles remplissent une Sphère de 6 mètres de

@@ -41,7 +41,7 @@ translations:
   fr:
     name: Manoir somptueux de Mordenkainen
     castingTime: 1 minute
-    range: 45 m
+    range: 90 m
     duration: 24 heures
     materialDescription: une porte miniature d'une valeur minimale de 15 po
     description: Vous invoquez une porte chatoyante à portée, qui persiste pour toute

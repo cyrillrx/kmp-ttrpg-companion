@@ -9,9 +9,7 @@ components:
   somatic: false
   material: false
 availableClasses:
-- cleric
 - paladin
-- wizard
 translations:
   en:
     name: Circle of Power
