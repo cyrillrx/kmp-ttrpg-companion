@@ -8,7 +8,6 @@ translations:
     name: Enspelled Weapon
     subtype: Any Simple or Martial
     description: |
-      <p>Source: Dungeon Master's Guide</p>
       <p><em>Weapon (Any Simple or Martial), Rarity Varies (Requires Attunement)</em></p>
       <p>Bound into this weapon is a spell of level 8 or lower. The spell is determined when the weapon is created and must belong to the Conjuration, Divination, Evocation, Necromancy, or Transmutation school of magic. The weapon has 6 charges and regains 1d6 expended charges daily at dawn. While holding the weapon, you can expend 1 charge to cast its spell.</p>
       <p>The level of the spell bound into the weapon determines the spell’s saving throw DC and attack bonus, as well as the weapon’s rarity, as shown in the following table.</p>
@@ -78,7 +77,6 @@ translations:
     name: Arme-sortilège
     subtype: courante ou de guerre
     description: |
-      <p>Source : Manuel du Maître du Donjon</p>
       <p><em>Arme (courante ou de guerre), rareté variable (harmonisation requise)</em></p>
       <p>Un sort de niveau 8 ou inférieur est lié à cette arme. Le sort est déterminé lors de la création de l'arme et doit appartenir à l'école d'Invocation, de Divination, d'Évocation, de Nécromancie ou de Transmutation. L'arme possède 6 charges et récupère 1d6 charges dépensées chaque jour à l'aube. Lorsque vous tenez l'arme, vous pouvez dépenser 1 charge pour lancer son sort.</p>
       <p>Le niveau du sort lié à l'arme détermine le DD de sauvegarde et le bonus d'attaque du sort, ainsi que la rareté de l'arme, comme indiqué dans le tableau suivant.</p>
