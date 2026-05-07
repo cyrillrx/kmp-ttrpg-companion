@@ -7,14 +7,10 @@ translations:
   en:
     name: Trident of Fish Command
     subtype: Trident
-    description: This magic weapon has 3 charges, and it regains 1d3 expended charges
-      daily at dawn. While you carry it, you can expend 1 charge to cast *[Dominate
-      Beast](https://www.aidedd.org/spell/dominate-beast)* (save DC 15) from it on
-      a Beast that has a Swim Speed.
+    description: |-
+      This magic weapon has 3 charges, and it regains 1d3 expended charges daily at dawn. While you carry it, you can expend 1 charge to cast *[Dominate Beast](https://www.aidedd.org/spell/dominate-beast)* (save DC 15) from it on a Beast that has a Swim Speed.
   fr:
     name: Trident de domination aquatique
     subtype: trident
-    description: Cette arme magique possède 3 charges et récupère 1d3 charges dépensées
-      chaque jour à l'aube. Lorsque vous la portez, vous pouvez dépenser 1 charge
-      pour lancer *[domination de bête](https://www.aidedd.org/spell/fr/domination-de-bete)*
-      (sauvegarde DD 15) sur une Bête dotée d'une Vitesse de nage.
+    description: |-
+      Cette arme magique possède 3 charges et récupère 1d3 charges dépensées chaque jour à l'aube. Lorsque vous la portez, vous pouvez dépenser 1 charge pour lancer *[domination de bête](https://www.aidedd.org/spell/fr/domination-de-bete)* (sauvegarde DD 15) sur une Bête dotée d'une Vitesse de nage.

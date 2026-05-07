@@ -7,10 +7,10 @@ translations:
   en:
     name: Cloak of the Manta Ray
     subtype: null
-    description: While wearing this cloak, you can breathe underwater, and you have
-      a Swim Speed of 60 feet.
+    description: |-
+      While wearing this cloak, you can breathe underwater, and you have a Swim Speed of 60 feet.
   fr:
     name: Cape de la raie manta
     subtype: null
-    description: En portant cette cape, vous pouvez respirer sous l'eau et vous avez
-      une Vitesse de nage de 18 mètres.
+    description: |-
+      En portant cette cape, vous pouvez respirer sous l'eau et vous avez une Vitesse de nage de 18 mètres.

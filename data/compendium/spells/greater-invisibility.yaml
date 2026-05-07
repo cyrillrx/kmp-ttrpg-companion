@@ -19,13 +19,13 @@ translations:
     range: Touch
     duration: Concentration, up to 1 minute
     materialDescription: null
-    description: A creature you touch has the Invisible condition until the spell
-      ends.\
+    description: |-
+      A creature you touch has the Invisible condition until the spell ends.\
   fr:
     name: Invisibilité suprême
     castingTime: Action
     range: Contact
     duration: Concentration, jusqu'à 1 minute
     materialDescription: null
-    description: Une créature que vous touchez obtient l'état Invisible jusqu'à la
-      fin du sort.\
+    description: |-
+      Une créature que vous touchez obtient l'état Invisible jusqu'à la fin du sort.\

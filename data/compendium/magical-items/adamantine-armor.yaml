@@ -7,12 +7,10 @@ translations:
   en:
     name: Adamantine Armor
     subtype: Any Medium or Heavy, Except Hide Armor
-    description: This suit of armor is reinforced with adamantine, one of the hardest
-      substances in existence. While you're wearing it, any Critical Hit against you
-      becomes a normal hit.
+    description: |-
+      This suit of armor is reinforced with adamantine, one of the hardest substances in existence. While you're wearing it, any Critical Hit against you becomes a normal hit.
   fr:
     name: Armure en adamantium
     subtype: intermédiaire ou lourde, sauf armure de peaux
-    description: Cette armure est renforcée d'adamantium, l'une des substances les
-      plus résistantes qui soient. Lorsque vous la portez, tout Coup critique contre
-      vous devient un coup normal.
+    description: |-
+      Cette armure est renforcée d'adamantium, l'une des substances les plus résistantes qui soient. Lorsque vous la portez, tout Coup critique contre vous devient un coup normal.

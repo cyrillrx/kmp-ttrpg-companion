@@ -20,15 +20,13 @@ translations:
     range: 30 feet
     duration: 24 hours
     materialDescription: a short reed
-    description: This spell grants up to ten willing creatures of your choice within
-      range the ability to breathe underwater until the spell ends. Affected creatures
-      also retain their normal mode of respiration.\
+    description: |-
+      This spell grants up to ten willing creatures of your choice within range the ability to breathe underwater until the spell ends. Affected creatures also retain their normal mode of respiration.\
   fr:
     name: Respiration aquatique
     castingTime: Action ou Rituel
     range: 9 m
     duration: 24 heures
     materialDescription: un court roseau
-    description: Ce sort confère à un maximum de dix créatures consentantes de votre
-      choix à portée la capacité de respirer sous l'eau jusqu'à la fin du sort. Les
-      créatures affectées conservent également leur respiration normale.\
+    description: |-
+      Ce sort confère à un maximum de dix créatures consentantes de votre choix à portée la capacité de respirer sous l'eau jusqu'à la fin du sort. Les créatures affectées conservent également leur respiration normale.\

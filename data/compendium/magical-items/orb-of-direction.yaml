@@ -13,6 +13,5 @@ translations:
   fr:
     name: Orbe boussole
     subtype: null
-    description: En tenant cet orbe, vous pouvez prendre une action Magie pour déterminer
-      le nord magnétique. Rien ne se produit si l'orbe est utilisé dans un lieu dépourvu
-      de nord magnétique.
+    description: |-
+      En tenant cet orbe, vous pouvez prendre une action Magie pour déterminer le nord magnétique. Rien ne se produit si l'orbe est utilisé dans un lieu dépourvu de nord magnétique.

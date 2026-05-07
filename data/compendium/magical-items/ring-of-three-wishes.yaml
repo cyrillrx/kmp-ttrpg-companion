@@ -7,12 +7,10 @@ translations:
   en:
     name: Ring of Three Wishes
     subtype: null
-    description: While wearing this ring, you can expend 1 of its 3 charges to cast
-      *[Wish](https://www.aidedd.org/spell/wish)* from it. The ring becomes nonmagical
-      when you use the last charge.
+    description: |-
+      While wearing this ring, you can expend 1 of its 3 charges to cast *[Wish](https://www.aidedd.org/spell/wish)* from it. The ring becomes nonmagical when you use the last charge.
   fr:
     name: Anneau de triple souhait
     subtype: null
-    description: Lorsque vous portez cet anneau, vous pouvez dépenser une de ses trois
-      charges pour lancer *[souhait](https://www.aidedd.org/spell/fr/souhait)*. L'anneau
-      devient non magique lorsque vous utilisez la dernière charge.
+    description: |-
+      Lorsque vous portez cet anneau, vous pouvez dépenser une de ses trois charges pour lancer *[souhait](https://www.aidedd.org/spell/fr/souhait)*. L'anneau devient non magique lorsque vous utilisez la dernière charge.

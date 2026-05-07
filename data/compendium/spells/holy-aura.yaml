@@ -17,22 +17,13 @@ translations:
     range: Self
     duration: Concentration, up to 1 minute
     materialDescription: a reliquary worth 1,000+ GP
-    description: For the duration, you emit an aura in a 30-foot Emanation. While
-      in the aura, creatures of your choice have Advantage on all saving throws, and
-      other creatures have Disadvantage on attack rolls against them. In addition,
-      when a Fiend or an Undead hits an affected creature with a melee attack roll,
-      the attacker must succeed on a Constitution saving throw or have the Blinded
-      condition until the end of its next turn.\
+    description: |-
+      For the duration, you emit an aura in a 30-foot Emanation. While in the aura, creatures of your choice have Advantage on all saving throws, and other creatures have Disadvantage on attack rolls against them. In addition, when a Fiend or an Undead hits an affected creature with a melee attack roll, the attacker must succeed on a Constitution saving throw or have the Blinded condition until the end of its next turn.\
   fr:
     name: Aura sacrée
     castingTime: Action
     range: Personnelle
     duration: Concentration, jusqu'à 1 minute
     materialDescription: un reliquaire d'une valeur minimale de 1000 po
-    description: Pour toute la durée, vous émettez une aura sous forme d'une Émanation
-      de 9 m. Tant qu'elles sont dans l'aura, les créatures que vous choisissez ont
-      un Avantage aux jets de sauvegarde et les autres ont contre elle un Désavantage
-      aux jets d'attaque. De plus, lorsqu'un Fiélon ou un Mort-vivant touche une créature
-      affectée avec un jet d'attaque de corps à corps, l'assaillant doit réussir un
-      jet de sauvegarde de Constitution sous peine de subir l'état Aveuglé jusqu'à
-      la fin de son tour suivant.\
+    description: |-
+      Pour toute la durée, vous émettez une aura sous forme d'une Émanation de 9 m. Tant qu'elles sont dans l'aura, les créatures que vous choisissez ont un Avantage aux jets de sauvegarde et les autres ont contre elle un Désavantage aux jets d'attaque. De plus, lorsqu'un Fiélon ou un Mort-vivant touche une créature affectée avec un jet d'attaque de corps à corps, l'assaillant doit réussir un jet de sauvegarde de Constitution sous peine de subir l'état Aveuglé jusqu'à la fin de son tour suivant.\

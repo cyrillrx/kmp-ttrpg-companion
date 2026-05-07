@@ -7,10 +7,10 @@ translations:
   en:
     name: Gauntlets of Ogre Power
     subtype: null
-    description: Your Strength is 19 while you wear these gauntlets. They have no
-      effect on you if your Strength is 19 or higher without them.
+    description: |-
+      Your Strength is 19 while you wear these gauntlets. They have no effect on you if your Strength is 19 or higher without them.
   fr:
     name: Gantelets de puissance d'ogre
     subtype: null
-    description: Votre Force est de 19 lorsque vous portez ces gantelets. Ils n'ont
-      aucun effet sur vous si votre Force est de 19 ou plus sans cela.
+    description: |-
+      Votre Force est de 19 lorsque vous portez ces gantelets. Ils n'ont aucun effet sur vous si votre Force est de 19 ou plus sans cela.

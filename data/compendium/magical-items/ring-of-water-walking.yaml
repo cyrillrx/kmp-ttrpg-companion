@@ -7,10 +7,10 @@ translations:
   en:
     name: Ring of Water Walking
     subtype: null
-    description: While wearing this ring, you cast *[Water Walk](https://www.aidedd.org/spell/water-walk)*
-      from it, targeting only yourself.
+    description: |-
+      While wearing this ring, you cast *[Water Walk](https://www.aidedd.org/spell/water-walk)* from it, targeting only yourself.
   fr:
     name: Anneau de marche sur l'eau
     subtype: null
-    description: Lorsque vous portez cet anneau, vous lancez *[marche sur l'eau](https://www.aidedd.org/spell/fr/marche-sur-l-eau-marche-sur-l-onde)*
-      depuis celui-ci, en ciblant uniquement vous-même.
+    description: |-
+      Lorsque vous portez cet anneau, vous lancez *[marche sur l'eau](https://www.aidedd.org/spell/fr/marche-sur-l-eau-marche-sur-l-onde)* depuis celui-ci, en ciblant uniquement vous-même.

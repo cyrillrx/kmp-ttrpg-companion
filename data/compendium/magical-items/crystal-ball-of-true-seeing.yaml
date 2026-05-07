@@ -7,12 +7,10 @@ translations:
   en:
     name: Crystal Ball of True Seeing
     subtype: null
-    description: While touching this crystal orb, you can cast *[Scrying](https://www.aidedd.org/spell/scrying)*
-      (save DC 17) with it. In addition, you have Truesight with a range of 120 feet
-      centered on the spell's sensor.
+    description: |-
+      While touching this crystal orb, you can cast *[Scrying](https://www.aidedd.org/spell/scrying)* (save DC 17) with it. In addition, you have Truesight with a range of 120 feet centered on the spell's sensor.
   fr:
     name: Boule de cristal de vision suprême
     subtype: null
-    description: Lorsque vous touchez cet orbe de cristal, vous pouvez lancer *[scrutation](https://www.aidedd.org/spell/fr/scrutation)*
-      (sauvegarde DD 17) par son biais. De plus, vous disposez de Vision véritable
-      à 36 mètres centrée sur le capteur du sort.
+    description: |-
+      Lorsque vous touchez cet orbe de cristal, vous pouvez lancer *[scrutation](https://www.aidedd.org/spell/fr/scrutation)* (sauvegarde DD 17) par son biais. De plus, vous disposez de Vision véritable à 36 mètres centrée sur le capteur du sort.

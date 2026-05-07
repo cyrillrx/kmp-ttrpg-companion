@@ -7,13 +7,10 @@ translations:
   en:
     name: Potion of Invisibility
     subtype: null
-    description: This potion's container looks empty but feels as though it holds
-      liquid. When you drink the potion, you have the Invisible condition for 1 hour.
-      The effect ends early if you make an attack roll, deal damage, or cast a spell.
+    description: |-
+      This potion's container looks empty but feels as though it holds liquid. When you drink the potion, you have the Invisible condition for 1 hour. The effect ends early if you make an attack roll, deal damage, or cast a spell.
   fr:
     name: Potion d'invisibilité
     subtype: null
-    description: Le récipient de cette potion semble vide mais on dirait pourtant
-      qu'il contient du liquide. Lorsque vous buvez cette potion, vous obtenez l'état
-      Invisible pendant 1 heure. L'effet prend fin prématurément si vous effectuez
-      un jet d'attaque, infligez des dégâts ou lancez un sort.
+    description: |-
+      Le récipient de cette potion semble vide mais on dirait pourtant qu'il contient du liquide. Lorsque vous buvez cette potion, vous obtenez l'état Invisible pendant 1 heure. L'effet prend fin prématurément si vous effectuez un jet d'attaque, infligez des dégâts ou lancez un sort.

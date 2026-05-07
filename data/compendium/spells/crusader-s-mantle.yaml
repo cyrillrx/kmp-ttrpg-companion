@@ -17,16 +17,13 @@ translations:
     range: Self
     duration: Concentration, up to 1 minute
     materialDescription: null
-    description: You radiate a magical aura in a 30-foot Emanation. While in the aura,
-      you and your allies each deal an extra 1d4 Radiant damage when hitting with
-      a weapon or an Unarmed Strike.\
+    description: |-
+      You radiate a magical aura in a 30-foot Emanation. While in the aura, you and your allies each deal an extra 1d4 Radiant damage when hitting with a weapon or an Unarmed Strike.\
   fr:
     name: Aura du croisé
     castingTime: Action
     range: Personnelle
     duration: Concentration, jusqu'à 1 minute
     materialDescription: null
-    description: Une aura magique rayonne autour de vous sous forme d'Émanation de
-      9 mètres. Dans cette aura, vous et vos alliés infligez chacun 1d4 points de
-      dégâts radiants supplémentaires lorsque vous touchez avec une arme ou avec une
-      frappe à mains nues.\
+    description: |-
+      Une aura magique rayonne autour de vous sous forme d'Émanation de 9 mètres. Dans cette aura, vous et vos alliés infligez chacun 1d4 points de dégâts radiants supplémentaires lorsque vous touchez avec une arme ou avec une frappe à mains nues.\

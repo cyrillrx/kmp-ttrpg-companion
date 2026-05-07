@@ -20,13 +20,13 @@ translations:
     range: Self
     duration: Concentration, up to 1 minute
     materialDescription: null
-    description: Whenever a creature makes an attack roll against you before the spell
-      ends, the attacker subtracts 1d4 from the attack roll.\
+    description: |-
+      Whenever a creature makes an attack roll against you before the spell ends, the attacker subtracts 1d4 from the attack roll.\
   fr:
     name: Voile défensif
     castingTime: Action
     range: Personnelle
     duration: Concentration, jusqu'à 1 minute
     materialDescription: null
-    description: Chaque fois qu'une créature vous attaque avant la fin du sort, l'attaquant
-      soustrait 1d4 à son jet d'attaque.\
+    description: |-
+      Chaque fois qu'une créature vous attaque avant la fin du sort, l'attaquant soustrait 1d4 à son jet d'attaque.\

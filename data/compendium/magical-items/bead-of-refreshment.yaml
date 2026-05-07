@@ -7,13 +7,10 @@ translations:
   en:
     name: Bead of Refreshment
     subtype: null
-    description: This flavorless, gelatinous bead dissolves in liquid, transforming
-      up to a pint of the liquid into fresh, cold drinking water. The bead has no
-      effect on magical liquids or harmful substances such as poison.
+    description: |-
+      This flavorless, gelatinous bead dissolves in liquid, transforming up to a pint of the liquid into fresh, cold drinking water. The bead has no effect on magical liquids or harmful substances such as poison.
   fr:
     name: Perle désaltérante
     subtype: null
-    description: Cette perle gélatineuse sans saveur se dissout dans les liquides,
-      transformant jusqu'à un demi-litre de liquide en eau potable fraîche et froide.
-      Elle est sans effet sur les liquides magiques ou les substances nocives comme
-      le poison.
+    description: |-
+      Cette perle gélatineuse sans saveur se dissout dans les liquides, transformant jusqu'à un demi-litre de liquide en eau potable fraîche et froide. Elle est sans effet sur les liquides magiques ou les substances nocives comme le poison.

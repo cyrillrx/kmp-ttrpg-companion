@@ -29,12 +29,5 @@ translations:
     range: 36 m
     duration: Instantanée
     materialDescription: null
-    description: Vous faites jaillir de l'énergie psychique en un point à portée.
-      Chaque créature dans une Sphère de 6 mètres de rayon centrée sur ce point effectue
-      un jet de sauvegarde d'Intelligence, subissant 8d6 dégâts psychiques en cas
-      d'échec, ou seulement la moitié des dégâts en cas de réussite. En cas d'échec,
-      la cible est également perturbée pendant 1 minute. Pendant ce temps, elle soustrait
-      1d6 à tous ses jets d'attaque et de caractéristique, ainsi qu'à ses jets de
-      sauvegarde de Constitution pour maintenir sa Concentration. La cible effectue
-      un jet de sauvegarde d'Intelligence à la fin de chacun de ses tours, mettant
-      fin à l'effet en cas de réussite.\
+    description: |-
+      Vous faites jaillir de l'énergie psychique en un point à portée. Chaque créature dans une Sphère de 6 mètres de rayon centrée sur ce point effectue un jet de sauvegarde d'Intelligence, subissant 8d6 dégâts psychiques en cas d'échec, ou seulement la moitié des dégâts en cas de réussite. En cas d'échec, la cible est également perturbée pendant 1 minute. Pendant ce temps, elle soustrait 1d6 à tous ses jets d'attaque et de caractéristique, ainsi qu'à ses jets de sauvegarde de Constitution pour maintenir sa Concentration. La cible effectue un jet de sauvegarde d'Intelligence à la fin de chacun de ses tours, mettant fin à l'effet en cas de réussite.\

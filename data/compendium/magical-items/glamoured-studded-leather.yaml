@@ -7,18 +7,10 @@ translations:
   en:
     name: Glamoured Studded Leather
     subtype: Studded Leather Armor
-    description: While wearing this armor, you gain a +1 bonus to Armor Class. You
-      can also take a Bonus Action to cause the armor to assume the appearance of
-      a normal set of clothing or some other kind of armor. You decide what it looks
-      like—including color, style, and accessories—but the armor retains its normal
-      bulk and weight. The illusory appearance lasts until you use this property again
-      or doff the armor.
+    description: |-
+      While wearing this armor, you gain a +1 bonus to Armor Class. You can also take a Bonus Action to cause the armor to assume the appearance of a normal set of clothing or some other kind of armor. You decide what it looks like—including color, style, and accessories—but the armor retains its normal bulk and weight. The illusory appearance lasts until you use this property again or doff the armor.
   fr:
     name: Armure de cuir clouté enchantée
     subtype: cuir clouté
-    description: Lorsque vous portez cette armure, vous gagnez un bonus de +1 à la
-      CA. Vous pouvez également prendre une action Bonus pour lui donner l'apparence
-      d'un ensemble de vêtements normal ou d'une autre armure. Vous choisissez son
-      apparence (couleur, style et accessoires), mais l'armure conserve son volume
-      et son poids habituels. L'apparence illusoire persiste jusqu'à ce que vous utilisiez
-      à nouveau cette propriété ou que vous retiriez l'armure.
+    description: |-
+      Lorsque vous portez cette armure, vous gagnez un bonus de +1 à la CA. Vous pouvez également prendre une action Bonus pour lui donner l'apparence d'un ensemble de vêtements normal ou d'une autre armure. Vous choisissez son apparence (couleur, style et accessoires), mais l'armure conserve son volume et son poids habituels. L'apparence illusoire persiste jusqu'à ce que vous utilisiez à nouveau cette propriété ou que vous retiriez l'armure.

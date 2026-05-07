@@ -7,10 +7,10 @@ translations:
   en:
     name: Boots of False Tracks
     subtype: null
-    description: While wearing these boots, you can have them leave tracks like those
-      of any kind of Humanoid of your size.
+    description: |-
+      While wearing these boots, you can have them leave tracks like those of any kind of Humanoid of your size.
   fr:
     name: Bottes aux empreintes factices
     subtype: null
-    description: En portant ces bottes, vous pouvez laisser des traces semblables
-      à celles de n'importe quel humanoïde de votre taille.
+    description: |-
+      En portant ces bottes, vous pouvez laisser des traces semblables à celles de n'importe quel humanoïde de votre taille.

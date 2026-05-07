@@ -17,20 +17,13 @@ translations:
     range: Touch
     duration: Until dispelled
     materialDescription: gold dust worth 25+ GP, which the spell consumes
-    description: You touch a closed door, window, gate, container, or hatch and magically
-      lock it for the duration. This lock can't be unlocked by any nonmagical means.
-      You and any creatures you designate when you cast the spell can open and close
-      the object despite the lock. You can also set a password that, when spoken within
-      5 feet of the object, unlocks it for 1 minute.\
+    description: |-
+      You touch a closed door, window, gate, container, or hatch and magically lock it for the duration. This lock can't be unlocked by any nonmagical means. You and any creatures you designate when you cast the spell can open and close the object despite the lock. You can also set a password that, when spoken within 5 feet of the object, unlocks it for 1 minute.\
   fr:
     name: Verrou arcanique
     castingTime: Action
     range: Contact
     duration: Jusqu'à dissipation
     materialDescription: poudre d'or d'une valeur minimale de 25 po, que le sort consomme
-    description: Vous touchez une porte, une fenêtre, un portail, un conteneur ou
-      une trappe fermée et la verrouillez magiquement pour la durée du sort. Ce verrou
-      ne peut être déverrouillé par aucun moyen non magique. Vous et les créatures
-      que vous désignez lors du lancement du sort pouvez ouvrir et fermer l'objet
-      malgré le verrou. Vous pouvez également définir un mot de passe qui, prononcé
-      à 1,50 mètre ou moins de l'objet, le déverrouille pendant 1 minute.\
+    description: |-
+      Vous touchez une porte, une fenêtre, un portail, un conteneur ou une trappe fermée et la verrouillez magiquement pour la durée du sort. Ce verrou ne peut être déverrouillé par aucun moyen non magique. Vous et les créatures que vous désignez lors du lancement du sort pouvez ouvrir et fermer l'objet malgré le verrou. Vous pouvez également définir un mot de passe qui, prononcé à 1,50 mètre ou moins de l'objet, le déverrouille pendant 1 minute.\

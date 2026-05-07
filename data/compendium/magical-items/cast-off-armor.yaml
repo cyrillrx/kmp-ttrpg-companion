@@ -7,8 +7,10 @@ translations:
   en:
     name: Cast-Off Armor
     subtype: Any Light, Medium, or Heavy
-    description: You can doff this armor as a Magic action.
+    description: |-
+      You can doff this armor as a Magic action.
   fr:
     name: Armure rapide
     subtype: légère, intermédiaire ou lourde
-    description: Vous pouvez retirer cette armure par une action Magie.
+    description: |-
+      Vous pouvez retirer cette armure par une action Magie.

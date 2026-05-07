@@ -18,13 +18,13 @@ translations:
     range: 60 feet
     duration: Concentration, up to 10 minutes
     materialDescription: a prayer scroll
-    description: A shimmering field surrounds a creature of your choice within range,
-      granting it a +2 bonus to AC for the duration.\
+    description: |-
+      A shimmering field surrounds a creature of your choice within range, granting it a +2 bonus to AC for the duration.\
   fr:
     name: Bouclier de la foi
     castingTime: Action bonus
     range: 18 m
     duration: Concentration, jusqu'à 10 minutes
     materialDescription: un parchemin de prière
-    description: Un champ scintillant entoure une créature de votre choix à portée,
-      lui accordant un bonus de +2 à la CA pendant la durée du sort.\
+    description: |-
+      Un champ scintillant entoure une créature de votre choix à portée, lui accordant un bonus de +2 à la CA pendant la durée du sort.\

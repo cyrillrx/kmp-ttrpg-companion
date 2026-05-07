@@ -7,23 +7,10 @@ translations:
   en:
     name: Robe of Scintillating Colors
     subtype: null
-    description: This robe has 3 charges, and it regains 1d3 expended charges daily
-      at dawn. While you wear it, you can take a Magic action and expend 1 charge
-      to cause the garment to display a shifting pattern of dazzling hues until the
-      end of your next turn. During this time, the robe sheds Bright Light in a 30-foot
-      radius and Dim Light for an additional 30 feet, and creatures that can see you
-      have Disadvantage on attack rolls against you. Any creature in the Bright Light
-      that can see you when the robe's power is activated must succeed on a DC 15
-      Wisdom saving throw or have the Stunned condition until the effect ends.
+    description: |-
+      This robe has 3 charges, and it regains 1d3 expended charges daily at dawn. While you wear it, you can take a Magic action and expend 1 charge to cause the garment to display a shifting pattern of dazzling hues until the end of your next turn. During this time, the robe sheds Bright Light in a 30-foot radius and Dim Light for an additional 30 feet, and creatures that can see you have Disadvantage on attack rolls against you. Any creature in the Bright Light that can see you when the robe's power is activated must succeed on a DC 15 Wisdom saving throw or have the Stunned condition until the effect ends.
   fr:
     name: Robe prismatique
     subtype: null
-    description: Cette robe possède 3 charges et récupère 1d3 charges dépensées chaque
-      jour à l'aube. Si vous la portez, vous pouvez prendre une action Magie et dépenser
-      1 charge pour que le vêtement affiche un motif changeant de teintes éclatantes
-      jusqu'à la fin de votre prochain tour. Pendant ce temps, la robe diffuse une
-      Lumière vive dans un rayon de 9 mètres et une Lumière faible sur 9 mètres supplémentaires.
-      Les créatures qui vous voient ont un Désavantage aux jets d'attaque contre vous.
-      Toute créature dans la Lumière vive qui vous voit lorsque le pouvoir de la robe
-      est activé doit réussir un jet de sauvegarde de Sagesse DD 15 ou subir l'état
-      Étourdi jusqu'à la fin de l'effet.
+    description: |-
+      Cette robe possède 3 charges et récupère 1d3 charges dépensées chaque jour à l'aube. Si vous la portez, vous pouvez prendre une action Magie et dépenser 1 charge pour que le vêtement affiche un motif changeant de teintes éclatantes jusqu'à la fin de votre prochain tour. Pendant ce temps, la robe diffuse une Lumière vive dans un rayon de 9 mètres et une Lumière faible sur 9 mètres supplémentaires. Les créatures qui vous voient ont un Désavantage aux jets d'attaque contre vous. Toute créature dans la Lumière vive qui vous voit lorsque le pouvoir de la robe est activé doit réussir un jet de sauvegarde de Sagesse DD 15 ou subir l'état Étourdi jusqu'à la fin de l'effet.

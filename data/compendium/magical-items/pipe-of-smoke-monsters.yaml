@@ -7,15 +7,10 @@ translations:
   en:
     name: Pipe of Smoke Monsters
     subtype: null
-    description: While smoking this pipe, you can take a Magic action to exhale a
-      puff of smoke that takes the form of a creature, such as a dragon, a flumph,
-      or a slaad. The form must be small enough to fit in a 1-foot cube and loses
-      its shape after a few seconds, becoming an ordinary puff of smoke.
+    description: |-
+      While smoking this pipe, you can take a Magic action to exhale a puff of smoke that takes the form of a creature, such as a dragon, a flumph, or a slaad. The form must be small enough to fit in a 1-foot cube and loses its shape after a few seconds, becoming an ordinary puff of smoke.
   fr:
     name: Pipe des monstres de fumée
     subtype: null
-    description: Lorsque vous fumez cette pipe, vous pouvez prendre une action Magie
-      pour exhaler une bouffée de fumée prenant la forme d'une créature, comme un
-      dragon, un flumph ou un slaad. Cette forme doit être suffisamment petite pour
-      tenir dans un cube de 30 cm de côté et se dissipe au bout de quelques secondes,
-      redevenant une simple bouffée de fumée.
+    description: |-
+      Lorsque vous fumez cette pipe, vous pouvez prendre une action Magie pour exhaler une bouffée de fumée prenant la forme d'une créature, comme un dragon, un flumph ou un slaad. Cette forme doit être suffisamment petite pour tenir dans un cube de 30 cm de côté et se dissipe au bout de quelques secondes, redevenant une simple bouffée de fumée.

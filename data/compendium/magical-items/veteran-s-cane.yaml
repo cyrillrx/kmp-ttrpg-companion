@@ -7,12 +7,10 @@ translations:
   en:
     name: Veteran's Cane
     subtype: null
-    description: As a Bonus Action, you can transform this walking cane into an ordinary
-      Longsword or change the Longsword back into a walking cane. In either case,
-      you must be holding the item.
+    description: |-
+      As a Bonus Action, you can transform this walking cane into an ordinary Longsword or change the Longsword back into a walking cane. In either case, you must be holding the item.
   fr:
     name: Canne du vétéran
     subtype: null
-    description: Par une action Bonus, vous pouvez transformer cette canne en une
-      épée longue ordinaire ou retransformer l'épée longue en canne. Dans les deux
-      cas, vous devez tenir l'objet.
+    description: |-
+      Par une action Bonus, vous pouvez transformer cette canne en une épée longue ordinaire ou retransformer l'épée longue en canne. Dans les deux cas, vous devez tenir l'objet.

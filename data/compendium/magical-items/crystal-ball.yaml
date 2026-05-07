@@ -7,10 +7,10 @@ translations:
   en:
     name: Crystal Ball
     subtype: null
-    description: While touching this crystal orb, you can cast *[Scrying](https://www.aidedd.org/spell/scrying)*
-      (save DC 17) with it.
+    description: |-
+      While touching this crystal orb, you can cast *[Scrying](https://www.aidedd.org/spell/scrying)* (save DC 17) with it.
   fr:
     name: Boule de cristal
     subtype: null
-    description: En touchant cet orbe de cristal, vous pouvez lancer *[scrutation](https://www.aidedd.org/spell/fr/scrutation)*
-      (sauvegarde DD 17) par son biais.
+    description: |-
+      En touchant cet orbe de cristal, vous pouvez lancer *[scrutation](https://www.aidedd.org/spell/fr/scrutation)* (sauvegarde DD 17) par son biais.

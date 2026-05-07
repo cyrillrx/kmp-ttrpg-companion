@@ -28,10 +28,5 @@ translations:
     range: 45 m
     duration: Concentration, jusqu'à 1 minute
     materialDescription: un parapluie miniature
-    description: Jusqu'à la fin du sort, de la neige tombe dans un Cylindre de 12
-      mètres de haut et 6 mètres de rayon centré sur un point que vous choisissez
-      à portée. La zone a une Visibilité nulle et les flammes exposées sont éteintes.
-      Le sol du Cylindre est un Terrain difficile. Lorsqu'une créature pénètre dans
-      le Cylindre pour la première fois au cours d'un tour ou y commence son tour,
-      elle doit réussir un jet de sauvegarde de Dextérité ou subir l'état À terre
-      et perdre sa concentration.\
+    description: |-
+      Jusqu'à la fin du sort, de la neige tombe dans un Cylindre de 12 mètres de haut et 6 mètres de rayon centré sur un point que vous choisissez à portée. La zone a une Visibilité nulle et les flammes exposées sont éteintes. Le sol du Cylindre est un Terrain difficile. Lorsqu'une créature pénètre dans le Cylindre pour la première fois au cours d'un tour ou y commence son tour, elle doit réussir un jet de sauvegarde de Dextérité ou subir l'état À terre et perdre sa concentration.\

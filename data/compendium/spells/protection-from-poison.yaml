@@ -20,16 +20,13 @@ translations:
     range: Touch
     duration: 1 hour
     materialDescription: null
-    description: You touch a creature and end the Poisoned condition on it. For the
-      duration, the target has Advantage on saving throws to avoid or end the Poisoned
-      condition, and it has Resistance to Poison damage.\
+    description: |-
+      You touch a creature and end the Poisoned condition on it. For the duration, the target has Advantage on saving throws to avoid or end the Poisoned condition, and it has Resistance to Poison damage.\
   fr:
     name: Protection contre le poison
     castingTime: Action
     range: Contact
     duration: 1 heure
     materialDescription: null
-    description: Vous touchez une créature et mettez fin à l'état Empoisonné sur elle.
-      Pendant toute la durée du sort, la cible bénéficie d'un Avantage aux jets de
-      sauvegarde pour éviter ou mettre fin à l'état Empoisonné, et d'une résistance
-      aux dégâts de poison.\
+    description: |-
+      Vous touchez une créature et mettez fin à l'état Empoisonné sur elle. Pendant toute la durée du sort, la cible bénéficie d'un Avantage aux jets de sauvegarde pour éviter ou mettre fin à l'état Empoisonné, et d'une résistance aux dégâts de poison.\

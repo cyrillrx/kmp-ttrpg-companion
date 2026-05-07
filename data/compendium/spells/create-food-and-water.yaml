@@ -18,19 +18,13 @@ translations:
     range: 30 feet
     duration: Instantaneous
     materialDescription: null
-    description: You create 45 pounds of food and 30 gallons of fresh water on the
-      ground or in containers within range—both useful in fending off the hazards
-      of malnutrition and dehydration. The food is bland but nourishing and looks
-      like a food of your choice, and the water is clean. The food spoils after 24
-      hours if uneaten.\
+    description: |-
+      You create 45 pounds of food and 30 gallons of fresh water on the ground or in containers within range—both useful in fending off the hazards of malnutrition and dehydration. The food is bland but nourishing and looks like a food of your choice, and the water is clean. The food spoils after 24 hours if uneaten.\
   fr:
     name: Création de nourriture et d'eau
     castingTime: Action
     range: 9 m
     duration: Instantanée
     materialDescription: null
-    description: Vous préparez 22,5 kg de nourriture et 120 litres d'eau douce, au
-      sol ou dans des récipients à portée, utiles pour prévenir les risques de malnutrition
-      et de déshydratation. La nourriture est fade mais nourrissante et ressemble
-      à celle de votre choix, et l'eau est propre. La nourriture se gâte au bout de
-      24 heures si elle n'est pas consommée.\
+    description: |-
+      Vous préparez 22,5 kg de nourriture et 120 litres d'eau douce, au sol ou dans des récipients à portée, utiles pour prévenir les risques de malnutrition et de déshydratation. La nourriture est fade mais nourrissante et ressemble à celle de votre choix, et l'eau est propre. La nourriture se gâte au bout de 24 heures si elle n'est pas consommée.\

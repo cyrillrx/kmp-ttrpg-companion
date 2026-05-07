@@ -29,8 +29,5 @@ translations:
     range: Contact
     duration: 1 heure
     materialDescription: une luciole ou de la mousse phosphorescente
-    description: Vous touchez un objet de taille G ou inférieure qui n'est pas porté
-      par quelqu'un d'autre. Jusqu'à la fin du sort, l'objet émet une Lumière vive
-      sur un rayon de 6 mètres et une Lumière faible sur 6 mètres supplémentaires.
-      La lumière peut être colorée à votre guise. Recouvrir l'objet par quelque chose
-      d'opaque bloque la lumière. Le sort prend fin si vous le relancez.\
+    description: |-
+      Vous touchez un objet de taille G ou inférieure qui n'est pas porté par quelqu'un d'autre. Jusqu'à la fin du sort, l'objet émet une Lumière vive sur un rayon de 6 mètres et une Lumière faible sur 6 mètres supplémentaires. La lumière peut être colorée à votre guise. Recouvrir l'objet par quelque chose d'opaque bloque la lumière. Le sort prend fin si vous le relancez.\

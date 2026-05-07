@@ -7,10 +7,10 @@ translations:
   en:
     name: Ring of Telekinesis
     subtype: null
-    description: While wearing this ring, you can cast *[Telekinesis](https://www.aidedd.org/spell/telekinesis)*
-      from it.
+    description: |-
+      While wearing this ring, you can cast *[Telekinesis](https://www.aidedd.org/spell/telekinesis)* from it.
   fr:
     name: Anneau de télékinésie
     subtype: null
-    description: Lorsque vous portez cet anneau, vous pouvez lancer *[télékinésie](https://www.aidedd.org/spell/fr/telekinesie)*
-      depuis celle-ci.
+    description: |-
+      Lorsque vous portez cet anneau, vous pouvez lancer *[télékinésie](https://www.aidedd.org/spell/fr/telekinesie)* depuis celle-ci.

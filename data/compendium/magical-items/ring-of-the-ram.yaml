@@ -13,14 +13,5 @@ translations:
   fr:
     name: Anneau du bélier
     subtype: null
-    description: Cet anneau possède 3 charges et récupère 1d3 charges dépensées chaque
-      jour à l'aube. Lorsque vous portez l'anneau, vous pouvez prendre une action
-      Magie pour dépenser 1 à 3 charges et effectuer une attaque à distance contre
-      une créature que vous pouvez voir dans un rayon de 18 mètres. L'anneau produit
-      une tête de bélier spectrale et effectue son jet d'attaque avec un bonus de
-      +7. En cas de réussite, pour chaque charge dépensée, la cible subit 2d10 dégâts
-      de force et est repoussée de 1,50 mètre de vous. Vous pouvez également dépenser
-      1 à 3 charges de l'anneau par une action Magie pour tenter de briser un objet
-      non magique que vous pouvez voir dans un rayon de 18 mètres et qui n'est pas
-      porté. L'anneau effectue un jet de Force avec un bonus de +5 pour chaque charge
-      dépensée.
+    description: |-
+      Cet anneau possède 3 charges et récupère 1d3 charges dépensées chaque jour à l'aube. Lorsque vous portez l'anneau, vous pouvez prendre une action Magie pour dépenser 1 à 3 charges et effectuer une attaque à distance contre une créature que vous pouvez voir dans un rayon de 18 mètres. L'anneau produit une tête de bélier spectrale et effectue son jet d'attaque avec un bonus de +7. En cas de réussite, pour chaque charge dépensée, la cible subit 2d10 dégâts de force et est repoussée de 1,50 mètre de vous. Vous pouvez également dépenser 1 à 3 charges de l'anneau par une action Magie pour tenter de briser un objet non magique que vous pouvez voir dans un rayon de 18 mètres et qui n'est pas porté. L'anneau effectue un jet de Force avec un bonus de +5 pour chaque charge dépensée.

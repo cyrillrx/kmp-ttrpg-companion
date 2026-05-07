@@ -7,13 +7,10 @@ translations:
   en:
     name: Dwarven Plate
     subtype: Half Plate or Plate Armor
-    description: While wearing this armor, you gain a +2 bonus to Armor Class. In
-      addition, if an effect moves you against your will along the ground, you can
-      take a Reaction to reduce the distance you are moved by up to 10 feet.
+    description: |-
+      While wearing this armor, you gain a +2 bonus to Armor Class. In addition, if an effect moves you against your will along the ground, you can take a Reaction to reduce the distance you are moved by up to 10 feet.
   fr:
     name: Harnois nain
     subtype: demi-plate ou harnois
-    description: Lorsque vous portez cette armure, vous bénéficiez d'un bonus de +2
-      à votre CA. De plus, si un effet vous déplace au sol contre votre volonté, vous
-      pouvez prendre une Réaction pour réduire la distance de déplacement de jusqu'à
-      3 mètres.
+    description: |-
+      Lorsque vous portez cette armure, vous bénéficiez d'un bonus de +2 à votre CA. De plus, si un effet vous déplace au sol contre votre volonté, vous pouvez prendre une Réaction pour réduire la distance de déplacement de jusqu'à 3 mètres.

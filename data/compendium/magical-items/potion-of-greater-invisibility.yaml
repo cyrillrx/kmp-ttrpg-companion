@@ -7,11 +7,10 @@ translations:
   en:
     name: Potion of Greater Invisibility
     subtype: null
-    description: This potion's container looks empty but feels as though it holds
-      liquid. When you drink the potion, you have the Invisible condition for 1 hour.
+    description: |-
+      This potion's container looks empty but feels as though it holds liquid. When you drink the potion, you have the Invisible condition for 1 hour.
   fr:
     name: Potion d'invisibilité suprême
     subtype: null
-    description: Le récipient de cette potion semble vide mais on dirait pourtant
-      qu'il contient du liquide. Lorsque vous buvez cette potion, vous obtenez l'état
-      Invisible pendant 1 heure.
+    description: |-
+      Le récipient de cette potion semble vide mais on dirait pourtant qu'il contient du liquide. Lorsque vous buvez cette potion, vous obtenez l'état Invisible pendant 1 heure.

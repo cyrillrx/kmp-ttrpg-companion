@@ -7,12 +7,10 @@ translations:
   en:
     name: Ring of Free Action
     subtype: null
-    description: While you wear this ring, Difficult Terrain doesn't cost you extra
-      movement. In addition, magic can neither reduce any of your Speeds nor cause
-      you to have the Paralyzed or Restrained condition.
+    description: |-
+      While you wear this ring, Difficult Terrain doesn't cost you extra movement. In addition, magic can neither reduce any of your Speeds nor cause you to have the Paralyzed or Restrained condition.
   fr:
     name: Anneau d'action libre
     subtype: null
-    description: Si vous portez cet anneau, un Terrain difficile ne vous coûte pas
-      de déplacement supplémentaire. De plus, la magie ne peut ni réduire votre Vitesse,
-      ni vous faire subir les états Paralysé ou Entravé.
+    description: |-
+      Si vous portez cet anneau, un Terrain difficile ne vous coûte pas de déplacement supplémentaire. De plus, la magie ne peut ni réduire votre Vitesse, ni vous faire subir les états Paralysé ou Entravé.

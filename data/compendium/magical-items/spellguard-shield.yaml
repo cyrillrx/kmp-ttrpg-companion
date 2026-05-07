@@ -7,12 +7,10 @@ translations:
   en:
     name: Spellguard Shield
     subtype: Shield
-    description: While holding this Shield, you have Advantage on saving throws against
-      spells and other magical effects, and spell attack rolls have Disadvantage against
-      you.
+    description: |-
+      While holding this Shield, you have Advantage on saving throws against spells and other magical effects, and spell attack rolls have Disadvantage against you.
   fr:
     name: Bouclier gardesort
     subtype: bouclier
-    description: Lorsque vous tenez ce bouclier, vous avez un Avantage aux jets de
-      sauvegarde contre les sorts et autres effets magiques, et les jets d'attaque
-      de sorts ont un Désavantage contre vous.
+    description: |-
+      Lorsque vous tenez ce bouclier, vous avez un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques, et les jets d'attaque de sorts ont un Désavantage contre vous.

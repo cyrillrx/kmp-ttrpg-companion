@@ -29,10 +29,5 @@ translations:
     range: Personnelle
     duration: Concentration, jusqu'à 1 minute
     materialDescription: une plume blanche
-    description: Toute créature dans un Cône de 9 mètres doit réussir un jet de sauvegarde
-      de Sagesse ou lâcher ce qu'elle tient et subir l'état Effrayé pendant toute
-      la durée du sort. Une créature effrayée prend l'action Pointe et s'éloigne de
-      vous par le chemin le plus sûr à chacun de ses tours, sauf si elle n'a aucun
-      endroit où se déplacer. Si la créature termine son tour dans une case où elle
-      n'a pas de ligne de vue vers vous, elle effectue un jet de sauvegarde de Sagesse.
-      En cas de réussite, le sort prend fin sur cette créature.\
+    description: |-
+      Toute créature dans un Cône de 9 mètres doit réussir un jet de sauvegarde de Sagesse ou lâcher ce qu'elle tient et subir l'état Effrayé pendant toute la durée du sort. Une créature effrayée prend l'action Pointe et s'éloigne de vous par le chemin le plus sûr à chacun de ses tours, sauf si elle n'a aucun endroit où se déplacer. Si la créature termine son tour dans une case où elle n'a pas de ligne de vue vers vous, elle effectue un jet de sauvegarde de Sagesse. En cas de réussite, le sort prend fin sur cette créature.\

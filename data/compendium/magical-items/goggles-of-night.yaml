@@ -7,12 +7,10 @@ translations:
   en:
     name: Goggles of Night
     subtype: null
-    description: While wearing these dark lenses, you have Darkvision out to 60 feet.
-      If you already have Darkvision, wearing the goggles increases its range by 60
-      feet.
+    description: |-
+      While wearing these dark lenses, you have Darkvision out to 60 feet. If you already have Darkvision, wearing the goggles increases its range by 60 feet.
   fr:
     name: Lunettes de nuit / du nyctalope
     subtype: null
-    description: En portant ces lunettes aux verres foncés, vous bénéficiez d'une
-      Vision dans le noir à 18 mètres. Si vous possédez déjà une Vision dans le noir,
-      le port des lunettes augmente sa portée de 18 mètres.
+    description: |-
+      En portant ces lunettes aux verres foncés, vous bénéficiez d'une Vision dans le noir à 18 mètres. Si vous possédez déjà une Vision dans le noir, le port des lunettes augmente sa portée de 18 mètres.

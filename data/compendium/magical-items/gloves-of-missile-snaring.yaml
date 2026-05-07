@@ -7,17 +7,10 @@ translations:
   en:
     name: Gloves of Missile Snaring
     subtype: null
-    description: If you're hit by an attack roll made with a Ranged or Thrown weapon
-      while wearing these gloves, you can take a Reaction to reduce the damage by
-      1d10 plus your Dexterity modifier if you have a free hand. If you reduce the
-      damage to 0, you can catch the ammunition or weapon if it is small enough for
-      you to hold in that hand.
+    description: |-
+      If you're hit by an attack roll made with a Ranged or Thrown weapon while wearing these gloves, you can take a Reaction to reduce the damage by 1d10 plus your Dexterity modifier if you have a free hand. If you reduce the damage to 0, you can catch the ammunition or weapon if it is small enough for you to hold in that hand.
   fr:
     name: Gants piégeurs de projectiles
     subtype: null
-    description: Si vous êtes touché par un jet d'attaque effectué avec une arme à
-      distance ou de jet alors que vous portez ces gants, vous pouvez prendre une
-      Réaction pour réduire les dégâts de 1d10 plus votre modificateur de Dextérité
-      si vous avez une main libre. Si vous réduisez les dégâts à 0, vous pouvez attraper
-      les munitions ou l'arme si elles sont suffisamment petites pour tenir dans cette
-      main.
+    description: |-
+      Si vous êtes touché par un jet d'attaque effectué avec une arme à distance ou de jet alors que vous portez ces gants, vous pouvez prendre une Réaction pour réduire les dégâts de 1d10 plus votre modificateur de Dextérité si vous avez une main libre. Si vous réduisez les dégâts à 0, vous pouvez attraper les munitions ou l'arme si elles sont suffisamment petites pour tenir dans cette main.

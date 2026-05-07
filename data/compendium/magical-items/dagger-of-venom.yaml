@@ -13,10 +13,5 @@ translations:
   fr:
     name: Dague venimeuse
     subtype: dague
-    description: Vous obtenez un bonus de +1 aux jets d'attaque et de dégâts effectués
-      avec cette arme magique. Vous pouvez prendre une action Bonus pour enduire magiquement
-      la lame de poison. Le poison reste présent pendant 1 minute ou jusqu'à ce qu'une
-      attaque utilisant cette arme touche une créature. Cette créature doit alors
-      réussir un jet de sauvegarde de Constitution DD 15 ou subir 2d10 dégâts de poison
-      et l'état Empoisonné pendant 1 minute. L'arme ne peut plus être utilisée de
-      cette façon avant l'aube suivante.
+    description: |-
+      Vous obtenez un bonus de +1 aux jets d'attaque et de dégâts effectués avec cette arme magique. Vous pouvez prendre une action Bonus pour enduire magiquement la lame de poison. Le poison reste présent pendant 1 minute ou jusqu'à ce qu'une attaque utilisant cette arme touche une créature. Cette créature doit alors réussir un jet de sauvegarde de Constitution DD 15 ou subir 2d10 dégâts de poison et l'état Empoisonné pendant 1 minute. L'arme ne peut plus être utilisée de cette façon avant l'aube suivante.

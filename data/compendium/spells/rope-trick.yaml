@@ -26,12 +26,5 @@ translations:
     range: Contact
     duration: 1 heure
     materialDescription: un morceau de corde
-    description: Vous touchez une corde. Une extrémité se dresse vers le haut jusqu'à
-      ce qu'elle soit perpendiculaire au sol ou atteigne le plafond. À son extrémité
-      supérieure, un portail invisible de 90 cm sur 1,50 mètre s'ouvre sur un espace
-      extradimensionnel qui perdure jusqu'à la fin du sort. Cet espace est accessible
-      en grimpant à la corde, qui peut être tirée ou lâchée. Cet espace peut accueillir
-      jusqu'à huit créatures de taille M ou inférieure. Les attaques, sorts et autres
-      effets ne peuvent y pénétrer ni en sortir, mais les créatures à l'intérieur
-      peuvent voir à travers le portail. Tout ce qui se trouve à l'intérieur tombe
-      à la fin du sort.\
+    description: |-
+      Vous touchez une corde. Une extrémité se dresse vers le haut jusqu'à ce qu'elle soit perpendiculaire au sol ou atteigne le plafond. À son extrémité supérieure, un portail invisible de 90 cm sur 1,50 mètre s'ouvre sur un espace extradimensionnel qui perdure jusqu'à la fin du sort. Cet espace est accessible en grimpant à la corde, qui peut être tirée ou lâchée. Cet espace peut accueillir jusqu'à huit créatures de taille M ou inférieure. Les attaques, sorts et autres effets ne peuvent y pénétrer ni en sortir, mais les créatures à l'intérieur peuvent voir à travers le portail. Tout ce qui se trouve à l'intérieur tombe à la fin du sort.\

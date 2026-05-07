@@ -27,9 +27,5 @@ translations:
     range: 9 m
     duration: Instantanée
     materialDescription: une arme de corps à corps d'une valeur minimale de 1 pa
-    description: Vous brandissez l'arme utilisée pour l'incantation, puis disparaissez
-      pour frapper comme le vent. Choisissez jusqu'à cinq créatures que vous pouvez
-      voir à portée. Effectuez une attaque de sort au corps à corps contre chaque
-      cible. En cas de succès, la cible subit 6d10 dégâts de force. Vous vous téléportez
-      ensuite dans un espace libre que vous pouvez voir dans un rayon de 1,50 mètre
-      autour de l'une des cibles.\
+    description: |-
+      Vous brandissez l'arme utilisée pour l'incantation, puis disparaissez pour frapper comme le vent. Choisissez jusqu'à cinq créatures que vous pouvez voir à portée. Effectuez une attaque de sort au corps à corps contre chaque cible. En cas de succès, la cible subit 6d10 dégâts de force. Vous vous téléportez ensuite dans un espace libre que vous pouvez voir dans un rayon de 1,50 mètre autour de l'une des cibles.\

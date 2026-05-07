@@ -18,20 +18,13 @@ translations:
     range: Touch
     duration: 1 hour
     materialDescription: null
-    description: You imbue one creature you touch with magical healing energy for
-      the duration. Whenever the target casts a spell using a spell slot, the target
-      can immediately roll a number of unexpended Hit Point Dice equal to the spell
-      slot's level and regain Hit Points equal to the roll's total plus your spellcasting
-      ability modifier; those dice are then expended.\
+    description: |-
+      You imbue one creature you touch with magical healing energy for the duration. Whenever the target casts a spell using a spell slot, the target can immediately roll a number of unexpended Hit Point Dice equal to the spell slot's level and regain Hit Points equal to the roll's total plus your spellcasting ability modifier; those dice are then expended.\
   fr:
     name: Transcurateur de la Simbul
     castingTime: Action
     range: Contact
     duration: 1 heure
     materialDescription: null
-    description: Vous insufflez une énergie magique curative à une créature que vous
-      touchez, pour toute la durée. Lorsque la cible lance un sort en utilisant un
-      emplacement de sort, elle peut immédiatement lancer un nombre de dés de vie
-      inutilisés égal au niveau de l'emplacement de sort et récupérer un nombre de
-      points de vie égal au total obtenu plus votre modificateur de caractéristique
-      d'incantation ; ces dés sont ensuite dépensés.\
+    description: |-
+      Vous insufflez une énergie magique curative à une créature que vous touchez, pour toute la durée. Lorsque la cible lance un sort en utilisant un emplacement de sort, elle peut immédiatement lancer un nombre de dés de vie inutilisés égal au niveau de l'emplacement de sort et récupérer un nombre de points de vie égal au total obtenu plus votre modificateur de caractéristique d'incantation ; ces dés sont ensuite dépensés.\

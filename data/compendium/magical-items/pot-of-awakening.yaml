@@ -13,9 +13,5 @@ translations:
   fr:
     name: Pot d'éveil
     subtype: null
-    description: Si vous plantez un arbuste ordinaire dans ce pot en argile de 5 kg
-      et le laissez pousser pendant 30 jours, il se transformera magiquement en un
-      **[arbuste éveillé](https://www.aidedd.org/monster/fr/arbuste-eveille)** au
-      bout de ce temps. Lorsque l'arbuste se réveille, ses racines brisent le pot,
-      le détruisant. L'arbuste éveillé est amical envers vous et obéit à vos ordres.
-      Sans ordre de votre part, il ne fait rien.
+    description: |-
+      Si vous plantez un arbuste ordinaire dans ce pot en argile de 5 kg et le laissez pousser pendant 30 jours, il se transformera magiquement en un **[arbuste éveillé](https://www.aidedd.org/monster/fr/arbuste-eveille)** au bout de ce temps. Lorsque l'arbuste se réveille, ses racines brisent le pot, le détruisant. L'arbuste éveillé est amical envers vous et obéit à vos ordres. Sans ordre de votre part, il ne fait rien.

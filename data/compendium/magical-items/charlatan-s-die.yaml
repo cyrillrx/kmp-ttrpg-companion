@@ -7,10 +7,10 @@ translations:
   en:
     name: Charlatan's Die
     subtype: null
-    description: Whenever you roll this six-sided die, you can control which number
-      it rolls.
+    description: |-
+      Whenever you roll this six-sided die, you can control which number it rolls.
   fr:
     name: Dé du charlatan
     subtype: null
-    description: Chaque fois que vous lancez ce dé à six faces, vous pouvez contrôler
-      le nombre qu'il obtient.
+    description: |-
+      Chaque fois que vous lancez ce dé à six faces, vous pouvez contrôler le nombre qu'il obtient.

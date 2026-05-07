@@ -7,12 +7,10 @@ translations:
   en:
     name: Lock of Trickery
     subtype: null
-    description: This lock appears to be an ordinary Lock and comes with a single
-      key. The tumblers in this lock magically adjust to thwart burglars. Dexterity
-      checks made to pick the lock have Disadvantage.
+    description: |-
+      This lock appears to be an ordinary Lock and comes with a single key. The tumblers in this lock magically adjust to thwart burglars. Dexterity checks made to pick the lock have Disadvantage.
   fr:
     name: Cadenas sournois
     subtype: null
-    description: Cette serrure semble ordinaire et est fournie avec une seule clé.
-      Ses rouages s'ajustent magiquement pour déjouer les cambrioleurs. Toute tentative
-      d'ouverture par crochetage a un Désavantage.
+    description: |-
+      Cette serrure semble ordinaire et est fournie avec une seule clé. Ses rouages s'ajustent magiquement pour déjouer les cambrioleurs. Toute tentative d'ouverture par crochetage a un Désavantage.

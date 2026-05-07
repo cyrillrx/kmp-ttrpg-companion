@@ -7,11 +7,10 @@ translations:
   en:
     name: Bracers of Archery
     subtype: null
-    description: While wearing these bracers, you have proficiency with the Longbow
-      and Shortbow, and you gain a +2 bonus to damage rolls made with such weapons.
+    description: |-
+      While wearing these bracers, you have proficiency with the Longbow and Shortbow, and you gain a +2 bonus to damage rolls made with such weapons.
   fr:
     name: Bracelets d'archer
     subtype: null
-    description: Lorsque vous portez ces bracelets, vous maîtrisez l'arc long et l'arc
-      court, et vous obtenez un bonus de +2 aux jets de dégâts effectués avec ces
-      armes.
+    description: |-
+      Lorsque vous portez ces bracelets, vous maîtrisez l'arc long et l'arc court, et vous obtenez un bonus de +2 aux jets de dégâts effectués avec ces armes.

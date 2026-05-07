@@ -21,13 +21,8 @@ translations:
     range: Touch
     duration: Concentration, up to 10 minutes
     materialDescription: a flask of Holy Water worth 25+ GP, which the spell consumes
-    description: Until the spell ends, one willing creature you touch is protected
-      against creatures that are Aberrations, Celestials, Elementals, Fey, Fiends,
-      or Undead. The protection grants several benefits. Creatures of those types
-      have Disadvantage on attack rolls against the target. The target also can't
-      be possessed by or gain the Charmed or Frightened conditions from them. If the
-      target is already possessed, Charmed, or Frightened by such a creature, the
-      target has Advantage on any new saving throw against the relevant effect.\
+    description: |-
+      Until the spell ends, one willing creature you touch is protected against creatures that are Aberrations, Celestials, Elementals, Fey, Fiends, or Undead. The protection grants several benefits. Creatures of those types have Disadvantage on attack rolls against the target. The target also can't be possessed by or gain the Charmed or Frightened conditions from them. If the target is already possessed, Charmed, or Frightened by such a creature, the target has Advantage on any new saving throw against the relevant effect.\
   fr:
     name: Protection contre le mal et le bien
     castingTime: Action
@@ -35,10 +30,5 @@ translations:
     duration: Concentration, jusqu'à 10 minutes
     materialDescription: une flasque d'eau bénite d'une valeur minimale de 25 po,
       que le sort consomme
-    description: Jusqu'à la fin du sort, une créature consentante que vous touchez
-      est protégée contre les aberrations, célestes, élémentaires, fées, fiélons et
-      morts-vivants. Cette protection confère plusieurs avantages. Ces créatures ont
-      un Désavantage aux jets d'attaque contre la cible. De plus, la cible ne peut
-      pas être possédée par ces créatures ni subir les états Charmé ou Effrayé. Si
-      la cible est déjà possédée, charmée ou effrayée par de telles créatures, elle
-      bénéficie d'un Avantage à tout nouveau jet de sauvegarde contre l'effet concerné.\
+    description: |-
+      Jusqu'à la fin du sort, une créature consentante que vous touchez est protégée contre les aberrations, célestes, élémentaires, fées, fiélons et morts-vivants. Cette protection confère plusieurs avantages. Ces créatures ont un Désavantage aux jets d'attaque contre la cible. De plus, la cible ne peut pas être possédée par ces créatures ni subir les états Charmé ou Effrayé. Si la cible est déjà possédée, charmée ou effrayée par de telles créatures, elle bénéficie d'un Avantage à tout nouveau jet de sauvegarde contre l'effet concerné.\

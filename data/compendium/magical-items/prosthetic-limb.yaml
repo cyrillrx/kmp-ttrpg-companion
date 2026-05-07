@@ -7,15 +7,10 @@ translations:
   en:
     name: Prosthetic Limb
     subtype: null
-    description: This magic item replaces a lost limb—a hand, an arm, a foot, a leg,
-      or a similar body part. While the prosthetic is attached, it functions identically
-      to thepart it replaces. You can detach or reattach it as a Magic action, and
-      it can't be removed against your will while you are alive.
+    description: |-
+      This magic item replaces a lost limb—a hand, an arm, a foot, a leg, or a similar body part. While the prosthetic is attached, it functions identically to thepart it replaces. You can detach or reattach it as a Magic action, and it can't be removed against your will while you are alive.
   fr:
     name: Membre artificiel
     subtype: null
-    description: Cet objet magique remplace un membre perdu comme une main, un bras,
-      un pied, une jambe ou une partie du corps similaire. Si la prothèse est attachée,
-      elle fonctionne de la même manière que la partie qu'elle remplace. Vous pouvez
-      la détacher ou la rattacher par une action Magie, et elle ne peut être retirée
-      contre votre volonté tant que vous êtes en vie.
+    description: |-
+      Cet objet magique remplace un membre perdu comme une main, un bras, un pied, une jambe ou une partie du corps similaire. Si la prothèse est attachée, elle fonctionne de la même manière que la partie qu'elle remplace. Vous pouvez la détacher ou la rattacher par une action Magie, et elle ne peut être retirée contre votre volonté tant que vous êtes en vie.

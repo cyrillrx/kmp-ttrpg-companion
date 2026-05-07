@@ -7,18 +7,10 @@ translations:
   en:
     name: Talisman of the Sphere
     subtype: null
-    description: While holding or wearing this talisman, you have Advantage on any
-      Intelligence (Arcana) check you make to control a *Sphere of Annihilation*.
-      In addition, when you start your turn in control of a *Sphere of Annihilation*
-      , you can take a Magic action to move it 10 feet plus a number of additional
-      feet equal to 10 times your Intelligence modifier. This movement doesn't have
-      to be in a straight line.
+    description: |-
+      While holding or wearing this talisman, you have Advantage on any Intelligence (Arcana) check you make to control a *Sphere of Annihilation*. In addition, when you start your turn in control of a *Sphere of Annihilation* , you can take a Magic action to move it 10 feet plus a number of additional feet equal to 10 times your Intelligence modifier. This movement doesn't have to be in a straight line.
   fr:
     name: Talisman de la sphère
     subtype: null
-    description: Lorsque vous portez ce talisman, vous bénéficiez d'un Avantage à
-      tout jet d'Intelligence (Arcanes) effectué pour contrôler une *sphère d'annihilation*.
-      De plus, lorsque vous commencez votre tour en contrôlant une *sphère d'annihilation*
-      , vous pouvez prendre une action Magie pour la déplacer de 3 mètres, plus un
-      nombre de mètres supplémentaire égal à 3 fois votre modificateur d'Intelligence.
-      Ce déplacement n'est pas nécessairement en ligne droite.
+    description: |-
+      Lorsque vous portez ce talisman, vous bénéficiez d'un Avantage à tout jet d'Intelligence (Arcanes) effectué pour contrôler une *sphère d'annihilation*. De plus, lorsque vous commencez votre tour en contrôlant une *sphère d'annihilation* , vous pouvez prendre une action Magie pour la déplacer de 3 mètres, plus un nombre de mètres supplémentaire égal à 3 fois votre modificateur d'Intelligence. Ce déplacement n'est pas nécessairement en ligne droite.

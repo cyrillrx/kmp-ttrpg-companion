@@ -7,13 +7,10 @@ translations:
   en:
     name: Pole of Angling
     subtype: null
-    description: This item functions as a Pole. While holding it, you can take a Magic
-      action to cause it to transform into a fishing pole with a hook, a line, and
-      a reel, or have the fishing pole revert to a Pole.
+    description: |-
+      This item functions as a Pole. While holding it, you can take a Magic action to cause it to transform into a fishing pole with a hook, a line, and a reel, or have the fishing pole revert to a Pole.
   fr:
     name: Perche du pêcheur
     subtype: null
-    description: Cet objet fonctionne comme une perche. Lorsque vous le tenez, vous
-      pouvez prendre une action Magie pour le transformer en canne à pêche avec un
-      hameçon, une ligne et un moulinet, ou pour que la canne à pêche redevienne une
-      simple perche.
+    description: |-
+      Cet objet fonctionne comme une perche. Lorsque vous le tenez, vous pouvez prendre une action Magie pour le transformer en canne à pêche avec un hameçon, une ligne et un moulinet, ou pour que la canne à pêche redevienne une simple perche.

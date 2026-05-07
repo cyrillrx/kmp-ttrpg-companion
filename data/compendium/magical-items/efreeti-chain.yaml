@@ -7,13 +7,10 @@ translations:
   en:
     name: Efreeti Chain
     subtype: Chain Mail or Chain Shirt
-    description: While wearing this armor, you gain a +3 bonus to Armor Class, you
-      have Immunity to Fire damage, and you know Primordial. In addition, you can
-      stand on and move across molten rock as if it were solid ground.
+    description: |-
+      While wearing this armor, you gain a +3 bonus to Armor Class, you have Immunity to Fire damage, and you know Primordial. In addition, you can stand on and move across molten rock as if it were solid ground.
   fr:
     name: Mailles de l'éfrit
     subtype: cotte de mailles ou chemise de mailles
-    description: Lorsque vous portez cette armure, vous bénéficiez d'un bonus de +3
-      à la CA, d'une Immunité contre les dégâts de feu et vous connaissez le primordial.
-      De plus, vous pouvez vous tenir debout et vous déplacer sur de la roche en fusion
-      comme sur la terre ferme.
+    description: |-
+      Lorsque vous portez cette armure, vous bénéficiez d'un bonus de +3 à la CA, d'une Immunité contre les dégâts de feu et vous connaissez le primordial. De plus, vous pouvez vous tenir debout et vous déplacer sur de la roche en fusion comme sur la terre ferme.

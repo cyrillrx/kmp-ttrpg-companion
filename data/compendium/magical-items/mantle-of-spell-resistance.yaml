@@ -7,10 +7,10 @@ translations:
   en:
     name: Mantle of Spell Resistance
     subtype: null
-    description: You have Advantage on saving throws against spells while you wear
-      this cloak.
+    description: |-
+      You have Advantage on saving throws against spells while you wear this cloak.
   fr:
     name: Manteau de résistance aux sorts
     subtype: null
-    description: Vous avez un Avantage aux jets de sauvegarde contre les sorts lorsque
-      vous portez cette cape.
+    description: |-
+      Vous avez un Avantage aux jets de sauvegarde contre les sorts lorsque vous portez cette cape.

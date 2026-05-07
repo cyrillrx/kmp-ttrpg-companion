@@ -7,15 +7,10 @@ translations:
   en:
     name: Ring of Regeneration
     subtype: null
-    description: While wearing this ring, you regain 1d6 Hit Points every 10 minutes
-      if you have at least 1 Hit Point. If you lose a body part, the ring causes the
-      missing part to regrow and return to full functionality after 1d6 + 1 days if
-      you have at least 1 Hit Point the whole time.
+    description: |-
+      While wearing this ring, you regain 1d6 Hit Points every 10 minutes if you have at least 1 Hit Point. If you lose a body part, the ring causes the missing part to regrow and return to full functionality after 1d6 + 1 days if you have at least 1 Hit Point the whole time.
   fr:
     name: Anneau de régénération
     subtype: null
-    description: Si vous portez cet anneau, vous récupérez 1d6 points de vie toutes
-      les 10 minutes si vous avez au moins 1 point de vie. Si vous perdez une partie
-      de votre corps, l'anneau permet à la partie manquante de repousser et de retrouver
-      sa pleine fonctionnalité après 1d6 + 1 jour si vous avez au moins 1 point de
-      vie.
+    description: |-
+      Si vous portez cet anneau, vous récupérez 1d6 points de vie toutes les 10 minutes si vous avez au moins 1 point de vie. Si vous perdez une partie de votre corps, l'anneau permet à la partie manquante de repousser et de retrouver sa pleine fonctionnalité après 1d6 + 1 jour si vous avez au moins 1 point de vie.

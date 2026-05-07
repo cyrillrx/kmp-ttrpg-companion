@@ -13,6 +13,5 @@ translations:
   fr:
     name: Orbe horloge
     subtype: null
-    description: 'Lorsque vous tenez l''orbe, vous pouvez prendre une action Magie
-      pour déterminer dans quelle période de la journée vous êtes : matin, après-midi,
-      soir ou nuit. Cette propriété ne fonctionne que sur le plan Matériel.'
+    description: |-
+      Lorsque vous tenez l'orbe, vous pouvez prendre une action Magie pour déterminer dans quelle période de la journée vous êtes : matin, après-midi, soir ou nuit. Cette propriété ne fonctionne que sur le plan Matériel.

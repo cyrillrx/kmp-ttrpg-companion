@@ -21,13 +21,13 @@ translations:
     range: Touch
     duration: Instantaneous
     materialDescription: null
-    description: 'You touch a creature and end one condition on it: Blinded, Deafened,
-      Paralyzed, or Poisoned.\'
+    description: |-
+      You touch a creature and end one condition on it: Blinded, Deafened, Paralyzed, or Poisoned.\
   fr:
     name: Restauration partielle
     castingTime: Action bonus
     range: Contact
     duration: Instantanée
     materialDescription: null
-    description: 'Vous touchez une créature et mettez fin à un état sur elle : Aveuglé,
-      Assourdi, Paralysé ou Empoisonné.\'
+    description: |-
+      Vous touchez une créature et mettez fin à un état sur elle : Aveuglé, Assourdi, Paralysé ou Empoisonné.\
