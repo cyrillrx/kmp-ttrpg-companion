@@ -12,11 +12,10 @@ translations:
       | Belt | Str. | Rarity |
       | --- | --- | --- |
       | Belt of Giant Strength (hill) | 21 | Rare |
-      Belt of Giant Strength (frost) or\
-      Belt of Giant Strength (stone)| 23| Very Rare\
-      Belt of Giant Strength (fire)| 25| Very Rare\
-      Belt of Giant Strength (cloud)| 27| Legendary\
-      Belt of Giant Strength (storm)| 29| Legendary
+      | Belt of Giant Strength (frost) or Belt of Giant Strength (stone) | 23 | Very Rare |
+      | Belt of Giant Strength (fire) | 25 | Very Rare |
+      | Belt of Giant Strength (cloud) | 27 | Legendary |
+      | Belt of Giant Strength (storm) | 29 | Legendary |
   fr:
     name: Ceinturon de force de géant
     subtype: null
@@ -25,8 +24,7 @@ translations:
       | Ceinturon | Force | Rareté |
       | --- | --- | --- |
       | Ceinturon de force de géant (collines) | 21 | Rare |
-      Ceinturon de force de géant (givre) ou\
-      Ceinturon de force de géant (pierres)| 23| Très rare\
-      Ceinturon de force de géant (feu)| 25| Très rare\
-      Ceinturon de force de géant (nuages)| 27| Légendaire\
-      Ceinturon de force de géant (tempêtes)| 29| Légendaire
+      | Ceinturon de force de géant (givre) ou Ceinturon de force de géant (pierres) | 23 | Très rare |
+      | Ceinturon de force de géant (feu) | 25 | Très rare |
+      | Ceinturon de force de géant (nuages) | 27 | Légendaire |
+      | Ceinturon de force de géant (tempêtes) | 29 | Légendaire |
