@@ -89,17 +89,27 @@ translations:
     name: Balor
     subtype: Demon
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Death Throes</em>**. The balor explodes when it dies. <em>Dexterity Saving Throw</em> : DC 20, each creature in a 30-foot Emanation originating from the balor. <em>Failure</em> : 31 (9d6) Fire damage plus 31 (9d6) Force damage. <em>Success</em> : Half damage. <em>Failure or Success</em> : If the balor dies outside the Abyss, it gains a new body instantly, reviving with all its Hit Points somewhere in the Abyss.</p>
-      <p><strong><em>Fire Aura</em></strong>. At the end of each of the balor's turns, each creature in a 5-foot Emanation originating from the balor takes 13 (3d8) Fire damage.</p>
-      <p><strong><em>Legendary Resistance (3/Day)</em></strong>. If the balor fails a saving throw, it can choose to succeed instead.</p>
-      <p><strong><em>Magic Resistance</em></strong>. The balor has Advantage on saving throws against spells and other magical effects.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The balor makes one Flame Whip attack and one Lightning Blade attack.</p>
-      <p><strong><em>Flame Whip</em></strong>. <em>Melee Attack Roll</em> : +14, reach 30 ft. <em>Hit</em> : 18 (3d6 + 8) Force damage plus 17 (5d6) Fire damage. If the target is a Huge or smaller creature, the balor pulls the target up to 25 feet straight toward itself, and the target has the Prone condition.</p>
-      <p><strong><em>Lightning Blade</em></strong>. <em>Melee Attack Roll</em> : +14, reach 10 ft. <em>Hit</em> : 21 (3d8 + 8) Force damage plus 22 (4d10) Lightning damage, and the target can't take Reactions until the start of the balor's next turn</p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Teleport</em>**. The balor teleports itself or a willing demon within 10 feet of itself up to 60 feet to an unoccupied space the balor can see.</p>
+      ## Traits
+
+      ***Death Throes***. The balor explodes when it dies. *Dexterity Saving Throw* : DC 20, each creature in a 30-foot Emanation originating from the balor. *Failure* : 31 (9d6) Fire damage plus 31 (9d6) Force damage. *Success* : Half damage. *Failure or Success* : If the balor dies outside the Abyss, it gains a new body instantly, reviving with all its Hit Points somewhere in the Abyss.
+
+      ***Fire Aura***. At the end of each of the balor's turns, each creature in a 5-foot Emanation originating from the balor takes 13 (3d8) Fire damage.
+
+      ***Legendary Resistance (3/Day)***. If the balor fails a saving throw, it can choose to succeed instead.
+
+      ***Magic Resistance***. The balor has Advantage on saving throws against spells and other magical effects.
+
+      ## Actions
+
+      ***Multiattack***. The balor makes one Flame Whip attack and one Lightning Blade attack.
+
+      ***Flame Whip***. *Melee Attack Roll* : +14, reach 30 ft. *Hit* : 18 (3d6 + 8) Force damage plus 17 (5d6) Fire damage. If the target is a Huge or smaller creature, the balor pulls the target up to 25 feet straight toward itself, and the target has the Prone condition.
+
+      ***Lightning Blade***. *Melee Attack Roll* : +14, reach 10 ft. *Hit* : 21 (3d8 + 8) Force damage plus 22 (4d10) Lightning damage, and the target can't take Reactions until the start of the balor's next turn
+
+      ## Bonus actions
+
+      ***Teleport***. The balor teleports itself or a willing demon within 10 feet of itself up to 60 feet to an unoccupied space the balor can see.
     senses: Truesight 120 ft., Passive Perception 19
     languages:
     - Abyssal; telepathy 120 ft.
@@ -107,17 +117,27 @@ translations:
     name: Balor
     subtype: Démon
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Aura de feu</em>**. À la fin de chacun des tours du balor, chaque créature dans une Émanation de 1,50 m centrée sur le balor subit 13 (3d8) dégâts de feu.</p>
-      <p><strong><em>Résistance à la magie</em></strong>. Le balor a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.</p>
-      <p><strong><em>Résistance légendaire (3/jour)</em></strong>. Si le Balor rate un jet de sauvegarde, il peut décider de le réussir tout de même.</p>
-      <p><strong><em>Spasmes d'agonie</em></strong>. Le balor explose quand il meurt. <em>JdS Dextérité</em> : DD 20, chaque créature dans une Émanation de 9 m centrée sur le balor. <em>Échec</em> : 31 (9d6) dégâts de feu plus 31 (9d6) dégâts de force. <em>Réussite</em> : demi-dégâts. <em>Échec ou réussite</em> : si le balor meurt hors des Abysses, il acquiert aussitôt un nouveau corps et revient à la vie avec tous ses pv quelque part dans les Abysses.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le balor effectue une attaque de Fouet embrasé et une de Lame de foudre.</p>
-      <p><strong><em>Fouet embrasé</em></strong>. <em>Corps à corps</em> : +14, allonge 9 m. <em>Touché</em> : 18 (3d6 + 8) dégâts de force plus 17 (5d6) dégâts de feu. Si la cible est une créature de taille TG ou inférieure, le balor la tire directement vers lui d'un maximum de 7,50 m, et la cible subit l'état À terre.</p>
-      <p><strong><em>Lame de foudre</em></strong>. <em>Corps à corps</em> : +14, allonge 3 m. <em>Touché</em> : 21 (3d8 + 8) dégâts de force plus 22 (4d10) dégâts de foudre, et la cible ne peut pas jouer de Réaction jusqu'au début du tour suivant du balor.</p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Téléportation</em>**. Le balor téléporte un démon consentant situé dans un rayon de 3 m (ou lui-même) d'un maximum de 18 m vers un espace inoccupé qu'il voit.</p>
+      ## Traits
+
+      ***Aura de feu***. À la fin de chacun des tours du balor, chaque créature dans une Émanation de 1,50 m centrée sur le balor subit 13 (3d8) dégâts de feu.
+
+      ***Résistance à la magie***. Le balor a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
+
+      ***Résistance légendaire (3/jour)***. Si le Balor rate un jet de sauvegarde, il peut décider de le réussir tout de même.
+
+      ***Spasmes d'agonie***. Le balor explose quand il meurt. *JdS Dextérité* : DD 20, chaque créature dans une Émanation de 9 m centrée sur le balor. *Échec* : 31 (9d6) dégâts de feu plus 31 (9d6) dégâts de force. *Réussite* : demi-dégâts. *Échec ou réussite* : si le balor meurt hors des Abysses, il acquiert aussitôt un nouveau corps et revient à la vie avec tous ses pv quelque part dans les Abysses.
+
+      ## Actions
+
+      ***Attaques multiples***. Le balor effectue une attaque de Fouet embrasé et une de Lame de foudre.
+
+      ***Fouet embrasé***. *Corps à corps* : +14, allonge 9 m. *Touché* : 18 (3d6 + 8) dégâts de force plus 17 (5d6) dégâts de feu. Si la cible est une créature de taille TG ou inférieure, le balor la tire directement vers lui d'un maximum de 7,50 m, et la cible subit l'état À terre.
+
+      ***Lame de foudre***. *Corps à corps* : +14, allonge 3 m. *Touché* : 21 (3d8 + 8) dégâts de force plus 22 (4d10) dégâts de foudre, et la cible ne peut pas jouer de Réaction jusqu'au début du tour suivant du balor.
+
+      ## Actions Bonus
+
+      ***Téléportation***. Le balor téléporte un démon consentant situé dans un rayon de 3 m (ou lui-même) d'un maximum de 18 m vers un espace inoccupé qu'il voit.
     senses: vision véritable 36 m, Perception passive 19
     languages:
     - abyssal ; télépathie 36 m

@@ -89,14 +89,21 @@ translations:
     name: Giant Squid
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Water Breathing</em>**. The squid can breathe only underwater.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The squid makes one Bite attack and one Tentacle attack.</p>
-      <p><strong><em>Bite</em></strong>. <em>Melee Attack Roll</em> : +9, reach 5 ft. <em>Hit</em> : 28 (4d10 + 6) Piercing damage.</p>
-      <p><strong><em>Tentacle</em></strong>. <em>Melee Attack Roll</em> : +9, reach 15 ft. <em>Hit</em> : 19 (3d8 + 6) Bludgeoning damage. If the target is a Huge or smaller creature, it has the Grappled condition (escape DC 16) from one of two tentacles, and the squid can pull the target up to 10 feet straight toward itself.</p>
-      <h2>Reactions</h2>
-      <p>** <em>Ink Cloud (1/Day)</em>**. <em>Trigger</em> : The squid takes damage while underwater. <em>Response</em> : The squid releases ink that fills a 15-foot Cube centered on itself, and the squid moves up to its Swim Speed. The Cube is Heavily Obscured for 1 minute or until a strong current or similar effect disperses the ink.</p>
+      ## Traits
+
+      ***Water Breathing***. The squid can breathe only underwater.
+
+      ## Actions
+
+      ***Multiattack***. The squid makes one Bite attack and one Tentacle attack.
+
+      ***Bite***. *Melee Attack Roll* : +9, reach 5 ft. *Hit* : 28 (4d10 + 6) Piercing damage.
+
+      ***Tentacle***. *Melee Attack Roll* : +9, reach 15 ft. *Hit* : 19 (3d8 + 6) Bludgeoning damage. If the target is a Huge or smaller creature, it has the Grappled condition (escape DC 16) from one of two tentacles, and the squid can pull the target up to 10 feet straight toward itself.
+
+      ## Reactions
+
+      ***Ink Cloud (1/Day)***. *Trigger* : The squid takes damage while underwater. *Response* : The squid releases ink that fills a 15-foot Cube centered on itself, and the squid moves up to its Swim Speed. The Cube is Heavily Obscured for 1 minute or until a strong current or similar effect disperses the ink.
     senses: Darkvision 120 ft., Passive Perception 16
     languages:
     - None
@@ -104,14 +111,21 @@ translations:
     name: Calamar géant
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Respiration aquatique</em>**. Le calamar ne peut respirer que sous l'eau.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le calamar effectue une attaque de Morsure et une de Tentacule.</p>
-      <p><strong><em>Morsure</em></strong>. <em>Corps à corps</em> : +9, allonge 1,50 m. <em>Touché</em> : 28 (4d10 + 6) dégâts perforants.</p>
-      <p><strong><em>Tentacule</em></strong>. <em>Corps à corps</em> : +9, allonge 4,50 m. <em>Touché</em> : 19 (3d8 + 6) dégâts contondants. Si la cible est une créature TG ou inférieure, elle subit l'état Agrippé (évasion DD 16) par l'un des deux tentacules, et le calmar peut tirer la cible de jusqu'à 3 m vers lui.</p>
-      <h2>Réactions</h2>
-      <p>** <em>Nuage d'encre (1/jour)</em>**. <em>Déclencheur</em> : le calmar subit des dégâts alors qu'il est sous l'eau. <em>Conséquences</em> : le calmar libère de l'encre qui remplit un cube de 4,50 m de côté centré sur lui, puis il se déplace de sa Vitesse de nage. Le cube est une zone à Visibilité nulle pendant 1 minute ou jusqu'à ce qu'un fort courant fort ou autre phénomène similaire disperse l'encre.</p>
+      ## Traits
+
+      ***Respiration aquatique***. Le calamar ne peut respirer que sous l'eau.
+
+      ## Actions
+
+      ***Attaques multiples***. Le calamar effectue une attaque de Morsure et une de Tentacule.
+
+      ***Morsure***. *Corps à corps* : +9, allonge 1,50 m. *Touché* : 28 (4d10 + 6) dégâts perforants.
+
+      ***Tentacule***. *Corps à corps* : +9, allonge 4,50 m. *Touché* : 19 (3d8 + 6) dégâts contondants. Si la cible est une créature TG ou inférieure, elle subit l'état Agrippé (évasion DD 16) par l'un des deux tentacules, et le calmar peut tirer la cible de jusqu'à 3 m vers lui.
+
+      ## Réactions
+
+      ***Nuage d'encre (1/jour)***. *Déclencheur* : le calmar subit des dégâts alors qu'il est sous l'eau. *Conséquences* : le calmar libère de l'encre qui remplit un cube de 4,50 m de côté centré sur lui, puis il se déplace de sa Vitesse de nage. Le cube est une zone à Visibilité nulle pendant 1 minute ou jusqu'à ce qu'un fort courant fort ou autre phénomène similaire disperse l'encre.
     senses: Vision dans le noir 36 m, Perception passive 16
     languages:
     - aucune

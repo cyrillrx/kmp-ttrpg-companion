@@ -89,10 +89,13 @@ translations:
     name: Fire Giant
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The giant makes two attacks, using Flame Sword or Hammer Throw in any combination.</p>
-      <p><strong><em>Flame Sword</em></strong>. <em>Melee Attack Roll</em> : +11, reach 10 ft. <em>Hit</em> : 21 (4d6 + 7) Slashing damage plus 10 (3d6) Fire damage.</p>
-      <p><strong><em>Hammer Throw</em></strong>. <em>Ranged Attack Roll</em> : +11, range 60/240 ft. <em>Hit</em> : 23 (3d10 + 7) Bludgeoning damage plus 4 (1d8) Fire damage, and the target is pushed up to 15 feet straight away from the giant and has Disadvantage on the next attack roll it makes before the end of its next turn.</p>
+      ## Actions
+
+      ***Multiattack***. The giant makes two attacks, using Flame Sword or Hammer Throw in any combination.
+
+      ***Flame Sword***. *Melee Attack Roll* : +11, reach 10 ft. *Hit* : 21 (4d6 + 7) Slashing damage plus 10 (3d6) Fire damage.
+
+      ***Hammer Throw***. *Ranged Attack Roll* : +11, range 60/240 ft. *Hit* : 23 (3d10 + 7) Bludgeoning damage plus 4 (1d8) Fire damage, and the target is pushed up to 15 feet straight away from the giant and has Disadvantage on the next attack roll it makes before the end of its next turn.
     senses: Passive Perception 16
     languages:
     - Giant
@@ -100,10 +103,13 @@ translations:
     name: Géant du feu
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le géant effectue deux attaques, réparties à sa guise entre Épée de feu et Lancer de marteau.</p>
-      <p><strong><em>Épée de feu</em></strong>. <em>Corps à corps</em> : +11, allonge 3 m. <em>Touché</em> : 21 (4d6 + 7) dégâts tranchants plus 10 (3d6) dégâts de feu.</p>
-      <p><strong><em>Lancer de marteau</em></strong>. <em>À distance</em> : +11, portée 18/72 m. <em>Touché</em> : 23 (3d10 + 7) dégâts contondants plus 4 (1d8) dégâts de feu, et la cible est repoussée d'un maximum de 4,50 m du géant et subit un Désavantage à son prochain jet d'attaque intervenant avant la fin de son propre tour suivant.</p>
+      ## Actions
+
+      ***Attaques multiples***. Le géant effectue deux attaques, réparties à sa guise entre Épée de feu et Lancer de marteau.
+
+      ***Épée de feu***. *Corps à corps* : +11, allonge 3 m. *Touché* : 21 (4d6 + 7) dégâts tranchants plus 10 (3d6) dégâts de feu.
+
+      ***Lancer de marteau***. *À distance* : +11, portée 18/72 m. *Touché* : 23 (3d10 + 7) dégâts contondants plus 4 (1d8) dégâts de feu, et la cible est repoussée d'un maximum de 4,50 m du géant et subit un Désavantage à son prochain jet d'attaque intervenant avant la fin de son propre tour suivant.
     senses: Perception passive 16
     languages:
     - géant

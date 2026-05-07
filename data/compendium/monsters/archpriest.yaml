@@ -89,15 +89,22 @@ translations:
     name: Archpriest
     subtype: Cleric
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The archpriest makes three Radiant Burst attacks.</p>
-      <p><strong><em>Radiant Burst</em></strong>. <em>Melee or Ranged Attack Roll</em> : +9, reach 5 ft. or range 60 ft. <em>Hit</em> : 27 (4d10 + 5) Radiant damage.</p>
-      <p><strong><em>Holy Word (Recharge 4–6)</em></strong>. <em>Wisdom Saving Throw</em> : DC 17, each enemy in a 20-foot Emanation originating from the archpriest. <em>Failure</em> : 21 (6d6) Radiant damage, and the target has the Stunned condition until the end of the archpriest's next turn. <em>Success</em> : Half damage only.</p>
-      <p><strong><em>Spellcasting</em></strong>. The archpriest casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 17):</p>
-      <p>At will: <em><a href="https://www.aidedd.org/spell/light">Light</a>, <a href="https://www.aidedd.org/spell/thaumaturgy">Thaumaturgy</a></em><br />
-      1/day each: <em><a href="https://www.aidedd.org/spell/flame-strike">Flame Strike</a></em> (level 6 version), <em><a href="https://www.aidedd.org/spell/greater-restoration">Greater Restoration</a>, <a href="https://www.aidedd.org/spell/raise-dead">Raise Dead</a>, <a href="https://www.aidedd.org/spell/zone-of-truth">Zone of Truth</a></em>  </p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Divine Aid (3/Day)</em>**. The priest casts <em><a href="https://www.aidedd.org/spell/bless">Bless</a>, <a href="https://www.aidedd.org/spell/dispel-magic">Dispel Magic</a>, <a href="https://www.aidedd.org/spell/healing-word">Healing Word</a></em>, or <em><a href="https://www.aidedd.org/spell/lesser-restoration">Lesser Restoration</a></em> , using the same spellcasting ability as Spellcasting.</p>
+      ## Actions
+
+      ***Multiattack***. The archpriest makes three Radiant Burst attacks.
+
+      ***Radiant Burst***. *Melee or Ranged Attack Roll* : +9, reach 5 ft. or range 60 ft. *Hit* : 27 (4d10 + 5) Radiant damage.
+
+      ***Holy Word (Recharge 4–6)***. *Wisdom Saving Throw* : DC 17, each enemy in a 20-foot Emanation originating from the archpriest. *Failure* : 21 (6d6) Radiant damage, and the target has the Stunned condition until the end of the archpriest's next turn. *Success* : Half damage only.
+
+      ***Spellcasting***. The archpriest casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 17):
+
+      At will: *[Light](https://www.aidedd.org/spell/light), [Thaumaturgy](https://www.aidedd.org/spell/thaumaturgy)*\
+      1/day each: *[Flame Strike](https://www.aidedd.org/spell/flame-strike)* (level 6 version), *[Greater Restoration](https://www.aidedd.org/spell/greater-restoration), [Raise Dead](https://www.aidedd.org/spell/raise-dead), [Zone of Truth](https://www.aidedd.org/spell/zone-of-truth)*
+
+      ## Bonus actions
+
+      ***Divine Aid (3/Day)***. The priest casts *[Bless](https://www.aidedd.org/spell/bless), [Dispel Magic](https://www.aidedd.org/spell/dispel-magic), [Healing Word](https://www.aidedd.org/spell/healing-word)*, or *[Lesser Restoration](https://www.aidedd.org/spell/lesser-restoration)* , using the same spellcasting ability as Spellcasting.
     senses: Passive Perception 19
     languages:
     - Common plus two other languages
@@ -105,15 +112,22 @@ translations:
     name: Archiprêtre
     subtype: Clerc
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. L'archiprêtre effectue trois attaques d'Éruption radiante.</p>
-      <p><strong><em>Éruption radiante</em></strong>. <em>Corps à corps ou à distance</em> : +9, allonge 1,50 m ou portée 18 m. <em>Touché</em> : 27 (4d10 + 5) dégâts radiants.</p>
-      <p><strong><em>Parole divine (recharge 4–6)</em></strong>. <em>JdS Sagesse</em> : DD 17, chaque ennemi dans une Émanation de 6 m centrée sur l'archiprêtre. <em>Échec</em> : 21 (6d6) dégâts radiants, et la cible subit l'état Étourdi jusqu'à la fin du prochain tour de l'archiprêtre. <em>Réussite</em> : demi-dégâts uniquement.</p>
-      <p><strong><em>Incantation</em></strong>. L'archiprêtre lance l'un des sorts suivants sans composantes matérielles, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 17) :</p>
-      <p>À volonté : <em>lumière,<a href="https://www.aidedd.org/spell/fr/thaumaturgie">thaumaturgie</a></em><br />
-      1 fois par jour : <em><a href="https://www.aidedd.org/spell/fr/colonne-de-flamme">colonne de flamme</a>s</em> (au niveau 6), <em><a href="https://www.aidedd.org/spell/fr/restauration-supreme">restauration suprême</a>, rappel à la vie, zone de vérité</em>  </p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Soutien divin (3/jour)</em>**. Le prêtre lance <em>bénédiction,<a href="https://www.aidedd.org/spell/fr/dissipation-de-la-magie">dissipation de la magie</a>, mot de guérison</em> ou <em>restauration mineure</em> , en utilisant la même caractéristique d'incantation que pour Incantation.</p>
+      ## Actions
+
+      ***Attaques multiples***. L'archiprêtre effectue trois attaques d'Éruption radiante.
+
+      ***Éruption radiante***. *Corps à corps ou à distance* : +9, allonge 1,50 m ou portée 18 m. *Touché* : 27 (4d10 + 5) dégâts radiants.
+
+      ***Parole divine (recharge 4–6)***. *JdS Sagesse* : DD 17, chaque ennemi dans une Émanation de 6 m centrée sur l'archiprêtre. *Échec* : 21 (6d6) dégâts radiants, et la cible subit l'état Étourdi jusqu'à la fin du prochain tour de l'archiprêtre. *Réussite* : demi-dégâts uniquement.
+
+      ***Incantation***. L'archiprêtre lance l'un des sorts suivants sans composantes matérielles, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 17) :
+
+      À volonté : *lumière,[thaumaturgie](https://www.aidedd.org/spell/fr/thaumaturgie)*\
+      1 fois par jour : *[colonne de flamme](https://www.aidedd.org/spell/fr/colonne-de-flamme)s* (au niveau 6), *[restauration suprême](https://www.aidedd.org/spell/fr/restauration-supreme), rappel à la vie, zone de vérité*
+
+      ## Actions Bonus
+
+      ***Soutien divin (3/jour)***. Le prêtre lance *bénédiction,[dissipation de la magie](https://www.aidedd.org/spell/fr/dissipation-de-la-magie), mot de guérison* ou *restauration mineure* , en utilisant la même caractéristique d'incantation que pour Incantation.
     senses: Perception passive 19
     languages:
     - commun plus deux autres langues

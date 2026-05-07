@@ -21,7 +21,7 @@ translations:
     description: An aura radiates from you in a 30-foot Emanation for the duration.
       While in the aura, you and your allies have Resistance to Poison damage and
       Advantage on saving throws to avoid or end effects that include the Blinded,
-      Charmed, Deafened, Frightened, Paralyzed, Poisoned, or Stunned condition.<br/>
+      Charmed, Deafened, Frightened, Paralyzed, Poisoned, or Stunned condition.\
   fr:
     name: Aura de pureté
     castingTime: Action
@@ -32,4 +32,4 @@ translations:
       pendant toute la durée du sort. Tant que vous êtes dans l'aura, vous et vos
       alliés bénéficiez d'une résistance aux dégâts de poison et d'un Avantage aux
       jets de sauvegarde pour éviter ou mettre fin aux états Aveuglé, Charmé, Assourdi,
-      Effrayé, Paralysé, Empoisonné ou Étourdi.<br/>
+      Effrayé, Paralysé, Empoisonné ou Étourdi.\

@@ -18,12 +18,9 @@ translations:
     range: Self
     duration: Instantaneous
     materialDescription: null
-    description: As you hit the creature, this spell creates a rain of thorns that
-      sprouts from your Ranged weapon or ammunition. The target of the attack and
-      each creature within 5 feet of it make a Dexterity saving throw, taking 1d10
-      Piercing damage on a failed save or half as much damage on a successful one.<br/><strong><em>Using
-      a Higher-Level Spell Slot</em></strong>. The damage increases by 1d10 for each
-      spell slot level above 1.<br/>
+    description: |-
+      As you hit the creature, this spell creates a rain of thorns that sprouts from your Ranged weapon or ammunition. The target of the attack and each creature within 5 feet of it make a Dexterity saving throw, taking 1d10 Piercing damage on a failed save or half as much damage on a successful one.\
+      ***Using a Higher-Level Spell Slot***. The damage increases by 1d10 for each spell slot level above 1.\
   fr:
     name: Grêle d'épines
     castingTime: Action bonus, que vous prenez immédiatement après avoir touché une
@@ -31,10 +28,6 @@ translations:
     range: Personnelle
     duration: Instantanée
     materialDescription: null
-    description: Lorsque vous touchez la créature, ce sort crée une pluie d'épines
-      qui jaillit de votre arme à distance ou de vos munitions. La cible de l'attaque
-      et toute créature dans un rayon de 1,50 mètre autour d'elle effectuent un jet
-      de sauvegarde de Dextérité, subissant 1d10 dégâts perforants en cas d'échec
-      ou la moitié de ces dégâts en cas de réussite.<br/><strong><em>Emplacement de
-      niveau supérieur</em></strong>. Les dégâts augmentent de 1d10 pour chaque niveau
-      d'emplacement de sort supérieur à 1.<br/>
+    description: |-
+      Lorsque vous touchez la créature, ce sort crée une pluie d'épines qui jaillit de votre arme à distance ou de vos munitions. La cible de l'attaque et toute créature dans un rayon de 1,50 mètre autour d'elle effectuent un jet de sauvegarde de Dextérité, subissant 1d10 dégâts perforants en cas d'échec ou la moitié de ces dégâts en cas de réussite.\
+      ***Emplacement de niveau supérieur***. Les dégâts augmentent de 1d10 pour chaque niveau d'emplacement de sort supérieur à 1.\

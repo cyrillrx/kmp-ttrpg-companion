@@ -89,10 +89,13 @@ translations:
     name: Performer
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Shortsword</em>**. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 6 (1d6 + 3) Piercing damage.</p>
-      <h2>Reactions</h2>
-      <p>** <em>Uncanny Dodge</em>**. <em>Trigger</em> : The performer is hit by an attack roll. <em>Response</em> : The performer halves the damage (round down) it takes from that attack.</p>
+      ## Actions
+
+      ***Shortsword***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 6 (1d6 + 3) Piercing damage.
+
+      ## Reactions
+
+      ***Uncanny Dodge***. *Trigger* : The performer is hit by an attack roll. *Response* : The performer halves the damage (round down) it takes from that attack.
     senses: Passive Perception 12
     languages:
     - Common plus one other language
@@ -100,10 +103,13 @@ translations:
     name: Saltimbanque
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Épée courte</em>**. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 6 (1d6 + 3) dégâts perforants.</p>
-      <h2>Réactions</h2>
-      <p>** <em>Esquive instinctive</em>**. <em>Déclencheur</em> : le saltimbanque est touché par un jet d'attaque. <em>Conséquences</em> : le saltimbanque réduit de moitié les dégâts (arrondis à l'inférieur) subis lors de cette attaque.</p>
+      ## Actions
+
+      ***Épée courte***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 6 (1d6 + 3) dégâts perforants.
+
+      ## Réactions
+
+      ***Esquive instinctive***. *Déclencheur* : le saltimbanque est touché par un jet d'attaque. *Conséquences* : le saltimbanque réduit de moitié les dégâts (arrondis à l'inférieur) subis lors de cette attaque.
     senses: Perception passive 12
     languages:
     - commun plus une autre langue

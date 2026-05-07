@@ -8,13 +8,13 @@ translations:
     name: Oil of Slipperiness
     subtype: null
     description: |-
-      <p>One vial of this oil can cover one Medium or smaller creature, along with the equipment it's wearing and carrying (one additional vial is required for each size category above Medium). Applying the oil takes 10 minutes. The affected creature then gains the effect of the <em><a href="https://www.aidedd.org/spell/freedom-of-movement">Freedom of Movement</a></em> spell for 8 hours.<br />
-      Alternatively, the oil can be poured on the ground as a Magic action, where it covers a 10-foot square, duplicating the effect of the <em><a href="https://www.aidedd.org/spell/grease">Grease</a></em> spell in that area for 8 hours.<br />
-      This sticky, black unguent is thick and heavy, but it flows quickly when poured.</p>
+      One vial of this oil can cover one Medium or smaller creature, along with the equipment it's wearing and carrying (one additional vial is required for each size category above Medium). Applying the oil takes 10 minutes. The affected creature then gains the effect of the *[Freedom of Movement](https://www.aidedd.org/spell/freedom-of-movement)* spell for 8 hours.\
+      Alternatively, the oil can be poured on the ground as a Magic action, where it covers a 10-foot square, duplicating the effect of the *[Grease](https://www.aidedd.org/spell/grease)* spell in that area for 8 hours.\
+      This sticky, black unguent is thick and heavy, but it flows quickly when poured.
   fr:
     name: Huile d'insaisissabilité
     subtype: null
     description: |-
-      <p>Une fiole de cette huile peut couvrir une créature de taille M ou inférieure, ainsi que l'équipement qu'elle porte (une fiole supplémentaire est nécessaire pour chaque catégorie de taille supérieure à M). L'application de l'huile prend 10 minutes. La créature affectée bénéficie alors de l'effet du sort <em><a href="https://www.aidedd.org/spell/fr/liberte-de-mouvement">liberté de mouvement</a></em> pendant 8 heures.<br />
-      Alternativement, l'huile peut être versée au sol par une action Magie, couvrant ainsi une zone de 3 mètres de côté, dupliquant l'effet du sort <em><a href="https://www.aidedd.org/spell/fr/graisse">graisse</a></em> dans cette zone pendant 8 heures.<br />
-      Cet onguent noir et collant est épais et lourd, mais il coule rapidement lorsqu'on le verse.</p>
+      Une fiole de cette huile peut couvrir une créature de taille M ou inférieure, ainsi que l'équipement qu'elle porte (une fiole supplémentaire est nécessaire pour chaque catégorie de taille supérieure à M). L'application de l'huile prend 10 minutes. La créature affectée bénéficie alors de l'effet du sort *[liberté de mouvement](https://www.aidedd.org/spell/fr/liberte-de-mouvement)* pendant 8 heures.\
+      Alternativement, l'huile peut être versée au sol par une action Magie, couvrant ainsi une zone de 3 mètres de côté, dupliquant l'effet du sort *[graisse](https://www.aidedd.org/spell/fr/graisse)* dans cette zone pendant 8 heures.\
+      Cet onguent noir et collant est épais et lourd, mais il coule rapidement lorsqu'on le verse.

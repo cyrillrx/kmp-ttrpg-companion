@@ -20,7 +20,7 @@ translations:
     materialDescription: a piece of cured leather
     description: You touch a willing creature who isn't wearing armor. Until the spell
       ends, the target's base AC becomes 13 plus its Dexterity modifier. The spell
-      ends early if the target dons armor.<br/>
+      ends early if the target dons armor.\
   fr:
     name: Armure de mage
     castingTime: Action
@@ -29,4 +29,4 @@ translations:
     materialDescription: un morceau de cuir traité
     description: Vous touchez une créature consentante qui ne porte pas d'armure.
       Jusqu'à la fin du sort, la CA de base de la cible passe à 13, plus son modificateur
-      de Dextérité. Le sort prend fin prématurément si la cible enfile une armure.<br/>
+      de Dextérité. Le sort prend fin prématurément si la cible enfile une armure.\

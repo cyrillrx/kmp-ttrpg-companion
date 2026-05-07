@@ -89,21 +89,29 @@ translations:
     name: Troll Limb
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Regeneration</em>**. The limb regains 5 Hit Points at the start of each of its turns. If the limb takes Acid or Fire damage, this trait doesn't function on the limb's next turn. The limb dies only if it starts its turn with 0 Hit Points and doesn't regenerate.</p>
-      <p><strong><em>Troll Spawn</em></strong>. The limb uncannily has the same senses as a whole troll. If the limb isn't destroyed within 24 hours, roll 1d12. On a 12, the limb turns into a Troll. Otherwise, the limb withers away.</p>
-      <h2>Actions</h2>
-      <p>** <em>Rend</em>**. <em>Melee Attack Roll</em> : +6, reach 5 ft. <em>Hit</em> : 9 (2d4 + 4) Slashing damage.</p>
+      ## Traits
+
+      ***Regeneration***. The limb regains 5 Hit Points at the start of each of its turns. If the limb takes Acid or Fire damage, this trait doesn't function on the limb's next turn. The limb dies only if it starts its turn with 0 Hit Points and doesn't regenerate.
+
+      ***Troll Spawn***. The limb uncannily has the same senses as a whole troll. If the limb isn't destroyed within 24 hours, roll 1d12. On a 12, the limb turns into a Troll. Otherwise, the limb withers away.
+
+      ## Actions
+
+      ***Rend***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 9 (2d4 + 4) Slashing damage.
     senses: Darkvision 60 ft., Passive Perception 9
     languages: []
   fr:
     name: Abattis de troll
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Régénération</em>**. L'abattis récupère 5 points de vie au début de chacun de ses tours. S'il subit des dégâts d'acide ou de feu, ce trait ne fonctionne pas à son tour suivant. L'abattis ne meurt que s'il commence son tour à 0 point de vie et ne se régénère pas.</p>
-      <p><strong><em>Trollesquerie</em></strong>. L'abattis dispose des mêmes sens que le troll dont il est issu. Si l'abattis n'est pas détruit dans les 24 heures, lancez 1d12. Sur un résultat de 12, l'abattis devient un troll à part entière. Sinon, le membre dépérit.</p>
-      <h2>Actions</h2>
-      <p>** <em>Saignée</em>**. <em>Corps à corps</em> : +6, allonge 1,50 m. <em>Touché</em> : 9 (2d4 + 4) dégâts tranchants.</p>
+      ## Traits
+
+      ***Régénération***. L'abattis récupère 5 points de vie au début de chacun de ses tours. S'il subit des dégâts d'acide ou de feu, ce trait ne fonctionne pas à son tour suivant. L'abattis ne meurt que s'il commence son tour à 0 point de vie et ne se régénère pas.
+
+      ***Trollesquerie***. L'abattis dispose des mêmes sens que le troll dont il est issu. Si l'abattis n'est pas détruit dans les 24 heures, lancez 1d12. Sur un résultat de 12, l'abattis devient un troll à part entière. Sinon, le membre dépérit.
+
+      ## Actions
+
+      ***Saignée***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 9 (2d4 + 4) dégâts tranchants.
     senses: Vision dans le noir 18 m, Perception passive 9
     languages: []

@@ -19,7 +19,7 @@ translations:
     duration: Concentration, up to 1 minute
     materialDescription: null
     description: You touch a willing creature and choose a skill. Until the spell
-      ends, the creature adds 1d4 to any ability check using the chosen skill.<br/>
+      ends, the creature adds 1d4 to any ability check using the chosen skill.\
   fr:
     name: Assistance
     castingTime: Action
@@ -28,4 +28,4 @@ translations:
     materialDescription: null
     description: Vous touchez une créature consentante et choisissez une compétence.
       Jusqu'à la fin du sort, la créature ajoute 1d4 à tout jet de caractéristique
-      utilisant la compétence choisie.<br/>
+      utilisant la compétence choisie.\

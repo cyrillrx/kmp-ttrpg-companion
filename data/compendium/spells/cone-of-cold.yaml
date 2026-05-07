@@ -19,22 +19,15 @@ translations:
     range: Self
     duration: Instantaneous
     materialDescription: a small crystal or glass cone
-    description: You unleash a blast of cold air. Each creature in a 60-foot Cone
-      originating from you makes a Constitution saving throw, taking 8d8 Cold damage
-      on a failed save or half as much damage on a successful one. A creature killed
-      by this spell becomes a frozen statue until it thaws.<br/><strong><em>Using
-      a Higher-Level Spell Slot</em></strong>. The damage increases by 1d8 for each
-      spell slot level above 5.<br/>
+    description: |-
+      You unleash a blast of cold air. Each creature in a 60-foot Cone originating from you makes a Constitution saving throw, taking 8d8 Cold damage on a failed save or half as much damage on a successful one. A creature killed by this spell becomes a frozen statue until it thaws.\
+      ***Using a Higher-Level Spell Slot***. The damage increases by 1d8 for each spell slot level above 5.\
   fr:
     name: Cône de froid
     castingTime: Action
     range: Personnelle
     duration: Instantanée
     materialDescription: petit cône de verre ou de cristal
-    description: Vous libérez un souffle d'air froid. Toute créature dans un Cône
-      de 18 mètres émanant de vous effectue un jet de sauvegarde de Constitution,
-      subissant 8d8 dégâts de froid en cas d'échec, ou la moitié de ces dégâts en
-      cas de réussite. Une créature tuée par ce sort devient une statue de glace jusqu'à
-      ce qu'elle dégèle.<br/><strong><em>Emplacement de niveau supérieur</em></strong>.
-      Les dégâts augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur
-      à 5.<br/>
+    description: |-
+      Vous libérez un souffle d'air froid. Toute créature dans un Cône de 18 mètres émanant de vous effectue un jet de sauvegarde de Constitution, subissant 8d8 dégâts de froid en cas d'échec, ou la moitié de ces dégâts en cas de réussite. Une créature tuée par ce sort devient une statue de glace jusqu'à ce qu'elle dégèle.\
+      ***Emplacement de niveau supérieur***. Les dégâts augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 5.\

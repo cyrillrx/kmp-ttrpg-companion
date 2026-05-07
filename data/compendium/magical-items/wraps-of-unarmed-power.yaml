@@ -7,14 +7,14 @@ translations:
   en:
     name: Wraps of Unarmed Power
     subtype: null
-    description: <p>While wearing these wraps, you have a bonus to attack rolls and
-      damage rolls made with your Unarmed Strikes. The bonus is determined by the
-      wraps' rarity, and those strikes deal your choice of Force damage or their normal
-      damage type.</p>
+    description: While wearing these wraps, you have a bonus to attack rolls and damage
+      rolls made with your Unarmed Strikes. The bonus is determined by the wraps'
+      rarity, and those strikes deal your choice of Force damage or their normal damage
+      type.
   fr:
     name: Bandages de pancrace
     subtype: null
-    description: <p>Lorsque vous portez ces bandages, vous bénéficiez d'un bonus aux
+    description: Lorsque vous portez ces bandages, vous bénéficiez d'un bonus aux
       jets d'attaque et de dégâts effectués avec vos attaques à mains nues. Ce bonus
       dépend de la rareté des bandages, et ces attaques infligent, au choix, des dégâts
-      de Force ou leur type de dégâts normal.</p>
+      de Force ou leur type de dégâts normal.

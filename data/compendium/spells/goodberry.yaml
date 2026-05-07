@@ -18,18 +18,15 @@ translations:
     range: Self
     duration: 24 hours
     materialDescription: a sprig of mistletoe
-    description: Ten berries appear in your hand and are infused with magic for the
-      duration. A creature can take a Bonus Action to eat one berry. Eating a berry
-      restores 1 Hit Point, and the berry provides enough nourishment to sustain a
-      creature for one day.<br/>Uneaten berries disappear when the spell ends.<br/>
+    description: |-
+      Ten berries appear in your hand and are infused with magic for the duration. A creature can take a Bonus Action to eat one berry. Eating a berry restores 1 Hit Point, and the berry provides enough nourishment to sustain a creature for one day.\
+      Uneaten berries disappear when the spell ends.\
   fr:
     name: Baies nourricières
     castingTime: Action
     range: Personnelle
     duration: 24 heures
     materialDescription: une branche de gui
-    description: Dix baies imprégnées de magie pendant toute la durée du sort apparaissent
-      dans votre main. Une créature peut prendre une action Bonus pour en manger une.
-      Manger une baie restaure 1 point de vie et fournit suffisamment de nourriture
-      pour nourrir une créature pendant une journée.<br/>Les baies non consommées
-      disparaissent à la fin du sort.<br/>
+    description: |-
+      Dix baies imprégnées de magie pendant toute la durée du sort apparaissent dans votre main. Une créature peut prendre une action Bonus pour en manger une. Manger une baie restaure 1 point de vie et fournit suffisamment de nourriture pour nourrir une créature pendant une journée.\
+      Les baies non consommées disparaissent à la fin du sort.\

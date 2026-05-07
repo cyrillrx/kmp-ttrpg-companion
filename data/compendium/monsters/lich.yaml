@@ -89,24 +89,39 @@ translations:
     name: Lich
     subtype: Wizard
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Legendary Resistance (4/Day, or 5/Day in Lair)</em>**. If the lich fails a saving throw, it can choose to succeed instead.</p>
-      <p><strong><em>Spirit Jar</em></strong>. If destroyed, the lich reforms in 1d10 days if it has a spirit jar, reviving with all its Hit Points. The new body appears in an unoccupied space within the lich's lair.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The lich makes three attacks, using Eldritch Burst or Paralyzing Touch in any combination.</p>
-      <p><strong><em>Eldritch Burst</em></strong>. <em>Melee or Ranged Attack Roll</em> : +12, reach 5 ft. or range 120 ft. <em>Hit</em> : 31 (4d12 + 5) Force damage.</p>
-      <p><strong><em>Paralyzing Touch</em></strong>. <em>Melee Attack Roll</em> : +12, reach 5 ft. <em>Hit</em> : 15 (3d6 + 5) Cold damage, and the target has the Paralyzed condition until the start of the lich's next turn.</p>
-      <p><strong><em>Spellcasting</em></strong>. The lich casts one of the following spells, using Intelligence as the spellcasting ability (spell save DC 20):</p>
-      <p>At will: <em><a href="https://www.aidedd.org/spell/detect-magic">Detect Magic</a>, <a href="https://www.aidedd.org/spell/detect-thoughts">Detect Thoughts</a>, <a href="https://www.aidedd.org/spell/dispel-magic">Dispel Magic</a>, <a href="https://www.aidedd.org/spell/fireball">Fireball</a></em> (level 5 version), <em><a href="https://www.aidedd.org/spell/invisibility">Invisibility</a>, <a href="https://www.aidedd.org/spell/lightning-bolt">Lightning Bolt</a></em> (level 5 version), <em><a href="https://www.aidedd.org/spell/mage-hand">Mage Hand</a>, <a href="https://www.aidedd.org/spell/prestidigitation">Prestidigitation</a></em><br />
-      2/day each: <em><a href="https://www.aidedd.org/spell/animate-dead">Animate Dead</a>, <a href="https://www.aidedd.org/spell/dimension-door">Dimension Door</a>, <a href="https://www.aidedd.org/spell/plane-shift">Plane Shift</a></em><br />
-      1/day each: <em><a href="https://www.aidedd.org/spell/chain-lightning">Chain Lightning</a>, <a href="https://www.aidedd.org/spell/finger-of-death">Finger of Death</a>, <a href="https://www.aidedd.org/spell/power-word-kill">Power Word Kill</a>, <a href="https://www.aidedd.org/spell/scrying">Scrying</a></em>  </p>
-      <h2>Reactions</h2>
-      <p>** <em>Protective Magic</em>**. The lich casts <em><a href="https://www.aidedd.org/spell/counterspell">Counterspell</a></em> or <em><a href="https://www.aidedd.org/spell/shield">Shield</a></em> in response to the spell's trigger, using the same spellcasting ability as Spellcasting.</p>
-      <h2>Legendary actions</h2>
-      <p>Legendary Action Uses: 3 (4 in Lair). Immediately after another creature's turn, The lich can expend a use to take one of the following actions. The lich regains all expended uses at the start of each of its turns. </p>
-      <p><strong><em>Deathly Teleport</em></strong>. The lich teleports up to 60 feet to an unoccupied space it can see, and each creature within 10 feet of the space it left takes 11 (2d10) Necrotic damage.</p>
-      <p><strong><em>Disrupt Life</em></strong>. <em>Constitution Saving Throw</em> : DC 20, each creature that isn't an Undead in a 20-foot Emanation originating from the lich. <em>Failure</em> : 31 (9d6) Necrotic damage. <em>Success</em> : Half damage. <em>Failure or Success</em> : The lich can't take this action again until the start of its next turn.</p>
-      <p><strong><em>Frightening Gaze</em></strong>. The lich casts <em><a href="https://www.aidedd.org/spell/fear">Fear</a></em> , using the same spellcasting ability as Spellcasting. The lich can't take this action again until the start of its next turn.</p>
+      ## Traits
+
+      ***Legendary Resistance (4/Day, or 5/Day in Lair)***. If the lich fails a saving throw, it can choose to succeed instead.
+
+      ***Spirit Jar***. If destroyed, the lich reforms in 1d10 days if it has a spirit jar, reviving with all its Hit Points. The new body appears in an unoccupied space within the lich's lair.
+
+      ## Actions
+
+      ***Multiattack***. The lich makes three attacks, using Eldritch Burst or Paralyzing Touch in any combination.
+
+      ***Eldritch Burst***. *Melee or Ranged Attack Roll* : +12, reach 5 ft. or range 120 ft. *Hit* : 31 (4d12 + 5) Force damage.
+
+      ***Paralyzing Touch***. *Melee Attack Roll* : +12, reach 5 ft. *Hit* : 15 (3d6 + 5) Cold damage, and the target has the Paralyzed condition until the start of the lich's next turn.
+
+      ***Spellcasting***. The lich casts one of the following spells, using Intelligence as the spellcasting ability (spell save DC 20):
+
+      At will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts), [Dispel Magic](https://www.aidedd.org/spell/dispel-magic), [Fireball](https://www.aidedd.org/spell/fireball)* (level 5 version), *[Invisibility](https://www.aidedd.org/spell/invisibility), [Lightning Bolt](https://www.aidedd.org/spell/lightning-bolt)* (level 5 version), *[Mage Hand](https://www.aidedd.org/spell/mage-hand), [Prestidigitation](https://www.aidedd.org/spell/prestidigitation)*\
+      2/day each: *[Animate Dead](https://www.aidedd.org/spell/animate-dead), [Dimension Door](https://www.aidedd.org/spell/dimension-door), [Plane Shift](https://www.aidedd.org/spell/plane-shift)*\
+      1/day each: *[Chain Lightning](https://www.aidedd.org/spell/chain-lightning), [Finger of Death](https://www.aidedd.org/spell/finger-of-death), [Power Word Kill](https://www.aidedd.org/spell/power-word-kill), [Scrying](https://www.aidedd.org/spell/scrying)*
+
+      ## Reactions
+
+      ***Protective Magic***. The lich casts *[Counterspell](https://www.aidedd.org/spell/counterspell)* or *[Shield](https://www.aidedd.org/spell/shield)* in response to the spell's trigger, using the same spellcasting ability as Spellcasting.
+
+      ## Legendary actions
+
+      Legendary Action Uses: 3 (4 in Lair). Immediately after another creature's turn, The lich can expend a use to take one of the following actions. The lich regains all expended uses at the start of each of its turns.
+
+      ***Deathly Teleport***. The lich teleports up to 60 feet to an unoccupied space it can see, and each creature within 10 feet of the space it left takes 11 (2d10) Necrotic damage.
+
+      ***Disrupt Life***. *Constitution Saving Throw* : DC 20, each creature that isn't an Undead in a 20-foot Emanation originating from the lich. *Failure* : 31 (9d6) Necrotic damage. *Success* : Half damage. *Failure or Success* : The lich can't take this action again until the start of its next turn.
+
+      ***Frightening Gaze***. The lich casts *[Fear](https://www.aidedd.org/spell/fear)* , using the same spellcasting ability as Spellcasting. The lich can't take this action again until the start of its next turn.
     senses: Truesight 120 ft., Passive Perception 19
     languages:
     - All
@@ -114,24 +129,39 @@ translations:
     name: Liche
     subtype: Magicien
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Réceptacle spirituel</em>**. Si elle est détruite, la liche se reconstitue en 1d10 jours si elle possède un réceptacle spirituel, en récupérant tous ses points de vie. Le nouveau corps apparaît en un espace inoccupé dans l'antre de la liche.</p>
-      <p><strong><em>Résistance légendaire (4/jour, ou 5/jour dans son antre)</em></strong>. Si la liche rate un jet de sauvegarde, elle peut décider de le réussir tout de même.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. La liche effectue trois attaques, réparties à sa guise entre Contact paralysant et Explosion occulte.</p>
-      <p><strong><em>Explosion occulte</em></strong>. <em>Corps à corps ou à distance</em> : +12, allonge 1,50 m ou portée 36 m. <em>Touché</em> : 31 (4d12 + 5) dégâts de force.</p>
-      <p><strong><em>Contact paralysant</em></strong>. <em>Corps à corps</em> : +12, allonge 1,50 m. <em>Touché</em> : 15 (3d6 + 5) dégâts de froid, et la cible subit l'état Paralysé jusqu'au début du tour suivant de la liche.</p>
-      <p><strong><em>Incantation</em></strong>. La liche lance l'un des sorts suivants, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 20) :</p>
-      <p>À volonté : <em><a href="https://www.aidedd.org/spell/fr/boule-de-feu">boule de feu</a></em> (au niveau 5), <em><a href="https://www.aidedd.org/spell/fr/detection-de-la-magie">détection de la magie</a>, <a href="https://www.aidedd.org/spell/fr/detection-des-pensees">détection des pensées</a>, <a href="https://www.aidedd.org/spell/fr/dissipation-de-la-magie">dissipation de la magie</a>, <a href="https://www.aidedd.org/spell/fr/eclair">éclair</a></em> (au niveau 5), <em><a href="https://www.aidedd.org/spell/fr/invisibilite">invisibilité</a>, <a href="https://www.aidedd.org/spell/fr/main-de-mage">main de mage</a>, <a href="https://www.aidedd.org/spell/fr/prestidigitation">prestidigitation</a></em><br />
-      2/jour chacun : <em>animation des morts,<a href="https://www.aidedd.org/spell/fr/changement-de-plan">changement de plan</a>, <a href="https://www.aidedd.org/spell/fr/porte-dimensionnelle">porte dimensionnelle</a></em><br />
-      1/jour chacun : <em>chaîne d'éclairs, doigt de mort, mot de pouvoir mortel,<a href="https://www.aidedd.org/spell/fr/scrutation">scrutation</a></em>  </p>
-      <h2>Réactions</h2>
-      <p>** <em>Magie protectrice</em>**. La liche lance <em><a href="https://www.aidedd.org/spell/fr/bouclier">bouclier</a></em> ou <em><a href="https://www.aidedd.org/spell/fr/contresort">contresort</a></em> en réponse au déclencheur du sort correspondant, avec la même caractéristique d'incantation que pour Incantation.</p>
-      <h2>Actions Légendaires</h2>
-      <p>Utilisations d'action Légendaire : 3 (4 dans son antre). Aussitôt après le tour d'une autre créature, la liche peut dépenser une utilisation pour entreprendre l'une des actions ci-après. La liche récupère toutes ses utilisations dépensées au début de chacun de ses tours. </p>
-      <p><strong><em>Regard horrifique</em></strong>. La liche lance <em>peur</em> , avec la même caractéristique d'incantation que pour Incantation. La liche ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.</p>
-      <p><strong><em>Téléportation funeste</em></strong>. La liche se téléporte en un espace inoccupé qu'elle voit dans un rayon de 18 m, et chaque créature dans un rayon de 3 m de l'espace qu'elle quitte subit 11 (2d10) dégâts nécrotiques.</p>
-      <p><strong><em>Trouble vital</em></strong>. <em>JdS Constitution</em> : DD 20, chaque créature autre qu'un Mort-vivant dans une Émanation de 6 m centrée sur la liche. <em>Échec</em> : 31 (9d6) dégâts nécrotiques. <em>Réussite</em> : demi-dégâts. <em>Échec ou réussite</em> : la liche ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.</p>
+      ## Traits
+
+      ***Réceptacle spirituel***. Si elle est détruite, la liche se reconstitue en 1d10 jours si elle possède un réceptacle spirituel, en récupérant tous ses points de vie. Le nouveau corps apparaît en un espace inoccupé dans l'antre de la liche.
+
+      ***Résistance légendaire (4/jour, ou 5/jour dans son antre)***. Si la liche rate un jet de sauvegarde, elle peut décider de le réussir tout de même.
+
+      ## Actions
+
+      ***Attaques multiples***. La liche effectue trois attaques, réparties à sa guise entre Contact paralysant et Explosion occulte.
+
+      ***Explosion occulte***. *Corps à corps ou à distance* : +12, allonge 1,50 m ou portée 36 m. *Touché* : 31 (4d12 + 5) dégâts de force.
+
+      ***Contact paralysant***. *Corps à corps* : +12, allonge 1,50 m. *Touché* : 15 (3d6 + 5) dégâts de froid, et la cible subit l'état Paralysé jusqu'au début du tour suivant de la liche.
+
+      ***Incantation***. La liche lance l'un des sorts suivants, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 20) :
+
+      À volonté : *[boule de feu](https://www.aidedd.org/spell/fr/boule-de-feu)* (au niveau 5), *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), [détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees), [dissipation de la magie](https://www.aidedd.org/spell/fr/dissipation-de-la-magie), [éclair](https://www.aidedd.org/spell/fr/eclair)* (au niveau 5), *[invisibilité](https://www.aidedd.org/spell/fr/invisibilite), [main de mage](https://www.aidedd.org/spell/fr/main-de-mage), [prestidigitation](https://www.aidedd.org/spell/fr/prestidigitation)*\
+      2/jour chacun : *animation des morts,[changement de plan](https://www.aidedd.org/spell/fr/changement-de-plan), [porte dimensionnelle](https://www.aidedd.org/spell/fr/porte-dimensionnelle)*\
+      1/jour chacun : *chaîne d'éclairs, doigt de mort, mot de pouvoir mortel,[scrutation](https://www.aidedd.org/spell/fr/scrutation)*
+
+      ## Réactions
+
+      ***Magie protectrice***. La liche lance *[bouclier](https://www.aidedd.org/spell/fr/bouclier)* ou *[contresort](https://www.aidedd.org/spell/fr/contresort)* en réponse au déclencheur du sort correspondant, avec la même caractéristique d'incantation que pour Incantation.
+
+      ## Actions Légendaires
+
+      Utilisations d'action Légendaire : 3 (4 dans son antre). Aussitôt après le tour d'une autre créature, la liche peut dépenser une utilisation pour entreprendre l'une des actions ci-après. La liche récupère toutes ses utilisations dépensées au début de chacun de ses tours.
+
+      ***Regard horrifique***. La liche lance *peur* , avec la même caractéristique d'incantation que pour Incantation. La liche ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.
+
+      ***Téléportation funeste***. La liche se téléporte en un espace inoccupé qu'elle voit dans un rayon de 18 m, et chaque créature dans un rayon de 3 m de l'espace qu'elle quitte subit 11 (2d10) dégâts nécrotiques.
+
+      ***Trouble vital***. *JdS Constitution* : DD 20, chaque créature autre qu'un Mort-vivant dans une Émanation de 6 m centrée sur la liche. *Échec* : 31 (9d6) dégâts nécrotiques. *Réussite* : demi-dégâts. *Échec ou réussite* : la liche ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.
     senses: vision véritable 36 m, Perception passive 19
     languages:
     - toutes

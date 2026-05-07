@@ -24,7 +24,7 @@ translations:
       force that creature to make a Wisdom saving throw. On a failed save, the target
       takes 4d6 Psychic damage and has the Prone condition, and you can push it up
       to 10 feet away. On a successful save, the target takes half as much damage
-      only. A creature makes this save only once per turn.<br/>
+      only. A creature makes this save only once per turn.\
   fr:
     name: Présence royale de Yolane
     castingTime: Action
@@ -38,4 +38,4 @@ translations:
       de Sagesse. En cas d'échec, la cible subit 4d6 dégâts psychiques et l'état À
       terre, et vous pouvez la repousser jusqu'à 3 mètres. En cas de réussite, la
       cible subit seulement la moitié des dégâts. Une créature n'effectue ce jet qu'une
-      seule fois par tour.<br/>
+      seule fois par tour.\

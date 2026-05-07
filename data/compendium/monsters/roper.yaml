@@ -89,25 +89,37 @@ translations:
     name: Roper
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Spider Climb</em>**. The roper can climb difficult surfaces, including along ceilings, without needing to make an ability check.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The roper makes two Tentacle attacks, uses Reel, and makes two Bite attacks.</p>
-      <p><strong><em>Bite</em></strong>. <em>Melee Attack Roll</em> : +7, reach 5 ft. <em>Hit</em> : 17 (3d8 + 4) Piercing damage.</p>
-      <p><strong><em>Tentacle</em></strong>. <em>Melee Attack Roll</em> : +7, reach 60 ft. <em>Hit</em> : The target has the Grappled condition (escape DC 14) from one of six tentacles, and the target has the Poisoned condition until the grapple ends. The tentacle can be damaged, freeing a creature it has Grappled when destroyed (AC 20, HP 10, Immunity to Poison and Psychic damage). Damaging the tentacle deals no damage to the roper, and a destroyed tentacle regrows at the start of the roper's next turn.</p>
-      <p><strong><em>Reel</em></strong>. The roper pulls each creature Grappled by it up to 30 feet straight toward it.</p>
+      ## Traits
+
+      ***Spider Climb***. The roper can climb difficult surfaces, including along ceilings, without needing to make an ability check.
+
+      ## Actions
+
+      ***Multiattack***. The roper makes two Tentacle attacks, uses Reel, and makes two Bite attacks.
+
+      ***Bite***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 17 (3d8 + 4) Piercing damage.
+
+      ***Tentacle***. *Melee Attack Roll* : +7, reach 60 ft. *Hit* : The target has the Grappled condition (escape DC 14) from one of six tentacles, and the target has the Poisoned condition until the grapple ends. The tentacle can be damaged, freeing a creature it has Grappled when destroyed (AC 20, HP 10, Immunity to Poison and Psychic damage). Damaging the tentacle deals no damage to the roper, and a destroyed tentacle regrows at the start of the roper's next turn.
+
+      ***Reel***. The roper pulls each creature Grappled by it up to 30 feet straight toward it.
     senses: Darkvision 60 ft., Passive Perception 16
     languages: []
   fr:
     name: Enlaceur
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Pattes d'araignée</em>**. L'enlaceur peut parcourir les parois les plus difficiles à escalader, y compris les plafonds, sans passer par un jet de caractéristique.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. L'enlaceur effectue deux attaques de Tentacule, recourt à Traction et effectue deux attaques de Morsure.</p>
-      <p><strong><em>Morsure</em></strong>. <em>Corps à corps</em> : +7, allonge 1,50 m. <em>Touché</em> : 17 (3d8 + 4) dégâts perforants.</p>
-      <p><strong><em>Tentacule</em></strong>. <em>Corps à corps</em> : +7, allonge 18 m. <em>Touché</em> : la cible subit l'état Agrippé (évasion DD 14) par l'un des six tentacules, ainsi que l'état Empoisonné tant qu'elle est agrippée. Le tentacule peut subir des dégâts et libère la créature agrippée s'il est détruit (CA 20, 10 pv, Immunité contre les dégâts psychiques et de poison). Infliger des dégâts à un tentacule n'en inflige aucun à l'enlaceur, et tout tentacule ainsi détruit repousse au début du tour suivant de l'enlaceur.</p>
-      <p><strong><em>Traction</em></strong>. L'enlaceur tire vers lui chaque créature qu'il a Agrippée jusqu'à 9 m.</p>
+      ## Traits
+
+      ***Pattes d'araignée***. L'enlaceur peut parcourir les parois les plus difficiles à escalader, y compris les plafonds, sans passer par un jet de caractéristique.
+
+      ## Actions
+
+      ***Attaques multiples***. L'enlaceur effectue deux attaques de Tentacule, recourt à Traction et effectue deux attaques de Morsure.
+
+      ***Morsure***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 17 (3d8 + 4) dégâts perforants.
+
+      ***Tentacule***. *Corps à corps* : +7, allonge 18 m. *Touché* : la cible subit l'état Agrippé (évasion DD 14) par l'un des six tentacules, ainsi que l'état Empoisonné tant qu'elle est agrippée. Le tentacule peut subir des dégâts et libère la créature agrippée s'il est détruit (CA 20, 10 pv, Immunité contre les dégâts psychiques et de poison). Infliger des dégâts à un tentacule n'en inflige aucun à l'enlaceur, et tout tentacule ainsi détruit repousse au début du tour suivant de l'enlaceur.
+
+      ***Traction***. L'enlaceur tire vers lui chaque créature qu'il a Agrippée jusqu'à 9 m.
     senses: Vision dans le noir 18 m, Perception passive 16
     languages: []

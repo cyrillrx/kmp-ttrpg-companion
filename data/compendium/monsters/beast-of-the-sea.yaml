@@ -89,11 +89,15 @@ translations:
     name: Beast of the Sea
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Amphibious</em>**. The beast can breathe air and water.</p>
-      <p><strong><em>Primal Bond</em></strong>. Add your Proficiency Bonus to any ability check or saving throw the beast makes.</p>
-      <h2>Actions</h2>
-      <p>** <em>Beast's Strike</em>**. <em>Melee Attack Roll</em> : Bonus equals your spell attack modifier, reach 5 ft. <em>Hit</em> : 1d6 + 2 plus your Wisdom modifier Bludgeoning or Piercing damage (your choice when you summon the beast), and the target has the Grappled condition (escape DC equals your spell save DC).</p>
+      ## Traits
+
+      ***Amphibious***. The beast can breathe air and water.
+
+      ***Primal Bond***. Add your Proficiency Bonus to any ability check or saving throw the beast makes.
+
+      ## Actions
+
+      ***Beast's Strike***. *Melee Attack Roll* : Bonus equals your spell attack modifier, reach 5 ft. *Hit* : 1d6 + 2 plus your Wisdom modifier Bludgeoning or Piercing damage (your choice when you summon the beast), and the target has the Grappled condition (escape DC equals your spell save DC).
     senses: Darkvision 90 ft., Passive Perception 12
     languages:
     - Understands the languages you know
@@ -101,11 +105,15 @@ translations:
     name: Bête des mers
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Amphibie</em>**. La bête peut respirer sous l'eau comme à l'air libre.</p>
-      <p><strong><em>Lien primordial</em></strong>. Ajoutez votre bonus de maîtrise à tout jet de caractéristique ou de sauvegarde effectué par la bête.</p>
-      <h2>Actions</h2>
-      <p>** <em>Frappe de la Bête</em>**. <em>Corps à corps</em> : bonus égal à votre modificateur d'attaque des sorts, allonge 1,50 m. <em>Touché</em> : 1d6 + 2 + votre modificateur de Sagesse dégâts contondants ou perforants (à votre choix lorsque vous invoquez la bête), et la cible subit l'état Agrippé (évasion DD égal à votre DD de sauvegarde des sorts).</p>
+      ## Traits
+
+      ***Amphibie***. La bête peut respirer sous l'eau comme à l'air libre.
+
+      ***Lien primordial***. Ajoutez votre bonus de maîtrise à tout jet de caractéristique ou de sauvegarde effectué par la bête.
+
+      ## Actions
+
+      ***Frappe de la Bête***. *Corps à corps* : bonus égal à votre modificateur d'attaque des sorts, allonge 1,50 m. *Touché* : 1d6 + 2 + votre modificateur de Sagesse dégâts contondants ou perforants (à votre choix lorsque vous invoquez la bête), et la cible subit l'état Agrippé (évasion DD égal à votre DD de sauvegarde des sorts).
     senses: Vision dans le noir 27 m, Perception passive 12
     languages:
     - comprend les langues que vous parlez

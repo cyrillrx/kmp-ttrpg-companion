@@ -8,16 +8,16 @@ translations:
     name: Sword of Vengeance
     subtype: Glaive, Greatsword, Longsword, Rapier, Scimitar, or Shortsword
     description: |-
-      <p>You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon.<br />
-      <strong>Curse</strong>. This weapon is cursed and possessed by a vengeful spirit. Becoming attuned to it extends the curse to you. As long as you remain cursed, you are unwilling to part with the weapon, keeping it on your person at all times. While attuned to this weapon, you have Disadvantage on attack rolls made with weapons other than this one.<br />
-      In addition, while the weapon is on your person, you must succeed on a DC 15 Wisdom saving throw whenever you take damage from another creature in combat. On a failed save, you must attack the creature that damaged you until you drop to 0 Hit Points or it does or until you can't reach the creature to make a melee attack against it.<br />
-      You can break the curse in the usual ways. Alternatively, casting <em>Banishment</em> on the weapon forces the vengeful spirit to leave it. The weapon then becomes a +1 Weapon with no other properties.</p>
+      You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon.\
+      **Curse**. This weapon is cursed and possessed by a vengeful spirit. Becoming attuned to it extends the curse to you. As long as you remain cursed, you are unwilling to part with the weapon, keeping it on your person at all times. While attuned to this weapon, you have Disadvantage on attack rolls made with weapons other than this one.\
+      In addition, while the weapon is on your person, you must succeed on a DC 15 Wisdom saving throw whenever you take damage from another creature in combat. On a failed save, you must attack the creature that damaged you until you drop to 0 Hit Points or it does or until you can't reach the creature to make a melee attack against it.\
+      You can break the curse in the usual ways. Alternatively, casting *Banishment* on the weapon forces the vengeful spirit to leave it. The weapon then becomes a +1 Weapon with no other properties.
   fr:
     name: Épée vengeresse
     subtype: coutille, épée à deux mains, épée longue, rapière, cimeterre ou épée
       courte
     description: |-
-      <p>Vous obtenez un bonus de +1 aux jets d'attaque et de dégâts effectués avec cette arme magique.<br />
-      <strong>Malédiction</strong>. Cette arme est maudite et possédée par un esprit vengeur. En vous y liant, la malédiction vous est transmise. Tant que vous êtes maudit, vous refusez de vous séparer de l'arme et la gardez sur vous en permanence. Tant que vous êtes en lien avec cette arme, vous avez un Désavantage aux jets d'attaque effectués avec d'autres armes.<br />
-      De plus, tant que vous portez l'arme, vous devez réussir un jet de sauvegarde de Sagesse DD 15 chaque fois que vous subissez des dégâts d'une autre créature au combat. En cas d'échec, vous devez attaquer la créature qui vous a blessé jusqu'à ce que vos points de vie tombent à 0, qu'elle tombe à 0 ou que vous ne puissiez plus l'atteindre pour l'attaquer au corps à corps.<br />
-      Vous pouvez briser la malédiction de façon classique. Vous pouvez également lancer le sort <em>bannissement</em> sur l'arme pour forcer l'esprit vengeur à la quitter. L'arme devient alors une arme +1 sans autre propriété.</p>
+      Vous obtenez un bonus de +1 aux jets d'attaque et de dégâts effectués avec cette arme magique.\
+      **Malédiction**. Cette arme est maudite et possédée par un esprit vengeur. En vous y liant, la malédiction vous est transmise. Tant que vous êtes maudit, vous refusez de vous séparer de l'arme et la gardez sur vous en permanence. Tant que vous êtes en lien avec cette arme, vous avez un Désavantage aux jets d'attaque effectués avec d'autres armes.\
+      De plus, tant que vous portez l'arme, vous devez réussir un jet de sauvegarde de Sagesse DD 15 chaque fois que vous subissez des dégâts d'une autre créature au combat. En cas d'échec, vous devez attaquer la créature qui vous a blessé jusqu'à ce que vos points de vie tombent à 0, qu'elle tombe à 0 ou que vous ne puissiez plus l'atteindre pour l'attaquer au corps à corps.\
+      Vous pouvez briser la malédiction de façon classique. Vous pouvez également lancer le sort *bannissement* sur l'arme pour forcer l'esprit vengeur à la quitter. L'arme devient alors une arme +1 sans autre propriété.

@@ -18,26 +18,17 @@ translations:
     range: 150 feet
     duration: Instantaneous
     materialDescription: three silver pins
-    description: You launch a lightning bolt toward a target you can see within range.
-      Three bolts then leap from that target to as many as three other targets of
-      your choice, each of which must be within 30 feet of the first target. A target
-      can be a creature or an object and can be targeted by only one of the bolts.<br/>Each
-      target makes a Dexterity saving throw, taking 10d8 Lightning damage on a failed
-      save or half as much damage on a successful one.<br/><strong><em>Using a Higher-Level
-      Spell Slot</em></strong>. One additional bolt leaps from the first target to
-      another target for each spell slot level above 6.<br/>
+    description: |-
+      You launch a lightning bolt toward a target you can see within range. Three bolts then leap from that target to as many as three other targets of your choice, each of which must be within 30 feet of the first target. A target can be a creature or an object and can be targeted by only one of the bolts.\
+      Each target makes a Dexterity saving throw, taking 10d8 Lightning damage on a failed save or half as much damage on a successful one.\
+      ***Using a Higher-Level Spell Slot***. One additional bolt leaps from the first target to another target for each spell slot level above 6.\
   fr:
     name: Chaîne d'éclairs
     castingTime: Action
     range: 45 m
     duration: Instantanée
     materialDescription: trois broches en argent
-    description: Vous projetez un trait de foudre vers une cible que vous voyez à
-      portée. Trois éclairs jaillissent alors de cette cible vers un maximum de trois
-      autres cibles, que vous choisissez, distantes de 9 m ou moins de la première.
-      Toutes ces cibles peuvent être des créatures ou des objets, et ne peuvent être
-      ciblées par plus d'un éclair.<br/>Chaque cible effectue un jet de sauvegarde
-      de Dextérité, et subit 10d8 dégâts de foudre en cas d'échec, la moitié en cas
-      de réussite.<br/><strong><em>Emplacement de niveau supérieur</em></strong>.
-      Un éclair supplémentaire jaillit de la première cible vers une autre pour chaque
-      niveau d'emplacement de sort supérieur à 6.<br/>
+    description: |-
+      Vous projetez un trait de foudre vers une cible que vous voyez à portée. Trois éclairs jaillissent alors de cette cible vers un maximum de trois autres cibles, que vous choisissez, distantes de 9 m ou moins de la première. Toutes ces cibles peuvent être des créatures ou des objets, et ne peuvent être ciblées par plus d'un éclair.\
+      Chaque cible effectue un jet de sauvegarde de Dextérité, et subit 10d8 dégâts de foudre en cas d'échec, la moitié en cas de réussite.\
+      ***Emplacement de niveau supérieur***. Un éclair supplémentaire jaillit de la première cible vers une autre pour chaque niveau d'emplacement de sort supérieur à 6.\

@@ -89,11 +89,15 @@ translations:
     name: Elemental Spirit
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Amorphous Form (Air, Fire, and Water Only)</em>**. The spirit can move through a space as narrow as 1 inch wide without it counting as Difficult Terrain.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The spirit makes a number of Slam attacks equal to half this spell's level (round down).</p>
-      <p><strong><em>Slam</em></strong>. <em>Melee Attack Roll</em> : Bonus equals your spell attack modifier, reach 5 ft. <em>Hit</em> : 1d10 + 4 + the spell's level Bludgeoning (Earth only), Cold (Water only), Lightning (Air only), or Fire (Fire only) damage.</p>
+      ## Traits
+
+      ***Amorphous Form (Air, Fire, and Water Only)***. The spirit can move through a space as narrow as 1 inch wide without it counting as Difficult Terrain.
+
+      ## Actions
+
+      ***Multiattack***. The spirit makes a number of Slam attacks equal to half this spell's level (round down).
+
+      ***Slam***. *Melee Attack Roll* : Bonus equals your spell attack modifier, reach 5 ft. *Hit* : 1d10 + 4 + the spell's level Bludgeoning (Earth only), Cold (Water only), Lightning (Air only), or Fire (Fire only) damage.
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - Primordial
@@ -102,11 +106,15 @@ translations:
     name: Esprit élémentaire
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>État informe (air, feu et eau uniquement)</em>**. L'esprit peut se déplacer dans un espace de 2,50 cm de large sans que cela soit considéré comme un Terrain difficile.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. L'esprit effectue un nombre d'attaques de Coup égal à la moitié du niveau de ce sort (arrondir à l'inférieur).</p>
-      <p><strong><em>Coup</em></strong>. <em>Corps à corps</em> : bonus égal à votre modificateur d'attaque des sorts, allonge 1,50 m. <em>Touché</em> : 1d10 + 4 + le niveau du sort dégâts contondants (Terre uniquement), de froid (Eau uniquement), de foudre (Air uniquement) ou de feu (Feu uniquement).</p>
+      ## Traits
+
+      ***État informe (air, feu et eau uniquement)***. L'esprit peut se déplacer dans un espace de 2,50 cm de large sans que cela soit considéré comme un Terrain difficile.
+
+      ## Actions
+
+      ***Attaques multiples***. L'esprit effectue un nombre d'attaques de Coup égal à la moitié du niveau de ce sort (arrondir à l'inférieur).
+
+      ***Coup***. *Corps à corps* : bonus égal à votre modificateur d'attaque des sorts, allonge 1,50 m. *Touché* : 1d10 + 4 + le niveau du sort dégâts contondants (Terre uniquement), de froid (Eau uniquement), de foudre (Air uniquement) ou de feu (Feu uniquement).
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - primordial

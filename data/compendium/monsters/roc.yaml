@@ -89,23 +89,33 @@ translations:
     name: Roc
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The roc makes two Beak attacks. It can replace one attack with a Talons attack.</p>
-      <p><strong><em>Beak</em></strong>. <em>Melee Attack Roll</em> : +13, reach 10 ft. <em>Hit</em> : 28 (3d12 + 9) Piercing damage.</p>
-      <p><strong><em>Talons</em></strong>. <em>Melee Attack Roll</em> : +13, reach 5 ft. <em>Hit</em> : 23 (4d6 + 9) Slashing damage. If the target is a Huge or smaller creature, it has the Grappled condition (escape DC 19) from both talons, and it has the Restrained condition until the grapple ends.</p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Swoop (Recharge 5–6)</em>**. If the roc has a creature Grappled, the roc flies up to half its Fly Speed without provoking Opportunity Attacks and drops that creature.</p>
+      ## Actions
+
+      ***Multiattack***. The roc makes two Beak attacks. It can replace one attack with a Talons attack.
+
+      ***Beak***. *Melee Attack Roll* : +13, reach 10 ft. *Hit* : 28 (3d12 + 9) Piercing damage.
+
+      ***Talons***. *Melee Attack Roll* : +13, reach 5 ft. *Hit* : 23 (4d6 + 9) Slashing damage. If the target is a Huge or smaller creature, it has the Grappled condition (escape DC 19) from both talons, and it has the Restrained condition until the grapple ends.
+
+      ## Bonus actions
+
+      ***Swoop (Recharge 5–6)***. If the roc has a creature Grappled, the roc flies up to half its Fly Speed without provoking Opportunity Attacks and drops that creature.
     senses: Passive Perception 18
     languages: []
   fr:
     name: Rukh
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le rukh effectue deux attaques de Bec. Il peut en remplacer une par une attaque de Serres.</p>
-      <p><strong><em>Bec</em></strong>. <em>Corps à corps</em> : +13, allonge 3 m. <em>Touché</em> : 28 (3d12 + 9) dégâts perforants.</p>
-      <p><strong><em>Serres</em></strong>. <em>Corps à corps</em> : +13, allonge 1,50 m. <em>Touché</em> : 23 (4d6 + 9) dégâts tranchants. Si la cible est une créature de taille TG ou inférieure, elle subit l'état Agrippé (évasion DD 19), ainsi que l'état Entravé tant qu'elle est agrippée.</p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Piqué (recharge 5–6)</em>**. Si le rukh tient une créature Agrippée, il vole à concurrence de la moitié de sa Vitesse de vol sans provoquer d'attaque d'Opportunité et lâche cette créature.</p>
+      ## Actions
+
+      ***Attaques multiples***. Le rukh effectue deux attaques de Bec. Il peut en remplacer une par une attaque de Serres.
+
+      ***Bec***. *Corps à corps* : +13, allonge 3 m. *Touché* : 28 (3d12 + 9) dégâts perforants.
+
+      ***Serres***. *Corps à corps* : +13, allonge 1,50 m. *Touché* : 23 (4d6 + 9) dégâts tranchants. Si la cible est une créature de taille TG ou inférieure, elle subit l'état Agrippé (évasion DD 19), ainsi que l'état Entravé tant qu'elle est agrippée.
+
+      ## Actions Bonus
+
+      ***Piqué (recharge 5–6)***. Si le rukh tient une créature Agrippée, il vole à concurrence de la moitié de sa Vitesse de vol sans provoquer d'attaque d'Opportunité et lâche cette créature.
     senses: Perception passive 18
     languages: []

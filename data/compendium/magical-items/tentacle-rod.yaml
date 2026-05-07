@@ -7,7 +7,7 @@ translations:
   en:
     name: Tentacle Rod
     subtype: null
-    description: <p>This rod ends in three rubbery tentacles. While holding the rod,
+    description: This rod ends in three rubbery tentacles. While holding the rod,
       you can take a Magic action to direct the tentacles to stretch outward, each
       one attacking a creature you can see within 15 feet of yourself. For each tentacle,
       make a melee attack roll with a +9 bonus. A tentacle deals 1d6 Psychic damage
@@ -17,11 +17,11 @@ translations:
       the target, or until the target is no longer within 15 feet of you. While Restrained
       in this way, the target takes 3d6 Psychic damage at the start of each of its
       turns. At the end of each of its turns, the target repeats the save, ending
-      the effect on itself on a success.</p>
+      the effect on itself on a success.
   fr:
     name: Sceptre-tentacule
     subtype: null
-    description: <p>Ce sceptre se termine par trois tentacules caoutchouteux. Lorsque
+    description: Ce sceptre se termine par trois tentacules caoutchouteux. Lorsque
       vous le tenez, vous pouvez prendre une action Magie pour étendre les tentacules
       et attaquer une créature que vous pouvez voir dans un rayon de 4,50 mètres.
       Pour chaque tentacule, effectuez un jet d'attaque au corps à corps avec un bonus
@@ -32,4 +32,4 @@ translations:
       soit à plus de 4,50 mètres. Tant qu'elle est entravée, la cible subit 3d6 dégâts
       psychiques au début de chacun de ses tours. À la fin de chacun de ses tours,
       la cible renouvelle son jet de sauvegarde, mettant fin à l'effet sur elle-même
-      en cas de réussite.</p>
+      en cas de réussite.

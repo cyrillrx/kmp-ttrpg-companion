@@ -18,26 +18,17 @@ translations:
     range: Self
     duration: Concentration, up to 10 minutes
     materialDescription: null
-    description: A cool light wreathes your body for the duration, emitting Bright
-      Light in a 20-foot radius and Dim Light for an additional 20 feet.<br/>Until
-      the spell ends, you have Resistance to Radiant damage, and your melee attacks
-      deal an extra 2d6 Radiant damage on a hit.<br/>In addition, immediately after
-      you take damage from a creature you can see within 60 feet of yourself, you
-      can take a Reaction to force the creature to make a Constitution saving throw.
-      On a failed save, the creature has the Blinded condition until the end of your
-      next turn.<br/>
+    description: |-
+      A cool light wreathes your body for the duration, emitting Bright Light in a 20-foot radius and Dim Light for an additional 20 feet.\
+      Until the spell ends, you have Resistance to Radiant damage, and your melee attacks deal an extra 2d6 Radiant damage on a hit.\
+      In addition, immediately after you take damage from a creature you can see within 60 feet of yourself, you can take a Reaction to force the creature to make a Constitution saving throw. On a failed save, the creature has the Blinded condition until the end of your next turn.\
   fr:
     name: Fontaine de lune
     castingTime: Action
     range: Personnelle
     duration: Concentration, jusqu'à 10 minutes
     materialDescription: null
-    description: Une lumière froide enveloppe votre corps pendant toute la durée du
-      sort, émettant une Lumière vive dans un rayon de 6 mètres et une Lumière faible
-      sur 6 mètres supplémentaires.<br/>Jusqu'à la fin du sort, vous bénéficiez d'une
-      Résistance aux dégâts radiants, et vos attaques de corps à corps infligent 2d6
-      dégâts radiants supplémentaires si elles touchent.<br/>De plus, immédiatement
-      après avoir subi des dégâts d'une créature que vous pouvez voir dans un rayon
-      de 18 mètres, vous pouvez prendre une Réaction pour forcer la créature à effectuer
-      un jet de sauvegarde de Constitution. En cas d'échec, la créature subit l'état
-      Aveuglé jusqu'à la fin de votre prochain tour.<br/>
+    description: |-
+      Une lumière froide enveloppe votre corps pendant toute la durée du sort, émettant une Lumière vive dans un rayon de 6 mètres et une Lumière faible sur 6 mètres supplémentaires.\
+      Jusqu'à la fin du sort, vous bénéficiez d'une Résistance aux dégâts radiants, et vos attaques de corps à corps infligent 2d6 dégâts radiants supplémentaires si elles touchent.\
+      De plus, immédiatement après avoir subi des dégâts d'une créature que vous pouvez voir dans un rayon de 18 mètres, vous pouvez prendre une Réaction pour forcer la créature à effectuer un jet de sauvegarde de Constitution. En cas d'échec, la créature subit l'état Aveuglé jusqu'à la fin de votre prochain tour.\

@@ -89,12 +89,17 @@ translations:
     name: Winged Kobold
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Pack Tactics</em>**. The kobold has Advantage on an attack roll against a creature if at least one of the kobold's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.</p>
-      <p><strong><em>Sunlight Sensitivity</em></strong>. While in sunlight, the kobold has Disadvantage on ability checks and attack rolls.</p>
-      <h2>Actions</h2>
-      <p>** <em>Dragon-Tooth Blade</em>**. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 6 (1d6 + 3) Piercing damage.</p>
-      <p><strong><em>Chromatic Spittle</em></strong>. <em>Ranged Attack Roll</em> : +5, range 30 ft. <em>Hit</em> : 6 (1d6 + 3) damage of a type chosen by the kobold: Acid, Cold, Fire, Lightning, or Poison.</p>
+      ## Traits
+
+      ***Pack Tactics***. The kobold has Advantage on an attack roll against a creature if at least one of the kobold's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.
+
+      ***Sunlight Sensitivity***. While in sunlight, the kobold has Disadvantage on ability checks and attack rolls.
+
+      ## Actions
+
+      ***Dragon-Tooth Blade***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 6 (1d6 + 3) Piercing damage.
+
+      ***Chromatic Spittle***. *Ranged Attack Roll* : +5, range 30 ft. *Hit* : 6 (1d6 + 3) damage of a type chosen by the kobold: Acid, Cold, Fire, Lightning, or Poison.
     senses: Darkvision 60 ft., Passive Perception 8
     languages:
     - Common
@@ -103,12 +108,17 @@ translations:
     name: Kobold ailé
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Tactique de meute</em>**. Quand au moins un de ses alliés non Incapable d'agir se situe dans un rayon de 1,50 m de la créature qu'il cible, le kobold ailé a un Avantage au jet d'attaque correspondant.</p>
-      <p><strong><em>Sensibilité au soleil</em></strong>. Tant qu'il est exposé à la lumière du soleil, le kobold ailé subit un Désavantage aux jets de caractéristique et aux jets d'attaque.</p>
-      <h2>Actions</h2>
-      <p>** <em>Lame en dent de dragon</em>**. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 6 (1d6 + 3) dégâts perforants.</p>
-      <p><strong><em>Crachat chromatique</em></strong>. <em>À distance</em> : +5, portée 9 m. <em>Touché</em> : 6 (1d6 + 3) dégâts d'un type choisi par le kobold : acide, froid, feu, foudre ou poison.</p>
+      ## Traits
+
+      ***Tactique de meute***. Quand au moins un de ses alliés non Incapable d'agir se situe dans un rayon de 1,50 m de la créature qu'il cible, le kobold ailé a un Avantage au jet d'attaque correspondant.
+
+      ***Sensibilité au soleil***. Tant qu'il est exposé à la lumière du soleil, le kobold ailé subit un Désavantage aux jets de caractéristique et aux jets d'attaque.
+
+      ## Actions
+
+      ***Lame en dent de dragon***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 6 (1d6 + 3) dégâts perforants.
+
+      ***Crachat chromatique***. *À distance* : +5, portée 9 m. *Touché* : 6 (1d6 + 3) dégâts d'un type choisi par le kobold : acide, froid, feu, foudre ou poison.
     senses: Vision dans le noir 18 m, Perception passive 8
     languages:
     - commun

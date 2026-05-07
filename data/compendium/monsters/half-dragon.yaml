@@ -89,14 +89,21 @@ translations:
     name: Half-Dragon
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Draconic Origin</em>**. The half-dragon is related to a type of dragon associated with one of the following damage types (DM's choice): Acid, Cold, Fire, Lightning, or Poison. This choice affects other aspects of the stat block.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The half-dragon makes two Claw attacks.</p>
-      <p><strong><em>Claw</em></strong>. <em>Melee Attack Roll</em> : +7, reach 10 ft. <em>Hit</em> : 6 (1d4 + 4) Slashing damage plus 7 (2d6) damage of the type chosen for the Draconic Origin trait.</p>
-      <p><strong><em>Dragon's Breath (Recharge 5-6)</em></strong>. <em>Dexterity Saving Throw</em> : DC 14, each creature in a 30-foot Cone. <em>Failure</em> : 28 (8d6) damage of the type chosen for the Draconic Origin trait. <em>Success</em> : Half damage.</p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Leap</em>**. The half-dragon jumps up to 30 feet by spending 10 feet of movement.</p>
+      ## Traits
+
+      ***Draconic Origin***. The half-dragon is related to a type of dragon associated with one of the following damage types (DM's choice): Acid, Cold, Fire, Lightning, or Poison. This choice affects other aspects of the stat block.
+
+      ## Actions
+
+      ***Multiattack***. The half-dragon makes two Claw attacks.
+
+      ***Claw***. *Melee Attack Roll* : +7, reach 10 ft. *Hit* : 6 (1d4 + 4) Slashing damage plus 7 (2d6) damage of the type chosen for the Draconic Origin trait.
+
+      ***Dragon's Breath (Recharge 5-6)***. *Dexterity Saving Throw* : DC 14, each creature in a 30-foot Cone. *Failure* : 28 (8d6) damage of the type chosen for the Draconic Origin trait. *Success* : Half damage.
+
+      ## Bonus actions
+
+      ***Leap***. The half-dragon jumps up to 30 feet by spending 10 feet of movement.
     senses: Blindsight 10 ft., Darkvision 60 ft., Passive Perception 15
     languages:
     - Common
@@ -105,14 +112,21 @@ translations:
     name: Demi-dragon
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Origine draconique</em>**. Le demi-dragon est lié à un type de dragon associé à l'un des types de dégâts suivants (au choix du MD) : acide, feu, foudre, froid ou poison. Ce choix influe sur d'autres aspects du profil.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le demi-dragon effectue deux attaques de Griffe.</p>
-      <p><strong><em>Griffe</em></strong>. <em>Corps à corps</em> : +7, allonge 3 m. <em>Touché</em> : 6 (1d4 + 4) dégâts tranchants plus 7 (2d6) dégâts du type choisi pour le trait Origine draconique.</p>
-      <p><strong><em>Souffle du dragon (recharge 5–6)</em></strong>. <em>JdS Dextérité</em> : DD 14, chaque créature dans un Cône de 9 m. <em>Échec</em> : 28 (8d6) dégâts du type choisi pour le trait Origine draconique. <em>Réussite</em> : demi-dégâts.</p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Bond</em>**. Le demi-dragon effectue un saut d'un maximum de 9 m en dépensant 3 m de déplacement.</p>
+      ## Traits
+
+      ***Origine draconique***. Le demi-dragon est lié à un type de dragon associé à l'un des types de dégâts suivants (au choix du MD) : acide, feu, foudre, froid ou poison. Ce choix influe sur d'autres aspects du profil.
+
+      ## Actions
+
+      ***Attaques multiples***. Le demi-dragon effectue deux attaques de Griffe.
+
+      ***Griffe***. *Corps à corps* : +7, allonge 3 m. *Touché* : 6 (1d4 + 4) dégâts tranchants plus 7 (2d6) dégâts du type choisi pour le trait Origine draconique.
+
+      ***Souffle du dragon (recharge 5–6)***. *JdS Dextérité* : DD 14, chaque créature dans un Cône de 9 m. *Échec* : 28 (8d6) dégâts du type choisi pour le trait Origine draconique. *Réussite* : demi-dégâts.
+
+      ## Actions Bonus
+
+      ***Bond***. Le demi-dragon effectue un saut d'un maximum de 9 m en dépensant 3 m de déplacement.
     senses: Vision aveugle 3 m, Vision dans le noir 18 m, Perception passive 15
     languages:
     - commun

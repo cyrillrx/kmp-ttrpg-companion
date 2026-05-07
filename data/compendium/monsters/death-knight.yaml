@@ -89,25 +89,42 @@ translations:
     name: Death Knight
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Legendary Resistance (3/Day)</em>**. If the death knight fails a saving throw, it can choose to succeed instead.</p>
-      <p><strong><em>Magic Resistance</em></strong>. The death knight has Advantage on saving throws against spells and other magical effects.</p>
-      <p><strong><em>Marshal Undead</em></strong>. Undead creatures of the death knight's choice (excluding itself) in a 60-foot Emanation originating from it have Advantage on attack rolls and saving throws. It can't use this trait if it has the Incapacitated condition.</p>
-      <p><strong><em>Undead Restoration</em></strong>. If the death knight is destroyed before it atones for its evil, it gains a new body in 1d10 days, reviving with all its Hit Points. The new body appears in a location significant to the death knight.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The death knight makes three Dread Blade attacks.</p>
-      <p><strong><em>Dread Blade</em></strong>. <em>Melee Attack Roll</em> : +11, reach 5 ft. <em>Hit</em> : 12 (2d6 + 5) Slashing damage plus 13 (3d8) Necrotic damage.</p>
-      <p><strong><em>Hellfire Orb (Recharge 5–6)</em></strong>. <em>Dexterity Saving Throw</em> : DC 18, each creature in a 20-foot-radius Sphere centered on a point the death knight can see within 120 feet. <em>Failure</em> : 35 (10d6) Fire damage plus 35 (10d6) Necrotic damage. <em>Success</em> : Half damage.</p>
-      <p><strong><em>Spellcasting</em></strong>. The death knight casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 18):</p>
-      <p>At will: <em><a href="https://www.aidedd.org/spell/command">Command</a>, <a href="https://www.aidedd.org/spell/phantom-steed">Phantom Steed</a></em><br />
-      2/day each: <em><a href="https://www.aidedd.org/spell/destructive-wave">Destructive Wave</a></em> (Necrotic), <em><a href="https://www.aidedd.org/spell/dispel-magic">Dispel Magic</a></em>  </p>
-      <h2>Reactions</h2>
-      <p>** <em>Parry</em>**. <em>Trigger</em> : The death knight is hit by a melee attack roll while holding a weapon. <em>Response</em> : The death knight adds 6 to its AC against that attack, possibly causing it to miss.</p>
-      <h2>Legendary actions</h2>
-      <p>Legendary Action Uses: 3. Immediately after another creature's turn, the death knight can expend a use to take one of the following actions. The death knight regains all expended uses at the start of each of its turns. </p>
-      <p><strong><em>Dread Authority</em></strong>. The death knight uses Spellcasting to cast <em><a href="https://www.aidedd.org/spell/command">Command</a></em>. The death knight can't take this action again until the start of its next turn.</p>
-      <p><strong><em>Fell Word</em></strong>. <em>Constitution Saving Throw</em> : DC 18, one creature the death knight can see within 120 feet. <em>Failure</em> : 17 (5d6) Necrotic damage, and the target's Hit Point maximum decreases by an amount equal to the damage taken. <em>Failure or Success</em> : The death knight can't take this action again until the start of its next turn.</p>
-      <p><strong><em>Lunge</em></strong>. The death knight moves up to half its Speed, and it makes one Dread Blade attack.</p>
+      ## Traits
+
+      ***Legendary Resistance (3/Day)***. If the death knight fails a saving throw, it can choose to succeed instead.
+
+      ***Magic Resistance***. The death knight has Advantage on saving throws against spells and other magical effects.
+
+      ***Marshal Undead***. Undead creatures of the death knight's choice (excluding itself) in a 60-foot Emanation originating from it have Advantage on attack rolls and saving throws. It can't use this trait if it has the Incapacitated condition.
+
+      ***Undead Restoration***. If the death knight is destroyed before it atones for its evil, it gains a new body in 1d10 days, reviving with all its Hit Points. The new body appears in a location significant to the death knight.
+
+      ## Actions
+
+      ***Multiattack***. The death knight makes three Dread Blade attacks.
+
+      ***Dread Blade***. *Melee Attack Roll* : +11, reach 5 ft. *Hit* : 12 (2d6 + 5) Slashing damage plus 13 (3d8) Necrotic damage.
+
+      ***Hellfire Orb (Recharge 5–6)***. *Dexterity Saving Throw* : DC 18, each creature in a 20-foot-radius Sphere centered on a point the death knight can see within 120 feet. *Failure* : 35 (10d6) Fire damage plus 35 (10d6) Necrotic damage. *Success* : Half damage.
+
+      ***Spellcasting***. The death knight casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 18):
+
+      At will: *[Command](https://www.aidedd.org/spell/command), [Phantom Steed](https://www.aidedd.org/spell/phantom-steed)*\
+      2/day each: *[Destructive Wave](https://www.aidedd.org/spell/destructive-wave)* (Necrotic), *[Dispel Magic](https://www.aidedd.org/spell/dispel-magic)*
+
+      ## Reactions
+
+      ***Parry***. *Trigger* : The death knight is hit by a melee attack roll while holding a weapon. *Response* : The death knight adds 6 to its AC against that attack, possibly causing it to miss.
+
+      ## Legendary actions
+
+      Legendary Action Uses: 3. Immediately after another creature's turn, the death knight can expend a use to take one of the following actions. The death knight regains all expended uses at the start of each of its turns.
+
+      ***Dread Authority***. The death knight uses Spellcasting to cast *[Command](https://www.aidedd.org/spell/command)*. The death knight can't take this action again until the start of its next turn.
+
+      ***Fell Word***. *Constitution Saving Throw* : DC 18, one creature the death knight can see within 120 feet. *Failure* : 17 (5d6) Necrotic damage, and the target's Hit Point maximum decreases by an amount equal to the damage taken. *Failure or Success* : The death knight can't take this action again until the start of its next turn.
+
+      ***Lunge***. The death knight moves up to half its Speed, and it makes one Dread Blade attack.
     senses: Darkvision 120 ft., Passive Perception 13
     languages:
     - Abyssal
@@ -116,25 +133,42 @@ translations:
     name: Chevalier de la mort
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Résistance légendaire (3/jour)</em>**. Si le chevalier de la mort rate un jet de sauvegarde, il peut décider de le réussir tout de même.</p>
-      <p><strong><em>Résistance à la magie</em></strong>. Le chevalier de la mort a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.</p>
-      <p><strong><em>Brigade des morts-vivants</em></strong>. Les créatures de type Mort-vivant choisies par le chevalier de la mort (à l'exclusion de lui-même) qui se trouvent dans une Émanation de 18 m centrée sur lui bénéficient d'un Avantage aux jets d'attaque et de sauvegarde. Le chevalier de la mort ne peut utiliser ce trait s'il subit l'état Incapable d'agir.</p>
-      <p><strong><em>Restauration funeste</em></strong>. S'il est détruit avant d'avoir expédié ses péchés, le chevalier de la mort se reforme et récupère tous ses points de vie en 1d10 jours. Le nouveau corps apparaît dans un lieu important pour le chevalier de la mort.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le chevalier de la mort effectue trois attaques de Lame d'épouvante.</p>
-      <p><strong><em>Lame d'épouvante</em></strong>. <em>Corps à corps</em> : +11, allonge 1,50 m. <em>Touché</em> : 12 (2d6 + 5) dégâts tranchants plus 13 (3d8) dégâts nécrotiques.</p>
-      <p><strong><em>Orbe de feu infernal (recharge 5–6)</em></strong>. <em>JdS Dextérité</em> : DD 18, chaque créature dans une Sphère de 6 m de rayon centrée sur un point que le chevalier de la mort peut voir dans un rayon de 36 m. <em>Échec</em> : 35 (10d6) dégâts de feu plus 35 (10d6) dégâts nécrotiques. <em>Réussite</em> : demi-dégâts.</p>
-      <p><strong><em>Incantation</em></strong>. Le chevalier de la mort lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 18) :</p>
-      <p>À volonté : <em><a href="https://www.aidedd.org/spell/fr/injonction">injonction</a>, <a href="https://www.aidedd.org/spell/fr/monture-fantome">monture fantôme</a></em><br />
-      2/jour chacun : <em><a href="https://www.aidedd.org/spell/fr/vague-destructrice">vague destructive</a></em> (Nécrose), <em><a href="https://www.aidedd.org/spell/fr/dissipation-de-la-magie">dissipation de la magie</a></em>  </p>
-      <h2>Réactions</h2>
-      <p>** <em>Parade</em>**. <em>Déclencheur</em> : le chevalier de la mort est touché par un jet d'attaque de corps à corps alors qu'il tient une arme. <em>Conséquences</em> : le chevalier de la mort ajoute 6 à sa CA contre cette attaque, ce qui peut la faire rater.</p>
-      <h2>Actions Légendaires</h2>
-      <p>Utilisations d'action Légendaire : 3. Aussitôt après le tour d'une autre créature, le chevalier de la mort peut dépenser une utilisation pour entreprendre l'une des actions ci-après. Le chevalier de la mort récupère toutes ses utilisations dépensées au début de chacun de ses tours. </p>
-      <p><strong><em>Autorité effroyable</em></strong>. Le chevalier de la mort utilise la compétence Incantation pour lancer <em><a href="https://www.aidedd.org/spell/fr/injonction">injonction</a></em>. Il ne peut pas réutiliser cette action avant le début de son prochain tour.</p>
-      <p><strong><em>Parole funeste</em></strong>. <em>JdS Constitution</em> : DD 18, une créature que le chevalier de la mort peut voir dans un rayon de 36 m. <em>Échec</em> : 17 (5d6) dégâts nécrotiques, et les points de vie maximum de la cible diminuent d'un montant égal aux dégâts subis. <em>Échec ou réussite</em> : le chevalier de la mort ne peut pas réutiliser cette action avant le début de son prochain tour.</p>
-      <p><strong><em>Assaut</em></strong>. Le chevalier de la mort se déplace jusqu'à la moitié de sa Vitesse et effectue une attaque de Lame d'épouvante.</p>
+      ## Traits
+
+      ***Résistance légendaire (3/jour)***. Si le chevalier de la mort rate un jet de sauvegarde, il peut décider de le réussir tout de même.
+
+      ***Résistance à la magie***. Le chevalier de la mort a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
+
+      ***Brigade des morts-vivants***. Les créatures de type Mort-vivant choisies par le chevalier de la mort (à l'exclusion de lui-même) qui se trouvent dans une Émanation de 18 m centrée sur lui bénéficient d'un Avantage aux jets d'attaque et de sauvegarde. Le chevalier de la mort ne peut utiliser ce trait s'il subit l'état Incapable d'agir.
+
+      ***Restauration funeste***. S'il est détruit avant d'avoir expédié ses péchés, le chevalier de la mort se reforme et récupère tous ses points de vie en 1d10 jours. Le nouveau corps apparaît dans un lieu important pour le chevalier de la mort.
+
+      ## Actions
+
+      ***Attaques multiples***. Le chevalier de la mort effectue trois attaques de Lame d'épouvante.
+
+      ***Lame d'épouvante***. *Corps à corps* : +11, allonge 1,50 m. *Touché* : 12 (2d6 + 5) dégâts tranchants plus 13 (3d8) dégâts nécrotiques.
+
+      ***Orbe de feu infernal (recharge 5–6)***. *JdS Dextérité* : DD 18, chaque créature dans une Sphère de 6 m de rayon centrée sur un point que le chevalier de la mort peut voir dans un rayon de 36 m. *Échec* : 35 (10d6) dégâts de feu plus 35 (10d6) dégâts nécrotiques. *Réussite* : demi-dégâts.
+
+      ***Incantation***. Le chevalier de la mort lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 18) :
+
+      À volonté : *[injonction](https://www.aidedd.org/spell/fr/injonction), [monture fantôme](https://www.aidedd.org/spell/fr/monture-fantome)*\
+      2/jour chacun : *[vague destructive](https://www.aidedd.org/spell/fr/vague-destructrice)* (Nécrose), *[dissipation de la magie](https://www.aidedd.org/spell/fr/dissipation-de-la-magie)*
+
+      ## Réactions
+
+      ***Parade***. *Déclencheur* : le chevalier de la mort est touché par un jet d'attaque de corps à corps alors qu'il tient une arme. *Conséquences* : le chevalier de la mort ajoute 6 à sa CA contre cette attaque, ce qui peut la faire rater.
+
+      ## Actions Légendaires
+
+      Utilisations d'action Légendaire : 3. Aussitôt après le tour d'une autre créature, le chevalier de la mort peut dépenser une utilisation pour entreprendre l'une des actions ci-après. Le chevalier de la mort récupère toutes ses utilisations dépensées au début de chacun de ses tours.
+
+      ***Autorité effroyable***. Le chevalier de la mort utilise la compétence Incantation pour lancer *[injonction](https://www.aidedd.org/spell/fr/injonction)*. Il ne peut pas réutiliser cette action avant le début de son prochain tour.
+
+      ***Parole funeste***. *JdS Constitution* : DD 18, une créature que le chevalier de la mort peut voir dans un rayon de 36 m. *Échec* : 17 (5d6) dégâts nécrotiques, et les points de vie maximum de la cible diminuent d'un montant égal aux dégâts subis. *Échec ou réussite* : le chevalier de la mort ne peut pas réutiliser cette action avant le début de son prochain tour.
+
+      ***Assaut***. Le chevalier de la mort se déplace jusqu'à la moitié de sa Vitesse et effectue une attaque de Lame d'épouvante.
     senses: Vision dans le noir 36 m, Perception passive 13
     languages:
     - abyssal

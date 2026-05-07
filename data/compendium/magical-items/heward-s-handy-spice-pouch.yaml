@@ -7,16 +7,16 @@ translations:
   en:
     name: Heward's Handy Spice Pouch
     subtype: null
-    description: <p>This belt pouch appears empty and has 10 charges. While holding
-      the pouch, you can take a Magic action to expend 1 charge, name any nonmagical
-      food seasoning (such as salt, pepper, saffron, or cilantro), and remove a pinch
-      of the desired seasoning from the pouch. A pinch is enough to season a single
-      meal. The pouch regains 1d6 + 4 expended charges daily at dawn.</p>
+    description: This belt pouch appears empty and has 10 charges. While holding the
+      pouch, you can take a Magic action to expend 1 charge, name any nonmagical food
+      seasoning (such as salt, pepper, saffron, or cilantro), and remove a pinch of
+      the desired seasoning from the pouch. A pinch is enough to season a single meal.
+      The pouch regains 1d6 + 4 expended charges daily at dawn.
   fr:
     name: Bourse à épices d'Huard
     subtype: null
-    description: <p>Cette bourse semble vide et possède 10 charges. Lorsque vous la
-      tenez, vous pouvez prendre une action Magie pour dépenser 1 charge, nommer un
-      assaisonnement non magique (comme du sel, du poivre, du safran ou de la coriandre)
-      et en prélever une pincée. Une pincée suffit pour assaisonner un plat. La bourse
-      récupère 1d6 + 4 charges dépensées chaque jour à l'aube.</p>
+    description: Cette bourse semble vide et possède 10 charges. Lorsque vous la tenez,
+      vous pouvez prendre une action Magie pour dépenser 1 charge, nommer un assaisonnement
+      non magique (comme du sel, du poivre, du safran ou de la coriandre) et en prélever
+      une pincée. Une pincée suffit pour assaisonner un plat. La bourse récupère 1d6
+      + 4 charges dépensées chaque jour à l'aube.

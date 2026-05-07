@@ -89,10 +89,13 @@ translations:
     name: Brass Dragon Wyrmling
     subtype: Metallic
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Rend</em>**. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 7 (1d10 + 2) Slashing damage.</p>
-      <p><strong><em>Fire Breath (Recharge 5–6)</em></strong>. <em>Dexterity Saving Throw</em> : DC 11, each creature in a 20-foot-long, 5-foot-wide Line. <em>Failure</em> : 14 (4d6) Fire damage. <em>Success</em> : Half damage.</p>
-      <p><strong><em>Sleep Breath</em></strong>. <em>Constitution Saving Throw</em> : DC 11, each creature in a 15-foot Cone. <em>Failure</em> : The target has the Incapacitated condition until the end of its next turn, at which point it repeats the save. <em>Second Failure</em> : The target has the Unconscious condition for 1 minute. This effect ends for the target if it takes damage or a creature within 5 feet of it takes an action to wake it.</p>
+      ## Actions
+
+      ***Rend***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 7 (1d10 + 2) Slashing damage.
+
+      ***Fire Breath (Recharge 5–6)***. *Dexterity Saving Throw* : DC 11, each creature in a 20-foot-long, 5-foot-wide Line. *Failure* : 14 (4d6) Fire damage. *Success* : Half damage.
+
+      ***Sleep Breath***. *Constitution Saving Throw* : DC 11, each creature in a 15-foot Cone. *Failure* : The target has the Incapacitated condition until the end of its next turn, at which point it repeats the save. *Second Failure* : The target has the Unconscious condition for 1 minute. This effect ends for the target if it takes damage or a creature within 5 feet of it takes an action to wake it.
     senses: Blindsight 10 ft., Darkvision 60 ft., Passive Perception 14
     languages:
     - Draconic
@@ -100,10 +103,13 @@ translations:
     name: Dragon d'airain, dragonnet
     subtype: Métallique
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Saignée</em>**. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 7 (1d10 + 2) dégâts tranchants.</p>
-      <p><strong><em>Souffle de feu (recharge 5–6)</em></strong>. <em>JdS Dextérité</em> : DD 11, chaque créature dans une Ligne de 6 m de long sur 1,50 m de large. <em>Échec</em> : 14 (4d6) dégâts de feu. <em>Réussite</em> : demi-dégâts.</p>
-      <p><strong><em>Souffle soporifique</em></strong>. <em>JdS Constitution</em> : DD 11, chaque créature dans un Cône de 4,50 m. <em>Échec</em> : la cible subit l'état Incapable d'agir jusqu'à la fin de son tour suivant, et réitère alors son JdS. <em>Deuxième échec</em> : la cible subit l'état Inconscient pendant 1 minute. Cet effet prend fin pour la cible si celle-ci subit des dégâts ou si une créature dans un rayon de 1,50 m consacre une action à la réveiller.</p>
+      ## Actions
+
+      ***Saignée***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 7 (1d10 + 2) dégâts tranchants.
+
+      ***Souffle de feu (recharge 5–6)***. *JdS Dextérité* : DD 11, chaque créature dans une Ligne de 6 m de long sur 1,50 m de large. *Échec* : 14 (4d6) dégâts de feu. *Réussite* : demi-dégâts.
+
+      ***Souffle soporifique***. *JdS Constitution* : DD 11, chaque créature dans un Cône de 4,50 m. *Échec* : la cible subit l'état Incapable d'agir jusqu'à la fin de son tour suivant, et réitère alors son JdS. *Deuxième échec* : la cible subit l'état Inconscient pendant 1 minute. Cet effet prend fin pour la cible si celle-ci subit des dégâts ou si une créature dans un rayon de 1,50 m consacre une action à la réveiller.
     senses: Vision aveugle 3 m, Vision dans le noir 18 m, Perception passive 14
     languages:
     - draconique

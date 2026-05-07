@@ -89,21 +89,29 @@ translations:
     name: Gorgon
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Gore</em>**. <em>Melee Attack Roll</em> : +8, reach 5 ft. <em>Hit</em> : 18 (2d12 + 5) Piercing damage. If the target is a Large or smaller creature and the gorgon moved 20+ feet straight toward it immediately before the hit, the target has the Prone condition.</p>
-      <p><strong><em>Petrifying Breath (Recharge 5–6)</em></strong>. <em>Constitution Saving Throw</em> : DC 15, each creature in a 30-foot Cone. <em>First Failure</em> : The target has the Restrained condition and repeats the save at the end of its next turn if it is still Restrained, ending the effect on itself on a success. <em>Second Failure</em> : The target has the Petrified condition instead of the Restrained condition.</p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Trample</em>**. <em>Dexterity Saving Throw</em> : DC 16, one creature within 5 feet that has the Prone condition. <em>Failure</em> : 16 (2d10 + 5) Bludgeoning damage. <em>Success</em> : Half damage.</p>
+      ## Actions
+
+      ***Gore***. *Melee Attack Roll* : +8, reach 5 ft. *Hit* : 18 (2d12 + 5) Piercing damage. If the target is a Large or smaller creature and the gorgon moved 20+ feet straight toward it immediately before the hit, the target has the Prone condition.
+
+      ***Petrifying Breath (Recharge 5–6)***. *Constitution Saving Throw* : DC 15, each creature in a 30-foot Cone. *First Failure* : The target has the Restrained condition and repeats the save at the end of its next turn if it is still Restrained, ending the effect on itself on a success. *Second Failure* : The target has the Petrified condition instead of the Restrained condition.
+
+      ## Bonus actions
+
+      ***Trample***. *Dexterity Saving Throw* : DC 16, one creature within 5 feet that has the Prone condition. *Failure* : 16 (2d10 + 5) Bludgeoning damage. *Success* : Half damage.
     senses: Darkvision 60 ft., Passive Perception 17
     languages: []
   fr:
     name: Gorgone
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Coup de corne</em>**. <em>Corps à corps</em> : +8, allonge 1,50 m. <em>Touché</em> : 18 (2d12 + 5) dégâts perforants. Si la cible est une créature de taille G ou inférieure et si la gorgone s'est déplacée en ligne droite d'un minimum de 6 m juste avant de la toucher, la cible subit l'état À terre.</p>
-      <p><strong><em>Souffle pétrifiant (recharge 5–6)</em></strong>. <em>JdS Constitution</em> : DD 15, chaque créature dans un Cône de 9 m. <em>Premier échec</em> : la cible subit l'état Entravé et réitère le JdS à la fin de son tour suivant si elle est toujours Entravée ; elle met un terme à l'effet sur elle-même en cas de réussite. <em>Deuxième échec</em> : la cible subit l'état Pétrifié qui remplace l'état Entravé.</p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Piétinement</em>**. <em>JdS Dextérité</em> : DD 16, une créature subissant l'état À terre dans un rayon de 1,50 m. <em>Échec</em> : 16 (2d10 + 5) dégâts contondants. <em>Réussite</em> : demi-dégâts.</p>
+      ## Actions
+
+      ***Coup de corne***. *Corps à corps* : +8, allonge 1,50 m. *Touché* : 18 (2d12 + 5) dégâts perforants. Si la cible est une créature de taille G ou inférieure et si la gorgone s'est déplacée en ligne droite d'un minimum de 6 m juste avant de la toucher, la cible subit l'état À terre.
+
+      ***Souffle pétrifiant (recharge 5–6)***. *JdS Constitution* : DD 15, chaque créature dans un Cône de 9 m. *Premier échec* : la cible subit l'état Entravé et réitère le JdS à la fin de son tour suivant si elle est toujours Entravée ; elle met un terme à l'effet sur elle-même en cas de réussite. *Deuxième échec* : la cible subit l'état Pétrifié qui remplace l'état Entravé.
+
+      ## Actions Bonus
+
+      ***Piétinement***. *JdS Dextérité* : DD 16, une créature subissant l'état À terre dans un rayon de 1,50 m. *Échec* : 16 (2d10 + 5) dégâts contondants. *Réussite* : demi-dégâts.
     senses: Vision dans le noir 18 m, Perception passive 17
     languages: []

@@ -89,15 +89,22 @@ translations:
     name: Cyclops Oracle
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The cyclops makes three attacks, using Radiant Strike or Flash of Light in any combination.</p>
-      <p><strong><em>Radiant Strike</em></strong>. <em>Melee Attack Roll</em> : +10, reach 10 ft. <em>Hit</em> : 22 (3d10 + 6) Radiant damage.</p>
-      <p><strong><em>Flash of Light</em></strong>. <em>Ranged Attack Roll</em> : +10, range 120 ft. <em>Hit</em> : 17 (2d10 + 6) Radiant damage, and the target has Disadvantage on attack rolls until the end of the cyclops's next turn.</p>
-      <p><strong><em>Spellcasting</em></strong>. The cyclops casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 16):</p>
-      <p>2/day each: <em><a href="https://www.aidedd.org/spell/arcane-eye">Arcane Eye</a>, <a href="https://www.aidedd.org/spell/detect-magic">Detect Magic</a>, </em><br />
-      1/day: <em><a href="https://www.aidedd.org/spell/legend-lore">Legend Lore</a></em>  </p>
-      <h2>Reactions</h2>
-      <p>** <em>Portent (Recharge 4–6)</em>**. <em>Trigger</em> : The cyclops or an ally it can see makes a D20 Test. <em>Response</em> : The cyclops rolls 1d20 and chooses whether to use that roll in place of the d20 rolled for the D20 Test.</p>
+      ## Actions
+
+      ***Multiattack***. The cyclops makes three attacks, using Radiant Strike or Flash of Light in any combination.
+
+      ***Radiant Strike***. *Melee Attack Roll* : +10, reach 10 ft. *Hit* : 22 (3d10 + 6) Radiant damage.
+
+      ***Flash of Light***. *Ranged Attack Roll* : +10, range 120 ft. *Hit* : 17 (2d10 + 6) Radiant damage, and the target has Disadvantage on attack rolls until the end of the cyclops's next turn.
+
+      ***Spellcasting***. The cyclops casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 16):
+
+      2/day each: *[Arcane Eye](https://www.aidedd.org/spell/arcane-eye), [Detect Magic](https://www.aidedd.org/spell/detect-magic),* \
+      1/day: *[Legend Lore](https://www.aidedd.org/spell/legend-lore)*
+
+      ## Reactions
+
+      ***Portent (Recharge 4–6)***. *Trigger* : The cyclops or an ally it can see makes a D20 Test. *Response* : The cyclops rolls 1d20 and chooses whether to use that roll in place of the d20 rolled for the D20 Test.
     senses: Truesight 30 ft., Passive Perception 22
     languages:
     - Giant
@@ -105,13 +112,16 @@ translations:
     name: Cyclope, oracle
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>Attaques multiples.<br />
-      Frappe radiant.<br />
-      Rai de lumière.<br />
-      Incantation.  </p>
-      <h2>Réactions</h2>
-      <p>Présage (recharge 4–6).</p>
+      ## Actions
+
+      Attaques multiples.\
+      Frappe radiant.\
+      Rai de lumière.\
+      Incantation.
+
+      ## Réactions
+
+      Présage (recharge 4–6).
     senses: vision véritable 9 m, Perception passive 22
     languages:
     - géant

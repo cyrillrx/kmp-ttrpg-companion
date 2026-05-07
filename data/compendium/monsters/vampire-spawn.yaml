@@ -89,19 +89,31 @@ translations:
     name: Vampire Spawn
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Spider Climb</em>**. The vampire can climb difficult surfaces, including along ceilings, without needing to make an ability check.</p>
-      <p><strong><em>Vampire Weakness</em></strong>. The vampire has these weaknesses:</p>
-      <p><strong><em>Forbiddance</em></strong>. The vampire can't enter a residence without an invitation from an occupant.</p>
-      <p><strong><em>Running Water</em></strong>. The vampire takes 20 Acid damage if it ends its turn in running water.</p>
-      <p><strong><em>Stake to the Heart</em></strong>. The vampire is destroyed if a weapon that deals Piercing damage is driven into the vampire's heart while the vampire has the Incapacitated condition.</p>
-      <p><strong><em>Sunlight</em></strong>. The vampire takes 20 Radiant damage if it starts its turn in sunlight. While in sunlight, it has Disadvantage on attack rolls and ability checks.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The vampire makes two Claw attacks and uses Bite.</p>
-      <p><strong><em>Claw</em></strong>. <em>Melee Attack Roll</em> : +6, reach 5 ft. <em>Hit</em> : 8 (2d4 + 3) Slashing damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 13) from one of two claws.</p>
-      <p><strong><em>Bite</em></strong>. <em>Constitution Saving Throw</em> : DC 14, one creature within 5 feet that is willing or that has the Grappled, Incapacitated, or Restrained condition. <em>Failure</em> : 5 (1d4 + 3) Piercing damage plus 10 (3d6) Necrotic damage. The target's Hit Point maximum decreases by an amount equal to the Necrotic damage taken, and the vampire regains Hit Points equal to that amount.</p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Deathless Agility</em>**. The vampire takes the Dash or Disengage action.</p>
+      ## Traits
+
+      ***Spider Climb***. The vampire can climb difficult surfaces, including along ceilings, without needing to make an ability check.
+
+      ***Vampire Weakness***. The vampire has these weaknesses:
+
+      ***Forbiddance***. The vampire can't enter a residence without an invitation from an occupant.
+
+      ***Running Water***. The vampire takes 20 Acid damage if it ends its turn in running water.
+
+      ***Stake to the Heart***. The vampire is destroyed if a weapon that deals Piercing damage is driven into the vampire's heart while the vampire has the Incapacitated condition.
+
+      ***Sunlight***. The vampire takes 20 Radiant damage if it starts its turn in sunlight. While in sunlight, it has Disadvantage on attack rolls and ability checks.
+
+      ## Actions
+
+      ***Multiattack***. The vampire makes two Claw attacks and uses Bite.
+
+      ***Claw***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 8 (2d4 + 3) Slashing damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 13) from one of two claws.
+
+      ***Bite***. *Constitution Saving Throw* : DC 14, one creature within 5 feet that is willing or that has the Grappled, Incapacitated, or Restrained condition. *Failure* : 5 (1d4 + 3) Piercing damage plus 10 (3d6) Necrotic damage. The target's Hit Point maximum decreases by an amount equal to the Necrotic damage taken, and the vampire regains Hit Points equal to that amount.
+
+      ## Bonus actions
+
+      ***Deathless Agility***. The vampire takes the Dash or Disengage action.
     senses: Darkvision 60 ft., Passive Perception 13
     languages:
     - Common plus one other language
@@ -109,19 +121,31 @@ translations:
     name: Vampirien
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Faiblesses des vampires</em>**. Le vampire présente les faiblesses suivantes :</p>
-      <p><strong><em>Défense d'entrer</em></strong>. Le vampire ne peut pas entrer dans une habitation sans y avoir été invité par l'un de ses occupants.</p>
-      <p><strong><em>Eau vive</em></strong>. Le vampire subit 20 dégâts d'acide s'il termine son tour dans l'eau vive.</p>
-      <p><strong><em>Pieu dans le coeur</em></strong>. Le vampire est détruit si une arme infligeant des dégâts perforants est fichée dans son coeur alors qu'il subit l'état Incapable d'agir.</p>
-      <p><strong><em>Lumière du soleil</em></strong>. Le vampire subit 20 dégâts radiants lorsqu'il commence son tour exposé au soleil. Exposé à la lumière du soleil, il subit un Désavantage aux jets d'attaque ainsi qu'aux jets de caractéristique.</p>
-      <p><strong><em>Pattes d'araignée</em></strong>. Le vampire peut parcourir les parois les plus difficiles à escalader, y compris les plafonds, sans passer par un jet de caractéristique.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le vampire effectue deux attaques de Griffe et recourt à Morsure.</p>
-      <p><strong><em>Griffe</em></strong>. <em>Corps à corps</em> : +6, allonge 1,50 m. <em>Touché</em> : 8 (2d4 + 3) dégâts tranchants. Si la cible est une créature de taille M ou inférieure, elle subit l'état Agrippé (évasion DD 13) par l'une des deux griffes.</p>
-      <p><strong><em>Morsure</em></strong>. <em>JdS Constitution</em> : DD 14, une créature dans un rayon de 1,50 m, consentante ou subissant l'état Agrippé, Entravé ou Incapable d'agir. <em>Échec</em> : 5 (1d4 + 3) dégâts perforants plus 10 (3d6) dégâts nécrotiques. Le maximum de points de vie de la cible est réduit d'un montant égal aux dégâts nécrotiques subis et le vampire récupère autant de points de vie que ce même montant.</p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Agilité immortelle</em>**. Le vampire effectue l'action Désengagement ou Pointe.</p>
+      ## Traits
+
+      ***Faiblesses des vampires***. Le vampire présente les faiblesses suivantes :
+
+      ***Défense d'entrer***. Le vampire ne peut pas entrer dans une habitation sans y avoir été invité par l'un de ses occupants.
+
+      ***Eau vive***. Le vampire subit 20 dégâts d'acide s'il termine son tour dans l'eau vive.
+
+      ***Pieu dans le coeur***. Le vampire est détruit si une arme infligeant des dégâts perforants est fichée dans son coeur alors qu'il subit l'état Incapable d'agir.
+
+      ***Lumière du soleil***. Le vampire subit 20 dégâts radiants lorsqu'il commence son tour exposé au soleil. Exposé à la lumière du soleil, il subit un Désavantage aux jets d'attaque ainsi qu'aux jets de caractéristique.
+
+      ***Pattes d'araignée***. Le vampire peut parcourir les parois les plus difficiles à escalader, y compris les plafonds, sans passer par un jet de caractéristique.
+
+      ## Actions
+
+      ***Attaques multiples***. Le vampire effectue deux attaques de Griffe et recourt à Morsure.
+
+      ***Griffe***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 8 (2d4 + 3) dégâts tranchants. Si la cible est une créature de taille M ou inférieure, elle subit l'état Agrippé (évasion DD 13) par l'une des deux griffes.
+
+      ***Morsure***. *JdS Constitution* : DD 14, une créature dans un rayon de 1,50 m, consentante ou subissant l'état Agrippé, Entravé ou Incapable d'agir. *Échec* : 5 (1d4 + 3) dégâts perforants plus 10 (3d6) dégâts nécrotiques. Le maximum de points de vie de la cible est réduit d'un montant égal aux dégâts nécrotiques subis et le vampire récupère autant de points de vie que ce même montant.
+
+      ## Actions Bonus
+
+      ***Agilité immortelle***. Le vampire effectue l'action Désengagement ou Pointe.
     senses: Vision dans le noir 18 m, Perception passive 13
     languages:
     - commun plus une autre langue

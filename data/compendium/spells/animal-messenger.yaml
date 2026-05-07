@@ -19,36 +19,17 @@ translations:
     range: 30 feet
     duration: 24 hours
     materialDescription: a morsel of food
-    description: A Tiny Beast of your choice that you can see within range must succeed
-      on a Charisma saving throw, or it attempts to deliver a message for you (if
-      the target's Challenge Rating isn't 0, it automatically succeeds). You specify
-      a location you have visited and a recipient who matches a general description,
-      such as "a person dressed in the uniform of the town guard" or "a red-haired
-      dwarf wearing a pointed hat." You also communicate a message of up to twenty-five
-      words. The Beast travels for the duration toward the specified location, covering
-      about 25 miles per 24 hours or 50 miles if the Beast can fly.<br/>When the Beast
-      arrives, it delivers your message to the creature that you described, mimicking
-      your communication. If the Beast doesn't reach its destination before the spell
-      ends, the message is lost, and the Beast returns to where you cast the spell.<br/><strong><em>Using
-      a Higher-Level Spell Slot</em></strong>. The spell's duration increases by 48
-      hours for each spell slot level above 2.<br/>
+    description: |-
+      A Tiny Beast of your choice that you can see within range must succeed on a Charisma saving throw, or it attempts to deliver a message for you (if the target's Challenge Rating isn't 0, it automatically succeeds). You specify a location you have visited and a recipient who matches a general description, such as "a person dressed in the uniform of the town guard" or "a red-haired dwarf wearing a pointed hat." You also communicate a message of up to twenty-five words. The Beast travels for the duration toward the specified location, covering about 25 miles per 24 hours or 50 miles if the Beast can fly.\
+      When the Beast arrives, it delivers your message to the creature that you described, mimicking your communication. If the Beast doesn't reach its destination before the spell ends, the message is lost, and the Beast returns to where you cast the spell.\
+      ***Using a Higher-Level Spell Slot***. The spell's duration increases by 48 hours for each spell slot level above 2.\
   fr:
     name: Messager animal
     castingTime: Action ou Rituel
     range: 9 m
     duration: 24 heures
     materialDescription: un peu de nourriture
-    description: Une bête de taille TP de votre choix que vous pouvez voir à portée
-      doit réussir un jet de sauvegarde de Charisme ou tenter de transmettre un message
-      pour vous (si le FP de la cible est supérieur à 0, elle réussit automatiquement).
-      Vous indiquez un lieu que vous avez visité et un destinataire par une description
-      générale, comme « une personne vêtue de l'uniforme de la garde » ou « un nain
-      roux coiffé d'un chapeau pointu ». Vous communiquez également un message de
-      vingt-cinq mots maximum. La bête se déplace pendant la durée du sort vers le
-      lieu spécifié, parcourant environ 40 km en 24 heures, ou 80 km si elle peut
-      voler.<br/>À son arrivée, la bête transmet votre message à la créature que vous
-      avez décrite, imitant votre communication. Si la bête n'atteint pas sa destination
-      avant la fin du sort, le message est perdu et la bête retourne là où vous avez
-      lancé le sort.<br/><strong><em>Emplacement de niveau supérieur</em></strong>.
-      La durée du sort augmente de 48 heures pour chaque niveau d'emplacement de sort
-      supérieur à 2.<br/>
+    description: |-
+      Une bête de taille TP de votre choix que vous pouvez voir à portée doit réussir un jet de sauvegarde de Charisme ou tenter de transmettre un message pour vous (si le FP de la cible est supérieur à 0, elle réussit automatiquement). Vous indiquez un lieu que vous avez visité et un destinataire par une description générale, comme « une personne vêtue de l'uniforme de la garde » ou « un nain roux coiffé d'un chapeau pointu ». Vous communiquez également un message de vingt-cinq mots maximum. La bête se déplace pendant la durée du sort vers le lieu spécifié, parcourant environ 40 km en 24 heures, ou 80 km si elle peut voler.\
+      À son arrivée, la bête transmet votre message à la créature que vous avez décrite, imitant votre communication. Si la bête n'atteint pas sa destination avant la fin du sort, le message est perdu et la bête retourne là où vous avez lancé le sort.\
+      ***Emplacement de niveau supérieur***. La durée du sort augmente de 48 heures pour chaque niveau d'emplacement de sort supérieur à 2.\

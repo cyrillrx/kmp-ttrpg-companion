@@ -8,11 +8,11 @@ translations:
     name: Orb of Direction
     subtype: null
     description: |-
-      <p>This orb can be used as an Arcane Focus.<br />
-      While holding this orb, you can take a Magic action to determine which way is magnetic north. Nothing happens if the orb is used in a location that has no magnetic north.</p>
+      This orb can be used as an Arcane Focus.\
+      While holding this orb, you can take a Magic action to determine which way is magnetic north. Nothing happens if the orb is used in a location that has no magnetic north.
   fr:
     name: Orbe boussole
     subtype: null
-    description: <p>En tenant cet orbe, vous pouvez prendre une action Magie pour
-      déterminer le nord magnétique. Rien ne se produit si l'orbe est utilisé dans
-      un lieu dépourvu de nord magnétique.</p>
+    description: En tenant cet orbe, vous pouvez prendre une action Magie pour déterminer
+      le nord magnétique. Rien ne se produit si l'orbe est utilisé dans un lieu dépourvu
+      de nord magnétique.

@@ -89,15 +89,22 @@ translations:
     name: Spirit Naga
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Fiendish Restoration</em>**. If it dies, the naga returns to life in 1d6 days and regains all its Hit Points. Only a <em><a href="https://www.aidedd.org/spell/wish">Wish</a></em> spell can prevent this trait from functioning.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The naga makes three attacks, using Bite or Necrotic Ray in any combination.</p>
-      <p><strong><em>Bite</em></strong>. <em>Melee Attack Roll</em> : +7, reach 10 ft. <em>Hit</em> : 7 (1d6 + 4) Piercing damage plus 14 (4d6) Poison damage.</p>
-      <p><strong><em>Necrotic Ray</em></strong>. <em>Ranged Attack Roll</em> : +6, range 60 ft. <em>Hit</em> : 21 (6d6) Necrotic damage.</p>
-      <p><strong><em>Spellcasting</em></strong>. The naga casts one of the following spells, requiring no Somatic or Material components and using Intelligence as the spellcasting ability (spell save DC 14):</p>
-      <p>At Will: <em><a href="https://www.aidedd.org/spell/detect-magic">Detect Magic</a>, <a href="https://www.aidedd.org/spell/mage-hand">Mage Hand</a>, <a href="https://www.aidedd.org/spell/minor-illusion">Minor Illusion</a>, <a href="https://www.aidedd.org/spell/water-breathing">Water Breathing</a></em><br />
-      2/Day Each: <em><a href="https://www.aidedd.org/spell/detect-thoughts">Detect Thoughts</a>, <a href="https://www.aidedd.org/spell/dimension-door">Dimension Door</a>, <a href="https://www.aidedd.org/spell/hold-person">Hold Person</a></em> (level 3 version), <em><a href="https://www.aidedd.org/spell/lightning-bolt">Lightning Bolt</a></em> (level 4 version)</p>
+      ## Traits
+
+      ***Fiendish Restoration***. If it dies, the naga returns to life in 1d6 days and regains all its Hit Points. Only a *[Wish](https://www.aidedd.org/spell/wish)* spell can prevent this trait from functioning.
+
+      ## Actions
+
+      ***Multiattack***. The naga makes three attacks, using Bite or Necrotic Ray in any combination.
+
+      ***Bite***. *Melee Attack Roll* : +7, reach 10 ft. *Hit* : 7 (1d6 + 4) Piercing damage plus 14 (4d6) Poison damage.
+
+      ***Necrotic Ray***. *Ranged Attack Roll* : +6, range 60 ft. *Hit* : 21 (6d6) Necrotic damage.
+
+      ***Spellcasting***. The naga casts one of the following spells, requiring no Somatic or Material components and using Intelligence as the spellcasting ability (spell save DC 14):
+
+      At Will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Mage Hand](https://www.aidedd.org/spell/mage-hand), [Minor Illusion](https://www.aidedd.org/spell/minor-illusion), [Water Breathing](https://www.aidedd.org/spell/water-breathing)*\
+      2/Day Each: *[Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts), [Dimension Door](https://www.aidedd.org/spell/dimension-door), [Hold Person](https://www.aidedd.org/spell/hold-person)* (level 3 version), *[Lightning Bolt](https://www.aidedd.org/spell/lightning-bolt)* (level 4 version)
     senses: Darkvision 60 ft., Passive Perception 12
     languages:
     - Abyssal
@@ -106,15 +113,22 @@ translations:
     name: Naga corrupteur
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Restauration fiélonne</em>**. S'il meurt, le naga revient à la vie en 1d6 jours et récupère tous ses points de vie. Seul le sort <em>souhait</em> peut empêcher ce trait de fonctionner.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le naga effectue trois attaques, réparties à sa guise entre Morsure et Rayon nécrotique.</p>
-      <p><strong><em>Morsure</em></strong>. <em>Corps à corps</em> : +7, allonge 3 m. <em>Touché</em> : 7 (1d6 + 4) dégâts perforants plus 14 (4d6) dégâts de poison.</p>
-      <p><strong><em>Rayon nécrotique</em></strong>. <em>À distance</em> : +6, portée 18 m. <em>Touché</em> : 21 (6d6) dégâts nécrotiques.</p>
-      <p><strong><em>Incantation</em></strong>. Le naga lance l'un des sorts suivants sans composantes matérielles ni somatiques, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 14) :</p>
-      <p>À volonté : <em><a href="https://www.aidedd.org/spell/fr/detection-de-la-magie">détection de la magie</a>, <a href="https://www.aidedd.org/spell/fr/illusion-mineure">illusion mineure</a>, <a href="https://www.aidedd.org/spell/fr/main-de-mage">main de mage</a>, <a href="https://www.aidedd.org/spell/fr/respiration-aquatique">respiration aquatique</a></em><br />
-      2/jour chacun : <em><a href="https://www.aidedd.org/spell/fr/detection-des-pensees">détection des pensées</a>, <a href="https://www.aidedd.org/spell/fr/eclair">éclair</a></em> (au niveau 4), <em><a href="https://www.aidedd.org/spell/fr/immobilisation-de-personne">immobilisation de personne</a></em> (au niveau 3), <em><a href="https://www.aidedd.org/spell/fr/porte-dimensionnelle">porte dimensionnelle</a></em></p>
+      ## Traits
+
+      ***Restauration fiélonne***. S'il meurt, le naga revient à la vie en 1d6 jours et récupère tous ses points de vie. Seul le sort *souhait* peut empêcher ce trait de fonctionner.
+
+      ## Actions
+
+      ***Attaques multiples***. Le naga effectue trois attaques, réparties à sa guise entre Morsure et Rayon nécrotique.
+
+      ***Morsure***. *Corps à corps* : +7, allonge 3 m. *Touché* : 7 (1d6 + 4) dégâts perforants plus 14 (4d6) dégâts de poison.
+
+      ***Rayon nécrotique***. *À distance* : +6, portée 18 m. *Touché* : 21 (6d6) dégâts nécrotiques.
+
+      ***Incantation***. Le naga lance l'un des sorts suivants sans composantes matérielles ni somatiques, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 14) :
+
+      À volonté : *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), [illusion mineure](https://www.aidedd.org/spell/fr/illusion-mineure), [main de mage](https://www.aidedd.org/spell/fr/main-de-mage), [respiration aquatique](https://www.aidedd.org/spell/fr/respiration-aquatique)*\
+      2/jour chacun : *[détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees), [éclair](https://www.aidedd.org/spell/fr/eclair)* (au niveau 4), *[immobilisation de personne](https://www.aidedd.org/spell/fr/immobilisation-de-personne)* (au niveau 3), *[porte dimensionnelle](https://www.aidedd.org/spell/fr/porte-dimensionnelle)*
     senses: Vision dans le noir 18 m, Perception passive 12
     languages:
     - abyssal

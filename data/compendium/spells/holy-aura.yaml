@@ -22,7 +22,7 @@ translations:
       other creatures have Disadvantage on attack rolls against them. In addition,
       when a Fiend or an Undead hits an affected creature with a melee attack roll,
       the attacker must succeed on a Constitution saving throw or have the Blinded
-      condition until the end of its next turn.<br/>
+      condition until the end of its next turn.\
   fr:
     name: Aura sacrée
     castingTime: Action
@@ -35,4 +35,4 @@ translations:
       aux jets d'attaque. De plus, lorsqu'un Fiélon ou un Mort-vivant touche une créature
       affectée avec un jet d'attaque de corps à corps, l'assaillant doit réussir un
       jet de sauvegarde de Constitution sous peine de subir l'état Aveuglé jusqu'à
-      la fin de son tour suivant.<br/>
+      la fin de son tour suivant.\

@@ -89,11 +89,15 @@ translations:
     name: Silver Dragon Wyrmling
     subtype: Metallic
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The dragon makes two Rend attacks.</p>
-      <p><strong><em>Rend</em></strong>. <em>Melee Attack Roll</em> : +6, reach 5 ft. <em>Hit</em> : 9 (1d10 + 4) Piercing damage.</p>
-      <p><strong><em>Cold Breath (Recharge 5–6)</em></strong>. <em>Constitution Saving Throw</em> : DC 13, each creature in a 15-foot Cone. <em>Failure</em> : 18 (4d8) Cold damage. <em>Success</em> : Half damage.</p>
-      <p><strong><em>Paralyzing Breath</em></strong>. <em>Constitution Saving Throw</em> : DC 13, each creature in a 15-foot Cone. <em>First Failure</em> : The target has the Incapacitated condition until the end of its next turn, when it repeats the save. <em>Second Failure</em> : The target has the Paralyzed condition, and it repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically.</p>
+      ## Actions
+
+      ***Multiattack***. The dragon makes two Rend attacks.
+
+      ***Rend***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 9 (1d10 + 4) Piercing damage.
+
+      ***Cold Breath (Recharge 5–6)***. *Constitution Saving Throw* : DC 13, each creature in a 15-foot Cone. *Failure* : 18 (4d8) Cold damage. *Success* : Half damage.
+
+      ***Paralyzing Breath***. *Constitution Saving Throw* : DC 13, each creature in a 15-foot Cone. *First Failure* : The target has the Incapacitated condition until the end of its next turn, when it repeats the save. *Second Failure* : The target has the Paralyzed condition, and it repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically.
     senses: Blindsight 10 ft., Darkvision 60 ft., Passive Perception 14
     languages:
     - Draconic
@@ -101,11 +105,15 @@ translations:
     name: Dragon d'argent, dragonnet
     subtype: Métallique
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le dragon effectue deux attaques de Saignée.</p>
-      <p><strong><em>Saignée</em></strong>. <em>Corps à corps</em> : +6, allonge 1,50 m. <em>Touché</em> : 9 (1d10 + 4) dégâts perforants.</p>
-      <p><strong><em>Souffle glacial (recharge 5–6)</em></strong>. <em>JdS Constitution</em> : DD 13, chaque créature dans un Cône de 4,50 m. <em>Échec</em> : 18 (4d8) dégâts de froid. <em>Réussite</em> : 1/2 dégâts.</p>
-      <p><strong><em>Souffle paralysant</em></strong>. <em>JdS Constitution</em> : DD 13, chaque créature dans un Cône de 4,50 m. <em>Premier échec</em> : la cible subit l'état Incapable d'agir jusqu'à la fin de son tour suivant, et réitère alors son JdS. <em>Deuxième échec</em> : la cible subit l'état Paralysé et réitère le JdS à la fin de chacun de ses tours ; elle met un terme à l'effet sur elle-même en cas de réussite. Au bout de 1 minute, elle réussit automatiquement ce JdS.</p>
+      ## Actions
+
+      ***Attaques multiples***. Le dragon effectue deux attaques de Saignée.
+
+      ***Saignée***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 9 (1d10 + 4) dégâts perforants.
+
+      ***Souffle glacial (recharge 5–6)***. *JdS Constitution* : DD 13, chaque créature dans un Cône de 4,50 m. *Échec* : 18 (4d8) dégâts de froid. *Réussite* : 1/2 dégâts.
+
+      ***Souffle paralysant***. *JdS Constitution* : DD 13, chaque créature dans un Cône de 4,50 m. *Premier échec* : la cible subit l'état Incapable d'agir jusqu'à la fin de son tour suivant, et réitère alors son JdS. *Deuxième échec* : la cible subit l'état Paralysé et réitère le JdS à la fin de chacun de ses tours ; elle met un terme à l'effet sur elle-même en cas de réussite. Au bout de 1 minute, elle réussit automatiquement ce JdS.
     senses: Vision aveugle 3 m, Vision dans le noir 18 m, Perception passive 14
     languages:
     - draconique

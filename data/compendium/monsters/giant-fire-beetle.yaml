@@ -89,10 +89,13 @@ translations:
     name: Giant Fire Beetle
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Illumination</em>**. The beetle sheds Bright Light in a 10-foot radius and Dim Light for an additional 10 feet.</p>
-      <h2>Actions</h2>
-      <p>** <em>Bite</em>**. <em>Melee Attack Roll</em> : +1, reach 5 ft. <em>Hit</em> : 1 Fire damage.</p>
+      ## Traits
+
+      ***Illumination***. The beetle sheds Bright Light in a 10-foot radius and Dim Light for an additional 10 feet.
+
+      ## Actions
+
+      ***Bite***. *Melee Attack Roll* : +1, reach 5 ft. *Hit* : 1 Fire damage.
     senses: Blindsight 30 ft., Passive Perception 8
     languages:
     - None
@@ -100,10 +103,13 @@ translations:
     name: Scarabée de feu géant
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Illumination</em>**. Le scarabée projette une Lumière vive sur un rayon de 3 m et une Lumière faible sur 3 m de plus.</p>
-      <h2>Actions</h2>
-      <p>** <em>Morsure</em>**. <em>Corps à corps</em> : +1, allonge 1,50 m. <em>Touché</em> : 1 dégât de feu.</p>
+      ## Traits
+
+      ***Illumination***. Le scarabée projette une Lumière vive sur un rayon de 3 m et une Lumière faible sur 3 m de plus.
+
+      ## Actions
+
+      ***Morsure***. *Corps à corps* : +1, allonge 1,50 m. *Touché* : 1 dégât de feu.
     senses: Vision aveugle 9 m, Perception passive 8
     languages:
     - aucune

@@ -89,12 +89,17 @@ translations:
     name: Nightmare
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Confer Fire Resistance</em>**. The nightmare can grant Resistance to Fire damage to a rider while it is on the nightmare.</p>
-      <p><strong><em>Illumination</em></strong>. The nightmare sheds Bright Light in a 10-foot radius and Dim Light for an additional 10 feet.</p>
-      <h2>Actions</h2>
-      <p>** <em>Hooves</em>**. <em>Melee Attack Roll</em> : +6, reach 5 ft. <em>Hit</em> : 13 (2d8 + 4) Bludgeoning damage plus 10 (3d6) Fire damage.</p>
-      <p><strong><em>Ethereal Stride</em></strong>. The nightmare and up to three willing creatures within 5 feet of it teleport to the Ethereal Plane from the Material Plane or vice versa.</p>
+      ## Traits
+
+      ***Confer Fire Resistance***. The nightmare can grant Resistance to Fire damage to a rider while it is on the nightmare.
+
+      ***Illumination***. The nightmare sheds Bright Light in a 10-foot radius and Dim Light for an additional 10 feet.
+
+      ## Actions
+
+      ***Hooves***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 13 (2d8 + 4) Bludgeoning damage plus 10 (3d6) Fire damage.
+
+      ***Ethereal Stride***. The nightmare and up to three willing creatures within 5 feet of it teleport to the Ethereal Plane from the Material Plane or vice versa.
     senses: Passive Perception 11
     languages:
     - Understands Abyssal
@@ -104,12 +109,17 @@ translations:
     name: Horriflamme
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Illumination</em>**. L'horriflamme émet une Lumière vive sur un rayon de 3 m et une Lumière faible sur 3 m de plus.</p>
-      <p><strong><em>Protection contre les flammes</em></strong>. L'horriflamme peut octroyer la Résistance aux dégâts de feu à son cavalier tant que celui-ci la chevauche.</p>
-      <h2>Actions</h2>
-      <p>** <em>Sabots</em>**. <em>Corps à corps</em> : +6, allonge 1,50 m. <em>Touché</em> : 13 (2d8 + 4) dégâts contondants plus 10 (3d6) dégâts de feu.</p>
-      <p><strong><em>Chevauchée éthérée</em></strong>. L'horriflamme et un maximum de trois créatures consentantes dans un rayon de 1,50 m se téléportent sur le Plan Éthéré depuis le Plan Matériel, ou inversement.</p>
+      ## Traits
+
+      ***Illumination***. L'horriflamme émet une Lumière vive sur un rayon de 3 m et une Lumière faible sur 3 m de plus.
+
+      ***Protection contre les flammes***. L'horriflamme peut octroyer la Résistance aux dégâts de feu à son cavalier tant que celui-ci la chevauche.
+
+      ## Actions
+
+      ***Sabots***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 13 (2d8 + 4) dégâts contondants plus 10 (3d6) dégâts de feu.
+
+      ***Chevauchée éthérée***. L'horriflamme et un maximum de trois créatures consentantes dans un rayon de 1,50 m se téléportent sur le Plan Éthéré depuis le Plan Matériel, ou inversement.
     senses: Perception passive 11
     languages:
     - comprend l'abyssal

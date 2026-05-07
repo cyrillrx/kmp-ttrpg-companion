@@ -21,7 +21,7 @@ translations:
     duration: Concentration, up to 1 minute
     materialDescription: null
     description: Whenever a creature makes an attack roll against you before the spell
-      ends, the attacker subtracts 1d4 from the attack roll.<br/>
+      ends, the attacker subtracts 1d4 from the attack roll.\
   fr:
     name: Voile défensif
     castingTime: Action
@@ -29,4 +29,4 @@ translations:
     duration: Concentration, jusqu'à 1 minute
     materialDescription: null
     description: Chaque fois qu'une créature vous attaque avant la fin du sort, l'attaquant
-      soustrait 1d4 à son jet d'attaque.<br/>
+      soustrait 1d4 à son jet d'attaque.\

@@ -89,10 +89,13 @@ translations:
     name: Berserker
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Bloodied Frenzy</em>**. While Bloodied, the berserker has Advantage on attack rolls and saving throws.</p>
-      <h2>Actions</h2>
-      <p>** <em>Greataxe</em>**. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 9 (1d12 + 3) Slashing damage.</p>
+      ## Traits
+
+      ***Bloodied Frenzy***. While Bloodied, the berserker has Advantage on attack rolls and saving throws.
+
+      ## Actions
+
+      ***Greataxe***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 9 (1d12 + 3) Slashing damage.
     senses: Passive Perception 10
     languages:
     - Common
@@ -100,10 +103,13 @@ translations:
     name: Berserker
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Frénésie du péril</em>**. Lorsqu'il est En péril, le berserker a un Avantage aux jets d'attaque et de sauvegarde.</p>
-      <h2>Actions</h2>
-      <p>** <em>Hache à deux mains</em>**. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 9 (1d12 + 3) dégâts tranchants.</p>
+      ## Traits
+
+      ***Frénésie du péril***. Lorsqu'il est En péril, le berserker a un Avantage aux jets d'attaque et de sauvegarde.
+
+      ## Actions
+
+      ***Hache à deux mains***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 9 (1d12 + 3) dégâts tranchants.
     senses: Perception passive 10
     languages:
     - commun

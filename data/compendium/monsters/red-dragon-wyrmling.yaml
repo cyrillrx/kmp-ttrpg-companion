@@ -89,10 +89,13 @@ translations:
     name: Red Dragon Wyrmling
     subtype: Chromatic
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The dragon makes two Rend attacks.</p>
-      <p><strong><em>Rend</em></strong>. <em>Melee Attack Roll</em> : +6, reach 5 ft. <em>Hit</em> : 9 (1d10 + 4) Slashing damage plus 3 (1d6) Fire damage.</p>
-      <p><strong><em>Fire Breath (Recharge 5–6)</em></strong>. <em>Dexterity Saving Throw</em> : DC 13, each creature in a 15-foot Cone. <em>Failure</em> : 24 (7d6) Fire damage. <em>Success</em> : Half damage.</p>
+      ## Actions
+
+      ***Multiattack***. The dragon makes two Rend attacks.
+
+      ***Rend***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 9 (1d10 + 4) Slashing damage plus 3 (1d6) Fire damage.
+
+      ***Fire Breath (Recharge 5–6)***. *Dexterity Saving Throw* : DC 13, each creature in a 15-foot Cone. *Failure* : 24 (7d6) Fire damage. *Success* : Half damage.
     senses: Blindsight 10 ft., Darkvision 60 ft., Passive Perception 14
     languages:
     - Draconic
@@ -100,10 +103,13 @@ translations:
     name: Dragon rouge, dragonnet
     subtype: Chromatique
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le dragon effectue deux attaques de Saignée.</p>
-      <p><strong><em>Saignée</em></strong>. <em>Corps à corps</em> : +6, allonge 1,50 m. <em>Touché</em> : 9 (1d10 + 4) dégâts tranchants plus 3 (1d6) dégâts de feu.</p>
-      <p><strong><em>Souffle de feu (recharge 5–6)</em></strong>. <em>JdS Dextérité</em> : DD 13, chaque créature dans un Cône de 4,50 m. <em>Échec</em> : 24 (7d6) dégâts de feu. <em>Réussite</em> : demi-dégâts.</p>
+      ## Actions
+
+      ***Attaques multiples***. Le dragon effectue deux attaques de Saignée.
+
+      ***Saignée***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 9 (1d10 + 4) dégâts tranchants plus 3 (1d6) dégâts de feu.
+
+      ***Souffle de feu (recharge 5–6)***. *JdS Dextérité* : DD 13, chaque créature dans un Cône de 4,50 m. *Échec* : 24 (7d6) dégâts de feu. *Réussite* : demi-dégâts.
     senses: Vision aveugle 3 m, Vision dans le noir 18 m, Perception passive 14
     languages:
     - draconique

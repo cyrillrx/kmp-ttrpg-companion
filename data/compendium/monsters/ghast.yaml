@@ -89,11 +89,15 @@ translations:
     name: Ghast
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Stench</em>**. <em>Constitution Saving Throw</em> : DC 10, any creature that starts its turn in a 5-foot Emanation originating from the ghast. <em>Failure</em> : The target has the Poisoned condition until the start of its next turn. <em>Success</em> : The target is immune to this ghast's Stench for 24 hours.</p>
-      <h2>Actions</h2>
-      <p>** <em>Bite</em>**. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 7 (1d8 + 3) Piercing damage plus 9 (2d8) Necrotic damage.</p>
-      <p><strong><em>Claw</em></strong>. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 10 (2d6 + 3) Slashing damage. If the target is a non-Undead creature, it is subjected to the following effect. <em>Constitution Saving Throw</em> : DC 10. <em>Failure</em> : The target has the Paralyzed condition until the end of its next turn.</p>
+      ## Traits
+
+      ***Stench***. *Constitution Saving Throw* : DC 10, any creature that starts its turn in a 5-foot Emanation originating from the ghast. *Failure* : The target has the Poisoned condition until the start of its next turn. *Success* : The target is immune to this ghast's Stench for 24 hours.
+
+      ## Actions
+
+      ***Bite***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 7 (1d8 + 3) Piercing damage plus 9 (2d8) Necrotic damage.
+
+      ***Claw***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 10 (2d6 + 3) Slashing damage. If the target is a non-Undead creature, it is subjected to the following effect. *Constitution Saving Throw* : DC 10. *Failure* : The target has the Paralyzed condition until the end of its next turn.
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - Common
@@ -101,11 +105,15 @@ translations:
     name: Blême
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Puanteur</em>**. <em>JdS Constitution</em> : DD 10, toute créature qui commence son tour dans une Émanation de 1,50 m centrée sur la blême. <em>Échec</em> : la cible subit l'état Empoisonné jusqu'au début de son tour suivant. <em>Réussite</em> : la cible est immunisée contre la puanteur de cette blême pendant 24 heures.</p>
-      <h2>Actions</h2>
-      <p>** <em>Griffe</em>**. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 10 (2d6 + 3) dégâts tranchants. Si la cible est une créature autre qu'un Mort-vivant, elle est soumise à l'effet suivant. <em>JdS Constitution</em> : DD 10. <em>Échec</em> : la cible subit l'état Paralysé jusqu'à la fin de son tour suivant.</p>
-      <p><strong><em>Morsure</em></strong>. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 7 (1d8 + 3) dégâts perforants plus 9 (2d8) dégâts nécrotiques.</p>
+      ## Traits
+
+      ***Puanteur***. *JdS Constitution* : DD 10, toute créature qui commence son tour dans une Émanation de 1,50 m centrée sur la blême. *Échec* : la cible subit l'état Empoisonné jusqu'au début de son tour suivant. *Réussite* : la cible est immunisée contre la puanteur de cette blême pendant 24 heures.
+
+      ## Actions
+
+      ***Griffe***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 10 (2d6 + 3) dégâts tranchants. Si la cible est une créature autre qu'un Mort-vivant, elle est soumise à l'effet suivant. *JdS Constitution* : DD 10. *Échec* : la cible subit l'état Paralysé jusqu'à la fin de son tour suivant.
+
+      ***Morsure***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 7 (1d8 + 3) dégâts perforants plus 9 (2d8) dégâts nécrotiques.
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - commun

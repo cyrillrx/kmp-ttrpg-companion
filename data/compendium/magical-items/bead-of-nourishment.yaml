@@ -7,10 +7,10 @@ translations:
   en:
     name: Bead of Nourishment
     subtype: null
-    description: <p>This flavorless, gelatinous bead dissolves on your tongue and
-      provides as much nourishment as 1 day of Rations.</p>
+    description: This flavorless, gelatinous bead dissolves on your tongue and provides
+      as much nourishment as 1 day of Rations.
   fr:
     name: Perle nutritive
     subtype: null
-    description: <p>Cette perle gélatineuse sans saveur se dissout sur votre langue
-      et fournit autant de nutriments que des rations pour une journée.</p>
+    description: Cette perle gélatineuse sans saveur se dissout sur votre langue et
+      fournit autant de nutriments que des rations pour une journée.

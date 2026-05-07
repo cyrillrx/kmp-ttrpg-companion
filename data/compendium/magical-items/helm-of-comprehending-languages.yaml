@@ -7,10 +7,11 @@ translations:
   en:
     name: Helm of Comprehending Languages
     subtype: null
-    description: <p>While wearing this helm, you can cast <em><a href="https://www.aidedd.org/spell/comprehend-languages">Comprehend
-      Languages</a></em> from it.</p>
+    description: While wearing this helm, you can cast *[Comprehend Languages](https://www.aidedd.org/spell/comprehend-languages)*
+      from it.
   fr:
     name: Heaume de compréhension des langues
     subtype: null
-    description: <p>Lorsque vous portez ce heaume, vous pouvez lancer <em><a href="https://www.aidedd.org/spell/fr/comprehension-des-langues">compréhension
-      des langues</a></em> par son biais.</p>
+    description: Lorsque vous portez ce heaume, vous pouvez lancer *[compréhension
+      des langues](https://www.aidedd.org/spell/fr/comprehension-des-langues)* par
+      son biais.

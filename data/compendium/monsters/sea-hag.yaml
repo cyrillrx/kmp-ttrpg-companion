@@ -89,14 +89,21 @@ translations:
     name: Sea Hag
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Amphibious</em>**. The hag can breathe air and water.</p>
-      <p><strong><em>Coven Magic</em></strong>. While within 30 feet of at least two hag allies, the hag can cast one of the following spells, requiring no Material components, using the spell's normal casting time, and using Intelligence as the spellcasting ability (spell save DC 11): <em><a href="https://www.aidedd.org/spell/augury">Augury</a>, <a href="https://www.aidedd.org/spell/find-familiar">Find Familiar</a>, <a href="https://www.aidedd.org/spell/identify">Identify</a>, <a href="https://www.aidedd.org/spell/locate-object">Locate Object</a>, <a href="https://www.aidedd.org/spell/scrying">Scrying</a></em>, or <em><a href="https://www.aidedd.org/spell/unseen-servant">Unseen Servant</a></em>. The hag must finish a Long Rest before using this trait to cast that spell again.</p>
-      <p><strong><em>Vile Appearance</em></strong>. <em>Wisdom Saving Throw</em> : DC 11, any Beast or Humanoid that starts its turn within 30 feet of the hag and can see the hag's true form. <em>Failure</em> : The target has the Frightened condition until the start of its next turn. <em>Success</em> : The target is immune to this hag's Vile Appearance for 24 hours.</p>
-      <h2>Actions</h2>
-      <p>** <em>Claw</em>**. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 10 (2d6 + 3) Slashing damage.</p>
-      <p><strong><em>Death Glare (Recharge 5–6)</em></strong>. <em>Wisdom Saving Throw</em> : DC 11, one Frightened creature the hag can see within 30 feet. <em>Failure</em> : If the target has 20 Hit Points or fewer, it drops to 0 Hit Points. Otherwise, the target takes 13 (3d8) Psychic damage.</p>
-      <p><strong><em>Illusory Appearance</em></strong>. The hag casts <em><a href="https://www.aidedd.org/spell/disguise-self">Disguise Self</a></em> , using Constitution as the spellcasting ability (spell save DC 13). The spell's duration is 24 hours.</p>
+      ## Traits
+
+      ***Amphibious***. The hag can breathe air and water.
+
+      ***Coven Magic***. While within 30 feet of at least two hag allies, the hag can cast one of the following spells, requiring no Material components, using the spell's normal casting time, and using Intelligence as the spellcasting ability (spell save DC 11): *[Augury](https://www.aidedd.org/spell/augury), [Find Familiar](https://www.aidedd.org/spell/find-familiar), [Identify](https://www.aidedd.org/spell/identify), [Locate Object](https://www.aidedd.org/spell/locate-object), [Scrying](https://www.aidedd.org/spell/scrying)*, or *[Unseen Servant](https://www.aidedd.org/spell/unseen-servant)*. The hag must finish a Long Rest before using this trait to cast that spell again.
+
+      ***Vile Appearance***. *Wisdom Saving Throw* : DC 11, any Beast or Humanoid that starts its turn within 30 feet of the hag and can see the hag's true form. *Failure* : The target has the Frightened condition until the start of its next turn. *Success* : The target is immune to this hag's Vile Appearance for 24 hours.
+
+      ## Actions
+
+      ***Claw***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 10 (2d6 + 3) Slashing damage.
+
+      ***Death Glare (Recharge 5–6)***. *Wisdom Saving Throw* : DC 11, one Frightened creature the hag can see within 30 feet. *Failure* : If the target has 20 Hit Points or fewer, it drops to 0 Hit Points. Otherwise, the target takes 13 (3d8) Psychic damage.
+
+      ***Illusory Appearance***. The hag casts *[Disguise Self](https://www.aidedd.org/spell/disguise-self)* , using Constitution as the spellcasting ability (spell save DC 13). The spell's duration is 24 hours.
     senses: Darkvision 60 ft., Passive Perception 11
     languages:
     - Common
@@ -106,14 +113,21 @@ translations:
     name: Guenaude marine
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Amphibie</em>**. La guenaude peut respirer sous l'eau comme à l'air libre.</p>
-      <p><strong><em>Laideur effroyable</em></strong>. <em>JdS Sagesse</em> : DD 11, tout Humanoïde ou Bête qui commence son tour dans un rayon de 9 m de la guenaude et qui voit sa forme véritable. <em>Échec</em> : la cible subit l'état Effrayé jusqu'au début de son tour suivant. <em>Réussite</em> : la cible est immunisée contre la Laideur effroyable de cette guenaude pendant 24 heures.</p>
-      <p><strong><em>Magie d'assemblée</em></strong>. Tant qu'elle se trouve dans un rayon de 9 m d'au moins deux alliées guenaudes, la guenaude peut lancer l'un des sorts suivants sans composantes matérielles, avec le temps d'incantation normal, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 11) : <em><a href="https://www.aidedd.org/spell/fr/appel-de-familier">appel de familier</a>, <a href="https://www.aidedd.org/spell/fr/augure">augure</a>, <a href="https://www.aidedd.org/spell/fr/identification">identification</a>, <a href="https://www.aidedd.org/spell/localisation-d-objet">localisation d'objet</a>, <a href="https://www.aidedd.org/spell/fr/scrutation">scrutation</a> ou <a href="https://www.aidedd.org/spell/fr/serviteur invisible">serviteur invisible</a></em>. La guenaude doit terminer un Repos long avant de pouvoir relancer ce sort par ce trait.</p>
-      <h2>Actions</h2>
-      <p>** <em>Griffe</em>**. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 10 (2d6 + 3) dégâts tranchants.</p>
-      <p><strong><em>Regard mortel (recharge 5–6)</em></strong>. <em>JdS Sagesse</em> : DD 11, une créature Effrayée que la guenaude voit dans un rayon de 9 m. <em>Échec</em> : si la cible a 20 points de vie ou moins, elle tombe à 0 point de vie. Sinon, la cible subit 13 (3d8) dégâts psychiques.</p>
-      <p><strong><em>Apparence illusoire</em></strong>. La guenaude lance <em>déguisement</em> , la Constitution étant sa caractéristique d'incantation (DD de sauvegarde 13). La durée du sort est de 24 heures.</p>
+      ## Traits
+
+      ***Amphibie***. La guenaude peut respirer sous l'eau comme à l'air libre.
+
+      ***Laideur effroyable***. *JdS Sagesse* : DD 11, tout Humanoïde ou Bête qui commence son tour dans un rayon de 9 m de la guenaude et qui voit sa forme véritable. *Échec* : la cible subit l'état Effrayé jusqu'au début de son tour suivant. *Réussite* : la cible est immunisée contre la Laideur effroyable de cette guenaude pendant 24 heures.
+
+      ***Magie d'assemblée***. Tant qu'elle se trouve dans un rayon de 9 m d'au moins deux alliées guenaudes, la guenaude peut lancer l'un des sorts suivants sans composantes matérielles, avec le temps d'incantation normal, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 11) : *[appel de familier](https://www.aidedd.org/spell/fr/appel-de-familier), [augure](https://www.aidedd.org/spell/fr/augure), [identification](https://www.aidedd.org/spell/fr/identification), [localisation d'objet](https://www.aidedd.org/spell/localisation-d-objet), [scrutation](https://www.aidedd.org/spell/fr/scrutation) ou [serviteur invisible](https://www.aidedd.org/spell/fr/serviteur invisible)*. La guenaude doit terminer un Repos long avant de pouvoir relancer ce sort par ce trait.
+
+      ## Actions
+
+      ***Griffe***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 10 (2d6 + 3) dégâts tranchants.
+
+      ***Regard mortel (recharge 5–6)***. *JdS Sagesse* : DD 11, une créature Effrayée que la guenaude voit dans un rayon de 9 m. *Échec* : si la cible a 20 points de vie ou moins, elle tombe à 0 point de vie. Sinon, la cible subit 13 (3d8) dégâts psychiques.
+
+      ***Apparence illusoire***. La guenaude lance *déguisement* , la Constitution étant sa caractéristique d'incantation (DD de sauvegarde 13). La durée du sort est de 24 heures.
     senses: Vision dans le noir 18 m, Perception passive 11
     languages:
     - commun

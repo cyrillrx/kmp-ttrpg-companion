@@ -21,7 +21,7 @@ translations:
     materialDescription: a pinch of talc
     description: For the duration, you see creatures and objects that have the Invisible
       condition as if they were visible, and you can see into the Ethereal Plane.
-      Creatures and objects there appear ghostly.<br/>
+      Creatures and objects there appear ghostly.\
   fr:
     name: Détection de l'invisibilité
     castingTime: Action
@@ -30,4 +30,4 @@ translations:
     materialDescription: une pincée de talc
     description: Pendant la durée du sort, vous voyez les créatures et objets qui
       ont l'état Invisible comme s'ils étaient visibles, et vous pouvez voir dans
-      le plan Éthéré. Les créatures et objets qui s'y trouvent apparaissent fantomatiques.<br/>
+      le plan Éthéré. Les créatures et objets qui s'y trouvent apparaissent fantomatiques.\

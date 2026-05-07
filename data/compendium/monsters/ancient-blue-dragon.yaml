@@ -89,20 +89,32 @@ translations:
     name: Ancient Blue Dragon
     subtype: Chromatic
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Legendary Resistance (4/Day, or 5/Day in Lair)</em>**. If the dragon fails a saving throw, it can choose to succeed instead.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The dragon makes three Rend attacks. It can replace one attack with a use of Spellcasting to cast <em><a href="https://www.aidedd.org/spell/shatter">Shatter</a></em> (level 3 version).</p>
-      <p><strong><em>Rend</em></strong>. <em>Melee Attack Roll</em> : +16, reach 15 ft. <em>Hit</em> : 18 (2d8 + 9) Slashing damage plus 11 (2d10) Lightning damage.</p>
-      <p><strong><em>Lightning Breath (Recharge 5–6)</em></strong>. <em>Dexterity Saving Throw</em> : DC 23, each creature in a 120-foot-long, 10-foot-wide Line. <em>Failure</em> : 88 (16d10) Lightning damage. <em>Success</em> : Half damage.</p>
-      <p><strong><em>Spellcasting</em></strong>. The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 22):</p>
-      <p>At Will: <em><a href="https://www.aidedd.org/spell/detect-magic">Detect Magic</a>, <a href="https://www.aidedd.org/spell/invisibility">Invisibility</a>, <a href="https://www.aidedd.org/spell/mage-hand">Mage Hand</a>, <a href="https://www.aidedd.org/spell/shatter">Shatter</a></em> (level 3 version)<br />
-      1/Day Each: <em><a href="https://www.aidedd.org/spell/scrying">Scrying</a>, <a href="https://www.aidedd.org/spell/sending">Sending</a></em>  </p>
-      <h2>Legendary actions</h2>
-      <p>Legendary Action Uses: 3 (4 in Lair). Immediately after another creature's turn, the dragon can expend a use to take one of the following actions. The dragon regains all expended uses at the start of each of its turns. </p>
-      <p><strong><em>Cloaked Flight</em></strong>. The dragon uses Spellcasting to cast <em><a href="https://www.aidedd.org/spell/invisibility">Invisibility</a></em> on itself, and it can fly up to half its Fly Speed. The dragon can't take this action again until the start of its next turn.</p>
-      <p><strong><em>Sonic Boom</em></strong>. The dragon uses Spellcasting to cast <em><a href="https://www.aidedd.org/spell/shatter">Shatter</a></em> (level 3 version). The dragon can't take this action again until the start of its next turn.</p>
-      <p><strong><em>Tail Swipe</em></strong>. The dragon makes one Rend attack.</p>
+      ## Traits
+
+      ***Legendary Resistance (4/Day, or 5/Day in Lair)***. If the dragon fails a saving throw, it can choose to succeed instead.
+
+      ## Actions
+
+      ***Multiattack***. The dragon makes three Rend attacks. It can replace one attack with a use of Spellcasting to cast *[Shatter](https://www.aidedd.org/spell/shatter)* (level 3 version).
+
+      ***Rend***. *Melee Attack Roll* : +16, reach 15 ft. *Hit* : 18 (2d8 + 9) Slashing damage plus 11 (2d10) Lightning damage.
+
+      ***Lightning Breath (Recharge 5–6)***. *Dexterity Saving Throw* : DC 23, each creature in a 120-foot-long, 10-foot-wide Line. *Failure* : 88 (16d10) Lightning damage. *Success* : Half damage.
+
+      ***Spellcasting***. The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 22):
+
+      At Will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Invisibility](https://www.aidedd.org/spell/invisibility), [Mage Hand](https://www.aidedd.org/spell/mage-hand), [Shatter](https://www.aidedd.org/spell/shatter)* (level 3 version)\
+      1/Day Each: *[Scrying](https://www.aidedd.org/spell/scrying), [Sending](https://www.aidedd.org/spell/sending)*
+
+      ## Legendary actions
+
+      Legendary Action Uses: 3 (4 in Lair). Immediately after another creature's turn, the dragon can expend a use to take one of the following actions. The dragon regains all expended uses at the start of each of its turns.
+
+      ***Cloaked Flight***. The dragon uses Spellcasting to cast *[Invisibility](https://www.aidedd.org/spell/invisibility)* on itself, and it can fly up to half its Fly Speed. The dragon can't take this action again until the start of its next turn.
+
+      ***Sonic Boom***. The dragon uses Spellcasting to cast *[Shatter](https://www.aidedd.org/spell/shatter)* (level 3 version). The dragon can't take this action again until the start of its next turn.
+
+      ***Tail Swipe***. The dragon makes one Rend attack.
     senses: Blindsight 60 ft., Darkvision 120 ft., Passive Perception 27
     languages:
     - Common
@@ -111,20 +123,32 @@ translations:
     name: Dragon bleu, ancien
     subtype: Chromatique
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Résistance légendaire (4/jour, ou 5/jour dans son antre)</em>**. Si le dragon rate un jet de sauvegarde, il peut décider de le réussir tout de même.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le dragon effectue trois attaques de Saignée. Il peut remplacer l'une de ces attaques par une utilisation d'Incantation pour lancer <em><a href="https://www.aidedd.org/spell/fr/fracassement">fracassement</a></em> (au niveau 3).</p>
-      <p><strong><em>Saignée</em></strong>. <em>Corps à corps</em> : +16, allonge 4,50 m. <em>Touché</em> : 18 (2d8 + 9) dégâts tranchants plus 11 (2d10) dégâts de foudre.</p>
-      <p><strong><em>Incantation</em></strong>. Le dragon lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 22) :</p>
-      <p>À volonté : <em><a href="https://www.aidedd.org/spell/fr/detection-de-la-magie">détection de la magie</a>, <a href="https://www.aidedd.org/spell/fr/fracassement">fracassement</a></em> (au niveau 3), <em><a href="https://www.aidedd.org/spell/fr/invisibilite">invisibilité</a>, <a href="https://www.aidedd.org/spell/fr/main-de-mage">main de mage</a></em><br />
-      1/jour chacun : <em><a href="https://www.aidedd.org/spell/fr/communication-a-distance">communication à distance</a>, <a href="https://www.aidedd.org/spell/fr/scrutation">scrutation</a></em>  </p>
-      <p>** <em>Souffle de foudre (recharge 5–6)</em>**. <em>JdS Dextérité</em> : DD 23, chaque créature dans une Ligne de 36 m de long sur 3 m de large. <em>Échec</em> : 88 (16d10) dégâts de foudre. <em>Réussite</em> : demi-dégâts.</p>
-      <h2>Actions Légendaires</h2>
-      <p>Utilisations d'action Légendaire : 3 (4 dans son antre). Aussitôt après le tour d'une autre créature, le dragon peut dépenser une utilisation pour entreprendre l'une des actions ci-après. Le dragon récupère toutes ses utilisations dépensées au début de chacun de ses tours. </p>
-      <p><strong><em>Balayage caudal</em></strong>. Le dragon effectue une attaque de Saignée.</p>
-      <p><strong><em>Envol furtif</em></strong>. Le dragon recourt à Incantation pour lancer <em><a href="https://www.aidedd.org/spell/fr/invisibilite">invisibilité</a></em> sur lui-même, et il peut voler à concurrence de la moitié de sa Vitesse de vol. Le dragon ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.</p>
-      <p><strong><em>Fracas tonitruant</em></strong>. Le dragon recourt à Incantation pour lancer <em><a href="https://www.aidedd.org/spell/fr/fracassement">fracassement</a></em> (au niveau 3). Le dragon ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.</p>
+      ## Traits
+
+      ***Résistance légendaire (4/jour, ou 5/jour dans son antre)***. Si le dragon rate un jet de sauvegarde, il peut décider de le réussir tout de même.
+
+      ## Actions
+
+      ***Attaques multiples***. Le dragon effectue trois attaques de Saignée. Il peut remplacer l'une de ces attaques par une utilisation d'Incantation pour lancer *[fracassement](https://www.aidedd.org/spell/fr/fracassement)* (au niveau 3).
+
+      ***Saignée***. *Corps à corps* : +16, allonge 4,50 m. *Touché* : 18 (2d8 + 9) dégâts tranchants plus 11 (2d10) dégâts de foudre.
+
+      ***Incantation***. Le dragon lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 22) :
+
+      À volonté : *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), [fracassement](https://www.aidedd.org/spell/fr/fracassement)* (au niveau 3), *[invisibilité](https://www.aidedd.org/spell/fr/invisibilite), [main de mage](https://www.aidedd.org/spell/fr/main-de-mage)*\
+      1/jour chacun : *[communication à distance](https://www.aidedd.org/spell/fr/communication-a-distance), [scrutation](https://www.aidedd.org/spell/fr/scrutation)*
+
+      ***Souffle de foudre (recharge 5–6)***. *JdS Dextérité* : DD 23, chaque créature dans une Ligne de 36 m de long sur 3 m de large. *Échec* : 88 (16d10) dégâts de foudre. *Réussite* : demi-dégâts.
+
+      ## Actions Légendaires
+
+      Utilisations d'action Légendaire : 3 (4 dans son antre). Aussitôt après le tour d'une autre créature, le dragon peut dépenser une utilisation pour entreprendre l'une des actions ci-après. Le dragon récupère toutes ses utilisations dépensées au début de chacun de ses tours.
+
+      ***Balayage caudal***. Le dragon effectue une attaque de Saignée.
+
+      ***Envol furtif***. Le dragon recourt à Incantation pour lancer *[invisibilité](https://www.aidedd.org/spell/fr/invisibilite)* sur lui-même, et il peut voler à concurrence de la moitié de sa Vitesse de vol. Le dragon ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.
+
+      ***Fracas tonitruant***. Le dragon recourt à Incantation pour lancer *[fracassement](https://www.aidedd.org/spell/fr/fracassement)* (au niveau 3). Le dragon ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.
     senses: Vision aveugle 18 m, Vision dans le noir 36 m, Perception passive 27
     languages:
     - commun

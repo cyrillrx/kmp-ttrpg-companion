@@ -20,14 +20,9 @@ translations:
     duration: Concentration, up to 1 day
     materialDescription: a set of divination tools-such as cards or runes-worth 100+
       GP
-    description: You magically sense the most direct physical route to a location
-      you name. You must be familiar with the location, and the spell fails if you
-      name a destination on another plane of existence, a moving destination (such
-      as a mobile fortress), or an unspecific destination (such as “a green dragon's
-      lair”).<br/>For the duration, as long as you are on the same plane of existence
-      as the destination, you know how far it is and in what direction it lies. Whenever
-      you face a choice of paths along the way there, you know which path is the most
-      direct.<br/>
+    description: |-
+      You magically sense the most direct physical route to a location you name. You must be familiar with the location, and the spell fails if you name a destination on another plane of existence, a moving destination (such as a mobile fortress), or an unspecific destination (such as “a green dragon's lair”).\
+      For the duration, as long as you are on the same plane of existence as the destination, you know how far it is and in what direction it lies. Whenever you face a choice of paths along the way there, you know which path is the most direct.\
   fr:
     name: Orientation
     castingTime: 1 minute
@@ -35,11 +30,6 @@ translations:
     duration: Concentration, jusqu'à 1 jour
     materialDescription: des accessoires de divination, comme des cartes ou des runes,
       d'une valeur minimale de 100 po
-    description: Vous trouvez magiquement le chemin le plus direct jusqu'à un lieu
-      que vous nommez. Vous devez connaître cet endroit et le sort échoue si le lieu
-      nommé est sur un autre plan d'existence, est une destination mobile (comme une
-      forteresse en mouvement) ou un endroit générique (comme « l'antre d'un dragon
-      vert »).<br/>Pour toute la durée et tant que vous êtes sur le même plan d'existence
-      que la destination, vous savez quelle distance vous en sépare et dans quelle
-      direction elle se trouve. Chaque fois que vous avez le choix entre plusieurs
-      itinéraires, vous savez automatiquement lequel est le plus direct.<br/>
+    description: |-
+      Vous trouvez magiquement le chemin le plus direct jusqu'à un lieu que vous nommez. Vous devez connaître cet endroit et le sort échoue si le lieu nommé est sur un autre plan d'existence, est une destination mobile (comme une forteresse en mouvement) ou un endroit générique (comme « l'antre d'un dragon vert »).\
+      Pour toute la durée et tant que vous êtes sur le même plan d'existence que la destination, vous savez quelle distance vous en sépare et dans quelle direction elle se trouve. Chaque fois que vous avez le choix entre plusieurs itinéraires, vous savez automatiquement lequel est le plus direct.\

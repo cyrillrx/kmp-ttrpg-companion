@@ -89,11 +89,15 @@ translations:
     name: Frog
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Amphibious</em>**. The frog can breathe air and water.</p>
-      <p><strong><em>Standing Leap</em></strong>. The frog's Long Jump is up to 10 feet and its High Jump is up to 5 feet with or without a running start.</p>
-      <h2>Actions</h2>
-      <p>** <em>Bite</em>**. <em>Melee Attack Roll</em> : +3, reach 5 ft. <em>Hit</em> : 1 Piercing damage.</p>
+      ## Traits
+
+      ***Amphibious***. The frog can breathe air and water.
+
+      ***Standing Leap***. The frog's Long Jump is up to 10 feet and its High Jump is up to 5 feet with or without a running start.
+
+      ## Actions
+
+      ***Bite***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 1 Piercing damage.
     senses: Darkvision 30 ft., Passive Perception 11
     languages:
     - None
@@ -101,11 +105,15 @@ translations:
     name: Grenouille
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Amphibie</em>**. La grenouille peut respirer aussi bien à l'air libre que sous l'eau.</p>
-      <p><strong><em>Saut sans élan</em></strong>. Le saut en longueur de la grenouille peut atteindre 3 m et son saut en hauteur peut atteindre 1,50 m avec ou sans élan.</p>
-      <h2>Actions</h2>
-      <p>** <em>Morsure</em>**. <em>Corps à corps</em> : +3, allonge 1,50 m. <em>Touché</em> : 1 dégât perforant.</p>
+      ## Traits
+
+      ***Amphibie***. La grenouille peut respirer aussi bien à l'air libre que sous l'eau.
+
+      ***Saut sans élan***. Le saut en longueur de la grenouille peut atteindre 3 m et son saut en hauteur peut atteindre 1,50 m avec ou sans élan.
+
+      ## Actions
+
+      ***Morsure***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 1 dégât perforant.
     senses: Vision dans le noir 9 m, Perception passive 11
     languages:
     - aucune

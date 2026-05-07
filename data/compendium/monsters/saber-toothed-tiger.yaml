@@ -89,13 +89,19 @@ translations:
     name: Saber-Toothed Tiger
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Running Leap</em>**. With a 10-foot running start, the tiger can Long Jump up to 25 feet.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The tiger makes two Rend attacks.</p>
-      <p><strong><em>Rend</em></strong>. <em>Melee Attack Roll</em> : +6, reach 5 ft. <em>Hit</em> : 11 (2d6 + 4) Slashing damage.</p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Nimble Escape</em>**. The tiger takes the Disengage or Hide action.</p>
+      ## Traits
+
+      ***Running Leap***. With a 10-foot running start, the tiger can Long Jump up to 25 feet.
+
+      ## Actions
+
+      ***Multiattack***. The tiger makes two Rend attacks.
+
+      ***Rend***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 11 (2d6 + 4) Slashing damage.
+
+      ## Bonus actions
+
+      ***Nimble Escape***. The tiger takes the Disengage or Hide action.
     senses: Darkvision 60 ft., Passive Perception 15
     languages:
     - None
@@ -103,13 +109,19 @@ translations:
     name: Tigre à dents de sabre
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Saut avec élan</em>**. Avec un élan de 3 m, le tigre peut sauter en longueur jusqu'à 7,50 m.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le tigre effectue deux attaques de Saignée.</p>
-      <p><strong><em>Saignée</em></strong>. <em>Corps à corps</em> : +6, allonge 1,50 m. <em>Touché</em> : 11 (2d6 + 4) dégâts tranchants.</p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Fuite agile</em>**. Le tigre prend l'action Désengagement ou Furtivité.</p>
+      ## Traits
+
+      ***Saut avec élan***. Avec un élan de 3 m, le tigre peut sauter en longueur jusqu'à 7,50 m.
+
+      ## Actions
+
+      ***Attaques multiples***. Le tigre effectue deux attaques de Saignée.
+
+      ***Saignée***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 11 (2d6 + 4) dégâts tranchants.
+
+      ## Actions Bonus
+
+      ***Fuite agile***. Le tigre prend l'action Désengagement ou Furtivité.
     senses: Vision dans le noir 18 m, Perception passive 15
     languages:
     - aucune

@@ -89,9 +89,11 @@ translations:
     name: Constrictor Snake
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Bite</em>**. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 6 (1d8 + 2) Piercing damage.</p>
-      <p><strong><em>Constrict</em></strong>. <em>Strength Saving Throw</em> : DC 12, one Medium or smaller creature the snake can see within 5 feet. <em>Failure</em> : 7 (3d4) Bludgeoning damage, and the target has the Grappled condition (escape DC 12).</p>
+      ## Actions
+
+      ***Bite***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 6 (1d8 + 2) Piercing damage.
+
+      ***Constrict***. *Strength Saving Throw* : DC 12, one Medium or smaller creature the snake can see within 5 feet. *Failure* : 7 (3d4) Bludgeoning damage, and the target has the Grappled condition (escape DC 12).
     senses: Blindsight 10 ft., Passive Perception 12
     languages:
     - None
@@ -99,9 +101,11 @@ translations:
     name: Serpent constricteur
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Morsure</em>**. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 6 (1d8 + 2) dégâts perforants.</p>
-      <p><strong><em>Constriction</em></strong>. <em>JdS Force</em> : DD 12, une créature de taille M ou inférieure que le serpent peut voir dans un rayon de 1,50 m. <em>Échec</em> : 7 (3d4) dégâts contondants, et la cible subit l'état Agrippé (évasion DD 12).</p>
+      ## Actions
+
+      ***Morsure***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 6 (1d8 + 2) dégâts perforants.
+
+      ***Constriction***. *JdS Force* : DD 12, une créature de taille M ou inférieure que le serpent peut voir dans un rayon de 1,50 m. *Échec* : 7 (3d4) dégâts contondants, et la cible subit l'état Agrippé (évasion DD 12).
     senses: Vision aveugle 3 m, Perception passive 12
     languages:
     - aucune

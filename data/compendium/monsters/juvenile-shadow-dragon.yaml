@@ -89,15 +89,23 @@ translations:
     name: Juvenile Shadow Dragon
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Living Shadow</em>**. While in Dim Light or Darkness, the dragon has Resistance to damage that isn't Force, Psychic, or Radiant.</p>
-      <p><strong><em>Sunlight Sensitivity</em></strong>. While in sunlight, the dragon has Disadvantage on ability checks and attack rolls.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The dragon makes two Rend attacks.</p>
-      <p><strong><em>Rend</em></strong>. <em>Melee Attack Roll</em> : +5, reach 10 ft. <em>Hit</em> : 7 (1d8 + 3) Slashing damage plus 3 (1d6) Necrotic damage.</p>
-      <p><strong><em>Shadow Breath (Recharge 5–6)</em></strong>. <em>Dexterity Saving Throw</em> : DC 13, each creature in a 30-foot Cone. <em>Failure</em> : 17 (5d6) Necrotic damage. <em>Success</em> : Half damage. <em>Failure or Success</em> : A Humanoid reduced to 0 Hit Points by this damage dies, and a Shadow rises from its corpse. The shadow is under the dragon's control and shares the dragon's Initiative count but acts immediately after the dragon.</p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Shadow Stealth</em>**. While in Dim Light or Darkness, the dragon takes the Hide action.</p>
+      ## Traits
+
+      ***Living Shadow***. While in Dim Light or Darkness, the dragon has Resistance to damage that isn't Force, Psychic, or Radiant.
+
+      ***Sunlight Sensitivity***. While in sunlight, the dragon has Disadvantage on ability checks and attack rolls.
+
+      ## Actions
+
+      ***Multiattack***. The dragon makes two Rend attacks.
+
+      ***Rend***. *Melee Attack Roll* : +5, reach 10 ft. *Hit* : 7 (1d8 + 3) Slashing damage plus 3 (1d6) Necrotic damage.
+
+      ***Shadow Breath (Recharge 5–6)***. *Dexterity Saving Throw* : DC 13, each creature in a 30-foot Cone. *Failure* : 17 (5d6) Necrotic damage. *Success* : Half damage. *Failure or Success* : A Humanoid reduced to 0 Hit Points by this damage dies, and a Shadow rises from its corpse. The shadow is under the dragon's control and shares the dragon's Initiative count but acts immediately after the dragon.
+
+      ## Bonus actions
+
+      ***Shadow Stealth***. While in Dim Light or Darkness, the dragon takes the Hide action.
     senses: Blindsight 10 ft., Darkvision 60 ft., Passive Perception 14
     languages:
     - Common
@@ -106,15 +114,20 @@ translations:
     name: Dragon d'ombre immature
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>Ombre vivante.<br />
-      Sensibilité au soleil.  </p>
-      <h2>Actions</h2>
-      <p>Attaques multiples.<br />
-      Saignée.<br />
-      Souffle d'ombre (recharge 5–6).  </p>
-      <h2>Actions Bonus</h2>
-      <p>Discrétion dans les ombres.</p>
+      ## Traits
+
+      Ombre vivante.\
+      Sensibilité au soleil.
+
+      ## Actions
+
+      Attaques multiples.\
+      Saignée.\
+      Souffle d'ombre (recharge 5–6).
+
+      ## Actions Bonus
+
+      Discrétion dans les ombres.
     senses: Vision aveugle 3 m, Vision dans le noir 18 m, Perception passive 14
     languages:
     - commun

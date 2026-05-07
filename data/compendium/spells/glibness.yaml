@@ -20,7 +20,7 @@ translations:
     materialDescription: null
     description: Until the spell ends, when you make a Charisma check, you can replace
       the number you roll with a 15. Additionally, no matter what you say, magic that
-      would determine if you are telling the truth indicates that you are being truthful.<br/>
+      would determine if you are telling the truth indicates that you are being truthful.\
   fr:
     name: Bagou
     castingTime: Action
@@ -30,4 +30,4 @@ translations:
     description: Jusqu'à la fin du sort, chaque fois que vous effectuez un jet de
       Charisme, vous pouvez substituer 15 au nombre que vous obtenez sur le dé. De
       plus, quoi que vous disiez, toute magie censée vérifier que vous ne mentez pas
-      identifie vos paroles comme sincères.<br/>
+      identifie vos paroles comme sincères.\

@@ -89,16 +89,25 @@ translations:
     name: Warrior Commander
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The warrior makes three attacks, using Greatsword or Longbow in any combination.</p>
-      <p><strong><em>Greatsword</em></strong>. <em>Melee Attack Roll</em> : +9, reach 5 ft. <em>Hit</em> : 19 (4d6 + 5) Slashing damage. The warrior also creates one of the following effects:</p>
-      <p><strong><em>Sap</em></strong>. The target has Disadvantage on its next attack roll before the start of the warrior's next turn.</p>
-      <p><strong><em>Maneuver</em></strong>. One ally who can see or hear the warrior can take a Reaction to move up to half the ally's Speed without provoking Opportunity Attacks.</p>
-      <p><strong><em>Longbow</em></strong>. <em>Ranged Attack Roll</em> : +9, range 150/600 ft. <em>Hit</em> : 18 (3d8 + 5) Piercing damage, and the target's Speed decreases by 10 feet until the end of the target's next turn.</p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Tactical Charge</em>**. The warrior moves up to half its Speed straight toward an enemy it can see without provoking Opportunity Attacks.</p>
-      <h2>Reactions</h2>
-      <p>** <em>Counterattack</em>**. <em>Trigger</em> : The warrior is hit by an attack roll. <em>Response</em> : The warrior adds 4 to its AC against that attack, possibly causing it to miss. On a miss, the warrior can make one Greatsword or Longbow attack against the attacker.</p>
+      ## Actions
+
+      ***Multiattack***. The warrior makes three attacks, using Greatsword or Longbow in any combination.
+
+      ***Greatsword***. *Melee Attack Roll* : +9, reach 5 ft. *Hit* : 19 (4d6 + 5) Slashing damage. The warrior also creates one of the following effects:
+
+      ***Sap***. The target has Disadvantage on its next attack roll before the start of the warrior's next turn.
+
+      ***Maneuver***. One ally who can see or hear the warrior can take a Reaction to move up to half the ally's Speed without provoking Opportunity Attacks.
+
+      ***Longbow***. *Ranged Attack Roll* : +9, range 150/600 ft. *Hit* : 18 (3d8 + 5) Piercing damage, and the target's Speed decreases by 10 feet until the end of the target's next turn.
+
+      ## Bonus actions
+
+      ***Tactical Charge***. The warrior moves up to half its Speed straight toward an enemy it can see without provoking Opportunity Attacks.
+
+      ## Reactions
+
+      ***Counterattack***. *Trigger* : The warrior is hit by an attack roll. *Response* : The warrior adds 4 to its AC against that attack, possibly causing it to miss. On a miss, the warrior can make one Greatsword or Longbow attack against the attacker.
     senses: Passive Perception 17
     languages:
     - Common plus one other language
@@ -106,16 +115,25 @@ translations:
     name: Combattant, commandant
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le guerrier effectue trois attaques, réparties à sa guise entre Épée à deux mains et Arc long.</p>
-      <p><strong><em>Épée à deux mains</em></strong>. <em>Corps à corps</em> : +9, allonge 1,50 m. <em>Touché</em> : 19 (4d6 + 5) dégâts tranchants. Le combattant provoque également l'un des effets suivants :</p>
-      <p><strong><em>Sape</em></strong>. La cible a un Désavantage sur son prochain jet d'attaque avant le début du prochain tour du combattant.</p>
-      <p><strong><em>Manoeuvre</em></strong>. Un allié qui peut voir ou entendre le combattant peut prendre une Réaction pour se déplacer jusqu'à la moitié de la Vitesse de l'allié sans provoquer d'attaques d'Opportunité.</p>
-      <p><strong><em>Arc long</em></strong>. <em>À distance</em> : +9, portée 45/180 m. <em>Touché</em> : 18 (3d8 + 5) dégâts perforants, et la Vitesse de la cible est réduite de 3 m jusqu'à la fin du prochain tour de la cible.</p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Charge tactique</em>**. Le combattant se déplace en ligne droite à concurrence de la moitié de sa Vitesse vers un ennemi qu'il voit sans provoquer d'attaques d'Opportunité.</p>
-      <h2>Réactions</h2>
-      <p>** <em>Contre-attaque</em>**. <em>Déclencheur</em> : le combattant est touché par un jet d'attaque. <em>Conséquences</em> : le combattant ajoute 4 à sa CA contre cette attaque, ce qui peut la faire rater. En cas d'échec, le combattant peut effectuer une attaque à l'Épée à deux mains ou à l'Arc long contre l'attaquant.</p>
+      ## Actions
+
+      ***Attaques multiples***. Le guerrier effectue trois attaques, réparties à sa guise entre Épée à deux mains et Arc long.
+
+      ***Épée à deux mains***. *Corps à corps* : +9, allonge 1,50 m. *Touché* : 19 (4d6 + 5) dégâts tranchants. Le combattant provoque également l'un des effets suivants :
+
+      ***Sape***. La cible a un Désavantage sur son prochain jet d'attaque avant le début du prochain tour du combattant.
+
+      ***Manoeuvre***. Un allié qui peut voir ou entendre le combattant peut prendre une Réaction pour se déplacer jusqu'à la moitié de la Vitesse de l'allié sans provoquer d'attaques d'Opportunité.
+
+      ***Arc long***. *À distance* : +9, portée 45/180 m. *Touché* : 18 (3d8 + 5) dégâts perforants, et la Vitesse de la cible est réduite de 3 m jusqu'à la fin du prochain tour de la cible.
+
+      ## Actions Bonus
+
+      ***Charge tactique***. Le combattant se déplace en ligne droite à concurrence de la moitié de sa Vitesse vers un ennemi qu'il voit sans provoquer d'attaques d'Opportunité.
+
+      ## Réactions
+
+      ***Contre-attaque***. *Déclencheur* : le combattant est touché par un jet d'attaque. *Conséquences* : le combattant ajoute 4 à sa CA contre cette attaque, ce qui peut la faire rater. En cas d'échec, le combattant peut effectuer une attaque à l'Épée à deux mains ou à l'Arc long contre l'attaquant.
     senses: Perception passive 17
     languages:
     - commun plus une autre langue

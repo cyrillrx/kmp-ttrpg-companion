@@ -89,14 +89,21 @@ translations:
     name: Vampire Nightbringer
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Sunlight Hypersensitivity</em>**. The vampire takes 10 Radiant damage if it starts its turn in sunlight. While in sunlight, it has Disadvantage on attack rolls and ability checks.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The vampire makes one Bite attack and one Shadow Strike attack.</p>
-      <p><strong><em>Bite</em></strong>. <em>Melee Attack Roll</em> : +7, reach 5 ft. <em>Hit</em> : 7 (1d6 + 4) Piercing damage plus 10 (3d6) Necrotic damage. The target's Hit Point maximum decreases by an amount equal to the Necrotic damage taken, and the vampire regains Hit Points equal to that amount.</p>
-      <p><strong><em>Shadow Strike</em></strong>. <em>Melee Attack Roll</em> : +7, reach 5 ft. <em>Hit</em> : 7 (1d6 + 4) Slashing damage plus 14 (4d6) Cold damage.</p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Shadow Stealth</em>**. While in Dim Light or Darkness, the vampire takes the Hide action.</p>
+      ## Traits
+
+      ***Sunlight Hypersensitivity***. The vampire takes 10 Radiant damage if it starts its turn in sunlight. While in sunlight, it has Disadvantage on attack rolls and ability checks.
+
+      ## Actions
+
+      ***Multiattack***. The vampire makes one Bite attack and one Shadow Strike attack.
+
+      ***Bite***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 7 (1d6 + 4) Piercing damage plus 10 (3d6) Necrotic damage. The target's Hit Point maximum decreases by an amount equal to the Necrotic damage taken, and the vampire regains Hit Points equal to that amount.
+
+      ***Shadow Strike***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 7 (1d6 + 4) Slashing damage plus 14 (4d6) Cold damage.
+
+      ## Bonus actions
+
+      ***Shadow Stealth***. While in Dim Light or Darkness, the vampire takes the Hide action.
     senses: Darkvision 120 ft., Passive Perception 15
     languages:
     - Common plus one other language
@@ -104,14 +111,19 @@ translations:
     name: Vampire, héraut de la nuit
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>Hypersensibilité au soleil.  </p>
-      <h2>Actions</h2>
-      <p>Attaques multiples.<br />
-      Morsure.<br />
-      Frappe d'ombre.  </p>
-      <h2>Actions Bonus</h2>
-      <p>Discrétion dans les ombres.</p>
+      ## Traits
+
+      Hypersensibilité au soleil.
+
+      ## Actions
+
+      Attaques multiples.\
+      Morsure.\
+      Frappe d'ombre.
+
+      ## Actions Bonus
+
+      Discrétion dans les ombres.
     senses: Vision dans le noir 36 m, Perception passive 15
     languages:
     - commun plus une autre langue

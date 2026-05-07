@@ -23,7 +23,7 @@ translations:
     description: You touch a willing creature and bestow a limited ability to see
       into the immediate future. For the duration, the target has Advantage on D20
       Tests, and other creatures have Disadvantage on attack rolls against it. The
-      spell ends early if you cast it again.<br/>
+      spell ends early if you cast it again.\
   fr:
     name: Prémonition
     castingTime: 1 minute
@@ -33,4 +33,4 @@ translations:
     description: Vous touchez physiquement une créature consentante pour lui octroyer
       la faculté d'entrevoir l'avenir immédiat. Pour toute la durée, la cible a un
       Avantage aux jets de d20 et les autres créatures subissent un Désavantage aux
-      jets d'attaque contre elle. Le sort prend fin prématurément si vous le relancez.<br/>
+      jets d'attaque contre elle. Le sort prend fin prématurément si vous le relancez.\

@@ -7,17 +7,17 @@ translations:
   en:
     name: Wings of Flying
     subtype: null
-    description: <p>While wearing this cloak, you can take a Magic action to turn
-      the cloak into a pair of wings on your back. The wings lasts for 1 hour or until
+    description: While wearing this cloak, you can take a Magic action to turn the
+      cloak into a pair of wings on your back. The wings lasts for 1 hour or until
       you end the effect early as a Magic action. The wings give you a Fly Speed of
       60 feet. If you are aloft when the wings disappear, you fall. When the wings
-      disappear, you can't use them again for 1d12 hours.</p>
+      disappear, you can't use them again for 1d12 hours.
   fr:
     name: Cape de vol
     subtype: null
-    description: <p>Lorsque vous portez cette cape, vous pouvez prendre une action
-      Magie pour la transformer en une paire d'ailes dans votre dos. L'effet des ailes
-      dure 1 heure ou jusqu'à ce que vous mettiez fin à l'effet prématurément par
-      une action Magie. Les ailes vous confèrent une Vitesse de vol de 18 mètres.
-      Si vous êtes en l'air lorsque les ailes disparaissent, vous tombez. Une fois
-      les ailes disparues, vous ne pouvez plus les utiliser pendant 1d12 heures.</p>
+    description: Lorsque vous portez cette cape, vous pouvez prendre une action Magie
+      pour la transformer en une paire d'ailes dans votre dos. L'effet des ailes dure
+      1 heure ou jusqu'à ce que vous mettiez fin à l'effet prématurément par une action
+      Magie. Les ailes vous confèrent une Vitesse de vol de 18 mètres. Si vous êtes
+      en l'air lorsque les ailes disparaissent, vous tombez. Une fois les ailes disparues,
+      vous ne pouvez plus les utiliser pendant 1d12 heures.

@@ -17,28 +17,17 @@ translations:
     range: Self
     duration: 1 minute
     materialDescription: incense
-    description: You contact a deity or a divine proxy and ask up to three questions
-      that can be answered with yes or no. You must ask your questions before the
-      spell ends. You receive a correct answer for each question.<br/>Divine beings
-      aren't necessarily omniscient, so you might receive "unclear" as an answer if
-      a question pertains to information that lies beyond the deity's knowledge. In
-      a case where a one-word answer could be misleading or contrary to the deity's
-      interests, the DM might offer a short phrase as an answer instead.<br/>If you
-      cast the spell more than once before finishing a Long Rest, there is a cumulative
-      25 percent chance for each casting after the first that you get no answer.<br/>
+    description: |-
+      You contact a deity or a divine proxy and ask up to three questions that can be answered with yes or no. You must ask your questions before the spell ends. You receive a correct answer for each question.\
+      Divine beings aren't necessarily omniscient, so you might receive "unclear" as an answer if a question pertains to information that lies beyond the deity's knowledge. In a case where a one-word answer could be misleading or contrary to the deity's interests, the DM might offer a short phrase as an answer instead.\
+      If you cast the spell more than once before finishing a Long Rest, there is a cumulative 25 percent chance for each casting after the first that you get no answer.\
   fr:
     name: Communion
     castingTime: 1 minute ou Rituel
     range: Personnelle
     duration: 1 minute
     materialDescription: encens
-    description: Vous contactez une divinité ou un mandataire divin et lui posez jusqu'à
-      trois questions auxquelles on peut répondre par oui ou par non. Vous devez poser
-      vos questions avant la fin du sort. Vous recevez une réponse correcte pour chaque
-      question.<br/>Les êtres divins ne sont pas nécessairement omniscients ; ils
-      pourraient donc répondre « imprécis » si une question porte sur des informations
-      qui échappent à la connaissance de la divinité. Si une réponse en un seul mot
-      risque d'être trompeuse ou contraire aux intérêts de la divinité, le MD peut
-      proposer une courte phrase.<br/>Si vous lancez le sort plusieurs fois avant
-      la fin d'un Repos long, vous avez 25 % de chances cumulées pour chaque incantation
-      après la première de ne pas obtenir de réponse.<br/>
+    description: |-
+      Vous contactez une divinité ou un mandataire divin et lui posez jusqu'à trois questions auxquelles on peut répondre par oui ou par non. Vous devez poser vos questions avant la fin du sort. Vous recevez une réponse correcte pour chaque question.\
+      Les êtres divins ne sont pas nécessairement omniscients ; ils pourraient donc répondre « imprécis » si une question porte sur des informations qui échappent à la connaissance de la divinité. Si une réponse en un seul mot risque d'être trompeuse ou contraire aux intérêts de la divinité, le MD peut proposer une courte phrase.\
+      Si vous lancez le sort plusieurs fois avant la fin d'un Repos long, vous avez 25 % de chances cumulées pour chaque incantation après la première de ne pas obtenir de réponse.\

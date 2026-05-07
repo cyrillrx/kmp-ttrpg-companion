@@ -89,10 +89,13 @@ translations:
     name: Commoner
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Training</em>**. The commoner has proficiency in one skill of the DM's choice and has Advantage whenever it makes an ability check using that skill.</p>
-      <h2>Actions</h2>
-      <p>** <em>Club</em>**. <em>Melee Attack Roll</em> : +2, reach 5 ft. <em>Hit</em> : 2 (1d4) Bludgeoning damage.</p>
+      ## Traits
+
+      ***Training***. The commoner has proficiency in one skill of the DM's choice and has Advantage whenever it makes an ability check using that skill.
+
+      ## Actions
+
+      ***Club***. *Melee Attack Roll* : +2, reach 5 ft. *Hit* : 2 (1d4) Bludgeoning damage.
     senses: Passive Perception 10
     languages:
     - Common
@@ -100,10 +103,13 @@ translations:
     name: Roturier
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Formation</em>**. Le roturier possède la maîtrise d'une compétence au choix du MD et a un Avantage chaque fois qu'il effectue un jet de caractéristique s'appuyant sur cette compétence.</p>
-      <h2>Actions</h2>
-      <p>** <em>Gourdin</em>**. <em>Corps à corps</em> : +2, allonge 1,50 m. <em>Touché</em> : 2 (1d4) dégâts contondants.</p>
+      ## Traits
+
+      ***Formation***. Le roturier possède la maîtrise d'une compétence au choix du MD et a un Avantage chaque fois qu'il effectue un jet de caractéristique s'appuyant sur cette compétence.
+
+      ## Actions
+
+      ***Gourdin***. *Corps à corps* : +2, allonge 1,50 m. *Touché* : 2 (1d4) dégâts contondants.
     senses: Perception passive 10
     languages:
     - commun

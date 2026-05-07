@@ -7,14 +7,14 @@ translations:
   en:
     name: Tankard of Sobriety
     subtype: null
-    description: <p>This tankard has a stern face sculpted into one side. You can
-      drink ale, wine, or any other nonmagical alcoholic beverage poured into it without
+    description: This tankard has a stern face sculpted into one side. You can drink
+      ale, wine, or any other nonmagical alcoholic beverage poured into it without
       becoming inebriated. The tankard has no effect on magical liquids or harmful
-      substances such as poison.</p>
+      substances such as poison.
   fr:
     name: Chope de sobriété
     subtype: null
-    description: <p>Cette chope est ornée d'un visage sévère sculpté sur un côté.
-      Vous pouvez y boire de la bière, du vin ou toute autre boisson alcoolisée non
-      magique sans vous enivrer. Elle est insensible aux liquides magiques et aux
-      substances nocives comme le poison.</p>
+    description: Cette chope est ornée d'un visage sévère sculpté sur un côté. Vous
+      pouvez y boire de la bière, du vin ou toute autre boisson alcoolisée non magique
+      sans vous enivrer. Elle est insensible aux liquides magiques et aux substances
+      nocives comme le poison.

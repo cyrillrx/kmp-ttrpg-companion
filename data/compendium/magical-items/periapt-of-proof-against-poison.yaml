@@ -7,11 +7,11 @@ translations:
   en:
     name: Periapt of Proof against Poison
     subtype: null
-    description: <p>This delicate silver chain has a brilliant-cut black gem pendant.
-      While you wear it, you have Immunity to the Poisoned condition and Poison damage.</p>
+    description: This delicate silver chain has a brilliant-cut black gem pendant.
+      While you wear it, you have Immunity to the Poisoned condition and Poison damage.
   fr:
     name: Amulette de protection contre le poison
     subtype: null
-    description: <p>Cette délicate chaîne en argent est ornée d'un pendentif en pierre
+    description: Cette délicate chaîne en argent est ornée d'un pendentif en pierre
       noire taillée. Lorsque vous la portez, vous obtenez l'Immunité contre l'état
-      Empoisonné et les dégâts de poison.</p>
+      Empoisonné et les dégâts de poison.

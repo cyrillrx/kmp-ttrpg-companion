@@ -7,13 +7,12 @@ translations:
   en:
     name: Wand of Magic Detection
     subtype: null
-    description: <p>This wand has 3 charges. While holding it, you can expend 1 charge
-      to cast <em><a href="https://www.aidedd.org/spell/detect-magic">Detect Magic</a></em>
-      from it. The wand regains 1d3 expended charges daily at dawn.</p>
+    description: This wand has 3 charges. While holding it, you can expend 1 charge
+      to cast *[Detect Magic](https://www.aidedd.org/spell/detect-magic)* from it.
+      The wand regains 1d3 expended charges daily at dawn.
   fr:
     name: Baguette de détection de la magie
     subtype: null
-    description: <p>Cette baguette possède 3 charges. Lorsque vous la tenez, vous
-      pouvez dépenser 1 charge pour lancer <em><a href="https://www.aidedd.org/spell/fr/detection-de-la-magie">détection
-      de la magie</a></em>. La baguette récupère 1d3 charges dépensées chaque jour
-      à l'aube.</p>
+    description: Cette baguette possède 3 charges. Lorsque vous la tenez, vous pouvez
+      dépenser 1 charge pour lancer *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie)*.
+      La baguette récupère 1d3 charges dépensées chaque jour à l'aube.

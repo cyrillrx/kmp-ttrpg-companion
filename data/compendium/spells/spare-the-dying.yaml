@@ -18,17 +18,15 @@ translations:
     range: 15 feet
     duration: Instantaneous
     materialDescription: null
-    description: Choose a creature within range that has 0 Hit Points and isn't dead.
-      The creature becomes Stable.<br/><strong><em>Cantrip Upgrade</em></strong>.
-      The range doubles when you reach levels 5 (30 feet), 11 (60 feet), and 17 (120
-      feet).<br/>
+    description: |-
+      Choose a creature within range that has 0 Hit Points and isn't dead. The creature becomes Stable.\
+      ***Cantrip Upgrade***. The range doubles when you reach levels 5 (30 feet), 11 (60 feet), and 17 (120 feet).\
   fr:
     name: Stabilisation
     castingTime: Action
     range: 4,50 m
     duration: Instantanée
     materialDescription: null
-    description: Choisissez une créature à portée qui est à 0 point de vie et qui
-      n'est pas morte. La créature se stabilise.<br/><strong><em>Amélioration de sort
-      mineur</em></strong>. La portée est doublée aux niveaux 5 (9 mètres), 11 (18
-      mètres) et 17 (36 mètres).<br/>
+    description: |-
+      Choisissez une créature à portée qui est à 0 point de vie et qui n'est pas morte. La créature se stabilise.\
+      ***Amélioration de sort mineur***. La portée est doublée aux niveaux 5 (9 mètres), 11 (18 mètres) et 17 (36 mètres).\

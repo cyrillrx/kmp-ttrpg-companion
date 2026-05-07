@@ -89,10 +89,13 @@ translations:
     name: Lemure
     subtype: Devil
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Hellish Restoration</em>**. If the lemure dies in the Nine Hells, it revives with all its Hit Points in 1d10 days unless it is killed by a creature under the effects of a <em><a href="https://www.aidedd.org/spell/bless">Bless</a></em> spell or its remains are sprinkled with Holy Water.</p>
-      <h2>Actions</h2>
-      <p>** <em>Vile Slime</em>**. <em>Melee Attack Roll</em> : +2, reach 5 ft. <em>Hit</em> : 2 (1d4) Poison damage.</p>
+      ## Traits
+
+      ***Hellish Restoration***. If the lemure dies in the Nine Hells, it revives with all its Hit Points in 1d10 days unless it is killed by a creature under the effects of a *[Bless](https://www.aidedd.org/spell/bless)* spell or its remains are sprinkled with Holy Water.
+
+      ## Actions
+
+      ***Vile Slime***. *Melee Attack Roll* : +2, reach 5 ft. *Hit* : 2 (1d4) Poison damage.
     senses: Darkvision 120 ft. (unimpeded by magical Darkness), Passive Perception
       10
     languages:
@@ -101,10 +104,13 @@ translations:
     name: Lémure
     subtype: Diable
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Restauration infernale</em>**. Si le lémure meurt dans les Neuf Enfers, il revient à la vie avec tous ses pv en 1d10 jours sauf s'il est tué par une créature sous les effets du sort <em><a href="https://www.aidedd.org/spell/fr/benediction">bénédiction</a></em> ou si ce qu'il en reste est aspergé d'eau bénite.</p>
-      <h2>Actions</h2>
-      <p>** <em>Limon abject</em>**. <em>Corps à corps</em> : +2, allonge 1,50 m. <em>Touché</em> : 2 (1d4) dégâts de poison.</p>
+      ## Traits
+
+      ***Restauration infernale***. Si le lémure meurt dans les Neuf Enfers, il revient à la vie avec tous ses pv en 1d10 jours sauf s'il est tué par une créature sous les effets du sort *[bénédiction](https://www.aidedd.org/spell/fr/benediction)* ou si ce qu'il en reste est aspergé d'eau bénite.
+
+      ## Actions
+
+      ***Limon abject***. *Corps à corps* : +2, allonge 1,50 m. *Touché* : 2 (1d4) dégâts de poison.
     senses: Vision dans le noir 36 m (perce les Ténèbres magiques), Perception passive
       10
     languages:

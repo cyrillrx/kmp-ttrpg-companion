@@ -7,8 +7,8 @@ translations:
   en:
     name: Armor of Gleaming
     subtype: Any Light, Medium, or Heavy
-    description: <p>This armor never gets dirty.</p>
+    description: This armor never gets dirty.
   fr:
     name: Armure impeccable
     subtype: légère, intermédiaire ou lourde
-    description: <p>Cette armure ne se salit jamais.</p>
+    description: Cette armure ne se salit jamais.

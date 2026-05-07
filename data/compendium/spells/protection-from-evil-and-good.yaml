@@ -27,7 +27,7 @@ translations:
       have Disadvantage on attack rolls against the target. The target also can't
       be possessed by or gain the Charmed or Frightened conditions from them. If the
       target is already possessed, Charmed, or Frightened by such a creature, the
-      target has Advantage on any new saving throw against the relevant effect.<br/>
+      target has Advantage on any new saving throw against the relevant effect.\
   fr:
     name: Protection contre le mal et le bien
     castingTime: Action
@@ -41,4 +41,4 @@ translations:
       un Désavantage aux jets d'attaque contre la cible. De plus, la cible ne peut
       pas être possédée par ces créatures ni subir les états Charmé ou Effrayé. Si
       la cible est déjà possédée, charmée ou effrayée par de telles créatures, elle
-      bénéficie d'un Avantage à tout nouveau jet de sauvegarde contre l'effet concerné.<br/>
+      bénéficie d'un Avantage à tout nouveau jet de sauvegarde contre l'effet concerné.\

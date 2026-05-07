@@ -18,40 +18,21 @@ translations:
     range: 150 feet
     duration: Concentration, up to 1 minute
     materialDescription: a ball of bat guano and sulfur
-    description: A beam of yellow light flashes from you, then condenses at a chosen
-      point within range as a glowing bead for the duration. When the spell ends,
-      the bead explodes, and each creature in a 20-foot-radius Sphere centered on
-      that point makes a Dexterity saving throw. A creature takes Fire damage equal
-      to the total accumulated damage on a failed save or half as much damage on a
-      successful one.<br/>The spell's base damage is 12d6, and the damage increases
-      by 1d6 whenever your turn ends and the spell hasn't ended.<br/>If a creature
-      touches the glowing bead before the spell ends, that creature makes a Dexterity
-      saving throw. On a failed save, the spell ends, causing the bead to explode.
-      On a successful save, the creature can throw the bead up to 40 feet. If the
-      thrown bead enters a creature's space or collides with a solid object, the spell
-      ends, and the bead explodes.<br/>When the bead explodes, flammable objects in
-      the explosion that aren't being worn or carried start burning.<br/><strong><em>Using
-      a Higher-Level Spell Slot</em></strong>. The base damage increases by 1d6 for
-      each spell slot level above 7.<br/>
+    description: |-
+      A beam of yellow light flashes from you, then condenses at a chosen point within range as a glowing bead for the duration. When the spell ends, the bead explodes, and each creature in a 20-foot-radius Sphere centered on that point makes a Dexterity saving throw. A creature takes Fire damage equal to the total accumulated damage on a failed save or half as much damage on a successful one.\
+      The spell's base damage is 12d6, and the damage increases by 1d6 whenever your turn ends and the spell hasn't ended.\
+      If a creature touches the glowing bead before the spell ends, that creature makes a Dexterity saving throw. On a failed save, the spell ends, causing the bead to explode. On a successful save, the creature can throw the bead up to 40 feet. If the thrown bead enters a creature's space or collides with a solid object, the spell ends, and the bead explodes.\
+      When the bead explodes, flammable objects in the explosion that aren't being worn or carried start burning.\
+      ***Using a Higher-Level Spell Slot***. The base damage increases by 1d6 for each spell slot level above 7.\
   fr:
     name: Boule de feu à retardement
     castingTime: Action
     range: 45 m
     duration: Concentration, jusqu'à 1 minute
     materialDescription: une boulette de guano de chauve-souris et du soufre
-    description: Un rayon de lumière jaune jaillit de vous pour se condenser en un
-      point que vous choisissez à portée, sous forme d'une bille luisante pour toute
-      la durée. Lorsque le sort prend fin, la bille explose et toute créature prise
-      dans une Sphère de 6 m de rayon centrée sur ce point effectue un jet de sauvegarde
-      de Dextérité. Elle subit des dégâts de feu égaux aux dégâts accumulés en cas
-      d'échec, la moitié en cas de réussite.<br/>Les dégâts de base du sort sont de
-      12d6 et les dégâts augmentent de 1d6 chaque fois que votre tour prend fin tandis
-      que le sort persiste.<br/>Si une créature touche physiquement la bille avant
-      la fin de l'intervalle, elle effectue un jet de sauvegarde de Dextérité. En
-      cas d'échec, le sort prend fin et la bille explose. En cas de réussite, la créature
-      peut projeter la bille d'un maximum de 12 m. Si la bille pénètre dans l'espace
-      d'une créature ou heurte un objet solide, le sort prend fin et la bille explose.<br/>Quand
-      la bille explose, les objets inflammables pris dans la déflagration s'embrasent
-      s'ils ne sont portés par personne.<br/><strong><em>Emplacement de niveau supérieur</em></strong>.
-      Les dégâts de base augmentent de 1d6 pour chaque niveau d'emplacement de sort
-      supérieur à 7.<br/>
+    description: |-
+      Un rayon de lumière jaune jaillit de vous pour se condenser en un point que vous choisissez à portée, sous forme d'une bille luisante pour toute la durée. Lorsque le sort prend fin, la bille explose et toute créature prise dans une Sphère de 6 m de rayon centrée sur ce point effectue un jet de sauvegarde de Dextérité. Elle subit des dégâts de feu égaux aux dégâts accumulés en cas d'échec, la moitié en cas de réussite.\
+      Les dégâts de base du sort sont de 12d6 et les dégâts augmentent de 1d6 chaque fois que votre tour prend fin tandis que le sort persiste.\
+      Si une créature touche physiquement la bille avant la fin de l'intervalle, elle effectue un jet de sauvegarde de Dextérité. En cas d'échec, le sort prend fin et la bille explose. En cas de réussite, la créature peut projeter la bille d'un maximum de 12 m. Si la bille pénètre dans l'espace d'une créature ou heurte un objet solide, le sort prend fin et la bille explose.\
+      Quand la bille explose, les objets inflammables pris dans la déflagration s'embrasent s'ils ne sont portés par personne.\
+      ***Emplacement de niveau supérieur***. Les dégâts de base augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 7.\

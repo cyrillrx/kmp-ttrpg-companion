@@ -89,14 +89,21 @@ translations:
     name: Chasme
     subtype: Demon
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Demonic Restoration</em>**. If the chasme dies outside the Abyss, its body dissolves into ichor, and it gains a new body instantly, reviving with all its Hit Points somewhere in the Abyss.</p>
-      <p><strong><em>Magic Resistance</em></strong>. The chasme has Advantage on saving throws against spells and other magical effects.</p>
-      <p><strong><em>Spider Climb</em></strong>. The chasme can climb difficult surfaces, including along ceilings, without needing to make an ability check.</p>
-      <h2>Actions</h2>
-      <p>** <em>Proboscis</em>**. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 16 (4d6 + 2) Piercing damage plus 21 (6d6) Necrotic damage. If the target is a creature, its Hit Point maximum decreases by an amount equal to the Necrotic damage taken.</p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Drone</em>**. <em>Constitution Saving Throw</em> : DC 12, each creature in a 30-foot Emanation originating from the chasme (demons automatically succeed on this save). <em>Failure</em> : The target has the Unconscious condition and repeats the save at the end of each of its turns. The target succeeds automatically after 10 minutes or if it takes damage or a creature within 5 feet of it takes an action to empty a flask of Holy Water on it. <em>Success</em> : The target is immune to this chasme's Drone for 24 hours.</p>
+      ## Traits
+
+      ***Demonic Restoration***. If the chasme dies outside the Abyss, its body dissolves into ichor, and it gains a new body instantly, reviving with all its Hit Points somewhere in the Abyss.
+
+      ***Magic Resistance***. The chasme has Advantage on saving throws against spells and other magical effects.
+
+      ***Spider Climb***. The chasme can climb difficult surfaces, including along ceilings, without needing to make an ability check.
+
+      ## Actions
+
+      ***Proboscis***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 16 (4d6 + 2) Piercing damage plus 21 (6d6) Necrotic damage. If the target is a creature, its Hit Point maximum decreases by an amount equal to the Necrotic damage taken.
+
+      ## Bonus actions
+
+      ***Drone***. *Constitution Saving Throw* : DC 12, each creature in a 30-foot Emanation originating from the chasme (demons automatically succeed on this save). *Failure* : The target has the Unconscious condition and repeats the save at the end of each of its turns. The target succeeds automatically after 10 minutes or if it takes damage or a creature within 5 feet of it takes an action to empty a flask of Holy Water on it. *Success* : The target is immune to this chasme's Drone for 24 hours.
     senses: Blindsight 10 ft., Darkvision 120 ft., Passive Perception 15
     languages:
     - Abyssal; telepathy 120 ft.
@@ -104,14 +111,21 @@ translations:
     name: Chasme
     subtype: Démon
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Restauration démoniaque</em>**. Si le chasme meurt hors des Abysses, son corps se dissout en ichor et il en acquiert aussitôt un nouveau en revenant à la vie avec tous ses pv, quelque part dans les Abysses.</p>
-      <p><strong><em>Résistance à la magie</em></strong>. Le chasme a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.</p>
-      <p><strong><em>Pattes d'araignée</em></strong>. Le chasme peut parcourir les parois les plus difficiles à escalader, y compris les plafonds, sans passer par un jet de caractéristique.</p>
-      <h2>Actions</h2>
-      <p>** <em>Trompe</em>**. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 16 (4d6 + 2) dégâts perforants plus 21 (6d6) dégâts nécrotiques. Si la cible est une créature, son maximum de points de vie diminue d'un montant égal aux dégâts nécrotiques subis.</p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Bourdonnement</em>**. <em>JdS Constitution</em> : DD 12, chaque créature dans une Émanation de 9 m centrée sur le chasme (les démons réussissent automatiquement ce jet). <em>Échec</em> : la cible subit l'état Inconscient et doit refaire le jet à la fin de chacun de ses tours. Elle réussit automatiquement après 10 minutes, ou si elle subit des dégâts, ou encore si une créature dans un rayon de 1,50 m autour d'elle prend une action pour vider une fiole d'eau bénite sur elle. <em>Réussite</em> : la cible est immunisée contre le Bourdonnement de ce chasme pendant 24 heures.</p>
+      ## Traits
+
+      ***Restauration démoniaque***. Si le chasme meurt hors des Abysses, son corps se dissout en ichor et il en acquiert aussitôt un nouveau en revenant à la vie avec tous ses pv, quelque part dans les Abysses.
+
+      ***Résistance à la magie***. Le chasme a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
+
+      ***Pattes d'araignée***. Le chasme peut parcourir les parois les plus difficiles à escalader, y compris les plafonds, sans passer par un jet de caractéristique.
+
+      ## Actions
+
+      ***Trompe***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 16 (4d6 + 2) dégâts perforants plus 21 (6d6) dégâts nécrotiques. Si la cible est une créature, son maximum de points de vie diminue d'un montant égal aux dégâts nécrotiques subis.
+
+      ## Actions Bonus
+
+      ***Bourdonnement***. *JdS Constitution* : DD 12, chaque créature dans une Émanation de 9 m centrée sur le chasme (les démons réussissent automatiquement ce jet). *Échec* : la cible subit l'état Inconscient et doit refaire le jet à la fin de chacun de ses tours. Elle réussit automatiquement après 10 minutes, ou si elle subit des dégâts, ou encore si une créature dans un rayon de 1,50 m autour d'elle prend une action pour vider une fiole d'eau bénite sur elle. *Réussite* : la cible est immunisée contre le Bourdonnement de ce chasme pendant 24 heures.
     senses: Vision aveugle 3 m, Vision dans le noir 36 m, Perception passive 15
     languages:
     - abyssal ; télépathie 36 m

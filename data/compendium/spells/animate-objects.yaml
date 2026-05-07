@@ -19,50 +19,18 @@ translations:
     range: 120 feet
     duration: Concentration, up to 1 minute
     materialDescription: null
-    description: Objects animate at your command. Choose a number of nonmagical objects
-      within range that aren't being worn or carried, aren't fixed to a surface, and
-      aren't Gargantuan. The maximum number of objects is equal to your spellcasting
-      ability modifier; for this number, a Medium or smaller target counts as one
-      object, a Large target counts as two, and a Huge target counts as three.<br/>Each
-      target animates, sprouts legs, and becomes a Construct that uses the <strong><a
-      href="https://www.aidedd.org/monster/animated-object">Animated Object</a></strong>
-      stat block; this creature is under your control until the spell ends or until
-      it is reduced to 0 Hit Points. Each creature you make with this spell is an
-      ally to you and your allies. In combat, it shares your Initiative count and
-      takes its turn immediately after yours.<br/>Until the spell ends, you can take
-      a Bonus Action to mentally command any creature you made with this spell if
-      the creature is within 500 feet of you (if you control multiple creatures, you
-      can command any of them at the same time, issuing the same command to each one).
-      If you issue no commands, the creature takes the Dodge action and moves only
-      to avoid harm. When the creature drops to 0 Hit Points, it reverts to its object
-      form, and any remaining damage carries over to that form.<br/><strong><em>Using
-      a Higher-Level Spell Slot</em></strong>. The creature's Slam damage increases
-      by 1d4 (Medium or smaller), 1d6 (Large), or 1d12 (Huge) for each spell slot
-      level above 5.<br/>
+    description: |-
+      Objects animate at your command. Choose a number of nonmagical objects within range that aren't being worn or carried, aren't fixed to a surface, and aren't Gargantuan. The maximum number of objects is equal to your spellcasting ability modifier; for this number, a Medium or smaller target counts as one object, a Large target counts as two, and a Huge target counts as three.\
+      Each target animates, sprouts legs, and becomes a Construct that uses the **[Animated Object](https://www.aidedd.org/monster/animated-object)** stat block; this creature is under your control until the spell ends or until it is reduced to 0 Hit Points. Each creature you make with this spell is an ally to you and your allies. In combat, it shares your Initiative count and takes its turn immediately after yours.\
+      Until the spell ends, you can take a Bonus Action to mentally command any creature you made with this spell if the creature is within 500 feet of you (if you control multiple creatures, you can command any of them at the same time, issuing the same command to each one). If you issue no commands, the creature takes the Dodge action and moves only to avoid harm. When the creature drops to 0 Hit Points, it reverts to its object form, and any remaining damage carries over to that form.\
+      ***Using a Higher-Level Spell Slot***. The creature's Slam damage increases by 1d4 (Medium or smaller), 1d6 (Large), or 1d12 (Huge) for each spell slot level above 5.\
   fr:
     name: Animation des objets
     castingTime: Action
     range: 36 m
     duration: Concentration, jusqu'à 1 minute
     materialDescription: null
-    description: Les objets s'animent à votre commande. Choisissez un nombre d'objets
-      non magiques à portée qui ne soient pas portés, pas fixés à une surface et pas
-      de taille Gig. Le nombre maximal d'objets est égal à votre modificateur de caractéristique
-      d'incantation ; pour ce nombre, une cible de taille M ou inférieure compte pour
-      un objet, une cible de taille G compte pour deux et une cible de taille TG compte
-      pour trois.<br/>Chaque cible s'anime, se voit pousser des jambes et devient
-      un Artificiel utilisant le profil d'<strong><a href="https://www.aidedd.org/monster/fr/objet-anime">objet
-      animé</a></strong> ; cette créature est sous votre contrôle jusqu'à la fin du
-      sort ou jusqu'à ce que ses points de vie soient réduits à 0. Chaque créature
-      créée avec ce sort est votre allié et celui de vos alliés. En combat, elle partage
-      votre Initiative et joue son tour immédiatement après le vôtre. Jusqu'à la fin
-      du sort, vous pouvez prendre une action Bonus pour commander mentalement toute
-      créature créée avec ce sort si elle se trouve dans un rayon de 150 mètres (si
-      vous contrôlez plusieurs créatures, vous pouvez commander n'importe laquelle
-      d'entre elles simultanément, en leur donnant le même ordre). Si vous ne donnez
-      aucun ordre, la créature prend l'action Esquive et se déplace uniquement pour
-      éviter d'être blessée. Lorsque la créature tombe à 0 point de vie, elle reprend
-      sa forme d'objet et les dégâts restants sont reportés sur cette forme.<br/><strong><em>Emplacement
-      de niveau supérieur</em></strong>. Les dégâts de Coup de la créature augmentent
-      de 1d4 (taille M ou inférieure), 1d6 (taille G) ou 1d12 (taille TG) pour chaque
-      niveau d'emplacement de sort supérieur à 5.<br/>
+    description: |-
+      Les objets s'animent à votre commande. Choisissez un nombre d'objets non magiques à portée qui ne soient pas portés, pas fixés à une surface et pas de taille Gig. Le nombre maximal d'objets est égal à votre modificateur de caractéristique d'incantation ; pour ce nombre, une cible de taille M ou inférieure compte pour un objet, une cible de taille G compte pour deux et une cible de taille TG compte pour trois.\
+      Chaque cible s'anime, se voit pousser des jambes et devient un Artificiel utilisant le profil d'**[objet animé](https://www.aidedd.org/monster/fr/objet-anime)** ; cette créature est sous votre contrôle jusqu'à la fin du sort ou jusqu'à ce que ses points de vie soient réduits à 0. Chaque créature créée avec ce sort est votre allié et celui de vos alliés. En combat, elle partage votre Initiative et joue son tour immédiatement après le vôtre. Jusqu'à la fin du sort, vous pouvez prendre une action Bonus pour commander mentalement toute créature créée avec ce sort si elle se trouve dans un rayon de 150 mètres (si vous contrôlez plusieurs créatures, vous pouvez commander n'importe laquelle d'entre elles simultanément, en leur donnant le même ordre). Si vous ne donnez aucun ordre, la créature prend l'action Esquive et se déplace uniquement pour éviter d'être blessée. Lorsque la créature tombe à 0 point de vie, elle reprend sa forme d'objet et les dégâts restants sont reportés sur cette forme.\
+      ***Emplacement de niveau supérieur***. Les dégâts de Coup de la créature augmentent de 1d4 (taille M ou inférieure), 1d6 (taille G) ou 1d12 (taille TG) pour chaque niveau d'emplacement de sort supérieur à 5.\

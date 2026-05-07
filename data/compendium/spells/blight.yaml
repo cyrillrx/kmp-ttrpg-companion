@@ -20,24 +20,17 @@ translations:
     range: 30 feet
     duration: Instantaneous
     materialDescription: null
-    description: A creature that you can see within range makes a Constitution saving
-      throw, taking 8d8 Necrotic damage on a failed save or half as much damage on
-      a successful one. A Plant creature automatically fails the save.<br/>Alternatively,
-      target a nonmagical plant that isn't a creature, such as a tree or shrub. It
-      doesn't make a save; it simply withers and dies.<br/><strong><em>Using a Higher-Level
-      Spell Slot</em></strong>. The damage increases by 1d8 for each spell slot level
-      above 4.<br/>
+    description: |-
+      A creature that you can see within range makes a Constitution saving throw, taking 8d8 Necrotic damage on a failed save or half as much damage on a successful one. A Plant creature automatically fails the save.\
+      Alternatively, target a nonmagical plant that isn't a creature, such as a tree or shrub. It doesn't make a save; it simply withers and dies.\
+      ***Using a Higher-Level Spell Slot***. The damage increases by 1d8 for each spell slot level above 4.\
   fr:
     name: Flétrissement
     castingTime: Action
     range: 9 m
     duration: Instantanée
     materialDescription: null
-    description: Une créature que vous pouvez voir à portée effectue un jet de sauvegarde
-      de Constitution et subit 8d8 dégâts nécrotiques en cas d'échec, ou la moitié
-      de ces dégâts en cas de réussite. Une créature du type plante rate automatiquement
-      le jet de sauvegarde.<br/>Vous pouvez également cibler une plante non magique
-      qui n'est pas une créature, comme un arbre ou un arbuste. Celle-ci ne lance
-      pas de jet de sauvegarde ; elle se fane et meurt.<br/><strong><em>Emplacement
-      de niveau supérieur</em></strong>. Les dégâts augmentent de 1d8 pour chaque
-      niveau d'emplacement de sort supérieur à 4.<br/>
+    description: |-
+      Une créature que vous pouvez voir à portée effectue un jet de sauvegarde de Constitution et subit 8d8 dégâts nécrotiques en cas d'échec, ou la moitié de ces dégâts en cas de réussite. Une créature du type plante rate automatiquement le jet de sauvegarde.\
+      Vous pouvez également cibler une plante non magique qui n'est pas une créature, comme un arbre ou un arbuste. Celle-ci ne lance pas de jet de sauvegarde ; elle se fane et meurt.\
+      ***Emplacement de niveau supérieur***. Les dégâts augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 4.\

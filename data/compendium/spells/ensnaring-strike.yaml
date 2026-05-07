@@ -18,15 +18,10 @@ translations:
     range: Self
     duration: Concentration, up to 1 minute
     materialDescription: null
-    description: As you hit the target, grasping vines appear on it, and it makes
-      a Strength saving throw. A Large or larger creature has Advantage on this save.
-      On a failed save, the target has the Restrained condition until the spell ends.
-      On a successful save, the vines shrivel away, and the spell ends.<br/>While
-      Restrained, the target takes 1d6 Piercing damage at the start of each of its
-      turns. The target or a creature within reach of it can take an action to make
-      a Strength (Athletics) check against your spell save DC. On a success, the spell
-      ends.<br/><strong><em>Using a Higher-Level Spell Slot</em></strong>. The damage
-      increases by 1d6 for each spell slot level above 1.<br/>
+    description: |-
+      As you hit the target, grasping vines appear on it, and it makes a Strength saving throw. A Large or larger creature has Advantage on this save. On a failed save, the target has the Restrained condition until the spell ends. On a successful save, the vines shrivel away, and the spell ends.\
+      While Restrained, the target takes 1d6 Piercing damage at the start of each of its turns. The target or a creature within reach of it can take an action to make a Strength (Athletics) check against your spell save DC. On a success, the spell ends.\
+      ***Using a Higher-Level Spell Slot***. The damage increases by 1d6 for each spell slot level above 1.\
   fr:
     name: Frappe piégeuse
     castingTime: Action bonus, que vous prenez immédiatement après avoir touché une
@@ -34,14 +29,7 @@ translations:
     range: Personnelle
     duration: Concentration, jusqu'à 1 minute
     materialDescription: null
-    description: Lorsque vous touchez la cible, des lianes avides apparaissent sur
-      elle. Elle effectue alors un jet de sauvegarde de Force. Une créature de taille
-      G ou supérieure bénéficie d'un Avantage pour ce jet de sauvegarde. En cas d'échec,
-      la cible subit l'état Entravé jusqu'à la fin du sort. En cas de réussite, les
-      lianes se dessèchent et le sort prend fin.<br/>Tant qu'elle est entravée, la
-      cible subit 1d6 dégâts perforants au début de chacun de ses tours. La cible
-      ou une créature à sa portée peut prendre une action pour effectuer un jet de
-      Force (Athlétisme) contre le DD de sauvegarde de votre sort. En cas de réussite,
-      le sort prend fin.<br/><strong><em>Emplacement de niveau supérieur</em></strong>.
-      Les dégâts augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur
-      à 1.<br/>
+    description: |-
+      Lorsque vous touchez la cible, des lianes avides apparaissent sur elle. Elle effectue alors un jet de sauvegarde de Force. Une créature de taille G ou supérieure bénéficie d'un Avantage pour ce jet de sauvegarde. En cas d'échec, la cible subit l'état Entravé jusqu'à la fin du sort. En cas de réussite, les lianes se dessèchent et le sort prend fin.\
+      Tant qu'elle est entravée, la cible subit 1d6 dégâts perforants au début de chacun de ses tours. La cible ou une créature à sa portée peut prendre une action pour effectuer un jet de Force (Athlétisme) contre le DD de sauvegarde de votre sort. En cas de réussite, le sort prend fin.\
+      ***Emplacement de niveau supérieur***. Les dégâts augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 1.\

@@ -89,15 +89,23 @@ translations:
     name: Revenant
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Regeneration</em>**. The revenant regains 10 Hit Points at the start of each of its turns. If the revenant takes Fire or Radiant damage, this trait doesn't function at the start of its next turn. Its body is destroyed only if it starts its turn with 0 Hit Points and doesn't regenerate.</p>
-      <p><strong><em>Undead Restoration</em></strong>. If the revenant dies, it revives 24 hours later in a different body unless <em><a href="https://www.aidedd.org/spell/dispel-evil-and-good">Dispel Evil and Good</a></em> is cast on its corpse. If it revives, it animates a Humanoid corpse elsewhere on the same plane of existence; it now looks different but uses the same stat block and returns with all its Hit Points.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The revenant uses Vengeful Glare and makes two Slam attacks.</p>
-      <p><strong><em>Slam</em></strong>. <em>Melee Attack Roll</em> : +7, reach 5 ft. <em>Hit</em> : 11 (2d6 + 4) Necrotic damage.</p>
-      <p><strong><em>Vengeful Glare</em></strong>. <em>Wisdom Saving Throw</em> : DC 15, one creature the revenant can see within 30 feet. <em>Failure</em> : The target has the Frightened condition and repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically. If the Frightened target is cursed by the revenant (see Vow of Revenge), the target also has the Paralyzed condition for the duration.</p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Vow of Revenge (1/Day)</em>**. The revenant curses one creature it can see within 30 feet of itself. The revenant knows the distance to and direction of the cursed target, even if it is on a different plane of existence. The curse ends on the target if the revenant uses this Bonus Action on a different creature.</p>
+      ## Traits
+
+      ***Regeneration***. The revenant regains 10 Hit Points at the start of each of its turns. If the revenant takes Fire or Radiant damage, this trait doesn't function at the start of its next turn. Its body is destroyed only if it starts its turn with 0 Hit Points and doesn't regenerate.
+
+      ***Undead Restoration***. If the revenant dies, it revives 24 hours later in a different body unless *[Dispel Evil and Good](https://www.aidedd.org/spell/dispel-evil-and-good)* is cast on its corpse. If it revives, it animates a Humanoid corpse elsewhere on the same plane of existence; it now looks different but uses the same stat block and returns with all its Hit Points.
+
+      ## Actions
+
+      ***Multiattack***. The revenant uses Vengeful Glare and makes two Slam attacks.
+
+      ***Slam***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 11 (2d6 + 4) Necrotic damage.
+
+      ***Vengeful Glare***. *Wisdom Saving Throw* : DC 15, one creature the revenant can see within 30 feet. *Failure* : The target has the Frightened condition and repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically. If the Frightened target is cursed by the revenant (see Vow of Revenge), the target also has the Paralyzed condition for the duration.
+
+      ## Bonus actions
+
+      ***Vow of Revenge (1/Day)***. The revenant curses one creature it can see within 30 feet of itself. The revenant knows the distance to and direction of the cursed target, even if it is on a different plane of existence. The curse ends on the target if the revenant uses this Bonus Action on a different creature.
     senses: Darkvision 60 ft., Passive Perception 13
     languages:
     - Common plus one other language
@@ -105,15 +113,23 @@ translations:
     name: Revenant
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Régénération</em>**. Le revenant récupère 10 points de vie au début de chacun de ses tours. S'il subit des dégâts de feu ou radiants, cet effet est annulé au début de son tour suivant. Son corps est détruit uniquement s'il commence son tour avec 0 point de vie et ne se régénère pas.</p>
-      <p><strong><em>Restauration funeste</em></strong>. Si le revenant meurt, il ressuscite 24 heures plus tard dans un corps différent, à moins que le sort <em><a href="https://www.aidedd.org/spell/fr/dissipation-du-mal-et-du-bien">dissipation du mal et du bien</a></em> ne soit lancé sur son cadavre. S'il ressuscite, il anime un cadavre Humanoïde ailleurs sur le même plan d'existence ; son apparence a changé, mais son profil reste le même et il revient avec tous ses points de vie.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le revenant utilise Regard vengeur et effectue deux attaques de Coup.</p>
-      <p><strong><em>Coup</em></strong>. <em>Corps à corps</em> : +7, allonge 1,50 m. <em>Touché</em> : 11 (2d6 + 4) dégâts nécrotiques.</p>
-      <p><strong><em>Regard vengeur</em></strong>. <em>JdS Sagesse</em> : DD 15, une créature que le revenant peut voir dans un rayon de 9 m. <em>Échec</em> : la cible subit l'état Effrayé et doit retenter le jet de sauvegarde à la fin de chacun de ses tours. En cas de réussite, l'effet prend fin. Après 1 minute, la réussite est automatique. Si la cible effrayée est maudite par le revenant (voir Voeu de vengeance), elle subit également l'état Paralysé pendant toute la durée de l'effet.</p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Voeu de vengeance (1/jour)</em>**. Le revenant maudit une créature qu'il peut voir dans un rayon de 9 m. Il connaît la distance à laquelle se trouve la cible maudite et dans quelle direction elle se trouve, même si celle-ci se trouve sur un autre plan d'existence. La malédiction prend fin si le revenant utilise cette action Bonus sur une autre créature.</p>
+      ## Traits
+
+      ***Régénération***. Le revenant récupère 10 points de vie au début de chacun de ses tours. S'il subit des dégâts de feu ou radiants, cet effet est annulé au début de son tour suivant. Son corps est détruit uniquement s'il commence son tour avec 0 point de vie et ne se régénère pas.
+
+      ***Restauration funeste***. Si le revenant meurt, il ressuscite 24 heures plus tard dans un corps différent, à moins que le sort *[dissipation du mal et du bien](https://www.aidedd.org/spell/fr/dissipation-du-mal-et-du-bien)* ne soit lancé sur son cadavre. S'il ressuscite, il anime un cadavre Humanoïde ailleurs sur le même plan d'existence ; son apparence a changé, mais son profil reste le même et il revient avec tous ses points de vie.
+
+      ## Actions
+
+      ***Attaques multiples***. Le revenant utilise Regard vengeur et effectue deux attaques de Coup.
+
+      ***Coup***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 11 (2d6 + 4) dégâts nécrotiques.
+
+      ***Regard vengeur***. *JdS Sagesse* : DD 15, une créature que le revenant peut voir dans un rayon de 9 m. *Échec* : la cible subit l'état Effrayé et doit retenter le jet de sauvegarde à la fin de chacun de ses tours. En cas de réussite, l'effet prend fin. Après 1 minute, la réussite est automatique. Si la cible effrayée est maudite par le revenant (voir Voeu de vengeance), elle subit également l'état Paralysé pendant toute la durée de l'effet.
+
+      ## Actions Bonus
+
+      ***Voeu de vengeance (1/jour)***. Le revenant maudit une créature qu'il peut voir dans un rayon de 9 m. Il connaît la distance à laquelle se trouve la cible maudite et dans quelle direction elle se trouve, même si celle-ci se trouve sur un autre plan d'existence. La malédiction prend fin si le revenant utilise cette action Bonus sur une autre créature.
     senses: Vision dans le noir 18 m, Perception passive 13
     languages:
     - commun plus une autre langue

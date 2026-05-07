@@ -8,11 +8,11 @@ translations:
     name: Dragon Slayer
     subtype: Any Simple or Martial
     description: |-
-      <p>You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon.<br />
-      The weapon deals an extra 3d6 damage of the weapon's type if the target is a Dragon.</p>
+      You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon.\
+      The weapon deals an extra 3d6 damage of the weapon's type if the target is a Dragon.
   fr:
     name: Tueuse de dragons
     subtype: courante ou de guerre
     description: |-
-      <p>Vous bénéficiez d'un bonus de +1 aux jets d'attaque et de dégâts effectués avec cette arme magique.<br />
-      L'arme inflige 3d6 dégâts supplémentaires du même type si la cible est un Dragon.</p>
+      Vous bénéficiez d'un bonus de +1 aux jets d'attaque et de dégâts effectués avec cette arme magique.\
+      L'arme inflige 3d6 dégâts supplémentaires du même type si la cible est un Dragon.

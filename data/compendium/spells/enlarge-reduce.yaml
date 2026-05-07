@@ -20,41 +20,19 @@ translations:
     range: 30 feet
     duration: Concentration, up to 1 minute
     materialDescription: a pinch of powdered iron
-    description: For the duration, the spell enlarges or reduces a creature or an
-      object you can see within range (see the chosen effect below). A targeted object
-      must be neither worn nor carried. If the target is an unwilling creature, it
-      can make a Constitution saving throw. On a successful save, the spell has no
-      effect.<br/>Everything that a targeted creature is wearing and carrying changes
-      size with it. Any item it drops returns to normal size at once. A thrown weapon
-      or piece of ammunition returns to normal size immediately after it hits or misses
-      a target.<br/><strong>Enlarge</strong>. The target's size increases by one category—from
-      Medium to Large, for example. The target also has Advantage on Strength checks
-      and Strength saving throws. The target's attacks with its enlarged weapons or
-      Unarmed Strikes deal an extra 1d4 damage on a hit.<br/><strong>Reduce</strong>.
-      The target's size decreases by one category—from Medium to Small, for example.
-      The target also has Disadvantage on Strength checks and Strength saving throws.
-      The target's attacks with its reduced weapons or Unarmed Strikes deal 1d4 less
-      damage on a hit (this can't reduce the damage below 1).<br/>
+    description: |-
+      For the duration, the spell enlarges or reduces a creature or an object you can see within range (see the chosen effect below). A targeted object must be neither worn nor carried. If the target is an unwilling creature, it can make a Constitution saving throw. On a successful save, the spell has no effect.\
+      Everything that a targeted creature is wearing and carrying changes size with it. Any item it drops returns to normal size at once. A thrown weapon or piece of ammunition returns to normal size immediately after it hits or misses a target.\
+      **Enlarge**. The target's size increases by one category—from Medium to Large, for example. The target also has Advantage on Strength checks and Strength saving throws. The target's attacks with its enlarged weapons or Unarmed Strikes deal an extra 1d4 damage on a hit.\
+      **Reduce**. The target's size decreases by one category—from Medium to Small, for example. The target also has Disadvantage on Strength checks and Strength saving throws. The target's attacks with its reduced weapons or Unarmed Strikes deal 1d4 less damage on a hit (this can't reduce the damage below 1).\
   fr:
     name: Agrandissement/rapetissement
     castingTime: Action
     range: 9 m
     duration: Concentration, jusqu'à 1 minute
     materialDescription: une pincée de poudre de fer
-    description: Pendant la durée du sort, le sort agrandit ou réduit une créature
-      ou un objet que vous pouvez voir à portée (voir l'effet choisi ci-dessous).
-      L'objet ciblé ne doit pas être porté. Si la cible est une créature non consentante,
-      elle peut effectuer un jet de sauvegarde de Constitution. En cas de jet de sauvegarde
-      réussi, le sort est sans effet.<br/>Tout ce que porte la créature ciblée change
-      de taille avec elle. Tout objet qu'elle laisse tomber reprend immédiatement
-      sa taille normale. Une arme de jet ou une munition reprend sa taille normale
-      immédiatement après avoir touché ou manqué une cible.<br/><strong>Agrandissement</strong>.
-      La taille de la cible augmente d'une catégorie, de Moyenne à Grande, par exemple.
-      La cible bénéficie également d'un Avantage aux jets de Force et aux jets de
-      sauvegarde de Force. Les attaques de la cible avec ses armes agrandies ou ses
-      Frappes à mains nues infligent 1d4 dégâts supplémentaires en cas de succès.<br/><strong>Rapetissement</strong>.
-      La taille de la cible diminue d'une catégorie, de Moyenne à Petite, par exemple.
-      La cible bénéficie également d'un Désavantage aux jets de Force et aux jets
-      de sauvegarde de Force. Les attaques de la cible avec ses armes réduites ou
-      ses Frappes à mains nues infligent 1d4 dégâts de moins quand elles touchent
-      (cela ne peut pas réduire les dégâts en dessous de 1).<br/>
+    description: |-
+      Pendant la durée du sort, le sort agrandit ou réduit une créature ou un objet que vous pouvez voir à portée (voir l'effet choisi ci-dessous). L'objet ciblé ne doit pas être porté. Si la cible est une créature non consentante, elle peut effectuer un jet de sauvegarde de Constitution. En cas de jet de sauvegarde réussi, le sort est sans effet.\
+      Tout ce que porte la créature ciblée change de taille avec elle. Tout objet qu'elle laisse tomber reprend immédiatement sa taille normale. Une arme de jet ou une munition reprend sa taille normale immédiatement après avoir touché ou manqué une cible.\
+      **Agrandissement**. La taille de la cible augmente d'une catégorie, de Moyenne à Grande, par exemple. La cible bénéficie également d'un Avantage aux jets de Force et aux jets de sauvegarde de Force. Les attaques de la cible avec ses armes agrandies ou ses Frappes à mains nues infligent 1d4 dégâts supplémentaires en cas de succès.\
+      **Rapetissement**. La taille de la cible diminue d'une catégorie, de Moyenne à Petite, par exemple. La cible bénéficie également d'un Désavantage aux jets de Force et aux jets de sauvegarde de Force. Les attaques de la cible avec ses armes réduites ou ses Frappes à mains nues infligent 1d4 dégâts de moins quand elles touchent (cela ne peut pas réduire les dégâts en dessous de 1).\

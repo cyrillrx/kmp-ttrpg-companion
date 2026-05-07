@@ -24,7 +24,7 @@ translations:
       For example, you could shape a large rock into a weapon, statue, or coffer,
       or you could make a small passage through a wall that is 5 feet thick. You could
       also shape a stone door or its frame to seal the door shut. The object you create
-      can have up to two hinges and a latch, but finer mechanical detail isn't possible.<br/>
+      can have up to two hinges and a latch, but finer mechanical detail isn't possible.\
   fr:
     name: Façonnage de la pierre
     castingTime: Action
@@ -37,4 +37,4 @@ translations:
       coffre, ou percer un petit passage à travers un mur de 1,50 mètre d'épaisseur.
       Vous pouvez également façonner une porte en pierre ou son cadre pour la fermer
       hermétiquement. L'objet ainsi créé peut comporter jusqu'à deux charnières et
-      un loquet, mais aucun mécanisme plus précis n'est possible.<br/>
+      un loquet, mais aucun mécanisme plus précis n'est possible.\

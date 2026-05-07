@@ -7,10 +7,10 @@ translations:
   en:
     name: Ear Horn of Hearing
     subtype: null
-    description: <p>While held up to your ear, this horn suppresses the effects of
-      the Deafened condition on you.</p>
+    description: While held up to your ear, this horn suppresses the effects of the
+      Deafened condition on you.
   fr:
     name: Cornet acoustique
     subtype: null
-    description: <p>Lorsqu'elle est portée à votre oreille, cette corne supprime les
-      effets de l'état Assourdi sur vous.</p>
+    description: Lorsqu'elle est portée à votre oreille, cette corne supprime les
+      effets de l'état Assourdi sur vous.

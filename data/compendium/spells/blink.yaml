@@ -18,34 +18,15 @@ translations:
     range: Self
     duration: 1 minute
     materialDescription: null
-    description: Roll 1d6 at the end of each of your turns for the duration. On a
-      roll of 4–6, you vanish from your current plane of existence and appear in the
-      Ethereal Plane (the spell ends instantly if you are already on that plane).
-      While on the Ethereal Plane, you can perceive the plane you left, which is cast
-      in shades of gray, but you can't see anything there more than 60 feet away.
-      You can affect and be affected only by other creatures on the Ethereal Plane,
-      and creatures on the other plane can't perceive you unless they have a special
-      ability that lets them perceive things on the Ethereal Plane.<br/>You return
-      to the other plane at the start of your next turn and when the spell ends if
-      you are on the Ethereal Plane. You return to an unoccupied space of your choice
-      that you can see within 10 feet of the space you left. If no unoccupied space
-      is available within that range, you appear in the nearest unoccupied space.<br/>
+    description: |-
+      Roll 1d6 at the end of each of your turns for the duration. On a roll of 4–6, you vanish from your current plane of existence and appear in the Ethereal Plane (the spell ends instantly if you are already on that plane). While on the Ethereal Plane, you can perceive the plane you left, which is cast in shades of gray, but you can't see anything there more than 60 feet away. You can affect and be affected only by other creatures on the Ethereal Plane, and creatures on the other plane can't perceive you unless they have a special ability that lets them perceive things on the Ethereal Plane.\
+      You return to the other plane at the start of your next turn and when the spell ends if you are on the Ethereal Plane. You return to an unoccupied space of your choice that you can see within 10 feet of the space you left. If no unoccupied space is available within that range, you appear in the nearest unoccupied space.\
   fr:
     name: Clignotement
     castingTime: Action
     range: Personnelle
     duration: 1 minute
     materialDescription: null
-    description: Lancez 1d6 à la fin de chacun de vos tours pendant toute la durée
-      du sort. Sur un résultat de 4 à 6, vous disparaissez de votre plan d'existence
-      actuel et réapparaissez dans le plan Éthéré (le sort prend fin instantanément
-      si vous vous y trouvez déjà). Sur le plan Éthéré, vous pouvez percevoir le plan
-      que vous avez quitté, qui apparait en nuances de gris, mais vous ne pouvez rien
-      voir à plus de 18 mètres. Vous ne pouvez affecter ou être affecté que par d'autres
-      créatures du plan Éthéré, et les créatures de l'autre plan ne peuvent vous percevoir
-      que si elles possèdent une capacité spéciale leur permettant de percevoir les
-      choses sur le plan Éthéré.<br/>Vous retournez sur l'autre plan au début de votre
-      prochain tour si à la fin du sort vous êtes sur le plan Éthéré. Vous retournez
-      sur une case inoccupée de votre choix que vous pouvez voir à 3 mètres ou moins
-      de la case que vous avez quittée. Si aucune case inoccupée n'est disponible
-      à cette distance, vous réapparaissez sur la case inoccupée la plus proche.<br/>
+    description: |-
+      Lancez 1d6 à la fin de chacun de vos tours pendant toute la durée du sort. Sur un résultat de 4 à 6, vous disparaissez de votre plan d'existence actuel et réapparaissez dans le plan Éthéré (le sort prend fin instantanément si vous vous y trouvez déjà). Sur le plan Éthéré, vous pouvez percevoir le plan que vous avez quitté, qui apparait en nuances de gris, mais vous ne pouvez rien voir à plus de 18 mètres. Vous ne pouvez affecter ou être affecté que par d'autres créatures du plan Éthéré, et les créatures de l'autre plan ne peuvent vous percevoir que si elles possèdent une capacité spéciale leur permettant de percevoir les choses sur le plan Éthéré.\
+      Vous retournez sur l'autre plan au début de votre prochain tour si à la fin du sort vous êtes sur le plan Éthéré. Vous retournez sur une case inoccupée de votre choix que vous pouvez voir à 3 mètres ou moins de la case que vous avez quittée. Si aucune case inoccupée n'est disponible à cette distance, vous réapparaissez sur la case inoccupée la plus proche.\

@@ -89,13 +89,19 @@ translations:
     name: Bestial Spirit
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Flyby (Air Only)</em>**. The spirit doesn't provoke Opportunity Attacks when it flies out of an enemy's reach.</p>
-      <p><strong><em>Pack Tactics (Land and Water Only)</em></strong>. The spirit has Advantage on an attack roll against a creature if at least one of the spirit's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.</p>
-      <p><strong><em>Water Breathing (Water Only)</em></strong>. The spirit can breathe only underwater.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The spirit makes a number of Rend attacks equal to half this spell's level (round down).</p>
-      <p><strong><em>Rend</em></strong>. <em>Melee Attack Roll</em> : Bonus equals your spell attack modifier, reach 5 ft. <em>Hit</em> : 1d8 + 4 + the spell's level Piercing damage.</p>
+      ## Traits
+
+      ***Flyby (Air Only)***. The spirit doesn't provoke Opportunity Attacks when it flies out of an enemy's reach.
+
+      ***Pack Tactics (Land and Water Only)***. The spirit has Advantage on an attack roll against a creature if at least one of the spirit's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.
+
+      ***Water Breathing (Water Only)***. The spirit can breathe only underwater.
+
+      ## Actions
+
+      ***Multiattack***. The spirit makes a number of Rend attacks equal to half this spell's level (round down).
+
+      ***Rend***. *Melee Attack Roll* : Bonus equals your spell attack modifier, reach 5 ft. *Hit* : 1d8 + 4 + the spell's level Piercing damage.
     senses: Darkvision 60 ft., Passive Perception 12
     languages:
     - understands the languages you know
@@ -103,13 +109,19 @@ translations:
     name: Esprit bestial
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Repli aérien (air uniquement)</em>**. L'esprit ne provoque pas d'attaque d'Opportunité lorsqu'il quitte l'allonge d'un ennemi en volant.</p>
-      <p><strong><em>Tactique de meute (terre et eau uniquement)</em></strong>. L'esprit a un Avantage au jet d'attaque contre une créature si au moins un de ses alliés se trouve dans un rayon de 1,50 m autour de la créature et si cet allié ne subit pas l'état Incapable d'agir.</p>
-      <p><strong><em>Respiration aquatique (eau uniquement)</em></strong>. L'esprit ne peut respirer que sous l'eau.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. L'esprit effectue un nombre d'attaques de Saignée égal à la moitié du niveau de ce sort (arrondir à l'inférieur).</p>
-      <p><strong><em>Saignée</em></strong>. <em>Corps à corps</em> : bonus égal à votre modificateur d'attaque des sorts, allonge 1,50 m. <em>Touché</em> : 1d8 + 4 + le niveau du sort dégâts perforants.</p>
+      ## Traits
+
+      ***Repli aérien (air uniquement)***. L'esprit ne provoque pas d'attaque d'Opportunité lorsqu'il quitte l'allonge d'un ennemi en volant.
+
+      ***Tactique de meute (terre et eau uniquement)***. L'esprit a un Avantage au jet d'attaque contre une créature si au moins un de ses alliés se trouve dans un rayon de 1,50 m autour de la créature et si cet allié ne subit pas l'état Incapable d'agir.
+
+      ***Respiration aquatique (eau uniquement)***. L'esprit ne peut respirer que sous l'eau.
+
+      ## Actions
+
+      ***Attaques multiples***. L'esprit effectue un nombre d'attaques de Saignée égal à la moitié du niveau de ce sort (arrondir à l'inférieur).
+
+      ***Saignée***. *Corps à corps* : bonus égal à votre modificateur d'attaque des sorts, allonge 1,50 m. *Touché* : 1d8 + 4 + le niveau du sort dégâts perforants.
     senses: Vision dans le noir 18 m, Perception passive 12
     languages:
     - comprend les langues que vous connaissez

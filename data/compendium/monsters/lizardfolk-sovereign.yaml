@@ -89,12 +89,17 @@ translations:
     name: Lizardfolk Sovereign
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The lizardfolk makes one Bite attack and one Earthen Maul attack.</p>
-      <p><strong><em>Bite</em></strong>. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 8 (1d10 + 3) Piercing damage. If the target is a creature that isn't a Construct or an Undead, the lizardfolk gains Temporary Hit Points equal to the damage dealt.</p>
-      <p><strong><em>Earthen Maul</em></strong>. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 10 (2d6 + 3) Bludgeoning damage. If the target is a Medium or smaller creature, it has the Prone condition.</p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Charge</em>**. The lizardfolk moves up to its Speed or Swim Speed straight toward an enemy it can see.</p>
+      ## Actions
+
+      ***Multiattack***. The lizardfolk makes one Bite attack and one Earthen Maul attack.
+
+      ***Bite***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 8 (1d10 + 3) Piercing damage. If the target is a creature that isn't a Construct or an Undead, the lizardfolk gains Temporary Hit Points equal to the damage dealt.
+
+      ***Earthen Maul***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 10 (2d6 + 3) Bludgeoning damage. If the target is a Medium or smaller creature, it has the Prone condition.
+
+      ## Bonus actions
+
+      ***Charge***. The lizardfolk moves up to its Speed or Swim Speed straight toward an enemy it can see.
     senses: Darkvision 60 ft., Passive Perception 14
     languages:
     - Draconic
@@ -103,12 +108,17 @@ translations:
     name: Saurial, souverain
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le saurial effectue une attaque de Morsure et une attaque de Maillet terrien.</p>
-      <p><strong><em>Morsure</em></strong>. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 8 (1d10 + 3) dégâts perforants. Si la cible est une créature qui n'est ni un Artificiel ni un Mort-vivant, le saurial gagne des points de vie temporaires égaux aux dégâts infligés.</p>
-      <p><strong><em>Maillet terrien</em></strong>. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 10 (2d6 + 3) dégâts contondants. Si la cible est une créature de taille M ou inférieure, elle subit l'état À terre.</p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Charge</em>**. Le saurial se déplace en ligne droite dans les limites de sa Vitesse ou de sa Vitesse de nage vers un ennemi qu'il voit.</p>
+      ## Actions
+
+      ***Attaques multiples***. Le saurial effectue une attaque de Morsure et une attaque de Maillet terrien.
+
+      ***Morsure***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 8 (1d10 + 3) dégâts perforants. Si la cible est une créature qui n'est ni un Artificiel ni un Mort-vivant, le saurial gagne des points de vie temporaires égaux aux dégâts infligés.
+
+      ***Maillet terrien***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 10 (2d6 + 3) dégâts contondants. Si la cible est une créature de taille M ou inférieure, elle subit l'état À terre.
+
+      ## Actions Bonus
+
+      ***Charge***. Le saurial se déplace en ligne droite dans les limites de sa Vitesse ou de sa Vitesse de nage vers un ennemi qu'il voit.
     senses: Vision dans le noir 18 m, Perception passive 14
     languages:
     - draconique

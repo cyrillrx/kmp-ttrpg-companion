@@ -22,7 +22,7 @@ translations:
       or a Light Crossbow. The spell magically creates the ammunition needed for each
       attack. Each Arrow or Bolt created by the spell deals damage like a nonmagical
       piece of ammunition of its kind and disintegrates immediately after it hits
-      or misses.<br/>
+      or misses.\
   fr:
     name: Vif carquois
     castingTime: Action bonus
@@ -34,4 +34,4 @@ translations:
       carreaux, comme un arc long ou une arbalète légère. Le sort crée magiquement
       les projectiles nécessaires à chaque attaque. Chaque flèche ou carreau produit
       inflige des dégâts comme le même projectile non magique et se désintègre immédiatement
-      après avoir touché ou manqué sa cible.<br/>
+      après avoir touché ou manqué sa cible.\

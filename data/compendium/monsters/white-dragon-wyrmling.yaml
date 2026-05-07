@@ -89,12 +89,17 @@ translations:
     name: White Dragon Wyrmling
     subtype: Chromatic
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Ice Walk</em>**. The dragon can move across and climb icy surfaces without needing to make an ability check. Additionally, Difficult Terrain composed of ice or snow doesn't cost it extra movement.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The dragon makes two Rend attacks.</p>
-      <p><strong><em>Rend</em></strong>. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 6 (1d8 + 2) Slashing damage plus 2 (1d4) Cold damage.</p>
-      <p><strong><em>Cold Breath (Recharge 5–6)</em></strong>. <em>Constitution Saving Throw</em> : DC 12, each creature in a 15-foot Cone. <em>Failure</em> : 22 (5d8) Cold damage. <em>Success</em> : Half damage.</p>
+      ## Traits
+
+      ***Ice Walk***. The dragon can move across and climb icy surfaces without needing to make an ability check. Additionally, Difficult Terrain composed of ice or snow doesn't cost it extra movement.
+
+      ## Actions
+
+      ***Multiattack***. The dragon makes two Rend attacks.
+
+      ***Rend***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 6 (1d8 + 2) Slashing damage plus 2 (1d4) Cold damage.
+
+      ***Cold Breath (Recharge 5–6)***. *Constitution Saving Throw* : DC 12, each creature in a 15-foot Cone. *Failure* : 22 (5d8) Cold damage. *Success* : Half damage.
     senses: Blindsight 10 ft., Darkvision 60 ft., Passive Perception 14
     languages:
     - Draconic
@@ -102,12 +107,17 @@ translations:
     name: Dragon blanc, dragonnet
     subtype: Chromatique
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Marche sur la glace</em>**. Le dragon peut parcourir et gravir toute surface gelée sans passer par le moindre jet de caractéristique. En outre, tout Terrain difficile composé de glace ou de neige ne lui demande aucune dépense de déplacement supplémentaire.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le dragon effectue deux attaques de Saignée.</p>
-      <p><strong><em>Saignée</em></strong>. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 6 (1d8 + 2) dégâts tranchants plus 2 (1d4) dégâts de froid.</p>
-      <p><strong><em>Souffle glacial (recharge 5–6)</em></strong>. <em>JdS Constitution</em> : DD 12, chaque créature dans un Cône de 4,50 m. <em>Échec</em> : 22 (5d8) dégâts de froid. <em>Réussite</em> : demi-dégâts.</p>
+      ## Traits
+
+      ***Marche sur la glace***. Le dragon peut parcourir et gravir toute surface gelée sans passer par le moindre jet de caractéristique. En outre, tout Terrain difficile composé de glace ou de neige ne lui demande aucune dépense de déplacement supplémentaire.
+
+      ## Actions
+
+      ***Attaques multiples***. Le dragon effectue deux attaques de Saignée.
+
+      ***Saignée***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 6 (1d8 + 2) dégâts tranchants plus 2 (1d4) dégâts de froid.
+
+      ***Souffle glacial (recharge 5–6)***. *JdS Constitution* : DD 12, chaque créature dans un Cône de 4,50 m. *Échec* : 22 (5d8) dégâts de froid. *Réussite* : demi-dégâts.
     senses: Vision aveugle 3 m, Vision dans le noir 18 m, Perception passive 14
     languages:
     - draconique

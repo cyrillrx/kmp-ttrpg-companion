@@ -21,13 +21,14 @@ translations:
     range: Touch
     duration: Concentration, up to 1 hour
     materialDescription: null
-    description: |-
-      For the duration, the willing creature you touch has Resistance to one damage type of your choice: Acid, Cold, Fire, Lightning, or Thunder.<br/>
+    description: 'For the duration, the willing creature you touch has Resistance
+      to one damage type of your choice: Acid, Cold, Fire, Lightning, or Thunder.\'
   fr:
     name: Protection contre l'énergie
     castingTime: Action
     range: Contact
     duration: Concentration, jusqu'à 1 heure
     materialDescription: null
-    description: |-
-      Pendant la durée du sort, la créature consentante que vous touchez obtient une résistance à un type de dégâts de votre choix : acide, froid, feu, foudre ou tonnerre.<br/>
+    description: 'Pendant la durée du sort, la créature consentante que vous touchez
+      obtient une résistance à un type de dégâts de votre choix : acide, froid, feu,
+      foudre ou tonnerre.\'

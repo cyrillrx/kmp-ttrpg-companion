@@ -7,20 +7,20 @@ translations:
   en:
     name: Staff of Adornment
     subtype: null
-    description: <p>If you place a Tiny object weighing no more than 1 pound (such
-      as a shard of crystal, an egg, or a stone) above the tip of this staff while
-      holding it, the object floats an inch from the staff's tip and remains there
-      until it is removed or until the staff is no longer in your possession. The
-      staff can have up to three such objects floating over its tip at any given time.
-      While holding the staff, you can make one or more of the objects slowly spin
-      or turn in place.</p>
+    description: If you place a Tiny object weighing no more than 1 pound (such as
+      a shard of crystal, an egg, or a stone) above the tip of this staff while holding
+      it, the object floats an inch from the staff's tip and remains there until it
+      is removed or until the staff is no longer in your possession. The staff can
+      have up to three such objects floating over its tip at any given time. While
+      holding the staff, you can make one or more of the objects slowly spin or turn
+      in place.
   fr:
     name: Bâton ostensible
     subtype: null
-    description: <p>Si vous placez un objet de taille TP ne pesant pas plus de 500
-      g (comme un éclat de cristal, un oeuf ou une pierre) au-dessus de l'extrémité
+    description: Si vous placez un objet de taille TP ne pesant pas plus de 500 g
+      (comme un éclat de cristal, un oeuf ou une pierre) au-dessus de l'extrémité
       de ce bâton tout en le tenant, l'objet flotte à quelques centimètres de l'extrémité
       et y reste jusqu'à ce qu'il soit retiré ou que vous ne soyez plus en sa possession.
       Le bâton peut supporter jusqu'à trois objets de ce type en même temps. Lorsque
       vous tenez le bâton, vous pouvez faire tourner lentement un ou plusieurs de
-      ces objets sur eux-mêmes.</p>
+      ces objets sur eux-mêmes.

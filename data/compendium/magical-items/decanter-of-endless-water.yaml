@@ -8,17 +8,17 @@ translations:
     name: Decanter of Endless Water
     subtype: null
     description: |-
-      <p>This stoppered flask sloshes when shaken, as if it contains water. The decanter weighs 2 pounds.<br />
-      You can take a Magic action to remove the stopper and issue one of three command words, whereupon an amount of fresh water or salt water (your choice) pours out of the flask. The water stops pouring out at the start of your next turn. Choose from the following command words:<br />
-      <strong>Splash</strong>. The decanter produces 1 gallon of water.<br />
-      <strong>Fountain</strong>. The decanter produces 5 gallons of water.<br />
-      <strong>Geyser</strong>. The decanter produces 30 gallons of water that gushes forth in a Line 30 feet long and 1 foot wide. If you're holding the decanter, you can aim the geyser in one direction (no action required). One creature of your choice in the Line must succeed on a DC 13 Strength saving throw or take 1d4 Bludgeoning damage and have the Prone condition. Instead of a creature, you can target one object in the Line that isn't being worn or carried and that weighs no more than 200 pounds. The object is knocked over by the geyser.</p>
+      This stoppered flask sloshes when shaken, as if it contains water. The decanter weighs 2 pounds.\
+      You can take a Magic action to remove the stopper and issue one of three command words, whereupon an amount of fresh water or salt water (your choice) pours out of the flask. The water stops pouring out at the start of your next turn. Choose from the following command words:\
+      **Splash**. The decanter produces 1 gallon of water.\
+      **Fountain**. The decanter produces 5 gallons of water.\
+      **Geyser**. The decanter produces 30 gallons of water that gushes forth in a Line 30 feet long and 1 foot wide. If you're holding the decanter, you can aim the geyser in one direction (no action required). One creature of your choice in the Line must succeed on a DC 13 Strength saving throw or take 1d4 Bludgeoning damage and have the Prone condition. Instead of a creature, you can target one object in the Line that isn't being worn or carried and that weighs no more than 200 pounds. The object is knocked over by the geyser.
   fr:
     name: Carafe intarissable
     subtype: null
     description: |-
-      <p>Cette fiole bouchée clapote lorsqu'on la secoue, comme si elle contenait de l'eau. La carafe pèse 1 kg.<br />
-      Vous pouvez prendre une action Magie pour retirer le bouchon et prononcer l'un des trois mots de commande suivants : de l'eau douce ou salée (au choix) s'écoule alors de la fiole. L'eau cesse de couler au début de votre prochain tour. Choisissez parmi les mots de commande suivants :<br />
-      <strong>Éclaboussure</strong>. La carafe produit 4 litres d'eau.<br />
-      <strong>Fontaine</strong>. La carafe produit 20 litres d'eau.<br />
-      <strong>Geyser</strong>. La carafe produit 120 litres d'eau qui jaillissent en une ligne de 9 mètres de long et 30 cm de large. Si vous tenez la carafe, vous pouvez diriger le geyser dans une direction (aucune action requise). Une créature de votre choix sur la Ligne doit réussir un jet de sauvegarde de Force DD 13, sous peine de subir 1d4 dégâts contondants et l'état À terre. Au lieu d'une créature, vous pouvez cibler un objet sur la Ligne qui n'est pas porté et qui ne pèse pas plus de 100 kg. L'objet est renversé par le geyser.</p>
+      Cette fiole bouchée clapote lorsqu'on la secoue, comme si elle contenait de l'eau. La carafe pèse 1 kg.\
+      Vous pouvez prendre une action Magie pour retirer le bouchon et prononcer l'un des trois mots de commande suivants : de l'eau douce ou salée (au choix) s'écoule alors de la fiole. L'eau cesse de couler au début de votre prochain tour. Choisissez parmi les mots de commande suivants :\
+      **Éclaboussure**. La carafe produit 4 litres d'eau.\
+      **Fontaine**. La carafe produit 20 litres d'eau.\
+      **Geyser**. La carafe produit 120 litres d'eau qui jaillissent en une ligne de 9 mètres de long et 30 cm de large. Si vous tenez la carafe, vous pouvez diriger le geyser dans une direction (aucune action requise). Une créature de votre choix sur la Ligne doit réussir un jet de sauvegarde de Force DD 13, sous peine de subir 1d4 dégâts contondants et l'état À terre. Au lieu d'une créature, vous pouvez cibler un objet sur la Ligne qui n'est pas porté et qui ne pèse pas plus de 100 kg. L'objet est renversé par le geyser.

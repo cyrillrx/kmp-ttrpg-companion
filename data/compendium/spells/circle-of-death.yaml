@@ -19,11 +19,9 @@ translations:
     range: 150 feet
     duration: Instantaneous
     materialDescription: the powder of a crushed black pearl worth 500+ GP
-    description: Negative energy ripples out in a 60-foot-radius Sphere from a point
-      you choose within range. Each creature in that area makes a Constitution saving
-      throw, taking 8d8 Necrotic damage on a failed save or half as much damage on
-      a successful one.<br/><strong><em>Using a Higher-Level Spell Slot</em></strong>.
-      The damage increases by 2d8 for each spell slot level above 6.<br/>
+    description: |-
+      Negative energy ripples out in a 60-foot-radius Sphere from a point you choose within range. Each creature in that area makes a Constitution saving throw, taking 8d8 Necrotic damage on a failed save or half as much damage on a successful one.\
+      ***Using a Higher-Level Spell Slot***. The damage increases by 2d8 for each spell slot level above 6.\
   fr:
     name: Cercle de mort
     castingTime: Action
@@ -31,9 +29,6 @@ translations:
     duration: Instantanée
     materialDescription: une perle noir réduite en poudre d'une valeur minimale de
       500 po
-    description: Des ondes d'énergie négative rayonnent sous forme d'une Sphère de
-      18 m de rayon centrée sur un point que vous choisissez à portée. Chaque créature
-      prise dans la zone effectue un jet de sauvegarde de Constitution et subit 8d8
-      dégâts nécrotiques en cas d'échec, la moitié en cas de réussite.<br/><strong><em>Emplacement
-      de niveau supérieur</em></strong>. Les dégâts augmentent de 2d8 pour chaque
-      niveau d'emplacement de sort supérieur à 6.<br/>
+    description: |-
+      Des ondes d'énergie négative rayonnent sous forme d'une Sphère de 18 m de rayon centrée sur un point que vous choisissez à portée. Chaque créature prise dans la zone effectue un jet de sauvegarde de Constitution et subit 8d8 dégâts nécrotiques en cas d'échec, la moitié en cas de réussite.\
+      ***Emplacement de niveau supérieur***. Les dégâts augmentent de 2d8 pour chaque niveau d'emplacement de sort supérieur à 6.\

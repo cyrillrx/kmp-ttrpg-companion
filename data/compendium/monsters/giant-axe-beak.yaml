@@ -89,19 +89,25 @@ translations:
     name: Giant Axe Beak
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The axe beak makes one Sharpened Beak attack and one Talons attack.</p>
-      <p><strong><em>Sharpened Beak</em></strong>. <em>Melee Attack Roll</em> : +8, reach 10 ft. <em>Hit</em> : 18 (2d12 + 5) Slashing damage, and a creature within 5 feet of the target (axe beak's choice) takes 6 (1d12) Slashing damage.</p>
-      <p><strong><em>Talons</em></strong>. <em>Melee Attack Roll</em> : +8, reach 5 ft. <em>Hit</em> : 14 (2d8 + 5) Piercing damage. If the target is a Large or smaller creature, it has the Prone condition.</p>
+      ## Actions
+
+      ***Multiattack***. The axe beak makes one Sharpened Beak attack and one Talons attack.
+
+      ***Sharpened Beak***. *Melee Attack Roll* : +8, reach 10 ft. *Hit* : 18 (2d12 + 5) Slashing damage, and a creature within 5 feet of the target (axe beak's choice) takes 6 (1d12) Slashing damage.
+
+      ***Talons***. *Melee Attack Roll* : +8, reach 5 ft. *Hit* : 14 (2d8 + 5) Piercing damage. If the target is a Large or smaller creature, it has the Prone condition.
     senses: Passive Perception 14
     languages: []
   fr:
     name: Bec de hache géant / Autrache géante
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le bec de hache effectue une attaque de Bec acéré et une attaque de Serres.</p>
-      <p><strong><em>Bec acéré</em></strong>. <em>Corps à corps</em> : +8, allonge 3 m. <em>Touché</em> : 18 (2d12 + 5) dégâts tranchants, et une créature dans un rayon de 1,50 m autour de la cible (au choix du bec de hache) reçoit 6 (1d12) dégâts tranchants.</p>
-      <p><strong><em>Serres</em></strong>. <em>Corps à corps</em> : +8, allonge 1,50 m. <em>Touché</em> : 14 (2d8 + 5) dégâts perforants. Si la cible est une créature de taille G ou inférieure, elle subit l'état À terre.</p>
+      ## Actions
+
+      ***Attaques multiples***. Le bec de hache effectue une attaque de Bec acéré et une attaque de Serres.
+
+      ***Bec acéré***. *Corps à corps* : +8, allonge 3 m. *Touché* : 18 (2d12 + 5) dégâts tranchants, et une créature dans un rayon de 1,50 m autour de la cible (au choix du bec de hache) reçoit 6 (1d12) dégâts tranchants.
+
+      ***Serres***. *Corps à corps* : +8, allonge 1,50 m. *Touché* : 14 (2d8 + 5) dégâts perforants. Si la cible est une créature de taille G ou inférieure, elle subit l'état À terre.
     senses: Perception passive 14
     languages: []

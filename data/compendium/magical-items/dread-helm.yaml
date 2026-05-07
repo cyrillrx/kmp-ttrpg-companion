@@ -7,10 +7,10 @@ translations:
   en:
     name: Dread Helm
     subtype: null
-    description: <p>While you're wearing this fearsome steel helm, your eyes glow
-      red and the rest of your face is hidden in shadow.</p>
+    description: While you're wearing this fearsome steel helm, your eyes glow red
+      and the rest of your face is hidden in shadow.
   fr:
     name: Heaume effrayant
     subtype: null
-    description: <p>Lorsque vous portez cet effrayant heaume en acier, vos yeux sont
-      rouges et le reste de votre visage est caché dans l'ombre.</p>
+    description: Lorsque vous portez cet effrayant heaume en acier, vos yeux sont
+      rouges et le reste de votre visage est caché dans l'ombre.

@@ -89,17 +89,26 @@ translations:
     name: Kuo-toa Archpriest
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Amphibious</em>**. The kuo-toa can breathe air and water.</p>
-      <p><strong><em>Sunlight Sensitivity</em></strong>. While in sunlight, the kuo-toa has Disadvantage on ability checks and attack rolls.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The kuo-toa makes three Strange Scepter attacks.</p>
-      <p><strong><em>Spellcasting</em></strong>. The kuo-toa casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 14):</p>
-      <p>At will: <em><a href="https://www.aidedd.org/spell/detect-magic">Detect Magic</a>, <a href="https://www.aidedd.org/spell/thaumaturgy">Thaumaturgy</a></em><br />
-      1/day each: <em><a href="https://www.aidedd.org/spell/destructive-wave">Destructive Wave</a>, <a href="https://www.aidedd.org/spell/divination">Divination</a>, <a href="https://www.aidedd.org/spell/hold-monster">Hold Monster</a></em> (level 6 version), <em><a href="https://www.aidedd.org/spell/scrying">Scrying</a>, <a href="https://www.aidedd.org/spell/tongues">Tongues</a></em>  </p>
-      <p>** <em>Strange Scepter</em>**. <em>Melee or Ranged Attack Roll</em> : +6, reach 5 ft. or range 120 ft. <em>Hit</em> : 20 (5d6 + 3) Lightning damage.</p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Shield of Faith (2/Day)</em>**. The kuo-toa casts <em><a href="https://www.aidedd.org/spell/shield-of-faith">Shield of Faith</a></em> , using the same spellcasting ability as Spellcasting.</p>
+      ## Traits
+
+      ***Amphibious***. The kuo-toa can breathe air and water.
+
+      ***Sunlight Sensitivity***. While in sunlight, the kuo-toa has Disadvantage on ability checks and attack rolls.
+
+      ## Actions
+
+      ***Multiattack***. The kuo-toa makes three Strange Scepter attacks.
+
+      ***Spellcasting***. The kuo-toa casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 14):
+
+      At will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Thaumaturgy](https://www.aidedd.org/spell/thaumaturgy)*\
+      1/day each: *[Destructive Wave](https://www.aidedd.org/spell/destructive-wave), [Divination](https://www.aidedd.org/spell/divination), [Hold Monster](https://www.aidedd.org/spell/hold-monster)* (level 6 version), *[Scrying](https://www.aidedd.org/spell/scrying), [Tongues](https://www.aidedd.org/spell/tongues)*
+
+      ***Strange Scepter***. *Melee or Ranged Attack Roll* : +6, reach 5 ft. or range 120 ft. *Hit* : 20 (5d6 + 3) Lightning damage.
+
+      ## Bonus actions
+
+      ***Shield of Faith (2/Day)***. The kuo-toa casts *[Shield of Faith](https://www.aidedd.org/spell/shield-of-faith)* , using the same spellcasting ability as Spellcasting.
     senses: Darkvision 120 ft., Truesight 30 ft., Passive Perception 19
     languages:
     - Undercommon
@@ -107,17 +116,26 @@ translations:
     name: Kuo-toa, archiprêtre
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Amphibie</em>**. Le kuo-toa peut respirer sous l'eau comme à l'air libre.</p>
-      <p><strong><em>Sensibilité au soleil</em></strong>. Tant qu'il est exposé à la lumière du soleil, le kuo-toa subit un Désavantage aux jets de caractéristique et aux jets d'attaque.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le kuo-toa effectue trois attaques du Sceptre cocasse.</p>
-      <p><strong><em>Sceptre cocasse</em></strong>. <em>Corps à corps ou à distance</em> : +6, allonge 1,50 m ou portée 36 m. <em>Touché</em> : 20 (5d6 + 3) foudre damage.</p>
-      <p><strong><em>Incantation</em></strong>. The kuo-toa lance l'un des sorts suivants sans composantes matérielles, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 14) :</p>
-      <p>À volonté : <em><a href="https://www.aidedd.org/spell/fr/detection-de-la-magie">détection de la magie</a>, <a href="https://www.aidedd.org/spell/fr/thaumaturgie">thaumaturgie</a></em><br />
-      1/jour chacun : <em><a href="https://www.aidedd.org/spell/fr/vague-destructrice">vague destructrice</a>, <a href="https://www.aidedd.org/spell/fr/divination">divination</a>, <a href="https://www.aidedd.org/spell/fr/immobilisation-de-monstre">immobilisation de monstre</a></em> (au niveau 6), <em><a href="https://www.aidedd.org/spell/fr/scrutation">scrutation</a>, <a href="https://www.aidedd.org/spell/fr/don-des-langues">don des langues</a></em>  </p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Bouclier de la foi (2/jour)</em>**. Le kuo-toa lance <em><a href="https://www.aidedd.org/spell/fr/bouclier-de-la-foi">bouclier de la Foi</a></em> , en utilisant la même caractéristique d'incantation que pour Incantation.</p>
+      ## Traits
+
+      ***Amphibie***. Le kuo-toa peut respirer sous l'eau comme à l'air libre.
+
+      ***Sensibilité au soleil***. Tant qu'il est exposé à la lumière du soleil, le kuo-toa subit un Désavantage aux jets de caractéristique et aux jets d'attaque.
+
+      ## Actions
+
+      ***Attaques multiples***. Le kuo-toa effectue trois attaques du Sceptre cocasse.
+
+      ***Sceptre cocasse***. *Corps à corps ou à distance* : +6, allonge 1,50 m ou portée 36 m. *Touché* : 20 (5d6 + 3) foudre damage.
+
+      ***Incantation***. The kuo-toa lance l'un des sorts suivants sans composantes matérielles, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 14) :
+
+      À volonté : *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), [thaumaturgie](https://www.aidedd.org/spell/fr/thaumaturgie)*\
+      1/jour chacun : *[vague destructrice](https://www.aidedd.org/spell/fr/vague-destructrice), [divination](https://www.aidedd.org/spell/fr/divination), [immobilisation de monstre](https://www.aidedd.org/spell/fr/immobilisation-de-monstre)* (au niveau 6), *[scrutation](https://www.aidedd.org/spell/fr/scrutation), [don des langues](https://www.aidedd.org/spell/fr/don-des-langues)*
+
+      ## Actions Bonus
+
+      ***Bouclier de la foi (2/jour)***. Le kuo-toa lance *[bouclier de la Foi](https://www.aidedd.org/spell/fr/bouclier-de-la-foi)* , en utilisant la même caractéristique d'incantation que pour Incantation.
     senses: Vision dans le noir 36 m, vision véritable 9 m, Perception passive 19
     languages:
     - commun des profondeurs

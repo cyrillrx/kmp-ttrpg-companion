@@ -8,29 +8,29 @@ translations:
     name: Scroll of Titan Summoning
     subtype: null
     description: |-
-      <p>When you take a Magic action to read this scroll, a particular titan named in the scroll appears in an unoccupied space on the ground or in water that you can see within 1 mile of yourself. The DM picks a suitable titan or determines it randomly by rolling on the table below.<br />
-      The titan is Hostile toward all other creatures and disappears when it drops to 0 Hit Points. If the titan is summoned into a space that isn't large enough to contain it, the summoning fails, and the scroll is wasted.<br />
-      1d100| Titan<br />
-      ---|---<br />
-      01-15| Animal Lord<br />
-      16-30| Blob of Annihilation<br />
-      31-45| Colossus<br />
-      46-60| Elemental Cataclysm<br />
-      61-75| Empyrean<br />
-      76-90| Kraken (a kraken requires a body of water large enough to contain it, or the summoning fails and the scroll is wasted)<br />
-      91-100| Tarrasque</p>
+      When you take a Magic action to read this scroll, a particular titan named in the scroll appears in an unoccupied space on the ground or in water that you can see within 1 mile of yourself. The DM picks a suitable titan or determines it randomly by rolling on the table below.\
+      The titan is Hostile toward all other creatures and disappears when it drops to 0 Hit Points. If the titan is summoned into a space that isn't large enough to contain it, the summoning fails, and the scroll is wasted.\
+      | 1d100 | Titan |
+      | --- | --- |
+      | 01-15 | Animal Lord |
+      | 16-30 | Blob of Annihilation |
+      | 31-45 | Colossus |
+      | 46-60 | Elemental Cataclysm |
+      | 61-75 | Empyrean |
+      | 76-90 | Kraken (a kraken requires a body of water large enough to contain it, or the summoning fails and the scroll is wasted) |
+      | 91-100 | Tarrasque |
   fr:
     name: Parchemin de convocation de titan
     subtype: null
     description: |-
-      <p>Lorsque vous prenez une action Magie pour lire ce parchemin, un titan nommé dans le parchemin apparaît dans un espace libre que vous pouvez voir, au sol ou dans l'eau, dans un rayon de 1,5 km. Le MD choisit un titan approprié ou le détermine aléatoirement en lançant un dé sur la table ci-dessous.<br />
-      Le titan est hostile envers toutes les autres créatures et disparaît lorsqu'il tombe à 0 point de vie. Si le titan est invoqué dans un espace trop petit pour le contenir, l'invocation échoue et le parchemin est perdu. <br />
-      1d100| Titan<br />
-      ---|---<br />
-      01-15| Seigneur des bêtes<br />
-      16-30| Blob d'annihilation<br />
-      31-45| Colosse<br />
-      46-60| Cataclysme élémentaire<br />
-      61-75| Empyréen<br />
-      76-90| Kraken (un kraken nécessite une étendue d'eau suffisamment grande pour le contenir, sinon l'invocation échoue et le parchemin est perdu)<br />
-      91-100| Tarrasque</p>
+      Lorsque vous prenez une action Magie pour lire ce parchemin, un titan nommé dans le parchemin apparaît dans un espace libre que vous pouvez voir, au sol ou dans l'eau, dans un rayon de 1,5 km. Le MD choisit un titan approprié ou le détermine aléatoirement en lançant un dé sur la table ci-dessous.\
+      Le titan est hostile envers toutes les autres créatures et disparaît lorsqu'il tombe à 0 point de vie. Si le titan est invoqué dans un espace trop petit pour le contenir, l'invocation échoue et le parchemin est perdu. \
+      | 1d100 | Titan |
+      | --- | --- |
+      | 01-15 | Seigneur des bêtes |
+      | 16-30 | Blob d'annihilation |
+      | 31-45 | Colosse |
+      | 46-60 | Cataclysme élémentaire |
+      | 61-75 | Empyréen |
+      | 76-90 | Kraken (un kraken nécessite une étendue d'eau suffisamment grande pour le contenir, sinon l'invocation échoue et le parchemin est perdu) |
+      | 91-100 | Tarrasque |

@@ -89,9 +89,11 @@ translations:
     name: Violet Fungus
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The fungus makes two Rotting Touch attacks.</p>
-      <p><strong><em>Rotting Touch</em></strong>. <em>Melee Attack Roll</em> : +2, reach 10 ft. <em>Hit</em> : 4 (1d8) Necrotic damage.</p>
+      ## Actions
+
+      ***Multiattack***. The fungus makes two Rotting Touch attacks.
+
+      ***Rotting Touch***. *Melee Attack Roll* : +2, reach 10 ft. *Hit* : 4 (1d8) Necrotic damage.
     senses: Blindsight 30 ft., Passive Perception 6
     languages:
     - None
@@ -99,9 +101,11 @@ translations:
     name: Thallophyte violette
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le champignon effectue deux attaques de Contact putréfiant.</p>
-      <p><strong><em>Contact putréfiant</em></strong>. <em>Corps à corps</em> : +2, allonge 3 m. <em>Touché</em> : 4 (1d8) dégâts nécrotiques.</p>
+      ## Actions
+
+      ***Attaques multiples***. Le champignon effectue deux attaques de Contact putréfiant.
+
+      ***Contact putréfiant***. *Corps à corps* : +2, allonge 3 m. *Touché* : 4 (1d8) dégâts nécrotiques.
     senses: Vision aveugle 9 m, Perception passive 6
     languages:
     - aucune

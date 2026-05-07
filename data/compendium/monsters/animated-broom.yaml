@@ -89,19 +89,25 @@ translations:
     name: Animated Broom
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Flyby</em>**. The broom doesn't provoke an Opportunity Attack when it flies out of an enemy's reach.</p>
-      <h2>Actions</h2>
-      <p>** <em>Slam</em>**. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 5 (1d4 + 3) Bludgeoning damage.</p>
+      ## Traits
+
+      ***Flyby***. The broom doesn't provoke an Opportunity Attack when it flies out of an enemy's reach.
+
+      ## Actions
+
+      ***Slam***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 5 (1d4 + 3) Bludgeoning damage.
     senses: Blindsight 60 ft., Passive Perception 7
     languages: []
   fr:
     name: Balai animé
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Repli aérien</em>**. Le balai ne provoque pas d'attaque d'Opportunité lorsqu'il quitte la zone d'allonge d'un ennemi en volant.</p>
-      <h2>Actions</h2>
-      <p>** <em>Coup</em>**. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 5 (1d4 + 3) dégâts contondants.</p>
+      ## Traits
+
+      ***Repli aérien***. Le balai ne provoque pas d'attaque d'Opportunité lorsqu'il quitte la zone d'allonge d'un ennemi en volant.
+
+      ## Actions
+
+      ***Coup***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 5 (1d4 + 3) dégâts contondants.
     senses: Vision aveugle 18 m, Perception passive 7
     languages: []

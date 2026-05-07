@@ -89,12 +89,17 @@ translations:
     name: Giant Octopus
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Water Breathing</em>**. The octopus can breathe only underwater. It can hold its breath for 1 hour outside water.</p>
-      <h2>Actions</h2>
-      <p>** <em>Tentacles</em>**. <em>Melee Attack Roll</em> : +5, reach 10 ft. <em>Hit</em> : 10 (2d6 + 3) Bludgeoning damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 13) from all eight tentacles. While Grappled, the target has the Restrained condition.</p>
-      <h2>Reactions</h2>
-      <p>** <em>Ink Cloud (1/Day)</em>**. <em>Trigger</em> : The octopus takes damage while underwater. <em>Response</em> : The octopus releases ink that fills a 10-foot Cube centered on itself, and the octopus moves up to its Swim Speed. The Cube is Heavily Obscured for 1 minute or until a strong current or similar effect disperses the ink.</p>
+      ## Traits
+
+      ***Water Breathing***. The octopus can breathe only underwater. It can hold its breath for 1 hour outside water.
+
+      ## Actions
+
+      ***Tentacles***. *Melee Attack Roll* : +5, reach 10 ft. *Hit* : 10 (2d6 + 3) Bludgeoning damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 13) from all eight tentacles. While Grappled, the target has the Restrained condition.
+
+      ## Reactions
+
+      ***Ink Cloud (1/Day)***. *Trigger* : The octopus takes damage while underwater. *Response* : The octopus releases ink that fills a 10-foot Cube centered on itself, and the octopus moves up to its Swim Speed. The Cube is Heavily Obscured for 1 minute or until a strong current or similar effect disperses the ink.
     senses: Darkvision 60 ft., Passive Perception 14
     languages:
     - None
@@ -102,12 +107,17 @@ translations:
     name: Pieuvre géante
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Respiration aquatique</em>**. La pieuvre ne peut respirer que sous l'eau. Elle peut retenir son souffle pendant 1 heure hors de l'eau.</p>
-      <h2>Actions</h2>
-      <p>** <em>Tentacules</em>**. <em>Corps à corps</em> : +5, allonge 3 m. <em>Touché</em> : 10 (2d6 + 3) dégâts contondants. Si la cible est une créature de taille M ou inférieure, elle subit l'état Agrippé (évasion DD 13) par les huit tentacules. Ainsi Agrippée, la cible subit aussi l'état Entravé.</p>
-      <h2>Réactions</h2>
-      <p>** <em>Nuage d'encre (1/jour)</em>**. <em>Déclencheur</em> : la pieuvre subit des dégâts alors qu'elle est sous l'eau. <em>Conséquences</em> : la pieuvre libère de l'encre qui remplit un Cube de 3 m centré sur elle, et elle se déplace dans les limites de sa Vitesse de nage. Le Cube constitue une zone à Visibilité nulle pendant 1 minute, mais un courant important ou effet comparable disperse l'encre.</p>
+      ## Traits
+
+      ***Respiration aquatique***. La pieuvre ne peut respirer que sous l'eau. Elle peut retenir son souffle pendant 1 heure hors de l'eau.
+
+      ## Actions
+
+      ***Tentacules***. *Corps à corps* : +5, allonge 3 m. *Touché* : 10 (2d6 + 3) dégâts contondants. Si la cible est une créature de taille M ou inférieure, elle subit l'état Agrippé (évasion DD 13) par les huit tentacules. Ainsi Agrippée, la cible subit aussi l'état Entravé.
+
+      ## Réactions
+
+      ***Nuage d'encre (1/jour)***. *Déclencheur* : la pieuvre subit des dégâts alors qu'elle est sous l'eau. *Conséquences* : la pieuvre libère de l'encre qui remplit un Cube de 3 m centré sur elle, et elle se déplace dans les limites de sa Vitesse de nage. Le Cube constitue une zone à Visibilité nulle pendant 1 minute, mais un courant important ou effet comparable disperse l'encre.
     senses: Vision dans le noir 18 m, Perception passive 14
     languages:
     - aucune

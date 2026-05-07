@@ -89,9 +89,11 @@ translations:
     name: Allosaurus
     subtype: Dinosaur
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Bite</em>**. <em>Melee Attack Roll</em> : +6, reach 5 ft. <em>Hit</em> : 15 (2d10 + 4) Piercing damage.</p>
-      <p><strong><em>Claws</em></strong>. <em>Melee Attack Roll</em> : +6, reach 5 ft. <em>Hit</em> : 8 (1d8 + 4) Slashing damage. If the target is a Large or smaller creature and the allosaurus moved 30+ feet straight toward it immediately before the hit, the target has the Prone condition, and the allosaurus can make one Bite attack against it.</p>
+      ## Actions
+
+      ***Bite***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 15 (2d10 + 4) Piercing damage.
+
+      ***Claws***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 8 (1d8 + 4) Slashing damage. If the target is a Large or smaller creature and the allosaurus moved 30+ feet straight toward it immediately before the hit, the target has the Prone condition, and the allosaurus can make one Bite attack against it.
     senses: Passive Perception 15
     languages:
     - None
@@ -99,9 +101,11 @@ translations:
     name: Allosaure
     subtype: Dinosaure
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Griffes</em>**. <em>Corps à corps</em> : +6, allonge 1,50 m. <em>Touché</em> : 8 (1d8 + 4) dégâts tranchants. Si la cible est une créature de taille G ou inférieure et si l'allosaure s'est déplacé en ligne droite d'un minimum de 9 m juste avant de la toucher, la cible subit l'état À terre et l'allosaure peut effectuer contre elle une attaque de Morsure.</p>
-      <p><strong><em>Morsure</em></strong>. <em>Corps à corps</em> : +6, allonge 1,50 m. <em>Touché</em> : 15 (2d10 + 4) dégâts perforants.</p>
+      ## Actions
+
+      ***Griffes***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 8 (1d8 + 4) dégâts tranchants. Si la cible est une créature de taille G ou inférieure et si l'allosaure s'est déplacé en ligne droite d'un minimum de 9 m juste avant de la toucher, la cible subit l'état À terre et l'allosaure peut effectuer contre elle une attaque de Morsure.
+
+      ***Morsure***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 15 (2d10 + 4) dégâts perforants.
     senses: Perception passive 15
     languages:
     - aucune

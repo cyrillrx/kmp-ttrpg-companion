@@ -89,11 +89,15 @@ translations:
     name: Myconid Sprout
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Sun Sickness</em>**. While in sunlight, the myconid has Disadvantage on D20 Tests. The myconid dies if it spends more than 1 hour in sunlight.</p>
-      <h2>Actions</h2>
-      <p>** <em>Slam</em>**. <em>Melee Attack Roll</em> : +1, reach 5 ft. <em>Hit</em> : 1 (1d4 - 1) Bludgeoning damage plus 2 (1d4) Poison damage.</p>
-      <p><strong><em>Rapport Spores</em></strong>. The myconid expels spores in a 30-foot Emanation originating from itself. Creatures in that area with an Intelligence score of 2 or higher that aren't Constructs, Elementals, or Undead gain telepathy with a range of 30 feet for 1 hour.</p>
+      ## Traits
+
+      ***Sun Sickness***. While in sunlight, the myconid has Disadvantage on D20 Tests. The myconid dies if it spends more than 1 hour in sunlight.
+
+      ## Actions
+
+      ***Slam***. *Melee Attack Roll* : +1, reach 5 ft. *Hit* : 1 (1d4 - 1) Bludgeoning damage plus 2 (1d4) Poison damage.
+
+      ***Rapport Spores***. The myconid expels spores in a 30-foot Emanation originating from itself. Creatures in that area with an Intelligence score of 2 or higher that aren't Constructs, Elementals, or Undead gain telepathy with a range of 30 feet for 1 hour.
     senses: Darkvision 120 ft., Passive Perception 10
     languages:
     - Telepathy 240 ft.
@@ -101,11 +105,15 @@ translations:
     name: Myconide, pousse
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Soleillite aiguë</em>**. Exposé au soleil, le myconide subit un Désavantage aux jets de d20. Il meurt s'il reste plus d'une heure au soleil.</p>
-      <h2>Actions</h2>
-      <p>** <em>Coup</em>**. <em>Corps à corps</em> : +1, allonge 1,50 m. <em>Touché</em> : 1 (1d4 - 1) dégâts contondants plus 2 (1d4) dégâts de poison.</p>
-      <p><strong><em>Spores de communication</em></strong>. Le myconide expulse des spores sous forme d'une Émanation de 9 m de rayon centrée sur lui-même. Les créatures présentes dans cette zone qui possèdent une Intelligence de 2 ou plus, à l'exception des Artificiels, des Élémentaires et des Morts-vivants, acquièrent la télépathie sur 9 m pendant 1 heure.</p>
+      ## Traits
+
+      ***Soleillite aiguë***. Exposé au soleil, le myconide subit un Désavantage aux jets de d20. Il meurt s'il reste plus d'une heure au soleil.
+
+      ## Actions
+
+      ***Coup***. *Corps à corps* : +1, allonge 1,50 m. *Touché* : 1 (1d4 - 1) dégâts contondants plus 2 (1d4) dégâts de poison.
+
+      ***Spores de communication***. Le myconide expulse des spores sous forme d'une Émanation de 9 m de rayon centrée sur lui-même. Les créatures présentes dans cette zone qui possèdent une Intelligence de 2 ou plus, à l'exception des Artificiels, des Élémentaires et des Morts-vivants, acquièrent la télépathie sur 9 m pendant 1 heure.
     senses: Vision dans le noir 36 m, Perception passive 10
     languages:
     - télépathie 72 m

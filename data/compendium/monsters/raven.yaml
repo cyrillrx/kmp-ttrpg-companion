@@ -89,10 +89,13 @@ translations:
     name: Raven
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Mimicry</em>**. The raven can mimic simple sounds it has heard, such as a whisper or chitter. A hearer can discern the sounds are imitations with a successful DC 10 Wisdom (Insight) check.</p>
-      <h2>Actions</h2>
-      <p>** <em>Beak</em>**. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 1 Piercing damage.</p>
+      ## Traits
+
+      ***Mimicry***. The raven can mimic simple sounds it has heard, such as a whisper or chitter. A hearer can discern the sounds are imitations with a successful DC 10 Wisdom (Insight) check.
+
+      ## Actions
+
+      ***Beak***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 1 Piercing damage.
     senses: Passive Perception 13
     languages:
     - None
@@ -100,10 +103,13 @@ translations:
     name: Corbeau
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Imitation</em>**. Le corbeau peut imiter des bruits simples qu'il a entendus, comme un murmure ou des pépiements. Un auditeur peut discerner que ces sons sont des imitations en réussissant un jet de Sagesse (Intuition) DD 10.</p>
-      <h2>Actions</h2>
-      <p>** <em>Bec</em>**. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 1 dégât perforant.</p>
+      ## Traits
+
+      ***Imitation***. Le corbeau peut imiter des bruits simples qu'il a entendus, comme un murmure ou des pépiements. Un auditeur peut discerner que ces sons sont des imitations en réussissant un jet de Sagesse (Intuition) DD 10.
+
+      ## Actions
+
+      ***Bec***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 1 dégât perforant.
     senses: Perception passive 13
     languages:
     - aucune

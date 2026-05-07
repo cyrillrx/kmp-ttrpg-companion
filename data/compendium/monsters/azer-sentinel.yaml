@@ -89,11 +89,15 @@ translations:
     name: Azer Sentinel
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Fire Aura</em>**. At the end of each of the azer's turns, each creature of the azer's choice in a 5-foot Emanation originating from the azer takes 5 (1d10) Fire damage unless the azer has the Incapacitated condition.</p>
-      <p><strong><em>Illumination</em></strong>. The azer sheds Bright Light in a 10-foot radius and Dim Light for an additional 10 feet.</p>
-      <h2>Actions</h2>
-      <p>** <em>Burning Hammer</em>**. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 8 (1d10 + 3) Bludgeoning damage plus 3 (1d6) Fire damage.</p>
+      ## Traits
+
+      ***Fire Aura***. At the end of each of the azer's turns, each creature of the azer's choice in a 5-foot Emanation originating from the azer takes 5 (1d10) Fire damage unless the azer has the Incapacitated condition.
+
+      ***Illumination***. The azer sheds Bright Light in a 10-foot radius and Dim Light for an additional 10 feet.
+
+      ## Actions
+
+      ***Burning Hammer***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 8 (1d10 + 3) Bludgeoning damage plus 3 (1d6) Fire damage.
     senses: Passive Perception 11
     languages:
     - Primordial (Ignan)
@@ -101,11 +105,15 @@ translations:
     name: Azer, sentinelle
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Aura de feu</em>**. À la fin de chaque tour de l'azer, chaque créature qu'il choisit dans une Émanation de 1,50 m centrée sur lui subit 5 (1d10) dégâts de feu, sauf si cet azer subit l'état Incapable d'agir.</p>
-      <p><strong><em>Illumination</em></strong>. L'azer projette une Lumière vive sur un rayon de 3 m, et une Lumière faible sur 3 m de plus.</p>
-      <h2>Actions</h2>
-      <p>** <em>Marteau ardent</em>**. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 8 (1d10 + 3) dégâts contondants plus 3 (1d6) dégâts de feu.</p>
+      ## Traits
+
+      ***Aura de feu***. À la fin de chaque tour de l'azer, chaque créature qu'il choisit dans une Émanation de 1,50 m centrée sur lui subit 5 (1d10) dégâts de feu, sauf si cet azer subit l'état Incapable d'agir.
+
+      ***Illumination***. L'azer projette une Lumière vive sur un rayon de 3 m, et une Lumière faible sur 3 m de plus.
+
+      ## Actions
+
+      ***Marteau ardent***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 8 (1d10 + 3) dégâts contondants plus 3 (1d6) dégâts de feu.
     senses: Perception passive 11
     languages:
     - primordial (igné)

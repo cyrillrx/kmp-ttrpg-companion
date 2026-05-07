@@ -8,11 +8,11 @@ translations:
     name: Sylvan Talon
     subtype: Dagger, Rapier, Scimitar, Shortsword, Sickle, or Spear
     description: |-
-      <p>While this weapon is on your person, you understand the nonwritten communication of all Fey, and they understand yours.<br />
-      <strong>Secret Message</strong>. As a Magic action, you can use the weapon to cast <em>Message</em>. Once this property is used, it can't be used again until the next dawn.</p>
+      While this weapon is on your person, you understand the nonwritten communication of all Fey, and they understand yours.\
+      **Secret Message**. As a Magic action, you can use the weapon to cast *Message*. Once this property is used, it can't be used again until the next dawn.
   fr:
     name: Serre sylvestre
     subtype: dague, rapière, cimeterre, épée courte, serpe ou lance
     description: |-
-      <p>Tant que vous portez cette arme, vous comprenez la communication non écrite des Fées, et celles-ci comprennent la vôtre.<br />
-      <strong>Message secret</strong>. Par une action Magie, vous pouvez utiliser l'arme pour lancer <em>message</em>. Une fois utilisée, cette propriété ne peut être réutilisée avant l'aube suivante.</p>
+      Tant que vous portez cette arme, vous comprenez la communication non écrite des Fées, et celles-ci comprennent la vôtre.\
+      **Message secret**. Par une action Magie, vous pouvez utiliser l'arme pour lancer *message*. Une fois utilisée, cette propriété ne peut être réutilisée avant l'aube suivante.

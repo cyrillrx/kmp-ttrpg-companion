@@ -89,14 +89,21 @@ translations:
     name: Nycaloth
     subtype: Yugoloth
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Fiendish Restoration</em>**. If the nycaloth dies outside Gehenna, its body dissolves into ichor, and it gains a new body instantly, reviving with all its Hit Points somewhere in Gehenna.</p>
-      <p><strong><em>Magic Resistance</em></strong>. The nycaloth has Advantage on saving throws against spells and other magical effects.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The nycaloth makes two Mercurial Axe attacks.</p>
-      <p><strong><em>Mercurial Axe</em></strong>. <em>Melee or Ranged Attack Roll</em> : +9, reach 10 ft. or range 30/90 ft. <em>Hit</em> : 18 (2d12 + 5) Slashing damage plus 10 (3d6) Force damage. <em>Hit or Miss</em> : The axe magically returns to the nycaloth's hand immediately after a ranged attack.</p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Shadowy Teleport</em>**. The nycaloth has the Invisible condition for 1 minute, and it teleports up to 30 feet to an unoccupied space it can see. The condition ends early immediately after it deals damage.</p>
+      ## Traits
+
+      ***Fiendish Restoration***. If the nycaloth dies outside Gehenna, its body dissolves into ichor, and it gains a new body instantly, reviving with all its Hit Points somewhere in Gehenna.
+
+      ***Magic Resistance***. The nycaloth has Advantage on saving throws against spells and other magical effects.
+
+      ## Actions
+
+      ***Multiattack***. The nycaloth makes two Mercurial Axe attacks.
+
+      ***Mercurial Axe***. *Melee or Ranged Attack Roll* : +9, reach 10 ft. or range 30/90 ft. *Hit* : 18 (2d12 + 5) Slashing damage plus 10 (3d6) Force damage. *Hit or Miss* : The axe magically returns to the nycaloth's hand immediately after a ranged attack.
+
+      ## Bonus actions
+
+      ***Shadowy Teleport***. The nycaloth has the Invisible condition for 1 minute, and it teleports up to 30 feet to an unoccupied space it can see. The condition ends early immediately after it deals damage.
     senses: Blindsight 60 ft., Passive Perception 14
     languages:
     - Abyssal
@@ -105,14 +112,21 @@ translations:
     name: Nycaloth
     subtype: Yugoloth
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Restauration fiélonne</em>**. Si le nycaloth meurt hors de Géhenne, son corps se dissout en ichor et il en acquiert aussitôt un nouveau et revient à la vie avec tous ses pv, quelque part dans Géhenne.</p>
-      <p><strong><em>Résistance à la magie</em></strong>. Le nycaloth a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le nycaloth effectue deux attaques de Hache labile.</p>
-      <p><strong><em>Hache labile</em></strong>. <em>Corps à corps ou à distance</em> : +9, allonge 3 m ou portée 9/27 m. <em>Touché</em> : 18 (2d12 + 5) dégâts tranchants plus 10 (3d6) dégâts de force. <em>Échec ou réussite</em> : la hache retourne magiquement dans la main du nycaloth immédiatement après une attaque à distance.</p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Téléportation ombreuse</em>**. Le nycaloth bénéficie de l'état Invisible pendant 1 minute et se téléporte jusqu'à 9 m dans un espace inoccupé qu'il peut voir. Cet état prend fin immédiatement après qu'il inflige des dégâts.</p>
+      ## Traits
+
+      ***Restauration fiélonne***. Si le nycaloth meurt hors de Géhenne, son corps se dissout en ichor et il en acquiert aussitôt un nouveau et revient à la vie avec tous ses pv, quelque part dans Géhenne.
+
+      ***Résistance à la magie***. Le nycaloth a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
+
+      ## Actions
+
+      ***Attaques multiples***. Le nycaloth effectue deux attaques de Hache labile.
+
+      ***Hache labile***. *Corps à corps ou à distance* : +9, allonge 3 m ou portée 9/27 m. *Touché* : 18 (2d12 + 5) dégâts tranchants plus 10 (3d6) dégâts de force. *Échec ou réussite* : la hache retourne magiquement dans la main du nycaloth immédiatement après une attaque à distance.
+
+      ## Actions Bonus
+
+      ***Téléportation ombreuse***. Le nycaloth bénéficie de l'état Invisible pendant 1 minute et se téléporte jusqu'à 9 m dans un espace inoccupé qu'il peut voir. Cet état prend fin immédiatement après qu'il inflige des dégâts.
     senses: Vision aveugle 18 m, Perception passive 14
     languages:
     - abyssal

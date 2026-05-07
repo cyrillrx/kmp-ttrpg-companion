@@ -89,18 +89,28 @@ translations:
     name: Death Knight Aspirant
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Magic Resistance</em>**. The aspirant has Advantage on saving throws against spells and other magical effects.</p>
-      <p><strong><em>Marshal Undead</em></strong>. Undead creatures of the aspirant's choice (excluding itself) in a 60-foot Emanation originating from it have Advantage on attack rolls and saving throws. It can't use this trait if it has the Incapacitated condition.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The aspirant makes three Dread Blade attacks.</p>
-      <p><strong><em>Dread Blade</em></strong>. <em>Melee Attack Roll</em> : +9, reach 5 ft. <em>Hit</em> : 14 (2d8 + 5) Slashing damage plus 10 (3d6) Necrotic damage.</p>
-      <p><strong><em>Hellfire Orb (Recharge 5–6)</em></strong>. <em>Dexterity Saving Throw</em> : DC 15, each creature in a 20-foot-radius Sphere centered on a point the aspirant can see within 120 feet of itself. <em>Failure</em> : 21 (6d6) Fire damage plus 21 (6d6) Necrotic damage. <em>Success</em> : Half damage.</p>
-      <p><strong><em>Spellcasting</em></strong>. The aspirant casts one of the following spells, using Charisma as the spellcasting ability (spell save DC 15):</p>
-      <p>At will: <em><a href="https://www.aidedd.org/spell/phantom-steed">Phantom Steed</a></em><br />
-      1/day each: <em><a href="https://www.aidedd.org/spell/destructive-wave">Destructive Wave</a></em> (Necrotic), <em><a href="https://www.aidedd.org/spell/dispel-magic">Dispel Magic</a></em>  </p>
-      <h2>Reactions</h2>
-      <p>** <em>Parry</em>**. <em>Trigger</em> : The aspirant is hit by a melee attack roll while holding a weapon. <em>Response</em> : The aspirant adds 4 to its AC against that attack, possibly causing it to miss.</p>
+      ## Traits
+
+      ***Magic Resistance***. The aspirant has Advantage on saving throws against spells and other magical effects.
+
+      ***Marshal Undead***. Undead creatures of the aspirant's choice (excluding itself) in a 60-foot Emanation originating from it have Advantage on attack rolls and saving throws. It can't use this trait if it has the Incapacitated condition.
+
+      ## Actions
+
+      ***Multiattack***. The aspirant makes three Dread Blade attacks.
+
+      ***Dread Blade***. *Melee Attack Roll* : +9, reach 5 ft. *Hit* : 14 (2d8 + 5) Slashing damage plus 10 (3d6) Necrotic damage.
+
+      ***Hellfire Orb (Recharge 5–6)***. *Dexterity Saving Throw* : DC 15, each creature in a 20-foot-radius Sphere centered on a point the aspirant can see within 120 feet of itself. *Failure* : 21 (6d6) Fire damage plus 21 (6d6) Necrotic damage. *Success* : Half damage.
+
+      ***Spellcasting***. The aspirant casts one of the following spells, using Charisma as the spellcasting ability (spell save DC 15):
+
+      At will: *[Phantom Steed](https://www.aidedd.org/spell/phantom-steed)*\
+      1/day each: *[Destructive Wave](https://www.aidedd.org/spell/destructive-wave)* (Necrotic), *[Dispel Magic](https://www.aidedd.org/spell/dispel-magic)*
+
+      ## Reactions
+
+      ***Parry***. *Trigger* : The aspirant is hit by a melee attack roll while holding a weapon. *Response* : The aspirant adds 4 to its AC against that attack, possibly causing it to miss.
     senses: Darkvision 120 ft., Passive Perception 11
     languages:
     - Abyssal
@@ -109,16 +119,21 @@ translations:
     name: Chevalier de la mort, aspirant
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>Résistance à la magie.<br />
-      Brigade des morts-vivants.  </p>
-      <h2>Actions</h2>
-      <p>Attaques multiples.<br />
-      Lame d'épouvante.<br />
-      Orbe de feu infernal (recharge 5–6).<br />
-      Incantation.  </p>
-      <h2>Réactions</h2>
-      <p>Parade.</p>
+      ## Traits
+
+      Résistance à la magie.\
+      Brigade des morts-vivants.
+
+      ## Actions
+
+      Attaques multiples.\
+      Lame d'épouvante.\
+      Orbe de feu infernal (recharge 5–6).\
+      Incantation.
+
+      ## Réactions
+
+      Parade.
     senses: Vision dans le noir 36 m, Perception passive 11
     languages:
     - abyssal

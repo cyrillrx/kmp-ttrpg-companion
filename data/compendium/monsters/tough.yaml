@@ -89,11 +89,15 @@ translations:
     name: Tough
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Pack Tactics</em>**. The tough has Advantage on an attack roll against a creature if at least one of the tough's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.</p>
-      <h2>Actions</h2>
-      <p>** <em>Mace</em>**. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 5 (1d6 + 2) Bludgeoning damage.</p>
-      <p><strong><em>Heavy Crossbow</em></strong>. <em>Ranged Attack Roll</em> : +3, range 100/400 ft. <em>Hit</em> : 6 (1d10 + 1) Piercing damage.</p>
+      ## Traits
+
+      ***Pack Tactics***. The tough has Advantage on an attack roll against a creature if at least one of the tough's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.
+
+      ## Actions
+
+      ***Mace***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 5 (1d6 + 2) Bludgeoning damage.
+
+      ***Heavy Crossbow***. *Ranged Attack Roll* : +3, range 100/400 ft. *Hit* : 6 (1d10 + 1) Piercing damage.
     senses: Passive Perception 10
     languages:
     - Common
@@ -101,11 +105,15 @@ translations:
     name: Gros-bras
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Tactique de meute</em>**. Quand au moins un de ses alliés non Incapable d'agir se situe dans un rayon de 1,50 m de la créature qu'il cible, le gros-bras a un Avantage au jet d'attaque correspondant.</p>
-      <h2>Actions</h2>
-      <p>** <em>Masse d'armes</em>**. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 5 (1d6 + 2) dégâts contondants.</p>
-      <p><strong><em>Arbalète lourde</em></strong>. <em>À distance</em> : +3, portée 30/120 m. <em>Touché</em> : 6 (1d10 + 1) dégâts perforants.</p>
+      ## Traits
+
+      ***Tactique de meute***. Quand au moins un de ses alliés non Incapable d'agir se situe dans un rayon de 1,50 m de la créature qu'il cible, le gros-bras a un Avantage au jet d'attaque correspondant.
+
+      ## Actions
+
+      ***Masse d'armes***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 5 (1d6 + 2) dégâts contondants.
+
+      ***Arbalète lourde***. *À distance* : +3, portée 30/120 m. *Touché* : 6 (1d10 + 1) dégâts perforants.
     senses: Perception passive 10
     languages:
     - commun

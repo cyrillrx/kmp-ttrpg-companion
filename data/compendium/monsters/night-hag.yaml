@@ -89,19 +89,30 @@ translations:
     name: Night Hag
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Coven Magic</em>**. While within 30 feet of at least two hag allies, the hag can cast one of the following spells, requiring no Material components, using the spell's normal casting time, and using Intelligence as the spellcasting ability (spell save DC 14): <em><a href="https://www.aidedd.org/spell/augury">Augury</a>, <a href="https://www.aidedd.org/spell/find-familiar">Find Familiar</a>, <a href="https://www.aidedd.org/spell/identify">Identify</a>, <a href="https://www.aidedd.org/spell/locate-object">Locate Object</a>, <a href="https://www.aidedd.org/spell/scrying">Scrying</a></em>, or <em><a href="https://www.aidedd.org/spell/unseen-servant">Unseen Servant</a></em>. The hag must finish a Long Rest before using this trait to cast that spell again.</p>
-      <p><strong><em>Magic Resistance</em></strong>. The hag has Advantage on saving throws against spells and other magical effects.</p>
-      <p><strong><em>Soul Bag</em></strong>. The hag has a soul bag. While holding or carrying the bag, the hag can use its Nightmare Haunting action. The bag has AC 15, HP 20, and Resistance to all damage. The bag turns to dust if reduced to 0 Hit Points. If the bag is destroyed, any souls the bag is hol</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The hag makes two Claw attacks.</p>
-      <p><strong><em>Claw</em></strong>. <em>Melee Attack Roll</em> : +7, reach 5 ft. <em>Hit</em> : 13 (2d8 + 4) Slashing damage.</p>
-      <p><strong><em>Nightmare Haunting (1/Day; Requires Soul Bag)</em></strong>. While on the Ethereal Plane, the hag casts <em><a href="https://www.aidedd.org/spell/dream">Dream</a></em> , using the same spellcasting ability as Spellcasting. Only the hag can serve as the spell's messenger, and the target must be a creature the hag can see on the Material Plane. The spell fails and is wasted if the target is under the effect of the <em><a href="https://www.aidedd.org/spell/protection-from-evil-and-good">Protection from Evil and Good</a></em> spell or within a <em><a href="https://www.aidedd.org/spell/magic-circle">Magic Circle</a></em> spell. If the target takes damage from the <em><a href="https://www.aidedd.org/spell/dream">Dream</a></em> spell, the target's Hit Point maximum decreases by an amount equal to that damage. If the spell kills the target, its soul is trapped in the hag's soul bag, and the target can't be raised from the dead until its soul is released.</p>
-      <p><strong><em>Spellcasting</em></strong>. The hag casts one of the following spells, requiring no Material components and using Intelligence as the spellcasting ability (spell save DC 14):</p>
-      <p>At Will: <em><a href="https://www.aidedd.org/spell/detect-magic">Detect Magic</a>, Etherealness, <a href="https://www.aidedd.org/spell/magic-missile">Magic Missile</a></em> (level 4 version)<br />
-      2/Day Each: <em><a href="https://www.aidedd.org/spell/phantasmal-killer">Phantasmal Killer</a>, <a href="https://www.aidedd.org/spell/plane-shift">Plane Shift</a></em> (self only)  </p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Shape-Shift</em>**. The hag shape-shifts into a Small or Medium Humanoid, or it returns to its true form. Other than its size, its game statistics are the same in each form. Any equipment it is wearing or carrying isn't transformed.</p>
+      ## Traits
+
+      ***Coven Magic***. While within 30 feet of at least two hag allies, the hag can cast one of the following spells, requiring no Material components, using the spell's normal casting time, and using Intelligence as the spellcasting ability (spell save DC 14): *[Augury](https://www.aidedd.org/spell/augury), [Find Familiar](https://www.aidedd.org/spell/find-familiar), [Identify](https://www.aidedd.org/spell/identify), [Locate Object](https://www.aidedd.org/spell/locate-object), [Scrying](https://www.aidedd.org/spell/scrying)*, or *[Unseen Servant](https://www.aidedd.org/spell/unseen-servant)*. The hag must finish a Long Rest before using this trait to cast that spell again.
+
+      ***Magic Resistance***. The hag has Advantage on saving throws against spells and other magical effects.
+
+      ***Soul Bag***. The hag has a soul bag. While holding or carrying the bag, the hag can use its Nightmare Haunting action. The bag has AC 15, HP 20, and Resistance to all damage. The bag turns to dust if reduced to 0 Hit Points. If the bag is destroyed, any souls the bag is hol
+
+      ## Actions
+
+      ***Multiattack***. The hag makes two Claw attacks.
+
+      ***Claw***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 13 (2d8 + 4) Slashing damage.
+
+      ***Nightmare Haunting (1/Day; Requires Soul Bag)***. While on the Ethereal Plane, the hag casts *[Dream](https://www.aidedd.org/spell/dream)* , using the same spellcasting ability as Spellcasting. Only the hag can serve as the spell's messenger, and the target must be a creature the hag can see on the Material Plane. The spell fails and is wasted if the target is under the effect of the *[Protection from Evil and Good](https://www.aidedd.org/spell/protection-from-evil-and-good)* spell or within a *[Magic Circle](https://www.aidedd.org/spell/magic-circle)* spell. If the target takes damage from the *[Dream](https://www.aidedd.org/spell/dream)* spell, the target's Hit Point maximum decreases by an amount equal to that damage. If the spell kills the target, its soul is trapped in the hag's soul bag, and the target can't be raised from the dead until its soul is released.
+
+      ***Spellcasting***. The hag casts one of the following spells, requiring no Material components and using Intelligence as the spellcasting ability (spell save DC 14):
+
+      At Will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), Etherealness, [Magic Missile](https://www.aidedd.org/spell/magic-missile)* (level 4 version)\
+      2/Day Each: *[Phantasmal Killer](https://www.aidedd.org/spell/phantasmal-killer), [Plane Shift](https://www.aidedd.org/spell/plane-shift)* (self only)
+
+      ## Bonus actions
+
+      ***Shape-Shift***. The hag shape-shifts into a Small or Medium Humanoid, or it returns to its true form. Other than its size, its game statistics are the same in each form. Any equipment it is wearing or carrying isn't transformed.
     senses: Darkvision 120 ft., Passive Perception 15
     languages:
     - Abyssal
@@ -112,19 +123,30 @@ translations:
     name: Guenaude nocturne
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Magie d'assemblée</em>**. Tant qu'elle se trouve dans un rayon de 9 m d'au moins deux alliées guenaudes, la guenaude peut lancer l'un des sorts suivants sans composantes matérielles, avec le temps d'incantation normal, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 14) : <em><a href="https://www.aidedd.org/spell/fr/appel-de-familier">appel de familier</a>, <a href="https://www.aidedd.org/spell/fr/augure">augure</a>, <a href="https://www.aidedd.org/spell/fr/identification">identification</a>, <a href="https://www.aidedd.org/spell/localisation-d-objet">localisation d'objet</a>, <a href="https://www.aidedd.org/spell/fr/scrutation">scrutation</a> ou <a href="https://www.aidedd.org/spell/fr/serviteur invisible">serviteur invisible</a></em>. La guenaude doit terminer un Repos long avant de pouvoir relancer ce sort par ce trait.</p>
-      <p><strong><em>Résistance à la magie</em></strong>. La guenaude a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.</p>
-      <p><strong><em>Sac des âmes</em></strong>. La guenaude possède un sac des âmes. Tant qu'elle brandit ou porte ce sac, la guenaude peut recourir à l'action Cauchemars accablants. Le profil du sac est le suivant : CA 15, 20 Pv et Résistance à tous les dégâts. Le sac tombe en poussière s'il est réduit à 0 point de vie. Si le sac est détruit, les âmes qu'il contenait sont libérées. Il faut 7 jours à la guenaude pour créer un nouveau sac.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. La guenaude effectue deux attaques de Griffe.</p>
-      <p><strong><em>Griffe</em></strong>. <em>Corps à corps</em> : +7, allonge 1,50 m. <em>Touché</em> : 13 (2d8 + 4) dégâts tranchants.</p>
-      <p><strong><em>Cauchemars accablants (1/jour ; sac des âmes requis)</em></strong>. Alors qu'elle se trouve sur le Plan Éthéré, la guenaude lance <em>songe</em> avec la même caractéristique d'incantation que pour Incantation. Seule la guenaude peut faire office de messager du sort, et la cible doit être une créature que la guenaude voit sur le Plan Matériel. Le sort échoue et il est gaspillé si la cible est sous l'effet du sort <em>protection contre le mal et le bien</em> ou dans la zone du sort <em>cercle magique</em>. Si le sort <em>songe</em> inflige des dégâts à la cible, le maximum de points de vie de celle-ci est réduit d'un montant égal aux dégâts subis. Si le sort tue la cible, son âme se retrouve piégée dans le sac des âmes de la guenaude, et la cible ne peut pas revenir à la vie tant que son âme n'a pas été libérée.</p>
-      <p><strong><em>Incantation</em></strong>. La guenaude lance l'un des sorts suivants, sans composantes matérielles, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 14) :</p>
-      <p>À volonté : <em><a href="https://www.aidedd.org/spell/fr/detection-de-la-magie">détection de la magie</a>, forme éthérée, projectile magique</em> (au niveau 4)<br />
-      2/jour chacun : <em>assassin imaginaire,<a href="https://www.aidedd.org/spell/fr/changement-de-plan">changement de plan</a></em> (soi-même uniquement)  </p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Changement d'aspect</em>**. La guenaude se transforme en Humanoïde de taille P ou M, ou bien retrouve sa forme véritable. Hormis sa catégorie de taille, son profil reste le même, quelle que soit sa forme. Rien de ce qu'elle porte n'est transformé.</p>
+      ## Traits
+
+      ***Magie d'assemblée***. Tant qu'elle se trouve dans un rayon de 9 m d'au moins deux alliées guenaudes, la guenaude peut lancer l'un des sorts suivants sans composantes matérielles, avec le temps d'incantation normal, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 14) : *[appel de familier](https://www.aidedd.org/spell/fr/appel-de-familier), [augure](https://www.aidedd.org/spell/fr/augure), [identification](https://www.aidedd.org/spell/fr/identification), [localisation d'objet](https://www.aidedd.org/spell/localisation-d-objet), [scrutation](https://www.aidedd.org/spell/fr/scrutation) ou [serviteur invisible](https://www.aidedd.org/spell/fr/serviteur invisible)*. La guenaude doit terminer un Repos long avant de pouvoir relancer ce sort par ce trait.
+
+      ***Résistance à la magie***. La guenaude a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
+
+      ***Sac des âmes***. La guenaude possède un sac des âmes. Tant qu'elle brandit ou porte ce sac, la guenaude peut recourir à l'action Cauchemars accablants. Le profil du sac est le suivant : CA 15, 20 Pv et Résistance à tous les dégâts. Le sac tombe en poussière s'il est réduit à 0 point de vie. Si le sac est détruit, les âmes qu'il contenait sont libérées. Il faut 7 jours à la guenaude pour créer un nouveau sac.
+
+      ## Actions
+
+      ***Attaques multiples***. La guenaude effectue deux attaques de Griffe.
+
+      ***Griffe***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 13 (2d8 + 4) dégâts tranchants.
+
+      ***Cauchemars accablants (1/jour ; sac des âmes requis)***. Alors qu'elle se trouve sur le Plan Éthéré, la guenaude lance *songe* avec la même caractéristique d'incantation que pour Incantation. Seule la guenaude peut faire office de messager du sort, et la cible doit être une créature que la guenaude voit sur le Plan Matériel. Le sort échoue et il est gaspillé si la cible est sous l'effet du sort *protection contre le mal et le bien* ou dans la zone du sort *cercle magique*. Si le sort *songe* inflige des dégâts à la cible, le maximum de points de vie de celle-ci est réduit d'un montant égal aux dégâts subis. Si le sort tue la cible, son âme se retrouve piégée dans le sac des âmes de la guenaude, et la cible ne peut pas revenir à la vie tant que son âme n'a pas été libérée.
+
+      ***Incantation***. La guenaude lance l'un des sorts suivants, sans composantes matérielles, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 14) :
+
+      À volonté : *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), forme éthérée, projectile magique* (au niveau 4)\
+      2/jour chacun : *assassin imaginaire,[changement de plan](https://www.aidedd.org/spell/fr/changement-de-plan)* (soi-même uniquement)
+
+      ## Actions Bonus
+
+      ***Changement d'aspect***. La guenaude se transforme en Humanoïde de taille P ou M, ou bien retrouve sa forme véritable. Hormis sa catégorie de taille, son profil reste le même, quelle que soit sa forme. Rien de ce qu'elle porte n'est transformé.
     senses: Vision dans le noir 36 m, Perception passive 15
     languages:
     - abyssal

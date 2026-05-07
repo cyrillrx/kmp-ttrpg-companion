@@ -24,7 +24,7 @@ translations:
       that you hear or see signed. You also understand any written language that you
       see, but you must be touching the surface on which the words are written. It
       takes about 1 minute to read one page of text. This spell doesn't decode symbols
-      or secret messages.<br/>
+      or secret messages.\
   fr:
     name: Compréhension des langues
     castingTime: Action ou Rituel
@@ -35,4 +35,4 @@ translations:
       toute langue que vous entendez ainsi que le langage des signes. Vous comprenez
       également toute langue écrite que vous voyez, mais vous devez toucher la surface
       sur laquelle les mots sont écrits. Il faut environ une minute pour lire une
-      page de texte. Ce sort ne décode pas les symboles ni les messages secrets.<br/>
+      page de texte. Ce sort ne décode pas les symboles ni les messages secrets.\

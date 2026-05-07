@@ -19,11 +19,15 @@ translations:
     range: Self
     duration: Instantaneous
     materialDescription: a silver pin worth 250+ GP
-    description: Silver energy bursts out from you in a 120-foot-long, 5-foot-wide Line. Each creature of your choice in the Line makes a Strength saving throw. On a failed save, a creature takes 3d10 Force damage and has the Prone condition. On a successful save, a creature takes half as much damage only.<br/><strong>Using a Higher-Level Spell Slot.</strong> The damage increases by 1d10 for every spell slot level above 3.<br/>
+    description: |-
+      Silver energy bursts out from you in a 120-foot-long, 5-foot-wide Line. Each creature of your choice in the Line makes a Strength saving throw. On a failed save, a creature takes 3d10 Force damage and has the Prone condition. On a successful save, a creature takes half as much damage only.\
+      **Using a Higher-Level Spell Slot.** The damage increases by 1d10 for every spell slot level above 3.\
   fr:
     name: Lance d'argent de Laeral
     castingTime: Action
     range: Personnelle
     duration: Instantanée
     materialDescription: une épingle en argent d'une valeur minimale de 250 po
-    description: Une énergie argentée jaillit de vous en une Ligne de 36 mètres de long et 1,50 mètre de large. Chaque créature de votre choix dans la Ligne effectue un jet de sauvegarde de Force. En cas d'échec, une créature subit 3d10 dégâts de force et subit l'état À terre. En cas de réussite, une créature ne subit que la moitié de ces dégâts.<br/><strong>Emplacement de niveau supérieur.</strong> Les dégâts augmentent de 1d10 par niveau d'emplacement au-delà du 3e.<br/>
+    description: |-
+      Une énergie argentée jaillit de vous en une Ligne de 36 mètres de long et 1,50 mètre de large. Chaque créature de votre choix dans la Ligne effectue un jet de sauvegarde de Force. En cas d'échec, une créature subit 3d10 dégâts de force et subit l'état À terre. En cas de réussite, une créature ne subit que la moitié de ces dégâts.\
+      **Emplacement de niveau supérieur.** Les dégâts augmentent de 1d10 par niveau d'emplacement au-delà du 3e.\

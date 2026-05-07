@@ -89,11 +89,15 @@ translations:
     name: Hippogriff
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Flyby</em>**. The hippogriff doesn't provoke an Opportunity Attack when it flies out of an enemy's reach.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The hippogriff makes two Rend attacks.</p>
-      <p><strong><em>Rend</em></strong>. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 7 (1d8 + 3) Slashing damage.</p>
+      ## Traits
+
+      ***Flyby***. The hippogriff doesn't provoke an Opportunity Attack when it flies out of an enemy's reach.
+
+      ## Actions
+
+      ***Multiattack***. The hippogriff makes two Rend attacks.
+
+      ***Rend***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 7 (1d8 + 3) Slashing damage.
     senses: Passive Perception 15
     languages:
     - None
@@ -101,11 +105,15 @@ translations:
     name: Hippogriffe
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Repli aérien</em>**. L'hippogriffe ne provoque pas d'attaque d'Opportunité lorsqu'il quitte la zone d'allonge d'un ennemi en volant.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. L'hippogriffe effectue deux attaques de Saignée.</p>
-      <p><strong><em>Saignée</em></strong>. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 7 (1d8 + 3) dégâts tranchants.</p>
+      ## Traits
+
+      ***Repli aérien***. L'hippogriffe ne provoque pas d'attaque d'Opportunité lorsqu'il quitte la zone d'allonge d'un ennemi en volant.
+
+      ## Actions
+
+      ***Attaques multiples***. L'hippogriffe effectue deux attaques de Saignée.
+
+      ***Saignée***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 7 (1d8 + 3) dégâts tranchants.
     senses: Perception passive 15
     languages:
     - aucune

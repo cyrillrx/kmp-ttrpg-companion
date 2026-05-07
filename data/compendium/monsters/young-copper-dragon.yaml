@@ -89,11 +89,15 @@ translations:
     name: Young Copper Dragon
     subtype: Metallic
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The dragon makes three Rend attacks. It can replace one attack with a use of Slowing Breath.</p>
-      <p><strong><em>Rend</em></strong>. <em>Melee Attack Roll</em> : +7, reach 10 ft. <em>Hit</em> : 15 (2d10 + 4) Slashing damage.</p>
-      <p><strong><em>Acid Breath (Recharge 5–6)</em></strong>. <em>Dexterity Saving Throw</em> : DC 14, each creature in a 40-foot-long, 5-foot-wide Line. <em>Failure</em> : 40 (9d8) Acid damage. <em>Success</em> : Half damage.</p>
-      <p><strong><em>Slowing Breath</em></strong>. <em>Constitution Saving Throw</em> : DC 14, each creature in a 30-foot Cone. <em>Failure</em> : The target can't take Reactions; its Speed is halved; and it can take either an action or a Bonus Action on its turn, not both. This effect lasts until the end of its next turn.</p>
+      ## Actions
+
+      ***Multiattack***. The dragon makes three Rend attacks. It can replace one attack with a use of Slowing Breath.
+
+      ***Rend***. *Melee Attack Roll* : +7, reach 10 ft. *Hit* : 15 (2d10 + 4) Slashing damage.
+
+      ***Acid Breath (Recharge 5–6)***. *Dexterity Saving Throw* : DC 14, each creature in a 40-foot-long, 5-foot-wide Line. *Failure* : 40 (9d8) Acid damage. *Success* : Half damage.
+
+      ***Slowing Breath***. *Constitution Saving Throw* : DC 14, each creature in a 30-foot Cone. *Failure* : The target can't take Reactions; its Speed is halved; and it can take either an action or a Bonus Action on its turn, not both. This effect lasts until the end of its next turn.
     senses: Blindsight 30 ft., Darkvision 120 ft., Passive Perception 17
     languages:
     - Common
@@ -102,11 +106,15 @@ translations:
     name: Dragon de cuivre, jeune
     subtype: Métallique
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le dragon effectue trois attaques de Saignée. Il peut remplacer l'une de ces attaques par une utilisation de Souffle ralentissant.</p>
-      <p><strong><em>Saignée</em></strong>. <em>Corps à corps</em> : +7, allonge 3 m. <em>Touché</em> : 15 (2d10 + 4) dégâts tranchants.</p>
-      <p><strong><em>Souffle d'acide (recharge 5–6)</em></strong>. <em>JdS Dextérité</em> : DD 14, chaque créature dans une Ligne de 12 m de long sur 1,50 m de large. <em>Échec</em> : 40 (9d8) dégâts d'acide. <em>Réussite</em> : demi-dégâts.</p>
-      <p><strong><em>Souffle ralentissant</em></strong>. <em>JdS Constitution</em> : DD 14, chaque créature dans un Cône de 9 m. <em>Échec</em> : la cible voit sa Vitesse réduite de moitié, ne peut pas jouer de Réaction et peut entreprendre une action ou une action Bonus à son tour, mais pas les deux. L'effet persiste jusqu'à la fin de son tour suivant.</p>
+      ## Actions
+
+      ***Attaques multiples***. Le dragon effectue trois attaques de Saignée. Il peut remplacer l'une de ces attaques par une utilisation de Souffle ralentissant.
+
+      ***Saignée***. *Corps à corps* : +7, allonge 3 m. *Touché* : 15 (2d10 + 4) dégâts tranchants.
+
+      ***Souffle d'acide (recharge 5–6)***. *JdS Dextérité* : DD 14, chaque créature dans une Ligne de 12 m de long sur 1,50 m de large. *Échec* : 40 (9d8) dégâts d'acide. *Réussite* : demi-dégâts.
+
+      ***Souffle ralentissant***. *JdS Constitution* : DD 14, chaque créature dans un Cône de 9 m. *Échec* : la cible voit sa Vitesse réduite de moitié, ne peut pas jouer de Réaction et peut entreprendre une action ou une action Bonus à son tour, mais pas les deux. L'effet persiste jusqu'à la fin de son tour suivant.
     senses: Vision aveugle 9 m, Vision dans le noir 36 m, Perception passive 17
     languages:
     - commun

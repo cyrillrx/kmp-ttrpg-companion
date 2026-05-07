@@ -89,11 +89,15 @@ translations:
     name: Gargoyle
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Flyby</em>**. The gargoyle doesn't provoke an Opportunity Attack when it flies out of an enemy's reach.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The gargoyle makes two Claw attacks.</p>
-      <p><strong><em>Claw</em></strong>. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 7 (2d4 + 2) Slashing damage.</p>
+      ## Traits
+
+      ***Flyby***. The gargoyle doesn't provoke an Opportunity Attack when it flies out of an enemy's reach.
+
+      ## Actions
+
+      ***Multiattack***. The gargoyle makes two Claw attacks.
+
+      ***Claw***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 7 (2d4 + 2) Slashing damage.
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - Primordial (Terran)
@@ -101,11 +105,15 @@ translations:
     name: Gargouille
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Repli aérien</em>**. La gargouille ne provoque pas d'attaque d'Opportunité lorsqu'elle quitte la zone d'allonge d'un ennemi en volant.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. La gargouille effectue deux attaques de Griffe.</p>
-      <p><strong><em>Griffe</em></strong>. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 7 (2d4 + 2) dégâts tranchants.</p>
+      ## Traits
+
+      ***Repli aérien***. La gargouille ne provoque pas d'attaque d'Opportunité lorsqu'elle quitte la zone d'allonge d'un ennemi en volant.
+
+      ## Actions
+
+      ***Attaques multiples***. La gargouille effectue deux attaques de Griffe.
+
+      ***Griffe***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 7 (2d4 + 2) dégâts tranchants.
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - primordial (terreux)

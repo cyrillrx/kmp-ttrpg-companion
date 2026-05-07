@@ -89,14 +89,21 @@ translations:
     name: Fire Elemental
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Fiery Aura</em>**. At the end of each of the elemental's turns, each creature in a 10-foot Emanation originating from the elemental takes 5 (1d10) Fire damage. Creatures and flammable objects in the Emanation start burning.</p>
-      <p><strong><em>Fire Form</em></strong>. The elemental can move through a space as narrow as 1 inch wide without expending extra movement to do so, and it can enter a creature's space and stop there. The first time it enters a creature's space on a turn, that creature takes 5 (1d10) Fire damage.</p>
-      <p><strong><em>Illumination</em></strong>. The elemental sheds Bright Light in a 30-foot radius and Dim Light for an additional 30 feet.</p>
-      <p><strong><em>Water Susceptibility</em></strong>. The elemental takes 3 (1d6) Cold damage for every 5 feet the elemental moves in water or for every gallon of water splashed on it.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The elemental makes two Burn attacks.</p>
-      <p><strong><em>Burn</em></strong>. <em>Melee Attack Roll</em> : +6, reach 5 ft. <em>Hit</em> : 10 (2d6 + 3) Fire damage. If the target is a creature or a flammable object, it starts burning.</p>
+      ## Traits
+
+      ***Fiery Aura***. At the end of each of the elemental's turns, each creature in a 10-foot Emanation originating from the elemental takes 5 (1d10) Fire damage. Creatures and flammable objects in the Emanation start burning.
+
+      ***Fire Form***. The elemental can move through a space as narrow as 1 inch wide without expending extra movement to do so, and it can enter a creature's space and stop there. The first time it enters a creature's space on a turn, that creature takes 5 (1d10) Fire damage.
+
+      ***Illumination***. The elemental sheds Bright Light in a 30-foot radius and Dim Light for an additional 30 feet.
+
+      ***Water Susceptibility***. The elemental takes 3 (1d6) Cold damage for every 5 feet the elemental moves in water or for every gallon of water splashed on it.
+
+      ## Actions
+
+      ***Multiattack***. The elemental makes two Burn attacks.
+
+      ***Burn***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 10 (2d6 + 3) Fire damage. If the target is a creature or a flammable object, it starts burning.
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - Primordial (Ignan)
@@ -104,14 +111,21 @@ translations:
     name: Élémentaire du feu
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Aura de feu</em>**. À la fin de chacun des tours de l'élémentaire, chaque créature dans une Émanation de 3 m centrée sur lui subit 5 (1d10) dégâts de feu. Les créatures et objets inflammables dans l'Émanation s'embrasent.</p>
-      <p><strong><em>Corps de feu</em></strong>. L'élémentaire peut se déplacer dans un espace étroit d'une largeur minimale de 2,50 cm sans dépense supplémentaire en déplacement, et il peut entrer dans l'espace d'une créature et s'y arrêter. La première fois d'un tour qu'il entre dans l'espace d'une créature donnée, celle-ci subit 5 (1d10) dégâts de feu.</p>
-      <p><strong><em>Illumination</em></strong>. L'élémentaire émet une Lumière vive sur un rayon de 9 m et une Lumière faible sur 9 m de plus.</p>
-      <p><strong><em>Vulnérabilité à l'eau</em></strong>. L'élémentaire subit 3 (1d6) dégâts de froid par tranche de 1,50 m qu'il parcourt dans l'eau, ainsi que par tranche de 4 litres d'eau dont on l'asperge.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. L'élémentaire effectue deux attaques de Brûlure.</p>
-      <p><strong><em>Brûlure</em></strong>. <em>Corps à corps</em> : +6, allonge 1,50 m. <em>Touché</em> : 10 (2d6 + 3) dégâts de feu. Si la cible est une créature ou un objet inflammable, elle s'embrase.</p>
+      ## Traits
+
+      ***Aura de feu***. À la fin de chacun des tours de l'élémentaire, chaque créature dans une Émanation de 3 m centrée sur lui subit 5 (1d10) dégâts de feu. Les créatures et objets inflammables dans l'Émanation s'embrasent.
+
+      ***Corps de feu***. L'élémentaire peut se déplacer dans un espace étroit d'une largeur minimale de 2,50 cm sans dépense supplémentaire en déplacement, et il peut entrer dans l'espace d'une créature et s'y arrêter. La première fois d'un tour qu'il entre dans l'espace d'une créature donnée, celle-ci subit 5 (1d10) dégâts de feu.
+
+      ***Illumination***. L'élémentaire émet une Lumière vive sur un rayon de 9 m et une Lumière faible sur 9 m de plus.
+
+      ***Vulnérabilité à l'eau***. L'élémentaire subit 3 (1d6) dégâts de froid par tranche de 1,50 m qu'il parcourt dans l'eau, ainsi que par tranche de 4 litres d'eau dont on l'asperge.
+
+      ## Actions
+
+      ***Attaques multiples***. L'élémentaire effectue deux attaques de Brûlure.
+
+      ***Brûlure***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 10 (2d6 + 3) dégâts de feu. Si la cible est une créature ou un objet inflammable, elle s'embrase.
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - primordial (igné)

@@ -8,11 +8,11 @@ translations:
     name: Oil of Etherealness
     subtype: null
     description: |-
-      <p>One vial of this oil can cover one Medium or smaller creature, along with the equipment it's wearing and carrying (one additional vial is required for each size category above Medium). Applying the oil takes 10 minutes. The affected creature then gains the effect of the <em><a href="https://www.aidedd.org/spell/etherealness">Etherealness</a></em> spell for 1 hour.<br />
-      Beads of this cloudy, gray oil form on the outside of its container and quickly evaporate.</p>
+      One vial of this oil can cover one Medium or smaller creature, along with the equipment it's wearing and carrying (one additional vial is required for each size category above Medium). Applying the oil takes 10 minutes. The affected creature then gains the effect of the *[Etherealness](https://www.aidedd.org/spell/etherealness)* spell for 1 hour.\
+      Beads of this cloudy, gray oil form on the outside of its container and quickly evaporate.
   fr:
     name: Huile éthérée
     subtype: null
     description: |-
-      <p>Une fiole de cette huile peut couvrir une créature de taille M ou plus petite, ainsi que l'équipement qu'elle porte (une fiole supplémentaire est nécessaire pour chaque catégorie de taille supérieure à M). L'application de l'huile prend 10 minutes. La créature affectée bénéficie alors de l'effet du sort <em><a href="https://www.aidedd.org/spell/fr/forme-etheree">forme éthérée</a></em> pendant 1 heure.<br />
-      Des perles de cette huile trouble et grise se forment à l'extérieur du récipient et s'évaporent rapidement.</p>
+      Une fiole de cette huile peut couvrir une créature de taille M ou plus petite, ainsi que l'équipement qu'elle porte (une fiole supplémentaire est nécessaire pour chaque catégorie de taille supérieure à M). L'application de l'huile prend 10 minutes. La créature affectée bénéficie alors de l'effet du sort *[forme éthérée](https://www.aidedd.org/spell/fr/forme-etheree)* pendant 1 heure.\
+      Des perles de cette huile trouble et grise se forment à l'extérieur du récipient et s'évaporent rapidement.

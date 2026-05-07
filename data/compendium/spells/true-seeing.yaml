@@ -22,7 +22,7 @@ translations:
     duration: 1 hour
     materialDescription: mushroom powder worth 25+ GP, which the spell consumes
     description: For the duration, the willing creature you touch has Truesight with
-      a range of 120 feet.<br/>
+      a range of 120 feet.\
   fr:
     name: Vision suprême
     castingTime: Action
@@ -31,4 +31,4 @@ translations:
     materialDescription: poudre de champignons d'une valeur minimale de 25 po, que
       le sort consomme
     description: Pour toute la durée, une créature consentante que vous touchez physiquement
-      acquiert la Vision véritable sur 36 m.<br/>
+      acquiert la Vision véritable sur 36 m.\

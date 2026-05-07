@@ -19,11 +19,17 @@ translations:
     range: 500 feet
     duration: Concentration, up to 10 minutes
     materialDescription: null
-    description: You create linked teleportation portals. Choose two Large, unoccupied spaces on the ground that you can see, one space within range and the other one within 10 feet of you. A circular portal opens in each of those spaces and remains for the duration.<br/>The portals are two-dimensional glowing rings filled with mist that blocks sight. They hover inches from the ground and are perpendicular to it.<br/>A portal is open on only one side (you choose which). Anything entering the open side of a portal exits from the open side of the other portal as if the two were adjacent to each other. As a Bonus Action, you can change the facing of the open sides.<br/>
+    description: |-
+      You create linked teleportation portals. Choose two Large, unoccupied spaces on the ground that you can see, one space within range and the other one within 10 feet of you. A circular portal opens in each of those spaces and remains for the duration.\
+      The portals are two-dimensional glowing rings filled with mist that blocks sight. They hover inches from the ground and are perpendicular to it.\
+      A portal is open on only one side (you choose which). Anything entering the open side of a portal exits from the open side of the other portal as if the two were adjacent to each other. As a Bonus Action, you can change the facing of the open sides.\
   fr:
     name: Portail arcanique
     castingTime: Action
     range: 90 m
     duration: Concentration, jusqu'à 10 minutes
     materialDescription: null
-    description: Vous créez des portails de téléportation reliés entre eux. Choisissez deux espaces de taille G inoccupés sur le sol que vous pouvez voir, l'un à portée et l'autre à 3 mètres ou moins de vous. Un portail circulaire s'ouvre dans chacun de ces espaces et demeure pour toute la durée.<br/>Les portails sont des anneaux lumineux bidimensionnels remplis d'un brouillard qui bloque la vue. Ils flottent à quelques centimètres du sol et lui sont perpendiculaires.<br/>Un portail n'est ouvert que d'un seul côté (vous choisissez lequel). Tout ce qui entre par le côté ouvert d'un portail sort par le côté ouvert de l'autre portail, comme s'ils étaient adjacents. En tant qu'action bonus, vous pouvez modifier l'orientation des côtés ouverts.<br/>
+    description: |-
+      Vous créez des portails de téléportation reliés entre eux. Choisissez deux espaces de taille G inoccupés sur le sol que vous pouvez voir, l'un à portée et l'autre à 3 mètres ou moins de vous. Un portail circulaire s'ouvre dans chacun de ces espaces et demeure pour toute la durée.\
+      Les portails sont des anneaux lumineux bidimensionnels remplis d'un brouillard qui bloque la vue. Ils flottent à quelques centimètres du sol et lui sont perpendiculaires.\
+      Un portail n'est ouvert que d'un seul côté (vous choisissez lequel). Tout ce qui entre par le côté ouvert d'un portail sort par le côté ouvert de l'autre portail, comme s'ils étaient adjacents. En tant qu'action bonus, vous pouvez modifier l'orientation des côtés ouverts.\

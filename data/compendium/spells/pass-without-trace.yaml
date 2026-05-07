@@ -20,7 +20,7 @@ translations:
     materialDescription: ashes from a burned mistletoe
     description: You radiate a concealing aura in a 30-foot Emanation for the duration.
       While in the aura, you and each creature you choose have a +10 bonus to Dexterity
-      (Stealth) checks and leave no tracks.<br/>
+      (Stealth) checks and leave no tracks.\
   fr:
     name: Passage sans trace
     castingTime: Action
@@ -30,4 +30,4 @@ translations:
     description: Une aura de dissimulation rayonne autour de vous sous forme d'Émanation
       de 9 mètres pendant toute la durée du sort. Tant que vous êtes dans l'aura,
       vous et Toute créature que vous choisissez bénéficiez d'un bonus de +10 aux
-      jets de Dextérité (Discrétion) et ne laissez aucune trace.<br/>
+      jets de Dextérité (Discrétion) et ne laissez aucune trace.\

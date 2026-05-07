@@ -7,11 +7,10 @@ translations:
   en:
     name: Clothes of Mending
     subtype: null
-    description: <p>This elegant outﬁt magically mends itself to counteract daily
-      wear and tear. Pieces of the outﬁt that are destroyed can't be repaired in this
-      way.</p>
+    description: This elegant outﬁt magically mends itself to counteract daily wear
+      and tear. Pieces of the outﬁt that are destroyed can't be repaired in this way.
   fr:
     name: Habits autoréparateurs
     subtype: null
-    description: <p>Cette tenue élégante se répare magiquement pour résister à l'usure
-      du quotidien. Les pièces détruites ne peuvent pas être réparées de cette façon.</p>
+    description: Cette tenue élégante se répare magiquement pour résister à l'usure
+      du quotidien. Les pièces détruites ne peuvent pas être réparées de cette façon.

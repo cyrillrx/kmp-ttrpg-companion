@@ -7,16 +7,16 @@ translations:
   en:
     name: Ersatz Eye
     subtype: null
-    description: <p>This magical eye replaces a real one that was lost or removed.
-      While the <em>Ersatz Eye</em> is embedded in your eye socket, you can see through
-      the tiny orb as though it were your natural eye. You can insert or remove the
-      <em>Ersatz Eye</em> as a Magic action, and it can't be removed against your
-      will while you are alive.</p>
+    description: This magical eye replaces a real one that was lost or removed. While
+      the *Ersatz Eye* is embedded in your eye socket, you can see through the tiny
+      orb as though it were your natural eye. You can insert or remove the *Ersatz
+      Eye* as a Magic action, and it can't be removed against your will while you
+      are alive.
   fr:
     name: Oeil artificiel
     subtype: null
-    description: <p>Cet oeil magique remplace un oeil véritable perdu ou arraché.
-      Tant que l'<em>oeil artificiel</em> est implanté dans votre orbite, vous pouvez
-      voir à travers cette minuscule sphère comme s'il s'agissait de votre oeil naturel.
-      Vous pouvez insérer ou retirer l'<em>oeil artificiel</em> par une action Magie,
-      et on ne peut pas vous le retirer contre votre volonté de votre vivant.</p>
+    description: Cet oeil magique remplace un oeil véritable perdu ou arraché. Tant
+      que l'*oeil artificiel* est implanté dans votre orbite, vous pouvez voir à travers
+      cette minuscule sphère comme s'il s'agissait de votre oeil naturel. Vous pouvez
+      insérer ou retirer l'*oeil artificiel* par une action Magie, et on ne peut pas
+      vous le retirer contre votre volonté de votre vivant.

@@ -20,11 +20,17 @@ translations:
     range: 60 feet
     duration: Instantaneous
     materialDescription: null
-    description: You ward yourself against destructive energy, reducing the damage taken by 4d6 plus your spellcasting ability modifier.<br/>If the triggering damage was from a creature within range, you can force the creature to make a Constitution saving throw. The creature takes 4d6 Force damage on a failed save or half as much damage on a successful one.<br/><strong>Using a Higher-Level Spell Slot.</strong> The damage reduction and Force damage from this spell both increase by 1d6 for every spell slot level above 4.<br/>
+    description: |-
+      You ward yourself against destructive energy, reducing the damage taken by 4d6 plus your spellcasting ability modifier.\
+      If the triggering damage was from a creature within range, you can force the creature to make a Constitution saving throw. The creature takes 4d6 Force damage on a failed save or half as much damage on a successful one.\
+      **Using a Higher-Level Spell Slot.** The damage reduction and Force damage from this spell both increase by 1d6 for every spell slot level above 4.\
   fr:
     name: Contrecoup
     castingTime: Réaction, que vous prenez en réponse à des dégâts subis
     range: 18 m
     duration: Instantanée
     materialDescription: null
-    description: Vous vous protégez contre une énergie destructrice, réduisant les dégâts subis de 4d6 plus votre modificateur de caractéristique d'incantation.<br/>Si les dégâts déclencheurs provenaient d'une créature à portée, vous pouvez la forcer à effectuer un jet de sauvegarde de Constitution. La créature subit 4d6 dégâts de force en cas d'échec, ou la moitié de ces dégâts en cas de réussite.<br/><strong>Emplacement de niveau supérieur.</strong> La réduction de dégâts et les dégâts de force augmentent chacun de 1d6 par niveau d'emplacement au-delà du 4e.<br/>
+    description: |-
+      Vous vous protégez contre une énergie destructrice, réduisant les dégâts subis de 4d6 plus votre modificateur de caractéristique d'incantation.\
+      Si les dégâts déclencheurs provenaient d'une créature à portée, vous pouvez la forcer à effectuer un jet de sauvegarde de Constitution. La créature subit 4d6 dégâts de force en cas d'échec, ou la moitié de ces dégâts en cas de réussite.\
+      **Emplacement de niveau supérieur.** La réduction de dégâts et les dégâts de force augmentent chacun de 1d6 par niveau d'emplacement au-delà du 4e.\

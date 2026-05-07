@@ -18,24 +18,15 @@ translations:
     range: 150 feet
     duration: Instantaneous
     materialDescription: a drop of bile
-    description: You point at a location within range, and a glowing, 1-foot-diameter
-      ball of acid streaks there and explodes in a 20-foot-radius Sphere. Each creature
-      in that area makes a Dexterity saving throw. On a failed save, a creature takes
-      10d4 Acid damage and another 5d4 Acid damage at the end of its next turn. On
-      a successful save, a creature takes half the initial damage only.<br/><strong><em>Using
-      a Higher-Level Spell Slot</em></strong>. The initial damage increases by 2d4
-      for each spell slot level above 4.<br/>
+    description: |-
+      You point at a location within range, and a glowing, 1-foot-diameter ball of acid streaks there and explodes in a 20-foot-radius Sphere. Each creature in that area makes a Dexterity saving throw. On a failed save, a creature takes 10d4 Acid damage and another 5d4 Acid damage at the end of its next turn. On a successful save, a creature takes half the initial damage only.\
+      ***Using a Higher-Level Spell Slot***. The initial damage increases by 2d4 for each spell slot level above 4.\
   fr:
     name: Sphère de vitriol
     castingTime: Action
     range: 45 m
     duration: Instantanée
     materialDescription: une goutte de bile
-    description: Vous pointez un endroit à portée, et une boule d'acide brillante
-      de 30 cm de diamètre y jaillit avant d'exploser dans une Sphère de 6 mètres
-      de rayon. Toute créature dans cette zone effectue un jet de sauvegarde de Dextérité.
-      En cas d'échec, la créature subit 10d4 dégâts d'Acide, puis 5d4 supplémentaires
-      à la fin de son prochain tour. En cas de réussite, la créature subit seulement
-      la moitié des dégâts initiaux.<br/><strong><em>Emplacement de niveau supérieur</em></strong>.
-      Les dégâts initiaux augmentent de 2d4 pour chaque niveau d'emplacement de sort
-      supérieur à 4.<br/>
+    description: |-
+      Vous pointez un endroit à portée, et une boule d'acide brillante de 30 cm de diamètre y jaillit avant d'exploser dans une Sphère de 6 mètres de rayon. Toute créature dans cette zone effectue un jet de sauvegarde de Dextérité. En cas d'échec, la créature subit 10d4 dégâts d'Acide, puis 5d4 supplémentaires à la fin de son prochain tour. En cas de réussite, la créature subit seulement la moitié des dégâts initiaux.\
+      ***Emplacement de niveau supérieur***. Les dégâts initiaux augmentent de 2d4 pour chaque niveau d'emplacement de sort supérieur à 4.\

@@ -89,10 +89,13 @@ translations:
     name: Deer
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Agile</em>**. The deer doesn't provoke an Opportunity Attack when it moves out of an enemy's reach.</p>
-      <h2>Actions</h2>
-      <p>** <em>Ram</em>**. <em>Melee Attack Roll</em> : +2, reach 5 ft. <em>Hit</em> : 2 (1d4) Bludgeoning damage.</p>
+      ## Traits
+
+      ***Agile***. The deer doesn't provoke an Opportunity Attack when it moves out of an enemy's reach.
+
+      ## Actions
+
+      ***Ram***. *Melee Attack Roll* : +2, reach 5 ft. *Hit* : 2 (1d4) Bludgeoning damage.
     senses: Darkvision 60 ft., Passive Perception 14
     languages:
     - None
@@ -100,10 +103,13 @@ translations:
     name: Cerf / Petit cervidé
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Agile</em>**. Le cerf ne provoque pas d'attaque d'Opportunité lorsqu'il quitte l'allonge d'un ennemi en se déplaçant.</p>
-      <h2>Actions</h2>
-      <p>** <em>Coup de bélier</em>**. <em>Corps à corps</em> : +2, allonge 1,50 m. <em>Touché</em> : 2 (1d4) dégâts contondants.</p>
+      ## Traits
+
+      ***Agile***. Le cerf ne provoque pas d'attaque d'Opportunité lorsqu'il quitte l'allonge d'un ennemi en se déplaçant.
+
+      ## Actions
+
+      ***Coup de bélier***. *Corps à corps* : +2, allonge 1,50 m. *Touché* : 2 (1d4) dégâts contondants.
     senses: Vision dans le noir 18 m, Perception passive 14
     languages:
     - aucune

@@ -18,11 +18,9 @@ translations:
     range: 60 feet
     duration: Instantaneous
     materialDescription: null
-    description: The creature that damaged you is momentarily surrounded by green
-      flames. It makes a Dexterity saving throw, taking 2d10 Fire damage on a failed
-      save or half as much damage on a successful one.<br/><strong><em>Using a Higher-Level
-      Spell Slot</em></strong>. The damage increases by 1d10 for each spell slot level
-      above 1.<br/>
+    description: |-
+      The creature that damaged you is momentarily surrounded by green flames. It makes a Dexterity saving throw, taking 2d10 Fire damage on a failed save or half as much damage on a successful one.\
+      ***Using a Higher-Level Spell Slot***. The damage increases by 1d10 for each spell slot level above 1.\
   fr:
     name: Représailles infernales
     castingTime: Réaction, que vous prenez en réponse aux dégâts subis par une créature
@@ -30,8 +28,6 @@ translations:
     range: 18 m
     duration: Instantanée
     materialDescription: null
-    description: La créature qui vous a blessé est momentanément entourée de flammes
-      vertes. Elle effectue un jet de sauvegarde de Dextérité et subit 2d10 dégâts
-      de feu en cas d'échec, ou la moitié en cas de réussite.<br/><strong><em>Emplacement
-      de niveau supérieur</em></strong>. Les dégâts augmentent de 1d10 pour chaque
-      niveau d'emplacement de sort supérieur à 1.<br/>
+    description: |-
+      La créature qui vous a blessé est momentanément entourée de flammes vertes. Elle effectue un jet de sauvegarde de Dextérité et subit 2d10 dégâts de feu en cas d'échec, ou la moitié en cas de réussite.\
+      ***Emplacement de niveau supérieur***. Les dégâts augmentent de 1d10 pour chaque niveau d'emplacement de sort supérieur à 1.\

@@ -21,7 +21,7 @@ translations:
     materialDescription: null
     description: An aura radiates from you in a 30-foot Emanation for the duration.
       When you create the aura and at the start of each of your turns while it persists,
-      you can restore 2d6 Hit Points to one creature in it.<br/>
+      you can restore 2d6 Hit Points to one creature in it.\
   fr:
     name: Aura de vitalité
     castingTime: Action
@@ -31,4 +31,4 @@ translations:
     description: Une aura rayonne autour de vous sous forme d'Émanation de 9 mètres
       pour toute la durée du sort. Lorsque vous créez l'aura et au début de chacun
       de vos tours tant qu'elle persiste, vous pouvez restaurer 2d6 points de vie
-      à une créature qui s'y trouve.<br/>
+      à une créature qui s'y trouve.\

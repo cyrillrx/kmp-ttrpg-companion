@@ -89,17 +89,26 @@ translations:
     name: Barlgura
     subtype: Demon
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Demonic Restoration</em>**. If the barlgura dies outside the Abyss, its body dissolves into ichor, and it gains a new body instantly, reviving with all its Hit Points somewhere in the Abyss.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The barlgura makes one Tormenting Bite attack and two Thrash attacks.</p>
-      <p><strong><em>Tormenting Bite</em></strong>. <em>Melee Attack Roll</em> : +7, reach 5 ft. <em>Hit</em> : 11 (2d6 + 4) Piercing damage plus 13 (2d12) Psychic damage.</p>
-      <p><strong><em>Spellcasting</em></strong>. The barlgura casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 13):</p>
-      <p>2/day each: <em><a href="https://www.aidedd.org/spell/disguise-self">Disguise Self</a>, <a href="https://www.aidedd.org/spell/invisibility">Invisibility</a></em> (self only)<br />
-      1/day each: <em><a href="https://www.aidedd.org/spell/entangle">Entangle</a>, <a href="https://www.aidedd.org/spell/phantasmal-killer">Phantasmal Killer</a></em> (level 6 version)  </p>
-      <p><strong><em>Thrash</em></strong>. <em>Melee Attack Roll</em> : +7, reach 5 ft. <em>Hit</em> : 9 (1d10 + 4) Bludgeoning damage. If the target is a Large or smaller creature, it has the Prone condition.</p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Leap</em>**. The barlgura jumps up to 40 feet by spending 10 feet of movement.</p>
+      ## Traits
+
+      ***Demonic Restoration***. If the barlgura dies outside the Abyss, its body dissolves into ichor, and it gains a new body instantly, reviving with all its Hit Points somewhere in the Abyss.
+
+      ## Actions
+
+      ***Multiattack***. The barlgura makes one Tormenting Bite attack and two Thrash attacks.
+
+      ***Tormenting Bite***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 11 (2d6 + 4) Piercing damage plus 13 (2d12) Psychic damage.
+
+      ***Spellcasting***. The barlgura casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 13):
+
+      2/day each: *[Disguise Self](https://www.aidedd.org/spell/disguise-self), [Invisibility](https://www.aidedd.org/spell/invisibility)* (self only)\
+      1/day each: *[Entangle](https://www.aidedd.org/spell/entangle), [Phantasmal Killer](https://www.aidedd.org/spell/phantasmal-killer)* (level 6 version)
+
+      ***Thrash***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 9 (1d10 + 4) Bludgeoning damage. If the target is a Large or smaller creature, it has the Prone condition.
+
+      ## Bonus actions
+
+      ***Leap***. The barlgura jumps up to 40 feet by spending 10 feet of movement.
     senses: Blindsight 30 ft., Darkvision 120 ft., Passive Perception 15
     languages:
     - Abyssal; telepathy 120 ft.
@@ -107,17 +116,26 @@ translations:
     name: Barlgura
     subtype: Démon
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Restauration démoniaque</em>**. Si le barlgura meurt hors des Abysses, son corps se dissout en ichor et il en acquiert aussitôt un nouveau en revenant à la vie avec tous ses pv, quelque part dans les Abysses.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le barlgura effectue une attaque de Morsure accablante et deux attaques de Rossée.</p>
-      <p><strong><em>Morsure accablante</em></strong>. <em>Corps à corps</em> : +7, allonge 1,50 m. <em>Touché</em> : 11 (2d6 + 4) dégâts perforants plus 13 (2d12) dégâts psychiques.</p>
-      <p><strong><em>Rossée</em></strong>. <em>Corps à corps</em> : +7, allonge 1,50 m. <em>Touché</em> : 9 (1d10 + 4) dégâts contondants. Si la cible est une créature G ou inférieure, elle subit l'état À terre.</p>
-      <p><strong><em>Incantation</em></strong>. Le barlgura lance l'un des sorts suivants sans composantes matérielles, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 13) :</p>
-      <p>2/jour chacun : <em><a href="https://www.aidedd.org/spell/fr/deguisement">déguisement</a>, <a href="https://www.aidedd.org/spell/fr/invisibilite">invisibilité</a></em> (soi-même uniquement)<br />
-      1/jour chacun : <em><a href="https://www.aidedd.org/spell/fr/enchevetrement">enchevêtrement</a>, <a href="https://www.aidedd.org/spell/fr/assassin-imaginaire">assassin fantasmal</a></em> (au niveau 6)  </p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Bond</em>**. Le barlgura effectue un saut d'un maximum de 12 m en dépensant 3 m de déplacement.</p>
+      ## Traits
+
+      ***Restauration démoniaque***. Si le barlgura meurt hors des Abysses, son corps se dissout en ichor et il en acquiert aussitôt un nouveau en revenant à la vie avec tous ses pv, quelque part dans les Abysses.
+
+      ## Actions
+
+      ***Attaques multiples***. Le barlgura effectue une attaque de Morsure accablante et deux attaques de Rossée.
+
+      ***Morsure accablante***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 11 (2d6 + 4) dégâts perforants plus 13 (2d12) dégâts psychiques.
+
+      ***Rossée***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 9 (1d10 + 4) dégâts contondants. Si la cible est une créature G ou inférieure, elle subit l'état À terre.
+
+      ***Incantation***. Le barlgura lance l'un des sorts suivants sans composantes matérielles, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 13) :
+
+      2/jour chacun : *[déguisement](https://www.aidedd.org/spell/fr/deguisement), [invisibilité](https://www.aidedd.org/spell/fr/invisibilite)* (soi-même uniquement)\
+      1/jour chacun : *[enchevêtrement](https://www.aidedd.org/spell/fr/enchevetrement), [assassin fantasmal](https://www.aidedd.org/spell/fr/assassin-imaginaire)* (au niveau 6)
+
+      ## Actions Bonus
+
+      ***Bond***. Le barlgura effectue un saut d'un maximum de 12 m en dépensant 3 m de déplacement.
     senses: Vision aveugle 9 m, Vision dans le noir 36 m, Perception passive 15
     languages:
     - abyssal ; télépathie 36 m

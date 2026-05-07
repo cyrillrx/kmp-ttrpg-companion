@@ -89,12 +89,17 @@ translations:
     name: Frost Giant
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The giant makes two attacks, using Frost Axe or Great Bow in any combination.</p>
-      <p><strong><em>Frost Axe</em></strong>. <em>Melee Attack Roll</em> : +9, reach 10 ft. <em>Hit</em> : 19 (2d12 + 6) Slashing damage plus 9 (2d8) Cold damage.</p>
-      <p><strong><em>Great Bow</em></strong>. <em>Ranged Attack Roll</em> : +9, range 150/600 ft. <em>Hit</em> : 17 (2d10 + 6) Piercing damage plus 7 (2d6) Cold damage, and the target's Speed decreases by 10 feet until the end of its next turn.</p>
-      <h2>Bonus actions</h2>
-      <p>** <em>War Cry (Recharge 5–6)</em>**. The giant or one creature of its choice that can see or hear it gains 16 (2d10 + 5) Temporary Hit Points and has Advantage on attack rolls until the start of the giant's next turn.</p>
+      ## Actions
+
+      ***Multiattack***. The giant makes two attacks, using Frost Axe or Great Bow in any combination.
+
+      ***Frost Axe***. *Melee Attack Roll* : +9, reach 10 ft. *Hit* : 19 (2d12 + 6) Slashing damage plus 9 (2d8) Cold damage.
+
+      ***Great Bow***. *Ranged Attack Roll* : +9, range 150/600 ft. *Hit* : 17 (2d10 + 6) Piercing damage plus 7 (2d6) Cold damage, and the target's Speed decreases by 10 feet until the end of its next turn.
+
+      ## Bonus actions
+
+      ***War Cry (Recharge 5–6)***. The giant or one creature of its choice that can see or hear it gains 16 (2d10 + 5) Temporary Hit Points and has Advantage on attack rolls until the start of the giant's next turn.
     senses: Passive Perception 13
     languages:
     - Giant
@@ -102,12 +107,17 @@ translations:
     name: Géant du givre
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le géant effectue deux attaques, réparties à sa guise entre Hache de givre et Grand arc.</p>
-      <p><strong><em>Hache de givre</em></strong>. <em>Corps à corps</em> : +9, allonge 3 m. <em>Touché</em> : 19 (2d12 + 6) dégâts tranchants plus 9 (2d8) dégâts de froid.</p>
-      <p><strong><em>Grand arc</em></strong>. <em>À distance</em> : +9, portée 45/180 m. <em>Touché</em> : 17 (2d10 + 6) dégâts perforants plus 7 (2d6) dégâts de froid, et la Vitesse de la cible est réduite de 3 m jusqu'à la fin de son tour suivant.</p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Cri de guerre (recharge 5–6)</em>**. Le géant ou une créature de son choix parmi celles qui l'entendent ou le voient reçoit 16 (2d10 + 5) points de vie temporaires, ainsi qu'un Avantage aux jets d'attaque jusqu'au début du tour suivant du géant.</p>
+      ## Actions
+
+      ***Attaques multiples***. Le géant effectue deux attaques, réparties à sa guise entre Hache de givre et Grand arc.
+
+      ***Hache de givre***. *Corps à corps* : +9, allonge 3 m. *Touché* : 19 (2d12 + 6) dégâts tranchants plus 9 (2d8) dégâts de froid.
+
+      ***Grand arc***. *À distance* : +9, portée 45/180 m. *Touché* : 17 (2d10 + 6) dégâts perforants plus 7 (2d6) dégâts de froid, et la Vitesse de la cible est réduite de 3 m jusqu'à la fin de son tour suivant.
+
+      ## Actions Bonus
+
+      ***Cri de guerre (recharge 5–6)***. Le géant ou une créature de son choix parmi celles qui l'entendent ou le voient reçoit 16 (2d10 + 5) points de vie temporaires, ainsi qu'un Avantage aux jets d'attaque jusqu'au début du tour suivant du géant.
     senses: Perception passive 13
     languages:
     - géant

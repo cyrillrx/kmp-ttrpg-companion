@@ -19,19 +19,15 @@ translations:
     range: Touch
     duration: 10 days
     materialDescription: 2 copper pieces, which the spell consumes
-    description: You touch a corpse or other remains. For the duration, the target
-      is protected from decay and can't become Undead.<br/>The spell also effectively
-      extends the time limit on raising the target from the dead, since days spent
-      under the influence of this spell don't count against the time limit of spells
-      such as <em><a href="./raise-dead">Raise Dead</a></em>.<br/>
+    description: |-
+      You touch a corpse or other remains. For the duration, the target is protected from decay and can't become Undead.\
+      The spell also effectively extends the time limit on raising the target from the dead, since days spent under the influence of this spell don't count against the time limit of spells such as *[Raise Dead](./raise-dead)*.\
   fr:
     name: Doux repos
     castingTime: Action ou Rituel
     range: Contact
     duration: 10 jours
     materialDescription: 2 pièces de cuivre, que le sort consomme
-    description: Vous touchez un cadavre ou d'autres restes. Pendant la durée du sort,
-      la cible est protégée de la décomposition et ne peut pas devenir un mort-vivant.<br/>Ce
-      sort prolonge également le délai de résurrection de la cible, car les jours
-      passés sous son influence ne sont pas décomptés du délai de résurrection de
-      sorts tels que <em><a href="./fr/rappel-a-la-vie">rappel à la vie</a></em>.<br/>
+    description: |-
+      Vous touchez un cadavre ou d'autres restes. Pendant la durée du sort, la cible est protégée de la décomposition et ne peut pas devenir un mort-vivant.\
+      Ce sort prolonge également le délai de résurrection de la cible, car les jours passés sous son influence ne sont pas décomptés du délai de résurrection de sorts tels que *[rappel à la vie](./fr/rappel-a-la-vie)*.\

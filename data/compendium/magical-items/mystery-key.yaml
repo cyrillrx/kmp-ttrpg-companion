@@ -7,12 +7,12 @@ translations:
   en:
     name: Mystery Key
     subtype: null
-    description: <p>A question mark is worked into the head of this key. The key has
+    description: A question mark is worked into the head of this key. The key has
       a 5 percent chance of unlocking any lock into which it's inserted. Once it unlocks
-      something, the key disappears.</p>
+      something, the key disappears.
   fr:
     name: Clef mystérieuse
     subtype: null
-    description: <p>Un point d'interrogation est gravé sur la tête de cette clé. Elle
+    description: Un point d'interrogation est gravé sur la tête de cette clé. Elle
       a 5 % de chances d'ouvrir n'importe quelle serrure. Une fois qu'elle a ouvert
-      une serrure, la clé disparaît.</p>
+      une serrure, la clé disparaît.

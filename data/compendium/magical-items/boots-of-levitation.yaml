@@ -7,10 +7,10 @@ translations:
   en:
     name: Boots of Levitation
     subtype: null
-    description: <p>While you wear these boots, you can cast <em><a href="https://www.aidedd.org/spell/levitate">Levitate</a></em>
-      on yourself.</p>
+    description: While you wear these boots, you can cast *[Levitate](https://www.aidedd.org/spell/levitate)*
+      on yourself.
   fr:
     name: Bottes de lévitation
     subtype: null
-    description: <p>Lorsque vous portez ces bottes, vous pouvez lancer <em><a href="https://www.aidedd.org/spell/fr/levitation">lévitation</a></em>
-      sur vous-même.</p>
+    description: Lorsque vous portez ces bottes, vous pouvez lancer *[lévitation](https://www.aidedd.org/spell/fr/levitation)*
+      sur vous-même.

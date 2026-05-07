@@ -89,10 +89,13 @@ translations:
     name: Dire Wolf
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Pack Tactics</em>**. The wolf has Advantage on an attack roll against a creature if at least one of the wolf's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.</p>
-      <h2>Actions</h2>
-      <p>** <em>Bite</em>**. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 8 (1d10 + 3) Piercing damage. If the target is a Large or smaller creature, it has the Prone condition.</p>
+      ## Traits
+
+      ***Pack Tactics***. The wolf has Advantage on an attack roll against a creature if at least one of the wolf's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.
+
+      ## Actions
+
+      ***Bite***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 8 (1d10 + 3) Piercing damage. If the target is a Large or smaller creature, it has the Prone condition.
     senses: Darkvision 60 ft., Passive Perception 15
     languages:
     - None
@@ -100,10 +103,13 @@ translations:
     name: Loup sanguinaire
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Tactique de meute</em>**. Le loup a un Avantage aux jets d'attaque contre une créature si au moins l'un de ses alliés est à 1,50 m ou moins de la créature et si l'allié n'a pas l'état Incapable d'agir.</p>
-      <h2>Actions</h2>
-      <p>** <em>Morsure</em>**. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 8 (1d10 + 3) dégâts perforants. Si la cible est de taille G ou inférieure, elle subit l'état À terre.</p>
+      ## Traits
+
+      ***Tactique de meute***. Le loup a un Avantage aux jets d'attaque contre une créature si au moins l'un de ses alliés est à 1,50 m ou moins de la créature et si l'allié n'a pas l'état Incapable d'agir.
+
+      ## Actions
+
+      ***Morsure***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 8 (1d10 + 3) dégâts perforants. Si la cible est de taille G ou inférieure, elle subit l'état À terre.
     senses: Vision dans le noir 18 m, Perception passive 15
     languages:
     - aucune

@@ -21,7 +21,7 @@ translations:
       While in the aura, you and your allies have Advantage on saving throws against
       spells and other magical effects. When an affected creature makes a saving throw
       against a spell or magical effect that allows a save to take only half damage,
-      it takes no damage if it succeeds on the save.<br/>
+      it takes no damage if it succeeds on the save.\
   fr:
     name: Cercle de pouvoir
     castingTime: Action
@@ -33,4 +33,4 @@ translations:
       alliés bénéficiez d'un Avantage aux jets de sauvegarde contre les sorts et autres
       effets magiques. Lorsqu'une créature affectée effectue un jet de sauvegarde
       contre un sort ou un effet magique pour ne subir que la moitié des dégâts, elle
-      ne subit aucun dégât si elle réussit son jet.<br/>
+      ne subit aucun dégât si elle réussit son jet.\

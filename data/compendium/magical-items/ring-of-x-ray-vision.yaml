@@ -8,11 +8,11 @@ translations:
     name: Ring of X-ray Vision
     subtype: null
     description: |-
-      <p>While wearing this ring, you can take a Magic action to gain X-ray vision with a range of 30 feet for 1 minute. To you, solid objects within that radius appear transparent and don't prevent light from passing through them. The vision can penetrate 1 foot of stone, 1 inch of common metal, or up to 3 feet of wood or dirt. Thicker substances or a thin sheet of lead block the vision.<br />
-      Whenever you use the ring again before taking a Long Rest, you must succeed on a DC 15 Constitution saving throw or gain 1 Exhaustion level.</p>
+      While wearing this ring, you can take a Magic action to gain X-ray vision with a range of 30 feet for 1 minute. To you, solid objects within that radius appear transparent and don't prevent light from passing through them. The vision can penetrate 1 foot of stone, 1 inch of common metal, or up to 3 feet of wood or dirt. Thicker substances or a thin sheet of lead block the vision.\
+      Whenever you use the ring again before taking a Long Rest, you must succeed on a DC 15 Constitution saving throw or gain 1 Exhaustion level.
   fr:
     name: Anneau de rayons X
     subtype: null
     description: |-
-      <p>Lorsque vous portez cet anneau, vous pouvez prendre une action Magie pour obtenir une vision de rayons X d'une portée de 9 mètres pendant 1 minute. Les objets solides dans ce rayon vous paraissent transparents et n'empêchent pas la lumière de les traverser. La vision peut pénétrer 30 cm de pierre, 2,50 cm de métal ordinaire, et jusqu'à 90 cm de bois ou de terre. Des substances plus épaisses ou une fine feuille de plomb bloquent la vision.<br />
-      Chaque fois que vous utilisez de nouveau l'anneau avant de prendre un Repos long, vous devez réussir un jet de sauvegarde de Constitution DD 15 pour ne pas gagner 1 niveau d'Épuisement.</p>
+      Lorsque vous portez cet anneau, vous pouvez prendre une action Magie pour obtenir une vision de rayons X d'une portée de 9 mètres pendant 1 minute. Les objets solides dans ce rayon vous paraissent transparents et n'empêchent pas la lumière de les traverser. La vision peut pénétrer 30 cm de pierre, 2,50 cm de métal ordinaire, et jusqu'à 90 cm de bois ou de terre. Des substances plus épaisses ou une fine feuille de plomb bloquent la vision.\
+      Chaque fois que vous utilisez de nouveau l'anneau avant de prendre un Repos long, vous devez réussir un jet de sauvegarde de Constitution DD 15 pour ne pas gagner 1 niveau d'Épuisement.

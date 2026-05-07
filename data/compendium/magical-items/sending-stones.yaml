@@ -8,11 +8,11 @@ translations:
     name: Sending Stones
     subtype: null
     description: |-
-      <p><em>Sending Stones</em> come in pairs, with each stone carved to match the other so the pairing is easily recognized. While you touch one stone, you can cast <em><a href="https://www.aidedd.org/spell/sending">Sending</a></em> from it. The target is the bearer of the other stone. If no creature bears the other stone, you know that fact as soon as you use the stone, and you don't cast the spell.<br />
-      Once <em>Sending</em> is cast using either stone, the stones can't be used again until the next dawn. If one of the stones in a pair is destroyed, the other one becomes nonmagical.</p>
+      *Sending Stones* come in pairs, with each stone carved to match the other so the pairing is easily recognized. While you touch one stone, you can cast *[Sending](https://www.aidedd.org/spell/sending)* from it. The target is the bearer of the other stone. If no creature bears the other stone, you know that fact as soon as you use the stone, and you don't cast the spell.\
+      Once *Sending* is cast using either stone, the stones can't be used again until the next dawn. If one of the stones in a pair is destroyed, the other one becomes nonmagical.
   fr:
     name: Pierres messagères
     subtype: null
     description: |-
-      <p>Les <em>pierres messagères</em> sont disponibles par paires, chaque pierre étant gravée pour correspondre à l'autre, ce qui permet de les reconnaître facilement. En touchant une pierre, vous pouvez lancer <em><a href="https://www.aidedd.org/spell/fr/communication-a-distance">communication à distance</a></em> par son biais. La cible du sort est le porteur de l'autre pierre. Si aucune créature ne porte l'autre pierre, vous le savez dès que vous l'utilisez et ne lancez pas le sort.<br />
-      Une fois <em>communication à distance</em> lancé avec l'une des pierres, les pierres ne peuvent plus être utilisées avant l'aube suivante. Si l'une des pierres d'une paire est détruite, l'autre devient non magique.</p>
+      Les *pierres messagères* sont disponibles par paires, chaque pierre étant gravée pour correspondre à l'autre, ce qui permet de les reconnaître facilement. En touchant une pierre, vous pouvez lancer *[communication à distance](https://www.aidedd.org/spell/fr/communication-a-distance)* par son biais. La cible du sort est le porteur de l'autre pierre. Si aucune créature ne porte l'autre pierre, vous le savez dès que vous l'utilisez et ne lancez pas le sort.\
+      Une fois *communication à distance* lancé avec l'une des pierres, les pierres ne peuvent plus être utilisées avant l'aube suivante. Si l'une des pierres d'une paire est détruite, l'autre devient non magique.

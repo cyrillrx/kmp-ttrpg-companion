@@ -89,15 +89,23 @@ translations:
     name: Iron Golem
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Fire Absorption</em>**. Whenever the golem is subjected to Fire damage, it regains a number of Hit Points equal to the Fire damage dealt.</p>
-      <p><strong><em>Immutable Form</em></strong>. The golem can't shape-shift.</p>
-      <p><strong><em>Magic Resistance</em></strong>. The golem has Advantage on saving throws against spells and other magical effects.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The golem makes two attacks, using Bladed Arm or Fiery Bolt in any combination.</p>
-      <p><strong><em>Bladed Arm</em></strong>. <em>Melee Attack Roll</em> : +12, reach 10 ft. <em>Hit</em> : 20 (3d8 + 7) Slashing damage plus 10 (3d6) Fire damage.</p>
-      <p><strong><em>Fiery Bolt</em></strong>. <em>Ranged Attack Roll</em> : +10, range 120 ft. <em>Hit</em> : 36 (8d8) Fire damage.</p>
-      <p><strong><em>Poison Breath (Recharge 6)</em></strong>. <em>Constitution Saving Throw</em> : DC 18, each creature in a 60-foot Cone. <em>Failure</em> : 55 (10d10) Poison damage. <em>Success</em> : Half damage.</p>
+      ## Traits
+
+      ***Fire Absorption***. Whenever the golem is subjected to Fire damage, it regains a number of Hit Points equal to the Fire damage dealt.
+
+      ***Immutable Form***. The golem can't shape-shift.
+
+      ***Magic Resistance***. The golem has Advantage on saving throws against spells and other magical effects.
+
+      ## Actions
+
+      ***Multiattack***. The golem makes two attacks, using Bladed Arm or Fiery Bolt in any combination.
+
+      ***Bladed Arm***. *Melee Attack Roll* : +12, reach 10 ft. *Hit* : 20 (3d8 + 7) Slashing damage plus 10 (3d6) Fire damage.
+
+      ***Fiery Bolt***. *Ranged Attack Roll* : +10, range 120 ft. *Hit* : 36 (8d8) Fire damage.
+
+      ***Poison Breath (Recharge 6)***. *Constitution Saving Throw* : DC 18, each creature in a 60-foot Cone. *Failure* : 55 (10d10) Poison damage. *Success* : Half damage.
     senses: Darkvision 120 ft., Passive Perception 10
     languages:
     - Understands Common plus two other languages but can't speak
@@ -105,15 +113,23 @@ translations:
     name: Golem de fer
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Absorption du feu</em>**. Chaque fois que le golem est soumis à des dégâts de feu, il récupère en fait autant de points de vie que les dégâts de feu infligés.</p>
-      <p><strong><em>Forme immuable</em></strong>. Le golem ne peut pas être métamorphosé.</p>
-      <p><strong><em>Résistance à la magie</em></strong>. Le golem a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le golem effectue deux attaques, réparties à sa guise entre Lame brachiale et Trait enflammé.</p>
-      <p><strong><em>Lame brachiale</em></strong>. <em>Corps à corps</em> : +12, allonge 3 m. <em>Touché</em> : 20 (3d8 + 7) dégâts tranchants plus 10 (3d6) dégâts de feu.</p>
-      <p><strong><em>Trait enflammé</em></strong>. <em>À distance</em> : +10, portée 36 m. <em>Touché</em> : 36 (8d8) dégâts de feu.</p>
-      <p><strong><em>Souffle empoisonné (recharge 6)</em></strong>. <em>JdS Constitution</em> : DD 18, chaque créature dans un Cône de 18 m. <em>Échec</em> : 55 (10d10) dégâts de poison. <em>Réussite</em> : demi-dégâts.</p>
+      ## Traits
+
+      ***Absorption du feu***. Chaque fois que le golem est soumis à des dégâts de feu, il récupère en fait autant de points de vie que les dégâts de feu infligés.
+
+      ***Forme immuable***. Le golem ne peut pas être métamorphosé.
+
+      ***Résistance à la magie***. Le golem a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
+
+      ## Actions
+
+      ***Attaques multiples***. Le golem effectue deux attaques, réparties à sa guise entre Lame brachiale et Trait enflammé.
+
+      ***Lame brachiale***. *Corps à corps* : +12, allonge 3 m. *Touché* : 20 (3d8 + 7) dégâts tranchants plus 10 (3d6) dégâts de feu.
+
+      ***Trait enflammé***. *À distance* : +10, portée 36 m. *Touché* : 36 (8d8) dégâts de feu.
+
+      ***Souffle empoisonné (recharge 6)***. *JdS Constitution* : DD 18, chaque créature dans un Cône de 18 m. *Échec* : 55 (10d10) dégâts de poison. *Réussite* : demi-dégâts.
     senses: Vision dans le noir 36 m, Perception passive 10
     languages:
     - comprend le commun plus deux autres langues

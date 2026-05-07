@@ -18,22 +18,15 @@ translations:
     range: 60 feet
     duration: Concentration, up to 1 minute
     materialDescription: null
-    description: Objects in a 20-foot Cube within range are outlined in blue, green,
-      or violet light (your choice). Each creature in the Cube is also outlined if
-      it fails a Dexterity saving throw. For the duration, objects and affected creatures
-      shed Dim Light in a 10-foot radius and can't benefit from the Invisible condition.<br/>Attack
-      rolls against an affected creature or object have Advantage if the attacker
-      can see it.<br/>
+    description: |-
+      Objects in a 20-foot Cube within range are outlined in blue, green, or violet light (your choice). Each creature in the Cube is also outlined if it fails a Dexterity saving throw. For the duration, objects and affected creatures shed Dim Light in a 10-foot radius and can't benefit from the Invisible condition.\
+      Attack rolls against an affected creature or object have Advantage if the attacker can see it.\
   fr:
     name: Lueurs féeriques
     castingTime: Action
     range: 18 m
     duration: Concentration, jusqu'à 1 minute
     materialDescription: null
-    description: Les objets situés dans un Cube de 6 mètres de côté à portée sont
-      entourés d'une lumière bleue, verte ou violette (selon votre choix). Toute créature
-      présente dans le Cube est également délimitée si elle rate un jet de sauvegarde
-      de Dextérité. Pendant la durée du sort, les objets et les créatures affectées
-      émettent une Lumière faible sur un rayon de 3 mètres et ne peuvent pas bénéficier
-      de l'état Invisible.<br/>Les jets d'attaque contre une créature ou un objet
-      affecté ont un Avantage si l'attaquant peut le voir.<br/>
+    description: |-
+      Les objets situés dans un Cube de 6 mètres de côté à portée sont entourés d'une lumière bleue, verte ou violette (selon votre choix). Toute créature présente dans le Cube est également délimitée si elle rate un jet de sauvegarde de Dextérité. Pendant la durée du sort, les objets et les créatures affectées émettent une Lumière faible sur un rayon de 3 mètres et ne peuvent pas bénéficier de l'état Invisible.\
+      Les jets d'attaque contre une créature ou un objet affecté ont un Avantage si l'attaquant peut le voir.\

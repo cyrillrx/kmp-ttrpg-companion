@@ -89,10 +89,13 @@ translations:
     name: Blue Dragon Wyrmling
     subtype: Chromatic
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The dragon makes two Rend attacks.</p>
-      <p><strong><em>Rend</em></strong>. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 8 (1d10 + 3) Slashing damage plus 3 (1d6) Lightning damage.</p>
-      <p><strong><em>Lightning Breath (Recharge 5–6)</em></strong>. <em>Dexterity Saving Throw</em> : DC 12, each creature in a 30-foot-long, 5-foot-wide Line. <em>Failure</em> : 21 (6d6) Lightning damage. <em>Success</em> : Half damage.</p>
+      ## Actions
+
+      ***Multiattack***. The dragon makes two Rend attacks.
+
+      ***Rend***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 8 (1d10 + 3) Slashing damage plus 3 (1d6) Lightning damage.
+
+      ***Lightning Breath (Recharge 5–6)***. *Dexterity Saving Throw* : DC 12, each creature in a 30-foot-long, 5-foot-wide Line. *Failure* : 21 (6d6) Lightning damage. *Success* : Half damage.
     senses: Blindsight 10 ft., Darkvision 60 ft., Passive Perception 14
     languages:
     - Draconic
@@ -100,10 +103,13 @@ translations:
     name: Dragon bleu, dragonnet
     subtype: Chromatique
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le dragon effectue deux attaques de Saignée.</p>
-      <p><strong><em>Saignée</em></strong>. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 8 (1d10 + 3) dégâts tranchants plus 3 (1d6) dégâts de foudre.</p>
-      <p><strong><em>Souffle de foudre (recharge 5–6)</em></strong>. <em>JdS Dextérité</em> : DD 12, chaque créature dans une Ligne de 9 m de long sur 1,50 m de large. <em>Échec</em> : 21 (6d6) dégâts de foudre. <em>Réussite</em> : demi-dégâts.</p>
+      ## Actions
+
+      ***Attaques multiples***. Le dragon effectue deux attaques de Saignée.
+
+      ***Saignée***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 8 (1d10 + 3) dégâts tranchants plus 3 (1d6) dégâts de foudre.
+
+      ***Souffle de foudre (recharge 5–6)***. *JdS Dextérité* : DD 12, chaque créature dans une Ligne de 9 m de long sur 1,50 m de large. *Échec* : 21 (6d6) dégâts de foudre. *Réussite* : demi-dégâts.
     senses: Vision aveugle 3 m, Vision dans le noir 18 m, Perception passive 14
     languages:
     - draconique

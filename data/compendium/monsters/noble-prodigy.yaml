@@ -89,14 +89,20 @@ translations:
     name: Noble Prodigy
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The noble makes three Beguiling Strike attacks.</p>
-      <p><strong><em>Beguiling Strike</em></strong>. <em>Melee or Ranged Attack Roll</em> : +8, reach 5 ft. or range 60 ft. <em>Hit</em> : 18 (4d6 + 4) Psychic damage, and the target has the Charmed condition until the start of the noble's next turn.</p>
-      <p><strong><em>Spellcasting</em></strong>. The noble casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 16):</p>
-      <p>At will: <em><a href="https://www.aidedd.org/spell/mage-armor">Mage Armor</a></em> (included in AC), <em><a href="https://www.aidedd.org/spell/mage-hand">Mage Hand</a>, <a href="https://www.aidedd.org/spell/minor-illusion">Minor Illusion</a></em><br />
-      1/day each: <em><a href="https://www.aidedd.org/spell/befuddlement">Befuddlement</a>, <a href="https://www.aidedd.org/spell/detect-thoughts">Detect Thoughts</a>, <a href="https://www.aidedd.org/spell/fly">Fly</a>, <a href="https://www.aidedd.org/spell/scrying">Scrying</a>, <a href="https://www.aidedd.org/spell/shatter">Shatter</a></em> (level 7 version)  </p>
-      <h2>Reactions</h2>
-      <p>** <em>Shield (2/Day)</em>**. The noble casts <em><a href="https://www.aidedd.org/spell/shield">Shield</a></em> in response to that spell's trigger, using the same spellcasting ability as Spellcasting.</p>
+      ## Actions
+
+      ***Multiattack***. The noble makes three Beguiling Strike attacks.
+
+      ***Beguiling Strike***. *Melee or Ranged Attack Roll* : +8, reach 5 ft. or range 60 ft. *Hit* : 18 (4d6 + 4) Psychic damage, and the target has the Charmed condition until the start of the noble's next turn.
+
+      ***Spellcasting***. The noble casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 16):
+
+      At will: *[Mage Armor](https://www.aidedd.org/spell/mage-armor)* (included in AC), *[Mage Hand](https://www.aidedd.org/spell/mage-hand), [Minor Illusion](https://www.aidedd.org/spell/minor-illusion)*\
+      1/day each: *[Befuddlement](https://www.aidedd.org/spell/befuddlement), [Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts), [Fly](https://www.aidedd.org/spell/fly), [Scrying](https://www.aidedd.org/spell/scrying), [Shatter](https://www.aidedd.org/spell/shatter)* (level 7 version)
+
+      ## Reactions
+
+      ***Shield (2/Day)***. The noble casts *[Shield](https://www.aidedd.org/spell/shield)* in response to that spell's trigger, using the same spellcasting ability as Spellcasting.
     senses: Passive Perception 16
     languages:
     - Common plus two other languages
@@ -104,14 +110,20 @@ translations:
     name: Noble, prodige
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le noble effectue trois attaques de Frappe envoûtante.</p>
-      <p><strong><em>Frappe envoûtante</em></strong>. <em>Corps à corps ou à distance</em> : +8, allonge 1,50 m ou portée 18 m. <em>Touché</em> : 18 (4d6 + 4) dégâts psychiques, et la cible subit l'état Charmé jusqu'au début du prochain tour du noble.</p>
-      <p><strong><em>Incantation</em></strong>. Le noble lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 16) :</p>
-      <p>À volonté : <em><a href="https://www.aidedd.org/spell/fr/armure-de-mage">armure de mage</a></em> (compris dans la CA), <em><a href="https://www.aidedd.org/spell/fr/main-de-mage">main de mage</a>, <a href="https://www.aidedd.org/spell/fr/illusion-mineure">illusion mineure</a></em><br />
-      1/jour chacun : <em><a href="https://www.aidedd.org/spell/fr/alienation">aliénation</a>, <a href="https://www.aidedd.org/spell/fr/detection-des-pensees">Détection des pensées</a>, <a href="https://www.aidedd.org/spell/fr/vol">vol</a>, <a href="https://www.aidedd.org/spell/fr/scrutation">scrutation</a>, <a href="https://www.aidedd.org/spell/fr/fracassement">fracassement</a></em> (au niveau 7)  </p>
-      <h2>Réactions</h2>
-      <p>** <em>Bouclier (2/jour)</em>**. Le noble lance <em><a href="https://www.aidedd.org/spell/fr/bouclier">bouclier</a></em> en réponse au déclencheur de ce sort, en utilisant la même caractéristique d'incantation que pour Incantation.</p>
+      ## Actions
+
+      ***Attaques multiples***. Le noble effectue trois attaques de Frappe envoûtante.
+
+      ***Frappe envoûtante***. *Corps à corps ou à distance* : +8, allonge 1,50 m ou portée 18 m. *Touché* : 18 (4d6 + 4) dégâts psychiques, et la cible subit l'état Charmé jusqu'au début du prochain tour du noble.
+
+      ***Incantation***. Le noble lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 16) :
+
+      À volonté : *[armure de mage](https://www.aidedd.org/spell/fr/armure-de-mage)* (compris dans la CA), *[main de mage](https://www.aidedd.org/spell/fr/main-de-mage), [illusion mineure](https://www.aidedd.org/spell/fr/illusion-mineure)*\
+      1/jour chacun : *[aliénation](https://www.aidedd.org/spell/fr/alienation), [Détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees), [vol](https://www.aidedd.org/spell/fr/vol), [scrutation](https://www.aidedd.org/spell/fr/scrutation), [fracassement](https://www.aidedd.org/spell/fr/fracassement)* (au niveau 7)
+
+      ## Réactions
+
+      ***Bouclier (2/jour)***. Le noble lance *[bouclier](https://www.aidedd.org/spell/fr/bouclier)* en réponse au déclencheur de ce sort, en utilisant la même caractéristique d'incantation que pour Incantation.
     senses: Perception passive 16
     languages:
     - commun plus deux autres langues

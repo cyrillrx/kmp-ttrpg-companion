@@ -18,7 +18,9 @@ translations:
     duration: Instantaneous
     materialDescription: null
     description: |-
-      You cast sorcerous energy at one creature or object within range. Make a ranged attack roll against the target. On a hit, the target takes 1d8 damage of a type you choose: Acid, Cold, Fire, Lightning, Poison, Psychic, or Thunder.<br/>If you roll an 8 on a d8 for this spell, you can roll another d8, and add it to the damage. When you cast this spell, the maximum number of these d8s you can add to the spell's damage equals your spellcasting ability modifier.<br/><strong><em>Cantrip Upgrade</em></strong>. This damage increases by 1d8 when you reach level 5 (2d8), 11 (3d8), and 17 (4d8).<br/>
+      You cast sorcerous energy at one creature or object within range. Make a ranged attack roll against the target. On a hit, the target takes 1d8 damage of a type you choose: Acid, Cold, Fire, Lightning, Poison, Psychic, or Thunder.\
+      If you roll an 8 on a d8 for this spell, you can roll another d8, and add it to the damage. When you cast this spell, the maximum number of these d8s you can add to the spell's damage equals your spellcasting ability modifier.\
+      ***Cantrip Upgrade***. This damage increases by 1d8 when you reach level 5 (2d8), 11 (3d8), and 17 (4d8).\
   fr:
     name: Éruption ensorcelée
     castingTime: Action
@@ -26,4 +28,6 @@ translations:
     duration: Instantanée
     materialDescription: null
     description: |-
-      Vous lancez une énergie ensorcelée sur une créature ou un objet à portée. Effectuez un jet d'attaque à distance contre la cible. Si l'attaque touche, la cible subit 1d8 dégâts du type de votre choix : acide, froid, feu, foudre, poison, psychique ou tonnerre.<br/>Si vous obtenez un 8 sur un d8 pour ce sort, vous pouvez lancer un autre d8 et l'ajouter aux dégâts. Lorsque vous lancez ce sort, le nombre maximal de d8 que vous pouvez ajouter aux dégâts du sort est égal à votre modificateur de caractéristique d'incantation.<br/><strong><em>Amélioration de sort mineur</em></strong>. Ces dégâts augmentent de 1d8 lorsque vous atteignez les niveaux 5 (2d8), 11 (3d8) et 17 (4d8).<br/>
+      Vous lancez une énergie ensorcelée sur une créature ou un objet à portée. Effectuez un jet d'attaque à distance contre la cible. Si l'attaque touche, la cible subit 1d8 dégâts du type de votre choix : acide, froid, feu, foudre, poison, psychique ou tonnerre.\
+      Si vous obtenez un 8 sur un d8 pour ce sort, vous pouvez lancer un autre d8 et l'ajouter aux dégâts. Lorsque vous lancez ce sort, le nombre maximal de d8 que vous pouvez ajouter aux dégâts du sort est égal à votre modificateur de caractéristique d'incantation.\
+      ***Amélioration de sort mineur***. Ces dégâts augmentent de 1d8 lorsque vous atteignez les niveaux 5 (2d8), 11 (3d8) et 17 (4d8).\

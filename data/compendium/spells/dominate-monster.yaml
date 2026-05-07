@@ -20,37 +20,19 @@ translations:
     range: 60 feet
     duration: Concentration, up to 1 hour
     materialDescription: null
-    description: One creature you can see within range must succeed on a Wisdom saving
-      throw or have the Charmed condition for the duration. The target has Advantage
-      on the save if you or your allies are fighting it. Whenever the target takes
-      damage, it repeats the save, ending the spell on itself on a success.<br/>You
-      have a telepathic link with the Charmed target while the two of you are on the
-      same plane of existence. On your turn, you can use this link to issue commands
-      to the target (no action required), such as "Attack that creature," "Move over
-      there," or "Fetch that object." The target does its best to obey on its turn.
-      If it completes an order and doesn't receive further direction from you, it
-      acts and moves as it likes, focusing on protecting itself.<br/>You can command
-      the target to take a Reaction but must take your own Reaction to do so.<br/><strong><em>Using
-      a Higher-Level Spell Slot</em></strong>. Your Concentration can last longer
-      with a level 9 spell slot (up to 8 hours).<br/>
+    description: |-
+      One creature you can see within range must succeed on a Wisdom saving throw or have the Charmed condition for the duration. The target has Advantage on the save if you or your allies are fighting it. Whenever the target takes damage, it repeats the save, ending the spell on itself on a success.\
+      You have a telepathic link with the Charmed target while the two of you are on the same plane of existence. On your turn, you can use this link to issue commands to the target (no action required), such as "Attack that creature," "Move over there," or "Fetch that object." The target does its best to obey on its turn. If it completes an order and doesn't receive further direction from you, it acts and moves as it likes, focusing on protecting itself.\
+      You can command the target to take a Reaction but must take your own Reaction to do so.\
+      ***Using a Higher-Level Spell Slot***. Your Concentration can last longer with a level 9 spell slot (up to 8 hours).\
   fr:
     name: Domination de monstre
     castingTime: Action
     range: 18 m
     duration: Concentration, jusqu'à 1 heure
     materialDescription: null
-    description: Une créature que vous voyez à portée doit réussir un jet de sauvegarde
-      de Sagesse sous peine de subir l'état Charmé pour toute la durée. La cible a
-      un Avantage au JdS si vous ou vos alliés êtes en train de l'affronter. Chaque
-      fois que la cible subit des dégâts, elle réitère le JdS et met un terme au sort
-      sur elle-même en cas de réussite.<br/>Un lien télépathique persiste entre vous
-      et la cible Charmée tant que vous êtes tous deux sur un même plan d'existence.
-      À votre tour, vous pouvez profiter de ce lien pour donner des ordres à la cible
-      (pas d'action requise), tels que « Attaque cette créature », « File là-bas »
-      ou « Attrape cet objet ». La cible fait de son mieux pour vous obéir à son tour.
-      Si la créature accomplit sa tâche et ne reçoit pas d'autre instruction de votre
-      part, elle agit et se déplace à sa guise, en cherchant avant tout à se protéger.<br/>Vous
-      pouvez aussi lui faire jouer une Réaction, au prix toutefois de votre propre
-      Réaction.<br/><strong><em>Emplacement de niveau supérieur</em></strong>. Votre
-      Concentration peut persister plus longtemps avec un emplacement de sort de niveau
-      9 (jusqu'à 8 heures).<br/>
+    description: |-
+      Une créature que vous voyez à portée doit réussir un jet de sauvegarde de Sagesse sous peine de subir l'état Charmé pour toute la durée. La cible a un Avantage au JdS si vous ou vos alliés êtes en train de l'affronter. Chaque fois que la cible subit des dégâts, elle réitère le JdS et met un terme au sort sur elle-même en cas de réussite.\
+      Un lien télépathique persiste entre vous et la cible Charmée tant que vous êtes tous deux sur un même plan d'existence. À votre tour, vous pouvez profiter de ce lien pour donner des ordres à la cible (pas d'action requise), tels que « Attaque cette créature », « File là-bas » ou « Attrape cet objet ». La cible fait de son mieux pour vous obéir à son tour. Si la créature accomplit sa tâche et ne reçoit pas d'autre instruction de votre part, elle agit et se déplace à sa guise, en cherchant avant tout à se protéger.\
+      Vous pouvez aussi lui faire jouer une Réaction, au prix toutefois de votre propre Réaction.\
+      ***Emplacement de niveau supérieur***. Votre Concentration peut persister plus longtemps avec un emplacement de sort de niveau 9 (jusqu'à 8 heures).\

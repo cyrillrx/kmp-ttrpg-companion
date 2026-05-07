@@ -23,7 +23,7 @@ translations:
       a 20-foot-radius Sphere centered on a point you choose within range. Any creature
       or object entirely inside the Sphere has Immunity to Thunder damage, and creatures
       have the Deafened condition while entirely inside it. Casting a spell that includes
-      a Verbal component is impossible there.<br/>
+      a Verbal component is impossible there.\
   fr:
     name: Silence
     castingTime: Action ou Rituel
@@ -35,4 +35,4 @@ translations:
       à portée. Toute créature ou objet entièrement à l'intérieur de la Sphère est
       immunisé aux dégâts de tonnerre, et les créatures ont l'état Assourdi tant qu'elles
       y sont entièrement. Il est impossible de lancer un sort comportant une composante
-      verbale dans la zone.<br/>
+      verbale dans la zone.\

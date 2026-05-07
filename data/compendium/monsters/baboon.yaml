@@ -89,10 +89,13 @@ translations:
     name: Baboon
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Pack Tactics</em>**. The baboon has Advantage on an attack roll against a creature if at least one of the baboon's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.</p>
-      <h2>Actions</h2>
-      <p>** <em>Bite</em>**. <em>Melee Attack Roll</em> : +1, reach 5 ft. <em>Hit</em> : 1 (1d4 - 1) Piercing damage.</p>
+      ## Traits
+
+      ***Pack Tactics***. The baboon has Advantage on an attack roll against a creature if at least one of the baboon's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.
+
+      ## Actions
+
+      ***Bite***. *Melee Attack Roll* : +1, reach 5 ft. *Hit* : 1 (1d4 - 1) Piercing damage.
     senses: Passive Perception 11
     languages:
     - None
@@ -100,10 +103,13 @@ translations:
     name: Babouin
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Tactique de meute</em>**. Quand au moins un de ses alliés non Incapable d'agir se situe dans un rayon de 1,50 m de la créature qu'il cible, le babouin a un Avantage au jet d'attaque correspondant.</p>
-      <h2>Actions</h2>
-      <p>** <em>Morsure</em>**. <em>Corps à corps</em> : +1, allonge 1,50 m. <em>Touché</em> : 1 (1d4 − 1) dégâts perforants.</p>
+      ## Traits
+
+      ***Tactique de meute***. Quand au moins un de ses alliés non Incapable d'agir se situe dans un rayon de 1,50 m de la créature qu'il cible, le babouin a un Avantage au jet d'attaque correspondant.
+
+      ## Actions
+
+      ***Morsure***. *Corps à corps* : +1, allonge 1,50 m. *Touché* : 1 (1d4 − 1) dégâts perforants.
     senses: Perception passive 11
     languages:
     - aucune

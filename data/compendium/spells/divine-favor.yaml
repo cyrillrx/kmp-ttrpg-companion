@@ -18,7 +18,7 @@ translations:
     duration: 1 minute
     materialDescription: null
     description: Until the spell ends, your attacks with weapons deal an extra 1d4
-      Radiant damage on a hit.<br/>
+      Radiant damage on a hit.\
   fr:
     name: Faveur divine
     castingTime: Action bonus
@@ -26,4 +26,4 @@ translations:
     duration: 1 minute
     materialDescription: null
     description: Jusqu'à la fin du sort, vos attaques avec des armes infligent 1d4
-      dégâts radiants supplémentaires si vous touchez.<br/>
+      dégâts radiants supplémentaires si vous touchez.\

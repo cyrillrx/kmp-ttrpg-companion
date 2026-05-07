@@ -8,23 +8,23 @@ translations:
     name: Amulet of the Planes
     subtype: null
     description: |-
-      <p>While wearing this amulet, you can take a Magic action to name a location that you are familiar with on another plane of existence. Then make a DC 15 Intelligence (Arcana) check. On a successful check, you cast <em>Plane Shift</em>. On a failed check, you and each creature and object within 15 feet of you travel to a random destination determined by rolling 1d100 and consulting the following table.<br />
-      1d100| Destination<br />
-      ---|---<br />
-      01-60| Random location on the plane you named<br />
-      61-70| Random location on an Inner Plane determined by rolling 1d6: on a <strong>1</strong> , the Plane of Air; on a <strong>2</strong> , the Plane of Earth; on a <strong>3</strong> , the Plane of Fire; on a <strong>4</strong> , the Plane of Water; on a <strong>5</strong> , the Feywild; on a <strong>6</strong> , the Shadowfell<br />
-      71-80| Random location on an Outer Plane determined by rolling 1d8: on a <strong>1</strong> , Arborea; on a <strong>2</strong> , Arcadia; on a <strong>3</strong> , the Beastlands; on a <strong>4</strong> , Bytopia; on a <strong>5</strong> , Elysium; on a <strong>6</strong> , Mechanus; on a <strong>7</strong> , Mount Celestia; on an <strong>8</strong> , Ysgard<br />
-      81-90| Random location on an Outer Plane determined by rolling 1d8: on a <strong>1</strong> , the Abyss; on a <strong>2</strong> , Acheron; on a <strong>3</strong> , Carceri; on a <strong>4</strong> , Gehenna; on a <strong>5</strong> , Hades; on a <strong>6</strong> , Limbo; on a <strong>7</strong> , the Nine Hells; on an <strong>8</strong> , Pandemonium<br />
-      91-00| Random location on the Astral Plane</p>
+      While wearing this amulet, you can take a Magic action to name a location that you are familiar with on another plane of existence. Then make a DC 15 Intelligence (Arcana) check. On a successful check, you cast *Plane Shift*. On a failed check, you and each creature and object within 15 feet of you travel to a random destination determined by rolling 1d100 and consulting the following table.\
+      | 1d100 | Destination |
+      | --- | --- |
+      | 01-60 | Random location on the plane you named |
+      | 61-70 | Random location on an Inner Plane determined by rolling 1d6: on a **1** , the Plane of Air; on a **2** , the Plane of Earth; on a **3** , the Plane of Fire; on a **4** , the Plane of Water; on a **5** , the Feywild; on a **6** , the Shadowfell |
+      | 71-80 | Random location on an Outer Plane determined by rolling 1d8: on a **1** , Arborea; on a **2** , Arcadia; on a **3** , the Beastlands; on a **4** , Bytopia; on a **5** , Elysium; on a **6** , Mechanus; on a **7** , Mount Celestia; on an **8** , Ysgard |
+      | 81-90 | Random location on an Outer Plane determined by rolling 1d8: on a **1** , the Abyss; on a **2** , Acheron; on a **3** , Carceri; on a **4** , Gehenna; on a **5** , Hades; on a **6** , Limbo; on a **7** , the Nine Hells; on an **8** , Pandemonium |
+      | 91-00 | Random location on the Astral Plane |
   fr:
     name: Amulette des plans
     subtype: null
     description: |-
-      <p>Lorsque vous portez cette amulette, vous pouvez prendre une action Magie pour nommer un lieu que vous connaissez sur un autre plan d'existence. Effectuez ensuite un jet d'Intelligence (Arcanes) DD 15. En cas de réussite, vous lancez le sort <em>changement de plan</em>. En cas d'échec, vous et chaque créature et objet situé dans un rayon de 4,50 m de vous êtes transportés vers une destination aléatoire déterminée en lançant 1d100 et en consultant la table suivante.<br />
-      1d100| Destination<br />
-      ---|---<br />
-      01-60| Lieu aléatoire sur le plan que vous avez nommé<br />
-      61-70| Lieu aléatoire sur un plan Intérieur déterminé en lançant 1d6 : <strong>1</strong> , le plan de l'Air ; <strong>2</strong> , le plan de la Terre ; <strong>3</strong> , le plan du Feu ; <strong>4</strong> , le plan de l'Eau ; <strong>5</strong> , la Féerie ; <strong>6</strong> , la Gisombre<br />
-      71-80| Lieu aléatoire sur un plan Extérieur déterminé en lançant 1d8 : <strong>1</strong> , Arborée ; <strong>2</strong> , Arcadie ; <strong>3</strong> , les Terres des Bêtes ; <strong>4</strong> , Bytopie ; <strong>5</strong> , Élysée ; <strong>6</strong> , Méchanus ; <strong>7</strong> , Mont Céleste ; <strong>8</strong> , Ysgard<br />
-      81-90| Lieu aléatoire sur un plan Extérieur déterminé par un jet de 1d8 : <strong>1</strong> , les Abysses ; <strong>2</strong> , Achéron ; <strong>3</strong> , Carcères ; <strong>4</strong> , Géhenne ; <strong>5</strong> , Hadès ; <strong>6</strong> , Limbes ; <strong>7</strong> , les Neuf Enfers ; <strong>8</strong> , Pandémonium<br />
-      91-00| Lieu aléatoire sur le plan Astral</p>
+      Lorsque vous portez cette amulette, vous pouvez prendre une action Magie pour nommer un lieu que vous connaissez sur un autre plan d'existence. Effectuez ensuite un jet d'Intelligence (Arcanes) DD 15. En cas de réussite, vous lancez le sort *changement de plan*. En cas d'échec, vous et chaque créature et objet situé dans un rayon de 4,50 m de vous êtes transportés vers une destination aléatoire déterminée en lançant 1d100 et en consultant la table suivante.\
+      | 1d100 | Destination |
+      | --- | --- |
+      | 01-60 | Lieu aléatoire sur le plan que vous avez nommé |
+      | 61-70 | Lieu aléatoire sur un plan Intérieur déterminé en lançant 1d6 : **1** , le plan de l'Air ; **2** , le plan de la Terre ; **3** , le plan du Feu ; **4** , le plan de l'Eau ; **5** , la Féerie ; **6** , la Gisombre |
+      | 71-80 | Lieu aléatoire sur un plan Extérieur déterminé en lançant 1d8 : **1** , Arborée ; **2** , Arcadie ; **3** , les Terres des Bêtes ; **4** , Bytopie ; **5** , Élysée ; **6** , Méchanus ; **7** , Mont Céleste ; **8** , Ysgard |
+      | 81-90 | Lieu aléatoire sur un plan Extérieur déterminé par un jet de 1d8 : **1** , les Abysses ; **2** , Achéron ; **3** , Carcères ; **4** , Géhenne ; **5** , Hadès ; **6** , Limbes ; **7** , les Neuf Enfers ; **8** , Pandémonium |
+      | 91-00 | Lieu aléatoire sur le plan Astral |

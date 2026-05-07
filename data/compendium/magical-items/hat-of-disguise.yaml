@@ -7,10 +7,10 @@ translations:
   en:
     name: Hat of Disguise
     subtype: null
-    description: <p>While wearing this hat, you can cast the <em><a href="https://www.aidedd.org/spell/disguise-self">Disguise
-      Self</a></em> spell. The spell ends if the hat is removed.</p>
+    description: While wearing this hat, you can cast the *[Disguise Self](https://www.aidedd.org/spell/disguise-self)*
+      spell. The spell ends if the hat is removed.
   fr:
     name: Chapeau de déguisement
     subtype: null
-    description: <p>En portant ce chapeau, vous pouvez lancer le sort <em><a href="https://www.aidedd.org/spell/fr/deguisement">déguisement</a></em>.
-      Le sort prend fin si vous retirez le chapeau.</p>
+    description: En portant ce chapeau, vous pouvez lancer le sort *[déguisement](https://www.aidedd.org/spell/fr/deguisement)*.
+      Le sort prend fin si vous retirez le chapeau.

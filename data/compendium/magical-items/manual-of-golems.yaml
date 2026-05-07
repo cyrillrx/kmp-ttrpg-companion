@@ -8,25 +8,25 @@ translations:
     name: Manual of Golems
     subtype: null
     description: |-
-      <p>This tome contains information and incantations necessary to make a particular type of golem. The DM chooses the type or determines it randomly by rolling on the accompanying table. To decipher and use the manual, you must be a spellcaster with at least two level 5 spell slots. A creature that can't use a <em>Manual of Golems</em> and attempts to read it takes 6d6 Psychic damage.<br />
-      To create a golem, you must spend the time shown on the table, working without interruption with the manual at hand and resting no more than 8 hours per day. You must also pay the specified cost to purchase supplies.<br />
-      Once you finish creating the golem, the book is consumed in eldritch flames. The golem becomes animate when the ashes of the manual are sprinkled on it. The golem is under your control, and it understands and obeys your commands.<br />
-      1d20| Golem| Time| Cost<br />
-      ---|---|---|---<br />
-      1-5| <a href="https://www.aidedd.org/monster/clay-golem">Clay Golem</a>| 30 days| 65,000 GP<br />
-      6-17| <a href="https://www.aidedd.org/monster/flesh-golem">Flesh Golem</a>| 60 days| 50,000 GP<br />
-      18| <a href="https://www.aidedd.org/monster/iron-golem">Iron Golem</a>| 120 days| 100,000 GP<br />
-      19-20| <a href="https://www.aidedd.org/monster/stone-golem">Stone Golem</a>| 90 days| 80,000 GP</p>
+      This tome contains information and incantations necessary to make a particular type of golem. The DM chooses the type or determines it randomly by rolling on the accompanying table. To decipher and use the manual, you must be a spellcaster with at least two level 5 spell slots. A creature that can't use a *Manual of Golems* and attempts to read it takes 6d6 Psychic damage.\
+      To create a golem, you must spend the time shown on the table, working without interruption with the manual at hand and resting no more than 8 hours per day. You must also pay the specified cost to purchase supplies.\
+      Once you finish creating the golem, the book is consumed in eldritch flames. The golem becomes animate when the ashes of the manual are sprinkled on it. The golem is under your control, and it understands and obeys your commands.\
+      | 1d20 | Golem | Time | Cost |
+      | --- | --- | --- | --- |
+      | 1-5 | [Clay Golem](https://www.aidedd.org/monster/clay-golem) | 30 days | 65,000 GP |
+      | 6-17 | [Flesh Golem](https://www.aidedd.org/monster/flesh-golem) | 60 days | 50,000 GP |
+      | 18 | [Iron Golem](https://www.aidedd.org/monster/iron-golem) | 120 days | 100,000 GP |
+      | 19-20 | [Stone Golem](https://www.aidedd.org/monster/stone-golem) | 90 days | 80,000 GP |
   fr:
     name: Manuel des golems
     subtype: null
     description: |-
-      <p>Ce livre contient les informations et les incantations nécessaires à la création d'un type particulier de golem. Le MD choisit le type ou le détermine aléatoirement en effectuant un jet de dés sur la table ci-dessous. Pour déchiffrer et utiliser le manuel, vous devez être un lanceur de sorts possédant au moins deux emplacements de sort de niveau 5. Une créature incapable d'utiliser un <em>manuel des golems</em> et tentant de le lire subit 6d6 dégâts psychiques.<br />
-      Pour créer un golem, vous devez consacrer le temps indiqué sur la table à travailler sans interruption avec le manuel à portée de main et à vous reposer maximum 8 heures par jour. Vous devez également payer le coût indiqué pour acheter des fournitures.<br />
-      Une fois le golem créé, le livre est consumé par des flammes surnaturelles. Le golem s'anime lorsque les cendres du manuel sont répandues sur lui. Le golem est sous votre contrôle et comprend et obéit à vos ordres.<br />
-      1d20| Golem| Temps| Coût<br />
-      ---|---|---|---<br />
-      1-5| <a href="https://www.aidedd.org/monster/fr/golem-d-argile">Golem d'argile</a>| 30 jours| 65 000 po<br />
-      6-17| <a href="https://www.aidedd.org/monster/fr/golem-de-chair">Golem de chair</a>| 60 jours| 50 000 po<br />
-      18| <a href="https://www.aidedd.org/monster/fr/golem-de-fer">Golem de fer</a>| 120 jours| 100 000 po<br />
-      19-20| <a href="https://www.aidedd.org/monster/fr/golem-de-pierre">Golem de pierre</a>| 90 jours| 80 000 po</p>
+      Ce livre contient les informations et les incantations nécessaires à la création d'un type particulier de golem. Le MD choisit le type ou le détermine aléatoirement en effectuant un jet de dés sur la table ci-dessous. Pour déchiffrer et utiliser le manuel, vous devez être un lanceur de sorts possédant au moins deux emplacements de sort de niveau 5. Une créature incapable d'utiliser un *manuel des golems* et tentant de le lire subit 6d6 dégâts psychiques.\
+      Pour créer un golem, vous devez consacrer le temps indiqué sur la table à travailler sans interruption avec le manuel à portée de main et à vous reposer maximum 8 heures par jour. Vous devez également payer le coût indiqué pour acheter des fournitures.\
+      Une fois le golem créé, le livre est consumé par des flammes surnaturelles. Le golem s'anime lorsque les cendres du manuel sont répandues sur lui. Le golem est sous votre contrôle et comprend et obéit à vos ordres.\
+      | 1d20 | Golem | Temps | Coût |
+      | --- | --- | --- | --- |
+      | 1-5 | [Golem d'argile](https://www.aidedd.org/monster/fr/golem-d-argile) | 30 jours | 65 000 po |
+      | 6-17 | [Golem de chair](https://www.aidedd.org/monster/fr/golem-de-chair) | 60 jours | 50 000 po |
+      | 18 | [Golem de fer](https://www.aidedd.org/monster/fr/golem-de-fer) | 120 jours | 100 000 po |
+      | 19-20 | [Golem de pierre](https://www.aidedd.org/monster/fr/golem-de-pierre) | 90 jours | 80 000 po |

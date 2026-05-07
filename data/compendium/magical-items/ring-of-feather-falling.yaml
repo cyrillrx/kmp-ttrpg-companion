@@ -7,10 +7,10 @@ translations:
   en:
     name: Ring of Feather Falling
     subtype: null
-    description: <p>When you fall while wearing this ring, you descend 60 feet per
-      round and take no damage from falling.</p>
+    description: When you fall while wearing this ring, you descend 60 feet per round
+      and take no damage from falling.
   fr:
     name: Anneau de feuille morte
     subtype: null
-    description: <p>Si vous tombez en portant cet anneau, vous descendez de 18 mètres
-      par round et ne subissez aucun dégât de chute.</p>
+    description: Si vous tombez en portant cet anneau, vous descendez de 18 mètres
+      par round et ne subissez aucun dégât de chute.

@@ -8,59 +8,61 @@ translations:
     name: Staff of the Magi
     subtype: null
     description: |-
-      <p>This staff has 50 charges and can be wielded as a magic Quarterstaff that grants a +2 bonus to attack rolls and damage rolls made with it. While you hold it, you gain a +2 bonus to spell attack rolls.<br />
-      <strong>Spell Absorption</strong>. While holding the staff, you have Advantage on saving throws against spells. In addition, you can take a Reaction when another creature casts a spell that targets only you. If you do, the staff absorbs the magic of the spell, canceling its effect and gaining a number of charges equal to the absorbed spell's level. However, if doing so brings the staff's total number of charges above 50, the staff explodes as if you activated its Retributive Strike (see below).<br />
-      <strong>Spells</strong>. While holding the staff, you can cast one of the spells on the following table from it, using your spell save DC. The table indicates how many charges you must expend to cast the spell.<br />
-      Spell| Charge Cost<br />
-      ---|---<br />
-      <em><a href="https://www.aidedd.org/spell/arcane-lock">Arcane Lock</a></em>|  0<br />
-      <em><a href="https://www.aidedd.org/spell/conjure-elemental">Conjure Elemental</a></em>|  7<br />
-      <em><a href="https://www.aidedd.org/spell/detect-magic">Detect Magic</a></em>|  0<br />
-      <em><a href="https://www.aidedd.org/spell/dispel-magic">Dispel Magic</a></em>|  3<br />
-      <em><a href="https://www.aidedd.org/spell/enlarge-reduce">Enlarge/Reduce</a></em>|  0<br />
-      <em><a href="https://www.aidedd.org/spell/fireball">Fireball</a></em> (level 7 version)| 7<br />
-      <em><a href="https://www.aidedd.org/spell/flaming-sphere">Flaming Sphere</a></em>|  2<br />
-      <em><a href="https://www.aidedd.org/spell/ice-storm">Ice Storm</a></em>|  4<br />
-      <em><a href="https://www.aidedd.org/spell/invisibility">Invisibility</a></em>|  2<br />
-      <em><a href="https://www.aidedd.org/spell/knock">Knock</a></em>|  2<br />
-      <em><a href="https://www.aidedd.org/spell/light">Light</a></em>|  0<br />
-      <em><a href="https://www.aidedd.org/spell/lightning-bolt">Lightning Bolt</a></em> (level 7 version)| 7<br />
-      <em><a href="https://www.aidedd.org/spell/mage-hand">Mage Hand</a></em>|  0<br />
-      <em><a href="https://www.aidedd.org/spell/passwall">Passwall</a></em>|  5<br />
-      <em><a href="https://www.aidedd.org/spell/plane-shift">Plane Shift</a></em>|  7<br />
-      <em><a href="https://www.aidedd.org/spell/protection-from-evil-and-good">Protection from Evil and Good</a></em>|  0<br />
-      <em><a href="https://www.aidedd.org/spell/telekinesis">Telekinesis</a></em>|  5<br />
-      <em><a href="https://www.aidedd.org/spell/wall-of-fire">Wall of Fire</a></em>|  4<br />
-      <em><a href="https://www.aidedd.org/spell/web">Web</a></em>|  2  </p>
-      <p><strong>Regaining Charges</strong>. The staff regains 4d6 + 2 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 20, the staff regains 1d12 + 1 charges.<br />
-      <strong>Retributive Strike</strong>. You can take a Magic action to break the staff over your knee or against a solid surface. The staff is destroyed and releases its magic in an explosion that fills a 30-foot Emanation originating from itself. You have a 50 percent chance to instantly travel to a random plane of existence, avoiding the explosion. If you fail to avoid the effect, you take Force damage equal to 16 times the number of charges in the staff. Each other creature in the area makes a DC 17 Dexterity saving throw. On a failed save, a creature takes Force damage equal to 6 times the number of charges in the staff. On a successful save, a creature takes half as much damage.</p>
+      This staff has 50 charges and can be wielded as a magic Quarterstaff that grants a +2 bonus to attack rolls and damage rolls made with it. While you hold it, you gain a +2 bonus to spell attack rolls.\
+      **Spell Absorption**. While holding the staff, you have Advantage on saving throws against spells. In addition, you can take a Reaction when another creature casts a spell that targets only you. If you do, the staff absorbs the magic of the spell, canceling its effect and gaining a number of charges equal to the absorbed spell's level. However, if doing so brings the staff's total number of charges above 50, the staff explodes as if you activated its Retributive Strike (see below).\
+      **Spells**. While holding the staff, you can cast one of the spells on the following table from it, using your spell save DC. The table indicates how many charges you must expend to cast the spell.\
+      | Spell | Charge Cost |
+      | --- | --- |
+      | *[Arcane Lock](https://www.aidedd.org/spell/arcane-lock)* | 0 |
+      | *[Conjure Elemental](https://www.aidedd.org/spell/conjure-elemental)* | 7 |
+      | *[Detect Magic](https://www.aidedd.org/spell/detect-magic)* | 0 |
+      | *[Dispel Magic](https://www.aidedd.org/spell/dispel-magic)* | 3 |
+      | *[Enlarge/Reduce](https://www.aidedd.org/spell/enlarge-reduce)* | 0 |
+      | *[Fireball](https://www.aidedd.org/spell/fireball)* (level 7 version) | 7 |
+      | *[Flaming Sphere](https://www.aidedd.org/spell/flaming-sphere)* | 2 |
+      | *[Ice Storm](https://www.aidedd.org/spell/ice-storm)* | 4 |
+      | *[Invisibility](https://www.aidedd.org/spell/invisibility)* | 2 |
+      | *[Knock](https://www.aidedd.org/spell/knock)* | 2 |
+      | *[Light](https://www.aidedd.org/spell/light)* | 0 |
+      | *[Lightning Bolt](https://www.aidedd.org/spell/lightning-bolt)* (level 7 version) | 7 |
+      | *[Mage Hand](https://www.aidedd.org/spell/mage-hand)* | 0 |
+      | *[Passwall](https://www.aidedd.org/spell/passwall)* | 5 |
+      | *[Plane Shift](https://www.aidedd.org/spell/plane-shift)* | 7 |
+      | *[Protection from Evil and Good](https://www.aidedd.org/spell/protection-from-evil-and-good)* | 0 |
+      | *[Telekinesis](https://www.aidedd.org/spell/telekinesis)* | 5 |
+      | *[Wall of Fire](https://www.aidedd.org/spell/wall-of-fire)* | 4 |
+      | *[Web](https://www.aidedd.org/spell/web)* | 2 |
+
+      **Regaining Charges**. The staff regains 4d6 + 2 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 20, the staff regains 1d12 + 1 charges.\
+      **Retributive Strike**. You can take a Magic action to break the staff over your knee or against a solid surface. The staff is destroyed and releases its magic in an explosion that fills a 30-foot Emanation originating from itself. You have a 50 percent chance to instantly travel to a random plane of existence, avoiding the explosion. If you fail to avoid the effect, you take Force damage equal to 16 times the number of charges in the staff. Each other creature in the area makes a DC 17 Dexterity saving throw. On a failed save, a creature takes Force damage equal to 6 times the number of charges in the staff. On a successful save, a creature takes half as much damage.
   fr:
     name: Bâton du thaumaturge
     subtype: null
     description: |-
-      <p>Ce bâton possède 50 charges et peut être utilisé comme un bâton magique. Il confère un bonus de +2 aux jets d'attaque et de dégâts. Lorsque vous le tenez, vous bénéficiez d'un bonus de +2 aux jets d'attaque de sort.<br />
-      <strong>Absorption de sort</strong>. Lorsque vous tenez le bâton, vous bénéficiez d'un Avantage aux jets de sauvegarde contre les sorts. De plus, vous pouvez prendre une Réaction lorsqu'une autre créature lance un sort qui vous cible uniquement. Dans ce cas, le bâton absorbe la magie du sort, annulant son effet, et gagne un nombre de charges égal au niveau du sort absorbé. Cependant, si cela porte le total de charges du bâton au-delà de 50, il explose comme si vous aviez activé son Explosion vengeresse (voir ci-dessous).<br />
-      <strong>Sorts</strong>. Lorsque vous tenez le bâton, vous pouvez lancer l'un des sorts de la table suivante, en utilisant votre DD de sauvegarde contre les sorts. La table indique le nombre de charges à dépenser pour lancer le sort.<br />
-      Sort| Coût en charges<br />
-      ---|---<br />
-      <em><a href="https://www.aidedd.org/spell/fr/verrou-arcanique-verrou-magique">verrou arcanique</a></em>|  0<br />
-      <em><a href="https://www.aidedd.org/spell/fr/invocation-d-elementaire">invocation d'élémentaire</a></em>|  7<br />
-      <em><a href="https://www.aidedd.org/spell/fr/detection-de-la-magie">détection de la magie</a></em>|  0<br />
-      <em><a href="https://www.aidedd.org/spell/fr/dissipation-de-la-magie">dissipation de la magie</a></em>|  3<br />
-      <em><a href="https://www.aidedd.org/spell/fr/agrandissement-rapetissement">agrandissement/rapetissement</a></em>|  0<br />
-      <em><a href="https://www.aidedd.org/spell/fr/boule-de-feu">boule de feu</a></em> (version niveau 7)| 7<br />
-      <em><a href="https://www.aidedd.org/spell/fr/sphere-de-feu">sphère de feu</a></em>|  2<br />
-      <em><a href="https://www.aidedd.org/spell/fr/tempete-de-grele">tempête de grêle</a></em>|  4<br />
-      <em><a href="https://www.aidedd.org/spell/fr/invisibilite">invisibilité</a></em>|  2<br />
-      <em><a href="https://www.aidedd.org/spell/fr/deblocage">déblocage</a></em>|  2<br />
-      <em><a href="https://www.aidedd.org/spell/fr/lumiere">lumière</a></em>|  0<br />
-      <em><a href="https://www.aidedd.org/spell/fr/eclair">éclair</a></em> (version niveau 7)| 7<br />
-      <em><a href="https://www.aidedd.org/spell/fr/main-de-mage">main de mage</a></em>|  0<br />
-      <em><a href="https://www.aidedd.org/spell/fr/passe-muraille">passe-muraille</a></em>|  5<br />
-      <em><a href="https://www.aidedd.org/spell/fr/changement-de-plan">changement de plan</a></em>|  7<br />
-      <em><a href="https://www.aidedd.org/spell/fr/protection-contre-le-mal-et-le-bien">protection contre le mal et le bien</a></em>|  0<br />
-      <em><a href="https://www.aidedd.org/spell/fr/telekinesie">télékinésie</a></em>|  5<br />
-      <em><a href="https://www.aidedd.org/spell/fr/mur-de-feu">mur de feu</a></em>|  4<br />
-      <em><a href="https://www.aidedd.org/spell/fr/toile-d-araignee">toile d'araignée</a></em>|  2  </p>
-      <p><strong>Récupération des charges</strong>. Le bâton récupère 4d6 + 2 charges dépensées chaque jour à l'aube. Si vous dépensez la dernière charge, lancez 1d20. Sur un 20, le bâton récupère 1d12 + 1 charges.<br />
-      <strong>Explosion vengeresse</strong>. Vous pouvez prendre une action Magie pour briser le bâton sur votre genou ou contre une surface solide. Le bâton est détruit et libère sa magie dans une explosion qui remplit une Émanation de 9 mètres de diamètre. Vous avez 50 % de chances de voyager instantanément vers un plan d'existence aléatoire, évitant ainsi l'explosion. Si vous échouez à éviter l'effet, vous subissez des dégâts de Force égaux à 16 fois le nombre de charges du bâton. Chaque autre créature dans la zone effectue un jet de sauvegarde de Dextérité DD 17. En cas d'échec, une créature subit des dégâts de force égaux à 6 fois le nombre de charges du bâton. En cas de réussite, une créature subit la moitié de ces dégâts.</p>
+      Ce bâton possède 50 charges et peut être utilisé comme un bâton magique. Il confère un bonus de +2 aux jets d'attaque et de dégâts. Lorsque vous le tenez, vous bénéficiez d'un bonus de +2 aux jets d'attaque de sort.\
+      **Absorption de sort**. Lorsque vous tenez le bâton, vous bénéficiez d'un Avantage aux jets de sauvegarde contre les sorts. De plus, vous pouvez prendre une Réaction lorsqu'une autre créature lance un sort qui vous cible uniquement. Dans ce cas, le bâton absorbe la magie du sort, annulant son effet, et gagne un nombre de charges égal au niveau du sort absorbé. Cependant, si cela porte le total de charges du bâton au-delà de 50, il explose comme si vous aviez activé son Explosion vengeresse (voir ci-dessous).\
+      **Sorts**. Lorsque vous tenez le bâton, vous pouvez lancer l'un des sorts de la table suivante, en utilisant votre DD de sauvegarde contre les sorts. La table indique le nombre de charges à dépenser pour lancer le sort.\
+      | Sort | Coût en charges |
+      | --- | --- |
+      | *[verrou arcanique](https://www.aidedd.org/spell/fr/verrou-arcanique-verrou-magique)* | 0 |
+      | *[invocation d'élémentaire](https://www.aidedd.org/spell/fr/invocation-d-elementaire)* | 7 |
+      | *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie)* | 0 |
+      | *[dissipation de la magie](https://www.aidedd.org/spell/fr/dissipation-de-la-magie)* | 3 |
+      | *[agrandissement/rapetissement](https://www.aidedd.org/spell/fr/agrandissement-rapetissement)* | 0 |
+      | *[boule de feu](https://www.aidedd.org/spell/fr/boule-de-feu)* (version niveau 7) | 7 |
+      | *[sphère de feu](https://www.aidedd.org/spell/fr/sphere-de-feu)* | 2 |
+      | *[tempête de grêle](https://www.aidedd.org/spell/fr/tempete-de-grele)* | 4 |
+      | *[invisibilité](https://www.aidedd.org/spell/fr/invisibilite)* | 2 |
+      | *[déblocage](https://www.aidedd.org/spell/fr/deblocage)* | 2 |
+      | *[lumière](https://www.aidedd.org/spell/fr/lumiere)* | 0 |
+      | *[éclair](https://www.aidedd.org/spell/fr/eclair)* (version niveau 7) | 7 |
+      | *[main de mage](https://www.aidedd.org/spell/fr/main-de-mage)* | 0 |
+      | *[passe-muraille](https://www.aidedd.org/spell/fr/passe-muraille)* | 5 |
+      | *[changement de plan](https://www.aidedd.org/spell/fr/changement-de-plan)* | 7 |
+      | *[protection contre le mal et le bien](https://www.aidedd.org/spell/fr/protection-contre-le-mal-et-le-bien)* | 0 |
+      | *[télékinésie](https://www.aidedd.org/spell/fr/telekinesie)* | 5 |
+      | *[mur de feu](https://www.aidedd.org/spell/fr/mur-de-feu)* | 4 |
+      | *[toile d'araignée](https://www.aidedd.org/spell/fr/toile-d-araignee)* | 2 |
+
+      **Récupération des charges**. Le bâton récupère 4d6 + 2 charges dépensées chaque jour à l'aube. Si vous dépensez la dernière charge, lancez 1d20. Sur un 20, le bâton récupère 1d12 + 1 charges.\
+      **Explosion vengeresse**. Vous pouvez prendre une action Magie pour briser le bâton sur votre genou ou contre une surface solide. Le bâton est détruit et libère sa magie dans une explosion qui remplit une Émanation de 9 mètres de diamètre. Vous avez 50 % de chances de voyager instantanément vers un plan d'existence aléatoire, évitant ainsi l'explosion. Si vous échouez à éviter l'effet, vous subissez des dégâts de Force égaux à 16 fois le nombre de charges du bâton. Chaque autre créature dans la zone effectue un jet de sauvegarde de Dextérité DD 17. En cas d'échec, une créature subit des dégâts de force égaux à 6 fois le nombre de charges du bâton. En cas de réussite, une créature subit la moitié de ces dégâts.

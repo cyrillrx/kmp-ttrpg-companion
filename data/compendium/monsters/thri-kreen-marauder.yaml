@@ -89,12 +89,17 @@ translations:
     name: Thri-kreen Marauder
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The thri-kreen makes two attacks, using Gythka or Chatkcha in any combination.</p>
-      <p><strong><em>Gythka</em></strong>. <em>Melee Attack Roll</em> : +3, reach 5 ft. <em>Hit</em> : 5 (1d8 + 1) Slashing damage plus 2 (1d4) Poison damage.</p>
-      <p><strong><em>Chatkcha</em></strong>. <em>Ranged Attack Roll</em> : +4, range 30/120 ft. <em>Hit</em> : 5 (1d6 + 2) Slashing damage.</p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Leap</em>**. The thri-kreen jumps up to 15 feet by spending 5 feet of movement.</p>
+      ## Actions
+
+      ***Multiattack***. The thri-kreen makes two attacks, using Gythka or Chatkcha in any combination.
+
+      ***Gythka***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 5 (1d8 + 1) Slashing damage plus 2 (1d4) Poison damage.
+
+      ***Chatkcha***. *Ranged Attack Roll* : +4, range 30/120 ft. *Hit* : 5 (1d6 + 2) Slashing damage.
+
+      ## Bonus actions
+
+      ***Leap***. The thri-kreen jumps up to 15 feet by spending 5 feet of movement.
     senses: Darkvision 60 ft., Passive Perception 13
     languages:
     - Thri-kreen; telepathy 60 ft.
@@ -102,12 +107,17 @@ translations:
     name: Thri-kreen, maraudeur
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le thri-kreen effectue deux attaques, réparties à sa guise entre Gythka et Chatkcha.</p>
-      <p><strong><em>Gythka</em></strong>. <em>Corps à corps</em> : +3, allonge 1,50 m. <em>Touché</em> : 5 (1d8 + 1) dégâts tranchants plus 2 (1d4) dégâts de poison.</p>
-      <p><strong><em>Chatkcha</em></strong>. <em>À distance</em> : +4, portée 30/36 m. <em>Touché</em> : 5 (1d6 + 2) dégâts tranchants.</p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Bond</em>**. Le thri-kreen effectue un saut d'un maximum de 4,50 m en dépensant 1,50 m de déplacement.</p>
+      ## Actions
+
+      ***Attaques multiples***. Le thri-kreen effectue deux attaques, réparties à sa guise entre Gythka et Chatkcha.
+
+      ***Gythka***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 5 (1d8 + 1) dégâts tranchants plus 2 (1d4) dégâts de poison.
+
+      ***Chatkcha***. *À distance* : +4, portée 30/36 m. *Touché* : 5 (1d6 + 2) dégâts tranchants.
+
+      ## Actions Bonus
+
+      ***Bond***. Le thri-kreen effectue un saut d'un maximum de 4,50 m en dépensant 1,50 m de déplacement.
     senses: Vision dans le noir 18 m, Perception passive 13
     languages:
     - thri-kreen ; télépathie 18 m

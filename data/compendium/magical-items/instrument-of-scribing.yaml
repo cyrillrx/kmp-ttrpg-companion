@@ -7,25 +7,23 @@ translations:
   en:
     name: Instrument of Scribing
     subtype: null
-    description: <p>This musical instrument has 3 charges and regains all expended
-      charges daily at dawn. While you are playing it, you can take a Magic action
-      to expend 1 charge and write a magical message on a nonmagical object or surface
-      that you can see within 30 feet of yourself. The message can be up to six words
-      long and is written in a language you know. If you are a Bard, you can scribe
-      an additional seven words and make the message glow faintly, allowing it to
-      be seen in nonmagical Darkness. Casting the <em><a href="https://www.aidedd.org/spell/dispel-magic">Dispel
-      Magic</a></em> spell on the message erases it. Otherwise, the message fades
-      away after 24 hours.</p>
+    description: This musical instrument has 3 charges and regains all expended charges
+      daily at dawn. While you are playing it, you can take a Magic action to expend
+      1 charge and write a magical message on a nonmagical object or surface that
+      you can see within 30 feet of yourself. The message can be up to six words long
+      and is written in a language you know. If you are a Bard, you can scribe an
+      additional seven words and make the message glow faintly, allowing it to be
+      seen in nonmagical Darkness. Casting the *[Dispel Magic](https://www.aidedd.org/spell/dispel-magic)*
+      spell on the message erases it. Otherwise, the message fades away after 24 hours.
   fr:
     name: Instrument à message
     subtype: null
-    description: <p>Cet instrument de musique possède 3 charges et récupère toutes
-      ses charges dépensées chaque jour à l'aube. Lorsque vous en jouez, vous pouvez
-      prendre une action Magie pour dépenser 1 charge et écrire un message magique
-      sur un objet ou une surface non magique que vous pouvez voir dans un rayon de
-      9 mètres. Le message peut contenir jusqu'à six mots et est écrit dans une langue
-      que vous connaissez. Si vous êtes un barde, vous pouvez écrire sept mots supplémentaires
+    description: Cet instrument de musique possède 3 charges et récupère toutes ses
+      charges dépensées chaque jour à l'aube. Lorsque vous en jouez, vous pouvez prendre
+      une action Magie pour dépenser 1 charge et écrire un message magique sur un
+      objet ou une surface non magique que vous pouvez voir dans un rayon de 9 mètres.
+      Le message peut contenir jusqu'à six mots et est écrit dans une langue que vous
+      connaissez. Si vous êtes un barde, vous pouvez écrire sept mots supplémentaires
       et faire briller faiblement le message, le rendant visible dans les ténèbres
-      non magiques. Lancer le sort <em><a href="https://www.aidedd.org/spell/fr/dissipation-de-la-magie">dissipation
-      de la magie</a></em> sur le message l'efface. Sinon, le message disparaît au
-      bout de 24 heures.</p>
+      non magiques. Lancer le sort *[dissipation de la magie](https://www.aidedd.org/spell/fr/dissipation-de-la-magie)*
+      sur le message l'efface. Sinon, le message disparaît au bout de 24 heures.

@@ -89,12 +89,17 @@ translations:
     name: Grell
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Abduct</em>**. The grell needn't spend extra movement to move a creature it is grappling.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The grell makes one Beak attack and one Paralyzing Tentacles attack.</p>
-      <p><strong><em>Beak</em></strong>. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 11 (2d8 + 2) Piercing damage.</p>
-      <p><strong><em>Paralyzing Tentacles</em></strong>. <em>Melee Attack Roll</em> : +4, reach 10 ft. <em>Hit</em> : 7 (1d10 + 2) Piercing damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 12) from two of ten tentacles. The target is also subjected to the following effect. <em>Constitution Saving Throw</em> : DC 11. <em>Failure</em> : The target has the Poisoned condition and repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically. While Poisoned, the target has the Paralyzed condition.</p>
+      ## Traits
+
+      ***Abduct***. The grell needn't spend extra movement to move a creature it is grappling.
+
+      ## Actions
+
+      ***Multiattack***. The grell makes one Beak attack and one Paralyzing Tentacles attack.
+
+      ***Beak***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 11 (2d8 + 2) Piercing damage.
+
+      ***Paralyzing Tentacles***. *Melee Attack Roll* : +4, reach 10 ft. *Hit* : 7 (1d10 + 2) Piercing damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 12) from two of ten tentacles. The target is also subjected to the following effect. *Constitution Saving Throw* : DC 11. *Failure* : The target has the Poisoned condition and repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically. While Poisoned, the target has the Paralyzed condition.
     senses: Blindsight 60 ft., Passive Perception 14
     languages:
     - Deep Speech
@@ -102,12 +107,17 @@ translations:
     name: Grell
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Rapt</em>**. Le grell n'a pas besoin de dépenser de mouvement supplémentaire pour déplacer une créature qu'il est en train d'agripper.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le grell effectue une attaque de Bec et une attaque de Tentacules paralysants.</p>
-      <p><strong><em>Bec</em></strong>. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 11 (2d8 + 2) dégâts perforants.</p>
-      <p><strong><em>Tentacules paralysants</em></strong>. <em>Corps à corps</em> : +4, allonge 3 m. <em>Touché</em> : 7 (1d10 + 2) dégâts perforants. Si la cible est une créature de taille M ou inférieure, elle subit l'état Agrippé (évasion DD 12) par deux des dix tentacules. La cible est également sujette à l'effet suivant. <em>JdS Constitution</em> : DD 11. <em>Échec</em> : la cible subit l'état Empoisonnée et doit refaire le jet de sauvegarde à la fin de chacun de ses tours. En cas de réussite, l'effet prend fin. Après 1 minute, la réussite est automatique. Tant qu'elle est empoisonnée, la cible subit l'état Paralysé.</p>
+      ## Traits
+
+      ***Rapt***. Le grell n'a pas besoin de dépenser de mouvement supplémentaire pour déplacer une créature qu'il est en train d'agripper.
+
+      ## Actions
+
+      ***Attaques multiples***. Le grell effectue une attaque de Bec et une attaque de Tentacules paralysants.
+
+      ***Bec***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 11 (2d8 + 2) dégâts perforants.
+
+      ***Tentacules paralysants***. *Corps à corps* : +4, allonge 3 m. *Touché* : 7 (1d10 + 2) dégâts perforants. Si la cible est une créature de taille M ou inférieure, elle subit l'état Agrippé (évasion DD 12) par deux des dix tentacules. La cible est également sujette à l'effet suivant. *JdS Constitution* : DD 11. *Échec* : la cible subit l'état Empoisonnée et doit refaire le jet de sauvegarde à la fin de chacun de ses tours. En cas de réussite, l'effet prend fin. Après 1 minute, la réussite est automatique. Tant qu'elle est empoisonnée, la cible subit l'état Paralysé.
     senses: Vision aveugle 18 m, Perception passive 14
     languages:
     - profond

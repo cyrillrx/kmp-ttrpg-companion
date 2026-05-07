@@ -20,7 +20,7 @@ translations:
     duration: Instantaneous
     materialDescription: null
     description: You remove poison and rot from nonmagical food and drink in a 5-foot-radius
-      Sphere centered on a point within range.<br/>
+      Sphere centered on a point within range.\
   fr:
     name: Purification de la nourriture et de l'eau
     castingTime: Action ou Rituel
@@ -28,4 +28,4 @@ translations:
     duration: Instantanée
     materialDescription: null
     description: Vous éliminez le poison et la pourriture des aliments et boissons
-      non magiques dans une sphère de 1,50 mètre de rayon centrée sur un point à portée.<br/>
+      non magiques dans une sphère de 1,50 mètre de rayon centrée sur un point à portée.\

@@ -8,11 +8,11 @@ translations:
     name: Broom of Flying
     subtype: null
     description: |-
-      <p>This wooden broom functions like a mundane broom until you stand astride it and take a Magic action to make it hover beneath you, at which time it can be ridden in the air. It has a Fly Speed of 50 feet. It can carry up to 400 pounds, but its Fly Speed becomes 30 feet while carrying over 200 pounds. The broom stops hovering when you land or when you're no longer riding it.<br />
-      As a Magic action, you can send the broom to travel alone to a destination within 1 mile of you if you name the location and are familiar with it. The broom comes back to you when you take a Magic action and use a command word if the broom is still within 1 mile of you.</p>
+      This wooden broom functions like a mundane broom until you stand astride it and take a Magic action to make it hover beneath you, at which time it can be ridden in the air. It has a Fly Speed of 50 feet. It can carry up to 400 pounds, but its Fly Speed becomes 30 feet while carrying over 200 pounds. The broom stops hovering when you land or when you're no longer riding it.\
+      As a Magic action, you can send the broom to travel alone to a destination within 1 mile of you if you name the location and are familiar with it. The broom comes back to you when you take a Magic action and use a command word if the broom is still within 1 mile of you.
   fr:
     name: Balai volant
     subtype: null
     description: |-
-      <p>Ce balai en bois fonctionne comme un balai ordinaire jusqu'à ce que vous le chevauchiez et preniez une action Magie pour lui faire effectuer un vol stationnaire. Vous pouvez alors le faire voler. Sa Vitesse de vol est de 15 mètres. Il peut transporter jusqu'à 200 kg, mais sa Vitesse de vol passe à 9 mètres au-delà 100 kg. Le balai cesse son vol stationnaire lorsque vous atterrissez ou lorsque vous ne le pilotez plus.<br />
-      Par une action Magie, vous pouvez envoyer le balai voyager seul vers une destination située à 1,5 km ou moins de vous si vous nommez le lieu et le connaissez. Le balai revient vers vous lorsque vous prenez une action Magie et utilisez un mot de commande s'il est toujours à 1,5 km ou moins de vous.</p>
+      Ce balai en bois fonctionne comme un balai ordinaire jusqu'à ce que vous le chevauchiez et preniez une action Magie pour lui faire effectuer un vol stationnaire. Vous pouvez alors le faire voler. Sa Vitesse de vol est de 15 mètres. Il peut transporter jusqu'à 200 kg, mais sa Vitesse de vol passe à 9 mètres au-delà 100 kg. Le balai cesse son vol stationnaire lorsque vous atterrissez ou lorsque vous ne le pilotez plus.\
+      Par une action Magie, vous pouvez envoyer le balai voyager seul vers une destination située à 1,5 km ou moins de vous si vous nommez le lieu et le connaissez. Le balai revient vers vous lorsque vous prenez une action Magie et utilisez un mot de commande s'il est toujours à 1,5 km ou moins de vous.

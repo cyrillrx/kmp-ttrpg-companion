@@ -89,13 +89,19 @@ translations:
     name: Manes Vaporspawn
     subtype: Demon
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Contortionist</em>**. The manes can move through a space as narrow as 1 inch without expending extra movement to do so.</p>
-      <p><strong><em>Sickening Vapors</em></strong>. <em>Constitution Saving Throw</em> : DC 12, each creature in a 5-foot Emanation originating from the manes at the end of the manes's turn. <em>Failure</em> : The target has the Incapacitated condition until the end of its next turn. <em>Success</em> : The target is immune to this manes's Sickening Vapors for 24 hours.</p>
-      <h2>Actions</h2>
-      <p>** <em>Claw</em>**. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 5 (1d6 + 2) Slashing damage plus 5 (2d4) Necrotic damage.</p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Shadow Stealth</em>**. While in Dim Light or Darkness, the manes takes the Hide action.</p>
+      ## Traits
+
+      ***Contortionist***. The manes can move through a space as narrow as 1 inch without expending extra movement to do so.
+
+      ***Sickening Vapors***. *Constitution Saving Throw* : DC 12, each creature in a 5-foot Emanation originating from the manes at the end of the manes's turn. *Failure* : The target has the Incapacitated condition until the end of its next turn. *Success* : The target is immune to this manes's Sickening Vapors for 24 hours.
+
+      ## Actions
+
+      ***Claw***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 5 (1d6 + 2) Slashing damage plus 5 (2d4) Necrotic damage.
+
+      ## Bonus actions
+
+      ***Shadow Stealth***. While in Dim Light or Darkness, the manes takes the Hide action.
     senses: Darkvision 60 ft., Passive Perception 9
     languages:
     - Understands Abyssal but can't speak
@@ -103,13 +109,18 @@ translations:
     name: Mâne vaporeux
     subtype: Démon
     description: |-
-      <h2>Traits</h2>
-      <p>Contortionniste.<br />
-      Vapeurs morbides.  </p>
-      <h2>Actions</h2>
-      <p>Griffes.  </p>
-      <h2>Actions Bonus</h2>
-      <p>Discrétion dans les ombres.</p>
+      ## Traits
+
+      Contortionniste.\
+      Vapeurs morbides.
+
+      ## Actions
+
+      Griffes.
+
+      ## Actions Bonus
+
+      Discrétion dans les ombres.
     senses: Vision dans le noir 18 m, Perception passive 9
     languages:
     - comprend l'abyssal mais ne parle pas

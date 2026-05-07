@@ -89,15 +89,23 @@ translations:
     name: Ghost
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Ethereal Sight</em>**. The ghost can see 60 feet into the Ethereal Plane when it is on the Material Plane.</p>
-      <p><strong><em>Incorporeal Movement</em></strong>. The ghost can move through other creatures and objects as if they were Difficult Terrain. It takes 5 (1d10) Force damage if it ends its turn inside an object.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The ghost makes two Withering Touch attacks.</p>
-      <p><strong><em>Withering Touch</em></strong>. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 19 (3d10 + 3) Necrotic damage.</p>
-      <p><strong><em>Etherealness</em></strong>. The ghost casts the <em><a href="https://www.aidedd.org/spell/etherealness">Etherealness</a></em> spell, requiring no spell components and using Charisma as the spellcasting ability. The ghost is visible on the Material Plane while on the Border Ethereal and vice versa, but it can't affect or be affected by anything on the other plane.</p>
-      <p><strong><em>Horrific Visage</em></strong>. <em>Wisdom Saving Throw</em> : DC 13, each creature in a 60-foot Cone that can see the ghost and isn't an Undead. <em>Failure</em> : 10 (2d6 + 3) Psychic damage, and the target has the Frightened condition until the start of the ghost's next turn. <em>Success</em> : The target is immune to this ghost's Horrific Visage for 24 hours.</p>
-      <p><strong><em>Possession (Recharge 6)</em></strong>. <em>Charisma Saving Throw</em> : DC 13, one Humanoid the ghost can see within 5 feet. <em>Failure</em> : The target is possessed by the ghost; the ghost disappears, and the target has the Incapacitated condition and loses control of its body. The ghost now controls the body, but the target retains awareness. The ghost can't be targeted by any attack, spell, or other effect, except ones that specifically target Undead. The ghost's game statistics are the same, except it uses the possessed target's Speed, as well as the target's Strength, Dexterity, and Constitution modifiers. The possession lasts until the body drops to 0 Hit Points or the ghost leaves as a Bonus Action. When the possession ends, the ghost appears in an unoccupied space within 5 feet of the target, and the target is immune to this ghost's Possession for 24 hours. <em>Success</em> : The target is immune to this ghost's Possession for 24 hours.</p>
+      ## Traits
+
+      ***Ethereal Sight***. The ghost can see 60 feet into the Ethereal Plane when it is on the Material Plane.
+
+      ***Incorporeal Movement***. The ghost can move through other creatures and objects as if they were Difficult Terrain. It takes 5 (1d10) Force damage if it ends its turn inside an object.
+
+      ## Actions
+
+      ***Multiattack***. The ghost makes two Withering Touch attacks.
+
+      ***Withering Touch***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 19 (3d10 + 3) Necrotic damage.
+
+      ***Etherealness***. The ghost casts the *[Etherealness](https://www.aidedd.org/spell/etherealness)* spell, requiring no spell components and using Charisma as the spellcasting ability. The ghost is visible on the Material Plane while on the Border Ethereal and vice versa, but it can't affect or be affected by anything on the other plane.
+
+      ***Horrific Visage***. *Wisdom Saving Throw* : DC 13, each creature in a 60-foot Cone that can see the ghost and isn't an Undead. *Failure* : 10 (2d6 + 3) Psychic damage, and the target has the Frightened condition until the start of the ghost's next turn. *Success* : The target is immune to this ghost's Horrific Visage for 24 hours.
+
+      ***Possession (Recharge 6)***. *Charisma Saving Throw* : DC 13, one Humanoid the ghost can see within 5 feet. *Failure* : The target is possessed by the ghost; the ghost disappears, and the target has the Incapacitated condition and loses control of its body. The ghost now controls the body, but the target retains awareness. The ghost can't be targeted by any attack, spell, or other effect, except ones that specifically target Undead. The ghost's game statistics are the same, except it uses the possessed target's Speed, as well as the target's Strength, Dexterity, and Constitution modifiers. The possession lasts until the body drops to 0 Hit Points or the ghost leaves as a Bonus Action. When the possession ends, the ghost appears in an unoccupied space within 5 feet of the target, and the target is immune to this ghost's Possession for 24 hours. *Success* : The target is immune to this ghost's Possession for 24 hours.
     senses: Darkvision 60 ft., Passive Perception 11
     languages:
     - Common plus one other language
@@ -105,15 +113,23 @@ translations:
     name: Fantôme
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Déplacement intangible</em>**. Le fantôme peut traverser d'autres créatures et objets comme s'il s'agissait d'un Terrain difficile. Il subit 5 (1d10) dégâts de force s'il termine son tour à l'intérieur d'un objet.</p>
-      <p><strong><em>Vision éthérée</em></strong>. Le fantôme voit sur un rayon de 18 m dans le Plan Éthéré quand il est sur le Plan Matériel.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le fantôme effectue deux attaques de Contact flétrissant.</p>
-      <p><strong><em>Contact flétrissant</em></strong>. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 19 (3d10 + 3) dégâts nécrotiques.</p>
-      <p><strong><em>Forme éthérée</em></strong>. Le fantôme lance le sort <em>forme éthérée</em> sans composantes de sort, le Charisme étant sa caractéristique d'incantation. Le fantôme est visible depuis le Plan Matériel tant qu'il se trouve à la Frontière éthérée, et inversement, mais ne peut ni affecter, ni être affecté par quoi que ce soit depuis l'autre plan.</p>
-      <p><strong><em>Possession (recharge 6)</em></strong>. <em>JdS Charisme</em> : DD 13, un Humanoïde que le fantôme voit dans un rayon de 1,50 m. <em>Échec</em> : la cible est possédée par le fantôme ; le fantôme disparaît, la cible subit l'état Incapable d'agir et perd le contrôle de son corps. Le fantôme prend le contrôle du corps, mais la cible reste consciente. Le fantôme ne peut être ciblé par aucun sort, effet ou attaque, à l'exception de ceux qui ciblent spécifiquement les Morts-vivants. Le profil de jeu du fantôme reste le même, si ce n'est qu'il reprend la Vitesse de la cible, ainsi que ses modificateurs de Force, de Dextérité et de Constitution. Cette possession persiste jusqu'à ce que le corps tombe à 0 point de vie ou que le fantôme le quitte par une action Bonus. Quand la possession prend fin, le fantôme apparaît en un espace inoccupé dans un rayon de 1,50 m de la cible, et celle-ci est immunisée contre la Possession de ce fantôme pendant 24 heures. <em>Réussite</em> : la cible est immunisée contre la Possession de ce fantôme pendant 24 heures.</p>
-      <p><strong><em>Visage terrifiant</em></strong>. <em>JdS Sagesse</em> : DD 13, chaque créature dans un Cône de 18 m qui n'est pas un Mort-vivant et voit le fantôme. <em>Échec</em> : 10 (2d6 + 3) dégâts psychiques, et la cible subit l'état Effrayé jusqu'au début du tour suivant du fantôme. <em>Réussite</em> : la cible est immunisée contre le Visage terrifiant de ce fantôme pendant 24 heures.</p>
+      ## Traits
+
+      ***Déplacement intangible***. Le fantôme peut traverser d'autres créatures et objets comme s'il s'agissait d'un Terrain difficile. Il subit 5 (1d10) dégâts de force s'il termine son tour à l'intérieur d'un objet.
+
+      ***Vision éthérée***. Le fantôme voit sur un rayon de 18 m dans le Plan Éthéré quand il est sur le Plan Matériel.
+
+      ## Actions
+
+      ***Attaques multiples***. Le fantôme effectue deux attaques de Contact flétrissant.
+
+      ***Contact flétrissant***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 19 (3d10 + 3) dégâts nécrotiques.
+
+      ***Forme éthérée***. Le fantôme lance le sort *forme éthérée* sans composantes de sort, le Charisme étant sa caractéristique d'incantation. Le fantôme est visible depuis le Plan Matériel tant qu'il se trouve à la Frontière éthérée, et inversement, mais ne peut ni affecter, ni être affecté par quoi que ce soit depuis l'autre plan.
+
+      ***Possession (recharge 6)***. *JdS Charisme* : DD 13, un Humanoïde que le fantôme voit dans un rayon de 1,50 m. *Échec* : la cible est possédée par le fantôme ; le fantôme disparaît, la cible subit l'état Incapable d'agir et perd le contrôle de son corps. Le fantôme prend le contrôle du corps, mais la cible reste consciente. Le fantôme ne peut être ciblé par aucun sort, effet ou attaque, à l'exception de ceux qui ciblent spécifiquement les Morts-vivants. Le profil de jeu du fantôme reste le même, si ce n'est qu'il reprend la Vitesse de la cible, ainsi que ses modificateurs de Force, de Dextérité et de Constitution. Cette possession persiste jusqu'à ce que le corps tombe à 0 point de vie ou que le fantôme le quitte par une action Bonus. Quand la possession prend fin, le fantôme apparaît en un espace inoccupé dans un rayon de 1,50 m de la cible, et celle-ci est immunisée contre la Possession de ce fantôme pendant 24 heures. *Réussite* : la cible est immunisée contre la Possession de ce fantôme pendant 24 heures.
+
+      ***Visage terrifiant***. *JdS Sagesse* : DD 13, chaque créature dans un Cône de 18 m qui n'est pas un Mort-vivant et voit le fantôme. *Échec* : 10 (2d6 + 3) dégâts psychiques, et la cible subit l'état Effrayé jusqu'au début du tour suivant du fantôme. *Réussite* : la cible est immunisée contre le Visage terrifiant de ce fantôme pendant 24 heures.
     senses: Vision dans le noir 18 m, Perception passive 11
     languages:
     - commun plus une autre langue

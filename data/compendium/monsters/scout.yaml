@@ -89,10 +89,13 @@ translations:
     name: Scout
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The scout makes two attacks, using Shortsword and Longbow in any combination.</p>
-      <p><strong><em>Shortsword</em></strong>. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 5 (1d6 + 2) Piercing damage.</p>
-      <p><strong><em>Longbow</em></strong>. <em>Ranged Attack Roll</em> : +4, range 150/600 ft. <em>Hit</em> : 6 (1d8 + 2) Piercing damage.</p>
+      ## Actions
+
+      ***Multiattack***. The scout makes two attacks, using Shortsword and Longbow in any combination.
+
+      ***Shortsword***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 5 (1d6 + 2) Piercing damage.
+
+      ***Longbow***. *Ranged Attack Roll* : +4, range 150/600 ft. *Hit* : 6 (1d8 + 2) Piercing damage.
     senses: Passive Perception 15
     languages:
     - Common plus one other language
@@ -100,10 +103,13 @@ translations:
     name: Éclaireur
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. L'éclaireur effectue deux attaques, réparties à sa guise entre Épée courte et Arc long.</p>
-      <p><strong><em>Épée courte</em></strong>. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 5 (1d6 + 2) dégâts perforants.</p>
-      <p><strong><em>Arc long</em></strong>. <em>À distance</em> : +4, portée 45/180 m. <em>Touché</em> : 6 (1d8 + 2) dégâts perforants.</p>
+      ## Actions
+
+      ***Attaques multiples***. L'éclaireur effectue deux attaques, réparties à sa guise entre Épée courte et Arc long.
+
+      ***Épée courte***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 5 (1d6 + 2) dégâts perforants.
+
+      ***Arc long***. *À distance* : +4, portée 45/180 m. *Touché* : 6 (1d8 + 2) dégâts perforants.
     senses: Perception passive 15
     languages:
     - commun plus une autre langue

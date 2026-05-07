@@ -89,10 +89,13 @@ translations:
     name: Merfolk Skirmisher
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Amphibious</em>**. The merfolk can breathe air and water.</p>
-      <h2>Actions</h2>
-      <p>** <em>Ocean Spear</em>**. <em>Melee or Ranged Attack Roll</em> : +2, reach 5 ft. or range 20/60 ft. <em>Hit</em> : 3 (1d6) Piercing damage plus 2 (1d4) Cold damage. If the target is a creature, its Speed decreases by 10 feet until the end of its next turn. <em>Hit or Miss</em> : The spear magically returns to the merfolk's hand immediately after a ranged attack.</p>
+      ## Traits
+
+      ***Amphibious***. The merfolk can breathe air and water.
+
+      ## Actions
+
+      ***Ocean Spear***. *Melee or Ranged Attack Roll* : +2, reach 5 ft. or range 20/60 ft. *Hit* : 3 (1d6) Piercing damage plus 2 (1d4) Cold damage. If the target is a creature, its Speed decreases by 10 feet until the end of its next turn. *Hit or Miss* : The spear magically returns to the merfolk's hand immediately after a ranged attack.
     senses: Passive Perception 12
     languages:
     - Common
@@ -101,10 +104,13 @@ translations:
     name: Thalasséen, tirailleur
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Amphibie</em>**. Le thalasséen peut respirer sous l'eau comme à l'air libre.</p>
-      <h2>Actions</h2>
-      <p>** <em>Lance océanique</em>**. <em>Corps à corps ou à distance</em> : +2, allonge 1,50 m ou portée 6/18 m. <em>Touché</em> : 3 (1d6) dégâts perforants plus 2 (1d4) dégâts de froid. Si la cible est une créature, sa Vitesse est réduite de 3 m jusqu'à la fin de son tour suivant. <em>Touché ou raté</em> : aussitôt après une attaque à distance, la lance retourne magiquement dans la main du thalasséen.</p>
+      ## Traits
+
+      ***Amphibie***. Le thalasséen peut respirer sous l'eau comme à l'air libre.
+
+      ## Actions
+
+      ***Lance océanique***. *Corps à corps ou à distance* : +2, allonge 1,50 m ou portée 6/18 m. *Touché* : 3 (1d6) dégâts perforants plus 2 (1d4) dégâts de froid. Si la cible est une créature, sa Vitesse est réduite de 3 m jusqu'à la fin de son tour suivant. *Touché ou raté* : aussitôt après une attaque à distance, la lance retourne magiquement dans la main du thalasséen.
     senses: Perception passive 12
     languages:
     - commun

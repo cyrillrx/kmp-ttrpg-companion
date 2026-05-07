@@ -89,12 +89,17 @@ translations:
     name: Wraith
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Incorporeal Movement</em>**. The wraith can move through other creatures and objects as if they were Difficult Terrain. It takes 5 (1d10) Force damage if it ends its turn inside an object.</p>
-      <p><strong><em>Sunlight Sensitivity</em></strong>. While in sunlight, the wraith has Disadvantage on ability checks and attack rolls.</p>
-      <h2>Actions</h2>
-      <p>** <em>Life Drain</em>**. <em>Melee Attack Roll</em> : +6, reach 5 ft. <em>Hit</em> : 21 (4d8 + 3) Necrotic damage. If the target is a creature, its Hit Point maximum decreases by an amount equal to the damage taken.</p>
-      <p><strong><em>Create Specter</em></strong>. The wraith targets a Humanoid corpse within 10 feet of itself that has been dead for no longer than 1 minute. The target's spirit rises as a Specter in the space of its corpse or in the nearest unoccupied space. The specter is under the wraith's control. The wraith can have no more than seven specters under its control at a time.</p>
+      ## Traits
+
+      ***Incorporeal Movement***. The wraith can move through other creatures and objects as if they were Difficult Terrain. It takes 5 (1d10) Force damage if it ends its turn inside an object.
+
+      ***Sunlight Sensitivity***. While in sunlight, the wraith has Disadvantage on ability checks and attack rolls.
+
+      ## Actions
+
+      ***Life Drain***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 21 (4d8 + 3) Necrotic damage. If the target is a creature, its Hit Point maximum decreases by an amount equal to the damage taken.
+
+      ***Create Specter***. The wraith targets a Humanoid corpse within 10 feet of itself that has been dead for no longer than 1 minute. The target's spirit rises as a Specter in the space of its corpse or in the nearest unoccupied space. The specter is under the wraith's control. The wraith can have no more than seven specters under its control at a time.
     senses: Darkvision 60 ft., Passive Perception 12
     languages:
     - Common plus two other languages
@@ -102,12 +107,17 @@ translations:
     name: Âme-en-peine
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Déplacement intangible</em>**. L'âme-en-peine peut traverser d'autres créatures et objets comme s'il s'agissait d'un Terrain difficile. Elle subit 5 (1d10) dégâts de force si elle termine son tour à l'intérieur d'un objet.</p>
-      <p><strong><em>Sensibilité au soleil</em></strong>. Tant qu'elle est exposée à la lumière du soleil, l'âme-en-peine subit un Désavantage aux jets de caractéristique et aux jets d'attaque.</p>
-      <h2>Actions</h2>
-      <p>** <em>Absorption de vie</em>**. <em>Corps à corps</em> : +6, allonge 1,50 m. <em>Touché</em> : 21 (4d8 + 3) dégâts nécrotiques. Si la cible est une créature, son maximum de points de vie est réduit d'un montant égal aux dégâts subis.</p>
-      <p><strong><em>Création de spectre</em></strong>. L'âme-en-peine cible un Humanoïde dans un rayon de 3 m, mort depuis moins de 1 minute. L'esprit de la cible émerge sous forme de <strong>spectre</strong> de l'espace de son cadavre ou dans l'espace inoccupé le plus proche. Le spectre est sous le contrôle de l'âme-en-peine. L'âme-en-peine ne peut ainsi contrôler plus de sept spectres à la fois.</p>
+      ## Traits
+
+      ***Déplacement intangible***. L'âme-en-peine peut traverser d'autres créatures et objets comme s'il s'agissait d'un Terrain difficile. Elle subit 5 (1d10) dégâts de force si elle termine son tour à l'intérieur d'un objet.
+
+      ***Sensibilité au soleil***. Tant qu'elle est exposée à la lumière du soleil, l'âme-en-peine subit un Désavantage aux jets de caractéristique et aux jets d'attaque.
+
+      ## Actions
+
+      ***Absorption de vie***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 21 (4d8 + 3) dégâts nécrotiques. Si la cible est une créature, son maximum de points de vie est réduit d'un montant égal aux dégâts subis.
+
+      ***Création de spectre***. L'âme-en-peine cible un Humanoïde dans un rayon de 3 m, mort depuis moins de 1 minute. L'esprit de la cible émerge sous forme de **spectre** de l'espace de son cadavre ou dans l'espace inoccupé le plus proche. Le spectre est sous le contrôle de l'âme-en-peine. L'âme-en-peine ne peut ainsi contrôler plus de sept spectres à la fois.
     senses: Vision dans le noir 18 m, Perception passive 12
     languages:
     - commun plus deux autres langues

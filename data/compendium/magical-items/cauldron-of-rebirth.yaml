@@ -8,16 +8,16 @@ translations:
     name: Cauldron of Rebirth
     subtype: null
     description: |-
-      <p>This Tiny pot bears relief scenes of heroes on its cast-iron sides.<br />
-      You can use the cauldron as a Spellcasting Focus for your spells, and it functions as a suitable component for the <em><a href="https://www.aidedd.org/spell/scrying">Scrying</a></em> spell.<br />
-      <strong>Brew Potion</strong>. When you finish a Long Rest, you can use the cauldron to create a <em><a href="./potions-of-healing">Potion of Healing</a></em> (greater), which takes 1 minute. The potion lasts for 24 hours, then loses its magic if not consumed.<br />
-      <strong>Raise Dead</strong>. As a Magic action, you can cause the cauldron to grow large enough for a Medium creature to crouch within. You can revert the cauldron to its normal size as a Magic action, harmlessly shunting anything that can't fit inside to the nearest unoccupied space.<br />
-      If you place the corpse of a Humanoid into the cauldron and cover the corpse with 200 pounds of salt (which costs 10 GP) for at least 8 hours, the salt is consumed and the creature returns to life as if by <em><a href="https://www.aidedd.org/spell/raise-dead">Raise Dead</a></em> at the next dawn. Once used, this property can't be used again for 7 days.</p>
+      This Tiny pot bears relief scenes of heroes on its cast-iron sides.\
+      You can use the cauldron as a Spellcasting Focus for your spells, and it functions as a suitable component for the *[Scrying](https://www.aidedd.org/spell/scrying)* spell.\
+      **Brew Potion**. When you finish a Long Rest, you can use the cauldron to create a *[Potion of Healing](./potions-of-healing)* (greater), which takes 1 minute. The potion lasts for 24 hours, then loses its magic if not consumed.\
+      **Raise Dead**. As a Magic action, you can cause the cauldron to grow large enough for a Medium creature to crouch within. You can revert the cauldron to its normal size as a Magic action, harmlessly shunting anything that can't fit inside to the nearest unoccupied space.\
+      If you place the corpse of a Humanoid into the cauldron and cover the corpse with 200 pounds of salt (which costs 10 GP) for at least 8 hours, the salt is consumed and the creature returns to life as if by *[Raise Dead](https://www.aidedd.org/spell/raise-dead)* at the next dawn. Once used, this property can't be used again for 7 days.
   fr:
     name: Chaudron de renaissance
     subtype: null
     description: |-
-      <p>Ce pot de taille TP est orné de scènes en relief représentant des héros sur ses parois en fonte.<br />
-      Vous pouvez utiliser le chaudron comme focaliseur d'incantation et il constitue un composant approprié pour le sort <em><a href="https://www.aidedd.org/spell/fr/scrutation">scrutation</a></em>.<br />
-      <strong>Préparation de potions</strong>. Lorsque vous terminez un Repos long, vous pouvez utiliser le chaudron pour créer une <em><a href="./potions-de-guerison">potion de guérison</a></em> (importante), ce qui prend 1 minute. La potion dure 24 heures, puis perd ses effets magiques si elle n'est pas consommée.<br />
-      <strong>Rappel à a vie</strong>. Par une action Magie, vous pouvez agrandir le chaudron afin qu'une créature de taille M puisse s'y accroupir. Vous pouvez ensuite ramener le chaudron à sa taille normale par une action Magie, déplaçant sans danger toute créature trop grande vers l'espace libre le plus proche. Si vous placez le cadavre d'un humanoïde dans le chaudron et le recouvrez de 100 kg de sel (d'une valeur de 10 po) pendant au moins 8 heures, le sel est consommé et la créature revient à la vie comme par le sort <em><a href="https://www.aidedd.org/spell/fr/rappel-a-la-vie">rappel à a vie</a></em> à l'aube suivante. Une fois utilisé, ce pouvoir ne peut être réutilisé pendant 7 jours.</p>
+      Ce pot de taille TP est orné de scènes en relief représentant des héros sur ses parois en fonte.\
+      Vous pouvez utiliser le chaudron comme focaliseur d'incantation et il constitue un composant approprié pour le sort *[scrutation](https://www.aidedd.org/spell/fr/scrutation)*.\
+      **Préparation de potions**. Lorsque vous terminez un Repos long, vous pouvez utiliser le chaudron pour créer une *[potion de guérison](./potions-de-guerison)* (importante), ce qui prend 1 minute. La potion dure 24 heures, puis perd ses effets magiques si elle n'est pas consommée.\
+      **Rappel à a vie**. Par une action Magie, vous pouvez agrandir le chaudron afin qu'une créature de taille M puisse s'y accroupir. Vous pouvez ensuite ramener le chaudron à sa taille normale par une action Magie, déplaçant sans danger toute créature trop grande vers l'espace libre le plus proche. Si vous placez le cadavre d'un humanoïde dans le chaudron et le recouvrez de 100 kg de sel (d'une valeur de 10 po) pendant au moins 8 heures, le sel est consommé et la créature revient à la vie comme par le sort *[rappel à a vie](https://www.aidedd.org/spell/fr/rappel-a-la-vie)* à l'aube suivante. Une fois utilisé, ce pouvoir ne peut être réutilisé pendant 7 jours.

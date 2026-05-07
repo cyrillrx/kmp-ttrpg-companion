@@ -89,17 +89,27 @@ translations:
     name: Nalfeshnee
     subtype: Demon
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Demonic Restoration</em>**. If the nalfeshnee dies outside the Abyss, its body dissolves into ichor, and it gains a new body instantly, reviving with all its Hit Points somewhere in the Abyss.</p>
-      <p><strong><em>Magic Resistance</em></strong>. The nalfeshnee has Advantage on saving throws against spells and other magical effects.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The nalfeshnee makes three Rend attacks.</p>
-      <p><strong><em>Rend</em></strong>. <em>Melee Attack Roll</em> : +10, reach 10 ft. <em>Hit</em> : 16 (2d10 + 5) Slashing damage plus 11 (2d10) Force damage.</p>
-      <p><strong><em>Teleport</em></strong>. The nalfeshnee teleports up to 120 feet to an unoccupied space it can see.</p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Horror Nimbus (Recharge 5–6)</em>**. <em>Wisdom Saving Throw</em> : DC 15, each creature in a 15-foot Emanation originating from the nalfeshnee. <em>Failure</em> : 28 (8d6) Psychic damage, and the target has the Frightened condition for 1 minute, until it takes damage, or until it ends its turn with the nalfeshnee out of line of sight. <em>Success</em> : The target is immune to this nalfeshnee's Horror Nimbus for 24 hours.</p>
-      <h2>Reactions</h2>
-      <p>** <em>Pursuit</em>**. <em>Trigger</em> : Another creature the nalfeshnee can see ends its move within 120 feet of the nalfeshnee. <em>Response</em> : The nalfeshnee uses Teleport, but its destination space must be within 10 feet of the triggering creature.</p>
+      ## Traits
+
+      ***Demonic Restoration***. If the nalfeshnee dies outside the Abyss, its body dissolves into ichor, and it gains a new body instantly, reviving with all its Hit Points somewhere in the Abyss.
+
+      ***Magic Resistance***. The nalfeshnee has Advantage on saving throws against spells and other magical effects.
+
+      ## Actions
+
+      ***Multiattack***. The nalfeshnee makes three Rend attacks.
+
+      ***Rend***. *Melee Attack Roll* : +10, reach 10 ft. *Hit* : 16 (2d10 + 5) Slashing damage plus 11 (2d10) Force damage.
+
+      ***Teleport***. The nalfeshnee teleports up to 120 feet to an unoccupied space it can see.
+
+      ## Bonus actions
+
+      ***Horror Nimbus (Recharge 5–6)***. *Wisdom Saving Throw* : DC 15, each creature in a 15-foot Emanation originating from the nalfeshnee. *Failure* : 28 (8d6) Psychic damage, and the target has the Frightened condition for 1 minute, until it takes damage, or until it ends its turn with the nalfeshnee out of line of sight. *Success* : The target is immune to this nalfeshnee's Horror Nimbus for 24 hours.
+
+      ## Reactions
+
+      ***Pursuit***. *Trigger* : Another creature the nalfeshnee can see ends its move within 120 feet of the nalfeshnee. *Response* : The nalfeshnee uses Teleport, but its destination space must be within 10 feet of the triggering creature.
     senses: Truesight 120 ft., Passive Perception 11
     languages:
     - Abyssal; telepathy 120 ft.
@@ -107,17 +117,27 @@ translations:
     name: Nalfeshnie
     subtype: Démon
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Résistance à la magie</em>**. Le nalfeshnie a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.</p>
-      <p><strong><em>Restauration démoniaque</em></strong>. Si le nalfeshnie meurt hors des Abysses, son corps se dissout en ichor et il en acquiert aussitôt un nouveau en revenant à la vie avec tous ses pv, quelque part dans les Abysses.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le nalfeshnie effectue trois attaques de Saignée.</p>
-      <p><strong><em>Saignée</em></strong>. <em>Corps à corps</em> : +10, allonge 3 m. <em>Touché</em> : 16 (2d10 + 5) dégâts tranchants plus 11 (2d10) dégâts de force.</p>
-      <p><strong><em>Téléportation</em></strong>. Le nalfeshnie se téléporte d'un maximum de 36 m en un espace inoccupé qu'il voit.</p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Halo d'épouvante (recharge 5–6)</em>**. <em>JdS Sagesse</em> : DD 15, chaque créature dans une Émanation de 4,50 m centrée sur le nalfeshnie. <em>Échec</em> : 28 (8d6) dégâts psychiques, et la cible subit l'état Effrayé pendant 1 minute, jusqu'à ce qu'elle subisse des dégâts ou termine son tour sans avoir le nalfeshnie dans son champ de vision. <em>Réussite</em> : la cible est immunisée contre le Halo d'épouvante de ce nalfeshnie pendant 24 heures.</p>
-      <h2>Réactions</h2>
-      <p>** <em>Poursuite</em>**. <em>Déclencheur</em> : une autre créature que le nalfeshnie voit termine son déplacement dans un rayon de 36 m de lui. <em>Conséquences</em> : le nalfeshnie recourt à Téléportation, mais son espace de destination doit être dans un rayon de 3 m de la créature qui a déclenché la poursuite.</p>
+      ## Traits
+
+      ***Résistance à la magie***. Le nalfeshnie a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
+
+      ***Restauration démoniaque***. Si le nalfeshnie meurt hors des Abysses, son corps se dissout en ichor et il en acquiert aussitôt un nouveau en revenant à la vie avec tous ses pv, quelque part dans les Abysses.
+
+      ## Actions
+
+      ***Attaques multiples***. Le nalfeshnie effectue trois attaques de Saignée.
+
+      ***Saignée***. *Corps à corps* : +10, allonge 3 m. *Touché* : 16 (2d10 + 5) dégâts tranchants plus 11 (2d10) dégâts de force.
+
+      ***Téléportation***. Le nalfeshnie se téléporte d'un maximum de 36 m en un espace inoccupé qu'il voit.
+
+      ## Actions Bonus
+
+      ***Halo d'épouvante (recharge 5–6)***. *JdS Sagesse* : DD 15, chaque créature dans une Émanation de 4,50 m centrée sur le nalfeshnie. *Échec* : 28 (8d6) dégâts psychiques, et la cible subit l'état Effrayé pendant 1 minute, jusqu'à ce qu'elle subisse des dégâts ou termine son tour sans avoir le nalfeshnie dans son champ de vision. *Réussite* : la cible est immunisée contre le Halo d'épouvante de ce nalfeshnie pendant 24 heures.
+
+      ## Réactions
+
+      ***Poursuite***. *Déclencheur* : une autre créature que le nalfeshnie voit termine son déplacement dans un rayon de 36 m de lui. *Conséquences* : le nalfeshnie recourt à Téléportation, mais son espace de destination doit être dans un rayon de 3 m de la créature qui a déclenché la poursuite.
     senses: vision véritable 36 m, Perception passive 11
     languages:
     - abyssal ; télépathie 36 m

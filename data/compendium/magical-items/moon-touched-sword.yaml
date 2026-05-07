@@ -7,13 +7,13 @@ translations:
   en:
     name: Moon-Touched Sword
     subtype: Glaive, Greatsword, Longsword, Rapier, Scimitar, or Shortsword
-    description: <p>In Darkness, the unsheathed blade of this weapon sheds moonlight,
+    description: In Darkness, the unsheathed blade of this weapon sheds moonlight,
       creating Bright Light in a 15-foot radius and Dim Light for an additional 15
-      feet.</p>
+      feet.
   fr:
     name: Épée sélène
     subtype: coutille, épée à deux mains, épée longue, rapière, cimeterre ou épée
       courte
-    description: <p>Dans les Ténèbres, la lame dégainée de cette arme projette un
-      clair de lune, créant une Lumière vive dans un rayon de 4,50 mètres et une lumière
-      faible sur 4,50 mètres supplémentaires.</p>
+    description: Dans les Ténèbres, la lame dégainée de cette arme projette un clair
+      de lune, créant une Lumière vive dans un rayon de 4,50 mètres et une lumière
+      faible sur 4,50 mètres supplémentaires.

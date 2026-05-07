@@ -89,15 +89,23 @@ translations:
     name: Fiendish Spirit
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Death Throes (Demon Only)</em>**. When the spirit drops to 0 Hit Points or the spell ends, the spirit explodes. <em>Dexterity Saving Throw</em> : DC equals your spell save DC, each creature in a 10-foot Emanation originating from the spirit. <em>Failure</em> : 2d10 plus this spell's level Fire damage. <em>Success</em> : Half damage.</p>
-      <p><strong><em>Devil's Sight (Devil Only)</em></strong>. Magical Darkness doesn't impede the spirit's Darkvision.</p>
-      <p><strong><em>Magic Resistance</em></strong>. The spirit has Advantage on saving throws against spells and other magical effects.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The spirit makes a number of attacks equal to half this spell's level (round down).</p>
-      <p><strong><em>Bite (Demon Only)</em></strong>. <em>Melee Attack Roll</em> : Bonus equals your spell attack modifier, reach 5 ft. <em>Hit</em> : 1d12 + 3 + the spell's level Necrotic damage.</p>
-      <p><strong><em>Claws (Yugoloth Only)</em></strong>. <em>Melee Attack Roll</em> : Bonus equals your spell attack modifier, reach 5 ft. <em>Hit</em> : 1d8 + 3 + the spell's level Slashing damage. Immediately after the attack hits or misses, the spirit can teleport up to 30 feet to an unoccupied space it can see.</p>
-      <p><strong><em>Fiery Strike (Devil Only)</em></strong>. <em>Melee or Ranged Attack Roll</em> : Bonus equals your spell attack modifier, reach. 5 ft. or range 150 ft. <em>Hit</em> : 2d6 + 3 + the spell's level Fire damage.</p>
+      ## Traits
+
+      ***Death Throes (Demon Only)***. When the spirit drops to 0 Hit Points or the spell ends, the spirit explodes. *Dexterity Saving Throw* : DC equals your spell save DC, each creature in a 10-foot Emanation originating from the spirit. *Failure* : 2d10 plus this spell's level Fire damage. *Success* : Half damage.
+
+      ***Devil's Sight (Devil Only)***. Magical Darkness doesn't impede the spirit's Darkvision.
+
+      ***Magic Resistance***. The spirit has Advantage on saving throws against spells and other magical effects.
+
+      ## Actions
+
+      ***Multiattack***. The spirit makes a number of attacks equal to half this spell's level (round down).
+
+      ***Bite (Demon Only)***. *Melee Attack Roll* : Bonus equals your spell attack modifier, reach 5 ft. *Hit* : 1d12 + 3 + the spell's level Necrotic damage.
+
+      ***Claws (Yugoloth Only)***. *Melee Attack Roll* : Bonus equals your spell attack modifier, reach 5 ft. *Hit* : 1d8 + 3 + the spell's level Slashing damage. Immediately after the attack hits or misses, the spirit can teleport up to 30 feet to an unoccupied space it can see.
+
+      ***Fiery Strike (Devil Only)***. *Melee or Ranged Attack Roll* : Bonus equals your spell attack modifier, reach. 5 ft. or range 150 ft. *Hit* : 2d6 + 3 + the spell's level Fire damage.
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - Abyssal
@@ -107,15 +115,23 @@ translations:
     name: Esprit fiélon
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Spasmes d'agonie (démon uniquement)</em>**. Lorsque l'esprit tombe à 0 point de vie ou que le sort prend fin, il explose. <em>JdS Dextérité</em> : DD égal à votre DD de sauvegarde des sorts, chaque créature dans une Émanation de 3 m centrée sur l'esprit. <em>Échec</em> : 2d10 + le niveau du sort dégâts de feu. <em>Réussite</em> : dégâts réduits de moitié.</p>
-      <p><strong><em>Vision du diable (diable uniquement)</em></strong>. Les Ténèbres magiques n'entravent pas la Vision dans le noir de l'esprit.</p>
-      <p><strong><em>Résistance à la magie</em></strong>. L'esprit a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. L'esprit effectue un nombre d'attaques égal à la moitié du niveau de ce sort (arrondir à l'inférieur).</p>
-      <p><strong><em>Morsure (démon uniquement)</em></strong>. <em>Corps à corps</em> : bonus égal à votre modificateur d'attaque des sorts, allonge 1,50 m. <em>Touché</em> : 1d12 + 3 + le niveau du sort dégâts nécrotiques.</p>
-      <p><strong><em>Griffes (yugoloth uniquement)</em></strong>. <em>Corps à corps</em> : bonus égal à votre modificateur d'attaque des sorts, allonge 1,50 m. <em>Touché</em> : 1d8 + 3 + le niveau du sort dégâts tranchants. Immédiatement après l'attaque (réussie ou non), l'esprit peut se téléporter jusqu'à 9 m dans un espace inoccupé qu'il peut voir.</p>
-      <p><strong><em>Frappe ardente (diable uniquement)</em></strong>. <em>Corps à corps ou à distance</em> : bonus égal à votre modificateur d'attaque des sorts, allonge : 1,50 m ou portée 45 m. <em>Touché</em> : 2d6 + 3 + le niveau du sort dégâts de feu.</p>
+      ## Traits
+
+      ***Spasmes d'agonie (démon uniquement)***. Lorsque l'esprit tombe à 0 point de vie ou que le sort prend fin, il explose. *JdS Dextérité* : DD égal à votre DD de sauvegarde des sorts, chaque créature dans une Émanation de 3 m centrée sur l'esprit. *Échec* : 2d10 + le niveau du sort dégâts de feu. *Réussite* : dégâts réduits de moitié.
+
+      ***Vision du diable (diable uniquement)***. Les Ténèbres magiques n'entravent pas la Vision dans le noir de l'esprit.
+
+      ***Résistance à la magie***. L'esprit a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
+
+      ## Actions
+
+      ***Attaques multiples***. L'esprit effectue un nombre d'attaques égal à la moitié du niveau de ce sort (arrondir à l'inférieur).
+
+      ***Morsure (démon uniquement)***. *Corps à corps* : bonus égal à votre modificateur d'attaque des sorts, allonge 1,50 m. *Touché* : 1d12 + 3 + le niveau du sort dégâts nécrotiques.
+
+      ***Griffes (yugoloth uniquement)***. *Corps à corps* : bonus égal à votre modificateur d'attaque des sorts, allonge 1,50 m. *Touché* : 1d8 + 3 + le niveau du sort dégâts tranchants. Immédiatement après l'attaque (réussie ou non), l'esprit peut se téléporter jusqu'à 9 m dans un espace inoccupé qu'il peut voir.
+
+      ***Frappe ardente (diable uniquement)***. *Corps à corps ou à distance* : bonus égal à votre modificateur d'attaque des sorts, allonge : 1,50 m ou portée 45 m. *Touché* : 2d6 + 3 + le niveau du sort dégâts de feu.
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - abyssal

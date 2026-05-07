@@ -23,7 +23,7 @@ translations:
       the target must succeed on a Charisma saving throw or be transported to a harmless
       demiplane for the duration. While there, the target has the Incapacitated condition.
       When the spell ends, the target reappears in the space it left or in the nearest
-      unoccupied space if that space is occupied.<br/>
+      unoccupied space if that space is occupied.\
   fr:
     name: Châtiment du ban
     castingTime: Action bonus, que vous prenez immédiatement après avoir touché une
@@ -36,4 +36,4 @@ translations:
       moins, celle-ci doit réussir un jet de sauvegarde de Charisme ou être transportée
       dans un demi-plan inoffensif pour la durée du sort. Là, la cible subit l'état
       Incapable d'agir. À la fin du sort, la cible réapparaît dans la case qu'elle
-      a quittée ou dans la case inoccupée la plus proche si celle-ci est occupée.<br/>
+      a quittée ou dans la case inoccupée la plus proche si celle-ci est occupée.\

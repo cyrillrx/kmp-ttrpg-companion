@@ -89,10 +89,13 @@ translations:
     name: Fomorian
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The fomorian makes two Stone Club attacks. It can replace one attack with a use of Warping Hex if available.</p>
-      <p><strong><em>Stone Club</em></strong>. <em>Melee Attack Roll</em> : +9, reach 15 ft. <em>Hit</em> : 24 (4d8 + 6) Bludgeoning damage.</p>
-      <p><strong><em>Warping Hex (Recharge 4–6)</em></strong>. <em>Wisdom Saving Throw</em> : DC 16, one creature the fomorian can see within 120 feet. <em>Failure</em> : 21 (6d6) Psychic damage, and the target gains 1 Exhaustion level. <em>Success</em> : Half damage only.</p>
+      ## Actions
+
+      ***Multiattack***. The fomorian makes two Stone Club attacks. It can replace one attack with a use of Warping Hex if available.
+
+      ***Stone Club***. *Melee Attack Roll* : +9, reach 15 ft. *Hit* : 24 (4d8 + 6) Bludgeoning damage.
+
+      ***Warping Hex (Recharge 4–6)***. *Wisdom Saving Throw* : DC 16, one creature the fomorian can see within 120 feet. *Failure* : 21 (6d6) Psychic damage, and the target gains 1 Exhaustion level. *Success* : Half damage only.
     senses: Darkvision 120 ft., Passive Perception 18
     languages:
     - Giant
@@ -101,10 +104,13 @@ translations:
     name: Fomoire
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le fomoire effectue deux attaques de Gourdin de pierre. Il peut remplacer une attaque par l'utilisation de Maléfice convulsif si disponible.</p>
-      <p><strong><em>Gourdin de pierre</em></strong>. <em>Corps à corps</em> : +9, allonge 4,50 m. <em>Touché</em> : 24 (4d8 + 6) dégâts contondants.</p>
-      <p><strong><em>Maléfice convulsif (recharge 4–6)</em></strong>. <em>JdS Sagesse</em> : DD 16, une créature que le fomoire peut voir dans un rayon de 36 m. <em>Échec</em> : 21 (6d6) dégâts psychiques, et la cible subit 1 niveau d'épuisement. <em>Réussite</em> : demi-dégâts uniquement.</p>
+      ## Actions
+
+      ***Attaques multiples***. Le fomoire effectue deux attaques de Gourdin de pierre. Il peut remplacer une attaque par l'utilisation de Maléfice convulsif si disponible.
+
+      ***Gourdin de pierre***. *Corps à corps* : +9, allonge 4,50 m. *Touché* : 24 (4d8 + 6) dégâts contondants.
+
+      ***Maléfice convulsif (recharge 4–6)***. *JdS Sagesse* : DD 16, une créature que le fomoire peut voir dans un rayon de 36 m. *Échec* : 21 (6d6) dégâts psychiques, et la cible subit 1 niveau d'épuisement. *Réussite* : demi-dégâts uniquement.
     senses: Vision dans le noir 36 m, Perception passive 18
     languages:
     - géant

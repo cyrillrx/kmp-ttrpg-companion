@@ -18,29 +18,17 @@ translations:
     range: Touch
     duration: 7 days
     materialDescription: null
-    description: Your touch inflicts a magical contagion. The target must succeed
-      on a Constitution saving throw or take 11d8 Necrotic damage and have the Poisoned
-      condition. Also, choose one ability when you cast the spell. While Poisoned,
-      the target has Disadvantage on saving throws made with the chosen ability.<br/>The
-      target must repeat the saving throw at the end of each of its turns until it
-      gets three successes or failures. If the target succeeds on three of these saves,
-      the spell ends on the target. If the target fails three of the saves, the spell
-      lasts for 7 days on it.<br/>Whenever the Poisoned target receives an effect
-      that would end the Poisoned condition, the target must succeed on a Constitution
-      saving throw, or the Poisoned condition doesn't end on it.<br/>
+    description: |-
+      Your touch inflicts a magical contagion. The target must succeed on a Constitution saving throw or take 11d8 Necrotic damage and have the Poisoned condition. Also, choose one ability when you cast the spell. While Poisoned, the target has Disadvantage on saving throws made with the chosen ability.\
+      The target must repeat the saving throw at the end of each of its turns until it gets three successes or failures. If the target succeeds on three of these saves, the spell ends on the target. If the target fails three of the saves, the spell lasts for 7 days on it.\
+      Whenever the Poisoned target receives an effect that would end the Poisoned condition, the target must succeed on a Constitution saving throw, or the Poisoned condition doesn't end on it.\
   fr:
     name: Contagion
     castingTime: Action
     range: Contact
     duration: 7 jours
     materialDescription: null
-    description: Votre contact inflige une contagion magique. La cible doit réussir
-      un jet de sauvegarde de Constitution ou subir 11d8 dégâts nécrotiques et l'état
-      Empoisonné. Choisissez également une caractéristique au moment du lancement
-      du sort. Tant qu'elle est empoisonnée, la cible subit un Désavantage aux jets
-      de sauvegarde effectués avec la caractéristique choisie.<br/>La cible doit refaire
-      ce jet de sauvegarde à la fin de chacun de ses tours jusqu'à obtenir trois réussites
-      ou échecs. Si elle réussit trois de ces jets, le sort prend fin. Si elle échoue
-      trois de ces jets, le sort dure 7 jours.<br/>Chaque fois que la cible empoisonnée
-      subit un effet qui mettrait fin à son état Empoisonné, elle doit réussir un
-      jet de sauvegarde de Constitution pour ne plus être empoisonnée.<br/>
+    description: |-
+      Votre contact inflige une contagion magique. La cible doit réussir un jet de sauvegarde de Constitution ou subir 11d8 dégâts nécrotiques et l'état Empoisonné. Choisissez également une caractéristique au moment du lancement du sort. Tant qu'elle est empoisonnée, la cible subit un Désavantage aux jets de sauvegarde effectués avec la caractéristique choisie.\
+      La cible doit refaire ce jet de sauvegarde à la fin de chacun de ses tours jusqu'à obtenir trois réussites ou échecs. Si elle réussit trois de ces jets, le sort prend fin. Si elle échoue trois de ces jets, le sort dure 7 jours.\
+      Chaque fois que la cible empoisonnée subit un effet qui mettrait fin à son état Empoisonné, elle doit réussir un jet de sauvegarde de Constitution pour ne plus être empoisonnée.\

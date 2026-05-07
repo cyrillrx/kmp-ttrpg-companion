@@ -7,14 +7,14 @@ translations:
   en:
     name: Wind Fan
     subtype: null
-    description: <p>While holding this fan, you can cast <em><a href="https://www.aidedd.org/spell/gust-of-wind">Gust
-      of Wind</a></em> (save DC 13) from it. Each subsequent time the fan is used
-      before the next dawn, it has a cumulative 20 percent chance of not working;
-      if the fan fails to work, it tears into useless, nonmagical tatters.</p>
+    description: While holding this fan, you can cast *[Gust of Wind](https://www.aidedd.org/spell/gust-of-wind)*
+      (save DC 13) from it. Each subsequent time the fan is used before the next dawn,
+      it has a cumulative 20 percent chance of not working; if the fan fails to work,
+      it tears into useless, nonmagical tatters.
   fr:
     name: Éventail enchanté
     subtype: null
-    description: <p>Si vous tenez cet éventail, vous pouvez lancer <em><a href="https://www.aidedd.org/spell/fr/bourrasque">bourrasque</a></em>
+    description: Si vous tenez cet éventail, vous pouvez lancer *[bourrasque](https://www.aidedd.org/spell/fr/bourrasque)*
       (sauvegarde DD 13). Chaque fois que l'éventail est utilisé avant l'aube suivante,
       il a 20 % de chances de ne pas fonctionner ; s'il ne fonctionne pas, il se déchire
-      en lambeaux inutiles et non magiques.</p>
+      en lambeaux inutiles et non magiques.
