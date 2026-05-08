@@ -9,6 +9,7 @@ translations:
     subtype: null
     description: |-
       While wearing this belt, your Strength changes to a score granted by the belt. The type of giant determines the score (see the table below). The item has no effect on you if your Strength without the belt is equal to or greater than the belt's score.\
+      
       | Belt | Str. | Rarity |
       | --- | --- | --- |
       | Belt of Giant Strength (hill) | 21 | Rare |
@@ -21,6 +22,7 @@ translations:
     subtype: null
     description: |-
       Si vous portez ce ceinturon, votre valeur de Force est modifiée. Le type de géant détermine la nouvelle valeur (voir la table ci-dessous). L'objet n'a aucun effet sur vous si votre Force sans le ceinturon est égale ou supérieure à la valeur du ceinturon.\
+      
       | Ceinturon | Force | Rareté |
       | --- | --- | --- |
       | Ceinturon de force de géant (collines) | 21 | Rare |

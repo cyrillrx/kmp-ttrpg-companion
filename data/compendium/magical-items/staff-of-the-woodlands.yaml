@@ -10,6 +10,7 @@ translations:
     description: |-
       This staff has 6 charges and can be wielded as a magic Quarterstaff that grants a +2 bonus to attack rolls and damage rolls made with it. While holding it, you have a +2 bonus to spell attack rolls.\
       **Spells**. While holding the staff, you can cast one of the spells on the following table from it, using your spell save DC. The table indicates how many charges you must expend to cast the spell.\
+      
       | Spell | Charge Cost |
       | --- | --- |
       | *[Animal Friendship](https://www.aidedd.org/spell/animal-friendship)* | 1 |
@@ -29,6 +30,7 @@ translations:
     description: |-
       Ce bâton possède 6 charges et peut être utilisé comme un bâton magique, conférant un bonus de +2 aux jets d'attaque et de dégâts. Lorsque vous le tenez, vous bénéficiez d'un bonus de +2 aux jets d'attaque de sort.\
       **Sorts**. Lorsque vous tenez le bâton, vous pouvez lancer l'un des sorts de la table suivante, en utilisant votre DD de sauvegarde des sorts. La table indique le nombre de charges à dépenser pour lancer le sort.\
+      
       | Sort | Coût en charges |
       | --- | --- |
       | *[amitié avec les animaux](https://www.aidedd.org/spell/fr/amitie-avec-les-animaux)* | 1 |

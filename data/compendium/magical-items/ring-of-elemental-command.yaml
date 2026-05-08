@@ -18,6 +18,7 @@ translations:
       **Fire**. You know Ignan, and you have Immunity to Fire damage.\
       **Water**. You know Aquan, you gain a Swim Speed of 60 feet, and you can breathe underwater.\
       **Spellcasting**. The ring has 5 charges and regains 1d4 + 1 expended charges daily at dawn. While wearing the ring, you can cast a spell from it. Choose the spell from the list of available spells based on the Elemental Plane the ring is linked to, as shown in the following table. The table indicates how many charges you must expend to cast the spell, which has a save DC of 18.\
+      
       | Plane | Spells (Charges) |
       | --- | --- |
       | Air | *Chain Lightning* (3 charges), *Feather Fall* (0 charges), *[Gust of Wind](https://www.aidedd.org/spell/gust-of-wind)* (2 charges), *Wind Wall* (1 charge) |
@@ -38,6 +39,7 @@ translations:
       **Feu**. Vous parlez l'igné et êtes immunisé aux dégâts de feu.\
       **Terre**. Vous parlez le terreux et bénéficiez d'une Résistance aux dégâts d'acide. Les terrains composés de gravats, de rochers ou de terre ne sont pas des Terrains difficiles pour vous. De plus, vous pouvez vous déplacer sur de la terre ou des rochers comme si ces zones étaient des Terrains difficiles sans perturber la matière traversée. Si vous terminez votre tour sur de la terre ou des rochers, vous êtes renvoyé vers la case libre la plus proche que vous occupiez en dernier.\
       **Sorts**. L'anneau possède 5 charges et récupère 1d4 + 1 charges dépensées chaque jour à l'aube. Lorsque vous portez l'anneau, vous pouvez lancer un sort par son biais. Choisissez le sort parmi ceux disponibles en fonction du plan élémentaire auquel l'anneau est lié, comme indiqué dans la table suivante. La table indique le nombre de charges à dépenser pour lancer ce sort, dont le DD de sauvegarde est de 18.\
+      
       | Plan | Sorts (charges) |
       | --- | --- |
       | Air | *chaîne d'éclairs* (3 charges), *feuille morte* (0 charge), *[bourrasque](https://www.aidedd.org/spell/fr/bourrasque)* (2 charges), *mur de vent* (1 charge) |

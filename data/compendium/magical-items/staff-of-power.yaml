@@ -10,6 +10,7 @@ translations:
     description: |-
       This staff has 20 charges and can be wielded as a magic Quarterstaff that grants a +2 bonus to attack rolls and damage rolls made with it. While holding it, you gain a +2 bonus to Armor Class, saving throws, and spell attack rolls.\
       **Spells**. While holding the staff, you can cast one of the spells on the following table from it, using your spell save DC. The table indicates how many charges you must expend to cast the spell.\
+      
       | Spell | Charge Cost |
       | --- | --- |
       | *[Cone of Cold](https://www.aidedd.org/spell/cone-of-cold)* | 5 |
@@ -30,6 +31,7 @@ translations:
     description: |-
       Ce bâton possède 20 charges et peut être utilisé comme un bâton magique, conférant un bonus de +2 aux jets d'attaque et de dégâts. Lorsque vous le tenez, vous gagnez un bonus de +2 à la CA, aux jets de sauvegarde et aux jets d'attaque de sorts.\
       **Sorts**. Lorsque vous tenez le bâton, vous pouvez lancer l'un des sorts de la table suivante, en utilisant votre DD de sauvegarde des sorts. La table indique le nombre de charges nécessaires pour lancer le sort.\
+      
       | Sort | Coût en charges |
       | --- | --- |
       | *[cône de froid](https://www.aidedd.org/spell/fr/cone-de-froid)* | 5 |

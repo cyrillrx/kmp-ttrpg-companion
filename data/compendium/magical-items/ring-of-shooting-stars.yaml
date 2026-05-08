@@ -14,6 +14,7 @@ translations:
       **Lightning Spheres**. You can expend 2 charges as a Magic action to create up to four 3-foot-diameter spheres of lightning.\
       Each sphere appears in an unoccupied space you can see within 120 feet of yourself. The spheres last as long as you maintain Concentration, up to 1 minute. Each sphere sheds Dim Light in a 30-foot radius.\
       As a Bonus Action, you can move each sphere up to 30 feet, but no farther than 120 feet away from yourself. The first time the sphere comes within 5 feet of a creature other than you that isn't behind Total Cover, the sphere discharges lightning at that creature and disappears. That creature makes a DC 15 Dexterity saving throw. On a failed save, the creature takes Lightning damage based on the number of spheres you created, as shown in the following table. On a successful save, the creature takes half as much damage.\
+      
       | Number of Spheres | Lightning Damage |
       | --- | --- |
       | 1 | 4d12 |
@@ -32,6 +33,7 @@ translations:
       **Sphères de foudre**. Vous pouvez dépenser 2 charges par une action Magie pour créer jusqu'à quatre sphères de foudre de 90 cm de diamètre.\
       Chaque sphère apparaît dans un espace libre que vous pouvez voir dans un rayon de 36 mètres. Les sphères durent tant que vous maintenez votre Concentration, jusqu'à 1 minute. Chaque sphère projette une Lumière faible sur un rayon de 9 mètres.\
       Par une action Bonus, vous pouvez déplacer chaque sphère jusqu'à 9 mètres, mais pas à plus de 36 mètres de vous. La première fois que la sphère s'approche 1,50 mètre ou moins d'une créature autre que vous qui n'a pas d'Abri total, elle projette un éclair sur cette créature et disparaît. Cette créature effectue un jet de sauvegarde de Dextérité DD 15. En cas d'échec, la créature subit des dégâts de foudre calculés en fonction du nombre de sphères que vous avez créées, comme indiqué dans la table suivante. En cas de réussite, la créature ne subit que la moitié des dégâts.\
+      
       | Nombre de sphères | Dégâts de foudre |
       | --- | --- |
       | 1 | 4d12 |

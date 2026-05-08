@@ -9,6 +9,7 @@ translations:
     subtype: null
     description: |-
       This staff has 10 charges. While holding the staff, you can cast one of the spells on the following table from it, using your spellcasting ability modifier. The table indicates how many charges you must expend to cast the spell.\
+      
       | Spell | Charge Cost |
       | --- | --- |
       | *[Cure Wounds](https://www.aidedd.org/spell/cure-wounds)* | 1 charge per spell level (maximum 4 for a level 4 spell) |
@@ -21,6 +22,7 @@ translations:
     subtype: null
     description: |-
       Ce bâton possède 10 charges. Lorsque vous le tenez, vous pouvez lancer l'un des sorts de la table suivante, en utilisant votre modificateur de caractéristique d'incantation. La table indique le nombre de charges nécessaires pour lancer le sort.\
+      
       | Sort | Coût en charges |
       | --- | --- |
       | *[soins](https://www.aidedd.org/spell/fr/soins)* | 1 charge par niveau de sort (maximum 4 pour un sort de niveau 4) |

@@ -9,6 +9,7 @@ translations:
     subtype: null
     description: |-
       While wearing this amulet, you can take a Magic action to name a location that you are familiar with on another plane of existence. Then make a DC 15 Intelligence (Arcana) check. On a successful check, you cast *Plane Shift*. On a failed check, you and each creature and object within 15 feet of you travel to a random destination determined by rolling 1d100 and consulting the following table.\
+      
       | 1d100 | Destination |
       | --- | --- |
       | 01-60 | Random location on the plane you named |
@@ -21,6 +22,7 @@ translations:
     subtype: null
     description: |-
       Lorsque vous portez cette amulette, vous pouvez prendre une action Magie pour nommer un lieu que vous connaissez sur un autre plan d'existence. Effectuez ensuite un jet d'Intelligence (Arcanes) DD 15. En cas de réussite, vous lancez le sort *changement de plan*. En cas d'échec, vous et chaque créature et objet situé dans un rayon de 4,50 m de vous êtes transportés vers une destination aléatoire déterminée en lançant 1d100 et en consultant la table suivante.\
+      
       | 1d100 | Destination |
       | --- | --- |
       | 01-60 | Lieu aléatoire sur le plan que vous avez nommé |

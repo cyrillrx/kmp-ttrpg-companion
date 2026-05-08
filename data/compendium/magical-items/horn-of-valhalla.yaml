@@ -11,6 +11,7 @@ translations:
       You can take a Magic action to blow this horn. In response, warrior spirits from the plane of Ysgard appear in unoccupied spaces within 60 feet of you. Each spirit uses the [Berserker](https://www.aidedd.org/monster/berserker) stat block and returns to Ysgard after 1 hour or when it drops to 0 Hit Points. The spirits look like living, breathing warriors, and they have Immunity to the Charmed and Frightened conditions. Once you use the horn, it can't be used again until 7 days have passed.\
       Four types of *Horn of Valhalla* are known to exist, each made of a different metal. The horn's type determines how many spirits it summons, as well as the requirement for its use. The DM chooses the horn's type or determines it randomly by rolling on the following table.\
       If you blow the horn without meeting its requirement, the summoned spirits attack you. If you meet the requirement, they are Friendly to you and your allies and follow your commands.\
+      
       | 1d100 | Horn Type | Spirits | Requirement |
       | --- | --- | --- | --- |
       | 01–40 | Silver | 2 | None |
@@ -24,6 +25,7 @@ translations:
       Vous pouvez prendre une action Magie pour souffler dans ce cor. En réponse, des esprits guerriers du plan d'Ysgard apparaissent dans les espaces libres dans un rayon de 18 mètres. Chaque esprit utilise le profil du [berserker](https://www.aidedd.org/monster/fr/berserker) et retourne à Ysgard après 1 heure ou lorsqu'il tombe à 0 point de vie. Les esprits ressemblent à des guerriers vivants et respirants, et sont immunisés contre les états Charmé et Effrayé. Une fois le cor utilisé, il ne peut plus être utilisé avant 7 jours.\
       Il existe quatre types de *cor du Valhalla* , chacun fait d'un métal différent. Le type de cor détermine le nombre d'esprits qu'il invoque, ainsi que les prérequis d'utilisation. Le MD choisit le type du cor ou le détermine aléatoirement en tirant les dés sur la table suivante.\
       Si vous soufflez dans un cor sans remplir les prérequis, les esprits invoqués vous attaquent. Si vous remplissez les prérequis, ils seront amicaux envers vous et vos alliés et suivront vos ordres.\
+      
       | 1d100 | Type de cor | Esprits | Prérequis |
       | --- | --- | --- | --- |
       | 01–40 | Argent | 2 | Aucun |

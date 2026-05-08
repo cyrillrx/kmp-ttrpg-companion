@@ -16,6 +16,7 @@ translations:
       **Tree (Uncommon)**. You must be outdoors to use this token. You can take a Magic action to touch it to an unoccupied space on the ground. The token disappears, and in its place a nonmagical oak tree springs into existence. The tree is 60 feet tall and has a 5-foot-diameter trunk, and its branches at the top spread out in a 20-foot radius.\
       **Whip (Rare)**. You can take a Magic action to throw the token to a point within 10 feet of yourself. The token disappears, and a floating whip takes its place. You can then take a Bonus Action to make a melee spell attack against a creature within 10 feet of the whip, with an attack bonus of +9. On a hit, the target takes 1d6 + 5 Force damage.\
       As a Bonus Action, you can direct the whip to fly up to 20 feet and repeat the attack against a creature within 10 feet of the whip. The whip disappears after 1 hour, when you take a Magic action to dismiss it, or when you die or have the Incapacitated condition.\
+      
       | 1d100 | Token | Rarity |
       | --- | --- | --- |
       | 01–20 | Anchor | Uncommon |
@@ -36,6 +37,7 @@ translations:
       **Arbre (peu courant)**. Vous devez être à l'extérieur pour utiliser cette plume. Vous pouvez prendre une action Magie pour toucher une case libre au sol. La plume disparaît et, à sa place, un chêne non magique apparaît. L'arbre mesure 18 mètres de haut et possède un tronc de 1,50 mètre de diamètre, dont les branches s'étendent sur un rayon de 6 mètres.\
       **Fouet (rare)**. Vous pouvez prendre une action Magie pour lancer la plume jusqu'à 3 mètres. La plume disparaît et un fouet flottant prend sa place. Vous pouvez ensuite prendre une action Bonus pour effectuer une attaque de sorts au corps à corps contre une créature dans un rayon de 3 mètres du fouet, avec un bonus d'attaque de +9. En cas de réussite, la cible subit 1d6 + 5 dégâts de force.\
       Par une action Bonus, vous pouvez ordonner au fouet de voler jusqu'à 6 mètres et de répéter l'attaque contre une créature dans un rayon de 3 mètres du fouet. Le fouet disparaît au bout d'une heure, lorsque vous prenez une action Magie pour le renvoyer, ou lorsque vous mourez ou possédez l'état Incapable d'agir.\
+      
       | 1d100 | Plume | Rareté |
       | --- | --- | --- |
       | 01–20 | Ancre | Peu courant |

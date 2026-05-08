@@ -11,6 +11,7 @@ translations:
       Usually found in a box or pouch, this deck contains a number of cards made of ivory or vellum. Most (75 percent) of these decks have thirteen cards, but some have twenty-two. Use the appropriate column of the table when randomly determining cards drawn from the deck.\
       Before you draw a card, you must declare how many cards you intend to draw and then draw them randomly. Any cards drawn in excess of this number have no effect. Otherwise, as soon as you draw a card from the deck, its magic takes effect. You must draw each card no more than 1 hour after the previous draw. If you fail to draw the chosen number, the remaining number of cards fly from the deck on their own and take effect all at once.\
       Once a card is drawn, it disappears. Unless the card is the Fool or Jester, the card reappears in the deck, making it possible to draw the same card twice. (Once the Fool or Jester has left the deck, reroll on the table if that card comes up again.)\
+      
       | 1d100 (13-Card Deck) | 1d100 (22-Card Deck) | Card |
       | --- | --- | --- |
       | — | 01–05 | Balance |
@@ -66,6 +67,7 @@ translations:
       Généralement rangé dans un étui ou une sacoche, ce jeu de tarot se compose de cartes (ou « lames ») en ivoire ou en vélin. Si la plupart (75 %) de ces jeux comportent treize cartes, certains en ont vingt-deux. Référez-vous à la colonne correspondante de la table pour laisser le hasard décider des cartes que vous piochez dans le jeu.\
       Avant de piocher une carte, vous devez déclarer combien de cartes vous comptez tirer, puis vous les piochez au hasard. Toutes les cartes piochées au-delà du chiffre annoncé sont sans effet. Sinon, la magie d'une carte opère dès que vous piochez celle-ci dans le paquet. Vous ne devez pas laisser s'écouler plus d'une heure entre chaque pioche. Si vous renoncez à piocher le chiffre annoncé, le nombre de cartes qui reste pour atteindre ce chiffre s'envole de lui-même du paquet et prend effet simultanément.\
       Dès qu'une carte a été piochée, elle disparaît. À moins que cette carte soit le Fou ou le Bouffon, la carte réapparaît dans le paquet, ce qui laisse la possibilité de piocher deux fois la même carte (quand le Fou ou le Bouffon quitte le jeu, relancez sur la table si cette carte est tirée de nouveau).\
+      
       | 1d100 (jeu de 13 cartes) | 1d100 (jeu de 22 cartes) | Carte |
       | --- | --- | --- |
       | — | 01–05 | La Balance |

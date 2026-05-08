@@ -10,6 +10,7 @@ translations:
     description: |-
       When you take a Magic action to read this scroll, a particular titan named in the scroll appears in an unoccupied space on the ground or in water that you can see within 1 mile of yourself. The DM picks a suitable titan or determines it randomly by rolling on the table below.\
       The titan is Hostile toward all other creatures and disappears when it drops to 0 Hit Points. If the titan is summoned into a space that isn't large enough to contain it, the summoning fails, and the scroll is wasted.\
+      
       | 1d100 | Titan |
       | --- | --- |
       | 01-15 | Animal Lord |
@@ -25,6 +26,7 @@ translations:
     description: |-
       Lorsque vous prenez une action Magie pour lire ce parchemin, un titan nommé dans le parchemin apparaît dans un espace libre que vous pouvez voir, au sol ou dans l'eau, dans un rayon de 1,5 km. Le MD choisit un titan approprié ou le détermine aléatoirement en lançant un dé sur la table ci-dessous.\
       Le titan est hostile envers toutes les autres créatures et disparaît lorsqu'il tombe à 0 point de vie. Si le titan est invoqué dans un espace trop petit pour le contenir, l'invocation échoue et le parchemin est perdu. \
+      
       | 1d100 | Titan |
       | --- | --- |
       | 01-15 | Seigneur des bêtes |

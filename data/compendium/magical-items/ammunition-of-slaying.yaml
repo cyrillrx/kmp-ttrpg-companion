@@ -10,6 +10,7 @@ translations:
     description: |-
       This magic ammunition is meant to slay creatures of a particular type, which the DM chooses or determines randomly by rolling on the table below. If a creature of that type takes damage from the ammunition, the creature makes a DC 17 Constitution saving throw, taking an extra 6d10 Force damage on a failed save or half as much extra damage on a successful one.\
       After dealing its extra damage to a creature, the ammunition becomes nonmagical.\
+      
       | 1d100 | Creature Type |
       | --- | --- |
       | 01–10 | Aberrations |
@@ -32,6 +33,7 @@ translations:
     description: |-
       Ce projectile magique est destiné à tuer des créatures d'un type particulier, choisi ou déterminé aléatoirement par le MD en effectuant un jet de dés sur la table ci-dessous. Si une créature de ce type subit des dégâts du projectile, elle effectue un jet de sauvegarde de Constitution DD 17, subissant 6d10 dégâts de force supplémentaires en cas d'échec ou la moitié de ces dégâts en cas de réussite.\
       Après avoir infligé ces dégâts supplémentaires à une créature, le projectile devient non magique.\
+      
       | 1d100 | Type de créature |
       | --- | --- |
       | 01–10 | Aberrations |

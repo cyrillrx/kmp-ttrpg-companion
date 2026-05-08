@@ -10,6 +10,7 @@ translations:
     description: |-
       This necklace has 1d4 + 2 magic beads made from aquamarine, black pearl, or topaz. It also has many nonmagical beads made from stones such as amber, bloodstone, citrine, coral, jade, pearl, or quartz. If a magic bead is removed from the necklace, that bead loses its magic.\
       Six types of magic beads exist. The DM decides the type of each bead on the necklace or determines it randomly by rolling on the table below. A necklace can have more than one bead of the same type. To use one, you must be wearing the necklace. Each bead contains a spell that you can cast from it as a Bonus Action (using your spell save DC if a save is necessary). Once a magic bead's spell is cast, that bead can't be used again until the next dawn.\
+      
       | 1d20 | Bead | Spell |
       | --- | --- | --- |
       | 1–6 | Bead of Blessing | *Bless* |
@@ -24,6 +25,7 @@ translations:
     description: |-
       Ce collier est composé de 1d4 + 2 perles magiques en aigue-marine, perle noire ou topaze. Il comporte également de nombreuses perles non magiques en pierres telles que l'ambre, l'héliotrope, la citrine, le corail, le jade, la perle ou le quartz. Si une perle magique est retirée du collier, elle perd sa magie.\
       Il existe six types de perles magiques. Le MD choisit le type de chaque perle du collier ou le détermine aléatoirement en tirant sur la table ci-dessous. Un collier peut contenir plusieurs perles du même type. Pour en utiliser une, vous devez la porter. Chaque perle contient un sort que vous pouvez lancer par une action Bonus (en utilisant votre DD de sauvegarde des sorts si nécessaire). Une fois le sort d'une perle magique lancé, cette perle ne peut plus être utilisée avant l'aube suivante.\
+      
       | 1d20 | Perle | Sort |
       | --- | --- | --- |
       | 1–6 | Perle de bénédiction | *bénédiction* |

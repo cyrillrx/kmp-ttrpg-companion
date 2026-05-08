@@ -9,6 +9,7 @@ translations:
     subtype: Any Light, Medium, or Heavy
     description: |-
       You have Resistance to one type of damage while you wear this armor. The DM chooses the type or determines it randomly by rolling on the following table.\
+      
       | 1d10 | Damage Type |
       | --- | --- |
       | 1 | Acid |
@@ -26,6 +27,7 @@ translations:
     subtype: légère, intermédiaire ou lourde
     description: |-
       Vous bénéficiez d'une Résistance à un type de dégâts lorsque vous portez cette armure. Le MD choisit le type ou le détermine aléatoirement en effectuant un jet sur la table suivante.\
+      
       | 1d10 | Type de dégâts |
       | --- | --- |
       | 1 | Acide |

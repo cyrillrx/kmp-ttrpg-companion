@@ -9,6 +9,7 @@ translations:
     subtype: null
     description: |-
       You have Resistance to one damage type while wearing this ring. The gemstone in the ring indicates the type, which the DM chooses or determines randomly by rolling on the following table.\
+      
       | 1d10 | Damage Type | Gemstone |
       | --- | --- | --- |
       | 1 | Acid | Pearl |
@@ -26,6 +27,7 @@ translations:
     subtype: null
     description: |-
       Vous bénéficiez d'une Résistance à un type de dégâts lorsque vous portez cet anneau. La pierre précieuse de l'anneau indique le type de dégâts, que le MD choisit ou détermine aléatoirement en utilisant la table suivante.\
+      
       | 1d10 | Type de dégâts | Gemmes |
       | --- | --- | --- |
       | 1 | Acide | Perle |
