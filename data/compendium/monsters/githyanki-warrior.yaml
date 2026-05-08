@@ -97,7 +97,8 @@ translations:
 
       ***Spellcasting***. The githyanki casts one of the following spells, requiring no spell components and using Intelligence as the spellcasting ability:
 
-      At will: *[Mage Hand](https://www.aidedd.org/spell/mage-hand)* (the hand is Invisible)\
+      At will: *[Mage Hand](https://www.aidedd.org/spell/mage-hand)* (the hand is Invisible)
+      
       2/day: *[Nondetection](https://www.aidedd.org/spell/nondetection)* (self only)
 
       ## Bonus actions
@@ -113,8 +114,10 @@ translations:
     description: |-
       ## Actions
 
-      Attaques multiples.\
-      Lame psi.\
+      Attaques multiples.
+      
+      Lame psi.
+      
       Incantation.
 
       ## Actions Bonus

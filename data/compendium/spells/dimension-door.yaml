@@ -21,9 +21,12 @@ translations:
     duration: Instantaneous
     materialDescription: null
     description: |-
-      You teleport to a location within range. You arrive at exactly the spot desired. It can be a place you can see, one you can visualize, or one you can describe by stating distance and direction, such as "200 feet straight downward" or "300 feet upward to the northwest at a 45-degree angle."\
-      You can also teleport one willing creature. The creature must be within 5 feet of you when you teleport, and it teleports to a space within 5 feet of your destination space.\
-      If you, the other creature, or both would arrive in a space occupied by a creature or completely filled by one or more objects, you and any creature traveling with you each take 4d6 Force damage, and the teleportation fails.\
+      You teleport to a location within range. You arrive at exactly the spot desired. It can be a place you can see, one you can visualize, or one you can describe by stating distance and direction, such as "200 feet straight downward" or "300 feet upward to the northwest at a 45-degree angle."
+      
+      You can also teleport one willing creature. The creature must be within 5 feet of you when you teleport, and it teleports to a space within 5 feet of your destination space.
+      
+      If you, the other creature, or both would arrive in a space occupied by a creature or completely filled by one or more objects, you and any creature traveling with you each take 4d6 Force damage, and the teleportation fails.
+      
   fr:
     name: Porte dimensionnelle
     castingTime: Action
@@ -31,6 +34,8 @@ translations:
     duration: Instantanée
     materialDescription: null
     description: |-
-      Vous vous téléportez vers un lieu à portée. Vous arrivez exactement à l'endroit souhaité. Il peut s'agir d'un lieu que vous pouvez voir, visualisable, ou décrit en indiquant la distance et la direction, par exemple « 60 mètres vers le bas » ou « 90 mètres vers le nord-ouest à un angle de 45 degrés ».\
-      Vous pouvez également téléporter une créature consentante. Cette créature doit se trouver dans un rayon de 1,50 mètre autour de vous lorsque vous vous téléportez, et elle se téléporte vers une case située dans un rayon de 1,50 mètre autour de votre case de destination.\
-      Si vous, l'autre créature, ou les deux, arrivez dans une case occupée par une créature ou entièrement remplie par un ou plusieurs objets, vous et toute créature voyageant avec vous subissez chacun 4d6 dégâts de Force, et la téléportation échoue.\
+      Vous vous téléportez vers un lieu à portée. Vous arrivez exactement à l'endroit souhaité. Il peut s'agir d'un lieu que vous pouvez voir, visualisable, ou décrit en indiquant la distance et la direction, par exemple « 60 mètres vers le bas » ou « 90 mètres vers le nord-ouest à un angle de 45 degrés ».
+      
+      Vous pouvez également téléporter une créature consentante. Cette créature doit se trouver dans un rayon de 1,50 mètre autour de vous lorsque vous vous téléportez, et elle se téléporte vers une case située dans un rayon de 1,50 mètre autour de votre case de destination.
+      
+      Si vous, l'autre créature, ou les deux, arrivez dans une case occupée par une créature ou entièrement remplie par un ou plusieurs objets, vous et toute créature voyageant avec vous subissez chacun 4d6 dégâts de Force, et la téléportation échoue.

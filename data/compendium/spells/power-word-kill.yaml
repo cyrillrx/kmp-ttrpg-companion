@@ -21,7 +21,8 @@ translations:
     duration: Instantaneous
     materialDescription: null
     description: |-
-      You compel one creature you can see within range to die. If the target has 100 Hit Points or fewer, it dies. Otherwise, it takes 12d12 Psychic damage.\
+      You compel one creature you can see within range to die. If the target has 100 Hit Points or fewer, it dies. Otherwise, it takes 12d12 Psychic damage.
+      
   fr:
     name: Mot de pouvoir mortel
     castingTime: Action
@@ -29,4 +30,4 @@ translations:
     duration: Instantanée
     materialDescription: null
     description: |-
-      La mort s'impose à une créature que vous voyez à portée. Si la cible choisie est dotée de 100 points de vie ou moins, elle meurt. Dans le cas contraire, elle subit 12d12 dégâts psychiques.\
+      La mort s'impose à une créature que vous voyez à portée. Si la cible choisie est dotée de 100 points de vie ou moins, elle meurt. Dans le cas contraire, elle subit 12d12 dégâts psychiques.

@@ -19,8 +19,10 @@ translations:
     duration: Concentration, up to 1 minute
     materialDescription: null
     description: |-
-      You gain the ability to enter a tree and move from inside it to inside another tree of the same kind within 500 feet. Both trees must be living and at least the same size as you. You must use 5 feet of movement to enter a tree. You instantly know the location of all other trees of the same kind within 500 feet and, as part of the move used to enter the tree, can either pass into one of those trees or step out of the tree you're in. You appear in a spot of your choice within 5 feet of the destination tree, using another 5 feet of movement. If you have no movement left, you appear within 5 feet of the tree you entered.\
-      You can use this transportation ability only once on each of your turns. You must end each turn outside a tree.\
+      You gain the ability to enter a tree and move from inside it to inside another tree of the same kind within 500 feet. Both trees must be living and at least the same size as you. You must use 5 feet of movement to enter a tree. You instantly know the location of all other trees of the same kind within 500 feet and, as part of the move used to enter the tree, can either pass into one of those trees or step out of the tree you're in. You appear in a spot of your choice within 5 feet of the destination tree, using another 5 feet of movement. If you have no movement left, you appear within 5 feet of the tree you entered.
+      
+      You can use this transportation ability only once on each of your turns. You must end each turn outside a tree.
+      
   fr:
     name: Passage par les arbres
     castingTime: Action
@@ -28,5 +30,6 @@ translations:
     duration: Concentration, jusqu'à 1 minute
     materialDescription: null
     description: |-
-      Vous pouvez entrer dans un arbre et vous déplacer dans un autre arbre de la même espèce dans un rayon de 150 mètres. Les deux arbres doivent être vivants et au moins de la même taille que vous. Vous devez utiliser 1,50 mètre de mouvement pour entrer dans un arbre. Vous connaissez instantanément l'emplacement de tous les autres arbres de la même espèce dans un rayon de 150 mètres et, grâce au mouvement utilisé pour entrer dans l'arbre, vous pouvez soit passer dans l'un de ces arbres, soit en sortir. Vous apparaissez à l'endroit de votre choix dans un rayon de 1,50 mètre de l'arbre de destination, ce qui nécessite un mouvement supplémentaire de 1,50 mètre. S'il ne vous reste plus de mouvement, vous apparaissez dans un rayon de 1,50 mètre de l'arbre par lequel vous êtes entré.\
-      Vous ne pouvez utiliser cette capacité de transport qu'une seule fois par tour. Vous devez terminer chaque tour hors d'un arbre.\
+      Vous pouvez entrer dans un arbre et vous déplacer dans un autre arbre de la même espèce dans un rayon de 150 mètres. Les deux arbres doivent être vivants et au moins de la même taille que vous. Vous devez utiliser 1,50 mètre de mouvement pour entrer dans un arbre. Vous connaissez instantanément l'emplacement de tous les autres arbres de la même espèce dans un rayon de 150 mètres et, grâce au mouvement utilisé pour entrer dans l'arbre, vous pouvez soit passer dans l'un de ces arbres, soit en sortir. Vous apparaissez à l'endroit de votre choix dans un rayon de 1,50 mètre de l'arbre de destination, ce qui nécessite un mouvement supplémentaire de 1,50 mètre. S'il ne vous reste plus de mouvement, vous apparaissez dans un rayon de 1,50 mètre de l'arbre par lequel vous êtes entré.
+      
+      Vous ne pouvez utiliser cette capacité de transport qu'une seule fois par tour. Vous devez terminer chaque tour hors d'un arbre.

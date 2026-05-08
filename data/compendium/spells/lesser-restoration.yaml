@@ -22,7 +22,8 @@ translations:
     duration: Instantaneous
     materialDescription: null
     description: |-
-      You touch a creature and end one condition on it: Blinded, Deafened, Paralyzed, or Poisoned.\
+      You touch a creature and end one condition on it: Blinded, Deafened, Paralyzed, or Poisoned.
+      
   fr:
     name: Restauration partielle
     castingTime: Action bonus
@@ -30,4 +31,4 @@ translations:
     duration: Instantanée
     materialDescription: null
     description: |-
-      Vous touchez une créature et mettez fin à un état sur elle : Aveuglé, Assourdi, Paralysé ou Empoisonné.\
+      Vous touchez une créature et mettez fin à un état sur elle : Aveuglé, Assourdi, Paralysé ou Empoisonné.

@@ -105,7 +105,8 @@ translations:
 
       ***Spellcasting***. The glabrezu casts one of the following spells, requiring no Material components and using Intelligence as the spellcasting ability (spell save DC 16):
 
-      At Will: *[Darkness](https://www.aidedd.org/spell/darkness), [Detect Magic](https://www.aidedd.org/spell/detect-magic), [Dispel Magic](https://www.aidedd.org/spell/dispel-magic)*\
+      At Will: *[Darkness](https://www.aidedd.org/spell/darkness), [Detect Magic](https://www.aidedd.org/spell/detect-magic), [Dispel Magic](https://www.aidedd.org/spell/dispel-magic)*
+      
       1/Day Each: *[Confusion](https://www.aidedd.org/spell/confusion), [Fly](https://www.aidedd.org/spell/fly), [Power Word Stun](https://www.aidedd.org/spell/power-word-stun)*
     senses: Truesight 120 ft., Passive Perception 17
     languages:
@@ -128,7 +129,8 @@ translations:
 
       ***Incantation***. Le glabrezu lance l'un des sorts suivants sans composantes matérielles, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 16) :
 
-      À volonté : *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), [dissipation de la magie](https://www.aidedd.org/spell/fr/dissipation-de-la-magie), ténèbres*\
+      À volonté : *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), [dissipation de la magie](https://www.aidedd.org/spell/fr/dissipation-de-la-magie), ténèbres*
+      
       1/jour chacun : *confusion, mot de pouvoir étourdissant, vol*
 
       ***Rincée***. *JdS Dextérité* : DD 17, une créature Agrippée par le glabrezu. *Échec* : 15 (3d6 + 5) dégâts contondants. *Réussite* : demi-dégâts.

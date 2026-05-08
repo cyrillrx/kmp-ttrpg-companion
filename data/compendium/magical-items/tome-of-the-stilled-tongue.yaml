@@ -8,14 +8,19 @@ translations:
     name: Tome of the Stilled Tongue
     subtype: null
     description: |-
-      This book has a desiccated tongue pinned to its front cover. Five of these tomes exist, and it's unknown which one is the original. The tongue on the first *Tome of the Stilled Tongue* belonged to a treacherous former servant of the lich Vecna. The tongues pinned to the covers of the four copies came from other spellcasters who crossed Vecna. The first few pages of each tome are filled with indecipherable scrawls. The remaining pages are blank.\
-      While attuned to this item, you can use it as a Spellbook and an Arcane Focus. In addition, while holding the tome, you can take a Bonus Action to cast a spell you have written in this tome, without expending a spell slot or using any Verbal or Somatic components. Once used, this property of the tome can't be used again until the next dawn.\
-      Only you can remove the tongue from the book's cover. If you do so, all spells written in the book are permanently erased.\
+      This book has a desiccated tongue pinned to its front cover. Five of these tomes exist, and it's unknown which one is the original. The tongue on the first *Tome of the Stilled Tongue* belonged to a treacherous former servant of the lich Vecna. The tongues pinned to the covers of the four copies came from other spellcasters who crossed Vecna. The first few pages of each tome are filled with indecipherable scrawls. The remaining pages are blank.
+      
+      While attuned to this item, you can use it as a Spellbook and an Arcane Focus. In addition, while holding the tome, you can take a Bonus Action to cast a spell you have written in this tome, without expending a spell slot or using any Verbal or Somatic components. Once used, this property of the tome can't be used again until the next dawn.
+      
+      Only you can remove the tongue from the book's cover. If you do so, all spells written in the book are permanently erased.
+      
       Vecna watches anyone using this tome and can write cryptic messages in it. These messages typically fade away after they are read.
   fr:
     name: Tome de la langue nouée
     subtype: null
     description: |-
-      Ce livre possède une langue desséchée épinglée à sa couverture. Cinq exemplaires de ce tome existent, et l'on ignore lequel est l'original. La langue du premier *tome de la langue nouée* appartenait à un ancien serviteur perfide de la liche Vecna. Les langues épinglées aux couvertures des quatre autres exemplaires proviennent d'autres lanceurs de sorts ayant défié Vecna. Les premières pages de chaque tome sont remplies de gribouillis indéchiffrables. Les pages suivantes sont vierges.\
-      Tant que vous êtes lié avec cet objet, vous pouvez l'utiliser comme un grimoire et focaliseur arcanique. De plus, si vous tenez le tome, vous pouvez prendre une action Bonus pour lancer un sort que vous y avez inscrit, sans dépenser d'emplacement de sort ni utiliser de composantes verbales ou somatiques. Une fois utilisée, cette propriété du tome ne peut être réutilisée avec l'aube suivante.\
+      Ce livre possède une langue desséchée épinglée à sa couverture. Cinq exemplaires de ce tome existent, et l'on ignore lequel est l'original. La langue du premier *tome de la langue nouée* appartenait à un ancien serviteur perfide de la liche Vecna. Les langues épinglées aux couvertures des quatre autres exemplaires proviennent d'autres lanceurs de sorts ayant défié Vecna. Les premières pages de chaque tome sont remplies de gribouillis indéchiffrables. Les pages suivantes sont vierges.
+      
+      Tant que vous êtes lié avec cet objet, vous pouvez l'utiliser comme un grimoire et focaliseur arcanique. De plus, si vous tenez le tome, vous pouvez prendre une action Bonus pour lancer un sort que vous y avez inscrit, sans dépenser d'emplacement de sort ni utiliser de composantes verbales ou somatiques. Une fois utilisée, cette propriété du tome ne peut être réutilisée avec l'aube suivante.
+      
       Vous seul pouvez retirer la langue de la couverture du livre. Si vous le faites, tous les sorts inscrits dans le livre sont effacés définitivement. Vecna ​​observe quiconque utilise ce grimoire et peut y inscrire des messages cryptiques. Ces messages disparaissent généralement après avoir été lus.

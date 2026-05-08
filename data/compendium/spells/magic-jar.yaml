@@ -18,13 +18,20 @@ translations:
     duration: Until dispelled
     materialDescription: a gem, crystal, or reliquary worth 500+ GP
     description: |-
-      Your body falls into a catatonic state as your soul leaves it and enters the container you used for the spell's Material component. While your soul inhabits the container, you are aware of your surroundings as if you were in the container's space. You can't move or take Reactions. The only action you can take is to project your soul up to 100 feet out of the container, either returning to your living body (and ending the spell) or attempting to possess a Humanoid's body.\
-      You can attempt to possess any Humanoid within 100 feet of you that you can see (creatures warded by a *Protection from Evil and Good* or *Magic Circle* spell can't be possessed). The target makes a Charisma saving throw. On a failed save, your soul enters the target's body, and the target's soul becomes trapped in the container. On a successful save, the target resists your efforts to possess it, and you can't attempt to possess it again for 24 hours.\
-      Once you possess a creature's body, you control it. Your Hit Points, Hit Point Dice, Strength, Dexterity, Constitution, Speed, and senses are replaced by the creature's. You otherwise keep your game statistics.\
-      Meanwhile, the possessed creature's soul can perceive from the container using its own senses, but it can't move and it is Incapacitated.\
-      While possessing a body, you can take a Magic action to return from the host body to the container if it is within 100 feet of you, returning the host creature's soul to its body. If the host body dies while you're in it, the creature dies, and you make a Charisma saving throw against your own spellcasting DC. On a success, you return to the container if it is within 100 feet of you. Otherwise, you die.\
-      If the container is destroyed or the spell ends, your soul returns to your body. If your body is more than 100 feet away from you or if your body is dead, you die. If another creature's soul is in the container when it is destroyed, the creature's soul returns to its body if the body is alive and within 100 feet. Otherwise, that creature dies.\
-      When the spell ends, the container is destroyed.\
+      Your body falls into a catatonic state as your soul leaves it and enters the container you used for the spell's Material component. While your soul inhabits the container, you are aware of your surroundings as if you were in the container's space. You can't move or take Reactions. The only action you can take is to project your soul up to 100 feet out of the container, either returning to your living body (and ending the spell) or attempting to possess a Humanoid's body.
+      
+      You can attempt to possess any Humanoid within 100 feet of you that you can see (creatures warded by a *Protection from Evil and Good* or *Magic Circle* spell can't be possessed). The target makes a Charisma saving throw. On a failed save, your soul enters the target's body, and the target's soul becomes trapped in the container. On a successful save, the target resists your efforts to possess it, and you can't attempt to possess it again for 24 hours.
+      
+      Once you possess a creature's body, you control it. Your Hit Points, Hit Point Dice, Strength, Dexterity, Constitution, Speed, and senses are replaced by the creature's. You otherwise keep your game statistics.
+      
+      Meanwhile, the possessed creature's soul can perceive from the container using its own senses, but it can't move and it is Incapacitated.
+      
+      While possessing a body, you can take a Magic action to return from the host body to the container if it is within 100 feet of you, returning the host creature's soul to its body. If the host body dies while you're in it, the creature dies, and you make a Charisma saving throw against your own spellcasting DC. On a success, you return to the container if it is within 100 feet of you. Otherwise, you die.
+      
+      If the container is destroyed or the spell ends, your soul returns to your body. If your body is more than 100 feet away from you or if your body is dead, you die. If another creature's soul is in the container when it is destroyed, the creature's soul returns to its body if the body is alive and within 100 feet. Otherwise, that creature dies.
+      
+      When the spell ends, the container is destroyed.
+      
   fr:
     name: Urne magique
     castingTime: 1 minute
@@ -33,10 +40,16 @@ translations:
     materialDescription: une gemme, un cristal ou un reliquaire d'une valeur minimale
       de 500 po
     description: |-
-      Votre corps sombre en catatonie tandis que votre âme le quitte pour pénétrer dans le récipient ayant servi de composante matérielle au sort. Tant que votre âme occupe ce contenant, vous restez conscient de l'environnement comme si vous occupiez l'espace du récipient. Vous ne pouvez pas vous déplacer ni jouer de Réactions. La seule action que vous puissiez entreprendre consiste à projeter votre âme à une distance maximale de 30 m du récipient, soit en reprenant possession de votre corps (ce qui met un terme au sort), soit en tentant de posséder un autre corps Humanoïde.\
-      Vous pouvez tenter de posséder tout Humanoïde dans un rayon de 30 m de vous, à condition de le voir (les créatures protégées par le sort *cercle magique* ou *protection contre le mal et le bien* ne peuvent pas être possédées). La cible effectue un jet de sauvegarde de Charisme. En cas d'échec, votre âme se transporte dans le corps de la cible et l'âme de celle-ci se retrouve séquestrée dans le récipient. En cas de réussite, la cible résiste à votre tentative de possession et vous devez attendre 24 heures pour essayer à nouveau de la posséder.\
-      Une fois que vous possédez le corps d'une créature, vous la contrôlez. Vos points de vie et dés de vie, vos valeurs de Force, Dextérité et Constitution, votre Vitesse et vos sens sont remplacés par ceux de la créature. Vous conservez pour le reste votre profil.\
-      De son côté, l'âme de la créature possédée peut percevoir l'environnement depuis le récipient en usant de ses propres sens, mais elle ne peut pas se déplacer et subit l'état Incapable d'agir.\
-      Tant que vous possédez un corps, vous pouvez entreprendre l'action Magie pour quitter le corps hôte et retourner dans le récipient si celui-ci se trouve dans un rayon de 30 m, l'âme de la créature hôte retrouvant alors son corps. Si le corps hôte meurt alors que vous le possédez, la créature meurt et vous effectuez un jet de sauvegarde de Charisme contre le DD de sauvegarde de votre propre sort. En cas de réussite, vous retournez dans le récipient si celui-ci se trouve dans un rayon de 30 m. Dans le cas contraire, vous mourez.\
-      Si le contenant est détruit ou si le sort prend fin, votre âme retrouve votre corps. Si votre corps est distant de plus de 30 m de vous ou s'il est « mort », vous mourez. Si l'âme d'une autre créature occupe le récipient lorsqu'il est détruit, l'âme de celle-ci retrouve son corps s'il est vivant et dans un rayon de 30 m d'elle. Sans cela, la créature meurt.\
-      Le récipient est détruit quand le sort prend fin.\
+      Votre corps sombre en catatonie tandis que votre âme le quitte pour pénétrer dans le récipient ayant servi de composante matérielle au sort. Tant que votre âme occupe ce contenant, vous restez conscient de l'environnement comme si vous occupiez l'espace du récipient. Vous ne pouvez pas vous déplacer ni jouer de Réactions. La seule action que vous puissiez entreprendre consiste à projeter votre âme à une distance maximale de 30 m du récipient, soit en reprenant possession de votre corps (ce qui met un terme au sort), soit en tentant de posséder un autre corps Humanoïde.
+      
+      Vous pouvez tenter de posséder tout Humanoïde dans un rayon de 30 m de vous, à condition de le voir (les créatures protégées par le sort *cercle magique* ou *protection contre le mal et le bien* ne peuvent pas être possédées). La cible effectue un jet de sauvegarde de Charisme. En cas d'échec, votre âme se transporte dans le corps de la cible et l'âme de celle-ci se retrouve séquestrée dans le récipient. En cas de réussite, la cible résiste à votre tentative de possession et vous devez attendre 24 heures pour essayer à nouveau de la posséder.
+      
+      Une fois que vous possédez le corps d'une créature, vous la contrôlez. Vos points de vie et dés de vie, vos valeurs de Force, Dextérité et Constitution, votre Vitesse et vos sens sont remplacés par ceux de la créature. Vous conservez pour le reste votre profil.
+      
+      De son côté, l'âme de la créature possédée peut percevoir l'environnement depuis le récipient en usant de ses propres sens, mais elle ne peut pas se déplacer et subit l'état Incapable d'agir.
+      
+      Tant que vous possédez un corps, vous pouvez entreprendre l'action Magie pour quitter le corps hôte et retourner dans le récipient si celui-ci se trouve dans un rayon de 30 m, l'âme de la créature hôte retrouvant alors son corps. Si le corps hôte meurt alors que vous le possédez, la créature meurt et vous effectuez un jet de sauvegarde de Charisme contre le DD de sauvegarde de votre propre sort. En cas de réussite, vous retournez dans le récipient si celui-ci se trouve dans un rayon de 30 m. Dans le cas contraire, vous mourez.
+      
+      Si le contenant est détruit ou si le sort prend fin, votre âme retrouve votre corps. Si votre corps est distant de plus de 30 m de vous ou s'il est « mort », vous mourez. Si l'âme d'une autre créature occupe le récipient lorsqu'il est détruit, l'âme de celle-ci retrouve son corps s'il est vivant et dans un rayon de 30 m d'elle. Sans cela, la créature meurt.
+      
+      Le récipient est détruit quand le sort prend fin.

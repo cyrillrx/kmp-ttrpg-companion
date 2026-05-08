@@ -19,7 +19,8 @@ translations:
     duration: Instantaneous
     materialDescription: null
     description: |-
-      You commune with nature spirits and gain knowledge of the surrounding area. In the outdoors, the spell gives you knowledge of the area within 3 miles of you. In caves and other natural underground settings, the radius is limited to 300 feet. The spell doesn't function where nature has been replaced by construction, such as in castles and settlements.\
+      You commune with nature spirits and gain knowledge of the surrounding area. In the outdoors, the spell gives you knowledge of the area within 3 miles of you. In caves and other natural underground settings, the radius is limited to 300 feet. The spell doesn't function where nature has been replaced by construction, such as in castles and settlements.
+      
       Choose three of the following facts; you learn those facts as they pertain to the spell's area:
       
       - Locations of settlements
@@ -28,7 +29,8 @@ translations:
       - The most prevalent kind of plant, mineral, or Beast (you choose which to learn)
       - Locations of bodies of water
       
-      For example, you could determine the location of a powerful monster in the area, the locations of bodies of water, and the locations of any towns.\
+      For example, you could determine the location of a powerful monster in the area, the locations of bodies of water, and the locations of any towns.
+      
   fr:
     name: Communion avec la nature
     castingTime: 1 minute ou Rituel
@@ -36,7 +38,8 @@ translations:
     duration: Instantanée
     materialDescription: null
     description: |-
-      Vous communiez avec les esprits de la nature et acquérez des connaissances sur les environs. En extérieur, le sort vous permet de connaître la zone dans un rayon de 4,5 km autour de vous. Dans les grottes et autres environnements souterrains naturels, le rayon est limité à 90 mètres. Le sort ne fonctionne pas là où la nature a été remplacée par des constructions, comme dans les châteaux et les bourgs.\
+      Vous communiez avec les esprits de la nature et acquérez des connaissances sur les environs. En extérieur, le sort vous permet de connaître la zone dans un rayon de 4,5 km autour de vous. Dans les grottes et autres environnements souterrains naturels, le rayon est limité à 90 mètres. Le sort ne fonctionne pas là où la nature a été remplacée par des constructions, comme dans les châteaux et les bourgs.
+      
       Choisissez trois des informations suivantes ; vous en prendrez connaissance en fonction de la zone d'effet du sort :
       
       - Position des peuplements
@@ -45,4 +48,4 @@ translations:
       - L'espèce de plante, minéral ou bête la plus répandue (choisissez celle que vous souhaitez apprendre)
       - Position des étendues d'eau
       
-      Par exemple, vous pouvez déterminer l'emplacement d'un monstre puissant dans la zone, l'emplacement des étendues d'eau et l'emplacement des peuplements.\
+      Par exemple, vous pouvez déterminer l'emplacement d'un monstre puissant dans la zone, l'emplacement des étendues d'eau et l'emplacement des peuplements.

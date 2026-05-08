@@ -22,11 +22,16 @@ translations:
     duration: 30 days
     materialDescription: null
     description: |-
-      You give a verbal command to a creature that you can see within range, ordering it to carry out some service or refrain from an action or a course of activity as you decide. The target must succeed on a Wisdom saving throw or have the Charmed condition for the duration. The target automatically succeeds if it can't understand your command.\
-      While Charmed, the creature takes 5d10 Psychic damage if it acts in a manner directly counter to your command. It takes this damage no more than once each day.\
-      You can issue any command you choose, short of an activity that would result in certain death. Should you issue a suicidal command, the spell ends.\
-      A *[Remove Curse](./remove-curse), [Greater Restoration](./greater-restoration)*, or *[Wish](./wish)* spell ends this spell.\
-      ***Using a Higher-Level Spell Slot***. If you use a level 7 or 8 spell slot, the duration is 365 days. If you use a level 9 spell slot, the spell lasts until it is ended by one of the spells mentioned above.\
+      You give a verbal command to a creature that you can see within range, ordering it to carry out some service or refrain from an action or a course of activity as you decide. The target must succeed on a Wisdom saving throw or have the Charmed condition for the duration. The target automatically succeeds if it can't understand your command.
+      
+      While Charmed, the creature takes 5d10 Psychic damage if it acts in a manner directly counter to your command. It takes this damage no more than once each day.
+      
+      You can issue any command you choose, short of an activity that would result in certain death. Should you issue a suicidal command, the spell ends.
+      
+      A *[Remove Curse](./remove-curse), [Greater Restoration](./greater-restoration)*, or *[Wish](./wish)* spell ends this spell.
+      
+      ***Using a Higher-Level Spell Slot***. If you use a level 7 or 8 spell slot, the duration is 365 days. If you use a level 9 spell slot, the spell lasts until it is ended by one of the spells mentioned above.
+      
   fr:
     name: Quête
     castingTime: 1 minute
@@ -34,8 +39,12 @@ translations:
     duration: 30 jours
     materialDescription: null
     description: |-
-      Vous donnez un ordre verbal à une créature que vous pouvez voir à portée, lui ordonnant d'accomplir un service ou de s'abstenir d'une action ou d'une activité, selon votre choix. La cible doit réussir un jet de sauvegarde de Sagesse ou subir l'état Charmé pendant toute la durée du sort. La cible réussit automatiquement si elle ne comprend pas votre ordre.\
-      Tant qu'elle est charmée, la créature subit 5d10 dégâts psychiques si elle agit d'une manière contraire à votre ordre. Elle ne subit ces dégâts qu'une fois par jour.\
-      Vous pouvez donner l'ordre de votre choix, sauf s'il s'agit d'une activité qui entraînerait une mort certaine. Si vous donnez un ordre suicidaire, le sort prend fin.\
-      Un sort *[délivrance des malédictions](./fr/delivrance-des-malédictions), [restauration suprême](./fr/restauration-supreme)* ou *[souhait](./fr/souhait)* met fin à ce sort.\
-      ***Emplacement de niveau supérieur***. Si vous utilisez un emplacement de sort de niveau 7 ou 8, la durée est de 365 jours. Si vous utilisez un emplacement de sort de niveau 9, le sort dure jusqu'à ce qu'il soit interrompu par l'un des sorts mentionnés ci-dessus.\
+      Vous donnez un ordre verbal à une créature que vous pouvez voir à portée, lui ordonnant d'accomplir un service ou de s'abstenir d'une action ou d'une activité, selon votre choix. La cible doit réussir un jet de sauvegarde de Sagesse ou subir l'état Charmé pendant toute la durée du sort. La cible réussit automatiquement si elle ne comprend pas votre ordre.
+      
+      Tant qu'elle est charmée, la créature subit 5d10 dégâts psychiques si elle agit d'une manière contraire à votre ordre. Elle ne subit ces dégâts qu'une fois par jour.
+      
+      Vous pouvez donner l'ordre de votre choix, sauf s'il s'agit d'une activité qui entraînerait une mort certaine. Si vous donnez un ordre suicidaire, le sort prend fin.
+      
+      Un sort *[délivrance des malédictions](./fr/delivrance-des-malédictions), [restauration suprême](./fr/restauration-supreme)* ou *[souhait](./fr/souhait)* met fin à ce sort.
+      
+      ***Emplacement de niveau supérieur***. Si vous utilisez un emplacement de sort de niveau 7 ou 8, la durée est de 365 jours. Si vous utilisez un emplacement de sort de niveau 9, le sort dure jusqu'à ce qu'il soit interrompu par l'un des sorts mentionnés ci-dessus.

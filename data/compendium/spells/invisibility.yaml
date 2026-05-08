@@ -21,8 +21,10 @@ translations:
     duration: Concentration, up to 1 hour
     materialDescription: an eyelash in gum arabic
     description: |-
-      A creature you touch has the Invisible condition until the spell ends. The spell ends early immediately after the target makes an attack roll, deals damage, or casts a spell.\
-      ***Using a Higher-Level Spell Slot***. You can target one additional creature for each spell slot level above 2.\
+      A creature you touch has the Invisible condition until the spell ends. The spell ends early immediately after the target makes an attack roll, deals damage, or casts a spell.
+      
+      ***Using a Higher-Level Spell Slot***. You can target one additional creature for each spell slot level above 2.
+      
   fr:
     name: Invisibilité
     castingTime: Action
@@ -30,5 +32,6 @@ translations:
     duration: Concentration, jusqu'à 1 heure
     materialDescription: un cil dans de la gomme arabique
     description: |-
-      Une créature que vous touchez obtient l'état Invisible jusqu'à la fin du sort. Le sort prend fin prématurément si la cible effectue un jet d'attaque, inflige des dégâts ou lance un sort.\
-      ***Emplacement de niveau supérieur***. Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 2.\
+      Une créature que vous touchez obtient l'état Invisible jusqu'à la fin du sort. Le sort prend fin prématurément si la cible effectue un jet d'attaque, inflige des dégâts ou lance un sort.
+      
+      ***Emplacement de niveau supérieur***. Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 2.

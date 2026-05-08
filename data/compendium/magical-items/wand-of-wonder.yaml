@@ -8,8 +8,9 @@ translations:
     name: Wand of Wonder
     subtype: null
     description: |-
-      This wand has 7 charges. While holding it, you can take a Magic action to expend 1 charge while choosing a point within 120 feet of yourself. That location becomes the point of origin of a spell or other magical effect determined by rolling on the Wand of Wonder Effects table. Spells cast from the wand have a save DC of 15. If a spell's maximum range is normally less than 120 feet, it becomes 120 feet when cast from the wand. If an effect has multiple possible subjects, the DM determines randomly which among them are affected.\
-      **Regaining Charges**. The wand regains 1d6 + 1 expended charges daily at dawn. If you expend the wand's last charge, roll 1d20. On a 1, the wand crumbles into dust and is destroyed.\
+      This wand has 7 charges. While holding it, you can take a Magic action to expend 1 charge while choosing a point within 120 feet of yourself. That location becomes the point of origin of a spell or other magical effect determined by rolling on the Wand of Wonder Effects table. Spells cast from the wand have a save DC of 15. If a spell's maximum range is normally less than 120 feet, it becomes 120 feet when cast from the wand. If an effect has multiple possible subjects, the DM determines randomly which among them are affected.
+      
+      **Regaining Charges**. The wand regains 1d6 + 1 expended charges daily at dawn. If you expend the wand's last charge, roll 1d20. On a 1, the wand crumbles into dust and is destroyed.
       
       | 1d100 | Effect |
       | --- | --- |
@@ -35,8 +36,9 @@ translations:
     name: Baguette des merveilles
     subtype: null
     description: |-
-      Cette baguette possède 7 charges. Lorsque vous la tenez, vous pouvez prendre une action Magie pour dépenser 1 charge en choisissant un point situé dans un rayon de 36 mètres. Ce point devient le point d'origine d'un sort ou d'un autre effet magique, déterminé par un jet de dés sur la table suivante. Le DD de sauvegarde des sorts lancés depuis la baguette est de 15. Si la portée maximale d'un sort est normalement inférieure à 36 mètres, elle passe à 36 mètres lorsqu'il est lancé depuis la baguette. Si un effet a plusieurs cibles possibles, le MD détermine aléatoirement lesquelles sont affectées.\
-      **Récupération des charges**. La baguette récupère 1d6 + 1 charges dépensées chaque jour à l'aube. Si vous dépensez la dernière charge de la baguette, lancez 1d20. Sur un 1, la baguette tombe en poussière et est détruite.\
+      Cette baguette possède 7 charges. Lorsque vous la tenez, vous pouvez prendre une action Magie pour dépenser 1 charge en choisissant un point situé dans un rayon de 36 mètres. Ce point devient le point d'origine d'un sort ou d'un autre effet magique, déterminé par un jet de dés sur la table suivante. Le DD de sauvegarde des sorts lancés depuis la baguette est de 15. Si la portée maximale d'un sort est normalement inférieure à 36 mètres, elle passe à 36 mètres lorsqu'il est lancé depuis la baguette. Si un effet a plusieurs cibles possibles, le MD détermine aléatoirement lesquelles sont affectées.
+      
+      **Récupération des charges**. La baguette récupère 1d6 + 1 charges dépensées chaque jour à l'aube. Si vous dépensez la dernière charge de la baguette, lancez 1d20. Sur un 1, la baguette tombe en poussière et est détruite.
       
       | 1d100 | Effet |
       | --- | --- |

@@ -91,23 +91,30 @@ translations:
     description: |-
       ## Traits
 
-      Astral Implosion.\
-      Legendary Resistance (4/Day).\
+      Astral Implosion.
+      
+      Legendary Resistance (4/Day).
+      
       Magic Resistance.
 
       ## Actions
 
-      Multiattack.\
-      Pseudopod.\
-      Engulf.\
+      Multiattack.
+      
+      Pseudopod.
+      
+      Engulf.
+      
       Restraining Glob.
 
       ## Legendary actions
 
       Legendary Action Uses: 3.
 
-      Decay.\
-      Grasping Glob.\
+      Decay.
+      
+      Grasping Glob.
+      
       Lashing Goop.
     senses: Blindsight 120 ft., Passive Perception 13
     languages: []
@@ -117,23 +124,30 @@ translations:
     description: |-
       ## Traits
 
-      Implosion astrale.\
-      Résistance légendaire (4/jour).\
+      Implosion astrale.
+      
+      Résistance légendaire (4/jour).
+      
       Résistance à la magie.
 
       ## Actions
 
-      Attaques multiples.\
-      Pseudopode.\
-      Enveloppement.\
+      Attaques multiples.
+      
+      Pseudopode.
+      
+      Enveloppement.
+      
       Amas entraveur.
 
       ## Actions Légendaires
 
       Utilisations d'action Légendaire : 3.
 
-      Décomposition.\
-      Chiquenaude visqueuse.\
+      Décomposition.
+      
+      Chiquenaude visqueuse.
+      
       Happement.
     senses: Vision aveugle 36 m, Perception passive 13
     languages: []

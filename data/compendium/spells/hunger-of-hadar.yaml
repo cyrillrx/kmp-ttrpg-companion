@@ -18,9 +18,12 @@ translations:
     duration: Concentration, up to 1 minute
     materialDescription: a pickled tentacle
     description: |-
-      You open a gateway to the Far Realm, a region infested with unspeakable horrors. A 20-foot-radius Sphere of Darkness appears, centered on a point with range and lasting for the duration. The Sphere is Difficult Terrain, and it is filled with strange whispers and slurping noises, which can be heard up to 30 feet away. No light, magical or otherwise, can illuminate the area, and creatures fully within it have the Blinded condition.\
-      Any creature that starts its turn in the area takes 2d6 Cold damage. Any creature that ends its turn there must succeed on a Dexterity saving throw or take 2d6 Acid damage from otherworldly tentacles.\
-      ***Using a Higher-Level Spell Slot***. The Cold or Acid damage (your choice) increases by 1d6 for each spell slot level above 3.\
+      You open a gateway to the Far Realm, a region infested with unspeakable horrors. A 20-foot-radius Sphere of Darkness appears, centered on a point with range and lasting for the duration. The Sphere is Difficult Terrain, and it is filled with strange whispers and slurping noises, which can be heard up to 30 feet away. No light, magical or otherwise, can illuminate the area, and creatures fully within it have the Blinded condition.
+      
+      Any creature that starts its turn in the area takes 2d6 Cold damage. Any creature that ends its turn there must succeed on a Dexterity saving throw or take 2d6 Acid damage from otherworldly tentacles.
+      
+      ***Using a Higher-Level Spell Slot***. The Cold or Acid damage (your choice) increases by 1d6 for each spell slot level above 3.
+      
   fr:
     name: Voracité de Hadar
     castingTime: Action
@@ -28,6 +31,8 @@ translations:
     duration: Concentration, jusqu'à 1 minute
     materialDescription: un tentacule de poulpe mariné
     description: |-
-      Vous ouvrez un portail vers le Royaume Lointain, une région infestée d'horreurs innomables. Une Sphère de Ténèbres de 6 mètres de rayon apparaît, centrée sur un point à portée et pour la durée du sort. La Sphère est un Terrain difficile emplie d'étranges murmures et de bruits de succion, audibles jusqu'à 9 mètres. Aucune lumière, magique ou autre, ne peut éclairer la zone, et les créatures qui s'y trouvent entièrement ont l'état Aveuglé.\
-      Toute créature qui commence son tour dans la zone subit 2d6 dégâts de froid. Toute créature qui y termine son tour doit réussir un jet de sauvegarde de Dextérité sous peine de subir 2d6 dégâts d'acide infligés par des tentacules d'Outremonde.\
-      ***Emplacement de niveau supérieur***. Les dégâts de froid ou d'acide (selon votre choix) augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 3.\
+      Vous ouvrez un portail vers le Royaume Lointain, une région infestée d'horreurs innomables. Une Sphère de Ténèbres de 6 mètres de rayon apparaît, centrée sur un point à portée et pour la durée du sort. La Sphère est un Terrain difficile emplie d'étranges murmures et de bruits de succion, audibles jusqu'à 9 mètres. Aucune lumière, magique ou autre, ne peut éclairer la zone, et les créatures qui s'y trouvent entièrement ont l'état Aveuglé.
+      
+      Toute créature qui commence son tour dans la zone subit 2d6 dégâts de froid. Toute créature qui y termine son tour doit réussir un jet de sauvegarde de Dextérité sous peine de subir 2d6 dégâts d'acide infligés par des tentacules d'Outremonde.
+      
+      ***Emplacement de niveau supérieur***. Les dégâts de froid ou d'acide (selon votre choix) augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 3.

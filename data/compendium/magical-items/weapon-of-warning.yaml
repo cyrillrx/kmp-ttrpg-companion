@@ -8,13 +8,17 @@ translations:
     name: Weapon of Warning
     subtype: Any Simple or Martial
     description: |-
-      As long as this weapon is within your reach and you are attuned to it, you and allies within 30 feet of you gain the following benefits.\
-      **Alarm**. The weapon magically awakens each subject who is sleeping naturally when combat begins. This benefit doesn't wake a subject from magically induced sleep.\
+      As long as this weapon is within your reach and you are attuned to it, you and allies within 30 feet of you gain the following benefits.
+      
+      **Alarm**. The weapon magically awakens each subject who is sleeping naturally when combat begins. This benefit doesn't wake a subject from magically induced sleep.
+      
       **Supernatural Readiness**. Each subject has Advantage on its Initiative rolls.
   fr:
     name: Arme vigilante
     subtype: courante ou de guerre
     description: |-
-      Tant que cette arme est à portée d'allonge et que vous êtes lié avec elle, vous et vos alliés situés dans un rayon de 9 mètres bénéficiez des avantages suivants :\
-      **Alarme**. L’arme réveille magiquement chaque sujet endormi naturellement lorsqu'un combat commence. Cet avantage ne s’applique pas aux sujets endormis magiquement.\
+      Tant que cette arme est à portée d'allonge et que vous êtes lié avec elle, vous et vos alliés situés dans un rayon de 9 mètres bénéficiez des avantages suivants :
+      
+      **Alarme**. L’arme réveille magiquement chaque sujet endormi naturellement lorsqu'un combat commence. Cet avantage ne s’applique pas aux sujets endormis magiquement.
+      
       **Vigilance surnaturelle**. Chaque sujet a un Avantage à ses jets d’initiative.

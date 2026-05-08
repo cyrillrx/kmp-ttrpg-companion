@@ -105,7 +105,8 @@ translations:
 
       ***Spellcasting***. The empyrean casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 23):
 
-      At Will: *[Calm Emotions](https://www.aidedd.org/spell/calm-emotions), [Greater Restoration](https://www.aidedd.org/spell/greater-restoration), [Pass without Trace](https://www.aidedd.org/spell/pass-without-trace), [Water Breathing](https://www.aidedd.org/spell/water-breathing)*\
+      At Will: *[Calm Emotions](https://www.aidedd.org/spell/calm-emotions), [Greater Restoration](https://www.aidedd.org/spell/greater-restoration), [Pass without Trace](https://www.aidedd.org/spell/pass-without-trace), [Water Breathing](https://www.aidedd.org/spell/water-breathing)*
+      
       1/Day Each: *[Commune](https://www.aidedd.org/spell/commune), [Dispel Evil and Good](https://www.aidedd.org/spell/dispel-evil-and-good), [Plane Shift](https://www.aidedd.org/spell/plane-shift)*
 
       ## Legendary actions
@@ -126,22 +127,28 @@ translations:
     description: |-
       ## Traits
 
-      Résistance légendaire (4/jour).\
+      Résistance légendaire (4/jour).
+      
       Résistance à la magie.
 
       ## Actions
 
-      Attaques multiples.\
-      Arme sacrée.\
-      Rayon divin.\
+      Attaques multiples.
+      
+      Arme sacrée.
+      
+      Rayon divin.
+      
       Incantation.
 
       ## Actions Légendaires
 
       Utilisations d'action Légendaire : 3.
 
-      Galvanisation.\
-      Raz-de-gloire.\
+      Galvanisation.
+      
+      Raz-de-gloire.
+      
       Châtiment.
     senses: vision véritable 36 m, Perception passive 23
     languages:

@@ -20,12 +20,18 @@ translations:
     duration: Concentration, up to 1 minute
     materialDescription: a fractured rock
     description: |-
-      Choose a point on the ground that you can see within range. For the duration, an intense tremor rips through the ground in a 100-foot-radius circle centered on that point. The ground there is Difficult Terrain.\
-      When you cast this spell and at the end of each of your turns for the duration, each creature on the ground in the area makes a Dexterity saving throw. On a failed save, a creature has the Prone condition, and its Concentration is broken.\
-      You can also cause the effects below.\
-      **Fissures**. A total of 1d6 fissures open in the spell's area at the end of the turn you cast it. You choose the fissures' locations, which can't be under structures. Each fissure is 1d10 x 10 feet deep and 10 feet wide, and it extends from one edge of the spell's area to another edge. A creature in the same space as a fissure must succeed on a Dexterity saving throw or fall in. A creature that successfully saves moves with the fissure's edge as it opens.\
-      **Structures**. The tremor deals 50 Bludgeoning damage to any structure in contact with the ground in the area when you cast the spell and at the end of each of your turns until the spell ends. If a structure drops to 0 Hit Points, it collapses.\
-      A creature within a distance from a collapsing structure equal to half the structure's height makes a Dexterity saving throw. On a failed save, the creature takes 12d6 Bludgeoning damage, has the Prone condition, and is buried in the rubble, requiring a DC 20 Strength (Athletics) check as an action to escape. On a successful save, the creature takes half as much damage only.\
+      Choose a point on the ground that you can see within range. For the duration, an intense tremor rips through the ground in a 100-foot-radius circle centered on that point. The ground there is Difficult Terrain.
+      
+      When you cast this spell and at the end of each of your turns for the duration, each creature on the ground in the area makes a Dexterity saving throw. On a failed save, a creature has the Prone condition, and its Concentration is broken.
+      
+      You can also cause the effects below.
+      
+      **Fissures**. A total of 1d6 fissures open in the spell's area at the end of the turn you cast it. You choose the fissures' locations, which can't be under structures. Each fissure is 1d10 x 10 feet deep and 10 feet wide, and it extends from one edge of the spell's area to another edge. A creature in the same space as a fissure must succeed on a Dexterity saving throw or fall in. A creature that successfully saves moves with the fissure's edge as it opens.
+      
+      **Structures**. The tremor deals 50 Bludgeoning damage to any structure in contact with the ground in the area when you cast the spell and at the end of each of your turns until the spell ends. If a structure drops to 0 Hit Points, it collapses.
+      
+      A creature within a distance from a collapsing structure equal to half the structure's height makes a Dexterity saving throw. On a failed save, the creature takes 12d6 Bludgeoning damage, has the Prone condition, and is buried in the rubble, requiring a DC 20 Strength (Athletics) check as an action to escape. On a successful save, the creature takes half as much damage only.
+      
   fr:
     name: Tremblement de terre
     castingTime: Action
@@ -33,10 +39,16 @@ translations:
     duration: Concentration, jusqu'à 1 minute
     materialDescription: une pierre brisée
     description: |-
-      Choisissez un point du sol que vous voyez à portée.\
-      Pour toute la durée, le sol est parcouru d'intenses secousses dans un cercle de 30 m de rayon centré sur le point choisi. Le sol concerné constitue un Terrain difficile.\
-      À l'incantation du sort et à la fin de chacun de vos tours pour toute la durée, chaque créature au contact du sol de la zone effectue un jet de sauvegarde de Dextérité. En cas d'échec, la créature subit l'état À terre et sa Concentration est rompue.\
-      Vous pouvez également provoquer les effets ci-après.\
-      **Crevasses**. Un total de 1d6 crevasses de ce type s'ouvrent dans la zone du sort à la fin du tour de l'incantation. Vous choisissez leurs emplacements, qui ne doivent pas se situer sous des structures. Elles sont chacune profondes de 1d10 x 3 m, larges de 3 m et s'étendent d'un bout de la zone du sort à l'autre. Une créature située dans l'espace d'une fissure doit réussir un jet de sauvegarde de Dextérité sous peine d'y chuter. En cas de réussite, elle accompagne le rebord de la crevasse et reste à la surface.\
-      **Structures**. Le séisme inflige 50 dégâts contondants à toute structure en contact avec le sol de la zone à l'incantation du sort, ainsi qu'à la fin de chacun de vos tours jusqu'à la fin du sort. Si un bâtiment tombe à 0 point de vie, il s'effondre.\
-      Une créature distante d'une telle structure de la moitié de sa hauteur ou moins effectue un jet de sauvegarde de Dextérité. En cas d'échec, la créature subit 12d6 dégâts contondants et l'état À terre, et finit ensevelie dans les gravats. S'en extraire demande de réussir un jet de Force (Athlétisme) DD 20 au prix d'une action. En cas de réussite, elle subit uniquement la moitié de ces dégâts.\
+      Choisissez un point du sol que vous voyez à portée.
+      
+      Pour toute la durée, le sol est parcouru d'intenses secousses dans un cercle de 30 m de rayon centré sur le point choisi. Le sol concerné constitue un Terrain difficile.
+      
+      À l'incantation du sort et à la fin de chacun de vos tours pour toute la durée, chaque créature au contact du sol de la zone effectue un jet de sauvegarde de Dextérité. En cas d'échec, la créature subit l'état À terre et sa Concentration est rompue.
+      
+      Vous pouvez également provoquer les effets ci-après.
+      
+      **Crevasses**. Un total de 1d6 crevasses de ce type s'ouvrent dans la zone du sort à la fin du tour de l'incantation. Vous choisissez leurs emplacements, qui ne doivent pas se situer sous des structures. Elles sont chacune profondes de 1d10 x 3 m, larges de 3 m et s'étendent d'un bout de la zone du sort à l'autre. Une créature située dans l'espace d'une fissure doit réussir un jet de sauvegarde de Dextérité sous peine d'y chuter. En cas de réussite, elle accompagne le rebord de la crevasse et reste à la surface.
+      
+      **Structures**. Le séisme inflige 50 dégâts contondants à toute structure en contact avec le sol de la zone à l'incantation du sort, ainsi qu'à la fin de chacun de vos tours jusqu'à la fin du sort. Si un bâtiment tombe à 0 point de vie, il s'effondre.
+      
+      Une créature distante d'une telle structure de la moitié de sa hauteur ou moins effectue un jet de sauvegarde de Dextérité. En cas d'échec, la créature subit 12d6 dégâts contondants et l'état À terre, et finit ensevelie dans les gravats. S'en extraire demande de réussir un jet de Force (Athlétisme) DD 20 au prix d'une action. En cas de réussite, elle subit uniquement la moitié de ces dégâts.

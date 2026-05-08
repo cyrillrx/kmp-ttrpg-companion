@@ -20,9 +20,12 @@ translations:
     duration: 1 hour
     materialDescription: null
     description: |-
-      You create a shadowy Medium door on a flat solid surface that you can see within range. This door can be opened and closed, and it leads to a demiplane that is an empty room 30 feet in each dimension, made of wood or stone (your choice).\
-      When the spell ends, the door vanishes, and any objects inside the demiplane remain there. Any creatures inside also remain unless they opt to be shunted through the door as it vanishes, landing with the Prone condition in the unoccupied spaces closest to the door's former space.\
-      Each time you cast this spell, you can create a new demiplane or connect the shadowy door to a demiplane you created with a previous casting of this spell. Additionally, if you know the nature and contents of a demiplane created by a casting of this spell by another creature, you can connect the shadowy door to that demiplane instead.\
+      You create a shadowy Medium door on a flat solid surface that you can see within range. This door can be opened and closed, and it leads to a demiplane that is an empty room 30 feet in each dimension, made of wood or stone (your choice).
+      
+      When the spell ends, the door vanishes, and any objects inside the demiplane remain there. Any creatures inside also remain unless they opt to be shunted through the door as it vanishes, landing with the Prone condition in the unoccupied spaces closest to the door's former space.
+      
+      Each time you cast this spell, you can create a new demiplane or connect the shadowy door to a demiplane you created with a previous casting of this spell. Additionally, if you know the nature and contents of a demiplane created by a casting of this spell by another creature, you can connect the shadowy door to that demiplane instead.
+      
   fr:
     name: Demi-plan
     castingTime: Action
@@ -30,6 +33,8 @@ translations:
     duration: 1 heure
     materialDescription: null
     description: |-
-      Vous créez une porte ombreuse de taille M sur une surface solide plate que vous voyez à portée. Cette porte peut s'ouvrir et se fermer, et ouvre sur un demi-plan : une salle vide dont chaque dimension est de 9 m, faite de bois ou de pierre (à votre convenance).\
-      Quand le sort prend fin, la porte disparaît et tous les objets encore dans le demi-plan y restent. Toute les créatures qui s'y trouvent encore y restent, sauf si celles qui décident d'être renvoyées à la disparition de la porte, qui se retrouvent dans les espaces inoccupés les plus proches de l'espace de la porte, avec l'état À terre.\
-      Chaque fois que vous lancez ce sort, vous pouvez créer un nouveau demi-plan ou décider que la porte ombreuse ouvre sur un demi-plan que vous aviez engendré par une précédente incantation du même sort. Par ailleurs, si vous connaissez la nature et le contenu d'un demi-plan créé par ce sort, mais lancé par une autre créature, vous pouvez décider que votre porte ombreuse donne sur ce demi-plan.\
+      Vous créez une porte ombreuse de taille M sur une surface solide plate que vous voyez à portée. Cette porte peut s'ouvrir et se fermer, et ouvre sur un demi-plan : une salle vide dont chaque dimension est de 9 m, faite de bois ou de pierre (à votre convenance).
+      
+      Quand le sort prend fin, la porte disparaît et tous les objets encore dans le demi-plan y restent. Toute les créatures qui s'y trouvent encore y restent, sauf si celles qui décident d'être renvoyées à la disparition de la porte, qui se retrouvent dans les espaces inoccupés les plus proches de l'espace de la porte, avec l'état À terre.
+      
+      Chaque fois que vous lancez ce sort, vous pouvez créer un nouveau demi-plan ou décider que la porte ombreuse ouvre sur un demi-plan que vous aviez engendré par une précédente incantation du même sort. Par ailleurs, si vous connaissez la nature et le contenu d'un demi-plan créé par ce sort, mais lancé par une autre créature, vous pouvez décider que votre porte ombreuse donne sur ce demi-plan.

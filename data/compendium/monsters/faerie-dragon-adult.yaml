@@ -101,7 +101,8 @@ translations:
 
       ***Spellcasting***. The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 13):
 
-      At will: *[Dancing Lights](https://www.aidedd.org/spell/dancing-lights), [Mage Hand](https://www.aidedd.org/spell/mage-hand), [Minor Illusion](https://www.aidedd.org/spell/minor-illusion)*\
+      At will: *[Dancing Lights](https://www.aidedd.org/spell/dancing-lights), [Mage Hand](https://www.aidedd.org/spell/mage-hand), [Minor Illusion](https://www.aidedd.org/spell/minor-illusion)*
+      
       1/day each: *[Hallucinatory Terrain](https://www.aidedd.org/spell/hallucinatory-terrain), [Polymorph](https://www.aidedd.org/spell/polymorph)*
 
       ## Bonus actions
@@ -121,8 +122,10 @@ translations:
 
       ## Actions
 
-      Morsure.\
-      Souffle euphorisant (recharge 5–6).\
+      Morsure.
+      
+      Souffle euphorisant (recharge 5–6).
+      
       Incantation.
 
       ## Actions Bonus

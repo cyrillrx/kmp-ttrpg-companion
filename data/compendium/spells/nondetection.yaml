@@ -20,7 +20,8 @@ translations:
     duration: 8 hours
     materialDescription: a pinch of diamond dust worth 25+ GP, which the spell consumes
     description: |-
-      For the duration, you hide a target that you touch from Divination spells. The target can be a willing creature, or it can be a place or an object no larger than 10 feet in any dimension. The target can't be targeted by any Divination spell or perceived through magical scrying sensors.\
+      For the duration, you hide a target that you touch from Divination spells. The target can be a willing creature, or it can be a place or an object no larger than 10 feet in any dimension. The target can't be targeted by any Divination spell or perceived through magical scrying sensors.
+      
   fr:
     name: Antidétection
     castingTime: Action
@@ -29,4 +30,4 @@ translations:
     materialDescription: une pincée de poudre de diamant d'une valeur minimale de
       25 po, que le sort consomme
     description: |-
-      Pendant la durée du sort, vous protégez une cible que vous touchez des sorts de divination. La cible peut être une créature consentante, ou un lieu ou un objet mesurant moins de 3 mètres de large, quelle que soit sa dimension. La cible ne peut alors être ciblée par aucun sort de Divination ni détectée par des capteurs de scrutation magique.\
+      Pendant la durée du sort, vous protégez une cible que vous touchez des sorts de divination. La cible peut être une créature consentante, ou un lieu ou un objet mesurant moins de 3 mètres de large, quelle que soit sa dimension. La cible ne peut alors être ciblée par aucun sort de Divination ni détectée par des capteurs de scrutation magique.

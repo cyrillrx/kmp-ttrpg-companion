@@ -8,7 +8,7 @@ translations:
     name: Potion of Resistance
     subtype: null
     description: |-
-      When you drink this potion, you have Resistance to one type of damage for 1 hour. The DM chooses the type or determines it randomly by rolling on the following table.\
+      When you drink this potion, you have Resistance to one type of damage for 1 hour. The DM chooses the type or determines it randomly by rolling on the following table.
       
       | 1d10 | Damage Type |
       | --- | --- |
@@ -26,7 +26,7 @@ translations:
     name: Potion de résistance
     subtype: null
     description: |-
-      Lorsque vous buvez cette potion, vous bénéficiez d'une Résistance à un type de dégâts pendant 1 heure. Le MD choisit le type de dégâts ou le détermine aléatoirement en effectuant un jet sur la table suivante.\
+      Lorsque vous buvez cette potion, vous bénéficiez d'une Résistance à un type de dégâts pendant 1 heure. Le MD choisit le type de dégâts ou le détermine aléatoirement en effectuant un jet sur la table suivante.
       
       | 1d10 | Type de dégâts |
       | --- | --- |

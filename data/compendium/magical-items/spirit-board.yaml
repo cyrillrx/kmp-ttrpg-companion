@@ -8,8 +8,9 @@ translations:
     name: Spirit Board
     subtype: null
     description: |-
-      This ornate wooden board has the letters of the Common alphabet printed on one side, alongside the words "Yes" and "No" and symbols representing "Weal" and "Woe." The board comes with a heart-shaped, wooden planchette. This planchette must be resting on the lettered side of the board for the board's magic to function.\
-      This board has 3 charges and regains 1 expended charge daily at dawn. While touching the planchette, you can take 1 minute to cast one of the spells on the table below. The table indicates how many charges you must expend to cast the spell. As you cast the spell, you call on the spirits of the dead to help guide the planchette across the board's surface, answering your questions by pointing to the letters or words on the board.\
+      This ornate wooden board has the letters of the Common alphabet printed on one side, alongside the words "Yes" and "No" and symbols representing "Weal" and "Woe." The board comes with a heart-shaped, wooden planchette. This planchette must be resting on the lettered side of the board for the board's magic to function.
+      
+      This board has 3 charges and regains 1 expended charge daily at dawn. While touching the planchette, you can take 1 minute to cast one of the spells on the table below. The table indicates how many charges you must expend to cast the spell. As you cast the spell, you call on the spirits of the dead to help guide the planchette across the board's surface, answering your questions by pointing to the letters or words on the board.
       
       | Spell | Charge Cost |
       | --- | --- |
@@ -19,8 +20,9 @@ translations:
     name: Planche de spiritisme
     subtype: null
     description: |-
-      Cette planche en bois ornée présente les lettres de l'alphabet commun imprimées sur une face, ainsi que les mots « Oui » et « Non » et des symboles représentant la « Fortune » et la « Misère ». Elle est accompagnée d'une planchette en bois en forme de cœur. Pour que la magie de la planche opère, la planchette doit reposer sur la face de la planche où figurent les lettres.\
-      Cette planche possède 3 charges et en récupère 1 chaque jour à l'aube. En touchant la planchette, vous disposez d'une minute pour lancer l'un des sorts indiqués dans la table ci-dessous. La table indique également le nombre de charges nécessaires pour lancer le sort. Lors du lancement du sort, vous invoquez les esprits des défunts afin qu'ils vous guident sur la surface de la planchette et répondent à vos questions en désignant les lettres ou les mots sur la planche.\
+      Cette planche en bois ornée présente les lettres de l'alphabet commun imprimées sur une face, ainsi que les mots « Oui » et « Non » et des symboles représentant la « Fortune » et la « Misère ». Elle est accompagnée d'une planchette en bois en forme de cœur. Pour que la magie de la planche opère, la planchette doit reposer sur la face de la planche où figurent les lettres.
+      
+      Cette planche possède 3 charges et en récupère 1 chaque jour à l'aube. En touchant la planchette, vous disposez d'une minute pour lancer l'un des sorts indiqués dans la table ci-dessous. La table indique également le nombre de charges nécessaires pour lancer le sort. Lors du lancement du sort, vous invoquez les esprits des défunts afin qu'ils vous guident sur la surface de la planchette et répondent à vos questions en désignant les lettres ou les mots sur la planche.
       
       | Sort | Coût en charges |
       | --- | --- |

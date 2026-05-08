@@ -20,12 +20,18 @@ translations:
     duration: 1 hour
     materialDescription: an opal worth 1,000 GP+
     description: |-
-      Six chromatic spheres orbit you for the duration.\
-      While the spheres are present, you can expend spheres to create the following effects:\
-      **Absorb Energy.** When you take Acid, Cold, Fire, Lightning, or Thunder damage, you can take a Reaction to expend one sphere and give yourself Resistance to the triggering damage type until the start of your next turn.\
-      **Energy Blast.** As a Bonus Action, you send one sphere hurtling toward a target within 120 feet of yourself. Make a ranged spell attack. On a hit, the target takes 3d6 Acid, Cold, Fire, Lightning, or Thunder damage (your choice). Regardless of whether you hit, the sphere is expended.\
-      The spell ends early if you have no more spheres remaining.\
-      **Using a Higher-Level Spell Slot.** The number of spheres increases by 1 for every spell slot level above 6.\
+      Six chromatic spheres orbit you for the duration.
+      
+      While the spheres are present, you can expend spheres to create the following effects:
+      
+      **Absorb Energy.** When you take Acid, Cold, Fire, Lightning, or Thunder damage, you can take a Reaction to expend one sphere and give yourself Resistance to the triggering damage type until the start of your next turn.
+      
+      **Energy Blast.** As a Bonus Action, you send one sphere hurtling toward a target within 120 feet of yourself. Make a ranged spell attack. On a hit, the target takes 3d6 Acid, Cold, Fire, Lightning, or Thunder damage (your choice). Regardless of whether you hit, the sphere is expended.
+      
+      The spell ends early if you have no more spheres remaining.
+      
+      **Using a Higher-Level Spell Slot.** The number of spheres increases by 1 for every spell slot level above 6.
+      
   fr:
     name: Sphères éclatantes d'Elminster
     castingTime: Action
@@ -33,9 +39,14 @@ translations:
     duration: 1 heure
     materialDescription: une opale d'une valeur minimale de 1000 po
     description: |-
-      Six sphères chromatiques orbitent autour de vous pour toute la durée.\
-      Tant que les sphères sont présentes, vous pouvez en dépenser pour créer les effets suivants :\
-      **Absorption d'énergie.** Lorsque vous subissez des dégâts d'acide, de froid, de feu, de foudre ou de tonnerre, vous pouvez utiliser une Réaction pour dépenser une sphère et vous octroyer la Résistance au type de dégâts déclencheur jusqu'au début de votre prochain tour.\
-      **Explosion d'énergie.** En tant qu'action bonus, vous envoyez une sphère se précipiter vers une cible à 36 mètres ou moins de vous. Effectuez une attaque de sort à distance. En cas de coup, la cible subit 3d6 dégâts d'acide, de froid, de feu, de foudre ou de tonnerre (au choix). Que vous touchiez ou non, la sphère est dépensée.\
-      Le sort prend fin prématurément si vous n'avez plus de sphères restantes.\
-      **Emplacement de niveau supérieur.** Le nombre de sphères augmente de 1 par niveau d'emplacement au-delà du 6e.\
+      Six sphères chromatiques orbitent autour de vous pour toute la durée.
+      
+      Tant que les sphères sont présentes, vous pouvez en dépenser pour créer les effets suivants :
+      
+      **Absorption d'énergie.** Lorsque vous subissez des dégâts d'acide, de froid, de feu, de foudre ou de tonnerre, vous pouvez utiliser une Réaction pour dépenser une sphère et vous octroyer la Résistance au type de dégâts déclencheur jusqu'au début de votre prochain tour.
+      
+      **Explosion d'énergie.** En tant qu'action bonus, vous envoyez une sphère se précipiter vers une cible à 36 mètres ou moins de vous. Effectuez une attaque de sort à distance. En cas de coup, la cible subit 3d6 dégâts d'acide, de froid, de feu, de foudre ou de tonnerre (au choix). Que vous touchiez ou non, la sphère est dépensée.
+      
+      Le sort prend fin prématurément si vous n'avez plus de sphères restantes.
+      
+      **Emplacement de niveau supérieur.** Le nombre de sphères augmente de 1 par niveau d'emplacement au-delà du 6e.

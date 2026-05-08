@@ -19,10 +19,14 @@ translations:
     duration: Concentration, up to 10 minutes
     materialDescription: a sumac leaf
     description: |-
-      You evoke a fiery blade in your free hand. The blade is similar in size and shape to a scimitar, and it lasts for the duration. If you let go of the blade, it disappears, but you can evoke it again as a Bonus Action.\
-      As a Magic action, you can make a melee spell attack with the fiery blade. On a hit, the target takes Fire damage equal to 3d6 plus your spellcasting ability modifier.\
-      The flaming blade sheds Bright Light in a 10-foot radius and Dim Light for an additional 10 feet.\
-      ***Using a Higher-Level Spell Slot***. The damage increases by 1d6 for each spell slot level above 2.\
+      You evoke a fiery blade in your free hand. The blade is similar in size and shape to a scimitar, and it lasts for the duration. If you let go of the blade, it disappears, but you can evoke it again as a Bonus Action.
+      
+      As a Magic action, you can make a melee spell attack with the fiery blade. On a hit, the target takes Fire damage equal to 3d6 plus your spellcasting ability modifier.
+      
+      The flaming blade sheds Bright Light in a 10-foot radius and Dim Light for an additional 10 feet.
+      
+      ***Using a Higher-Level Spell Slot***. The damage increases by 1d6 for each spell slot level above 2.
+      
   fr:
     name: Lame de feu
     castingTime: Action bonus
@@ -30,7 +34,10 @@ translations:
     duration: Concentration, jusqu'à 10 minutes
     materialDescription: une feuille d'amarante
     description: |-
-      Vous invoquez une lame ardente dans votre main libre. La lame, de taille et de forme similaires à celles d'un cimeterre, reste active pendant toute la durée du sort. Si vous la lâchez, elle disparaît, mais vous pouvez la réinvoquer par une action Bonus.\
-      Par une action Magie, vous pouvez effectuer une attaque de sort au corps à corps avec la lame ardente. Si l'attaque touche, la cible subit des dégâts de feu égaux à 3d6, plus le modificateur de votre caractéristique d'incantation.\
-      La lame ardente projette une Lumière vive sur un rayon de 3 mètres et une Lumière faible sur 3 mètres supplémentaires.\
-      ***Emplacement de niveau supérieur***. Les dégâts augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 2.\
+      Vous invoquez une lame ardente dans votre main libre. La lame, de taille et de forme similaires à celles d'un cimeterre, reste active pendant toute la durée du sort. Si vous la lâchez, elle disparaît, mais vous pouvez la réinvoquer par une action Bonus.
+      
+      Par une action Magie, vous pouvez effectuer une attaque de sort au corps à corps avec la lame ardente. Si l'attaque touche, la cible subit des dégâts de feu égaux à 3d6, plus le modificateur de votre caractéristique d'incantation.
+      
+      La lame ardente projette une Lumière vive sur un rayon de 3 mètres et une Lumière faible sur 3 mètres supplémentaires.
+      
+      ***Emplacement de niveau supérieur***. Les dégâts augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 2.

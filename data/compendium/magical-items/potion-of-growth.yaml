@@ -8,11 +8,13 @@ translations:
     name: Potion of Growth
     subtype: null
     description: |-
-      When you drink this potion, you gain the "enlarge" effect of the *[Enlarge/Reduce](https://www.aidedd.org/spell/enlarge-reduce)* spell for 10 minutes (no Concentration required).\
+      When you drink this potion, you gain the "enlarge" effect of the *[Enlarge/Reduce](https://www.aidedd.org/spell/enlarge-reduce)* spell for 10 minutes (no Concentration required).
+      
       The red in the potion's liquid continuously expands from a tiny bead to color the clear liquid around it and then contracts. Shaking the bottle fails to interrupt this process.
   fr:
     name: Potion d'agrandissement
     subtype: null
     description: |-
-      Lorsque vous buvez cette potion, vous bénéficiez de l'effet « agrandissement » du sort *[agrandissement/rapetissement](https://www.aidedd.org/spell/fr/agrandissement-rapetissement)* pendant 10 minutes (aucune concentration requise).\
+      Lorsque vous buvez cette potion, vous bénéficiez de l'effet « agrandissement » du sort *[agrandissement/rapetissement](https://www.aidedd.org/spell/fr/agrandissement-rapetissement)* pendant 10 minutes (aucune concentration requise).
+      
       Le rouge contenu dans le liquide de la potion se dilate continuellement à partir d'une minuscule perle pour colorer le liquide transparent qui l'entoure, puis se contracte. Agiter la bouteille ne parvient pas à interrompre ce processus.

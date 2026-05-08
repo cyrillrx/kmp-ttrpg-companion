@@ -101,8 +101,10 @@ translations:
 
       ***Spellcasting***. The archmage casts one of the following spells, using Intelligence as the spellcasting ability (spell save DC 17):
 
-      At will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts), [Disguise Self](https://www.aidedd.org/spell/disguise-self), [Invisibility](https://www.aidedd.org/spell/invisibility), [Light](https://www.aidedd.org/spell/light), [Mage Armor](https://www.aidedd.org/spell/mage-armor)* (included in AC), *[Mage Hand](https://www.aidedd.org/spell/mage-hand), [Prestidigitation](https://www.aidedd.org/spell/prestidigitation)*\
-      2/day each: *[Fly](https://www.aidedd.org/spell/fly), [Lightning Bolt](https://www.aidedd.org/spell/lightning-bolt)* (level 7 version)\
+      At will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts), [Disguise Self](https://www.aidedd.org/spell/disguise-self), [Invisibility](https://www.aidedd.org/spell/invisibility), [Light](https://www.aidedd.org/spell/light), [Mage Armor](https://www.aidedd.org/spell/mage-armor)* (included in AC), *[Mage Hand](https://www.aidedd.org/spell/mage-hand), [Prestidigitation](https://www.aidedd.org/spell/prestidigitation)*
+      
+      2/day each: *[Fly](https://www.aidedd.org/spell/fly), [Lightning Bolt](https://www.aidedd.org/spell/lightning-bolt)* (level 7 version)
+      
       1/day each: *[Cone of Cold](https://www.aidedd.org/spell/cone-of-cold)* (level 9 version), *[Mind Blank](https://www.aidedd.org/spell/mind-blank)* (cast before combat), *[Scrying](https://www.aidedd.org/spell/scrying), [Teleport](https://www.aidedd.org/spell/teleport)*
 
       ## Bonus actions
@@ -131,8 +133,10 @@ translations:
 
       ***Incantation***. L'archimage lance l'un des sorts suivants, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 17) :
 
-      À volonté : *[armure de mage](https://www.aidedd.org/spell/fr/armure-de-mage)* (compris dans la CA), *[déguisement](https://www.aidedd.org/spell/fr/deguisement), [détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), [détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees), [invisibilité](https://www.aidedd.org/spell/fr/invisibilite), [lumière](https://www.aidedd.org/spell/fr/lumiere), [main de mage](https://www.aidedd.org/spell/fr/main-de-mage), [prestidigitation](https://www.aidedd.org/spell/fr/prestidigitation)*\
-      2/jour chacun : *[éclair](https://www.aidedd.org/spell/fr/eclair)* (au niveau 7), *[vol](https://www.aidedd.org/spell/fr/vol)*\
+      À volonté : *[armure de mage](https://www.aidedd.org/spell/fr/armure-de-mage)* (compris dans la CA), *[déguisement](https://www.aidedd.org/spell/fr/deguisement), [détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), [détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees), [invisibilité](https://www.aidedd.org/spell/fr/invisibilite), [lumière](https://www.aidedd.org/spell/fr/lumiere), [main de mage](https://www.aidedd.org/spell/fr/main-de-mage), [prestidigitation](https://www.aidedd.org/spell/fr/prestidigitation)*
+      
+      2/jour chacun : *[éclair](https://www.aidedd.org/spell/fr/eclair)* (au niveau 7), *[vol](https://www.aidedd.org/spell/fr/vol)*
+      
       1/jour chacun : *[cône de froid](https://www.aidedd.org/spell/fr/cone-de-froid)* (au niveau 9), *[esprit impénétrable](https://www.aidedd.org/spell/fr/esprit-impenetrable)* (lancé avant un combat), *[scrutation](https://www.aidedd.org/spell/fr/scrutation), [téléportation](https://www.aidedd.org/spell/fr/teleportation)*
 
       ## Actions Bonus

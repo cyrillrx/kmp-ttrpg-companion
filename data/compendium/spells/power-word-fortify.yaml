@@ -19,7 +19,8 @@ translations:
     duration: Instantaneous
     materialDescription: null
     description: |-
-      You fortify up to six creatures you can see within range. The spell bestows 120 Temporary Hit Points, which you divide among the spell's recipients.\
+      You fortify up to six creatures you can see within range. The spell bestows 120 Temporary Hit Points, which you divide among the spell's recipients.
+      
   fr:
     name: Mot de pouvoir fortifiant
     castingTime: Action
@@ -27,4 +28,4 @@ translations:
     duration: Instantanée
     materialDescription: null
     description: |-
-      Vous fortifiez jusqu'à six créatures que vous pouvez voir à portée. Le sort octroie 120 points de vie temporaires, que vous répartissez entre les bénéficiaires du sort.\
+      Vous fortifiez jusqu'à six créatures que vous pouvez voir à portée. Le sort octroie 120 points de vie temporaires, que vous répartissez entre les bénéficiaires du sort.

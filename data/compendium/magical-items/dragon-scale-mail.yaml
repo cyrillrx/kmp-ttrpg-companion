@@ -8,9 +8,11 @@ translations:
     name: Dragon Scale Mail
     subtype: Scale Mail
     description: |-
-      *Dragon Scale Mail* is made of the scales of one kind of dragon. Sometimes dragons collect their cast-off scales and gift them. Other times, hunters carefully preserve the hide of a dead dragon. In either case, *Dragon Scale Mail* is highly valued.\
-      While wearing this armor, you gain a +1 bonus to Armor Class, you have Advantage on saving throws against the breath weapons of Dragons, and you have Resistance to one damage type determined by the kind of dragon that provided the scales (see the accompanying table).\
-      Additionally, you can focus your senses as a Magic action to discern the distance and direction to the closest dragon within 30 miles of yourself that is of the same type as the armor. This action can't be used again until the next dawn.\
+      *Dragon Scale Mail* is made of the scales of one kind of dragon. Sometimes dragons collect their cast-off scales and gift them. Other times, hunters carefully preserve the hide of a dead dragon. In either case, *Dragon Scale Mail* is highly valued.
+      
+      While wearing this armor, you gain a +1 bonus to Armor Class, you have Advantage on saving throws against the breath weapons of Dragons, and you have Resistance to one damage type determined by the kind of dragon that provided the scales (see the accompanying table).
+      
+      Additionally, you can focus your senses as a Magic action to discern the distance and direction to the closest dragon within 30 miles of yourself that is of the same type as the armor. This action can't be used again until the next dawn.
       
       | Dragon | Resistance |
       | --- | --- |
@@ -28,9 +30,11 @@ translations:
     name: Armure d'écailles de dragon
     subtype: armure d'écailles
     description: |-
-      Une *armure d'écailles de dragon* est fabriquée à partir des écailles d'une espèce de dragon. Parfois, les dragons récupèrent leurs écailles usagées et les offrent. D'autres fois, les chasseurs préservent précieusement la peau d'un dragon mort. Dans tous les cas, une *armure d'écailles de dragon* est très prisée.\
-      Lorsque vous portez cette armure, vous gagnez un bonus de +1 à la CA, bénéficiez d'un Avantage aux jets de sauvegarde contre le souffles des Dragons et bénéficiez d'une Résistance à un type de dégâts déterminé par l'espèce de dragon qui vous a fourni les écailles (voir la table ci-dessous).\
-      De plus, vous pouvez concentrer vos sens par une action Magie pour déterminer la distance et la direction du dragon le plus proche, à moins de 50 km de vous, du même type que l'armure. Cette action ne peut être réutilisée avant l'aube suivante.\
+      Une *armure d'écailles de dragon* est fabriquée à partir des écailles d'une espèce de dragon. Parfois, les dragons récupèrent leurs écailles usagées et les offrent. D'autres fois, les chasseurs préservent précieusement la peau d'un dragon mort. Dans tous les cas, une *armure d'écailles de dragon* est très prisée.
+      
+      Lorsque vous portez cette armure, vous gagnez un bonus de +1 à la CA, bénéficiez d'un Avantage aux jets de sauvegarde contre le souffles des Dragons et bénéficiez d'une Résistance à un type de dégâts déterminé par l'espèce de dragon qui vous a fourni les écailles (voir la table ci-dessous).
+      
+      De plus, vous pouvez concentrer vos sens par une action Magie pour déterminer la distance et la direction du dragon le plus proche, à moins de 50 km de vous, du même type que l'armure. Cette action ne peut être réutilisée avant l'aube suivante.
       
       | Dragon | Résistance |
       | --- | --- |

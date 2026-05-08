@@ -111,13 +111,16 @@ translations:
     description: |-
       ## Traits
 
-      Zone hantée.\
+      Zone hantée.
+      
       Restauration funeste.
 
       ## Actions
 
-      Attaques multiples.\
-      Frappe d'objet.\
+      Attaques multiples.
+      
+      Frappe d'objet.
+      
       Invitation.
     senses: vision véritable 18 m, Perception passive 14
     languages:

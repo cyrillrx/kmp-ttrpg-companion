@@ -18,13 +18,20 @@ translations:
     duration: Up to 1 minute
     materialDescription: null
     description: |-
-      You manifest a minor wonder within range. You create one of the effects below within range. If you cast this spell multiple times, you can have up to three of its 1-minute effects active at a time.\
-      **Altered Eyes**. You alter the appearance of your eyes for 1 minute.\
-      **Booming Voice**. Your voice booms up to three times as loud as normal for 1 minute. For the duration, you have Advantage on Charisma (Intimidation) checks.\
-      **Fire Play**. You cause flames to flicker, brighten, dim, or change color for 1 minute.\
-      **Invisible Hand**. You instantaneously cause an unlocked door or window to fly open or slam shut.\
-      **Phantom Sound**. You create an instantaneous sound that originates from a point of your choice within range, such as a rumble of thunder, the cry of a raven, or ominous whispers.\
-      **Tremors**. You cause harmless tremors in the ground for 1 minute.\
+      You manifest a minor wonder within range. You create one of the effects below within range. If you cast this spell multiple times, you can have up to three of its 1-minute effects active at a time.
+      
+      **Altered Eyes**. You alter the appearance of your eyes for 1 minute.
+      
+      **Booming Voice**. Your voice booms up to three times as loud as normal for 1 minute. For the duration, you have Advantage on Charisma (Intimidation) checks.
+      
+      **Fire Play**. You cause flames to flicker, brighten, dim, or change color for 1 minute.
+      
+      **Invisible Hand**. You instantaneously cause an unlocked door or window to fly open or slam shut.
+      
+      **Phantom Sound**. You create an instantaneous sound that originates from a point of your choice within range, such as a rumble of thunder, the cry of a raven, or ominous whispers.
+      
+      **Tremors**. You cause harmless tremors in the ground for 1 minute.
+      
   fr:
     name: Thaumaturgie
     castingTime: Action
@@ -32,10 +39,16 @@ translations:
     duration: Jusqu'à 1 minute
     materialDescription: null
     description: |-
-      Vous engendrez un petit miracle dans la portée du sort. Choisissez l'effet dans les options ci-dessous. Si vous lancez ce sort plusieurs fois, vous pouvez garder actif jusqu'à trois de ses effets d'une minute simultanément.\
-      **Yeux modifiés**. Vous modifiez l'apparence de vos yeux pendant 1 minute.\
-      **Voix retentissante**. Votre voix résonne jusqu'à trois fois plus fort que d'habitude pendant 1 minute. Pendant cette durée, vous obtenez un Avantage aux jets de Charisme (Intimidation).\
-      **Jeu avec le feu**. Vous faites scintiller, s'intensifier, s'atténuer ou changer de couleur des flammes pendant 1 minute.\
-      **Main invisible**. Vous ouvrez ou fermez instantanément une porte ou une fenêtre non verrouillée.\
-      **Bruit fantôme**. Vous créez un son bref provenant d'un point de votre choix à portée, comme un grondement de tonnerre, le cri d'un corbeau ou des murmures inquiétants.\
-      **Secousse**. Vous provoquez un tremblement de terre inoffensif pendant 1 minute.\
+      Vous engendrez un petit miracle dans la portée du sort. Choisissez l'effet dans les options ci-dessous. Si vous lancez ce sort plusieurs fois, vous pouvez garder actif jusqu'à trois de ses effets d'une minute simultanément.
+      
+      **Yeux modifiés**. Vous modifiez l'apparence de vos yeux pendant 1 minute.
+      
+      **Voix retentissante**. Votre voix résonne jusqu'à trois fois plus fort que d'habitude pendant 1 minute. Pendant cette durée, vous obtenez un Avantage aux jets de Charisme (Intimidation).
+      
+      **Jeu avec le feu**. Vous faites scintiller, s'intensifier, s'atténuer ou changer de couleur des flammes pendant 1 minute.
+      
+      **Main invisible**. Vous ouvrez ou fermez instantanément une porte ou une fenêtre non verrouillée.
+      
+      **Bruit fantôme**. Vous créez un son bref provenant d'un point de votre choix à portée, comme un grondement de tonnerre, le cri d'un corbeau ou des murmures inquiétants.
+      
+      **Secousse**. Vous provoquez un tremblement de terre inoffensif pendant 1 minute.

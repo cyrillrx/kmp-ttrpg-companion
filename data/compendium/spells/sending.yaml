@@ -20,9 +20,12 @@ translations:
     duration: Instantaneous
     materialDescription: a copper wire
     description: |-
-      You send a short message of 25 words or fewer to a creature you have met or a creature described to you by someone who has met it. The target hears the message in its mind, recognizes you as the sender if it knows you, and can answer in a like manner immediately. The spell enables targets to understand the meaning of your message.\
-      You can send the message across any distance and even to other planes of existence, but if the target is on a different plane than you, there is a 5 percent chance that the message doesn't arrive. You know if the delivery fails.\
-      Upon receiving your message, a creature can block your ability to reach it again with this spell for 8 hours. If you try to send another message during that time, you learn that you are blocked, and the spell fails.\
+      You send a short message of 25 words or fewer to a creature you have met or a creature described to you by someone who has met it. The target hears the message in its mind, recognizes you as the sender if it knows you, and can answer in a like manner immediately. The spell enables targets to understand the meaning of your message.
+      
+      You can send the message across any distance and even to other planes of existence, but if the target is on a different plane than you, there is a 5 percent chance that the message doesn't arrive. You know if the delivery fails.
+      
+      Upon receiving your message, a creature can block your ability to reach it again with this spell for 8 hours. If you try to send another message during that time, you learn that you are blocked, and the spell fails.
+      
   fr:
     name: Communication à distance
     castingTime: Action
@@ -30,6 +33,8 @@ translations:
     duration: Instantanée
     materialDescription: du fil de cuivre
     description: |-
-      Vous envoyez un court message de 25 mots maximum à une créature que vous avez rencontrée ou qui vous a été décrite par quelqu'un qui l'a rencontrée. La cible entend le message dans son esprit, vous reconnaît comme en étant l'expéditeur si elle vous connaît, et peut répondre immédiatement de la même manière. Le sort permet aux cibles de comprendre le sens de votre message.\
-      Vous pouvez envoyer le message à n'importe quelle distance et même vers d'autres plans d'existence, mais si la cible se trouve sur un plan différent du vôtre, il y a 5 % de chances que le message n'arrive pas. Vous savez si la livraison échoue.\
-      À la réception de votre message, une créature peut bloquer votre capacité à l'atteindre à nouveau avec ce sort pendant 8 heures. Si vous essayez d'envoyer un autre message pendant ce temps, vous savez que vous êtes bloqué et le sort échoue.\
+      Vous envoyez un court message de 25 mots maximum à une créature que vous avez rencontrée ou qui vous a été décrite par quelqu'un qui l'a rencontrée. La cible entend le message dans son esprit, vous reconnaît comme en étant l'expéditeur si elle vous connaît, et peut répondre immédiatement de la même manière. Le sort permet aux cibles de comprendre le sens de votre message.
+      
+      Vous pouvez envoyer le message à n'importe quelle distance et même vers d'autres plans d'existence, mais si la cible se trouve sur un plan différent du vôtre, il y a 5 % de chances que le message n'arrive pas. Vous savez si la livraison échoue.
+      
+      À la réception de votre message, une créature peut bloquer votre capacité à l'atteindre à nouveau avec ce sort pendant 8 heures. Si vous essayez d'envoyer un autre message pendant ce temps, vous savez que vous êtes bloqué et le sort échoue.

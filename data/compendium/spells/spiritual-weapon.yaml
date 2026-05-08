@@ -18,9 +18,12 @@ translations:
     duration: Concentration, up to 1 minute
     materialDescription: null
     description: |-
-      You create a floating, spectral force that resembles a weapon of your choice and lasts for the duration. The force appears within range in a space of your choice, and you can immediately make one melee spell attack against one creature within 5 feet of the force. On a hit, the target takes Force damage equal to 1d8 plus your spellcasting ability modifier.\
-      As a Bonus Action on your later turns, you can move the force up to 20 feet and repeat the attack against a creature within 5 feet of it.\
-      ***Using a Higher-Level Spell Slot***. The damage increases by 1d8 for each spell slot level above 2.\
+      You create a floating, spectral force that resembles a weapon of your choice and lasts for the duration. The force appears within range in a space of your choice, and you can immediately make one melee spell attack against one creature within 5 feet of the force. On a hit, the target takes Force damage equal to 1d8 plus your spellcasting ability modifier.
+      
+      As a Bonus Action on your later turns, you can move the force up to 20 feet and repeat the attack against a creature within 5 feet of it.
+      
+      ***Using a Higher-Level Spell Slot***. The damage increases by 1d8 for each spell slot level above 2.
+      
   fr:
     name: Arme spirituelle
     castingTime: Action bonus
@@ -28,7 +31,10 @@ translations:
     duration: Concentration, jusqu'à 1 minute
     materialDescription: null
     description: |-
-      Vous créez une force spectrale flottante ressemblant à une arme de votre choix et qui dure toute la durée du sort.\
-      La force apparaît à portée, dans un espace de votre choix, et vous pouvez immédiatement effectuer une attaque de sort au corps à corps contre une créature à 1,50 mètre ou moins de la force. Si l'attaque touche, la cible subit des dégâts de force égaux à 1d8, plus le modificateur de votre caractéristique d'incantation.\
-      Par une action Bonus lors de vos tours suivants, vous pouvez déplacer la force jusqu'à 6 mètres et répéter l'attaque contre une créature à 1,50 mètre ou moins.\
-      ***Emplacement de niveau supérieur***. Les dégâts augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 2.\
+      Vous créez une force spectrale flottante ressemblant à une arme de votre choix et qui dure toute la durée du sort.
+      
+      La force apparaît à portée, dans un espace de votre choix, et vous pouvez immédiatement effectuer une attaque de sort au corps à corps contre une créature à 1,50 mètre ou moins de la force. Si l'attaque touche, la cible subit des dégâts de force égaux à 1d8, plus le modificateur de votre caractéristique d'incantation.
+      
+      Par une action Bonus lors de vos tours suivants, vous pouvez déplacer la force jusqu'à 6 mètres et répéter l'attaque contre une créature à 1,50 mètre ou moins.
+      
+      ***Emplacement de niveau supérieur***. Les dégâts augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 2.

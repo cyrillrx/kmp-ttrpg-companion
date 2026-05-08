@@ -8,15 +8,21 @@ translations:
     name: Cubic Gate
     subtype: null
     description: |-
-      This cube is 3 inches across and radiates palpable magical energy. The six sides of the cube are each keyed to a different plane of existence, one of which is the Material Plane. The other sides are linked to planes determined by the DM.\
-      The cube has 3 charges and regains 1d3 expended charges daily at dawn. As a Magic action, you can expend 1 of the cube's charges to cast one of the following spells using the cube.\
-      **Gate**. Pressing one side of the cube, you cast *[Gate](https://www.aidedd.org/spell/gate)* , opening a portal to the plane of existence keyed to that side.\
+      This cube is 3 inches across and radiates palpable magical energy. The six sides of the cube are each keyed to a different plane of existence, one of which is the Material Plane. The other sides are linked to planes determined by the DM.
+      
+      The cube has 3 charges and regains 1d3 expended charges daily at dawn. As a Magic action, you can expend 1 of the cube's charges to cast one of the following spells using the cube.
+      
+      **Gate**. Pressing one side of the cube, you cast *[Gate](https://www.aidedd.org/spell/gate)* , opening a portal to the plane of existence keyed to that side.
+      
       **Plane Shift**. Pressing one side of the cube twice, you cast *[Plane Shift](https://www.aidedd.org/spell/plane-shift)* , transporting the targets to the plane of existence keyed to that side.
   fr:
     name: Cube des plans
     subtype: null
     description: |-
-      Ce cube de 7,50 cm de côté irradie une énergie magique palpable. Ses six faces sont chacune reliées à un plan d'existence différent, dont le plan Matériel. Les autres faces sont liées à des plans déterminés par le MD.\
-      Le cube possède 3 charges et récupère 1d3 charges dépensées chaque jour à l'aube. Par une action Magie, vous pouvez dépenser 1 charge du cube pour lancer l'un des sorts suivants :\
-      **Portail**. En appuyant sur une face du cube, vous lancez *[portail](https://www.aidedd.org/spell/fr/portail)* , ouvrant un portail vers le plan d'existence lié à cette face.\
+      Ce cube de 7,50 cm de côté irradie une énergie magique palpable. Ses six faces sont chacune reliées à un plan d'existence différent, dont le plan Matériel. Les autres faces sont liées à des plans déterminés par le MD.
+      
+      Le cube possède 3 charges et récupère 1d3 charges dépensées chaque jour à l'aube. Par une action Magie, vous pouvez dépenser 1 charge du cube pour lancer l'un des sorts suivants :
+      
+      **Portail**. En appuyant sur une face du cube, vous lancez *[portail](https://www.aidedd.org/spell/fr/portail)* , ouvrant un portail vers le plan d'existence lié à cette face.
+      
       **Changement de plan**. En appuyant deux fois sur un côté du cube, vous lancez *[changement de plan](https://www.aidedd.org/spell/fr/changement-de-plan)* , transportant les cibles vers le plan d'existence lié à ce côté.

@@ -20,7 +20,8 @@ translations:
     duration: Instantaneous
     materialDescription: null
     description: |-
-      Briefly surrounded by silvery mist, you teleport up to 30 feet to an unoccupied space you can see.\
+      Briefly surrounded by silvery mist, you teleport up to 30 feet to an unoccupied space you can see.
+      
   fr:
     name: Foulée brumeuse
     castingTime: Action bonus
@@ -28,4 +29,4 @@ translations:
     duration: Instantanée
     materialDescription: null
     description: |-
-      Brièvement entouré d'une brume argentée, vous vous téléportez jusqu'à 9 mètres dans un espace inoccupé que vous pouvez voir.\
+      Brièvement entouré d'une brume argentée, vous vous téléportez jusqu'à 9 mètres dans un espace inoccupé que vous pouvez voir.

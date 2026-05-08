@@ -21,8 +21,10 @@ translations:
     duration: Concentration, up to 1 minute
     materialDescription: a straight piece of iron
     description: |-
-      Choose a creature that you can see within range. The target must succeed on a Wisdom saving throw or have the Paralyzed condition for the duration. At the end of each of its turns, the target repeats the save, ending the spell on itself on a success.\
-      ***Using a Higher-Level Spell Slot***. You can target one additional creature for each spell slot level above 5.\
+      Choose a creature that you can see within range. The target must succeed on a Wisdom saving throw or have the Paralyzed condition for the duration. At the end of each of its turns, the target repeats the save, ending the spell on itself on a success.
+      
+      ***Using a Higher-Level Spell Slot***. You can target one additional creature for each spell slot level above 5.
+      
   fr:
     name: Immobilisation de monstre
     castingTime: Action
@@ -30,5 +32,6 @@ translations:
     duration: Concentration, jusqu'à 1 minute
     materialDescription: un brin de fer
     description: |-
-      Choisissez une créature que vous pouvez voir à portée. La cible doit réussir un jet de sauvegarde de Sagesse ou subir l'état Paralysé pendant toute la durée du sort. À la fin de chacun de ses tours, la cible renouvelle son jet de sauvegarde, mettant fin au sort sur elle-même en cas de réussite.\
-      ***Emplacement de niveau supérieur***. Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 5.\
+      Choisissez une créature que vous pouvez voir à portée. La cible doit réussir un jet de sauvegarde de Sagesse ou subir l'état Paralysé pendant toute la durée du sort. À la fin de chacun de ses tours, la cible renouvelle son jet de sauvegarde, mettant fin au sort sur elle-même en cas de réussite.
+      
+      ***Emplacement de niveau supérieur***. Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 5.

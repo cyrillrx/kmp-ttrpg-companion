@@ -105,8 +105,10 @@ translations:
 
       ***Spellcasting***. The flameskull casts one of the following spells, requiring no Somatic or Material components and using Intelligence as the spellcasting ability (spell save DC 13):
 
-      At will: *[Mage Hand](https://www.aidedd.org/spell/mage-hand)*\
-      2/day: *[Magic Missile](https://www.aidedd.org/spell/magic-missile)* (level 2 version)\
+      At will: *[Mage Hand](https://www.aidedd.org/spell/mage-hand)*
+      
+      2/day: *[Magic Missile](https://www.aidedd.org/spell/magic-missile)* (level 2 version)
+      
       1/day: *[Fireball](https://www.aidedd.org/spell/fireball)*
     senses: Darkvision 60 ft., Passive Perception 12
     languages:
@@ -131,8 +133,10 @@ translations:
 
       ***Incantation***. Le crânefeu lance l'un des sorts suivants sans composantes somatiques ou matérielles, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 13) :
 
-      À volonté : *[main de mage](https://www.aidedd.org/spell/fr/main-de-mage)*\
-      2/jour : *[projectile magique](https://www.aidedd.org/spell/fr/projectile-magique)* (au niveau 2)\
+      À volonté : *[main de mage](https://www.aidedd.org/spell/fr/main-de-mage)*
+      
+      2/jour : *[projectile magique](https://www.aidedd.org/spell/fr/projectile-magique)* (au niveau 2)
+      
       1/jour : *[boule de feu](https://www.aidedd.org/spell/fr/boule-de-feu)*
     senses: Vision dans le noir 18 m, Perception passive 12
     languages:

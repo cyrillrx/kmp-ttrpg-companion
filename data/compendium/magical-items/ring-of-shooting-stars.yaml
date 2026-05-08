@@ -8,12 +8,17 @@ translations:
     name: Ring of Shooting Stars
     subtype: null
     description: |-
-      You can cast *[Dancing Lights](https://www.aidedd.org/spell/dancing-lights)* or *[Light](https://www.aidedd.org/spell/light)* from the ring.\
-      The ring has 6 charges and regains 1d6 expended charges daily at dawn. You can expend its charges to use the properties below.\
-      **Faerie Fire**. You can expend 1 charge to cast *[Faerie Fire](https://www.aidedd.org/spell/faerie-fire)* from the ring.\
-      **Lightning Spheres**. You can expend 2 charges as a Magic action to create up to four 3-foot-diameter spheres of lightning.\
-      Each sphere appears in an unoccupied space you can see within 120 feet of yourself. The spheres last as long as you maintain Concentration, up to 1 minute. Each sphere sheds Dim Light in a 30-foot radius.\
-      As a Bonus Action, you can move each sphere up to 30 feet, but no farther than 120 feet away from yourself. The first time the sphere comes within 5 feet of a creature other than you that isn't behind Total Cover, the sphere discharges lightning at that creature and disappears. That creature makes a DC 15 Dexterity saving throw. On a failed save, the creature takes Lightning damage based on the number of spheres you created, as shown in the following table. On a successful save, the creature takes half as much damage.\
+      You can cast *[Dancing Lights](https://www.aidedd.org/spell/dancing-lights)* or *[Light](https://www.aidedd.org/spell/light)* from the ring.
+      
+      The ring has 6 charges and regains 1d6 expended charges daily at dawn. You can expend its charges to use the properties below.
+      
+      **Faerie Fire**. You can expend 1 charge to cast *[Faerie Fire](https://www.aidedd.org/spell/faerie-fire)* from the ring.
+      
+      **Lightning Spheres**. You can expend 2 charges as a Magic action to create up to four 3-foot-diameter spheres of lightning.
+      
+      Each sphere appears in an unoccupied space you can see within 120 feet of yourself. The spheres last as long as you maintain Concentration, up to 1 minute. Each sphere sheds Dim Light in a 30-foot radius.
+      
+      As a Bonus Action, you can move each sphere up to 30 feet, but no farther than 120 feet away from yourself. The first time the sphere comes within 5 feet of a creature other than you that isn't behind Total Cover, the sphere discharges lightning at that creature and disappears. That creature makes a DC 15 Dexterity saving throw. On a failed save, the creature takes Lightning damage based on the number of spheres you created, as shown in the following table. On a successful save, the creature takes half as much damage.
       
       | Number of Spheres | Lightning Damage |
       | --- | --- |
@@ -27,12 +32,17 @@ translations:
     name: Anneau de feu d'étoiles
     subtype: null
     description: |-
-      Vous pouvez lancer *[lumières dansantes](https://www.aidedd.org/spell/fr/lumieres-dansantes)* ou *[lumière](https://www.aidedd.org/spell/fr/lumiere)* depuis l'anneau.\
-      L'anneau possède 6 charges et récupère 1d6 charges dépensées chaque jour à l'aube. Vous pouvez dépenser ses charges pour utiliser les propriétés ci-dessous.\
-      **Lueurs féériques**. Vous pouvez dépenser 1 charge pour lancer *[lueurs féériques](https://www.aidedd.org/spell/fr/lueurs-feeriques)* depuis l'anneau.\
-      **Sphères de foudre**. Vous pouvez dépenser 2 charges par une action Magie pour créer jusqu'à quatre sphères de foudre de 90 cm de diamètre.\
-      Chaque sphère apparaît dans un espace libre que vous pouvez voir dans un rayon de 36 mètres. Les sphères durent tant que vous maintenez votre Concentration, jusqu'à 1 minute. Chaque sphère projette une Lumière faible sur un rayon de 9 mètres.\
-      Par une action Bonus, vous pouvez déplacer chaque sphère jusqu'à 9 mètres, mais pas à plus de 36 mètres de vous. La première fois que la sphère s'approche 1,50 mètre ou moins d'une créature autre que vous qui n'a pas d'Abri total, elle projette un éclair sur cette créature et disparaît. Cette créature effectue un jet de sauvegarde de Dextérité DD 15. En cas d'échec, la créature subit des dégâts de foudre calculés en fonction du nombre de sphères que vous avez créées, comme indiqué dans la table suivante. En cas de réussite, la créature ne subit que la moitié des dégâts.\
+      Vous pouvez lancer *[lumières dansantes](https://www.aidedd.org/spell/fr/lumieres-dansantes)* ou *[lumière](https://www.aidedd.org/spell/fr/lumiere)* depuis l'anneau.
+      
+      L'anneau possède 6 charges et récupère 1d6 charges dépensées chaque jour à l'aube. Vous pouvez dépenser ses charges pour utiliser les propriétés ci-dessous.
+      
+      **Lueurs féériques**. Vous pouvez dépenser 1 charge pour lancer *[lueurs féériques](https://www.aidedd.org/spell/fr/lueurs-feeriques)* depuis l'anneau.
+      
+      **Sphères de foudre**. Vous pouvez dépenser 2 charges par une action Magie pour créer jusqu'à quatre sphères de foudre de 90 cm de diamètre.
+      
+      Chaque sphère apparaît dans un espace libre que vous pouvez voir dans un rayon de 36 mètres. Les sphères durent tant que vous maintenez votre Concentration, jusqu'à 1 minute. Chaque sphère projette une Lumière faible sur un rayon de 9 mètres.
+      
+      Par une action Bonus, vous pouvez déplacer chaque sphère jusqu'à 9 mètres, mais pas à plus de 36 mètres de vous. La première fois que la sphère s'approche 1,50 mètre ou moins d'une créature autre que vous qui n'a pas d'Abri total, elle projette un éclair sur cette créature et disparaît. Cette créature effectue un jet de sauvegarde de Dextérité DD 15. En cas d'échec, la créature subit des dégâts de foudre calculés en fonction du nombre de sphères que vous avez créées, comme indiqué dans la table suivante. En cas de réussite, la créature ne subit que la moitié des dégâts.
       
       | Nombre de sphères | Dégâts de foudre |
       | --- | --- |

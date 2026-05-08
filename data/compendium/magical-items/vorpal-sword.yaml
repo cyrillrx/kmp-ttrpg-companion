@@ -8,11 +8,13 @@ translations:
     name: Vorpal Sword
     subtype: Glaive, Greatsword, Longsword, or Scimitar
     description: |-
-      You gain a +3 bonus to attack rolls and damage rolls made with this magic weapon. In addition, the weapon ignores Resistance to Slashing damage.\
+      You gain a +3 bonus to attack rolls and damage rolls made with this magic weapon. In addition, the weapon ignores Resistance to Slashing damage.
+      
       When you use this weapon to attack a creature that has at least one head and roll a 20 on the d20 for the attack roll, you cut off one of the creature's heads. The creature dies if it can't survive without the lost head. A creature is immune to this effect if it has Immunity to Slashing damage, if it doesn't have or need a head, or if the DM decides that the creature is too big for its head to be cut off with this weapon. Such a creature instead takes an extra 30 Slashing damage from the hit. If the creature has Legendary Resistance, it can expend one daily use of that trait to avoid losing its head, taking the extra damage instead.
   fr:
     name: Épée vorpale
     subtype: coutille, épée à deux mains, épée longue ou cimeterre
     description: |-
-      Vous obtenez un bonus de +3 aux jets d'attaque et de dégâts effectués avec cette arme magique. De plus, l'arme ignore la Résistance aux dégâts tranchants.\
+      Vous obtenez un bonus de +3 aux jets d'attaque et de dégâts effectués avec cette arme magique. De plus, l'arme ignore la Résistance aux dégâts tranchants.
+      
       Si vous utilisez cette arme pour attaquer une créature possédant au moins une tête et obtenez un 20 au d20 du jet d'attaque, vous lui coupez la tête. La créature meurt si elle ne peut survivre sans la tête perdue. Une créature est immunisée contre cet effet si elle bénéficie d'une Immunité aux dégâts tranchants, si elle n'a pas ou n'a pas besoin de tête, ou si le MD décide que sa taille est trop importante pour que cette arme lui coupe la tête. Une telle créature subit alors 30 dégâts tranchants supplémentaires. Si la créature possède une Résistance légendaire, elle peut dépenser une utilisation quotidienne de ce trait pour éviter de perdre sa tête, ne subissant alors que les dégâts supplémentaires.

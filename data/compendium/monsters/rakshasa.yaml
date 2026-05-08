@@ -105,7 +105,8 @@ translations:
 
       ***Spellcasting***. The rakshasa casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 18):
 
-      At Will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts), [Disguise Self](https://www.aidedd.org/spell/disguise-self), [Mage Hand](https://www.aidedd.org/spell/mage-hand), [Minor Illusion](https://www.aidedd.org/spell/minor-illusion)*\
+      At Will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts), [Disguise Self](https://www.aidedd.org/spell/disguise-self), [Mage Hand](https://www.aidedd.org/spell/mage-hand), [Minor Illusion](https://www.aidedd.org/spell/minor-illusion)*
+      
       1/Day Each: *[Fly](https://www.aidedd.org/spell/fly), [Invisibility](https://www.aidedd.org/spell/invisibility), [Major Image](https://www.aidedd.org/spell/major-image), [Plane Shift](https://www.aidedd.org/spell/plane-shift)*
     senses: Truesight 60 ft., Passive Perception 18
     languages:
@@ -129,7 +130,8 @@ translations:
 
       ***Incantation***. Le rakshasa lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 18) :
 
-      À volonté : *déguisement,[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), [détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees), [illusion mineure](https://www.aidedd.org/spell/fr/illusion-mineure), [main de mage](https://www.aidedd.org/spell/fr/main-de-mage)*\
+      À volonté : *déguisement,[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), [détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees), [illusion mineure](https://www.aidedd.org/spell/fr/illusion-mineure), [main de mage](https://www.aidedd.org/spell/fr/main-de-mage)*
+      
       1/jour chacun : *[changement de plan](https://www.aidedd.org/spell/fr/changement-de-plan), [image majeure](https://www.aidedd.org/spell/fr/image-majeure), [invisibilité](https://www.aidedd.org/spell/fr/invisibilite), vol*
 
       ***Injonction lugubre (recharge 5–6)***. *JdS Sagesse* : DD 18, chaque ennemi dans une Émanation de 9 m centrée sur le rakshasa. *Échec* : 28 (8d6) dégâts psychiques, et la cible subit l'état Effrayé et Incapable d'agir jusqu'au début du tour suivant du rakshasa.

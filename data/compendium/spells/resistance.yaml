@@ -19,7 +19,8 @@ translations:
     duration: Concentration, up to 1 minute
     materialDescription: null
     description: |-
-      You touch a willing creature and choose a damage type: Acid, Bludgeoning, Cold, Fire, Lightning, Necrotic, Piercing, Poison, Radiant, Slashing, or Thunder. When the creature takes damage of the chosen type before the spell ends, the creature reduces the total damage taken by 1d4. A creature can benefit from this spell only once per turn.\
+      You touch a willing creature and choose a damage type: Acid, Bludgeoning, Cold, Fire, Lightning, Necrotic, Piercing, Poison, Radiant, Slashing, or Thunder. When the creature takes damage of the chosen type before the spell ends, the creature reduces the total damage taken by 1d4. A creature can benefit from this spell only once per turn.
+      
   fr:
     name: Résistance
     castingTime: Action
@@ -27,4 +28,4 @@ translations:
     duration: Concentration, jusqu'à 1 minute
     materialDescription: null
     description: |-
-      Vous touchez une créature consentante et choisissez un type de dégâts : acide, contondant, froid, feu, foudre, nécrotique, perforant, poison, radiant, tranchant ou tonnerre. Si la créature subit des dégâts du type choisi avant la fin du sort, elle réduit le total des dégâts subis de 1d4. Une créature ne peut bénéficier de ce sort qu'une seule fois par tour.\
+      Vous touchez une créature consentante et choisissez un type de dégâts : acide, contondant, froid, feu, foudre, nécrotique, perforant, poison, radiant, tranchant ou tonnerre. Si la créature subit des dégâts du type choisi avant la fin du sort, elle réduit le total des dégâts subis de 1d4. Une créature ne peut bénéficier de ce sort qu'une seule fois par tour.

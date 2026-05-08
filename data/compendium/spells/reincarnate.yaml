@@ -18,7 +18,7 @@ translations:
     duration: Instantaneous
     materialDescription: rare oils worth 1,000+ GP, which the spell consumes
     description: |-
-      You touch a dead Humanoid or a piece of one. If the creature has been dead no longer than 10 days, the spell forms a new body for it and calls the soul to enter that body. Roll 1d10 and consult the table below to determine the body's species, or the DM chooses another playable species.\
+      You touch a dead Humanoid or a piece of one. If the creature has been dead no longer than 10 days, the spell forms a new body for it and calls the soul to enter that body. Roll 1d10 and consult the table below to determine the body's species, or the DM chooses another playable species.
 
       | 1d10 | Species |
       | --- | --- |
@@ -33,8 +33,10 @@ translations:
       | 9 | Orc |
       | 10 | Tiefling |
 
-      \
-      The reincarnated creature makes any choices that a species' description offers, and the creature recalls its former life. It retains the capabilities it had in its original form, except it loses the traits of its previous species and gains the traits of its new one.\
+
+      
+      The reincarnated creature makes any choices that a species' description offers, and the creature recalls its former life. It retains the capabilities it had in its original form, except it loses the traits of its previous species and gains the traits of its new one.
+      
   fr:
     name: Réincarnation
     castingTime: 1 heure
@@ -43,7 +45,7 @@ translations:
     materialDescription: des huiles rares d'une valeur minimale de 1000 po, que le
       sort consomme
     description: |-
-      Vous touchez un humanoïde mort ou des restes de celui-ci. Si la créature n'est pas morte depuis plus de 10 jours, le sort lui crée un nouveau corps et appelle l'âme à y entrer. Lancez 1d10 et consultez la table ci-dessous pour déterminer l'espèce du corps, ou le MD choisira une autre espèce jouable.\
+      Vous touchez un humanoïde mort ou des restes de celui-ci. Si la créature n'est pas morte depuis plus de 10 jours, le sort lui crée un nouveau corps et appelle l'âme à y entrer. Lancez 1d10 et consultez la table ci-dessous pour déterminer l'espèce du corps, ou le MD choisira une autre espèce jouable.
 
       | 1d10 | Espèce |
       | --- | --- |
@@ -58,5 +60,6 @@ translations:
       | 9 | Orc |
       | 10 | Tieffelin |
 
-      \
-      La créature réincarnée fait tous les choix proposés par la description de son espèce, et se souvient de sa vie antérieure. Elle conserve les capacités qu'elle possédait sous sa forme d'origine, mais perd les traits de son espèce précédente et acquiert ceux de sa nouvelle espèce.\
+
+      
+      La créature réincarnée fait tous les choix proposés par la description de son espèce, et se souvient de sa vie antérieure. Elle conserve les capacités qu'elle possédait sous sa forme d'origine, mais perd les traits de son espèce précédente et acquiert ceux de sa nouvelle espèce.

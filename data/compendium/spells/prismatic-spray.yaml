@@ -20,7 +20,7 @@ translations:
     duration: Instantaneous
     materialDescription: null
     description: |-
-      Eight rays of light flash from you in a 60-foot Cone. Each creature in the Cone makes a Dexterity saving throw. For each target, roll 1d8 to determine which color ray affects it, consulting the Prismatic Rays table.\
+      Eight rays of light flash from you in a 60-foot Cone. Each creature in the Cone makes a Dexterity saving throw. For each target, roll 1d8 to determine which color ray affects it, consulting the Prismatic Rays table.
 
       | 1d8 | Ray |
       | --- | --- |
@@ -33,7 +33,8 @@ translations:
       | 7 | **Violet**. *Failed Save*: The target has the Blinded condition and makes a Wisdom saving throw at the start of your next turn. On a Successful Save, the condition ends. On a Failed Save, the condition ends, and the creature teleports to another plane of existence (DM's choice). |
       | 8 | **Special**. The target is struck by two rays. Roll twice, rerolling any 8. |
 
-      \
+
+      
   fr:
     name: Embruns prismatiques
     castingTime: Action
@@ -41,7 +42,7 @@ translations:
     duration: Instantanée
     materialDescription: null
     description: |-
-      Huit rayons de lumière jaillissent de vous dans un Cône de 18 m. Chaque créature prise dans le Cône effectue un jet de sauvegarde de Dextérité. Pour chaque cible, lancez 1d8 pour déterminer le rayon de couleur qui l'affecte selon la table ci-dessous.\
+      Huit rayons de lumière jaillissent de vous dans un Cône de 18 m. Chaque créature prise dans le Cône effectue un jet de sauvegarde de Dextérité. Pour chaque cible, lancez 1d8 pour déterminer le rayon de couleur qui l'affecte selon la table ci-dessous.
 
       | 1d8 | Rayon |
       | --- | --- |
@@ -54,4 +55,4 @@ translations:
       | 7 | **Violet**. *Échec au JdS* : La cible subit l'état Aveuglé et effectue un jet de sauvegarde de Sagesse au début de votre tour suivant. En cas de réussite, l'état prend fin. En cas d'échec, l'état prend fin, et la créature est téléportée dans un autre plan d'existence (choisi par le MD). |
       | 8 | **Spécial**. La cible est frappée par deux rayons. Lancez deux fois le dé, en rejouant tout 8. |
 
-      \
+

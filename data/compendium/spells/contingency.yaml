@@ -18,9 +18,12 @@ translations:
     duration: 10 days
     materialDescription: a gem-incrusted statuette of yourself worth 1,500+ GP
     description: |-
-      Choose a spell of level 5 or lower that you can cast, that has a casting time of an action, and that can target you. You cast that spell—called the contingent spell—as part of casting *Contingency*, expending spell slots for both, but the contingent spell doesn't come into effect. Instead, it takes effect when a certain trigger occurs. You describe that trigger when you cast the two spells. For example, a *Contingency* cast with *Water Breathing* might stipulate that Water Breathing comes into effect when you are engulfed in water or a similar liquid.\
-      The contingent spell takes effect immediately after the trigger occurs for the first time, whether or not you want it to, and then *Contingency* ends.\
-      The contingent spell takes effect only on you, even if it can normally target others. You can use only one *Contingency* spell at a time. If you cast this spell again, the effect of another *Contingency* spell on you ends. Also, *Contingency* ends on you if its material component is ever not on your person.\
+      Choose a spell of level 5 or lower that you can cast, that has a casting time of an action, and that can target you. You cast that spell—called the contingent spell—as part of casting *Contingency*, expending spell slots for both, but the contingent spell doesn't come into effect. Instead, it takes effect when a certain trigger occurs. You describe that trigger when you cast the two spells. For example, a *Contingency* cast with *Water Breathing* might stipulate that Water Breathing comes into effect when you are engulfed in water or a similar liquid.
+      
+      The contingent spell takes effect immediately after the trigger occurs for the first time, whether or not you want it to, and then *Contingency* ends.
+      
+      The contingent spell takes effect only on you, even if it can normally target others. You can use only one *Contingency* spell at a time. If you cast this spell again, the effect of another *Contingency* spell on you ends. Also, *Contingency* ends on you if its material component is ever not on your person.
+      
   fr:
     name: Préméditation
     castingTime: 10 minutes
@@ -29,6 +32,8 @@ translations:
     materialDescription: une statuette à votre effigie incrustée de gemmes d'une valeur
       minimale de 1500 po
     description: |-
-      Choisissez un sort de niveau 5 ou inférieur que vous pouvez lancer, dont le temps d'incantation est d'une action et qui peut vous cibler. Vous lancez le sort concerné, qu'on appellera « sort prémédité », dans le cadre de l'incantation de *préméditation*, et acquittez les emplacements des deux sorts. Le sort prémédité n'agit toutefois pas aussitôt. Au lieu de cela, il ne prendra effet que lorsqu'un déclencheur précis se présentera. Vous décrivez ce déclencheur à l'incantation des deux sorts. Exemple : une *préméditation* lancée en conjonction avec *respiration aquatique* pourrait stipuler que respiration aquatique prendra effet lorsque vous serez englouti par les eaux ou un liquide comparable.\
-      Le sort prémédité prend effet aussitôt après que les conditions sont réunies pour la première fois, que vous le vouliez ou non, puis la *préméditation* prend fin.\
-      Le sort prémédité ne prend effet que sur vous, même s'il est susceptible d'avoir d'autres cibles en temps normal. Vous ne pouvez recourir qu'à un sort de *préméditation* à la fois. Si vous relancez ce sort, la *préméditation* qui vous affectait déjà prend fin. La *préméditation* prend également fin si sa composante matérielle n'est plus sur vous.\
+      Choisissez un sort de niveau 5 ou inférieur que vous pouvez lancer, dont le temps d'incantation est d'une action et qui peut vous cibler. Vous lancez le sort concerné, qu'on appellera « sort prémédité », dans le cadre de l'incantation de *préméditation*, et acquittez les emplacements des deux sorts. Le sort prémédité n'agit toutefois pas aussitôt. Au lieu de cela, il ne prendra effet que lorsqu'un déclencheur précis se présentera. Vous décrivez ce déclencheur à l'incantation des deux sorts. Exemple : une *préméditation* lancée en conjonction avec *respiration aquatique* pourrait stipuler que respiration aquatique prendra effet lorsque vous serez englouti par les eaux ou un liquide comparable.
+      
+      Le sort prémédité prend effet aussitôt après que les conditions sont réunies pour la première fois, que vous le vouliez ou non, puis la *préméditation* prend fin.
+      
+      Le sort prémédité ne prend effet que sur vous, même s'il est susceptible d'avoir d'autres cibles en temps normal. Vous ne pouvez recourir qu'à un sort de *préméditation* à la fois. Si vous relancez ce sort, la *préméditation* qui vous affectait déjà prend fin. La *préméditation* prend également fin si sa composante matérielle n'est plus sur vous.

@@ -19,10 +19,14 @@ translations:
     duration: Until dispelled
     materialDescription: jade dust worth 25+ GP
     description: |-
-      You create an illusion of an object, a creature, or some other visible phenomenon within range that activates when a specific trigger occurs. The illusion is imperceptible until then. It must be no larger than a 30-foot Cube, and you decide when you cast the spell how the illusion behaves and what sounds it makes. This scripted performance can last up to 5 minutes.\
-      When the trigger you specify occurs, the illusion springs into existence and performs in the manner you described. Once the illusion finishes performing, it disappears and remains dormant for 10 minutes, after which the illusion can be activated again.\
-      The trigger can be as general or as detailed as you like, though it must be based on visual or audible phenomena that occur within 30 feet of the area. For example, you could create an illusion of yourself to appear and warn off others who attempt to open a trapped door.\
-      Physical interaction with the image reveals it to be illusory, since things can pass through it. A creature that takes the Study action to examine the image can determine that it is an illusion with a successful Intelligence (Investigation) check against your spell save DC. If a creature discerns the illusion for what it is, the creature can see through the image, and any noise it makes sounds hollow to the creature.\
+      You create an illusion of an object, a creature, or some other visible phenomenon within range that activates when a specific trigger occurs. The illusion is imperceptible until then. It must be no larger than a 30-foot Cube, and you decide when you cast the spell how the illusion behaves and what sounds it makes. This scripted performance can last up to 5 minutes.
+      
+      When the trigger you specify occurs, the illusion springs into existence and performs in the manner you described. Once the illusion finishes performing, it disappears and remains dormant for 10 minutes, after which the illusion can be activated again.
+      
+      The trigger can be as general or as detailed as you like, though it must be based on visual or audible phenomena that occur within 30 feet of the area. For example, you could create an illusion of yourself to appear and warn off others who attempt to open a trapped door.
+      
+      Physical interaction with the image reveals it to be illusory, since things can pass through it. A creature that takes the Study action to examine the image can determine that it is an illusion with a successful Intelligence (Investigation) check against your spell save DC. If a creature discerns the illusion for what it is, the creature can see through the image, and any noise it makes sounds hollow to the creature.
+      
   fr:
     name: Illusion programmée
     castingTime: Action
@@ -30,7 +34,10 @@ translations:
     duration: Jusqu'à dissipation
     materialDescription: poudre de jade d'une valeur minimale de 25 po
     description: |-
-      Vous créez l'illusion d'un objet, d'une créature ou d'un autre phénomène visible à portée, qui s'active lorsqu'un déclencheur spécifique se présente. L'illusion reste imperceptible jusque-là. Elle doit loger dans un Cube de 9 m et vous décidez à l'incantation du sort comment l'illusion se comporte et quels sons elle produit. Cette performance scénarisée peut durer jusqu'à 5 minutes.\
-      Quand le déclencheur se présente, l'illusion prend vie selon le scénario que vous avez décrit. Une fois qu'elle a terminé son numéro, l'illusion disparaît et reste en veilleuse pendant 10 minutes, après quoi on peut la réactiver.\
-      Les circonstances de déclenchement peuvent être générales ou détaillées, à votre convenance, mais doivent correspondre à des conditions visuelles ou auditives intervenant dans un rayon de 9 m de la zone. Vous pourriez ainsi créer une illusion de vous-même apparaissant pour mettre autrui en garde contre l'ouverture d'une porte piégée.\
-      Toute interaction physique avec l'image percera l'illusion, car elle n'est pas tangible. Une créature qui entreprend l'action Étude pour examiner l'image peut comprendre qu'il s'agit d'une illusion en réussissant un jet d'Intelligence (Investigation) contre le DD de sauvegarde de votre sort. Une créature qui perce l'illusion voit à travers l'image, tout son produit par l'illusion sonnant par ailleurs creux à ses oreilles.\
+      Vous créez l'illusion d'un objet, d'une créature ou d'un autre phénomène visible à portée, qui s'active lorsqu'un déclencheur spécifique se présente. L'illusion reste imperceptible jusque-là. Elle doit loger dans un Cube de 9 m et vous décidez à l'incantation du sort comment l'illusion se comporte et quels sons elle produit. Cette performance scénarisée peut durer jusqu'à 5 minutes.
+      
+      Quand le déclencheur se présente, l'illusion prend vie selon le scénario que vous avez décrit. Une fois qu'elle a terminé son numéro, l'illusion disparaît et reste en veilleuse pendant 10 minutes, après quoi on peut la réactiver.
+      
+      Les circonstances de déclenchement peuvent être générales ou détaillées, à votre convenance, mais doivent correspondre à des conditions visuelles ou auditives intervenant dans un rayon de 9 m de la zone. Vous pourriez ainsi créer une illusion de vous-même apparaissant pour mettre autrui en garde contre l'ouverture d'une porte piégée.
+      
+      Toute interaction physique avec l'image percera l'illusion, car elle n'est pas tangible. Une créature qui entreprend l'action Étude pour examiner l'image peut comprendre qu'il s'agit d'une illusion en réussissant un jet d'Intelligence (Investigation) contre le DD de sauvegarde de votre sort. Une créature qui perce l'illusion voit à travers l'image, tout son produit par l'illusion sonnant par ailleurs creux à ses oreilles.

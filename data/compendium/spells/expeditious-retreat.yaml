@@ -20,7 +20,8 @@ translations:
     duration: Concentration, up to 10 minutes
     materialDescription: null
     description: |-
-      You take the Dash action, and until the spell ends, you can take that action again as a Bonus Action.\
+      You take the Dash action, and until the spell ends, you can take that action again as a Bonus Action.
+      
   fr:
     name: Repli expéditif
     castingTime: Action bonus
@@ -28,4 +29,4 @@ translations:
     duration: Concentration, jusqu'à 10 minutes
     materialDescription: null
     description: |-
-      Vous prenez l'action Pointe et, jusqu'à la fin du sort, vous pouvez prendre de nouveau cette action en tant qu'action Bonus.\
+      Vous prenez l'action Pointe et, jusqu'à la fin du sort, vous pouvez prendre de nouveau cette action en tant qu'action Bonus.

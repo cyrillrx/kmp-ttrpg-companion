@@ -18,10 +18,14 @@ translations:
     duration: Concentration, up to 1 minute
     materialDescription: a glass sphere
     description: |-
-      A shimmering sphere encloses a Large or smaller creature or object within range. An unwilling creature must succeed on a Dexterity saving throw or be enclosed for the duration.\
-      Nothing-not physical objects, energy, or other spell effects can pass through the barrier, in or out, though a creature in the sphere can breathe there. The sphere is immune to all damage, and a creature or object inside can't be damaged by attacks or effects originating from outside, nor can a creature inside the sphere damage anything outside it.\
-      The sphere is weightless and just large enough to contain the creature or object inside. An enclosed creature can take an action to push against the sphere's walls and thus roll the sphere at up to half the creature's Speed. Similarly, the globe can be picked up and moved by other creatures.\
-      A *Disintegrate* spell targeting the globe destroys it without harming anything inside.\
+      A shimmering sphere encloses a Large or smaller creature or object within range. An unwilling creature must succeed on a Dexterity saving throw or be enclosed for the duration.
+      
+      Nothing-not physical objects, energy, or other spell effects can pass through the barrier, in or out, though a creature in the sphere can breathe there. The sphere is immune to all damage, and a creature or object inside can't be damaged by attacks or effects originating from outside, nor can a creature inside the sphere damage anything outside it.
+      
+      The sphere is weightless and just large enough to contain the creature or object inside. An enclosed creature can take an action to push against the sphere's walls and thus roll the sphere at up to half the creature's Speed. Similarly, the globe can be picked up and moved by other creatures.
+      
+      A *Disintegrate* spell targeting the globe destroys it without harming anything inside.
+      
   fr:
     name: Sphère résiliente d'Otiluke
     castingTime: Action
@@ -29,7 +33,10 @@ translations:
     duration: Concentration, jusqu'à 1 minute
     materialDescription: une sphère de verre
     description: |-
-      Une sphère scintillante enferme une créature ou un objet de taille G ou inférieure à portée. Une créature réticente doit réussir un jet de sauvegarde de Dextérité ou rester enfermée pendant toute la durée du sort.\
-      Rien, ni des objets physiques, ni de l'énergie, ni d'autres effets de sorts, ne peut traverser la barrière, ni entrer ni sortir, bien qu'une créature dans la sphère puisse y respirer. La sphère est immunisée contre tous les dégâts, et une créature ou un objet à l'intérieur ne peut être blessé par des attaques ou des effets de l'extérieurs, ni endommager quoi que ce soit à l'extérieur.\
-      La sphère est légère et juste assez grande pour contenir la créature ou l'objet qu'elle contient. Une créature enfermée peut prendre une action pour pousser les parois de la sphère et ainsi faire rouler la sphère à une vitesse pouvant atteindre la moitié de sa Vitesse. De même, le globe peut être soulevé et déplacé par d'autres créatures.\
-      Un sort de *désintégration* ciblant le globe le détruit sans blesser quoi que ce soit à l'intérieur.\
+      Une sphère scintillante enferme une créature ou un objet de taille G ou inférieure à portée. Une créature réticente doit réussir un jet de sauvegarde de Dextérité ou rester enfermée pendant toute la durée du sort.
+      
+      Rien, ni des objets physiques, ni de l'énergie, ni d'autres effets de sorts, ne peut traverser la barrière, ni entrer ni sortir, bien qu'une créature dans la sphère puisse y respirer. La sphère est immunisée contre tous les dégâts, et une créature ou un objet à l'intérieur ne peut être blessé par des attaques ou des effets de l'extérieurs, ni endommager quoi que ce soit à l'extérieur.
+      
+      La sphère est légère et juste assez grande pour contenir la créature ou l'objet qu'elle contient. Une créature enfermée peut prendre une action pour pousser les parois de la sphère et ainsi faire rouler la sphère à une vitesse pouvant atteindre la moitié de sa Vitesse. De même, le globe peut être soulevé et déplacé par d'autres créatures.
+      
+      Un sort de *désintégration* ciblant le globe le détruit sans blesser quoi que ce soit à l'intérieur.

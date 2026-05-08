@@ -19,8 +19,10 @@ translations:
     duration: Instantaneous
     materialDescription: null
     description: |-
-      You create three glowing darts of magical force. Each dart strikes a creature of your choice that you can see within range. A dart deals 1d4 + 1 Force damage to its target. The darts all strike simultaneously, and you can direct them to hit one creature or several.\
-      ***Using a Higher-Level Spell Slot***. The spell creates one more dart for each spell slot level above 1.\
+      You create three glowing darts of magical force. Each dart strikes a creature of your choice that you can see within range. A dart deals 1d4 + 1 Force damage to its target. The darts all strike simultaneously, and you can direct them to hit one creature or several.
+      
+      ***Using a Higher-Level Spell Slot***. The spell creates one more dart for each spell slot level above 1.
+      
   fr:
     name: Projectile magique
     castingTime: Action
@@ -28,5 +30,6 @@ translations:
     duration: Instantanée
     materialDescription: null
     description: |-
-      Vous créez trois fléchettes lumineuses de force magique. Chaque fléchette touche une créature de votre choix que vous pouvez voir et à portée. Une fléchette inflige 1d4 + 1 point de dégâts de force à sa cible. Les fléchettes frappent toutes simultanément, et vous pouvez les diriger pour toucher une ou plusieurs créatures.\
-      ***Emplacement de niveau supérieur***. Le sort crée une fléchette supplémentaire pour chaque niveau d'emplacement de sort supérieur à 1.\
+      Vous créez trois fléchettes lumineuses de force magique. Chaque fléchette touche une créature de votre choix que vous pouvez voir et à portée. Une fléchette inflige 1d4 + 1 point de dégâts de force à sa cible. Les fléchettes frappent toutes simultanément, et vous pouvez les diriger pour toucher une ou plusieurs créatures.
+      
+      ***Emplacement de niveau supérieur***. Le sort crée une fléchette supplémentaire pour chaque niveau d'emplacement de sort supérieur à 1.

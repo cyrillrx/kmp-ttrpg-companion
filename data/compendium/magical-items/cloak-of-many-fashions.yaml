@@ -8,11 +8,13 @@ translations:
     name: Cloak of Many Fashions
     subtype: null
     description: |-
-      While wearing this cloak, you can take a Bonus Action to change the style, color, and apparent quality of the garment. The cloak's weight doesn't change.\
+      While wearing this cloak, you can take a Bonus Action to change the style, color, and apparent quality of the garment. The cloak's weight doesn't change.
+      
       Regardless of its appearance, the cloak can't be anything but a cloak. Although it can duplicate the appearance of other magic cloaks, it doesn't gain their magical properties.
   fr:
     name: Cape à la mode
     subtype: null
     description: |-
-      En portant cette cape, vous pouvez prendre une action Bonus pour modifier le style, la couleur et la qualité apparente du vêtement. Son poids reste inchangé.\
+      En portant cette cape, vous pouvez prendre une action Bonus pour modifier le style, la couleur et la qualité apparente du vêtement. Son poids reste inchangé.
+      
       Quelle que soit son apparence, la cape ne peut être qu'une cape. Bien qu'elle puisse reproduire l'apparence d'autres capes magiques, elle n'en acquiert pas les propriétés magiques.

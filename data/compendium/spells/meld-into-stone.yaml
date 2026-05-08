@@ -20,9 +20,12 @@ translations:
     duration: 8 hours
     materialDescription: null
     description: |-
-      You step into a stone object or surface large enough to fully contain your body, merging yourself and your equipment with the stone for the duration. You must touch the stone to do so. Nothing of your presence remains visible or otherwise detectable by nonmagical senses.\
-      While merged with the stone, you can't see what occurs outside it, and any Wisdom (Perception) checks you make to hear sounds outside it are made with Disadvantage. You remain aware of the passage of time and can cast spells on yourself while merged in the stone. You can use 5 feet of movement to leave the stone where you entered it, which ends the spell. You otherwise can't move.\
-      Minor physical damage to the stone doesn't harm you, but its partial destruction or a change in its shape (to the extent that you no longer fit within it) expels you and deals 6d6 Force damage to you. The stone's complete destruction (or transmutation into a different substance) expels you and deals 50 Force damage to you. If expelled, you move into an unoccupied space closest to where you first entered and have the Prone condition.\
+      You step into a stone object or surface large enough to fully contain your body, merging yourself and your equipment with the stone for the duration. You must touch the stone to do so. Nothing of your presence remains visible or otherwise detectable by nonmagical senses.
+      
+      While merged with the stone, you can't see what occurs outside it, and any Wisdom (Perception) checks you make to hear sounds outside it are made with Disadvantage. You remain aware of the passage of time and can cast spells on yourself while merged in the stone. You can use 5 feet of movement to leave the stone where you entered it, which ends the spell. You otherwise can't move.
+      
+      Minor physical damage to the stone doesn't harm you, but its partial destruction or a change in its shape (to the extent that you no longer fit within it) expels you and deals 6d6 Force damage to you. The stone's complete destruction (or transmutation into a different substance) expels you and deals 50 Force damage to you. If expelled, you move into an unoccupied space closest to where you first entered and have the Prone condition.
+      
   fr:
     name: Fusion dans la pierre
     castingTime: Action ou Rituel
@@ -30,6 +33,8 @@ translations:
     duration: 8 heures
     materialDescription: null
     description: |-
-      Vous pénétrez dans un objet ou une surface en pierre suffisamment grand pour contenir entièrement votre corps, vous fusionnant avec votre équipement dans la pierre pendant la durée du sort. Vous devez toucher la pierre pour ce faire. Rien de votre présence ne reste visible ou détectable par des sens non magiques.\
-      Aussi longtemps que vous fusionnez avec la pierre, vous ne pouvez pas voir ce qui se passe à l'extérieur, et tous les jets de Sagesse (Perception) que vous effectuez pour entendre les sons extérieurs sont effectués avec un Désavantage. Vous restez conscient du temps qui passe et pouvez lancer des sorts sur vous-même. Vous pouvez utiliser 1,50 mètre de mouvement pour quitter la pierre à l'endroit où vous y êtes entré, ce qui met fin au sort. Vous ne pouvez pas bouger autrement.\
-      Des dégâts physiques mineurs infligés à la pierre ne vous blessent pas, mais sa destruction partielle ou une modification de sa forme (au point que vous ne puissiez plus y entrer) vous expulse et vous inflige 6d6 points de dégâts de force. La destruction complète de la pierre (ou sa transmutation en une autre substance) vous expulse et vous inflige 50 points de dégâts de force. Si vous êtes expulsé, vous vous déplacez dans un espace inoccupé le plus proche de l'endroit où vous êtes entré pour la première fois et subissez l'état À terre.\
+      Vous pénétrez dans un objet ou une surface en pierre suffisamment grand pour contenir entièrement votre corps, vous fusionnant avec votre équipement dans la pierre pendant la durée du sort. Vous devez toucher la pierre pour ce faire. Rien de votre présence ne reste visible ou détectable par des sens non magiques.
+      
+      Aussi longtemps que vous fusionnez avec la pierre, vous ne pouvez pas voir ce qui se passe à l'extérieur, et tous les jets de Sagesse (Perception) que vous effectuez pour entendre les sons extérieurs sont effectués avec un Désavantage. Vous restez conscient du temps qui passe et pouvez lancer des sorts sur vous-même. Vous pouvez utiliser 1,50 mètre de mouvement pour quitter la pierre à l'endroit où vous y êtes entré, ce qui met fin au sort. Vous ne pouvez pas bouger autrement.
+      
+      Des dégâts physiques mineurs infligés à la pierre ne vous blessent pas, mais sa destruction partielle ou une modification de sa forme (au point que vous ne puissiez plus y entrer) vous expulse et vous inflige 6d6 points de dégâts de force. La destruction complète de la pierre (ou sa transmutation en une autre substance) vous expulse et vous inflige 50 points de dégâts de force. Si vous êtes expulsé, vous vous déplacez dans un espace inoccupé le plus proche de l'endroit où vous êtes entré pour la première fois et subissez l'état À terre.

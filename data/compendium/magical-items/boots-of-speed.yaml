@@ -8,11 +8,13 @@ translations:
     name: Boots of Speed
     subtype: null
     description: |-
-      While you wear these boots, you can take a Bonus Action to click the boots' heels together. If you do, the boots double your Speed, and any creature that makes an Opportunity Attack against you has Disadvantage on the attack roll. If you click your heels together again, you end the effect.\
+      While you wear these boots, you can take a Bonus Action to click the boots' heels together. If you do, the boots double your Speed, and any creature that makes an Opportunity Attack against you has Disadvantage on the attack roll. If you click your heels together again, you end the effect.
+      
       When you've used the boots' property for a total of 10 minutes, the magic ceases to function for you until you finish a Long Rest.
   fr:
     name: Bottes de rapidité
     subtype: null
     description: |-
-      Lorsque vous portez ces bottes, vous pouvez prendre une action Bonus pour faire claquer les talons. Dans ce cas, les bottes doublent votre Vitesse, et toute créature effectuant une Attaque d'opportunité contre vous subit un Désavantage au jet d'attaque. Si vous faites claquer à nouveau vos talons, l'effet prend fin.\
+      Lorsque vous portez ces bottes, vous pouvez prendre une action Bonus pour faire claquer les talons. Dans ce cas, les bottes doublent votre Vitesse, et toute créature effectuant une Attaque d'opportunité contre vous subit un Désavantage au jet d'attaque. Si vous faites claquer à nouveau vos talons, l'effet prend fin.
+      
       Après avoir utilisé la propriété des bottes sur un total de 10 minutes, la magie cesse de fonctionner jusqu'à ce que vous terminiez un Repos long.

@@ -8,15 +8,21 @@ translations:
     name: Eversmoking Bottle
     subtype: null
     description: |-
-      As a Magic action, you can open or close this bottle.\
-      Opening the bottle causes thick smoke to billow out, forming a cloud that fills a 60-foot Emanation originating from the bottle. The area within the smoke is Heavily Obscured.\
-      Each minute the bottle remains open, the size of the Emanation increases by 10 feet until it reaches its maximum size of 120 feet.\
+      As a Magic action, you can open or close this bottle.
+      
+      Opening the bottle causes thick smoke to billow out, forming a cloud that fills a 60-foot Emanation originating from the bottle. The area within the smoke is Heavily Obscured.
+      
+      Each minute the bottle remains open, the size of the Emanation increases by 10 feet until it reaches its maximum size of 120 feet.
+      
       Closing the bottle causes the cloud to become fixed in place until it disperses after 10 minutes. A strong wind (such as that created by the *[Gust of Wind](https://www.aidedd.org/spell/gust-of-wind)* spell) disperses the cloud after 1 minute.
   fr:
     name: Urne fumigène
     subtype: null
     description: |-
-      Par une action Magie, vous pouvez ouvrir ou fermer cette bouteille.\
-      L'ouverture de la bouteille provoque une épaisse fumée, formant un nuage qui emplit une Émanation de 18 mètres centrée sur la bouteille. La zone à l'intérieur de la fumée a une Visibilité nulle.\
-      Chaque minute où la bouteille reste ouverte, la taille de l'Émanation augmente de 3 mètres, jusqu'à atteindre sa taille maximale de 36 mètres.\
+      Par une action Magie, vous pouvez ouvrir ou fermer cette bouteille.
+      
+      L'ouverture de la bouteille provoque une épaisse fumée, formant un nuage qui emplit une Émanation de 18 mètres centrée sur la bouteille. La zone à l'intérieur de la fumée a une Visibilité nulle.
+      
+      Chaque minute où la bouteille reste ouverte, la taille de l'Émanation augmente de 3 mètres, jusqu'à atteindre sa taille maximale de 36 mètres.
+      
       La fermeture de la bouteille fixe le nuage sur place jusqu'à sa dispersion au bout de 10 minutes. Un vent fort (comme celui créé par le sort *[bourrasque](https://www.aidedd.org/spell/fr/bourrasque)*) disperse le nuage au bout d'une minute.

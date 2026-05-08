@@ -20,8 +20,10 @@ translations:
     duration: Instantaneous
     materialDescription: null
     description: |-
-      You point at one creature you can see within range, and the single chime of a dolorous bell is audible within 10 feet of the target. The target must succeed on a Wisdom saving throw or take 1d8 Necrotic damage. If the target is missing any of its Hit Points it instead takes 1d12 Necrotic damage.\
-      ***Cantrip Upgrade***. The damage increases by one die when you reach levels 5 (2d8 or 2d12), 11 (3d8 or 3d12), and 17 (4d8 or 4d12).\
+      You point at one creature you can see within range, and the single chime of a dolorous bell is audible within 10 feet of the target. The target must succeed on a Wisdom saving throw or take 1d8 Necrotic damage. If the target is missing any of its Hit Points it instead takes 1d12 Necrotic damage.
+      
+      ***Cantrip Upgrade***. The damage increases by one die when you reach levels 5 (2d8 or 2d12), 11 (3d8 or 3d12), and 17 (4d8 or 4d12).
+      
   fr:
     name: Glas
     castingTime: Action
@@ -29,5 +31,6 @@ translations:
     duration: Instantanée
     materialDescription: null
     description: |-
-      Vous pointez une créature que vous pouvez voir à portée, et le son d'une cloche douloureuse retentit jusqu'à 3 mètres de la cible. Celle-ci doit réussir un jet de sauvegarde de Sagesse ou subir 1d8 dégâts nécrotiques. Si elle n'a plus tous ses points de vie, elle subit 1d12 dégâts nécrotiques au lieu de cela.\
-      ***Amélioration de sort mineur***. Les dégâts augmentent d'un dé aux niveaux 5 (2d8 ou 2d12), 11 (3d8 ou 3d12) et 17 (4d8 ou 4d12).\
+      Vous pointez une créature que vous pouvez voir à portée, et le son d'une cloche douloureuse retentit jusqu'à 3 mètres de la cible. Celle-ci doit réussir un jet de sauvegarde de Sagesse ou subir 1d8 dégâts nécrotiques. Si elle n'a plus tous ses points de vie, elle subit 1d12 dégâts nécrotiques au lieu de cela.
+      
+      ***Amélioration de sort mineur***. Les dégâts augmentent d'un dé aux niveaux 5 (2d8 ou 2d12), 11 (3d8 ou 3d12) et 17 (4d8 ou 4d12).

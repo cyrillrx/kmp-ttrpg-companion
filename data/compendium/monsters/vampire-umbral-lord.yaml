@@ -135,15 +135,20 @@ translations:
     description: |-
       ## Traits
 
-      Résistance légendaire (3/jour, ou 4/jour dans son antre).\
-      Fuite ombreuse.\
+      Résistance légendaire (3/jour, ou 4/jour dans son antre).
+      
+      Fuite ombreuse.
+      
       Faiblesses des vampires.
 
       ## Actions
 
-      Attaques multiples.\
-      Frappe funéraire.\
-      Rayon morbide.\
+      Attaques multiples.
+      
+      Frappe funéraire.
+      
+      Rayon morbide.
+      
       Voracité de Hadar (recharge 5–6).
 
       ## Actions Bonus
@@ -154,7 +159,8 @@ translations:
 
       Utilisations d'action Légendaire : 3 (4 dans son antre).
 
-      Subjugation.\
+      Subjugation.
+      
       Frappe ombreuse.
     senses: Vision aveugle 36 m, Perception passive 23
     languages:

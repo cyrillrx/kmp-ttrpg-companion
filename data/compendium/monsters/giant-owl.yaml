@@ -99,7 +99,8 @@ translations:
 
       ***Spellcasting***. The owl casts one of the following spells, requiring no spell components and using Wisdom as the spellcasting ability:
 
-      At will: *[Detect Evil and Good](https://www.aidedd.org/spell/detect-evil-and-good), [Detect Magic](https://www.aidedd.org/spell/detect-magic)*\
+      At will: *[Detect Evil and Good](https://www.aidedd.org/spell/detect-evil-and-good), [Detect Magic](https://www.aidedd.org/spell/detect-magic)*
+      
       1/day: *[Clairvoyance](https://www.aidedd.org/spell/clairvoyance)*
     senses: Darkvision 120 ft., Passive Perception 16
     languages:
@@ -120,7 +121,8 @@ translations:
 
       ***Incantation***. La chouette lance l'un des sorts suivants sans composantes, la Sagesse étant sa caractéristique d'incantation :
 
-      À volonté : *détection de la magie, détection du mal et du bien*\
+      À volonté : *détection de la magie, détection du mal et du bien*
+      
       1/jour : *clairvoyance*
     senses: Vision dans le noir 36 m, Perception passive 16
     languages:

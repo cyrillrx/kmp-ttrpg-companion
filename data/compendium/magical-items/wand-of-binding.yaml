@@ -8,8 +8,9 @@ translations:
     name: Wand of Binding
     subtype: null
     description: |-
-      This wand has 7 charges.\
-      **Spells**. While holding the wand, you can cast one of the spells (save DC 17) on the following table from it. The table indicates how many charges you must expend to cast the spell.\
+      This wand has 7 charges.
+      
+      **Spells**. While holding the wand, you can cast one of the spells (save DC 17) on the following table from it. The table indicates how many charges you must expend to cast the spell.
       
       | Spell | Charge Cost |
       | --- | --- |
@@ -21,8 +22,9 @@ translations:
     name: Baguette des entraves
     subtype: null
     description: |-
-      Cette baguette possède 7 charges.\
-      **Sorts**. Lorsque vous tenez la baguette, vous pouvez lancer l'un des sorts (DD 17) de la table suivante. Cette table indique le nombre de charges à dépenser pour lancer le sort.\
+      Cette baguette possède 7 charges.
+      
+      **Sorts**. Lorsque vous tenez la baguette, vous pouvez lancer l'un des sorts (DD 17) de la table suivante. Cette table indique le nombre de charges à dépenser pour lancer le sort.
       
       | Sort | Coût en charges |
       | --- | --- |

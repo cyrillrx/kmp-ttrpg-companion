@@ -20,10 +20,14 @@ translations:
     duration: Concentration, up to 1 hour
     materialDescription: a bit of gauze
     description: |-
-      A willing creature you touch shape-shifts, along with everything it's wearing and carrying, into a misty cloud for the duration. The spell ends on the target if it drops to 0 Hit Points or if it takes a Magic action to end the spell on itself.\
-      While in this form, the target's only method of movement is a Fly Speed of 10 feet, and it can hover. The target can enter and occupy the space of another creature. The target has Resistance to Bludgeoning, Piercing, and Slashing damage; it has Immunity to the Prone condition; and it has Advantage on Strength, Dexterity, and Constitution saving throws. The target can pass through narrow openings, but it treats liquids as though they were solid surfaces.\
-      The target can't talk or manipulate objects, and any objects it was carrying or holding can't be dropped, used, or otherwise interacted with. Finally, the target can't attack or cast spells.\
-      ***Using a Higher-Level Spell Slot***. You can target one additional creature for each spell slot level above 3.\
+      A willing creature you touch shape-shifts, along with everything it's wearing and carrying, into a misty cloud for the duration. The spell ends on the target if it drops to 0 Hit Points or if it takes a Magic action to end the spell on itself.
+      
+      While in this form, the target's only method of movement is a Fly Speed of 10 feet, and it can hover. The target can enter and occupy the space of another creature. The target has Resistance to Bludgeoning, Piercing, and Slashing damage; it has Immunity to the Prone condition; and it has Advantage on Strength, Dexterity, and Constitution saving throws. The target can pass through narrow openings, but it treats liquids as though they were solid surfaces.
+      
+      The target can't talk or manipulate objects, and any objects it was carrying or holding can't be dropped, used, or otherwise interacted with. Finally, the target can't attack or cast spells.
+      
+      ***Using a Higher-Level Spell Slot***. You can target one additional creature for each spell slot level above 3.
+      
   fr:
     name: Forme gazeuse
     castingTime: Action
@@ -31,7 +35,10 @@ translations:
     duration: Concentration, jusqu'à 1 heure
     materialDescription: un peu de gaze
     description: |-
-      Une créature consentante que vous touchez se transforme, ainsi que tout ce qu'elle porte, en un nuage brumeux pendant la durée du sort. Le sort prend fin sur la cible si elle tombe à 0 point de vie ou si elle prend une action Magie pour mettre fin au sort sur elle-même.\
-      Sous cette forme, la cible ne peut se déplacer qu'à une Vitesse de vol de 3 mètres et peut faire un vol stationnaire. Elle peut entrer et occuper l'espace d'une autre créature. Elle bénéficie d'une résistance aux dégâts contondants, perforants et tranchants, d'une immunité à l'état À terre, et d'un Avantage aux jets de sauvegarde de Force, de Dextérité et de Constitution. Elle peut traverser des ouvertures étroites, mais traite les liquides comme des surfaces solides.\
-      La cible ne peut ni parler ni manipuler des objets, et les objets qu'elle portait ne peuvent être lâchés ou utilisés d'une quelconque manière. Enfin, elle ne peut ni attaquer ni lancer des sorts.\
-      ***Emplacement de niveau supérieur***. Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 3.\
+      Une créature consentante que vous touchez se transforme, ainsi que tout ce qu'elle porte, en un nuage brumeux pendant la durée du sort. Le sort prend fin sur la cible si elle tombe à 0 point de vie ou si elle prend une action Magie pour mettre fin au sort sur elle-même.
+      
+      Sous cette forme, la cible ne peut se déplacer qu'à une Vitesse de vol de 3 mètres et peut faire un vol stationnaire. Elle peut entrer et occuper l'espace d'une autre créature. Elle bénéficie d'une résistance aux dégâts contondants, perforants et tranchants, d'une immunité à l'état À terre, et d'un Avantage aux jets de sauvegarde de Force, de Dextérité et de Constitution. Elle peut traverser des ouvertures étroites, mais traite les liquides comme des surfaces solides.
+      
+      La cible ne peut ni parler ni manipuler des objets, et les objets qu'elle portait ne peuvent être lâchés ou utilisés d'une quelconque manière. Enfin, elle ne peut ni attaquer ni lancer des sorts.
+      
+      ***Emplacement de niveau supérieur***. Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 3.

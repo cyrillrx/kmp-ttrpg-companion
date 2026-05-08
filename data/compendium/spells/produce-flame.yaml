@@ -18,9 +18,12 @@ translations:
     duration: 10 minutes
     materialDescription: null
     description: |-
-      A flickering flame appears in your hand and remains there for the duration. While there, the flame emits no heat and ignites nothing, and it sheds Bright Light in a 20-foot radius and Dim Light for an additional 20 feet. The spell ends if you cast it again.\
-      Until the spell ends, you can take a Magic action to hurl fire at a creature or an object within 60 feet of you. Make a ranged spell attack. On a hit, the target takes 1d8 Fire damage.\
-      ***Cantrip Upgrade***. The damage increases by 1d8 when you reach levels 5 (2d8), 11 (3d8), and 17 (4d8).\
+      A flickering flame appears in your hand and remains there for the duration. While there, the flame emits no heat and ignites nothing, and it sheds Bright Light in a 20-foot radius and Dim Light for an additional 20 feet. The spell ends if you cast it again.
+      
+      Until the spell ends, you can take a Magic action to hurl fire at a creature or an object within 60 feet of you. Make a ranged spell attack. On a hit, the target takes 1d8 Fire damage.
+      
+      ***Cantrip Upgrade***. The damage increases by 1d8 when you reach levels 5 (2d8), 11 (3d8), and 17 (4d8).
+      
   fr:
     name: Flammes
     castingTime: Action bonus
@@ -28,6 +31,8 @@ translations:
     duration: 10 minutes
     materialDescription: null
     description: |-
-      Une flamme vacillante apparaît dans votre main et y reste pendant toute la durée du sort. Tant qu'elle est là, elle n'émet aucune chaleur, n'enflamme rien, et projette une Lumière vive sur un rayon de 6 mètres et une Lumière faible sur 6 mètres supplémentaires. Le sort prend fin si vous le relancez.\
-      Jusqu'à la fin du sort, vous pouvez prendre une action Magie pour lancer du feu sur une créature ou un objet dans un rayon de 18 mètres. Effectuez une attaque de sort à distance. Si l'attaque touche, la cible subit 1d8 dégâts de feu.\
-      ***Amélioration de sort mineur***. Les dégâts augmentent de 1d8 lorsque vous atteignez les niveaux 5 (2d8), 11 (3d8) et 17 (4d8).\
+      Une flamme vacillante apparaît dans votre main et y reste pendant toute la durée du sort. Tant qu'elle est là, elle n'émet aucune chaleur, n'enflamme rien, et projette une Lumière vive sur un rayon de 6 mètres et une Lumière faible sur 6 mètres supplémentaires. Le sort prend fin si vous le relancez.
+      
+      Jusqu'à la fin du sort, vous pouvez prendre une action Magie pour lancer du feu sur une créature ou un objet dans un rayon de 18 mètres. Effectuez une attaque de sort à distance. Si l'attaque touche, la cible subit 1d8 dégâts de feu.
+      
+      ***Amélioration de sort mineur***. Les dégâts augmentent de 1d8 lorsque vous atteignez les niveaux 5 (2d8), 11 (3d8) et 17 (4d8).

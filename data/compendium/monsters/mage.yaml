@@ -97,8 +97,10 @@ translations:
 
       ***Spellcasting***. The mage casts one of the following spells, using Intelligence as the spellcasting ability (spell save DC 14):
 
-      At Will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Light](https://www.aidedd.org/spell/light), [Mage Armor](https://www.aidedd.org/spell/mage-armor)* (included in AC), *[Mage Hand](https://www.aidedd.org/spell/mage-hand), [Prestidigitation](https://www.aidedd.org/spell/prestidigitation)*\
-      2/Day Each: *[Fireball](https://www.aidedd.org/spell/fireball)* (level 4 version), *[Invisibility](https://www.aidedd.org/spell/invisibility)*\
+      At Will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Light](https://www.aidedd.org/spell/light), [Mage Armor](https://www.aidedd.org/spell/mage-armor)* (included in AC), *[Mage Hand](https://www.aidedd.org/spell/mage-hand), [Prestidigitation](https://www.aidedd.org/spell/prestidigitation)*
+      
+      2/Day Each: *[Fireball](https://www.aidedd.org/spell/fireball)* (level 4 version), *[Invisibility](https://www.aidedd.org/spell/invisibility)*
+      
       1/Day Each: *[Cone of Cold](https://www.aidedd.org/spell/cone-of-cold), [Fly](https://www.aidedd.org/spell/fly)*
 
       ## Bonus actions
@@ -123,8 +125,10 @@ translations:
 
       ***Incantation***. Le mage lance l'un des sorts suivants, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 14) :
 
-      À volonté : *[armure de mage](https://www.aidedd.org/spell/fr/armure-de-mage)* (compris dans la CA), *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), lumière, [main de mage](https://www.aidedd.org/spell/fr/main-de-mage), [prestidigitation](https://www.aidedd.org/spell/fr/prestidigitation)*\
-      2/jour chacun : *[boule de feu](https://www.aidedd.org/spell/fr/boule-de-feu)* (au niveau 4), *[invisibilité](https://www.aidedd.org/spell/fr/invisibilite)*\
+      À volonté : *[armure de mage](https://www.aidedd.org/spell/fr/armure-de-mage)* (compris dans la CA), *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), lumière, [main de mage](https://www.aidedd.org/spell/fr/main-de-mage), [prestidigitation](https://www.aidedd.org/spell/fr/prestidigitation)*
+      
+      2/jour chacun : *[boule de feu](https://www.aidedd.org/spell/fr/boule-de-feu)* (au niveau 4), *[invisibilité](https://www.aidedd.org/spell/fr/invisibilite)*
+      
       1/jour chacun : *cône de froid, vol*
 
       ## Actions Bonus

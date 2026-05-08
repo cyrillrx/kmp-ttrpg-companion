@@ -18,12 +18,18 @@ translations:
     duration: Concentration, up to 10 minutes
     materialDescription: a brass cog
     description: |-
-      You conjure a group of intangible, orderly spirits that appear as a Medium group of modrons or other Constructs in an unoccupied space you can see within range. The spirits last for the duration.\
-      When you cast this spell and as a Magic action on subsequent turns, you can command the spirits to target one creature or object you can see within 5 feet of the spirits and create one of the following effects:\
-      **Clockwork Force.** The target makes a Dexterity saving throw, taking 3d6 Force damage on a failed save or half as much damage on a successful one.\
-      **Orderly Ward.** The target gains Temporary Hit Points equal to 1d6 plus your spellcasting ability modifier.\
-      When you move on your turn, you can also move the spirits up to 30 feet to an unoccupied space you can see.\
-      **Using a Higher-Level Spell Slot.** The damage and Temporary Hit Points both increase by 1d6 for each spell slot level above 3.\
+      You conjure a group of intangible, orderly spirits that appear as a Medium group of modrons or other Constructs in an unoccupied space you can see within range. The spirits last for the duration.
+      
+      When you cast this spell and as a Magic action on subsequent turns, you can command the spirits to target one creature or object you can see within 5 feet of the spirits and create one of the following effects:
+      
+      **Clockwork Force.** The target makes a Dexterity saving throw, taking 3d6 Force damage on a failed save or half as much damage on a successful one.
+      
+      **Orderly Ward.** The target gains Temporary Hit Points equal to 1d6 plus your spellcasting ability modifier.
+      
+      When you move on your turn, you can also move the spirits up to 30 feet to an unoccupied space you can see.
+      
+      **Using a Higher-Level Spell Slot.** The damage and Temporary Hit Points both increase by 1d6 for each spell slot level above 3.
+      
   fr:
     name: Invocation d'artificiels
     castingTime: Action
@@ -31,9 +37,14 @@ translations:
     duration: Concentration, jusqu'à 10 minutes
     materialDescription: un engrenage en laiton
     description: |-
-      Vous invoquez un groupe d'esprits intangibles et ordonnés qui apparaissent comme un groupe de taille M de modrons ou d'autres Artificiels dans un espace inoccupé que vous pouvez voir à portée. Les esprits persistent pour toute la durée.\
-      Lorsque vous lancez ce sort et en tant qu'action de Magie lors des tours suivants, vous pouvez ordonner aux esprits de cibler une créature ou un objet que vous voyez à 1,50 mètre ou moins des esprits, créant l'un des effets suivants :\
-      **Force mécanique.** La cible effectue un jet de sauvegarde de Dextérité, subissant 3d6 dégâts de force en cas d'échec, ou la moitié en cas de réussite.\
-      **Protection ordonnée.** La cible gagne un nombre de points de vie temporaires égal à 1d6 plus votre modificateur de caractéristique d'incantation.\
-      Lorsque vous vous déplacez lors de votre tour, vous pouvez également déplacer les esprits de 9 mètres vers un espace inoccupé que vous pouvez voir.\
-      **Emplacement de niveau supérieur.** Les dégâts et les points de vie temporaires augmentent chacun de 1d6 par niveau d'emplacement au-delà du 3e.\
+      Vous invoquez un groupe d'esprits intangibles et ordonnés qui apparaissent comme un groupe de taille M de modrons ou d'autres Artificiels dans un espace inoccupé que vous pouvez voir à portée. Les esprits persistent pour toute la durée.
+      
+      Lorsque vous lancez ce sort et en tant qu'action de Magie lors des tours suivants, vous pouvez ordonner aux esprits de cibler une créature ou un objet que vous voyez à 1,50 mètre ou moins des esprits, créant l'un des effets suivants :
+      
+      **Force mécanique.** La cible effectue un jet de sauvegarde de Dextérité, subissant 3d6 dégâts de force en cas d'échec, ou la moitié en cas de réussite.
+      
+      **Protection ordonnée.** La cible gagne un nombre de points de vie temporaires égal à 1d6 plus votre modificateur de caractéristique d'incantation.
+      
+      Lorsque vous vous déplacez lors de votre tour, vous pouvez également déplacer les esprits de 9 mètres vers un espace inoccupé que vous pouvez voir.
+      
+      **Emplacement de niveau supérieur.** Les dégâts et les points de vie temporaires augmentent chacun de 1d6 par niveau d'emplacement au-delà du 3e.

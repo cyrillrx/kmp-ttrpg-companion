@@ -95,7 +95,8 @@ translations:
 
       ***Spellcasting***. The mage casts one of the following spells, using Intelligence as the spellcasting ability (spell save DC 13, +5 to hit with spell attacks):
 
-      At will: *[Mage Hand](https://www.aidedd.org/spell/mage-hand), [Prestidigitation](https://www.aidedd.org/spell/prestidigitation)*\
+      At will: *[Mage Hand](https://www.aidedd.org/spell/mage-hand), [Prestidigitation](https://www.aidedd.org/spell/prestidigitation)*
+      
       1/day each: *[Disguise Self](https://www.aidedd.org/spell/disguise-self), [Ice Knife](https://www.aidedd.org/spell/ice-knife), [Mage Armor](https://www.aidedd.org/spell/mage-armor)* (included in AC), *[Thunderwave](https://www.aidedd.org/spell/thunderwave)*
     senses: Passive Perception 13
     languages:
@@ -110,7 +111,8 @@ translations:
 
       ***Incantation***. Le mage lance l'un des sorts suivants, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 13, +5 pour toucher) :
 
-      À volonté : *[main de mage](https://www.aidedd.org/spell/fr/main-de-mage), [prestidigitation](https://www.aidedd.org/spell/fr/prestidigitation)*\
+      À volonté : *[main de mage](https://www.aidedd.org/spell/fr/main-de-mage), [prestidigitation](https://www.aidedd.org/spell/fr/prestidigitation)*
+      
       1/jour chacun : *[armure de mage](https://www.aidedd.org/spell/fr/armure-de-mage)* (compris dans la CA), *couteau de glace, déguisement, vague tonnante*
     senses: Perception passive 13
     languages:

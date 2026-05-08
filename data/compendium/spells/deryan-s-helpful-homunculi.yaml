@@ -20,8 +20,10 @@ translations:
     materialDescription: powdered gemstones worth 100+ GP, which the spell consumes,
       and one set of Artisan's Tools with which you have proficiency
     description: |-
-      You summon a group of helpful spirits, which lasts for the duration. The spirits appear as homunculi or as another Construct of your choice but are intangible and invulnerable, and they are considered to have proficiency in the Arcana skill and with the set of Artisan's Tools used in the spell's casting.\
-      If you are crafting an item, the spirits function as a single assistant for your crafting, halving the crafting time.\
+      You summon a group of helpful spirits, which lasts for the duration. The spirits appear as homunculi or as another Construct of your choice but are intangible and invulnerable, and they are considered to have proficiency in the Arcana skill and with the set of Artisan's Tools used in the spell's casting.
+      
+      If you are crafting an item, the spirits function as a single assistant for your crafting, halving the crafting time.
+      
   fr:
     name: Homoncules serviables de Deryan
     castingTime: Action ou Rituel
@@ -30,5 +32,6 @@ translations:
     materialDescription: poudre de pierres précieuses d'une valeur minimale de 100+
       GP, que le sort consomme, et des outils d'artisan que vous maîtrisez
     description: |-
-      Vous invoquez un groupe d'esprits serviables, qui persistent pour toute la durée. Les esprits apparaissent sous la forme d'homoncules ou d'un autre Artificiel de votre choix, mais sont intangibles et invulnérables ; ils sont considérés comme ayant la maîtrise de la compétence Arcanes et de l'ensemble d'outils d'artisan utilisé lors de l'incantation du sort.\
-      Si vous fabriquez un objet, les esprits agissent comme un unique assistant pour votre travail, réduisant de moitié le temps de fabrication.\
+      Vous invoquez un groupe d'esprits serviables, qui persistent pour toute la durée. Les esprits apparaissent sous la forme d'homoncules ou d'un autre Artificiel de votre choix, mais sont intangibles et invulnérables ; ils sont considérés comme ayant la maîtrise de la compétence Arcanes et de l'ensemble d'outils d'artisan utilisé lors de l'incantation du sort.
+      
+      Si vous fabriquez un objet, les esprits agissent comme un unique assistant pour votre travail, réduisant de moitié le temps de fabrication.

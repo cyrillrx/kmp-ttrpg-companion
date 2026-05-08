@@ -20,10 +20,14 @@ translations:
     duration: 8 hours
     materialDescription: a handful of sand
     description: |-
-      You target a creature you know on the same plane of existence. You or a willing creature you touch enters a trance state to act as a dream messenger. While in the trance, the messenger is Incapacitated and has a Speed of 0.\
-      If the target is asleep, the messenger appears in the target's dreams and can converse with the target as long as it remains asleep, through the spell's duration. The messenger can also shape the dream's environment, creating landscapes, objects, and other images. The messenger can emerge from the trance at any time, ending the spell. The target recalls the dream perfectly upon waking.\
-      If the target is awake when you cast the spell, the messenger knows it and can either end the trance (and the spell) or wait for the target to sleep, at which point the messenger enters its dreams.\
-      You can make the messenger terrifying to the target. If you do so, the messenger can deliver a message of no more than ten words, and then the target makes a Wisdom saving throw. On a failed save, the target gains no benefit from its rest, and it takes 3d6 Psychic damage when it wakes up.\
+      You target a creature you know on the same plane of existence. You or a willing creature you touch enters a trance state to act as a dream messenger. While in the trance, the messenger is Incapacitated and has a Speed of 0.
+      
+      If the target is asleep, the messenger appears in the target's dreams and can converse with the target as long as it remains asleep, through the spell's duration. The messenger can also shape the dream's environment, creating landscapes, objects, and other images. The messenger can emerge from the trance at any time, ending the spell. The target recalls the dream perfectly upon waking.
+      
+      If the target is awake when you cast the spell, the messenger knows it and can either end the trance (and the spell) or wait for the target to sleep, at which point the messenger enters its dreams.
+      
+      You can make the messenger terrifying to the target. If you do so, the messenger can deliver a message of no more than ten words, and then the target makes a Wisdom saving throw. On a failed save, the target gains no benefit from its rest, and it takes 3d6 Psychic damage when it wakes up.
+      
   fr:
     name: Songe
     castingTime: 1 minute
@@ -31,7 +35,10 @@ translations:
     duration: 8 heures
     materialDescription: une poignée de sable
     description: |-
-      Vous ciblez une créature que vous connaissez sur le même plan d'existence. Vous, ou une créature consentante que vous touchez, entrez en transe pour agir comme messager onirique. Pendant cette transe, le messager subit l'état Incapable d'agir et a une Vitesse de 0.\
-      Si la cible dort, le messager apparaît dans ses rêves et peut converser avec elle tant qu'elle reste endormie, pendant toute la durée du sort. Il peut également façonner l'environnement du rêve, créant des paysages, des objets et d'autres images. Il peut sortir de transe à tout moment, mettant fin au sort. La cible se souvient parfaitement du rêve à son réveil.\
-      Si la cible est éveillée lorsque vous lancez le sort, le messager le sait et peut soit mettre fin à la transe (et au sort), soit attendre qu'elle s'endorme, auquel cas il entre dans ses rêves.\
-      Vous pouvez rendre le messager terrifiant pour la cible. Dans ce cas, le messager peut délivrer un message de dix mots maximum, après quoi la cible effectue un jet de sauvegarde de Sagesse. En cas d'échec au jet de sauvegarde, la cible ne tire aucun avantage de son repos et subit 3d6 dégâts psychiques lorsqu'elle se réveille.\
+      Vous ciblez une créature que vous connaissez sur le même plan d'existence. Vous, ou une créature consentante que vous touchez, entrez en transe pour agir comme messager onirique. Pendant cette transe, le messager subit l'état Incapable d'agir et a une Vitesse de 0.
+      
+      Si la cible dort, le messager apparaît dans ses rêves et peut converser avec elle tant qu'elle reste endormie, pendant toute la durée du sort. Il peut également façonner l'environnement du rêve, créant des paysages, des objets et d'autres images. Il peut sortir de transe à tout moment, mettant fin au sort. La cible se souvient parfaitement du rêve à son réveil.
+      
+      Si la cible est éveillée lorsque vous lancez le sort, le messager le sait et peut soit mettre fin à la transe (et au sort), soit attendre qu'elle s'endorme, auquel cas il entre dans ses rêves.
+      
+      Vous pouvez rendre le messager terrifiant pour la cible. Dans ce cas, le messager peut délivrer un message de dix mots maximum, après quoi la cible effectue un jet de sauvegarde de Sagesse. En cas d'échec au jet de sauvegarde, la cible ne tire aucun avantage de son repos et subit 3d6 dégâts psychiques lorsqu'elle se réveille.

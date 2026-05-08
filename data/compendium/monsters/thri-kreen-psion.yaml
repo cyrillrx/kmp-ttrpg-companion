@@ -97,7 +97,8 @@ translations:
 
       ***Spellcasting***. The thri-kreen casts one of the following spells, requiring no spell components and using Intelligence as the spellcasting ability (spell save DC 15):
 
-      At will: *[Mage Hand](https://www.aidedd.org/spell/mage-hand)* (the hand is Invisible)\
+      At will: *[Mage Hand](https://www.aidedd.org/spell/mage-hand)* (the hand is Invisible)
+      
       1/day each: *[Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts), [Sending](https://www.aidedd.org/spell/sending), [Synaptic Static](https://www.aidedd.org/spell/synaptic-static)*
     senses: Darkvision 60 ft., Passive Perception 14
     languages:
@@ -114,7 +115,8 @@ translations:
 
       ***Incantation***. Le thri-kreen lance l'un des sorts suivants sans composantes de sort, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 15) :
 
-      À volonté : *[main de mage](https://www.aidedd.org/spell/fr/main-de-mage)* (la main est invisible)\
+      À volonté : *[main de mage](https://www.aidedd.org/spell/fr/main-de-mage)* (la main est invisible)
+      
       1/jour chacun : *[détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees), [communication à distance](https://www.aidedd.org/spell/fr/communication-a-distance"), [perturbations synaptiques](https://www.aidedd.org/spell/fr/perturbations-synaptiques)*
     senses: Vision dans le noir 18 m, Perception passive 14
     languages:

@@ -8,7 +8,8 @@ translations:
     name: Pot of Awakening
     subtype: null
     description: |-
-      If you plant an ordinary shrub in this 10-pound clay pot and let it grow for 30 days, the shrub magically transforms into an **[Awakened Shrub](https://www.aidedd.org/monster/awakened-shrub)** at the end ofthat time. When the shrub awakens, its roots break the pot, destroying it.\
+      If you plant an ordinary shrub in this 10-pound clay pot and let it grow for 30 days, the shrub magically transforms into an **[Awakened Shrub](https://www.aidedd.org/monster/awakened-shrub)** at the end ofthat time. When the shrub awakens, its roots break the pot, destroying it.
+      
       The awakened shrub is Friendly toward you and obeys your commands. Absent commands from you, it does nothing.
   fr:
     name: Pot d'éveil

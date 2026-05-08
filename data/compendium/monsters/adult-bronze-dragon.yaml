@@ -107,7 +107,8 @@ translations:
 
       ***Spellcasting***. The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 17, +10 to hit with spell attacks):
 
-      At Will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Guiding Bolt](https://www.aidedd.org/spell/guiding-bolt)* (level 2 version), *[Shapechange](https://www.aidedd.org/spell/shapechange)* (Beast or Humanoid form only, no Temporary Hit Points gained from the spell, and no Concentration or Temporary Hit Points required to maintain the spell), *[Speak with Animals](https://www.aidedd.org/spell/speak-with-animals), [Thaumaturgy](https://www.aidedd.org/spell/thaumaturgy)*\
+      At Will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Guiding Bolt](https://www.aidedd.org/spell/guiding-bolt)* (level 2 version), *[Shapechange](https://www.aidedd.org/spell/shapechange)* (Beast or Humanoid form only, no Temporary Hit Points gained from the spell, and no Concentration or Temporary Hit Points required to maintain the spell), *[Speak with Animals](https://www.aidedd.org/spell/speak-with-animals), [Thaumaturgy](https://www.aidedd.org/spell/thaumaturgy)*
+      
       1/Day Each: *[Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts), [Water Breathing](https://www.aidedd.org/spell/water-breathing)*
 
       ## Legendary actions
@@ -141,7 +142,8 @@ translations:
 
       ***Incantation***. Le dragon lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 17, +10 pour toucher) :
 
-      À volonté : *[changement de forme](https://www.aidedd.org/spell/fr/changement-de-forme)* (Bête ou Humanoïde uniquement, le sort ne fait pas gagner de points de vie temporaires, ni Concentration ni points de vie temporaires nécessaires pour maintenir le sort), *[communication avec les animaux](https://www.aidedd.org/spell/fr/communication-avec-les-animaux), [détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), ~~illusion mineure~~ , [rayon traçant](https://www.aidedd.org/spell/fr/rayon-tracant)* (au niveau 2), *[thaumaturgie](https://www.aidedd.org/spell/fr/thaumaturgie)*\
+      À volonté : *[changement de forme](https://www.aidedd.org/spell/fr/changement-de-forme)* (Bête ou Humanoïde uniquement, le sort ne fait pas gagner de points de vie temporaires, ni Concentration ni points de vie temporaires nécessaires pour maintenir le sort), *[communication avec les animaux](https://www.aidedd.org/spell/fr/communication-avec-les-animaux), [détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), ~~illusion mineure~~ , [rayon traçant](https://www.aidedd.org/spell/fr/rayon-tracant)* (au niveau 2), *[thaumaturgie](https://www.aidedd.org/spell/fr/thaumaturgie)*
+      
       1/jour chacun : *[détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees), [respiration aquatique](https://www.aidedd.org/spell/fr/respiration-aquatique)*
 
       ***Souffle de foudre (recharge 5–6)***. *JdS Dextérité* : DD 19, chaque créature dans une Ligne de 27 m de long sur 1,50 m de large. *Échec* : 55 (10d10) dégâts de foudre. *Réussite* : demi-dégâts.

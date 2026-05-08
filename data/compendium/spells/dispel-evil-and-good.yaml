@@ -19,9 +19,12 @@ translations:
     duration: Concentration, up to 1 minute
     materialDescription: powdered silver and iron
     description: |-
-      For the duration, Celestials, Elementals, Fey, Fiends, and Undead have Disadvantage on attack rolls against you. You can end the spell early by using either of the following special functions.\
-      **Break Enchantment**. As a Magic action, you touch a creature that is possessed by or has the Charmed or Frightened condition from one or more creatures of the types above. The target is no longer possessed, Charmed, or Frightened by such creatures.\
-      **Dismissal**. As a Magic action, you target one creature you can see within 5 feet of you that has one of the creature types above. The target must succeed on a Charisma saving throw or be sent back to its home plane if it isn't there already. If they aren't on their home plane, Undead are sent to the Shadowfell, and Fey are sent to the Feywild.\
+      For the duration, Celestials, Elementals, Fey, Fiends, and Undead have Disadvantage on attack rolls against you. You can end the spell early by using either of the following special functions.
+      
+      **Break Enchantment**. As a Magic action, you touch a creature that is possessed by or has the Charmed or Frightened condition from one or more creatures of the types above. The target is no longer possessed, Charmed, or Frightened by such creatures.
+      
+      **Dismissal**. As a Magic action, you target one creature you can see within 5 feet of you that has one of the creature types above. The target must succeed on a Charisma saving throw or be sent back to its home plane if it isn't there already. If they aren't on their home plane, Undead are sent to the Shadowfell, and Fey are sent to the Feywild.
+      
   fr:
     name: Dissipation du mal et du bien
     castingTime: Action
@@ -29,6 +32,8 @@ translations:
     duration: Concentration, jusqu'à 1 minute
     materialDescription: poudre d'argent et de fer
     description: |-
-      Pendant toute la durée du sort, les Célestes, Élémentaires, Fées, Fiélons et Morts-vivants ont un Désavantage aux jets d'attaque contre vous. Vous pouvez mettre fin prématurément au sort en utilisant l'une des fonctions spéciales suivantes :\
-      **Annulation d'enchantement**. Par une action Magie, vous touchez une créature possédée par ou qui subit l'état Charmé ou Effrayé par une ou plusieurs créatures des types précités. La cible n'est plus possédée, charmée ou effrayée par ces créatures.\
-      **Renvoi**. Par une action Magie, vous ciblez une créature que vous pouvez voir dans un rayon de 1,50 mètre et qui possède l'un des types précités. La cible doit réussir un jet de sauvegarde de Charisme ou être renvoyée sur son plan d'origine si elle ne s'y trouve pas déjà. S'ils ne sont pas sur leur plan d'origine, les Morts-vivants sont envoyés en Gisombre et les Fées en Féerie.\
+      Pendant toute la durée du sort, les Célestes, Élémentaires, Fées, Fiélons et Morts-vivants ont un Désavantage aux jets d'attaque contre vous. Vous pouvez mettre fin prématurément au sort en utilisant l'une des fonctions spéciales suivantes :
+      
+      **Annulation d'enchantement**. Par une action Magie, vous touchez une créature possédée par ou qui subit l'état Charmé ou Effrayé par une ou plusieurs créatures des types précités. La cible n'est plus possédée, charmée ou effrayée par ces créatures.
+      
+      **Renvoi**. Par une action Magie, vous ciblez une créature que vous pouvez voir dans un rayon de 1,50 mètre et qui possède l'un des types précités. La cible doit réussir un jet de sauvegarde de Charisme ou être renvoyée sur son plan d'origine si elle ne s'y trouve pas déjà. S'ils ne sont pas sur leur plan d'origine, les Morts-vivants sont envoyés en Gisombre et les Fées en Féerie.

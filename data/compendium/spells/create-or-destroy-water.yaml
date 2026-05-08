@@ -19,10 +19,14 @@ translations:
     duration: Instantaneous
     materialDescription: a mix of water and sand
     description: |-
-      You do one of the following:\
-      **Create Water**. You create up to 10 gallons of clean water within range in an open container. Alternatively, the water falls as rain in a 30-foot Cube within range, extinguishing exposed flames there.\
-      **Destroy Water**. You destroy up to 10 gallons of water in an open container within range. Alternatively, you destroy fog in a 30-foot Cube within range.\
-      ***Using a Higher-Level Spell Slot***. You create or destroy 10 additional gallons of water, or the size of the Cube increases by 5 feet, for each spell slot level above 1.\
+      You do one of the following:
+      
+      **Create Water**. You create up to 10 gallons of clean water within range in an open container. Alternatively, the water falls as rain in a 30-foot Cube within range, extinguishing exposed flames there.
+      
+      **Destroy Water**. You destroy up to 10 gallons of water in an open container within range. Alternatively, you destroy fog in a 30-foot Cube within range.
+      
+      ***Using a Higher-Level Spell Slot***. You create or destroy 10 additional gallons of water, or the size of the Cube increases by 5 feet, for each spell slot level above 1.
+      
   fr:
     name: Création ou destruction d'eau
     castingTime: Action
@@ -30,7 +34,10 @@ translations:
     duration: Instantanée
     materialDescription: un mélange d'eau et de sable
     description: |-
-      Vous effectuez l'une des actions suivantes :\
-      **Création d'eau**. Vous créez jusqu'à 40 litres d'eau propre à portée dans un récipient ouvert. L'eau peut aussi tomber sous forme de pluie dans un Cube de 9 mètres de côté à portée, éteignant les flammes.\
-      **Destruction d'eau**. Vous détruisez jusqu'à 40 litres d'eau dans un récipient ouvert à portée. Vous pouvez aussi détruire le brouillard dans un Cube de 9 mètres ce côté à portée.\
-      ***Emplacement de niveau supérieur***. Vous créez ou détruisez 40 litres d'eau supplémentaires, ou la taille du Cube augmente de 1,50 mètre, pour chaque niveau d'emplacement de sort supérieur à 1.\
+      Vous effectuez l'une des actions suivantes :
+      
+      **Création d'eau**. Vous créez jusqu'à 40 litres d'eau propre à portée dans un récipient ouvert. L'eau peut aussi tomber sous forme de pluie dans un Cube de 9 mètres de côté à portée, éteignant les flammes.
+      
+      **Destruction d'eau**. Vous détruisez jusqu'à 40 litres d'eau dans un récipient ouvert à portée. Vous pouvez aussi détruire le brouillard dans un Cube de 9 mètres ce côté à portée.
+      
+      ***Emplacement de niveau supérieur***. Vous créez ou détruisez 40 litres d'eau supplémentaires, ou la taille du Cube augmente de 1,50 mètre, pour chaque niveau d'emplacement de sort supérieur à 1.

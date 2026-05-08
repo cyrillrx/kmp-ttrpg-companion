@@ -105,7 +105,8 @@ translations:
 
       ***Spellcasting***. The giant casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 18):
 
-      At Will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), Light*\
+      At Will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), Light*
+      
       1/Day: *[Control Weather](https://www.aidedd.org/spell/control-weather)*
     senses: Darkvision 120 ft., Truesight 30 ft., Passive Perception 20
     languages:
@@ -129,7 +130,8 @@ translations:
 
       ***Incantation***. Le géant lance l'un des sorts suivants, sans composantes matérielles, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 18) :
 
-      À volonté : *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), lumière*\
+      À volonté : *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), lumière*
+      
       1/jour : *contrôle du climat*
 
       ***Tempête foudroyante (recharge 5–6)***. *JdS Dextérité* : DD 18, chaque créature dans un Cylindre de 3 m de rayon et 12 m de haut émanant d'un point que le géant voit dans un rayon de 150 m. *Échec* : 55 (10d10) dégâts de foudre. *Réussite* : demi-dégâts.

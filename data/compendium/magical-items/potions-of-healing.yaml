@@ -8,8 +8,9 @@ translations:
     name: Potions of Healing
     subtype: null
     description: |-
-      You regain Hit Points when you drink this potion. The number of Hit Points depends on the potion's rarity, as shown in the table below.\
-      Whatever its potency, the potion's red liquid glimmers when agitated.\
+      You regain Hit Points when you drink this potion. The number of Hit Points depends on the potion's rarity, as shown in the table below.
+      
+      Whatever its potency, the potion's red liquid glimmers when agitated.
       
       | Potion | HP Regained | Rarity |
       | --- | --- | --- |
@@ -21,8 +22,9 @@ translations:
     name: Potions de guérison
     subtype: null
     description: |-
-      Vous regagnez des points de vie lorsque vous buvez cette potion. Le nombre de points de vie dépend de la rareté de la potion, comme indiqué dans la table ci-dessous.\
-      Quelle que soit sa puissance, le liquide rouge de la potion scintille lorsqu'on l'agite.\
+      Vous regagnez des points de vie lorsque vous buvez cette potion. Le nombre de points de vie dépend de la rareté de la potion, comme indiqué dans la table ci-dessous.
+      
+      Quelle que soit sa puissance, le liquide rouge de la potion scintille lorsqu'on l'agite.
       
       | Potion | Pv récupérés | Rareté |
       | --- | --- | --- |

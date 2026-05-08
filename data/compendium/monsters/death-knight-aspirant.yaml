@@ -105,7 +105,8 @@ translations:
 
       ***Spellcasting***. The aspirant casts one of the following spells, using Charisma as the spellcasting ability (spell save DC 15):
 
-      At will: *[Phantom Steed](https://www.aidedd.org/spell/phantom-steed)*\
+      At will: *[Phantom Steed](https://www.aidedd.org/spell/phantom-steed)*
+      
       1/day each: *[Destructive Wave](https://www.aidedd.org/spell/destructive-wave)* (Necrotic), *[Dispel Magic](https://www.aidedd.org/spell/dispel-magic)*
 
       ## Reactions
@@ -121,14 +122,18 @@ translations:
     description: |-
       ## Traits
 
-      Résistance à la magie.\
+      Résistance à la magie.
+      
       Brigade des morts-vivants.
 
       ## Actions
 
-      Attaques multiples.\
-      Lame d'épouvante.\
-      Orbe de feu infernal (recharge 5–6).\
+      Attaques multiples.
+      
+      Lame d'épouvante.
+      
+      Orbe de feu infernal (recharge 5–6).
+      
       Incantation.
 
       ## Réactions

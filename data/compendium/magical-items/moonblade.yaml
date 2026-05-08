@@ -8,13 +8,19 @@ translations:
     name: Moonblade
     subtype: Greatsword, Longsword, Rapier, Scimitar, or Shortsword
     description: |-
-      Of all the magic items created by elves, one of the most prized and jealously guarded is a *Moonblade*. In ancient times, nearly all elven noble houses claimed one such weapon. Over the centuries, some of these weapons have faded from the world, their magic lost as family lines have become extinct. Others have vanished with their bearers during great quests. Thus, only a few of these weapons remain.\
-      Every *Moonblade* longs for a bearer whose disposition and goals are compatible with its own. If you try to attune to a *Moonblade* that doesn't want you as its bearer, the weapon not only rejects you but also places a curse on you, causing you to make D20 Tests with Disadvantage for 24 hours or until the curse is ended by a *Remove Curse* spell or similar magic. If you're accepted by the weapon and try to attune to it, you become attuned to it instantly, and a new rune appears on it. You remain attuned to the weapon until you die or the weapon is destroyed. A *Moonblade* functions like a nonmagical weapon of its kind for anyone other than its chosen bearer.\
-      A *Moonblade* has one rune on it for each bearer it has willingly served (typically 1d6 + 1). The first rune grants a +1 bonus to attack rolls and damage rolls made with this magic weapon. Each rune beyond the first grants the *Moonblade* an additional property. The DM chooses each property or determines it randomly by rolling on the *Moonblade* Properties table.\
-      **Minor Property**. In addition to its aforementioned properties, each *Moonblade* has a minor property determined by rolling on the Magic Item's Minor Property table.\
-      **Sentience**. A *Moonblade* is a sentient weapon with an Intelligence of 12, a Wisdom of 10, and a Charisma of 12. It has hearing and Darkvision out to 120 feet. Its alignment matches that of its creator.\
-      The weapon communicates by transmitting emotions, sending a tingling sensation through the wielder's hand when it wants to communicate something it has sensed. It can communicate through visions or dreams when the wielder is either in a trance or asleep.\
-      **Personality**. A *Moonblade* has a personality similar to that of its creator. Once a *Moonblade* has decided on an owner, it believes that only that person should wield it, even if the bearer's alignment differs from that of the weapon's or the bearer's goals later clash with the weapon's goals.\
+      Of all the magic items created by elves, one of the most prized and jealously guarded is a *Moonblade*. In ancient times, nearly all elven noble houses claimed one such weapon. Over the centuries, some of these weapons have faded from the world, their magic lost as family lines have become extinct. Others have vanished with their bearers during great quests. Thus, only a few of these weapons remain.
+      
+      Every *Moonblade* longs for a bearer whose disposition and goals are compatible with its own. If you try to attune to a *Moonblade* that doesn't want you as its bearer, the weapon not only rejects you but also places a curse on you, causing you to make D20 Tests with Disadvantage for 24 hours or until the curse is ended by a *Remove Curse* spell or similar magic. If you're accepted by the weapon and try to attune to it, you become attuned to it instantly, and a new rune appears on it. You remain attuned to the weapon until you die or the weapon is destroyed. A *Moonblade* functions like a nonmagical weapon of its kind for anyone other than its chosen bearer.
+      
+      A *Moonblade* has one rune on it for each bearer it has willingly served (typically 1d6 + 1). The first rune grants a +1 bonus to attack rolls and damage rolls made with this magic weapon. Each rune beyond the first grants the *Moonblade* an additional property. The DM chooses each property or determines it randomly by rolling on the *Moonblade* Properties table.
+      
+      **Minor Property**. In addition to its aforementioned properties, each *Moonblade* has a minor property determined by rolling on the Magic Item's Minor Property table.
+      
+      **Sentience**. A *Moonblade* is a sentient weapon with an Intelligence of 12, a Wisdom of 10, and a Charisma of 12. It has hearing and Darkvision out to 120 feet. Its alignment matches that of its creator.
+      
+      The weapon communicates by transmitting emotions, sending a tingling sensation through the wielder's hand when it wants to communicate something it has sensed. It can communicate through visions or dreams when the wielder is either in a trance or asleep.
+      
+      **Personality**. A *Moonblade* has a personality similar to that of its creator. Once a *Moonblade* has decided on an owner, it believes that only that person should wield it, even if the bearer's alignment differs from that of the weapon's or the bearer's goals later clash with the weapon's goals.
       
       | 1d100 | Property |
       | --- | --- |
@@ -29,13 +35,19 @@ translations:
     name: Lamelune
     subtype: épée à deux mains, épée longue, rapière, cimeterre ou épée courte
     description: |-
-      Parmi tous les objets magiques créés par les elfes, la *lamelune* est l'un des plus précieux et jalousement gardés. Dans les temps anciens, presque toutes les maisons nobles elfiques possédaient une telle arme mais, au fil des siècles, certaines de ces armes ont disparu du monde, leur magie s'étant perdue avec l'extinction des lignées familiales. D'autres ont disparu avec leurs porteurs lors de grandes quêtes. Ainsi, seules quelques-unes subsistent.\
-      Chaque *lamelune* aspire à avoir un porteur dont la nature et les objectifs sont compatibles avec les siens. Si vous tentez de vous lier avec une *lamelune* qui ne vous désire pas, l'arme vous rejette et vous maudit, vous obligeant à effectuer les jets de d20 avec un Désavantage pendant 24 heures ou jusqu'à ce que la malédiction soit levée par un sort de *délivrance des malédictions* ou autre sort similaire. Si l'arme vous accepte et que vous tentez de vous lier avec elle, le lien est instantané et une nouvelle rune apparaît sur elle. Vous restez lié avec l'arme jusqu'à sa destruction ou jusqu'à votre mort. Une *lamelune* fonctionne comme une arme non magique de son type pour quiconque n'est pas son porteur élu.\
-      Une *lamelune* possède une rune pour chaque porteur qu'elle a volontairement servi (généralement 1d6 + 1). La première rune confère un bonus de +1 aux jets d'attaque et de dégâts effectués avec cette arme magique. Chaque rune supplémentaire confère à la *lamelune* une propriété additionnelle. Le MD choisit chaque propriété ou la détermine aléatoirement en lançant un dé sur la table ci-dessous.\
-      **Propriété mineure**. Outre ses propriétés mentionnées précédemment, chaque *lamelune* possède une propriété mineure déterminée par un jet de dé sur la table ci-dessous.\
-      **Conscience**. Une *lamelune* est une arme consciente dotée d'une Intelligence de 12, d'une Sagesse de 10 et d'un Charisme de 12. Elle possède l'ouïe et la vision nocturne jusqu'à 36 mètres. Son alignement est identique à celui de son créateur.\
-      L'arme communique en transmettant des émotions, envoyant une sensation de picotement dans la main de son porteur lorsqu'elle souhaite communiquer une perception. Elle peut communiquer par visions ou rêves lorsque son porteur est en transe ou endormi.\
-      **Personnalité**. Une *lamelune* possède une personnalité similaire à celle de son créateur. Une fois qu'une *lamelune* a choisi un propriétaire, elle estime que seule cette personne devrait la manier, même si l'alignement du porteur diffère de celui de l'arme ou si les objectifs du porteur entrent plus tard en conflit avec les objectifs de l'arme.\
+      Parmi tous les objets magiques créés par les elfes, la *lamelune* est l'un des plus précieux et jalousement gardés. Dans les temps anciens, presque toutes les maisons nobles elfiques possédaient une telle arme mais, au fil des siècles, certaines de ces armes ont disparu du monde, leur magie s'étant perdue avec l'extinction des lignées familiales. D'autres ont disparu avec leurs porteurs lors de grandes quêtes. Ainsi, seules quelques-unes subsistent.
+      
+      Chaque *lamelune* aspire à avoir un porteur dont la nature et les objectifs sont compatibles avec les siens. Si vous tentez de vous lier avec une *lamelune* qui ne vous désire pas, l'arme vous rejette et vous maudit, vous obligeant à effectuer les jets de d20 avec un Désavantage pendant 24 heures ou jusqu'à ce que la malédiction soit levée par un sort de *délivrance des malédictions* ou autre sort similaire. Si l'arme vous accepte et que vous tentez de vous lier avec elle, le lien est instantané et une nouvelle rune apparaît sur elle. Vous restez lié avec l'arme jusqu'à sa destruction ou jusqu'à votre mort. Une *lamelune* fonctionne comme une arme non magique de son type pour quiconque n'est pas son porteur élu.
+      
+      Une *lamelune* possède une rune pour chaque porteur qu'elle a volontairement servi (généralement 1d6 + 1). La première rune confère un bonus de +1 aux jets d'attaque et de dégâts effectués avec cette arme magique. Chaque rune supplémentaire confère à la *lamelune* une propriété additionnelle. Le MD choisit chaque propriété ou la détermine aléatoirement en lançant un dé sur la table ci-dessous.
+      
+      **Propriété mineure**. Outre ses propriétés mentionnées précédemment, chaque *lamelune* possède une propriété mineure déterminée par un jet de dé sur la table ci-dessous.
+      
+      **Conscience**. Une *lamelune* est une arme consciente dotée d'une Intelligence de 12, d'une Sagesse de 10 et d'un Charisme de 12. Elle possède l'ouïe et la vision nocturne jusqu'à 36 mètres. Son alignement est identique à celui de son créateur.
+      
+      L'arme communique en transmettant des émotions, envoyant une sensation de picotement dans la main de son porteur lorsqu'elle souhaite communiquer une perception. Elle peut communiquer par visions ou rêves lorsque son porteur est en transe ou endormi.
+      
+      **Personnalité**. Une *lamelune* possède une personnalité similaire à celle de son créateur. Une fois qu'une *lamelune* a choisi un propriétaire, elle estime que seule cette personne devrait la manier, même si l'alignement du porteur diffère de celui de l'arme ou si les objectifs du porteur entrent plus tard en conflit avec les objectifs de l'arme.
       
       | 1d100 | Propriété |
       | --- | --- |

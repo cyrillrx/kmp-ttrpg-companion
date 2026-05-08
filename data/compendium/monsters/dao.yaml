@@ -109,7 +109,8 @@ translations:
 
       ***Spellcasting***. The dao casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 16):
 
-      At will: *[Detect Evil and Good](https://www.aidedd.org/spell/detect-evil-and-good), [Detect Magic](https://www.aidedd.org/spell/detect-magic), Stone Shape*\
+      At will: *[Detect Evil and Good](https://www.aidedd.org/spell/detect-evil-and-good), [Detect Magic](https://www.aidedd.org/spell/detect-magic), Stone Shape*
+      
       1/day each: *[Gaseous Form](https://www.aidedd.org/spell/gaseous-form), [Invisibility](https://www.aidedd.org/spell/invisibility), Move Earth, Passwall, [Plane Shift](https://www.aidedd.org/spell/plane-shift), [Tongues](https://www.aidedd.org/spell/tongues), Wall of Stone*
     senses: Darkvision 120 ft., Passive Perception 11
     languages:
@@ -120,16 +121,22 @@ translations:
     description: |-
       ## Traits
 
-      Déplacement tellurique.\
-      Restauration élémentaire.\
-      Résistance à la magie.\
+      Déplacement tellurique.
+      
+      Restauration élémentaire.
+      
+      Résistance à la magie.
+      
       Souhaits.
 
       ## Actions
 
-      Attaques multiples.\
-      Maillet terrien.\
-      Explosion terreuse.\
+      Attaques multiples.
+      
+      Maillet terrien.
+      
+      Explosion terreuse.
+      
       Incantation.
     senses: Vision dans le noir 36 m, Perception passive 11
     languages:

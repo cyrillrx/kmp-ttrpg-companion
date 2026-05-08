@@ -8,11 +8,13 @@ translations:
     name: Universal Solvent
     subtype: null
     description: |-
-      This tube holds milky liquid with a strong alcohol smell. When found, a tube contains 1d6 + 1 ounces.\
+      This tube holds milky liquid with a strong alcohol smell. When found, a tube contains 1d6 + 1 ounces.
+      
       You can take a Utilize action to pour 1 or more ounces of solvent from the tube onto a surface within reach. Each ounce instantly dissolves up to 1 square foot of adhesive it touches, including *Sovereign Glue*.
   fr:
     name: Solvant universel
     subtype: null
     description: |-
-      Ce tube contient un liquide laiteux à forte odeur d'alcool. Une fois trouvé, un tube contient 1d6 + 30 ml.\
+      Ce tube contient un liquide laiteux à forte odeur d'alcool. Une fois trouvé, un tube contient 1d6 + 30 ml.
+      
       Vous pouvez prendre une action Utilisation pour verser 30 ml ou plus de solvant du tube sur une surface à portée de main. Chaque ml dissout instantanément jusqu'à 30 x 30 cm de colle, y compris la *colle universelle*.

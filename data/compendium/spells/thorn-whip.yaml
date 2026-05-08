@@ -18,8 +18,10 @@ translations:
     duration: Instantaneous
     materialDescription: the stem of a thorny plant
     description: |-
-      You create a vine-like whip covered in thorns that lashes out at your command toward a creature in range. Make a melee spell attack against the target. On a hit, the target takes 1d6 Piercing damage, and if it is Large or smaller, you can pull it up to 10 feet closer to you.\
-      ***Cantrip Upgrade***. The damage increases by 1d6 when you reach levels 5 (2d6), 11 (3d6), and 17 (4d6).\
+      You create a vine-like whip covered in thorns that lashes out at your command toward a creature in range. Make a melee spell attack against the target. On a hit, the target takes 1d6 Piercing damage, and if it is Large or smaller, you can pull it up to 10 feet closer to you.
+      
+      ***Cantrip Upgrade***. The damage increases by 1d6 when you reach levels 5 (2d6), 11 (3d6), and 17 (4d6).
+      
   fr:
     name: Fouet épineux
     castingTime: Action
@@ -27,5 +29,6 @@ translations:
     duration: Instantanée
     materialDescription: une tige de plante épineuse
     description: |-
-      Vous créez un fouet semblable à une liane couverte d'épines qui s'abat à votre ordre sur une créature à portée. Effectuez une attaque de sort au corps à corps contre la cible. Si l'attaque touche, la cible subit 1d6 dégâts perforants, et si elle est de taille G ou inférieure, vous pouvez la rapprocher de vous jusqu'à 3 mètres.\
-      ***Amélioration de sort mineur***. Les dégâts augmentent de 1d6 aux niveaux 5 (2d6), 11 (3d6) et 17 (4d6).\
+      Vous créez un fouet semblable à une liane couverte d'épines qui s'abat à votre ordre sur une créature à portée. Effectuez une attaque de sort au corps à corps contre la cible. Si l'attaque touche, la cible subit 1d6 dégâts perforants, et si elle est de taille G ou inférieure, vous pouvez la rapprocher de vous jusqu'à 3 mètres.
+      
+      ***Amélioration de sort mineur***. Les dégâts augmentent de 1d6 aux niveaux 5 (2d6), 11 (3d6) et 17 (4d6).
