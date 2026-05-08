@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredWidth
@@ -38,13 +37,13 @@ import org.intellij.markdown.flavours.gfm.GFMTokenTypes.CELL
 import org.intellij.markdown.flavours.gfm.GFMTokenTypes.TABLE_SEPARATOR
 
 /**
- * Markdown table renderer with adaptive column widths.
+ * Markdown table renderer with natural column widths.
  *
- * Column widths are distributed proportionally to each column's minimum content width
- * (= width of its longest word across all rows). This avoids the equal-weight layout
- * that wastes space on short columns (e.g. "1d8" vs long description text).
+ * Each column is sized to its widest single-line content (Markdown stripped),
+ * capped at [tableCellWidth] (160dp by default). The table width equals the sum
+ * of column widths — it does not stretch to fill available space.
  *
- * If the total minimum width exceeds available space, horizontal scroll is activated.
+ * If the total width exceeds the available space, horizontal scroll is activated.
  */
 @Composable
 fun MarkdownTableAdaptive(
@@ -53,10 +52,12 @@ fun MarkdownTableAdaptive(
     style: TextStyle,
 ) {
     val tableCellPadding = LocalMarkdownDimens.current.tableCellPadding
+    val tableCellWidth = LocalMarkdownDimens.current.tableCellWidth
     val tableCornerSize = LocalMarkdownDimens.current.tableCornerSize
     val backgroundCodeColor = LocalMarkdownColors.current.tableBackground
     val textMeasurer = rememberTextMeasurer()
     val annotatorSettings = annotatorSettings()
+    val density = LocalDensity.current
 
     val headerNode = node.findChildOfType(HEADER) ?: return
     val columnCount = headerNode.children.count { it.type == CELL }
@@ -64,57 +65,41 @@ fun MarkdownTableAdaptive(
 
     val dataRows = node.children.filter { it.type == ROW }
 
-    // For each column, find the widest single word across all rows (header included).
-    // Cell text is stripped of Markdown syntax before splitting, so that link URLs
-    // ([text](url) → text) and emphasis markers (* **) don't create artificially long
-    // "words" that skew the proportional width distribution.
-    val colMinWordWidths = remember(content, node) {
+    // Each column width = min(single-line ideal text width, tableCellWidth) + padding.
+    // Markdown is stripped before measurement so link URLs and emphasis markers
+    // don't inflate the measured width.
+    val colWidths: List<Dp> = remember(content, node, density, tableCellWidth, tableCellPadding) {
+        val capPx = with(density) { tableCellWidth.roundToPx() }
+        val paddingPx = with(density) { (tableCellPadding * 2).roundToPx() }
         (0 until columnCount).map { colIdx ->
             val rows: List<ASTNode> = listOf(headerNode) + dataRows
-            rows.maxOf { rowNode ->
+            val idealTextPx = rows.maxOf { rowNode ->
                 val cell = rowNode.children.filter { it.type == CELL }.getOrNull(colIdx)
                     ?: return@maxOf 1
                 val cellText = content.substring(cell.startOffset, cell.endOffset)
                     .trim()
                     .stripMarkdown()
                 if (cellText.isEmpty()) 1
-                else cellText.split(Regex("\\s+")).maxOf { word ->
-                    textMeasurer.measure(word.trim().ifEmpty { " " }, style = style).size.width
-                }
+                else textMeasurer.measure(cellText, style = style, softWrap = false).size.width
+                    .coerceAtMost(capPx)
             }
+            with(density) { (idealTextPx + paddingPx).toDp() }
         }
     }
 
-    val density = LocalDensity.current
-
     BoxWithConstraints(
-        modifier = Modifier
-            .background(backgroundCodeColor, RoundedCornerShape(tableCornerSize))
-            .fillMaxWidth(),
+        modifier = Modifier.background(backgroundCodeColor, RoundedCornerShape(tableCornerSize)),
     ) {
         val availablePx = constraints.maxWidth
-        val paddingPx = with(density) { (tableCellPadding * 2).roundToPx() }
-        val totalMinPx = colMinWordWidths.sumOf { it + paddingPx }
-        val scrollable = totalMinPx > availablePx
-
-        val colWidths: List<Dp> = if (scrollable) {
-            // Each column gets exactly its min-word width + padding
-            colMinWordWidths.map { w -> with(density) { (w + paddingPx).toDp() } }
-        } else {
-            // Distribute available width proportionally to min-word widths
-            val totalMin = colMinWordWidths.sum().coerceAtLeast(1)
-            colMinWordWidths.map { w ->
-                with(density) { ((availablePx.toLong() * w / totalMin).toInt()).toDp() }
-            }
-        }
-
         val totalWidthDp = colWidths.fold(0.dp) { acc, dp -> acc + dp }
+        val totalWidthPx = with(density) { totalWidthDp.roundToPx() }
+        val scrollable = totalWidthPx > availablePx
 
         Column(
             modifier = if (scrollable) {
                 Modifier.horizontalScroll(rememberScrollState()).requiredWidth(totalWidthDp)
             } else {
-                Modifier.fillMaxWidth()
+                Modifier.width(totalWidthDp)
             },
         ) {
             node.children.forEach { child ->
@@ -142,8 +127,8 @@ fun MarkdownTableAdaptive(
     }
 }
 
-// Strips Markdown formatting before word-width measurement so that constructs like
-// [text](very/long/url) or *emphasis* don't produce artificially wide "words".
+// Strips Markdown formatting before single-line width measurement so that constructs
+// like [text](very/long/url) or *emphasis* don't produce artificially wide "words".
 private fun String.stripMarkdown(): String = this
     .replace(Regex("\\[([^]]+)]\\([^)]*\\)"), "$1") // [text](url) → text
     .replace(Regex("[*_`]+"), "")                    // *, **, _, __, ` → nothing
@@ -159,9 +144,7 @@ private fun AdaptiveTableRow(
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(IntrinsicSize.Min),
+        modifier = Modifier.height(IntrinsicSize.Min),
     ) {
         rowNode.children.filter { it.type == CELL }.forEachIndexed { i, cell ->
             val colWidth = colWidths.getOrElse(i) { colWidths.lastOrNull() ?: 80.dp }
