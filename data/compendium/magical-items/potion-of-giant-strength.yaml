@@ -13,11 +13,10 @@ translations:
       | Potion | Str. | Rarity |
       | --- | --- | --- |
       | Potion of Giant Strength (hill) | 21 | Uncommon |
-      Potion of Giant Strength (frost) or\
-      Potion of Giant Strength (stone)| 23| Rare\
-      Potion of Giant Strength (fire)| 25| Rare\
-      Potion of Giant Strength (cloud)| 27| Very Rare\
-      Potion of Giant Strength (storm)| 29| Legendary
+      | Potion of Giant Strength (frost) or Potion of Giant Strength (stone) | 23 | Rare |
+      | Potion of Giant Strength (fire) | 25 | Rare |
+      | Potion of Giant Strength (cloud) | 27 | Very Rare |
+      | Potion of Giant Strength (storm) | 29 | Legendary |
   fr:
     name: Potion de force de géant
     subtype: null
@@ -27,8 +26,7 @@ translations:
       | Potion | Force | Rareté |
       | --- | --- | --- |
       | Potion de force de géant (collines) | 21 | Peu courante |
-      Potion de force de géant (givre) ou\
-      Potion de force de géant (pierres)| 23| Rare\
-      Potion de force de géant (feu)| 25| Rare\
-      Potion de force de géant (nuages)| 27| Très rare\
-      Potion de force de géant (tempêtes)| 29| Légendaire
+      | Potion de force de géant (givre) ou Potion de force de géant (pierres) | 23 | Rare |
+      | Potion de force de géant (feu) | 25 | Rare |
+      | Potion de force de géant (nuages) | 27 | Très rare |
+      | Potion de force de géant (tempêtes) | 29 | Légendaire |
