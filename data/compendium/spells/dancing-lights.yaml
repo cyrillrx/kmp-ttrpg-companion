@@ -19,25 +19,15 @@ translations:
     range: 120 feet
     duration: Concentration, up to 1 minute
     materialDescription: a bit of phosphorus
-    description: You create up to four torch-size lights within range, making them
-      appear as torches, lanterns, or glowing orbs that hover for the duration. Alternatively,
-      you combine the four lights into one glowing Medium form that is vaguely humanlike.
-      Whichever form you choose, each light sheds Dim Light in a 10-foot radius.<br/>As
-      a Bonus Action, you can move the lights up to 60 feet to a space within range.
-      A light must be within 20 feet of another light created by this spell, and a
-      light vanishes if it exceeds the spell's range.<br/>
+    description: |-
+      You create up to four torch-size lights within range, making them appear as torches, lanterns, or glowing orbs that hover for the duration. Alternatively, you combine the four lights into one glowing Medium form that is vaguely humanlike. Whichever form you choose, each light sheds Dim Light in a 10-foot radius.\
+      As a Bonus Action, you can move the lights up to 60 feet to a space within range. A light must be within 20 feet of another light created by this spell, and a light vanishes if it exceeds the spell's range.\
   fr:
     name: Lumières dansantes
     castingTime: Action
     range: 36 m
     duration: Concentration, jusqu'à 1 minute
     materialDescription: un peu de phosphore
-    description: Vous créez jusqu'à quatre lumières de la taille d'une torche à portée,
-      les faisant apparaître comme des torches, des lanternes ou des orbes lumineuses
-      flottant pendant la durée du sort. Vous pouvez également combiner les quatre
-      lumières pour former une silhouette de taille M vaguement humaine. Quelle que
-      soit la forme choisie, chaque lumière diffuse une Lumière faible sur un rayon
-      de 3 mètres.<br/>Par une action Bonus, vous pouvez déplacer les lumières jusqu'à
-      18 mètres vers un espace à portée. Une lumière doit se trouver à 6 mètres ou
-      moins d'une autre lumière créée par ce sort. Elle disparaît si elle dépasse
-      la portée du sort.<br/>
+    description: |-
+      Vous créez jusqu'à quatre lumières de la taille d'une torche à portée, les faisant apparaître comme des torches, des lanternes ou des orbes lumineuses flottant pendant la durée du sort. Vous pouvez également combiner les quatre lumières pour former une silhouette de taille M vaguement humaine. Quelle que soit la forme choisie, chaque lumière diffuse une Lumière faible sur un rayon de 3 mètres.\
+      Par une action Bonus, vous pouvez déplacer les lumières jusqu'à 18 mètres vers un espace à portée. Une lumière doit se trouver à 6 mètres ou moins d'une autre lumière créée par ce sort. Elle disparaît si elle dépasse la portée du sort.\

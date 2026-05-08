@@ -17,21 +17,13 @@ translations:
     range: Self
     duration: Concentration, up to 1 minute
     materialDescription: a Quiver worth 1+ GP
-    description: When you cast the spell and as a Bonus Action until it ends, you
-      can make two attacks with a weapon that fires Arrows or Bolts, such as a Longbow
-      or a Light Crossbow. The spell magically creates the ammunition needed for each
-      attack. Each Arrow or Bolt created by the spell deals damage like a nonmagical
-      piece of ammunition of its kind and disintegrates immediately after it hits
-      or misses.<br/>
+    description: |-
+      When you cast the spell and as a Bonus Action until it ends, you can make two attacks with a weapon that fires Arrows or Bolts, such as a Longbow or a Light Crossbow. The spell magically creates the ammunition needed for each attack. Each Arrow or Bolt created by the spell deals damage like a nonmagical piece of ammunition of its kind and disintegrates immediately after it hits or misses.\
   fr:
     name: Vif carquois
     castingTime: Action bonus
     range: Personnelle
     duration: Concentration, jusqu'à 1 minute
     materialDescription: un carquois d'une valeur minimale de 1 po
-    description: Lorsque vous lancez le sort et par une action Bonus jusqu'à sa fin,
-      vous pouvez effectuer deux attaques avec une arme tirant des flèches ou des
-      carreaux, comme un arc long ou une arbalète légère. Le sort crée magiquement
-      les projectiles nécessaires à chaque attaque. Chaque flèche ou carreau produit
-      inflige des dégâts comme le même projectile non magique et se désintègre immédiatement
-      après avoir touché ou manqué sa cible.<br/>
+    description: |-
+      Lorsque vous lancez le sort et par une action Bonus jusqu'à sa fin, vous pouvez effectuer deux attaques avec une arme tirant des flèches ou des carreaux, comme un arc long ou une arbalète légère. Le sort crée magiquement les projectiles nécessaires à chaque attaque. Chaque flèche ou carreau produit inflige des dégâts comme le même projectile non magique et se désintègre immédiatement après avoir touché ou manqué sa cible.\

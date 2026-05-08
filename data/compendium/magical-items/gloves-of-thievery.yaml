@@ -7,10 +7,10 @@ translations:
   en:
     name: Gloves of Thievery
     subtype: null
-    description: <p>These gloves are imperceptible while worn. While wearing them,
-      you gain a +5 bonus to Dexterity (Sleight of Hand) checks.</p>
+    description: |-
+      These gloves are imperceptible while worn. While wearing them, you gain a +5 bonus to Dexterity (Sleight of Hand) checks.
   fr:
     name: Gants de chapardeur
     subtype: null
-    description: <p>Ces gants sont imperceptibles lorsqu'ils sont portés. Ils vous
-      confèrent un bonus de +5 aux jets de Dextérité (Escamotage).</p>
+    description: |-
+      Ces gants sont imperceptibles lorsqu'ils sont portés. Ils vous confèrent un bonus de +5 aux jets de Dextérité (Escamotage).

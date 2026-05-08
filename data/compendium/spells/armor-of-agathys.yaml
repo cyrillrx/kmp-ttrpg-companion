@@ -17,22 +17,15 @@ translations:
     range: Self
     duration: 1 hour
     materialDescription: a shard of blue glass
-    description: Protective magical frost surrounds you. You gain 5 Temporary Hit
-      Points. If a creature hits you with a melee attack roll before the spell ends,
-      the creature takes 5 Cold damage. The spell ends early if you have no Temporary
-      Hit Points.<br/><strong><em>Using a Higher-Level Spell Slot</em></strong>. The
-      Temporary Hit Points and the Cold damage both increase by 5 for each spell slot
-      level above 1.<br/>
+    description: |-
+      Protective magical frost surrounds you. You gain 5 Temporary Hit Points. If a creature hits you with a melee attack roll before the spell ends, the creature takes 5 Cold damage. The spell ends early if you have no Temporary Hit Points.\
+      ***Using a Higher-Level Spell Slot***. The Temporary Hit Points and the Cold damage both increase by 5 for each spell slot level above 1.\
   fr:
     name: Armure d'Agathys
     castingTime: Action bonus
     range: Personnelle
     duration: 1 heure
     materialDescription: un éclat de verre bleu
-    description: Un givre magique protecteur vous enveloppe. Vous gagnez 5 points
-      de vie temporaires. Si une créature vous touche avec un jet d'attaque au corps
-      à corps avant la fin du sort, elle subit 5 dégâts de froid. Le sort prend fin
-      prématurément si vous n'avez plus de points de vie temporaires.<br/><strong><em>Emplacement
-      de niveau supérieur</em></strong>. Les points de vie temporaires et les dégâts
-      de froid augmentent de 5 pour chaque niveau d'emplacement de sort supérieur
-      à 1.<br/>
+    description: |-
+      Un givre magique protecteur vous enveloppe. Vous gagnez 5 points de vie temporaires. Si une créature vous touche avec un jet d'attaque au corps à corps avant la fin du sort, elle subit 5 dégâts de froid. Le sort prend fin prématurément si vous n'avez plus de points de vie temporaires.\
+      ***Emplacement de niveau supérieur***. Les points de vie temporaires et les dégâts de froid augmentent de 5 pour chaque niveau d'emplacement de sort supérieur à 1.\

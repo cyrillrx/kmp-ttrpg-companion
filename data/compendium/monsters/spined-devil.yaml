@@ -89,13 +89,19 @@ translations:
     name: Spined Devil
     subtype: Devil
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Flyby</em>**. The devil doesn't provoke an Opportunity Attack when it flies out of an enemy's reach.</p>
-      <p><strong><em>Magic Resistance</em></strong>. The devil has Advantage on saving throws against spells and other magical effects.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The devil makes two attacks, using Infernal Fork and Tail Spine in any combination.</p>
-      <p><strong><em>Infernal Fork</em></strong>. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 5 (1d6 + 2) Piercing damage plus 3 (1d6) Fire damage.</p>
-      <p><strong><em>Tail Spine</em></strong>. <em>Ranged Attack Roll</em> : +4, range 20/80 ft. <em>Hit</em> : 4 (1d4 + 2) Piercing damage plus 3 (1d6) Fire damage.</p>
+      ## Traits
+
+      ***Flyby***. The devil doesn't provoke an Opportunity Attack when it flies out of an enemy's reach.
+
+      ***Magic Resistance***. The devil has Advantage on saving throws against spells and other magical effects.
+
+      ## Actions
+
+      ***Multiattack***. The devil makes two attacks, using Infernal Fork and Tail Spine in any combination.
+
+      ***Infernal Fork***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 5 (1d6 + 2) Piercing damage plus 3 (1d6) Fire damage.
+
+      ***Tail Spine***. *Ranged Attack Roll* : +4, range 20/80 ft. *Hit* : 4 (1d4 + 2) Piercing damage plus 3 (1d6) Fire damage.
     senses: Darkvision 120 ft. (unimpeded by magical Darkness), Passive Perception
       12
     languages:
@@ -104,13 +110,19 @@ translations:
     name: Diable épineux
     subtype: Diable
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Repli aérien</em>**. Le diable ne provoque pas d'attaque d'Opportunité lorsqu'il quitte la zone d'allonge d'un ennemi en volant.</p>
-      <p><strong><em>Résistance à la magie</em></strong>. Le diable a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le diable effectue deux attaques, réparties à sa guise entre Fourche infernale et Épine caudale.</p>
-      <p><strong><em>Fourche infernale</em></strong>. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 5 (1d6 + 2) dégâts perforants plus 3 (1d6) dégâts de feu.</p>
-      <p><strong><em>Épine caudale</em></strong>. <em>À distance</em> : +4, portée 6/24 m. <em>Touché</em> : 4 (1d4 + 2) dégâts perforants plus 3 (1d6) dégâts de feu.</p>
+      ## Traits
+
+      ***Repli aérien***. Le diable ne provoque pas d'attaque d'Opportunité lorsqu'il quitte la zone d'allonge d'un ennemi en volant.
+
+      ***Résistance à la magie***. Le diable a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
+
+      ## Actions
+
+      ***Attaques multiples***. Le diable effectue deux attaques, réparties à sa guise entre Fourche infernale et Épine caudale.
+
+      ***Fourche infernale***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 5 (1d6 + 2) dégâts perforants plus 3 (1d6) dégâts de feu.
+
+      ***Épine caudale***. *À distance* : +4, portée 6/24 m. *Touché* : 4 (1d4 + 2) dégâts perforants plus 3 (1d6) dégâts de feu.
     senses: Vision dans le noir 36 m (perce les Ténèbres magiques), Perception passive
       12
     languages:

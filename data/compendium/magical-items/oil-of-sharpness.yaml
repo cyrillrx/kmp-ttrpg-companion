@@ -8,11 +8,11 @@ translations:
     name: Oil of Sharpness
     subtype: null
     description: |-
-      <p>One vial of this oil can coat one Melee weapon or twenty pieces of ammunition, but only ammunition and Melee weapons that are nonmagical and deal Slashing or Piercing damage are affected. Applying the oil takes 1 minute, after which the oil magically seeps into whatever it coats, turning the coated weapon into a <em>+3 Weapon</em> or the coated ammunition into <em>+3 Ammunition</em>.<br />
-      This clear, gelatinous oil sparkles with tiny, ultrathin silver shards.</p>
+      One vial of this oil can coat one Melee weapon or twenty pieces of ammunition, but only ammunition and Melee weapons that are nonmagical and deal Slashing or Piercing damage are affected. Applying the oil takes 1 minute, after which the oil magically seeps into whatever it coats, turning the coated weapon into a *+3 Weapon* or the coated ammunition into *+3 Ammunition*.\
+      This clear, gelatinous oil sparkles with tiny, ultrathin silver shards.
   fr:
     name: Huile d'affûtage
     subtype: null
     description: |-
-      <p>Une fiole de cette huile peut enduire une arme de corps à corps ou vingt projectiles, mais seules les projectiles et les armes de corps à corps non magiques infligeant des dégâts tranchants ou perforants sont affectées. L'application de l'huile prend 1 minute, après quoi elle s'infiltre magiquement dans la matière enduite, transformant l'arme enduite en une <em>arme +3</em> ou les projectiles en <em>projectiles +3</em>.<br />
-      Cette huile transparente et gélatineuse scintille de minuscules éclats argentés ultra-fins.</p>
+      Une fiole de cette huile peut enduire une arme de corps à corps ou vingt projectiles, mais seules les projectiles et les armes de corps à corps non magiques infligeant des dégâts tranchants ou perforants sont affectées. L'application de l'huile prend 1 minute, après quoi elle s'infiltre magiquement dans la matière enduite, transformant l'arme enduite en une *arme +3* ou les projectiles en *projectiles +3*.\
+      Cette huile transparente et gélatineuse scintille de minuscules éclats argentés ultra-fins.

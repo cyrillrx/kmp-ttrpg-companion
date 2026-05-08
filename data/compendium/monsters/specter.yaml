@@ -89,11 +89,15 @@ translations:
     name: Specter
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Incorporeal Movement</em>**. The specter can move through other creatures and objects as if they were Difficult Terrain. It takes 5 (1d10) Force damage if it ends its turn inside an object.</p>
-      <p><strong><em>Sunlight Sensitivity</em></strong>. While in sunlight, the specter has Disadvantage on ability checks and attack rolls.</p>
-      <h2>Actions</h2>
-      <p>** <em>Life Drain</em>**. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 7 (2d6) Necrotic damage. If the target is a creature, its Hit Point maximum decreases by an amount equal to the damage taken.</p>
+      ## Traits
+
+      ***Incorporeal Movement***. The specter can move through other creatures and objects as if they were Difficult Terrain. It takes 5 (1d10) Force damage if it ends its turn inside an object.
+
+      ***Sunlight Sensitivity***. While in sunlight, the specter has Disadvantage on ability checks and attack rolls.
+
+      ## Actions
+
+      ***Life Drain***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 7 (2d6) Necrotic damage. If the target is a creature, its Hit Point maximum decreases by an amount equal to the damage taken.
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - Understands Common plus one other language but can't speak
@@ -101,11 +105,15 @@ translations:
     name: Spectre
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Déplacement intangible</em>**. Le spectre peut traverser d'autres créatures et objets comme s'il s'agissait d'un Terrain difficile. Il subit 5 (1d10) dégâts de force s'il termine son tour à l'intérieur d'un objet.</p>
-      <p><strong><em>Sensibilité au soleil</em></strong>. Tant qu'il est exposé à la lumière du soleil, le spectre subit un Désavantage aux jets de caractéristique et aux jets d'attaque.</p>
-      <h2>Actions</h2>
-      <p>** <em>Absorption de vie</em>**. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 7 (2d6) dégâts nécrotiques. Si la cible est une créature, son maximum de points de vie est réduit d'un montant égal aux dégâts subis.</p>
+      ## Traits
+
+      ***Déplacement intangible***. Le spectre peut traverser d'autres créatures et objets comme s'il s'agissait d'un Terrain difficile. Il subit 5 (1d10) dégâts de force s'il termine son tour à l'intérieur d'un objet.
+
+      ***Sensibilité au soleil***. Tant qu'il est exposé à la lumière du soleil, le spectre subit un Désavantage aux jets de caractéristique et aux jets d'attaque.
+
+      ## Actions
+
+      ***Absorption de vie***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 7 (2d6) dégâts nécrotiques. Si la cible est une créature, son maximum de points de vie est réduit d'un montant égal aux dégâts subis.
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - comprend le commun plus une autre langue

@@ -89,14 +89,21 @@ translations:
     name: Construct Spirit
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Heated Body (Metal Only)</em>**. A creature that hits the spirit with a melee attack or that starts its turn in a grapple with the spirit takes 1d10 Fire damage.</p>
-      <p><strong><em>Stony Lethargy (Stone Only)</em></strong>. When a creature starts its turn within 10 feet of the spirit, the spirit can target it with magical energy if the spirit can see it. <em>Wisdom Saving Throw</em> : DC equals your spell save DC, the target. <em>Failure</em> : Until the start of its next turn, the target can't make Opportunity Attacks, and its Speed is halved.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The spirit makes a number of Slam attacks equal to half this spell's level (round down).</p>
-      <p><strong><em>Slam</em></strong>. <em>Melee Attack Roll</em> : Bonus equals your spell attack modifier, reach 5 ft. <em>Hit</em> : 1d8 + 4 + the spell's level Bludgeoning damage.</p>
-      <h2>Reactions</h2>
-      <p>** <em>Berserk Lashing (Clay Only)</em>**. <em>Trigger</em> : The spirit takes damage from a creature. <em>Response</em> : The spirit makes a Slam attack against that creature if possible, or the spirit moves up to half its Speed toward that creature without provoking Opportunity Attacks.</p>
+      ## Traits
+
+      ***Heated Body (Metal Only)***. A creature that hits the spirit with a melee attack or that starts its turn in a grapple with the spirit takes 1d10 Fire damage.
+
+      ***Stony Lethargy (Stone Only)***. When a creature starts its turn within 10 feet of the spirit, the spirit can target it with magical energy if the spirit can see it. *Wisdom Saving Throw* : DC equals your spell save DC, the target. *Failure* : Until the start of its next turn, the target can't make Opportunity Attacks, and its Speed is halved.
+
+      ## Actions
+
+      ***Multiattack***. The spirit makes a number of Slam attacks equal to half this spell's level (round down).
+
+      ***Slam***. *Melee Attack Roll* : Bonus equals your spell attack modifier, reach 5 ft. *Hit* : 1d8 + 4 + the spell's level Bludgeoning damage.
+
+      ## Reactions
+
+      ***Berserk Lashing (Clay Only)***. *Trigger* : The spirit takes damage from a creature. *Response* : The spirit makes a Slam attack against that creature if possible, or the spirit moves up to half its Speed toward that creature without provoking Opportunity Attacks.
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - Understands the languages you know
@@ -104,14 +111,21 @@ translations:
     name: Esprit artificiel
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Corps brûlant (métal uniquement)</em>**. Une créature qui frappe l'esprit avec une attaque au corps à corps ou qui commence son tour en lutte avec l'esprit subit 1d10 dégâts de feu.</p>
-      <p><strong><em>Léthargie de la pierre (pierre uniquement)</em></strong>. Lorsqu'une créature commence son tour dans un rayon de 3 m autour de l'esprit, ce dernier peut la cibler avec des énergies magiques s'il peut la voir. <em>JdS Sagesse</em> : DD égal à votre DD de sauvegarde des sorts, la cible. <em>Échec</em> : jusqu'au début de son prochain tour, la cible ne peut pas effectuer d'attaque d'Opportunité et sa Vitesse est réduite de moitié.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. L'esprit effectue un nombre d'attaques de Coup égal à la moitié du niveau de ce sort (arrondir à l'inférieur).</p>
-      <p><strong><em>Coup</em></strong>. <em>Corps à corps</em> : bonus égal à votre modificateur d'attaque des sorts, allonge 1,50 m. <em>Touché</em> : 1d8 + 4 + le niveau du sort dégâts contondants.</p>
-      <h2>Réactions</h2>
-      <p>** <em>Riposte rageuse (argile uniquement)</em>**. <em>Déclencheur</em> : l'esprit subit des dégâts d'une créature. <em>Conséquences</em> : l'esprit effectue une attaque de Coup contre cette créature s'il le peut, ou se déplace jusqu'à la moitié de sa Vitesse vers elle sans provoquer d'attaque d'Opportunité.</p>
+      ## Traits
+
+      ***Corps brûlant (métal uniquement)***. Une créature qui frappe l'esprit avec une attaque au corps à corps ou qui commence son tour en lutte avec l'esprit subit 1d10 dégâts de feu.
+
+      ***Léthargie de la pierre (pierre uniquement)***. Lorsqu'une créature commence son tour dans un rayon de 3 m autour de l'esprit, ce dernier peut la cibler avec des énergies magiques s'il peut la voir. *JdS Sagesse* : DD égal à votre DD de sauvegarde des sorts, la cible. *Échec* : jusqu'au début de son prochain tour, la cible ne peut pas effectuer d'attaque d'Opportunité et sa Vitesse est réduite de moitié.
+
+      ## Actions
+
+      ***Attaques multiples***. L'esprit effectue un nombre d'attaques de Coup égal à la moitié du niveau de ce sort (arrondir à l'inférieur).
+
+      ***Coup***. *Corps à corps* : bonus égal à votre modificateur d'attaque des sorts, allonge 1,50 m. *Touché* : 1d8 + 4 + le niveau du sort dégâts contondants.
+
+      ## Réactions
+
+      ***Riposte rageuse (argile uniquement)***. *Déclencheur* : l'esprit subit des dégâts d'une créature. *Conséquences* : l'esprit effectue une attaque de Coup contre cette créature s'il le peut, ou se déplace jusqu'à la moitié de sa Vitesse vers elle sans provoquer d'attaque d'Opportunité.
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - comprend les langues que vous connaissez

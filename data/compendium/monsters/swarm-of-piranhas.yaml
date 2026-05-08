@@ -89,11 +89,15 @@ translations:
     name: Swarm of Piranhas
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Swarm</em>**. The swarm can occupy another creature's space and vice versa, and the swarm can move through any opening large enough for a Tiny piranha. The swarm can't regain Hit Points or gain Temporary Hit Points.</p>
-      <p><strong><em>Water Breathing</em></strong>. The swarm can breathe only underwater.</p>
-      <h2>Actions</h2>
-      <p>** <em>Bites</em>**. <em>Melee Attack Roll</em> : +5 (with Advantage if the target doesn't have all its Hit Points), reach 5 ft. <em>Hit</em> : 8 (2d4 + 3) Piercing damage, or 5 (1d4 + 3) Piercing damage if the swarm is Bloodied.</p>
+      ## Traits
+
+      ***Swarm***. The swarm can occupy another creature's space and vice versa, and the swarm can move through any opening large enough for a Tiny piranha. The swarm can't regain Hit Points or gain Temporary Hit Points.
+
+      ***Water Breathing***. The swarm can breathe only underwater.
+
+      ## Actions
+
+      ***Bites***. *Melee Attack Roll* : +5 (with Advantage if the target doesn't have all its Hit Points), reach 5 ft. *Hit* : 8 (2d4 + 3) Piercing damage, or 5 (1d4 + 3) Piercing damage if the swarm is Bloodied.
     senses: Darkvision 60 ft., Passive Perception 8
     languages:
     - None
@@ -101,11 +105,15 @@ translations:
     name: Nuée de piranhas
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Nuée</em>**. La nuée peut occuper l'espace d'une autre créature et réciproquement, et elle peut se déplacer par toute ouverture assez large pour un piranha de taille TP. La nuée ne peut ni récupérer de points de vie ni recevoir de points de vie temporaires.</p>
-      <p><strong><em>Respiration aquatique</em></strong>. La nuée ne peut respirer que sous l'eau.</p>
-      <h2>Actions</h2>
-      <p>** <em>Morsures</em>**. <em>Corps à corps</em> : +5 (avec Avantage si la cible n'a pas tous ses pv), allonge 1,50 m. <em>Touché</em> : 8 (2d4 + 3) dégâts perforants, ou 5 (1d4 + 3) dégâts perforants si la nuée est En péril.</p>
+      ## Traits
+
+      ***Nuée***. La nuée peut occuper l'espace d'une autre créature et réciproquement, et elle peut se déplacer par toute ouverture assez large pour un piranha de taille TP. La nuée ne peut ni récupérer de points de vie ni recevoir de points de vie temporaires.
+
+      ***Respiration aquatique***. La nuée ne peut respirer que sous l'eau.
+
+      ## Actions
+
+      ***Morsures***. *Corps à corps* : +5 (avec Avantage si la cible n'a pas tous ses pv), allonge 1,50 m. *Touché* : 8 (2d4 + 3) dégâts perforants, ou 5 (1d4 + 3) dégâts perforants si la nuée est En péril.
     senses: Vision dans le noir 18 m, Perception passive 8
     languages:
     - aucune

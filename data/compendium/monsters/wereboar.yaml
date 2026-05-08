@@ -89,13 +89,19 @@ translations:
     name: Wereboar
     subtype: Lycanthrope
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The wereboar makes two attacks, using Javelin or Tusk in any combination. It can replace one attack with a Gore attack.</p>
-      <p><strong><em>Gore (Boar or Hybrid Form Only)</em></strong>. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 12 (2d8 + 3) Piercing damage. If the target is a Humanoid, it is subjected to the following effect. <em>Constitution Saving Throw</em> : DC 12. <em>Failure</em> : The target is cursed. If the cursed target drops to 0 Hit Points, it instead becomes a <strong>Wereboar</strong> under the DM's control and has 10 Hit Points. <em>Success</em> : The target is immune to this wereboar's curse for 24 hours.</p>
-      <p><strong><em>Javelin (Humanoid or Hybrid Form Only)</em></strong>. <em>Melee or Ranged Attack Roll</em> : +5, reach 5 ft. or range 30/120 ft. <em>Hit</em> : 13 (3d6 + 3) Piercing damage.</p>
-      <p><strong><em>Tusk (Boar or Hybrid Form Only)</em></strong>. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 10 (2d6 + 3) Piercing damage. If the target is a Medium or smaller creature and the wereboar moved 20+ feet straight toward it immediately before the hit, the target takes an extra 7 (2d6) Piercing damage and has the Prone condition.</p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Shape-Shift</em>**. The wereboar shape-shifts into a Medium boar-humanoid hybrid or a Small boar, or it returns to its true humanoid form. Its game statistics, other than its size, are the same in each form. Any equipment it is wearing or carrying isn't transformed.</p>
+      ## Actions
+
+      ***Multiattack***. The wereboar makes two attacks, using Javelin or Tusk in any combination. It can replace one attack with a Gore attack.
+
+      ***Gore (Boar or Hybrid Form Only)***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 12 (2d8 + 3) Piercing damage. If the target is a Humanoid, it is subjected to the following effect. *Constitution Saving Throw* : DC 12. *Failure* : The target is cursed. If the cursed target drops to 0 Hit Points, it instead becomes a **Wereboar** under the DM's control and has 10 Hit Points. *Success* : The target is immune to this wereboar's curse for 24 hours.
+
+      ***Javelin (Humanoid or Hybrid Form Only)***. *Melee or Ranged Attack Roll* : +5, reach 5 ft. or range 30/120 ft. *Hit* : 13 (3d6 + 3) Piercing damage.
+
+      ***Tusk (Boar or Hybrid Form Only)***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 10 (2d6 + 3) Piercing damage. If the target is a Medium or smaller creature and the wereboar moved 20+ feet straight toward it immediately before the hit, the target takes an extra 7 (2d6) Piercing damage and has the Prone condition.
+
+      ## Bonus actions
+
+      ***Shape-Shift***. The wereboar shape-shifts into a Medium boar-humanoid hybrid or a Small boar, or it returns to its true humanoid form. Its game statistics, other than its size, are the same in each form. Any equipment it is wearing or carrying isn't transformed.
     senses: Passive Perception 12
     languages:
     - Common (can't speak in boar form)
@@ -103,13 +109,19 @@ translations:
     name: Sanglier-garou
     subtype: Lycanthrope
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le sanglier-garou effectue deux attaques, réparties à sa guise entre Défense et Javeline. Il peut en remplacer une par une attaque de Coup de défense.</p>
-      <p><strong><em>Coup de défense (forme de sanglier ou hybride uniquement)</em></strong>. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 12 (2d8 + 3) dégâts perforants. Si la cible est un Humanoïde, elle est soumise à l'effet suivant. <em>JdS Constitution</em> : DD 12. <em>Échec</em> : la cible est maudite. Si la cible maudite tombe à 0 point de vie, elle se retrouve en fait à 10 pv et devient un <strong>sanglier-garou</strong> sous le contrôle du MD. <em>Réussite</em> : la cible est immunisée contre la malédiction de ce sanglier-garou pendant 24 heures.</p>
-      <p><strong><em>Défense (forme de sanglier ou hybride uniquement)</em></strong>. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 10 (2d6 + 3) dégâts perforants. Si la cible est une créature de taille M ou inférieure et si le sanglier-garou s'est déplacé en ligne droite d'un minimum de 6 m juste avant de la toucher, la cible subit 7 (2d6) dégâts perforants supplémentaires, ainsi que l'état À terre.</p>
-      <p><strong><em>Javeline (forme humanoïde ou hybride uniquement)</em></strong>. <em>Corps à corps ou à distance</em> : +5, allonge 1,50 m ou portée 9/36 m. <em>Touché</em> : 13 (3d6 + 3) dégâts perforants.</p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Changement d'aspect</em>**. Le sanglier-garou se transforme en hybride sanglier-humanoïde de taille M ou en sanglier de taille P, ou bien retrouve sa forme véritable d'humanoïde. En dehors de sa catégorie de taille, son profil reste le même, quelle que soit la forme. Rien de ce qu'il porte n'est transformé.</p>
+      ## Actions
+
+      ***Attaques multiples***. Le sanglier-garou effectue deux attaques, réparties à sa guise entre Défense et Javeline. Il peut en remplacer une par une attaque de Coup de défense.
+
+      ***Coup de défense (forme de sanglier ou hybride uniquement)***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 12 (2d8 + 3) dégâts perforants. Si la cible est un Humanoïde, elle est soumise à l'effet suivant. *JdS Constitution* : DD 12. *Échec* : la cible est maudite. Si la cible maudite tombe à 0 point de vie, elle se retrouve en fait à 10 pv et devient un **sanglier-garou** sous le contrôle du MD. *Réussite* : la cible est immunisée contre la malédiction de ce sanglier-garou pendant 24 heures.
+
+      ***Défense (forme de sanglier ou hybride uniquement)***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 10 (2d6 + 3) dégâts perforants. Si la cible est une créature de taille M ou inférieure et si le sanglier-garou s'est déplacé en ligne droite d'un minimum de 6 m juste avant de la toucher, la cible subit 7 (2d6) dégâts perforants supplémentaires, ainsi que l'état À terre.
+
+      ***Javeline (forme humanoïde ou hybride uniquement)***. *Corps à corps ou à distance* : +5, allonge 1,50 m ou portée 9/36 m. *Touché* : 13 (3d6 + 3) dégâts perforants.
+
+      ## Actions Bonus
+
+      ***Changement d'aspect***. Le sanglier-garou se transforme en hybride sanglier-humanoïde de taille M ou en sanglier de taille P, ou bien retrouve sa forme véritable d'humanoïde. En dehors de sa catégorie de taille, son profil reste le même, quelle que soit la forme. Rien de ce qu'il porte n'est transformé.
     senses: Perception passive 12
     languages:
     - commun (ne peut pas parler sous forme de sanglier)

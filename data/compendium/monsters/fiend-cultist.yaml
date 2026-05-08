@@ -89,14 +89,20 @@ translations:
     name: Fiend Cultist
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The cultist makes three Pact Axe attacks.</p>
-      <p><strong><em>Pact Axe</em></strong>. <em>Melee Attack Roll</em> : +7, reach 5 ft. <em>Hit</em> : 10 (1d12 + 4) Slashing damage plus 13 (3d8) Fire damage.</p>
-      <p><strong><em>Spellcasting</em></strong>. The cultist casts one of the following spells, using Wisdom as the spellcasting ability (spell save DC 15, +7 to hit with spell attacks):</p>
-      <p>At will: <em><a href="https://www.aidedd.org/spell/scorching-ray">Scorching Ray</a></em> (level 5 version), <em><a href="https://www.aidedd.org/spell/thaumaturgy">Thaumaturgy</a></em><br />
-      2/day: <em><a href="https://www.aidedd.org/spell/fireball">Fireball</a></em> (level 6 version)  </p>
-      <h2>Reactions</h2>
-      <p>** <em>Hellish Rebuke</em>**. The cultist casts <em><a href="https://www.aidedd.org/spell/hellish-rebuke">Hellish Rebuke</a></em> in response to that spell's trigger, using the same spellcasting ability as Spellcasting.</p>
+      ## Actions
+
+      ***Multiattack***. The cultist makes three Pact Axe attacks.
+
+      ***Pact Axe***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 10 (1d12 + 4) Slashing damage plus 13 (3d8) Fire damage.
+
+      ***Spellcasting***. The cultist casts one of the following spells, using Wisdom as the spellcasting ability (spell save DC 15, +7 to hit with spell attacks):
+
+      At will: *[Scorching Ray](https://www.aidedd.org/spell/scorching-ray)* (level 5 version), *[Thaumaturgy](https://www.aidedd.org/spell/thaumaturgy)*\
+      2/day: *[Fireball](https://www.aidedd.org/spell/fireball)* (level 6 version)
+
+      ## Reactions
+
+      ***Hellish Rebuke***. The cultist casts *[Hellish Rebuke](https://www.aidedd.org/spell/hellish-rebuke)* in response to that spell's trigger, using the same spellcasting ability as Spellcasting.
     senses: Darkvision 90 ft. (unimpeded by magical Darkness), Passive Perception
       17
     languages:
@@ -107,14 +113,20 @@ translations:
     name: Cultiste, de Fiélon
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le cultiste effectue trois attaques de Hache de pacte.</p>
-      <p><strong><em>Hache de pacte</em></strong>. <em>Corps à corps</em> : +7, allonge 1,50 m. <em>Touché</em> : 10 (1d12 + 4) dégâts tranchants plus 13 (3d8) dégâts de feu.</p>
-      <p><strong><em>Incantation</em></strong>. Le cultiste lance l'un des sorts suivants, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 15, +7 pour toucher) :</p>
-      <p>À volonté : <em><a href="https://www.aidedd.org/spell/fr/rayon-ardent">rayon ardent</a></em> (au niveau 5), <em><a href="https://www.aidedd.org/spell/fr/thaumaturgie">thaumaturgie</a></em><br />
-      2/jour : <em><a href="https://www.aidedd.org/spell/fr/boule-de-feu">boule de feu</a></em> (au niveau 6)  </p>
-      <h2>Réactions</h2>
-      <p>** <em>Représailles infernales</em>**. Le cultiste lance <em><a href="https://www.aidedd.org/spell/fr/represailles-infernales">représailles infernales</a></em> en réponse au déclencheur de ce sort, en utilisant la même caractéristique d'incantation que pour Incantation.</p>
+      ## Actions
+
+      ***Attaques multiples***. Le cultiste effectue trois attaques de Hache de pacte.
+
+      ***Hache de pacte***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 10 (1d12 + 4) dégâts tranchants plus 13 (3d8) dégâts de feu.
+
+      ***Incantation***. Le cultiste lance l'un des sorts suivants, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 15, +7 pour toucher) :
+
+      À volonté : *[rayon ardent](https://www.aidedd.org/spell/fr/rayon-ardent)* (au niveau 5), *[thaumaturgie](https://www.aidedd.org/spell/fr/thaumaturgie)*\
+      2/jour : *[boule de feu](https://www.aidedd.org/spell/fr/boule-de-feu)* (au niveau 6)
+
+      ## Réactions
+
+      ***Représailles infernales***. Le cultiste lance *[représailles infernales](https://www.aidedd.org/spell/fr/represailles-infernales)* en réponse au déclencheur de ce sort, en utilisant la même caractéristique d'incantation que pour Incantation.
     senses: Vision dans le noir 27 m (perce les Ténèbres magiques), Perception passive
       17
     languages:

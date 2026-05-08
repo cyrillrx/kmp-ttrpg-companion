@@ -89,11 +89,15 @@ translations:
     name: Hippopotamus
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Hold Breath</em>**. The hippopotamus can hold its breath for 10 minutes.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The hippopotamus makes two Bite attacks.</p>
-      <p><strong><em>Bite</em></strong>. <em>Melee Attack Roll</em> : +7, reach 5 ft. <em>Hit</em> : 16 (2d10 + 5) Piercing damage.</p>
+      ## Traits
+
+      ***Hold Breath***. The hippopotamus can hold its breath for 10 minutes.
+
+      ## Actions
+
+      ***Multiattack***. The hippopotamus makes two Bite attacks.
+
+      ***Bite***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 16 (2d10 + 5) Piercing damage.
     senses: Passive Perception 13
     languages:
     - None
@@ -101,11 +105,15 @@ translations:
     name: Hippopotame
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Apnée</em>**. L'hippopotame peut retenir son souffle pendant 10 minutes.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. L'hippopotame effectue deux attaques de Morsure.</p>
-      <p><strong><em>Morsure</em></strong>. <em>Corps à corps</em> : +7, allonge 1,50 m. <em>Touché</em> : 16 (2d10 + 5) dégâts perforants.</p>
+      ## Traits
+
+      ***Apnée***. L'hippopotame peut retenir son souffle pendant 10 minutes.
+
+      ## Actions
+
+      ***Attaques multiples***. L'hippopotame effectue deux attaques de Morsure.
+
+      ***Morsure***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 16 (2d10 + 5) dégâts perforants.
     senses: Perception passive 13
     languages:
     - aucune

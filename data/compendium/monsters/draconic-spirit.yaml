@@ -89,12 +89,17 @@ translations:
     name: Draconic Spirit
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Shared Resistances</em>**. When you summon the spirit, choose one of its Resistances. You have Resistance to the chosen damage type until the spell ends.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The spirit makes a number of Rend attacks equal to half the spell's level (round down), and it uses Breath Weapon.</p>
-      <p><strong><em>Rend</em></strong>. <em>Melee Attack Roll</em> : Bonus equals your spell attack modifier, reach 10 feet. <em>Hit</em> :1d6 + 4 + the spell's level Piercing damage.</p>
-      <p><strong><em>Breath Weapon</em></strong>. <em>Dexterity Saving Throw</em> : DC equals your spell save DC, each creature in a 30-foot Cone. <em>Failure</em> : 2d6 damage of a type this spirit has Resistance to (your choice when you cast the spell). <em>Success</em> : Half damage.</p>
+      ## Traits
+
+      ***Shared Resistances***. When you summon the spirit, choose one of its Resistances. You have Resistance to the chosen damage type until the spell ends.
+
+      ## Actions
+
+      ***Multiattack***. The spirit makes a number of Rend attacks equal to half the spell's level (round down), and it uses Breath Weapon.
+
+      ***Rend***. *Melee Attack Roll* : Bonus equals your spell attack modifier, reach 10 feet. *Hit* :1d6 + 4 + the spell's level Piercing damage.
+
+      ***Breath Weapon***. *Dexterity Saving Throw* : DC equals your spell save DC, each creature in a 30-foot Cone. *Failure* : 2d6 damage of a type this spirit has Resistance to (your choice when you cast the spell). *Success* : Half damage.
     senses: Blindsight 30 ft., Darkvision 60 ft., Passive Perception 12
     languages:
     - Draconic
@@ -103,12 +108,17 @@ translations:
     name: Esprit draconique
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Résistances partagées</em>**. Lorsque vous convoquez l'esprit, choisissez l'une de ses Résistances aux dégâts. Vous bénéficiez de la Résistance au type de dégâts choisi jusqu'à la fin du sort.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. L'esprit effectue autant d'attaques de Saignée que la moitié du niveau de ce sort (arrondir à l'inférieur) et il recourt à Souffle.</p>
-      <p><strong><em>Saignée</em></strong>. <em>Corps à corps</em> : bonus égal à votre modificateur d'attaque des sorts, allonge 3 m. <em>Touché</em> : 1d6 + 4 + le niveau du sort dégâts perforants.</p>
-      <p><strong><em>Souffle</em></strong>. <em>JdS Dextérité</em> : DD égal à votre DD de sauvegarde des sorts, chaque créature dans un cône de 9 m. <em>Échec</em> : 2d6 dégâts d'un type auquel l'esprit a la Résistance (vous choisissez à l'incantation du sort). <em>Réussite</em> : 1/2 dégâts.</p>
+      ## Traits
+
+      ***Résistances partagées***. Lorsque vous convoquez l'esprit, choisissez l'une de ses Résistances aux dégâts. Vous bénéficiez de la Résistance au type de dégâts choisi jusqu'à la fin du sort.
+
+      ## Actions
+
+      ***Attaques multiples***. L'esprit effectue autant d'attaques de Saignée que la moitié du niveau de ce sort (arrondir à l'inférieur) et il recourt à Souffle.
+
+      ***Saignée***. *Corps à corps* : bonus égal à votre modificateur d'attaque des sorts, allonge 3 m. *Touché* : 1d6 + 4 + le niveau du sort dégâts perforants.
+
+      ***Souffle***. *JdS Dextérité* : DD égal à votre DD de sauvegarde des sorts, chaque créature dans un cône de 9 m. *Échec* : 2d6 dégâts d'un type auquel l'esprit a la Résistance (vous choisissez à l'incantation du sort). *Réussite* : 1/2 dégâts.
     senses: Vision aveugle 9 m, Vision dans le noir 18 m, Perception passive 12
     languages:
     - draconique

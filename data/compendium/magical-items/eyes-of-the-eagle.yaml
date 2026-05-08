@@ -7,14 +7,10 @@ translations:
   en:
     name: Eyes of the Eagle
     subtype: null
-    description: <p>These crystal lenses fit over the eyes. While wearing them, you
-      have Advantage on Wisdom (Perception) checks that rely on sight. In conditions
-      of clear visibility, you can make out details of even extremely distant creatures
-      and objects as small as 2 feet across.</p>
+    description: |-
+      These crystal lenses fit over the eyes. While wearing them, you have Advantage on Wisdom (Perception) checks that rely on sight. In conditions of clear visibility, you can make out details of even extremely distant creatures and objects as small as 2 feet across.
   fr:
     name: Yeux de lynx
     subtype: null
-    description: <p>Ces lentilles en cristal s'adaptent aux yeux. En les portant,
-      vous bénéficiez d'un Avantage aux jets de Sagesse (Perception) qui reposent
-      sur la vue. Avec une bonne visibilité, vous pouvez distinguer les détails de
-      créatures et d'objets extrêmement éloignés mesurant au moins 60 cm de diamètre.</p>
+    description: |-
+      Ces lentilles en cristal s'adaptent aux yeux. En les portant, vous bénéficiez d'un Avantage aux jets de Sagesse (Perception) qui reposent sur la vue. Avec une bonne visibilité, vous pouvez distinguer les détails de créatures et d'objets extrêmement éloignés mesurant au moins 60 cm de diamètre.

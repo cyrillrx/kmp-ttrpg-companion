@@ -89,11 +89,15 @@ translations:
     name: Troglodyte
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Stench</em>**. <em>Constitution Saving Throw</em> : DC 12, any creature (other than a troglodyte) that starts its turn in a 5-foot Emanation originating from the troglodyte. <em>Failure</em> : The target has the Poisoned condition until the start of its next turn. <em>Success</em> : The target is immune to the Stench of all troglodytes for 1 hour.</p>
-      <p><strong><em>Sunlight Sensitivity</em></strong>. While in sunlight, the troglodyte has Disadvantage on ability checks and attack rolls.</p>
-      <h2>Actions</h2>
-      <p>** <em>Rend</em>**. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 5 (1d6 + 2) Slashing damage.</p>
+      ## Traits
+
+      ***Stench***. *Constitution Saving Throw* : DC 12, any creature (other than a troglodyte) that starts its turn in a 5-foot Emanation originating from the troglodyte. *Failure* : The target has the Poisoned condition until the start of its next turn. *Success* : The target is immune to the Stench of all troglodytes for 1 hour.
+
+      ***Sunlight Sensitivity***. While in sunlight, the troglodyte has Disadvantage on ability checks and attack rolls.
+
+      ## Actions
+
+      ***Rend***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 5 (1d6 + 2) Slashing damage.
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - Troglodyte
@@ -101,11 +105,15 @@ translations:
     name: Troglodyte
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Puanteur</em>**. <em>JdS Constitution</em> : DD 12, toute créature (autre qu'un troglodyte) qui commence son tour dans une Émanation de 1,50 m centrée sur le troglodyte. <em>Échec</em> : la cible subit l'état Empoisonné jusqu'au début de son prochain tour. <em>Réussite</em> : la cible est immunisée contre la puanteur de tous les troglodytes pendant 1 heure.</p>
-      <p><strong><em>Sensibilité au soleil</em></strong>. Tant qu'il est exposé à la lumière du soleil, le troglodyte subit un Désavantage aux jets de caractéristique et aux jets d'attaque.</p>
-      <h2>Actions</h2>
-      <p>** <em>Saignée</em>**. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 5 (1d6 + 2) dégâts tranchants.</p>
+      ## Traits
+
+      ***Puanteur***. *JdS Constitution* : DD 12, toute créature (autre qu'un troglodyte) qui commence son tour dans une Émanation de 1,50 m centrée sur le troglodyte. *Échec* : la cible subit l'état Empoisonné jusqu'au début de son prochain tour. *Réussite* : la cible est immunisée contre la puanteur de tous les troglodytes pendant 1 heure.
+
+      ***Sensibilité au soleil***. Tant qu'il est exposé à la lumière du soleil, le troglodyte subit un Désavantage aux jets de caractéristique et aux jets d'attaque.
+
+      ## Actions
+
+      ***Saignée***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 5 (1d6 + 2) dégâts tranchants.
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - troglodyte

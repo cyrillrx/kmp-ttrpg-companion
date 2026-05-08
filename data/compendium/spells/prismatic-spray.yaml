@@ -20,7 +20,20 @@ translations:
     duration: Instantaneous
     materialDescription: null
     description: |-
-      Eight rays of light flash from you in a 60-foot Cone. Each creature in the Cone makes a Dexterity saving throw. For each target, roll 1d8 to determine which color ray affects it, consulting the Prismatic Rays table.<br/><table><tr><th>1d8</th><th>Ray</th></tr><tr><td class="center">1</td><td><strong>Red</strong>. <em>Failed Save</em>: 12d6 Fire damage. <em>Successful Save</em>: Half as much damage.</td></tr><tr><td class="center">2</td><td><strong>Orange</strong>. <em>Failed Save</em>: 12d6 Acid damage. <em>Successful Save</em>: Half as much damage.</td></tr><tr><td class="center">3</td><td><strong>Yellow</strong>. <em>Failed Save</em>: 12d6 Lightning damage. <em>Successful Save</em>: Half as much damage.</td></tr><tr><td class="center">4</td><td><strong>Green</strong>. <em>Failed Save</em>: 12d6 Poison damage. <em>Successful Save</em>: Half as much damage.</td></tr><tr><td class="center">5</td><td><strong>Blue</strong>. <em>Failed Save</em>: 12d6 Cold damage. <em>Successful Save</em>: Half as much damage.</td></tr><tr><td class="center">6</td><td><strong>Indigo</strong>. <em>Failed Save</em>: The target has the Restrained condition and makes a Constitution saving throw at the end of each of its turns. If it successfully saves three times, the condition ends. If it fails three times, it has the Petrified condition until it is freed by an effect like the <em><a href="./greater-restoration">Greater Restoration</a></em> spell. The successes and failures needn't be consecutive; keep track of both until the target collects three of a kind.</td></tr><tr><td class="center">7</td><td><strong>Violet</strong>. <em>Failed Save</em>: The target has the Blinded condition and makes a Wisdom saving throw at the start of your next turn. On a Successful Save, the condition ends. On a Failed Save, the condition ends, and the creature teleports to another plane of existence (DM's choice).</td></tr><tr><td class="center">8</td><td><strong>Special</strong>. The target is struck by two rays. Roll twice, rerolling any 8.</td></tr></table><br/>
+      Eight rays of light flash from you in a 60-foot Cone. Each creature in the Cone makes a Dexterity saving throw. For each target, roll 1d8 to determine which color ray affects it, consulting the Prismatic Rays table.\
+
+      | 1d8 | Ray |
+      | --- | --- |
+      | 1 | **Red**. *Failed Save*: 12d6 Fire damage. *Successful Save*: Half as much damage. |
+      | 2 | **Orange**. *Failed Save*: 12d6 Acid damage. *Successful Save*: Half as much damage. |
+      | 3 | **Yellow**. *Failed Save*: 12d6 Lightning damage. *Successful Save*: Half as much damage. |
+      | 4 | **Green**. *Failed Save*: 12d6 Poison damage. *Successful Save*: Half as much damage. |
+      | 5 | **Blue**. *Failed Save*: 12d6 Cold damage. *Successful Save*: Half as much damage. |
+      | 6 | **Indigo**. *Failed Save*: The target has the Restrained condition and makes a Constitution saving throw at the end of each of its turns. If it successfully saves three times, the condition ends. If it fails three times, it has the Petrified condition until it is freed by an effect like the *[Greater Restoration](./greater-restoration)* spell. The successes and failures needn't be consecutive; keep track of both until the target collects three of a kind. |
+      | 7 | **Violet**. *Failed Save*: The target has the Blinded condition and makes a Wisdom saving throw at the start of your next turn. On a Successful Save, the condition ends. On a Failed Save, the condition ends, and the creature teleports to another plane of existence (DM's choice). |
+      | 8 | **Special**. The target is struck by two rays. Roll twice, rerolling any 8. |
+
+      \
   fr:
     name: Embruns prismatiques
     castingTime: Action
@@ -28,4 +41,17 @@ translations:
     duration: Instantanée
     materialDescription: null
     description: |-
-      Huit rayons de lumière jaillissent de vous dans un Cône de 18 m. Chaque créature prise dans le Cône effectue un jet de sauvegarde de Dextérité. Pour chaque cible, lancez 1d8 pour déterminer le rayon de couleur qui l'affecte selon la table ci-dessous.<br/><table><tr><th>1d8</th><th>Rayon</th></tr><tr><td class="center">1</td><td><strong>Rouge</strong>. <em>Échec au JdS</em> : 12d6 dégâts de feu. <em>JdS réussi</em> : 1/2 dégâts.</td></tr><tr><td class="center">2</td><td><strong>Orange</strong>. <em>Échec au JdS</em> : 12d6 dégâts d'acide. <em>JdS réussi</em> : 1/2 dégâts.</td></tr><tr><td class="center">3</td><td><strong>Jaune</strong>. <em>Échec au JdS</em> : 12d6 dégâts de foudre. <em>JdS réussi</em> : 1/2 dégâts.</td></tr><tr><td class="center">4</td><td><strong>Vert</strong>. <em>Échec au JdS</em> : 12d6 dégâts de poison. <em>JdS réussi</em> : 1/2 dégâts.</td></tr><tr><td class="center">5</td><td><strong>Bleu</strong>. <em>Échec au JdS</em> : 12d6 dégâts de froid. <em>JdS réussi</em> : 1/2 dégâts.</td></tr><tr><td class="center">6</td><td><strong>Indigo</strong>. <em>Échec au JdS</em> : La cible subit l'état Entravé et effectue un jet de sauvegarde de Constitution à la fin de chacun de ses tours. Si elle se sauvegarde trois fois, l'état prend fin. Si elle rate trois fois le JdS, elle subit l'état Pétrifié jusqu'à en être libérée par un effet tel que <em><a href="./fr/restauration-supreme">restauration suprême</a></em>. Ces réussites et échecs n'ont pas besoin d'être consécutifs ; notez-les quelque part, jusqu'à ce que la cible atteigne un total de trois pour l'un ou l'autre.</td></tr><tr><td class="center">7</td><td><strong>Violet</strong>. <em>Échec au JdS</em> : La cible subit l'état Aveuglé et effectue un jet de sauvegarde de Sagesse au début de votre tour suivant. En cas de réussite, l'état prend fin. En cas d'échec, l'état prend fin, et la créature est téléportée dans un autre plan d'existence (choisi par le MD).</td></tr><tr><td class="center">8</td><td><strong>Spécial</strong>. La cible est frappée par deux rayons. Lancez deux fois le dé, en rejouant tout 8.</td></tr></table><br/>
+      Huit rayons de lumière jaillissent de vous dans un Cône de 18 m. Chaque créature prise dans le Cône effectue un jet de sauvegarde de Dextérité. Pour chaque cible, lancez 1d8 pour déterminer le rayon de couleur qui l'affecte selon la table ci-dessous.\
+
+      | 1d8 | Rayon |
+      | --- | --- |
+      | 1 | **Rouge**. *Échec au JdS* : 12d6 dégâts de feu. *JdS réussi* : 1/2 dégâts. |
+      | 2 | **Orange**. *Échec au JdS* : 12d6 dégâts d'acide. *JdS réussi* : 1/2 dégâts. |
+      | 3 | **Jaune**. *Échec au JdS* : 12d6 dégâts de foudre. *JdS réussi* : 1/2 dégâts. |
+      | 4 | **Vert**. *Échec au JdS* : 12d6 dégâts de poison. *JdS réussi* : 1/2 dégâts. |
+      | 5 | **Bleu**. *Échec au JdS* : 12d6 dégâts de froid. *JdS réussi* : 1/2 dégâts. |
+      | 6 | **Indigo**. *Échec au JdS* : La cible subit l'état Entravé et effectue un jet de sauvegarde de Constitution à la fin de chacun de ses tours. Si elle se sauvegarde trois fois, l'état prend fin. Si elle rate trois fois le JdS, elle subit l'état Pétrifié jusqu'à en être libérée par un effet tel que *[restauration suprême](./fr/restauration-supreme)*. Ces réussites et échecs n'ont pas besoin d'être consécutifs ; notez-les quelque part, jusqu'à ce que la cible atteigne un total de trois pour l'un ou l'autre. |
+      | 7 | **Violet**. *Échec au JdS* : La cible subit l'état Aveuglé et effectue un jet de sauvegarde de Sagesse au début de votre tour suivant. En cas de réussite, l'état prend fin. En cas d'échec, l'état prend fin, et la créature est téléportée dans un autre plan d'existence (choisi par le MD). |
+      | 8 | **Spécial**. La cible est frappée par deux rayons. Lancez deux fois le dé, en rejouant tout 8. |
+
+      \

@@ -89,16 +89,24 @@ translations:
     name: Glabrezu
     subtype: Demon
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Demonic Restoration</em>**. If the glabrezu dies outside the Abyss, its body dissolves into ichor, and it gains a new body instantly, reviving with all its Hit Points somewhere in the Abyss.</p>
-      <p><strong><em>Magic Resistance</em></strong>. The glabrezu has Advantage on saving throws against spells and other magical effects.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The glabrezu makes two Pincer attacks and uses Pummel or Spellcasting.</p>
-      <p><strong><em>Pincer</em></strong>. <em>Melee Attack Roll</em> : +9, reach 10 ft. <em>Hit</em> : 16 (2d10 + 5) Slashing damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 15) from one of two pincers.</p>
-      <p><strong><em>Pummel</em></strong>. <em>Dexterity Saving Throw</em> : DC 17, one creature Grappled by the glabrezu. <em>Failure</em> : 15 (3d6 + 5) Bludgeoning damage. <em>Success</em> : Half damage.</p>
-      <p><strong><em>Spellcasting</em></strong>. The glabrezu casts one of the following spells, requiring no Material components and using Intelligence as the spellcasting ability (spell save DC 16):</p>
-      <p>At Will: <em><a href="https://www.aidedd.org/spell/darkness">Darkness</a>, <a href="https://www.aidedd.org/spell/detect-magic">Detect Magic</a>, <a href="https://www.aidedd.org/spell/dispel-magic">Dispel Magic</a></em><br />
-      1/Day Each: <em><a href="https://www.aidedd.org/spell/confusion">Confusion</a>, <a href="https://www.aidedd.org/spell/fly">Fly</a>, <a href="https://www.aidedd.org/spell/power-word-stun">Power Word Stun</a></em></p>
+      ## Traits
+
+      ***Demonic Restoration***. If the glabrezu dies outside the Abyss, its body dissolves into ichor, and it gains a new body instantly, reviving with all its Hit Points somewhere in the Abyss.
+
+      ***Magic Resistance***. The glabrezu has Advantage on saving throws against spells and other magical effects.
+
+      ## Actions
+
+      ***Multiattack***. The glabrezu makes two Pincer attacks and uses Pummel or Spellcasting.
+
+      ***Pincer***. *Melee Attack Roll* : +9, reach 10 ft. *Hit* : 16 (2d10 + 5) Slashing damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 15) from one of two pincers.
+
+      ***Pummel***. *Dexterity Saving Throw* : DC 17, one creature Grappled by the glabrezu. *Failure* : 15 (3d6 + 5) Bludgeoning damage. *Success* : Half damage.
+
+      ***Spellcasting***. The glabrezu casts one of the following spells, requiring no Material components and using Intelligence as the spellcasting ability (spell save DC 16):
+
+      At Will: *[Darkness](https://www.aidedd.org/spell/darkness), [Detect Magic](https://www.aidedd.org/spell/detect-magic), [Dispel Magic](https://www.aidedd.org/spell/dispel-magic)*\
+      1/Day Each: *[Confusion](https://www.aidedd.org/spell/confusion), [Fly](https://www.aidedd.org/spell/fly), [Power Word Stun](https://www.aidedd.org/spell/power-word-stun)*
     senses: Truesight 120 ft., Passive Perception 17
     languages:
     - Abyssal; telepathy 120 ft.
@@ -106,16 +114,24 @@ translations:
     name: Glabrezu
     subtype: Démon
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Résistance à la magie</em>**. Le glabrezu a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.</p>
-      <p><strong><em>Restauration démoniaque</em></strong>. Si le glabrezu meurt hors des Abysses, son corps se dissout en ichor et il en acquiert aussitôt un nouveau en revenant à la vie avec tous ses pv, quelque part dans les Abysses.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le glabrezu effectue deux attaques de Pince et recourt à Incantation ou Rincée.</p>
-      <p><strong><em>Pince</em></strong>. <em>Corps à corps</em> : +9, allonge 3 m. <em>Touché</em> : 16 (2d10 + 5) dégâts tranchants. Si la cible est une créature de taille M ou inférieure, elle subit l'état Agrippé (évasion DD 15) par l'une des deux pinces.</p>
-      <p><strong><em>Incantation</em></strong>. Le glabrezu lance l'un des sorts suivants sans composantes matérielles, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 16) :</p>
-      <p>À volonté : <em><a href="https://www.aidedd.org/spell/fr/detection-de-la-magie">détection de la magie</a>, <a href="https://www.aidedd.org/spell/fr/dissipation-de-la-magie">dissipation de la magie</a>, ténèbres</em><br />
-      1/jour chacun : <em>confusion, mot de pouvoir étourdissant, vol</em>  </p>
-      <p>** <em>Rincée</em>**. <em>JdS Dextérité</em> : DD 17, une créature Agrippée par le glabrezu. <em>Échec</em> : 15 (3d6 + 5) dégâts contondants. <em>Réussite</em> : demi-dégâts.</p>
+      ## Traits
+
+      ***Résistance à la magie***. Le glabrezu a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
+
+      ***Restauration démoniaque***. Si le glabrezu meurt hors des Abysses, son corps se dissout en ichor et il en acquiert aussitôt un nouveau en revenant à la vie avec tous ses pv, quelque part dans les Abysses.
+
+      ## Actions
+
+      ***Attaques multiples***. Le glabrezu effectue deux attaques de Pince et recourt à Incantation ou Rincée.
+
+      ***Pince***. *Corps à corps* : +9, allonge 3 m. *Touché* : 16 (2d10 + 5) dégâts tranchants. Si la cible est une créature de taille M ou inférieure, elle subit l'état Agrippé (évasion DD 15) par l'une des deux pinces.
+
+      ***Incantation***. Le glabrezu lance l'un des sorts suivants sans composantes matérielles, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 16) :
+
+      À volonté : *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), [dissipation de la magie](https://www.aidedd.org/spell/fr/dissipation-de-la-magie), ténèbres*\
+      1/jour chacun : *confusion, mot de pouvoir étourdissant, vol*
+
+      ***Rincée***. *JdS Dextérité* : DD 17, une créature Agrippée par le glabrezu. *Échec* : 15 (3d6 + 5) dégâts contondants. *Réussite* : demi-dégâts.
     senses: vision véritable 36 m, Perception passive 17
     languages:
     - abyssal ; télépathie 36 m

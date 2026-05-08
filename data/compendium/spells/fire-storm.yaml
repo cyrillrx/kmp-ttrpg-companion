@@ -19,21 +19,15 @@ translations:
     range: 150 feet
     duration: Instantaneous
     materialDescription: null
-    description: A storm of fire appears within range. The area of the storm consists
-      of up to ten 10-foot Cubes, which you arrange as you like. Each Cube must be
-      contiguous with at least one other Cube. Each creature in the area makes a Dexterity
-      saving throw, taking 7d10 Fire damage on a failed save or half as much damage
-      on a successful one.<br/>Flammable objects in the area that aren't being worn
-      or carried start burning.<br/>
+    description: |-
+      A storm of fire appears within range. The area of the storm consists of up to ten 10-foot Cubes, which you arrange as you like. Each Cube must be contiguous with at least one other Cube. Each creature in the area makes a Dexterity saving throw, taking 7d10 Fire damage on a failed save or half as much damage on a successful one.\
+      Flammable objects in the area that aren't being worn or carried start burning.\
   fr:
     name: Tempête de feu
     castingTime: Action
     range: 45 m
     duration: Instantanée
     materialDescription: null
-    description: Une tempête de flammes éclate à portée. La zone de la tempête consiste
-      en un maximum de 10 Cubes de 3 m, que vous disposez à votre guise. Chaque Cube
-      doit être contigu à au moins un autre Cube. Chaque créature prise dans la zone
-      effectue un jet de sauvegarde de Dextérité et subit 7d10 dégâts de feu en cas
-      d'échec, la moitié en cas de réussite.<br/>L'explosion embrase les objets inflammables
-      de la zone qui ne sont portés par personne.<br/>
+    description: |-
+      Une tempête de flammes éclate à portée. La zone de la tempête consiste en un maximum de 10 Cubes de 3 m, que vous disposez à votre guise. Chaque Cube doit être contigu à au moins un autre Cube. Chaque créature prise dans la zone effectue un jet de sauvegarde de Dextérité et subit 7d10 dégâts de feu en cas d'échec, la moitié en cas de réussite.\
+      L'explosion embrase les objets inflammables de la zone qui ne sont portés par personne.\

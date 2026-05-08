@@ -8,23 +8,25 @@ translations:
     name: Staff of Fire
     subtype: null
     description: |-
-      <p>You have Resistance to Fire damage while you hold this staff.<br />
-      <strong>Spells</strong>. The staff has 10 charges. While holding the staff, you can cast one of the spells on the following table from it, using your spell save DC. The table indicates how many charges you must expend to cast the spell.<br />
-      Spell| Charge Cost<br />
-      ---|---<br />
-      <em><a href="https://www.aidedd.org/spell/burning-hands">Burning Hands</a></em>|  1<br />
-      <em><a href="https://www.aidedd.org/spell/wall-of-fire">Wall of Fire</a></em>|  4<br />
-      <em><a href="https://www.aidedd.org/spell/fireball">Fireball</a></em>|  3  </p>
-      <p><strong>Regaining Charges</strong>. The staff regains 1d6 + 4 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff crumbles into cinders and is destroyed.</p>
+      You have Resistance to Fire damage while you hold this staff.\
+      **Spells**. The staff has 10 charges. While holding the staff, you can cast one of the spells on the following table from it, using your spell save DC. The table indicates how many charges you must expend to cast the spell.\
+      | Spell | Charge Cost |
+      | --- | --- |
+      | *[Burning Hands](https://www.aidedd.org/spell/burning-hands)* | 1 |
+      | *[Wall of Fire](https://www.aidedd.org/spell/wall-of-fire)* | 4 |
+      | *[Fireball](https://www.aidedd.org/spell/fireball)* | 3 |
+
+      **Regaining Charges**. The staff regains 1d6 + 4 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff crumbles into cinders and is destroyed.
   fr:
     name: Bâton de feu
     subtype: null
     description: |-
-      <p>Vous bénéficiez d'une Résistance aux dégâts de feu lorsque vous tenez ce bâton.<br />
-      <strong>Sorts</strong>. Le bâton possède 10 charges. En le tenant, vous pouvez lancer l'un des sorts de la table suivante, en utilisant votre DD de sauvegarde des sorts. La table indique le nombre de charges à dépenser pour lancer le sort.<br />
-      Sort| Coût en charges<br />
-      ---|---<br />
-      <em><a href="https://www.aidedd.org/spell/fr/mains-brulantes">mains brûlantes</a></em>|  1<br />
-      <em><a href="https://www.aidedd.org/spell/fr/mur-de-feu">mur de feu</a></em>|  4<br />
-      <em><a href="https://www.aidedd.org/spell/fr/boule-de-feu">boule de feu</a></em>|  3  </p>
-      <p><strong>Récupération des charges</strong>. Le bâton récupère 1d6 + 4 charges dépensées chaque jour à l'aube. Si vous dépensez la dernière charge, lancez 1d20. Sur un 1, le bâton s'effondre en cendres et est détruit.</p>
+      Vous bénéficiez d'une Résistance aux dégâts de feu lorsque vous tenez ce bâton.\
+      **Sorts**. Le bâton possède 10 charges. En le tenant, vous pouvez lancer l'un des sorts de la table suivante, en utilisant votre DD de sauvegarde des sorts. La table indique le nombre de charges à dépenser pour lancer le sort.\
+      | Sort | Coût en charges |
+      | --- | --- |
+      | *[mains brûlantes](https://www.aidedd.org/spell/fr/mains-brulantes)* | 1 |
+      | *[mur de feu](https://www.aidedd.org/spell/fr/mur-de-feu)* | 4 |
+      | *[boule de feu](https://www.aidedd.org/spell/fr/boule-de-feu)* | 3 |
+
+      **Récupération des charges**. Le bâton récupère 1d6 + 4 charges dépensées chaque jour à l'aube. Si vous dépensez la dernière charge, lancez 1d20. Sur un 1, le bâton s'effondre en cendres et est détruit.

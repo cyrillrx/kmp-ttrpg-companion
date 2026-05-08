@@ -18,23 +18,17 @@ translations:
     range: 90 feet
     duration: Concentration, up to 1 minute
     materialDescription: a miniature sword worth 250+ GP
-    description: You create a spectral sword that hovers within range. It lasts for
-      the duration.<br/>When the sword appears, you make a melee spell attack against
-      a target within 5 feet of the sword. On a hit, the target takes Force damage
-      equal to 4d12 plus your spellcasting ability modifier.<br/>On your later turns,
-      you can take a Bonus Action to move the sword up to 30 feet to a spot you can
-      see and repeat the attack against the same target or a different one.<br/>
+    description: |-
+      You create a spectral sword that hovers within range. It lasts for the duration.\
+      When the sword appears, you make a melee spell attack against a target within 5 feet of the sword. On a hit, the target takes Force damage equal to 4d12 plus your spellcasting ability modifier.\
+      On your later turns, you can take a Bonus Action to move the sword up to 30 feet to a spot you can see and repeat the attack against the same target or a different one.\
   fr:
     name: Épée de Mordenkainen
     castingTime: Action
     range: 27 m
     duration: Concentration, jusqu'à 1 minute
     materialDescription: une épée miniature d'une valeur minimale de 250 po
-    description: Vous créez une épée spectrale qui flotte dans les airs à portée.
-      Elle persiste pour toute la durée.<br/>À l'apparition de l'épée, vous effectuez
-      une attaque de sort au corps à corps contre une cible dans un rayon de 1,50
-      m de l'épée. Si l'attaque touche, la cible subit des dégâts de force égaux à
-      4d12 + votre modificateur de caractéristique d'incantation.<br/>À chacun de
-      vos tours suivants, vous pouvez par une action Bonus déplacer l'épée d'un maximum
-      de 9 m vers un point que vous voyez et réitérer l'attaque, contre la même cible
-      ou une autre.<br/>
+    description: |-
+      Vous créez une épée spectrale qui flotte dans les airs à portée. Elle persiste pour toute la durée.\
+      À l'apparition de l'épée, vous effectuez une attaque de sort au corps à corps contre une cible dans un rayon de 1,50 m de l'épée. Si l'attaque touche, la cible subit des dégâts de force égaux à 4d12 + votre modificateur de caractéristique d'incantation.\
+      À chacun de vos tours suivants, vous pouvez par une action Bonus déplacer l'épée d'un maximum de 9 m vers un point que vous voyez et réitérer l'attaque, contre la même cible ou une autre.\

@@ -89,21 +89,34 @@ translations:
     name: Adult Silver Dragon
     subtype: Metallic
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Legendary Resistance (3/Day, or 4/Day in Lair)</em>**. If the dragon fails a saving throw, it can choose to succeed instead.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The dragon makes three Rend attacks. It can replace one attack with a use of (A) Paralyzing Breath or (B) Spellcasting to cast <em><a href="https://www.aidedd.org/spell/ice-knife">Ice Knife</a></em>.</p>
-      <p><strong><em>Rend</em></strong>. <em>Melee Attack Roll</em> : +13, reach 10 ft. <em>Hit</em> : 17 (2d8 + 8) Slashing damage plus 4 (1d8) Cold damage.</p>
-      <p><strong><em>Cold Breath (Recharge 5–6)</em></strong>. <em>Constitution Saving Throw</em> : DC 20, each creature in a 60-foot Cone. <em>Failure</em> : 54 (12d8) Cold damage. <em>Success</em> : Half damage.</p>
-      <p><strong><em>Paralyzing Breath</em></strong>. <em>Constitution Saving Throw</em> : DC 20, each creature in a 60-foot Cone. <em>First Failure</em> : The target has the Incapacitated condition until the end of its next turn, when it repeats the save. <em>Second Failure</em> : The target has the Paralyzed condition, and it repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically.</p>
-      <p><strong><em>Spellcasting</em></strong>. The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 19, +11 to hit with spell attacks):</p>
-      <p>At Will: <em><a href="https://www.aidedd.org/spell/detect-magic">Detect Magic</a>, <a href="https://www.aidedd.org/spell/hold-monster">Hold Monster</a>, <a href="https://www.aidedd.org/spell/ice-knife">Ice Knife</a>, <a href="https://www.aidedd.org/spell/shapechange">Shapechange</a></em> (Beast or Humanoid form only, no Temporary Hit Points gained from the spell, and no Concentration or Temporary Hit Points required to maintain the spell)<br />
-      1/Day Each: <em><a href="https://www.aidedd.org/spell/ice-storm">Ice Storm</a></em> (level 5 version), <em><a href="https://www.aidedd.org/spell/zone-of-truth">Zone of Truth</a></em>  </p>
-      <h2>Legendary actions</h2>
-      <p>Legendary Action Uses: 3 (4 in Lair). Immediately after another creature's turn, the dragon can expend a use to take one of the following actions. The dragon regains all expended uses at the start of each of its turns. </p>
-      <p><strong><em>Chill</em></strong>. The dragon uses Spellcasting to cast <em><a href="https://www.aidedd.org/spell/hold-monster">Hold Monster</a></em>. The dragon can't take this action again until the start of its next turn.</p>
-      <p><strong><em>Cold Gale</em></strong>. <em>Dexterity Saving Throw</em> : DC 19, each creature in a 60-foot-long, 10-foot-wide Line. <em>Failure</em> : 14 (4d6) Cold damage, and the target is pushed up to 30 feet straight away from the dragon. <em>Success</em> : Half damage only. <em>Failure or Success</em> : The dragon can't take this action again until the start of its next turn.</p>
-      <p><strong><em>Pounce</em></strong>. The dragon moves up to half its Speed, and it makes one Rend attack.</p>
+      ## Traits
+
+      ***Legendary Resistance (3/Day, or 4/Day in Lair)***. If the dragon fails a saving throw, it can choose to succeed instead.
+
+      ## Actions
+
+      ***Multiattack***. The dragon makes three Rend attacks. It can replace one attack with a use of (A) Paralyzing Breath or (B) Spellcasting to cast *[Ice Knife](https://www.aidedd.org/spell/ice-knife)*.
+
+      ***Rend***. *Melee Attack Roll* : +13, reach 10 ft. *Hit* : 17 (2d8 + 8) Slashing damage plus 4 (1d8) Cold damage.
+
+      ***Cold Breath (Recharge 5–6)***. *Constitution Saving Throw* : DC 20, each creature in a 60-foot Cone. *Failure* : 54 (12d8) Cold damage. *Success* : Half damage.
+
+      ***Paralyzing Breath***. *Constitution Saving Throw* : DC 20, each creature in a 60-foot Cone. *First Failure* : The target has the Incapacitated condition until the end of its next turn, when it repeats the save. *Second Failure* : The target has the Paralyzed condition, and it repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically.
+
+      ***Spellcasting***. The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 19, +11 to hit with spell attacks):
+
+      At Will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Hold Monster](https://www.aidedd.org/spell/hold-monster), [Ice Knife](https://www.aidedd.org/spell/ice-knife), [Shapechange](https://www.aidedd.org/spell/shapechange)* (Beast or Humanoid form only, no Temporary Hit Points gained from the spell, and no Concentration or Temporary Hit Points required to maintain the spell)\
+      1/Day Each: *[Ice Storm](https://www.aidedd.org/spell/ice-storm)* (level 5 version), *[Zone of Truth](https://www.aidedd.org/spell/zone-of-truth)*
+
+      ## Legendary actions
+
+      Legendary Action Uses: 3 (4 in Lair). Immediately after another creature's turn, the dragon can expend a use to take one of the following actions. The dragon regains all expended uses at the start of each of its turns.
+
+      ***Chill***. The dragon uses Spellcasting to cast *[Hold Monster](https://www.aidedd.org/spell/hold-monster)*. The dragon can't take this action again until the start of its next turn.
+
+      ***Cold Gale***. *Dexterity Saving Throw* : DC 19, each creature in a 60-foot-long, 10-foot-wide Line. *Failure* : 14 (4d6) Cold damage, and the target is pushed up to 30 feet straight away from the dragon. *Success* : Half damage only. *Failure or Success* : The dragon can't take this action again until the start of its next turn.
+
+      ***Pounce***. The dragon moves up to half its Speed, and it makes one Rend attack.
     senses: Blindsight 60 ft., Darkvision 120 ft., Passive Perception 21
     languages:
     - Common
@@ -112,20 +125,32 @@ translations:
     name: Dragon d'argent, adulte
     subtype: Métallique
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Résistance légendaire (3/jour, ou 4/jour dans son antre)</em>**. Si le dragon rate un jet de sauvegarde, il peut décider de le réussir tout de même.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le dragon effectue trois attaques de Saignée. Il peut remplacer l'une de ces attaques par une utilisation de (A) Incantation pour lancer <em>couteau de glace</em> ou (B) Souffle paralysant.</p>
-      <p><strong><em>Saignée</em></strong>. <em>Corps à corps</em> : +13, allonge 3 m. <em>Touché</em> : 17 (2d8 + 8) dégâts tranchants plus 4 (1d8) dégâts de froid.</p>
-      <p><strong><em>Incantation</em></strong>. Le dragon lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 19, +11 pour toucher) :</p>
-      <p>À volonté : <em><a href="https://www.aidedd.org/spell/fr/changement-de-forme">changement de forme</a></em> (Bête ou Humanoïde uniquement, le sort ne fait pas gagner de points de vie temporaires, ni Concentration ni points de vie temporaires nécessaires pour maintenir le sort), <em>couteau de glace,<a href="https://www.aidedd.org/spell/fr/detection-de-la-magie">détection de la magie</a>, immobilisation de monstre</em><br />
-      1/jour chacun : <em>tempête de grêle</em> (au niveau 5), <em>zone de vérité</em>  </p>
-      <p>** <em>Souffle glacial (recharge 5–6)</em>**. <em>JdS Constitution</em> : DD 20, chaque créature dans un Cône de 18 m. <em>Échec</em> : 54 (12d8) dégâts de froid. <em>Réussite</em> : demi-dégâts.</p>
-      <p><strong><em>Souffle paralysant</em></strong>. <em>JdS Constitution</em> : DD 20, chaque créature dans un Cône de 18 m. <em>Premier échec</em> : la cible subit l'état Incapable d'agir jusqu'à la fin de son tour suivant, et réitère alors son JdS. <em>Deuxième échec</em> : la cible subit l'état Paralysé et réitère le JdS à la fin de chacun de ses tours ; elle met un terme à l'effet sur elle-même en cas de réussite. Au bout de 1 minute, elle réussit automatiquement ce JdS.</p>
-      <h2>Actions Légendaires</h2>
-      <p>Utilisations d'action Légendaire : 3 (4 dans son antre). Aussitôt après le tour d'une autre créature, le dragon peut dépenser une utilisation pour entreprendre l'une des actions ci-après. Le dragon récupère toutes ses utilisations dépensées au début de chacun de ses tours. </p>
-      <p><strong><em>Assaut incisif</em></strong>. Le dragon se déplace à concurrence de la moitié de sa Vitesse et effectue une attaque de Saignée. On ne bouge plus. Le dragon recourt à Incantation pour lancer <em>immobilisation de monstre</em>. Le dragon ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.</p>
-      <p><strong><em>Rafale gelée</em></strong>. <em>JdS Dextérité</em> : DD 19, chaque créature dans une Ligne de 18 m de long sur 3 m de large. <em>Échec</em> : 14 (4d6) dégâts de froid, et la cible est repoussée du dragon en ligne droite d'un maximum de 9 m. <em>Réussite</em> : demi-dégâts uniquement. <em>Échec ou réussite</em> : le dragon ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.</p>
+      ## Traits
+
+      ***Résistance légendaire (3/jour, ou 4/jour dans son antre)***. Si le dragon rate un jet de sauvegarde, il peut décider de le réussir tout de même.
+
+      ## Actions
+
+      ***Attaques multiples***. Le dragon effectue trois attaques de Saignée. Il peut remplacer l'une de ces attaques par une utilisation de (A) Incantation pour lancer *couteau de glace* ou (B) Souffle paralysant.
+
+      ***Saignée***. *Corps à corps* : +13, allonge 3 m. *Touché* : 17 (2d8 + 8) dégâts tranchants plus 4 (1d8) dégâts de froid.
+
+      ***Incantation***. Le dragon lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 19, +11 pour toucher) :
+
+      À volonté : *[changement de forme](https://www.aidedd.org/spell/fr/changement-de-forme)* (Bête ou Humanoïde uniquement, le sort ne fait pas gagner de points de vie temporaires, ni Concentration ni points de vie temporaires nécessaires pour maintenir le sort), *couteau de glace,[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), immobilisation de monstre*\
+      1/jour chacun : *tempête de grêle* (au niveau 5), *zone de vérité*
+
+      ***Souffle glacial (recharge 5–6)***. *JdS Constitution* : DD 20, chaque créature dans un Cône de 18 m. *Échec* : 54 (12d8) dégâts de froid. *Réussite* : demi-dégâts.
+
+      ***Souffle paralysant***. *JdS Constitution* : DD 20, chaque créature dans un Cône de 18 m. *Premier échec* : la cible subit l'état Incapable d'agir jusqu'à la fin de son tour suivant, et réitère alors son JdS. *Deuxième échec* : la cible subit l'état Paralysé et réitère le JdS à la fin de chacun de ses tours ; elle met un terme à l'effet sur elle-même en cas de réussite. Au bout de 1 minute, elle réussit automatiquement ce JdS.
+
+      ## Actions Légendaires
+
+      Utilisations d'action Légendaire : 3 (4 dans son antre). Aussitôt après le tour d'une autre créature, le dragon peut dépenser une utilisation pour entreprendre l'une des actions ci-après. Le dragon récupère toutes ses utilisations dépensées au début de chacun de ses tours.
+
+      ***Assaut incisif***. Le dragon se déplace à concurrence de la moitié de sa Vitesse et effectue une attaque de Saignée. On ne bouge plus. Le dragon recourt à Incantation pour lancer *immobilisation de monstre*. Le dragon ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.
+
+      ***Rafale gelée***. *JdS Dextérité* : DD 19, chaque créature dans une Ligne de 18 m de long sur 3 m de large. *Échec* : 14 (4d6) dégâts de froid, et la cible est repoussée du dragon en ligne droite d'un maximum de 9 m. *Réussite* : demi-dégâts uniquement. *Échec ou réussite* : le dragon ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.
     senses: Vision aveugle 18 m, Vision dans le noir 36 m, Perception passive 21
     languages:
     - commun

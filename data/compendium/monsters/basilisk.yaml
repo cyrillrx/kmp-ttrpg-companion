@@ -89,10 +89,13 @@ translations:
     name: Basilisk
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Bite</em>**. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 10 (2d6 + 3) Piercing damage plus 7 (2d6) Poison damage.</p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Petrifying Gaze (Recharge 4–6)</em>**. <em>Constitution Saving Throw</em> : DC 12, each creature in a 30-foot Cone. If the basilisk sees its reflection in the Cone, the basilisk must make this save. <em>First Failure</em> : The target has the Restrained condition and repeats the save at the end of its next turn if it is still Restrained, ending the effect on itself on a success. <em>Second Failure</em> : The target has the Petrified condition instead of the Restrained condition.</p>
+      ## Actions
+
+      ***Bite***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 10 (2d6 + 3) Piercing damage plus 7 (2d6) Poison damage.
+
+      ## Bonus actions
+
+      ***Petrifying Gaze (Recharge 4–6)***. *Constitution Saving Throw* : DC 12, each creature in a 30-foot Cone. If the basilisk sees its reflection in the Cone, the basilisk must make this save. *First Failure* : The target has the Restrained condition and repeats the save at the end of its next turn if it is still Restrained, ending the effect on itself on a success. *Second Failure* : The target has the Petrified condition instead of the Restrained condition.
     senses: Darkvision 60 ft., Passive Perception 9
     languages:
     - None
@@ -100,10 +103,13 @@ translations:
     name: Basilic
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Morsure</em>**. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 10 (2d6 + 3) dégâts perforants plus 7 (2d6) dégâts de poison.</p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Regard pétrifiant (recharge 4–6)</em>**. <em>JdS Constitution</em> : DD 12, chaque créature dans un Cône de 9 m. Si le basilic voit son reflet dans le Cône, il effectue ce JdS. <em>Premier échec</em> : la cible subit l'état Entravé et réitère le JdS à la fin de son tour suivant si elle est toujours Entravée ; elle met un terme à l'effet sur elle-même en cas de réussite. <em>Deuxième échec</em> : la cible subit l'état Pétrifié qui remplace l'état Entravé.</p>
+      ## Actions
+
+      ***Morsure***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 10 (2d6 + 3) dégâts perforants plus 7 (2d6) dégâts de poison.
+
+      ## Actions Bonus
+
+      ***Regard pétrifiant (recharge 4–6)***. *JdS Constitution* : DD 12, chaque créature dans un Cône de 9 m. Si le basilic voit son reflet dans le Cône, il effectue ce JdS. *Premier échec* : la cible subit l'état Entravé et réitère le JdS à la fin de son tour suivant si elle est toujours Entravée ; elle met un terme à l'effet sur elle-même en cas de réussite. *Deuxième échec* : la cible subit l'état Pétrifié qui remplace l'état Entravé.
     senses: Vision dans le noir 18 m, Perception passive 9
     languages:
     - aucune

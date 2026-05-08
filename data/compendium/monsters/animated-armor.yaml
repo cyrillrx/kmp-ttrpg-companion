@@ -89,17 +89,21 @@ translations:
     name: Animated Armor
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The armor makes two Slam attacks.</p>
-      <p><strong><em>Slam</em></strong>. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 5 (1d6 + 2) Bludgeoning damage.</p>
+      ## Actions
+
+      ***Multiattack***. The armor makes two Slam attacks.
+
+      ***Slam***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 5 (1d6 + 2) Bludgeoning damage.
     senses: Blindsight 60 ft., Passive Perception 6
     languages: []
   fr:
     name: Armure animée
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. L'armure effectue deux attaques de Coup.</p>
-      <p><strong><em>Coup</em></strong>. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 5 (1d6 + 2) dégâts contondants.</p>
+      ## Actions
+
+      ***Attaques multiples***. L'armure effectue deux attaques de Coup.
+
+      ***Coup***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 5 (1d6 + 2) dégâts contondants.
     senses: Vision aveugle 18 m, Perception passive 6
     languages: []

@@ -7,12 +7,10 @@ translations:
   en:
     name: Ring of Invisibility
     subtype: null
-    description: <p>While wearing this ring, you can take a Magic action to give yourself
-      the Invisible condition. You remain Invisible until the ring is removed or until
-      you take a Bonus Action to become visible again.</p>
+    description: |-
+      While wearing this ring, you can take a Magic action to give yourself the Invisible condition. You remain Invisible until the ring is removed or until you take a Bonus Action to become visible again.
   fr:
     name: Anneau d'invisibilité
     subtype: null
-    description: <p>Lorsque vous portez cet anneau, vous pouvez prendre une action
-      Magie pour obtenir l'état Invisible. Vous restez invisible jusqu'à ce que l'anneau
-      soit retiré ou que vous preniez une action Bonus pour redevenir visible.</p>
+    description: |-
+      Lorsque vous portez cet anneau, vous pouvez prendre une action Magie pour obtenir l'état Invisible. Vous restez invisible jusqu'à ce que l'anneau soit retiré ou que vous preniez une action Bonus pour redevenir visible.

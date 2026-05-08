@@ -89,11 +89,14 @@ translations:
     name: Mage Apprentice
     subtype: Wizard
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Arcane Burst</em>**. <em>Melee or Ranged Attack Roll</em> : +5, reach 5 ft. or range 120 ft. <em>Hit</em> : 14 (2d10 + 3) Force damage.</p>
-      <p><strong><em>Spellcasting</em></strong>. The mage casts one of the following spells, using Intelligence as the spellcasting ability (spell save DC 13, +5 to hit with spell attacks):</p>
-      <p>At will: <em><a href="https://www.aidedd.org/spell/mage-hand">Mage Hand</a>, <a href="https://www.aidedd.org/spell/prestidigitation">Prestidigitation</a></em><br />
-      1/day each: <em><a href="https://www.aidedd.org/spell/disguise-self">Disguise Self</a>, <a href="https://www.aidedd.org/spell/ice-knife">Ice Knife</a>, <a href="https://www.aidedd.org/spell/mage-armor">Mage Armor</a></em> (included in AC), <em><a href="https://www.aidedd.org/spell/thunderwave">Thunderwave</a></em></p>
+      ## Actions
+
+      ***Arcane Burst***. *Melee or Ranged Attack Roll* : +5, reach 5 ft. or range 120 ft. *Hit* : 14 (2d10 + 3) Force damage.
+
+      ***Spellcasting***. The mage casts one of the following spells, using Intelligence as the spellcasting ability (spell save DC 13, +5 to hit with spell attacks):
+
+      At will: *[Mage Hand](https://www.aidedd.org/spell/mage-hand), [Prestidigitation](https://www.aidedd.org/spell/prestidigitation)*\
+      1/day each: *[Disguise Self](https://www.aidedd.org/spell/disguise-self), [Ice Knife](https://www.aidedd.org/spell/ice-knife), [Mage Armor](https://www.aidedd.org/spell/mage-armor)* (included in AC), *[Thunderwave](https://www.aidedd.org/spell/thunderwave)*
     senses: Passive Perception 13
     languages:
     - Common plus one other language
@@ -101,11 +104,14 @@ translations:
     name: Mage, apprenti
     subtype: Magicien
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Jaillissement arcanique</em>**. <em>Corps à corps ou à distance</em> : +5, allonge 1,50 m ou portée 36 m. <em>Touché</em> : 14 (2d10 + 3) dégâts de force.</p>
-      <p><strong><em>Incantation</em></strong>. Le mage lance l'un des sorts suivants, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 13, +5 pour toucher) :</p>
-      <p>À volonté : <em><a href="https://www.aidedd.org/spell/fr/main-de-mage">main de mage</a>, <a href="https://www.aidedd.org/spell/fr/prestidigitation">prestidigitation</a></em><br />
-      1/jour chacun : <em><a href="https://www.aidedd.org/spell/fr/armure-de-mage">armure de mage</a></em> (compris dans la CA), <em>couteau de glace, déguisement, vague tonnante</em></p>
+      ## Actions
+
+      ***Jaillissement arcanique***. *Corps à corps ou à distance* : +5, allonge 1,50 m ou portée 36 m. *Touché* : 14 (2d10 + 3) dégâts de force.
+
+      ***Incantation***. Le mage lance l'un des sorts suivants, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 13, +5 pour toucher) :
+
+      À volonté : *[main de mage](https://www.aidedd.org/spell/fr/main-de-mage), [prestidigitation](https://www.aidedd.org/spell/fr/prestidigitation)*\
+      1/jour chacun : *[armure de mage](https://www.aidedd.org/spell/fr/armure-de-mage)* (compris dans la CA), *couteau de glace, déguisement, vague tonnante*
     senses: Perception passive 13
     languages:
     - commun plus une autre langue

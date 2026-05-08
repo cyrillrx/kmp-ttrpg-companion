@@ -89,14 +89,21 @@ translations:
     name: Scout Captain
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The scout makes two attacks, using Shortsword or Longbow in any combination.</p>
-      <p><strong><em>Shortsword</em></strong>. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 6 (1d6 + 3) Piercing damage, plus 10 (3d6) Piercing damage if the attack was made with Advantage.</p>
-      <p><strong><em>Longbow</em></strong>. <em>Ranged Attack Roll</em> : +5, range 150/600 ft. <em>Hit</em> : 7 (1d8 + 3) Piercing damage, plus 10 (3d6) Piercing damage if the attack was made with Advantage.</p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Aim</em>**. The scout has Advantage on the next attack roll it makes during the current turn.</p>
-      <h2>Reactions</h2>
-      <p>** <em>Uncanny Dodge</em>**. <em>Trigger</em> : The scout is hit by an attack roll. <em>Response</em> : The scout halves the damage (round down) it takes from that attack.</p>
+      ## Actions
+
+      ***Multiattack***. The scout makes two attacks, using Shortsword or Longbow in any combination.
+
+      ***Shortsword***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 6 (1d6 + 3) Piercing damage, plus 10 (3d6) Piercing damage if the attack was made with Advantage.
+
+      ***Longbow***. *Ranged Attack Roll* : +5, range 150/600 ft. *Hit* : 7 (1d8 + 3) Piercing damage, plus 10 (3d6) Piercing damage if the attack was made with Advantage.
+
+      ## Bonus actions
+
+      ***Aim***. The scout has Advantage on the next attack roll it makes during the current turn.
+
+      ## Reactions
+
+      ***Uncanny Dodge***. *Trigger* : The scout is hit by an attack roll. *Response* : The scout halves the damage (round down) it takes from that attack.
     senses: Passive Perception 16
     languages:
     - Common plus one other language
@@ -104,14 +111,21 @@ translations:
     name: Éclaireur, capitaine
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. L'éclaireur effectue deux attaques, réparties à sa guise entre Épée courte et Arc long.</p>
-      <p><strong><em>Épée courte</em></strong>. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 6 (1d6 + 3) dégâts perforants, plus 10 (3d6) dégâts perforants si l'attaque est réalisée avec un Avantage.</p>
-      <p><strong><em>Arc long</em></strong>. <em>À distance</em> : +5, portée 45/180 m. <em>Touché</em> : 7 (1d8 + 3) dégâts perforants, plus 10 (3d6) dégâts perforants si l'attaque est réalisée avec un Avantage.</p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Visée</em>**. L'éclaireur bénéficie d'un Avantage sur son prochain jet d'attaque durant le tour en cours.</p>
-      <h2>Réactions</h2>
-      <p>** <em>Esquive instinctive</em>**. <em>Déclencheur</em> : l'éclaireur est touché par un jet d'attaque. <em>Conséquences</em> : l'éclaireur réduit de moitié les dégâts (arrondis à l'inférieur) subis lors de cette attaque.</p>
+      ## Actions
+
+      ***Attaques multiples***. L'éclaireur effectue deux attaques, réparties à sa guise entre Épée courte et Arc long.
+
+      ***Épée courte***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 6 (1d6 + 3) dégâts perforants, plus 10 (3d6) dégâts perforants si l'attaque est réalisée avec un Avantage.
+
+      ***Arc long***. *À distance* : +5, portée 45/180 m. *Touché* : 7 (1d8 + 3) dégâts perforants, plus 10 (3d6) dégâts perforants si l'attaque est réalisée avec un Avantage.
+
+      ## Actions Bonus
+
+      ***Visée***. L'éclaireur bénéficie d'un Avantage sur son prochain jet d'attaque durant le tour en cours.
+
+      ## Réactions
+
+      ***Esquive instinctive***. *Déclencheur* : l'éclaireur est touché par un jet d'attaque. *Conséquences* : l'éclaireur réduit de moitié les dégâts (arrondis à l'inférieur) subis lors de cette attaque.
     senses: Perception passive 16
     languages:
     - commun plus une autre langue

@@ -89,15 +89,17 @@ translations:
     name: Animated Rug of Smothering
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Smother</em>**. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 10 (2d6 + 3) Bludgeoning damage. If the target is a Medium or smaller creature, the rug can give it the Grappled condition (escape DC 13) instead of dealing damage. Until the grapple ends, the target has the Blinded and Restrained conditions, is suffocating, and takes 10 (2d6 + 3) Bludgeoning damage at the start of each of its turns. The rug can smother only one creature at a time. While grappling the target, the rug can't take this action, the rug halves the damage it takes (round down), and the target takes the same amount of damage.</p>
+      ## Actions
+
+      ***Smother***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 10 (2d6 + 3) Bludgeoning damage. If the target is a Medium or smaller creature, the rug can give it the Grappled condition (escape DC 13) instead of dealing damage. Until the grapple ends, the target has the Blinded and Restrained conditions, is suffocating, and takes 10 (2d6 + 3) Bludgeoning damage at the start of each of its turns. The rug can smother only one creature at a time. While grappling the target, the rug can't take this action, the rug halves the damage it takes (round down), and the target takes the same amount of damage.
     senses: Blindsight 60 ft., Passive Perception 6
     languages: []
   fr:
     name: Tapis étrangleur animé
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Étouffement</em>**. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 10 (2d6 + 3) dégâts contondants. Si la cible est une créature de taille M ou inférieure, le tapis peut lui imposer l'état Agrippé (évasion DD 13) au lieu de lui infliger des dégâts. Tant que la cible est agrippée, elle subit les états Aveuglé et Entravé, s'asphyxie, et subit 10 (2d6 + 3) dégâts contondants au début de chacun de ses tours. Le tapis ne peut étouffer qu'une créature à la fois. Tant qu'il agrippe la cible, le tapis ne peut pas entreprendre cette action, il réduit de moitié les dégâts qu'il subit (arrondis à l'inférieur) et la cible subit autant de dégâts que lui.</p>
+      ## Actions
+
+      ***Étouffement***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 10 (2d6 + 3) dégâts contondants. Si la cible est une créature de taille M ou inférieure, le tapis peut lui imposer l'état Agrippé (évasion DD 13) au lieu de lui infliger des dégâts. Tant que la cible est agrippée, elle subit les états Aveuglé et Entravé, s'asphyxie, et subit 10 (2d6 + 3) dégâts contondants au début de chacun de ses tours. Le tapis ne peut étouffer qu'une créature à la fois. Tant qu'il agrippe la cible, le tapis ne peut pas entreprendre cette action, il réduit de moitié les dégâts qu'il subit (arrondis à l'inférieur) et la cible subit autant de dégâts que lui.
     senses: Vision aveugle 18 m, Perception passive 6
     languages: []

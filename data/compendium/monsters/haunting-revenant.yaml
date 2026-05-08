@@ -89,13 +89,19 @@ translations:
     name: Haunting Revenant
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Haunted Zone</em>**. <em>Constitution Saving Throw</em> : DC 17, any creature that casts a spell while inside the revenant's space. <em>Failure</em> : The spell fails and is wasted.</p>
-      <p><strong><em>Undead Restoration</em></strong>. If the revenant dies, it revives 24 hours later unless <em><a href="https://www.aidedd.org/spell/dispel-evil-and-good">Dispel Evil and Good</a></em> is cast on its remains. If it revives, it animates another Gargantuan object or structure elsewhere on the same plane of existence; it now looks different but uses the same stat block and returns with all its Hit Points.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The revenant makes two Object Slam attacks and uses Invitation.</p>
-      <p><strong><em>Object Slam</em></strong>. <em>Melee or Ranged Attack Roll</em> : +9 (with Advantage if the target is inside the revenant's space), reach 10 ft. or range 30/90 ft. <em>Hit</em> : 27 (5d8+ 5) Bludgeoning damage.</p>
-      <p><strong><em>Invitation</em></strong>. <em>Charisma Saving Throw</em> : DC 17, each creature in a 60-foot Cone. <em>Failure</em> : The target is teleported inside the revenant's space and swallowed. A swallowed creature has Total Cover against attacks and other effects outside the revenant. While the revenant has Hit Points, a swallowed creature can leave the revenant's space only by using magic that enables planar travel, such as the <em><a href="https://www.aidedd.org/spell/plane-shift">Plane Shift</a></em> spell.</p>
+      ## Traits
+
+      ***Haunted Zone***. *Constitution Saving Throw* : DC 17, any creature that casts a spell while inside the revenant's space. *Failure* : The spell fails and is wasted.
+
+      ***Undead Restoration***. If the revenant dies, it revives 24 hours later unless *[Dispel Evil and Good](https://www.aidedd.org/spell/dispel-evil-and-good)* is cast on its remains. If it revives, it animates another Gargantuan object or structure elsewhere on the same plane of existence; it now looks different but uses the same stat block and returns with all its Hit Points.
+
+      ## Actions
+
+      ***Multiattack***. The revenant makes two Object Slam attacks and uses Invitation.
+
+      ***Object Slam***. *Melee or Ranged Attack Roll* : +9 (with Advantage if the target is inside the revenant's space), reach 10 ft. or range 30/90 ft. *Hit* : 27 (5d8+ 5) Bludgeoning damage.
+
+      ***Invitation***. *Charisma Saving Throw* : DC 17, each creature in a 60-foot Cone. *Failure* : The target is teleported inside the revenant's space and swallowed. A swallowed creature has Total Cover against attacks and other effects outside the revenant. While the revenant has Hit Points, a swallowed creature can leave the revenant's space only by using magic that enables planar travel, such as the *[Plane Shift](https://www.aidedd.org/spell/plane-shift)* spell.
     senses: Truesight 60 ft., Passive Perception 14
     languages:
     - Common plus two other languages
@@ -103,13 +109,16 @@ translations:
     name: Revenant, tourmenteur
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>Zone hantée.<br />
-      Restauration funeste.  </p>
-      <h2>Actions</h2>
-      <p>Attaques multiples.<br />
-      Frappe d'objet.<br />
-      Invitation.</p>
+      ## Traits
+
+      Zone hantée.\
+      Restauration funeste.
+
+      ## Actions
+
+      Attaques multiples.\
+      Frappe d'objet.\
+      Invitation.
     senses: vision véritable 18 m, Perception passive 14
     languages:
     - commun plus deux autres langues

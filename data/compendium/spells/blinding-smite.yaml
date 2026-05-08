@@ -18,12 +18,9 @@ translations:
     range: Self
     duration: 1 minute
     materialDescription: null
-    description: The target hit by the strike takes an extra 3d8 Radiant damage from
-      the attack, and the target has the Blinded condition until the spell ends. At
-      the end of each of its turns, the Blinded target makes a Constitution saving
-      throw, ending the spell on itself on a success.<br/><strong><em>Using a Higher-Level
-      Spell Slot</em></strong>. The extra damage increases by 1d8 for each spell slot
-      level above 3.<br/>
+    description: |-
+      The target hit by the strike takes an extra 3d8 Radiant damage from the attack, and the target has the Blinded condition until the spell ends. At the end of each of its turns, the Blinded target makes a Constitution saving throw, ending the spell on itself on a success.\
+      ***Using a Higher-Level Spell Slot***. The extra damage increases by 1d8 for each spell slot level above 3.\
   fr:
     name: Châtiment de cécité
     castingTime: Action bonus, que vous prenez immédiatement après avoir touché une
@@ -31,9 +28,6 @@ translations:
     range: Personnelle
     duration: 1 minute
     materialDescription: null
-    description: La cible touchée subit 3d8 dégâts radiants supplémentaires et subit
-      l'état Aveuglé jusqu'à la fin du sort. À la fin de chacun de ses tours, la cible
-      aveuglée effectue un jet de sauvegarde de Constitution, mettant fin au sort
-      en cas de réussite.<br/><strong><em>Emplacement de niveau supérieur</em></strong>.
-      Les dégâts supplémentaires augmentent de 1d8 pour chaque niveau d'emplacement
-      de sort supérieur à 3.<br/>
+    description: |-
+      La cible touchée subit 3d8 dégâts radiants supplémentaires et subit l'état Aveuglé jusqu'à la fin du sort. À la fin de chacun de ses tours, la cible aveuglée effectue un jet de sauvegarde de Constitution, mettant fin au sort en cas de réussite.\
+      ***Emplacement de niveau supérieur***. Les dégâts supplémentaires augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 3.\

@@ -89,10 +89,13 @@ translations:
     name: Giant Hyena
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Bite</em>**. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 10 (2d6 + 3) Piercing damage.</p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Rampage (1/Day)</em>**. Immediately after dealing damage to a creature that was already Bloodied, the hyena can move up to half its Speed, and it makes one Bite attack.</p>
+      ## Actions
+
+      ***Bite***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 10 (2d6 + 3) Piercing damage.
+
+      ## Bonus actions
+
+      ***Rampage (1/Day)***. Immediately after dealing damage to a creature that was already Bloodied, the hyena can move up to half its Speed, and it makes one Bite attack.
     senses: Darkvision 60 ft., Passive Perception 13
     languages:
     - None
@@ -100,10 +103,13 @@ translations:
     name: Hyène géante
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Morsure</em>**. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 10 (2d6 + 3) dégâts perforants.</p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Déchaînement (1/jour)</em>**. Aussitôt après avoir infligé des dégâts à une créature déjà En péril, la hyène se déplace à concurrence de la moitié de sa Vitesse et effectue une attaque de Morsure.</p>
+      ## Actions
+
+      ***Morsure***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 10 (2d6 + 3) dégâts perforants.
+
+      ## Actions Bonus
+
+      ***Déchaînement (1/jour)***. Aussitôt après avoir infligé des dégâts à une créature déjà En péril, la hyène se déplace à concurrence de la moitié de sa Vitesse et effectue une attaque de Morsure.
     senses: Vision dans le noir 18 m, Perception passive 13
     languages:
     - aucune

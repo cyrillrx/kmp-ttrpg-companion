@@ -89,13 +89,19 @@ translations:
     name: Bullywug Warrior
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Amphibious</em>**. The bullywug can breathe air and water.</p>
-      <p><strong><em>Speak with Frogs and Toads</em></strong>. The bullywug can communicate simple concepts to frogs and toads when it speaks in Bullywug.</p>
-      <h2>Actions</h2>
-      <p>** <em>Insectile Rapier</em>**. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 6 (1d8 + 2) Piercing damage plus 2 (1d4) Poison damage.</p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Leap</em>**. The bullywug jumps up to 30 feet by spending 10 feet of movement.</p>
+      ## Traits
+
+      ***Amphibious***. The bullywug can breathe air and water.
+
+      ***Speak with Frogs and Toads***. The bullywug can communicate simple concepts to frogs and toads when it speaks in Bullywug.
+
+      ## Actions
+
+      ***Insectile Rapier***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 6 (1d8 + 2) Piercing damage plus 2 (1d4) Poison damage.
+
+      ## Bonus actions
+
+      ***Leap***. The bullywug jumps up to 30 feet by spending 10 feet of movement.
     senses: Passive Perception 10
     languages:
     - Bullywug
@@ -104,13 +110,19 @@ translations:
     name: Brutacien, combattant
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Amphibie</em>**. Le brutacien peut respirer sous l'eau comme à l'air libre.</p>
-      <p><strong><em>Communication avec les grenouilles et les crapauds</em></strong>. Le brutacien peut communiquer des idées simples aux grenouilles et aux crapauds lorsqu'il s'exprime en brutacien.</p>
-      <h2>Actions</h2>
-      <p>** <em>Rapière venimeuse</em>**. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 6 (1d8 + 2) dégâts perforants plus 2 (1d4) dégâts de poison.</p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Bond</em>**. Le brutacien effectue un saut d'un maximum de 9 m en dépensant 3 m de déplacement.</p>
+      ## Traits
+
+      ***Amphibie***. Le brutacien peut respirer sous l'eau comme à l'air libre.
+
+      ***Communication avec les grenouilles et les crapauds***. Le brutacien peut communiquer des idées simples aux grenouilles et aux crapauds lorsqu'il s'exprime en brutacien.
+
+      ## Actions
+
+      ***Rapière venimeuse***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 6 (1d8 + 2) dégâts perforants plus 2 (1d4) dégâts de poison.
+
+      ## Actions Bonus
+
+      ***Bond***. Le brutacien effectue un saut d'un maximum de 9 m en dépensant 3 m de déplacement.
     senses: Perception passive 10
     languages:
     - brutacien

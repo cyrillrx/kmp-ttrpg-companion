@@ -89,10 +89,13 @@ translations:
     name: Giant Crab
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Amphibious</em>**. The crab can breathe air and water.</p>
-      <h2>Actions</h2>
-      <p>** <em>Claw</em>**. <em>Melee Attack Roll</em> : +3, reach 5 ft. <em>Hit</em> : 4 (1d6 + 1) Bludgeoning damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 11) from one of two claws.</p>
+      ## Traits
+
+      ***Amphibious***. The crab can breathe air and water.
+
+      ## Actions
+
+      ***Claw***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 4 (1d6 + 1) Bludgeoning damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 11) from one of two claws.
     senses: Blindsight 30 ft., Passive Perception 9
     languages:
     - None
@@ -100,10 +103,13 @@ translations:
     name: Crabe géant
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Amphibie</em>**. Le crabe peut respirer aussi bien à l'air libre que sous l'eau.</p>
-      <h2>Actions</h2>
-      <p>** <em>Pince</em>**. <em>Corps à corps</em> : +3, allonge 1,50 m. <em>Touché</em> : 4 (1d6 + 1) dégâts contondants. Si la cible est de taille M ou inférieure, elle subit l'état Agrippé (évasion DD 11) par l'une des deux pinces.</p>
+      ## Traits
+
+      ***Amphibie***. Le crabe peut respirer aussi bien à l'air libre que sous l'eau.
+
+      ## Actions
+
+      ***Pince***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 4 (1d6 + 1) dégâts contondants. Si la cible est de taille M ou inférieure, elle subit l'état Agrippé (évasion DD 11) par l'une des deux pinces.
     senses: Vision aveugle 9 m, Perception passive 9
     languages:
     - aucune

@@ -89,8 +89,9 @@ translations:
     name: Jackal
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Bite</em>**. <em>Melee Attack Roll</em> : +1, reach 5 ft. <em>Hit</em> : 1 (1d4 – 1) Piercing damage.</p>
+      ## Actions
+
+      ***Bite***. *Melee Attack Roll* : +1, reach 5 ft. *Hit* : 1 (1d4 – 1) Piercing damage.
     senses: Darkvision 90 ft., Passive Perception 15
     languages:
     - None
@@ -98,8 +99,9 @@ translations:
     name: Chacal
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Morsure</em>**. <em>Corps à corps</em> : +1, allonge 1,50 m. <em>Touché</em> : 1 (1d4 – 1) dégâts perforants.</p>
+      ## Actions
+
+      ***Morsure***. *Corps à corps* : +1, allonge 1,50 m. *Touché* : 1 (1d4 – 1) dégâts perforants.
     senses: Vision dans le noir 27 m, Perception passive 15
     languages:
     - aucune

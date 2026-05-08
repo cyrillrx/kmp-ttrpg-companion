@@ -17,20 +17,13 @@ translations:
     range: 10 feet
     duration: 1 minute
     materialDescription: null
-    description: This spell creates a magical link between a Large or larger inanimate
-      plant within range and another plant, at any distance, on the same plane of
-      existence. You must have seen or touched the destination plant at least once
-      before. For the duration, any creature can step into the target plant and exit
-      from the destination plant by using 5 feet of movement.<br/>
+    description: |-
+      This spell creates a magical link between a Large or larger inanimate plant within range and another plant, at any distance, on the same plane of existence. You must have seen or touched the destination plant at least once before. For the duration, any creature can step into the target plant and exit from the destination plant by using 5 feet of movement.\
   fr:
     name: Voie végétale
     castingTime: Action
     range: 3 m
     duration: 1 minute
     materialDescription: null
-    description: Ce sort crée un lien magique entre une plante inanimée à portée,
-      de taille G ou supérieure, et une autre plante du même plan d'existence, sans
-      contrainte de distance. Vous devez avoir déjà vu ou touché la plante de destination
-      au moins une fois. Pour toute la durée, toutes les créatures peuvent s'avancer
-      dans la plante ciblée et ressortir par la plante de destination en y consacrant
-      1,50 m de leur déplacement.<br/>
+    description: |-
+      Ce sort crée un lien magique entre une plante inanimée à portée, de taille G ou supérieure, et une autre plante du même plan d'existence, sans contrainte de distance. Vous devez avoir déjà vu ou touché la plante de destination au moins une fois. Pour toute la durée, toutes les créatures peuvent s'avancer dans la plante ciblée et ressortir par la plante de destination en y consacrant 1,50 m de leur déplacement.\

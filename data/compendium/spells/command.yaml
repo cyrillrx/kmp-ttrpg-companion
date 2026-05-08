@@ -19,31 +19,25 @@ translations:
     range: 60 feet
     duration: Instantaneous
     materialDescription: null
-    description: You speak a one-word command to a creature you can see within range.
-      The target must succeed on a Wisdom saving throw or follow the command on its
-      next turn. Choose the command from these options:<br/><strong>Approach</strong>.
-      The target moves toward you by the shortest and most direct route, ending its
-      turn if it moves within 5 feet of you.<br/><strong>Drop</strong>. The target
-      drops whatever it is holding and then ends its turn.<br/><strong>Flee</strong>.
-      The target spends its turn moving away from you by the fastest available means.<br/><strong>Grovel</strong>.
-      The target has the Prone condition and then ends its turn.<br/><strong>Halt</strong>.
-      On its turn, the target doesn't move and takes no action or Bonus Action.<br/><strong><em>Using
-      a Higher-Level Spell Slot</em></strong>. You can affect one additional creature
-      for each spell slot level above 1.<br/>
+    description: |-
+      You speak a one-word command to a creature you can see within range. The target must succeed on a Wisdom saving throw or follow the command on its next turn. Choose the command from these options:\
+      **Approach**. The target moves toward you by the shortest and most direct route, ending its turn if it moves within 5 feet of you.\
+      **Drop**. The target drops whatever it is holding and then ends its turn.\
+      **Flee**. The target spends its turn moving away from you by the fastest available means.\
+      **Grovel**. The target has the Prone condition and then ends its turn.\
+      **Halt**. On its turn, the target doesn't move and takes no action or Bonus Action.\
+      ***Using a Higher-Level Spell Slot***. You can affect one additional creature for each spell slot level above 1.\
   fr:
     name: Injonction
     castingTime: Action
     range: 18 m
     duration: Instantanée
     materialDescription: null
-    description: Vous donnez un ordre d'un seul mot à une créature que vous pouvez
-      voir à portée. La cible doit réussir un jet de sauvegarde de Sagesse ou suivre
-      l'ordre à son prochain tour. Choisissez l'ordre parmi ces options :<br/><strong>Approche</strong>.
-      La cible se dirige vers vous par le chemin le plus court et le plus direct,
-      mettant fin à son tour si elle se trouve à 1,50 mètre ou moins de vous.<br/><strong>Lâche</strong>.
-      La cible laisse tomber ce qu'elle tient et termine son tour.<br/><strong>Fuis</strong>.
-      La cible passe son tour à s'éloigner de vous par le moyen le plus rapide.<br/><strong>Rampe</strong>.
-      La cible a l'état À terre et termine son tour.<br/><strong>Halte</strong>. À
-      son tour, la cible ne bouge pas et n'effectue aucune action ni action Bonus.<br/><strong><em>Emplacement
-      de niveau supérieur</em></strong>. Vous pouvez affecter une créature supplémentaire
-      pour chaque niveau d'emplacement de sort supérieur à 1.<br/>
+    description: |-
+      Vous donnez un ordre d'un seul mot à une créature que vous pouvez voir à portée. La cible doit réussir un jet de sauvegarde de Sagesse ou suivre l'ordre à son prochain tour. Choisissez l'ordre parmi ces options :\
+      **Approche**. La cible se dirige vers vous par le chemin le plus court et le plus direct, mettant fin à son tour si elle se trouve à 1,50 mètre ou moins de vous.\
+      **Lâche**. La cible laisse tomber ce qu'elle tient et termine son tour.\
+      **Fuis**. La cible passe son tour à s'éloigner de vous par le moyen le plus rapide.\
+      **Rampe**. La cible a l'état À terre et termine son tour.\
+      **Halte**. À son tour, la cible ne bouge pas et n'effectue aucune action ni action Bonus.\
+      ***Emplacement de niveau supérieur***. Vous pouvez affecter une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 1.\

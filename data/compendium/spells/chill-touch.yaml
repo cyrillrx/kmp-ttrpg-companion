@@ -19,20 +19,15 @@ translations:
     range: Touch
     duration: Instantaneous
     materialDescription: null
-    description: Channeling the chill of the grave, make a melee spell attack against
-      a target within reach. On a hit, the target takes 1d10 Necrotic damage, and
-      it can't regain Hit Points until the end of your next turn.<br/><strong><em>Cantrip
-      Upgrade</em></strong>. The damage increases by 1d10 when you reach levels 5
-      (2d10), 11 (3d10), and 17 (4d10).<br/>
+    description: |-
+      Channeling the chill of the grave, make a melee spell attack against a target within reach. On a hit, the target takes 1d10 Necrotic damage, and it can't regain Hit Points until the end of your next turn.\
+      ***Cantrip Upgrade***. The damage increases by 1d10 when you reach levels 5 (2d10), 11 (3d10), and 17 (4d10).\
   fr:
     name: Contact glacial
     castingTime: Action
     range: Contact
     duration: Instantanée
     materialDescription: null
-    description: Canalisant le froid de la tombe, effectuez une attaque de corps à
-      corps avec un sort contre une cible à portée. Si l'attaque touche, la cible
-      subit 1d10 dégâts nécrotiques et ne peut pas regagner de points de vie avant
-      la fin de votre prochain tour.<br/><strong><em>Amélioration de sort mineur</em></strong>.
-      Les dégâts augmentent de 1d10 lorsque vous atteignez les niveaux 5 (2d10), 11
-      (3d10) et 17 (4d10).<br/>
+    description: |-
+      Canalisant le froid de la tombe, effectuez une attaque de corps à corps avec un sort contre une cible à portée. Si l'attaque touche, la cible subit 1d10 dégâts nécrotiques et ne peut pas regagner de points de vie avant la fin de votre prochain tour.\
+      ***Amélioration de sort mineur***. Les dégâts augmentent de 1d10 lorsque vous atteignez les niveaux 5 (2d10), 11 (3d10) et 17 (4d10).\

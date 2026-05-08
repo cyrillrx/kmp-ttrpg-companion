@@ -89,12 +89,17 @@ translations:
     name: Warrior Veteran
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The warrior makes two Greatsword or Heavy Crossbow attacks.</p>
-      <p><strong><em>Greatsword</em></strong>. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 10 (2d6 + 3) Slashing damage.</p>
-      <p><strong><em>Heavy Crossbow</em></strong>. <em>Ranged Attack Roll</em> : +3, range 100/400 ft. <em>Hit</em> : 12 (2d10 + 1) Piercing damage.</p>
-      <h2>Reactions</h2>
-      <p>** <em>Parry</em>**. <em>Trigger</em> : The warrior is hit by a melee attack roll while holding a weapon. <em>Response</em> : The warrior adds 2 to its AC against that attack, possibly causing it to miss.</p>
+      ## Actions
+
+      ***Multiattack***. The warrior makes two Greatsword or Heavy Crossbow attacks.
+
+      ***Greatsword***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 10 (2d6 + 3) Slashing damage.
+
+      ***Heavy Crossbow***. *Ranged Attack Roll* : +3, range 100/400 ft. *Hit* : 12 (2d10 + 1) Piercing damage.
+
+      ## Reactions
+
+      ***Parry***. *Trigger* : The warrior is hit by a melee attack roll while holding a weapon. *Response* : The warrior adds 2 to its AC against that attack, possibly causing it to miss.
     senses: Passive Perception 12
     languages:
     - Common plus one other language
@@ -102,12 +107,17 @@ translations:
     name: Combattant, vétéran
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le combattant effectue deux attaques d'Épée à deux mains ou d'Arbalète lourde.</p>
-      <p><strong><em>Épée à deux mains</em></strong>. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 10 (2d6 + 3) dégâts tranchants.</p>
-      <p><strong><em>Arbalète lourde</em></strong>. <em>À distance</em> : +3, portée 30/120 m. <em>Touché</em> : 12 (2d10 + 1) dégâts perforants.</p>
-      <h2>Réactions</h2>
-      <p>** <em>Parade</em>**. <em>Déclencheur</em> : le combattant est touché par un jet d'attaque de corps à corps alors qu'il tient une arme. <em>Conséquences</em> : le combattant ajoute 2 à sa CA contre cette attaque, ce qui peut la faire rater.</p>
+      ## Actions
+
+      ***Attaques multiples***. Le combattant effectue deux attaques d'Épée à deux mains ou d'Arbalète lourde.
+
+      ***Épée à deux mains***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 10 (2d6 + 3) dégâts tranchants.
+
+      ***Arbalète lourde***. *À distance* : +3, portée 30/120 m. *Touché* : 12 (2d10 + 1) dégâts perforants.
+
+      ## Réactions
+
+      ***Parade***. *Déclencheur* : le combattant est touché par un jet d'attaque de corps à corps alors qu'il tient une arme. *Conséquences* : le combattant ajoute 2 à sa CA contre cette attaque, ce qui peut la faire rater.
     senses: Perception passive 12
     languages:
     - commun plus une autre langue

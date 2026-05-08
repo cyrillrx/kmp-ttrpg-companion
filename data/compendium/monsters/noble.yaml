@@ -89,10 +89,13 @@ translations:
     name: Noble
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Rapier</em>**. <em>Melee Attack Roll</em> : +3, reach 5 ft. <em>Hit</em> : 5 (1d8 + 1) Piercing damage.</p>
-      <h2>Reactions</h2>
-      <p>** <em>Parry</em>**. <em>Trigger</em> : The noble is hit by a melee attack roll while holding a weapon. <em>Response</em> : The noble adds 2 to its AC against that attack, possibly causing it to miss.</p>
+      ## Actions
+
+      ***Rapier***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 5 (1d8 + 1) Piercing damage.
+
+      ## Reactions
+
+      ***Parry***. *Trigger* : The noble is hit by a melee attack roll while holding a weapon. *Response* : The noble adds 2 to its AC against that attack, possibly causing it to miss.
     senses: Passive Perception 12
     languages:
     - Common plus two other languages
@@ -100,10 +103,13 @@ translations:
     name: Noble
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Rapière</em>**. <em>Corps à corps</em> : +3, allonge 1,50 m. <em>Touché</em> : 5 (1d8 + 1) dégâts perforants.</p>
-      <h2>Réactions</h2>
-      <p>** <em>Parade</em>**. <em>Déclencheur</em> : le noble est touché par un jet d'attaque au corps-à-corps alors qu'il tient une arme. <em>Conséquences</em> : le noble ajoute 2 à sa CA contre cette attaque, ce qui peut la faire rater.</p>
+      ## Actions
+
+      ***Rapière***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 5 (1d8 + 1) dégâts perforants.
+
+      ## Réactions
+
+      ***Parade***. *Déclencheur* : le noble est touché par un jet d'attaque au corps-à-corps alors qu'il tient une arme. *Conséquences* : le noble ajoute 2 à sa CA contre cette attaque, ce qui peut la faire rater.
     senses: Perception passive 12
     languages:
     - commun plus deux autres langues

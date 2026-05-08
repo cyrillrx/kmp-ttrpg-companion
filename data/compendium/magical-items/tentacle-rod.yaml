@@ -7,29 +7,10 @@ translations:
   en:
     name: Tentacle Rod
     subtype: null
-    description: <p>This rod ends in three rubbery tentacles. While holding the rod,
-      you can take a Magic action to direct the tentacles to stretch outward, each
-      one attacking a creature you can see within 15 feet of yourself. For each tentacle,
-      make a melee attack roll with a +9 bonus. A tentacle deals 1d6 Psychic damage
-      on a hit. If you hit the same target with all three tentacles, the target must
-      succeed on a DC 15 Dexterity saving throw or have the Restrained condition until
-      you have the Incapacitated condition, until you take a Bonus Action to release
-      the target, or until the target is no longer within 15 feet of you. While Restrained
-      in this way, the target takes 3d6 Psychic damage at the start of each of its
-      turns. At the end of each of its turns, the target repeats the save, ending
-      the effect on itself on a success.</p>
+    description: |-
+      This rod ends in three rubbery tentacles. While holding the rod, you can take a Magic action to direct the tentacles to stretch outward, each one attacking a creature you can see within 15 feet of yourself. For each tentacle, make a melee attack roll with a +9 bonus. A tentacle deals 1d6 Psychic damage on a hit. If you hit the same target with all three tentacles, the target must succeed on a DC 15 Dexterity saving throw or have the Restrained condition until you have the Incapacitated condition, until you take a Bonus Action to release the target, or until the target is no longer within 15 feet of you. While Restrained in this way, the target takes 3d6 Psychic damage at the start of each of its turns. At the end of each of its turns, the target repeats the save, ending the effect on itself on a success.
   fr:
     name: Sceptre-tentacule
     subtype: null
-    description: <p>Ce sceptre se termine par trois tentacules caoutchouteux. Lorsque
-      vous le tenez, vous pouvez prendre une action Magie pour étendre les tentacules
-      et attaquer une créature que vous pouvez voir dans un rayon de 4,50 mètres.
-      Pour chaque tentacule, effectuez un jet d'attaque au corps à corps avec un bonus
-      de +9. Un tentacule inflige 1d6 dégâts psychiques si vous touchez. Si vous touchez
-      la même cible avec les trois tentacules, celle-ci doit réussir un jet de sauvegarde
-      de Dextérité DD 15 ou subir l'état Entravé jusqu'à ce que vous subissiez l'état
-      Incapable d'agir, que vous preniez une action Bonus pour la libérer, ou qu'elle
-      soit à plus de 4,50 mètres. Tant qu'elle est entravée, la cible subit 3d6 dégâts
-      psychiques au début de chacun de ses tours. À la fin de chacun de ses tours,
-      la cible renouvelle son jet de sauvegarde, mettant fin à l'effet sur elle-même
-      en cas de réussite.</p>
+    description: |-
+      Ce sceptre se termine par trois tentacules caoutchouteux. Lorsque vous le tenez, vous pouvez prendre une action Magie pour étendre les tentacules et attaquer une créature que vous pouvez voir dans un rayon de 4,50 mètres. Pour chaque tentacule, effectuez un jet d'attaque au corps à corps avec un bonus de +9. Un tentacule inflige 1d6 dégâts psychiques si vous touchez. Si vous touchez la même cible avec les trois tentacules, celle-ci doit réussir un jet de sauvegarde de Dextérité DD 15 ou subir l'état Entravé jusqu'à ce que vous subissiez l'état Incapable d'agir, que vous preniez une action Bonus pour la libérer, ou qu'elle soit à plus de 4,50 mètres. Tant qu'elle est entravée, la cible subit 3d6 dégâts psychiques au début de chacun de ses tours. À la fin de chacun de ses tours, la cible renouvelle son jet de sauvegarde, mettant fin à l'effet sur elle-même en cas de réussite.

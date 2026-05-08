@@ -89,14 +89,21 @@ translations:
     name: Elemental Cultist
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The cultist makes three attacks, using Elemental Flail or Elemental Claw in any combination.</p>
-      <p><strong><em>Elemental Flail</em></strong>. <em>Melee Attack Roll</em> : +7, reach 5 ft. <em>Hit</em> : 25 (6d6 + 4) damage of a type chosen by the cultist: Acid, Cold, Fire, Lightning, or Thunder.</p>
-      <p><strong><em>Elemental Claw</em></strong>. <em>Ranged Attack Roll</em> : +7, range 120 ft. <em>Hit</em> : 22 (4d10) damage of a type chosen by the cultist: Acid, Cold, Fire, Lightning, or Thunder. If the target is a Medium or smaller creature, the cultist moves the target up to 10 feet straight toward or away from itself.</p>
-      <p><strong><em>Spellcasting</em></strong>. The cultist casts one of the following spells, using Wisdom as the spellcasting ability (spell save DC 15):</p>
-      <p>At will: <em><a href="https://www.aidedd.org/spell/elementalism">Elementalism</a>, <a href="https://www.aidedd.org/spell/mage-hand">Mage Hand</a></em>  </p>
-      <h2>Reactions</h2>
-      <p>** <em>Elemental Absorption (1/Day)</em>**. <em>Trigger</em> : The cultist takes Acid, Cold, Fire, Lightning, or Thunder damage. <em>Response</em> : The cultist gives itself Resistance to that instance of damage and gains 10 Temporary Hit Points.</p>
+      ## Actions
+
+      ***Multiattack***. The cultist makes three attacks, using Elemental Flail or Elemental Claw in any combination.
+
+      ***Elemental Flail***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 25 (6d6 + 4) damage of a type chosen by the cultist: Acid, Cold, Fire, Lightning, or Thunder.
+
+      ***Elemental Claw***. *Ranged Attack Roll* : +7, range 120 ft. *Hit* : 22 (4d10) damage of a type chosen by the cultist: Acid, Cold, Fire, Lightning, or Thunder. If the target is a Medium or smaller creature, the cultist moves the target up to 10 feet straight toward or away from itself.
+
+      ***Spellcasting***. The cultist casts one of the following spells, using Wisdom as the spellcasting ability (spell save DC 15):
+
+      At will: *[Elementalism](https://www.aidedd.org/spell/elementalism), [Mage Hand](https://www.aidedd.org/spell/mage-hand)*
+
+      ## Reactions
+
+      ***Elemental Absorption (1/Day)***. *Trigger* : The cultist takes Acid, Cold, Fire, Lightning, or Thunder damage. *Response* : The cultist gives itself Resistance to that instance of damage and gains 10 Temporary Hit Points.
     senses: Passive Perception 17
     languages:
     - Common
@@ -105,14 +112,21 @@ translations:
     name: Cultiste, d'Élémentaire
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le cultiste effectue trois attaques, réparties à sa guise entre Fléau élémentaire et Griffe élémentaire.</p>
-      <p><strong><em>Fléau élémentaire</em></strong>. <em>Corps à corps</em> : +7, allonge 1,50 m. <em>Touché</em> : 25 (6d6 + 4) dégâts d'un type choisi par le cultiste : acide, froid, feu, foudre ou tonnerre.</p>
-      <p><strong><em>Griffe élémentaire</em></strong>. <em>À distance</em> : +7, portée 36 m. <em>Touché</em> : 22 (4d10) dégâts d'un type choisi par le cultiste : acide, froid, feu, foudre ou tonnerre. Si la cible est une créature de taille M ou inférieure, le cultiste déplace la cible jusqu'à 3 m vers lui ou loin de lui.</p>
-      <p><strong><em>Incantation</em></strong>. Le cultiste lance l'un des sorts suivants, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 15) :</p>
-      <p>À volonté : <em><a href="https://www.aidedd.org/spell/fr/elementalisme">élémentalisme</a>, <a href="https://www.aidedd.org/spell/fr/main-de-mage">main de mage</a></em>  </p>
-      <h2>Réactions</h2>
-      <p>** <em>Absorption élémentaire (1/jour)</em>**. <em>Déclencheur</em> : le cultiste subit des dégâts d'acide, de froid, de feu, de foudre ou de tonnerre. <em>Conséquences</em> : le cultiste s'octroie une Résistance à ce type de dégâts et gagne 10 points de vie temporaires.</p>
+      ## Actions
+
+      ***Attaques multiples***. Le cultiste effectue trois attaques, réparties à sa guise entre Fléau élémentaire et Griffe élémentaire.
+
+      ***Fléau élémentaire***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 25 (6d6 + 4) dégâts d'un type choisi par le cultiste : acide, froid, feu, foudre ou tonnerre.
+
+      ***Griffe élémentaire***. *À distance* : +7, portée 36 m. *Touché* : 22 (4d10) dégâts d'un type choisi par le cultiste : acide, froid, feu, foudre ou tonnerre. Si la cible est une créature de taille M ou inférieure, le cultiste déplace la cible jusqu'à 3 m vers lui ou loin de lui.
+
+      ***Incantation***. Le cultiste lance l'un des sorts suivants, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 15) :
+
+      À volonté : *[élémentalisme](https://www.aidedd.org/spell/fr/elementalisme), [main de mage](https://www.aidedd.org/spell/fr/main-de-mage)*
+
+      ## Réactions
+
+      ***Absorption élémentaire (1/jour)***. *Déclencheur* : le cultiste subit des dégâts d'acide, de froid, de feu, de foudre ou de tonnerre. *Conséquences* : le cultiste s'octroie une Résistance à ce type de dégâts et gagne 10 points de vie temporaires.
     senses: Perception passive 17
     languages:
     - commun

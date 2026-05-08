@@ -89,8 +89,9 @@ translations:
     name: Cultist
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Ritual Sickle</em>**. <em>Melee Attack Roll</em> : +3, reach 5 ft. <em>Hit</em> : 3 (1d4 + 1) Slashing damage plus 1 Necrotic damage.</p>
+      ## Actions
+
+      ***Ritual Sickle***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 3 (1d4 + 1) Slashing damage plus 1 Necrotic damage.
     senses: Passive Perception 10
     languages:
     - Common
@@ -98,8 +99,9 @@ translations:
     name: Cultiste / Sectateur
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Serpe rituelle</em>**. <em>Corps à corps</em> : +3, allonge 1,50 m. <em>Touché</em> : 3 (1d4 +1) dégâts tranchants plus 1 dégât nécrotique.</p>
+      ## Actions
+
+      ***Serpe rituelle***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 3 (1d4 +1) dégâts tranchants plus 1 dégât nécrotique.
     senses: Perception passive 10
     languages:
     - commun

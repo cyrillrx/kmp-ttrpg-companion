@@ -7,21 +7,10 @@ translations:
   en:
     name: Immovable Rod
     subtype: null
-    description: <p>This iron rod has a button on one end. You can take a Utilize
-      action to press the button, which causes the rod to become magically fixed in
-      place. Until you or another creature takes a Utilize action to push the button
-      again, the rod doesn't move, even if it defies gravity. The rod can hold up
-      to 8,000 pounds of weight. More weight causes the rod to deactivate and fall.
-      A creature can take a Utilize action to make a DC 30 Strength (Athletics) check,
-      moving the fixed rod up to 10 feet on a successful check.</p>
+    description: |-
+      This iron rod has a button on one end. You can take a Utilize action to press the button, which causes the rod to become magically fixed in place. Until you or another creature takes a Utilize action to push the button again, the rod doesn't move, even if it defies gravity. The rod can hold up to 8,000 pounds of weight. More weight causes the rod to deactivate and fall. A creature can take a Utilize action to make a DC 30 Strength (Athletics) check, moving the fixed rod up to 10 feet on a successful check.
   fr:
     name: Sceptre inamovible
     subtype: null
-    description: <p>Ce sceptre en fer possède un bouton à une extrémité. Vous pouvez
-      prendre une action Utilisation pour appuyer sur le bouton, ce qui le fixe magiquement.
-      Tant que vous ou une autre créature n'effectuez pas une action Utilisation pour
-      appuyer à nouveau sur le bouton, le sceptre reste immobile, même en défiant
-      la gravité. Il peut supporter jusqu'à 4 tonnes. Un poids supérieur le désactive
-      et le fait tomber. Une créature peut prendre une action Utilisation pour effectuer
-      un jet de Force (Athlétisme) DD 30 et déplacer le sceptre de jusqu'à 3 mètres
-      en cas de réussite.</p>
+    description: |-
+      Ce sceptre en fer possède un bouton à une extrémité. Vous pouvez prendre une action Utilisation pour appuyer sur le bouton, ce qui le fixe magiquement. Tant que vous ou une autre créature n'effectuez pas une action Utilisation pour appuyer à nouveau sur le bouton, le sceptre reste immobile, même en défiant la gravité. Il peut supporter jusqu'à 4 tonnes. Un poids supérieur le désactive et le fait tomber. Une créature peut prendre une action Utilisation pour effectuer un jet de Force (Athlétisme) DD 30 et déplacer le sceptre de jusqu'à 3 mètres en cas de réussite.

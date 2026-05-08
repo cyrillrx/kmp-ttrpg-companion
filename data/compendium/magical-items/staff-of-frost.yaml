@@ -8,25 +8,27 @@ translations:
     name: Staff of Frost
     subtype: null
     description: |-
-      <p>You have Resistance to Cold damage while you hold this staff.<br />
-      <strong>Spells</strong>. The staff has 10 charges. While holding the staff, you can cast one of the spells on the following table from it, using your spell save DC. The table indicates how many charges you must expend to cast the spell.<br />
-      Spell| Charge Cost<br />
-      ---|---<br />
-      <em><a href="https://www.aidedd.org/spell/cone-of-cold">Cone of Cold</a></em>|  5<br />
-      <em><a href="https://www.aidedd.org/spell/fog-cloud">Fog Cloud</a></em>|  1<br />
-      <em><a href="https://www.aidedd.org/spell/ice-storm">Ice Storm</a></em>|  4<br />
-      <em><a href="https://www.aidedd.org/spell/wall-of-ice">Wall of Ice</a></em>|  4  </p>
-      <p><strong>Regaining Charges</strong>. The staff regains 1d6 + 4 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff turns to water and is destroyed.</p>
+      You have Resistance to Cold damage while you hold this staff.\
+      **Spells**. The staff has 10 charges. While holding the staff, you can cast one of the spells on the following table from it, using your spell save DC. The table indicates how many charges you must expend to cast the spell.\
+      | Spell | Charge Cost |
+      | --- | --- |
+      | *[Cone of Cold](https://www.aidedd.org/spell/cone-of-cold)* | 5 |
+      | *[Fog Cloud](https://www.aidedd.org/spell/fog-cloud)* | 1 |
+      | *[Ice Storm](https://www.aidedd.org/spell/ice-storm)* | 4 |
+      | *[Wall of Ice](https://www.aidedd.org/spell/wall-of-ice)* | 4 |
+
+      **Regaining Charges**. The staff regains 1d6 + 4 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff turns to water and is destroyed.
   fr:
     name: Bâton de givre
     subtype: null
     description: |-
-      <p>Vous bénéficiez d'une Résistance aux dégâts de froid lorsque vous tenez ce bâton.<br />
-      <strong>Sorts</strong>. Le bâton possède 10 charges. En le tenant, vous pouvez lancer l'un des sorts de la table suivante, en utilisant votre DD de sauvegarde des sorts. La table indique le nombre de charges à dépenser pour lancer le sort.<br />
-      Sort| Coût en charges<br />
-      ---|---<br />
-      <em><a href="https://www.aidedd.org/spell/fr/cone-de-froid">cône de froid</a></em>|  5<br />
-      <em><a href="https://www.aidedd.org/spell/fr/nappe-de-brouillard">nappe de brouillard</a></em>|  1<br />
-      <em><a href="https://www.aidedd.org/spell/fr/tempete-de-grele">tempête de grêle</a></em>|  4<br />
-      <em><a href="https://www.aidedd.org/spell/fr/mur-de-glace">mur de glace</a></em>|  4  </p>
-      <p><strong>Récupération des charges</strong>. Le bâton récupère 1d6 + 4 charges dépensées chaque jour à l'aube. Si vous dépensez la dernière charge, lancez 1d20. Sur un 1, le bâton se transforme en eau et est détruit.</p>
+      Vous bénéficiez d'une Résistance aux dégâts de froid lorsque vous tenez ce bâton.\
+      **Sorts**. Le bâton possède 10 charges. En le tenant, vous pouvez lancer l'un des sorts de la table suivante, en utilisant votre DD de sauvegarde des sorts. La table indique le nombre de charges à dépenser pour lancer le sort.\
+      | Sort | Coût en charges |
+      | --- | --- |
+      | *[cône de froid](https://www.aidedd.org/spell/fr/cone-de-froid)* | 5 |
+      | *[nappe de brouillard](https://www.aidedd.org/spell/fr/nappe-de-brouillard)* | 1 |
+      | *[tempête de grêle](https://www.aidedd.org/spell/fr/tempete-de-grele)* | 4 |
+      | *[mur de glace](https://www.aidedd.org/spell/fr/mur-de-glace)* | 4 |
+
+      **Récupération des charges**. Le bâton récupère 1d6 + 4 charges dépensées chaque jour à l'aube. Si vous dépensez la dernière charge, lancez 1d20. Sur un 1, le bâton se transforme en eau et est détruit.

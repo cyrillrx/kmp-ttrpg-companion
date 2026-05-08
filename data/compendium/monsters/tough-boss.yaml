@@ -89,12 +89,17 @@ translations:
     name: Tough Boss
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Pack Tactics</em>**. The tough has Advantage on an attack roll against a creature if at least one of the tough's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The tough makes two attacks, using Warhammer or Heavy Crossbow in any combination.</p>
-      <p><strong><em>Warhammer</em></strong>. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 12 (2d8 + 3) Bludgeoning damage, and if the target is Large or smaller, the tough can push the target up to 10 feet straight away from itself.</p>
-      <p><strong><em>Heavy Crossbow</em></strong>. <em>Ranged Attack Roll</em> : +4, range 100/400 ft. <em>Hit</em> : 13 (2d10 + 2) Piercing damage.</p>
+      ## Traits
+
+      ***Pack Tactics***. The tough has Advantage on an attack roll against a creature if at least one of the tough's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.
+
+      ## Actions
+
+      ***Multiattack***. The tough makes two attacks, using Warhammer or Heavy Crossbow in any combination.
+
+      ***Warhammer***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 12 (2d8 + 3) Bludgeoning damage, and if the target is Large or smaller, the tough can push the target up to 10 feet straight away from itself.
+
+      ***Heavy Crossbow***. *Ranged Attack Roll* : +4, range 100/400 ft. *Hit* : 13 (2d10 + 2) Piercing damage.
     senses: Passive Perception 10
     languages:
     - Common plus one other language
@@ -102,12 +107,17 @@ translations:
     name: Gros-bras, chef
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Tactique de meute</em>**. Quand au moins un de ses alliés non Incapable d'agir se situe dans un rayon de 1,50 m de la créature qu'il cible, le gros-bras a un Avantage au jet d'attaque correspondant.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le gros-bras effectue deux attaques, réparties à sa guise entre Marteau de guerre et Arbalète lourde.</p>
-      <p><strong><em>Marteau de guerre</em></strong>. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 12 (2d8 + 3) dégâts contondants, et si la cible est de taille G ou inférieure, le gros-bras peut repousser la cible jusqu'à 3 m en ligne droite.</p>
-      <p><strong><em>Arbalète lourde</em></strong>. <em>À distance</em> : +4, portée 30/120 m. <em>Touché</em> : 13 (2d10 + 2) dégâts perforants.</p>
+      ## Traits
+
+      ***Tactique de meute***. Quand au moins un de ses alliés non Incapable d'agir se situe dans un rayon de 1,50 m de la créature qu'il cible, le gros-bras a un Avantage au jet d'attaque correspondant.
+
+      ## Actions
+
+      ***Attaques multiples***. Le gros-bras effectue deux attaques, réparties à sa guise entre Marteau de guerre et Arbalète lourde.
+
+      ***Marteau de guerre***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 12 (2d8 + 3) dégâts contondants, et si la cible est de taille G ou inférieure, le gros-bras peut repousser la cible jusqu'à 3 m en ligne droite.
+
+      ***Arbalète lourde***. *À distance* : +4, portée 30/120 m. *Touché* : 13 (2d10 + 2) dégâts perforants.
     senses: Perception passive 10
     languages:
     - commun plus une autre langue

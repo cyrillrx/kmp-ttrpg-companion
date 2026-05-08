@@ -7,15 +7,10 @@ translations:
   en:
     name: Winged Boots
     subtype: null
-    description: <p>These boots have 4 charges and regain 1d4 expended charges daily
-      at dawn. While wearing the boots, you can take a Magic action to expend 1 charge,
-      gaining a Fly Speed of 30 feet for 1 hour. If you are flying when the duration
-      expires, you descend at a rate of 30 feet per round until you land.</p>
+    description: |-
+      These boots have 4 charges and regain 1d4 expended charges daily at dawn. While wearing the boots, you can take a Magic action to expend 1 charge, gaining a Fly Speed of 30 feet for 1 hour. If you are flying when the duration expires, you descend at a rate of 30 feet per round until you land.
   fr:
     name: Bottes ailées
     subtype: null
-    description: <p>Ces bottes possèdent 4 charges et récupèrent 1d4 charges dépensées
-      chaque jour à l'aube. Lorsque vous les portez, vous pouvez prendre une action
-      Magie pour dépenser 1 charge et gagner une Vitesse de vol de 9 mètres pendant
-      1 heure. Si vous volez lorsque le sort prend fin, vous descendez à une vitesse
-      de 9 mètres par round jusqu'à atteindre le sol.</p>
+    description: |-
+      Ces bottes possèdent 4 charges et récupèrent 1d4 charges dépensées chaque jour à l'aube. Lorsque vous les portez, vous pouvez prendre une action Magie pour dépenser 1 charge et gagner une Vitesse de vol de 9 mètres pendant 1 heure. Si vous volez lorsque le sort prend fin, vous descendez à une vitesse de 9 mètres par round jusqu'à atteindre le sol.

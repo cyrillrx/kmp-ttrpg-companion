@@ -89,14 +89,21 @@ translations:
     name: Shadow Demon
     subtype: Demon
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Demonic Restoration</em>**. If the demon dies outside the Abyss, its body dissolves into ichor, and it gains a new body instantly, reviving with all its Hit Points somewhere in the Abyss.</p>
-      <p><strong><em>Incorporeal Movement</em></strong>. The demon can move through other creatures and objects as if they were Difficult Terrain. It takes 5 (1d10) Force damage if it ends its turn inside an object.</p>
-      <p><strong><em>Light Sensitivity</em></strong>. While in Bright Light, the demon has Disadvantage on ability checks and attack rolls.</p>
-      <h2>Actions</h2>
-      <p>** <em>Umbral Claw</em>**. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 16 (3d8 + 3) Psychic damage.</p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Shadow Stealth</em>**. While in Dim Light or Darkness, the demon takes the Hide action.</p>
+      ## Traits
+
+      ***Demonic Restoration***. If the demon dies outside the Abyss, its body dissolves into ichor, and it gains a new body instantly, reviving with all its Hit Points somewhere in the Abyss.
+
+      ***Incorporeal Movement***. The demon can move through other creatures and objects as if they were Difficult Terrain. It takes 5 (1d10) Force damage if it ends its turn inside an object.
+
+      ***Light Sensitivity***. While in Bright Light, the demon has Disadvantage on ability checks and attack rolls.
+
+      ## Actions
+
+      ***Umbral Claw***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 16 (3d8 + 3) Psychic damage.
+
+      ## Bonus actions
+
+      ***Shadow Stealth***. While in Dim Light or Darkness, the demon takes the Hide action.
     senses: Darkvision 120 ft., Passive Perception 11
     languages:
     - Abyssal; telepathy 120 ft.
@@ -104,14 +111,21 @@ translations:
     name: Démon des ombres
     subtype: Démon
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Restauration démoniaque</em>**. Si le démon meurt hors des Abysses, son corps se dissout en ichor et il en acquiert aussitôt un nouveau en revenant à la vie avec tous ses pv, quelque part dans les Abysses.</p>
-      <p><strong><em>Déplacement intangible</em></strong>. Le démon peut traverser d'autres créatures et objets comme s'il s'agissait d'un Terrain difficile. Il subit 5 (1d10) dégâts de force s'il termine son tour à l'intérieur d'un objet.</p>
-      <p><strong><em>Sensibilité à la lumière</em></strong>. Exposé à une Lumière vive, le démon subit un Désavantage aux jets de caractéristique et aux jets d'attaque.</p>
-      <h2>Actions</h2>
-      <p>** <em>Griffe ombreuse</em>**. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 16 (3d8 + 3) dégâts psychiques.</p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Discrétion dans les ombres</em>**. Tant qu'il reste dans les Ténèbres ou sous une Lumière faible, le démon peut prendre l'action Furtivité.</p>
+      ## Traits
+
+      ***Restauration démoniaque***. Si le démon meurt hors des Abysses, son corps se dissout en ichor et il en acquiert aussitôt un nouveau en revenant à la vie avec tous ses pv, quelque part dans les Abysses.
+
+      ***Déplacement intangible***. Le démon peut traverser d'autres créatures et objets comme s'il s'agissait d'un Terrain difficile. Il subit 5 (1d10) dégâts de force s'il termine son tour à l'intérieur d'un objet.
+
+      ***Sensibilité à la lumière***. Exposé à une Lumière vive, le démon subit un Désavantage aux jets de caractéristique et aux jets d'attaque.
+
+      ## Actions
+
+      ***Griffe ombreuse***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 16 (3d8 + 3) dégâts psychiques.
+
+      ## Actions Bonus
+
+      ***Discrétion dans les ombres***. Tant qu'il reste dans les Ténèbres ou sous une Lumière faible, le démon peut prendre l'action Furtivité.
     senses: Vision dans le noir 36 m, Perception passive 11
     languages:
     - abyssal ; télépathie 36 m

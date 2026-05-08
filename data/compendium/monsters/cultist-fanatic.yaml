@@ -89,14 +89,19 @@ translations:
     name: Cultist Fanatic
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Pact Blade</em>**. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 6 (1d8 + 2) Slashing damage plus 7 (2d6) Necrotic damage.</p>
-      <p><strong><em>Spellcasting</em></strong>. The cultist casts one of the following spells, using Wisdom as the spellcasting ability (spell save DC 12, +4 to hit with spell attacks):</p>
-      <p>At Will: <em><a href="https://www.aidedd.org/spell/light">Light</a>, <a href="https://www.aidedd.org/spell/thaumaturgy">Thaumaturgy</a></em><br />
-      2/Day: <em><a href="https://www.aidedd.org/spell/command">Command</a></em><br />
-      1/Day: <em><a href="https://www.aidedd.org/spell/hold-person">Hold Person</a></em>  </p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Spiritual Weapon (2/Day)</em>**. The cultist casts the <em><a href="https://www.aidedd.org/spell/spiritual-weapon">Spiritual Weapon</a></em> spell, using the same spellcasting ability as Spellcasting.</p>
+      ## Actions
+
+      ***Pact Blade***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 6 (1d8 + 2) Slashing damage plus 7 (2d6) Necrotic damage.
+
+      ***Spellcasting***. The cultist casts one of the following spells, using Wisdom as the spellcasting ability (spell save DC 12, +4 to hit with spell attacks):
+
+      At Will: *[Light](https://www.aidedd.org/spell/light), [Thaumaturgy](https://www.aidedd.org/spell/thaumaturgy)*\
+      2/Day: *[Command](https://www.aidedd.org/spell/command)*\
+      1/Day: *[Hold Person](https://www.aidedd.org/spell/hold-person)*
+
+      ## Bonus actions
+
+      ***Spiritual Weapon (2/Day)***. The cultist casts the *[Spiritual Weapon](https://www.aidedd.org/spell/spiritual-weapon)* spell, using the same spellcasting ability as Spellcasting.
     senses: Passive Perception 12
     languages:
     - Common
@@ -104,14 +109,19 @@ translations:
     name: Cultiste, fanatique
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Lame de pacte</em>**. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 6 (1d8 + 2) dégâts tranchants plus 7 (2d6) dégâts nécrotiques.</p>
-      <p><strong><em>Incantation</em></strong>. Le cultiste lance l'un des sorts suivants, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 12, +4 pour toucher) :</p>
-      <p>À volonté : <em>lumière,<a href="https://www.aidedd.org/spell/fr/thaumaturgie">thaumaturgie</a></em><br />
-      2/jour : <em><a href="https://www.aidedd.org/spell/fr/injonction">injonction</a></em><br />
-      1/jour : <em><a href="https://www.aidedd.org/spell/fr/immobilisation-de-personne">immobilisation de personne</a></em>  </p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Arme spirituelle 2/jour)</em>**. Le cultiste lance le sort <em>arme spirituelle</em> avec la même caractéristique d'incantation que pour Incantation.</p>
+      ## Actions
+
+      ***Lame de pacte***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 6 (1d8 + 2) dégâts tranchants plus 7 (2d6) dégâts nécrotiques.
+
+      ***Incantation***. Le cultiste lance l'un des sorts suivants, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 12, +4 pour toucher) :
+
+      À volonté : *lumière,[thaumaturgie](https://www.aidedd.org/spell/fr/thaumaturgie)*\
+      2/jour : *[injonction](https://www.aidedd.org/spell/fr/injonction)*\
+      1/jour : *[immobilisation de personne](https://www.aidedd.org/spell/fr/immobilisation-de-personne)*
+
+      ## Actions Bonus
+
+      ***Arme spirituelle 2/jour)***. Le cultiste lance le sort *arme spirituelle* avec la même caractéristique d'incantation que pour Incantation.
     senses: Perception passive 12
     languages:
     - commun

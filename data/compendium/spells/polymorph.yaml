@@ -20,36 +20,19 @@ translations:
     range: 60 feet
     duration: Concentration, up to 1 hour
     materialDescription: a caterpillar cocoon
-    description: You attempt to transform a creature that you can see within range
-      into a Beast. The target must succeed on a Wisdom saving throw or shape-shift
-      into Beast form for the duration. That form can be any Beast you choose that
-      has a Challenge Rating equal to or less than the target's (or the target's level
-      if it doesn't have a Challenge Rating). The target's game statistics are replaced
-      by the stat block of the chosen Beast, but the target retains its alignment,
-      personality, creature type, Hit Points, and Hit Point Dice.<br/>The target gains
-      a number of Temporary Hit Points equal to the Hit Points of the Beast form.
-      These Temporary Hit Points vanish if any remain when the spell ends*. The spell
-      ends early on the target if it has no Temporary Hit Points left.<br/>The target
-      is limited in the actions it can perform by the anatomy of its new form, and
-      it can't speak or cast spells.<br/>The target's gear melds into the new form.
-      The creature can't use or otherwise benefit from any of that equipment.<br/>
+    description: |-
+      You attempt to transform a creature that you can see within range into a Beast. The target must succeed on a Wisdom saving throw or shape-shift into Beast form for the duration. That form can be any Beast you choose that has a Challenge Rating equal to or less than the target's (or the target's level if it doesn't have a Challenge Rating). The target's game statistics are replaced by the stat block of the chosen Beast, but the target retains its alignment, personality, creature type, Hit Points, and Hit Point Dice.\
+      The target gains a number of Temporary Hit Points equal to the Hit Points of the Beast form. These Temporary Hit Points vanish if any remain when the spell ends\*. The spell ends early on the target if it has no Temporary Hit Points left.\
+      The target is limited in the actions it can perform by the anatomy of its new form, and it can't speak or cast spells.\
+      The target's gear melds into the new form. The creature can't use or otherwise benefit from any of that equipment.\
   fr:
     name: Métamorphose
     castingTime: Action
     range: 18 m
     duration: Concentration, jusqu'à 1 heure
     materialDescription: une chrysalide
-    description: Vous tentez de transformer une créature que vous pouvez voir à portée
-      en bête. La cible doit réussir un jet de sauvegarde de Sagesse ou se métamorphoser
-      en bête pendant toute la durée du sort. Cette forme peut être n'importe quelle
-      bête de votre choix dont le FP est égal ou inférieur à celui de la cible (ou
-      à son niveau si elle n'en a pas). Les statistiques de jeu de la cible sont remplacées
-      par le profil de la bête choisie, mais la cible conserve son alignement, sa
-      personnalité, son type de créature, ses points de vie et ses dés de vie.<br/>La
-      cible gagne un nombre de points de vie temporaires égal aux points de vie de
-      la bête. Ces points de vie temporaires disparaissent s'il en reste à la fin
-      du sort. Le sort prend fin prématurément sur la cible si elle n'a plus de points
-      de vie temporaires.<br/>Les actions de la cible sont limitées par l'anatomie
-      de sa nouvelle forme, et elle ne peut ni parler ni lancer des sorts.<br/>L'équipement
-      de la cible se fond dans la nouvelle forme. La créature ne peut ni utiliser
-      ni bénéficier de cet équipement.<br/>
+    description: |-
+      Vous tentez de transformer une créature que vous pouvez voir à portée en bête. La cible doit réussir un jet de sauvegarde de Sagesse ou se métamorphoser en bête pendant toute la durée du sort. Cette forme peut être n'importe quelle bête de votre choix dont le FP est égal ou inférieur à celui de la cible (ou à son niveau si elle n'en a pas). Les statistiques de jeu de la cible sont remplacées par le profil de la bête choisie, mais la cible conserve son alignement, sa personnalité, son type de créature, ses points de vie et ses dés de vie.\
+      La cible gagne un nombre de points de vie temporaires égal aux points de vie de la bête. Ces points de vie temporaires disparaissent s'il en reste à la fin du sort. Le sort prend fin prématurément sur la cible si elle n'a plus de points de vie temporaires.\
+      Les actions de la cible sont limitées par l'anatomie de sa nouvelle forme, et elle ne peut ni parler ni lancer des sorts.\
+      L'équipement de la cible se fond dans la nouvelle forme. La créature ne peut ni utiliser ni bénéficier de cet équipement.\

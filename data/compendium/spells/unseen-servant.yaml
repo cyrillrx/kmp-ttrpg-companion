@@ -19,34 +19,17 @@ translations:
     range: 60 feet
     duration: 1 hour
     materialDescription: a bit of string and of wood
-    description: This spell creates an Invisible, mindless, shapeless, Medium force
-      that performs simple tasks at your command until the spell ends. The servant
-      springs into existence in an unoccupied space on the ground within range. It
-      has AC 10, 1 Hit Point, and a Strength of 2, and it can't attack. If it drops
-      to 0 Hit Points, the spell ends.<br/>Once on each of your turns as a Bonus Action,
-      you can mentally command the servant to move up to 15 feet and interact with
-      an object. The servant can perform simple tasks that a human could do, such
-      as fetching things, cleaning, mending, folding clothes, lighting fires, serving
-      food, and pouring drinks. Once you give the command, the servant performs the
-      task to the best of its ability until it completes the task, then waits for
-      your next command.<br/>If you command the servant to perform a task that would
-      move it more than 60 feet away from you, the spell ends.<br/>
+    description: |-
+      This spell creates an Invisible, mindless, shapeless, Medium force that performs simple tasks at your command until the spell ends. The servant springs into existence in an unoccupied space on the ground within range. It has AC 10, 1 Hit Point, and a Strength of 2, and it can't attack. If it drops to 0 Hit Points, the spell ends.\
+      Once on each of your turns as a Bonus Action, you can mentally command the servant to move up to 15 feet and interact with an object. The servant can perform simple tasks that a human could do, such as fetching things, cleaning, mending, folding clothes, lighting fires, serving food, and pouring drinks. Once you give the command, the servant performs the task to the best of its ability until it completes the task, then waits for your next command.\
+      If you command the servant to perform a task that would move it more than 60 feet away from you, the spell ends.\
   fr:
     name: Serviteur invisible
     castingTime: Action ou Rituel
     range: 18 m
     duration: 1 heure
     materialDescription: un bout de ficelle et un morceau de bois
-    description: Ce sort crée une force invisible, inerte et informe de taille M qui
-      accomplit des tâches simples à votre demande jusqu'à la fin du sort. Le serviteur
-      apparaît dans un espace libre au sol, à portée. Il a une CA de 10, 1 point de
-      vie, une force de 2, et ne peut pas attaquer. S'il tombe à 0 point de vie, le
-      sort prend fin.<br/>Une fois par tour, par une action Bonus, vous pouvez ordonner
-      mentalement au serviteur de se déplacer jusqu'à 4,50 mètres et d'interagir avec
-      un objet. Le serviteur peut effectuer des tâches simples qu'un humain pourrait
-      effectuer, comme aller chercher des objets, nettoyer, raccommoder, plier des
-      vêtements, allumer du feu, servir à manger et à boire. Une fois l'ordre donné,
-      le serviteur exécute la tâche au mieux de ses capacités jusqu'à ce qu'il l'ait
-      accomplie, puis attend votre prochain ordre.<br/>Si vous ordonnez au serviteur
-      d'effectuer une tâche qui l'éloignerait de plus de 18 mètres de vous, le sort
-      prend fin.<br/>
+    description: |-
+      Ce sort crée une force invisible, inerte et informe de taille M qui accomplit des tâches simples à votre demande jusqu'à la fin du sort. Le serviteur apparaît dans un espace libre au sol, à portée. Il a une CA de 10, 1 point de vie, une force de 2, et ne peut pas attaquer. S'il tombe à 0 point de vie, le sort prend fin.\
+      Une fois par tour, par une action Bonus, vous pouvez ordonner mentalement au serviteur de se déplacer jusqu'à 4,50 mètres et d'interagir avec un objet. Le serviteur peut effectuer des tâches simples qu'un humain pourrait effectuer, comme aller chercher des objets, nettoyer, raccommoder, plier des vêtements, allumer du feu, servir à manger et à boire. Une fois l'ordre donné, le serviteur exécute la tâche au mieux de ses capacités jusqu'à ce qu'il l'ait accomplie, puis attend votre prochain ordre.\
+      Si vous ordonnez au serviteur d'effectuer une tâche qui l'éloignerait de plus de 18 mètres de vous, le sort prend fin.\

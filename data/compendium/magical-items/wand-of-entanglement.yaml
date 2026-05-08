@@ -8,11 +8,13 @@ translations:
     name: Wand of Entanglement
     subtype: null
     description: |-
-      <p>This wand has 7 charges. While holding it, you can use an action to expend 1 of its charges to cast the <em>web</em> spell (save DC 15) from it.</p>
-      <p>The wand regains 1d6+1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand crumbles into ashes and is destroyed.</p>
+      This wand has 7 charges. While holding it, you can use an action to expend 1 of its charges to cast the *web* spell (save DC 15) from it.
+
+      The wand regains 1d6+1 expended charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand crumbles into ashes and is destroyed.
   fr:
     name: Baguette entoilée
     subtype: null
     description: |-
-      <p>Cette baguette contient 7 charges. Avec cette baguette en main, vous pouvez utiliser une action pour dépenser 1 de ses charges et lancer le sort <a href="/grimoire/toile-daraignee"><em>toile d'araignée</em></a> (DD des jets de sauvegarde contre le sort 15) par son biais.</p>
-      <p>La baguette récupère 1d6+1 charges dépensées chaque jour, à l'aube. Lancez un d20 si vous dépensez la dernière charge. La baguette est détruite et tombe en cendres sur un résultat de 1.</p>
+      Cette baguette contient 7 charges. Avec cette baguette en main, vous pouvez utiliser une action pour dépenser 1 de ses charges et lancer le sort [*toile d'araignée*](/grimoire/toile-daraignee) (DD des jets de sauvegarde contre le sort 15) par son biais.
+
+      La baguette récupère 1d6+1 charges dépensées chaque jour, à l'aube. Lancez un d20 si vous dépensez la dernière charge. La baguette est détruite et tombe en cendres sur un résultat de 1.

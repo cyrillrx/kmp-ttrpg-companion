@@ -18,28 +18,17 @@ translations:
     range: 30 feet
     duration: 8 hours
     materialDescription: a bell and silver wire
-    description: You set an alarm against intrusion. Choose a door, a window, or an
-      area within range that is no larger than a 20-foot Cube. Until the spell ends,
-      an alarm alerts you whenever a creature touches or enters the warded area. When
-      you cast the spell, you can designate creatures that won't set off the alarm.
-      You also choose whether the alarm is audible or mental:<br/><strong>Audible
-      Alarm</strong>. The alarm produces the sound of a handbell for 10 seconds within
-      60 feet of the warded area.<br/><strong>Mental Alarm</strong>. You are alerted
-      by a mental ping if you are within 1 mile of the warded area. This ping awakens
-      you if you're asleep.<br/>
+    description: |-
+      You set an alarm against intrusion. Choose a door, a window, or an area within range that is no larger than a 20-foot Cube. Until the spell ends, an alarm alerts you whenever a creature touches or enters the warded area. When you cast the spell, you can designate creatures that won't set off the alarm. You also choose whether the alarm is audible or mental:\
+      **Audible Alarm**. The alarm produces the sound of a handbell for 10 seconds within 60 feet of the warded area.\
+      **Mental Alarm**. You are alerted by a mental ping if you are within 1 mile of the warded area. This ping awakens you if you're asleep.\
   fr:
     name: Alarme
     castingTime: 1 minute ou Rituel
     range: 9 m
     duration: 8 heures
     materialDescription: une coche et du fil d'argent
-    description: Vous mettez en place une alarme contre les intrusions. Choisissez
-      une porte, une fenêtre ou une zone à portée ne dépassant pas un Cube de 6 mètres
-      de côté. Jusqu'à la fin du sort, une alarme vous alerte dès qu'une créature
-      touche ou pénètre dans la zone protégée. Lorsque vous lancez le sort, vous pouvez
-      désigner des créatures qui ne déclencheront pas l'alarme. Vous pouvez également
-      choisir si l'alarme est sonore ou mentale :<br/><strong>Alarme sonore</strong>.
-      L'alarme produit le son d'une clochette qui s'entend dans un rayon de 18 mètres
-      autour de la zone protégée pendant 10 secondes.<br/><strong>Alarme mentale</strong>.
-      Vous êtes alerté par un signal mental si vous vous trouvez à moins de 1,5 km
-      de la zone protégée. Ce signal vous réveille si vous dormez.<br/>
+    description: |-
+      Vous mettez en place une alarme contre les intrusions. Choisissez une porte, une fenêtre ou une zone à portée ne dépassant pas un Cube de 6 mètres de côté. Jusqu'à la fin du sort, une alarme vous alerte dès qu'une créature touche ou pénètre dans la zone protégée. Lorsque vous lancez le sort, vous pouvez désigner des créatures qui ne déclencheront pas l'alarme. Vous pouvez également choisir si l'alarme est sonore ou mentale :\
+      **Alarme sonore**. L'alarme produit le son d'une clochette qui s'entend dans un rayon de 18 mètres autour de la zone protégée pendant 10 secondes.\
+      **Alarme mentale**. Vous êtes alerté par un signal mental si vous vous trouvez à moins de 1,5 km de la zone protégée. Ce signal vous réveille si vous dormez.\

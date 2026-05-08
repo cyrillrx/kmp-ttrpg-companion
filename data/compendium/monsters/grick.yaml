@@ -89,19 +89,25 @@ translations:
     name: Grick
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The grick makes one Beak attack and one Tentacles attack.</p>
-      <p><strong><em>Beak</em></strong>. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 9 (2d6 + 2) Piercing damage.</p>
-      <p><strong><em>Tentacles</em></strong>. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 7 (1d10 + 2) Slashing damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 12) from all four tentacles.</p>
+      ## Actions
+
+      ***Multiattack***. The grick makes one Beak attack and one Tentacles attack.
+
+      ***Beak***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 9 (2d6 + 2) Piercing damage.
+
+      ***Tentacles***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 7 (1d10 + 2) Slashing damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 12) from all four tentacles.
     senses: Darkvision 60 ft., Passive Perception 12
     languages: []
   fr:
     name: Grick
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le grick effectue une attaque de Bec et une de Tentacules.</p>
-      <p><strong><em>Bec</em></strong>. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 9 (2d6 + 2) dégâts perforants.</p>
-      <p><strong><em>Tentacules</em></strong>. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 7 (1d10 + 2) dégâts tranchants. Si la cible est une créature de taille M ou inférieure, elle subit l'état Agrippé (évasion DD 12) par les quatre tentacules.</p>
+      ## Actions
+
+      ***Attaques multiples***. Le grick effectue une attaque de Bec et une de Tentacules.
+
+      ***Bec***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 9 (2d6 + 2) dégâts perforants.
+
+      ***Tentacules***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 7 (1d10 + 2) dégâts tranchants. Si la cible est une créature de taille M ou inférieure, elle subit l'état Agrippé (évasion DD 12) par les quatre tentacules.
     senses: Vision dans le noir 18 m, Perception passive 12
     languages: []

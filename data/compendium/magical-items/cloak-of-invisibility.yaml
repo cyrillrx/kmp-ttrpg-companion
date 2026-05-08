@@ -7,16 +7,10 @@ translations:
   en:
     name: Cloak of Invisibility
     subtype: null
-    description: <p>This cloak has 3 charges and regains 1d3 expended charges daily
-      at dawn. While wearing the cloak, you can take a Magic action to pull its hood
-      over your head and expend 1 charge to give yourself the Invisible condition
-      for 1 hour. The effect ends early if you pull the hood down (no action required)
-      or cease wearing the cloak.</p>
+    description: |-
+      This cloak has 3 charges and regains 1d3 expended charges daily at dawn. While wearing the cloak, you can take a Magic action to pull its hood over your head and expend 1 charge to give yourself the Invisible condition for 1 hour. The effect ends early if you pull the hood down (no action required) or cease wearing the cloak.
   fr:
     name: Cape d'invisibilité
     subtype: null
-    description: <p>Cette cape possède 3 charges et récupère 1d3 charges dépensées
-      chaque jour à l'aube. Lorsque vous la portez, vous pouvez prendre une action
-      Magie pour rabattre sa capuche sur votre tête et dépenser 1 charge pour obtenir
-      l'état Invisible pendant 1 heure. L'effet prend fin prématurément si vous baissez
-      la capuche (aucune action requise) ou si vous cessez de porter la cape.</p>
+    description: |-
+      Cette cape possède 3 charges et récupère 1d3 charges dépensées chaque jour à l'aube. Lorsque vous la portez, vous pouvez prendre une action Magie pour rabattre sa capuche sur votre tête et dépenser 1 charge pour obtenir l'état Invisible pendant 1 heure. L'effet prend fin prématurément si vous baissez la capuche (aucune action requise) ou si vous cessez de porter la cape.

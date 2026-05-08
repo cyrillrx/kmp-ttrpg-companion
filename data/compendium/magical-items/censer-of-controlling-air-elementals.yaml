@@ -7,20 +7,10 @@ translations:
   en:
     name: Censer of Controlling Air Elementals
     subtype: null
-    description: <p>While gently swinging this censer, you can take a Magic action
-      to summon an <strong><a href="https://www.aidedd.org/monster/air-elemental">Air
-      Elemental</a></strong>. The elemental appears in an unoccupied space as close
-      to the censer as possible, understands your languages, obeys your commands,
-      and takes its turn immediately after you on your Initiative count. The elemental
-      disappears after 1 hour, when it dies, or when you dismiss it as a Bonus Action.
-      The censer can't be used this way again until the next dawn.</p>
+    description: |-
+      While gently swinging this censer, you can take a Magic action to summon an **[Air Elemental](https://www.aidedd.org/monster/air-elemental)**. The elemental appears in an unoccupied space as close to the censer as possible, understands your languages, obeys your commands, and takes its turn immediately after you on your Initiative count. The elemental disappears after 1 hour, when it dies, or when you dismiss it as a Bonus Action. The censer can't be used this way again until the next dawn.
   fr:
     name: Encensoir de contrôle des élémentaires de l'air
     subtype: null
-    description: <p>En balançant doucement cet encensoir, vous pouvez prendre une
-      action Magie pour invoquer un <strong><a href="https://www.aidedd.org/monster/fr/elementaire-de-l-air">élémentaire
-      de l'air</a></strong>. L'élémentaire apparaît dans un espace libre aussi près
-      que possible de l'encensoir, comprend vos langues, obéit à vos ordres et agit
-      immédiatement après vous dans l'ordre d'initiative. L'élémentaire disparaît
-      après 1 heure, lorsqu'il meurt ou lorsque vous le renvoyez par une action Bonus.
-      L'encensoir ne peut plus être utilisé de cette façon avant l'aube suivante.</p>
+    description: |-
+      En balançant doucement cet encensoir, vous pouvez prendre une action Magie pour invoquer un **[élémentaire de l'air](https://www.aidedd.org/monster/fr/elementaire-de-l-air)**. L'élémentaire apparaît dans un espace libre aussi près que possible de l'encensoir, comprend vos langues, obéit à vos ordres et agit immédiatement après vous dans l'ordre d'initiative. L'élémentaire disparaît après 1 heure, lorsqu'il meurt ou lorsque vous le renvoyez par une action Bonus. L'encensoir ne peut plus être utilisé de cette façon avant l'aube suivante.

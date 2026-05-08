@@ -7,19 +7,10 @@ translations:
   en:
     name: Flame Tongue
     subtype: Any Melee Weapon
-    description: <p>While holding this magic weapon, you can take a Bonus Action and
-      use a command word to cause flames to engulf the damage-dealing part of the
-      weapon. These flames shed Bright Light in a 40-foot radius and Dim Light for
-      an additional 40 feet. While the weapon is ablaze, it deals an extra 2d6 Fire
-      damage on a hit. The flames last until you take a Bonus Action to issue the
-      command again or until you drop, stow, or sheathe the weapon.</p>
+    description: |-
+      While holding this magic weapon, you can take a Bonus Action and use a command word to cause flames to engulf the damage-dealing part of the weapon. These flames shed Bright Light in a 40-foot radius and Dim Light for an additional 40 feet. While the weapon is ablaze, it deals an extra 2d6 Fire damage on a hit. The flames last until you take a Bonus Action to issue the command again or until you drop, stow, or sheathe the weapon.
   fr:
     name: Arme ardente
     subtype: toute arme de corps à corps
-    description: <p>Lorsque vous tenez cette arme magique, vous pouvez prendre une
-      action Bonus et utiliser un mot de commande pour que des flammes engloutissent
-      la partie infligeant des dégâts. Ces flammes projettent une Lumière vive sur
-      un rayon de 12 mètres et une Lumière faible sur un rayon supplémentaire de 12
-      mètres. Tant que l'arme est en flammes, elle inflige 2d6 dégâts de feu supplémentaires
-      si le coup touche. Les flammes persistent jusqu'à ce que vous preniez une action
-      Bonus pour relancer la commande ou que vous la laissiez tomber ou la rengainiez.</p>
+    description: |-
+      Lorsque vous tenez cette arme magique, vous pouvez prendre une action Bonus et utiliser un mot de commande pour que des flammes engloutissent la partie infligeant des dégâts. Ces flammes projettent une Lumière vive sur un rayon de 12 mètres et une Lumière faible sur un rayon supplémentaire de 12 mètres. Tant que l'arme est en flammes, elle inflige 2d6 dégâts de feu supplémentaires si le coup touche. Les flammes persistent jusqu'à ce que vous preniez une action Bonus pour relancer la commande ou que vous la laissiez tomber ou la rengainiez.

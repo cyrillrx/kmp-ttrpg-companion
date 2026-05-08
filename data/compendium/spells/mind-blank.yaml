@@ -18,21 +18,13 @@ translations:
     range: Touch
     duration: 24 hours
     materialDescription: null
-    description: Until the spell ends, one willing creature you touch has Immunity
-      to Psychic damage and the Charmed condition. The target is also unaffected by
-      anything that would sense its emotions or alignment, read its thoughts, or magically
-      detect its location, and no spell—not even <em><a href="./wish">Wish</a></em>—can
-      gather information about the target, observe it remotely, or control its mind.<br/>
+    description: |-
+      Until the spell ends, one willing creature you touch has Immunity to Psychic damage and the Charmed condition. The target is also unaffected by anything that would sense its emotions or alignment, read its thoughts, or magically detect its location, and no spell—not even *[Wish](./wish)*—can gather information about the target, observe it remotely, or control its mind.\
   fr:
     name: Esprit impénétrable
     castingTime: Action
     range: Contact
     duration: 24 heures
     materialDescription: null
-    description: Jusqu'à la fin du sort, une créature consentante que vous touchez
-      physiquement bénéficie de l'Immunité contre les dégâts psychiques et l'état
-      Charmé. La cible n'est pas davantage affectée par tout ce qui permet de percevoir
-      les émotions ou l'alignement, de lire les pensées ou de détecter magiquement
-      sa position, et aucun sort (pas même <em><a href="./fr/souhait">souhait</a></em>)
-      ne peut affecter l'esprit de la cible, l'observer à distance ou se renseigner
-      sur son compte.<br/>
+    description: |-
+      Jusqu'à la fin du sort, une créature consentante que vous touchez physiquement bénéficie de l'Immunité contre les dégâts psychiques et l'état Charmé. La cible n'est pas davantage affectée par tout ce qui permet de percevoir les émotions ou l'alignement, de lire les pensées ou de détecter magiquement sa position, et aucun sort (pas même *[souhait](./fr/souhait)*) ne peut affecter l'esprit de la cible, l'observer à distance ou se renseigner sur son compte.\

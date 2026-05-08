@@ -89,13 +89,19 @@ translations:
     name: Young Gold Dragon
     subtype: Metallic
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Amphibious</em>**. The dragon can breathe air and water.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The dragon makes three Rend attacks. It can replace one attack with a use of Weakening Breath.</p>
-      <p><strong><em>Rend</em></strong>. <em>Melee Attack Roll</em> : +10, reach 10 ft. <em>Hit</em> : 17 (2d10 + 6) Slashing damage.</p>
-      <p><strong><em>Fire Breath (Recharge 5–6)</em></strong>. <em>Dexterity Saving Throw</em> : DC 17, each creature in a 30-foot Cone. <em>Failure</em> : 55 (10d10) Fire damage. <em>Success</em> : Half damage.</p>
-      <p><strong><em>Weakening Breath</em></strong>. <em>Strength Saving Throw</em> : DC 17, each creature that isn't currently affected by this breath in a 30-foot Cone. <em>Failure</em> : The target has Disadvantage on Strength-based D20 Tests and subtracts 3 (1d6) from its damage rolls. It repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically.</p>
+      ## Traits
+
+      ***Amphibious***. The dragon can breathe air and water.
+
+      ## Actions
+
+      ***Multiattack***. The dragon makes three Rend attacks. It can replace one attack with a use of Weakening Breath.
+
+      ***Rend***. *Melee Attack Roll* : +10, reach 10 ft. *Hit* : 17 (2d10 + 6) Slashing damage.
+
+      ***Fire Breath (Recharge 5–6)***. *Dexterity Saving Throw* : DC 17, each creature in a 30-foot Cone. *Failure* : 55 (10d10) Fire damage. *Success* : Half damage.
+
+      ***Weakening Breath***. *Strength Saving Throw* : DC 17, each creature that isn't currently affected by this breath in a 30-foot Cone. *Failure* : The target has Disadvantage on Strength-based D20 Tests and subtracts 3 (1d6) from its damage rolls. It repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically.
     senses: Blindsight 30 ft., Darkvision 120 ft., Passive Perception 19
     languages:
     - Common
@@ -104,13 +110,19 @@ translations:
     name: Dragon d'or, jeune
     subtype: Métallique
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Amphibie</em>**. Le dragon peut respirer sous l'eau comme à l'air libre.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le dragon effectue trois attaques de Saignée. Il peut remplacer l'une de ces attaques par une utilisation de Souffle affaiblissant.</p>
-      <p><strong><em>Saignée</em></strong>. <em>Corps à corps</em> : +10, allonge 3 m. <em>Touché</em> : 17 (2d10 + 6) dégâts tranchants.</p>
-      <p><strong><em>Souffle affaiblissant</em></strong>. <em>JdS Force</em> : DD 17, chaque créature non encore affectée par ce souffle dans un Cône de 9 m. <em>Échec</em> : la cible subit un Désavantage aux jets de d20 basés sur la Force et soustrait 3 (1d6) à ses jets de dégâts. Elle réitère le JdS à la fin de chacun de ses tours, et met un terme à l'effet sur elle-même en cas de réussite. Au bout de 1 minute, elle réussit automatiquement ce JdS.</p>
-      <p><strong><em>Souffle de feu (recharge 5–6)</em></strong>. <em>JdS Dextérité</em> : DD 17, chaque créature dans un Cône de 9 m. <em>Échec</em> : 55 (10d10) dégâts de feu. <em>Réussite</em> : demi-dégâts.</p>
+      ## Traits
+
+      ***Amphibie***. Le dragon peut respirer sous l'eau comme à l'air libre.
+
+      ## Actions
+
+      ***Attaques multiples***. Le dragon effectue trois attaques de Saignée. Il peut remplacer l'une de ces attaques par une utilisation de Souffle affaiblissant.
+
+      ***Saignée***. *Corps à corps* : +10, allonge 3 m. *Touché* : 17 (2d10 + 6) dégâts tranchants.
+
+      ***Souffle affaiblissant***. *JdS Force* : DD 17, chaque créature non encore affectée par ce souffle dans un Cône de 9 m. *Échec* : la cible subit un Désavantage aux jets de d20 basés sur la Force et soustrait 3 (1d6) à ses jets de dégâts. Elle réitère le JdS à la fin de chacun de ses tours, et met un terme à l'effet sur elle-même en cas de réussite. Au bout de 1 minute, elle réussit automatiquement ce JdS.
+
+      ***Souffle de feu (recharge 5–6)***. *JdS Dextérité* : DD 17, chaque créature dans un Cône de 9 m. *Échec* : 55 (10d10) dégâts de feu. *Réussite* : demi-dégâts.
     senses: Vision aveugle 9 m, Vision dans le noir 36 m, Perception passive 19
     languages:
     - commun

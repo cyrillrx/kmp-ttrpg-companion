@@ -89,14 +89,21 @@ translations:
     name: Assassin
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Evasion</em>**. If the assassin is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, the assassin instead takes no damage if it succeeds on the save and only half damage if it fails. It can't use this trait if it has the Incapacitated condition.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The assassin makes three attacks, using Shortsword or Light Crossbow in any combination.</p>
-      <p><strong><em>Shortsword</em></strong>. <em>Melee Attack Roll</em> : +7, reach 5 ft. <em>Hit</em> : 7 (1d6 + 4) Piercing damage plus 17 (5d6) Poison damage, and the target has the Poisoned condition until the start of the assassin's next turn.</p>
-      <p><strong><em>Light Crossbow</em></strong>. <em>Ranged Attack Roll</em> : +7, range 80/320 ft. <em>Hit</em> : 8 (1d8 + 4) Piercing damage plus 21 (6d6) Poison damage.</p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Cunning Action</em>**. The assassin takes the Dash, Disengage, or Hide action.</p>
+      ## Traits
+
+      ***Evasion***. If the assassin is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, the assassin instead takes no damage if it succeeds on the save and only half damage if it fails. It can't use this trait if it has the Incapacitated condition.
+
+      ## Actions
+
+      ***Multiattack***. The assassin makes three attacks, using Shortsword or Light Crossbow in any combination.
+
+      ***Shortsword***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 7 (1d6 + 4) Piercing damage plus 17 (5d6) Poison damage, and the target has the Poisoned condition until the start of the assassin's next turn.
+
+      ***Light Crossbow***. *Ranged Attack Roll* : +7, range 80/320 ft. *Hit* : 8 (1d8 + 4) Piercing damage plus 21 (6d6) Poison damage.
+
+      ## Bonus actions
+
+      ***Cunning Action***. The assassin takes the Dash, Disengage, or Hide action.
     senses: Passive Perception 16
     languages:
     - Common
@@ -105,14 +112,21 @@ translations:
     name: Assassin
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Esquive totale</em>**. Si l'assassin est soumis à un effet qui lui permet d'effectuer un jet de sauvegarde de Dextérité pour réduire les dégâts de moitié, il ne subit en fait aucun dégât en cas de JdS réussi, et seulement la moitié en cas d'échec. Il ne peut pas recourir à ce trait s'il subit l'état Incapable d'agir.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. L'assassin effectue trois attaques, réparties à sa guise entre Épée courte et Arbalète légère.</p>
-      <p><strong><em>Épée courte</em></strong>. <em>Corps à corps</em> : +7, allonge 1,50 m. <em>Touché</em> : 7 (1d6 + 4) dégâts perforants plus 17 (5d6) dégâts de poison, et la cible subit l'état Empoisonné jusqu'au début du tour suivant de l'assassin.</p>
-      <p><strong><em>Arbalète légère</em></strong>. <em>À distance</em> : +7, portée 24/96 m. <em>Touché</em> : 8 (1d8 + 4) dégâts perforants plus 21 (6d6) dégâts de poison.</p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Ruse</em>**. L'assassin entreprend l'action Désengagement, Furtivité ou Pointe.</p>
+      ## Traits
+
+      ***Esquive totale***. Si l'assassin est soumis à un effet qui lui permet d'effectuer un jet de sauvegarde de Dextérité pour réduire les dégâts de moitié, il ne subit en fait aucun dégât en cas de JdS réussi, et seulement la moitié en cas d'échec. Il ne peut pas recourir à ce trait s'il subit l'état Incapable d'agir.
+
+      ## Actions
+
+      ***Attaques multiples***. L'assassin effectue trois attaques, réparties à sa guise entre Épée courte et Arbalète légère.
+
+      ***Épée courte***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 7 (1d6 + 4) dégâts perforants plus 17 (5d6) dégâts de poison, et la cible subit l'état Empoisonné jusqu'au début du tour suivant de l'assassin.
+
+      ***Arbalète légère***. *À distance* : +7, portée 24/96 m. *Touché* : 8 (1d8 + 4) dégâts perforants plus 21 (6d6) dégâts de poison.
+
+      ## Actions Bonus
+
+      ***Ruse***. L'assassin entreprend l'action Désengagement, Furtivité ou Pointe.
     senses: Perception passive 16
     languages:
     - commun

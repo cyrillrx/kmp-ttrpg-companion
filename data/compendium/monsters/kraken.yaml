@@ -89,20 +89,33 @@ translations:
     name: Kraken
     subtype: Titan
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Amphibious</em>**. The kraken can breathe air and water.</p>
-      <p><strong><em>Legendary Resistance (4/Day, or 5/Day in Lair)</em></strong>. If the kraken fails a saving throw, it can choose to succeed instead.</p>
-      <p><strong><em>Siege Monster</em></strong>. The kraken deals double damage to objects and structures.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The kraken makes two Tentacle attacks and uses Fling, Lightning Strike, or Swallow.</p>
-      <p><strong><em>Tentacle</em></strong>. <em>Melee Attack Roll</em> : +17, reach 30 ft. <em>Hit</em> : 24 (4d6 + 10) Bludgeoning damage. The target has the Grappled condition (escape DC 20) from one of ten tentacles, and it has the Restrained condition until the grapple ends.</p>
-      <p><strong><em>Fling</em></strong>. The kraken throws a Large or smaller creature Grappled by it to a space it can see within 60 feet of itself that isn't in the air. <em>Dexterity Saving Throw</em> : DC 25, the creature thrown and each creature in the destination space. <em>Failure</em> : 18 (4d8) Bludgeoning damage, and the target has the Prone condition. <em>Success</em> : Half damage only.</p>
-      <p><strong><em>Lightning Strike</em></strong>. <em>Dexterity Saving Throw</em> : DC 23, one creature the kraken can see within 120 feet. <em>Failure</em> : 33 (6d10) Lightning damage. <em>Success</em> : Half damage.</p>
-      <p><strong><em>Swallow</em></strong>. <em>Dexterity Saving Throw</em> : DC 25, one creature Grappled by the kraken (it can have up to four creatures swallowed at a time). <em>Failure</em> : 23 (3d8 + 10) Piercing damage. If the target is Large or smaller, it is swallowed and no longer Grappled. A swallowed creature has the Restrained condition, has Total Cover against attacks and other effects outside the kraken, and takes 24 (7d6) Acid damage at the start of each of its turns. If the kraken takes 50 damage or more on a single turn from a creature inside it, the kraken must succeed on a DC 25 Constitution saving throw at the end of that turn or regurgitate all swallowed creatures, each of which falls in a space within 10 feet of the kraken with the Prone condition. If the kraken dies, any swallowed creature no longer has the Restrained condition and can escape from the corpse using 15 feet of movement, exiting Prone.</p>
-      <h2>Legendary actions</h2>
-      <p>Legendary Action Uses: 3 (4 in Lair). Immediately after another creature's turn, the kraken can expend a use to take one of the following actions. The kraken regains all expended uses at the start of each of its turns. </p>
-      <p><strong><em>Storm Bolt</em></strong>. The kraken uses Lightning Strike.</p>
-      <p><strong><em>Toxic Ink</em></strong>. <em>Constitution Saving Throw</em> : DC 23, each creature in a 15-foot Emanation originating from the kraken while it is underwater. <em>Failure</em> : The target has the Blinded and Poisoned conditions until the end of the kraken's next turn. The kraken then moves up to its Speed. <em>Failure or Success</em> : The kraken can't take this action again until the start of its next turn.</p>
+      ## Traits
+
+      ***Amphibious***. The kraken can breathe air and water.
+
+      ***Legendary Resistance (4/Day, or 5/Day in Lair)***. If the kraken fails a saving throw, it can choose to succeed instead.
+
+      ***Siege Monster***. The kraken deals double damage to objects and structures.
+
+      ## Actions
+
+      ***Multiattack***. The kraken makes two Tentacle attacks and uses Fling, Lightning Strike, or Swallow.
+
+      ***Tentacle***. *Melee Attack Roll* : +17, reach 30 ft. *Hit* : 24 (4d6 + 10) Bludgeoning damage. The target has the Grappled condition (escape DC 20) from one of ten tentacles, and it has the Restrained condition until the grapple ends.
+
+      ***Fling***. The kraken throws a Large or smaller creature Grappled by it to a space it can see within 60 feet of itself that isn't in the air. *Dexterity Saving Throw* : DC 25, the creature thrown and each creature in the destination space. *Failure* : 18 (4d8) Bludgeoning damage, and the target has the Prone condition. *Success* : Half damage only.
+
+      ***Lightning Strike***. *Dexterity Saving Throw* : DC 23, one creature the kraken can see within 120 feet. *Failure* : 33 (6d10) Lightning damage. *Success* : Half damage.
+
+      ***Swallow***. *Dexterity Saving Throw* : DC 25, one creature Grappled by the kraken (it can have up to four creatures swallowed at a time). *Failure* : 23 (3d8 + 10) Piercing damage. If the target is Large or smaller, it is swallowed and no longer Grappled. A swallowed creature has the Restrained condition, has Total Cover against attacks and other effects outside the kraken, and takes 24 (7d6) Acid damage at the start of each of its turns. If the kraken takes 50 damage or more on a single turn from a creature inside it, the kraken must succeed on a DC 25 Constitution saving throw at the end of that turn or regurgitate all swallowed creatures, each of which falls in a space within 10 feet of the kraken with the Prone condition. If the kraken dies, any swallowed creature no longer has the Restrained condition and can escape from the corpse using 15 feet of movement, exiting Prone.
+
+      ## Legendary actions
+
+      Legendary Action Uses: 3 (4 in Lair). Immediately after another creature's turn, the kraken can expend a use to take one of the following actions. The kraken regains all expended uses at the start of each of its turns.
+
+      ***Storm Bolt***. The kraken uses Lightning Strike.
+
+      ***Toxic Ink***. *Constitution Saving Throw* : DC 23, each creature in a 15-foot Emanation originating from the kraken while it is underwater. *Failure* : The target has the Blinded and Poisoned conditions until the end of the kraken's next turn. The kraken then moves up to its Speed. *Failure or Success* : The kraken can't take this action again until the start of its next turn.
     senses: Truesight 120 ft., Passive Perception 21
     languages:
     - Understands Abyssal
@@ -113,20 +126,33 @@ translations:
     name: Kraken
     subtype: Titan
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Amphibie</em>**. Le kraken peut respirer sous l'eau comme à l'air libre.</p>
-      <p><strong><em>Monstre de siège</em></strong>. Le kraken inflige des dégâts doublés aux objets et aux structures.</p>
-      <p><strong><em>Résistance légendaire (4/jour, ou 5/jour dans son antre)</em></strong>. Si le kraken rate un jet de sauvegarde, il peut décider de le réussir tout de même.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le kraken effectue deux attaques de Tentacule et recourt à Engloutissement, Projection ou Trait de foudre.</p>
-      <p><strong><em>Tentacule</em></strong>. <em>Corps à corps</em> : +17, allonge 9 m. <em>Touché</em> : 24 (4d6 + 10) dégâts contondants. La cible subit l'état Agrippé (évasion DD 20) par l'un des dix tentacules, ainsi que l'état Entravé tant qu'elle est agrippée.</p>
-      <p><strong><em>Engloutissement</em></strong>. <em>JdS Dextérité</em> : DD 25, une créature Agrippée par le kraken (il peut avoir jusqu'à quatre créatures englouties à la fois). <em>Échec</em> : 23 (3d8 + 10) dégâts perforants. Si la cible est de taille G ou inférieure, elle est engloutie et n'est plus Agrippée. Une créature ainsi engloutie subit l'état Entravé, bénéficie d'un Abri total contre les attaques et autres effets émanant de l'extérieur du kraken et subit 24 (7d6) dégâts d'acide au début de chacun de ses propres tours. Si le kraken subit 50 dégâts ou plus lors d'un même tour de la part d'une créature engloutie, il doit réussir un jet de sauvegarde de Constitution DD 25 à la fin du tour concerné sous peine de régurgiter toutes les créatures englouties, chacune se retrouvant À terre dans un espace situé à 3 m ou moins de lui. Si le kraken meurt, les créatures englouties ne subissent plus l'état Entravé et peuvent s'extraire du cadavre en dépensant 4,50 m de déplacement, pour se retrouver avec l'état À terre.</p>
-      <p><strong><em>Projection</em></strong>. Le kraken projette une créature de taille G ou inférieure Agrippée par lui en un espace inoccupé qui n'est pas en l'air et qu'il voit dans un rayon de 18 m. <em>JdS Dextérité</em> : DD 25, la créature projetée et chaque créature dans l'espace de destination. <em>Échec</em> : 18 (4d8) dégâts contondants, et la cible subit l'état À terre. <em>Réussite</em> : demi-dégâts uniquement.</p>
-      <p><strong><em>Trait de foudre</em></strong>. <em>JdS Dextérité</em> : DD 23, une créature que le kraken voit dans un rayon de 36 m. <em>Échec</em> : 33 (6d10) dégâts de foudre. <em>Réussite</em> : demi-dégâts.</p>
-      <h2>Actions Légendaires</h2>
-      <p>Utilisations d'action Légendaire : 3 (4 dans son antre). Aussitôt après le tour d'une autre créature, le kraken peut dépenser une utilisation pour entreprendre l'une des actions ci-après. Le kraken récupère toutes ses utilisations dépensées au début de chacun de ses tours. </p>
-      <p><strong><em>Encre toxique</em></strong>. <em>JdS Constitution</em> : DD 23, chaque créature dans une Émanation de 4,50 m centrée sur le kraken alors qu'il est sous l'eau. <em>Échec</em> : la cible subit les états Aveuglé et Empoisonné jusqu'à la fin du tour suivant du kraken. Le kraken se déplace ensuite dans les limites de sa Vitesse. <em>Échec ou réussite</em> : le kraken ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.</p>
-      <p><strong><em>Trait d'orage</em></strong>. Le kraken recourt à Trait de foudre.</p>
+      ## Traits
+
+      ***Amphibie***. Le kraken peut respirer sous l'eau comme à l'air libre.
+
+      ***Monstre de siège***. Le kraken inflige des dégâts doublés aux objets et aux structures.
+
+      ***Résistance légendaire (4/jour, ou 5/jour dans son antre)***. Si le kraken rate un jet de sauvegarde, il peut décider de le réussir tout de même.
+
+      ## Actions
+
+      ***Attaques multiples***. Le kraken effectue deux attaques de Tentacule et recourt à Engloutissement, Projection ou Trait de foudre.
+
+      ***Tentacule***. *Corps à corps* : +17, allonge 9 m. *Touché* : 24 (4d6 + 10) dégâts contondants. La cible subit l'état Agrippé (évasion DD 20) par l'un des dix tentacules, ainsi que l'état Entravé tant qu'elle est agrippée.
+
+      ***Engloutissement***. *JdS Dextérité* : DD 25, une créature Agrippée par le kraken (il peut avoir jusqu'à quatre créatures englouties à la fois). *Échec* : 23 (3d8 + 10) dégâts perforants. Si la cible est de taille G ou inférieure, elle est engloutie et n'est plus Agrippée. Une créature ainsi engloutie subit l'état Entravé, bénéficie d'un Abri total contre les attaques et autres effets émanant de l'extérieur du kraken et subit 24 (7d6) dégâts d'acide au début de chacun de ses propres tours. Si le kraken subit 50 dégâts ou plus lors d'un même tour de la part d'une créature engloutie, il doit réussir un jet de sauvegarde de Constitution DD 25 à la fin du tour concerné sous peine de régurgiter toutes les créatures englouties, chacune se retrouvant À terre dans un espace situé à 3 m ou moins de lui. Si le kraken meurt, les créatures englouties ne subissent plus l'état Entravé et peuvent s'extraire du cadavre en dépensant 4,50 m de déplacement, pour se retrouver avec l'état À terre.
+
+      ***Projection***. Le kraken projette une créature de taille G ou inférieure Agrippée par lui en un espace inoccupé qui n'est pas en l'air et qu'il voit dans un rayon de 18 m. *JdS Dextérité* : DD 25, la créature projetée et chaque créature dans l'espace de destination. *Échec* : 18 (4d8) dégâts contondants, et la cible subit l'état À terre. *Réussite* : demi-dégâts uniquement.
+
+      ***Trait de foudre***. *JdS Dextérité* : DD 23, une créature que le kraken voit dans un rayon de 36 m. *Échec* : 33 (6d10) dégâts de foudre. *Réussite* : demi-dégâts.
+
+      ## Actions Légendaires
+
+      Utilisations d'action Légendaire : 3 (4 dans son antre). Aussitôt après le tour d'une autre créature, le kraken peut dépenser une utilisation pour entreprendre l'une des actions ci-après. Le kraken récupère toutes ses utilisations dépensées au début de chacun de ses tours.
+
+      ***Encre toxique***. *JdS Constitution* : DD 23, chaque créature dans une Émanation de 4,50 m centrée sur le kraken alors qu'il est sous l'eau. *Échec* : la cible subit les états Aveuglé et Empoisonné jusqu'à la fin du tour suivant du kraken. Le kraken se déplace ensuite dans les limites de sa Vitesse. *Échec ou réussite* : le kraken ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.
+
+      ***Trait d'orage***. Le kraken recourt à Trait de foudre.
     senses: vision véritable 36 m, Perception passive 21
     languages:
     - comprend abyssal

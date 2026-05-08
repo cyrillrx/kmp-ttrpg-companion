@@ -89,13 +89,18 @@ translations:
     name: Cambion
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The cambion makes two attacks, using Claw or Fire Ray in any combination.</p>
-      <p><strong><em>Claw</em></strong>. <em>Melee Attack Roll</em> : +7, reach 5 ft. <em>Hit</em> : 8 (1d8 + 4) Slashing damage plus 7 (2d6) Fire damage.</p>
-      <p><strong><em>Fire Ray</em></strong>. <em>Ranged Attack Roll</em> : +7, range 120 ft. <em>Hit</em> : 13 (3d6 + 3) Fire damage.</p>
-      <p><strong><em>Spellcasting</em></strong>. The cambion casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 14):</p>
-      <p>2/day each: <em><a href="https://www.aidedd.org/spell/alter-self">Alter Self</a>, <a href="https://www.aidedd.org/spell/command">Command</a></em> (level 3 version), <em><a href="https://www.aidedd.org/spell/detect-magic">Detect Magic</a></em><br />
-      1/day each: <em><a href="https://www.aidedd.org/spell/dominate-person">Dominate Person</a></em> (level 8 version), <em><a href="https://www.aidedd.org/spell/plane-shift">Plane Shift</a></em> (self only)</p>
+      ## Actions
+
+      ***Multiattack***. The cambion makes two attacks, using Claw or Fire Ray in any combination.
+
+      ***Claw***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 8 (1d8 + 4) Slashing damage plus 7 (2d6) Fire damage.
+
+      ***Fire Ray***. *Ranged Attack Roll* : +7, range 120 ft. *Hit* : 13 (3d6 + 3) Fire damage.
+
+      ***Spellcasting***. The cambion casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 14):
+
+      2/day each: *[Alter Self](https://www.aidedd.org/spell/alter-self), [Command](https://www.aidedd.org/spell/command)* (level 3 version), *[Detect Magic](https://www.aidedd.org/spell/detect-magic)*\
+      1/day each: *[Dominate Person](https://www.aidedd.org/spell/dominate-person)* (level 8 version), *[Plane Shift](https://www.aidedd.org/spell/plane-shift)* (self only)
     senses: Darkvision 120 ft., Passive Perception 14
     languages:
     - Abyssal
@@ -105,13 +110,18 @@ translations:
     name: Cambion
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le cambion effectue deux attaques, réparties à sa guise entre Griffe et Rayon de feu.</p>
-      <p><strong><em>Griffe</em></strong>. <em>Corps à corps</em> : +7, allonge 1,50 m. <em>Touché</em> : 8 (1d8 + 4) dégâts tranchants plus 7 (2d6) dégâts de feu.</p>
-      <p><strong><em>Rayon de feu</em></strong>. <em>À distance</em> : +7, portée 36 m. <em>Touché</em> : 13 (3d6 + 3) dégâts de feu.</p>
-      <p><strong><em>Incantation</em></strong>. Le cambion lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 14) :</p>
-      <p>2/jour chacun : <em><a href="https://www.aidedd.org/spell/fr/modification-d-apparence">modification d'apparence</a>, <a href="https://www.aidedd.org/spell/fr/injonction">injonction</a></em> (au niveau 3), <em><a href="https://www.aidedd.org/spell/fr/detection-de-la-magie">détection de la magie</a></em><br />
-      1/jour chacun : <em><a href="https://www.aidedd.org/spell/fr/domination-de-personne">domination de personne</a></em> (au niveau 8), <em><a href="https://www.aidedd.org/spell/fr/changement-de-plan">changement de plan</a></em> (soi-même uniquement)</p>
+      ## Actions
+
+      ***Attaques multiples***. Le cambion effectue deux attaques, réparties à sa guise entre Griffe et Rayon de feu.
+
+      ***Griffe***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 8 (1d8 + 4) dégâts tranchants plus 7 (2d6) dégâts de feu.
+
+      ***Rayon de feu***. *À distance* : +7, portée 36 m. *Touché* : 13 (3d6 + 3) dégâts de feu.
+
+      ***Incantation***. Le cambion lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 14) :
+
+      2/jour chacun : *[modification d'apparence](https://www.aidedd.org/spell/fr/modification-d-apparence), [injonction](https://www.aidedd.org/spell/fr/injonction)* (au niveau 3), *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie)*\
+      1/jour chacun : *[domination de personne](https://www.aidedd.org/spell/fr/domination-de-personne)* (au niveau 8), *[changement de plan](https://www.aidedd.org/spell/fr/changement-de-plan)* (soi-même uniquement)
     senses: Vision dans le noir 36 m, Perception passive 14
     languages:
     - abyssal

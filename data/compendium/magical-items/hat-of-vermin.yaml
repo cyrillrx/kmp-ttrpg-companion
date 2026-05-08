@@ -7,22 +7,10 @@ translations:
   en:
     name: Hat of Vermin
     subtype: null
-    description: <p>This hat has 3 charges. While holding the hat, you can take a
-      Magic action to expend 1 charge and summon your choice of a <strong>Bat</strong>
-      , a <strong>Frog</strong> , or a <strong>Rat</strong>. The summoned creature
-      magically appears in the hat and tries to get away from you as quickly as possible.
-      The creature is Indifferent toward you and other creatures, and it isn't under
-      your control. It behaves as an ordinary creature of its kind and disappears
-      after 1 hour or when it drops to 0 Hit Points. The hat regains all expended
-      charges daily at dawn.</p>
+    description: |-
+      This hat has 3 charges. While holding the hat, you can take a Magic action to expend 1 charge and summon your choice of a **Bat** , a **Frog** , or a **Rat**. The summoned creature magically appears in the hat and tries to get away from you as quickly as possible. The creature is Indifferent toward you and other creatures, and it isn't under your control. It behaves as an ordinary creature of its kind and disappears after 1 hour or when it drops to 0 Hit Points. The hat regains all expended charges daily at dawn.
   fr:
     name: Chapeau de vermine
     subtype: null
-    description: <p>Ce chapeau possède 3 charges. Si vous le tenez, vous pouvez prendre
-      une action Magie pour dépenser 1 charge et invoquer une <strong>chauve-souris</strong>
-      , une <strong>grenouille</strong> ou un <strong>rat</strong> , au choix. La
-      créature invoquée apparaît magiquement dans le chapeau et tente de s'en éloigner
-      le plus vite possible. Indifférente à vous et aux autres créatures, elle n'est
-      pas sous votre contrôle. Elle se comporte comme une créature ordinaire de son
-      espèce et disparaît au bout d'une heure ou lorsque ses points de vie tombent
-      à 0. Le chapeau récupère toutes ses charges dépensées chaque jour à l'aube.</p>
+    description: |-
+      Ce chapeau possède 3 charges. Si vous le tenez, vous pouvez prendre une action Magie pour dépenser 1 charge et invoquer une **chauve-souris** , une **grenouille** ou un **rat** , au choix. La créature invoquée apparaît magiquement dans le chapeau et tente de s'en éloigner le plus vite possible. Indifférente à vous et aux autres créatures, elle n'est pas sous votre contrôle. Elle se comporte comme une créature ordinaire de son espèce et disparaît au bout d'une heure ou lorsque ses points de vie tombent à 0. Le chapeau récupère toutes ses charges dépensées chaque jour à l'aube.

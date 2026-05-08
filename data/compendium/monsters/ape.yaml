@@ -89,10 +89,13 @@ translations:
     name: Ape
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The ape makes two Fist attacks.</p>
-      <p><strong><em>Fist</em></strong>. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 5 (1d4 + 3) Bludgeoning damage.</p>
-      <p><strong><em>Rock (Recharge 6)</em></strong>. <em>Ranged Attack Roll</em> : +5, range 25/50 ft. <em>Hit</em> : 10 (2d6 + 3) Bludgeoning damage.</p>
+      ## Actions
+
+      ***Multiattack***. The ape makes two Fist attacks.
+
+      ***Fist***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 5 (1d4 + 3) Bludgeoning damage.
+
+      ***Rock (Recharge 6)***. *Ranged Attack Roll* : +5, range 25/50 ft. *Hit* : 10 (2d6 + 3) Bludgeoning damage.
     senses: Passive Perception 13
     languages:
     - None
@@ -100,10 +103,13 @@ translations:
     name: Grand singe
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le singe effectue deux attaques de Poing.</p>
-      <p><strong><em>Poing</em></strong>. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 5 (1d4 + 3) dégâts contondants.</p>
-      <p><strong><em>Rocher (recharge 6)</em></strong>. <em>À distance</em> : +5, portée 7,50/15 m. <em>Touché</em> : 10 (2d6 + 3) dégâts contondants.</p>
+      ## Actions
+
+      ***Attaques multiples***. Le singe effectue deux attaques de Poing.
+
+      ***Poing***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 5 (1d4 + 3) dégâts contondants.
+
+      ***Rocher (recharge 6)***. *À distance* : +5, portée 7,50/15 m. *Touché* : 10 (2d6 + 3) dégâts contondants.
     senses: Perception passive 13
     languages:
     - aucune

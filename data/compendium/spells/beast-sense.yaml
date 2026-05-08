@@ -18,15 +18,13 @@ translations:
     range: Touch
     duration: Concentration, up to 1 hour
     materialDescription: null
-    description: You touch a willing Beast. For the duration, you can perceive through
-      the Beast's senses as well as your own. When perceiving through the Beast's
-      senses, you benefit from any special senses it has.<br/>
+    description: |-
+      You touch a willing Beast. For the duration, you can perceive through the Beast's senses as well as your own. When perceiving through the Beast's senses, you benefit from any special senses it has.\
   fr:
     name: Perception bestiale
     castingTime: Action ou Rituel
     range: Contact
     duration: Concentration, jusqu'à 1 heure
     materialDescription: null
-    description: Vous touchez une Bête consentante. Pendant la durée du sort, vous
-      pouvez percevoir grâce à ses sens et vos propres sens. En percevant grâce à
-      ses sens, vous bénéficiez de ses sens spéciaux.<br/>
+    description: |-
+      Vous touchez une Bête consentante. Pendant la durée du sort, vous pouvez percevoir grâce à ses sens et vos propres sens. En percevant grâce à ses sens, vous bénéficiez de ses sens spéciaux.\

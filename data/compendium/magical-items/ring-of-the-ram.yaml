@@ -8,19 +8,10 @@ translations:
     name: Ring of the Ram
     subtype: null
     description: |-
-      <p>This ring has 3 charges and regains 1d3 expended charges daily at dawn. While wearing the ring, you can take a Magic action to expend 1 to 3 charges to make a ranged spell attack against one creature you can see within 60 feet of yourself. The ring produces a spectral ram's head and makes its attack roll with a +7 bonus. On a hit, for each charge you spend, the target takes 2d10 Force damage and is pushed 5 feet away from you.<br />
-      Alternatively, you can expend 1 to 3 of the ring's charges as a Magic action to try to break a nonmagical object you can see within 60 feet of yourself that isn't being worn or carried. The ring makes a Strength check with a +5 bonus for each charge you spend.</p>
+      This ring has 3 charges and regains 1d3 expended charges daily at dawn. While wearing the ring, you can take a Magic action to expend 1 to 3 charges to make a ranged spell attack against one creature you can see within 60 feet of yourself. The ring produces a spectral ram's head and makes its attack roll with a +7 bonus. On a hit, for each charge you spend, the target takes 2d10 Force damage and is pushed 5 feet away from you.\
+      Alternatively, you can expend 1 to 3 of the ring's charges as a Magic action to try to break a nonmagical object you can see within 60 feet of yourself that isn't being worn or carried. The ring makes a Strength check with a +5 bonus for each charge you spend.
   fr:
     name: Anneau du bélier
     subtype: null
-    description: <p>Cet anneau possède 3 charges et récupère 1d3 charges dépensées
-      chaque jour à l'aube. Lorsque vous portez l'anneau, vous pouvez prendre une
-      action Magie pour dépenser 1 à 3 charges et effectuer une attaque à distance
-      contre une créature que vous pouvez voir dans un rayon de 18 mètres. L'anneau
-      produit une tête de bélier spectrale et effectue son jet d'attaque avec un bonus
-      de +7. En cas de réussite, pour chaque charge dépensée, la cible subit 2d10
-      dégâts de force et est repoussée de 1,50 mètre de vous. Vous pouvez également
-      dépenser 1 à 3 charges de l'anneau par une action Magie pour tenter de briser
-      un objet non magique que vous pouvez voir dans un rayon de 18 mètres et qui
-      n'est pas porté. L'anneau effectue un jet de Force avec un bonus de +5 pour
-      chaque charge dépensée.</p>
+    description: |-
+      Cet anneau possède 3 charges et récupère 1d3 charges dépensées chaque jour à l'aube. Lorsque vous portez l'anneau, vous pouvez prendre une action Magie pour dépenser 1 à 3 charges et effectuer une attaque à distance contre une créature que vous pouvez voir dans un rayon de 18 mètres. L'anneau produit une tête de bélier spectrale et effectue son jet d'attaque avec un bonus de +7. En cas de réussite, pour chaque charge dépensée, la cible subit 2d10 dégâts de force et est repoussée de 1,50 mètre de vous. Vous pouvez également dépenser 1 à 3 charges de l'anneau par une action Magie pour tenter de briser un objet non magique que vous pouvez voir dans un rayon de 18 mètres et qui n'est pas porté. L'anneau effectue un jet de Force avec un bonus de +5 pour chaque charge dépensée.

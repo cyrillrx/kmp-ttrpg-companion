@@ -8,27 +8,36 @@ translations:
     name: Whelm
     subtype: Warhammer
     description: |-
-      <p><em>Whelm</em> is a powerful weapon forged by dwarves and lost in the dungeon of White Plume Mountain.<br />
-      You gain a +3 bonus to attack rolls and damage rolls made with this magic weapon.<br />
-      <strong>Hurl</strong>. <em>Whelm</em> has the Thrown property with a normal range of 60 feet and a long range of 180 feet. When you hit with a ranged attack roll using Whelm, the target takes an extra 1d8 Force damage, or an extra 4d8 Force damage if the target is a Construct, an Elemental, or a Giant. Immediately after hitting or missing, the weapon flies back to your hand.<br />
-      <strong>Shock Wave</strong>. You can take a Magic action to strike the ground with <em>Whelm</em> and send a shock wave out from the point of impact. Each creature of your choice on the ground within 60 feet of that point must succeed on a DC 20 Constitution saving throw or have the Stunned condition for 1 minute. A creature repeats the save at the end of each of its turns, ending the effect on itself on a success. Once used, this property can't be used again until the next dawn.<br />
-      <strong>Supernatural Awareness</strong>. While you are holding the weapon, it alerts you to the location of any secret or concealed doors within 30 feet of you. In addition, you can cast Detect Evil and Good or Locate Object from the weapon. Once you cast either spell, you can't cast it from the weapon again until the next dawn.<br />
-      <strong>Sentience</strong>. <em>Whelm</em> is a sentient, Lawful Neutral weapon with an Intelligence of 15, a Wisdom of 12, and a Charisma of 15. It has hearing and Darkvision out to 120 feet.<br />
-      The weapon communicates telepathically with its wielder and speaks Dwarvish, Giant, and Goblin.<br />
-      <strong>Personality</strong>. <em>Whelm</em> has ties to the dwarf clan that created it, called the Dankil or the Mightyhammer clan. It longs to be returned to that clan. Whelm's purpose is to protect dwarves. Conflict arises if the wielder doesn't share this goal.<br />
-      <strong>Destroying Whelm</strong>. <em>Whelm</em> can be dissolved in the acidic bile of a recently slain ancient black dragon. It can also be melted down in the forges of the Mightyhammer dwarf clan, but only by the rightful leader of that clan.</p>
+      *Whelm* is a powerful weapon forged by dwarves and lost in the dungeon of White Plume Mountain.\
+      You gain a +3 bonus to attack rolls and damage rolls made with this magic weapon.\
+      **Hurl**. *Whelm* has the Thrown property with a normal range of 60 feet and a long range of 180 feet. When you hit with a ranged attack roll using Whelm, the target takes an extra 1d8 Force damage, or an extra 4d8 Force damage if the target is a Construct, an Elemental, or a Giant. Immediately after hitting or missing, the weapon flies back to your hand.\
+      **Shock Wave**. You can take a Magic action to strike the ground with *Whelm* and send a shock wave out from the point of impact. Each creature of your choice on the ground within 60 feet of that point must succeed on a DC 20 Constitution saving throw or have the Stunned condition for 1 minute. A creature repeats the save at the end of each of its turns, ending the effect on itself on a success. Once used, this property can't be used again until the next dawn.\
+      **Supernatural Awareness**. While you are holding the weapon, it alerts you to the location of any secret or concealed doors within 30 feet of you. In addition, you can cast Detect Evil and Good or Locate Object from the weapon. Once you cast either spell, you can't cast it from the weapon again until the next dawn.\
+      **Sentience**. *Whelm* is a sentient, Lawful Neutral weapon with an Intelligence of 15, a Wisdom of 12, and a Charisma of 15. It has hearing and Darkvision out to 120 feet.\
+      The weapon communicates telepathically with its wielder and speaks Dwarvish, Giant, and Goblin.\
+      **Personality**. *Whelm* has ties to the dwarf clan that created it, called the Dankil or the Mightyhammer clan. It longs to be returned to that clan. Whelm's purpose is to protect dwarves. Conflict arises if the wielder doesn't share this goal.\
+      **Destroying Whelm**. *Whelm* can be dissolved in the acidic bile of a recently slain ancient black dragon. It can also be melted down in the forges of the Mightyhammer dwarf clan, but only by the rightful leader of that clan.
   fr:
     name: Déluge
     subtype: marteau de guerre
     description: |-
-      <em>Whelm</em> is a powerful warhammer forged by dwarves and lost in the dungeon of White Plume Mountain.
-      <br>You gain a +3 bonus to attack and damage rolls made with this magic weapon. At dawn the day after you first make an attack roll with <em>Whelm</em>, you develop a fear of being outdoors that persists as long as you remain attuned to the weapon. This causes you to have disadvantage on attack rolls, saving throws, and ability checks while you can see the daytime sky.
-      <br><strong>Thrown Weapon</strong>. <em>Whelm</em> has the thrown property, with a normal range of 20 feet and a long range of 60 feet. When you hit with a ranged weapon attack using it, the target takes an extra 1d8 bludgeoning damage, or an extra 2d8 bludgeoning damage if the target is a giant. Each time you throw the weapon, it flies back to your hand after the attack. If you don't have a hand free, the weapon lands at your feet.
-      <br><strong>Shock Wave</strong>. You can use an action to strike the ground with <em>Whelm</em> and send a shock wave out from the point of impact. Each creature of your choice on the ground within 60 feet of that point must succeed on a DC 15 Constitution saving throw or become stunned for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. Once used, this property can't be used again until the next dawn.
-      <br><strong>Supernatural Awareness</strong>. While you are holding the weapon, it alerts you to the location of any secret or concealed doors within 30 feet of you. In addition, you can use an action to cast <em><a href="https://www.aidedd.org/dnd/sorts.php?vo=detect-evil-and-good">detect evil and good</a></em> or <em><a href="https://www.aidedd.org/dnd/sorts.php?vo=locate-object">locate object</a></em> from the weapon. Once you cast either spell, you can't cast it from the weapon again until the next dawn.
-      <br><strong>Sentience</strong>. <em>Whelm</em> is a sentient lawful neutral weapon with an Intelligence of 15, a Wisdom of 12, and a Charisma of 15. It has hearing and darkvision out to a range of 120 feet.
-      <br>The weapon communicates telepathically with its wielder and can speak, read, and understand Dwarvish. Giant, and Goblin. It shouts battle cries in Dwarvish when used in combat.
-      <br><strong>Personality</strong>. <em>Whelm</em>'s purpose is to slaughter giants and goblinoids. It also seeks to protect dwarves against all enemies. Conflict arises if the wielder fails to destroy goblins and giants or to protect dwarves.
-      <br><em>Whelm</em> has ties to the dwarf clan that created it, variously called the Dankil or the Mightyhammer clan. It longs to be returned to that clan. It would do anything to protect those dwarves from harm.
-      <br>The hammer also carries a secret shame. Centuries ago, a dwarf named Ctenmiir wielded it valiantly for a time. But Ctenmiir was turned into a vampire. His will was strong enough that he bent <em>Whelm</em> to his evil purposes, even killing members of his own clan.
-      <br>
+      *Whelm* is a powerful warhammer forged by dwarves and lost in the dungeon of White Plume Mountain.
+      \
+      You gain a +3 bonus to attack and damage rolls made with this magic weapon. At dawn the day after you first make an attack roll with *Whelm*, you develop a fear of being outdoors that persists as long as you remain attuned to the weapon. This causes you to have disadvantage on attack rolls, saving throws, and ability checks while you can see the daytime sky.
+      \
+      **Thrown Weapon**. *Whelm* has the thrown property, with a normal range of 20 feet and a long range of 60 feet. When you hit with a ranged weapon attack using it, the target takes an extra 1d8 bludgeoning damage, or an extra 2d8 bludgeoning damage if the target is a giant. Each time you throw the weapon, it flies back to your hand after the attack. If you don't have a hand free, the weapon lands at your feet.
+      \
+      **Shock Wave**. You can use an action to strike the ground with *Whelm* and send a shock wave out from the point of impact. Each creature of your choice on the ground within 60 feet of that point must succeed on a DC 15 Constitution saving throw or become stunned for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. Once used, this property can't be used again until the next dawn.
+      \
+      **Supernatural Awareness**. While you are holding the weapon, it alerts you to the location of any secret or concealed doors within 30 feet of you. In addition, you can use an action to cast *[detect evil and good](https://www.aidedd.org/dnd/sorts.php?vo=detect-evil-and-good)* or *[locate object](https://www.aidedd.org/dnd/sorts.php?vo=locate-object)* from the weapon. Once you cast either spell, you can't cast it from the weapon again until the next dawn.
+      \
+      **Sentience**. *Whelm* is a sentient lawful neutral weapon with an Intelligence of 15, a Wisdom of 12, and a Charisma of 15. It has hearing and darkvision out to a range of 120 feet.
+      \
+      The weapon communicates telepathically with its wielder and can speak, read, and understand Dwarvish. Giant, and Goblin. It shouts battle cries in Dwarvish when used in combat.
+      \
+      **Personality**. *Whelm*'s purpose is to slaughter giants and goblinoids. It also seeks to protect dwarves against all enemies. Conflict arises if the wielder fails to destroy goblins and giants or to protect dwarves.
+      \
+      *Whelm* has ties to the dwarf clan that created it, variously called the Dankil or the Mightyhammer clan. It longs to be returned to that clan. It would do anything to protect those dwarves from harm.
+      \
+      The hammer also carries a secret shame. Centuries ago, a dwarf named Ctenmiir wielded it valiantly for a time. But Ctenmiir was turned into a vampire. His will was strong enough that he bent *Whelm* to his evil purposes, even killing members of his own clan.
+      \

@@ -89,18 +89,26 @@ translations:
     name: Beholder
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>Legendary Resistance (3/Day, or 4/Day in Lair).  </p>
-      <h2>Actions</h2>
-      <p>Multiattack.<br />
-      Bite.<br />
-      Eye Rays.  </p>
-      <h2>Bonus actions</h2>
-      <p>Antimagic Cone.  </p>
-      <h2>Legendary actions</h2>
-      <p>Legendary Action Uses: 3 (4 in Lair). </p>
-      <p>Chomp.<br />
-      Glare.</p>
+      ## Traits
+
+      Legendary Resistance (3/Day, or 4/Day in Lair).
+
+      ## Actions
+
+      Multiattack.\
+      Bite.\
+      Eye Rays.
+
+      ## Bonus actions
+
+      Antimagic Cone.
+
+      ## Legendary actions
+
+      Legendary Action Uses: 3 (4 in Lair).
+
+      Chomp.\
+      Glare.
     senses: Darkvision 120 ft., Passive Perception 22
     languages:
     - Deep Speech
@@ -109,18 +117,26 @@ translations:
     name: Tyrannoeil
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>Résistance légendaire (3/jour, ou 4/jour dans son antre).  </p>
-      <h2>Actions</h2>
-      <p>Attaques multiples.<br />
-      Morsure.<br />
-      Rayons oculaires.  </p>
-      <h2>Actions Bonus</h2>
-      <p>Cône antimagie.  </p>
-      <h2>Actions Légendaires</h2>
-      <p>Utilisations d'action Légendaire : 3 (4 dans son antre). </p>
-      <p>Mastication.<br />
-      Regard de biais.</p>
+      ## Traits
+
+      Résistance légendaire (3/jour, ou 4/jour dans son antre).
+
+      ## Actions
+
+      Attaques multiples.\
+      Morsure.\
+      Rayons oculaires.
+
+      ## Actions Bonus
+
+      Cône antimagie.
+
+      ## Actions Légendaires
+
+      Utilisations d'action Légendaire : 3 (4 dans son antre).
+
+      Mastication.\
+      Regard de biais.
     senses: Vision dans le noir 36 m, Perception passive 22
     languages:
     - profond

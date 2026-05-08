@@ -89,11 +89,15 @@ translations:
     name: Swarm of Insects
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Spider Climb</em>**. If the swarm has a Climb Speed, the swarm can climb difficult surfaces, including along ceilings, without needing to make an ability check.</p>
-      <p><strong><em>Swarm</em></strong>. The swarm can occupy another creature's space and vice versa, and the swarm can move through any opening large enough for a Tiny insect. The swarm can't regain Hit Points or gain Temporary Hit Points.</p>
-      <h2>Actions</h2>
-      <p>** <em>Bites</em>**. <em>Melee Attack Roll</em> : +3, reach 5 ft. <em>Hit</em> : 6 (2d4 + 1) Poison damage, or 3 (1d4 + 1) Poison damage if the swarm is Bloodied.</p>
+      ## Traits
+
+      ***Spider Climb***. If the swarm has a Climb Speed, the swarm can climb difficult surfaces, including along ceilings, without needing to make an ability check.
+
+      ***Swarm***. The swarm can occupy another creature's space and vice versa, and the swarm can move through any opening large enough for a Tiny insect. The swarm can't regain Hit Points or gain Temporary Hit Points.
+
+      ## Actions
+
+      ***Bites***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 6 (2d4 + 1) Poison damage, or 3 (1d4 + 1) Poison damage if the swarm is Bloodied.
     senses: Blindsight 30 ft., Passive Perception 8
     languages:
     - None
@@ -101,11 +105,15 @@ translations:
     name: Nuée d'insectes
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Nuée</em>**. La nuée peut occuper l'espace d'une autre créature et réciproquement, et elle peut se déplacer par toute ouverture assez large pour un insecte de taille TP. La nuée ne peut ni récupérer de points de vie ni recevoir de points de vie temporaires.</p>
-      <p><strong><em>Pattes d'araignée</em></strong>. Si la nuée dispose d'une Vitesse d'escalade, la nuée peut parcourir les parois les plus difficiles, y compris les plafonds, sans passer par un jet de caractéristique.</p>
-      <h2>Actions</h2>
-      <p>Morsures.</p>
+      ## Traits
+
+      ***Nuée***. La nuée peut occuper l'espace d'une autre créature et réciproquement, et elle peut se déplacer par toute ouverture assez large pour un insecte de taille TP. La nuée ne peut ni récupérer de points de vie ni recevoir de points de vie temporaires.
+
+      ***Pattes d'araignée***. Si la nuée dispose d'une Vitesse d'escalade, la nuée peut parcourir les parois les plus difficiles, y compris les plafonds, sans passer par un jet de caractéristique.
+
+      ## Actions
+
+      Morsures.
     senses: Vision aveugle 9 m, Perception passive 8
     languages:
     - aucune

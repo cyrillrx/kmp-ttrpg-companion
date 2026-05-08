@@ -19,14 +19,9 @@ translations:
     range: Self
     duration: Instantaneous
     materialDescription: a gem-encrusted bowl worth 1,000+ GP, which the spell consumes
-    description: You conjure a feast that appears on a surface in an unoccupied 10-foot
-      Cube next to you. The feast takes 1 hour to consume and disappears at the end
-      of that time, and the beneficial effects don't set in until this hour is over.
-      Up to twelve creatures can partake of the feast.<br/>A creature that partakes
-      gains several benefits, which last for 24 hours. The creature has Resistance
-      to Poison damage, and it has Immunity to the Frightened and Poisoned conditions.
-      Its Hit Point maximum also increases by 2d10, and it gains the same number of
-      Hit Points.<br/>
+    description: |-
+      You conjure a feast that appears on a surface in an unoccupied 10-foot Cube next to you. The feast takes 1 hour to consume and disappears at the end of that time, and the beneficial effects don't set in until this hour is over. Up to twelve creatures can partake of the feast.\
+      A creature that partakes gains several benefits, which last for 24 hours. The creature has Resistance to Poison damage, and it has Immunity to the Frightened and Poisoned conditions. Its Hit Point maximum also increases by 2d10, and it gains the same number of Hit Points.\
   fr:
     name: Festin des héros
     castingTime: 10 minutes
@@ -34,12 +29,6 @@ translations:
     duration: Instantanée
     materialDescription: un vase incrusté de gemmes d'une valeur minimale de 1000
       po, que le sort consomme
-    description: Vous invoquez un festin qui se présente sur une surface dans un Cube
-      inoccupé de 3 m, à côté de vous. Il faut 1 heure pour ingérer ce festin, tous
-      les plats disparaissant à l'issue de cet intervalle. Les bénéfices ne se font
-      pas sentir avant la fin de l'heure. Un maximum de douze créatures peuvent participer
-      au banquet.<br/>Une créature qui a figuré parmi les convives reçoit plusieurs
-      bénéfices, qui persistent pendant 24 heures. Elle bénéficie de la Résistance
-      aux dégâts de poison et de l'Immunité contre les états Effrayé et Empoisonné.
-      Son maximum de points de vie augmente en outre de 2d10 et elle reçoit ce même
-      nombre de points de vie.<br/>
+    description: |-
+      Vous invoquez un festin qui se présente sur une surface dans un Cube inoccupé de 3 m, à côté de vous. Il faut 1 heure pour ingérer ce festin, tous les plats disparaissant à l'issue de cet intervalle. Les bénéfices ne se font pas sentir avant la fin de l'heure. Un maximum de douze créatures peuvent participer au banquet.\
+      Une créature qui a figuré parmi les convives reçoit plusieurs bénéfices, qui persistent pendant 24 heures. Elle bénéficie de la Résistance aux dégâts de poison et de l'Immunité contre les états Effrayé et Empoisonné. Son maximum de points de vie augmente en outre de 2d10 et elle reçoit ce même nombre de points de vie.\

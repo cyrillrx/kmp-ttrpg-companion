@@ -17,34 +17,17 @@ translations:
     range: 120 feet
     duration: Instantaneous
     materialDescription: null
-    description: You convert raw materials into products of the same material. For
-      example, you can fabricate a wooden bridge from a clump of trees, a rope from
-      a patch of hemp, or clothes from flax or wool.<br/>Choose raw materials that
-      you can see within range. You can fabricate a Large or smaller object (contained
-      within a 10-foot Cube or eight connected 5-foot Cubes) given a sufficient quantity
-      of material. If you're working with metal, stone, or another mineral substance,
-      however, the fabricated object can be no larger than Medium (contained within
-      a 5-foot Cube). The quality of any fabricated objects is based on the quality
-      of the raw materials.<br/>Creatures and magic items can't be created by this
-      spell. You also can't use it to create items that require a high degree of skill—such
-      as weapons and armor—unless you have proficiency with the type of Artisan's
-      Tools used to craft such objects.<br/>
+    description: |-
+      You convert raw materials into products of the same material. For example, you can fabricate a wooden bridge from a clump of trees, a rope from a patch of hemp, or clothes from flax or wool.\
+      Choose raw materials that you can see within range. You can fabricate a Large or smaller object (contained within a 10-foot Cube or eight connected 5-foot Cubes) given a sufficient quantity of material. If you're working with metal, stone, or another mineral substance, however, the fabricated object can be no larger than Medium (contained within a 5-foot Cube). The quality of any fabricated objects is based on the quality of the raw materials.\
+      Creatures and magic items can't be created by this spell. You also can't use it to create items that require a high degree of skill—such as weapons and armor—unless you have proficiency with the type of Artisan's Tools used to craft such objects.\
   fr:
     name: Fabrication
     castingTime: 10 minutes
     range: 36 m
     duration: Instantanée
     materialDescription: null
-    description: Vous transformez des matières premières en produits du même matériau.
-      Par exemple, vous pouvez fabriquer un pont en bois à partir d'un bosquet d'arbres,
-      une corde à partir d'un morceau de chanvre, ou des vêtements avec du lin ou
-      de la laine.<br/>Choisissez des matières premières que vous pouvez voir à portée.
-      Vous pouvez fabriquer un objet de taille TG ou inférieure (un Cube de 3 mètres
-      de côté ou huit Cubes de 1,50 mètre reliés) avec une quantité suffisante de
-      matériau. Cependant, si vous travaillez le métal, la pierre ou tout autre substance
-      minérale, l'objet fabriqué ne peut pas être d'une taille supérieure à M (un
-      Cube de 1,50 mètre de côté). La qualité de tout objet fabriqué dépend de la
-      qualité des matières premières.<br/>Ce sort ne permet pas de créer des créatures
-      ni des objets magiques. Vous ne pouvez pas non plus l'utiliser pour créer des
-      objets nécessitant un haut niveau de compétence, comme des armes et des armures,
-      à moins de maîtriser les outils d'artisan utilisés pour fabriquer ces objets.<br/>
+    description: |-
+      Vous transformez des matières premières en produits du même matériau. Par exemple, vous pouvez fabriquer un pont en bois à partir d'un bosquet d'arbres, une corde à partir d'un morceau de chanvre, ou des vêtements avec du lin ou de la laine.\
+      Choisissez des matières premières que vous pouvez voir à portée. Vous pouvez fabriquer un objet de taille TG ou inférieure (un Cube de 3 mètres de côté ou huit Cubes de 1,50 mètre reliés) avec une quantité suffisante de matériau. Cependant, si vous travaillez le métal, la pierre ou tout autre substance minérale, l'objet fabriqué ne peut pas être d'une taille supérieure à M (un Cube de 1,50 mètre de côté). La qualité de tout objet fabriqué dépend de la qualité des matières premières.\
+      Ce sort ne permet pas de créer des créatures ni des objets magiques. Vous ne pouvez pas non plus l'utiliser pour créer des objets nécessitant un haut niveau de compétence, comme des armes et des armures, à moins de maîtriser les outils d'artisan utilisés pour fabriquer ces objets.\

@@ -7,15 +7,11 @@ translations:
   en:
     name: Sword of Life Stealing
     subtype: Glaive, Greatsword, Longsword, Rapier, Scimitar, or Shortsword
-    description: <p>When you attack a creature with this magic weapon and roll a 20
-      on the d20 for the attack roll, that target takes an extra 15 Necrotic damage
-      if it isn't a Construct or an Undead, and you gain Temporary Hit Points equal
-      to the amount of Necrotic damage taken.</p>
+    description: |-
+      When you attack a creature with this magic weapon and roll a 20 on the d20 for the attack roll, that target takes an extra 15 Necrotic damage if it isn't a Construct or an Undead, and you gain Temporary Hit Points equal to the amount of Necrotic damage taken.
   fr:
     name: Épée voleuse de vie
     subtype: coutille, épée à deux mains, épée longue, rapière, cimeterre ou épée
       courte
-    description: <p>Lorsque vous attaquez une créature avec cette arme magique et
-      obtenez un 20 sur le d20 pour le jet d'attaque, la cible subit 15 dégâts nécrotiques
-      supplémentaires si elle n'est pas un Artificiel ou un Mort-vivant, et vous gagnez
-      des points de vie temporaires égaux au montant des dégâts nécrotiques subis.</p>
+    description: |-
+      Lorsque vous attaquez une créature avec cette arme magique et obtenez un 20 sur le d20 pour le jet d'attaque, la cible subit 15 dégâts nécrotiques supplémentaires si elle n'est pas un Artificiel ou un Mort-vivant, et vous gagnez des points de vie temporaires égaux au montant des dégâts nécrotiques subis.

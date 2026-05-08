@@ -89,10 +89,13 @@ translations:
     name: Salamander Fire Snake
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Fire Aura</em>**. At the end of each of the salamander's turns, each creature of the salamander's choice in a 5-foot Emanation originating from the salamander takes 3 (1d6) Fire damage.</p>
-      <h2>Actions</h2>
-      <p>** <em>Bite</em>**. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 6 (1d8 + 2) Piercing damage plus 3 (1d6) Fire damage.</p>
+      ## Traits
+
+      ***Fire Aura***. At the end of each of the salamander's turns, each creature of the salamander's choice in a 5-foot Emanation originating from the salamander takes 3 (1d6) Fire damage.
+
+      ## Actions
+
+      ***Bite***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 6 (1d8 + 2) Piercing damage plus 3 (1d6) Fire damage.
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - Understands Primordial but can't speak
@@ -100,10 +103,13 @@ translations:
     name: Salamandre, serpent de feu
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Aura de feu</em>**. À la fin de chacun des tours de la salamandre, chaque créature de son choix dans une Émanation de 1,50 m centrée sur la salamandre subit 3 (1d6) dégâts de Feu.</p>
-      <h2>Actions</h2>
-      <p>** <em>Morsure</em>**. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 6 (1d8 + 2) dégâts perforants plus 3 (1d6) dégâts de feu.</p>
+      ## Traits
+
+      ***Aura de feu***. À la fin de chacun des tours de la salamandre, chaque créature de son choix dans une Émanation de 1,50 m centrée sur la salamandre subit 3 (1d6) dégâts de Feu.
+
+      ## Actions
+
+      ***Morsure***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 6 (1d8 + 2) dégâts perforants plus 3 (1d6) dégâts de feu.
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - comprend le primordial mais ne parle pas

@@ -19,34 +19,19 @@ translations:
     range: Self
     duration: 10 minutes
     materialDescription: null
-    description: You imbue plants in an immobile 30-foot Emanation with limited sentience
-      and animation, giving them the ability to communicate with you and follow your
-      simple commands. You can question plants about events in the spell's area within
-      the past day, gaining information about creatures that have passed, weather,
-      and other circumstances.<br/>You can also turn Difficult Terrain caused by plant
-      growth (such as thickets and undergrowth) into ordinary terrain that lasts for
-      the duration. Or you can turn ordinary terrain where plants are present into
-      Difficult Terrain that lasts for the duration.<br/>The spell doesn't enable
-      plants to uproot themselves and move about, but they can move their branches,
-      tendrils, and stalks for you.<br/>If a Plant creature is in the area, you can
-      communicate with it as if you shared a common language.<br/>
+    description: |-
+      You imbue plants in an immobile 30-foot Emanation with limited sentience and animation, giving them the ability to communicate with you and follow your simple commands. You can question plants about events in the spell's area within the past day, gaining information about creatures that have passed, weather, and other circumstances.\
+      You can also turn Difficult Terrain caused by plant growth (such as thickets and undergrowth) into ordinary terrain that lasts for the duration. Or you can turn ordinary terrain where plants are present into Difficult Terrain that lasts for the duration.\
+      The spell doesn't enable plants to uproot themselves and move about, but they can move their branches, tendrils, and stalks for you.\
+      If a Plant creature is in the area, you can communicate with it as if you shared a common language.\
   fr:
     name: Communication avec les plantes
     castingTime: Action
     range: Personnelle
     duration: 10 minutes
     materialDescription: null
-    description: Vous imprégnez les plantes dans une Émanation immobile de 9 mètres
-      d'une conscience et d'une animation limitées, leur permettant de communiquer
-      avec vous et d'obéir à des ordres simples. Vous pouvez interroger les plantes
-      sur les événements survenus dans la zone d'effet du sort au cours de la journée
-      écoulée, obtenant ainsi des informations sur les créatures qui sont passées
-      par là, la météo et d'autres circonstances.<br/>Vous pouvez également transformer
-      un Terrain difficile créé par la croissance de plantes (comme les fourrés et
-      les sous-bois) en terrain ordinaire pendant toute la durée du sort. Vous pouvez
-      également transformer un terrain ordinaire où se trouvent des plantes en Terrain
-      difficile pendant toute la durée du sort.<br/>Le sort ne permet pas aux plantes
-      de se déraciner et de se déplacer, mais elles peuvent déplacer leurs branches
-      et leurs tiges pour vous.<br/>Si une créature du type plante se trouve dans
-      la zone, vous pouvez communiquer avec elle comme si vous partagiez une langue
-      commune.<br/>
+    description: |-
+      Vous imprégnez les plantes dans une Émanation immobile de 9 mètres d'une conscience et d'une animation limitées, leur permettant de communiquer avec vous et d'obéir à des ordres simples. Vous pouvez interroger les plantes sur les événements survenus dans la zone d'effet du sort au cours de la journée écoulée, obtenant ainsi des informations sur les créatures qui sont passées par là, la météo et d'autres circonstances.\
+      Vous pouvez également transformer un Terrain difficile créé par la croissance de plantes (comme les fourrés et les sous-bois) en terrain ordinaire pendant toute la durée du sort. Vous pouvez également transformer un terrain ordinaire où se trouvent des plantes en Terrain difficile pendant toute la durée du sort.\
+      Le sort ne permet pas aux plantes de se déraciner et de se déplacer, mais elles peuvent déplacer leurs branches et leurs tiges pour vous.\
+      Si une créature du type plante se trouve dans la zone, vous pouvez communiquer avec elle comme si vous partagiez une langue commune.\

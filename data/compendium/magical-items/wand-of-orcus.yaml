@@ -9,50 +9,90 @@ translations:
     subtype: null
     description: |-
       The ghastly Wand of Orcus rarely leaves Orcus's side. The device, as evil as its creator, shares the demon lord's aims to snuff out the lives of all living things and bind the Material Plane in the stasis of undeath. Orcus allows the wand to slip from his grasp from time to time. When it does, it magically appears wherever its master senses an opportunity to achieve some fell goal.
-      <br>Made from bones as hard as iron, the wand is topped with a magically enlarged skull that once belonged to a human hero slain by Orcus. The wand can magically change in size to better conform to the grip of its user. Plants wither, drinks spoil, flesh rots, and vermin thrive in the wand's presence.
-      <br>Any creature besides Orcus that tries to attune to the wand must make a DC 17 Constitution saving throw. On a successful save, the creature takes 10d6 necrotic damage. On a failed save, the creature dies and rises as a zombie.
-      <br>In the hands of one who is attuned to it, the wand can be wielded as a magic mace that grants a + 3 bonus to attack and damage rolls made with it. The wand deals an extra 2d12 necrotic damage on a hit.
-      <br><strong>Random Properties</strong>. The Wand of Orcus has the following random properties:
-      <br>• 2 minor beneficial properties
-      <br>• 1 major beneficial property
-      <br>• 2 minor detrimental properties
-      <br>• 1 major detrimental property
-      <br>The detrimental properties of the Wand of Orcus are suppressed while the wand is attuned to Orcus himself.
-      <br><strong>Protection</strong>. You gain a +3 bonus to Armor Class while holding the wand.
-      <br><strong>Spells</strong>. The wand has 7 charges. While holding it, you can use an action and expend 1 or more of its charges to cast one of the following spells (save DC 18) from it: <em>Animate Dead</em> (1 charge), <em>Blight</em> (2 charges), <em>Circle of Death</em> (3 charges), <em>Finger of Death</em> (3 charges), <em>Power Word Kill</em> (4 charges), or <em>Speak with Dead</em> (1 charge). The wand regains 1d4 + 3 expended charges daily at dawn.
-      <br>While attuned to the wand, Orcus or a follower blessed by him can cast each of the wand's spells using 2 fewer charges (minimum of 0).
-      <br><strong>Call Undead</strong>. While you are holding the wand, you can use an action to conjure skeletons and zombies, calling forth as many of them as you can divide 500 hit points among, each undead having average hit points (see the Monster Manual for statistics). The undead magically rise up from the ground or otherwise form in unoccupied spaces within 300 feet of you and obey your commands until they are destroyed or until dawn of the next day, when they collapse into inanimate piles of bones and rotting corpses. Once you use this property of the wand, you can't use it again until the next dawn.
-      <br>While attuned to the wand, Orcus can summon any kind of undead, not just skeletons and zombies. The undead don't perish or disappear at dawn the following day, remaining until Orcus dismisses them.
-      <br><strong>Sentience</strong>. The <em>Wand of Orcus</em> is a sentient, chaotic evil item with an Intelligence of 16, a Wisdom of 12, and a Charisma of 16. It has hearing and darkvision out to a range of 120 feet.
-      <br>The wand communicates telepathically with its wielder and can speak, read, and understand Abyssal and Common.
-      <br><strong>Personality</strong>. The wand's purpose is to help satisfy Orcus's desire to slay everything in the multiverse. The wand is cold, cruel, nihilistic, and bereft of humor.
-      <br>In order to further its master's goals, the wand feigns devotion to its current user and makes grandiose promises that it has no intention of fulfilling, such as vowing to help its user overthrow Orcus.
-      <br><strong>Destroying the Wand</strong>. Destroying the <em>Wand of Orcus</em> requires that it be taken to the Positive Energy Plane by the ancient hero whose skull surmounts it. For this to happen, the long-lost hero must first be restored to life - no easy task, given the fact that Orcus has imprisoned the hero's soul and keeps it hidden and well guarded.
-      <br>Bathing the wand in positive energy causes it to crack and explode, but unless the above conditions are met, the wand instantly reforms on Orcus's layer of the Abyss.
-      <br>
+      \
+      Made from bones as hard as iron, the wand is topped with a magically enlarged skull that once belonged to a human hero slain by Orcus. The wand can magically change in size to better conform to the grip of its user. Plants wither, drinks spoil, flesh rots, and vermin thrive in the wand's presence.
+      \
+      Any creature besides Orcus that tries to attune to the wand must make a DC 17 Constitution saving throw. On a successful save, the creature takes 10d6 necrotic damage. On a failed save, the creature dies and rises as a zombie.
+      \
+      In the hands of one who is attuned to it, the wand can be wielded as a magic mace that grants a + 3 bonus to attack and damage rolls made with it. The wand deals an extra 2d12 necrotic damage on a hit.
+      \
+      **Random Properties**. The Wand of Orcus has the following random properties:
+      \
+      • 2 minor beneficial properties
+      \
+      • 1 major beneficial property
+      \
+      • 2 minor detrimental properties
+      \
+      • 1 major detrimental property
+      \
+      The detrimental properties of the Wand of Orcus are suppressed while the wand is attuned to Orcus himself.
+      \
+      **Protection**. You gain a +3 bonus to Armor Class while holding the wand.
+      \
+      **Spells**. The wand has 7 charges. While holding it, you can use an action and expend 1 or more of its charges to cast one of the following spells (save DC 18) from it: *Animate Dead* (1 charge), *Blight* (2 charges), *Circle of Death* (3 charges), *Finger of Death* (3 charges), *Power Word Kill* (4 charges), or *Speak with Dead* (1 charge). The wand regains 1d4 + 3 expended charges daily at dawn.
+      \
+      While attuned to the wand, Orcus or a follower blessed by him can cast each of the wand's spells using 2 fewer charges (minimum of 0).
+      \
+      **Call Undead**. While you are holding the wand, you can use an action to conjure skeletons and zombies, calling forth as many of them as you can divide 500 hit points among, each undead having average hit points (see the Monster Manual for statistics). The undead magically rise up from the ground or otherwise form in unoccupied spaces within 300 feet of you and obey your commands until they are destroyed or until dawn of the next day, when they collapse into inanimate piles of bones and rotting corpses. Once you use this property of the wand, you can't use it again until the next dawn.
+      \
+      While attuned to the wand, Orcus can summon any kind of undead, not just skeletons and zombies. The undead don't perish or disappear at dawn the following day, remaining until Orcus dismisses them.
+      \
+      **Sentience**. The *Wand of Orcus* is a sentient, chaotic evil item with an Intelligence of 16, a Wisdom of 12, and a Charisma of 16. It has hearing and darkvision out to a range of 120 feet.
+      \
+      The wand communicates telepathically with its wielder and can speak, read, and understand Abyssal and Common.
+      \
+      **Personality**. The wand's purpose is to help satisfy Orcus's desire to slay everything in the multiverse. The wand is cold, cruel, nihilistic, and bereft of humor.
+      \
+      In order to further its master's goals, the wand feigns devotion to its current user and makes grandiose promises that it has no intention of fulfilling, such as vowing to help its user overthrow Orcus.
+      \
+      **Destroying the Wand**. Destroying the *Wand of Orcus* requires that it be taken to the Positive Energy Plane by the ancient hero whose skull surmounts it. For this to happen, the long-lost hero must first be restored to life - no easy task, given the fact that Orcus has imprisoned the hero's soul and keeps it hidden and well guarded.
+      \
+      Bathing the wand in positive energy causes it to crack and explode, but unless the above conditions are met, the wand instantly reforms on Orcus's layer of the Abyss.
+      \
   fr:
     name: Baguette d'Orcus
     subtype: null
     description: |-
-      L'épouvantable <em>Baguette d'Orcus</em> est la plupart du temps aux côtés d'Orcus lui-même. L'objet magique, aussi maléique que son créateur, partage les objectifs du seigneur démon, en particulier celui de tuer tout être vivant et d'enchaîner le Plan matériel à la non-vie. Orcus permet parfois à la baguette de le quitter. Lorsque cela arrive, elle apparaît par magie à un endroit où son maître a ressenti l'opportunité d'accomplir l'un de ses sombres desseins.
-      <br>Faite dans de l'os aussi solide que du fer, la baguette est surmontée d'un crâne agrandi par magie et ayant autrefois appartenu à un héros humain vaincu par Orcus. La baguette peut modifier par magie sa propre taille pour s'adapter au mieux à la prise de son porteur. La végétation flétrit, les boissons deviennent non potables, la chair pourrit, et la vermine prospère en présence de la baguette.
-      <br>Toute créature autre que Orcus qui tente de se lier à la baguette doit effectuer un jet de sauvegarde de Constitution DD 17. En cas de réussite au jet, la créature subit 10d6 dégâts nécrotiques. En cas d'échec au jet, la créature meurt et devient un zombi.
-      <br>Entre les mains d'une créature qui s'est liée à elle, la baguette peut être maniée comme une masse d'armes magique qui confère un bonus de +3 aux jets d'attaque et de dégâts effectués avec elle. La baguette inflige 2d12 dégâts nécrotiques supplémentaire si le jet d'attaque touche.
-      <br><strong>Propriétés aléatoires</strong>. La baguette possède un certain nombre de <a href="https://www.aidedd.org/regles/objets-magiques/artefacts/">propriétés déterminées aléatoirement</a> :
-      <br>• 2 propriétés bénéfiques mineures
-      <br>• 1 propriété bénéfique majeure
-      <br>• 2 propriétés néfastes mineures
-      <br>• 1 propriété néfaste majeure
-      <br>Les propriétés néfastes de la <em>Baguette d'Orcus</em> disparaissent lorsque la baguette est liée à Orcus lui-même.
-      <br><strong>Protection</strong>. Vous gagnez un bonus de +3 à votre Classe d'Armure tant que vous tenez la baguette.
-      <br><strong>Sorts</strong>. La baguette possède 7 charges. Tant que vous la tenez, vous pouvez utiliser une action pour dépenser 1 ou plusieurs de ses charges pour lancer l'un des sorts suivants (sauvegarde DD 18) : <em><a href="https://www.aidedd.org/dnd/sorts.php?vf=animation-des-morts">animation des morts</a></em> (1 charge), <em><a href="https://www.aidedd.org/dnd/sorts.php?vf=fletrissement">flétrissement</a></em> (2 charges), <em><a href="https://www.aidedd.org/dnd/sorts.php?vf=cercle-de-mort">cercle de mort</a></em> (3 charges), <em><a href="https://www.aidedd.org/dnd/sorts.php?vf=doigt-de-mort">doigt de mort</a></em> (3 charges), <em><a href="https://www.aidedd.org/dnd/sorts.php?vf=mot-de-pouvoir-mortel">mot de pouvoir mortel</a></em> (4 charges) ou <em><a href="https://www.aidedd.org/dnd/sorts.php?vf=communication-avec-les-morts">communication avec les morts</a></em> (1 charge). La baguette récupère 1d4 + 3 charges dépensées chaque jour à l'aube.
-      <br>Tant qu'il est lié à la baguette, Orcus, ou toute autre créature qu'il a lui-même adoubée, peut lancer chacun des sorts de la baguette en utilisant deux charges de moins (pour un minimum de 0).
-      <br><strong>Appel de morts-vivants</strong>. Tant que vous tenez la baguette, vous pouvez utiliser une action pour invoquer des squelettes et des zombis, en appelant suffisante pour que le total de leurs points de vie cumulés de dépasse pas 500, chaque mort-vivant possédant ses points de vie moyens (voir les statistiques du squelette et du zombi). Les morts-vivants sortent par magie de terre, ou de toute autre forme, dans des espaces inoccupés situés dans un rayon de 90 mètres autour de vous et obéissent à vos ordres jusqu'à ce qu'ils soient détruits ou jusqu'à la aube du jour suivant, ils tombent alors en petits monticules d'os et de chair pourrie inanimée. Une fois que vous avez utilisé cette propriété de la baguette, vous ne pouvez plus la réutiliser avant la prochaine aube.
-      <br>Tant qu'il est lié à la baguette, Orcus peut invoquer n'importe quel type de mort-vivant, pas uniquement des squelettes et des zombis. Les morts-vivants ne sont pas détruits ni ne disparaissent à l'aube du jour suivant, ils restent en « vie » jusqu'à ce qu'Orcus les renvoie.
-      <br><strong>Conscience</strong>. La <em>Baguette d'Orcus</em> est un objet intelligent chaotique mauvais qui possède une Intelligence de 16, une Sagesse de 12, et un Charisme de 16. Il peut entendre et possède la vision dans le noir à 36 mètres.
-      <br>La baguette communique par télépathie avec son porteur et peut parler, lire, et comprendre l'abyssal et le commun.
-      <br><strong>Personnalité</strong>. L'objectif de la baguette est d'aider Orcus à satisfaire son désir d'annihiler toute chose dans le multivers. La baguette est froide, cruelle, nihiliste, et sans aucun sens de l'humour.
-      <br>Pour atteindre plus facilement les objectifs de son maître, la baguette feint une dévotion totale pour son utilisateur secondaire et lui fait de mirifiques promesses qu'elle n'a aucunement l'intention de tenir, comme par exemple lui jurer de l'aider à renverser Orcus.
-      <br><strong>Détruire la baguette</strong>. Détruire la <em>Baguette d'Orcus</em> nécessite qu'elle soit emmenée dans le Plan de l'Énergie Positive par l'ancien héros dont le crâne orne une des extrémités de la baguette. Pour cela, il faudra d'abord ramener à la vie le dit-héros, ce qui ne sera pas chose facile puisque son âme est cachée et gardée prisonnière par Orcus lui-même.
-      <br>Plonger la baguette dans l'énergie positive la fait craquer puis exploser, mais, à moins que toutes les conditions ne soient remplies, la baguette se reforme instantanément dans la strate des Abysses que contrôle Orcus.
-      <br>
+      L'épouvantable *Baguette d'Orcus* est la plupart du temps aux côtés d'Orcus lui-même. L'objet magique, aussi maléique que son créateur, partage les objectifs du seigneur démon, en particulier celui de tuer tout être vivant et d'enchaîner le Plan matériel à la non-vie. Orcus permet parfois à la baguette de le quitter. Lorsque cela arrive, elle apparaît par magie à un endroit où son maître a ressenti l'opportunité d'accomplir l'un de ses sombres desseins.
+      \
+      Faite dans de l'os aussi solide que du fer, la baguette est surmontée d'un crâne agrandi par magie et ayant autrefois appartenu à un héros humain vaincu par Orcus. La baguette peut modifier par magie sa propre taille pour s'adapter au mieux à la prise de son porteur. La végétation flétrit, les boissons deviennent non potables, la chair pourrit, et la vermine prospère en présence de la baguette.
+      \
+      Toute créature autre que Orcus qui tente de se lier à la baguette doit effectuer un jet de sauvegarde de Constitution DD 17. En cas de réussite au jet, la créature subit 10d6 dégâts nécrotiques. En cas d'échec au jet, la créature meurt et devient un zombi.
+      \
+      Entre les mains d'une créature qui s'est liée à elle, la baguette peut être maniée comme une masse d'armes magique qui confère un bonus de +3 aux jets d'attaque et de dégâts effectués avec elle. La baguette inflige 2d12 dégâts nécrotiques supplémentaire si le jet d'attaque touche.
+      \
+      **Propriétés aléatoires**. La baguette possède un certain nombre de [propriétés déterminées aléatoirement](https://www.aidedd.org/regles/objets-magiques/artefacts/) :
+      \
+      • 2 propriétés bénéfiques mineures
+      \
+      • 1 propriété bénéfique majeure
+      \
+      • 2 propriétés néfastes mineures
+      \
+      • 1 propriété néfaste majeure
+      \
+      Les propriétés néfastes de la *Baguette d'Orcus* disparaissent lorsque la baguette est liée à Orcus lui-même.
+      \
+      **Protection**. Vous gagnez un bonus de +3 à votre Classe d'Armure tant que vous tenez la baguette.
+      \
+      **Sorts**. La baguette possède 7 charges. Tant que vous la tenez, vous pouvez utiliser une action pour dépenser 1 ou plusieurs de ses charges pour lancer l'un des sorts suivants (sauvegarde DD 18) : *[animation des morts](https://www.aidedd.org/dnd/sorts.php?vf=animation-des-morts)* (1 charge), *[flétrissement](https://www.aidedd.org/dnd/sorts.php?vf=fletrissement)* (2 charges), *[cercle de mort](https://www.aidedd.org/dnd/sorts.php?vf=cercle-de-mort)* (3 charges), *[doigt de mort](https://www.aidedd.org/dnd/sorts.php?vf=doigt-de-mort)* (3 charges), *[mot de pouvoir mortel](https://www.aidedd.org/dnd/sorts.php?vf=mot-de-pouvoir-mortel)* (4 charges) ou *[communication avec les morts](https://www.aidedd.org/dnd/sorts.php?vf=communication-avec-les-morts)* (1 charge). La baguette récupère 1d4 + 3 charges dépensées chaque jour à l'aube.
+      \
+      Tant qu'il est lié à la baguette, Orcus, ou toute autre créature qu'il a lui-même adoubée, peut lancer chacun des sorts de la baguette en utilisant deux charges de moins (pour un minimum de 0).
+      \
+      **Appel de morts-vivants**. Tant que vous tenez la baguette, vous pouvez utiliser une action pour invoquer des squelettes et des zombis, en appelant suffisante pour que le total de leurs points de vie cumulés de dépasse pas 500, chaque mort-vivant possédant ses points de vie moyens (voir les statistiques du squelette et du zombi). Les morts-vivants sortent par magie de terre, ou de toute autre forme, dans des espaces inoccupés situés dans un rayon de 90 mètres autour de vous et obéissent à vos ordres jusqu'à ce qu'ils soient détruits ou jusqu'à la aube du jour suivant, ils tombent alors en petits monticules d'os et de chair pourrie inanimée. Une fois que vous avez utilisé cette propriété de la baguette, vous ne pouvez plus la réutiliser avant la prochaine aube.
+      \
+      Tant qu'il est lié à la baguette, Orcus peut invoquer n'importe quel type de mort-vivant, pas uniquement des squelettes et des zombis. Les morts-vivants ne sont pas détruits ni ne disparaissent à l'aube du jour suivant, ils restent en « vie » jusqu'à ce qu'Orcus les renvoie.
+      \
+      **Conscience**. La *Baguette d'Orcus* est un objet intelligent chaotique mauvais qui possède une Intelligence de 16, une Sagesse de 12, et un Charisme de 16. Il peut entendre et possède la vision dans le noir à 36 mètres.
+      \
+      La baguette communique par télépathie avec son porteur et peut parler, lire, et comprendre l'abyssal et le commun.
+      \
+      **Personnalité**. L'objectif de la baguette est d'aider Orcus à satisfaire son désir d'annihiler toute chose dans le multivers. La baguette est froide, cruelle, nihiliste, et sans aucun sens de l'humour.
+      \
+      Pour atteindre plus facilement les objectifs de son maître, la baguette feint une dévotion totale pour son utilisateur secondaire et lui fait de mirifiques promesses qu'elle n'a aucunement l'intention de tenir, comme par exemple lui jurer de l'aider à renverser Orcus.
+      \
+      **Détruire la baguette**. Détruire la *Baguette d'Orcus* nécessite qu'elle soit emmenée dans le Plan de l'Énergie Positive par l'ancien héros dont le crâne orne une des extrémités de la baguette. Pour cela, il faudra d'abord ramener à la vie le dit-héros, ce qui ne sera pas chose facile puisque son âme est cachée et gardée prisonnière par Orcus lui-même.
+      \
+      Plonger la baguette dans l'énergie positive la fait craquer puis exploser, mais, à moins que toutes les conditions ne soient remplies, la baguette se reforme instantanément dans la strate des Abysses que contrôle Orcus.
+      \

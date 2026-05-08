@@ -89,10 +89,13 @@ translations:
     name: Ghoul
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The ghoul makes two Bite attacks.</p>
-      <p><strong><em>Bite</em></strong>. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 5 (1d6 + 2) Piercing damage plus 3 (1d6) Necrotic damage.</p>
-      <p><strong><em>Claw</em></strong>. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 4 (1d4 + 2) Slashing damage. If the target is a creature that isn't an Undead or elf, it is subjected to the following effect. <em>Constitution Saving Throw</em> : DC 10. <em>Failure</em> : The target has the Paralyzed condition until the end of its next turn.</p>
+      ## Actions
+
+      ***Multiattack***. The ghoul makes two Bite attacks.
+
+      ***Bite***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 5 (1d6 + 2) Piercing damage plus 3 (1d6) Necrotic damage.
+
+      ***Claw***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 4 (1d4 + 2) Slashing damage. If the target is a creature that isn't an Undead or elf, it is subjected to the following effect. *Constitution Saving Throw* : DC 10. *Failure* : The target has the Paralyzed condition until the end of its next turn.
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - Common
@@ -100,10 +103,13 @@ translations:
     name: Goule
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. La goule effectue deux attaques de Morsure.</p>
-      <p><strong><em>Griffe</em></strong>. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 4 (1d4 + 2) dégâts tranchants. Si la cible est une créature qui n'est ni un Mort-vivant ni un elfe, elle est soumise à l'effet suivant. <em>JdS Constitution</em> : DD 10. <em>Échec</em> : la cible subit l'état Paralysé jusqu'à la fin de son tour suivant.</p>
-      <p><strong><em>Morsure</em></strong>. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 5 (1d6 + 2) dégâts perforants plus 3 (1d6) dégâts nécrotiques.</p>
+      ## Actions
+
+      ***Attaques multiples***. La goule effectue deux attaques de Morsure.
+
+      ***Griffe***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 4 (1d4 + 2) dégâts tranchants. Si la cible est une créature qui n'est ni un Mort-vivant ni un elfe, elle est soumise à l'effet suivant. *JdS Constitution* : DD 10. *Échec* : la cible subit l'état Paralysé jusqu'à la fin de son tour suivant.
+
+      ***Morsure***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 5 (1d6 + 2) dégâts perforants plus 3 (1d6) dégâts nécrotiques.
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - commun

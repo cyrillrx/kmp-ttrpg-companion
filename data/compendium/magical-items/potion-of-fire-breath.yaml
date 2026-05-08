@@ -8,11 +8,11 @@ translations:
     name: Potion of Fire Breath
     subtype: null
     description: |-
-      <p>After drinking this potion, you can take a Bonus Action to exhale fire at a target within 30 feet of yourself. The target makes a DC 13 Dexterity saving throw, taking 4d6 Fire damage on a failed save or half as much damage on a successful one. The effect ends after you exhale the fire three times or when 1 hour has passed.<br />
-      This potion's orange liquid flickers, and smoke fills the top of the container and wafts out whenever it is opened.</p>
+      After drinking this potion, you can take a Bonus Action to exhale fire at a target within 30 feet of yourself. The target makes a DC 13 Dexterity saving throw, taking 4d6 Fire damage on a failed save or half as much damage on a successful one. The effect ends after you exhale the fire three times or when 1 hour has passed.\
+      This potion's orange liquid flickers, and smoke fills the top of the container and wafts out whenever it is opened.
   fr:
     name: Potion de souffle enflammé
     subtype: null
     description: |-
-      <p>Après avoir bu cette potion, vous pouvez prendre une action Bonus pour cracher du feu sur une cible située dans un rayon de 9 mètres autour de vous. La cible effectue un jet de sauvegarde de Dextérité DD 13, subissant 4d6 dégâts de feu en cas d'échec ou la moitié de ces dégâts en cas de réussite. L'effet prend fin après avoir craché trois fois du feu ou après une heure.<br />
-      Le liquide orange de cette potion scintille et de la fumée remplit le haut du récipient et s'échappe à chaque ouverture.</p>
+      Après avoir bu cette potion, vous pouvez prendre une action Bonus pour cracher du feu sur une cible située dans un rayon de 9 mètres autour de vous. La cible effectue un jet de sauvegarde de Dextérité DD 13, subissant 4d6 dégâts de feu en cas d'échec ou la moitié de ces dégâts en cas de réussite. L'effet prend fin après avoir craché trois fois du feu ou après une heure.\
+      Le liquide orange de cette potion scintille et de la fumée remplit le haut du récipient et s'échappe à chaque ouverture.

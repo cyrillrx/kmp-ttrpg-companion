@@ -89,12 +89,17 @@ translations:
     name: Salamander
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Fire Aura</em>**. At the end of each of the salamander's turns, each creature of the salamander's choice in a 5-foot Emanation originating from the salamander takes 7 (2d6) Fire damage.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The salamander makes two Flame Spear attacks. It can replace one attack with a use of Constrict.</p>
-      <p><strong><em>Flame Spear</em></strong>. <em>Melee or Ranged Attack Roll</em> : +7, reach 5 ft. or range 20/60 ft. <em>Hit</em> : 13 (2d8 + 4) Piercing damage plus 7 (2d6) Fire damage. <em>Hit or Miss</em> : The spear magically returns to the salamander's hand immediately after a ranged attack.</p>
-      <p><strong><em>Constrict</em></strong>. <em>Strength Saving Throw</em> : DC 15, one Large or smaller creature the salamander can see within 10 feet. <em>Failure</em> : 11 (2d6 + 4) Bludgeoning damage plus 7 (2d6) Fire damage. The target has the Grappled condition (escape DC 14), and it has the Restrained condition until the grapple ends.</p>
+      ## Traits
+
+      ***Fire Aura***. At the end of each of the salamander's turns, each creature of the salamander's choice in a 5-foot Emanation originating from the salamander takes 7 (2d6) Fire damage.
+
+      ## Actions
+
+      ***Multiattack***. The salamander makes two Flame Spear attacks. It can replace one attack with a use of Constrict.
+
+      ***Flame Spear***. *Melee or Ranged Attack Roll* : +7, reach 5 ft. or range 20/60 ft. *Hit* : 13 (2d8 + 4) Piercing damage plus 7 (2d6) Fire damage. *Hit or Miss* : The spear magically returns to the salamander's hand immediately after a ranged attack.
+
+      ***Constrict***. *Strength Saving Throw* : DC 15, one Large or smaller creature the salamander can see within 10 feet. *Failure* : 11 (2d6 + 4) Bludgeoning damage plus 7 (2d6) Fire damage. The target has the Grappled condition (escape DC 14), and it has the Restrained condition until the grapple ends.
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - Primordial (Ignan)
@@ -102,12 +107,17 @@ translations:
     name: Salamandre
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Aura de feu</em>**. À la fin de chacun des tours de la salamandre, chaque créature choisie par la salamandre dans une Émanation de 1,50 m centrée sur elle subit 7 (2d6) dégâts de feu.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. La salamandre effectue deux attaques de Lance de flammes. Elle peut remplacer l'une de ces attaques par une utilisation de Constriction.</p>
-      <p><strong><em>Lance de flammes</em></strong>. <em>Corps à corps ou à distance</em> : +7, allonge 1,50 m ou portée 6/18 m. <em>Touché</em> : 13 (2d8 + 4) dégâts perforants, plus 7 (2d6) dégâts de feu. <em>Touché ou raté</em> : aussitôt après une attaque à distance, la lance retourne magiquement dans la main de la salamandre.</p>
-      <p><strong><em>Constriction</em></strong>. <em>JdS Force</em> : DD 15, une créature de taille G ou inférieure que la salamandre voit dans un rayon de 3 m. <em>Échec</em> : 11 (2d6 + 4) dégâts contondants plus 7 (2d6) dégâts de feu. La cible subit l'état Agrippé (évasion DD 14), ainsi que l'état Entravé tant qu'elle est agrippée.</p>
+      ## Traits
+
+      ***Aura de feu***. À la fin de chacun des tours de la salamandre, chaque créature choisie par la salamandre dans une Émanation de 1,50 m centrée sur elle subit 7 (2d6) dégâts de feu.
+
+      ## Actions
+
+      ***Attaques multiples***. La salamandre effectue deux attaques de Lance de flammes. Elle peut remplacer l'une de ces attaques par une utilisation de Constriction.
+
+      ***Lance de flammes***. *Corps à corps ou à distance* : +7, allonge 1,50 m ou portée 6/18 m. *Touché* : 13 (2d8 + 4) dégâts perforants, plus 7 (2d6) dégâts de feu. *Touché ou raté* : aussitôt après une attaque à distance, la lance retourne magiquement dans la main de la salamandre.
+
+      ***Constriction***. *JdS Force* : DD 15, une créature de taille G ou inférieure que la salamandre voit dans un rayon de 3 m. *Échec* : 11 (2d6 + 4) dégâts contondants plus 7 (2d6) dégâts de feu. La cible subit l'état Agrippé (évasion DD 14), ainsi que l'état Entravé tant qu'elle est agrippée.
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - primordial (igné)

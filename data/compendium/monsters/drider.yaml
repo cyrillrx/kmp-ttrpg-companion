@@ -89,16 +89,25 @@ translations:
     name: Drider
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Spider Climb</em>**. The drider can climb difficult surfaces, including along ceilings, without needing to make an ability check.</p>
-      <p><strong><em>Sunlight Sensitivity</em></strong>. While in sunlight, the drider has Disadvantage on ability checks and attack rolls.</p>
-      <p><strong><em>Web Walker</em></strong>. The drider ignores movement restrictions caused by webs, and the drider knows the location of any other creature in contact with the same web.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The drider makes three attacks, using Foreleg or Poison Burst in any combination.</p>
-      <p><strong><em>Foreleg</em></strong>. <em>Melee Attack Roll</em> : +7, reach 10 ft. <em>Hit</em> : 13 (2d8 + 4) Piercing damage.</p>
-      <p><strong><em>Poison Burst</em></strong>. <em>Ranged Attack Roll</em> : +6, range 120 ft. <em>Hit</em> : 13 (3d6 + 3) Poison damage.</p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Magic of the Spider Queen (Recharge 5–6)</em>**. The drider casts <em><a href="https://www.aidedd.org/spell/darkness">Darkness</a>, <a href="https://www.aidedd.org/spell/faerie-fire">Faerie Fire</a></em>, or <em><a href="https://www.aidedd.org/spell/web">Web</a></em> , requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 14).</p>
+      ## Traits
+
+      ***Spider Climb***. The drider can climb difficult surfaces, including along ceilings, without needing to make an ability check.
+
+      ***Sunlight Sensitivity***. While in sunlight, the drider has Disadvantage on ability checks and attack rolls.
+
+      ***Web Walker***. The drider ignores movement restrictions caused by webs, and the drider knows the location of any other creature in contact with the same web.
+
+      ## Actions
+
+      ***Multiattack***. The drider makes three attacks, using Foreleg or Poison Burst in any combination.
+
+      ***Foreleg***. *Melee Attack Roll* : +7, reach 10 ft. *Hit* : 13 (2d8 + 4) Piercing damage.
+
+      ***Poison Burst***. *Ranged Attack Roll* : +6, range 120 ft. *Hit* : 13 (3d6 + 3) Poison damage.
+
+      ## Bonus actions
+
+      ***Magic of the Spider Queen (Recharge 5–6)***. The drider casts *[Darkness](https://www.aidedd.org/spell/darkness), [Faerie Fire](https://www.aidedd.org/spell/faerie-fire)*, or *[Web](https://www.aidedd.org/spell/web)* , requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 14).
     senses: Darkvision 120 ft., Passive Perception 16
     languages:
     - Elvish
@@ -107,16 +116,25 @@ translations:
     name: Drider
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Marche dans les toiles</em>**. Le drider n'est pas soumis aux contraintes de déplacement imposées par les toiles et connaît la position de toute autre créature en contact avec la même toile que lui.</p>
-      <p><strong><em>Pattes d'araignée</em></strong>. Le drider peut parcourir les parois les plus difficiles à escalader, y compris les plafonds, sans passer par un jet de caractéristique.</p>
-      <p><strong><em>Sensibilité au soleil</em></strong>. Tant qu'il est exposé à la lumière du soleil, le drider subit un Désavantage aux jets de caractéristique et aux jets d'attaque.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le drider effectue trois attaques, réparties à sa guise entre Patte avant et Décharge toxique.</p>
-      <p><strong><em>Patte avant</em></strong>. <em>Corps à corps</em> : +7, allonge 3 m. <em>Touché</em> : 13 (2d8 + 4) dégâts perforants.</p>
-      <p><strong><em>Décharge toxique</em></strong>. <em>À distance</em> : +6, portée 36 m. <em>Touché</em> : 13 (3d6 + 3) dégâts de poison.</p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Magie de la Reine Araignée (recharge 5–6)</em>**. Le drider lance <em>lueurs féeriques, ténèbres</em> ou <em>toile d'araignée</em> , sans composantes matérielles, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 14).</p>
+      ## Traits
+
+      ***Marche dans les toiles***. Le drider n'est pas soumis aux contraintes de déplacement imposées par les toiles et connaît la position de toute autre créature en contact avec la même toile que lui.
+
+      ***Pattes d'araignée***. Le drider peut parcourir les parois les plus difficiles à escalader, y compris les plafonds, sans passer par un jet de caractéristique.
+
+      ***Sensibilité au soleil***. Tant qu'il est exposé à la lumière du soleil, le drider subit un Désavantage aux jets de caractéristique et aux jets d'attaque.
+
+      ## Actions
+
+      ***Attaques multiples***. Le drider effectue trois attaques, réparties à sa guise entre Patte avant et Décharge toxique.
+
+      ***Patte avant***. *Corps à corps* : +7, allonge 3 m. *Touché* : 13 (2d8 + 4) dégâts perforants.
+
+      ***Décharge toxique***. *À distance* : +6, portée 36 m. *Touché* : 13 (3d6 + 3) dégâts de poison.
+
+      ## Actions Bonus
+
+      ***Magie de la Reine Araignée (recharge 5–6)***. Le drider lance *lueurs féeriques, ténèbres* ou *toile d'araignée* , sans composantes matérielles, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 14).
     senses: Vision dans le noir 36 m, Perception passive 16
     languages:
     - elfe

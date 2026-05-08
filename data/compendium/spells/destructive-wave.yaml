@@ -17,19 +17,13 @@ translations:
     range: Self
     duration: Instantaneous
     materialDescription: null
-    description: Destructive energy ripples outward from you in a 30-foot Emanation.
-      Each creature you choose in the Emanation makes a Constitution saving throw.
-      On a failed save, a target takes 5d6 Thunder damage and 5d6 Radiant or Necrotic
-      damage (your choice) and has the Prone condition. On a successful save, a target
-      takes half as much damage only.<br/>
+    description: |-
+      Destructive energy ripples outward from you in a 30-foot Emanation. Each creature you choose in the Emanation makes a Constitution saving throw. On a failed save, a target takes 5d6 Thunder damage and 5d6 Radiant or Necrotic damage (your choice) and has the Prone condition. On a successful save, a target takes half as much damage only.\
   fr:
     name: Vague destructrice
     castingTime: Action
     range: Personnelle
     duration: Instantanée
     materialDescription: null
-    description: Une énergie destructrice se propage autour de vous dans une Émanation
-      de 9 mètres. Chaque créature choisie dans l'Émanation effectue un jet de sauvegarde
-      de Constitution. En cas d'échec, la cible subit 5d6 dégâts de tonnerre et 5d6
-      dégâts radiants ou nécrotiques (selon votre choix) ainsi que l'état À terre.
-      En cas de réussite, la cible subit seulement la moitié des dégâts.<br/>
+    description: |-
+      Une énergie destructrice se propage autour de vous dans une Émanation de 9 mètres. Chaque créature choisie dans l'Émanation effectue un jet de sauvegarde de Constitution. En cas d'échec, la cible subit 5d6 dégâts de tonnerre et 5d6 dégâts radiants ou nécrotiques (selon votre choix) ainsi que l'état À terre. En cas de réussite, la cible subit seulement la moitié des dégâts.\

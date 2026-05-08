@@ -18,28 +18,15 @@ translations:
     range: 30 feet
     duration: Concentration, up to 1 minute
     materialDescription: null
-    description: One creature that you can see within range must make a Wisdom saving
-      throw. On a successful save, the target dances comically until the end of its
-      next turn, during which it must spend all its movement to dance in place.<br/>On
-      a failed save, the target has the Charmed condition for the duration. While
-      Charmed, the target dances comically, must use all its movement to dance in
-      place, and has Disadvantage on Dexterity saving throws and attack rolls, and
-      other creatures have Advantage on attack rolls against it. On each of its turns,
-      the target can take an action to collect itself and repeat the save, ending
-      the spell on itself on a success.<br/>
+    description: |-
+      One creature that you can see within range must make a Wisdom saving throw. On a successful save, the target dances comically until the end of its next turn, during which it must spend all its movement to dance in place.\
+      On a failed save, the target has the Charmed condition for the duration. While Charmed, the target dances comically, must use all its movement to dance in place, and has Disadvantage on Dexterity saving throws and attack rolls, and other creatures have Advantage on attack rolls against it. On each of its turns, the target can take an action to collect itself and repeat the save, ending the spell on itself on a success.\
   fr:
     name: Danse irrésistible d'Otto
     castingTime: Action
     range: 9 m
     duration: Concentration, jusqu'à 1 minute
     materialDescription: null
-    description: Choisissez une créature que vous voyez à portée ; elle effectue un
-      jet de sauvegarde de Sagesse. En cas de réussite, la cible entame une danse
-      grotesque sur place en y consacrant tout son déplacement jusqu'à la fin de son
-      tour suivant.<br/>En cas d'échec, la cible subit l'état Charmé pour toute la
-      durée. Ainsi charmée, la cible danse grotesquement en y consacrant tout son
-      déplacement sans quitter son espace, et elle a un Désavantage aux jets de sauvegarde
-      de Dextérité et aux jets d'attaque, tandis que les autres créatures ont un Avantage
-      aux jets d'attaque contre elle. À chacun de ses tours, la cible peut consacrer
-      une action à tenter de retrouver ses esprits et réitérer le JdS ; elle met fin
-      au sort sur elle-même en cas de réussite.<br/>
+    description: |-
+      Choisissez une créature que vous voyez à portée ; elle effectue un jet de sauvegarde de Sagesse. En cas de réussite, la cible entame une danse grotesque sur place en y consacrant tout son déplacement jusqu'à la fin de son tour suivant.\
+      En cas d'échec, la cible subit l'état Charmé pour toute la durée. Ainsi charmée, la cible danse grotesquement en y consacrant tout son déplacement sans quitter son espace, et elle a un Désavantage aux jets de sauvegarde de Dextérité et aux jets d'attaque, tandis que les autres créatures ont un Avantage aux jets d'attaque contre elle. À chacun de ses tours, la cible peut consacrer une action à tenter de retrouver ses esprits et réitérer le JdS ; elle met fin au sort sur elle-même en cas de réussite.\

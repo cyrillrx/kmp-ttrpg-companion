@@ -8,14 +8,10 @@ translations:
     name: Pot of Awakening
     subtype: null
     description: |-
-      <p>If you plant an ordinary shrub in this 10-pound clay pot and let it grow for 30 days, the shrub magically transforms into an <strong><a href="https://www.aidedd.org/monster/awakened-shrub">Awakened Shrub</a></strong> at the end ofthat time. When the shrub awakens, its roots break the pot, destroying it.<br />
-      The awakened shrub is Friendly toward you and obeys your commands. Absent commands from you, it does nothing.</p>
+      If you plant an ordinary shrub in this 10-pound clay pot and let it grow for 30 days, the shrub magically transforms into an **[Awakened Shrub](https://www.aidedd.org/monster/awakened-shrub)** at the end ofthat time. When the shrub awakens, its roots break the pot, destroying it.\
+      The awakened shrub is Friendly toward you and obeys your commands. Absent commands from you, it does nothing.
   fr:
     name: Pot d'éveil
     subtype: null
-    description: <p>Si vous plantez un arbuste ordinaire dans ce pot en argile de
-      5 kg et le laissez pousser pendant 30 jours, il se transformera magiquement
-      en un <strong><a href="https://www.aidedd.org/monster/fr/arbuste-eveille">arbuste
-      éveillé</a></strong> au bout de ce temps. Lorsque l'arbuste se réveille, ses
-      racines brisent le pot, le détruisant. L'arbuste éveillé est amical envers vous
-      et obéit à vos ordres. Sans ordre de votre part, il ne fait rien.</p>
+    description: |-
+      Si vous plantez un arbuste ordinaire dans ce pot en argile de 5 kg et le laissez pousser pendant 30 jours, il se transformera magiquement en un **[arbuste éveillé](https://www.aidedd.org/monster/fr/arbuste-eveille)** au bout de ce temps. Lorsque l'arbuste se réveille, ses racines brisent le pot, le détruisant. L'arbuste éveillé est amical envers vous et obéit à vos ordres. Sans ordre de votre part, il ne fait rien.

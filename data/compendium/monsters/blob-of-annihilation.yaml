@@ -89,39 +89,51 @@ translations:
     name: Blob of Annihilation
     subtype: Titan
     description: |-
-      <h2>Traits</h2>
-      <p>Astral Implosion.<br />
-      Legendary Resistance (4/Day).<br />
-      Magic Resistance.  </p>
-      <h2>Actions</h2>
-      <p>Multiattack.<br />
-      Pseudopod.<br />
-      Engulf.<br />
-      Restraining Glob.  </p>
-      <h2>Legendary actions</h2>
-      <p>Legendary Action Uses: 3. </p>
-      <p>Decay.<br />
-      Grasping Glob.<br />
-      Lashing Goop.</p>
+      ## Traits
+
+      Astral Implosion.\
+      Legendary Resistance (4/Day).\
+      Magic Resistance.
+
+      ## Actions
+
+      Multiattack.\
+      Pseudopod.\
+      Engulf.\
+      Restraining Glob.
+
+      ## Legendary actions
+
+      Legendary Action Uses: 3.
+
+      Decay.\
+      Grasping Glob.\
+      Lashing Goop.
     senses: Blindsight 120 ft., Passive Perception 13
     languages: []
   fr:
     name: Blob d'annihilation
     subtype: Titan
     description: |-
-      <h2>Traits</h2>
-      <p>Implosion astrale.<br />
-      Résistance légendaire (4/jour).<br />
-      Résistance à la magie.  </p>
-      <h2>Actions</h2>
-      <p>Attaques multiples.<br />
-      Pseudopode.<br />
-      Enveloppement.<br />
-      Amas entraveur.  </p>
-      <h2>Actions Légendaires</h2>
-      <p>Utilisations d'action Légendaire : 3. </p>
-      <p>Décomposition.<br />
-      Chiquenaude visqueuse.<br />
-      Happement.</p>
+      ## Traits
+
+      Implosion astrale.\
+      Résistance légendaire (4/jour).\
+      Résistance à la magie.
+
+      ## Actions
+
+      Attaques multiples.\
+      Pseudopode.\
+      Enveloppement.\
+      Amas entraveur.
+
+      ## Actions Légendaires
+
+      Utilisations d'action Légendaire : 3.
+
+      Décomposition.\
+      Chiquenaude visqueuse.\
+      Happement.
     senses: Vision aveugle 36 m, Perception passive 13
     languages: []

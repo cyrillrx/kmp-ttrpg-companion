@@ -7,12 +7,10 @@ translations:
   en:
     name: Pearl of Power
     subtype: null
-    description: <p>While this pearl is on your person, you can take a Magic action
-      to regain one expended spell slot of level 3 or lower. Once you use the pearl,
-      it can't be used again until the next dawn.</p>
+    description: |-
+      While this pearl is on your person, you can take a Magic action to regain one expended spell slot of level 3 or lower. Once you use the pearl, it can't be used again until the next dawn.
   fr:
     name: Perle de pouvoir / de thaumaturgie
     subtype: null
-    description: <p>Si vous portez cette perle, vous pouvez prendre une action Magie
-      pour récupérer un emplacement de sort dépensé de niveau 3 ou inférieur. Une
-      fois la perle utilisée, elle ne peut plus être utilisée avant l'aube suivante.</p>
+    description: |-
+      Si vous portez cette perle, vous pouvez prendre une action Magie pour récupérer un emplacement de sort dépensé de niveau 3 ou inférieur. Une fois la perle utilisée, elle ne peut plus être utilisée avant l'aube suivante.

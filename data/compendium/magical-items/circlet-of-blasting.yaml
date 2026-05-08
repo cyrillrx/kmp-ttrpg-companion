@@ -7,12 +7,10 @@ translations:
   en:
     name: Circlet of Blasting
     subtype: null
-    description: <p>While wearing this circlet, you can cast <em><a href="https://www.aidedd.org/spell/scorching-ray">Scorching
-      Ray</a></em> with it (+5 to hit). The circlet can't cast this spell again until
-      the next dawn.</p>
+    description: |-
+      While wearing this circlet, you can cast *[Scorching Ray](https://www.aidedd.org/spell/scorching-ray)* with it (+5 to hit). The circlet can't cast this spell again until the next dawn.
   fr:
     name: Diadème de destruction
     subtype: null
-    description: <p>Lorsque vous portez ce diadème, vous pouvez lancer <em><a href="https://www.aidedd.org/spell/fr/rayon-ardent">rayon
-      ardent</a></em> par son biais (+5 pour toucher). Le diadème ne peut pas relancer
-      ce sort avant l'aube suivante.</p>
+    description: |-
+      Lorsque vous portez ce diadème, vous pouvez lancer *[rayon ardent](https://www.aidedd.org/spell/fr/rayon-ardent)* par son biais (+5 pour toucher). Le diadème ne peut pas relancer ce sort avant l'aube suivante.

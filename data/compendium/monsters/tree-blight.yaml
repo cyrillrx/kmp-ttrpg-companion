@@ -89,12 +89,17 @@ translations:
     name: Tree Blight
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The blight makes two Branch attacks and uses Grasping Root.</p>
-      <p><strong><em>Branch</em></strong>. <em>Melee Attack Roll</em> : +9, reach 15 ft. <em>Hit</em> : 16 (3d6 + 6) Bludgeoning damage.</p>
-      <p><strong><em>Grasping Root</em></strong>. <em>Strength Saving Throw</em> : DC 17, one Large or smaller creature the blight can see within 15 feet. <em>Failure</em> : The target is pulled up to 10 feet straight toward the blight and has the Grappled condition (escape DC 16) from one of six roots. Until the grapple ends, the target takes 13 (2d6 + 6) Bludgeoning damage at the start of each of its turns.</p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Gnash</em>**. <em>Dexterity Saving Throw</em> : DC 17, one creature Grappled by the blight. <em>Failure</em> : 19 (3d8 + 6) Piercing damage. <em>Success</em> : Half damage.</p>
+      ## Actions
+
+      ***Multiattack***. The blight makes two Branch attacks and uses Grasping Root.
+
+      ***Branch***. *Melee Attack Roll* : +9, reach 15 ft. *Hit* : 16 (3d6 + 6) Bludgeoning damage.
+
+      ***Grasping Root***. *Strength Saving Throw* : DC 17, one Large or smaller creature the blight can see within 15 feet. *Failure* : The target is pulled up to 10 feet straight toward the blight and has the Grappled condition (escape DC 16) from one of six roots. Until the grapple ends, the target takes 13 (2d6 + 6) Bludgeoning damage at the start of each of its turns.
+
+      ## Bonus actions
+
+      ***Gnash***. *Dexterity Saving Throw* : DC 17, one creature Grappled by the blight. *Failure* : 19 (3d8 + 6) Piercing damage. *Success* : Half damage.
     senses: Blindsight 60 ft., Passive Perception 10
     languages:
     - Understands Common and Druidic but can't speak
@@ -102,12 +107,17 @@ translations:
     name: Arbroyeux
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. L'arbroyeux effectue deux attaques de Branche et utilise Étreinte végétale.</p>
-      <p><strong><em>Branche</em></strong>. <em>Corps à corps</em> : +9, allonge 4,50 m. <em>Touché</em> : 16 (3d6 + 6) dégâts contondants.</p>
-      <p><strong><em>Étreinte végétale</em></strong>. <em>JdS Force</em> : DD 17, une créature de taille G ou inférieure que l'arbroyeux peut voir dans un rayon de 4,50 m. <em>Échec</em> : la cible est tirée jusqu'à 3 m vers l'arbroyeux et subit l'état Agrippé (évasion DD 16) par l'une des six racines. Tant qu'elle est agrippée, la cible subit 13 (2d6 + 6) dégâts contondants au début de chacun de ses tours.</p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Gnaque</em>**. <em>JdS Dextérité</em> : DD 17, une créature agrippée par l'arbroyeux. <em>Échec</em> : 19 (3d8 + 6) dégâts perforants. <em>Réussite</em> : demi-dégâts.</p>
+      ## Actions
+
+      ***Attaques multiples***. L'arbroyeux effectue deux attaques de Branche et utilise Étreinte végétale.
+
+      ***Branche***. *Corps à corps* : +9, allonge 4,50 m. *Touché* : 16 (3d6 + 6) dégâts contondants.
+
+      ***Étreinte végétale***. *JdS Force* : DD 17, une créature de taille G ou inférieure que l'arbroyeux peut voir dans un rayon de 4,50 m. *Échec* : la cible est tirée jusqu'à 3 m vers l'arbroyeux et subit l'état Agrippé (évasion DD 16) par l'une des six racines. Tant qu'elle est agrippée, la cible subit 13 (2d6 + 6) dégâts contondants au début de chacun de ses tours.
+
+      ## Actions Bonus
+
+      ***Gnaque***. *JdS Dextérité* : DD 17, une créature agrippée par l'arbroyeux. *Échec* : 19 (3d8 + 6) dégâts perforants. *Réussite* : demi-dégâts.
     senses: Vision aveugle 18 m, Perception passive 10
     languages:
     - comprend le commun et le druidique mais ne parle pas

@@ -89,12 +89,17 @@ translations:
     name: Giant Seahorse
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Water Breathing</em>**. The seahorse can breathe only underwater.</p>
-      <h2>Actions</h2>
-      <p>** <em>Ram</em>**. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 9 (2d6 + 2) Bludgeoning damage, or 11 (2d8 + 2) Bludgeoning damage if the seahorse moved 20+ feet straight toward the target immediately before the hit.</p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Bubble Dash</em>**. While underwater, the seahorse moves up to half its Swim Speed without provoking Opportunity Attacks.</p>
+      ## Traits
+
+      ***Water Breathing***. The seahorse can breathe only underwater.
+
+      ## Actions
+
+      ***Ram***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 9 (2d6 + 2) Bludgeoning damage, or 11 (2d8 + 2) Bludgeoning damage if the seahorse moved 20+ feet straight toward the target immediately before the hit.
+
+      ## Bonus actions
+
+      ***Bubble Dash***. While underwater, the seahorse moves up to half its Swim Speed without provoking Opportunity Attacks.
     senses: Passive Perception 11
     languages:
     - None
@@ -102,12 +107,17 @@ translations:
     name: Hippocampe géant
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Respiration aquatique</em>**. L'hippocampe ne peut respirer que sous l'eau.</p>
-      <h2>Actions</h2>
-      <p>** <em>Coup de bélier</em>**. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 9 (2d6 + 2) dégâts contondants, ou 11 (2d8 + 2) dégâts contondants si l'hippocampe s'est déplacé d'au moins 6 m en ligne droite vers la cible juste avant de la toucher.</p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Accélération bulleuse</em>**. Sous l'eau, l'hippocampe se déplace jusqu'à la moitié de sa Vitesse de nage sans provoquer d'attaque d'Opportunité.</p>
+      ## Traits
+
+      ***Respiration aquatique***. L'hippocampe ne peut respirer que sous l'eau.
+
+      ## Actions
+
+      ***Coup de bélier***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 9 (2d6 + 2) dégâts contondants, ou 11 (2d8 + 2) dégâts contondants si l'hippocampe s'est déplacé d'au moins 6 m en ligne droite vers la cible juste avant de la toucher.
+
+      ## Actions Bonus
+
+      ***Accélération bulleuse***. Sous l'eau, l'hippocampe se déplace jusqu'à la moitié de sa Vitesse de nage sans provoquer d'attaque d'Opportunité.
     senses: Perception passive 11
     languages:
     - aucune

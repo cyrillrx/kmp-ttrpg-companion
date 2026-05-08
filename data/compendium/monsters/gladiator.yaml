@@ -89,12 +89,17 @@ translations:
     name: Gladiator
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The gladiator makes three Spear attacks. It can replace one attack with a use of Shield Bash.</p>
-      <p><strong><em>Spear</em></strong>. <em>Melee or Ranged Attack Roll</em> : +7, reach 5 ft. or range 20/60 ft. <em>Hit</em> : 11 (2d6 + 4) Piercing damage.</p>
-      <p><strong><em>Shield Bash</em></strong>. <em>Strength Saving Throw</em> : DC 15, one creature within 5 feet that the gladiator can see. <em>Failure</em> : 9 (2d4 + 4) Bludgeoning damage. If the target is a Medium or smaller creature, it has the Prone condition.</p>
-      <h2>Reactions</h2>
-      <p>** <em>Parry</em>**. <em>Trigger</em> : The gladiator is hit by a melee attack roll while holding a weapon. <em>Response</em> : The gladiator adds 3 to its AC against that attack, possibly causing it to miss.</p>
+      ## Actions
+
+      ***Multiattack***. The gladiator makes three Spear attacks. It can replace one attack with a use of Shield Bash.
+
+      ***Spear***. *Melee or Ranged Attack Roll* : +7, reach 5 ft. or range 20/60 ft. *Hit* : 11 (2d6 + 4) Piercing damage.
+
+      ***Shield Bash***. *Strength Saving Throw* : DC 15, one creature within 5 feet that the gladiator can see. *Failure* : 9 (2d4 + 4) Bludgeoning damage. If the target is a Medium or smaller creature, it has the Prone condition.
+
+      ## Reactions
+
+      ***Parry***. *Trigger* : The gladiator is hit by a melee attack roll while holding a weapon. *Response* : The gladiator adds 3 to its AC against that attack, possibly causing it to miss.
     senses: Passive Perception 11
     languages:
     - Common
@@ -102,12 +107,17 @@ translations:
     name: Gladiateur
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le gladiateur effectue trois attaques de Lance. Il peut remplacer l'une de ces attaques par une utilisation de Coup de bouclier.</p>
-      <p><strong><em>Lance</em></strong>. <em>Corps à corps ou à distance</em> : +7, allonge 1,50 m ou portée 6/18 m. <em>Touché</em> : 11 (2d6 + 4) dégâts perforants.</p>
-      <p><strong><em>Coup de bouclier</em></strong>. <em>JdS Force</em> : DD 15, une créature dans un rayon de 1,50 m que le gladiateur voit. <em>Échec</em> : 9 (2d4 + 4) dégâts contondants. Si la cible est une créature de taille M ou inférieure, elle subit l'état À terre.</p>
-      <h2>Réactions</h2>
-      <p>** <em>Parade</em>**. <em>Déclencheur</em> : le gladiateur est touché par un jet d'attaque de corps à corps alors qu'il tient une arme. <em>Conséquences</em> : le gladiateur ajoute 3 à sa CA contre cette attaque, ce qui peut la faire rater.</p>
+      ## Actions
+
+      ***Attaques multiples***. Le gladiateur effectue trois attaques de Lance. Il peut remplacer l'une de ces attaques par une utilisation de Coup de bouclier.
+
+      ***Lance***. *Corps à corps ou à distance* : +7, allonge 1,50 m ou portée 6/18 m. *Touché* : 11 (2d6 + 4) dégâts perforants.
+
+      ***Coup de bouclier***. *JdS Force* : DD 15, une créature dans un rayon de 1,50 m que le gladiateur voit. *Échec* : 9 (2d4 + 4) dégâts contondants. Si la cible est une créature de taille M ou inférieure, elle subit l'état À terre.
+
+      ## Réactions
+
+      ***Parade***. *Déclencheur* : le gladiateur est touché par un jet d'attaque de corps à corps alors qu'il tient une arme. *Conséquences* : le gladiateur ajoute 3 à sa CA contre cette attaque, ce qui peut la faire rater.
     senses: Perception passive 11
     languages:
     - commun

@@ -89,12 +89,17 @@ translations:
     name: Red Slaad
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Magic Resistance</em>**. The slaad has Advantage on saving throws against spells and other magical effects.</p>
-      <p><strong><em>Regeneration</em></strong>. The slaad regains 10 Hit Points at the start of each of its turns if it has at least 1 Hit Point.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The slaad makes three Injecting Claw attacks.</p>
-      <p><strong><em>Injecting Claw</em></strong>. <em>Melee Attack Roll</em> : +6, reach 10 ft. <em>Hit</em> : 10 (2d6 + 3) Piercing damage. If the target is a Humanoid not cursed by a slaad, it is subjected to the following effect. <em>Constitution Saving Throw</em> : DC 14. <em>Failure</em> : The target is cursed unawares, and a minuscule slaad egg is implanted in it. Removing the curse destroys the egg. Over 2d4 × 10 days, the egg gestates. In the final 24 hours, the cursed target feels unwell; its Speed is halved, and it has Disadvantage on D20 Tests. At the end of this time, the egg turns into a <strong>Slaad Tadpole</strong> , which chews out of the host and kills it.</p>
+      ## Traits
+
+      ***Magic Resistance***. The slaad has Advantage on saving throws against spells and other magical effects.
+
+      ***Regeneration***. The slaad regains 10 Hit Points at the start of each of its turns if it has at least 1 Hit Point.
+
+      ## Actions
+
+      ***Multiattack***. The slaad makes three Injecting Claw attacks.
+
+      ***Injecting Claw***. *Melee Attack Roll* : +6, reach 10 ft. *Hit* : 10 (2d6 + 3) Piercing damage. If the target is a Humanoid not cursed by a slaad, it is subjected to the following effect. *Constitution Saving Throw* : DC 14. *Failure* : The target is cursed unawares, and a minuscule slaad egg is implanted in it. Removing the curse destroys the egg. Over 2d4 × 10 days, the egg gestates. In the final 24 hours, the cursed target feels unwell; its Speed is halved, and it has Disadvantage on D20 Tests. At the end of this time, the egg turns into a **Slaad Tadpole** , which chews out of the host and kills it.
     senses: Darkvision 60 ft., Passive Perception 11
     languages:
     - Slaad; telepathy 60 ft.
@@ -102,12 +107,17 @@ translations:
     name: Slaad rouge
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Résistance à la magie</em>**. Le slaad a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.</p>
-      <p><strong><em>Régénération</em></strong>. Le slaad récupère 10 points de vie au début de chacun de ses tours s'il lui reste au moins 1 point de vie.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le slaad effectue trois attaques de Griffe d'inoculation.</p>
-      <p><strong><em>Griffe d'inoculation</em></strong>. <em>Corps à corps</em> : +6, allonge 3 m. <em>Touché</em> : 10 (2d6 + 3) dégâts perforants. Si la cible est un Humanoïde non maudit par un slaad, elle subit l'effet suivant. <em>JdS Constitution</em> : DD 14. <em>Échec</em> : la cible est maudite à son insu et un minuscule oeuf de slaad est implanté en elle. Lever la malédiction détruit l'oeuf. Pendant 2d4 × 10 jours, l'oeuf se développe. Durant les dernières 24 heures, la cible maudite se sent mal ; sa Vitesse est réduite de moitié et elle subit un Désavantage aux jets de d20. Au terme de cette période, l'oeuf se transforme en <strong>têtard de slaad</strong> qui dévore son hôte et le tue.</p>
+      ## Traits
+
+      ***Résistance à la magie***. Le slaad a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
+
+      ***Régénération***. Le slaad récupère 10 points de vie au début de chacun de ses tours s'il lui reste au moins 1 point de vie.
+
+      ## Actions
+
+      ***Attaques multiples***. Le slaad effectue trois attaques de Griffe d'inoculation.
+
+      ***Griffe d'inoculation***. *Corps à corps* : +6, allonge 3 m. *Touché* : 10 (2d6 + 3) dégâts perforants. Si la cible est un Humanoïde non maudit par un slaad, elle subit l'effet suivant. *JdS Constitution* : DD 14. *Échec* : la cible est maudite à son insu et un minuscule oeuf de slaad est implanté en elle. Lever la malédiction détruit l'oeuf. Pendant 2d4 × 10 jours, l'oeuf se développe. Durant les dernières 24 heures, la cible maudite se sent mal ; sa Vitesse est réduite de moitié et elle subit un Désavantage aux jets de d20. Au terme de cette période, l'oeuf se transforme en **têtard de slaad** qui dévore son hôte et le tue.
     senses: Vision dans le noir 18 m, Perception passive 11
     languages:
     - slaad ; télépathie 18 m

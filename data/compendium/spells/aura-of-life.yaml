@@ -18,18 +18,13 @@ translations:
     range: Self
     duration: Concentration, up to 10 minutes
     materialDescription: null
-    description: An aura radiates from you in a 30-foot Emanation for the duration.
-      While in the aura, you and your allies have Resistance to Necrotic damage, and
-      your Hit Point maximums can't be reduced. If an ally with 0 Hit Points starts
-      its turn in the aura, that ally regains 1 Hit Point.<br/>
+    description: |-
+      An aura radiates from you in a 30-foot Emanation for the duration. While in the aura, you and your allies have Resistance to Necrotic damage, and your Hit Point maximums can't be reduced. If an ally with 0 Hit Points starts its turn in the aura, that ally regains 1 Hit Point.\
   fr:
     name: Aura de vie
     castingTime: Action
     range: Personnelle
     duration: Concentration, jusqu'à 10 minutes
     materialDescription: null
-    description: Une aura rayonne autour de vous sous forme d'Émanation de 9 mètres
-      pendant toute la durée du sort. Tant que vous êtes dans l'aura, vous et vos
-      alliés bénéficiez d'une résistance aux dégâts nécrotiques, et vos points de
-      vie maximum ne peuvent pas être réduits. Si un allié avec 0 point de vie commence
-      son tour dans l'aura, il récupère 1 point de vie.<br/>
+    description: |-
+      Une aura rayonne autour de vous sous forme d'Émanation de 9 mètres pendant toute la durée du sort. Tant que vous êtes dans l'aura, vous et vos alliés bénéficiez d'une résistance aux dégâts nécrotiques, et vos points de vie maximum ne peuvent pas être réduits. Si un allié avec 0 point de vie commence son tour dans l'aura, il récupère 1 point de vie.\

@@ -89,25 +89,42 @@ translations:
     name: Mummy Lord
     subtype: Cleric
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Legendary Resistance (3/Day, or 4/Day in Lair)</em>**. If the mummy fails a saving throw, it can choose to succeed instead.</p>
-      <p><strong><em>Magic Resistance</em></strong>. The mummy has Advantage on saving throws against spells and other magical effects.</p>
-      <p><strong><em>Undead Restoration</em></strong>. If destroyed, the mummy gains a new body in 24 hours if its heart is intact, reviving with all its Hit Points. The new body appears in an unoccupied space within the mummy's lair. The heart is a Tiny object that has AC 17, HP 10, and Immunity to all damage except Fire.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The mummy makes one Rotting Fist or Channel Negative Energy attack, and it uses Dreadful Glare.</p>
-      <p><strong><em>Rotting Fist</em></strong>. <em>Melee Attack Roll</em> : +9, reach 5 ft. <em>Hit</em> : 15 (2d10 + 4) Bludgeoning damage plus 10 (3d6) Necrotic damage. If the target is a creature, it is cursed. While cursed, the target can't regain Hit Points, it gains no benefit from finishing a Long Rest, and its Hit Point maximum decreases by 10 (3d6) every 24 hours that elapse. A creature dies and turns to dust if reduced to 0 Hit Points by this attack.</p>
-      <p><strong><em>Channel Negative Energy</em></strong>. <em>Ranged Attack Roll</em> : +9, range 60 ft. <em>Hit</em> : 25 (6d6 + 4) Necrotic damage.</p>
-      <p><strong><em>Dreadful Glare</em></strong>. <em>Wisdom Saving Throw</em> : DC 17, one creature the mummy can see within 60 feet. <em>Failure</em> : 25 (6d6 + 4) Psychic damage, and the target has the Paralyzed condition until the end of the mummy's next turn.</p>
-      <p><strong><em>Spellcasting</em></strong>. The mummy casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 17, +9 to hit with spell attacks):</p>
-      <p>At Will: <em><a href="https://www.aidedd.org/spell/dispel-magic">Dispel Magic</a>, <a href="https://www.aidedd.org/spell/thaumaturgy">Thaumaturgy</a></em><br />
-      1/Day Each: <em><a href="https://www.aidedd.org/spell/animate-dead">Animate Dead</a>, <a href="https://www.aidedd.org/spell/harm">Harm</a>, <a href="https://www.aidedd.org/spell/insect-plague">Insect Plague</a></em> (level 7 version)  </p>
-      <h2>Reactions</h2>
-      <p>** <em>Whirlwind of Sand</em>**. <em>Trigger</em> : The mummy is hit by an attack roll. <em>Response</em> : The mummy adds 2 to its AC against the attack, possibly causing the attack to miss, and the mummy teleports up to 60 feet to an unoccupied space it can see. Each creature of its choice that it can see within 5 feet of its destination space has the Blinded condition until the end of the mummy's next turn.</p>
-      <h2>Legendary actions</h2>
-      <p>Legendary Action Uses: 3 (4 in Lair). Immediately after another creature's turn, the mummy can expend a use to take one of the following actions. The mummy regains all expended uses at the start of each of its turns. </p>
-      <p><strong><em>Dread Command</em></strong>. The mummy casts <em><a href="https://www.aidedd.org/spell/command">Command</a></em> (level 2 version), using the same spellcasting ability as Spellcasting. The mummy can't take this action again until the start of its next turn.</p>
-      <p><strong><em>Glare</em></strong>. The mummy uses Dreadful Glare. The mummy can't take this action again until the start of its next turn.</p>
-      <p><strong><em>Necrotic Strike</em></strong>. The mummy makes one Rotting Fist or Channel Negative Energy attack</p>
+      ## Traits
+
+      ***Legendary Resistance (3/Day, or 4/Day in Lair)***. If the mummy fails a saving throw, it can choose to succeed instead.
+
+      ***Magic Resistance***. The mummy has Advantage on saving throws against spells and other magical effects.
+
+      ***Undead Restoration***. If destroyed, the mummy gains a new body in 24 hours if its heart is intact, reviving with all its Hit Points. The new body appears in an unoccupied space within the mummy's lair. The heart is a Tiny object that has AC 17, HP 10, and Immunity to all damage except Fire.
+
+      ## Actions
+
+      ***Multiattack***. The mummy makes one Rotting Fist or Channel Negative Energy attack, and it uses Dreadful Glare.
+
+      ***Rotting Fist***. *Melee Attack Roll* : +9, reach 5 ft. *Hit* : 15 (2d10 + 4) Bludgeoning damage plus 10 (3d6) Necrotic damage. If the target is a creature, it is cursed. While cursed, the target can't regain Hit Points, it gains no benefit from finishing a Long Rest, and its Hit Point maximum decreases by 10 (3d6) every 24 hours that elapse. A creature dies and turns to dust if reduced to 0 Hit Points by this attack.
+
+      ***Channel Negative Energy***. *Ranged Attack Roll* : +9, range 60 ft. *Hit* : 25 (6d6 + 4) Necrotic damage.
+
+      ***Dreadful Glare***. *Wisdom Saving Throw* : DC 17, one creature the mummy can see within 60 feet. *Failure* : 25 (6d6 + 4) Psychic damage, and the target has the Paralyzed condition until the end of the mummy's next turn.
+
+      ***Spellcasting***. The mummy casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 17, +9 to hit with spell attacks):
+
+      At Will: *[Dispel Magic](https://www.aidedd.org/spell/dispel-magic), [Thaumaturgy](https://www.aidedd.org/spell/thaumaturgy)*\
+      1/Day Each: *[Animate Dead](https://www.aidedd.org/spell/animate-dead), [Harm](https://www.aidedd.org/spell/harm), [Insect Plague](https://www.aidedd.org/spell/insect-plague)* (level 7 version)
+
+      ## Reactions
+
+      ***Whirlwind of Sand***. *Trigger* : The mummy is hit by an attack roll. *Response* : The mummy adds 2 to its AC against the attack, possibly causing the attack to miss, and the mummy teleports up to 60 feet to an unoccupied space it can see. Each creature of its choice that it can see within 5 feet of its destination space has the Blinded condition until the end of the mummy's next turn.
+
+      ## Legendary actions
+
+      Legendary Action Uses: 3 (4 in Lair). Immediately after another creature's turn, the mummy can expend a use to take one of the following actions. The mummy regains all expended uses at the start of each of its turns.
+
+      ***Dread Command***. The mummy casts *[Command](https://www.aidedd.org/spell/command)* (level 2 version), using the same spellcasting ability as Spellcasting. The mummy can't take this action again until the start of its next turn.
+
+      ***Glare***. The mummy uses Dreadful Glare. The mummy can't take this action again until the start of its next turn.
+
+      ***Necrotic Strike***. The mummy makes one Rotting Fist or Channel Negative Energy attack
     senses: Truesight 60 ft., Passive Perception 19
     languages:
     - Common plus three other languages
@@ -115,25 +132,42 @@ translations:
     name: Seigneur momie / Momie auguste
     subtype: Clerc
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Résistance à la magie</em>**. La momie a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.</p>
-      <p><strong><em>Résistance légendaire (3/jour, ou 4/jour dans son antre)</em></strong>. Si la momie rate un jet de sauvegarde, elle peut décider de le réussir tout de même.</p>
-      <p><strong><em>Restauration funeste</em></strong>. Si elle est détruite, la momie reçoit un nouveau corps en 24 heures si son coeur est intact, en récupérant tous ses points de vie. Le nouveau corps apparaît en un espace inoccupé dans l'antre de la momie. Le coeur est un objet de taille TP avec le profil suivant : CA 17, 10 pv, Immunité contre tous les dégâts sauf le feu.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. La momie effectue une attaque de Poing putréfié ou de Conduit d'énergie négative, et recourt à Regard effroyable.</p>
-      <p><strong><em>Poing putréfié</em></strong>. <em>Corps à corps</em> : +9, allonge 1,50 m. <em>Touché</em> : 15 (2d10 + 4) dégâts contondants plus 10 (3d6) dégâts nécrotiques. Si la cible est une créature, elle est maudite. Ainsi maudite, la cible ne peut pas récupérer de points de vie et ne reçoit aucun bénéfice en terminant un Repos long, tandis que son maximum de points de vie est réduit de 10 (3d6) toutes les 24 heures. Une créature que cette attaque fait tomber à 0 point de vie meurt, réduite en poussière.</p>
-      <p><strong><em>Conduit d'énergie négative</em></strong>. <em>À distance</em> : +9, portée 18 m. <em>Touché</em> : 25 (6d6 + 4) dégâts nécrotiques.</p>
-      <p><strong><em>Incantation</em></strong>. La momie lance l'un des sorts suivants sans composantes matérielles, le Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 17, +9 pour toucher) :</p>
-      <p>À volonté : <em><a href="https://www.aidedd.org/spell/fr/dissipation-de-la-magie">dissipation de la magie</a>, <a href="https://www.aidedd.org/spell/fr/thaumaturgie">thaumaturgie</a></em><br />
-      1/jour chacun : <em>animation des morts, contamination, fléau d'insectes</em> (au niveau 7)  </p>
-      <p><strong><em>Regard effroyable</em></strong>. <em>JdS Sagesse</em> : DD 17, une créature que la momie voit dans un rayon de 18 m. <em>Échec</em> : 25 (6d6 + 4) dégâts psychiques, et la cible subit l'état Paralysé jusqu'à la fin du tour suivant de la momie.</p>
-      <h2>Réactions</h2>
-      <p>** <em>Tourbillon de sable</em>**. <em>Déclencheur</em> : la momie est touchée par un jet d'attaque. <em>Conséquences</em> : la momie ajoute 2 à sa CA contre l'attaque, ce qui peut faire rater celle-ci, et se téléporte d'un maximum de 18 m dans un espace inoccupé qu'elle voit. Chaque créature de son choix parmi celles qu'elle voit dans un rayon de 1,50 m de son espace de destination subit l'état Aveuglé jusqu'à la fin du tour suivant de la momie.</p>
-      <h2>Actions Légendaires</h2>
-      <p>Utilisations d'action Légendaire : 3 (4 dans son antre). Aussitôt après le tour d'une autre créature, la momie peut dépenser une utilisation pour entreprendre l'une des actions ci-après. La momie récupère toutes ses utilisations dépensées au début de chacun de ses tours. </p>
-      <p><strong><em>Frappe nécrotique</em></strong>. La momie effectue une attaque de Poing putréfié ou de Conduit d'énergie négative.</p>
-      <p><strong><em>Injonction effroyable</em></strong>. La momie lance <em><a href="https://www.aidedd.org/spell/fr/injonction">injonction</a></em> (au niveau 2), avec la même caractéristique d'incantation que pour Incantation. La momie ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.</p>
-      <p><strong><em>Regard de biais</em></strong>. La momie recourt à Regard effroyable. La momie ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.</p>
+      ## Traits
+
+      ***Résistance à la magie***. La momie a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
+
+      ***Résistance légendaire (3/jour, ou 4/jour dans son antre)***. Si la momie rate un jet de sauvegarde, elle peut décider de le réussir tout de même.
+
+      ***Restauration funeste***. Si elle est détruite, la momie reçoit un nouveau corps en 24 heures si son coeur est intact, en récupérant tous ses points de vie. Le nouveau corps apparaît en un espace inoccupé dans l'antre de la momie. Le coeur est un objet de taille TP avec le profil suivant : CA 17, 10 pv, Immunité contre tous les dégâts sauf le feu.
+
+      ## Actions
+
+      ***Attaques multiples***. La momie effectue une attaque de Poing putréfié ou de Conduit d'énergie négative, et recourt à Regard effroyable.
+
+      ***Poing putréfié***. *Corps à corps* : +9, allonge 1,50 m. *Touché* : 15 (2d10 + 4) dégâts contondants plus 10 (3d6) dégâts nécrotiques. Si la cible est une créature, elle est maudite. Ainsi maudite, la cible ne peut pas récupérer de points de vie et ne reçoit aucun bénéfice en terminant un Repos long, tandis que son maximum de points de vie est réduit de 10 (3d6) toutes les 24 heures. Une créature que cette attaque fait tomber à 0 point de vie meurt, réduite en poussière.
+
+      ***Conduit d'énergie négative***. *À distance* : +9, portée 18 m. *Touché* : 25 (6d6 + 4) dégâts nécrotiques.
+
+      ***Incantation***. La momie lance l'un des sorts suivants sans composantes matérielles, le Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 17, +9 pour toucher) :
+
+      À volonté : *[dissipation de la magie](https://www.aidedd.org/spell/fr/dissipation-de-la-magie), [thaumaturgie](https://www.aidedd.org/spell/fr/thaumaturgie)*\
+      1/jour chacun : *animation des morts, contamination, fléau d'insectes* (au niveau 7)
+
+      ***Regard effroyable***. *JdS Sagesse* : DD 17, une créature que la momie voit dans un rayon de 18 m. *Échec* : 25 (6d6 + 4) dégâts psychiques, et la cible subit l'état Paralysé jusqu'à la fin du tour suivant de la momie.
+
+      ## Réactions
+
+      ***Tourbillon de sable***. *Déclencheur* : la momie est touchée par un jet d'attaque. *Conséquences* : la momie ajoute 2 à sa CA contre l'attaque, ce qui peut faire rater celle-ci, et se téléporte d'un maximum de 18 m dans un espace inoccupé qu'elle voit. Chaque créature de son choix parmi celles qu'elle voit dans un rayon de 1,50 m de son espace de destination subit l'état Aveuglé jusqu'à la fin du tour suivant de la momie.
+
+      ## Actions Légendaires
+
+      Utilisations d'action Légendaire : 3 (4 dans son antre). Aussitôt après le tour d'une autre créature, la momie peut dépenser une utilisation pour entreprendre l'une des actions ci-après. La momie récupère toutes ses utilisations dépensées au début de chacun de ses tours.
+
+      ***Frappe nécrotique***. La momie effectue une attaque de Poing putréfié ou de Conduit d'énergie négative.
+
+      ***Injonction effroyable***. La momie lance *[injonction](https://www.aidedd.org/spell/fr/injonction)* (au niveau 2), avec la même caractéristique d'incantation que pour Incantation. La momie ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.
+
+      ***Regard de biais***. La momie recourt à Regard effroyable. La momie ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.
     senses: vision véritable 18 m, Perception passive 19
     languages:
     - commun plus trois autres langues

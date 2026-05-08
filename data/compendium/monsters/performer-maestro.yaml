@@ -89,13 +89,18 @@ translations:
     name: Performer Maestro
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The performer makes three Rapier attacks.</p>
-      <p><strong><em>Rapier</em></strong>. <em>Melee Attack Roll</em> : +7, reach 5 ft. <em>Hit</em> : 8 (1d8 + 4) Piercing damage plus 7 (2d6) Psychic damage.</p>
-      <p><strong><em>Beguiling Song</em></strong>. <em>Wisdom Saving Throw</em> : DC 15, each creature in a 20-foot-radius Sphere centered on a point within 120 feet. <em>Failure</em> : 20 (3d10 + 4) Psychic damage, and the target has the Charmed condition until the end of the performer's next turn. <em>Success</em> : Half damage only.</p>
-      <p><strong><em>Spellcasting</em></strong>. The performer casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 15):</p>
-      <p>At will: <em><a href="https://www.aidedd.org/spell/minor-illusion">Minor Illusion</a>, <a href="https://www.aidedd.org/spell/prestidigitation">Prestidigitation</a></em><br />
-      1/day: <em><a href="https://www.aidedd.org/spell/tasha-s-hideous-laughter">Tasha's Hideous Laughter</a></em> (level 3 version)</p>
+      ## Actions
+
+      ***Multiattack***. The performer makes three Rapier attacks.
+
+      ***Rapier***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 8 (1d8 + 4) Piercing damage plus 7 (2d6) Psychic damage.
+
+      ***Beguiling Song***. *Wisdom Saving Throw* : DC 15, each creature in a 20-foot-radius Sphere centered on a point within 120 feet. *Failure* : 20 (3d10 + 4) Psychic damage, and the target has the Charmed condition until the end of the performer's next turn. *Success* : Half damage only.
+
+      ***Spellcasting***. The performer casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 15):
+
+      At will: *[Minor Illusion](https://www.aidedd.org/spell/minor-illusion), [Prestidigitation](https://www.aidedd.org/spell/prestidigitation)*\
+      1/day: *[Tasha's Hideous Laughter](https://www.aidedd.org/spell/tasha-s-hideous-laughter)* (level 3 version)
     senses: Passive Perception 15
     languages:
     - Common plus one other language
@@ -103,13 +108,18 @@ translations:
     name: Saltimbanque, maestro
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le saltimbanque effectue trois attaques de Rapière.</p>
-      <p><strong><em>Rapière</em></strong>. <em>Corps à corps</em> : +7, allonge 1,50 m. <em>Touché</em> : 8 (1d8 + 4) dégâts perforants plus 7 (2d6) dégâts psychiques.</p>
-      <p><strong><em>Chant envoûtant</em></strong>. <em>JdS Sagesse</em> : DD 15, chaque créature dans une Sphère de 6 m de rayon centrée sur un point dans un rayon de 36 m. <em>Échec</em> : 20 (3d10 + 4) dégâts psychiques, et la cible subit l'état Charmé jusqu'à la fin du prochain tour du saltimbanque. <em>Réussite</em> : demi-dégâts uniquement.</p>
-      <p><strong><em>Incantation</em></strong>. Le saltimbanque lance l'un des sorts suivants, sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 15) :</p>
-      <p>À volonté : <em><a href="https://www.aidedd.org/spell/fr/illusion-mineure">illusion mineure</a>, <a href="https://www.aidedd.org/spell/fr/prestidigitation">prestidigitation</a></em><br />
-      1/jour : <em><a href="https://www.aidedd.org/spell/fr/fou-rire-de-tasha">fou rire de Tasha</a></em> (au niveau 3)</p>
+      ## Actions
+
+      ***Attaques multiples***. Le saltimbanque effectue trois attaques de Rapière.
+
+      ***Rapière***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 8 (1d8 + 4) dégâts perforants plus 7 (2d6) dégâts psychiques.
+
+      ***Chant envoûtant***. *JdS Sagesse* : DD 15, chaque créature dans une Sphère de 6 m de rayon centrée sur un point dans un rayon de 36 m. *Échec* : 20 (3d10 + 4) dégâts psychiques, et la cible subit l'état Charmé jusqu'à la fin du prochain tour du saltimbanque. *Réussite* : demi-dégâts uniquement.
+
+      ***Incantation***. Le saltimbanque lance l'un des sorts suivants, sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 15) :
+
+      À volonté : *[illusion mineure](https://www.aidedd.org/spell/fr/illusion-mineure), [prestidigitation](https://www.aidedd.org/spell/fr/prestidigitation)*\
+      1/jour : *[fou rire de Tasha](https://www.aidedd.org/spell/fr/fou-rire-de-tasha)* (au niveau 3)
     senses: Perception passive 15
     languages:
     - commun plus une autre langue

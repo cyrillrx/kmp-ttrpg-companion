@@ -7,12 +7,10 @@ translations:
   en:
     name: Helm of Teleportation
     subtype: null
-    description: <p>This helm has 3 charges. While wearing it, you can expend 1 charge
-      to cast <em><a href="https://www.aidedd.org/spell/teleport">Teleport</a></em>
-      from it. The helm regains 1d3 expended charges daily at dawn.</p>
+    description: |-
+      This helm has 3 charges. While wearing it, you can expend 1 charge to cast *[Teleport](https://www.aidedd.org/spell/teleport)* from it. The helm regains 1d3 expended charges daily at dawn.
   fr:
     name: Heaume de téléportation
     subtype: null
-    description: <p>Ce casque possède 3 charges. Lorsque vous le portez, vous pouvez
-      dépenser 1 charge pour lancer <em><a href="https://www.aidedd.org/spell/fr/teleportation">téléportation</a></em>.
-      Le casque récupère 1d3 charges dépensées chaque jour à l'aube.</p>
+    description: |-
+      Ce casque possède 3 charges. Lorsque vous le portez, vous pouvez dépenser 1 charge pour lancer *[téléportation](https://www.aidedd.org/spell/fr/teleportation)*. Le casque récupère 1d3 charges dépensées chaque jour à l'aube.

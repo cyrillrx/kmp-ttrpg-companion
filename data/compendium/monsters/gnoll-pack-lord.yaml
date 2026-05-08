@@ -89,13 +89,19 @@ translations:
     name: Gnoll Pack Lord
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The gnoll makes two attacks, using Bone Whip or Bone Javelin in any combination, and it uses Incite Rampage if available.</p>
-      <p><strong><em>Bone Whip</em></strong>. <em>Melee Attack Roll</em> : +5, reach 10 ft. <em>Hit</em> : 8 (2d4 + 3) Slashing damage.</p>
-      <p><strong><em>Bone Javelin</em></strong>. <em>Ranged Attack Roll</em> : +5, range 30/120 ft. <em>Hit</em> : 7 (1d8 + 3) Piercing damage.</p>
-      <p><strong><em>Incite Rampage (Recharge 5–6)</em></strong>. The gnoll targets another creature it can see within 60 feet of itself that has the Rampage Bonus Action. The target can take a Reaction to make one melee attack.</p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Rampage (2/Day)</em>**. Immediately after dealing damage to a creature that is already Bloodied, the gnoll moves up to half its Speed, and it makes one Bone Whip attack.</p>
+      ## Actions
+
+      ***Multiattack***. The gnoll makes two attacks, using Bone Whip or Bone Javelin in any combination, and it uses Incite Rampage if available.
+
+      ***Bone Whip***. *Melee Attack Roll* : +5, reach 10 ft. *Hit* : 8 (2d4 + 3) Slashing damage.
+
+      ***Bone Javelin***. *Ranged Attack Roll* : +5, range 30/120 ft. *Hit* : 7 (1d8 + 3) Piercing damage.
+
+      ***Incite Rampage (Recharge 5–6)***. The gnoll targets another creature it can see within 60 feet of itself that has the Rampage Bonus Action. The target can take a Reaction to make one melee attack.
+
+      ## Bonus actions
+
+      ***Rampage (2/Day)***. Immediately after dealing damage to a creature that is already Bloodied, the gnoll moves up to half its Speed, and it makes one Bone Whip attack.
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - Gnoll
@@ -103,13 +109,19 @@ translations:
     name: Gnoll, chef de meute
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le gnoll effectue deux attaques, réparties à sa guise entre Fouet osseux et Javeline osseuse, et il utilise Incitation au déchaînement si disponible.</p>
-      <p><strong><em>Fouet osseux</em></strong>. <em>Corps à corps</em> : +5, allonge 3 m. <em>Touché</em> : 8 (2d4 + 3) dégâts tranchants.</p>
-      <p><strong><em>Javeline osseuse</em></strong>. <em>À distance</em> : +5, portée 30/36 m. <em>Touché</em> : 7 (1d8 + 3) dégâts perforants.</p>
-      <p><strong><em>Incitation au déchaînement (recharge 5–6)</em></strong>. Le gnoll cible une autre créature qu'il peut voir dans un rayon de 18 m et qui possède l'action Bonus Déchaînement. La cible peut utiliser sa Réaction pour effectuer une attaque au corps à corps.</p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Déchaînement (2/jour)</em>**. Immédiatement après avoir infligé des dégâts à une créature déjà En péril, le gnoll se déplace jusqu'à la moitié de sa Vitesse et effectue une attaque de Fouet osseux.</p>
+      ## Actions
+
+      ***Attaques multiples***. Le gnoll effectue deux attaques, réparties à sa guise entre Fouet osseux et Javeline osseuse, et il utilise Incitation au déchaînement si disponible.
+
+      ***Fouet osseux***. *Corps à corps* : +5, allonge 3 m. *Touché* : 8 (2d4 + 3) dégâts tranchants.
+
+      ***Javeline osseuse***. *À distance* : +5, portée 30/36 m. *Touché* : 7 (1d8 + 3) dégâts perforants.
+
+      ***Incitation au déchaînement (recharge 5–6)***. Le gnoll cible une autre créature qu'il peut voir dans un rayon de 18 m et qui possède l'action Bonus Déchaînement. La cible peut utiliser sa Réaction pour effectuer une attaque au corps à corps.
+
+      ## Actions Bonus
+
+      ***Déchaînement (2/jour)***. Immédiatement après avoir infligé des dégâts à une créature déjà En péril, le gnoll se déplace jusqu'à la moitié de sa Vitesse et effectue une attaque de Fouet osseux.
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - Gnoll

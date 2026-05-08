@@ -7,16 +7,10 @@ translations:
   en:
     name: Helm of Telepathy
     subtype: null
-    description: <p>While wearing this helm, you have telepathy with a range of 30
-      feet, and you can cast <em><a href="https://www.aidedd.org/spell/detect-thoughts">Detect
-      Thoughts</a></em> or <em><a href="https://www.aidedd.org/spell/suggestion">Suggestion</a></em>
-      (save DC 13) from the helm. Once either spell is cast from the helm, that spell
-      can't be cast from it again until the next dawn.</p>
+    description: |-
+      While wearing this helm, you have telepathy with a range of 30 feet, and you can cast *[Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts)* or *[Suggestion](https://www.aidedd.org/spell/suggestion)* (save DC 13) from the helm. Once either spell is cast from the helm, that spell can't be cast from it again until the next dawn.
   fr:
     name: Heaume de télépathie
     subtype: null
-    description: <p>Lorsque vous portez ce heaume, vous bénéficiez de télépathie à
-      une portée de 9 mètres et pouvez lancer <em><a href="https://www.aidedd.org/spell/fr/detection-des-pensees">détection
-      des pensées</a></em> ou <em><a href="https://www.aidedd.org/spell/fr/suggestion">suggestion</a></em>
-      (sauvegarde DD 13) par son biais. Une fois l'un de ces sorts lancé depuis le
-      heaume, il ne peut plus être lancé avant l'aube suivante.</p>
+    description: |-
+      Lorsque vous portez ce heaume, vous bénéficiez de télépathie à une portée de 9 mètres et pouvez lancer *[détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees)* ou *[suggestion](https://www.aidedd.org/spell/fr/suggestion)* (sauvegarde DD 13) par son biais. Une fois l'un de ces sorts lancé depuis le heaume, il ne peut plus être lancé avant l'aube suivante.

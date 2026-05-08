@@ -89,12 +89,17 @@ translations:
     name: Bandit Captain
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The bandit makes two attacks, using Scimitar and Pistol in any combination.</p>
-      <p><strong><em>Scimitar</em></strong>. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 6 (1d6 + 3) Slashing damage.</p>
-      <p><strong><em>Pistol</em></strong>. <em>Ranged Attack Roll</em> : +5, range 30/90 ft. <em>Hit</em> : 8 (1d10 + 3) Piercing damage.</p>
-      <h2>Reactions</h2>
-      <p>** <em>Parry</em>**. <em>Trigger</em> : The bandit is hit by a melee attack roll while holding a weapon. <em>Response</em> : The bandit adds 2 to its AC against that attack, possibly causing it to miss.</p>
+      ## Actions
+
+      ***Multiattack***. The bandit makes two attacks, using Scimitar and Pistol in any combination.
+
+      ***Scimitar***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 6 (1d6 + 3) Slashing damage.
+
+      ***Pistol***. *Ranged Attack Roll* : +5, range 30/90 ft. *Hit* : 8 (1d10 + 3) Piercing damage.
+
+      ## Reactions
+
+      ***Parry***. *Trigger* : The bandit is hit by a melee attack roll while holding a weapon. *Response* : The bandit adds 2 to its AC against that attack, possibly causing it to miss.
     senses: Passive Perception 10
     languages:
     - Common
@@ -103,12 +108,17 @@ translations:
     name: Bandit, capitaine
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le bandit effectue deux attaques, réparties à sa guise entre Cimeterre et Pistolet.</p>
-      <p><strong><em>Cimeterre</em></strong>. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 6 (1d6 + 3) dégâts tranchants.</p>
-      <p><strong><em>Pistolet</em></strong>. <em>À distance</em> : +5, portée 9/27 m. <em>Touché</em> : 8 (1d10 + 3) dégâts perforants.</p>
-      <h2>Réactions</h2>
-      <p>** <em>Parade</em>**. <em>Déclencheur</em> : le bandit est touché par un jet d'attaque de corps à corps alors qu'il tient une arme. <em>Conséquences</em> : le bandit ajoute 2 à sa CA contre cette attaque, ce qui peut la faire rater.</p>
+      ## Actions
+
+      ***Attaques multiples***. Le bandit effectue deux attaques, réparties à sa guise entre Cimeterre et Pistolet.
+
+      ***Cimeterre***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 6 (1d6 + 3) dégâts tranchants.
+
+      ***Pistolet***. *À distance* : +5, portée 9/27 m. *Touché* : 8 (1d10 + 3) dégâts perforants.
+
+      ## Réactions
+
+      ***Parade***. *Déclencheur* : le bandit est touché par un jet d'attaque de corps à corps alors qu'il tient une arme. *Conséquences* : le bandit ajoute 2 à sa CA contre cette attaque, ce qui peut la faire rater.
     senses: Perception passive 10
     languages:
     - commun

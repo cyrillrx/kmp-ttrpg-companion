@@ -7,19 +7,10 @@ translations:
   en:
     name: Crystal Ball of Mind Reading
     subtype: null
-    description: <p>While touching this crystal orb, you can cast <em><a href="https://www.aidedd.org/spell/scrying">Scrying</a></em>
-      (save DC 17) with it. In addition, you can cast <em><a href="https://www.aidedd.org/spell/detect-thoughts">Detect
-      Thoughts</a></em> (save DC 17) targeting creatures you can see within 30 feet
-      of the spell's sensor. You don't need to concentrate on this <em><a href="https://www.aidedd.org/spell/detect-thoughts">Detect
-      Thoughts</a></em> spell to maintain it during its duration, but it ends if the
-      <em><a href="https://www.aidedd.org/spell/scrying">Scrying</a></em> spell ends.</p>
+    description: |-
+      While touching this crystal orb, you can cast *[Scrying](https://www.aidedd.org/spell/scrying)* (save DC 17) with it. In addition, you can cast *[Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts)* (save DC 17) targeting creatures you can see within 30 feet of the spell's sensor. You don't need to concentrate on this *[Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts)* spell to maintain it during its duration, but it ends if the *[Scrying](https://www.aidedd.org/spell/scrying)* spell ends.
   fr:
     name: Boule de cristal de lecture des pensées
     subtype: null
-    description: <p>Lorsque vous touchez cet orbe de cristal, vous pouvez lancer <em><a
-      href="https://www.aidedd.org/spell/fr/scrutation">scrutation</a></em> (sauvegarde
-      DD 17) par son biais. De plus, vous pouvez lancer <em><a href="https://www.aidedd.org/spell/fr/detection-des-pensees">détection
-      des pensées</a></em> (sauvegarde DD 17) et cibler des créatures que vous pouvez
-      voir dans un rayon de 9 mètres autour du capteur du sort. Vous n'avez pas besoin
-      de vous concentrer sur ce sort de <em>détection des pensées</em> pour le maintenir
-      pendant sa durée, mais il prend fin si le sort de <em>scrutation</em> se termine.</p>
+    description: |-
+      Lorsque vous touchez cet orbe de cristal, vous pouvez lancer *[scrutation](https://www.aidedd.org/spell/fr/scrutation)* (sauvegarde DD 17) par son biais. De plus, vous pouvez lancer *[détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees)* (sauvegarde DD 17) et cibler des créatures que vous pouvez voir dans un rayon de 9 mètres autour du capteur du sort. Vous n'avez pas besoin de vous concentrer sur ce sort de *détection des pensées* pour le maintenir pendant sa durée, mais il prend fin si le sort de *scrutation* se termine.

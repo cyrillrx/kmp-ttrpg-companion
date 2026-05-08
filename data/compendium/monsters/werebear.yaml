@@ -89,13 +89,19 @@ translations:
     name: Werebear
     subtype: Lycanthrope
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The werebear makes two attacks, using Handaxe or Rend in any combination. It can replace one attack with a Bite attack.</p>
-      <p><strong><em>Bite (Bear or Hybrid Form Only)</em></strong>. <em>Melee Attack Roll</em> : +7, reach 5 ft. <em>Hit</em> : 17 (2d12 + 4) Piercing damage. If the target is a Humanoid, it is subjected to the following effect. <em>Constitution Saving Throw</em> : DC 14. <em>Failure</em> : The target is cursed. If the cursed target drops to 0 Hit Points, it instead becomes a <strong>Werebear</strong> under the DM's control and has 10 Hit Points. <em>Success</em> : The target is immune to this werebear's curse for 24 hours.</p>
-      <p><strong><em>Handaxe (Humanoid or Hybrid Form Only)</em></strong>. <em>Melee or Ranged Attack Roll</em> : +7, reach 5 ft or range 20/60 ft. <em>Hit</em> : 14 (3d6 + 4) Slashing damage.</p>
-      <p><strong><em>Rend (Bear or Hybrid Form Only)</em></strong>. <em>Melee Attack Roll</em> : +7, reach 5 ft. <em>Hit</em> : 13 (2d8 + 4) Slashing damage.</p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Shape-Shift</em>**. The werebear shape-shifts into a Large bear-humanoid hybrid form or a Large bear, or it returns to its true humanoid form. Its game statistics, other than its size, are the same in each form. Any equipment it is wearing or carrying isn't transformed.</p>
+      ## Actions
+
+      ***Multiattack***. The werebear makes two attacks, using Handaxe or Rend in any combination. It can replace one attack with a Bite attack.
+
+      ***Bite (Bear or Hybrid Form Only)***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 17 (2d12 + 4) Piercing damage. If the target is a Humanoid, it is subjected to the following effect. *Constitution Saving Throw* : DC 14. *Failure* : The target is cursed. If the cursed target drops to 0 Hit Points, it instead becomes a **Werebear** under the DM's control and has 10 Hit Points. *Success* : The target is immune to this werebear's curse for 24 hours.
+
+      ***Handaxe (Humanoid or Hybrid Form Only)***. *Melee or Ranged Attack Roll* : +7, reach 5 ft or range 20/60 ft. *Hit* : 14 (3d6 + 4) Slashing damage.
+
+      ***Rend (Bear or Hybrid Form Only)***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 13 (2d8 + 4) Slashing damage.
+
+      ## Bonus actions
+
+      ***Shape-Shift***. The werebear shape-shifts into a Large bear-humanoid hybrid form or a Large bear, or it returns to its true humanoid form. Its game statistics, other than its size, are the same in each form. Any equipment it is wearing or carrying isn't transformed.
     senses: Darkvision 60 ft., Passive Perception 17
     languages:
     - Common (can't speak in bear form)
@@ -103,13 +109,19 @@ translations:
     name: Ours-garou
     subtype: Lycanthrope
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. L'ours-garou effectue deux attaques, réparties à sa guise entre Hachette et Saignée. Il peut en remplacer une par une attaque de Morsure.</p>
-      <p><strong><em>Hachette (forme humanoïde ou hybride uniquement)</em></strong>. <em>Corps à corps ou à distance</em> : +7, allonge 1,50 m ou portée 6/18 m. <em>Touché</em> : 14 (3d6 + 4) dégâts tranchants.</p>
-      <p><strong><em>Morsure (forme d'ours ou hybride uniquement)</em></strong>. <em>Corps à corps</em> : +7, allonge 1,50 m. <em>Touché</em> : 17 (2d12 + 4) dégâts perforants. Si la cible est un Humanoïde, elle est soumise à l'effet suivant. <em>JdS Constitution</em> : DD 14. <em>Échec</em> : la cible est maudite. Si la cible maudite tombe à 0 point de vie, elle se retrouve en fait à 10 pv et devient un <strong>ours-garou</strong> sous le contrôle du MD. <em>Réussite</em> : la cible est immunisée contre la malédiction de cet ours-garou pendant 24 heures.</p>
-      <p><strong><em>Saignée (forme d'ours ou hybride uniquement)</em></strong>. <em>Corps à corps</em> : +7, allonge 1,50 m. <em>Touché</em> : 13 (2d8 + 4) dégâts tranchants.</p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Changement d'aspect</em>**. L'ours-garou se transforme en hybride ours-humanoïde de taille G ou en ours de taille G, ou bien retrouve sa forme véritable d'humanoïde. En dehors de sa catégorie de taille, son profil reste le même, quelle que soit la forme. Rien de ce qu'il porte n'est transformé.</p>
+      ## Actions
+
+      ***Attaques multiples***. L'ours-garou effectue deux attaques, réparties à sa guise entre Hachette et Saignée. Il peut en remplacer une par une attaque de Morsure.
+
+      ***Hachette (forme humanoïde ou hybride uniquement)***. *Corps à corps ou à distance* : +7, allonge 1,50 m ou portée 6/18 m. *Touché* : 14 (3d6 + 4) dégâts tranchants.
+
+      ***Morsure (forme d'ours ou hybride uniquement)***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 17 (2d12 + 4) dégâts perforants. Si la cible est un Humanoïde, elle est soumise à l'effet suivant. *JdS Constitution* : DD 14. *Échec* : la cible est maudite. Si la cible maudite tombe à 0 point de vie, elle se retrouve en fait à 10 pv et devient un **ours-garou** sous le contrôle du MD. *Réussite* : la cible est immunisée contre la malédiction de cet ours-garou pendant 24 heures.
+
+      ***Saignée (forme d'ours ou hybride uniquement)***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 13 (2d8 + 4) dégâts tranchants.
+
+      ## Actions Bonus
+
+      ***Changement d'aspect***. L'ours-garou se transforme en hybride ours-humanoïde de taille G ou en ours de taille G, ou bien retrouve sa forme véritable d'humanoïde. En dehors de sa catégorie de taille, son profil reste le même, quelle que soit la forme. Rien de ce qu'il porte n'est transformé.
     senses: Vision dans le noir 18 m, Perception passive 17
     languages:
     - commun (ne peut pas parler sous forme d'ours)

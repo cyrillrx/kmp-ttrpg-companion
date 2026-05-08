@@ -7,10 +7,10 @@ translations:
   en:
     name: Cloak of Billowing
     subtype: null
-    description: <p>While wearing this cloak, you can take a Bonus Action to make
-      it billow dramatically for 1 minute.</p>
+    description: |-
+      While wearing this cloak, you can take a Bonus Action to make it billow dramatically for 1 minute.
   fr:
     name: Cape virevoltante
     subtype: null
-    description: <p>Lorsque vous portez cette cape, vous pouvez prendre une action
-      Bonus pour la faire onduler de manière spectaculaire pendant 1 minute.</p>
+    description: |-
+      Lorsque vous portez cette cape, vous pouvez prendre une action Bonus pour la faire onduler de manière spectaculaire pendant 1 minute.

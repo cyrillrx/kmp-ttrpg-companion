@@ -89,10 +89,13 @@ translations:
     name: Manticore
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The manticore makes three attacks, using Rend or Tail Spike in any combination.</p>
-      <p><strong><em>Rend</em></strong>. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 7 (1d8 + 3) Slashing damage.</p>
-      <p><strong><em>Tail Spike</em></strong>. <em>Ranged Attack Roll</em> : +5, range 100/200 ft. <em>Hit</em> : 7 (1d8 + 3) Piercing damage.</p>
+      ## Actions
+
+      ***Multiattack***. The manticore makes three attacks, using Rend or Tail Spike in any combination.
+
+      ***Rend***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 7 (1d8 + 3) Slashing damage.
+
+      ***Tail Spike***. *Ranged Attack Roll* : +5, range 100/200 ft. *Hit* : 7 (1d8 + 3) Piercing damage.
     senses: Darkvision 60 ft., Passive Perception 11
     languages:
     - Common
@@ -100,10 +103,13 @@ translations:
     name: Manticore
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. La manticore effectue trois attaques, réparties à sa guise entre Saignée et Piquant caudal.</p>
-      <p><strong><em>Saignée</em></strong>. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 7 (1d8 + 3) dégâts tranchants.</p>
-      <p><strong><em>Piquant caudal</em></strong>. <em>À distance</em> : +5, portée 30/60 m. <em>Touché</em> : 7 (1d8 + 3) dégâts perforants.</p>
+      ## Actions
+
+      ***Attaques multiples***. La manticore effectue trois attaques, réparties à sa guise entre Saignée et Piquant caudal.
+
+      ***Saignée***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 7 (1d8 + 3) dégâts tranchants.
+
+      ***Piquant caudal***. *À distance* : +5, portée 30/60 m. *Touché* : 7 (1d8 + 3) dégâts perforants.
     senses: Vision dans le noir 18 m, Perception passive 11
     languages:
     - commun

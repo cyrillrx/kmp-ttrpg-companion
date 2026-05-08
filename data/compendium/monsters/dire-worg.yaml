@@ -89,14 +89,21 @@ translations:
     name: Dire Worg
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Magic Resistance</em>**. The worg has Advantage on saving throws against spells and other magical effects.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The worg makes three Bite attacks.</p>
-      <p><strong><em>Bite</em></strong>. <em>Melee Attack Roll</em> : +10, reach 5 ft. <em>Hit</em> : 15 (2d8 + 6) Piercing damage plus 7 (2d6) Poison damage, and the target has the Poisoned condition until the start of the worg's next turn. While Poisoned, the target can't regain Hit Points.</p>
-      <p><strong><em>Dreadful Howl (Recharge 5–6)</em></strong>. <em>Wisdom Saving Throw</em> : DC 16, each creature within 30 feet that isn't a worg. <em>Failure</em> : 36 (8d8) Psychic damage, and the target has the Frightened condition until the start of the worg's next turn. <em>Success</em> : Half damage only.</p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Warp Step</em>**. The worg teleports, along with a willing creature of its choice within 5 feet of it, up to 30 feet to an unoccupied space it can see.</p>
+      ## Traits
+
+      ***Magic Resistance***. The worg has Advantage on saving throws against spells and other magical effects.
+
+      ## Actions
+
+      ***Multiattack***. The worg makes three Bite attacks.
+
+      ***Bite***. *Melee Attack Roll* : +10, reach 5 ft. *Hit* : 15 (2d8 + 6) Piercing damage plus 7 (2d6) Poison damage, and the target has the Poisoned condition until the start of the worg's next turn. While Poisoned, the target can't regain Hit Points.
+
+      ***Dreadful Howl (Recharge 5–6)***. *Wisdom Saving Throw* : DC 16, each creature within 30 feet that isn't a worg. *Failure* : 36 (8d8) Psychic damage, and the target has the Frightened condition until the start of the worg's next turn. *Success* : Half damage only.
+
+      ## Bonus actions
+
+      ***Warp Step***. The worg teleports, along with a willing creature of its choice within 5 feet of it, up to 30 feet to an unoccupied space it can see.
     senses: Darkvision 120 ft., Passive Perception 21
     languages:
     - Goblin
@@ -106,14 +113,21 @@ translations:
     name: Worg sanguinaire
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Résistance à la magie</em>**. Le worg a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le worg effectue trois attaques de Morsure.</p>
-      <p><strong><em>Morsure</em></strong>. <em>Corps à corps</em> : +10, allonge 1,50 m. <em>Touché</em> : 15 (2d8 + 6) dégâts perforants plus 7 (2d6) dégâts de poison, et la cible subit l'état Empoisonné jusqu'au début du prochain tour du worg. Tant qu'elle est empoisonnée, la cible ne peut pas récupérer de points de vie.</p>
-      <p><strong><em>Hurlement (recharge 5–6)</em></strong>. <em>JdS Sagesse</em> : DD 16, chaque créature dans un rayon de 9 m qui n'est pas un worg. <em>Échec</em> : 36 (8d8) dégâts psychiques, et la cible subit l'état Effrayé jusqu'au début du prochain tour du worg. <em>Réussite</em> : demi-dégâts uniquement.</p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Soubresaut</em>**. Le worg se téléporte, avec une créature consentante de son choix se trouvant dans un rayon de 1,50 m, jusqu'à 9 m de distance vers un espace inoccupé qu'il peut voir.</p>
+      ## Traits
+
+      ***Résistance à la magie***. Le worg a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
+
+      ## Actions
+
+      ***Attaques multiples***. Le worg effectue trois attaques de Morsure.
+
+      ***Morsure***. *Corps à corps* : +10, allonge 1,50 m. *Touché* : 15 (2d8 + 6) dégâts perforants plus 7 (2d6) dégâts de poison, et la cible subit l'état Empoisonné jusqu'au début du prochain tour du worg. Tant qu'elle est empoisonnée, la cible ne peut pas récupérer de points de vie.
+
+      ***Hurlement (recharge 5–6)***. *JdS Sagesse* : DD 16, chaque créature dans un rayon de 9 m qui n'est pas un worg. *Échec* : 36 (8d8) dégâts psychiques, et la cible subit l'état Effrayé jusqu'au début du prochain tour du worg. *Réussite* : demi-dégâts uniquement.
+
+      ## Actions Bonus
+
+      ***Soubresaut***. Le worg se téléporte, avec une créature consentante de son choix se trouvant dans un rayon de 1,50 m, jusqu'à 9 m de distance vers un espace inoccupé qu'il peut voir.
     senses: Vision dans le noir 36 m, Perception passive 21
     languages:
     - gobelin

@@ -8,27 +8,27 @@ translations:
     name: Cube of Force
     subtype: null
     description: |-
-      <p>This cube is about an inch across. Each face has a distinct marking on it. You can press one of those faces, expend the number of charges required for it, and thereby cast the spell associated with it (save DC 17), as shown in the table.<br />
-      The cube starts with 10 charges, and it regains 1d6 expended charges daily at dawn.<br />
-      Spell| Charge Cost<br />
-      ---|---<br />
-      <em>Mage Armor</em>|  1<br />
-      <em>Shield</em>|  1<br />
-      <em>Leomund's Tiny Hut</em>|  3<br />
-      <em>Mordenkainen's Private Sanctum</em>|  4<br />
-      <em>Otiluke's Resilient Sphere</em>|  4<br />
-      <em>Wall of Force</em>|  5</p>
+      This cube is about an inch across. Each face has a distinct marking on it. You can press one of those faces, expend the number of charges required for it, and thereby cast the spell associated with it (save DC 17), as shown in the table.\
+      The cube starts with 10 charges, and it regains 1d6 expended charges daily at dawn.\
+      | Spell | Charge Cost |
+      | --- | --- |
+      | *Mage Armor* | 1 |
+      | *Shield* | 1 |
+      | *Leomund's Tiny Hut* | 3 |
+      | *Mordenkainen's Private Sanctum* | 4 |
+      | *Otiluke's Resilient Sphere* | 4 |
+      | *Wall of Force* | 5 |
   fr:
     name: Cube de force
     subtype: null
     description: |-
-      <p>Ce cube mesure environ 2,50 cm de côté. Chaque face porte un marquage distinct. Vous pouvez appuyer sur l'une d'elles, dépenser le nombre de charges requis et ainsi lancer le sort qui lui est associé (DD 17), comme indiqué dans la table ci-dessous.<br />
-      Le cube commence avec 10 charges et récupère 1d6 charges dépensées chaque jour à l'aube.<br />
-      Sort| Coût en charges<br />
-      ---|---<br />
-      <em>armure du mage</em>|  1<br />
-      <em>bouclier</em>|  1<br />
-      <em>petite hutte de Léomund</em>|  3<br />
-      <em>sanctuaire privé de Mordenkainen</em>|  4<br />
-      <em>sphère résiliente d'Otiluke</em>|  4<br />
-      <em>mur de force</em>|  5</p>
+      Ce cube mesure environ 2,50 cm de côté. Chaque face porte un marquage distinct. Vous pouvez appuyer sur l'une d'elles, dépenser le nombre de charges requis et ainsi lancer le sort qui lui est associé (DD 17), comme indiqué dans la table ci-dessous.\
+      Le cube commence avec 10 charges et récupère 1d6 charges dépensées chaque jour à l'aube.\
+      | Sort | Coût en charges |
+      | --- | --- |
+      | *armure du mage* | 1 |
+      | *bouclier* | 1 |
+      | *petite hutte de Léomund* | 3 |
+      | *sanctuaire privé de Mordenkainen* | 4 |
+      | *sphère résiliente d'Otiluke* | 4 |
+      | *mur de force* | 5 |

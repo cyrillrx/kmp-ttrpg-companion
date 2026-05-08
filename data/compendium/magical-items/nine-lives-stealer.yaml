@@ -8,11 +8,11 @@ translations:
     name: Nine Lives Stealer
     subtype: Any Simple or Martial
     description: |-
-      <p>You gain a +2 bonus to attack rolls and damage rolls made with this magic weapon.<br />
-      <strong>Life Stealing</strong>. The weapon has 1d8 + 1 charges. When you attack a creature that has fewer than 100 Hit Points with this weapon and roll a 20 on the d20 for the attack roll, the creature must succeed on a DC 15 Constitution saving throw or be slain instantly as the sword tears its life force from its body. Constructs and Undead succeed on the save automatically. The weapon loses 1 charge if the creature is slain. When the weapon has no charges remaining, it loses this property.</p>
+      You gain a +2 bonus to attack rolls and damage rolls made with this magic weapon.\
+      **Life Stealing**. The weapon has 1d8 + 1 charges. When you attack a creature that has fewer than 100 Hit Points with this weapon and roll a 20 on the d20 for the attack roll, the creature must succeed on a DC 15 Constitution saving throw or be slain instantly as the sword tears its life force from its body. Constructs and Undead succeed on the save automatically. The weapon loses 1 charge if the creature is slain. When the weapon has no charges remaining, it loses this property.
   fr:
     name: Voleuse de vie
     subtype: courante ou de guerre
     description: |-
-      <p>Vous obtenez un bonus de +2 aux jets d'attaque et de dégâts effectués avec cette arme magique.<br />
-      <strong>Vol de vie</strong>. L'arme possède 1d8 + 1 charges. Lorsque vous attaquez une créature ayant moins de 100 points de vie avec cette arme et obtenez un 20 au d20 du jet d'attaque, la créature doit réussir un jet de sauvegarde de Constitution DD 15 sous peine d'être tuée instantanément, l'épée lui arrachant sa force vitale. Les Artificiels et les Morts-vivants réussissent automatiquement ce jet. L'arme perd 1 charge si la créature est tuée. Lorsqu'elle n'a plus de charge, elle perd cette propriété.</p>
+      Vous obtenez un bonus de +2 aux jets d'attaque et de dégâts effectués avec cette arme magique.\
+      **Vol de vie**. L'arme possède 1d8 + 1 charges. Lorsque vous attaquez une créature ayant moins de 100 points de vie avec cette arme et obtenez un 20 au d20 du jet d'attaque, la créature doit réussir un jet de sauvegarde de Constitution DD 15 sous peine d'être tuée instantanément, l'épée lui arrachant sa force vitale. Les Artificiels et les Morts-vivants réussissent automatiquement ce jet. L'arme perd 1 charge si la créature est tuée. Lorsqu'elle n'a plus de charge, elle perd cette propriété.

@@ -89,13 +89,19 @@ translations:
     name: Earth Elemental
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Earth Glide</em>**. The elemental can burrow through nonmagical, unworked earth and stone. While doing so, the elemental doesn't disturb the material it moves through.</p>
-      <p><strong><em>Siege Monster</em></strong>. The elemental deals double damage to objects and structures.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The elemental makes two attacks, using Slam or Rock Launch in any combination.</p>
-      <p><strong><em>Slam</em></strong>. <em>Melee Attack Roll</em> : +8, reach 10 ft. <em>Hit</em> : 14 (2d8 + 5) Bludgeoning damage.</p>
-      <p><strong><em>Rock Launch</em></strong>. <em>Ranged Attack Roll</em> : +8, range 60 ft. <em>Hit</em> : 8 (1d6 + 5) Bludgeoning damage. If the target is a Large or smaller creature, it has the Prone condition.</p>
+      ## Traits
+
+      ***Earth Glide***. The elemental can burrow through nonmagical, unworked earth and stone. While doing so, the elemental doesn't disturb the material it moves through.
+
+      ***Siege Monster***. The elemental deals double damage to objects and structures.
+
+      ## Actions
+
+      ***Multiattack***. The elemental makes two attacks, using Slam or Rock Launch in any combination.
+
+      ***Slam***. *Melee Attack Roll* : +8, reach 10 ft. *Hit* : 14 (2d8 + 5) Bludgeoning damage.
+
+      ***Rock Launch***. *Ranged Attack Roll* : +8, range 60 ft. *Hit* : 8 (1d6 + 5) Bludgeoning damage. If the target is a Large or smaller creature, it has the Prone condition.
     senses: Darkvision 60 ft., Tremorsense 60 ft., Passive Perception 10
     languages:
     - Primordial (Terran)
@@ -103,13 +109,19 @@ translations:
     name: Élémentaire de la terre
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Déplacement tellurique</em>**. L'élémentaire peut se déplacer par fouissement dans la pierre et la terre brutes et non magiques. Ce faisant, il laisse intacte la structure de ce qu'il traverse.</p>
-      <p><strong><em>Monstre de siège</em></strong>. L'élémentaire inflige des dégâts doublés aux objets et aux structures.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. L'élémentaire effectue deux attaques, réparties à sa guise entre Coup et Projection de rocher.</p>
-      <p><strong><em>Coup</em></strong>. <em>Corps à corps</em> : +8, allonge 3 m. <em>Touché</em> : 14 (2d8 + 5) dégâts contondants.</p>
-      <p><strong><em>Projection de rocher</em></strong>. <em>À distance</em> : +8, portée 18 m. <em>Touché</em> : 8 (1d6 + 5) dégâts contondants. Si la cible est une créature de taille G ou inférieure, elle subit l'état À terre.</p>
+      ## Traits
+
+      ***Déplacement tellurique***. L'élémentaire peut se déplacer par fouissement dans la pierre et la terre brutes et non magiques. Ce faisant, il laisse intacte la structure de ce qu'il traverse.
+
+      ***Monstre de siège***. L'élémentaire inflige des dégâts doublés aux objets et aux structures.
+
+      ## Actions
+
+      ***Attaques multiples***. L'élémentaire effectue deux attaques, réparties à sa guise entre Coup et Projection de rocher.
+
+      ***Coup***. *Corps à corps* : +8, allonge 3 m. *Touché* : 14 (2d8 + 5) dégâts contondants.
+
+      ***Projection de rocher***. *À distance* : +8, portée 18 m. *Touché* : 8 (1d6 + 5) dégâts contondants. Si la cible est une créature de taille G ou inférieure, elle subit l'état À terre.
     senses: Vision dans le noir 18 m, perception des vibrations 18 m, Perception passive
       10
     languages:

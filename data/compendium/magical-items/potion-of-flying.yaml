@@ -8,11 +8,11 @@ translations:
     name: Potion of Flying
     subtype: null
     description: |-
-      <p>When you drink this potion, you gain a Fly Speed equal to your Speed for 1 hour and can hover. If you're in the air when the potion wears off, you fall unless you have some other means of staying aloft.<br />
-      This potion's clear liquid floats at the top of its container and has cloudy white impurities drifting in it.</p>
+      When you drink this potion, you gain a Fly Speed equal to your Speed for 1 hour and can hover. If you're in the air when the potion wears off, you fall unless you have some other means of staying aloft.\
+      This potion's clear liquid floats at the top of its container and has cloudy white impurities drifting in it.
   fr:
     name: Potion de vol
     subtype: null
     description: |-
-      <p>Lorsque vous buvez cette potion, vous gagnez une Vitesse de vol égale à votre Vitesse pendant 1 heure et pouvez réaliser un vol stationnaire. Si vous êtes en l'air lorsque l'effet de la potion se dissipe, vous chutez, sauf si vous avez un autre moyen de vous maintenir en l'air.<br />
-      Le liquide clair de cette potion flotte à la surface de son récipient et contient des impuretés blanches et troubles.</p>
+      Lorsque vous buvez cette potion, vous gagnez une Vitesse de vol égale à votre Vitesse pendant 1 heure et pouvez réaliser un vol stationnaire. Si vous êtes en l'air lorsque l'effet de la potion se dissipe, vous chutez, sauf si vous avez un autre moyen de vous maintenir en l'air.\
+      Le liquide clair de cette potion flotte à la surface de son récipient et contient des impuretés blanches et troubles.

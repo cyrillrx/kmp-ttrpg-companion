@@ -89,15 +89,23 @@ translations:
     name: Succubus
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Incubus Form</em>**. When the succubus finishes a Long Rest, it can shape-shift into an <a href="./incubus">Incubus</a>, using that stat block instead of this one.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The succubus makes one Fiendish Touch attack and uses Charm or Draining Kiss.</p>
-      <p><strong><em>Fiendish Touch</em></strong>. <em>Melee Attack Roll</em> : +7, reach 5 ft. <em>Hit</em> : 16 (2d10 + 5) Psychic damage.</p>
-      <p><strong><em>Charm</em></strong>. The succubus casts <em><a href="https://www.aidedd.org/spell/dominate-person">Dominate Person</a></em> (level 8 version), requiring no spell components and using Charisma as the spellcasting ability (spell save DC 15).</p>
-      <p><strong><em>Draining Kiss</em></strong>. <em>Constitution Saving Throw</em> : DC 15, one creature Charmed by the succubus within 5 feet. <em>Failure</em> : 13 (3d8) Psychic damage. <em>Success</em> : Half damage. <em>Failure or Success</em> : The target's Hit Point maximum decreases by an amount equal to the damage taken.</p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Shape-Shift</em>**. The succubus shape-shifts into a Medium or Small Humanoid, or it returns to its true form. Its game statistics are the same in each form, except its Fly Speed is available only in its true form. Any equipment it is wearing or carrying isn't transformed.</p>
+      ## Traits
+
+      ***Incubus Form***. When the succubus finishes a Long Rest, it can shape-shift into an [Incubus](./incubus), using that stat block instead of this one.
+
+      ## Actions
+
+      ***Multiattack***. The succubus makes one Fiendish Touch attack and uses Charm or Draining Kiss.
+
+      ***Fiendish Touch***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 16 (2d10 + 5) Psychic damage.
+
+      ***Charm***. The succubus casts *[Dominate Person](https://www.aidedd.org/spell/dominate-person)* (level 8 version), requiring no spell components and using Charisma as the spellcasting ability (spell save DC 15).
+
+      ***Draining Kiss***. *Constitution Saving Throw* : DC 15, one creature Charmed by the succubus within 5 feet. *Failure* : 13 (3d8) Psychic damage. *Success* : Half damage. *Failure or Success* : The target's Hit Point maximum decreases by an amount equal to the damage taken.
+
+      ## Bonus actions
+
+      ***Shape-Shift***. The succubus shape-shifts into a Medium or Small Humanoid, or it returns to its true form. Its game statistics are the same in each form, except its Fly Speed is available only in its true form. Any equipment it is wearing or carrying isn't transformed.
     senses: Darkvision 60 ft., Passive Perception 15
     languages:
     - Abyssal
@@ -107,15 +115,23 @@ translations:
     name: Succube
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Forme d'incube</em><strong>. Forme d'incube. Lorsque le succube termine un Repos long, il peut se transformer en </strong>incube** , le profil de celui-ci remplaçant alors le sien.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le succube effectue une attaque de Contact fiélon et recourt à Baiser dévitalisant ou Charme.</p>
-      <p><strong><em>Contact fiélon</em></strong>. <em>Corps à corps</em> : +7, allonge 1,50 m. <em>Touché</em> : 16 (2d10 + 5) dégâts psychiques.</p>
-      <p><strong><em>Baiser dévitalisant</em></strong>. <em>JdS Constitution</em> : DD 15, une créature dans un rayon de 1,50 m, Charmée par le succube. <em>Échec</em> : 13 (3d8) dégâts psychiques. <em>Réussite</em> : demi-dégâts. <em>Échec ou réussite</em> : le maximum de points de vie de la cible est réduit d'un montant égal aux dégâts subis.</p>
-      <p><strong><em>Charme</em></strong>. Le succube lance <em>domination de personne</em> (au niveau 8), sans composantes de sort, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 15).</p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Changement d'aspect</em>**. Le succube se transforme en Humanoïde de taille M ou P, ou bien reprend sa forme véritable. En dehors de sa catégorie de taille, son profil de jeu reste le même sous toutes les formes, si ce n'est la Vitesse de vol propre à sa forme véritable. Rien de ce qu'il porte n'est transformé.</p>
+      ## Traits
+
+      \*\* *Forme d'incube***. Forme d'incube. Lorsque le succube termine un Repos long, il peut se transformer en** incube\*\* , le profil de celui-ci remplaçant alors le sien.
+
+      ## Actions
+
+      ***Attaques multiples***. Le succube effectue une attaque de Contact fiélon et recourt à Baiser dévitalisant ou Charme.
+
+      ***Contact fiélon***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 16 (2d10 + 5) dégâts psychiques.
+
+      ***Baiser dévitalisant***. *JdS Constitution* : DD 15, une créature dans un rayon de 1,50 m, Charmée par le succube. *Échec* : 13 (3d8) dégâts psychiques. *Réussite* : demi-dégâts. *Échec ou réussite* : le maximum de points de vie de la cible est réduit d'un montant égal aux dégâts subis.
+
+      ***Charme***. Le succube lance *domination de personne* (au niveau 8), sans composantes de sort, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 15).
+
+      ## Actions Bonus
+
+      ***Changement d'aspect***. Le succube se transforme en Humanoïde de taille M ou P, ou bien reprend sa forme véritable. En dehors de sa catégorie de taille, son profil de jeu reste le même sous toutes les formes, si ce n'est la Vitesse de vol propre à sa forme véritable. Rien de ce qu'il porte n'est transformé.
     senses: Vision dans le noir 18 m, Perception passive 15
     languages:
     - abyssal

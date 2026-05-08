@@ -20,20 +20,15 @@ translations:
     range: Touch
     duration: 1 hour
     materialDescription: null
-    description: You touch a nonmagical weapon. Until the spell ends, that weapon
-      becomes a magic weapon with a +1 bonus to attack rolls and damage rolls. The
-      spell ends early if you cast it again.<br/><strong><em>Using a Higher-Level
-      Spell Slot</em></strong>. The bonus increases to +2 with a level 3–5 spell slot.
-      The bonus increases to +3 with a level 6+ spell slot.<br/>
+    description: |-
+      You touch a nonmagical weapon. Until the spell ends, that weapon becomes a magic weapon with a +1 bonus to attack rolls and damage rolls. The spell ends early if you cast it again.\
+      ***Using a Higher-Level Spell Slot***. The bonus increases to +2 with a level 3–5 spell slot. The bonus increases to +3 with a level 6+ spell slot.\
   fr:
     name: Arme magique
     castingTime: Action bonus
     range: Contact
     duration: 1 heure
     materialDescription: null
-    description: Vous touchez une arme non magique. Jusqu'à la fin du sort, cette
-      arme devient une arme magique avec un bonus de +1 aux jets d'attaque et de dégâts.
-      Le sort prend fin prématurément si vous le relancez.<br/><strong><em>Emplacement
-      de niveau supérieur</em></strong>. Le bonus passe à +2 avec un emplacement de
-      sort de niveau 3 à 5. Le bonus passe à +3 avec un emplacement de sort de niveau
-      6 ou supérieur.<br/>
+    description: |-
+      Vous touchez une arme non magique. Jusqu'à la fin du sort, cette arme devient une arme magique avec un bonus de +1 aux jets d'attaque et de dégâts. Le sort prend fin prématurément si vous le relancez.\
+      ***Emplacement de niveau supérieur***. Le bonus passe à +2 avec un emplacement de sort de niveau 3 à 5. Le bonus passe à +3 avec un emplacement de sort de niveau 6 ou supérieur.\

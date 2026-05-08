@@ -89,10 +89,13 @@ translations:
     name: Swarm of Rats
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Swarm</em>**. The swarm can occupy another creature's space and vice versa, and the swarm can move through any opening large enough for a Tiny rat. The swarm can't regain Hit Points or gain Temporary Hit Points.</p>
-      <h2>Actions</h2>
-      <p>** <em>Bites</em>**. <em>Melee Attack Roll</em> : +2, reach 5 ft. <em>Hit</em> : 5 (2d4) Piercing damage, or 2 (1d4) Piercing damage if the swarm is Bloodied.</p>
+      ## Traits
+
+      ***Swarm***. The swarm can occupy another creature's space and vice versa, and the swarm can move through any opening large enough for a Tiny rat. The swarm can't regain Hit Points or gain Temporary Hit Points.
+
+      ## Actions
+
+      ***Bites***. *Melee Attack Roll* : +2, reach 5 ft. *Hit* : 5 (2d4) Piercing damage, or 2 (1d4) Piercing damage if the swarm is Bloodied.
     senses: Darkvision 30 ft., Passive Perception 10
     languages:
     - None
@@ -100,10 +103,13 @@ translations:
     name: Nuée de rats
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Nuée</em>**. La nuée peut occuper l'espace d'une autre créature et réciproquement, et elle peut se déplacer par toute ouverture assez large pour un rat de taille TP. La nuée ne peut ni récupérer de points de vie ni recevoir de points de vie temporaires.</p>
-      <h2>Actions</h2>
-      <p>** <em>Morsures</em>**. <em>Corps à corps</em> : +2, allonge 1,50 m. <em>Touché</em> : 5 (2d4) dégâts perforants, ou 2 (1d4) dégâts perforants si la nuée est En péril.</p>
+      ## Traits
+
+      ***Nuée***. La nuée peut occuper l'espace d'une autre créature et réciproquement, et elle peut se déplacer par toute ouverture assez large pour un rat de taille TP. La nuée ne peut ni récupérer de points de vie ni recevoir de points de vie temporaires.
+
+      ## Actions
+
+      ***Morsures***. *Corps à corps* : +2, allonge 1,50 m. *Touché* : 5 (2d4) dégâts perforants, ou 2 (1d4) dégâts perforants si la nuée est En péril.
     senses: Vision dans le noir 9 m, Perception passive 10
     languages:
     - aucune

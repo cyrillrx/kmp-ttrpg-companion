@@ -89,10 +89,13 @@ translations:
     name: Giant Boar
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Bloodied Fury</em>**. The boar has Advantage on melee attack rolls while it is Bloodied.</p>
-      <h2>Actions</h2>
-      <p>** <em>Gore</em>**. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 10 (2d6 + 3) Piercing damage. If the target is a Large or smaller creature and the boar moved 20+ feet straight toward it immediately before the hit, the target takes an extra 7 (2d6) Piercing damage and has the Prone condition.</p>
+      ## Traits
+
+      ***Bloodied Fury***. The boar has Advantage on melee attack rolls while it is Bloodied.
+
+      ## Actions
+
+      ***Gore***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 10 (2d6 + 3) Piercing damage. If the target is a Large or smaller creature and the boar moved 20+ feet straight toward it immediately before the hit, the target takes an extra 7 (2d6) Piercing damage and has the Prone condition.
     senses: Passive Perception 8
     languages:
     - None
@@ -100,10 +103,13 @@ translations:
     name: Sanglier géant
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Fureur du péril</em>**. Le sanglier a un Avantage aux jets d'attaque de corps à corps lorsqu'il est En péril.</p>
-      <h2>Actions</h2>
-      <p>** <em>Coup de défense</em>**. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 10 (2d6 + 3) dégâts perforants. Si la cible est une créature de taille G ou inférieure et si le sanglier s'est déplacé en ligne droite d'un minimum de 6 m juste avant de la toucher, la cible subit 7 (2d6) dégâts perforants supplémentaires, ainsi que l'état À terre.</p>
+      ## Traits
+
+      ***Fureur du péril***. Le sanglier a un Avantage aux jets d'attaque de corps à corps lorsqu'il est En péril.
+
+      ## Actions
+
+      ***Coup de défense***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 10 (2d6 + 3) dégâts perforants. Si la cible est une créature de taille G ou inférieure et si le sanglier s'est déplacé en ligne droite d'un minimum de 6 m juste avant de la toucher, la cible subit 7 (2d6) dégâts perforants supplémentaires, ainsi que l'état À terre.
     senses: Perception passive 8
     languages:
     - aucune

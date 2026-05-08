@@ -89,14 +89,20 @@ translations:
     name: Githzerai Psion
     subtype: Gith
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The githzerai makes three Psychic Warp attacks.</p>
-      <p><strong><em>Psychic Warp</em></strong>. <em>Melee or Ranged Attack Roll</em> : +8, reach 5 ft. or range 120 ft. <em>Hit</em> : 26 (4d10 + 4) Psychic damage, and the target has the githzerai's choice of (A) the Charmed condition until the start of the githzerai's next turn or (B) the Prone condition, provided the target is a Large or smaller creature.</p>
-      <p><strong><em>Spellcasting</em></strong>. The githzerai casts one of the following spells, requiring no spell components and using Intelligence as the spellcasting ability (spell save DC 16):</p>
-      <p>At will: <em><a href="https://www.aidedd.org/spell/mage-hand">Mage Hand</a></em> (the hand is Invisible)<br />
-      1/day each: <em><a href="https://www.aidedd.org/spell/plane-shift">Plane Shift</a>, <a href="https://www.aidedd.org/spell/see-invisibility">See Invisibility</a></em>  </p>
-      <h2>Reactions</h2>
-      <p>** <em>Psionic Defense</em>**. The githzerai casts <em><a href="https://www.aidedd.org/spell/feather-fall">Feather Fall</a></em> or <em><a href="https://www.aidedd.org/spell/shield">Shield</a></em> in response to the spell's trigger, requiring no spell components and using the same spellcasting ability as Spellcasting.</p>
+      ## Actions
+
+      ***Multiattack***. The githzerai makes three Psychic Warp attacks.
+
+      ***Psychic Warp***. *Melee or Ranged Attack Roll* : +8, reach 5 ft. or range 120 ft. *Hit* : 26 (4d10 + 4) Psychic damage, and the target has the githzerai's choice of (A) the Charmed condition until the start of the githzerai's next turn or (B) the Prone condition, provided the target is a Large or smaller creature.
+
+      ***Spellcasting***. The githzerai casts one of the following spells, requiring no spell components and using Intelligence as the spellcasting ability (spell save DC 16):
+
+      At will: *[Mage Hand](https://www.aidedd.org/spell/mage-hand)* (the hand is Invisible)\
+      1/day each: *[Plane Shift](https://www.aidedd.org/spell/plane-shift), [See Invisibility](https://www.aidedd.org/spell/see-invisibility)*
+
+      ## Reactions
+
+      ***Psionic Defense***. The githzerai casts *[Feather Fall](https://www.aidedd.org/spell/feather-fall)* or *[Shield](https://www.aidedd.org/spell/shield)* in response to the spell's trigger, requiring no spell components and using the same spellcasting ability as Spellcasting.
     senses: Passive Perception 18
     languages:
     - Common
@@ -105,12 +111,15 @@ translations:
     name: Githzerai, psion
     subtype: Gith
     description: |-
-      <h2>Actions</h2>
-      <p>Attaques multiples.<br />
-      Distorsion psychique.<br />
-      Incantation.  </p>
-      <h2>Réactions</h2>
-      <p>Défense psionique.</p>
+      ## Actions
+
+      Attaques multiples.\
+      Distorsion psychique.\
+      Incantation.
+
+      ## Réactions
+
+      Défense psionique.
     senses: Perception passive 18
     languages:
     - commun

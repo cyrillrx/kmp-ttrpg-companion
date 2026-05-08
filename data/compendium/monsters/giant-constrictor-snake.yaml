@@ -89,10 +89,13 @@ translations:
     name: Giant Constrictor Snake
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The snake makes one Bite attack and uses Constrict.</p>
-      <p><strong><em>Bite</em></strong>. <em>Melee Attack Roll</em> : +6, reach 10 ft. <em>Hit</em> : 11 (2d6 + 4) Piercing damage.</p>
-      <p><strong><em>Constrict</em></strong>. <em>Strength Saving Throw</em> : DC 14, one Large or smaller creature the snake can see within 10 feet. <em>Failure</em> : 13 (2d8 + 4) Bludgeoning damage, and the target has the Grappled condition (escape DC 14).</p>
+      ## Actions
+
+      ***Multiattack***. The snake makes one Bite attack and uses Constrict.
+
+      ***Bite***. *Melee Attack Roll* : +6, reach 10 ft. *Hit* : 11 (2d6 + 4) Piercing damage.
+
+      ***Constrict***. *Strength Saving Throw* : DC 14, one Large or smaller creature the snake can see within 10 feet. *Failure* : 13 (2d8 + 4) Bludgeoning damage, and the target has the Grappled condition (escape DC 14).
     senses: Blindsight 10 ft., Passive Perception 12
     languages:
     - None
@@ -100,10 +103,13 @@ translations:
     name: Serpent constricteur géant
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le serpent effectue une attaque de Morsure et recourt à Constriction.</p>
-      <p><strong><em>Morsure</em></strong>. <em>Corps à corps</em> : +6, allonge 3 m. <em>Touché</em> : 11 (2d6 + 4) dégâts perforants.</p>
-      <p><strong><em>Constriction</em></strong>. <em>JdS Force</em> : DD 14, une créature de taille G ou inférieure que le serpent voit dans un rayon de 3 m. <em>Échec</em> : 13 (2d8 + 4) dégâts contondants, et la cible subit l'état Agrippé (évasion DD 14).</p>
+      ## Actions
+
+      ***Attaques multiples***. Le serpent effectue une attaque de Morsure et recourt à Constriction.
+
+      ***Morsure***. *Corps à corps* : +6, allonge 3 m. *Touché* : 11 (2d6 + 4) dégâts perforants.
+
+      ***Constriction***. *JdS Force* : DD 14, une créature de taille G ou inférieure que le serpent voit dans un rayon de 3 m. *Échec* : 13 (2d8 + 4) dégâts contondants, et la cible subit l'état Agrippé (évasion DD 14).
     senses: Vision aveugle 3 m, Perception passive 12
     languages:
     - aucune

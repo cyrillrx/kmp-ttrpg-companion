@@ -89,8 +89,9 @@ translations:
     name: Awakened Shrub
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Rake</em>**. <em>Melee Attack Roll</em> : +1, reach 5 ft. <em>Hit</em> : 1 Slashing damage.</p>
+      ## Actions
+
+      ***Rake***. *Melee Attack Roll* : +1, reach 5 ft. *Hit* : 1 Slashing damage.
     senses: Passive Perception 10
     languages:
     - Common plus one other language
@@ -98,8 +99,9 @@ translations:
     name: Arbuste éveillé
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Ratissage</em>**. <em>Corps à corps</em> : +1, allonge 1,50 m. <em>Touché</em> : 1 dégât tranchant.</p>
+      ## Actions
+
+      ***Ratissage***. *Corps à corps* : +1, allonge 1,50 m. *Touché* : 1 dégât tranchant.
     senses: Perception passive 10
     languages:
     - commun plus une autre langue

@@ -89,10 +89,13 @@ translations:
     name: Pirate
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The pirate makes two Dagger attacks. It can replace one of these attacks with a use of Enthralling Panache.</p>
-      <p><strong><em>Dagger</em></strong>. <em>Melee or Ranged Attack Roll</em> : +5, reach 5 ft. or range 20/60 ft. <em>Hit</em> : 5 (1d4 + 3) Piercing damage.</p>
-      <p><strong><em>Enthralling Panache</em></strong>. <em>Wisdom Saving Throw</em> : DC 12, one creature the pirate can see within 30 feet. <em>Failure</em> : The target has the Charmed condition until the start of the pirate's next turn.</p>
+      ## Actions
+
+      ***Multiattack***. The pirate makes two Dagger attacks. It can replace one of these attacks with a use of Enthralling Panache.
+
+      ***Dagger***. *Melee or Ranged Attack Roll* : +5, reach 5 ft. or range 20/60 ft. *Hit* : 5 (1d4 + 3) Piercing damage.
+
+      ***Enthralling Panache***. *Wisdom Saving Throw* : DC 12, one creature the pirate can see within 30 feet. *Failure* : The target has the Charmed condition until the start of the pirate's next turn.
     senses: Passive Perception 11
     languages:
     - Common plus one other language
@@ -100,10 +103,13 @@ translations:
     name: Pirate
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le pirate effectue deux attaques de Dague. Il peut remplacer l'une de ces attaques par une utilisation de Panache envoûtant.</p>
-      <p><strong><em>Dague</em></strong>. <em>Corps à corps ou à distance</em> : +5, allonge 1,50 m ou portée 6/18 m. <em>Touché</em> : 5 (1d4 + 3) dégâts perforants.</p>
-      <p><strong><em>Panache envoûtant</em></strong>. <em>JdS Sagesse</em> : DD 12, une créature que le pirate voit dans un rayon de 9 m. <em>Échec</em> : la cible subit l'état Charmé jusqu'au début du tour suivant du pirate.</p>
+      ## Actions
+
+      ***Attaques multiples***. Le pirate effectue deux attaques de Dague. Il peut remplacer l'une de ces attaques par une utilisation de Panache envoûtant.
+
+      ***Dague***. *Corps à corps ou à distance* : +5, allonge 1,50 m ou portée 6/18 m. *Touché* : 5 (1d4 + 3) dégâts perforants.
+
+      ***Panache envoûtant***. *JdS Sagesse* : DD 12, une créature que le pirate voit dans un rayon de 9 m. *Échec* : la cible subit l'état Charmé jusqu'au début du tour suivant du pirate.
     senses: Perception passive 11
     languages:
     - commun plus une autre langue

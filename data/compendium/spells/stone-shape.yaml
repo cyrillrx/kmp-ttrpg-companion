@@ -19,22 +19,13 @@ translations:
     range: Touch
     duration: Instantaneous
     materialDescription: soft clay
-    description: You touch a stone object of Medium size or smaller or a section of
-      stone no more than 5 feet in any dimension and form it into any shape you like.
-      For example, you could shape a large rock into a weapon, statue, or coffer,
-      or you could make a small passage through a wall that is 5 feet thick. You could
-      also shape a stone door or its frame to seal the door shut. The object you create
-      can have up to two hinges and a latch, but finer mechanical detail isn't possible.<br/>
+    description: |-
+      You touch a stone object of Medium size or smaller or a section of stone no more than 5 feet in any dimension and form it into any shape you like. For example, you could shape a large rock into a weapon, statue, or coffer, or you could make a small passage through a wall that is 5 feet thick. You could also shape a stone door or its frame to seal the door shut. The object you create can have up to two hinges and a latch, but finer mechanical detail isn't possible.\
   fr:
     name: Façonnage de la pierre
     castingTime: Action
     range: Contact
     duration: Instantanée
     materialDescription: de la terre glaise
-    description: Vous touchez un objet en pierre de taille M ou inférieure, ou un
-      morceau de pierre ne dépassant pas 1,50 mètre, et lui donnez la forme de votre
-      choix. Par exemple, vous pouvez façonner une grosse pierre en arme, statue ou
-      coffre, ou percer un petit passage à travers un mur de 1,50 mètre d'épaisseur.
-      Vous pouvez également façonner une porte en pierre ou son cadre pour la fermer
-      hermétiquement. L'objet ainsi créé peut comporter jusqu'à deux charnières et
-      un loquet, mais aucun mécanisme plus précis n'est possible.<br/>
+    description: |-
+      Vous touchez un objet en pierre de taille M ou inférieure, ou un morceau de pierre ne dépassant pas 1,50 mètre, et lui donnez la forme de votre choix. Par exemple, vous pouvez façonner une grosse pierre en arme, statue ou coffre, ou percer un petit passage à travers un mur de 1,50 mètre d'épaisseur. Vous pouvez également façonner une porte en pierre ou son cadre pour la fermer hermétiquement. L'objet ainsi créé peut comporter jusqu'à deux charnières et un loquet, mais aucun mécanisme plus précis n'est possible.\

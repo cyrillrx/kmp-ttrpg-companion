@@ -89,13 +89,19 @@ translations:
     name: Priest Acolyte
     subtype: Cleric
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Mace</em>**. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 5 (1d6 + 2) Bludgeoning damage plus 2 (1d4) Radiant damage.</p>
-      <p><strong><em>Radiant Flame</em></strong>. <em>Ranged Attack Roll</em> : +4, range 60 ft. <em>Hit</em> : 7 (2d6) Radiant damage.</p>
-      <p><strong><em>Spellcasting</em></strong>. The priest casts one of the following spells, using Wisdom as the spellcasting ability:</p>
-      <p>At will: <em><a href="https://www.aidedd.org/spell/light">Light</a>, <a href="https://www.aidedd.org/spell/thaumaturgy">Thaumaturgy</a></em>  </p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Divine Aid (1/Day)</em>**. The priest casts <em><a href="https://www.aidedd.org/spell/bless">Bless</a>, <a href="https://www.aidedd.org/spell/healing-word">Healing Word</a></em>, or <em><a href="https://www.aidedd.org/spell/sanctuary">Sanctuary</a></em> , using the same spellcasting ability as Spellcasting.</p>
+      ## Actions
+
+      ***Mace***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 5 (1d6 + 2) Bludgeoning damage plus 2 (1d4) Radiant damage.
+
+      ***Radiant Flame***. *Ranged Attack Roll* : +4, range 60 ft. *Hit* : 7 (2d6) Radiant damage.
+
+      ***Spellcasting***. The priest casts one of the following spells, using Wisdom as the spellcasting ability:
+
+      At will: *[Light](https://www.aidedd.org/spell/light), [Thaumaturgy](https://www.aidedd.org/spell/thaumaturgy)*
+
+      ## Bonus actions
+
+      ***Divine Aid (1/Day)***. The priest casts *[Bless](https://www.aidedd.org/spell/bless), [Healing Word](https://www.aidedd.org/spell/healing-word)*, or *[Sanctuary](https://www.aidedd.org/spell/sanctuary)* , using the same spellcasting ability as Spellcasting.
     senses: Passive Perception 12
     languages:
     - Common
@@ -103,13 +109,19 @@ translations:
     name: Prêtre, acolyte
     subtype: Clerc
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Masse d'armes</em>**. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 5 (1d6 + 2) dégâts contondants plus 2 (1d4) dégâts radiants.</p>
-      <p><strong><em>Flamme radiante</em></strong>. <em>À distance</em> : +4, portée 18 m. <em>Touché</em> : 7 (2d6) dégâts radiants.</p>
-      <p><strong><em>Incantation</em></strong>. Le prêtre lance l'un des sorts suivants, la Sagesse étant sa caractéristique d'incantation :</p>
-      <p>À volonté : <em>lumière,<a href="https://www.aidedd.org/spell/fr/thaumaturgie">thaumaturgie</a></em>  </p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Soutien divin (1/jour)</em>**. L'acolyte lance <em>bénédiction, mot de guérison</em> ou <em>sanctuaire</em> , avec la même caractéristique d'incantation que pour Incantation.</p>
+      ## Actions
+
+      ***Masse d'armes***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 5 (1d6 + 2) dégâts contondants plus 2 (1d4) dégâts radiants.
+
+      ***Flamme radiante***. *À distance* : +4, portée 18 m. *Touché* : 7 (2d6) dégâts radiants.
+
+      ***Incantation***. Le prêtre lance l'un des sorts suivants, la Sagesse étant sa caractéristique d'incantation :
+
+      À volonté : *lumière,[thaumaturgie](https://www.aidedd.org/spell/fr/thaumaturgie)*
+
+      ## Actions Bonus
+
+      ***Soutien divin (1/jour)***. L'acolyte lance *bénédiction, mot de guérison* ou *sanctuaire* , avec la même caractéristique d'incantation que pour Incantation.
     senses: Perception passive 12
     languages:
     - commun

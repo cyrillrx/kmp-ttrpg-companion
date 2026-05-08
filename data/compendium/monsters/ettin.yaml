@@ -89,10 +89,13 @@ translations:
     name: Ettin
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The ettin makes one Battleaxe attack and one Morningstar attack.</p>
-      <p><strong><em>Battleaxe</em></strong>. <em>Melee Attack Roll</em> : +7, reach 5 ft. <em>Hit</em> : 14 (2d8 + 5) Slashing damage. If the target is a Large or smaller creature, it has the Prone condition.</p>
-      <p><strong><em>Morningstar</em></strong>. <em>Melee Attack Roll</em> : +7, reach 5 ft. <em>Hit</em> : 14 (2d8 + 5) Piercing damage, and the target has Disadvantage on the next attack roll it makes before the end of its next turn.</p>
+      ## Actions
+
+      ***Multiattack***. The ettin makes one Battleaxe attack and one Morningstar attack.
+
+      ***Battleaxe***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 14 (2d8 + 5) Slashing damage. If the target is a Large or smaller creature, it has the Prone condition.
+
+      ***Morningstar***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 14 (2d8 + 5) Piercing damage, and the target has Disadvantage on the next attack roll it makes before the end of its next turn.
     senses: Darkvision 60 ft., Passive Perception 14
     languages:
     - Giant
@@ -100,10 +103,13 @@ translations:
     name: Ettin
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. L'ettin effectue une attaque de Hache d'armes et une de Morgenstern.</p>
-      <p><strong><em>Hache d'armes</em></strong>. <em>Corps à corps</em> : +7, allonge 1,50 m. <em>Touché</em> : 14 (2d8 + 5) dégâts tranchants. Si la cible est une créature de taille G ou inférieure, elle subit l'état À terre.</p>
-      <p><strong><em>Morgenstern</em></strong>. <em>Corps à corps</em> : +7, allonge 1,50 m. <em>Touché</em> : 14 (2d8 + 5) dégâts perforants, et la cible subit un Désavantage à son prochain jet d'attaque intervenant avant la fin de son tour suivant.</p>
+      ## Actions
+
+      ***Attaques multiples***. L'ettin effectue une attaque de Hache d'armes et une de Morgenstern.
+
+      ***Hache d'armes***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 14 (2d8 + 5) dégâts tranchants. Si la cible est une créature de taille G ou inférieure, elle subit l'état À terre.
+
+      ***Morgenstern***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 14 (2d8 + 5) dégâts perforants, et la cible subit un Désavantage à son prochain jet d'attaque intervenant avant la fin de son tour suivant.
     senses: Vision dans le noir 18 m, Perception passive 14
     languages:
     - géant

@@ -89,14 +89,21 @@ translations:
     name: Poltergeist
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Incorporeal Movement</em>**. The poltergeist can move through other creatures and objects as if they were Difficult Terrain. It takes 5 (1d10) Force damage if it ends its turn inside an object.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The poltergeist makes one Object Slam attack and uses Telekinetic Thrust.</p>
-      <p><strong><em>Object Slam</em></strong>. <em>Melee or Ranged Attack Roll</em> : +4, reach 5 ft. or range 30 ft. <em>Hit</em> : 7 (2d4 + 2) Bludgeoning damage.</p>
-      <p><strong><em>Telekinetic Thrust</em></strong>. <em>Strength Saving Throw</em> : DC 12, one creature the poltergeist can see within 30 feet. <em>Failure</em> : 9 (2d6 + 2) Force damage, and the target is pushed up to 30 feet straight away from the poltergeist.</p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Vanish</em>**. The poltergeist gives itself the Invisible condition or ends that condition on itself.</p>
+      ## Traits
+
+      ***Incorporeal Movement***. The poltergeist can move through other creatures and objects as if they were Difficult Terrain. It takes 5 (1d10) Force damage if it ends its turn inside an object.
+
+      ## Actions
+
+      ***Multiattack***. The poltergeist makes one Object Slam attack and uses Telekinetic Thrust.
+
+      ***Object Slam***. *Melee or Ranged Attack Roll* : +4, reach 5 ft. or range 30 ft. *Hit* : 7 (2d4 + 2) Bludgeoning damage.
+
+      ***Telekinetic Thrust***. *Strength Saving Throw* : DC 12, one creature the poltergeist can see within 30 feet. *Failure* : 9 (2d6 + 2) Force damage, and the target is pushed up to 30 feet straight away from the poltergeist.
+
+      ## Bonus actions
+
+      ***Vanish***. The poltergeist gives itself the Invisible condition or ends that condition on itself.
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - Common plus one other language
@@ -104,14 +111,21 @@ translations:
     name: Poltergeist
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Déplacement intangible</em>**. Le poltergeist peut traverser d'autres créatures et objets comme s'il s'agissait d'un Terrain difficile. Il subit 5 (1d10) dégâts de force s'il termine son tour à l'intérieur d'un objet.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le poltergeist effectue une attaque de Frappe d'objet et utilise Poussée télékinétique.</p>
-      <p><strong><em>Frappe d'objet</em></strong>. <em>Corps à corps ou à distance</em> : +4, allonge 1,50 m ou portée 9 m. <em>Touché</em> : 7 (2d4 + 2) dégâts contondants.</p>
-      <p><strong><em>Poussée télékinétique</em></strong>. <em>JdS Force</em> : DD 12, une créature que le poltergeist peut voir dans un rayon de 9 m. <em>Échec</em> : 9 (2d6 + 2) dégâts de Force, et la cible est repoussée en ligne droite jusqu'à 9 m du poltergeist.</p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Disparition</em>**. Le poltergeist s'octroie l'état Invisible ou y met fin.</p>
+      ## Traits
+
+      ***Déplacement intangible***. Le poltergeist peut traverser d'autres créatures et objets comme s'il s'agissait d'un Terrain difficile. Il subit 5 (1d10) dégâts de force s'il termine son tour à l'intérieur d'un objet.
+
+      ## Actions
+
+      ***Attaques multiples***. Le poltergeist effectue une attaque de Frappe d'objet et utilise Poussée télékinétique.
+
+      ***Frappe d'objet***. *Corps à corps ou à distance* : +4, allonge 1,50 m ou portée 9 m. *Touché* : 7 (2d4 + 2) dégâts contondants.
+
+      ***Poussée télékinétique***. *JdS Force* : DD 12, une créature que le poltergeist peut voir dans un rayon de 9 m. *Échec* : 9 (2d6 + 2) dégâts de Force, et la cible est repoussée en ligne droite jusqu'à 9 m du poltergeist.
+
+      ## Actions Bonus
+
+      ***Disparition***. Le poltergeist s'octroie l'état Invisible ou y met fin.
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - commun plus une autre langue

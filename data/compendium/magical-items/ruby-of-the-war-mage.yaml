@@ -7,18 +7,10 @@ translations:
   en:
     name: Ruby of the War Mage
     subtype: null
-    description: <p>Etched with eldritch runes, this 1-inch-diameter ruby allows you
-      to use a Simple or Martial weapon as a Spellcasting Focus for your spells. For
-      this property to work, you must attach the ruby to the weapon by pressing the
-      ruby against it for at least 10 minutes. Thereafter, the ruby can't be removed
-      unless you detach it as a Magic action, the weapon is destroyed, or your Attunement
-      to the ruby ends.</p>
+    description: |-
+      Etched with eldritch runes, this 1-inch-diameter ruby allows you to use a Simple or Martial weapon as a Spellcasting Focus for your spells. For this property to work, you must attach the ruby to the weapon by pressing the ruby against it for at least 10 minutes. Thereafter, the ruby can't be removed unless you detach it as a Magic action, the weapon is destroyed, or your Attunement to the ruby ends.
   fr:
     name: Rubis du mage de guerre
     subtype: null
-    description: <p>Gravé de runes mystérieuses, ce rubis de 2,50 cm de diamètre vous
-      permet d'utiliser une arme courante ou de guerre comme focaliseur d'incantation.
-      Pour que cette propriété soit active, vous devez fixer le rubis sur l'arme en
-      le pressant contre elle pendant au moins 10 minutes. Ensuite, le rubis ne peut
-      être retiré que par une action Magie, si l'arme est détruite ou si votre lien
-      avec le rubis prend fin.</p>
+    description: |-
+      Gravé de runes mystérieuses, ce rubis de 2,50 cm de diamètre vous permet d'utiliser une arme courante ou de guerre comme focaliseur d'incantation. Pour que cette propriété soit active, vous devez fixer le rubis sur l'arme en le pressant contre elle pendant au moins 10 minutes. Ensuite, le rubis ne peut être retiré que par une action Magie, si l'arme est détruite ou si votre lien avec le rubis prend fin.

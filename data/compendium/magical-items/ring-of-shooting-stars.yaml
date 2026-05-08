@@ -8,33 +8,35 @@ translations:
     name: Ring of Shooting Stars
     subtype: null
     description: |-
-      <p>You can cast <em><a href="https://www.aidedd.org/spell/dancing-lights">Dancing Lights</a></em> or <em><a href="https://www.aidedd.org/spell/light">Light</a></em> from the ring.<br />
-      The ring has 6 charges and regains 1d6 expended charges daily at dawn. You can expend its charges to use the properties below.<br />
-      <strong>Faerie Fire</strong>. You can expend 1 charge to cast <em><a href="https://www.aidedd.org/spell/faerie-fire">Faerie Fire</a></em> from the ring.<br />
-      <strong>Lightning Spheres</strong>. You can expend 2 charges as a Magic action to create up to four 3-foot-diameter spheres of lightning.<br />
-      Each sphere appears in an unoccupied space you can see within 120 feet of yourself. The spheres last as long as you maintain Concentration, up to 1 minute. Each sphere sheds Dim Light in a 30-foot radius.<br />
-      As a Bonus Action, you can move each sphere up to 30 feet, but no farther than 120 feet away from yourself. The first time the sphere comes within 5 feet of a creature other than you that isn't behind Total Cover, the sphere discharges lightning at that creature and disappears. That creature makes a DC 15 Dexterity saving throw. On a failed save, the creature takes Lightning damage based on the number of spheres you created, as shown in the following table. On a successful save, the creature takes half as much damage.<br />
-      Number of Spheres| Lightning Damage<br />
-      ---|---<br />
-      1| 4d12<br />
-      2| 5d4<br />
-      3| 2d6<br />
-      4| 2d4  </p>
-      <p><strong>Shooting Stars</strong>. You can expend 1 to 3 charges as a Magic action. For every charge you expend, you launch a glowing mote of light from the ring at a point you can see within 60 feet of yourself. Each creature in a 15-foot Cube originating from that point is showered in sparks and makes a DC 15 Dexterity saving throw, taking 5d4 Radiant damage on a failed save or half as much damage on a successful one.</p>
+      You can cast *[Dancing Lights](https://www.aidedd.org/spell/dancing-lights)* or *[Light](https://www.aidedd.org/spell/light)* from the ring.\
+      The ring has 6 charges and regains 1d6 expended charges daily at dawn. You can expend its charges to use the properties below.\
+      **Faerie Fire**. You can expend 1 charge to cast *[Faerie Fire](https://www.aidedd.org/spell/faerie-fire)* from the ring.\
+      **Lightning Spheres**. You can expend 2 charges as a Magic action to create up to four 3-foot-diameter spheres of lightning.\
+      Each sphere appears in an unoccupied space you can see within 120 feet of yourself. The spheres last as long as you maintain Concentration, up to 1 minute. Each sphere sheds Dim Light in a 30-foot radius.\
+      As a Bonus Action, you can move each sphere up to 30 feet, but no farther than 120 feet away from yourself. The first time the sphere comes within 5 feet of a creature other than you that isn't behind Total Cover, the sphere discharges lightning at that creature and disappears. That creature makes a DC 15 Dexterity saving throw. On a failed save, the creature takes Lightning damage based on the number of spheres you created, as shown in the following table. On a successful save, the creature takes half as much damage.\
+      | Number of Spheres | Lightning Damage |
+      | --- | --- |
+      | 1 | 4d12 |
+      | 2 | 5d4 |
+      | 3 | 2d6 |
+      | 4 | 2d4 |
+
+      **Shooting Stars**. You can expend 1 to 3 charges as a Magic action. For every charge you expend, you launch a glowing mote of light from the ring at a point you can see within 60 feet of yourself. Each creature in a 15-foot Cube originating from that point is showered in sparks and makes a DC 15 Dexterity saving throw, taking 5d4 Radiant damage on a failed save or half as much damage on a successful one.
   fr:
     name: Anneau de feu d'étoiles
     subtype: null
     description: |-
-      <p>Vous pouvez lancer <em><a href="https://www.aidedd.org/spell/fr/lumieres-dansantes">lumières dansantes</a></em> ou <em><a href="https://www.aidedd.org/spell/fr/lumiere">lumière</a></em> depuis l'anneau.<br />
-      L'anneau possède 6 charges et récupère 1d6 charges dépensées chaque jour à l'aube. Vous pouvez dépenser ses charges pour utiliser les propriétés ci-dessous.<br />
-      <strong>Lueurs féériques</strong>. Vous pouvez dépenser 1 charge pour lancer <em><a href="https://www.aidedd.org/spell/fr/lueurs-feeriques">lueurs féériques</a></em> depuis l'anneau.<br />
-      <strong>Sphères de foudre</strong>. Vous pouvez dépenser 2 charges par une action Magie pour créer jusqu'à quatre sphères de foudre de 90 cm de diamètre.<br />
-      Chaque sphère apparaît dans un espace libre que vous pouvez voir dans un rayon de 36 mètres. Les sphères durent tant que vous maintenez votre Concentration, jusqu'à 1 minute. Chaque sphère projette une Lumière faible sur un rayon de 9 mètres.<br />
-      Par une action Bonus, vous pouvez déplacer chaque sphère jusqu'à 9 mètres, mais pas à plus de 36 mètres de vous. La première fois que la sphère s'approche 1,50 mètre ou moins d'une créature autre que vous qui n'a pas d'Abri total, elle projette un éclair sur cette créature et disparaît. Cette créature effectue un jet de sauvegarde de Dextérité DD 15. En cas d'échec, la créature subit des dégâts de foudre calculés en fonction du nombre de sphères que vous avez créées, comme indiqué dans la table suivante. En cas de réussite, la créature ne subit que la moitié des dégâts.<br />
-      Nombre de sphères| Dégâts de foudre<br />
-      ---|---<br />
-      1| 4d12<br />
-      2| 5d4<br />
-      3| 2d6<br />
-      4| 2d4  </p>
-      <p><strong>Étoiles filantes</strong>. Vous pouvez dépenser 1 à 3 charges par une action Magie. Pour chaque charge dépensée, vous lancez un rayon de lumière depuis l'anneau vers un point que vous pouvez voir dans un rayon de 18 mètres. Chaque créature dans un Cube de 4,50 mètres de côté partant de ce point est couverte d'étincelles et effectue un jet de sauvegarde de Dextérité DD 15, subissant 5d4 dégâts radiants en cas d'échec ou la moitié de ces dégâts en cas de réussite.</p>
+      Vous pouvez lancer *[lumières dansantes](https://www.aidedd.org/spell/fr/lumieres-dansantes)* ou *[lumière](https://www.aidedd.org/spell/fr/lumiere)* depuis l'anneau.\
+      L'anneau possède 6 charges et récupère 1d6 charges dépensées chaque jour à l'aube. Vous pouvez dépenser ses charges pour utiliser les propriétés ci-dessous.\
+      **Lueurs féériques**. Vous pouvez dépenser 1 charge pour lancer *[lueurs féériques](https://www.aidedd.org/spell/fr/lueurs-feeriques)* depuis l'anneau.\
+      **Sphères de foudre**. Vous pouvez dépenser 2 charges par une action Magie pour créer jusqu'à quatre sphères de foudre de 90 cm de diamètre.\
+      Chaque sphère apparaît dans un espace libre que vous pouvez voir dans un rayon de 36 mètres. Les sphères durent tant que vous maintenez votre Concentration, jusqu'à 1 minute. Chaque sphère projette une Lumière faible sur un rayon de 9 mètres.\
+      Par une action Bonus, vous pouvez déplacer chaque sphère jusqu'à 9 mètres, mais pas à plus de 36 mètres de vous. La première fois que la sphère s'approche 1,50 mètre ou moins d'une créature autre que vous qui n'a pas d'Abri total, elle projette un éclair sur cette créature et disparaît. Cette créature effectue un jet de sauvegarde de Dextérité DD 15. En cas d'échec, la créature subit des dégâts de foudre calculés en fonction du nombre de sphères que vous avez créées, comme indiqué dans la table suivante. En cas de réussite, la créature ne subit que la moitié des dégâts.\
+      | Nombre de sphères | Dégâts de foudre |
+      | --- | --- |
+      | 1 | 4d12 |
+      | 2 | 5d4 |
+      | 3 | 2d6 |
+      | 4 | 2d4 |
+
+      **Étoiles filantes**. Vous pouvez dépenser 1 à 3 charges par une action Magie. Pour chaque charge dépensée, vous lancez un rayon de lumière depuis l'anneau vers un point que vous pouvez voir dans un rayon de 18 mètres. Chaque créature dans un Cube de 4,50 mètres de côté partant de ce point est couverte d'étincelles et effectue un jet de sauvegarde de Dextérité DD 15, subissant 5d4 dégâts radiants en cas d'échec ou la moitié de ces dégâts en cas de réussite.

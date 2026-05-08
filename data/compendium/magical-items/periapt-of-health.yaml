@@ -8,13 +8,10 @@ translations:
     name: Periapt of Health
     subtype: null
     description: |-
-      <p>While wearing this pendant, you can take a Magic action to regain 2d4 + 2 Hit Points. Once used, this property can't be used again until the next dawn.<br />
-      In addition, you have Advantage on saving throws to avoid or end the Poisoned condition while you wear this pendant.</p>
+      While wearing this pendant, you can take a Magic action to regain 2d4 + 2 Hit Points. Once used, this property can't be used again until the next dawn.\
+      In addition, you have Advantage on saving throws to avoid or end the Poisoned condition while you wear this pendant.
   fr:
     name: Amulette de santé
     subtype: null
-    description: <p>Si vous portez ce pendentif, vous pouvez prendre une action Magie
-      pour récupérer 2d4 + 2 points de vie. Une fois utilisée, cette propriété ne
-      peut plus être utilisée avant l'aube suivante. De plus, vous bénéficiez d'un
-      Avantage aux jets de sauvegarde pour éviter ou mettre fin à l'état Empoisonné
-      lorsque vous portez ce pendentif.</p>
+    description: |-
+      Si vous portez ce pendentif, vous pouvez prendre une action Magie pour récupérer 2d4 + 2 points de vie. Une fois utilisée, cette propriété ne peut plus être utilisée avant l'aube suivante. De plus, vous bénéficiez d'un Avantage aux jets de sauvegarde pour éviter ou mettre fin à l'état Empoisonné lorsque vous portez ce pendentif.

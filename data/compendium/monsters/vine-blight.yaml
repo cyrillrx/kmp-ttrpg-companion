@@ -89,9 +89,11 @@ translations:
     name: Vine Blight
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Constricting Vine</em>**. <em>Melee Attack Roll</em> : +4, reach 10 ft. <em>Hit</em> : 6 (1d8 + 2) Bludgeoning damage. If the target is a Large or smaller creature, it has the Grappled condition (escape DC 12). Until the grapple ends, the target takes 4 (1d8) Bludgeoning damage at the start of each of its turns, and the blight can't make Constricting Vine attacks.</p>
-      <p><strong><em>Entangling Plants (Recharge 5–6)</em></strong>. The blight casts the <em><a href="https://www.aidedd.org/spell/entangle">Entangle</a></em> spell, using Constitution as the spellcasting ability (spell save DC 12).</p>
+      ## Actions
+
+      ***Constricting Vine***. *Melee Attack Roll* : +4, reach 10 ft. *Hit* : 6 (1d8 + 2) Bludgeoning damage. If the target is a Large or smaller creature, it has the Grappled condition (escape DC 12). Until the grapple ends, the target takes 4 (1d8) Bludgeoning damage at the start of each of its turns, and the blight can't make Constricting Vine attacks.
+
+      ***Entangling Plants (Recharge 5–6)***. The blight casts the *[Entangle](https://www.aidedd.org/spell/entangle)* spell, using Constitution as the spellcasting ability (spell save DC 12).
     senses: Blindsight 60 ft., Passive Perception 10
     languages:
     - Common
@@ -99,9 +101,11 @@ translations:
     name: Lierreux
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Lierre constricteur</em>**. <em>Corps à corps</em> : +4, allonge 3 m. <em>Touché</em> : 6 (1d8 + 2) dégâts contondants. Si la cible est une créature de taille G ou inférieure, elle subit l'état Agrippé (évasion DD 12). Tant qu'elle est agrippée, la cible subit 4 (1d8) dégâts contondants au début de chacun de ses tours, et la créature ne peut pas utiliser ses attaques de Lierre constricteur.</p>
-      <p><strong><em>Invasion végétale (recharge 5–6)</em></strong>. Le lierreux lance le sort <em><a href="https://www.aidedd.org/spell/fr/enchevetrement">enchevêtrement</a></em> , en utilisant la Constitution comme caractéristique d'incantation (DD de sauvegarde 12).</p>
+      ## Actions
+
+      ***Lierre constricteur***. *Corps à corps* : +4, allonge 3 m. *Touché* : 6 (1d8 + 2) dégâts contondants. Si la cible est une créature de taille G ou inférieure, elle subit l'état Agrippé (évasion DD 12). Tant qu'elle est agrippée, la cible subit 4 (1d8) dégâts contondants au début de chacun de ses tours, et la créature ne peut pas utiliser ses attaques de Lierre constricteur.
+
+      ***Invasion végétale (recharge 5–6)***. Le lierreux lance le sort *[enchevêtrement](https://www.aidedd.org/spell/fr/enchevetrement)* , en utilisant la Constitution comme caractéristique d'incantation (DD de sauvegarde 12).
     senses: Vision aveugle 18 m, Perception passive 10
     languages:
     - commun

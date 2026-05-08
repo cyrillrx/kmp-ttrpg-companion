@@ -89,21 +89,34 @@ translations:
     name: Adult Black Dragon
     subtype: Chromatic
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Amphibious</em>**. The dragon can breathe air and water.</p>
-      <p><strong><em>Legendary Resistance (3/Day, or 4/Day in Lair)</em></strong>. If the dragon fails a saving throw, it can choose to succeed instead.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The dragon makes three Rend attacks. It can replace one attack with a use of Spellcasting to cast <em><a href="https://www.aidedd.org/spell/melf-s-acid-arrow">Melf's Acid Arrow</a></em> (level 3 version).</p>
-      <p><strong><em>Rend</em></strong>. <em>Melee Attack Roll</em> : +11, reach 10 ft. <em>Hit</em> : 13 (2d6 + 6) Slashing damage plus 4 (1d8) Acid damage.</p>
-      <p><strong><em>Acid Breath (Recharge 5–6)</em></strong>. <em>Dexterity Saving Throw</em> : DC 18, each creature in a 60-foot-long, 5-foot-wide Line. <em>Failure</em> : 54 (12d8) Acid damage. <em>Success</em> : Half damage.</p>
-      <p><strong><em>Spellcasting</em></strong>. The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 17, +9 to hit with spell attacks):</p>
-      <p>At Will: <em><a href="https://www.aidedd.org/spell/detect-magic">Detect Magic</a>, <a href="https://www.aidedd.org/spell/fear">Fear</a>, <a href="https://www.aidedd.org/spell/melf-s-acid-arrow">Melf's Acid Arrow</a></em> (level 3 version)<br />
-      1/Day Each: <em><a href="https://www.aidedd.org/spell/speak-with-dead">Speak with Dead</a>, <a href="https://www.aidedd.org/spell/vitriolic-sphere">Vitriolic Sphere</a></em>  </p>
-      <h2>Legendary actions</h2>
-      <p>Legendary Action Uses: 3 (4 in Lair). Immediately after another creature's turn, the dragon can expend a use to take one of the following actions. The dragon regains all expended uses at the start of each of its turns. </p>
-      <p><strong><em>Cloud of Insects</em></strong>. <em>Dexterity Saving Throw</em> : DC 17, one creature the dragon can see within 120 feet. <em>Failure</em> : 22 (4d10) Poison damage, and the target has Disadvantage on saving throws to maintain Concentration until the end of its next turn. <em>Failure or Success</em> : The dragon can't take this action again until the start of its next turn.</p>
-      <p><strong><em>Frightful Presence</em></strong>. The dragon uses Spellcasting to cast <em><a href="https://www.aidedd.org/spell/fear">Fear</a></em>. The dragon can't take this action again until the start of its next turn.</p>
-      <p><strong><em>Pounce</em></strong>. The dragon moves up to half its Speed, and it makes one Rend attack.</p>
+      ## Traits
+
+      ***Amphibious***. The dragon can breathe air and water.
+
+      ***Legendary Resistance (3/Day, or 4/Day in Lair)***. If the dragon fails a saving throw, it can choose to succeed instead.
+
+      ## Actions
+
+      ***Multiattack***. The dragon makes three Rend attacks. It can replace one attack with a use of Spellcasting to cast *[Melf's Acid Arrow](https://www.aidedd.org/spell/melf-s-acid-arrow)* (level 3 version).
+
+      ***Rend***. *Melee Attack Roll* : +11, reach 10 ft. *Hit* : 13 (2d6 + 6) Slashing damage plus 4 (1d8) Acid damage.
+
+      ***Acid Breath (Recharge 5–6)***. *Dexterity Saving Throw* : DC 18, each creature in a 60-foot-long, 5-foot-wide Line. *Failure* : 54 (12d8) Acid damage. *Success* : Half damage.
+
+      ***Spellcasting***. The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 17, +9 to hit with spell attacks):
+
+      At Will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Fear](https://www.aidedd.org/spell/fear), [Melf's Acid Arrow](https://www.aidedd.org/spell/melf-s-acid-arrow)* (level 3 version)\
+      1/Day Each: *[Speak with Dead](https://www.aidedd.org/spell/speak-with-dead), [Vitriolic Sphere](https://www.aidedd.org/spell/vitriolic-sphere)*
+
+      ## Legendary actions
+
+      Legendary Action Uses: 3 (4 in Lair). Immediately after another creature's turn, the dragon can expend a use to take one of the following actions. The dragon regains all expended uses at the start of each of its turns.
+
+      ***Cloud of Insects***. *Dexterity Saving Throw* : DC 17, one creature the dragon can see within 120 feet. *Failure* : 22 (4d10) Poison damage, and the target has Disadvantage on saving throws to maintain Concentration until the end of its next turn. *Failure or Success* : The dragon can't take this action again until the start of its next turn.
+
+      ***Frightful Presence***. The dragon uses Spellcasting to cast *[Fear](https://www.aidedd.org/spell/fear)*. The dragon can't take this action again until the start of its next turn.
+
+      ***Pounce***. The dragon moves up to half its Speed, and it makes one Rend attack.
     senses: Blindsight 60 ft., Darkvision 120 ft., Passive Perception 21
     languages:
     - Common
@@ -112,21 +125,34 @@ translations:
     name: Dragon noir, adulte
     subtype: Chromatique
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Amphibie</em>**. Le dragon peut respirer sous l'eau comme à l'air libre.</p>
-      <p><strong><em>Résistance légendaire (3/jour, ou 4/jour dans son antre)</em></strong>. Si le dragon rate un jet de sauvegarde, il peut décider de le réussir tout de même.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le dragon effectue trois attaques de Saignée. Il peut remplacer l'une de ces attaques par une utilisation d'Incantation pour lancer <em>flèche acide</em> (au niveau 3).</p>
-      <p><strong><em>Saignée</em></strong>. <em>Corps à corps</em> : +11, allonge 3 m. <em>Touché</em> : 13 (2d6 + 6) dégâts tranchants plus 4 (1d8) dégâts d'acide.</p>
-      <p><strong><em>Incantation</em></strong>. Le dragon lance l'un des sorts suivants, sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 17, +9 pour toucher) :</p>
-      <p>À volonté : <em><a href="https://www.aidedd.org/spell/fr/detection-de-la-magie"><a href="https://www.aidedd.org/spell/fr/detection-de-la-magie">détection de la magie</a></a>, flèche acide</em> (au niveau 3), <em>peur</em><br />
-      1/jour chacun : <em>communication avec les morts, sphère de vitriol</em>  </p>
-      <p>** <em>Souffle d'acide (recharge 5–6)</em>**. <em>JdS Dextérité</em> : DD 18, chaque créature dans une Ligne de 18 m de long sur 1,50 m de large. <em>Échec</em> : 54 (12d8) dégâts d'acide. <em>Réussite</em> : demi-dégâts.</p>
-      <h2>Actions Légendaires</h2>
-      <p>Utilisations d'action Légendaire : 3 (4 dans son antre). Aussitôt après le tour d'une autre créature, le dragon peut dépenser une utilisation pour entreprendre l'une des actions ci-après. Le dragon récupère toutes ses utilisations dépensées au début de chacun de ses tours. </p>
-      <p><strong><em>Assaut incisif</em></strong>. Le dragon se déplace à concurrence de la moitié de sa Vitesse et effectue une attaque de Saignée.</p>
-      <p><strong><em>Nuage d'insectes</em></strong>. <em>JdS Dextérité</em> : DD 17, une créature que le dragon voit dans un rayon de 36 m. <em>Échec</em> : 22 (4d10) dégâts de poison, et la cible subit un Désavantage aux jets de sauvegarde visant à maintenir sa Concentration, jusqu'à la fin de son tour suivant. <em>Échec ou réussite</em> : le dragon ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.</p>
-      <p><strong><em>Présence terrifiante</em></strong>. Le dragon recourt à Incantation pour lancer <em>peur</em>. Le dragon ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.</p>
+      ## Traits
+
+      ***Amphibie***. Le dragon peut respirer sous l'eau comme à l'air libre.
+
+      ***Résistance légendaire (3/jour, ou 4/jour dans son antre)***. Si le dragon rate un jet de sauvegarde, il peut décider de le réussir tout de même.
+
+      ## Actions
+
+      ***Attaques multiples***. Le dragon effectue trois attaques de Saignée. Il peut remplacer l'une de ces attaques par une utilisation d'Incantation pour lancer *flèche acide* (au niveau 3).
+
+      ***Saignée***. *Corps à corps* : +11, allonge 3 m. *Touché* : 13 (2d6 + 6) dégâts tranchants plus 4 (1d8) dégâts d'acide.
+
+      ***Incantation***. Le dragon lance l'un des sorts suivants, sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 17, +9 pour toucher) :
+
+      À volonté : *[[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie)](https://www.aidedd.org/spell/fr/detection-de-la-magie), flèche acide* (au niveau 3), *peur*\
+      1/jour chacun : *communication avec les morts, sphère de vitriol*
+
+      ***Souffle d'acide (recharge 5–6)***. *JdS Dextérité* : DD 18, chaque créature dans une Ligne de 18 m de long sur 1,50 m de large. *Échec* : 54 (12d8) dégâts d'acide. *Réussite* : demi-dégâts.
+
+      ## Actions Légendaires
+
+      Utilisations d'action Légendaire : 3 (4 dans son antre). Aussitôt après le tour d'une autre créature, le dragon peut dépenser une utilisation pour entreprendre l'une des actions ci-après. Le dragon récupère toutes ses utilisations dépensées au début de chacun de ses tours.
+
+      ***Assaut incisif***. Le dragon se déplace à concurrence de la moitié de sa Vitesse et effectue une attaque de Saignée.
+
+      ***Nuage d'insectes***. *JdS Dextérité* : DD 17, une créature que le dragon voit dans un rayon de 36 m. *Échec* : 22 (4d10) dégâts de poison, et la cible subit un Désavantage aux jets de sauvegarde visant à maintenir sa Concentration, jusqu'à la fin de son tour suivant. *Échec ou réussite* : le dragon ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.
+
+      ***Présence terrifiante***. Le dragon recourt à Incantation pour lancer *peur*. Le dragon ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.
     senses: Vision aveugle 18 m, Vision dans le noir 36 m, Perception passive 21
     languages:
     - commun

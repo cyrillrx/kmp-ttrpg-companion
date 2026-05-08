@@ -7,12 +7,10 @@ translations:
   en:
     name: Silvered Weapon
     subtype: Any Simple or Martial
-    description: <p>An alchemical process has bonded silver to this magic weapon.
-      When you score a Critical Hit with it against a creature that is shape shifted,
-      the weapon deals one additional die of damage.</p>
+    description: |-
+      An alchemical process has bonded silver to this magic weapon. When you score a Critical Hit with it against a creature that is shape shifted, the weapon deals one additional die of damage.
   fr:
     name: Arme en argent
     subtype: courante ou de guerre
-    description: <p>Un procédé alchimique a lié l'argent à cette arme magique. Lorsque
-      vous obtenez un Coup critique avec elle contre une créature métamorphosée, l'arme
-      inflige un dé de dégâts supplémentaire.</p>
+    description: |-
+      Un procédé alchimique a lié l'argent à cette arme magique. Lorsque vous obtenez un Coup critique avec elle contre une créature métamorphosée, l'arme inflige un dé de dégâts supplémentaire.

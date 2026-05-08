@@ -89,24 +89,40 @@ translations:
     name: Solar
     subtype: Angel
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Divine Awareness</em>**. The solar knows if it hears a lie.</p>
-      <p><strong><em>Exalted Restoration</em></strong>. If the solar dies outside Mount Celestia, its body disappears, and it gains a new body instantly, reviving with all its Hit Points somewhere in Mount Celestia.</p>
-      <p><strong><em>Legendary Resistance (4/Day)</em></strong>. If the solar fails a saving throw, it can choose to succeed instead.</p>
-      <p><strong><em>Magic Resistance</em></strong>. The solar has Advantage on saving throws against spells and other magical effects.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The solar makes two Flying Sword attacks. It can replace one attack with a use of Slaying Bow.</p>
-      <p><strong><em>Flying Sword</em></strong>. <em>Melee or Ranged Attack Roll</em> : +15, reach 10 ft. or range 120 ft. <em>Hit</em> : 22 (4d6 + 8) Slashing damage plus 36 (8d8) Radiant damage. <em>Hit or Miss</em> : The sword magically returns to the solar's hand or hovers within 5 feet of the solar immediately after a ranged attack.</p>
-      <p><strong><em>Slaying Bow</em></strong>. <em>Dexterity Saving Throw</em> : DC 21, one creature the solar can see within 600 feet. <em>Failure</em> : If the creature has 100 Hit Points or fewer, it dies. It otherwise takes 24 (4d8 + 6) Piercing damage plus 36 (8d8) Radiant damage.</p>
-      <p><strong><em>Spellcasting</em></strong>. The solar casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 25):</p>
-      <p>At Will: <em><a href="https://www.aidedd.org/spell/detect-evil-and-good">Detect Evil and Good</a></em><br />
-      1/Day Each: <em><a href="https://www.aidedd.org/spell/commune">Commune</a>, <a href="https://www.aidedd.org/spell/control-weather">Control Weather</a>, <a href="https://www.aidedd.org/spell/dispel-evil-and-good">Dispel Evil and Good</a>, <a href="https://www.aidedd.org/spell/resurrection">Resurrection</a></em>  </p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Divine Aid (3/Day)</em>**. The solar casts <em><a href="https://www.aidedd.org/spell/cure-wounds">Cure Wounds</a></em> (level 2 version), <em><a href="https://www.aidedd.org/spell/lesser-restoration">Lesser Restoration</a></em> , or <em><a href="https://www.aidedd.org/spell/remove-curse">Remove Curse</a></em> , using the same spellcasting ability as Spellcasting.</p>
-      <h2>Legendary actions</h2>
-      <p>Legendary Action Uses: 3. Immediately after another creature's turn, the solar can expend a use to take one of the following actions. The solar regains all expended uses at the start of each of its turns. </p>
-      <p><strong><em>Blinding Gaze</em></strong>. <em>Constitution Saving Throw</em> : DC 25, one creature the solar can see within 120 feet. <em>Failure</em> : The target has the Blinded condition for 1 minute. <em>Failure or Success</em> : The solar can't take this action again until the start of its next turn.</p>
-      <p><strong><em>Radiant Teleport</em></strong>. The solar teleports up to 60 feet to an unoccupied space it can see. <em>Dexterity Saving Throw</em> : DC 25, each creature in a 10-foot Emanation originating from the solar at its destination space. <em>Failure</em> : 11 (2d10) Radiant damage. <em>Success</em> : Half damage.</p>
+      ## Traits
+
+      ***Divine Awareness***. The solar knows if it hears a lie.
+
+      ***Exalted Restoration***. If the solar dies outside Mount Celestia, its body disappears, and it gains a new body instantly, reviving with all its Hit Points somewhere in Mount Celestia.
+
+      ***Legendary Resistance (4/Day)***. If the solar fails a saving throw, it can choose to succeed instead.
+
+      ***Magic Resistance***. The solar has Advantage on saving throws against spells and other magical effects.
+
+      ## Actions
+
+      ***Multiattack***. The solar makes two Flying Sword attacks. It can replace one attack with a use of Slaying Bow.
+
+      ***Flying Sword***. *Melee or Ranged Attack Roll* : +15, reach 10 ft. or range 120 ft. *Hit* : 22 (4d6 + 8) Slashing damage plus 36 (8d8) Radiant damage. *Hit or Miss* : The sword magically returns to the solar's hand or hovers within 5 feet of the solar immediately after a ranged attack.
+
+      ***Slaying Bow***. *Dexterity Saving Throw* : DC 21, one creature the solar can see within 600 feet. *Failure* : If the creature has 100 Hit Points or fewer, it dies. It otherwise takes 24 (4d8 + 6) Piercing damage plus 36 (8d8) Radiant damage.
+
+      ***Spellcasting***. The solar casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 25):
+
+      At Will: *[Detect Evil and Good](https://www.aidedd.org/spell/detect-evil-and-good)*\
+      1/Day Each: *[Commune](https://www.aidedd.org/spell/commune), [Control Weather](https://www.aidedd.org/spell/control-weather), [Dispel Evil and Good](https://www.aidedd.org/spell/dispel-evil-and-good), [Resurrection](https://www.aidedd.org/spell/resurrection)*
+
+      ## Bonus actions
+
+      ***Divine Aid (3/Day)***. The solar casts *[Cure Wounds](https://www.aidedd.org/spell/cure-wounds)* (level 2 version), *[Lesser Restoration](https://www.aidedd.org/spell/lesser-restoration)* , or *[Remove Curse](https://www.aidedd.org/spell/remove-curse)* , using the same spellcasting ability as Spellcasting.
+
+      ## Legendary actions
+
+      Legendary Action Uses: 3. Immediately after another creature's turn, the solar can expend a use to take one of the following actions. The solar regains all expended uses at the start of each of its turns.
+
+      ***Blinding Gaze***. *Constitution Saving Throw* : DC 25, one creature the solar can see within 120 feet. *Failure* : The target has the Blinded condition for 1 minute. *Failure or Success* : The solar can't take this action again until the start of its next turn.
+
+      ***Radiant Teleport***. The solar teleports up to 60 feet to an unoccupied space it can see. *Dexterity Saving Throw* : DC 25, each creature in a 10-foot Emanation originating from the solar at its destination space. *Failure* : 11 (2d10) Radiant damage. *Success* : Half damage.
     senses: Truesight 120 ft., Passive Perception 24
     languages:
     - All; telepathy 120 ft.
@@ -114,24 +130,40 @@ translations:
     name: Solar
     subtype: Ange
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Résistance à la magie</em>**. Le solar a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.</p>
-      <p><strong><em>Résistance légendaire (4/jour)</em></strong>. Si le solar rate un jet de sauvegarde, il peut décider de le réussir tout de même.</p>
-      <p><strong><em>Restauration exaltée</em></strong>. Si le solar meurt hors du Mont Céleste, son corps disparaît et il en acquiert aussitôt un nouveau en revenant à la vie avec tous ses pv, quelque part sur le Mont Céleste.</p>
-      <p><strong><em>Vigilance divine</em></strong>. Le solar reconnaît un mensonge quand il en entend un.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le solar effectue deux attaques d'Épée volante. Il peut remplacer l'une de ces attaques par une utilisation d'Arc tueur.</p>
-      <p><strong><em>Épée volante</em></strong>. <em>Corps à corps ou à distance</em> : +15, allonge 3 m ou portée 36 m. <em>Touché</em> : 22 (4d6 + 8) dégâts tranchants plus 36 (8d8) dégâts radiants. <em>Touché ou raté</em> : aussitôt après une attaque à distance, l'épée retourne magiquement dans la main du solar ou flotte dans un rayon de 1,50 m de lui.</p>
-      <p><strong><em>Arc tueur</em></strong>. <em>JdS Dextérité</em> : DD 21, une créature que le solar voit dans un rayon de 180 m. <em>Échec</em> : si la créature est dotée de 100 points de vie ou moins, elle meurt. Sinon, elle subit 24 (4d8 + 6) dégâts perforants plus 36 (8d8) dégâts radiants.</p>
-      <p><strong><em>Incantation</em></strong>. Le solar lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 25) :</p>
-      <p>À volonté : <em><a href="https://www.aidedd.org/spell/fr/detection-du-mal-et-du-bien">détection du mal et du bien</a></em><br />
-      1/jour chacun : <em>communion, contrôle du climat,<a href="https://www.aidedd.org/spell/fr/dissipation-du-mal-et-du-bien">dissipation du mal et du bien</a>, résurrection</em>  </p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Soutien divin (3/jour)</em>**. Le solar lance <em><a href="https://www.aidedd.org/spell/fr/delivrance-des-maledictions">délivrance des malédictions</a>, restauration partielle</em> ou <em>soins</em> (au niveau 2), avec la même caractéristique d'incantation que pour Incantation.</p>
-      <h2>Actions Légendaires</h2>
-      <p>Utilisations d'action Légendaire : 3. Aussitôt après le tour d'une autre créature, le solar peut dépenser une utilisation pour entreprendre l'une des actions ci-après. Le solar récupère toutes ses utilisations dépensées au début de chacun de ses tours. </p>
-      <p><strong><em>Regard aveuglant</em></strong>. <em>JdS Constitution</em> : DD 25, une créature que le solar voit dans un rayon de 36 m. <em>Échec</em> : la cible subit l'état Aveuglé pendant 1 minute. <em>Échec ou réussite</em> : le solar ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.</p>
-      <p><strong><em>Téléportation radiante</em></strong>. Le solar se téléporte d'un maximum de 18 m vers un espace inoccupé qu'il voit. <em>JdS Dextérité</em> : DD 25, chaque créature dans une Émanation de 3 m centrée sur le solar à son espace de destination. <em>Échec</em> : 11 (2d10) dégâts radiants. <em>Réussite</em> : 1/2 dégâts.</p>
+      ## Traits
+
+      ***Résistance à la magie***. Le solar a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
+
+      ***Résistance légendaire (4/jour)***. Si le solar rate un jet de sauvegarde, il peut décider de le réussir tout de même.
+
+      ***Restauration exaltée***. Si le solar meurt hors du Mont Céleste, son corps disparaît et il en acquiert aussitôt un nouveau en revenant à la vie avec tous ses pv, quelque part sur le Mont Céleste.
+
+      ***Vigilance divine***. Le solar reconnaît un mensonge quand il en entend un.
+
+      ## Actions
+
+      ***Attaques multiples***. Le solar effectue deux attaques d'Épée volante. Il peut remplacer l'une de ces attaques par une utilisation d'Arc tueur.
+
+      ***Épée volante***. *Corps à corps ou à distance* : +15, allonge 3 m ou portée 36 m. *Touché* : 22 (4d6 + 8) dégâts tranchants plus 36 (8d8) dégâts radiants. *Touché ou raté* : aussitôt après une attaque à distance, l'épée retourne magiquement dans la main du solar ou flotte dans un rayon de 1,50 m de lui.
+
+      ***Arc tueur***. *JdS Dextérité* : DD 21, une créature que le solar voit dans un rayon de 180 m. *Échec* : si la créature est dotée de 100 points de vie ou moins, elle meurt. Sinon, elle subit 24 (4d8 + 6) dégâts perforants plus 36 (8d8) dégâts radiants.
+
+      ***Incantation***. Le solar lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 25) :
+
+      À volonté : *[détection du mal et du bien](https://www.aidedd.org/spell/fr/detection-du-mal-et-du-bien)*\
+      1/jour chacun : *communion, contrôle du climat,[dissipation du mal et du bien](https://www.aidedd.org/spell/fr/dissipation-du-mal-et-du-bien), résurrection*
+
+      ## Actions Bonus
+
+      ***Soutien divin (3/jour)***. Le solar lance *[délivrance des malédictions](https://www.aidedd.org/spell/fr/delivrance-des-maledictions), restauration partielle* ou *soins* (au niveau 2), avec la même caractéristique d'incantation que pour Incantation.
+
+      ## Actions Légendaires
+
+      Utilisations d'action Légendaire : 3. Aussitôt après le tour d'une autre créature, le solar peut dépenser une utilisation pour entreprendre l'une des actions ci-après. Le solar récupère toutes ses utilisations dépensées au début de chacun de ses tours.
+
+      ***Regard aveuglant***. *JdS Constitution* : DD 25, une créature que le solar voit dans un rayon de 36 m. *Échec* : la cible subit l'état Aveuglé pendant 1 minute. *Échec ou réussite* : le solar ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.
+
+      ***Téléportation radiante***. Le solar se téléporte d'un maximum de 18 m vers un espace inoccupé qu'il voit. *JdS Dextérité* : DD 25, chaque créature dans une Émanation de 3 m centrée sur le solar à son espace de destination. *Échec* : 11 (2d10) dégâts radiants. *Réussite* : 1/2 dégâts.
     senses: vision véritable 36 m, Perception passive 24
     languages:
     - toutes ; télépathie 36 m

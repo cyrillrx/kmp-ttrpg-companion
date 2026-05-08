@@ -20,13 +20,13 @@ translations:
     range: Touch
     duration: 8 hours
     materialDescription: a dried carrot
-    description: For the duration, a willing creature you touch has Darkvision with
-      a range of 150 feet.<br/>
+    description: |-
+      For the duration, a willing creature you touch has Darkvision with a range of 150 feet.\
   fr:
     name: Vision dans le noir
     castingTime: Action
     range: Contact
     duration: 8 heures
     materialDescription: une carotte séchée
-    description: Pendant toute la durée du sort, une créature consentante que vous
-      touchez obtient Vision dans le noir avec une portée de 45 mètres.<br/>
+    description: |-
+      Pendant toute la durée du sort, une créature consentante que vous touchez obtient Vision dans le noir avec une portée de 45 mètres.\

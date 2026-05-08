@@ -89,15 +89,22 @@ translations:
     name: Mind Flayer
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Magic Resistance</em>**. The mind flayer has Advantage on saving throws against spells and other magical effects.</p>
-      <h2>Actions</h2>
-      <p>** <em>Tentacles</em>**. <em>Melee Attack Roll</em> : +7, reach 5 ft. <em>Hit</em> : 22 (4d8 + 4) Psychic damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 14) from all the mind flayer's tentacles, and the target has the Stunned condition until the grapple ends.</p>
-      <p><strong><em>Extract Brain</em></strong>. <em>Constitution Saving Throw</em> : DC 15, one creature that is Grappled by the mind flayer's Tentacles. <em>Failure</em> : 55 (10d10) Piercing damage. <em>Success</em> : Half damage. <em>Failure or Success</em> : If this damage reduces the target to 0 Hit Points, the mind flayer kills it and devours its brain.</p>
-      <p><strong><em>Mind Blast (Recharge 5–6)</em></strong>. <em>Intelligence Saving Throw</em> : DC 15, each creature in a 60-foot Cone. <em>Failure</em> : 31 (6d8 + 4) Psychic damage, and the target has the Stunned condition until the end of the mind flayer's next turn. <em>Success</em> : Half damage only.</p>
-      <p><strong><em>Spellcasting</em></strong>. The mind flayer casts one of the following spells, requiring no spell components and using Intelligence as the spellcasting ability (spell save DC 15):</p>
-      <p>At will: <em><a href="https://www.aidedd.org/spell/detect-thoughts">Detect Thoughts</a></em><br />
-      1/day each: <em><a href="https://www.aidedd.org/spell/dominate-monster">Dominate Monster</a>, <a href="https://www.aidedd.org/spell/plane-shift">Plane Shift</a></em> (self only)</p>
+      ## Traits
+
+      ***Magic Resistance***. The mind flayer has Advantage on saving throws against spells and other magical effects.
+
+      ## Actions
+
+      ***Tentacles***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 22 (4d8 + 4) Psychic damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 14) from all the mind flayer's tentacles, and the target has the Stunned condition until the grapple ends.
+
+      ***Extract Brain***. *Constitution Saving Throw* : DC 15, one creature that is Grappled by the mind flayer's Tentacles. *Failure* : 55 (10d10) Piercing damage. *Success* : Half damage. *Failure or Success* : If this damage reduces the target to 0 Hit Points, the mind flayer kills it and devours its brain.
+
+      ***Mind Blast (Recharge 5–6)***. *Intelligence Saving Throw* : DC 15, each creature in a 60-foot Cone. *Failure* : 31 (6d8 + 4) Psychic damage, and the target has the Stunned condition until the end of the mind flayer's next turn. *Success* : Half damage only.
+
+      ***Spellcasting***. The mind flayer casts one of the following spells, requiring no spell components and using Intelligence as the spellcasting ability (spell save DC 15):
+
+      At will: *[Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts)*\
+      1/day each: *[Dominate Monster](https://www.aidedd.org/spell/dominate-monster), [Plane Shift](https://www.aidedd.org/spell/plane-shift)* (self only)
     senses: Darkvision 120 ft., Passive Perception 16
     languages:
     - Deep Speech
@@ -106,15 +113,22 @@ translations:
     name: Flagelleur mental
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Résistance à la magie</em>**. Le flagelleur mental a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.</p>
-      <h2>Actions</h2>
-      <p>** <em>Tentacules</em>**. <em>Corps à corps</em> : +7, allonge 1,50 m. <em>Touché</em> : 22 (4d8 + 4) dégâts psychiques. Si la cible est une créature de taille M ou inférieure, elle subit l'état Agrippé (évasion DD 14) par tous les tentacules du flagelleur mental, et la cible subit l'état Étourdi tant qu'elle est agrippée.</p>
-      <p><strong><em>Extraction de cerveau</em></strong>. <em>JdS Constitution</em> : DD 15, une créature agrippée par les tentacules du flagelleur mental. <em>Échec</em> : 55 (10d10) dégâts perforants. <em>Réussite</em> : demi-dégâts. <em>Échec ou réussite</em> : si ces dégâts réduisent les points de vie de la cible à 0, le flagelleur mental la tue et dévore son cerveau.</p>
-      <p><strong><em>Décharge mentale (recharge 5–6)</em></strong>. <em>JdS Intelligence</em> : DD 15, chaque créature dans un Cône de 18 m. <em>Échec</em> : 31 (6d8 + 4) dégâts psychiques, et la cible subit l'état Étourdi jusqu'à la fin du prochain tour du flagelleur mental. <em>Réussite</em> : demi-dégâts uniquement.</p>
-      <p><strong><em>Incantation</em></strong>. Le flagelleur mental lance l'un des sorts suivants sans composantes de sort, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 15) :</p>
-      <p>À volonté : <em><a href="https://www.aidedd.org/spell/fr/detection-des-pensees">détection des pensées</a></em><br />
-      1/jour chacun : <em><a href="https://www.aidedd.org/spell/fr/domination-de-monstre">domination de monstre</a>, <a href="https://www.aidedd.org/spell/fr/changement-de-plan">changement de plan</a></em> (soi-même uniquement)</p>
+      ## Traits
+
+      ***Résistance à la magie***. Le flagelleur mental a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
+
+      ## Actions
+
+      ***Tentacules***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 22 (4d8 + 4) dégâts psychiques. Si la cible est une créature de taille M ou inférieure, elle subit l'état Agrippé (évasion DD 14) par tous les tentacules du flagelleur mental, et la cible subit l'état Étourdi tant qu'elle est agrippée.
+
+      ***Extraction de cerveau***. *JdS Constitution* : DD 15, une créature agrippée par les tentacules du flagelleur mental. *Échec* : 55 (10d10) dégâts perforants. *Réussite* : demi-dégâts. *Échec ou réussite* : si ces dégâts réduisent les points de vie de la cible à 0, le flagelleur mental la tue et dévore son cerveau.
+
+      ***Décharge mentale (recharge 5–6)***. *JdS Intelligence* : DD 15, chaque créature dans un Cône de 18 m. *Échec* : 31 (6d8 + 4) dégâts psychiques, et la cible subit l'état Étourdi jusqu'à la fin du prochain tour du flagelleur mental. *Réussite* : demi-dégâts uniquement.
+
+      ***Incantation***. Le flagelleur mental lance l'un des sorts suivants sans composantes de sort, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 15) :
+
+      À volonté : *[détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees)*\
+      1/jour chacun : *[domination de monstre](https://www.aidedd.org/spell/fr/domination-de-monstre), [changement de plan](https://www.aidedd.org/spell/fr/changement-de-plan)* (soi-même uniquement)
     senses: Vision dans le noir 36 m, Perception passive 16
     languages:
     - profond

@@ -89,11 +89,15 @@ translations:
     name: Hobgoblin Warrior
     subtype: Goblinoid
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Pack Tactics</em>**. The hobgoblin has Advantage on an attack roll against a creature if at least one of the hobgoblin's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.</p>
-      <h2>Actions</h2>
-      <p>** <em>Longsword</em>**. <em>Melee Attack Roll</em> : +3, reach 5 ft. <em>Hit</em> : 12 (2d10 + 1) Slashing damage.</p>
-      <p><strong><em>Longbow</em></strong>. <em>Ranged Attack Roll</em> : +3, range 150/600 ft. <em>Hit</em> : 5 (1d8 + 1) Piercing damage plus 7 (3d4) Poison damage.</p>
+      ## Traits
+
+      ***Pack Tactics***. The hobgoblin has Advantage on an attack roll against a creature if at least one of the hobgoblin's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.
+
+      ## Actions
+
+      ***Longsword***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 12 (2d10 + 1) Slashing damage.
+
+      ***Longbow***. *Ranged Attack Roll* : +3, range 150/600 ft. *Hit* : 5 (1d8 + 1) Piercing damage plus 7 (3d4) Poison damage.
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - Common
@@ -102,11 +106,15 @@ translations:
     name: Hobgobelin, combattant
     subtype: Gobelinoïde
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Tactique de meute</em>**. Quand au moins un de ses alliés non Incapable d'agir se situe dans un rayon de 1,50 m de la créature qu'il cible, le hobgobelin a un Avantage au jet d'attaque correspondant contre cette créature.</p>
-      <h2>Actions</h2>
-      <p>** <em>Épée longue</em>**. <em>Corps à corps</em> : +3, allonge 1,50 m. <em>Touché</em> : 12 (2d10 + 1) dégâts tranchants.</p>
-      <p><strong><em>Arc long</em></strong>. <em>À distance</em> : +3, portée 45/180 m. <em>Touché</em> : 5 (1d8 + 1) dégâts perforants plus 7 (3d4) dégâts de poison.</p>
+      ## Traits
+
+      ***Tactique de meute***. Quand au moins un de ses alliés non Incapable d'agir se situe dans un rayon de 1,50 m de la créature qu'il cible, le hobgobelin a un Avantage au jet d'attaque correspondant contre cette créature.
+
+      ## Actions
+
+      ***Épée longue***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 12 (2d10 + 1) dégâts tranchants.
+
+      ***Arc long***. *À distance* : +3, portée 45/180 m. *Touché* : 5 (1d8 + 1) dégâts perforants plus 7 (3d4) dégâts de poison.
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - commun

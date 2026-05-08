@@ -20,15 +20,19 @@ translations:
     duration: Instantaneous
     materialDescription: special marked sticks, bones, cards, or other divinatory
       tokens worth 25+ GP
-    description: You receive an omen from an otherworldly entity about the results
-      of a course of action that you plan to take within the next 30 minutes. The
-      DM chooses the omen from the Omens table.<br/><table><tr><th>Omen</th><th>For
-      Results That Will Be...</th></tr><tr><td>Weal</td><td>Good</td></tr><tr><td>Woe</td><td>Bad</td></tr><tr><td>Weal
-      and woe</td><td>Good and bad</td></tr><tr><td>Indifference</td><td>Neither good
-      nor bad</td></tr></table><br/>The spell doesn't account for circumstances, such
-      as other spells, that might change the results.<br/>If you cast the spell more
-      than once before finishing a Long Rest, there is a cumulative 25 percent chance
-      for each casting after the first that you get no answer.<br/>
+    description: |-
+      You receive an omen from an otherworldly entity about the results of a course of action that you plan to take within the next 30 minutes. The DM chooses the omen from the Omens table.\
+
+      | Omen | For Results That Will Be... |
+      | --- | --- |
+      | Weal | Good |
+      | Woe | Bad |
+      | Weal and woe | Good and bad |
+      | Indifference | Neither good nor bad |
+
+      \
+      The spell doesn't account for circumstances, such as other spells, that might change the results.\
+      If you cast the spell more than once before finishing a Long Rest, there is a cumulative 25 percent chance for each casting after the first that you get no answer.\
   fr:
     name: Augure
     castingTime: 1 minute ou Rituel
@@ -36,13 +40,16 @@ translations:
     duration: Instantanée
     materialDescription: cartes, os ou bâtonnets gravés spécialement, ou autres objets
       divinatoires comparables, d'une valeur minimale de 25 po
-    description: Vous recevez un présage d'une entité surnaturelle concernant les
-      résultats d'une action que vous prévoyez d'entreprendre dans les 30 prochaines
-      minutes. Le MD choisit le présage dans la table ci-dessous.<br/><table><tr><th>Présage</th><th>Pour
-      une issue qui s'annonce...</th></tr><tr><td>Fortune</td><td>Favorable</td></tr><tr><td>Misère</td><td>Défavorable</td></tr><tr><td>Fortune
-      et misère</td><td>Favorable et défavorable</td></tr><tr><td>Indifférence</td><td>Ni
-      favorable ni défavorable</td></tr></table><br/>Le sort ne tient pas compte des
-      circonstances, telles que d'autres sorts, qui pourraient modifier les résultats.<br/>Si
-      vous lancez le sort plus d'une fois avant de terminer un Repos long, il y a
-      25 % de chances cumulatives pour chaque lancement après le premier que vous
-      n'obteniez aucune réponse.<br/>
+    description: |-
+      Vous recevez un présage d'une entité surnaturelle concernant les résultats d'une action que vous prévoyez d'entreprendre dans les 30 prochaines minutes. Le MD choisit le présage dans la table ci-dessous.\
+
+      | Présage | Pour une issue qui s'annonce... |
+      | --- | --- |
+      | Fortune | Favorable |
+      | Misère | Défavorable |
+      | Fortune et misère | Favorable et défavorable |
+      | Indifférence | Ni favorable ni défavorable |
+
+      \
+      Le sort ne tient pas compte des circonstances, telles que d'autres sorts, qui pourraient modifier les résultats.\
+      Si vous lancez le sort plus d'une fois avant de terminer un Repos long, il y a 25 % de chances cumulatives pour chaque lancement après le premier que vous n'obteniez aucune réponse.\

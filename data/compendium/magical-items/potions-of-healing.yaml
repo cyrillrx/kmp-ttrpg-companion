@@ -8,23 +8,23 @@ translations:
     name: Potions of Healing
     subtype: null
     description: |-
-      <p>You regain Hit Points when you drink this potion. The number of Hit Points depends on the potion's rarity, as shown in the table below.<br />
-      Whatever its potency, the potion's red liquid glimmers when agitated.<br />
-      Potion| HP Regained| Rarity<br />
-      ---|---|---<br />
-      Potion of Healing| 2d4 + 2| Common<br />
-      Potion of Healing (greater)| 4d4 + 4| Uncommon<br />
-      Potion of Healing (superior)| 8d4 + 8| Rare<br />
-      Potion of Healing (supreme)| 10d4 + 20| Very Rare</p>
+      You regain Hit Points when you drink this potion. The number of Hit Points depends on the potion's rarity, as shown in the table below.\
+      Whatever its potency, the potion's red liquid glimmers when agitated.\
+      | Potion | HP Regained | Rarity |
+      | --- | --- | --- |
+      | Potion of Healing | 2d4 + 2 | Common |
+      | Potion of Healing (greater) | 4d4 + 4 | Uncommon |
+      | Potion of Healing (superior) | 8d4 + 8 | Rare |
+      | Potion of Healing (supreme) | 10d4 + 20 | Very Rare |
   fr:
     name: Potions de guérison
     subtype: null
     description: |-
-      <p>Vous regagnez des points de vie lorsque vous buvez cette potion. Le nombre de points de vie dépend de la rareté de la potion, comme indiqué dans la table ci-dessous.<br />
-      Quelle que soit sa puissance, le liquide rouge de la potion scintille lorsqu'on l'agite.<br />
-      Potion| Pv récupérés| Rareté<br />
-      ---|---|---<br />
-      Potion de guérison| 2d4 + 2| Courant<br />
-      Potion de guérison (importante)| 4d4 + 4| Peu courant<br />
-      Potion de guérison (supérieure)| 8d4 + 8| Rare<br />
-      Potion de guérison (suprême)| 10d4 + 20| Très rare</p>
+      Vous regagnez des points de vie lorsque vous buvez cette potion. Le nombre de points de vie dépend de la rareté de la potion, comme indiqué dans la table ci-dessous.\
+      Quelle que soit sa puissance, le liquide rouge de la potion scintille lorsqu'on l'agite.\
+      | Potion | Pv récupérés | Rareté |
+      | --- | --- | --- |
+      | Potion de guérison | 2d4 + 2 | Courant |
+      | Potion de guérison (importante) | 4d4 + 4 | Peu courant |
+      | Potion de guérison (supérieure) | 8d4 + 8 | Rare |
+      | Potion de guérison (suprême) | 10d4 + 20 | Très rare |

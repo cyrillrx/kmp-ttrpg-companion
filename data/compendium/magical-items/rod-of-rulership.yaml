@@ -7,21 +7,10 @@ translations:
   en:
     name: Rod of Rulership
     subtype: null
-    description: <p>You can take a Magic action to present the rod and command obedience
-      from each creature of your choice that you can see within 120 feet of yourself.
-      Each target must succeed on a DC 15 Wisdom saving throw or have the Charmed
-      condition for 8 hours. While Charmed in this way, the creature regards you as
-      its trusted leader. If harmed by you or your allies or commanded to do something
-      contrary to its nature, a target ceases to be Charmed in this way. Once used,
-      this property can't be used again until the next dawn.</p>
+    description: |-
+      You can take a Magic action to present the rod and command obedience from each creature of your choice that you can see within 120 feet of yourself. Each target must succeed on a DC 15 Wisdom saving throw or have the Charmed condition for 8 hours. While Charmed in this way, the creature regards you as its trusted leader. If harmed by you or your allies or commanded to do something contrary to its nature, a target ceases to be Charmed in this way. Once used, this property can't be used again until the next dawn.
   fr:
     name: Sceptre de suzeraineté
     subtype: null
-    description: <p>Vous pouvez prendre une action Magie pour présenter le bâton et
-      ordonner l'obéissance à toutes les créatures de votre choix visibles dans un
-      rayon de 36 mètres. Chaque cible doit réussir un jet de sauvegarde de Sagesse
-      DD 15 ou subir l'état Charmé pendant 8 heures. Tant qu'elle est charmée, la
-      créature vous considère comme son chef et confie en vous. Si vous ou vos alliés
-      lui infligent des blessures, ou si elle reçoit l'ordre d'agir contre sa nature,
-      elle n'est plus charmée. Une fois utilisée, cette propriété ne peut plus être
-      utilisée avant l'aube suivante.</p>
+    description: |-
+      Vous pouvez prendre une action Magie pour présenter le bâton et ordonner l'obéissance à toutes les créatures de votre choix visibles dans un rayon de 36 mètres. Chaque cible doit réussir un jet de sauvegarde de Sagesse DD 15 ou subir l'état Charmé pendant 8 heures. Tant qu'elle est charmée, la créature vous considère comme son chef et confie en vous. Si vous ou vos alliés lui infligent des blessures, ou si elle reçoit l'ordre d'agir contre sa nature, elle n'est plus charmée. Une fois utilisée, cette propriété ne peut plus être utilisée avant l'aube suivante.

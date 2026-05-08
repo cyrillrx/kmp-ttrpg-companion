@@ -89,20 +89,33 @@ translations:
     name: Colossus
     subtype: Titan
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Immutable Form</em>**. The colossus can't shape-shift.</p>
-      <p><strong><em>Legendary Resistance (4/Day)</em></strong>. If the colossus fails a saving throw, it can choose to succeed instead.</p>
-      <p><strong><em>Magic Resistance</em></strong>. The colossus has Advantage on saving throws against spells and other magical effects.</p>
-      <p><strong><em>Siege Monster</em></strong>. The colossus deals double damage to objects and structures.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The colossus makes three attacks, using Slam or Radiant Ray in any combination.</p>
-      <p><strong><em>Slam</em></strong>. <em>Melee Attack Roll</em> : +18, reach 20 ft. <em>Hit</em> : 32 (4d10 + 10) Bludgeoning damage, and the colossus pushes the target up to 20 feet straight away from itself.</p>
-      <p><strong><em>Radiant Ray</em></strong>. <em>Ranged Attack Roll</em> : +18, range 300 ft. <em>Hit</em> : 22 (4d10) Radiant damage. If the target is a Large or smaller creature, it has the Prone condition.</p>
-      <p><strong><em>Divine Beam (Recharge 5–6)</em></strong>. <em>Dexterity Saving Throw</em> : DC 26, each creature in a 300-foot-long, 10-foot-wide Line. <em>Failure</em> : 65 (10d12) Radiant damage. <em>Success</em> : Half damage. <em>Failure or Success</em> : A creature reduced to 0 Hit Points by this beam disintegrates into dust, leaving behind any magic items it was wearing or carrying.</p>
-      <h2>Legendary actions</h2>
-      <p>Legendary Action Uses: 3. Immediately after another creature's turn, the colossus can expend a use to take one of the following actions. The colossus regains all expended uses at the start of each of its turns. </p>
-      <p><strong><em>Smite</em></strong>. The colossus makes one Radiant Ray attack.</p>
-      <p><strong><em>Stomp</em></strong>. The colossus moves up to half its Speed without provoking Opportunity Attacks, and it can make one Slam attack at any point during that move.</p>
+      ## Traits
+
+      ***Immutable Form***. The colossus can't shape-shift.
+
+      ***Legendary Resistance (4/Day)***. If the colossus fails a saving throw, it can choose to succeed instead.
+
+      ***Magic Resistance***. The colossus has Advantage on saving throws against spells and other magical effects.
+
+      ***Siege Monster***. The colossus deals double damage to objects and structures.
+
+      ## Actions
+
+      ***Multiattack***. The colossus makes three attacks, using Slam or Radiant Ray in any combination.
+
+      ***Slam***. *Melee Attack Roll* : +18, reach 20 ft. *Hit* : 32 (4d10 + 10) Bludgeoning damage, and the colossus pushes the target up to 20 feet straight away from itself.
+
+      ***Radiant Ray***. *Ranged Attack Roll* : +18, range 300 ft. *Hit* : 22 (4d10) Radiant damage. If the target is a Large or smaller creature, it has the Prone condition.
+
+      ***Divine Beam (Recharge 5–6)***. *Dexterity Saving Throw* : DC 26, each creature in a 300-foot-long, 10-foot-wide Line. *Failure* : 65 (10d12) Radiant damage. *Success* : Half damage. *Failure or Success* : A creature reduced to 0 Hit Points by this beam disintegrates into dust, leaving behind any magic items it was wearing or carrying.
+
+      ## Legendary actions
+
+      Legendary Action Uses: 3. Immediately after another creature's turn, the colossus can expend a use to take one of the following actions. The colossus regains all expended uses at the start of each of its turns.
+
+      ***Smite***. The colossus makes one Radiant Ray attack.
+
+      ***Stomp***. The colossus moves up to half its Speed without provoking Opportunity Attacks, and it can make one Slam attack at any point during that move.
     senses: Truesight 300 ft., Passive Perception 10
     languages:
     - Understands Celestial and Common but can't speak
@@ -110,20 +123,26 @@ translations:
     name: Colosse
     subtype: Titan
     description: |-
-      <h2>Traits</h2>
-      <p>Forme immuable.<br />
-      Résistance légendaire (4/jour).<br />
-      Résistance à la magie.<br />
-      Monstre de siège.  </p>
-      <h2>Actions</h2>
-      <p>Attaques multiples.<br />
-      Coup.<br />
-      Rayon radiant.<br />
-      Faisceau divin (recharge 5–6).  </p>
-      <h2>Actions Légendaires</h2>
-      <p>Utilisations d'action Légendaire : 3. </p>
-      <p>Châtiment.<br />
-      Foulée écrasante.</p>
+      ## Traits
+
+      Forme immuable.\
+      Résistance légendaire (4/jour).\
+      Résistance à la magie.\
+      Monstre de siège.
+
+      ## Actions
+
+      Attaques multiples.\
+      Coup.\
+      Rayon radiant.\
+      Faisceau divin (recharge 5–6).
+
+      ## Actions Légendaires
+
+      Utilisations d'action Légendaire : 3.
+
+      Châtiment.\
+      Foulée écrasante.
     senses: vision véritable 90 m, Perception passive 10
     languages:
     - comprend le céleste et le commun mais ne parle pas

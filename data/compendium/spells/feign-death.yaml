@@ -20,21 +20,17 @@ translations:
     range: Touch
     duration: 1 hour
     materialDescription: a pinch of graveyard dirt
-    description: You touch a willing creature and put it into a cataleptic state that
-      is indistinguishable from death.<br/>For the duration, the target appears dead
-      to outward inspection and to spells used to determine the target's status. The
-      target has the Blinded and Incapacitated conditions, and its Speed is 0.<br/>The
-      target also has Resistance to all damage except Psychic damage, and it has Immunity
-      to the Poisoned condition.<br/>
+    description: |-
+      You touch a willing creature and put it into a cataleptic state that is indistinguishable from death.\
+      For the duration, the target appears dead to outward inspection and to spells used to determine the target's status. The target has the Blinded and Incapacitated conditions, and its Speed is 0.\
+      The target also has Resistance to all damage except Psychic damage, and it has Immunity to the Poisoned condition.\
   fr:
     name: État cadavérique
     castingTime: Action ou Rituel
     range: Contact
     duration: 1 heure
     materialDescription: une pincée de terre de cimetière
-    description: Vous touchez une créature consentante et la plongez dans un état
-      cataleptique impossible à distinguer de la mort.<br/>Pendant la durée du sort,
-      la cible paraît morte à une inspection extérieure et aux sorts utilisés pour
-      déterminer son état. Elle subit les états Aveuglé et Incapable d'agir, et sa
-      Vitesse est de 0.<br/>Elle bénéficie également d'une résistance à tous les dégâts,
-      sauf les dégâts psychiques, et d'une immunité à l'état Empoisonné.<br/>
+    description: |-
+      Vous touchez une créature consentante et la plongez dans un état cataleptique impossible à distinguer de la mort.\
+      Pendant la durée du sort, la cible paraît morte à une inspection extérieure et aux sorts utilisés pour déterminer son état. Elle subit les états Aveuglé et Incapable d'agir, et sa Vitesse est de 0.\
+      Elle bénéficie également d'une résistance à tous les dégâts, sauf les dégâts psychiques, et d'une immunité à l'état Empoisonné.\

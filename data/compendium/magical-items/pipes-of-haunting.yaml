@@ -7,22 +7,10 @@ translations:
   en:
     name: Pipes of Haunting
     subtype: null
-    description: <p>These pipes have 3 charges and regain 1d3 expended charges daily
-      at dawn. You can take a Magic action to play them and expend 1 charge to create
-      an eerie, spellbinding tune. Each creature of your choice within 30 feet of
-      you must succeed on a DC 15 Wisdom saving throw or have the Frightened condition
-      for 1 minute. A creature that fails the save repeats it at the end of each of
-      its turns, ending the effect on itself on a success. A creature that succeeds
-      on its save is immune to the effect of these pipes for 24 hours.</p>
+    description: |-
+      These pipes have 3 charges and regain 1d3 expended charges daily at dawn. You can take a Magic action to play them and expend 1 charge to create an eerie, spellbinding tune. Each creature of your choice within 30 feet of you must succeed on a DC 15 Wisdom saving throw or have the Frightened condition for 1 minute. A creature that fails the save repeats it at the end of each of its turns, ending the effect on itself on a success. A creature that succeeds on its save is immune to the effect of these pipes for 24 hours.
   fr:
     name: Flûte terrifiante
     subtype: null
-    description: <p>Cette flûte possède 3 charges et regagne 1d3 charges dépensées
-      chaque jour à l'aube. Vous pouvez prendre une action Magie pour jouer avec et
-      dépenser 1 charge pour créer une mélodie étrange et envoûtante. Chaque créature
-      de votre choix dans un rayon de 9 mètres autour de vous doit réussir un jet
-      de sauvegarde de Sagesse DD 15 ou subir l'état Effrayé pendant 1 minute. Une
-      créature qui rate son jet de sauvegarde le retente à la fin de chacun de ses
-      tours, mettant fin à l'effet sur elle-même en cas de réussite. Une créature
-      qui réussit son jet de sauvegarde est immunisée contre l'effet de cette flûte
-      pendant 24 heures.</p>
+    description: |-
+      Cette flûte possède 3 charges et regagne 1d3 charges dépensées chaque jour à l'aube. Vous pouvez prendre une action Magie pour jouer avec et dépenser 1 charge pour créer une mélodie étrange et envoûtante. Chaque créature de votre choix dans un rayon de 9 mètres autour de vous doit réussir un jet de sauvegarde de Sagesse DD 15 ou subir l'état Effrayé pendant 1 minute. Une créature qui rate son jet de sauvegarde le retente à la fin de chacun de ses tours, mettant fin à l'effet sur elle-même en cas de réussite. Une créature qui réussit son jet de sauvegarde est immunisée contre l'effet de cette flûte pendant 24 heures.

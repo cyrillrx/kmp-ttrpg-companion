@@ -8,273 +8,93 @@ translations:
     name: Bag of Tricks
     subtype: null
     description: |-
-      <p>This bag made from gray, rust, or tan cloth appears empty. Reaching inside the bag, however, reveals the presence of a small, fuzzy object.<br />
-      You can take a Magic action to pull the fuzzy object from the bag and throw it up to 20 feet. When the object lands, it transforms into a creature you determine by rolling on the table that corresponds to the bag's color. See the <em>Monster Manual</em> for the creature's stat block. The creature vanishes at the next dawn or when it is reduced to 0 Hit Points.<br />
-      The creature is Friendly to you and your allies, and it acts immediately after you on your Initiative count. You can take a Bonus Action to command how the creature moves and what action it takes on its next turn, such as attacking an enemy. In the absence of such orders, the creature acts in a fashion appropriate to its nature.<br />
-      Once three fuzzy objects have been pulled from the bag, the bag can't be used again until the next dawn.  </p>
-      <h3>Gray Bag of Tricks</h3>
-      <table>
-      <thead>
-      <tr>
-      <th>1d8</th>
-      <th>Creature</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-      <td>1</td>
-      <td>Weasel</td>
-      </tr>
-      <tr>
-      <td>2</td>
-      <td>Giant Rat</td>
-      </tr>
-      <tr>
-      <td>3</td>
-      <td>Badger</td>
-      </tr>
-      <tr>
-      <td>4</td>
-      <td>Boar</td>
-      </tr>
-      <tr>
-      <td>5</td>
-      <td>Panther</td>
-      </tr>
-      <tr>
-      <td>6</td>
-      <td>Giant Badger</td>
-      </tr>
-      <tr>
-      <td>7</td>
-      <td>Dire Wolf</td>
-      </tr>
-      <tr>
-      <td>8</td>
-      <td>Giant Elk</td>
-      </tr>
-      </tbody>
-      </table>
-      <h3>Rust Bag of Tricks</h3>
-      <table>
-      <thead>
-      <tr>
-      <th>1d8</th>
-      <th>Creature</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-      <td>1</td>
-      <td>Rat</td>
-      </tr>
-      <tr>
-      <td>2</td>
-      <td>Owl</td>
-      </tr>
-      <tr>
-      <td>3</td>
-      <td>Mastiff</td>
-      </tr>
-      <tr>
-      <td>4</td>
-      <td>Goat</td>
-      </tr>
-      <tr>
-      <td>5</td>
-      <td>Giant Goat</td>
-      </tr>
-      <tr>
-      <td>6</td>
-      <td>Giant Boar</td>
-      </tr>
-      <tr>
-      <td>7</td>
-      <td>Lion</td>
-      </tr>
-      <tr>
-      <td>8</td>
-      <td>Brown Bear</td>
-      </tr>
-      </tbody>
-      </table>
-      <h3>Tan Bag of Tricks</h3>
-      <table>
-      <thead>
-      <tr>
-      <th>1d8</th>
-      <th>Creature</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-      <td>1</td>
-      <td>Jackal</td>
-      </tr>
-      <tr>
-      <td>2</td>
-      <td>Ape</td>
-      </tr>
-      <tr>
-      <td>3</td>
-      <td>Baboon</td>
-      </tr>
-      <tr>
-      <td>4</td>
-      <td>Axe Beak</td>
-      </tr>
-      <tr>
-      <td>5</td>
-      <td>Black Bear</td>
-      </tr>
-      <tr>
-      <td>6</td>
-      <td>Giant Weasel</td>
-      </tr>
-      <tr>
-      <td>7</td>
-      <td>Giant Hyena</td>
-      </tr>
-      <tr>
-      <td>8</td>
-      <td>Tiger</td>
-      </tr>
-      </tbody>
-      </table>
+      This bag made from gray, rust, or tan cloth appears empty. Reaching inside the bag, however, reveals the presence of a small, fuzzy object.\
+      You can take a Magic action to pull the fuzzy object from the bag and throw it up to 20 feet. When the object lands, it transforms into a creature you determine by rolling on the table that corresponds to the bag's color. See the *Monster Manual* for the creature's stat block. The creature vanishes at the next dawn or when it is reduced to 0 Hit Points.\
+      The creature is Friendly to you and your allies, and it acts immediately after you on your Initiative count. You can take a Bonus Action to command how the creature moves and what action it takes on its next turn, such as attacking an enemy. In the absence of such orders, the creature acts in a fashion appropriate to its nature.\
+      Once three fuzzy objects have been pulled from the bag, the bag can't be used again until the next dawn.
+
+      ### Gray Bag of Tricks
+
+      | 1d8 | Creature |
+      | --- | --- |
+      | 1 | Weasel |
+      | 2 | Giant Rat |
+      | 3 | Badger |
+      | 4 | Boar |
+      | 5 | Panther |
+      | 6 | Giant Badger |
+      | 7 | Dire Wolf |
+      | 8 | Giant Elk |
+
+      ### Rust Bag of Tricks
+
+      | 1d8 | Creature |
+      | --- | --- |
+      | 1 | Rat |
+      | 2 | Owl |
+      | 3 | Mastiff |
+      | 4 | Goat |
+      | 5 | Giant Goat |
+      | 6 | Giant Boar |
+      | 7 | Lion |
+      | 8 | Brown Bear |
+
+      ### Tan Bag of Tricks
+
+      | 1d8 | Creature |
+      | --- | --- |
+      | 1 | Jackal |
+      | 2 | Ape |
+      | 3 | Baboon |
+      | 4 | Axe Beak |
+      | 5 | Black Bear |
+      | 6 | Giant Weasel |
+      | 7 | Giant Hyena |
+      | 8 | Tiger |
   fr:
     name: Sac à malices
     subtype: null
     description: |-
-      <p>Ce sac en tissu gris, rouille ou brun semble vide. Cependant, en y plongeant la main, on découvre la présence d'un petit objet pelucheux.<br />
-      Vous pouvez prendre une action Magie pour extraire l'objet pelucheux du sac et le lancer jusqu'à 6 mètres. Lorsqu'il touche le sol, l'objet se transforme en une créature que vous déterminez en lançant un dé sur la table correspondant à la couleur du sac. Consultez le <em>Manuel des Monstres</em> pour le profil de la créature. La créature disparaît à l'aube suivante ou lorsqu'elle est réduite à 0 point de vie.<br />
-      La créature est amicale envers vous et vos alliés, et elle agit immédiatement après vous dans l'ordre de l'Initiative. Vous pouvez prendre une action Bonus pour commander les déplacements de la créature et son action lors de son prochain tour, comme attaquer un ennemi. En l'absence de tels ordres, la créature agit de manière appropriée à sa nature.<br />
-      Une fois trois objets pelucheux extraits du sac, celui-ci ne peut plus être utilisé avant l'aube suivante.  </p>
-      <h3>Sac à malices gris</h3>
-      <table>
-      <thead>
-      <tr>
-      <th>1d8</th>
-      <th>Créature</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-      <td>1</td>
-      <td>Belette</td>
-      </tr>
-      <tr>
-      <td>2</td>
-      <td>Rat géant</td>
-      </tr>
-      <tr>
-      <td>3</td>
-      <td>Blaireau</td>
-      </tr>
-      <tr>
-      <td>4</td>
-      <td>Sanglier</td>
-      </tr>
-      <tr>
-      <td>5</td>
-      <td>Panthère</td>
-      </tr>
-      <tr>
-      <td>6</td>
-      <td>Blaireau géant</td>
-      </tr>
-      <tr>
-      <td>7</td>
-      <td>Loup sanguinaire</td>
-      </tr>
-      <tr>
-      <td>8</td>
-      <td>Élan géant</td>
-      </tr>
-      </tbody>
-      </table>
-      <h3>Sac à malices rouille</h3>
-      <table>
-      <thead>
-      <tr>
-      <th>1d8</th>
-      <th>Créature</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-      <td>1</td>
-      <td>Rat</td>
-      </tr>
-      <tr>
-      <td>2</td>
-      <td>Chouette</td>
-      </tr>
-      <tr>
-      <td>3</td>
-      <td>Molosse</td>
-      </tr>
-      <tr>
-      <td>4</td>
-      <td>Chèvre</td>
-      </tr>
-      <tr>
-      <td>5</td>
-      <td>Chèvre géante</td>
-      </tr>
-      <tr>
-      <td>6</td>
-      <td>Sanglier géant</td>
-      </tr>
-      <tr>
-      <td>7</td>
-      <td>Lion</td>
-      </tr>
-      <tr>
-      <td>8</td>
-      <td>Ours brun</td>
-      </tr>
-      </tbody>
-      </table>
-      <h3>Sac à malice brun</h3>
-      <table>
-      <thead>
-      <tr>
-      <th>1d8</th>
-      <th>Créature</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-      <td>1</td>
-      <td>Chacal</td>
-      </tr>
-      <tr>
-      <td>2</td>
-      <td>Grand singe</td>
-      </tr>
-      <tr>
-      <td>3</td>
-      <td>Babouin</td>
-      </tr>
-      <tr>
-      <td>4</td>
-      <td>Bec de hache</td>
-      </tr>
-      <tr>
-      <td>5</td>
-      <td>Ours noir</td>
-      </tr>
-      <tr>
-      <td>6</td>
-      <td>Belette géante</td>
-      </tr>
-      <tr>
-      <td>7</td>
-      <td>Hyène géante</td>
-      </tr>
-      <tr>
-      <td>8</td>
-      <td>Tigre</td>
-      </tr>
-      </tbody>
-      </table>
+      Ce sac en tissu gris, rouille ou brun semble vide. Cependant, en y plongeant la main, on découvre la présence d'un petit objet pelucheux.\
+      Vous pouvez prendre une action Magie pour extraire l'objet pelucheux du sac et le lancer jusqu'à 6 mètres. Lorsqu'il touche le sol, l'objet se transforme en une créature que vous déterminez en lançant un dé sur la table correspondant à la couleur du sac. Consultez le *Manuel des Monstres* pour le profil de la créature. La créature disparaît à l'aube suivante ou lorsqu'elle est réduite à 0 point de vie.\
+      La créature est amicale envers vous et vos alliés, et elle agit immédiatement après vous dans l'ordre de l'Initiative. Vous pouvez prendre une action Bonus pour commander les déplacements de la créature et son action lors de son prochain tour, comme attaquer un ennemi. En l'absence de tels ordres, la créature agit de manière appropriée à sa nature.\
+      Une fois trois objets pelucheux extraits du sac, celui-ci ne peut plus être utilisé avant l'aube suivante.
+
+      ### Sac à malices gris
+
+      | 1d8 | Créature |
+      | --- | --- |
+      | 1 | Belette |
+      | 2 | Rat géant |
+      | 3 | Blaireau |
+      | 4 | Sanglier |
+      | 5 | Panthère |
+      | 6 | Blaireau géant |
+      | 7 | Loup sanguinaire |
+      | 8 | Élan géant |
+
+      ### Sac à malices rouille
+
+      | 1d8 | Créature |
+      | --- | --- |
+      | 1 | Rat |
+      | 2 | Chouette |
+      | 3 | Molosse |
+      | 4 | Chèvre |
+      | 5 | Chèvre géante |
+      | 6 | Sanglier géant |
+      | 7 | Lion |
+      | 8 | Ours brun |
+
+      ### Sac à malice brun
+
+      | 1d8 | Créature |
+      | --- | --- |
+      | 1 | Chacal |
+      | 2 | Grand singe |
+      | 3 | Babouin |
+      | 4 | Bec de hache |
+      | 5 | Ours noir |
+      | 6 | Belette géante |
+      | 7 | Hyène géante |
+      | 8 | Tigre |

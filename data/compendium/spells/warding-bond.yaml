@@ -19,13 +19,9 @@ translations:
     duration: 1 hour
     materialDescription: a pair of platinum rings worth 50+ GP each, which you and
       the target must wear for the duration
-    description: You touch another creature that is willing and create a mystic connection
-      between you and the target until the spell ends. While the target is within
-      60 feet of you, it gains a +1 bonus to AC and saving throws, and it has Resistance
-      to all damage. Also, each time it takes damage, you take the same amount of
-      damage.<br/>The spell ends if you drop to 0 Hit Points or if you and the target
-      become separated by more than 60 feet. It also ends if the spell is cast again
-      on either of the connected creatures.<br/>
+    description: |-
+      You touch another creature that is willing and create a mystic connection between you and the target until the spell ends. While the target is within 60 feet of you, it gains a +1 bonus to AC and saving throws, and it has Resistance to all damage. Also, each time it takes damage, you take the same amount of damage.\
+      The spell ends if you drop to 0 Hit Points or if you and the target become separated by more than 60 feet. It also ends if the spell is cast again on either of the connected creatures.\
   fr:
     name: Lien de protection
     castingTime: Action
@@ -33,11 +29,6 @@ translations:
     duration: 1 heure
     materialDescription: deux bagues de platine d'une valeur minimale de 50 po chacune,
       que la cible et vous devez porter pour toute la durée
-    description: Vous touchez une autre créature consentante et créez une connexion
-      mystique entre vous et la cible jusqu'à la fin du sort. Tant que la cible est
-      dans un rayon de 18 mètres autour de vous, elle bénéficie d'un bonus de +1 à
-      la CA et aux jets de sauvegarde, et d'une résistance à tous les dégâts. Par
-      contre, chaque fois qu'elle subit des dégâts, vous subissez le même montant.<br/>Le
-      sort prend fin si vous tombez à 0 point de vie ou si vous et la cible êtes séparés
-      de plus de 18 mètres. Il prend également fin si le sort est lancé à nouveau
-      sur l'une des créatures connectées.<br/>
+    description: |-
+      Vous touchez une autre créature consentante et créez une connexion mystique entre vous et la cible jusqu'à la fin du sort. Tant que la cible est dans un rayon de 18 mètres autour de vous, elle bénéficie d'un bonus de +1 à la CA et aux jets de sauvegarde, et d'une résistance à tous les dégâts. Par contre, chaque fois qu'elle subit des dégâts, vous subissez le même montant.\
+      Le sort prend fin si vous tombez à 0 point de vie ou si vous et la cible êtes séparés de plus de 18 mètres. Il prend également fin si le sort est lancé à nouveau sur l'une des créatures connectées.\

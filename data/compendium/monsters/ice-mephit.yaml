@@ -89,12 +89,17 @@ translations:
     name: Ice Mephit
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Death Burst</em>**. The mephit explodes when it dies. <em>Constitution Saving Throw</em> : DC 10, each creature in a 5-foot Emanation originating from the mephit. <em>Failure</em> : 5 (2d4) Cold damage. <em>Success</em> : Half damage.</p>
-      <h2>Actions</h2>
-      <p>** <em>Claw</em>**. <em>Melee Attack Roll</em> : +3, reach 5 ft. <em>Hit</em> : 3 (1d4 + 1) Slashing damage plus 2 (1d4) Cold damage.</p>
-      <p><strong><em>Fog Cloud (1/Day)</em></strong>. The mephit casts <em><a href="https://www.aidedd.org/spell/fog-cloud">Fog Cloud</a></em> , requiring no spell components and using Charisma as the spellcasting ability.</p>
-      <p><strong><em>Frost Breath (Recharge 6)</em></strong>. <em>Constitution Saving Throw</em> : DC 10, each creature in a 15-foot Cone. <em>Failure</em> : 7 (3d4) Cold damage. <em>Success</em> : Half damage.</p>
+      ## Traits
+
+      ***Death Burst***. The mephit explodes when it dies. *Constitution Saving Throw* : DC 10, each creature in a 5-foot Emanation originating from the mephit. *Failure* : 5 (2d4) Cold damage. *Success* : Half damage.
+
+      ## Actions
+
+      ***Claw***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 3 (1d4 + 1) Slashing damage plus 2 (1d4) Cold damage.
+
+      ***Fog Cloud (1/Day)***. The mephit casts *[Fog Cloud](https://www.aidedd.org/spell/fog-cloud)* , requiring no spell components and using Charisma as the spellcasting ability.
+
+      ***Frost Breath (Recharge 6)***. *Constitution Saving Throw* : DC 10, each creature in a 15-foot Cone. *Failure* : 7 (3d4) Cold damage. *Success* : Half damage.
     senses: Darkvision 60 ft., Passive Perception 12
     languages:
     - Primordial (Aquan
@@ -103,12 +108,17 @@ translations:
     name: Méphite gelé
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Explosion finale</em>**. Le méphite explose quand il meurt. <em>JdS Constitution</em> : DD 10, chaque créature dans une Émanation de 1,50 m centrée sur le méphite. <em>Échec</em> : 5 (2d4) dégâts de froid. <em>Réussite</em> : demi-dégâts.</p>
-      <h2>Actions</h2>
-      <p>** <em>Griffe</em>**. <em>Corps à corps</em> : +3, allonge 1,50 m. <em>Touché</em> : 3 (1d4 + 1) dégâts tranchants plus 2 (1d4) dégâts de froid.</p>
-      <p><strong><em>Nappe de brouillard (1/jour)</em></strong>. Le méphite lance <em>nappe de brouillard</em> sans composantes de sort, le Charisme étant sa caractéristique d'incantation.</p>
-      <p><strong><em>Souffle de givre (recharge 6)</em></strong>. <em>JdS Constitution</em> : DD 10, chaque créature dans un Cône de 4,50 m. <em>Échec</em> : 7 (3d4) dégâts de froid. <em>Réussite</em> : demi-dégâts.</p>
+      ## Traits
+
+      ***Explosion finale***. Le méphite explose quand il meurt. *JdS Constitution* : DD 10, chaque créature dans une Émanation de 1,50 m centrée sur le méphite. *Échec* : 5 (2d4) dégâts de froid. *Réussite* : demi-dégâts.
+
+      ## Actions
+
+      ***Griffe***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 3 (1d4 + 1) dégâts tranchants plus 2 (1d4) dégâts de froid.
+
+      ***Nappe de brouillard (1/jour)***. Le méphite lance *nappe de brouillard* sans composantes de sort, le Charisme étant sa caractéristique d'incantation.
+
+      ***Souffle de givre (recharge 6)***. *JdS Constitution* : DD 10, chaque créature dans un Cône de 4,50 m. *Échec* : 7 (3d4) dégâts de froid. *Réussite* : demi-dégâts.
     senses: Vision dans le noir 18 m, Perception passive 12
     languages:
     - primordial (aquatique

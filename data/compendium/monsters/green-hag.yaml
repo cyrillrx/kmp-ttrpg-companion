@@ -89,15 +89,23 @@ translations:
     name: Green Hag
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Amphibious</em>**. The hag can breathe air and water.</p>
-      <p><strong><em>Coven Magic</em></strong>. While within 30 feet of at least two hag allies, the hag can cast one of the following spells, requiring no Material components, using the spell's normal casting time, and using Intelligence as the spellcasting ability (spell save DC 11): <em><a href="https://www.aidedd.org/spell/augury">Augury</a>, <a href="https://www.aidedd.org/spell/find-familiar">Find Familiar</a>, <a href="https://www.aidedd.org/spell/identify">Identify</a>, <a href="https://www.aidedd.org/spell/locate-object">Locate Object</a>, <a href="https://www.aidedd.org/spell/scrying">Scrying</a></em>, or <em><a href="https://www.aidedd.org/spell/unseen-servant">Unseen Servant</a></em>. The hag must finish a Long Rest before using this trait to cast that spell again.</p>
-      <p><strong><em>Mimicry</em></strong>. The hag can mimic animal sounds and humanoid voices. A creature that hears the sounds can tell they are imitations only with a successful DC 14 Wisdom (Insight) check.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The hag makes two Claw attacks.</p>
-      <p><strong><em>Claw</em></strong>. <em>Melee Attack Roll</em> : +6, reach 5 ft. <em>Hit</em> : 8 (1d8 + 4) Slashing damage plus 3 (1d6) Poison damage.</p>
-      <p><strong><em>Spellcasting</em></strong>. The hag casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 12, +4 to hit with spell attacks):</p>
-      <p>At Will: <em><a href="https://www.aidedd.org/spell/dancing-lights">Dancing Lights</a>, <a href="https://www.aidedd.org/spell/disguise-self">Disguise Self</a></em> (24-hour duration), <em><a href="https://www.aidedd.org/spell/invisibility">Invisibility</a></em> (self only, and the hag leaves no tracks while Invisible), <em><a href="https://www.aidedd.org/spell/minor-illusion">Minor Illusion</a>, <a href="https://www.aidedd.org/spell/ray-of-sickness">Ray of Sickness</a></em> (level 3 version)</p>
+      ## Traits
+
+      ***Amphibious***. The hag can breathe air and water.
+
+      ***Coven Magic***. While within 30 feet of at least two hag allies, the hag can cast one of the following spells, requiring no Material components, using the spell's normal casting time, and using Intelligence as the spellcasting ability (spell save DC 11): *[Augury](https://www.aidedd.org/spell/augury), [Find Familiar](https://www.aidedd.org/spell/find-familiar), [Identify](https://www.aidedd.org/spell/identify), [Locate Object](https://www.aidedd.org/spell/locate-object), [Scrying](https://www.aidedd.org/spell/scrying)*, or *[Unseen Servant](https://www.aidedd.org/spell/unseen-servant)*. The hag must finish a Long Rest before using this trait to cast that spell again.
+
+      ***Mimicry***. The hag can mimic animal sounds and humanoid voices. A creature that hears the sounds can tell they are imitations only with a successful DC 14 Wisdom (Insight) check.
+
+      ## Actions
+
+      ***Multiattack***. The hag makes two Claw attacks.
+
+      ***Claw***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 8 (1d8 + 4) Slashing damage plus 3 (1d6) Poison damage.
+
+      ***Spellcasting***. The hag casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 12, +4 to hit with spell attacks):
+
+      At Will: *[Dancing Lights](https://www.aidedd.org/spell/dancing-lights), [Disguise Self](https://www.aidedd.org/spell/disguise-self)* (24-hour duration), *[Invisibility](https://www.aidedd.org/spell/invisibility)* (self only, and the hag leaves no tracks while Invisible), *[Minor Illusion](https://www.aidedd.org/spell/minor-illusion), [Ray of Sickness](https://www.aidedd.org/spell/ray-of-sickness)* (level 3 version)
     senses: Darkvision 60 ft., Passive Perception 14
     languages:
     - Common
@@ -107,15 +115,23 @@ translations:
     name: Guenaude verte
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Amphibie</em>**. La guenaude peut respirer sous l'eau comme à l'air libre.</p>
-      <p><strong><em>Imitation</em></strong>. La guenaude imite à merveille les bruits des animaux et les voix humanoïdes. Une créature qui l'entend se rend compte qu'il s'agit d'une imitation si elle réussit un jet de Sagesse (Intuition) DD 14.</p>
-      <p><strong><em>Magie d'assemblée</em></strong>. Tant qu'elle se trouve dans un rayon de 9 m d'au moins deux alliées guenaudes, la guenaude peut lancer l'un des sorts suivants sans composantes matérielles, avec le temps d'incantation normal, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 11) : <em><a href="https://www.aidedd.org/spell/fr/appel-de-familier">appel de familier</a>, <a href="https://www.aidedd.org/spell/fr/augure">augure</a>, <a href="https://www.aidedd.org/spell/fr/identification">identification</a>, <a href="https://www.aidedd.org/spell/localisation-d-objet">localisation d'objet</a>, <a href="https://www.aidedd.org/spell/fr/scrutation">scrutation</a> ou <a href="https://www.aidedd.org/spell/fr/serviteur invisible">serviteur invisible</a></em>. La guenaude doit terminer un Repos long avant de pouvoir relancer ce sort par ce trait.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. La guenaude effectue deux attaques de Griffe.</p>
-      <p><strong><em>Griffe</em></strong>. <em>Corps à corps</em> : +6, allonge 1,50 m. <em>Touché</em> : 8 (1d8 + 4) dégâts tranchants plus 3 (1d6) dégâts de poison.</p>
-      <p><strong><em>Incantation</em></strong>. La guenaude lance l'un des sorts suivants sans composantes matérielles, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 12, +4 pour toucher) :</p>
-      <p>À volonté : <em>déguisement</em> (durée : 24 heures), <em><a href="https://www.aidedd.org/spell/fr/illusion-mineure">illusion mineure</a>, <a href="https://www.aidedd.org/spell/fr/invisibilite">invisibilité</a></em> (soi-même uniquement ; la guenaude ne laisse aucune trace tant qu'elle est Invisible), <em>lumières dansantes, rayon empoisonné</em> (au niveau 3)</p>
+      ## Traits
+
+      ***Amphibie***. La guenaude peut respirer sous l'eau comme à l'air libre.
+
+      ***Imitation***. La guenaude imite à merveille les bruits des animaux et les voix humanoïdes. Une créature qui l'entend se rend compte qu'il s'agit d'une imitation si elle réussit un jet de Sagesse (Intuition) DD 14.
+
+      ***Magie d'assemblée***. Tant qu'elle se trouve dans un rayon de 9 m d'au moins deux alliées guenaudes, la guenaude peut lancer l'un des sorts suivants sans composantes matérielles, avec le temps d'incantation normal, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 11) : *[appel de familier](https://www.aidedd.org/spell/fr/appel-de-familier), [augure](https://www.aidedd.org/spell/fr/augure), [identification](https://www.aidedd.org/spell/fr/identification), [localisation d'objet](https://www.aidedd.org/spell/localisation-d-objet), [scrutation](https://www.aidedd.org/spell/fr/scrutation) ou [serviteur invisible](https://www.aidedd.org/spell/fr/serviteur invisible)*. La guenaude doit terminer un Repos long avant de pouvoir relancer ce sort par ce trait.
+
+      ## Actions
+
+      ***Attaques multiples***. La guenaude effectue deux attaques de Griffe.
+
+      ***Griffe***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 8 (1d8 + 4) dégâts tranchants plus 3 (1d6) dégâts de poison.
+
+      ***Incantation***. La guenaude lance l'un des sorts suivants sans composantes matérielles, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 12, +4 pour toucher) :
+
+      À volonté : *déguisement* (durée : 24 heures), *[illusion mineure](https://www.aidedd.org/spell/fr/illusion-mineure), [invisibilité](https://www.aidedd.org/spell/fr/invisibilite)* (soi-même uniquement ; la guenaude ne laisse aucune trace tant qu'elle est Invisible), *lumières dansantes, rayon empoisonné* (au niveau 3)
     senses: Vision dans le noir 18 m, Perception passive 14
     languages:
     - commun

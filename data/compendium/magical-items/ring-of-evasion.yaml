@@ -7,13 +7,10 @@ translations:
   en:
     name: Ring of Evasion
     subtype: null
-    description: <p>This ring has 3 charges, and it regains 1d3 expended charges daily
-      at dawn. When you fail a Dexterity saving throw while wearing the ring, you
-      can take a Reaction to expend 1 charge to succeed on that save instead.</p>
+    description: |-
+      This ring has 3 charges, and it regains 1d3 expended charges daily at dawn. When you fail a Dexterity saving throw while wearing the ring, you can take a Reaction to expend 1 charge to succeed on that save instead.
   fr:
     name: Anneau d'esquive totale
     subtype: null
-    description: <p>Cet anneau possède 3 charges et récupère 1d3 charges dépensées
-      chaque jour à l'aube. Si vous échouez à un jet de sauvegarde de Dextérité alors
-      que vous portez l'anneau, vous pouvez prendre une Réaction pour dépenser 1 charge
-      et réussir ce jet.</p>
+    description: |-
+      Cet anneau possède 3 charges et récupère 1d3 charges dépensées chaque jour à l'aube. Si vous échouez à un jet de sauvegarde de Dextérité alors que vous portez l'anneau, vous pouvez prendre une Réaction pour dépenser 1 charge et réussir ce jet.

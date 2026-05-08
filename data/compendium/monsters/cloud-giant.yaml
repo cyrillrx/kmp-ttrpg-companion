@@ -89,15 +89,22 @@ translations:
     name: Cloud Giant
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The giant makes two attacks, using Thunderous Mace or Thundercloud in any combination. It can replace one attack with a use of Spellcasting to cast <em><a href="https://www.aidedd.org/spell/fog-cloud">Fog Cloud</a></em>.</p>
-      <p><strong><em>Thunderous Mace</em></strong>. <em>Melee Attack Roll</em> : +12, reach 10 ft. <em>Hit</em> : 21 (3d8 + 8) Bludgeoning damage plus 7 (2d6) Thunder damage.</p>
-      <p><strong><em>Thundercloud</em></strong>. <em>Ranged Attack Roll</em> : +12, range 240 ft. <em>Hit</em> : 18 (3d6 + 8) Thunder damage, and the target has the Incapacitated condition until the end of its next turn.</p>
-      <p><strong><em>Spellcasting</em></strong>. The giant casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 15):</p>
-      <p>At Will: <em><a href="https://www.aidedd.org/spell/detect-magic">Detect Magic</a>, <a href="https://www.aidedd.org/spell/fog-cloud">Fog Cloud</a>, Light</em><br />
-      1/Day Each: <em><a href="https://www.aidedd.org/spell/control-weather">Control Weather</a>, <a href="https://www.aidedd.org/spell/gaseous-form">Gaseous Form</a>, <a href="https://www.aidedd.org/spell/telekinesis">Telekinesis</a></em>  </p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Misty Step</em>**. The giant casts the <em><a href="https://www.aidedd.org/spell/misty-step">Misty Step</a></em> spell, using the same spellcasting ability as Spellcasting.</p>
+      ## Actions
+
+      ***Multiattack***. The giant makes two attacks, using Thunderous Mace or Thundercloud in any combination. It can replace one attack with a use of Spellcasting to cast *[Fog Cloud](https://www.aidedd.org/spell/fog-cloud)*.
+
+      ***Thunderous Mace***. *Melee Attack Roll* : +12, reach 10 ft. *Hit* : 21 (3d8 + 8) Bludgeoning damage plus 7 (2d6) Thunder damage.
+
+      ***Thundercloud***. *Ranged Attack Roll* : +12, range 240 ft. *Hit* : 18 (3d6 + 8) Thunder damage, and the target has the Incapacitated condition until the end of its next turn.
+
+      ***Spellcasting***. The giant casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 15):
+
+      At Will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Fog Cloud](https://www.aidedd.org/spell/fog-cloud), Light*\
+      1/Day Each: *[Control Weather](https://www.aidedd.org/spell/control-weather), [Gaseous Form](https://www.aidedd.org/spell/gaseous-form), [Telekinesis](https://www.aidedd.org/spell/telekinesis)*
+
+      ## Bonus actions
+
+      ***Misty Step***. The giant casts the *[Misty Step](https://www.aidedd.org/spell/misty-step)* spell, using the same spellcasting ability as Spellcasting.
     senses: Passive Perception 21
     languages:
     - Common
@@ -106,15 +113,22 @@ translations:
     name: Géant des nuages
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le géant effectue deux attaques, réparties à sa guise entre Masse d'armes tonitruante et Nuage de tonnerre. Il peut remplacer l'une de ces attaques par une utilisation d'Incantation pour lancer <em>nappe de brouillard</em>.</p>
-      <p><strong><em>Masse d'armes tonitruante</em></strong>. <em>Corps à corps</em> : +12, allonge 3 m. <em>Touché</em> : 21 (3d8 + 8) dégâts contondants plus 7 (2d6) dégâts de tonnerre.</p>
-      <p><strong><em>Nuage de tonnerre</em></strong>. <em>À distance</em> : +12, portée 72 m. <em>Touché</em> : 18 (3d6 + 8) dégâts de tonnerre, et la cible subit l'état Incapable d'agir jusqu'à la fin de son tour suivant.</p>
-      <p><strong><em>Incantation</em></strong>. Le géant lance l'un des sorts suivants, sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 15) :</p>
-      <p>À volonté : <em><a href="https://www.aidedd.org/spell/fr/detection-de-la-magie">détection de la magie</a>, lumière, nappe de brouillard</em><br />
-      1/jour chacun : <em>contrôle du climat, forme gazeuse, télékinésie</em>  </p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Foulée brumeuse</em>**. Le géant lance le sort <em><a href="https://www.aidedd.org/spell/fr/foulee-brumeuse">foulée brumeuse</a></em> avec la même caractéristique d'incantation que pour Incantation.</p>
+      ## Actions
+
+      ***Attaques multiples***. Le géant effectue deux attaques, réparties à sa guise entre Masse d'armes tonitruante et Nuage de tonnerre. Il peut remplacer l'une de ces attaques par une utilisation d'Incantation pour lancer *nappe de brouillard*.
+
+      ***Masse d'armes tonitruante***. *Corps à corps* : +12, allonge 3 m. *Touché* : 21 (3d8 + 8) dégâts contondants plus 7 (2d6) dégâts de tonnerre.
+
+      ***Nuage de tonnerre***. *À distance* : +12, portée 72 m. *Touché* : 18 (3d6 + 8) dégâts de tonnerre, et la cible subit l'état Incapable d'agir jusqu'à la fin de son tour suivant.
+
+      ***Incantation***. Le géant lance l'un des sorts suivants, sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 15) :
+
+      À volonté : *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), lumière, nappe de brouillard*\
+      1/jour chacun : *contrôle du climat, forme gazeuse, télékinésie*
+
+      ## Actions Bonus
+
+      ***Foulée brumeuse***. Le géant lance le sort *[foulée brumeuse](https://www.aidedd.org/spell/fr/foulee-brumeuse)* avec la même caractéristique d'incantation que pour Incantation.
     senses: Perception passive 21
     languages:
     - commun

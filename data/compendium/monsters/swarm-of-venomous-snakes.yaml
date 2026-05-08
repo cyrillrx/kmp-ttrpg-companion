@@ -89,10 +89,13 @@ translations:
     name: Swarm of Venomous Snakes
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Swarm</em>**. The swarm can occupy another creature's space and vice versa, and the swarm can move through any opening large enough for a Tiny snake. The swarm can't regain Hit Points or gain Temporary Hit Points.</p>
-      <h2>Actions</h2>
-      <p>** <em>Bites</em>**. <em>Melee Attack Roll</em> : +6, reach 5 ft. <em>Hit</em> : 8 (1d8 + 4) Piercing damage—or 6 (1d4 + 4) Piercing damage if the swarm is Bloodied—plus 10 (3d6) Poison damage.</p>
+      ## Traits
+
+      ***Swarm***. The swarm can occupy another creature's space and vice versa, and the swarm can move through any opening large enough for a Tiny snake. The swarm can't regain Hit Points or gain Temporary Hit Points.
+
+      ## Actions
+
+      ***Bites***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 8 (1d8 + 4) Piercing damage—or 6 (1d4 + 4) Piercing damage if the swarm is Bloodied—plus 10 (3d6) Poison damage.
     senses: Blindsight 10 ft., Passive Perception 10
     languages:
     - None
@@ -100,10 +103,13 @@ translations:
     name: Nuée de serpents venimeux
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Nuée</em>**. La nuée peut occuper l'espace d'une autre créature et réciproquement, et elle peut se déplacer par toute ouverture assez large pour un serpent de taille TP. La nuée ne peut ni récupérer de points de vie ni recevoir de points de vie temporaires.</p>
-      <h2>Actions</h2>
-      <p>** <em>Morsures</em>**. <em>Corps à corps</em> : +6, allonge 1,50 m. <em>Touché</em> : 8 (1d8 + 4) dégâts perforants (ou 6 [1d4 + 4] dégâts perforants si la nuée est En péril), plus 10 (3d6) dégâts de poison.</p>
+      ## Traits
+
+      ***Nuée***. La nuée peut occuper l'espace d'une autre créature et réciproquement, et elle peut se déplacer par toute ouverture assez large pour un serpent de taille TP. La nuée ne peut ni récupérer de points de vie ni recevoir de points de vie temporaires.
+
+      ## Actions
+
+      ***Morsures***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 8 (1d8 + 4) dégâts perforants (ou 6 [1d4 + 4] dégâts perforants si la nuée est En péril), plus 10 (3d6) dégâts de poison.
     senses: Vision aveugle 3 m, Perception passive 10
     languages:
     - aucune

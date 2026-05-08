@@ -89,9 +89,11 @@ translations:
     name: Ankylosaurus
     subtype: Dinosaur
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The ankylosaurus makes two Tail attacks.</p>
-      <p><strong><em>Tail</em></strong>. <em>Melee Attack Roll</em> : +6, reach 10 ft. <em>Hit</em> : 9 (1d10 + 4) Bludgeoning damage. If the target is a Huge or smaller creature, it has the Prone condition.</p>
+      ## Actions
+
+      ***Multiattack***. The ankylosaurus makes two Tail attacks.
+
+      ***Tail***. *Melee Attack Roll* : +6, reach 10 ft. *Hit* : 9 (1d10 + 4) Bludgeoning damage. If the target is a Huge or smaller creature, it has the Prone condition.
     senses: Passive Perception 11
     languages:
     - None
@@ -99,9 +101,11 @@ translations:
     name: Ankylosaure
     subtype: Dinosaure
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. L'ankylosaure effectue deux attaques de Queue.</p>
-      <p><strong><em>Queue</em></strong>. <em>Corps à corps</em> : +6, allonge 3 m. <em>Touché</em> : 9 (1d10 + 4) dégâts contondants. Si la cible est une créature de taille TG ou inférieure, elle subit l'état À terre.</p>
+      ## Actions
+
+      ***Attaques multiples***. L'ankylosaure effectue deux attaques de Queue.
+
+      ***Queue***. *Corps à corps* : +6, allonge 3 m. *Touché* : 9 (1d10 + 4) dégâts contondants. Si la cible est une créature de taille TG ou inférieure, elle subit l'état À terre.
     senses: Perception passive 11
     languages:
     - aucune

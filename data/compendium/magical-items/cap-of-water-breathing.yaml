@@ -7,14 +7,10 @@ translations:
   en:
     name: Cap of Water Breathing
     subtype: null
-    description: <p>While wearing this cap underwater, you can take a Magic action
-      to create a bubble of air around your head. This bubble allows you to breathe
-      normally underwater. This bubble stays with you until the cap is removed or
-      you are no longer underwater.</p>
+    description: |-
+      While wearing this cap underwater, you can take a Magic action to create a bubble of air around your head. This bubble allows you to breathe normally underwater. This bubble stays with you until the cap is removed or you are no longer underwater.
   fr:
     name: Capuchon de respiration aquatique
     subtype: null
-    description: <p>Lorsque vous portez ce capuchon sous l'eau, vous pouvez prendre
-      une action Magie pour créer une bulle d'air autour de votre tête. Cette bulle
-      vous permet de respirer normalement sous l'eau. Elle reste en place jusqu'à
-      ce que vous retiriez le capuchon ou que vous sortiez de l'eau.</p>
+    description: |-
+      Lorsque vous portez ce capuchon sous l'eau, vous pouvez prendre une action Magie pour créer une bulle d'air autour de votre tête. Cette bulle vous permet de respirer normalement sous l'eau. Elle reste en place jusqu'à ce que vous retiriez le capuchon ou que vous sortiez de l'eau.

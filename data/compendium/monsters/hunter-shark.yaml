@@ -89,10 +89,13 @@ translations:
     name: Hunter Shark
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Water Breathing</em>**. The shark can breathe only underwater.</p>
-      <h2>Actions</h2>
-      <p>** <em>Bite</em>**. <em>Melee Attack Roll</em> : +6 (with Advantage if the target doesn't have all its Hit Points), reach 5 ft. <em>Hit</em> : 14 (3d6 + 4) Piercing damage.</p>
+      ## Traits
+
+      ***Water Breathing***. The shark can breathe only underwater.
+
+      ## Actions
+
+      ***Bite***. *Melee Attack Roll* : +6 (with Advantage if the target doesn't have all its Hit Points), reach 5 ft. *Hit* : 14 (3d6 + 4) Piercing damage.
     senses: Blindsight 60 ft., Passive Perception 12
     languages:
     - None
@@ -100,10 +103,13 @@ translations:
     name: Requin-chasseur
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Respiration aquatique</em>**. Le requin ne peut respirer que sous l'eau.</p>
-      <h2>Actions</h2>
-      <p>** <em>Morsure</em>**. <em>Corps à corps</em> : +6 (avec Avantage si la cible n'a pas tous ses pv), allonge 1,50 m. <em>Touché</em> : 14 (3d6 + 4) dégâts perforants.</p>
+      ## Traits
+
+      ***Respiration aquatique***. Le requin ne peut respirer que sous l'eau.
+
+      ## Actions
+
+      ***Morsure***. *Corps à corps* : +6 (avec Avantage si la cible n'a pas tous ses pv), allonge 1,50 m. *Touché* : 14 (3d6 + 4) dégâts perforants.
     senses: Vision aveugle 18 m, Perception passive 12
     languages:
     - aucune

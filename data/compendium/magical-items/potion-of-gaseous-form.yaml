@@ -8,11 +8,11 @@ translations:
     name: Potion of Gaseous Form
     subtype: null
     description: |-
-      <p>When you drink this potion, you gain the effect of the <em><a href="https://www.aidedd.org/spell/gaseous-form">Gaseous Form</a></em> spell for 1 hour (no Concentration required) or until you end the effect as a Bonus Action.<br />
-      This potion's container seems to hold fog that moves and pours like water.</p>
+      When you drink this potion, you gain the effect of the *[Gaseous Form](https://www.aidedd.org/spell/gaseous-form)* spell for 1 hour (no Concentration required) or until you end the effect as a Bonus Action.\
+      This potion's container seems to hold fog that moves and pours like water.
   fr:
     name: Potion de forme gazeuse
     subtype: null
     description: |-
-      <p>Lorsque vous buvez cette potion, vous bénéficiez de l'effet du sort <em><a href="https://www.aidedd.org/spell/fr/forme-gazeuse">forme gazeuse</a></em> pendant 1 heure (aucune concentration requise) ou jusqu'à ce que vous mettiez fin à l'effet par une action Bonus.<br />
-      Le récipient de cette potion semble contenir un brouillard qui se déplace et se déverse comme de l'eau.</p>
+      Lorsque vous buvez cette potion, vous bénéficiez de l'effet du sort *[forme gazeuse](https://www.aidedd.org/spell/fr/forme-gazeuse)* pendant 1 heure (aucune concentration requise) ou jusqu'à ce que vous mettiez fin à l'effet par une action Bonus.\
+      Le récipient de cette potion semble contenir un brouillard qui se déplace et se déverse comme de l'eau.

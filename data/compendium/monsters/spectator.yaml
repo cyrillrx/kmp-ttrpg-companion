@@ -89,16 +89,25 @@ translations:
     name: Spectator
     subtype: Beholder
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The spectator uses Eye Rays twice.</p>
-      <p><strong><em>Bite</em></strong>. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 5 (1d6 + 2) Piercing damage.</p>
-      <p><strong><em>Eye Rays</em></strong>. The spectator randomly shoots one of the following magical rays at a target it can see within 90 feet of itself (roll 1d4; reroll if the spectator has already used that ray during this turn):</p>
-      <p><strong><em>1: Confusion Ray</em></strong>. <em>Wisdom Saving Throw</em> : DC 12. <em>Failure</em> : 5 (2d4) Psychic damage, and the target can't take Reactions until the end of its next turn. On its next turn, the target can't move, and it uses its action to make a melee or ranged attack against a randomly determined creature within range. If the target can't attack, it does nothing on that turn.</p>
-      <p><strong><em>2: Paralyzing Ray</em></strong>. <em>Constitution Saving Throw</em> : DC 12. <em>Failure</em> : The target has the Paralyzed condition and repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically.</p>
-      <p><strong><em>3: Fear Ray</em></strong>. <em>Wisdom Saving Throw</em> : DC 12. <em>Failure</em> : 5 (2d4) Psychic damage, and the target has the Frightened condition until the end of its next turn.</p>
-      <p><strong><em>4: Wounding Ray</em></strong>. <em>Constitution Saving Throw</em> : DC 12. <em>Failure</em> : 16 (3d10) Necrotic damage. <em>Success</em> : Half damage.</p>
-      <h2>Reactions</h2>
-      <p>** <em>Spell Reflection</em>**. <em>Trigger</em> : The spectator succeeds on a saving throw against a spell, or a spell's attack roll misses it. Response— <em>Dexterity Saving Throw</em> : DC 12, one creature the spectator can see within 120 feet. <em>Failure</em> : 10 (3d6) Force damage.</p>
+      ## Actions
+
+      ***Multiattack***. The spectator uses Eye Rays twice.
+
+      ***Bite***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 5 (1d6 + 2) Piercing damage.
+
+      ***Eye Rays***. The spectator randomly shoots one of the following magical rays at a target it can see within 90 feet of itself (roll 1d4; reroll if the spectator has already used that ray during this turn):
+
+      ***1: Confusion Ray***. *Wisdom Saving Throw* : DC 12. *Failure* : 5 (2d4) Psychic damage, and the target can't take Reactions until the end of its next turn. On its next turn, the target can't move, and it uses its action to make a melee or ranged attack against a randomly determined creature within range. If the target can't attack, it does nothing on that turn.
+
+      ***2: Paralyzing Ray***. *Constitution Saving Throw* : DC 12. *Failure* : The target has the Paralyzed condition and repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically.
+
+      ***3: Fear Ray***. *Wisdom Saving Throw* : DC 12. *Failure* : 5 (2d4) Psychic damage, and the target has the Frightened condition until the end of its next turn.
+
+      ***4: Wounding Ray***. *Constitution Saving Throw* : DC 12. *Failure* : 16 (3d10) Necrotic damage. *Success* : Half damage.
+
+      ## Reactions
+
+      ***Spell Reflection***. *Trigger* : The spectator succeeds on a saving throw against a spell, or a spell's attack roll misses it. Response— *Dexterity Saving Throw* : DC 12, one creature the spectator can see within 120 feet. *Failure* : 10 (3d6) Force damage.
     senses: Darkvision 120 ft., Passive Perception 16
     languages:
     - Deep Speech
@@ -107,16 +116,25 @@ translations:
     name: Spectateur
     subtype: Tyrannoeil
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le spectateur utilise Rayons oculaires à deux reprises.</p>
-      <p><strong><em>Morsure</em></strong>. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 5 (1d6 + 2) dégâts perforants.</p>
-      <p><strong><em>Rayons oculaires</em></strong>. Le spectateur tire aléatoirement l'un des rayons magiques suivants sur une cible qu'il peut voir dans un rayon de 27 m (lancez 1d4 ; relancez si le spectateur a déjà utilisé ce rayon durant ce tour) :</p>
-      <p><strong><em>1 : Rayon de confusion</em></strong>. <em>JdS Sagesse</em> : DD 12. <em>Échec</em> : 5 (2d4) dégâts psychiques, et la cible ne peut pas prendre de Réactions jusqu'à la fin de son prochain tour. À son prochain tour, la cible ne peut pas se déplacer et utilise son action pour effectuer une attaque au corps à corps ou à distance contre une créature aléatoire à portée. Si la cible ne peut pas attaquer, elle ne fait rien durant ce tour.</p>
-      <p><strong><em>2 : Rayon paralysant</em></strong>. <em>JdS Constitution</em> : DD 12. <em>Échec</em> : la cible subit l'état Paralysé et doit refaire le jet de sauvegarde à la fin de chacun de ses tours. En cas de réussite, l'effet prend fin. Après 1 minute, la cible réussit automatiquement.</p>
-      <p><strong><em>3 : Rayon de terreur</em></strong>. <em>JdS Sagesse</em> : DD 12. <em>Échec</em> : 5 (2d4) dégâts psychiques, et la cible subit l'état Effrayé jusqu'à la fin de son prochain tour.</p>
-      <p><strong><em>4 : Rayon meurtrissant</em></strong>. <em>JdS Constitution</em> : DD 12. <em>Échec</em> : 16 (3d10) dégâts nécrotiques. <em>Réussite</em> : demi-dégâts.</p>
-      <h2>Réactions</h2>
-      <p>** <em>Renvoi de sort</em>**. <em>Déclencheur</em> : le spectateur réussit un jet de sauvegarde contre un sort, ou le jet d'attaque du sort échoue. <em>Conséquences—JdS Dextérité</em> : DD 12, une créature que le spectateur peut voir dans un rayon de 36 m. <em>Échec</em> : 10 (3d6) dégâts de force.</p>
+      ## Actions
+
+      ***Attaques multiples***. Le spectateur utilise Rayons oculaires à deux reprises.
+
+      ***Morsure***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 5 (1d6 + 2) dégâts perforants.
+
+      ***Rayons oculaires***. Le spectateur tire aléatoirement l'un des rayons magiques suivants sur une cible qu'il peut voir dans un rayon de 27 m (lancez 1d4 ; relancez si le spectateur a déjà utilisé ce rayon durant ce tour) :
+
+      ***1 : Rayon de confusion***. *JdS Sagesse* : DD 12. *Échec* : 5 (2d4) dégâts psychiques, et la cible ne peut pas prendre de Réactions jusqu'à la fin de son prochain tour. À son prochain tour, la cible ne peut pas se déplacer et utilise son action pour effectuer une attaque au corps à corps ou à distance contre une créature aléatoire à portée. Si la cible ne peut pas attaquer, elle ne fait rien durant ce tour.
+
+      ***2 : Rayon paralysant***. *JdS Constitution* : DD 12. *Échec* : la cible subit l'état Paralysé et doit refaire le jet de sauvegarde à la fin de chacun de ses tours. En cas de réussite, l'effet prend fin. Après 1 minute, la cible réussit automatiquement.
+
+      ***3 : Rayon de terreur***. *JdS Sagesse* : DD 12. *Échec* : 5 (2d4) dégâts psychiques, et la cible subit l'état Effrayé jusqu'à la fin de son prochain tour.
+
+      ***4 : Rayon meurtrissant***. *JdS Constitution* : DD 12. *Échec* : 16 (3d10) dégâts nécrotiques. *Réussite* : demi-dégâts.
+
+      ## Réactions
+
+      ***Renvoi de sort***. *Déclencheur* : le spectateur réussit un jet de sauvegarde contre un sort, ou le jet d'attaque du sort échoue. *Conséquences—JdS Dextérité* : DD 12, une créature que le spectateur peut voir dans un rayon de 36 m. *Échec* : 10 (3d6) dégâts de force.
     senses: Vision dans le noir 36 m, Perception passive 16
     languages:
     - profond

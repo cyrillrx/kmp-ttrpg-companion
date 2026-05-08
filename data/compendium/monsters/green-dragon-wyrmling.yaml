@@ -89,12 +89,17 @@ translations:
     name: Green Dragon Wyrmling
     subtype: Chromatic
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Amphibious</em>**. The dragon can breathe air and water.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The dragon makes two Rend attacks.</p>
-      <p><strong><em>Rend</em></strong>. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 7 (1d10 + 2) Slashing damage plus 3 (1d6) Poison damage.</p>
-      <p><strong><em>Poison Breath (Recharge 5–6)</em></strong>. <em>Constitution Saving Throw</em> : DC 11, each creature in a 15-foot Cone. <em>Failure</em> : 21 (6d6) Poison damage. <em>Success</em> : Half damage.</p>
+      ## Traits
+
+      ***Amphibious***. The dragon can breathe air and water.
+
+      ## Actions
+
+      ***Multiattack***. The dragon makes two Rend attacks.
+
+      ***Rend***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 7 (1d10 + 2) Slashing damage plus 3 (1d6) Poison damage.
+
+      ***Poison Breath (Recharge 5–6)***. *Constitution Saving Throw* : DC 11, each creature in a 15-foot Cone. *Failure* : 21 (6d6) Poison damage. *Success* : Half damage.
     senses: Blindsight 10 ft., Darkvision 60 ft., Passive Perception 14
     languages:
     - Draconic
@@ -102,12 +107,17 @@ translations:
     name: Dragon vert, dragonnet
     subtype: Chromatique
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Amphibie</em>**. Le dragon peut respirer sous l'eau comme à l'air libre.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le dragon effectue deux attaques de Saignée.</p>
-      <p><strong><em>Saignée</em></strong>. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 7 (1d10 + 2) dégâts tranchants plus 3 (1d6) dégâts de poison.</p>
-      <p><strong><em>Souffle empoisonné (recharge 5–6)</em></strong>. <em>JdS Constitution</em> : DD 11, chaque créature dans un Cône de 4,50 m. <em>Échec</em> : 21 (6d6) dégâts de poison. <em>Réussite</em> : demi-dégâts.</p>
+      ## Traits
+
+      ***Amphibie***. Le dragon peut respirer sous l'eau comme à l'air libre.
+
+      ## Actions
+
+      ***Attaques multiples***. Le dragon effectue deux attaques de Saignée.
+
+      ***Saignée***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 7 (1d10 + 2) dégâts tranchants plus 3 (1d6) dégâts de poison.
+
+      ***Souffle empoisonné (recharge 5–6)***. *JdS Constitution* : DD 11, chaque créature dans un Cône de 4,50 m. *Échec* : 21 (6d6) dégâts de poison. *Réussite* : demi-dégâts.
     senses: Vision aveugle 3 m, Vision dans le noir 18 m, Perception passive 14
     languages:
     - draconique

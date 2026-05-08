@@ -89,11 +89,15 @@ translations:
     name: Winter Wolf
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Pack Tactics</em>**. The wolf has Advantage on an attack roll against a creature if at least one of the wolf's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.</p>
-      <h2>Actions</h2>
-      <p>** <em>Bite</em>**. <em>Melee Attack Roll</em> : +6, reach 5 ft. <em>Hit</em> : 11 (2d6 + 4) Piercing damage. If the target is a Large or smaller creature, it has the Prone condition.</p>
-      <p><strong><em>Cold Breath (Recharge 5–6)</em></strong>. <em>Constitution Saving Throw</em> : DC 12, each creature in a 15-foot Cone. <em>Failure</em> : 18 (4d8) Cold damage. <em>Success</em> : Half damage.</p>
+      ## Traits
+
+      ***Pack Tactics***. The wolf has Advantage on an attack roll against a creature if at least one of the wolf's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.
+
+      ## Actions
+
+      ***Bite***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 11 (2d6 + 4) Piercing damage. If the target is a Large or smaller creature, it has the Prone condition.
+
+      ***Cold Breath (Recharge 5–6)***. *Constitution Saving Throw* : DC 12, each creature in a 15-foot Cone. *Failure* : 18 (4d8) Cold damage. *Success* : Half damage.
     senses: Passive Perception 15
     languages:
     - Common
@@ -102,11 +106,15 @@ translations:
     name: Loup arctique
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Tactique de meute</em>**. Quand au moins un de ses alliés non Incapable d'agir se situe dans un rayon de 1,50 m de la créature qu'il cible, le loup a un Avantage au jet d'attaque correspondant.</p>
-      <h2>Actions</h2>
-      <p>** <em>Morsure</em>**. <em>Corps à corps</em> : +6, allonge 1,50 m. <em>Touché</em> : 11 (2d6 + 4) dégâts perforants. Si la cible est une créature de taille G ou inférieure, elle subit l'état À terre.</p>
-      <p><strong><em>Souffle glacial (recharge 5–6)</em></strong>. <em>JdS Constitution</em> : DD 12, chaque créature dans un Cône de 4,50 m. <em>Échec</em> : 18 (4d8) dégâts de froid. <em>Réussite</em> : demi-dégâts.</p>
+      ## Traits
+
+      ***Tactique de meute***. Quand au moins un de ses alliés non Incapable d'agir se situe dans un rayon de 1,50 m de la créature qu'il cible, le loup a un Avantage au jet d'attaque correspondant.
+
+      ## Actions
+
+      ***Morsure***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 11 (2d6 + 4) dégâts perforants. Si la cible est une créature de taille G ou inférieure, elle subit l'état À terre.
+
+      ***Souffle glacial (recharge 5–6)***. *JdS Constitution* : DD 12, chaque créature dans un Cône de 4,50 m. *Échec* : 18 (4d8) dégâts de froid. *Réussite* : demi-dégâts.
     senses: Perception passive 15
     languages:
     - commun

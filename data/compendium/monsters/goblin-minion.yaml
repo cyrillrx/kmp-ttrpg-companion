@@ -89,10 +89,13 @@ translations:
     name: Goblin Minion
     subtype: Goblinoid
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Dagger</em>**. <em>Melee or Ranged Attack Roll</em> : +4, reach 5 ft. or range 20/60 ft. <em>Hit</em> : 4 (1d4 + 2) Piercing damage.</p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Nimble Escape</em>**. The goblin takes the Disengage or Hide action.</p>
+      ## Actions
+
+      ***Dagger***. *Melee or Ranged Attack Roll* : +4, reach 5 ft. or range 20/60 ft. *Hit* : 4 (1d4 + 2) Piercing damage.
+
+      ## Bonus actions
+
+      ***Nimble Escape***. The goblin takes the Disengage or Hide action.
     senses: Darkvision 60 ft., Passive Perception 9
     languages:
     - Common
@@ -101,10 +104,13 @@ translations:
     name: Gobelin, sbire
     subtype: Gobelinoïde
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Dague</em>**. <em>Corps à corps ou à distance</em> : +4, allonge 1,50 m ou portée 6/18 m. <em>Touché</em> : 4 (1d4 + 2) dégâts perforants.</p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Fuite agile</em>**. Le gobelin entreprend l'action Désengagement ou Furtivité.</p>
+      ## Actions
+
+      ***Dague***. *Corps à corps ou à distance* : +4, allonge 1,50 m ou portée 6/18 m. *Touché* : 4 (1d4 + 2) dégâts perforants.
+
+      ## Actions Bonus
+
+      ***Fuite agile***. Le gobelin entreprend l'action Désengagement ou Furtivité.
     senses: Vision dans le noir 18 m, Perception passive 9
     languages:
     - commun

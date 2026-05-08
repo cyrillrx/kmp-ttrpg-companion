@@ -89,15 +89,23 @@ translations:
     name: Sahuagin Baron
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Blood Frenzy</em>**. The sahuagin has Advantage on attack rolls against any creature that doesn't have all its Hit Points.</p>
-      <p><strong><em>Limited Amphibiousness</em></strong>. The sahuagin can breathe air and water, but it must be submerged at least once every 4 hours to avoid suffocating outside water.</p>
-      <p><strong><em>Shark Telepathy</em></strong>. The sahuagin can magically control sharks within 120 feet of itself, using a special telepathy.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The sahuagin makes three Trident attacks.</p>
-      <p><strong><em>Trident</em></strong>. <em>Melee or Ranged Attack Roll</em> : +7, reach 5 ft. or range 20/60 ft. <em>Hit</em> : 13 (2d8 + 4) Piercing damage.</p>
-      <h2>Reactions</h2>
-      <p>** <em>Fiendish Blood</em>**. <em>Trigger</em> : The sahuagin takes Piercing or Slashing damage. Response— <em>Constitution Saving Throw</em> : DC 14, each creature of the sahuagin's choice in a 5-foot Emanation originating from the sahuagin. <em>Failure</em> : 10 (3d6) Acid damage, and the target is cursed until it finishes a Short or Long Rest. While cursed, the target can't benefit from the Invisible condition, its Speed decreases by 10 feet, and all Fiends within 120 feet of the target can sense its location regardless of interposing obstacles.</p>
+      ## Traits
+
+      ***Blood Frenzy***. The sahuagin has Advantage on attack rolls against any creature that doesn't have all its Hit Points.
+
+      ***Limited Amphibiousness***. The sahuagin can breathe air and water, but it must be submerged at least once every 4 hours to avoid suffocating outside water.
+
+      ***Shark Telepathy***. The sahuagin can magically control sharks within 120 feet of itself, using a special telepathy.
+
+      ## Actions
+
+      ***Multiattack***. The sahuagin makes three Trident attacks.
+
+      ***Trident***. *Melee or Ranged Attack Roll* : +7, reach 5 ft. or range 20/60 ft. *Hit* : 13 (2d8 + 4) Piercing damage.
+
+      ## Reactions
+
+      ***Fiendish Blood***. *Trigger* : The sahuagin takes Piercing or Slashing damage. Response— *Constitution Saving Throw* : DC 14, each creature of the sahuagin's choice in a 5-foot Emanation originating from the sahuagin. *Failure* : 10 (3d6) Acid damage, and the target is cursed until it finishes a Short or Long Rest. While cursed, the target can't benefit from the Invisible condition, its Speed decreases by 10 feet, and all Fiends within 120 feet of the target can sense its location regardless of interposing obstacles.
     senses: Darkvision 120 ft., Passive Perception 17
     languages:
     - Sahuagin
@@ -105,15 +113,23 @@ translations:
     name: Sahuagin, baron
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Frénésie sanguinaire</em>**. Le sahuagin a un Avantage aux jets d'attaque contre toute créature à laquelle il manque des points de vie.</p>
-      <p><strong><em>Amphibiose partielle</em></strong>. Le sahuagin peut respirer aussi bien sous l'eau qu'à l'air libre, mais il doit s'immerger dans l'eau au moins une fois toutes les 4 heures sous peine de s'asphyxier.</p>
-      <p><strong><em>Télépathie avec les requins</em></strong>. Le sahuagin peut contrôler magiquement les requins dans un rayon de 36 m, par le biais d'une télépathie spéciale.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le sahuagin effectue trois attaques de Trident.</p>
-      <p><strong><em>Trident</em></strong>. <em>Corps à corps ou à distance</em> : +7, allonge 1,50 m ou portée 6/18 m. <em>Touché</em> : 13 (2d8 + 4) dégâts perforants.</p>
-      <h2>Réactions</h2>
-      <p>** <em>Sang fiélon</em>**. <em>Déclencheur</em> : le sahuagin subit des dégâts perforants ou tranchants. Réponse— <em>JdS Constitution</em> : DD 14, chaque créature choisie par le sahuagin dans une Émanation de 1,50 m centrée sur lui. <em>Échec</em> : 10 (3d6) dégâts d'acide, et la cible est maudite jusqu'à ce qu'elle termine un Repos court ou long. Tant qu'elle est maudite, la cible ne peut bénéficier de l'état Invisible, sa Vitesse est réduite de 3 m, et tous les Fiélons dans un rayon de 36 m autour d'elle peuvent percevoir sa position, quels que soient les obstacles.</p>
+      ## Traits
+
+      ***Frénésie sanguinaire***. Le sahuagin a un Avantage aux jets d'attaque contre toute créature à laquelle il manque des points de vie.
+
+      ***Amphibiose partielle***. Le sahuagin peut respirer aussi bien sous l'eau qu'à l'air libre, mais il doit s'immerger dans l'eau au moins une fois toutes les 4 heures sous peine de s'asphyxier.
+
+      ***Télépathie avec les requins***. Le sahuagin peut contrôler magiquement les requins dans un rayon de 36 m, par le biais d'une télépathie spéciale.
+
+      ## Actions
+
+      ***Attaques multiples***. Le sahuagin effectue trois attaques de Trident.
+
+      ***Trident***. *Corps à corps ou à distance* : +7, allonge 1,50 m ou portée 6/18 m. *Touché* : 13 (2d8 + 4) dégâts perforants.
+
+      ## Réactions
+
+      ***Sang fiélon***. *Déclencheur* : le sahuagin subit des dégâts perforants ou tranchants. Réponse— *JdS Constitution* : DD 14, chaque créature choisie par le sahuagin dans une Émanation de 1,50 m centrée sur lui. *Échec* : 10 (3d6) dégâts d'acide, et la cible est maudite jusqu'à ce qu'elle termine un Repos court ou long. Tant qu'elle est maudite, la cible ne peut bénéficier de l'état Invisible, sa Vitesse est réduite de 3 m, et tous les Fiélons dans un rayon de 36 m autour d'elle peuvent percevoir sa position, quels que soient les obstacles.
     senses: Vision dans le noir 36 m, Perception passive 17
     languages:
     - sahuagin

@@ -89,11 +89,15 @@ translations:
     name: Sprite
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Needle Sword</em>**. <em>Melee Attack Roll</em> : +6, reach 5 ft. <em>Hit</em> : 6 (1d4 + 4) Piercing damage.</p>
-      <p><strong><em>Enchanting Bow</em></strong>. <em>Ranged Attack Roll</em> : +6, range 40/160 ft. <em>Hit</em> : 1 Piercing damage, and the target has the Charmed condition until the start of the sprite's next turn.</p>
-      <p><strong><em>Heart Sight</em></strong>. <em>Charisma Saving Throw</em> : DC 10, one creature within 5 feet the sprite can see (Celestials, Fiends, and Undead automatically fail the save). <em>Failure</em> : The sprite knows the target's emotions and alignment.</p>
-      <p><strong><em>Invisibility</em></strong>. The sprite casts <em><a href="https://www.aidedd.org/spell/invisibility">Invisibility</a></em> on itself, requiring no spell components and using Charisma as the spellcasting ability.</p>
+      ## Actions
+
+      ***Needle Sword***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 6 (1d4 + 4) Piercing damage.
+
+      ***Enchanting Bow***. *Ranged Attack Roll* : +6, range 40/160 ft. *Hit* : 1 Piercing damage, and the target has the Charmed condition until the start of the sprite's next turn.
+
+      ***Heart Sight***. *Charisma Saving Throw* : DC 10, one creature within 5 feet the sprite can see (Celestials, Fiends, and Undead automatically fail the save). *Failure* : The sprite knows the target's emotions and alignment.
+
+      ***Invisibility***. The sprite casts *[Invisibility](https://www.aidedd.org/spell/invisibility)* on itself, requiring no spell components and using Charisma as the spellcasting ability.
     senses: Passive Perception 13
     languages:
     - Common
@@ -103,11 +107,15 @@ translations:
     name: Esprit follet
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Épée-ingle</em>**. <em>Corps à corps</em> : +6, allonge 1,50 m. <em>Touché</em> : 6 (1d4 + 4) dégâts perforants.</p>
-      <p><strong><em>Arc enchanté</em></strong>. <em>À distance</em> : +6, portée 12/48 m. <em>Touché</em> : 1 dégât perforant, et la cible subit l'état Charmé jusqu'au début du prochain tour de l'esprit follet.</p>
-      <p><strong><em>Perception du for intérieur</em></strong>. <em>JdS Charisme</em> : DD 10, une créature dans un rayon de 1,50 m que l'esprit follet peut voir (Célestes, Fiélons et Morts-vivants échouent automatiquement au jet de sauvegarde). <em>Échec</em> : l'esprit follet perçoit les émotions et l'alignement de la cible.</p>
-      <p><strong><em>Invisibilité</em></strong>. L'esprit follet lance <em><a href="https://www.aidedd.org/spell/fr/invisibilite">invisibilité</a></em> sur lui-même, sans avoir besoin de composantes de sort et en utilisant le Charisme comme caractéristique d'incantation.</p>
+      ## Actions
+
+      ***Épée-ingle***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 6 (1d4 + 4) dégâts perforants.
+
+      ***Arc enchanté***. *À distance* : +6, portée 12/48 m. *Touché* : 1 dégât perforant, et la cible subit l'état Charmé jusqu'au début du prochain tour de l'esprit follet.
+
+      ***Perception du for intérieur***. *JdS Charisme* : DD 10, une créature dans un rayon de 1,50 m que l'esprit follet peut voir (Célestes, Fiélons et Morts-vivants échouent automatiquement au jet de sauvegarde). *Échec* : l'esprit follet perçoit les émotions et l'alignement de la cible.
+
+      ***Invisibilité***. L'esprit follet lance *[invisibilité](https://www.aidedd.org/spell/fr/invisibilite)* sur lui-même, sans avoir besoin de composantes de sort et en utilisant le Charisme comme caractéristique d'incantation.
     senses: Perception passive 13
     languages:
     - commun

@@ -89,19 +89,25 @@ translations:
     name: Elemental Cataclysm
     subtype: Titan
     description: |-
-      <h2>Traits</h2>
-      <p>Earth Glide.<br />
-      Legendary Resistance (4/Day).<br />
-      Siege Monster.  </p>
-      <h2>Actions</h2>
-      <p>Multiattack.<br />
-      Elemental Burst.<br />
-      Cataclysmic Event (Recharge 4–6).<br />
-      Control Weather.  </p>
-      <h2>Legendary actions</h2>
-      <p>Legendary Action Uses: 3. </p>
-      <p>Eruption.<br />
-      Rumbling Movement.</p>
+      ## Traits
+
+      Earth Glide.\
+      Legendary Resistance (4/Day).\
+      Siege Monster.
+
+      ## Actions
+
+      Multiattack.\
+      Elemental Burst.\
+      Cataclysmic Event (Recharge 4–6).\
+      Control Weather.
+
+      ## Legendary actions
+
+      Legendary Action Uses: 3.
+
+      Eruption.\
+      Rumbling Movement.
     senses: Truesight 150 ft., Passive Perception 12
     languages:
     - Primordial
@@ -109,19 +115,25 @@ translations:
     name: Cataclysme élémentaire
     subtype: Titan
     description: |-
-      <h2>Traits</h2>
-      <p>Déplacement tellurique.<br />
-      Résistance légendaire (4/jour).<br />
-      Monstre de siège.  </p>
-      <h2>Actions</h2>
-      <p>Attaques multiples.<br />
-      Décharge élémentaire.<br />
-      Événement cataclysmique (recharge 4–6).<br />
-      Contrôle du climat.  </p>
-      <h2>Actions Légendaires</h2>
-      <p>Utilisations d'action Légendaire : 3. </p>
-      <p>Éruption.<br />
-      Déplacement cataclysmal.</p>
+      ## Traits
+
+      Déplacement tellurique.\
+      Résistance légendaire (4/jour).\
+      Monstre de siège.
+
+      ## Actions
+
+      Attaques multiples.\
+      Décharge élémentaire.\
+      Événement cataclysmique (recharge 4–6).\
+      Contrôle du climat.
+
+      ## Actions Légendaires
+
+      Utilisations d'action Légendaire : 3.
+
+      Éruption.\
+      Déplacement cataclysmal.
     senses: vision véritable 45 m, Perception passive 12
     languages:
     - primordial

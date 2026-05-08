@@ -8,35 +8,37 @@ translations:
     name: Staff of the Woodlands
     subtype: null
     description: |-
-      <p>This staff has 6 charges and can be wielded as a magic Quarterstaff that grants a +2 bonus to attack rolls and damage rolls made with it. While holding it, you have a +2 bonus to spell attack rolls.<br />
-      <strong>Spells</strong>. While holding the staff, you can cast one of the spells on the following table from it, using your spell save DC. The table indicates how many charges you must expend to cast the spell.<br />
-      Spell| Charge Cost<br />
-      ---|---<br />
-      <em><a href="https://www.aidedd.org/spell/animal-friendship">Animal Friendship</a></em>|  1<br />
-      <em>Awaken</em>|  5<br />
-      <em><a href="https://www.aidedd.org/spell/barkskin">Barkskin</a></em>|  2<br />
-      <em><a href="https://www.aidedd.org/spell/locate-animals-or-plants">Locate Animals or Plants</a></em>|  2<br />
-      <em><a href="https://www.aidedd.org/spell/pass-without-trace">Pass without Trace</a></em>|  2<br />
-      <em><a href="https://www.aidedd.org/spell/speak-with-animals">Speak with Animals</a></em>|  1<br />
-      <em><a href="https://www.aidedd.org/spell/speak-with-plants">Speak with Plants</a></em>|  3<br />
-      <em><a href="https://www.aidedd.org/spell/wall-of-thorns">Wall of Thorns</a></em>|  6  </p>
-      <p><strong>Tree Form</strong>. You can take a Magic action to plant one end of the staff in earth in an unoccupied space and expend 1 charge to transform the staff into a healthy tree. The tree is 60 feet tall and has a 5-foot-diameter trunk, and its branches at the top spread out in a 20-foot radius. The tree appears ordinary but radiates a faint aura of Transmutation magic that can be discerned with the <em><a href="https://www.aidedd.org/spell/detect-magic">Detect Magic</a></em> spell. While touching the tree and using a Magic action, you return the staff to its normal form. Any creature in the tree falls when the tree reverts to a staff.<br />
-      <strong>Regaining Charges</strong>. The staff regains 1d6 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff loses its properties and becomes a nonmagical Quarterstaff.</p>
+      This staff has 6 charges and can be wielded as a magic Quarterstaff that grants a +2 bonus to attack rolls and damage rolls made with it. While holding it, you have a +2 bonus to spell attack rolls.\
+      **Spells**. While holding the staff, you can cast one of the spells on the following table from it, using your spell save DC. The table indicates how many charges you must expend to cast the spell.\
+      | Spell | Charge Cost |
+      | --- | --- |
+      | *[Animal Friendship](https://www.aidedd.org/spell/animal-friendship)* | 1 |
+      | *Awaken* | 5 |
+      | *[Barkskin](https://www.aidedd.org/spell/barkskin)* | 2 |
+      | *[Locate Animals or Plants](https://www.aidedd.org/spell/locate-animals-or-plants)* | 2 |
+      | *[Pass without Trace](https://www.aidedd.org/spell/pass-without-trace)* | 2 |
+      | *[Speak with Animals](https://www.aidedd.org/spell/speak-with-animals)* | 1 |
+      | *[Speak with Plants](https://www.aidedd.org/spell/speak-with-plants)* | 3 |
+      | *[Wall of Thorns](https://www.aidedd.org/spell/wall-of-thorns)* | 6 |
+
+      **Tree Form**. You can take a Magic action to plant one end of the staff in earth in an unoccupied space and expend 1 charge to transform the staff into a healthy tree. The tree is 60 feet tall and has a 5-foot-diameter trunk, and its branches at the top spread out in a 20-foot radius. The tree appears ordinary but radiates a faint aura of Transmutation magic that can be discerned with the *[Detect Magic](https://www.aidedd.org/spell/detect-magic)* spell. While touching the tree and using a Magic action, you return the staff to its normal form. Any creature in the tree falls when the tree reverts to a staff.\
+      **Regaining Charges**. The staff regains 1d6 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff loses its properties and becomes a nonmagical Quarterstaff.
   fr:
     name: Bâton des forêts
     subtype: null
     description: |-
-      <p>Ce bâton possède 6 charges et peut être utilisé comme un bâton magique, conférant un bonus de +2 aux jets d'attaque et de dégâts. Lorsque vous le tenez, vous bénéficiez d'un bonus de +2 aux jets d'attaque de sort.<br />
-      <strong>Sorts</strong>. Lorsque vous tenez le bâton, vous pouvez lancer l'un des sorts de la table suivante, en utilisant votre DD de sauvegarde des sorts. La table indique le nombre de charges à dépenser pour lancer le sort.<br />
-      Sort| Coût en charges<br />
-      ---|---<br />
-      <em><a href="https://www.aidedd.org/spell/fr/amitie-avec-les-animaux">amitié avec les animaux</a></em>|  1<br />
-      <em>éveil</em>|  5<br />
-      <em><a href="https://www.aidedd.org/spell/fr/peau-d-ecorce">peau d'écorce</a></em>|  2<br />
-      <em><a href="https://www.aidedd.org/spell/fr/localisation-d-animaux-ou-de-plantes">localisation d'animaux ou de plantes</a></em>|  2<br />
-      <em><a href="https://www.aidedd.org/spell/fr/passage-sans-trace">passage sans trace</a></em>|  2<br />
-      <em><a href="https://www.aidedd.org/spell/fr/communication-avec-les-animaux">communication avec les animaux</a></em>|  1<br />
-      <em><a href="https://www.aidedd.org/spell/fr/communication-avec-les-plantes">communication avec les plantes</a></em>|  3<br />
-      <em><a href="https://www.aidedd.org/spell/fr/mur-d-epines">mur d'épines</a></em>|  6  </p>
-      <p><strong>Forme d'arbre</strong>. Vous pouvez prendre une action Magie pour planter une extrémité du bâton dans la terre, dans un emplacement libre, et dépenser 1 charge pour le transformer en un arbre sain. L'arbre mesure 18 mètres de haut et possède un tronc de 1,50 mètre de diamètre, et ses branches au sommet s'étendent sur un rayon de 6 mètres. L'arbre semble ordinaire, mais dégage une faible aura de magie de Transmutation, perceptible avec le sort <em><a href="https://www.aidedd.org/spell/fr/detection-de-la-magie">détection de la magie</a></em>. En touchant l'arbre et en utilisant une action Magie, vous redonnez au bâton sa forme normale. Toute créature présente dans l'arbre tombe lorsque l'arbre redevient un bâton.<br />
-      <strong>Récupération des charges</strong>. Le bâton récupère 1d6 charges dépensées chaque jour à l'aube. Si vous dépensez la dernière charge, lancez 1d20. Sur un 1, le bâton perd ses propriétés et devient un bâton non magique.</p>
+      Ce bâton possède 6 charges et peut être utilisé comme un bâton magique, conférant un bonus de +2 aux jets d'attaque et de dégâts. Lorsque vous le tenez, vous bénéficiez d'un bonus de +2 aux jets d'attaque de sort.\
+      **Sorts**. Lorsque vous tenez le bâton, vous pouvez lancer l'un des sorts de la table suivante, en utilisant votre DD de sauvegarde des sorts. La table indique le nombre de charges à dépenser pour lancer le sort.\
+      | Sort | Coût en charges |
+      | --- | --- |
+      | *[amitié avec les animaux](https://www.aidedd.org/spell/fr/amitie-avec-les-animaux)* | 1 |
+      | *éveil* | 5 |
+      | *[peau d'écorce](https://www.aidedd.org/spell/fr/peau-d-ecorce)* | 2 |
+      | *[localisation d'animaux ou de plantes](https://www.aidedd.org/spell/fr/localisation-d-animaux-ou-de-plantes)* | 2 |
+      | *[passage sans trace](https://www.aidedd.org/spell/fr/passage-sans-trace)* | 2 |
+      | *[communication avec les animaux](https://www.aidedd.org/spell/fr/communication-avec-les-animaux)* | 1 |
+      | *[communication avec les plantes](https://www.aidedd.org/spell/fr/communication-avec-les-plantes)* | 3 |
+      | *[mur d'épines](https://www.aidedd.org/spell/fr/mur-d-epines)* | 6 |
+
+      **Forme d'arbre**. Vous pouvez prendre une action Magie pour planter une extrémité du bâton dans la terre, dans un emplacement libre, et dépenser 1 charge pour le transformer en un arbre sain. L'arbre mesure 18 mètres de haut et possède un tronc de 1,50 mètre de diamètre, et ses branches au sommet s'étendent sur un rayon de 6 mètres. L'arbre semble ordinaire, mais dégage une faible aura de magie de Transmutation, perceptible avec le sort *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie)*. En touchant l'arbre et en utilisant une action Magie, vous redonnez au bâton sa forme normale. Toute créature présente dans l'arbre tombe lorsque l'arbre redevient un bâton.\
+      **Récupération des charges**. Le bâton récupère 1d6 charges dépensées chaque jour à l'aube. Si vous dépensez la dernière charge, lancez 1d20. Sur un 1, le bâton perd ses propriétés et devient un bâton non magique.

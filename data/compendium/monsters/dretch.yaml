@@ -89,9 +89,11 @@ translations:
     name: Dretch
     subtype: Demon
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Rend</em>**. <em>Melee Attack Roll</em> : +3, reach 5 ft. <em>Hit</em> : 4 (1d6 + 1) Slashing damage.</p>
-      <p><strong><em>Fetid Cloud (1/Day)</em></strong>. <em>Constitution Saving Throw</em> : DC 11, each creature in a 10-foot Emanation originating from the dretch. <em>Failure</em> : The target has the Poisoned condition until the end of its next turn. While Poisoned, the creature can take either an action or a Bonus Action on its turn, not both, and it can't take Reactions.</p>
+      ## Actions
+
+      ***Rend***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 4 (1d6 + 1) Slashing damage.
+
+      ***Fetid Cloud (1/Day)***. *Constitution Saving Throw* : DC 11, each creature in a 10-foot Emanation originating from the dretch. *Failure* : The target has the Poisoned condition until the end of its next turn. While Poisoned, the creature can take either an action or a Bonus Action on its turn, not both, and it can't take Reactions.
     senses: Darkvision 60 ft., Passive Perception 9
     languages:
     - Abyssal; telepathy 60 ft. (works only with creatures that understand Abyssal)
@@ -99,9 +101,11 @@ translations:
     name: Dretch
     subtype: Démon
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Saignée</em>**. <em>Corps à corps</em> : +3, allonge 1,50 m. <em>Touché</em> : 4 (1d6 + 1) dégâts tranchants.</p>
-      <p><strong><em>Nuage fétide (1/jour)</em></strong>. <em>JdS Constitution</em> : DD 11, chaque créature dans une Émanation de 3 m centrée sur le dretch. <em>Échec</em> : la cible subit l'état Empoisonné jusqu'à la fin de son tour suivant. Tant qu'elle est ainsi Empoisonnée, la créature ne peut pas jouer de Réaction et n'a droit qu'à une action ou une action Bonus lors de son tour (pas les deux).</p>
+      ## Actions
+
+      ***Saignée***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 4 (1d6 + 1) dégâts tranchants.
+
+      ***Nuage fétide (1/jour)***. *JdS Constitution* : DD 11, chaque créature dans une Émanation de 3 m centrée sur le dretch. *Échec* : la cible subit l'état Empoisonné jusqu'à la fin de son tour suivant. Tant qu'elle est ainsi Empoisonnée, la créature ne peut pas jouer de Réaction et n'a droit qu'à une action ou une action Bonus lors de son tour (pas les deux).
     senses: Vision dans le noir 18 m, Perception passive 9
     languages:
     - abyssal ; télépathie 18 m (ne fonctionne qu'avec des créatures qui comprennent

@@ -89,14 +89,21 @@ translations:
     name: Satyr Revelmaster
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Magic Resistance</em>**. The satyr has Advantage on saving throws against spells and other magical effects.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The satyr makes three Prance attacks.</p>
-      <p><strong><em>Prance</em></strong>. <em>Melee Attack Roll</em> : +7, reach 5 ft. <em>Hit</em> : 13 (2d8 + 4) Bludgeoning damage, and the target has the Charmed condition until the start of the satyr's next turn.</p>
-      <p><strong><em>Fey Melody (Recharge 4–6)</em></strong>. The satyr conjures a charming or frightening song. <em>Wisdom Saving Throw</em> : DC 14, each enemy in a 60-foot Emanation originating from the satyr. <em>Failure</em> : The target is subjected to the song's effect:</p>
-      <p><strong><em>Charming</em></strong>. The target has the Charmed condition for 1 minute. While Charmed, the target has the Incapacitated condition and uses all its movement to dance in place. The effect ends on the target if it takes any damage.</p>
-      <p><strong><em>Frightening</em></strong>. 10 (2d6 + 3) Psychic damage, and the target has the Frightened condition for 1 minute. If the target ends its turn out of line of sight from the satyr, the condition ends on it.</p>
+      ## Traits
+
+      ***Magic Resistance***. The satyr has Advantage on saving throws against spells and other magical effects.
+
+      ## Actions
+
+      ***Multiattack***. The satyr makes three Prance attacks.
+
+      ***Prance***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 13 (2d8 + 4) Bludgeoning damage, and the target has the Charmed condition until the start of the satyr's next turn.
+
+      ***Fey Melody (Recharge 4–6)***. The satyr conjures a charming or frightening song. *Wisdom Saving Throw* : DC 14, each enemy in a 60-foot Emanation originating from the satyr. *Failure* : The target is subjected to the song's effect:
+
+      ***Charming***. The target has the Charmed condition for 1 minute. While Charmed, the target has the Incapacitated condition and uses all its movement to dance in place. The effect ends on the target if it takes any damage.
+
+      ***Frightening***. 10 (2d6 + 3) Psychic damage, and the target has the Frightened condition for 1 minute. If the target ends its turn out of line of sight from the satyr, the condition ends on it.
     senses: Passive Perception 15
     languages:
     - Common
@@ -106,14 +113,21 @@ translations:
     name: Satyre, maître des réjouissances
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Résistance à la magie</em>**. Le satyre a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le satyre effectue trois attaques de Galipette.</p>
-      <p><strong><em>Galipette</em></strong>. <em>Corps à corps</em> : +7, allonge 1,50 m. <em>Touché</em> : 13 (2d8 + 4) dégâts contondants, et la cible subit l'effet Charmé jusqu'au début du prochain tour du satyre.</p>
-      <p><strong><em>Mélodie féerique (recharge 4–6)</em></strong>. Le satyre entonne un chant enchanteur ou effrayant. JdS de Sagesse : DD 14, chaque ennemi dans une Émanation de 18 m de rayon centrée sur le satyre. Échec : la cible est sujette à l'effet du chant.</p>
-      <p><strong><em>Charmant</em></strong>. La cible subit l'état Charmé pendant 1 minute. Tant qu'elle est charmée, elle subit l'état Incapable d'agir et utilise tout son déplacement pour danser sur place. L'effet prend fin si la cible subit des dégâts.</p>
-      <p><strong><em>Effrayant</em></strong>. 10 (2d6 + 3) dégâts psychiques, et la cible subit l'effet Effrayé pendant 1 minute. Si la cible termine son tour hors de la vue du satyre, l'état prend fin.</p>
+      ## Traits
+
+      ***Résistance à la magie***. Le satyre a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
+
+      ## Actions
+
+      ***Attaques multiples***. Le satyre effectue trois attaques de Galipette.
+
+      ***Galipette***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 13 (2d8 + 4) dégâts contondants, et la cible subit l'effet Charmé jusqu'au début du prochain tour du satyre.
+
+      ***Mélodie féerique (recharge 4–6)***. Le satyre entonne un chant enchanteur ou effrayant. JdS de Sagesse : DD 14, chaque ennemi dans une Émanation de 18 m de rayon centrée sur le satyre. Échec : la cible est sujette à l'effet du chant.
+
+      ***Charmant***. La cible subit l'état Charmé pendant 1 minute. Tant qu'elle est charmée, elle subit l'état Incapable d'agir et utilise tout son déplacement pour danser sur place. L'effet prend fin si la cible subit des dégâts.
+
+      ***Effrayant***. 10 (2d6 + 3) dégâts psychiques, et la cible subit l'effet Effrayé pendant 1 minute. Si la cible termine son tour hors de la vue du satyre, l'état prend fin.
     senses: Perception passive 15
     languages:
     - commun

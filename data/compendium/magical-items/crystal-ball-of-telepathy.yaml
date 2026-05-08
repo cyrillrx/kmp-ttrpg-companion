@@ -7,24 +7,10 @@ translations:
   en:
     name: Crystal Ball of Telepathy
     subtype: null
-    description: <p>While touching this crystal orb, you can cast <em><a href="https://www.aidedd.org/spell/scrying">Scrying</a></em>
-      (save DC 17) with it. In addition, you can communicate telepathically with creatures
-      you can see within 30 feet of the spell's sensor. You can also cast <em><a href="https://www.aidedd.org/spell/suggestion">Suggestion</a></em>
-      (save DC 17) through the sensor on one of those creatures. You don't need to
-      concentrate on this <em><a href="https://www.aidedd.org/spell/suggestion">Suggestion</a></em>
-      to maintain it during its duration, but it ends if <em><a href="https://www.aidedd.org/spell/scrying">Scrying</a></em>
-      ends. You can't cast <em><a href="https://www.aidedd.org/spell/suggestion">Suggestion</a></em>
-      in this way again until the next dawn.</p>
+    description: |-
+      While touching this crystal orb, you can cast *[Scrying](https://www.aidedd.org/spell/scrying)* (save DC 17) with it. In addition, you can communicate telepathically with creatures you can see within 30 feet of the spell's sensor. You can also cast *[Suggestion](https://www.aidedd.org/spell/suggestion)* (save DC 17) through the sensor on one of those creatures. You don't need to concentrate on this *[Suggestion](https://www.aidedd.org/spell/suggestion)* to maintain it during its duration, but it ends if *[Scrying](https://www.aidedd.org/spell/scrying)* ends. You can't cast *[Suggestion](https://www.aidedd.org/spell/suggestion)* in this way again until the next dawn.
   fr:
     name: Boule de cristal de télépathie
     subtype: null
-    description: <p>Lorsque vous touchez cet orbe de cristal, vous pouvez lancer <em><a
-      href="https://www.aidedd.org/spell/fr/scrutation">scrutation</a></em> (sauvegarde
-      DD 17) par son biais. De plus, vous pouvez communiquer télépathiquement avec
-      des créatures que vous pouvez voir dans un rayon de 9 mètres du capteur du sort.
-      Vous pouvez également lancer <em><a href="https://www.aidedd.org/spell/fr/suggestion">suggestion</a></em>
-      (sauvegarde DD 17) via le capteur sur l'une de ces créatures. Vous n'avez pas
-      besoin de vous concentrer sur ce sort de <em>suggestion</em> pour le maintenir
-      pendant sa durée, mais il prend fin si le sort de <em>scrutation</em> se termine.
-      Vous ne pouvez plus lancer <em>suggestion</em> de cette manière avant l'aube
-      suivante.</p>
+    description: |-
+      Lorsque vous touchez cet orbe de cristal, vous pouvez lancer *[scrutation](https://www.aidedd.org/spell/fr/scrutation)* (sauvegarde DD 17) par son biais. De plus, vous pouvez communiquer télépathiquement avec des créatures que vous pouvez voir dans un rayon de 9 mètres du capteur du sort. Vous pouvez également lancer *[suggestion](https://www.aidedd.org/spell/fr/suggestion)* (sauvegarde DD 17) via le capteur sur l'une de ces créatures. Vous n'avez pas besoin de vous concentrer sur ce sort de *suggestion* pour le maintenir pendant sa durée, mais il prend fin si le sort de *scrutation* se termine. Vous ne pouvez plus lancer *suggestion* de cette manière avant l'aube suivante.

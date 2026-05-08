@@ -89,14 +89,21 @@ translations:
     name: Death Cultist
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The cultist makes three attacks, using Dread Scythe or Deathly Ray in any combination.</p>
-      <p><strong><em>Dread Scythe</em></strong>. <em>Melee Attack Roll</em> : +7, reach 10 ft. <em>Hit</em> : 9 (1d10 + 4) Slashing damage plus 11 (2d10) Necrotic damage, and the target can't regain Hit Points until the end of its next turn.</p>
-      <p><strong><em>Deathly Ray</em></strong>. <em>Ranged Attack Roll</em> : +6, range 120 ft. <em>Hit</em> : 22 (4d10) Necrotic damage.</p>
-      <p><strong><em>Spellcasting</em></strong>. The cultist casts one of the following spells, using Wisdom as the spellcasting ability (spell save DC 14):</p>
-      <p>At will: <em><a href="https://www.aidedd.org/spell/speak-with-dead">Speak with Dead</a>, <a href="https://www.aidedd.org/spell/thaumaturgy">Thaumaturgy</a></em>  </p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Spirit Wail (Recharge 5–6)</em>**. <em>Wisdom Saving Throw</em> : DC 14, each creature in a 20-foot Emanation originating from the cultist. <em>Failure</em> : 14 (4d6) Psychic damage, and the target has the Frightened condition until the end of its next turn. <em>Success</em> : Half damage only.</p>
+      ## Actions
+
+      ***Multiattack***. The cultist makes three attacks, using Dread Scythe or Deathly Ray in any combination.
+
+      ***Dread Scythe***. *Melee Attack Roll* : +7, reach 10 ft. *Hit* : 9 (1d10 + 4) Slashing damage plus 11 (2d10) Necrotic damage, and the target can't regain Hit Points until the end of its next turn.
+
+      ***Deathly Ray***. *Ranged Attack Roll* : +6, range 120 ft. *Hit* : 22 (4d10) Necrotic damage.
+
+      ***Spellcasting***. The cultist casts one of the following spells, using Wisdom as the spellcasting ability (spell save DC 14):
+
+      At will: *[Speak with Dead](https://www.aidedd.org/spell/speak-with-dead), [Thaumaturgy](https://www.aidedd.org/spell/thaumaturgy)*
+
+      ## Bonus actions
+
+      ***Spirit Wail (Recharge 5–6)***. *Wisdom Saving Throw* : DC 14, each creature in a 20-foot Emanation originating from the cultist. *Failure* : 14 (4d6) Psychic damage, and the target has the Frightened condition until the end of its next turn. *Success* : Half damage only.
     senses: Passive Perception 16
     languages:
     - Common
@@ -104,14 +111,21 @@ translations:
     name: Cultiste, funeste
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le cultiste effectue trois attaques, réparties à sa guise entre Faux de l'effroi et Rayon nécrosant.</p>
-      <p><strong><em>Faux de l'effroi</em></strong>. <em>Corps à corps</em> : +7, allonge 3 m. <em>Touché</em> : 9 (1d10 + 4) dégâts tranchants plus 11 (2d10) dégâts nécrotiques, et la cible ne peut pas récupérer de points de vie jusqu'à la fin de son prochain tour.</p>
-      <p><strong><em>Rayon nécrosant</em></strong>. <em>À distance</em> : +6, portée 36 m. <em>Touché</em> : 22 (4d10) dégâts nécrotiques.</p>
-      <p><strong><em>Incantation</em></strong>. Le cultiste lance l'un des sorts suivants, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 14) :</p>
-      <p>À volonté : <em><a href="https://www.aidedd.org/spell/fr/communication-avec-les-morts">communication avec les morts</a>, <a href="https://www.aidedd.org/spell/fr/thaumaturgie">thaumaturgie</a></em>  </p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Gémissement d'outre-tombe (recharge 5–6)</em>**. <em>JdS Sagesse</em> : DD 14, chaque créature dans une Émanation de 6 m centrée sur le cultiste. <em>Échec</em> : 14 (4d6) dégâts psychiques, et la cible subit l'état Effrayé jusqu'à la fin de son prochain tour. <em>Réussite</em> : demi-dégâts uniquement.</p>
+      ## Actions
+
+      ***Attaques multiples***. Le cultiste effectue trois attaques, réparties à sa guise entre Faux de l'effroi et Rayon nécrosant.
+
+      ***Faux de l'effroi***. *Corps à corps* : +7, allonge 3 m. *Touché* : 9 (1d10 + 4) dégâts tranchants plus 11 (2d10) dégâts nécrotiques, et la cible ne peut pas récupérer de points de vie jusqu'à la fin de son prochain tour.
+
+      ***Rayon nécrosant***. *À distance* : +6, portée 36 m. *Touché* : 22 (4d10) dégâts nécrotiques.
+
+      ***Incantation***. Le cultiste lance l'un des sorts suivants, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 14) :
+
+      À volonté : *[communication avec les morts](https://www.aidedd.org/spell/fr/communication-avec-les-morts), [thaumaturgie](https://www.aidedd.org/spell/fr/thaumaturgie)*
+
+      ## Actions Bonus
+
+      ***Gémissement d'outre-tombe (recharge 5–6)***. *JdS Sagesse* : DD 14, chaque créature dans une Émanation de 6 m centrée sur le cultiste. *Échec* : 14 (4d6) dégâts psychiques, et la cible subit l'état Effrayé jusqu'à la fin de son prochain tour. *Réussite* : demi-dégâts uniquement.
     senses: Perception passive 16
     languages:
     - commun

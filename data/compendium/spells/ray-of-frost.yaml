@@ -18,20 +18,15 @@ translations:
     range: 60 feet
     duration: Instantaneous
     materialDescription: null
-    description: A frigid beam of blue-white light streaks toward a creature within
-      range. Make a ranged spell attack against the target. On a hit, it takes 1d8
-      Cold damage, and its Speed is reduced by 10 feet until the start of your next
-      turn.<br/><strong><em>Cantrip Upgrade</em></strong>. The damage increases by
-      1d8 when you reach levels 5 (2d8), 11 (3d8), and 17 (4d8).<br/>
+    description: |-
+      A frigid beam of blue-white light streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, it takes 1d8 Cold damage, and its Speed is reduced by 10 feet until the start of your next turn.\
+      ***Cantrip Upgrade***. The damage increases by 1d8 when you reach levels 5 (2d8), 11 (3d8), and 17 (4d8).\
   fr:
     name: Rayon de givre
     castingTime: Action
     range: 18 m
     duration: Instantanée
     materialDescription: null
-    description: Un rayon de lumière glaciale bleu-blanc s'abat sur une créature à
-      portée. Effectuez une attaque de sort à distance contre la cible. Si l'attaque
-      touche, elle subit 1d8 dégâts de froid et sa Vitesse est réduite de 3 mètres
-      jusqu'au début de votre prochain tour.<br/><strong><em>Amélioration de sort
-      mineur</em></strong>. Les dégâts augmentent de 1d8 aux niveaux 5 (2d8), 11 (3d8)
-      et 17 (4d8).<br/>
+    description: |-
+      Un rayon de lumière glaciale bleu-blanc s'abat sur une créature à portée. Effectuez une attaque de sort à distance contre la cible. Si l'attaque touche, elle subit 1d8 dégâts de froid et sa Vitesse est réduite de 3 mètres jusqu'au début de votre prochain tour.\
+      ***Amélioration de sort mineur***. Les dégâts augmentent de 1d8 aux niveaux 5 (2d8), 11 (3d8) et 17 (4d8).\

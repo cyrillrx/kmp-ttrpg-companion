@@ -24,23 +24,15 @@ translations:
     range: 120 feet
     duration: Instantaneous
     materialDescription: null
-    description: Choose one creature, object, or magical effect within range. Any
-      ongoing spell of level 3 or lower on the target ends. For each ongoing spell
-      of level 4 or higher on the target, make an ability check using your spellcasting
-      ability (DC 10 plus that spell's level). On a successful check, the spell ends.<br/><strong><em>Using
-      a Higher-Level Spell Slot</em></strong>. You automatically end a spell on the
-      target if the spell's level is equal to or less than the level of the spell
-      slot you use.<br/>
+    description: |-
+      Choose one creature, object, or magical effect within range. Any ongoing spell of level 3 or lower on the target ends. For each ongoing spell of level 4 or higher on the target, make an ability check using your spellcasting ability (DC 10 plus that spell's level). On a successful check, the spell ends.\
+      ***Using a Higher-Level Spell Slot***. You automatically end a spell on the target if the spell's level is equal to or less than the level of the spell slot you use.\
   fr:
     name: Dissipation de la magie
     castingTime: Action
     range: 36 m
     duration: Instantanée
     materialDescription: null
-    description: Choisissez une créature, un objet ou un effet magique à portée. Tout
-      sort en cours de niveau 3 ou inférieur sur la cible prend fin. Pour chaque sort
-      en cours de niveau 4 ou supérieur sur la cible, effectuez un jet de caractéristique
-      en utilisant votre caractéristique d'incantation (DD 10 plus le niveau du sort).
-      En cas de réussite, le sort prend fin.<br/><strong><em>Emplacement de niveau
-      supérieur</em></strong>. Vous mettez automatiquement fin à un sort sur la cible
-      si son niveau est égal ou inférieur à celui de l'emplacement de sort utilisé.<br/>
+    description: |-
+      Choisissez une créature, un objet ou un effet magique à portée. Tout sort en cours de niveau 3 ou inférieur sur la cible prend fin. Pour chaque sort en cours de niveau 4 ou supérieur sur la cible, effectuez un jet de caractéristique en utilisant votre caractéristique d'incantation (DD 10 plus le niveau du sort). En cas de réussite, le sort prend fin.\
+      ***Emplacement de niveau supérieur***. Vous mettez automatiquement fin à un sort sur la cible si son niveau est égal ou inférieur à celui de l'emplacement de sort utilisé.\

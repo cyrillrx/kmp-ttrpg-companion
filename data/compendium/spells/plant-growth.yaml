@@ -19,30 +19,17 @@ translations:
     range: 150 feet
     duration: Instantaneous
     materialDescription: null
-    description: This spell channels vitality into plants. The casting time you use
-      determines whether the spell has the Overgrowth or the Enrichment effect below.<br/><strong>Overgrowth</strong>.
-      Choose a point within range. All normal plants in a 100-foot-radius Sphere centered
-      on that point become thick and overgrown. A creature moving through that area
-      must spend 4 feet of movement for every 1 foot it moves. You can exclude one
-      or more areas of any size within the spell's area from being affected.<br/><strong>Enrichment</strong>.
-      All plants in a half-mile radius centered on a point within range become enriched
-      for 365 days. The plants yield twice the normal amount of food when harvested.
-      They can benefit from only one <em>Plant Growth</em> per year.<br/>
+    description: |-
+      This spell channels vitality into plants. The casting time you use determines whether the spell has the Overgrowth or the Enrichment effect below.\
+      **Overgrowth**. Choose a point within range. All normal plants in a 100-foot-radius Sphere centered on that point become thick and overgrown. A creature moving through that area must spend 4 feet of movement for every 1 foot it moves. You can exclude one or more areas of any size within the spell's area from being affected.\
+      **Enrichment**. All plants in a half-mile radius centered on a point within range become enriched for 365 days. The plants yield twice the normal amount of food when harvested. They can benefit from only one *Plant Growth* per year.\
   fr:
     name: Croissance végétale
     castingTime: Action (embroussaillement) ou 8 heures (fertilisation)
     range: 45 m
     duration: Instantanée
     materialDescription: null
-    description: Ce sort canalise la vitalité dans des plantes. Le temps d'incantation
-      utilisé détermine si le sort a l'effet Embroussaillement ou Fertilisation (voir
-      ci-dessous).<br/><strong>Embroussaillement</strong>. Choisissez un point à portée.
-      Toutes les plantes normales dans une Sphère de 30 mètres de rayon centrée sur
-      ce point deviennent denses et envahissantes. Une créature se déplaçant dans
-      cette zone doit dépenser 4 mètres de déplacement pour chaque mètre parcouru.
-      Vous pouvez exclure une ou plusieurs zones de n'importe quelle taille dans la
-      zone d'effet du sort.<br/><strong>Fertilisation</strong>. Toutes les plantes
-      dans un rayon de 750 mètres centré sur un point à portée sont enrichies pendant
-      365 jours. Les plantes produisent deux fois plus de nourriture que normalement
-      lorsqu'elles sont récoltées. Elles ne peuvent bénéficier que d'une seule <em>croissance
-      végétale</em> par an.<br/>
+    description: |-
+      Ce sort canalise la vitalité dans des plantes. Le temps d'incantation utilisé détermine si le sort a l'effet Embroussaillement ou Fertilisation (voir ci-dessous).\
+      **Embroussaillement**. Choisissez un point à portée. Toutes les plantes normales dans une Sphère de 30 mètres de rayon centrée sur ce point deviennent denses et envahissantes. Une créature se déplaçant dans cette zone doit dépenser 4 mètres de déplacement pour chaque mètre parcouru. Vous pouvez exclure une ou plusieurs zones de n'importe quelle taille dans la zone d'effet du sort.\
+      **Fertilisation**. Toutes les plantes dans un rayon de 750 mètres centré sur un point à portée sont enrichies pendant 365 jours. Les plantes produisent deux fois plus de nourriture que normalement lorsqu'elles sont récoltées. Elles ne peuvent bénéficier que d'une seule *croissance végétale* par an.\

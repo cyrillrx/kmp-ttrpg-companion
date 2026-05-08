@@ -89,15 +89,23 @@ translations:
     name: Salamander Inferno Master
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Fire Aura</em>**. At the end of each of the salamander's turns, each creature of the salamander's choice in a 10-foot Emanation originating from the salamander takes 10 (3d6) Fire damage.</p>
-      <p><strong><em>Magic Resistance</em></strong>. The salamander has Advantage on saving throws against spells and other magical effects.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The salamander makes two Flame Trident attacks.</p>
-      <p><strong><em>Flame Trident</em></strong>. <em>Melee or Ranged Attack Roll</em> : +12, reach 5 ft. or range 30/90 ft. <em>Hit</em> : 16 (2d8 + 7) Piercing damage plus 14 (4d6) Fire damage. <em>Hit or Miss</em> : The trident magically returns to the salamander's hand immediately after a ranged attack.</p>
-      <p><strong><em>Inferno Blast (Recharge 5–6)</em></strong>. <em>Dexterity Saving Throw</em> : DC 18, each creature in a 30-foot-radius Sphere centered on a point the salamander can see within 120 feet. <em>Failure</em> : 35 (10d6) Fire damage, and the target starts burning, taking 5 (1d10) Fire damage at the start of each of its turns instead of the normal burning damage. The target gains 1 Exhaustion level whenever it takes this burning damage. <em>Success</em> : Half damage only.</p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Blazing Movement</em>**. The salamander moves up to its Speed without provoking Opportunity Attacks. During this movement, fire fills a 5-foot Emanation originating from the salamander. When the Emanation enters a creature's space, that creature takes 7 (2d6) Fire damage. A creature can take this damage only once per turn.</p>
+      ## Traits
+
+      ***Fire Aura***. At the end of each of the salamander's turns, each creature of the salamander's choice in a 10-foot Emanation originating from the salamander takes 10 (3d6) Fire damage.
+
+      ***Magic Resistance***. The salamander has Advantage on saving throws against spells and other magical effects.
+
+      ## Actions
+
+      ***Multiattack***. The salamander makes two Flame Trident attacks.
+
+      ***Flame Trident***. *Melee or Ranged Attack Roll* : +12, reach 5 ft. or range 30/90 ft. *Hit* : 16 (2d8 + 7) Piercing damage plus 14 (4d6) Fire damage. *Hit or Miss* : The trident magically returns to the salamander's hand immediately after a ranged attack.
+
+      ***Inferno Blast (Recharge 5–6)***. *Dexterity Saving Throw* : DC 18, each creature in a 30-foot-radius Sphere centered on a point the salamander can see within 120 feet. *Failure* : 35 (10d6) Fire damage, and the target starts burning, taking 5 (1d10) Fire damage at the start of each of its turns instead of the normal burning damage. The target gains 1 Exhaustion level whenever it takes this burning damage. *Success* : Half damage only.
+
+      ## Bonus actions
+
+      ***Blazing Movement***. The salamander moves up to its Speed without provoking Opportunity Attacks. During this movement, fire fills a 5-foot Emanation originating from the salamander. When the Emanation enters a creature's space, that creature takes 7 (2d6) Fire damage. A creature can take this damage only once per turn.
     senses: Darkvision 120 ft., Passive Perception 10
     languages:
     - Primordial (Ignan)
@@ -105,15 +113,23 @@ translations:
     name: Salamandre, maîtresse des fournaises
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Aura de feu</em>**. À la fin de chacun des tours de la salamandre, chaque créature choisie par la salamandre dans une Émanation de 3 m centrée sur elle subit 10 (3d6) dégâts de feu.</p>
-      <p><strong><em>Résistance à la magie</em></strong>. La salamandre a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. La salamandre effectue deux attaques de Trident de flammes.</p>
-      <p><strong><em>Trident de flammes</em></strong>. <em>Corps à corps ou à distance</em> : +12, allonge 1,50 m ou portée 9/27 m. <em>Touché</em> : 16 (2d8 + 7) dégâts perforants plus 14 (4d6) dégâts de feu. Échec ou réussite : le trident retourne magiquement dans la main de la salamandre immédiatement après une attaque à distance.</p>
-      <p><strong><em>Décharge des fournaises (recharge 5–6)</em></strong>. JdS Dextérité : DD 18, chaque créature dans une Sphère de 9 m de rayon centrée sur un point que la salamandre peut voir dans un rayon de 36 m. Échec : 35 (10d6) dégâts de feu, et la cible commence à brûler, subissant 5 (1d10) dégâts de feu au début de chacun de ses tours au lieu des dégâts de brûlure normaux. La cible gagne 1 niveau d'Épuisement chaque fois qu'elle subit ces dégâts de brûlure. Réussite : demi-dégâts uniquement.</p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Déplacement ardent</em>**. La salamandre se déplace jusqu'à sa Vitesse sans provoquer d'attaques d'Opportunité. Durant ce déplacement, du feu remplit une Émanation de 1,50 m de rayon centrée sur salamandre. Lorsque l'Émanation pénètre dans l'espace d'une créature, celle-ci subit 7 (2d6) dégâts de feu. Une créature ne peut subir ces dégâts qu'une seule fois par tour.</p>
+      ## Traits
+
+      ***Aura de feu***. À la fin de chacun des tours de la salamandre, chaque créature choisie par la salamandre dans une Émanation de 3 m centrée sur elle subit 10 (3d6) dégâts de feu.
+
+      ***Résistance à la magie***. La salamandre a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
+
+      ## Actions
+
+      ***Attaques multiples***. La salamandre effectue deux attaques de Trident de flammes.
+
+      ***Trident de flammes***. *Corps à corps ou à distance* : +12, allonge 1,50 m ou portée 9/27 m. *Touché* : 16 (2d8 + 7) dégâts perforants plus 14 (4d6) dégâts de feu. Échec ou réussite : le trident retourne magiquement dans la main de la salamandre immédiatement après une attaque à distance.
+
+      ***Décharge des fournaises (recharge 5–6)***. JdS Dextérité : DD 18, chaque créature dans une Sphère de 9 m de rayon centrée sur un point que la salamandre peut voir dans un rayon de 36 m. Échec : 35 (10d6) dégâts de feu, et la cible commence à brûler, subissant 5 (1d10) dégâts de feu au début de chacun de ses tours au lieu des dégâts de brûlure normaux. La cible gagne 1 niveau d'Épuisement chaque fois qu'elle subit ces dégâts de brûlure. Réussite : demi-dégâts uniquement.
+
+      ## Actions Bonus
+
+      ***Déplacement ardent***. La salamandre se déplace jusqu'à sa Vitesse sans provoquer d'attaques d'Opportunité. Durant ce déplacement, du feu remplit une Émanation de 1,50 m de rayon centrée sur salamandre. Lorsque l'Émanation pénètre dans l'espace d'une créature, celle-ci subit 7 (2d6) dégâts de feu. Une créature ne peut subir ces dégâts qu'une seule fois par tour.
     senses: Vision dans le noir 36 m, Perception passive 10
     languages:
     - primordial (igné)

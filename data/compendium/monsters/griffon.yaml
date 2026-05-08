@@ -89,17 +89,21 @@ translations:
     name: Griffon
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The griffon makes two Rend attacks.</p>
-      <p><strong><em>Rend</em></strong>. <em>Melee Attack Roll</em> : +6, reach 5 ft. <em>Hit</em> : 8 (1d8 + 4) Piercing damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 14) from both of the griffon's front claws.</p>
+      ## Actions
+
+      ***Multiattack***. The griffon makes two Rend attacks.
+
+      ***Rend***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 8 (1d8 + 4) Piercing damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 14) from both of the griffon's front claws.
     senses: Darkvision 60 ft., Passive Perception 15
     languages: []
   fr:
     name: Griffon
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le griffon effectue deux attaques de Saignée.</p>
-      <p><strong><em>Saignée</em></strong>. <em>Corps à corps</em> : +6, allonge 1,50 m. <em>Touché</em> : 8 (1d8 + 4) dégâts perforants. Si la cible est une créature de taille M ou inférieure, elle subit l'état Agrippé (évasion DD 14) par les deux griffes antérieures du griffon.</p>
+      ## Actions
+
+      ***Attaques multiples***. Le griffon effectue deux attaques de Saignée.
+
+      ***Saignée***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 8 (1d8 + 4) dégâts perforants. Si la cible est une créature de taille M ou inférieure, elle subit l'état Agrippé (évasion DD 14) par les deux griffes antérieures du griffon.
     senses: Vision dans le noir 18 m, Perception passive 15
     languages: []

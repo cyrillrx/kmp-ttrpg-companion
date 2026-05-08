@@ -89,10 +89,13 @@ translations:
     name: Brown Bear
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The bear makes one Bite attack and one Claw attack.</p>
-      <p><strong><em>Bite</em></strong>. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 7 (1d8 + 3) Piercing damage.</p>
-      <p><strong><em>Claw</em></strong>. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 5 (1d4 + 3) Slashing damage. If the target is a Large or smaller creature, it has the Prone condition.</p>
+      ## Actions
+
+      ***Multiattack***. The bear makes one Bite attack and one Claw attack.
+
+      ***Bite***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 7 (1d8 + 3) Piercing damage.
+
+      ***Claw***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 5 (1d4 + 3) Slashing damage. If the target is a Large or smaller creature, it has the Prone condition.
     senses: Darkvision 60 ft., Passive Perception 13
     languages:
     - None
@@ -100,10 +103,13 @@ translations:
     name: Ours brun
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. L'ours effectue une attaque de Morsure et une attaque de Griffes.</p>
-      <p><strong><em>Morsure</em></strong>. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 7 (1d8 + 3) dégâts perforants.</p>
-      <p><strong><em>Griffes</em></strong>. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 5 (1d4 + 3) dégâts tranchants. Si la cible est de taille G ou inférieure, elle subit l'état À terre.</p>
+      ## Actions
+
+      ***Attaques multiples***. L'ours effectue une attaque de Morsure et une attaque de Griffes.
+
+      ***Morsure***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 7 (1d8 + 3) dégâts perforants.
+
+      ***Griffes***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 5 (1d4 + 3) dégâts tranchants. Si la cible est de taille G ou inférieure, elle subit l'état À terre.
     senses: Vision dans le noir 18 m, Perception passive 13
     languages:
     - aucune

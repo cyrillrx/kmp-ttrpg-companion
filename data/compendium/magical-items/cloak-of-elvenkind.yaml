@@ -7,12 +7,10 @@ translations:
   en:
     name: Cloak of Elvenkind
     subtype: null
-    description: <p>While you wear this cloak, Wisdom (Perception) checks made to
-      perceive you have Disadvantage, and you have Advantage on Dexterity (Stealth)
-      checks.</p>
+    description: |-
+      While you wear this cloak, Wisdom (Perception) checks made to perceive you have Disadvantage, and you have Advantage on Dexterity (Stealth) checks.
   fr:
     name: Cape elfique
     subtype: null
-    description: <p>Lorsque vous portez cette cape, les jets de Sagesse (Perception)
-      effectués pour vous repérer ont un Désavantage, et vous avez un Avantage aux
-      jets de Dextérité (Discrétion).</p>
+    description: |-
+      Lorsque vous portez cette cape, les jets de Sagesse (Perception) effectués pour vous repérer ont un Désavantage, et vous avez un Avantage aux jets de Dextérité (Discrétion).

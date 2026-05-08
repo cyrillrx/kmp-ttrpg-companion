@@ -89,12 +89,17 @@ translations:
     name: Giant Ape
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The ape makes two Fist attacks.</p>
-      <p><strong><em>Fist</em></strong>. <em>Melee Attack Roll</em> : +9, reach 10 ft. <em>Hit</em> : 22 (3d10 + 6) Bludgeoning damage.</p>
-      <p><strong><em>Boulder Toss (Recharge 6)</em></strong>. The ape hurls a boulder at a point it can see within 90 feet. <em>Dexterity Saving Throw</em> : DC 17, each creature in a 5-foot-radius Sphere centered on that point. <em>Failure</em> : 24 (7d6) Bludgeoning damage. If the target is a Large or smaller creature, it has the Prone condition. <em>Success</em> : Half damage only.</p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Leap</em>**. The ape jumps up to 30 feet by spending 10 feet of movement.</p>
+      ## Actions
+
+      ***Multiattack***. The ape makes two Fist attacks.
+
+      ***Fist***. *Melee Attack Roll* : +9, reach 10 ft. *Hit* : 22 (3d10 + 6) Bludgeoning damage.
+
+      ***Boulder Toss (Recharge 6)***. The ape hurls a boulder at a point it can see within 90 feet. *Dexterity Saving Throw* : DC 17, each creature in a 5-foot-radius Sphere centered on that point. *Failure* : 24 (7d6) Bludgeoning damage. If the target is a Large or smaller creature, it has the Prone condition. *Success* : Half damage only.
+
+      ## Bonus actions
+
+      ***Leap***. The ape jumps up to 30 feet by spending 10 feet of movement.
     senses: Passive Perception 14
     languages:
     - None
@@ -102,12 +107,17 @@ translations:
     name: Singe géant
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le singe effectue deux attaques de Poing.</p>
-      <p><strong><em>Poing</em></strong>. <em>Corps à corps</em> : +9, allonge 3 m. <em>Touché</em> : 22 (3d10 + 6) dégâts contondants.</p>
-      <p><strong><em>Jet de rocher (recharge 6)</em></strong>. Le singe projette un rocher en un point qu'il voit dans un rayon de 27 m. <em>JdS Dextérité</em> : DD 17, chaque créature dans une Sphère de 1,50 m centrée sur ce point. <em>Échec</em> : 24 (7d6) dégâts contondants. Si la cible est une créature de taille G ou inférieure, elle subit l'état À terre. <em>Réussite</em> : demi-dégâts uniquement.</p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Bond</em>**. Le singe effectue un saut d'un maximum de 9 m en dépensant 3 m de déplacement.</p>
+      ## Actions
+
+      ***Attaques multiples***. Le singe effectue deux attaques de Poing.
+
+      ***Poing***. *Corps à corps* : +9, allonge 3 m. *Touché* : 22 (3d10 + 6) dégâts contondants.
+
+      ***Jet de rocher (recharge 6)***. Le singe projette un rocher en un point qu'il voit dans un rayon de 27 m. *JdS Dextérité* : DD 17, chaque créature dans une Sphère de 1,50 m centrée sur ce point. *Échec* : 24 (7d6) dégâts contondants. Si la cible est une créature de taille G ou inférieure, elle subit l'état À terre. *Réussite* : demi-dégâts uniquement.
+
+      ## Actions Bonus
+
+      ***Bond***. Le singe effectue un saut d'un maximum de 9 m en dépensant 3 m de déplacement.
     senses: Perception passive 14
     languages:
     - aucune

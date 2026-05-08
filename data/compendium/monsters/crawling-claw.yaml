@@ -89,8 +89,9 @@ translations:
     name: Crawling Claw
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Slam</em>**. <em>Melee Attack Roll</em> : +3, reach 5 ft. <em>Hit</em> : 2 Necrotic damage.</p>
+      ## Actions
+
+      ***Slam***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 2 Necrotic damage.
     senses: Blindsight 30 ft., Passive Perception 10
     languages:
     - Understands Common but can't speak
@@ -98,8 +99,9 @@ translations:
     name: Griffe rampante / Sénestre
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Coup</em>**. <em>Corps à corps</em> : +3, allonge 1,50 m. <em>Touché</em> : 2 dégâts nécrotiques.</p>
+      ## Actions
+
+      ***Coup***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 2 dégâts nécrotiques.
     senses: Vision aveugle 9 m, Perception passive 10
     languages:
     - comprend le commun mais ne parle pas

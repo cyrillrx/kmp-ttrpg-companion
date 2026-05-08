@@ -89,19 +89,25 @@ translations:
     name: Wyvern
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The wyvern makes one Bite attack and one Sting attack.</p>
-      <p><strong><em>Bite</em></strong>. <em>Melee Attack Roll</em> : +7, reach 5 ft. <em>Hit</em> : 13 (2d8 + 4) Piercing damage.</p>
-      <p><strong><em>Sting</em></strong>. <em>Melee Attack Roll</em> : +7, reach 10 ft. <em>Hit</em> : 11 (2d6 + 4) Piercing damage plus 24 (7d6) Poison damage, and the target has the Poisoned condition until the start of the wyvern's next turn.</p>
+      ## Actions
+
+      ***Multiattack***. The wyvern makes one Bite attack and one Sting attack.
+
+      ***Bite***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 13 (2d8 + 4) Piercing damage.
+
+      ***Sting***. *Melee Attack Roll* : +7, reach 10 ft. *Hit* : 11 (2d6 + 4) Piercing damage plus 24 (7d6) Poison damage, and the target has the Poisoned condition until the start of the wyvern's next turn.
     senses: Darkvision 120 ft., Passive Perception 14
     languages: []
   fr:
     name: Wyverne / Vouivre
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. La wyverne effectue une attaque de Dard et une de Morsure.</p>
-      <p><strong><em>Dard</em></strong>. <em>Corps à corps</em> : +7, allonge 3 m. <em>Touché</em> : 11 (2d6 + 4) dégâts perforants plus 24 (7d6) dégâts de poison, et la cible subit l'état Empoisonné jusqu'au début du tour suivant de la wyverne.</p>
-      <p><strong><em>Morsure</em></strong>. <em>Corps à corps</em> : +7, allonge 1,50 m. <em>Touché</em> : 13 (2d8 + 4) dégâts perforants.</p>
+      ## Actions
+
+      ***Attaques multiples***. La wyverne effectue une attaque de Dard et une de Morsure.
+
+      ***Dard***. *Corps à corps* : +7, allonge 3 m. *Touché* : 11 (2d6 + 4) dégâts perforants plus 24 (7d6) dégâts de poison, et la cible subit l'état Empoisonné jusqu'au début du tour suivant de la wyverne.
+
+      ***Morsure***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 13 (2d8 + 4) dégâts perforants.
     senses: Vision dans le noir 36 m, Perception passive 14
     languages: []

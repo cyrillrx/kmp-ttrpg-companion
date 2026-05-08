@@ -89,8 +89,9 @@ translations:
     name: Giant Bat
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Bite</em>**. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 6 (1d6 + 3) Piercing damage.</p>
+      ## Actions
+
+      ***Bite***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 6 (1d6 + 3) Piercing damage.
     senses: Blindsight 120 ft., Passive Perception 11
     languages:
     - None
@@ -98,8 +99,9 @@ translations:
     name: Chauve-souris géante
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Morsure</em>**. <em>Corps à corps</em> : +5, allonge 1,50 m. <em>Touché</em> : 6 (1d6 + 3) dégâts perforants.</p>
+      ## Actions
+
+      ***Morsure***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 6 (1d6 + 3) dégâts perforants.
     senses: Vision aveugle 36 m, Perception passive 11
     languages:
     - aucune

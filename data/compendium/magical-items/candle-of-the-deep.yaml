@@ -7,10 +7,10 @@ translations:
   en:
     name: Candle of the Deep
     subtype: null
-    description: <p>The flame of this candle isn't extinguished when immersed in water.
-      It gives off light and heat like a normal candle.</p>
+    description: |-
+      The flame of this candle isn't extinguished when immersed in water. It gives off light and heat like a normal candle.
   fr:
     name: Chandelle des profondeurs
     subtype: null
-    description: <p>La flamme de cette bougie ne s'éteint pas lorsqu'elle est immergée
-      dans l'eau. Elle dégage de la lumière et de la chaleur comme une bougie normale.</p>
+    description: |-
+      La flamme de cette bougie ne s'éteint pas lorsqu'elle est immergée dans l'eau. Elle dégage de la lumière et de la chaleur comme une bougie normale.

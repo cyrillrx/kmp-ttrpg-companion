@@ -89,16 +89,24 @@ translations:
     name: Merfolk Wavebender
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Amphibious</em>**. The merfolk can breathe air and water.</p>
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The merfolk makes two Aquatic Burst attacks.</p>
-      <p><strong><em>Aquatic Burst</em></strong>. <em>Melee or Ranged Attack Roll</em> : +7, reach 5 ft. or range 60 ft. <em>Hit</em> : 20 (3d10 + 4) Cold damage. If the target is a Large or smaller creature, it has the Prone condition.</p>
-      <p><strong><em>Spellcasting</em></strong>. The merfolk casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 15):</p>
-      <p>At will: <em><a href="https://www.aidedd.org/spell/elementalism">Elementalism</a>, <a href="https://www.aidedd.org/spell/light">Light</a></em><br />
-      1/day each: <em><a href="https://www.aidedd.org/spell/control-water">Control Water</a>, <a href="https://www.aidedd.org/spell/create-or-destroy-water">Create or Destroy Water</a></em>  </p>
-      <h2>Reactions</h2>
-      <p>** <em>Watery Rebuke</em>**. <em>Trigger</em> : An enemy the merfolk can see enters a space within 5 feet of the merfolk. Response— <em>Strength Saving Throw</em> : DC 15, the triggering enemy. <em>Failure</em> : 14 (4d6) Cold damage. If the target is Large or smaller, it is pushed up to 30 feet straight away from the merfolk by conjured water.</p>
+      ## Traits
+
+      ***Amphibious***. The merfolk can breathe air and water.
+
+      ## Actions
+
+      ***Multiattack***. The merfolk makes two Aquatic Burst attacks.
+
+      ***Aquatic Burst***. *Melee or Ranged Attack Roll* : +7, reach 5 ft. or range 60 ft. *Hit* : 20 (3d10 + 4) Cold damage. If the target is a Large or smaller creature, it has the Prone condition.
+
+      ***Spellcasting***. The merfolk casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 15):
+
+      At will: *[Elementalism](https://www.aidedd.org/spell/elementalism), [Light](https://www.aidedd.org/spell/light)*\
+      1/day each: *[Control Water](https://www.aidedd.org/spell/control-water), [Create or Destroy Water](https://www.aidedd.org/spell/create-or-destroy-water)*
+
+      ## Reactions
+
+      ***Watery Rebuke***. *Trigger* : An enemy the merfolk can see enters a space within 5 feet of the merfolk. Response— *Strength Saving Throw* : DC 15, the triggering enemy. *Failure* : 14 (4d6) Cold damage. If the target is Large or smaller, it is pushed up to 30 feet straight away from the merfolk by conjured water.
     senses: Passive Perception 17
     languages:
     - Common
@@ -107,16 +115,24 @@ translations:
     name: Thalasséen, dompteur de l'onde
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Amphibie</em>**. Le thalasséen peut respirer sous l'eau comme à l'air libre.</p>
-      <h2>Actions</h2>
-      <p>** <em>Attaques multiples</em>**. Le thalasséen effectue deux attaques de Décharge aquatique.</p>
-      <p><strong><em>Décharge aquatique</em></strong>. <em>Corps à corps ou à distance</em> : +7, allonge 1,50 m ou portée 18 m. <em>Touché</em> : 20 (3d10 + 4) dégâts de froid. Si la cible est une créature de taille G ou inférieure, elle subit l'état À terre.</p>
-      <p><strong><em>Incantation</em></strong>. Le thalasséen lance l'un des sorts suivants sans composantes matérielles, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 15) :</p>
-      <p>À volonté : <em><a href="https://www.aidedd.org/spell/fr/elementalisme">élémentalisme</a>, <a href="https://www.aidedd.org/spell/fr/lumiere">Lumière</a></em><br />
-      1/jour chacun : <em><a href="https://www.aidedd.org/spell/fr/controle-de-l-eau">contrôle de l'eau</a>, <a href="https://www.aidedd.org/spell/fr/creation-ou-destruction-d-eau">création ou destruction d'eau</a></em>  </p>
-      <h2>Réactions</h2>
-      <p>** <em>Représailles aqueuses</em>**. Déclencheur : un ennemi que le thalasséen peut voir entre dans un espace situé dans un rayon de 1,50 m autour du thalasséen. Conséquences—JdS Force : DD 15, l'ennemi déclencheur. Échec : 14 (4d6) dégâts de froid. Si la cible est de taille G ou inférieure, elle est repoussée du thalasséen jusqu'à 9 m en ligne droite par l'eau invoquée.</p>
+      ## Traits
+
+      ***Amphibie***. Le thalasséen peut respirer sous l'eau comme à l'air libre.
+
+      ## Actions
+
+      ***Attaques multiples***. Le thalasséen effectue deux attaques de Décharge aquatique.
+
+      ***Décharge aquatique***. *Corps à corps ou à distance* : +7, allonge 1,50 m ou portée 18 m. *Touché* : 20 (3d10 + 4) dégâts de froid. Si la cible est une créature de taille G ou inférieure, elle subit l'état À terre.
+
+      ***Incantation***. Le thalasséen lance l'un des sorts suivants sans composantes matérielles, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 15) :
+
+      À volonté : *[élémentalisme](https://www.aidedd.org/spell/fr/elementalisme), [Lumière](https://www.aidedd.org/spell/fr/lumiere)*\
+      1/jour chacun : *[contrôle de l'eau](https://www.aidedd.org/spell/fr/controle-de-l-eau), [création ou destruction d'eau](https://www.aidedd.org/spell/fr/creation-ou-destruction-d-eau)*
+
+      ## Réactions
+
+      ***Représailles aqueuses***. Déclencheur : un ennemi que le thalasséen peut voir entre dans un espace situé dans un rayon de 1,50 m autour du thalasséen. Conséquences—JdS Force : DD 15, l'ennemi déclencheur. Échec : 14 (4d6) dégâts de froid. Si la cible est de taille G ou inférieure, elle est repoussée du thalasséen jusqu'à 9 m en ligne droite par l'eau invoquée.
     senses: Perception passive 17
     languages:
     - commun

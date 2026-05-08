@@ -8,11 +8,11 @@ translations:
     name: Keoghtom's Ointment
     subtype: null
     description: |-
-      <p>This glass jar, 3 inches in diameter, contains 1d4 + 1 doses of a thick mixture that smells faintly of aloe. The jar and its contents weigh 1/2 pound.<br />
-      As a Utilize action, you can swallow one dose of the ointment or apply it to a creature within 5 feet of yourself. The creature that receives it regains 2d8 + 2 Hit Points and ceases to have the Poisoned condition.</p>
+      This glass jar, 3 inches in diameter, contains 1d4 + 1 doses of a thick mixture that smells faintly of aloe. The jar and its contents weigh 1/2 pound.\
+      As a Utilize action, you can swallow one dose of the ointment or apply it to a creature within 5 feet of yourself. The creature that receives it regains 2d8 + 2 Hit Points and ceases to have the Poisoned condition.
   fr:
     name: Baume de Keoghtom
     subtype: null
     description: |-
-      <p>Ce pot en verre de 7,50 cm de diamètre contient 1d4 + 1 doses d'une pâte épaisse à l'odeur légère d'aloès. Le pot et son contenu pèsent 250 g.<br />
-      Par une action Utilisation, vous pouvez avaler une dose de la pommade ou l'appliquer sur une créature dans un rayon de 1,50 m. La créature qui la reçoit récupère 2d8 + 2 points de vie et ne subit plus l'état Empoisonné.</p>
+      Ce pot en verre de 7,50 cm de diamètre contient 1d4 + 1 doses d'une pâte épaisse à l'odeur légère d'aloès. Le pot et son contenu pèsent 250 g.\
+      Par une action Utilisation, vous pouvez avaler une dose de la pommade ou l'appliquer sur une créature dans un rayon de 1,50 m. La créature qui la reçoit récupère 2d8 + 2 points de vie et ne subit plus l'état Empoisonné.

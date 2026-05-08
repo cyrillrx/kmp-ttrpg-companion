@@ -8,11 +8,11 @@ translations:
     name: Necklace of Fireballs
     subtype: null
     description: |-
-      <p>This necklace has 1d6 + 3 beads hanging from it. You can take a Magic action to detach a bead and throw it up to 60 feet away. When it reaches the end of its trajectory, the bead detonates as a level 3 <em><a href="https://www.aidedd.org/spell/fireball">Fireball</a></em> (save DC 15).<br />
-      You can hurl multiple beads, or even the whole necklace, at one time. When you do so, increase the damage of the <em><a href="https://www.aidedd.org/spell/fireball">Fireball</a></em> by 1d6 for each bead after the first (maximum 12d6).</p>
+      This necklace has 1d6 + 3 beads hanging from it. You can take a Magic action to detach a bead and throw it up to 60 feet away. When it reaches the end of its trajectory, the bead detonates as a level 3 *[Fireball](https://www.aidedd.org/spell/fireball)* (save DC 15).\
+      You can hurl multiple beads, or even the whole necklace, at one time. When you do so, increase the damage of the *[Fireball](https://www.aidedd.org/spell/fireball)* by 1d6 for each bead after the first (maximum 12d6).
   fr:
     name: Collier de boules de feu
     subtype: null
     description: |-
-      <p>Ce collier est composé de 1d6 + 3 perles. Vous pouvez prendre une action Magie pour détacher une perle et la lancer jusqu'à 18 mètres. À la fin de sa trajectoire, la perle explose et devient une <em><a href="https://www.aidedd.org/spell/fr/boule-de-feu">boule de feu</a></em> de niveau 3 (sauvegarde DD 15).<br />
-      Vous pouvez lancer plusieurs perles, voire le collier entier, à la fois. Dans ce cas, les dégâts de la <em><a href="https://www.aidedd.org/spell/fr/boule-de-feu">boule de feu</a></em> augmentent de 1d6 pour chaque perle après la première (maximum 12d6).</p>
+      Ce collier est composé de 1d6 + 3 perles. Vous pouvez prendre une action Magie pour détacher une perle et la lancer jusqu'à 18 mètres. À la fin de sa trajectoire, la perle explose et devient une *[boule de feu](https://www.aidedd.org/spell/fr/boule-de-feu)* de niveau 3 (sauvegarde DD 15).\
+      Vous pouvez lancer plusieurs perles, voire le collier entier, à la fois. Dans ce cas, les dégâts de la *[boule de feu](https://www.aidedd.org/spell/fr/boule-de-feu)* augmentent de 1d6 pour chaque perle après la première (maximum 12d6).

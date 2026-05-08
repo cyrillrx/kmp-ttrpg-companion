@@ -89,10 +89,13 @@ translations:
     name: Blood Hawk
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Pack Tactics</em>**. The hawk has Advantage on an attack roll against a creature if at least one of the hawk's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.</p>
-      <h2>Actions</h2>
-      <p>** <em>Beak</em>**. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 4 (1d4 + 2) Piercing damage, or 6 (1d8 + 2) Piercing damage if the target is Bloodied.</p>
+      ## Traits
+
+      ***Pack Tactics***. The hawk has Advantage on an attack roll against a creature if at least one of the hawk's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.
+
+      ## Actions
+
+      ***Beak***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 4 (1d4 + 2) Piercing damage, or 6 (1d8 + 2) Piercing damage if the target is Bloodied.
     senses: Passive Perception 16
     languages:
     - None
@@ -100,10 +103,13 @@ translations:
     name: Faucon de sang
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Tactique de meute</em>**. Quand au moins un de ses alliés non Incapable d'agir se situe dans un rayon de 1,50 m de la créature qu'il cible, le faucon a un Avantage au jet d'attaque correspondant.</p>
-      <h2>Actions</h2>
-      <p>** <em>Bec</em>**. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 4 (1d4 + 2) dégâts perforants, ou 6 (1d8 + 2) dégâts perforants si la cible est En péril.</p>
+      ## Traits
+
+      ***Tactique de meute***. Quand au moins un de ses alliés non Incapable d'agir se situe dans un rayon de 1,50 m de la créature qu'il cible, le faucon a un Avantage au jet d'attaque correspondant.
+
+      ## Actions
+
+      ***Bec***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 4 (1d4 + 2) dégâts perforants, ou 6 (1d8 + 2) dégâts perforants si la cible est En péril.
     senses: Perception passive 16
     languages:
     - aucune

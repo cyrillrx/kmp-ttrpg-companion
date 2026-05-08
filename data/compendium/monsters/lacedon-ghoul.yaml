@@ -89,12 +89,17 @@ translations:
     name: Lacedon Ghoul
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>** <em>Multiattack</em>**. The ghoul makes two Icy Bite attacks.</p>
-      <p><strong><em>Icy Bite</em></strong>. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 9 (2d6 + 2) Cold damage, and the target's Speed decreases by 5 feet until the start of the ghoul's next turn.</p>
-      <p><strong><em>Claw</em></strong>. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 4 (1d4 + 2) Slashing damage. If the target is a creature that isn't an Undead or elf, it is subjected to the following effect. <em>Constitution Saving Throw</em> : DC 10. <em>Failure</em> : The target has the Paralyzed condition until the end of its next turn.</p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Watery Rush</em>**. While underwater, the ghoul moves up to half its Swim Speed without provoking Opportunity Attacks.</p>
+      ## Actions
+
+      ***Multiattack***. The ghoul makes two Icy Bite attacks.
+
+      ***Icy Bite***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 9 (2d6 + 2) Cold damage, and the target's Speed decreases by 5 feet until the start of the ghoul's next turn.
+
+      ***Claw***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 4 (1d4 + 2) Slashing damage. If the target is a creature that isn't an Undead or elf, it is subjected to the following effect. *Constitution Saving Throw* : DC 10. *Failure* : The target has the Paralyzed condition until the end of its next turn.
+
+      ## Bonus actions
+
+      ***Watery Rush***. While underwater, the ghoul moves up to half its Swim Speed without provoking Opportunity Attacks.
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - Common
@@ -102,12 +107,15 @@ translations:
     name: Goule lacédone
     subtype: null
     description: |-
-      <h2>Actions</h2>
-      <p>Attaques multiples.<br />
-      Morsure glaciale.<br />
-      Griffe.  </p>
-      <h2>Actions Bonus</h2>
-      <p>Ruée aquatique.</p>
+      ## Actions
+
+      Attaques multiples.\
+      Morsure glaciale.\
+      Griffe.
+
+      ## Actions Bonus
+
+      Ruée aquatique.
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - commun

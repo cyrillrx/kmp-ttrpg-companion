@@ -18,20 +18,15 @@ translations:
     range: Self
     duration: Instantaneous
     materialDescription: a bit of fur and a crystal rod
-    description: A stroke of lightning forming a 100-foot-long, 5-foot-wide Line blasts
-      out from you in a direction you choose. Each creature in the Line makes a Dexterity
-      saving throw, taking 8d6 Lightning damage on a failed save or half as much damage
-      on a successful one.<br/><strong><em>Using a Higher-Level Spell Slot</em></strong>.
-      The damage increases by 1d6 for each spell slot level above 3.<br/>
+    description: |-
+      A stroke of lightning forming a 100-foot-long, 5-foot-wide Line blasts out from you in a direction you choose. Each creature in the Line makes a Dexterity saving throw, taking 8d6 Lightning damage on a failed save or half as much damage on a successful one.\
+      ***Using a Higher-Level Spell Slot***. The damage increases by 1d6 for each spell slot level above 3.\
   fr:
     name: Éclair
     castingTime: Action
     range: Personnelle
     duration: Instantanée
     materialDescription: une touffe de fourrure et une tige de cristal
-    description: Un éclair formant une Ligne de 30 mètres de long et 1,50 mètre de
-      large jaillit de vous dans la direction de votre choix. Toute créature sur la
-      Ligne effectue un jet de sauvegarde de Dextérité, subissant 8d6 dégâts de foudre
-      en cas d'échec, ou la moitié de ces dégâts en cas de réussite.<br/><strong><em>Emplacement
-      de niveau supérieur</em></strong>. Les dégâts augmentent de 1d6 pour chaque
-      niveau d'emplacement de sort supérieur à 3.<br/>
+    description: |-
+      Un éclair formant une Ligne de 30 mètres de long et 1,50 mètre de large jaillit de vous dans la direction de votre choix. Toute créature sur la Ligne effectue un jet de sauvegarde de Dextérité, subissant 8d6 dégâts de foudre en cas d'échec, ou la moitié de ces dégâts en cas de réussite.\
+      ***Emplacement de niveau supérieur***. Les dégâts augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 3.\

@@ -17,26 +17,17 @@ translations:
     range: Self
     duration: 1 minute
     materialDescription: mistletoe
-    description: A Club or Quarterstaff you are holding is imbued with nature's power.
-      For the duration, you can use your spellcasting ability instead of Strength
-      for the attack and damage rolls of melee attacks using that weapon, and the
-      weapon's damage die becomes a d8. If the attack deals damage, it can be Force
-      damage or the weapon's normal damage type (your choice).<br/>The spell ends
-      early if you cast it again or if you let go of the weapon.<br/><strong><em>Cantrip
-      Upgrade</em></strong>. The weapon's damage die changes when you reach levels
-      5 (d10), 11 (d12), and 17 (2d6).<br/>
+    description: |-
+      A Club or Quarterstaff you are holding is imbued with nature's power. For the duration, you can use your spellcasting ability instead of Strength for the attack and damage rolls of melee attacks using that weapon, and the weapon's damage die becomes a d8. If the attack deals damage, it can be Force damage or the weapon's normal damage type (your choice).\
+      The spell ends early if you cast it again or if you let go of the weapon.\
+      ***Cantrip Upgrade***. The weapon's damage die changes when you reach levels 5 (d10), 11 (d12), and 17 (2d6).\
   fr:
     name: Crosse des druides
     castingTime: Action bonus
     range: Personnelle
     duration: 1 minute
     materialDescription: du gui
-    description: Le gourdin ou le bâton que vous tenez est imprégné de la puissance
-      de la nature. Pour la durée du sort, vous pouvez utiliser votre caractéristique
-      d'incantation au lieu de la Force pour les jets d'attaque et de dégâts des attaques
-      au corps à corps avec cette arme, et le dé de dégâts de l'arme devient un d8.
-      Si l'attaque inflige des dégâts, ceux-ci peuvent être de Force ou du type de
-      dégâts normal de l'arme (selon votre choix).<br/>Le sort prend fin prématurément
-      si vous le relancez ou si vous lâchez l'arme.<br/><strong><em>Amélioration de
-      sort mineur</em></strong>. Le dé de dégâts de l'arme change lorsque vous atteignez
-      les niveaux 5 (d10), 11 (d12) et 17 (2d6).<br/>
+    description: |-
+      Le gourdin ou le bâton que vous tenez est imprégné de la puissance de la nature. Pour la durée du sort, vous pouvez utiliser votre caractéristique d'incantation au lieu de la Force pour les jets d'attaque et de dégâts des attaques au corps à corps avec cette arme, et le dé de dégâts de l'arme devient un d8. Si l'attaque inflige des dégâts, ceux-ci peuvent être de Force ou du type de dégâts normal de l'arme (selon votre choix).\
+      Le sort prend fin prématurément si vous le relancez ou si vous lâchez l'arme.\
+      ***Amélioration de sort mineur***. Le dé de dégâts de l'arme change lorsque vous atteignez les niveaux 5 (d10), 11 (d12) et 17 (2d6).\

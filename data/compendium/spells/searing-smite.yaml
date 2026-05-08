@@ -18,12 +18,9 @@ translations:
     range: Self
     duration: 1 minute
     materialDescription: null
-    description: As you hit the target, it takes an extra 1d6 Fire damage from the
-      attack. At the start of each of its turns until the spell ends, the target takes
-      1d6 Fire damage and then makes a Constitution saving throw. On a failed save,
-      the spell continues. On a successful save, the spell ends.<br/><strong><em>Using
-      a Higher-Level Spell Slot</em></strong>. All the damage increases by 1d6 for
-      each spell slot level above 1.<br/>
+    description: |-
+      As you hit the target, it takes an extra 1d6 Fire damage from the attack. At the start of each of its turns until the spell ends, the target takes 1d6 Fire damage and then makes a Constitution saving throw. On a failed save, the spell continues. On a successful save, the spell ends.\
+      ***Using a Higher-Level Spell Slot***. All the damage increases by 1d6 for each spell slot level above 1.\
   fr:
     name: Châtiment de fournaise
     castingTime: Action bonus, que vous prenez immédiatement après avoir touché une
@@ -31,9 +28,6 @@ translations:
     range: Personnelle
     duration: 1 minute
     materialDescription: null
-    description: Lorsque vous touchez la cible, elle subit 1d6 dégâts de feu supplémentaires.
-      Au début de chacun de ses tours jusqu'à la fin du sort, la cible subit 1d6 dégâts
-      de feu, puis effectue un jet de sauvegarde de Constitution. En cas d'échec,
-      le sort continue. En cas de réussite, le sort prend fin.<br/><strong><em>Emplacement
-      de niveau supérieur</em></strong>. Tous les dégâts augmentent de 1d6 pour chaque
-      niveau d'emplacement de sort supérieur à 1.<br/>
+    description: |-
+      Lorsque vous touchez la cible, elle subit 1d6 dégâts de feu supplémentaires. Au début de chacun de ses tours jusqu'à la fin du sort, la cible subit 1d6 dégâts de feu, puis effectue un jet de sauvegarde de Constitution. En cas d'échec, le sort continue. En cas de réussite, le sort prend fin.\
+      ***Emplacement de niveau supérieur***. Tous les dégâts augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 1.\

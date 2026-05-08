@@ -7,28 +7,10 @@ translations:
   en:
     name: Mace of Terror
     subtype: Mace
-    description: <p>This magic weapon has 3 charges and regains 1d3 expended charges
-      daily at dawn. While holding the weapon, you can take a Magic action and expend
-      1 charge to release a wave of terror from it. Each creature of your choice within
-      30 feet of you must succeed on a DC 15 Wisdom saving throw or have the Frightened
-      condition for 1 minute. While Frightened in this way, a creature must spend
-      its turns trying to move as far away from you as it can, and it can't make Opportunity
-      Attacks. For its action, it can use only the Dash action or try to escape from
-      an effect that prevents it from moving. If it has nowhere it can move, the creature
-      can take the Dodge action. At the end of each of its turns, a creature repeats
-      the save, ending the effect on itself on a success.</p>
+    description: |-
+      This magic weapon has 3 charges and regains 1d3 expended charges daily at dawn. While holding the weapon, you can take a Magic action and expend 1 charge to release a wave of terror from it. Each creature of your choice within 30 feet of you must succeed on a DC 15 Wisdom saving throw or have the Frightened condition for 1 minute. While Frightened in this way, a creature must spend its turns trying to move as far away from you as it can, and it can't make Opportunity Attacks. For its action, it can use only the Dash action or try to escape from an effect that prevents it from moving. If it has nowhere it can move, the creature can take the Dodge action. At the end of each of its turns, a creature repeats the save, ending the effect on itself on a success.
   fr:
     name: Masse terrifiante
     subtype: masse d'armes
-    description: <p>Cette arme magique possède 3 charges et récupère 1d3 charges dépensées
-      chaque jour à l'aube. Lorsque vous tenez l'arme, vous pouvez prendre une action
-      Magie et dépenser 1 charge pour libérer une vague de terreur. Chaque créature
-      de votre choix dans un rayon de 9 mètres autour de vous doit réussir un jet
-      de sauvegarde de Sagesse DD 15 ou subir l'état Effrayé pendant 1 minute. Effrayée
-      de cette manière, une créature doit utiliser ses tours pour tenter de s'éloigner
-      le plus possible de vous et ne peut effectuer d'attaques d'Opportunité. Pour
-      son action, elle ne peut utiliser que l'action Pointe ou tenter d'échapper à
-      un effet l'empêchant de se déplacer. Si elle ne peut se déplacer, la créature
-      peut prendre l'action Esquiver. À la fin de chacun de ses tours, la créature
-      renouvelle son jet de sauvegarde, mettant fin à l'effet sur elle-même en cas
-      de réussite.</p>
+    description: |-
+      Cette arme magique possède 3 charges et récupère 1d3 charges dépensées chaque jour à l'aube. Lorsque vous tenez l'arme, vous pouvez prendre une action Magie et dépenser 1 charge pour libérer une vague de terreur. Chaque créature de votre choix dans un rayon de 9 mètres autour de vous doit réussir un jet de sauvegarde de Sagesse DD 15 ou subir l'état Effrayé pendant 1 minute. Effrayée de cette manière, une créature doit utiliser ses tours pour tenter de s'éloigner le plus possible de vous et ne peut effectuer d'attaques d'Opportunité. Pour son action, elle ne peut utiliser que l'action Pointe ou tenter d'échapper à un effet l'empêchant de se déplacer. Si elle ne peut se déplacer, la créature peut prendre l'action Esquiver. À la fin de chacun de ses tours, la créature renouvelle son jet de sauvegarde, mettant fin à l'effet sur elle-même en cas de réussite.

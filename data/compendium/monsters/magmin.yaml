@@ -89,12 +89,17 @@ translations:
     name: Magmin
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Death Burst</em>**. The magmin explodes when it dies. <em>Dexterity Saving Throw</em> : DC 11, each creature in a 10-foot Emanation originating from the magmin. <em>Failure</em> : 7 (2d6) Fire damage. <em>Success</em> : Half damage.</p>
-      <h2>Actions</h2>
-      <p>** <em>Touch</em>**. <em>Melee Attack Roll</em> : +4, reach 5 ft. <em>Hit</em> : 7 (2d4 + 2) Fire damage. If the target is a creature or a flammable object that isn't being worn or carried, it starts burning.</p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Ignited Illumination</em>**. The magmin sets itself ablaze or extinguishes its flames. While ablaze, the magmin sheds Bright Light in a 10-foot radius and Dim Light for an additional 10 feet.</p>
+      ## Traits
+
+      ***Death Burst***. The magmin explodes when it dies. *Dexterity Saving Throw* : DC 11, each creature in a 10-foot Emanation originating from the magmin. *Failure* : 7 (2d6) Fire damage. *Success* : Half damage.
+
+      ## Actions
+
+      ***Touch***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 7 (2d4 + 2) Fire damage. If the target is a creature or a flammable object that isn't being worn or carried, it starts burning.
+
+      ## Bonus actions
+
+      ***Ignited Illumination***. The magmin sets itself ablaze or extinguishes its flames. While ablaze, the magmin sheds Bright Light in a 10-foot radius and Dim Light for an additional 10 feet.
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - Primordial (Ignan)
@@ -102,12 +107,17 @@ translations:
     name: Magmatique
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Explosion finale</em>**. Le magmatique explose quand il meurt. <em>JdS Dextérité</em> : DD 11, chaque créature dans une Émanation de 3 m centrée sur le magmatique. <em>Échec</em> : 7 (2d6) dégâts de feu. <em>Réussite</em> : demi-dégâts.</p>
-      <h2>Actions</h2>
-      <p>** <em>Contact</em>**. <em>Corps à corps</em> : +4, allonge 1,50 m. <em>Touché</em> : 7 (2d4 + 2) dégâts de feu. Si la cible est une créature ou un objet inflammable qui n'est porté par personne, elle s'embrase.</p>
-      <h2>Actions Bonus</h2>
-      <p>** <em>Illumination embrasée</em>**. Le magmatique s'embrase ou éteint ses flammes. Embrasé, le magmatique produit une Lumière vive sur un rayon de 3 m et une Lumière faible sur 3 m de plus.</p>
+      ## Traits
+
+      ***Explosion finale***. Le magmatique explose quand il meurt. *JdS Dextérité* : DD 11, chaque créature dans une Émanation de 3 m centrée sur le magmatique. *Échec* : 7 (2d6) dégâts de feu. *Réussite* : demi-dégâts.
+
+      ## Actions
+
+      ***Contact***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 7 (2d4 + 2) dégâts de feu. Si la cible est une créature ou un objet inflammable qui n'est porté par personne, elle s'embrase.
+
+      ## Actions Bonus
+
+      ***Illumination embrasée***. Le magmatique s'embrase ou éteint ses flammes. Embrasé, le magmatique produit une Lumière vive sur un rayon de 3 m et une Lumière faible sur 3 m de plus.
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - primordial (igné)

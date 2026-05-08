@@ -7,12 +7,10 @@ translations:
   en:
     name: Sentinel Shield
     subtype: Shield
-    description: <p>While holding this Shield, you have Advantage on Initiative rolls
-      and Wisdom (Perception) checks. The Shield is emblazoned with a symbol of an
-      eye.</p>
+    description: |-
+      While holding this Shield, you have Advantage on Initiative rolls and Wisdom (Perception) checks. The Shield is emblazoned with a symbol of an eye.
   fr:
     name: Bouclier sentinelle
     subtype: bouclier
-    description: <p>Lorsque vous portez ce bouclier, vous bénéficiez d'un Avantage
-      aux jets d'initiative et de Sagesse (Perception). Le bouclier est orné du symbole
-      d'un œil.</p>
+    description: |-
+      Lorsque vous portez ce bouclier, vous bénéficiez d'un Avantage aux jets d'initiative et de Sagesse (Perception). Le bouclier est orné du symbole d'un œil.

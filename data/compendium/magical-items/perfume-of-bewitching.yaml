@@ -7,15 +7,10 @@ translations:
   en:
     name: Perfume of Bewitching
     subtype: null
-    description: <p>This tiny vial contains magic perfume, enough for one use. You
-      can take a Magic action to apply the perfume to yourself, and its effect lasts
-      1 hour. For the duration, you have Advantage on all Charisma (Deception and
-      Persuasion) checks made to influence a creature within 5 feet of yourself.</p>
+    description: |-
+      This tiny vial contains magic perfume, enough for one use. You can take a Magic action to apply the perfume to yourself, and its effect lasts 1 hour. For the duration, you have Advantage on all Charisma (Deception and Persuasion) checks made to influence a creature within 5 feet of yourself.
   fr:
     name: Parfum envoûtant
     subtype: null
-    description: <p>Ce flacon de taille TP contient un parfum magique, pour un seul
-      usage. Vous pouvez prendre une action Magie pour vous l'appliquer ; son effet
-      dure 1 heure. Pendant toute cette durée, vous avez un Avantage à tous les jets
-      de Charisme (Tromperie et Persuasion) effectués pour influencer une créature
-      dans un rayon de 1,50 mètre.</p>
+    description: |-
+      Ce flacon de taille TP contient un parfum magique, pour un seul usage. Vous pouvez prendre une action Magie pour vous l'appliquer ; son effet dure 1 heure. Pendant toute cette durée, vous avez un Avantage à tous les jets de Charisme (Tromperie et Persuasion) effectués pour influencer une créature dans un rayon de 1,50 mètre.

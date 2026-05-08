@@ -17,26 +17,17 @@ translations:
     range: 90 feet
     duration: Concentration, up to 1 hour
     materialDescription: null
-    description: You magically mark one creature you can see within range as your
-      quarry. Until the spell ends, you deal an extra 1d6 Force damage to the target
-      whenever you hit it with an attack roll. You also have Advantage on any Wisdom
-      (Perception or Survival) check you make to find it.<br/>If the target drops
-      to 0 Hit Points before this spell ends, you can use a Bonus Action to mark a
-      new creature you can see within range.<br/><strong><em>Using a Higher-Level
-      Spell Slot</em></strong>. Your Concentration can last longer with a spell slot
-      of level 3-4 (up to 8 hours) or 5+ (up to 24 hours).<br/>
+    description: |-
+      You magically mark one creature you can see within range as your quarry. Until the spell ends, you deal an extra 1d6 Force damage to the target whenever you hit it with an attack roll. You also have Advantage on any Wisdom (Perception or Survival) check you make to find it.\
+      If the target drops to 0 Hit Points before this spell ends, you can use a Bonus Action to mark a new creature you can see within range.\
+      ***Using a Higher-Level Spell Slot***. Your Concentration can last longer with a spell slot of level 3-4 (up to 8 hours) or 5+ (up to 24 hours).\
   fr:
     name: Marque du chasseur
     castingTime: Action bonus
     range: 27 m
     duration: Concentration, jusqu'à 1 heure
     materialDescription: null
-    description: Vous marquez magiquement une créature que vous pouvez voir à portée
-      comme votre proie. Jusqu'à la fin du sort, vous infligez 1d6 points de dégâts
-      de force supplémentaires à la cible pour chaque jet d'attaque réussi. Vous bénéficiez
-      également d'un Avantage à tout jet de Sagesse (Perception ou Survie) effectué
-      pour la trouver.<br/>Si la cible tombe à 0 point de vie avant la fin du sort,
-      vous pouvez utiliser une action Bonus pour marquer une nouvelle créature que
-      vous pouvez voir à portée.<br/><strong><em>Emplacement de niveau supérieur</em></strong>.
-      Votre concentration peut durer plus longtemps avec un emplacement de sort de
-      niveau 3 ou 4 (jusqu'à 8 heures) ou 5 ou supérieur (jusqu'à 24 heures).<br/>
+    description: |-
+      Vous marquez magiquement une créature que vous pouvez voir à portée comme votre proie. Jusqu'à la fin du sort, vous infligez 1d6 points de dégâts de force supplémentaires à la cible pour chaque jet d'attaque réussi. Vous bénéficiez également d'un Avantage à tout jet de Sagesse (Perception ou Survie) effectué pour la trouver.\
+      Si la cible tombe à 0 point de vie avant la fin du sort, vous pouvez utiliser une action Bonus pour marquer une nouvelle créature que vous pouvez voir à portée.\
+      ***Emplacement de niveau supérieur***. Votre concentration peut durer plus longtemps avec un emplacement de sort de niveau 3 ou 4 (jusqu'à 8 heures) ou 5 ou supérieur (jusqu'à 24 heures).\

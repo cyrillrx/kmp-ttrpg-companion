@@ -89,15 +89,23 @@ translations:
     name: Faerie Dragon Youth
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>** <em>Magic Resistance</em>**. The dragon has Advantage on saving throws against spells and other magical effects.</p>
-      <h2>Actions</h2>
-      <p>** <em>Bite</em>**. <em>Melee Attack Roll</em> : +5, reach 5 ft. <em>Hit</em> : 5 (1d4 + 3) Piercing damage plus 2 (1d4) Psychic damage.</p>
-      <p><strong><em>Euphoria Breath (Recharge 5–6)</em></strong>. <em>Wisdom Saving Throw</em> : DC 12, each creature in a 15-foot Cone. <em>Failure</em> : The target has the Incapacitated condition until the end of its next turn and uses all its movement on its turn to move in a random direction.</p>
-      <p><strong><em>Spellcasting</em></strong>. The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 12):</p>
-      <p>At will: <em><a href="https://www.aidedd.org/spell/dancing-lights">Dancing Lights</a>, <a href="https://www.aidedd.org/spell/mage-hand">Mage Hand</a>, <a href="https://www.aidedd.org/spell/minor-illusion">Minor Illusion</a></em>  </p>
-      <h2>Bonus actions</h2>
-      <p>** <em>Superior Invisibility</em>**. The dragon casts <em><a href="https://www.aidedd.org/spell/greater-invisibility">Greater Invisibility</a></em> on itself, requiring no spell components and using the same spellcasting ability as Spellcasting.</p>
+      ## Traits
+
+      ***Magic Resistance***. The dragon has Advantage on saving throws against spells and other magical effects.
+
+      ## Actions
+
+      ***Bite***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 5 (1d4 + 3) Piercing damage plus 2 (1d4) Psychic damage.
+
+      ***Euphoria Breath (Recharge 5–6)***. *Wisdom Saving Throw* : DC 12, each creature in a 15-foot Cone. *Failure* : The target has the Incapacitated condition until the end of its next turn and uses all its movement on its turn to move in a random direction.
+
+      ***Spellcasting***. The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 12):
+
+      At will: *[Dancing Lights](https://www.aidedd.org/spell/dancing-lights), [Mage Hand](https://www.aidedd.org/spell/mage-hand), [Minor Illusion](https://www.aidedd.org/spell/minor-illusion)*
+
+      ## Bonus actions
+
+      ***Superior Invisibility***. The dragon casts *[Greater Invisibility](https://www.aidedd.org/spell/greater-invisibility)* on itself, requiring no spell components and using the same spellcasting ability as Spellcasting.
     senses: Darkvision 60 ft., Passive Perception 13
     languages:
     - Draconic
@@ -106,14 +114,19 @@ translations:
     name: Dragon féerique, juvénile
     subtype: null
     description: |-
-      <h2>Traits</h2>
-      <p>Résistance à la magie.  </p>
-      <h2>Actions</h2>
-      <p>Morsure.<br />
-      Souffle euphorisant (recharge 5–6).<br />
-      Incantation.  </p>
-      <h2>Actions Bonus</h2>
-      <p>Invisibilité supérieure.</p>
+      ## Traits
+
+      Résistance à la magie.
+
+      ## Actions
+
+      Morsure.\
+      Souffle euphorisant (recharge 5–6).\
+      Incantation.
+
+      ## Actions Bonus
+
+      Invisibilité supérieure.
     senses: Vision dans le noir 18 m, Perception passive 13
     languages:
     - draconique

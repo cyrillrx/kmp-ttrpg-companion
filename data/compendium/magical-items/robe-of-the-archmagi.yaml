@@ -8,17 +8,17 @@ translations:
     name: Robe of the Archmagi
     subtype: null
     description: |-
-      <p>This elegant garment is made from exquisite cloth and adorned with runes.<br />
-      You gain these benefits while wearing the robe.<br />
-      <strong>Armor</strong>. If you aren't wearing armor, your base Armor Class is 15 plus your Dexterity modifier.<br />
-      <strong>Magic Resistance</strong>. You have Advantage on saving throws against spells and other magical effects.<br />
-      <strong>War Mage</strong>. Your spell save DC and spell attack bonus each increase by 2.</p>
+      This elegant garment is made from exquisite cloth and adorned with runes.\
+      You gain these benefits while wearing the robe.\
+      **Armor**. If you aren't wearing armor, your base Armor Class is 15 plus your Dexterity modifier.\
+      **Magic Resistance**. You have Advantage on saving throws against spells and other magical effects.\
+      **War Mage**. Your spell save DC and spell attack bonus each increase by 2.
   fr:
     name: Robe de l'archimage
     subtype: null
     description: |-
-      <p>Ce vêtement élégant est confectionné dans un tissu raffiné et orné de runes.<br />
-      Vous bénéficiez des avantages suivants lorsque vous portez la robe.<br />
-      <strong>Armure</strong>. Si vous ne portez pas d'armure, votre CA de base est de 15 plus votre modificateur de Dextérité.<br />
-      <strong>Résistance à la magie</strong>. Vous bénéficiez d'un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.<br />
-      <strong>Magie de guerre</strong>. Votre DD de sauvegarde des sorts et votre bonus d'attaque de sorts augmentent chacun de 2.</p>
+      Ce vêtement élégant est confectionné dans un tissu raffiné et orné de runes.\
+      Vous bénéficiez des avantages suivants lorsque vous portez la robe.\
+      **Armure**. Si vous ne portez pas d'armure, votre CA de base est de 15 plus votre modificateur de Dextérité.\
+      **Résistance à la magie**. Vous bénéficiez d'un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.\
+      **Magie de guerre**. Votre DD de sauvegarde des sorts et votre bonus d'attaque de sorts augmentent chacun de 2.

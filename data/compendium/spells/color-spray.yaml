@@ -19,16 +19,13 @@ translations:
     range: Self
     duration: Instantaneous
     materialDescription: a pinch of colorful sand
-    description: You launch a dazzling array of flashing, colorful light. Each creature
-      in a 15-foot Cone originating from you must succeed on a Constitution saving
-      throw or have the Blinded condition until the end of your next turn.<br/>
+    description: |-
+      You launch a dazzling array of flashing, colorful light. Each creature in a 15-foot Cone originating from you must succeed on a Constitution saving throw or have the Blinded condition until the end of your next turn.\
   fr:
     name: Couleurs dansantes
     castingTime: Action
     range: Personnelle
     duration: Instantanée
     materialDescription: une pincée de sable coloré
-    description: Vous lancez un faisceau éblouissant de lumières scintillantes et
-      colorées. Toute créature dans un Cône de 4,50 mètres émanant de vous doit réussir
-      un jet de sauvegarde de Constitution ou subir l'état Aveuglé jusqu'à la fin
-      de votre prochain tour.<br/>
+    description: |-
+      Vous lancez un faisceau éblouissant de lumières scintillantes et colorées. Toute créature dans un Cône de 4,50 mètres émanant de vous doit réussir un jet de sauvegarde de Constitution ou subir l'état Aveuglé jusqu'à la fin de votre prochain tour.\

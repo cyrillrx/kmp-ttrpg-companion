@@ -7,15 +7,10 @@ translations:
   en:
     name: Slippers of Spider Climbing
     subtype: null
-    description: <p>While you wear these light shoes, you can move up, down, and across
-      vertical surfaces and along ceilings, while leaving your hands free. You have
-      a Climb Speed equal to your Speed. However, the slippers don't allow you to
-      move this way on a slippery surface, such as one covered by ice or oil.</p>
+    description: |-
+      While you wear these light shoes, you can move up, down, and across vertical surfaces and along ceilings, while leaving your hands free. You have a Climb Speed equal to your Speed. However, the slippers don't allow you to move this way on a slippery surface, such as one covered by ice or oil.
   fr:
     name: Chaussons de l'araignée
     subtype: null
-    description: <p>Si vous portez ces chaussures légères, vous pouvez vous déplacer
-      le long de surfaces verticales et aux plafonds, tout en gardant les mains libres.
-      Votre avez une Vitesse d'escalade égale à votre Vitesse. Cependant, les chaussons
-      ne vous permettent pas de vous déplacer de cette façon sur une surface glissante,
-      comme une surface couverte de glace ou d'huile.</p>
+    description: |-
+      Si vous portez ces chaussures légères, vous pouvez vous déplacer le long de surfaces verticales et aux plafonds, tout en gardant les mains libres. Votre avez une Vitesse d'escalade égale à votre Vitesse. Cependant, les chaussons ne vous permettent pas de vous déplacer de cette façon sur une surface glissante, comme une surface couverte de glace ou d'huile.
