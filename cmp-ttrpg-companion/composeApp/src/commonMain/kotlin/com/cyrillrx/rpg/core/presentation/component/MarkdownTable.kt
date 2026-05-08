@@ -133,7 +133,7 @@ private data class ColumnWidthData(val minimum: Dp, val preferred: Dp)
 // Allocates column widths within the available space.
 // Each column is guaranteed at least its minimum (header width) to prevent header wrapping.
 // Remaining space after minimums is distributed proportionally to each column's extra desire.
-private fun allocateWidths(minimums: List<Dp>, preferred: List<Dp>, available: Dp): List<Dp> {
+internal fun allocateWidths(minimums: List<Dp>, preferred: List<Dp>, available: Dp): List<Dp> {
     val totalPreferred = preferred.fold(0.dp) { acc, dp -> acc + dp }
     if (totalPreferred <= available) return preferred
 
@@ -198,7 +198,7 @@ private fun rememberColumnWidths(
     }
 }
 
-private fun String.stripMarkdown(): String = this
+internal fun String.stripMarkdown(): String = this
     .replace(Regex("\\[([^]]+)]\\([^)]*\\)"), "$1") // [text](url) → text
     .replace(Regex("[*_`]+"), "")                    // *, **, _, __, ` → nothing
 
