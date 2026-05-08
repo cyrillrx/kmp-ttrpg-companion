@@ -156,7 +156,7 @@ private fun rememberNaturalColWidths(
 ): List<Dp> {
     val textMeasurer = rememberTextMeasurer()
     val density = LocalDensity.current
-    return remember(content, node, density, tableCellWidth, tableCellPadding) {
+    return remember(content, node, density, style, tableCellWidth, tableCellPadding) {
         val headerNode = node.findChildOfType(HEADER) ?: return@remember emptyList()
         val dataRows = node.children.filter { it.type == ROW }
         val capPx = with(density) { tableCellWidth.roundToPx() }
@@ -214,7 +214,7 @@ private fun TableRow(
         modifier = Modifier.height(IntrinsicSize.Min),
     ) {
         rowNode.children.filter { it.type == CELL }.forEachIndexed { i, cell ->
-            val colWidth = colWidths.getOrElse(i) { colWidths.lastOrNull() ?: 80.dp }
+            val colWidth = colWidths.getOrElse(i) { colWidths.last() }
             Column(
                 modifier = Modifier
                     .width(colWidth)
