@@ -20,11 +20,13 @@ translations:
     duration: Concentration, up to 1 minute
     materialDescription: null
     description: |-
-      You touch a creature, which must succeed on a Wisdom saving throw or become cursed for the duration. Until the curse ends, the target suffers one of the following effects of your choice:\
-      • Choose one ability. The target has Disadvantage on ability checks and saving throws made with that ability.\
-      • The target has Disadvantage on attack rolls against you.\
-      • In combat, the target must succeed on a Wisdom saving throw at the start of each of its turns or be forced to take the Dodge action on that turn.\
-      • If you deal damage to the target with an attack roll or a spell, the target takes an extra 1d8 Necrotic damage.\
+      You touch a creature, which must succeed on a Wisdom saving throw or become cursed for the duration. Until the curse ends, the target suffers one of the following effects of your choice:
+      
+      - Choose one ability. The target has Disadvantage on ability checks and saving throws made with that ability.
+      - The target has Disadvantage on attack rolls against you.
+      - In combat, the target must succeed on a Wisdom saving throw at the start of each of its turns or be forced to take the Dodge action on that turn.
+      - If you deal damage to the target with an attack roll or a spell, the target takes an extra 1d8 Necrotic damage.
+      
       ***Using a Higher-Level Spell Slot***. If you cast this spell using a level 4 spell slot, you can maintain Concentration on it for up to 10 minutes. If you use a level 5+ spell slot, the spell doesn't require Concentration, and the duration becomes 8 hours (level 5-6 slot) or 24 hours (level 7-8 slot). If you use a level 9 spell slot, the spell lasts until dispelled.\
   fr:
     name: Malédiction
@@ -33,9 +35,11 @@ translations:
     duration: Concentration, jusqu'à 1 minute
     materialDescription: null
     description: |-
-      Vous touchez une créature, qui doit réussir un jet de sauvegarde de Sagesse ou être maudite pendant toute la durée du sort. Jusqu'à la fin de la malédiction, la cible subit l'un des effets suivants, au choix :\
-      • Choisissez une caractéristique. La cible a un Désavantage aux jets de caractéristique et aux jets de sauvegarde effectués avec cette caractéristique.\
-      • La cible a un Désavantage aux jets d'attaque contre vous.\
-      • En combat, la cible doit réussir un jet de sauvegarde de Sagesse au début de chacun de ses tours ou être forcée de prendre l'action Esquive durant ce tour.\
-      • Si vous infligez des dégâts à la cible avec un jet d'attaque ou un sort, elle subit 1d8 dégâts nécrotiques supplémentaires.\
+      Vous touchez une créature, qui doit réussir un jet de sauvegarde de Sagesse ou être maudite pendant toute la durée du sort. Jusqu'à la fin de la malédiction, la cible subit l'un des effets suivants, au choix :
+      
+      - Choisissez une caractéristique. La cible a un Désavantage aux jets de caractéristique et aux jets de sauvegarde effectués avec cette caractéristique.
+      - La cible a un Désavantage aux jets d'attaque contre vous.
+      - En combat, la cible doit réussir un jet de sauvegarde de Sagesse au début de chacun de ses tours ou être forcée de prendre l'action Esquive durant ce tour.
+      - Si vous infligez des dégâts à la cible avec un jet d'attaque ou un sort, elle subit 1d8 dégâts nécrotiques supplémentaires.
+      
       ***Emplacement de niveau supérieur***. Si vous lancez ce sort avec un emplacement de sort de niveau 4, vous pouvez maintenir votre concentration pendant 10 minutes maximum. Si vous utilisez un emplacement de sort de niveau 5 ou supérieur, le sort ne nécessite pas de concentration et sa durée passe à 8 heures (emplacement de niveau 5 ou 6) ou 24 heures (emplacement de niveau 7 ou 8). Si vous utilisez un emplacement de sort de niveau 9, le sort dure jusqu'à sa dissipation.\

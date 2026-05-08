@@ -17,9 +17,11 @@ translations:
       **Divine Wisdom**. After you spend the requisite amount of time reading and studying the book, your Wisdom increases by 2, to a maximum of 24. You can't gain this benefit from the book more than once.\
       **Enlightened Magic**. After you spend the requisite amount of time reading and studying the book, any spell slot you expend to cast a spell counts as a spell slot of one level higher.\
       **Halo**. After you spend the requisite amount of time reading and studying the book, you gain a protective halo. This halo sheds Bright Light in a 10-foot radius and Dim Light for an additional 10 feet. You can dismiss or manifest the halo as a Bonus Action. While present, the halo gives you Advantage on Charisma (Persuasion) checks. In addition, Fiends and Undead within the halo's Bright Light make attack rolls against you with Disadvantage.\
-      **Random Properties**. The *Book of Exalted Deeds* has the following random properties (see the *Dungeon Master's Guide*):\
-      • 2 minor beneficial properties\
-      • 2 major beneficial properties\
+      **Random Properties**. The *Book of Exalted Deeds* has the following random properties (see the *Dungeon Master's Guide*):
+      
+      - 2 minor beneficial properties
+      - 2 major beneficial properties
+      
       **Destroying the Book**. The *Book of Exalted Deeds* can't be destroyed. However, drowning the book in the River Styx removes all writing and imagery from its pages and renders the book powerless for 1d100 years.
   fr:
     name: Les Chapitres Sacrés
@@ -34,10 +36,14 @@ translations:
       Benefits granted by the *Book of Exalted Deeds* last only as long as you strive to do good. If you fail to perform at least one act of kindness or generosity within the span of 10 days, or if you willingly perform an evil act, you lose all the benefits granted by the book.
       \
       **Random Properties**. The *Book of Exalted Deeds* has the following random properties:
-      \
-      • 2 minor beneficial properties
-      \
-      • 2 major beneficial properties
+
+      
+      - 2 minor beneficial properties
+      
+
+      
+      - 2 major beneficial properties
+      
       \
       **Increased Wisdom**. After you spend the requisite amount of time reading and studying the book, your Wisdom score increases by 2, to a maximum of 24. You can't gain this benefit from the book more than once.
       \
