@@ -2,7 +2,6 @@
 package com.cyrillrx.rpg.core.presentation.component
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
@@ -10,7 +9,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.requiredWidth
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -44,13 +42,13 @@ import org.intellij.markdown.flavours.gfm.GFMTokenTypes.TABLE_SEPARATOR
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 /**
- * Renders a Markdown table at its minimum natural width.
+ * Renders a Markdown table at its natural width.
  *
- * Each column is sized to its widest single-line content (Markdown stripped),
- * capped at [LocalMarkdownDimens.tableCellWidth] (160dp by default). The table
- * is only as wide as the sum of its columns — it does not stretch to fill
- * available space. Horizontal scroll activates when the total exceeds the
- * available width.
+ * Each column is sized to its widest single-line content (header measured bold,
+ * data measured regular). If the total fits in the available space the table
+ * occupies only what it needs. If the total exceeds the available space all
+ * columns are scaled down proportionally so the table still fits without
+ * horizontal scroll.
  */
 @Composable
 fun MarkdownTableCompact(
@@ -67,34 +65,33 @@ fun MarkdownTableCompact(
     val columnCount = headerNode.children.count { it.type == CELL }
     if (columnCount == 0) return
 
-    val colWidths = rememberNaturalColWidths(content, node, columnCount, style, dimens.tableCellWidth, dimens.tableCellPadding)
+    val naturalWidths = rememberNaturalColWidths(content, node, columnCount, style, dimens.tableCellPadding)
 
     BoxWithConstraints(
         modifier = Modifier.background(backgroundCodeColor, RoundedCornerShape(dimens.tableCornerSize)),
     ) {
-        val totalWidthDp = colWidths.fold(0.dp) { acc, dp -> acc + dp }
-        val scrollable = with(density) { totalWidthDp.roundToPx() } > constraints.maxWidth
+        val availableDp = with(density) { constraints.maxWidth.toDp() }
+        val totalNaturalDp = naturalWidths.fold(0.dp) { acc, dp -> acc + dp }
 
-        Column(
-            modifier = if (scrollable) {
-                Modifier.horizontalScroll(rememberScrollState()).requiredWidth(totalWidthDp)
-            } else {
-                Modifier.width(totalWidthDp)
-            },
-        ) {
+        val colWidths = if (totalNaturalDp <= availableDp) {
+            naturalWidths
+        } else {
+            val scale = availableDp.value / totalNaturalDp.value
+            naturalWidths.map { it * scale }
+        }
+
+        Column(modifier = Modifier.width(colWidths.fold(0.dp) { acc, dp -> acc + dp })) {
             TableContent(content, node, colWidths, style, dimens.tableCellPadding, annotatorSettings)
         }
     }
 }
 
 /**
- * Renders a Markdown table that fills the available width.
+ * Renders a Markdown table that always fills the available width.
  *
  * Natural column widths are computed the same way as [MarkdownTableCompact].
- * When the total natural width is smaller than the available space, the surplus
- * is distributed proportionally to each column's natural width so the table
- * always fills the container. Horizontal scroll activates only when the natural
- * total exceeds the available width.
+ * All columns are scaled proportionally so their total equals the available
+ * width — widening short-content tables and narrowing oversized ones alike.
  */
 @Composable
 fun MarkdownTableFillWidth(
@@ -111,7 +108,7 @@ fun MarkdownTableFillWidth(
     val columnCount = headerNode.children.count { it.type == CELL }
     if (columnCount == 0) return
 
-    val naturalWidths = rememberNaturalColWidths(content, node, columnCount, style, dimens.tableCellWidth, dimens.tableCellPadding)
+    val naturalWidths = rememberNaturalColWidths(content, node, columnCount, style, dimens.tableCellPadding)
 
     BoxWithConstraints(
         modifier = Modifier
@@ -120,29 +117,17 @@ fun MarkdownTableFillWidth(
     ) {
         val availableDp = with(density) { constraints.maxWidth.toDp() }
         val totalNaturalDp = naturalWidths.fold(0.dp) { acc, dp -> acc + dp }
-        val scrollable = totalNaturalDp > availableDp
+        val scale = availableDp.value / totalNaturalDp.value
+        val colWidths = naturalWidths.map { it * scale }
 
-        val colWidths = if (scrollable) {
-            naturalWidths
-        } else {
-            val surplusDp = availableDp - totalNaturalDp
-            val totalNaturalFloat = naturalWidths.fold(0f) { acc, dp -> acc + dp.value }
-            naturalWidths.map { w -> w + surplusDp * (w.value / totalNaturalFloat) }
-        }
-
-        Column(
-            modifier = if (scrollable) {
-                Modifier.horizontalScroll(rememberScrollState()).requiredWidth(totalNaturalDp)
-            } else {
-                Modifier.fillMaxWidth()
-            },
-        ) {
+        Column(modifier = Modifier.fillMaxWidth()) {
             TableContent(content, node, colWidths, style, dimens.tableCellPadding, annotatorSettings)
         }
     }
 }
 
-// Computes natural column widths: min(ideal single-line text width, cap) + 2×padding.
+// Computes natural column widths: ideal single-line text width + 2×padding.
+// Headers are measured bold, data rows regular — matching how they are rendered.
 // Markdown is stripped before measurement so link URLs and emphasis markers
 // don't inflate the measured width.
 @Composable
@@ -151,29 +136,30 @@ private fun rememberNaturalColWidths(
     node: ASTNode,
     columnCount: Int,
     style: TextStyle,
-    tableCellWidth: Dp,
     tableCellPadding: Dp,
 ): List<Dp> {
     val textMeasurer = rememberTextMeasurer()
     val density = LocalDensity.current
-    return remember(content, node, density, style, tableCellWidth, tableCellPadding) {
+    return remember(content, node, density, style, tableCellPadding) {
         val headerNode = node.findChildOfType(HEADER) ?: return@remember emptyList()
         val dataRows = node.children.filter { it.type == ROW }
-        val capPx = with(density) { tableCellWidth.roundToPx() }
+        val boldStyle = style.copy(fontWeight = FontWeight.Bold)
         val paddingPx = with(density) { (tableCellPadding * 2).roundToPx() }
-        val allRows: List<ASTNode> = listOf(headerNode) + dataRows
         (0 until columnCount).map { colIdx ->
-            val idealTextPx = allRows.maxOf { rowNode ->
+            val headerPx = headerNode.children.filter { it.type == CELL }.getOrNull(colIdx)
+                ?.let { cell ->
+                    val text = content.substring(cell.startOffset, cell.endOffset).trim().stripMarkdown()
+                    if (text.isEmpty()) 1
+                    else textMeasurer.measure(text, style = boldStyle, softWrap = false).size.width
+                } ?: 1
+            val dataPx = dataRows.maxOfOrNull { rowNode ->
                 val cell = rowNode.children.filter { it.type == CELL }.getOrNull(colIdx)
-                    ?: return@maxOf 1
-                val cellText = content.substring(cell.startOffset, cell.endOffset)
-                    .trim()
-                    .stripMarkdown()
-                if (cellText.isEmpty()) 1
-                else textMeasurer.measure(cellText, style = style, softWrap = false).size.width
-                    .coerceAtMost(capPx)
-            }
-            with(density) { (idealTextPx + paddingPx).toDp() }
+                    ?: return@maxOfOrNull 1
+                val text = content.substring(cell.startOffset, cell.endOffset).trim().stripMarkdown()
+                if (text.isEmpty()) 1
+                else textMeasurer.measure(text, style = style, softWrap = false).size.width
+            } ?: 1
+            with(density) { (maxOf(headerPx, dataPx) + paddingPx).toDp() }
         }
     }
 }
