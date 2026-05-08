@@ -5,7 +5,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -53,42 +52,49 @@ fun SpellCard(spell: Spell, modifier: Modifier = Modifier) {
         border = BorderStroke(spacingMedium, spellColor),
     ) {
         Column(Modifier.padding(spacingMedium)) {
-            Text(
-                text = translation.name,
-                fontSize = 20.sp,
-                fontWeight = FontWeight.Bold,
-                textAlign = TextAlign.Center,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(MaterialTheme.colorScheme.background)
-                    .padding(
-                        start = spacingMedium,
-                        end = spacingMedium,
-                        top = spacingMedium / 2,
-                        bottom = spacingMedium / 2,
-                    ),
-            )
-            Text(
-                text = spell.getFormattedSchool(),
-                fontSize = 14.sp,
-                fontWeight = FontWeight.Bold,
-                textAlign = TextAlign.Center,
-                color = Color.White,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(spellColor)
-                    .padding(spacingMedium / 2),
-            )
-            SpellGrid(spell, spellColor, spacingMedium)
+            SpellCardHeader(spell)
             MarkdownText(
                 text = translation.description,
                 modifier = Modifier
-                    .fillMaxSize()
+                    .fillMaxWidth()
                     .background(MaterialTheme.colorScheme.background)
                     .padding(spacingMedium),
             )
         }
     }
+}
+
+@Composable
+internal fun SpellCardHeader(spell: Spell) {
+    val translation = spell.resolveTranslation(currentLocale())
+    val spellColor = spell.getColor()
+    Text(
+        text = translation.name,
+        fontSize = 20.sp,
+        fontWeight = FontWeight.Bold,
+        textAlign = TextAlign.Center,
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(MaterialTheme.colorScheme.background)
+            .padding(
+                start = spacingMedium,
+                end = spacingMedium,
+                top = spacingMedium / 2,
+                bottom = spacingMedium / 2,
+            ),
+    )
+    Text(
+        text = spell.getFormattedSchool(),
+        fontSize = 14.sp,
+        fontWeight = FontWeight.Bold,
+        textAlign = TextAlign.Center,
+        color = Color.White,
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(spellColor)
+            .padding(spacingMedium / 2),
+    )
+    SpellGrid(spell, spellColor, spacingMedium)
 }
 
 @Composable

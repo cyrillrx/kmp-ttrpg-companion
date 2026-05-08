@@ -1,10 +1,17 @@
 package com.cyrillrx.rpg.spell.presentation.component
 
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
+import androidx.compose.material3.Card
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -14,11 +21,16 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
+import com.cyrillrx.rpg.core.presentation.component.MarkdownText
+import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
 import com.cyrillrx.rpg.core.presentation.state.DetailState
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
+import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.presentation.SpellAddToListProvider
@@ -59,16 +71,38 @@ private fun SpellCardContent(
     onNavigateUpClicked: () -> Unit,
     addToListProvider: AddToListProvider<Spell>,
 ) {
+    val translation = spell.resolveTranslation(currentLocale())
+    val spellColor = spell.getColor()
     var showAddToListBottomSheet by remember { mutableStateOf(false) }
 
     Scaffold { paddingValues ->
         Column(modifier = Modifier.padding(paddingValues)) {
-            SpellCard(
-                spell = spell,
+            Card(
                 modifier = Modifier
                     .weight(1f)
+                    .fillMaxWidth()
+                    .padding(spacingSmall)
                     .clickable { onNavigateUpClicked() },
-            )
+                shape = RoundedCornerShape(16.dp),
+                border = BorderStroke(spacingMedium, spellColor),
+            ) {
+                Column(Modifier.padding(spacingMedium)) {
+                    SpellCardHeader(spell)
+                    Column(
+                        modifier = Modifier
+                            .weight(1f)
+                            .verticalScroll(rememberScrollState()),
+                    ) {
+                        MarkdownText(
+                            text = translation.description,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .background(MaterialTheme.colorScheme.background)
+                                .padding(spacingMedium),
+                        )
+                    }
+                }
+            }
             Button(
                 onClick = { showAddToListBottomSheet = true },
                 modifier = Modifier
