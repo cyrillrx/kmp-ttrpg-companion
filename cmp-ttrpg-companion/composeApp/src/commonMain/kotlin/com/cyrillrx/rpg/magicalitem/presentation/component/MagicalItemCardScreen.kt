@@ -1,15 +1,12 @@
 package com.cyrillrx.rpg.magicalitem.presentation.component
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
-import androidx.compose.material3.Card
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -24,7 +21,6 @@ import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.MarkdownText
-import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
 import com.cyrillrx.rpg.core.presentation.state.DetailState
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
@@ -65,23 +61,19 @@ private fun MagicalItemCardContent(
     onNavigateUpClicked: () -> Unit,
     addToListProvider: AddToListProvider<MagicalItem>,
 ) {
-    val translation = magicalItem.resolveTranslation(currentLocale())
-    val color = magicalItem.getColor()
     var showAddToListBottomSheet by remember { mutableStateOf(false) }
 
     Scaffold { paddingValues ->
         Column(modifier = Modifier.padding(paddingValues)) {
-            Card(
+            MagicalItemCard(
+                magicalItem = magicalItem,
                 modifier = Modifier
                     .weight(1f)
                     .fillMaxWidth()
                     .padding(4.dp)
                     .clickable { onNavigateUpClicked() },
-                shape = RoundedCornerShape(16.dp),
-                border = BorderStroke(spacingMedium, color),
-            ) {
-                Column(Modifier.padding(spacingMedium)) {
-                    MagicalItemCardHeader(magicalItem)
+                content = {
+                    val translation = magicalItem.resolveTranslation(currentLocale())
                     Column(
                         modifier = Modifier
                             .weight(1f)
@@ -94,8 +86,8 @@ private fun MagicalItemCardContent(
                                 .padding(spacingMedium),
                         )
                     }
-                }
-            }
+                },
+            )
             Button(
                 onClick = { showAddToListBottomSheet = true },
                 modifier = Modifier

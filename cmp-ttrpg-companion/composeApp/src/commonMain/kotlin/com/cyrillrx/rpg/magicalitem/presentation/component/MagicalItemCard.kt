@@ -3,6 +3,7 @@ package com.cyrillrx.rpg.magicalitem.presentation.component
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -31,25 +32,28 @@ private val textPadding = spacingMedium
 @Composable
 fun MagicalItemCard(
     magicalItem: MagicalItem,
-    modifier: Modifier = Modifier,
+    modifier: Modifier = Modifier
+        .padding(4.dp)
+        .fillMaxSize(),
+    content: @Composable ColumnScope.() -> Unit = {
+        val translation = magicalItem.resolveTranslation(currentLocale())
+        MarkdownText(
+            text = translation.description,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(textPadding),
+        )
+    },
 ) {
-    val translation = magicalItem.resolveTranslation(currentLocale())
     val color = magicalItem.getColor()
     Card(
-        modifier = modifier
-            .padding(4.dp)
-            .fillMaxSize(),
+        modifier = modifier,
         shape = RoundedCornerShape(16.dp),
         border = BorderStroke(borderStroke, color),
     ) {
         Column(Modifier.padding(borderStroke)) {
             MagicalItemCardHeader(magicalItem)
-            MarkdownText(
-                text = translation.description,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(textPadding),
-            )
+            content()
         }
     }
 }

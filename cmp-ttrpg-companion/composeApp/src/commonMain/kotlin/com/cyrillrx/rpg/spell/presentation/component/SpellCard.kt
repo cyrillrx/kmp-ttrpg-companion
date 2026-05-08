@@ -3,6 +3,7 @@ package com.cyrillrx.rpg.spell.presentation.component
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -41,25 +42,31 @@ import rpg_companion.composeapp.generated.resources.spell_duration
 import rpg_companion.composeapp.generated.resources.spell_range
 
 @Composable
-fun SpellCard(spell: Spell, modifier: Modifier = Modifier) {
-    val translation = spell.resolveTranslation(currentLocale())
+fun SpellCard(
+    spell: Spell,
+    modifier: Modifier = Modifier
+        .fillMaxWidth()
+        .padding(spacingSmall),
+    content: @Composable ColumnScope.() -> Unit = {
+        val translation = spell.resolveTranslation(currentLocale())
+        MarkdownText(
+            text = translation.description,
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(MaterialTheme.colorScheme.background)
+                .padding(spacingMedium),
+        )
+    },
+) {
     val spellColor = spell.getColor()
     Card(
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(spacingSmall),
+        modifier = modifier,
         shape = RoundedCornerShape(16.dp),
         border = BorderStroke(spacingMedium, spellColor),
     ) {
         Column(Modifier.padding(spacingMedium)) {
             SpellCardHeader(spell)
-            MarkdownText(
-                text = translation.description,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(MaterialTheme.colorScheme.background)
-                    .padding(spacingMedium),
-            )
+            content()
         }
     }
 }
