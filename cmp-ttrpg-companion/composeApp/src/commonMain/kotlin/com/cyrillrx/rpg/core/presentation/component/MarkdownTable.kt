@@ -44,11 +44,11 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 /**
  * Renders a Markdown table at its natural width.
  *
- * Each column is sized to its widest single-line content (header measured bold,
- * data measured regular). If the total fits in the available space the table
- * occupies only what it needs. If the total exceeds the available space all
- * columns are scaled down proportionally so the table still fits without
- * horizontal scroll.
+ * Each column is guaranteed at least its header width so headers never wrap.
+ * Remaining space is distributed proportionally to each column's additional
+ * content desire. If the total natural width fits the available space the
+ * table uses only what it needs; otherwise it is constrained to the available
+ * width without horizontal scroll.
  */
 @Composable
 fun MarkdownTableCompact(
@@ -65,20 +65,15 @@ fun MarkdownTableCompact(
     val columnCount = headerNode.children.count { it.type == CELL }
     if (columnCount == 0) return
 
-    val naturalWidths = rememberNaturalColWidths(content, node, columnCount, style, dimens.tableCellPadding)
+    val columnData = rememberColumnWidths(content, node, columnCount, style, dimens.tableCellPadding)
+    val minimums = columnData.map { it.minimum }
+    val preferred = columnData.map { it.preferred }
 
     BoxWithConstraints(
         modifier = Modifier.background(backgroundCodeColor, RoundedCornerShape(dimens.tableCornerSize)),
     ) {
         val availableDp = with(density) { constraints.maxWidth.toDp() }
-        val totalNaturalDp = naturalWidths.fold(0.dp) { acc, dp -> acc + dp }
-
-        val colWidths = if (totalNaturalDp <= availableDp) {
-            naturalWidths
-        } else {
-            val scale = availableDp.value / totalNaturalDp.value
-            naturalWidths.map { it * scale }
-        }
+        val colWidths = allocateWidths(minimums, preferred, availableDp)
 
         Column(modifier = Modifier.width(colWidths.fold(0.dp) { acc, dp -> acc + dp })) {
             TableContent(content, node, colWidths, style, dimens.tableCellPadding, annotatorSettings)
@@ -89,9 +84,10 @@ fun MarkdownTableCompact(
 /**
  * Renders a Markdown table that always fills the available width.
  *
- * Natural column widths are computed the same way as [MarkdownTableCompact].
- * All columns are scaled proportionally so their total equals the available
- * width — widening short-content tables and narrowing oversized ones alike.
+ * When the total natural width is less than available, columns scale up
+ * proportionally. When it exceeds available, the minimum-guarantee algorithm
+ * applies: each column gets its header width first, then remaining space is
+ * distributed proportionally to additional content desire.
  */
 @Composable
 fun MarkdownTableFillWidth(
@@ -108,7 +104,9 @@ fun MarkdownTableFillWidth(
     val columnCount = headerNode.children.count { it.type == CELL }
     if (columnCount == 0) return
 
-    val naturalWidths = rememberNaturalColWidths(content, node, columnCount, style, dimens.tableCellPadding)
+    val columnData = rememberColumnWidths(content, node, columnCount, style, dimens.tableCellPadding)
+    val minimums = columnData.map { it.minimum }
+    val preferred = columnData.map { it.preferred }
 
     BoxWithConstraints(
         modifier = Modifier
@@ -116,9 +114,13 @@ fun MarkdownTableFillWidth(
             .background(backgroundCodeColor, RoundedCornerShape(dimens.tableCornerSize)),
     ) {
         val availableDp = with(density) { constraints.maxWidth.toDp() }
-        val totalNaturalDp = naturalWidths.fold(0.dp) { acc, dp -> acc + dp }
-        val scale = availableDp.value / totalNaturalDp.value
-        val colWidths = naturalWidths.map { it * scale }
+        val totalPreferred = preferred.fold(0.dp) { acc, dp -> acc + dp }
+        val colWidths = if (totalPreferred.value > 0f && totalPreferred <= availableDp) {
+            val scale = availableDp.value / totalPreferred.value
+            preferred.map { it * scale }
+        } else {
+            allocateWidths(minimums, preferred, availableDp)
+        }
 
         Column(modifier = Modifier.fillMaxWidth()) {
             TableContent(content, node, colWidths, style, dimens.tableCellPadding, annotatorSettings)
@@ -126,18 +128,45 @@ fun MarkdownTableFillWidth(
     }
 }
 
-// Computes natural column widths: ideal single-line text width + 2×padding.
-// Headers are measured bold, data rows regular — matching how they are rendered.
+private data class ColumnWidthData(val minimum: Dp, val preferred: Dp)
+
+// Allocates column widths within the available space.
+// Each column is guaranteed at least its minimum (header width) to prevent header wrapping.
+// Remaining space after minimums is distributed proportionally to each column's extra desire.
+private fun allocateWidths(minimums: List<Dp>, preferred: List<Dp>, available: Dp): List<Dp> {
+    val totalPreferred = preferred.fold(0.dp) { acc, dp -> acc + dp }
+    if (totalPreferred <= available) return preferred
+
+    val totalMinimum = minimums.fold(0.dp) { acc, dp -> acc + dp }
+    if (totalMinimum.value >= available.value) {
+        val scale = available.value / totalMinimum.value
+        return minimums.map { it * scale }
+    }
+
+    val remaining = available - totalMinimum
+    val extras = preferred.zip(minimums).map { (p, m) -> maxOf(p - m, 0.dp) }
+    val totalExtra = extras.fold(0.dp) { acc, dp -> acc + dp }
+    return if (totalExtra.value <= 0f) {
+        val perColumn = remaining / preferred.size.toFloat()
+        minimums.map { it + perColumn }
+    } else {
+        minimums.zip(extras).map { (min, extra) ->
+            min + remaining * (extra.value / totalExtra.value)
+        }
+    }
+}
+
+// Measures minimum (header, bold) and preferred (max of header and widest data cell) widths.
 // Markdown is stripped before measurement so link URLs and emphasis markers
 // don't inflate the measured width.
 @Composable
-private fun rememberNaturalColWidths(
+private fun rememberColumnWidths(
     content: String,
     node: ASTNode,
     columnCount: Int,
     style: TextStyle,
     tableCellPadding: Dp,
-): List<Dp> {
+): List<ColumnWidthData> {
     val textMeasurer = rememberTextMeasurer()
     val density = LocalDensity.current
     return remember(content, node, density, style, tableCellPadding) {
@@ -159,7 +188,12 @@ private fun rememberNaturalColWidths(
                 if (text.isEmpty()) 1
                 else textMeasurer.measure(text, style = style, softWrap = false).size.width
             } ?: 1
-            with(density) { (maxOf(headerPx, dataPx) + paddingPx).toDp() }
+            with(density) {
+                ColumnWidthData(
+                    minimum = (headerPx + paddingPx).toDp(),
+                    preferred = (maxOf(headerPx, dataPx) + paddingPx).toDp(),
+                )
+            }
         }
     }
 }
