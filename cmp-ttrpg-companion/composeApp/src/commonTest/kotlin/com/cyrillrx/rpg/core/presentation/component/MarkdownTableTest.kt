@@ -88,6 +88,22 @@ class MarkdownTableTest {
     }
 
     @Test
+    fun `allocateWidths - satisfied column does not steal space from column with extra desire`() {
+        // Column A is already at its natural single-line width (preferred == minimum).
+        // Column B still has unmet content desire.
+        // Column A must not grow beyond its minimum; Column B absorbs all surplus.
+        val minimums = listOf(60.dp, 80.dp)
+        val preferred = listOf(60.dp, 500.dp) // A: no extra desire, B: 420dp extra desire
+        val result = allocateWidths(minimums, preferred, available = 400.dp)
+
+        // A stays at its minimum — it has no extra desire.
+        assertDpApprox(60.dp, result[0])
+        // B gets everything else.
+        assertDpApprox(340.dp, result[1])
+        assertDpApprox(400.dp, result[0] + result[1])
+    }
+
+    @Test
     fun `allocateWidths - four columns - sum always equals available`() {
         val minimums = listOf(30.dp, 30.dp, 30.dp, 30.dp)
         val preferred = listOf(80.dp, 500.dp, 120.dp, 60.dp)
