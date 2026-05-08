@@ -10,7 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import com.cyrillrx.rpg.app.currentLocale
-import com.cyrillrx.rpg.core.presentation.component.HtmlText
+import com.cyrillrx.rpg.core.presentation.component.MarkdownText
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.creature.data.SampleMonsterRepository
@@ -48,7 +48,7 @@ fun MonsterItem(
             cha = abilities.cha.getValueWithModifier(),
         )
 
-        HtmlText(text = translation.description)
+        MarkdownText(text = translation.description)
     }
 }
 

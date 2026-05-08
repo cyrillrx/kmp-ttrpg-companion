@@ -127,7 +127,7 @@ Before creating a new composable, check `core/presentation/component/` for exist
 - `SearchBar` / `SearchBarWithBack` — search input fields
 - `Loader`, `ErrorLayout`, `EmptySearch` — standard state screens
 - `OverflowMenu` — common interactive elements
-- `HtmlText` — platform-specific HTML rendering
+- `MarkdownText` — cross-platform Markdown rendering (via `multiplatform-markdown-renderer-m3`)
 
 ### Rules
 

@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.cyrillrx.rpg.app.currentLocale
-import com.cyrillrx.rpg.core.presentation.component.HtmlText
+import com.cyrillrx.rpg.core.presentation.component.MarkdownText
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
 import com.cyrillrx.rpg.core.presentation.component.dnd.getFormattedComponents
 import com.cyrillrx.rpg.core.presentation.component.dnd.getFormattedSchool
@@ -80,10 +80,8 @@ fun SpellCard(spell: Spell, modifier: Modifier = Modifier) {
                     .padding(spacingMedium / 2),
             )
             SpellGrid(spell, spellColor, spacingMedium)
-            HtmlText(
+            MarkdownText(
                 text = translation.description,
-                fontSize = 16.sp,
-                overflow = TextOverflow.Ellipsis,
                 modifier = Modifier
                     .fillMaxSize()
                     .background(MaterialTheme.colorScheme.background)

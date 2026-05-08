@@ -14,11 +14,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.cyrillrx.rpg.app.currentLocale
-import com.cyrillrx.rpg.core.presentation.component.HtmlText
+import com.cyrillrx.rpg.core.presentation.component.MarkdownText
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
 import com.cyrillrx.rpg.core.presentation.component.dnd.getSubtitle
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
@@ -71,10 +70,8 @@ fun MagicalItemCard(
                         top = textPadding,
                     ),
             )
-            HtmlText(
+            MarkdownText(
                 text = translation.description,
-                fontSize = 16.sp,
-                overflow = TextOverflow.Ellipsis,
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(textPadding),
