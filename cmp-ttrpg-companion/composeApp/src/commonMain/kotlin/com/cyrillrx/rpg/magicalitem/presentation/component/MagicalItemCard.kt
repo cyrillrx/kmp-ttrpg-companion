@@ -15,13 +15,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.MarkdownText
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
 import com.cyrillrx.rpg.core.presentation.component.dnd.getSubtitle
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
+import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.magicalitem.data.SampleMagicalItemRepository
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -33,7 +33,7 @@ private val textPadding = spacingMedium
 fun MagicalItemCard(
     magicalItem: MagicalItem,
     modifier: Modifier = Modifier
-        .padding(4.dp)
+        .padding(spacingSmall)
         .fillMaxSize(),
     content: @Composable ColumnScope.() -> Unit = {
         val translation = magicalItem.resolveTranslation(currentLocale())
