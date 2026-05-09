@@ -7,8 +7,8 @@ import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -48,7 +48,7 @@ fun MagicalItemCard(
     val color = magicalItem.getColor()
     Card(
         modifier = modifier,
-        shape = RoundedCornerShape(16.dp),
+        shape = MaterialTheme.shapes.medium,
         border = BorderStroke(borderStroke, color),
     ) {
         Column(Modifier.padding(borderStroke)) {
@@ -64,8 +64,7 @@ internal fun MagicalItemCardHeader(magicalItem: MagicalItem) {
     val color = magicalItem.getColor()
     Text(
         text = translation.name,
-        fontSize = 20.sp,
-        fontWeight = FontWeight.Bold,
+        style = MaterialTheme.typography.titleLarge.copy(fontSize = 20.sp, fontWeight = FontWeight.Bold),
         color = Color.White,
         modifier = Modifier
             .fillMaxWidth()
@@ -79,8 +78,7 @@ internal fun MagicalItemCardHeader(magicalItem: MagicalItem) {
     )
     Text(
         text = magicalItem.getSubtitle(translation),
-        fontSize = 14.sp,
-        fontStyle = FontStyle.Italic,
+        style = MaterialTheme.typography.bodyMedium.copy(fontStyle = FontStyle.Italic),
         modifier = Modifier
             .fillMaxWidth()
             .padding(

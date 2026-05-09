@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -21,7 +20,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.MarkdownText
@@ -61,7 +59,7 @@ fun SpellCard(
     val spellColor = spell.getColor()
     Card(
         modifier = modifier,
-        shape = RoundedCornerShape(16.dp),
+        shape = MaterialTheme.shapes.medium,
         border = BorderStroke(spacingMedium, spellColor),
     ) {
         Column(Modifier.padding(spacingMedium)) {
@@ -77,8 +75,7 @@ internal fun SpellCardHeader(spell: Spell) {
     val spellColor = spell.getColor()
     Text(
         text = translation.name,
-        fontSize = 20.sp,
-        fontWeight = FontWeight.Bold,
+        style = MaterialTheme.typography.titleLarge.copy(fontSize = 20.sp, fontWeight = FontWeight.Bold),
         textAlign = TextAlign.Center,
         modifier = Modifier
             .fillMaxWidth()
@@ -92,8 +89,7 @@ internal fun SpellCardHeader(spell: Spell) {
     )
     Text(
         text = spell.getFormattedSchool(),
-        fontSize = 14.sp,
-        fontWeight = FontWeight.Bold,
+        style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Bold),
         textAlign = TextAlign.Center,
         color = Color.White,
         modifier = Modifier
@@ -144,8 +140,7 @@ private fun SpellGridItem(label: String, value: String, spellColor: Color) {
     Column(Modifier.background(MaterialTheme.colorScheme.background)) {
         Text(
             text = label,
-            fontSize = 18.sp,
-            fontWeight = FontWeight.Bold,
+            style = MaterialTheme.typography.titleMedium.copy(fontSize = 18.sp, fontWeight = FontWeight.Bold),
             textAlign = TextAlign.Center,
             maxLines = 1,
             color = spellColor,
@@ -157,7 +152,7 @@ private fun SpellGridItem(label: String, value: String, spellColor: Color) {
 
         Text(
             text = value,
-            fontSize = 16.sp,
+            style = MaterialTheme.typography.bodyLarge,
             textAlign = TextAlign.Center,
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
