@@ -37,6 +37,13 @@ fun MagicalItemCard(
         .fillMaxSize(),
     content: @Composable ColumnScope.() -> Unit = {
         val translation = magicalItem.resolveTranslation(currentLocale())
+        Text(
+            text = magicalItem.getSubtitle(translation),
+            style = MaterialTheme.typography.bodyMedium.copy(fontStyle = FontStyle.Italic),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = textPadding, end = textPadding, top = textPadding),
+        )
         MarkdownText(
             text = translation.description,
             modifier = Modifier
@@ -74,17 +81,6 @@ internal fun MagicalItemCardHeader(magicalItem: MagicalItem) {
                 end = textPadding,
                 top = textPadding / 2,
                 bottom = textPadding / 2,
-            ),
-    )
-    Text(
-        text = magicalItem.getSubtitle(translation),
-        style = MaterialTheme.typography.bodyMedium.copy(fontStyle = FontStyle.Italic),
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(
-                start = textPadding,
-                end = textPadding,
-                top = textPadding,
             ),
     )
 }
