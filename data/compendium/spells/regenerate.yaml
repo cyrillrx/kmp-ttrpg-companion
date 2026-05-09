@@ -20,7 +20,8 @@ translations:
     duration: 1 hour
     materialDescription: a prayer wheel
     description: |-
-      A creature you touch regains 4d8 + 15 Hit Points. For the duration, the target regains 1 Hit Point at the start of each of its turns, and any severed body parts regrow after 2 minutes.\
+      A creature you touch regains 4d8 + 15 Hit Points. For the duration, the target regains 1 Hit Point at the start of each of its turns, and any severed body parts regrow after 2 minutes.
+      
   fr:
     name: Régénération
     castingTime: 1 minute
@@ -28,4 +29,4 @@ translations:
     duration: 1 heure
     materialDescription: un moulin à prières
     description: |-
-      Une créature que vous touchez physiquement récupère 4d8 + 15 points de vie. Pour toute la durée, la cible récupère 1 point de vie au début de chacun de ses tours et les parties sectionnées de son anatomie repoussent en 2 minutes.\
+      Une créature que vous touchez physiquement récupère 4d8 + 15 points de vie. Pour toute la durée, la cible récupère 1 point de vie au début de chacun de ses tours et les parties sectionnées de son anatomie repoussent en 2 minutes.

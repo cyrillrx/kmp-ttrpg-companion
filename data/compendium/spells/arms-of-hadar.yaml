@@ -18,8 +18,10 @@ translations:
     duration: Instantaneous
     materialDescription: null
     description: |-
-      Invoking Hadar, you cause tendrils to erupt from yourself. Each creature in a 10-foot Emanation originating from you makes a Strength saving throw. On a failed save, a target takes 2d6 Necrotic damage and can't take Reactions until the start of its next turn. On a successful save, a target takes half as much damage only.\
-      ***Using a Higher-Level Spell Slot***. The damage increases by 1d6 for each spell slot level above 1.\
+      Invoking Hadar, you cause tendrils to erupt from yourself. Each creature in a 10-foot Emanation originating from you makes a Strength saving throw. On a failed save, a target takes 2d6 Necrotic damage and can't take Reactions until the start of its next turn. On a successful save, a target takes half as much damage only.
+      
+      ***Using a Higher-Level Spell Slot***. The damage increases by 1d6 for each spell slot level above 1.
+      
   fr:
     name: Tentacules de Hadar
     castingTime: Action
@@ -27,5 +29,6 @@ translations:
     duration: Instantanée
     materialDescription: null
     description: |-
-      En invoquant Hadar, vous faites jaillir des vrilles de votre corps. Chaque créature dans une Émanation de 3 mètres provenant de vous effectue un jet de sauvegarde de Force. En cas d'échec, la cible subit 2d6 dégâts nécrotiques et ne peut plus prendre de Réactions avant le début de son prochain tour. En cas de réussite, la cible subit seulement la moitié des dégâts.\
-      ***Emplacement de niveau supérieur***. Les dégâts augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 1.\
+      En invoquant Hadar, vous faites jaillir des vrilles de votre corps. Chaque créature dans une Émanation de 3 mètres provenant de vous effectue un jet de sauvegarde de Force. En cas d'échec, la cible subit 2d6 dégâts nécrotiques et ne peut plus prendre de Réactions avant le début de son prochain tour. En cas de réussite, la cible subit seulement la moitié des dégâts.
+      
+      ***Emplacement de niveau supérieur***. Les dégâts augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 1.

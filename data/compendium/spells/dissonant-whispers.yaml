@@ -18,8 +18,10 @@ translations:
     duration: Instantaneous
     materialDescription: null
     description: |-
-      One creature of your choice that you can see within range hears a discordant melody in its mind. The target makes a Wisdom saving throw. On a failed save, it takes 3d6 Psychic damage and must immediately use its Reaction, if available, to move as far away from you as it can, using the safest route. On a successful save, the target takes half as much damage only.\
-      ***Using a Higher-Level Spell Slot***. The damage increases by 1d6 for each spell slot level above 1.\
+      One creature of your choice that you can see within range hears a discordant melody in its mind. The target makes a Wisdom saving throw. On a failed save, it takes 3d6 Psychic damage and must immediately use its Reaction, if available, to move as far away from you as it can, using the safest route. On a successful save, the target takes half as much damage only.
+      
+      ***Using a Higher-Level Spell Slot***. The damage increases by 1d6 for each spell slot level above 1.
+      
   fr:
     name: Murmures dissonants
     castingTime: Action
@@ -27,5 +29,6 @@ translations:
     duration: Instantanée
     materialDescription: null
     description: |-
-      Une créature de votre choix que vous pouvez voir portée entend une mélodie discordante dans son esprit. La cible effectue un jet de sauvegarde de Sagesse. En cas d'échec, elle subit 3d6 dégâts psychiques et doit immédiatement utiliser sa Réaction, si elle en a une, pour s'éloigner le plus loin possible de vous, en empruntant le chemin le plus sûr. En cas de réussite, la cible subit seulement la moitié des dégâts.\
-      ***Emplacement de niveau supérieur***. Les dégâts augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 1.\
+      Une créature de votre choix que vous pouvez voir portée entend une mélodie discordante dans son esprit. La cible effectue un jet de sauvegarde de Sagesse. En cas d'échec, elle subit 3d6 dégâts psychiques et doit immédiatement utiliser sa Réaction, si elle en a une, pour s'éloigner le plus loin possible de vous, en empruntant le chemin le plus sûr. En cas de réussite, la cible subit seulement la moitié des dégâts.
+      
+      ***Emplacement de niveau supérieur***. Les dégâts augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 1.

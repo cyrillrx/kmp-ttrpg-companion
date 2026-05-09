@@ -8,11 +8,13 @@ translations:
     name: Potion of Animal Friendship
     subtype: null
     description: |-
-      When you drink this potion, you can cast the level 3 version of the *[Animal Friendship](https://www.aidedd.org/spell/animal-friendship)* spell (save DC 13).\
+      When you drink this potion, you can cast the level 3 version of the *[Animal Friendship](https://www.aidedd.org/spell/animal-friendship)* spell (save DC 13).
+      
       Agitating this potion's muddy liquid brings little bits into view: a fish scale, a hummingbird feather, a cat claw, or a squirrel hair.
   fr:
     name: Potion d'amitié avec les animaux
     subtype: null
     description: |-
-      Lorsque vous buvez cette potion, vous pouvez lancer la version niveau 3 du sort *[amitié avec les animaux](https://www.aidedd.org/spell/fr/amitie-avec-les-animaux)* (sauvegarde DD 13).\
+      Lorsque vous buvez cette potion, vous pouvez lancer la version niveau 3 du sort *[amitié avec les animaux](https://www.aidedd.org/spell/fr/amitie-avec-les-animaux)* (sauvegarde DD 13).
+      
       Remuer le liquide boueux de cette potion fait apparaître de petits fragments : une écaille de poisson, une plume de colibri, une griffe de chat ou un poil d'écureuil.

@@ -8,13 +8,17 @@ translations:
     name: Dark Shard Amulet
     subtype: null
     description: |-
-      This amulet is fashioned from a shard of resilient material originating from an otherworldly realm. While you are wearing it, you gain the following benefits.\
-      **Spellcasting Focus**. You can use the amulet as a Spellcasting Focus for your Warlock spells.\
+      This amulet is fashioned from a shard of resilient material originating from an otherworldly realm. While you are wearing it, you gain the following benefits.
+      
+      **Spellcasting Focus**. You can use the amulet as a Spellcasting Focus for your Warlock spells.
+      
       **Unknown Spell**. As a Magic action, you can try to cast a cantrip that you don't know. The cantrip must be on the Warlock spell list and have a casting time of an action, and you make a DC 10 Intelligence (Arcana) check. On a successful check, you cast the spell. On a failed check, the spell fails, and the action used to cast it is wasted. In either case, you can't use this property again until you finish a Long Rest.
   fr:
     name: Amulette de sombre éclat
     subtype: null
     description: |-
-      Cette amulette est forgée à partir d'un fragment de matériau résistant provenant d'outre-monde. Lorsque vous la portez, vous bénéficiez des avantages suivants :\
-      **Focaliseur d'incantation**. Vous pouvez utiliser l'amulette comme focaliseur d'incantation pour vos sorts d'occultiste.\
+      Cette amulette est forgée à partir d'un fragment de matériau résistant provenant d'outre-monde. Lorsque vous la portez, vous bénéficiez des avantages suivants :
+      
+      **Focaliseur d'incantation**. Vous pouvez utiliser l'amulette comme focaliseur d'incantation pour vos sorts d'occultiste.
+      
       **Sort inconnu**. Par une action Magie, vous pouvez tenter de lancer un sort mineur que vous ne connaissez pas. Ce sort doit figurer sur la liste des sorts d'occultiste et avoir un temps d'incantation d'une action. Vous devez effectuer un jet d'Intelligence (Arcanes) DD 10. En cas de réussite, vous lancez le sort. En cas d'échec, le sort échoue et l'action utilisée est perdue. Dans les deux cas, vous ne pouvez plus utiliser cette propriété avant d'avoir terminé un Repos long.

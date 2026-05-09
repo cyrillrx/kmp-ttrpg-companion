@@ -8,11 +8,13 @@ translations:
     name: Potion of Water Breathing
     subtype: null
     description: |-
-      You can breathe underwater for 24 hours after drinking this potion.\
+      You can breathe underwater for 24 hours after drinking this potion.
+      
       This potion's cloudy green fluid smells of the sea and has a jellyfish-like bubble floating in it.
   fr:
     name: Potion de respiration aquatique
     subtype: null
     description: |-
-      Vous pouvez respirer sous l'eau pendant 24 heures après avoir bu cette potion.\
+      Vous pouvez respirer sous l'eau pendant 24 heures après avoir bu cette potion.
+      
       Ce liquide vert trouble sent la mer et contient une bulle ressemblant à une méduse.

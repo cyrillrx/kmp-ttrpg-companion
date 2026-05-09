@@ -8,11 +8,13 @@ translations:
     name: Potion of Clairvoyance
     subtype: null
     description: |-
-      When you drink this potion, you gain the effect of the *[Clairvoyance](https://www.aidedd.org/spell/clairvoyance)* spell (no Concentration required).\
+      When you drink this potion, you gain the effect of the *[Clairvoyance](https://www.aidedd.org/spell/clairvoyance)* spell (no Concentration required).
+      
       An eyeball bobs in this potion's yellowish liquid but vanishes when the potion is opened.
   fr:
     name: Potion de clairvoyance
     subtype: null
     description: |-
-      Lorsque vous buvez cette potion, vous bénéficiez de l'effet du sort *[clairvoyance](https://www.aidedd.org/spell/fr/clairvoyance)* (aucune concentration requise).\
+      Lorsque vous buvez cette potion, vous bénéficiez de l'effet du sort *[clairvoyance](https://www.aidedd.org/spell/fr/clairvoyance)* (aucune concentration requise).
+      
       Un œil flotte dans le liquide jaunâtre de cette potion, mais il disparaît à l'ouverture.

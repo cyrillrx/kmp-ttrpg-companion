@@ -8,11 +8,13 @@ translations:
     name: Horseshoes of a Zephyr
     subtype: null
     description: |-
-      These horseshoes come in a set of four. As a Magic action, you can touch one of the horseshoes to the hoof of a horse or similar creature, whereupon the horseshoe affixes itself to the hoof. Removing a horseshoe also takes a Magic action.\
+      These horseshoes come in a set of four. As a Magic action, you can touch one of the horseshoes to the hoof of a horse or similar creature, whereupon the horseshoe affixes itself to the hoof. Removing a horseshoe also takes a Magic action.
+      
       While all four shoes are affixed to the hooves of a horse or similar creature, they allow the creature to move normally while floating 4 inches above a surface. This effect means the creature can cross or stand above nonsolid or unstable surfaces, such as water or lava. The creature leaves no tracks and ignores Difficult Terrain. In addition, the creature can travel for up to 12 hours a day without gaining Exhaustion levels from extended travel.
   fr:
     name: Fers de zéphyr
     subtype: null
     description: |-
-      Ces fers à cheval sont vendus par lot de quatre. Par une action Magie, vous pouvez toucher le sabot d'un cheval ou d'une créature similaire avec l'un d'eux, ce qui permet au fer de s'y fixer. Retirer un fer à cheval nécessite également une action Magie.\
+      Ces fers à cheval sont vendus par lot de quatre. Par une action Magie, vous pouvez toucher le sabot d'un cheval ou d'une créature similaire avec l'un d'eux, ce qui permet au fer de s'y fixer. Retirer un fer à cheval nécessite également une action Magie.
+      
       Lorsque les quatre fers sont fixés à une même créature, ils lui permettent de se déplacer normalement tout en flottant à 10 cm au-dessus d'une surface. Cet effet signifie que la créature peut traverser ou se tenir au-dessus de surfaces non solides ou instables, comme l'eau ou la lave. La créature ne laisse aucune trace et ignore les Terrains difficiles. De plus, elle peut voyager jusqu'à 12 heures par jour sans augmenter ses niveaux d'Épuisement suite à un voyage prolongé.

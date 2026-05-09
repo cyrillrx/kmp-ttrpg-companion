@@ -21,7 +21,7 @@ translations:
     duration: Concentration, up to 1 minute
     materialDescription: three nut shells
     description: |-
-      Each creature in a 10-foot-radius Sphere centered on a point you choose within range must succeed on a Wisdom saving throw, or that target can't take Bonus Actions or Reactions and must roll 1d10 at the start of each of its turns to determine its behavior for that turn, consulting the table below.\
+      Each creature in a 10-foot-radius Sphere centered on a point you choose within range must succeed on a Wisdom saving throw, or that target can't take Bonus Actions or Reactions and must roll 1d10 at the start of each of its turns to determine its behavior for that turn, consulting the table below.
 
       | 1d10 | Behavior for the Turn |
       | --- | --- |
@@ -30,9 +30,12 @@ translations:
       | 7–8 | The target doesn't move, and it takes the Attack action to make one melee attack against a random creature within reach. If none are within reach, the target takes no action. |
       | 9–10 | The target chooses its behavior. |
 
-      \
-      At the end of each of its turns, an affected target repeats the save, ending the spell on itself on a success.\
-      ***Using a Higher-Level Spell Slot***. The Sphere's radius increases by 5 feet for each spell slot level above 4.\
+
+      
+      At the end of each of its turns, an affected target repeats the save, ending the spell on itself on a success.
+      
+      ***Using a Higher-Level Spell Slot***. The Sphere's radius increases by 5 feet for each spell slot level above 4.
+      
   fr:
     name: Confusion
     castingTime: Action
@@ -40,7 +43,7 @@ translations:
     duration: Concentration, jusqu'à 1 minute
     materialDescription: trois coquilles de noix
     description: |-
-      Chaque créature dans une Sphère de 3 mètres de rayon centrée sur un point que vous choisissez à portée doit réussir un jet de sauvegarde de Sagesse, sinon cette cible ne peut pas prendre d'actions Bonus ou de Réactions et doit lancer 1d10 au début de chacun de ses tours pour déterminer son comportement pour ce tour, en consultant la table ci-dessous.\
+      Chaque créature dans une Sphère de 3 mètres de rayon centrée sur un point que vous choisissez à portée doit réussir un jet de sauvegarde de Sagesse, sinon cette cible ne peut pas prendre d'actions Bonus ou de Réactions et doit lancer 1d10 au début de chacun de ses tours pour déterminer son comportement pour ce tour, en consultant la table ci-dessous.
 
       | 1d10 | Comportement pour le tour |
       | --- | --- |
@@ -49,6 +52,8 @@ translations:
       | 7–8 | La cible ne bouge pas et prend l'action Attaque pour effectuer une attaque au corps à corps contre une créature aléatoire à sa portée. Si aucune créature n'est à sa portée, la cible ne prend aucune action. |
       | 9–10 | La cible choisit son comportement. |
 
-      \
-      À la fin de chacun de ses tours, une cible affectée refait son jet de sauvegarde, mettant fin au sort sur elle-même en cas de réussite.\
-      ***Emplacement de niveau supérieur***. Le rayon de la Sphère augmente de 1,50 mètre pour chaque niveau d'emplacement de sort supérieur à 4.\
+
+      
+      À la fin de chacun de ses tours, une cible affectée refait son jet de sauvegarde, mettant fin au sort sur elle-même en cas de réussite.
+      
+      ***Emplacement de niveau supérieur***. Le rayon de la Sphère augmente de 1,50 mètre pour chaque niveau d'emplacement de sort supérieur à 4.

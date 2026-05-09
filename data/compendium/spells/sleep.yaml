@@ -20,8 +20,10 @@ translations:
     duration: Concentration, up to 1 minute
     materialDescription: a pinch of sand or rose petals
     description: |-
-      Each creature of your choice in a 5-foot-radius Sphere centered on a point within range must succeed on a Wisdom saving throw or have the Incapacitated condition until the end of its next turn, at which point it must repeat the save. If the target fails the second save, the target has the Unconscious condition for the duration. The spell ends on a target if it takes damage or someone within 5 feet of it takes an action to shake it out of the spell's effect.\
-      Creatures that don't sleep, such as elves, or that have Immunity to the Exhaustion condition automatically succeed on saves against this spell.\
+      Each creature of your choice in a 5-foot-radius Sphere centered on a point within range must succeed on a Wisdom saving throw or have the Incapacitated condition until the end of its next turn, at which point it must repeat the save. If the target fails the second save, the target has the Unconscious condition for the duration. The spell ends on a target if it takes damage or someone within 5 feet of it takes an action to shake it out of the spell's effect.
+      
+      Creatures that don't sleep, such as elves, or that have Immunity to the Exhaustion condition automatically succeed on saves against this spell.
+      
   fr:
     name: Sommeil
     castingTime: Action
@@ -29,5 +31,6 @@ translations:
     duration: Concentration, jusqu'à 1 minute
     materialDescription: une pincée de sable ou des pétales de rose
     description: |-
-      Toute créature de votre choix dans une sphère de 1,50 mètre de rayon centrée sur un point à portée doit réussir un jet de sauvegarde de Sagesse ou subir l'état Incapable d'agir jusqu'à la fin de son prochain tour, après quoi elle doit refaire le jet. Si la cible rate le deuxième jet de sauvegarde, elle subit l'état Inconscient pendant toute la durée du sort. Le sort prend fin si une cible subit des dégâts ou si une personne dans un rayon de 1,50 mètre entreprend une action pour la libérer de l'effet du sort.\
-      Les créatures qui ne dorment pas, comme les elfes, ou qui sont immunisées contre l'état Épuisement réussissent automatiquement leurs jets de sauvegarde contre ce sort.\
+      Toute créature de votre choix dans une sphère de 1,50 mètre de rayon centrée sur un point à portée doit réussir un jet de sauvegarde de Sagesse ou subir l'état Incapable d'agir jusqu'à la fin de son prochain tour, après quoi elle doit refaire le jet. Si la cible rate le deuxième jet de sauvegarde, elle subit l'état Inconscient pendant toute la durée du sort. Le sort prend fin si une cible subit des dégâts ou si une personne dans un rayon de 1,50 mètre entreprend une action pour la libérer de l'effet du sort.
+      
+      Les créatures qui ne dorment pas, comme les elfes, ou qui sont immunisées contre l'état Épuisement réussissent automatiquement leurs jets de sauvegarde contre ce sort.

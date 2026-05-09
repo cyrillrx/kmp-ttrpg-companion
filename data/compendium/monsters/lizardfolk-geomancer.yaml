@@ -99,7 +99,8 @@ translations:
 
       ***Spellcasting***. The lizardfolk casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 12):
 
-      At will: *[Elementalism](https://www.aidedd.org/spell/elementalism)*\
+      At will: *[Elementalism](https://www.aidedd.org/spell/elementalism)*
+      
       1/day each: *[Meld into Stone](https://www.aidedd.org/spell/meld-into-stone), [Speak with Plants](https://www.aidedd.org/spell/speak-with-plants), [Spike Growth](https://www.aidedd.org/spell/spike-growth)*
     senses: Passive Perception 14
     languages:
@@ -119,7 +120,8 @@ translations:
 
       ***Incantation***. Le saurial lance l'un des sorts suivants sans composantes matérielles, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 12) :
 
-      À volonté : *[élementalisme](https://www.aidedd.org/spell/fr/elementalisme)*\
+      À volonté : *[élementalisme](https://www.aidedd.org/spell/fr/elementalisme)*
+      
       1/jour chacun : *[fusion dans la pierre](https://www.aidedd.org/spell/fr/fusion-dans-la-pierre), [communication avec les plantes](https://www.aidedd.org/spell/fr/communication-avec-les-plantes), [croissance d'épines](https://www.aidedd.org/spell/fr/croissance-d-epines)*
     senses: Perception passive 14
     languages:

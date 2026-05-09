@@ -20,9 +20,12 @@ translations:
     duration: Concentration, up to 1 minute
     materialDescription: a tart and a feather
     description: |-
-      One creature of your choice that you can see within range makes a Wisdom saving throw. On a failed save, it has the Prone and Incapacitated conditions for the duration. During that time, it laughs uncontrollably if it's capable of laughter, and it can't end the Prone condition on it self.\
-      At the end of each of its turns and each time it takes damage, it makes another Wisdom saving throw. The target has Advantage on the save if the save is triggered by damage. On a successful save, the spell ends.\
-      ***Using a Higher-Level Spell Slot***. You can target one additional creature for each spell slot level about 1.\
+      One creature of your choice that you can see within range makes a Wisdom saving throw. On a failed save, it has the Prone and Incapacitated conditions for the duration. During that time, it laughs uncontrollably if it's capable of laughter, and it can't end the Prone condition on it self.
+      
+      At the end of each of its turns and each time it takes damage, it makes another Wisdom saving throw. The target has Advantage on the save if the save is triggered by damage. On a successful save, the spell ends.
+      
+      ***Using a Higher-Level Spell Slot***. You can target one additional creature for each spell slot level about 1.
+      
   fr:
     name: Fou rire de Tasha
     castingTime: Action
@@ -30,6 +33,8 @@ translations:
     duration: Concentration, jusqu'à 1 minute
     materialDescription: une tartelette et une plume
     description: |-
-      Une créature de votre choix que vous pouvez voir à portée effectue un jet de sauvegarde de Sagesse. En cas d'échec, elle subit les états À terre et Incapable d'agir pendant toute la durée du sort. Pendant ce temps, elle rit de manière incontrôlable si elle en est capable, et elle ne peut pas mettre fin à son état À terre.\
-      À la fin de chacun de ses tours et à chaque fois qu'elle subit des dégâts, elle effectue un nouveau jet de sauvegarde de Sagesse. La cible bénéficie d'un Avantage pour ce jet si celui-ci est déclenché par des dégâts. En cas de réussite, le sort prend fin.\
-      ***Emplacement de niveau supérieur***. Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 1.\
+      Une créature de votre choix que vous pouvez voir à portée effectue un jet de sauvegarde de Sagesse. En cas d'échec, elle subit les états À terre et Incapable d'agir pendant toute la durée du sort. Pendant ce temps, elle rit de manière incontrôlable si elle en est capable, et elle ne peut pas mettre fin à son état À terre.
+      
+      À la fin de chacun de ses tours et à chaque fois qu'elle subit des dégâts, elle effectue un nouveau jet de sauvegarde de Sagesse. La cible bénéficie d'un Avantage pour ce jet si celui-ci est déclenché par des dégâts. En cas de réussite, le sort prend fin.
+      
+      ***Emplacement de niveau supérieur***. Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 1.

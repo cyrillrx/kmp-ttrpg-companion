@@ -18,7 +18,7 @@ translations:
     duration: Instantaneous
     materialDescription: null
     description: |-
-      You utter a word imbued with power from the Upper Planes. Each creature of your choice in range makes a Charisma saving throw. On a failed save, a target that has 50 Hit Points or fewer suffers an effect based on its current Hit Points, as shown in the Divine Word Effects table. Regardless of its Hit Points, a Celestial, an Elemental, a Fey, or a Fiend target that fails its save is forced back to its plane of origin (if it isn't there already) and can't return to the current plane for 24 hours by any means short of a *[Wish](./wish)* spell.\
+      You utter a word imbued with power from the Upper Planes. Each creature of your choice in range makes a Charisma saving throw. On a failed save, a target that has 50 Hit Points or fewer suffers an effect based on its current Hit Points, as shown in the Divine Word Effects table. Regardless of its Hit Points, a Celestial, an Elemental, a Fey, or a Fiend target that fails its save is forced back to its plane of origin (if it isn't there already) and can't return to the current plane for 24 hours by any means short of a *[Wish](./wish)* spell.
 
       | Hit Points | Effect |
       | --- | --- |
@@ -27,7 +27,8 @@ translations:
       | 31–40 | The target has the Blinded and Deafened conditions for 10 minutes. |
       | 41–50 | The target has the Deafened condition for 1 minute. |
 
-      \
+
+      
   fr:
     name: Parole divine
     castingTime: Action bonus
@@ -35,7 +36,7 @@ translations:
     duration: Instantanée
     materialDescription: null
     description: |-
-      Vous prononcez une parole porteuse de la puissance des Plans Supérieurs. Chaque créature que vous choisissez à portée effectue un jet de sauvegarde de Charisme. En cas d'échec, une cible dotée de 50 points de vie ou moins subit un effet qui dépend de ses points de vie actuels, comme indiqué sur la table ci-dessous. Quels que soient ses points de vie actuels, une cible Céleste, Élémentaire, Fée ou Fiélon qui rate son JdS est renvoyée d'office dans son plan d'origine (s'il ne s'y trouve pas déjà) et ne peut revenir sur votre plan actuel pendant 24 heures, sauf par le biais du sort *[souhait](./fr/souhait)*.\
+      Vous prononcez une parole porteuse de la puissance des Plans Supérieurs. Chaque créature que vous choisissez à portée effectue un jet de sauvegarde de Charisme. En cas d'échec, une cible dotée de 50 points de vie ou moins subit un effet qui dépend de ses points de vie actuels, comme indiqué sur la table ci-dessous. Quels que soient ses points de vie actuels, une cible Céleste, Élémentaire, Fée ou Fiélon qui rate son JdS est renvoyée d'office dans son plan d'origine (s'il ne s'y trouve pas déjà) et ne peut revenir sur votre plan actuel pendant 24 heures, sauf par le biais du sort *[souhait](./fr/souhait)*.
 
       | Points de vie | Effet |
       | --- | --- |
@@ -44,4 +45,4 @@ translations:
       | 31–40 | La cible subit les états Assourdi et Aveuglé pendant 10 minutes. |
       | 41–50 | La cible subit l'état Assourdi pendant 1 minute. |
 
-      \
+

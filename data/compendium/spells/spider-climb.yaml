@@ -20,8 +20,10 @@ translations:
     duration: Concentration, up to 1 hour
     materialDescription: a drop of bitumen and a spider
     description: |-
-      Until the spell ends, one willing creature you touch gains the ability to move up, down, and across vertical surfaces and along ceilings, while leaving its hands free. The target also gains a Climb Speed equal to its Speed.\
-      ***Using a Higher-Level Spell Slot***. You can target one additional creature for each spell slot level about 2.\
+      Until the spell ends, one willing creature you touch gains the ability to move up, down, and across vertical surfaces and along ceilings, while leaving its hands free. The target also gains a Climb Speed equal to its Speed.
+      
+      ***Using a Higher-Level Spell Slot***. You can target one additional creature for each spell slot level about 2.
+      
   fr:
     name: Pattes d'araignée
     castingTime: Action
@@ -29,5 +31,6 @@ translations:
     duration: Concentration, jusqu'à 1 heure
     materialDescription: une goutte de bitume et une araignée
     description: |-
-      Jusqu'à la fin du sort, une créature consentante que vous touchez acquiert la capacité de monter, descendre ou traverser des surfaces verticales et longer des plafonds, tout en gardant les mains libres. La cible gagne également une Vitesse d'escalade égale à sa Vitesse.\
-      ***Emplacement de niveau supérieur***. Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 2.\
+      Jusqu'à la fin du sort, une créature consentante que vous touchez acquiert la capacité de monter, descendre ou traverser des surfaces verticales et longer des plafonds, tout en gardant les mains libres. La cible gagne également une Vitesse d'escalade égale à sa Vitesse.
+      
+      ***Emplacement de niveau supérieur***. Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 2.

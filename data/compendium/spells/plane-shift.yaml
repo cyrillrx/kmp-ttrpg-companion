@@ -23,8 +23,10 @@ translations:
     materialDescription: a forked, metal rod worth 250+ GP and attuned to a particular
       plane of existence
     description: |-
-      You and up to eight willing creatures who link hands in a circle are transported to a different plane of existence. You can specify a target destination in general terms, such as the City of Brass on the Elemental Plane of Fire or the palace of Dispater on the second level of the Nine Hells, and you appear in or near that destination, as determined by the DM.\
-      Alternatively, if you know the sigil sequence of a teleportation circle on another plane of existence, this spell can take you to that circle. If the teleportation circle is too small to hold all the creatures you transported, they appear in the closest unoccupied spaces next to the circle.\
+      You and up to eight willing creatures who link hands in a circle are transported to a different plane of existence. You can specify a target destination in general terms, such as the City of Brass on the Elemental Plane of Fire or the palace of Dispater on the second level of the Nine Hells, and you appear in or near that destination, as determined by the DM.
+      
+      Alternatively, if you know the sigil sequence of a teleportation circle on another plane of existence, this spell can take you to that circle. If the teleportation circle is too small to hold all the creatures you transported, they appear in the closest unoccupied spaces next to the circle.
+      
   fr:
     name: Changement de plan
     castingTime: Action
@@ -33,5 +35,6 @@ translations:
     materialDescription: une badine métallique fourchue d'une valeur minimale de 250
       po, lié avec un plan d'existence
     description: |-
-      Vous et un maximum de huit créatures consentantes avec lesquelles vous formez un cercle en vous tenant par la main êtes transportés sur un autre plan d'existence. Vous pouvez spécifier une destination en des termes généraux, comme une cité donnée du Plan Élémentaire du Feu ou un palais précis sur la deuxième strate des Neuf Enfers, auquel cas vous apparaissez à destination ou à proximité (à l'appréciation du MD).\
-      Ou bien, si vous connaissez la séquence de runes d'un cercle de téléportation sur un autre plan d'existence, ce sort vous transporte directement dans le cercle. Si le cercle de téléportation est trop petit pour accueillir toutes les créatures transportées, elles apparaissent dans les espaces inoccupés les plus proches du cercle.\
+      Vous et un maximum de huit créatures consentantes avec lesquelles vous formez un cercle en vous tenant par la main êtes transportés sur un autre plan d'existence. Vous pouvez spécifier une destination en des termes généraux, comme une cité donnée du Plan Élémentaire du Feu ou un palais précis sur la deuxième strate des Neuf Enfers, auquel cas vous apparaissez à destination ou à proximité (à l'appréciation du MD).
+      
+      Ou bien, si vous connaissez la séquence de runes d'un cercle de téléportation sur un autre plan d'existence, ce sort vous transporte directement dans le cercle. Si le cercle de téléportation est trop petit pour accueillir toutes les créatures transportées, elles apparaissent dans les espaces inoccupés les plus proches du cercle.

@@ -19,10 +19,13 @@ translations:
     duration: 10 minutes
     materialDescription: null
     description: |-
-      A shimmering, multicolored plane of light forms a vertical opaque wall—up to 90 feet long, 30 feet high, and 1 inch thick—centered on a point within range. Alternatively, you shape the wall into a globe up to 30 feet in diameter centered on a point within range. The wall lasts for the duration. If you position the wall in a space occupied by a creature, the spell ends instantly without effect.\
-      The wall sheds Bright Light within 100 feet and Dim Light for an additional 100 feet. You and creatures you designate when you cast the spell can pass through and be near the wall without harm. If another creature that can see the wall moves within 20 feet of it or starts its turn there, the creature must succeed on a Constitution saving throw or have the Blinded condition for 1 minute.\
-      The wall consists of seven layers, each with a different color. When a creature reaches into or passes through the wall, it does so one layer at a time through all the layers. Each layer forces the creature to make a Dexterity saving throw or be affected by that layer's properties as described in the Prismatic Layers table.\
-      The wall, which has AC 10, can be destroyed one layer at a time, in order from red to violet, by means specific to each layer. If a layer is destroyed, it is gone for the duration. *Antimagic Field* has no effect on the wall, and *[Dispel Magic](./dispel-magic)* can affect only the violet layer.\
+      A shimmering, multicolored plane of light forms a vertical opaque wall—up to 90 feet long, 30 feet high, and 1 inch thick—centered on a point within range. Alternatively, you shape the wall into a globe up to 30 feet in diameter centered on a point within range. The wall lasts for the duration. If you position the wall in a space occupied by a creature, the spell ends instantly without effect.
+      
+      The wall sheds Bright Light within 100 feet and Dim Light for an additional 100 feet. You and creatures you designate when you cast the spell can pass through and be near the wall without harm. If another creature that can see the wall moves within 20 feet of it or starts its turn there, the creature must succeed on a Constitution saving throw or have the Blinded condition for 1 minute.
+      
+      The wall consists of seven layers, each with a different color. When a creature reaches into or passes through the wall, it does so one layer at a time through all the layers. Each layer forces the creature to make a Dexterity saving throw or be affected by that layer's properties as described in the Prismatic Layers table.
+      
+      The wall, which has AC 10, can be destroyed one layer at a time, in order from red to violet, by means specific to each layer. If a layer is destroyed, it is gone for the duration. *Antimagic Field* has no effect on the wall, and *[Dispel Magic](./dispel-magic)* can affect only the violet layer.
 
       | Order | Effects |
       | --- | --- |
@@ -34,7 +37,8 @@ translations:
       | 6 | **Indigo**. *Failed Save*: The target has the Restrained condition and makes a Constitution saving throw at the end of each of its turns. If it successfully saves three times, the condition ends. If it fails three times, it has the Petrified condition until it is freed by an effect like the *[Greater Restoration](./greater-restoration)* spell. The successes and failures needn't be consecutive; keep track of both until the target collects three of a kind. *Additional Effects*: Spells can't be cast through this layer, which is destroyed by Bright Light shed by the *Daylight* spell. |
       | 7 | **Violet**. *Failed Save*: The target has the Blinded condition and makes a Wisdom saving throw at the start of your next turn. On a *Successful Save*, the condition ends. On a *Failed Save*, the condition ends, and the creature teleports to another plane of existence (DM's choice). *Additional Effects*: This layer is destroyed by *[Dispel Magic](./dispel-magic)*. |
 
-      \
+
+      
   fr:
     name: Mur prismatique
     castingTime: Action
@@ -42,10 +46,13 @@ translations:
     duration: 10 minutes
     materialDescription: null
     description: |-
-      Un plan multicolore de lueurs chatoyantes s'érige sous forme d'un mur vertical opaque centré sur un point à portée, avec les dimensions maximales suivantes : longueur 27 m, hauteur 9 m et épaisseur 2,50 cm. Vous pouvez au lieu de cela lui donner la forme d'un globe d'un diamètre maximal de 9 m, centré sur un point à portée. Le mur persiste pour toute la durée. Si vous positionnez le mur en un espace occupé par une créature, le sort prend aussitôt fin sans effet.\
-      Le mur produit une Lumière vive sur une distance de 30 m et une Lumière faible sur 30 m de plus. Vous et les créatures que vous désignez à l'incantation du sort pouvez sans risque traverser le mur et rester à proximité. Si une autre créature qui voit le mur s'approche dans un rayon de 6 m de sa zone ou y commence son tour, elle doit réussir un jet de sauvegarde de Constitution sous peine de subir l'état Aveuglé pendant 1 minute.\
-      Le mur est constitué de sept couches, chacune d'une couleur différente. Lorsqu'une créature tente de pénétrer le mur ou de le traverser, elle le fait couche après couche jusqu'à toutes les avoir franchies. Chaque couche contraint la créature à un jet de sauvegarde de Dextérité pour éviter d'être affectée par les propriétés de la couche, décrites dans la table ci-dessous.\
-      On peut détruire le mur (CA 10), couche par couche, de la rouge à la violette, par des moyens propres à chaque couche. Quand une couche est détruite, elle disparaît pour toute la durée. Un champ antimagie reste sans effet sur le mur, tandis que *[dissipation de la magie](./fr/dissipation-de-la-magie)* n'affecte que la couche violette.\
+      Un plan multicolore de lueurs chatoyantes s'érige sous forme d'un mur vertical opaque centré sur un point à portée, avec les dimensions maximales suivantes : longueur 27 m, hauteur 9 m et épaisseur 2,50 cm. Vous pouvez au lieu de cela lui donner la forme d'un globe d'un diamètre maximal de 9 m, centré sur un point à portée. Le mur persiste pour toute la durée. Si vous positionnez le mur en un espace occupé par une créature, le sort prend aussitôt fin sans effet.
+      
+      Le mur produit une Lumière vive sur une distance de 30 m et une Lumière faible sur 30 m de plus. Vous et les créatures que vous désignez à l'incantation du sort pouvez sans risque traverser le mur et rester à proximité. Si une autre créature qui voit le mur s'approche dans un rayon de 6 m de sa zone ou y commence son tour, elle doit réussir un jet de sauvegarde de Constitution sous peine de subir l'état Aveuglé pendant 1 minute.
+      
+      Le mur est constitué de sept couches, chacune d'une couleur différente. Lorsqu'une créature tente de pénétrer le mur ou de le traverser, elle le fait couche après couche jusqu'à toutes les avoir franchies. Chaque couche contraint la créature à un jet de sauvegarde de Dextérité pour éviter d'être affectée par les propriétés de la couche, décrites dans la table ci-dessous.
+      
+      On peut détruire le mur (CA 10), couche par couche, de la rouge à la violette, par des moyens propres à chaque couche. Quand une couche est détruite, elle disparaît pour toute la durée. Un champ antimagie reste sans effet sur le mur, tandis que *[dissipation de la magie](./fr/dissipation-de-la-magie)* n'affecte que la couche violette.
 
       | Ordre | Effets |
       | --- | --- |
@@ -57,4 +64,4 @@ translations:
       | 6 | **Indigo**. *Échec au JdS* : la cible subit l'état Entravé et effectue un jet de sauvegarde de Constitution à la fin de chacun de ses tours. Si elle se sauvegarde trois fois, l'état prend fin. Si elle rate trois fois le JdS, elle subit l'état Pétrifié jusqu'à en être libérée par un effet tel que *[restauration suprême](./fr/restauration-supreme)*. Ces réussites et échecs n'ont pas besoin d'être consécutifs ; notez-les quelque part, jusqu'à ce que la cible atteigne un total de trois pour l'un ou l'autre. *Effets supplémentaires* : les sorts ne peuvent pas traverser cette couche, détruite par la Lumière vive du sort *lumière du jour*. |
       | 7 | **Violette**. *Échec au JdS* : la cible subit l'état Aveuglé et effectue un jet de sauvegarde de Sagesse au début de votre tour suivant. En cas de réussite, l'état prend fin. En cas d'échec, l'état prend fin, et la créature est téléportée dans un autre plan d'existence (choisi par le MD). *Effets supplémentaires* : *[dissipation de la magie](./fr/dissipation-de-la-magie)* détruit cette couche. |
 
-      \
+

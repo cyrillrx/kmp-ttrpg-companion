@@ -19,9 +19,12 @@ translations:
     duration: Concentration, up to 10 minutes
     materialDescription: null
     description: |-
-      You conjure nature spirits that appear as a Large pack of spectral, intangible animals in an unoccupied space you can see within range. The pack lasts for the duration, and you choose the spirits' animal form, such as wolves, serpents, or birds.\
-      You have Advantage on Strength saving throws while you're within 5 feet of the pack, and when you move on your turn, you can also move the pack up to 30 feet to an unoccupied space you can see. Whenever the pack moves within 10 feet of a creature you can see and whenever a creature you can see enters a space within 10 feet of the pack or ends its turn there, you can force that creature to make a Dexterity saving throw. On a failed save, the creature takes 3d10 Slashing damage. A creature makes this save only once per turn.\
-      ***Using a Higher-Level Spell Slot***. The damage increases by 1d10 for each spell slot level above 3.\
+      You conjure nature spirits that appear as a Large pack of spectral, intangible animals in an unoccupied space you can see within range. The pack lasts for the duration, and you choose the spirits' animal form, such as wolves, serpents, or birds.
+      
+      You have Advantage on Strength saving throws while you're within 5 feet of the pack, and when you move on your turn, you can also move the pack up to 30 feet to an unoccupied space you can see. Whenever the pack moves within 10 feet of a creature you can see and whenever a creature you can see enters a space within 10 feet of the pack or ends its turn there, you can force that creature to make a Dexterity saving throw. On a failed save, the creature takes 3d10 Slashing damage. A creature makes this save only once per turn.
+      
+      ***Using a Higher-Level Spell Slot***. The damage increases by 1d10 for each spell slot level above 3.
+      
   fr:
     name: Invocation d'animaux
     castingTime: Action
@@ -29,6 +32,8 @@ translations:
     duration: Concentration, jusqu'à 10 minutes
     materialDescription: null
     description: |-
-      Vous invoquez des esprits de la nature qui apparaissent comme une grande meute d'animaux spectraux et intangibles dans un espace libre que vous pouvez voir à portée. La meute reste durant toute la durée du sort et vous choisissez la forme animale des esprits, comme un loup, un serpent ou un oiseau.\
-      Vous bénéficiez d'un Avantage aux jets de sauvegarde de Force tant que vous êtes à 1,50 mètre ou moins de la meute, et lorsque vous vous déplacez pendant votre tour, vous pouvez également déplacer la meute jusqu'à 9 mètres vers un espace libre que vous pouvez voir. Chaque fois que la meute se déplace à 3 mètres ou moins d'une créature que vous pouvez voir, ou qu'une créature que vous pouvez voir entre dans un rayon de 3 mètres autour de la meute ou y termine son tour, vous pouvez forcer cette créature à effectuer un jet de sauvegarde de Dextérité. En cas d'échec, la créature subit 3d10 dégâts tranchants. Une créature n'effectue ce jet qu'une seule fois par tour.\
-      ***Emplacement de niveau supérieur***. Les dégâts augmentent de 1d10 pour chaque niveau d'emplacement de sort supérieur à 3.\
+      Vous invoquez des esprits de la nature qui apparaissent comme une grande meute d'animaux spectraux et intangibles dans un espace libre que vous pouvez voir à portée. La meute reste durant toute la durée du sort et vous choisissez la forme animale des esprits, comme un loup, un serpent ou un oiseau.
+      
+      Vous bénéficiez d'un Avantage aux jets de sauvegarde de Force tant que vous êtes à 1,50 mètre ou moins de la meute, et lorsque vous vous déplacez pendant votre tour, vous pouvez également déplacer la meute jusqu'à 9 mètres vers un espace libre que vous pouvez voir. Chaque fois que la meute se déplace à 3 mètres ou moins d'une créature que vous pouvez voir, ou qu'une créature que vous pouvez voir entre dans un rayon de 3 mètres autour de la meute ou y termine son tour, vous pouvez forcer cette créature à effectuer un jet de sauvegarde de Dextérité. En cas d'échec, la créature subit 3d10 dégâts tranchants. Une créature n'effectue ce jet qu'une seule fois par tour.
+      
+      ***Emplacement de niveau supérieur***. Les dégâts augmentent de 1d10 pour chaque niveau d'emplacement de sort supérieur à 3.

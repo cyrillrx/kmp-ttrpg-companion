@@ -19,7 +19,8 @@ translations:
     duration: Concentration, up to 1 minute
     materialDescription: a miniature tiara
     description: |-
-      You surround yourself with unearthly majesty in a 10-foot Emanation. Whenever the Emanation enters the space of a creature you can see and whenever a creature you can see enters the Emanation or ends its turn there, you can force that creature to make a Wisdom saving throw. On a failed save, the target takes 4d6 Psychic damage and has the Prone condition, and you can push it up to 10 feet away. On a successful save, the target takes half as much damage only. A creature makes this save only once per turn.\
+      You surround yourself with unearthly majesty in a 10-foot Emanation. Whenever the Emanation enters the space of a creature you can see and whenever a creature you can see enters the Emanation or ends its turn there, you can force that creature to make a Wisdom saving throw. On a failed save, the target takes 4d6 Psychic damage and has the Prone condition, and you can push it up to 10 feet away. On a successful save, the target takes half as much damage only. A creature makes this save only once per turn.
+      
   fr:
     name: Présence royale de Yolane
     castingTime: Action
@@ -27,4 +28,4 @@ translations:
     duration: Concentration, jusqu'à 1 minute
     materialDescription: un diadème miniature
     description: |-
-      Vous vous entourez d'une majesté surnaturelle sous forme d'une Émanation de 3 mètres. Chaque fois que l'Émanation pénètre dans l'espace d'une créature que vous pouvez voir, et chaque fois qu'une créature que vous pouvez voir y pénètre ou y termine son tour, vous pouvez la forcer à effectuer un jet de sauvegarde de Sagesse. En cas d'échec, la cible subit 4d6 dégâts psychiques et l'état À terre, et vous pouvez la repousser jusqu'à 3 mètres. En cas de réussite, la cible subit seulement la moitié des dégâts. Une créature n'effectue ce jet qu'une seule fois par tour.\
+      Vous vous entourez d'une majesté surnaturelle sous forme d'une Émanation de 3 mètres. Chaque fois que l'Émanation pénètre dans l'espace d'une créature que vous pouvez voir, et chaque fois qu'une créature que vous pouvez voir y pénètre ou y termine son tour, vous pouvez la forcer à effectuer un jet de sauvegarde de Sagesse. En cas d'échec, la cible subit 4d6 dégâts psychiques et l'état À terre, et vous pouvez la repousser jusqu'à 3 mètres. En cas de réussite, la cible subit seulement la moitié des dégâts. Une créature n'effectue ce jet qu'une seule fois par tour.

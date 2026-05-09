@@ -18,10 +18,14 @@ translations:
     duration: 8 hours
     materialDescription: a silver whistle
     description: |-
-      You conjure a phantom watchdog in an unoccupied space that you can see within range. The hound remains for the duration or until the two of you are more than 300 feet apart from each other.\
-      No one but you can see the hound, and it is intangible and invulnerable. When a Small or larger creature comes within 30 feet of it without first speaking the password that you specify when you cast this spell, the hound starts barking loudly. The hound has Truesight with a range of 30 feet.\
-      At the start of each of your turns, the hound attempts to bite one enemy within 5 feet of it. That enemy must succeed on a Dexterity saving throw or take 4d8 Force damage.\
-      On your later turns, you can take a Magic action to move the hound up to 30 feet.\
+      You conjure a phantom watchdog in an unoccupied space that you can see within range. The hound remains for the duration or until the two of you are more than 300 feet apart from each other.
+      
+      No one but you can see the hound, and it is intangible and invulnerable. When a Small or larger creature comes within 30 feet of it without first speaking the password that you specify when you cast this spell, the hound starts barking loudly. The hound has Truesight with a range of 30 feet.
+      
+      At the start of each of your turns, the hound attempts to bite one enemy within 5 feet of it. That enemy must succeed on a Dexterity saving throw or take 4d8 Force damage.
+      
+      On your later turns, you can take a Magic action to move the hound up to 30 feet.
+      
   fr:
     name: Chien de garde de Mordenkainen
     castingTime: Action
@@ -29,7 +33,10 @@ translations:
     duration: 8 heures
     materialDescription: un sifflet en argent
     description: |-
-      Vous invoquez un chien de garde fantôme dans un espace libre que vous pouvez voir à portée. Le chien reste là pendant toute la durée du sort ou jusqu'à ce que vous soyez à plus de 90 mètres l'un de l'autre.\
-      Personne d'autre que vous ne peut voir le chien, et il est intangible et invulnérable. Lorsqu'une créature de taille P ou supérieure s'approche à 9 mètres ou moins de lui sans prononcer au préalable le mot de passe spécifié lors du lancement du sort, le chien se met à aboyer bruyamment. Il possède Vision véritable avec une portée de 9 mètres.\
-      Au début de chacun de vos tours, le chien de garde tente de mordre un ennemi dans un rayon de 1,50 mètre. Cet ennemi doit réussir un jet de sauvegarde de Dextérité ou subir 4d8 dégâts de Force.\
-      Lors de vos tours suivants, vous pouvez prendre une action Magie pour déplacer le chien jusqu'à 9 mètres.\
+      Vous invoquez un chien de garde fantôme dans un espace libre que vous pouvez voir à portée. Le chien reste là pendant toute la durée du sort ou jusqu'à ce que vous soyez à plus de 90 mètres l'un de l'autre.
+      
+      Personne d'autre que vous ne peut voir le chien, et il est intangible et invulnérable. Lorsqu'une créature de taille P ou supérieure s'approche à 9 mètres ou moins de lui sans prononcer au préalable le mot de passe spécifié lors du lancement du sort, le chien se met à aboyer bruyamment. Il possède Vision véritable avec une portée de 9 mètres.
+      
+      Au début de chacun de vos tours, le chien de garde tente de mordre un ennemi dans un rayon de 1,50 mètre. Cet ennemi doit réussir un jet de sauvegarde de Dextérité ou subir 4d8 dégâts de Force.
+      
+      Lors de vos tours suivants, vous pouvez prendre une action Magie pour déplacer le chien jusqu'à 9 mètres.

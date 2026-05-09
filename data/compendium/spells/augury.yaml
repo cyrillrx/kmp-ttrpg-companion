@@ -21,7 +21,7 @@ translations:
     materialDescription: special marked sticks, bones, cards, or other divinatory
       tokens worth 25+ GP
     description: |-
-      You receive an omen from an otherworldly entity about the results of a course of action that you plan to take within the next 30 minutes. The DM chooses the omen from the Omens table.\
+      You receive an omen from an otherworldly entity about the results of a course of action that you plan to take within the next 30 minutes. The DM chooses the omen from the Omens table.
 
       | Omen | For Results That Will Be... |
       | --- | --- |
@@ -30,9 +30,12 @@ translations:
       | Weal and woe | Good and bad |
       | Indifference | Neither good nor bad |
 
-      \
-      The spell doesn't account for circumstances, such as other spells, that might change the results.\
-      If you cast the spell more than once before finishing a Long Rest, there is a cumulative 25 percent chance for each casting after the first that you get no answer.\
+
+      
+      The spell doesn't account for circumstances, such as other spells, that might change the results.
+      
+      If you cast the spell more than once before finishing a Long Rest, there is a cumulative 25 percent chance for each casting after the first that you get no answer.
+      
   fr:
     name: Augure
     castingTime: 1 minute ou Rituel
@@ -41,7 +44,7 @@ translations:
     materialDescription: cartes, os ou bâtonnets gravés spécialement, ou autres objets
       divinatoires comparables, d'une valeur minimale de 25 po
     description: |-
-      Vous recevez un présage d'une entité surnaturelle concernant les résultats d'une action que vous prévoyez d'entreprendre dans les 30 prochaines minutes. Le MD choisit le présage dans la table ci-dessous.\
+      Vous recevez un présage d'une entité surnaturelle concernant les résultats d'une action que vous prévoyez d'entreprendre dans les 30 prochaines minutes. Le MD choisit le présage dans la table ci-dessous.
 
       | Présage | Pour une issue qui s'annonce... |
       | --- | --- |
@@ -50,6 +53,8 @@ translations:
       | Fortune et misère | Favorable et défavorable |
       | Indifférence | Ni favorable ni défavorable |
 
-      \
-      Le sort ne tient pas compte des circonstances, telles que d'autres sorts, qui pourraient modifier les résultats.\
-      Si vous lancez le sort plus d'une fois avant de terminer un Repos long, il y a 25 % de chances cumulatives pour chaque lancement après le premier que vous n'obteniez aucune réponse.\
+
+      
+      Le sort ne tient pas compte des circonstances, telles que d'autres sorts, qui pourraient modifier les résultats.
+      
+      Si vous lancez le sort plus d'une fois avant de terminer un Repos long, il y a 25 % de chances cumulatives pour chaque lancement après le premier que vous n'obteniez aucune réponse.

@@ -8,11 +8,13 @@ translations:
     name: Mariner's Armor
     subtype: Any Light, Medium, or Heavy
     description: |-
-      While wearing this armor, you have a Swim Speed equal to your Speed. In addition, if you start your turn underwater with 0 Hit Points, you immediately regain 1d4 Hit Points. The armor can't heal anyone again until the next dawn.\
+      While wearing this armor, you have a Swim Speed equal to your Speed. In addition, if you start your turn underwater with 0 Hit Points, you immediately regain 1d4 Hit Points. The armor can't heal anyone again until the next dawn.
+      
       The armor is decorated with fish and shell motifs.
   fr:
     name: Armure du matelot
     subtype: légère, intermédiaire ou lourde
     description: |-
-      Lorsque vous portez cette armure, vous avez une Vitesse de nage égale à votre Vitesse. De plus, si vous commencez votre tour sous l'eau avec 0 point de vie, vous regagnez immédiatement 1d4 points de vie. L'armure ne peut plus soigner personne avant l'aube suivante.\
+      Lorsque vous portez cette armure, vous avez une Vitesse de nage égale à votre Vitesse. De plus, si vous commencez votre tour sous l'eau avec 0 point de vie, vous regagnez immédiatement 1d4 points de vie. L'armure ne peut plus soigner personne avant l'aube suivante.
+      
       L'armure est décorée de motifs de poissons et de coquillages.

@@ -19,8 +19,10 @@ translations:
     duration: Concentration, up to 1 minute
     materialDescription: null
     description: |-
-      A willing creature you touch is imbued with bravery. Until the spell ends, the creature is immune to the Frightened condition and gains Temporary Hit Points equal to your spellcasting ability modifier at the start of each of its turns.\
-      ***Using a Higher-Level Spell Slot***. You can target one additional creature for each spell slot level above 1.\
+      A willing creature you touch is imbued with bravery. Until the spell ends, the creature is immune to the Frightened condition and gains Temporary Hit Points equal to your spellcasting ability modifier at the start of each of its turns.
+      
+      ***Using a Higher-Level Spell Slot***. You can target one additional creature for each spell slot level above 1.
+      
   fr:
     name: Héroïsme
     castingTime: Action
@@ -28,5 +30,6 @@ translations:
     duration: Concentration, jusqu'à 1 minute
     materialDescription: null
     description: |-
-      Une créature consentante que vous touchez est imprégnée de bravoure. Jusqu'à la fin du sort, elle est immunisée contre l'état Effrayé et gagne des points de vie temporaires égaux au modificateur de votre caractéristique d'incantation au début de chacun de ses tours.\
-      ***Emplacement de niveau supérieur***. Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 1.\
+      Une créature consentante que vous touchez est imprégnée de bravoure. Jusqu'à la fin du sort, elle est immunisée contre l'état Effrayé et gagne des points de vie temporaires égaux au modificateur de votre caractéristique d'incantation au début de chacun de ses tours.
+      
+      ***Emplacement de niveau supérieur***. Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 1.

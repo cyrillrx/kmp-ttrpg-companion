@@ -126,14 +126,18 @@ translations:
     description: |-
       ## Traits
 
-      Résistance légendaire (3/jour, ou 4/jour dans son antre).\
-      Ombre vivante.\
+      Résistance légendaire (3/jour, ou 4/jour dans son antre).
+      
+      Ombre vivante.
+      
       Sensibilité au soleil.
 
       ## Actions
 
-      Attaques multiples.\
-      Saignée.\
+      Attaques multiples.
+      
+      Saignée.
+      
       Souffle d'ombre (recharge 5–6).
 
       ## Actions Bonus
@@ -144,7 +148,8 @@ translations:
 
       Utilisations d'action Légendaire : 3 (4 dans son antre).
 
-      Assaut incisif.\
+      Assaut incisif.
+      
       Voile d'ombre.
     senses: Vision aveugle 9 m, Vision dans le noir 36 m, Perception passive 21
     languages:

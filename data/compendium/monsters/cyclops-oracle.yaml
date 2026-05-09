@@ -99,7 +99,8 @@ translations:
 
       ***Spellcasting***. The cyclops casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 16):
 
-      2/day each: *[Arcane Eye](https://www.aidedd.org/spell/arcane-eye), [Detect Magic](https://www.aidedd.org/spell/detect-magic),* \
+      2/day each: *[Arcane Eye](https://www.aidedd.org/spell/arcane-eye), [Detect Magic](https://www.aidedd.org/spell/detect-magic),*
+      
       1/day: *[Legend Lore](https://www.aidedd.org/spell/legend-lore)*
 
       ## Reactions
@@ -114,9 +115,12 @@ translations:
     description: |-
       ## Actions
 
-      Attaques multiples.\
-      Frappe radiant.\
-      Rai de lumière.\
+      Attaques multiples.
+      
+      Frappe radiant.
+      
+      Rai de lumière.
+      
       Incantation.
 
       ## Réactions

@@ -106,9 +106,12 @@ translations:
     description: |-
       ## Actions
 
-      Attaques multiples.\
-      Bec.\
-      Coup.\
+      Attaques multiples.
+      
+      Bec.
+      
+      Coup.
+      
       Tentacules.
     senses: Vision dans le noir 18 m, Perception passive 12
     languages: []

@@ -8,25 +8,35 @@ translations:
     name: Rod of Alertness
     subtype: null
     description: |-
-      This rod has the following properties.\
-      **Alertness**. While holding the rod, you have Advantage on Wisdom (Perception) checks and on Initiative rolls.\
-      **Spells**. While holding the rod, you can cast the following spells from it:\
-      • *[Detect Evil and Good](https://www.aidedd.org/spell/detect-evil-and-good)*\
-      • *[Detect Magic](https://www.aidedd.org/spell/detect-magic)*\
-      • *[Detect Poison and Disease](https://www.aidedd.org/spell/detect-poison-and-disease)*\
-      • *[See Invisibility](https://www.aidedd.org/spell/see-invisibility)*\
-      **Protective Aura**. As a Magic action, you can plant the haft end of the rod in the ground, whereupon the rod's head sheds Bright Light in a 60-foot radius and Dim Light for an additional 60 feet. While in that Bright Light, you and your allies gain a +1 bonus to Armor Class and saving throws and can sense the location of any Invisible creature that is also in the Bright Light.\
+      This rod has the following properties.
+      
+      **Alertness**. While holding the rod, you have Advantage on Wisdom (Perception) checks and on Initiative rolls.
+      
+      **Spells**. While holding the rod, you can cast the following spells from it:
+      
+      - *[Detect Evil and Good](https://www.aidedd.org/spell/detect-evil-and-good)*
+      - *[Detect Magic](https://www.aidedd.org/spell/detect-magic)*
+      - *[Detect Poison and Disease](https://www.aidedd.org/spell/detect-poison-and-disease)*
+      - *[See Invisibility](https://www.aidedd.org/spell/see-invisibility)*
+      
+      **Protective Aura**. As a Magic action, you can plant the haft end of the rod in the ground, whereupon the rod's head sheds Bright Light in a 60-foot radius and Dim Light for an additional 60 feet. While in that Bright Light, you and your allies gain a +1 bonus to Armor Class and saving throws and can sense the location of any Invisible creature that is also in the Bright Light.
+      
       The rod's head stops glowing and the effect ends after 10 minutes or when a creature takes a Magic action to pull the rod from the ground. Once used, this property can't be used again until the next dawn.
   fr:
     name: Sceptre de vigilance
     subtype: null
     description: |-
-      Ce sceptre possède les propriétés suivantes :\
-      **Vigilance**. Lorsque vous tenez le sceptre, vous bénéficiez d'un Avantage aux jets de Sagesse (Perception) et aux jets d'Initiative.\
-      **Sorts**. Lorsque vous tenez le sceptre, vous pouvez lancer les sorts suivants :\
-      • *[détection du mal et du bien](https://www.aidedd.org/spell/fr/detection-du-mal-et-du-bien)*\
-      • *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie)*\
-      • *[détection du poison et des maladies](https://www.aidedd.org/spell/fr/detection-du-poison-et-des-maladies)*\
-      • *[détection de l'invisibilité](https://www.aidedd.org/spell/fr/detection-de-l-invisibilite)*\
-      **Aura de protection**. Par une action Magie, vous pouvez planter l'extrémité du bâton dans le sol. La tête du bâton émet alors une Lumière vive sur un rayon de 18 mètres et une Lumière faible sur 18 mètres supplémentaires. Dans cette Lumière vive, vous et vos alliés bénéficiez d'un bonus de +1 à la CA et aux jets de sauvegarde, et pouvez détecter la position de toute créature invisible se trouvant également dans la Lumière vive.\
+      Ce sceptre possède les propriétés suivantes :
+      
+      **Vigilance**. Lorsque vous tenez le sceptre, vous bénéficiez d'un Avantage aux jets de Sagesse (Perception) et aux jets d'Initiative.
+      
+      **Sorts**. Lorsque vous tenez le sceptre, vous pouvez lancer les sorts suivants :
+      
+      - *[détection du mal et du bien](https://www.aidedd.org/spell/fr/detection-du-mal-et-du-bien)*
+      - *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie)*
+      - *[détection du poison et des maladies](https://www.aidedd.org/spell/fr/detection-du-poison-et-des-maladies)*
+      - *[détection de l'invisibilité](https://www.aidedd.org/spell/fr/detection-de-l-invisibilite)*
+      
+      **Aura de protection**. Par une action Magie, vous pouvez planter l'extrémité du bâton dans le sol. La tête du bâton émet alors une Lumière vive sur un rayon de 18 mètres et une Lumière faible sur 18 mètres supplémentaires. Dans cette Lumière vive, vous et vos alliés bénéficiez d'un bonus de +1 à la CA et aux jets de sauvegarde, et pouvez détecter la position de toute créature invisible se trouvant également dans la Lumière vive.
+      
       La tête du bâton cesse de briller et l'effet prend fin au bout de 10 minutes ou lorsqu'une créature prend une action Magie pour retirer le bâton du sol. Une fois utilisée, cette propriété ne peut plus être utilisée avant l'aube suivante.

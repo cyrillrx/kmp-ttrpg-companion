@@ -18,8 +18,10 @@ translations:
     duration: 1 minute
     materialDescription: a shard of glass from a mirror
     description: |-
-      You ward a creature within range. Until the spell ends, any creature who targets the warded creature with an attack roll or a damaging spell must succeed on a Wisdom saving throw or either choose a new target or lose the attack or spell. This spell doesn't protect the warded creature from areas of effect.\
-      The spell ends if the warded creature makes an attack roll, casts a spell, or deals damage.\
+      You ward a creature within range. Until the spell ends, any creature who targets the warded creature with an attack roll or a damaging spell must succeed on a Wisdom saving throw or either choose a new target or lose the attack or spell. This spell doesn't protect the warded creature from areas of effect.
+      
+      The spell ends if the warded creature makes an attack roll, casts a spell, or deals damage.
+      
   fr:
     name: Sanctuaire
     castingTime: Action bonus
@@ -27,5 +29,6 @@ translations:
     duration: 1 minute
     materialDescription: un éclat de verre issu d'un miroir
     description: |-
-      Vous protégez une créature à portée. Jusqu'à la fin du sort, toute créature qui cible la créature protégée avec un jet d'attaque ou un sort qui inflige des dégâts doit réussir un jet de sauvegarde de Sagesse ou soit choisir une nouvelle cible, soit perdre l'attaque ou le sort. Ce sort ne protège pas la créature protégée des zones d'effet.\
-      Le sort prend fin si la créature protégée effectue un jet d'attaque, lance un sort ou inflige des dégâts.\
+      Vous protégez une créature à portée. Jusqu'à la fin du sort, toute créature qui cible la créature protégée avec un jet d'attaque ou un sort qui inflige des dégâts doit réussir un jet de sauvegarde de Sagesse ou soit choisir une nouvelle cible, soit perdre l'attaque ou le sort. Ce sort ne protège pas la créature protégée des zones d'effet.
+      
+      Le sort prend fin si la créature protégée effectue un jet d'attaque, lance un sort ou inflige des dégâts.

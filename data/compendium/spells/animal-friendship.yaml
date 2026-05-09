@@ -20,8 +20,10 @@ translations:
     duration: 24 hours
     materialDescription: a morsel of food
     description: |-
-      Target a Beast that you can see within range. The target must succeed on a Wisdom saving throw or have the Charmed condition for the duration. If you or one of your allies deals damage to the target, the spell ends.\
-      ***Using a Higher-Level Spell Slot***. You can target one additional Beast for each spell slot level above 1.\
+      Target a Beast that you can see within range. The target must succeed on a Wisdom saving throw or have the Charmed condition for the duration. If you or one of your allies deals damage to the target, the spell ends.
+      
+      ***Using a Higher-Level Spell Slot***. You can target one additional Beast for each spell slot level above 1.
+      
   fr:
     name: Amitié avec les animaux
     castingTime: Action
@@ -29,5 +31,6 @@ translations:
     duration: 24 heures
     materialDescription: un peu de nourriture
     description: |-
-      Ciblez une bête que vous pouvez voir à portée. La cible doit réussir un jet de sauvegarde de Sagesse ou subir l'état Charmé pendant toute la durée du sort. Si vous ou l'un de vos alliés infligez des dégâts à la cible, le sort prend fin.\
-      ***Emplacement de niveau supérieur***. Vous pouvez cibler une bête supplémentaire pour chaque niveau d'emplacement de sort supérieur à 1.\
+      Ciblez une bête que vous pouvez voir à portée. La cible doit réussir un jet de sauvegarde de Sagesse ou subir l'état Charmé pendant toute la durée du sort. Si vous ou l'un de vos alliés infligez des dégâts à la cible, le sort prend fin.
+      
+      ***Emplacement de niveau supérieur***. Vous pouvez cibler une bête supplémentaire pour chaque niveau d'emplacement de sort supérieur à 1.

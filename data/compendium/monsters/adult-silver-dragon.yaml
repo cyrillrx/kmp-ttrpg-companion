@@ -105,7 +105,8 @@ translations:
 
       ***Spellcasting***. The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 19, +11 to hit with spell attacks):
 
-      At Will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Hold Monster](https://www.aidedd.org/spell/hold-monster), [Ice Knife](https://www.aidedd.org/spell/ice-knife), [Shapechange](https://www.aidedd.org/spell/shapechange)* (Beast or Humanoid form only, no Temporary Hit Points gained from the spell, and no Concentration or Temporary Hit Points required to maintain the spell)\
+      At Will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Hold Monster](https://www.aidedd.org/spell/hold-monster), [Ice Knife](https://www.aidedd.org/spell/ice-knife), [Shapechange](https://www.aidedd.org/spell/shapechange)* (Beast or Humanoid form only, no Temporary Hit Points gained from the spell, and no Concentration or Temporary Hit Points required to maintain the spell)
+      
       1/Day Each: *[Ice Storm](https://www.aidedd.org/spell/ice-storm)* (level 5 version), *[Zone of Truth](https://www.aidedd.org/spell/zone-of-truth)*
 
       ## Legendary actions
@@ -137,7 +138,8 @@ translations:
 
       ***Incantation***. Le dragon lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 19, +11 pour toucher) :
 
-      À volonté : *[changement de forme](https://www.aidedd.org/spell/fr/changement-de-forme)* (Bête ou Humanoïde uniquement, le sort ne fait pas gagner de points de vie temporaires, ni Concentration ni points de vie temporaires nécessaires pour maintenir le sort), *couteau de glace,[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), immobilisation de monstre*\
+      À volonté : *[changement de forme](https://www.aidedd.org/spell/fr/changement-de-forme)* (Bête ou Humanoïde uniquement, le sort ne fait pas gagner de points de vie temporaires, ni Concentration ni points de vie temporaires nécessaires pour maintenir le sort), *couteau de glace,[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), immobilisation de monstre*
+      
       1/jour chacun : *tempête de grêle* (au niveau 5), *zone de vérité*
 
       ***Souffle glacial (recharge 5–6)***. *JdS Constitution* : DD 20, chaque créature dans un Cône de 18 m. *Échec* : 54 (12d8) dégâts de froid. *Réussite* : demi-dégâts.

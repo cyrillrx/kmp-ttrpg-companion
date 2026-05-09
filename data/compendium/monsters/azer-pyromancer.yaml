@@ -103,7 +103,8 @@ translations:
 
       ***Spellcasting***. The azer casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 15):
 
-      At will: *[Elementalism](https://www.aidedd.org/spell/elementalism), [Mage Hand](https://www.aidedd.org/spell/mage-hand)*\
+      At will: *[Elementalism](https://www.aidedd.org/spell/elementalism), [Mage Hand](https://www.aidedd.org/spell/mage-hand)*
+      
       1/day: *[Fireball](https://www.aidedd.org/spell/fireball)*
 
       ## Reactions
@@ -118,13 +119,16 @@ translations:
     description: |-
       ## Traits
 
-      Aura de feu.\
+      Aura de feu.
+      
       Illumination.
 
       ## Actions
 
-      Attaques multiples.\
-      Projection ardente.\
+      Attaques multiples.
+      
+      Projection ardente.
+      
       Incantation.
 
       ## Réactions

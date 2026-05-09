@@ -8,11 +8,13 @@ translations:
     name: Potion of Mind Reading
     subtype: null
     description: |-
-      When you drink this potion, you gain the effect of the *[Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts)* spell (save DC 13) for 10 minutes (no Concentration required).\
+      When you drink this potion, you gain the effect of the *[Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts)* spell (save DC 13) for 10 minutes (no Concentration required).
+      
       This potion's dense, purple liquid has an ovoid cloud of pink floating in it.
   fr:
     name: Potion de lecture des pensées
     subtype: null
     description: |-
-      Lorsque vous buvez cette potion, vous bénéficiez de l'effet du sort *[détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees)* (sauvegarde DD 13) pendant 10 minutes (aucune concentration requise).\
+      Lorsque vous buvez cette potion, vous bénéficiez de l'effet du sort *[détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees)* (sauvegarde DD 13) pendant 10 minutes (aucune concentration requise).
+      
       Le liquide violet dense de cette potion contient un nuage rose ovoïde.

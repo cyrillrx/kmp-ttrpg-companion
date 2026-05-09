@@ -21,9 +21,12 @@ translations:
     materialDescription: incense worth 250+ GP, which the spell consumes, and four
       ivory strips worth 50+ GP each
     description: |-
-      Name or describe a famous person, place, or object. The spell brings to your mind a brief summary of the significant lore about that famous thing, as described by the DM.\
-      The lore might consist of important details, amusing revelations, or even secret lore that has never been widely known. The more information you already know about the thing, the more precise and detailed the information you receive is. That information is accurate but might be couched in figurative language or poetry, as determined by the DM.\
-      If the famous thing you chose isn't actually famous, you hear sad musical notes played on a trombone, and the spell fails.\
+      Name or describe a famous person, place, or object. The spell brings to your mind a brief summary of the significant lore about that famous thing, as described by the DM.
+      
+      The lore might consist of important details, amusing revelations, or even secret lore that has never been widely known. The more information you already know about the thing, the more precise and detailed the information you receive is. That information is accurate but might be couched in figurative language or poetry, as determined by the DM.
+      
+      If the famous thing you chose isn't actually famous, you hear sad musical notes played on a trombone, and the spell fails.
+      
   fr:
     name: Mythes et légendes
     castingTime: 10 minutes
@@ -32,6 +35,8 @@ translations:
     materialDescription: encens d'une valeur minimale de 250 po, que le sort consomme,
       et quatre lamelles d'ivoire d'une valeur minimale de 50 po chacune
     description: |-
-      Nommez ou décrivez une personne, un lieu ou un objet célèbre. Le sort vous donne un bref résumé des informations importantes concernant cet objet, telles que décrites par le MD.\
-      Ces informations peuvent contenir des détails importants, des révélations amusantes, voire des secrets inconnus du grand public. Plus vous en savez sur cet objet, plus les informations reçues sont précises et détaillées. Ces informations sont exactes, mais peuvent être formulées au moyen d'un langage figuratif ou poétique, selon le choix du MD.\
-      Si l'objet célèbre que vous avez choisi n'est pas réellement célèbre, vous entendez des notes de musique tristes jouées au trombone, et le sort échoue.\
+      Nommez ou décrivez une personne, un lieu ou un objet célèbre. Le sort vous donne un bref résumé des informations importantes concernant cet objet, telles que décrites par le MD.
+      
+      Ces informations peuvent contenir des détails importants, des révélations amusantes, voire des secrets inconnus du grand public. Plus vous en savez sur cet objet, plus les informations reçues sont précises et détaillées. Ces informations sont exactes, mais peuvent être formulées au moyen d'un langage figuratif ou poétique, selon le choix du MD.
+      
+      Si l'objet célèbre que vous avez choisi n'est pas réellement célèbre, vous entendez des notes de musique tristes jouées au trombone, et le sort échoue.

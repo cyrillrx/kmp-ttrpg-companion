@@ -8,11 +8,13 @@ translations:
     name: Wand of Pyrotechnics
     subtype: null
     description: |-
-      This wand has 7 charges. While holding it, you can take a Magic action to expend 1 charge and create a harmless burst of multicolored light at a point you can see up to 120 feet away. The burst of light is accompanied by a crackling noise that can be heard up to 300 feet away. The light is as bright as a torch flame but lasts only a second.\
+      This wand has 7 charges. While holding it, you can take a Magic action to expend 1 charge and create a harmless burst of multicolored light at a point you can see up to 120 feet away. The burst of light is accompanied by a crackling noise that can be heard up to 300 feet away. The light is as bright as a torch flame but lasts only a second.
+      
       **Regaining Charges**. The wand regains 1d6 + 1 expended charges daily at dawn. If you expend the wand's last charge, roll 1d20. On a 1, the wand erupts in a harmless pyrotechnic display and is destroyed.
   fr:
     name: Baguette du pyrotechnicien
     subtype: null
     description: |-
-      Cette baguette possède 7 charges. Lorsque vous la tenez, vous pouvez prendre une action Magie pour dépenser 1 charge et créer une explosion de lumière multicolore inoffensive en un point que vous pouvez voir dans un rayon de 36 mètres. Cette explosion est accompagnée d'un crépitement audible jusqu'à 90 mètres. La lumière est aussi intense qu'une flamme de torche, mais ne dure qu'une seconde.\
+      Cette baguette possède 7 charges. Lorsque vous la tenez, vous pouvez prendre une action Magie pour dépenser 1 charge et créer une explosion de lumière multicolore inoffensive en un point que vous pouvez voir dans un rayon de 36 mètres. Cette explosion est accompagnée d'un crépitement audible jusqu'à 90 mètres. La lumière est aussi intense qu'une flamme de torche, mais ne dure qu'une seconde.
+      
       **Récupération des charges**. La baguette récupère 1d6 + 1 charges dépensées chaque jour à l'aube. Si vous dépensez la dernière charge de la baguette, lancez 1d20. Sur un 1, la baguette explose dans un feu d'artifice inoffensif et est détruite.

@@ -23,8 +23,10 @@ translations:
     duration: Concentration, up to 1 hour
     materialDescription: fur or a feather
     description: |-
-      You touch a creature and choose Strength, Dexterity, Intelligence, Wisdom, or Charisma. For the duration, the target has Advantage on ability checks using the chosen ability.\
-      ***Using a Higher-Level Spell Slot***. You can target one additional creature for each spell slot level above 2. You can choose a different ability for each target.\
+      You touch a creature and choose Strength, Dexterity, Intelligence, Wisdom, or Charisma. For the duration, the target has Advantage on ability checks using the chosen ability.
+      
+      ***Using a Higher-Level Spell Slot***. You can target one additional creature for each spell slot level above 2. You can choose a different ability for each target.
+      
   fr:
     name: Amélioration de caractéristique
     castingTime: Action
@@ -32,5 +34,6 @@ translations:
     duration: Concentration, jusqu'à 1 heure
     materialDescription: touffe de fourrure ou plume
     description: |-
-      Vous touchez une créature et choisissez entre Force, Dextérité, Intelligence, Sagesse ou Charisme. Pendant toute la durée du sort, la cible obtient un Avantage aux jets de caractéristique utilisant la caractéristique choisie.\
-      ***Emplacement de niveau supérieur***. Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 2. Vous pouvez choisir une caractéristique différente pour chaque cible.\
+      Vous touchez une créature et choisissez entre Force, Dextérité, Intelligence, Sagesse ou Charisme. Pendant toute la durée du sort, la cible obtient un Avantage aux jets de caractéristique utilisant la caractéristique choisie.
+      
+      ***Emplacement de niveau supérieur***. Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 2. Vous pouvez choisir une caractéristique différente pour chaque cible.

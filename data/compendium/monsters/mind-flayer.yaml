@@ -103,7 +103,8 @@ translations:
 
       ***Spellcasting***. The mind flayer casts one of the following spells, requiring no spell components and using Intelligence as the spellcasting ability (spell save DC 15):
 
-      At will: *[Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts)*\
+      At will: *[Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts)*
+      
       1/day each: *[Dominate Monster](https://www.aidedd.org/spell/dominate-monster), [Plane Shift](https://www.aidedd.org/spell/plane-shift)* (self only)
     senses: Darkvision 120 ft., Passive Perception 16
     languages:
@@ -127,7 +128,8 @@ translations:
 
       ***Incantation***. Le flagelleur mental lance l'un des sorts suivants sans composantes de sort, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 15) :
 
-      À volonté : *[détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees)*\
+      À volonté : *[détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees)*
+      
       1/jour chacun : *[domination de monstre](https://www.aidedd.org/spell/fr/domination-de-monstre), [changement de plan](https://www.aidedd.org/spell/fr/changement-de-plan)* (soi-même uniquement)
     senses: Vision dans le noir 36 m, Perception passive 16
     languages:

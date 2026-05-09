@@ -21,8 +21,10 @@ translations:
     duration: Concentration, up to 1 minute
     materialDescription: a white feather
     description: |-
-      Each creature in a 30-foot Cone must succeed on a Wisdom saving throw or drop whatever it is holding and have the Frightened condition for the duration.\
-      A Frightened creature takes the Dash action and moves away from you by the safest route on each of its turns unless there is nowhere to move. If the creature ends its turn in a space where it doesn't have line of sight to you, the creature makes a Wisdom saving throw. On a successful save, the spell ends on that creature.\
+      Each creature in a 30-foot Cone must succeed on a Wisdom saving throw or drop whatever it is holding and have the Frightened condition for the duration.
+      
+      A Frightened creature takes the Dash action and moves away from you by the safest route on each of its turns unless there is nowhere to move. If the creature ends its turn in a space where it doesn't have line of sight to you, the creature makes a Wisdom saving throw. On a successful save, the spell ends on that creature.
+      
   fr:
     name: Peur
     castingTime: Action
@@ -30,4 +32,4 @@ translations:
     duration: Concentration, jusqu'à 1 minute
     materialDescription: une plume blanche
     description: |-
-      Toute créature dans un Cône de 9 mètres doit réussir un jet de sauvegarde de Sagesse ou lâcher ce qu'elle tient et subir l'état Effrayé pendant toute la durée du sort. Une créature effrayée prend l'action Pointe et s'éloigne de vous par le chemin le plus sûr à chacun de ses tours, sauf si elle n'a aucun endroit où se déplacer. Si la créature termine son tour dans une case où elle n'a pas de ligne de vue vers vous, elle effectue un jet de sauvegarde de Sagesse. En cas de réussite, le sort prend fin sur cette créature.\
+      Toute créature dans un Cône de 9 mètres doit réussir un jet de sauvegarde de Sagesse ou lâcher ce qu'elle tient et subir l'état Effrayé pendant toute la durée du sort. Une créature effrayée prend l'action Pointe et s'éloigne de vous par le chemin le plus sûr à chacun de ses tours, sauf si elle n'a aucun endroit où se déplacer. Si la créature termine son tour dans une case où elle n'a pas de ligne de vue vers vous, elle effectue un jet de sauvegarde de Sagesse. En cas de réussite, le sort prend fin sur cette créature.

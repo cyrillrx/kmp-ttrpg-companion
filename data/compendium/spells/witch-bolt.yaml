@@ -20,9 +20,12 @@ translations:
     duration: Concentration, up to 1 minute
     materialDescription: a twig struck by lightning
     description: |-
-      A beam of crackling energy lances toward a creature within range, forming a sustained arc of lightning between you and the target. Make a ranged spell attack against it. On a hit, the target takes 2d12 Lightning damage.\
-      On each of your subsequent turns, you can take a Bonus Action to deal 1d12 Lightning damage to the target automatically, even if the first attack missed. The spell ends if the target is ever outside the spell's range or if it has Total Cover from you.\
-      ***Using a Higher-Level Spell Slot***. The initial damage increases by 1d12 for each spell slot level above 1.\
+      A beam of crackling energy lances toward a creature within range, forming a sustained arc of lightning between you and the target. Make a ranged spell attack against it. On a hit, the target takes 2d12 Lightning damage.
+      
+      On each of your subsequent turns, you can take a Bonus Action to deal 1d12 Lightning damage to the target automatically, even if the first attack missed. The spell ends if the target is ever outside the spell's range or if it has Total Cover from you.
+      
+      ***Using a Higher-Level Spell Slot***. The initial damage increases by 1d12 for each spell slot level above 1.
+      
   fr:
     name: Trait ensorcelé
     castingTime: Action
@@ -30,6 +33,8 @@ translations:
     duration: Concentration, jusqu'à 1 minute
     materialDescription: une petite branche frappée par la foudre
     description: |-
-      Un rayon d'énergie crépitante se dirige vers une créature à portée, formant un arc de foudre entre vous et la cible. Effectuez une attaque de sort à distance contre elle. Si l'attaque touche, la cible subit 2d12 dégâts de foudre.\
-      À chacun de vos tours suivants, vous pouvez prendre une action Bonus pour infliger automatiquement 1d12 dégâts de foudre à la cible, même si la première attaque a échoué. Le sort prend fin si la cible se trouve hors de portée du sort ou si elle bénéficie d'un Abri total contre vous.\
-      ***Emplacement de niveau supérieur***. Les dégâts initiaux augmentent de 1d12 pour chaque niveau d'emplacement de sort supérieur à 1.\
+      Un rayon d'énergie crépitante se dirige vers une créature à portée, formant un arc de foudre entre vous et la cible. Effectuez une attaque de sort à distance contre elle. Si l'attaque touche, la cible subit 2d12 dégâts de foudre.
+      
+      À chacun de vos tours suivants, vous pouvez prendre une action Bonus pour infliger automatiquement 1d12 dégâts de foudre à la cible, même si la première attaque a échoué. Le sort prend fin si la cible se trouve hors de portée du sort ou si elle bénéficie d'un Abri total contre vous.
+      
+      ***Emplacement de niveau supérieur***. Les dégâts initiaux augmentent de 1d12 pour chaque niveau d'emplacement de sort supérieur à 1.

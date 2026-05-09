@@ -20,10 +20,14 @@ translations:
     duration: Instantaneous
     materialDescription: a diamond worth 500+ GP, which the spell consumes
     description: |-
-      With a touch, you revive a dead creature if it has been dead no longer than 10 days and it wasn't Undead when it died.\
-      The creature returns to life with 1 Hit Point. This spell also neutralizes any poisons that affected the creature at the time of death.\
-      This spell closes all mortal wounds, but it doesn't restore missing body parts. If the creature is lacking body parts or organs integral for its survival—its head, for instance—the spell automatically fails.\
-      Coming back from the dead is an ordeal. The target takes a −4 penalty to D20 Tests. Every time the target finishes a Long Rest, the penalty is reduced by 1 until it becomes 0.\
+      With a touch, you revive a dead creature if it has been dead no longer than 10 days and it wasn't Undead when it died.
+      
+      The creature returns to life with 1 Hit Point. This spell also neutralizes any poisons that affected the creature at the time of death.
+      
+      This spell closes all mortal wounds, but it doesn't restore missing body parts. If the creature is lacking body parts or organs integral for its survival—its head, for instance—the spell automatically fails.
+      
+      Coming back from the dead is an ordeal. The target takes a −4 penalty to D20 Tests. Every time the target finishes a Long Rest, the penalty is reduced by 1 until it becomes 0.
+      
   fr:
     name: Rappel à la vie
     castingTime: 1 heure
@@ -31,7 +35,10 @@ translations:
     duration: Instantanée
     materialDescription: un diamant d'une valeur minimale de 500 po, que le sort consomme
     description: |-
-      D'un simple contact, vous ressuscitez une créature morte depuis au plus 10 jours et qui n'était pas un mort-vivant au moment de sa mort.\
-      La créature revient à la vie avec 1 point de vie. Ce sort neutralise également les poisons qui l'ont affectée au moment de sa mort.\
-      Ce sort guérit toutes les blessures mortelles, mais ne restaure pas les parties du corps manquantes. Si la créature ne possède plus des parties de son corps ou des organes essentiels à sa survie (sa tête, par exemple), le sort échoue automatiquement.\
-      Revenir d'entre les morts est une épreuve. La cible subit un malus de -4 à ses jets de d20. Chaque fois que la cible termine un Repos long, le malus est réduit de 1 jusqu'à atteindre 0.\
+      D'un simple contact, vous ressuscitez une créature morte depuis au plus 10 jours et qui n'était pas un mort-vivant au moment de sa mort.
+      
+      La créature revient à la vie avec 1 point de vie. Ce sort neutralise également les poisons qui l'ont affectée au moment de sa mort.
+      
+      Ce sort guérit toutes les blessures mortelles, mais ne restaure pas les parties du corps manquantes. Si la créature ne possède plus des parties de son corps ou des organes essentiels à sa survie (sa tête, par exemple), le sort échoue automatiquement.
+      
+      Revenir d'entre les morts est une épreuve. La cible subit un malus de -4 à ses jets de d20. Chaque fois que la cible termine un Repos long, le malus est réduit de 1 jusqu'à atteindre 0.

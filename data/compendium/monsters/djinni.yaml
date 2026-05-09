@@ -109,8 +109,10 @@ translations:
 
       ***Spellcasting***. The djinni casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 17):
 
-      At Will: *[Detect Evil and Good](https://www.aidedd.org/spell/detect-evil-and-good), [Detect Magic](https://www.aidedd.org/spell/detect-magic)*\
-      2/Day Each: *[Create Food and Water](https://www.aidedd.org/spell/create-food-and-water)* (can create wine instead of water), *[Tongues](https://www.aidedd.org/spell/tongues), Wind Walk*\
+      At Will: *[Detect Evil and Good](https://www.aidedd.org/spell/detect-evil-and-good), [Detect Magic](https://www.aidedd.org/spell/detect-magic)*
+      
+      2/Day Each: *[Create Food and Water](https://www.aidedd.org/spell/create-food-and-water)* (can create wine instead of water), *[Tongues](https://www.aidedd.org/spell/tongues), Wind Walk*
+      
       1/Day Each: *[Creation](https://www.aidedd.org/spell/creation), [Gaseous Form](https://www.aidedd.org/spell/gaseous-form), [Invisibility](https://www.aidedd.org/spell/invisibility), [Major Image](https://www.aidedd.org/spell/major-image), [Plane Shift](https://www.aidedd.org/spell/plane-shift)*
     senses: Darkvision 120 ft., Passive Perception 13
     languages:
@@ -139,8 +141,10 @@ translations:
 
       ***Incantation***. Le djinn lance l'un des sorts suivants, sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 17) :
 
-      À volonté : *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), [détection du mal et du bien](https://www.aidedd.org/spell/fr/detection-du-mal-et-du-bien)*\
-      2/jour chacun : *création de nourriture et d'eau* (peut produire du vin plutôt que de l'eau), *don des langues, vent divin*\
+      À volonté : *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), [détection du mal et du bien](https://www.aidedd.org/spell/fr/detection-du-mal-et-du-bien)*
+      
+      2/jour chacun : *création de nourriture et d'eau* (peut produire du vin plutôt que de l'eau), *don des langues, vent divin*
+      
       1/jour chacun : *création,[changement de plan](https://www.aidedd.org/spell/fr/changement-de-plan), forme gazeuse, [image majeure](https://www.aidedd.org/spell/fr/image-majeure), [invisibilité](https://www.aidedd.org/spell/fr/invisibilite)*
     senses: Vision dans le noir 36 m, Perception passive 13
     languages:

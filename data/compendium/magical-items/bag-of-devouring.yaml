@@ -8,15 +8,21 @@ translations:
     name: Bag of Devouring
     subtype: null
     description: |-
-      This bag resembles a *[Bag of Holding](./bag-of-holding)* but is a feeding orifice for a gigantic extradimensional creature. Turning the bag inside out closes the orifice.\
-      The extradimensional creature attached to the bag can sense whatever is placed inside the bag. Animal or vegetable matter placed wholly in the bag is devoured and lost forever. When part of a living creature is placed in the bag, as happens when someone reaches inside it, there is a 50 percent chance that the creature is pulled inside the bag. A creature inside the bag can take an action to try to escape, doing so with a successful DC 15 Strength (Athletics) check. Another creature can take an action to reach into the bag to pull a creature out, doing so with a successful DC 20 Strength (Athletics) check, provided the puller isn't pulled inside the bag first. Any creature that starts its turn inside the bag is devoured, its body destroyed.\
-      Inanimate objects can be stored in the bag, which can hold a cubic foot of such material. However, once each day, the bag swallows any objects inside it and spits them out into another plane of existence. The DM determines the time and plane.\
+      This bag resembles a *[Bag of Holding](./bag-of-holding)* but is a feeding orifice for a gigantic extradimensional creature. Turning the bag inside out closes the orifice.
+      
+      The extradimensional creature attached to the bag can sense whatever is placed inside the bag. Animal or vegetable matter placed wholly in the bag is devoured and lost forever. When part of a living creature is placed in the bag, as happens when someone reaches inside it, there is a 50 percent chance that the creature is pulled inside the bag. A creature inside the bag can take an action to try to escape, doing so with a successful DC 15 Strength (Athletics) check. Another creature can take an action to reach into the bag to pull a creature out, doing so with a successful DC 20 Strength (Athletics) check, provided the puller isn't pulled inside the bag first. Any creature that starts its turn inside the bag is devoured, its body destroyed.
+      
+      Inanimate objects can be stored in the bag, which can hold a cubic foot of such material. However, once each day, the bag swallows any objects inside it and spits them out into another plane of existence. The DM determines the time and plane.
+      
       If the bag is pierced or torn, it is destroyed, and anything contained within it is transported to a random location on the Astral Plane.
   fr:
     name: Sac dévoreur
     subtype: null
     description: |-
-      Ce sac ressemble à un *[sac sans fond](./fr/sac-sans-fond)* , mais il sert d'orifice d'alimentation à une gigantesque créature extradimensionnelle. Retourner le sac comme un gant ferme l'orifice.\
-      La créature extradimensionnelle attachée au sac peut sentir ce qui s'y trouve. Toute matière animale ou végétale placée entièrement dans le sac est dévorée et perdue à jamais. Lorsqu'une partie d'une créature vivante est placée dans le sac, comme c'est le cas lorsque quelqu'un y met la main, il y a 50 % de chances que la créature soit aspirée à l'intérieur. Une créature à l'intérieur du sac peut tenter de s'échapper en réussissant un jet de Force (Athlétisme) DD 15. Une autre créature peut tenter d'atteindre l'intérieur du sac et en extraire une autre, en réussissant un jet de Force (Athlétisme) DD 20, à condition que la personne qui tire ne soit pas aspirée à l'intérieur du sac en premier. Toute créature qui commence son tour à l'intérieur du sac est dévorée et son corps détruit.\
-      Des objets inanimés peuvent être stockés dans le sac, qui peut contenir 30 litres de ces matériaux. Cependant, une fois par jour, le sac avale tous les objets qu'il contient et les recrache dans un autre plan d'existence. Le MD détermine l'heure et le plan.\
+      Ce sac ressemble à un *[sac sans fond](./fr/sac-sans-fond)* , mais il sert d'orifice d'alimentation à une gigantesque créature extradimensionnelle. Retourner le sac comme un gant ferme l'orifice.
+      
+      La créature extradimensionnelle attachée au sac peut sentir ce qui s'y trouve. Toute matière animale ou végétale placée entièrement dans le sac est dévorée et perdue à jamais. Lorsqu'une partie d'une créature vivante est placée dans le sac, comme c'est le cas lorsque quelqu'un y met la main, il y a 50 % de chances que la créature soit aspirée à l'intérieur. Une créature à l'intérieur du sac peut tenter de s'échapper en réussissant un jet de Force (Athlétisme) DD 15. Une autre créature peut tenter d'atteindre l'intérieur du sac et en extraire une autre, en réussissant un jet de Force (Athlétisme) DD 20, à condition que la personne qui tire ne soit pas aspirée à l'intérieur du sac en premier. Toute créature qui commence son tour à l'intérieur du sac est dévorée et son corps détruit.
+      
+      Des objets inanimés peuvent être stockés dans le sac, qui peut contenir 30 litres de ces matériaux. Cependant, une fois par jour, le sac avale tous les objets qu'il contient et les recrache dans un autre plan d'existence. Le MD détermine l'heure et le plan.
+      
       Si le sac est percé ou déchiré, il est détruit et tout ce qu'il contient est transporté vers un lieu aléatoire du plan Astral.

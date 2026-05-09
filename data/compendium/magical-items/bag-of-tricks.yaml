@@ -8,9 +8,12 @@ translations:
     name: Bag of Tricks
     subtype: null
     description: |-
-      This bag made from gray, rust, or tan cloth appears empty. Reaching inside the bag, however, reveals the presence of a small, fuzzy object.\
-      You can take a Magic action to pull the fuzzy object from the bag and throw it up to 20 feet. When the object lands, it transforms into a creature you determine by rolling on the table that corresponds to the bag's color. See the *Monster Manual* for the creature's stat block. The creature vanishes at the next dawn or when it is reduced to 0 Hit Points.\
-      The creature is Friendly to you and your allies, and it acts immediately after you on your Initiative count. You can take a Bonus Action to command how the creature moves and what action it takes on its next turn, such as attacking an enemy. In the absence of such orders, the creature acts in a fashion appropriate to its nature.\
+      This bag made from gray, rust, or tan cloth appears empty. Reaching inside the bag, however, reveals the presence of a small, fuzzy object.
+      
+      You can take a Magic action to pull the fuzzy object from the bag and throw it up to 20 feet. When the object lands, it transforms into a creature you determine by rolling on the table that corresponds to the bag's color. See the *Monster Manual* for the creature's stat block. The creature vanishes at the next dawn or when it is reduced to 0 Hit Points.
+      
+      The creature is Friendly to you and your allies, and it acts immediately after you on your Initiative count. You can take a Bonus Action to command how the creature moves and what action it takes on its next turn, such as attacking an enemy. In the absence of such orders, the creature acts in a fashion appropriate to its nature.
+      
       Once three fuzzy objects have been pulled from the bag, the bag can't be used again until the next dawn.
 
       ### Gray Bag of Tricks
@@ -55,9 +58,12 @@ translations:
     name: Sac à malices
     subtype: null
     description: |-
-      Ce sac en tissu gris, rouille ou brun semble vide. Cependant, en y plongeant la main, on découvre la présence d'un petit objet pelucheux.\
-      Vous pouvez prendre une action Magie pour extraire l'objet pelucheux du sac et le lancer jusqu'à 6 mètres. Lorsqu'il touche le sol, l'objet se transforme en une créature que vous déterminez en lançant un dé sur la table correspondant à la couleur du sac. Consultez le *Manuel des Monstres* pour le profil de la créature. La créature disparaît à l'aube suivante ou lorsqu'elle est réduite à 0 point de vie.\
-      La créature est amicale envers vous et vos alliés, et elle agit immédiatement après vous dans l'ordre de l'Initiative. Vous pouvez prendre une action Bonus pour commander les déplacements de la créature et son action lors de son prochain tour, comme attaquer un ennemi. En l'absence de tels ordres, la créature agit de manière appropriée à sa nature.\
+      Ce sac en tissu gris, rouille ou brun semble vide. Cependant, en y plongeant la main, on découvre la présence d'un petit objet pelucheux.
+      
+      Vous pouvez prendre une action Magie pour extraire l'objet pelucheux du sac et le lancer jusqu'à 6 mètres. Lorsqu'il touche le sol, l'objet se transforme en une créature que vous déterminez en lançant un dé sur la table correspondant à la couleur du sac. Consultez le *Manuel des Monstres* pour le profil de la créature. La créature disparaît à l'aube suivante ou lorsqu'elle est réduite à 0 point de vie.
+      
+      La créature est amicale envers vous et vos alliés, et elle agit immédiatement après vous dans l'ordre de l'Initiative. Vous pouvez prendre une action Bonus pour commander les déplacements de la créature et son action lors de son prochain tour, comme attaquer un ennemi. En l'absence de tels ordres, la créature agit de manière appropriée à sa nature.
+      
       Une fois trois objets pelucheux extraits du sac, celui-ci ne peut plus être utilisé avant l'aube suivante.
 
       ### Sac à malices gris

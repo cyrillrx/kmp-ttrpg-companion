@@ -146,8 +146,10 @@ translations:
 
       ## Actions
 
-      Attaques multiples.\
-      Morsure.\
+      Attaques multiples.
+      
+      Morsure.
+      
       Rayons oculaires.
 
       ## Actions Bonus
@@ -158,7 +160,8 @@ translations:
 
       Utilisations d'action Légendaire : 3 (4 dans son antre).
 
-      Mastication.\
+      Mastication.
+      
       Regard de biais.
     senses: Vision dans le noir 36 m, Perception passive 22
     languages:

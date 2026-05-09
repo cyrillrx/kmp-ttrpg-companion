@@ -19,11 +19,16 @@ translations:
     duration: Concentration, up to 10 minutes
     materialDescription: null
     description: |-
-      You gain the ability to move or manipulate creatures or objects by thought. When you cast the spell and as a Magic action on your later turns before the spell ends, you can exert your will on one creature or object that you can see within range, causing the appropriate effect below. You can affect the same target round after round or choose a new one at any time. If you switch targets, the prior target is no longer affected by the spell.\
-      **Creature**. You can try to move a Huge or smaller creature. The target must succeed on a Strength saving throw, or you move it up to 30 feet in any direction within the spell's range. Until the end of your next turn, the creature has the Restrained condition, and if you lift it into the air, it is suspended there. It falls at the end of your next turn unless you use this option on it again and it fails the save.\
-      **Object**. You can try to move a Huge or smaller object. If the object isn't being worn or carried, you automatically move it up to 30 feet in any direction within the spell's range.\
-      If the object is worn or carried by a creature, that creature must succeed on a Strength saving throw, or you pull the object away and move it up to 30 feet in any direction within the spell's range.\
-      You can exert fine control on objects with your telekinetic grip, such as manipulating a simple tool, opening a door or a container, stowing or retrieving an item from an open container, or pouring the contents from a vial.\
+      You gain the ability to move or manipulate creatures or objects by thought. When you cast the spell and as a Magic action on your later turns before the spell ends, you can exert your will on one creature or object that you can see within range, causing the appropriate effect below. You can affect the same target round after round or choose a new one at any time. If you switch targets, the prior target is no longer affected by the spell.
+      
+      **Creature**. You can try to move a Huge or smaller creature. The target must succeed on a Strength saving throw, or you move it up to 30 feet in any direction within the spell's range. Until the end of your next turn, the creature has the Restrained condition, and if you lift it into the air, it is suspended there. It falls at the end of your next turn unless you use this option on it again and it fails the save.
+      
+      **Object**. You can try to move a Huge or smaller object. If the object isn't being worn or carried, you automatically move it up to 30 feet in any direction within the spell's range.
+      
+      If the object is worn or carried by a creature, that creature must succeed on a Strength saving throw, or you pull the object away and move it up to 30 feet in any direction within the spell's range.
+      
+      You can exert fine control on objects with your telekinetic grip, such as manipulating a simple tool, opening a door or a container, stowing or retrieving an item from an open container, or pouring the contents from a vial.
+      
   fr:
     name: Télékinésie
     castingTime: Action
@@ -31,8 +36,12 @@ translations:
     duration: Concentration, jusqu'à 10 minutes
     materialDescription: null
     description: |-
-      Vous obtenez la capacité de déplacer ou de manipuler des créatures ou des objets par la pensée. Lorsque vous lancez le sort, et par une action Magie lors de vos derniers tours avant la fin du sort, vous pouvez exercer votre volonté sur une créature ou un objet que vous pouvez voir à portée, provoquant l'effet approprié ci-dessous. Vous pouvez affecter la même cible round après round ou en choisir une nouvelle à tout moment. Si vous changez de cible, la cible précédente n'est plus affectée par le sort.\
-      **Créature**. Vous pouvez tenter de déplacer une créature de taille TG ou inférieure. La cible doit réussir un jet de sauvegarde de Force, ou vous la déplacez jusqu'à 9 mètres dans n'importe quelle direction à portée du sort. Jusqu'à la fin de votre prochain tour, la créature a l'état Entravé, et si vous la soulevez dans les airs, elle y reste suspendue. Elle retombe à la fin de votre prochain tour, sauf si vous utilisez à nouveau cette option et qu'elle échoue à son jet de sauvegarde.\
-      **Objet**. Vous pouvez tenter de déplacer un objet de taille TG ou inférieure. Si l'objet n'est pas porté, vous le déplacez automatiquement jusqu'à 9 mètres dans n'importe quelle direction à portée du sort.\
-      Si l'objet est porté par une créature, celle-ci doit réussir un jet de sauvegarde de Force, sinon vous éloignez l'objet et le déplacez jusqu'à 9 mètres dans n'importe quelle direction à portée du sort.\
-      Vous pouvez exercer un contrôle précis sur les objets grâce à votre prise télékinétique, comme manipuler un outil simple, ouvrir une porte ou un contenant, ranger ou récupérer un objet d'un contenant ouvert, ou verser le contenu d'une fiole.\
+      Vous obtenez la capacité de déplacer ou de manipuler des créatures ou des objets par la pensée. Lorsque vous lancez le sort, et par une action Magie lors de vos derniers tours avant la fin du sort, vous pouvez exercer votre volonté sur une créature ou un objet que vous pouvez voir à portée, provoquant l'effet approprié ci-dessous. Vous pouvez affecter la même cible round après round ou en choisir une nouvelle à tout moment. Si vous changez de cible, la cible précédente n'est plus affectée par le sort.
+      
+      **Créature**. Vous pouvez tenter de déplacer une créature de taille TG ou inférieure. La cible doit réussir un jet de sauvegarde de Force, ou vous la déplacez jusqu'à 9 mètres dans n'importe quelle direction à portée du sort. Jusqu'à la fin de votre prochain tour, la créature a l'état Entravé, et si vous la soulevez dans les airs, elle y reste suspendue. Elle retombe à la fin de votre prochain tour, sauf si vous utilisez à nouveau cette option et qu'elle échoue à son jet de sauvegarde.
+      
+      **Objet**. Vous pouvez tenter de déplacer un objet de taille TG ou inférieure. Si l'objet n'est pas porté, vous le déplacez automatiquement jusqu'à 9 mètres dans n'importe quelle direction à portée du sort.
+      
+      Si l'objet est porté par une créature, celle-ci doit réussir un jet de sauvegarde de Force, sinon vous éloignez l'objet et le déplacez jusqu'à 9 mètres dans n'importe quelle direction à portée du sort.
+      
+      Vous pouvez exercer un contrôle précis sur les objets grâce à votre prise télékinétique, comme manipuler un outil simple, ouvrir une porte ou un contenant, ranger ou récupérer un objet d'un contenant ouvert, ou verser le contenu d'une fiole.

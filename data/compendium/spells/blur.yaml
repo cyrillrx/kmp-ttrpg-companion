@@ -19,7 +19,8 @@ translations:
     duration: Concentration, up to 1 minute
     materialDescription: null
     description: |-
-      Your body becomes blurred. For the duration, any creature has Disadvantage on attack rolls against you. An attacker is immune to this effect if it perceives you with Blindsight or Truesight.\
+      Your body becomes blurred. For the duration, any creature has Disadvantage on attack rolls against you. An attacker is immune to this effect if it perceives you with Blindsight or Truesight.
+      
   fr:
     name: Flou
     castingTime: Action
@@ -27,4 +28,4 @@ translations:
     duration: Concentration, jusqu'à 1 minute
     materialDescription: null
     description: |-
-      Votre corps devient flou. Pendant la durée du sort, toutes les créatures ont un Désavantage aux jets d'attaque contre vous. Un attaquant est immunisé contre cet effet s'il vous perçoit avec Vision aveugle ou Vision véritable.\
+      Votre corps devient flou. Pendant la durée du sort, toutes les créatures ont un Désavantage aux jets d'attaque contre vous. Un attaquant est immunisé contre cet effet s'il vous perçoit avec Vision aveugle ou Vision véritable.

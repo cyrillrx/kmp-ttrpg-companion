@@ -8,13 +8,17 @@ translations:
     name: Talisman of Pure Good
     subtype: null
     description: |-
-      This talisman is a mighty symbol of goodness. A Fiend or an Undead that touches the talisman takes 8d6 Radiant damage and takes the damage again each time it ends its turn holding or carrying the talisman.\
-      **Holy Symbol**. You can use the talisman as a Holy Symbol. You gain a +2 bonus to spell attack rolls while you wear or hold it.\
+      This talisman is a mighty symbol of goodness. A Fiend or an Undead that touches the talisman takes 8d6 Radiant damage and takes the damage again each time it ends its turn holding or carrying the talisman.
+      
+      **Holy Symbol**. You can use the talisman as a Holy Symbol. You gain a +2 bonus to spell attack rolls while you wear or hold it.
+      
       **Pure Rebuke**. The talisman has 7 charges. While wearing or holding the talisman, you can take a Magic action to expend 1 charge and target one creature you can see on the ground within 120 feet of yourself. A flaming fissure opens under the target, and the target makes a DC 20 Dexterity saving throw. If the target is a Fiend or an Undead, it has Disadvantage on the save. On a failed save, the target falls into the fissure and is destroyed, leaving no remains. On a successful save, the target isn't cast into the fissure but takes 4d6 Psychic damage from the ordeal. In either case, the fissure then closes, leaving no trace of its existence. When you expend the last charge, the talisman disperses into motes of golden light and is destroyed.
   fr:
     name: Talisman du bien ultime
     subtype: null
     description: |-
-      Ce talisman est un puissant symbole de bonté. Un Fiélon ou un Mort-vivant qui le touche subit 8d6 dégâts radiants et les subit à nouveau à la fin de chacun de ses tours tant qu'il le porte.\
-      **Symbole sacré**. Vous pouvez utiliser le talisman comme symbole sacré. Vous obtenez un bonus de +2 aux jets d'attaque de sort tant que vous le portez.\
+      Ce talisman est un puissant symbole de bonté. Un Fiélon ou un Mort-vivant qui le touche subit 8d6 dégâts radiants et les subit à nouveau à la fin de chacun de ses tours tant qu'il le porte.
+      
+      **Symbole sacré**. Vous pouvez utiliser le talisman comme symbole sacré. Vous obtenez un bonus de +2 aux jets d'attaque de sort tant que vous le portez.
+      
       **Réprimande pure**. Le talisman possède 7 charges. Lorsque vous portez le talisman, vous pouvez prendre une action Magie pour dépenser 1 charge et cibler une créature sur terre que vous pouvez voir dans un rayon de 36 mètres. Une fissure enflammée s'ouvre sous la cible, et celle-ci effectue un jet de sauvegarde de Dextérité DD 20. Si la cible est un Fiélon ou un Mort-vivant, elle a un Désavantage au jet de sauvegarde. En cas d'échec, la cible tombe dans la fissure et est détruite, ne laissant aucune trace. En cas de réussite, la cible n'est pas projetée dans la fissure, mais subit 4d6 dégâts psychiques. Dans les deux cas, la fissure se referme, ne laissant aucune trace de son existence. Lorsque vous dépensez la dernière charge, le talisman se disperse en particules de lumière dorée et est détruit.

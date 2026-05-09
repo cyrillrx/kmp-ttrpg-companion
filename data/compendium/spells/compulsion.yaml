@@ -18,8 +18,10 @@ translations:
     duration: Concentration, up to 1 minute
     materialDescription: null
     description: |-
-      Each creature of your choice that you can see within range must succeed on a Wisdom saving throw or have the Charmed condition until the spell ends.\
-      For the duration, you can take a Bonus Action to designate a direction that is horizontal to you. Each Charmed target must use as much of its movement as possible to move in that direction on its next turn, taking the safest route. After moving in this way, a target repeats the save, ending the spell on itself on a success.\
+      Each creature of your choice that you can see within range must succeed on a Wisdom saving throw or have the Charmed condition until the spell ends.
+      
+      For the duration, you can take a Bonus Action to designate a direction that is horizontal to you. Each Charmed target must use as much of its movement as possible to move in that direction on its next turn, taking the safest route. After moving in this way, a target repeats the save, ending the spell on itself on a success.
+      
   fr:
     name: Compulsion
     castingTime: Action
@@ -27,5 +29,6 @@ translations:
     duration: Concentration, jusqu'à 1 minute
     materialDescription: null
     description: |-
-      Toute créature de votre choix que vous pouvez voir à portée doit réussir un jet de sauvegarde de Sagesse ou subir l'état Charmé jusqu'à la fin du sort.\
-      Pendant la durée du sort, vous pouvez prendre une action Bonus pour désigner une direction horizontale. Chaque cible charmée doit utiliser autant de mouvement que possible pour se déplacer dans cette direction lors de son prochain tour, en empruntant l'itinéraire le plus sûr. Après ce mouvement, la cible renouvelle son jet de sauvegarde, mettant fin au sort sur elle-même en cas de réussite.\
+      Toute créature de votre choix que vous pouvez voir à portée doit réussir un jet de sauvegarde de Sagesse ou subir l'état Charmé jusqu'à la fin du sort.
+      
+      Pendant la durée du sort, vous pouvez prendre une action Bonus pour désigner une direction horizontale. Chaque cible charmée doit utiliser autant de mouvement que possible pour se déplacer dans cette direction lors de son prochain tour, en empruntant l'itinéraire le plus sûr. Après ce mouvement, la cible renouvelle son jet de sauvegarde, mettant fin au sort sur elle-même en cas de réussite.

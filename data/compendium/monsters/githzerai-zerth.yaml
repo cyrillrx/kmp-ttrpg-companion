@@ -97,7 +97,8 @@ translations:
 
       ***Spellcasting***. The githzerai casts one of the following spells, requiring no spell components and using Wisdom as the spellcasting ability (spell save DC 14):
 
-      At will: *[Mage Hand](https://www.aidedd.org/spell/mage-hand)* (the hand is Invisible)\
+      At will: *[Mage Hand](https://www.aidedd.org/spell/mage-hand)* (the hand is Invisible)
+      
       1/day each: *[Phantasmal Killer](https://www.aidedd.org/spell/phantasmal-killer)* (level 6 version), *[Plane Shift](https://www.aidedd.org/spell/plane-shift), [See Invisibility](https://www.aidedd.org/spell/see-invisibility)*
 
       ## Bonus actions
@@ -117,8 +118,10 @@ translations:
     description: |-
       ## Actions
 
-      Attaques multiples.\
-      Frappe psi.\
+      Attaques multiples.
+      
+      Frappe psi.
+      
       Incantation.
 
       ## Actions Bonus

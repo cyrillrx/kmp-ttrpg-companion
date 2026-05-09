@@ -19,15 +19,24 @@ translations:
     duration: Until dispelled
     materialDescription: a statuette of the target worth 5,000+ GP
     description: |-
-      You create a magical restraint to hold a creature that you can see within range. The target must make a Wisdom saving throw. On a successful save, the target is unaffected, and it is immune to this spell for the next 24 hours. On a failed save, the target is imprisoned. While imprisoned, the target doesn't need to breathe, eat, or drink, and it doesn't age. Divination spells can't locate or perceive the imprisoned target, and the target can't teleport.\
-      Until the spell ends, the target is also affected by one of the following effects of your choice:\
-      **Burial**. The target is entombed beneath the earth in a hollow globe of magical force that is just large enough to contain the target. Nothing can pass into or out of the globe.\
-      **Chaining**. Chains firmly rooted in the ground hold the target in place. The target has the Restrained condition and can't be moved by any means.\
-      **Hedged Prison**. The target is trapped in a demiplane that is warded against teleportation and planar travel. The demiplane is your choice of a labyrinth, a cage, a tower, or the like.\
-      **Minimus Containment**. The target becomes 1 inch tall and is trapped inside an indestructible gemstone or a similar object. Light can pass through the gemstone (allowing the target to see out and other creatures to see in), but nothing else can pass through by any means.\
-      **Slumber**. The target has the Unconscious condition and can't be awoken.\
-      ***Ending the Spell***. When you cast the spell, specify a trigger that will end it. The trigger can be as simple or as elaborate as you choose, but the DM must agree that it has a high likelihood of happening within the next decade. The trigger must be an observable action, such as someone making a particular offering at the temple of your god, saving your true love, or defeating a specific monster.\
-      A *[Dispel Magic](./dispel-magic)* spell can end the spell only if it is cast with a level 9 spell slot, targeting either the prison or the component used to create it.\
+      You create a magical restraint to hold a creature that you can see within range. The target must make a Wisdom saving throw. On a successful save, the target is unaffected, and it is immune to this spell for the next 24 hours. On a failed save, the target is imprisoned. While imprisoned, the target doesn't need to breathe, eat, or drink, and it doesn't age. Divination spells can't locate or perceive the imprisoned target, and the target can't teleport.
+      
+      Until the spell ends, the target is also affected by one of the following effects of your choice:
+      
+      **Burial**. The target is entombed beneath the earth in a hollow globe of magical force that is just large enough to contain the target. Nothing can pass into or out of the globe.
+      
+      **Chaining**. Chains firmly rooted in the ground hold the target in place. The target has the Restrained condition and can't be moved by any means.
+      
+      **Hedged Prison**. The target is trapped in a demiplane that is warded against teleportation and planar travel. The demiplane is your choice of a labyrinth, a cage, a tower, or the like.
+      
+      **Minimus Containment**. The target becomes 1 inch tall and is trapped inside an indestructible gemstone or a similar object. Light can pass through the gemstone (allowing the target to see out and other creatures to see in), but nothing else can pass through by any means.
+      
+      **Slumber**. The target has the Unconscious condition and can't be awoken.
+      
+      ***Ending the Spell***. When you cast the spell, specify a trigger that will end it. The trigger can be as simple or as elaborate as you choose, but the DM must agree that it has a high likelihood of happening within the next decade. The trigger must be an observable action, such as someone making a particular offering at the temple of your god, saving your true love, or defeating a specific monster.
+      
+      A *[Dispel Magic](./dispel-magic)* spell can end the spell only if it is cast with a level 9 spell slot, targeting either the prison or the component used to create it.
+      
   fr:
     name: Emprisonnement
     castingTime: 1 minute
@@ -36,12 +45,20 @@ translations:
     materialDescription: une statuette à l'effigie de la cible d'une valeur minimale
       de 5000 po
     description: |-
-      Vous créez des entraves magiques pour retenir une créature que vous voyez à portée. La cible effectue un jet de sauvegarde de Sagesse. En cas de réussite, la cible n'est pas affectée et elle est immunisée contre ce sort pendant 24 heures. En cas d'échec, la cible est emprisonnée. Tant qu'elle est emprisonnée, la cible se passe de respirer, de s'alimenter et de s'hydrater, et ne vieillit pas. Les sorts de Divination ne permettent pas de localiser ni de percevoir la cible emprisonnée, qui ne peut en outre pas user de téléportation.\
-      Jusqu'à la fin du sort, la cible est aussi affectée par l'un des effets suivants (choisissez) :\
-      **Chaînes**. Des chaînes fermement ancrées au sol retiennent la cible. La cible subit l'état Entravé et rien ne peut la déplacer.\
-      **Détention miniature**. La cible est réduite à une taille de 2,50 cm pour se retrouver bloquée dans une gemme indestructible ou un objet équivalent. La lumière traverse cette pierre (ce qui permet à la cible de voir à l'extérieur et aux autres créatures de voir à l'intérieur), mais rien d'autre ne peut y pénétrer.\
-      **Enterrement**. La cible est inhumée dans les entrailles de la terre, à l'intérieur d'un globe creux de force magique juste assez grand pour la contenir. Rien ne peut entrer dans le globe ni en sortir.\
-      **Léthargie**. La cible subit l'état Inconscient, et rien ne peut la réveiller.\
-      **Prison isolée**. La cible est bloquée dans un demi-plan protégé contre la téléportation et le voyage planaire. Vous choisissez si ce demi-plan est un labyrinthe, une cage, une tour ou autre structure confinée.\
-      ***Mettre fin au sort***. À l'incantation du sort, spécifiez un déclencheur qui y mettra un terme. Le déclencheur peut être aussi spécifique et sophistiqué que vous le souhaitez, mais le MD doit convenir qu'il a une grande chance de se présenter dans la décennie à venir. Il peut aussi se traduire par une action perceptible, comme une offrande spécifique au temple de votre divinité, le sauvetage de votre grand amour ou l'élimination d'une menace donnée.\
-      Le sort *[dissipation de la magie](./fr/dissipation-de-la-magie)* ne peut mettre un terme au sort que s'il est lancé au 9e niveau et s'il cible soit la prison, soit la composante utilisée pour créer celle-ci.\
+      Vous créez des entraves magiques pour retenir une créature que vous voyez à portée. La cible effectue un jet de sauvegarde de Sagesse. En cas de réussite, la cible n'est pas affectée et elle est immunisée contre ce sort pendant 24 heures. En cas d'échec, la cible est emprisonnée. Tant qu'elle est emprisonnée, la cible se passe de respirer, de s'alimenter et de s'hydrater, et ne vieillit pas. Les sorts de Divination ne permettent pas de localiser ni de percevoir la cible emprisonnée, qui ne peut en outre pas user de téléportation.
+      
+      Jusqu'à la fin du sort, la cible est aussi affectée par l'un des effets suivants (choisissez) :
+      
+      **Chaînes**. Des chaînes fermement ancrées au sol retiennent la cible. La cible subit l'état Entravé et rien ne peut la déplacer.
+      
+      **Détention miniature**. La cible est réduite à une taille de 2,50 cm pour se retrouver bloquée dans une gemme indestructible ou un objet équivalent. La lumière traverse cette pierre (ce qui permet à la cible de voir à l'extérieur et aux autres créatures de voir à l'intérieur), mais rien d'autre ne peut y pénétrer.
+      
+      **Enterrement**. La cible est inhumée dans les entrailles de la terre, à l'intérieur d'un globe creux de force magique juste assez grand pour la contenir. Rien ne peut entrer dans le globe ni en sortir.
+      
+      **Léthargie**. La cible subit l'état Inconscient, et rien ne peut la réveiller.
+      
+      **Prison isolée**. La cible est bloquée dans un demi-plan protégé contre la téléportation et le voyage planaire. Vous choisissez si ce demi-plan est un labyrinthe, une cage, une tour ou autre structure confinée.
+      
+      ***Mettre fin au sort***. À l'incantation du sort, spécifiez un déclencheur qui y mettra un terme. Le déclencheur peut être aussi spécifique et sophistiqué que vous le souhaitez, mais le MD doit convenir qu'il a une grande chance de se présenter dans la décennie à venir. Il peut aussi se traduire par une action perceptible, comme une offrande spécifique au temple de votre divinité, le sauvetage de votre grand amour ou l'élimination d'une menace donnée.
+      
+      Le sort *[dissipation de la magie](./fr/dissipation-de-la-magie)* ne peut mettre un terme au sort que s'il est lancé au 9e niveau et s'il cible soit la prison, soit la composante utilisée pour créer celle-ci.

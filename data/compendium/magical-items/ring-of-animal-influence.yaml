@@ -8,15 +8,18 @@ translations:
     name: Ring of Animal Influence
     subtype: null
     description: |-
-      This ring has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing the ring, you can expend 1 charge to cast one of the following spells (save DC 13) from it:\
-      • *[Animal Friendship](https://www.aidedd.org/spell/animal-friendship)*\
-      • *[Fear](https://www.aidedd.org/spell/fear)* (affects Beasts only)\
-      • *[Speak with Animals](https://www.aidedd.org/spell/speak-with-animals)*
+      This ring has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing the ring, you can expend 1 charge to cast one of the following spells (save DC 13) from it:
+      
+      - *[Animal Friendship](https://www.aidedd.org/spell/animal-friendship)*
+      - *[Fear](https://www.aidedd.org/spell/fear)* (affects Beasts only)
+      - *[Speak with Animals](https://www.aidedd.org/spell/speak-with-animals)*
+      
   fr:
     name: Anneau d'influence animale
     subtype: null
     description: |-
-      Cet anneau possède 3 charges et récupère 1d3 charges dépensées chaque jour à l'aube. Lorsque vous le portez, vous pouvez dépenser 1 charge pour lancer l'un des sorts suivants (sauvegarde DD 13) :\
-      • *[amitié avec les animaux](https://www.aidedd.org/spell/fr/amitie-avec-les-animaux)*\
-      • *[peur](https://www.aidedd.org/spell/fr/peur-terreur)* (affecte uniquement les Bêtes)\
-      • *[communication avec les animaux](https://www.aidedd.org/spell/fr/communication-avec-les-animaux)*
+      Cet anneau possède 3 charges et récupère 1d3 charges dépensées chaque jour à l'aube. Lorsque vous le portez, vous pouvez dépenser 1 charge pour lancer l'un des sorts suivants (sauvegarde DD 13) :
+      
+      - *[amitié avec les animaux](https://www.aidedd.org/spell/fr/amitie-avec-les-animaux)*
+      - *[peur](https://www.aidedd.org/spell/fr/peur-terreur)* (affecte uniquement les Bêtes)
+      - *[communication avec les animaux](https://www.aidedd.org/spell/fr/communication-avec-les-animaux)*

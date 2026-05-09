@@ -21,8 +21,10 @@ translations:
     duration: 1 minute
     materialDescription: null
     description: |-
-      One creature that you can see within range must succeed on a Constitution saving throw, or it has the Blinded or Deafened condition (your choice) for the duration. At the end of each of its turns, the target repeats the save, ending the spell on itself on a success.\
-      ***Using a Higher-Level Spell Slot***. You can target one additional creature for each spell slot level above 2.\
+      One creature that you can see within range must succeed on a Constitution saving throw, or it has the Blinded or Deafened condition (your choice) for the duration. At the end of each of its turns, the target repeats the save, ending the spell on itself on a success.
+      
+      ***Using a Higher-Level Spell Slot***. You can target one additional creature for each spell slot level above 2.
+      
   fr:
     name: Cécité/surdité
     castingTime: Action
@@ -30,5 +32,6 @@ translations:
     duration: 1 minute
     materialDescription: null
     description: |-
-      Une créature que vous pouvez voir à portée doit réussir un jet de sauvegarde de Constitution, ou subir l'état Aveuglé ou Assourdi (selon votre choix) pendant toute la durée du sort. À la fin de chacun de ses tours, la cible renouvelle son jet de sauvegarde, mettant fin au sort sur elle-même en cas de réussite.\
-      ***Emplacement de niveau supérieur***. Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 2.\
+      Une créature que vous pouvez voir à portée doit réussir un jet de sauvegarde de Constitution, ou subir l'état Aveuglé ou Assourdi (selon votre choix) pendant toute la durée du sort. À la fin de chacun de ses tours, la cible renouvelle son jet de sauvegarde, mettant fin au sort sur elle-même en cas de réussite.
+      
+      ***Emplacement de niveau supérieur***. Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 2.

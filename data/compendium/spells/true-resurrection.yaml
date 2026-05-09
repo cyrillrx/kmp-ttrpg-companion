@@ -19,9 +19,12 @@ translations:
     duration: Instantaneous
     materialDescription: diamonds worth 25,000+ GP, which the spell consumes
     description: |-
-      You touch a creature that has been dead for no longer than 200 years and that died for any reason except old age. The creature is revived with all its Hit Points.\
-      This spell closes all wounds, neutralizes any poison, cures all magical contagions, and lifts any curses affecting the creature when it died. The spell replaces damaged or missing organs and limbs. If the creature was Undead, it is restored to its non-Undead form.\
-      The spell can provide a new body if the original no longer exists, in which case you must speak the creature's name. The creature then appears in an unoccupied space you choose within 10 feet of you.\
+      You touch a creature that has been dead for no longer than 200 years and that died for any reason except old age. The creature is revived with all its Hit Points.
+      
+      This spell closes all wounds, neutralizes any poison, cures all magical contagions, and lifts any curses affecting the creature when it died. The spell replaces damaged or missing organs and limbs. If the creature was Undead, it is restored to its non-Undead form.
+      
+      The spell can provide a new body if the original no longer exists, in which case you must speak the creature's name. The creature then appears in an unoccupied space you choose within 10 feet of you.
+      
   fr:
     name: Résurrection suprême
     castingTime: 1 heure
@@ -30,6 +33,8 @@ translations:
     materialDescription: des diamants d'une valeur minimale de 25000 po, que le sort
       consomme
     description: |-
-      Vous touchez une créature morte depuis un maximum de 200 ans pour quelque raison que ce soit, hormis de vieillesse. La créature est ranimée avec tous ses points de vie.\
-      Ce sort referme toutes les plaies, neutralise tous les poisons, soigne toutes les maladies magiques et lève toutes les malédictions qui affectaient la cible à sa mort. Il remplace les organes et membres endommagés ou manquants. Si la créature était un Mort-vivant, elle retrouve sa forme de vivant.\
-      Le sort peut fournir un nouveau corps si celui d'origine n'existe plus, auquel cas vous devez prononcer le nom de la créature. Celle-ci apparaît en un espace inoccupé que vous choisissez dans un rayon de 3 m de vous.\
+      Vous touchez une créature morte depuis un maximum de 200 ans pour quelque raison que ce soit, hormis de vieillesse. La créature est ranimée avec tous ses points de vie.
+      
+      Ce sort referme toutes les plaies, neutralise tous les poisons, soigne toutes les maladies magiques et lève toutes les malédictions qui affectaient la cible à sa mort. Il remplace les organes et membres endommagés ou manquants. Si la créature était un Mort-vivant, elle retrouve sa forme de vivant.
+      
+      Le sort peut fournir un nouveau corps si celui d'origine n'existe plus, auquel cas vous devez prononcer le nom de la créature. Celle-ci apparaît en un espace inoccupé que vous choisissez dans un rayon de 3 m de vous.

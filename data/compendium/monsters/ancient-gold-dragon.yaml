@@ -105,7 +105,8 @@ translations:
 
       ***Spellcasting***. The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 24):
 
-      At Will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Guiding Bolt](https://www.aidedd.org/spell/guiding-bolt)* (level 4 version), *[Shapechange](https://www.aidedd.org/spell/shapechange)* (Beast or Humanoid form only, no Temporary Hit Points gained from the spell, and no Concentration or Temporary Hit Points required to maintain the spell)\
+      At Will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Guiding Bolt](https://www.aidedd.org/spell/guiding-bolt)* (level 4 version), *[Shapechange](https://www.aidedd.org/spell/shapechange)* (Beast or Humanoid form only, no Temporary Hit Points gained from the spell, and no Concentration or Temporary Hit Points required to maintain the spell)
+      
       1/Day Each: *[Flame Strike](https://www.aidedd.org/spell/flame-strike)* (level 6 version), *[Word of Recall](https://www.aidedd.org/spell/word-of-recall), [Zone of Truth](https://www.aidedd.org/spell/zone-of-truth)*
 
       ***Weakening Breath***. *Strength Saving Throw* : DC 24, each creature that isn't currently affected by this breath in a 90-foot Cone. *Failure* : The target has Disadvantage on Strength-based D20 Tests and subtracts 5 (1d10) from its damage rolls. It repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically.
@@ -141,7 +142,8 @@ translations:
 
       ***Incantation***. Le dragon lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 24, +16 pour toucher) :
 
-      À volonté : *[changement de forme](https://www.aidedd.org/spell/fr/changement-de-forme)* (Bête ou Humanoïde uniquement, le sort ne fait pas gagner de points de vie temporaires, ni Concentration ni points de vie temporaires nécessaires pour maintenir le sort), *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), [rayon traçant](https://www.aidedd.org/spell/fr/rayon-tracant)* (au niveau 4)\
+      À volonté : *[changement de forme](https://www.aidedd.org/spell/fr/changement-de-forme)* (Bête ou Humanoïde uniquement, le sort ne fait pas gagner de points de vie temporaires, ni Concentration ni points de vie temporaires nécessaires pour maintenir le sort), *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), [rayon traçant](https://www.aidedd.org/spell/fr/rayon-tracant)* (au niveau 4)
+      
       1/jour chacun : *[colonne de flamme](https://www.aidedd.org/spell/fr/colonne-de-flamme)* (au niveau 6), *mot de retour, zone de vérité*
 
       ***Souffle affaiblissant***. *JdS Force* : DD 24, chaque créature non encore affectée par ce souffle dans un Cône de 27 m. *Échec* : la cible subit un Désavantage aux jets de d20 basés sur la Force et soustrait 5 (1d10) à ses jets de dégâts. Elle réitère le JdS à la fin de chacun de ses tours, et met un terme à l'effet sur elle-même en cas de réussite. Au bout de 1 minute, elle réussit automatiquement ce JdS.

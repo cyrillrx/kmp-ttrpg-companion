@@ -19,18 +19,26 @@ translations:
     duration: 24 hours
     materialDescription: a silver rod worth 10+ GP
     description: |-
-      You create a ward that protects up to 2,500 square feet of floor space. The warded area can be up to 20 feet tall, and you shape it as one 50-foot square, one hundred 5-foot squares that are contiguous, or twenty-five 10-foot squares that are contiguous.\
-      When you cast this spell, you can specify individuals that are unaffected by the spell's effects. You can also specify a password that, when spoken aloud within 5 feet of the warded area, makes the speaker immune to its effects.\
-      The spell creates the effects below within the warded area. *[Dispel Magic](./dispel-magic)* has no effect on *Guards and Wards* itself, but each of the following effects can be dispelled. If all four are dispelled, *Guards and Wards* ends. If you cast the spell every day for 365 days on the same area, the spell thereafter lasts until all its effects are dispelled.\
-      **Corridors**. Fog fills all the warded corridors, making them Heavily Obscured. In addition, at each intersection or branching passage offering a choice of direction, there is a 50 percent chance that a creature other than you believes it is going in the opposite direction from the one it chooses.\
-      **Doors**. All doors in the warded area are magically locked, as if sealed by the *[Arcane Lock](./arcane-lock)* spell. In addition, you can cover up to ten doors with an illusion to make them appear as plain sections of wall.\
-      **Stairs**. Webs fill all stairs in the warded area from top to bottom, as in the Web spell. These strands regrow in 10 minutes if they are destroyed while *Guards and Wards* lasts.\
-      **Other Spell Effect**. Place one of the following magical effects within the warded area:\
-      • *[Dancing Lights](./dancing-lights)* in four corridors, with a simple program that the lights repeat as long as *Guards and Wards* lasts\
-      • *[Magic Mouth](./magic-mouth)* in two locations\
-      • *[Stinking Cloud](./stinking-cloud)* in two locations (the vapors return within 10 minutes if dispersed while *Guards and Wards* lasts)\
-      • *[Gust of Wind](./gust-of-wind)* in one corridor or room (the wind blows continuously while the spell lasts)\
-      • *[Suggestion](./suggestion)* in one 5-foot square; any creature that enters that square receives the suggestion mentally\
+      You create a ward that protects up to 2,500 square feet of floor space. The warded area can be up to 20 feet tall, and you shape it as one 50-foot square, one hundred 5-foot squares that are contiguous, or twenty-five 10-foot squares that are contiguous.
+      
+      When you cast this spell, you can specify individuals that are unaffected by the spell's effects. You can also specify a password that, when spoken aloud within 5 feet of the warded area, makes the speaker immune to its effects.
+      
+      The spell creates the effects below within the warded area. *[Dispel Magic](./dispel-magic)* has no effect on *Guards and Wards* itself, but each of the following effects can be dispelled. If all four are dispelled, *Guards and Wards* ends. If you cast the spell every day for 365 days on the same area, the spell thereafter lasts until all its effects are dispelled.
+      
+      **Corridors**. Fog fills all the warded corridors, making them Heavily Obscured. In addition, at each intersection or branching passage offering a choice of direction, there is a 50 percent chance that a creature other than you believes it is going in the opposite direction from the one it chooses.
+      
+      **Doors**. All doors in the warded area are magically locked, as if sealed by the *[Arcane Lock](./arcane-lock)* spell. In addition, you can cover up to ten doors with an illusion to make them appear as plain sections of wall.
+      
+      **Stairs**. Webs fill all stairs in the warded area from top to bottom, as in the Web spell. These strands regrow in 10 minutes if they are destroyed while *Guards and Wards* lasts.
+      
+      **Other Spell Effect**. Place one of the following magical effects within the warded area:
+      
+      - *[Dancing Lights](./dancing-lights)* in four corridors, with a simple program that the lights repeat as long as *Guards and Wards* lasts
+      - *[Magic Mouth](./magic-mouth)* in two locations
+      - *[Stinking Cloud](./stinking-cloud)* in two locations (the vapors return within 10 minutes if dispersed while *Guards and Wards* lasts)
+      - *[Gust of Wind](./gust-of-wind)* in one corridor or room (the wind blows continuously while the spell lasts)
+      - *[Suggestion](./suggestion)* in one 5-foot square; any creature that enters that square receives the suggestion mentally
+      
   fr:
     name: Protections et sceaux
     castingTime: 1 heure
@@ -38,15 +46,22 @@ translations:
     duration: 24 heures
     materialDescription: un sceptre en argent d'une valeur minimale de 10 po
     description: |-
-      Vous créez une barrière qui protège un espace au sol d'une surface maximale de 225 mètres carrés. La zone protégée peut atteindre 6 m de haut et se présenter comme une zone carrée de 15 m de côté, cent carrés de 1,50 m de côté ou vingt-cinq carrés contigus de 3 m de côté.\
-      À l'incantation du sort, vous pouvez spécifier quels individus ne seront pas affectés par les effets du sort. Vous pouvez également définir un mot de passe immunisant contre ces effets l'individu qui le prononce dans un rayon de 1,50 m de la zone protégée.\
-      Le sort crée les effets ci-après au sein de la zone protégée. *[Dissipation de la magie](./fr/dissipation-de-la-magie)* n'a en soi aucun effet sur *protections et sceaux*, mais chacun des effets suivants peut être dissipé. Si ces quatre effets sont dissipés, *protections et sceaux* prend fin. Si vous lancez quotidiennement ce sort sur la même zone pendant 365 jours, il y persiste jusqu'à ce que tous ses effets soient dissipés.\
-      **Couloirs**. La brume envahit les couloirs protégés, dans lesquels la Visibilité devient nulle. De plus, à chaque intersection ou embranchement qui présente un choix de direction, toute créature autre que vous a 50 % de chances de croire qu'elle a pris une direction autre que celle qu'elle a réellement empruntée, voire radicalement opposée.\
-      **Escaliers**. Tous les escaliers de la zone protégée sont envahis de filandres de la première à la dernière marche (équivalent du sort toile d'araignée). Tant que persiste le sort *protections et sceaux*, cette masse filandreuse se reconstitue en 10 minutes si on la détruit.\
-      **Portes**. Toutes les portes de la zone protégée sont magiquement verrouillées, comme si elles étaient condamnées par le sort *[verrou magique](./fr/verrou-magique)*. De plus, vous pouvez assortir un maximum de dix portes d'une illusion afin qu'elles passent pour de simples pans de mur.\
-      **Autres effets du sort**. Appliquez l'un des effets magiques suivants à la zone protégée :\
-      • *[Lumières dansantes](./fr/lumieres-dansantes)* dans quatre couloirs, avec une séquence simple que les lumières répètent tant que persiste *protections et sceaux*\
-      • *[Bouche magique](./fr/bouche-magique)* en deux endroits\
-      • *[Nuage nauséabond](./fr/nuage-nauseabond)* en deux endroits (les vapeurs se reconstituent en 10 minutes si dispersées tant que persiste *protections et sceaux*)\
-      • *[Bourrasque](./fr/bourrasque)* dans un couloir (le vent y souffle de manière continue tant que le sort persiste)\
-      • *[Suggestion](./fr/suggestion)* dans un carré de 1,50 m de côté ; toute créature qui pénètre dans ce carré reçoit mentalement la suggestion\
+      Vous créez une barrière qui protège un espace au sol d'une surface maximale de 225 mètres carrés. La zone protégée peut atteindre 6 m de haut et se présenter comme une zone carrée de 15 m de côté, cent carrés de 1,50 m de côté ou vingt-cinq carrés contigus de 3 m de côté.
+      
+      À l'incantation du sort, vous pouvez spécifier quels individus ne seront pas affectés par les effets du sort. Vous pouvez également définir un mot de passe immunisant contre ces effets l'individu qui le prononce dans un rayon de 1,50 m de la zone protégée.
+      
+      Le sort crée les effets ci-après au sein de la zone protégée. *[Dissipation de la magie](./fr/dissipation-de-la-magie)* n'a en soi aucun effet sur *protections et sceaux*, mais chacun des effets suivants peut être dissipé. Si ces quatre effets sont dissipés, *protections et sceaux* prend fin. Si vous lancez quotidiennement ce sort sur la même zone pendant 365 jours, il y persiste jusqu'à ce que tous ses effets soient dissipés.
+      
+      **Couloirs**. La brume envahit les couloirs protégés, dans lesquels la Visibilité devient nulle. De plus, à chaque intersection ou embranchement qui présente un choix de direction, toute créature autre que vous a 50 % de chances de croire qu'elle a pris une direction autre que celle qu'elle a réellement empruntée, voire radicalement opposée.
+      
+      **Escaliers**. Tous les escaliers de la zone protégée sont envahis de filandres de la première à la dernière marche (équivalent du sort toile d'araignée). Tant que persiste le sort *protections et sceaux*, cette masse filandreuse se reconstitue en 10 minutes si on la détruit.
+      
+      **Portes**. Toutes les portes de la zone protégée sont magiquement verrouillées, comme si elles étaient condamnées par le sort *[verrou magique](./fr/verrou-magique)*. De plus, vous pouvez assortir un maximum de dix portes d'une illusion afin qu'elles passent pour de simples pans de mur.
+      
+      **Autres effets du sort**. Appliquez l'un des effets magiques suivants à la zone protégée :
+      
+      - *[Lumières dansantes](./fr/lumieres-dansantes)* dans quatre couloirs, avec une séquence simple que les lumières répètent tant que persiste *protections et sceaux*
+      - *[Bouche magique](./fr/bouche-magique)* en deux endroits
+      - *[Nuage nauséabond](./fr/nuage-nauseabond)* en deux endroits (les vapeurs se reconstituent en 10 minutes si dispersées tant que persiste *protections et sceaux*)
+      - *[Bourrasque](./fr/bourrasque)* dans un couloir (le vent y souffle de manière continue tant que le sort persiste)
+      - *[Suggestion](./fr/suggestion)* dans un carré de 1,50 m de côté ; toute créature qui pénètre dans ce carré reçoit mentalement la suggestion

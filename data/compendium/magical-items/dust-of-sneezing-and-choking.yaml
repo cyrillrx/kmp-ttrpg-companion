@@ -8,13 +8,17 @@ translations:
     name: Dust of Sneezing and Choking
     subtype: null
     description: |-
-      Found in a small container, this powder resembles *Dust of Disappearance* , and *[Identify](https://www.aidedd.org/spell/identify)* reveals it to be such. There is enough of it for one use.\
-      As a Utilize action, you can throw the dust into the air, forcing yourself and every creature in a 30-foot Emanation originating from you to make a DC 15 Constitution saving throw. Constructs, Elementals, Oozes, Plants, and Undead succeed on the save automatically.\
+      Found in a small container, this powder resembles *Dust of Disappearance* , and *[Identify](https://www.aidedd.org/spell/identify)* reveals it to be such. There is enough of it for one use.
+      
+      As a Utilize action, you can throw the dust into the air, forcing yourself and every creature in a 30-foot Emanation originating from you to make a DC 15 Constitution saving throw. Constructs, Elementals, Oozes, Plants, and Undead succeed on the save automatically.
+      
       On a failed save, a creature begins sneezing uncontrollably; it has the Incapacitated condition and is suffocating. The creature repeats the save at the end of each of its turns, ending the effect on itself on a success. The effect also ends on any creature targeted by a *[Lesser Restoration](https://www.aidedd.org/spell/lesser-restoration)* spell.
   fr:
     name: Poudre à éternuer
     subtype: null
     description: |-
-      Trouvée dans un petit récipient, cette poudre ressemble à de la *poussière de disparition* , et le sort *[identification](https://www.aidedd.org/spell/fr/identification)* la perçoit comme telle. Il y en a suffisamment pour une utilisation.\
-      Par une action Utilisation, vous pouvez lancer la poussière en l'air, vous obligeant, ainsi que toutes les créatures dans une Émanation de 9 mètres centrée sur vous, à effectuer un jet de sauvegarde de Constitution DD 15. Les Artificiels, Élémentaires, Vases, Plantes et Morts-vivants réussissent automatiquement ce jet de sauvegarde.\
+      Trouvée dans un petit récipient, cette poudre ressemble à de la *poussière de disparition* , et le sort *[identification](https://www.aidedd.org/spell/fr/identification)* la perçoit comme telle. Il y en a suffisamment pour une utilisation.
+      
+      Par une action Utilisation, vous pouvez lancer la poussière en l'air, vous obligeant, ainsi que toutes les créatures dans une Émanation de 9 mètres centrée sur vous, à effectuer un jet de sauvegarde de Constitution DD 15. Les Artificiels, Élémentaires, Vases, Plantes et Morts-vivants réussissent automatiquement ce jet de sauvegarde.
+      
       En cas d'échec, une créature se met à éternuer de manière incontrôlable ; elle subit l'état Incapable d'agir et suffoque. La créature refait le jet de sauvegarde à la fin de chacun de ses tours, mettant fin à l'effet sur elle-même en cas de réussite. L'effet prend également fin sur toute créature ciblée par un sort de *[restauration partielle](https://www.aidedd.org/spell/fr/restauration-partielle)*.

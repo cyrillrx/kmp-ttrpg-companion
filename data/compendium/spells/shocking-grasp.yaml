@@ -19,8 +19,10 @@ translations:
     duration: Instantaneous
     materialDescription: null
     description: |-
-      Lightning springs from you to a creature that you try to touch. Make a melee spell attack against the target. On a hit, the target takes 1d8 Lightning damage, and it can't make Opportunity Attacks until the start of its next turn.\
-      ***Cantrip Upgrade***. The damage increases by 1d8 when you reach levels 5 (2d8), 11 (3d8), and 17 (4d8).\
+      Lightning springs from you to a creature that you try to touch. Make a melee spell attack against the target. On a hit, the target takes 1d8 Lightning damage, and it can't make Opportunity Attacks until the start of its next turn.
+      
+      ***Cantrip Upgrade***. The damage increases by 1d8 when you reach levels 5 (2d8), 11 (3d8), and 17 (4d8).
+      
   fr:
     name: Poigne électrique
     castingTime: Action
@@ -28,5 +30,6 @@ translations:
     duration: Instantanée
     materialDescription: null
     description: |-
-      La foudre jaillit de vous vers une créature que vous tentez de toucher. Effectuez une attaque de sort au corps à corps contre la cible. Si l'attaque touche, la cible subit 1d8 dégâts de foudre et ne peut effectuer d'attaques d'opportunité avant le début de son prochain tour.\
-      ***Amélioration de sort mineur***. Les dégâts augmentent de 1d8 lorsque vous atteignez les niveaux 5 (2d8), 11 (3d8) et 17 (4d8).\
+      La foudre jaillit de vous vers une créature que vous tentez de toucher. Effectuez une attaque de sort au corps à corps contre la cible. Si l'attaque touche, la cible subit 1d8 dégâts de foudre et ne peut effectuer d'attaques d'opportunité avant le début de son prochain tour.
+      
+      ***Amélioration de sort mineur***. Les dégâts augmentent de 1d8 lorsque vous atteignez les niveaux 5 (2d8), 11 (3d8) et 17 (4d8).

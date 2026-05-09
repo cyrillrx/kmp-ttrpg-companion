@@ -19,8 +19,10 @@ translations:
     duration: 8 hours
     materialDescription: null
     description: |-
-      You touch a creature and grant it a measure of protection from death. The first time the target would drop to 0 Hit Points before the spell ends, the target instead drops to 1 Hit Point, and the spell ends.\
-      If the spell is still in effect when the target is subjected to an effect that would kill it instantly without dealing damage, that effect is negated against the target, and the spell ends.\
+      You touch a creature and grant it a measure of protection from death. The first time the target would drop to 0 Hit Points before the spell ends, the target instead drops to 1 Hit Point, and the spell ends.
+      
+      If the spell is still in effect when the target is subjected to an effect that would kill it instantly without dealing damage, that effect is negated against the target, and the spell ends.
+      
   fr:
     name: Protection contre la mort
     castingTime: Action
@@ -28,5 +30,6 @@ translations:
     duration: 8 heures
     materialDescription: null
     description: |-
-      Vous touchez une créature et lui accordez une certaine protection contre la mort. La première fois que la cible aurait dû tomber à 0 point de vie avant la fin du sort, elle tombe à 1 point de vie et le sort prend fin.\
-      Si le sort est toujours actif lorsque la cible subit un effet qui la tuerait instantanément sans lui infliger de dégâts, cet effet est annulé et le sort prend fin.\
+      Vous touchez une créature et lui accordez une certaine protection contre la mort. La première fois que la cible aurait dû tomber à 0 point de vie avant la fin du sort, elle tombe à 1 point de vie et le sort prend fin.
+      
+      Si le sort est toujours actif lorsque la cible subit un effet qui la tuerait instantanément sans lui infliger de dégâts, cet effet est annulé et le sort prend fin.

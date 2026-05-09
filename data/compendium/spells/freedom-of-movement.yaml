@@ -21,9 +21,12 @@ translations:
     duration: 1 hour
     materialDescription: a leather strap
     description: |-
-      You touch a willing creature. For the duration, the target's movement is unaffected by Difficult Terrain, and spells and other magical effects can neither reduce the target's Speed nor cause the target to have the Paralyzed or Restrained conditions. The target also has a Swim Speed equal to its Speed.\
-      In addition, the target can spend 5 feet of movement to automatically escape from nonmagical restraints, such as manacles or a creature imposing the Grappled condition on it.\
-      ***Using a Higher-Level Spell Slot***. You can target one additional creature for each spell slot level above 4.\
+      You touch a willing creature. For the duration, the target's movement is unaffected by Difficult Terrain, and spells and other magical effects can neither reduce the target's Speed nor cause the target to have the Paralyzed or Restrained conditions. The target also has a Swim Speed equal to its Speed.
+      
+      In addition, the target can spend 5 feet of movement to automatically escape from nonmagical restraints, such as manacles or a creature imposing the Grappled condition on it.
+      
+      ***Using a Higher-Level Spell Slot***. You can target one additional creature for each spell slot level above 4.
+      
   fr:
     name: Liberté de mouvement
     castingTime: Action
@@ -31,6 +34,8 @@ translations:
     duration: 1 heure
     materialDescription: une bandelette de cuir
     description: |-
-      Vous touchez une créature consentante. Pendant la durée du sort, les mouvements de la cible ne sont pas affectés par un Terrain difficile, et les sorts et autres effets magiques ne peuvent ni réduire sa Vitesse ni lui infliger les états Paralysé ou Entravé. La cible a également une Vitesse de nage égale à sa Vitesse.\
-      De plus, la cible peut utiliser 1,50 mètre de mouvement pour s'échapper automatiquement des entraves non magiques, comme des menottes ou une créature lui imposant l'état Agrippé.\
-      ***Emplacement de niveau supérieur***. Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 4.\
+      Vous touchez une créature consentante. Pendant la durée du sort, les mouvements de la cible ne sont pas affectés par un Terrain difficile, et les sorts et autres effets magiques ne peuvent ni réduire sa Vitesse ni lui infliger les états Paralysé ou Entravé. La cible a également une Vitesse de nage égale à sa Vitesse.
+      
+      De plus, la cible peut utiliser 1,50 mètre de mouvement pour s'échapper automatiquement des entraves non magiques, comme des menottes ou une créature lui imposant l'état Agrippé.
+      
+      ***Emplacement de niveau supérieur***. Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 4.

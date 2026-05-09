@@ -8,11 +8,13 @@ translations:
     name: Rod of Resurrection
     subtype: null
     description: |-
-      The rod has 5 charges. While you hold it, you can cast one of the following spells from it: *[Heal](https://www.aidedd.org/spell/heal)* (expends 1 charge) or *[Resurrection](https://www.aidedd.org/spell/resurrection)* (expends 5 charges).\
+      The rod has 5 charges. While you hold it, you can cast one of the following spells from it: *[Heal](https://www.aidedd.org/spell/heal)* (expends 1 charge) or *[Resurrection](https://www.aidedd.org/spell/resurrection)* (expends 5 charges).
+      
       The rod regains 1 expended charge daily at dawn. If you expend the last charge, roll 1d20. On a 1, the rod disappears in a harmless burst of radiance.
   fr:
     name: Sceptre de résurrection
     subtype: null
     description: |-
-      Le bâton possède 5 charges. Lorsque vous le tenez, vous pouvez lancer l'un des sorts suivants : *[guérison](https://www.aidedd.org/spell/fr/guerison)* (dépense 1 charge) ou *[résurrection](https://www.aidedd.org/spell/fr/resurrection)* (dépense 5 charges).\
+      Le bâton possède 5 charges. Lorsque vous le tenez, vous pouvez lancer l'un des sorts suivants : *[guérison](https://www.aidedd.org/spell/fr/guerison)* (dépense 1 charge) ou *[résurrection](https://www.aidedd.org/spell/fr/resurrection)* (dépense 5 charges).
+      
       Le bâton récupère 1 charge dépensée chaque jour à l'aube. Si vous dépensez la dernière charge, lancez 1d20. Sur un 1, le bâton disparaît dans un éclat radieux inoffensif.

@@ -8,8 +8,10 @@ translations:
     name: Efreeti Bottle
     subtype: null
     description: |-
-      When you take a Magic action to remove the stopper of this painted brass bottle, a cloud of thick smoke flows out of it. At the end of your turn, the smoke disappears with a flash of harmless fire, and an Efreeti appears in an unoccupied space within 30 feet of you.\
-      The first time the bottle is opened, the DM rolls on the following table to determine what happens.\
+      When you take a Magic action to remove the stopper of this painted brass bottle, a cloud of thick smoke flows out of it. At the end of your turn, the smoke disappears with a flash of harmless fire, and an Efreeti appears in an unoccupied space within 30 feet of you.
+      
+      The first time the bottle is opened, the DM rolls on the following table to determine what happens.
+      
       | 1d10 | Effect |
       | --- | --- |
       | 1 | The efreeti attacks you. After fighting for 5 rounds, the efreeti disappears, and the bottle loses its magic. |
@@ -19,8 +21,10 @@ translations:
     name: Bouteille de l'éfrit / du mauvais génie
     subtype: null
     description: |-
-      Lorsque vous prenez une action Magie pour retirer le bouchon de cette bouteille en laiton peint, un épais nuage de fumée s'en échappe. À la fin de votre tour, la fumée disparaît dans un éclair de feu inoffensif, et un éfrit apparaît dans un espace libre dans un rayon de 9 mètres.\
-      La première fois que la bouteille est ouverte, le MD effectue un jet sur la table suivante pour déterminer ce qui se passe.\
+      Lorsque vous prenez une action Magie pour retirer le bouchon de cette bouteille en laiton peint, un épais nuage de fumée s'en échappe. À la fin de votre tour, la fumée disparaît dans un éclair de feu inoffensif, et un éfrit apparaît dans un espace libre dans un rayon de 9 mètres.
+      
+      La première fois que la bouteille est ouverte, le MD effectue un jet sur la table suivante pour déterminer ce qui se passe.
+      
       | 1d10 | Effet |
       | --- | --- |
       | 1 | L'éfrit vous attaque. Après 5 rounds de combat, il disparaît et la bouteille perd sa magie. |

@@ -19,7 +19,8 @@ translations:
     duration: Instantaneous
     materialDescription: null
     description: |-
-      A wave of healing energy washes over one creature you can see within range. The target regains all its Hit Points. If the creature has the Charmed, Frightened, Paralyzed, Poisoned, or Stunned condition, the condition ends. If the creature has the Prone condition, it can use its Reaction to stand up.\
+      A wave of healing energy washes over one creature you can see within range. The target regains all its Hit Points. If the creature has the Charmed, Frightened, Paralyzed, Poisoned, or Stunned condition, the condition ends. If the creature has the Prone condition, it can use its Reaction to stand up.
+      
   fr:
     name: Mot de pouvoir guérisseur
     castingTime: Action
@@ -27,4 +28,4 @@ translations:
     duration: Instantanée
     materialDescription: null
     description: |-
-      Une vague d'énergies de guérison baigne une créature que vous voyez à portée. La cible récupère tous ses points de vie. Si la créature a l'état Charmé, Effrayé, Empoisonné, Étourdi ou Paralysé, cet état prend fin. Si la créature a l'état À terre, elle peut jouer sa Réaction pour se relever.\
+      Une vague d'énergies de guérison baigne une créature que vous voyez à portée. La cible récupère tous ses points de vie. Si la créature a l'état Charmé, Effrayé, Empoisonné, Étourdi ou Paralysé, cet état prend fin. Si la créature a l'état À terre, elle peut jouer sa Réaction pour se relever.

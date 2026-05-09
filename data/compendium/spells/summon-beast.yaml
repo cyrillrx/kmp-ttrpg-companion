@@ -20,9 +20,12 @@ translations:
     materialDescription: a feather, tuft of fur, and fish tail inside a gilded acorn
       worth 200+ GP
     description: |-
-      You call forth a bestial spirit. It manifests in an unoccupied space that you can see within range and uses the **[Bestial Spirit](https://www.aidedd.org/monster/bestial-spirit)** stat block. When you cast the spell, choose an environment: Air, Land, or Water. The creature resembles an animal of your choice that is native to the chosen environment, which determines certain details in its stat block. The creature disappears when it drops to O Hit Points or when the spell ends.\
-      The creature is an ally to you and your allies. In combat, the creature shares your Initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its movement to avoid danger.\
-      ***Using a Higher-Level Spell Slot***. Use the spell slot's level for the spell's level in the stat block.\
+      You call forth a bestial spirit. It manifests in an unoccupied space that you can see within range and uses the **[Bestial Spirit](https://www.aidedd.org/monster/bestial-spirit)** stat block. When you cast the spell, choose an environment: Air, Land, or Water. The creature resembles an animal of your choice that is native to the chosen environment, which determines certain details in its stat block. The creature disappears when it drops to O Hit Points or when the spell ends.
+      
+      The creature is an ally to you and your allies. In combat, the creature shares your Initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its movement to avoid danger.
+      
+      ***Using a Higher-Level Spell Slot***. Use the spell slot's level for the spell's level in the stat block.
+      
   fr:
     name: Convocation de bête
     castingTime: Action
@@ -31,6 +34,8 @@ translations:
     materialDescription: une plume, une touffe de fourrure et une queue de poisson
       dans un gland doré d'une valeur minimale de 200 po
     description: |-
-      Vous invoquez l'esprit d'une bête. Celui-ci se manifeste dans un espace libre que vous pouvez voir à portée et utilise le profil de l'**[esprit bestial](https://www.aidedd.org/monster/fr/esprit-bestial)**. Lorsque vous lancez le sort, choisissez un environnement entre air, terre ou eau. La créature ressemble à un animal de votre choix originaire de l'environnement choisi, ce qui détermine certains détails de son profil. La créature disparaît lorsqu'elle tombe à 0 point de vie ou à la fin du sort.\
-      Cette créature est votre alliée et celle de vos alliés. En combat, elle partage votre Initiative, mais son tour commence immédiatement après le vôtre. Elle obéit à vos ordres verbaux (aucune action requise). Si vous n'en donnez pas, elle prend l'action Esquive et utilise son mouvement pour éviter le danger.\
-      ***Emplacement de niveau supérieur***. Utilisez le niveau de l'emplacement de sort pour le niveau du sort dans le profil.\
+      Vous invoquez l'esprit d'une bête. Celui-ci se manifeste dans un espace libre que vous pouvez voir à portée et utilise le profil de l'**[esprit bestial](https://www.aidedd.org/monster/fr/esprit-bestial)**. Lorsque vous lancez le sort, choisissez un environnement entre air, terre ou eau. La créature ressemble à un animal de votre choix originaire de l'environnement choisi, ce qui détermine certains détails de son profil. La créature disparaît lorsqu'elle tombe à 0 point de vie ou à la fin du sort.
+      
+      Cette créature est votre alliée et celle de vos alliés. En combat, elle partage votre Initiative, mais son tour commence immédiatement après le vôtre. Elle obéit à vos ordres verbaux (aucune action requise). Si vous n'en donnez pas, elle prend l'action Esquive et utilise son mouvement pour éviter le danger.
+      
+      ***Emplacement de niveau supérieur***. Utilisez le niveau de l'emplacement de sort pour le niveau du sort dans le profil.

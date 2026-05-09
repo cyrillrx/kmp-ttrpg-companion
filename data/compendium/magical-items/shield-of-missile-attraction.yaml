@@ -8,11 +8,13 @@ translations:
     name: Shield of Missile Attraction
     subtype: Shield
     description: |-
-      While holding this Shield, you have Resistance to damage from attacks made with Ranged weapons.\
+      While holding this Shield, you have Resistance to damage from attacks made with Ranged weapons.
+      
       **Curse**. This Shield is cursed. Attuning to it curses you until you are targeted by a *[Remove Curse](https://www.aidedd.org/spell/remove-curse)* spell or similar magic. Removing the Shield fails to end the curse on you. Whenever an attack with a Ranged weapon targets a creature within 10 feet of you, the curse causes you to become the target instead.
   fr:
     name: Bouclier d'attraction des projectiles
     subtype: bouclier
     description: |-
-      Si vous portez ce bouclier, vous bénéficiez d'une Résistance aux dégâts des attaques avec une arme à distance.\
+      Si vous portez ce bouclier, vous bénéficiez d'une Résistance aux dégâts des attaques avec une arme à distance.
+      
       **Malédiction**. Ce bouclier est maudit. S'y lier vous maudit jusqu'à ce que vous soyez la cible d'un sort de *[délivrance des malédictions](https://www.aidedd.org/spell/fr/delivrance-des-maledictions)* ou d'une magie similaire. Retirer le bouclier ne met pas fin à la malédiction qui pèse sur vous. Lorsqu'une attaque avec une arme à distance cible une créature à moins de 3 mètres de vous, vous devenez la cible.

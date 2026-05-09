@@ -103,7 +103,8 @@ translations:
 
       ***Spellcasting***. The naga casts one of the following spells, requiring no Somatic or Material components and using Intelligence as the spellcasting ability (spell save DC 14):
 
-      At Will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Mage Hand](https://www.aidedd.org/spell/mage-hand), [Minor Illusion](https://www.aidedd.org/spell/minor-illusion), [Water Breathing](https://www.aidedd.org/spell/water-breathing)*\
+      At Will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Mage Hand](https://www.aidedd.org/spell/mage-hand), [Minor Illusion](https://www.aidedd.org/spell/minor-illusion), [Water Breathing](https://www.aidedd.org/spell/water-breathing)*
+      
       2/Day Each: *[Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts), [Dimension Door](https://www.aidedd.org/spell/dimension-door), [Hold Person](https://www.aidedd.org/spell/hold-person)* (level 3 version), *[Lightning Bolt](https://www.aidedd.org/spell/lightning-bolt)* (level 4 version)
     senses: Darkvision 60 ft., Passive Perception 12
     languages:
@@ -127,7 +128,8 @@ translations:
 
       ***Incantation***. Le naga lance l'un des sorts suivants sans composantes matérielles ni somatiques, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 14) :
 
-      À volonté : *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), [illusion mineure](https://www.aidedd.org/spell/fr/illusion-mineure), [main de mage](https://www.aidedd.org/spell/fr/main-de-mage), [respiration aquatique](https://www.aidedd.org/spell/fr/respiration-aquatique)*\
+      À volonté : *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), [illusion mineure](https://www.aidedd.org/spell/fr/illusion-mineure), [main de mage](https://www.aidedd.org/spell/fr/main-de-mage), [respiration aquatique](https://www.aidedd.org/spell/fr/respiration-aquatique)*
+      
       2/jour chacun : *[détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees), [éclair](https://www.aidedd.org/spell/fr/eclair)* (au niveau 4), *[immobilisation de personne](https://www.aidedd.org/spell/fr/immobilisation-de-personne)* (au niveau 3), *[porte dimensionnelle](https://www.aidedd.org/spell/fr/porte-dimensionnelle)*
     senses: Vision dans le noir 18 m, Perception passive 12
     languages:

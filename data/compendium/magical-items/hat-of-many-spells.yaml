@@ -8,10 +8,14 @@ translations:
     name: Hat of Many Spells
     subtype: null
     description: |-
-      This pointed hat has the following properties.\
-      **Spellcasting Focus**. While holding the hat, you can use it as a Spellcasting Focus for your Wizard spells. Any spell you cast using the hat gains a special Somatic component: you must reach into the hat and "pull" the spell out of it.\
-      **Unknown Spell**. While holding the hat, you can try to cast a level 1+ spell you don't know. The spell must be on the Wizard spell list, it must be of a level you can cast, and it can't have Material components costing more than 1,000 GP. Once you decide on the spell, you must expend a spell slot of the spell's level. Then, to determine whether you cast the spell, make an Intelligence (Arcana) check (DC 10 plus the spell's level). On a successful check, you cast the spell using its normal casting time, and you can't use this property again until you finish a Short or Long Rest. On a failed check, you fail to cast the spell and a random effect occurs instead, determined by rolling on the following table.\
-      Any spell you cast from the hat uses your spell save DC and spell attack bonus.\
+      This pointed hat has the following properties.
+      
+      **Spellcasting Focus**. While holding the hat, you can use it as a Spellcasting Focus for your Wizard spells. Any spell you cast using the hat gains a special Somatic component: you must reach into the hat and "pull" the spell out of it.
+      
+      **Unknown Spell**. While holding the hat, you can try to cast a level 1+ spell you don't know. The spell must be on the Wizard spell list, it must be of a level you can cast, and it can't have Material components costing more than 1,000 GP. Once you decide on the spell, you must expend a spell slot of the spell's level. Then, to determine whether you cast the spell, make an Intelligence (Arcana) check (DC 10 plus the spell's level). On a successful check, you cast the spell using its normal casting time, and you can't use this property again until you finish a Short or Long Rest. On a failed check, you fail to cast the spell and a random effect occurs instead, determined by rolling on the following table.
+      
+      Any spell you cast from the hat uses your spell save DC and spell attack bonus.
+      
       | 1d100 | Effect |
       | --- | --- |
       | 01-50 | You cast a random spell determined by rolling 1d10: on a 1, *[Enlarge/Reduce](https://www.aidedd.org/spell/enlarge-reduce)* (enlarge effect); on a 2, *[Enlarge/Reduce](https://www.aidedd.org/spell/enlarge-reduce)* (reduce effect); on a 3, *[Faerie Fire](https://www.aidedd.org/spell/faerie-fire)* ; on a 4, *[Fireball](https://www.aidedd.org/spell/fireball)* ; on a 5, *[Gust of Wind](https://www.aidedd.org/spell/gust-of-wind)* ; on a 6, *[Invisibility](https://www.aidedd.org/spell/invisibility)* (cast on yourself); on a 7, *[Lightning Bolt](https://www.aidedd.org/spell/lightning-bolt)* ; on an 8, *[Phantasmal Force](https://www.aidedd.org/spell/phantasmal-force)* ; on a 9, *[Polymorph](https://www.aidedd.org/spell/polymorph)* ; on a 10, *[Stinking Cloud](https://www.aidedd.org/spell/stinking-cloud)*. |
@@ -29,10 +33,14 @@ translations:
     name: Chapeau mille-sorts
     subtype: null
     description: |-
-      Ce chapeau pointu possède les propriétés suivantes :\
-      **Focaliseur d'incantation**. Lorsque vous tenez le chapeau, vous pouvez l'utiliser comme focaliseur d'incantation pour vos sorts de magicien. Tout sort lancé par le biais du chapeau acquiert une composante somatique spéciale : vous devez plonger votre main dans le chapeau et en extraire le sort.\
-      **Sort inconnu**. Lorsque vous tenez le chapeau, vous pouvez tenter de lancer un sort de niveau 1 ou supérieur que vous ne connaissez pas. Le sort doit figurer dans la liste des sorts de magicien, être d'un niveau que vous pouvez lancer et ne pas avoir de composantes matérielles coûtant plus de 1 000 po. Une fois le sort choisi, vous devez dépenser un emplacement de sort correspondant à son niveau. Ensuite, pour déterminer si vous lancez le sort, effectuez un jet d'Intelligence (Arcanes) (DD 10 plus le niveau du sort). En cas de réussite, vous lancez le sort en utilisant son temps d'incantation normal et vous ne pouvez plus utiliser cette propriété avant d'avoir terminé un Repos court ou long. En cas d'échec, vous ne parvenez pas à lancer le sort et un effet aléatoire se produit à la place, déterminé selon la table ci-dessous.\
-      Tout sort lancé depuis le chapeau utilise votre DD de sauvegarde de sort et votre bonus d'attaque de sorts.\
+      Ce chapeau pointu possède les propriétés suivantes :
+      
+      **Focaliseur d'incantation**. Lorsque vous tenez le chapeau, vous pouvez l'utiliser comme focaliseur d'incantation pour vos sorts de magicien. Tout sort lancé par le biais du chapeau acquiert une composante somatique spéciale : vous devez plonger votre main dans le chapeau et en extraire le sort.
+      
+      **Sort inconnu**. Lorsque vous tenez le chapeau, vous pouvez tenter de lancer un sort de niveau 1 ou supérieur que vous ne connaissez pas. Le sort doit figurer dans la liste des sorts de magicien, être d'un niveau que vous pouvez lancer et ne pas avoir de composantes matérielles coûtant plus de 1 000 po. Une fois le sort choisi, vous devez dépenser un emplacement de sort correspondant à son niveau. Ensuite, pour déterminer si vous lancez le sort, effectuez un jet d'Intelligence (Arcanes) (DD 10 plus le niveau du sort). En cas de réussite, vous lancez le sort en utilisant son temps d'incantation normal et vous ne pouvez plus utiliser cette propriété avant d'avoir terminé un Repos court ou long. En cas d'échec, vous ne parvenez pas à lancer le sort et un effet aléatoire se produit à la place, déterminé selon la table ci-dessous.
+      
+      Tout sort lancé depuis le chapeau utilise votre DD de sauvegarde de sort et votre bonus d'attaque de sorts.
+      
       | 1d100 | Effet |
       | --- | --- |
       | 01-50 | Vous lancez un sort aléatoire déterminé en lançant 1d10 : 1, *[agrandissement/rapetissement](https://www.aidedd.org/spell/fr/agrandissement-rapetissement)* (effet agrandissement) ; 2, *[agrandissement/rapetissement](https://www.aidedd.org/spell/fr/agrandissement-rapetissement)* (effet rapetissement) ; 3, *[lueurs féérique](https://www.aidedd.org/spell/fr/lueurs-feeriques)* ; 4, *[boule de feu](https://www.aidedd.org/spell/fr/boule-de-feu)* ; 5, *[bourrasque](https://www.aidedd.org/spell/fr/bourrasque)* ; 6, *[invisibilité](https://www.aidedd.org/spell/fr/invisibilite)* (sur vous-même) ; 7, *[éclair](https://www.aidedd.org/spell/fr/eclair)* ; 8, *[force fantasmagorique](https://www.aidedd.org/spell/fr/force-fantasmagorique)* ; 9, *[métamorphe](https://www.aidedd.org/spell/fr/metamorphose)* ; 10, *[nuage nauséabond](https://www.aidedd.org/spell/fr/nuage-nauseabond)*. |

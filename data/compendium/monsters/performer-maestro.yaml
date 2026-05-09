@@ -99,7 +99,8 @@ translations:
 
       ***Spellcasting***. The performer casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 15):
 
-      At will: *[Minor Illusion](https://www.aidedd.org/spell/minor-illusion), [Prestidigitation](https://www.aidedd.org/spell/prestidigitation)*\
+      At will: *[Minor Illusion](https://www.aidedd.org/spell/minor-illusion), [Prestidigitation](https://www.aidedd.org/spell/prestidigitation)*
+      
       1/day: *[Tasha's Hideous Laughter](https://www.aidedd.org/spell/tasha-s-hideous-laughter)* (level 3 version)
     senses: Passive Perception 15
     languages:
@@ -118,7 +119,8 @@ translations:
 
       ***Incantation***. Le saltimbanque lance l'un des sorts suivants, sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 15) :
 
-      À volonté : *[illusion mineure](https://www.aidedd.org/spell/fr/illusion-mineure), [prestidigitation](https://www.aidedd.org/spell/fr/prestidigitation)*\
+      À volonté : *[illusion mineure](https://www.aidedd.org/spell/fr/illusion-mineure), [prestidigitation](https://www.aidedd.org/spell/fr/prestidigitation)*
+      
       1/jour : *[fou rire de Tasha](https://www.aidedd.org/spell/fr/fou-rire-de-tasha)* (au niveau 3)
     senses: Perception passive 15
     languages:

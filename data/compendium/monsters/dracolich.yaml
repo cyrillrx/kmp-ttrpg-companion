@@ -109,7 +109,8 @@ translations:
 
       ***Spellcasting***. The dracolich casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 19, +11 to hit with spell attacks):
 
-      At will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Ray of Sickness](https://www.aidedd.org/spell/ray-of-sickness)* (level 2 version)\
+      At will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Ray of Sickness](https://www.aidedd.org/spell/ray-of-sickness)* (level 2 version)
+      
       1/day each: *[Create Undead](https://www.aidedd.org/spell/create-undead)* (level 8 version), *[Finger of Death](https://www.aidedd.org/spell/finger-of-death)*
 
       ## Legendary actions
@@ -131,24 +132,32 @@ translations:
     description: |-
       ## Traits
 
-      Résistance légendaire (3/jour, ou 4/jour dans son antre).\
-      Négation vitale.\
-      Résistance à la magie.\
+      Résistance légendaire (3/jour, ou 4/jour dans son antre).
+      
+      Négation vitale.
+      
+      Résistance à la magie.
+      
       Gemme spirituelle.
 
       ## Actions
 
-      Attaques multiples.\
-      Saignée.\
-      Souffle nécrotique (recharge 5–6).\
+      Attaques multiples.
+      
+      Saignée.
+      
+      Souffle nécrotique (recharge 5–6).
+      
       Incantation.
 
       ## Actions Légendaires
 
       Utilisations d'action Légendaire : 3 (4 dans son antre).
 
-      Assaut incisif.\
-      Rayon morbide.\
+      Assaut incisif.
+      
+      Rayon morbide.
+      
       Présence effroyable.
     senses: Vision aveugle 18 m, Vision dans le noir 36 m, Perception passive 24
     languages:

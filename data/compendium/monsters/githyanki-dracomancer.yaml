@@ -99,7 +99,8 @@ translations:
 
       ***Spellcasting***. The githyanki casts one of the following spells, requiring no spell components and using Intelligence as the spellcasting ability (spell save DC 18, +10 to hit with spell attacks):
 
-      At will: *[Mage Hand](https://www.aidedd.org/spell/mage-hand)* (the hand is Invisible)\
+      At will: *[Mage Hand](https://www.aidedd.org/spell/mage-hand)* (the hand is Invisible)
+      
       2/day each: *[Nondetection](https://www.aidedd.org/spell/nondetection)* (self only), *[Plane Shift](https://www.aidedd.org/spell/plane-shift), [Tongues](https://www.aidedd.org/spell/tongues)*
 
       ## Bonus actions
@@ -116,9 +117,12 @@ translations:
     description: |-
       ## Actions
 
-      Attaques multiples.\
-      Frappe draconique.\
-      Souffle du dragon invoqué (recharge 5–6).\
+      Attaques multiples.
+      
+      Frappe draconique.
+      
+      Souffle du dragon invoqué (recharge 5–6).
+      
       Incantation.
 
       ## Actions Bonus

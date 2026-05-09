@@ -21,8 +21,10 @@ translations:
     duration: 1 hour
     materialDescription: a pinch of dirt
     description: |-
-      You touch a creature. The target's Speed increases by 10 feet until the spell ends.\
-      ***Using a Higher-Level Spell Slot***. You can target one additional creature for each spell slot level above 1.\
+      You touch a creature. The target's Speed increases by 10 feet until the spell ends.
+      
+      ***Using a Higher-Level Spell Slot***. You can target one additional creature for each spell slot level above 1.
+      
   fr:
     name: Grande foulée
     castingTime: Action
@@ -30,5 +32,6 @@ translations:
     duration: 1 heure
     materialDescription: une pincée de terre
     description: |-
-      Vous touchez une créature. La Vitesse de la cible augmente de 3 mètres jusqu'à la fin du sort.\
-      ***Emplacement de niveau supérieur***. Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 1.\
+      Vous touchez une créature. La Vitesse de la cible augmente de 3 mètres jusqu'à la fin du sort.
+      
+      ***Emplacement de niveau supérieur***. Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 1.

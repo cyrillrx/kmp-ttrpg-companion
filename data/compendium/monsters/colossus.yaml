@@ -125,23 +125,30 @@ translations:
     description: |-
       ## Traits
 
-      Forme immuable.\
-      Résistance légendaire (4/jour).\
-      Résistance à la magie.\
+      Forme immuable.
+      
+      Résistance légendaire (4/jour).
+      
+      Résistance à la magie.
+      
       Monstre de siège.
 
       ## Actions
 
-      Attaques multiples.\
-      Coup.\
-      Rayon radiant.\
+      Attaques multiples.
+      
+      Coup.
+      
+      Rayon radiant.
+      
       Faisceau divin (recharge 5–6).
 
       ## Actions Légendaires
 
       Utilisations d'action Légendaire : 3.
 
-      Châtiment.\
+      Châtiment.
+      
       Foulée écrasante.
     senses: vision véritable 90 m, Perception passive 10
     languages:

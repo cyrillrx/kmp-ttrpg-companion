@@ -8,17 +8,25 @@ translations:
     name: Cloak of Arachnida
     subtype: null
     description: |-
-      This fine garment is made of black silk interwoven with faint, silvery threads. While wearing it, you gain the following benefits.\
-      **Poison Resistance**. You have Resistance to Poison damage.\
-      **Spider Climb**. You have a Climb Speed equal to your Speed and can move up, down, and across vertical surfaces and along ceilings, while leaving your hands free.\
-      **Spider Walk**. You can't be caught in webs of any sort and can move through webs as if they were Difficult Terrain.\
+      This fine garment is made of black silk interwoven with faint, silvery threads. While wearing it, you gain the following benefits.
+      
+      **Poison Resistance**. You have Resistance to Poison damage.
+      
+      **Spider Climb**. You have a Climb Speed equal to your Speed and can move up, down, and across vertical surfaces and along ceilings, while leaving your hands free.
+      
+      **Spider Walk**. You can't be caught in webs of any sort and can move through webs as if they were Difficult Terrain.
+      
       **Web**. You can cast *[Web](https://www.aidedd.org/spell/web)* (save DC 13). The web created by the spell fills twice its normal area. Once used, this property can't be used again until the next dawn.
   fr:
     name: Cape de l'arachnide
     subtype: null
     description: |-
-      Ce vêtement raffiné est fait de soie noire entrelacée de fils argentés subtils. En le portant, vous bénéficiez des avantages suivants :\
-      **Résistance au poison**. Vous bénéficiez d'une Résistance aux dégâts de poison.\
-      **Pattes d'araignée**. Votre avez une Vitesse d'escalade égale à votre Vitesse et vous pouvez vous déplacer le long de surfaces verticales et aux plafonds tout en gardant les mains libres.\
-      **Déplacement arachnéen**. Vous ne pouvez pas être pris dans des toiles, quelles qu'elles soient, et vous pouvez vous déplacer à travers elles comme s'il s'agissait d'un Terrain difficile.\
+      Ce vêtement raffiné est fait de soie noire entrelacée de fils argentés subtils. En le portant, vous bénéficiez des avantages suivants :
+      
+      **Résistance au poison**. Vous bénéficiez d'une Résistance aux dégâts de poison.
+      
+      **Pattes d'araignée**. Votre avez une Vitesse d'escalade égale à votre Vitesse et vous pouvez vous déplacer le long de surfaces verticales et aux plafonds tout en gardant les mains libres.
+      
+      **Déplacement arachnéen**. Vous ne pouvez pas être pris dans des toiles, quelles qu'elles soient, et vous pouvez vous déplacer à travers elles comme s'il s'agissait d'un Terrain difficile.
+      
       **Toile d'araignée**. Vous pouvez lancer *[toile d'araignée](https://www.aidedd.org/spell/fr/toile-d-araignee)* (sauvegarde DD 13). La toile créée par le sort remplit deux fois sa surface normale. Une fois utilisée, cette propriété ne peut plus être utilisée avant l'aube suivante.

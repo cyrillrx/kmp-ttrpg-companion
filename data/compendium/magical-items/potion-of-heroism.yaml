@@ -8,11 +8,13 @@ translations:
     name: Potion of Heroism
     subtype: null
     description: |-
-      When you drink this potion, you gain 10 Temporary Hit Points that last for 1 hour. For the same duration, you are under the effect of the *[Bless](https://www.aidedd.org/spell/bless)* spell (no Concentration required).\
+      When you drink this potion, you gain 10 Temporary Hit Points that last for 1 hour. For the same duration, you are under the effect of the *[Bless](https://www.aidedd.org/spell/bless)* spell (no Concentration required).
+      
       This potion's blue liquid bubbles and steams as if boiling.
   fr:
     name: Potion d'héroïsme
     subtype: null
     description: |-
-      Lorsque vous buvez cette potion, vous gagnez 10 points de vie temporaires pendant 1 heure. Pendant cette même durée, vous êtes sous l'effet du sort *[bénédiction](https://www.aidedd.org/spell/fr/benediction)* (aucune concentration requise).\
+      Lorsque vous buvez cette potion, vous gagnez 10 points de vie temporaires pendant 1 heure. Pendant cette même durée, vous êtes sous l'effet du sort *[bénédiction](https://www.aidedd.org/spell/fr/benediction)* (aucune concentration requise).
+      
       Le liquide bleu de cette potion bouillonne et fume comme s'il était en ébullition.

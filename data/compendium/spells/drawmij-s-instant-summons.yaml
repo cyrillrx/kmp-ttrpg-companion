@@ -18,9 +18,12 @@ translations:
     duration: Until dispelled
     materialDescription: a sapphire worth 1,000+ GP
     description: |-
-      You touch the sapphire used in the casting and an object weighing 10 pounds or less whose longest dimension is 6 feet or less. The spell leaves an Invisible mark on that object and invisibly inscribes the object's name on the sapphire. Each time you cast this spell, you must use a different sapphire.\
-      Thereafter, you can take a Magic action to speak the object's name and crush the sapphire. The object instantly appears in your hand regardless of physical or planar distances, and the spell ends.\
-      If another creature is holding or carrying the object, crushing the sapphire doesn't transport it, but instead you learn who that creature is and where that creature is currently located.\
+      You touch the sapphire used in the casting and an object weighing 10 pounds or less whose longest dimension is 6 feet or less. The spell leaves an Invisible mark on that object and invisibly inscribes the object's name on the sapphire. Each time you cast this spell, you must use a different sapphire.
+      
+      Thereafter, you can take a Magic action to speak the object's name and crush the sapphire. The object instantly appears in your hand regardless of physical or planar distances, and the spell ends.
+      
+      If another creature is holding or carrying the object, crushing the sapphire doesn't transport it, but instead you learn who that creature is and where that creature is currently located.
+      
   fr:
     name: Convocations instantanées de Drawmij
     castingTime: 1 minute ou Rituel
@@ -28,6 +31,8 @@ translations:
     duration: Jusqu'à dissipation
     materialDescription: un saphir d'une valeur minimale de 1000 po
     description: |-
-      Vous touchez le saphir de l'incantation et un objet d'un poids maximal de 5 kg et dont la dimension la plus grande n'excède pas 1,80 m. Le sort laisse une marque Invisible sur l'objet et inscrit invisiblement le nom de l'objet sur le saphir. Chaque fois que vous lancez ce sort, vous devez utiliser un saphir différent.\
-      Par la suite, vous pouvez entreprendre l'action Magie pour prononcer le nom de l'objet et broyer le saphir. L'objet apparaît aussitôt dans votre main, quelle que soit la distance qui vous en sépare, même s'il est sur un autre plan, puis le sort prend fin.\
-      Si une autre créature tient ou porte l'objet, broyer le saphir ne le transporte pas, mais vous savez en revanche qui est cette créature et où elle se trouve à l'instant même.\
+      Vous touchez le saphir de l'incantation et un objet d'un poids maximal de 5 kg et dont la dimension la plus grande n'excède pas 1,80 m. Le sort laisse une marque Invisible sur l'objet et inscrit invisiblement le nom de l'objet sur le saphir. Chaque fois que vous lancez ce sort, vous devez utiliser un saphir différent.
+      
+      Par la suite, vous pouvez entreprendre l'action Magie pour prononcer le nom de l'objet et broyer le saphir. L'objet apparaît aussitôt dans votre main, quelle que soit la distance qui vous en sépare, même s'il est sur un autre plan, puis le sort prend fin.
+      
+      Si une autre créature tient ou porte l'objet, broyer le saphir ne le transporte pas, mais vous savez en revanche qui est cette créature et où elle se trouve à l'instant même.

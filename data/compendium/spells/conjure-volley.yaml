@@ -18,8 +18,10 @@ translations:
     duration: Instantaneous
     materialDescription: a Melee or Ranged weapon worth at least 1 CP
     description: |-
-      You brandish the weapon used to cast the spell and choose a point within range. Hundreds of similar spectral weapons (or ammunition appropriate to the weapon) fall in a volley and then disappear.\
-      Each creature of your choice that you can see in a 40-foot-radius, 20-foot-high Cylinder centered on that point makes a Dexterity saving throw. A creature takes 8d8 Force damage on a failed save or half as much damage on a successful one.\
+      You brandish the weapon used to cast the spell and choose a point within range. Hundreds of similar spectral weapons (or ammunition appropriate to the weapon) fall in a volley and then disappear.
+      
+      Each creature of your choice that you can see in a 40-foot-radius, 20-foot-high Cylinder centered on that point makes a Dexterity saving throw. A creature takes 8d8 Force damage on a failed save or half as much damage on a successful one.
+      
   fr:
     name: Invocation de volée
     castingTime: Action
@@ -28,5 +30,6 @@ translations:
     materialDescription: une arme de corps à corps ou à distance d'une valeur minimale
       de 1 pc
     description: |-
-      Vous brandissez l'arme utilisée pour lancer le sort et choisissez un point à portée. Des centaines d'armes spectrales similaires (ou de munitions adaptées) tombent en une volée puis disparaissent.\
-      Chaque créature de votre choix que vous pouvez voir dans un Cylindre de 12 mètres de rayon et de 6 mètres de haut centré sur ce point effectue un jet de sauvegarde de Dextérité. Une créature subit 8d8 dégâts de force en cas d'échec, ou la moitié de ces dégâts en cas de réussite.\
+      Vous brandissez l'arme utilisée pour lancer le sort et choisissez un point à portée. Des centaines d'armes spectrales similaires (ou de munitions adaptées) tombent en une volée puis disparaissent.
+      
+      Chaque créature de votre choix que vous pouvez voir dans un Cylindre de 12 mètres de rayon et de 6 mètres de haut centré sur ce point effectue un jet de sauvegarde de Dextérité. Une créature subit 8d8 dégâts de force en cas d'échec, ou la moitié de ces dégâts en cas de réussite.

@@ -8,11 +8,13 @@ translations:
     name: Horseshoes of Speed
     subtype: null
     description: |-
-      These horseshoes come in a set of four. As a Magic action, you can touch one of the horseshoes to the hoof of a horse or similar creature, whereupon the horseshoe affixes itself to the hoof. Removing a horseshoe also takes a Magic action.\
+      These horseshoes come in a set of four. As a Magic action, you can touch one of the horseshoes to the hoof of a horse or similar creature, whereupon the horseshoe affixes itself to the hoof. Removing a horseshoe also takes a Magic action.
+      
       While all four horseshoes are attached to the same creature, its Speed is increased by 30 feet.
   fr:
     name: Fers de rapidité
     subtype: null
     description: |-
-      Ces fers à cheval sont vendus par lot de quatre. Par une action Magie, vous pouvez toucher le sabot d'un cheval ou d'une créature similaire avec l'un d'eux, ce qui permet au fer de s'y fixer. Retirer un fer à cheval nécessite également une action Magie.\
+      Ces fers à cheval sont vendus par lot de quatre. Par une action Magie, vous pouvez toucher le sabot d'un cheval ou d'une créature similaire avec l'un d'eux, ce qui permet au fer de s'y fixer. Retirer un fer à cheval nécessite également une action Magie.
+      
       Lorsque les quatre fers sont fixés à une même créature, sa Vitesse est augmentée de 9 mètres.

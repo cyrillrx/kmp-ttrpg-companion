@@ -18,9 +18,12 @@ translations:
     duration: 24 hours
     materialDescription: a small square of silk
     description: |-
-      With a touch, you place an illusion on a willing creature or an object that isn't being worn or carried. A creature gains the Mask effect below, and an object gains the False Aura effect below. The effect lasts for the duration. If you cast the spell on the same target every day for 30 days, the illusion lasts until dispelled.\
-      **Mask (Creature)**. Choose a creature type other than the target's actual type. Spells and other magical effects treat the target as if it were a creature of the chosen type.\
-      **False Aura (Object)**. You change the way the target appears to spells and magical effects that detect magical auras, such as *Detect Magic*. You can make a nonmagical object appear magical, make a magic item appear nonmagical, or change the object's aura so that it appears to belong to a school of magic you choose.\
+      With a touch, you place an illusion on a willing creature or an object that isn't being worn or carried. A creature gains the Mask effect below, and an object gains the False Aura effect below. The effect lasts for the duration. If you cast the spell on the same target every day for 30 days, the illusion lasts until dispelled.
+      
+      **Mask (Creature)**. Choose a creature type other than the target's actual type. Spells and other magical effects treat the target as if it were a creature of the chosen type.
+      
+      **False Aura (Object)**. You change the way the target appears to spells and magical effects that detect magical auras, such as *Detect Magic*. You can make a nonmagical object appear magical, make a magic item appear nonmagical, or change the object's aura so that it appears to belong to a school of magic you choose.
+      
   fr:
     name: Aura magique de Nystul
     castingTime: Action
@@ -28,6 +31,8 @@ translations:
     duration: 24 heures
     materialDescription: un petit carré de soie
     description: |-
-      D'un simple contact, vous placez une illusion sur une créature consentante ou sur un objet qui n'est pas porté. Une créature bénéficie de l'effet Masque et un objet de l'effet Aura factice (voir ci-dessous). L'effet dure toute la durée du sort. Si vous lancez le sort sur la même cible chaque jour pendant 30 jours, l'illusion persiste jusqu'à dissipation.\
-      **Masque (créature)**. Choisissez un type de créature différent du type réel de la cible. Les sorts et autres effets magiques traitent la cible comme si elle était une créature du type choisi.\
-      **Aura factice (objet)**. Vous modifiez l'apparence de la cible aux sorts et effets magiques qui détectent les auras magiques, comme *détection de la magie*. Vous pouvez donner à un objet non magique une apparence magique, à un objet magique une apparence non magique, ou modifier l'aura de l'objet pour qu'il semble appartenir à l'école de magie de votre choix.\
+      D'un simple contact, vous placez une illusion sur une créature consentante ou sur un objet qui n'est pas porté. Une créature bénéficie de l'effet Masque et un objet de l'effet Aura factice (voir ci-dessous). L'effet dure toute la durée du sort. Si vous lancez le sort sur la même cible chaque jour pendant 30 jours, l'illusion persiste jusqu'à dissipation.
+      
+      **Masque (créature)**. Choisissez un type de créature différent du type réel de la cible. Les sorts et autres effets magiques traitent la cible comme si elle était une créature du type choisi.
+      
+      **Aura factice (objet)**. Vous modifiez l'apparence de la cible aux sorts et effets magiques qui détectent les auras magiques, comme *détection de la magie*. Vous pouvez donner à un objet non magique une apparence magique, à un objet magique une apparence non magique, ou modifier l'aura de l'objet pour qu'il semble appartenir à l'école de magie de votre choix.

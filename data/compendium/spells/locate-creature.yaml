@@ -23,9 +23,12 @@ translations:
     duration: Concentration, up to 1 hour
     materialDescription: fur from a bloodhound
     description: |-
-      Describe or name a creature that is familiar to you. You sense the direction to the creature's location if that creature is within 1,000 feet of you. If the creature is moving, you know the direction of its movement.\
-      The spell can locate a specific creature known to you or the nearest creature of a specific kind (such as a human or a unicorn) if you have seen such a creature up close—within 30 feet—at least once. If the creature you described or named is in a different form, such as under the effects of a *Flesh to Stone* or *Polymorph* spell, this spell doesn't locate the creature.\
-      This spell can't locate a creature if any thickness of lead blocks a direct path between you and the creature.\
+      Describe or name a creature that is familiar to you. You sense the direction to the creature's location if that creature is within 1,000 feet of you. If the creature is moving, you know the direction of its movement.
+      
+      The spell can locate a specific creature known to you or the nearest creature of a specific kind (such as a human or a unicorn) if you have seen such a creature up close—within 30 feet—at least once. If the creature you described or named is in a different form, such as under the effects of a *Flesh to Stone* or *Polymorph* spell, this spell doesn't locate the creature.
+      
+      This spell can't locate a creature if any thickness of lead blocks a direct path between you and the creature.
+      
   fr:
     name: Localisation de créature
     castingTime: Action
@@ -33,6 +36,8 @@ translations:
     duration: Concentration, jusqu'à 1 heure
     materialDescription: une touffe de poils de limier
     description: |-
-      Décrivez ou nommez une créature qui vous est familière. Vous sentez la direction dans laquelle se trouve la créature si elle est à 300 mètres ou moins de vous. Si la créature se déplace, vous avec conscience de la direction de son mouvement.\
-      Le sort peut localiser une créature spécifique que vous connaissez ou la créature la plus proche d'une espèce spécifique (comme un humain ou une licorne) si vous en avez vu une de près (à 9 mètres ou moins) au moins une fois. Si la créature que vous avez décrite ou nommée est sous une forme différente, par exemple sous l'effet d'un sort de *pétrification* ou de *métamorphose*, ce sort ne la localise pas.\
-      Ce sort ne peut localiser une créature si une épaisseur de plomb bloque un chemin direct entre vous et elle.\
+      Décrivez ou nommez une créature qui vous est familière. Vous sentez la direction dans laquelle se trouve la créature si elle est à 300 mètres ou moins de vous. Si la créature se déplace, vous avec conscience de la direction de son mouvement.
+      
+      Le sort peut localiser une créature spécifique que vous connaissez ou la créature la plus proche d'une espèce spécifique (comme un humain ou une licorne) si vous en avez vu une de près (à 9 mètres ou moins) au moins une fois. Si la créature que vous avez décrite ou nommée est sous une forme différente, par exemple sous l'effet d'un sort de *pétrification* ou de *métamorphose*, ce sort ne la localise pas.
+      
+      Ce sort ne peut localiser une créature si une épaisseur de plomb bloque un chemin direct entre vous et elle.

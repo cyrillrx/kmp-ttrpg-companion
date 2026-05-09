@@ -99,7 +99,8 @@ translations:
 
       ***Spellcasting***. The pixie casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 12):
 
-      At will: *[Dancing Lights](https://www.aidedd.org/spell/dancing-lights), [Druidcraft](https://www.aidedd.org/spell/druidcraft), [Invisibility](https://www.aidedd.org/spell/invisibility)* (self only)\
+      At will: *[Dancing Lights](https://www.aidedd.org/spell/dancing-lights), [Druidcraft](https://www.aidedd.org/spell/druidcraft), [Invisibility](https://www.aidedd.org/spell/invisibility)* (self only)
+      
       1/day each: *[Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts), [Fly](https://www.aidedd.org/spell/fly), [Sleep](https://www.aidedd.org/spell/sleep)*
     senses: Passive Perception 14
     languages:
@@ -118,7 +119,8 @@ translations:
 
       ***Incantation***. La pixie lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 12) :
 
-      À volonté : *[lumières dansantes](https://www.aidedd.org/spell/fr/lumieres-dansantes), [druidisme](https://www.aidedd.org/spell/fr/druidisme), [invisibilité](https://www.aidedd.org/spell/fr/invisibilite)* (soi-même uniquement)\
+      À volonté : *[lumières dansantes](https://www.aidedd.org/spell/fr/lumieres-dansantes), [druidisme](https://www.aidedd.org/spell/fr/druidisme), [invisibilité](https://www.aidedd.org/spell/fr/invisibilite)* (soi-même uniquement)
+      
       1/jour chacun : *[détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees), [vol](https://www.aidedd.org/spell/fr/vol), [sommeil](https://www.aidedd.org/spell/fr/sommeil)*
     senses: Perception passive 14
     languages:
