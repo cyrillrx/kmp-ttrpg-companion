@@ -4,7 +4,7 @@ import com.cyrillrx.core.data.FileReader
 import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.core.domain.Result
 import com.cyrillrx.core.domain.partitionBy
-import com.cyrillrx.rpg.character.domain.PlayerCharacter
+import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.spell.data.api.ApiSpell
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.domain.SpellFilter
@@ -121,7 +121,7 @@ class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository 
         private fun String.toSchool(): Spell.School? =
             Spell.School.entries.find { it.name.equals(this, ignoreCase = true) }
 
-        private fun String.toPlayerClass(): PlayerCharacter.Class? =
-            PlayerCharacter.Class.entries.find { it.name.equals(this, ignoreCase = true) }
+        private fun String.toPlayerClass(): Character.Class? =
+            Character.Class.entries.find { it.name.equals(this, ignoreCase = true) }
     }
 }

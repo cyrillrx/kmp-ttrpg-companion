@@ -5,7 +5,7 @@ import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.Skills
 import com.cyrillrx.rpg.creature.domain.Speeds
 
-class PlayerCharacter(
+class Character(
     id: String,
     val name: String,
     val description: String,
@@ -52,5 +52,6 @@ class PlayerCharacter(
         SORCERER,
         WARLOCK,
         WIZARD,
+        UNKNOWN,
     }
 }

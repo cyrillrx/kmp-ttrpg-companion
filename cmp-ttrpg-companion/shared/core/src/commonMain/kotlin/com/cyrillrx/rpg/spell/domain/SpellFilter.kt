@@ -1,11 +1,11 @@
 package com.cyrillrx.rpg.spell.domain
 
-import com.cyrillrx.rpg.character.domain.PlayerCharacter
+import com.cyrillrx.rpg.character.domain.Character
 
 data class SpellFilter(
     val query: String = "",
     val schools: Set<Spell.School> = emptySet(),
-    val playerClasses: Set<PlayerCharacter.Class> = emptySet(),
+    val playerClasses: Set<Character.Class> = emptySet(),
     val levels: Set<Int> = emptySet(),
 ) {
     val hasActiveFilters: Boolean = schools.isNotEmpty() || playerClasses.isNotEmpty() || levels.isNotEmpty()

@@ -1,6 +1,6 @@
 package com.cyrillrx.rpg.spell.domain
 
-import com.cyrillrx.rpg.character.domain.PlayerCharacter
+import com.cyrillrx.rpg.character.domain.Character
 import kotlinx.serialization.Serializable
 
 private const val FALLBACK_LOCALE = "en"
@@ -14,7 +14,7 @@ class Spell(
     val concentration: Boolean,
     val ritual: Boolean,
     val components: Components,
-    val availableClasses: List<PlayerCharacter.Class>,
+    val availableClasses: List<Character.Class>,
     val translations: Map<String, Translation>,
 ) {
     init {

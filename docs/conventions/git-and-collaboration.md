@@ -57,7 +57,15 @@ We utilize a **Trunk-Based Development** branching strategy. This means:
 
 This approach promotes continuous integration, reduces merge conflicts, and enables faster delivery of features.
 
-## 5. Atomic & Incremental Commits
+## 5. File Renames
+
+Always use `git mv <old-path> <new-path>` when renaming or moving files. Never delete and recreate.
+
+`git mv` preserves the file's history so that `git log --follow` and `git blame` remain meaningful across renames. A delete+create severs the history chain even when the content is nearly identical.
+
+Apply this to all file types: Kotlin sources, resource files, YAML data files, documentation, etc.
+
+## 6. Atomic & Incremental Commits
 
 Each commit must be a **single, self-contained logical change**. This makes code review easier, enables clean `git bisect` and `git revert`, and keeps the project history readable.
 
@@ -81,7 +89,7 @@ Bad (monolithic):
 feat(spell): redesign spell list screen with new item, samples, and strings
 ```
 
-## 6. Pull Request Etiquette
+## 7. Pull Request Etiquette
 
 ### Authors
 
@@ -96,14 +104,14 @@ feat(spell): redesign spell list screen with new item, samples, and strings
 - Back your comments with sources (docs, articles, benchmarks) rather than personal preference. Don't request changes you can't justify.
 - Use [Code Review Emojis](https://github.com/cyrillrx/coding-conventions/blob/main/code-review-emojis.md) to add meaning to your comments (blocking vs. non-blocking, suggestion vs. question, etc.).
 
-## 7. CI & Policies
+## 8. CI & Policies
 
 - **Pull Requests**: All code must be reviewed via PRs before merging into `main`.
 - **Code Quality**: PRs must pass all automated checks (linting, tests, build) on the CI pipeline. The CI pipeline (`.github/workflows/ci.yml`) runs `KMP Client - JVM Tests` (`./gradlew jvmTest` in `cmp-ttrpg-companion/`) on every PR targeting the default branch. It must pass for a PR to be mergeable.
 - **Warnings as Errors**: Treat compiler warnings seriously. Fix them proactively.
 - **Security Scans**: Integrate automated security scanning where applicable.
 
-## 7. Architecture Decision Records (ADRs)
+## 9. Architecture Decision Records (ADRs)
 
 For any change that significantly affects the data model, source format, or technical architecture, an **ADR must be created or updated before starting the implementation**.
 
