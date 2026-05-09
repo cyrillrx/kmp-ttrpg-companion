@@ -27,6 +27,7 @@ import rpg_companion.composeapp.generated.resources.class_paladin
 import rpg_companion.composeapp.generated.resources.class_ranger
 import rpg_companion.composeapp.generated.resources.class_rogue
 import rpg_companion.composeapp.generated.resources.class_sorcerer
+import rpg_companion.composeapp.generated.resources.class_unknown
 import rpg_companion.composeapp.generated.resources.class_warlock
 import rpg_companion.composeapp.generated.resources.class_wizard
 import rpg_companion.composeapp.generated.resources.formatted_spell_school_level
