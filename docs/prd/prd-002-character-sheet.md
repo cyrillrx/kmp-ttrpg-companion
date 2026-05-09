@@ -1,10 +1,12 @@
 # PRD-002 — Character Sheet
 
-> **Status**: Draft | **Version**: 0.1 | **Last updated**: 2026-03-15
+> **Status**: Draft | **Version**: 0.2 | **Last updated**: 2026-05-09
 
 ## Overview
 
 The Character Sheet module allows users to create, view, edit, and delete character sheets for both Player Characters (PCs) and Non-Player Characters (NPCs). It serves as the central record for a character's identity, stats, abilities, and inventory.
+
+PCs and NPCs use the **same `Character` model**. An NPC is a `Character` with `Class.UNKNOWN` and an arbitrary level — no separate subtype. Campaign roles (GM controls NPC, player controls PC) are handled at the campaign layer, not in the character model (see [ADR-003](../adr/adr-003-character-model.md)).
 
 At this stage, character sheets live in the user's personal library and are independent of any campaign.
 Campaign integration (attaching sheets to a campaign, sharing with other players, access control) is a later phase covered in [PRD-003 — Campaigns](prd-003-campaigns.md).
@@ -99,4 +101,4 @@ Campaign integration (attaching sheets to a campaign, sharing with other players
 
 ## Open Questions
 
-- Should NPCs use the same sheet format as PCs, or a simplified stat block format?
+_No open questions at this stage._
