@@ -47,7 +47,7 @@ For detailed feature specifications, see the [PRDs](prd/).
 > Allow users to create and manage character sheets. - [PRD-002](prd/prd-002-character-sheet.md)
 
 - [ ] Create, list and edit character sheets
-- [ ] Persist `PlayerCharacter` with SQLDelight (currently RAM only)
+- [ ] Persist `Character` with SQLDelight (currently RAM only)
 - [ ] Sync character sheets with backend
 
 ## Phase 6 - Notes

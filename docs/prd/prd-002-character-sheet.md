@@ -101,4 +101,4 @@ Campaign integration (attaching sheets to a campaign, sharing with other players
 
 ## Open Questions
 
-_No open questions at this stage._
+All open questions from v0.1 have been addressed in [ADR-003 — Character Model](../adr/adr-003-character-model.md).

@@ -225,7 +225,7 @@ data class ConditionImmunities(
 - Compendium entities are **reference data**: they describe a creature type (template), not a specific instance.
 - A single encounter may have multiple instances of the same creature type, each with independent current HP.
 - Tracking current HP belongs in a future **combat tracker** feature, using a `CombatInstance` entity referencing a `Creature` by ID.
-- For `PlayerCharacter` (Phase 5), `currentHitPoints` is appropriate because there is one persistent instance per character.
+- For `Character` (Phase 5), `currentHitPoints` is appropriate because there is one persistent instance per character.
 
 ---
 
@@ -234,7 +234,7 @@ data class ConditionImmunities(
 ### Decision
 `hitDice` (e.g., `"6d8+6"`) is a field on `Creature` only. It is **not** on `BaseCreature` and **not** on `PlayerCharacter`.
 
-For `PlayerCharacter`, hit dice are computed from `level` and `clazz.hitDie` — never stored.
+For `Character`, hit dice are computed from `level` and `clazz.hitDie` — never stored.
 
 ### Rationale
 - Storing `hitDice` on `PlayerCharacter` would create a redundant source of truth alongside `level` and `class`, with risk of inconsistency.
