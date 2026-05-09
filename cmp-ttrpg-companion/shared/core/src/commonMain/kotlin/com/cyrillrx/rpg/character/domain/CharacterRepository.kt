@@ -1,8 +1,8 @@
 package com.cyrillrx.rpg.character.domain
 
-interface PlayerCharacterRepository {
-    suspend fun getAll(filter: PlayerCharacterFilter?): List<PlayerCharacter>
-    suspend fun get(id: String): PlayerCharacter?
-    suspend fun save(playerCharacter: PlayerCharacter)
+interface CharacterRepository {
+    suspend fun getAll(filter: CharacterFilter?): List<Character>
+    suspend fun get(id: String): Character?
+    suspend fun save(character: Character)
     suspend fun delete(id: String)
 }
