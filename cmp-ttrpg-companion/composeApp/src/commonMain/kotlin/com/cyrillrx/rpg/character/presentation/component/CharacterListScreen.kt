@@ -14,7 +14,7 @@ import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterListViewModel
 fun CharacterListScreen(viewModel: CharacterListViewModel, router: CharacterRouter) {
     Scaffold { paddingValues ->
         Text(
-            text = "Player Character List Screen",
+            text = "Character List Screen",
             Modifier.clickable(onClick = router::navigateUp)
                 .padding(paddingValues)
                 .fillMaxSize(),

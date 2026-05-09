@@ -64,7 +64,7 @@ class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository 
             val apiAvailableClasses = availableClasses
                 ?: return Result.Failure(SpellImportError.MissingAvailableClasses(id))
             val (availableClasses, classErrors) = apiAvailableClasses.partitionBy { apiClass ->
-                apiClass.toPlayerClass()?.let { Result.Success(it) }
+                apiClass.toCharacterClass()?.let { Result.Success(it) }
                     ?: Result.Failure(SpellImportError.UnknownClass(id, apiClass))
             }
             classErrors.forEach { println("WARNING: $it") }
@@ -121,7 +121,7 @@ class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository 
         private fun String.toSchool(): Spell.School? =
             Spell.School.entries.find { it.name.equals(this, ignoreCase = true) }
 
-        private fun String.toPlayerClass(): Character.Class? =
+        private fun String.toCharacterClass(): Character.Class? =
             Character.Class.entries.find { it.name.equals(this, ignoreCase = true) }
     }
 }

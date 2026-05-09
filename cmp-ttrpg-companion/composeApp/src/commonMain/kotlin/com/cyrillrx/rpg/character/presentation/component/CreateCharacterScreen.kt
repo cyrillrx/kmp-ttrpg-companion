@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 fun CreateCharacterScreen(onNavigateUpClicked: () -> Unit) {
     Scaffold { paddingValues ->
         Text(
-            text = "Create Player Character Screen",
+            text = "Create Character Screen",
             Modifier.clickable { onNavigateUpClicked() }
                 .padding(paddingValues)
                 .fillMaxSize(),
