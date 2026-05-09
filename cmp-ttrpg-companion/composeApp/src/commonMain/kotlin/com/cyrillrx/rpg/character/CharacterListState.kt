@@ -1,9 +1,9 @@
 package com.cyrillrx.rpg.character
 
-import com.cyrillrx.rpg.character.domain.PlayerCharacter
+import com.cyrillrx.rpg.character.domain.Character
 import org.jetbrains.compose.resources.StringResource
 
-data class PlayerCharacterListState(
+data class CharacterListState(
     val searchQuery: String,
     val body: Body,
 ) {
@@ -11,6 +11,6 @@ data class PlayerCharacterListState(
         data object Loading : Body
         data object Empty : Body
         data class Error(val errorMessage: StringResource) : Body
-        data class WithData(val searchResults: List<PlayerCharacter>) : Body
+        data class WithData(val searchResults: List<Character>) : Body
     }
 }

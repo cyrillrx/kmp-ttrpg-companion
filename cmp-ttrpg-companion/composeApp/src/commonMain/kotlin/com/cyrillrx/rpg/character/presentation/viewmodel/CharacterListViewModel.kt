@@ -2,11 +2,11 @@ package com.cyrillrx.rpg.character.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.cyrillrx.rpg.character.PlayerCharacterListState
-import com.cyrillrx.rpg.character.domain.PlayerCharacter
-import com.cyrillrx.rpg.character.domain.PlayerCharacterFilter
-import com.cyrillrx.rpg.character.domain.PlayerCharacterRepository
-import com.cyrillrx.rpg.character.presentation.navigation.PlayerCharacterRouter
+import com.cyrillrx.rpg.character.CharacterListState
+import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.character.domain.CharacterFilter
+import com.cyrillrx.rpg.character.domain.CharacterRepository
+import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -16,14 +16,14 @@ import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_while_loading_characters
 import kotlin.coroutines.cancellation.CancellationException
 
-class PlayerCharacterListViewModel(
-    private val router: PlayerCharacterRouter,
-    private val repository: PlayerCharacterRepository,
+class CharacterListViewModel(
+    private val router: CharacterRouter,
+    private val repository: CharacterRepository,
 ) : ViewModel() {
 
     private var updateJob: Job? = null
-    val state: StateFlow<PlayerCharacterListState>
-        field = MutableStateFlow(PlayerCharacterListState(searchQuery = "", body = PlayerCharacterListState.Body.Empty))
+    val state: StateFlow<CharacterListState>
+        field = MutableStateFlow(CharacterListState(searchQuery = "", body = CharacterListState.Body.Empty))
 
     init {
         onSearchQueryChanged(query = "")
@@ -34,29 +34,29 @@ class PlayerCharacterListViewModel(
         updateJob = viewModelScope.launch { updateData(query) }
     }
 
-    fun onCharacterClicked(character: PlayerCharacter) {
-        router.openPlayerCharacterDetail(character)
+    fun onCharacterClicked(character: Character) {
+        router.openCharacterDetail(character)
     }
 
     fun onCreateCharacterClicked() {
-        router.openCreatePlayerCharacter()
+        router.openCreateCharacter()
     }
 
     private suspend fun updateData(query: String) {
-        state.update { PlayerCharacterListState(searchQuery = query, body = PlayerCharacterListState.Body.Loading) }
+        state.update { CharacterListState(searchQuery = query, body = CharacterListState.Body.Loading) }
 
         try {
-            val filter = PlayerCharacterFilter(query = query)
+            val filter = CharacterFilter(query = query)
             val characters = repository.getAll(filter)
             if (characters.isEmpty()) {
-                state.update { it.copy(body = PlayerCharacterListState.Body.Empty) }
+                state.update { it.copy(body = CharacterListState.Body.Empty) }
             } else {
-                state.update { it.copy(body = PlayerCharacterListState.Body.WithData(characters)) }
+                state.update { it.copy(body = CharacterListState.Body.WithData(characters)) }
             }
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {
-            state.update { it.copy(body = PlayerCharacterListState.Body.Error(errorMessage = Res.string.error_while_loading_characters)) }
+            state.update { it.copy(body = CharacterListState.Body.Error(errorMessage = Res.string.error_while_loading_characters)) }
         }
     }
 }

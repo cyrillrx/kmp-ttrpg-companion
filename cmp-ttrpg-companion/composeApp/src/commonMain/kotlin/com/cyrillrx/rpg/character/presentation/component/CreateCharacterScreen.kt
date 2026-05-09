@@ -9,7 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
 @Composable
-fun CreatePlayerCharacterScreen(onNavigateUpClicked: () -> Unit) {
+fun CreateCharacterScreen(onNavigateUpClicked: () -> Unit) {
     Scaffold { paddingValues ->
         Text(
             text = "Create Player Character Screen",
