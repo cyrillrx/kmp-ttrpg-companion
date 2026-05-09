@@ -5,6 +5,7 @@ import androidx.compose.ui.Modifier
 import com.mikepenz.markdown.compose.components.markdownComponents
 import com.mikepenz.markdown.m3.Markdown
 
+// Top-level val is safe: markdownComponents() returns a stateless object.
 private val markdownComponents = markdownComponents(
     table = { model ->
         MarkdownTableCompact(

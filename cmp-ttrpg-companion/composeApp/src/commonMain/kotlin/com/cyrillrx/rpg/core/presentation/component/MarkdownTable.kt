@@ -146,6 +146,8 @@ internal fun allocateWidths(minimums: List<Dp>, preferred: List<Dp>, available: 
     val remaining = available - totalMinimum
     val extras = preferred.zip(minimums).map { (p, m) -> maxOf(p - m, 0.dp) }
     val totalExtra = extras.fold(0.dp) { acc, dp -> acc + dp }
+    // Safety guard: totalExtra is always > 0 in normal flow because preferred >= minimum per
+    // column and totalPreferred > totalMinimum. Handles hypothetical caller misuse gracefully.
     return if (totalExtra.value <= 0f) {
         val perColumn = remaining / preferred.size.toFloat()
         minimums.map { it + perColumn }
