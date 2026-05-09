@@ -7,7 +7,7 @@ import com.mikepenz.markdown.m3.Markdown
 
 private val markdownComponents = markdownComponents(
     table = { model ->
-        MarkdownTableFillWidth(
+        MarkdownTableCompact(
             content = model.content,
             node = model.node,
             style = model.typography.table,
