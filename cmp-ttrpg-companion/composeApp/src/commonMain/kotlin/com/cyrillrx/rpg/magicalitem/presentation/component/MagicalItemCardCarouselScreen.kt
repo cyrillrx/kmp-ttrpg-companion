@@ -28,7 +28,7 @@ import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemListState
 import com.cyrillrx.rpg.magicalitem.presentation.navigation.MagicalItemRouter
 import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.MagicalItemListViewModel
 import org.jetbrains.compose.resources.stringResource
-import org.jetbrains.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.hint_search_magical_item
 

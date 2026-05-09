@@ -45,7 +45,7 @@ import com.cyrillrx.rpg.userlist.presentation.navigation.handleUserListRoutes
 import com.cyrillrx.rpg.userlist.presentation.navigation.registerUserListRoutes
 import kotlinx.serialization.modules.SerializersModule
 import kotlinx.serialization.modules.polymorphic
-import org.jetbrains.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.Preview
 
 private val navSavedStateConfig = SavedStateConfiguration {
     serializersModule = SerializersModule {
