@@ -44,13 +44,13 @@ class SpellMatchesFilterTest {
 
     @Test
     fun `filter by matching class matches`() {
-        val filter = SpellFilter(playerClasses = setOf(Character.Class.SORCERER))
+        val filter = SpellFilter(characterClasses = setOf(Character.Class.SORCERER))
         assertTrue(fireball.matches(filter))
     }
 
     @Test
     fun `filter by non-matching class does not match`() {
-        val filter = SpellFilter(playerClasses = setOf(Character.Class.PALADIN))
+        val filter = SpellFilter(characterClasses = setOf(Character.Class.PALADIN))
         assertFalse(fireball.matches(filter))
     }
 

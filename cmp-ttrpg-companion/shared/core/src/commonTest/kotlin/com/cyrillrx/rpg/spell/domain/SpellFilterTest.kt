@@ -27,7 +27,7 @@ class SpellFilterTest {
 
     @Test
     fun `hasActiveFilters is true when classes are set`() {
-        val classesFilter = SpellFilter(playerClasses = setOf(Character.Class.WIZARD))
+        val classesFilter = SpellFilter(characterClasses = setOf(Character.Class.WIZARD))
         assertTrue(classesFilter.hasActiveFilters)
     }
 

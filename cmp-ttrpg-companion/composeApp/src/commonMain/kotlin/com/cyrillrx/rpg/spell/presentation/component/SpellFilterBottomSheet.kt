@@ -19,7 +19,7 @@ import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.cyrillrx.rpg.character.domain.PlayerCharacter
+import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
@@ -42,7 +42,7 @@ fun SpellFilterBottomSheet(
     filter: SpellFilter,
     onLevelToggled: (Int) -> Unit,
     onSchoolToggled: (Spell.School) -> Unit,
-    onClassToggled: (PlayerCharacter.Class) -> Unit,
+    onClassToggled: (Character.Class) -> Unit,
     onResetFilters: () -> Unit,
     onDismiss: () -> Unit,
 ) {
@@ -96,11 +96,11 @@ fun SpellFilterBottomSheet(
             FlowRow(
                 horizontalArrangement = Arrangement.spacedBy(spacingMedium),
             ) {
-                PlayerCharacter.Class.entries.forEach { playerClass ->
+                Character.Class.entries.filter { it != Character.Class.UNKNOWN }.forEach { characterClass ->
                     FilterChip(
-                        selected = playerClass in filter.playerClasses,
-                        onClick = { onClassToggled(playerClass) },
-                        label = { Text(text = playerClass.toFormattedString()) },
+                        selected = characterClass in filter.characterClasses,
+                        onClick = { onClassToggled(characterClass) },
+                        label = { Text(text = characterClass.toFormattedString()) },
                     )
                 }
             }
@@ -130,7 +130,7 @@ fun SpellFilterBottomSheet(
 private fun PreviewSpellFilterBottomSheetLight() {
     val sampleFilter = SpellFilter(
         levels = setOf(0, 3),
-        playerClasses = setOf(PlayerCharacter.Class.SORCERER),
+        characterClasses = setOf(Character.Class.SORCERER),
         schools = setOf(Spell.School.ABJURATION, Spell.School.EVOCATION),
     )
     AppThemePreview(darkTheme = false) {
@@ -143,7 +143,7 @@ private fun PreviewSpellFilterBottomSheetLight() {
 private fun PreviewSpellFilterBottomSheetDark() {
     val sampleFilter = SpellFilter(
         levels = setOf(0, 3),
-        playerClasses = setOf(PlayerCharacter.Class.SORCERER),
+        characterClasses = setOf(Character.Class.SORCERER),
         schools = setOf(Spell.School.ABJURATION, Spell.School.EVOCATION),
     )
     AppThemePreview(darkTheme = true) {

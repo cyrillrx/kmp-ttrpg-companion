@@ -1,6 +1,6 @@
 package com.cyrillrx.rpg.spell.domain
 
-import com.cyrillrx.rpg.character.domain.PlayerCharacter
+import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -38,8 +38,8 @@ class SpellApplyFilterTest {
 
     @Test
     fun `filter by class keeps only matching spells`() {
-        val result = spells.applyFilter(SpellFilter(playerClasses = setOf(PlayerCharacter.Class.BARD)))
-        assertTrue(result.all { it.availableClasses.contains(PlayerCharacter.Class.BARD) })
+        val result = spells.applyFilter(SpellFilter(characterClasses = setOf(Character.Class.BARD)))
+        assertTrue(result.all { it.availableClasses.contains(Character.Class.BARD) })
         assertEquals(1, result.size)
     }
 
@@ -52,7 +52,7 @@ class SpellApplyFilterTest {
 
     @Test
     fun `filter with no match returns empty list`() {
-        val result = spells.applyFilter(SpellFilter(playerClasses = setOf(PlayerCharacter.Class.PALADIN)))
+        val result = spells.applyFilter(SpellFilter(characterClasses = setOf(Character.Class.PALADIN)))
         assertTrue(result.isEmpty())
     }
 }

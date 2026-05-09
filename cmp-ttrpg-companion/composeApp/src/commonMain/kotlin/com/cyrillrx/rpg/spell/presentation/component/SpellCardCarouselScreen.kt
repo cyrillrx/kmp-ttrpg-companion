@@ -17,7 +17,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.cyrillrx.rpg.character.domain.PlayerCharacter
+import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.core.presentation.component.EmptySearch
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
@@ -57,7 +57,7 @@ fun SpellCardCarouselScreen(
     onSpellClicked: (Spell) -> Unit,
     onLevelToggled: (Int) -> Unit,
     onSchoolToggled: (Spell.School) -> Unit,
-    onClassToggled: (PlayerCharacter.Class) -> Unit,
+    onClassToggled: (Character.Class) -> Unit,
     onResetFilters: () -> Unit,
 ) {
     var showFilterSheet by remember { mutableStateOf(false) }
