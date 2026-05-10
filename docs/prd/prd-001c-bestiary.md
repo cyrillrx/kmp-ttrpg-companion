@@ -30,7 +30,7 @@ Refer to [PRD-001 — Reference Data](prd-001-reference-data.md) for the shared 
 
 ### Phase 2 — Local Lists
 
-- [ ] Create, edit, and delete personal named monster lists stored locally.
+- [x] Create, edit, and delete personal named monster lists stored locally.
 
 ### Phase 3 — Online Public Data
 
