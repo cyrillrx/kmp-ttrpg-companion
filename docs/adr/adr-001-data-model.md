@@ -229,10 +229,10 @@ data class ConditionImmunities(
 
 ---
 
-## 9. hitDice on Creature Only, Not BaseCreature
+## 9. hitDice on Monster Only, Not Creature
 
 ### Decision
-`hitDice` (e.g., `"6d8+6"`) is a field on `Creature` only. It is **not** on `BaseCreature` and **not** on `PlayerCharacter`.
+`hitDice` (e.g., `"6d8+6"`) is a field on `Monster` only. It is **not** on `Creature` and **not** on `Character`.
 
 For `Character`, hit dice are computed from `level` and `clazz.hitDie` — never stored.
 

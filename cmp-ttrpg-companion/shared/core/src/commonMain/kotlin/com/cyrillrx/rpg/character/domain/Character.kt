@@ -18,8 +18,12 @@ class Character(
     languages: List<String>,
     val level: Int,
     val clazz: Class,
-    val initiativeModifier: Int = abilities.dex.modifier,
     val skills: Skills,
+    val race: Race = Race.HUMAN,
+    val shortDescription: String? = null,
+    val background: String? = null,
+    val currentHitPoints: Int = maxHitPoints,
+    val temporaryHitPoints: Int = 0,
 ) : Creature(
     id = id,
     size = size,
@@ -30,7 +34,9 @@ class Character(
     speeds = speeds,
     languages = languages,
 ) {
-    val proficiencyBonus: Int = when (level) {
+    fun initiativeModifier(): Int = abilities.dex.modifier
+
+    fun proficiencyBonus(): Int = when (level) {
         in 1..4 -> 2
         in 5..8 -> 3
         in 9..12 -> 4

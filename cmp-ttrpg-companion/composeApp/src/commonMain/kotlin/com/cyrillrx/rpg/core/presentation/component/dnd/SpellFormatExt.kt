@@ -12,24 +12,10 @@ import androidx.compose.material.icons.outlined.Dangerous
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
-import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.core.presentation.theme.Red900
 import com.cyrillrx.rpg.spell.domain.Spell
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.class_barbarian
-import rpg_companion.composeapp.generated.resources.class_bard
-import rpg_companion.composeapp.generated.resources.class_cleric
-import rpg_companion.composeapp.generated.resources.class_druid
-import rpg_companion.composeapp.generated.resources.class_fighter
-import rpg_companion.composeapp.generated.resources.class_monk
-import rpg_companion.composeapp.generated.resources.class_paladin
-import rpg_companion.composeapp.generated.resources.class_ranger
-import rpg_companion.composeapp.generated.resources.class_rogue
-import rpg_companion.composeapp.generated.resources.class_sorcerer
-import rpg_companion.composeapp.generated.resources.class_unknown
-import rpg_companion.composeapp.generated.resources.class_warlock
-import rpg_companion.composeapp.generated.resources.class_wizard
 import rpg_companion.composeapp.generated.resources.formatted_spell_school_level
 import rpg_companion.composeapp.generated.resources.school_abjuration
 import rpg_companion.composeapp.generated.resources.school_conjuration
@@ -92,26 +78,6 @@ fun Spell.School?.toIcon(): ImageVector = when (this) {
     Spell.School.NECROMANCY -> Icons.Outlined.Dangerous
     Spell.School.TRANSMUTATION -> Icons.Filled.SwapHoriz
     null -> Icons.Filled.AutoAwesome
-}
-
-@Composable
-fun Character.Class.toFormattedString(): String {
-    val stringRes = when (this) {
-        Character.Class.BARBARIAN -> Res.string.class_barbarian
-        Character.Class.BARD -> Res.string.class_bard
-        Character.Class.CLERIC -> Res.string.class_cleric
-        Character.Class.DRUID -> Res.string.class_druid
-        Character.Class.FIGHTER -> Res.string.class_fighter
-        Character.Class.MONK -> Res.string.class_monk
-        Character.Class.PALADIN -> Res.string.class_paladin
-        Character.Class.RANGER -> Res.string.class_ranger
-        Character.Class.ROGUE -> Res.string.class_rogue
-        Character.Class.SORCERER -> Res.string.class_sorcerer
-        Character.Class.WARLOCK -> Res.string.class_warlock
-        Character.Class.WIZARD -> Res.string.class_wizard
-        Character.Class.UNKNOWN -> Res.string.class_unknown
-    }
-    return stringResource(stringRes)
 }
 
 @Composable
