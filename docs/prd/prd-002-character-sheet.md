@@ -57,7 +57,7 @@ Campaign integration (attaching sheets to a campaign, sharing with other players
 **Skills & Proficiencies**
 - [ ] Saving throws (with proficiency toggle)
 - [ ] Skill list with proficiency and expertise toggles
-- [ ] Passive Perception (auto-calculated)
+- [ ] Passive Perception (auto-calculated from WIS modifier by default; trait/feat bonuses handled in a later phase)
 - [ ] Proficiency bonus (auto-calculated from level)
 - [ ] Languages and other proficiencies
 
