@@ -18,6 +18,7 @@ import androidx.savedstate.serialization.SavedStateConfiguration
 import com.cyrillrx.rpg.campaign.data.SQLDelightCampaignRepository
 import com.cyrillrx.rpg.campaign.navigation.handleCampaignRoutes
 import com.cyrillrx.rpg.campaign.navigation.registerCampaignRoutes
+import com.cyrillrx.rpg.character.data.JsonCharacterPresetRepository
 import com.cyrillrx.rpg.character.data.RamCharacterRepository
 import com.cyrillrx.rpg.character.presentation.navigation.handleCharacterRoutes
 import com.cyrillrx.rpg.character.presentation.navigation.registerCharacterRoutes
@@ -47,22 +48,24 @@ import kotlinx.serialization.modules.SerializersModule
 import kotlinx.serialization.modules.polymorphic
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
-private val navSavedStateConfig = SavedStateConfiguration {
-    serializersModule = SerializersModule {
-        polymorphic(NavKey::class) {
-            subclass(MainRoute.Home::class, MainRoute.Home.serializer())
+private val navSavedStateConfig =
+    SavedStateConfiguration {
+        serializersModule =
+            SerializersModule {
+                polymorphic(NavKey::class) {
+                    subclass(MainRoute.Home::class, MainRoute.Home.serializer())
 
-            registerCampaignRoutes()
-            registerCharacterRoutes()
+                    registerCampaignRoutes()
+                    registerCharacterRoutes()
 
-            registerSpellRoutes()
-            registerMagicalItemRoutes()
-            registerMonsterRoutes()
+                    registerSpellRoutes()
+                    registerMagicalItemRoutes()
+                    registerMonsterRoutes()
 
-            registerUserListRoutes()
-        }
+                    registerUserListRoutes()
+                }
+            }
     }
-}
 
 @Composable
 @Preview
@@ -75,9 +78,10 @@ fun App(dbDriverFactory: DatabaseDriverFactory) {
 
         NavDisplay(
             backStack = backStack,
-            modifier = Modifier
-                .fillMaxSize()
-                .background(MaterialTheme.colorScheme.background),
+            modifier =
+                Modifier
+                    .fillMaxSize()
+                    .background(MaterialTheme.colorScheme.background),
             onBack = backStack::navigateUp,
             transitionSpec = {
                 slideInHorizontally(initialOffsetX = { it }) + fadeIn() togetherWith
@@ -87,31 +91,36 @@ fun App(dbDriverFactory: DatabaseDriverFactory) {
                 slideInHorizontally(initialOffsetX = { -it }) + fadeIn() togetherWith
                     slideOutHorizontally(targetOffsetX = { it }) + fadeOut()
             },
-            entryProvider = entryProvider {
-                val homeRouter = HomeRouterImpl(backStack)
-                entry<MainRoute.Home> { HomeScreen(homeRouter) }
+            entryProvider =
+                entryProvider {
+                    val homeRouter = HomeRouterImpl(backStack)
+                    entry<MainRoute.Home> { HomeScreen(homeRouter) }
 
-                handleCampaignRoutes(backStack, SQLDelightCampaignRepository(dbDriverFactory))
-                handleCharacterRoutes(backStack, RamCharacterRepository())
+                    handleCampaignRoutes(backStack, SQLDelightCampaignRepository(dbDriverFactory))
+                    handleCharacterRoutes(
+                        backStack = backStack,
+                        characterRepository = RamCharacterRepository(),
+                        presetRepository = JsonCharacterPresetRepository(fileReader),
+                    )
 
-                handleSpellRoutes(
-                    router = SpellRouterImpl(backStack),
-                    spellRepository = JsonSpellRepository(fileReader),
-                    userListRepository = userListRepository,
-                )
-                handleMagicalItemRoutes(
-                    router = MagicalItemRouterImpl(backStack),
-                    repository = JsonMagicalItemRepository(fileReader),
-                    userListRepository = userListRepository,
-                )
-                handleMonsterRoutes(
-                    router = MonsterRouterImpl(backStack),
-                    repository = JsonMonsterRepository(fileReader),
-                    userListRepository = userListRepository,
-                )
+                    handleSpellRoutes(
+                        router = SpellRouterImpl(backStack),
+                        spellRepository = JsonSpellRepository(fileReader),
+                        userListRepository = userListRepository,
+                    )
+                    handleMagicalItemRoutes(
+                        router = MagicalItemRouterImpl(backStack),
+                        repository = JsonMagicalItemRepository(fileReader),
+                        userListRepository = userListRepository,
+                    )
+                    handleMonsterRoutes(
+                        router = MonsterRouterImpl(backStack),
+                        repository = JsonMonsterRepository(fileReader),
+                        userListRepository = userListRepository,
+                    )
 
-                handleUserListRoutes(UserListRouterImpl(backStack), userListRepository)
-            },
+                    handleUserListRoutes(UserListRouterImpl(backStack), userListRepository)
+                },
         )
     }
 }

@@ -6,11 +6,14 @@ import androidx.navigation3.runtime.NavBackStack
 import androidx.navigation3.runtime.NavKey
 import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.rpg.character.domain.CharacterRepository
-import com.cyrillrx.rpg.character.presentation.component.CreateCharacterScreen
 import com.cyrillrx.rpg.character.presentation.component.CharacterDetailScreen
 import com.cyrillrx.rpg.character.presentation.component.CharacterListScreen
+import com.cyrillrx.rpg.character.presentation.component.CharacterPresetGalleryScreen
+import com.cyrillrx.rpg.character.presentation.component.CreateCharacterScreen
 import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterListViewModel
 import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterListViewModelFactory
+import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterPresetGalleryViewModel
+import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterPresetGalleryViewModelFactory
 import com.cyrillrx.rpg.core.navigation.navigateUp
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.modules.PolymorphicModuleBuilder
@@ -20,25 +23,32 @@ interface CharacterRoute {
     data object List : NavKey
 
     @Serializable
-    data class Detail(val serializedCharacter: String) : NavKey
+    data class Detail(
+        val serializedCharacter: String,
+    ) : NavKey
 
     @Serializable
     data object Create : NavKey
+
+    @Serializable
+    data object PresetGallery : NavKey
 }
 
 fun PolymorphicModuleBuilder<NavKey>.registerCharacterRoutes() {
     subclass(CharacterRoute.List::class, CharacterRoute.List.serializer())
     subclass(CharacterRoute.Detail::class, CharacterRoute.Detail.serializer())
     subclass(CharacterRoute.Create::class, CharacterRoute.Create.serializer())
+    subclass(CharacterRoute.PresetGallery::class, CharacterRoute.PresetGallery.serializer())
 }
 
 fun EntryProviderScope<NavKey>.handleCharacterRoutes(
     backStack: NavBackStack<NavKey>,
-    repository: CharacterRepository,
+    characterRepository: CharacterRepository,
+    presetRepository: CharacterRepository,
 ) {
     entry<CharacterRoute.List> {
         val router = CharacterRouterImpl(backStack)
-        val viewModelFactory = CharacterListViewModelFactory(router, repository)
+        val viewModelFactory = CharacterListViewModelFactory(router, characterRepository)
         val viewModel = viewModel<CharacterListViewModel>(factory = viewModelFactory)
         CharacterListScreen(viewModel, router)
     }
@@ -54,5 +64,12 @@ fun EntryProviderScope<NavKey>.handleCharacterRoutes(
         CreateCharacterScreen(
             onNavigateUpClicked = backStack::navigateUp,
         )
+    }
+
+    entry<CharacterRoute.PresetGallery> {
+        val router = CharacterRouterImpl(backStack)
+        val viewModelFactory = CharacterPresetGalleryViewModelFactory(router, presetRepository, characterRepository)
+        val viewModel = viewModel<CharacterPresetGalleryViewModel>(factory = viewModelFactory)
+        CharacterPresetGalleryScreen(viewModel, router)
     }
 }

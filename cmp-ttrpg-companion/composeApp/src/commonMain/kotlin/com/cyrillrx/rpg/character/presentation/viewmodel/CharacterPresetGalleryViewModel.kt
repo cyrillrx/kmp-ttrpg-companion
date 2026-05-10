@@ -1,0 +1,68 @@
+package com.cyrillrx.rpg.character.presentation.viewmodel
+
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.character.domain.CharacterRepository
+import com.cyrillrx.rpg.character.presentation.CharacterPresetGalleryState
+import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
+import rpg_companion.composeapp.generated.resources.Res
+import rpg_companion.composeapp.generated.resources.error_while_loading_characters
+import kotlin.coroutines.cancellation.CancellationException
+
+class CharacterPresetGalleryViewModel(
+    private val router: CharacterRouter,
+    private val presetRepository: CharacterRepository,
+    private val characterRepository: CharacterRepository,
+) : ViewModel() {
+    val state: StateFlow<CharacterPresetGalleryState>
+        field = MutableStateFlow(CharacterPresetGalleryState())
+
+    init {
+        loadPresets()
+    }
+
+    fun onTabSelected(tabIndex: Int) {
+        state.update { it.copy(selectedTabIndex = tabIndex) }
+    }
+
+    fun onPresetSelected(preset: Character) {
+        viewModelScope.launch {
+            characterRepository.save(preset)
+            router.navigateUp()
+        }
+    }
+
+    private fun loadPresets() {
+        viewModelScope.launch {
+            try {
+                val presets = presetRepository.getAll(null)
+                if (presets.isEmpty()) {
+                    state.update { it.copy(body = CharacterPresetGalleryState.Body.Empty) }
+                } else {
+                    val pcPresets = presets.filter { it.clazz != Character.Class.UNKNOWN }
+                    val npcPresets = presets.filter { it.clazz == Character.Class.UNKNOWN }
+                    state.update {
+                        it.copy(
+                            body =
+                                CharacterPresetGalleryState.Body.WithData(
+                                    pcPresets = pcPresets,
+                                    npcPresets = npcPresets,
+                                ),
+                        )
+                    }
+                }
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                state.update {
+                    it.copy(body = CharacterPresetGalleryState.Body.Error(Res.string.error_while_loading_characters))
+                }
+            }
+        }
+    }
+}

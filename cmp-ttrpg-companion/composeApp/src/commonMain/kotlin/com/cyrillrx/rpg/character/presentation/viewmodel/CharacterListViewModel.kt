@@ -2,10 +2,10 @@ package com.cyrillrx.rpg.character.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.cyrillrx.rpg.character.presentation.CharacterListState
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterFilter
 import com.cyrillrx.rpg.character.domain.CharacterRepository
+import com.cyrillrx.rpg.character.presentation.CharacterListState
 import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -20,7 +20,6 @@ class CharacterListViewModel(
     private val router: CharacterRouter,
     private val repository: CharacterRepository,
 ) : ViewModel() {
-
     private var updateJob: Job? = null
     val state: StateFlow<CharacterListState>
         field = MutableStateFlow(CharacterListState(searchQuery = "", body = CharacterListState.Body.Empty))
@@ -40,6 +39,10 @@ class CharacterListViewModel(
 
     fun onCreateCharacterClicked() {
         router.openCreateCharacter()
+    }
+
+    fun onQuickCreateClicked() {
+        router.openPresetGallery()
     }
 
     private suspend fun updateData(query: String) {

@@ -1,0 +1,45 @@
+package com.cyrillrx.rpg.character.data.api
+
+import kotlinx.serialization.Serializable
+
+@Serializable
+internal class ApiCharacter(
+    val id: String?,
+    val name: String?,
+    val background: String?,
+    val race: String?,
+    val clazz: String?,
+    val level: Int?,
+    val size: String?,
+    val alignment: String?,
+    val abilities: ApiAbilities?,
+    val armorClass: Int?,
+    val maxHitPoints: Int?,
+    val speeds: ApiSpeeds?,
+    val languages: List<String>?,
+    val translations: Map<String, Translation>?,
+) {
+    @Serializable
+    class Translation(
+        val shortDescription: String?,
+        val description: String?,
+    )
+
+    @Serializable
+    class ApiAbilities(
+        val str: Int?,
+        val dex: Int?,
+        val con: Int?,
+        val int: Int?,
+        val wis: Int?,
+        val cha: Int?,
+    )
+
+    @Serializable
+    class ApiSpeeds(
+        val walk: Int?,
+        val fly: Int?,
+        val swim: Int?,
+        val climb: Int?,
+    )
+}

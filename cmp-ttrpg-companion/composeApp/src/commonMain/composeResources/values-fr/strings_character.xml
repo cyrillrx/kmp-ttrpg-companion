@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
+    <!-- Character list -->
+    <string name="title_character_list">Personnages</string>
+    <string name="title_preset_gallery">Création rapide</string>
+    <string name="tab_player_characters">Personnages</string>
+    <string name="tab_non_player_characters">PNJ</string>
+    <string name="btn_new_character">Nouveau PJ</string>
+    <string name="btn_quick_create">Création rapide</string>
+    <string name="hint_search_character">Rechercher un personnage…</string>
+
     <!-- Character race -->
     <string name="race_human">Humain</string>
     <string name="race_elf">Elfe</string>
