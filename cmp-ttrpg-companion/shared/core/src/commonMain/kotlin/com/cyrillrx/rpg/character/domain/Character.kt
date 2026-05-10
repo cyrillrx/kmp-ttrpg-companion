@@ -36,7 +36,7 @@ class Character(
 ) {
     fun initiativeModifier(): Int = abilities.dex.modifier
 
-    val proficiencyBonus: Int = when (level) {
+    fun proficiencyBonus(): Int = when (level) {
         in 1..4 -> 2
         in 5..8 -> 3
         in 9..12 -> 4
