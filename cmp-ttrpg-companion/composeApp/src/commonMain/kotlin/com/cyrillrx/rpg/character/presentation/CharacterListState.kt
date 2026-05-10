@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.character
+package com.cyrillrx.rpg.character.presentation
 
 import com.cyrillrx.rpg.character.domain.Character
 import org.jetbrains.compose.resources.StringResource
