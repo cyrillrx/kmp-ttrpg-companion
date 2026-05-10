@@ -1,6 +1,6 @@
 package com.cyrillrx.rpg.spell.domain
 
-import com.cyrillrx.rpg.character.domain.PlayerCharacter
+import com.cyrillrx.rpg.character.domain.Character
 import kotlin.test.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
@@ -27,7 +27,7 @@ class SpellFilterTest {
 
     @Test
     fun `hasActiveFilters is true when classes are set`() {
-        val classesFilter = SpellFilter(playerClasses = setOf(PlayerCharacter.Class.WIZARD))
+        val classesFilter = SpellFilter(characterClasses = setOf(Character.Class.WIZARD))
         assertTrue(classesFilter.hasActiveFilters)
     }
 

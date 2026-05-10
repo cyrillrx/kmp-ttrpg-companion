@@ -4,7 +4,7 @@ import com.cyrillrx.core.data.FileReader
 import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.core.domain.Result
 import com.cyrillrx.core.domain.partitionBy
-import com.cyrillrx.rpg.character.domain.PlayerCharacter
+import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.spell.data.api.ApiSpell
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.domain.SpellFilter
@@ -64,7 +64,7 @@ class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository 
             val apiAvailableClasses = availableClasses
                 ?: return Result.Failure(SpellImportError.MissingAvailableClasses(id))
             val (availableClasses, classErrors) = apiAvailableClasses.partitionBy { apiClass ->
-                apiClass.toPlayerClass()?.let { Result.Success(it) }
+                apiClass.toCharacterClass()?.let { Result.Success(it) }
                     ?: Result.Failure(SpellImportError.UnknownClass(id, apiClass))
             }
             classErrors.forEach { println("WARNING: $it") }
@@ -121,7 +121,7 @@ class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository 
         private fun String.toSchool(): Spell.School? =
             Spell.School.entries.find { it.name.equals(this, ignoreCase = true) }
 
-        private fun String.toPlayerClass(): PlayerCharacter.Class? =
-            PlayerCharacter.Class.entries.find { it.name.equals(this, ignoreCase = true) }
+        private fun String.toCharacterClass(): Character.Class? =
+            Character.Class.entries.find { it.name.equals(this, ignoreCase = true) }
     }
 }

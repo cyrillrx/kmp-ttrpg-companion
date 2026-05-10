@@ -2,7 +2,7 @@ package com.cyrillrx.rpg.spell.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.cyrillrx.rpg.character.domain.PlayerCharacter
+import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.core.domain.toggled
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.domain.SpellFilter
@@ -47,8 +47,8 @@ class SpellListViewModel(
         updateFilter { it.copy(schools = it.schools.toggled(school)) }
     }
 
-    fun onClassToggled(playerClass: PlayerCharacter.Class) {
-        updateFilter { it.copy(playerClasses = it.playerClasses.toggled(playerClass)) }
+    fun onClassToggled(characterClass: Character.Class) {
+        updateFilter { it.copy(characterClasses = it.characterClasses.toggled(characterClass)) }
     }
 
     fun onResetFilters() {

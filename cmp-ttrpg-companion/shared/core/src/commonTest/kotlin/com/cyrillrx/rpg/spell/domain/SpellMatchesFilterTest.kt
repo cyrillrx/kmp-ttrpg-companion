@@ -1,6 +1,6 @@
 package com.cyrillrx.rpg.spell.domain
 
-import com.cyrillrx.rpg.character.domain.PlayerCharacter
+import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import kotlin.test.Test
 import kotlin.test.assertFalse
@@ -44,13 +44,13 @@ class SpellMatchesFilterTest {
 
     @Test
     fun `filter by matching class matches`() {
-        val filter = SpellFilter(playerClasses = setOf(PlayerCharacter.Class.SORCERER))
+        val filter = SpellFilter(characterClasses = setOf(Character.Class.SORCERER))
         assertTrue(fireball.matches(filter))
     }
 
     @Test
     fun `filter by non-matching class does not match`() {
-        val filter = SpellFilter(playerClasses = setOf(PlayerCharacter.Class.PALADIN))
+        val filter = SpellFilter(characterClasses = setOf(Character.Class.PALADIN))
         assertFalse(fireball.matches(filter))
     }
 

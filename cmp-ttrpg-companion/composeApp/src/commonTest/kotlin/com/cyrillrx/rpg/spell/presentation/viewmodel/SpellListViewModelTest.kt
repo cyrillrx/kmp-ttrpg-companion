@@ -1,6 +1,6 @@
 package com.cyrillrx.rpg.spell.presentation.viewmodel
 
-import com.cyrillrx.rpg.character.domain.PlayerCharacter
+import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.domain.SpellFilter
@@ -106,7 +106,7 @@ class SpellListViewModelTest {
 
         advanceUntilIdle()
 
-        viewModel.onClassToggled(PlayerCharacter.Class.BARD)
+        viewModel.onClassToggled(Character.Class.BARD)
 
         advanceUntilIdle()
 

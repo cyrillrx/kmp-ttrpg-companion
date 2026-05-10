@@ -1,6 +1,6 @@
 package com.cyrillrx.rpg.spell.domain
 
-import com.cyrillrx.rpg.character.domain.PlayerCharacter
+import com.cyrillrx.rpg.character.domain.Character
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
@@ -53,7 +53,7 @@ class SpellTranslationTest {
         concentration = false,
         ritual = false,
         components = Spell.Components(verbal = false, somatic = false, material = false),
-        availableClasses = listOf(PlayerCharacter.Class.WIZARD),
+        availableClasses = listOf(Character.Class.WIZARD),
         translations = locales.associateWith { locale ->
             Spell.Translation(
                 name = "$locale-name",

@@ -1,6 +1,6 @@
 package com.cyrillrx.rpg.spell.data
 
-import com.cyrillrx.rpg.character.domain.PlayerCharacter
+import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.domain.SpellFilter
 import com.cyrillrx.rpg.spell.domain.SpellRepository
@@ -35,8 +35,8 @@ class SampleSpellRepository : SpellRepository {
             ritual = false,
             components = Spell.Components(verbal = true, somatic = true, material = true),
             availableClasses = listOf(
-                PlayerCharacter.Class.SORCERER,
-                PlayerCharacter.Class.WIZARD,
+                Character.Class.SORCERER,
+                Character.Class.WIZARD,
             ),
             translations = mapOf(
                 "en" to Spell.Translation(
@@ -66,7 +66,7 @@ class SampleSpellRepository : SpellRepository {
             concentration = false,
             ritual = false,
             components = Spell.Components(verbal = true, somatic = true, material = true),
-            availableClasses = listOf(PlayerCharacter.Class.WIZARD),
+            availableClasses = listOf(Character.Class.WIZARD),
             translations = mapOf(
                 "en" to Spell.Translation(
                     name = "Mage Armor",
@@ -88,8 +88,8 @@ class SampleSpellRepository : SpellRepository {
             ritual = false,
             components = Spell.Components(verbal = true, somatic = true, material = true),
             availableClasses = listOf(
-                PlayerCharacter.Class.SORCERER,
-                PlayerCharacter.Class.WIZARD,
+                Character.Class.SORCERER,
+                Character.Class.WIZARD,
             ),
             translations = mapOf(
                 "en" to Spell.Translation(
@@ -112,9 +112,9 @@ class SampleSpellRepository : SpellRepository {
             ritual = false,
             components = Spell.Components(verbal = true, somatic = true, material = false),
             availableClasses = listOf(
-                PlayerCharacter.Class.BARD,
-                PlayerCharacter.Class.SORCERER,
-                PlayerCharacter.Class.WIZARD,
+                Character.Class.BARD,
+                Character.Class.SORCERER,
+                Character.Class.WIZARD,
             ),
             translations = mapOf(
                 "en" to Spell.Translation(
@@ -137,9 +137,9 @@ class SampleSpellRepository : SpellRepository {
             ritual = false,
             components = Spell.Components(verbal = false, somatic = true, material = false),
             availableClasses = listOf(
-                PlayerCharacter.Class.SORCERER,
-                PlayerCharacter.Class.WARLOCK,
-                PlayerCharacter.Class.WIZARD,
+                Character.Class.SORCERER,
+                Character.Class.WARLOCK,
+                Character.Class.WIZARD,
             ),
             translations = mapOf(
                 "en" to Spell.Translation(

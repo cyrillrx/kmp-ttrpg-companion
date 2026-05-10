@@ -7,15 +7,17 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.cyrillrx.rpg.character.presentation.navigation.PlayerCharacterRouter
-import com.cyrillrx.rpg.character.presentation.viewmodel.PlayerCharacterListViewModel
+import com.cyrillrx.rpg.character.domain.Character
 
 @Composable
-fun PlayerCharacterListScreen(viewModel: PlayerCharacterListViewModel, router: PlayerCharacterRouter) {
+fun CharacterDetailScreen(
+    character: Character,
+    onNavigateUpClicked: () -> Unit,
+) {
     Scaffold { paddingValues ->
         Text(
-            text = "Player Character List Screen",
-            Modifier.clickable(onClick = router::navigateUp)
+            text = character.name,
+            Modifier.clickable(onClick = onNavigateUpClicked)
                 .padding(paddingValues)
                 .fillMaxSize(),
         )

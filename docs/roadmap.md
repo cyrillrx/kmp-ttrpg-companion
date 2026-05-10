@@ -37,7 +37,7 @@ For detailed feature specifications, see the [PRDs](prd/).
   - [x] Architecture decisions & SRD translation map ([ADR-001](adr/adr-001-data-model.md), [Translation Map](data/srd-fr-en.md))
   - [x] Spells: structured components, concentration/ritual flags, complete class list
   - [x] Magical items: typed fields normalized
-  - [ ] Creatures: full stat block (speed, senses, skills, saving throws, damage affinities); character model coherence
+  - [x] Creatures: full stat block (speed, senses, skills, saving throws, damage affinities); character model coherence
 - [ ] Fetch public reference data from backend (spells, items, creatures)
 - [ ] Develop the sync engine on which will rely all sync logic and conflict resolution
 - [ ] Sync user lists with backend
@@ -47,7 +47,7 @@ For detailed feature specifications, see the [PRDs](prd/).
 > Allow users to create and manage character sheets. - [PRD-002](prd/prd-002-character-sheet.md)
 
 - [ ] Create, list and edit character sheets
-- [ ] Persist `PlayerCharacter` with SQLDelight (currently RAM only)
+- [ ] Persist `Character` with SQLDelight (currently RAM only)
 - [ ] Sync character sheets with backend
 
 ## Phase 6 - Notes

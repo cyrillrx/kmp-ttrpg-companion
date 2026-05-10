@@ -3,7 +3,7 @@ package com.cyrillrx.rpg.home.presentation.navigation
 import androidx.navigation3.runtime.NavBackStack
 import androidx.navigation3.runtime.NavKey
 import com.cyrillrx.rpg.campaign.navigation.CampaignRoute
-import com.cyrillrx.rpg.character.presentation.navigation.PlayerCharacterRoute
+import com.cyrillrx.rpg.character.presentation.navigation.CharacterRoute
 import com.cyrillrx.rpg.creature.presentation.navigation.MonsterRoute
 import com.cyrillrx.rpg.magicalitem.presentation.navigation.MagicalItemRoute
 import com.cyrillrx.rpg.spell.presentation.navigation.SpellRoute
@@ -26,7 +26,7 @@ class HomeRouterImpl(private val backStack: NavBackStack<NavKey>) : HomeRouter {
     }
 
     override fun openCharacterSheetList() {
-        backStack.add(PlayerCharacterRoute.List)
+        backStack.add(CharacterRoute.List)
     }
 
     override fun openSpellCompendium() {

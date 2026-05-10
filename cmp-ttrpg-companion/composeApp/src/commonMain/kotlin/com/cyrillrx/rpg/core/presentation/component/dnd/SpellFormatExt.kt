@@ -12,7 +12,7 @@ import androidx.compose.material.icons.outlined.Dangerous
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
-import com.cyrillrx.rpg.character.domain.PlayerCharacter
+import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.core.presentation.theme.Red900
 import com.cyrillrx.rpg.spell.domain.Spell
 import org.jetbrains.compose.resources.stringResource
@@ -27,6 +27,7 @@ import rpg_companion.composeapp.generated.resources.class_paladin
 import rpg_companion.composeapp.generated.resources.class_ranger
 import rpg_companion.composeapp.generated.resources.class_rogue
 import rpg_companion.composeapp.generated.resources.class_sorcerer
+import rpg_companion.composeapp.generated.resources.class_unknown
 import rpg_companion.composeapp.generated.resources.class_warlock
 import rpg_companion.composeapp.generated.resources.class_wizard
 import rpg_companion.composeapp.generated.resources.formatted_spell_school_level
@@ -94,20 +95,21 @@ fun Spell.School?.toIcon(): ImageVector = when (this) {
 }
 
 @Composable
-fun PlayerCharacter.Class.toFormattedString(): String {
+fun Character.Class.toFormattedString(): String {
     val stringRes = when (this) {
-        PlayerCharacter.Class.BARBARIAN -> Res.string.class_barbarian
-        PlayerCharacter.Class.BARD -> Res.string.class_bard
-        PlayerCharacter.Class.CLERIC -> Res.string.class_cleric
-        PlayerCharacter.Class.DRUID -> Res.string.class_druid
-        PlayerCharacter.Class.FIGHTER -> Res.string.class_fighter
-        PlayerCharacter.Class.MONK -> Res.string.class_monk
-        PlayerCharacter.Class.PALADIN -> Res.string.class_paladin
-        PlayerCharacter.Class.RANGER -> Res.string.class_ranger
-        PlayerCharacter.Class.ROGUE -> Res.string.class_rogue
-        PlayerCharacter.Class.SORCERER -> Res.string.class_sorcerer
-        PlayerCharacter.Class.WARLOCK -> Res.string.class_warlock
-        PlayerCharacter.Class.WIZARD -> Res.string.class_wizard
+        Character.Class.BARBARIAN -> Res.string.class_barbarian
+        Character.Class.BARD -> Res.string.class_bard
+        Character.Class.CLERIC -> Res.string.class_cleric
+        Character.Class.DRUID -> Res.string.class_druid
+        Character.Class.FIGHTER -> Res.string.class_fighter
+        Character.Class.MONK -> Res.string.class_monk
+        Character.Class.PALADIN -> Res.string.class_paladin
+        Character.Class.RANGER -> Res.string.class_ranger
+        Character.Class.ROGUE -> Res.string.class_rogue
+        Character.Class.SORCERER -> Res.string.class_sorcerer
+        Character.Class.WARLOCK -> Res.string.class_warlock
+        Character.Class.WIZARD -> Res.string.class_wizard
+        Character.Class.UNKNOWN -> Res.string.class_unknown
     }
     return stringResource(stringRes)
 }

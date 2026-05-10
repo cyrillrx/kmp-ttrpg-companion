@@ -1,14 +1,14 @@
 package com.cyrillrx.rpg.spell.domain
 
-import com.cyrillrx.rpg.character.domain.PlayerCharacter
+import com.cyrillrx.rpg.character.domain.Character
 
 data class SpellFilter(
     val query: String = "",
     val schools: Set<Spell.School> = emptySet(),
-    val playerClasses: Set<PlayerCharacter.Class> = emptySet(),
+    val characterClasses: Set<Character.Class> = emptySet(),
     val levels: Set<Int> = emptySet(),
 ) {
-    val hasActiveFilters: Boolean = schools.isNotEmpty() || playerClasses.isNotEmpty() || levels.isNotEmpty()
+    val hasActiveFilters: Boolean = schools.isNotEmpty() || characterClasses.isNotEmpty() || levels.isNotEmpty()
 }
 
 fun List<Spell>.applyFilter(filter: SpellFilter?): List<Spell> {
@@ -18,7 +18,7 @@ fun List<Spell>.applyFilter(filter: SpellFilter?): List<Spell> {
 
 internal fun Spell.matches(filter: SpellFilter): Boolean {
     return (filter.schools.isEmpty() || school in filter.schools) &&
-        (filter.playerClasses.isEmpty() || availableClasses.any { filter.playerClasses.contains(it) }) &&
+        (filter.characterClasses.isEmpty() || availableClasses.any { filter.characterClasses.contains(it) }) &&
         (filter.levels.isEmpty() || filter.levels.contains(level)) &&
         (filter.query.isBlank() || matchesQuery(filter.query))
 }

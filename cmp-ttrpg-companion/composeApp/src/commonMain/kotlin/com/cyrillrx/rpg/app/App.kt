@@ -18,8 +18,8 @@ import androidx.savedstate.serialization.SavedStateConfiguration
 import com.cyrillrx.rpg.campaign.data.SQLDelightCampaignRepository
 import com.cyrillrx.rpg.campaign.navigation.handleCampaignRoutes
 import com.cyrillrx.rpg.campaign.navigation.registerCampaignRoutes
-import com.cyrillrx.rpg.character.data.RamPlayerCharacterRepository
-import com.cyrillrx.rpg.character.presentation.navigation.handlePlayerCharacterRoutes
+import com.cyrillrx.rpg.character.data.RamCharacterRepository
+import com.cyrillrx.rpg.character.presentation.navigation.handleCharacterRoutes
 import com.cyrillrx.rpg.character.presentation.navigation.registerCharacterRoutes
 import com.cyrillrx.rpg.core.data.ComposeFileReader
 import com.cyrillrx.rpg.core.data.cache.DatabaseDriverFactory
@@ -92,7 +92,7 @@ fun App(dbDriverFactory: DatabaseDriverFactory) {
                 entry<MainRoute.Home> { HomeScreen(homeRouter) }
 
                 handleCampaignRoutes(backStack, SQLDelightCampaignRepository(dbDriverFactory))
-                handlePlayerCharacterRoutes(backStack, RamPlayerCharacterRepository())
+                handleCharacterRoutes(backStack, RamCharacterRepository())
 
                 handleSpellRoutes(
                     router = SpellRouterImpl(backStack),
