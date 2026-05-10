@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <!-- Character race -->
+    <string name="race_human">Human</string>
+    <string name="race_elf">Elf</string>
+    <string name="race_dwarf">Dwarf</string>
+    <string name="race_halfling">Halfling</string>
+    <string name="race_half_elf">Half-Elf</string>
+    <string name="race_half_orc">Half-Orc</string>
+    <string name="race_dragonborn">Dragonborn</string>
+    <string name="race_gnome">Gnome</string>
+    <string name="race_tiefling">Tiefling</string>
+</resources>
