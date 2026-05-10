@@ -1,6 +1,6 @@
 # PRD-002 — Character Sheet
 
-> **Status**: Draft | **Version**: 0.2 | **Last updated**: 2026-05-09
+> **Status**: Draft | **Version**: 0.3 | **Last updated**: 2026-05-10
 
 ## Overview
 
@@ -37,7 +37,7 @@ Campaign integration (attaching sheets to a campaign, sharing with other players
 ### Phase 1 — MVP (Offline)
 
 **General Info**
-- [ ] Character name, player name
+- [ ] Character name
 - [ ] Race / Ancestry
 - [ ] Class(es) and level
 - [ ] Background
@@ -49,10 +49,10 @@ Campaign integration (attaching sheets to a campaign, sharing with other players
 
 **Combat Stats**
 - [ ] Armor Class (AC)
-- [ ] Initiative
+- [ ] Initiative (calculated from DEX modifier by default; trait/feat bonuses handled in a later phase)
 - [ ] Speed
 - [ ] Current HP, Maximum HP, Temporary HP
-- [ ] Hit Dice
+- [ ] Hit Dice (calculated from `level + class.hitDie`, not stored — see [ADR-001 §9](../adr/adr-001-data-model.md))
 
 **Skills & Proficiencies**
 - [ ] Saving throws (with proficiency toggle)
