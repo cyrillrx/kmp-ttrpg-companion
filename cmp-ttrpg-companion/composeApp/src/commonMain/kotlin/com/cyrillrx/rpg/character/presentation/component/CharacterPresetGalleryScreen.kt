@@ -66,12 +66,12 @@ fun CharacterPresetGalleryScreen(
             )
         },
     ) { paddingValues ->
-        when (val body = state.body) {
-            is CharacterPresetGalleryState.Body.Loading -> Loader()
-            is CharacterPresetGalleryState.Body.Error -> ErrorLayout(errorMessage = body.errorMessage)
-            is CharacterPresetGalleryState.Body.WithData -> {
-                val presets = if (state.selectedTabIndex == 0) body.pcPresets else body.npcPresets
-                Column(modifier = Modifier.padding(paddingValues).fillMaxSize()) {
+        Column(modifier = Modifier.padding(paddingValues).fillMaxSize()) {
+            when (val body = state.body) {
+                is CharacterPresetGalleryState.Body.Loading -> Loader()
+                is CharacterPresetGalleryState.Body.Error -> ErrorLayout(errorMessage = body.errorMessage)
+                is CharacterPresetGalleryState.Body.WithData -> {
+                    val presets = if (state.selectedTabIndex == 0) body.pcPresets else body.npcPresets
                     PrimaryTabRow(selectedTabIndex = state.selectedTabIndex) {
                         Tab(
                             selected = state.selectedTabIndex == 0,
