@@ -23,9 +23,7 @@ interface CharacterRoute {
     data object List : NavKey
 
     @Serializable
-    data class Detail(
-        val serializedCharacter: String,
-    ) : NavKey
+    data class Detail(val serializedCharacter: String) : NavKey
 
     @Serializable
     data object Create : NavKey
