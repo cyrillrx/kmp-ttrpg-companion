@@ -9,11 +9,7 @@ data class CharacterPresetGalleryState(
 ) {
     sealed interface Body {
         data object Loading : Body
-
-        data class Error(
-            val errorMessage: StringResource,
-        ) : Body
-
+        data class Error(val errorMessage: StringResource) : Body
         data class WithData(
             val pcPresets: List<Character>,
             val npcPresets: List<Character>,
