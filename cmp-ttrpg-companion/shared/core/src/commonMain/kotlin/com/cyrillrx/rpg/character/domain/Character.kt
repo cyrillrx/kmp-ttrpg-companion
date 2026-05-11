@@ -34,22 +34,20 @@ data class Character(
     speeds = speeds,
     languages = languages,
 ) {
-    fun resolveTranslation(locale: String): Translation? =
-        translations[locale]
-            ?: translations[FALLBACK_LOCALE]
-            ?: translations.values.firstOrNull()
+    fun resolveTranslation(locale: String): Translation? = translations[locale]
+        ?: translations[FALLBACK_LOCALE]
+        ?: translations.values.firstOrNull()
 
     fun initiativeModifier(): Int = abilities.dex.modifier
 
-    fun proficiencyBonus(): Int =
-        when (level) {
-            in 1..4 -> 2
-            in 5..8 -> 3
-            in 9..12 -> 4
-            in 13..16 -> 5
-            in 17..20 -> 6
-            else -> 0
-        }
+    fun proficiencyBonus(): Int = when (level) {
+        in 1..4 -> 2
+        in 5..8 -> 3
+        in 9..12 -> 4
+        in 13..16 -> 5
+        in 17..20 -> 6
+        else -> 0
+    }
 
     data class Translation(
         val shortDescription: String = "",
