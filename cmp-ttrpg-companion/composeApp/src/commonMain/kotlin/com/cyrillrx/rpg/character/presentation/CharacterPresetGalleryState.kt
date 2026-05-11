@@ -10,8 +10,6 @@ data class CharacterPresetGalleryState(
     sealed interface Body {
         data object Loading : Body
 
-        data object Empty : Body
-
         data class Error(
             val errorMessage: StringResource,
         ) : Body

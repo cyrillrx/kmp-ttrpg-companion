@@ -12,6 +12,7 @@
     "armorClass": 16,
     "maxHitPoints": 12,
     "speeds": { "walk": 30 },
+    "skills": {},
     "languages": ["common"],
     "translations": {
       "en": { "shortDescription": "Human Fighter", "description": "" },
@@ -31,6 +32,7 @@
     "armorClass": 14,
     "maxHitPoints": 8,
     "speeds": { "walk": 30 },
+    "skills": { "acrobatics": "proficient", "stealth": "proficient", "sleightOfHand": "proficient" },
     "languages": ["common", "elvish"],
     "translations": {
       "en": { "shortDescription": "Elf Rogue", "description": "" },
@@ -50,6 +52,7 @@
     "armorClass": 12,
     "maxHitPoints": 6,
     "speeds": { "walk": 30 },
+    "skills": { "arcana": "proficient", "history": "proficient" },
     "languages": ["common", "elvish", "draconic"],
     "translations": {
       "en": { "shortDescription": "Human Wizard", "description": "" },
@@ -69,6 +72,7 @@
     "armorClass": 16,
     "maxHitPoints": 10,
     "speeds": { "walk": 25 },
+    "skills": { "medicine": "proficient", "religion": "proficient" },
     "languages": ["common", "dwarvish"],
     "translations": {
       "en": { "shortDescription": "Dwarf Cleric", "description": "" },
@@ -87,6 +91,7 @@
     "armorClass": 16,
     "maxHitPoints": 11,
     "speeds": { "walk": 30 },
+    "skills": { "athletics": "proficient", "perception": "proficient" },
     "languages": ["common"],
     "translations": {
       "en": { "shortDescription": "City Guard", "description": "A loyal soldier of the city watch, stationed at the main gate." },
@@ -105,6 +110,7 @@
     "armorClass": 10,
     "maxHitPoints": 10,
     "speeds": { "walk": 30 },
+    "skills": { "insight": "proficient", "persuasion": "proficient" },
     "languages": ["common"],
     "translations": {
       "en": { "shortDescription": "Innkeeper", "description": "A warm and practical woman who runs the Silver Flagon with an iron fist hidden in a velvet glove." },
@@ -123,6 +129,7 @@
     "armorClass": 10,
     "maxHitPoints": 8,
     "speeds": { "walk": 30 },
+    "skills": { "persuasion": "proficient", "insight": "proficient" },
     "languages": ["common", "elvish"],
     "translations": {
       "en": { "shortDescription": "Merchant", "description": "A well-traveled trader who deals in exotic goods and knows the value of a well-placed rumor." },

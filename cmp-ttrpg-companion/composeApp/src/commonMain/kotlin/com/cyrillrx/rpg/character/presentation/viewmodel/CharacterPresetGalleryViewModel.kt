@@ -44,19 +44,15 @@ class CharacterPresetGalleryViewModel(
         viewModelScope.launch {
             try {
                 val presets = presetRepository.getAll(null)
-                if (presets.isEmpty()) {
-                    state.update { it.copy(body = CharacterPresetGalleryState.Body.Empty) }
-                } else {
-                    val pcPresets = presets.filter { it.clazz != Character.Class.UNKNOWN }
-                    val npcPresets = presets.filter { it.clazz == Character.Class.UNKNOWN }
-                    state.update {
-                        it.copy(
-                            body = CharacterPresetGalleryState.Body.WithData(
-                                pcPresets = pcPresets,
-                                npcPresets = npcPresets,
-                            ),
-                        )
-                    }
+                val pcPresets = presets.filter { it.clazz != Character.Class.UNKNOWN }
+                val npcPresets = presets.filter { it.clazz == Character.Class.UNKNOWN }
+                state.update {
+                    it.copy(
+                        body = CharacterPresetGalleryState.Body.WithData(
+                            pcPresets = pcPresets,
+                            npcPresets = npcPresets,
+                        ),
+                    )
                 }
             } catch (e: CancellationException) {
                 throw e

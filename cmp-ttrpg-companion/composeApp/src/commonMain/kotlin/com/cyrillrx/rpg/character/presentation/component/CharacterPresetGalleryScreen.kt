@@ -22,7 +22,6 @@ import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.presentation.CharacterPresetGalleryState
 import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
 import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterPresetGalleryViewModel
-import com.cyrillrx.rpg.core.presentation.component.EmptySearch
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
@@ -61,12 +60,18 @@ fun CharacterPresetGalleryScreen(
 ) {
     Scaffold(
         topBar = {
-            Column {
-                SimpleTopBar(
-                    titleResource = Res.string.title_preset_gallery,
-                    onNavigateUpClicked = onNavigateUpClicked,
-                )
-                if (state.body is CharacterPresetGalleryState.Body.WithData) {
+            SimpleTopBar(
+                titleResource = Res.string.title_preset_gallery,
+                onNavigateUpClicked = onNavigateUpClicked,
+            )
+        },
+    ) { paddingValues ->
+        when (val body = state.body) {
+            is CharacterPresetGalleryState.Body.Loading -> Loader()
+            is CharacterPresetGalleryState.Body.Error -> ErrorLayout(errorMessage = body.errorMessage)
+            is CharacterPresetGalleryState.Body.WithData -> {
+                val presets = if (state.selectedTabIndex == 0) body.pcPresets else body.npcPresets
+                Column(modifier = Modifier.padding(paddingValues).fillMaxSize()) {
                     PrimaryTabRow(selectedTabIndex = state.selectedTabIndex) {
                         Tab(
                             selected = state.selectedTabIndex == 0,
@@ -79,21 +84,11 @@ fun CharacterPresetGalleryScreen(
                             text = { Text(stringResource(Res.string.tab_non_player_characters)) },
                         )
                     }
+                    PresetList(
+                        presets = presets,
+                        onPresetSelected = onPresetSelected,
+                    )
                 }
-            }
-        },
-    ) { paddingValues ->
-        when (val body = state.body) {
-            is CharacterPresetGalleryState.Body.Loading -> Loader()
-            is CharacterPresetGalleryState.Body.Empty -> EmptySearch(searchQuery = "")
-            is CharacterPresetGalleryState.Body.Error -> ErrorLayout(errorMessage = body.errorMessage)
-            is CharacterPresetGalleryState.Body.WithData -> {
-                val presets = if (state.selectedTabIndex == 0) body.pcPresets else body.npcPresets
-                PresetList(
-                    presets = presets,
-                    onPresetSelected = onPresetSelected,
-                    modifier = Modifier.padding(paddingValues),
-                )
             }
         }
     }
