@@ -86,8 +86,7 @@ fun CharacterPresetGalleryScreen(
         when (val body = state.body) {
             is CharacterPresetGalleryState.Body.Loading -> Loader()
             is CharacterPresetGalleryState.Body.Empty -> EmptySearch(searchQuery = "")
-            is CharacterPresetGalleryState.Body.Error ->
-                ErrorLayout(errorMessage = body.errorMessage)
+            is CharacterPresetGalleryState.Body.Error -> ErrorLayout(errorMessage = body.errorMessage)
             is CharacterPresetGalleryState.Body.WithData -> {
                 val presets = if (state.selectedTabIndex == 0) body.pcPresets else body.npcPresets
                 PresetList(
@@ -137,15 +136,13 @@ private fun PreviewCharacterPresetGalleryScreenDark() {
 private fun CharacterPresetGalleryScreenPreview() {
     val characters = SampleCharacterRepository.getAll()
     CharacterPresetGalleryScreen(
-        state =
-            CharacterPresetGalleryState(
-                selectedTabIndex = 0,
-                body =
-                    CharacterPresetGalleryState.Body.WithData(
-                        pcPresets = characters,
-                        npcPresets = emptyList(),
-                    ),
+        state = CharacterPresetGalleryState(
+            selectedTabIndex = 0,
+            body = CharacterPresetGalleryState.Body.WithData(
+                pcPresets = characters,
+                npcPresets = emptyList(),
             ),
+        ),
         onNavigateUpClicked = {},
         onTabSelected = {},
         onPresetSelected = {},
