@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.creature.data
 
 import com.cyrillrx.core.data.FileReader
 import com.cyrillrx.core.data.deserialize
+import com.cyrillrx.core.domain.FALLBACK_LOCALE
 import com.cyrillrx.core.domain.Result
 import com.cyrillrx.core.domain.partitionBy
 import com.cyrillrx.rpg.creature.data.api.ApiMonster
@@ -79,7 +80,7 @@ class JsonMonsterRepository(private val fileReader: FileReader) : MonsterReposit
             val translations = translationMap.takeIf { it.isNotEmpty() }
                 ?: return Result.Failure(MonsterImportError.MissingTranslations(id))
 
-            val enTranslation = translations["en"] ?: translations.values.first()
+            val enTranslation = translations[FALLBACK_LOCALE] ?: translations.values.first()
 
             return Result.Success(
                 Monster(

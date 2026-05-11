@@ -2,7 +2,7 @@ package com.cyrillrx.rpg.magicalitem.domain
 
 import kotlinx.serialization.Serializable
 
-private const val FALLBACK_LOCALE = "en"
+import com.cyrillrx.core.domain.FALLBACK_LOCALE
 
 @Serializable
 class MagicalItem(
