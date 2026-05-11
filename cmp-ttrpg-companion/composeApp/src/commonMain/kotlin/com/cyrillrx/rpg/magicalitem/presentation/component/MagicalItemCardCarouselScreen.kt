@@ -70,7 +70,7 @@ fun MagicalItemCardCarouselScreen(
             )
         },
     ) { paddingValues ->
-        Column(Modifier.padding(paddingValues)) {
+        Column(Modifier.padding(paddingValues).fillMaxSize()) {
             when (val body = state.body) {
                 is MagicalItemListState.Body.Loading -> Loader()
                 is MagicalItemListState.Body.Empty -> EmptySearch(state.filter.query)
