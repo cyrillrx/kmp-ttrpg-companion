@@ -9,12 +9,11 @@ import com.cyrillrx.rpg.creature.data.api.ApiMonster
 import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.creature.domain.ConditionImmunities
-import com.cyrillrx.rpg.creature.domain.Creature
+import com.cyrillrx.rpg.creature.domain.DamageAffinities
+import com.cyrillrx.rpg.creature.domain.DamageAffinity
+import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.creature.domain.MonsterFilter
 import com.cyrillrx.rpg.creature.domain.MonsterRepository
-import com.cyrillrx.rpg.creature.domain.DamageAffinity
-import com.cyrillrx.rpg.creature.domain.DamageAffinities
-import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.creature.domain.Proficiency
 import com.cyrillrx.rpg.creature.domain.Skills
 import com.cyrillrx.rpg.creature.domain.Speeds
@@ -69,8 +68,14 @@ class JsonMonsterRepository(private val fileReader: FileReader) : MonsterReposit
                 ?: return Result.Failure(MonsterImportError.MissingAlignment(id))
             val alignment = apiAlignment.toAlignment()
                 ?: return Result.Failure(MonsterImportError.UnknownAlignment(id, apiAlignment))
+            val challengeRating = challengeRating
+                ?: return Result.Failure(MonsterImportError.MissingChallengeRating(id))
             val apiAbilities = abilities
                 ?: return Result.Failure(MonsterImportError.MissingAbilities(id))
+            val armorClass = armorClass
+                ?: return Result.Failure(MonsterImportError.MissingArmorClass(id))
+            val maxHitPoints = maxHitPoints
+                ?: return Result.Failure(MonsterImportError.MissingMaxHitPoints(id))
             val apiTranslations = translations
                 ?: return Result.Failure(MonsterImportError.MissingTranslations(id))
             val (translationMap, translationErrors) = apiTranslations.partitionBy { locale, t ->
@@ -79,8 +84,7 @@ class JsonMonsterRepository(private val fileReader: FileReader) : MonsterReposit
             translationErrors.forEach { println("WARNING: monster import error: $it") }
             val translations = translationMap.takeIf { it.isNotEmpty() }
                 ?: return Result.Failure(MonsterImportError.MissingTranslations(id))
-
-            val enTranslation = translations[FALLBACK_LOCALE] ?: translations.values.first()
+            val languages = (translations[FALLBACK_LOCALE] ?: translations.values.first()).languages
 
             return Result.Success(
                 Monster(
@@ -89,13 +93,13 @@ class JsonMonsterRepository(private val fileReader: FileReader) : MonsterReposit
                     type = type,
                     size = size,
                     alignment = alignment,
-                    challengeRating = challengeRating ?: -1f,
+                    challengeRating = challengeRating,
                     hitDice = hitDice.orEmpty(),
                     abilities = apiAbilities.toDomain(),
-                    armorClass = armorClass ?: 10,
-                    maxHitPoints = maxHitPoints ?: 0,
+                    armorClass = armorClass,
+                    maxHitPoints = maxHitPoints,
                     speeds = speeds.toDomain(),
-                    languages = enTranslation.languages ?: emptyList(),
+                    languages = languages,
                     skills = skills.toSkills(),
                     damageAffinities = damageAffinities.toDamageAffinities(),
                     conditionImmunities = conditionImmunities.toConditionImmunities(),
@@ -225,11 +229,5 @@ class JsonMonsterRepository(private val fileReader: FileReader) : MonsterReposit
 
         private fun String.toType(): Monster.Type? =
             Monster.Type.entries.find { it.name.equals(this, ignoreCase = true) }
-
-        private fun String.toSize(): Creature.Size? =
-            Creature.Size.entries.find { it.name.equals(this, ignoreCase = true) }
-
-        private fun String.toAlignment(): Creature.Alignment? =
-            Creature.Alignment.entries.find { it.name.equals(this, ignoreCase = true) }
     }
 }
