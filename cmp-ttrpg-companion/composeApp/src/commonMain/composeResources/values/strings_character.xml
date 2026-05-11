@@ -7,7 +7,9 @@
     <string name="tab_player_characters">Characters</string>
     <string name="tab_non_player_characters">NPCs</string>
     <string name="btn_new_character">New Character</string>
+    <string name="btn_new_character_subtitle">Step-by-step wizard</string>
     <string name="btn_quick_create">Quick Create</string>
+    <string name="btn_quick_create_subtitle">PC &amp; NPC presets</string>
     <string name="hint_search_character">Search characters…</string>
 
     <!-- Character race -->

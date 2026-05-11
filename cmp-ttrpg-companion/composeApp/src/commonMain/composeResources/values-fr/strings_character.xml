@@ -7,7 +7,9 @@
     <string name="tab_player_characters">Personnages</string>
     <string name="tab_non_player_characters">PNJ</string>
     <string name="btn_new_character">Nouveau PJ</string>
+    <string name="btn_new_character_subtitle">Assistant pas-à-pas</string>
     <string name="btn_quick_create">Création rapide</string>
+    <string name="btn_quick_create_subtitle">Presets PJ &amp; PNJ</string>
     <string name="hint_search_character">Rechercher un personnage…</string>
 
     <!-- Character race -->
