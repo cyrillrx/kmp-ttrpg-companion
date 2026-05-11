@@ -41,6 +41,8 @@ fun CharacterListItem(
 ) {
     val locale = currentLocale()
     val shortDescription = character.resolveTranslation(locale)?.shortDescription.orEmpty()
+    val primaryText = shortDescription.ifBlank { character.name }
+    val secondaryText = if (shortDescription.isNotBlank()) character.name else ""
 
     Card(
         onClick = onClick,
@@ -58,7 +60,7 @@ fun CharacterListItem(
                 modifier = Modifier.weight(1f),
             ) {
                 Text(
-                    text = character.name,
+                    text = primaryText,
                     style = MaterialTheme.typography.titleSmall,
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.onSurface,
@@ -66,7 +68,7 @@ fun CharacterListItem(
 
                 if (shortDescription.isNotBlank()) {
                     Text(
-                        text = shortDescription,
+                        text = secondaryText,
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         maxLines = 1,
