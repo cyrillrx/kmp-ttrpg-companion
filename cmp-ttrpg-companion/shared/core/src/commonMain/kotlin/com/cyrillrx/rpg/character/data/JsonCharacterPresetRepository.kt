@@ -74,7 +74,6 @@ class JsonCharacterPresetRepository(
                     id = id,
                     name = name,
                     translations = characterTranslations,
-                    description = characterTranslations["en"]?.description.orEmpty(),
                     background = background,
                     race = race?.toRace() ?: Race.HUMAN,
                     clazz = clazz?.toClass() ?: Character.Class.UNKNOWN,

@@ -1,21 +1,21 @@
 package com.cyrillrx.rpg.character.domain
 
+import com.cyrillrx.core.domain.FALLBACK_LOCALE
 import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.Skills
 import com.cyrillrx.rpg.creature.domain.Speeds
 
-class Character(
-    id: String,
+data class Character(
+    override val id: String,
     val name: String,
-    val description: String,
-    size: Size,
-    alignment: Alignment,
-    abilities: Abilities,
-    armorClass: Int,
-    maxHitPoints: Int,
-    speeds: Speeds,
-    languages: List<String>,
+    override val size: Size,
+    override val alignment: Alignment,
+    override val abilities: Abilities,
+    override val armorClass: Int,
+    override val maxHitPoints: Int,
+    override val speeds: Speeds,
+    override val languages: List<String>,
     val level: Int,
     val clazz: Class,
     val skills: Skills,
@@ -25,15 +25,15 @@ class Character(
     val currentHitPoints: Int = maxHitPoints,
     val temporaryHitPoints: Int = 0,
 ) : Creature(
-        id = id,
-        size = size,
-        alignment = alignment,
-        abilities = abilities,
-        armorClass = armorClass,
-        maxHitPoints = maxHitPoints,
-        speeds = speeds,
-        languages = languages,
-    ) {
+    id = id,
+    size = size,
+    alignment = alignment,
+    abilities = abilities,
+    armorClass = armorClass,
+    maxHitPoints = maxHitPoints,
+    speeds = speeds,
+    languages = languages,
+) {
     fun resolveTranslation(locale: String): Translation? =
         translations[locale]
             ?: translations[FALLBACK_LOCALE]
@@ -55,10 +55,6 @@ class Character(
         val shortDescription: String = "",
         val description: String = "",
     )
-
-    companion object {
-        private const val FALLBACK_LOCALE = "en"
-    }
 
     enum class Class {
         BARBARIAN,

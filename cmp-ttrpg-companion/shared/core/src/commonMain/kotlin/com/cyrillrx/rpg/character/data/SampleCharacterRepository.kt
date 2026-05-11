@@ -32,7 +32,7 @@ class SampleCharacterRepository : CharacterRepository {
         fun humanFighter() = Character(
             id = "sample-fighter",
             name = "Borin Pierrenoire",
-            description = "",
+
             size = Creature.Size.MEDIUM,
             alignment = Creature.Alignment.LAWFUL_GOOD,
             abilities = Abilities(
@@ -55,7 +55,7 @@ class SampleCharacterRepository : CharacterRepository {
         fun elfRogue() = Character(
             id = "sample-rogue",
             name = "Lyra Vossen",
-            description = "",
+
             size = Creature.Size.MEDIUM,
             alignment = Creature.Alignment.CHAOTIC_NEUTRAL,
             abilities = Abilities(
