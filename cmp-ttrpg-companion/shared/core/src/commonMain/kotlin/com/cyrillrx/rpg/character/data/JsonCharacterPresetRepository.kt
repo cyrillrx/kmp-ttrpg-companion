@@ -11,10 +11,10 @@ import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.domain.applyFilter
 import com.cyrillrx.rpg.creature.data.toAlignment
+import com.cyrillrx.rpg.creature.data.toDomain
 import com.cyrillrx.rpg.creature.data.toSize
 import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.Ability
-import com.cyrillrx.rpg.creature.domain.Skills
 import com.cyrillrx.rpg.creature.domain.Speeds
 
 class JsonCharacterPresetRepository(
@@ -79,6 +79,8 @@ class JsonCharacterPresetRepository(
                 ?: return Result.Failure(CharacterImportError.MissingArmorClass(id))
             val maxHitPoints = maxHitPoints
                 ?: return Result.Failure(CharacterImportError.MissingMaxHitPoints(id))
+            val apiSkills = skills
+                ?: return Result.Failure(CharacterImportError.MissingSkills(id))
 
             return Result.Success(
                 Character(
@@ -96,7 +98,7 @@ class JsonCharacterPresetRepository(
                     maxHitPoints = maxHitPoints,
                     speeds = speeds.toDomain(),
                     languages = languages ?: emptyList(),
-                    skills = Skills(),
+                    skills = apiSkills.toDomain(),
                 ),
             )
         }

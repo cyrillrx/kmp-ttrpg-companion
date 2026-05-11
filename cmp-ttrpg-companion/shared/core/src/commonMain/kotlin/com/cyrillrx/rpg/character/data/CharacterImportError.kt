@@ -29,6 +29,10 @@ sealed class CharacterImportError : Error {
         val id: String,
     ) : CharacterImportError()
 
+    data class MissingSkills(
+        val id: String,
+    ) : CharacterImportError()
+
     data class MissingTranslations(
         val id: String,
     ) : CharacterImportError()

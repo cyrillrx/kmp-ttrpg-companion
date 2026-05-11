@@ -8,14 +8,9 @@ import com.cyrillrx.core.domain.partitionBy
 import com.cyrillrx.rpg.creature.data.api.ApiMonster
 import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.Ability
-import com.cyrillrx.rpg.creature.domain.ConditionImmunities
-import com.cyrillrx.rpg.creature.domain.DamageAffinities
-import com.cyrillrx.rpg.creature.domain.DamageAffinity
 import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.creature.domain.MonsterFilter
 import com.cyrillrx.rpg.creature.domain.MonsterRepository
-import com.cyrillrx.rpg.creature.domain.Proficiency
-import com.cyrillrx.rpg.creature.domain.Skills
 import com.cyrillrx.rpg.creature.domain.Speeds
 import com.cyrillrx.rpg.creature.domain.applyFilter
 
@@ -76,6 +71,12 @@ class JsonMonsterRepository(private val fileReader: FileReader) : MonsterReposit
                 ?: return Result.Failure(MonsterImportError.MissingArmorClass(id))
             val maxHitPoints = maxHitPoints
                 ?: return Result.Failure(MonsterImportError.MissingMaxHitPoints(id))
+            val apiSkills = skills
+                ?: return Result.Failure(MonsterImportError.MissingSkills(id))
+            val apiDamageAffinities = damageAffinities
+                ?: return Result.Failure(MonsterImportError.MissingDamageAffinities(id))
+            val apiConditionImmunities = conditionImmunities
+                ?: return Result.Failure(MonsterImportError.MissingConditionImmunities(id))
             val apiTranslations = translations
                 ?: return Result.Failure(MonsterImportError.MissingTranslations(id))
             val (translationMap, translationErrors) = apiTranslations.partitionBy { locale, t ->
@@ -100,9 +101,9 @@ class JsonMonsterRepository(private val fileReader: FileReader) : MonsterReposit
                     maxHitPoints = maxHitPoints,
                     speeds = speeds.toDomain(),
                     languages = languages,
-                    skills = skills.toSkills(),
-                    damageAffinities = damageAffinities.toDamageAffinities(),
-                    conditionImmunities = conditionImmunities.toConditionImmunities(),
+                    skills = apiSkills.toDomain(),
+                    damageAffinities = apiDamageAffinities.toDomain(),
+                    conditionImmunities = apiConditionImmunities.toDomain(),
                     translations = translations,
                 ),
             )
@@ -138,94 +139,14 @@ class JsonMonsterRepository(private val fileReader: FileReader) : MonsterReposit
             )
         }
 
-        private fun ApiMonster.ApiAbilities.toDomain(): Abilities =
-            Abilities(
-                str = Ability(str?.value ?: Ability.DEFAULT_VALUE, str?.savingThrowProficiency.toProficiency()),
-                dex = Ability(dex?.value ?: Ability.DEFAULT_VALUE, dex?.savingThrowProficiency.toProficiency()),
-                con = Ability(con?.value ?: Ability.DEFAULT_VALUE, con?.savingThrowProficiency.toProficiency()),
-                int = Ability(int?.value ?: Ability.DEFAULT_VALUE, int?.savingThrowProficiency.toProficiency()),
-                wis = Ability(wis?.value ?: Ability.DEFAULT_VALUE, wis?.savingThrowProficiency.toProficiency()),
-                cha = Ability(cha?.value ?: Ability.DEFAULT_VALUE, cha?.savingThrowProficiency.toProficiency()),
-            )
-
-        private fun String?.toProficiency(): Proficiency = when (this) {
-            "proficient" -> Proficiency.PROFICIENT
-            "expert" -> Proficiency.EXPERT
-            else -> Proficiency.NONE
-        }
-
-        private fun Map<String, String>?.toSkills(): Skills {
-            if (this == null) return Skills()
-            return Skills(
-                acrobatics = get("acrobatics").toProficiency(),
-                animalHandling = get("animalHandling").toProficiency(),
-                arcana = get("arcana").toProficiency(),
-                athletics = get("athletics").toProficiency(),
-                deception = get("deception").toProficiency(),
-                history = get("history").toProficiency(),
-                insight = get("insight").toProficiency(),
-                intimidation = get("intimidation").toProficiency(),
-                investigation = get("investigation").toProficiency(),
-                medicine = get("medicine").toProficiency(),
-                nature = get("nature").toProficiency(),
-                perception = get("perception").toProficiency(),
-                performance = get("performance").toProficiency(),
-                persuasion = get("persuasion").toProficiency(),
-                religion = get("religion").toProficiency(),
-                sleightOfHand = get("sleightOfHand").toProficiency(),
-                stealth = get("stealth").toProficiency(),
-                survival = get("survival").toProficiency(),
-            )
-        }
-
-        private fun Map<String, String>?.toDamageAffinities(): DamageAffinities {
-            if (this == null) return DamageAffinities()
-            return DamageAffinities(
-                acid = get("acid").toDamageAffinity(),
-                bludgeoning = get("bludgeoning").toDamageAffinity(),
-                cold = get("cold").toDamageAffinity(),
-                fire = get("fire").toDamageAffinity(),
-                force = get("force").toDamageAffinity(),
-                lightning = get("lightning").toDamageAffinity(),
-                necrotic = get("necrotic").toDamageAffinity(),
-                piercing = get("piercing").toDamageAffinity(),
-                poison = get("poison").toDamageAffinity(),
-                psychic = get("psychic").toDamageAffinity(),
-                radiant = get("radiant").toDamageAffinity(),
-                slashing = get("slashing").toDamageAffinity(),
-                thunder = get("thunder").toDamageAffinity(),
-                bludgeoningNonMagical = get("bludgeoningNonMagical").toDamageAffinity(),
-                piercingNonMagical = get("piercingNonMagical").toDamageAffinity(),
-                slashingNonMagical = get("slashingNonMagical").toDamageAffinity(),
-            )
-        }
-
-        private fun String?.toDamageAffinity(): DamageAffinity = when (this) {
-            "resistant" -> DamageAffinity.RESISTANT
-            "immune" -> DamageAffinity.IMMUNE
-            "vulnerable" -> DamageAffinity.VULNERABLE
-            else -> DamageAffinity.NONE
-        }
-
-        private fun Map<String, Boolean>?.toConditionImmunities(): ConditionImmunities {
-            if (this == null) return ConditionImmunities()
-            return ConditionImmunities(
-                blinded = get("blinded") ?: false,
-                charmed = get("charmed") ?: false,
-                deafened = get("deafened") ?: false,
-                exhaustion = get("exhaustion") ?: false,
-                frightened = get("frightened") ?: false,
-                grappled = get("grappled") ?: false,
-                incapacitated = get("incapacitated") ?: false,
-                paralyzed = get("paralyzed") ?: false,
-                petrified = get("petrified") ?: false,
-                poisoned = get("poisoned") ?: false,
-                prone = get("prone") ?: false,
-                restrained = get("restrained") ?: false,
-                stunned = get("stunned") ?: false,
-                unconscious = get("unconscious") ?: false,
-            )
-        }
+        private fun ApiMonster.ApiAbilities.toDomain(): Abilities = Abilities(
+            str = Ability(str?.value ?: Ability.DEFAULT_VALUE, str?.savingThrowProficiency.toProficiency()),
+            dex = Ability(dex?.value ?: Ability.DEFAULT_VALUE, dex?.savingThrowProficiency.toProficiency()),
+            con = Ability(con?.value ?: Ability.DEFAULT_VALUE, con?.savingThrowProficiency.toProficiency()),
+            int = Ability(int?.value ?: Ability.DEFAULT_VALUE, int?.savingThrowProficiency.toProficiency()),
+            wis = Ability(wis?.value ?: Ability.DEFAULT_VALUE, wis?.savingThrowProficiency.toProficiency()),
+            cha = Ability(cha?.value ?: Ability.DEFAULT_VALUE, cha?.savingThrowProficiency.toProficiency()),
+        )
 
         private fun String.toType(): Monster.Type? =
             Monster.Type.entries.find { it.name.equals(this, ignoreCase = true) }

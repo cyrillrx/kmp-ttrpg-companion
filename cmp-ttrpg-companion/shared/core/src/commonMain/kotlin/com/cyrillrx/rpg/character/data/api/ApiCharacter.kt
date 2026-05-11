@@ -1,5 +1,6 @@
 package com.cyrillrx.rpg.character.data.api
 
+import com.cyrillrx.rpg.creature.data.api.ApiSkills
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -16,6 +17,7 @@ internal class ApiCharacter(
     val armorClass: Int?,
     val maxHitPoints: Int?,
     val speeds: ApiSpeeds?,
+    val skills: ApiSkills?,
     val languages: List<String>?,
     val translations: Map<String, Translation>?,
 ) {
