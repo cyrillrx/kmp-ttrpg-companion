@@ -10,9 +10,10 @@ import com.cyrillrx.rpg.character.domain.CharacterFilter
 import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.domain.applyFilter
+import com.cyrillrx.rpg.creature.data.toAlignment
+import com.cyrillrx.rpg.creature.data.toSize
 import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.Ability
-import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.Skills
 import com.cyrillrx.rpg.creature.domain.Speeds
 
@@ -54,37 +55,45 @@ class JsonCharacterPresetRepository(
                 ?: return Result.Failure(CharacterImportError.MissingId)
             val name = name
                 ?: return Result.Failure(CharacterImportError.MissingName(id))
-            val resolvedSize = size?.let { s ->
-                s.toSize()
-                    ?: return Result.Failure(CharacterImportError.UnknownSize(id, s))
-            } ?: Creature.Size.MEDIUM
-            val resolvedAlignment = alignment?.let { a ->
-                a.toAlignment()
-                    ?: return Result.Failure(CharacterImportError.UnknownAlignment(id, a))
-            } ?: Creature.Alignment.NEUTRAL
-            val characterTranslations = translations
-                ?.mapValues { (_, t) ->
-                    Character.Translation(
-                        shortDescription = t.shortDescription.orEmpty(),
-                        description = t.description.orEmpty(),
-                    )
-                }
-                ?: emptyMap()
+            val apiTranslations = translations
+                ?: return Result.Failure(CharacterImportError.MissingTranslations(id))
+            val translationMap = apiTranslations.mapValues { (_, t) ->
+                Character.Translation(
+                    shortDescription = t.shortDescription.orEmpty(),
+                    description = t.description.orEmpty(),
+                )
+            }
+            val translations = translationMap.takeIf { it.isNotEmpty() }
+                ?: return Result.Failure(CharacterImportError.MissingTranslations(id))
+            val level = level
+                ?: return Result.Failure(CharacterImportError.MissingLevel(id))
+            val apiSize = this@toCharacter.size
+                ?: return Result.Failure(CharacterImportError.MissingSize(id))
+            val size = apiSize.toSize()
+                ?: return Result.Failure(CharacterImportError.UnknownSize(id, apiSize))
+            val apiAlignment = this@toCharacter.alignment
+                ?: return Result.Failure(CharacterImportError.MissingAlignment(id))
+            val alignment = apiAlignment.toAlignment()
+                ?: return Result.Failure(CharacterImportError.UnknownAlignment(id, apiAlignment))
+            val armorClass = armorClass
+                ?: return Result.Failure(CharacterImportError.MissingArmorClass(id))
+            val maxHitPoints = maxHitPoints
+                ?: return Result.Failure(CharacterImportError.MissingMaxHitPoints(id))
 
             return Result.Success(
                 Character(
                     id = id,
                     name = name,
-                    translations = characterTranslations,
+                    translations = translations,
                     background = background,
                     race = race?.toRace() ?: Race.HUMAN,
                     clazz = clazz?.toClass() ?: Character.Class.UNKNOWN,
-                    level = level ?: 1,
-                    size = resolvedSize,
-                    alignment = resolvedAlignment,
+                    level = level,
+                    size = size,
+                    alignment = alignment,
                     abilities = abilities.toDomain(),
-                    armorClass = armorClass ?: 10,
-                    maxHitPoints = maxHitPoints ?: 10,
+                    armorClass = armorClass,
+                    maxHitPoints = maxHitPoints,
                     speeds = speeds.toDomain(),
                     languages = languages ?: emptyList(),
                     skills = Skills(),
@@ -112,11 +121,5 @@ class JsonCharacterPresetRepository(
 
         private fun String.toClass(): Character.Class? =
             Character.Class.entries.find { it.name.equals(this, ignoreCase = true) }
-
-        private fun String.toSize(): Creature.Size? =
-            Creature.Size.entries.find { it.name.equals(this, ignoreCase = true) }
-
-        private fun String.toAlignment(): Creature.Alignment? =
-            Creature.Alignment.entries.find { it.name.equals(this, ignoreCase = true) }
     }
 }

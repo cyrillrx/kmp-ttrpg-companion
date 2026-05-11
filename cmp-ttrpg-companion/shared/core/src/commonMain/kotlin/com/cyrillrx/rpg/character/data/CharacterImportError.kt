@@ -9,6 +9,30 @@ sealed class CharacterImportError : Error {
         val id: String,
     ) : CharacterImportError()
 
+    data class MissingSize(
+        val id: String,
+    ) : CharacterImportError()
+
+    data class MissingAlignment(
+        val id: String,
+    ) : CharacterImportError()
+
+    data class MissingLevel(
+        val id: String,
+    ) : CharacterImportError()
+
+    data class MissingArmorClass(
+        val id: String,
+    ) : CharacterImportError()
+
+    data class MissingMaxHitPoints(
+        val id: String,
+    ) : CharacterImportError()
+
+    data class MissingTranslations(
+        val id: String,
+    ) : CharacterImportError()
+
     data class UnknownSize(
         val id: String,
         val value: String,
