@@ -6,13 +6,15 @@ import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.presentation.CharacterPresetGalleryState
 import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
+import kotlin.coroutines.cancellation.CancellationException
+import kotlin.uuid.ExperimentalUuidApi
+import kotlin.uuid.Uuid
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_while_loading_characters
-import kotlin.coroutines.cancellation.CancellationException
 
 class CharacterPresetGalleryViewModel(
     private val router: CharacterRouter,
@@ -30,9 +32,10 @@ class CharacterPresetGalleryViewModel(
         state.update { it.copy(selectedTabIndex = tabIndex) }
     }
 
+    @OptIn(ExperimentalUuidApi::class)
     fun onPresetSelected(preset: Character) {
         viewModelScope.launch {
-            characterRepository.save(preset)
+            characterRepository.save(preset.copy(id = Uuid.random().toString()))
             router.navigateUp()
         }
     }
