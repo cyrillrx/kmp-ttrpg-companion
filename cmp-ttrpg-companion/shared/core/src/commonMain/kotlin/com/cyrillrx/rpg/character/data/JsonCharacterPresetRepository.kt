@@ -22,7 +22,9 @@ class JsonCharacterPresetRepository(
     private var cache: List<Character>? = null
 
     override suspend fun getAll(filter: CharacterFilter?): List<Character> {
-        val all = cache ?: loadFromFile().parse().also { cache = it }
+        val all = cache ?: loadFromFile()
+            .parse()
+            .also { cache = it }
         return all.applyFilter(filter)
     }
 
@@ -48,26 +50,26 @@ class JsonCharacterPresetRepository(
         }
 
         private fun ApiCharacter.toCharacter(): Result<Character, CharacterImportError> {
-            val id = id ?: return Result.Failure(CharacterImportError.MissingId)
-            val name = name ?: return Result.Failure(CharacterImportError.MissingName(id))
-            val resolvedSize =
-                size?.let { s ->
-                    s.toSize() ?: return Result.Failure(CharacterImportError.UnknownSize(id, s))
-                } ?: Creature.Size.MEDIUM
-            val resolvedAlignment =
-                alignment?.let { a ->
-                    a.toAlignment() ?: return Result.Failure(CharacterImportError.UnknownAlignment(id, a))
-                } ?: Creature.Alignment.NEUTRAL
-
-            val characterTranslations =
-                translations
-                    ?.mapValues { (_, t) ->
-                        Character.Translation(
-                            shortDescription = t.shortDescription.orEmpty(),
-                            description = t.description.orEmpty(),
-                        )
-                    }
-                    ?: emptyMap()
+            val id = id
+                ?: return Result.Failure(CharacterImportError.MissingId)
+            val name = name
+                ?: return Result.Failure(CharacterImportError.MissingName(id))
+            val resolvedSize = size?.let { s ->
+                s.toSize()
+                    ?: return Result.Failure(CharacterImportError.UnknownSize(id, s))
+            } ?: Creature.Size.MEDIUM
+            val resolvedAlignment = alignment?.let { a ->
+                a.toAlignment()
+                    ?: return Result.Failure(CharacterImportError.UnknownAlignment(id, a))
+            } ?: Creature.Alignment.NEUTRAL
+            val characterTranslations = translations
+                ?.mapValues { (_, t) ->
+                    Character.Translation(
+                        shortDescription = t.shortDescription.orEmpty(),
+                        description = t.description.orEmpty(),
+                    )
+                }
+                ?: emptyMap()
 
             return Result.Success(
                 Character(
@@ -90,30 +92,31 @@ class JsonCharacterPresetRepository(
             )
         }
 
-        private fun ApiCharacter.ApiAbilities?.toDomain(): Abilities =
-            Abilities(
-                str = Ability(this?.str ?: Ability.DEFAULT_VALUE),
-                dex = Ability(this?.dex ?: Ability.DEFAULT_VALUE),
-                con = Ability(this?.con ?: Ability.DEFAULT_VALUE),
-                int = Ability(this?.int ?: Ability.DEFAULT_VALUE),
-                wis = Ability(this?.wis ?: Ability.DEFAULT_VALUE),
-                cha = Ability(this?.cha ?: Ability.DEFAULT_VALUE),
-            )
+        private fun ApiCharacter.ApiAbilities?.toDomain(): Abilities = Abilities(
+            str = Ability(this?.str ?: Ability.DEFAULT_VALUE),
+            dex = Ability(this?.dex ?: Ability.DEFAULT_VALUE),
+            con = Ability(this?.con ?: Ability.DEFAULT_VALUE),
+            int = Ability(this?.int ?: Ability.DEFAULT_VALUE),
+            wis = Ability(this?.wis ?: Ability.DEFAULT_VALUE),
+            cha = Ability(this?.cha ?: Ability.DEFAULT_VALUE),
+        )
 
-        private fun ApiCharacter.ApiSpeeds?.toDomain(): Speeds =
-            Speeds(
-                walk = this?.walk,
-                fly = this?.fly,
-                swim = this?.swim,
-                climb = this?.climb,
-            )
+        private fun ApiCharacter.ApiSpeeds?.toDomain(): Speeds = Speeds(
+            walk = this?.walk,
+            fly = this?.fly,
+            swim = this?.swim,
+            climb = this?.climb,
+        )
 
         private fun String.toRace(): Race? = Race.entries.find { it.name.equals(this, ignoreCase = true) }
 
-        private fun String.toClass(): Character.Class? = Character.Class.entries.find { it.name.equals(this, ignoreCase = true) }
+        private fun String.toClass(): Character.Class? =
+            Character.Class.entries.find { it.name.equals(this, ignoreCase = true) }
 
-        private fun String.toSize(): Creature.Size? = Creature.Size.entries.find { it.name.equals(this, ignoreCase = true) }
+        private fun String.toSize(): Creature.Size? =
+            Creature.Size.entries.find { it.name.equals(this, ignoreCase = true) }
 
-        private fun String.toAlignment(): Creature.Alignment? = Creature.Alignment.entries.find { it.name.equals(this, ignoreCase = true) }
+        private fun String.toAlignment(): Creature.Alignment? =
+            Creature.Alignment.entries.find { it.name.equals(this, ignoreCase = true) }
     }
 }
