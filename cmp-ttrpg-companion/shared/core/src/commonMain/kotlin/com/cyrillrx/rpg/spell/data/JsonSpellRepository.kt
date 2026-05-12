@@ -63,19 +63,11 @@ class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository 
                 ?: return Result.Failure(SpellImportError.MissingComponents(id))
             val apiAvailableClasses = availableClasses
                 ?: return Result.Failure(SpellImportError.MissingAvailableClasses(id))
-            val (availableClasses, classErrors) = apiAvailableClasses.partitionBy { apiClass ->
-                apiClass.toCharacterClass()?.let { Result.Success(it) }
-                    ?: Result.Failure(SpellImportError.UnknownClass(id, apiClass))
-            }
-            classErrors.forEach { println("WARNING: $it") }
-            if (availableClasses.isEmpty()) return Result.Failure(SpellImportError.EmptyAvailableClasses(id))
+            val availableClasses = apiAvailableClasses.toCharacterClasses(id)
+                ?: return Result.Failure(SpellImportError.EmptyAvailableClasses(id))
             val apiTranslations = translations
                 ?: return Result.Failure(SpellImportError.MissingTranslations(id))
-            val (parsedTranslations, translationErrors) = apiTranslations.partitionBy { locale, t ->
-                t.toDomain(id, locale)
-            }
-            translationErrors.forEach { println("WARNING: spell import error: $it") }
-            val translations = parsedTranslations.takeIf { it.isNotEmpty() }
+            val translations = apiTranslations.toTranslations(id)
                 ?: return Result.Failure(SpellImportError.MissingTranslations(id))
 
             return Result.Success(
@@ -97,17 +89,51 @@ class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository 
             )
         }
 
-        private fun ApiSpell.Translation.toDomain(
+        private fun String.toSchool(): Spell.School? =
+            Spell.School.entries.find { it.name.equals(this, ignoreCase = true) }
+
+        private fun List<String>.toCharacterClasses(spellId: String): List<Character.Class>? {
+            val (availableClasses, classErrors) = partitionBy { apiClass ->
+                val characterClass = apiClass.toCharacterClass()
+                if (characterClass == null) {
+                    Result.Failure(SpellImportError.UnknownClass(spellId, apiClass))
+                } else {
+                    Result.Success(characterClass)
+                }
+            }
+            classErrors.forEach { println("WARNING: $it") }
+
+            return availableClasses.takeIf { it.isNotEmpty() }
+        }
+
+        private fun String.toCharacterClass(): Character.Class? =
+            Character.Class.entries.find { it.name.equals(this, ignoreCase = true) }
+
+        private fun Map<String, ApiSpell.Translation>.toTranslations(spellId: String): Map<String, Spell.Translation>? {
+            val (parsedTranslations, translationErrors) = partitionBy { locale, t ->
+                t.toTranslation(spellId, locale)
+            }
+            translationErrors.forEach { println("WARNING: spell import error: $it") }
+            return parsedTranslations.takeIf { it.isNotEmpty() }
+        }
+
+        private fun ApiSpell.Translation.toTranslation(
             spellId: String,
             locale: String,
         ): Result<Spell.Translation, SpellImportError> {
-            val name = name ?: return Result.Failure(SpellImportError.InvalidTranslation(spellId, locale))
-            val castingTime = castingTime ?: return Result.Failure(SpellImportError.InvalidTranslation(spellId, locale))
-            val range = range ?: return Result.Failure(SpellImportError.InvalidTranslation(spellId, locale))
-            val duration = duration ?: return Result.Failure(SpellImportError.InvalidTranslation(spellId, locale))
-            val description = description ?: return Result.Failure(SpellImportError.InvalidTranslation(spellId, locale))
+            val name = name
+                ?: return Result.Failure(SpellImportError.InvalidTranslation(spellId, locale, field = "name"))
+            val castingTime = castingTime
+                ?: return Result.Failure(SpellImportError.InvalidTranslation(spellId, locale, field = "castingTime"))
+            val range = range
+                ?: return Result.Failure(SpellImportError.InvalidTranslation(spellId, locale, field = "range"))
+            val duration = duration
+                ?: return Result.Failure(SpellImportError.InvalidTranslation(spellId, locale, field = "duration"))
+            val description = description
+                ?: return Result.Failure(SpellImportError.InvalidTranslation(spellId, locale, field = "description"))
+
             return Result.Success(
-                Spell.Translation(
+                value = Spell.Translation(
                     name = name,
                     castingTime = castingTime,
                     range = range,
@@ -117,11 +143,5 @@ class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository 
                 ),
             )
         }
-
-        private fun String.toSchool(): Spell.School? =
-            Spell.School.entries.find { it.name.equals(this, ignoreCase = true) }
-
-        private fun String.toCharacterClass(): Character.Class? =
-            Character.Class.entries.find { it.name.equals(this, ignoreCase = true) }
     }
 }
