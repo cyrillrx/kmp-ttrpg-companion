@@ -85,8 +85,6 @@ class JsonMonsterRepository(private val fileReader: FileReader) : MonsterReposit
             translationErrors.forEach { println("WARNING: monster import error: $it") }
             val translations = translationMap.takeIf { it.isNotEmpty() }
                 ?: return Result.Failure(MonsterImportError.MissingTranslations(id))
-            val languages = (translations[FALLBACK_LOCALE] ?: translations.values.first()).languages
-
             return Result.Success(
                 Monster(
                     id = id,
@@ -100,7 +98,6 @@ class JsonMonsterRepository(private val fileReader: FileReader) : MonsterReposit
                     armorClass = armorClass,
                     maxHitPoints = maxHitPoints,
                     speeds = speeds.toDomain(),
-                    languages = languages,
                     skills = apiSkills.toDomain(),
                     damageAffinities = apiDamageAffinities.toDomain(),
                     conditionImmunities = apiConditionImmunities.toDomain(),

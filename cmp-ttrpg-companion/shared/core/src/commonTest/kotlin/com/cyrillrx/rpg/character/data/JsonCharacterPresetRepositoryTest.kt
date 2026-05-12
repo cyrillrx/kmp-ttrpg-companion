@@ -6,6 +6,7 @@ import com.cyrillrx.core.domain.Result
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.creature.domain.Creature
+import com.cyrillrx.rpg.creature.domain.Language
 import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -28,6 +29,7 @@ class JsonCharacterPresetRepositoryTest {
             assertEquals(Creature.Alignment.LAWFUL_GOOD, character.alignment)
             assertEquals(17, character.armorClass)
             assertEquals(28, character.maxHitPoints)
+            assertEquals(listOf(Language.COMMON, Language.ELVISH), character.languages)
         }
 
     @Test
@@ -94,6 +96,13 @@ class JsonCharacterPresetRepositoryTest {
         }
 
     @Test
+    fun `preset with unknown language is skipped`() =
+        runTest {
+            val json = preset(languages = """["klingon"]""")
+            assertTrue(repository(json).getAll(null).isEmpty())
+        }
+
+    @Test
     fun `valid records are returned even when some records are invalid`() =
         runTest {
             val json = """[
@@ -120,6 +129,7 @@ class JsonCharacterPresetRepositoryTest {
         armorClass: Int? = 17,
         maxHitPoints: Int? = 28,
         skills: String? = "{}",
+        languages: String? = """["common", "elvish"]""",
         translations: String? = """{"en": {"shortDescription": "Human Fighter", "description": ""}}""",
     ): String {
         val fields =
@@ -134,6 +144,7 @@ class JsonCharacterPresetRepositoryTest {
                 armorClass?.let { add(""""armorClass": $it""") }
                 maxHitPoints?.let { add(""""maxHitPoints": $it""") }
                 skills?.let { add(""""skills": $it""") }
+                languages?.let { add(""""languages": $it""") }
                 translations?.let { add(""""translations": $it""") }
             }
         return "[{${fields.joinToString(", ")}}]"

@@ -7,6 +7,7 @@ import com.cyrillrx.rpg.character.domain.applyFilter
 import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.creature.domain.Creature
+import com.cyrillrx.rpg.creature.domain.Language
 import com.cyrillrx.rpg.creature.domain.Skills
 import com.cyrillrx.rpg.creature.domain.Speeds
 
@@ -46,7 +47,7 @@ class SampleCharacterRepository : CharacterRepository {
                 armorClass = 16,
                 maxHitPoints = 12,
                 speeds = Speeds(walk = 30),
-                languages = listOf("common", "dwarvish"),
+                languages = listOf(Language.COMMON, Language.DWARVISH),
                 level = 1,
                 clazz = Character.Class.FIGHTER,
                 skills = Skills(),
@@ -70,7 +71,7 @@ class SampleCharacterRepository : CharacterRepository {
                 armorClass = 14,
                 maxHitPoints = 8,
                 speeds = Speeds(walk = 30),
-                languages = listOf("common", "elvish"),
+                languages = listOf(Language.COMMON, Language.ELVISH),
                 level = 1,
                 clazz = Character.Class.ROGUE,
                 skills = Skills(),

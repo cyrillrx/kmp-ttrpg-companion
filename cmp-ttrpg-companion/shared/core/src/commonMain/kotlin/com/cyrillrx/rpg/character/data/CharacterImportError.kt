@@ -64,4 +64,9 @@ sealed interface CharacterImportError : Error {
         val id: String,
         val value: String,
     ) : CharacterImportError
+
+    data class UnknownLanguage(
+        val id: String,
+        val value: String,
+    ) : CharacterImportError
 }

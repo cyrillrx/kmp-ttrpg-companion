@@ -15,6 +15,7 @@ import com.cyrillrx.rpg.creature.data.toDomain
 import com.cyrillrx.rpg.creature.data.toSize
 import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.Ability
+import com.cyrillrx.rpg.creature.domain.Language
 import com.cyrillrx.rpg.creature.domain.Speeds
 
 class JsonCharacterPresetRepository(
@@ -108,6 +109,15 @@ class JsonCharacterPresetRepository(
             val clazz =
                 apiClazz.toClass()
                     ?: return Result.Failure(CharacterImportError.UnknownClass(id, apiClazz))
+            val parsedLanguages =
+                mutableListOf<Language>().also { list ->
+                    for (lang in languages ?: emptyList()) {
+                        list.add(
+                            lang.toLanguage()
+                                ?: return Result.Failure(CharacterImportError.UnknownLanguage(id, lang)),
+                        )
+                    }
+                }
 
             return Result.Success(
                 Character(
@@ -124,7 +134,7 @@ class JsonCharacterPresetRepository(
                     armorClass = armorClass,
                     maxHitPoints = maxHitPoints,
                     speeds = speeds.toDomain(),
-                    languages = languages ?: emptyList(),
+                    languages = parsedLanguages,
                     skills = apiSkills.toDomain(),
                 ),
             )
@@ -151,5 +161,7 @@ class JsonCharacterPresetRepository(
         private fun String.toRace(): Race? = Race.entries.find { it.name.equals(this, ignoreCase = true) }
 
         private fun String.toClass(): Character.Class? = Character.Class.entries.find { it.name.equals(this, ignoreCase = true) }
+
+        private fun String.toLanguage(): Language? = Language.entries.find { it.name.equals(this, ignoreCase = true) }
     }
 }

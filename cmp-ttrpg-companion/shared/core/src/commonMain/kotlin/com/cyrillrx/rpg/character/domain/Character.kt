@@ -3,6 +3,7 @@ package com.cyrillrx.rpg.character.domain
 import com.cyrillrx.core.domain.FALLBACK_LOCALE
 import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.Creature
+import com.cyrillrx.rpg.creature.domain.Language
 import com.cyrillrx.rpg.creature.domain.Skills
 import com.cyrillrx.rpg.creature.domain.Speeds
 
@@ -15,7 +16,7 @@ data class Character(
     override val armorClass: Int,
     override val maxHitPoints: Int,
     override val speeds: Speeds,
-    override val languages: List<String>,
+    val languages: List<Language>,
     val level: Int,
     val clazz: Class,
     val skills: Skills,
@@ -32,7 +33,6 @@ data class Character(
     armorClass = armorClass,
     maxHitPoints = maxHitPoints,
     speeds = speeds,
-    languages = languages,
 ) {
     fun resolveTranslation(locale: String): Translation? = translations[locale]
         ?: translations[FALLBACK_LOCALE]

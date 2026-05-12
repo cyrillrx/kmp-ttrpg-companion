@@ -10,7 +10,6 @@ class Monster(
     armorClass: Int,
     maxHitPoints: Int,
     speeds: Speeds,
-    languages: List<String>,
     val source: String,
     val type: Type,
     val challengeRating: Float,
@@ -27,7 +26,6 @@ class Monster(
     armorClass = armorClass,
     maxHitPoints = maxHitPoints,
     speeds = speeds,
-    languages = languages,
 ) {
     init {
         require(translations.isNotEmpty()) { "Monster $id must have at least one translation" }

@@ -49,7 +49,6 @@ class SampleMonsterRepository : MonsterRepository {
             armorClass = 15,
             maxHitPoints = 7,
             speeds = Speeds(walk = 30),
-            languages = listOf("Common", "Goblin"),
             translations = mapOf(
                 "en" to Monster.Translation(
                     name = "Goblin",
@@ -79,7 +78,6 @@ class SampleMonsterRepository : MonsterRepository {
             armorClass = 18,
             maxHitPoints = 178,
             speeds = Speeds(walk = 40, climb = 40, fly = 80),
-            languages = listOf("Common", "Draconic"),
             translations = mapOf(
                 "en" to Monster.Translation(
                     name = "Young Red Dragon",
@@ -109,7 +107,6 @@ class SampleMonsterRepository : MonsterRepository {
             armorClass = 13,
             maxHitPoints = 13,
             speeds = Speeds(walk = 30),
-            languages = listOf("understands languages it knew in life"),
             translations = mapOf(
                 "en" to Monster.Translation(
                     name = "Skeleton",
@@ -139,7 +136,6 @@ class SampleMonsterRepository : MonsterRepository {
             armorClass = 14,
             maxHitPoints = 37,
             speeds = Speeds(walk = 50),
-            languages = emptyList(),
             translations = mapOf(
                 "en" to Monster.Translation(
                     name = "Dire Wolf",
@@ -169,7 +165,6 @@ class SampleMonsterRepository : MonsterRepository {
             armorClass = 19,
             maxHitPoints = 262,
             speeds = Speeds(walk = 40, fly = 80),
-            languages = listOf("Abyssal", "telepathy 120 ft."),
             translations = mapOf(
                 "en" to Monster.Translation(
                     name = "Balor",
@@ -199,7 +194,6 @@ class SampleMonsterRepository : MonsterRepository {
             armorClass = 6,
             maxHitPoints = 84,
             speeds = Speeds(walk = 15),
-            languages = emptyList(),
             translations = mapOf(
                 "en" to Monster.Translation(
                     name = "Gelatinous Cube",
