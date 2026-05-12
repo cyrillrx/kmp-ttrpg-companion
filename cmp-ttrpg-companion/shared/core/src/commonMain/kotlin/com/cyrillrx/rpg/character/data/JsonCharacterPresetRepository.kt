@@ -25,10 +25,9 @@ class JsonCharacterPresetRepository(
     private var cache: List<Character>? = null
 
     override suspend fun getAll(filter: CharacterFilter?): List<Character> {
-        val all =
-            cache ?: loadFromFile()
-                .parse()
-                .also { cache = it }
+        val all = cache ?: loadFromFile()
+            .parse()
+            .also { cache = it }
         return all.applyFilter(filter)
     }
 
@@ -70,11 +69,11 @@ class JsonCharacterPresetRepository(
                 ?: return Result.Failure(CharacterImportError.MissingTranslations(id))
             val level = level
                 ?: return Result.Failure(CharacterImportError.MissingLevel(id))
-            val apiSize = this@toCharacter.size
+            val apiSize = size
                 ?: return Result.Failure(CharacterImportError.MissingSize(id))
             val size = apiSize.toSize()
                 ?: return Result.Failure(CharacterImportError.UnknownSize(id, apiSize))
-            val apiAlignment = this@toCharacter.alignment
+            val apiAlignment = alignment
                 ?: return Result.Failure(CharacterImportError.MissingAlignment(id))
             val alignment = apiAlignment.toAlignment()
                 ?: return Result.Failure(CharacterImportError.UnknownAlignment(id, apiAlignment))
