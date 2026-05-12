@@ -54,66 +54,48 @@ class JsonCharacterPresetRepository(
         }
 
         private fun ApiCharacter.toCharacter(): Result<Character, CharacterImportError> {
-            val id =
-                id
-                    ?: return Result.Failure(CharacterImportError.MissingId)
-            val name =
-                name
-                    ?: return Result.Failure(CharacterImportError.MissingName(id))
-            val apiTranslations =
-                translations
-                    ?: return Result.Failure(CharacterImportError.MissingTranslations(id))
-            val translationMap =
-                apiTranslations.mapValues { (_, t) ->
-                    Character.Translation(
-                        shortDescription = t.shortDescription.orEmpty(),
-                        description = t.description.orEmpty(),
-                    )
-                }
-            val translations =
-                translationMap.takeIf { it.isNotEmpty() }
-                    ?: return Result.Failure(CharacterImportError.MissingTranslations(id))
-            val level =
-                level
-                    ?: return Result.Failure(CharacterImportError.MissingLevel(id))
-            val apiSize =
-                this@toCharacter.size
-                    ?: return Result.Failure(CharacterImportError.MissingSize(id))
-            val size =
-                apiSize.toSize()
-                    ?: return Result.Failure(CharacterImportError.UnknownSize(id, apiSize))
-            val apiAlignment =
-                this@toCharacter.alignment
-                    ?: return Result.Failure(CharacterImportError.MissingAlignment(id))
-            val alignment =
-                apiAlignment.toAlignment()
-                    ?: return Result.Failure(CharacterImportError.UnknownAlignment(id, apiAlignment))
-            val armorClass =
-                armorClass
-                    ?: return Result.Failure(CharacterImportError.MissingArmorClass(id))
-            val maxHitPoints =
-                maxHitPoints
-                    ?: return Result.Failure(CharacterImportError.MissingMaxHitPoints(id))
-            val apiSkills =
-                skills
-                    ?: return Result.Failure(CharacterImportError.MissingSkills(id))
-            val apiRace =
-                race
-                    ?: return Result.Failure(CharacterImportError.MissingRace(id))
-            val race =
-                apiRace.toRace()
-                    ?: return Result.Failure(CharacterImportError.UnknownRace(id, apiRace))
-            val apiClazz =
-                clazz
-                    ?: return Result.Failure(CharacterImportError.MissingClass(id))
-            val clazz =
-                apiClazz.toClass()
-                    ?: return Result.Failure(CharacterImportError.UnknownClass(id, apiClazz))
-            val parsedLanguages =
-                languages?.map { lang ->
-                    lang.toLanguage()
-                        ?: return Result.Failure(CharacterImportError.UnknownLanguage(id, lang))
-                } ?: emptyList()
+            val id = id
+                ?: return Result.Failure(CharacterImportError.MissingId)
+            val name = name
+                ?: return Result.Failure(CharacterImportError.MissingName(id))
+            val apiTranslations = translations
+                ?: return Result.Failure(CharacterImportError.MissingTranslations(id))
+            val translationMap = apiTranslations.mapValues { (_, t) ->
+                Character.Translation(
+                    shortDescription = t.shortDescription.orEmpty(),
+                    description = t.description.orEmpty(),
+                )
+            }
+            val translations = translationMap.takeIf { it.isNotEmpty() }
+                ?: return Result.Failure(CharacterImportError.MissingTranslations(id))
+            val level = level
+                ?: return Result.Failure(CharacterImportError.MissingLevel(id))
+            val apiSize = this@toCharacter.size
+                ?: return Result.Failure(CharacterImportError.MissingSize(id))
+            val size = apiSize.toSize()
+                ?: return Result.Failure(CharacterImportError.UnknownSize(id, apiSize))
+            val apiAlignment = this@toCharacter.alignment
+                ?: return Result.Failure(CharacterImportError.MissingAlignment(id))
+            val alignment = apiAlignment.toAlignment()
+                ?: return Result.Failure(CharacterImportError.UnknownAlignment(id, apiAlignment))
+            val armorClass = armorClass
+                ?: return Result.Failure(CharacterImportError.MissingArmorClass(id))
+            val maxHitPoints = maxHitPoints
+                ?: return Result.Failure(CharacterImportError.MissingMaxHitPoints(id))
+            val apiSkills = skills
+                ?: return Result.Failure(CharacterImportError.MissingSkills(id))
+            val apiRace = race
+                ?: return Result.Failure(CharacterImportError.MissingRace(id))
+            val race = apiRace.toRace()
+                ?: return Result.Failure(CharacterImportError.UnknownRace(id, apiRace))
+            val apiClazz = clazz
+                ?: return Result.Failure(CharacterImportError.MissingClass(id))
+            val clazz = apiClazz.toClass()
+                ?: return Result.Failure(CharacterImportError.UnknownClass(id, apiClazz))
+            val languages = this@toCharacter.languages?.map { lang ->
+                lang.toLanguage()
+                    ?: return Result.Failure(CharacterImportError.UnknownLanguage(id, lang))
+            } ?: emptyList()
 
             return Result.Success(
                 Character(
@@ -130,7 +112,7 @@ class JsonCharacterPresetRepository(
                     armorClass = armorClass,
                     maxHitPoints = maxHitPoints,
                     speeds = speeds.toDomain(),
-                    languages = parsedLanguages,
+                    languages = languages,
                     skills = apiSkills.toDomain(),
                 ),
             )
@@ -156,7 +138,8 @@ class JsonCharacterPresetRepository(
 
         private fun String.toRace(): Race? = Race.entries.find { it.name.equals(this, ignoreCase = true) }
 
-        private fun String.toClass(): Character.Class? = Character.Class.entries.find { it.name.equals(this, ignoreCase = true) }
+        private fun String.toClass(): Character.Class? =
+            Character.Class.entries.find { it.name.equals(this, ignoreCase = true) }
 
         private fun String.toLanguage(): Language? = Language.entries.find { it.name.equals(this, ignoreCase = true) }
     }
