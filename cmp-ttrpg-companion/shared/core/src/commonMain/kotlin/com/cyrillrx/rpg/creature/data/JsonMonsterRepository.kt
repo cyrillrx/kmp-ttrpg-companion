@@ -79,11 +79,11 @@ class JsonMonsterRepository(private val fileReader: FileReader) : MonsterReposit
                 ?: return Result.Failure(MonsterImportError.MissingConditionImmunities(id))
             val apiTranslations = translations
                 ?: return Result.Failure(MonsterImportError.MissingTranslations(id))
-            val (translationMap, translationErrors) = apiTranslations.partitionBy { locale, t ->
+            val (parsedTranslations, translationErrors) = apiTranslations.partitionBy { locale, t ->
                 t.toDomain(id, locale)
             }
             translationErrors.forEach { println("WARNING: monster import error: $it") }
-            val translations = translationMap.takeIf { it.isNotEmpty() }
+            val translations = parsedTranslations.takeIf { it.isNotEmpty() }
                 ?: return Result.Failure(MonsterImportError.MissingTranslations(id))
             return Result.Success(
                 Monster(

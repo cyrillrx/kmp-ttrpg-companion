@@ -92,10 +92,10 @@ class JsonCharacterPresetRepository(
                 ?: return Result.Failure(CharacterImportError.MissingClass(id))
             val clazz = apiClazz.toClass()
                 ?: return Result.Failure(CharacterImportError.UnknownClass(id, apiClazz))
-            val languages = this@toCharacter.languages?.map { lang ->
-                lang.toLanguage()
-                    ?: return Result.Failure(CharacterImportError.UnknownLanguage(id, lang))
-            } ?: emptyList()
+            val (parsedLanguages, languageErrors) = languages.orEmpty().partitionBy { lang -> lang.toLanguage(id) }
+            languageErrors.forEach { println("WARNING: character preset import error: $it") }
+            val languages = parsedLanguages.takeIf { languageErrors.isEmpty() }
+                ?: return Result.Failure(languageErrors.first())
 
             return Result.Success(
                 Character(
@@ -141,6 +141,9 @@ class JsonCharacterPresetRepository(
         private fun String.toClass(): Character.Class? =
             Character.Class.entries.find { it.name.equals(this, ignoreCase = true) }
 
-        private fun String.toLanguage(): Language? = Language.entries.find { it.name.equals(this, ignoreCase = true) }
+        private fun String.toLanguage(id: String): Result<Language, CharacterImportError> =
+            Language.entries.find { it.name.equals(this, ignoreCase = true) }
+                ?.let { Result.Success(it) }
+                ?: Result.Failure(CharacterImportError.UnknownLanguage(id, this))
     }
 }

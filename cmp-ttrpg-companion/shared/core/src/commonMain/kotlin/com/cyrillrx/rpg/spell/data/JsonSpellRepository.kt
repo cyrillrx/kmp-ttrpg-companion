@@ -71,11 +71,11 @@ class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository 
             if (availableClasses.isEmpty()) return Result.Failure(SpellImportError.EmptyAvailableClasses(id))
             val apiTranslations = translations
                 ?: return Result.Failure(SpellImportError.MissingTranslations(id))
-            val (translationMap, translationErrors) = apiTranslations.partitionBy { locale, t ->
+            val (parsedTranslations, translationErrors) = apiTranslations.partitionBy { locale, t ->
                 t.toDomain(id, locale)
             }
             translationErrors.forEach { println("WARNING: spell import error: $it") }
-            val translations = translationMap.takeIf { it.isNotEmpty() }
+            val translations = parsedTranslations.takeIf { it.isNotEmpty() }
                 ?: return Result.Failure(SpellImportError.MissingTranslations(id))
 
             return Result.Success(

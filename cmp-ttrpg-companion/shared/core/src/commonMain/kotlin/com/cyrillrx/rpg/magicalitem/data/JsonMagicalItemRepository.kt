@@ -59,11 +59,11 @@ class JsonMagicalItemRepository(private val fileReader: FileReader) : MagicalIte
                 ?: return Result.Failure(MagicalItemImportError.UnknownRarity(id, apiRarity))
             val apiTranslations = translations
                 ?: return Result.Failure(MagicalItemImportError.MissingTranslations(id))
-            val (translationMap, translationErrors) = apiTranslations.partitionBy { locale, t ->
+            val (parsedTranslations, translationErrors) = apiTranslations.partitionBy { locale, t ->
                 t.toDomain(id, locale)
             }
             translationErrors.forEach { println("WARNING: magical item import error: $it") }
-            val translations = translationMap.takeIf { it.isNotEmpty() }
+            val translations = parsedTranslations.takeIf { it.isNotEmpty() }
                 ?: return Result.Failure(MagicalItemImportError.MissingTranslations(id))
 
             return Result.Success(
