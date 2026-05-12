@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
+    <!-- Character stats -->
+    <string name="label_armor_class">AC %d</string>
+    <string name="label_hit_points">%d HP</string>
+
+    <!-- Character list -->
+    <string name="title_character_list">Characters</string>
+    <string name="title_preset_gallery">Quick Create</string>
+    <string name="tab_player_characters">Characters</string>
+    <string name="tab_non_player_characters">NPCs</string>
+    <string name="btn_new_character">New Character</string>
+    <string name="btn_new_character_subtitle">Step-by-step wizard</string>
+    <string name="btn_quick_create">Quick Create</string>
+    <string name="btn_quick_create_subtitle">PC &amp; NPC presets</string>
+    <string name="hint_search_character">Search characters…</string>
+
     <!-- Character race -->
     <string name="race_human">Human</string>
     <string name="race_elf">Elf</string>

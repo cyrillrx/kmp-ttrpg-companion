@@ -74,7 +74,7 @@ fun SpellCardCarouselScreen(
             )
         },
     ) { paddingValues ->
-        Column(Modifier.padding(paddingValues)) {
+        Column(Modifier.padding(paddingValues).fillMaxSize()) {
             when (val body = state.body) {
                 is SpellListState.Body.Loading -> Loader()
                 is SpellListState.Body.Empty -> EmptySearch(state.filter.query)

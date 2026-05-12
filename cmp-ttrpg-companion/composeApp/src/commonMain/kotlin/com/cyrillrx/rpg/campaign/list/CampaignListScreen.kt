@@ -85,7 +85,7 @@ fun CampaignListScreen(
             }
         },
     ) { paddingValues ->
-        Column(Modifier.padding(paddingValues)) {
+        Column(Modifier.padding(paddingValues).fillMaxSize()) {
             when (val body = state.body) {
                 is CampaignListState.Body.Loading -> Loader()
                 is CampaignListState.Body.Empty -> EmptySearch(state.searchQuery)

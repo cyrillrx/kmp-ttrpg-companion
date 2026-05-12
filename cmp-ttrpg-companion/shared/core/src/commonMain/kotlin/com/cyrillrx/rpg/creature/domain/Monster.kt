@@ -1,6 +1,6 @@
 package com.cyrillrx.rpg.creature.domain
 
-private const val FALLBACK_LOCALE = "en"
+import com.cyrillrx.core.domain.FALLBACK_LOCALE
 
 class Monster(
     id: String,

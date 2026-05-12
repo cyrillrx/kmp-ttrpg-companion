@@ -11,68 +11,69 @@ import com.cyrillrx.rpg.creature.domain.Skills
 import com.cyrillrx.rpg.creature.domain.Speeds
 
 class SampleCharacterRepository : CharacterRepository {
-    override suspend fun getAll(filter: CharacterFilter?): List<Character> =
-        characters.applyFilter(filter)
+    override suspend fun getAll(filter: CharacterFilter?): List<Character> = characters.applyFilter(filter)
 
-    override suspend fun get(id: String): Character? =
-        characters.firstOrNull { it.id == id }
+    override suspend fun get(id: String): Character? = characters.firstOrNull { it.id == id }
 
     override suspend fun save(character: Character) = Unit
 
     override suspend fun delete(id: String) = Unit
 
     companion object {
-        private val characters: List<Character> = listOf(
-            humanFighter(),
-            elfRogue(),
-        )
+        private val characters: List<Character> =
+            listOf(
+                humanFighter(),
+                elfRogue(),
+            )
 
         fun getAll(): List<Character> = characters
 
-        fun humanFighter() = Character(
-            id = "sample-fighter",
-            name = "Borin Pierrenoire",
-            description = "",
-            size = Creature.Size.MEDIUM,
-            alignment = Creature.Alignment.LAWFUL_GOOD,
-            abilities = Abilities(
-                str = Ability(16),
-                dex = Ability(12),
-                con = Ability(14),
-                int = Ability(10),
-                wis = Ability(10),
-                cha = Ability(8),
-            ),
-            armorClass = 16,
-            maxHitPoints = 12,
-            speeds = Speeds(walk = 30),
-            languages = listOf("common", "dwarvish"),
-            level = 1,
-            clazz = Character.Class.FIGHTER,
-            skills = Skills(),
-        )
+        fun humanFighter() =
+            Character(
+                id = "sample-fighter",
+                name = "Borin Pierrenoire",
+                size = Creature.Size.MEDIUM,
+                alignment = Creature.Alignment.LAWFUL_GOOD,
+                abilities =
+                    Abilities(
+                        str = Ability(16),
+                        dex = Ability(12),
+                        con = Ability(14),
+                        int = Ability(10),
+                        wis = Ability(10),
+                        cha = Ability(8),
+                    ),
+                armorClass = 16,
+                maxHitPoints = 12,
+                speeds = Speeds(walk = 30),
+                languages = listOf("common", "dwarvish"),
+                level = 1,
+                clazz = Character.Class.FIGHTER,
+                skills = Skills(),
+            )
 
-        fun elfRogue() = Character(
-            id = "sample-rogue",
-            name = "Lyra Vossen",
-            description = "",
-            size = Creature.Size.MEDIUM,
-            alignment = Creature.Alignment.CHAOTIC_NEUTRAL,
-            abilities = Abilities(
-                str = Ability(8),
-                dex = Ability(16),
-                con = Ability(12),
-                int = Ability(14),
-                wis = Ability(10),
-                cha = Ability(14),
-            ),
-            armorClass = 14,
-            maxHitPoints = 8,
-            speeds = Speeds(walk = 30),
-            languages = listOf("common", "elvish"),
-            level = 1,
-            clazz = Character.Class.ROGUE,
-            skills = Skills(),
-        )
+        fun elfRogue() =
+            Character(
+                id = "sample-rogue",
+                name = "Lyra Vossen",
+                size = Creature.Size.MEDIUM,
+                alignment = Creature.Alignment.CHAOTIC_NEUTRAL,
+                abilities =
+                    Abilities(
+                        str = Ability(8),
+                        dex = Ability(16),
+                        con = Ability(12),
+                        int = Ability(14),
+                        wis = Ability(10),
+                        cha = Ability(14),
+                    ),
+                armorClass = 14,
+                maxHitPoints = 8,
+                speeds = Speeds(walk = 30),
+                languages = listOf("common", "elvish"),
+                level = 1,
+                clazz = Character.Class.ROGUE,
+                skills = Skills(),
+            )
     }
 }

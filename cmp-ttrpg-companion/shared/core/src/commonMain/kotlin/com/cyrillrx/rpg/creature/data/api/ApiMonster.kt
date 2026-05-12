@@ -15,9 +15,9 @@ internal class ApiMonster(
     val hitDice: String?,
     val abilities: ApiAbilities?,
     val speeds: ApiSpeeds?,
-    val skills: Map<String, String>?,
-    val damageAffinities: Map<String, String>?,
-    val conditionImmunities: Map<String, Boolean>?,
+    val skills: ApiSkills?,
+    val damageAffinities: ApiDamageAffinities?,
+    val conditionImmunities: ApiConditionImmunities?,
     val translations: Map<String, Translation>?,
 ) {
     @Serializable

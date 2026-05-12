@@ -1,26 +1,26 @@
 package com.cyrillrx.rpg.character.domain
 
+import com.cyrillrx.core.domain.FALLBACK_LOCALE
 import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.Skills
 import com.cyrillrx.rpg.creature.domain.Speeds
 
-class Character(
-    id: String,
+data class Character(
+    override val id: String,
     val name: String,
-    val description: String,
-    size: Size,
-    alignment: Alignment,
-    abilities: Abilities,
-    armorClass: Int,
-    maxHitPoints: Int,
-    speeds: Speeds,
-    languages: List<String>,
+    override val size: Size,
+    override val alignment: Alignment,
+    override val abilities: Abilities,
+    override val armorClass: Int,
+    override val maxHitPoints: Int,
+    override val speeds: Speeds,
+    override val languages: List<String>,
     val level: Int,
     val clazz: Class,
     val skills: Skills,
     val race: Race = Race.HUMAN,
-    val shortDescription: String? = null,
+    val translations: Map<String, Translation> = emptyMap(),
     val background: String? = null,
     val currentHitPoints: Int = maxHitPoints,
     val temporaryHitPoints: Int = 0,
@@ -34,6 +34,10 @@ class Character(
     speeds = speeds,
     languages = languages,
 ) {
+    fun resolveTranslation(locale: String): Translation? = translations[locale]
+        ?: translations[FALLBACK_LOCALE]
+        ?: translations.values.firstOrNull()
+
     fun initiativeModifier(): Int = abilities.dex.modifier
 
     fun proficiencyBonus(): Int = when (level) {
@@ -44,6 +48,11 @@ class Character(
         in 17..20 -> 6
         else -> 0
     }
+
+    data class Translation(
+        val shortDescription: String = "",
+        val description: String = "",
+    )
 
     enum class Class {
         BARBARIAN,
