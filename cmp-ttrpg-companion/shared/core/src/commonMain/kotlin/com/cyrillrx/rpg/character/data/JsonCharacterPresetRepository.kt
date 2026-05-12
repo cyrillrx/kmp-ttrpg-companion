@@ -19,6 +19,7 @@ import com.cyrillrx.rpg.creature.domain.Speeds
 
 class JsonCharacterPresetRepository(
     private val fileReader: FileReader,
+    private val filePath: String,
 ) : CharacterRepository {
     private var cache: List<Character>? = null
 
@@ -37,7 +38,7 @@ class JsonCharacterPresetRepository(
     override suspend fun delete(id: String) = Unit
 
     private suspend fun loadFromFile(): List<ApiCharacter> {
-        val result = fileReader.readFile("files/character_presets.json")
+        val result = fileReader.readFile(filePath)
         if (result is Result.Success) {
             return result.value.deserialize() ?: listOf()
         }

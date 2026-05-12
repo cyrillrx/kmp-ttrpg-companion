@@ -18,7 +18,8 @@ import kotlin.uuid.Uuid
 
 class CharacterPresetGalleryViewModel(
     private val router: CharacterRouter,
-    private val presetRepository: CharacterRepository,
+    private val pcPresetRepository: CharacterRepository,
+    private val npcPresetRepository: CharacterRepository,
     private val characterRepository: CharacterRepository,
 ) : ViewModel() {
     val state: StateFlow<CharacterPresetGalleryState>
@@ -43,9 +44,8 @@ class CharacterPresetGalleryViewModel(
     private fun loadPresets() {
         viewModelScope.launch {
             try {
-                val presets = presetRepository.getAll(null)
-                val pcPresets = presets.filter { it.clazz != Character.Class.UNKNOWN }
-                val npcPresets = presets.filter { it.clazz == Character.Class.UNKNOWN }
+                val pcPresets = pcPresetRepository.getAll(null)
+                val npcPresets = npcPresetRepository.getAll(null)
                 state.update {
                     it.copy(
                         body = CharacterPresetGalleryState.Body.WithData(

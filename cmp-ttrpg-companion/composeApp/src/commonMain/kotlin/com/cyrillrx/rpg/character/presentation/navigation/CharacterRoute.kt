@@ -42,7 +42,8 @@ fun PolymorphicModuleBuilder<NavKey>.registerCharacterRoutes() {
 fun EntryProviderScope<NavKey>.handleCharacterRoutes(
     backStack: NavBackStack<NavKey>,
     characterRepository: CharacterRepository,
-    presetRepository: CharacterRepository,
+    pcPresetRepository: CharacterRepository,
+    npcPresetRepository: CharacterRepository,
 ) {
     entry<CharacterRoute.List> {
         val router = CharacterRouterImpl(backStack)
@@ -66,7 +67,7 @@ fun EntryProviderScope<NavKey>.handleCharacterRoutes(
 
     entry<CharacterRoute.PresetGallery> {
         val router = CharacterRouterImpl(backStack)
-        val viewModelFactory = CharacterPresetGalleryViewModelFactory(router, presetRepository, characterRepository)
+        val viewModelFactory = CharacterPresetGalleryViewModelFactory(router, pcPresetRepository, npcPresetRepository, characterRepository)
         val viewModel = viewModel<CharacterPresetGalleryViewModel>(factory = viewModelFactory)
         CharacterPresetGalleryScreen(viewModel, router)
     }

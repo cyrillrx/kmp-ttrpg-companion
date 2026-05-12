@@ -9,11 +9,12 @@ import kotlin.reflect.KClass
 
 class CharacterPresetGalleryViewModelFactory(
     private val router: CharacterRouter,
-    private val presetRepository: CharacterRepository,
+    private val pcPresetRepository: CharacterRepository,
+    private val npcPresetRepository: CharacterRepository,
     private val characterRepository: CharacterRepository,
 ) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(
         modelClass: KClass<T>,
         extras: CreationExtras,
-    ): T = CharacterPresetGalleryViewModel(router, presetRepository, characterRepository) as T
+    ): T = CharacterPresetGalleryViewModel(router, pcPresetRepository, npcPresetRepository, characterRepository) as T
 }
