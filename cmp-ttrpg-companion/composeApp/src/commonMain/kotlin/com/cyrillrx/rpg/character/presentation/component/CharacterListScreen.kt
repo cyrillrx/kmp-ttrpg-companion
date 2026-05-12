@@ -2,7 +2,6 @@ package com.cyrillrx.rpg.character.presentation.component
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -83,15 +82,17 @@ fun CharacterListScreen(
         },
     ) { paddingValues ->
         Column(
-            modifier = Modifier
-                .padding(paddingValues)
-                .fillMaxSize(),
+            modifier =
+                Modifier
+                    .padding(paddingValues)
+                    .fillMaxSize(),
         ) {
             Row(
                 horizontalArrangement = Arrangement.spacedBy(spacingMedium),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(spacingCommon),
+                modifier =
+                    Modifier
+                        .fillMaxWidth()
+                        .padding(spacingCommon),
             ) {
                 CharacterActionCard(
                     icon = Icons.Filled.Add,
@@ -111,7 +112,7 @@ fun CharacterListScreen(
                 )
             }
 
-            Box(modifier = Modifier.weight(1f).fillMaxWidth()) {
+            Column(modifier = Modifier.weight(1f).fillMaxWidth()) {
                 when (val body = state.body) {
                     is CharacterListState.Body.Loading -> Loader()
                     is CharacterListState.Body.Empty -> EmptySearch(searchQuery = state.searchQuery)
@@ -206,10 +207,11 @@ private fun PreviewCharacterListScreenDark() {
 @Composable
 private fun CharacterListScreenPreview() {
     CharacterListScreen(
-        state = CharacterListState(
-            searchQuery = "",
-            body = CharacterListState.Body.WithData(SampleCharacterRepository.getAll()),
-        ),
+        state =
+            CharacterListState(
+                searchQuery = "",
+                body = CharacterListState.Body.WithData(SampleCharacterRepository.getAll()),
+            ),
         onNavigateUpClicked = {},
         onCharacterClicked = {},
         onNewCharacterClicked = {},

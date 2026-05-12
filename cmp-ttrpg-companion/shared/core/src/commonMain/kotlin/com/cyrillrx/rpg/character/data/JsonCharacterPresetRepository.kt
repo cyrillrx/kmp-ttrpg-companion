@@ -23,9 +23,10 @@ class JsonCharacterPresetRepository(
     private var cache: List<Character>? = null
 
     override suspend fun getAll(filter: CharacterFilter?): List<Character> {
-        val all = cache ?: loadFromFile()
-            .parse()
-            .also { cache = it }
+        val all =
+            cache ?: loadFromFile()
+                .parse()
+                .also { cache = it }
         return all.applyFilter(filter)
     }
 
@@ -51,36 +52,61 @@ class JsonCharacterPresetRepository(
         }
 
         private fun ApiCharacter.toCharacter(): Result<Character, CharacterImportError> {
-            val id = id
-                ?: return Result.Failure(CharacterImportError.MissingId)
-            val name = name
-                ?: return Result.Failure(CharacterImportError.MissingName(id))
-            val apiTranslations = translations
-                ?: return Result.Failure(CharacterImportError.MissingTranslations(id))
-            val translationMap = apiTranslations.mapValues { (_, t) ->
-                Character.Translation(
-                    shortDescription = t.shortDescription.orEmpty(),
-                    description = t.description.orEmpty(),
-                )
-            }
-            val translations = translationMap.takeIf { it.isNotEmpty() }
-                ?: return Result.Failure(CharacterImportError.MissingTranslations(id))
-            val level = level
-                ?: return Result.Failure(CharacterImportError.MissingLevel(id))
-            val apiSize = this@toCharacter.size
-                ?: return Result.Failure(CharacterImportError.MissingSize(id))
-            val size = apiSize.toSize()
-                ?: return Result.Failure(CharacterImportError.UnknownSize(id, apiSize))
-            val apiAlignment = this@toCharacter.alignment
-                ?: return Result.Failure(CharacterImportError.MissingAlignment(id))
-            val alignment = apiAlignment.toAlignment()
-                ?: return Result.Failure(CharacterImportError.UnknownAlignment(id, apiAlignment))
-            val armorClass = armorClass
-                ?: return Result.Failure(CharacterImportError.MissingArmorClass(id))
-            val maxHitPoints = maxHitPoints
-                ?: return Result.Failure(CharacterImportError.MissingMaxHitPoints(id))
-            val apiSkills = skills
-                ?: return Result.Failure(CharacterImportError.MissingSkills(id))
+            val id =
+                id
+                    ?: return Result.Failure(CharacterImportError.MissingId)
+            val name =
+                name
+                    ?: return Result.Failure(CharacterImportError.MissingName(id))
+            val apiTranslations =
+                translations
+                    ?: return Result.Failure(CharacterImportError.MissingTranslations(id))
+            val translationMap =
+                apiTranslations.mapValues { (_, t) ->
+                    Character.Translation(
+                        shortDescription = t.shortDescription.orEmpty(),
+                        description = t.description.orEmpty(),
+                    )
+                }
+            val translations =
+                translationMap.takeIf { it.isNotEmpty() }
+                    ?: return Result.Failure(CharacterImportError.MissingTranslations(id))
+            val level =
+                level
+                    ?: return Result.Failure(CharacterImportError.MissingLevel(id))
+            val apiSize =
+                this@toCharacter.size
+                    ?: return Result.Failure(CharacterImportError.MissingSize(id))
+            val size =
+                apiSize.toSize()
+                    ?: return Result.Failure(CharacterImportError.UnknownSize(id, apiSize))
+            val apiAlignment =
+                this@toCharacter.alignment
+                    ?: return Result.Failure(CharacterImportError.MissingAlignment(id))
+            val alignment =
+                apiAlignment.toAlignment()
+                    ?: return Result.Failure(CharacterImportError.UnknownAlignment(id, apiAlignment))
+            val armorClass =
+                armorClass
+                    ?: return Result.Failure(CharacterImportError.MissingArmorClass(id))
+            val maxHitPoints =
+                maxHitPoints
+                    ?: return Result.Failure(CharacterImportError.MissingMaxHitPoints(id))
+            val apiSkills =
+                skills
+                    ?: return Result.Failure(CharacterImportError.MissingSkills(id))
+            val apiRace =
+                race
+                    ?: return Result.Failure(CharacterImportError.MissingRace(id))
+            val race =
+                apiRace.toRace()
+                    ?: return Result.Failure(CharacterImportError.UnknownRace(id, apiRace))
+            val apiClazz =
+                clazz
+                    ?: return Result.Failure(CharacterImportError.MissingClass(id))
+            val clazz =
+                apiClazz.toClass()
+                    ?: return Result.Failure(CharacterImportError.UnknownClass(id, apiClazz))
 
             return Result.Success(
                 Character(
@@ -88,8 +114,8 @@ class JsonCharacterPresetRepository(
                     name = name,
                     translations = translations,
                     background = background,
-                    race = race?.toRace() ?: Race.HUMAN,
-                    clazz = clazz?.toClass() ?: Character.Class.UNKNOWN,
+                    race = race,
+                    clazz = clazz,
                     level = level,
                     size = size,
                     alignment = alignment,
@@ -103,25 +129,26 @@ class JsonCharacterPresetRepository(
             )
         }
 
-        private fun ApiCharacter.ApiAbilities?.toDomain(): Abilities = Abilities(
-            str = Ability(this?.str ?: Ability.DEFAULT_VALUE),
-            dex = Ability(this?.dex ?: Ability.DEFAULT_VALUE),
-            con = Ability(this?.con ?: Ability.DEFAULT_VALUE),
-            int = Ability(this?.int ?: Ability.DEFAULT_VALUE),
-            wis = Ability(this?.wis ?: Ability.DEFAULT_VALUE),
-            cha = Ability(this?.cha ?: Ability.DEFAULT_VALUE),
-        )
+        private fun ApiCharacter.ApiAbilities?.toDomain(): Abilities =
+            Abilities(
+                str = Ability(this?.str ?: Ability.DEFAULT_VALUE),
+                dex = Ability(this?.dex ?: Ability.DEFAULT_VALUE),
+                con = Ability(this?.con ?: Ability.DEFAULT_VALUE),
+                int = Ability(this?.int ?: Ability.DEFAULT_VALUE),
+                wis = Ability(this?.wis ?: Ability.DEFAULT_VALUE),
+                cha = Ability(this?.cha ?: Ability.DEFAULT_VALUE),
+            )
 
-        private fun ApiCharacter.ApiSpeeds?.toDomain(): Speeds = Speeds(
-            walk = this?.walk,
-            fly = this?.fly,
-            swim = this?.swim,
-            climb = this?.climb,
-        )
+        private fun ApiCharacter.ApiSpeeds?.toDomain(): Speeds =
+            Speeds(
+                walk = this?.walk,
+                fly = this?.fly,
+                swim = this?.swim,
+                climb = this?.climb,
+            )
 
         private fun String.toRace(): Race? = Race.entries.find { it.name.equals(this, ignoreCase = true) }
 
-        private fun String.toClass(): Character.Class? =
-            Character.Class.entries.find { it.name.equals(this, ignoreCase = true) }
+        private fun String.toClass(): Character.Class? = Character.Class.entries.find { it.name.equals(this, ignoreCase = true) }
     }
 }
