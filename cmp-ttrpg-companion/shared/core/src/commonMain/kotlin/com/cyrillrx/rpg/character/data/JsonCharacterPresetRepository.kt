@@ -110,14 +110,10 @@ class JsonCharacterPresetRepository(
                 apiClazz.toClass()
                     ?: return Result.Failure(CharacterImportError.UnknownClass(id, apiClazz))
             val parsedLanguages =
-                mutableListOf<Language>().also { list ->
-                    for (lang in languages ?: emptyList()) {
-                        list.add(
-                            lang.toLanguage()
-                                ?: return Result.Failure(CharacterImportError.UnknownLanguage(id, lang)),
-                        )
-                    }
-                }
+                languages?.map { lang ->
+                    lang.toLanguage()
+                        ?: return Result.Failure(CharacterImportError.UnknownLanguage(id, lang))
+                } ?: emptyList()
 
             return Result.Success(
                 Character(
