@@ -14,6 +14,7 @@ sealed interface CharacterImportError : Error {
     data class MissingMaxHitPoints(val id: String) : CharacterImportError
     data class MissingSkills(val id: String) : CharacterImportError
     data class MissingTranslations(val id: String) : CharacterImportError
+    data class InvalidTranslation(val id: String, val locale: String, val field: String) : CharacterImportError
     data class UnknownRace(val id: String, val value: String) : CharacterImportError
     data class UnknownClass(val id: String, val value: String) : CharacterImportError
     data class UnknownSize(val id: String, val value: String) : CharacterImportError

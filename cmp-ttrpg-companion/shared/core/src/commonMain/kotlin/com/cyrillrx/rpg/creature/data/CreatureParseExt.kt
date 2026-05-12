@@ -22,7 +22,7 @@ internal fun String?.toProficiency(): Proficiency = when (this) {
     else -> Proficiency.NONE
 }
 
-internal fun ApiSkills.toDomain(): Skills = Skills(
+internal fun ApiSkills.toSkills(): Skills = Skills(
     acrobatics = acrobatics.toProficiency(),
     animalHandling = animalHandling.toProficiency(),
     arcana = arcana.toProficiency(),
@@ -50,7 +50,7 @@ internal fun String?.toDamageAffinity(): DamageAffinity = when (this) {
     else -> DamageAffinity.NONE
 }
 
-internal fun ApiDamageAffinities.toDomain(): DamageAffinities = DamageAffinities(
+internal fun ApiDamageAffinities.toDamageAffinities(): DamageAffinities = DamageAffinities(
     acid = acid.toDamageAffinity(),
     bludgeoning = bludgeoning.toDamageAffinity(),
     cold = cold.toDamageAffinity(),
@@ -69,7 +69,7 @@ internal fun ApiDamageAffinities.toDomain(): DamageAffinities = DamageAffinities
     slashingNonMagical = slashingNonMagical.toDamageAffinity(),
 )
 
-internal fun ApiConditionImmunities.toDomain(): ConditionImmunities = ConditionImmunities(
+internal fun ApiConditionImmunities.toConditionImmunities(): ConditionImmunities = ConditionImmunities(
     blinded = blinded ?: false,
     charmed = charmed ?: false,
     deafened = deafened ?: false,

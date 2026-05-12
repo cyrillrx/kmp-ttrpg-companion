@@ -16,6 +16,8 @@ class RamCharacterRepository : CharacterRepository {
 
     override suspend fun get(id: String): Character? = characters[id]
 
+    override suspend fun getByIds(ids: List<String>): List<Character> = ids.mapNotNull { characters[it] }
+
     override suspend fun save(character: Character) {
         characters[character.id] = character
     }

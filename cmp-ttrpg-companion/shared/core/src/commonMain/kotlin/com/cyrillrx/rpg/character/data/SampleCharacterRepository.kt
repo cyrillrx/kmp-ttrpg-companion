@@ -16,6 +16,11 @@ class SampleCharacterRepository : CharacterRepository {
 
     override suspend fun get(id: String): Character? = characters.firstOrNull { it.id == id }
 
+    override suspend fun getByIds(ids: List<String>): List<Character> {
+        val all = characters.associateBy { it.id }
+        return ids.mapNotNull { all[it] }
+    }
+
     override suspend fun save(character: Character) = Unit
 
     override suspend fun delete(id: String) = Unit

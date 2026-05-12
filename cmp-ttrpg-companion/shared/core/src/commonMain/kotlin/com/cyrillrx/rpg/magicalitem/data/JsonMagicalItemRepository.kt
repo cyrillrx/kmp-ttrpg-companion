@@ -59,11 +59,7 @@ class JsonMagicalItemRepository(private val fileReader: FileReader) : MagicalIte
                 ?: return Result.Failure(MagicalItemImportError.UnknownRarity(id, apiRarity))
             val apiTranslations = translations
                 ?: return Result.Failure(MagicalItemImportError.MissingTranslations(id))
-            val (parsedTranslations, translationErrors) = apiTranslations.partitionBy { locale, t ->
-                t.toDomain(id, locale)
-            }
-            translationErrors.forEach { println("WARNING: magical item import error: $it") }
-            val translations = parsedTranslations.takeIf { it.isNotEmpty() }
+            val translations = apiTranslations.toTranslations(id)
                 ?: return Result.Failure(MagicalItemImportError.MissingTranslations(id))
 
             return Result.Success(
@@ -78,13 +74,15 @@ class JsonMagicalItemRepository(private val fileReader: FileReader) : MagicalIte
             )
         }
 
-        private fun ApiMagicalItem.Translation.toDomain(
+        private fun ApiMagicalItem.Translation.toTranslation(
             itemId: String,
             locale: String,
         ): Result<MagicalItem.Translation, MagicalItemImportError> {
-            val name = name ?: return Result.Failure(MagicalItemImportError.InvalidTranslation(itemId, locale))
-            val description =
-                description ?: return Result.Failure(MagicalItemImportError.InvalidTranslation(itemId, locale))
+            val name = name
+                ?: return Result.Failure(MagicalItemImportError.InvalidTranslation(itemId, locale, field = "name"))
+            val description = description
+                ?: return Result.Failure(MagicalItemImportError.InvalidTranslation(itemId, locale, field = "description"))
+
             return Result.Success(
                 MagicalItem.Translation(
                     name = name,
@@ -92,6 +90,14 @@ class JsonMagicalItemRepository(private val fileReader: FileReader) : MagicalIte
                     description = description,
                 ),
             )
+        }
+
+        private fun Map<String, ApiMagicalItem.Translation>.toTranslations(itemId: String): Map<String, MagicalItem.Translation>? {
+            val (parsedTranslations, translationErrors) = partitionBy { locale, t ->
+                t.toTranslation(itemId, locale)
+            }
+            translationErrors.forEach { println("WARNING: magical item import error: $it") }
+            return parsedTranslations.takeIf { it.isNotEmpty() }
         }
 
         private fun String.toType(): MagicalItem.Type? =

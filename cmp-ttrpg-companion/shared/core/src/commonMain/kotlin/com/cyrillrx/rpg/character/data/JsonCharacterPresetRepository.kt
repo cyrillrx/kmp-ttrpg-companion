@@ -11,8 +11,8 @@ import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.domain.applyFilter
 import com.cyrillrx.rpg.creature.data.toAlignment
-import com.cyrillrx.rpg.creature.data.toDomain
 import com.cyrillrx.rpg.creature.data.toSize
+import com.cyrillrx.rpg.creature.data.toSkills
 import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.creature.domain.Language
@@ -32,6 +32,11 @@ class JsonCharacterPresetRepository(
     }
 
     override suspend fun get(id: String): Character? = getAll(null).firstOrNull { it.id == id }
+
+    override suspend fun getByIds(ids: List<String>): List<Character> {
+        val all = getAll(null).associateBy { it.id }
+        return ids.mapNotNull { all[it] }
+    }
 
     override suspend fun save(character: Character) = Unit
 
@@ -59,13 +64,7 @@ class JsonCharacterPresetRepository(
                 ?: return Result.Failure(CharacterImportError.MissingName(id))
             val apiTranslations = translations
                 ?: return Result.Failure(CharacterImportError.MissingTranslations(id))
-            val translationMap = apiTranslations.mapValues { (_, t) ->
-                Character.Translation(
-                    shortDescription = t.shortDescription.orEmpty(),
-                    description = t.description.orEmpty(),
-                )
-            }
-            val translations = translationMap.takeIf { it.isNotEmpty() }
+            val translations = apiTranslations.toTranslations(id)
                 ?: return Result.Failure(CharacterImportError.MissingTranslations(id))
             val level = level
                 ?: return Result.Failure(CharacterImportError.MissingLevel(id))
@@ -107,33 +106,43 @@ class JsonCharacterPresetRepository(
                     level = level,
                     size = size,
                     alignment = alignment,
-                    abilities = abilities.toDomain(),
+                    abilities = abilities.toAbilities(),
                     armorClass = armorClass,
                     maxHitPoints = maxHitPoints,
-                    speeds = speeds.toDomain(),
+                    speeds = speeds.toSpeeds(),
                     languages = languages,
-                    skills = apiSkills.toDomain(),
+                    skills = apiSkills.toSkills(),
                 ),
             )
         }
 
-        private fun ApiCharacter.ApiAbilities?.toDomain(): Abilities =
-            Abilities(
-                str = Ability(this?.str ?: Ability.DEFAULT_VALUE),
-                dex = Ability(this?.dex ?: Ability.DEFAULT_VALUE),
-                con = Ability(this?.con ?: Ability.DEFAULT_VALUE),
-                int = Ability(this?.int ?: Ability.DEFAULT_VALUE),
-                wis = Ability(this?.wis ?: Ability.DEFAULT_VALUE),
-                cha = Ability(this?.cha ?: Ability.DEFAULT_VALUE),
-            )
+        private fun Map<String, ApiCharacter.Translation>.toTranslations(characterId: String): Map<String, Character.Translation>? {
+            val (parsedTranslations, translationErrors) = partitionBy { locale, t ->
+                t.toTranslation(characterId, locale)
+            }
+            translationErrors.forEach { println("WARNING: character preset import error: $it") }
+            return parsedTranslations.takeIf { it.isNotEmpty() }
+        }
 
-        private fun ApiCharacter.ApiSpeeds?.toDomain(): Speeds =
-            Speeds(
-                walk = this?.walk,
-                fly = this?.fly,
-                swim = this?.swim,
-                climb = this?.climb,
+        private fun ApiCharacter.Translation.toTranslation(
+            characterId: String,
+            locale: String,
+        ): Result<Character.Translation, CharacterImportError> {
+            val shortDescription = shortDescription
+                ?: return Result.Failure(
+                    CharacterImportError.InvalidTranslation(characterId, locale, field = "shortDescription"),
+                )
+            val description = description
+                ?: return Result.Failure(
+                    CharacterImportError.InvalidTranslation(characterId, locale, field = "description"),
+                )
+            return Result.Success(
+                Character.Translation(
+                    shortDescription = shortDescription,
+                    description = description,
+                ),
             )
+        }
 
         private fun String.toRace(): Race? = Race.entries.find { it.name.equals(this, ignoreCase = true) }
 
@@ -144,5 +153,23 @@ class JsonCharacterPresetRepository(
             Language.entries.find { it.name.equals(this, ignoreCase = true) }
                 ?.let { Result.Success(it) }
                 ?: Result.Failure(CharacterImportError.UnknownLanguage(id, this))
+
+        private fun ApiCharacter.ApiAbilities?.toAbilities(): Abilities =
+            Abilities(
+                str = Ability(this?.str ?: Ability.DEFAULT_VALUE),
+                dex = Ability(this?.dex ?: Ability.DEFAULT_VALUE),
+                con = Ability(this?.con ?: Ability.DEFAULT_VALUE),
+                int = Ability(this?.int ?: Ability.DEFAULT_VALUE),
+                wis = Ability(this?.wis ?: Ability.DEFAULT_VALUE),
+                cha = Ability(this?.cha ?: Ability.DEFAULT_VALUE),
+            )
+
+        private fun ApiCharacter.ApiSpeeds?.toSpeeds(): Speeds =
+            Speeds(
+                walk = this?.walk,
+                fly = this?.fly,
+                swim = this?.swim,
+                climb = this?.climb,
+            )
     }
 }

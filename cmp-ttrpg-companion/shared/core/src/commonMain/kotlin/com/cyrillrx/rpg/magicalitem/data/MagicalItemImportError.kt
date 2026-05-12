@@ -10,5 +10,5 @@ sealed interface MagicalItemImportError : Error {
     data class MissingRarity(val id: String) : MagicalItemImportError
     data class UnknownRarity(val id: String, val raw: String) : MagicalItemImportError
     data class MissingTranslations(val id: String) : MagicalItemImportError
-    data class InvalidTranslation(val id: String, val locale: String) : MagicalItemImportError
+    data class InvalidTranslation(val id: String, val locale: String, val field: String) : MagicalItemImportError
 }
