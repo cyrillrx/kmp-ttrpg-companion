@@ -105,7 +105,7 @@ class JsonCharacterPresetRepositoryTest {
             assertEquals("test-fighter", result.first().id)
         }
 
-    private fun repository(json: String) = JsonCharacterPresetRepository(FakeFileReader(json))
+    private fun repository(json: String) = JsonCharacterPresetRepository(FakeFileReader(json), "")
 
     private fun String.trimArray() = trim().removePrefix("[").removeSuffix("]").trim()
 

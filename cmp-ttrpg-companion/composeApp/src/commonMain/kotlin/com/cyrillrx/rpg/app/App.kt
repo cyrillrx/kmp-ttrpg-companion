@@ -96,7 +96,8 @@ fun App(dbDriverFactory: DatabaseDriverFactory) {
                 handleCharacterRoutes(
                     backStack = backStack,
                     characterRepository = RamCharacterRepository(),
-                    presetRepository = JsonCharacterPresetRepository(fileReader),
+                    pcPresetRepository = JsonCharacterPresetRepository(fileReader, "files/pc_presets.json"),
+                    npcPresetRepository = JsonCharacterPresetRepository(fileReader, "files/npc_presets.json"),
                 )
 
                 handleSpellRoutes(
