@@ -47,11 +47,10 @@ def _literal_representer(dumper: yaml.Dumper, data: _Literal) -> yaml.ScalarNode
 yaml.add_representer(_Literal, _literal_representer)
 
 
-def _mark_descriptions(entity: dict) -> dict:
+def _mark_descriptions(entity: dict) -> None:
     for locale_data in entity.get("translations", {}).values():
         if isinstance(locale_data, dict) and isinstance(locale_data.get("description"), str):
             locale_data["description"] = _Literal(locale_data["description"])
-    return entity
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 DATA_DIR = os.path.join(REPO_ROOT, "data", "compendium")
@@ -94,7 +93,8 @@ def fmt_collection(name: str) -> int:
             entity = yaml.safe_load(f)
         if entity is not None:
             with open(path, "w", encoding="utf-8") as f:
-                yaml.dump(_mark_descriptions(entity), f, allow_unicode=True, sort_keys=False, default_flow_style=False)
+                _mark_descriptions(entity)
+                yaml.dump(entity, f, allow_unicode=True, sort_keys=False, default_flow_style=False)
     print(f"  {name}: {len(yaml_files)} files formatted")
     return len(yaml_files)
 
@@ -118,7 +118,8 @@ def build_collection(name: str, check: bool) -> tuple[int, bool]:
         with open(path, encoding="utf-8") as f:
             entity = yaml.safe_load(f)
         if entity is not None:
-            entities.append(_mark_descriptions(entity))
+            _mark_descriptions(entity)
+            entities.append(entity)
         else:
             print(f"  WARNING: skipping empty file {path}", file=sys.stderr)
 

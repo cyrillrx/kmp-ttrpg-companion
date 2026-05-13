@@ -4,10 +4,10 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 internal class ApiAbilities(
-    val str: Int?,
-    val dex: Int?,
-    val con: Int?,
-    val int: Int?,
-    val wis: Int?,
-    val cha: Int?,
+    val str: Int? = null,
+    val dex: Int? = null,
+    val con: Int? = null,
+    val int: Int? = null,
+    val wis: Int? = null,
+    val cha: Int? = null,
 )
