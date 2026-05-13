@@ -39,7 +39,11 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.creature.data.SampleMonsterRepository
 import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.creature.domain.Monster
+import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
+import rpg_companion.composeapp.generated.resources.Res
+import rpg_companion.composeapp.generated.resources.label_armor_class
+import rpg_companion.composeapp.generated.resources.label_hit_points
 
 private val typeIconSize = 36.dp
 private val typeIconPadding = 8.dp
@@ -117,7 +121,7 @@ fun MonsterListItem(
                             modifier = Modifier.size(iconSizeSmall),
                         )
                         Text(
-                            text = "AC ${monster.armorClass}",
+                            text = stringResource(Res.string.label_armor_class, monster.armorClass),
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                         )
@@ -134,7 +138,7 @@ fun MonsterListItem(
                             modifier = Modifier.size(iconSizeSmall),
                         )
                         Text(
-                            text = "${monster.maxHitPoints} HP",
+                            text = stringResource(Res.string.label_hit_points, monster.maxHitPoints),
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                         )
