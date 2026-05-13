@@ -83,6 +83,7 @@ struct MonsterJson {
     max_hit_points: Option<i32>,
     hit_dice: Option<String>,
     abilities: Option<AbilitiesJson>,
+    saving_throws: Option<SavingThrowsJson>,
     speeds: Option<SpeedsJson>,
     #[serde(default)]
     skills: HashMap<String, String>,
@@ -105,19 +106,22 @@ struct SpeedsJson {
 
 #[derive(Deserialize)]
 struct AbilitiesJson {
-    str: Option<AbilityJson>,
-    dex: Option<AbilityJson>,
-    con: Option<AbilityJson>,
-    int: Option<AbilityJson>,
-    wis: Option<AbilityJson>,
-    cha: Option<AbilityJson>,
+    str: Option<i32>,
+    dex: Option<i32>,
+    con: Option<i32>,
+    int: Option<i32>,
+    wis: Option<i32>,
+    cha: Option<i32>,
 }
 
 #[derive(Deserialize)]
-#[serde(rename_all = "camelCase")]
-struct AbilityJson {
-    value: Option<i32>,
-    saving_throw_proficiency: Option<String>,
+struct SavingThrowsJson {
+    str: Option<String>,
+    dex: Option<String>,
+    con: Option<String>,
+    int: Option<String>,
+    wis: Option<String>,
+    cha: Option<String>,
 }
 
 #[derive(Deserialize)]
@@ -239,6 +243,7 @@ fn monster_from_json(raw: MonsterJson) -> Option<Monster> {
         eprintln!("WARNING: skipping monster '{id}': missing abilities");
         None
     })?;
+    let saving_throws = raw.saving_throws;
     let raw_translations = raw.translations.filter(|t| !t.is_empty()).or_else(|| {
         eprintln!("WARNING: skipping monster '{id}': missing translations");
         None
@@ -285,12 +290,12 @@ fn monster_from_json(raw: MonsterJson) -> Option<Monster> {
         max_hit_points: raw.max_hit_points.unwrap_or(0),
         hit_dice: raw.hit_dice.unwrap_or_default(),
         abilities: Abilities {
-            str: ability_from_json(api_abilities.str),
-            dex: ability_from_json(api_abilities.dex),
-            con: ability_from_json(api_abilities.con),
-            int: ability_from_json(api_abilities.int),
-            wis: ability_from_json(api_abilities.wis),
-            cha: ability_from_json(api_abilities.cha),
+            str: ability_from_json(api_abilities.str, saving_throws.as_ref().and_then(|s| s.str.clone())),
+            dex: ability_from_json(api_abilities.dex, saving_throws.as_ref().and_then(|s| s.dex.clone())),
+            con: ability_from_json(api_abilities.con, saving_throws.as_ref().and_then(|s| s.con.clone())),
+            int: ability_from_json(api_abilities.int, saving_throws.as_ref().and_then(|s| s.int.clone())),
+            wis: ability_from_json(api_abilities.wis, saving_throws.as_ref().and_then(|s| s.wis.clone())),
+            cha: ability_from_json(api_abilities.cha, saving_throws.as_ref().and_then(|s| s.cha.clone())),
         },
         speeds: speeds_from_json(raw.speeds),
         skills: raw.skills,
@@ -314,13 +319,10 @@ fn speeds_from_json(raw: Option<SpeedsJson>) -> Speeds {
     }
 }
 
-fn ability_from_json(raw: Option<AbilityJson>) -> Ability {
-    match raw {
-        Some(a) => Ability {
-            value: a.value.unwrap_or(10),
-            saving_throw_proficiency: a.saving_throw_proficiency,
-        },
-        None => Ability { value: 10, saving_throw_proficiency: None },
+fn ability_from_json(value: Option<i32>, saving_throw_proficiency: Option<String>) -> Ability {
+    Ability {
+        value: value.unwrap_or(10),
+        saving_throw_proficiency,
     }
 }
 
@@ -398,13 +400,14 @@ mod tests {
             max_hit_points: Some(7),
             hit_dice: Some("2d6".into()),
             abilities: Some(AbilitiesJson {
-                str: Some(AbilityJson { value: Some(8), saving_throw_proficiency: None }),
-                dex: Some(AbilityJson { value: Some(14), saving_throw_proficiency: None }),
-                con: Some(AbilityJson { value: Some(10), saving_throw_proficiency: None }),
-                int: Some(AbilityJson { value: Some(10), saving_throw_proficiency: None }),
-                wis: Some(AbilityJson { value: Some(8), saving_throw_proficiency: None }),
-                cha: Some(AbilityJson { value: Some(8), saving_throw_proficiency: None }),
+                str: Some(8),
+                dex: Some(14),
+                con: Some(10),
+                int: Some(10),
+                wis: Some(8),
+                cha: Some(8),
             }),
+            saving_throws: None,
             speeds: Some(SpeedsJson {
                 walk: Some(30),
                 fly: None,
@@ -431,6 +434,8 @@ mod tests {
         assert_eq!(monster.id, "goblin");
         assert_eq!(monster.monster_type, "humanoid");
         assert_eq!(monster.abilities.str.value, 8);
+        assert!(monster.abilities.str.saving_throw_proficiency.is_none());
+        assert_eq!(monster.abilities.dex.value, 14);
         assert_eq!(monster.translations["en"].name, "Goblin");
         assert_eq!(monster.translations["en"].subtype, Some("Goblinoid".into()));
     }
@@ -448,6 +453,7 @@ mod tests {
             max_hit_points: None,
             hit_dice: None,
             abilities: None,
+            saving_throws: None,
             speeds: None,
             skills: HashMap::new(),
             damage_affinities: HashMap::new(),
@@ -459,7 +465,7 @@ mod tests {
 
     #[test]
     fn ability_from_json_defaults_to_10_when_none() {
-        let ability = ability_from_json(None);
+        let ability = ability_from_json(None, None);
         assert_eq!(ability.value, 10);
         assert!(ability.saving_throw_proficiency.is_none());
     }
