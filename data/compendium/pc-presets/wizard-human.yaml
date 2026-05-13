@@ -1,0 +1,36 @@
+id: wizard-human
+name: Aldus Vance
+race: HUMAN
+clazz: WIZARD
+level: 1
+size: MEDIUM
+alignment: NEUTRAL_GOOD
+background: Sage
+abilities:
+  str: 8
+  dex: 14
+  con: 12
+  int: 18
+  wis: 12
+  cha: 10
+savingThrows:
+  int: proficient
+  wis: proficient
+armorClass: 12
+maxHitPoints: 6
+speeds:
+  walk: 30
+skills:
+  arcana: proficient
+  history: proficient
+languages:
+- common
+- elvish
+- draconic
+translations:
+  en:
+    shortDescription: Human Wizard
+    description: ''
+  fr:
+    shortDescription: Mage humain
+    description: ''

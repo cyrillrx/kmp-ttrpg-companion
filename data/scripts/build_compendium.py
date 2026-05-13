@@ -66,18 +66,18 @@ def check_json(path: str, data: list[dict]) -> bool:
     return True
 
 
-def build_type(type_name: str, check: bool) -> tuple[int, bool]:
-    src_dir = os.path.join(DATA_DIR, type_name)
-    out_path = os.path.join(DATA_DIR, f"{type_name}.json")
-    app_path = os.path.join(APP_RESOURCES_DIR, f"{type_name}.json")
+def build_collection(name: str, check: bool) -> tuple[int, bool]:
+    src_dir = os.path.join(DATA_DIR, name)
+    out_path = os.path.join(DATA_DIR, f"{name}.json")
+    app_path = os.path.join(APP_RESOURCES_DIR, f"{name}.json")
 
     yaml_files = sorted(glob.glob(os.path.join(src_dir, "*.yaml")))
     if not yaml_files:
         print(f"  WARNING: no YAML files found in {src_dir}", file=sys.stderr)
         if check:
-            print(f"  SKIPPED: {type_name} (no YAML source files — migration pending)")
+            print(f"  SKIPPED: {name} (no YAML source files — migration pending)")
         else:
-            print(f"  SKIPPED: {type_name} (no YAML source files — keeping existing JSON)")
+            print(f"  SKIPPED: {name} (no YAML source files — keeping existing JSON)")
         return 0, True
 
     entities = []
@@ -97,7 +97,7 @@ def build_type(type_name: str, check: bool) -> tuple[int, bool]:
     # The app resource files are symlinks to data/compendium/ — no copy needed.
     if os.path.exists(app_path) and not os.path.samefile(out_path, app_path):
         shutil.copy2(out_path, app_path)
-    print(f"  {type_name}: {len(entities)} entities → {out_path}")
+    print(f"  {name}: {len(entities)} entities → {out_path}")
     return len(entities), True
 
 
@@ -115,8 +115,8 @@ def main() -> None:
 
     total = 0
     all_ok = True
-    for type_name in ("spells", "monsters", "magical-items"):
-        count, ok = build_type(type_name, check=args.check)
+    for name in ("spells", "monsters", "magical-items", "pc-presets", "npc-presets"):
+        count, ok = build_collection(name, check=args.check)
         total += count
         all_ok = all_ok and ok
 

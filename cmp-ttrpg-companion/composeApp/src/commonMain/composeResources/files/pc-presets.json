@@ -1,0 +1,180 @@
+[
+  {
+    "id": "cleric-dwarf",
+    "name": "Thordak Stonecraft",
+    "race": "DWARF",
+    "clazz": "CLERIC",
+    "level": 1,
+    "size": "MEDIUM",
+    "alignment": "LAWFUL_GOOD",
+    "background": "Acolyte",
+    "abilities": {
+      "str": 14,
+      "dex": 8,
+      "con": 14,
+      "int": 10,
+      "wis": 16,
+      "cha": 12
+    },
+    "savingThrows": {
+      "wis": "proficient",
+      "cha": "proficient"
+    },
+    "armorClass": 16,
+    "maxHitPoints": 10,
+    "speeds": {
+      "walk": 25
+    },
+    "skills": {
+      "medicine": "proficient",
+      "religion": "proficient"
+    },
+    "languages": [
+      "common",
+      "dwarvish"
+    ],
+    "translations": {
+      "en": {
+        "shortDescription": "Dwarf Cleric",
+        "description": ""
+      },
+      "fr": {
+        "shortDescription": "Clerc nain",
+        "description": ""
+      }
+    }
+  },
+  {
+    "id": "fighter-human",
+    "name": "Gareth Ironhold",
+    "race": "HUMAN",
+    "clazz": "FIGHTER",
+    "level": 1,
+    "size": "MEDIUM",
+    "alignment": "NEUTRAL",
+    "background": "Soldier",
+    "abilities": {
+      "str": 16,
+      "dex": 12,
+      "con": 14,
+      "int": 10,
+      "wis": 10,
+      "cha": 8
+    },
+    "savingThrows": {
+      "str": "proficient",
+      "con": "proficient"
+    },
+    "armorClass": 16,
+    "maxHitPoints": 12,
+    "speeds": {
+      "walk": 30
+    },
+    "skills": {},
+    "languages": [
+      "common"
+    ],
+    "translations": {
+      "en": {
+        "shortDescription": "Human Fighter",
+        "description": ""
+      },
+      "fr": {
+        "shortDescription": "Guerrier humain",
+        "description": ""
+      }
+    }
+  },
+  {
+    "id": "rogue-elf",
+    "name": "Sylara Dawnwhisper",
+    "race": "ELF",
+    "clazz": "ROGUE",
+    "level": 1,
+    "size": "MEDIUM",
+    "alignment": "CHAOTIC_NEUTRAL",
+    "background": "Urchin",
+    "abilities": {
+      "str": 8,
+      "dex": 18,
+      "con": 12,
+      "int": 14,
+      "wis": 10,
+      "cha": 14
+    },
+    "savingThrows": {
+      "dex": "proficient",
+      "int": "proficient"
+    },
+    "armorClass": 14,
+    "maxHitPoints": 8,
+    "speeds": {
+      "walk": 30
+    },
+    "skills": {
+      "acrobatics": "proficient",
+      "stealth": "proficient",
+      "sleightOfHand": "proficient"
+    },
+    "languages": [
+      "common",
+      "elvish"
+    ],
+    "translations": {
+      "en": {
+        "shortDescription": "Elf Rogue",
+        "description": ""
+      },
+      "fr": {
+        "shortDescription": "Roublard elfe",
+        "description": ""
+      }
+    }
+  },
+  {
+    "id": "wizard-human",
+    "name": "Aldus Vance",
+    "race": "HUMAN",
+    "clazz": "WIZARD",
+    "level": 1,
+    "size": "MEDIUM",
+    "alignment": "NEUTRAL_GOOD",
+    "background": "Sage",
+    "abilities": {
+      "str": 8,
+      "dex": 14,
+      "con": 12,
+      "int": 18,
+      "wis": 12,
+      "cha": 10
+    },
+    "savingThrows": {
+      "int": "proficient",
+      "wis": "proficient"
+    },
+    "armorClass": 12,
+    "maxHitPoints": 6,
+    "speeds": {
+      "walk": 30
+    },
+    "skills": {
+      "arcana": "proficient",
+      "history": "proficient"
+    },
+    "languages": [
+      "common",
+      "elvish",
+      "draconic"
+    ],
+    "translations": {
+      "en": {
+        "shortDescription": "Human Wizard",
+        "description": ""
+      },
+      "fr": {
+        "shortDescription": "Mage humain",
+        "description": ""
+      }
+    }
+  }
+]
