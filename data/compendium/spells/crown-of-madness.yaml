@@ -22,11 +22,10 @@ translations:
     materialDescription: null
     description: |-
       One creature that you can see within range must succeed on a Wisdom saving throw or have the Charmed condition for the duration. The creature succeeds automatically if it isn't Humanoid.
-      
+
       A spectral crown appears on the Charmed target's head, and it must use its action before moving on each of its turns to make a melee attack against a creature other than itself that you mentally choose. The target can act normally on its turn if you choose no creature or if no creature is within its reach. The target repeats the save at the end of each of its turns, ending the spell on itself on a success.
-      
+
       On your later turns, you must take the Magic action to maintain control of the target, or the spell ends.
-      
   fr:
     name: Couronne du dément
     castingTime: Action
@@ -35,7 +34,7 @@ translations:
     materialDescription: null
     description: |-
       Une créature que vous pouvez voir à portée doit réussir un jet de sauvegarde de Sagesse ou subir l'état Charmé pendant toute la durée du sort. La créature réussit automatiquement si elle n'est pas humanoïde.
-      
+
       Une couronne spectrale apparaît sur la tête de la cible charmée, et elle doit prendre son action avant de se déplacer à chacun de ses tours pour effectuer une attaque au corps à corps contre une créature autre qu'elle-même, choisie mentalement. La cible peut agir normalement à son tour si vous ne choisissez aucune créature ou si aucune créature n'est à sa portée. La cible refait son jet de sauvegarde à la fin de chacun de ses tours, mettant fin au sort sur elle-même en cas de réussite.
-      
+
       Lors de vos tours suivants, vous devez prendre l'action Magie pour conserver le contrôle de la cible, sinon le sort prend fin.

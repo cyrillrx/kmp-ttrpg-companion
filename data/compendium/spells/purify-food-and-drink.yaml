@@ -21,7 +21,6 @@ translations:
     materialDescription: null
     description: |-
       You remove poison and rot from nonmagical food and drink in a 5-foot-radius Sphere centered on a point within range.
-      
   fr:
     name: Purification de la nourriture et de l'eau
     castingTime: Action ou Rituel

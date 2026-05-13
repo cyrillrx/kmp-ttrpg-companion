@@ -21,9 +21,8 @@ translations:
     materialDescription: null
     description: |-
       You create a magical zone that guards against deception in a 15-foot-radius Sphere centered on a point within range. Until the spell ends, a creature that enters the spell's area for the first time on a turn or starts its turn there makes a Charisma saving throw. On a failed save, a creature can't speak a deliberate lie while in the radius. You know whether a creature succeeds or fails on this save.
-      
+
       An affected creature is aware of the spell and can avoid answering questions to which it would normally respond with a lie. Such a creature can be evasive yet must be truthful.
-      
   fr:
     name: Zone de vérité
     castingTime: Action
@@ -32,5 +31,5 @@ translations:
     materialDescription: null
     description: |-
       Vous créez une zone magique qui protège contre la tromperie dans une Sphère de 4,50 mètres de rayon centrée sur un point à portée. Jusqu'à la fin du sort, toute créature qui entre dans la zone d'effet du sort pour la première fois lors d'un tour ou qui y commence son tour effectue un jet de sauvegarde de Charisme. En cas d'échec, une créature ne peut pas mentir délibérément tant qu'elle se trouve dans la zone. Vous savez si une créature réussit ou échoue ce jet.
-      
+
       Une créature affectée est consciente du sort et peut éviter de répondre aux questions auxquelles elle répondrait normalement par un mensonge. Une telle créature peut être évasive, mais doit être honnête.

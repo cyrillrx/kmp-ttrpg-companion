@@ -31,9 +31,9 @@ languages:
 translations:
   en:
     shortDescription: Guild Archmage
-    description: The formidable master of the mages' guild, whose knowledge of the
-      arcane arts spans centuries.
+    description: |-
+      The formidable master of the mages' guild, whose knowledge of the arcane arts spans centuries.
   fr:
     shortDescription: Archimage de guilde
-    description: La redoutable maîtresse de la guilde des mages, dont la connaissance
-      des arts arcaniques s'étend sur des siècles.
+    description: |-
+      La redoutable maîtresse de la guilde des mages, dont la connaissance des arts arcaniques s'étend sur des siècles.

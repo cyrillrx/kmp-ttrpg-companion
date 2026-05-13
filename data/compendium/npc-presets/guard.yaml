@@ -27,7 +27,9 @@ languages:
 translations:
   en:
     shortDescription: City Guard
-    description: A loyal soldier of the city watch, stationed at the main gate.
+    description: |-
+      A loyal soldier of the city watch, stationed at the main gate.
   fr:
     shortDescription: Garde de la cité
-    description: Un soldat loyal de la garde de la ville, posté à la porte principale.
+    description: |-
+      Un soldat loyal de la garde de la ville, posté à la porte principale.

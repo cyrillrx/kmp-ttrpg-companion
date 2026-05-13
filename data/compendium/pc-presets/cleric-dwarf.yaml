@@ -29,7 +29,7 @@ languages:
 translations:
   en:
     shortDescription: Dwarf Cleric
-    description: ''
+    description: ""
   fr:
     shortDescription: Clerc nain
-    description: ''
+    description: ""

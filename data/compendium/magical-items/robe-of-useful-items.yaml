@@ -9,18 +9,18 @@ translations:
     subtype: null
     description: |-
       This robe has cloth patches of various shapes and colors covering it. While wearing the robe, you can take a Magic action to detach one of the patches, causing it to become the object or creature it represents. Once the last patch is removed, the robe becomes an ordinary garment.
-      
+
       The robe has two of each of the following patches:
-      
+
       - Bullseye Lantern (filled and lit)
       - Dagger
       - Mirror
       - Pole
       - Rope (coiled)
       - Sack
-      
+
       In addition, the robe has 4d4 other patches. The DM chooses the patches or determines them randomly by rolling on the following table.
-      
+
       | 1d100 | Patch |
       | --- | --- |
       | 01–08 | Bag of 100 GP |
@@ -41,18 +41,18 @@ translations:
     subtype: null
     description: |-
       Cette robe est recouverte de pièces de tissu de formes et de couleurs variées. Lorsque vous la portez, vous pouvez prendre une action Magie pour détacher l'une des pièces, la transformant ainsi en l'objet ou la créature qu'elle représente. Une fois la dernière pièce retirée, la robe devient un vêtement ordinaire.
-      
+
       La robe comporte deux exemplaires de chacun des éléments suivants :
-      
+
       - Lanterne sourde (remplie d'huile et allumée)
       - Dague
       - Miroir
       - Perche
       - Corde (enroulée)
       - Sac
-      
+
       De plus, la robe comporte 4d4 autres pièces. Le MD choisit les pièces ou les détermine aléatoirement en effectuant un jet sur la table suivante.
-      
+
       | 1d100 | Pièce |
       | --- | --- |
       | 01–08 | Sac de 100 po |

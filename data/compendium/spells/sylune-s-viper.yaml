@@ -20,15 +20,14 @@ translations:
     materialDescription: a snake fang
     description: |-
       A shimmering, spectral snake encircles your body for the duration. You gain 15 Temporary Hit Points; the spell ends early if you have no Temporary Hit Points left.
-      
+
       While the spell is active, you gain the following benefits:
-      
+
       **Climbing.** You gain a Climb Speed equal to your Speed.
-      
+
       **Venomous Bite.** As a Magic action, you can make a ranged spell attack using the snake against one creature within 50 feet. On a hit, the target takes 1d6 Force damage and has the Poisoned condition until the start of your next turn. While Poisoned, the target has the Incapacitated condition.
-      
+
       **Using a Higher-Level Spell Slot.** For each spell slot level above 3, the number of Temporary Hit Points you gain from this spell increases by 5, and the damage of Venomous Bite increases by 1d6.
-      
   fr:
     name: Vipère de Syluné
     castingTime: Action bonus
@@ -37,11 +36,11 @@ translations:
     materialDescription: une dent de serpent
     description: |-
       Un serpent spectral chatoyant vous entoure le corps pour toute la durée. Vous gagnez 15 points de vie temporaires ; le sort prend fin prématurément si vous n'avez plus de points de vie temporaires.
-      
+
       Tant que le sort est actif, vous bénéficiez des avantages suivants :
-      
+
       **Escalade.** Vous gagnez une Vitesse d'escalade égale à votre Vitesse.
-      
+
       **Morsure venimeuse.** En tant qu'action de Magie, vous pouvez effectuer une attaque de sort à distance à l'aide du serpent contre une créature à 15 mètres ou moins. En cas de coup, la cible subit 1d6 dégâts de force et subit l'état Empoisonné jusqu'au début de votre prochain tour. Tant qu'elle est Empoisonnée, la cible subit également l'état Incapacité.
-      
+
       **Emplacement de niveau supérieur.** Par niveau d'emplacement au-delà du 3e, le nombre de points de vie temporaires gagnés grâce à ce sort augmente de 5, et les dégâts de la Morsure venimeuse augmentent de 1d6.

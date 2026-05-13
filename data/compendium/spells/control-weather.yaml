@@ -21,13 +21,13 @@ translations:
     materialDescription: burning incense
     description: |-
       You take control of the weather within 5 miles of you for the duration. You must be outdoors to cast this spell, and it ends early if you go indoors.
-      
-      When you cast the spell, you change the current weather conditions, which are determined by the DM. You can change precipitation, temperature, and wind. It takes 1d4 × 10 minutes for the new conditions to take effect. Once they do so, you can change the conditions again. When the spell ends, the weather gradually returns to normal.
-      
-      When you change the weather conditions, find a current condition on the following tables and change its stage by one, up or down. When changing the wind, you can change its direction.
-      
 
-      
+      When you cast the spell, you change the current weather conditions, which are determined by the DM. You can change precipitation, temperature, and wind. It takes 1d4 × 10 minutes for the new conditions to take effect. Once they do so, you can change the conditions again. When the spell ends, the weather gradually returns to normal.
+
+      When you change the weather conditions, find a current condition on the following tables and change its stage by one, up or down. When changing the wind, you can change its direction.
+
+
+
       **Precipitation**
 
       | Stage | Condition |
@@ -39,7 +39,7 @@ translations:
       | 5 | Torrential rain, driving hail, or blizzard |
 
 
-      
+
       **Temperature**
 
       | Stage | Condition |
@@ -52,7 +52,7 @@ translations:
       | 6 | Freezing |
 
 
-      
+
       **Wind**
 
       | Stage | Condition |
@@ -62,9 +62,6 @@ translations:
       | 3 | Strong wind |
       | 4 | Gale |
       | 5 | Storm |
-
-
-      
   fr:
     name: Contrôle du climat
     castingTime: 10 minutes
@@ -73,13 +70,13 @@ translations:
     materialDescription: de l'encens qui brûle
     description: |-
       Vous prenez le contrôle du climat dans un rayon de 7,5 km pour toute la durée. Vous devez vous trouver en extérieur pour lancer ce sort, qui prend fin prématurément dès que vous êtes à l'intérieur.
-      
-      À l'incantation du sort, vous altérez les conditions climatiques du moment, déterminées par le MD. Vous pouvez modifier les précipitations, la température et le vent. Les nouvelles conditions mettent 1d4 x 10 minutes à prendre effet. Après ce laps de temps, vous pouvez à nouveau altérer les conditions. Quand le sort prend fin, le temps revient progressivement à la normale.
-      
-      Lorsque vous changez les conditions climatiques, identifiez celles du moment dans les tables qui suivent et changez-en le stade d'un cran, vers le haut ou le bas. Lorsque vous modifiez le vent, vous pouvez en changer la direction.
-      
 
-      
+      À l'incantation du sort, vous altérez les conditions climatiques du moment, déterminées par le MD. Vous pouvez modifier les précipitations, la température et le vent. Les nouvelles conditions mettent 1d4 x 10 minutes à prendre effet. Après ce laps de temps, vous pouvez à nouveau altérer les conditions. Quand le sort prend fin, le temps revient progressivement à la normale.
+
+      Lorsque vous changez les conditions climatiques, identifiez celles du moment dans les tables qui suivent et changez-en le stade d'un cran, vers le haut ou le bas. Lorsque vous modifiez le vent, vous pouvez en changer la direction.
+
+
+
       **Précipitations**
 
       | Stade | Conditions |
@@ -91,7 +88,7 @@ translations:
       | 5 | Pluie torrentielle, grêle battante ou blizzard |
 
 
-      
+
       **Température**
 
       | Stade | Conditions |
@@ -104,7 +101,7 @@ translations:
       | 6 | Glacial |
 
 
-      
+
       **Vent**
 
       | Stade | Conditions |
@@ -114,5 +111,3 @@ translations:
       | 3 | Vent fort |
       | 4 | Vent violent |
       | 5 | Tempête |
-
-

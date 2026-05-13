@@ -10,190 +10,187 @@ translations:
     description: |-
       Seldom is the name of Vecna spoken except in a hushed voice. Vecna was, in his time, one of the mightiest of all wizards. Through dark magic and conquest, he forged a terrible empire. For all his power, Vecna couldn't escape his own mortality. He began to fear death and take steps to prevent his end from ever coming about.
 
-      
+
       Orcus, the demon prince of undeath, taught Vecna a ritual that would allow him to live on as a lich. Beyond death, he became the greatest of all liches. Even though his body gradually withered and decayed, Vecna continued to expand his evil dominion. So formidable and hideous was his temper that his subjects feared to speak his name. He was the Whispered One, the Master of the Spider Throne, the Undying King, and the Lord of the Rotted Tower.
 
-      
+
       Some say that Vecna's lieutenant Kas coveted the Spider Throne for himself, or that the sword his lord made for him seduced him into rebellion. Whatever the reason, Kas brought the Undying King's rule to an end in a terrible battle that left Vecna's tower a heap of ash. Of Vecna, all that remained were one hand and one eye, grisly artifacts that still seek to work the Whispered One's will in the world.
 
-      
+
       The *Eye of Vecna* and the *Hand of Vecna* might be found together or separately. The eye looks like a bloodshot organ torn free from the socket. The hand is a mummified and shriveled left extremity.
 
-      
+
       To attune to the eye, you must gouge out your own eye and press the artifact into the empty socket. The eye grafts itself to your head and remains there until you die. Once in place, the eye transforms into a golden eye with a slit for a pupil, much like that of a cat. If the eye is ever removed, you die.
 
-      
+
       To attune to the hand, you must lop off your left hand at the wrist and the press the artifact against the stump. The hand grafts itself to your arm and becomes a functioning appendage. If the hand is ever removed, you die.
 
-      
+
       **Random Properties**. The *Eye of Vecna* and the *Hand of Vecna* each have the following random properties:
 
-      
+
       - 1 minor beneficial property
-      
 
-      
+
+
       - 1 major beneficial property
-      
 
-      
+
+
       - 1 minor detrimental property
-      
 
-      
+
+
       **Properties of the Eye**. Your alignment changes to neutral evil, and you gain the following benefits:
 
-      
+
       - You have truesight.
-      
 
-      
+
+
       - You can use an action to see as if you were wearing a *ring of X-ray vision*. You can end this effect as a bonus action.
-      
 
-      
+
+
       - The eye has 8 charges. You can use an action and expend 1 or more charges to cast one of the following spells (save DC 18) from it: *clairvoyance* (2 charges), *crown of madness* (1 charge), *disintegrate* (4 charges), *dominate monster* (5 charges), or *eyebite* (4 charges). The eye regains 1d4 + 4 expended charges daily at dawn. Each time you cast a spell from the eye, there is a 5 percent chance that Vecna tears your soul from your body, devours it, and then takes control of the body like a puppet. If that happens, you become an NPC under the DM's control.
-      
 
-      
+
+
       **Properties of the Hand**. Your alignment changes to neutral evil, and you gain the following benefits:
 
-      
+
       - Your Strength score becomes 20, unless it is already 20 or higher.
-      
 
-      
+
+
       - Any melee spell attack you make with the hand, and any melee weapon attack made with a weapon held by it, deals an extra 2d8 cold damage on a hit.
-      
 
-      
+
+
       - The hand has 8 charges. You can use an action and expend 1 or more charges to cast one of the following spells (save DC 18) from it: *finger of death* (5 charges), *sleep* (1 charge), *slow* (2 charges), or *teleport* (3 charges). The hand regains 1d4 + 4 expended charges daily at dawn. Each time you cast a spell from the hand, it casts the *suggestion* spell on you (save DC 18), demanding that you commit an evil act. The hand might have a specific act in mind or leave it up to you.
-      
 
-      
+
+
       **Properties of the Eye and Hand**. If you are attuned to both the hand and eye, you gain the following additional benefits:
 
-      
+
       - You are immune to disease and poison.
-      
 
-      
+
+
       - Using the eye's X-ray vision never causes you to suffer exhaustion.
-      
 
-      
+
+
       - • You experience premonitions of danger and, unless you are incapacitated, can't be surprised.
-      
 
-      
+
+
       - If you start your turn with at least 1 hit point, you regain 1d10 hit points.
-      
 
-      
+
+
       - If a creature has a skeleton, you can attempt to turn its bones to jelly with a touch of the *Hand of Vecna*. You can do so by using an action to make a melee attack against a creature you can reach, using your choice of your melee attack bonus for weapons or spells. On a hit, the target must succeed on a DC 18 Constitution saving throw or drop to 0 hit points.
-      
 
-      
+
+
       - You can use an action to cast *wish*. This property can't be used again until 30 days have passed.
-      
 
-      
+
+
       **Destroying the Eye and Hand**. If the *Eye of Vecna* and the *Hand of Vecna* are both attached to the same creature, and that creature is slain by the Sword of Kas, both the eye and the hand burst into flame, turn to ash, and are destroyed forever. Any other attempt to destroy the eye or hand seems to work, but the artifact reappears in one of Vecna's many hidden vaults, where it waits to be rediscovered.
-
-      
   fr:
     name: Oeil et Main de Vecna
     subtype: null
     description: |-
       On prononce rarement le nom de Vecna sinon en murmurant. Vecna était en son temps l'un des magiciens les plus puissants qui existaient. En usant et abusant de magie noire et du pouvoir des ténèbres, il se forgea un terrible empire. Mais malgré toute sa grandeur, Vecna ne pouvait pas se soustraire à sa condition de mortel. Il commença à fuir la mort et entama des recherches pour échapper à la mort qui s'approchait à grands pas.
 
-      
+
       Orcus, le prince démon des morts-vivants, enseigna à Vecna un rituel qui lui permit de vivre sous l'aspect d'une liche. Libéré de la mort, Vecna devint la plus grande toutes les liches. Même si son corps pourrissait de plus en plus et tombait en morceaux, Vecna continuait à répandre son empire maléfique. C'était un être tellement incroyable et abominable que ses propres sujets étaient terrifiés à l'idée de prononcer son nom. Il était L'Indicible, Le Maître du Trône Araignée, Le Roi Non-mort, et le Seigneur de la Tour Putride.
 
-      
+
       Certains disent que Kas, le lieutenant de Vecna, convoitait le Trône Araignée, ou que l'épée que son seigneur lui avait forgée l'a amené à se rebeller. Quelle que soit la raison, Kas provoqua la ruine du Seigneur Non-mort au cours d'une terrible bataille qui réduisit la tour de Vecna à un tas de cendres. De Vecna lui-même il ne subsista qu'une main et qu'un œil, macabres artéfacts qui cherchent encore à accomplir la volonté de l'Indicible à travers le monde.
 
-      
+
       L'*Œil de Vecna* et la *Main de Vecna* pourraient être découvert ensemble ou séparément. L'Œil ressemble à un organe injecté de sang arraché de l'orbite. La main est l'extrémité rabougrie et momifiée d'un membre supérieur gauche.
 
-      
+
       Pour vous lier à l'œil, vous devez vous extraire l'un de vos propres yeux et presser l'artéfact contre l'orbite ainsi libéré. L'œil se greffe de lui-même à votre tête et reste en place jusqu'à ce que vous décédiez. Une fois en position, l'œil prend une teinte dorée et sa pupille l'aspect d'une fente, comme celle des chats. Si l'œil vous est retiré, vous mourez.
 
-      
+
       Pour vous lier à la main, vous devez vous trancher votre propre main gauche au niveau du poignet et appuyer l'artéfact contre votre moignon. La main se greffe d'elle-même à votre avant-bras et devient complètement fonctionnelle. Si la main vous est retirée, vous mourez.
 
-      
+
       **Propriétés aléatoires**. *L'Œil de Vecna* et la *Main de Vecna* possèdent chacun un certain nombre de [propriétés déterminées aléatoirement](https://www.aidedd.org/regles/objets-magiques/artefacts/) :
 
-      
+
       - 1 propriété bénéfique mineure
-      
 
-      
+
+
       - 1 propriété bénéfique majeure
-      
 
-      
+
+
       - 1 propriété néfaste mineure
-      
 
-      
+
+
       **Propriétés de l'Œil**. Votre alignement devient neutre mauvais, et vous obtenez les bénéfices suivants :
 
-      
+
       - Vous possédez la vision véritable.
-      
 
-      
+
+
       - Vous pouvez utiliser une action pour voir comme si vous portiez un *[anneau de rayons X](https://www.aidedd.org/dnd/om.php?vf=anneau-de-rayons-x)*. Vous pouvez mettre un terme à cet effet en utilisant une action bonus.
-      
 
-      
+
+
       - L'œil possède 8 charges. Vous pouvez utiliser une action pour dépenser une ou plusieurs de ses charges afin de lancer l'un des sorts suivants (sauvegarde DD 18) : *[clairvoyance](https://www.aidedd.org/dnd/sorts.php?vf=clairvoyance)* (2 charges), *[couronne du dément](https://www.aidedd.org/dnd/sorts.php?vf=couronne-du-dement)* (1 charge), *[désintégration](https://www.aidedd.org/dnd/sorts.php?vf=desintegration)* (4 charges), *[domination de monstre](https://www.aidedd.org/dnd/sorts.php?vf=domination-de-monstre)* (5 charges) ou *[mauvais œil](https://www.aidedd.org/dnd/sorts.php?vf=mauvais-oeil)* (4 charges). L'œil récupère 1d4 + 4 charges dépensées chaque jour à l'aube. Chaque fois que vous lancez un sort via l'œil, il y a 5 % de chance que Vecna arrache votre âme de votre corps, la dévore, puis prenne le contrôle de votre corps qui devient alors sa poupée. Lorsque cela arrive, vous devenez un PNJ sous le contrôle du MD.
-      
 
-      
+
+
       **Propriétés de la Main**. Votre alignement devient neutre mauvais, et vous gagnez les bénéfices suivants :
 
-      
+
       - Votre valeur de Force passe à 20, à moins qu'elle ne soit déjà égale à 20 ou plus.
-      
 
-      
+
+
       - Toute attaque au corps à corps avec un sort que vous effectuez avec cette main, ainsi que toute attaque au corps à corps avec une arme que vous tenez dans cette main, inflige 2d8 dégâts de froid supplémentaires en cas de réussite au jet d'attaque.
-      
 
-      
+
+
       - La main possède 8 charges. Vous pouvez utiliser une action pour dépenser une ou plusieurs de ses charges afin de lancer l'un des sorts suivants (sauvegarde DD 18) : *[doigt de mort](https://www.aidedd.org/dnd/sorts.php?vf=doigt-de-mort)* (5 charges), *[sommeil](https://www.aidedd.org/dnd/sorts.php?vf=sommeil)* (1 charge), *[lenteur](https://www.aidedd.org/dnd/sorts.php?vf=lenteur)* (2 charges) ou *[téléportation](https://www.aidedd.org/dnd/sorts.php?vf=teleportation)* (3 charges). La main récupère 1d4 + 4 charges dépensées chaque jour à l'aube. Chaque fois que vous lancez un sort via la main, celle-ci lance le sort *[suggestion](https://www.aidedd.org/dnd/sorts.php?vf=suggestion)* sur vous (sauvegarde DD 18) et vous demande de commettre un acte mauvais. La main pourrait avoir une idée précise de l'acte à commettre, ou pourrait vous laisser choisir.
-      
 
-      
+
+
       **Propriétés de l'Œil et de la Main**. Si vous êtes lié à la fois à l'œil et à la main, vous gagnez les bénéfices supplémentaires suivants :
 
-      
+
       - Vous êtes immunisé aux maladies et aux poisons.
-      
 
-      
+
+
       - Utiliser la vision en rayons X de l'œil ne vous afflige jamais d'un niveau d'épuisement.
-      
 
-      
+
+
       - Vous êtes sujet à des prémonitions concernant les dangers qui vous menacent directement et, à moins que vous ne soyez incapable d'agir, vous ne pouvez pas être surpris.
-      
 
-      
+
+
       - Si vous débutez votre tour avec au moins 1 point de vie, vous récupérez 1d10 points de vie.
-      
 
-      
+
+
       - Si une créature possède un squelette, vous pouvez tenter de transformer ses os en gelé avec un toucher de la *Main de Vecna*. Pour cela, vous devez utiliser une action pour effectuer une attaque au corps à corps contre une créature à portée, utilisant au choix votre bonus d'attaque avec une arme ou de sort. En cas de réussite au jet d'attaque, la cible doit réussir un jet de sauvegarde de Constitution DD 18 sous peine de tomber à 0 point de vie.
-      
 
-      
+
+
       - Vous pouvez utiliser une action pour lancer le sort *[souhait](https://www.aidedd.org/dnd/sorts.php?vf=souhait)*. Cette propriété ne peut pas être réutilisée avant que 30 jours ne se soient écoulés.
-      
 
-      
+
+
       **Détruire l'Œil et la Main**. Si l'*Œil de Vecna* ou la *Main de Vecna* sont tous les deux attachés sur la même créature, et que la créature est frappée par l'*[Épée de Kas](https://www.aidedd.org/dnd/om.php?vf=epee-de-kas)*, l'œil et la main prennent feu tous les deux, sont réduits en cendre et détruits pour toujours. Toute autre tentative pour détruire l'œil ou la main semble initialement fonctionner, mais l'artéfact en question réapparaît toujours dans l'un des nombreux caveaux cachés de Vecna, et attend d'être de nouveau découvert.
-

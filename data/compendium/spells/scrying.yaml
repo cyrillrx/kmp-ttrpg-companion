@@ -40,13 +40,12 @@ translations:
       | Body part, lock of hair, or bit of nail | −10 |
 
 
-      
+
       On a successful save, the target isn't affected, and you can't use this spell on it again for 24 hours.
-      
+
       On a failed save, the spell creates an Invisible, intangible sensor within 10 feet of the target. You can see and hear through the sensor as if you were there. The sensor moves with the target, remaining within 10 feet of it for the duration. If something can see the sensor, it appears as a luminous orb about the size of your fist.
-      
+
       Instead of targeting a creature, you can target a location you have seen. When you do so, the sensor appears at that location and doesn't move.
-      
   fr:
     name: Scrutation
     castingTime: 10 minutes
@@ -72,9 +71,9 @@ translations:
       | D'une partie de son corps, mèche de cheveux ou bout d'ongle | −10 |
 
 
-      
+
       En cas de sauvegarde réussie, la cible n'est pas affectée et vous ne pouvez plus utiliser ce sort sur elle pendant 24 heures.
-      
+
       En cas d'échec, le sort crée un capteur invisible et intangible dans un rayon de 3 mètres autour de la cible. Vous pouvez voir et entendre à travers le capteur comme si vous y étiez. Le capteur se déplace avec la cible et reste à 3 mètres ou moins d'elle pendant toute la durée du sort. Si quelque chose peut voir le capteur, il apparaît comme un orbe lumineux de la taille de votre poing.
-      
+
       Au lieu de cibler une créature, vous pouvez cibler un lieu que vous avez vu. Dans ce cas, le capteur apparaît à cet endroit et reste immobile.

@@ -21,9 +21,8 @@ translations:
     materialDescription: null
     description: |-
       You create an acidic bubble at a point within range, where it explodes in a 5-foot-radius Sphere. Each creature in that Sphere must succeed on a Dexterity saving throw or take 1d6 Acid damage.
-      
+
       ***Cantrip Upgrade***. The damage increases by 1d6 when you reach levels 5 (2d6), 11 (3d6), and 17 (4d6).
-      
   fr:
     name: Aspersion d'acide
     castingTime: Action
@@ -32,5 +31,5 @@ translations:
     materialDescription: null
     description: |-
       Vous créez une bulle acide en un point à portée, où elle explose dans une Sphère de 1,50 mètre de rayon. Toute créature dans cette Sphère doit réussir un jet de sauvegarde de Dextérité ou subir 1d6 dégâts d'acide.
-      
+
       ***Amélioration de sort mineur***. Les dégâts augmentent de 1d6 lorsque vous atteignez les niveaux 5 (2d6), 11 (3d6) et 17 (4d6).

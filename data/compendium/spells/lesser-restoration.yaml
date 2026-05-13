@@ -23,7 +23,6 @@ translations:
     materialDescription: null
     description: |-
       You touch a creature and end one condition on it: Blinded, Deafened, Paralyzed, or Poisoned.
-      
   fr:
     name: Restauration partielle
     castingTime: Action bonus

@@ -20,13 +20,12 @@ translations:
     materialDescription: null
     description: |-
       You conjure a vine that sprouts from a surface in an unoccupied space that you can see within range. The vine lasts for the duration.
-      
+
       Make a melee spell attack against a creature within 30 feet of the vine. On a hit, the target takes 4d8 Bludgeoning damage and is pulled up to 30 feet toward the vine; if the target is Huge or smaller, it has the Grappled condition (escape DC equal to your spell save DC). The vine can grapple only one creature at a time, and you can cause the vine to release a Grappled creature (no action required).
-      
+
       As a Bonus Action on your later turns, you can repeat the attack against a creature within 30 feet of the vine.
-      
+
       ***Using a Higher-Level Spell Slot***. The number of creatures the vine can grapple increases by one for each spell slot level above 4.
-      
   fr:
     name: Liane avide
     castingTime: Action bonus
@@ -35,9 +34,9 @@ translations:
     materialDescription: null
     description: |-
       Vous invoquez une liane qui pousse sur une surface dans un espace libre que vous pouvez voir à portée. La liane persiste pour toute la durée du sort.
-      
+
       Effectuez une attaque de sort au corps à corps contre une créature dans un rayon de 9 mètres autour de la liane. Si l'attaque touche, la cible subit 4d8 dégâts contondants et la liane l'attire de jusqu'à 9 mètres vers elle ; si la cible est de taille G ou inférieure, elle subit l'etat Agrippé (évasion DD égal au DD de sauvegarde de votre sort). La liane ne peut agripper qu'une seule créature à la fois, et vous pouvez lui faire libérer une créature agrippée (aucune action requise).
-      
+
       Par une action Bonus lors de vos tours suivants, vous pouvez répéter l'attaque contre une créature dans un rayon de 9 mètres autour de la liane.
-      
+
       ***Emplacement de niveau supérieur***. Le nombre de créatures que la liane peut agripper augmente de un pour chaque niveau d'emplacement de sort supérieur à 4.

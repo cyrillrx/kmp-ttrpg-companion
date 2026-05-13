@@ -24,9 +24,8 @@ translations:
     materialDescription: a straight piece of iron
     description: |-
       Choose a Humanoid that you can see within range. The target must succeed on a Wisdom saving throw or have the Paralyzed condition for the duration. At the end of each of its turns, the target repeats the save, ending the spell on itself on a success.
-      
+
       ***Using a Higher-Level Spell Slot***. You can target one additional Humanoid for each spell slot level above 2.
-      
   fr:
     name: Immobilisation de personne
     castingTime: Action
@@ -35,5 +34,5 @@ translations:
     materialDescription: un brin de fer
     description: |-
       Choisissez un humanoïde que vous pouvez voir à portée. La cible doit réussir un jet de sauvegarde de Sagesse ou subir l'état Paralysé pendant toute la durée du sort. À la fin de chacun de ses tours, la cible renouvelle son jet de sauvegarde, mettant fin au sort sur elle-même en cas de réussite.
-      
+
       ***Emplacement de niveau supérieur***. Vous pouvez cibler un humanoïde supplémentaire pour chaque niveau d'emplacement de sort supérieur à 2.

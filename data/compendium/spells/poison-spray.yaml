@@ -22,9 +22,8 @@ translations:
     materialDescription: null
     description: |-
       You spray toxic mist at a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d12 Poison damage.
-      
+
       ***Cantrip Upgrade***. The damage increases by 1d12 when you reach levels 5 (2d12), 11 (3d12), and 17 (4d12).
-      
   fr:
     name: Bouffée de poison
     castingTime: Action
@@ -33,5 +32,5 @@ translations:
     materialDescription: null
     description: |-
       Vous projetez une brume toxique sur une créature à portée. Effectuez une attaque de sort à distance contre la cible. Si l'attaque touche, la cible subit 1d12 dégâts de poison.
-      
+
       ***Amélioration de sort mineur***. Les dégâts augmentent de 1d12 aux niveaux 5 (2d12), 11 (3d12) et 17 (4d12).

@@ -9,16 +9,16 @@ translations:
     subtype: null
     description: |-
       While wearing this pendant, you gain the following benefits.
-      
+
       **Life Preservation**. Whenever you make a Death Saving Throw, you can change a roll of 9 or lower to a 10, turning a failed save into a successful one.
-      
+
       **Natural Healing Boost**. Whenever you roll a Hit Point Die to regain Hit Points, double the number of Hit Points it restores.
   fr:
     name: Amulette de cicatrisation
     subtype: null
     description: |-
       Si vous portez ce pendentif, vous bénéficiez des avantages suivants :
-      
+
       **Préservation de vie**. À chaque jet de sauvegarde contre la mort, vous pouvez transformer un résultat de 9 ou moins en 10, transformant ainsi un échec en réussite.
-      
+
       **Stimulation de la guérison**. À chaque jet de dé de vie pour regagner des points de vie, vous doublez le nombre de points de vie restaurés.

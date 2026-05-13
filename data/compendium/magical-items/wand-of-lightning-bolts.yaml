@@ -9,12 +9,12 @@ translations:
     subtype: null
     description: |-
       This wand has 7 charges. While holding it, you can expend no more than 3 charges to cast *[Lightning Bolt](https://www.aidedd.org/spell/lightning-bolt)* (save DC 15) from it. For 1 charge, you cast the level 3 version of the spell. You can increase the spell's level by 1 for each additional charge you expend.
-      
+
       **Regaining Charges**. The wand regains 1d6 + 1 expended charges daily at dawn. If you expend the wand's last charge, roll 1d20. On a 1, the wand crumbles into ashes and is destroyed.
   fr:
     name: Baguette d'éclairs
     subtype: null
     description: |-
       Cette baguette possède 7 charges. Lorsque vous la tenez, vous ne pouvez pas dépenser plus de 3 charges pour lancer *[éclair](https://www.aidedd.org/spell/fr/eclair)* (sauvegarde DD 15). Pour 1 charge, vous lancez la version de niveau 3 du sort. Vous pouvez augmenter le niveau du sort de 1 pour chaque charge supplémentaire dépensée.
-      
+
       **Récupération des charges**. La baguette récupère 1d6 + 1 charges dépensées chaque jour à l'aube. Si vous dépensez la dernière charge de la baguette, lancez 1d20. Sur un 1, la baguette se réduit en cendres et est détruite.

@@ -20,9 +20,8 @@ translations:
     materialDescription: null
     description: |-
       A beam of enervating energy shoots from you toward a creature within range. The target must make a Constitution saving throw. On a successful save, the target has Disadvantage on the next attack roll it makes until the start of your next turn.
-      
+
       On a failed save, the target has Disadvantage on Strength-based D20 Tests for the duration. During that time, it also subtracts 1d8 from all its damage rolls. The target repeats the save at the end of each of its turns, ending the spell on a success.
-      
   fr:
     name: Rayon affaiblissant
     castingTime: Action
@@ -31,5 +30,5 @@ translations:
     materialDescription: null
     description: |-
       Un rayon d'énergie grinçante émane de vous vers une créature à portée. La cible doit effectuer un jet de sauvegarde de Constitution. En cas de réussite, elle subit un Désavantage à son prochain jet d'attaque jusqu'au début de votre prochain tour.
-      
+
       En cas d'échec, elle subit un Désavantage aux jets de d20 basés sur la Force pendant toute la durée du sort. Pendant ce temps, elle soustrait également 1d8 à tous ses jets de dégâts. La cible refait ce jet de sauvegarde à la fin de chacun de ses tours, mettant fin au sort en cas de réussite.

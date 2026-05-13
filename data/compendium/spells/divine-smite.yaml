@@ -20,9 +20,8 @@ translations:
     materialDescription: null
     description: |-
       The target takes an extra 2d8 Radiant damage from the attack. The damage increases by 1d8 if the target is a Fiend or an Undead.
-      
+
       ***Using a Higher-Level Spell Slot***. The damage increases by 1d8 for each spell slot level above 1.
-      
   fr:
     name: Châtiment divin
     castingTime: Action bonus, que vous prenez immédiatement après avoir touché une
@@ -32,5 +31,5 @@ translations:
     materialDescription: null
     description: |-
       La cible subit 2d8 dégâts radiants supplémentaires suite à l'attaque. Les dégâts augmentent de 1d8 si la cible est un fiélon ou un mort-vivant.
-      
+
       ***Emplacement de niveau supérieur***. Les dégâts augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 1.

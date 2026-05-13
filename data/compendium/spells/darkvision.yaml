@@ -22,7 +22,6 @@ translations:
     materialDescription: a dried carrot
     description: |-
       For the duration, a willing creature you touch has Darkvision with a range of 150 feet.
-      
   fr:
     name: Vision dans le noir
     castingTime: Action

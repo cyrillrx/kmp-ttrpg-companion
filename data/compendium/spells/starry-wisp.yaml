@@ -20,9 +20,8 @@ translations:
     materialDescription: null
     description: |-
       You launch a mote of light at one creature or object within range. Make a ranged spell attack against the target. On a hit, the target takes 1d8 Radiant damage, and until the end of your next turn, it emits Dim Light in a 10-foot radius and can't benefit from the Invisible condition.
-      
+
       ***Cantrip Upgrade***. The damage increases by 1d8 when you reach levels 5 (2d8), 11 (3d8), and 17 (4d8).
-      
   fr:
     name: Poussière d'étoile
     castingTime: Action
@@ -31,5 +30,5 @@ translations:
     materialDescription: null
     description: |-
       Vous lancez un rayon de lumière sur une créature ou un objet à portée. Effectuez une attaque avec un sort à distance contre la cible. Si l'attaque touche, la cible subit 1d8 dégâts radiants et, jusqu'à la fin de votre prochain tour, émet une Lumière faible dans un rayon de 3 mètres et ne peut bénéficier de l'état Invisibilité.
-      
+
       ***Amélioration de sort mineur***. Les dégâts augmentent de 1d8 aux niveaux 5 (2d8), 11 (3d8) et 17 (4d8).

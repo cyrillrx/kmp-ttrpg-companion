@@ -20,17 +20,16 @@ translations:
     materialDescription: null
     description: |-
       You attempt to reshape another creature's memories. One creature that you can see within range makes a Wisdom saving throw. If you are fighting the creature, it has Advantage on the save. On a failed save, the target has the Charmed condition for the duration. While Charmed in this way, the target also has the Incapacitated condition and is unaware of its surroundings, though it can hear you. If it takes any damage or is targeted by another spell, this spell ends, and no memories are modified.
-      
+
       While this charm lasts, you can affect the target's memory of an event that it experienced within the last 24 hours and that lasted no more than 10 minutes. You can permanently eliminate all memory of the event, allow the target to recall the event with perfect clarity, change its memory of the event's details, or create a memory of some other event.
-      
+
       You must speak to the target to describe how its memories are affected, and it must be able to understand your language for the modified memories to take root. Its mind fills in any gaps in the details of your description. If the spell ends before you finish describing the modified memories, the creature's memory isn't altered. Otherwise, the modified memories take hold when the spell ends.
-      
+
       A modified memory doesn't necessarily affect how a creature behaves, particularly if the memory contradicts the creature's natural inclinations, alignment, or beliefs. An illogical modified memory, such as a false memory of how much the creature enjoyed swimming in acid, is dismissed as a bad dream. The DM might deem a modified memory too nonsensical to affect a creature.
-      
+
       A *[Remove Curse](./remove-curse)* or *[Greater Restoration](./greater-restoration)* spell cast on the target restores the creature's true memory.
-      
+
       ***Using a Higher-Level Spell Slot***. You can alter the target's memories of an event that took place up to 7 days ago (level 6 spell slot), 30 days ago (level 7 spell slot), 365 days ago (level 8 spell slot), or any time in the creature's past (level 9 spell slot).
-      
   fr:
     name: Modification de mémoire
     castingTime: Action
@@ -39,13 +38,13 @@ translations:
     materialDescription: null
     description: |-
       Vous tentez de remodeler les souvenirs d'une autre créature. Une créature que vous pouvez voir à portée effectue un jet de sauvegarde de Sagesse. Si vous la combattez, elle a un Avantage au jet. En cas d'échec, la cible a l'état Charmé pendant toute la durée du sort. Tant qu'elle est charmée, elle a aussi l'état Incapable d'agir et n'a pas conscience de son environnement, bien qu'elle puisse vous entendre. Si elle subit des dégâts ou est ciblée par un autre sort, celui-ci prend fin et aucun souvenir n'est modifié.
-      
+
       Pendant la durée de ce charme, vous pouvez affecter le souvenir par la cible d'un événement survenu au cours des dernières 24 heures et n'ayant pas duré plus de 10 minutes. Vous pouvez effacer définitivement tout souvenir de cet événement, permettre à la cible de s'en souvenir avec une clarté parfaite, modifier ses souvenirs des détails de l'événement ou créer un souvenir d'un autre événement.
-      
+
       Vous devez parler à la cible pour lui décrire comment ses souvenirs sont affectés, et elle doit comprendre votre langage pour que les souvenirs modifiés prennent racine. Son esprit comble les lacunes de votre description. Si le sort prend fin avant que vous ayez terminé de décrire les souvenirs modifiés, la mémoire de la créature n'est pas altérée. Sinon, les souvenirs modifiés prennent effet à la fin du sort.
-      
+
       Un souvenir modifié n'affecte pas nécessairement le comportement d'une créature, surtout s'il contredit ses inclinations naturelles, son alignement ou ses croyances. Un souvenir modifié illogique, comme un faux souvenir du plaisir qu'elle a pris à nager dans l'acide, est considéré comme un mauvais rêve. Le MD pourrait juger un souvenir modifié trop absurde pour affecter une créature.
-      
+
       Un sort de *[délivrance des malédictions](./fr/delivrance-des-malédictions)* ou de *[restauration suprême](./fr/restauration-supreme)* lancé sur la cible restaure sa véritable mémoire.
-      
+
       ***Emplacement de niveau supérieur***. Vous pouvez modifier les souvenirs de la cible d'un événement survenu il y a 7 jours maximum (emplacement de niveau 6), 30 jours (emplacement de niveau 7), 365 jours (emplacement de niveau 8) ou à n'importe quel moment du passé de la créature (emplacement de niveau 9).

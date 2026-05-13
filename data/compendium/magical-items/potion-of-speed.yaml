@@ -9,12 +9,12 @@ translations:
     subtype: null
     description: |-
       When you drink this potion, you gain the effect of the *[Haste](https://www.aidedd.org/spell/haste)* spell for 1 minute (no Concentration required) without suffering the wave of lethargy that typically occurs when the effect ends.
-      
+
       This potion's yellow fluid is streaked with black and swirls on its own.
   fr:
     name: Potion de vitesse
     subtype: null
     description: |-
       Lorsque vous buvez cette potion, vous bénéficiez de l'effet du sort *[hâte](https://www.aidedd.org/spell/fr/hate)* pendant 1 minute (aucune concentration requise) sans subir la vague de léthargie qui survient généralement à la fin de l'effet.
-      
+
       Le liquide jaune de cette potion est strié de noir et tourbillonne tout seul.

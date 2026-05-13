@@ -9,12 +9,12 @@ translations:
     subtype: Battleaxe, Greataxe, Halberd, or Handaxe
     description: |-
       You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon.
-      
+
       Any Humanoid you hit with the weapon takes an extra 2d6 Slashing damage, and you gain Temporary Hit Points equal to the extra damage dealt.
   fr:
     name: Hache du bourreau
     subtype: hache d'armes, hache à deux mains, hallebarde ou hachette
     description: |-
       Vous obtenez un bonus de +1 aux jets d'attaque et de dégâts effectués avec cette arme magique.
-      
+
       Tout humanoïde touché par l'arme subit 2d6 dégâts tranchants supplémentaires, et vous gagnez des points de vie temporaires égaux aux dégâts supplémentaires infligés.

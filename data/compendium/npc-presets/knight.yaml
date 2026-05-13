@@ -29,9 +29,9 @@ languages:
 translations:
   en:
     shortDescription: Order Knight
-    description: A devout knight sworn to a holy order, bearing sacred vows and the
-      weight of divine purpose.
+    description: |-
+      A devout knight sworn to a holy order, bearing sacred vows and the weight of divine purpose.
   fr:
     shortDescription: Chevalier de l'ordre
-    description: Un chevalier pieux lié à un ordre sacré, portant des vœux sacrés
-      et le poids d'un dessein divin.
+    description: |-
+      Un chevalier pieux lié à un ordre sacré, portant des vœux sacrés et le poids d'un dessein divin.

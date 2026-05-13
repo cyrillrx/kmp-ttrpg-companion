@@ -30,7 +30,7 @@ languages:
 translations:
   en:
     shortDescription: Elf Rogue
-    description: ''
+    description: ""
   fr:
     shortDescription: Roublard elfe
-    description: ''
+    description: ""

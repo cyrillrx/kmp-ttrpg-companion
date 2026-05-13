@@ -21,13 +21,12 @@ translations:
     materialDescription: a piece of charcoal
     description: |-
       You create a wall of fire on a solid surface within range. You can make the wall up to 60 feet long, 20 feet high, and 1 foot thick, or a ringed wall up to 20 feet in diameter, 20 feet high, and 1 foot thick. The wall is opaque and lasts for the duration.
-      
+
       When the wall appears, each creature in its area makes a Dexterity saving throw, taking 5d8 Fire damage on a failed save or half as much damage on a successful one.
-      
+
       One side of the wall, selected by you when you cast this spell, deals 5d8 Fire damage to each creature that ends its turn within 10 feet of that side or inside the wall. A creature takes the same damage when it enters the wall for the first time on a turn or ends its turn there. The other side of the wall deals no damage.
-      
+
       ***Using a Higher-Level Spell Slot***. The damage increases by 1d8 for each spell slot level above 4.
-      
   fr:
     name: Mur de feu
     castingTime: Action
@@ -36,9 +35,9 @@ translations:
     materialDescription: un morceau de charbon
     description: |-
       Vous créez un mur de feu sur une surface solide à portée. Vous pouvez créer un mur mesurant jusqu'à 18 mètres de long, 6 mètres de haut et 30 cm d'épaisseur, ou un mur encerclé mesurant jusqu'à 6 mètres de diamètre, 6 mètres de haut et 30 cm d'épaisseur. Le mur est opaque et reste en place pendant toute la durée du sort.
-      
+
       Lorsque le mur apparaît, Toute créature dans sa zone effectue un jet de sauvegarde de Dextérité, subissant 5d8 dégâts de Feu en cas d'échec, ou la moitié de ces dégâts en cas de réussite.
-      
+
       Un côté du mur, que vous choisissez lors du lancement de ce sort, inflige 5d8 dégâts de feu à toute créature qui termine son tour à 3 mètres ou moins de ce côté ou à l'intérieur du mur. Une créature subit les mêmes dégâts lorsqu'elle pénètre dans le mur pour la première fois au cours d'un tour ou y termine son tour. L'autre côté du mur n'inflige aucun dégât.
-      
+
       ***Emplacement de niveau supérieur***. Les dégâts augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 4.

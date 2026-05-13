@@ -22,19 +22,18 @@ translations:
     materialDescription: null
     description: |-
       You create a magical effect within range. Choose the effect from the options below. If you cast this spell multiple times, you can have up to three of its non-instantaneous effects active at a time.
-      
+
       **Sensory Effect**. You create an instantaneous, harmless sensory effect, such as a shower of sparks, a puff of wind, faint musical notes, or an odd odor.
-      
+
       **Fire Play**. You instantaneously light or snuff out a candle, a torch, or a small campfire.
-      
+
       **Clean or Soil**. You instantaneously clean or soil an object no larger than 1 cubic foot.
-      
+
       **Minor Sensation.** You chill, warm, or flavor up to 1 cubic foot of nonliving material for 1 hour.
-      
+
       **Magic Mark**. You make a color, a small mark, or a symbol appear on an object or a surface for 1 hour.
-      
+
       **Minor Creation**. You create a nonmagical trinket or an illusory image that can fit in your hand. It lasts until the end of your next turn. A trinket can deal no damage and has no monetary worth.
-      
   fr:
     name: Prestidigitation
     castingTime: Action
@@ -43,15 +42,15 @@ translations:
     materialDescription: null
     description: |-
       Vous créez un effet magique dans la portée du sort. Choisissez l'effet dans les options ci-dessous. Si vous lancez ce sort plusieurs fois, vous pouvez garder actif jusqu'à trois de ses effets non instantanés simultanément.
-      
+
       **Effet sensoriel**. Vous créez instantanément un effet sensoriel inoffensif, comme une pluie d'étincelles, un souffle de vent, des notes de musique tenues ou une odeur étrange.
-      
+
       **Jeu avec le feu**. Vous allumez ou soufflez instantanément une bougie, une torche ou un petit feu de camp.
-      
+
       **Nettoyage ou maculage**. Vous nettoyez ou souillez instantanément un objet ne mesurant pas plus que 0,03 m3 (30 litres).
-      
+
       **Sensation mineure**. Vous refroidissez, réchauffez ou parfumez au maximum 0,03 m3 (30 litres) de matière inerte pour 1 heure.
-      
+
       **Marque magique**. Vous faites apparaitre une couleur, une petite marque ou un symbole sur un objet ou une surface, pendant 1 heure.
-      
+
       **Création mineure**. Vous créez une babiole non magique, ou une image illusoire, qui peut tenir dans votre main. Il dure jusqu'à la fin de votre prochain tour. Une babiole ne peut pas infliger de dommage et n'a aucune valeur.

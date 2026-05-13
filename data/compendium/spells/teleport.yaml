@@ -21,7 +21,7 @@ translations:
     materialDescription: null
     description: |-
       This spell instantly transports you and up to eight willing creatures that you can see within range, or a single object that you can see within range, to a destination you select. If you target an object, it must be Large or smaller, and it can't be held or carried by an unwilling creature.
-      
+
       The destination you choose must be known to you, and it must be on the same plane of existence as you. Your familiarity with the destination determines whether you arrive there successfully. The DM rolls 1d100 and consults the Teleportation Outcome table and the explanations after it.
 
       | Familiarity | Mishap | Similar Area | Off Target | On Target |
@@ -34,24 +34,23 @@ translations:
       | False destination | 01–50 | 51–00 | — | — |
 
 
-      
+
       **Familiarity**. Here are the meanings of the terms in the table's Familiarity column:
-      
+
       - “Permanent circle” means a permanent teleportation circle whose sigil sequence you know.
       - “Linked object” means you possess an object taken from the desired destination within the last six months, such as a book from a wizard's library.
       - “Very familiar” is a place you have visited often, a place you have carefully studied, or a place you can see when you cast the spell.
       - “Seen casually” is a place you have seen more than once but with which you aren't very familiar.
       - “Viewed once or described” is a place you have seen once, possibly using magic, or a place you know through someone else's description, perhaps from a map.
       - “False destination” is a place that doesn't exist. Perhaps you tried to scry an enemy's sanctum but instead viewed an illusion, or you are attempting to teleport to a location that no longer exists.
-      
+
       **Mishap**. The spell's unpredictable magic results in a difficult journey. Each teleporting creature (or the target object) takes 3d10 Force damage, and the DM rerolls on the table to see where you wind up (multiple mishaps can occur, dealing damage each time).
-      
+
       **Similar Area**. You and your group (or the target object) appear in a different area that's visually or thematically similar to the target area. You appear in the closest similar place. If you are heading for your home laboratory, for example, you might appear in another person's laboratory in the same city.
-      
+
       **Off Target**. You and your group (or the target object) appear 2d12 miles away from the destination in a random direction. Roll 1d8 for the direction: 1, east; 2, southeast; 3, south; 4, southwest; 5, west; 6, northwest; 7, north; or 8, northeast.
-      
+
       **On Target**. You and your group (or the target object) appear where you intended.
-      
   fr:
     name: Téléportation
     castingTime: Action
@@ -60,7 +59,7 @@ translations:
     materialDescription: null
     description: |-
       Ce sort vous transporte instantanément, ainsi que huit créatures consentantes que vous voyez à portée, ou bien un seul objet que vous voyez à portée, vers la destination sélectionnée. Si vous ciblez un objet, il doit être de taille G ou inférieure et ne doit pas être porté par une créature non consentante.
-      
+
       Vous devez connaître la destination que vous choisissez et elle doit se trouver sur le même plan d'existence que vous. Votre niveau de familiarité avec la destination détermine si vous y parvenez effectivement. Le MD lance 1d100 en consultant la table ci-dessous et l'explication correspondante.
 
       | Familiarité | Incident | Zone comparable | Déviation | Sur place |
@@ -73,20 +72,20 @@ translations:
       | Destination factice | 01–50 | 51–00 | — | — |
 
 
-      
+
       **Familiarité**. Les termes de la colonne Familiarité de la table se comprennent comme suit :
-      
+
       - « Cercle permanent » fait référence à un cercle de téléportation permanent dont vous connaissez la séquence de runes.
       - « Objet lié » indique que vous détenez un objet rapporté de la destination souhaitée au cours des six derniers mois, comme un livre issu de la bibliothèque d'un Magicien.
       - « Grande familiarité » correspond à un endroit où vous avez passé du temps, un lieu que vous avez étudié en profondeur ou un site que vous voyez à l'incantation du sort.
       - « Vu plusieurs fois » représente un lieu que vous avez vu plus d'une fois, mais que vous connaissez finalement assez peu.
       - « Vu une fois ou décrit » correspond à un site que vous n'avez vu qu'une fois, éventuellement par magie, ou un endroit qu'on vous a décrit avec un certain détail, éventuellement par le biais d'une carte.
       - « Destination factice » correspond à un lieu qui n'existe pas. Vous avez par exemple tenté de scruter le sanctuaire de l'ennemi, mais avez été dupé par une illusion, à moins que vous cherchiez à atteindre un lieu qui n'existe plus.
-      
+
       **Incident**. La magie imprévisible de ce sort se traduit par une mésaventure. Chaque créature téléportée (ou l'objet ciblé) subit 3d10 dégâts de force et le MD rejoue sur la table pour voir où vous terminez (plusieurs incidents consécutifs sont possibles, entraînant chaque fois des dégâts).
-      
+
       **Zone comparable**. Vous et votre groupe (ou l'objet ciblé) terminez dans une zone différente dont l'ambiance et l'aspect se rapprochent de la destination souhaitée. Vous apparaissez à l'endroit comparable le plus proche. Si vous souhaitiez rejoindre votre laboratoire, par exemple, vous pourriez aboutir dans celui d'une autre personne de la même ville.
-      
+
       **Déviation**. Vous et votre groupe (ou l'objet ciblé) arrivez à 2d12 x 1,5 km et dans une direction aléatoire de la destination souhaitée. Lancez 1d8 pour la direction : 1, est ; 2, sud-est ; 3, sud ; 4, sud-ouest ; 5, ouest ; 6, nord-ouest ; 7, nord ; 8, nord-est.
-      
+
       **Sur place**. Vous et votre groupe (ou l'objet ciblé) arrivez à l'endroit souhaité.

@@ -21,13 +21,12 @@ translations:
     materialDescription: a miniature shovel
     description: |-
       Choose an area of terrain no larger than 40 feet on a side within range. You can reshape dirt, sand, or clay in the area in any manner you choose for the duration. You can raise or lower the area's elevation, create or fill in a trench, erect or flatten a wall, or form a pillar. The extent of any such changes can't exceed half the area's largest dimension. For example, if you affect a 40-foot square, you can create a pillar up to 20 feet high, raise or lower the square's elevation by up to 20 feet, dig a trench up to 20 feet deep, and so on. It takes 10 minutes for these changes to complete. Because the terrain's transformation occurs slowly, creatures in the area can't usually be trapped or injured by the ground's movement.
-      
+
       At the end of every 10 minutes you spend concentrating on the spell, you can choose a new area of terrain to affect within range.
-      
+
       This spell can't manipulate natural stone or stone construction. Rocks and structures shift to accommodate the new terrain. If the way you shape the terrain would make a structure unstable, it might collapse.
-      
+
       Similarly, this spell doesn't directly affect plant growth. The moved earth carries any plants along with it.
-      
   fr:
     name: Glissement de terrain
     castingTime: Action
@@ -36,9 +35,9 @@ translations:
     materialDescription: une pelle miniature
     description: |-
       Choisissez à portée une zone de terrain dont la longueur ne dépasse pas 12 m. Vous pouvez remodeler la terre, le sable ou l'argile de la zone à votre guise pour toute la durée. Vous pouvez accroître ou diminuer la hauteur de la zone, créer une tranchée ou en combler une, ériger un mur ou l'aplanir, ou former une colonne. Aucune de ces altérations ne peut excéder en taille la moitié de la dimension la plus grande de la zone. Exemple : si vous affectez une zone carrée de 12 m de côté, vous pouvez créer une colonne de 6 m, augmenter ou réduire la hauteur du carré de 6 m, creuser une tranchée profonde de 6 m, etc. Ces modifications s'accomplissent en 10 minutes. Ces transformations ne s'opérant que lentement, les créatures situées dans la zone ne se font généralement pas piéger ni blesser par les mouvements de terrain.
-      
+
       À la fin de chaque tranche de 10 minutes passées à vous concentrer sur le sort, vous pouvez choisir une nouvelle zone de terrain à portée pour l'affecter.
-      
+
       Ce sort ne peut pas manipuler la pierre naturelle ni les bâtiments en pierre. La roche et les édifices se contentent de s'adapter au terrain modifié. Si l'altération du terrain menace de rendre un édifice instable, il peut effectivement s'effondrer.
-      
+
       De même, ce sort n'affecte pas directement le développement de la flore. La terre déplacée emporte avec elle les plantes qui l'occupent.

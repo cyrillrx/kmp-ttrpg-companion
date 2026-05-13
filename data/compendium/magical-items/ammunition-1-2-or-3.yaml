@@ -9,12 +9,12 @@ translations:
     subtype: Any Ammunition
     description: |-
       You have a bonus to attack rolls and damage rolls made with this piece of magic ammunition. The bonus is determined by the rarity of the ammunition. Once it hits a target, the ammunition is no longer magical.
-      
+
       This ammunition is typically found or sold in quantities of ten or twenty pieces. Ten pieces of this ammunition are equivalent in value to a potion of the same rarity.
   fr:
     name: Projectile +1, +2 ou +3
     subtype: tout projectile
     description: |-
       Vous obtenez un bonus aux jets d'attaque et de dégâts effectués avec cette munition magique. Ce bonus est déterminé par sa rareté. Une fois qu'elle touche une cible, elle perd son pouvoir magique.
-      
+
       Ces munitions sont généralement trouvées ou vendues par dix ou vingt. Dix projectiles ont la même valeur qu'une potion de même rareté.

@@ -20,11 +20,10 @@ translations:
     materialDescription: a fan and a feather
     description: |-
       A wall of strong wind rises from the ground at a point you choose within range. You can make the wall up to 50 feet long, 15 feet high, and 1 foot thick. You can shape the wall in any way you choose so long as it makes one continuous path along the ground. The wall lasts for the duration.
-      
+
       When the wall appears, each creature in its area makes a Strength saving throw, taking 4d8 Bludgeoning damage on a failed save or half as much damage on a successful one.
-      
+
       The strong wind keeps fog, smoke, and other gases at bay. Small or smaller flying creatures or objects can't pass through the wall. Loose, lightweight materials brought into the wall fly upward. Arrows, bolts, and other ordinary projectiles launched at targets behind the wall are deflected upward and miss automatically. Boulders hurled by Giants or siege engines, and similar projectiles, are unaffected. Creatures in gaseous form can't pass through it.
-      
   fr:
     name: Mur de vent
     castingTime: Action
@@ -33,7 +32,7 @@ translations:
     materialDescription: un éventail et une plume
     description: |-
       Un mur de vent violent s'élève du sol à un point de votre choix à portée. Vous pouvez construire un mur mesurant jusqu'à 15 mètres de long, 4,50 mètres de haut et 30 cm d'épaisseur. Vous pouvez façonner le mur comme vous le souhaitez, à condition qu'il trace un chemin continu le long du sol. Le mur dure toute la durée du sort.
-      
+
       Lorsque le mur apparaît, chaque créature dans sa zone effectue un jet de sauvegarde de Force, subissant 4d8 dégâts contondants en cas d'échec, ou la moitié de ces dégâts en cas de réussite.
-      
+
       Le vent violent maintient le brouillard, la fumée et autres gaz à distance. Les créatures ou objets volants de taille P ou inférieure ne peuvent pas traverser le mur. Les matériaux légers et meubles introduits dans le mur volent vers le haut. Les flèches, carreaux et autres projectiles ordinaires lancés sur des cibles derrière le mur sont déviés vers le haut et manquent automatiquement leur cible. Les rochers lancés par des géants ou des engins de siège, ainsi que les projectiles similaires, ne sont pas affectés. Les créatures sous forme gazeuse ne peuvent pas le traverser.

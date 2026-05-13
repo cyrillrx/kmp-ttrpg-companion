@@ -19,11 +19,10 @@ translations:
     materialDescription: null
     description: |-
       You conjure a Medium spirit from the Feywild in an unoccupied space you can see within range. The spirit lasts for the duration, and it looks like a Fey creature of your choice. When the spirit appears, you can make one melee spell attack against a creature within 5 feet of it. On a hit, the target takes Psychic damage equal to 3d12 plus your spellcasting ability modifier, and the target has the Frightened condition until the start of your next turn, with both you and the spirit as the source of the fear.
-      
+
       As a Bonus Action on your later turns, you can teleport the spirit to an unoccupied space you can see within 30 feet of the space it left and make the attack against a creature within 5 feet of it.
-      
+
       ***Using a Higher-Level Spell Slot***. The damage increases by 1d12 for each spell slot level above 6\*.
-      
   fr:
     name: Invocation de fée
     castingTime: Action
@@ -32,7 +31,7 @@ translations:
     materialDescription: null
     description: |-
       Vous invoquez un esprit de taille M issu de la Féerie, en un espace inoccupé que vous voyez à portée. L'esprit persiste pour toute la durée, avec l'aspect de la Fée de votre choix. Quand l'esprit apparaît, vous pouvez effectuer une attaque de sort au corps à corps contre une créature située dans un rayon de 1,50 m de l'esprit. Si l'attaque touche, la cible subit des dégâts psychiques égaux à 3d12 plus votre modificateur de caractéristique d'incantation, et subit l'état Effrayé jusqu'au début de votre tour suivant, l'esprit et vous-même étant considérés comme source de sa frayeur.
-      
+
       Par une action Bonus à vos tours suivants, vous pouvez téléporter l'esprit en un espace inoccupé que vous voyez dans un rayon de 9 m de l'espace que vous lui faites quitter et effectuer l'attaque contre une créature située à 1,50 m ou moins de lui.
-      
+
       ***Emplacement de niveau supérieur***. Les dégâts augmentent de 1d12 pour chaque niveau d'emplacement de sort supérieur à 6.

@@ -20,9 +20,8 @@ translations:
     materialDescription: null
     description: |-
       You conjure spirits from the Elemental Planes that flit around you in a 15-foot Emanation for the duration. Until the spell ends, any attack you make deals an extra 2d8 damage when you hit a creature in the Emanation. This damage is Acid, Cold, Fire, or Lightning (your choice when you make the attack). In addition, the ground in the Emanation is Difficult Terrain for your enemies.
-      
+
       ***Using a Higher-Level Spell Slot***. The damage increases by 1d8 for each spell slot level above 4\*.
-      
   fr:
     name: Invocation d'élémentaires mineurs
     castingTime: Action
@@ -31,5 +30,5 @@ translations:
     materialDescription: null
     description: |-
       Vous invoquez des esprits des plans élémentaires qui voltigent autour de vous sous forme d'Émanation de 4,50 mètres pendant toute la durée du sort. Jusqu'à la fin du sort, chaque attaque que vous effectuez inflige 2d8 dégâts supplémentaires lorsque vous touchez une créature dans l'Émanation. Ces dégâts sont d'acide, de froid, de feu ou de foudre (au choix lors de l'attaque). De plus, le sol de l'Émanation est un terrain difficile pour vos ennemis.
-      
+
       ***Emplacement de niveau supérieur***. Les dégâts augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 4.

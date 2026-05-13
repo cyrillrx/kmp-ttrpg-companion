@@ -21,11 +21,10 @@ translations:
     materialDescription: null
     description: |-
       A swirling cloud of embers and smoke fills a 20-foot-radius Sphere centered on a point within range. The cloud's area is Heavily Obscured. It lasts for the duration or until a strong wind (like that created by *[Gust of Wind](./gust-of-wind)*) disperses it.
-      
+
       When the cloud appears, each creature in it makes a Dexterity saving throw, taking 10d8 Fire damage on a failed save or half as much damage on a successful one. A creature must also make this save when the Sphere moves into its space and when it enters the Sphere or ends its turn there. A creature makes this save only once per turn.
-      
+
       The cloud moves 10 feet away from you in a direction you choose at the start of each of your turns.
-      
   fr:
     name: Nuage incendiaire
     castingTime: Action
@@ -34,5 +33,5 @@ translations:
     materialDescription: null
     description: |-
       Un nuage tourbillonnant de fumée se manifeste, chargé de flammèches, sous forme d'une Sphère de 6 m de rayon centrée sur un point à portée. La zone du nuage présente une Visibilité nulle. Elle persiste pour toute la durée, à moins qu'un vent fort (comme celui engendré par *[bourrasque](./fr/bourrasque)*) la disperse.
-      
+
       Chaque créature prise dans le nuage à son apparition effectue un jet de sauvegarde de Dextérité et subit 10d8 dégâts de feu en cas d'échec, la moitié en cas de réussite. Toute créature qui voit la Sphère se déplacer dans son espace, ou qui pénètre dans la Sphère ou y termine son tour, est également soumise à ce JdS. Une même créature n'effectue en aucun cas ce JdS plus d'une fois par tour.

@@ -19,11 +19,10 @@ translations:
     materialDescription: an ornamental braid
     description: |-
       You touch up to four nonmagical Arrows or Bolts and plant them in the ground in your space. Until the spell ends, the ammunition can't be physically uprooted, and whenever a creature other than you enters a space within 30 feet of the ammunition for the first time on a turn or ends its turn there, one piece of ammunition flies up to strike it. The creature must succeed on a Dexterity saving throw or take 2d4 Piercing damage. The piece of ammunition is then destroyed. The spell ends when none of the ammunition remains planted in the ground.
-      
+
       When you cast this spell, you can designate any creatures you choose, and the spell ignores them.
-      
+
       ***Using a Higher-Level Spell Slot***. The amount of ammunition that can be affected increases by two for each spell slot level above 2.
-      
   fr:
     name: Cordon de flèches
     castingTime: Action
@@ -32,7 +31,7 @@ translations:
     materialDescription: une tresse décorative
     description: |-
       Vous touchez jusqu'à quatre flèches ou carreaux non magiques et les plantez dans le sol de votre espace. Jusqu'à la fin du sort, les munitions ne peuvent pas être physiquement déracinées, et chaque fois qu'une créature autre que vous pénètre dans un espace dans un rayon de 9 mètres des munitions pour la première fois au cours d'un tour ou y termine son tour, une munition s'envole pour la frapper. La créature doit réussir un jet de sauvegarde de Dextérité sous peine de subir 2d4 dégâts perforants. La munition est alors détruite. Le sort prend fin lorsqu'il ne reste plus aucune munition plantée dans le sol.
-      
+
       Lorsque vous lancez ce sort, vous pouvez désigner les créatures de votre choix, et le sort les ignore.
-      
+
       ***Emplacement de niveau supérieur***. La quantité de munitions pouvant être affectée augmente de deux pour chaque niveau d'emplacement de sort supérieur à 2.

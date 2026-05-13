@@ -9,12 +9,12 @@ translations:
     subtype: null
     description: |-
       When you drink this potion, you gain the effect of the *Comprehend Languages* spell for 1 hour.
-      
+
       This potion's liquid is a clear concoction with bits of salt and soot swirling in it.
   fr:
     name: Potion de compréhension
     subtype: null
     description: |-
       Lorsque vous buvez cette potion, vous bénéficiez de l'effet du sort *compréhension des langues* pendant 1 heure.
-      
+
       Le liquide de cette potion est une mixture limpide contenant des particules de sel et de suie.

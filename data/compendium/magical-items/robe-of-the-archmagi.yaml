@@ -9,24 +9,24 @@ translations:
     subtype: null
     description: |-
       This elegant garment is made from exquisite cloth and adorned with runes.
-      
+
       You gain these benefits while wearing the robe.
-      
+
       **Armor**. If you aren't wearing armor, your base Armor Class is 15 plus your Dexterity modifier.
-      
+
       **Magic Resistance**. You have Advantage on saving throws against spells and other magical effects.
-      
+
       **War Mage**. Your spell save DC and spell attack bonus each increase by 2.
   fr:
     name: Robe de l'archimage
     subtype: null
     description: |-
       Ce vêtement élégant est confectionné dans un tissu raffiné et orné de runes.
-      
+
       Vous bénéficiez des avantages suivants lorsque vous portez la robe.
-      
+
       **Armure**. Si vous ne portez pas d'armure, votre CA de base est de 15 plus votre modificateur de Dextérité.
-      
+
       **Résistance à la magie**. Vous bénéficiez d'un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
-      
+
       **Magie de guerre**. Votre DD de sauvegarde des sorts et votre bonus d'attaque de sorts augmentent chacun de 2.

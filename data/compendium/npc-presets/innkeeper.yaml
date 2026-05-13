@@ -24,9 +24,9 @@ languages:
 translations:
   en:
     shortDescription: Innkeeper
-    description: A warm and practical woman who runs the Silver Flagon with an iron
-      fist hidden in a velvet glove.
+    description: |-
+      A warm and practical woman who runs the Silver Flagon with an iron fist hidden in a velvet glove.
   fr:
     shortDescription: Aubergiste
-    description: Une femme chaleureuse et pragmatique qui tient le Flacon d'Argent
-      d'une main de fer dans un gant de velours.
+    description: |-
+      Une femme chaleureuse et pragmatique qui tient le Flacon d'Argent d'une main de fer dans un gant de velours.

@@ -19,7 +19,6 @@ translations:
     materialDescription: null
     description: |-
       Arcane wards protect you against magic for the duration. You have Advantage on saving throws against spells and magical effects. Additionally, if you succeed on a saving throw against a spell or magical effect and would normally take half as much damage, you instead take no damage.
-      
   fr:
     name: Esquive d'Elminster
     castingTime: Action bonus

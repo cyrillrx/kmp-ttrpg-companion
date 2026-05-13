@@ -30,7 +30,7 @@ languages:
 translations:
   en:
     shortDescription: Human Wizard
-    description: ''
+    description: ""
   fr:
     shortDescription: Mage humain
-    description: ''
+    description: ""

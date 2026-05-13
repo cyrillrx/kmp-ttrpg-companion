@@ -34,9 +34,8 @@ translations:
       | 10 | Tiefling |
 
 
-      
+
       The reincarnated creature makes any choices that a species' description offers, and the creature recalls its former life. It retains the capabilities it had in its original form, except it loses the traits of its previous species and gains the traits of its new one.
-      
   fr:
     name: Réincarnation
     castingTime: 1 heure
@@ -61,5 +60,5 @@ translations:
       | 10 | Tieffelin |
 
 
-      
+
       La créature réincarnée fait tous les choix proposés par la description de son espèce, et se souvient de sa vie antérieure. Elle conserve les capacités qu'elle possédait sous sa forme d'origine, mais perd les traits de son espèce précédente et acquiert ceux de sa nouvelle espèce.

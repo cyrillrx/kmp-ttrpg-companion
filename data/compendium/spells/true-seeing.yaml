@@ -23,7 +23,6 @@ translations:
     materialDescription: mushroom powder worth 25+ GP, which the spell consumes
     description: |-
       For the duration, the willing creature you touch has Truesight with a range of 120 feet.
-      
   fr:
     name: Vision suprême
     castingTime: Action

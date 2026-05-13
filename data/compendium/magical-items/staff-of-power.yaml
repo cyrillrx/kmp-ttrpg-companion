@@ -9,9 +9,9 @@ translations:
     subtype: null
     description: |-
       This staff has 20 charges and can be wielded as a magic Quarterstaff that grants a +2 bonus to attack rolls and damage rolls made with it. While holding it, you gain a +2 bonus to Armor Class, saving throws, and spell attack rolls.
-      
+
       **Spells**. While holding the staff, you can cast one of the spells on the following table from it, using your spell save DC. The table indicates how many charges you must expend to cast the spell.
-      
+
       | Spell | Charge Cost |
       | --- | --- |
       | *[Cone of Cold](https://www.aidedd.org/spell/cone-of-cold)* | 5 |
@@ -25,16 +25,16 @@ translations:
       | *[Wall of Force](https://www.aidedd.org/spell/wall-of-force)* | 5 |
 
       **Regaining Charges**. The staff regains 2d8 + 4 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff retains its +2 bonus to attack rolls and damage rolls but loses all other properties. On a 20, the staff regains 1d8 + 2 charges.
-      
+
       **Retributive Strike**. You can take a Magic action to break the staff over your knee or against a solid surface. The staff is destroyed and releases its magic in an explosion that fills a 30-foot Emanation originating from itself. You have a 50 percent chance to instantly travel to a random plane of existence, avoiding the explosion. If you fail to avoid the effect, you take Force damage equal to 16 times the number of charges in the staff. Each other creature in the area makes a DC 17 Dexterity saving throw. On a failed save, a creature takes Force damage equal to 4 times the number of charges in the staff. On a successful save, a creature takes half as much damage.
   fr:
     name: Bâton de surpuissance
     subtype: null
     description: |-
       Ce bâton possède 20 charges et peut être utilisé comme un bâton magique, conférant un bonus de +2 aux jets d'attaque et de dégâts. Lorsque vous le tenez, vous gagnez un bonus de +2 à la CA, aux jets de sauvegarde et aux jets d'attaque de sorts.
-      
+
       **Sorts**. Lorsque vous tenez le bâton, vous pouvez lancer l'un des sorts de la table suivante, en utilisant votre DD de sauvegarde des sorts. La table indique le nombre de charges nécessaires pour lancer le sort.
-      
+
       | Sort | Coût en charges |
       | --- | --- |
       | *[cône de froid](https://www.aidedd.org/spell/fr/cone-de-froid)* | 5 |
@@ -48,5 +48,5 @@ translations:
       | *[mur de force](https://www.aidedd.org/spell/fr/mur-de-force)* | 5 |
 
       **Récupération des charges**. Le bâton récupère 2d8 + 4 charges dépensées chaque jour à l'aube. Si vous dépensez la dernière charge, lancez 1d20. Sur un 1, le bâton conserve son bonus de +2 aux jets d'attaque et de dégâts, mais perd toutes ses autres propriétés. Sur un 20, le bâton récupère 1d8 + 2 charges.
-      
+
       **Explosion vengeresse**. Vous pouvez prendre une action Magie pour briser le bâton au-dessus de votre genou ou contre une surface solide. Le bâton est détruit et libère sa magie dans une explosion qui remplit une Émanation de 9 mètres centrée sur lui-même. Vous avez 50 % de chances de voyager instantanément vers un plan d'existence aléatoire, évitant ainsi l'explosion. Si vous échouez à éviter l'effet, vous subissez des dégâts de force égaux à 16 fois le nombre de charges du bâton. Chaque autre créature dans la zone effectue un jet de sauvegarde de Dextérité DD 17. En cas d'échec, une créature subit des dégâts de force égaux à 4 fois le nombre de charges du bâton. En cas de réussite, une créature subit la moitié de ces dégâts.

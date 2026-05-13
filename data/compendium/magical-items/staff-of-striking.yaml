@@ -9,16 +9,16 @@ translations:
     subtype: null
     description: |-
       This staff can be wielded as a magic Quarterstaff that grants a +3 bonus to attack rolls and damage rolls made with it.
-      
+
       The staff has 10 charges. When you hit with a melee attack using it, you can expend up to 3 charges. For each charge you expend, the target takes an extra 1d6 Force damage.
-      
+
       **Regaining Charges**. The staff regains 1d6 + 4 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff becomes a nonmagical Quarterstaff.
   fr:
     name: Bâton percussif
     subtype: null
     description: |-
       Ce bâton peut être utilisé comme un bâton magique, conférant un bonus de +3 aux jets d'attaque et de dégâts.
-      
+
       Le bâton possède 10 charges. Lorsque vous touchez une cible au corps à corps en l'utilisant, vous pouvez dépenser jusqu'à 3 charges. Pour chaque charge dépensée, la cible subit 1d6 dégâts de force supplémentaires.
-      
+
       **Récupération des charges**. Le bâton récupère 1d6 + 4 charges dépensées chaque jour à l'aube. Si vous dépensez la dernière charge, lancez 1d20. Sur un 1, le bâton devient un bâton non magique.

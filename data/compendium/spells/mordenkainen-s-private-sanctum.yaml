@@ -19,20 +19,19 @@ translations:
     materialDescription: a thin sheet of lead
     description: |-
       You make an area within range magically secure. The area is a Cube that can be as small as 5 feet to as large as 100 feet on each side. The spell lasts for the duration.
-      
+
       When you cast the spell, you decide what sort of security the spell provides, choosing any of the following properties:
-      
+
       - Sound can't pass through the barrier at the edge of the warded area.
       - The barrier of the warded area appears dark and foggy, preventing vision (including Dark vision) through it.
       - Sensors created by Divination spells can't appear inside the protected area or pass through the barrier at its perimeter.
       - Creatures in the area can't be targeted by Divination spells.
       - Nothing can teleport into or out of the warded area.
       - Planar travel is blocked within the warded area.
-      
+
       Casting this spell on the same spot every day for 365 days makes the spell last until dispelled.
-      
+
       ***Using a Higher-Level Spell Slot***. You can increase the size of the Cube by 100 feet for each spell slot level above 4.
-      
   fr:
     name: Sanctuaire privé de Mordenkainen
     castingTime: 10 minutes
@@ -41,16 +40,16 @@ translations:
     materialDescription: une feuille de plomb
     description: |-
       Vous sécurisez magiquement une zone à portée. Cette zone est un Cube dont les dimensions peuvent varier de 1,50 mètre à 30 mètres de côté.
-      
+
       Lorsque vous lancez le sort, vous décidez du niveau de sécurité qu'il offre en choisissant l'une des propriétés suivantes :
-      
+
       - Le son ne peut pas traverser la barrière du périmètre de la zone protégée.
       - La barrière de la zone protégée apparaît sombre et brumeuse, empêchant toute vision (y compris par Vision dans le noir) à travers elle.
       - Les capteurs créés par les sorts de Divination ne peuvent pas apparaître à l'intérieur de la zone protégée ni traverser la barrière de son périmètre.
       - Les créatures présentes dans la zone ne peuvent pas être ciblées par des sorts de Divination.
       - Rien ne peut se téléporter vers ou hors de la zone protégée.
       - Un voyage interplanaire est bloqué dans la zone protégée.
-      
+
       Lancer ce sort au même endroit chaque jour pendant 365 jours le fait durer jusqu'à sa dissipation.
-      
+
       ***Emplacement de niveau supérieur***. Vous pouvez augmenter la taille du Cube de 30 mètres pour chaque niveau d'emplacement de sort supérieur supérieur à 4.

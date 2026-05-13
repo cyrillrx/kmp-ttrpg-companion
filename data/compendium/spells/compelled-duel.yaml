@@ -19,9 +19,8 @@ translations:
     materialDescription: null
     description: |-
       You try to compel a creature into a duel. One creature that you can see within range makes a Wisdom saving throw. On a failed save, the target has Disadvantage on attack rolls against creatures other than you, and it can't willingly move to a space that is more than 30 feet away from you.
-      
+
       The spell ends if you make an attack roll against a creature other than the target, if you cast a spell on an enemy other than the target, if an ally of yours damages the target, or if you end your turn more than 30 feet away from the target.
-      
   fr:
     name: Duel forcé
     castingTime: Action bonus
@@ -30,5 +29,5 @@ translations:
     materialDescription: null
     description: |-
       Vous tentez de forcer une créature à se battre en duel. Une créature que vous pouvez voir à portée effectue un jet de sauvegarde de Sagesse. En cas d'échec, la cible subit un Désavantage aux jets d'attaque contre d'autres créatures que vous, et ne peut pas se déplacer volontairement vers une case située à plus de 9 mètres de vous.
-      
+
       Le sort prend fin si vous effectuez un jet d'attaque contre une créature autre que la cible, si vous lancez un sort sur un ennemi autre que la cible, si un de vos alliés inflige des dégâts à la cible ou si vous terminez votre tour à plus de 9 mètres de la cible.

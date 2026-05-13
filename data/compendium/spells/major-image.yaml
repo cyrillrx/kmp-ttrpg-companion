@@ -22,13 +22,12 @@ translations:
     materialDescription: a bit of fleece
     description: |-
       You create the image of an object, a creature, or some other visible phenomenon that is no larger than a 20-foot Cube. The image appears at a spot that you can see within range and lasts for the duration. It seems real, including sounds, smells, and temperature appropriate to the thing depicted, but it can't deal damage or cause conditions.
-      
+
       If you are within range of the illusion, you can take a Magic action to cause the image to move to any other spot within range. As the image changes location, you can alter its appearance so that its movements appear natural for the image. For example, if you create an image of a creature and move it, you can alter the image so that it appears to be walking. Similarly, you can cause the illusion to make different sounds at different times, even making it carry on a conversation, for example.
-      
+
       Physical interaction with the image reveals it to be an illusion, for things can pass through it. A creature that takes a Study action to examine the image can determine that it is an illusion with a successful Intelligence (Investigation) check against your spell save DC. If a creature discerns the illusion for what it is, the creature can see through the image, and its other sensory qualities become faint to the creature.
-      
+
       ***Using a Higher-Level Spell Slot***. The spell lasts until dispelled, without requiring Concentration, if cast with a level 4+ spell slot.
-      
   fr:
     name: Image majeure
     castingTime: Action
@@ -37,9 +36,9 @@ translations:
     materialDescription: un peu de laine brute
     description: |-
       Vous créez l'image d'un objet, d'une créature ou d'un autre phénomène visible ne dépassant pas un Cube de 6 mètres de côté. L'image apparaît à un endroit que vous pouvez voir à portée et persiste pendant toute la durée du sort. Elle semble réelle, incluant les sons, les odeurs et la température appropriés à l'objet représenté, mais elle ne peut infliger de dégâts ni provoquer d'états.
-      
+
       Si vous êtes à portée de l'illusion, vous pouvez prendre une action Magie pour déplacer l'image vers un autre endroit à portée. Lorsque l'image change d'emplacement, vous pouvez modifier son apparence afin que ses mouvements paraissent naturels. Par exemple, si vous créez l'image d'une créature et la déplacez, vous pouvez la modifier pour qu'elle semble marcher. De même, vous pouvez faire en sorte que l'illusion émette différents sons à différents moments, voire lui faire tenir une conversation, par exemple.
-      
+
       L'interaction physique avec l'image révèle qu'il s'agit d'une illusion, car des objets peuvent la traverser. Une créature qui prend une action Étude pour examiner l'image peut déterminer qu'il s'agit d'une illusion en réussissant un jet d'Intelligence (Investigation) contre le DD de sauvegarde de votre sort. Si une créature discerne l'illusion, elle peut voir à travers l'image et ses autres capacités sensorielles s'évanouissent.
-      
+
       ***Emplacement de niveau supérieur***. Le sort dure jusqu'à sa dissipation, sans nécessiter de concentration, s'il est lancé avec un emplacement de sort de niveau 4 ou supérieur.

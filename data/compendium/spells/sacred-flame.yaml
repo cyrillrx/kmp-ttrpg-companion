@@ -19,9 +19,8 @@ translations:
     materialDescription: null
     description: |-
       Flame-like radiance descends on a creature that you can see within range. The target must succeed on a Dexterity saving throw or take 1d8 Radiant damage. The target gains no benefit from Half Cover or Three-Quarters Cover for this save.
-      
+
       ***Cantrip Upgrade***. The damage increases by 1d8 when you reach levels 5 (2d8), 11 (3d8), and 17 (4d8).
-      
   fr:
     name: Flamme sacrée
     castingTime: Action
@@ -30,5 +29,5 @@ translations:
     materialDescription: null
     description: |-
       Une lueur semblable à une flamme s'abat sur une créature que vous pouvez voir à portée. La cible doit réussir un jet de sauvegarde de Dextérité ou subir 1d8 dégâts radiants. La cible ne bénéficie pas d'un Abri partiel (1/2) ni d'un Abri important (3/4) pour ce jet de sauvegarde.
-      
+
       ***Amélioration de sort mineur***. Les dégâts augmentent de 1d8 aux niveaux 5 (2d8), 11 (3d8) et 17 (4d8).

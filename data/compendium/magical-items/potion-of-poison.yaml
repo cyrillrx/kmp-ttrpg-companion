@@ -9,12 +9,12 @@ translations:
     subtype: null
     description: |-
       This concoction looks, smells, and tastes like a *[Potion of Healing](./potions-of-healing)* or another beneficial potion. However, it is actually poison masked by illusion magic. *[Identify](https://www.aidedd.org/spell/identify)* reveals its true nature.
-      
+
       If you drink this potion, you take 4d6 Poison damage and must succeed on a DC 13 Constitution saving throw or have the Poisoned condition for 1 hour.
   fr:
     name: Potion de poison / Potion toxique
     subtype: null
     description: |-
       Cette concoction a l'apparence, l'odeur et le goût d'une *[potion de guérison](./fr/potions-de-guerison)* ou de toute autre potion bénéfique. Mais il s'agit en réalité d'un poison masqué par une magie d'illusion. Le sort *[identification](https://www.aidedd.org/spell/fr/identification)* révèle sa véritable nature.
-      
+
       Si vous buvez cette potion, vous subissez 4d6 dégâts de poison et devez réussir un jet de sauvegarde de Constitution DD 13 pour ne pas avoir l'état Empoisonné pendant 1 heure.

@@ -19,9 +19,8 @@ translations:
     materialDescription: null
     description: |-
       Your hurl a beam of crackling energy. Make a ranged spell attack against one creature or object in range. On a hit, the target takes 1d10 Force damage.
-      
+
       ***Cantrip Upgrade***. The spell creates two beams at level 5, three beams at level 11, and four beams at level 17. You can direct the beams at the same target or at different ones. Make a separate attack roll for each beam.
-      
   fr:
     name: Décharge occulte
     castingTime: Action
@@ -30,5 +29,5 @@ translations:
     materialDescription: null
     description: |-
       Vous lancez un rayon d'énergie crépitante. Effectuez une attaque à distance contre une créature ou un objet à portée. Si l'attaque touche, la cible subit 1d10 dégâts de force.
-      
+
       ***Amélioration de sort mineur***. Le sort crée deux rayons au niveau 5, trois au niveau 11 et quatre au niveau 17. Vous pouvez diriger les rayons vers une même cible ou vers des cibles différentes. Effectuez un jet d'attaque distinct pour chaque rayon.

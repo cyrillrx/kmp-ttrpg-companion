@@ -25,9 +25,9 @@ languages:
 translations:
   en:
     shortDescription: Merchant
-    description: A well-traveled trader who deals in exotic goods and knows the value
-      of a well-placed rumor.
+    description: |-
+      A well-traveled trader who deals in exotic goods and knows the value of a well-placed rumor.
   fr:
     shortDescription: Marchand
-    description: Un commerçant bien voyagé qui traite en marchandises exotiques et
-      connaît la valeur d'une rumeur bien placée.
+    description: |-
+      Un commerçant bien voyagé qui traite en marchandises exotiques et connaît la valeur d'une rumeur bien placée.

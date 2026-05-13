@@ -20,9 +20,8 @@ translations:
     materialDescription: a drop of alcohol
     description: |-
       You gain 2d4 + 4 Temporary Hit Points.
-      
+
       ***Using a Higher-Level Spell Slot***. You gain 5 additional Temporary Hit Points for each spell slot level above 1.
-      
   fr:
     name: Simulacre de vie
     castingTime: Action
@@ -31,5 +30,5 @@ translations:
     materialDescription: une goutte d'alcool
     description: |-
       Vous gagnez 2d4 + 4 points de vie temporaires.
-      
+
       ***Emplacement de niveau supérieur***. Vous gagnez 5 points de vie temporaires supplémentaires pour chaque niveau d'emplacement de sort supérieur à 1.

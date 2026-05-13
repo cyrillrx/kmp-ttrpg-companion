@@ -22,11 +22,10 @@ translations:
     materialDescription: a key ring with no keys
     description: |-
       You blast the mind of a creature that you can see within range. The target makes an Intelligence saving throw.
-      
+
       On a failed save, the target takes 10d12 Psychic damage and can't cast spells or take the Magic action. At the end of every 30 days, the target repeats the save, ending the effect on a success. The effect can also be ended by the *[Greater Restoration](./greater-restoration), Heal*, or *[Wish](./wish)* spell.
-      
+
       On a successful save, the target takes half as much damage only.
-      
   fr:
     name: Aliénation
     castingTime: Action
@@ -35,7 +34,7 @@ translations:
     materialDescription: un trousseau de clefs sans clefs
     description: |-
       Vous assaillez l'esprit d'une créature que vous voyez à portée. La cible effectue un jet de sauvegarde d'Intelligence.
-      
+
       En cas d'échec, elle subit 10d12 dégâts psychiques et ne peut pas lancer de sort ni entreprendre l'action Magie. À l'issue de chaque tranche de 30 jours, la cible réitère le JdS et met un terme à l'effet en cas de réussite.
-      
+
       Les sorts *guérison, [restauration suprême](./fr/restauration-supreme)* et *[souhait](./fr/souhait)* mettent également chacun fin à l'effet. En cas de réussite, la cible subit uniquement la moitié de ces dégâts.

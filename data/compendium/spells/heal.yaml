@@ -20,9 +20,8 @@ translations:
     materialDescription: null
     description: |-
       Choose a creature that you can see within range. Positive energy washes through the target, restoring 70 Hit Points. This spell also ends the Blinded, Deafened, and Poisoned conditions on the target.
-      
+
       ***Using a Higher-Level Spell Slot***. The healing increases by 10 for each spell slot level above 6.
-      
   fr:
     name: Guérison
     castingTime: Action
@@ -31,5 +30,5 @@ translations:
     materialDescription: null
     description: |-
       Choisissez une créature que vous voyez à portée. Une vague d'énergie positive baigne la créature, qui récupère 70 points de vie. Ce sort met également fin aux éventuels états Assourdi, Aveuglé et Empoisonné de la cible.
-      
+
       ***Emplacement de niveau supérieur***. Les soins augmentent de 10 pour chaque niveau d'emplacement de sort supérieur à 6.

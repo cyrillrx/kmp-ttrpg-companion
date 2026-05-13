@@ -29,9 +29,9 @@ languages:
 translations:
   en:
     shortDescription: Caravan Guard
-    description: A seasoned archer who has protected merchant convoys across dangerous
-      roads for years.
+    description: |-
+      A seasoned archer who has protected merchant convoys across dangerous roads for years.
   fr:
     shortDescription: Garde de caravane
-    description: Un archer chevronné qui protège les convois marchands sur des routes
-      dangereuses depuis des années.
+    description: |-
+      Un archer chevronné qui protège les convois marchands sur des routes dangereuses depuis des années.

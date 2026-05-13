@@ -9,12 +9,12 @@ translations:
     subtype: null
     description: |-
       While wearing this cloak, you have Advantage on Dexterity (Stealth) checks. In an area of Dim Light or Darkness, you can grip the edges of the cloak and use it to gain a Fly Speed of 40 feet. If you ever fail to grip the cloak's edges while flying in this way, or if you are no longer in Dim Light or Darkness, you lose this Fly Speed.
-      
+
       While wearing the cloak in an area of Dim Light or Darkness, you can cast *[Polymorph](https://www.aidedd.org/spell/polymorph)* on yourself, shape-shifting into a **[Bat](https://www.aidedd.org/monster/bat)**. While in that form, you retain your Intelligence, Wisdom, and Charisma scores. The cloak can't be used this way again until the next dawn.
   fr:
     name: Cape de la chauve-souris
     subtype: null
     description: |-
       Lorsque vous portez cette cape, vous bénéficiez d'un Avantage aux jets de Dextérité (Discrétion). Dans une zone de Lumière faible ou de Ténèbres, vous pouvez saisir les bords de la cape et gagner une Vitesse de vol de 12 mètres. Si vous ne parvenez pas à saisir les bords de la cape en volant de cette manière, ou si vous n'êtes plus dans la Lumière faible ou les Ténèbres, vous perdez cette Vitesse de vol.
-      
+
       Lorsque vous portez la cape dans une zone de Lumière faible ou de Ténèbres, vous pouvez lancer *[métamorphose](https://www.aidedd.org/spell/fr/metamorphose)* sur vous-même, vous transformant en **[chauve-souris](https://www.aidedd.org/monster/fr/chauve-souris)**. Sous cette forme, vous conservez vos valeurs d'Intelligence, de Sagesse et de Charisme. La cape ne peut plus être utilisée de cette manière avant l'aube suivante.
