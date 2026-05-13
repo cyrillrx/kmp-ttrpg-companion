@@ -4,10 +4,10 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 internal class ApiSpeeds(
-    val walk: Int?,
-    val fly: Int?,
-    val swim: Int?,
-    val climb: Int?,
+    val walk: Int? = null,
+    val fly: Int? = null,
+    val swim: Int? = null,
+    val climb: Int? = null,
     val burrow: Int? = null,
     val hover: Boolean? = null,
 )
