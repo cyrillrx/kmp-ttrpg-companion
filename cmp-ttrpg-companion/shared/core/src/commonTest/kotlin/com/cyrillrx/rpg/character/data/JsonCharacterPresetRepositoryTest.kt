@@ -4,9 +4,10 @@ import com.cyrillrx.core.data.FileReader
 import com.cyrillrx.core.domain.FileReaderError
 import com.cyrillrx.core.domain.Result
 import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.creature.domain.Creature
-import com.cyrillrx.rpg.creature.domain.Language
+import com.cyrillrx.rpg.creature.domain.Proficiency
 import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -96,6 +97,21 @@ class JsonCharacterPresetRepositoryTest {
         }
 
     @Test
+    fun `abilities and saving throws are parsed correctly`() =
+        runTest {
+            val json = preset(
+                abilities = """{"str": 16, "dex": 12, "con": 14, "int": 10, "wis": 10, "cha": 8}""",
+                savingThrows = """{"str": "proficient", "con": "proficient"}""",
+            )
+            val character = repository(json).getAll(null).first()
+            assertEquals(16, character.abilities.str.value)
+            assertEquals(Proficiency.PROFICIENT, character.abilities.str.savingThrowProficiency)
+            assertEquals(12, character.abilities.dex.value)
+            assertEquals(Proficiency.NONE, character.abilities.dex.savingThrowProficiency)
+            assertEquals(Proficiency.PROFICIENT, character.abilities.con.savingThrowProficiency)
+        }
+
+    @Test
     fun `preset with unknown language is skipped`() =
         runTest {
             val json = preset(languages = """["klingon"]""")
@@ -126,6 +142,8 @@ class JsonCharacterPresetRepositoryTest {
         level: Int? = 3,
         size: String? = "MEDIUM",
         alignment: String? = "LAWFUL_GOOD",
+        abilities: String? = null,
+        savingThrows: String? = null,
         armorClass: Int? = 17,
         maxHitPoints: Int? = 28,
         skills: String? = "{}",
@@ -141,6 +159,8 @@ class JsonCharacterPresetRepositoryTest {
                 level?.let { add(""""level": $it""") }
                 size?.let { add(""""size": "$it"""") }
                 alignment?.let { add(""""alignment": "$it"""") }
+                abilities?.let { add(""""abilities": $it""") }
+                savingThrows?.let { add(""""savingThrows": $it""") }
                 armorClass?.let { add(""""armorClass": $it""") }
                 maxHitPoints?.let { add(""""maxHitPoints": $it""") }
                 skills?.let { add(""""skills": $it""") }
