@@ -2,8 +2,8 @@ package com.cyrillrx.rpg.core.presentation.component.dnd
 
 import androidx.compose.runtime.Composable
 import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
-import com.cyrillrx.rpg.creature.domain.Language
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.class_barbarian
@@ -19,14 +19,6 @@ import rpg_companion.composeapp.generated.resources.class_sorcerer
 import rpg_companion.composeapp.generated.resources.class_unknown
 import rpg_companion.composeapp.generated.resources.class_warlock
 import rpg_companion.composeapp.generated.resources.class_wizard
-import rpg_companion.composeapp.generated.resources.race_dragonborn
-import rpg_companion.composeapp.generated.resources.race_dwarf
-import rpg_companion.composeapp.generated.resources.race_elf
-import rpg_companion.composeapp.generated.resources.race_gnome
-import rpg_companion.composeapp.generated.resources.race_half_elf
-import rpg_companion.composeapp.generated.resources.race_half_orc
-import rpg_companion.composeapp.generated.resources.race_halfling
-import rpg_companion.composeapp.generated.resources.race_human
 import rpg_companion.composeapp.generated.resources.language_abyssal
 import rpg_companion.composeapp.generated.resources.language_celestial
 import rpg_companion.composeapp.generated.resources.language_common
@@ -45,6 +37,14 @@ import rpg_companion.composeapp.generated.resources.language_primordial
 import rpg_companion.composeapp.generated.resources.language_sylvan
 import rpg_companion.composeapp.generated.resources.language_thieves_cant
 import rpg_companion.composeapp.generated.resources.language_undercommon
+import rpg_companion.composeapp.generated.resources.race_dragonborn
+import rpg_companion.composeapp.generated.resources.race_dwarf
+import rpg_companion.composeapp.generated.resources.race_elf
+import rpg_companion.composeapp.generated.resources.race_gnome
+import rpg_companion.composeapp.generated.resources.race_half_elf
+import rpg_companion.composeapp.generated.resources.race_half_orc
+import rpg_companion.composeapp.generated.resources.race_halfling
+import rpg_companion.composeapp.generated.resources.race_human
 import rpg_companion.composeapp.generated.resources.race_tiefling
 
 @Composable

@@ -3,7 +3,6 @@ package com.cyrillrx.rpg.character.domain
 import com.cyrillrx.core.domain.FALLBACK_LOCALE
 import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.Creature
-import com.cyrillrx.rpg.creature.domain.Language
 import com.cyrillrx.rpg.creature.domain.Skills
 import com.cyrillrx.rpg.creature.domain.Speeds
 

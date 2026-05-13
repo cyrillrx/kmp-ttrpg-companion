@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.creature.domain
+package com.cyrillrx.rpg.character.domain
 
 enum class Language {
     ABYSSAL,

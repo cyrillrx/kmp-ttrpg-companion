@@ -8,6 +8,7 @@ import com.cyrillrx.rpg.character.data.api.ApiCharacter
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterFilter
 import com.cyrillrx.rpg.character.domain.CharacterRepository
+import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.domain.applyFilter
 import com.cyrillrx.rpg.creature.data.createAbilities
@@ -15,7 +16,6 @@ import com.cyrillrx.rpg.creature.data.toAlignment
 import com.cyrillrx.rpg.creature.data.toSize
 import com.cyrillrx.rpg.creature.data.toSkills
 import com.cyrillrx.rpg.creature.data.toSpeeds
-import com.cyrillrx.rpg.creature.domain.Language
 
 class JsonCharacterPresetRepository(
     private val fileReader: FileReader,

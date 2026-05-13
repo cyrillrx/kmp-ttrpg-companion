@@ -3,11 +3,11 @@ package com.cyrillrx.rpg.character.data
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterFilter
 import com.cyrillrx.rpg.character.domain.CharacterRepository
+import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.applyFilter
 import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.creature.domain.Creature
-import com.cyrillrx.rpg.creature.domain.Language
 import com.cyrillrx.rpg.creature.domain.Skills
 import com.cyrillrx.rpg.creature.domain.Speeds
 
