@@ -79,65 +79,36 @@ translations:
   en:
     name: Ancient Green Dragon
     subtype: Chromatic
-    description: '## Traits
-
+    description: |-
+      ## Traits
 
       ***Amphibious***. The dragon can breathe air and water.
 
-
-      ***Legendary Resistance (4/Day, or 5/Day in Lair)***. If the dragon fails a
-      saving throw, it can choose to succeed instead.
-
+      ***Legendary Resistance (4/Day, or 5/Day in Lair)***. If the dragon fails a saving throw, it can choose to succeed instead.
 
       ## Actions
 
+      ***Multiattack***. The dragon makes three Rend attacks. It can replace one attack with a use of Spellcasting to cast *[Mind Spike](https://www.aidedd.org/spell/mind-spike)* (level 5 version).
 
-      ***Multiattack***. The dragon makes three Rend attacks. It can replace one attack
-      with a use of Spellcasting to cast *[Mind Spike](https://www.aidedd.org/spell/mind-spike)*
-      (level 5 version).
+      ***Rend***. *Melee Attack Roll* : +15, reach 15 ft. *Hit* : 17 (2d8 + 8) Slashing damage plus 10 (3d6) Poison damage.
 
+      ***Poison Breath (Recharge 5–6)***. *Constitution Saving Throw* : DC 22, each creature in a 90-foot Cone. *Failure* : 77 (22d6) Poison damage. *Success* : Half damage.
 
-      ***Rend***. *Melee Attack Roll* : +15, reach 15 ft. *Hit* : 17 (2d8 + 8) Slashing
-      damage plus 10 (3d6) Poison damage.
+      ***Spellcasting***. The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 21):
 
-
-      ***Poison Breath (Recharge 5–6)***. *Constitution Saving Throw* : DC 22, each
-      creature in a 90-foot Cone. *Failure* : 77 (22d6) Poison damage. *Success* :
-      Half damage.
-
-
-      ***Spellcasting***. The dragon casts one of the following spells, requiring
-      no Material components and using Charisma as the spellcasting ability (spell
-      save DC 21):
-
-
-      At will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Mind Spike](https://www.aidedd.org/spell/mind-spike)*
-      (level 5 version)
-
+      At will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Mind Spike](https://www.aidedd.org/spell/mind-spike)* (level 5 version)
 
       1/day each: *[Geas](https://www.aidedd.org/spell/geas), [Modify Memory](https://www.aidedd.org/spell/modify-memory)*
 
-
       ## Legendary actions
 
+      Legendary Action Uses: 3 (4 in Lair). Immediately after another creature's turn, The dragon can expend a use to take one of the following actions. The dragon regains all expended uses at the start of each of its turns.
 
-      Legendary Action Uses: 3 (4 in Lair). Immediately after another creature''s
-      turn, The dragon can expend a use to take one of the following actions. The
-      dragon regains all expended uses at the start of each of its turns.
+      ***Mind Invasion***. The dragon uses Spellcasting to cast *[Mind Spike](https://www.aidedd.org/spell/mind-spike)* (level 5 version).
 
+      ***Noxious Miasma***. *Constitution Saving Throw* : DC 21, each creature in a 30-foot-radius Sphere centered on a point the dragon can see within 90 feet. *Failure* : 17 (5d6) Poison damage, and the target takes a -2 penalty to AC until the end of its next turn. *Failure or Success* : The dragon can't take this action again until the start of its next turn.
 
-      ***Mind Invasion***. The dragon uses Spellcasting to cast *[Mind Spike](https://www.aidedd.org/spell/mind-spike)*
-      (level 5 version).
-
-
-      ***Noxious Miasma***. *Constitution Saving Throw* : DC 21, each creature in
-      a 30-foot-radius Sphere centered on a point the dragon can see within 90 feet.
-      *Failure* : 17 (5d6) Poison damage, and the target takes a -2 penalty to AC
-      until the end of its next turn. *Failure or Success* : The dragon can''t take
-      this action again until the start of its next turn.
-
-
-      ***Pounce***. The dragon moves up to half its Speed, and it makes one Rend attack.'
+      ***Pounce***. The dragon moves up to half its Speed, and it makes one Rend attack.
     senses: Blindsight 60 ft., Darkvision 120 ft., Passive Perception 27
     languages:
     - Common
@@ -145,67 +116,36 @@ translations:
   fr:
     name: Dragon vert, ancien
     subtype: Chromatique
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Amphibie***. Le dragon peut respirer sous l'eau comme à l'air libre.
 
-      ***Amphibie***. Le dragon peut respirer sous l''eau comme à l''air libre.
-
-
-      ***Résistance légendaire (4/jour, ou 5/jour dans son antre)***. Si le dragon
-      rate un jet de sauvegarde, il peut décider de le réussir tout de même.
-
+      ***Résistance légendaire (4/jour, ou 5/jour dans son antre)***. Si le dragon rate un jet de sauvegarde, il peut décider de le réussir tout de même.
 
       ## Actions
 
+      ***Attaques multiples***. Le dragon effectue trois attaques de Saignée. Il peut remplacer l'une de ces attaques par une utilisation d'Incantation pour lancer *épine mentale* (au niveau 5).
 
-      ***Attaques multiples***. Le dragon effectue trois attaques de Saignée. Il peut
-      remplacer l''une de ces attaques par une utilisation d''Incantation pour lancer
-      *épine mentale* (au niveau 5).
+      ***Saignée***. *Corps à corps* : +15, allonge 4,50 m. *Touché* : 17 (2d8 + 8) dégâts tranchants plus 10 (3d6) dégâts de poison.
 
+      ***Incantation***. Le dragon lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 21) :
 
-      ***Saignée***. *Corps à corps* : +15, allonge 4,50 m. *Touché* : 17 (2d8 + 8)
-      dégâts tranchants plus 10 (3d6) dégâts de poison.
-
-
-      ***Incantation***. Le dragon lance l''un des sorts suivants sans composantes
-      matérielles, le Charisme étant sa caractéristique d''incantation (DD de sauvegarde
-      21) :
-
-
-      À volonté : *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie),
-      épine mentale* (au niveau 5)
-
+      À volonté : *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), épine mentale* (au niveau 5)
 
       1/jour chacun : *modification de mémoire, quête*
 
-
-      ***Souffle empoisonné (recharge 5–6)***. *JdS Constitution* : DD 22, chaque
-      créature dans un Cône de 27 m. *Échec* : 77 (22d6) dégâts de poison. *Réussite*
-      : demi-dégâts.
-
+      ***Souffle empoisonné (recharge 5–6)***. *JdS Constitution* : DD 22, chaque créature dans un Cône de 27 m. *Échec* : 77 (22d6) dégâts de poison. *Réussite* : demi-dégâts.
 
       ## Actions Légendaires
 
+      Utilisations d'action Légendaire : 3 (4 dans son antre). Aussitôt après le tour d'une autre créature, le dragon peut dépenser une utilisation pour entreprendre l'une des actions ci-après. Le dragon récupère toutes ses utilisations dépensées au début de chacun de ses tours.
 
-      Utilisations d''action Légendaire : 3 (4 dans son antre). Aussitôt après le
-      tour d''une autre créature, le dragon peut dépenser une utilisation pour entreprendre
-      l''une des actions ci-après. Le dragon récupère toutes ses utilisations dépensées
-      au début de chacun de ses tours.
+      ***Assaut incisif***. Le dragon se déplace à concurrence de la moitié de sa Vitesse et effectue une attaque de Saignée.
 
+      ***Invasion mentale***. Le dragon recourt à Incantation pour lancer *épine mentale* (au niveau 5).
 
-      ***Assaut incisif***. Le dragon se déplace à concurrence de la moitié de sa
-      Vitesse et effectue une attaque de Saignée.
-
-
-      ***Invasion mentale***. Le dragon recourt à Incantation pour lancer *épine mentale*
-      (au niveau 5).
-
-
-      ***Miasmes nocifs***. *JdS Constitution* : DD 21, chaque créature dans une Sphère
-      de 9 m de rayon centrée sur un point que le dragon voit dans un rayon de 27
-      m. *Échec* : 17 (5d6) dégâts de poison, et la cible subit un malus de −2 à la
-      CA jusqu''à la fin de son tour suivant. *Échec ou réussite* : le dragon ne peut
-      alors plus entreprendre cette action jusqu''au début de son tour suivant.'
+      ***Miasmes nocifs***. *JdS Constitution* : DD 21, chaque créature dans une Sphère de 9 m de rayon centrée sur un point que le dragon voit dans un rayon de 27 m. *Échec* : 17 (5d6) dégâts de poison, et la cible subit un malus de −2 à la CA jusqu'à la fin de son tour suivant. *Échec ou réussite* : le dragon ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.
     senses: Vision aveugle 18 m, Vision dans le noir 36 m, Perception passive 27
     languages:
     - commun

@@ -80,42 +80,24 @@ translations:
   en:
     name: Githyanki Knight
     subtype: Gith
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Multiattack***. The githyanki makes three Silver Sword attacks. It can replace one attack with a use of Spellcasting to cast *[Telekinesis](https://www.aidedd.org/spell/telekinesis)* if available.
 
-      ***Multiattack***. The githyanki makes three Silver Sword attacks. It can replace
-      one attack with a use of Spellcasting to cast *[Telekinesis](https://www.aidedd.org/spell/telekinesis)*
-      if available.
+      ***Silver Sword***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 10 (2d6 + 3) Slashing damage plus 14 (4d6) Psychic damage. Critical *Hit* : If the target is in an astral body (as with the Astral Projection spell), the githyanki can cut the silvery cord that tethers the target to its material body instead of dealing damage.
 
+      ***Spellcasting***. The githyanki casts one of the following spells, requiring no spell components and using Intelligence as the spellcasting ability (spell save DC 13):
 
-      ***Silver Sword***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 10 (2d6 +
-      3) Slashing damage plus 14 (4d6) Psychic damage. Critical *Hit* : If the target
-      is in an astral body (as with the Astral Projection spell), the githyanki can
-      cut the silvery cord that tethers the target to its material body instead of
-      dealing damage.
+      At will: *[Mage Hand](https://www.aidedd.org/spell/mage-hand)* (the hand is Invisible)
 
-
-      ***Spellcasting***. The githyanki casts one of the following spells, requiring
-      no spell components and using Intelligence as the spellcasting ability (spell
-      save DC 13):
-
-
-      At will: *[Mage Hand](https://www.aidedd.org/spell/mage-hand)* (the hand is
-      Invisible)
-
-
-      2/day each: *[Nondetection](https://www.aidedd.org/spell/nondetection)* (self
-      only), *[Tongues](https://www.aidedd.org/spell/tongues)*
-
+      2/day each: *[Nondetection](https://www.aidedd.org/spell/nondetection)* (self only), *[Tongues](https://www.aidedd.org/spell/tongues)*
 
       1/day each: *[Plane Shift](https://www.aidedd.org/spell/plane-shift), [Telekinesis](https://www.aidedd.org/spell/telekinesis)*
 
-
       ## Bonus actions
 
-
-      ***Misty Step (2/Day)***. The githyanki casts *[Misty Step](https://www.aidedd.org/spell/misty-step)*
-      , requiring no spell components and using the same spellcasting ability as Spellcasting.'
+      ***Misty Step (2/Day)***. The githyanki casts *[Misty Step](https://www.aidedd.org/spell/misty-step)* , requiring no spell components and using the same spellcasting ability as Spellcasting.
     senses: Passive Perception 12
     languages:
     - Common
@@ -123,22 +105,18 @@ translations:
   fr:
     name: Githyanki, chevalier
     subtype: Gith
-    description: '## Actions
-
+    description: |-
+      ## Actions
 
       Attaques multiples.
 
-
-      Épée d''argent.
-
+      Épée d'argent.
 
       Incantation.
 
-
       ## Actions Bonus
 
-
-      Foulée brumeuse (2/jour).'
+      Foulée brumeuse (2/jour).
     senses: Perception passive 12
     languages:
     - commun

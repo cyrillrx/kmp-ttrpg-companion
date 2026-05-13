@@ -76,35 +76,28 @@ translations:
   en:
     name: Tiger
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Rend***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 10 (2d6 + 3) Slashing
-      damage. If the target is a Large or smaller creature, it has the Prone condition.
-
+      ***Rend***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 10 (2d6 + 3) Slashing damage. If the target is a Large or smaller creature, it has the Prone condition.
 
       ## Bonus actions
 
-
-      ***Nimble Escape***. The tiger takes the Disengage or Hide action.'
+      ***Nimble Escape***. The tiger takes the Disengage or Hide action.
     senses: Darkvision 60 ft., Passive Perception 13
     languages:
     - None
   fr:
     name: Tigre
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Saignée***. Jet d''attaque au corps à corps : +5, allonge : 1,50 m. *Touché*
-      : 10 (2d6 + 3) dégâts tranchants. Si la cible est une créature de taille G ou
-      inférieure, elle subit l''état À terre.
-
+      ***Saignée***. Jet d'attaque au corps à corps : +5, allonge : 1,50 m. *Touché* : 10 (2d6 + 3) dégâts tranchants. Si la cible est une créature de taille G ou inférieure, elle subit l'état À terre.
 
       ## Actions Bonus
 
-
-      ***Fuite agile***. Le tigre prend l''action Désengagement ou Furtivité.'
+      ***Fuite agile***. Le tigre prend l'action Désengagement ou Furtivité.
     senses: Vision dans le noir 18 m, Perception passive 13
     languages:
     - aucune

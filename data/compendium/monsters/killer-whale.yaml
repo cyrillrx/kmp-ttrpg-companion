@@ -76,34 +76,28 @@ translations:
   en:
     name: Killer Whale
     subtype: null
-    description: '## Traits
-
+    description: |-
+      ## Traits
 
       ***Hold Breath***. The whale can hold its breath for 30 minutes.
 
-
       ## Actions
 
-
-      ***Bite***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 21 (5d6 + 4) Piercing
-      damage.'
+      ***Bite***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 21 (5d6 + 4) Piercing damage.
     senses: Blindsight 120 ft., Passive Perception 13
     languages:
     - None
   fr:
     name: Épaulard
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Apnée***. L''épaulard peut retenir son souffle pendant 30 minutes.
-
+      ***Apnée***. L'épaulard peut retenir son souffle pendant 30 minutes.
 
       ## Actions
 
-
-      ***Morsure***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 21 (5d6 + 4)
-      dégâts perforants.'
+      ***Morsure***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 21 (5d6 + 4) dégâts perforants.
     senses: Vision aveugle 36 m, Perception passive 13
     languages:
     - aucune

@@ -76,63 +76,40 @@ translations:
   en:
     name: Earth Elemental
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Earth Glide***. The elemental can burrow through nonmagical, unworked earth
-      and stone. While doing so, the elemental doesn''t disturb the material it moves
-      through.
-
+      ***Earth Glide***. The elemental can burrow through nonmagical, unworked earth and stone. While doing so, the elemental doesn't disturb the material it moves through.
 
       ***Siege Monster***. The elemental deals double damage to objects and structures.
 
-
       ## Actions
 
+      ***Multiattack***. The elemental makes two attacks, using Slam or Rock Launch in any combination.
 
-      ***Multiattack***. The elemental makes two attacks, using Slam or Rock Launch
-      in any combination.
+      ***Slam***. *Melee Attack Roll* : +8, reach 10 ft. *Hit* : 14 (2d8 + 5) Bludgeoning damage.
 
-
-      ***Slam***. *Melee Attack Roll* : +8, reach 10 ft. *Hit* : 14 (2d8 + 5) Bludgeoning
-      damage.
-
-
-      ***Rock Launch***. *Ranged Attack Roll* : +8, range 60 ft. *Hit* : 8 (1d6 +
-      5) Bludgeoning damage. If the target is a Large or smaller creature, it has
-      the Prone condition.'
+      ***Rock Launch***. *Ranged Attack Roll* : +8, range 60 ft. *Hit* : 8 (1d6 + 5) Bludgeoning damage. If the target is a Large or smaller creature, it has the Prone condition.
     senses: Darkvision 60 ft., Tremorsense 60 ft., Passive Perception 10
     languages:
     - Primordial (Terran)
   fr:
     name: Élémentaire de la terre
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Déplacement tellurique***. L'élémentaire peut se déplacer par fouissement dans la pierre et la terre brutes et non magiques. Ce faisant, il laisse intacte la structure de ce qu'il traverse.
 
-      ***Déplacement tellurique***. L''élémentaire peut se déplacer par fouissement
-      dans la pierre et la terre brutes et non magiques. Ce faisant, il laisse intacte
-      la structure de ce qu''il traverse.
-
-
-      ***Monstre de siège***. L''élémentaire inflige des dégâts doublés aux objets
-      et aux structures.
-
+      ***Monstre de siège***. L'élémentaire inflige des dégâts doublés aux objets et aux structures.
 
       ## Actions
 
+      ***Attaques multiples***. L'élémentaire effectue deux attaques, réparties à sa guise entre Coup et Projection de rocher.
 
-      ***Attaques multiples***. L''élémentaire effectue deux attaques, réparties à
-      sa guise entre Coup et Projection de rocher.
+      ***Coup***. *Corps à corps* : +8, allonge 3 m. *Touché* : 14 (2d8 + 5) dégâts contondants.
 
-
-      ***Coup***. *Corps à corps* : +8, allonge 3 m. *Touché* : 14 (2d8 + 5) dégâts
-      contondants.
-
-
-      ***Projection de rocher***. *À distance* : +8, portée 18 m. *Touché* : 8 (1d6
-      + 5) dégâts contondants. Si la cible est une créature de taille G ou inférieure,
-      elle subit l''état À terre.'
+      ***Projection de rocher***. *À distance* : +8, portée 18 m. *Touché* : 8 (1d6 + 5) dégâts contondants. Si la cible est une créature de taille G ou inférieure, elle subit l'état À terre.
     senses: Vision dans le noir 18 m, perception des vibrations 18 m, Perception passive
       10
     languages:

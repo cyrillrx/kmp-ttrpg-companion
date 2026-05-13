@@ -78,27 +78,20 @@ translations:
   en:
     name: Warhorse
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Hooves***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 9 (2d4 + 4) Bludgeoning
-      damage. If the horse moved at least 20 feet straight toward the target immediately
-      before the hit, the target takes an extra 5 (2d4) Bludgeoning damage and, if
-      it is Huge or smaller, has the Prone condition.'
+      ***Hooves***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 9 (2d4 + 4) Bludgeoning damage. If the horse moved at least 20 feet straight toward the target immediately before the hit, the target takes an extra 5 (2d4) Bludgeoning damage and, if it is Huge or smaller, has the Prone condition.
     senses: Passive Perception 11
     languages:
     - None
   fr:
     name: Cheval de guerre / Destrier
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Sabots***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 9 (2d4 + 4) dégâts
-      contondants. Si le cheval s''est déplacé d''au moins 6 m en ligne droite vers
-      la cible juste avant de la toucher, la cible subit 5 (2d4) dégâts contondants
-      supplémentaires et, si elle est de taille TG ou inférieure, elle subit l''état
-      À terre.'
+      ***Sabots***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 9 (2d4 + 4) dégâts contondants. Si le cheval s'est déplacé d'au moins 6 m en ligne droite vers la cible juste avant de la toucher, la cible subit 5 (2d4) dégâts contondants supplémentaires et, si elle est de taille TG ou inférieure, elle subit l'état À terre.
     senses: Perception passive 11
     languages:
     - aucune

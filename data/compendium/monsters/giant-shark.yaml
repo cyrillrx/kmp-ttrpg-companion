@@ -76,38 +76,30 @@ translations:
   en:
     name: Giant Shark
     subtype: null
-    description: '## Traits
-
+    description: |-
+      ## Traits
 
       ***Water Breathing***. The shark can breathe only underwater.
 
-
       ## Actions
-
 
       ***Multiattack***. The shark makes two Bite attacks.
 
-
-      ***Bite***. *Melee Attack Roll* : +9 (with Advantage if the target doesn''t
-      have all its Hit Points), reach 5 ft. *Hit* : 22 (3d10 + 6) Piercing damage.'
+      ***Bite***. *Melee Attack Roll* : +9 (with Advantage if the target doesn't have all its Hit Points), reach 5 ft. *Hit* : 22 (3d10 + 6) Piercing damage.
     senses: Blindsight 60 ft., Passive Perception 13
     languages: []
   fr:
     name: Requin géant
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Respiration aquatique***. Le requin ne peut respirer que sous l''eau.
-
+      ***Respiration aquatique***. Le requin ne peut respirer que sous l'eau.
 
       ## Actions
 
-
       ***Attaques multiples***. Le requin effectue deux attaques de Morsure.
 
-
-      ***Morsure***. *Corps à corps* : +9 (avec Avantage si la cible n''a pas tous
-      ses pv), allonge 1,50 m. *Touché* : 22 (3d10 + 6) dégâts perforants.'
+      ***Morsure***. *Corps à corps* : +9 (avec Avantage si la cible n'a pas tous ses pv), allonge 1,50 m. *Touché* : 22 (3d10 + 6) dégâts perforants.
     senses: Vision aveugle 18 m, Perception passive 13
     languages: []

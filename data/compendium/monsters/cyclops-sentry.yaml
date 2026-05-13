@@ -76,58 +76,36 @@ translations:
   en:
     name: Cyclops Sentry
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Multiattack***. The cyclops makes two attacks, using Stone Club or Rock in any combination.
 
-      ***Multiattack***. The cyclops makes two attacks, using Stone Club or Rock in
-      any combination.
+      ***Stone Club***. *Melee Attack Roll* : +9, reach 10 ft. *Hit* : 16 (3d6 + 6) Bludgeoning damage. If the target is a Huge or smaller creature, it has the Prone condition.
 
-
-      ***Stone Club***. *Melee Attack Roll* : +9, reach 10 ft. *Hit* : 16 (3d6 + 6)
-      Bludgeoning damage. If the target is a Huge or smaller creature, it has the
-      Prone condition.
-
-
-      ***Rock***. *Ranged Attack Roll* : +9, range 30/120 ft. *Hit* : 22 (3d10 + 6)
-      Bludgeoning damage.
-
+      ***Rock***. *Ranged Attack Roll* : +9, range 30/120 ft. *Hit* : 22 (3d10 + 6) Bludgeoning damage.
 
       ## Reactions
 
-
-      ***Limited Foresight (Recharge 6)***. *Trigger* : A creature the cyclops can
-      see makes an attack roll against it. *Response* : The cyclops imposes Disadvantage
-      on the roll, and the cyclops gains Advantage on attack rolls against the target
-      until the end of the cyclops''s next turn.'
+      ***Limited Foresight (Recharge 6)***. *Trigger* : A creature the cyclops can see makes an attack roll against it. *Response* : The cyclops imposes Disadvantage on the roll, and the cyclops gains Advantage on attack rolls against the target until the end of the cyclops's next turn.
     senses: Passive Perception 8
     languages:
     - Giant
   fr:
     name: Cyclope, sentinelle
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Attaques multiples***. Le cyclope effectue deux attaques, réparties à sa guise entre Gourdin de pierre et Rocher.
 
-      ***Attaques multiples***. Le cyclope effectue deux attaques, réparties à sa
-      guise entre Gourdin de pierre et Rocher.
+      ***Gourdin de pierre***. *Corps à corps* : +9, allonge 3 m. *Touché* : 16 (3d6 + 6) dégâts contondants. Si la cible est une créature de taille TG ou inférieure, elle subit l'état À terre.
 
-
-      ***Gourdin de pierre***. *Corps à corps* : +9, allonge 3 m. *Touché* : 16 (3d6
-      + 6) dégâts contondants. Si la cible est une créature de taille TG ou inférieure,
-      elle subit l''état À terre.
-
-
-      ***Rocher***. *À distance* : +9, portée 30/36 m. *Touché* : 22 (3d10 + 6) dégâts
-      contondants.
-
+      ***Rocher***. *À distance* : +9, portée 30/36 m. *Touché* : 22 (3d10 + 6) dégâts contondants.
 
       ## Réactions
 
-
-      ***Prémonition limitée (recharge 6)***. *Déclencheur* : une créature que le
-      cyclope peut voir effectue un jet d''attaque contre lui. Conséquence : le cyclope
-      impose un Désavantage au jet et obtient un Avantage aux jets d''attaque contre
-      la cible jusqu''à la fin de son prochain tour.'
+      ***Prémonition limitée (recharge 6)***. *Déclencheur* : une créature que le cyclope peut voir effectue un jet d'attaque contre lui. Conséquence : le cyclope impose un Désavantage au jet et obtient un Avantage aux jets d'attaque contre la cible jusqu'à la fin de son prochain tour.
     senses: Perception passive 8
     languages:
     - géant

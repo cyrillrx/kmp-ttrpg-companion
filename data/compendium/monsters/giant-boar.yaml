@@ -78,41 +78,28 @@ translations:
   en:
     name: Giant Boar
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Bloodied Fury***. The boar has Advantage on melee attack rolls while it is
-      Bloodied.
-
+      ***Bloodied Fury***. The boar has Advantage on melee attack rolls while it is Bloodied.
 
       ## Actions
 
-
-      ***Gore***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 10 (2d6 + 3) Piercing
-      damage. If the target is a Large or smaller creature and the boar moved 20+
-      feet straight toward it immediately before the hit, the target takes an extra
-      7 (2d6) Piercing damage and has the Prone condition.'
+      ***Gore***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 10 (2d6 + 3) Piercing damage. If the target is a Large or smaller creature and the boar moved 20+ feet straight toward it immediately before the hit, the target takes an extra 7 (2d6) Piercing damage and has the Prone condition.
     senses: Passive Perception 8
     languages:
     - None
   fr:
     name: Sanglier géant
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Fureur du péril***. Le sanglier a un Avantage aux jets d''attaque de corps
-      à corps lorsqu''il est En péril.
-
+      ***Fureur du péril***. Le sanglier a un Avantage aux jets d'attaque de corps à corps lorsqu'il est En péril.
 
       ## Actions
 
-
-      ***Coup de défense***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 10 (2d6
-      + 3) dégâts perforants. Si la cible est une créature de taille G ou inférieure
-      et si le sanglier s''est déplacé en ligne droite d''un minimum de 6 m juste
-      avant de la toucher, la cible subit 7 (2d6) dégâts perforants supplémentaires,
-      ainsi que l''état À terre.'
+      ***Coup de défense***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 10 (2d6 + 3) dégâts perforants. Si la cible est une créature de taille G ou inférieure et si le sanglier s'est déplacé en ligne droite d'un minimum de 6 m juste avant de la toucher, la cible subit 7 (2d6) dégâts perforants supplémentaires, ainsi que l'état À terre.
     senses: Perception passive 8
     languages:
     - aucune

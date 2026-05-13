@@ -76,51 +76,32 @@ translations:
   en:
     name: Swarm of Ravens
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Swarm***. The swarm can occupy another creature''s space and vice versa,
-      and the swarm can move through any opening large enough for a Tiny raven. The
-      swarm can''t regain Hit Points or gain Temporary Hit Points.
-
+      ***Swarm***. The swarm can occupy another creature's space and vice versa, and the swarm can move through any opening large enough for a Tiny raven. The swarm can't regain Hit Points or gain Temporary Hit Points.
 
       ## Actions
 
+      ***Beaks***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 5 (1d6 + 2) Piercing damage, or 2 (1d4) Piercing damage if the swarm is Bloodied.
 
-      ***Beaks***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 5 (1d6 + 2) Piercing
-      damage, or 2 (1d4) Piercing damage if the swarm is Bloodied.
-
-
-      ***Cacophony (Recharge 6)***. *Wisdom Saving Throw* : DC 10, one creature in
-      the swarm''s space. *Failure* : The target has the Deafened condition until
-      the start of the swarm''s next turn. While Deafened, the target also has Disadvantage
-      on ability checks and attack rolls.'
+      ***Cacophony (Recharge 6)***. *Wisdom Saving Throw* : DC 10, one creature in the swarm's space. *Failure* : The target has the Deafened condition until the start of the swarm's next turn. While Deafened, the target also has Disadvantage on ability checks and attack rolls.
     senses: Passive Perception 15
     languages:
     - None
   fr:
     name: Nuée de corbeaux
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Nuée***. La nuée peut occuper l''espace d''une autre créature et réciproquement,
-      et elle peut se déplacer par toute ouverture assez large pour un corbeau de
-      taille TP. La nuée ne peut ni récupérer de points de vie ni recevoir de points
-      de vie temporaires.
-
+      ***Nuée***. La nuée peut occuper l'espace d'une autre créature et réciproquement, et elle peut se déplacer par toute ouverture assez large pour un corbeau de taille TP. La nuée ne peut ni récupérer de points de vie ni recevoir de points de vie temporaires.
 
       ## Actions
 
+      ***Becs***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 5 (1d6 + 2) dégâts perforants, ou 2 (1d4) dégâts perforants si la nuée est En péril.
 
-      ***Becs***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 5 (1d6 + 2) dégâts
-      perforants, ou 2 (1d4) dégâts perforants si la nuée est En péril.
-
-
-      ***Cacophonie (recharge 6)***. *JdS Sagesse* : DD 10, une créature dans l''espace
-      de la nuée. *Échec* : la cible subit l''état Assourdi jusqu''au début du tour
-      suivant de la nuée. Ainsi Assourdie, la cible subit aussi le Désavantage aux
-      jets de caractéristique et aux jets d''attaque.'
+      ***Cacophonie (recharge 6)***. *JdS Sagesse* : DD 10, une créature dans l'espace de la nuée. *Échec* : la cible subit l'état Assourdi jusqu'au début du tour suivant de la nuée. Ainsi Assourdie, la cible subit aussi le Désavantage aux jets de caractéristique et aux jets d'attaque.
     senses: Perception passive 15
     languages:
     - aucune

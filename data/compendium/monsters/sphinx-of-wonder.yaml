@@ -76,26 +76,18 @@ translations:
   en:
     name: Sphinx of Wonder
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Magic Resistance***. The sphinx has Advantage on saving throws against spells
-      and other magical effects.
-
+      ***Magic Resistance***. The sphinx has Advantage on saving throws against spells and other magical effects.
 
       ## Actions
 
-
-      ***Rend***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 5 (1d4 + 3) Slashing
-      damage plus 7 (2d6) Radiant damage.
-
+      ***Rend***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 5 (1d4 + 3) Slashing damage plus 7 (2d6) Radiant damage.
 
       ## Reactions
 
-
-      ***Burst of Ingenuity (2/Day)***. *Trigger* : The sphinx or another creature
-      within 30 feet makes an ability check or a saving throw. *Response* : The sphinx
-      adds 2 to the roll.'
+      ***Burst of Ingenuity (2/Day)***. *Trigger* : The sphinx or another creature within 30 feet makes an ability check or a saving throw. *Response* : The sphinx adds 2 to the roll.
     senses: Darkvision 60 ft., Passive Perception 11
     languages:
     - Celestial
@@ -103,26 +95,18 @@ translations:
   fr:
     name: Sphinx merveilleux
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Résistance à la magie***. Le sphinx a un Avantage aux jets de sauvegarde
-      contre les sorts et autres effets magiques.
-
+      ***Résistance à la magie***. Le sphinx a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
 
       ## Actions
 
-
-      ***Saignée***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 5 (1d4 + 3)
-      dégâts tranchants plus 7 (2d6) dégâts radiants.
-
+      ***Saignée***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 5 (1d4 + 3) dégâts tranchants plus 7 (2d6) dégâts radiants.
 
       ## Réactions
 
-
-      ***Accès d''ingéniosité (2/jour)***. *Déclencheur* : le sphinx ou une autre
-      créature dans un rayon de 9 m effectue un jet de caractéristique ou de sauvegarde.
-      *Conséquences* : le sphinx ajoute 2 au jet.'
+      ***Accès d'ingéniosité (2/jour)***. *Déclencheur* : le sphinx ou une autre créature dans un rayon de 9 m effectue un jet de caractéristique ou de sauvegarde. *Conséquences* : le sphinx ajoute 2 au jet.
     senses: Vision dans le noir 18 m, Perception passive 11
     languages:
     - céleste

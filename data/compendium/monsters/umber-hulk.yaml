@@ -76,85 +76,52 @@ translations:
   en:
     name: Umber Hulk
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Tunneler***. The umber hulk can burrow through solid rock at half its Burrow
-      Speed and leaves a 10-foot-diameter tunnel in its wake.
-
+      ***Tunneler***. The umber hulk can burrow through solid rock at half its Burrow Speed and leaves a 10-foot-diameter tunnel in its wake.
 
       ## Actions
 
-
       ***Multiattack***. The umber hulk makes three Rend attacks.
 
-
-      ***Rend***. *Melee Attack Roll* : +8, reach 10 ft. *Hit* : 12 (2d6 + 5) Slashing
-      damage.
-
+      ***Rend***. *Melee Attack Roll* : +8, reach 10 ft. *Hit* : 12 (2d6 + 5) Slashing damage.
 
       ## Bonus actions
 
-
-      ***Confusing Gaze (Recharge 5–6)***. *Wisdom Saving Throw* : DC 14, each creature
-      in a 30-foot Cone. *Failure* : The target can''t take Reactions until the start
-      of the umber hulk''s next turn, and the target rolls 1d8 to determine what it
-      does on its next turn:
-
+      ***Confusing Gaze (Recharge 5–6)***. *Wisdom Saving Throw* : DC 14, each creature in a 30-foot Cone. *Failure* : The target can't take Reactions until the start of the umber hulk's next turn, and the target rolls 1d8 to determine what it does on its next turn:
 
       ***1-4***. The target does nothing.
 
+      ***5-6***. The target takes no action or Bonus Action and uses all its movement to move in a random direction.
 
-      ***5-6***. The target takes no action or Bonus Action and uses all its movement
-      to move in a random direction.
-
-
-      ***7-8***. The target makes a melee attack against a random creature within
-      its reach or does nothing if it can''t make such an attack.'
+      ***7-8***. The target makes a melee attack against a random creature within its reach or does nothing if it can't make such an attack.
     senses: Darkvision 120 ft., Tremorsense 60 ft., Passive Perception 10
     languages:
     - Umber Hulk
   fr:
     name: Mastodonte des ombres
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Fouisseur***. Le mastodonte des ombres peut creuser à travers la roche solide
-      à la moitié de sa Vitesse de fouissement et laisse derrière lui un tunnel de
-      3 m de diamètre.
-
+      ***Fouisseur***. Le mastodonte des ombres peut creuser à travers la roche solide à la moitié de sa Vitesse de fouissement et laisse derrière lui un tunnel de 3 m de diamètre.
 
       ## Actions
 
+      ***Attaques multiples***. Le mastodonte des ombres effectue trois attaques de Saignée.
 
-      ***Attaques multiples***. Le mastodonte des ombres effectue trois attaques de
-      Saignée.
-
-
-      ***Saignée***. *Corps à corps* : +8, allonge 3 m. *Touché* : 12 (2d6 + 5) dégâts
-      tranchants.
-
+      ***Saignée***. *Corps à corps* : +8, allonge 3 m. *Touché* : 12 (2d6 + 5) dégâts tranchants.
 
       ## Actions Bonus
 
-
-      ***Regard déroutant (recharge 5–6)***. *JdS Sagesse* : DD 14, chaque créature
-      dans un Cône de 9 m. *Échec* : la cible ne peut pas prendre de Réactions jusqu''au
-      début du prochain tour du mastodonte des ombres, et elle lance 1d8 pour déterminer
-      son action à son prochain tour :
-
+      ***Regard déroutant (recharge 5–6)***. *JdS Sagesse* : DD 14, chaque créature dans un Cône de 9 m. *Échec* : la cible ne peut pas prendre de Réactions jusqu'au début du prochain tour du mastodonte des ombres, et elle lance 1d8 pour déterminer son action à son prochain tour :
 
       ***1-4***. La cible ne fait rien.
 
+      ***5-6***. La cible ne prend aucune action ni action Bonus et utilise tout son mouvement pour se déplacer dans une direction aléatoire.
 
-      ***5-6***. La cible ne prend aucune action ni action Bonus et utilise tout son
-      mouvement pour se déplacer dans une direction aléatoire.
-
-
-      ***7-8***. La cible effectue une attaque de corps à corps contre une créature
-      aléatoire à portée, ou ne fait rien si elle ne peut pas effectuer une telle
-      attaque.'
+      ***7-8***. La cible effectue une attaque de corps à corps contre une créature aléatoire à portée, ou ne fait rien si elle ne peut pas effectuer une telle attaque.
     senses: Vision dans le noir 36 m, perception des vibrations 18 m, Perception passive
       10
     languages:

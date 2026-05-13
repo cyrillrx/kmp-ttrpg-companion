@@ -81,113 +81,64 @@ translations:
   en:
     name: Planetar
     subtype: Angel
-    description: '## Traits
-
+    description: |-
+      ## Traits
 
       ***Divine Awareness***. The planetar knows if it hears a lie.
 
+      ***Exalted Restoration***. If the planetar dies outside Mount Celestia, its body disappears, and it gains a new body instantly, reviving with all its Hit Points somewhere in Mount Celestia.
 
-      ***Exalted Restoration***. If the planetar dies outside Mount Celestia, its
-      body disappears, and it gains a new body instantly, reviving with all its Hit
-      Points somewhere in Mount Celestia.
-
-
-      ***Magic Resistance***. The planetar has Advantage on saving throws against
-      spells and other magical effects.
-
+      ***Magic Resistance***. The planetar has Advantage on saving throws against spells and other magical effects.
 
       ## Actions
 
+      ***Multiattack***. The planetar makes three Radiant Sword attacks or uses Holy Burst twice.
 
-      ***Multiattack***. The planetar makes three Radiant Sword attacks or uses Holy
-      Burst twice.
+      ***Radiant Sword***. *Melee Attack Roll* : +12, reach 10 ft. *Hit* : 14 (2d6 + 7) Slashing damage plus 18 (4d8) Radiant damage.
 
+      ***Holy Burst***. *Dexterity Saving Throw* : DC 20, each enemy in a 20-foot-radius Sphere centered on a point the planetar can see within 120 feet. *Failure* : 24 (7d6) Radiant damage. *Success* : Half damage.
 
-      ***Radiant Sword***. *Melee Attack Roll* : +12, reach 10 ft. *Hit* : 14 (2d6
-      + 7) Slashing damage plus 18 (4d8) Radiant damage.
-
-
-      ***Holy Burst***. *Dexterity Saving Throw* : DC 20, each enemy in a 20-foot-radius
-      Sphere centered on a point the planetar can see within 120 feet. *Failure* :
-      24 (7d6) Radiant damage. *Success* : Half damage.
-
-
-      ***Spellcasting***. The planetar casts one of the following spells, requiring
-      no Material components and using Charisma as spellcasting ability (spell save
-      DC 20):
-
+      ***Spellcasting***. The planetar casts one of the following spells, requiring no Material components and using Charisma as spellcasting ability (spell save DC 20):
 
       At Will: *[Detect Evil and Good](https://www.aidedd.org/spell/detect-evil-and-good)*
 
-
-      1/Day Each: *[Commune](https://www.aidedd.org/spell/commune), [Control Weather](https://www.aidedd.org/spell/control-weather),
-      [Dispel Evil and Good](https://www.aidedd.org/spell/dispel-evil-and-good), [Raise
-      Dead](https://www.aidedd.org/spell/raise-dead)*
-
+      1/Day Each: *[Commune](https://www.aidedd.org/spell/commune), [Control Weather](https://www.aidedd.org/spell/control-weather), [Dispel Evil and Good](https://www.aidedd.org/spell/dispel-evil-and-good), [Raise Dead](https://www.aidedd.org/spell/raise-dead)*
 
       ## Bonus actions
 
-
-      ***Divine Aid (2/Day)***. The planetar casts *[Cure Wounds](https://www.aidedd.org/spell/cure-wounds),
-      [Invisibility](https://www.aidedd.org/spell/invisibility), [Lesser Restoration](https://www.aidedd.org/spell/lesser-restoration)*,
-      or *[Remove Curse](https://www.aidedd.org/spell/remove-curse)* , using the same
-      spellcasting ability as Spellcasting.'
+      ***Divine Aid (2/Day)***. The planetar casts *[Cure Wounds](https://www.aidedd.org/spell/cure-wounds), [Invisibility](https://www.aidedd.org/spell/invisibility), [Lesser Restoration](https://www.aidedd.org/spell/lesser-restoration)*, or *[Remove Curse](https://www.aidedd.org/spell/remove-curse)* , using the same spellcasting ability as Spellcasting.
     senses: Truesight 120 ft., Passive Perception 21
     languages:
     - All; telepathy 120 ft.
   fr:
     name: Planétar
     subtype: Ange
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Résistance à la magie***. Le planétar a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
 
-      ***Résistance à la magie***. Le planétar a un Avantage aux jets de sauvegarde
-      contre les sorts et autres effets magiques.
+      ***Restauration exaltée***. Si le planétar meurt hors du Mont Céleste, son corps disparaît et il en acquiert aussitôt un nouveau en revenant à la vie avec tous ses pv, quelque part sur le Mont Céleste.
 
-
-      ***Restauration exaltée***. Si le planétar meurt hors du Mont Céleste, son corps
-      disparaît et il en acquiert aussitôt un nouveau en revenant à la vie avec tous
-      ses pv, quelque part sur le Mont Céleste.
-
-
-      ***Vigilance divine***. Le planétar reconnaît un mensonge quand il en entend
-      un.
-
+      ***Vigilance divine***. Le planétar reconnaît un mensonge quand il en entend un.
 
       ## Actions
 
+      ***Attaques multiples***. Le planétar effectue trois attaques d'Épée radiante ou recourt deux fois à Éruption bénie.
 
-      ***Attaques multiples***. Le planétar effectue trois attaques d''Épée radiante
-      ou recourt deux fois à Éruption bénie.
+      ***Épée radiante***. *Corps à corps* : +12, allonge 3 m. *Touché* : 14 (2d6 + 7) dégâts tranchants plus 18 (4d8) dégâts radiants.
 
+      ***Éruption bénie***. *JdS Dextérité* : DD 20, chaque ennemi dans une Sphère de 6 m de rayon centrée sur un point que le planétar voit dans un rayon de 36 m. *Échec* : 24 (7d6) dégâts radiants. *Réussite* : demi-dégâts.
 
-      ***Épée radiante***. *Corps à corps* : +12, allonge 3 m. *Touché* : 14 (2d6
-      + 7) dégâts tranchants plus 18 (4d8) dégâts radiants.
-
-
-      ***Éruption bénie***. *JdS Dextérité* : DD 20, chaque ennemi dans une Sphère
-      de 6 m de rayon centrée sur un point que le planétar voit dans un rayon de 36
-      m. *Échec* : 24 (7d6) dégâts radiants. *Réussite* : demi-dégâts.
-
-
-      ***Incantation***. Le planétar lance l''un des sorts suivants sans composantes
-      matérielles, le Charisme étant sa caractéristique d''incantation (DD de sauvegarde
-      20) :
-
+      ***Incantation***. Le planétar lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 20) :
 
       À volonté : *[détection du mal et du bien](https://www.aidedd.org/spell/fr/detection-du-mal-et-du-bien)*
 
-
-      1/jour chacun : *communion, contrôle du climat,[dissipation du mal et du bien](https://www.aidedd.org/spell/fr/dissipation-du-mal-et-du-bien),
-      rappel à la vie*
-
+      1/jour chacun : *communion, contrôle du climat,[dissipation du mal et du bien](https://www.aidedd.org/spell/fr/dissipation-du-mal-et-du-bien), rappel à la vie*
 
       ## Actions Bonus
 
-
-      ***Soutien divin (2/jour)***. Le planétar lance *[délivrance des malédictions](https://www.aidedd.org/spell/fr/delivrance-des-maledictions),
-      [invisibilité](https://www.aidedd.org/spell/fr/invisibilite), restauration partielle*
-      ou *soins* , avec la même caractéristique d''incantation que pour Incantation.'
+      ***Soutien divin (2/jour)***. Le planétar lance *[délivrance des malédictions](https://www.aidedd.org/spell/fr/delivrance-des-maledictions), [invisibilité](https://www.aidedd.org/spell/fr/invisibilite), restauration partielle* ou *soins* , avec la même caractéristique d'incantation que pour Incantation.
     senses: vision véritable 36 m, Perception passive 21
     languages:
     - toutes ; télépathie 36 m

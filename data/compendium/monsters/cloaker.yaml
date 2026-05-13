@@ -76,46 +76,24 @@ translations:
   en:
     name: Cloaker
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Light Sensitivity***. While in Bright Light, the cloaker has Disadvantage
-      on attack rolls.
-
+      ***Light Sensitivity***. While in Bright Light, the cloaker has Disadvantage on attack rolls.
 
       ## Actions
 
-
       ***Multiattack***. The cloaker makes one Attach attack and two Tail attacks.
 
+      ***Attach***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 13 (3d6 + 3) Piercing damage. If the target is a Large or smaller creature, the cloaker attaches to it. While the cloaker is attached, the target has the Blinded condition, and the cloaker can't make Attach attacks against other targets. In addition, the cloaker halves the damage it takes (round down), and the target takes the same amount of damage. The cloaker can detach itself by spending 5 feet of movement. The target or a creature within 5 feet of it can take an action to try to detach the cloaker, doing so by succeeding on a DC 14 Strength (Athletics) check.
 
-      ***Attach***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 13 (3d6 + 3) Piercing
-      damage. If the target is a Large or smaller creature, the cloaker attaches to
-      it. While the cloaker is attached, the target has the Blinded condition, and
-      the cloaker can''t make Attach attacks against other targets. In addition, the
-      cloaker halves the damage it takes (round down), and the target takes the same
-      amount of damage. The cloaker can detach itself by spending 5 feet of movement.
-      The target or a creature within 5 feet of it can take an action to try to detach
-      the cloaker, doing so by succeeding on a DC 14 Strength (Athletics) check.
-
-
-      ***Tail***. *Melee Attack Roll* : +6, reach 10 ft. *Hit* : 8 (1d10 + 3) Slashing
-      damage.
-
+      ***Tail***. *Melee Attack Roll* : +6, reach 10 ft. *Hit* : 8 (1d10 + 3) Slashing damage.
 
       ## Bonus actions
 
+      ***Moan***. *Wisdom Saving Throw* : DC 13, each creature in a 60-foot Emanation originating from the cloaker. *Failure* : The target has the Frightened condition until the end of the cloaker's next turn. *Success* : The target is immune to this cloaker's Moan for the next 24 hours.
 
-      ***Moan***. *Wisdom Saving Throw* : DC 13, each creature in a 60-foot Emanation
-      originating from the cloaker. *Failure* : The target has the Frightened condition
-      until the end of the cloaker''s next turn. *Success* : The target is immune
-      to this cloaker''s Moan for the next 24 hours.
-
-
-      ***Phantasms (Recharge after a Short or Long Rest)***. The cloaker casts the
-      *[Mirror Image](https://www.aidedd.org/spell/mirror-image)* spell, requiring
-      no spell components and using Wisdom as the spellcasting ability. The spell
-      ends early if the cloaker starts or ends its turn in Bright Light.'
+      ***Phantasms (Recharge after a Short or Long Rest)***. The cloaker casts the *[Mirror Image](https://www.aidedd.org/spell/mirror-image)* spell, requiring no spell components and using Wisdom as the spellcasting ability. The spell ends early if the cloaker starts or ends its turn in Bright Light.
     senses: Darkvision 120 ft., Passive Perception 12
     languages:
     - Deep Speech
@@ -123,49 +101,24 @@ translations:
   fr:
     name: Manteleur
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Sensibilité à la lumière***. Exposé à une Lumière vive, le manteleur subit
-      un Désavantage aux jets d''attaque.
-
+      ***Sensibilité à la lumière***. Exposé à une Lumière vive, le manteleur subit un Désavantage aux jets d'attaque.
 
       ## Actions
 
+      ***Attaques multiples***. Le manteleur effectue une attaque d'Enveloppement et deux attaques de Queue.
 
-      ***Attaques multiples***. Le manteleur effectue une attaque d''Enveloppement
-      et deux attaques de Queue.
+      ***Drapement***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 13 (3d6 + 3) dégâts perforants. Si la cible est une créature de taille G ou inférieure, le manteleur l'enveloppe. Tant que la cible est enveloppée par le manteleur, celle-ci subit l'état Aveuglé et le manteleur ne peut pas effectuer d'attaque d'Enveloppement sur une autre cible. En outre, le manteleur divise par deux les dégâts qu'il subit (arrondis à l'inférieur), et la cible subit le même montant de dégâts. Pour se décrocher, le manteleur doit dépenser 1,50 m de déplacement. La cible ou une créature dans un rayon de 1,50 m peut entreprendre une action pour tenter de décrocher le manteleur, ce qui nécessite de réussir un jet de Force (Athlétisme) DD 14.
 
-
-      ***Drapement***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 13 (3d6 +
-      3) dégâts perforants. Si la cible est une créature de taille G ou inférieure,
-      le manteleur l''enveloppe. Tant que la cible est enveloppée par le manteleur,
-      celle-ci subit l''état Aveuglé et le manteleur ne peut pas effectuer d''attaque
-      d''Enveloppement sur une autre cible. En outre, le manteleur divise par deux
-      les dégâts qu''il subit (arrondis à l''inférieur), et la cible subit le même
-      montant de dégâts. Pour se décrocher, le manteleur doit dépenser 1,50 m de déplacement.
-      La cible ou une créature dans un rayon de 1,50 m peut entreprendre une action
-      pour tenter de décrocher le manteleur, ce qui nécessite de réussir un jet de
-      Force (Athlétisme) DD 14.
-
-
-      ***Queue***. *Corps à corps* : +6, allonge 3 m. *Touché* : 8 (1d10 + 3) dégâts
-      tranchants.
-
+      ***Queue***. *Corps à corps* : +6, allonge 3 m. *Touché* : 8 (1d10 + 3) dégâts tranchants.
 
       ## Actions Bonus
 
+      ***Fantasmagories (recharge après un Repos court ou long)***. Le manteleur lance le sort *image miroir* , sans composantes matérielles, la Sagesse étant sa caractéristique d'incantation. Le sort prend fin prématurément si le manteleur démarre son tour sous une Lumière vive.
 
-      ***Fantasmagories (recharge après un Repos court ou long)***. Le manteleur lance
-      le sort *image miroir* , sans composantes matérielles, la Sagesse étant sa caractéristique
-      d''incantation. Le sort prend fin prématurément si le manteleur démarre son
-      tour sous une Lumière vive.
-
-
-      ***Lamentation***. *JdS Sagesse* : DD 13, chaque créature dans une Émanation
-      de 18 m centrée sur le manteleur. *Échec* : la cible subit l''état Effrayé jusqu''à
-      la fin du tour suivant du manteleur. *Réussite* : la cible est immunisée contre
-      la Lamentation de ce manteleur pendant 24 heures.'
+      ***Lamentation***. *JdS Sagesse* : DD 13, chaque créature dans une Émanation de 18 m centrée sur le manteleur. *Échec* : la cible subit l'état Effrayé jusqu'à la fin du tour suivant du manteleur. *Réussite* : la cible est immunisée contre la Lamentation de ce manteleur pendant 24 heures.
     senses: Vision dans le noir 36 m, Perception passive 12
     languages:
     - profond

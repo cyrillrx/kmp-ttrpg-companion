@@ -76,31 +76,27 @@ translations:
   en:
     name: Bulette Pup
     subtype: null
-    description: '## Actions
-
+    description: |-
+      ## Actions
 
       Bite.
 
-
       ## Bonus actions
 
-
-      Leap.'
+      Leap.
     senses: Darkvision 30 ft., Tremorsense 60 ft., Passive Perception 14
     languages: []
   fr:
     name: Bulettiot
     subtype: null
-    description: '## Actions
-
+    description: |-
+      ## Actions
 
       Morsure.
 
-
       ## Actions Bonus
 
-
-      Bond.'
+      Bond.
     senses: Vision dans le noir 9 m, perception des vibrations 18 m, Perception passive
       14
     languages: []

@@ -80,80 +80,44 @@ translations:
   en:
     name: Vrock
     subtype: Demon
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Demonic Restoration***. If the vrock dies outside the Abyss, its body dissolves into ichor, and it gains a new body instantly, reviving with all its Hit Points somewhere in the Abyss.
 
-      ***Demonic Restoration***. If the vrock dies outside the Abyss, its body dissolves
-      into ichor, and it gains a new body instantly, reviving with all its Hit Points
-      somewhere in the Abyss.
-
-
-      ***Magic Resistance***. The vrock has Advantage on saving throws against spells
-      and other magical effects.
-
+      ***Magic Resistance***. The vrock has Advantage on saving throws against spells and other magical effects.
 
       ## Actions
 
-
       ***Multiattack***. The vrock makes two Shred attacks.
 
+      ***Shred***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 10 (2d6 + 3) Piercing damage plus 10 (3d6) Poison damage.
 
-      ***Shred***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 10 (2d6 + 3) Piercing
-      damage plus 10 (3d6) Poison damage.
+      ***Spores (Recharge 6)***. *Constitution Saving Throw* : DC 15, each creature in a 20-foot Emanation originating from the vrock. *Failure* : The target has the Poisoned condition and repeats the save at the end of each of its turns, ending the effect on itself on a success. While Poisoned, the target takes 5 (1d10) Poison damage at the start of each of its turns. Emptying a flask of Holy Water on the target ends the effect early.
 
-
-      ***Spores (Recharge 6)***. *Constitution Saving Throw* : DC 15, each creature
-      in a 20-foot Emanation originating from the vrock. *Failure* : The target has
-      the Poisoned condition and repeats the save at the end of each of its turns,
-      ending the effect on itself on a success. While Poisoned, the target takes 5
-      (1d10) Poison damage at the start of each of its turns. Emptying a flask of
-      Holy Water on the target ends the effect early.
-
-
-      ***Stunning Screech (1/Day)***. *Constitution Saving Throw* : DC 15, each creature
-      in a 20-foot Emanation originating from the vrock (demons succeed automatically).
-      *Failure* : 10 (3d6) Thunder damage, and the target has the Stunned condition
-      until the end of the vrock''s next turn.'
+      ***Stunning Screech (1/Day)***. *Constitution Saving Throw* : DC 15, each creature in a 20-foot Emanation originating from the vrock (demons succeed automatically). *Failure* : 10 (3d6) Thunder damage, and the target has the Stunned condition until the end of the vrock's next turn.
     senses: Darkvision 120 ft., Passive Perception 11
     languages:
     - Abyssal; telepathy 120 ft.
   fr:
     name: Vrock
     subtype: Démon
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Résistance à la magie***. Le vrock a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
 
-      ***Résistance à la magie***. Le vrock a un Avantage aux jets de sauvegarde contre
-      les sorts et autres effets magiques.
-
-
-      ***Restauration démoniaque***. Si le vrock meurt hors des Abysses, son corps
-      se dissout en ichor et il en acquiert aussitôt un nouveau en revenant à la vie
-      avec tous ses pv, quelque part dans les Abysses.
-
+      ***Restauration démoniaque***. Si le vrock meurt hors des Abysses, son corps se dissout en ichor et il en acquiert aussitôt un nouveau en revenant à la vie avec tous ses pv, quelque part dans les Abysses.
 
       ## Actions
 
-
       ***Attaques multiples***. Le vrock effectue deux attaques de Déchiquetage.
 
+      ***Déchiquetage***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 10 (2d6 + 3) dégâts perforants plus 10 (3d6) dégâts de poison.
 
-      ***Déchiquetage***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 10 (2d6
-      + 3) dégâts perforants plus 10 (3d6) dégâts de poison.
+      ***Piaillement étourdissant (1/jour)***. *JdS Constitution* : DD 15, chaque créature dans une Émanation de 6 m centrée sur le vrock (les démons réussissent automatiquement). *Échec* : 10 (3d6) dégâts de tonnerre, et la cible subit l'état Étourdi jusqu'à la fin du tour suivant du vrock.
 
-
-      ***Piaillement étourdissant (1/jour)***. *JdS Constitution* : DD 15, chaque
-      créature dans une Émanation de 6 m centrée sur le vrock (les démons réussissent
-      automatiquement). *Échec* : 10 (3d6) dégâts de tonnerre, et la cible subit l''état
-      Étourdi jusqu''à la fin du tour suivant du vrock.
-
-
-      ***Spores (recharge 6)***. *JdS Constitution* : DD 15, chaque créature dans
-      une Émanation de 6 m centrée sur le vrock. *Échec* : la cible subit l''état
-      Empoisonné et réitère le JdS à la fin de chacun de ses tours ; elle met un terme
-      à l''effet sur elle-même en cas de réussite. Ainsi Empoisonnée, une cible subit
-      5 (1d10) dégâts de poison au début de chacun de ses tours. Vider une flasque
-      d''eau bénite sur la cible met prématurément fin à l''effet.'
+      ***Spores (recharge 6)***. *JdS Constitution* : DD 15, chaque créature dans une Émanation de 6 m centrée sur le vrock. *Échec* : la cible subit l'état Empoisonné et réitère le JdS à la fin de chacun de ses tours ; elle met un terme à l'effet sur elle-même en cas de réussite. Ainsi Empoisonnée, une cible subit 5 (1d10) dégâts de poison au début de chacun de ses tours. Vider une flasque d'eau bénite sur la cible met prématurément fin à l'effet.
     senses: Vision dans le noir 36 m, Perception passive 11
     languages:
     - abyssal ; télépathie 36 m

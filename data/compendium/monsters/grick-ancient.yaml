@@ -76,41 +76,30 @@ translations:
   en:
     name: Grick Ancient
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Multiattack***. The grick makes one Beak attack, one Slam attack, and one Tentacles attack.
 
-      ***Multiattack***. The grick makes one Beak attack, one Slam attack, and one
-      Tentacles attack.
+      ***Beak***. *Melee Attack Roll* : +7, reach 10 ft. *Hit* : 22 (4d8 + 4) Piercing damage.
 
+      ***Slam***. *Melee Attack Roll* : +7, reach 10 ft. *Hit* : 7 (1d6 + 4) Bludgeoning damage. If the target is a Large or smaller creature, it has the Prone condition.
 
-      ***Beak***. *Melee Attack Roll* : +7, reach 10 ft. *Hit* : 22 (4d8 + 4) Piercing
-      damage.
-
-
-      ***Slam***. *Melee Attack Roll* : +7, reach 10 ft. *Hit* : 7 (1d6 + 4) Bludgeoning
-      damage. If the target is a Large or smaller creature, it has the Prone condition.
-
-
-      ***Tentacles***. *Melee Attack Roll* : +7, reach 10 ft. *Hit* : 15 (2d10 + 4)
-      Slashing damage. If the target is a Large or smaller creature, it has the Grappled
-      condition (escape DC 14) from all four tentacles.'
+      ***Tentacles***. *Melee Attack Roll* : +7, reach 10 ft. *Hit* : 15 (2d10 + 4) Slashing damage. If the target is a Large or smaller creature, it has the Grappled condition (escape DC 14) from all four tentacles.
     senses: Darkvision 60 ft., Passive Perception 12
     languages: []
   fr:
     name: Grick vénérable
     subtype: null
-    description: '## Actions
-
+    description: |-
+      ## Actions
 
       Attaques multiples.
 
-
       Bec.
-
 
       Coup.
 
-
-      Tentacules.'
+      Tentacules.
     senses: Vision dans le noir 18 m, Perception passive 12
     languages: []

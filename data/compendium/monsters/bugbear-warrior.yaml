@@ -76,24 +76,16 @@ translations:
   en:
     name: Bugbear Warrior
     subtype: Goblinoid
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Abduct***. The bugbear needn''t spend extra movement to move a creature it
-      is grappling.
-
+      ***Abduct***. The bugbear needn't spend extra movement to move a creature it is grappling.
 
       ## Actions
 
+      ***Grab***. *Melee Attack Roll* : +4, reach 10 ft. *Hit* : 9 (2d6 + 2) Bludgeoning damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 12).
 
-      ***Grab***. *Melee Attack Roll* : +4, reach 10 ft. *Hit* : 9 (2d6 + 2) Bludgeoning
-      damage. If the target is a Medium or smaller creature, it has the Grappled condition
-      (escape DC 12).
-
-
-      ***Light Hammer***. *Melee or Ranged Attack Roll* : +4 (with Advantage if the
-      target is Grappled by the bugbear), reach 10 ft. or range 20/60 ft. *Hit* :
-      9 (3d4 + 2) Bludgeoning damage.'
+      ***Light Hammer***. *Melee or Ranged Attack Roll* : +4 (with Advantage if the target is Grappled by the bugbear), reach 10 ft. or range 20/60 ft. *Hit* : 9 (3d4 + 2) Bludgeoning damage.
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - Common
@@ -101,24 +93,16 @@ translations:
   fr:
     name: Gobelours, combattant
     subtype: Gobelinoïde
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Rapt***. Le gobelours n''a pas besoin de dépenser de déplacement supplémentaire
-      pour déplacer une créature qu''il agrippe.
-
+      ***Rapt***. Le gobelours n'a pas besoin de dépenser de déplacement supplémentaire pour déplacer une créature qu'il agrippe.
 
       ## Actions
 
+      ***Empoignade***. *Corps à corps* : +4, allonge 3 m. *Touché* : 9 (2d6 + 2) dégâts contondants. Si la cible est une créature de taille M ou inférieure, elle subit l'état Agrippé (évasion DD 12).
 
-      ***Empoignade***. *Corps à corps* : +4, allonge 3 m. *Touché* : 9 (2d6 + 2)
-      dégâts contondants. Si la cible est une créature de taille M ou inférieure,
-      elle subit l''état Agrippé (évasion DD 12).
-
-
-      ***Marteau léger***. *Corps à corps ou à distance* : +4 (avec Avantage si la
-      cible est agrippée par le gobelours), allonge 3 m ou portée 6/18 m. *Touché*
-      : 9 (3d4 + 2) dégâts contondants.'
+      ***Marteau léger***. *Corps à corps ou à distance* : +4 (avec Avantage si la cible est agrippée par le gobelours), allonge 3 m ou portée 6/18 m. *Touché* : 9 (3d4 + 2) dégâts contondants.
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - commun

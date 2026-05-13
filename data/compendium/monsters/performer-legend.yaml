@@ -81,86 +81,48 @@ translations:
   en:
     name: Performer Legend
     subtype: null
-    description: '## Actions
-
+    description: |-
+      ## Actions
 
       ***Multiattack***. The performer makes three Bejeweled Baton attacks.
 
+      ***Bejeweled Baton***. *Melee Attack Roll* : +9, reach 5 ft. *Hit* : 10 (2d4 + 5) Bludgeoning damage plus 10 (3d6) Psychic damage.
 
-      ***Bejeweled Baton***. *Melee Attack Roll* : +9, reach 5 ft. *Hit* : 10 (2d4
-      + 5) Bludgeoning damage plus 10 (3d6) Psychic damage.
+      ***Majestic Song***. *Wisdom Saving Throw* : DC 17, each creature in a 20-foot-radius Sphere centered on a point within 120 feet. *Failure* : 22 (4d8 + 4) Psychic damage, and the target has the Charmed or Frightened condition (performer's choice) until the end of the performer's next turn. *Success* : Half damage only.
 
+      ***Spellcasting***. The performer casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 17):
 
-      ***Majestic Song***. *Wisdom Saving Throw* : DC 17, each creature in a 20-foot-radius
-      Sphere centered on a point within 120 feet. *Failure* : 22 (4d8 + 4) Psychic
-      damage, and the target has the Charmed or Frightened condition (performer''s
-      choice) until the end of the performer''s next turn. *Success* : Half damage
-      only.
+      At will: *[Mage Hand](https://www.aidedd.org/spell/mage-hand), [Minor Illusion](https://www.aidedd.org/spell/minor-illusion), [Prestidigitation](https://www.aidedd.org/spell/prestidigitation)*
 
-
-      ***Spellcasting***. The performer casts one of the following spells, requiring
-      no Material components and using Charisma as the spellcasting ability (spell
-      save DC 17):
-
-
-      At will: *[Mage Hand](https://www.aidedd.org/spell/mage-hand), [Minor Illusion](https://www.aidedd.org/spell/minor-illusion),
-      [Prestidigitation](https://www.aidedd.org/spell/prestidigitation)*
-
-
-      1/day each: *[Major Image](https://www.aidedd.org/spell/major-image), [Project
-      Image](https://www.aidedd.org/spell/project-image)*
-
+      1/day each: *[Major Image](https://www.aidedd.org/spell/major-image), [Project Image](https://www.aidedd.org/spell/project-image)*
 
       ## Reactions
 
-
-      ***Warding Charm***. *Trigger* : A creature hits the performer with an attack
-      roll. Response— *Wisdom Saving Throw* : DC 17, the triggering creature. *Failure*
-      : The attack roll misses the performer, and the target has the Charmed condition
-      until the end of the performer''s next turn.'
+      ***Warding Charm***. *Trigger* : A creature hits the performer with an attack roll. Response— *Wisdom Saving Throw* : DC 17, the triggering creature. *Failure* : The attack roll misses the performer, and the target has the Charmed condition until the end of the performer's next turn.
     senses: Passive Perception 17
     languages:
     - Common plus two other languages
   fr:
     name: Saltimbanque, légende
     subtype: null
-    description: '## Actions
-
+    description: |-
+      ## Actions
 
       ***Attaques multiples***. Le saltimbanque effectue trois attaques de Canne gémmée.
 
+      ***Canne gémmée***. *Corps à corps* : +9, allonge 1,50 m. *Touché* : 10 (2d4 + 5) dégâts contondants plus 10 (3d6) dégâts psychiques.
 
-      ***Canne gémmée***. *Corps à corps* : +9, allonge 1,50 m. *Touché* : 10 (2d4
-      + 5) dégâts contondants plus 10 (3d6) dégâts psychiques.
+      ***Chant majestueux***. *JdS Sagesse* : DD 17, chaque créature dans une Sphère de 6 m de rayon centrée sur un point situé dans un rayon de 36 m. *Échec* : 22 (4d8 + 4) dégâts psychiques, et la cible subit l'état Charmé ou Effrayé (au choix du saltimbanque) jusqu'à la fin du prochain tour du saltimbanque. *Réussite* : demi-dégâts uniquement.
 
+      ***Incantation***. Le saltimbanque lance l'un des sorts suivants, sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 17) :
 
-      ***Chant majestueux***. *JdS Sagesse* : DD 17, chaque créature dans une Sphère
-      de 6 m de rayon centrée sur un point situé dans un rayon de 36 m. *Échec* :
-      22 (4d8 + 4) dégâts psychiques, et la cible subit l''état Charmé ou Effrayé
-      (au choix du saltimbanque) jusqu''à la fin du prochain tour du saltimbanque.
-      *Réussite* : demi-dégâts uniquement.
+      À volonté : *[main de mage](https://www.aidedd.org/spell/fr/main-de-mage), [illusion mineure](https://www.aidedd.org/spell/fr/illusion-mineure), [prestidigitation](https://www.aidedd.org/spell/fr/prestidigitation)*
 
-
-      ***Incantation***. Le saltimbanque lance l''un des sorts suivants, sans composantes
-      matérielles, le Charisme étant sa caractéristique d''incantation (DD de sauvegarde
-      17) :
-
-
-      À volonté : *[main de mage](https://www.aidedd.org/spell/fr/main-de-mage), [illusion
-      mineure](https://www.aidedd.org/spell/fr/illusion-mineure), [prestidigitation](https://www.aidedd.org/spell/fr/prestidigitation)*
-
-
-      1/jour chacun : *[image majeure](https://www.aidedd.org/spell/fr/image-majeure),
-      [image projetée](https://www.aidedd.org/spell/fr/image-projetee)*
-
+      1/jour chacun : *[image majeure](https://www.aidedd.org/spell/fr/image-majeure), [image projetée](https://www.aidedd.org/spell/fr/image-projetee)*
 
       ## Réactions
 
-
-      ***Charme protecteur***. *Déclencheur* : une créature touche le saltimbanque
-      avec un jet d''attaque. *Conséquences—JdS Sagesse* : DD 17, la créature ayant
-      déclenché le sort. *Échec* : le jet d''attaque rate le saltimbanque, et la cible
-      subit l''état Charmé jusqu''à la fin du prochain tour du saltimbanque.'
+      ***Charme protecteur***. *Déclencheur* : une créature touche le saltimbanque avec un jet d'attaque. *Conséquences—JdS Sagesse* : DD 17, la créature ayant déclenché le sort. *Échec* : le jet d'attaque rate le saltimbanque, et la cible subit l'état Charmé jusqu'à la fin du prochain tour du saltimbanque.
     senses: Perception passive 17
     languages:
     - commun plus deux autres langues

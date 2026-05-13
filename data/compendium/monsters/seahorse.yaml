@@ -76,34 +76,28 @@ translations:
   en:
     name: Seahorse
     subtype: null
-    description: '## Traits
-
+    description: |-
+      ## Traits
 
       ***Water Breathing***. The seahorse can breathe only underwater.
 
-
       ## Actions
 
-
-      ***Bubble Dash***. While underwater, the seahorse moves up to its Swim Speed
-      without provoking Opportunity Attacks.'
+      ***Bubble Dash***. While underwater, the seahorse moves up to its Swim Speed without provoking Opportunity Attacks.
     senses: Passive Perception 12
     languages:
     - None
   fr:
     name: Hippocampe
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Respiration aquatique***. L''hippocampe ne peut respirer que sous l''eau.
-
+      ***Respiration aquatique***. L'hippocampe ne peut respirer que sous l'eau.
 
       ## Actions
 
-
-      ***Accélération bulleuse***. Sous l''eau, l''hippocampe se déplace jusqu''à
-      sa Vitesse de nage sans provoquer d''attaque d''Opportunité.'
+      ***Accélération bulleuse***. Sous l'eau, l'hippocampe se déplace jusqu'à sa Vitesse de nage sans provoquer d'attaque d'Opportunité.
     senses: Perception passive 12
     languages:
     - aucune

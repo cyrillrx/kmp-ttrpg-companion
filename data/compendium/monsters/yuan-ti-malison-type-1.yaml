@@ -76,48 +76,28 @@ translations:
   en:
     name: Yuan-ti Malison (Type 1)
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Magic Resistance***. The yuan-ti has Advantage on saving throws against spells
-      and other magical effects.
-
+      ***Magic Resistance***. The yuan-ti has Advantage on saving throws against spells and other magical effects.
 
       ## Actions
 
+      ***Multiattack***. The yuan-ti makes two attacks, using Bite or Poison Ray in any combination, and it can use Spellcasting to cast *[Suggestion](https://www.aidedd.org/spell/suggestion)* if available.
 
-      ***Multiattack***. The yuan-ti makes two attacks, using Bite or Poison Ray in
-      any combination, and it can use Spellcasting to cast *[Suggestion](https://www.aidedd.org/spell/suggestion)*
-      if available.
+      ***Bite***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 5 (1d4 + 3) Piercing damage plus 7 (2d6) Poison damage.
 
+      ***Poison Ray (Yuan-ti Form Only)***. *Ranged Attack Roll* : +5, range 120 ft. *Hit* : 12 (2d8 + 3) Poison damage.
 
-      ***Bite***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 5 (1d4 + 3) Piercing
-      damage plus 7 (2d6) Poison damage.
+      ***Spellcasting (Yuan-ti Form Only)***. The yuan-ti casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 13):
 
-
-      ***Poison Ray (Yuan-ti Form Only)***. *Ranged Attack Roll* : +5, range 120 ft.
-      *Hit* : 12 (2d8 + 3) Poison damage.
-
-
-      ***Spellcasting (Yuan-ti Form Only)***. The yuan-ti casts one of the following
-      spells, requiring no Material components and using Wisdom as the spellcasting
-      ability (spell save DC 13):
-
-
-      At will: *[Animal Friendship](https://www.aidedd.org/spell/animal-friendship)*
-      (snakes only)
-
+      At will: *[Animal Friendship](https://www.aidedd.org/spell/animal-friendship)* (snakes only)
 
       2/day: *[Suggestion](https://www.aidedd.org/spell/suggestion)*
 
-
       ## Bonus actions
 
-
-      ***Shape-Shift***. The yuan-ti shape-shifts into a Medium snake or returns to
-      its true form. If it dies, it stays in its current form. The yuan-ti''s game
-      statistics are the same in each form, except where noted. Any equipment it is
-      wearing or carrying isn''t transformed.'
+      ***Shape-Shift***. The yuan-ti shape-shifts into a Medium snake or returns to its true form. If it dies, it stays in its current form. The yuan-ti's game statistics are the same in each form, except where noted. Any equipment it is wearing or carrying isn't transformed.
     senses: Darkvision 60 ft., Passive Perception 13
     languages:
     - Abyssal
@@ -126,48 +106,28 @@ translations:
   fr:
     name: Yuan-ti, malfice (type 1)
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Résistance à la magie***. Le yuan-ti a un Avantage aux jets de sauvegarde
-      contre les sorts et autres effets magiques.
-
+      ***Résistance à la magie***. Le yuan-ti a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
 
       ## Actions
 
+      ***Attaques multiples***. Le yuan-ti effectue deux attaques, réparties à sa guise entre Morsure et Rayon toxique, et peut utiliser Incantation pour lancer *[suggestion](https://www.aidedd.org/spell/fr/suggestion)* si disponible.
 
-      ***Attaques multiples***. Le yuan-ti effectue deux attaques, réparties à sa
-      guise entre Morsure et Rayon toxique, et peut utiliser Incantation pour lancer
-      *[suggestion](https://www.aidedd.org/spell/fr/suggestion)* si disponible.
+      ***Morsure***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 5 (1d4 + 3) dégâts perforants plus 7 (2d6) dégâts de poison.
 
+      ***Rayon toxique (forme de yuan-ti uniquement)***. *À distance* : +5, portée 36 m. *Touché* : 12 (2d8 + 3) dégâts de poison.
 
-      ***Morsure***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 5 (1d4 + 3)
-      dégâts perforants plus 7 (2d6) dégâts de poison.
+      ***Incantation (forme de yuan-ti uniquement)***. Le yuan-ti lance l'un des sorts suivants sans composantes matérielles, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 13) :
 
-
-      ***Rayon toxique (forme de yuan-ti uniquement)***. *À distance* : +5, portée
-      36 m. *Touché* : 12 (2d8 + 3) dégâts de poison.
-
-
-      ***Incantation (forme de yuan-ti uniquement)***. Le yuan-ti lance l''un des
-      sorts suivants sans composantes matérielles, la Sagesse étant sa caractéristique
-      d''incantation (DD de sauvegarde 13) :
-
-
-      À volonté : *[amitié avec les animaux](https://www.aidedd.org/spell/fr/amitie-avec-les-animaux)*
-      (serpents uniquement)
-
+      À volonté : *[amitié avec les animaux](https://www.aidedd.org/spell/fr/amitie-avec-les-animaux)* (serpents uniquement)
 
       2/jour : *[suggestion](https://www.aidedd.org/spell/fr/suggestion)*
 
-
       ## Actions Bonus
 
-
-      ***Changement d''aspect***. Le yuan-ti se métamorphose en serpent de taille
-      M ou reprend sa forme véritable. S''il meurt, il conserve sa forme actuelle.
-      Son profil reste le même quelle que soit sa forme, sauf indication contraire.
-      Rien de ce qu''il porte n''est transformé.'
+      ***Changement d'aspect***. Le yuan-ti se métamorphose en serpent de taille M ou reprend sa forme véritable. S'il meurt, il conserve sa forme actuelle. Son profil reste le même quelle que soit sa forme, sauf indication contraire. Rien de ce qu'il porte n'est transformé.
     senses: Vision dans le noir 18 m, Perception passive 13
     languages:
     - abyssal

@@ -76,93 +76,44 @@ translations:
   en:
     name: Black Pudding
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Amorphous***. The pudding can move through a space as narrow as 1 inch without expending extra movement to do so.
 
-      ***Amorphous***. The pudding can move through a space as narrow as 1 inch without
-      expending extra movement to do so.
+      ***Corrosive Form***. A creature that hits the pudding with a melee attack roll takes 4 (1d8) Acid damage. Nonmagical ammunition is destroyed immediately after hitting the pudding and dealing any damage. Any nonmagical weapon takes a cumulative −1 penalty to attack rolls immediately after dealing damage to the pudding and coming into contact with it. The weapon is destroyed if the penalty reaches −5. The penalty can be removed by casting the *[Mending](https://www.aidedd.org/spell/mending)* spell on the weapon. In 1 minute, the pudding can eat through 2 feet of nonmagical wood or metal.
 
-
-      ***Corrosive Form***. A creature that hits the pudding with a melee attack roll
-      takes 4 (1d8) Acid damage. Nonmagical ammunition is destroyed immediately after
-      hitting the pudding and dealing any damage. Any nonmagical weapon takes a cumulative
-      −1 penalty to attack rolls immediately after dealing damage to the pudding and
-      coming into contact with it. The weapon is destroyed if the penalty reaches
-      −5. The penalty can be removed by casting the *[Mending](https://www.aidedd.org/spell/mending)*
-      spell on the weapon. In 1 minute, the pudding can eat through 2 feet of nonmagical
-      wood or metal.
-
-
-      ***Spider Climb***. The pudding can climb difficult surfaces, including along
-      ceilings, without needing to make an ability check.
-
+      ***Spider Climb***. The pudding can climb difficult surfaces, including along ceilings, without needing to make an ability check.
 
       ## Actions
 
-
-      ***Dissolving Pseudopod***. *Melee Attack Roll* : +5, reach 10 ft. *Hit* : 17
-      (4d6 + 3) Acid damage. Nonmagical armor worn by the target takes a −1 penalty
-      to the AC it offers. The armor is destroyed if the penalty reduces its AC to
-      10. The penalty can be removed by casting the *[Mending](https://www.aidedd.org/spell/mending)*
-      spell on the armor.
-
+      ***Dissolving Pseudopod***. *Melee Attack Roll* : +5, reach 10 ft. *Hit* : 17 (4d6 + 3) Acid damage. Nonmagical armor worn by the target takes a −1 penalty to the AC it offers. The armor is destroyed if the penalty reduces its AC to 10. The penalty can be removed by casting the *[Mending](https://www.aidedd.org/spell/mending)* spell on the armor.
 
       ## Reactions
 
-
-      ***Split***. *Trigger* : While the pudding is Large or Medium and has 10+ Hit
-      Points, it becomes Bloodied or is subjected to Lightning or Slashing damage.
-      *Response* : The pudding splits into two new Black Puddings. Each new pudding
-      is one size smaller than the original pudding and acts on its Initiative. The
-      original pudding''s Hit Points are divided evenly between the new puddings (round
-      down).'
+      ***Split***. *Trigger* : While the pudding is Large or Medium and has 10+ Hit Points, it becomes Bloodied or is subjected to Lightning or Slashing damage. *Response* : The pudding splits into two new Black Puddings. Each new pudding is one size smaller than the original pudding and acts on its Initiative. The original pudding's Hit Points are divided evenly between the new puddings (round down).
     senses: Blindsight 60 ft., Passive Perception 8
     languages:
     - None
   fr:
     name: Pouding noir
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Informe***. Le pouding peut se déplacer dans un espace étroit d'une largeur minimale de 2,50 cm sans dépense supplémentaire en déplacement.
 
-      ***Informe***. Le pouding peut se déplacer dans un espace étroit d''une largeur
-      minimale de 2,50 cm sans dépense supplémentaire en déplacement.
+      ***Masse corrosive***. Une créature qui touche le pouding par un jet d'attaque de corps à corps subit 4 (1d8) dégâts d'acide. Les projectiles non magiques sont détruits dès qu'ils ont touché le pouding et infligé le moindre dégât. Toute arme non magique qui inflige le moindre dégât au pouding en le touchant physiquement subit aussitôt un malus cumulatif de –1 aux jets d'attaque. L'arme est détruite si ce malus atteint –5. On peut annuler ce malus en lançant le sort *réparation* sur l'arme. En 1 minute, le pouding peut dévorer une épaisseur de 60 cm de bois ou métal non magique.
 
-
-      ***Masse corrosive***. Une créature qui touche le pouding par un jet d''attaque
-      de corps à corps subit 4 (1d8) dégâts d''acide. Les projectiles non magiques
-      sont détruits dès qu''ils ont touché le pouding et infligé le moindre dégât.
-      Toute arme non magique qui inflige le moindre dégât au pouding en le touchant
-      physiquement subit aussitôt un malus cumulatif de –1 aux jets d''attaque. L''arme
-      est détruite si ce malus atteint –5. On peut annuler ce malus en lançant le
-      sort *réparation* sur l''arme. En 1 minute, le pouding peut dévorer une épaisseur
-      de 60 cm de bois ou métal non magique.
-
-
-      ***Pattes d''araignée***. Le pouding peut parcourir les parois les plus difficiles
-      à escalader, y compris les plafonds, sans passer par un jet de caractéristique.
-
+      ***Pattes d'araignée***. Le pouding peut parcourir les parois les plus difficiles à escalader, y compris les plafonds, sans passer par un jet de caractéristique.
 
       ## Actions
 
-
-      ***Pseudopode caustique***. *Corps à corps* : +5, allonge 3 m. *Touché* : 17
-      (4d6 + 3) dégâts d''acide. Toute armure non magique portée par la cible subit
-      un malus cumulatif de –1 à la CA qu''elle confère. L''armure est détruite si
-      ce malus réduit sa CA à 10. On peut annuler ce malus en lançant le sort *réparation*
-      sur l''armure.
-
+      ***Pseudopode caustique***. *Corps à corps* : +5, allonge 3 m. *Touché* : 17 (4d6 + 3) dégâts d'acide. Toute armure non magique portée par la cible subit un malus cumulatif de –1 à la CA qu'elle confère. L'armure est détruite si ce malus réduit sa CA à 10. On peut annuler ce malus en lançant le sort *réparation* sur l'armure.
 
       ## Réactions
 
-
-      \*\* *Division***. *Déclencheur* : alors que le pouding est de taille G ou M
-      et dispose d''au moins 10 points de vie, il se retrouve En péril ou subit des
-      dégâts de foudre ou tranchants. *Conséquences* : le pouding se scinde en deux
-      nouveaux** poudings noirs\*\*. Chaque nouveau pouding présente une catégorie
-      de taille de moins que le pouding dont il est issu et agit au même rang d''Initiative.
-      Les points de vie du pouding « parent » sont divisés équitablement entre les
-      deux nouveaux poudings (arrondir à l''inférieur).'
+      \*\* *Division***. *Déclencheur* : alors que le pouding est de taille G ou M et dispose d'au moins 10 points de vie, il se retrouve En péril ou subit des dégâts de foudre ou tranchants. *Conséquences* : le pouding se scinde en deux nouveaux** poudings noirs\*\*. Chaque nouveau pouding présente une catégorie de taille de moins que le pouding dont il est issu et agit au même rang d'Initiative. Les points de vie du pouding « parent » sont divisés équitablement entre les deux nouveaux poudings (arrondir à l'inférieur).
     senses: Vision aveugle 18 m, Perception passive 8
     languages:
     - aucune

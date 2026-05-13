@@ -76,47 +76,32 @@ translations:
   en:
     name: Beast of the Sea
     subtype: null
-    description: '## Traits
-
+    description: |-
+      ## Traits
 
       ***Amphibious***. The beast can breathe air and water.
 
-
-      ***Primal Bond***. Add your Proficiency Bonus to any ability check or saving
-      throw the beast makes.
-
+      ***Primal Bond***. Add your Proficiency Bonus to any ability check or saving throw the beast makes.
 
       ## Actions
 
-
-      ***Beast''s Strike***. *Melee Attack Roll* : Bonus equals your spell attack
-      modifier, reach 5 ft. *Hit* : 1d6 + 2 plus your Wisdom modifier Bludgeoning
-      or Piercing damage (your choice when you summon the beast), and the target has
-      the Grappled condition (escape DC equals your spell save DC).'
+      ***Beast's Strike***. *Melee Attack Roll* : Bonus equals your spell attack modifier, reach 5 ft. *Hit* : 1d6 + 2 plus your Wisdom modifier Bludgeoning or Piercing damage (your choice when you summon the beast), and the target has the Grappled condition (escape DC equals your spell save DC).
     senses: Darkvision 90 ft., Passive Perception 12
     languages:
     - Understands the languages you know
   fr:
     name: Bête des mers
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Amphibie***. La bête peut respirer sous l'eau comme à l'air libre.
 
-      ***Amphibie***. La bête peut respirer sous l''eau comme à l''air libre.
-
-
-      ***Lien primordial***. Ajoutez votre bonus de maîtrise à tout jet de caractéristique
-      ou de sauvegarde effectué par la bête.
-
+      ***Lien primordial***. Ajoutez votre bonus de maîtrise à tout jet de caractéristique ou de sauvegarde effectué par la bête.
 
       ## Actions
 
-
-      ***Frappe de la Bête***. *Corps à corps* : bonus égal à votre modificateur d''attaque
-      des sorts, allonge 1,50 m. *Touché* : 1d6 + 2 + votre modificateur de Sagesse
-      dégâts contondants ou perforants (à votre choix lorsque vous invoquez la bête),
-      et la cible subit l''état Agrippé (évasion DD égal à votre DD de sauvegarde
-      des sorts).'
+      ***Frappe de la Bête***. *Corps à corps* : bonus égal à votre modificateur d'attaque des sorts, allonge 1,50 m. *Touché* : 1d6 + 2 + votre modificateur de Sagesse dégâts contondants ou perforants (à votre choix lorsque vous invoquez la bête), et la cible subit l'état Agrippé (évasion DD égal à votre DD de sauvegarde des sorts).
     senses: Vision dans le noir 27 m, Perception passive 12
     languages:
     - comprend les langues que vous parlez

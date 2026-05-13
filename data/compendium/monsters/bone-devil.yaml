@@ -81,32 +81,20 @@ translations:
   en:
     name: Bone Devil
     subtype: Devil
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Diabolical Restoration***. If the devil dies outside the Nine Hells, its body disappears in sulfurous smoke, and it gains a new body instantly, reviving with all its Hit Points somewhere in the Nine Hells.
 
-      ***Diabolical Restoration***. If the devil dies outside the Nine Hells, its
-      body disappears in sulfurous smoke, and it gains a new body instantly, reviving
-      with all its Hit Points somewhere in the Nine Hells.
-
-
-      ***Magic Resistance***. The devil has Advantage on saving throws against spells
-      and other magical effects.
-
+      ***Magic Resistance***. The devil has Advantage on saving throws against spells and other magical effects.
 
       ## Actions
 
-
       ***Multiattack***. The devil makes two Claw attacks and one Infernal Sting attack.
 
+      ***Claw***. *Melee Attack Roll* : +8, reach 10 ft. *Hit* : 13 (2d8 + 4) Slashing damage.
 
-      ***Claw***. *Melee Attack Roll* : +8, reach 10 ft. *Hit* : 13 (2d8 + 4) Slashing
-      damage.
-
-
-      ***Infernal Sting***. *Melee Attack Roll* : +8, reach 10 ft. *Hit* : 15 (2d10
-      + 4) Piercing damage plus 18 (4d8) Poison damage, and the target has the Poisoned
-      condition until the start of the devil''s next turn. While Poisoned, the target
-      can''t regain Hit Points.'
+      ***Infernal Sting***. *Melee Attack Roll* : +8, reach 10 ft. *Hit* : 15 (2d10 + 4) Piercing damage plus 18 (4d8) Poison damage, and the target has the Poisoned condition until the start of the devil's next turn. While Poisoned, the target can't regain Hit Points.
     senses: Darkvision 120 ft. (unimpeded by magical Darkness), Passive Perception
       12
     languages:
@@ -114,34 +102,20 @@ translations:
   fr:
     name: Diable osseux
     subtype: Diable
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Résistance à la magie***. Le diable a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
 
-      ***Résistance à la magie***. Le diable a un Avantage aux jets de sauvegarde
-      contre les sorts et autres effets magiques.
-
-
-      ***Restauration diabolique***. Si le diable meurt hors des Neuf Enfers, son
-      corps disparaît dans un nuage de fumée sulfureuse, tandis qu''il en acquiert
-      aussitôt un nouveau et revient à la vie avec tous ses pv quelque part dans les
-      Neuf Enfers.
-
+      ***Restauration diabolique***. Si le diable meurt hors des Neuf Enfers, son corps disparaît dans un nuage de fumée sulfureuse, tandis qu'il en acquiert aussitôt un nouveau et revient à la vie avec tous ses pv quelque part dans les Neuf Enfers.
 
       ## Actions
 
+      ***Attaques multiples***. Le diable effectue deux attaques de Griffe et une de Dard infernal.
 
-      ***Attaques multiples***. Le diable effectue deux attaques de Griffe et une
-      de Dard infernal.
+      ***Dard infernal***. *Corps à corps* : +8, allonge 3 m. *Touché* : 15 (2d10 + 4) dégâts perforants plus 18 (4d8) dégâts de poison, et la cible subit l'état Empoisonné jusqu'au début du tour suivant du diable. Ainsi Empoisonnée, la cible ne peut pas récupérer de points de vie.
 
-
-      ***Dard infernal***. *Corps à corps* : +8, allonge 3 m. *Touché* : 15 (2d10
-      + 4) dégâts perforants plus 18 (4d8) dégâts de poison, et la cible subit l''état
-      Empoisonné jusqu''au début du tour suivant du diable. Ainsi Empoisonnée, la
-      cible ne peut pas récupérer de points de vie.
-
-
-      ***Griffe***. *Corps à corps* : +8, allonge 3 m. *Touché* : 13 (2d8 + 4) dégâts
-      tranchants.'
+      ***Griffe***. *Corps à corps* : +8, allonge 3 m. *Touché* : 13 (2d8 + 4) dégâts tranchants.
     senses: Vision dans le noir 36 m (perce les Ténèbres magiques), Perception passive
       12
     languages:

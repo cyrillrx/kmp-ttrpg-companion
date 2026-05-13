@@ -76,50 +76,36 @@ translations:
   en:
     name: Kuo-toa Monitor
     subtype: null
-    description: '## Traits
-
+    description: |-
+      ## Traits
 
       ***Amphibious***. The kuo-toa can breathe air and water.
 
-
-      ***Sunlight Sensitivity***. While in sunlight, the kuo-toa has Disadvantage
-      on ability checks and attack rolls.
-
+      ***Sunlight Sensitivity***. While in sunlight, the kuo-toa has Disadvantage on ability checks and attack rolls.
 
       ## Actions
 
-
       ***Multiattack***. The kuo-toa makes two Bone Whip attacks.
 
-
-      ***Bone Whip***. *Melee Attack Roll* : +5, reach 10 ft. *Hit* : 6 (1d6 + 3)
-      Slashing damage plus 7 (2d6) Lightning damage, and the target can''t make Opportunity
-      Attacks until the start of the kuo-toa''s next turn.'
+      ***Bone Whip***. *Melee Attack Roll* : +5, reach 10 ft. *Hit* : 6 (1d6 + 3) Slashing damage plus 7 (2d6) Lightning damage, and the target can't make Opportunity Attacks until the start of the kuo-toa's next turn.
     senses: Darkvision 120 ft., Truesight 30 ft., Passive Perception 16
     languages:
     - Undercommon
   fr:
     name: Kuo-toa cornac
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Amphibie***. Le kuo-toa peut respirer sous l'eau comme à l'air libre.
 
-      ***Amphibie***. Le kuo-toa peut respirer sous l''eau comme à l''air libre.
-
-
-      ***Sensibilité au soleil***. Tant qu''il est exposé à la lumière du soleil,
-      le kuo-toa subit un Désavantage aux jets de caractéristique et aux jets d''attaque.
-
+      ***Sensibilité au soleil***. Tant qu'il est exposé à la lumière du soleil, le kuo-toa subit un Désavantage aux jets de caractéristique et aux jets d'attaque.
 
       ## Actions
 
-
       ***Attaques multiples***. Le kuo-toa effectue deux attaques de Fouet osseux.
 
-
-      ***Fouet osseux***. *Corps à corps* : +5, allonge 3 m. *Touché* : 6 (1d6 + 3)
-      dégâts tranchants plus 7 (2d6) dégâts de foudre, et la cible ne peut pas effectuer
-      d''attaques d''Opportunité jusqu''au début du prochain tour du kuo-toa.'
+      ***Fouet osseux***. *Corps à corps* : +5, allonge 3 m. *Touché* : 6 (1d6 + 3) dégâts tranchants plus 7 (2d6) dégâts de foudre, et la cible ne peut pas effectuer d'attaques d'Opportunité jusqu'au début du prochain tour du kuo-toa.
     senses: Vision dans le noir 36 m, vision véritable 9 m, Perception passive 16
     languages:
     - commun des profondeurs

@@ -76,67 +76,40 @@ translations:
   en:
     name: Chuul
     subtype: null
-    description: '## Traits
-
+    description: |-
+      ## Traits
 
       ***Amphibious***. The chuul can breathe air and water.
 
-
-      ***Sense Magic***. The chuul senses magic within 120 feet of itself. This trait
-      otherwise works like the *[Detect Magic](https://www.aidedd.org/spell/detect-magic)*
-      spell but isn''t itself magical.
-
+      ***Sense Magic***. The chuul senses magic within 120 feet of itself. This trait otherwise works like the *[Detect Magic](https://www.aidedd.org/spell/detect-magic)* spell but isn't itself magical.
 
       ## Actions
 
-
       ***Multiattack***. The chuul makes two Pincer attacks and uses Paralyzing Tentacles.
 
+      ***Pincer***. *Melee Attack Roll* : +6, reach 10 ft. *Hit* : 9 (1d10 + 4) Bludgeoning damage. If the target is a Large or smaller creature, it has the Grappled condition (escape DC 14) from one of two pincers.
 
-      ***Pincer***. *Melee Attack Roll* : +6, reach 10 ft. *Hit* : 9 (1d10 + 4) Bludgeoning
-      damage. If the target is a Large or smaller creature, it has the Grappled condition
-      (escape DC 14) from one of two pincers.
-
-
-      ***Paralyzing Tentacles***. *Constitution Saving Throw* : DC 13, one creature
-      Grappled by the chuul. *Failure* : The target has the Poisoned condition and
-      repeats the save at the end of each of its turns, ending the effect on itself
-      on a success. After 1 minute, it succeeds automatically. While Poisoned, the
-      target has the Paralyzed condition.'
+      ***Paralyzing Tentacles***. *Constitution Saving Throw* : DC 13, one creature Grappled by the chuul. *Failure* : The target has the Poisoned condition and repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically. While Poisoned, the target has the Paralyzed condition.
     senses: Darkvision 60 ft., Passive Perception 14
     languages:
     - Understands Deep Speech but can't speak
   fr:
     name: Chuul
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Amphibie***. Le chuul peut respirer sous l'eau comme à l'air libre.
 
-      ***Amphibie***. Le chuul peut respirer sous l''eau comme à l''air libre.
-
-
-      ***Perception de la magie***. Le chuul perçoit la magie dans un rayon de 36
-      m. Ce trait fonctionne pour le reste comme le sort *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie)*
-      , même s''il n''est pas magique en lui-même.
-
+      ***Perception de la magie***. Le chuul perçoit la magie dans un rayon de 36 m. Ce trait fonctionne pour le reste comme le sort *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie)* , même s'il n'est pas magique en lui-même.
 
       ## Actions
 
+      ***Attaques multiples***. Le chuul effectue deux attaques de Pince et recourt à Tentacules paralysants.
 
-      ***Attaques multiples***. Le chuul effectue deux attaques de Pince et recourt
-      à Tentacules paralysants.
+      ***Pince***. *Corps à corps* : +6, allonge 3 m. *Touché* : 9 (1d10 + 4) dégâts contondants. Si la cible est une créature de taille G ou inférieure, elle subit l'état Agrippé (évasion DD 14) par l'une des deux pinces.
 
-
-      ***Pince***. *Corps à corps* : +6, allonge 3 m. *Touché* : 9 (1d10 + 4) dégâts
-      contondants. Si la cible est une créature de taille G ou inférieure, elle subit
-      l''état Agrippé (évasion DD 14) par l''une des deux pinces.
-
-
-      ***Tentacules paralysants***. *JdS Constitution* : DD 13, une créature Agrippée
-      par le chuul. *Échec* : la cible subit l''état Empoisonné et réitère le JdS
-      à la fin de chacun de ses tours ; elle met un terme à l''effet sur elle-même
-      en cas de réussite. Au bout de 1 minute, elle réussit automatiquement ce JdS.
-      Tant qu''elle est ainsi Empoisonnée, la cible subit l''état Paralysé.'
+      ***Tentacules paralysants***. *JdS Constitution* : DD 13, une créature Agrippée par le chuul. *Échec* : la cible subit l'état Empoisonné et réitère le JdS à la fin de chacun de ses tours ; elle met un terme à l'effet sur elle-même en cas de réussite. Au bout de 1 minute, elle réussit automatiquement ce JdS. Tant qu'elle est ainsi Empoisonnée, la cible subit l'état Paralysé.
     senses: Vision dans le noir 18 m, Perception passive 14
     languages:
     - comprend le profond mais ne parle pas

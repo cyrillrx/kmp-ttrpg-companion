@@ -79,116 +79,64 @@ translations:
   en:
     name: Archmage
     subtype: Wizard
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Magic Resistance***. The archmage has Advantage on saving throws against
-      spells and other magical effects.
-
+      ***Magic Resistance***. The archmage has Advantage on saving throws against spells and other magical effects.
 
       ## Actions
 
-
       ***Multiattack***. The archmage makes four Arcane Burst attacks.
 
+      ***Arcane Burst***. *Melee or Ranged Attack Roll* : +9, reach 5 ft. or range 150 ft. *Hit* : 27 (4d10 + 5) Force damage.
 
-      ***Arcane Burst***. *Melee or Ranged Attack Roll* : +9, reach 5 ft. or range
-      150 ft. *Hit* : 27 (4d10 + 5) Force damage.
+      ***Spellcasting***. The archmage casts one of the following spells, using Intelligence as the spellcasting ability (spell save DC 17):
 
+      At will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts), [Disguise Self](https://www.aidedd.org/spell/disguise-self), [Invisibility](https://www.aidedd.org/spell/invisibility), [Light](https://www.aidedd.org/spell/light), [Mage Armor](https://www.aidedd.org/spell/mage-armor)* (included in AC), *[Mage Hand](https://www.aidedd.org/spell/mage-hand), [Prestidigitation](https://www.aidedd.org/spell/prestidigitation)*
 
-      ***Spellcasting***. The archmage casts one of the following spells, using Intelligence
-      as the spellcasting ability (spell save DC 17):
+      2/day each: *[Fly](https://www.aidedd.org/spell/fly), [Lightning Bolt](https://www.aidedd.org/spell/lightning-bolt)* (level 7 version)
 
-
-      At will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Detect
-      Thoughts](https://www.aidedd.org/spell/detect-thoughts), [Disguise Self](https://www.aidedd.org/spell/disguise-self),
-      [Invisibility](https://www.aidedd.org/spell/invisibility), [Light](https://www.aidedd.org/spell/light),
-      [Mage Armor](https://www.aidedd.org/spell/mage-armor)* (included in AC), *[Mage
-      Hand](https://www.aidedd.org/spell/mage-hand), [Prestidigitation](https://www.aidedd.org/spell/prestidigitation)*
-
-
-      2/day each: *[Fly](https://www.aidedd.org/spell/fly), [Lightning Bolt](https://www.aidedd.org/spell/lightning-bolt)*
-      (level 7 version)
-
-
-      1/day each: *[Cone of Cold](https://www.aidedd.org/spell/cone-of-cold)* (level
-      9 version), *[Mind Blank](https://www.aidedd.org/spell/mind-blank)* (cast before
-      combat), *[Scrying](https://www.aidedd.org/spell/scrying), [Teleport](https://www.aidedd.org/spell/teleport)*
-
+      1/day each: *[Cone of Cold](https://www.aidedd.org/spell/cone-of-cold)* (level 9 version), *[Mind Blank](https://www.aidedd.org/spell/mind-blank)* (cast before combat), *[Scrying](https://www.aidedd.org/spell/scrying), [Teleport](https://www.aidedd.org/spell/teleport)*
 
       ## Bonus actions
 
-
-      ***Misty Step (3/Day)***. The mage casts *[Misty Step](https://www.aidedd.org/spell/misty-step)*
-      , using the same spellcasting ability as Spellcasting.
-
+      ***Misty Step (3/Day)***. The mage casts *[Misty Step](https://www.aidedd.org/spell/misty-step)* , using the same spellcasting ability as Spellcasting.
 
       ## Reactions
 
-
-      ***Protective Magic (3/Day)***. The archmage casts *[Counterspell](https://www.aidedd.org/spell/counterspell)*
-      or *[Shield](https://www.aidedd.org/spell/shield)* in response to the spell''s
-      trigger, using the same spellcasting ability as Spellcasting.'
+      ***Protective Magic (3/Day)***. The archmage casts *[Counterspell](https://www.aidedd.org/spell/counterspell)* or *[Shield](https://www.aidedd.org/spell/shield)* in response to the spell's trigger, using the same spellcasting ability as Spellcasting.
     senses: Passive Perception 16
     languages:
     - Common plus five other languages
   fr:
     name: Archimage
     subtype: Magicien
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Résistance à la magie***. L''archimage a un Avantage aux jets de sauvegarde
-      contre les sorts et autres effets magiques.
-
+      ***Résistance à la magie***. L'archimage a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
 
       ## Actions
 
+      ***Attaques multiples***. L'archimage effectue quatre attaques de Jaillissement arcanique.
 
-      ***Attaques multiples***. L''archimage effectue quatre attaques de Jaillissement
-      arcanique.
+      ***Jaillissement arcanique***. *Corps à corps ou à distance* : +9, allonge 1,50 m ou portée 45 m. *Touché* : 27 (4d10 + 5) dégâts de force.
 
+      ***Incantation***. L'archimage lance l'un des sorts suivants, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 17) :
 
-      ***Jaillissement arcanique***. *Corps à corps ou à distance* : +9, allonge 1,50
-      m ou portée 45 m. *Touché* : 27 (4d10 + 5) dégâts de force.
+      À volonté : *[armure de mage](https://www.aidedd.org/spell/fr/armure-de-mage)* (compris dans la CA), *[déguisement](https://www.aidedd.org/spell/fr/deguisement), [détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), [détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees), [invisibilité](https://www.aidedd.org/spell/fr/invisibilite), [lumière](https://www.aidedd.org/spell/fr/lumiere), [main de mage](https://www.aidedd.org/spell/fr/main-de-mage), [prestidigitation](https://www.aidedd.org/spell/fr/prestidigitation)*
 
+      2/jour chacun : *[éclair](https://www.aidedd.org/spell/fr/eclair)* (au niveau 7), *[vol](https://www.aidedd.org/spell/fr/vol)*
 
-      ***Incantation***. L''archimage lance l''un des sorts suivants, l''Intelligence
-      étant sa caractéristique d''incantation (DD de sauvegarde 17) :
-
-
-      À volonté : *[armure de mage](https://www.aidedd.org/spell/fr/armure-de-mage)*
-      (compris dans la CA), *[déguisement](https://www.aidedd.org/spell/fr/deguisement),
-      [détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie),
-      [détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees),
-      [invisibilité](https://www.aidedd.org/spell/fr/invisibilite), [lumière](https://www.aidedd.org/spell/fr/lumiere),
-      [main de mage](https://www.aidedd.org/spell/fr/main-de-mage), [prestidigitation](https://www.aidedd.org/spell/fr/prestidigitation)*
-
-
-      2/jour chacun : *[éclair](https://www.aidedd.org/spell/fr/eclair)* (au niveau
-      7), *[vol](https://www.aidedd.org/spell/fr/vol)*
-
-
-      1/jour chacun : *[cône de froid](https://www.aidedd.org/spell/fr/cone-de-froid)*
-      (au niveau 9), *[esprit impénétrable](https://www.aidedd.org/spell/fr/esprit-impenetrable)*
-      (lancé avant un combat), *[scrutation](https://www.aidedd.org/spell/fr/scrutation),
-      [téléportation](https://www.aidedd.org/spell/fr/teleportation)*
-
+      1/jour chacun : *[cône de froid](https://www.aidedd.org/spell/fr/cone-de-froid)* (au niveau 9), *[esprit impénétrable](https://www.aidedd.org/spell/fr/esprit-impenetrable)* (lancé avant un combat), *[scrutation](https://www.aidedd.org/spell/fr/scrutation), [téléportation](https://www.aidedd.org/spell/fr/teleportation)*
 
       ## Actions Bonus
 
-
-      ***Foulée brumeuse (3/jour)***. Le mage lance *[foulée brumeuse](https://www.aidedd.org/spell/fr/foulee-brumeuse)*
-      , avec la même caractéristique d''incantation que pour Incantation.
-
+      ***Foulée brumeuse (3/jour)***. Le mage lance *[foulée brumeuse](https://www.aidedd.org/spell/fr/foulee-brumeuse)* , avec la même caractéristique d'incantation que pour Incantation.
 
       ## Réactions
 
-
-      ***Magie protectrice (3/jour)***. L''archimage lance *[bouclier](https://www.aidedd.org/spell/fr/bouclier)*
-      ou *[contresort](https://www.aidedd.org/spell/fr/contresort)* en réponse au
-      déclencheur du sort correspondant, avec la même caractéristique d''incantation
-      que pour Incantation.'
+      ***Magie protectrice (3/jour)***. L'archimage lance *[bouclier](https://www.aidedd.org/spell/fr/bouclier)* ou *[contresort](https://www.aidedd.org/spell/fr/contresort)* en réponse au déclencheur du sort correspondant, avec la même caractéristique d'incantation que pour Incantation.
     senses: Perception passive 16
     languages:
     - commun plus cinq autres langues

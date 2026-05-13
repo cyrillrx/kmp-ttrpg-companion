@@ -76,22 +76,20 @@ translations:
   en:
     name: Draft Horse
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Hooves***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 6 (1d4 + 4) Bludgeoning
-      damage.'
+      ***Hooves***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 6 (1d4 + 4) Bludgeoning damage.
     senses: Passive Perception 10
     languages:
     - None
   fr:
     name: Cheval de trait
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Sabots***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 6 (1d4 + 4) dégâts
-      contondants.'
+      ***Sabots***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 6 (1d4 + 4) dégâts contondants.
     senses: Perception passive 10
     languages:
     - aucune

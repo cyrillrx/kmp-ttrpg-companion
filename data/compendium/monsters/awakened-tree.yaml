@@ -76,22 +76,20 @@ translations:
   en:
     name: Awakened Tree
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Slam***. *Melee Attack Roll* : +6, reach 10 ft. *Hit* : 14 (3d6 + 4) Bludgeoning
-      damage.'
+      ***Slam***. *Melee Attack Roll* : +6, reach 10 ft. *Hit* : 14 (3d6 + 4) Bludgeoning damage.
     senses: Passive Perception 10
     languages:
     - Common plus one other language
   fr:
     name: Arbre éveillé
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Coup***. *Corps à corps* : +6, allonge 3 m. *Touché* : 14 (3d6 + 4) dégâts
-      contondants.'
+      ***Coup***. *Corps à corps* : +6, allonge 3 m. *Touché* : 14 (3d6 + 4) dégâts contondants.
     senses: Perception passive 10
     languages:
     - commun plus une autre langue

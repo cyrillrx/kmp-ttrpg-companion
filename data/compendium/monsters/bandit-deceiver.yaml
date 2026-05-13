@@ -79,34 +79,20 @@ translations:
   en:
     name: Bandit Deceiver
     subtype: null
-    description: '## Actions
-
+    description: |-
+      ## Actions
 
       ***Multiattack***. The bandit makes three Dagger attacks.
 
+      ***Dagger***. *Melee or Ranged Attack Roll* : +6, reach 5 ft. or range 20/60 ft. *Hit* : 8 (2d4 + 3) Piercing damage plus 10 (3d6) Poison damage.
 
-      ***Dagger***. *Melee or Ranged Attack Roll* : +6, reach 5 ft. or range 20/60
-      ft. *Hit* : 8 (2d4 + 3) Piercing damage plus 10 (3d6) Poison damage.
+      ***Blinding Flash (Recharge 4–6)***. *Constitution Saving Throw* : DC 14, each creature in a 10-foot-radius Sphere centered on a point the bandit can see within 120 feet. *Failure* : 13 (3d6 + 3) Radiant damage, and the target has the Blinded condition until the start of the bandit's next turn. *Success* : Half damage only.
 
+      ***Spellcasting***. The bandit casts one of the following spells, using Intelligence as the spellcasting ability (spell save DC 14):
 
-      ***Blinding Flash (Recharge 4–6)***. *Constitution Saving Throw* : DC 14, each
-      creature in a 10-foot-radius Sphere centered on a point the bandit can see within
-      120 feet. *Failure* : 13 (3d6 + 3) Radiant damage, and the target has the Blinded
-      condition until the start of the bandit''s next turn. *Success* : Half damage
-      only.
+      At will: *[Disguise Self](https://www.aidedd.org/spell/disguise-self), [Mage Hand](https://www.aidedd.org/spell/mage-hand), [Minor Illusion](https://www.aidedd.org/spell/minor-illusion)*
 
-
-      ***Spellcasting***. The bandit casts one of the following spells, using Intelligence
-      as the spellcasting ability (spell save DC 14):
-
-
-      At will: *[Disguise Self](https://www.aidedd.org/spell/disguise-self), [Mage
-      Hand](https://www.aidedd.org/spell/mage-hand), [Minor Illusion](https://www.aidedd.org/spell/minor-illusion)*
-
-
-      1/day each: *[Hold Person](https://www.aidedd.org/spell/hold-person)* (level
-      4 version), *[Mage Armor](https://www.aidedd.org/spell/mage-armor)* (included
-      in AC), *[Major Image](https://www.aidedd.org/spell/major-image)*'
+      1/day each: *[Hold Person](https://www.aidedd.org/spell/hold-person)* (level 4 version), *[Mage Armor](https://www.aidedd.org/spell/mage-armor)* (included in AC), *[Major Image](https://www.aidedd.org/spell/major-image)*
     senses: Passive Perception 14
     languages:
     - Common
@@ -114,34 +100,20 @@ translations:
   fr:
     name: Bandit, embrouilleur
     subtype: null
-    description: '## Actions
-
+    description: |-
+      ## Actions
 
       ***Attaques multiples***. Le bandit effectue trois attaques de Dague.
 
+      ***Dague***. *Corps à corps ou à distance* : +6, allonge 1,50 m ou portée 6/18 m. *Touché* : 8 (2d4 + 3) dégâts perforants plus 10 (3d6) dégâts de poison.
 
-      ***Dague***. *Corps à corps ou à distance* : +6, allonge 1,50 m ou portée 6/18
-      m. *Touché* : 8 (2d4 + 3) dégâts perforants plus 10 (3d6) dégâts de poison.
+      ***Éclat aveuglant (recharge 4–6)***. *JdS Constitution* : DD 14, chaque créature dans une Sphère de 3 m de rayon centrée sur un point que le bandit peut voir dans un rayon de 36 m. *Échec* : 13 (3d6 + 3) dégâts radiants, et la cible subit l'état Aveuglé jusqu'au début du prochain tour du bandit. *Réussite* : demi-dégâts uniquement.
 
+      ***Incantation***. Le bandit lance l'un des sorts suivants, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 14) :
 
-      ***Éclat aveuglant (recharge 4–6)***. *JdS Constitution* : DD 14, chaque créature
-      dans une Sphère de 3 m de rayon centrée sur un point que le bandit peut voir
-      dans un rayon de 36 m. *Échec* : 13 (3d6 + 3) dégâts radiants, et la cible subit
-      l''état Aveuglé jusqu''au début du prochain tour du bandit. *Réussite* : demi-dégâts
-      uniquement.
+      À volonté : *[déguisement](https://www.aidedd.org/spell/fr/déguisement), [main de mage](https://www.aidedd.org/spell/fr/main-de-mage), [illusion mineure](https://www.aidedd.org/spell/fr/illusion-mineure)*
 
-
-      ***Incantation***. Le bandit lance l''un des sorts suivants, l''Intelligence
-      étant sa caractéristique d''incantation (DD de sauvegarde 14) :
-
-
-      À volonté : *[déguisement](https://www.aidedd.org/spell/fr/déguisement), [main
-      de mage](https://www.aidedd.org/spell/fr/main-de-mage), [illusion mineure](https://www.aidedd.org/spell/fr/illusion-mineure)*
-
-
-      1/jour chacun : *[immobilisation de personne](https://www.aidedd.org/spell/fr/immobilisation-de-personne)*
-      (au niveau 4), *[armure de mage](https://www.aidedd.org/spell/fr/armure-de-mage)*
-      (compris dans la CA), *[image majeure](https://www.aidedd.org/spell/fr/image-majeure)*'
+      1/jour chacun : *[immobilisation de personne](https://www.aidedd.org/spell/fr/immobilisation-de-personne)* (au niveau 4), *[armure de mage](https://www.aidedd.org/spell/fr/armure-de-mage)* (compris dans la CA), *[image majeure](https://www.aidedd.org/spell/fr/image-majeure)*
     senses: Perception passive 14
     languages:
     - commun

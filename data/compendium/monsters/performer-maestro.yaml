@@ -79,65 +79,40 @@ translations:
   en:
     name: Performer Maestro
     subtype: null
-    description: '## Actions
-
+    description: |-
+      ## Actions
 
       ***Multiattack***. The performer makes three Rapier attacks.
 
+      ***Rapier***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 8 (1d8 + 4) Piercing damage plus 7 (2d6) Psychic damage.
 
-      ***Rapier***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 8 (1d8 + 4) Piercing
-      damage plus 7 (2d6) Psychic damage.
+      ***Beguiling Song***. *Wisdom Saving Throw* : DC 15, each creature in a 20-foot-radius Sphere centered on a point within 120 feet. *Failure* : 20 (3d10 + 4) Psychic damage, and the target has the Charmed condition until the end of the performer's next turn. *Success* : Half damage only.
 
-
-      ***Beguiling Song***. *Wisdom Saving Throw* : DC 15, each creature in a 20-foot-radius
-      Sphere centered on a point within 120 feet. *Failure* : 20 (3d10 + 4) Psychic
-      damage, and the target has the Charmed condition until the end of the performer''s
-      next turn. *Success* : Half damage only.
-
-
-      ***Spellcasting***. The performer casts one of the following spells, requiring
-      no Material components and using Charisma as the spellcasting ability (spell
-      save DC 15):
-
+      ***Spellcasting***. The performer casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 15):
 
       At will: *[Minor Illusion](https://www.aidedd.org/spell/minor-illusion), [Prestidigitation](https://www.aidedd.org/spell/prestidigitation)*
 
-
-      1/day: *[Tasha''s Hideous Laughter](https://www.aidedd.org/spell/tasha-s-hideous-laughter)*
-      (level 3 version)'
+      1/day: *[Tasha's Hideous Laughter](https://www.aidedd.org/spell/tasha-s-hideous-laughter)* (level 3 version)
     senses: Passive Perception 15
     languages:
     - Common plus one other language
   fr:
     name: Saltimbanque, maestro
     subtype: null
-    description: '## Actions
-
+    description: |-
+      ## Actions
 
       ***Attaques multiples***. Le saltimbanque effectue trois attaques de Rapière.
 
+      ***Rapière***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 8 (1d8 + 4) dégâts perforants plus 7 (2d6) dégâts psychiques.
 
-      ***Rapière***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 8 (1d8 + 4)
-      dégâts perforants plus 7 (2d6) dégâts psychiques.
+      ***Chant envoûtant***. *JdS Sagesse* : DD 15, chaque créature dans une Sphère de 6 m de rayon centrée sur un point dans un rayon de 36 m. *Échec* : 20 (3d10 + 4) dégâts psychiques, et la cible subit l'état Charmé jusqu'à la fin du prochain tour du saltimbanque. *Réussite* : demi-dégâts uniquement.
 
+      ***Incantation***. Le saltimbanque lance l'un des sorts suivants, sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 15) :
 
-      ***Chant envoûtant***. *JdS Sagesse* : DD 15, chaque créature dans une Sphère
-      de 6 m de rayon centrée sur un point dans un rayon de 36 m. *Échec* : 20 (3d10
-      + 4) dégâts psychiques, et la cible subit l''état Charmé jusqu''à la fin du
-      prochain tour du saltimbanque. *Réussite* : demi-dégâts uniquement.
+      À volonté : *[illusion mineure](https://www.aidedd.org/spell/fr/illusion-mineure), [prestidigitation](https://www.aidedd.org/spell/fr/prestidigitation)*
 
-
-      ***Incantation***. Le saltimbanque lance l''un des sorts suivants, sans composantes
-      matérielles, le Charisme étant sa caractéristique d''incantation (DD de sauvegarde
-      15) :
-
-
-      À volonté : *[illusion mineure](https://www.aidedd.org/spell/fr/illusion-mineure),
-      [prestidigitation](https://www.aidedd.org/spell/fr/prestidigitation)*
-
-
-      1/jour : *[fou rire de Tasha](https://www.aidedd.org/spell/fr/fou-rire-de-tasha)*
-      (au niveau 3)'
+      1/jour : *[fou rire de Tasha](https://www.aidedd.org/spell/fr/fou-rire-de-tasha)* (au niveau 3)
     senses: Perception passive 15
     languages:
     - commun plus une autre langue

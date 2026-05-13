@@ -76,20 +76,18 @@ translations:
   en:
     name: Grimlock
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Bone Cudgel***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 6 (1d6 + 3)
-      Bludgeoning damage plus 2 (1d4) Psychic damage.'
+      ***Bone Cudgel***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 6 (1d6 + 3) Bludgeoning damage plus 2 (1d4) Psychic damage.
     senses: Blindsight 30 ft., Passive Perception 13
     languages: []
   fr:
     name: Torve
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Gourdin en os***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 6 (1d6
-      + 3) dégâts contondants plus 2 (1d4) dégâts psychiques.'
+      ***Gourdin en os***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 6 (1d6 + 3) dégâts contondants plus 2 (1d4) dégâts psychiques.
     senses: Vision aveugle 9 m, Perception passive 13
     languages: []

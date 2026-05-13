@@ -76,39 +76,28 @@ translations:
   en:
     name: Wolf
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Pack Tactics***. The wolf has Advantage on attack rolls against a creature
-      if at least one of the wolf''s allies is within 5 feet of the creature and the
-      ally doesn''t have the Incapacitated condition.
-
+      ***Pack Tactics***. The wolf has Advantage on attack rolls against a creature if at least one of the wolf's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.
 
       ## Actions
 
-
-      ***Bite***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 5 (1d6 + 2) Piercing
-      damage. If the target is a Medium or smaller creature, it has the Prone condition.'
+      ***Bite***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 5 (1d6 + 2) Piercing damage. If the target is a Medium or smaller creature, it has the Prone condition.
     senses: Darkvision 60 ft., Passive Perception 15
     languages:
     - None
   fr:
     name: Loup
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Tactique de meute***. Le loup a un Avantage aux jets d''attaque contre une
-      créature si au moins l''un de ses alliés est à 1,50 m ou moins de la créature
-      et si l''allié n''a pas l''état Incapable d''agir.
-
+      ***Tactique de meute***. Le loup a un Avantage aux jets d'attaque contre une créature si au moins l'un de ses alliés est à 1,50 m ou moins de la créature et si l'allié n'a pas l'état Incapable d'agir.
 
       ## Actions
 
-
-      ***Morsure***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 5 (1d6 + 2)
-      dégâts perforants. Si la cible est de taille M ou inférieure, elle subit l''état
-      À terre.'
+      ***Morsure***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 5 (1d6 + 2) dégâts perforants. Si la cible est de taille M ou inférieure, elle subit l'état À terre.
     senses: Vision dans le noir 18 m, Perception passive 15
     languages:
     - aucune

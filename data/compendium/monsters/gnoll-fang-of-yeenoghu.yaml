@@ -80,27 +80,18 @@ translations:
   en:
     name: Gnoll Fang of Yeenoghu
     subtype: null
-    description: '## Actions
-
+    description: |-
+      ## Actions
 
       ***Multiattack***. The gnoll makes one Bite attack and two Bone Flail attacks.
 
+      ***Bite***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 6 (1d6 + 3) Piercing damage plus 7 (2d6) Poison damage, and the target has the Poisoned condition until the start of the gnoll's next turn.
 
-      ***Bite***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 6 (1d6 + 3) Piercing
-      damage plus 7 (2d6) Poison damage, and the target has the Poisoned condition
-      until the start of the gnoll''s next turn.
-
-
-      ***Bone Flail***. *Melee Attack Roll* : +5, reach 10 ft. *Hit* : 7 (1d8 + 3)
-      Piercing damage.
-
+      ***Bone Flail***. *Melee Attack Roll* : +5, reach 10 ft. *Hit* : 7 (1d8 + 3) Piercing damage.
 
       ## Bonus actions
 
-
-      ***Rampage (2/Day)***. Immediately after dealing damage to a creature that is
-      already Bloodied, the gnoll moves up to half its Speed, and it makes one Bite
-      attack.'
+      ***Rampage (2/Day)***. Immediately after dealing damage to a creature that is already Bloodied, the gnoll moves up to half its Speed, and it makes one Bite attack.
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - Abyssal
@@ -108,28 +99,18 @@ translations:
   fr:
     name: Gnoll, croc de Yeenoghu
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Attaques multiples***. Le gnoll effectue une attaque de Morsure et deux attaques de Fléau osseux.
 
-      ***Attaques multiples***. Le gnoll effectue une attaque de Morsure et deux attaques
-      de Fléau osseux.
+      ***Morsure***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 6 (1d6 + 3) dégâts perforants plus 7 (2d6) dégâts de poison, et la cible subit l'état Empoisonné jusqu'au début du prochain tour du gnoll.
 
-
-      ***Morsure***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 6 (1d6 + 3)
-      dégâts perforants plus 7 (2d6) dégâts de poison, et la cible subit l''état Empoisonné
-      jusqu''au début du prochain tour du gnoll.
-
-
-      ***Fléau osseux***. *Corps à corps* : +5, allonge 3 m. *Touché* : 7 (1d8 + 3)
-      dégâts perforants.
-
+      ***Fléau osseux***. *Corps à corps* : +5, allonge 3 m. *Touché* : 7 (1d8 + 3) dégâts perforants.
 
       ## Actions Bonus
 
-
-      ***Déchaînement (2/jour)***. Immédiatement après avoir infligé des dégâts à
-      une créature déjà En péril, le gnoll se déplace jusqu''à la moitié de sa Vitesse
-      et effectue une attaque de Morsure.'
+      ***Déchaînement (2/jour)***. Immédiatement après avoir infligé des dégâts à une créature déjà En péril, le gnoll se déplace jusqu'à la moitié de sa Vitesse et effectue une attaque de Morsure.
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - abyssal

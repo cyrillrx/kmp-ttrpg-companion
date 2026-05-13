@@ -76,15 +76,12 @@ translations:
   en:
     name: Ogre
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Greatclub***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 13 (2d8 + 4) Bludgeoning damage.
 
-      ***Greatclub***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 13 (2d8 + 4)
-      Bludgeoning damage.
-
-
-      ***Javelin***. *Melee or Ranged Attack Roll* : +6, reach 5 ft. or range 30/120
-      ft. *Hit* : 11 (2d6 + 4) Piercing damage.'
+      ***Javelin***. *Melee or Ranged Attack Roll* : +6, reach 5 ft. or range 30/120 ft. *Hit* : 11 (2d6 + 4) Piercing damage.
     senses: Darkvision 60 ft., Passive Perception 8
     languages:
     - Common
@@ -92,15 +89,12 @@ translations:
   fr:
     name: Ogre
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Massue***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 13 (2d8 + 4) dégâts contondants.
 
-      ***Massue***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 13 (2d8 + 4)
-      dégâts contondants.
-
-
-      ***Javeline***. *Corps à corps ou à distance* : +6, allonge 1,50 m ou portée
-      9/36 m. *Touché* : 11 (2d6 + 4) dégâts perforants.'
+      ***Javeline***. *Corps à corps ou à distance* : +6, allonge 1,50 m ou portée 9/36 m. *Touché* : 11 (2d6 + 4) dégâts perforants.
     senses: Vision dans le noir 18 m, Perception passive 8
     languages:
     - commun

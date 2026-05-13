@@ -78,36 +78,28 @@ translations:
   en:
     name: Crocodile
     subtype: null
-    description: '## Traits
-
+    description: |-
+      ## Traits
 
       ***Hold Breath***. The crocodile can hold its breath for 1 hour.
 
-
       ## Actions
 
-
-      ***Bite***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 6 (1d8 + 2) Piercing
-      damage. If the target is Medium or smaller, it has the Grappled condition (escape
-      DC 12). While Grappled, the target has the Restrained condition.'
+      ***Bite***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 6 (1d8 + 2) Piercing damage. If the target is Medium or smaller, it has the Grappled condition (escape DC 12). While Grappled, the target has the Restrained condition.
     senses: Passive Perception 10
     languages:
     - None
   fr:
     name: Crocodile
     subtype: null
-    description: '## Traits
-
+    description: |-
+      ## Traits
 
       ***Apnée***. Le crocodile peut retenir son souffle pendant 1 heure.
 
-
       ## Actions
 
-
-      ***Morsure***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 6 (1d8 + 2)
-      dégâts perforants. Si la cible est de taille M ou inférieure, elle subit l''état
-      Agrippé (évasion DD 12). Tant qu''elle est agrippée, elle subit l''état Entravé.'
+      ***Morsure***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 6 (1d8 + 2) dégâts perforants. Si la cible est de taille M ou inférieure, elle subit l'état Agrippé (évasion DD 12). Tant qu'elle est agrippée, elle subit l'état Entravé.
     senses: Perception passive 10
     languages:
     - aucune

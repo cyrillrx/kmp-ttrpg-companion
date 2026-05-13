@@ -76,36 +76,28 @@ translations:
   en:
     name: Slaad Tadpole
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Magic Resistance***. The slaad has Advantage on saving throws against spells
-      and other magical effects.
-
+      ***Magic Resistance***. The slaad has Advantage on saving throws against spells and other magical effects.
 
       ## Actions
 
-
-      ***Bite***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 5 (1d6 + 2) Piercing
-      damage.'
+      ***Bite***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 5 (1d6 + 2) Piercing damage.
     senses: Darkvision 60 ft., Passive Perception 7
     languages:
     - Understands Slaad but can't speak
   fr:
     name: Slaad, têtard
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Résistance à la magie***. Le slaad a un Avantage aux jets de sauvegarde contre
-      les sorts et autres effets magiques.
-
+      ***Résistance à la magie***. Le slaad a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
 
       ## Actions
 
-
-      ***Morsure***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 5 (1d6 + 2)
-      dégâts perforants.'
+      ***Morsure***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 5 (1d6 + 2) dégâts perforants.
     senses: Vision dans le noir 18 m, Perception passive 7
     languages:
     - comprend le slaad mais ne parle pas

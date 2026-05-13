@@ -76,50 +76,36 @@ translations:
   en:
     name: Lacedon Ghoul
     subtype: null
-    description: '## Actions
-
+    description: |-
+      ## Actions
 
       ***Multiattack***. The ghoul makes two Icy Bite attacks.
 
+      ***Icy Bite***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 9 (2d6 + 2) Cold damage, and the target's Speed decreases by 5 feet until the start of the ghoul's next turn.
 
-      ***Icy Bite***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 9 (2d6 + 2) Cold
-      damage, and the target''s Speed decreases by 5 feet until the start of the ghoul''s
-      next turn.
-
-
-      ***Claw***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 4 (1d4 + 2) Slashing
-      damage. If the target is a creature that isn''t an Undead or elf, it is subjected
-      to the following effect. *Constitution Saving Throw* : DC 10. *Failure* : The
-      target has the Paralyzed condition until the end of its next turn.
-
+      ***Claw***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 4 (1d4 + 2) Slashing damage. If the target is a creature that isn't an Undead or elf, it is subjected to the following effect. *Constitution Saving Throw* : DC 10. *Failure* : The target has the Paralyzed condition until the end of its next turn.
 
       ## Bonus actions
 
-
-      ***Watery Rush***. While underwater, the ghoul moves up to half its Swim Speed
-      without provoking Opportunity Attacks.'
+      ***Watery Rush***. While underwater, the ghoul moves up to half its Swim Speed without provoking Opportunity Attacks.
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - Common
   fr:
     name: Goule lacédone
     subtype: null
-    description: '## Actions
-
+    description: |-
+      ## Actions
 
       Attaques multiples.
 
-
       Morsure glaciale.
-
 
       Griffe.
 
-
       ## Actions Bonus
 
-
-      Ruée aquatique.'
+      Ruée aquatique.
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - commun

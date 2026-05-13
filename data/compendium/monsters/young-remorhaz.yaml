@@ -76,33 +76,27 @@ translations:
   en:
     name: Young Remorhaz
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Heat Aura***. At the end of each of the remorhaz''s turns, each creature
-      in a 5-foot Emanation originating from the remorhaz takes 11 (2d10) Fire damage.
-
+      ***Heat Aura***. At the end of each of the remorhaz's turns, each creature in a 5-foot Emanation originating from the remorhaz takes 11 (2d10) Fire damage.
 
       ## Actions
 
-
-      ***Bite***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 15 (2d10 + 4) Piercing
-      damage plus 13 (3d8) Fire damage.'
+      ***Bite***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 15 (2d10 + 4) Piercing damage plus 13 (3d8) Fire damage.
     senses: Darkvision 60 ft., Tremorsense 60 ft., Passive Perception 10
     languages: []
   fr:
     name: Remorhaz, jeune
     subtype: null
-    description: '## Traits
-
+    description: |-
+      ## Traits
 
       Aura de chaleur.
 
-
       ## Actions
 
-
-      Morsure.'
+      Morsure.
     senses: Vision dans le noir 18 m, perception des vibrations 18 m, Perception passive
       10
     languages: []

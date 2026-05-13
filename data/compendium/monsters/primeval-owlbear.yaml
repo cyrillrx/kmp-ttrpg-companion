@@ -79,42 +79,34 @@ translations:
   en:
     name: Primeval Owlbear
     subtype: null
-    description: '## Traits
-
+    description: |-
+      ## Traits
 
       Magic Resistance.
 
-
       ## Actions
-
 
       Multiattack.
 
-
       Ravage.
 
-
-      Screech (Recharge 5–6).'
+      Screech (Recharge 5–6).
     senses: Darkvision 120 ft., Passive Perception 18
     languages: []
   fr:
     name: Ours-hibou primitif
     subtype: null
-    description: '## Traits
-
+    description: |-
+      ## Traits
 
       Résistance à la magie.
 
-
       ## Actions
-
 
       Attaques multiples.
 
-
       Dévastation.
 
-
-      Hurlement perçant (recharge 5–6).'
+      Hurlement perçant (recharge 5–6).
     senses: Vision dans le noir 36 m, Perception passive 18
     languages: []

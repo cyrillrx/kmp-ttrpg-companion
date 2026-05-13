@@ -76,36 +76,28 @@ translations:
   en:
     name: Giant Wasp
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Flyby***. The wasp doesn''t provoke an Opportunity Attack when it flies out
-      of an enemy''s reach.
-
+      ***Flyby***. The wasp doesn't provoke an Opportunity Attack when it flies out of an enemy's reach.
 
       ## Actions
 
-
-      ***Sting***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 5 (1d6 + 2) Piercing
-      damage plus 5 (2d4) Poison damage.'
+      ***Sting***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 5 (1d6 + 2) Piercing damage plus 5 (2d4) Poison damage.
     senses: Passive Perception 10
     languages:
     - None
   fr:
     name: Guêpe géante
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Repli aérien***. La guêpe ne provoque pas d''attaque d''Opportunité lorsqu''elle
-      quitte la zone d''allonge d''un ennemi en volant.
-
+      ***Repli aérien***. La guêpe ne provoque pas d'attaque d'Opportunité lorsqu'elle quitte la zone d'allonge d'un ennemi en volant.
 
       ## Actions
 
-
-      ***Dard***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 5 (1d6 + 2) dégâts
-      perforants plus 5 (2d4) dégâts de poison.'
+      ***Dard***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 5 (1d6 + 2) dégâts perforants plus 5 (2d4) dégâts de poison.
     senses: Perception passive 10
     languages:
     - aucune

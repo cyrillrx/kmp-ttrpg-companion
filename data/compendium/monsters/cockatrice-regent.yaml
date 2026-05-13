@@ -78,64 +78,42 @@ translations:
   en:
     name: Cockatrice Regent
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Flyby***. The cockatrice doesn''t provoke an Opportunity Attack when it flies
-      out of an enemy''s reach.
-
+      ***Flyby***. The cockatrice doesn't provoke an Opportunity Attack when it flies out of an enemy's reach.
 
       ## Actions
 
+      ***Multiattack***. The cockatrice makes one Petrifying Bite attack and two Talons attacks.
 
-      ***Multiattack***. The cockatrice makes one Petrifying Bite attack and two Talons
-      attacks.
+      ***Petrifying Bite***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 13 (2d8 + 4) Piercing damage. If the target is a creature, it is subjected to the following effect. *Constitution Saving Throw* : DC 14. *First Failure* : The target has the Restrained condition and repeats the save at the end of its next turn if it is still Restrained, ending the effect on itself on a success. *Second Failure* : The target has the Petrified condition instead of the Restrained condition.
 
-
-      ***Petrifying Bite***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 13 (2d8
-      + 4) Piercing damage. If the target is a creature, it is subjected to the following
-      effect. *Constitution Saving Throw* : DC 14. *First Failure* : The target has
-      the Restrained condition and repeats the save at the end of its next turn if
-      it is still Restrained, ending the effect on itself on a success. *Second Failure*
-      : The target has the Petrified condition instead of the Restrained condition.
-
-
-      ***Talons***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 18 (4d6 + 4) Slashing
-      damage.
-
+      ***Talons***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 18 (4d6 + 4) Slashing damage.
 
       ## Reactions
 
-
-      ***Magical Backlash***. *Trigger* : A creature within 120 feet of the cockatrice
-      deals damage to it. Response— *Dexterity Saving Throw* : DC 14, the triggering
-      creature. *Failure* : 13 (3d6 + 3) Force damage.'
+      ***Magical Backlash***. *Trigger* : A creature within 120 feet of the cockatrice deals damage to it. Response— *Dexterity Saving Throw* : DC 14, the triggering creature. *Failure* : 13 (3d6 + 3) Force damage.
     senses: Darkvision 120 ft., Passive Perception 13
     languages: []
   fr:
     name: Cockatrice souveraine
     subtype: null
-    description: '## Traits
-
+    description: |-
+      ## Traits
 
       Repli aérien.
 
-
       ## Actions
-
 
       Attaques multiples.
 
-
       Morsure pétrifiante.
-
 
       Serres.
 
-
       ## Réactions
 
-
-      Riposte magique.'
+      Riposte magique.
     senses: Vision dans le noir 36 m, Perception passive 13
     languages: []

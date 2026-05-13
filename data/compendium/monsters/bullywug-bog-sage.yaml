@@ -79,43 +79,28 @@ translations:
   en:
     name: Bullywug Bog Sage
     subtype: null
-    description: '## Traits
-
+    description: |-
+      ## Traits
 
       ***Amphibious***. The bullywug can breathe air and water.
 
-
-      ***Speak with Frogs and Toads***. The bullywug can communicate simple concepts
-      to frogs and toads when it speaks in Bullywug.
-
+      ***Speak with Frogs and Toads***. The bullywug can communicate simple concepts to frogs and toads when it speaks in Bullywug.
 
       ## Actions
 
+      ***Multiattack***. The bullywug makes two Bog Staff attacks. It can replace any attack with a use of Spellcasting to cast *[Ray of Sickness](https://www.aidedd.org/spell/ray-of-sickness)*.
 
-      ***Multiattack***. The bullywug makes two Bog Staff attacks. It can replace
-      any attack with a use of Spellcasting to cast *[Ray of Sickness](https://www.aidedd.org/spell/ray-of-sickness)*.
+      ***Bog Staff***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 7 (1d8 + 3) Bludgeoning damage plus 10 (3d6) Poison damage.
 
+      ***Spellcasting***. The bullywug casts one of the following spells, using Wisdom as the spellcasting ability (spell save DC 13, +5 to hit with spell attacks):
 
-      ***Bog Staff***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 7 (1d8 + 3) Bludgeoning
-      damage plus 10 (3d6) Poison damage.
+      At Will: *[Dancing Lights](https://www.aidedd.org/spell/dancing-lights), [Druidcraft](https://www.aidedd.org/spell/druidcraft), [Ray of Sickness](https://www.aidedd.org/spell/ray-of-sickness)*
 
-
-      ***Spellcasting***. The bullywug casts one of the following spells, using Wisdom
-      as the spellcasting ability (spell save DC 13, +5 to hit with spell attacks):
-
-
-      At Will: *[Dancing Lights](https://www.aidedd.org/spell/dancing-lights), [Druidcraft](https://www.aidedd.org/spell/druidcraft),
-      [Ray of Sickness](https://www.aidedd.org/spell/ray-of-sickness)*
-
-
-      1/Day Each: *[Speak with Plants](https://www.aidedd.org/spell/speak-with-plants),
-      [Vitriolic Sphere](https://www.aidedd.org/spell/vitriolic-sphere)*
-
+      1/Day Each: *[Speak with Plants](https://www.aidedd.org/spell/speak-with-plants), [Vitriolic Sphere](https://www.aidedd.org/spell/vitriolic-sphere)*
 
       ## Bonus actions
 
-
-      ***Leap***. The bullywug jumps up to 30 feet by spending 10 feet of movement.'
+      ***Leap***. The bullywug jumps up to 30 feet by spending 10 feet of movement.
     senses: Passive Perception 13
     languages:
     - Bullywug
@@ -124,45 +109,28 @@ translations:
   fr:
     name: Brutacien, sage du marais
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Amphibie***. Le brutacien peut respirer sous l'eau comme à l'air libre.
 
-      ***Amphibie***. Le brutacien peut respirer sous l''eau comme à l''air libre.
-
-
-      ***Communication avec les grenouilles et les crapauds***. Le brutacien peut
-      communiquer des idées simples aux grenouilles et aux crapauds lorsqu''il s''exprime
-      en brutacien.
-
+      ***Communication avec les grenouilles et les crapauds***. Le brutacien peut communiquer des idées simples aux grenouilles et aux crapauds lorsqu'il s'exprime en brutacien.
 
       ## Actions
 
+      ***Attaques multiples***. Le brutacien effectue deux attaques de Bâton du marais. Il peut remplacer l'une de ces attaques par une utilisation d'Incantation pour lancer *rayon empoisonné*.
 
-      ***Attaques multiples***. Le brutacien effectue deux attaques de Bâton du marais.
-      Il peut remplacer l''une de ces attaques par une utilisation d''Incantation
-      pour lancer *rayon empoisonné*.
+      ***Bâton du marais***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 7 (1d8 + 3) dégâts contondants plus 10 (3d6) dégâts de poison.
 
+      ***Incantation***. Le brutacien lance l'un des sorts suivants, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 13, +5 pour toucher) :
 
-      ***Bâton du marais***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 7 (1d8
-      + 3) dégâts contondants plus 10 (3d6) dégâts de poison.
-
-
-      ***Incantation***. Le brutacien lance l''un des sorts suivants, la Sagesse étant
-      sa caractéristique d''incantation (DD de sauvegarde 13, +5 pour toucher) :
-
-
-      À volonté : *[druidisme](https://www.aidedd.org/spell/fr/druidisme), lumières
-      dansantes, rayon empoisonné*
-
+      À volonté : *[druidisme](https://www.aidedd.org/spell/fr/druidisme), lumières dansantes, rayon empoisonné*
 
       1/jour chacun : *communication avec les plantes, sphère de vitriol*
 
-
       ## Actions Bonus
 
-
-      ***Bond***. Le brutacien effectue un saut d''un maximum de 9 m en dépensant
-      3 m de déplacement.'
+      ***Bond***. Le brutacien effectue un saut d'un maximum de 9 m en dépensant 3 m de déplacement.
     senses: Perception passive 13
     languages:
     - brutacien

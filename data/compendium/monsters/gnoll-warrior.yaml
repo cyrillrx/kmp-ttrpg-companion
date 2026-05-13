@@ -76,46 +76,32 @@ translations:
   en:
     name: Gnoll Warrior
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Rend***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 5 (1d6 + 2) Piercing damage.
 
-      ***Rend***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 5 (1d6 + 2) Piercing
-      damage.
-
-
-      ***Bone Bow***. *Ranged Attack Roll* : +3, range 150/600 ft. *Hit* : 6 (1d10
-      + 1) Piercing damage.
-
+      ***Bone Bow***. *Ranged Attack Roll* : +3, range 150/600 ft. *Hit* : 6 (1d10 + 1) Piercing damage.
 
       ## Bonus actions
 
-
-      ***Rampage (1/Day)***. Immediately after dealing damage to a creature that is
-      already Bloodied, the gnoll moves up to half its Speed, and it makes one Rend
-      attack.'
+      ***Rampage (1/Day)***. Immediately after dealing damage to a creature that is already Bloodied, the gnoll moves up to half its Speed, and it makes one Rend attack.
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - Gnoll
   fr:
     name: Gnoll, combattant
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Saignée***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 5 (1d6 + 2) dégâts perforants.
 
-      ***Saignée***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 5 (1d6 + 2)
-      dégâts perforants.
-
-
-      ***Arc en os***. *À distance* : +3, portée 45/180 m. *Touché* : 6 (1d10 + 1)
-      dégâts perforants.
-
+      ***Arc en os***. *À distance* : +3, portée 45/180 m. *Touché* : 6 (1d10 + 1) dégâts perforants.
 
       ## Actions Bonus
 
-
-      ***Déchaînement (1/jour)***. Aussitôt après avoir infligé des dégâts à une créature
-      déjà En péril, le gnoll se déplace à concurrence de la moitié de sa Vitesse
-      et effectue une attaque de Saignée.'
+      ***Déchaînement (1/jour)***. Aussitôt après avoir infligé des dégâts à une créature déjà En péril, le gnoll se déplace à concurrence de la moitié de sa Vitesse et effectue une attaque de Saignée.
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - gnoll

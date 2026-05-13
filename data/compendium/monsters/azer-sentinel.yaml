@@ -78,46 +78,32 @@ translations:
   en:
     name: Azer Sentinel
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Fire Aura***. At the end of each of the azer's turns, each creature of the azer's choice in a 5-foot Emanation originating from the azer takes 5 (1d10) Fire damage unless the azer has the Incapacitated condition.
 
-      ***Fire Aura***. At the end of each of the azer''s turns, each creature of the
-      azer''s choice in a 5-foot Emanation originating from the azer takes 5 (1d10)
-      Fire damage unless the azer has the Incapacitated condition.
-
-
-      ***Illumination***. The azer sheds Bright Light in a 10-foot radius and Dim
-      Light for an additional 10 feet.
-
+      ***Illumination***. The azer sheds Bright Light in a 10-foot radius and Dim Light for an additional 10 feet.
 
       ## Actions
 
-
-      ***Burning Hammer***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 8 (1d10
-      + 3) Bludgeoning damage plus 3 (1d6) Fire damage.'
+      ***Burning Hammer***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 8 (1d10 + 3) Bludgeoning damage plus 3 (1d6) Fire damage.
     senses: Passive Perception 11
     languages:
     - Primordial (Ignan)
   fr:
     name: Azer, sentinelle
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Aura de feu***. À la fin de chaque tour de l'azer, chaque créature qu'il choisit dans une Émanation de 1,50 m centrée sur lui subit 5 (1d10) dégâts de feu, sauf si cet azer subit l'état Incapable d'agir.
 
-      ***Aura de feu***. À la fin de chaque tour de l''azer, chaque créature qu''il
-      choisit dans une Émanation de 1,50 m centrée sur lui subit 5 (1d10) dégâts de
-      feu, sauf si cet azer subit l''état Incapable d''agir.
-
-
-      ***Illumination***. L''azer projette une Lumière vive sur un rayon de 3 m, et
-      une Lumière faible sur 3 m de plus.
-
+      ***Illumination***. L'azer projette une Lumière vive sur un rayon de 3 m, et une Lumière faible sur 3 m de plus.
 
       ## Actions
 
-
-      ***Marteau ardent***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 8 (1d10
-      + 3) dégâts contondants plus 3 (1d6) dégâts de feu.'
+      ***Marteau ardent***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 8 (1d10 + 3) dégâts contondants plus 3 (1d6) dégâts de feu.
     senses: Perception passive 11
     languages:
     - primordial (igné)

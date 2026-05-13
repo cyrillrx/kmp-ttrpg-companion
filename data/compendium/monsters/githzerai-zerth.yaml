@@ -81,44 +81,26 @@ translations:
   en:
     name: Githzerai Zerth
     subtype: Gith
-    description: '## Actions
-
+    description: |-
+      ## Actions
 
       ***Multiattack***. The githzerai makes two Psi Strike attacks.
 
+      ***Psi Strike***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 11 (2d6 + 4) Bludgeoning damage plus 13 (3d8) Psychic damage.
 
-      ***Psi Strike***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 11 (2d6 + 4)
-      Bludgeoning damage plus 13 (3d8) Psychic damage.
+      ***Spellcasting***. The githzerai casts one of the following spells, requiring no spell components and using Wisdom as the spellcasting ability (spell save DC 14):
 
+      At will: *[Mage Hand](https://www.aidedd.org/spell/mage-hand)* (the hand is Invisible)
 
-      ***Spellcasting***. The githzerai casts one of the following spells, requiring
-      no spell components and using Wisdom as the spellcasting ability (spell save
-      DC 14):
-
-
-      At will: *[Mage Hand](https://www.aidedd.org/spell/mage-hand)* (the hand is
-      Invisible)
-
-
-      1/day each: *[Phantasmal Killer](https://www.aidedd.org/spell/phantasmal-killer)*
-      (level 6 version), *[Plane Shift](https://www.aidedd.org/spell/plane-shift),
-      [See Invisibility](https://www.aidedd.org/spell/see-invisibility)*
-
+      1/day each: *[Phantasmal Killer](https://www.aidedd.org/spell/phantasmal-killer)* (level 6 version), *[Plane Shift](https://www.aidedd.org/spell/plane-shift), [See Invisibility](https://www.aidedd.org/spell/see-invisibility)*
 
       ## Bonus actions
 
-
-      ***Psi-Powered Leap (2/Day)***. The githzerai casts *[Jump](https://www.aidedd.org/spell/jump)*
-      , requiring no spell components and using the same spellcasting ability as Spellcasting.
-
+      ***Psi-Powered Leap (2/Day)***. The githzerai casts *[Jump](https://www.aidedd.org/spell/jump)* , requiring no spell components and using the same spellcasting ability as Spellcasting.
 
       ## Reactions
 
-
-      ***Psionic Defense (2/Day)***. The githzerai casts *[Feather Fall](https://www.aidedd.org/spell/feather-fall)*
-      or *[Shield](https://www.aidedd.org/spell/shield)* in response to the spell''s
-      trigger, requiring no spell components and using the same spellcasting ability
-      as Spellcasting.'
+      ***Psionic Defense (2/Day)***. The githzerai casts *[Feather Fall](https://www.aidedd.org/spell/feather-fall)* or *[Shield](https://www.aidedd.org/spell/shield)* in response to the spell's trigger, requiring no spell components and using the same spellcasting ability as Spellcasting.
     senses: Passive Perception 16
     languages:
     - Common
@@ -126,28 +108,22 @@ translations:
   fr:
     name: Githzerai, zerth
     subtype: Gith
-    description: '## Actions
-
+    description: |-
+      ## Actions
 
       Attaques multiples.
 
-
       Frappe psi.
-
 
       Incantation.
 
-
       ## Actions Bonus
-
 
       Bond psi (2/jour).
 
-
       ## Réactions
 
-
-      Défense psionique (2/jour).'
+      Défense psionique (2/jour).
     senses: Perception passive 16
     languages:
     - commun

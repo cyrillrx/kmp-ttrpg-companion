@@ -79,13 +79,10 @@ translations:
   en:
     name: Giant Elk
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Ram***. *Melee Attack Roll* : +6, reach 10 ft. *Hit* : 11 (2d6 + 4) Bludgeoning
-      damage plus 5 (2d4) Radiant damage. If the target is a Huge or smaller creature
-      and the elk moved 20+ feet straight toward it immediately before the hit, the
-      target takes an extra 5 (2d4) Bludgeoning damage and has the Prone condition.'
+      ***Ram***. *Melee Attack Roll* : +6, reach 10 ft. *Hit* : 11 (2d6 + 4) Bludgeoning damage plus 5 (2d4) Radiant damage. If the target is a Huge or smaller creature and the elk moved 20+ feet straight toward it immediately before the hit, the target takes an extra 5 (2d4) Bludgeoning damage and has the Prone condition.
     senses: Darkvision 90 ft., Passive Perception 14
     languages:
     - Celestial; understands Common
@@ -94,14 +91,10 @@ translations:
   fr:
     name: Élan géant / Cervidé géant
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Ramure***. *Corps à corps* : +6, allonge 3 m. *Touché* : 11 (2d6 + 4) dégâts
-      contondants plus 5 (2d4) dégâts radiants. Si la cible est une créature de taille
-      TG ou inférieure et si l''élan s''est déplacé en ligne droite d''un minimum
-      de 6 m juste avant de la toucher, la cible subit 5 (2d4) dégâts contondants
-      supplémentaires, ainsi que l''état À terre.'
+      ***Ramure***. *Corps à corps* : +6, allonge 3 m. *Touché* : 11 (2d6 + 4) dégâts contondants plus 5 (2d4) dégâts radiants. Si la cible est une créature de taille TG ou inférieure et si l'élan s'est déplacé en ligne droite d'un minimum de 6 m juste avant de la toucher, la cible subit 5 (2d4) dégâts contondants supplémentaires, ainsi que l'état À terre.
     senses: Vision dans le noir 27 m, Perception passive 14
     languages:
     - céleste ; comprend le commun

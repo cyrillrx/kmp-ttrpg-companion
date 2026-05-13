@@ -81,43 +81,26 @@ translations:
   en:
     name: Storm Giant
     subtype: null
-    description: '## Traits
-
+    description: |-
+      ## Traits
 
       ***Amphibious***. The giant can breathe air and water.
 
-
       ## Actions
 
+      ***Multiattack***. The giant makes two attacks, using Storm Sword or Thunderbolt in any combination.
 
-      ***Multiattack***. The giant makes two attacks, using Storm Sword or Thunderbolt
-      in any combination.
+      ***Storm Sword***. *Melee Attack Roll* : +14, reach 10 ft. *Hit* : 23 (4d6 + 9) Slashing damage plus 13 (3d8) Lightning damage.
 
+      ***Thunderbolt***. *Ranged Attack Roll* : +14, range 500 ft. *Hit* : 22 (2d12 + 9) Lightning damage, and the target has the Blinded and Deafened conditions until the start of the giant's next turn.
 
-      ***Storm Sword***. *Melee Attack Roll* : +14, reach 10 ft. *Hit* : 23 (4d6 +
-      9) Slashing damage plus 13 (3d8) Lightning damage.
+      ***Lightning Storm (Recharge 5–6)***. *Dexterity Saving Throw* : DC 18, each creature in a 10-foot-radius, 40-foot-high Cylinder originating from a point the giant can see within 500 feet. *Failure* : 55 (10d10) Lightning damage. *Success* : Half damage.
 
-
-      ***Thunderbolt***. *Ranged Attack Roll* : +14, range 500 ft. *Hit* : 22 (2d12
-      + 9) Lightning damage, and the target has the Blinded and Deafened conditions
-      until the start of the giant''s next turn.
-
-
-      ***Lightning Storm (Recharge 5–6)***. *Dexterity Saving Throw* : DC 18, each
-      creature in a 10-foot-radius, 40-foot-high Cylinder originating from a point
-      the giant can see within 500 feet. *Failure* : 55 (10d10) Lightning damage.
-      *Success* : Half damage.
-
-
-      ***Spellcasting***. The giant casts one of the following spells, requiring no
-      Material components and using Wisdom as the spellcasting ability (spell save
-      DC 18):
-
+      ***Spellcasting***. The giant casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 18):
 
       At Will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), Light*
 
-
-      1/Day: *[Control Weather](https://www.aidedd.org/spell/control-weather)*'
+      1/Day: *[Control Weather](https://www.aidedd.org/spell/control-weather)*
     senses: Darkvision 120 ft., Truesight 30 ft., Passive Perception 20
     languages:
     - Common
@@ -125,44 +108,26 @@ translations:
   fr:
     name: Géant des tempêtes
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Amphibie***. Le géant peut respirer sous l''eau comme à l''air libre.
-
+      ***Amphibie***. Le géant peut respirer sous l'eau comme à l'air libre.
 
       ## Actions
 
+      ***Attaques multiples***. Le géant effectue deux attaques, réparties à sa guise entre Épée des orages et Foudroiement.
 
-      ***Attaques multiples***. Le géant effectue deux attaques, réparties à sa guise
-      entre Épée des orages et Foudroiement.
+      ***Épée des orages***. *Corps à corps* : +14, allonge 3 m. *Touché* : 23 (4d6 + 9) dégâts tranchants plus 13 (3d8) dégâts de foudre.
 
+      ***Foudroiement***. *À distance* : +14, portée 150 m. *Touché* : 22 (2d12 + 9) dégâts de foudre, et la cible subit les états Assourdi et Aveuglé jusqu'au début du tour suivant du géant.
 
-      ***Épée des orages***. *Corps à corps* : +14, allonge 3 m. *Touché* : 23 (4d6
-      + 9) dégâts tranchants plus 13 (3d8) dégâts de foudre.
+      ***Incantation***. Le géant lance l'un des sorts suivants, sans composantes matérielles, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 18) :
 
-
-      ***Foudroiement***. *À distance* : +14, portée 150 m. *Touché* : 22 (2d12 +
-      9) dégâts de foudre, et la cible subit les états Assourdi et Aveuglé jusqu''au
-      début du tour suivant du géant.
-
-
-      ***Incantation***. Le géant lance l''un des sorts suivants, sans composantes
-      matérielles, la Sagesse étant sa caractéristique d''incantation (DD de sauvegarde
-      18) :
-
-
-      À volonté : *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie),
-      lumière*
-
+      À volonté : *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), lumière*
 
       1/jour : *contrôle du climat*
 
-
-      ***Tempête foudroyante (recharge 5–6)***. *JdS Dextérité* : DD 18, chaque créature
-      dans un Cylindre de 3 m de rayon et 12 m de haut émanant d''un point que le
-      géant voit dans un rayon de 150 m. *Échec* : 55 (10d10) dégâts de foudre. *Réussite*
-      : demi-dégâts.'
+      ***Tempête foudroyante (recharge 5–6)***. *JdS Dextérité* : DD 18, chaque créature dans un Cylindre de 3 m de rayon et 12 m de haut émanant d'un point que le géant voit dans un rayon de 150 m. *Échec* : 55 (10d10) dégâts de foudre. *Réussite* : demi-dégâts.
     senses: Vision dans le noir 36 m, vision véritable 9 m, Perception passive 20
     languages:
     - commun

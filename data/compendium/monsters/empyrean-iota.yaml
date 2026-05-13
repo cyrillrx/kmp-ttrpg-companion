@@ -76,66 +76,46 @@ translations:
   en:
     name: Empyrean Iota
     subtype: Titan
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Incorporeal Movement***. The empyrean can move through other creatures and objects as if they were Difficult Terrain. It takes 5 (1d10) Force damage if it ends its turn inside an object.
 
-      ***Incorporeal Movement***. The empyrean can move through other creatures and
-      objects as if they were Difficult Terrain. It takes 5 (1d10) Force damage if
-      it ends its turn inside an object.
-
-
-      ***Magic Resistance***. The empyrean has Advantage on saving throws against
-      spells and other magical effects.
-
+      ***Magic Resistance***. The empyrean has Advantage on saving throws against spells and other magical effects.
 
       ## Actions
 
+      ***Otherworldly Strike***. *Melee or Ranged Attack Roll* : +5. reach 5 ft. or range 30 ft. *Hit* : 7 (1d8 + 3) Necrotic or Radiant damage (empyrean's choice).
 
-      ***Otherworldly Strike***. *Melee or Ranged Attack Roll* : +5. reach 5 ft. or
-      range 30 ft. *Hit* : 7 (1d8 + 3) Necrotic or Radiant damage (empyrean''s choice).
+      ***Spellcasting***. The empyrean casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability.
 
-
-      ***Spellcasting***. The empyrean casts one of the following spells, requiring
-      no Material components and using Wisdom as the spellcasting ability.
-
-
-      1/Day Each: *[Bless](https://www.aidedd.org/spell/bless), [Lesser Restoration](https://www.aidedd.org/spell/lesser-restoration)*
-      (as an action)
-
+      1/Day Each: *[Bless](https://www.aidedd.org/spell/bless), [Lesser Restoration](https://www.aidedd.org/spell/lesser-restoration)* (as an action)
 
       ## Bonus actions
 
-
-      ***Healing Word (1/Day)***. The empyrean casts *[Healing Word](https://www.aidedd.org/spell/healing-word)*
-      , using the same spellcasting ability as Spellcasting.'
+      ***Healing Word (1/Day)***. The empyrean casts *[Healing Word](https://www.aidedd.org/spell/healing-word)* , using the same spellcasting ability as Spellcasting.
     senses: Truesight 30 ft., Passive Perception 15
     languages:
     - All
   fr:
     name: Empyréen iota
     subtype: Titan
-    description: '## Traits
-
+    description: |-
+      ## Traits
 
       Déplacement intangible.
 
-
       Résistance à la magie.
-
 
       ## Actions
 
-
-      Sanction d''Outre-monde.
-
+      Sanction d'Outre-monde.
 
       Incantation.
 
-
       ## Actions Bonus
 
-
-      Mot de guérison (1/jour).'
+      Mot de guérison (1/jour).
     senses: vision véritable 9 m, Perception passive 15
     languages:
     - toutes

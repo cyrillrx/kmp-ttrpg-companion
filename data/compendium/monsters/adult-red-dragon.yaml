@@ -79,58 +79,34 @@ translations:
   en:
     name: Adult Red Dragon
     subtype: Chromatic
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Legendary Resistance (3/Day, or 4/Day in Lair)***. If the dragon fails a
-      saving throw, it can choose to succeed instead.
-
+      ***Legendary Resistance (3/Day, or 4/Day in Lair)***. If the dragon fails a saving throw, it can choose to succeed instead.
 
       ## Actions
 
+      ***Multiattack***. The dragon makes three Rend attacks. It can replace one attack with a use of Spellcasting to cast *[Scorching Ray](https://www.aidedd.org/spell/scorching-ray)*.
 
-      ***Multiattack***. The dragon makes three Rend attacks. It can replace one attack
-      with a use of Spellcasting to cast *[Scorching Ray](https://www.aidedd.org/spell/scorching-ray)*.
+      ***Rend***. *Melee Attack Roll* : +14, reach 10 ft. *Hit* : 13 (1d10 + 8) Slashing damage plus 5 (2d4) Fire damage.
 
+      ***Fire Breath (Recharge 5–6)***. *Dexterity Saving Throw* : DC 21, each creature in a 60-foot Cone. *Failure* : 59 (17d6) Fire damage. *Success* : Half damage.
 
-      ***Rend***. *Melee Attack Roll* : +14, reach 10 ft. *Hit* : 13 (1d10 + 8) Slashing
-      damage plus 5 (2d4) Fire damage.
+      ***Spellcasting***. The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 20, +12 to hit with spell attacks):
 
-
-      ***Fire Breath (Recharge 5–6)***. *Dexterity Saving Throw* : DC 21, each creature
-      in a 60-foot Cone. *Failure* : 59 (17d6) Fire damage. *Success* : Half damage.
-
-
-      ***Spellcasting***. The dragon casts one of the following spells, requiring
-      no Material components and using Charisma as the spellcasting ability (spell
-      save DC 20, +12 to hit with spell attacks):
-
-
-      At will: *[Command](https://www.aidedd.org/spell/command)* (level 2 version),
-      *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Scorching Ray](https://www.aidedd.org/spell/scorching-ray)*
-
+      At will: *[Command](https://www.aidedd.org/spell/command)* (level 2 version), *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Scorching Ray](https://www.aidedd.org/spell/scorching-ray)*
 
       1/day: *[Fireball](https://www.aidedd.org/spell/fireball)*
 
-
       ## Legendary actions
 
+      Legendary Action Uses: 3 (4 in Lair). Immediately after another creature's turn, The dragon can expend a use to take one of the following actions. The dragon regains all expended uses at the start of each of its turns.
 
-      Legendary Action Uses: 3 (4 in Lair). Immediately after another creature''s
-      turn, The dragon can expend a use to take one of the following actions. The
-      dragon regains all expended uses at the start of each of its turns.
+      ***Commanding Presence***. The dragon uses Spellcasting to cast *[Command](https://www.aidedd.org/spell/command)* (level 2 version). The dragon can't take this action again until the start of its next turn.
 
+      ***Fiery Rays***. The dragon uses Spellcasting to cast *[Scorching Ray](https://www.aidedd.org/spell/scorching-ray)*. The dragon can't take this action again until the start of its next turn.
 
-      ***Commanding Presence***. The dragon uses Spellcasting to cast *[Command](https://www.aidedd.org/spell/command)*
-      (level 2 version). The dragon can''t take this action again until the start
-      of its next turn.
-
-
-      ***Fiery Rays***. The dragon uses Spellcasting to cast *[Scorching Ray](https://www.aidedd.org/spell/scorching-ray)*.
-      The dragon can''t take this action again until the start of its next turn.
-
-
-      ***Pounce***. The dragon moves up to half its Speed, and it makes one Rend attack.'
+      ***Pounce***. The dragon moves up to half its Speed, and it makes one Rend attack.
     senses: Blindsight 60 ft., Darkvision 120 ft., Passive Perception 23
     languages:
     - Common
@@ -138,63 +114,34 @@ translations:
   fr:
     name: Dragon rouge, adulte
     subtype: Chromatique
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Résistance légendaire (3/jour, ou 4/jour dans son antre)***. Si le dragon
-      rate un jet de sauvegarde, il peut décider de le réussir tout de même.
-
+      ***Résistance légendaire (3/jour, ou 4/jour dans son antre)***. Si le dragon rate un jet de sauvegarde, il peut décider de le réussir tout de même.
 
       ## Actions
 
+      ***Attaques multiples***. Le dragon effectue trois attaques de Saignée. Il peut remplacer l'une de ces attaques par une utilisation d'Incantation pour lancer *[rayon ardent](https://www.aidedd.org/spell/fr/rayon-ardent)*.
 
-      ***Attaques multiples***. Le dragon effectue trois attaques de Saignée. Il peut
-      remplacer l''une de ces attaques par une utilisation d''Incantation pour lancer
-      *[rayon ardent](https://www.aidedd.org/spell/fr/rayon-ardent)*.
+      ***Saignée***. *Corps à corps* : +14, allonge 3 m. *Touché* : 13 (1d10 + 8) dégâts tranchants plus 5 (2d4) dégâts de feu.
 
+      ***Incantation***. Le dragon lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 20, +12 pour toucher) :
 
-      ***Saignée***. *Corps à corps* : +14, allonge 3 m. *Touché* : 13 (1d10 + 8)
-      dégâts tranchants plus 5 (2d4) dégâts de feu.
-
-
-      ***Incantation***. Le dragon lance l''un des sorts suivants sans composantes
-      matérielles, le Charisme étant sa caractéristique d''incantation (DD de sauvegarde
-      20, +12 pour toucher) :
-
-
-      À volonté : *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie),
-      [injonction](https://www.aidedd.org/spell/fr/injonction)* (au niveau 2), *[rayon
-      ardent](https://www.aidedd.org/spell/fr/rayon-ardent)*
-
+      À volonté : *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), [injonction](https://www.aidedd.org/spell/fr/injonction)* (au niveau 2), *[rayon ardent](https://www.aidedd.org/spell/fr/rayon-ardent)*
 
       1/jour : *[boule de feu](https://www.aidedd.org/spell/fr/boule-de-feu)*
 
-
-      ***Souffle de feu (recharge 5–6)***. *JdS Dextérité* : DD 21, chaque créature
-      dans un Cône de 18 m. *Échec* : 59 (17d6) dégâts de feu. *Réussite* : demi-dégâts.
-
+      ***Souffle de feu (recharge 5–6)***. *JdS Dextérité* : DD 21, chaque créature dans un Cône de 18 m. *Échec* : 59 (17d6) dégâts de feu. *Réussite* : demi-dégâts.
 
       ## Actions Légendaires
 
+      Utilisations d'action Légendaire : 3 (4 dans son antre). Aussitôt après le tour d'une autre créature, le dragon peut dépenser une utilisation pour entreprendre l'une des actions ci-après. Le dragon récupère toutes ses utilisations dépensées au début de chacun de ses tours.
 
-      Utilisations d''action Légendaire : 3 (4 dans son antre). Aussitôt après le
-      tour d''une autre créature, le dragon peut dépenser une utilisation pour entreprendre
-      l''une des actions ci-après. Le dragon récupère toutes ses utilisations dépensées
-      au début de chacun de ses tours.
+      ***Assaut incisif***. Le dragon se déplace à concurrence de la moitié de sa Vitesse et effectue une attaque de Saignée.
 
+      ***Autorité naturelle***. Le dragon recourt à Incantation pour lancer *[injonction](https://www.aidedd.org/spell/fr/injonction)* (au niveau 2). Le dragon ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.
 
-      ***Assaut incisif***. Le dragon se déplace à concurrence de la moitié de sa
-      Vitesse et effectue une attaque de Saignée.
-
-
-      ***Autorité naturelle***. Le dragon recourt à Incantation pour lancer *[injonction](https://www.aidedd.org/spell/fr/injonction)*
-      (au niveau 2). Le dragon ne peut alors plus entreprendre cette action jusqu''au
-      début de son tour suivant.
-
-
-      ***Rayons ignés***. Le dragon recourt à Incantation pour lancer *[rayon ardent](https://www.aidedd.org/spell/fr/rayon-ardent)*.
-      Le dragon ne peut alors plus entreprendre cette action jusqu''au début de son
-      tour suivant.'
+      ***Rayons ignés***. Le dragon recourt à Incantation pour lancer *[rayon ardent](https://www.aidedd.org/spell/fr/rayon-ardent)*. Le dragon ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.
     senses: Vision aveugle 18 m, Vision dans le noir 36 m, Perception passive 23
     languages:
     - commun

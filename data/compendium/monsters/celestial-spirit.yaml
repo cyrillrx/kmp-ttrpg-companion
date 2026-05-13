@@ -76,26 +76,16 @@ translations:
   en:
     name: Celestial Spirit
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Multiattack***. The spirit makes a number of attacks equal to half this spell's level (round down).
 
-      ***Multiattack***. The spirit makes a number of attacks equal to half this spell''s
-      level (round down).
+      ***Radiant Bow (Avenger Only)***. *Ranged Attack Roll* : Bonus equals your spell attack modifier, range 600 ft. *Hit* : 2d6 + 2 + the spell's level Radiant damage.
 
+      ***Radiant Mace (Defender Only)***. *Melee Attack Roll* : Bonus equals your spell attack modifier, reach 5 ft. *Hit* : 1d10 + 3 + the spell's level Radiant damage, and the spirit can choose itself or another creature it can see within 10 feet of the target. The chosen creature gains 1d10 Temporary Hit Points.
 
-      ***Radiant Bow (Avenger Only)***. *Ranged Attack Roll* : Bonus equals your spell
-      attack modifier, range 600 ft. *Hit* : 2d6 + 2 + the spell''s level Radiant
-      damage.
-
-
-      ***Radiant Mace (Defender Only)***. *Melee Attack Roll* : Bonus equals your
-      spell attack modifier, reach 5 ft. *Hit* : 1d10 + 3 + the spell''s level Radiant
-      damage, and the spirit can choose itself or another creature it can see within
-      10 feet of the target. The chosen creature gains 1d10 Temporary Hit Points.
-
-
-      ***Healing Touch (1/Day)***. The spirit touches another creature. The target
-      regains Hit Points equal to 2d8 + the spell''s level.'
+      ***Healing Touch (1/Day)***. The spirit touches another creature. The target regains Hit Points equal to 2d8 + the spell's level.
     senses: Darkvision 60 ft., Passive Perception 12
     languages:
     - Celestial
@@ -103,27 +93,16 @@ translations:
   fr:
     name: Esprit céleste
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Attaques multiples***. L'esprit effectue un nombre d'attaques égal à la moitié du niveau de ce sort (arrondir à l'inférieur).
 
-      ***Attaques multiples***. L''esprit effectue un nombre d''attaques égal à la
-      moitié du niveau de ce sort (arrondir à l''inférieur).
+      ***Arc radiant (vengeur uniquement)***. *À distance* : bonus égal à votre modificateur d'attaque des sorts, portée 180 m. *Touché* : 2d6 + 2 + le niveau du sort dégâts radiants.
 
+      ***Masse d'armes radiante (protecteur uniquement)***. *Corps à corps* : bonus égal à votre modificateur d'attaque des sorts, allonge 1,50 m. *Touché* : 1d10 + 3 + le niveau du sort dégâts radiants, et l'esprit peut choisir lui-même ou une autre créature qu'il peut voir dans un rayon de 3 m autour de la cible. La créature choisie gagne 1d10 points de vie temporaires.
 
-      ***Arc radiant (vengeur uniquement)***. *À distance* : bonus égal à votre modificateur
-      d''attaque des sorts, portée 180 m. *Touché* : 2d6 + 2 + le niveau du sort dégâts
-      radiants.
-
-
-      ***Masse d''armes radiante (protecteur uniquement)***. *Corps à corps* : bonus
-      égal à votre modificateur d''attaque des sorts, allonge 1,50 m. *Touché* : 1d10
-      + 3 + le niveau du sort dégâts radiants, et l''esprit peut choisir lui-même
-      ou une autre créature qu''il peut voir dans un rayon de 3 m autour de la cible.
-      La créature choisie gagne 1d10 points de vie temporaires.
-
-
-      ***Contact guérisseur (1/jour)***. L''esprit touche une autre créature. La cible
-      récupère un nombre de points de vie égal à 2d8 + le niveau du sort.'
+      ***Contact guérisseur (1/jour)***. L'esprit touche une autre créature. La cible récupère un nombre de points de vie égal à 2d8 + le niveau du sort.
     senses: Vision dans le noir 18 m, Perception passive 12
     languages:
     - céleste

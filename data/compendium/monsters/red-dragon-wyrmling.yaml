@@ -79,36 +79,28 @@ translations:
   en:
     name: Red Dragon Wyrmling
     subtype: Chromatic
-    description: '## Actions
-
+    description: |-
+      ## Actions
 
       ***Multiattack***. The dragon makes two Rend attacks.
 
+      ***Rend***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 9 (1d10 + 4) Slashing damage plus 3 (1d6) Fire damage.
 
-      ***Rend***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 9 (1d10 + 4) Slashing
-      damage plus 3 (1d6) Fire damage.
-
-
-      ***Fire Breath (Recharge 5–6)***. *Dexterity Saving Throw* : DC 13, each creature
-      in a 15-foot Cone. *Failure* : 24 (7d6) Fire damage. *Success* : Half damage.'
+      ***Fire Breath (Recharge 5–6)***. *Dexterity Saving Throw* : DC 13, each creature in a 15-foot Cone. *Failure* : 24 (7d6) Fire damage. *Success* : Half damage.
     senses: Blindsight 10 ft., Darkvision 60 ft., Passive Perception 14
     languages:
     - Draconic
   fr:
     name: Dragon rouge, dragonnet
     subtype: Chromatique
-    description: '## Actions
-
+    description: |-
+      ## Actions
 
       ***Attaques multiples***. Le dragon effectue deux attaques de Saignée.
 
+      ***Saignée***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 9 (1d10 + 4) dégâts tranchants plus 3 (1d6) dégâts de feu.
 
-      ***Saignée***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 9 (1d10 + 4)
-      dégâts tranchants plus 3 (1d6) dégâts de feu.
-
-
-      ***Souffle de feu (recharge 5–6)***. *JdS Dextérité* : DD 13, chaque créature
-      dans un Cône de 4,50 m. *Échec* : 24 (7d6) dégâts de feu. *Réussite* : demi-dégâts.'
+      ***Souffle de feu (recharge 5–6)***. *JdS Dextérité* : DD 13, chaque créature dans un Cône de 4,50 m. *Échec* : 24 (7d6) dégâts de feu. *Réussite* : demi-dégâts.
     senses: Vision aveugle 3 m, Vision dans le noir 18 m, Perception passive 14
     languages:
     - draconique

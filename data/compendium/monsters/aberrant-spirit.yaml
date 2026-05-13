@@ -76,40 +76,22 @@ translations:
   en:
     name: Aberrant Spirit
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Regeneration (Slaad Only)***. The spirit regains 5 Hit Points at the start of its turn if it has at least 1 Hit Point.
 
-      ***Regeneration (Slaad Only)***. The spirit regains 5 Hit Points at the start
-      of its turn if it has at least 1 Hit Point.
-
-
-      ***Whispering Aura (Mind Flayer Only)***. At the start of each of the spirit''s
-      turns, the spirit emits psionic energy if it doesn''t have the Incapacitated
-      condition. *Wisdom Saving Throw* : DC equals your spell save DC, each creature
-      (other than you) within 5 feet of the spirit. *Failure* : 2d6 Psychic damage.
-
+      ***Whispering Aura (Mind Flayer Only)***. At the start of each of the spirit's turns, the spirit emits psionic energy if it doesn't have the Incapacitated condition. *Wisdom Saving Throw* : DC equals your spell save DC, each creature (other than you) within 5 feet of the spirit. *Failure* : 2d6 Psychic damage.
 
       ## Actions
 
+      ***Multiattack***. The spirit makes a number of attacks equal to half this spell's level (round down).
 
-      ***Multiattack***. The spirit makes a number of attacks equal to half this spell''s
-      level (round down).
+      ***Claw (Slaad Only)***. *Melee Attack Roll* : Bonus equals your spell attack modifier, reach 5 ft. *Hit* : 1d10 + 3 + the spell's level Slashing damage, and the target can't regain Hit Points until the start of the spirit's next turn.
 
+      ***Eye Ray (Beholderkin Only)***. *Ranged Attack Roll* : Bonus equals your spell attack modifier, range 150 ft. *Hit* : 1d8 + 3 + the spell's level Psychic damage.
 
-      ***Claw (Slaad Only)***. *Melee Attack Roll* : Bonus equals your spell attack
-      modifier, reach 5 ft. *Hit* : 1d10 + 3 + the spell''s level Slashing damage,
-      and the target can''t regain Hit Points until the start of the spirit''s next
-      turn.
-
-
-      ***Eye Ray (Beholderkin Only)***. *Ranged Attack Roll* : Bonus equals your spell
-      attack modifier, range 150 ft. *Hit* : 1d8 + 3 + the spell''s level Psychic
-      damage.
-
-
-      ***Psychic Slam (Mind Flayer Only)***. *Melee Attack Roll* : Bonus equals your
-      spell attack modifier, reach 5 ft. *Hit* : 1d8 + 3 + the spell''s level Psychic
-      damage.'
+      ***Psychic Slam (Mind Flayer Only)***. *Melee Attack Roll* : Bonus equals your spell attack modifier, reach 5 ft. *Hit* : 1d8 + 3 + the spell's level Psychic damage.
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - Deep Speech
@@ -117,41 +99,22 @@ translations:
   fr:
     name: Esprit aberrant
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Régénération (slaad uniquement)***. L'esprit récupère 5 points de vie au début de son tour s'il lui reste au moins 1 point de vie.
 
-      ***Régénération (slaad uniquement)***. L''esprit récupère 5 points de vie au
-      début de son tour s''il lui reste au moins 1 point de vie.
-
-
-      ***Aura des murmures (flagelleur mental uniquement)***. Au début de chaque tour
-      de l''esprit, celui-ci émet des énergies psioniques s''il ne subit pas l''état
-      Incapable d''agir. *JdS Sagesse* : DD égal à votre DD de sauvegarde des sorts,
-      chaque créature (autre que vous) dans un rayon de 1,50 m autour de l''esprit.
-      *Échec* : 2d6 dégâts psychiques.
-
+      ***Aura des murmures (flagelleur mental uniquement)***. Au début de chaque tour de l'esprit, celui-ci émet des énergies psioniques s'il ne subit pas l'état Incapable d'agir. *JdS Sagesse* : DD égal à votre DD de sauvegarde des sorts, chaque créature (autre que vous) dans un rayon de 1,50 m autour de l'esprit. *Échec* : 2d6 dégâts psychiques.
 
       ## Actions
 
+      ***Attaques multiples***. L'esprit effectue un nombre d'attaques égal à la moitié du niveau de ce sort (arrondir à l'inférieur).
 
-      ***Attaques multiples***. L''esprit effectue un nombre d''attaques égal à la
-      moitié du niveau de ce sort (arrondir à l''inférieur).
+      ***Griffes (slaad uniquement)***. *Corps à corps* : bonus égal à votre modificateur d'attaque des sorts, allonge 1,50 m. *Touché* : 1d10 + 3 + le niveau du sort dégâts perforants, et la cible ne peut pas récupérer de points de vie avant le début du prochain tour de l'esprit.
 
+      ***Rayon oculaire (tyrannoeillidé uniquement)***. *À distance* : bonus égal à votre modificateur d'attaque des sorts, portée 45 m. *Touché* : 1d8 + 3 + le niveau du sort dégâts psychiques.
 
-      ***Griffes (slaad uniquement)***. *Corps à corps* : bonus égal à votre modificateur
-      d''attaque des sorts, allonge 1,50 m. *Touché* : 1d10 + 3 + le niveau du sort
-      dégâts perforants, et la cible ne peut pas récupérer de points de vie avant
-      le début du prochain tour de l''esprit.
-
-
-      ***Rayon oculaire (tyrannoeillidé uniquement)***. *À distance* : bonus égal
-      à votre modificateur d''attaque des sorts, portée 45 m. *Touché* : 1d8 + 3 +
-      le niveau du sort dégâts psychiques.
-
-
-      ***Choc psychique (flagelleur mental uniquement)***. *Corps à corps* : bonus
-      égal à votre modificateur d''attaque des sorts, allonge 1,50 m. *Touché* : 1d8
-      + 3 + le niveau du sort dégâts psychiques.'
+      ***Choc psychique (flagelleur mental uniquement)***. *Corps à corps* : bonus égal à votre modificateur d'attaque des sorts, allonge 1,50 m. *Touché* : 1d8 + 3 + le niveau du sort dégâts psychiques.
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - profond

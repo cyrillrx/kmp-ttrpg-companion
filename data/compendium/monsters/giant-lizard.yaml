@@ -78,36 +78,28 @@ translations:
   en:
     name: Giant Lizard
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Spider Climb***. The lizard can climb difficult surfaces, including along
-      ceilings, without needing to make an ability check.
-
+      ***Spider Climb***. The lizard can climb difficult surfaces, including along ceilings, without needing to make an ability check.
 
       ## Actions
 
-
-      ***Bite***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 6 (1d8 + 2) Piercing
-      damage.'
+      ***Bite***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 6 (1d8 + 2) Piercing damage.
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - None
   fr:
     name: Lézard géant
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Pattes d''araignée***. Le lézard peut parcourir les parois les plus difficiles
-      à escalader, y compris les plafonds, sans passer par un jet de caractéristique.
-
+      ***Pattes d'araignée***. Le lézard peut parcourir les parois les plus difficiles à escalader, y compris les plafonds, sans passer par un jet de caractéristique.
 
       ## Actions
 
-
-      ***Morsure***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 6 (1d8 + 2)
-      dégâts perforants.'
+      ***Morsure***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 6 (1d8 + 2) dégâts perforants.
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - aucune

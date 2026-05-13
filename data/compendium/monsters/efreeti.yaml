@@ -79,107 +79,56 @@ translations:
   en:
     name: Efreeti
     subtype: Genie
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Elemental Restoration***. If the efreeti dies outside the Elemental Plane of Fire, its body dissolves into ash, and it gains a new body in 1d4 days, reviving with all its Hit Points somewhere on the Plane of Fire.
 
-      ***Elemental Restoration***. If the efreeti dies outside the Elemental Plane
-      of Fire, its body dissolves into ash, and it gains a new body in 1d4 days, reviving
-      with all its Hit Points somewhere on the Plane of Fire.
+      ***Magic Resistance***. The efreeti has Advantage on saving throws against spells and other magical effects.
 
-
-      ***Magic Resistance***. The efreeti has Advantage on saving throws against spells
-      and other magical effects.
-
-
-      ***Wishes***. The efreeti has a 30 percent chance of knowing the *[Wish](https://www.aidedd.org/spell/wish)*
-      spell. If the efreeti knows it, the efreeti can cast it only on behalf of a
-      non-genie creature who communicates a wish in a way the efreeti can understand.
-      If the efreeti casts the spell for the creature, the efreeti suffers none of
-      the spell''s stress. Once the efreeti has cast it three times, the efreeti can''t
-      do so again for 365 days.
-
+      ***Wishes***. The efreeti has a 30 percent chance of knowing the *[Wish](https://www.aidedd.org/spell/wish)* spell. If the efreeti knows it, the efreeti can cast it only on behalf of a non-genie creature who communicates a wish in a way the efreeti can understand. If the efreeti casts the spell for the creature, the efreeti suffers none of the spell's stress. Once the efreeti has cast it three times, the efreeti can't do so again for 365 days.
 
       ## Actions
 
+      ***Multiattack***. The efreeti makes three attacks, using Heated Blade or Hurl Flame in any combination.
 
-      ***Multiattack***. The efreeti makes three attacks, using Heated Blade or Hurl
-      Flame in any combination.
+      ***Heated Blade***. *Melee Attack Roll* : +10, reach 5 ft. *Hit* : 13 (2d6 + 6) Slashing damage plus 13 (2d12) Fire damage.
 
+      ***Hurl Flame***. *Ranged Attack Roll* : +8, range 120 ft. *Hit* : 24 (7d6) Fire damage.
 
-      ***Heated Blade***. *Melee Attack Roll* : +10, reach 5 ft. *Hit* : 13 (2d6 +
-      6) Slashing damage plus 13 (2d12) Fire damage.
-
-
-      ***Hurl Flame***. *Ranged Attack Roll* : +8, range 120 ft. *Hit* : 24 (7d6)
-      Fire damage.
-
-
-      ***Spellcasting***. The efreeti casts one of the following spells, requiring
-      no Material components and using Charisma as the spellcasting ability (spell
-      save DC 16):
-
+      ***Spellcasting***. The efreeti casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 16):
 
       At Will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Elementalism](https://www.aidedd.org/spell/elementalism)*
 
-
-      1/Day Each: *[Gaseous Form](https://www.aidedd.org/spell/gaseous-form), [Invisibility](https://www.aidedd.org/spell/invisibility),
-      [Major Image](https://www.aidedd.org/spell/major-image), [Plane Shift](https://www.aidedd.org/spell/plane-shift),
-      [Tongues](https://www.aidedd.org/spell/tongues), [Wall of Fire](https://www.aidedd.org/spell/wall-of-fire)*
-      (level 7 version)'
+      1/Day Each: *[Gaseous Form](https://www.aidedd.org/spell/gaseous-form), [Invisibility](https://www.aidedd.org/spell/invisibility), [Major Image](https://www.aidedd.org/spell/major-image), [Plane Shift](https://www.aidedd.org/spell/plane-shift), [Tongues](https://www.aidedd.org/spell/tongues), [Wall of Fire](https://www.aidedd.org/spell/wall-of-fire)* (level 7 version)
     senses: Darkvision 120 ft., Passive Perception 12
     languages:
     - Primordial (Ignan)
   fr:
     name: Éfrit
     subtype: Génie
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Résistance à la magie***. L'éfrit a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
 
-      ***Résistance à la magie***. L''éfrit a un Avantage aux jets de sauvegarde contre
-      les sorts et autres effets magiques.
+      ***Restauration élémentaire***. Si l'éfrit meurt hors du Plan Élémentaire du Feu, son corps se réduit en cendres et il en acquiert un nouveau en 1d4 jours, pour revenir à la vie avec tous ses pv quelque part dans le Plan du Feu.
 
-
-      ***Restauration élémentaire***. Si l''éfrit meurt hors du Plan Élémentaire du
-      Feu, son corps se réduit en cendres et il en acquiert un nouveau en 1d4 jours,
-      pour revenir à la vie avec tous ses pv quelque part dans le Plan du Feu.
-
-
-      ***Souhaits***. L''éfrit a 30 % de chances de connaître le sort *souhait*. Si
-      tel est le cas, il ne peut le lancer que pour une créature autre qu''un génie,
-      qui doit communiquer son souhait d''une manière intelligible pour l''éfrit.
-      Si l''éfrit lance le sort pour la créature, il ne subit pas les effets délétères
-      normalement liés à cette épreuve. Après que l''éfrit a lancé trois fois ce sort,
-      il doit attendre 365 jours pour pouvoir le relancer.
-
+      ***Souhaits***. L'éfrit a 30 % de chances de connaître le sort *souhait*. Si tel est le cas, il ne peut le lancer que pour une créature autre qu'un génie, qui doit communiquer son souhait d'une manière intelligible pour l'éfrit. Si l'éfrit lance le sort pour la créature, il ne subit pas les effets délétères normalement liés à cette épreuve. Après que l'éfrit a lancé trois fois ce sort, il doit attendre 365 jours pour pouvoir le relancer.
 
       ## Actions
 
+      ***Attaques multiples***. L'éfrit effectue trois attaques, réparties à sa guise entre Lame incandescente et Jet de flammes.
 
-      ***Attaques multiples***. L''éfrit effectue trois attaques, réparties à sa guise
-      entre Lame incandescente et Jet de flammes.
+      ***Lame incandescente***. *Corps à corps* : +10, allonge 1,50 m. *Touché* : 13 (2d6 + 6) dégâts tranchants plus 13 (2d12) dégâts de feu.
 
+      ***Jet de flammes***. *À distance* : +8, portée 36 m. *Touché* : 24 (7d6) dégâts de feu.
 
-      ***Lame incandescente***. *Corps à corps* : +10, allonge 1,50 m. *Touché* :
-      13 (2d6 + 6) dégâts tranchants plus 13 (2d12) dégâts de feu.
+      ***Incantation***. L'éfrit lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 16) :
 
+      À volonté : *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), élémentalisme*
 
-      ***Jet de flammes***. *À distance* : +8, portée 36 m. *Touché* : 24 (7d6) dégâts
-      de feu.
-
-
-      ***Incantation***. L''éfrit lance l''un des sorts suivants sans composantes
-      matérielles, le Charisme étant sa caractéristique d''incantation (DD de sauvegarde
-      16) :
-
-
-      À volonté : *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie),
-      élémentalisme*
-
-
-      1/jour chacun : *[changement de plan](https://www.aidedd.org/spell/fr/changement-de-plan),
-      don des langues, forme gazeuse, [image majeure](https://www.aidedd.org/spell/fr/image-majeure),
-      [invisibilité](https://www.aidedd.org/spell/fr/invisibilite), mur de feu* (au
-      niveau 7)'
+      1/jour chacun : *[changement de plan](https://www.aidedd.org/spell/fr/changement-de-plan), don des langues, forme gazeuse, [image majeure](https://www.aidedd.org/spell/fr/image-majeure), [invisibilité](https://www.aidedd.org/spell/fr/invisibilite), mur de feu* (au niveau 7)
     senses: Vision dans le noir 36 m, Perception passive 12
     languages:
     - primordial (igné)

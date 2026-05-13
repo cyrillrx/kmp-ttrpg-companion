@@ -81,85 +81,52 @@ translations:
   en:
     name: Goristro
     subtype: Demon
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Demonic Restoration***. If the goristro dies outside the Abyss, its body dissolves into ichor, and it gains a new body instantly, reviving with all its Hit Points somewhere in the Abyss.
 
-      ***Demonic Restoration***. If the goristro dies outside the Abyss, its body
-      dissolves into ichor, and it gains a new body instantly, reviving with all its
-      Hit Points somewhere in the Abyss.
-
-
-      ***Magic Resistance***. The goristro has Advantage on saving throws against
-      spells and other magical effects.
-
+      ***Magic Resistance***. The goristro has Advantage on saving throws against spells and other magical effects.
 
       ***Siege Monster***. The goristro deals double damage to objects and structures.
 
-
       ## Actions
-
 
       ***Multiattack***. The goristro makes one Brutal Gore attack and two Slam attacks.
 
+      ***Brutal Gore***. *Melee Attack Roll* : +13, reach 10 ft. *Hit* : 40 (6d10 + 7) Piercing damage. If the target is a Huge or smaller creature, it is pushed up to 20 feet straight away from the goristro and has the Prone condition.
 
-      ***Brutal Gore***. *Melee Attack Roll* : +13, reach 10 ft. *Hit* : 40 (6d10
-      + 7) Piercing damage. If the target is a Huge or smaller creature, it is pushed
-      up to 20 feet straight away from the goristro and has the Prone condition.
-
-
-      ***Slam***. *Melee Attack Roll* : +13, reach 10 ft. *Hit* : 29 (4d10 + 7) Bludgeoning
-      damage.
-
+      ***Slam***. *Melee Attack Roll* : +13, reach 10 ft. *Hit* : 29 (4d10 + 7) Bludgeoning damage.
 
       ## Bonus actions
 
-
-      ***Charge***. The goristro moves up to half its Speed straight toward an enemy
-      it can see.'
+      ***Charge***. The goristro moves up to half its Speed straight toward an enemy it can see.
     senses: Darkvision 120 ft., Passive Perception 17
     languages:
     - Abyssal
   fr:
     name: Goristro
     subtype: Démon
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Restauration démoniaque***. Si le goristro meurt hors des Abysses, son corps se dissout en ichor et il en acquiert aussitôt un nouveau en revenant à la vie avec tous ses pv, quelque part dans les Abysses.
 
-      ***Restauration démoniaque***. Si le goristro meurt hors des Abysses, son corps
-      se dissout en ichor et il en acquiert aussitôt un nouveau en revenant à la vie
-      avec tous ses pv, quelque part dans les Abysses.
+      ***Résistance à la magie***. Le goristro a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
 
-
-      ***Résistance à la magie***. Le goristro a un Avantage aux jets de sauvegarde
-      contre les sorts et autres effets magiques.
-
-
-      ***Monstre de siège***. Le goristro inflige des dégâts doublés aux objets et
-      aux structures.
-
+      ***Monstre de siège***. Le goristro inflige des dégâts doublés aux objets et aux structures.
 
       ## Actions
 
+      ***Attaques multiples***. Le goristro effectue une attaque de Coup de boutoir et deux attaques de Coup.
 
-      ***Attaques multiples***. Le goristro effectue une attaque de Coup de boutoir
-      et deux attaques de Coup.
+      ***Coup de boutoir***. *Corps à corps* : +13, allonge 3 m. *Touché* : 40 (6d10 + 7) dégâts perforants. Si la cible est une créature de taille Gig ou inférieure, elle est repoussée du goristro jusqu'à 6 m en ligne droite et subit l'état À terre.
 
-
-      ***Coup de boutoir***. *Corps à corps* : +13, allonge 3 m. *Touché* : 40 (6d10
-      + 7) dégâts perforants. Si la cible est une créature de taille Gig ou inférieure,
-      elle est repoussée du goristro jusqu''à 6 m en ligne droite et subit l''état
-      À terre.
-
-
-      ***Coup***. *Corps à corps* : +13, allonge 3 m. *Touché* : 29 (4d10 + 7) dégâts
-      contondants.
-
+      ***Coup***. *Corps à corps* : +13, allonge 3 m. *Touché* : 29 (4d10 + 7) dégâts contondants.
 
       ## Actions Bonus
 
-
-      ***Charge***. Le goristro se déplace en ligne droite à concurrence de la moitié
-      de sa Vitesse vers un ennemi qu''il voit.'
+      ***Charge***. Le goristro se déplace en ligne droite à concurrence de la moitié de sa Vitesse vers un ennemi qu'il voit.
     senses: Vision dans le noir 36 m, Perception passive 17
     languages:
     - abyssal

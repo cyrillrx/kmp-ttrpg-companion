@@ -76,22 +76,20 @@ translations:
   en:
     name: Myconid Spore Servant
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Slom***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* :6 (1d6 + 3) Bludgeoning
-      damage plus 2 (1d4) Poison damage.'
+      ***Slom***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* :6 (1d6 + 3) Bludgeoning damage plus 2 (1d4) Poison damage.
     senses: Blindsight 30 ft., Passive Perception 8
     languages:
     - Telepathy 30 ft.
   fr:
     name: Myconide, serviteur des spores
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Coup***. *Corps à corps* : +5, allonge 1,50 m. *Touché* :6 (1d6 + 3) dégâts
-      contondants plus 2 (1d4) dégâts de poison.'
+      ***Coup***. *Corps à corps* : +5, allonge 1,50 m. *Touché* :6 (1d6 + 3) dégâts contondants plus 2 (1d4) dégâts de poison.
     senses: Vision aveugle 9 m, Perception passive 8
     languages:
     - télépathie 9 m

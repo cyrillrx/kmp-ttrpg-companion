@@ -79,50 +79,36 @@ translations:
   en:
     name: Black Dragon Wyrmling
     subtype: Chromatic
-    description: '## Traits
-
+    description: |-
+      ## Traits
 
       ***Amphibious***. The dragon can breathe air and water.
 
-
       ## Actions
-
 
       ***Multiattack***. The dragon makes two Rend attacks.
 
+      ***Rend***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 5 (1d6 + 2) Slashing damage plus 2 (1d4) Acid damage.
 
-      ***Rend***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 5 (1d6 + 2) Slashing
-      damage plus 2 (1d4) Acid damage.
-
-
-      ***Acid Breath (Recharge 5–6)***. *Dexterity Saving Throw* : DC 11, each creature
-      in a 15-foot-long, 5-foot-wide Line. *Failure* : 22 (5d8) Acid damage. *Success*
-      : Half damage.'
+      ***Acid Breath (Recharge 5–6)***. *Dexterity Saving Throw* : DC 11, each creature in a 15-foot-long, 5-foot-wide Line. *Failure* : 22 (5d8) Acid damage. *Success* : Half damage.
     senses: Blindsight 10 ft., Darkvision 60 ft., Passive Perception 14
     languages:
     - Draconic
   fr:
     name: Dragon noir, dragonnet
     subtype: Chromatique
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Amphibie***. Le dragon peut respirer sous l''eau comme à l''air libre.
-
+      ***Amphibie***. Le dragon peut respirer sous l'eau comme à l'air libre.
 
       ## Actions
 
-
       ***Attaques multiples***. Le dragon effectue deux attaques de Saignée.
 
+      ***Saignée***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 5 (1d6 + 2) dégâts tranchants plus 2 (1d4) dégâts d'acide.
 
-      ***Saignée***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 5 (1d6 + 2)
-      dégâts tranchants plus 2 (1d4) dégâts d''acide.
-
-
-      ***Souffle d''acide (recharge 5–6)***. *JdS Dextérité* : DD 11, chaque créature
-      dans une Ligne de 4,50 m de long sur 1,50 m de large. *Échec* : 22 (5d8) dégâts
-      d''acide. *Réussite* : demi-dégâts.'
+      ***Souffle d'acide (recharge 5–6)***. *JdS Dextérité* : DD 11, chaque créature dans une Ligne de 4,50 m de long sur 1,50 m de large. *Échec* : 22 (5d8) dégâts d'acide. *Réussite* : demi-dégâts.
     senses: Vision aveugle 3 m, Vision dans le noir 18 m, Perception passive 14
     languages:
     - draconique

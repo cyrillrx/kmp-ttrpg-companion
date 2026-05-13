@@ -76,39 +76,26 @@ translations:
   en:
     name: Giant Axe Beak
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Multiattack***. The axe beak makes one Sharpened Beak attack and one Talons attack.
 
-      ***Multiattack***. The axe beak makes one Sharpened Beak attack and one Talons
-      attack.
+      ***Sharpened Beak***. *Melee Attack Roll* : +8, reach 10 ft. *Hit* : 18 (2d12 + 5) Slashing damage, and a creature within 5 feet of the target (axe beak's choice) takes 6 (1d12) Slashing damage.
 
-
-      ***Sharpened Beak***. *Melee Attack Roll* : +8, reach 10 ft. *Hit* : 18 (2d12
-      + 5) Slashing damage, and a creature within 5 feet of the target (axe beak''s
-      choice) takes 6 (1d12) Slashing damage.
-
-
-      ***Talons***. *Melee Attack Roll* : +8, reach 5 ft. *Hit* : 14 (2d8 + 5) Piercing
-      damage. If the target is a Large or smaller creature, it has the Prone condition.'
+      ***Talons***. *Melee Attack Roll* : +8, reach 5 ft. *Hit* : 14 (2d8 + 5) Piercing damage. If the target is a Large or smaller creature, it has the Prone condition.
     senses: Passive Perception 14
     languages: []
   fr:
     name: Bec de hache géant / Autrache géante
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Attaques multiples***. Le bec de hache effectue une attaque de Bec acéré et une attaque de Serres.
 
-      ***Attaques multiples***. Le bec de hache effectue une attaque de Bec acéré
-      et une attaque de Serres.
+      ***Bec acéré***. *Corps à corps* : +8, allonge 3 m. *Touché* : 18 (2d12 + 5) dégâts tranchants, et une créature dans un rayon de 1,50 m autour de la cible (au choix du bec de hache) reçoit 6 (1d12) dégâts tranchants.
 
-
-      ***Bec acéré***. *Corps à corps* : +8, allonge 3 m. *Touché* : 18 (2d12 + 5)
-      dégâts tranchants, et une créature dans un rayon de 1,50 m autour de la cible
-      (au choix du bec de hache) reçoit 6 (1d12) dégâts tranchants.
-
-
-      ***Serres***. *Corps à corps* : +8, allonge 1,50 m. *Touché* : 14 (2d8 + 5)
-      dégâts perforants. Si la cible est une créature de taille G ou inférieure, elle
-      subit l''état À terre.'
+      ***Serres***. *Corps à corps* : +8, allonge 1,50 m. *Touché* : 14 (2d8 + 5) dégâts perforants. Si la cible est une créature de taille G ou inférieure, elle subit l'état À terre.
     senses: Perception passive 14
     languages: []

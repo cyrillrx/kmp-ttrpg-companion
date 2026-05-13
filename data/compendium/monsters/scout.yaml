@@ -76,38 +76,28 @@ translations:
   en:
     name: Scout
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Multiattack***. The scout makes two attacks, using Shortsword and Longbow in any combination.
 
-      ***Multiattack***. The scout makes two attacks, using Shortsword and Longbow
-      in any combination.
+      ***Shortsword***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 5 (1d6 + 2) Piercing damage.
 
-
-      ***Shortsword***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 5 (1d6 + 2)
-      Piercing damage.
-
-
-      ***Longbow***. *Ranged Attack Roll* : +4, range 150/600 ft. *Hit* : 6 (1d8 +
-      2) Piercing damage.'
+      ***Longbow***. *Ranged Attack Roll* : +4, range 150/600 ft. *Hit* : 6 (1d8 + 2) Piercing damage.
     senses: Passive Perception 15
     languages:
     - Common plus one other language
   fr:
     name: Éclaireur
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Attaques multiples***. L'éclaireur effectue deux attaques, réparties à sa guise entre Épée courte et Arc long.
 
-      ***Attaques multiples***. L''éclaireur effectue deux attaques, réparties à sa
-      guise entre Épée courte et Arc long.
+      ***Épée courte***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 5 (1d6 + 2) dégâts perforants.
 
-
-      ***Épée courte***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 5 (1d6 +
-      2) dégâts perforants.
-
-
-      ***Arc long***. *À distance* : +4, portée 45/180 m. *Touché* : 6 (1d8 + 2) dégâts
-      perforants.'
+      ***Arc long***. *À distance* : +4, portée 45/180 m. *Touché* : 6 (1d8 + 2) dégâts perforants.
     senses: Perception passive 15
     languages:
     - commun plus une autre langue

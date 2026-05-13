@@ -76,42 +76,32 @@ translations:
   en:
     name: Spy
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Shortsword***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 5 (1d6 + 2) Piercing damage plus 7 (2d6) Poison damage.
 
-      ***Shortsword***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 5 (1d6 + 2)
-      Piercing damage plus 7 (2d6) Poison damage.
-
-
-      ***Hand Crossbow***. *Ranged Attack Roll* : +4, range 30/120 ft. *Hit* : 5 (1d6
-      + 2) Piercing damage plus 7 (2d6) Poison damage.
-
+      ***Hand Crossbow***. *Ranged Attack Roll* : +4, range 30/120 ft. *Hit* : 5 (1d6 + 2) Piercing damage plus 7 (2d6) Poison damage.
 
       ## Bonus actions
 
-
-      ***Cunning Action***. The spy takes the Dash, Disengage, or Hide action.'
+      ***Cunning Action***. The spy takes the Dash, Disengage, or Hide action.
     senses: Passive Perception 16
     languages:
     - Common plus one other language
   fr:
     name: Espion
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Épée courte***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 5 (1d6 + 2) dégâts perforants plus 7 (2d6) dégâts de poison.
 
-      ***Épée courte***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 5 (1d6 +
-      2) dégâts perforants plus 7 (2d6) dégâts de poison.
-
-
-      ***Arbalète de poing***. *À distance* : +4, portée 30/36 m. *Touché* : 5 (1d6
-      + 2) dégâts perforants plus 7 (2d6) dégâts de poison.
-
+      ***Arbalète de poing***. *À distance* : +4, portée 30/36 m. *Touché* : 5 (1d6 + 2) dégâts perforants plus 7 (2d6) dégâts de poison.
 
       ## Actions Bonus
 
-
-      ***Ruse***. L''espion prend l''action Se désengager, Se cacher ou Foncer.'
+      ***Ruse***. L'espion prend l'action Se désengager, Se cacher ou Foncer.
     senses: Perception passive 16
     languages:
     - commun plus une autre langue

@@ -81,80 +81,40 @@ translations:
   en:
     name: Sphinx of Valor
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Inscrutable***. No magic can observe the sphinx remotely or detect its thoughts without its permission. Wisdom (Insight) checks made to ascertain its intentions or sincerity are made with Disadvantage.
 
-      ***Inscrutable***. No magic can observe the sphinx remotely or detect its thoughts
-      without its permission. Wisdom (Insight) checks made to ascertain its intentions
-      or sincerity are made with Disadvantage.
-
-
-      ***Legendary Resistance (3/Day, or 4/Day in Lair)***. If the sphinx fails a
-      saving throw, it can choose to succeed instead.
-
+      ***Legendary Resistance (3/Day, or 4/Day in Lair)***. If the sphinx fails a saving throw, it can choose to succeed instead.
 
       ## Actions
 
-
       ***Multiattack***. The sphinx makes two Claw attacks and uses Roar.
 
+      ***Claw***. *Melee Attack Roll* : +12, reach 5 ft. *Hit* : 20 (4d6 + 6) Slashing damage.
 
-      ***Claw***. *Melee Attack Roll* : +12, reach 5 ft. *Hit* : 20 (4d6 + 6) Slashing
-      damage.
+      ***Roar (3/Day)***. The sphinx emits a magical roar. Whenever it roars, the roar has a different effect, as detailed below (the sequence resets when it takes a Long Rest):
 
+      ***First Roar***. *Wisdom Saving Throw* : DC 20, each enemy in a 500-foot Emanation originating from the sphinx. *Failure* : The target has the Frightened condition for 1 minute.
 
-      ***Roar (3/Day)***. The sphinx emits a magical roar. Whenever it roars, the
-      roar has a different effect, as detailed below (the sequence resets when it
-      takes a Long Rest):
+      ***Second Roar***. *Wisdom Saving Throw* : DC 20, each enemy in a 500-foot Emanation originating from the sphinx. *Failure* : The target has the Paralyzed condition, and it repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically.
 
+      ***Third Roar***. *Constitution Saving Throw* : DC 20, each enemy in a 500-foot Emanation originating from the sphinx. *Failure* : 44 (8d10) Thunder damage, and the target has the Prone condition. *Success* : Half damage only.
 
-      ***First Roar***. *Wisdom Saving Throw* : DC 20, each enemy in a 500-foot Emanation
-      originating from the sphinx. *Failure* : The target has the Frightened condition
-      for 1 minute.
+      ***Spellcasting***. The sphinx casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 20):
 
+      At Will: *[Detect Evil and Good](https://www.aidedd.org/spell/detect-evil-and-good), [Thaumaturgy](https://www.aidedd.org/spell/thaumaturgy)*
 
-      ***Second Roar***. *Wisdom Saving Throw* : DC 20, each enemy in a 500-foot Emanation
-      originating from the sphinx. *Failure* : The target has the Paralyzed condition,
-      and it repeats the save at the end of each of its turns, ending the effect on
-      itself on a success. After 1 minute, it succeeds automatically.
-
-
-      ***Third Roar***. *Constitution Saving Throw* : DC 20, each enemy in a 500-foot
-      Emanation originating from the sphinx. *Failure* : 44 (8d10) Thunder damage,
-      and the target has the Prone condition. *Success* : Half damage only.
-
-
-      ***Spellcasting***. The sphinx casts one of the following spells, requiring
-      no Material components and using Wisdom as the spellcasting ability (spell save
-      DC 20):
-
-
-      At Will: *[Detect Evil and Good](https://www.aidedd.org/spell/detect-evil-and-good),
-      [Thaumaturgy](https://www.aidedd.org/spell/thaumaturgy)*
-
-
-      1/Day Each: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Dispel
-      Magic](https://www.aidedd.org/spell/dispel-magic), [Greater Restoration](https://www.aidedd.org/spell/greater-restoration),
-      [Heroes'' Feast](https://www.aidedd.org/spell/heroes-feast), [Zone of Truth](https://www.aidedd.org/spell/zone-of-truth)*
-
+      1/Day Each: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Dispel Magic](https://www.aidedd.org/spell/dispel-magic), [Greater Restoration](https://www.aidedd.org/spell/greater-restoration), [Heroes' Feast](https://www.aidedd.org/spell/heroes-feast), [Zone of Truth](https://www.aidedd.org/spell/zone-of-truth)*
 
       ## Legendary actions
 
+      Legendary Action Uses: 3 (4 in Lair). Immediately after another creature's turn, the sphinx can expend a use to take one of the following actions. The sphinx regains all expended uses at the start of each of its turns.
 
-      Legendary Action Uses: 3 (4 in Lair). Immediately after another creature''s
-      turn, the sphinx can expend a use to take one of the following actions. The
-      sphinx regains all expended uses at the start of each of its turns.
+      ***Arcane Prowl***. The sphinx can teleport up to 30 feet to an unoccupied space it can see, and it makes one Claw attack.
 
-
-      ***Arcane Prowl***. The sphinx can teleport up to 30 feet to an unoccupied space
-      it can see, and it makes one Claw attack.
-
-
-      ***Weight of Years***. *Constitution Saving Throw* : DC 16, one creature the
-      sphinx can see within 120 feet. *Failure* : The target gains 1 Exhaustion level.
-      While the target has any Exhaustion levels, it appears 3d10 years older. *Failure
-      or Success* : The sphinx can''t take this action again until the start of its
-      next turn.'
+      ***Weight of Years***. *Constitution Saving Throw* : DC 16, one creature the sphinx can see within 120 feet. *Failure* : The target gains 1 Exhaustion level. While the target has any Exhaustion levels, it appears 3d10 years older. *Failure or Success* : The sphinx can't take this action again until the start of its next turn.
     senses: Truesight 120 ft., Passive Perception 22
     languages:
     - Celestial
@@ -162,84 +122,40 @@ translations:
   fr:
     name: Sphinx valeureux
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Insondable***. Nulle magie ne permet d'observer le sphinx à distance ni de détecter ses pensées sans son consentement. Les jets de Sagesse (Intuition) visant à percer ses intentions ou évaluer sa sincérité subissent un Désavantage.
 
-      ***Insondable***. Nulle magie ne permet d''observer le sphinx à distance ni
-      de détecter ses pensées sans son consentement. Les jets de Sagesse (Intuition)
-      visant à percer ses intentions ou évaluer sa sincérité subissent un Désavantage.
-
-
-      ***Résistance légendaire (3/jour, ou 4/jour dans son antre)***. Si le sphinx
-      rate un jet de sauvegarde, il peut décider de le réussir tout de même.
-
+      ***Résistance légendaire (3/jour, ou 4/jour dans son antre)***. Si le sphinx rate un jet de sauvegarde, il peut décider de le réussir tout de même.
 
       ## Actions
 
+      ***Attaques multiples***. Le sphinx effectue deux attaques de Griffe et recourt à Rugissement.
 
-      ***Attaques multiples***. Le sphinx effectue deux attaques de Griffe et recourt
-      à Rugissement.
+      ***Griffe***. *Corps à corps* : +12, allonge 1,50 m. *Touché* : 20 (4d6 + 6) dégâts tranchants.
 
+      ***Incantation***. Le sphinx lance l'un des sorts suivants, sans composantes matérielles, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 20) :
 
-      ***Griffe***. *Corps à corps* : +12, allonge 1,50 m. *Touché* : 20 (4d6 + 6)
-      dégâts tranchants.
+      À volonté : *[détection du mal et du bien](https://www.aidedd.org/spell/fr/detection-du-mal-et-du-bien), [thaumaturgie](https://www.aidedd.org/spell/fr/thaumaturgie)*
 
+      1/jour chacun : *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), [dissipation de la magie](https://www.aidedd.org/spell/fr/dissipation-de-la-magie), festin des héros, [restauration suprême](https://www.aidedd.org/spell/fr/restauration-supreme), zone de vérité*
 
-      ***Incantation***. Le sphinx lance l''un des sorts suivants, sans composantes
-      matérielles, la Sagesse étant sa caractéristique d''incantation (DD de sauvegarde
-      20) :
+      ***Rugissement (3/jour)***. Le sphinx pousse un rugissement magique. Chaque fois qu'il rugit, il produit un effet différent, comme détaillé ci-après (la séquence est réinitialisée lorsqu'il prend un Repos long) :
 
+      ***Premier rugissement***. *JdS Sagesse* : DD 20, chaque ennemi dans une Émanation de 150 m centrée sur le sphinx. *Échec* : la cible subit l'état Effrayé pendant 1 minute.
 
-      À volonté : *[détection du mal et du bien](https://www.aidedd.org/spell/fr/detection-du-mal-et-du-bien),
-      [thaumaturgie](https://www.aidedd.org/spell/fr/thaumaturgie)*
+      ***Deuxième rugissement***. *JdS Sagesse* : DD 20, chaque ennemi dans une Émanation de 150 m centrée sur le sphinx. *Échec* : la cible subit l'état Paralysé et réitère le JdS à la fin de chacun de ses tours ; elle met un terme à l'effet sur elle-même en cas de réussite. Au bout de 1 minute, elle réussit automatiquement ce JdS.
 
-
-      1/jour chacun : *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie),
-      [dissipation de la magie](https://www.aidedd.org/spell/fr/dissipation-de-la-magie),
-      festin des héros, [restauration suprême](https://www.aidedd.org/spell/fr/restauration-supreme),
-      zone de vérité*
-
-
-      ***Rugissement (3/jour)***. Le sphinx pousse un rugissement magique. Chaque
-      fois qu''il rugit, il produit un effet différent, comme détaillé ci-après (la
-      séquence est réinitialisée lorsqu''il prend un Repos long) :
-
-
-      ***Premier rugissement***. *JdS Sagesse* : DD 20, chaque ennemi dans une Émanation
-      de 150 m centrée sur le sphinx. *Échec* : la cible subit l''état Effrayé pendant
-      1 minute.
-
-
-      ***Deuxième rugissement***. *JdS Sagesse* : DD 20, chaque ennemi dans une Émanation
-      de 150 m centrée sur le sphinx. *Échec* : la cible subit l''état Paralysé et
-      réitère le JdS à la fin de chacun de ses tours ; elle met un terme à l''effet
-      sur elle-même en cas de réussite. Au bout de 1 minute, elle réussit automatiquement
-      ce JdS.
-
-
-      ***Troisième rugissement***. *JdS Constitution* : DD 20, chaque ennemi dans
-      une Émanation de 90 m centrée sur le sphinx. *Échec* : 44 (8d10) dégâts de tonnerre,
-      et la cible subit l''état À terre. *Réussite* : demi-dégâts uniquement.
-
+      ***Troisième rugissement***. *JdS Constitution* : DD 20, chaque ennemi dans une Émanation de 90 m centrée sur le sphinx. *Échec* : 44 (8d10) dégâts de tonnerre, et la cible subit l'état À terre. *Réussite* : demi-dégâts uniquement.
 
       ## Actions Légendaires
 
+      Utilisations d'action Légendaire : 3 (4 dans son antre). Aussitôt après le tour d'une autre créature, le sphinx peut dépenser une utilisation pour entreprendre l'une des actions ci-après. Le sphinx récupère toutes ses utilisations dépensées au début de chacun de ses tours.
 
-      Utilisations d''action Légendaire : 3 (4 dans son antre). Aussitôt après le
-      tour d''une autre créature, le sphinx peut dépenser une utilisation pour entreprendre
-      l''une des actions ci-après. Le sphinx récupère toutes ses utilisations dépensées
-      au début de chacun de ses tours.
+      ***Poids des années***. *JdS Constitution* : DD 16, une créature que le sphinx voit dans un rayon de 36 m. *Échec* : la cible reçoit 1 niveau d'Épuisement. Tant que la cible a le moindre niveau d'Épuisement, elle paraît 3d10 ans plus âgée que la réalité. *Échec ou réussite* : le sphinx ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.
 
-
-      ***Poids des années***. *JdS Constitution* : DD 16, une créature que le sphinx
-      voit dans un rayon de 36 m. *Échec* : la cible reçoit 1 niveau d''Épuisement.
-      Tant que la cible a le moindre niveau d''Épuisement, elle paraît 3d10 ans plus
-      âgée que la réalité. *Échec ou réussite* : le sphinx ne peut alors plus entreprendre
-      cette action jusqu''au début de son tour suivant.
-
-
-      ***Traque arcanique***. Le sphinx se téléporte en un espace inoccupé qu''il
-      voit dans un rayon de 9 m, et il effectue une attaque de Griffe.'
+      ***Traque arcanique***. Le sphinx se téléporte en un espace inoccupé qu'il voit dans un rayon de 9 m, et il effectue une attaque de Griffe.
     senses: vision véritable 36 m, Perception passive 22
     languages:
     - céleste

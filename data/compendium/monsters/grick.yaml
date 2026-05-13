@@ -76,36 +76,26 @@ translations:
   en:
     name: Grick
     subtype: null
-    description: '## Actions
-
+    description: |-
+      ## Actions
 
       ***Multiattack***. The grick makes one Beak attack and one Tentacles attack.
 
+      ***Beak***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 9 (2d6 + 2) Piercing damage.
 
-      ***Beak***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 9 (2d6 + 2) Piercing
-      damage.
-
-
-      ***Tentacles***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 7 (1d10 + 2)
-      Slashing damage. If the target is a Medium or smaller creature, it has the Grappled
-      condition (escape DC 12) from all four tentacles.'
+      ***Tentacles***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 7 (1d10 + 2) Slashing damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 12) from all four tentacles.
     senses: Darkvision 60 ft., Passive Perception 12
     languages: []
   fr:
     name: Grick
     subtype: null
-    description: '## Actions
-
+    description: |-
+      ## Actions
 
       ***Attaques multiples***. Le grick effectue une attaque de Bec et une de Tentacules.
 
+      ***Bec***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 9 (2d6 + 2) dégâts perforants.
 
-      ***Bec***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 9 (2d6 + 2) dégâts
-      perforants.
-
-
-      ***Tentacules***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 7 (1d10 +
-      2) dégâts tranchants. Si la cible est une créature de taille M ou inférieure,
-      elle subit l''état Agrippé (évasion DD 12) par les quatre tentacules.'
+      ***Tentacules***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 7 (1d10 + 2) dégâts tranchants. Si la cible est une créature de taille M ou inférieure, elle subit l'état Agrippé (évasion DD 12) par les quatre tentacules.
     senses: Vision dans le noir 18 m, Perception passive 12
     languages: []

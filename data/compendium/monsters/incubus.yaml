@@ -76,45 +76,26 @@ translations:
   en:
     name: Incubus
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Succubus Form***. When the incubus finishes a Long Rest, it can shape-shift
-      into a [Succubus](./succubus), using that stat block instead of this one. Any
-      equipment it is wearing or carrying isn''t transformed.
-
+      ***Succubus Form***. When the incubus finishes a Long Rest, it can shape-shift into a [Succubus](./succubus), using that stat block instead of this one. Any equipment it is wearing or carrying isn't transformed.
 
       ## Actions
 
-
       ***Multiattack***. The incubus makes two Restless Touch attacks.
 
+      ***Restless Touch***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 15 (3d6 + 5) Psychic damage, and the target is cursed for 24 hours or until the incubus dies. Until the curse ends, the target gains no benefit from finishing Short Rests.
 
-      ***Restless Touch***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 15 (3d6
-      + 5) Psychic damage, and the target is cursed for 24 hours or until the incubus
-      dies. Until the curse ends, the target gains no benefit from finishing Short
-      Rests.
-
-
-      ***Spellcasting***. The incubus casts one of the following spells, requiring
-      no Material components and using Charisma as the spellcasting ability (spell
-      save DC 15):
-
+      ***Spellcasting***. The incubus casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 15):
 
       At Will: *[Disguise Self](https://www.aidedd.org/spell/disguise-self), [Etherealness](https://www.aidedd.org/spell/etherealness)*
 
-
       1/Day Each: *[Dream](https://www.aidedd.org/spell/dream), [Hypnotic Pattern](https://www.aidedd.org/spell/hypnotic-pattern)*
-
 
       ## Bonus actions
 
-
-      ***Nightmare (Recharge 6)***. *Wisdom Saving Throw* : DC 15, one creature the
-      incubus can see within 60 feet. *Failure* : If the target has 20 Hit Points
-      or fewer, it has the Unconscious condition for 1 hour, until it takes damage,
-      or until a creature within 5 feet of it takes an action to wake it. Otherwise,
-      the target takes 18 (4d8) Psychic damage.'
+      ***Nightmare (Recharge 6)***. *Wisdom Saving Throw* : DC 15, one creature the incubus can see within 60 feet. *Failure* : If the target has 20 Hit Points or fewer, it has the Unconscious condition for 1 hour, until it takes damage, or until a creature within 5 feet of it takes an action to wake it. Otherwise, the target takes 18 (4d8) Psychic damage.
     senses: Darkvision 60 ft., Passive Perception 15
     languages:
     - Abyssal
@@ -123,45 +104,26 @@ translations:
   fr:
     name: Incube
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      \*\* *Forme de succube***. Lorsque l''incube termine un Repos long, il peut
-      se transformer en** succube\*\* , le profil de celle-ci remplaçant alors le
-      sien. Rien de ce qu''il porte n''est transformé.
-
+      \*\* *Forme de succube***. Lorsque l'incube termine un Repos long, il peut se transformer en** succube\*\* , le profil de celle-ci remplaçant alors le sien. Rien de ce qu'il porte n'est transformé.
 
       ## Actions
 
+      ***Attaques multiples***. L'incube effectue deux attaques de Contact fébrile.
 
-      ***Attaques multiples***. L''incube effectue deux attaques de Contact fébrile.
+      ***Contact fébrile***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 15 (3d6 + 5) dégâts psychiques, et la cible est maudite pendant 24 heures ou jusqu'à ce que l'incube meure. Tant que persiste la malédiction, la cible ne reçoit aucun bénéfice en terminant un Repos court.
 
-
-      ***Contact fébrile***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 15 (3d6
-      + 5) dégâts psychiques, et la cible est maudite pendant 24 heures ou jusqu''à
-      ce que l''incube meure. Tant que persiste la malédiction, la cible ne reçoit
-      aucun bénéfice en terminant un Repos court.
-
-
-      ***Incantation***. L''incube lance l''un des sorts suivants sans composantes
-      matérielles, le Charisme étant sa caractéristique d''incantation (DD de sauvegarde
-      15) :
-
+      ***Incantation***. L'incube lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 15) :
 
       À volonté : *déguisement, forme éthérée*
 
-
       1/jour chacun : *motif hypnotique, songe*
-
 
       ## Actions Bonus
 
-
-      ***Cauchemar (recharge 6)***. *JdS Sagesse* : DD 15, une créature que l''incube
-      voit dans un rayon de 18 m. *Échec* : si la cible a 20 points de vie ou moins,
-      elle subit l''état Inconscient pendant 1 heure, jusqu''à ce qu''elle subisse
-      des dégâts ou qu''une créature dans un rayon de 1,50 m consacre une action à
-      la réveiller. Sinon, la cible subit 18 (4d8) dégâts psychiques.'
+      ***Cauchemar (recharge 6)***. *JdS Sagesse* : DD 15, une créature que l'incube voit dans un rayon de 18 m. *Échec* : si la cible a 20 points de vie ou moins, elle subit l'état Inconscient pendant 1 heure, jusqu'à ce qu'elle subisse des dégâts ou qu'une créature dans un rayon de 1,50 m consacre une action à la réveiller. Sinon, la cible subit 18 (4d8) dégâts psychiques.
     senses: Vision dans le noir 18 m, Perception passive 15
     languages:
     - abyssal

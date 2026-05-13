@@ -79,100 +79,52 @@ translations:
   en:
     name: Couatl
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Shielded Mind***. The couatl''s thoughts can''t be read by any means, and
-      other creatures can communicate with it telepathically only if it allows them.
-
+      ***Shielded Mind***. The couatl's thoughts can't be read by any means, and other creatures can communicate with it telepathically only if it allows them.
 
       ## Actions
 
+      ***Bite***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 11 (1d12 + 5) Piercing damage, and the target has the Poisoned condition until the end of the couatl's next turn.
 
-      ***Bite***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 11 (1d12 + 5) Piercing
-      damage, and the target has the Poisoned condition until the end of the couatl''s
-      next turn.
+      ***Constrict***. *Strength Saving Throw* : DC 15, one Medium or smaller creature the couatl can see within 5 feet. *Failure* : 8 (1d6 + 5) Bludgeoning damage. The target has the Grappled condition (escape DC 13), and it has the Restrained condition until the grapple ends.
 
+      ***Spellcasting***. The couatl casts one of the following spells, requiring no spell components and using Wisdom as the spellcasting ability (spell save DC 15):
 
-      ***Constrict***. *Strength Saving Throw* : DC 15, one Medium or smaller creature
-      the couatl can see within 5 feet. *Failure* : 8 (1d6 + 5) Bludgeoning damage.
-      The target has the Grappled condition (escape DC 13), and it has the Restrained
-      condition until the grapple ends.
+      At Will: *[Detect Evil and Good](https://www.aidedd.org/spell/detect-evil-and-good), [Detect Magic](https://www.aidedd.org/spell/detect-magic), [Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts), [Shapechange](https://www.aidedd.org/spell/shapechange)* (Beast or Humanoid form only, no Temporary Hit Points gained from the spell, and no Concentration or Temporary Hit Points required to maintain the spell)
 
-
-      ***Spellcasting***. The couatl casts one of the following spells, requiring
-      no spell components and using Wisdom as the spellcasting ability (spell save
-      DC 15):
-
-
-      At Will: *[Detect Evil and Good](https://www.aidedd.org/spell/detect-evil-and-good),
-      [Detect Magic](https://www.aidedd.org/spell/detect-magic), [Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts),
-      [Shapechange](https://www.aidedd.org/spell/shapechange)* (Beast or Humanoid
-      form only, no Temporary Hit Points gained from the spell, and no Concentration
-      or Temporary Hit Points required to maintain the spell)
-
-
-      1/Day Each: *[Create Food and Water](https://www.aidedd.org/spell/create-food-and-water),
-      [Dream](https://www.aidedd.org/spell/dream), [Greater Restoration](https://www.aidedd.org/spell/greater-restoration),
-      [Scrying](https://www.aidedd.org/spell/scrying), [Sleep](https://www.aidedd.org/spell/sleep)*
-
+      1/Day Each: *[Create Food and Water](https://www.aidedd.org/spell/create-food-and-water), [Dream](https://www.aidedd.org/spell/dream), [Greater Restoration](https://www.aidedd.org/spell/greater-restoration), [Scrying](https://www.aidedd.org/spell/scrying), [Sleep](https://www.aidedd.org/spell/sleep)*
 
       ## Bonus actions
 
-
-      ***Divine Aid (2/Day)***. The couatl casts *[Bless](https://www.aidedd.org/spell/bless),
-      [Lesser Restoration](https://www.aidedd.org/spell/lesser-restoration)*, or *[Sanctuary](https://www.aidedd.org/spell/sanctuary)*
-      , requiring no spell components and using the same spellcasting ability as Spellcasting.'
+      ***Divine Aid (2/Day)***. The couatl casts *[Bless](https://www.aidedd.org/spell/bless), [Lesser Restoration](https://www.aidedd.org/spell/lesser-restoration)*, or *[Sanctuary](https://www.aidedd.org/spell/sanctuary)* , requiring no spell components and using the same spellcasting ability as Spellcasting.
     senses: Truesight 120 ft., Passive Perception 15
     languages:
     - All; telepathy 120 ft.
   fr:
     name: Couatl
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Esprit protégé***. Rien ne peut lire les pensées du couatl, et les autres
-      créatures ne peuvent communiquer avec lui par télépathie que s''il le permet.
-
+      ***Esprit protégé***. Rien ne peut lire les pensées du couatl, et les autres créatures ne peuvent communiquer avec lui par télépathie que s'il le permet.
 
       ## Actions
 
+      ***Morsure***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 11 (1d12 + 5) dégâts perforants, et la cible subit l'état Empoisonné jusqu'à la fin du tour suivant du couatl.
 
-      ***Morsure***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 11 (1d12 + 5)
-      dégâts perforants, et la cible subit l''état Empoisonné jusqu''à la fin du tour
-      suivant du couatl.
+      ***Constriction***. *JdS Force* : DD 15, une créature de taille M ou inférieure que le couatl voit dans un rayon de 1,50 m. *Échec* : 8 (1d6 + 5) dégâts contondants. La cible subit l'état Agrippé (évasion DD 13), ainsi que l'état Entravé tant qu'elle est agrippée.
 
+      ***Incantation***. Le couatl lance l'un des sorts suivants sans la moindre composante, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 15) :
 
-      ***Constriction***. *JdS Force* : DD 15, une créature de taille M ou inférieure
-      que le couatl voit dans un rayon de 1,50 m. *Échec* : 8 (1d6 + 5) dégâts contondants.
-      La cible subit l''état Agrippé (évasion DD 13), ainsi que l''état Entravé tant
-      qu''elle est agrippée.
+      À volonté : *[changement de forme](https://www.aidedd.org/spell/fr/changement-de-forme)* (Bête ou Humanoïde uniquement, le sort ne fait pas gagner de points de vie temporaires, ni Concentration ni points de vie temporaires nécessaires pour maintenir le sort), *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), [détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees), [détection du mal et du bien](https://www.aidedd.org/spell/fr/detection-du-mal-et-du-bien)*
 
-
-      ***Incantation***. Le couatl lance l''un des sorts suivants sans la moindre
-      composante, la Sagesse étant sa caractéristique d''incantation (DD de sauvegarde
-      15) :
-
-
-      À volonté : *[changement de forme](https://www.aidedd.org/spell/fr/changement-de-forme)*
-      (Bête ou Humanoïde uniquement, le sort ne fait pas gagner de points de vie temporaires,
-      ni Concentration ni points de vie temporaires nécessaires pour maintenir le
-      sort), *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie),
-      [détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees),
-      [détection du mal et du bien](https://www.aidedd.org/spell/fr/detection-du-mal-et-du-bien)*
-
-
-      1/jour chacun : *création de nourriture et d''eau,[restauration suprême](https://www.aidedd.org/spell/fr/restauration-supreme),
-      [scrutation](https://www.aidedd.org/spell/fr/scrutation), sommeil, songe*
-
+      1/jour chacun : *création de nourriture et d'eau,[restauration suprême](https://www.aidedd.org/spell/fr/restauration-supreme), [scrutation](https://www.aidedd.org/spell/fr/scrutation), sommeil, songe*
 
       ## Actions Bonus
 
-
-      ***Soutien divin (2/jour)***. Le couatl lance *bénédiction, restauration partielle*
-      ou *sanctuaire* sans la moindre composante et avec la même caractéristique d''incantation
-      que pour Incantation.'
+      ***Soutien divin (2/jour)***. Le couatl lance *bénédiction, restauration partielle* ou *sanctuaire* sans la moindre composante et avec la même caractéristique d'incantation que pour Incantation.
     senses: vision véritable 36 m, Perception passive 15
     languages:
     - toutes ; télépathie 36 m

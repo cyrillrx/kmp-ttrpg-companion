@@ -76,68 +76,44 @@ translations:
   en:
     name: Kuo-toa Whip
     subtype: null
-    description: '## Traits
-
+    description: |-
+      ## Traits
 
       ***Amphibious***. The kuo-toa can breathe air and water.
 
-
-      ***Sunlight Sensitivity***. While in sunlight, the kuo-toa has Disadvantage
-      on ability checks and attack rolls.
-
+      ***Sunlight Sensitivity***. While in sunlight, the kuo-toa has Disadvantage on ability checks and attack rolls.
 
       ## Actions
 
+      ***Pincer Staff***. *Melee Attack Roll* : +4, reach 10 ft. *Hit* : 9 (2d6 + 2) Piercing damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 12). Until the grapple ends, the kuo-toa can't make Pincer Staff attacks.
 
-      ***Pincer Staff***. *Melee Attack Roll* : +4, reach 10 ft. *Hit* : 9 (2d6 +
-      2) Piercing damage. If the target is a Medium or smaller creature, it has the
-      Grappled condition (escape DC 12). Until the grapple ends, the kuo-toa can''t
-      make Pincer Staff attacks.
-
-
-      ***Conjure Slimy Glob***. *Ranged Attack Roll* : +4, range 60 ft. *Hit* : 9
-      (3d4 + 2) Acid damage.
-
+      ***Conjure Slimy Glob***. *Ranged Attack Roll* : +4, range 60 ft. *Hit* : 9 (3d4 + 2) Acid damage.
 
       ## Bonus actions
 
-
-      ***Shield of Faith (2/Day)***. The kuo-toa casts *[Shield of Faith](https://www.aidedd.org/spell/shield-of-faith)*
-      , using Wisdom as the spellcasting ability.'
+      ***Shield of Faith (2/Day)***. The kuo-toa casts *[Shield of Faith](https://www.aidedd.org/spell/shield-of-faith)* , using Wisdom as the spellcasting ability.
     senses: Darkvision 120 ft., Truesight 30 ft., Passive Perception 16
     languages:
     - Undercommon
   fr:
     name: Kuo-toa fouet
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Amphibie***. Le kuo-toa peut respirer sous l'eau comme à l'air libre.
 
-      ***Amphibie***. Le kuo-toa peut respirer sous l''eau comme à l''air libre.
-
-
-      ***Sensibilité au soleil***. Tant qu''il est exposé à la lumière du soleil,
-      le kuo-toa subit un Désavantage aux jets de caractéristique et aux jets d''attaque.
-
+      ***Sensibilité au soleil***. Tant qu'il est exposé à la lumière du soleil, le kuo-toa subit un Désavantage aux jets de caractéristique et aux jets d'attaque.
 
       ## Actions
 
+      ***Bâton-tenaille***. *Corps à corps* : +4, allonge 3 m. *Touché* : 9 (2d6 + 2) dégâts perforants. Si la cible est une créature de taille M ou inférieure, elle subit l'état Agrippé (évasion DD 12). Tant qu'il agrippe une créature, le kuo-toa ne peut pas effectuer d'attaques avec son Bâton-tenaille.
 
-      ***Bâton-tenaille***. *Corps à corps* : +4, allonge 3 m. *Touché* : 9 (2d6 +
-      2) dégâts perforants. Si la cible est une créature de taille M ou inférieure,
-      elle subit l''état Agrippé (évasion DD 12). Tant qu''il agrippe une créature,
-      le kuo-toa ne peut pas effectuer d''attaques avec son Bâton-tenaille.
-
-
-      ***Invocation de globule***. *À distance* : +4, portée 18 m. *Touché* : 9 (3d4
-      + 2) acide damage.
-
+      ***Invocation de globule***. *À distance* : +4, portée 18 m. *Touché* : 9 (3d4 + 2) acide damage.
 
       ## Actions Bonus
 
-
-      ***Bouclier de la foi (2/jour)***. Le kuo-toa lance *[bouclier de la Foi](https://www.aidedd.org/spell/fr/bouclier-de-la-foi)*
-      , en utilisant la Sagesse comme caractéristique d''incantation.'
+      ***Bouclier de la foi (2/jour)***. Le kuo-toa lance *[bouclier de la Foi](https://www.aidedd.org/spell/fr/bouclier-de-la-foi)* , en utilisant la Sagesse comme caractéristique d'incantation.
     senses: Vision dans le noir 36 m, vision véritable 9 m, Perception passive 16
     languages:
     - commun des profondeurs

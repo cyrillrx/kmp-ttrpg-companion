@@ -76,30 +76,24 @@ translations:
   en:
     name: Skeleton
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Shortsword***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 6 (1d6 + 3) Piercing damage.
 
-      ***Shortsword***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 6 (1d6 + 3)
-      Piercing damage.
-
-
-      ***Shortbow***. *Ranged Attack Roll* : +5, range 80/320 ft. *Hit* : 6 (1d6 +
-      3) Piercing damage.'
+      ***Shortbow***. *Ranged Attack Roll* : +5, range 80/320 ft. *Hit* : 6 (1d6 + 3) Piercing damage.
     senses: Darkvision 60 ft., Passive Perception 9
     languages:
     - Understands Common plus one other language but can't speak
   fr:
     name: Squelette
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Épée courte***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 6 (1d6 + 3) dégâts perforants.
 
-      ***Épée courte***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 6 (1d6 +
-      3) dégâts perforants.
-
-
-      ***Arc court***. *À distance* : +5, portée 24/96 m. *Touché* : 6 (1d6 + 3) dégâts
-      perforants.'
+      ***Arc court***. *À distance* : +5, portée 24/96 m. *Touché* : 6 (1d6 + 3) dégâts perforants.
     senses: Vision dans le noir 18 m, Perception passive 9
     languages:
     - comprend le commun plus une autre langue

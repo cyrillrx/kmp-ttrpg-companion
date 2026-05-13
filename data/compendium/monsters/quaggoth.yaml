@@ -76,41 +76,32 @@ translations:
   en:
     name: Quaggoth
     subtype: null
-    description: '## Traits
-
+    description: |-
+      ## Traits
 
       ***Bloodied Fury***. While Bloodied, the quaggoth has Advantage on attack rolls.
 
-
       ## Actions
-
 
       ***Multiattack***. The quaggoth makes two Claw attacks.
 
-
-      ***Claw***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 6 (1d6 + 3) Slashing
-      damage, or 13 (3d6 + 3) Slashing damage if the quaggoth is Bloodied.'
+      ***Claw***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 6 (1d6 + 3) Slashing damage, or 13 (3d6 + 3) Slashing damage if the quaggoth is Bloodied.
     senses: Darkvision 120 ft., Passive Perception 11
     languages:
     - Undercommon
   fr:
     name: Quaggoth
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Fureur du péril***. Lorsqu''il est En péril, le quaggoth a un Avantage aux
-      jets d''attaque.
-
+      ***Fureur du péril***. Lorsqu'il est En péril, le quaggoth a un Avantage aux jets d'attaque.
 
       ## Actions
 
-
       ***Attaques multiples***. Le quaggoth effectue deux attaques de Griffe.
 
-
-      ***Griffe***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 6 (1d6 + 3) dégâts
-      tranchants, ou 13 (3d6 + 3) dégâts tranchants si le quaggoth es En péril.'
+      ***Griffe***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 6 (1d6 + 3) dégâts tranchants, ou 13 (3d6 + 3) dégâts tranchants si le quaggoth es En péril.
     senses: Vision dans le noir 36 m, Perception passive 11
     languages:
     - commun des profondeurs

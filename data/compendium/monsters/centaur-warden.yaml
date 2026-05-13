@@ -79,38 +79,22 @@ translations:
   en:
     name: Centaur Warden
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Multiattack***. The centaur makes two attacks, using Forest Staff or Sun Ray in any combination.
 
-      ***Multiattack***. The centaur makes two attacks, using Forest Staff or Sun
-      Ray in any combination.
+      ***Forest Staff***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 13 (2d8 + 4) Bludgeoning damage plus 14 (4d6) Poison damage.
 
+      ***Spellcasting***. The centaur casts one of the following spells, using Wisdom as the spellcasting ability (spell save DC 15):
 
-      ***Forest Staff***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 13 (2d8 +
-      4) Bludgeoning damage plus 14 (4d6) Poison damage.
+      At will: *[Druidcraft](https://www.aidedd.org/spell/druidcraft), [Speak with Animals](https://www.aidedd.org/spell/speak-with-animals)*
 
-
-      ***Spellcasting***. The centaur casts one of the following spells, using Wisdom
-      as the spellcasting ability (spell save DC 15):
-
-
-      At will: *[Druidcraft](https://www.aidedd.org/spell/druidcraft), [Speak with
-      Animals](https://www.aidedd.org/spell/speak-with-animals)*
-
-
-      ***Sun Ray***. *Ranged Attack Roll* : +7, range 90 ft. *Hit* : 14 (3d6 + 4)
-      Radiant damage, and the target has the Blinded condition until the start of
-      the centaur''s next turn.
-
+      ***Sun Ray***. *Ranged Attack Roll* : +7, range 90 ft. *Hit* : 14 (3d6 + 4) Radiant damage, and the target has the Blinded condition until the start of the centaur's next turn.
 
       ## Bonus actions
 
-
-      ***Entangling Trail (Recharge 5–6)***. The centaur moves up to its Speed without
-      provoking Opportunity Attacks. Each creature within 5 feet of the centaur as
-      it moves is targeted once by the following effect. *Strength Saving Throw* :
-      DC 15. *Failure* : 11 (2d6 + 4) Bludgeoning damage, and the target has the Restrained
-      condition until the end of its next turn.'
+      ***Entangling Trail (Recharge 5–6)***. The centaur moves up to its Speed without provoking Opportunity Attacks. Each creature within 5 feet of the centaur as it moves is targeted once by the following effect. *Strength Saving Throw* : DC 15. *Failure* : 11 (2d6 + 4) Bludgeoning damage, and the target has the Restrained condition until the end of its next turn.
     senses: Passive Perception 17
     languages:
     - Druidic
@@ -119,38 +103,22 @@ translations:
   fr:
     name: Centaure, gardien
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Attaques multiples***. Le centaure effectue deux attaques, réparties à sa guise entre Bâton forestier et Rayon du soleil.
 
-      ***Attaques multiples***. Le centaure effectue deux attaques, réparties à sa
-      guise entre Bâton forestier et Rayon du soleil.
+      ***Bâton forestier***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 13 (2d8 + 4) dégâts contondants plus 14 (4d6) dégâts de poison.
 
+      ***Rayon du soleil***. *À distance* : +7, portée 27 m. *Touché* : 14 (3d6 + 4) dégâts radiants, et la cible subit l'état Aveuglé jusqu'au début du prochain tour du centaure.
 
-      ***Bâton forestier***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 13 (2d8
-      + 4) dégâts contondants plus 14 (4d6) dégâts de poison.
+      ***Incantation***. Le centaure lance l'un des sorts suivants, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 15) :
 
-
-      ***Rayon du soleil***. *À distance* : +7, portée 27 m. *Touché* : 14 (3d6 +
-      4) dégâts radiants, et la cible subit l''état Aveuglé jusqu''au début du prochain
-      tour du centaure.
-
-
-      ***Incantation***. Le centaure lance l''un des sorts suivants, la Sagesse étant
-      sa caractéristique d''incantation (DD de sauvegarde 15) :
-
-
-      À volonté : *[druidisme](https://www.aidedd.org/spell/fr/druidisme), [communication
-      avec les animaux](https://www.aidedd.org/spell/fr/communication-avec-les-animaux)*
-
+      À volonté : *[druidisme](https://www.aidedd.org/spell/fr/druidisme), [communication avec les animaux](https://www.aidedd.org/spell/fr/communication-avec-les-animaux)*
 
       ## Actions Bonus
 
-
-      ***Foulées piégeuses (recharge 5–6)***. Le centaure se déplace jusqu''à sa Vitesse
-      sans provoquer d''attaques d''Opportunité. Chaque créature dans un rayon de
-      1,50 m du centaure pendant son déplacement est affectée une fois par l''effet
-      suivant. JdS Force : DD 15. Échec : 11 (2d6 + 4) dégâts contondants, et la cible
-      subit l''état Entravé jusqu''à la fin de son prochain tour.'
+      ***Foulées piégeuses (recharge 5–6)***. Le centaure se déplace jusqu'à sa Vitesse sans provoquer d'attaques d'Opportunité. Chaque créature dans un rayon de 1,50 m du centaure pendant son déplacement est affectée une fois par l'effet suivant. JdS Force : DD 15. Échec : 11 (2d6 + 4) dégâts contondants, et la cible subit l'état Entravé jusqu'à la fin de son prochain tour.
     senses: Perception passive 17
     languages:
     - druidique

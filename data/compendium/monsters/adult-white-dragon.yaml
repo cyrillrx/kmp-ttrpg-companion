@@ -79,55 +79,30 @@ translations:
   en:
     name: Adult White Dragon
     subtype: Chromatic
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Ice Walk***. The dragon can move across and climb icy surfaces without needing to make an ability check. Additionally, Difficult Terrain composed of ice or snow doesn't cost it extra movement.
 
-      ***Ice Walk***. The dragon can move across and climb icy surfaces without needing
-      to make an ability check. Additionally, Difficult Terrain composed of ice or
-      snow doesn''t cost it extra movement.
-
-
-      ***Legendary Resistance (3/Day, or 4/Day in Lair)***. If the dragon fails a
-      saving throw, it can choose to succeed instead.
-
+      ***Legendary Resistance (3/Day, or 4/Day in Lair)***. If the dragon fails a saving throw, it can choose to succeed instead.
 
       ## Actions
 
-
       ***Multiattack***. The dragon makes three Rend attacks.
 
+      ***Rend***. *Melee Attack Roll* : +11, reach 10 ft. *Hit* : 13 (2d6 + 6) Slashing damage plus 4 (1d8) Cold damage.
 
-      ***Rend***. *Melee Attack Roll* : +11, reach 10 ft. *Hit* : 13 (2d6 + 6) Slashing
-      damage plus 4 (1d8) Cold damage.
-
-
-      ***Cold Breath (Recharge 5–6)***. *Constitution Saving Throw* : DC 19, each
-      creature in a 60-foot Cone. *Failure* : 54 (12d8) Cold damage. *Success* : Half
-      damage.
-
+      ***Cold Breath (Recharge 5–6)***. *Constitution Saving Throw* : DC 19, each creature in a 60-foot Cone. *Failure* : 54 (12d8) Cold damage. *Success* : Half damage.
 
       ## Legendary actions
 
+      Legendary Action Uses: 3 (4 in Lair). Immediately after another creature's turn, the dragon can expend a use to take one of the following actions. The dragon regains all expended uses at the start of each of its turns.
 
-      Legendary Action Uses: 3 (4 in Lair). Immediately after another creature''s
-      turn, the dragon can expend a use to take one of the following actions. The
-      dragon regains all expended uses at the start of each of its turns.
+      ***Freezing Burst***. *Constitution Saving Throw* : DC 14, each creature in a 30-foot-radius Sphere centered on a point the dragon can see within 120 feet. *Failure* : 7 (2d6) Cold damage, and the target's Speed is 0 until the end of the target's next turn. *Failure or Success* : The dragon can't take this action again until the start of its next turn.
 
+      ***Frightful Presence***. The dragon casts *[Fear](https://www.aidedd.org/spell/fear)* , requiring no Material components and using Charisma as the spellcasting ability (spell save DC 14). The dragon can't take this action again until the start of its next turn.
 
-      ***Freezing Burst***. *Constitution Saving Throw* : DC 14, each creature in
-      a 30-foot-radius Sphere centered on a point the dragon can see within 120 feet.
-      *Failure* : 7 (2d6) Cold damage, and the target''s Speed is 0 until the end
-      of the target''s next turn. *Failure or Success* : The dragon can''t take this
-      action again until the start of its next turn.
-
-
-      ***Frightful Presence***. The dragon casts *[Fear](https://www.aidedd.org/spell/fear)*
-      , requiring no Material components and using Charisma as the spellcasting ability
-      (spell save DC 14). The dragon can''t take this action again until the start
-      of its next turn.
-
-
-      ***Pounce***. The dragon moves up to half its Speed, and it makes one Rend attack.'
+      ***Pounce***. The dragon moves up to half its Speed, and it makes one Rend attack.
     senses: Blindsight 60 ft., Darkvision 120 ft., Passive Perception 21
     languages:
     - Common
@@ -135,57 +110,30 @@ translations:
   fr:
     name: Dragon blanc, adulte
     subtype: Chromatique
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Marche sur la glace***. Le dragon peut parcourir et gravir toute surface gelée sans passer par le moindre jet de caractéristique. En outre, tout Terrain difficile composé de glace ou de neige ne lui demande aucune dépense de déplacement supplémentaire.
 
-      ***Marche sur la glace***. Le dragon peut parcourir et gravir toute surface
-      gelée sans passer par le moindre jet de caractéristique. En outre, tout Terrain
-      difficile composé de glace ou de neige ne lui demande aucune dépense de déplacement
-      supplémentaire.
-
-
-      ***Résistance légendaire (3/jour, ou 4/jour dans son antre)***. Si le dragon
-      rate un jet de sauvegarde, il peut décider de le réussir tout de même.
-
+      ***Résistance légendaire (3/jour, ou 4/jour dans son antre)***. Si le dragon rate un jet de sauvegarde, il peut décider de le réussir tout de même.
 
       ## Actions
 
-
       ***Attaques multiples***. Le dragon effectue trois attaques de Saignée.
 
+      ***Saignée***. *Corps à corps* : +11, allonge 3 m. *Touché* : 13 (2d6 + 6) dégâts tranchants plus 4 (1d8) dégâts de froid.
 
-      ***Saignée***. *Corps à corps* : +11, allonge 3 m. *Touché* : 13 (2d6 + 6) dégâts
-      tranchants plus 4 (1d8) dégâts de froid.
-
-
-      ***Souffle glacial (recharge 5–6)***. *JdS Constitution* : DD 19, chaque créature
-      dans un Cône de 18 m. *Échec* : 54 (12d8) dégâts de froid. *Réussite* : demi-dégâts.
-
+      ***Souffle glacial (recharge 5–6)***. *JdS Constitution* : DD 19, chaque créature dans un Cône de 18 m. *Échec* : 54 (12d8) dégâts de froid. *Réussite* : demi-dégâts.
 
       ## Actions Légendaires
 
+      Utilisations d'action Légendaire : 3 (4 dans son antre). Aussitôt après le tour d'une autre créature, le dragon peut dépenser une utilisation pour entreprendre l'une des actions ci-après. Le dragon récupère toutes ses utilisations dépensées au début de chacun de ses tours.
 
-      Utilisations d''action Légendaire : 3 (4 dans son antre). Aussitôt après le
-      tour d''une autre créature, le dragon peut dépenser une utilisation pour entreprendre
-      l''une des actions ci-après. Le dragon récupère toutes ses utilisations dépensées
-      au début de chacun de ses tours.
+      ***Assaut incisif***. Le dragon se déplace à concurrence de la moitié de sa Vitesse et effectue une attaque de Saignée.
 
+      ***Décharge de gel***. *JdS Constitution* : DD 14, chaque créature dans une Sphère de 9 m de rayon centrée sur un point que le dragon voit dans un rayon de 36 m. *Échec* : 7 (2d6) dégâts de froid, et la Vitesse de la cible est de 0 jusqu'à la fin de son tour suivant. *Échec ou réussite* : Le dragon ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.
 
-      ***Assaut incisif***. Le dragon se déplace à concurrence de la moitié de sa
-      Vitesse et effectue une attaque de Saignée.
-
-
-      ***Décharge de gel***. *JdS Constitution* : DD 14, chaque créature dans une
-      Sphère de 9 m de rayon centrée sur un point que le dragon voit dans un rayon
-      de 36 m. *Échec* : 7 (2d6) dégâts de froid, et la Vitesse de la cible est de
-      0 jusqu''à la fin de son tour suivant. *Échec ou réussite* : Le dragon ne peut
-      alors plus entreprendre cette action jusqu''au début de son tour suivant.
-
-
-      ***Présence terrifiante***. Le dragon lance *peur* sans composantes matérielles,
-      le Charisme étant sa caractéristique d''incantation (DD de sauvegarde 14). Le
-      dragon ne peut alors plus entreprendre cette action jusqu''au début de son tour
-      suivant.'
+      ***Présence terrifiante***. Le dragon lance *peur* sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 14). Le dragon ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.
     senses: Vision aveugle 18 m, Vision dans le noir 36 m, Perception passive 21
     languages:
     - commun

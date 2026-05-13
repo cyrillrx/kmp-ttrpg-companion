@@ -82,43 +82,24 @@ translations:
   en:
     name: Guardian Naga
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Celestial Restoration***. If the naga dies, it returns to life in 1d6 days
-      and regains all its Hit Points unless *[Dispel Evil and Good](https://www.aidedd.org/spell/dispel-evil-and-good)*
-      is cast on its remains.
-
+      ***Celestial Restoration***. If the naga dies, it returns to life in 1d6 days and regains all its Hit Points unless *[Dispel Evil and Good](https://www.aidedd.org/spell/dispel-evil-and-good)* is cast on its remains.
 
       ## Actions
 
+      ***Multiattack***. The naga makes two Bite attacks. It can replace any attack with a use of Poisonous Spittle.
 
-      ***Multiattack***. The naga makes two Bite attacks. It can replace any attack
-      with a use of Poisonous Spittle.
+      ***Bite***. *Melee Attack Roll* : +8, reach 10 ft. *Hit* : 17 (2d12 + 4) Piercing damage plus 22 (4d10) Poison damage.
 
+      ***Poisonous Spittle***. *Constitution Saving Throw* : DC 16, one creature the naga can see within 60 feet. *Failure* : 31 (7d8) Poison damage, and the target has the Blinded condition until the start of the naga's next turn. *Success* : Half damage only.
 
-      ***Bite***. *Melee Attack Roll* : +8, reach 10 ft. *Hit* : 17 (2d12 + 4) Piercing
-      damage plus 22 (4d10) Poison damage.
-
-
-      ***Poisonous Spittle***. *Constitution Saving Throw* : DC 16, one creature the
-      naga can see within 60 feet. *Failure* : 31 (7d8) Poison damage, and the target
-      has the Blinded condition until the start of the naga''s next turn. *Success*
-      : Half damage only.
-
-
-      ***Spellcasting***. The naga casts one of the following spells, requiring no
-      Somatic or Material components and using Wisdom as the spellcasting ability
-      (spell save DC 16):
-
+      ***Spellcasting***. The naga casts one of the following spells, requiring no Somatic or Material components and using Wisdom as the spellcasting ability (spell save DC 16):
 
       At Will: *[Thaumaturgy](https://www.aidedd.org/spell/thaumaturgy)*
 
-
-      1/Day Each: *[Clairvoyance](https://www.aidedd.org/spell/clairvoyance), [Cure
-      Wounds](https://www.aidedd.org/spell/cure-wounds)* (level 6 version), *[Flame
-      Strike](https://www.aidedd.org/spell/flame-strike)* (level 6 version), *[Geas](https://www.aidedd.org/spell/geas),
-      [True Seeing](https://www.aidedd.org/spell/true-seeing)*'
+      1/Day Each: *[Clairvoyance](https://www.aidedd.org/spell/clairvoyance), [Cure Wounds](https://www.aidedd.org/spell/cure-wounds)* (level 6 version), *[Flame Strike](https://www.aidedd.org/spell/flame-strike)* (level 6 version), *[Geas](https://www.aidedd.org/spell/geas), [True Seeing](https://www.aidedd.org/spell/true-seeing)*
     senses: Darkvision 60 ft., Passive Perception 14
     languages:
     - Celestial
@@ -126,42 +107,24 @@ translations:
   fr:
     name: Naga gardien
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Restauration céleste***. Quand le naga meurt, il revient à la vie au bout
-      de 1d6 jours avec tous ses points de vie, sauf si *[dissipation du mal et du
-      bien](https://www.aidedd.org/spell/fr/dissipation-du-mal-et-du-bien)* est lancé
-      sur son cadavre.
-
+      ***Restauration céleste***. Quand le naga meurt, il revient à la vie au bout de 1d6 jours avec tous ses points de vie, sauf si *[dissipation du mal et du bien](https://www.aidedd.org/spell/fr/dissipation-du-mal-et-du-bien)* est lancé sur son cadavre.
 
       ## Actions
 
+      ***Attaques multiples***. Le naga effectue deux attaques de Morsure. Il peut remplacer l'une de ces attaques par une utilisation de Crachat venimeux.
 
-      ***Attaques multiples***. Le naga effectue deux attaques de Morsure. Il peut
-      remplacer l''une de ces attaques par une utilisation de Crachat venimeux.
+      ***Morsure***. *Corps à corps* : +8, allonge 3 m. *Touché* : 17 (2d12 + 4) dégâts perforants plus 22 (4d10) dégâts de poison.
 
-
-      ***Morsure***. *Corps à corps* : +8, allonge 3 m. *Touché* : 17 (2d12 + 4) dégâts
-      perforants plus 22 (4d10) dégâts de poison.
-
-
-      ***Incantation***. Le naga lance l''un des sorts suivants sans composantes matérielles
-      ni somatiques, la Sagesse étant sa caractéristique d''incantation (DD de sauvegarde
-      16) :
-
+      ***Incantation***. Le naga lance l'un des sorts suivants sans composantes matérielles ni somatiques, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 16) :
 
       À volonté : *[thaumaturgie](https://www.aidedd.org/spell/fr/thaumaturgie)*
 
+      1/jour chacun : *clairvoyance,[colonne de flamme](https://www.aidedd.org/spell/fr/colonne-de-flamme)* (au niveau 6), *quête, soins* (au niveau 6), *vision suprême*
 
-      1/jour chacun : *clairvoyance,[colonne de flamme](https://www.aidedd.org/spell/fr/colonne-de-flamme)*
-      (au niveau 6), *quête, soins* (au niveau 6), *vision suprême*
-
-
-      ***Crachat venimeux***. *JdS Constitution* : DD 16, une créature que le naga
-      voit dans un rayon de 18 m. *Échec* : 31 (7d8) dégâts de poison, et la cible
-      subit l''état Aveuglé jusqu''au début du tour suivant du naga. *Réussite* :
-      demi-dégâts uniquement.'
+      ***Crachat venimeux***. *JdS Constitution* : DD 16, une créature que le naga voit dans un rayon de 18 m. *Échec* : 31 (7d8) dégâts de poison, et la cible subit l'état Aveuglé jusqu'au début du tour suivant du naga. *Réussite* : demi-dégâts uniquement.
     senses: Vision dans le noir 18 m, Perception passive 14
     languages:
     - céleste

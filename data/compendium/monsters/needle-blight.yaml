@@ -76,30 +76,24 @@ translations:
   en:
     name: Needle Blight
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Claw***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 6 (2d4 + 1) Slashing damage.
 
-      ***Claw***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 6 (2d4 + 1) Slashing
-      damage.
-
-
-      ***Needles***. *Ranged Attack Roll* : +3, range 30/60 ft. *Hit* : 6 (2d4 + 1)
-      Piercing damage.'
+      ***Needles***. *Ranged Attack Roll* : +3, range 30/60 ft. *Hit* : 6 (2d4 + 1) Piercing damage.
     senses: Blindsight 60 ft., Passive Perception 9
     languages:
     - Understands Common but can't speak
   fr:
     name: Résineux
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Griffe***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 6 (2d4 + 1) dégâts tranchants.
 
-      ***Griffe***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 6 (2d4 + 1) dégâts
-      tranchants.
-
-
-      ***Aiguilles***. *À distance* : +3, portée 9/18 m. *Touché* : 6 (2d4 + 1) dégâts
-      perforants.'
+      ***Aiguilles***. *À distance* : +3, portée 9/18 m. *Touché* : 6 (2d4 + 1) dégâts perforants.
     senses: Vision aveugle 18 m, Perception passive 9
     languages:
     - comprend le commun mais ne parle pas

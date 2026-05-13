@@ -81,101 +81,60 @@ translations:
   en:
     name: Marilith
     subtype: Demon
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Demonic Restoration***. If the marilith dies outside the Abyss, its body dissolves into ichor, and it gains a new body instantly, reviving with all its Hit Points somewhere in the Abyss.
 
-      ***Demonic Restoration***. If the marilith dies outside the Abyss, its body
-      dissolves into ichor, and it gains a new body instantly, reviving with all its
-      Hit Points somewhere in the Abyss.
-
-
-      ***Magic Resistance***. The marilith has Advantage on saving throws against
-      spells and other magical effects.
-
+      ***Magic Resistance***. The marilith has Advantage on saving throws against spells and other magical effects.
 
       ***Reactive***. The marilith can take one Reaction on every turn of combat.
 
-
       ## Actions
-
 
       ***Multiattack***. The marilith makes six Pact Blade attacks and uses Constrict.
 
+      ***Pact Blade***. *Melee Attack Roll* : +10, reach 5 ft. *Hit* : 10 (1d10 + 5) Slashing damage plus 7 (2d6) Necrotic damage.
 
-      ***Pact Blade***. *Melee Attack Roll* : +10, reach 5 ft. *Hit* : 10 (1d10 +
-      5) Slashing damage plus 7 (2d6) Necrotic damage.
-
-
-      ***Constrict***. *Strength Saving Throw* : DC 17, one Medium or smaller creature
-      the marilith can see within 5 feet. *Failure* : 15 (2d10 + 4) Bludgeoning damage.
-      The target has the Grappled condition (escape DC 14), and it has the Restrained
-      condition until the grapple ends.
-
+      ***Constrict***. *Strength Saving Throw* : DC 17, one Medium or smaller creature the marilith can see within 5 feet. *Failure* : 15 (2d10 + 4) Bludgeoning damage. The target has the Grappled condition (escape DC 14), and it has the Restrained condition until the grapple ends.
 
       ## Bonus actions
 
-
-      ***Teleport (Recharge 5–6)***. The marilith teleports up to 120 feet to an unoccupied
-      space it can see.
-
+      ***Teleport (Recharge 5–6)***. The marilith teleports up to 120 feet to an unoccupied space it can see.
 
       ## Reactions
 
-
-      ***Parry***. *Trigger* : The marilith is hit by a melee attack roll while holding
-      a weapon. *Response* : The marilith adds 5 to its AC against that attack, possibly
-      causing it to miss.'
+      ***Parry***. *Trigger* : The marilith is hit by a melee attack roll while holding a weapon. *Response* : The marilith adds 5 to its AC against that attack, possibly causing it to miss.
     senses: Truesight 120 ft., Passive Perception 18
     languages:
     - Abyssal; telepathy 120 ft.
   fr:
     name: Marilith
     subtype: Démon
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Réactivité***. La marilith peut jouer une Réaction à chaque tour d'un combat.
 
-      ***Réactivité***. La marilith peut jouer une Réaction à chaque tour d''un combat.
+      ***Résistance à la magie***. La marilith a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
 
-
-      ***Résistance à la magie***. La marilith a un Avantage aux jets de sauvegarde
-      contre les sorts et autres effets magiques.
-
-
-      ***Restauration démoniaque***. Si la marilith meurt hors des Abysses, son corps
-      se dissout en ichor et elle en acquiert aussitôt un nouveau en revenant à la
-      vie avec tous ses pv, quelque part dans les Abysses.
-
+      ***Restauration démoniaque***. Si la marilith meurt hors des Abysses, son corps se dissout en ichor et elle en acquiert aussitôt un nouveau en revenant à la vie avec tous ses pv, quelque part dans les Abysses.
 
       ## Actions
 
+      ***Attaques multiples***. La marilith effectue six attaques de Lame de pacte et recourt à Constriction.
 
-      ***Attaques multiples***. La marilith effectue six attaques de Lame de pacte
-      et recourt à Constriction.
+      ***Lame de pacte***. *Corps à corps* : +10, allonge 1,50 m. *Touché* : 10 (1d10 + 5) dégâts tranchants plus 7 (2d6) dégâts nécrotiques.
 
-
-      ***Lame de pacte***. *Corps à corps* : +10, allonge 1,50 m. *Touché* : 10 (1d10
-      + 5) dégâts tranchants plus 7 (2d6) dégâts nécrotiques.
-
-
-      ***Constriction***. *JdS Force* : DD 17, une créature de taille M ou inférieure
-      que la marilith voit dans un rayon de 1,50 m. *Échec* : 15 (2d10 + 4) dégâts
-      contondants. La cible subit l''état Agrippé (évasion DD 14), ainsi que l''état
-      Entravé tant qu''elle est agrippée.
-
+      ***Constriction***. *JdS Force* : DD 17, une créature de taille M ou inférieure que la marilith voit dans un rayon de 1,50 m. *Échec* : 15 (2d10 + 4) dégâts contondants. La cible subit l'état Agrippé (évasion DD 14), ainsi que l'état Entravé tant qu'elle est agrippée.
 
       ## Actions Bonus
 
-
-      ***Téléportation (recharge 5–6)***. La marilith se téléporte d''un maximum de
-      36 m en un espace inoccupé qu''elle voit.
-
+      ***Téléportation (recharge 5–6)***. La marilith se téléporte d'un maximum de 36 m en un espace inoccupé qu'elle voit.
 
       ## Réactions
 
-
-      ***Parade***. *Déclencheur* : la marilith est touchée par jet d''attaque de
-      corps à corps alors qu''elle tient une arme. *Conséquences* : la marilith ajoute
-      5 à sa CA contre cette attaque, ce qui peut la faire rater.'
+      ***Parade***. *Déclencheur* : la marilith est touchée par jet d'attaque de corps à corps alors qu'elle tient une arme. *Conséquences* : la marilith ajoute 5 à sa CA contre cette attaque, ce qui peut la faire rater.
     senses: vision véritable 36 m, Perception passive 18
     languages:
     - abyssal ; télépathie 36 m

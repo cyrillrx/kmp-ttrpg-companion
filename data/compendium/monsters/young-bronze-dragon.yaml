@@ -79,31 +79,20 @@ translations:
   en:
     name: Young Bronze Dragon
     subtype: Metallic
-    description: '## Traits
-
+    description: |-
+      ## Traits
 
       ***Amphibious***. The dragon can breathe air and water.
 
-
       ## Actions
 
+      ***Multiattack***. The dragon makes three Rend attacks. It can replace one attack with a use of Repulsion Breath.
 
-      ***Multiattack***. The dragon makes three Rend attacks. It can replace one attack
-      with a use of Repulsion Breath.
+      ***Rend***. *Melee Attack Roll* : +8, reach 10 ft. *Hit* : 16 (2d10 + 5) Slashing damage.
 
+      ***Lightning Breath (Recharge 5–6)***. *Dexterity Saving Throw* : DC 15, each creature in a 60-foot-long, 5-foot-wide Line. *Failure* : 49 (9d10) Lightning damage. *Success* : Half damage.
 
-      ***Rend***. *Melee Attack Roll* : +8, reach 10 ft. *Hit* : 16 (2d10 + 5) Slashing
-      damage.
-
-
-      ***Lightning Breath (Recharge 5–6)***. *Dexterity Saving Throw* : DC 15, each
-      creature in a 60-foot-long, 5-foot-wide Line. *Failure* : 49 (9d10) Lightning
-      damage. *Success* : Half damage.
-
-
-      ***Repulsion Breath***. *Strength Saving Throw* : DC 15, each creature in a
-      30-foot Cone. *Failure* : The target is pushed up to 40 feet straight away from
-      the dragon and has the Prone condition.'
+      ***Repulsion Breath***. *Strength Saving Throw* : DC 15, each creature in a 30-foot Cone. *Failure* : The target is pushed up to 40 feet straight away from the dragon and has the Prone condition.
     senses: Blindsight 30 ft., Darkvision 120 ft., Passive Perception 17
     languages:
     - Common
@@ -111,31 +100,20 @@ translations:
   fr:
     name: Dragon de bronze, jeune
     subtype: Métallique
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Amphibie***. Le dragon peut respirer sous l''eau comme à l''air libre.
-
+      ***Amphibie***. Le dragon peut respirer sous l'eau comme à l'air libre.
 
       ## Actions
 
+      ***Attaques multiples***. Le dragon effectue trois attaques de Saignée. Il peut remplacer l'une de ces attaques par une utilisation de Souffle répulsif.
 
-      ***Attaques multiples***. Le dragon effectue trois attaques de Saignée. Il peut
-      remplacer l''une de ces attaques par une utilisation de Souffle répulsif.
+      ***Saignée***. *Corps à corps* : +8, allonge 3 m. *Touché* : 16 (2d10 + 5) dégâts tranchants.
 
+      ***Souffle de foudre (recharge 5–6)***. *JdS Dextérité* : DD 15, chaque créature dans une Ligne de 18 m de long sur 1,50 m de large. *Échec* : 49 (9d10) dégâts de foudre. *Réussite* : demi-dégâts.
 
-      ***Saignée***. *Corps à corps* : +8, allonge 3 m. *Touché* : 16 (2d10 + 5) dégâts
-      tranchants.
-
-
-      ***Souffle de foudre (recharge 5–6)***. *JdS Dextérité* : DD 15, chaque créature
-      dans une Ligne de 18 m de long sur 1,50 m de large. *Échec* : 49 (9d10) dégâts
-      de foudre. *Réussite* : demi-dégâts.
-
-
-      ***Souffle répulsif***. *JdS Force* : DD 15, chaque créature dans un Cône de
-      9 m. *Échec* : la cible est repoussée du dragon sur 12 m en ligne droite et
-      subit l''état À terre.'
+      ***Souffle répulsif***. *JdS Force* : DD 15, chaque créature dans un Cône de 9 m. *Échec* : la cible est repoussée du dragon sur 12 m en ligne droite et subit l'état À terre.
     senses: Vision aveugle 9 m, Vision dans le noir 36 m, Perception passive 17
     languages:
     - commun

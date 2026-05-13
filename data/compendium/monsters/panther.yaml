@@ -76,34 +76,28 @@ translations:
   en:
     name: Panther
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Rend***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 6 (1d6 + 3) Slashing
-      damage.
-
+      ***Rend***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 6 (1d6 + 3) Slashing damage.
 
       ## Bonus actions
 
-
-      ***Nimble Escape***. The panther takes the Disengage or Hide action.'
+      ***Nimble Escape***. The panther takes the Disengage or Hide action.
     senses: Darkvision 60 ft., Passive Perception 14
     languages:
     - None
   fr:
     name: Panthère
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Saignée***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 6 (1d6 +3) dégâts
-      tranchants.
-
+      ***Saignée***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 6 (1d6 +3) dégâts tranchants.
 
       ## Actions Bonus
 
-
-      ***Fuite agile***. La panthère prend l''action Désengagement ou Furtivité.'
+      ***Fuite agile***. La panthère prend l'action Désengagement ou Furtivité.
     senses: Vision dans le noir 18 m, Perception passive 14
     languages:
     - aucune

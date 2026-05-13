@@ -79,63 +79,44 @@ translations:
   en:
     name: Vampire Nightbringer
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Sunlight Hypersensitivity***. The vampire takes 10 Radiant damage if it starts
-      its turn in sunlight. While in sunlight, it has Disadvantage on attack rolls
-      and ability checks.
-
+      ***Sunlight Hypersensitivity***. The vampire takes 10 Radiant damage if it starts its turn in sunlight. While in sunlight, it has Disadvantage on attack rolls and ability checks.
 
       ## Actions
 
-
       ***Multiattack***. The vampire makes one Bite attack and one Shadow Strike attack.
 
+      ***Bite***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 7 (1d6 + 4) Piercing damage plus 10 (3d6) Necrotic damage. The target's Hit Point maximum decreases by an amount equal to the Necrotic damage taken, and the vampire regains Hit Points equal to that amount.
 
-      ***Bite***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 7 (1d6 + 4) Piercing
-      damage plus 10 (3d6) Necrotic damage. The target''s Hit Point maximum decreases
-      by an amount equal to the Necrotic damage taken, and the vampire regains Hit
-      Points equal to that amount.
-
-
-      ***Shadow Strike***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 7 (1d6 +
-      4) Slashing damage plus 14 (4d6) Cold damage.
-
+      ***Shadow Strike***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 7 (1d6 + 4) Slashing damage plus 14 (4d6) Cold damage.
 
       ## Bonus actions
 
-
-      ***Shadow Stealth***. While in Dim Light or Darkness, the vampire takes the
-      Hide action.'
+      ***Shadow Stealth***. While in Dim Light or Darkness, the vampire takes the Hide action.
     senses: Darkvision 120 ft., Passive Perception 15
     languages:
     - Common plus one other language
   fr:
     name: Vampire, héraut de la nuit
     subtype: null
-    description: '## Traits
-
+    description: |-
+      ## Traits
 
       Hypersensibilité au soleil.
 
-
       ## Actions
-
 
       Attaques multiples.
 
-
       Morsure.
 
-
-      Frappe d''ombre.
-
+      Frappe d'ombre.
 
       ## Actions Bonus
 
-
-      Discrétion dans les ombres.'
+      Discrétion dans les ombres.
     senses: Vision dans le noir 36 m, Perception passive 15
     languages:
     - commun plus une autre langue

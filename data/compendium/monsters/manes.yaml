@@ -76,21 +76,20 @@ translations:
   en:
     name: Manes
     subtype: Demon
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Claw***. *Melee Attack Roll* : +2, reach 5 ft. *Hit* : 5 (2d4) Slashing damage.'
+      ***Claw***. *Melee Attack Roll* : +2, reach 5 ft. *Hit* : 5 (2d4) Slashing damage.
     senses: Darkvision 60 ft., Passive Perception 9
     languages:
     - Understands Abyssal but can't speak
   fr:
     name: Mâne
     subtype: Démon
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Griffes***. *Corps à corps* : +2, allonge 1,50 m. *Touché* : 5 (2d4) dégâts
-      tranchants.'
+      ***Griffes***. *Corps à corps* : +2, allonge 1,50 m. *Touché* : 5 (2d4) dégâts tranchants.
     senses: Vision dans le noir 18 m, Perception passive 9
     languages:
     - comprend l'abyssal mais ne parle pas

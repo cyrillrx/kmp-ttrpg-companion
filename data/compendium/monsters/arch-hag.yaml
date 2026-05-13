@@ -79,206 +79,92 @@ translations:
   en:
     name: Arch-hag
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Coven Magic***. While within 30 feet of at least two hag allies, the hag can cast one of the following spells, requiring no Material components, using the spell's normal casting time, and using Intelligence as the spellcasting ability (spell save DC 19): *[Augury](https://www.aidedd.org/spell/augury), [Find Familiar](https://www.aidedd.org/spell/find-familiar), [Identify](https://www.aidedd.org/spell/identify), [Locate Object](https://www.aidedd.org/spell/locate-object), [Scrying](https://www.aidedd.org/spell/scrying)*, or *[Unseen Servant](https://www.aidedd.org/spell/unseen-servant)*. The hag must finish a Long Rest before using this trait to cast that spell again.
 
-      ***Coven Magic***. While within 30 feet of at least two hag allies, the hag
-      can cast one of the following spells, requiring no Material components, using
-      the spell''s normal casting time, and using Intelligence as the spellcasting
-      ability (spell save DC 19): *[Augury](https://www.aidedd.org/spell/augury),
-      [Find Familiar](https://www.aidedd.org/spell/find-familiar), [Identify](https://www.aidedd.org/spell/identify),
-      [Locate Object](https://www.aidedd.org/spell/locate-object), [Scrying](https://www.aidedd.org/spell/scrying)*,
-      or *[Unseen Servant](https://www.aidedd.org/spell/unseen-servant)*. The hag
-      must finish a Long Rest before using this trait to cast that spell again.
+      ***Legendary Resistance (4/Day, or 5/Day in Lair)***. If the hag fails a saving throw, it can choose to succeed instead.
 
+      ***Magic Resistance***. The hag has Advantage on saving throws against spells and other magical effects.
 
-      ***Legendary Resistance (4/Day, or 5/Day in Lair)***. If the hag fails a saving
-      throw, it can choose to succeed instead.
-
-
-      ***Magic Resistance***. The hag has Advantage on saving throws against spells
-      and other magical effects.
-
-
-      ***Spiteful Escape***. When the hag drops to 0 Hit Points, it dies only if it
-      is within 30 feet of its anathema (a thing the DM chooses as the hag''s most
-      hated thing). Otherwise, the hag drops to 1 Hit Point and teleports to a harmless
-      demiplane, and it can''t return to the plane it left for 2d6 days. When the
-      hag teleports away, each creature within 60 feet of the space it left is cursed.
-      Until the curse ends, a creature has Disadvantage on ability checks and saving
-      throws, and the hag knows its location anywhere in the multiverse.
-
+      ***Spiteful Escape***. When the hag drops to 0 Hit Points, it dies only if it is within 30 feet of its anathema (a thing the DM chooses as the hag's most hated thing). Otherwise, the hag drops to 1 Hit Point and teleports to a harmless demiplane, and it can't return to the plane it left for 2d6 days. When the hag teleports away, each creature within 60 feet of the space it left is cursed. Until the curse ends, a creature has Disadvantage on ability checks and saving throws, and the hag knows its location anywhere in the multiverse.
 
       ## Actions
 
+      ***Multiattack***. The hag makes two Spectral Claw attacks and uses Crackling Wave.
 
-      ***Multiattack***. The hag makes two Spectral Claw attacks and uses Crackling
-      Wave.
+      ***Spectral Claw***. *Melee or Ranged Attack Roll* : +14, reach 10 ft. or range 60 ft. *Hit* : 17 (3d6 + 7) Force damage. If the target is a Large or smaller creature, it has the Prone condition.
 
+      ***Crackling Wave***. *Dexterity Saving Throw* : DC 22, each creature in a 60-foot Cone. *Failure* : 32 (5d12) Lightning damage. *Success* : Half damage. *Failure or Success* : The target is cursed until the end of the hag's next turn. The target can't take Reactions until the curse ends.
 
-      ***Spectral Claw***. *Melee or Ranged Attack Roll* : +14, reach 10 ft. or range
-      60 ft. *Hit* : 17 (3d6 + 7) Force damage. If the target is a Large or smaller
-      creature, it has the Prone condition.
+      ***Spellcasting***. The hag casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 22):
 
+      At will: *[Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts), [Dimension Door](https://www.aidedd.org/spell/dimension-door), [Dispel Magic](https://www.aidedd.org/spell/dispel-magic), [Hypnotic Pattern](https://www.aidedd.org/spell/hypnotic-pattern)*
 
-      ***Crackling Wave***. *Dexterity Saving Throw* : DC 22, each creature in a 60-foot
-      Cone. *Failure* : 32 (5d12) Lightning damage. *Success* : Half damage. *Failure
-      or Success* : The target is cursed until the end of the hag''s next turn. The
-      target can''t take Reactions until the curse ends.
-
-
-      ***Spellcasting***. The hag casts one of the following spells, requiring no
-      Material components and using Charisma as the spellcasting ability (spell save
-      DC 22):
-
-
-      At will: *[Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts), [Dimension
-      Door](https://www.aidedd.org/spell/dimension-door), [Dispel Magic](https://www.aidedd.org/spell/dispel-magic),
-      [Hypnotic Pattern](https://www.aidedd.org/spell/hypnotic-pattern)*
-
-
-      2/day each: *[Mass Suggestion](https://www.aidedd.org/spell/mass-suggestion),
-      [Modify Memory](https://www.aidedd.org/spell/modify-memory), [Plane Shift](https://www.aidedd.org/spell/plane-shift)*
-
+      2/day each: *[Mass Suggestion](https://www.aidedd.org/spell/mass-suggestion), [Modify Memory](https://www.aidedd.org/spell/modify-memory), [Plane Shift](https://www.aidedd.org/spell/plane-shift)*
 
       ## Bonus actions
 
-
-      ***Witch Strike***. Each creature cursed by the hag and within 60 feet of it
-      takes 14 (4d6) Lightning damage.
-
+      ***Witch Strike***. Each creature cursed by the hag and within 60 feet of it takes 14 (4d6) Lightning damage.
 
       ## Reactions
 
-
-      ***Tongue Twister***. The hag casts *[Counterspell](https://www.aidedd.org/spell/counterspell)*
-      in response to that spell''s trigger, using the same spellcasting ability as
-      Spellcasting. If the target fails its saving throw, it is cursed until the end
-      of its next turn. Until the curse ends, the target can''t cast spells with a
-      Verbal component, and when it speaks, it says the opposite of what it means.
-
+      ***Tongue Twister***. The hag casts *[Counterspell](https://www.aidedd.org/spell/counterspell)* in response to that spell's trigger, using the same spellcasting ability as Spellcasting. If the target fails its saving throw, it is cursed until the end of its next turn. Until the curse ends, the target can't cast spells with a Verbal component, and when it speaks, it says the opposite of what it means.
 
       ## Legendary actions
 
+      Legendary Action Uses: 3 (4 in Lair). Immediately after another creature's turn, the arch-hag can expend a use to take one of the following actions. The arch-hag regains all expended uses at the start of each of its turns.
 
-      Legendary Action Uses: 3 (4 in Lair). Immediately after another creature''s
-      turn, the arch-hag can expend a use to take one of the following actions. The
-      arch-hag regains all expended uses at the start of each of its turns.
+      ***Hag's Swipe***. The hag makes one Spectral Claw attack.
 
-
-      ***Hag''s Swipe***. The hag makes one Spectral Claw attack.
-
-
-      ***Malicious Magic***. The hag uses Spellcasting to cast *[Dimension Door](https://www.aidedd.org/spell/dimension-door)*
-      or *[Hypnotic Pattern](https://www.aidedd.org/spell/hypnotic-pattern)*. The
-      hag can''t take this action again until the start of its next turn.'
+      ***Malicious Magic***. The hag uses Spellcasting to cast *[Dimension Door](https://www.aidedd.org/spell/dimension-door)* or *[Hypnotic Pattern](https://www.aidedd.org/spell/hypnotic-pattern)*. The hag can't take this action again until the start of its next turn.
     senses: Truesight 60 ft., Passive Perception 21
     languages:
     - All
   fr:
     name: Archi-guenaude
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Magie d'assemblée***. Tant qu'elle se trouve dans un rayon de 9 m d'au moins deux alliées guenaudes, la guenaude peut lancer l'un des sorts suivants sans composantes matérielles, avec le temps d'incantation normal, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 19) : *[appel de familier](https://www.aidedd.org/spell/fr/appel-de-familier), [augure](https://www.aidedd.org/spell/fr/augure), [identification](https://www.aidedd.org/spell/fr/identification), [localisation d'objet](https://www.aidedd.org/spell/localisation-d-objet), [scrutation](https://www.aidedd.org/spell/fr/scrutation) ou [serviteur invisible](https://www.aidedd.org/spell/fr/serviteur invisible)*. La guenaude doit terminer un Repos long avant de pouvoir relancer ce sort par ce trait.
 
-      ***Magie d''assemblée***. Tant qu''elle se trouve dans un rayon de 9 m d''au
-      moins deux alliées guenaudes, la guenaude peut lancer l''un des sorts suivants
-      sans composantes matérielles, avec le temps d''incantation normal, l''Intelligence
-      étant sa caractéristique d''incantation (DD de sauvegarde 19) : *[appel de familier](https://www.aidedd.org/spell/fr/appel-de-familier),
-      [augure](https://www.aidedd.org/spell/fr/augure), [identification](https://www.aidedd.org/spell/fr/identification),
-      [localisation d''objet](https://www.aidedd.org/spell/localisation-d-objet),
-      [scrutation](https://www.aidedd.org/spell/fr/scrutation) ou [serviteur invisible](https://www.aidedd.org/spell/fr/serviteur
-      invisible)*. La guenaude doit terminer un Repos long avant de pouvoir relancer
-      ce sort par ce trait.
+      ***Résistance légendaire (4/jour, ou 5/jour dans son antre)***. Si la guenaude rate un jet de sauvegarde, il peut décider de le réussir tout de même.
 
+      ***Résistance à la magie***. La guenaude a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
 
-      ***Résistance légendaire (4/jour, ou 5/jour dans son antre)***. Si la guenaude
-      rate un jet de sauvegarde, il peut décider de le réussir tout de même.
-
-
-      ***Résistance à la magie***. La guenaude a un Avantage aux jets de sauvegarde
-      contre les sorts et autres effets magiques.
-
-
-      ***Évasion hargneuse***. Lorsque la guenaude tombe à 0 point de vie, elle ne
-      meurt que si elle se trouve dans un rayon de 9 m autour de son anathème (un
-      élément choisi par le MD comme étant ce qu''elle déteste le plus). Sinon, elle
-      tombe à 1 point de vie et se téléporte dans un demi-plan inoffensif. Elle ne
-      peut retourner dans son plan d''origine pendant 2d6 jours. Lorsque la guenaude
-      se téléporte, chaque créature dans un rayon de 18 m autour de l''espace qu''elle
-      laisse est maudite. Tant que la malédiction persiste, la créature subit un Désavantage
-      aux jets de caractéristique et aux jets de sauvegarde, et la guenaude connaît
-      sa position partout dans le multivers.
-
+      ***Évasion hargneuse***. Lorsque la guenaude tombe à 0 point de vie, elle ne meurt que si elle se trouve dans un rayon de 9 m autour de son anathème (un élément choisi par le MD comme étant ce qu'elle déteste le plus). Sinon, elle tombe à 1 point de vie et se téléporte dans un demi-plan inoffensif. Elle ne peut retourner dans son plan d'origine pendant 2d6 jours. Lorsque la guenaude se téléporte, chaque créature dans un rayon de 18 m autour de l'espace qu'elle laisse est maudite. Tant que la malédiction persiste, la créature subit un Désavantage aux jets de caractéristique et aux jets de sauvegarde, et la guenaude connaît sa position partout dans le multivers.
 
       ## Actions
 
+      ***Attaques multiples***. La guenaude effectue deux attaques de Griffe spectrale et utilise Vague crépitante.
 
-      ***Attaques multiples***. La guenaude effectue deux attaques de Griffe spectrale
-      et utilise Vague crépitante.
+      ***Griffe spectrale***. *Corps à corps ou à distance* : +14, allonge 3 m ou portée 18 m. *Touché* : 17 (3d6 + 7) dégâts de force. Si la cible est une créature de taille G ou inférieure, elle subit l'état À terre.
 
+      ***Vague crépitante***. *JdS Dextérité* : DD 22, chaque créature dans un Cône de 18 m. *Échec* : 32 (5d12) dégâts de foudre. *Réussite* : demi-dégâts. *Échec ou réussite* : la cible est maudite jusqu'à la fin du prochain tour de la guenaude. La cible ne peut pas prendre de Réactions tant que la malédiction persiste.
 
-      ***Griffe spectrale***. *Corps à corps ou à distance* : +14, allonge 3 m ou
-      portée 18 m. *Touché* : 17 (3d6 + 7) dégâts de force. Si la cible est une créature
-      de taille G ou inférieure, elle subit l''état À terre.
+      ***Incantation***. La guenaude lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 22) :
 
+      À volonté : *[détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees), [porte dimensionnelle](https://www.aidedd.org/spell/fr/porte-dimensionnelle), [dissipation de la magie](https://www.aidedd.org/spell/fr/dissipation-de-la-magie), [motif hypnotique](https://www.aidedd.org/spell/fr/motif-hypnotique)*
 
-      ***Vague crépitante***. *JdS Dextérité* : DD 22, chaque créature dans un Cône
-      de 18 m. *Échec* : 32 (5d12) dégâts de foudre. *Réussite* : demi-dégâts. *Échec
-      ou réussite* : la cible est maudite jusqu''à la fin du prochain tour de la guenaude.
-      La cible ne peut pas prendre de Réactions tant que la malédiction persiste.
-
-
-      ***Incantation***. La guenaude lance l''un des sorts suivants sans composantes
-      matérielles, le Charisme étant sa caractéristique d''incantation (DD de sauvegarde
-      22) :
-
-
-      À volonté : *[détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees),
-      [porte dimensionnelle](https://www.aidedd.org/spell/fr/porte-dimensionnelle),
-      [dissipation de la magie](https://www.aidedd.org/spell/fr/dissipation-de-la-magie),
-      [motif hypnotique](https://www.aidedd.org/spell/fr/motif-hypnotique)*
-
-
-      2/jour chacun : *[suggestion de groupe](https://www.aidedd.org/spell/fr/suggestion-de-groupe),
-      [modification de mémoire](https://www.aidedd.org/spell/fr/modification-de-memoire),
-      [changement de plan](https://www.aidedd.org/spell/fr/changement-de-plan)*
-
+      2/jour chacun : *[suggestion de groupe](https://www.aidedd.org/spell/fr/suggestion-de-groupe), [modification de mémoire](https://www.aidedd.org/spell/fr/modification-de-memoire), [changement de plan](https://www.aidedd.org/spell/fr/changement-de-plan)*
 
       ## Actions Bonus
 
-
-      ***Et frappe la sorcière***. Chaque créature maudite par la guenaude et se trouvant
-      dans un rayon de 18 m d''elle subit 14 (4d6) dégâts de foudre.
-
+      ***Et frappe la sorcière***. Chaque créature maudite par la guenaude et se trouvant dans un rayon de 18 m d'elle subit 14 (4d6) dégâts de foudre.
 
       ## Réactions
 
-
-      ***Virelangue***. La guenaude lance *[contresort](https://www.aidedd.org/spell/fr/montresort)*
-      en réponse au déclenchement de ce sort, en utilisant la même caractéristique
-      d''incantation que pour Incantation. Si la cible rate son jet de sauvegarde,
-      elle est maudite jusqu''à la fin de son prochain tour. Tant que la malédiction
-      persiste, la cible ne peut pas lancer de sorts à composante verbale et, lorsqu''elle
-      parle, elle dit le contraire de ce qu''elle pense.
-
+      ***Virelangue***. La guenaude lance *[contresort](https://www.aidedd.org/spell/fr/montresort)* en réponse au déclenchement de ce sort, en utilisant la même caractéristique d'incantation que pour Incantation. Si la cible rate son jet de sauvegarde, elle est maudite jusqu'à la fin de son prochain tour. Tant que la malédiction persiste, la cible ne peut pas lancer de sorts à composante verbale et, lorsqu'elle parle, elle dit le contraire de ce qu'elle pense.
 
       ## Actions Légendaires
 
-
-      Utilisations d''action Légendaire : 3 (4 dans son antre). Aussitôt après le
-      tour d''une autre créature, la guenaude peut dépenser une utilisation pour entreprendre
-      l''une des actions ci-après. La guenaude récupère toutes ses utilisations dépensées
-      au début de chacun de ses tours.
-
+      Utilisations d'action Légendaire : 3 (4 dans son antre). Aussitôt après le tour d'une autre créature, la guenaude peut dépenser une utilisation pour entreprendre l'une des actions ci-après. La guenaude récupère toutes ses utilisations dépensées au début de chacun de ses tours.
 
       ***Gifle de la guenaude***. La guenaude effectue une attaque de Griffe spectrale.
 
-
-      ***Magie malicieuse***. La guenaude utilise Incantation pour lancer *[porte
-      dimensionnelle](https://www.aidedd.org/spell/fr/porte-dimensionnelle)* ou *motif
-      hypnotique*. Elle ne pourra pas réutiliser cette action avant le début de son
-      prochain tour.'
+      ***Magie malicieuse***. La guenaude utilise Incantation pour lancer *[porte dimensionnelle](https://www.aidedd.org/spell/fr/porte-dimensionnelle)* ou *motif hypnotique*. Elle ne pourra pas réutiliser cette action avant le début de son prochain tour.
     senses: vision véritable 18 m, Perception passive 21
     languages:
     - toutes

@@ -76,34 +76,28 @@ translations:
   en:
     name: Owl
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Flyby***. The owl doesn''t provoke Opportunity Attack action when it flies
-      out of an enemy''s reach.
-
+      ***Flyby***. The owl doesn't provoke Opportunity Attack action when it flies out of an enemy's reach.
 
       ## Actions
 
-
-      ***Talons***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 1 Slashing damage.'
+      ***Talons***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 1 Slashing damage.
     senses: Darkvision 120 ft., Passive Perception 15
     languages:
     - None
   fr:
     name: Chouette
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Repli aérien***. La chouette ne provoque pas d''attaque d''Opportunité lorsqu''elle
-      vole hors de l''allonge d''un ennemi.
-
+      ***Repli aérien***. La chouette ne provoque pas d'attaque d'Opportunité lorsqu'elle vole hors de l'allonge d'un ennemi.
 
       ## Actions
 
-
-      ***Serres***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 1 dégât tranchant.'
+      ***Serres***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 1 dégât tranchant.
     senses: Vision dans le noir 36 m, Perception passive 15
     languages:
     - aucune

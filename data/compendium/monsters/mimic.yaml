@@ -76,71 +76,40 @@ translations:
   en:
     name: Mimic
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Adhesive (Object Form Only)***. The mimic adheres to anything that touches
-      it. A Huge or smaller creature adhered to the mimic has the Grappled condition
-      (escape DC 13). Ability checks made to escape this grapple have Disadvantage.
-
+      ***Adhesive (Object Form Only)***. The mimic adheres to anything that touches it. A Huge or smaller creature adhered to the mimic has the Grappled condition (escape DC 13). Ability checks made to escape this grapple have Disadvantage.
 
       ## Actions
 
+      ***Bite***. *Melee Attack Roll* : +5 (with Advantage if the target is Grappled by the mimic), reach 5 ft. *Hit* : 7 (1d8 + 3) Piercing damage—or 12 (2d8 + 3) Piercing damage if the target is Grappled by the mimic—plus 4 (1d8) Acid damage.
 
-      ***Bite***. *Melee Attack Roll* : +5 (with Advantage if the target is Grappled
-      by the mimic), reach 5 ft. *Hit* : 7 (1d8 + 3) Piercing damage—or 12 (2d8 +
-      3) Piercing damage if the target is Grappled by the mimic—plus 4 (1d8) Acid
-      damage.
-
-
-      ***Pseudopod***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 7 (1d8 + 3) Bludgeoning
-      damage plus 4 (1d8) Acid damage. If the target is a Large or smaller creature,
-      it has the Grappled condition (escape DC 13). Ability checks made to escape
-      this grapple have Disadvantage.
-
+      ***Pseudopod***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 7 (1d8 + 3) Bludgeoning damage plus 4 (1d8) Acid damage. If the target is a Large or smaller creature, it has the Grappled condition (escape DC 13). Ability checks made to escape this grapple have Disadvantage.
 
       ## Bonus actions
 
-
-      ***Shape-Shift***. The mimic shape-shifts to resemble a Medium or Small object
-      while retaining its game statistics, or it returns to its true blob form. Any
-      equipment it is wearing or carrying isn''t transformed.'
+      ***Shape-Shift***. The mimic shape-shifts to resemble a Medium or Small object while retaining its game statistics, or it returns to its true blob form. Any equipment it is wearing or carrying isn't transformed.
     senses: Darkvision 60 ft., Passive Perception 11
     languages:
     - None
   fr:
     name: Mimique
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Engluage (forme d''objet uniquement)***. La mimique adhère à tout ce qui
-      la touche. Une créature de taille TG ou inférieure à laquelle la mimique adhère
-      subit l''état Agrippé (évasion DD 13). Les jets de caractéristique visant à
-      s''extraire de cette prise subissent un Désavantage.
-
+      ***Engluage (forme d'objet uniquement)***. La mimique adhère à tout ce qui la touche. Une créature de taille TG ou inférieure à laquelle la mimique adhère subit l'état Agrippé (évasion DD 13). Les jets de caractéristique visant à s'extraire de cette prise subissent un Désavantage.
 
       ## Actions
 
+      ***Morsure***. *Corps à corps* : +5 (avec Avantage si la cible est agrippée par la mimique), allonge 1,50 m. *Touché* : 7 (1d8 + 3) dégâts perforants, ou 12 (2d8 + 3) dégâts perforants si la cible est agrippée par la mimique, plus 4 (1d8) dégâts d'acide.
 
-      ***Morsure***. *Corps à corps* : +5 (avec Avantage si la cible est agrippée
-      par la mimique), allonge 1,50 m. *Touché* : 7 (1d8 + 3) dégâts perforants, ou
-      12 (2d8 + 3) dégâts perforants si la cible est agrippée par la mimique, plus
-      4 (1d8) dégâts d''acide.
-
-
-      ***Pseudopode***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 7 (1d8 +
-      3) dégâts contondants plus 4 (1d8) dégâts d''acide. Si la cible est une créature
-      de taille G ou inférieure, elle subit l''état Agrippé (évasion DD 13). Les jets
-      de caractéristique visant à s''extraire de cette prise subissent un Désavantage.
-
+      ***Pseudopode***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 7 (1d8 + 3) dégâts contondants plus 4 (1d8) dégâts d'acide. Si la cible est une créature de taille G ou inférieure, elle subit l'état Agrippé (évasion DD 13). Les jets de caractéristique visant à s'extraire de cette prise subissent un Désavantage.
 
       ## Actions Bonus
 
-
-      ***Changement d''aspect***. La mimique se transforme en objet de taille M ou
-      P, tout en conservant son profil de jeu, ou bien retrouve son aspect véritable
-      de masse informe. Rien de ce qu''elle porte n''est transformé.'
+      ***Changement d'aspect***. La mimique se transforme en objet de taille M ou P, tout en conservant son profil de jeu, ou bien retrouve son aspect véritable de masse informe. Rien de ce qu'elle porte n'est transformé.
     senses: Vision dans le noir 18 m, Perception passive 11
     languages:
     - aucune

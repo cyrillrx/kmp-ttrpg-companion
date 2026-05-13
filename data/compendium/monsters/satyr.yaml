@@ -76,23 +76,16 @@ translations:
   en:
     name: Satyr
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Magic Resistance***. The satyr has Advantage on saving throws against spells
-      and other magical effects.
-
+      ***Magic Resistance***. The satyr has Advantage on saving throws against spells and other magical effects.
 
       ## Actions
 
+      ***Hooves***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 5 (1d4 + 3) Bludgeoning damage. If the target is a Medium or smaller creature, the satyr pushes the target up to 10 feet straight away from itself.
 
-      ***Hooves***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 5 (1d4 + 3) Bludgeoning
-      damage. If the target is a Medium or smaller creature, the satyr pushes the
-      target up to 10 feet straight away from itself.
-
-
-      ***Mockery***. *Wisdom Saving Throw* : DC 12, one creature the satyr can see
-      within 90 feet. *Failure* : 5 (1d6 + 2) Psychic damage.'
+      ***Mockery***. *Wisdom Saving Throw* : DC 12, one creature the satyr can see within 90 feet. *Failure* : 5 (1d6 + 2) Psychic damage.
     senses: Passive Perception 12
     languages:
     - Common
@@ -101,23 +94,16 @@ translations:
   fr:
     name: Satyre
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Résistance à la magie***. Le satyre a un Avantage aux jets de sauvegarde
-      contre les sorts et autres effets magiques.
-
+      ***Résistance à la magie***. Le satyre a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
 
       ## Actions
 
+      ***Sabots***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 5 (1d4 + 3) dégâts contondants. Si la cible est une créature de taille M ou inférieure, le satyre la repousse en ligne droite d'un maximum de 3 m.
 
-      ***Sabots***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 5 (1d4 + 3) dégâts
-      contondants. Si la cible est une créature de taille M ou inférieure, le satyre
-      la repousse en ligne droite d''un maximum de 3 m.
-
-
-      ***Moquerie***. *JdS Sagesse* : DD 12, une créature que le satyre voit dans
-      un rayon de 27 m. *Échec* : 5 (1d6 + 2) dégâts psychiques.'
+      ***Moquerie***. *JdS Sagesse* : DD 12, une créature que le satyre voit dans un rayon de 27 m. *Échec* : 5 (1d6 + 2) dégâts psychiques.
     senses: Perception passive 12
     languages:
     - commun

@@ -76,15 +76,12 @@ translations:
   en:
     name: Ogrillon Ogre
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Battleaxe***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 7 (1d8 + 3) Slashing damage.
 
-      ***Battleaxe***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 7 (1d8 + 3) Slashing
-      damage.
-
-
-      ***Javelin***. *Melee or Ranged Attack Roll* : +5, reach 5 ft. or range 30/120
-      ft. *Hit* : 6 (1d6 + 3) Piercing damage.'
+      ***Javelin***. *Melee or Ranged Attack Roll* : +5, reach 5 ft. or range 30/120 ft. *Hit* : 6 (1d6 + 3) Piercing damage.
     senses: Darkvision 60 ft., Passive Perception 9
     languages:
     - Common
@@ -92,15 +89,12 @@ translations:
   fr:
     name: Ogrillon Ogre
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Hache d'armes***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 7 (1d8 + 3) dégâts tranchants.
 
-      ***Hache d''armes***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 7 (1d8
-      + 3) dégâts tranchants.
-
-
-      ***Javeline***. *Corps à corps ou à distance* : +5, allonge 1,50 m ou portée
-      9/36 m. *Touché* : 6 (1d6 + 3) dégâts perforants.'
+      ***Javeline***. *Corps à corps ou à distance* : +5, allonge 1,50 m ou portée 9/36 m. *Touché* : 6 (1d6 + 3) dégâts perforants.
     senses: Vision dans le noir 18 m, Perception passive 9
     languages:
     - commun

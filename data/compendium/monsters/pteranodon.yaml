@@ -76,36 +76,28 @@ translations:
   en:
     name: Pteranodon
     subtype: Dinosaur
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Flyby***. The pteranodon doesn''t provoke an Opportunity Attack when it flies
-      out of an enemy''s reach.
-
+      ***Flyby***. The pteranodon doesn't provoke an Opportunity Attack when it flies out of an enemy's reach.
 
       ## Actions
 
-
-      ***Bite***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 6 (1d8 + 2) Piercing
-      damage.'
+      ***Bite***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 6 (1d8 + 2) Piercing damage.
     senses: Passive Perception 11
     languages:
     - None
   fr:
     name: Ptéranodon
     subtype: Dinosaure
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Repli aérien***. Le ptéranodon ne provoque pas d''attaque d''Opportunité
-      lorsqu''il quitte la zone d''allonge d''un ennemi en volant.
-
+      ***Repli aérien***. Le ptéranodon ne provoque pas d'attaque d'Opportunité lorsqu'il quitte la zone d'allonge d'un ennemi en volant.
 
       ## Actions
 
-
-      ***Morsure***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 6 (1d8 + 2)
-      dégâts perforants.'
+      ***Morsure***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 6 (1d8 + 2) dégâts perforants.
     senses: Perception passive 11
     languages:
     - aucune

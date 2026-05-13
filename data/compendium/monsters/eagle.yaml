@@ -76,22 +76,20 @@ translations:
   en:
     name: Eagle
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Talons***. *Melee Attack Roll* : +4, reach 5 feet. *Hit* : 4 (1d4 + 2) Slashing
-      damage.'
+      ***Talons***. *Melee Attack Roll* : +4, reach 5 feet. *Hit* : 4 (1d4 + 2) Slashing damage.
     senses: Passive Perception 16
     languages:
     - None
   fr:
     name: Aigle
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Serres***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 4 (1d4 + 2) dégâts
-      tranchants.'
+      ***Serres***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 4 (1d4 + 2) dégâts tranchants.
     senses: Perception passive 16
     languages:
     - aucune

@@ -79,97 +79,56 @@ translations:
   en:
     name: Deva
     subtype: Angel
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Exalted Restoration***. If the deva dies outside Mount Celestia, its body disappears, and it gains a new body instantly, reviving with all its Hit Points somewhere in Mount Celestia.
 
-      ***Exalted Restoration***. If the deva dies outside Mount Celestia, its body
-      disappears, and it gains a new body instantly, reviving with all its Hit Points
-      somewhere in Mount Celestia.
-
-
-      ***Magic Resistance***. The deva has Advantage on saving throws against spells
-      and other magical effects.
-
+      ***Magic Resistance***. The deva has Advantage on saving throws against spells and other magical effects.
 
       ## Actions
 
-
       ***Multiattack***. The deva makes two Holy Mace attacks.
 
+      ***Holy Mace***. *Melee Attack Roll* : +8, reach 5 ft. *Hit* : 7 (1d6 + 4) Bludgeoning damage plus 18 (4d8) Radiant damage.
 
-      ***Holy Mace***. *Melee Attack Roll* : +8, reach 5 ft. *Hit* : 7 (1d6 + 4) Bludgeoning
-      damage plus 18 (4d8) Radiant damage.
+      ***Spellcasting***. The deva casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 17):
 
-
-      ***Spellcasting***. The deva casts one of the following spells, requiring no
-      Material components and using Charisma as the spellcasting ability (spell save
-      DC 17):
-
-
-      At Will: *[Detect Evil and Good](https://www.aidedd.org/spell/detect-evil-and-good),
-      [Shapechange](https://www.aidedd.org/spell/shapechange)* (Beast or Humanoid
-      form only, no Temporary Hit Points gained from the spell, and no Concentration
-      or Temporary Hit Points required to maintain the spell)
-
+      At Will: *[Detect Evil and Good](https://www.aidedd.org/spell/detect-evil-and-good), [Shapechange](https://www.aidedd.org/spell/shapechange)* (Beast or Humanoid form only, no Temporary Hit Points gained from the spell, and no Concentration or Temporary Hit Points required to maintain the spell)
 
       1/Day Each: *[Commune](https://www.aidedd.org/spell/commune), [Raise Dead](https://www.aidedd.org/spell/raise-dead)*
 
-
       ## Bonus actions
 
-
-      ***Divine Aid (2/Day)***. The deva casts *[Cure Wounds](https://www.aidedd.org/spell/cure-wounds),
-      [Lesser Restoration](https://www.aidedd.org/spell/lesser-restoration)*, or *[Remove
-      Curse](https://www.aidedd.org/spell/remove-curse)* , using the same spellcasting
-      ability as Spellcasting.'
+      ***Divine Aid (2/Day)***. The deva casts *[Cure Wounds](https://www.aidedd.org/spell/cure-wounds), [Lesser Restoration](https://www.aidedd.org/spell/lesser-restoration)*, or *[Remove Curse](https://www.aidedd.org/spell/remove-curse)* , using the same spellcasting ability as Spellcasting.
     senses: Darkvision 120 ft., Passive Perception 19
     languages:
     - All; telepathy 120 ft.
   fr:
     name: Déva
     subtype: Ange
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Résistance à la magie***. Le déva a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
 
-      ***Résistance à la magie***. Le déva a un Avantage aux jets de sauvegarde contre
-      les sorts et autres effets magiques.
-
-
-      ***Restauration exaltée***. Si le déva meurt hors du Mont Céleste, son corps
-      disparaît et il en acquiert aussitôt un nouveau en revenant à la vie avec tous
-      ses pv, quelque part sur le Mont Céleste.
-
+      ***Restauration exaltée***. Si le déva meurt hors du Mont Céleste, son corps disparaît et il en acquiert aussitôt un nouveau en revenant à la vie avec tous ses pv, quelque part sur le Mont Céleste.
 
       ## Actions
 
-
       ***Attaques multiples***. Le déva effectue deux attaques de Masse sainte.
 
+      ***Masse sainte***. *Corps à corps* : +8, allonge 1,50 m. *Touché* : 7 (1d6 + 4) dégâts contondants plus 18 (4d8) dégâts radiants.
 
-      ***Masse sainte***. *Corps à corps* : +8, allonge 1,50 m. *Touché* : 7 (1d6
-      + 4) dégâts contondants plus 18 (4d8) dégâts radiants.
+      ***Incantation***. Le déva lance l'un des sorts suivants, sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 17) :
 
-
-      ***Incantation***. Le déva lance l''un des sorts suivants, sans composantes
-      matérielles, le Charisme étant sa caractéristique d''incantation (DD de sauvegarde
-      17) :
-
-
-      À volonté : *[changement de forme](https://www.aidedd.org/spell/fr/changement-de-forme)*
-      (Bête ou Humanoïde uniquement, le sort ne fait pas gagner de points de vie temporaires,
-      ni Concentration ni points de vie temporaires nécessaires pour maintenir le
-      sort), *[détection du mal et du bien](https://www.aidedd.org/spell/fr/detection-du-mal-et-du-bien)*
-
+      À volonté : *[changement de forme](https://www.aidedd.org/spell/fr/changement-de-forme)* (Bête ou Humanoïde uniquement, le sort ne fait pas gagner de points de vie temporaires, ni Concentration ni points de vie temporaires nécessaires pour maintenir le sort), *[détection du mal et du bien](https://www.aidedd.org/spell/fr/detection-du-mal-et-du-bien)*
 
       1/jour chacun : *communion, rappel à la vie*
 
-
       ## Actions Bonus
 
-
-      ***Soutien divin (2/jour)***. Le déva lance *[délivrance des malédictions](https://www.aidedd.org/spell/fr/delivrance-des-maledictions),
-      restauration partielle* ou *soins* , avec la même caractéristique d''incantation
-      que pour Incantation.'
+      ***Soutien divin (2/jour)***. Le déva lance *[délivrance des malédictions](https://www.aidedd.org/spell/fr/delivrance-des-maledictions), restauration partielle* ou *soins* , avec la même caractéristique d'incantation que pour Incantation.
     senses: Vision dans le noir 36 m, Perception passive 19
     languages:
     - toutes ; télépathie 36 m

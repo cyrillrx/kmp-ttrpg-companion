@@ -76,24 +76,16 @@ translations:
   en:
     name: Mud Mephit
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Death Burst***. The mephit explodes when it dies. *Dexterity Saving Throw*
-      : DC 11, each creature in a 5-foot Emanation originating from the mephit. *Failure*
-      : The target has the Restrained condition until the end of its next turn.
-
+      ***Death Burst***. The mephit explodes when it dies. *Dexterity Saving Throw* : DC 11, each creature in a 5-foot Emanation originating from the mephit. *Failure* : The target has the Restrained condition until the end of its next turn.
 
       ## Actions
 
+      ***Slam***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 4 (1d6 + 1) Bludgeoning damage.
 
-      ***Slam***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 4 (1d6 + 1) Bludgeoning
-      damage.
-
-
-      ***Mud Breath (Recharge 6)***. *Dexterity Saving Throw* : DC 11, one creature
-      the mephit can see within 15 feet. *Failure* : The target has the Restrained
-      condition until the end of the mephit''s next turn.'
+      ***Mud Breath (Recharge 6)***. *Dexterity Saving Throw* : DC 11, one creature the mephit can see within 15 feet. *Failure* : The target has the Restrained condition until the end of the mephit's next turn.
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - Primordial (Aquan
@@ -101,24 +93,16 @@ translations:
   fr:
     name: Méphite boueux
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Explosion finale***. Le méphite explose quand il meurt. *JdS Dextérité* :
-      DD 11, chaque créature dans une Émanation de 1,50 m centrée sur le méphite.
-      *Échec* : la cible subit l''état Entravé jusqu''à la fin de son prochain tour.
-
+      ***Explosion finale***. Le méphite explose quand il meurt. *JdS Dextérité* : DD 11, chaque créature dans une Émanation de 1,50 m centrée sur le méphite. *Échec* : la cible subit l'état Entravé jusqu'à la fin de son prochain tour.
 
       ## Actions
 
+      ***Coup***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 4 (1d6 + 1) dégâts contondants.
 
-      ***Coup***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 4 (1d6 + 1) dégâts
-      contondants.
-
-
-      ***Souffle de boue (recharge 6)***. *JdS Dextérité* : DD 11, une créature que
-      le méphite peut voir dans un rayon de 4,50 m. *Échec* : la cible subit l''état
-      Entravé jusqu''à la fin du prochain tour du méphite.'
+      ***Souffle de boue (recharge 6)***. *JdS Dextérité* : DD 11, une créature que le méphite peut voir dans un rayon de 4,50 m. *Échec* : la cible subit l'état Entravé jusqu'à la fin du prochain tour du méphite.
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - primordial (aquatique

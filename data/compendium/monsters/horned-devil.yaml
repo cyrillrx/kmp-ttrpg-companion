@@ -81,41 +81,22 @@ translations:
   en:
     name: Horned Devil
     subtype: Devil
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Diabolical Restoration***. If the devil dies outside the Nine Hells, its body disappears in sulfurous smoke, and it gains a new body instantly, reviving with all its Hit Points somewhere in the Nine Hells.
 
-      ***Diabolical Restoration***. If the devil dies outside the Nine Hells, its
-      body disappears in sulfurous smoke, and it gains a new body instantly, reviving
-      with all its Hit Points somewhere in the Nine Hells.
-
-
-      ***Magic Resistance***. The devil has Advantage on saving throws against spells
-      and other magical effects.
-
+      ***Magic Resistance***. The devil has Advantage on saving throws against spells and other magical effects.
 
       ## Actions
 
+      ***Multiattack***. The devil makes three attacks, using Searing Fork or Hurl Flame in any combination. It can replace one attack with a use of Infernal Tail.
 
-      ***Multiattack***. The devil makes three attacks, using Searing Fork or Hurl
-      Flame in any combination. It can replace one attack with a use of Infernal Tail.
+      ***Searing Fork***. *Melee Attack Roll* : +10, reach 10 ft. *Hit* : 15 (2d8 + 6) Piercing damage plus 9 (2d8) Fire damage.
 
+      ***Hurl Flame***. *Ranged Attack Roll* : +8, range 150 ft. *Hit* : 26 (5d8 + 4) Fire damage. If the target is a flammable object that isn't being worn or carried, it starts burning.
 
-      ***Searing Fork***. *Melee Attack Roll* : +10, reach 10 ft. *Hit* : 15 (2d8
-      + 6) Piercing damage plus 9 (2d8) Fire damage.
-
-
-      ***Hurl Flame***. *Ranged Attack Roll* : +8, range 150 ft. *Hit* : 26 (5d8 +
-      4) Fire damage. If the target is a flammable object that isn''t being worn or
-      carried, it starts burning.
-
-
-      ***Infernal Tail***. *Dexterity Saving Throw* : DC 17, one creature the devil
-      can see within 10 feet. *Failure* : 10 (1d8 + 6) Necrotic damage, and the target
-      receives an infernal wound if it doesn''t have one. While wounded, the target
-      loses 10 (3d6) Hit Points at the start of each of its turns. The wound closes
-      after 1 minute, after a spell restores Hit Points to the target, or after the
-      target or a creature within 5 feet of it takes an action to stanch the wound,
-      doing so by succeeding on a DC 17 Wisdom (Medicine) check.'
+      ***Infernal Tail***. *Dexterity Saving Throw* : DC 17, one creature the devil can see within 10 feet. *Failure* : 10 (1d8 + 6) Necrotic damage, and the target receives an infernal wound if it doesn't have one. While wounded, the target loses 10 (3d6) Hit Points at the start of each of its turns. The wound closes after 1 minute, after a spell restores Hit Points to the target, or after the target or a creature within 5 feet of it takes an action to stanch the wound, doing so by succeeding on a DC 17 Wisdom (Medicine) check.
     senses: Darkvision 150 ft. (unimpeded by magical Darkness), Passive Perception
       13
     languages:
@@ -123,43 +104,22 @@ translations:
   fr:
     name: Diable cornu
     subtype: Diable
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Résistance à la magie***. Le diable a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
 
-      ***Résistance à la magie***. Le diable a un Avantage aux jets de sauvegarde
-      contre les sorts et autres effets magiques.
-
-
-      ***Restauration diabolique***. Si le diable meurt hors des Neuf Enfers, son
-      corps disparaît dans un nuage de fumée sulfureuse, tandis qu''il en acquiert
-      aussitôt un nouveau et revient à la vie avec tous ses pv quelque part dans les
-      Neuf Enfers.
-
+      ***Restauration diabolique***. Si le diable meurt hors des Neuf Enfers, son corps disparaît dans un nuage de fumée sulfureuse, tandis qu'il en acquiert aussitôt un nouveau et revient à la vie avec tous ses pv quelque part dans les Neuf Enfers.
 
       ## Actions
 
+      ***Attaques multiples***. Le diable effectue trois attaques, réparties à sa guise entre Fourche incendiaire et Jet de flammes. Il peut remplacer l'une de ces attaques par une utilisation de Queue infernale.
 
-      ***Attaques multiples***. Le diable effectue trois attaques, réparties à sa
-      guise entre Fourche incendiaire et Jet de flammes. Il peut remplacer l''une
-      de ces attaques par une utilisation de Queue infernale.
+      ***Fourche incendiaire***. *Corps à corps* : +10, allonge 3 m. *Touché* : 15 (2d8 + 6) dégâts perforants plus 9 (2d8) dégâts de feu.
 
+      ***Jet de flammes***. *À distance* : +8, portée 45 m. *Touché* : 26 (5d8 + 4) dégâts de feu. Si la cible est un objet inflammable qui n'est porté par personne, elle s'embrase.
 
-      ***Fourche incendiaire***. *Corps à corps* : +10, allonge 3 m. *Touché* : 15
-      (2d8 + 6) dégâts perforants plus 9 (2d8) dégâts de feu.
-
-
-      ***Jet de flammes***. *À distance* : +8, portée 45 m. *Touché* : 26 (5d8 + 4)
-      dégâts de feu. Si la cible est un objet inflammable qui n''est porté par personne,
-      elle s''embrase.
-
-
-      ***Queue infernale***. *JdS Dextérité* : DD 17, une créature que le diable voit
-      dans un rayon de 3 m. *Échec* : 10 (1d8 + 6) dégâts nécrotiques, et la cible
-      subit une plaie infernale si elle n''en a pas déjà une. Ainsi blessée, la cible
-      perd 10 (3d6) points de vie au début de chacun de ses tours. La plaie se referme
-      au bout de 1 minute, si un sort restitue des points de vie à la cible ou si
-      elle-même ou une créature dans un rayon de 1,50 m d''elle consacre une action
-      à panser la plaie et réussit un jet de Sagesse (Médecine) DD 17.'
+      ***Queue infernale***. *JdS Dextérité* : DD 17, une créature que le diable voit dans un rayon de 3 m. *Échec* : 10 (1d8 + 6) dégâts nécrotiques, et la cible subit une plaie infernale si elle n'en a pas déjà une. Ainsi blessée, la cible perd 10 (3d6) points de vie au début de chacun de ses tours. La plaie se referme au bout de 1 minute, si un sort restitue des points de vie à la cible ou si elle-même ou une créature dans un rayon de 1,50 m d'elle consacre une action à panser la plaie et réussit un jet de Sagesse (Médecine) DD 17.
     senses: Vision dans le noir 45 m (perce les Ténèbres magiques), Perception passive
       13
     languages:

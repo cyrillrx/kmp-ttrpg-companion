@@ -76,44 +76,32 @@ translations:
   en:
     name: Reef Shark
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Pack Tactics***. The shark has Advantage on an attack roll against a creature
-      if at least one of the shark''s allies is within 5 feet of the creature and
-      the ally doesn''t have the Incapacitated condition.
-
+      ***Pack Tactics***. The shark has Advantage on an attack roll against a creature if at least one of the shark's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.
 
       ***Water Breathing***. The shark can breathe only underwater.
 
-
       ## Actions
 
-
-      ***Bite***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 7 (2d4 + 2) Piercing
-      damage.'
+      ***Bite***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 7 (2d4 + 2) Piercing damage.
     senses: Blindsight 30 ft., Passive Perception 12
     languages:
     - None
   fr:
     name: Requin de récif
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Tactique de meute***. Le requin a un Avantage aux jets d'attaque contre une créature si au moins l'un de ses alliés est à 1,50 m ou moins de la créature et si l'allié n'a pas l'état Incapable d'agir.
 
-      ***Tactique de meute***. Le requin a un Avantage aux jets d''attaque contre
-      une créature si au moins l''un de ses alliés est à 1,50 m ou moins de la créature
-      et si l''allié n''a pas l''état Incapable d''agir.
-
-
-      ***Respiration aquatique***. Le requin ne peut respirer que sous l''eau.
-
+      ***Respiration aquatique***. Le requin ne peut respirer que sous l'eau.
 
       ## Actions
 
-
-      ***Morsure***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 7 (2d4 + 2)
-      dégâts perforants.'
+      ***Morsure***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 7 (2d4 + 2) dégâts perforants.
     senses: Vision aveugle 9 m, Perception passive 12
     languages:
     - aucune

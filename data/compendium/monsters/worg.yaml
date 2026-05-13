@@ -76,12 +76,10 @@ translations:
   en:
     name: Worg
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Bite***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 7 (1d8 + 3) Piercing
-      damage, and the next attack roll made against the target before the start of
-      the worg''s next turn has Advantage.'
+      ***Bite***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 7 (1d8 + 3) Piercing damage, and the next attack roll made against the target before the start of the worg's next turn has Advantage.
     senses: Darkvision 60 ft., Passive Perception 14
     languages:
     - Goblin
@@ -89,12 +87,10 @@ translations:
   fr:
     name: Worg
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Morsure***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 7 (1d8 + 3)
-      dégâts perforants, et le prochain jet d''attaque effectué contre la cible avant
-      le début du tour suivant du worg a un Avantage.'
+      ***Morsure***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 7 (1d8 + 3) dégâts perforants, et le prochain jet d'attaque effectué contre la cible avant le début du tour suivant du worg a un Avantage.
     senses: Vision dans le noir 18 m, Perception passive 14
     languages:
     - gobelin

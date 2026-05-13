@@ -76,46 +76,26 @@ translations:
   en:
     name: Faerie Dragon Adult
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Magic Resistance***. The dragon has Advantage on saving throws against spells
-      and other magical effects.
-
+      ***Magic Resistance***. The dragon has Advantage on saving throws against spells and other magical effects.
 
       ## Actions
 
+      ***Bite***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 7 (1d4 + 5) Piercing damage plus 3 (1d6) Psychic damage.
 
-      ***Bite***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 7 (1d4 + 5) Piercing
-      damage plus 3 (1d6) Psychic damage.
+      ***Euphoria Breath (Recharge 5–6)***. *Wisdom Saving Throw* : DC 13, each creature in a 15-foot Cone. *Failure* : The target has the Incapacitated condition and repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically. While Incapacitated, the target uses all its movement on each of its turns to move in a random direction.
 
+      ***Spellcasting***. The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 13):
 
-      ***Euphoria Breath (Recharge 5–6)***. *Wisdom Saving Throw* : DC 13, each creature
-      in a 15-foot Cone. *Failure* : The target has the Incapacitated condition and
-      repeats the save at the end of each of its turns, ending the effect on itself
-      on a success. After 1 minute, it succeeds automatically. While Incapacitated,
-      the target uses all its movement on each of its turns to move in a random direction.
+      At will: *[Dancing Lights](https://www.aidedd.org/spell/dancing-lights), [Mage Hand](https://www.aidedd.org/spell/mage-hand), [Minor Illusion](https://www.aidedd.org/spell/minor-illusion)*
 
-
-      ***Spellcasting***. The dragon casts one of the following spells, requiring
-      no Material components and using Charisma as the spellcasting ability (spell
-      save DC 13):
-
-
-      At will: *[Dancing Lights](https://www.aidedd.org/spell/dancing-lights), [Mage
-      Hand](https://www.aidedd.org/spell/mage-hand), [Minor Illusion](https://www.aidedd.org/spell/minor-illusion)*
-
-
-      1/day each: *[Hallucinatory Terrain](https://www.aidedd.org/spell/hallucinatory-terrain),
-      [Polymorph](https://www.aidedd.org/spell/polymorph)*
-
+      1/day each: *[Hallucinatory Terrain](https://www.aidedd.org/spell/hallucinatory-terrain), [Polymorph](https://www.aidedd.org/spell/polymorph)*
 
       ## Bonus actions
 
-
-      ***Superior Invisibility***. The dragon casts *[Greater Invisibility](https://www.aidedd.org/spell/greater-invisibility)*
-      on itself, requiring no spell components and using the same spellcasting ability
-      as Spellcasting.'
+      ***Superior Invisibility***. The dragon casts *[Greater Invisibility](https://www.aidedd.org/spell/greater-invisibility)* on itself, requiring no spell components and using the same spellcasting ability as Spellcasting.
     senses: Darkvision 60 ft., Passive Perception 13
     languages:
     - Draconic
@@ -123,28 +103,22 @@ translations:
   fr:
     name: Dragon féerique, adulte
     subtype: null
-    description: '## Traits
-
+    description: |-
+      ## Traits
 
       Résistance à la magie.
 
-
       ## Actions
-
 
       Morsure.
 
-
       Souffle euphorisant (recharge 5–6).
-
 
       Incantation.
 
-
       ## Actions Bonus
 
-
-      Invisibilité supérieure.'
+      Invisibilité supérieure.
     senses: Vision dans le noir 18 m, Perception passive 13
     languages:
     - draconique

@@ -78,34 +78,28 @@ translations:
   en:
     name: Cat
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Jumper***. The cat''s jump distance is determined using its Dexterity rather
-      than its Strength.
-
+      ***Jumper***. The cat's jump distance is determined using its Dexterity rather than its Strength.
 
       ## Actions
 
-
-      ***Scratch***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 1 Slashing damage.'
+      ***Scratch***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 1 Slashing damage.
     senses: Darkvision 60 ft., Passive Perception 13
     languages:
     - None
   fr:
     name: Chat
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Sauteur***. La distance de saut du chat est déterminée en utilisant sa Dextérité
-      au lieu de sa Force.
-
+      ***Sauteur***. La distance de saut du chat est déterminée en utilisant sa Dextérité au lieu de sa Force.
 
       ## Actions
 
-
-      ***Éraflure***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 1 dégât tranchant.'
+      ***Éraflure***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 1 dégât tranchant.
     senses: Vision dans le noir 18 m, Perception passive 13
     languages:
     - aucune

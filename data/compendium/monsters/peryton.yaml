@@ -76,56 +76,36 @@ translations:
   en:
     name: Peryton
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Flyby***. The peryton doesn''t provoke an Opportunity Attack when it flies
-      out of an enemy''s reach.
-
+      ***Flyby***. The peryton doesn't provoke an Opportunity Attack when it flies out of an enemy's reach.
 
       ## Actions
 
-
       ***Multiattack***. The peryton makes one Gore attack and one Talons attack.
 
+      ***Gore***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 7 (1d8 + 3) Piercing damage. If the peryton moved 30+ feet straight toward the target immediately before the hit, the target takes an extra 9 (2d8) Piercing damage.
 
-      ***Gore***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 7 (1d8 + 3) Piercing
-      damage. If the peryton moved 30+ feet straight toward the target immediately
-      before the hit, the target takes an extra 9 (2d8) Piercing damage.
-
-
-      ***Talons***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 8 (2d4 + 3) Piercing
-      damage. If the attack reduces a Humanoid target to 0 Hit Points, the peryton
-      kills the target by removing its heart.'
+      ***Talons***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 8 (2d4 + 3) Piercing damage. If the attack reduces a Humanoid target to 0 Hit Points, the peryton kills the target by removing its heart.
     senses: Passive Perception 15
     languages:
     - Understands Common and Elvish but can't speak
   fr:
     name: Péryton
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Repli aérien***. Le péryton ne provoque pas d''attaque d''Opportunité lorsqu''il
-      quitte la zone d''allonge d''un ennemi en volant.
-
+      ***Repli aérien***. Le péryton ne provoque pas d'attaque d'Opportunité lorsqu'il quitte la zone d'allonge d'un ennemi en volant.
 
       ## Actions
 
+      ***Attaques multiples***. Le péryton effectue une attaque Coup de défense et une attaque de Serres.
 
-      ***Attaques multiples***. Le péryton effectue une attaque Coup de défense et
-      une attaque de Serres.
+      ***Coup de défense***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 7 (1d8 + 3) dégâts perforants. Si le péryton s'est déplacé d'au moins 9 m en ligne droite vers la cible immédiatement avant de la toucher, la cible subit 9 (2d8) dégâts perforants supplémentaires.
 
-
-      ***Coup de défense***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 7 (1d8
-      + 3) dégâts perforants. Si le péryton s''est déplacé d''au moins 9 m en ligne
-      droite vers la cible immédiatement avant de la toucher, la cible subit 9 (2d8)
-      dégâts perforants supplémentaires.
-
-
-      ***Serres***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 8 (2d4 + 3) dégâts
-      perforants. Si l''attaque réduit une cible Humanoïde à 0 point de vie, le péryton
-      tue la cible en lui retirant son coeur.'
+      ***Serres***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 8 (2d4 + 3) dégâts perforants. Si l'attaque réduit une cible Humanoïde à 0 point de vie, le péryton tue la cible en lui retirant son coeur.
     senses: Perception passive 15
     languages:
     - comprend le commun et l'elfe mais ne parle pas

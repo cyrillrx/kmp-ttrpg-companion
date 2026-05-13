@@ -76,38 +76,20 @@ translations:
   en:
     name: Gulthias Blight
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      \*\* *Blight Seeds***. When it finishes a Long Rest, the blight expels 1d6 seeds
-      into unoccupied spaces on the ground within 30 feet of itself. After 24 hours,
-      the seeds become creatures under the blight''s control. Roll 1d8 for each seed
-      to determine the creature it becomes: on 1-4,** Twig Blight **; on 5-6,** Needle
-      Blight **; on 7-8,** Vine Blight\*\*.
-
+      \*\* *Blight Seeds***. When it finishes a Long Rest, the blight expels 1d6 seeds into unoccupied spaces on the ground within 30 feet of itself. After 24 hours, the seeds become creatures under the blight's control. Roll 1d8 for each seed to determine the creature it becomes: on 1-4,** Twig Blight **; on 5-6,** Needle Blight **; on 7-8,** Vine Blight\*\*.
 
       ## Actions
 
+      ***Multiattack***. The blight makes two attacks, using Slam or Thorn Volley in any combination. It also uses Life-Draining Root.
 
-      ***Multiattack***. The blight makes two attacks, using Slam or Thorn Volley
-      in any combination. It also uses Life-Draining Root.
+      ***Slam***. *Melee Attack Roll* : +12, reach 10 ft. *Hit* : 25 (4d8 + 7) Bludgeoning damage.
 
+      ***Thorn Volley***. *Ranged Attack Roll* : +12, range 60/180 ft. *Hit* : 20 (3d8 + 7) Piercing damage.
 
-      ***Slam***. *Melee Attack Roll* : +12, reach 10 ft. *Hit* : 25 (4d8 + 7) Bludgeoning
-      damage.
-
-
-      ***Thorn Volley***. *Ranged Attack Roll* : +12, range 60/180 ft. *Hit* : 20
-      (3d8 + 7) Piercing damage.
-
-
-      ***Life-Draining Root***. *Constitution Saving Throw* : DC 20, one Huge or smaller
-      creature the blight can see within 30 feet. *Failure* : 14 (2d6 + 7) Necrotic
-      damage, and the target has the Grappled condition (escape DC 17) from one of
-      six roots. Until the grapple ends, the target has the Restrained condition and
-      takes 14 (4d6) Necrotic damage at the start of each of its turns. The target''s
-      Hit Point maximum decreases by an amount equal to the Necrotic damage taken,
-      and the blight regains Hit Points equal to that amount.'
+      ***Life-Draining Root***. *Constitution Saving Throw* : DC 20, one Huge or smaller creature the blight can see within 30 feet. *Failure* : 14 (2d6 + 7) Necrotic damage, and the target has the Grappled condition (escape DC 17) from one of six roots. Until the grapple ends, the target has the Restrained condition and takes 14 (4d6) Necrotic damage at the start of each of its turns. The target's Hit Point maximum decreases by an amount equal to the Necrotic damage taken, and the blight regains Hit Points equal to that amount.
     senses: Blindsight 120 ft., Passive Perception 19
     languages:
     - Common
@@ -115,38 +97,20 @@ translations:
   fr:
     name: Rouilleux de Gulthias
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      \*\* *Graines rouilleuses***. Lorsqu''il termine un Repos long, le rouilleux
-      expulse 1d6 graines dans des espaces vides au sol, dans un rayon de 9 m. Au
-      bout de 24 heures, les graines se transforment en créatures sous son contrôle.
-      Lancez 1d8 pour chaque graine afin de déterminer la créature qu''elle devient
-      : 1-4,** nielleux **; 5-6,** résineux **; 7-8,** lierreux\*\*.
-
+      \*\* *Graines rouilleuses***. Lorsqu'il termine un Repos long, le rouilleux expulse 1d6 graines dans des espaces vides au sol, dans un rayon de 9 m. Au bout de 24 heures, les graines se transforment en créatures sous son contrôle. Lancez 1d8 pour chaque graine afin de déterminer la créature qu'elle devient : 1-4,** nielleux **; 5-6,** résineux **; 7-8,** lierreux\*\*.
 
       ## Actions
 
+      ***Attaques multiples***. Le rouilleux effectue deux attaques, réparties à sa guise entre Coup et Volée d'épines. Il utilise également Racine vampirique.
 
-      ***Attaques multiples***. Le rouilleux effectue deux attaques, réparties à sa
-      guise entre Coup et Volée d''épines. Il utilise également Racine vampirique.
+      ***Coup***. *Corps à corps* : +12, allonge 3 m. *Touché* : 25 (4d8 + 7) dégâts contondants.
 
+      ***Volée d'épines***. *À distance* : +12, portée 18/54 m. *Touché* : 20 (3d8 + 7) dégâts perforants.
 
-      ***Coup***. *Corps à corps* : +12, allonge 3 m. *Touché* : 25 (4d8 + 7) dégâts
-      contondants.
-
-
-      ***Volée d''épines***. *À distance* : +12, portée 18/54 m. *Touché* : 20 (3d8
-      + 7) dégâts perforants.
-
-
-      ***Racine vampirique***. JdS Constitution : DD 20, une créature de taille Gig
-      ou inférieure que le rouilleux peut voir dans un rayon de 9 m. Échec : 14 (2d6
-      + 7) dégâts nécrotiques, et la cible subit l''état Agrippé (évasion DD 17) par
-      l''une des six racines. Tant qu''elle est agrippée, la cible subit l''état Entravé
-      et subit 14 (4d6) dégâts nécrotiques au début de chacun de ses tours. Son maximum
-      de points de vie diminue d''un montant égal aux dégâts nécrotiques subis, et
-      le rouilleux récupère un nombre de points de vie égal à ce montant.'
+      ***Racine vampirique***. JdS Constitution : DD 20, une créature de taille Gig ou inférieure que le rouilleux peut voir dans un rayon de 9 m. Échec : 14 (2d6 + 7) dégâts nécrotiques, et la cible subit l'état Agrippé (évasion DD 17) par l'une des six racines. Tant qu'elle est agrippée, la cible subit l'état Entravé et subit 14 (4d6) dégâts nécrotiques au début de chacun de ses tours. Son maximum de points de vie diminue d'un montant égal aux dégâts nécrotiques subis, et le rouilleux récupère un nombre de points de vie égal à ce montant.
     senses: Vision aveugle 36 m, Perception passive 19
     languages:
     - commun

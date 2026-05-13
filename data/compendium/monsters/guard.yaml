@@ -76,22 +76,20 @@ translations:
   en:
     name: Guard
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Spear***. *Melee or Ranged Attack Roll* : +3, reach 5 ft. or range 20/60
-      ft. *Hit* : 4 (1d6 + 1) Piercing damage.'
+      ***Spear***. *Melee or Ranged Attack Roll* : +3, reach 5 ft. or range 20/60 ft. *Hit* : 4 (1d6 + 1) Piercing damage.
     senses: Passive Perception 12
     languages:
     - Common
   fr:
     name: Garde
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Lance***. Jet d''attaque au corps-à-corps ou à distance : +3, allonge 1,50
-      m ou portée 6/18 m. *Touché* : 4 (1d6 + 1) dégâts perforants.'
+      ***Lance***. Jet d'attaque au corps-à-corps ou à distance : +3, allonge 1,50 m ou portée 6/18 m. *Touché* : 4 (1d6 + 1) dégâts perforants.
     senses: Perception passive 12
     languages:
     - commun

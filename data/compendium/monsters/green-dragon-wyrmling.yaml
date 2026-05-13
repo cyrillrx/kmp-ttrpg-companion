@@ -79,50 +79,36 @@ translations:
   en:
     name: Green Dragon Wyrmling
     subtype: Chromatic
-    description: '## Traits
-
+    description: |-
+      ## Traits
 
       ***Amphibious***. The dragon can breathe air and water.
 
-
       ## Actions
-
 
       ***Multiattack***. The dragon makes two Rend attacks.
 
+      ***Rend***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 7 (1d10 + 2) Slashing damage plus 3 (1d6) Poison damage.
 
-      ***Rend***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 7 (1d10 + 2) Slashing
-      damage plus 3 (1d6) Poison damage.
-
-
-      ***Poison Breath (Recharge 5–6)***. *Constitution Saving Throw* : DC 11, each
-      creature in a 15-foot Cone. *Failure* : 21 (6d6) Poison damage. *Success* :
-      Half damage.'
+      ***Poison Breath (Recharge 5–6)***. *Constitution Saving Throw* : DC 11, each creature in a 15-foot Cone. *Failure* : 21 (6d6) Poison damage. *Success* : Half damage.
     senses: Blindsight 10 ft., Darkvision 60 ft., Passive Perception 14
     languages:
     - Draconic
   fr:
     name: Dragon vert, dragonnet
     subtype: Chromatique
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Amphibie***. Le dragon peut respirer sous l''eau comme à l''air libre.
-
+      ***Amphibie***. Le dragon peut respirer sous l'eau comme à l'air libre.
 
       ## Actions
 
-
       ***Attaques multiples***. Le dragon effectue deux attaques de Saignée.
 
+      ***Saignée***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 7 (1d10 + 2) dégâts tranchants plus 3 (1d6) dégâts de poison.
 
-      ***Saignée***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 7 (1d10 + 2)
-      dégâts tranchants plus 3 (1d6) dégâts de poison.
-
-
-      ***Souffle empoisonné (recharge 5–6)***. *JdS Constitution* : DD 11, chaque
-      créature dans un Cône de 4,50 m. *Échec* : 21 (6d6) dégâts de poison. *Réussite*
-      : demi-dégâts.'
+      ***Souffle empoisonné (recharge 5–6)***. *JdS Constitution* : DD 11, chaque créature dans un Cône de 4,50 m. *Échec* : 21 (6d6) dégâts de poison. *Réussite* : demi-dégâts.
     senses: Vision aveugle 3 m, Vision dans le noir 18 m, Perception passive 14
     languages:
     - draconique

@@ -76,52 +76,24 @@ translations:
   en:
     name: Harpy
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Claw***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 6 (2d4 + 1) Slashing damage.
 
-      ***Claw***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 6 (2d4 + 1) Slashing
-      damage.
-
-
-      ***Luring Song***. The harpy sings a magical melody, which lasts until the harpy''s
-      Concentration ends on it. *Wisdom Saving Throw* : DC 11, each Humanoid and Giant
-      in a 300-foot Emanation originating from the harpy when the song starts. *Failure*
-      : The target has the Charmed condition until the song ends and repeats the save
-      at the end of each of its turns. While Charmed, the target has the Incapacitated
-      condition and ignores the Luring Song of other harpies. If the target is more
-      than 5 feet from the harpy, the target moves on its turn toward the harpy by
-      the most direct route, trying to get within 5 feet of the harpy. It doesn''t
-      avoid Opportunity Attacks; however, before moving into damaging terrain (such
-      as lava or a pit) and whenever it takes damage from a source other than the
-      harpy, the target repeats the save. *Success* : The target is immune to this
-      harpy''s Luring Song for 24 hours.'
+      ***Luring Song***. The harpy sings a magical melody, which lasts until the harpy's Concentration ends on it. *Wisdom Saving Throw* : DC 11, each Humanoid and Giant in a 300-foot Emanation originating from the harpy when the song starts. *Failure* : The target has the Charmed condition until the song ends and repeats the save at the end of each of its turns. While Charmed, the target has the Incapacitated condition and ignores the Luring Song of other harpies. If the target is more than 5 feet from the harpy, the target moves on its turn toward the harpy by the most direct route, trying to get within 5 feet of the harpy. It doesn't avoid Opportunity Attacks; however, before moving into damaging terrain (such as lava or a pit) and whenever it takes damage from a source other than the harpy, the target repeats the save. *Success* : The target is immune to this harpy's Luring Song for 24 hours.
     senses: Passive Perception 10
     languages:
     - Common
   fr:
     name: Harpie
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Griffe***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 6 (2d4 + 1) dégâts tranchants.
 
-      ***Griffe***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 6 (2d4 + 1) dégâts
-      tranchants.
-
-
-      ***Chant captivant***. La harpie chante une mélodie magique qui persiste jusqu''à
-      ce que cesse la Concentration de la harpie. *JdS Sagesse* : DD 11, chaque Humanoïde
-      et Géant dans une Émanation de 90 m centrée sur la harpie quand le chant débute.
-      *Échec* : la cible subit l''état Charmé jusqu''à ce que le chant cesse et réitère
-      le JdS à la fin de chacun de ses tours. Tant qu''elle est ainsi Charmée, la
-      cible subit l''état Incapable d''agir et ignore le Chant captivant des autres
-      harpies. Si la cible se trouve à plus de 1,50 m de la harpie, elle doit à son
-      tour consacrer son déplacement pour se rapprocher du monstre par le chemin le
-      plus direct, jusqu''à terminer dans un rayon de 1,50 m de lui. La cible ne cherche
-      pas à éviter les attaques d''Opportunité, mais si elle doit traverser un terrain
-      dangereux (comme une fosse de lave), elle peut réitérer le JdS, même chose chaque
-      fois qu''elle subit des dégâts d''une source autre que la harpie. *Réussite*
-      : la cible est immunisée contre le Chant captivant de cette harpie pendant 24
-      heures.'
+      ***Chant captivant***. La harpie chante une mélodie magique qui persiste jusqu'à ce que cesse la Concentration de la harpie. *JdS Sagesse* : DD 11, chaque Humanoïde et Géant dans une Émanation de 90 m centrée sur la harpie quand le chant débute. *Échec* : la cible subit l'état Charmé jusqu'à ce que le chant cesse et réitère le JdS à la fin de chacun de ses tours. Tant qu'elle est ainsi Charmée, la cible subit l'état Incapable d'agir et ignore le Chant captivant des autres harpies. Si la cible se trouve à plus de 1,50 m de la harpie, elle doit à son tour consacrer son déplacement pour se rapprocher du monstre par le chemin le plus direct, jusqu'à terminer dans un rayon de 1,50 m de lui. La cible ne cherche pas à éviter les attaques d'Opportunité, mais si elle doit traverser un terrain dangereux (comme une fosse de lave), elle peut réitérer le JdS, même chose chaque fois qu'elle subit des dégâts d'une source autre que la harpie. *Réussite* : la cible est immunisée contre le Chant captivant de cette harpie pendant 24 heures.
     senses: Perception passive 10
     languages:
     - commun

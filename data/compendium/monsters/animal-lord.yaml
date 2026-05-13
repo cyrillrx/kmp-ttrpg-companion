@@ -79,146 +79,104 @@ translations:
   en:
     name: Animal Lord
     subtype: null
-    description: '## Traits
-
+    description: |-
+      ## Traits
 
       Animal Lordship.
 
-
       Legendary Resistance (4/Day).
-
 
       Lordly Presence.
 
-
       Captivated (Forager Only).
-
 
       Fearful (Hunter Only).
 
-
       Mired (Sage Only).
-
 
       Magic Resistance.
 
-
       ## Actions
-
 
       Multiattack.
 
-
       Rend.
-
 
       Radiant Ray.
 
-
       Animal Spirit.
-
 
       Fortify (Forager Only).
 
-
       Marked as Prey (Hunter Only).
-
 
       Pesky Swarm (Sage Only).
 
-
       Spellcasting.
-
 
       ## Bonus actions
 
-
       Shape-Shift.
-
 
       ## Legendary actions
 
-
       Legendary Action Uses: 3.
-
 
       Feral Strike.
 
-
-      Radiant Strike.'
+      Radiant Strike.
     senses: Truesight 120 ft., Passive Perception 28
     languages:
     - All
   fr:
     name: Seigneur des bêtes
     subtype: null
-    description: '## Traits
-
+    description: |-
+      ## Traits
 
       Souveraineté animale.
 
-
       Résistance légendaire (4/jour).
-
 
       Présence souveraine.
 
-
       Captivé (cueilleur uniquement).
-
 
       Craintif (chasseur uniquement).
 
-
       Stupéfié (sage uniquement).
-
 
       Résistance à la magie.
 
-
       ## Actions
-
 
       Attaques multiples.
 
-
       Saignée.
-
 
       Rayon radiant.
 
-
       Esprit animal.
-
 
       Fortifiant (cueilleur uniquement).
 
-
       Proie marquée (chasseur uniquement).
-
 
       Nuée importune (sage uniquement).
 
-
       Incantation.
-
 
       ## Actions Bonus
 
-
-      Changement d''aspect.
-
+      Changement d'aspect.
 
       ## Actions Légendaires
 
-
-      Utilisations d''action Légendaire : 3.
-
+      Utilisations d'action Légendaire : 3.
 
       Assaut bestial.
 
-
-      Assaut radiant.'
+      Assaut radiant.
     senses: vision véritable 36 m, Perception passive 28
     languages:
     - toutes

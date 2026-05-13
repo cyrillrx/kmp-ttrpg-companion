@@ -79,60 +79,40 @@ translations:
   en:
     name: Bronze Dragon Wyrmling
     subtype: Metallic
-    description: '## Traits
-
+    description: |-
+      ## Traits
 
       ***Amphibious***. The dragon can breathe air and water.
 
-
       ## Actions
-
 
       ***Multiattack***. The dragon makes two Rend attacks.
 
+      ***Rend***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 8 (1d10 + 3) Slashing damage.
 
-      ***Rend***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 8 (1d10 + 3) Slashing
-      damage.
+      ***Lightning Breath (Recharge 5–6)***. *Dexterity Saving Throw* : DC 12, each creature in a 40-foot-long, 5-foot-wide Line. *Failure* : 16 (3d10) Lightning damage. *Success* : Half damage.
 
-
-      ***Lightning Breath (Recharge 5–6)***. *Dexterity Saving Throw* : DC 12, each
-      creature in a 40-foot-long, 5-foot-wide Line. *Failure* : 16 (3d10) Lightning
-      damage. *Success* : Half damage.
-
-
-      ***Repulsion Breath***. *Strength Saving Throw* : DC 12, each creature in a
-      30-foot Cone. *Failure* : The target is pushed up to 30 feet straight away from
-      the dragon and has the Prone condition.'
+      ***Repulsion Breath***. *Strength Saving Throw* : DC 12, each creature in a 30-foot Cone. *Failure* : The target is pushed up to 30 feet straight away from the dragon and has the Prone condition.
     senses: Blindsight 10 ft., Darkvision 60 ft., Passive Perception 14
     languages:
     - Draconic
   fr:
     name: Dragon de bronze, dragonnet
     subtype: Métallique
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Amphibie***. Le dragon peut respirer sous l''eau comme à l''air libre.
-
+      ***Amphibie***. Le dragon peut respirer sous l'eau comme à l'air libre.
 
       ## Actions
 
-
       ***Attaques multiples***. Le dragon effectue deux attaques de Saignée.
 
+      ***Saignée***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 8 (1d10 + 3) dégâts tranchants.
 
-      ***Saignée***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 8 (1d10 + 3)
-      dégâts tranchants.
+      ***Souffle de foudre (recharge 5–6)***. *JdS Dextérité* : DD 12, chaque créature dans une Ligne de 12 m de long sur 1,50 m de large. *Échec* : 16 (3d10) dégâts de foudre. *Réussite* : demi-dégâts.
 
-
-      ***Souffle de foudre (recharge 5–6)***. *JdS Dextérité* : DD 12, chaque créature
-      dans une Ligne de 12 m de long sur 1,50 m de large. *Échec* : 16 (3d10) dégâts
-      de foudre. *Réussite* : demi-dégâts.
-
-
-      ***Souffle répulsif***. *JdS Force* : DD 12, chaque créature dans un Cône de
-      9 m. *Échec* : la cible est repoussée du dragon sur 9 m en ligne droite et subit
-      l''état À terre.'
+      ***Souffle répulsif***. *JdS Force* : DD 12, chaque créature dans un Cône de 9 m. *Échec* : la cible est repoussée du dragon sur 9 m en ligne droite et subit l'état À terre.
     senses: Vision aveugle 3 m, Vision dans le noir 18 m, Perception passive 14
     languages:
     - draconique

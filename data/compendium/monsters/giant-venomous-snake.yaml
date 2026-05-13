@@ -76,22 +76,20 @@ translations:
   en:
     name: Giant Venomous Snake
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Bite***. *Melee Attack Roll* : +6, reach 10 ft. *Hit* : 6 (1d4 + 4) Piercing
-      damage plus 4 (1d8) Poison damage.'
+      ***Bite***. *Melee Attack Roll* : +6, reach 10 ft. *Hit* : 6 (1d4 + 4) Piercing damage plus 4 (1d8) Poison damage.
     senses: Blindsight 10 ft., Passive Perception 12
     languages:
     - None
   fr:
     name: Serpent venimeux géant
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Morsure***. *Corps à corps* : +6, allonge 3 m. *Touché* : 6 (1d4 + 4) dégâts
-      perforants plus 4 (1d8) dégâts de poison.'
+      ***Morsure***. *Corps à corps* : +6, allonge 3 m. *Touché* : 6 (1d4 + 4) dégâts perforants plus 4 (1d8) dégâts de poison.
     senses: Vision aveugle 3 m, Perception passive 12
     languages:
     - aucune

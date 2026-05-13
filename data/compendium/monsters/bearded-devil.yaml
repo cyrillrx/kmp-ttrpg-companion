@@ -80,33 +80,18 @@ translations:
   en:
     name: Bearded Devil
     subtype: Devil
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Magic Resistance***. The devil has Advantage on saving throws against spells
-      and other magical effects.
-
+      ***Magic Resistance***. The devil has Advantage on saving throws against spells and other magical effects.
 
       ## Actions
 
+      ***Multiattack***. The devil makes one Beard attack and one Infernal Glaive attack.
 
-      ***Multiattack***. The devil makes one Beard attack and one Infernal Glaive
-      attack.
+      ***Beard***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 7 (1d8 + 3) Piercing damage, and the target has the Poisoned condition until the start of the devil's next turn. Until this poison ends, the target can't regain Hit Points.
 
-
-      ***Beard***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 7 (1d8 + 3) Piercing
-      damage, and the target has the Poisoned condition until the start of the devil''s
-      next turn. Until this poison ends, the target can''t regain Hit Points.
-
-
-      ***Infernal Glaive***. *Melee Attack Roll* : +5, reach 10 ft. *Hit* : 8 (1d10
-      + 3) Slashing damage. If the target is a creature and doesn''t already have
-      an infernal wound, it is subjected to the following effect. *Constitution Saving
-      Throw* : DC 12. *Failure* : The target receives an infernal wound. While wounded,
-      the target loses 5 (1d10) Hit Points at the start of each of its turns. The
-      wound closes after 1 minute, after a spell restores Hit Points to the target,
-      or after the target or a creature within 5 feet of it takes an action to stanch
-      the wound, doing so by succeeding on a DC 12 Wisdom (Medicine) check.'
+      ***Infernal Glaive***. *Melee Attack Roll* : +5, reach 10 ft. *Hit* : 8 (1d10 + 3) Slashing damage. If the target is a creature and doesn't already have an infernal wound, it is subjected to the following effect. *Constitution Saving Throw* : DC 12. *Failure* : The target receives an infernal wound. While wounded, the target loses 5 (1d10) Hit Points at the start of each of its turns. The wound closes after 1 minute, after a spell restores Hit Points to the target, or after the target or a creature within 5 feet of it takes an action to stanch the wound, doing so by succeeding on a DC 12 Wisdom (Medicine) check.
     senses: Darkvision 120 ft. (unimpeded by magical Darkness), Passive Perception
       10
     languages:
@@ -114,34 +99,18 @@ translations:
   fr:
     name: Diable barbu
     subtype: Diable
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Résistance à la magie***. Le diable a un Avantage aux jets de sauvegarde
-      contre les sorts et autres effets magiques.
-
+      ***Résistance à la magie***. Le diable a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
 
       ## Actions
 
+      ***Attaques multiples***. Le diable effectue une attaque de Barbe et une de Coutille infernale.
 
-      ***Attaques multiples***. Le diable effectue une attaque de Barbe et une de
-      Coutille infernale.
+      ***Barbe***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 7 (1d8 + 3) dégâts perforants, et la cible subit l'état Empoisonné jusqu'au début du tour suivant du diable. Tant que persiste l'empoisonnement, la cible ne peut pas récupérer de points de vie.
 
-
-      ***Barbe***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 7 (1d8 + 3) dégâts
-      perforants, et la cible subit l''état Empoisonné jusqu''au début du tour suivant
-      du diable. Tant que persiste l''empoisonnement, la cible ne peut pas récupérer
-      de points de vie.
-
-
-      ***Coutille infernale***. *Corps à corps* : +5, allonge 3 m. *Touché* : 8 (1d10
-      + 3) dégâts tranchants. Si la cible est une créature et ne souffre pas déjà
-      d''une plaie infernale, elle est soumise à l''effet suivant. *JdS Constitution*
-      : DD 12. *Échec* : la cible subit une plaie infernale. Ainsi blessée, la cible
-      perd 5 (1d10) points de vie au début de chacun de ses tours. La plaie se referme
-      au bout de 1 minute, si un sort lui restitue des points de vie ou si elle-même
-      ou une créature dans un rayon de 1,50 m d''elle consacre une action à panser
-      la plaie et réussit un jet de Sagesse (Médecine) DD 12.'
+      ***Coutille infernale***. *Corps à corps* : +5, allonge 3 m. *Touché* : 8 (1d10 + 3) dégâts tranchants. Si la cible est une créature et ne souffre pas déjà d'une plaie infernale, elle est soumise à l'effet suivant. *JdS Constitution* : DD 12. *Échec* : la cible subit une plaie infernale. Ainsi blessée, la cible perd 5 (1d10) points de vie au début de chacun de ses tours. La plaie se referme au bout de 1 minute, si un sort lui restitue des points de vie ou si elle-même ou une créature dans un rayon de 1,50 m d'elle consacre une action à panser la plaie et réussit un jet de Sagesse (Médecine) DD 12.
     senses: Vision dans le noir 36 m (perce les Ténèbres magiques), Perception passive
       10
     languages:

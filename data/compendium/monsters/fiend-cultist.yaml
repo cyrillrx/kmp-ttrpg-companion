@@ -79,33 +79,22 @@ translations:
   en:
     name: Fiend Cultist
     subtype: null
-    description: '## Actions
-
+    description: |-
+      ## Actions
 
       ***Multiattack***. The cultist makes three Pact Axe attacks.
 
+      ***Pact Axe***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 10 (1d12 + 4) Slashing damage plus 13 (3d8) Fire damage.
 
-      ***Pact Axe***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 10 (1d12 + 4)
-      Slashing damage plus 13 (3d8) Fire damage.
+      ***Spellcasting***. The cultist casts one of the following spells, using Wisdom as the spellcasting ability (spell save DC 15, +7 to hit with spell attacks):
 
-
-      ***Spellcasting***. The cultist casts one of the following spells, using Wisdom
-      as the spellcasting ability (spell save DC 15, +7 to hit with spell attacks):
-
-
-      At will: *[Scorching Ray](https://www.aidedd.org/spell/scorching-ray)* (level
-      5 version), *[Thaumaturgy](https://www.aidedd.org/spell/thaumaturgy)*
-
+      At will: *[Scorching Ray](https://www.aidedd.org/spell/scorching-ray)* (level 5 version), *[Thaumaturgy](https://www.aidedd.org/spell/thaumaturgy)*
 
       2/day: *[Fireball](https://www.aidedd.org/spell/fireball)* (level 6 version)
 
-
       ## Reactions
 
-
-      ***Hellish Rebuke***. The cultist casts *[Hellish Rebuke](https://www.aidedd.org/spell/hellish-rebuke)*
-      in response to that spell''s trigger, using the same spellcasting ability as
-      Spellcasting.'
+      ***Hellish Rebuke***. The cultist casts *[Hellish Rebuke](https://www.aidedd.org/spell/hellish-rebuke)* in response to that spell's trigger, using the same spellcasting ability as Spellcasting.
     senses: Darkvision 90 ft. (unimpeded by magical Darkness), Passive Perception
       17
     languages:
@@ -115,34 +104,22 @@ translations:
   fr:
     name: Cultiste, de Fiélon
     subtype: null
-    description: '## Actions
-
+    description: |-
+      ## Actions
 
       ***Attaques multiples***. Le cultiste effectue trois attaques de Hache de pacte.
 
+      ***Hache de pacte***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 10 (1d12 + 4) dégâts tranchants plus 13 (3d8) dégâts de feu.
 
-      ***Hache de pacte***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 10 (1d12
-      + 4) dégâts tranchants plus 13 (3d8) dégâts de feu.
+      ***Incantation***. Le cultiste lance l'un des sorts suivants, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 15, +7 pour toucher) :
 
+      À volonté : *[rayon ardent](https://www.aidedd.org/spell/fr/rayon-ardent)* (au niveau 5), *[thaumaturgie](https://www.aidedd.org/spell/fr/thaumaturgie)*
 
-      ***Incantation***. Le cultiste lance l''un des sorts suivants, la Sagesse étant
-      sa caractéristique d''incantation (DD de sauvegarde 15, +7 pour toucher) :
-
-
-      À volonté : *[rayon ardent](https://www.aidedd.org/spell/fr/rayon-ardent)* (au
-      niveau 5), *[thaumaturgie](https://www.aidedd.org/spell/fr/thaumaturgie)*
-
-
-      2/jour : *[boule de feu](https://www.aidedd.org/spell/fr/boule-de-feu)* (au
-      niveau 6)
-
+      2/jour : *[boule de feu](https://www.aidedd.org/spell/fr/boule-de-feu)* (au niveau 6)
 
       ## Réactions
 
-
-      ***Représailles infernales***. Le cultiste lance *[représailles infernales](https://www.aidedd.org/spell/fr/represailles-infernales)*
-      en réponse au déclencheur de ce sort, en utilisant la même caractéristique d''incantation
-      que pour Incantation.'
+      ***Représailles infernales***. Le cultiste lance *[représailles infernales](https://www.aidedd.org/spell/fr/represailles-infernales)* en réponse au déclencheur de ce sort, en utilisant la même caractéristique d'incantation que pour Incantation.
     senses: Vision dans le noir 27 m (perce les Ténèbres magiques), Perception passive
       17
     languages:

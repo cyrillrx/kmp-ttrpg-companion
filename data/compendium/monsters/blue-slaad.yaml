@@ -76,67 +76,36 @@ translations:
   en:
     name: Blue Slaad
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Magic Resistance***. The slaad has Advantage on saving throws against spells and other magical effects.
 
-      ***Magic Resistance***. The slaad has Advantage on saving throws against spells
-      and other magical effects.
-
-
-      ***Regeneration***. The slaad regains 10 Hit Points at the start of each of
-      its turns if it has at least 1 Hit Point.
-
+      ***Regeneration***. The slaad regains 10 Hit Points at the start of each of its turns if it has at least 1 Hit Point.
 
       ## Actions
 
-
       ***Multiattack***. The slaad makes three Mutating Claw attacks.
 
-
-      ***Mutating Claw***. *Melee Attack Roll* : +8, reach 10 ft. *Hit* : 12 (2d6
-      + 5) Slashing damage plus 3 (1d6) Poison damage. If the target is a Humanoid
-      not cursed by a slaad, it is subjected to the following effect. *Constitution
-      Saving Throw* : DC 15. *Failure* : The target is cursed. The cursed target can''t
-      regain Hit Points, and its Hit Point maximum decreases by 10 (3d6) after every
-      24 hours and doesn''t return to normal after finishing a Long Rest. If the curse
-      reduces the target''s Hit Point maximum to 0, the curse ends, and instead of
-      dying, the target instantly transforms into a **Red Slaad** or, if it can cast
-      spells of level 3 or higher, a **Green Slaad**. Only a *[Wish](https://www.aidedd.org/spell/wish)*
-      spell can reverse this transformation.'
+      ***Mutating Claw***. *Melee Attack Roll* : +8, reach 10 ft. *Hit* : 12 (2d6 + 5) Slashing damage plus 3 (1d6) Poison damage. If the target is a Humanoid not cursed by a slaad, it is subjected to the following effect. *Constitution Saving Throw* : DC 15. *Failure* : The target is cursed. The cursed target can't regain Hit Points, and its Hit Point maximum decreases by 10 (3d6) after every 24 hours and doesn't return to normal after finishing a Long Rest. If the curse reduces the target's Hit Point maximum to 0, the curse ends, and instead of dying, the target instantly transforms into a **Red Slaad** or, if it can cast spells of level 3 or higher, a **Green Slaad**. Only a *[Wish](https://www.aidedd.org/spell/wish)* spell can reverse this transformation.
     senses: Darkvision 60 ft., Passive Perception 11
     languages:
     - Slaad; telepathy 60 ft.
   fr:
     name: Slaad bleu
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Résistance à la magie***. Le slaad a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
 
-      ***Résistance à la magie***. Le slaad a un Avantage aux jets de sauvegarde contre
-      les sorts et autres effets magiques.
-
-
-      ***Régénération***. Le slaad récupère 10 points de vie au début de chacun de
-      ses tours s''il lui reste au moins 1 point de vie.
-
+      ***Régénération***. Le slaad récupère 10 points de vie au début de chacun de ses tours s'il lui reste au moins 1 point de vie.
 
       ## Actions
 
-
       ***Attaques multiples***. Le slaad effectue trois attaques de Griffe de mutation.
 
-
-      ***Griffe de mutation***. Jet d''attaque au corps à corps : +8, portée 3 m.
-      *Touché* : 12 (2d6 + 5) dégâts tranchants plus 3 (1d6) dégâts de poison. Si
-      la cible est un Humanoïde non maudit par un slaad, elle subit l''effet suivant.
-      *JdS Constitution* : DD 15. *Échec* : la cible est maudite. La cible maudite
-      ne peut pas récupérer de points de vie, et son maximum de points de vie diminue
-      de 10 (3d6) toutes les 24 heures et ne revient pas à la normale après un Repos
-      long. Si la malédiction réduit le maximum de points de vie de la cible à 0,
-      elle prend fin et, au lieu de mourir, la cible se transforme instantanément
-      en **slaad rouge** ou, si elle peut lancer des sorts de niveau 3 ou supérieur,
-      en **slaad vert**. Seul un sort *[souhait](https://www.aidedd.org/spell/fr/souhait)*
-      peut inverser cette transformation.'
+      ***Griffe de mutation***. Jet d'attaque au corps à corps : +8, portée 3 m. *Touché* : 12 (2d6 + 5) dégâts tranchants plus 3 (1d6) dégâts de poison. Si la cible est un Humanoïde non maudit par un slaad, elle subit l'effet suivant. *JdS Constitution* : DD 15. *Échec* : la cible est maudite. La cible maudite ne peut pas récupérer de points de vie, et son maximum de points de vie diminue de 10 (3d6) toutes les 24 heures et ne revient pas à la normale après un Repos long. Si la malédiction réduit le maximum de points de vie de la cible à 0, elle prend fin et, au lieu de mourir, la cible se transforme instantanément en **slaad rouge** ou, si elle peut lancer des sorts de niveau 3 ou supérieur, en **slaad vert**. Seul un sort *[souhait](https://www.aidedd.org/spell/fr/souhait)* peut inverser cette transformation.
     senses: Vision dans le noir 18 m, Perception passive 11
     languages:
     - slaad ; télépathie 18 m

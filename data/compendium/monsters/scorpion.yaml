@@ -76,22 +76,20 @@ translations:
   en:
     name: Scorpion
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Sting***. *Melee Attack Roll* : +2, reach 5 ft. *Hit* : 1 Piercing damage
-      plus 3 (1d6) Poison damage.'
+      ***Sting***. *Melee Attack Roll* : +2, reach 5 ft. *Hit* : 1 Piercing damage plus 3 (1d6) Poison damage.
     senses: Blindsight 10 ft., Passive Perception 9
     languages:
     - None
   fr:
     name: Scorpion
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Dard***. *Corps à corps* : +2, allonge 1,50 m. *Touché* : 1 dégât perforant
-      plus 3 (1d6) dégâts de poison.'
+      ***Dard***. *Corps à corps* : +2, allonge 1,50 m. *Touché* : 1 dégât perforant plus 3 (1d6) dégâts de poison.
     senses: Vision aveugle 3 m, Perception passive 9
     languages:
     - aucune

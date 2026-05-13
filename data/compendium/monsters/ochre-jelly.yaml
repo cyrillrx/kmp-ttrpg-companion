@@ -76,66 +76,40 @@ translations:
   en:
     name: Ochre Jelly
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Amorphous***. The jelly can move through a space as narrow as 1 inch without expending extra movement to do so.
 
-      ***Amorphous***. The jelly can move through a space as narrow as 1 inch without
-      expending extra movement to do so.
-
-
-      ***Spider Climb***. The jelly can climb difficult surfaces, including along
-      ceilings, without needing to make an ability check.
-
+      ***Spider Climb***. The jelly can climb difficult surfaces, including along ceilings, without needing to make an ability check.
 
       ## Actions
 
-
-      ***Pseudopod***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 12 (3d6 + 2)
-      Acid damage.
-
+      ***Pseudopod***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 12 (3d6 + 2) Acid damage.
 
       ## Reactions
 
-
-      ***Split***. *Trigger* : While the jelly is Large or Medium and has 10+ Hit
-      Points, it becomes Bloodied or is subjected to Lightning or Slashing damage.
-      *Response* : The jelly splits into two new Ochre Jellies. Each new jelly is
-      one size smaller than the original jelly and acts on its Initiative. The original
-      jelly''s Hit Points are divided evenly between the new jellies (round down).'
+      ***Split***. *Trigger* : While the jelly is Large or Medium and has 10+ Hit Points, it becomes Bloodied or is subjected to Lightning or Slashing damage. *Response* : The jelly splits into two new Ochre Jellies. Each new jelly is one size smaller than the original jelly and acts on its Initiative. The original jelly's Hit Points are divided evenly between the new jellies (round down).
     senses: Blindsight 60 ft., Passive Perception 8
     languages:
     - None
   fr:
     name: Gelée ocre
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Informe***. La gelée peut se déplacer dans un espace étroit d'une largeur minimale de 2,50 cm sans dépense supplémentaire en déplacement.
 
-      ***Informe***. La gelée peut se déplacer dans un espace étroit d''une largeur
-      minimale de 2,50 cm sans dépense supplémentaire en déplacement.
-
-
-      ***Pattes d''araignée***. La gelée peut parcourir les parois les plus difficiles
-      à escalader, y compris les plafonds, sans passer par un jet de caractéristique.
-
+      ***Pattes d'araignée***. La gelée peut parcourir les parois les plus difficiles à escalader, y compris les plafonds, sans passer par un jet de caractéristique.
 
       ## Actions
 
-
-      ***Pseudopode***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 12 (3d6 +
-      2) dégâts d''acide.
-
+      ***Pseudopode***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 12 (3d6 + 2) dégâts d'acide.
 
       ## Réactions
 
-
-      \*\* *Division***. *Déclencheur* : alors que la gelée est de taille G ou M et
-      dispose d''au moins 10 points de vie, elle se retrouve En péril ou subit des
-      dégâts de foudre ou tranchants. *Conséquences* : la gelée se divise en deux
-      nouvelles** gelées ocres\*\*. Chaque nouvelle gelée présente une catégorie de
-      taille de moins que la gelée dont elle est issue et agit au même rang d''Initiative.
-      Les points de vie de la gelée d''origine sont divisés équitablement entre les
-      deux nouvelles (arrondis à l''inférieur).'
+      \*\* *Division***. *Déclencheur* : alors que la gelée est de taille G ou M et dispose d'au moins 10 points de vie, elle se retrouve En péril ou subit des dégâts de foudre ou tranchants. *Conséquences* : la gelée se divise en deux nouvelles** gelées ocres\*\*. Chaque nouvelle gelée présente une catégorie de taille de moins que la gelée dont elle est issue et agit au même rang d'Initiative. Les points de vie de la gelée d'origine sont divisés équitablement entre les deux nouvelles (arrondis à l'inférieur).
     senses: Vision aveugle 18 m, Perception passive 8
     languages:
     - aucune

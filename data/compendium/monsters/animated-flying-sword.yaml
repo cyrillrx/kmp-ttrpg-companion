@@ -78,20 +78,18 @@ translations:
   en:
     name: Animated Flying Sword
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Slash***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 6 (1d8 + 2) Slashing
-      damage.'
+      ***Slash***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 6 (1d8 + 2) Slashing damage.
     senses: Blindsight 60 ft., Passive Perception 7
     languages: []
   fr:
     name: Épée volante animée
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Taillade***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 6 (1d8 + 2)
-      dégâts tranchants.'
+      ***Taillade***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 6 (1d8 + 2) dégâts tranchants.
     senses: Vision aveugle 18 m, Perception passive 7
     languages: []

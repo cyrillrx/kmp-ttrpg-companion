@@ -76,58 +76,30 @@ translations:
   en:
     name: Ultroloth
     subtype: Yugoloth
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Fiendish Restoration***. If the ultroloth dies outside Gehenna, its body dissolves into ichor, and it gains a new body instantly, reviving with all its Hit Points somewhere in Gehenna.
 
-      ***Fiendish Restoration***. If the ultroloth dies outside Gehenna, its body
-      dissolves into ichor, and it gains a new body instantly, reviving with all its
-      Hit Points somewhere in Gehenna.
-
-
-      ***Magic Resistance***. The ultroloth has Advantage on saving throws against
-      spells and other magical effects.
-
+      ***Magic Resistance***. The ultroloth has Advantage on saving throws against spells and other magical effects.
 
       ## Actions
 
+      ***Multiattack***. The ultroloth uses Hypnotic Gaze and makes two Mercurial Whip attacks.
 
-      ***Multiattack***. The ultroloth uses Hypnotic Gaze and makes two Mercurial
-      Whip attacks.
+      ***Mercurial Whip***. *Melee Attack Roll* : +9, reach 15 ft. *Hit* : 25 (6d6 + 4) Force damage, and the ultroloth can teleport the target up to 10 feet to an unoccupied space the ultroloth can see that isn't in the air.
 
+      ***Hypnotic Gaze***. *Wisdom Saving Throw* : DC 17, each creature in a 30-foot Cone. *Failure* : 10 (3d6) Psychic damage, and the target has the Stunned condition until the start of the ultroloth's next turn. *Success* : The target is immune to this ultroloth's Hypnotic Gaze for 24 hours.
 
-      ***Mercurial Whip***. *Melee Attack Roll* : +9, reach 15 ft. *Hit* : 25 (6d6
-      + 4) Force damage, and the ultroloth can teleport the target up to 10 feet to
-      an unoccupied space the ultroloth can see that isn''t in the air.
+      ***Spellcasting***. The ultroloth casts one of the following spells, requiring no Material components and using Intelligence as the spellcasting ability (spell save DC 17):
 
+      At will: *[Alter Self](https://www.aidedd.org/spell/alter-self), [Clairvoyance](https://www.aidedd.org/spell/clairvoyance), [Detect Magic](https://www.aidedd.org/spell/detect-magic)*
 
-      ***Hypnotic Gaze***. *Wisdom Saving Throw* : DC 17, each creature in a 30-foot
-      Cone. *Failure* : 10 (3d6) Psychic damage, and the target has the Stunned condition
-      until the start of the ultroloth''s next turn. *Success* : The target is immune
-      to this ultroloth''s Hypnotic Gaze for 24 hours.
-
-
-      ***Spellcasting***. The ultroloth casts one of the following spells, requiring
-      no Material components and using Intelligence as the spellcasting ability (spell
-      save DC 17):
-
-
-      At will: *[Alter Self](https://www.aidedd.org/spell/alter-self), [Clairvoyance](https://www.aidedd.org/spell/clairvoyance),
-      [Detect Magic](https://www.aidedd.org/spell/detect-magic)*
-
-
-      1/day each: *[Dimension Door](https://www.aidedd.org/spell/dimension-door),
-      [Fireball](https://www.aidedd.org/spell/fireball)* (level 5 version), *[Wall
-      of Fire](https://www.aidedd.org/spell/wall-of-fire)*
-
+      1/day each: *[Dimension Door](https://www.aidedd.org/spell/dimension-door), [Fireball](https://www.aidedd.org/spell/fireball)* (level 5 version), *[Wall of Fire](https://www.aidedd.org/spell/wall-of-fire)*
 
       ## Bonus actions
 
-
-      ***Fiendish Guile (Recharge 4–6)***. The ultroloth casts *[Dispel Magic](https://www.aidedd.org/spell/dispel-magic),
-      [Invisibility](https://www.aidedd.org/spell/invisibility)* (self only), *[Misty
-      Step](https://www.aidedd.org/spell/misty-step)* , or *[Suggestion](https://www.aidedd.org/spell/suggestion)*
-      , requiring no Material components and using the same spellcasting ability as
-      Spellcasting.'
+      ***Fiendish Guile (Recharge 4–6)***. The ultroloth casts *[Dispel Magic](https://www.aidedd.org/spell/dispel-magic), [Invisibility](https://www.aidedd.org/spell/invisibility)* (self only), *[Misty Step](https://www.aidedd.org/spell/misty-step)* , or *[Suggestion](https://www.aidedd.org/spell/suggestion)* , requiring no Material components and using the same spellcasting ability as Spellcasting.
     senses: Truesight 120 ft., Passive Perception 17
     languages:
     - Abyssal
@@ -135,59 +107,30 @@ translations:
   fr:
     name: Ultroloth
     subtype: Yugoloth
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Restauration fiélonne***. Si l'ultroloth meurt hors de Géhenne, son corps se dissout en ichor et il en acquiert aussitôt un nouveau et revient à la vie avec tous ses pv, quelque part dans Géhenne.
 
-      ***Restauration fiélonne***. Si l''ultroloth meurt hors de Géhenne, son corps
-      se dissout en ichor et il en acquiert aussitôt un nouveau et revient à la vie
-      avec tous ses pv, quelque part dans Géhenne.
-
-
-      ***Résistance à la magie***. L''ultroloth a un Avantage aux jets de sauvegarde
-      contre les sorts et autres effets magiques.
-
+      ***Résistance à la magie***. L'ultroloth a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
 
       ## Actions
 
+      ***Attaques multiples***. L'ultroloth utilise Regard hypnotisant et effectue deux attaques de Fouet labile.
 
-      ***Attaques multiples***. L''ultroloth utilise Regard hypnotisant et effectue
-      deux attaques de Fouet labile.
+      ***Fouet labile***. *Corps à corps* : +9, allonge 4,50 m. *Touché* : 25 (6d6 + 4) dégâts de force, et l'ultroloth peut téléporter la cible jusqu'à 3 m dans un espace inoccupé qu'il peut voir et qui n'est pas dans les airs.
 
+      ***Regard hypnotisant***. *JdS Sagesse* : DD 17, chaque créature dans un Cône de 9 m. *Échec* : 10 (3d6) dégâts psychiques, et la cible subit l'état Étourdie jusqu'au début du prochain tour de l'ultroloth. *Réussite* : la cible est immunisée contre le Regard hypnotisant de cet ultroloth pendant 24 heures.
 
-      ***Fouet labile***. *Corps à corps* : +9, allonge 4,50 m. *Touché* : 25 (6d6
-      + 4) dégâts de force, et l''ultroloth peut téléporter la cible jusqu''à 3 m
-      dans un espace inoccupé qu''il peut voir et qui n''est pas dans les airs.
+      ***Incantation***. L'ultroloth lance l'un des sorts suivants sans composantes matérielles, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 17) :
 
+      À volonté : *[modification d'apparence](https://www.aidedd.org/spell/fr/modification-d-apparence), [clairvoyance](https://www.aidedd.org/spell/fr/clairvoyance), [détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie")*
 
-      ***Regard hypnotisant***. *JdS Sagesse* : DD 17, chaque créature dans un Cône
-      de 9 m. *Échec* : 10 (3d6) dégâts psychiques, et la cible subit l''état Étourdie
-      jusqu''au début du prochain tour de l''ultroloth. *Réussite* : la cible est
-      immunisée contre le Regard hypnotisant de cet ultroloth pendant 24 heures.
-
-
-      ***Incantation***. L''ultroloth lance l''un des sorts suivants sans composantes
-      matérielles, l''Intelligence étant sa caractéristique d''incantation (DD de
-      sauvegarde 17) :
-
-
-      À volonté : *[modification d''apparence](https://www.aidedd.org/spell/fr/modification-d-apparence),
-      [clairvoyance](https://www.aidedd.org/spell/fr/clairvoyance), [détection de
-      la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie")*
-
-
-      1/jour chacun : *[porte dimensionnelle](https://www.aidedd.org/spell/fr/porte-dimensionnelle),
-      [boule de feu](https://www.aidedd.org/spell/fr/boule-de-feu)* (au niveau 5),
-      *[mur de feu](https://www.aidedd.org/spell/fr/mur-de-feu)*
-
+      1/jour chacun : *[porte dimensionnelle](https://www.aidedd.org/spell/fr/porte-dimensionnelle), [boule de feu](https://www.aidedd.org/spell/fr/boule-de-feu)* (au niveau 5), *[mur de feu](https://www.aidedd.org/spell/fr/mur-de-feu)*
 
       ## Actions Bonus
 
-
-      ***Ruse fiélonne (recharge 4–6)***. L''ultroloth lance *[dissipation de la magie](https://www.aidedd.org/spell/fr/dissipation-de-la-magie),
-      [invisibilité](https://www.aidedd.org/spell/fr/invisibilite)* (soi-même uniquement),
-      *[foulée brumeuse](https://www.aidedd.org/spell/fr/foulee-brumeuse")* , ou *[suggestion](https://www.aidedd.org/spell/fr/suggestion)*
-      , sans composantes matérielles et avec la même caractéristique d''incantation
-      que pour Incantation.'
+      ***Ruse fiélonne (recharge 4–6)***. L'ultroloth lance *[dissipation de la magie](https://www.aidedd.org/spell/fr/dissipation-de-la-magie), [invisibilité](https://www.aidedd.org/spell/fr/invisibilite)* (soi-même uniquement), *[foulée brumeuse](https://www.aidedd.org/spell/fr/foulee-brumeuse")* , ou *[suggestion](https://www.aidedd.org/spell/fr/suggestion)* , sans composantes matérielles et avec la même caractéristique d'incantation que pour Incantation.
     senses: vision véritable 36 m, Perception passive 17
     languages:
     - abyssal

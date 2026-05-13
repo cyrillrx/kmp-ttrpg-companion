@@ -76,93 +76,40 @@ translations:
   en:
     name: Intellect Devourer
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Detect Intelligence***. The intellect devourer magically senses the location
-      of any creature within 300 feet of itself that has an Intelligence score of
-      3 or higher, regardless of interposing barriers.
-
+      ***Detect Intelligence***. The intellect devourer magically senses the location of any creature within 300 feet of itself that has an Intelligence score of 3 or higher, regardless of interposing barriers.
 
       ## Actions
 
+      ***Multiattack***. The intellect devourer makes one Claw attack and uses Devour Intellect.
 
-      ***Multiattack***. The intellect devourer makes one Claw attack and uses Devour
-      Intellect.
+      ***Claw***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 7 (2d4 + 2) Slashing damage.
 
+      ***Devour Intellect***. *Intelligence Saving Throw* : DC 12, one creature the intellect devourer can see within 5 feet. *Failure* : 11 (2d10) Psychic damage, and the target has the Stunned condition until the end of the intellect devourer's next turn.
 
-      ***Claw***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 7 (2d4 + 2) Slashing
-      damage.
-
-
-      ***Devour Intellect***. *Intelligence Saving Throw* : DC 12, one creature the
-      intellect devourer can see within 5 feet. *Failure* : 11 (2d10) Psychic damage,
-      and the target has the Stunned condition until the end of the intellect devourer''s
-      next turn.
-
-
-      ***Steal Body***. *Intelligence Saving Throw* : DC 12, one Small or Medium creature
-      within 5 feet that has the Incapacitated condition, is a Humanoid or Beast,
-      and has 10 Hit Points or fewer. *Failure* : The intellect devourer possesses
-      the target, consumes its brain, and teleports inside its skull. While there,
-      the intellect devourer has Total Cover against attacks and other effects originating
-      outside its host. The intellect devourer retains its Intelligence, Wisdom, and
-      Charisma scores; its understanding of Deep Speech; its telepathy; and its Detect
-      Intelligence trait. It otherwise adopts the target''s game statistics. It knows
-      everything the target knew, including spells and languages. If the host body
-      dies, the intellect devourer must leave it. The intellect devourer is also forced
-      out if the target regains its devoured brain by means of a *[Wish](https://www.aidedd.org/spell/wish)*
-      spell. By spending 5 feet of its movement, the intellect devourer can voluntarily
-      leave the body, teleporting to the nearest unoccupied space within 5 feet of
-      it. The body then dies unless its brain is restored before the end of the intellect
-      devourer''s next turn.'
+      ***Steal Body***. *Intelligence Saving Throw* : DC 12, one Small or Medium creature within 5 feet that has the Incapacitated condition, is a Humanoid or Beast, and has 10 Hit Points or fewer. *Failure* : The intellect devourer possesses the target, consumes its brain, and teleports inside its skull. While there, the intellect devourer has Total Cover against attacks and other effects originating outside its host. The intellect devourer retains its Intelligence, Wisdom, and Charisma scores; its understanding of Deep Speech; its telepathy; and its Detect Intelligence trait. It otherwise adopts the target's game statistics. It knows everything the target knew, including spells and languages. If the host body dies, the intellect devourer must leave it. The intellect devourer is also forced out if the target regains its devoured brain by means of a *[Wish](https://www.aidedd.org/spell/wish)* spell. By spending 5 feet of its movement, the intellect devourer can voluntarily leave the body, teleporting to the nearest unoccupied space within 5 feet of it. The body then dies unless its brain is restored before the end of the intellect devourer's next turn.
     senses: Blindsight 60 ft., Passive Perception 12
     languages:
     - Understands Deep Speech but can't speak; telepathy 60 ft.
   fr:
     name: Dévoreur d'intellect
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Détection de conscience***. Le dévoreur d''intellect perçoit magiquement
-      la position de toute créature dans un rayon de 90 m dotée d''une valeur d''Intelligence
-      de 3 ou plus, quels que soient les obstacles.
-
+      ***Détection de conscience***. Le dévoreur d'intellect perçoit magiquement la position de toute créature dans un rayon de 90 m dotée d'une valeur d'Intelligence de 3 ou plus, quels que soient les obstacles.
 
       ## Actions
 
+      ***Attaques multiples***. Le dévoreur d'intellect effectue une attaque de Griffes et utilise Dévoration d'intellect.
 
-      ***Attaques multiples***. Le dévoreur d''intellect effectue une attaque de Griffes
-      et utilise Dévoration d''intellect.
+      ***Griffe***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 7 (2d4 + 2) dégâts tranchants.
 
+      ***Dévoration d'intellect***. *JdS Intelligence* : DD 12, une créature que le dévoreur d'intellect peut voir dans un rayon de 1,50 m. *Échec* : 11 (2d10) dégâts psychiques, et la cible subit l'état Étourdi jusqu'à la fin du prochain tour du dévoreur d'intellect.
 
-      ***Griffe***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 7 (2d4 + 2) dégâts
-      tranchants.
-
-
-      ***Dévoration d''intellect***. *JdS Intelligence* : DD 12, une créature que
-      le dévoreur d''intellect peut voir dans un rayon de 1,50 m. *Échec* : 11 (2d10)
-      dégâts psychiques, et la cible subit l''état Étourdi jusqu''à la fin du prochain
-      tour du dévoreur d''intellect.
-
-
-      ***Pillage corporel***. *JdS Intelligence* : DD 12, une créature de taille P
-      ou M dans un rayon de 1,50 m qui subit l''état Incapable d''agir, de type Humanoïde
-      ou Bête, et possédant 10 points de vie ou moins. *Échec* : le dévoreur d''intellect
-      prend possession de la cible, consomme son cerveau et se téléporte à l''intérieur
-      de son crâne. Tant qu''il s''y trouve, il bénéficie d''un Abri total contre
-      les attaques et autres effets provenant de l''extérieur de son hôte. Le dévoreur
-      d''intellect conserve ses valeurs d''Intelligence, de Sagesse et de Charisme
-      ; sa compréhension du profond ; sa télépathie ; et sa capacité Détection de
-      conscience. Pour le reste, il adopte par ailleurs le profil de la cible. Il
-      sait tout ce que la cible savait, y compris les sorts et les langues. Si le
-      corps hôte meurt, le dévoreur d''intellect doit le quitter. Il est également
-      expulsé si la cible récupère son cerveau dévoré grâce au sort *[souhait](https://www.aidedd.org/spell/fr/souhait)*.
-      En dépensant 1,50 m de son déplacement, le dévoreur d''intellect peut quitter
-      volontairement le corps et se téléporter dans l''espace libre le plus proche,
-      dans un rayon de 1,50 m. Le corps meurt alors, à moins que son cerveau ne soit
-      restauré avant la fin du prochain tour du dévoreur d''intellect.'
+      ***Pillage corporel***. *JdS Intelligence* : DD 12, une créature de taille P ou M dans un rayon de 1,50 m qui subit l'état Incapable d'agir, de type Humanoïde ou Bête, et possédant 10 points de vie ou moins. *Échec* : le dévoreur d'intellect prend possession de la cible, consomme son cerveau et se téléporte à l'intérieur de son crâne. Tant qu'il s'y trouve, il bénéficie d'un Abri total contre les attaques et autres effets provenant de l'extérieur de son hôte. Le dévoreur d'intellect conserve ses valeurs d'Intelligence, de Sagesse et de Charisme ; sa compréhension du profond ; sa télépathie ; et sa capacité Détection de conscience. Pour le reste, il adopte par ailleurs le profil de la cible. Il sait tout ce que la cible savait, y compris les sorts et les langues. Si le corps hôte meurt, le dévoreur d'intellect doit le quitter. Il est également expulsé si la cible récupère son cerveau dévoré grâce au sort *[souhait](https://www.aidedd.org/spell/fr/souhait)*. En dépensant 1,50 m de son déplacement, le dévoreur d'intellect peut quitter volontairement le corps et se téléporter dans l'espace libre le plus proche, dans un rayon de 1,50 m. Le corps meurt alors, à moins que son cerveau ne soit restauré avant la fin du prochain tour du dévoreur d'intellect.
     senses: Vision aveugle 18 m, Perception passive 12
     languages:
     - comprend le profond mais ne parle pas ; télépathie 18 m

@@ -76,29 +76,18 @@ translations:
   en:
     name: Centaur Trooper
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Multiattack***. The centaur makes two attacks, using Pike or Longbow in any combination.
 
-      ***Multiattack***. The centaur makes two attacks, using Pike or Longbow in any
-      combination.
+      ***Pike***. *Melee Attack Roll* : +6, reach 10 ft. *Hit* : 9 (1d10 + 4) Piercing damage.
 
-
-      ***Pike***. *Melee Attack Roll* : +6, reach 10 ft. *Hit* : 9 (1d10 + 4) Piercing
-      damage.
-
-
-      ***Longbow***. *Ranged Attack Roll* : +4, range 150/600 ft. *Hit* : 6 (1d8 +
-      2) Piercing damage.
-
+      ***Longbow***. *Ranged Attack Roll* : +4, range 150/600 ft. *Hit* : 6 (1d8 + 2) Piercing damage.
 
       ## Bonus actions
 
-
-      ***Trampling Charge (Recharge 5–6)***. The centaur moves up to its Speed without
-      provoking Opportunity Attacks and can move through the spaces of Medium or smaller
-      creatures. Each creature whose space the centaur enters is targeted once by
-      the following effect. *Strength Saving Throw* : DC 14. *Failure* : 7 (1d6 +
-      4) Bludgeoning damage, and the target has the Prone condition.'
+      ***Trampling Charge (Recharge 5–6)***. The centaur moves up to its Speed without provoking Opportunity Attacks and can move through the spaces of Medium or smaller creatures. Each creature whose space the centaur enters is targeted once by the following effect. *Strength Saving Throw* : DC 14. *Failure* : 7 (1d6 + 4) Bludgeoning damage, and the target has the Prone condition.
     senses: Passive Perception 13
     languages:
     - Elvish
@@ -106,30 +95,18 @@ translations:
   fr:
     name: Centaure, soldat
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Attaques multiples***. Le centaure effectue deux attaques, réparties à sa guise entre Pique et Arc long.
 
-      ***Attaques multiples***. Le centaure effectue deux attaques, réparties à sa
-      guise entre Pique et Arc long.
+      ***Pique***. *Corps à corps* : +6, allonge 3 m. *Touché* : 9 (1d10 + 4) dégâts perforants.
 
-
-      ***Pique***. *Corps à corps* : +6, allonge 3 m. *Touché* : 9 (1d10 + 4) dégâts
-      perforants.
-
-
-      ***Arc long***. *À distance* : +4, portée 45/180 m. *Touché* : 6 (1d8 + 2) dégâts
-      perforants.
-
+      ***Arc long***. *À distance* : +4, portée 45/180 m. *Touché* : 6 (1d8 + 2) dégâts perforants.
 
       ## Actions Bonus
 
-
-      ***Charge écrasante (recharge 5–6)***. Le centaure se déplace dans les limites
-      de sa Vitesse sans provoquer d''attaque d''Opportunité et peut traverser les
-      espaces des créatures de taille M ou inférieure. Chaque créature dont l''espace
-      est traversé par le centaure est la cible de l''effet suivant. *JdS Force* :
-      DD 14. *Échec* : 7 (1d6 + 4) dégâts contondants, et la cible subit l''état À
-      terre.'
+      ***Charge écrasante (recharge 5–6)***. Le centaure se déplace dans les limites de sa Vitesse sans provoquer d'attaque d'Opportunité et peut traverser les espaces des créatures de taille M ou inférieure. Chaque créature dont l'espace est traversé par le centaure est la cible de l'effet suivant. *JdS Force* : DD 14. *Échec* : 7 (1d6 + 4) dégâts contondants, et la cible subit l'état À terre.
     senses: Perception passive 13
     languages:
     - elfe

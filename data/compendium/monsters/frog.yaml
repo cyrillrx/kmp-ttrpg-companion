@@ -76,41 +76,32 @@ translations:
   en:
     name: Frog
     subtype: null
-    description: '## Traits
-
+    description: |-
+      ## Traits
 
       ***Amphibious***. The frog can breathe air and water.
 
-
-      ***Standing Leap***. The frog''s Long Jump is up to 10 feet and its High Jump
-      is up to 5 feet with or without a running start.
-
+      ***Standing Leap***. The frog's Long Jump is up to 10 feet and its High Jump is up to 5 feet with or without a running start.
 
       ## Actions
 
-
-      ***Bite***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 1 Piercing damage.'
+      ***Bite***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 1 Piercing damage.
     senses: Darkvision 30 ft., Passive Perception 11
     languages:
     - None
   fr:
     name: Grenouille
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Amphibie***. La grenouille peut respirer aussi bien à l'air libre que sous l'eau.
 
-      ***Amphibie***. La grenouille peut respirer aussi bien à l''air libre que sous
-      l''eau.
-
-
-      ***Saut sans élan***. Le saut en longueur de la grenouille peut atteindre 3
-      m et son saut en hauteur peut atteindre 1,50 m avec ou sans élan.
-
+      ***Saut sans élan***. Le saut en longueur de la grenouille peut atteindre 3 m et son saut en hauteur peut atteindre 1,50 m avec ou sans élan.
 
       ## Actions
 
-
-      ***Morsure***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 1 dégât perforant.'
+      ***Morsure***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 1 dégât perforant.
     senses: Vision dans le noir 9 m, Perception passive 11
     languages:
     - aucune

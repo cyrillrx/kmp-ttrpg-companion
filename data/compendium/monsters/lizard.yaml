@@ -76,34 +76,28 @@ translations:
   en:
     name: Lizard
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Spider Climb***. The lizard can climb difficult surfaces, including along
-      ceilings, without needing to make an ability check.
-
+      ***Spider Climb***. The lizard can climb difficult surfaces, including along ceilings, without needing to make an ability check.
 
       ## Actions
 
-
-      ***Bite***. *Melee Attack Roll* : +2, reach 5 ft. *Hit* : 1 Piercing damage.'
+      ***Bite***. *Melee Attack Roll* : +2, reach 5 ft. *Hit* : 1 Piercing damage.
     senses: Darkvision 30 ft., Passive Perception 9
     languages:
     - None
   fr:
     name: Lézard
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Pattes d''araignée***. Le lézard peut parcourir les parois les plus difficiles
-      à escalader, y compris les plafonds, sans passer par un jet de caractéristique.
-
+      ***Pattes d'araignée***. Le lézard peut parcourir les parois les plus difficiles à escalader, y compris les plafonds, sans passer par un jet de caractéristique.
 
       ## Actions
 
-
-      ***Morsure***. *Corps à corps* : +2, allonge 1,50 m. *Touché* : 1 dégât perforant.'
+      ***Morsure***. *Corps à corps* : +2, allonge 1,50 m. *Touché* : 1 dégât perforant.
     senses: Vision dans le noir 9 m, Perception passive 9
     languages:
     - aucune

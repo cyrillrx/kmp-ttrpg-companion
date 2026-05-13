@@ -78,40 +78,28 @@ translations:
   en:
     name: Zombie
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Undead Fortitude***. If damage reduces the zombie to 0 Hit Points, it must
-      make a Constitution saving throw (DC 5 plus the damage taken) unless the damage
-      is Radiant or from a Critical Hit. On a successful save, the zombie drops to
-      1 Hit Point instead.
-
+      ***Undead Fortitude***. If damage reduces the zombie to 0 Hit Points, it must make a Constitution saving throw (DC 5 plus the damage taken) unless the damage is Radiant or from a Critical Hit. On a successful save, the zombie drops to 1 Hit Point instead.
 
       ## Actions
 
-
-      ***Slam***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 5 (1d8 + 1) Bludgeoning
-      damage.'
+      ***Slam***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 5 (1d8 + 1) Bludgeoning damage.
     senses: darkvision 60 ft., Passive Perception 8
     languages:
     - Understands Common plus one other language but can't speak
   fr:
     name: Zombi
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Robustesse de la non-vie***. Si des dégâts font tomber le zombi à 0 point
-      de vie, il effectue un jet de sauvegarde de Constitution (DD 5 + les dégâts
-      subis), sauf en cas de dégâts radiants ou de Coup critique. En cas de réussite,
-      le zombi se retrouve en fait à 1 point de vie.
-
+      ***Robustesse de la non-vie***. Si des dégâts font tomber le zombi à 0 point de vie, il effectue un jet de sauvegarde de Constitution (DD 5 + les dégâts subis), sauf en cas de dégâts radiants ou de Coup critique. En cas de réussite, le zombi se retrouve en fait à 1 point de vie.
 
       ## Actions
 
-
-      ***Coup***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 5 (1d8 + 1) dégâts
-      contondants.'
+      ***Coup***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 5 (1d8 + 1) dégâts contondants.
     senses: Vision dans le noir 18 m, Perception passive 8
     languages:
     - comprend le commun plus une autre langue

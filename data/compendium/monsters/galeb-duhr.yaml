@@ -76,43 +76,24 @@ translations:
   en:
     name: Galeb Duhr
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Avalanche Slam***. *Melee Attack Roll* : +8, reach 5 ft. *Hit* : 12 (2d6 + 5) Bludgeoning damage. If the target is a Large or smaller creature and the galeb duhr moved 20+ feet straight toward it immediately before the hit, the target takes an extra 7 (2d6) Bludgeoning damage and has the Prone condition.
 
-      ***Avalanche Slam***. *Melee Attack Roll* : +8, reach 5 ft. *Hit* : 12 (2d6
-      + 5) Bludgeoning damage. If the target is a Large or smaller creature and the
-      galeb duhr moved 20+ feet straight toward it immediately before the hit, the
-      target takes an extra 7 (2d6) Bludgeoning damage and has the Prone condition.
-
-
-      ***Animate Boulders (1/Day)***. The galeb duhr magically animates one or two
-      boulders it can see within 60 feet of itself. Each boulder uses the Galeb Duhr
-      stat block, except it has Intelligence and Charisma scores of 1 and lacks this
-      action. The boulder takes its turn immediately after the galeb duhr on the same
-      Initiative count, and it obeys the galeb duhr. A boulder remains animate for
-      1 minute or until it or the galeb duhr dies.'
+      ***Animate Boulders (1/Day)***. The galeb duhr magically animates one or two boulders it can see within 60 feet of itself. Each boulder uses the Galeb Duhr stat block, except it has Intelligence and Charisma scores of 1 and lacks this action. The boulder takes its turn immediately after the galeb duhr on the same Initiative count, and it obeys the galeb duhr. A boulder remains animate for 1 minute or until it or the galeb duhr dies.
     senses: Darkvision 60 ft., Tremorsense 60 ft., Passive Perception 11
     languages:
     - Primordial (Terran)
   fr:
     name: Galeb Duhr
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Coup déferlant***. *Corps à corps* : +8, allonge 1,50 m. *Touché* : 12 (2d6 + 5) dégâts contondants. Si la cible est une créature de taille G ou inférieure et que le galeb duhr s'est déplacé de plus de 6 m directement vers elle immédiatement avant le coup, la cible subit 7 (2d6) dégâts contondants supplémentaires et l'état À terre.
 
-      ***Coup déferlant***. *Corps à corps* : +8, allonge 1,50 m. *Touché* : 12 (2d6
-      + 5) dégâts contondants. Si la cible est une créature de taille G ou inférieure
-      et que le galeb duhr s''est déplacé de plus de 6 m directement vers elle immédiatement
-      avant le coup, la cible subit 7 (2d6) dégâts contondants supplémentaires et
-      l''état À terre.
-
-
-      ***Animation de rochers (1/jour)***. Le galeb duhr anime magiquement un ou deux
-      rochers qu''il peut voir dans un rayon de 18 m. Chaque rocher possède le même
-      profil que le galeb duhr, à l''exception de son Intelligence et de son Charisme
-      qui sont de 1 et de son incapacité à effectuer cette action. Le rocher agit
-      immédiatement après le galeb duhr, avec la même Initiative, et lui obéit. Un
-      rocher reste animé pendant 1 minute ou jusqu''à sa mort ou celle du galeb duhr.'
+      ***Animation de rochers (1/jour)***. Le galeb duhr anime magiquement un ou deux rochers qu'il peut voir dans un rayon de 18 m. Chaque rocher possède le même profil que le galeb duhr, à l'exception de son Intelligence et de son Charisme qui sont de 1 et de son incapacité à effectuer cette action. Le rocher agit immédiatement après le galeb duhr, avec la même Initiative, et lui obéit. Un rocher reste animé pendant 1 minute ou jusqu'à sa mort ou celle du galeb duhr.
     senses: Vision dans le noir 18 m, perception des vibrations 18 m, Perception passive
       11
     languages:

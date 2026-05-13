@@ -81,65 +81,36 @@ translations:
   en:
     name: Yochlol
     subtype: Demon
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Demonic Restoration***. If the yochlol dies outside the Abyss, its body dissolves, and it gains a new body instantly, reviving with all its Hit Points in the Abyss.
 
-      ***Demonic Restoration***. If the yochlol dies outside the Abyss, its body dissolves,
-      and it gains a new body instantly, reviving with all its Hit Points in the Abyss.
+      ***Magic Resistance***. The yochlol has Advantage on saving throws against spells and other magical effects.
 
-
-      ***Magic Resistance***. The yochlol has Advantage on saving throws against spells
-      and other magical effects.
-
-
-      ***Spider Climb***. The yochlol can climb difficult surfaces, including along
-      ceilings, without needing to make an ability check.
-
+      ***Spider Climb***. The yochlol can climb difficult surfaces, including along ceilings, without needing to make an ability check.
 
       ***Web Walker***. The yochlol ignores movement restrictions caused by webs.
 
-
       ## Actions
 
+      ***Multiattack***. The yochlol makes two Caustic Lash attacks, and it can use Spellcasting to cast *[Web](https://www.aidedd.org/spell/web)* or *[Dominate Person](https://www.aidedd.org/spell/dominate-person)* if available.
 
-      ***Multiattack***. The yochlol makes two Caustic Lash attacks, and it can use
-      Spellcasting to cast *[Web](https://www.aidedd.org/spell/web)* or *[Dominate
-      Person](https://www.aidedd.org/spell/dominate-person)* if available.
+      ***Caustic Lash***. *Melee or Ranged Attack Roll* : +8, reach 10 ft. or range 120 ft. *Hit* : 25 (6d6 + 4) Acid damage.
 
+      ***Spellcasting***. The yochlol casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 15):
 
-      ***Caustic Lash***. *Melee or Ranged Attack Roll* : +8, reach 10 ft. or range
-      120 ft. *Hit* : 25 (6d6 + 4) Acid damage.
-
-
-      ***Spellcasting***. The yochlol casts one of the following spells, requiring
-      no Material components and using Charisma as the spellcasting ability (spell
-      save DC 15):
-
-
-      At will: *[Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts), [Gaseous
-      Form](https://www.aidedd.org/spell/gaseous-form)* (self only), *[Web](https://www.aidedd.org/spell/web)*
-
+      At will: *[Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts), [Gaseous Form](https://www.aidedd.org/spell/gaseous-form)* (self only), *[Web](https://www.aidedd.org/spell/web)*
 
       1/day: *[Dominate Person](https://www.aidedd.org/spell/dominate-person)*
 
-
       ## Bonus actions
 
-
-      ***Shape-Shift***. The yochlol shape-shifts into a Medium Humanoid or a Medium
-      spider or back into its true form. Its game statistics are the same in each
-      form. Any equipment it is wearing or carrying isn''t transformed.
-
+      ***Shape-Shift***. The yochlol shape-shifts into a Medium Humanoid or a Medium spider or back into its true form. Its game statistics are the same in each form. Any equipment it is wearing or carrying isn't transformed.
 
       ## Reactions
 
-
-      ***Toxic Escape***. *Trigger* : The yochlol is hit by an attack roll. *Response*
-      : The yochlol halves the attack''s damage to itself (round down), and it teleports
-      to an unoccupied space it can see within 30 feet of itself. *Constitution Saving
-      Throw* : DC 15, each creature within 5 feet of the yochlol''s destination space.
-      *Failure* : The target has the Poisoned condition until the end of its next
-      turn. While Poisoned, it has the Incapacitated condition.'
+      ***Toxic Escape***. *Trigger* : The yochlol is hit by an attack roll. *Response* : The yochlol halves the attack's damage to itself (round down), and it teleports to an unoccupied space it can see within 30 feet of itself. *Constitution Saving Throw* : DC 15, each creature within 5 feet of the yochlol's destination space. *Failure* : The target has the Poisoned condition until the end of its next turn. While Poisoned, it has the Incapacitated condition.
     senses: Darkvision 120 ft., Passive Perception 12
     languages:
     - Abyssal
@@ -148,70 +119,36 @@ translations:
   fr:
     name: Yochlol
     subtype: Démon
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Restauration démoniaque***. Si le yochlol meurt hors des Abysses, son corps se dissout en ichor et il en acquiert aussitôt un nouveau en revenant à la vie avec tous ses pv, quelque part dans les Abysses.
 
-      ***Restauration démoniaque***. Si le yochlol meurt hors des Abysses, son corps
-      se dissout en ichor et il en acquiert aussitôt un nouveau en revenant à la vie
-      avec tous ses pv, quelque part dans les Abysses.
+      ***Résistance à la magie***. Le yochlol a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
 
+      ***Pattes d'araignée***. Le yochlol peut parcourir les parois les plus difficiles à escalader, y compris les plafonds, sans passer par un jet de caractéristique.
 
-      ***Résistance à la magie***. Le yochlol a un Avantage aux jets de sauvegarde
-      contre les sorts et autres effets magiques.
-
-
-      ***Pattes d''araignée***. Le yochlol peut parcourir les parois les plus difficiles
-      à escalader, y compris les plafonds, sans passer par un jet de caractéristique.
-
-
-      ***Marche dans les toiles***. Le yochlol n''est pas soumise aux contraintes
-      de déplacement imposées par les toiles.
-
+      ***Marche dans les toiles***. Le yochlol n'est pas soumise aux contraintes de déplacement imposées par les toiles.
 
       ## Actions
 
+      ***Attaques multiples***. Le yochlol effectue deux attaques de Vrille caustique, et il peut utiliser Incantation pour lancer *[toile d'araignée](https://www.aidedd.org/spell/fr/toile-d-araignee)* ou *[domination de personne](https://www.aidedd.org/spell/fr/domination-de-personne)* si disponible.
 
-      ***Attaques multiples***. Le yochlol effectue deux attaques de Vrille caustique,
-      et il peut utiliser Incantation pour lancer *[toile d''araignée](https://www.aidedd.org/spell/fr/toile-d-araignee)*
-      ou *[domination de personne](https://www.aidedd.org/spell/fr/domination-de-personne)*
-      si disponible.
+      ***Vrille caustique***. *Corps à corps ou à distance* : +8, allonge 3 m ou portée 36 m. *Touché* : 25 (6d6 + 4) acide damage.
 
+      ***Incantation***. Le yochlol lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 15) :
 
-      ***Vrille caustique***. *Corps à corps ou à distance* : +8, allonge 3 m ou portée
-      36 m. *Touché* : 25 (6d6 + 4) acide damage.
-
-
-      ***Incantation***. Le yochlol lance l''un des sorts suivants sans composantes
-      matérielles, le Charisme étant sa caractéristique d''incantation (DD de sauvegarde
-      15) :
-
-
-      À volonté : *[détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees),
-      [forme gazeuse](https://www.aidedd.org/spell/fr/forme-gazeuse)* (soi-même uniquement),
-      *[toile d''araignée](https://www.aidedd.org/spell/fr/toile-d-araignee)*
-
+      À volonté : *[détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees), [forme gazeuse](https://www.aidedd.org/spell/fr/forme-gazeuse)* (soi-même uniquement), *[toile d'araignée](https://www.aidedd.org/spell/fr/toile-d-araignee)*
 
       1/jour chacun : *[domination de personne](https://www.aidedd.org/spell/fr/domination-de-personne)*
 
-
       ## Actions Bonus
 
-
-      ***Changement d''aspect***. Le yochlol se transforme en Humanoïde de taille
-      M ou en araignée de M, ou bien retrouve sa forme véritable. Son profil reste
-      le même, quelle que soit la forme. Rien de ce qu''il porte n''est transformé.
-
+      ***Changement d'aspect***. Le yochlol se transforme en Humanoïde de taille M ou en araignée de M, ou bien retrouve sa forme véritable. Son profil reste le même, quelle que soit la forme. Rien de ce qu'il porte n'est transformé.
 
       ## Réactions
 
-
-      ***Évasion toxique***. *Déclencheur* : le yochlol est touché par un jet d''attaque.
-      *Conséquences* : le yochlol réduit de moitié les dégâts qu''il subit (arrondi
-      à l''inférieur) et se téléporte dans un espace libre qu''il peut voir dans un
-      rayon de 9 m. *JdS Constitution* : DD 15, chaque créature dans un rayon de 1,50
-      m autour de l''espace de destination du yochlol. *Échec* : la cible subit l''état
-      Empoisonné jusqu''à la fin de son prochain tour. Tant qu''elle est empoisonnée,
-      elle subit l''état Incapable d''agir.'
+      ***Évasion toxique***. *Déclencheur* : le yochlol est touché par un jet d'attaque. *Conséquences* : le yochlol réduit de moitié les dégâts qu'il subit (arrondi à l'inférieur) et se téléporte dans un espace libre qu'il peut voir dans un rayon de 9 m. *JdS Constitution* : DD 15, chaque créature dans un rayon de 1,50 m autour de l'espace de destination du yochlol. *Échec* : la cible subit l'état Empoisonné jusqu'à la fin de son prochain tour. Tant qu'elle est empoisonnée, elle subit l'état Incapable d'agir.
     senses: Vision dans le noir 36 m, Perception passive 12
     languages:
     - abyssal

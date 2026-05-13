@@ -78,59 +78,32 @@ translations:
   en:
     name: Otyugh
     subtype: null
-    description: '## Actions
-
+    description: |-
+      ## Actions
 
       ***Multiattack***. The otyugh makes one Bite attack and two Tentacle attacks.
 
+      ***Bite***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 12 (2d8 + 3) Piercing damage, and the target has the Poisoned condition. Whenever the Poisoned target finishes a Long Rest, it is subjected to the following effect. *Constitution Saving Throw* : DC 15. *Failure* : The target's Hit Point maximum decreases by 5 (1d10) and doesn't return to normal until the Poisoned condition ends on the target. *Success* : The Poisoned condition ends.
 
-      ***Bite***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 12 (2d8 + 3) Piercing
-      damage, and the target has the Poisoned condition. Whenever the Poisoned target
-      finishes a Long Rest, it is subjected to the following effect. *Constitution
-      Saving Throw* : DC 15. *Failure* : The target''s Hit Point maximum decreases
-      by 5 (1d10) and doesn''t return to normal until the Poisoned condition ends
-      on the target. *Success* : The Poisoned condition ends.
+      ***Tentacle***. *Melee Attack Roll* : +6, reach 10 ft. *Hit* : 12 (2d8 + 3) Piercing damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 13) from one of two tentacles.
 
-
-      ***Tentacle***. *Melee Attack Roll* : +6, reach 10 ft. *Hit* : 12 (2d8 + 3)
-      Piercing damage. If the target is a Medium or smaller creature, it has the Grappled
-      condition (escape DC 13) from one of two tentacles.
-
-
-      ***Tentacle Slam***. *Constitution Saving Throw* : DC 14, each creature Grappled
-      by the otyugh. *Failure* : 16 (3d8 + 3) Bludgeoning damage, and the target has
-      the Stunned condition until the start of the otyugh''s next turn. *Success*
-      : Half damage only.'
+      ***Tentacle Slam***. *Constitution Saving Throw* : DC 14, each creature Grappled by the otyugh. *Failure* : 16 (3d8 + 3) Bludgeoning damage, and the target has the Stunned condition until the start of the otyugh's next turn. *Success* : Half damage only.
     senses: Darkvision 120 ft., Passive Perception 11
     languages:
     - Otyugh; telepathy 120 ft. (doesn't allow the receiving creature to respond telepathically)
   fr:
     name: Otyugh
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Attaques multiples***. L'otyugh effectue une attaque de Morsure et deux de Tentacule.
 
-      ***Attaques multiples***. L''otyugh effectue une attaque de Morsure et deux
-      de Tentacule.
+      ***Morsure***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 12 (2d8 + 3) dégâts perforants, et la cible subit l'état Empoisonné. Chaque fois que la cible Empoisonnée termine un Repos long, elle subit l'effet suivant. *JdS Constitution* : DD 15. *Échec* : le maximum de points de vie de la cible est réduit de 5 (1d10) et ne revient pas à la normale tant que l'état Empoisonné persiste sur la cible. *Réussite* : l'état Empoisonné prend fin.
 
+      ***Tentacule***. *Corps à corps* : +6, allonge 3 m. *Touché* : 12 (2d8 + 3) dégâts perforants. Si la cible est une créature de taille M ou inférieure, elle subit l'état Agrippé (évasion DD 13) par l'un des deux tentacules.
 
-      ***Morsure***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 12 (2d8 + 3)
-      dégâts perforants, et la cible subit l''état Empoisonné. Chaque fois que la
-      cible Empoisonnée termine un Repos long, elle subit l''effet suivant. *JdS Constitution*
-      : DD 15. *Échec* : le maximum de points de vie de la cible est réduit de 5 (1d10)
-      et ne revient pas à la normale tant que l''état Empoisonné persiste sur la cible.
-      *Réussite* : l''état Empoisonné prend fin.
-
-
-      ***Tentacule***. *Corps à corps* : +6, allonge 3 m. *Touché* : 12 (2d8 + 3)
-      dégâts perforants. Si la cible est une créature de taille M ou inférieure, elle
-      subit l''état Agrippé (évasion DD 13) par l''un des deux tentacules.
-
-
-      ***Coup de tentacule***. *JdS Constitution* : DD 14, chaque créature Agrippée
-      par l''otyugh. *Échec* : 16 (3d8 + 3) dégâts contondants, et la cible subit
-      l''état Étourdi jusqu''au début du tour suivant de l''otyugh. *Réussite* : demi-dégâts
-      uniquement.'
+      ***Coup de tentacule***. *JdS Constitution* : DD 14, chaque créature Agrippée par l'otyugh. *Échec* : 16 (3d8 + 3) dégâts contondants, et la cible subit l'état Étourdi jusqu'au début du tour suivant de l'otyugh. *Réussite* : demi-dégâts uniquement.
     senses: Vision dans le noir 36 m, Perception passive 11
     languages:
     - otyugh ; télépathie 36 m (ne permet pas à la créature réceptrice de répondre

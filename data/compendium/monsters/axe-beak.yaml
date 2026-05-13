@@ -76,20 +76,18 @@ translations:
   en:
     name: Axe Beak
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Beak***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 6 (1d8 + 2) Slashing
-      damage.'
+      ***Beak***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 6 (1d8 + 2) Slashing damage.
     senses: Passive Perception 10
     languages: []
   fr:
     name: Bec de hache / Autrache
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Bec***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 6 (1d8 + 2) dégâts
-      tranchants.'
+      ***Bec***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 6 (1d8 + 2) dégâts tranchants.
     senses: Perception passive 10
     languages: []

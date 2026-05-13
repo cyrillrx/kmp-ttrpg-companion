@@ -76,29 +76,18 @@ translations:
   en:
     name: Imp
     subtype: Devil
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Magic Resistance***. The imp has Advantage on saving throws against spells
-      and other magical effects.
-
+      ***Magic Resistance***. The imp has Advantage on saving throws against spells and other magical effects.
 
       ## Actions
 
+      ***Sting***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 6 (1d6 + 3) Piercing damage plus 7 (2d6) Poison damage.
 
-      ***Sting***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 6 (1d6 + 3) Piercing
-      damage plus 7 (2d6) Poison damage.
+      ***Invisibility***. The imp casts *[Invisibility](https://www.aidedd.org/spell/invisibility)* on itself, requiring no spell components and using Charisma as the spellcasting ability.
 
-
-      ***Invisibility***. The imp casts *[Invisibility](https://www.aidedd.org/spell/invisibility)*
-      on itself, requiring no spell components and using Charisma as the spellcasting
-      ability.
-
-
-      ***Shape-Shift***. The imp shape-shifts to resemble a rat (Speed 20 ft.), a
-      raven (20 ft., Fly 60 ft.), or a spider (20 ft., Climb 20 ft.), or it returns
-      to its true form. Its statistics are the same in each form, except for its Speed.
-      Any equipment it''s wearing or carrying isn''t transformed.'
+      ***Shape-Shift***. The imp shape-shifts to resemble a rat (Speed 20 ft.), a raven (20 ft., Fly 60 ft.), or a spider (20 ft., Climb 20 ft.), or it returns to its true form. Its statistics are the same in each form, except for its Speed. Any equipment it's wearing or carrying isn't transformed.
     senses: Darkvision 120 ft. (unimpeded by magical Darkness), Passive Perception
       11
     languages:
@@ -107,29 +96,18 @@ translations:
   fr:
     name: Diablotin
     subtype: Diable
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Résistance à la magie***. Le diablotin a un Avantage aux jets de sauvegarde
-      contre les sorts et autres effets magiques.
-
+      ***Résistance à la magie***. Le diablotin a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
 
       ## Actions
 
+      ***Dard***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 6 (1d6 + 3) dégâts perforants plus 7 (2d6) dégâts de poison.
 
-      ***Dard***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 6 (1d6 + 3) dégâts
-      perforants plus 7 (2d6) dégâts de poison.
+      ***Invisibilité***. Le diablotin lance *[invisibilité](https://www.aidedd.org/spell/fr/invisibilite)* sur lui-même, sans avoir besoin de composantes de sort et en utilisant le Charisme comme caractéristique d'incantation.
 
-
-      ***Invisibilité***. Le diablotin lance *[invisibilité](https://www.aidedd.org/spell/fr/invisibilite)*
-      sur lui-même, sans avoir besoin de composantes de sort et en utilisant le Charisme
-      comme caractéristique d''incantation.
-
-
-      ***Changement d''aspect***. Le diablotin se métamorphose en une bête qui ressemble
-      à un rat (Vitesse 6 m), un corbeau (6 m, vol 18 m) ou une araignée (6 m, escalade
-      6 m), ou reprend sa forme véritable. Mise à part sa Vitesse, ses statistiques
-      sont les mêmes quelle que soit la forme. Rien de ce qu''il porte n''est transformé.'
+      ***Changement d'aspect***. Le diablotin se métamorphose en une bête qui ressemble à un rat (Vitesse 6 m), un corbeau (6 m, vol 18 m) ou une araignée (6 m, escalade 6 m), ou reprend sa forme véritable. Mise à part sa Vitesse, ses statistiques sont les mêmes quelle que soit la forme. Rien de ce qu'il porte n'est transformé.
     senses: Vision dans le noir 36 m (perce les Ténèbres magiques), Perception passive
       11
     languages:

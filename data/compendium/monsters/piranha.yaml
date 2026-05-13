@@ -76,34 +76,28 @@ translations:
   en:
     name: Piranha
     subtype: null
-    description: '## Traits
-
+    description: |-
+      ## Traits
 
       ***Water Breathing***. The piranha can breathe only underwater.
 
-
       ## Actions
 
-
-      ***Bite***. *Melee Attack Roll* : +5 (with Advantage if the target doesn''t
-      have all its Hit Points), reach 5 ft. *Hit* : 1 Piercing damage.'
+      ***Bite***. *Melee Attack Roll* : +5 (with Advantage if the target doesn't have all its Hit Points), reach 5 ft. *Hit* : 1 Piercing damage.
     senses: Darkvision 60 ft., Passive Perception 8
     languages:
     - None
   fr:
     name: Piranha
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Respiration aquatique***. Le piranha ne peut respirer que sous l''eau.
-
+      ***Respiration aquatique***. Le piranha ne peut respirer que sous l'eau.
 
       ## Actions
 
-
-      ***Morsure***. *Corps à corps* : +5 (avec Avantage si la cible n''a pas tous
-      ses pv), allonge 1,50 m. *Touché* : 1 dégât perforant.'
+      ***Morsure***. *Corps à corps* : +5 (avec Avantage si la cible n'a pas tous ses pv), allonge 1,50 m. *Touché* : 1 dégât perforant.
     senses: Vision dans le noir 18 m, Perception passive 8
     languages:
     - aucune

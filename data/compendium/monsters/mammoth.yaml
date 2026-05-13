@@ -79,47 +79,32 @@ translations:
   en:
     name: Mammoth
     subtype: null
-    description: '## Actions
-
+    description: |-
+      ## Actions
 
       ***Multiattack***. The mammoth makes two Gore attacks.
 
-
-      ***Gore***. *Melee Attack Roll* : +10, reach 10 ft. *Hit* : 18 (2d10 + 7) Piercing
-      damage. If the target is a Huge or smaller creature and the mammoth moved 20+
-      feet straight toward it immediately before the hit, the target has the Prone
-      condition.
-
+      ***Gore***. *Melee Attack Roll* : +10, reach 10 ft. *Hit* : 18 (2d10 + 7) Piercing damage. If the target is a Huge or smaller creature and the mammoth moved 20+ feet straight toward it immediately before the hit, the target has the Prone condition.
 
       ## Bonus actions
 
-
-      ***Trample***. *Dexterity Saving Throw* : DC 18, one creature within 5 feet
-      that has the Prone condition. *Failure* : 29 (4d10 + 7) Bludgeoning damage.
-      *Success* : Half damage.'
+      ***Trample***. *Dexterity Saving Throw* : DC 18, one creature within 5 feet that has the Prone condition. *Failure* : 29 (4d10 + 7) Bludgeoning damage. *Success* : Half damage.
     senses: Passive Perception 10
     languages:
     - None
   fr:
     name: Mammouth
     subtype: null
-    description: '## Actions
-
+    description: |-
+      ## Actions
 
       ***Attaques multiples***. Le mammouth effectue deux attaques de Coup de défense.
 
-
-      ***Coup de défense***. *Corps à corps* : +10, allonge 3 m. *Touché* : 18 (2d10
-      + 7) dégâts perforants. Si la cible est une créature de taille TG ou inférieure
-      et si le mammouth s''est déplacé en ligne droite d''un minimum de 6 m juste
-      avant de la toucher, la cible subit l''état À terre.
-
+      ***Coup de défense***. *Corps à corps* : +10, allonge 3 m. *Touché* : 18 (2d10 + 7) dégâts perforants. Si la cible est une créature de taille TG ou inférieure et si le mammouth s'est déplacé en ligne droite d'un minimum de 6 m juste avant de la toucher, la cible subit l'état À terre.
 
       ## Actions Bonus
 
-
-      ***Piétinement***. *JdS Dextérité* : DD 18, une créature À terre dans un rayon
-      de 1,50 m. *Échec* : 29 (4d10 + 7) dégâts contondants. *Réussite* : demi-dégâts.'
+      ***Piétinement***. *JdS Dextérité* : DD 18, une créature À terre dans un rayon de 1,50 m. *Échec* : 29 (4d10 + 7) dégâts contondants. *Réussite* : demi-dégâts.
     senses: Perception passive 10
     languages:
     - aucune

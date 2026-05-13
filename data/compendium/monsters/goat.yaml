@@ -78,24 +78,20 @@ translations:
   en:
     name: Goat
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Ram***. *Melee Attack Roll* : +2, reach 5 ft. *Hit* : 1 Bludgeoning damage,
-      or the goat deals 2 (1d4) Bludgeoning damage if it moved at least 20 feet straight
-      toward the target immediately before the hit.'
+      ***Ram***. *Melee Attack Roll* : +2, reach 5 ft. *Hit* : 1 Bludgeoning damage, or the goat deals 2 (1d4) Bludgeoning damage if it moved at least 20 feet straight toward the target immediately before the hit.
     senses: Darkvision 60 ft., Passive Perception 12
     languages:
     - None
   fr:
     name: Chèvre
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Coup de bélier***. *Corps à corps* : +2, allonge 1,50 m. *Touché* : 1 dégât
-      contondant, ou la chèvre inflige 2 (1d4) dégâts contondants si elle s''est déplacée
-      d''au moins 6 m en ligne droite vers la cible juste avant de la toucher.'
+      ***Coup de bélier***. *Corps à corps* : +2, allonge 1,50 m. *Touché* : 1 dégât contondant, ou la chèvre inflige 2 (1d4) dégâts contondants si elle s'est déplacée d'au moins 6 m en ligne droite vers la cible juste avant de la toucher.
     senses: Vision dans le noir 18 m, Perception passive 12
     languages:
     - aucune

@@ -76,38 +76,28 @@ translations:
   en:
     name: Guard Captain
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Multiattack***. The guard makes two attacks, using Javelin or Longsword in any combination.
 
-      ***Multiattack***. The guard makes two attacks, using Javelin or Longsword in
-      any combination.
+      ***Javelin***. *Melee or Ranged Attack Roll* : +6, reach 5 ft. or range 30/120 ft. *Hit* : 14 (3d6 + 4) Piercing damage.
 
-
-      ***Javelin***. *Melee or Ranged Attack Roll* : +6, reach 5 ft. or range 30/120
-      ft. *Hit* : 14 (3d6 + 4) Piercing damage.
-
-
-      ***Longsword***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 15 (2d10 + 4)
-      Slashing damage.'
+      ***Longsword***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 15 (2d10 + 4) Slashing damage.
     senses: Passive Perception 14
     languages:
     - Common
   fr:
     name: Garde, capitaine
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Attaques multiples***. Le garde effectue deux attaques, réparties à sa guise entre Épée longue et Javeline.
 
-      ***Attaques multiples***. Le garde effectue deux attaques, réparties à sa guise
-      entre Épée longue et Javeline.
+      ***Épée longue***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 15 (2d10 + 4) dégâts tranchants.
 
-
-      ***Épée longue***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 15 (2d10
-      + 4) dégâts tranchants.
-
-
-      ***Javeline***. *Corps à corps ou à distance* : +6, allonge 1,50 m ou portée
-      9/36 m. *Touché* : 14 (3d6 + 4) dégâts perforants.'
+      ***Javeline***. *Corps à corps ou à distance* : +6, allonge 1,50 m ou portée 9/36 m. *Touché* : 14 (3d6 + 4) dégâts perforants.
     senses: Perception passive 14
     languages:
     - commun

@@ -76,26 +76,20 @@ translations:
   en:
     name: Warhorse Skeleton
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Hooves***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 7 (1d6 + 4) Bludgeoning
-      damage. If the target is a Large or smaller creature and the skeleton moved
-      20+ feet straight toward it immediately before the hit, the target has the Prone
-      condition.'
+      ***Hooves***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 7 (1d6 + 4) Bludgeoning damage. If the target is a Large or smaller creature and the skeleton moved 20+ feet straight toward it immediately before the hit, the target has the Prone condition.
     senses: Darkvision 60 ft., Passive Perception 9
     languages:
     - None
   fr:
     name: Cheval de guerre squelette
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Sabots***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 7 (1d6 + 4) dégâts
-      contondants. Si la cible est une créature de taille G ou inférieure et si le
-      squelette s''est déplacé en ligne droite d''un minimum de 6 m juste avant de
-      la toucher, la cible subit l''état À terre.'
+      ***Sabots***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 7 (1d6 + 4) dégâts contondants. Si la cible est une créature de taille G ou inférieure et si le squelette s'est déplacé en ligne droite d'un minimum de 6 m juste avant de la toucher, la cible subit l'état À terre.
     senses: Vision dans le noir 18 m, Perception passive 9
     languages:
     - aucune

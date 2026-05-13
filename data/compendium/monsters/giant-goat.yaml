@@ -78,27 +78,20 @@ translations:
   en:
     name: Giant Goat
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Ram***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 6 (1d6 + 3) Bludgeoning
-      damage. If the target is a Large or smaller creature and the goat moved 20+
-      feet straight toward it immediately before the hit, the target takes an extra
-      5 (2d4) Bludgeoning damage and has the Prone condition.'
+      ***Ram***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 6 (1d6 + 3) Bludgeoning damage. If the target is a Large or smaller creature and the goat moved 20+ feet straight toward it immediately before the hit, the target takes an extra 5 (2d4) Bludgeoning damage and has the Prone condition.
     senses: Darkvision 60 ft., Passive Perception 13
     languages:
     - None
   fr:
     name: Chèvre géante
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Coup de bélier***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 6 (1d6
-      + 3) dégâts contondants. Si la cible est une créature taille G ou inférieure
-      et que la chèvre s''est déplacée d''au moins 6 m en ligne droite vers elle juste
-      avant de la toucher, la cible subit 5 (2d4) dégâts contondants supplémentaires
-      et subit l''état À terre.'
+      ***Coup de bélier***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 6 (1d6 + 3) dégâts contondants. Si la cible est une créature taille G ou inférieure et que la chèvre s'est déplacée d'au moins 6 m en ligne droite vers elle juste avant de la toucher, la cible subit 5 (2d4) dégâts contondants supplémentaires et subit l'état À terre.
     senses: Vision dans le noir 18 m, Perception passive 13
     languages:
     - aucune

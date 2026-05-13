@@ -76,63 +76,40 @@ translations:
   en:
     name: Shadow
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Amorphous***. The shadow can move through a space as narrow as 1 inch without expending extra movement to do so.
 
-      ***Amorphous***. The shadow can move through a space as narrow as 1 inch without
-      expending extra movement to do so.
-
-
-      ***Sunlight Weakness***. While in sunlight, the shadow has Disadvantage on D20
-      Tests.
-
+      ***Sunlight Weakness***. While in sunlight, the shadow has Disadvantage on D20 Tests.
 
       ## Actions
 
-
-      ***Draining Swipe***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 5 (1d6 +
-      2) Necrotic damage, and the target''s Strength score decreases by 1d4. The target
-      dies if this reduces that score to 0. If a Humanoid is slain by this attack,
-      a Shadow rises from the corpse 1d4 hours later.
-
+      ***Draining Swipe***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 5 (1d6 + 2) Necrotic damage, and the target's Strength score decreases by 1d4. The target dies if this reduces that score to 0. If a Humanoid is slain by this attack, a Shadow rises from the corpse 1d4 hours later.
 
       ## Bonus actions
 
-
-      ***Shadow Stealth***. While in Dim Light or Darkness, the shadow takes the Hide
-      action.'
+      ***Shadow Stealth***. While in Dim Light or Darkness, the shadow takes the Hide action.
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - None
   fr:
     name: Ombre
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Informe***. L'ombre peut se déplacer dans un espace étroit d'une largeur minimale de 2,50 cm sans dépense supplémentaire en déplacement.
 
-      ***Informe***. L''ombre peut se déplacer dans un espace étroit d''une largeur
-      minimale de 2,50 cm sans dépense supplémentaire en déplacement.
-
-
-      ***Morsure du soleil***. Tant qu''elle est exposée à la lumière du soleil, l''ombre
-      subit un Désavantage aux jets de d20.
-
+      ***Morsure du soleil***. Tant qu'elle est exposée à la lumière du soleil, l'ombre subit un Désavantage aux jets de d20.
 
       ## Actions
 
-
-      \*\* *Caresse dévitalisante***. *Corps à corps* : +4, allonge 1,50 m. *Touché*
-      : 5 (1d6 + 2) dégâts nécrotiques, et la valeur de Force de la cible est réduite
-      de 1d4. La cible meurt si l''effet fait tomber cette valeur à 0. Si un Humanoïde
-      est tué par cette attaque, une** ombre\*\* émerge de son cadavre 1d4 heures
-      plus tard.
-
+      \*\* *Caresse dévitalisante***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 5 (1d6 + 2) dégâts nécrotiques, et la valeur de Force de la cible est réduite de 1d4. La cible meurt si l'effet fait tomber cette valeur à 0. Si un Humanoïde est tué par cette attaque, une** ombre\*\* émerge de son cadavre 1d4 heures plus tard.
 
       ## Actions Bonus
 
-
-      ***Discrétion dans les ombres***. Tant qu''elle reste dans les Ténèbres ou sous
-      une Lumière faible, l''ombre peut prendre l''action Furtivité.'
+      ***Discrétion dans les ombres***. Tant qu'elle reste dans les Ténèbres ou sous une Lumière faible, l'ombre peut prendre l'action Furtivité.
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - aucune

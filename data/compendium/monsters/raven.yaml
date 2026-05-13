@@ -76,36 +76,28 @@ translations:
   en:
     name: Raven
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Mimicry***. The raven can mimic simple sounds it has heard, such as a whisper
-      or chitter. A hearer can discern the sounds are imitations with a successful
-      DC 10 Wisdom (Insight) check.
-
+      ***Mimicry***. The raven can mimic simple sounds it has heard, such as a whisper or chitter. A hearer can discern the sounds are imitations with a successful DC 10 Wisdom (Insight) check.
 
       ## Actions
 
-
-      ***Beak***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 1 Piercing damage.'
+      ***Beak***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 1 Piercing damage.
     senses: Passive Perception 13
     languages:
     - None
   fr:
     name: Corbeau
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Imitation***. Le corbeau peut imiter des bruits simples qu''il a entendus,
-      comme un murmure ou des pépiements. Un auditeur peut discerner que ces sons
-      sont des imitations en réussissant un jet de Sagesse (Intuition) DD 10.
-
+      ***Imitation***. Le corbeau peut imiter des bruits simples qu'il a entendus, comme un murmure ou des pépiements. Un auditeur peut discerner que ces sons sont des imitations en réussissant un jet de Sagesse (Intuition) DD 10.
 
       ## Actions
 
-
-      ***Bec***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 1 dégât perforant.'
+      ***Bec***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 1 dégât perforant.
     senses: Perception passive 13
     languages:
     - aucune

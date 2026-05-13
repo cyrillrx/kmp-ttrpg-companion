@@ -81,55 +81,36 @@ translations:
   en:
     name: Graveyard Revenant
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Undead Restoration***. If the revenant dies, it revives 24 hours later unless
-      *[Dispel Evil and Good](https://www.aidedd.org/spell/dispel-evil-and-good)*
-      is cast on its remains. If it revives, it animates another group of corpses
-      elsewhere on the same plane of existence; it now looks different but uses the
-      same stat block and returns with all its Hit Points.
-
+      ***Undead Restoration***. If the revenant dies, it revives 24 hours later unless *[Dispel Evil and Good](https://www.aidedd.org/spell/dispel-evil-and-good)* is cast on its remains. If it revives, it animates another group of corpses elsewhere on the same plane of existence; it now looks different but uses the same stat block and returns with all its Hit Points.
 
       ## Actions
 
-
       ***Multiattack***. The revenant makes two Suffocate attacks.
 
+      ***Suffocate***. *Melee Attack Roll* : +8, reach 10 ft. *Hit* : 10 (1d10 + 5) Bludgeoning damage plus 10 (3d6) Necrotic damage. If the target is a Large or smaller creature, it has the Grappled condition (escape DC 15). Until the grapple ends, the target is suffocating. The revenant can have up to two targets Grappled in this way at a time.
 
-      ***Suffocate***. *Melee Attack Roll* : +8, reach 10 ft. *Hit* : 10 (1d10 + 5)
-      Bludgeoning damage plus 10 (3d6) Necrotic damage. If the target is a Large or
-      smaller creature, it has the Grappled condition (escape DC 15). Until the grapple
-      ends, the target is suffocating. The revenant can have up to two targets Grappled
-      in this way at a time.
-
-
-      ***Haunting Glare (Recharge 5–6)***. *Wisdom Saving Throw* : DC 15, each creature
-      in a 30-foot Emanation originating from the revenant. *Failure* : The target
-      has the Paralyzed condition and repeats the save at the end of each of its turns,
-      ending the effect on itself on a success. After 1 minute, it succeeds automatically.'
+      ***Haunting Glare (Recharge 5–6)***. *Wisdom Saving Throw* : DC 15, each creature in a 30-foot Emanation originating from the revenant. *Failure* : The target has the Paralyzed condition and repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically.
     senses: Darkvision 120 ft., Passive Perception 13
     languages:
     - Common plus two other languages
   fr:
     name: Revenant, charnier
     subtype: null
-    description: '## Traits
-
+    description: |-
+      ## Traits
 
       Restauration funeste.
 
-
       ## Actions
-
 
       Attaques multiples.
 
-
       Asphyxie.
 
-
-      Regard tourmenteur (recharge 5–6).'
+      Regard tourmenteur (recharge 5–6).
     senses: Vision dans le noir 36 m, Perception passive 13
     languages:
     - commun plus deux autres langues

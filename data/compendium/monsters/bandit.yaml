@@ -76,15 +76,12 @@ translations:
   en:
     name: Bandit
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Scimitar***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 4 (1d6 + 1) Slashing damage.
 
-      ***Scimitar***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 4 (1d6 + 1) Slashing
-      damage.
-
-
-      ***Light Crossbow***. *Ranged Attack Roll* : +3, range 80/320 ft. *Hit* : 5
-      (1d8 + 1) Piercing damage.'
+      ***Light Crossbow***. *Ranged Attack Roll* : +3, range 80/320 ft. *Hit* : 5 (1d8 + 1) Piercing damage.
     senses: Passive Perception 10
     languages:
     - Common
@@ -92,15 +89,12 @@ translations:
   fr:
     name: Bandit
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Cimeterre***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 4 (1d6 + 1) dégâts tranchants.
 
-      ***Cimeterre***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 4 (1d6 + 1)
-      dégâts tranchants.
-
-
-      ***Arbalète légère***. *À distance* : +3, portée 24/96 m. *Touché* : 5 (1d8
-      + 1) dégâts perforants.'
+      ***Arbalète légère***. *À distance* : +3, portée 24/96 m. *Touché* : 5 (1d8 + 1) dégâts perforants.
     senses: Perception passive 10
     languages:
     - commun

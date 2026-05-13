@@ -76,22 +76,20 @@ translations:
   en:
     name: Larva
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Bite***. *Melee Attack Roll* : +1, reach 5 ft. *Hit* : 1 (1d4 - 1) Necrotic
-      damage.'
+      ***Bite***. *Melee Attack Roll* : +1, reach 5 ft. *Hit* : 1 (1d4 - 1) Necrotic damage.
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - Understands Common plus one other language but can't speak
   fr:
     name: Larve
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Morsure***. *Corps à corps* : +1, allonge 1,50 m. *Touché* : 1 (1d4 - 1)
-      dégâts nécrotiques.'
+      ***Morsure***. *Corps à corps* : +1, allonge 1,50 m. *Touché* : 1 (1d4 - 1) dégâts nécrotiques.
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - comprend le commun plus une autre langue mais ne parle pas

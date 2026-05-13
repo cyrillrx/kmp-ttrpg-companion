@@ -76,87 +76,44 @@ translations:
   en:
     name: Undead Spirit
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Festering Aura (Putrid Only)***. *Constitution Saving Throw* : DC equals your spell save DC, any creature (other than you) that starts its turn within a 5-foot Emanation originating from the spirit. *Failure* : The creature has the Poisoned condition until the start of its next turn.
 
-      ***Festering Aura (Putrid Only)***. *Constitution Saving Throw* : DC equals
-      your spell save DC, any creature (other than you) that starts its turn within
-      a 5-foot Emanation originating from the spirit. *Failure* : The creature has
-      the Poisoned condition until the start of its next turn.
-
-
-      ***Incorporeal Passage (Ghostly Only)***. The spirit can move through other
-      creatures and objects as if they were Difficult Terrain. If it ends its turn
-      inside an object, it is shunted to the nearest unoccupied space and takes 1d10
-      Force damage for every 5 feet traveled.
-
+      ***Incorporeal Passage (Ghostly Only)***. The spirit can move through other creatures and objects as if they were Difficult Terrain. If it ends its turn inside an object, it is shunted to the nearest unoccupied space and takes 1d10 Force damage for every 5 feet traveled.
 
       ## Actions
 
+      ***Multiattack***. The spirit makes a number of attacks equal to half this spell's level (round down).
 
-      ***Multiattack***. The spirit makes a number of attacks equal to half this spell''s
-      level (round down).
+      ***Deathly Touch (Ghostly Only)***. *Melee Attack Roll* : Bo- nus equals your spell attack modifier, reach 5 ft. *Hit* : 1d8 + 3 + the spell's level Necrotic damage, and the target has the Frightened condition until the end of its next turn.
 
+      ***Grave Bolt (Skeletal Only)***. *Ranged Attack Roll* : Bonus equals your spell attack modifier, range 150 ft. *Hit* : 2d4 + 3 + the spell's level Necrotic damage.
 
-      ***Deathly Touch (Ghostly Only)***. *Melee Attack Roll* : Bo- nus equals your
-      spell attack modifier, reach 5 ft. *Hit* : 1d8 + 3 + the spell''s level Necrotic
-      damage, and the target has the Frightened condition until the end of its next
-      turn.
-
-
-      ***Grave Bolt (Skeletal Only)***. *Ranged Attack Roll* : Bonus equals your spell
-      attack modifier, range 150 ft. *Hit* : 2d4 + 3 + the spell''s level Necrotic
-      damage.
-
-
-      ***Rotting Claw (Putrid Only)***. *Melee Attack Roll* : Bonus equals your spell
-      attack modifier, reach 5 ft. *Hit* : 1d6 + 3 + the spell''s level Slashing damage.
-      If the target has the Poisoned condition, it has the Paralyzed condition until
-      the end of its next turn.'
+      ***Rotting Claw (Putrid Only)***. *Melee Attack Roll* : Bonus equals your spell attack modifier, reach 5 ft. *Hit* : 1d6 + 3 + the spell's level Slashing damage. If the target has the Poisoned condition, it has the Paralyzed condition until the end of its next turn.
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - Understands the languages you know
   fr:
     name: Esprit mort-vivant
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Aura suppurante (putride uniquement)***. *JdS Constitution* : DD égal à votre DD de sauvegarde des sorts, toute créature (autre que vous) qui commence son tour dans une Émanation de 1,50 m centrée sur l'esprit. *Échec* : la créature subit l'état Empoisonné jusqu'au début de son prochain tour.
 
-      ***Aura suppurante (putride uniquement)***. *JdS Constitution* : DD égal à votre
-      DD de sauvegarde des sorts, toute créature (autre que vous) qui commence son
-      tour dans une Émanation de 1,50 m centrée sur l''esprit. *Échec* : la créature
-      subit l''état Empoisonné jusqu''au début de son prochain tour.
-
-
-      ***Passage intangible (fantomatique uniquement)***. L''esprit peut traverser
-      les autres créatures et les objets comme s''il s''agissait d''un Terrain difficile.
-      S''il termine son tour à l''intérieur d''un objet, il est repoussé vers l''espace
-      inoccupé le plus proche et subit 1d10 dégâts de force par tranche de 1,50 m
-      ainsi parcouru.
-
+      ***Passage intangible (fantomatique uniquement)***. L'esprit peut traverser les autres créatures et les objets comme s'il s'agissait d'un Terrain difficile. S'il termine son tour à l'intérieur d'un objet, il est repoussé vers l'espace inoccupé le plus proche et subit 1d10 dégâts de force par tranche de 1,50 m ainsi parcouru.
 
       ## Actions
 
+      ***Attaques multiples***. Attaques multiples. L'esprit effectue un nombre d'attaques égal à la moitié du niveau de ce sort (arrondir à l'inférieur).
 
-      ***Attaques multiples***. Attaques multiples. L''esprit effectue un nombre d''attaques
-      égal à la moitié du niveau de ce sort (arrondir à l''inférieur).
+      ***Contact funeste (fantomatique uniquement)***. *Corps à corps* : bonus égal à votre modificateur d'attaque des sorts, allonge 1,50 m. *Touché* : 1d8 + 3 + le niveau du sort dégâts nécrotiques, et la cible subit l'état Effrayé jusqu'à la fin de son prochain tour.
 
+      ***Trait sépulcral (squelettique uniquement)***. *À distance* : bonus égal à votre modificateur d'attaque des sorts, portée 45 m. *Touché* : 2d4 + 3 + le niveau du sort dégâts nécrotiques.
 
-      ***Contact funeste (fantomatique uniquement)***. *Corps à corps* : bonus égal
-      à votre modificateur d''attaque des sorts, allonge 1,50 m. *Touché* : 1d8 +
-      3 + le niveau du sort dégâts nécrotiques, et la cible subit l''état Effrayé
-      jusqu''à la fin de son prochain tour.
-
-
-      ***Trait sépulcral (squelettique uniquement)***. *À distance* : bonus égal à
-      votre modificateur d''attaque des sorts, portée 45 m. *Touché* : 2d4 + 3 + le
-      niveau du sort dégâts nécrotiques.
-
-
-      ***Griffe putréfiée (putride uniquement)***. *Corps à corps* : bonus égal à
-      votre modificateur d''attaque des sorts, allonge 1,50 m. *Touché* : 1d6 + 3
-      + le niveau du sort dégâts tranchants. Si la cible est empoisonnée, elle subit
-      l''état Paralysé jusqu''à la fin de son prochain tour.'
+      ***Griffe putréfiée (putride uniquement)***. *Corps à corps* : bonus égal à votre modificateur d'attaque des sorts, allonge 1,50 m. *Touché* : 1d6 + 3 + le niveau du sort dégâts tranchants. Si la cible est empoisonnée, elle subit l'état Paralysé jusqu'à la fin de son prochain tour.
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - comprend les langues que vous connaissez

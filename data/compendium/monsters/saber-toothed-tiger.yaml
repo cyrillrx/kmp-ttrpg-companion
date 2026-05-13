@@ -79,54 +79,40 @@ translations:
   en:
     name: Saber-Toothed Tiger
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Running Leap***. With a 10-foot running start, the tiger can Long Jump up
-      to 25 feet.
-
+      ***Running Leap***. With a 10-foot running start, the tiger can Long Jump up to 25 feet.
 
       ## Actions
 
-
       ***Multiattack***. The tiger makes two Rend attacks.
 
-
-      ***Rend***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 11 (2d6 + 4) Slashing
-      damage.
-
+      ***Rend***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 11 (2d6 + 4) Slashing damage.
 
       ## Bonus actions
 
-
-      ***Nimble Escape***. The tiger takes the Disengage or Hide action.'
+      ***Nimble Escape***. The tiger takes the Disengage or Hide action.
     senses: Darkvision 60 ft., Passive Perception 15
     languages:
     - None
   fr:
     name: Tigre à dents de sabre
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Saut avec élan***. Avec un élan de 3 m, le tigre peut sauter en longueur
-      jusqu''à 7,50 m.
-
+      ***Saut avec élan***. Avec un élan de 3 m, le tigre peut sauter en longueur jusqu'à 7,50 m.
 
       ## Actions
 
-
       ***Attaques multiples***. Le tigre effectue deux attaques de Saignée.
 
-
-      ***Saignée***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 11 (2d6 + 4)
-      dégâts tranchants.
-
+      ***Saignée***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 11 (2d6 + 4) dégâts tranchants.
 
       ## Actions Bonus
 
-
-      ***Fuite agile***. Le tigre prend l''action Désengagement ou Furtivité.'
+      ***Fuite agile***. Le tigre prend l'action Désengagement ou Furtivité.
     senses: Vision dans le noir 18 m, Perception passive 15
     languages:
     - aucune

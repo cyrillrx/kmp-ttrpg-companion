@@ -76,52 +76,24 @@ translations:
   en:
     name: Darkmantle
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Crush***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 6 (1d6 + 3) Bludgeoning damage, and the darkmantle attaches to the target. If the target is a Medium or smaller creature and the darkmantle had Advantage on the attack roll, it covers the target, which has the Blinded condition and is suffocating while the darkmantle is attached in this way. While attached to a target, the darkmantle can attack only the target but has Advantage on its attack rolls. Its Speed becomes 0, it can't benefit from any bonus to its Speed, and it moves with the target. A creature can take an action to try to detach the darkmantle from itself, doing so with a successful DC 13 Strength (Athletics) check. On its turn, the darkmantle can detach itself by using 5 feet of movement.
 
-      ***Crush***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 6 (1d6 + 3) Bludgeoning
-      damage, and the darkmantle attaches to the target. If the target is a Medium
-      or smaller creature and the darkmantle had Advantage on the attack roll, it
-      covers the target, which has the Blinded condition and is suffocating while
-      the darkmantle is attached in this way. While attached to a target, the darkmantle
-      can attack only the target but has Advantage on its attack rolls. Its Speed
-      becomes 0, it can''t benefit from any bonus to its Speed, and it moves with
-      the target. A creature can take an action to try to detach the darkmantle from
-      itself, doing so with a successful DC 13 Strength (Athletics) check. On its
-      turn, the darkmantle can detach itself by using 5 feet of movement.
-
-
-      ***Darkness Aura (1/Day)***. Magical Darkness fills a 15-foot Emanation originating
-      from the darkmantle. This effect lasts while the darkmantle maintains Concentration
-      on it, up to 10 minutes. Darkvision can''t penetrate this area, and no light
-      can illuminate it.'
+      ***Darkness Aura (1/Day)***. Magical Darkness fills a 15-foot Emanation originating from the darkmantle. This effect lasts while the darkmantle maintains Concentration on it, up to 10 minutes. Darkvision can't penetrate this area, and no light can illuminate it.
     senses: Blindsight 60 ft., Passive Perception 10
     languages:
     - None
   fr:
     name: Mante obscure
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Écrasement***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 6 (1d6 + 3) dégâts contondants, et la mante obscure se fixe à la cible. Si la cible est une créature de taille M ou inférieure et si la mante obscure avait un Avantage au jet d'attaque, elle recouvre la cible qui subit l'état Aveuglé et s'asphyxie tant que la mante obscure reste ainsi fixée à elle. Tant qu'elle est fixée à une cible, la mante obscure ne peut attaquer que cette cible mais elle a un Avantage à ses jets d'attaque contre elle. Sa Vitesse passe à 0, elle ne peut profiter d'aucun bonus de Vitesse et suit les déplacements de sa cible. Une créature peut entreprendre une action pour tenter de détacher la mante obscure fixée à elle, ce qui nécessite de réussir un jet de Force (Athlétisme) DD 13. À son tour, la mante obscure peut se détacher en y consacrant 1,50 m de déplacement.
 
-      ***Écrasement***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 6 (1d6 +
-      3) dégâts contondants, et la mante obscure se fixe à la cible. Si la cible est
-      une créature de taille M ou inférieure et si la mante obscure avait un Avantage
-      au jet d''attaque, elle recouvre la cible qui subit l''état Aveuglé et s''asphyxie
-      tant que la mante obscure reste ainsi fixée à elle. Tant qu''elle est fixée
-      à une cible, la mante obscure ne peut attaquer que cette cible mais elle a un
-      Avantage à ses jets d''attaque contre elle. Sa Vitesse passe à 0, elle ne peut
-      profiter d''aucun bonus de Vitesse et suit les déplacements de sa cible. Une
-      créature peut entreprendre une action pour tenter de détacher la mante obscure
-      fixée à elle, ce qui nécessite de réussir un jet de Force (Athlétisme) DD 13.
-      À son tour, la mante obscure peut se détacher en y consacrant 1,50 m de déplacement.
-
-
-      ***Aura de ténèbres (1/jour)***. Des ténèbres magiques emplissent une Émanation
-      de 4,50 m centrée sur la mante obscure. Cet effet persiste tant que la mante
-      obscure maintient sa Concentration, à concurrence de 10 minutes. La Vision dans
-      le noir échoue à percer cette zone, qu''aucune source de lumière ne parvient
-      à éclairer.'
+      ***Aura de ténèbres (1/jour)***. Des ténèbres magiques emplissent une Émanation de 4,50 m centrée sur la mante obscure. Cet effet persiste tant que la mante obscure maintient sa Concentration, à concurrence de 10 minutes. La Vision dans le noir échoue à percer cette zone, qu'aucune source de lumière ne parvient à éclairer.
     senses: Vision aveugle 18 m, Perception passive 10
     languages:
     - aucune

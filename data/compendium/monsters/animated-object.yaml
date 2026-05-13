@@ -76,26 +76,20 @@ translations:
   en:
     name: Animated Object
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Slam***. *Melee Attack Roll* : Bonus equals your spell attack modifier, reach
-      5 ft. *Hit* : Force damage equal to 1d4 + 3 (Medium or smaller), 2d6 + 3 + your
-      spellcasting ability modifier (Large), or 2d12 + 3 + your spellcasting ability
-      modifier (Huge).'
+      ***Slam***. *Melee Attack Roll* : Bonus equals your spell attack modifier, reach 5 ft. *Hit* : Force damage equal to 1d4 + 3 (Medium or smaller), 2d6 + 3 + your spellcasting ability modifier (Large), or 2d12 + 3 + your spellcasting ability modifier (Huge).
     senses: Blindsight 30 ft., Passive Perception 6
     languages:
     - Understands the languages you know
   fr:
     name: Objet animé
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Coup***. *Corps à corps* : bonus égal à votre modificateur d''attaque des
-      sorts, allonge 1,50 m. *Touché* : dégâts de force égaux à 1d4 + 3 (M ou inférieure),
-      2d6 + 3 + votre modificateur de caractéristique d''incantation (G), ou 2d12
-      + 3 + votre modificateur de caractéristique d''incantation (TG).'
+      ***Coup***. *Corps à corps* : bonus égal à votre modificateur d'attaque des sorts, allonge 1,50 m. *Touché* : dégâts de force égaux à 1d4 + 3 (M ou inférieure), 2d6 + 3 + votre modificateur de caractéristique d'incantation (G), ou 2d12 + 3 + votre modificateur de caractéristique d'incantation (TG).
     senses: Vision aveugle 9 m, Perception passive 6
     languages:
     - comprend les langues que vous connaissez

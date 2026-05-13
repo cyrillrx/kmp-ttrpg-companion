@@ -76,76 +76,36 @@ translations:
   en:
     name: Violet Fungus Necrohulk
     subtype: null
-    description: '## Actions
-
+    description: |-
+      ## Actions
 
       ***Multiattack***. The necrohulk makes two Rotting Slam attacks.
 
+      ***Rotting Slam***. *Melee Attack Roll* : +7, reach 10 ft. *Hit* : 9 (1d10+ 4) Bludgeoning damage plus 7 (2d6) Necrotic damage.
 
-      ***Rotting Slam***. *Melee Attack Roll* : +7, reach 10 ft. *Hit* : 9 (1d10+
-      4) Bludgeoning damage plus 7 (2d6) Necrotic damage.
-
-
-      ***Spore Bomb (Recharge 5-6)***. *Constitution Saving Throw* : DC 15, each creature
-      in a 20-foot-radius Sphere centered on a point the necrohulk can see within
-      60 feet. *Failure* : 28 (8d6) Necrotic damage, and the target has the Poisoned
-      condition until the start of the necrohulk''s next turn. While Poisoned, the
-      target can''t regain Hit Points. *Success* : Half damage only.
-
+      ***Spore Bomb (Recharge 5-6)***. *Constitution Saving Throw* : DC 15, each creature in a 20-foot-radius Sphere centered on a point the necrohulk can see within 60 feet. *Failure* : 28 (8d6) Necrotic damage, and the target has the Poisoned condition until the start of the necrohulk's next turn. While Poisoned, the target can't regain Hit Points. *Success* : Half damage only.
 
       ## Bonus actions
 
-
-      ***Absorb Body***. *Strength Saving Throw* : DC 15, one Medium or Small creature
-      the necrohulk can see within 5 feet. *Failure* : The target is pulled into the
-      necrohulk''s space and becomes grafted to its body. The necrohulk can have only
-      one target grafted at a time. While grafted, the target has the Restrained condition
-      and Disadvantage on Constitution saving throws. When the necrohulk moves, the
-      grafted target moves with it. If the target dies while grafted, its body is
-      destroyed, and the necrohulk regains 10 Hit Points. The grafted target or a
-      creature within 5 feet of the necrohulk can take an action to make a DC 15 Strength
-      (Athletics) check. On a successful check, the target is no longer grafted and
-      moves to an unoccupied space within 5 feet of the necrohulk.'
+      ***Absorb Body***. *Strength Saving Throw* : DC 15, one Medium or Small creature the necrohulk can see within 5 feet. *Failure* : The target is pulled into the necrohulk's space and becomes grafted to its body. The necrohulk can have only one target grafted at a time. While grafted, the target has the Restrained condition and Disadvantage on Constitution saving throws. When the necrohulk moves, the grafted target moves with it. If the target dies while grafted, its body is destroyed, and the necrohulk regains 10 Hit Points. The grafted target or a creature within 5 feet of the necrohulk can take an action to make a DC 15 Strength (Athletics) check. On a successful check, the target is no longer grafted and moves to an unoccupied space within 5 feet of the necrohulk.
     senses: Blindsight 60 ft., Passive Perception 12
     languages:
     - None
   fr:
     name: Thallophyte, mastonécrofonge
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Attaques multiples***. Le mastonécrofonge effectue deux attaques de Coup putréfiant.
 
-      ***Attaques multiples***. Le mastonécrofonge effectue deux attaques de Coup
-      putréfiant.
+      ***Coup putréfiant***. *Corps à corps* : +7, allonge 3 m. *Touché* : 9 (1d10+ 4) dégâts contondants plus 7 (2d6) dégâts nécrotiques.
 
-
-      ***Coup putréfiant***. *Corps à corps* : +7, allonge 3 m. *Touché* : 9 (1d10+
-      4) dégâts contondants plus 7 (2d6) dégâts nécrotiques.
-
-
-      ***Bombe de spores (recharge 5-6)***. *JdS Constitution* : DD 15, chaque créature
-      dans une Sphère de 6 m de rayon centrée sur un point que le mastonécrofonge
-      peut voir dans un rayon de 18 m. *Échec* : 28 (8d6) dégâts nécrotiques, et la
-      cible subit l''état Empoisonné jusqu''au début du prochain tour du mastonécrofonge.
-      Tant qu''elle est empoisonnée, la cible ne peut pas récupérer de points de vie.
-      *Réussite* : demi-dégâts uniquement.
-
+      ***Bombe de spores (recharge 5-6)***. *JdS Constitution* : DD 15, chaque créature dans une Sphère de 6 m de rayon centrée sur un point que le mastonécrofonge peut voir dans un rayon de 18 m. *Échec* : 28 (8d6) dégâts nécrotiques, et la cible subit l'état Empoisonné jusqu'au début du prochain tour du mastonécrofonge. Tant qu'elle est empoisonnée, la cible ne peut pas récupérer de points de vie. *Réussite* : demi-dégâts uniquement.
 
       ## Actions Bonus
 
-
-      ***Absorption corporelle***. *JdS Force* : DD 15, une créature de taille M ou
-      P que le mastonécrofonge peut voir dans un rayon de 1,50 m. *Échec* : la cible
-      est aspirée dans l''espace du mastonécrofonge et est greffée à son corps. Le
-      mastonécrofonge ne peut greffer qu''une seule cible à la fois. Tant qu''elle
-      est greffée, la cible subit l''état Entravé et subit un Désavantage aux jets
-      de sauvegarde de Constitution. Lorsque le mastonécrofonge se déplace, la cible
-      greffée se déplace avec lui. Si la cible meurt en étant greffée, son corps est
-      détruit et le mastonécrofonge récupère 10 points de vie. La cible greffée ou
-      une créature dans un rayon de 1,50 mètre autour du mastonécrofonge peut prendre
-      une action pour effectuer un jet de Force (Athlétisme) DD 15. En cas de réussite,
-      la cible est libérée et se déplace vers un espace inoccupé dans un rayon de
-      1,50 mètre du mastonécrofonge.'
+      ***Absorption corporelle***. *JdS Force* : DD 15, une créature de taille M ou P que le mastonécrofonge peut voir dans un rayon de 1,50 m. *Échec* : la cible est aspirée dans l'espace du mastonécrofonge et est greffée à son corps. Le mastonécrofonge ne peut greffer qu'une seule cible à la fois. Tant qu'elle est greffée, la cible subit l'état Entravé et subit un Désavantage aux jets de sauvegarde de Constitution. Lorsque le mastonécrofonge se déplace, la cible greffée se déplace avec lui. Si la cible meurt en étant greffée, son corps est détruit et le mastonécrofonge récupère 10 points de vie. La cible greffée ou une créature dans un rayon de 1,50 mètre autour du mastonécrofonge peut prendre une action pour effectuer un jet de Force (Athlétisme) DD 15. En cas de réussite, la cible est libérée et se déplace vers un espace inoccupé dans un rayon de 1,50 mètre du mastonécrofonge.
     senses: Vision aveugle 18 m, Perception passive 12
     languages:
     - aucune

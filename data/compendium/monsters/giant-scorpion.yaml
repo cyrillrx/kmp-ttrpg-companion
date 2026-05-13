@@ -76,39 +76,28 @@ translations:
   en:
     name: Giant Scorpion
     subtype: null
-    description: '## Actions
-
+    description: |-
+      ## Actions
 
       ***Multiattack***. The scorpion makes two Claw attacks and one Sting attack.
 
+      ***Claw***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 6 (1d6 + 3) Bludgeoning damage. If the target is a Large or smaller creature, it has the Grappled condition (escape DC 13) from one of two claws.
 
-      ***Claw***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 6 (1d6 + 3) Bludgeoning
-      damage. If the target is a Large or smaller creature, it has the Grappled condition
-      (escape DC 13) from one of two claws.
-
-
-      ***Sting***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 7 (1d8 + 3) Piercing
-      damage plus 11 (2d10) Poison damage.'
+      ***Sting***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 7 (1d8 + 3) Piercing damage plus 11 (2d10) Poison damage.
     senses: Blindsight 60 ft., Passive Perception 9
     languages:
     - None
   fr:
     name: Scorpion géant
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Attaques multiples***. Le scorpion effectue une attaque de Dard et deux de Pince.
 
-      ***Attaques multiples***. Le scorpion effectue une attaque de Dard et deux de
-      Pince.
+      ***Dard***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 7 (1d8 + 3) dégâts perforants plus 11 (2d10) dégâts de poison.
 
-
-      ***Dard***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 7 (1d8 + 3) dégâts
-      perforants plus 11 (2d10) dégâts de poison.
-
-
-      ***Griffe***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 6 (1d6 + 3) dégâts
-      contondants. Si la cible est une créature de taille G ou inférieure, elle subit
-      l''état Agrippé (évasion DD 13) par l''une des deux pinces.'
+      ***Griffe***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 6 (1d6 + 3) dégâts contondants. Si la cible est une créature de taille G ou inférieure, elle subit l'état Agrippé (évasion DD 13) par l'une des deux pinces.
     senses: Vision aveugle 18 m, Perception passive 9
     languages:
     - aucune

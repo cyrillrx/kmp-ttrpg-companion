@@ -76,32 +76,20 @@ translations:
   en:
     name: Cockatrice
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Petrifying Bite***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 3 (1d4
-      + 1) Piercing damage. If the target is a creature, it is subjected to the following
-      effect. *Constitution Saving Throw* : DC 11. *First Failure* : The target has
-      the Restrained condition. The target repeats the save at the end of its next
-      turn if it is still Restrained, ending the effect on itself on a success. *Second
-      Failure* : The target has the Petrified condition, instead of the Restrained
-      condition, for 24 hours.'
+      ***Petrifying Bite***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 3 (1d4 + 1) Piercing damage. If the target is a creature, it is subjected to the following effect. *Constitution Saving Throw* : DC 11. *First Failure* : The target has the Restrained condition. The target repeats the save at the end of its next turn if it is still Restrained, ending the effect on itself on a success. *Second Failure* : The target has the Petrified condition, instead of the Restrained condition, for 24 hours.
     senses: Darkvision 60 ft., Passive Perception 11
     languages:
     - None
   fr:
     name: Cockatrice
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Morsure pétrifiante***. *Corps à corps* : +3, allonge 1,50 m. *Touché* :
-      3 (1d4 + 1) dégâts perforants. Si la cible est une créature, elle est soumise
-      à l''effet suivant. *JdS Constitution* : DD 11. *Premier échec* : la cible subit
-      l''état Entravé. Elle réitère le JdS à la fin de son tour suivant si elle est
-      toujours Entravée, et met un terme à l''effet sur elle-même en cas de réussite.
-      *Deuxième échec* : la cible subit l''état Pétrifié, qui remplace l''état Entravé,
-      pendant 24 heures.'
+      ***Morsure pétrifiante***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 3 (1d4 + 1) dégâts perforants. Si la cible est une créature, elle est soumise à l'effet suivant. *JdS Constitution* : DD 11. *Premier échec* : la cible subit l'état Entravé. Elle réitère le JdS à la fin de son tour suivant si elle est toujours Entravée, et met un terme à l'effet sur elle-même en cas de réussite. *Deuxième échec* : la cible subit l'état Pétrifié, qui remplace l'état Entravé, pendant 24 heures.
     senses: Vision dans le noir 18 m, Perception passive 11
     languages:
     - aucune

@@ -79,25 +79,18 @@ translations:
   en:
     name: Young Green Dragon
     subtype: Chromatic
-    description: '## Traits
-
+    description: |-
+      ## Traits
 
       ***Amphibious***. The dragon can breathe air and water.
 
-
       ## Actions
-
 
       ***Multiattack***. The dragon makes three Rend attacks.
 
+      ***Rend***. *Melee Attack Roll* : +7, reach 10 ft. *Hit* : 11 (2d6 + 4) Slashing damage plus 7 (2d6) Poison damage.
 
-      ***Rend***. *Melee Attack Roll* : +7, reach 10 ft. *Hit* : 11 (2d6 + 4) Slashing
-      damage plus 7 (2d6) Poison damage.
-
-
-      ***Poison Breath (Recharge 5–6)***. *Constitution Saving Throw* : DC 14, each
-      creature in a 30-foot Cone. *Failure* : 42 (12d6) Poison damage. *Success* :
-      Half damage.'
+      ***Poison Breath (Recharge 5–6)***. *Constitution Saving Throw* : DC 14, each creature in a 30-foot Cone. *Failure* : 42 (12d6) Poison damage. *Success* : Half damage.
     senses: Blindsight 30 ft., Darkvision 120 ft., Passive Perception 17
     languages:
     - Common
@@ -105,25 +98,18 @@ translations:
   fr:
     name: Dragon vert, jeune
     subtype: Chromatique
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Amphibie***. Le dragon peut respirer sous l''eau comme à l''air libre.
-
+      ***Amphibie***. Le dragon peut respirer sous l'eau comme à l'air libre.
 
       ## Actions
 
-
       ***Attaques multiples***. Le dragon effectue trois attaques de Saignée.
 
+      ***Saignée***. *Corps à corps* : +7, allonge 3 m. *Touché* : 11 (2d6 + 4) dégâts tranchants plus 7 (2d6) dégâts de poison.
 
-      ***Saignée***. *Corps à corps* : +7, allonge 3 m. *Touché* : 11 (2d6 + 4) dégâts
-      tranchants plus 7 (2d6) dégâts de poison.
-
-
-      ***Souffle empoisonné (recharge 5–6)***. *JdS Constitution* : DD 14, chaque
-      créature dans un Cône de 9 m. *Échec* : 42 (12d6) dégâts de poison. *Réussite*
-      : demi-dégâts.'
+      ***Souffle empoisonné (recharge 5–6)***. *JdS Constitution* : DD 14, chaque créature dans un Cône de 9 m. *Échec* : 42 (12d6) dégâts de poison. *Réussite* : demi-dégâts.
     senses: Vision aveugle 9 m, Vision dans le noir 36 m, Perception passive 17
     languages:
     - commun

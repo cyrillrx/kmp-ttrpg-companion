@@ -76,34 +76,22 @@ translations:
   en:
     name: Druid
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Multiattack***. The druid makes two attacks, using Vine Staff or Verdant Wisp in any combination.
 
-      ***Multiattack***. The druid makes two attacks, using Vine Staff or Verdant
-      Wisp in any combination.
+      ***Vine Staff***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 7 (1d8 + 3) Bludgeoning damage plus 2 (1d4) Poison damage.
 
+      ***Verdant Wisp***. *Ranged Attack Roll* : +5, range 90 ft. *Hit* : 10 (3d6) Radiant damage.
 
-      ***Vine Staff***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 7 (1d8 + 3)
-      Bludgeoning damage plus 2 (1d4) Poison damage.
+      ***Spellcasting***. The druid casts one of the following spells, using Wisdom as the spellcasting ability (spell save DC 13):
 
-
-      ***Verdant Wisp***. *Ranged Attack Roll* : +5, range 90 ft. *Hit* : 10 (3d6)
-      Radiant damage.
-
-
-      ***Spellcasting***. The druid casts one of the following spells, using Wisdom
-      as the spellcasting ability (spell save DC 13):
-
-
-      At will: *[Druidcraft](https://www.aidedd.org/spell/druidcraft), [Speak with
-      Animals](https://www.aidedd.org/spell/speak-with-animals)*
-
+      At will: *[Druidcraft](https://www.aidedd.org/spell/druidcraft), [Speak with Animals](https://www.aidedd.org/spell/speak-with-animals)*
 
       2/day each: *[Entangle](https://www.aidedd.org/spell/entangle), [Thunderwave](https://www.aidedd.org/spell/thunderwave)*
 
-
-      1/day each: *[Animal Messenger](https://www.aidedd.org/spell/animal-messenger),
-      [Longstrider](https://www.aidedd.org/spell/longstrider), [Moonbeam](https://www.aidedd.org/spell/moonbeam)*'
+      1/day each: *[Animal Messenger](https://www.aidedd.org/spell/animal-messenger), [Longstrider](https://www.aidedd.org/spell/longstrider), [Moonbeam](https://www.aidedd.org/spell/moonbeam)*
     senses: Passive Perception 15
     languages:
     - Common
@@ -112,34 +100,22 @@ translations:
   fr:
     name: Druide
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Attaques multiples***. Le druide effectue deux attaques, réparties à sa guise entre Bâton-lierre et Éclat verdoyant.
 
-      ***Attaques multiples***. Le druide effectue deux attaques, réparties à sa guise
-      entre Bâton-lierre et Éclat verdoyant.
+      ***Bâton-lierre***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 7 (1d8 + 3) dégâts contondants plus 2 (1d4) dégâts de poison.
 
+      ***Éclat verdoyant***. *À distance* : +5, portée 27 m. *Touché* : 10 (3d6) dégâts radiants.
 
-      ***Bâton-lierre***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 7 (1d8
-      + 3) dégâts contondants plus 2 (1d4) dégâts de poison.
+      ***Incantation***. Le druide lance l'un des sorts suivants, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 13) :
 
+      À volonté : *[communication avec les animaux](https://www.aidedd.org/spell/fr/communication-avec-les-animaux), [druidisme](https://www.aidedd.org/spell/fr/druidisme)*
 
-      ***Éclat verdoyant***. *À distance* : +5, portée 27 m. *Touché* : 10 (3d6) dégâts
-      radiants.
+      2/jour chacun : *[enchevêtrement](https://www.aidedd.org/spell/fr/enchevetrement), vague tonnante*
 
-
-      ***Incantation***. Le druide lance l''un des sorts suivants, la Sagesse étant
-      sa caractéristique d''incantation (DD de sauvegarde 13) :
-
-
-      À volonté : *[communication avec les animaux](https://www.aidedd.org/spell/fr/communication-avec-les-animaux),
-      [druidisme](https://www.aidedd.org/spell/fr/druidisme)*
-
-
-      2/jour chacun : *[enchevêtrement](https://www.aidedd.org/spell/fr/enchevetrement),
-      vague tonnante*
-
-
-      1/jour chacun : *grande foulée, messager animal, rayon de lune*'
+      1/jour chacun : *grande foulée, messager animal, rayon de lune*
     senses: Perception passive 15
     languages:
     - commun

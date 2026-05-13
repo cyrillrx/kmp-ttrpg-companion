@@ -76,20 +76,14 @@ translations:
   en:
     name: Fomorian
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Multiattack***. The fomorian makes two Stone Club attacks. It can replace one attack with a use of Warping Hex if available.
 
-      ***Multiattack***. The fomorian makes two Stone Club attacks. It can replace
-      one attack with a use of Warping Hex if available.
+      ***Stone Club***. *Melee Attack Roll* : +9, reach 15 ft. *Hit* : 24 (4d8 + 6) Bludgeoning damage.
 
-
-      ***Stone Club***. *Melee Attack Roll* : +9, reach 15 ft. *Hit* : 24 (4d8 + 6)
-      Bludgeoning damage.
-
-
-      ***Warping Hex (Recharge 4–6)***. *Wisdom Saving Throw* : DC 16, one creature
-      the fomorian can see within 120 feet. *Failure* : 21 (6d6) Psychic damage, and
-      the target gains 1 Exhaustion level. *Success* : Half damage only.'
+      ***Warping Hex (Recharge 4–6)***. *Wisdom Saving Throw* : DC 16, one creature the fomorian can see within 120 feet. *Failure* : 21 (6d6) Psychic damage, and the target gains 1 Exhaustion level. *Success* : Half damage only.
     senses: Darkvision 120 ft., Passive Perception 18
     languages:
     - Giant
@@ -97,20 +91,14 @@ translations:
   fr:
     name: Fomoire
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Attaques multiples***. Le fomoire effectue deux attaques de Gourdin de pierre. Il peut remplacer une attaque par l'utilisation de Maléfice convulsif si disponible.
 
-      ***Attaques multiples***. Le fomoire effectue deux attaques de Gourdin de pierre.
-      Il peut remplacer une attaque par l''utilisation de Maléfice convulsif si disponible.
+      ***Gourdin de pierre***. *Corps à corps* : +9, allonge 4,50 m. *Touché* : 24 (4d8 + 6) dégâts contondants.
 
-
-      ***Gourdin de pierre***. *Corps à corps* : +9, allonge 4,50 m. *Touché* : 24
-      (4d8 + 6) dégâts contondants.
-
-
-      ***Maléfice convulsif (recharge 4–6)***. *JdS Sagesse* : DD 16, une créature
-      que le fomoire peut voir dans un rayon de 36 m. *Échec* : 21 (6d6) dégâts psychiques,
-      et la cible subit 1 niveau d''épuisement. *Réussite* : demi-dégâts uniquement.'
+      ***Maléfice convulsif (recharge 4–6)***. *JdS Sagesse* : DD 16, une créature que le fomoire peut voir dans un rayon de 36 m. *Échec* : 21 (6d6) dégâts psychiques, et la cible subit 1 niveau d'épuisement. *Réussite* : demi-dégâts uniquement.
     senses: Vision dans le noir 36 m, Perception passive 18
     languages:
     - géant

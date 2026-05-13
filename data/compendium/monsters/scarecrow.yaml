@@ -76,36 +76,24 @@ translations:
   en:
     name: Scarecrow
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Fearsome Claw***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 6 (2d4 + 1) Slashing damage, and the target has the Frightened condition until the end of the scarecrow's next turn.
 
-      ***Fearsome Claw***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 6 (2d4 +
-      1) Slashing damage, and the target has the Frightened condition until the end
-      of the scarecrow''s next turn.
-
-
-      ***Terrifying Glare***. *Wisdom Saving Throw* : DC 11, one creature the scarecrow
-      can see within 30 feet. *Failure* : The target has the Frightened condition
-      until the end of the scarecrow''s next turn. While Frightened, the target has
-      the Paralyzed condition.'
+      ***Terrifying Glare***. *Wisdom Saving Throw* : DC 11, one creature the scarecrow can see within 30 feet. *Failure* : The target has the Frightened condition until the end of the scarecrow's next turn. While Frightened, the target has the Paralyzed condition.
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - Common plus one other language
   fr:
     name: Épouvantail
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Griffe effroyable***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 6 (2d4 + 1) dégâts tranchants, et la cible subit l'état Effrayé jusqu'à la fin du prochain tour de l'épouvantail.
 
-      ***Griffe effroyable***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 6
-      (2d4 + 1) dégâts tranchants, et la cible subit l''état Effrayé jusqu''à la fin
-      du prochain tour de l''épouvantail.
-
-
-      ***Regard terrifiant***. *JdS Sagesse* : DD 11, une créature que l''épouvantail
-      peut voir dans un rayon de 9 m. *Échec* : la cible subit l''état Effrayé jusqu''à
-      la fin du prochain tour de l''épouvantail. Tant qu''elle est effrayée, la cible
-      subit l''état Paralysé.'
+      ***Regard terrifiant***. *JdS Sagesse* : DD 11, une créature que l'épouvantail peut voir dans un rayon de 9 m. *Échec* : la cible subit l'état Effrayé jusqu'à la fin du prochain tour de l'épouvantail. Tant qu'elle est effrayée, la cible subit l'état Paralysé.
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - commun plus une autre langue

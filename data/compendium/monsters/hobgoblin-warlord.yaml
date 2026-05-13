@@ -81,36 +81,22 @@ translations:
   en:
     name: Hobgoblin Warlord
     subtype: Goblinoid
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Aura of Authority***. While in a 30-foot Emanation originating from the hobgoblin,
-      the hobgoblin and its allies have Advantage on attack rolls and saving throws,
-      provided the hobgoblin doesn''t have the Incapacitated condition.
-
+      ***Aura of Authority***. While in a 30-foot Emanation originating from the hobgoblin, the hobgoblin and its allies have Advantage on attack rolls and saving throws, provided the hobgoblin doesn't have the Incapacitated condition.
 
       ## Actions
 
+      ***Multiattack***. The hobgoblin makes three attacks, using Javelin or Longsword in any combination.
 
-      ***Multiattack***. The hobgoblin makes three attacks, using Javelin or Longsword
-      in any combination.
+      ***Javelin***. *Melee or Ranged Attack Roll* : +6, reach 5 ft. or range 30/120 ft. *Hit* : 11 (2d6 + 4) Piercing damage, and the target's Speed decreases by 10 feet until the start of the hobgoblin's next turn.
 
-
-      ***Javelin***. *Melee or Ranged Attack Roll* : +6, reach 5 ft. or range 30/120
-      ft. *Hit* : 11 (2d6 + 4) Piercing damage, and the target''s Speed decreases
-      by 10 feet until the start of the hobgoblin''s next turn.
-
-
-      ***Longsword***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 12 (2d8 + 3)
-      Slashing damage.
-
+      ***Longsword***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 12 (2d8 + 3) Slashing damage.
 
       ## Reactions
 
-
-      ***Parry***. *Trigger* : The hobgoblin is hit by a melee attack roll while holding
-      a weapon. *Response* : The hobgoblin adds 3 to its AC against that attack, possibly
-      causing it to miss.'
+      ***Parry***. *Trigger* : The hobgoblin is hit by a melee attack roll while holding a weapon. *Response* : The hobgoblin adds 3 to its AC against that attack, possibly causing it to miss.
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - Common
@@ -118,37 +104,22 @@ translations:
   fr:
     name: Hobgobelin, seigneur de guerre
     subtype: Gobelinoïde
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Aura d''autorité***. Tant qu''ils se trouvent dans une Émanation de 3 m centrée
-      sur le hobgobelin et à condition que celui-ci ne subisse pas l''état Incapable
-      d''agir, le hobgobelin et ses alliés ont un Avantage aux jets d''attaque et
-      jets de sauvegarde.
-
+      ***Aura d'autorité***. Tant qu'ils se trouvent dans une Émanation de 3 m centrée sur le hobgobelin et à condition que celui-ci ne subisse pas l'état Incapable d'agir, le hobgobelin et ses alliés ont un Avantage aux jets d'attaque et jets de sauvegarde.
 
       ## Actions
 
+      ***Attaques multiples***. Le hobgobelin effectue trois attaques, réparties à sa guise entre Javeline et Épée longue.
 
-      ***Attaques multiples***. Le hobgobelin effectue trois attaques, réparties à
-      sa guise entre Javeline et Épée longue.
+      ***Javeline***. *Corps à corps ou à distance* : +6, allonge 1,50 m ou portée 30/36 m. *Touché* : 11 (2d6 + 4) dégâts perforants, et la Vitesse de la cible est réduite de 3 m jusqu'au début du prochain tour du hobgobelin.
 
-
-      ***Javeline***. *Corps à corps ou à distance* : +6, allonge 1,50 m ou portée
-      30/36 m. *Touché* : 11 (2d6 + 4) dégâts perforants, et la Vitesse de la cible
-      est réduite de 3 m jusqu''au début du prochain tour du hobgobelin.
-
-
-      ***Épée longue***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 12 (2d8
-      + 3) dégâts tranchants.
-
+      ***Épée longue***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 12 (2d8 + 3) dégâts tranchants.
 
       ## Réactions
 
-
-      ***Parade***. *Déclencheur* : le hobgobelin est touché par un jet d''attaque
-      de corps à corps alors qu''il tient une arme. *Conséquences* : le hobgobelin
-      ajoute 3 à sa CA contre cette attaque, ce qui peut la faire rater.'
+      ***Parade***. *Déclencheur* : le hobgobelin est touché par un jet d'attaque de corps à corps alors qu'il tient une arme. *Conséquences* : le hobgobelin ajoute 3 à sa CA contre cette attaque, ce qui peut la faire rater.
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - commun

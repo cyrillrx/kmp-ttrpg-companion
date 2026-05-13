@@ -78,29 +78,20 @@ translations:
   en:
     name: Giant Owl
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Flyby***. The owl doesn''t provoke an Opportunity Attack when it flies out
-      of an enemy''s reach.
-
+      ***Flyby***. The owl doesn't provoke an Opportunity Attack when it flies out of an enemy's reach.
 
       ## Actions
 
+      ***Talons***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 7 (1d10 + 2) Slashing damage.
 
-      ***Talons***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 7 (1d10 + 2) Slashing
-      damage.
+      ***Spellcasting***. The owl casts one of the following spells, requiring no spell components and using Wisdom as the spellcasting ability:
 
+      At will: *[Detect Evil and Good](https://www.aidedd.org/spell/detect-evil-and-good), [Detect Magic](https://www.aidedd.org/spell/detect-magic)*
 
-      ***Spellcasting***. The owl casts one of the following spells, requiring no
-      spell components and using Wisdom as the spellcasting ability:
-
-
-      At will: *[Detect Evil and Good](https://www.aidedd.org/spell/detect-evil-and-good),
-      [Detect Magic](https://www.aidedd.org/spell/detect-magic)*
-
-
-      1/day: *[Clairvoyance](https://www.aidedd.org/spell/clairvoyance)*'
+      1/day: *[Clairvoyance](https://www.aidedd.org/spell/clairvoyance)*
     senses: Darkvision 120 ft., Passive Perception 16
     languages:
     - Celestial; understands Common
@@ -109,28 +100,20 @@ translations:
   fr:
     name: Chouette géante
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Repli aérien***. La chouette ne provoque pas d''attaque d''Opportunité lorsqu''elle
-      quitte la zone d''allonge d''un ennemi en volant.
-
+      ***Repli aérien***. La chouette ne provoque pas d'attaque d'Opportunité lorsqu'elle quitte la zone d'allonge d'un ennemi en volant.
 
       ## Actions
 
+      ***Serres***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 7 (1d10 + 2) dégâts tranchants.
 
-      ***Serres***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 7 (1d10 + 2)
-      dégâts tranchants.
-
-
-      ***Incantation***. La chouette lance l''un des sorts suivants sans composantes,
-      la Sagesse étant sa caractéristique d''incantation :
-
+      ***Incantation***. La chouette lance l'un des sorts suivants sans composantes, la Sagesse étant sa caractéristique d'incantation :
 
       À volonté : *détection de la magie, détection du mal et du bien*
 
-
-      1/jour : *clairvoyance*'
+      1/jour : *clairvoyance*
     senses: Vision dans le noir 36 m, Perception passive 16
     languages:
     - céleste ; comprend le commun

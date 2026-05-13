@@ -76,52 +76,36 @@ translations:
   en:
     name: Hell Hound
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Pack Tactics***. The hound has Advantage on an attack roll against a creature
-      if at least one of the hound''s allies is within 5 feet of the creature and
-      the ally doesn''t have the Incapacitated condition.
-
+      ***Pack Tactics***. The hound has Advantage on an attack roll against a creature if at least one of the hound's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.
 
       ## Actions
 
-
       ***Multiattack***. The hound makes two Bite attacks.
 
+      ***Bite***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 7 (1d8 + 3) Piercing damage plus 3 (1d6) Fire damage.
 
-      ***Bite***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 7 (1d8 + 3) Piercing
-      damage plus 3 (1d6) Fire damage.
-
-
-      ***Fire Breath (Recharge 5–6)***. *Dexterity Saving Throw* : DC 12, each creature
-      in a 15-foot Cone. *Failure* : 17 (5d6) Fire damage. *Success* : Half damage.'
+      ***Fire Breath (Recharge 5–6)***. *Dexterity Saving Throw* : DC 12, each creature in a 15-foot Cone. *Failure* : 17 (5d6) Fire damage. *Success* : Half damage.
     senses: Darkvision 60 ft., Passive Perception 15
     languages:
     - Understands Infernal but can't speak
   fr:
     name: Molosse infernal
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Tactique de meute***. Quand au moins un de ses alliés non Incapable d''agir
-      se situe dans un rayon de 1,50 m de la créature qu''il cible, le molosse a un
-      Avantage au jet d''attaque correspondant contre cette créature.
-
+      ***Tactique de meute***. Quand au moins un de ses alliés non Incapable d'agir se situe dans un rayon de 1,50 m de la créature qu'il cible, le molosse a un Avantage au jet d'attaque correspondant contre cette créature.
 
       ## Actions
 
-
       ***Attaques multiples***. Le molosse effectue deux attaques de Morsure.
 
+      ***Morsure***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 7 (1d8 + 3) dégâts perforants plus 3 (1d6) dégâts de feu.
 
-      ***Morsure***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 7 (1d8 + 3)
-      dégâts perforants plus 3 (1d6) dégâts de feu.
-
-
-      ***Souffle de feu (recharge 5–6)***. *JdS Dextérité* : DD 12, chaque créature
-      dans un Cône de 4,50 m. *Échec* : 17 (5d6) dégâts de feu. *Réussite* : demi-dégâts.'
+      ***Souffle de feu (recharge 5–6)***. *JdS Dextérité* : DD 12, chaque créature dans un Cône de 4,50 m. *Échec* : 17 (5d6) dégâts de feu. *Réussite* : demi-dégâts.
     senses: Vision dans le noir 18 m, Perception passive 15
     languages:
     - comprend l'infernal mais ne parle pas

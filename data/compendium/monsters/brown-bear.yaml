@@ -78,38 +78,28 @@ translations:
   en:
     name: Brown Bear
     subtype: null
-    description: '## Actions
-
+    description: |-
+      ## Actions
 
       ***Multiattack***. The bear makes one Bite attack and one Claw attack.
 
+      ***Bite***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 7 (1d8 + 3) Piercing damage.
 
-      ***Bite***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 7 (1d8 + 3) Piercing
-      damage.
-
-
-      ***Claw***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 5 (1d4 + 3) Slashing
-      damage. If the target is a Large or smaller creature, it has the Prone condition.'
+      ***Claw***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 5 (1d4 + 3) Slashing damage. If the target is a Large or smaller creature, it has the Prone condition.
     senses: Darkvision 60 ft., Passive Perception 13
     languages:
     - None
   fr:
     name: Ours brun
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Attaques multiples***. L'ours effectue une attaque de Morsure et une attaque de Griffes.
 
-      ***Attaques multiples***. L''ours effectue une attaque de Morsure et une attaque
-      de Griffes.
+      ***Morsure***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 7 (1d8 + 3) dégâts perforants.
 
-
-      ***Morsure***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 7 (1d8 + 3)
-      dégâts perforants.
-
-
-      ***Griffes***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 5 (1d4 + 3)
-      dégâts tranchants. Si la cible est de taille G ou inférieure, elle subit l''état
-      À terre.'
+      ***Griffes***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 5 (1d4 + 3) dégâts tranchants. Si la cible est de taille G ou inférieure, elle subit l'état À terre.
     senses: Vision dans le noir 18 m, Perception passive 13
     languages:
     - aucune

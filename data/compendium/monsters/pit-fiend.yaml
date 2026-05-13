@@ -79,117 +79,56 @@ translations:
   en:
     name: Pit Fiend
     subtype: Devil
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Diabolical Restoration***. If the pit fiend dies outside the Nine Hells, its body disappears in sulfurous smoke, and it gains a new body instantly, reviving with all its Hit Points somewhere in the Nine Hells.
 
-      ***Diabolical Restoration***. If the pit fiend dies outside the Nine Hells,
-      its body disappears in sulfurous smoke, and it gains a new body instantly, reviving
-      with all its Hit Points somewhere in the Nine Hells.
+      ***Fear Aura***. The pit fiend emanates an aura in a 20-foot Emanation while it doesn't have the Incapacitated condition. *Wisdom Saving Throw* : DC 21, any enemy that starts its turn in the aura. *Failure* : The target has the Frightened condition until the start of its next turn. *Success* : The target is immune to this pit fiend's aura for 24 hours.
 
+      ***Legendary Resistance (4/Day)***. If the pit fiend fails a saving throw, it can choose to succeed instead.
 
-      ***Fear Aura***. The pit fiend emanates an aura in a 20-foot Emanation while
-      it doesn''t have the Incapacitated condition. *Wisdom Saving Throw* : DC 21,
-      any enemy that starts its turn in the aura. *Failure* : The target has the Frightened
-      condition until the start of its next turn. *Success* : The target is immune
-      to this pit fiend''s aura for 24 hours.
-
-
-      ***Legendary Resistance (4/Day)***. If the pit fiend fails a saving throw, it
-      can choose to succeed instead.
-
-
-      ***Magic Resistance***. The pit fiend has Advantage on saving throws against
-      spells and other magical effects.
-
+      ***Magic Resistance***. The pit fiend has Advantage on saving throws against spells and other magical effects.
 
       ## Actions
 
+      ***Multiattack***. The pit fiend makes one Bite attack, two Devilish Claw attacks, and one Fiery Mace attack.
 
-      ***Multiattack***. The pit fiend makes one Bite attack, two Devilish Claw attacks,
-      and one Fiery Mace attack.
+      ***Bite***. *Melee Attack Roll* : +14, reach 10 ft. *Hit* : 18 (3d6 + 8) Piercing damage. If the target is a creature, it must make the following saving throw. *Constitution Saving Throw* : DC 21. *Failure* : The target has the Poisoned condition. While Poisoned, the target can't regain Hit Points and takes 21 (6d6) Poison damage at the start of each of its turns, and it repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically.
 
+      ***Devilish Claw***. *Melee Attack Roll* : +14, reach 10 ft. *Hit* : 26 (4d8 + 8) Necrotic damage.
 
-      ***Bite***. *Melee Attack Roll* : +14, reach 10 ft. *Hit* : 18 (3d6 + 8) Piercing
-      damage. If the target is a creature, it must make the following saving throw.
-      *Constitution Saving Throw* : DC 21. *Failure* : The target has the Poisoned
-      condition. While Poisoned, the target can''t regain Hit Points and takes 21
-      (6d6) Poison damage at the start of each of its turns, and it repeats the save
-      at the end of each of its turns, ending the effect on itself on a success. After
-      1 minute, it succeeds automatically.
+      ***Fiery Mace***. *Melee Attack Roll* : +14, reach 10 ft. *Hit* : 22 (4d6 + 8) Force damage plus 21 (6d6) Fire damage.
 
-
-      ***Devilish Claw***. *Melee Attack Roll* : +14, reach 10 ft. *Hit* : 26 (4d8
-      + 8) Necrotic damage.
-
-
-      ***Fiery Mace***. *Melee Attack Roll* : +14, reach 10 ft. *Hit* : 22 (4d6 +
-      8) Force damage plus 21 (6d6) Fire damage.
-
-
-      ***Hellfire Spellcasting (Recharge 4–6)***. The pit fiend casts *[Fireball](https://www.aidedd.org/spell/fireball)*
-      (level 5 version) twice, requiring no Material components and using Charisma
-      as the spellcasting ability (spell save DC 21). It can replace one *[Fireball](https://www.aidedd.org/spell/fireball)*
-      with *[Hold Monster](https://www.aidedd.org/spell/hold-monster)* (level 7 version)
-      or *[Wall of Fire](https://www.aidedd.org/spell/wall-of-fire)*.'
+      ***Hellfire Spellcasting (Recharge 4–6)***. The pit fiend casts *[Fireball](https://www.aidedd.org/spell/fireball)* (level 5 version) twice, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 21). It can replace one *[Fireball](https://www.aidedd.org/spell/fireball)* with *[Hold Monster](https://www.aidedd.org/spell/hold-monster)* (level 7 version) or *[Wall of Fire](https://www.aidedd.org/spell/wall-of-fire)*.
     senses: Truesight 120 ft., Passive Perception 20
     languages:
     - Infernal; telepathy 120 ft.
   fr:
     name: Diantrefosse
     subtype: Diable
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Aura de terreur***. Le diantrefosse diffuse une aura dans une Émanation de 6 m tant qu'il ne subit pas l'état Incapable d'agir. *JdS Sagesse* : DD 21, tout ennemi qui commence son tour dans l'aura. *Échec* : la cible subit l'état Effrayé jusqu'au début de son tour suivant. *Réussite* : la cible est immunisée contre l'aura de ce diantrefosse pendant 24 heures.
 
-      ***Aura de terreur***. Le diantrefosse diffuse une aura dans une Émanation de
-      6 m tant qu''il ne subit pas l''état Incapable d''agir. *JdS Sagesse* : DD 21,
-      tout ennemi qui commence son tour dans l''aura. *Échec* : la cible subit l''état
-      Effrayé jusqu''au début de son tour suivant. *Réussite* : la cible est immunisée
-      contre l''aura de ce diantrefosse pendant 24 heures.
+      ***Résistance à la magie***. Le diantrefosse a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
 
+      ***Résistance légendaire (4/jour)***. Si le diantrefosse rate un jet de sauvegarde, il peut décider de le réussir tout de même.
 
-      ***Résistance à la magie***. Le diantrefosse a un Avantage aux jets de sauvegarde
-      contre les sorts et autres effets magiques.
-
-
-      ***Résistance légendaire (4/jour)***. Si le diantrefosse rate un jet de sauvegarde,
-      il peut décider de le réussir tout de même.
-
-
-      ***Restauration diabolique***. Si le diantrefosse meurt hors des Neuf Enfers,
-      son corps disparaît dans un nuage de fumée sulfureuse, tandis qu''il en acquiert
-      aussitôt un nouveau et revient à la vie avec tous ses pv quelque part dans les
-      Neuf Enfers.
-
+      ***Restauration diabolique***. Si le diantrefosse meurt hors des Neuf Enfers, son corps disparaît dans un nuage de fumée sulfureuse, tandis qu'il en acquiert aussitôt un nouveau et revient à la vie avec tous ses pv quelque part dans les Neuf Enfers.
 
       ## Actions
 
+      ***Attaques multiples***. Le diantrefosse effectue quatre attaques : deux de Griffe diabolique, une de Masse d'armes ardente et une de Morsure.
 
-      ***Attaques multiples***. Le diantrefosse effectue quatre attaques : deux de
-      Griffe diabolique, une de Masse d''armes ardente et une de Morsure.
+      ***Griffe diabolique***. *Corps à corps* : +14, allonge 3 m. *Touché* : 26 (4d8 + 8) dégâts nécrotiques.
 
+      ***Masse d'armes ardente***. *Corps à corps* : +14, allonge 3 m. *Touché* : 22 (4d6 + 8) dégâts de force plus 21 (6d6) dégâts de feu.
 
-      ***Griffe diabolique***. *Corps à corps* : +14, allonge 3 m. *Touché* : 26 (4d8
-      + 8) dégâts nécrotiques.
+      ***Morsure***. *Corps à corps* : +14, allonge 3 m. *Touché* : 18 (3d6 + 8) dégâts perforants. Si la cible est une créature, elle effectue le jet de sauvegarde suivant. *JdS Constitution* : DD 21. *Échec* : la cible subit l'état Empoisonné. Ainsi Empoisonnée, la cible ne peut pas récupérer de points de vie, subit 21 (6d6) dégâts de poison au début de chacun de ses tours et réitère le JdS à la fin de chacun de ses tours, mettant un terme à l'effet sur elle-même en cas de réussite. Au bout de 1 minute, elle réussit automatiquement ce JdS.
 
-
-      ***Masse d''armes ardente***. *Corps à corps* : +14, allonge 3 m. *Touché* :
-      22 (4d6 + 8) dégâts de force plus 21 (6d6) dégâts de feu.
-
-
-      ***Morsure***. *Corps à corps* : +14, allonge 3 m. *Touché* : 18 (3d6 + 8) dégâts
-      perforants. Si la cible est une créature, elle effectue le jet de sauvegarde
-      suivant. *JdS Constitution* : DD 21. *Échec* : la cible subit l''état Empoisonné.
-      Ainsi Empoisonnée, la cible ne peut pas récupérer de points de vie, subit 21
-      (6d6) dégâts de poison au début de chacun de ses tours et réitère le JdS à la
-      fin de chacun de ses tours, mettant un terme à l''effet sur elle-même en cas
-      de réussite. Au bout de 1 minute, elle réussit automatiquement ce JdS.
-
-
-      ***Incantation du feu des enfers (recharge 4–6)***. Le diantrefosse lance *[boule
-      de feu](https://www.aidedd.org/spell/fr/boule-de-feu)* (au niveau 5) deux fois
-      sans composantes matérielles, le Charisme étant sa caractéristique d''incantation
-      (DD de sauvegarde 21). Il peut remplacer une *[boule de feu](https://www.aidedd.org/spell/fr/boule-de-feu)*
-      par *immobilisation de monstre* (au niveau 7) ou *mur de feu*.'
+      ***Incantation du feu des enfers (recharge 4–6)***. Le diantrefosse lance *[boule de feu](https://www.aidedd.org/spell/fr/boule-de-feu)* (au niveau 5) deux fois sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 21). Il peut remplacer une *[boule de feu](https://www.aidedd.org/spell/fr/boule-de-feu)* par *immobilisation de monstre* (au niveau 7) ou *mur de feu*.
     senses: vision véritable 36 m, Perception passive 20
     languages:
     - infernal ; télépathie 36 m

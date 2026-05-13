@@ -78,28 +78,24 @@ translations:
   en:
     name: Black Bear
     subtype: null
-    description: '## Actions
-
+    description: |-
+      ## Actions
 
       ***Multiattack***. The bear makes two Rend attacks.
 
-
-      ***Rend***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 5 (1d6 + 2) Slashing
-      damage.'
+      ***Rend***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 5 (1d6 + 2) Slashing damage.
     senses: Darkvision 60 ft., Passive Perception 15
     languages:
     - None
   fr:
     name: Ours noir
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Attaques multiples***. L'ours effectue deux attaques de Saignée.
 
-      ***Attaques multiples***. L''ours effectue deux attaques de Saignée.
-
-
-      ***Saignée***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 5 (1d6 + 2)
-      dégâts tranchants.'
+      ***Saignée***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 5 (1d6 + 2) dégâts tranchants.
     senses: Vision dans le noir 18 m, Perception passive 15
     languages:
     - aucune

@@ -76,45 +76,26 @@ translations:
   en:
     name: Pixie Wonderbringer
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Magic Resistance***. The pixie has Advantage on saving throws against spells
-      and other magical effects.
-
+      ***Magic Resistance***. The pixie has Advantage on saving throws against spells and other magical effects.
 
       ## Actions
 
-
       ***Multiattack***. The pixie makes two Faerie Dust attacks.
 
+      ***Faerie Dust***. *Melee or Ranged Attack Roll* : +7, reach 5 ft. or range 60 ft. *Hit* : 15 (2d10 + 4) Radiant damage, and the target has the Charmed or Poisoned condition (pixie's choice) until the start of the pixie's next turn.
 
-      ***Faerie Dust***. *Melee or Ranged Attack Roll* : +7, reach 5 ft. or range
-      60 ft. *Hit* : 15 (2d10 + 4) Radiant damage, and the target has the Charmed
-      or Poisoned condition (pixie''s choice) until the start of the pixie''s next
-      turn.
+      ***Spellcasting***. The pixie casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 15):
 
+      At will: *[Dancing Lights](https://www.aidedd.org/spell/dancing-lights), [Druidcraft](https://www.aidedd.org/spell/druidcraft), [Invisibility](https://www.aidedd.org/spell/invisibility)* (self only)
 
-      ***Spellcasting***. The pixie casts one of the following spells, requiring no
-      Material components and using Charisma as the spellcasting ability (spell save
-      DC 15):
-
-
-      At will: *[Dancing Lights](https://www.aidedd.org/spell/dancing-lights), [Druidcraft](https://www.aidedd.org/spell/druidcraft),
-      [Invisibility](https://www.aidedd.org/spell/invisibility)* (self only)
-
-
-      1/day each: *[Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts),
-      Fly, [Major Image](https://www.aidedd.org/spell/major-image)*
-
+      1/day each: *[Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts), Fly, [Major Image](https://www.aidedd.org/spell/major-image)*
 
       ## Bonus actions
 
-
-      ***Burst of Wonder (Recharge 5–6)***. The pixie casts *[Entangle](https://www.aidedd.org/spell/entangle),
-      [Polymorph](https://www.aidedd.org/spell/polymorph)*, or *[Tasha''s Hideous
-      Laughter](https://www.aidedd.org/spell/tasha-s-hideous-laughter)* , requiring
-      no Material components and using the same spellcasting ability as Spellcasting.'
+      ***Burst of Wonder (Recharge 5–6)***. The pixie casts *[Entangle](https://www.aidedd.org/spell/entangle), [Polymorph](https://www.aidedd.org/spell/polymorph)*, or *[Tasha's Hideous Laughter](https://www.aidedd.org/spell/tasha-s-hideous-laughter)* , requiring no Material components and using the same spellcasting ability as Spellcasting.
     senses: Passive Perception 15
     languages:
     - Common
@@ -123,28 +104,22 @@ translations:
   fr:
     name: Pixie émerveilleuse
     subtype: null
-    description: '## Traits
-
+    description: |-
+      ## Traits
 
       Résistance à la magie.
 
-
       ## Actions
-
 
       Attaques multiples.
 
-
       Poussière féerique.
-
 
       Incantation.
 
-
       ## Actions Bonus
 
-
-      Émerveillement spontané (recharge 5–6).'
+      Émerveillement spontané (recharge 5–6).
     senses: Perception passive 15
     languages:
     - commun

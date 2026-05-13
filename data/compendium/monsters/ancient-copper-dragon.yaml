@@ -79,73 +79,36 @@ translations:
   en:
     name: Ancient Copper Dragon
     subtype: Metallic
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Legendary Resistance (4/Day, or 5/Day in Lair)***. If the dragon fails a
-      saving throw, it can choose to succeed instead.
-
+      ***Legendary Resistance (4/Day, or 5/Day in Lair)***. If the dragon fails a saving throw, it can choose to succeed instead.
 
       ## Actions
 
+      ***Multiattack***. The dragon makes three Rend attacks. It can replace one attack with a use of (A) Slowing Breath or (B) Spellcasting to cast *[Mind Spike](https://www.aidedd.org/spell/mind-spike)* (level 5 version).
 
-      ***Multiattack***. The dragon makes three Rend attacks. It can replace one attack
-      with a use of (A) Slowing Breath or (B) Spellcasting to cast *[Mind Spike](https://www.aidedd.org/spell/mind-spike)*
-      (level 5 version).
+      ***Rend***. *Melee Attack Roll* : +15, reach 15 ft. *Hit* : 19 (2d10 + 8) Slashing damage plus 9 (2d8) Acid damage.
 
+      ***Acid Breath (Recharge 5–6)***. *Dexterity Saving Throw* : DC 22, each creature in an 90-foot-long, 10-foot-wide Line. *Failure* : 63 (14d8) Acid damage. *Success* : Half damage.
 
-      ***Rend***. *Melee Attack Roll* : +15, reach 15 ft. *Hit* : 19 (2d10 + 8) Slashing
-      damage plus 9 (2d8) Acid damage.
+      ***Slowing Breath***. *Constitution Saving Throw* : DC 22, each creature in a 90-foot Cone. *Failure* : The target can't take Reactions; its Speed is halved; and it can take either an action or a Bonus Action on its turn, not both. This effect lasts until the end of its next turn.
 
+      ***Spellcasting***. The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 21):
 
-      ***Acid Breath (Recharge 5–6)***. *Dexterity Saving Throw* : DC 22, each creature
-      in an 90-foot-long, 10-foot-wide Line. *Failure* : 63 (14d8) Acid damage. *Success*
-      : Half damage.
+      At Will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Mind Spike](https://www.aidedd.org/spell/mind-spike)* (level 5 version), *[Minor Illusion](https://www.aidedd.org/spell/minor-illusion), [Shapechange](https://www.aidedd.org/spell/shapechange)* (Beast or Humanoid form only, no Temporary Hit Points gained from the spell, and no Concentration or Temporary Hit Points required to maintain the spell)
 
-
-      ***Slowing Breath***. *Constitution Saving Throw* : DC 22, each creature in
-      a 90-foot Cone. *Failure* : The target can''t take Reactions; its Speed is halved;
-      and it can take either an action or a Bonus Action on its turn, not both. This
-      effect lasts until the end of its next turn.
-
-
-      ***Spellcasting***. The dragon casts one of the following spells, requiring
-      no Material components and using Charisma as the spellcasting ability (spell
-      save DC 21):
-
-
-      At Will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Mind Spike](https://www.aidedd.org/spell/mind-spike)*
-      (level 5 version), *[Minor Illusion](https://www.aidedd.org/spell/minor-illusion),
-      [Shapechange](https://www.aidedd.org/spell/shapechange)* (Beast or Humanoid
-      form only, no Temporary Hit Points gained from the spell, and no Concentration
-      or Temporary Hit Points required to maintain the spell)
-
-
-      1/Day Each: *[Greater Restoration](https://www.aidedd.org/spell/greater-restoration),
-      [Major Image](https://www.aidedd.org/spell/major-image), Project Image*
-
+      1/Day Each: *[Greater Restoration](https://www.aidedd.org/spell/greater-restoration), [Major Image](https://www.aidedd.org/spell/major-image), Project Image*
 
       ## Legendary actions
 
+      Legendary Action Uses: 3 (4 in Lair). Immediately after another creature's turn, the dragon can expend a use to take one of the following actions. The dragon regains all expended uses at the start of each of its turns.
 
-      Legendary Action Uses: 3 (4 in Lair). Immediately after another creature''s
-      turn, the dragon can expend a use to take one of the following actions. The
-      dragon regains all expended uses at the start of each of its turns.
+      ***Giggling Magic***. *Charisma Saving Throw* : DC 21, one creature the dragon can see within 120 feet. *Failure* : 31 (9d6) Psychic damage. Until the end of its next turn, the target rolls 1d8 whenever it makes an ability check or attack roll and subtracts the number rolled from the D20 Test. *Failure or Success* : The dragon can't take this action again until the start of its next turn.
 
+      ***Mind Jolt***. The dragon uses Spellcasting to cast *[Mind Spike](https://www.aidedd.org/spell/mind-spike)* (level 5 version). The dragon can't take this action again until the start of its next turn.
 
-      ***Giggling Magic***. *Charisma Saving Throw* : DC 21, one creature the dragon
-      can see within 120 feet. *Failure* : 31 (9d6) Psychic damage. Until the end
-      of its next turn, the target rolls 1d8 whenever it makes an ability check or
-      attack roll and subtracts the number rolled from the D20 Test. *Failure or Success*
-      : The dragon can''t take this action again until the start of its next turn.
-
-
-      ***Mind Jolt***. The dragon uses Spellcasting to cast *[Mind Spike](https://www.aidedd.org/spell/mind-spike)*
-      (level 5 version). The dragon can''t take this action again until the start
-      of its next turn.
-
-
-      ***Pounce***. The dragon moves up to half its Speed, and it makes one Rend attack.'
+      ***Pounce***. The dragon moves up to half its Speed, and it makes one Rend attack.
     senses: Blindsight 60 ft., Darkvision 120 ft., Passive Perception 27
     languages:
     - Common
@@ -153,76 +116,36 @@ translations:
   fr:
     name: Dragon de cuivre, ancien
     subtype: Métallique
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Résistance légendaire (4/jour, ou 5/jour dans son antre)***. Si le dragon
-      rate un jet de sauvegarde, il peut décider de le réussir tout de même.
-
+      ***Résistance légendaire (4/jour, ou 5/jour dans son antre)***. Si le dragon rate un jet de sauvegarde, il peut décider de le réussir tout de même.
 
       ## Actions
 
+      ***Attaques multiples***. Le dragon effectue trois attaques de Saignée. Il peut remplacer l'une de ces attaques par une utilisation de (A) Incantation pour lancer *épine mentale* (au niveau 5) ou (B) Souffle ralentissant.
 
-      ***Attaques multiples***. Le dragon effectue trois attaques de Saignée. Il peut
-      remplacer l''une de ces attaques par une utilisation de (A) Incantation pour
-      lancer *épine mentale* (au niveau 5) ou (B) Souffle ralentissant.
+      ***Saignée***. *Corps à corps* : +15, allonge 4,50 m. *Touché* : 19 (2d10 + 8) dégâts tranchants plus 9 (2d8) dégâts d'acide.
 
+      ***Incantation***. Le dragon lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 21) :
 
-      ***Saignée***. *Corps à corps* : +15, allonge 4,50 m. *Touché* : 19 (2d10 +
-      8) dégâts tranchants plus 9 (2d8) dégâts d''acide.
+      À volonté : *[changement de forme](https://www.aidedd.org/spell/fr/changement-de-forme)* (Bête ou Humanoïde uniquement, le sort ne fait pas gagner de points de vie temporaires, ni Concentration ni points de vie temporaires nécessaires pour maintenir le sort), *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), épine mentale* (au niveau 5), *[illusion mineure](https://www.aidedd.org/spell/fr/illusion-mineure)*
 
+      1/jour chacun : *[image majeure](https://www.aidedd.org/spell/fr/image-majeure), image projetée, [restauration suprême](https://www.aidedd.org/spell/fr/restauration-supreme)*
 
-      ***Incantation***. Le dragon lance l''un des sorts suivants sans composantes
-      matérielles, le Charisme étant sa caractéristique d''incantation (DD de sauvegarde
-      21) :
+      ***Souffle d'acide (recharge 5–6)***. *JdS Dextérité* : DD 22, chaque créature dans une Ligne de 27 m de long sur 3 m de large. *Échec* : 63 (14d8) dégâts d'acide. *Réussite* : demi-dégâts.
 
-
-      À volonté : *[changement de forme](https://www.aidedd.org/spell/fr/changement-de-forme)*
-      (Bête ou Humanoïde uniquement, le sort ne fait pas gagner de points de vie temporaires,
-      ni Concentration ni points de vie temporaires nécessaires pour maintenir le
-      sort), *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie),
-      épine mentale* (au niveau 5), *[illusion mineure](https://www.aidedd.org/spell/fr/illusion-mineure)*
-
-
-      1/jour chacun : *[image majeure](https://www.aidedd.org/spell/fr/image-majeure),
-      image projetée, [restauration suprême](https://www.aidedd.org/spell/fr/restauration-supreme)*
-
-
-      ***Souffle d''acide (recharge 5–6)***. *JdS Dextérité* : DD 22, chaque créature
-      dans une Ligne de 27 m de long sur 3 m de large. *Échec* : 63 (14d8) dégâts
-      d''acide. *Réussite* : demi-dégâts.
-
-
-      ***Souffle ralentissant***. *JdS Constitution* : DD 22, chaque créature dans
-      un Cône de 27 m. *Échec* : la cible voit sa Vitesse réduite de moitié, ne peut
-      pas jouer de Réaction et peut entreprendre une action ou une action Bonus à
-      son tour, mais pas les deux. L''effet persiste jusqu''à la fin de son tour suivant.
-
+      ***Souffle ralentissant***. *JdS Constitution* : DD 22, chaque créature dans un Cône de 27 m. *Échec* : la cible voit sa Vitesse réduite de moitié, ne peut pas jouer de Réaction et peut entreprendre une action ou une action Bonus à son tour, mais pas les deux. L'effet persiste jusqu'à la fin de son tour suivant.
 
       ## Actions Légendaires
 
+      Utilisations d'action Légendaire : 3 (4 dans son antre). Aussitôt après le tour d'une autre créature, le dragon peut dépenser une utilisation pour entreprendre l'une des actions ci-après. Le dragon récupère toutes ses utilisations dépensées au début de chacun de ses tours.
 
-      Utilisations d''action Légendaire : 3 (4 dans son antre). Aussitôt après le
-      tour d''une autre créature, le dragon peut dépenser une utilisation pour entreprendre
-      l''une des actions ci-après. Le dragon récupère toutes ses utilisations dépensées
-      au début de chacun de ses tours.
+      ***Assaut incisif***. Le dragon se déplace à concurrence de la moitié de sa Vitesse et effectue une attaque de Saignée.
 
+      ***Décharge mentale***. Le dragon recourt à Incantation pour lancer *épine mentale* (au niveau 5). Le dragon ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.
 
-      ***Assaut incisif***. Le dragon se déplace à concurrence de la moitié de sa
-      Vitesse et effectue une attaque de Saignée.
-
-
-      ***Décharge mentale***. Le dragon recourt à Incantation pour lancer *épine mentale*
-      (au niveau 5). Le dragon ne peut alors plus entreprendre cette action jusqu''au
-      début de son tour suivant.
-
-
-      ***Gloussement magique***. *JdS Charisme* : DD 21, une créature que le dragon
-      voit dans un rayon de 36 m. *Échec* : 31 (9d6) dégâts psychiques. Jusqu''à la
-      fin de son tour suivant, la cible lance 1d8 chaque fois qu''elle effectue un
-      jet de caractéristique ou un jet d''attaque et soustrait le résultat obtenu
-      au jet de d20. *Échec ou réussite* : Le dragon ne peut alors plus entreprendre
-      cette action jusqu''au début de son tour suivant.'
+      ***Gloussement magique***. *JdS Charisme* : DD 21, une créature que le dragon voit dans un rayon de 36 m. *Échec* : 31 (9d6) dégâts psychiques. Jusqu'à la fin de son tour suivant, la cible lance 1d8 chaque fois qu'elle effectue un jet de caractéristique ou un jet d'attaque et soustrait le résultat obtenu au jet de d20. *Échec ou réussite* : Le dragon ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.
     senses: Vision aveugle 18 m, Vision dans le noir 36 m, Perception passive 27
     languages:
     - commun

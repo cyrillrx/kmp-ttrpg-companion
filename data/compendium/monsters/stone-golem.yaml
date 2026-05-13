@@ -76,74 +76,48 @@ translations:
   en:
     name: Stone Golem
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
+      ***Immutable Form***. The golem can't shape-shift.
 
-      ***Immutable Form***. The golem can''t shape-shift.
-
-
-      ***Magic Resistance***. The golem has Advantage on saving throws against spells
-      and other magical effects.
-
+      ***Magic Resistance***. The golem has Advantage on saving throws against spells and other magical effects.
 
       ## Actions
 
+      ***Multiattack***. The golem makes two attacks, using Slam or Force Bolt in any combination.
 
-      ***Multiattack***. The golem makes two attacks, using Slam or Force Bolt in
-      any combination.
+      ***Slam***. *Melee Attack Roll* : +10, reach 5 ft. *Hit* : 15 (2d8 + 6) Bludgeoning damage plus 9 (2d8) Force damage.
 
-
-      ***Slam***. *Melee Attack Roll* : +10, reach 5 ft. *Hit* : 15 (2d8 + 6) Bludgeoning
-      damage plus 9 (2d8) Force damage.
-
-
-      ***Force Bolt***. *Ranged Attack Roll* : +9, range 90 ft. *Hit* : 26 (4d12)
-      Force damage.
-
+      ***Force Bolt***. *Ranged Attack Roll* : +9, range 90 ft. *Hit* : 26 (4d12) Force damage.
 
       ## Bonus actions
 
-
-      ***Slow (Recharge 5–6)***. The golem casts the *[Slow](https://www.aidedd.org/spell/slow)*
-      spell, requiring no spell components and using Constitution as the spellcasting
-      ability (spell save DC 17).'
+      ***Slow (Recharge 5–6)***. The golem casts the *[Slow](https://www.aidedd.org/spell/slow)* spell, requiring no spell components and using Constitution as the spellcasting ability (spell save DC 17).
     senses: Darkvision 120 ft., Passive Perception 10
     languages:
     - Understands Common plus two other languages but can't speak
   fr:
     name: Golem de pierre
     subtype: null
-    description: '## Traits
-
+    description: |-
+      ## Traits
 
       ***Forme immuable***. Le golem ne peut pas être métamorphosé.
 
-
-      ***Résistance à la magie***. Le golem a un Avantage aux jets de sauvegarde contre
-      les sorts et autres effets magiques.
-
+      ***Résistance à la magie***. Le golem a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
 
       ## Actions
 
+      ***Attaques multiples***. Le golem effectue deux attaques, réparties à sa guise entre Coup et Trait de force.
 
-      ***Attaques multiples***. Le golem effectue deux attaques, réparties à sa guise
-      entre Coup et Trait de force.
+      ***Coup***. *Corps à corps* : +10, allonge 1,50 m. *Touché* : 15 (2d8 + 6) dégâts contondants plus 9 (2d8) dégâts de force.
 
-
-      ***Coup***. *Corps à corps* : +10, allonge 1,50 m. *Touché* : 15 (2d8 + 6) dégâts
-      contondants plus 9 (2d8) dégâts de force.
-
-
-      ***Trait de force***. *À distance* : +9, portée 36 m. *Touché* : 22 (4d10) dégâts
-      de force.
-
+      ***Trait de force***. *À distance* : +9, portée 36 m. *Touché* : 22 (4d10) dégâts de force.
 
       ## Actions Bonus
 
-
-      ***Lenteur (recharge 5–6)***. Le golem lance *lenteur* , sans composantes de
-      sort, la Constitution étant sa caractéristique d''incantation (DD de sauvegarde
-      17).'
+      ***Lenteur (recharge 5–6)***. Le golem lance *lenteur* , sans composantes de sort, la Constitution étant sa caractéristique d'incantation (DD de sauvegarde 17).
     senses: Vision dans le noir 36 m, Perception passive 10
     languages:
     - comprend le commun plus deux autres langues

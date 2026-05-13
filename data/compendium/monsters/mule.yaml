@@ -78,36 +78,28 @@ translations:
   en:
     name: Mule
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Beast of Burden***. The mule counts as one size larger for the purpose of
-      determining its carrying capacity.
-
+      ***Beast of Burden***. The mule counts as one size larger for the purpose of determining its carrying capacity.
 
       ## Actions
 
-
-      ***Hooves***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 4 (1d4 + 2) Bludgeoning
-      damage.'
+      ***Hooves***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 4 (1d4 + 2) Bludgeoning damage.
     senses: Passive Perception 10
     languages:
     - None
   fr:
     name: Mule
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Bête de somme***. La mule est considérée comme faisant une taille de plus
-      pour déterminer sa capacité de charge.
-
+      ***Bête de somme***. La mule est considérée comme faisant une taille de plus pour déterminer sa capacité de charge.
 
       ## Actions
 
-
-      ***Sabots***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 4 (1d4 + 2) dégâts
-      contondants.'
+      ***Sabots***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 4 (1d4 + 2) dégâts contondants.
     senses: Perception passive 10
     languages:
     - aucune

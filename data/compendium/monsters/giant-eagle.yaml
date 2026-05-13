@@ -76,28 +76,24 @@ translations:
   en:
     name: Giant Eagle
     subtype: null
-    description: '## Actions
-
+    description: |-
+      ## Actions
 
       ***Multiattack***. The eagle makes two Rend attacks.
 
-
-      ***Rend***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 5 (1d4 + 3) Slashing
-      damage plus 3 (1d6) Radiant damage.'
+      ***Rend***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 5 (1d4 + 3) Slashing damage plus 3 (1d6) Radiant damage.
     senses: Passive Perception 16
     languages:
     - Celestial; understands Common and Primordial (Auran) but can't speak them
   fr:
     name: Aigle géant
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
+      ***Attaques multiples***. L'aigle effectue deux attaques de Saignée.
 
-      ***Attaques multiples***. L''aigle effectue deux attaques de Saignée.
-
-
-      ***Saignée***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 5 (1d4 + 3)
-      dégâts tranchants plus 3 (1d6) dégâts radiants.'
+      ***Saignée***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 5 (1d4 + 3) dégâts tranchants plus 3 (1d6) dégâts radiants.
     senses: Perception passive 16
     languages:
     - céleste ; comprend le commun et le primordial (aérien) mais ne peut pas les

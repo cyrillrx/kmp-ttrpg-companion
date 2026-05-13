@@ -78,20 +78,20 @@ translations:
   en:
     name: Badger
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Bite***. *Melee Attack Roll* : +2, reach 5 ft. *Hit* : 1 Piercing damage.'
+      ***Bite***. *Melee Attack Roll* : +2, reach 5 ft. *Hit* : 1 Piercing damage.
     senses: Darkvision 30 ft., Passive Perception 13
     languages:
     - None
   fr:
     name: Blaireau
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Morsure***. *Corps à corps* : +2, allonge 1,50 m. *Touché* : 1 dégât perforant.'
+      ***Morsure***. *Corps à corps* : +2, allonge 1,50 m. *Touché* : 1 dégât perforant.
     senses: Vision dans le noir 9 m, Perception passive 13
     languages:
     - aucune

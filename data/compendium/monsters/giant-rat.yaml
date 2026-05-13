@@ -78,38 +78,28 @@ translations:
   en:
     name: Giant Rat
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Pack Tactics***. The rat has Advantage on an attack roll against a creature
-      if at least one of the rat''s allies is within 5 feet of the creature and the
-      ally doesn''t have the Incapacitated condition.
-
+      ***Pack Tactics***. The rat has Advantage on an attack roll against a creature if at least one of the rat's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.
 
       ## Actions
 
-
-      ***Bite***. *Melee Attack Roll* : +5, reach 5 feet. *Hit* : 5 (1d4 + 3) Piercing
-      damage.'
+      ***Bite***. *Melee Attack Roll* : +5, reach 5 feet. *Hit* : 5 (1d4 + 3) Piercing damage.
     senses: Darkvision 60 ft., Passive Perception 12
     languages:
     - None
   fr:
     name: Rat géant
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Tactique de meute***. Quand au moins un de ses alliés non Incapable d''agir
-      se situe dans un rayon de 1,50 m de la créature qu''il cible, le rat a un Avantage
-      au jet d''attaque correspondant.
-
+      ***Tactique de meute***. Quand au moins un de ses alliés non Incapable d'agir se situe dans un rayon de 1,50 m de la créature qu'il cible, le rat a un Avantage au jet d'attaque correspondant.
 
       ## Actions
 
-
-      ***Morsure***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 5 (1d4 + 3)
-      dégâts perforants.'
+      ***Morsure***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 5 (1d4 + 3) dégâts perforants.
     senses: Vision dans le noir 18 m, Perception passive 12
     languages:
     - aucune

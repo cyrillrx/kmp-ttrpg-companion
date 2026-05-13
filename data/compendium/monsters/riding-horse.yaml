@@ -76,22 +76,20 @@ translations:
   en:
     name: Riding Horse
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Hooves***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 7 (1d8 + 3) Bludgeoning
-      damage.'
+      ***Hooves***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 7 (1d8 + 3) Bludgeoning damage.
     senses: Passive Perception 10
     languages:
     - None
   fr:
     name: Cheval de selle
     subtype: null
-    description: '## Actions
+    description: |-
+      ## Actions
 
-
-      ***Sabots***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 7 (1d8 + 3) dégâts
-      contondants.'
+      ***Sabots***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 7 (1d8 + 3) dégâts contondants.
     senses: Perception passive 10
     languages:
     - aucune

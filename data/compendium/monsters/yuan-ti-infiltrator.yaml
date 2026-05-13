@@ -76,37 +76,24 @@ translations:
   en:
     name: Yuan-ti Infiltrator
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Magic Resistance***. The yuan-ti has Advantage on saving throws against spells
-      and other magical effects.
-
+      ***Magic Resistance***. The yuan-ti has Advantage on saving throws against spells and other magical effects.
 
       ## Actions
 
-
       ***Multiattack***. The yuan-ti makes two Scimitar attacks.
 
+      ***Scimitar***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 4 (1d6 + 1) Slashing damage.
 
-      ***Scimitar***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 4 (1d6 + 1) Slashing
-      damage.
+      ***Poison Ray***. *Ranged Attack Roll* : +4, range 120 ft. *Hit* : 9 (2d6 + 2) Poison damage.
 
+      ***Spellcasting***. The yuan-ti casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 12):
 
-      ***Poison Ray***. *Ranged Attack Roll* : +4, range 120 ft. *Hit* : 9 (2d6 +
-      2) Poison damage.
+      At will: *[Animal Friendship](https://www.aidedd.org/spell/animal-friendship)* (snakes only)
 
-
-      ***Spellcasting***. The yuan-ti casts one of the following spells, requiring
-      no Material components and using Wisdom as the spellcasting ability (spell save
-      DC 12):
-
-
-      At will: *[Animal Friendship](https://www.aidedd.org/spell/animal-friendship)*
-      (snakes only)
-
-
-      2/day: *[Suggestion](https://www.aidedd.org/spell/suggestion)*'
+      2/day: *[Suggestion](https://www.aidedd.org/spell/suggestion)*
     senses: Darkvision 60 ft., Passive Perception 14
     languages:
     - Abyssal
@@ -115,37 +102,24 @@ translations:
   fr:
     name: Yuan-ti, infiltrateur
     subtype: null
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Résistance à la magie***. Le yuan-ti a un Avantage aux jets de sauvegarde
-      contre les sorts et autres effets magiques.
-
+      ***Résistance à la magie***. Le yuan-ti a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
 
       ## Actions
 
-
       ***Attaques multiples***. Le yuan-ti effectue deux attaques de Cimeterre.
 
+      ***Cimeterre***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 4 (1d6 + 1) dégâts tranchants.
 
-      ***Cimeterre***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 4 (1d6 + 1)
-      dégâts tranchants.
+      ***Rayon toxique***. *À distance* : +4, portée 36 m. *Touché* : 9 (2d6 + 2) dégâts de poison.
 
+      ***Incantation***. Le yuan-ti lance l'un des sorts suivants sans composantes matérielles, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 12) :
 
-      ***Rayon toxique***. *À distance* : +4, portée 36 m. *Touché* : 9 (2d6 + 2)
-      dégâts de poison.
+      À volonté : *[amitié avec les animaux](https://www.aidedd.org/spell/fr/amitie-avec-les-animaux)* (serpents uniquement)
 
-
-      ***Incantation***. Le yuan-ti lance l''un des sorts suivants sans composantes
-      matérielles, la Sagesse étant sa caractéristique d''incantation (DD de sauvegarde
-      12) :
-
-
-      À volonté : *[amitié avec les animaux](https://www.aidedd.org/spell/fr/amitie-avec-les-animaux)*
-      (serpents uniquement)
-
-
-      2/jour : *[suggestion](https://www.aidedd.org/spell/fr/suggestion)*'
+      2/jour : *[suggestion](https://www.aidedd.org/spell/fr/suggestion)*
     senses: Vision dans le noir 18 m, Perception passive 14
     languages:
     - abyssal

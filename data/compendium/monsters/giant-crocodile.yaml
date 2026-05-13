@@ -76,54 +76,36 @@ translations:
   en:
     name: Giant Crocodile
     subtype: null
-    description: '## Traits
-
+    description: |-
+      ## Traits
 
       ***Hold Breath***. The crocodile can hold its breath for 1 hour.
 
-
       ## Actions
-
 
       ***Multiattack***. The crocodile makes one Bite attack and one Tail attack.
 
+      ***Bite***. *Melee Attack Roll* : +8, reach 5 ft. *Hit* : 21 (3d10 + 5) Piercing damage. If the target is a Large or smaller creature, it has the Grappled condition (escape DC 15). While Grappled, the target has the Restrained condition and can't be targeted by the crocodile's Tail.
 
-      ***Bite***. *Melee Attack Roll* : +8, reach 5 ft. *Hit* : 21 (3d10 + 5) Piercing
-      damage. If the target is a Large or smaller creature, it has the Grappled condition
-      (escape DC 15). While Grappled, the target has the Restrained condition and
-      can''t be targeted by the crocodile''s Tail.
-
-
-      ***Tail***. *Melee Attack Roll* : +8, reach 10 ft. *Hit* : 18 (3d8 + 5) Bludgeoning
-      damage. If the target is a Large or smaller creature, it has the Prone condition.'
+      ***Tail***. *Melee Attack Roll* : +8, reach 10 ft. *Hit* : 18 (3d8 + 5) Bludgeoning damage. If the target is a Large or smaller creature, it has the Prone condition.
     senses: Passive Perception 10
     languages:
     - None
   fr:
     name: Crocodile géant
     subtype: null
-    description: '## Traits
-
+    description: |-
+      ## Traits
 
       ***Apnée***. Le crocodile peut retenir son souffle pendant 1 heure.
 
-
       ## Actions
 
+      ***Attaques multiples***. Le crocodile effectue une attaque de Morsure et une de Queue.
 
-      ***Attaques multiples***. Le crocodile effectue une attaque de Morsure et une
-      de Queue.
+      ***Morsure***. *Corps à corps* : +8, allonge 1,50 m. *Touché* : 21 (3d10 + 5) dégâts perforants. Si la cible est une créature de taille G ou inférieure, elle subit l'état Agrippé (évasion DD 15). Ainsi Agrippée, la cible subit aussi l'état Entravé et ne peut pas être ciblée par la Queue du crocodile.
 
-
-      ***Morsure***. *Corps à corps* : +8, allonge 1,50 m. *Touché* : 21 (3d10 + 5)
-      dégâts perforants. Si la cible est une créature de taille G ou inférieure, elle
-      subit l''état Agrippé (évasion DD 15). Ainsi Agrippée, la cible subit aussi
-      l''état Entravé et ne peut pas être ciblée par la Queue du crocodile.
-
-
-      ***Queue***. *Corps à corps* : +8, allonge 3 m. *Touché* : 18 (3d8 + 5) dégâts
-      contondants. Si la cible est une créature de taille G ou inférieure, elle subit
-      l''état À terre.'
+      ***Queue***. *Corps à corps* : +8, allonge 3 m. *Touché* : 18 (3d8 + 5) dégâts contondants. Si la cible est une créature de taille G ou inférieure, elle subit l'état À terre.
     senses: Perception passive 10
     languages:
     - aucune

@@ -79,25 +79,18 @@ translations:
   en:
     name: Young Black Dragon
     subtype: Chromatic
-    description: '## Traits
-
+    description: |-
+      ## Traits
 
       ***Amphibious***. The dragon can breathe air and water.
 
-
       ## Actions
-
 
       ***Multiattack***. The dragon makes three Rend attacks.
 
+      ***Rend***. *Melee Attack Roll* : +7, reach 10 ft. *Hit* : 9 (2d4 + 4) Slashing damage plus 3 (1d6) Acid damage.
 
-      ***Rend***. *Melee Attack Roll* : +7, reach 10 ft. *Hit* : 9 (2d4 + 4) Slashing
-      damage plus 3 (1d6) Acid damage.
-
-
-      ***Acid Breath (Recharge 5–6)***. *Dexterity Saving Throw* : DC 14, each creature
-      in a 30-foot-long, 5-foot-wide Line. *Failure* : 49 (14d6) Acid damage. *Success*
-      : Half damage.'
+      ***Acid Breath (Recharge 5–6)***. *Dexterity Saving Throw* : DC 14, each creature in a 30-foot-long, 5-foot-wide Line. *Failure* : 49 (14d6) Acid damage. *Success* : Half damage.
     senses: Blindsight 30 ft., Darkvision 120 ft., Passive Perception 16
     languages:
     - Common
@@ -105,25 +98,18 @@ translations:
   fr:
     name: Dragon noir, jeune
     subtype: Chromatique
-    description: '## Traits
+    description: |-
+      ## Traits
 
-
-      ***Amphibie***. Le dragon peut respirer sous l''eau comme à l''air libre.
-
+      ***Amphibie***. Le dragon peut respirer sous l'eau comme à l'air libre.
 
       ## Actions
 
-
       ***Attaques multiples***. Le dragon effectue trois attaques de Saignée.
 
+      ***Saignée***. *Corps à corps* : +7, allonge 3 m. *Touché* : 9 (2d4 + 4) dégâts tranchants plus 3 (1d6) dégâts d'acide.
 
-      ***Saignée***. *Corps à corps* : +7, allonge 3 m. *Touché* : 9 (2d4 + 4) dégâts
-      tranchants plus 3 (1d6) dégâts d''acide.
-
-
-      ***Souffle d''acide (recharge 5–6)***. *JdS Dextérité* : DD 14, chaque créature
-      dans une Ligne de 9 m de long sur 1,50 m de large. *Échec* : 49 (14d6) dégâts
-      d''acide. *Réussite* : demi-dégâts.'
+      ***Souffle d'acide (recharge 5–6)***. *JdS Dextérité* : DD 14, chaque créature dans une Ligne de 9 m de long sur 1,50 m de large. *Échec* : 49 (14d6) dégâts d'acide. *Réussite* : demi-dégâts.
     senses: Vision aveugle 9 m, Vision dans le noir 36 m, Perception passive 16
     languages:
     - commun
