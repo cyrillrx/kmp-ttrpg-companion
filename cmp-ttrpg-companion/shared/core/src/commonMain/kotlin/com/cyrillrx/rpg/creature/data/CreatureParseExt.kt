@@ -1,14 +1,38 @@
 package com.cyrillrx.rpg.creature.data
 
+import com.cyrillrx.rpg.creature.data.api.ApiAbilities
 import com.cyrillrx.rpg.creature.data.api.ApiConditionImmunities
 import com.cyrillrx.rpg.creature.data.api.ApiDamageAffinities
+import com.cyrillrx.rpg.creature.data.api.ApiSavingThrows
 import com.cyrillrx.rpg.creature.data.api.ApiSkills
+import com.cyrillrx.rpg.creature.data.api.ApiSpeeds
+import com.cyrillrx.rpg.creature.domain.Abilities
+import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.creature.domain.ConditionImmunities
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.DamageAffinities
 import com.cyrillrx.rpg.creature.domain.DamageAffinity
 import com.cyrillrx.rpg.creature.domain.Proficiency
 import com.cyrillrx.rpg.creature.domain.Skills
+import com.cyrillrx.rpg.creature.domain.Speeds
+
+internal fun createAbilities(abilities: ApiAbilities?, savingThrows: ApiSavingThrows? = null): Abilities = Abilities(
+    str = Ability(abilities?.str ?: Ability.DEFAULT_VALUE, savingThrows?.str.toProficiency()),
+    dex = Ability(abilities?.dex ?: Ability.DEFAULT_VALUE, savingThrows?.dex.toProficiency()),
+    con = Ability(abilities?.con ?: Ability.DEFAULT_VALUE, savingThrows?.con.toProficiency()),
+    int = Ability(abilities?.int ?: Ability.DEFAULT_VALUE, savingThrows?.int.toProficiency()),
+    wis = Ability(abilities?.wis ?: Ability.DEFAULT_VALUE, savingThrows?.wis.toProficiency()),
+    cha = Ability(abilities?.cha ?: Ability.DEFAULT_VALUE, savingThrows?.cha.toProficiency()),
+)
+
+internal fun ApiSpeeds?.toSpeeds(): Speeds = Speeds(
+    walk = this?.walk,
+    fly = this?.fly,
+    swim = this?.swim,
+    climb = this?.climb,
+    burrow = this?.burrow,
+    hover = this?.hover ?: false,
+)
 
 internal fun String.toSize(): Creature.Size? =
     Creature.Size.entries.find { it.name.equals(this, ignoreCase = true) }

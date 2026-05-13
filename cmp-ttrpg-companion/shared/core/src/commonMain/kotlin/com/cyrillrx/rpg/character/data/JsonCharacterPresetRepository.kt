@@ -10,13 +10,12 @@ import com.cyrillrx.rpg.character.domain.CharacterFilter
 import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.domain.applyFilter
+import com.cyrillrx.rpg.creature.data.createAbilities
 import com.cyrillrx.rpg.creature.data.toAlignment
 import com.cyrillrx.rpg.creature.data.toSize
 import com.cyrillrx.rpg.creature.data.toSkills
-import com.cyrillrx.rpg.creature.domain.Abilities
-import com.cyrillrx.rpg.creature.domain.Ability
+import com.cyrillrx.rpg.creature.data.toSpeeds
 import com.cyrillrx.rpg.creature.domain.Language
-import com.cyrillrx.rpg.creature.domain.Speeds
 
 class JsonCharacterPresetRepository(
     private val fileReader: FileReader,
@@ -106,7 +105,7 @@ class JsonCharacterPresetRepository(
                     level = level,
                     size = size,
                     alignment = alignment,
-                    abilities = abilities.toAbilities(),
+                    abilities = createAbilities(abilities, savingThrows),
                     armorClass = armorClass,
                     maxHitPoints = maxHitPoints,
                     speeds = speeds.toSpeeds(),
@@ -153,23 +152,5 @@ class JsonCharacterPresetRepository(
             Language.entries.find { it.name.equals(this, ignoreCase = true) }
                 ?.let { Result.Success(it) }
                 ?: Result.Failure(CharacterImportError.UnknownLanguage(id, this))
-
-        private fun ApiCharacter.ApiAbilities?.toAbilities(): Abilities =
-            Abilities(
-                str = Ability(this?.str ?: Ability.DEFAULT_VALUE),
-                dex = Ability(this?.dex ?: Ability.DEFAULT_VALUE),
-                con = Ability(this?.con ?: Ability.DEFAULT_VALUE),
-                int = Ability(this?.int ?: Ability.DEFAULT_VALUE),
-                wis = Ability(this?.wis ?: Ability.DEFAULT_VALUE),
-                cha = Ability(this?.cha ?: Ability.DEFAULT_VALUE),
-            )
-
-        private fun ApiCharacter.ApiSpeeds?.toSpeeds(): Speeds =
-            Speeds(
-                walk = this?.walk,
-                fly = this?.fly,
-                swim = this?.swim,
-                climb = this?.climb,
-            )
     }
 }

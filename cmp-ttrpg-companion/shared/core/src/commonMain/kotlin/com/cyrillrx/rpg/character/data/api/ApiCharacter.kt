@@ -1,6 +1,9 @@
 package com.cyrillrx.rpg.character.data.api
 
+import com.cyrillrx.rpg.creature.data.api.ApiAbilities
+import com.cyrillrx.rpg.creature.data.api.ApiSavingThrows
 import com.cyrillrx.rpg.creature.data.api.ApiSkills
+import com.cyrillrx.rpg.creature.data.api.ApiSpeeds
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -14,6 +17,7 @@ internal class ApiCharacter(
     val size: String?,
     val alignment: String?,
     val abilities: ApiAbilities?,
+    val savingThrows: ApiSavingThrows?,
     val armorClass: Int?,
     val maxHitPoints: Int?,
     val speeds: ApiSpeeds?,
@@ -25,23 +29,5 @@ internal class ApiCharacter(
     class Translation(
         val shortDescription: String?,
         val description: String?,
-    )
-
-    @Serializable
-    class ApiAbilities(
-        val str: Int?,
-        val dex: Int?,
-        val con: Int?,
-        val int: Int?,
-        val wis: Int?,
-        val cha: Int?,
-    )
-
-    @Serializable
-    class ApiSpeeds(
-        val walk: Int?,
-        val fly: Int?,
-        val swim: Int?,
-        val climb: Int?,
     )
 }

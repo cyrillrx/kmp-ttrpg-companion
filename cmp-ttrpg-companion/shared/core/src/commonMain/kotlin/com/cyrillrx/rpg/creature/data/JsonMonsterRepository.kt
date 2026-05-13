@@ -5,12 +5,9 @@ import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.core.domain.Result
 import com.cyrillrx.core.domain.partitionBy
 import com.cyrillrx.rpg.creature.data.api.ApiMonster
-import com.cyrillrx.rpg.creature.domain.Abilities
-import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.creature.domain.MonsterFilter
 import com.cyrillrx.rpg.creature.domain.MonsterRepository
-import com.cyrillrx.rpg.creature.domain.Speeds
 import com.cyrillrx.rpg.creature.domain.applyFilter
 
 class JsonMonsterRepository(private val fileReader: FileReader) : MonsterRepository {
@@ -90,7 +87,7 @@ class JsonMonsterRepository(private val fileReader: FileReader) : MonsterReposit
                     alignment = alignment,
                     challengeRating = challengeRating,
                     hitDice = hitDice.orEmpty(),
-                    abilities = apiAbilities.toAbilities(),
+                    abilities = createAbilities(apiAbilities, savingThrows),
                     armorClass = armorClass,
                     maxHitPoints = maxHitPoints,
                     speeds = speeds.toSpeeds(),
@@ -109,15 +106,6 @@ class JsonMonsterRepository(private val fileReader: FileReader) : MonsterReposit
             translationErrors.forEach { println("WARNING: monster import error: $it") }
             return parsedTranslations.takeIf { it.isNotEmpty() }
         }
-
-        private fun ApiMonster.ApiSpeeds?.toSpeeds(): Speeds = Speeds(
-            walk = this?.walk,
-            fly = this?.fly,
-            swim = this?.swim,
-            climb = this?.climb,
-            burrow = this?.burrow,
-            hover = this?.hover ?: false,
-        )
 
         private fun ApiMonster.Translation.toTranslation(
             monsterId: String,
@@ -142,15 +130,6 @@ class JsonMonsterRepository(private val fileReader: FileReader) : MonsterReposit
                 ),
             )
         }
-
-        private fun ApiMonster.ApiAbilities.toAbilities(): Abilities = Abilities(
-            str = Ability(str?.value ?: Ability.DEFAULT_VALUE, str?.savingThrowProficiency.toProficiency()),
-            dex = Ability(dex?.value ?: Ability.DEFAULT_VALUE, dex?.savingThrowProficiency.toProficiency()),
-            con = Ability(con?.value ?: Ability.DEFAULT_VALUE, con?.savingThrowProficiency.toProficiency()),
-            int = Ability(int?.value ?: Ability.DEFAULT_VALUE, int?.savingThrowProficiency.toProficiency()),
-            wis = Ability(wis?.value ?: Ability.DEFAULT_VALUE, wis?.savingThrowProficiency.toProficiency()),
-            cha = Ability(cha?.value ?: Ability.DEFAULT_VALUE, cha?.savingThrowProficiency.toProficiency()),
-        )
 
         private fun String.toType(): Monster.Type? =
             Monster.Type.entries.find { it.name.equals(this, ignoreCase = true) }
