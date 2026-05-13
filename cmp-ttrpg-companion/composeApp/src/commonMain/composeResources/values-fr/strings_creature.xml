@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
-    <string name="creature_ac">Class d\'armure</string>
+    <!-- Creature stats -->
+    <string name="label_armor_class">CA %1$d</string>
+    <string name="label_hit_points">%1$d PV</string>
+
+    <string name="creature_ac">Classe d'armure</string>
     <string name="creature_hp">Point de vie</string>
     <string name="creature_speed">Vitesse</string>
 

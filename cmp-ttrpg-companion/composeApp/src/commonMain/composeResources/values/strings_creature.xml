@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
+    <!-- Creature stats -->
+    <string name="label_armor_class">AC %1$d</string>
+    <string name="label_hit_points">%1$d HP</string>
+
     <string name="creature_ac">Armor class</string>
-    <string name="creature_hp">Hit point</string>
+    <string name="creature_hp">Hit points</string>
     <string name="creature_speed">Speed</string>
 
     <!-- Speed types -->

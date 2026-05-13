@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
-    <!-- Character stats -->
-    <string name="label_armor_class">CA %d</string>
-    <string name="label_hit_points">%d PV</string>
-
     <!-- Character list -->
     <string name="title_character_list">Personnages</string>
     <string name="title_preset_gallery">Création rapide</string>
