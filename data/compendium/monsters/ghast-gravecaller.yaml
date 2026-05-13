@@ -8,24 +8,15 @@ armorClass: 16
 maxHitPoints: 97
 hitDice: 15d8+30
 abilities:
-  str:
-    value: 16
-    savingThrowProficiency: none
-  dex:
-    value: 17
-    savingThrowProficiency: none
-  con:
-    value: 14
-    savingThrowProficiency: proficient
-  int:
-    value: 18
-    savingThrowProficiency: none
-  wis:
-    value: 14
-    savingThrowProficiency: proficient
-  cha:
-    value: 8
-    savingThrowProficiency: none
+  str: 16
+  dex: 17
+  con: 14
+  int: 18
+  wis: 14
+  cha: 8
+savingThrows:
+  con: proficient
+  wis: proficient
 speeds:
   walk: 30
   fly: null
@@ -88,22 +79,37 @@ translations:
   en:
     name: Ghast Gravecaller
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Stench***. *Constitution Saving Throw* : DC 13, any creature that starts its turn in a 5-foot Emanation originating from the ghast. *Failure* : The target has the Poisoned condition until the start of its next turn. *Success* : The target is immune to this ghast's Stench for 24 hours.
+
+      ***Stench***. *Constitution Saving Throw* : DC 13, any creature that starts
+      its turn in a 5-foot Emanation originating from the ghast. *Failure* : The target
+      has the Poisoned condition until the start of its next turn. *Success* : The
+      target is immune to this ghast''s Stench for 24 hours.
+
 
       ## Actions
 
-      ***Multiattack***. The ghast makes two Horrific Necrosis attacks. It can replace one attack with a Claw attack.
 
-      ***Claw***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 13 (3d6 + 3) Slashing damage. If the target isn't an Undead, it has the Paralyzed condition until the end of its next turn.
+      ***Multiattack***. The ghast makes two Horrific Necrosis attacks. It can replace
+      one attack with a Claw attack.
 
-      ***Horrific Necrosis***. *Melee or Ranged Attack Roll* : +7, reach 5 ft. or range 120 ft. *Hit* : 15 (2d10 + 4) Necrotic damage, and the target has the Frightened condition until the end of its next turn.
 
-      ***Spellcasting***. The ghast casts one of the following spells, requiring no Material components and using Intelligence as the spellcasting ability:
+      ***Claw***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 13 (3d6 + 3) Slashing
+      damage. If the target isn''t an Undead, it has the Paralyzed condition until
+      the end of its next turn.
 
-      At will: *[Speak with Dead](https://www.aidedd.org/spell/speak-with-dead), [Thaumaturgy](https://www.aidedd.org/spell/thaumaturgy)*
+
+      ***Horrific Necrosis***. *Melee or Ranged Attack Roll* : +7, reach 5 ft. or
+      range 120 ft. *Hit* : 15 (2d10 + 4) Necrotic damage, and the target has the
+      Frightened condition until the end of its next turn.
+
+
+      ***Spellcasting***. The ghast casts one of the following spells, requiring no
+      Material components and using Intelligence as the spellcasting ability:
+
+
+      At will: *[Speak with Dead](https://www.aidedd.org/spell/speak-with-dead), [Thaumaturgy](https://www.aidedd.org/spell/thaumaturgy)*'
     senses: Darkvision 120 ft., Passive Perception 12
     languages:
     - Abyssal
@@ -111,20 +117,25 @@ translations:
   fr:
     name: Blême fossoyeuse
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
+
 
       Puanteur.
 
+
       ## Actions
 
+
       Attaques multiples.
-      
+
+
       Griffe.
-      
+
+
       Nécrose effroyable.
-      
-      Incantation.
+
+
+      Incantation.'
     senses: Vision dans le noir 36 m, Perception passive 12
     languages:
     - abyssal

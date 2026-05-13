@@ -8,24 +8,12 @@ armorClass: 13
 maxHitPoints: 22
 hitDice: 3d10+6
 abilities:
-  str:
-    value: 14
-    savingThrowProficiency: none
-  dex:
-    value: 11
-    savingThrowProficiency: none
-  con:
-    value: 14
-    savingThrowProficiency: none
-  int:
-    value: 6
-    savingThrowProficiency: none
-  wis:
-    value: 12
-    savingThrowProficiency: none
-  cha:
-    value: 2
-    savingThrowProficiency: none
+  str: 14
+  dex: 11
+  con: 14
+  int: 6
+  wis: 12
+  cha: 2
 speeds:
   walk: 30
   fly: null
@@ -88,28 +76,39 @@ translations:
   en:
     name: Swarm of Larvae
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Swarm***. The swarm can occupy another creature's space and vice versa, and the swarm can move through an opening large enough for a Medium creature. The swarm can't regain Hit Points or gain Temporary Hit Points.
+
+      ***Swarm***. The swarm can occupy another creature''s space and vice versa,
+      and the swarm can move through an opening large enough for a Medium creature.
+      The swarm can''t regain Hit Points or gain Temporary Hit Points.
+
 
       ## Actions
 
-      ***Bites***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 9 (2d6 + 2) Necrotic damage, or 7 (2d4 + 2) Necrotic damage if the swarm is Bloodied.
+
+      ***Bites***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 9 (2d6 + 2) Necrotic
+      damage, or 7 (2d4 + 2) Necrotic damage if the swarm is Bloodied.'
     senses: Darkvision 60 ft., Passive Perception 11
     languages:
     - Understands all but can't speak
   fr:
     name: Nuée de larves
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Nuée***. La nuée peut occuper l'espace d'une autre créature et réciproquement, et elle peut se déplacer par toute ouverture assez large pour une créature de taille M. La nuée ne peut ni récupérer de points de vie ni recevoir de points de vie temporaires.
+
+      ***Nuée***. La nuée peut occuper l''espace d''une autre créature et réciproquement,
+      et elle peut se déplacer par toute ouverture assez large pour une créature de
+      taille M. La nuée ne peut ni récupérer de points de vie ni recevoir de points
+      de vie temporaires.
+
 
       ## Actions
 
-      ***Morsures***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 9 (2d6 + 2) dégâts nécrotiques, ou 7 (2d4 + 2) dégâts nécrotiques si la nuée est En péril.
+
+      ***Morsures***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 9 (2d6 + 2)
+      dégâts nécrotiques, ou 7 (2d4 + 2) dégâts nécrotiques si la nuée est En péril.'
     senses: Vision dans le noir 18 m, Perception passive 11
     languages:
     - les comprend toutes mais ne parle pas

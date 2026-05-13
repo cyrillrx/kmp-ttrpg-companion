@@ -8,24 +8,12 @@ armorClass: 13
 maxHitPoints: 51
 hitDice: 6d10+18
 abilities:
-  str:
-    value: 14
-    savingThrowProficiency: none
-  dex:
-    value: 13
-    savingThrowProficiency: none
-  con:
-    value: 16
-    savingThrowProficiency: none
-  int:
-    value: 1
-    savingThrowProficiency: none
-  wis:
-    value: 12
-    savingThrowProficiency: none
-  cha:
-    value: 5
-    savingThrowProficiency: none
+  str: 14
+  dex: 13
+  con: 16
+  int: 1
+  wis: 12
+  cha: 5
 speeds:
   walk: 30
   fly: null
@@ -88,36 +76,60 @@ translations:
   en:
     name: Carrion Crawler
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Spider Climb***. The carrion crawler can climb difficult surfaces, including along ceilings, without needing to make an ability check.
+
+      ***Spider Climb***. The carrion crawler can climb difficult surfaces, including
+      along ceilings, without needing to make an ability check.
+
 
       ## Actions
 
-      ***Multiattack***. The carrion crawler uses Paralyzing Tentacles and makes one Bite attack.
 
-      ***Bite***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 7 (2d4 + 2) Piercing damage plus 3 (1d6) Poison damage.
+      ***Multiattack***. The carrion crawler uses Paralyzing Tentacles and makes one
+      Bite attack.
 
-      ***Paralyzing Tentacles***. *Constitution Saving Throw* : DC 12, one creature the carrion crawler can see within 10 feet. *Failure* : The target has the Poisoned condition and repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically. While Poisoned, the target has the Paralyzed condition.
+
+      ***Bite***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 7 (2d4 + 2) Piercing
+      damage plus 3 (1d6) Poison damage.
+
+
+      ***Paralyzing Tentacles***. *Constitution Saving Throw* : DC 12, one creature
+      the carrion crawler can see within 10 feet. *Failure* : The target has the Poisoned
+      condition and repeats the save at the end of each of its turns, ending the effect
+      on itself on a success. After 1 minute, it succeeds automatically. While Poisoned,
+      the target has the Paralyzed condition.'
     senses: Darkvision 60 ft., Passive Perception 15
     languages:
     - None
   fr:
     name: Charognard rampant
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Pattes d'araignée***. Le charognard rampant peut parcourir les parois les plus difficiles à escalader, y compris les plafonds, sans passer par un jet de caractéristique.
+
+      ***Pattes d''araignée***. Le charognard rampant peut parcourir les parois les
+      plus difficiles à escalader, y compris les plafonds, sans passer par un jet
+      de caractéristique.
+
 
       ## Actions
 
-      ***Attaques multiples***. Le charognard rampant recourt à Tentacules paralysants et effectue une attaque de Morsure.
 
-      ***Morsure***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 7 (2d4 + 2) dégâts perforants plus 3 (1d6) dégâts de poison.
+      ***Attaques multiples***. Le charognard rampant recourt à Tentacules paralysants
+      et effectue une attaque de Morsure.
 
-      ***Tentacules paralysants***. *JdS Constitution* : DD 12, une créature que le charognard rampant voit dans un rayon de 3 m. *Échec* : la cible subit l'état Empoisonné et réitère le JdS à la fin de chacun de ses tours ; elle met un terme à l'effet sur elle-même en cas de réussite. Au bout de 1 minute, elle réussit automatiquement ce JdS. Tant qu'elle est ainsi Empoisonnée, la cible subit l'état Paralysé.
+
+      ***Morsure***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 7 (2d4 + 2)
+      dégâts perforants plus 3 (1d6) dégâts de poison.
+
+
+      ***Tentacules paralysants***. *JdS Constitution* : DD 12, une créature que le
+      charognard rampant voit dans un rayon de 3 m. *Échec* : la cible subit l''état
+      Empoisonné et réitère le JdS à la fin de chacun de ses tours ; elle met un terme
+      à l''effet sur elle-même en cas de réussite. Au bout de 1 minute, elle réussit
+      automatiquement ce JdS. Tant qu''elle est ainsi Empoisonnée, la cible subit
+      l''état Paralysé.'
     senses: Vision dans le noir 18 m, Perception passive 15
     languages:
     - aucune

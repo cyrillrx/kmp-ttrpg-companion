@@ -8,24 +8,14 @@ armorClass: 10
 maxHitPoints: 11
 hitDice: 2d8+2
 abilities:
-  str:
-    value: 14
-    savingThrowProficiency: proficient
-  dex:
-    value: 10
-    savingThrowProficiency: none
-  con:
-    value: 13
-    savingThrowProficiency: none
-  int:
-    value: 2
-    savingThrowProficiency: none
-  wis:
-    value: 10
-    savingThrowProficiency: none
-  cha:
-    value: 5
-    savingThrowProficiency: none
+  str: 14
+  dex: 10
+  con: 13
+  int: 2
+  wis: 10
+  cha: 5
+savingThrows:
+  str: proficient
 speeds:
   walk: 40
   fly: null
@@ -88,28 +78,36 @@ translations:
   en:
     name: Mule
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Beast of Burden***. The mule counts as one size larger for the purpose of determining its carrying capacity.
+
+      ***Beast of Burden***. The mule counts as one size larger for the purpose of
+      determining its carrying capacity.
+
 
       ## Actions
 
-      ***Hooves***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 4 (1d4 + 2) Bludgeoning damage.
+
+      ***Hooves***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 4 (1d4 + 2) Bludgeoning
+      damage.'
     senses: Passive Perception 10
     languages:
     - None
   fr:
     name: Mule
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Bête de somme***. La mule est considérée comme faisant une taille de plus pour déterminer sa capacité de charge.
+
+      ***Bête de somme***. La mule est considérée comme faisant une taille de plus
+      pour déterminer sa capacité de charge.
+
 
       ## Actions
 
-      ***Sabots***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 4 (1d4 + 2) dégâts contondants.
+
+      ***Sabots***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 4 (1d4 + 2) dégâts
+      contondants.'
     senses: Perception passive 10
     languages:
     - aucune

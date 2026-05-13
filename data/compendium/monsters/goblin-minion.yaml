@@ -8,24 +8,12 @@ armorClass: 12
 maxHitPoints: 7
 hitDice: 2d6
 abilities:
-  str:
-    value: 8
-    savingThrowProficiency: none
-  dex:
-    value: 15
-    savingThrowProficiency: none
-  con:
-    value: 10
-    savingThrowProficiency: none
-  int:
-    value: 10
-    savingThrowProficiency: none
-  wis:
-    value: 8
-    savingThrowProficiency: none
-  cha:
-    value: 8
-    savingThrowProficiency: none
+  str: 8
+  dex: 15
+  con: 10
+  int: 10
+  wis: 8
+  cha: 8
 speeds:
   walk: 30
   fly: null
@@ -88,14 +76,17 @@ translations:
   en:
     name: Goblin Minion
     subtype: Goblinoid
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Dagger***. *Melee or Ranged Attack Roll* : +4, reach 5 ft. or range 20/60 ft. *Hit* : 4 (1d4 + 2) Piercing damage.
+
+      ***Dagger***. *Melee or Ranged Attack Roll* : +4, reach 5 ft. or range 20/60
+      ft. *Hit* : 4 (1d4 + 2) Piercing damage.
+
 
       ## Bonus actions
 
-      ***Nimble Escape***. The goblin takes the Disengage or Hide action.
+
+      ***Nimble Escape***. The goblin takes the Disengage or Hide action.'
     senses: Darkvision 60 ft., Passive Perception 9
     languages:
     - Common
@@ -103,14 +94,17 @@ translations:
   fr:
     name: Gobelin, sbire
     subtype: Gobelinoïde
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Dague***. *Corps à corps ou à distance* : +4, allonge 1,50 m ou portée 6/18 m. *Touché* : 4 (1d4 + 2) dégâts perforants.
+
+      ***Dague***. *Corps à corps ou à distance* : +4, allonge 1,50 m ou portée 6/18
+      m. *Touché* : 4 (1d4 + 2) dégâts perforants.
+
 
       ## Actions Bonus
 
-      ***Fuite agile***. Le gobelin entreprend l'action Désengagement ou Furtivité.
+
+      ***Fuite agile***. Le gobelin entreprend l''action Désengagement ou Furtivité.'
     senses: Vision dans le noir 18 m, Perception passive 9
     languages:
     - commun

@@ -8,24 +8,12 @@ armorClass: 10
 maxHitPoints: 5
 hitDice: ''
 abilities:
-  str:
-    value: 18
-    savingThrowProficiency: none
-  dex:
-    value: 12
-    savingThrowProficiency: none
-  con:
-    value: 14
-    savingThrowProficiency: none
-  int:
-    value: 6
-    savingThrowProficiency: none
-  wis:
-    value: 12
-    savingThrowProficiency: none
-  cha:
-    value: 8
-    savingThrowProficiency: none
+  str: 18
+  dex: 12
+  con: 14
+  int: 6
+  wis: 12
+  cha: 8
 speeds:
   walk: 60
   fly: 60
@@ -88,44 +76,77 @@ translations:
   en:
     name: Otherworldly Steed
     subtype: Your Choice
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Life Bond***. When you regain Hit Points from a level 1+ spell, the steed regains the same number of Hit Points if you're within 5 feet of it.
+
+      ***Life Bond***. When you regain Hit Points from a level 1+ spell, the steed
+      regains the same number of Hit Points if you''re within 5 feet of it.
+
 
       ## Actions
 
-      ***Otherworldly Slam***. *Melee Attack Roll* : Bonus equals your spell attack modifier, reach 5 ft. *Hit* : 1d8 + the spell's level of Radiant (Celestial), Psychic (Fey), or Necrotic (Fiend) damage.
+
+      ***Otherworldly Slam***. *Melee Attack Roll* : Bonus equals your spell attack
+      modifier, reach 5 ft. *Hit* : 1d8 + the spell''s level of Radiant (Celestial),
+      Psychic (Fey), or Necrotic (Fiend) damage.
+
 
       ## Bonus actions
 
-      ***Fell Glare (Fiend Only; Recharges after a Long Rest)***. *Wisdom Saving Throw* : DC equals your spell save DC, one creature within 60 feet the steed can see. *Failure* : The target has the Frightened condition until the end of your next turn.
 
-      ***Fey Step (Fey Only; Recharges after a Long Rest)***. The steed teleports, along with its rider, to an unoccupied space of your choice up to 60 feet away from itself.
+      ***Fell Glare (Fiend Only; Recharges after a Long Rest)***. *Wisdom Saving Throw*
+      : DC equals your spell save DC, one creature within 60 feet the steed can see.
+      *Failure* : The target has the Frightened condition until the end of your next
+      turn.
 
-      ***Healing Touch (Celestial Only; Recharges after a Long Rest)***. One creature within 5 feet of the steed regains a number of Hit Points equal to 2d8 plus the spell's level.
+
+      ***Fey Step (Fey Only; Recharges after a Long Rest)***. The steed teleports,
+      along with its rider, to an unoccupied space of your choice up to 60 feet away
+      from itself.
+
+
+      ***Healing Touch (Celestial Only; Recharges after a Long Rest)***. One creature
+      within 5 feet of the steed regains a number of Hit Points equal to 2d8 plus
+      the spell''s level.'
     senses: Passive Perception 11
     languages:
     - Telepathy 1 mile (works only with you)
   fr:
     name: Monture d'Outremonde
     subtype: votre choix
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Lien vital***. Lorsque vous récupérez des points de vie grâce à un sort de niveau 1 ou supérieur, la monture récupère le même nombre de points de vie si vous êtes dans un rayon de 1,50 m autour d'elle.
+
+      ***Lien vital***. Lorsque vous récupérez des points de vie grâce à un sort de
+      niveau 1 ou supérieur, la monture récupère le même nombre de points de vie si
+      vous êtes dans un rayon de 1,50 m autour d''elle.
+
 
       ## Actions
 
-      ***Coup d'Outremonde***. *Corps à corps* : bonus égal à votre modificateur d'attaque des sorts, allonge 1,50 m. *Touché* : 1d8 + le niveau du sort dégâts radiants (Céleste), psychiques (Fée) ou nécrotiques (Fiélon).
+
+      ***Coup d''Outremonde***. *Corps à corps* : bonus égal à votre modificateur
+      d''attaque des sorts, allonge 1,50 m. *Touché* : 1d8 + le niveau du sort dégâts
+      radiants (Céleste), psychiques (Fée) ou nécrotiques (Fiélon).
+
 
       ## Actions Bonus
 
-      ***Regard fiélon (Fiélon uniquement ; recharge après un Repos long)***. *JdS Sagesse* : DD égal au DD de sauvegarde de vos sorts, une créature dans un rayon de 18 m que la monture peut voir. *Échec* : la cible subit l'état Effrayé jusqu'à la fin de votre prochain tour.
 
-      ***Foulée féerique (Fée uniquement ; recharge après un Repos long)***. La monture se téléporte, avec son cavalier, vers un espace inoccupé de votre choix dans un rayon de 18 m.
+      ***Regard fiélon (Fiélon uniquement ; recharge après un Repos long)***. *JdS
+      Sagesse* : DD égal au DD de sauvegarde de vos sorts, une créature dans un rayon
+      de 18 m que la monture peut voir. *Échec* : la cible subit l''état Effrayé jusqu''à
+      la fin de votre prochain tour.
 
-      ***Contact guérisseur (Céleste uniquement ; recharge après un Repos long)***. Une créature dans un rayon de 1,50 m autour de la monture récupère un nombre de points de vie égal à 2d8 plus le niveau du sort.
+
+      ***Foulée féerique (Fée uniquement ; recharge après un Repos long)***. La monture
+      se téléporte, avec son cavalier, vers un espace inoccupé de votre choix dans
+      un rayon de 18 m.
+
+
+      ***Contact guérisseur (Céleste uniquement ; recharge après un Repos long)***.
+      Une créature dans un rayon de 1,50 m autour de la monture récupère un nombre
+      de points de vie égal à 2d8 plus le niveau du sort.'
     senses: Perception passive 11
     languages:
     - télépathie 1

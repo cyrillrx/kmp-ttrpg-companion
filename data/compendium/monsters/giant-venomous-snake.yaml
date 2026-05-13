@@ -8,24 +8,12 @@ armorClass: 14
 maxHitPoints: 11
 hitDice: 2d8+2
 abilities:
-  str:
-    value: 10
-    savingThrowProficiency: none
-  dex:
-    value: 18
-    savingThrowProficiency: none
-  con:
-    value: 13
-    savingThrowProficiency: none
-  int:
-    value: 2
-    savingThrowProficiency: none
-  wis:
-    value: 10
-    savingThrowProficiency: none
-  cha:
-    value: 3
-    savingThrowProficiency: none
+  str: 10
+  dex: 18
+  con: 13
+  int: 2
+  wis: 10
+  cha: 3
 speeds:
   walk: 40
   fly: null
@@ -88,20 +76,22 @@ translations:
   en:
     name: Giant Venomous Snake
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Bite***. *Melee Attack Roll* : +6, reach 10 ft. *Hit* : 6 (1d4 + 4) Piercing damage plus 4 (1d8) Poison damage.
+
+      ***Bite***. *Melee Attack Roll* : +6, reach 10 ft. *Hit* : 6 (1d4 + 4) Piercing
+      damage plus 4 (1d8) Poison damage.'
     senses: Blindsight 10 ft., Passive Perception 12
     languages:
     - None
   fr:
     name: Serpent venimeux géant
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Morsure***. *Corps à corps* : +6, allonge 3 m. *Touché* : 6 (1d4 + 4) dégâts perforants plus 4 (1d8) dégâts de poison.
+
+      ***Morsure***. *Corps à corps* : +6, allonge 3 m. *Touché* : 6 (1d4 + 4) dégâts
+      perforants plus 4 (1d8) dégâts de poison.'
     senses: Vision aveugle 3 m, Perception passive 12
     languages:
     - aucune

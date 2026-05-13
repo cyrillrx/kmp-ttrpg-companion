@@ -8,24 +8,12 @@ armorClass: 14
 maxHitPoints: 114
 hitDice: 12d10+48
 abilities:
-  str:
-    value: 18
-    savingThrowProficiency: none
-  dex:
-    value: 14
-    savingThrowProficiency: none
-  con:
-    value: 18
-    savingThrowProficiency: none
-  int:
-    value: 5
-    savingThrowProficiency: none
-  wis:
-    value: 10
-    savingThrowProficiency: none
-  cha:
-    value: 8
-    savingThrowProficiency: none
+  str: 18
+  dex: 14
+  con: 18
+  int: 5
+  wis: 10
+  cha: 8
 speeds:
   walk: 30
   fly: null
@@ -88,40 +76,77 @@ translations:
   en:
     name: Water Elemental
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Freeze***. If the elemental takes Cold damage, its Speed decreases by 20 feet until the end of its next turn.
 
-      ***Water Form***. The elemental can enter an enemy's space and stop there. It can move through a space as narrow as 1 inch without expending extra movement to do so.
+      ***Freeze***. If the elemental takes Cold damage, its Speed decreases by 20
+      feet until the end of its next turn.
+
+
+      ***Water Form***. The elemental can enter an enemy''s space and stop there.
+      It can move through a space as narrow as 1 inch without expending extra movement
+      to do so.
+
 
       ## Actions
 
+
       ***Multiattack***. The elemental makes two Slam attacks.
 
-      ***Slam***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 13 (2d8 + 4) Bludgeoning damage. If the target is a Medium or smaller creature, it has the Prone condition.
 
-      ***Whelm (Recharge 4–6)***. *Strength Saving Throw* : DC 15, each creature in the elemental's space. *Failure* : 22 (4d8 + 4) Bludgeoning damage. If the target is a Large or smaller creature, it has the Grappled condition (escape DC 14). Until the grapple ends, the target has the Restrained condition, is suffocating unless it can breathe water, and takes 9 (2d8) Bludgeoning damage at the start of each of the elemental's turns. The elemental can grapple one Large creature or up to two Medium or smaller creatures at a time with Whelm. As an action, a creature within 5 feet of the elemental can pull a creature out of it by succeeding on a DC 14 Strength (Athletics) check. *Success* : Half damage only.
+      ***Slam***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 13 (2d8 + 4) Bludgeoning
+      damage. If the target is a Medium or smaller creature, it has the Prone condition.
+
+
+      ***Whelm (Recharge 4–6)***. *Strength Saving Throw* : DC 15, each creature in
+      the elemental''s space. *Failure* : 22 (4d8 + 4) Bludgeoning damage. If the
+      target is a Large or smaller creature, it has the Grappled condition (escape
+      DC 14). Until the grapple ends, the target has the Restrained condition, is
+      suffocating unless it can breathe water, and takes 9 (2d8) Bludgeoning damage
+      at the start of each of the elemental''s turns. The elemental can grapple one
+      Large creature or up to two Medium or smaller creatures at a time with Whelm.
+      As an action, a creature within 5 feet of the elemental can pull a creature
+      out of it by succeeding on a DC 14 Strength (Athletics) check. *Success* : Half
+      damage only.'
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - Primordial (Aquan)
   fr:
     name: Élémentaire de l'eau
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Corps d'eau***. L'élémentaire peut pénétrer dans un espace occupé par un ennemi et s'y arrêter. Il peut se déplacer dans un espace étroit d'une largeur minimale de 2,50 cm sans dépense supplémentaire en déplacement.
 
-      ***Gel***. Si l'élémentaire subit des dégâts de froid, sa Vitesse est réduite de 6 m jusqu'à la fin de son tour suivant.
+      ***Corps d''eau***. L''élémentaire peut pénétrer dans un espace occupé par un
+      ennemi et s''y arrêter. Il peut se déplacer dans un espace étroit d''une largeur
+      minimale de 2,50 cm sans dépense supplémentaire en déplacement.
+
+
+      ***Gel***. Si l''élémentaire subit des dégâts de froid, sa Vitesse est réduite
+      de 6 m jusqu''à la fin de son tour suivant.
+
 
       ## Actions
 
-      ***Attaques multiples***. L'élémentaire effectue deux attaques de Coup.
 
-      ***Coup***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 13 (2d8 + 4) dégâts contondants. Si la cible est une créature de taille M ou inférieure, elle subit l'état À terre.
+      ***Attaques multiples***. L''élémentaire effectue deux attaques de Coup.
 
-      ***Déluge (recharge 4–6)***. *JdS Force* : DD 15, chaque créature dans l'espace de l'élémentaire. *Échec* : 22 (4d8 + 4) dégâts contondants. Si la cible est une créature de taille G ou inférieure, elle subit l'état Agrippé (évasion DD 14). Tant qu'elle est agrippée, la cible subit l'état Entravé, s'asphyxie à moins de pouvoir respirer dans l'eau, et subit 9 (2d8) dégâts contondants au début de chacun des tours de l'élémentaire. L'élémentaire peut ainsi maintenir une créature de taille G ou un maximum de deux créatures de taille M ou inférieure. Au prix d'une action, une créature dans un rayon de 1,50 m de l'élémentaire peut en extirper une créature en réussissant un jet de Force (Athlétisme) DD 14. *Réussite* : demi-dégâts uniquement.
+
+      ***Coup***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 13 (2d8 + 4) dégâts
+      contondants. Si la cible est une créature de taille M ou inférieure, elle subit
+      l''état À terre.
+
+
+      ***Déluge (recharge 4–6)***. *JdS Force* : DD 15, chaque créature dans l''espace
+      de l''élémentaire. *Échec* : 22 (4d8 + 4) dégâts contondants. Si la cible est
+      une créature de taille G ou inférieure, elle subit l''état Agrippé (évasion
+      DD 14). Tant qu''elle est agrippée, la cible subit l''état Entravé, s''asphyxie
+      à moins de pouvoir respirer dans l''eau, et subit 9 (2d8) dégâts contondants
+      au début de chacun des tours de l''élémentaire. L''élémentaire peut ainsi maintenir
+      une créature de taille G ou un maximum de deux créatures de taille M ou inférieure.
+      Au prix d''une action, une créature dans un rayon de 1,50 m de l''élémentaire
+      peut en extirper une créature en réussissant un jet de Force (Athlétisme) DD
+      14. *Réussite* : demi-dégâts uniquement.'
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - primordial (aquatique)

@@ -8,24 +8,12 @@ armorClass: 11
 maxHitPoints: 1
 hitDice: 1d4-1
 abilities:
-  str:
-    value: 2
-    savingThrowProficiency: none
-  dex:
-    value: 11
-    savingThrowProficiency: none
-  con:
-    value: 8
-    savingThrowProficiency: none
-  int:
-    value: 1
-    savingThrowProficiency: none
-  wis:
-    value: 8
-    savingThrowProficiency: none
-  cha:
-    value: 2
-    savingThrowProficiency: none
+  str: 2
+  dex: 11
+  con: 8
+  int: 1
+  wis: 8
+  cha: 2
 speeds:
   walk: 10
   fly: null
@@ -88,20 +76,22 @@ translations:
   en:
     name: Scorpion
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Sting***. *Melee Attack Roll* : +2, reach 5 ft. *Hit* : 1 Piercing damage plus 3 (1d6) Poison damage.
+
+      ***Sting***. *Melee Attack Roll* : +2, reach 5 ft. *Hit* : 1 Piercing damage
+      plus 3 (1d6) Poison damage.'
     senses: Blindsight 10 ft., Passive Perception 9
     languages:
     - None
   fr:
     name: Scorpion
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Dard***. *Corps à corps* : +2, allonge 1,50 m. *Touché* : 1 dégât perforant plus 3 (1d6) dégâts de poison.
+
+      ***Dard***. *Corps à corps* : +2, allonge 1,50 m. *Touché* : 1 dégât perforant
+      plus 3 (1d6) dégâts de poison.'
     senses: Vision aveugle 3 m, Perception passive 9
     languages:
     - aucune

@@ -8,24 +8,16 @@ armorClass: 15
 maxHitPoints: 52
 hitDice: 8d8+16
 abilities:
-  str:
-    value: 15
-    savingThrowProficiency: proficient
-  dex:
-    value: 16
-    savingThrowProficiency: proficient
-  con:
-    value: 14
-    savingThrowProficiency: none
-  int:
-    value: 14
-    savingThrowProficiency: none
-  wis:
-    value: 11
-    savingThrowProficiency: proficient
-  cha:
-    value: 14
-    savingThrowProficiency: none
+  str: 15
+  dex: 16
+  con: 14
+  int: 14
+  wis: 11
+  cha: 14
+savingThrows:
+  str: proficient
+  dex: proficient
+  wis: proficient
 speeds:
   walk: 30
   fly: null
@@ -88,18 +80,27 @@ translations:
   en:
     name: Bandit Captain
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Multiattack***. The bandit makes two attacks, using Scimitar and Pistol in any combination.
 
-      ***Scimitar***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 6 (1d6 + 3) Slashing damage.
+      ***Multiattack***. The bandit makes two attacks, using Scimitar and Pistol in
+      any combination.
 
-      ***Pistol***. *Ranged Attack Roll* : +5, range 30/90 ft. *Hit* : 8 (1d10 + 3) Piercing damage.
+
+      ***Scimitar***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 6 (1d6 + 3) Slashing
+      damage.
+
+
+      ***Pistol***. *Ranged Attack Roll* : +5, range 30/90 ft. *Hit* : 8 (1d10 + 3)
+      Piercing damage.
+
 
       ## Reactions
 
-      ***Parry***. *Trigger* : The bandit is hit by a melee attack roll while holding a weapon. *Response* : The bandit adds 2 to its AC against that attack, possibly causing it to miss.
+
+      ***Parry***. *Trigger* : The bandit is hit by a melee attack roll while holding
+      a weapon. *Response* : The bandit adds 2 to its AC against that attack, possibly
+      causing it to miss.'
     senses: Passive Perception 10
     languages:
     - Common
@@ -107,18 +108,27 @@ translations:
   fr:
     name: Bandit, capitaine
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Attaques multiples***. Le bandit effectue deux attaques, réparties à sa guise entre Cimeterre et Pistolet.
 
-      ***Cimeterre***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 6 (1d6 + 3) dégâts tranchants.
+      ***Attaques multiples***. Le bandit effectue deux attaques, réparties à sa guise
+      entre Cimeterre et Pistolet.
 
-      ***Pistolet***. *À distance* : +5, portée 9/27 m. *Touché* : 8 (1d10 + 3) dégâts perforants.
+
+      ***Cimeterre***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 6 (1d6 + 3)
+      dégâts tranchants.
+
+
+      ***Pistolet***. *À distance* : +5, portée 9/27 m. *Touché* : 8 (1d10 + 3) dégâts
+      perforants.
+
 
       ## Réactions
 
-      ***Parade***. *Déclencheur* : le bandit est touché par un jet d'attaque de corps à corps alors qu'il tient une arme. *Conséquences* : le bandit ajoute 2 à sa CA contre cette attaque, ce qui peut la faire rater.
+
+      ***Parade***. *Déclencheur* : le bandit est touché par un jet d''attaque de
+      corps à corps alors qu''il tient une arme. *Conséquences* : le bandit ajoute
+      2 à sa CA contre cette attaque, ce qui peut la faire rater.'
     senses: Perception passive 10
     languages:
     - commun

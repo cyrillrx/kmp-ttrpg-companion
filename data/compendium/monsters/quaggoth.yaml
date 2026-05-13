@@ -8,24 +8,12 @@ armorClass: 13
 maxHitPoints: 45
 hitDice: 6d8+18
 abilities:
-  str:
-    value: 17
-    savingThrowProficiency: none
-  dex:
-    value: 12
-    savingThrowProficiency: none
-  con:
-    value: 16
-    savingThrowProficiency: none
-  int:
-    value: 6
-    savingThrowProficiency: none
-  wis:
-    value: 12
-    savingThrowProficiency: none
-  cha:
-    value: 7
-    savingThrowProficiency: none
+  str: 17
+  dex: 12
+  con: 16
+  int: 6
+  wis: 12
+  cha: 7
 speeds:
   walk: 30
   fly: null
@@ -88,32 +76,41 @@ translations:
   en:
     name: Quaggoth
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
+
 
       ***Bloodied Fury***. While Bloodied, the quaggoth has Advantage on attack rolls.
 
+
       ## Actions
+
 
       ***Multiattack***. The quaggoth makes two Claw attacks.
 
-      ***Claw***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 6 (1d6 + 3) Slashing damage, or 13 (3d6 + 3) Slashing damage if the quaggoth is Bloodied.
+
+      ***Claw***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 6 (1d6 + 3) Slashing
+      damage, or 13 (3d6 + 3) Slashing damage if the quaggoth is Bloodied.'
     senses: Darkvision 120 ft., Passive Perception 11
     languages:
     - Undercommon
   fr:
     name: Quaggoth
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Fureur du péril***. Lorsqu'il est En péril, le quaggoth a un Avantage aux jets d'attaque.
+
+      ***Fureur du péril***. Lorsqu''il est En péril, le quaggoth a un Avantage aux
+      jets d''attaque.
+
 
       ## Actions
 
+
       ***Attaques multiples***. Le quaggoth effectue deux attaques de Griffe.
 
-      ***Griffe***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 6 (1d6 + 3) dégâts tranchants, ou 13 (3d6 + 3) dégâts tranchants si le quaggoth es En péril.
+
+      ***Griffe***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 6 (1d6 + 3) dégâts
+      tranchants, ou 13 (3d6 + 3) dégâts tranchants si le quaggoth es En péril.'
     senses: Vision dans le noir 36 m, Perception passive 11
     languages:
     - commun des profondeurs

@@ -8,24 +8,12 @@ armorClass: 14
 maxHitPoints: 36
 hitDice: 8d8
 abilities:
-  str:
-    value: 4
-    savingThrowProficiency: none
-  dex:
-    value: 16
-    savingThrowProficiency: none
-  con:
-    value: 11
-    savingThrowProficiency: none
-  int:
-    value: 2
-    savingThrowProficiency: none
-  wis:
-    value: 8
-    savingThrowProficiency: none
-  cha:
-    value: 6
-    savingThrowProficiency: none
+  str: 4
+  dex: 16
+  con: 11
+  int: 2
+  wis: 8
+  cha: 6
 speeds:
   walk: 10
   fly: 40
@@ -88,26 +76,44 @@ translations:
   en:
     name: Swarm of Stirges
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Swarm***. The swarm can occupy another creature's space and vice versa, and the swarm can move through any opening large enough for a Tiny creature. The swarm can't regain Hit Points or gain Temporary Hit Points.
+
+      ***Swarm***. The swarm can occupy another creature''s space and vice versa,
+      and the swarm can move through any opening large enough for a Tiny creature.
+      The swarm can''t regain Hit Points or gain Temporary Hit Points.
+
 
       ## Actions
 
-      ***Swarm of Proboscises***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 14 (2d10 + 3) Piercing damage, or 8 (1d10 + 3) Piercing damage if the swarm is Bloodied. If the target is a Medium or smaller creature in the swarm's space, the target has the Grappled condition (escape DC 13). Until the grapple ends, the target takes 7 (2d6) Necrotic damage at the end of each of its turns.
+
+      ***Swarm of Proboscises***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 14
+      (2d10 + 3) Piercing damage, or 8 (1d10 + 3) Piercing damage if the swarm is
+      Bloodied. If the target is a Medium or smaller creature in the swarm''s space,
+      the target has the Grappled condition (escape DC 13). Until the grapple ends,
+      the target takes 7 (2d6) Necrotic damage at the end of each of its turns.'
     senses: Darkvision 60 ft., Passive Perception 9
     languages: []
   fr:
     name: Nuée de striges
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Nuée***. La nuée peut occuper l'espace d'une autre créature et réciproquement, et elle peut se déplacer par toute ouverture assez large pour une créature de taille TP. La nuée ne peut ni récupérer de points de vie ni recevoir de points de vie temporaires.
+
+      ***Nuée***. La nuée peut occuper l''espace d''une autre créature et réciproquement,
+      et elle peut se déplacer par toute ouverture assez large pour une créature de
+      taille TP. La nuée ne peut ni récupérer de points de vie ni recevoir de points
+      de vie temporaires.
+
 
       ## Actions
 
-      ***Nuée of trompes***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 14 (2d10 + 3) dégâts perforants, ou 8 (1d10 + 3) dégâts perforants si la nuée est En péril. Si la cible est une créature de taille M ou inférieure dans l'espace occupé par la nuée, elle subit l'état Agrippé (évasion DD 13). Tant qu'elle est agrippée, la cible subit 7 (2d6) dégâts nécrotiques à la fin de chacun de ses tours.
+
+      ***Nuée of trompes***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 14 (2d10
+      + 3) dégâts perforants, ou 8 (1d10 + 3) dégâts perforants si la nuée est En
+      péril. Si la cible est une créature de taille M ou inférieure dans l''espace
+      occupé par la nuée, elle subit l''état Agrippé (évasion DD 13). Tant qu''elle
+      est agrippée, la cible subit 7 (2d6) dégâts nécrotiques à la fin de chacun de
+      ses tours.'
     senses: Vision dans le noir 18 m, Perception passive 9
     languages: []

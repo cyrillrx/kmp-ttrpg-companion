@@ -8,24 +8,15 @@ armorClass: 17
 maxHitPoints: 82
 hitDice: 15d8+15
 abilities:
-  str:
-    value: 12
-    savingThrowProficiency: none
-  dex:
-    value: 18
-    savingThrowProficiency: proficient
-  con:
-    value: 12
-    savingThrowProficiency: none
-  int:
-    value: 12
-    savingThrowProficiency: none
-  wis:
-    value: 14
-    savingThrowProficiency: proficient
-  cha:
-    value: 17
-    savingThrowProficiency: none
+  str: 12
+  dex: 18
+  con: 12
+  int: 12
+  wis: 14
+  cha: 17
+savingThrows:
+  dex: proficient
+  wis: proficient
 speeds:
   walk: 40
   fly: null
@@ -88,22 +79,37 @@ translations:
   en:
     name: Satyr Revelmaster
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Magic Resistance***. The satyr has Advantage on saving throws against spells and other magical effects.
+
+      ***Magic Resistance***. The satyr has Advantage on saving throws against spells
+      and other magical effects.
+
 
       ## Actions
 
+
       ***Multiattack***. The satyr makes three Prance attacks.
 
-      ***Prance***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 13 (2d8 + 4) Bludgeoning damage, and the target has the Charmed condition until the start of the satyr's next turn.
 
-      ***Fey Melody (Recharge 4–6)***. The satyr conjures a charming or frightening song. *Wisdom Saving Throw* : DC 14, each enemy in a 60-foot Emanation originating from the satyr. *Failure* : The target is subjected to the song's effect:
+      ***Prance***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 13 (2d8 + 4) Bludgeoning
+      damage, and the target has the Charmed condition until the start of the satyr''s
+      next turn.
 
-      ***Charming***. The target has the Charmed condition for 1 minute. While Charmed, the target has the Incapacitated condition and uses all its movement to dance in place. The effect ends on the target if it takes any damage.
 
-      ***Frightening***. 10 (2d6 + 3) Psychic damage, and the target has the Frightened condition for 1 minute. If the target ends its turn out of line of sight from the satyr, the condition ends on it.
+      ***Fey Melody (Recharge 4–6)***. The satyr conjures a charming or frightening
+      song. *Wisdom Saving Throw* : DC 14, each enemy in a 60-foot Emanation originating
+      from the satyr. *Failure* : The target is subjected to the song''s effect:
+
+
+      ***Charming***. The target has the Charmed condition for 1 minute. While Charmed,
+      the target has the Incapacitated condition and uses all its movement to dance
+      in place. The effect ends on the target if it takes any damage.
+
+
+      ***Frightening***. 10 (2d6 + 3) Psychic damage, and the target has the Frightened
+      condition for 1 minute. If the target ends its turn out of line of sight from
+      the satyr, the condition ends on it.'
     senses: Passive Perception 15
     languages:
     - Common
@@ -112,22 +118,38 @@ translations:
   fr:
     name: Satyre, maître des réjouissances
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Résistance à la magie***. Le satyre a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
+
+      ***Résistance à la magie***. Le satyre a un Avantage aux jets de sauvegarde
+      contre les sorts et autres effets magiques.
+
 
       ## Actions
 
+
       ***Attaques multiples***. Le satyre effectue trois attaques de Galipette.
 
-      ***Galipette***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 13 (2d8 + 4) dégâts contondants, et la cible subit l'effet Charmé jusqu'au début du prochain tour du satyre.
 
-      ***Mélodie féerique (recharge 4–6)***. Le satyre entonne un chant enchanteur ou effrayant. JdS de Sagesse : DD 14, chaque ennemi dans une Émanation de 18 m de rayon centrée sur le satyre. Échec : la cible est sujette à l'effet du chant.
+      ***Galipette***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 13 (2d8 +
+      4) dégâts contondants, et la cible subit l''effet Charmé jusqu''au début du
+      prochain tour du satyre.
 
-      ***Charmant***. La cible subit l'état Charmé pendant 1 minute. Tant qu'elle est charmée, elle subit l'état Incapable d'agir et utilise tout son déplacement pour danser sur place. L'effet prend fin si la cible subit des dégâts.
 
-      ***Effrayant***. 10 (2d6 + 3) dégâts psychiques, et la cible subit l'effet Effrayé pendant 1 minute. Si la cible termine son tour hors de la vue du satyre, l'état prend fin.
+      ***Mélodie féerique (recharge 4–6)***. Le satyre entonne un chant enchanteur
+      ou effrayant. JdS de Sagesse : DD 14, chaque ennemi dans une Émanation de 18
+      m de rayon centrée sur le satyre. Échec : la cible est sujette à l''effet du
+      chant.
+
+
+      ***Charmant***. La cible subit l''état Charmé pendant 1 minute. Tant qu''elle
+      est charmée, elle subit l''état Incapable d''agir et utilise tout son déplacement
+      pour danser sur place. L''effet prend fin si la cible subit des dégâts.
+
+
+      ***Effrayant***. 10 (2d6 + 3) dégâts psychiques, et la cible subit l''effet
+      Effrayé pendant 1 minute. Si la cible termine son tour hors de la vue du satyre,
+      l''état prend fin.'
     senses: Perception passive 15
     languages:
     - commun

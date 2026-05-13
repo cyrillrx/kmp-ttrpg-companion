@@ -8,24 +8,12 @@ armorClass: 12
 maxHitPoints: 59
 hitDice: 7d10+21
 abilities:
-  str:
-    value: 18
-    savingThrowProficiency: none
-  dex:
-    value: 15
-    savingThrowProficiency: none
-  con:
-    value: 16
-    savingThrowProficiency: none
-  int:
-    value: 2
-    savingThrowProficiency: none
-  wis:
-    value: 13
-    savingThrowProficiency: none
-  cha:
-    value: 8
-    savingThrowProficiency: none
+  str: 18
+  dex: 15
+  con: 16
+  int: 2
+  wis: 13
+  cha: 8
 speeds:
   walk: 30
   fly: 80
@@ -88,22 +76,28 @@ translations:
   en:
     name: Griffon
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
+
 
       ***Multiattack***. The griffon makes two Rend attacks.
 
-      ***Rend***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 8 (1d8 + 4) Piercing damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 14) from both of the griffon's front claws.
+
+      ***Rend***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 8 (1d8 + 4) Piercing
+      damage. If the target is a Medium or smaller creature, it has the Grappled condition
+      (escape DC 14) from both of the griffon''s front claws.'
     senses: Darkvision 60 ft., Passive Perception 15
     languages: []
   fr:
     name: Griffon
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
+
 
       ***Attaques multiples***. Le griffon effectue deux attaques de Saignée.
 
-      ***Saignée***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 8 (1d8 + 4) dégâts perforants. Si la cible est une créature de taille M ou inférieure, elle subit l'état Agrippé (évasion DD 14) par les deux griffes antérieures du griffon.
+
+      ***Saignée***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 8 (1d8 + 4)
+      dégâts perforants. Si la cible est une créature de taille M ou inférieure, elle
+      subit l''état Agrippé (évasion DD 14) par les deux griffes antérieures du griffon.'
     senses: Vision dans le noir 18 m, Perception passive 15
     languages: []

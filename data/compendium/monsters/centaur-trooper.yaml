@@ -8,24 +8,12 @@ armorClass: 16
 maxHitPoints: 45
 hitDice: 6d10+12
 abilities:
-  str:
-    value: 18
-    savingThrowProficiency: none
-  dex:
-    value: 14
-    savingThrowProficiency: none
-  con:
-    value: 14
-    savingThrowProficiency: none
-  int:
-    value: 9
-    savingThrowProficiency: none
-  wis:
-    value: 13
-    savingThrowProficiency: none
-  cha:
-    value: 11
-    savingThrowProficiency: none
+  str: 18
+  dex: 14
+  con: 14
+  int: 9
+  wis: 13
+  cha: 11
 speeds:
   walk: 50
   fly: null
@@ -88,18 +76,29 @@ translations:
   en:
     name: Centaur Trooper
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Multiattack***. The centaur makes two attacks, using Pike or Longbow in any combination.
 
-      ***Pike***. *Melee Attack Roll* : +6, reach 10 ft. *Hit* : 9 (1d10 + 4) Piercing damage.
+      ***Multiattack***. The centaur makes two attacks, using Pike or Longbow in any
+      combination.
 
-      ***Longbow***. *Ranged Attack Roll* : +4, range 150/600 ft. *Hit* : 6 (1d8 + 2) Piercing damage.
+
+      ***Pike***. *Melee Attack Roll* : +6, reach 10 ft. *Hit* : 9 (1d10 + 4) Piercing
+      damage.
+
+
+      ***Longbow***. *Ranged Attack Roll* : +4, range 150/600 ft. *Hit* : 6 (1d8 +
+      2) Piercing damage.
+
 
       ## Bonus actions
 
-      ***Trampling Charge (Recharge 5–6)***. The centaur moves up to its Speed without provoking Opportunity Attacks and can move through the spaces of Medium or smaller creatures. Each creature whose space the centaur enters is targeted once by the following effect. *Strength Saving Throw* : DC 14. *Failure* : 7 (1d6 + 4) Bludgeoning damage, and the target has the Prone condition.
+
+      ***Trampling Charge (Recharge 5–6)***. The centaur moves up to its Speed without
+      provoking Opportunity Attacks and can move through the spaces of Medium or smaller
+      creatures. Each creature whose space the centaur enters is targeted once by
+      the following effect. *Strength Saving Throw* : DC 14. *Failure* : 7 (1d6 +
+      4) Bludgeoning damage, and the target has the Prone condition.'
     senses: Passive Perception 13
     languages:
     - Elvish
@@ -107,18 +106,30 @@ translations:
   fr:
     name: Centaure, soldat
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Attaques multiples***. Le centaure effectue deux attaques, réparties à sa guise entre Pique et Arc long.
 
-      ***Pique***. *Corps à corps* : +6, allonge 3 m. *Touché* : 9 (1d10 + 4) dégâts perforants.
+      ***Attaques multiples***. Le centaure effectue deux attaques, réparties à sa
+      guise entre Pique et Arc long.
 
-      ***Arc long***. *À distance* : +4, portée 45/180 m. *Touché* : 6 (1d8 + 2) dégâts perforants.
+
+      ***Pique***. *Corps à corps* : +6, allonge 3 m. *Touché* : 9 (1d10 + 4) dégâts
+      perforants.
+
+
+      ***Arc long***. *À distance* : +4, portée 45/180 m. *Touché* : 6 (1d8 + 2) dégâts
+      perforants.
+
 
       ## Actions Bonus
 
-      ***Charge écrasante (recharge 5–6)***. Le centaure se déplace dans les limites de sa Vitesse sans provoquer d'attaque d'Opportunité et peut traverser les espaces des créatures de taille M ou inférieure. Chaque créature dont l'espace est traversé par le centaure est la cible de l'effet suivant. *JdS Force* : DD 14. *Échec* : 7 (1d6 + 4) dégâts contondants, et la cible subit l'état À terre.
+
+      ***Charge écrasante (recharge 5–6)***. Le centaure se déplace dans les limites
+      de sa Vitesse sans provoquer d''attaque d''Opportunité et peut traverser les
+      espaces des créatures de taille M ou inférieure. Chaque créature dont l''espace
+      est traversé par le centaure est la cible de l''effet suivant. *JdS Force* :
+      DD 14. *Échec* : 7 (1d6 + 4) dégâts contondants, et la cible subit l''état À
+      terre.'
     senses: Perception passive 13
     languages:
     - elfe

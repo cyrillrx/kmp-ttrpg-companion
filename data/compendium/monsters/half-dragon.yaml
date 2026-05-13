@@ -8,24 +8,15 @@ armorClass: 18
 maxHitPoints: 105
 hitDice: 14d8+42
 abilities:
-  str:
-    value: 19
-    savingThrowProficiency: none
-  dex:
-    value: 14
-    savingThrowProficiency: proficient
-  con:
-    value: 16
-    savingThrowProficiency: none
-  int:
-    value: 10
-    savingThrowProficiency: none
-  wis:
-    value: 15
-    savingThrowProficiency: proficient
-  cha:
-    value: 14
-    savingThrowProficiency: none
+  str: 19
+  dex: 14
+  con: 16
+  int: 10
+  wis: 15
+  cha: 14
+savingThrows:
+  dex: proficient
+  wis: proficient
 speeds:
   walk: 40
   fly: null
@@ -88,22 +79,33 @@ translations:
   en:
     name: Half-Dragon
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Draconic Origin***. The half-dragon is related to a type of dragon associated with one of the following damage types (DM's choice): Acid, Cold, Fire, Lightning, or Poison. This choice affects other aspects of the stat block.
+
+      ***Draconic Origin***. The half-dragon is related to a type of dragon associated
+      with one of the following damage types (DM''s choice): Acid, Cold, Fire, Lightning,
+      or Poison. This choice affects other aspects of the stat block.
+
 
       ## Actions
 
+
       ***Multiattack***. The half-dragon makes two Claw attacks.
 
-      ***Claw***. *Melee Attack Roll* : +7, reach 10 ft. *Hit* : 6 (1d4 + 4) Slashing damage plus 7 (2d6) damage of the type chosen for the Draconic Origin trait.
 
-      ***Dragon's Breath (Recharge 5-6)***. *Dexterity Saving Throw* : DC 14, each creature in a 30-foot Cone. *Failure* : 28 (8d6) damage of the type chosen for the Draconic Origin trait. *Success* : Half damage.
+      ***Claw***. *Melee Attack Roll* : +7, reach 10 ft. *Hit* : 6 (1d4 + 4) Slashing
+      damage plus 7 (2d6) damage of the type chosen for the Draconic Origin trait.
+
+
+      ***Dragon''s Breath (Recharge 5-6)***. *Dexterity Saving Throw* : DC 14, each
+      creature in a 30-foot Cone. *Failure* : 28 (8d6) damage of the type chosen for
+      the Draconic Origin trait. *Success* : Half damage.
+
 
       ## Bonus actions
 
-      ***Leap***. The half-dragon jumps up to 30 feet by spending 10 feet of movement.
+
+      ***Leap***. The half-dragon jumps up to 30 feet by spending 10 feet of movement.'
     senses: Blindsight 10 ft., Darkvision 60 ft., Passive Perception 15
     languages:
     - Common
@@ -111,22 +113,34 @@ translations:
   fr:
     name: Demi-dragon
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Origine draconique***. Le demi-dragon est lié à un type de dragon associé à l'un des types de dégâts suivants (au choix du MD) : acide, feu, foudre, froid ou poison. Ce choix influe sur d'autres aspects du profil.
+
+      ***Origine draconique***. Le demi-dragon est lié à un type de dragon associé
+      à l''un des types de dégâts suivants (au choix du MD) : acide, feu, foudre,
+      froid ou poison. Ce choix influe sur d''autres aspects du profil.
+
 
       ## Actions
 
+
       ***Attaques multiples***. Le demi-dragon effectue deux attaques de Griffe.
 
-      ***Griffe***. *Corps à corps* : +7, allonge 3 m. *Touché* : 6 (1d4 + 4) dégâts tranchants plus 7 (2d6) dégâts du type choisi pour le trait Origine draconique.
 
-      ***Souffle du dragon (recharge 5–6)***. *JdS Dextérité* : DD 14, chaque créature dans un Cône de 9 m. *Échec* : 28 (8d6) dégâts du type choisi pour le trait Origine draconique. *Réussite* : demi-dégâts.
+      ***Griffe***. *Corps à corps* : +7, allonge 3 m. *Touché* : 6 (1d4 + 4) dégâts
+      tranchants plus 7 (2d6) dégâts du type choisi pour le trait Origine draconique.
+
+
+      ***Souffle du dragon (recharge 5–6)***. *JdS Dextérité* : DD 14, chaque créature
+      dans un Cône de 9 m. *Échec* : 28 (8d6) dégâts du type choisi pour le trait
+      Origine draconique. *Réussite* : demi-dégâts.
+
 
       ## Actions Bonus
 
-      ***Bond***. Le demi-dragon effectue un saut d'un maximum de 9 m en dépensant 3 m de déplacement.
+
+      ***Bond***. Le demi-dragon effectue un saut d''un maximum de 9 m en dépensant
+      3 m de déplacement.'
     senses: Vision aveugle 3 m, Vision dans le noir 18 m, Perception passive 15
     languages:
     - commun

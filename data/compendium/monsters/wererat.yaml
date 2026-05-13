@@ -8,24 +8,12 @@ armorClass: 13
 maxHitPoints: 60
 hitDice: 11d8+11
 abilities:
-  str:
-    value: 10
-    savingThrowProficiency: none
-  dex:
-    value: 16
-    savingThrowProficiency: none
-  con:
-    value: 12
-    savingThrowProficiency: none
-  int:
-    value: 11
-    savingThrowProficiency: none
-  wis:
-    value: 10
-    savingThrowProficiency: none
-  cha:
-    value: 8
-    savingThrowProficiency: none
+  str: 10
+  dex: 16
+  con: 12
+  int: 11
+  wis: 10
+  cha: 8
 speeds:
   walk: 30
   fly: null
@@ -88,40 +76,73 @@ translations:
   en:
     name: Wererat
     subtype: Lycanthrope
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Multiattack***. The wererat makes two attacks, using Scratch or Hand Crossbow in any combination. It can replace one attack with a Bite attack.
 
-      ***Bite (Rat or Hybrid Form Only)***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 8 (2d4 + 3) Piercing damage. If the target is a Humanoid, it is subjected to the following effect. *Constitution Saving Throw* : DC 11. *Failure* : The target is cursed. If the cursed target drops to 0 Hit Points, it instead becomes a **Wererat** under the DM's control and has 10 Hit Points. *Success* : The target is immune to this wererat's curse for 24 hours.
+      ***Multiattack***. The wererat makes two attacks, using Scratch or Hand Crossbow
+      in any combination. It can replace one attack with a Bite attack.
 
-      ***Scratch***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 6 (1d6 + 3) Slashing damage.
 
-      ***Hand Crossbow (Humanoid or Hybrid Form Only)***. *Ranged Attack Roll* : +5, range 30/120 ft. *Hit* : 6 (1d6 + 3) Piercing damage.
+      ***Bite (Rat or Hybrid Form Only)***. *Melee Attack Roll* : +5, reach 5 ft.
+      *Hit* : 8 (2d4 + 3) Piercing damage. If the target is a Humanoid, it is subjected
+      to the following effect. *Constitution Saving Throw* : DC 11. *Failure* : The
+      target is cursed. If the cursed target drops to 0 Hit Points, it instead becomes
+      a **Wererat** under the DM''s control and has 10 Hit Points. *Success* : The
+      target is immune to this wererat''s curse for 24 hours.
+
+
+      ***Scratch***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 6 (1d6 + 3) Slashing
+      damage.
+
+
+      ***Hand Crossbow (Humanoid or Hybrid Form Only)***. *Ranged Attack Roll* : +5,
+      range 30/120 ft. *Hit* : 6 (1d6 + 3) Piercing damage.
+
 
       ## Bonus actions
 
-      ***Shape-Shift***. The wererat shape-shifts into a Medium rat-humanoid hybrid or a Small rat, or it returns to its true humanoid form. Its game statistics, other than its size, are the same in each form. Any equipment it is wearing or carrying isn't transformed.
+
+      ***Shape-Shift***. The wererat shape-shifts into a Medium rat-humanoid hybrid
+      or a Small rat, or it returns to its true humanoid form. Its game statistics,
+      other than its size, are the same in each form. Any equipment it is wearing
+      or carrying isn''t transformed.'
     senses: Darkvision 60 ft., Passive Perception 14
     languages:
     - Common (can't speak in rat form)
   fr:
     name: Rat-garou
     subtype: Lycanthrope
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Attaques multiples***. Le rat-garou effectue deux attaques, réparties à sa guise entre Éraflure et Arbalète de poing. Il peut en remplacer une par une attaque de Morsure.
 
-      ***Éraflure***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 6 (1d6 + 3) dégâts tranchants.
+      ***Attaques multiples***. Le rat-garou effectue deux attaques, réparties à sa
+      guise entre Éraflure et Arbalète de poing. Il peut en remplacer une par une
+      attaque de Morsure.
 
-      ***Morsure (formes de rat et hybride uniquement)***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 8 (2d4 + 3) dégâts perforants. Si la cible est un Humanoïde, elle est soumise à l'effet suivant. *JdS Constitution* : DD 11. *Échec* : la cible est maudite. Si la cible maudite tombe à 0 point de vie, elle se retrouve en fait à 10 pv et devient un **rat-garou** sous le contrôle du MD. *Réussite* : la cible est immunisée contre la malédiction de ce rat-garou pendant 24 heures.
 
-      ***Arbalète de poing (forme humanoïde ou hybride uniquement)***. *À distance* : +5, portée 9/36 m. *Touché* : 6 (1d6 + 3) dégâts perforants.
+      ***Éraflure***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 6 (1d6 + 3)
+      dégâts tranchants.
+
+
+      ***Morsure (formes de rat et hybride uniquement)***. *Corps à corps* : +5, allonge
+      1,50 m. *Touché* : 8 (2d4 + 3) dégâts perforants. Si la cible est un Humanoïde,
+      elle est soumise à l''effet suivant. *JdS Constitution* : DD 11. *Échec* : la
+      cible est maudite. Si la cible maudite tombe à 0 point de vie, elle se retrouve
+      en fait à 10 pv et devient un **rat-garou** sous le contrôle du MD. *Réussite*
+      : la cible est immunisée contre la malédiction de ce rat-garou pendant 24 heures.
+
+
+      ***Arbalète de poing (forme humanoïde ou hybride uniquement)***. *À distance*
+      : +5, portée 9/36 m. *Touché* : 6 (1d6 + 3) dégâts perforants.
+
 
       ## Actions Bonus
 
-      ***Changement d'aspect***. Le rat-garou se transforme en hybride rat-humanoïde de taille M ou en rat de taille P, ou bien retrouve sa forme véritable d'humanoïde. En dehors de sa catégorie de taille, son profil reste le même, quelle que soit la forme. Rien de ce qu'il porte n'est transformé.
+
+      ***Changement d''aspect***. Le rat-garou se transforme en hybride rat-humanoïde
+      de taille M ou en rat de taille P, ou bien retrouve sa forme véritable d''humanoïde.
+      En dehors de sa catégorie de taille, son profil reste le même, quelle que soit
+      la forme. Rien de ce qu''il porte n''est transformé.'
     senses: Vision dans le noir 18 m, Perception passive 14
     languages:
     - commun (ne peut pas parler sous forme de rat)

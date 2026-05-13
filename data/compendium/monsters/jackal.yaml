@@ -8,24 +8,12 @@ armorClass: 12
 maxHitPoints: 3
 hitDice: 1d6
 abilities:
-  str:
-    value: 8
-    savingThrowProficiency: none
-  dex:
-    value: 15
-    savingThrowProficiency: none
-  con:
-    value: 11
-    savingThrowProficiency: none
-  int:
-    value: 3
-    savingThrowProficiency: none
-  wis:
-    value: 12
-    savingThrowProficiency: none
-  cha:
-    value: 6
-    savingThrowProficiency: none
+  str: 8
+  dex: 15
+  con: 11
+  int: 3
+  wis: 12
+  cha: 6
 speeds:
   walk: 40
   fly: null
@@ -88,20 +76,22 @@ translations:
   en:
     name: Jackal
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Bite***. *Melee Attack Roll* : +1, reach 5 ft. *Hit* : 1 (1d4 – 1) Piercing damage.
+
+      ***Bite***. *Melee Attack Roll* : +1, reach 5 ft. *Hit* : 1 (1d4 – 1) Piercing
+      damage.'
     senses: Darkvision 90 ft., Passive Perception 15
     languages:
     - None
   fr:
     name: Chacal
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Morsure***. *Corps à corps* : +1, allonge 1,50 m. *Touché* : 1 (1d4 – 1) dégâts perforants.
+
+      ***Morsure***. *Corps à corps* : +1, allonge 1,50 m. *Touché* : 1 (1d4 – 1)
+      dégâts perforants.'
     senses: Vision dans le noir 27 m, Perception passive 15
     languages:
     - aucune

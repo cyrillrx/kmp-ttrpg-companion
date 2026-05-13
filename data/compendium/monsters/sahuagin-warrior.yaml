@@ -8,24 +8,12 @@ armorClass: 12
 maxHitPoints: 22
 hitDice: 4d8+4
 abilities:
-  str:
-    value: 13
-    savingThrowProficiency: none
-  dex:
-    value: 11
-    savingThrowProficiency: none
-  con:
-    value: 12
-    savingThrowProficiency: none
-  int:
-    value: 12
-    savingThrowProficiency: none
-  wis:
-    value: 13
-    savingThrowProficiency: none
-  cha:
-    value: 9
-    savingThrowProficiency: none
+  str: 13
+  dex: 11
+  con: 12
+  int: 12
+  wis: 13
+  cha: 9
 speeds:
   walk: 30
   fly: null
@@ -88,48 +76,73 @@ translations:
   en:
     name: Sahuagin Warrior
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Blood Frenzy***. The sahuagin has Advantage on attack rolls against any creature that doesn't have all its Hit Points.
 
-      ***Limited Amphibiousness***. The sahuagin can breathe air and water, but it must be submerged at least once every 4 hours to avoid suffocating outside water.
+      ***Blood Frenzy***. The sahuagin has Advantage on attack rolls against any creature
+      that doesn''t have all its Hit Points.
 
-      ***Shark Telepathy***. The sahuagin can magically control sharks within 120 feet of itself, using a special telepathy.
+
+      ***Limited Amphibiousness***. The sahuagin can breathe air and water, but it
+      must be submerged at least once every 4 hours to avoid suffocating outside water.
+
+
+      ***Shark Telepathy***. The sahuagin can magically control sharks within 120
+      feet of itself, using a special telepathy.
+
 
       ## Actions
 
+
       ***Multiattack***. The sahuagin makes two Claw attacks.
 
-      ***Claw***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 4 (1d6 + 1) Slashing damage.
+
+      ***Claw***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 4 (1d6 + 1) Slashing
+      damage.
+
 
       ## Bonus actions
 
-      ***Aquatic Charge***. The sahuagin swims up to its Swim Speed straight toward an enemy it can see.
+
+      ***Aquatic Charge***. The sahuagin swims up to its Swim Speed straight toward
+      an enemy it can see.'
     senses: Darkvision 120 ft., Passive Perception 15
     languages:
     - Sahuagin
   fr:
     name: Sahuagin, combattant
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Amphibiose partielle***. Le sahuagin peut respirer aussi bien sous l'eau qu'à l'air libre, mais il doit s'immerger dans l'eau au moins une fois toutes les 4 heures sous peine de s'asphyxier.
 
-      ***Frénésie sanguinaire***. Le sahuagin a un Avantage aux jets d'attaque contre toute créature à laquelle il manque des points de vie.
+      ***Amphibiose partielle***. Le sahuagin peut respirer aussi bien sous l''eau
+      qu''à l''air libre, mais il doit s''immerger dans l''eau au moins une fois toutes
+      les 4 heures sous peine de s''asphyxier.
 
-      ***Télépathie avec les requins***. Le sahuagin peut contrôler magiquement les requins dans un rayon de 36 m, par le biais d'une télépathie spéciale.
+
+      ***Frénésie sanguinaire***. Le sahuagin a un Avantage aux jets d''attaque contre
+      toute créature à laquelle il manque des points de vie.
+
+
+      ***Télépathie avec les requins***. Le sahuagin peut contrôler magiquement les
+      requins dans un rayon de 36 m, par le biais d''une télépathie spéciale.
+
 
       ## Actions
 
+
       ***Attaques multiples***. Le sahuagin effectue deux attaques de Griffe.
 
-      ***Griffe***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 4 (1d6 + 1) dégâts tranchants.
+
+      ***Griffe***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 4 (1d6 + 1) dégâts
+      tranchants.
+
 
       ## Actions Bonus
 
-      ***Charge aquatique***. Le sahuagin se déplace en ligne droite dans les limites de sa Vitesse de nage vers un ennemi qu'il voit.
+
+      ***Charge aquatique***. Le sahuagin se déplace en ligne droite dans les limites
+      de sa Vitesse de nage vers un ennemi qu''il voit.'
     senses: Vision dans le noir 36 m, Perception passive 15
     languages:
     - sahuagin

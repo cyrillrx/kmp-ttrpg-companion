@@ -8,24 +8,14 @@ armorClass: 13
 maxHitPoints: 36
 hitDice: 8d8
 abilities:
-  str:
-    value: 16
-    savingThrowProficiency: none
-  dex:
-    value: 17
-    savingThrowProficiency: none
-  con:
-    value: 10
-    savingThrowProficiency: none
-  int:
-    value: 11
-    savingThrowProficiency: none
-  wis:
-    value: 10
-    savingThrowProficiency: proficient
-  cha:
-    value: 8
-    savingThrowProficiency: none
+  str: 16
+  dex: 17
+  con: 10
+  int: 11
+  wis: 10
+  cha: 8
+savingThrows:
+  wis: proficient
 speeds:
   walk: 30
   fly: null
@@ -88,32 +78,52 @@ translations:
   en:
     name: Ghast
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Stench***. *Constitution Saving Throw* : DC 10, any creature that starts its turn in a 5-foot Emanation originating from the ghast. *Failure* : The target has the Poisoned condition until the start of its next turn. *Success* : The target is immune to this ghast's Stench for 24 hours.
+
+      ***Stench***. *Constitution Saving Throw* : DC 10, any creature that starts
+      its turn in a 5-foot Emanation originating from the ghast. *Failure* : The target
+      has the Poisoned condition until the start of its next turn. *Success* : The
+      target is immune to this ghast''s Stench for 24 hours.
+
 
       ## Actions
 
-      ***Bite***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 7 (1d8 + 3) Piercing damage plus 9 (2d8) Necrotic damage.
 
-      ***Claw***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 10 (2d6 + 3) Slashing damage. If the target is a non-Undead creature, it is subjected to the following effect. *Constitution Saving Throw* : DC 10. *Failure* : The target has the Paralyzed condition until the end of its next turn.
+      ***Bite***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 7 (1d8 + 3) Piercing
+      damage plus 9 (2d8) Necrotic damage.
+
+
+      ***Claw***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 10 (2d6 + 3) Slashing
+      damage. If the target is a non-Undead creature, it is subjected to the following
+      effect. *Constitution Saving Throw* : DC 10. *Failure* : The target has the
+      Paralyzed condition until the end of its next turn.'
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - Common
   fr:
     name: Blême
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Puanteur***. *JdS Constitution* : DD 10, toute créature qui commence son tour dans une Émanation de 1,50 m centrée sur la blême. *Échec* : la cible subit l'état Empoisonné jusqu'au début de son tour suivant. *Réussite* : la cible est immunisée contre la puanteur de cette blême pendant 24 heures.
+
+      ***Puanteur***. *JdS Constitution* : DD 10, toute créature qui commence son
+      tour dans une Émanation de 1,50 m centrée sur la blême. *Échec* : la cible subit
+      l''état Empoisonné jusqu''au début de son tour suivant. *Réussite* : la cible
+      est immunisée contre la puanteur de cette blême pendant 24 heures.
+
 
       ## Actions
 
-      ***Griffe***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 10 (2d6 + 3) dégâts tranchants. Si la cible est une créature autre qu'un Mort-vivant, elle est soumise à l'effet suivant. *JdS Constitution* : DD 10. *Échec* : la cible subit l'état Paralysé jusqu'à la fin de son tour suivant.
 
-      ***Morsure***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 7 (1d8 + 3) dégâts perforants plus 9 (2d8) dégâts nécrotiques.
+      ***Griffe***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 10 (2d6 + 3)
+      dégâts tranchants. Si la cible est une créature autre qu''un Mort-vivant, elle
+      est soumise à l''effet suivant. *JdS Constitution* : DD 10. *Échec* : la cible
+      subit l''état Paralysé jusqu''à la fin de son tour suivant.
+
+
+      ***Morsure***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 7 (1d8 + 3)
+      dégâts perforants plus 9 (2d8) dégâts nécrotiques.'
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - commun

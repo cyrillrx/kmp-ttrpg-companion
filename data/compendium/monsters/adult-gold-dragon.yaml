@@ -8,24 +8,15 @@ armorClass: 19
 maxHitPoints: 243
 hitDice: 18d12+126
 abilities:
-  str:
-    value: 27
-    savingThrowProficiency: none
-  dex:
-    value: 14
-    savingThrowProficiency: proficient
-  con:
-    value: 25
-    savingThrowProficiency: none
-  int:
-    value: 16
-    savingThrowProficiency: none
-  wis:
-    value: 15
-    savingThrowProficiency: proficient
-  cha:
-    value: 24
-    savingThrowProficiency: none
+  str: 27
+  dex: 14
+  con: 25
+  int: 16
+  wis: 15
+  cha: 24
+savingThrows:
+  dex: proficient
+  wis: proficient
 speeds:
   walk: 40
   fly: 80
@@ -88,36 +79,65 @@ translations:
   en:
     name: Adult Gold Dragon
     subtype: Metallic
-    description: |-
-      ## Traits
+    description: '## Traits
+
 
       ***Amphibious***. The dragon can breathe air and water.
 
-      ***Legendary Resistance (3/Day, or 4/Day in Lair)***. If the dragon fails a saving throw, it can choose to succeed instead.
+
+      ***Legendary Resistance (3/Day, or 4/Day in Lair)***. If the dragon fails a
+      saving throw, it can choose to succeed instead.
+
 
       ## Actions
 
-      ***Multiattack***. The dragon makes three Rend attacks. It can replace one attack with a use of Spellcasting to cast *[Mind Spike](https://www.aidedd.org/spell/mind-spike)* (level 3 version).
 
-      ***Rend***. *Melee Attack Roll* : +11, reach 10 ft. *Hit* : 15 (2d8 + 6) Slashing damage plus 7 (2d6) Poison damage.
+      ***Multiattack***. The dragon makes three Rend attacks. It can replace one attack
+      with a use of Spellcasting to cast *[Mind Spike](https://www.aidedd.org/spell/mind-spike)*
+      (level 3 version).
 
-      ***Poison Breath (Recharge 5–6)***. *Constitution Saving Throw* : DC 18, each creature in a 60-foot Cone. *Failure* : 56 (16d6) Poison damage. *Success* : Half damage.
 
-      ***Spellcasting***. The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 17):
+      ***Rend***. *Melee Attack Roll* : +11, reach 10 ft. *Hit* : 15 (2d8 + 6) Slashing
+      damage plus 7 (2d6) Poison damage.
 
-      At Will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Mind Spike](https://www.aidedd.org/spell/mind-spike)* (level 3 version)
-      
+
+      ***Poison Breath (Recharge 5–6)***. *Constitution Saving Throw* : DC 18, each
+      creature in a 60-foot Cone. *Failure* : 56 (16d6) Poison damage. *Success* :
+      Half damage.
+
+
+      ***Spellcasting***. The dragon casts one of the following spells, requiring
+      no Material components and using Charisma as the spellcasting ability (spell
+      save DC 17):
+
+
+      At Will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Mind Spike](https://www.aidedd.org/spell/mind-spike)*
+      (level 3 version)
+
+
       1/Day: *[Geas](https://www.aidedd.org/spell/geas)*
+
 
       ## Legendary actions
 
-      Legendary Action Uses: 3 (4 in Lair). Immediately after another creature's turn, the dragon can expend a use to take one of the following actions. The dragon regains all expended uses at the start of each of its turns.
 
-      ***Mind Invasion***. The dragon uses Spellcasting to cast *[Mind Spike](https://www.aidedd.org/spell/mind-spike)* (level 3 version).
+      Legendary Action Uses: 3 (4 in Lair). Immediately after another creature''s
+      turn, the dragon can expend a use to take one of the following actions. The
+      dragon regains all expended uses at the start of each of its turns.
 
-      ***Noxious Miasma***. *Constitution Saving Throw* : DC 17, each creature in a 20-foot-radius Sphere centered on a point the dragon can see within 90 feet. *Failure* : 7 (2d6) Poison damage, and the target takes a −2 penalty to AC until the end of its next turn. *Failure or Success* : The dragon can't take this action again until the start of its next turn.
 
-      ***Pounce***. The dragon moves up to half its Speed, and it makes one Rend attack.
+      ***Mind Invasion***. The dragon uses Spellcasting to cast *[Mind Spike](https://www.aidedd.org/spell/mind-spike)*
+      (level 3 version).
+
+
+      ***Noxious Miasma***. *Constitution Saving Throw* : DC 17, each creature in
+      a 20-foot-radius Sphere centered on a point the dragon can see within 90 feet.
+      *Failure* : 7 (2d6) Poison damage, and the target takes a −2 penalty to AC until
+      the end of its next turn. *Failure or Success* : The dragon can''t take this
+      action again until the start of its next turn.
+
+
+      ***Pounce***. The dragon moves up to half its Speed, and it makes one Rend attack.'
     senses: Blindsight 60 ft., Darkvision 120 ft., Passive Perception 24
     languages:
     - Common
@@ -125,38 +145,81 @@ translations:
   fr:
     name: Dragon d'or, adulte
     subtype: Métallique
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Amphibie***. Le dragon peut respirer sous l'eau comme à l'air libre.
 
-      ***Résistance légendaire (3/jour, ou 4/jour dans son antre)***. Si le dragon rate un jet de sauvegarde, il peut décider de le réussir tout de même.
+      ***Amphibie***. Le dragon peut respirer sous l''eau comme à l''air libre.
+
+
+      ***Résistance légendaire (3/jour, ou 4/jour dans son antre)***. Si le dragon
+      rate un jet de sauvegarde, il peut décider de le réussir tout de même.
+
 
       ## Actions
 
-      ***Attaques multiples***. Le dragon effectue trois attaques de Saignée. Il peut remplacer l'une de ces attaques par une utilisation de (A) Incantation pour lancer *[rayon traçant](https://www.aidedd.org/spell/fr/rayon-tracant)* (au niveau 2) ou (B) Souffle affaiblissant.
 
-      ***Saignée***. *Corps à corps* : +14, allonge 3 m. *Touché* : 17 (2d8 + 8) dégâts tranchants plus 4 (1d8) dégâts de feu.
+      ***Attaques multiples***. Le dragon effectue trois attaques de Saignée. Il peut
+      remplacer l''une de ces attaques par une utilisation de (A) Incantation pour
+      lancer *[rayon traçant](https://www.aidedd.org/spell/fr/rayon-tracant)* (au
+      niveau 2) ou (B) Souffle affaiblissant.
 
-      ***Incantation***. Le dragon lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 21, +13 pour toucher) :
 
-      À volonté : *[changement de forme](https://www.aidedd.org/spell/fr/changement-de-forme)* (Bête ou Humanoïde uniquement, le sort ne fait pas gagner de points de vie temporaires, ni Concentration ni points de vie temporaires nécessaires pour maintenir le sort), *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), [rayon traçant](https://www.aidedd.org/spell/fr/rayon-tracant)* (au niveau 2)
-      
-      1/jour chacun : *[colonne de flamme](https://www.aidedd.org/spell/fr/colonne-de-flamme), zone de vérité*
+      ***Saignée***. *Corps à corps* : +14, allonge 3 m. *Touché* : 17 (2d8 + 8) dégâts
+      tranchants plus 4 (1d8) dégâts de feu.
 
-      ***Souffle affaiblissant***. *JdS Force* : DD 21, chaque créature non encore affectée par ce souffle dans un Cône de 18 m. *Échec* : la cible subit un Désavantage aux jets de d20 basés sur la Force et soustrait 3 (1d6) à ses jets de dégâts. Elle réitère le JdS à la fin de chacun de ses tours, et met un terme à l'effet sur elle-même en cas de réussite. Au bout de 1 minute, elle réussit automatiquement ce JdS.
 
-      ***Souffle de feu (recharge 5–6)***. *JdS Dextérité* : DD 21, chaque créature dans un Cône de 18 m. *Échec* : 66 (12d10) dégâts de feu. *Réussite* : demi-dégâts.
+      ***Incantation***. Le dragon lance l''un des sorts suivants sans composantes
+      matérielles, le Charisme étant sa caractéristique d''incantation (DD de sauvegarde
+      21, +13 pour toucher) :
+
+
+      À volonté : *[changement de forme](https://www.aidedd.org/spell/fr/changement-de-forme)*
+      (Bête ou Humanoïde uniquement, le sort ne fait pas gagner de points de vie temporaires,
+      ni Concentration ni points de vie temporaires nécessaires pour maintenir le
+      sort), *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie),
+      [rayon traçant](https://www.aidedd.org/spell/fr/rayon-tracant)* (au niveau 2)
+
+
+      1/jour chacun : *[colonne de flamme](https://www.aidedd.org/spell/fr/colonne-de-flamme),
+      zone de vérité*
+
+
+      ***Souffle affaiblissant***. *JdS Force* : DD 21, chaque créature non encore
+      affectée par ce souffle dans un Cône de 18 m. *Échec* : la cible subit un Désavantage
+      aux jets de d20 basés sur la Force et soustrait 3 (1d6) à ses jets de dégâts.
+      Elle réitère le JdS à la fin de chacun de ses tours, et met un terme à l''effet
+      sur elle-même en cas de réussite. Au bout de 1 minute, elle réussit automatiquement
+      ce JdS.
+
+
+      ***Souffle de feu (recharge 5–6)***. *JdS Dextérité* : DD 21, chaque créature
+      dans un Cône de 18 m. *Échec* : 66 (12d10) dégâts de feu. *Réussite* : demi-dégâts.
+
 
       ## Actions Légendaires
 
-      Utilisations d'action Légendaire : 3 (4 dans son antre). Aussitôt après le tour d'une autre créature, le dragon peut dépenser une utilisation pour entreprendre l'une des actions ci-après. Le dragon récupère toutes ses utilisations dépensées au début de chacun de ses tours.
 
-      ***Assaut incisif***. Le dragon se déplace à concurrence de la moitié de sa Vitesse et effectue une attaque de Saignée.
+      Utilisations d''action Légendaire : 3 (4 dans son antre). Aussitôt après le
+      tour d''une autre créature, le dragon peut dépenser une utilisation pour entreprendre
+      l''une des actions ci-après. Le dragon récupère toutes ses utilisations dépensées
+      au début de chacun de ses tours.
 
-      ***Bannissement***. *JdS Charisme* : DD 21, une créature que le dragon voit dans un rayon de 36 m. *Échec* : 10 (3d6) dégâts de force ; la cible subit l'état Incapable d'agir et elle est transportée sur un demi-plan qui ne présente pas de danger jusqu'au début du tour suivant du dragon, puis elle réapparaît en un espace inoccupé au choix du dragon dans un rayon de 36 m de celui-ci. *Échec ou réussite* : Le dragon ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.
 
-      ***Lumière traçante***. Le dragon recourt à Incantation pour lancer *[rayon traçant](https://www.aidedd.org/spell/fr/rayon-tracant)* (au niveau 2).
+      ***Assaut incisif***. Le dragon se déplace à concurrence de la moitié de sa
+      Vitesse et effectue une attaque de Saignée.
+
+
+      ***Bannissement***. *JdS Charisme* : DD 21, une créature que le dragon voit
+      dans un rayon de 36 m. *Échec* : 10 (3d6) dégâts de force ; la cible subit l''état
+      Incapable d''agir et elle est transportée sur un demi-plan qui ne présente pas
+      de danger jusqu''au début du tour suivant du dragon, puis elle réapparaît en
+      un espace inoccupé au choix du dragon dans un rayon de 36 m de celui-ci. *Échec
+      ou réussite* : Le dragon ne peut alors plus entreprendre cette action jusqu''au
+      début de son tour suivant.
+
+
+      ***Lumière traçante***. Le dragon recourt à Incantation pour lancer *[rayon
+      traçant](https://www.aidedd.org/spell/fr/rayon-tracant)* (au niveau 2).'
     senses: Vision aveugle 18 m, Vision dans le noir 36 m, Perception passive 24
     languages:
     - commun

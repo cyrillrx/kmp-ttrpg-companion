@@ -8,24 +8,17 @@ armorClass: 18
 maxHitPoints: 175
 hitDice: 27d8+54
 abilities:
-  str:
-    value: 17
-    savingThrowProficiency: none
-  dex:
-    value: 12
-    savingThrowProficiency: proficient
-  con:
-    value: 14
-    savingThrowProficiency: proficient
-  int:
-    value: 20
-    savingThrowProficiency: proficient
-  wis:
-    value: 16
-    savingThrowProficiency: proficient
-  cha:
-    value: 17
-    savingThrowProficiency: none
+  str: 17
+  dex: 12
+  con: 14
+  int: 20
+  wis: 16
+  cha: 17
+savingThrows:
+  dex: proficient
+  con: proficient
+  int: proficient
+  wis: proficient
 speeds:
   walk: 30
   fly: 30
@@ -88,72 +81,158 @@ translations:
   en:
     name: Arcanaloth
     subtype: Yugoloth
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Fiendish Restoration***. If the arcanaloth dies outside Gehenna, its body dissolves into ichor, and it gains a new body instantly and revives with all its Hit Points in Gehenna.
 
-      ***Magic Resistance***. The arcanaloth has Advantage on saving throws against spells and other magical effects.
+      ***Fiendish Restoration***. If the arcanaloth dies outside Gehenna, its body
+      dissolves into ichor, and it gains a new body instantly and revives with all
+      its Hit Points in Gehenna.
 
-      ***Soul Tome***. The arcanaloth has a magic tome. While holding or carrying the tome, the arcanaloth can use its Banishing Claw action. The tome has AC 17; HP 35; and Immunity to Necrotic, Poison, and Psychic damage. The tome regains all its Hit Points at the end of every turn, but it turns to dust if reduced to 0 Hit Points or when the arcanaloth dies. If the tome is destroyed, the arcanaloth can create a new one when it finishes a Short or Long Rest.
+
+      ***Magic Resistance***. The arcanaloth has Advantage on saving throws against
+      spells and other magical effects.
+
+
+      ***Soul Tome***. The arcanaloth has a magic tome. While holding or carrying
+      the tome, the arcanaloth can use its Banishing Claw action. The tome has AC
+      17; HP 35; and Immunity to Necrotic, Poison, and Psychic damage. The tome regains
+      all its Hit Points at the end of every turn, but it turns to dust if reduced
+      to 0 Hit Points or when the arcanaloth dies. If the tome is destroyed, the arcanaloth
+      can create a new one when it finishes a Short or Long Rest.
+
 
       ## Actions
 
-      ***Multiattack***. The arcanaloth makes three Fiendish Burst attacks. It can replace one attack with a Banishing Claw attack.
 
-      ***Fiendish Burst***. *Melee or Ranged Attack Roll* : +9, reach 5 ft. or range 120 ft. *Hit* : 31 (4d12 + 5) Necrotic damage.
+      ***Multiattack***. The arcanaloth makes three Fiendish Burst attacks. It can
+      replace one attack with a Banishing Claw attack.
 
-      ***Banishing Claw (Requires Soul Tome)***. *Melee Attack Roll* : +9, reach 5 ft. *Hit* : 10 (2d4 + 5) Slashing damage plus 19 (3d12) Psychic damage. If the target is a creature, it is subjected to the following effect. *Charisma Saving Throw* : DC 17. *Failure* : The target is trapped in a demiplane inside the Soul Tome. While trapped there, the target has the Incapacitated condition. At the end of each of its turns, the target repeats the save, escaping the tome on a success. When the target escapes, it appears in the space it left or, if that space is occupied, the nearest unoccupied space. If the target fails three of these saves while in the demiplane, it becomes bound to the tome and can escape only if the tome is reduced to 0 Hit Points.
 
-      ***Spellcasting***. The arcanaloth casts one of the following spells, requiring no Material components and using Intelligence as the spellcasting ability (spell save DC 17):
+      ***Fiendish Burst***. *Melee or Ranged Attack Roll* : +9, reach 5 ft. or range
+      120 ft. *Hit* : 31 (4d12 + 5) Necrotic damage.
 
-      At will: *[Alter Self](https://www.aidedd.org/spell/alter-self), [Detect Magic](https://www.aidedd.org/spell/detect-magic), [Identify](https://www.aidedd.org/spell/identify), [Mage Hand](https://www.aidedd.org/spell/mage-hand), [Prestidigitation](https://www.aidedd.org/spell/prestidigitation)*
-      
-      1/day each: *[Contact Other Plane](https://www.aidedd.org/spell/contact-other-plane), [Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts), [Dimension Door](https://www.aidedd.org/spell/dimension-door), [Mind Blank](https://www.aidedd.org/spell/mind-blank)*
+
+      ***Banishing Claw (Requires Soul Tome)***. *Melee Attack Roll* : +9, reach 5
+      ft. *Hit* : 10 (2d4 + 5) Slashing damage plus 19 (3d12) Psychic damage. If the
+      target is a creature, it is subjected to the following effect. *Charisma Saving
+      Throw* : DC 17. *Failure* : The target is trapped in a demiplane inside the
+      Soul Tome. While trapped there, the target has the Incapacitated condition.
+      At the end of each of its turns, the target repeats the save, escaping the tome
+      on a success. When the target escapes, it appears in the space it left or, if
+      that space is occupied, the nearest unoccupied space. If the target fails three
+      of these saves while in the demiplane, it becomes bound to the tome and can
+      escape only if the tome is reduced to 0 Hit Points.
+
+
+      ***Spellcasting***. The arcanaloth casts one of the following spells, requiring
+      no Material components and using Intelligence as the spellcasting ability (spell
+      save DC 17):
+
+
+      At will: *[Alter Self](https://www.aidedd.org/spell/alter-self), [Detect Magic](https://www.aidedd.org/spell/detect-magic),
+      [Identify](https://www.aidedd.org/spell/identify), [Mage Hand](https://www.aidedd.org/spell/mage-hand),
+      [Prestidigitation](https://www.aidedd.org/spell/prestidigitation)*
+
+
+      1/day each: *[Contact Other Plane](https://www.aidedd.org/spell/contact-other-plane),
+      [Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts), [Dimension
+      Door](https://www.aidedd.org/spell/dimension-door), [Mind Blank](https://www.aidedd.org/spell/mind-blank)*
+
 
       ## Bonus actions
 
-      ***Teleport***. The arcanaloth teleports up to 30 feet to an unoccupied space it can see.
+
+      ***Teleport***. The arcanaloth teleports up to 30 feet to an unoccupied space
+      it can see.
+
 
       ## Reactions
 
-      ***Counterspell***. The arcanaloth casts *[Counterspell](https://www.aidedd.org/spell/counterspell)* in response to that spell's trigger, using the same spellcasting ability as Spellcasting.
+
+      ***Counterspell***. The arcanaloth casts *[Counterspell](https://www.aidedd.org/spell/counterspell)*
+      in response to that spell''s trigger, using the same spellcasting ability as
+      Spellcasting.'
     senses: Truesight 120 ft., Passive Perception 17
     languages:
     - All; telepathy 120 ft.
   fr:
     name: Arcanaloth
     subtype: Yugoloth
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Restauration fiélonne***. Si l'arcanaloth meurt hors de Géhenne, son corps se dissout en ichor et il en acquiert aussitôt un nouveau et revient à la vie avec tous ses pv, quelque part dans Géhenne.
 
-      ***Résistance à la magie***. L'arcanaloth a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
+      ***Restauration fiélonne***. Si l''arcanaloth meurt hors de Géhenne, son corps
+      se dissout en ichor et il en acquiert aussitôt un nouveau et revient à la vie
+      avec tous ses pv, quelque part dans Géhenne.
 
-      ***Tome spirituel***. L'arcanaloth possède un grimoire magique. Lorsqu'il le tient ou le transporte, il peut utiliser son action Griffe du ban. Le grimoire a une CA de 17, 35 pv et est immunisé contre les dégâts nécrotiques, de poison et psychiques. Il récupère tous ses points de vie à la fin de chaque tour, mais se désintègre s'il tombe à 0 pv ou si l'arcanaloth meurt. Si le grimoire est détruit, l'arcanaloth peut en créer un nouveau lorsqu'il termine un Repos court ou long.
+
+      ***Résistance à la magie***. L''arcanaloth a un Avantage aux jets de sauvegarde
+      contre les sorts et autres effets magiques.
+
+
+      ***Tome spirituel***. L''arcanaloth possède un grimoire magique. Lorsqu''il
+      le tient ou le transporte, il peut utiliser son action Griffe du ban. Le grimoire
+      a une CA de 17, 35 pv et est immunisé contre les dégâts nécrotiques, de poison
+      et psychiques. Il récupère tous ses points de vie à la fin de chaque tour, mais
+      se désintègre s''il tombe à 0 pv ou si l''arcanaloth meurt. Si le grimoire est
+      détruit, l''arcanaloth peut en créer un nouveau lorsqu''il termine un Repos
+      court ou long.
+
 
       ## Actions
 
-      ***Attaques multiples***. L'arcanaloth effectue trois attaques de Décharge fiélonne. Il peut remplacer une attaque par une attaque de Griffe du ban.
 
-      ***Décharge fiélonne***. *Corps à corps ou à distance* : +9, allonge 1,50 m ou portée 36 m. *Touché* : 31 (4d12 + 5) dégâts nécrotiques.
+      ***Attaques multiples***. L''arcanaloth effectue trois attaques de Décharge
+      fiélonne. Il peut remplacer une attaque par une attaque de Griffe du ban.
 
-      ***Griffe du ban (nécessite le tome spirituel)***. *Corps à corps* : +9, allonge 1,50 m. *Touché* : 10 (2d4 + 5) dégâts tranchants plus 19 (3d12) dégâts psychiques. Si la cible est une créature, elle est sujette à l'effet suivant. *JdS Charisme* : DD 17. *Échec* : la cible est piégée dans un demi-plan à l'intérieur du tome spirituel. Tant qu'elle y est prisonnière, elle subit l'état Incapable d'agir. À la fin de chacun de ses tours, la cible renouvelle son jet de sauvegarde et s'échappe du grimoire en cas de réussite. Lorsqu'elle s'échappe, elle réapparaît à l'endroit qu'elle a quitté ou, si cet endroit est occupé, à l'endroit libre le plus proche. Si la cible rate trois de ces jets de sauvegarde dans le demi-plan, elle devient liée au grimoire et ne peut s'en échapper que si le grimoire atteint 0 point de vie.
 
-      ***Incantation***. L'arcanaloth lance l'un des sorts suivants sans composantes matérielles, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 17) :
+      ***Décharge fiélonne***. *Corps à corps ou à distance* : +9, allonge 1,50 m
+      ou portée 36 m. *Touché* : 31 (4d12 + 5) dégâts nécrotiques.
 
-      À volonté : *[modification d'apparence](https://www.aidedd.org/spell/fr/modification-d-apparence), [détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), [identification](https://www.aidedd.org/spell/fr/identification), [main de mage](https://www.aidedd.org/spell/fr/main-de-mage), [prestidigitation](https://www.aidedd.org/spell/fr/prestidigitation)*
-      
-      1/jour chacun : *[contact avec les plans](https://www.aidedd.org/spell/fr/contact-avec-les-plans), [détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees), [porte dimensionnelle](https://www.aidedd.org/spell/fr/porte-dimensionnelle), [esprit impénétrable](https://www.aidedd.org/spell/mind-blank)*
+
+      ***Griffe du ban (nécessite le tome spirituel)***. *Corps à corps* : +9, allonge
+      1,50 m. *Touché* : 10 (2d4 + 5) dégâts tranchants plus 19 (3d12) dégâts psychiques.
+      Si la cible est une créature, elle est sujette à l''effet suivant. *JdS Charisme*
+      : DD 17. *Échec* : la cible est piégée dans un demi-plan à l''intérieur du tome
+      spirituel. Tant qu''elle y est prisonnière, elle subit l''état Incapable d''agir.
+      À la fin de chacun de ses tours, la cible renouvelle son jet de sauvegarde et
+      s''échappe du grimoire en cas de réussite. Lorsqu''elle s''échappe, elle réapparaît
+      à l''endroit qu''elle a quitté ou, si cet endroit est occupé, à l''endroit libre
+      le plus proche. Si la cible rate trois de ces jets de sauvegarde dans le demi-plan,
+      elle devient liée au grimoire et ne peut s''en échapper que si le grimoire atteint
+      0 point de vie.
+
+
+      ***Incantation***. L''arcanaloth lance l''un des sorts suivants sans composantes
+      matérielles, l''Intelligence étant sa caractéristique d''incantation (DD de
+      sauvegarde 17) :
+
+
+      À volonté : *[modification d''apparence](https://www.aidedd.org/spell/fr/modification-d-apparence),
+      [détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie),
+      [identification](https://www.aidedd.org/spell/fr/identification), [main de mage](https://www.aidedd.org/spell/fr/main-de-mage),
+      [prestidigitation](https://www.aidedd.org/spell/fr/prestidigitation)*
+
+
+      1/jour chacun : *[contact avec les plans](https://www.aidedd.org/spell/fr/contact-avec-les-plans),
+      [détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees),
+      [porte dimensionnelle](https://www.aidedd.org/spell/fr/porte-dimensionnelle),
+      [esprit impénétrable](https://www.aidedd.org/spell/mind-blank)*
+
 
       ## Actions Bonus
 
-      ***Téléportation***. L'arcanaloth se téléporte d'un maximum de 9 m en un espace inoccupé qu'il voit.
+
+      ***Téléportation***. L''arcanaloth se téléporte d''un maximum de 9 m en un espace
+      inoccupé qu''il voit.
+
 
       ## Réactions
 
-      ***Contresort***. L'arcanaloth lance *[contresort](https://www.aidedd.org/spell/fr/contresort)* en réponse au déclencheur de ce sort, en utilisant la même capacité d'incantation que pour Incantation.
+
+      ***Contresort***. L''arcanaloth lance *[contresort](https://www.aidedd.org/spell/fr/contresort)*
+      en réponse au déclencheur de ce sort, en utilisant la même capacité d''incantation
+      que pour Incantation.'
     senses: vision véritable 36 m, Perception passive 17
     languages:
     - toutes ; télépathie 36 m

@@ -8,24 +8,17 @@ armorClass: 18
 maxHitPoints: 255
 hitDice: 30d8+120
 abilities:
-  str:
-    value: 10
-    savingThrowProficiency: none
-  dex:
-    value: 16
-    savingThrowProficiency: proficient
-  con:
-    value: 18
-    savingThrowProficiency: proficient
-  int:
-    value: 20
-    savingThrowProficiency: proficient
-  wis:
-    value: 16
-    savingThrowProficiency: proficient
-  cha:
-    value: 18
-    savingThrowProficiency: none
+  str: 10
+  dex: 16
+  con: 18
+  int: 20
+  wis: 16
+  cha: 18
+savingThrows:
+  dex: proficient
+  con: proficient
+  int: proficient
+  wis: proficient
 speeds:
   walk: 30
   fly: 30
@@ -88,24 +81,41 @@ translations:
   en:
     name: Githyanki Dracomancer
     subtype: Gith
-    description: |-
-      ## Actions
+    description: '## Actions
+
 
       ***Multiattack***. The githyanki makes three Draconic Strike attacks.
 
-      ***Draconic Strike***. *Melee or Ranged Attack Roll* : +10, reach 10 ft. or range 120 ft. *Hit* : 12 (2d6 + 5) Slashing damage plus 17 (5d6) Fire damage, and the target has the Frightened condition until the start of the githyanki's next turn.
 
-      ***Conjured Dragon's Breath (Recharge 5–6)***. *Dexterity Saving Throw* : DC 18, each creature in a 90-foot Cone. *Failure* : 27 (6d8) Fire damage plus 27 (6d8) Force damage. *Success* : Half damage.
+      ***Draconic Strike***. *Melee or Ranged Attack Roll* : +10, reach 10 ft. or
+      range 120 ft. *Hit* : 12 (2d6 + 5) Slashing damage plus 17 (5d6) Fire damage,
+      and the target has the Frightened condition until the start of the githyanki''s
+      next turn.
 
-      ***Spellcasting***. The githyanki casts one of the following spells, requiring no spell components and using Intelligence as the spellcasting ability (spell save DC 18, +10 to hit with spell attacks):
 
-      At will: *[Mage Hand](https://www.aidedd.org/spell/mage-hand)* (the hand is Invisible)
-      
-      2/day each: *[Nondetection](https://www.aidedd.org/spell/nondetection)* (self only), *[Plane Shift](https://www.aidedd.org/spell/plane-shift), [Tongues](https://www.aidedd.org/spell/tongues)*
+      ***Conjured Dragon''s Breath (Recharge 5–6)***. *Dexterity Saving Throw* : DC
+      18, each creature in a 90-foot Cone. *Failure* : 27 (6d8) Fire damage plus 27
+      (6d8) Force damage. *Success* : Half damage.
+
+
+      ***Spellcasting***. The githyanki casts one of the following spells, requiring
+      no spell components and using Intelligence as the spellcasting ability (spell
+      save DC 18, +10 to hit with spell attacks):
+
+
+      At will: *[Mage Hand](https://www.aidedd.org/spell/mage-hand)* (the hand is
+      Invisible)
+
+
+      2/day each: *[Nondetection](https://www.aidedd.org/spell/nondetection)* (self
+      only), *[Plane Shift](https://www.aidedd.org/spell/plane-shift), [Tongues](https://www.aidedd.org/spell/tongues)*
+
 
       ## Bonus actions
 
-      ***Misty Step (3/Day)***. The githyanki casts *[Misty Step](https://www.aidedd.org/spell/misty-step)* , requiring no spell components and using the same spellcasting ability as Spellcasting.
+
+      ***Misty Step (3/Day)***. The githyanki casts *[Misty Step](https://www.aidedd.org/spell/misty-step)*
+      , requiring no spell components and using the same spellcasting ability as Spellcasting.'
     senses: Blindsight 30 ft., Passive Perception 18
     languages:
     - Common
@@ -114,20 +124,25 @@ translations:
   fr:
     name: Githyanki, dracomancien
     subtype: Gith
-    description: |-
-      ## Actions
+    description: '## Actions
+
 
       Attaques multiples.
-      
+
+
       Frappe draconique.
-      
+
+
       Souffle du dragon invoqué (recharge 5–6).
-      
+
+
       Incantation.
+
 
       ## Actions Bonus
 
-      Foulée brumeuse (3/jour).
+
+      Foulée brumeuse (3/jour).'
     senses: Vision aveugle 9 m, Perception passive 18
     languages:
     - commun

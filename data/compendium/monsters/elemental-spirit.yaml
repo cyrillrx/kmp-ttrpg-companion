@@ -8,24 +8,12 @@ armorClass: 11
 maxHitPoints: 50
 hitDice: ''
 abilities:
-  str:
-    value: 18
-    savingThrowProficiency: none
-  dex:
-    value: 15
-    savingThrowProficiency: none
-  con:
-    value: 17
-    savingThrowProficiency: none
-  int:
-    value: 4
-    savingThrowProficiency: none
-  wis:
-    value: 10
-    savingThrowProficiency: none
-  cha:
-    value: 16
-    savingThrowProficiency: none
+  str: 18
+  dex: 15
+  con: 17
+  int: 4
+  wis: 10
+  cha: 16
 speeds:
   walk: 40
   fly: 40
@@ -88,16 +76,23 @@ translations:
   en:
     name: Elemental Spirit
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Amorphous Form (Air, Fire, and Water Only)***. The spirit can move through a space as narrow as 1 inch wide without it counting as Difficult Terrain.
+
+      ***Amorphous Form (Air, Fire, and Water Only)***. The spirit can move through
+      a space as narrow as 1 inch wide without it counting as Difficult Terrain.
+
 
       ## Actions
 
-      ***Multiattack***. The spirit makes a number of Slam attacks equal to half this spell's level (round down).
 
-      ***Slam***. *Melee Attack Roll* : Bonus equals your spell attack modifier, reach 5 ft. *Hit* : 1d10 + 4 + the spell's level Bludgeoning (Earth only), Cold (Water only), Lightning (Air only), or Fire (Fire only) damage.
+      ***Multiattack***. The spirit makes a number of Slam attacks equal to half this
+      spell''s level (round down).
+
+
+      ***Slam***. *Melee Attack Roll* : Bonus equals your spell attack modifier, reach
+      5 ft. *Hit* : 1d10 + 4 + the spell''s level Bludgeoning (Earth only), Cold (Water
+      only), Lightning (Air only), or Fire (Fire only) damage.'
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - Primordial
@@ -105,16 +100,25 @@ translations:
   fr:
     name: Esprit élémentaire
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***État informe (air, feu et eau uniquement)***. L'esprit peut se déplacer dans un espace de 2,50 cm de large sans que cela soit considéré comme un Terrain difficile.
+
+      ***État informe (air, feu et eau uniquement)***. L''esprit peut se déplacer
+      dans un espace de 2,50 cm de large sans que cela soit considéré comme un Terrain
+      difficile.
+
 
       ## Actions
 
-      ***Attaques multiples***. L'esprit effectue un nombre d'attaques de Coup égal à la moitié du niveau de ce sort (arrondir à l'inférieur).
 
-      ***Coup***. *Corps à corps* : bonus égal à votre modificateur d'attaque des sorts, allonge 1,50 m. *Touché* : 1d10 + 4 + le niveau du sort dégâts contondants (Terre uniquement), de froid (Eau uniquement), de foudre (Air uniquement) ou de feu (Feu uniquement).
+      ***Attaques multiples***. L''esprit effectue un nombre d''attaques de Coup égal
+      à la moitié du niveau de ce sort (arrondir à l''inférieur).
+
+
+      ***Coup***. *Corps à corps* : bonus égal à votre modificateur d''attaque des
+      sorts, allonge 1,50 m. *Touché* : 1d10 + 4 + le niveau du sort dégâts contondants
+      (Terre uniquement), de froid (Eau uniquement), de foudre (Air uniquement) ou
+      de feu (Feu uniquement).'
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - primordial

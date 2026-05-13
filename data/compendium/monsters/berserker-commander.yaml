@@ -8,24 +8,15 @@ armorClass: 16
 maxHitPoints: 136
 hitDice: 16d8+64
 abilities:
-  str:
-    value: 19
-    savingThrowProficiency: proficient
-  dex:
-    value: 14
-    savingThrowProficiency: none
-  con:
-    value: 19
-    savingThrowProficiency: proficient
-  int:
-    value: 10
-    savingThrowProficiency: none
-  wis:
-    value: 14
-    savingThrowProficiency: none
-  cha:
-    value: 9
-    savingThrowProficiency: none
+  str: 19
+  dex: 14
+  con: 19
+  int: 10
+  wis: 14
+  cha: 9
+savingThrows:
+  str: proficient
+  con: proficient
 speeds:
   walk: 40
   fly: null
@@ -88,44 +79,74 @@ translations:
   en:
     name: Berserker Commander
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Bloodied Frenzy***. While Bloodied, the berserker has Advantage on attack rolls and saving throws.
+
+      ***Bloodied Frenzy***. While Bloodied, the berserker has Advantage on attack
+      rolls and saving throws.
+
 
       ## Actions
 
-      ***Multiattack***. The berserker makes three attacks, using Greataxe or Javelin in any combination.
 
-      ***Greataxe***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 10 (1d12 + 4) Slashing damage, plus 10 (3d6) Thunder damage to the target or another creature within 5 feet of the target.
+      ***Multiattack***. The berserker makes three attacks, using Greataxe or Javelin
+      in any combination.
 
-      ***Javelin***. *Melee or Ranged Attack Roll* : +7, reach 5 ft. or range 30/120 ft. *Hit* : 18 (4d6 + 4) Piercing damage, and the target's Speed decreases by 5 feet until the start of the berserker's next turn.
+
+      ***Greataxe***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 10 (1d12 + 4)
+      Slashing damage, plus 10 (3d6) Thunder damage to the target or another creature
+      within 5 feet of the target.
+
+
+      ***Javelin***. *Melee or Ranged Attack Roll* : +7, reach 5 ft. or range 30/120
+      ft. *Hit* : 18 (4d6 + 4) Piercing damage, and the target''s Speed decreases
+      by 5 feet until the start of the berserker''s next turn.
+
 
       ## Bonus actions
 
-      ***Frenzied Rush***. Each ally within 30 feet of the berserker can take a Reaction to move up to half the ally's Speed without provoking Opportunity Attacks. The berserker can also move up to half its Speed without provoking Opportunity Attacks.
+
+      ***Frenzied Rush***. Each ally within 30 feet of the berserker can take a Reaction
+      to move up to half the ally''s Speed without provoking Opportunity Attacks.
+      The berserker can also move up to half its Speed without provoking Opportunity
+      Attacks.'
     senses: Passive Perception 15
     languages:
     - Common
   fr:
     name: Berserker, chef
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Frénésie du péril***. Lorsqu'il est En péril, le berserker a un Avantage aux jets d'attaque et de sauvegarde.
+
+      ***Frénésie du péril***. Lorsqu''il est En péril, le berserker a un Avantage
+      aux jets d''attaque et de sauvegarde.
+
 
       ## Actions
 
-      ***Attaques multiples***. Le berserker effectue trois attaques, réparties à sa guise entre Hache à deux mains et Javeline.
 
-      ***Hache à deux mains***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 10 (1d12 + 4) dégâts tranchants, plus 10 (3d6) dégâts de tonnerre contre la cible ou une autre créature dans un rayon de 1,50 m autour de la cible.
+      ***Attaques multiples***. Le berserker effectue trois attaques, réparties à
+      sa guise entre Hache à deux mains et Javeline.
 
-      ***Javeline***. *Corps à corps ou à distance* : +7, allonge 1,50 m ou portée 30/36 m. *Touché* : 18 (4d6 + 4) dégâts perforants, et la Vitesse de la cible est réduite de 1,50 m jusqu'au début du prochain tour du berserker.
+
+      ***Hache à deux mains***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 10
+      (1d12 + 4) dégâts tranchants, plus 10 (3d6) dégâts de tonnerre contre la cible
+      ou une autre créature dans un rayon de 1,50 m autour de la cible.
+
+
+      ***Javeline***. *Corps à corps ou à distance* : +7, allonge 1,50 m ou portée
+      30/36 m. *Touché* : 18 (4d6 + 4) dégâts perforants, et la Vitesse de la cible
+      est réduite de 1,50 m jusqu''au début du prochain tour du berserker.
+
 
       ## Actions Bonus
 
-      ***Ruée frénétique***. Chaque allié dans un rayon de 9 m autour du berserker peut prendre une Réaction pour se déplacer jusqu'à la moitié de sa Vitesse sans provoquer d'attaques d'Opportunité. Le berserker peut également se déplacer jusqu'à la moitié de sa vitesse sans provoquer d'attaques d'Opportunité.
+
+      ***Ruée frénétique***. Chaque allié dans un rayon de 9 m autour du berserker
+      peut prendre une Réaction pour se déplacer jusqu''à la moitié de sa Vitesse
+      sans provoquer d''attaques d''Opportunité. Le berserker peut également se déplacer
+      jusqu''à la moitié de sa vitesse sans provoquer d''attaques d''Opportunité.'
     senses: Perception passive 15
     languages:
     - commun

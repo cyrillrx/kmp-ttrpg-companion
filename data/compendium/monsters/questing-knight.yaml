@@ -8,24 +8,17 @@ armorClass: 18
 maxHitPoints: 202
 hitDice: 27d8+81
 abilities:
-  str:
-    value: 20
-    savingThrowProficiency: proficient
-  dex:
-    value: 16
-    savingThrowProficiency: none
-  con:
-    value: 16
-    savingThrowProficiency: proficient
-  int:
-    value: 11
-    savingThrowProficiency: none
-  wis:
-    value: 12
-    savingThrowProficiency: proficient
-  cha:
-    value: 18
-    savingThrowProficiency: proficient
+  str: 20
+  dex: 16
+  con: 16
+  int: 11
+  wis: 12
+  cha: 18
+savingThrows:
+  str: proficient
+  con: proficient
+  wis: proficient
+  cha: proficient
 speeds:
   walk: 30
   fly: null
@@ -88,44 +81,73 @@ translations:
   en:
     name: Questing Knight
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Aura of Bravery***. Creatures of the knight's choice in a 30-foot Emanation originating from it have Immunity to the Charmed and Frightened conditions while there.
+
+      ***Aura of Bravery***. Creatures of the knight''s choice in a 30-foot Emanation
+      originating from it have Immunity to the Charmed and Frightened conditions while
+      there.
+
 
       ## Actions
 
-      ***Multiattack***. The knight makes three attacks, using Greatsword or Longbow in any combination.
 
-      ***Greatsword***. *Melee Attack Roll* : +9, reach 5 ft. *Hit* : 12 (2d6 + 5) Slashing damage plus 22 (5d8) Radiant damage.
+      ***Multiattack***. The knight makes three attacks, using Greatsword or Longbow
+      in any combination.
 
-      ***Longbow***. *Ranged Attack Roll* : +7, range 150/600 ft. *Hit* : 12 (2d8 + 3) Piercing damage plus 22 (5d8) Radiant damage.
 
-      ***Spellcasting***. The knight casts one of the following spells, using Charisma as the spellcasting ability (spell save DC 16):
+      ***Greatsword***. *Melee Attack Roll* : +9, reach 5 ft. *Hit* : 12 (2d6 + 5)
+      Slashing damage plus 22 (5d8) Radiant damage.
 
-      1/day each: *[Daylight](https://www.aidedd.org/spell/daylight), [Dispel Evil and Good](https://www.aidedd.org/spell/dispel-evil-and-good), [Greater Restoration](https://www.aidedd.org/spell/greater-restoration), [Phantom Steed](https://www.aidedd.org/spell/phantom-steed)*
+
+      ***Longbow***. *Ranged Attack Roll* : +7, range 150/600 ft. *Hit* : 12 (2d8
+      + 3) Piercing damage plus 22 (5d8) Radiant damage.
+
+
+      ***Spellcasting***. The knight casts one of the following spells, using Charisma
+      as the spellcasting ability (spell save DC 16):
+
+
+      1/day each: *[Daylight](https://www.aidedd.org/spell/daylight), [Dispel Evil
+      and Good](https://www.aidedd.org/spell/dispel-evil-and-good), [Greater Restoration](https://www.aidedd.org/spell/greater-restoration),
+      [Phantom Steed](https://www.aidedd.org/spell/phantom-steed)*'
     senses: Passive Perception 15
     languages:
     - Common plus one other language
   fr:
     name: Chevalier errant
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Aura de bravoure***. Les créatures choisies par le chevalier dans une Émanation de 9 m centrée sur celui-ci bénéficient d'une Immunité aux états Charmé et Effrayé tant qu'elles s'y trouvent.
+
+      ***Aura de bravoure***. Les créatures choisies par le chevalier dans une Émanation
+      de 9 m centrée sur celui-ci bénéficient d''une Immunité aux états Charmé et
+      Effrayé tant qu''elles s''y trouvent.
+
 
       ## Actions
 
-      ***Attaques multiples***. Le chevalier effectue trois attaques, réparties à sa guise entre Épée à deux mains et Arc long.
 
-      ***Épée à deux mains***. *Corps à corps* : +9, allonge 1,50 m. *Touché* : 12 (2d6 + 5) dégâts tranchants plus 22 (5d8) dégâts radiants.
+      ***Attaques multiples***. Le chevalier effectue trois attaques, réparties à
+      sa guise entre Épée à deux mains et Arc long.
 
-      ***Arc long***. *À distance* : +7, portée 45/180 m. *Touché* : 12 (2d8 + 3) dégâts perforants plus 22 (5d8) dégâts radiants.
 
-      ***Incantation***. Le chevalier lance l'un des sorts suivants, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 16) :
+      ***Épée à deux mains***. *Corps à corps* : +9, allonge 1,50 m. *Touché* : 12
+      (2d6 + 5) dégâts tranchants plus 22 (5d8) dégâts radiants.
 
-      1/jour chacun : *[lumière du jour](https://www.aidedd.org/spell/fr/lumiere-du-jour), [dissipation du mal et du bien](https://www.aidedd.org/spell/fr/dissipation-du-mal-et-du-bien), [restauration suprême](https://www.aidedd.org/spell/fr/restauration-supreme), [monture fantôme](https://www.aidedd.org/spell/fr/monture-fantome)*
+
+      ***Arc long***. *À distance* : +7, portée 45/180 m. *Touché* : 12 (2d8 + 3)
+      dégâts perforants plus 22 (5d8) dégâts radiants.
+
+
+      ***Incantation***. Le chevalier lance l''un des sorts suivants, le Charisme
+      étant sa caractéristique d''incantation (DD de sauvegarde 16) :
+
+
+      1/jour chacun : *[lumière du jour](https://www.aidedd.org/spell/fr/lumiere-du-jour),
+      [dissipation du mal et du bien](https://www.aidedd.org/spell/fr/dissipation-du-mal-et-du-bien),
+      [restauration suprême](https://www.aidedd.org/spell/fr/restauration-supreme),
+      [monture fantôme](https://www.aidedd.org/spell/fr/monture-fantome)*'
     senses: Perception passive 15
     languages:
     - commun plus une autre langue

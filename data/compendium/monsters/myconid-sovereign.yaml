@@ -8,24 +8,12 @@ armorClass: 13
 maxHitPoints: 45
 hitDice: 6d10+12
 abilities:
-  str:
-    value: 12
-    savingThrowProficiency: none
-  dex:
-    value: 10
-    savingThrowProficiency: none
-  con:
-    value: 14
-    savingThrowProficiency: none
-  int:
-    value: 13
-    savingThrowProficiency: none
-  wis:
-    value: 15
-    savingThrowProficiency: none
-  cha:
-    value: 10
-    savingThrowProficiency: none
+  str: 12
+  dex: 10
+  con: 14
+  int: 13
+  wis: 15
+  cha: 10
 speeds:
   walk: 30
   fly: null
@@ -88,44 +76,82 @@ translations:
   en:
     name: Myconid Sovereign
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Sun Sickness***. While in sunlight, the myconid has Disadvantage on D20 Tests. The myconid dies if it spends more than 1 hour in sunlight.
+
+      ***Sun Sickness***. While in sunlight, the myconid has Disadvantage on D20 Tests.
+      The myconid dies if it spends more than 1 hour in sunlight.
+
 
       ## Actions
 
+
       ***Multiattack***. The myconid makes one Slam attack and uses Pacifying Spores.
 
-      ***Slam***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 6 (2d4 + 1) Bludgeoning damage plus 5 (2d4) Poison damage.
 
-      ***Animating Spores (3/Day)***. The myconid releases spores at a Medium or Small corpse within 5 feet of it that wasn't a Construct or an Undead. In 24 hours, the corpse rises as a **Myconid Spore Servant**. The corpse stays animate for 1d4 + 1 weeks or until destroyed, and it can't be animated again in this way.
+      ***Slam***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 6 (2d4 + 1) Bludgeoning
+      damage plus 5 (2d4) Poison damage.
 
-      ***Pacifying Spores***. *Constitution Saving Throw* : DC 12, one creature the myconid can see within 10 feet. *Failure* : The target has the Stunned condition and repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically.
 
-      ***Rapport Spores***. The myconid expels spores in a 30-foot Emanation originating from itself. Creatures in that area with an Intelligence score of 2 or higher that aren't Constructs, Elementals, or Undead gain telepathy with a range of 30 feet for 1 hour.
+      ***Animating Spores (3/Day)***. The myconid releases spores at a Medium or Small
+      corpse within 5 feet of it that wasn''t a Construct or an Undead. In 24 hours,
+      the corpse rises as a **Myconid Spore Servant**. The corpse stays animate for
+      1d4 + 1 weeks or until destroyed, and it can''t be animated again in this way.
+
+
+      ***Pacifying Spores***. *Constitution Saving Throw* : DC 12, one creature the
+      myconid can see within 10 feet. *Failure* : The target has the Stunned condition
+      and repeats the save at the end of each of its turns, ending the effect on itself
+      on a success. After 1 minute, it succeeds automatically.
+
+
+      ***Rapport Spores***. The myconid expels spores in a 30-foot Emanation originating
+      from itself. Creatures in that area with an Intelligence score of 2 or higher
+      that aren''t Constructs, Elementals, or Undead gain telepathy with a range of
+      30 feet for 1 hour.'
     senses: Darkvision 120 ft., Passive Perception 12
     languages:
     - Telepathy 240 ft.
   fr:
     name: Myconide, souverain
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Soleillite aiguë***. Exposé au soleil, le myconide subit un Désavantage aux jets de d20. Il meurt s'il reste plus d'une heure au soleil.
+
+      ***Soleillite aiguë***. Exposé au soleil, le myconide subit un Désavantage aux
+      jets de d20. Il meurt s''il reste plus d''une heure au soleil.
+
 
       ## Actions
 
-      ***Attaques multiples***. Le myconide effectue une attaque de Coup et utilise Spores pacificatrices.
 
-      ***Coup***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 6 (2d4 + 1) dégâts contondants plus 5 (2d4) dégâts de poison.
+      ***Attaques multiples***. Le myconide effectue une attaque de Coup et utilise
+      Spores pacificatrices.
 
-      ***Spores d'animation (3/jour)***. Le myconide libère des spores sur un cadavre de taille M ou P situé dans un rayon de 1,50 m, à condition qu'il ne s'agisse ni d'un Artificiel ni d'un Mort-vivant. 24 heures plus tard, le cadavre se relève et devient un **serviteur de spores myconide**. Il reste animé pendant 1d4 + 1 semaines ou jusqu'à sa destruction, et ne peut plus être animé de cette manière.
 
-      ***Spores pacificatrices***. *JdS Constitution* : DD 12, une créature que le myconide peut voir dans un rayon de 3 m. *Échec* : la cible subit l'état Étourdi et doit refaire le jet à la fin de chacun de ses tours. En cas de réussite, l'effet prend fin. Après 1 minute, la réussite est automatique.
+      ***Coup***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 6 (2d4 + 1) dégâts
+      contondants plus 5 (2d4) dégâts de poison.
 
-      ***Spores de communication***. Le myconide expulse des spores sous forme d'une Émanation de 9 m de rayon centrée sur lui-même. Les créatures présentes dans cette zone qui possèdent une Intelligence de 2 ou plus, à l'exception des Artificiels, des Élémentaires et des Morts-vivants, acquièrent la télépathie sur 9 m pendant 1 heure.
+
+      ***Spores d''animation (3/jour)***. Le myconide libère des spores sur un cadavre
+      de taille M ou P situé dans un rayon de 1,50 m, à condition qu''il ne s''agisse
+      ni d''un Artificiel ni d''un Mort-vivant. 24 heures plus tard, le cadavre se
+      relève et devient un **serviteur de spores myconide**. Il reste animé pendant
+      1d4 + 1 semaines ou jusqu''à sa destruction, et ne peut plus être animé de cette
+      manière.
+
+
+      ***Spores pacificatrices***. *JdS Constitution* : DD 12, une créature que le
+      myconide peut voir dans un rayon de 3 m. *Échec* : la cible subit l''état Étourdi
+      et doit refaire le jet à la fin de chacun de ses tours. En cas de réussite,
+      l''effet prend fin. Après 1 minute, la réussite est automatique.
+
+
+      ***Spores de communication***. Le myconide expulse des spores sous forme d''une
+      Émanation de 9 m de rayon centrée sur lui-même. Les créatures présentes dans
+      cette zone qui possèdent une Intelligence de 2 ou plus, à l''exception des Artificiels,
+      des Élémentaires et des Morts-vivants, acquièrent la télépathie sur 9 m pendant
+      1 heure.'
     senses: Vision dans le noir 36 m, Perception passive 12
     languages:
     - télépathie 72 m

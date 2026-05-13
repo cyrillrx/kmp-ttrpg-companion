@@ -8,24 +8,12 @@ armorClass: 11
 maxHitPoints: 11
 hitDice: 2d8+2
 abilities:
-  str:
-    value: 10
-    savingThrowProficiency: none
-  dex:
-    value: 13
-    savingThrowProficiency: none
-  con:
-    value: 12
-    savingThrowProficiency: none
-  int:
-    value: 11
-    savingThrowProficiency: none
-  wis:
-    value: 14
-    savingThrowProficiency: none
-  cha:
-    value: 12
-    savingThrowProficiency: none
+  str: 10
+  dex: 13
+  con: 12
+  int: 11
+  wis: 14
+  cha: 12
 speeds:
   walk: 10
   fly: null
@@ -88,14 +76,20 @@ translations:
   en:
     name: Merfolk Skirmisher
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
+
 
       ***Amphibious***. The merfolk can breathe air and water.
 
+
       ## Actions
 
-      ***Ocean Spear***. *Melee or Ranged Attack Roll* : +2, reach 5 ft. or range 20/60 ft. *Hit* : 3 (1d6) Piercing damage plus 2 (1d4) Cold damage. If the target is a creature, its Speed decreases by 10 feet until the end of its next turn. *Hit or Miss* : The spear magically returns to the merfolk's hand immediately after a ranged attack.
+
+      ***Ocean Spear***. *Melee or Ranged Attack Roll* : +2, reach 5 ft. or range
+      20/60 ft. *Hit* : 3 (1d6) Piercing damage plus 2 (1d4) Cold damage. If the target
+      is a creature, its Speed decreases by 10 feet until the end of its next turn.
+      *Hit or Miss* : The spear magically returns to the merfolk''s hand immediately
+      after a ranged attack.'
     senses: Passive Perception 12
     languages:
     - Common
@@ -103,14 +97,20 @@ translations:
   fr:
     name: Thalasséen, tirailleur
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Amphibie***. Le thalasséen peut respirer sous l'eau comme à l'air libre.
+
+      ***Amphibie***. Le thalasséen peut respirer sous l''eau comme à l''air libre.
+
 
       ## Actions
 
-      ***Lance océanique***. *Corps à corps ou à distance* : +2, allonge 1,50 m ou portée 6/18 m. *Touché* : 3 (1d6) dégâts perforants plus 2 (1d4) dégâts de froid. Si la cible est une créature, sa Vitesse est réduite de 3 m jusqu'à la fin de son tour suivant. *Touché ou raté* : aussitôt après une attaque à distance, la lance retourne magiquement dans la main du thalasséen.
+
+      ***Lance océanique***. *Corps à corps ou à distance* : +2, allonge 1,50 m ou
+      portée 6/18 m. *Touché* : 3 (1d6) dégâts perforants plus 2 (1d4) dégâts de froid.
+      Si la cible est une créature, sa Vitesse est réduite de 3 m jusqu''à la fin
+      de son tour suivant. *Touché ou raté* : aussitôt après une attaque à distance,
+      la lance retourne magiquement dans la main du thalasséen.'
     senses: Perception passive 12
     languages:
     - commun

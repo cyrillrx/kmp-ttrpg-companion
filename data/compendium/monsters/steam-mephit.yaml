@@ -8,24 +8,12 @@ armorClass: 10
 maxHitPoints: 17
 hitDice: 5d6
 abilities:
-  str:
-    value: 5
-    savingThrowProficiency: none
-  dex:
-    value: 11
-    savingThrowProficiency: none
-  con:
-    value: 10
-    savingThrowProficiency: none
-  int:
-    value: 11
-    savingThrowProficiency: none
-  wis:
-    value: 10
-    savingThrowProficiency: none
-  cha:
-    value: 12
-    savingThrowProficiency: none
+  str: 5
+  dex: 11
+  con: 10
+  int: 11
+  wis: 10
+  cha: 12
 speeds:
   walk: 30
   fly: 30
@@ -88,18 +76,30 @@ translations:
   en:
     name: Steam Mephit
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Blurred Form***. Attack rolls against the mephit are made with Disadvantage unless the mephit has the Incapacitated condition.
 
-      ***Death Burst***. The mephit explodes when it dies. *Dexterity Saving Throw* : DC 10, each creature in a 5-foot Emanation originating from the mephit. *Failure* : 5 (2d4) Fire damage. *Success* : Half damage.
+      ***Blurred Form***. Attack rolls against the mephit are made with Disadvantage
+      unless the mephit has the Incapacitated condition.
+
+
+      ***Death Burst***. The mephit explodes when it dies. *Dexterity Saving Throw*
+      : DC 10, each creature in a 5-foot Emanation originating from the mephit. *Failure*
+      : 5 (2d4) Fire damage. *Success* : Half damage.
+
 
       ## Actions
 
-      ***Claw***. *Melee Attack Roll* : +2, reach 5 ft. *Hit* : 2 (1d4) Slashing damage plus 2 (1d4) Fire damage.
 
-      ***Steam Breath (Recharge 6)***. *Constitution Saving Throw* : DC 10, each creature in a 15-foot Cone. *Failure* : 5 (2d4) Fire damage, and the target's Speed decreases by 10 feet until the end of the mephit's next turn. *Success* : Half damage only. *Failure or Success* : Being underwater doesn't grant Resistance to this Fire damage.
+      ***Claw***. *Melee Attack Roll* : +2, reach 5 ft. *Hit* : 2 (1d4) Slashing damage
+      plus 2 (1d4) Fire damage.
+
+
+      ***Steam Breath (Recharge 6)***. *Constitution Saving Throw* : DC 10, each creature
+      in a 15-foot Cone. *Failure* : 5 (2d4) Fire damage, and the target''s Speed
+      decreases by 10 feet until the end of the mephit''s next turn. *Success* : Half
+      damage only. *Failure or Success* : Being underwater doesn''t grant Resistance
+      to this Fire damage.'
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - Primordial (Aquan
@@ -107,18 +107,30 @@ translations:
   fr:
     name: Méphite vaporeux
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Explosion finale***. Le méphite explose quand il meurt. *JdS Dextérité* : DD 10, chaque créature dans une Émanation de 1,50 m centrée sur le méphite. *Échec* : 5 (2d4) dégâts de feu. *Réussite* : demi-dégâts.
 
-      ***Forme floue***. Les jets d'attaque contre le méphite subissent un Désavantage sauf si le méphite subit l'état Incapable d'agir.
+      ***Explosion finale***. Le méphite explose quand il meurt. *JdS Dextérité* :
+      DD 10, chaque créature dans une Émanation de 1,50 m centrée sur le méphite.
+      *Échec* : 5 (2d4) dégâts de feu. *Réussite* : demi-dégâts.
+
+
+      ***Forme floue***. Les jets d''attaque contre le méphite subissent un Désavantage
+      sauf si le méphite subit l''état Incapable d''agir.
+
 
       ## Actions
 
-      ***Griffe***. *Corps à corps* : +2, allonge 1,50 m. *Touché* : 2 (1d4) dégâts tranchants plus 2 (1d4) dégâts de feu.
 
-      ***Souffle de vapeur (recharge 6)***. *JdS Constitution* : DD 10, chaque créature dans un Cône de 4,50 m. *Échec* : 5 (2d4) dégâts de feu, et la Vitesse de la cible est réduite de 3 m jusqu'à la fin du tour suivant du méphite. *Réussite* : demi-dégâts uniquement. *Échec ou réussite* : être immergé dans l'eau n'octroie pas la Résistance à ces dégâts de feu.
+      ***Griffe***. *Corps à corps* : +2, allonge 1,50 m. *Touché* : 2 (1d4) dégâts
+      tranchants plus 2 (1d4) dégâts de feu.
+
+
+      ***Souffle de vapeur (recharge 6)***. *JdS Constitution* : DD 10, chaque créature
+      dans un Cône de 4,50 m. *Échec* : 5 (2d4) dégâts de feu, et la Vitesse de la
+      cible est réduite de 3 m jusqu''à la fin du tour suivant du méphite. *Réussite*
+      : demi-dégâts uniquement. *Échec ou réussite* : être immergé dans l''eau n''octroie
+      pas la Résistance à ces dégâts de feu.'
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - primordial (aquatique

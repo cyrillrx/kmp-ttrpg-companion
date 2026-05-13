@@ -8,24 +8,12 @@ armorClass: 13
 maxHitPoints: 19
 hitDice: 3d8+6
 abilities:
-  str:
-    value: 14
-    savingThrowProficiency: none
-  dex:
-    value: 12
-    savingThrowProficiency: none
-  con:
-    value: 15
-    savingThrowProficiency: none
-  int:
-    value: 5
-    savingThrowProficiency: none
-  wis:
-    value: 8
-    savingThrowProficiency: none
-  cha:
-    value: 3
-    savingThrowProficiency: none
+  str: 14
+  dex: 12
+  con: 15
+  int: 5
+  wis: 8
+  cha: 3
 speeds:
   walk: 30
   fly: null
@@ -88,40 +76,57 @@ translations:
   en:
     name: Manes Vaporspawn
     subtype: Demon
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Contortionist***. The manes can move through a space as narrow as 1 inch without expending extra movement to do so.
 
-      ***Sickening Vapors***. *Constitution Saving Throw* : DC 12, each creature in a 5-foot Emanation originating from the manes at the end of the manes's turn. *Failure* : The target has the Incapacitated condition until the end of its next turn. *Success* : The target is immune to this manes's Sickening Vapors for 24 hours.
+      ***Contortionist***. The manes can move through a space as narrow as 1 inch
+      without expending extra movement to do so.
+
+
+      ***Sickening Vapors***. *Constitution Saving Throw* : DC 12, each creature in
+      a 5-foot Emanation originating from the manes at the end of the manes''s turn.
+      *Failure* : The target has the Incapacitated condition until the end of its
+      next turn. *Success* : The target is immune to this manes''s Sickening Vapors
+      for 24 hours.
+
 
       ## Actions
 
-      ***Claw***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 5 (1d6 + 2) Slashing damage plus 5 (2d4) Necrotic damage.
+
+      ***Claw***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 5 (1d6 + 2) Slashing
+      damage plus 5 (2d4) Necrotic damage.
+
 
       ## Bonus actions
 
-      ***Shadow Stealth***. While in Dim Light or Darkness, the manes takes the Hide action.
+
+      ***Shadow Stealth***. While in Dim Light or Darkness, the manes takes the Hide
+      action.'
     senses: Darkvision 60 ft., Passive Perception 9
     languages:
     - Understands Abyssal but can't speak
   fr:
     name: Mâne vaporeux
     subtype: Démon
-    description: |-
-      ## Traits
+    description: '## Traits
+
 
       Contortionniste.
-      
+
+
       Vapeurs morbides.
+
 
       ## Actions
 
+
       Griffes.
+
 
       ## Actions Bonus
 
-      Discrétion dans les ombres.
+
+      Discrétion dans les ombres.'
     senses: Vision dans le noir 18 m, Perception passive 9
     languages:
     - comprend l'abyssal mais ne parle pas

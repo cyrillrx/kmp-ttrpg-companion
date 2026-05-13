@@ -8,24 +8,12 @@ armorClass: 18
 maxHitPoints: 75
 hitDice: 10d8+30
 abilities:
-  str:
-    value: 18
-    savingThrowProficiency: none
-  dex:
-    value: 14
-    savingThrowProficiency: none
-  con:
-    value: 16
-    savingThrowProficiency: none
-  int:
-    value: 12
-    savingThrowProficiency: none
-  wis:
-    value: 14
-    savingThrowProficiency: none
-  cha:
-    value: 13
-    savingThrowProficiency: none
+  str: 18
+  dex: 14
+  con: 16
+  int: 12
+  wis: 14
+  cha: 13
 speeds:
   walk: 30
   fly: null
@@ -88,28 +76,38 @@ translations:
   en:
     name: Guard Captain
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Multiattack***. The guard makes two attacks, using Javelin or Longsword in any combination.
 
-      ***Javelin***. *Melee or Ranged Attack Roll* : +6, reach 5 ft. or range 30/120 ft. *Hit* : 14 (3d6 + 4) Piercing damage.
+      ***Multiattack***. The guard makes two attacks, using Javelin or Longsword in
+      any combination.
 
-      ***Longsword***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 15 (2d10 + 4) Slashing damage.
+
+      ***Javelin***. *Melee or Ranged Attack Roll* : +6, reach 5 ft. or range 30/120
+      ft. *Hit* : 14 (3d6 + 4) Piercing damage.
+
+
+      ***Longsword***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 15 (2d10 + 4)
+      Slashing damage.'
     senses: Passive Perception 14
     languages:
     - Common
   fr:
     name: Garde, capitaine
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Attaques multiples***. Le garde effectue deux attaques, réparties à sa guise entre Épée longue et Javeline.
 
-      ***Épée longue***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 15 (2d10 + 4) dégâts tranchants.
+      ***Attaques multiples***. Le garde effectue deux attaques, réparties à sa guise
+      entre Épée longue et Javeline.
 
-      ***Javeline***. *Corps à corps ou à distance* : +6, allonge 1,50 m ou portée 9/36 m. *Touché* : 14 (3d6 + 4) dégâts perforants.
+
+      ***Épée longue***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 15 (2d10
+      + 4) dégâts tranchants.
+
+
+      ***Javeline***. *Corps à corps ou à distance* : +6, allonge 1,50 m ou portée
+      9/36 m. *Touché* : 14 (3d6 + 4) dégâts perforants.'
     senses: Perception passive 14
     languages:
     - commun

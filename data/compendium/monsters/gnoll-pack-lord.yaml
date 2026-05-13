@@ -8,24 +8,12 @@ armorClass: 15
 maxHitPoints: 49
 hitDice: 9d8+9
 abilities:
-  str:
-    value: 16
-    savingThrowProficiency: none
-  dex:
-    value: 14
-    savingThrowProficiency: none
-  con:
-    value: 13
-    savingThrowProficiency: none
-  int:
-    value: 8
-    savingThrowProficiency: none
-  wis:
-    value: 11
-    savingThrowProficiency: none
-  cha:
-    value: 9
-    savingThrowProficiency: none
+  str: 16
+  dex: 14
+  con: 13
+  int: 8
+  wis: 11
+  cha: 9
 speeds:
   walk: 30
   fly: null
@@ -88,40 +76,65 @@ translations:
   en:
     name: Gnoll Pack Lord
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Multiattack***. The gnoll makes two attacks, using Bone Whip or Bone Javelin in any combination, and it uses Incite Rampage if available.
 
-      ***Bone Whip***. *Melee Attack Roll* : +5, reach 10 ft. *Hit* : 8 (2d4 + 3) Slashing damage.
+      ***Multiattack***. The gnoll makes two attacks, using Bone Whip or Bone Javelin
+      in any combination, and it uses Incite Rampage if available.
 
-      ***Bone Javelin***. *Ranged Attack Roll* : +5, range 30/120 ft. *Hit* : 7 (1d8 + 3) Piercing damage.
 
-      ***Incite Rampage (Recharge 5–6)***. The gnoll targets another creature it can see within 60 feet of itself that has the Rampage Bonus Action. The target can take a Reaction to make one melee attack.
+      ***Bone Whip***. *Melee Attack Roll* : +5, reach 10 ft. *Hit* : 8 (2d4 + 3)
+      Slashing damage.
+
+
+      ***Bone Javelin***. *Ranged Attack Roll* : +5, range 30/120 ft. *Hit* : 7 (1d8
+      + 3) Piercing damage.
+
+
+      ***Incite Rampage (Recharge 5–6)***. The gnoll targets another creature it can
+      see within 60 feet of itself that has the Rampage Bonus Action. The target can
+      take a Reaction to make one melee attack.
+
 
       ## Bonus actions
 
-      ***Rampage (2/Day)***. Immediately after dealing damage to a creature that is already Bloodied, the gnoll moves up to half its Speed, and it makes one Bone Whip attack.
+
+      ***Rampage (2/Day)***. Immediately after dealing damage to a creature that is
+      already Bloodied, the gnoll moves up to half its Speed, and it makes one Bone
+      Whip attack.'
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - Gnoll
   fr:
     name: Gnoll, chef de meute
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Attaques multiples***. Le gnoll effectue deux attaques, réparties à sa guise entre Fouet osseux et Javeline osseuse, et il utilise Incitation au déchaînement si disponible.
 
-      ***Fouet osseux***. *Corps à corps* : +5, allonge 3 m. *Touché* : 8 (2d4 + 3) dégâts tranchants.
+      ***Attaques multiples***. Le gnoll effectue deux attaques, réparties à sa guise
+      entre Fouet osseux et Javeline osseuse, et il utilise Incitation au déchaînement
+      si disponible.
 
-      ***Javeline osseuse***. *À distance* : +5, portée 30/36 m. *Touché* : 7 (1d8 + 3) dégâts perforants.
 
-      ***Incitation au déchaînement (recharge 5–6)***. Le gnoll cible une autre créature qu'il peut voir dans un rayon de 18 m et qui possède l'action Bonus Déchaînement. La cible peut utiliser sa Réaction pour effectuer une attaque au corps à corps.
+      ***Fouet osseux***. *Corps à corps* : +5, allonge 3 m. *Touché* : 8 (2d4 + 3)
+      dégâts tranchants.
+
+
+      ***Javeline osseuse***. *À distance* : +5, portée 30/36 m. *Touché* : 7 (1d8
+      + 3) dégâts perforants.
+
+
+      ***Incitation au déchaînement (recharge 5–6)***. Le gnoll cible une autre créature
+      qu''il peut voir dans un rayon de 18 m et qui possède l''action Bonus Déchaînement.
+      La cible peut utiliser sa Réaction pour effectuer une attaque au corps à corps.
+
 
       ## Actions Bonus
 
-      ***Déchaînement (2/jour)***. Immédiatement après avoir infligé des dégâts à une créature déjà En péril, le gnoll se déplace jusqu'à la moitié de sa Vitesse et effectue une attaque de Fouet osseux.
+
+      ***Déchaînement (2/jour)***. Immédiatement après avoir infligé des dégâts à
+      une créature déjà En péril, le gnoll se déplace jusqu''à la moitié de sa Vitesse
+      et effectue une attaque de Fouet osseux.'
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - Gnoll

@@ -8,24 +8,12 @@ armorClass: 9
 maxHitPoints: 9
 hitDice: 2d6+2
 abilities:
-  str:
-    value: 10
-    savingThrowProficiency: none
-  dex:
-    value: 9
-    savingThrowProficiency: none
-  con:
-    value: 13
-    savingThrowProficiency: none
-  int:
-    value: 3
-    savingThrowProficiency: none
-  wis:
-    value: 8
-    savingThrowProficiency: none
-  cha:
-    value: 4
-    savingThrowProficiency: none
+  str: 10
+  dex: 9
+  con: 13
+  int: 3
+  wis: 8
+  cha: 4
 speeds:
   walk: 20
   fly: null
@@ -88,20 +76,21 @@ translations:
   en:
     name: Manes
     subtype: Demon
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Claw***. *Melee Attack Roll* : +2, reach 5 ft. *Hit* : 5 (2d4) Slashing damage.
+
+      ***Claw***. *Melee Attack Roll* : +2, reach 5 ft. *Hit* : 5 (2d4) Slashing damage.'
     senses: Darkvision 60 ft., Passive Perception 9
     languages:
     - Understands Abyssal but can't speak
   fr:
     name: Mâne
     subtype: Démon
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Griffes***. *Corps à corps* : +2, allonge 1,50 m. *Touché* : 5 (2d4) dégâts tranchants.
+
+      ***Griffes***. *Corps à corps* : +2, allonge 1,50 m. *Touché* : 5 (2d4) dégâts
+      tranchants.'
     senses: Vision dans le noir 18 m, Perception passive 9
     languages:
     - comprend l'abyssal mais ne parle pas

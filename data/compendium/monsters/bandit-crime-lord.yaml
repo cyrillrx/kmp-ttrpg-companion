@@ -8,24 +8,15 @@ armorClass: 17
 maxHitPoints: 169
 hitDice: 26d8+52
 abilities:
-  str:
-    value: 10
-    savingThrowProficiency: none
-  dex:
-    value: 20
-    savingThrowProficiency: proficient
-  con:
-    value: 14
-    savingThrowProficiency: proficient
-  int:
-    value: 18
-    savingThrowProficiency: none
-  wis:
-    value: 14
-    savingThrowProficiency: none
-  cha:
-    value: 15
-    savingThrowProficiency: none
+  str: 10
+  dex: 20
+  con: 14
+  int: 18
+  wis: 14
+  cha: 15
+savingThrows:
+  dex: proficient
+  con: proficient
 speeds:
   walk: 30
   fly: null
@@ -88,22 +79,36 @@ translations:
   en:
     name: Bandit Crime Lord
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Evasion***. If the bandit is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, the bandit instead takes no damage if it succeeds on the save and only half damage if it fails. It can't use this trait if it has the Incapacitated condition.
+
+      ***Evasion***. If the bandit is subjected to an effect that allows it to make
+      a Dexterity saving throw to take only half damage, the bandit instead takes
+      no damage if it succeeds on the save and only half damage if it fails. It can''t
+      use this trait if it has the Incapacitated condition.
+
 
       ## Actions
 
-      ***Multiattack***. The bandit makes three attacks, using Scimitar or Pistol in any combination.
 
-      ***Scimitar***. *Melee Attack Roll* : +9, reach 5 ft. *Hit* : 12 (2d6 + 5) Slashing damage plus 14 (4d6) Poison damage.
+      ***Multiattack***. The bandit makes three attacks, using Scimitar or Pistol
+      in any combination.
 
-      ***Pistol***. *Ranged Attack Roll* : +9, range 30/90 ft. *Hit* : 10 (1d10 + 5) Piercing damage plus 14 (4d6) Poison damage.
+
+      ***Scimitar***. *Melee Attack Roll* : +9, reach 5 ft. *Hit* : 12 (2d6 + 5) Slashing
+      damage plus 14 (4d6) Poison damage.
+
+
+      ***Pistol***. *Ranged Attack Roll* : +9, range 30/90 ft. *Hit* : 10 (1d10 +
+      5) Piercing damage plus 14 (4d6) Poison damage.
+
 
       ## Bonus actions
 
-      ***Deadly Aim***. The bandit gives itself Advantage on the next attack roll it makes during the current turn. If that attack hits, the target takes an extra 28 (8d6) Poison damage.
+
+      ***Deadly Aim***. The bandit gives itself Advantage on the next attack roll
+      it makes during the current turn. If that attack hits, the target takes an extra
+      28 (8d6) Poison damage.'
     senses: Passive Perception 20
     languages:
     - Common
@@ -111,22 +116,36 @@ translations:
   fr:
     name: Bandit, baron du crime
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Esquive totale***. Si le bandit est soumis à un effet qui lui permet d'effectuer un jet de sauvegarde de Dextérité pour réduire les dégâts de moitié, il ne subit en fait aucun dégât en cas de JdS réussi, et seulement la moitié en cas d'échec. Il ne peut pas recourir à ce trait s'il subit l'état Incapable d'agir.
+
+      ***Esquive totale***. Si le bandit est soumis à un effet qui lui permet d''effectuer
+      un jet de sauvegarde de Dextérité pour réduire les dégâts de moitié, il ne subit
+      en fait aucun dégât en cas de JdS réussi, et seulement la moitié en cas d''échec.
+      Il ne peut pas recourir à ce trait s''il subit l''état Incapable d''agir.
+
 
       ## Actions
 
-      ***Attaques multiples***. Le bandit effectue trois attaques, réparties à sa guise entre Cimeterre et Pistolet.
 
-      ***Cimeterre***. *Corps à corps* : +9, allonge 1,50 m. *Touché* : 12 (2d6 + 5) dégâts tranchants plus 14 (4d6) dégâts de poison.
+      ***Attaques multiples***. Le bandit effectue trois attaques, réparties à sa
+      guise entre Cimeterre et Pistolet.
 
-      ***Pistolet***. *À distance* : +9, portée 9/27 m. *Touché* : 10 (1d10 + 5) dégâts perforants plus 14 (4d6) dégâts de poison.
+
+      ***Cimeterre***. *Corps à corps* : +9, allonge 1,50 m. *Touché* : 12 (2d6 +
+      5) dégâts tranchants plus 14 (4d6) dégâts de poison.
+
+
+      ***Pistolet***. *À distance* : +9, portée 9/27 m. *Touché* : 10 (1d10 + 5) dégâts
+      perforants plus 14 (4d6) dégâts de poison.
+
 
       ## Actions Bonus
 
-      ***Visée meurtrière***. Le bandit s'octroie un Avantage sur son prochain jet d'attaque durant son tour. Si l'attaque réussit, la cible subit 28 (8d6) dégâts de poison supplémentaires.
+
+      ***Visée meurtrière***. Le bandit s''octroie un Avantage sur son prochain jet
+      d''attaque durant son tour. Si l''attaque réussit, la cible subit 28 (8d6) dégâts
+      de poison supplémentaires.'
     senses: Perception passive 20
     languages:
     - commun

@@ -8,24 +8,12 @@ armorClass: 15
 maxHitPoints: 22
 hitDice: 3d8+9
 abilities:
-  str:
-    value: 13
-    savingThrowProficiency: none
-  dex:
-    value: 13
-    savingThrowProficiency: none
-  con:
-    value: 16
-    savingThrowProficiency: none
-  int:
-    value: 1
-    savingThrowProficiency: none
-  wis:
-    value: 7
-    savingThrowProficiency: none
-  cha:
-    value: 3
-    savingThrowProficiency: none
+  str: 13
+  dex: 13
+  con: 16
+  int: 1
+  wis: 7
+  cha: 3
 speeds:
   walk: 5
   fly: null
@@ -88,32 +76,46 @@ translations:
   en:
     name: Piercer
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Spider Climb***. The piercer can climb difficult surfaces, including along ceilings, without needing to make an ability check.
+
+      ***Spider Climb***. The piercer can climb difficult surfaces, including along
+      ceilings, without needing to make an ability check.
+
 
       ## Actions
 
-      ***Bite***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 5 (1d8 + 1) Piercing damage.
 
-      ***Drop***. The piercer falls. *Dexterity Saving Throw* : DC 11, one creature directly underneath the piercer. *Failure* : 10 (3d6) Piercing damage. *Failure or Success* : The piercer reduces any damage it takes from the fall by 20.
+      ***Bite***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 5 (1d8 + 1) Piercing
+      damage.
+
+
+      ***Drop***. The piercer falls. *Dexterity Saving Throw* : DC 11, one creature
+      directly underneath the piercer. *Failure* : 10 (3d6) Piercing damage. *Failure
+      or Success* : The piercer reduces any damage it takes from the fall by 20.'
     senses: Blindsight 30 ft., Darkvision 60 ft., Passive Perception 8
     languages:
     - None
   fr:
     name: Perceur / Perforateur
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Pattes d'araignée***. Le perceur peut parcourir les parois les plus difficiles à escalader, y compris les plafonds, sans passer par un jet de caractéristique.
+
+      ***Pattes d''araignée***. Le perceur peut parcourir les parois les plus difficiles
+      à escalader, y compris les plafonds, sans passer par un jet de caractéristique.
+
 
       ## Actions
 
-      ***Morsure***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 5 (1d8 + 1) dégâts perforants.
 
-      ***Chute***. Le perceur chute. *JdS Dextérité* : DD 11, une créature directement sous le perceur. *Échec* : 10 (3d6) dégâts perforants. *Échec ou réussite* : le perceur réduit de 20 les dégâts qu'il subit lors de la chute.
+      ***Morsure***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 5 (1d8 + 1)
+      dégâts perforants.
+
+
+      ***Chute***. Le perceur chute. *JdS Dextérité* : DD 11, une créature directement
+      sous le perceur. *Échec* : 10 (3d6) dégâts perforants. *Échec ou réussite* :
+      le perceur réduit de 20 les dégâts qu''il subit lors de la chute.'
     senses: Vision aveugle 9 m, Vision dans le noir 18 m, Perception passive 8
     languages:
     - aucune

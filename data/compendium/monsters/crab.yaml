@@ -8,24 +8,12 @@ armorClass: 11
 maxHitPoints: 3
 hitDice: 1d4+1
 abilities:
-  str:
-    value: 6
-    savingThrowProficiency: none
-  dex:
-    value: 11
-    savingThrowProficiency: none
-  con:
-    value: 12
-    savingThrowProficiency: none
-  int:
-    value: 1
-    savingThrowProficiency: none
-  wis:
-    value: 8
-    savingThrowProficiency: none
-  cha:
-    value: 2
-    savingThrowProficiency: none
+  str: 6
+  dex: 11
+  con: 12
+  int: 1
+  wis: 8
+  cha: 2
 speeds:
   walk: 20
   fly: null
@@ -88,28 +76,32 @@ translations:
   en:
     name: Crab
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
+
 
       ***Amphibious***. The crab can breathe air and water.
 
+
       ## Actions
 
-      ***Claw***. *Melee Attack Roll* : +2, reach 5 ft. *Hit* : 1 Bludgeoning damage.
+
+      ***Claw***. *Melee Attack Roll* : +2, reach 5 ft. *Hit* : 1 Bludgeoning damage.'
     senses: Blindsight 30 ft., Passive Perception 9
     languages:
     - None
   fr:
     name: Crabe
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Amphibie***. Le crabe peut respirer aussi bien à l'air libre que sous l'eau.
+
+      ***Amphibie***. Le crabe peut respirer aussi bien à l''air libre que sous l''eau.
+
 
       ## Actions
 
-      ***Pince***. *Corps à corps* : +2, allonge 1,50 m. *Touché* : 1 dégât contondant.
+
+      ***Pince***. *Corps à corps* : +2, allonge 1,50 m. *Touché* : 1 dégât contondant.'
     senses: Vision aveugle 9 m, Perception passive 9
     languages:
     - aucune

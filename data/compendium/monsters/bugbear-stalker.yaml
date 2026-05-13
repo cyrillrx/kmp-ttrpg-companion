@@ -8,24 +8,15 @@ armorClass: 15
 maxHitPoints: 65
 hitDice: 10d8+20
 abilities:
-  str:
-    value: 17
-    savingThrowProficiency: none
-  dex:
-    value: 14
-    savingThrowProficiency: none
-  con:
-    value: 14
-    savingThrowProficiency: proficient
-  int:
-    value: 11
-    savingThrowProficiency: none
-  wis:
-    value: 12
-    savingThrowProficiency: proficient
-  cha:
-    value: 11
-    savingThrowProficiency: none
+  str: 17
+  dex: 14
+  con: 14
+  int: 11
+  wis: 12
+  cha: 11
+savingThrows:
+  con: proficient
+  wis: proficient
 speeds:
   walk: 30
   fly: null
@@ -88,22 +79,33 @@ translations:
   en:
     name: Bugbear Stalker
     subtype: Goblinoid
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Abduct***. The bugbear needn't spend extra movement to move a creature it is grappling.
+
+      ***Abduct***. The bugbear needn''t spend extra movement to move a creature it
+      is grappling.
+
 
       ## Actions
 
+
       ***Multiattack***. The bugbear makes two Javelin or Morningstar attacks.
 
-      ***Javelin***. *Melee or Ranged Attack Roll* : +5, reach 10 ft. or range 30/120 ft. *Hit* : 13 (3d6 + 3) Piercing damage.
 
-      ***Morningstar***. *Melee Attack Roll* : +5 (with Advantage if the target is Grappled by the bugbear), reach 10 ft. *Hit* : 12 (2d8 + 3) Piercing damage.
+      ***Javelin***. *Melee or Ranged Attack Roll* : +5, reach 10 ft. or range 30/120
+      ft. *Hit* : 13 (3d6 + 3) Piercing damage.
+
+
+      ***Morningstar***. *Melee Attack Roll* : +5 (with Advantage if the target is
+      Grappled by the bugbear), reach 10 ft. *Hit* : 12 (2d8 + 3) Piercing damage.
+
 
       ## Bonus actions
 
-      ***Quick Grapple***. *Dexterity Saving Throw* : DC 13, one Medium or smaller creature the bugbear can see within 10 feet. *Failure* : The target has the Grappled condition (escape DC 13).
+
+      ***Quick Grapple***. *Dexterity Saving Throw* : DC 13, one Medium or smaller
+      creature the bugbear can see within 10 feet. *Failure* : The target has the
+      Grappled condition (escape DC 13).'
     senses: Darkvision 60 ft., Passive Perception 11
     languages:
     - Common
@@ -111,22 +113,34 @@ translations:
   fr:
     name: Gobelours, traqueur
     subtype: Gobelinoïde
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Rapt***. Le gobelours n'a pas besoin de dépenser de déplacement supplémentaire pour déplacer une créature qu'il agrippe.
+
+      ***Rapt***. Le gobelours n''a pas besoin de dépenser de déplacement supplémentaire
+      pour déplacer une créature qu''il agrippe.
+
 
       ## Actions
 
-      ***Attaques multiples***. Le gobelours effectue deux attaques de Javeline ou de Morgenstern.
 
-      ***Javeline***. *Corps à corps ou à distance* : +5, allonge 3 m ou portée 9/36 m. *Touché* : 13 (3d6 + 3) dégâts perforants.
+      ***Attaques multiples***. Le gobelours effectue deux attaques de Javeline ou
+      de Morgenstern.
 
-      ***Morgenstern***. *Corps à corps* : +5 (avec Avantage si la cible est agrippée par le gobelours), allonge 3 m. *Touché* : 12 (2d8 + 3) dégâts perforants.
+
+      ***Javeline***. *Corps à corps ou à distance* : +5, allonge 3 m ou portée 9/36
+      m. *Touché* : 13 (3d6 + 3) dégâts perforants.
+
+
+      ***Morgenstern***. *Corps à corps* : +5 (avec Avantage si la cible est agrippée
+      par le gobelours), allonge 3 m. *Touché* : 12 (2d8 + 3) dégâts perforants.
+
 
       ## Actions Bonus
 
-      ***Lutte rapide***. *JdS Dextérité* : DD 13, une créature de taille M ou inférieure que le gobelours voit dans un rayon de 3 m. *Échec* : la cible subit l'état Agrippé (évasion DD 13).
+
+      ***Lutte rapide***. *JdS Dextérité* : DD 13, une créature de taille M ou inférieure
+      que le gobelours voit dans un rayon de 3 m. *Échec* : la cible subit l''état
+      Agrippé (évasion DD 13).'
     senses: Vision dans le noir 18 m, Perception passive 11
     languages:
     - commun

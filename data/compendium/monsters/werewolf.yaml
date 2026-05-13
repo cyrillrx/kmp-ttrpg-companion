@@ -8,24 +8,12 @@ armorClass: 15
 maxHitPoints: 71
 hitDice: 11d8+22
 abilities:
-  str:
-    value: 16
-    savingThrowProficiency: none
-  dex:
-    value: 14
-    savingThrowProficiency: none
-  con:
-    value: 14
-    savingThrowProficiency: none
-  int:
-    value: 10
-    savingThrowProficiency: none
-  wis:
-    value: 11
-    savingThrowProficiency: none
-  cha:
-    value: 10
-    savingThrowProficiency: none
+  str: 16
+  dex: 14
+  con: 14
+  int: 10
+  wis: 11
+  cha: 10
 speeds:
   walk: 40
   fly: null
@@ -88,48 +76,89 @@ translations:
   en:
     name: Werewolf
     subtype: Lycanthrope
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Pack Tactics***. The werewolf has Advantage on an attack roll against a creature if at least one of the werewolf's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.
+
+      ***Pack Tactics***. The werewolf has Advantage on an attack roll against a creature
+      if at least one of the werewolf''s allies is within 5 feet of the creature and
+      the ally doesn''t have the Incapacitated condition.
+
 
       ## Actions
 
-      ***Multiattack***. The werewolf makes two attacks, using Scratch or Longbow in any combination. It can replace one attack with a Bite attack.
 
-      ***Bite (Wolf or Hybrid Form Only)***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 12 (2d8 + 3) Piercing damage. If the target is a Humanoid, it is subjected to the following effect. *Constitution Saving Throw* : DC 12. *Failure* : The target is cursed. If the cursed target drops to 0 Hit Points, it instead becomes a **Werewolf** under the DM's control and has 10 Hit Points. *Success* : The target is immune to this werewolf's curse for 24 hours.
+      ***Multiattack***. The werewolf makes two attacks, using Scratch or Longbow
+      in any combination. It can replace one attack with a Bite attack.
 
-      ***Scratch***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 10 (2d6 + 3) Slashing damage.
 
-      ***Longbow (Humanoid or Hybrid Form Only)***. *Ranged Attack Roll* : +4, range 150/600 ft. *Hit* : 11 (2d8 + 2) Piercing damage.
+      ***Bite (Wolf or Hybrid Form Only)***. *Melee Attack Roll* : +5, reach 5 ft.
+      *Hit* : 12 (2d8 + 3) Piercing damage. If the target is a Humanoid, it is subjected
+      to the following effect. *Constitution Saving Throw* : DC 12. *Failure* : The
+      target is cursed. If the cursed target drops to 0 Hit Points, it instead becomes
+      a **Werewolf** under the DM''s control and has 10 Hit Points. *Success* : The
+      target is immune to this werewolf''s curse for 24 hours.
+
+
+      ***Scratch***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 10 (2d6 + 3) Slashing
+      damage.
+
+
+      ***Longbow (Humanoid or Hybrid Form Only)***. *Ranged Attack Roll* : +4, range
+      150/600 ft. *Hit* : 11 (2d8 + 2) Piercing damage.
+
 
       ## Bonus actions
 
-      ***Shape-Shift***. The werewolf shape-shifts into a Large wolf-humanoid hybrid or a Medium wolf, or it returns to its true humanoid form. Its game statistics, other than its size, are the same in each form. Any equipment it is wearing or carrying isn't transformed.
+
+      ***Shape-Shift***. The werewolf shape-shifts into a Large wolf-humanoid hybrid
+      or a Medium wolf, or it returns to its true humanoid form. Its game statistics,
+      other than its size, are the same in each form. Any equipment it is wearing
+      or carrying isn''t transformed.'
     senses: Darkvision 60 ft., Passive Perception 14
     languages:
     - Common (can't speak in wolf form)
   fr:
     name: Loup-garou
     subtype: Lycanthrope
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Tactique de meute***. Quand au moins un de ses alliés non Incapable d'agir se situe dans un rayon de 1,50 m de la créature qu'il cible, le loup-garou a un Avantage au jet d'attaque correspondant.
+
+      ***Tactique de meute***. Quand au moins un de ses alliés non Incapable d''agir
+      se situe dans un rayon de 1,50 m de la créature qu''il cible, le loup-garou
+      a un Avantage au jet d''attaque correspondant.
+
 
       ## Actions
 
-      ***Attaques multiples***. Le loup-garou effectue deux attaques, réparties à sa guise entre Éraflure et Arc long. Il peut en remplacer une par une attaque de Morsure.
 
-      ***Éraflure***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 10 (2d6 + 3) dégâts tranchants.
+      ***Attaques multiples***. Le loup-garou effectue deux attaques, réparties à
+      sa guise entre Éraflure et Arc long. Il peut en remplacer une par une attaque
+      de Morsure.
 
-      ***Morsure (forme de loup ou hybride uniquement)***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 12 (2d8 + 3) dégâts perforants. Si la cible est un Humanoïde, elle est soumise à l'effet suivant. *JdS Constitution* : DD 12. *Échec* : la cible est maudite. Si la cible maudite tombe à 0 point de vie, elle se retrouve en fait à 10 pv et devient un **loup-garou** sous le contrôle du MD. *Réussite* : La cible est immunisée contre la malédiction de ce loup-garou pendant 24 heures.
 
-      ***Arc long (forme humanoïde ou hybride uniquement)***. *À distance* : +4, portée 45/180 m. *Touché* : 11 (2d8 + 2) dégâts perforants.
+      ***Éraflure***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 10 (2d6 + 3)
+      dégâts tranchants.
+
+
+      ***Morsure (forme de loup ou hybride uniquement)***. *Corps à corps* : +5, allonge
+      1,50 m. *Touché* : 12 (2d8 + 3) dégâts perforants. Si la cible est un Humanoïde,
+      elle est soumise à l''effet suivant. *JdS Constitution* : DD 12. *Échec* : la
+      cible est maudite. Si la cible maudite tombe à 0 point de vie, elle se retrouve
+      en fait à 10 pv et devient un **loup-garou** sous le contrôle du MD. *Réussite*
+      : La cible est immunisée contre la malédiction de ce loup-garou pendant 24 heures.
+
+
+      ***Arc long (forme humanoïde ou hybride uniquement)***. *À distance* : +4, portée
+      45/180 m. *Touché* : 11 (2d8 + 2) dégâts perforants.
+
 
       ## Actions Bonus
 
-      ***Changement d'aspect***. Le loup-garou se transforme en hybride loup-humanoïde de taille G ou en loup de taille M, ou bien retrouve sa forme véritable d'humanoïde. En dehors de sa catégorie de taille, son profil reste le même, quelle que soit la forme. Rien de ce qu'il porte n'est transformé.
+
+      ***Changement d''aspect***. Le loup-garou se transforme en hybride loup-humanoïde
+      de taille G ou en loup de taille M, ou bien retrouve sa forme véritable d''humanoïde.
+      En dehors de sa catégorie de taille, son profil reste le même, quelle que soit
+      la forme. Rien de ce qu''il porte n''est transformé.'
     senses: Vision dans le noir 18 m, Perception passive 14
     languages:
     - commun (ne parle pas sous forme de loup)

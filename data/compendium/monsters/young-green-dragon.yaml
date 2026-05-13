@@ -8,24 +8,15 @@ armorClass: 18
 maxHitPoints: 136
 hitDice: 16d10+48
 abilities:
-  str:
-    value: 19
-    savingThrowProficiency: none
-  dex:
-    value: 12
-    savingThrowProficiency: proficient
-  con:
-    value: 17
-    savingThrowProficiency: none
-  int:
-    value: 16
-    savingThrowProficiency: none
-  wis:
-    value: 13
-    savingThrowProficiency: proficient
-  cha:
-    value: 15
-    savingThrowProficiency: none
+  str: 19
+  dex: 12
+  con: 17
+  int: 16
+  wis: 13
+  cha: 15
+savingThrows:
+  dex: proficient
+  wis: proficient
 speeds:
   walk: 40
   fly: 80
@@ -88,18 +79,25 @@ translations:
   en:
     name: Young Green Dragon
     subtype: Chromatic
-    description: |-
-      ## Traits
+    description: '## Traits
+
 
       ***Amphibious***. The dragon can breathe air and water.
 
+
       ## Actions
+
 
       ***Multiattack***. The dragon makes three Rend attacks.
 
-      ***Rend***. *Melee Attack Roll* : +7, reach 10 ft. *Hit* : 11 (2d6 + 4) Slashing damage plus 7 (2d6) Poison damage.
 
-      ***Poison Breath (Recharge 5–6)***. *Constitution Saving Throw* : DC 14, each creature in a 30-foot Cone. *Failure* : 42 (12d6) Poison damage. *Success* : Half damage.
+      ***Rend***. *Melee Attack Roll* : +7, reach 10 ft. *Hit* : 11 (2d6 + 4) Slashing
+      damage plus 7 (2d6) Poison damage.
+
+
+      ***Poison Breath (Recharge 5–6)***. *Constitution Saving Throw* : DC 14, each
+      creature in a 30-foot Cone. *Failure* : 42 (12d6) Poison damage. *Success* :
+      Half damage.'
     senses: Blindsight 30 ft., Darkvision 120 ft., Passive Perception 17
     languages:
     - Common
@@ -107,18 +105,25 @@ translations:
   fr:
     name: Dragon vert, jeune
     subtype: Chromatique
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Amphibie***. Le dragon peut respirer sous l'eau comme à l'air libre.
+
+      ***Amphibie***. Le dragon peut respirer sous l''eau comme à l''air libre.
+
 
       ## Actions
 
+
       ***Attaques multiples***. Le dragon effectue trois attaques de Saignée.
 
-      ***Saignée***. *Corps à corps* : +7, allonge 3 m. *Touché* : 11 (2d6 + 4) dégâts tranchants plus 7 (2d6) dégâts de poison.
 
-      ***Souffle empoisonné (recharge 5–6)***. *JdS Constitution* : DD 14, chaque créature dans un Cône de 9 m. *Échec* : 42 (12d6) dégâts de poison. *Réussite* : demi-dégâts.
+      ***Saignée***. *Corps à corps* : +7, allonge 3 m. *Touché* : 11 (2d6 + 4) dégâts
+      tranchants plus 7 (2d6) dégâts de poison.
+
+
+      ***Souffle empoisonné (recharge 5–6)***. *JdS Constitution* : DD 14, chaque
+      créature dans un Cône de 9 m. *Échec* : 42 (12d6) dégâts de poison. *Réussite*
+      : demi-dégâts.'
     senses: Vision aveugle 9 m, Vision dans le noir 36 m, Perception passive 17
     languages:
     - commun

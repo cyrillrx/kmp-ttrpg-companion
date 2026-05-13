@@ -8,24 +8,12 @@ armorClass: 13
 maxHitPoints: 105
 hitDice: 14d8+42
 abilities:
-  str:
-    value: 16
-    savingThrowProficiency: none
-  dex:
-    value: 14
-    savingThrowProficiency: none
-  con:
-    value: 16
-    savingThrowProficiency: none
-  int:
-    value: 13
-    savingThrowProficiency: none
-  wis:
-    value: 16
-    savingThrowProficiency: none
-  cha:
-    value: 14
-    savingThrowProficiency: none
+  str: 16
+  dex: 14
+  con: 16
+  int: 13
+  wis: 16
+  cha: 14
 speeds:
   walk: 30
   fly: null
@@ -88,56 +76,90 @@ translations:
   en:
     name: Kuo-toa Archpriest
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
+
 
       ***Amphibious***. The kuo-toa can breathe air and water.
 
-      ***Sunlight Sensitivity***. While in sunlight, the kuo-toa has Disadvantage on ability checks and attack rolls.
+
+      ***Sunlight Sensitivity***. While in sunlight, the kuo-toa has Disadvantage
+      on ability checks and attack rolls.
+
 
       ## Actions
 
+
       ***Multiattack***. The kuo-toa makes three Strange Scepter attacks.
 
-      ***Spellcasting***. The kuo-toa casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 14):
+
+      ***Spellcasting***. The kuo-toa casts one of the following spells, requiring
+      no Material components and using Wisdom as the spellcasting ability (spell save
+      DC 14):
+
 
       At will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Thaumaturgy](https://www.aidedd.org/spell/thaumaturgy)*
-      
-      1/day each: *[Destructive Wave](https://www.aidedd.org/spell/destructive-wave), [Divination](https://www.aidedd.org/spell/divination), [Hold Monster](https://www.aidedd.org/spell/hold-monster)* (level 6 version), *[Scrying](https://www.aidedd.org/spell/scrying), [Tongues](https://www.aidedd.org/spell/tongues)*
 
-      ***Strange Scepter***. *Melee or Ranged Attack Roll* : +6, reach 5 ft. or range 120 ft. *Hit* : 20 (5d6 + 3) Lightning damage.
+
+      1/day each: *[Destructive Wave](https://www.aidedd.org/spell/destructive-wave),
+      [Divination](https://www.aidedd.org/spell/divination), [Hold Monster](https://www.aidedd.org/spell/hold-monster)*
+      (level 6 version), *[Scrying](https://www.aidedd.org/spell/scrying), [Tongues](https://www.aidedd.org/spell/tongues)*
+
+
+      ***Strange Scepter***. *Melee or Ranged Attack Roll* : +6, reach 5 ft. or range
+      120 ft. *Hit* : 20 (5d6 + 3) Lightning damage.
+
 
       ## Bonus actions
 
-      ***Shield of Faith (2/Day)***. The kuo-toa casts *[Shield of Faith](https://www.aidedd.org/spell/shield-of-faith)* , using the same spellcasting ability as Spellcasting.
+
+      ***Shield of Faith (2/Day)***. The kuo-toa casts *[Shield of Faith](https://www.aidedd.org/spell/shield-of-faith)*
+      , using the same spellcasting ability as Spellcasting.'
     senses: Darkvision 120 ft., Truesight 30 ft., Passive Perception 19
     languages:
     - Undercommon
   fr:
     name: Kuo-toa, archiprêtre
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Amphibie***. Le kuo-toa peut respirer sous l'eau comme à l'air libre.
 
-      ***Sensibilité au soleil***. Tant qu'il est exposé à la lumière du soleil, le kuo-toa subit un Désavantage aux jets de caractéristique et aux jets d'attaque.
+      ***Amphibie***. Le kuo-toa peut respirer sous l''eau comme à l''air libre.
+
+
+      ***Sensibilité au soleil***. Tant qu''il est exposé à la lumière du soleil,
+      le kuo-toa subit un Désavantage aux jets de caractéristique et aux jets d''attaque.
+
 
       ## Actions
 
+
       ***Attaques multiples***. Le kuo-toa effectue trois attaques du Sceptre cocasse.
 
-      ***Sceptre cocasse***. *Corps à corps ou à distance* : +6, allonge 1,50 m ou portée 36 m. *Touché* : 20 (5d6 + 3) foudre damage.
 
-      ***Incantation***. The kuo-toa lance l'un des sorts suivants sans composantes matérielles, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 14) :
+      ***Sceptre cocasse***. *Corps à corps ou à distance* : +6, allonge 1,50 m ou
+      portée 36 m. *Touché* : 20 (5d6 + 3) foudre damage.
 
-      À volonté : *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), [thaumaturgie](https://www.aidedd.org/spell/fr/thaumaturgie)*
-      
-      1/jour chacun : *[vague destructrice](https://www.aidedd.org/spell/fr/vague-destructrice), [divination](https://www.aidedd.org/spell/fr/divination), [immobilisation de monstre](https://www.aidedd.org/spell/fr/immobilisation-de-monstre)* (au niveau 6), *[scrutation](https://www.aidedd.org/spell/fr/scrutation), [don des langues](https://www.aidedd.org/spell/fr/don-des-langues)*
+
+      ***Incantation***. The kuo-toa lance l''un des sorts suivants sans composantes
+      matérielles, la Sagesse étant sa caractéristique d''incantation (DD de sauvegarde
+      14) :
+
+
+      À volonté : *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie),
+      [thaumaturgie](https://www.aidedd.org/spell/fr/thaumaturgie)*
+
+
+      1/jour chacun : *[vague destructrice](https://www.aidedd.org/spell/fr/vague-destructrice),
+      [divination](https://www.aidedd.org/spell/fr/divination), [immobilisation de
+      monstre](https://www.aidedd.org/spell/fr/immobilisation-de-monstre)* (au niveau
+      6), *[scrutation](https://www.aidedd.org/spell/fr/scrutation), [don des langues](https://www.aidedd.org/spell/fr/don-des-langues)*
+
 
       ## Actions Bonus
 
-      ***Bouclier de la foi (2/jour)***. Le kuo-toa lance *[bouclier de la Foi](https://www.aidedd.org/spell/fr/bouclier-de-la-foi)* , en utilisant la même caractéristique d'incantation que pour Incantation.
+
+      ***Bouclier de la foi (2/jour)***. Le kuo-toa lance *[bouclier de la Foi](https://www.aidedd.org/spell/fr/bouclier-de-la-foi)*
+      , en utilisant la même caractéristique d''incantation que pour Incantation.'
     senses: Vision dans le noir 36 m, vision véritable 9 m, Perception passive 19
     languages:
     - commun des profondeurs

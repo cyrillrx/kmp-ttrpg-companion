@@ -8,24 +8,14 @@ armorClass: 12
 maxHitPoints: 19
 hitDice: 3d8+6
 abilities:
-  str:
-    value: 16
-    savingThrowProficiency: none
-  dex:
-    value: 14
-    savingThrowProficiency: none
-  con:
-    value: 14
-    savingThrowProficiency: none
-  int:
-    value: 6
-    savingThrowProficiency: none
-  wis:
-    value: 12
-    savingThrowProficiency: none
-  cha:
-    value: 7
-    savingThrowProficiency: proficient
+  str: 16
+  dex: 14
+  con: 14
+  int: 6
+  wis: 12
+  cha: 7
+savingThrows:
+  cha: proficient
 speeds:
   walk: 30
   fly: null
@@ -88,28 +78,36 @@ translations:
   en:
     name: Ape
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
+
 
       ***Multiattack***. The ape makes two Fist attacks.
 
-      ***Fist***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 5 (1d4 + 3) Bludgeoning damage.
 
-      ***Rock (Recharge 6)***. *Ranged Attack Roll* : +5, range 25/50 ft. *Hit* : 10 (2d6 + 3) Bludgeoning damage.
+      ***Fist***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 5 (1d4 + 3) Bludgeoning
+      damage.
+
+
+      ***Rock (Recharge 6)***. *Ranged Attack Roll* : +5, range 25/50 ft. *Hit* :
+      10 (2d6 + 3) Bludgeoning damage.'
     senses: Passive Perception 13
     languages:
     - None
   fr:
     name: Grand singe
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
+
 
       ***Attaques multiples***. Le singe effectue deux attaques de Poing.
 
-      ***Poing***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 5 (1d4 + 3) dégâts contondants.
 
-      ***Rocher (recharge 6)***. *À distance* : +5, portée 7,50/15 m. *Touché* : 10 (2d6 + 3) dégâts contondants.
+      ***Poing***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 5 (1d4 + 3) dégâts
+      contondants.
+
+
+      ***Rocher (recharge 6)***. *À distance* : +5, portée 7,50/15 m. *Touché* : 10
+      (2d6 + 3) dégâts contondants.'
     senses: Perception passive 13
     languages:
     - aucune

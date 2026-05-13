@@ -8,24 +8,12 @@ armorClass: 13
 maxHitPoints: 4
 hitDice: ''
 abilities:
-  str:
-    value: 6
-    savingThrowProficiency: none
-  dex:
-    value: 16
-    savingThrowProficiency: none
-  con:
-    value: 13
-    savingThrowProficiency: none
-  int:
-    value: 8
-    savingThrowProficiency: none
-  wis:
-    value: 14
-    savingThrowProficiency: none
-  cha:
-    value: 11
-    savingThrowProficiency: none
+  str: 6
+  dex: 16
+  con: 13
+  int: 8
+  wis: 14
+  cha: 11
 speeds:
   walk: 10
   fly: 60
@@ -88,32 +76,45 @@ translations:
   en:
     name: Beast of the Sky
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Flyby***. The beast doesn't provoke Opportunity Attacks when it flies out of an enemy's reach.
 
-      ***Primal Bond***. Add your Proficiency Bonus to any ability check or saving throw the beast makes.
+      ***Flyby***. The beast doesn''t provoke Opportunity Attacks when it flies out
+      of an enemy''s reach.
+
+
+      ***Primal Bond***. Add your Proficiency Bonus to any ability check or saving
+      throw the beast makes.
+
 
       ## Actions
 
-      ***Beast's Strike***. *Melee Attack Roll* : Bonus equals your spell attack modifier, reach 5 ft. *Hit* : 1d4 + 3 plus your Wisdom modifier Slashing damage.
+
+      ***Beast''s Strike***. *Melee Attack Roll* : Bonus equals your spell attack
+      modifier, reach 5 ft. *Hit* : 1d4 + 3 plus your Wisdom modifier Slashing damage.'
     senses: Darkvision 60 ft., Passive Perception 12
     languages:
     - Understands the languages you know
   fr:
     name: Bête des cieux
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Repli aérien***. La bête ne provoque pas d'attaque d'Opportunité lorsqu'elle quitte l'allonge d'un ennemi en volant.
 
-      ***Lien primordial***. Ajoutez votre bonus de maîtrise à tout jet de caractéristique ou de sauvegarde effectué par la bête.
+      ***Repli aérien***. La bête ne provoque pas d''attaque d''Opportunité lorsqu''elle
+      quitte l''allonge d''un ennemi en volant.
+
+
+      ***Lien primordial***. Ajoutez votre bonus de maîtrise à tout jet de caractéristique
+      ou de sauvegarde effectué par la bête.
+
 
       ## Actions
 
-      ***Frappe de la Bête***. *Corps à corps* : bonus égal à votre modificateur d'attaque des sorts, allonge 1,50 m. *Touché* : 1d4 + 3 + votre modificateur de Sagesse dégâts tranchants.
+
+      ***Frappe de la Bête***. *Corps à corps* : bonus égal à votre modificateur d''attaque
+      des sorts, allonge 1,50 m. *Touché* : 1d4 + 3 + votre modificateur de Sagesse
+      dégâts tranchants.'
     senses: Vision dans le noir 18 m, Perception passive 12
     languages:
     - comprend les langues que vous parlez

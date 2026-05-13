@@ -8,24 +8,17 @@ armorClass: 16
 maxHitPoints: 135
 hitDice: 18d8+54
 abilities:
-  str:
-    value: 16
-    savingThrowProficiency: proficient
-  dex:
-    value: 12
-    savingThrowProficiency: none
-  con:
-    value: 17
-    savingThrowProficiency: proficient
-  int:
-    value: 14
-    savingThrowProficiency: none
-  wis:
-    value: 15
-    savingThrowProficiency: proficient
-  cha:
-    value: 17
-    savingThrowProficiency: proficient
+  str: 16
+  dex: 12
+  con: 17
+  int: 14
+  wis: 15
+  cha: 17
+savingThrows:
+  str: proficient
+  con: proficient
+  wis: proficient
+  cha: proficient
 speeds:
   walk: 30
   fly: null
@@ -88,18 +81,31 @@ translations:
   en:
     name: Gnoll Demoniac
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
+
 
       ***Multiattack***. The gnoll makes two Abyssal Strike attacks.
 
-      ***Abyssal Strike***. *Melee or Ranged Attack Roll* : +6, reach 5 ft. or range 60 ft. *Hit* : 20 (5d6 + 3) Poison damage.
 
-      ***Hunger of Yeenoghu (Recharge 5–6)***. The gnoll conjures a 30-foot Cube of magical Darkness originating from a point it can see within 60 feet, which lasts for 1 minute or until the gnoll's Concentration ends on it. This area is Difficult Terrain. *Dexterity Saving Throw* : DC 14, any creature that starts its turn in this area or enters it for the first time on a turn. *Failure* : 28 (8d6) Necrotic damage, and the gnoll or a creature of its choice it can see gains 10 Temporary Hit Points. *Success* : Half damage only.
+      ***Abyssal Strike***. *Melee or Ranged Attack Roll* : +6, reach 5 ft. or range
+      60 ft. *Hit* : 20 (5d6 + 3) Poison damage.
+
+
+      ***Hunger of Yeenoghu (Recharge 5–6)***. The gnoll conjures a 30-foot Cube of
+      magical Darkness originating from a point it can see within 60 feet, which lasts
+      for 1 minute or until the gnoll''s Concentration ends on it. This area is Difficult
+      Terrain. *Dexterity Saving Throw* : DC 14, any creature that starts its turn
+      in this area or enters it for the first time on a turn. *Failure* : 28 (8d6)
+      Necrotic damage, and the gnoll or a creature of its choice it can see gains
+      10 Temporary Hit Points. *Success* : Half damage only.
+
 
       ## Bonus actions
 
-      ***Rampage (2/Day)***. Immediately after dealing damage to a creature that is already Bloodied, the gnoll moves up to half its Speed, and it makes one Abyssal Strike attack.
+
+      ***Rampage (2/Day)***. Immediately after dealing damage to a creature that is
+      already Bloodied, the gnoll moves up to half its Speed, and it makes one Abyssal
+      Strike attack.'
     senses: Darkvision 60 ft., Passive Perception 15
     languages:
     - Abyssal
@@ -108,18 +114,32 @@ translations:
   fr:
     name: Gnoll, démoniaque
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
+
 
       ***Attaques multiples***. Le gnoll effectue deux attaques de Frappe abyssale.
 
-      ***Frappe abyssale***. *Corps à corps ou à distance* : +6, allonge 1,50 m ou portée 18 m. *Touché* : 20 (5d6 + 3) dégâts de poison.
 
-      ***Voracité de Yeenoghu (recharge 5–6)***. Le gnoll invoque un Cube de Ténèbres magiques de 9 m, centré sur un point qu'il peut voir dans un rayon de 18 m. Ce Cube persiste pendant 1 minute ou jusqu'à ce que la concentration du gnoll prenne fin. Cette zone est un Terrain difficile. *JdS Dextérité* : DD 14, toute créature commençant son tour dans cette zone ou y entrant pour la première fois. *Échec* : 28 (8d6) dégâts nécrotiques, et le gnoll ou une créature de son choix qu'il peut voir gagne 10 points de vie temporaires. *Réussite* : demi-dégâts uniquement.
+      ***Frappe abyssale***. *Corps à corps ou à distance* : +6, allonge 1,50 m ou
+      portée 18 m. *Touché* : 20 (5d6 + 3) dégâts de poison.
+
+
+      ***Voracité de Yeenoghu (recharge 5–6)***. Le gnoll invoque un Cube de Ténèbres
+      magiques de 9 m, centré sur un point qu''il peut voir dans un rayon de 18 m.
+      Ce Cube persiste pendant 1 minute ou jusqu''à ce que la concentration du gnoll
+      prenne fin. Cette zone est un Terrain difficile. *JdS Dextérité* : DD 14, toute
+      créature commençant son tour dans cette zone ou y entrant pour la première fois.
+      *Échec* : 28 (8d6) dégâts nécrotiques, et le gnoll ou une créature de son choix
+      qu''il peut voir gagne 10 points de vie temporaires. *Réussite* : demi-dégâts
+      uniquement.
+
 
       ## Actions Bonus
 
-      ***Déchaînement (2/jour)***. Immédiatement après avoir infligé des dégâts à une créature déjà En péril, le gnoll se déplace jusqu'à la moitié de sa Vitesse et effectue une attaque de Morsure.
+
+      ***Déchaînement (2/jour)***. Immédiatement après avoir infligé des dégâts à
+      une créature déjà En péril, le gnoll se déplace jusqu''à la moitié de sa Vitesse
+      et effectue une attaque de Morsure.'
     senses: Vision dans le noir 18 m, Perception passive 15
     languages:
     - abyssal

@@ -8,24 +8,16 @@ armorClass: 18
 maxHitPoints: 157
 hitDice: 15d10+75
 abilities:
-  str:
-    value: 19
-    savingThrowProficiency: proficient
-  dex:
-    value: 17
-    savingThrowProficiency: none
-  con:
-    value: 20
-    savingThrowProficiency: proficient
-  int:
-    value: 5
-    savingThrowProficiency: none
-  wis:
-    value: 12
-    savingThrowProficiency: proficient
-  cha:
-    value: 13
-    savingThrowProficiency: none
+  str: 19
+  dex: 17
+  con: 20
+  int: 5
+  wis: 12
+  cha: 13
+savingThrows:
+  str: proficient
+  con: proficient
+  wis: proficient
 speeds:
   walk: 30
   fly: null
@@ -88,48 +80,75 @@ translations:
   en:
     name: Hezrou
     subtype: Demon
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Demonic Restoration***. If the hezrou dies outside the Abyss, its body dissolves into ichor, and it gains a new body instantly, reviving with all its Hit Points somewhere in the Abyss.
 
-      ***Magic Resistance***. The hezrou has Advantage on saving throws against spells and other magical effects.
+      ***Demonic Restoration***. If the hezrou dies outside the Abyss, its body dissolves
+      into ichor, and it gains a new body instantly, reviving with all its Hit Points
+      somewhere in the Abyss.
 
-      ***Stench***. *Constitution Saving Throw* : DC 16, any creature that starts its turn in a 10-foot Emanation originating from the hezrou. *Failure* : The target has the Poisoned condition until the start of its next turn.
+
+      ***Magic Resistance***. The hezrou has Advantage on saving throws against spells
+      and other magical effects.
+
+
+      ***Stench***. *Constitution Saving Throw* : DC 16, any creature that starts
+      its turn in a 10-foot Emanation originating from the hezrou. *Failure* : The
+      target has the Poisoned condition until the start of its next turn.
+
 
       ## Actions
 
+
       ***Multiattack***. The hezrou makes three Rend attacks.
 
-      ***Rend***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 6 (1d4 + 4) Slashing damage plus 9 (2d8) Poison damage.
+
+      ***Rend***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 6 (1d4 + 4) Slashing
+      damage plus 9 (2d8) Poison damage.
+
 
       ## Bonus actions
 
-      ***Leap***. The hezrou jumps up to 30 feet by spending 10 feet of movement.
+
+      ***Leap***. The hezrou jumps up to 30 feet by spending 10 feet of movement.'
     senses: Darkvision 120 ft., Passive Perception 11
     languages:
     - Abyssal; telepathy 120 ft.
   fr:
     name: Hezrou
     subtype: Démon
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Puanteur***. *JdS Constitution* : DD 16, toute créature qui commence son tour dans une Émanation de 3 m centrée sur le hezrou. *Échec* : la cible subit l'état Empoisonné jusqu'au début de son tour suivant.
 
-      ***Résistance à la magie***. Le hezrou a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
+      ***Puanteur***. *JdS Constitution* : DD 16, toute créature qui commence son
+      tour dans une Émanation de 3 m centrée sur le hezrou. *Échec* : la cible subit
+      l''état Empoisonné jusqu''au début de son tour suivant.
 
-      ***Restauration démoniaque***. Si le hezrou meurt hors des Abysses, son corps se dissout en ichor et il en acquiert aussitôt un nouveau en revenant à la vie avec tous ses pv, quelque part dans les Abysses.
+
+      ***Résistance à la magie***. Le hezrou a un Avantage aux jets de sauvegarde
+      contre les sorts et autres effets magiques.
+
+
+      ***Restauration démoniaque***. Si le hezrou meurt hors des Abysses, son corps
+      se dissout en ichor et il en acquiert aussitôt un nouveau en revenant à la vie
+      avec tous ses pv, quelque part dans les Abysses.
+
 
       ## Actions
 
+
       ***Attaques multiples***. Le hezrou effectue trois attaques de Saignée.
 
-      ***Saignée***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 6 (1d4 +4) dégâts tranchants plus 9 (2d8) dégâts de poison.
+
+      ***Saignée***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 6 (1d4 +4) dégâts
+      tranchants plus 9 (2d8) dégâts de poison.
+
 
       ## Actions Bonus
 
-      ***Bond***. Le hezrou effectue un saut d'un maximum de 9 m en dépensant 3 m de déplacement.
+
+      ***Bond***. Le hezrou effectue un saut d''un maximum de 9 m en dépensant 3 m
+      de déplacement.'
     senses: Vision dans le noir 36 m, Perception passive 11
     languages:
     - abyssal ; télépathie 36 m

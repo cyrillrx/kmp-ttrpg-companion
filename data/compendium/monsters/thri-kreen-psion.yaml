@@ -8,24 +8,17 @@ armorClass: 16
 maxHitPoints: 149
 hitDice: 23d8+46
 abilities:
-  str:
-    value: 18
-    savingThrowProficiency: proficient
-  dex:
-    value: 15
-    savingThrowProficiency: proficient
-  con:
-    value: 14
-    savingThrowProficiency: proficient
-  int:
-    value: 19
-    savingThrowProficiency: proficient
-  wis:
-    value: 12
-    savingThrowProficiency: none
-  cha:
-    value: 11
-    savingThrowProficiency: none
+  str: 18
+  dex: 15
+  con: 14
+  int: 19
+  wis: 12
+  cha: 11
+savingThrows:
+  str: proficient
+  dex: proficient
+  con: proficient
+  int: proficient
 speeds:
   walk: 40
   fly: 20
@@ -88,36 +81,55 @@ translations:
   en:
     name: Thri-kreen Psion
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
+
 
       ***Multiattack***. The thri-kreen makes three Psionic Lance attacks.
 
-      ***Psionic Lance***. *Melee or Ranged Attack Roll* : +7, reach 10 ft. or range 120 ft. *Hit* : 18 (4d6 + 4) Psychic damage.
 
-      ***Spellcasting***. The thri-kreen casts one of the following spells, requiring no spell components and using Intelligence as the spellcasting ability (spell save DC 15):
+      ***Psionic Lance***. *Melee or Ranged Attack Roll* : +7, reach 10 ft. or range
+      120 ft. *Hit* : 18 (4d6 + 4) Psychic damage.
 
-      At will: *[Mage Hand](https://www.aidedd.org/spell/mage-hand)* (the hand is Invisible)
-      
-      1/day each: *[Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts), [Sending](https://www.aidedd.org/spell/sending), [Synaptic Static](https://www.aidedd.org/spell/synaptic-static)*
+
+      ***Spellcasting***. The thri-kreen casts one of the following spells, requiring
+      no spell components and using Intelligence as the spellcasting ability (spell
+      save DC 15):
+
+
+      At will: *[Mage Hand](https://www.aidedd.org/spell/mage-hand)* (the hand is
+      Invisible)
+
+
+      1/day each: *[Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts),
+      [Sending](https://www.aidedd.org/spell/sending), [Synaptic Static](https://www.aidedd.org/spell/synaptic-static)*'
     senses: Darkvision 60 ft., Passive Perception 14
     languages:
     - Thri-kreen; telepathy 120 ft.
   fr:
     name: Thri-kreen, psion
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
+
 
       ***Attaques multiples***. Le thri-kreen effectue trois attaques de Lance psionique.
 
-      ***Lance psionique***. *Corps à corps ou à distance* : +7, allonge 3 m ou portée 36 m. *Touché* : 18 (4d6 + 4) dégâts psychiques.
 
-      ***Incantation***. Le thri-kreen lance l'un des sorts suivants sans composantes de sort, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 15) :
+      ***Lance psionique***. *Corps à corps ou à distance* : +7, allonge 3 m ou portée
+      36 m. *Touché* : 18 (4d6 + 4) dégâts psychiques.
 
-      À volonté : *[main de mage](https://www.aidedd.org/spell/fr/main-de-mage)* (la main est invisible)
-      
-      1/jour chacun : *[détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees), [communication à distance](https://www.aidedd.org/spell/fr/communication-a-distance"), [perturbations synaptiques](https://www.aidedd.org/spell/fr/perturbations-synaptiques)*
+
+      ***Incantation***. Le thri-kreen lance l''un des sorts suivants sans composantes
+      de sort, l''Intelligence étant sa caractéristique d''incantation (DD de sauvegarde
+      15) :
+
+
+      À volonté : *[main de mage](https://www.aidedd.org/spell/fr/main-de-mage)* (la
+      main est invisible)
+
+
+      1/jour chacun : *[détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees),
+      [communication à distance](https://www.aidedd.org/spell/fr/communication-a-distance"),
+      [perturbations synaptiques](https://www.aidedd.org/spell/fr/perturbations-synaptiques)*'
     senses: Vision dans le noir 18 m, Perception passive 14
     languages:
     - thri-kreen ; télépathie 36 m

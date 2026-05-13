@@ -8,24 +8,12 @@ armorClass: 15
 maxHitPoints: 67
 hitDice: 9d8+27
 abilities:
-  str:
-    value: 17
-    savingThrowProficiency: none
-  dex:
-    value: 12
-    savingThrowProficiency: none
-  con:
-    value: 16
-    savingThrowProficiency: none
-  int:
-    value: 6
-    savingThrowProficiency: none
-  wis:
-    value: 14
-    savingThrowProficiency: none
-  cha:
-    value: 7
-    savingThrowProficiency: none
+  str: 17
+  dex: 12
+  con: 16
+  int: 6
+  wis: 14
+  cha: 7
 speeds:
   walk: 30
   fly: null
@@ -88,52 +76,80 @@ translations:
   en:
     name: Quaggoth Thonot
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
+
 
       ***Bloodied Fury***. While Bloodied, the quaggoth has Advantage on attack rolls.
 
+
       ## Actions
+
 
       ***Multiattack***. The quaggoth makes two Claw attacks.
 
-      ***Claw***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 6 (1d6 + 3) Slashing damage plus 5 (2d4) Psychic damage.
 
-      ***Spellcasting***. The quaggoth casts one of the following spells, requiring no spell components and using Wisdom as the spellcasting ability (spell save DC 12):
+      ***Claw***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 6 (1d6 + 3) Slashing
+      damage plus 5 (2d4) Psychic damage.
 
-      At will: *[Mage Hand](https://www.aidedd.org/spell/mage-hand)* (the hand is Invisible), *[Minor Illusion](https://www.aidedd.org/spell/minor-illusion)*
-      
+
+      ***Spellcasting***. The quaggoth casts one of the following spells, requiring
+      no spell components and using Wisdom as the spellcasting ability (spell save
+      DC 12):
+
+
+      At will: *[Mage Hand](https://www.aidedd.org/spell/mage-hand)* (the hand is
+      Invisible), *[Minor Illusion](https://www.aidedd.org/spell/minor-illusion)*
+
+
       2/day: *[Mind Spike](https://www.aidedd.org/spell/mind-spike)*
+
 
       ## Reactions
 
-      ***Psionic Defense (3/Day)***. The quaggoth casts *[Feather Fall](https://www.aidedd.org/spell/feather-fall)* or *[Shield](https://www.aidedd.org/spell/shield)* in response to the spell's trigger, requiring no spell components and using the same spellcasting ability as Spellcasting.
+
+      ***Psionic Defense (3/Day)***. The quaggoth casts *[Feather Fall](https://www.aidedd.org/spell/feather-fall)*
+      or *[Shield](https://www.aidedd.org/spell/shield)* in response to the spell''s
+      trigger, requiring no spell components and using the same spellcasting ability
+      as Spellcasting.'
     senses: Darkvision 120 ft., Passive Perception 12
     languages:
     - Undercommon
   fr:
     name: Quaggoth thonot
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Fureur du péril***. Lorsqu'il est En péril, le quaggoth a un Avantage aux jets d'attaque.
+
+      ***Fureur du péril***. Lorsqu''il est En péril, le quaggoth a un Avantage aux
+      jets d''attaque.
+
 
       ## Actions
 
+
       ***Attaques multiples***. Le quaggoth effectue deux attaques de Griffes.
 
-      ***Griffes***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 6 (1d6 + 3) dégâts tranchants plus 5 (2d4) dégâts psychiques.
 
-      ***Incantation***. Le quaggoth lance l'un des sorts suivants sans composantes de sort, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 12) :
+      ***Griffes***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 6 (1d6 + 3)
+      dégâts tranchants plus 5 (2d4) dégâts psychiques.
 
-      À volonté : *[main de mage](https://www.aidedd.org/spell/fr/main-de-mage)* (la main est invisible), *[illusion mineure](https://www.aidedd.org/spell/fr/illusion-mineure)*
-      
+
+      ***Incantation***. Le quaggoth lance l''un des sorts suivants sans composantes
+      de sort, la Sagesse étant sa caractéristique d''incantation (DD de sauvegarde
+      12) :
+
+
+      À volonté : *[main de mage](https://www.aidedd.org/spell/fr/main-de-mage)* (la
+      main est invisible), *[illusion mineure](https://www.aidedd.org/spell/fr/illusion-mineure)*
+
+
       2/jour : *[épine mentale](https://www.aidedd.org/spell/fr/epine-mentale)*
+
 
       ## Réactions
 
-      Défense psionique (3/jour).
+
+      Défense psionique (3/jour).'
     senses: Vision dans le noir 36 m, Perception passive 12
     languages:
     - commun des profondeurs

@@ -8,24 +8,12 @@ armorClass: 13
 maxHitPoints: 13
 hitDice: 3d8
 abilities:
-  str:
-    value: 12
-    savingThrowProficiency: none
-  dex:
-    value: 15
-    savingThrowProficiency: none
-  con:
-    value: 10
-    savingThrowProficiency: none
-  int:
-    value: 2
-    savingThrowProficiency: none
-  wis:
-    value: 9
-    savingThrowProficiency: none
-  cha:
-    value: 5
-    savingThrowProficiency: none
+  str: 12
+  dex: 15
+  con: 10
+  int: 2
+  wis: 9
+  cha: 5
 speeds:
   walk: 10
   fly: 60
@@ -88,28 +76,36 @@ translations:
   en:
     name: Pteranodon
     subtype: Dinosaur
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Flyby***. The pteranodon doesn't provoke an Opportunity Attack when it flies out of an enemy's reach.
+
+      ***Flyby***. The pteranodon doesn''t provoke an Opportunity Attack when it flies
+      out of an enemy''s reach.
+
 
       ## Actions
 
-      ***Bite***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 6 (1d8 + 2) Piercing damage.
+
+      ***Bite***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 6 (1d8 + 2) Piercing
+      damage.'
     senses: Passive Perception 11
     languages:
     - None
   fr:
     name: Ptéranodon
     subtype: Dinosaure
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Repli aérien***. Le ptéranodon ne provoque pas d'attaque d'Opportunité lorsqu'il quitte la zone d'allonge d'un ennemi en volant.
+
+      ***Repli aérien***. Le ptéranodon ne provoque pas d''attaque d''Opportunité
+      lorsqu''il quitte la zone d''allonge d''un ennemi en volant.
+
 
       ## Actions
 
-      ***Morsure***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 6 (1d8 + 2) dégâts perforants.
+
+      ***Morsure***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 6 (1d8 + 2)
+      dégâts perforants.'
     senses: Perception passive 11
     languages:
     - aucune

@@ -8,24 +8,14 @@ armorClass: 12
 maxHitPoints: 1
 hitDice: 1d4-1
 abilities:
-  str:
-    value: 2
-    savingThrowProficiency: none
-  dex:
-    value: 15
-    savingThrowProficiency: none
-  con:
-    value: 8
-    savingThrowProficiency: none
-  int:
-    value: 2
-    savingThrowProficiency: none
-  wis:
-    value: 12
-    savingThrowProficiency: none
-  cha:
-    value: 4
-    savingThrowProficiency: proficient
+  str: 2
+  dex: 15
+  con: 8
+  int: 2
+  wis: 12
+  cha: 4
+savingThrows:
+  cha: proficient
 speeds:
   walk: 5
   fly: 30
@@ -88,20 +78,20 @@ translations:
   en:
     name: Bat
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Bite***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 1 Piercing damage.
+
+      ***Bite***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 1 Piercing damage.'
     senses: Blindsight 60 ft., Passive Perception 11
     languages:
     - None
   fr:
     name: Chauve-souris
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Morsure***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 1 dégât perforant.
+
+      ***Morsure***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 1 dégât perforant.'
     senses: Vision aveugle 18 m, Perception passive 11
     languages:
     - aucune

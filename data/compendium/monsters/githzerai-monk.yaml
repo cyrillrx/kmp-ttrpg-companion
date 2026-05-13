@@ -8,24 +8,17 @@ armorClass: 14
 maxHitPoints: 38
 hitDice: 7d8+7
 abilities:
-  str:
-    value: 12
-    savingThrowProficiency: proficient
-  dex:
-    value: 15
-    savingThrowProficiency: proficient
-  con:
-    value: 12
-    savingThrowProficiency: none
-  int:
-    value: 13
-    savingThrowProficiency: proficient
-  wis:
-    value: 14
-    savingThrowProficiency: proficient
-  cha:
-    value: 10
-    savingThrowProficiency: none
+  str: 12
+  dex: 15
+  con: 12
+  int: 13
+  wis: 14
+  cha: 10
+savingThrows:
+  str: proficient
+  dex: proficient
+  int: proficient
+  wis: proficient
 speeds:
   walk: 40
   fly: null
@@ -88,26 +81,41 @@ translations:
   en:
     name: Githzerai Monk
     subtype: Gith
-    description: |-
-      ## Actions
+    description: '## Actions
+
 
       ***Multiattack***. The githzerai makes two Psi Strike attacks.
 
-      ***Psi Strike***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 6 (1d8 + 2) Bludgeoning damage plus 9 (2d8) Psychic damage.
 
-      ***Spellcasting***. The githzerai casts one of the following spells, requiring no spell components and using Wisdom as the spellcasting ability:
+      ***Psi Strike***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 6 (1d8 + 2)
+      Bludgeoning damage plus 9 (2d8) Psychic damage.
 
-      At will: *[Mage Hand](https://www.aidedd.org/spell/mage-hand)* (the hand is Invisible)
-      
+
+      ***Spellcasting***. The githzerai casts one of the following spells, requiring
+      no spell components and using Wisdom as the spellcasting ability:
+
+
+      At will: *[Mage Hand](https://www.aidedd.org/spell/mage-hand)* (the hand is
+      Invisible)
+
+
       1/day: *[See Invisibility](https://www.aidedd.org/spell/see-invisibility)*
+
 
       ## Bonus actions
 
-      ***Psi-Powered Leap (2/Day)***. The githzerai casts *[Jump](https://www.aidedd.org/spell/jump)* , requiring no spell components and using the same spellcasting ability as Spellcasting.
+
+      ***Psi-Powered Leap (2/Day)***. The githzerai casts *[Jump](https://www.aidedd.org/spell/jump)*
+      , requiring no spell components and using the same spellcasting ability as Spellcasting.
+
 
       ## Reactions
 
-      ***Psionic Defense (2/Day)***. The githzerai casts *[Feather Fall](https://www.aidedd.org/spell/feather-fall)* or *[Shield](https://www.aidedd.org/spell/shield)* in response to the spell's trigger, requiring no spell components and using the same spellcasting ability as Spellcasting.
+
+      ***Psionic Defense (2/Day)***. The githzerai casts *[Feather Fall](https://www.aidedd.org/spell/feather-fall)*
+      or *[Shield](https://www.aidedd.org/spell/shield)* in response to the spell''s
+      trigger, requiring no spell components and using the same spellcasting ability
+      as Spellcasting.'
     senses: Passive Perception 14
     languages:
     - Common
@@ -115,22 +123,28 @@ translations:
   fr:
     name: Githzerai, moine
     subtype: Gith
-    description: |-
-      ## Actions
+    description: '## Actions
+
 
       Attaques multiples.
-      
+
+
       Frappe psi.
-      
+
+
       Incantation.
+
 
       ## Actions Bonus
 
+
       Bond psi (2/jour).
+
 
       ## Réactions
 
-      Défense psionique (2/jour).
+
+      Défense psionique (2/jour).'
     senses: Perception passive 14
     languages:
     - commun

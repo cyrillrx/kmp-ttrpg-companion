@@ -8,24 +8,12 @@ armorClass: 13
 maxHitPoints: 1
 hitDice: 1d4-1
 abilities:
-  str:
-    value: 3
-    savingThrowProficiency: none
-  dex:
-    value: 16
-    savingThrowProficiency: none
-  con:
-    value: 8
-    savingThrowProficiency: none
-  int:
-    value: 2
-    savingThrowProficiency: none
-  wis:
-    value: 12
-    savingThrowProficiency: none
-  cha:
-    value: 3
-    savingThrowProficiency: none
+  str: 3
+  dex: 16
+  con: 8
+  int: 2
+  wis: 12
+  cha: 3
 speeds:
   walk: 30
   fly: null
@@ -88,20 +76,20 @@ translations:
   en:
     name: Weasel
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Bite***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 1 Piercing damage.
+
+      ***Bite***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 1 Piercing damage.'
     senses: Darkvision 60 ft., Passive Perception 13
     languages:
     - None
   fr:
     name: Belette
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Morsure***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 1 dégât perforant.
+
+      ***Morsure***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 1 dégât perforant.'
     senses: Vision dans le noir 18 m, Perception passive 13
     languages:
     - aucune

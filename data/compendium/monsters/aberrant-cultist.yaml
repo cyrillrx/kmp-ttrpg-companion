@@ -8,24 +8,15 @@ armorClass: 14
 maxHitPoints: 137
 hitDice: 25d8+25
 abilities:
-  str:
-    value: 10
-    savingThrowProficiency: none
-  dex:
-    value: 19
-    savingThrowProficiency: none
-  con:
-    value: 12
-    savingThrowProficiency: none
-  int:
-    value: 16
-    savingThrowProficiency: proficient
-  wis:
-    value: 18
-    savingThrowProficiency: proficient
-  cha:
-    value: 15
-    savingThrowProficiency: none
+  str: 10
+  dex: 19
+  con: 12
+  int: 16
+  wis: 18
+  cha: 15
+savingThrows:
+  int: proficient
+  wis: proficient
 speeds:
   walk: 30
   fly: null
@@ -88,22 +79,39 @@ translations:
   en:
     name: Aberrant Cultist
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Multiattack***. The cultist makes two Tentacle Lash attacks. It can replace any attack with a use of Mind Rot.
 
-      ***Spellcasting***. The cultist casts one of the following spells, using Wisdom as the spellcasting ability (spell save DC 15):
+      ***Multiattack***. The cultist makes two Tentacle Lash attacks. It can replace
+      any attack with a use of Mind Rot.
 
-      At will: *[Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts), [Minor Illusion](https://www.aidedd.org/spell/minor-illusion)*
 
-      ***Tentacle Lash***. *Melee Attack Roll* : +7, reach 10 ft. *Hit* : 7 (1d6 + 4) Slashing damage plus 14 (4d6) Psychic damage. If the target is a Large or smaller creature, it has the Grappled condition (escape DC 14) from one of two tentacles, and it has the Restrained condition until the grapple ends.
+      ***Spellcasting***. The cultist casts one of the following spells, using Wisdom
+      as the spellcasting ability (spell save DC 15):
 
-      ***Mind Rot***. *Wisdom Saving Throw* : DC 15, one creature the cultist can see within 90 feet. *Failure* : 27 (6d8) Psychic damage, and the target has the Poisoned condition until the start of the cultist's next turn. *Success* : Half damage only.
+
+      At will: *[Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts), [Minor
+      Illusion](https://www.aidedd.org/spell/minor-illusion)*
+
+
+      ***Tentacle Lash***. *Melee Attack Roll* : +7, reach 10 ft. *Hit* : 7 (1d6 +
+      4) Slashing damage plus 14 (4d6) Psychic damage. If the target is a Large or
+      smaller creature, it has the Grappled condition (escape DC 14) from one of two
+      tentacles, and it has the Restrained condition until the grapple ends.
+
+
+      ***Mind Rot***. *Wisdom Saving Throw* : DC 15, one creature the cultist can
+      see within 90 feet. *Failure* : 27 (6d8) Psychic damage, and the target has
+      the Poisoned condition until the start of the cultist''s next turn. *Success*
+      : Half damage only.
+
 
       ## Reactions
 
-      ***Counterspell (2/Day)***. The cultist casts *[Counterspell](https://www.aidedd.org/spell/counterspell)* in response to that spell's trigger, using the same spellcasting ability as Spellcasting.
+
+      ***Counterspell (2/Day)***. The cultist casts *[Counterspell](https://www.aidedd.org/spell/counterspell)*
+      in response to that spell''s trigger, using the same spellcasting ability as
+      Spellcasting.'
     senses: Darkvision 90 ft., Passive Perception 17
     languages:
     - Common
@@ -111,22 +119,40 @@ translations:
   fr:
     name: Cultiste, d'Aberration
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Attaques multiples***. Le cultiste effectue deux attaques de Tentacule cinglant. Il peut remplacer n'importe quelle attaque par une utilisation de Pourriture mentale.
 
-      ***Tentacule cinglant***. *Corps à corps* : +7, allonge 3 m. *Touché* : 7 (1d6 + 4) dégâts tranchants plus 14 (4d6) dégâts psychiques. Si la cible est une créature de taille G ou inférieure, elle subit l'état Agrippé (évasion DD 14) par l'un des deux tentacules, et l'état Entravé tant qu'elle est agrippée.
+      ***Attaques multiples***. Le cultiste effectue deux attaques de Tentacule cinglant.
+      Il peut remplacer n''importe quelle attaque par une utilisation de Pourriture
+      mentale.
 
-      ***Pourriture mentale***. *JdS Sagesse* : DD 15, une créature que le cultiste peut voir dans un rayon de 27 m. *Échec* : 27 (6d8) dégâts psychiques, et la cible subit l'état Empoisonné jusqu'au début du prochain tour du cultiste. *Réussite* : demi-dégâts uniquement.
 
-      ***Incantation***. Le cultiste lance l'un des sorts suivants, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 15) :
+      ***Tentacule cinglant***. *Corps à corps* : +7, allonge 3 m. *Touché* : 7 (1d6
+      + 4) dégâts tranchants plus 14 (4d6) dégâts psychiques. Si la cible est une
+      créature de taille G ou inférieure, elle subit l''état Agrippé (évasion DD 14)
+      par l''un des deux tentacules, et l''état Entravé tant qu''elle est agrippée.
 
-      À volonté : *[détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees), [illusion mineure](https://www.aidedd.org/spell/fr/illusion-mineure)*
+
+      ***Pourriture mentale***. *JdS Sagesse* : DD 15, une créature que le cultiste
+      peut voir dans un rayon de 27 m. *Échec* : 27 (6d8) dégâts psychiques, et la
+      cible subit l''état Empoisonné jusqu''au début du prochain tour du cultiste.
+      *Réussite* : demi-dégâts uniquement.
+
+
+      ***Incantation***. Le cultiste lance l''un des sorts suivants, la Sagesse étant
+      sa caractéristique d''incantation (DD de sauvegarde 15) :
+
+
+      À volonté : *[détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees),
+      [illusion mineure](https://www.aidedd.org/spell/fr/illusion-mineure)*
+
 
       ## Réactions
 
-      ***Contresort (2/jour)***. Le cultiste lance *[contresort](https://www.aidedd.org/spell/fr/contresort)* en réponse au déclencheur de ce sort, en utilisant la même caractéristique d'incantation que pour Incantation.
+
+      ***Contresort (2/jour)***. Le cultiste lance *[contresort](https://www.aidedd.org/spell/fr/contresort)*
+      en réponse au déclencheur de ce sort, en utilisant la même caractéristique d''incantation
+      que pour Incantation.'
     senses: Vision dans le noir 27 m, Perception passive 17
     languages:
     - commun

@@ -8,24 +8,12 @@ armorClass: 13
 maxHitPoints: 45
 hitDice: 6d10+12
 abilities:
-  str:
-    value: 18
-    savingThrowProficiency: none
-  dex:
-    value: 15
-    savingThrowProficiency: none
-  con:
-    value: 15
-    savingThrowProficiency: none
-  int:
-    value: 8
-    savingThrowProficiency: none
-  wis:
-    value: 10
-    savingThrowProficiency: none
-  cha:
-    value: 9
-    savingThrowProficiency: none
+  str: 18
+  dex: 15
+  con: 15
+  int: 8
+  wis: 10
+  cha: 9
 speeds:
   walk: 10
   fly: null
@@ -88,20 +76,31 @@ translations:
   en:
     name: Merrow
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
+
 
       ***Amphibious***. The merrow can breathe air and water.
 
+
       ## Actions
 
-      ***Multiattack***. The merrow makes two attacks, using Bite, Claw, or Harpoon in any combination.
 
-      ***Bite***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 6 (1d4 + 4) Piercing damage, and the target has the Poisoned condition until the end of the merrow's next turn.
+      ***Multiattack***. The merrow makes two attacks, using Bite, Claw, or Harpoon
+      in any combination.
 
-      ***Claw***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 9 (2d4 + 4) Slashing damage.
 
-      ***Harpoon***. *Melee or Ranged Attack Roll* : +6, reach 5 ft. or range 20/60 ft. *Hit* : 11 (2d6 + 4) Piercing damage. If the target is a Large or smaller creature, the merrow pulls the target up to 15 feet straight toward itself.
+      ***Bite***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 6 (1d4 + 4) Piercing
+      damage, and the target has the Poisoned condition until the end of the merrow''s
+      next turn.
+
+
+      ***Claw***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 9 (2d4 + 4) Slashing
+      damage.
+
+
+      ***Harpoon***. *Melee or Ranged Attack Roll* : +6, reach 5 ft. or range 20/60
+      ft. *Hit* : 11 (2d6 + 4) Piercing damage. If the target is a Large or smaller
+      creature, the merrow pulls the target up to 15 feet straight toward itself.'
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - Abyssal
@@ -109,20 +108,32 @@ translations:
   fr:
     name: Merrow
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Amphibie***. Le merrow peut respirer sous l'eau comme à l'air libre.
+
+      ***Amphibie***. Le merrow peut respirer sous l''eau comme à l''air libre.
+
 
       ## Actions
 
-      ***Attaques multiples***. Le merrow effectue deux attaques, réparties à sa guise entre Griffe, Morsure et Harpon.
 
-      ***Griffe***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 9 (2d4 + 4) dégâts tranchants.
+      ***Attaques multiples***. Le merrow effectue deux attaques, réparties à sa guise
+      entre Griffe, Morsure et Harpon.
 
-      ***Harpon***. *Corps à corps ou à distance* : +6, allonge 1,50 m ou portée 6/18 m. *Touché* : 11 (2d6 + 4) dégâts perforants. Si la cible est une créature de taille G ou inférieure, le merrow la tire en ligne droite vers lui d'un maximum de 4,50 m.
 
-      ***Morsure***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 6 (1d4 + 4) dégâts perforants, et la cible subit l'état Empoisonné jusqu'à la fin du tour suivant du merrow.
+      ***Griffe***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 9 (2d4 + 4) dégâts
+      tranchants.
+
+
+      ***Harpon***. *Corps à corps ou à distance* : +6, allonge 1,50 m ou portée 6/18
+      m. *Touché* : 11 (2d6 + 4) dégâts perforants. Si la cible est une créature de
+      taille G ou inférieure, le merrow la tire en ligne droite vers lui d''un maximum
+      de 4,50 m.
+
+
+      ***Morsure***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 6 (1d4 + 4)
+      dégâts perforants, et la cible subit l''état Empoisonné jusqu''à la fin du tour
+      suivant du merrow.'
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - abyssal

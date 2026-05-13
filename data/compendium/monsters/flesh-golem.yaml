@@ -8,24 +8,12 @@ armorClass: 9
 maxHitPoints: 127
 hitDice: 15d8+60
 abilities:
-  str:
-    value: 19
-    savingThrowProficiency: none
-  dex:
-    value: 9
-    savingThrowProficiency: none
-  con:
-    value: 18
-    savingThrowProficiency: none
-  int:
-    value: 6
-    savingThrowProficiency: none
-  wis:
-    value: 10
-    savingThrowProficiency: none
-  cha:
-    value: 5
-    savingThrowProficiency: none
+  str: 19
+  dex: 9
+  con: 18
+  int: 6
+  wis: 10
+  cha: 5
 speeds:
   walk: null
   fly: null
@@ -88,48 +76,91 @@ translations:
   en:
     name: Flesh Golem
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Aversion to Fire***. If the golem takes Fire damage, it has Disadvantage on attack rolls and ability checks until the end of its next turn.
 
-      ***Berserk***. Whenever the golem starts its turn Bloodied, roll 1d6. On a 6, the golem goes berserk. On each of its turns while berserk, the golem attacks the nearest creature it can see. If no creature is near enough to move to and attack, the golem attacks an object. Once the golem goes berserk, it remains so until it is destroyed or it is no longer Bloodied. The golem's creator, if within 60 feet of the berserk golem, can try to calm it by taking an action to make a DC 15 Charisma (Persuasion) check; the golem must be able to hear its creator. If this check succeeds, the golem ceases being berserk until the start of its next turn, at which point it resumes rolling for the Berserk trait again if it is still Bloodied.
+      ***Aversion to Fire***. If the golem takes Fire damage, it has Disadvantage
+      on attack rolls and ability checks until the end of its next turn.
 
-      ***Immutable Form***. The golem can't shape-shift.
 
-      ***Lightning Absorption***. Whenever the golem is subjected to Lightning damage, it regains a number of Hit Points equal to the Lightning damage dealt.
+      ***Berserk***. Whenever the golem starts its turn Bloodied, roll 1d6. On a 6,
+      the golem goes berserk. On each of its turns while berserk, the golem attacks
+      the nearest creature it can see. If no creature is near enough to move to and
+      attack, the golem attacks an object. Once the golem goes berserk, it remains
+      so until it is destroyed or it is no longer Bloodied. The golem''s creator,
+      if within 60 feet of the berserk golem, can try to calm it by taking an action
+      to make a DC 15 Charisma (Persuasion) check; the golem must be able to hear
+      its creator. If this check succeeds, the golem ceases being berserk until the
+      start of its next turn, at which point it resumes rolling for the Berserk trait
+      again if it is still Bloodied.
 
-      ***Magic Resistance***. The golem has Advantage on saving throws against spells and other magical effects.
+
+      ***Immutable Form***. The golem can''t shape-shift.
+
+
+      ***Lightning Absorption***. Whenever the golem is subjected to Lightning damage,
+      it regains a number of Hit Points equal to the Lightning damage dealt.
+
+
+      ***Magic Resistance***. The golem has Advantage on saving throws against spells
+      and other magical effects.
+
 
       ## Actions
 
+
       ***Multiattack***. The golem makes two Slam attacks.
 
-      ***Slam***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 13 (2d8 + 4) Bludgeoning damage plus 4 (1d8) Lightning damage.
+
+      ***Slam***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 13 (2d8 + 4) Bludgeoning
+      damage plus 4 (1d8) Lightning damage.'
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - Understands Common plus one other language but can't speak
   fr:
     name: Golem de chair
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Absorption de la foudre***. Chaque fois que le golem est soumis à des dégâts de foudre, il récupère en fait autant de points de vie que les dégâts de foudre infligés.
 
-      ***Aversion des flammes***. Si le golem subit des dégâts de feu, il subit un Désavantage aux jets d'attaque et jets de caractéristique jusqu'à la fin de son tour suivant.
+      ***Absorption de la foudre***. Chaque fois que le golem est soumis à des dégâts
+      de foudre, il récupère en fait autant de points de vie que les dégâts de foudre
+      infligés.
 
-      ***Folie furieuse***. Chaque fois que le golem commence son tour En péril, lancez 1d6. Sur un résultat de 6, il devient fou. À chacun de ses tours tant qu'il est dans cet état, le golem attaque la créature la plus proche qu'il voit. Si aucune créature n'est assez proche pour qu'il puisse se déplacer et l'attaquer, le golem s'en prend à un objet. Une fois le golem devenu fou, il le reste jusqu'à sa destruction ou qu'il ne soit plus En péril. Le créateur du golem, s'il est dans un rayon de 18 m du golem fou furieux, peut tenter de l'apaiser au prix d'une action et d'un jet de Charisme (Persuasion) DD 15 à condition que le golem l'entende. En cas de réussite, la folie furieuse cesse pour le golem jusqu'au début de son tour suivant, après quoi il est de nouveau soumis aux jets de 1d6 du trait s'il est encore En péril.
+
+      ***Aversion des flammes***. Si le golem subit des dégâts de feu, il subit un
+      Désavantage aux jets d''attaque et jets de caractéristique jusqu''à la fin de
+      son tour suivant.
+
+
+      ***Folie furieuse***. Chaque fois que le golem commence son tour En péril, lancez
+      1d6. Sur un résultat de 6, il devient fou. À chacun de ses tours tant qu''il
+      est dans cet état, le golem attaque la créature la plus proche qu''il voit.
+      Si aucune créature n''est assez proche pour qu''il puisse se déplacer et l''attaquer,
+      le golem s''en prend à un objet. Une fois le golem devenu fou, il le reste jusqu''à
+      sa destruction ou qu''il ne soit plus En péril. Le créateur du golem, s''il
+      est dans un rayon de 18 m du golem fou furieux, peut tenter de l''apaiser au
+      prix d''une action et d''un jet de Charisme (Persuasion) DD 15 à condition que
+      le golem l''entende. En cas de réussite, la folie furieuse cesse pour le golem
+      jusqu''au début de son tour suivant, après quoi il est de nouveau soumis aux
+      jets de 1d6 du trait s''il est encore En péril.
+
 
       ***Forme immuable***. Le golem ne peut pas être métamorphosé.
 
-      ***Résistance à la magie***. Le golem a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
+
+      ***Résistance à la magie***. Le golem a un Avantage aux jets de sauvegarde contre
+      les sorts et autres effets magiques.
+
 
       ## Actions
 
+
       ***Attaques multiples***. Le golem effectue deux attaques de Coup.
 
-      ***Coup***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 13 (2d8 + 4) dégâts contondants plus 4 (1d8) dégâts de foudre.
+
+      ***Coup***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 13 (2d8 + 4) dégâts
+      contondants plus 4 (1d8) dégâts de foudre.'
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - comprend le commun plus une autre langue

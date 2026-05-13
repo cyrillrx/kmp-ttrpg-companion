@@ -8,24 +8,14 @@ armorClass: 11
 maxHitPoints: 13
 hitDice: 2d8+4
 abilities:
-  str:
-    value: 13
-    savingThrowProficiency: none
-  dex:
-    value: 11
-    savingThrowProficiency: none
-  con:
-    value: 14
-    savingThrowProficiency: none
-  int:
-    value: 2
-    savingThrowProficiency: none
-  wis:
-    value: 9
-    savingThrowProficiency: none
-  cha:
-    value: 5
-    savingThrowProficiency: proficient
+  str: 13
+  dex: 11
+  con: 14
+  int: 2
+  wis: 9
+  cha: 5
+savingThrows:
+  cha: proficient
 speeds:
   walk: 40
   fly: null
@@ -88,28 +78,40 @@ translations:
   en:
     name: Boar
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
+
 
       ***Bloodied Fury***. While Bloodied, the boar has Advantage on attack rolls.
 
+
       ## Actions
 
-      ***Gore***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 4 (1d6 + 1) Piercing damage. If the target is a Medium or smaller creature and the boar moved 20+ feet straight toward it immediately before the hit, the target takes an extra 3 (1d6) Piercing damage and has the Prone condition.
+
+      ***Gore***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 4 (1d6 + 1) Piercing
+      damage. If the target is a Medium or smaller creature and the boar moved 20+
+      feet straight toward it immediately before the hit, the target takes an extra
+      3 (1d6) Piercing damage and has the Prone condition.'
     senses: Passive Perception 9
     languages:
     - None
   fr:
     name: Sanglier
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Fureur du péril***. Tant qu'il est En péril, le sanglier a un Avantage aux jets d'attaque.
+
+      ***Fureur du péril***. Tant qu''il est En péril, le sanglier a un Avantage aux
+      jets d''attaque.
+
 
       ## Actions
 
-      ***Coup de défense***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 4 (1d6 + 1) dégâts perforants. Si la cible est une créature de taille M ou inférieure et que le sanglier s'est déplacé d'au moins 6 m en ligne droite juste avant de toucher, la cible subit 3 (1d6) dégâts perforants supplémentaires et subit l'état À terre.
+
+      ***Coup de défense***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 4 (1d6
+      + 1) dégâts perforants. Si la cible est une créature de taille M ou inférieure
+      et que le sanglier s''est déplacé d''au moins 6 m en ligne droite juste avant
+      de toucher, la cible subit 3 (1d6) dégâts perforants supplémentaires et subit
+      l''état À terre.'
     senses: Perception passive 9
     languages:
     - aucune

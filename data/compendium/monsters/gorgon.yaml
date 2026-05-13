@@ -8,24 +8,12 @@ armorClass: 19
 maxHitPoints: 114
 hitDice: 12d10+48
 abilities:
-  str:
-    value: 20
-    savingThrowProficiency: none
-  dex:
-    value: 11
-    savingThrowProficiency: none
-  con:
-    value: 18
-    savingThrowProficiency: none
-  int:
-    value: 2
-    savingThrowProficiency: none
-  wis:
-    value: 12
-    savingThrowProficiency: none
-  cha:
-    value: 7
-    savingThrowProficiency: none
+  str: 20
+  dex: 11
+  con: 18
+  int: 2
+  wis: 12
+  cha: 7
 speeds:
   walk: 40
   fly: null
@@ -88,30 +76,54 @@ translations:
   en:
     name: Gorgon
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Gore***. *Melee Attack Roll* : +8, reach 5 ft. *Hit* : 18 (2d12 + 5) Piercing damage. If the target is a Large or smaller creature and the gorgon moved 20+ feet straight toward it immediately before the hit, the target has the Prone condition.
 
-      ***Petrifying Breath (Recharge 5–6)***. *Constitution Saving Throw* : DC 15, each creature in a 30-foot Cone. *First Failure* : The target has the Restrained condition and repeats the save at the end of its next turn if it is still Restrained, ending the effect on itself on a success. *Second Failure* : The target has the Petrified condition instead of the Restrained condition.
+      ***Gore***. *Melee Attack Roll* : +8, reach 5 ft. *Hit* : 18 (2d12 + 5) Piercing
+      damage. If the target is a Large or smaller creature and the gorgon moved 20+
+      feet straight toward it immediately before the hit, the target has the Prone
+      condition.
+
+
+      ***Petrifying Breath (Recharge 5–6)***. *Constitution Saving Throw* : DC 15,
+      each creature in a 30-foot Cone. *First Failure* : The target has the Restrained
+      condition and repeats the save at the end of its next turn if it is still Restrained,
+      ending the effect on itself on a success. *Second Failure* : The target has
+      the Petrified condition instead of the Restrained condition.
+
 
       ## Bonus actions
 
-      ***Trample***. *Dexterity Saving Throw* : DC 16, one creature within 5 feet that has the Prone condition. *Failure* : 16 (2d10 + 5) Bludgeoning damage. *Success* : Half damage.
+
+      ***Trample***. *Dexterity Saving Throw* : DC 16, one creature within 5 feet
+      that has the Prone condition. *Failure* : 16 (2d10 + 5) Bludgeoning damage.
+      *Success* : Half damage.'
     senses: Darkvision 60 ft., Passive Perception 17
     languages: []
   fr:
     name: Gorgone
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Coup de corne***. *Corps à corps* : +8, allonge 1,50 m. *Touché* : 18 (2d12 + 5) dégâts perforants. Si la cible est une créature de taille G ou inférieure et si la gorgone s'est déplacée en ligne droite d'un minimum de 6 m juste avant de la toucher, la cible subit l'état À terre.
 
-      ***Souffle pétrifiant (recharge 5–6)***. *JdS Constitution* : DD 15, chaque créature dans un Cône de 9 m. *Premier échec* : la cible subit l'état Entravé et réitère le JdS à la fin de son tour suivant si elle est toujours Entravée ; elle met un terme à l'effet sur elle-même en cas de réussite. *Deuxième échec* : la cible subit l'état Pétrifié qui remplace l'état Entravé.
+      ***Coup de corne***. *Corps à corps* : +8, allonge 1,50 m. *Touché* : 18 (2d12
+      + 5) dégâts perforants. Si la cible est une créature de taille G ou inférieure
+      et si la gorgone s''est déplacée en ligne droite d''un minimum de 6 m juste
+      avant de la toucher, la cible subit l''état À terre.
+
+
+      ***Souffle pétrifiant (recharge 5–6)***. *JdS Constitution* : DD 15, chaque
+      créature dans un Cône de 9 m. *Premier échec* : la cible subit l''état Entravé
+      et réitère le JdS à la fin de son tour suivant si elle est toujours Entravée
+      ; elle met un terme à l''effet sur elle-même en cas de réussite. *Deuxième échec*
+      : la cible subit l''état Pétrifié qui remplace l''état Entravé.
+
 
       ## Actions Bonus
 
-      ***Piétinement***. *JdS Dextérité* : DD 16, une créature subissant l'état À terre dans un rayon de 1,50 m. *Échec* : 16 (2d10 + 5) dégâts contondants. *Réussite* : demi-dégâts.
+
+      ***Piétinement***. *JdS Dextérité* : DD 16, une créature subissant l''état À
+      terre dans un rayon de 1,50 m. *Échec* : 16 (2d10 + 5) dégâts contondants. *Réussite*
+      : demi-dégâts.'
     senses: Vision dans le noir 18 m, Perception passive 17
     languages: []

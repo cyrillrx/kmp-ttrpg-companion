@@ -8,24 +8,12 @@ armorClass: 12
 maxHitPoints: 22
 hitDice: 5d8
 abilities:
-  str:
-    value: 1
-    savingThrowProficiency: none
-  dex:
-    value: 14
-    savingThrowProficiency: none
-  con:
-    value: 11
-    savingThrowProficiency: none
-  int:
-    value: 10
-    savingThrowProficiency: none
-  wis:
-    value: 10
-    savingThrowProficiency: none
-  cha:
-    value: 11
-    savingThrowProficiency: none
+  str: 1
+  dex: 14
+  con: 11
+  int: 10
+  wis: 10
+  cha: 11
 speeds:
   walk: 30
   fly: 50
@@ -88,32 +76,48 @@ translations:
   en:
     name: Specter
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Incorporeal Movement***. The specter can move through other creatures and objects as if they were Difficult Terrain. It takes 5 (1d10) Force damage if it ends its turn inside an object.
 
-      ***Sunlight Sensitivity***. While in sunlight, the specter has Disadvantage on ability checks and attack rolls.
+      ***Incorporeal Movement***. The specter can move through other creatures and
+      objects as if they were Difficult Terrain. It takes 5 (1d10) Force damage if
+      it ends its turn inside an object.
+
+
+      ***Sunlight Sensitivity***. While in sunlight, the specter has Disadvantage
+      on ability checks and attack rolls.
+
 
       ## Actions
 
-      ***Life Drain***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 7 (2d6) Necrotic damage. If the target is a creature, its Hit Point maximum decreases by an amount equal to the damage taken.
+
+      ***Life Drain***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 7 (2d6) Necrotic
+      damage. If the target is a creature, its Hit Point maximum decreases by an amount
+      equal to the damage taken.'
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - Understands Common plus one other language but can't speak
   fr:
     name: Spectre
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Déplacement intangible***. Le spectre peut traverser d'autres créatures et objets comme s'il s'agissait d'un Terrain difficile. Il subit 5 (1d10) dégâts de force s'il termine son tour à l'intérieur d'un objet.
 
-      ***Sensibilité au soleil***. Tant qu'il est exposé à la lumière du soleil, le spectre subit un Désavantage aux jets de caractéristique et aux jets d'attaque.
+      ***Déplacement intangible***. Le spectre peut traverser d''autres créatures
+      et objets comme s''il s''agissait d''un Terrain difficile. Il subit 5 (1d10)
+      dégâts de force s''il termine son tour à l''intérieur d''un objet.
+
+
+      ***Sensibilité au soleil***. Tant qu''il est exposé à la lumière du soleil,
+      le spectre subit un Désavantage aux jets de caractéristique et aux jets d''attaque.
+
 
       ## Actions
 
-      ***Absorption de vie***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 7 (2d6) dégâts nécrotiques. Si la cible est une créature, son maximum de points de vie est réduit d'un montant égal aux dégâts subis.
+
+      ***Absorption de vie***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 7
+      (2d6) dégâts nécrotiques. Si la cible est une créature, son maximum de points
+      de vie est réduit d''un montant égal aux dégâts subis.'
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - comprend le commun plus une autre langue

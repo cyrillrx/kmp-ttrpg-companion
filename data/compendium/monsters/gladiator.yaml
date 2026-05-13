@@ -8,24 +8,17 @@ armorClass: 16
 maxHitPoints: 112
 hitDice: 15d8+45
 abilities:
-  str:
-    value: 18
-    savingThrowProficiency: proficient
-  dex:
-    value: 15
-    savingThrowProficiency: proficient
-  con:
-    value: 16
-    savingThrowProficiency: proficient
-  int:
-    value: 10
-    savingThrowProficiency: none
-  wis:
-    value: 12
-    savingThrowProficiency: proficient
-  cha:
-    value: 15
-    savingThrowProficiency: none
+  str: 18
+  dex: 15
+  con: 16
+  int: 10
+  wis: 12
+  cha: 15
+savingThrows:
+  str: proficient
+  dex: proficient
+  con: proficient
+  wis: proficient
 speeds:
   walk: 30
   fly: null
@@ -88,36 +81,56 @@ translations:
   en:
     name: Gladiator
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Multiattack***. The gladiator makes three Spear attacks. It can replace one attack with a use of Shield Bash.
 
-      ***Spear***. *Melee or Ranged Attack Roll* : +7, reach 5 ft. or range 20/60 ft. *Hit* : 11 (2d6 + 4) Piercing damage.
+      ***Multiattack***. The gladiator makes three Spear attacks. It can replace one
+      attack with a use of Shield Bash.
 
-      ***Shield Bash***. *Strength Saving Throw* : DC 15, one creature within 5 feet that the gladiator can see. *Failure* : 9 (2d4 + 4) Bludgeoning damage. If the target is a Medium or smaller creature, it has the Prone condition.
+
+      ***Spear***. *Melee or Ranged Attack Roll* : +7, reach 5 ft. or range 20/60
+      ft. *Hit* : 11 (2d6 + 4) Piercing damage.
+
+
+      ***Shield Bash***. *Strength Saving Throw* : DC 15, one creature within 5 feet
+      that the gladiator can see. *Failure* : 9 (2d4 + 4) Bludgeoning damage. If the
+      target is a Medium or smaller creature, it has the Prone condition.
+
 
       ## Reactions
 
-      ***Parry***. *Trigger* : The gladiator is hit by a melee attack roll while holding a weapon. *Response* : The gladiator adds 3 to its AC against that attack, possibly causing it to miss.
+
+      ***Parry***. *Trigger* : The gladiator is hit by a melee attack roll while holding
+      a weapon. *Response* : The gladiator adds 3 to its AC against that attack, possibly
+      causing it to miss.'
     senses: Passive Perception 11
     languages:
     - Common
   fr:
     name: Gladiateur
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Attaques multiples***. Le gladiateur effectue trois attaques de Lance. Il peut remplacer l'une de ces attaques par une utilisation de Coup de bouclier.
 
-      ***Lance***. *Corps à corps ou à distance* : +7, allonge 1,50 m ou portée 6/18 m. *Touché* : 11 (2d6 + 4) dégâts perforants.
+      ***Attaques multiples***. Le gladiateur effectue trois attaques de Lance. Il
+      peut remplacer l''une de ces attaques par une utilisation de Coup de bouclier.
 
-      ***Coup de bouclier***. *JdS Force* : DD 15, une créature dans un rayon de 1,50 m que le gladiateur voit. *Échec* : 9 (2d4 + 4) dégâts contondants. Si la cible est une créature de taille M ou inférieure, elle subit l'état À terre.
+
+      ***Lance***. *Corps à corps ou à distance* : +7, allonge 1,50 m ou portée 6/18
+      m. *Touché* : 11 (2d6 + 4) dégâts perforants.
+
+
+      ***Coup de bouclier***. *JdS Force* : DD 15, une créature dans un rayon de 1,50
+      m que le gladiateur voit. *Échec* : 9 (2d4 + 4) dégâts contondants. Si la cible
+      est une créature de taille M ou inférieure, elle subit l''état À terre.
+
 
       ## Réactions
 
-      ***Parade***. *Déclencheur* : le gladiateur est touché par un jet d'attaque de corps à corps alors qu'il tient une arme. *Conséquences* : le gladiateur ajoute 3 à sa CA contre cette attaque, ce qui peut la faire rater.
+
+      ***Parade***. *Déclencheur* : le gladiateur est touché par un jet d''attaque
+      de corps à corps alors qu''il tient une arme. *Conséquences* : le gladiateur
+      ajoute 3 à sa CA contre cette attaque, ce qui peut la faire rater.'
     senses: Perception passive 11
     languages:
     - commun

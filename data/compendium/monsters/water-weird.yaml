@@ -8,24 +8,12 @@ armorClass: 13
 maxHitPoints: 65
 hitDice: 10d10+10
 abilities:
-  str:
-    value: 17
-    savingThrowProficiency: none
-  dex:
-    value: 16
-    savingThrowProficiency: none
-  con:
-    value: 13
-    savingThrowProficiency: none
-  int:
-    value: 11
-    savingThrowProficiency: none
-  wis:
-    value: 10
-    savingThrowProficiency: none
-  cha:
-    value: 10
-    savingThrowProficiency: none
+  str: 17
+  dex: 16
+  con: 13
+  int: 11
+  wis: 10
+  cha: 10
 speeds:
   walk: 5
   fly: null
@@ -88,32 +76,46 @@ translations:
   en:
     name: Water Weird
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Invisible in Water***. The water weird has the Invisible condition while fully immersed in water.
 
-      ***Water Bound***. The water weird dies if it leaves the water to which it is bound or if that water is destroyed.
+      ***Invisible in Water***. The water weird has the Invisible condition while
+      fully immersed in water.
+
+
+      ***Water Bound***. The water weird dies if it leaves the water to which it is
+      bound or if that water is destroyed.
+
 
       ## Actions
 
-      ***Surge***. *Melee Attack Roll* : +5, reach 10 ft. *Hit* : 13 (3d6 + 3) Cold damage. If the target is a Medium or smaller creature, it has the Grappled condition (escape DC 13), and it has the Restrained condition until the grapple ends.
+
+      ***Surge***. *Melee Attack Roll* : +5, reach 10 ft. *Hit* : 13 (3d6 + 3) Cold
+      damage. If the target is a Medium or smaller creature, it has the Grappled condition
+      (escape DC 13), and it has the Restrained condition until the grapple ends.'
     senses: Blindsight 30 ft., Passive Perception 10
     languages:
     - Understands Primordial but can't speak
   fr:
     name: Sibylle de l'eau
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Invisibilité aquatique***. La sibylle de l'eau est invisible lorsqu'elle est complètement immergée dans l'eau.
 
-      ***Dépendance aquatique***. La sibylle de l'eau meurt si elle quitte l'eau à laquelle elle est liée ou si cette eau est détruite.
+      ***Invisibilité aquatique***. La sibylle de l''eau est invisible lorsqu''elle
+      est complètement immergée dans l''eau.
+
+
+      ***Dépendance aquatique***. La sibylle de l''eau meurt si elle quitte l''eau
+      à laquelle elle est liée ou si cette eau est détruite.
+
 
       ## Actions
 
-      ***Brisant***. *Corps à corps* : +5, allonge 3 m. *Touché* : 13 (3d6 + 3) dégâts de froid. Si la cible est une créature de taille M ou inférieure, elle subit l'état Agrippé (évasion DD 13) et l'état Entravé tant qu'elle est agrippée.
+
+      ***Brisant***. *Corps à corps* : +5, allonge 3 m. *Touché* : 13 (3d6 + 3) dégâts
+      de froid. Si la cible est une créature de taille M ou inférieure, elle subit
+      l''état Agrippé (évasion DD 13) et l''état Entravé tant qu''elle est agrippée.'
     senses: Vision aveugle 9 m, Perception passive 10
     languages:
     - comprend le primordial mais ne parle pas

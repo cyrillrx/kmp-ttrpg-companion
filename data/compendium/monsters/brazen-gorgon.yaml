@@ -8,24 +8,12 @@ armorClass: 19
 maxHitPoints: 161
 hitDice: 17d10+68
 abilities:
-  str:
-    value: 18
-    savingThrowProficiency: none
-  dex:
-    value: 14
-    savingThrowProficiency: none
-  con:
-    value: 19
-    savingThrowProficiency: none
-  int:
-    value: 2
-    savingThrowProficiency: none
-  wis:
-    value: 14
-    savingThrowProficiency: none
-  cha:
-    value: 7
-    savingThrowProficiency: none
+  str: 18
+  dex: 14
+  con: 19
+  int: 2
+  wis: 14
+  cha: 7
 speeds:
   walk: 40
   fly: null
@@ -88,38 +76,73 @@ translations:
   en:
     name: Brazen Gorgon
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Flame Aura***. At the end of each of the gorgon's turns, each creature in a 5-foot Emanation originating from the gorgon takes 13 (3d8) Fire damage.
 
-      ***Illumination***. The gorgon sheds Bright Light in a 10-foot radius and Dim Light for an additional 10 feet.
+      ***Flame Aura***. At the end of each of the gorgon''s turns, each creature in
+      a 5-foot Emanation originating from the gorgon takes 13 (3d8) Fire damage.
+
+
+      ***Illumination***. The gorgon sheds Bright Light in a 10-foot radius and Dim
+      Light for an additional 10 feet.
+
 
       ## Actions
 
+
       ***Multiattack***. The gorgon makes two Gore attacks.
 
-      ***Gore***. *Melee Attack Roll* : +8, reach 5 ft. *Hit* : 11 (2d6 + 4) Piercing damage plus 10 (3d6) Fire damage.
 
-      ***Smelting Charge (Recharge 5–6)***. The gorgon moves up to its Speed without provoking Opportunity Attacks and can move through the spaces of Medium or smaller creatures. Each time the gorgon enters a creature's space for the first time during this move, that target is subjected to the following effect. *Dexterity Saving Throw* : DC 16. *Failure* : 13 (2d8 + 4) Piercing damage plus 13 (3d8) Fire damage, and the target is pulled into the gorgon's space and has the Grappled condition (escape DC 14); if the gorgon already has a creature Grappled, the target has the Prone condition instead. Until the grapple ends, the target has the Restrained condition. When the gorgon moves, the Grappled target moves with it, costing no extra movement.
+      ***Gore***. *Melee Attack Roll* : +8, reach 5 ft. *Hit* : 11 (2d6 + 4) Piercing
+      damage plus 10 (3d6) Fire damage.
+
+
+      ***Smelting Charge (Recharge 5–6)***. The gorgon moves up to its Speed without
+      provoking Opportunity Attacks and can move through the spaces of Medium or smaller
+      creatures. Each time the gorgon enters a creature''s space for the first time
+      during this move, that target is subjected to the following effect. *Dexterity
+      Saving Throw* : DC 16. *Failure* : 13 (2d8 + 4) Piercing damage plus 13 (3d8)
+      Fire damage, and the target is pulled into the gorgon''s space and has the Grappled
+      condition (escape DC 14); if the gorgon already has a creature Grappled, the
+      target has the Prone condition instead. Until the grapple ends, the target has
+      the Restrained condition. When the gorgon moves, the Grappled target moves with
+      it, costing no extra movement.'
     senses: Darkvision 60 ft., Passive Perception 20
     languages: []
   fr:
     name: Gorgone ardente
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Aura de flammes***. À la fin de chacun des tours de la gorgone, chaque créature dans une Émanation de 1,50 m centrée sur la gorgone subit 13 (3d8) dégâts de Feu.
 
-      ***Illumination***. La gorgone émet une Lumière vive sur un rayon de 3 m et une Lumière faible sur 3 m de plus.
+      ***Aura de flammes***. À la fin de chacun des tours de la gorgone, chaque créature
+      dans une Émanation de 1,50 m centrée sur la gorgone subit 13 (3d8) dégâts de
+      Feu.
+
+
+      ***Illumination***. La gorgone émet une Lumière vive sur un rayon de 3 m et
+      une Lumière faible sur 3 m de plus.
+
 
       ## Actions
 
+
       ***Attaques multiples***. La gorgone effectue deux attaques de Coup de corne.
 
-      ***Coup de corne***. *Corps à corps* : +8, allonge 1,50 m. *Touché* : 11 (2d6 + 4) dégâts perforants plus 10 (3d6) dégâts de feu.
 
-      ***Charge incandescente (recharge 5–6)***. La gorgone se déplace jusqu'à sa Vitesse sans provoquer d'attaques d'Opportunité et peut traverser l'espace occupé par des créatures de taille M ou inférieure. Chaque fois que la gorgone entre pour la première fois dans l'espace d'une créature durant ce déplacement, cette dernière est sujette à l'effet suivant. *JdS Dextérité* : DD 16. *Échec* : 13 (2d8 + 4) dégâts perforants plus 13 (3d8) dégâts de feu, et la cible est attirée dans l'espace de la gorgone et subit l'état Agrippé (évasion DD 14) ; si la gorgone agrippe déjà une créature, la cible subit l'état À terre. Tant qu'elle est agrippée, la cible subit l'état Entravé. Lorsque la gorgone se déplace, la cible agrippée se déplace avec lui, sans coût de mouvement supplémentaire.
+      ***Coup de corne***. *Corps à corps* : +8, allonge 1,50 m. *Touché* : 11 (2d6
+      + 4) dégâts perforants plus 10 (3d6) dégâts de feu.
+
+
+      ***Charge incandescente (recharge 5–6)***. La gorgone se déplace jusqu''à sa
+      Vitesse sans provoquer d''attaques d''Opportunité et peut traverser l''espace
+      occupé par des créatures de taille M ou inférieure. Chaque fois que la gorgone
+      entre pour la première fois dans l''espace d''une créature durant ce déplacement,
+      cette dernière est sujette à l''effet suivant. *JdS Dextérité* : DD 16. *Échec*
+      : 13 (2d8 + 4) dégâts perforants plus 13 (3d8) dégâts de feu, et la cible est
+      attirée dans l''espace de la gorgone et subit l''état Agrippé (évasion DD 14)
+      ; si la gorgone agrippe déjà une créature, la cible subit l''état À terre. Tant
+      qu''elle est agrippée, la cible subit l''état Entravé. Lorsque la gorgone se
+      déplace, la cible agrippée se déplace avec lui, sans coût de mouvement supplémentaire.'
     senses: Vision dans le noir 18 m, Perception passive 20
     languages: []

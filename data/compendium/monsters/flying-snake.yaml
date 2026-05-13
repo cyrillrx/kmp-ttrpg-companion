@@ -8,24 +8,12 @@ armorClass: 14
 maxHitPoints: 5
 hitDice: 2d4
 abilities:
-  str:
-    value: 4
-    savingThrowProficiency: none
-  dex:
-    value: 15
-    savingThrowProficiency: none
-  con:
-    value: 11
-    savingThrowProficiency: none
-  int:
-    value: 2
-    savingThrowProficiency: none
-  wis:
-    value: 12
-    savingThrowProficiency: none
-  cha:
-    value: 5
-    savingThrowProficiency: none
+  str: 4
+  dex: 15
+  con: 11
+  int: 2
+  wis: 12
+  cha: 5
 speeds:
   walk: 30
   fly: 60
@@ -88,28 +76,36 @@ translations:
   en:
     name: Flying Snake
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Flyby***. The snake doesn't provoke an Opportunity Attack when it flies out of an enemy's reach.
+
+      ***Flyby***. The snake doesn''t provoke an Opportunity Attack when it flies
+      out of an enemy''s reach.
+
 
       ## Actions
 
-      ***Bite***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 1 Piercing damage plus 5 (2d4) Poison damage.
+
+      ***Bite***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 1 Piercing damage
+      plus 5 (2d4) Poison damage.'
     senses: Blindsight 10 ft., Passive Perception 11
     languages:
     - None
   fr:
     name: Serpent volant
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Repli aérien***. Le serpent ne provoque pas d'attaque d'Opportunité lorsqu'il quitte la zone d'allonge d'un ennemi en volant.
+
+      ***Repli aérien***. Le serpent ne provoque pas d''attaque d''Opportunité lorsqu''il
+      quitte la zone d''allonge d''un ennemi en volant.
+
 
       ## Actions
 
-      ***Morsure***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 1 dégât perforant plus 5 (2d4) dégâts de poison.
+
+      ***Morsure***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 1 dégât perforant
+      plus 5 (2d4) dégâts de poison.'
     senses: Vision aveugle 3 m, Perception passive 11
     languages:
     - aucune

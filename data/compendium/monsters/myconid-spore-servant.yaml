@@ -8,24 +8,12 @@ armorClass: 13
 maxHitPoints: 37
 hitDice: 5d8+15
 abilities:
-  str:
-    value: 16
-    savingThrowProficiency: none
-  dex:
-    value: 12
-    savingThrowProficiency: none
-  con:
-    value: 16
-    savingThrowProficiency: none
-  int:
-    value: 2
-    savingThrowProficiency: none
-  wis:
-    value: 6
-    savingThrowProficiency: none
-  cha:
-    value: 1
-    savingThrowProficiency: none
+  str: 16
+  dex: 12
+  con: 16
+  int: 2
+  wis: 6
+  cha: 1
 speeds:
   walk: 20
   fly: null
@@ -88,20 +76,22 @@ translations:
   en:
     name: Myconid Spore Servant
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Slom***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* :6 (1d6 + 3) Bludgeoning damage plus 2 (1d4) Poison damage.
+
+      ***Slom***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* :6 (1d6 + 3) Bludgeoning
+      damage plus 2 (1d4) Poison damage.'
     senses: Blindsight 30 ft., Passive Perception 8
     languages:
     - Telepathy 30 ft.
   fr:
     name: Myconide, serviteur des spores
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Coup***. *Corps à corps* : +5, allonge 1,50 m. *Touché* :6 (1d6 + 3) dégâts contondants plus 2 (1d4) dégâts de poison.
+
+      ***Coup***. *Corps à corps* : +5, allonge 1,50 m. *Touché* :6 (1d6 + 3) dégâts
+      contondants plus 2 (1d4) dégâts de poison.'
     senses: Vision aveugle 9 m, Perception passive 8
     languages:
     - télépathie 9 m

@@ -8,24 +8,12 @@ armorClass: 16
 maxHitPoints: 138
 hitDice: 12d12+60
 abilities:
-  str:
-    value: 23
-    savingThrowProficiency: none
-  dex:
-    value: 8
-    savingThrowProficiency: none
-  con:
-    value: 21
-    savingThrowProficiency: none
-  int:
-    value: 12
-    savingThrowProficiency: none
-  wis:
-    value: 16
-    savingThrowProficiency: none
-  cha:
-    value: 12
-    savingThrowProficiency: none
+  str: 23
+  dex: 8
+  con: 21
+  int: 12
+  wis: 16
+  cha: 12
 speeds:
   walk: 30
   fly: null
@@ -88,20 +76,33 @@ translations:
   en:
     name: Treant
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
+
 
       ***Siege Monster***. The treant deals double damage to objects and structures.
 
+
       ## Actions
+
 
       ***Multiattack***. The treant makes two Slam attacks.
 
-      ***Slam***. *Melee Attack Roll* : +10, reach 5 ft. *Hit* : 16 (3d6 + 6) Bludgeoning damage.
 
-      ***Hail of Bark***. *Ranged Attack Roll* : +10, range 180 ft. *Hit* : 28 (4d10 + 6) Piercing damage.
+      ***Slam***. *Melee Attack Roll* : +10, reach 5 ft. *Hit* : 16 (3d6 + 6) Bludgeoning
+      damage.
 
-      ***Animate Trees (1/Day)***. The treant magically animates up to two trees it can see within 60 feet of itself. Each tree uses the Treant stat block, except it has Intelligence and Charisma scores of 1, it can't speak, and it lacks this action. The tree takes its turn immediately after the treant on the same Initiative count, and it obeys the treant. A tree remains animate for 1 day or until it dies, the treant dies, or it is more than 120 feet from the treant. The tree then takes root if possible.
+
+      ***Hail of Bark***. *Ranged Attack Roll* : +10, range 180 ft. *Hit* : 28 (4d10
+      + 6) Piercing damage.
+
+
+      ***Animate Trees (1/Day)***. The treant magically animates up to two trees it
+      can see within 60 feet of itself. Each tree uses the Treant stat block, except
+      it has Intelligence and Charisma scores of 1, it can''t speak, and it lacks
+      this action. The tree takes its turn immediately after the treant on the same
+      Initiative count, and it obeys the treant. A tree remains animate for 1 day
+      or until it dies, the treant dies, or it is more than 120 feet from the treant.
+      The tree then takes root if possible.'
     senses: Passive Perception 13
     languages:
     - Common
@@ -111,20 +112,35 @@ translations:
   fr:
     name: Sylvanien
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Monstre de siège***. Le sylvanien inflige des dégâts doublés aux objets et aux structures.
+
+      ***Monstre de siège***. Le sylvanien inflige des dégâts doublés aux objets et
+      aux structures.
+
 
       ## Actions
 
+
       ***Attaques multiples***. Le sylvanien effectue deux attaques de Coup.
 
-      ***Coup***. *Corps à corps* : +10, allonge 1,50 m. *Touché* : 16 (3d6 + 6) dégâts contondants.
 
-      ***Pluie d'écorce***. *À distance* : +10, portée 54 m. *Touché* : 28 (4d10 + 6) dégâts perforants.
+      ***Coup***. *Corps à corps* : +10, allonge 1,50 m. *Touché* : 16 (3d6 + 6) dégâts
+      contondants.
 
-      ***Animation des arbres (1/jour)***. Le sylvanien anime magiquement un ou deux arbres qu'il voit dans un rayon de 18 m. Chaque arbre reprend le profil du **sylvanien** , si ce n'est que ses valeurs d'Intelligence et de Charisme sont de 1, qu'il ne parle pas et ne dispose pas de la présente action. L'arbre joue son tour juste après le sylvanien, au même rang d'initiative, et obéit à celui-ci. Cette animation dure 1 jour, mais prend fin prématurément si l'arbre ou le sylvanien meurt, ou si les deux se retrouvent éloignés de plus de 36 m. L'arbre prend alors racine, si possible.
+
+      ***Pluie d''écorce***. *À distance* : +10, portée 54 m. *Touché* : 28 (4d10
+      + 6) dégâts perforants.
+
+
+      ***Animation des arbres (1/jour)***. Le sylvanien anime magiquement un ou deux
+      arbres qu''il voit dans un rayon de 18 m. Chaque arbre reprend le profil du
+      **sylvanien** , si ce n''est que ses valeurs d''Intelligence et de Charisme
+      sont de 1, qu''il ne parle pas et ne dispose pas de la présente action. L''arbre
+      joue son tour juste après le sylvanien, au même rang d''initiative, et obéit
+      à celui-ci. Cette animation dure 1 jour, mais prend fin prématurément si l''arbre
+      ou le sylvanien meurt, ou si les deux se retrouvent éloignés de plus de 36 m.
+      L''arbre prend alors racine, si possible.'
     senses: Perception passive 13
     languages:
     - commun

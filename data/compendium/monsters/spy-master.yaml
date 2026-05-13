@@ -8,24 +8,17 @@ armorClass: 19
 maxHitPoints: 137
 hitDice: 25d8+25
 abilities:
-  str:
-    value: 10
-    savingThrowProficiency: none
-  dex:
-    value: 20
-    savingThrowProficiency: proficient
-  con:
-    value: 12
-    savingThrowProficiency: proficient
-  int:
-    value: 18
-    savingThrowProficiency: proficient
-  wis:
-    value: 16
-    savingThrowProficiency: proficient
-  cha:
-    value: 16
-    savingThrowProficiency: none
+  str: 10
+  dex: 20
+  con: 12
+  int: 18
+  wis: 16
+  cha: 16
+savingThrows:
+  dex: proficient
+  con: proficient
+  int: proficient
+  wis: proficient
 speeds:
   walk: 30
   fly: null
@@ -88,40 +81,64 @@ translations:
   en:
     name: Spy Master
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Multiattack***. The spy makes three attacks, using Rapier or Hand Crossbow in any combination.
 
-      ***Rapier***. *Melee Attack Roll* : +9, reach 5 ft. *Hit* : 14 (2d8 + 5) Piercing damage plus 7 (2d6) Poison damage.
+      ***Multiattack***. The spy makes three attacks, using Rapier or Hand Crossbow
+      in any combination.
 
-      ***Hand Crossbow***. *Ranged Attack Roll* : +9, range 30/120 ft. *Hit* : 12 (2d6 + 5) Piercing damage plus 9 (2d8) Poison damage.
 
-      ***Smoke Bomb (1/Day)***. The spy throws a bomb to a point it can see within 30 feet of itself. *Constitution Saving Throw* : DC 16, each creature in a 20-foot-radius Sphere centered on that point. *Failure* : 28 (8d6) Poison damage, and the target has the Blinded condition until the end of the spy's next turn. *Success* : Half damage only.
+      ***Rapier***. *Melee Attack Roll* : +9, reach 5 ft. *Hit* : 14 (2d8 + 5) Piercing
+      damage plus 7 (2d6) Poison damage.
+
+
+      ***Hand Crossbow***. *Ranged Attack Roll* : +9, range 30/120 ft. *Hit* : 12
+      (2d6 + 5) Piercing damage plus 9 (2d8) Poison damage.
+
+
+      ***Smoke Bomb (1/Day)***. The spy throws a bomb to a point it can see within
+      30 feet of itself. *Constitution Saving Throw* : DC 16, each creature in a 20-foot-radius
+      Sphere centered on that point. *Failure* : 28 (8d6) Poison damage, and the target
+      has the Blinded condition until the end of the spy''s next turn. *Success* :
+      Half damage only.
+
 
       ## Bonus actions
 
-      ***Cunning Action***. The spy takes the Dash, Disengage, or Hide action.
+
+      ***Cunning Action***. The spy takes the Dash, Disengage, or Hide action.'
     senses: Passive Perception 21
     languages:
     - Common plus two other languages
   fr:
     name: Espion, maître
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Attaques multiples***. L'espion réalise trois attaques, réparties à sa guise entre Rapière et Arbalète de poing.
 
-      ***Rapière***. *Corps à corps* : +9, allonge 1,50 m. *Touché* : 14 (2d8 + 5) dégâts perforants plus 7 (2d6) dégâts de poison.
+      ***Attaques multiples***. L''espion réalise trois attaques, réparties à sa guise
+      entre Rapière et Arbalète de poing.
 
-      ***Arbalète de poing***. *À distance* : +9, portée 9/36 m. *Touché* : 12 (2d6 + 5) dégâts perforants plus 9 (2d8) dégâts de poison.
 
-      ***Bombe fumigène (1/jour)***. L'espion lance une bombe vers un point qu'il peut voir dans un rayon de 9 m. *JdS Constitution* : DD 16, chaque créature dans une Sphère de 6 m de rayon centrée sur ce point. *Échec* : 28 (8d6) dégâts de poison, et la cible subit l'état Aveuglé jusqu'à la fin du prochain tour de l'espion. *Réussite* : demi-dégâts uniquement.
+      ***Rapière***. *Corps à corps* : +9, allonge 1,50 m. *Touché* : 14 (2d8 + 5)
+      dégâts perforants plus 7 (2d6) dégâts de poison.
+
+
+      ***Arbalète de poing***. *À distance* : +9, portée 9/36 m. *Touché* : 12 (2d6
+      + 5) dégâts perforants plus 9 (2d8) dégâts de poison.
+
+
+      ***Bombe fumigène (1/jour)***. L''espion lance une bombe vers un point qu''il
+      peut voir dans un rayon de 9 m. *JdS Constitution* : DD 16, chaque créature
+      dans une Sphère de 6 m de rayon centrée sur ce point. *Échec* : 28 (8d6) dégâts
+      de poison, et la cible subit l''état Aveuglé jusqu''à la fin du prochain tour
+      de l''espion. *Réussite* : demi-dégâts uniquement.
+
 
       ## Actions Bonus
 
-      ***Ruse***. L'espion prend l'action Se désengager, Se cacher ou Foncer.
+
+      ***Ruse***. L''espion prend l''action Se désengager, Se cacher ou Foncer.'
     senses: Perception passive 21
     languages:
     - commun plus deux autres langues

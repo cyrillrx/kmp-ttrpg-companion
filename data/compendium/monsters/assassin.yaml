@@ -8,24 +8,15 @@ armorClass: 16
 maxHitPoints: 97
 hitDice: 15d8+30
 abilities:
-  str:
-    value: 11
-    savingThrowProficiency: none
-  dex:
-    value: 18
-    savingThrowProficiency: proficient
-  con:
-    value: 14
-    savingThrowProficiency: none
-  int:
-    value: 16
-    savingThrowProficiency: proficient
-  wis:
-    value: 11
-    savingThrowProficiency: none
-  cha:
-    value: 10
-    savingThrowProficiency: none
+  str: 11
+  dex: 18
+  con: 14
+  int: 16
+  wis: 11
+  cha: 10
+savingThrows:
+  dex: proficient
+  int: proficient
 speeds:
   walk: 30
   fly: null
@@ -88,22 +79,35 @@ translations:
   en:
     name: Assassin
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Evasion***. If the assassin is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, the assassin instead takes no damage if it succeeds on the save and only half damage if it fails. It can't use this trait if it has the Incapacitated condition.
+
+      ***Evasion***. If the assassin is subjected to an effect that allows it to make
+      a Dexterity saving throw to take only half damage, the assassin instead takes
+      no damage if it succeeds on the save and only half damage if it fails. It can''t
+      use this trait if it has the Incapacitated condition.
+
 
       ## Actions
 
-      ***Multiattack***. The assassin makes three attacks, using Shortsword or Light Crossbow in any combination.
 
-      ***Shortsword***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 7 (1d6 + 4) Piercing damage plus 17 (5d6) Poison damage, and the target has the Poisoned condition until the start of the assassin's next turn.
+      ***Multiattack***. The assassin makes three attacks, using Shortsword or Light
+      Crossbow in any combination.
 
-      ***Light Crossbow***. *Ranged Attack Roll* : +7, range 80/320 ft. *Hit* : 8 (1d8 + 4) Piercing damage plus 21 (6d6) Poison damage.
+
+      ***Shortsword***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 7 (1d6 + 4)
+      Piercing damage plus 17 (5d6) Poison damage, and the target has the Poisoned
+      condition until the start of the assassin''s next turn.
+
+
+      ***Light Crossbow***. *Ranged Attack Roll* : +7, range 80/320 ft. *Hit* : 8
+      (1d8 + 4) Piercing damage plus 21 (6d6) Poison damage.
+
 
       ## Bonus actions
 
-      ***Cunning Action***. The assassin takes the Dash, Disengage, or Hide action.
+
+      ***Cunning Action***. The assassin takes the Dash, Disengage, or Hide action.'
     senses: Passive Perception 16
     languages:
     - Common
@@ -111,22 +115,35 @@ translations:
   fr:
     name: Assassin
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Esquive totale***. Si l'assassin est soumis à un effet qui lui permet d'effectuer un jet de sauvegarde de Dextérité pour réduire les dégâts de moitié, il ne subit en fait aucun dégât en cas de JdS réussi, et seulement la moitié en cas d'échec. Il ne peut pas recourir à ce trait s'il subit l'état Incapable d'agir.
+
+      ***Esquive totale***. Si l''assassin est soumis à un effet qui lui permet d''effectuer
+      un jet de sauvegarde de Dextérité pour réduire les dégâts de moitié, il ne subit
+      en fait aucun dégât en cas de JdS réussi, et seulement la moitié en cas d''échec.
+      Il ne peut pas recourir à ce trait s''il subit l''état Incapable d''agir.
+
 
       ## Actions
 
-      ***Attaques multiples***. L'assassin effectue trois attaques, réparties à sa guise entre Épée courte et Arbalète légère.
 
-      ***Épée courte***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 7 (1d6 + 4) dégâts perforants plus 17 (5d6) dégâts de poison, et la cible subit l'état Empoisonné jusqu'au début du tour suivant de l'assassin.
+      ***Attaques multiples***. L''assassin effectue trois attaques, réparties à sa
+      guise entre Épée courte et Arbalète légère.
 
-      ***Arbalète légère***. *À distance* : +7, portée 24/96 m. *Touché* : 8 (1d8 + 4) dégâts perforants plus 21 (6d6) dégâts de poison.
+
+      ***Épée courte***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 7 (1d6 +
+      4) dégâts perforants plus 17 (5d6) dégâts de poison, et la cible subit l''état
+      Empoisonné jusqu''au début du tour suivant de l''assassin.
+
+
+      ***Arbalète légère***. *À distance* : +7, portée 24/96 m. *Touché* : 8 (1d8
+      + 4) dégâts perforants plus 21 (6d6) dégâts de poison.
+
 
       ## Actions Bonus
 
-      ***Ruse***. L'assassin entreprend l'action Désengagement, Furtivité ou Pointe.
+
+      ***Ruse***. L''assassin entreprend l''action Désengagement, Furtivité ou Pointe.'
     senses: Perception passive 16
     languages:
     - commun

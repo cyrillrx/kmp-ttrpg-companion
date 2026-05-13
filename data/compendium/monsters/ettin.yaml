@@ -8,24 +8,12 @@ armorClass: 12
 maxHitPoints: 85
 hitDice: 10d10+30
 abilities:
-  str:
-    value: 21
-    savingThrowProficiency: none
-  dex:
-    value: 8
-    savingThrowProficiency: none
-  con:
-    value: 17
-    savingThrowProficiency: none
-  int:
-    value: 6
-    savingThrowProficiency: none
-  wis:
-    value: 10
-    savingThrowProficiency: none
-  cha:
-    value: 8
-    savingThrowProficiency: none
+  str: 21
+  dex: 8
+  con: 17
+  int: 6
+  wis: 10
+  cha: 8
 speeds:
   walk: 40
   fly: null
@@ -88,28 +76,42 @@ translations:
   en:
     name: Ettin
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Multiattack***. The ettin makes one Battleaxe attack and one Morningstar attack.
 
-      ***Battleaxe***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 14 (2d8 + 5) Slashing damage. If the target is a Large or smaller creature, it has the Prone condition.
+      ***Multiattack***. The ettin makes one Battleaxe attack and one Morningstar
+      attack.
 
-      ***Morningstar***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 14 (2d8 + 5) Piercing damage, and the target has Disadvantage on the next attack roll it makes before the end of its next turn.
+
+      ***Battleaxe***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 14 (2d8 + 5)
+      Slashing damage. If the target is a Large or smaller creature, it has the Prone
+      condition.
+
+
+      ***Morningstar***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 14 (2d8 + 5)
+      Piercing damage, and the target has Disadvantage on the next attack roll it
+      makes before the end of its next turn.'
     senses: Darkvision 60 ft., Passive Perception 14
     languages:
     - Giant
   fr:
     name: Ettin
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Attaques multiples***. L'ettin effectue une attaque de Hache d'armes et une de Morgenstern.
 
-      ***Hache d'armes***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 14 (2d8 + 5) dégâts tranchants. Si la cible est une créature de taille G ou inférieure, elle subit l'état À terre.
+      ***Attaques multiples***. L''ettin effectue une attaque de Hache d''armes et
+      une de Morgenstern.
 
-      ***Morgenstern***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 14 (2d8 + 5) dégâts perforants, et la cible subit un Désavantage à son prochain jet d'attaque intervenant avant la fin de son tour suivant.
+
+      ***Hache d''armes***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 14 (2d8
+      + 5) dégâts tranchants. Si la cible est une créature de taille G ou inférieure,
+      elle subit l''état À terre.
+
+
+      ***Morgenstern***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 14 (2d8
+      + 5) dégâts perforants, et la cible subit un Désavantage à son prochain jet
+      d''attaque intervenant avant la fin de son tour suivant.'
     senses: Vision dans le noir 18 m, Perception passive 14
     languages:
     - géant

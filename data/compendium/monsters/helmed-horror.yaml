@@ -8,24 +8,12 @@ armorClass: 20
 maxHitPoints: 67
 hitDice: 9d8+27
 abilities:
-  str:
-    value: 18
-    savingThrowProficiency: none
-  dex:
-    value: 13
-    savingThrowProficiency: none
-  con:
-    value: 16
-    savingThrowProficiency: none
-  int:
-    value: 10
-    savingThrowProficiency: none
-  wis:
-    value: 10
-    savingThrowProficiency: none
-  cha:
-    value: 10
-    savingThrowProficiency: none
+  str: 18
+  dex: 13
+  con: 16
+  int: 10
+  wis: 10
+  cha: 10
 speeds:
   walk: 30
   fly: 30
@@ -88,36 +76,54 @@ translations:
   en:
     name: Helmed Horror
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Magic Resistance***. The helmed horror has Advantage on saving throws against spells and other magical effects.
 
-      ***Spell Immunity***. The helmed horror is immune to three spells chosen by its creator. Typical choices include *[Heat Metal](https://www.aidedd.org/spell/heat-metal), [Lightning Bolt](https://www.aidedd.org/spell/lightning-bolt)*, and *[Magic Missile](https://www.aidedd.org/spell/magic-missile)*.
+      ***Magic Resistance***. The helmed horror has Advantage on saving throws against
+      spells and other magical effects.
+
+
+      ***Spell Immunity***. The helmed horror is immune to three spells chosen by
+      its creator. Typical choices include *[Heat Metal](https://www.aidedd.org/spell/heat-metal),
+      [Lightning Bolt](https://www.aidedd.org/spell/lightning-bolt)*, and *[Magic
+      Missile](https://www.aidedd.org/spell/magic-missile)*.
+
 
       ## Actions
 
+
       ***Multiattack***. The helmed horror makes two Arcane Sword attacks.
 
-      ***Arcane Sword***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 8 (1d8 + 4) Slashing damage plus 5 (1d10) Force damage.
+
+      ***Arcane Sword***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 8 (1d8 + 4)
+      Slashing damage plus 5 (1d10) Force damage.'
     senses: Blindsight 60 ft., Passive Perception 14
     languages:
     - Understands Common plus one other language but can't speak
   fr:
     name: Horreur casquée
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Résistance à la magie***. L'horreur casquée a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
 
-      ***Immunité magique***. L'horreur casquée est immunisée contre trois sorts choisis par son créateur. Les choix typiques incluent *[métal brûlant](https://www.aidedd.org/spell/fr/metal-brulant), [éclair](https://www.aidedd.org/spell/fr/eclair)* et *[projectile magique](https://www.aidedd.org/spell/fr/projectile-magique)*.
+      ***Résistance à la magie***. L''horreur casquée a un Avantage aux jets de sauvegarde
+      contre les sorts et autres effets magiques.
+
+
+      ***Immunité magique***. L''horreur casquée est immunisée contre trois sorts
+      choisis par son créateur. Les choix typiques incluent *[métal brûlant](https://www.aidedd.org/spell/fr/metal-brulant),
+      [éclair](https://www.aidedd.org/spell/fr/eclair)* et *[projectile magique](https://www.aidedd.org/spell/fr/projectile-magique)*.
+
 
       ## Actions
 
-      ***Attaques multiples***. L'horreur casquée effectue deux attaques d'Épée arcanique.
 
-      ***Épée arcanique***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 8 (1d8 + 4) dégâts tranchants plus 5 (1d10) dégâts de force.
+      ***Attaques multiples***. L''horreur casquée effectue deux attaques d''Épée
+      arcanique.
+
+
+      ***Épée arcanique***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 8 (1d8
+      + 4) dégâts tranchants plus 5 (1d10) dégâts de force.'
     senses: Vision aveugle 18 m, Perception passive 14
     languages:
     - comprend le commun plus une autre langue mais ne parle pas

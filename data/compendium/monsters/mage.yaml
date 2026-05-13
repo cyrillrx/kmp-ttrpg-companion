@@ -8,24 +8,15 @@ armorClass: 15
 maxHitPoints: 81
 hitDice: 18d8
 abilities:
-  str:
-    value: 9
-    savingThrowProficiency: none
-  dex:
-    value: 14
-    savingThrowProficiency: none
-  con:
-    value: 11
-    savingThrowProficiency: none
-  int:
-    value: 17
-    savingThrowProficiency: proficient
-  wis:
-    value: 12
-    savingThrowProficiency: proficient
-  cha:
-    value: 11
-    savingThrowProficiency: none
+  str: 9
+  dex: 14
+  con: 11
+  int: 17
+  wis: 12
+  cha: 11
+savingThrows:
+  int: proficient
+  wis: proficient
 speeds:
   walk: 30
   fly: null
@@ -88,56 +79,91 @@ translations:
   en:
     name: Mage
     subtype: Wizard
-    description: |-
-      ## Actions
+    description: '## Actions
+
 
       ***Multiattack***. The mage makes three Arcane Burst attacks.
 
-      ***Arcane Burst***. *Melee or Ranged Attack Roll* : +6, reach 5 ft. or range 120 ft. *Hit* : 16 (3d8 + 3) Force damage.
 
-      ***Spellcasting***. The mage casts one of the following spells, using Intelligence as the spellcasting ability (spell save DC 14):
+      ***Arcane Burst***. *Melee or Ranged Attack Roll* : +6, reach 5 ft. or range
+      120 ft. *Hit* : 16 (3d8 + 3) Force damage.
 
-      At Will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Light](https://www.aidedd.org/spell/light), [Mage Armor](https://www.aidedd.org/spell/mage-armor)* (included in AC), *[Mage Hand](https://www.aidedd.org/spell/mage-hand), [Prestidigitation](https://www.aidedd.org/spell/prestidigitation)*
-      
-      2/Day Each: *[Fireball](https://www.aidedd.org/spell/fireball)* (level 4 version), *[Invisibility](https://www.aidedd.org/spell/invisibility)*
-      
+
+      ***Spellcasting***. The mage casts one of the following spells, using Intelligence
+      as the spellcasting ability (spell save DC 14):
+
+
+      At Will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Light](https://www.aidedd.org/spell/light),
+      [Mage Armor](https://www.aidedd.org/spell/mage-armor)* (included in AC), *[Mage
+      Hand](https://www.aidedd.org/spell/mage-hand), [Prestidigitation](https://www.aidedd.org/spell/prestidigitation)*
+
+
+      2/Day Each: *[Fireball](https://www.aidedd.org/spell/fireball)* (level 4 version),
+      *[Invisibility](https://www.aidedd.org/spell/invisibility)*
+
+
       1/Day Each: *[Cone of Cold](https://www.aidedd.org/spell/cone-of-cold), [Fly](https://www.aidedd.org/spell/fly)*
+
 
       ## Bonus actions
 
-      ***Misty Step (3/Day)***. The mage casts *[Misty Step](https://www.aidedd.org/spell/misty-step)* , using the same spellcasting ability as Spellcasting.
+
+      ***Misty Step (3/Day)***. The mage casts *[Misty Step](https://www.aidedd.org/spell/misty-step)*
+      , using the same spellcasting ability as Spellcasting.
+
 
       ## Reactions
 
-      ***Protective Magic (3/Day)***. The mage casts *[Counterspell](https://www.aidedd.org/spell/counterspell)* or *[Shield](https://www.aidedd.org/spell/shield)* in response to the spell's trigger, using the same spellcasting ability as Spellcasting.
+
+      ***Protective Magic (3/Day)***. The mage casts *[Counterspell](https://www.aidedd.org/spell/counterspell)*
+      or *[Shield](https://www.aidedd.org/spell/shield)* in response to the spell''s
+      trigger, using the same spellcasting ability as Spellcasting.'
     senses: Passive Perception 14
     languages:
     - Common plus three other languages
   fr:
     name: Mage
     subtype: Magicien
-    description: |-
-      ## Actions
+    description: '## Actions
+
 
       ***Attaques multiples***. Le mage effectue trois attaques de Jaillissement arcanique.
 
-      ***Jaillissement arcanique***. *Corps à corps ou à distance* : +6, allonge 1,50 m ou portée 36 m. *Touché* : 16 (3d8 + 3) dégâts de force.
 
-      ***Incantation***. Le mage lance l'un des sorts suivants, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 14) :
+      ***Jaillissement arcanique***. *Corps à corps ou à distance* : +6, allonge 1,50
+      m ou portée 36 m. *Touché* : 16 (3d8 + 3) dégâts de force.
 
-      À volonté : *[armure de mage](https://www.aidedd.org/spell/fr/armure-de-mage)* (compris dans la CA), *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), lumière, [main de mage](https://www.aidedd.org/spell/fr/main-de-mage), [prestidigitation](https://www.aidedd.org/spell/fr/prestidigitation)*
-      
-      2/jour chacun : *[boule de feu](https://www.aidedd.org/spell/fr/boule-de-feu)* (au niveau 4), *[invisibilité](https://www.aidedd.org/spell/fr/invisibilite)*
-      
+
+      ***Incantation***. Le mage lance l''un des sorts suivants, l''Intelligence étant
+      sa caractéristique d''incantation (DD de sauvegarde 14) :
+
+
+      À volonté : *[armure de mage](https://www.aidedd.org/spell/fr/armure-de-mage)*
+      (compris dans la CA), *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie),
+      lumière, [main de mage](https://www.aidedd.org/spell/fr/main-de-mage), [prestidigitation](https://www.aidedd.org/spell/fr/prestidigitation)*
+
+
+      2/jour chacun : *[boule de feu](https://www.aidedd.org/spell/fr/boule-de-feu)*
+      (au niveau 4), *[invisibilité](https://www.aidedd.org/spell/fr/invisibilite)*
+
+
       1/jour chacun : *cône de froid, vol*
+
 
       ## Actions Bonus
 
-      ***Foulée brumeuse (3/jour)***. Le mage lance *[foulée brumeuse](https://www.aidedd.org/spell/fr/foulee-brumeuse)* , avec la même caractéristique d'incantation que pour Incantation.
+
+      ***Foulée brumeuse (3/jour)***. Le mage lance *[foulée brumeuse](https://www.aidedd.org/spell/fr/foulee-brumeuse)*
+      , avec la même caractéristique d''incantation que pour Incantation.
+
 
       ## Réactions
 
-      ***Magie protectrice (3/jour)***. Le mage lance *[bouclier](https://www.aidedd.org/spell/fr/bouclier)* ou *[contresort](https://www.aidedd.org/spell/fr/contresort)* en réponse au déclencheur du sort correspondant, avec la même caractéristique d'incantation que pour Incantation.
+
+      ***Magie protectrice (3/jour)***. Le mage lance *[bouclier](https://www.aidedd.org/spell/fr/bouclier)*
+      ou *[contresort](https://www.aidedd.org/spell/fr/contresort)* en réponse au
+      déclencheur du sort correspondant, avec la même caractéristique d''incantation
+      que pour Incantation.'
     senses: Perception passive 14
     languages:
     - commun plus trois autres langues

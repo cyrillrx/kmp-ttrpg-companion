@@ -8,24 +8,12 @@ armorClass: 13
 maxHitPoints: 45
 hitDice: 10d6+10
 abilities:
-  str:
-    value: 8
-    savingThrowProficiency: none
-  dex:
-    value: 16
-    savingThrowProficiency: none
-  con:
-    value: 12
-    savingThrowProficiency: none
-  int:
-    value: 16
-    savingThrowProficiency: none
-  wis:
-    value: 10
-    savingThrowProficiency: none
-  cha:
-    value: 10
-    savingThrowProficiency: none
+  str: 8
+  dex: 16
+  con: 12
+  int: 16
+  wis: 10
+  cha: 10
 speeds:
   walk: 30
   fly: null
@@ -88,22 +76,34 @@ translations:
   en:
     name: Goblin Hexer
     subtype: Goblinoid
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Multiattack***. The goblin makes two Hex Stick attacks. It can replace one attack with a use of Spellcasting.
 
-      ***Hex Stick***. *Melee or Ranged Attack Roll* : +5, reach 5 ft. or range 60 ft. *Hit* : 12 (2d8 + 3) Psychic damage.
+      ***Multiattack***. The goblin makes two Hex Stick attacks. It can replace one
+      attack with a use of Spellcasting.
 
-      ***Spellcasting***. The goblin casts one of the following spells, using Intelligence as the spellcasting ability (spell save DC 13):
+
+      ***Hex Stick***. *Melee or Ranged Attack Roll* : +5, reach 5 ft. or range 60
+      ft. *Hit* : 12 (2d8 + 3) Psychic damage.
+
+
+      ***Spellcasting***. The goblin casts one of the following spells, using Intelligence
+      as the spellcasting ability (spell save DC 13):
+
 
       At will: *[Minor Illusion](https://www.aidedd.org/spell/minor-illusion)*
-      
-      1/day each: *[Blindness/Deafness](https://www.aidedd.org/spell/blindness-deafness), [Faerie Fire](https://www.aidedd.org/spell/faerie-fire), [Grease](https://www.aidedd.org/spell/grease)*
+
+
+      1/day each: *[Blindness/Deafness](https://www.aidedd.org/spell/blindness-deafness),
+      [Faerie Fire](https://www.aidedd.org/spell/faerie-fire), [Grease](https://www.aidedd.org/spell/grease)*
+
 
       ## Reactions
 
-      ***Jinx***. *Trigger* : A creature the goblin can see hits it with an attack roll. Response— *Wisdom Saving Throw* : DC 13, the triggering creature. *Failure* : The attack misses instead.
+
+      ***Jinx***. *Trigger* : A creature the goblin can see hits it with an attack
+      roll. Response— *Wisdom Saving Throw* : DC 13, the triggering creature. *Failure*
+      : The attack misses instead.'
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - Common
@@ -111,22 +111,34 @@ translations:
   fr:
     name: Gobelin, maléficeur
     subtype: Gobelinoïde
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Attaques multiples***. Le gobelin effectue deux attaques de Bâton à maléfice. Il peut remplacer une attaque par l'utilisation d'Incantation.
 
-      ***Bâton à maléfice***. *Corps à corps ou à distance* : +5, allonge 1,50 m ou portée 18 m. *Touché* : 12 (2d8 + 3) dégâts psychiques.
+      ***Attaques multiples***. Le gobelin effectue deux attaques de Bâton à maléfice.
+      Il peut remplacer une attaque par l''utilisation d''Incantation.
 
-      ***Incantation***. Le gobelin lance l'un des sorts suivants, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 13) :
+
+      ***Bâton à maléfice***. *Corps à corps ou à distance* : +5, allonge 1,50 m ou
+      portée 18 m. *Touché* : 12 (2d8 + 3) dégâts psychiques.
+
+
+      ***Incantation***. Le gobelin lance l''un des sorts suivants, l''Intelligence
+      étant sa caractéristique d''incantation (DD de sauvegarde 13) :
+
 
       À volonté : *[illusion mineure](https://www.aidedd.org/spell/fr/illusion-mineure)*
-      
-      1 /jour chacun : *[cécité/surdité](https://www.aidedd.org/spell/fr/cecite-surdite), [lueurs féeriques](https://www.aidedd.org/spell/fr/lueurs-feeriques), [graisse](https://www.aidedd.org/spell/fr/graisse)*
+
+
+      1 /jour chacun : *[cécité/surdité](https://www.aidedd.org/spell/fr/cecite-surdite),
+      [lueurs féeriques](https://www.aidedd.org/spell/fr/lueurs-feeriques), [graisse](https://www.aidedd.org/spell/fr/graisse)*
+
 
       ## Réactions
 
-      ***Mauvais sort***. *Déclencheur* : une créature que le gobelin peut voir effectue un jet d'attaque. *Conséquences—JdS Sagesse* : DD 13, la créature ayant déclenché la Réaction. *Échec* : l'attaque rate.
+
+      ***Mauvais sort***. *Déclencheur* : une créature que le gobelin peut voir effectue
+      un jet d''attaque. *Conséquences—JdS Sagesse* : DD 13, la créature ayant déclenché
+      la Réaction. *Échec* : l''attaque rate.'
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - commun

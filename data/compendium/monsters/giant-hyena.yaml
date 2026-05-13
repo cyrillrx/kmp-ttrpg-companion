@@ -8,24 +8,12 @@ armorClass: 12
 maxHitPoints: 45
 hitDice: 6d10+12
 abilities:
-  str:
-    value: 16
-    savingThrowProficiency: none
-  dex:
-    value: 14
-    savingThrowProficiency: none
-  con:
-    value: 14
-    savingThrowProficiency: none
-  int:
-    value: 2
-    savingThrowProficiency: none
-  wis:
-    value: 12
-    savingThrowProficiency: none
-  cha:
-    value: 7
-    savingThrowProficiency: none
+  str: 16
+  dex: 14
+  con: 14
+  int: 2
+  wis: 12
+  cha: 7
 speeds:
   walk: 50
   fly: null
@@ -88,28 +76,38 @@ translations:
   en:
     name: Giant Hyena
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Bite***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 10 (2d6 + 3) Piercing damage.
+
+      ***Bite***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 10 (2d6 + 3) Piercing
+      damage.
+
 
       ## Bonus actions
 
-      ***Rampage (1/Day)***. Immediately after dealing damage to a creature that was already Bloodied, the hyena can move up to half its Speed, and it makes one Bite attack.
+
+      ***Rampage (1/Day)***. Immediately after dealing damage to a creature that was
+      already Bloodied, the hyena can move up to half its Speed, and it makes one
+      Bite attack.'
     senses: Darkvision 60 ft., Passive Perception 13
     languages:
     - None
   fr:
     name: Hyène géante
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Morsure***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 10 (2d6 + 3) dégâts perforants.
+
+      ***Morsure***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 10 (2d6 + 3)
+      dégâts perforants.
+
 
       ## Actions Bonus
 
-      ***Déchaînement (1/jour)***. Aussitôt après avoir infligé des dégâts à une créature déjà En péril, la hyène se déplace à concurrence de la moitié de sa Vitesse et effectue une attaque de Morsure.
+
+      ***Déchaînement (1/jour)***. Aussitôt après avoir infligé des dégâts à une créature
+      déjà En péril, la hyène se déplace à concurrence de la moitié de sa Vitesse
+      et effectue une attaque de Morsure.'
     senses: Vision dans le noir 18 m, Perception passive 13
     languages:
     - aucune

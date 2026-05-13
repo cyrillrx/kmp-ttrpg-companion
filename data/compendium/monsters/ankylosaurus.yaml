@@ -8,24 +8,14 @@ armorClass: 15
 maxHitPoints: 68
 hitDice: 8d12+16
 abilities:
-  str:
-    value: 19
-    savingThrowProficiency: proficient
-  dex:
-    value: 11
-    savingThrowProficiency: none
-  con:
-    value: 15
-    savingThrowProficiency: none
-  int:
-    value: 2
-    savingThrowProficiency: none
-  wis:
-    value: 12
-    savingThrowProficiency: none
-  cha:
-    value: 5
-    savingThrowProficiency: none
+  str: 19
+  dex: 11
+  con: 15
+  int: 2
+  wis: 12
+  cha: 5
+savingThrows:
+  str: proficient
 speeds:
   walk: 30
   fly: null
@@ -88,24 +78,29 @@ translations:
   en:
     name: Ankylosaurus
     subtype: Dinosaur
-    description: |-
-      ## Actions
+    description: '## Actions
+
 
       ***Multiattack***. The ankylosaurus makes two Tail attacks.
 
-      ***Tail***. *Melee Attack Roll* : +6, reach 10 ft. *Hit* : 9 (1d10 + 4) Bludgeoning damage. If the target is a Huge or smaller creature, it has the Prone condition.
+
+      ***Tail***. *Melee Attack Roll* : +6, reach 10 ft. *Hit* : 9 (1d10 + 4) Bludgeoning
+      damage. If the target is a Huge or smaller creature, it has the Prone condition.'
     senses: Passive Perception 11
     languages:
     - None
   fr:
     name: Ankylosaure
     subtype: Dinosaure
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Attaques multiples***. L'ankylosaure effectue deux attaques de Queue.
 
-      ***Queue***. *Corps à corps* : +6, allonge 3 m. *Touché* : 9 (1d10 + 4) dégâts contondants. Si la cible est une créature de taille TG ou inférieure, elle subit l'état À terre.
+      ***Attaques multiples***. L''ankylosaure effectue deux attaques de Queue.
+
+
+      ***Queue***. *Corps à corps* : +6, allonge 3 m. *Touché* : 9 (1d10 + 4) dégâts
+      contondants. Si la cible est une créature de taille TG ou inférieure, elle subit
+      l''état À terre.'
     senses: Perception passive 11
     languages:
     - aucune

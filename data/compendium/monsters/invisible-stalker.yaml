@@ -8,24 +8,12 @@ armorClass: 14
 maxHitPoints: 97
 hitDice: 13d10+26
 abilities:
-  str:
-    value: 16
-    savingThrowProficiency: none
-  dex:
-    value: 19
-    savingThrowProficiency: none
-  con:
-    value: 14
-    savingThrowProficiency: none
-  int:
-    value: 10
-    savingThrowProficiency: none
-  wis:
-    value: 15
-    savingThrowProficiency: none
-  cha:
-    value: 11
-    savingThrowProficiency: none
+  str: 16
+  dex: 19
+  con: 14
+  int: 10
+  wis: 15
+  cha: 11
 speeds:
   walk: 50
   fly: 50
@@ -88,20 +76,33 @@ translations:
   en:
     name: Invisible Stalker
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Air Form***. The stalker can enter an enemy's space and stop there. It can move through a space as narrow as 1 inch without expending extra movement to do so.
+
+      ***Air Form***. The stalker can enter an enemy''s space and stop there. It can
+      move through a space as narrow as 1 inch without expending extra movement to
+      do so.
+
 
       ***Invisibility***. The stalker has the Invisible condition.
 
+
       ## Actions
 
-      ***Multiattack***. The stalker makes three Wind Swipe attacks. It can replace one attack with a use of Vortex.
 
-      ***Wind Swipe***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 11 (2d6 + 4) Force damage.
+      ***Multiattack***. The stalker makes three Wind Swipe attacks. It can replace
+      one attack with a use of Vortex.
 
-      ***Vortex***. *Constitution Saving Throw* : DC 14, one Large or smaller creature in the stalker's space. *Failure* : 7 (1d8 + 3) Thunder damage, and the target has the Grappled condition (escape DC 13). Until the grapple ends, the target can't cast spells with a Verbal component and takes 7 (2d6) Thunder damage at the start of each of the stalker's turns.
+
+      ***Wind Swipe***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 11 (2d6 + 4)
+      Force damage.
+
+
+      ***Vortex***. *Constitution Saving Throw* : DC 14, one Large or smaller creature
+      in the stalker''s space. *Failure* : 7 (1d8 + 3) Thunder damage, and the target
+      has the Grappled condition (escape DC 13). Until the grapple ends, the target
+      can''t cast spells with a Verbal component and takes 7 (2d6) Thunder damage
+      at the start of each of the stalker''s turns.'
     senses: Darkvision 60 ft., Passive Perception 18
     languages:
     - Common
@@ -109,20 +110,33 @@ translations:
   fr:
     name: Traqueur invisible
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Corps d'air***. Le traqueur peut pénétrer dans un espace occupé par un ennemi et s'y arrêter. Il peut se déplacer dans un espace étroit d'une largeur minimale de 2,50 cm sans dépense supplémentaire en déplacement.
 
-      ***Invisibilité***. Le traqueur bénéficie de l'état Invisible.
+      ***Corps d''air***. Le traqueur peut pénétrer dans un espace occupé par un ennemi
+      et s''y arrêter. Il peut se déplacer dans un espace étroit d''une largeur minimale
+      de 2,50 cm sans dépense supplémentaire en déplacement.
+
+
+      ***Invisibilité***. Le traqueur bénéficie de l''état Invisible.
+
 
       ## Actions
 
-      ***Attaques multiples***. Le traqueur effectue trois attaques de Pique de vent. Il peut remplacer l'une de ces attaques par une utilisation de Vortex.
 
-      ***Pique de vent***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 11 (2d6 + 4) dégâts de force.
+      ***Attaques multiples***. Le traqueur effectue trois attaques de Pique de vent.
+      Il peut remplacer l''une de ces attaques par une utilisation de Vortex.
 
-      ***Vortex***. *JdS Constitution* : DD 14, une créature de taille G ou inférieure dans l'espace du traqueur. *Échec* : 7 (1d8 + 3) dégâts de tonnerre, et la cible subit l'état Agrippé (évasion DD 13). Tant qu'elle est agrippée, la cible ne peut pas lancer de sorts à composante verbale et subit 7 (2d6) dégâts de tonnerre au début de chacun des tours du traqueur.
+
+      ***Pique de vent***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 11 (2d6
+      + 4) dégâts de force.
+
+
+      ***Vortex***. *JdS Constitution* : DD 14, une créature de taille G ou inférieure
+      dans l''espace du traqueur. *Échec* : 7 (1d8 + 3) dégâts de tonnerre, et la
+      cible subit l''état Agrippé (évasion DD 13). Tant qu''elle est agrippée, la
+      cible ne peut pas lancer de sorts à composante verbale et subit 7 (2d6) dégâts
+      de tonnerre au début de chacun des tours du traqueur.'
     senses: Vision dans le noir 18 m, Perception passive 18
     languages:
     - commun

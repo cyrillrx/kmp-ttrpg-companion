@@ -8,24 +8,12 @@ armorClass: 12
 maxHitPoints: 11
 hitDice: 2d8+2
 abilities:
-  str:
-    value: 11
-    savingThrowProficiency: none
-  dex:
-    value: 12
-    savingThrowProficiency: none
-  con:
-    value: 12
-    savingThrowProficiency: none
-  int:
-    value: 10
-    savingThrowProficiency: none
-  wis:
-    value: 10
-    savingThrowProficiency: none
-  cha:
-    value: 10
-    savingThrowProficiency: none
+  str: 11
+  dex: 12
+  con: 12
+  int: 10
+  wis: 10
+  cha: 10
 speeds:
   walk: 30
   fly: null
@@ -88,12 +76,15 @@ translations:
   en:
     name: Bandit
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Scimitar***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 4 (1d6 + 1) Slashing damage.
 
-      ***Light Crossbow***. *Ranged Attack Roll* : +3, range 80/320 ft. *Hit* : 5 (1d8 + 1) Piercing damage.
+      ***Scimitar***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 4 (1d6 + 1) Slashing
+      damage.
+
+
+      ***Light Crossbow***. *Ranged Attack Roll* : +3, range 80/320 ft. *Hit* : 5
+      (1d8 + 1) Piercing damage.'
     senses: Passive Perception 10
     languages:
     - Common
@@ -101,12 +92,15 @@ translations:
   fr:
     name: Bandit
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Cimeterre***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 4 (1d6 + 1) dégâts tranchants.
 
-      ***Arbalète légère***. *À distance* : +3, portée 24/96 m. *Touché* : 5 (1d8 + 1) dégâts perforants.
+      ***Cimeterre***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 4 (1d6 + 1)
+      dégâts tranchants.
+
+
+      ***Arbalète légère***. *À distance* : +3, portée 24/96 m. *Touché* : 5 (1d8
+      + 1) dégâts perforants.'
     senses: Perception passive 10
     languages:
     - commun

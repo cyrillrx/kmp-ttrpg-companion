@@ -8,24 +8,12 @@ armorClass: 12
 maxHitPoints: 42
 hitDice: 5d10+15
 abilities:
-  str:
-    value: 20
-    savingThrowProficiency: none
-  dex:
-    value: 14
-    savingThrowProficiency: none
-  con:
-    value: 16
-    savingThrowProficiency: none
-  int:
-    value: 2
-    savingThrowProficiency: none
-  wis:
-    value: 13
-    savingThrowProficiency: none
-  cha:
-    value: 7
-    savingThrowProficiency: none
+  str: 20
+  dex: 14
+  con: 16
+  int: 2
+  wis: 13
+  cha: 7
 speeds:
   walk: 40
   fly: null
@@ -88,24 +76,28 @@ translations:
   en:
     name: Polar Bear
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
+
 
       ***Multiattack***. The bear makes two Rend attacks.
 
-      ***Rend***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 9 (1d8 + 5) Slashing damage.
+
+      ***Rend***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 9 (1d8 + 5) Slashing
+      damage.'
     senses: Darkvision 60 ft., Passive Perception 15
     languages:
     - None
   fr:
     name: Ours polaire
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Attaques multiples***. L'ours effectue deux attaques de Saignée.
 
-      ***Saignée***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 9 (1d8 + 5) dégâts tranchants.
+      ***Attaques multiples***. L''ours effectue deux attaques de Saignée.
+
+
+      ***Saignée***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 9 (1d8 + 5)
+      dégâts tranchants.'
     senses: Vision dans le noir 18 m, Perception passive 15
     languages:
     - aucune

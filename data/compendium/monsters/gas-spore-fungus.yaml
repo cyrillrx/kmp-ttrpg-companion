@@ -8,24 +8,12 @@ armorClass: 8
 maxHitPoints: 13
 hitDice: 9d10-36
 abilities:
-  str:
-    value: 5
-    savingThrowProficiency: none
-  dex:
-    value: 1
-    savingThrowProficiency: none
-  con:
-    value: 3
-    savingThrowProficiency: none
-  int:
-    value: 1
-    savingThrowProficiency: none
-  wis:
-    value: 1
-    savingThrowProficiency: none
-  cha:
-    value: 1
-    savingThrowProficiency: none
+  str: 5
+  dex: 1
+  con: 3
+  int: 1
+  wis: 1
+  cha: 1
 speeds:
   walk: 5
   fly: 10
@@ -88,26 +76,45 @@ translations:
   en:
     name: Gas Spore Fungus
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Death Burst***. The gas spore bursts when it dies. *Constitution Saving Throw* : DC 10, each creature in a 20-foot Emanation originating from the gas spore. *Failure* : The target takes 10 (3d6) Poison damage and has the Poisoned condition for 1d12 hours. Unless the Poisoned condition is removed, the target dies at the end of that time and sprouts 2d4 Tiny Gas Spore Fungi (each with 1 Hit Point). After 2d6 days, they become Large and have 13 Hit Points.
+
+      ***Death Burst***. The gas spore bursts when it dies. *Constitution Saving Throw*
+      : DC 10, each creature in a 20-foot Emanation originating from the gas spore.
+      *Failure* : The target takes 10 (3d6) Poison damage and has the Poisoned condition
+      for 1d12 hours. Unless the Poisoned condition is removed, the target dies at
+      the end of that time and sprouts 2d4 Tiny Gas Spore Fungi (each with 1 Hit Point).
+      After 2d6 days, they become Large and have 13 Hit Points.
+
 
       ## Actions
 
-      ***Tendril***. *Melee Attack Roll* : +0, reach 5 ft. *Hit* : 3 (1d6) Poison damage, and the target has the Poisoned condition until the end of its next turn.
+
+      ***Tendril***. *Melee Attack Roll* : +0, reach 5 ft. *Hit* : 3 (1d6) Poison
+      damage, and the target has the Poisoned condition until the end of its next
+      turn.'
     senses: Blindsight 30 ft., Passive Perception 5
     languages: []
   fr:
     name: Thallophyte, spore gazeuse
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      \*\* *Explosion finale***. La spore gazeuse explose quand il meurt. *JdS Constitution* : DD 10, chaque créature dans une Émanation de 6 m centrée sur la spore gazeuse. *Échec* : la cible subit 10 (3d6) dégâts de poison et l'état Empoisonné pendant 1d12 heures. À moins que l'état Empoisonné ne soit dissipé, la cible meurt au terme de cette période et fait pousser 2d4** spores gazeuses\*\* de taille TP (chacun ayant 1 point de vie). Après 2d6 jours, ils atteignent la taille G et possèdent 13 points de vie.
+
+      \*\* *Explosion finale***. La spore gazeuse explose quand il meurt. *JdS Constitution*
+      : DD 10, chaque créature dans une Émanation de 6 m centrée sur la spore gazeuse.
+      *Échec* : la cible subit 10 (3d6) dégâts de poison et l''état Empoisonné pendant
+      1d12 heures. À moins que l''état Empoisonné ne soit dissipé, la cible meurt
+      au terme de cette période et fait pousser 2d4** spores gazeuses\*\* de taille
+      TP (chacun ayant 1 point de vie). Après 2d6 jours, ils atteignent la taille
+      G et possèdent 13 points de vie.
+
 
       ## Actions
 
-      ***Filament***. *Corps à corps* : +0, allonge 1,50 m. *Touché* : 3 (1d6) dégâts de poison, et la cible subit l'état Empoisonné jusqu'à la fin de son prochain tour.
+
+      ***Filament***. *Corps à corps* : +0, allonge 1,50 m. *Touché* : 3 (1d6) dégâts
+      de poison, et la cible subit l''état Empoisonné jusqu''à la fin de son prochain
+      tour.'
     senses: Vision aveugle 9 m, Perception passive 5
     languages: []

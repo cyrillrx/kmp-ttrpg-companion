@@ -8,24 +8,12 @@ armorClass: 19
 maxHitPoints: 27
 hitDice: 11d4
 abilities:
-  str:
-    value: 1
-    savingThrowProficiency: none
-  dex:
-    value: 28
-    savingThrowProficiency: none
-  con:
-    value: 10
-    savingThrowProficiency: none
-  int:
-    value: 13
-    savingThrowProficiency: none
-  wis:
-    value: 14
-    savingThrowProficiency: none
-  cha:
-    value: 11
-    savingThrowProficiency: none
+  str: 1
+  dex: 28
+  con: 10
+  int: 13
+  wis: 14
+  cha: 11
 speeds:
   walk: 5
   fly: 50
@@ -88,48 +76,79 @@ translations:
   en:
     name: Will-o'-Wisp
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Ephemeral***. The wisp can't wear or carry anything.
 
-      ***Illumination***. The wisp sheds Bright Light in a 20-foot radius and Dim Light for an additional 20 feet.
+      ***Ephemeral***. The wisp can''t wear or carry anything.
 
-      ***Incorporeal Movement***. The wisp can move through other creatures and objects as if they were Difficult Terrain. It takes 5 (1d10) Force damage if it ends its turn inside an object.
+
+      ***Illumination***. The wisp sheds Bright Light in a 20-foot radius and Dim
+      Light for an additional 20 feet.
+
+
+      ***Incorporeal Movement***. The wisp can move through other creatures and objects
+      as if they were Difficult Terrain. It takes 5 (1d10) Force damage if it ends
+      its turn inside an object.
+
 
       ## Actions
 
-      ***Shock***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 11 (2d8 + 2) Lightning damage.
+
+      ***Shock***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 11 (2d8 + 2) Lightning
+      damage.
+
 
       ## Bonus actions
 
-      ***Consume Life***. *Constitution Saving Throw* : DC 10, one living creature the wisp can see within 5 feet that has 0 Hit Points. *Failure* : The target dies, and the wisp regains 10 (3d6) Hit Points.
 
-      ***Vanish***. The wisp and its light have the Invisible condition until the wisp's Concentration ends on this effect, which ends early immediately after the wisp makes an attack roll or uses Consume Life.
+      ***Consume Life***. *Constitution Saving Throw* : DC 10, one living creature
+      the wisp can see within 5 feet that has 0 Hit Points. *Failure* : The target
+      dies, and the wisp regains 10 (3d6) Hit Points.
+
+
+      ***Vanish***. The wisp and its light have the Invisible condition until the
+      wisp''s Concentration ends on this effect, which ends early immediately after
+      the wisp makes an attack roll or uses Consume Life.'
     senses: Darkvision 120 ft., Passive Perception 12
     languages:
     - Common plus one other language
   fr:
     name: Feu follet
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Déplacement intangible***. Le feu follet peut traverser d'autres créatures et objets comme s'il s'agissait d'un Terrain difficile. Il subit 5 (1d10) dégâts de force s'il termine son tour à l'intérieur d'un objet.
+
+      ***Déplacement intangible***. Le feu follet peut traverser d''autres créatures
+      et objets comme s''il s''agissait d''un Terrain difficile. Il subit 5 (1d10)
+      dégâts de force s''il termine son tour à l''intérieur d''un objet.
+
 
       ***Fugace***. Le feu follet ne peut rien porter.
 
-      ***Illumination***. Le feu follet émet une Lumière vive sur un rayon de 6 m et une Lumière faible sur 6 m de plus.
+
+      ***Illumination***. Le feu follet émet une Lumière vive sur un rayon de 6 m
+      et une Lumière faible sur 6 m de plus.
+
 
       ## Actions
 
-      ***Décharge***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 11 (2d8 + 2) dégâts de foudre.
+
+      ***Décharge***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 11 (2d8 + 2)
+      dégâts de foudre.
+
 
       ## Actions Bonus
 
-      ***Disparition***. Le feu follet et sa lumière ont l'état Invisible jusqu'à ce qu'il rompe sa Concentration sur cet effet, mais l'état prend fin prématurément juste après que le feu follet effectue un jet d'attaque ou recourt à Festin d'essence vitale.
 
-      ***Festin d'essence vitale***. *JdS Constitution* : DD 10, une créature vivante à 0 point de vie que le feu follet voit dans un rayon de 1,50 m. *Échec* : La cible meurt et le feu follet récupère 10 (3d6) points de vie.
+      ***Disparition***. Le feu follet et sa lumière ont l''état Invisible jusqu''à
+      ce qu''il rompe sa Concentration sur cet effet, mais l''état prend fin prématurément
+      juste après que le feu follet effectue un jet d''attaque ou recourt à Festin
+      d''essence vitale.
+
+
+      ***Festin d''essence vitale***. *JdS Constitution* : DD 10, une créature vivante
+      à 0 point de vie que le feu follet voit dans un rayon de 1,50 m. *Échec* : La
+      cible meurt et le feu follet récupère 10 (3d6) points de vie.'
     senses: Vision dans le noir 36 m, Perception passive 12
     languages:
     - commun plus une autre langue

@@ -8,24 +8,16 @@ armorClass: 17
 maxHitPoints: 126
 hitDice: 11d12+55
 abilities:
-  str:
-    value: 23
-    savingThrowProficiency: none
-  dex:
-    value: 15
-    savingThrowProficiency: proficient
-  con:
-    value: 20
-    savingThrowProficiency: proficient
-  int:
-    value: 10
-    savingThrowProficiency: none
-  wis:
-    value: 12
-    savingThrowProficiency: proficient
-  cha:
-    value: 9
-    savingThrowProficiency: none
+  str: 23
+  dex: 15
+  con: 20
+  int: 10
+  wis: 12
+  cha: 9
+savingThrows:
+  dex: proficient
+  con: proficient
+  wis: proficient
 speeds:
   walk: 40
   fly: null
@@ -88,36 +80,62 @@ translations:
   en:
     name: Stone Giant
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Multiattack***. The giant makes two attacks, using Stone Club or Boulder in any combination.
 
-      ***Stone Club***. *Melee Attack Roll* : +9, reach 15 ft. *Hit* : 22 (3d10 + 6) Bludgeoning damage.
+      ***Multiattack***. The giant makes two attacks, using Stone Club or Boulder
+      in any combination.
 
-      ***Boulder***. *Ranged Attack Roll* : +9, range 60/240 ft. *Hit* : 15 (2d8 + 6) Bludgeoning damage. If the target is a Large or smaller creature, it has the Prone condition.
+
+      ***Stone Club***. *Melee Attack Roll* : +9, reach 15 ft. *Hit* : 22 (3d10 +
+      6) Bludgeoning damage.
+
+
+      ***Boulder***. *Ranged Attack Roll* : +9, range 60/240 ft. *Hit* : 15 (2d8 +
+      6) Bludgeoning damage. If the target is a Large or smaller creature, it has
+      the Prone condition.
+
 
       ## Reactions
 
-      ***Deflect Missile (Recharge 5–6)***. *Trigger* : The giant is hit by a ranged attack roll and takes Bludgeoning, Piercing, or Slashing damage from it. *Response* : The giant reduces the damage it takes from the attack by 11 (1d10 + 6), and if that damage is reduced to 0, the giant can redirect some of the attack's force. *Dexterity Saving Throw* : DC 17, one creature the giant can see within 60 feet. *Failure* : 11 (1d10 + 6) Force damage.
+
+      ***Deflect Missile (Recharge 5–6)***. *Trigger* : The giant is hit by a ranged
+      attack roll and takes Bludgeoning, Piercing, or Slashing damage from it. *Response*
+      : The giant reduces the damage it takes from the attack by 11 (1d10 + 6), and
+      if that damage is reduced to 0, the giant can redirect some of the attack''s
+      force. *Dexterity Saving Throw* : DC 17, one creature the giant can see within
+      60 feet. *Failure* : 11 (1d10 + 6) Force damage.'
     senses: Darkvision 60 ft., Passive Perception 14
     languages:
     - Giant
   fr:
     name: Géant des pierres
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Attaques multiples***. Le géant effectue deux attaques, réparties à sa guise entre Gourdin de pierre et Rocher.
 
-      ***Gourdin de pierre***. *Corps à corps* : +9, allonge 4,50 m. *Touché* : 22 (3d10 + 6) dégâts contondants.
+      ***Attaques multiples***. Le géant effectue deux attaques, réparties à sa guise
+      entre Gourdin de pierre et Rocher.
 
-      ***Rocher***. *À distance* : +9, portée 18/72 m. *Touché* : 15 (2d8 + 6) dégâts contondants. Si la cible est une créature de taille G ou inférieure, elle subit l'état À terre.
+
+      ***Gourdin de pierre***. *Corps à corps* : +9, allonge 4,50 m. *Touché* : 22
+      (3d10 + 6) dégâts contondants.
+
+
+      ***Rocher***. *À distance* : +9, portée 18/72 m. *Touché* : 15 (2d8 + 6) dégâts
+      contondants. Si la cible est une créature de taille G ou inférieure, elle subit
+      l''état À terre.
+
 
       ## Réactions
 
-      ***Parade de projectile (recharge 5–6)***. *Déclencheur* : le géant est touché par un jet d'attaque à distance qui lui inflige des dégâts contondants, perforants ou tranchants. *Conséquences* : le géant réduit les dégâts infligés par l'attaque de 11 (1d10 + 6) ; si ces dégâts sont réduits à 0, le géant peut réorienter une partie de l'impact. *JdS Dextérité* : DD 17, une créature que le géant voit dans un rayon de 18 m. *Échec* : 11 (1d10 + 6) dégâts de force.
+
+      ***Parade de projectile (recharge 5–6)***. *Déclencheur* : le géant est touché
+      par un jet d''attaque à distance qui lui inflige des dégâts contondants, perforants
+      ou tranchants. *Conséquences* : le géant réduit les dégâts infligés par l''attaque
+      de 11 (1d10 + 6) ; si ces dégâts sont réduits à 0, le géant peut réorienter
+      une partie de l''impact. *JdS Dextérité* : DD 17, une créature que le géant
+      voit dans un rayon de 18 m. *Échec* : 11 (1d10 + 6) dégâts de force.'
     senses: Vision dans le noir 18 m, Perception passive 14
     languages:
     - géant

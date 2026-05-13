@@ -8,24 +8,12 @@ armorClass: 15
 maxHitPoints: 127
 hitDice: 15d10+45
 abilities:
-  str:
-    value: 19
-    savingThrowProficiency: none
-  dex:
-    value: 16
-    savingThrowProficiency: none
-  con:
-    value: 17
-    savingThrowProficiency: none
-  int:
-    value: 17
-    savingThrowProficiency: none
-  wis:
-    value: 18
-    savingThrowProficiency: none
-  cha:
-    value: 15
-    savingThrowProficiency: none
+  str: 19
+  dex: 16
+  con: 17
+  int: 17
+  wis: 18
+  cha: 15
 speeds:
   walk: 40
   fly: null
@@ -88,30 +76,55 @@ translations:
   en:
     name: Yuan-ti Abomination
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Magic Resistance***. The yuan-ti has Advantage on saving throws against spells and other magical effects.
+
+      ***Magic Resistance***. The yuan-ti has Advantage on saving throws against spells
+      and other magical effects.
+
 
       ## Actions
 
-      ***Multiattack***. The yuan-ti makes two Bite attacks, and it can use Spellcasting to cast *[Suggestion](https://www.aidedd.org/spell/suggestion)* if available.
 
-      ***Bite***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 11 (2d6 + 4) Piercing damage plus 10 (3d6) Poison damage.
+      ***Multiattack***. The yuan-ti makes two Bite attacks, and it can use Spellcasting
+      to cast *[Suggestion](https://www.aidedd.org/spell/suggestion)* if available.
 
-      ***Constrict***. *Strength Saving Throw* : DC 15, one Large or smaller creature within 5 feet. *Failure* : 28 (7d6 + 4) Bludgeoning damage. The target has the Grappled condition (escape DC 14), and it has the Restrained condition until the grapple ends. *Success* : Half damage only.
 
-      ***Poison Spray (Recharge 5–6)***. *Constitution Saving Throw* : DC 14, each creature in a 30-foot Cone. *Failure* : 21 (6d6) Poison damage, and the target has the Poisoned condition until the end of the yuan-ti's next turn. While Poisoned, the target has the Blinded condition. *Success* : Half damage only.
+      ***Bite***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 11 (2d6 + 4) Piercing
+      damage plus 10 (3d6) Poison damage.
 
-      ***Spellcasting (Yuan-ti Form Only)***. The yuan-ti casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 15):
 
-      At will: *[Animal Friendship](https://www.aidedd.org/spell/animal-friendship)* (snakes only)
-      
+      ***Constrict***. *Strength Saving Throw* : DC 15, one Large or smaller creature
+      within 5 feet. *Failure* : 28 (7d6 + 4) Bludgeoning damage. The target has the
+      Grappled condition (escape DC 14), and it has the Restrained condition until
+      the grapple ends. *Success* : Half damage only.
+
+
+      ***Poison Spray (Recharge 5–6)***. *Constitution Saving Throw* : DC 14, each
+      creature in a 30-foot Cone. *Failure* : 21 (6d6) Poison damage, and the target
+      has the Poisoned condition until the end of the yuan-ti''s next turn. While
+      Poisoned, the target has the Blinded condition. *Success* : Half damage only.
+
+
+      ***Spellcasting (Yuan-ti Form Only)***. The yuan-ti casts one of the following
+      spells, requiring no Material components and using Wisdom as the spellcasting
+      ability (spell save DC 15):
+
+
+      At will: *[Animal Friendship](https://www.aidedd.org/spell/animal-friendship)*
+      (snakes only)
+
+
       3/day: *[Suggestion](https://www.aidedd.org/spell/suggestion)*
+
 
       ## Bonus actions
 
-      ***Shape-Shift***. The yuan-ti shape-shifts into a Large snake or returns to its true form. If it dies, it stays in its current form. The yuan-ti's game statistics are the same in each form, except where noted. Any equipment it is wearing or carrying isn't transformed.
+
+      ***Shape-Shift***. The yuan-ti shape-shifts into a Large snake or returns to
+      its true form. If it dies, it stays in its current form. The yuan-ti''s game
+      statistics are the same in each form, except where noted. Any equipment it is
+      wearing or carrying isn''t transformed.'
     senses: Darkvision 60 ft., Passive Perception 17
     languages:
     - Abyssal
@@ -120,30 +133,56 @@ translations:
   fr:
     name: Yuan-ti, abomination
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Résistance à la magie***. Le yuan-ti a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
+
+      ***Résistance à la magie***. Le yuan-ti a un Avantage aux jets de sauvegarde
+      contre les sorts et autres effets magiques.
+
 
       ## Actions
 
-      ***Attaques multiples***. Le yuan-ti effectue deux attaques de Morsure, et peut utiliser Incantation pour lancer *[suggestion](https://www.aidedd.org/spell/fr/suggestion)* si disponible.
 
-      ***Morsure***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 11 (2d6 + 4) dégâts perforants plus 10 (3d6) dégâts de poison.
+      ***Attaques multiples***. Le yuan-ti effectue deux attaques de Morsure, et peut
+      utiliser Incantation pour lancer *[suggestion](https://www.aidedd.org/spell/fr/suggestion)*
+      si disponible.
 
-      ***Constriction***. *JdS Force* : DD 15, une créature de taille G ou inférieure dans un rayon de 1,50 m. *Échec* : 28 (7d6 + 4) dégâts contondants. La cible subit l'état Agrippé (évasion DD 14) et l'état Entravé tant qu'elle est agrippée. *Réussite* : demi-dégâts.
 
-      ***Bouffée de poison (recharge 5–6)***. *JdS Constitution* : DD 14, chaque créature dans un Cône de 9 m. *Échec* : 21 (6d6) dégâts de poison, et la cible subit l'état Empoisonné jusqu'à la fin du prochain tour du yuan-ti. Tant qu'elle est empoisonnée, la cible subit l'état Aveuglé. *Réussite* : demi-dégâts uniquement.
+      ***Morsure***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 11 (2d6 + 4)
+      dégâts perforants plus 10 (3d6) dégâts de poison.
 
-      ***Incantation (forme de yuan-ti uniquement)***. Le yuan-ti lance l'un des sorts suivants sans composantes matérielles, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 15) :
 
-      À volonté : *[amitié avec les animaux](https://www.aidedd.org/spell/fr/amitie-avec-les-animaux)* (serpents uniquement)
-      
+      ***Constriction***. *JdS Force* : DD 15, une créature de taille G ou inférieure
+      dans un rayon de 1,50 m. *Échec* : 28 (7d6 + 4) dégâts contondants. La cible
+      subit l''état Agrippé (évasion DD 14) et l''état Entravé tant qu''elle est agrippée.
+      *Réussite* : demi-dégâts.
+
+
+      ***Bouffée de poison (recharge 5–6)***. *JdS Constitution* : DD 14, chaque créature
+      dans un Cône de 9 m. *Échec* : 21 (6d6) dégâts de poison, et la cible subit
+      l''état Empoisonné jusqu''à la fin du prochain tour du yuan-ti. Tant qu''elle
+      est empoisonnée, la cible subit l''état Aveuglé. *Réussite* : demi-dégâts uniquement.
+
+
+      ***Incantation (forme de yuan-ti uniquement)***. Le yuan-ti lance l''un des
+      sorts suivants sans composantes matérielles, la Sagesse étant sa caractéristique
+      d''incantation (DD de sauvegarde 15) :
+
+
+      À volonté : *[amitié avec les animaux](https://www.aidedd.org/spell/fr/amitie-avec-les-animaux)*
+      (serpents uniquement)
+
+
       3/jour : *[suggestion](https://www.aidedd.org/spell/fr/suggestion)*
+
 
       ## Actions Bonus
 
-      ***Changement d'aspect***. Le yuan-ti se métamorphose en serpent de taille M ou reprend sa forme véritable. S'il meurt, il conserve sa forme actuelle. Son profil reste le même quelle que soit sa forme, sauf indication contraire. Rien de ce qu'il porte n'est transformé.
+
+      ***Changement d''aspect***. Le yuan-ti se métamorphose en serpent de taille
+      M ou reprend sa forme véritable. S''il meurt, il conserve sa forme actuelle.
+      Son profil reste le même quelle que soit sa forme, sauf indication contraire.
+      Rien de ce qu''il porte n''est transformé.'
     senses: Vision dans le noir 18 m, Perception passive 17
     languages:
     - abyssal

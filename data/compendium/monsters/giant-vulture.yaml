@@ -8,24 +8,12 @@ armorClass: 10
 maxHitPoints: 25
 hitDice: 3d10+9
 abilities:
-  str:
-    value: 15
-    savingThrowProficiency: none
-  dex:
-    value: 10
-    savingThrowProficiency: none
-  con:
-    value: 16
-    savingThrowProficiency: none
-  int:
-    value: 6
-    savingThrowProficiency: none
-  wis:
-    value: 12
-    savingThrowProficiency: none
-  cha:
-    value: 7
-    savingThrowProficiency: none
+  str: 15
+  dex: 10
+  con: 16
+  int: 6
+  wis: 12
+  cha: 7
 speeds:
   walk: 10
   fly: 60
@@ -88,28 +76,40 @@ translations:
   en:
     name: Giant Vulture
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Pack Tactics***. The vulture has Advantage on an attack roll against a creature if at least one of the vulture's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.
+
+      ***Pack Tactics***. The vulture has Advantage on an attack roll against a creature
+      if at least one of the vulture''s allies is within 5 feet of the creature and
+      the ally doesn''t have the Incapacitated condition.
+
 
       ## Actions
 
-      ***Gouge***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 9 (2d6 + 2) Piercing damage, and the target has the Poisoned condition until the end of its next turn.
+
+      ***Gouge***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 9 (2d6 + 2) Piercing
+      damage, and the target has the Poisoned condition until the end of its next
+      turn.'
     senses: Darkvision 60 ft., Passive Perception 13
     languages:
     - Understands Common but can't speak
   fr:
     name: Vautour géant
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Tactique de meute***. Quand au moins un de ses alliés non Incapable d'agir se situe dans un rayon de 1,50 m de la créature qu'il cible, le vautour a un Avantage au jet d'attaque correspondant.
+
+      ***Tactique de meute***. Quand au moins un de ses alliés non Incapable d''agir
+      se situe dans un rayon de 1,50 m de la créature qu''il cible, le vautour a un
+      Avantage au jet d''attaque correspondant.
+
 
       ## Actions
 
-      ***Incision***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 9 (2d6 + 2) dégâts perforants, et la cible subit l'état Empoisonné jusqu'à la fin de son tour suivant.
+
+      ***Incision***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 9 (2d6 + 2)
+      dégâts perforants, et la cible subit l''état Empoisonné jusqu''à la fin de son
+      tour suivant.'
     senses: Vision dans le noir 18 m, Perception passive 13
     languages:
     - comprend le commun mais ne parle pas

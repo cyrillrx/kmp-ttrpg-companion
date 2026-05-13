@@ -8,24 +8,12 @@ armorClass: 12
 maxHitPoints: 45
 hitDice: 6d10+12
 abilities:
-  str:
-    value: 18
-    savingThrowProficiency: none
-  dex:
-    value: 14
-    savingThrowProficiency: none
-  con:
-    value: 15
-    savingThrowProficiency: none
-  int:
-    value: 1
-    savingThrowProficiency: none
-  wis:
-    value: 10
-    savingThrowProficiency: none
-  cha:
-    value: 4
-    savingThrowProficiency: none
+  str: 18
+  dex: 14
+  con: 15
+  int: 1
+  wis: 10
+  cha: 4
 speeds:
   walk: 5
   fly: null
@@ -88,28 +76,34 @@ translations:
   en:
     name: Hunter Shark
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
+
 
       ***Water Breathing***. The shark can breathe only underwater.
 
+
       ## Actions
 
-      ***Bite***. *Melee Attack Roll* : +6 (with Advantage if the target doesn't have all its Hit Points), reach 5 ft. *Hit* : 14 (3d6 + 4) Piercing damage.
+
+      ***Bite***. *Melee Attack Roll* : +6 (with Advantage if the target doesn''t
+      have all its Hit Points), reach 5 ft. *Hit* : 14 (3d6 + 4) Piercing damage.'
     senses: Blindsight 60 ft., Passive Perception 12
     languages:
     - None
   fr:
     name: Requin-chasseur
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Respiration aquatique***. Le requin ne peut respirer que sous l'eau.
+
+      ***Respiration aquatique***. Le requin ne peut respirer que sous l''eau.
+
 
       ## Actions
 
-      ***Morsure***. *Corps à corps* : +6 (avec Avantage si la cible n'a pas tous ses pv), allonge 1,50 m. *Touché* : 14 (3d6 + 4) dégâts perforants.
+
+      ***Morsure***. *Corps à corps* : +6 (avec Avantage si la cible n''a pas tous
+      ses pv), allonge 1,50 m. *Touché* : 14 (3d6 + 4) dégâts perforants.'
     senses: Vision aveugle 18 m, Perception passive 12
     languages:
     - aucune

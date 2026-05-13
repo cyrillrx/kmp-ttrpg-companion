@@ -8,24 +8,16 @@ armorClass: 18
 maxHitPoints: 117
 hitDice: 18d8+36
 abilities:
-  str:
-    value: 16
-    savingThrowProficiency: none
-  dex:
-    value: 14
-    savingThrowProficiency: none
-  con:
-    value: 15
-    savingThrowProficiency: proficient
-  int:
-    value: 14
-    savingThrowProficiency: proficient
-  wis:
-    value: 14
-    savingThrowProficiency: proficient
-  cha:
-    value: 15
-    savingThrowProficiency: none
+  str: 16
+  dex: 14
+  con: 15
+  int: 14
+  wis: 14
+  cha: 15
+savingThrows:
+  con: proficient
+  int: proficient
+  wis: proficient
 speeds:
   walk: 30
   fly: null
@@ -88,24 +80,42 @@ translations:
   en:
     name: Githyanki Knight
     subtype: Gith
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Multiattack***. The githyanki makes three Silver Sword attacks. It can replace one attack with a use of Spellcasting to cast *[Telekinesis](https://www.aidedd.org/spell/telekinesis)* if available.
 
-      ***Silver Sword***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 10 (2d6 + 3) Slashing damage plus 14 (4d6) Psychic damage. Critical *Hit* : If the target is in an astral body (as with the Astral Projection spell), the githyanki can cut the silvery cord that tethers the target to its material body instead of dealing damage.
+      ***Multiattack***. The githyanki makes three Silver Sword attacks. It can replace
+      one attack with a use of Spellcasting to cast *[Telekinesis](https://www.aidedd.org/spell/telekinesis)*
+      if available.
 
-      ***Spellcasting***. The githyanki casts one of the following spells, requiring no spell components and using Intelligence as the spellcasting ability (spell save DC 13):
 
-      At will: *[Mage Hand](https://www.aidedd.org/spell/mage-hand)* (the hand is Invisible)
-      
-      2/day each: *[Nondetection](https://www.aidedd.org/spell/nondetection)* (self only), *[Tongues](https://www.aidedd.org/spell/tongues)*
-      
+      ***Silver Sword***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 10 (2d6 +
+      3) Slashing damage plus 14 (4d6) Psychic damage. Critical *Hit* : If the target
+      is in an astral body (as with the Astral Projection spell), the githyanki can
+      cut the silvery cord that tethers the target to its material body instead of
+      dealing damage.
+
+
+      ***Spellcasting***. The githyanki casts one of the following spells, requiring
+      no spell components and using Intelligence as the spellcasting ability (spell
+      save DC 13):
+
+
+      At will: *[Mage Hand](https://www.aidedd.org/spell/mage-hand)* (the hand is
+      Invisible)
+
+
+      2/day each: *[Nondetection](https://www.aidedd.org/spell/nondetection)* (self
+      only), *[Tongues](https://www.aidedd.org/spell/tongues)*
+
+
       1/day each: *[Plane Shift](https://www.aidedd.org/spell/plane-shift), [Telekinesis](https://www.aidedd.org/spell/telekinesis)*
+
 
       ## Bonus actions
 
-      ***Misty Step (2/Day)***. The githyanki casts *[Misty Step](https://www.aidedd.org/spell/misty-step)* , requiring no spell components and using the same spellcasting ability as Spellcasting.
+
+      ***Misty Step (2/Day)***. The githyanki casts *[Misty Step](https://www.aidedd.org/spell/misty-step)*
+      , requiring no spell components and using the same spellcasting ability as Spellcasting.'
     senses: Passive Perception 12
     languages:
     - Common
@@ -113,18 +123,22 @@ translations:
   fr:
     name: Githyanki, chevalier
     subtype: Gith
-    description: |-
-      ## Actions
+    description: '## Actions
+
 
       Attaques multiples.
-      
-      Épée d'argent.
-      
+
+
+      Épée d''argent.
+
+
       Incantation.
+
 
       ## Actions Bonus
 
-      Foulée brumeuse (2/jour).
+
+      Foulée brumeuse (2/jour).'
     senses: Perception passive 12
     languages:
     - commun

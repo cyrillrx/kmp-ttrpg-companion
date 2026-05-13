@@ -8,24 +8,14 @@ armorClass: 11
 maxHitPoints: 58
 hitDice: 9d8+18
 abilities:
-  str:
-    value: 16
-    savingThrowProficiency: none
-  dex:
-    value: 8
-    savingThrowProficiency: none
-  con:
-    value: 15
-    savingThrowProficiency: none
-  int:
-    value: 6
-    savingThrowProficiency: none
-  wis:
-    value: 12
-    savingThrowProficiency: proficient
-  cha:
-    value: 12
-    savingThrowProficiency: none
+  str: 16
+  dex: 8
+  con: 15
+  int: 6
+  wis: 12
+  cha: 12
+savingThrows:
+  wis: proficient
 speeds:
   walk: 20
   fly: null
@@ -88,28 +78,51 @@ translations:
   en:
     name: Mummy
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Multiattack***. The mummy makes two Rotting Fist attacks and uses Dreadful Glare.
 
-      ***Rotting Fist***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 8 (1d10 + 3) Bludgeoning damage plus 10 (3d6) Necrotic damage. If the target is a creature, it is cursed. While cursed, the target can't regain Hit Points, its Hit Point maximum doesn't return to normal when finishing a Long Rest, and its Hit Point maximum decreases by 10 (3d6) every 24 hours that elapse. A creature dies and turns to dust if reduced to 0 Hit Points by this attack.
+      ***Multiattack***. The mummy makes two Rotting Fist attacks and uses Dreadful
+      Glare.
 
-      ***Dreadful Glare***. *Wisdom Saving Throw* : DC 11, one creature the mummy can see within 60 feet. *Failure* : The target has the Frightened condition until the end of the mummy's next turn. *Success* : The target is immune to this mummy's Dreadful Glare for 24 hours.
+
+      ***Rotting Fist***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 8 (1d10 +
+      3) Bludgeoning damage plus 10 (3d6) Necrotic damage. If the target is a creature,
+      it is cursed. While cursed, the target can''t regain Hit Points, its Hit Point
+      maximum doesn''t return to normal when finishing a Long Rest, and its Hit Point
+      maximum decreases by 10 (3d6) every 24 hours that elapse. A creature dies and
+      turns to dust if reduced to 0 Hit Points by this attack.
+
+
+      ***Dreadful Glare***. *Wisdom Saving Throw* : DC 11, one creature the mummy
+      can see within 60 feet. *Failure* : The target has the Frightened condition
+      until the end of the mummy''s next turn. *Success* : The target is immune to
+      this mummy''s Dreadful Glare for 24 hours.'
     senses: Darkvision 60 ft., Passive Perception 11
     languages:
     - Common plus two other languages
   fr:
     name: Momie
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Attaques multiples***. La momie effectue deux attaques de Poing putréfié et recourt à Regard effroyable.
 
-      ***Poing putréfié***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 8 (1d10 + 3) dégâts contondants plus 10 (3d6) dégâts nécrotiques. Si la cible est une créature, elle est maudite. Ainsi maudite, la cible ne peut pas récupérer de points de vie, son maximum de points de vie ne revient pas à la normale quand elle termine un Repos long, et diminue même de 10 (3d6) toutes les 24 heures. Une créature que cette attaque fait tomber à 0 point de vie meurt, réduite en poussière.
+      ***Attaques multiples***. La momie effectue deux attaques de Poing putréfié
+      et recourt à Regard effroyable.
 
-      ***Regard effroyable***. *JdS Sagesse* : DD 11, une créature que la momie voit dans un rayon de 18 m. *Échec* : la cible subit l'état Effrayé jusqu'à la fin du tour suivant de la momie. *Réussite* : la cible est immunisée contre le Regard effroyable de cette momie pendant 24 heures.
+
+      ***Poing putréfié***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 8 (1d10
+      + 3) dégâts contondants plus 10 (3d6) dégâts nécrotiques. Si la cible est une
+      créature, elle est maudite. Ainsi maudite, la cible ne peut pas récupérer de
+      points de vie, son maximum de points de vie ne revient pas à la normale quand
+      elle termine un Repos long, et diminue même de 10 (3d6) toutes les 24 heures.
+      Une créature que cette attaque fait tomber à 0 point de vie meurt, réduite en
+      poussière.
+
+
+      ***Regard effroyable***. *JdS Sagesse* : DD 11, une créature que la momie voit
+      dans un rayon de 18 m. *Échec* : la cible subit l''état Effrayé jusqu''à la
+      fin du tour suivant de la momie. *Réussite* : la cible est immunisée contre
+      le Regard effroyable de cette momie pendant 24 heures.'
     senses: Vision dans le noir 18 m, Perception passive 11
     languages:
     - commun plus deux autres langues

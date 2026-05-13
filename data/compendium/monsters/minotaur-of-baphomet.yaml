@@ -8,24 +8,12 @@ armorClass: 14
 maxHitPoints: 85
 hitDice: 10d10+30
 abilities:
-  str:
-    value: 18
-    savingThrowProficiency: none
-  dex:
-    value: 11
-    savingThrowProficiency: none
-  con:
-    value: 16
-    savingThrowProficiency: none
-  int:
-    value: 6
-    savingThrowProficiency: none
-  wis:
-    value: 16
-    savingThrowProficiency: none
-  cha:
-    value: 9
-    savingThrowProficiency: none
+  str: 18
+  dex: 11
+  con: 16
+  int: 6
+  wis: 16
+  cha: 9
 speeds:
   walk: 40
   fly: null
@@ -88,24 +76,35 @@ translations:
   en:
     name: Minotaur of Baphomet
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Abyssal Glaive***. *Melee Attack Roll* : +6, reach 10 ft. *Hit* : 10 (1d12 + 4) Slashing damage plus 10 (3d6) Necrotic damage.
 
-      ***Gore (Recharge 5–6)***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 18 (4d6 + 4) Piercing damage. If the target is a Large or smaller creature and the minotaur moved 10+ feet straight toward it immediately before the hit, the target takes an extra 10 (3d6) Piercing damage and has the Prone condition.
+      ***Abyssal Glaive***. *Melee Attack Roll* : +6, reach 10 ft. *Hit* : 10 (1d12
+      + 4) Slashing damage plus 10 (3d6) Necrotic damage.
+
+
+      ***Gore (Recharge 5–6)***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 18
+      (4d6 + 4) Piercing damage. If the target is a Large or smaller creature and
+      the minotaur moved 10+ feet straight toward it immediately before the hit, the
+      target takes an extra 10 (3d6) Piercing damage and has the Prone condition.'
     senses: Darkvision 60 ft., Passive Perception 17
     languages:
     - Abyssal
   fr:
     name: Minotaure de Baphomet
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Coup de corne (recharge 5–6)***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 18 (4d6 + 4) dégâts perforants. Si la cible est une créature de taille G ou inférieure et si le minotaure s'est déplacé en ligne droite d'un minimum de 3 m juste avant de la toucher, la cible subit 10 (3d6) dégâts perforants supplémentaires, ainsi que l'état À terre.
 
-      ***Coutille abyssale***. *Corps à corps* : +6, allonge 3 m. *Touché* : 10 (1d12 + 4) dégâts tranchants plus 10 (3d6) dégâts nécrotiques.
+      ***Coup de corne (recharge 5–6)***. *Corps à corps* : +6, allonge 1,50 m. *Touché*
+      : 18 (4d6 + 4) dégâts perforants. Si la cible est une créature de taille G ou
+      inférieure et si le minotaure s''est déplacé en ligne droite d''un minimum de
+      3 m juste avant de la toucher, la cible subit 10 (3d6) dégâts perforants supplémentaires,
+      ainsi que l''état À terre.
+
+
+      ***Coutille abyssale***. *Corps à corps* : +6, allonge 3 m. *Touché* : 10 (1d12
+      + 4) dégâts tranchants plus 10 (3d6) dégâts nécrotiques.'
     senses: Vision dans le noir 18 m, Perception passive 17
     languages:
     - abyssal

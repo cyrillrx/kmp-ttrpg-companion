@@ -8,24 +8,15 @@ armorClass: 18
 maxHitPoints: 247
 hitDice: 15d20+90
 abilities:
-  str:
-    value: 28
-    savingThrowProficiency: none
-  dex:
-    value: 7
-    savingThrowProficiency: none
-  con:
-    value: 22
-    savingThrowProficiency: proficient
-  int:
-    value: 1
-    savingThrowProficiency: none
-  wis:
-    value: 8
-    savingThrowProficiency: proficient
-  cha:
-    value: 4
-    savingThrowProficiency: none
+  str: 28
+  dex: 7
+  con: 22
+  int: 1
+  wis: 8
+  cha: 4
+savingThrows:
+  con: proficient
+  wis: proficient
 speeds:
   walk: 50
   fly: null
@@ -88,43 +79,89 @@ translations:
   en:
     name: Purple Worm
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Tunneler***. The worm can burrow through solid rock at half its Burrow Speed and leaves a 10-foot-diameter tunnel in its wake.
+
+      ***Tunneler***. The worm can burrow through solid rock at half its Burrow Speed
+      and leaves a 10-foot-diameter tunnel in its wake.
+
 
       ## Actions
 
+
       ***Multiattack***. The worm makes one Bite attack and one Tail Stinger attack.
 
-      ***Bite***. *Melee Attack Roll* : +14, reach 10 ft. *Hit* : 22 (3d8 + 9) Piercing damage. If the target is a Large or smaller creature, it has the Grappled condition (escape DC 19), and it has the Restrained condition until the grapple ends.
 
-      ***Tail Stinger***. *Melee Attack Roll* : +14, reach 10 ft. *Hit* : 16 (2d6 + 9) Piercing damage plus 35 (10d6) Poison damage.
+      ***Bite***. *Melee Attack Roll* : +14, reach 10 ft. *Hit* : 22 (3d8 + 9) Piercing
+      damage. If the target is a Large or smaller creature, it has the Grappled condition
+      (escape DC 19), and it has the Restrained condition until the grapple ends.
+
+
+      ***Tail Stinger***. *Melee Attack Roll* : +14, reach 10 ft. *Hit* : 16 (2d6
+      + 9) Piercing damage plus 35 (10d6) Poison damage.
+
 
       ## Bonus actions
 
-      ***Swallow***. *Strength Saving Throw* : DC 19, one Large or smaller creature Grappled by the worm (it can have up to three creatures swallowed at a time). *Failure* : The target is swallowed by the worm, and the Grappled condition ends. A swallowed creature has the Blinded and Restrained conditions, has Total Cover against attacks and other effects outside the worm, and takes 17 (5d6) Acid damage at the start of each of the worm's turns. If the worm takes 30 damage or more on a single turn from a creature inside it, the worm must succeed on a DC 21 Constitution saving throw at the end of that turn or regurgitate all swallowed creatures, each of which falls in a space within 5 feet of the worm and has the Prone condition. If the worm dies, any swallowed creature no longer has the Restrained condition and can escape from the corpse using 20 feet of movement, exiting Prone.
+
+      ***Swallow***. *Strength Saving Throw* : DC 19, one Large or smaller creature
+      Grappled by the worm (it can have up to three creatures swallowed at a time).
+      *Failure* : The target is swallowed by the worm, and the Grappled condition
+      ends. A swallowed creature has the Blinded and Restrained conditions, has Total
+      Cover against attacks and other effects outside the worm, and takes 17 (5d6)
+      Acid damage at the start of each of the worm''s turns. If the worm takes 30
+      damage or more on a single turn from a creature inside it, the worm must succeed
+      on a DC 21 Constitution saving throw at the end of that turn or regurgitate
+      all swallowed creatures, each of which falls in a space within 5 feet of the
+      worm and has the Prone condition. If the worm dies, any swallowed creature no
+      longer has the Restrained condition and can escape from the corpse using 20
+      feet of movement, exiting Prone.'
     senses: Blindsight 30 ft., Tremorsense 60 ft., Passive Perception 9
     languages: []
   fr:
     name: Ver pourpre
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Fouisseur***. Le ver peut creuser à travers la roche à concurrence de la moitié de sa Vitesse de fouissement, en laissant un tunnel de 3 m de diamètre dans son sillage.
+
+      ***Fouisseur***. Le ver peut creuser à travers la roche à concurrence de la
+      moitié de sa Vitesse de fouissement, en laissant un tunnel de 3 m de diamètre
+      dans son sillage.
+
 
       ## Actions
 
-      ***Attaques multiples***. Le ver effectue une attaque de Dard caudal et une de Morsure.
 
-      ***Dard caudal***. *Corps à corps* : +14, allonge 3 m. *Touché* : 16 (2d6 + 9) dégâts perforants plus 35 (10d6) dégâts de poison.
+      ***Attaques multiples***. Le ver effectue une attaque de Dard caudal et une
+      de Morsure.
 
-      ***Morsure***. *Corps à corps* : +14, allonge 3 m. *Touché* : 22 (3d8 + 9) dégâts perforants. Si la cible est une créature de taille G ou inférieure, elle subit l'état Agrippé (évasion DD 19), ainsi que l'état Entravé tant qu'elle est agrippée.
+
+      ***Dard caudal***. *Corps à corps* : +14, allonge 3 m. *Touché* : 16 (2d6 +
+      9) dégâts perforants plus 35 (10d6) dégâts de poison.
+
+
+      ***Morsure***. *Corps à corps* : +14, allonge 3 m. *Touché* : 22 (3d8 + 9) dégâts
+      perforants. Si la cible est une créature de taille G ou inférieure, elle subit
+      l''état Agrippé (évasion DD 19), ainsi que l''état Entravé tant qu''elle est
+      agrippée.
+
 
       ## Actions Bonus
 
-      ***Engloutissement***. *JdS Force* : DD 19, une créature de taille G ou inférieure Agrippée par le ver (qui peut contenir simultanément un maximum de trois créatures). *Échec* : la cible est engloutie par le ver, et l'état Agrippé prend fin. Une créature engloutie subit les états Aveuglé et Entravé, bénéficie d'un Abri total contre les attaques et effets émanant de l'extérieur du ver et subit 17 (5d6) dégâts d'acide au début de chacun des tours du ver. Si le ver subit 30 dégâts ou plus lors d'un même tour de la part d'une créature engloutie, il doit réussir un jet de sauvegarde de Constitution DD 21 à la fin de ce tour sous peine de régurgiter toutes les créatures englouties, chacune tombant dans un espace situé dans un rayon de 1,50 m du ver et subissant l'état À terre. Si le ver meurt, les créatures englouties ne subissent plus l'état Entravé et peuvent s'extraire du cadavre en dépensant 6 m de déplacement, pour se retrouver avec l'état À terre.
+
+      ***Engloutissement***. *JdS Force* : DD 19, une créature de taille G ou inférieure
+      Agrippée par le ver (qui peut contenir simultanément un maximum de trois créatures).
+      *Échec* : la cible est engloutie par le ver, et l''état Agrippé prend fin. Une
+      créature engloutie subit les états Aveuglé et Entravé, bénéficie d''un Abri
+      total contre les attaques et effets émanant de l''extérieur du ver et subit
+      17 (5d6) dégâts d''acide au début de chacun des tours du ver. Si le ver subit
+      30 dégâts ou plus lors d''un même tour de la part d''une créature engloutie,
+      il doit réussir un jet de sauvegarde de Constitution DD 21 à la fin de ce tour
+      sous peine de régurgiter toutes les créatures englouties, chacune tombant dans
+      un espace situé dans un rayon de 1,50 m du ver et subissant l''état À terre.
+      Si le ver meurt, les créatures englouties ne subissent plus l''état Entravé
+      et peuvent s''extraire du cadavre en dépensant 6 m de déplacement, pour se retrouver
+      avec l''état À terre.'
     senses: Vision aveugle 9 m, perception des vibrations 18 m, Perception passive
       9
     languages: []

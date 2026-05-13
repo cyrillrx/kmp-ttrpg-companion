@@ -8,24 +8,12 @@ armorClass: 11
 maxHitPoints: 18
 hitDice: 4d6+4
 abilities:
-  str:
-    value: 12
-    savingThrowProficiency: none
-  dex:
-    value: 11
-    savingThrowProficiency: none
-  con:
-    value: 12
-    savingThrowProficiency: none
-  int:
-    value: 5
-    savingThrowProficiency: none
-  wis:
-    value: 8
-    savingThrowProficiency: none
-  cha:
-    value: 3
-    savingThrowProficiency: none
+  str: 12
+  dex: 11
+  con: 12
+  int: 5
+  wis: 8
+  cha: 3
 speeds:
   walk: 20
   fly: null
@@ -88,24 +76,36 @@ translations:
   en:
     name: Dretch
     subtype: Demon
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Rend***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 4 (1d6 + 1) Slashing damage.
 
-      ***Fetid Cloud (1/Day)***. *Constitution Saving Throw* : DC 11, each creature in a 10-foot Emanation originating from the dretch. *Failure* : The target has the Poisoned condition until the end of its next turn. While Poisoned, the creature can take either an action or a Bonus Action on its turn, not both, and it can't take Reactions.
+      ***Rend***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 4 (1d6 + 1) Slashing
+      damage.
+
+
+      ***Fetid Cloud (1/Day)***. *Constitution Saving Throw* : DC 11, each creature
+      in a 10-foot Emanation originating from the dretch. *Failure* : The target has
+      the Poisoned condition until the end of its next turn. While Poisoned, the creature
+      can take either an action or a Bonus Action on its turn, not both, and it can''t
+      take Reactions.'
     senses: Darkvision 60 ft., Passive Perception 9
     languages:
     - Abyssal; telepathy 60 ft. (works only with creatures that understand Abyssal)
   fr:
     name: Dretch
     subtype: Démon
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Saignée***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 4 (1d6 + 1) dégâts tranchants.
 
-      ***Nuage fétide (1/jour)***. *JdS Constitution* : DD 11, chaque créature dans une Émanation de 3 m centrée sur le dretch. *Échec* : la cible subit l'état Empoisonné jusqu'à la fin de son tour suivant. Tant qu'elle est ainsi Empoisonnée, la créature ne peut pas jouer de Réaction et n'a droit qu'à une action ou une action Bonus lors de son tour (pas les deux).
+      ***Saignée***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 4 (1d6 + 1)
+      dégâts tranchants.
+
+
+      ***Nuage fétide (1/jour)***. *JdS Constitution* : DD 11, chaque créature dans
+      une Émanation de 3 m centrée sur le dretch. *Échec* : la cible subit l''état
+      Empoisonné jusqu''à la fin de son tour suivant. Tant qu''elle est ainsi Empoisonnée,
+      la créature ne peut pas jouer de Réaction et n''a droit qu''à une action ou
+      une action Bonus lors de son tour (pas les deux).'
     senses: Vision dans le noir 18 m, Perception passive 9
     languages:
     - abyssal ; télépathie 18 m (ne fonctionne qu'avec des créatures qui comprennent

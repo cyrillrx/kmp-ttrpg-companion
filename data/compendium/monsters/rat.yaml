@@ -8,24 +8,12 @@ armorClass: 10
 maxHitPoints: 1
 hitDice: 1d4-1
 abilities:
-  str:
-    value: 2
-    savingThrowProficiency: none
-  dex:
-    value: 11
-    savingThrowProficiency: none
-  con:
-    value: 9
-    savingThrowProficiency: none
-  int:
-    value: 2
-    savingThrowProficiency: none
-  wis:
-    value: 10
-    savingThrowProficiency: none
-  cha:
-    value: 4
-    savingThrowProficiency: none
+  str: 2
+  dex: 11
+  con: 9
+  int: 2
+  wis: 10
+  cha: 4
 speeds:
   walk: 20
   fly: null
@@ -88,28 +76,34 @@ translations:
   en:
     name: Rat
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Agile***. The rat doesn't provoke Opportunity Attack action when it moves out of an enemy's reach.
+
+      ***Agile***. The rat doesn''t provoke Opportunity Attack action when it moves
+      out of an enemy''s reach.
+
 
       ## Actions
 
-      ***Bite***. *Melee Attack Roll* : +2, reach 5 ft. *Hit* : 1 Piercing damage.
+
+      ***Bite***. *Melee Attack Roll* : +2, reach 5 ft. *Hit* : 1 Piercing damage.'
     senses: Darkvision 30 ft., Passive Perception 12
     languages:
     - None
   fr:
     name: Rat
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Agile***. Le rat ne provoque pas d'attaque d'Opportunité lorsqu'il sort de l'allonge d'un ennemi.
+
+      ***Agile***. Le rat ne provoque pas d''attaque d''Opportunité lorsqu''il sort
+      de l''allonge d''un ennemi.
+
 
       ## Actions
 
-      ***Morsure***. *Corps à corps* : +2, allonge 1,50 m. *Touché* : 1 dégât perforant.
+
+      ***Morsure***. *Corps à corps* : +2, allonge 1,50 m. *Touché* : 1 dégât perforant.'
     senses: Vision dans le noir 9 m, Perception passive 12
     languages:
     - aucune

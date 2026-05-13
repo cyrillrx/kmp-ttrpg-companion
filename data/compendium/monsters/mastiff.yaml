@@ -8,24 +8,14 @@ armorClass: 12
 maxHitPoints: 5
 hitDice: 1d8+1
 abilities:
-  str:
-    value: 13
-    savingThrowProficiency: none
-  dex:
-    value: 14
-    savingThrowProficiency: none
-  con:
-    value: 12
-    savingThrowProficiency: none
-  int:
-    value: 3
-    savingThrowProficiency: none
-  wis:
-    value: 12
-    savingThrowProficiency: proficient
-  cha:
-    value: 7
-    savingThrowProficiency: none
+  str: 13
+  dex: 14
+  con: 12
+  int: 3
+  wis: 12
+  cha: 7
+savingThrows:
+  wis: proficient
 speeds:
   walk: 40
   fly: null
@@ -88,20 +78,23 @@ translations:
   en:
     name: Mastiff
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Bite***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 4 (1d6 + 1) Piercing damage. If the target is a Medium or smaller creature, it has the Prone condition.
+
+      ***Bite***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 4 (1d6 + 1) Piercing
+      damage. If the target is a Medium or smaller creature, it has the Prone condition.'
     senses: Darkvision 60 ft., Passive Perception 15
     languages:
     - None
   fr:
     name: Molosse
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Morsure***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 4 (1d6 + 1) dégâts perforants. Si la cible est de taille M ou inférieure, elle subit l'état À terre.
+
+      ***Morsure***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 4 (1d6 + 1)
+      dégâts perforants. Si la cible est de taille M ou inférieure, elle subit l''état
+      À terre.'
     senses: Vision dans le noir 18 m, Perception passive 15
     languages:
     - aucune

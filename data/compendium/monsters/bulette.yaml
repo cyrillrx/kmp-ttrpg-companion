@@ -8,24 +8,12 @@ armorClass: 17
 maxHitPoints: 94
 hitDice: 9d10+45
 abilities:
-  str:
-    value: 19
-    savingThrowProficiency: none
-  dex:
-    value: 11
-    savingThrowProficiency: none
-  con:
-    value: 21
-    savingThrowProficiency: none
-  int:
-    value: 2
-    savingThrowProficiency: none
-  wis:
-    value: 10
-    savingThrowProficiency: none
-  cha:
-    value: 5
-    savingThrowProficiency: none
+  str: 19
+  dex: 11
+  con: 21
+  int: 2
+  wis: 10
+  cha: 5
 speeds:
   walk: 40
   fly: null
@@ -88,35 +76,55 @@ translations:
   en:
     name: Bulette
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
+
 
       ***Multiattack***. The bulette makes two Bite attacks.
 
-      ***Bite***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 17 (2d12 + 4) Piercing damage.
 
-      ***Deadly Leap***. The bulette spends 5 feet of movement to jump to a space within 15 feet that contains one or more Large or smaller creatures. *Dexterity Saving Throw* : DC 15, each creature in the bulette's destination space. *Failure* : 19 (3d12) Bludgeoning damage, and the target has the Prone condition. *Success* : Half damage, and the target is pushed 5 feet straight away from the bulette.
+      ***Bite***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 17 (2d12 + 4) Piercing
+      damage.
+
+
+      ***Deadly Leap***. The bulette spends 5 feet of movement to jump to a space
+      within 15 feet that contains one or more Large or smaller creatures. *Dexterity
+      Saving Throw* : DC 15, each creature in the bulette''s destination space. *Failure*
+      : 19 (3d12) Bludgeoning damage, and the target has the Prone condition. *Success*
+      : Half damage, and the target is pushed 5 feet straight away from the bulette.
+
 
       ## Bonus actions
 
-      ***Leap***. The bulette jumps up to 30 feet by spending 10 feet of movement.
+
+      ***Leap***. The bulette jumps up to 30 feet by spending 10 feet of movement.'
     senses: Darkvision 60 ft., Tremorsense 120 ft., Passive Perception 16
     languages: []
   fr:
     name: Bulette
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
+
 
       ***Attaques multiples***. La bulette effectue deux attaques de Morsure.
 
-      ***Morsure***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 17 (2d12 + 4) dégâts perforants.
 
-      ***Saut meurtrier***. Au prix de 1,50 m de déplacement, la bulette saute en un espace situé dans un rayon de 4,50 m et contenant une ou plusieurs créatures de taille G ou inférieure. *JdS Dextérité* : DD 15, chaque créature dans l'espace de destination de la bulette. *Échec* : 19 (3d12) dégâts contondants, et la cible subit l'état À terre. *Réussite* : demi-dégâts, et la cible est repoussée sur 1,50 m en ligne droite de la bulette.
+      ***Morsure***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 17 (2d12 + 4)
+      dégâts perforants.
+
+
+      ***Saut meurtrier***. Au prix de 1,50 m de déplacement, la bulette saute en
+      un espace situé dans un rayon de 4,50 m et contenant une ou plusieurs créatures
+      de taille G ou inférieure. *JdS Dextérité* : DD 15, chaque créature dans l''espace
+      de destination de la bulette. *Échec* : 19 (3d12) dégâts contondants, et la
+      cible subit l''état À terre. *Réussite* : demi-dégâts, et la cible est repoussée
+      sur 1,50 m en ligne droite de la bulette.
+
 
       ## Actions Bonus
 
-      ***Bond***. La bulette effectue un saut d'un maximum de 9 m en dépensant 3 m de déplacement.
+
+      ***Bond***. La bulette effectue un saut d''un maximum de 9 m en dépensant 3
+      m de déplacement.'
     senses: Vision dans le noir 18 m, perception des vibrations 36 m, Perception passive
       16
     languages: []

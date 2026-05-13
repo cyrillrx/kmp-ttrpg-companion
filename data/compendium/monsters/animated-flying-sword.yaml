@@ -8,24 +8,14 @@ armorClass: 17
 maxHitPoints: 14
 hitDice: 4d6
 abilities:
-  str:
-    value: 12
-    savingThrowProficiency: none
-  dex:
-    value: 15
-    savingThrowProficiency: proficient
-  con:
-    value: 11
-    savingThrowProficiency: none
-  int:
-    value: 1
-    savingThrowProficiency: none
-  wis:
-    value: 5
-    savingThrowProficiency: none
-  cha:
-    value: 1
-    savingThrowProficiency: none
+  str: 12
+  dex: 15
+  con: 11
+  int: 1
+  wis: 5
+  cha: 1
+savingThrows:
+  dex: proficient
 speeds:
   walk: 5
   fly: 50
@@ -88,18 +78,20 @@ translations:
   en:
     name: Animated Flying Sword
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Slash***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 6 (1d8 + 2) Slashing damage.
+
+      ***Slash***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 6 (1d8 + 2) Slashing
+      damage.'
     senses: Blindsight 60 ft., Passive Perception 7
     languages: []
   fr:
     name: Épée volante animée
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Taillade***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 6 (1d8 + 2) dégâts tranchants.
+
+      ***Taillade***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 6 (1d8 + 2)
+      dégâts tranchants.'
     senses: Vision aveugle 18 m, Perception passive 7
     languages: []

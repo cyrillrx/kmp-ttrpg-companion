@@ -8,24 +8,15 @@ armorClass: 15
 maxHitPoints: 85
 hitDice: 10d8+40
 abilities:
-  str:
-    value: 18
-    savingThrowProficiency: none
-  dex:
-    value: 15
-    savingThrowProficiency: none
-  con:
-    value: 18
-    savingThrowProficiency: proficient
-  int:
-    value: 11
-    savingThrowProficiency: none
-  wis:
-    value: 12
-    savingThrowProficiency: proficient
-  cha:
-    value: 14
-    savingThrowProficiency: none
+  str: 18
+  dex: 15
+  con: 18
+  int: 11
+  wis: 12
+  cha: 14
+savingThrows:
+  con: proficient
+  wis: proficient
 speeds:
   walk: 30
   fly: null
@@ -88,24 +79,47 @@ translations:
   en:
     name: Chain Devil
     subtype: Devil
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Diabolical Restoration***. If the devil dies outside the Nine Hells, its body disappears in sulfurous smoke, and it gains a new body instantly, reviving with all its Hit Points somewhere in the Nine Hells.
 
-      ***Magic Resistance***. The devil has Advantage on saving throws against spells and other magical effects.
+      ***Diabolical Restoration***. If the devil dies outside the Nine Hells, its
+      body disappears in sulfurous smoke, and it gains a new body instantly, reviving
+      with all its Hit Points somewhere in the Nine Hells.
+
+
+      ***Magic Resistance***. The devil has Advantage on saving throws against spells
+      and other magical effects.
+
 
       ## Actions
 
-      ***Multiattack***. The devil makes two Chain attacks and uses Conjure Infernal Chain.
 
-      ***Chain***. *Melee Attack Roll* : +7, reach 10 ft. *Hit* : 11 (2d6 + 4) Slashing damage. If the target is a Large or smaller creature, it has the Grappled condition (escape DC 14) from one of two chains, and it has the Restrained condition until the grapple ends.
+      ***Multiattack***. The devil makes two Chain attacks and uses Conjure Infernal
+      Chain.
 
-      ***Conjure Infernal Chain***. The devil conjures a fiery chain to bind a creature. *Dexterity Saving Throw* : DC 15, one creature the devil can see within 60 feet. *Failure* : 9 (2d4 + 4) Fire damage, and the target has the Restrained condition until the end of the devil's next turn, at which point the chain disappears. If the target is Large or smaller, the devil moves the target up to 30 feet straight toward itself. *Success* : The chain disappears.
+
+      ***Chain***. *Melee Attack Roll* : +7, reach 10 ft. *Hit* : 11 (2d6 + 4) Slashing
+      damage. If the target is a Large or smaller creature, it has the Grappled condition
+      (escape DC 14) from one of two chains, and it has the Restrained condition until
+      the grapple ends.
+
+
+      ***Conjure Infernal Chain***. The devil conjures a fiery chain to bind a creature.
+      *Dexterity Saving Throw* : DC 15, one creature the devil can see within 60 feet.
+      *Failure* : 9 (2d4 + 4) Fire damage, and the target has the Restrained condition
+      until the end of the devil''s next turn, at which point the chain disappears.
+      If the target is Large or smaller, the devil moves the target up to 30 feet
+      straight toward itself. *Success* : The chain disappears.
+
 
       ## Reactions
 
-      ***Unnerving Gaze***. *Trigger* : A creature the devil can see starts its turn within 30 feet of the devil and can see the devil. Response— *Wisdom Saving Throw* : DC 15, the triggering creature. *Failure* : The target has the Frightened condition until the end of its turn. *Success* : The target is immune to this devil's Unnerving Gaze for 24 hours.
+
+      ***Unnerving Gaze***. *Trigger* : A creature the devil can see starts its turn
+      within 30 feet of the devil and can see the devil. Response— *Wisdom Saving
+      Throw* : DC 15, the triggering creature. *Failure* : The target has the Frightened
+      condition until the end of its turn. *Success* : The target is immune to this
+      devil''s Unnerving Gaze for 24 hours.'
     senses: Darkvision 120 ft. (unimpeded by magical Darkness), Passive Perception
       11
     languages:
@@ -113,24 +127,49 @@ translations:
   fr:
     name: Diable des chaînes
     subtype: Diable
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Résistance à la magie***. Le diable a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
 
-      ***Restauration diabolique***. Si le diable meurt hors des Neuf Enfers, son corps disparaît dans un nuage de fumée sulfureuse, tandis qu'il en acquiert aussitôt un nouveau et revient à la vie avec tous ses pv quelque part dans les Neuf Enfers.
+      ***Résistance à la magie***. Le diable a un Avantage aux jets de sauvegarde
+      contre les sorts et autres effets magiques.
+
+
+      ***Restauration diabolique***. Si le diable meurt hors des Neuf Enfers, son
+      corps disparaît dans un nuage de fumée sulfureuse, tandis qu''il en acquiert
+      aussitôt un nouveau et revient à la vie avec tous ses pv quelque part dans les
+      Neuf Enfers.
+
 
       ## Actions
 
-      ***Attaques multiples***. Le diable effectue deux attaques de Chaîne et recourt à Invocation de chaîne infernale.
 
-      ***Chaîne***. *Corps à corps* : +7, allonge 3 m. *Touché* : 11 (2d6 + 4) dégâts tranchants. Si la cible est une créature de taille G ou inférieure, elle subit l'état Agrippé (évasion DD 14) par l'une des deux chaînes, ainsi que l'état Entravé tant qu'elle est agrippée.
+      ***Attaques multiples***. Le diable effectue deux attaques de Chaîne et recourt
+      à Invocation de chaîne infernale.
 
-      ***Invocation de chaîne infernale***. Le diable invoque une chaîne de feu afin d'entraver une créature. *JdS Dextérité* : DD 15, une créature que le diable voit dans un rayon de 18 m. *Échec* : 9 (2d4 + 4) dégâts de feu et la cible subit l'état Entravé jusqu'à la fin du tour suivant du diable, stade auquel la chaîne disparaît. Si la cible est de taille G ou inférieure, le diable la déplace vers lui d'un maximum de 9 m en ligne droite. *Réussite* : la chaîne disparaît.
+
+      ***Chaîne***. *Corps à corps* : +7, allonge 3 m. *Touché* : 11 (2d6 + 4) dégâts
+      tranchants. Si la cible est une créature de taille G ou inférieure, elle subit
+      l''état Agrippé (évasion DD 14) par l''une des deux chaînes, ainsi que l''état
+      Entravé tant qu''elle est agrippée.
+
+
+      ***Invocation de chaîne infernale***. Le diable invoque une chaîne de feu afin
+      d''entraver une créature. *JdS Dextérité* : DD 15, une créature que le diable
+      voit dans un rayon de 18 m. *Échec* : 9 (2d4 + 4) dégâts de feu et la cible
+      subit l''état Entravé jusqu''à la fin du tour suivant du diable, stade auquel
+      la chaîne disparaît. Si la cible est de taille G ou inférieure, le diable la
+      déplace vers lui d''un maximum de 9 m en ligne droite. *Réussite* : la chaîne
+      disparaît.
+
 
       ## Réactions
 
-      ***Regard dérangeant***. *Déclencheur* : une créature que le diable voit commence son tour dans un rayon de 9 m du diable et peut le voir. *Conséquences—JdS Sagesse* : DD 15, la créature ayant déclenché la Réaction. *Échec* : la cible subit l'état Effrayé jusqu'à la fin de son tour suivant. *Réussite* : la cible est immunisée contre le Regard dérangeant de ce diable pendant 24 heures.
+
+      ***Regard dérangeant***. *Déclencheur* : une créature que le diable voit commence
+      son tour dans un rayon de 9 m du diable et peut le voir. *Conséquences—JdS Sagesse*
+      : DD 15, la créature ayant déclenché la Réaction. *Échec* : la cible subit l''état
+      Effrayé jusqu''à la fin de son tour suivant. *Réussite* : la cible est immunisée
+      contre le Regard dérangeant de ce diable pendant 24 heures.'
     senses: Vision dans le noir 36 m (perce les Ténèbres magiques), Perception passive
       11
     languages:

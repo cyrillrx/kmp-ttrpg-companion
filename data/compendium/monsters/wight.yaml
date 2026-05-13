@@ -8,24 +8,12 @@ armorClass: 14
 maxHitPoints: 82
 hitDice: 11d8+33
 abilities:
-  str:
-    value: 15
-    savingThrowProficiency: none
-  dex:
-    value: 14
-    savingThrowProficiency: none
-  con:
-    value: 16
-    savingThrowProficiency: none
-  int:
-    value: 10
-    savingThrowProficiency: none
-  wis:
-    value: 13
-    savingThrowProficiency: none
-  cha:
-    value: 15
-    savingThrowProficiency: none
+  str: 15
+  dex: 14
+  con: 16
+  int: 10
+  wis: 13
+  cha: 15
 speeds:
   walk: 30
   fly: null
@@ -88,40 +76,70 @@ translations:
   en:
     name: Wight
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Sunlight Sensitivity***. While in sunlight, the wight has Disadvantage on ability checks and attack rolls.
+
+      ***Sunlight Sensitivity***. While in sunlight, the wight has Disadvantage on
+      ability checks and attack rolls.
+
 
       ## Actions
 
-      ***Multiattack***. The wight makes two attacks, using Necrotic Sword or Necrotic Bow in any combination. It can replace one attack with a use of Life Drain.
 
-      ***Necrotic Sword***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 6 (1d8 + 2) Slashing damage plus 4 (1d8) Necrotic damage.
+      ***Multiattack***. The wight makes two attacks, using Necrotic Sword or Necrotic
+      Bow in any combination. It can replace one attack with a use of Life Drain.
 
-      ***Necrotic Bow***. *Ranged Attack Roll* : +4, range 150/600 ft. *Hit* : 6 (1d8 + 2) Piercing damage plus 4 (1d8) Necrotic damage.
 
-      ***Life Drain***. *Constitution Saving Throw* : DC 13, one creature within 5 feet. *Failure* : 6 (1d8 + 2) Necrotic damage, and the target's Hit Point maximum decreases by an amount equal to the damage taken. A Humanoid slain by this attack rises 24 hours later as a Zombie under the wight's control, unless the Humanoid is restored to life or its body is destroyed. The wight can have no more than twelve zombies under its control at a time.
+      ***Necrotic Sword***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 6 (1d8 +
+      2) Slashing damage plus 4 (1d8) Necrotic damage.
+
+
+      ***Necrotic Bow***. *Ranged Attack Roll* : +4, range 150/600 ft. *Hit* : 6 (1d8
+      + 2) Piercing damage plus 4 (1d8) Necrotic damage.
+
+
+      ***Life Drain***. *Constitution Saving Throw* : DC 13, one creature within 5
+      feet. *Failure* : 6 (1d8 + 2) Necrotic damage, and the target''s Hit Point maximum
+      decreases by an amount equal to the damage taken. A Humanoid slain by this attack
+      rises 24 hours later as a Zombie under the wight''s control, unless the Humanoid
+      is restored to life or its body is destroyed. The wight can have no more than
+      twelve zombies under its control at a time.'
     senses: Darkvision 60 ft., Passive Perception 13
     languages:
     - Common plus one other language
   fr:
     name: Nécrophage / Nécronte
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Sensibilité au soleil***. Tant qu'il est exposé à la lumière du soleil, le nécrophage subit un Désavantage aux jets de caractéristique et aux jets d'attaque.
+
+      ***Sensibilité au soleil***. Tant qu''il est exposé à la lumière du soleil,
+      le nécrophage subit un Désavantage aux jets de caractéristique et aux jets d''attaque.
+
 
       ## Actions
 
-      ***Attaques multiples***. Le nécrophage effectue deux attaques, réparties à sa guise entre Épée nécrotique et Arc nécrotique. Il peut remplacer l'une de ces attaques par une utilisation d'Absorption de vie.
 
-      ***Épée nécrotique***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 6 (1d8 + 2) dégâts tranchants plus 4 (1d8) dégâts nécrotiques.
+      ***Attaques multiples***. Le nécrophage effectue deux attaques, réparties à
+      sa guise entre Épée nécrotique et Arc nécrotique. Il peut remplacer l''une de
+      ces attaques par une utilisation d''Absorption de vie.
 
-      ***Arc nécrotique***. *À distance* : +4, portée 45/180 m. *Touché* : 6 (1d8 + 2) dégâts perforants plus 4 (1d8) dégâts nécrotiques.
 
-      ***Absorption de vie***. *JdS Constitution* : DD 13, une créature dans un rayon de 1,50 m. *Échec* : 6 (1d8 + 2) dégâts nécrotiques, et le maximum de points de vie de la cible est réduit d'un montant égal aux dégâts nécrotiques subis. Un Humanoïde tué par cette attaque se relève 24 heures plus tard comme **zombi** sous le contrôle du nécrophage, sauf si l'Humanoïde est préalablement ramené à la vie ou si son corps est détruit. Le nécrophage ne peut ainsi contrôler plus de douze zombis à la fois.
+      ***Épée nécrotique***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 6 (1d8
+      + 2) dégâts tranchants plus 4 (1d8) dégâts nécrotiques.
+
+
+      ***Arc nécrotique***. *À distance* : +4, portée 45/180 m. *Touché* : 6 (1d8
+      + 2) dégâts perforants plus 4 (1d8) dégâts nécrotiques.
+
+
+      ***Absorption de vie***. *JdS Constitution* : DD 13, une créature dans un rayon
+      de 1,50 m. *Échec* : 6 (1d8 + 2) dégâts nécrotiques, et le maximum de points
+      de vie de la cible est réduit d''un montant égal aux dégâts nécrotiques subis.
+      Un Humanoïde tué par cette attaque se relève 24 heures plus tard comme **zombi**
+      sous le contrôle du nécrophage, sauf si l''Humanoïde est préalablement ramené
+      à la vie ou si son corps est détruit. Le nécrophage ne peut ainsi contrôler
+      plus de douze zombis à la fois.'
     senses: Vision dans le noir 18 m, Perception passive 13
     languages:
     - commun plus une autre langue

@@ -8,24 +8,12 @@ armorClass: 12
 maxHitPoints: 51
 hitDice: 6d10+18
 abilities:
-  str:
-    value: 18
-    savingThrowProficiency: none
-  dex:
-    value: 13
-    savingThrowProficiency: none
-  con:
-    value: 16
-    savingThrowProficiency: none
-  int:
-    value: 8
-    savingThrowProficiency: none
-  wis:
-    value: 12
-    savingThrowProficiency: none
-  cha:
-    value: 7
-    savingThrowProficiency: none
+  str: 18
+  dex: 13
+  con: 16
+  int: 8
+  wis: 12
+  cha: 7
 speeds:
   walk: 40
   fly: null
@@ -88,40 +76,67 @@ translations:
   en:
     name: Yeti
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Fear of Fire***. If the yeti takes Fire damage, it has Disadvantage on attack rolls and ability checks until the end of its next turn.
+
+      ***Fear of Fire***. If the yeti takes Fire damage, it has Disadvantage on attack
+      rolls and ability checks until the end of its next turn.
+
 
       ## Actions
 
-      ***Multiattack***. The yeti can use its Chilling Gaze and makes two attacks, using Claw or Ice Throw in any combination.
 
-      ***Claw***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 7 (1d6 + 4) Slashing damage plus 3 (1d6) Cold damage.
+      ***Multiattack***. The yeti can use its Chilling Gaze and makes two attacks,
+      using Claw or Ice Throw in any combination.
 
-      ***Ice Throw***. *Ranged Attack Roll* : +6, range 30/120 ft. *Hit* : 6 (1d4 + 4) Bludgeoning damage plus 2 (1d4) Cold damage.
 
-      ***Chilling Gaze***. *Constitution Saving Throw* : DC 13, one creature the yeti can see within 30 feet. *Failure* : 5 (2d4) Cold damage, and the target has the Paralyzed condition until the start of the yeti's next turn unless the target has Immunity to Cold damage. *Success* : The target is immune to the Chilling Gaze of all yetis (but not abominable yetis) for 1 hour.
+      ***Claw***. *Melee Attack Roll* : +6, reach 5 ft. *Hit* : 7 (1d6 + 4) Slashing
+      damage plus 3 (1d6) Cold damage.
+
+
+      ***Ice Throw***. *Ranged Attack Roll* : +6, range 30/120 ft. *Hit* : 6 (1d4
+      + 4) Bludgeoning damage plus 2 (1d4) Cold damage.
+
+
+      ***Chilling Gaze***. *Constitution Saving Throw* : DC 13, one creature the yeti
+      can see within 30 feet. *Failure* : 5 (2d4) Cold damage, and the target has
+      the Paralyzed condition until the start of the yeti''s next turn unless the
+      target has Immunity to Cold damage. *Success* : The target is immune to the
+      Chilling Gaze of all yetis (but not abominable yetis) for 1 hour.'
     senses: Darkvision 60 ft., Passive Perception 15
     languages:
     - Yeti
   fr:
     name: Yéti
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Aversion du feu***. Si le yéti subit des dégâts de Feu, il a un Désavantage aux jets d'attaque et aux jets de caractéristique jusqu'à la fin de son prochain tour.
+
+      ***Aversion du feu***. Si le yéti subit des dégâts de Feu, il a un Désavantage
+      aux jets d''attaque et aux jets de caractéristique jusqu''à la fin de son prochain
+      tour.
+
 
       ## Actions
 
-      ***Attaques multiples***. Le yéti peut utiliser son Regard glaçant et effectuer deux attaques, réparties à sa guise entre Griffe et Lancer de glace.
 
-      ***Griffe***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 7 (1d6 + 4) dégâts tranchants plus 3 (1d6) dégâts de froid.
+      ***Attaques multiples***. Le yéti peut utiliser son Regard glaçant et effectuer
+      deux attaques, réparties à sa guise entre Griffe et Lancer de glace.
 
-      ***Lancer de glace***. *À distance* : +6, portée 30/36 m. *Touché* : 6 (1d4 + 4) dégâts contondants plus 2 (1d4) dégâts de froid.
 
-      ***Regard glaçant***. *JdS Constitution* : DD 13, une créature que le yéti peut voir dans un rayon de 9 m. *Échec* : 5 (2d4) dégâts de froid, et la cible subit l'état Paralysé jusqu'au début du prochain tour du yéti, sauf si elle est immunisée contre les dégâts de froid. *Réussite* : la cible est immunisée contre le Regard glaçant de tous les yétis (sauf les yétis abominables) pendant 1 heure.
+      ***Griffe***. *Corps à corps* : +6, allonge 1,50 m. *Touché* : 7 (1d6 + 4) dégâts
+      tranchants plus 3 (1d6) dégâts de froid.
+
+
+      ***Lancer de glace***. *À distance* : +6, portée 30/36 m. *Touché* : 6 (1d4
+      + 4) dégâts contondants plus 2 (1d4) dégâts de froid.
+
+
+      ***Regard glaçant***. *JdS Constitution* : DD 13, une créature que le yéti peut
+      voir dans un rayon de 9 m. *Échec* : 5 (2d4) dégâts de froid, et la cible subit
+      l''état Paralysé jusqu''au début du prochain tour du yéti, sauf si elle est
+      immunisée contre les dégâts de froid. *Réussite* : la cible est immunisée contre
+      le Regard glaçant de tous les yétis (sauf les yétis abominables) pendant 1 heure.'
     senses: Vision dans le noir 18 m, Perception passive 15
     languages:
     - yéti

@@ -8,24 +8,16 @@ armorClass: 17
 maxHitPoints: 49
 hitDice: 9d8+9
 abilities:
-  str:
-    value: 15
-    savingThrowProficiency: none
-  dex:
-    value: 14
-    savingThrowProficiency: none
-  con:
-    value: 12
-    savingThrowProficiency: proficient
-  int:
-    value: 13
-    savingThrowProficiency: proficient
-  wis:
-    value: 13
-    savingThrowProficiency: proficient
-  cha:
-    value: 10
-    savingThrowProficiency: none
+  str: 15
+  dex: 14
+  con: 12
+  int: 13
+  wis: 13
+  cha: 10
+savingThrows:
+  con: proficient
+  int: proficient
+  wis: proficient
 speeds:
   walk: 30
   fly: null
@@ -88,22 +80,32 @@ translations:
   en:
     name: Githyanki Warrior
     subtype: Gith
-    description: |-
-      ## Actions
+    description: '## Actions
+
 
       ***Multiattack***. The githyanki makes two Psi Blade attacks.
 
-      ***Psi Blade***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 9 (2d6 + 2) Slashing damage plus 7 (2d6) Psychic damage.
 
-      ***Spellcasting***. The githyanki casts one of the following spells, requiring no spell components and using Intelligence as the spellcasting ability:
+      ***Psi Blade***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 9 (2d6 + 2) Slashing
+      damage plus 7 (2d6) Psychic damage.
 
-      At will: *[Mage Hand](https://www.aidedd.org/spell/mage-hand)* (the hand is Invisible)
-      
+
+      ***Spellcasting***. The githyanki casts one of the following spells, requiring
+      no spell components and using Intelligence as the spellcasting ability:
+
+
+      At will: *[Mage Hand](https://www.aidedd.org/spell/mage-hand)* (the hand is
+      Invisible)
+
+
       2/day: *[Nondetection](https://www.aidedd.org/spell/nondetection)* (self only)
+
 
       ## Bonus actions
 
-      ***Misty Step (2/Day)***. The githyanki casts *[Misty Step](https://www.aidedd.org/spell/misty-step)* , requiring no spell components and using the same spellcasting ability as Spellcasting.
+
+      ***Misty Step (2/Day)***. The githyanki casts *[Misty Step](https://www.aidedd.org/spell/misty-step)*
+      , requiring no spell components and using the same spellcasting ability as Spellcasting.'
     senses: Passive Perception 11
     languages:
     - Common
@@ -111,18 +113,22 @@ translations:
   fr:
     name: Githyanki, combattant
     subtype: Gith
-    description: |-
-      ## Actions
+    description: '## Actions
+
 
       Attaques multiples.
-      
+
+
       Lame psi.
-      
+
+
       Incantation.
+
 
       ## Actions Bonus
 
-      Foulée brumeuse (2/jour).
+
+      Foulée brumeuse (2/jour).'
     senses: Perception passive 11
     languages:
     - commun

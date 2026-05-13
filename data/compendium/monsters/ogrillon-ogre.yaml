@@ -8,24 +8,12 @@ armorClass: 12
 maxHitPoints: 52
 hitDice: 7d10+14
 abilities:
-  str:
-    value: 17
-    savingThrowProficiency: none
-  dex:
-    value: 10
-    savingThrowProficiency: none
-  con:
-    value: 14
-    savingThrowProficiency: none
-  int:
-    value: 7
-    savingThrowProficiency: none
-  wis:
-    value: 9
-    savingThrowProficiency: none
-  cha:
-    value: 10
-    savingThrowProficiency: none
+  str: 17
+  dex: 10
+  con: 14
+  int: 7
+  wis: 9
+  cha: 10
 speeds:
   walk: 30
   fly: null
@@ -88,12 +76,15 @@ translations:
   en:
     name: Ogrillon Ogre
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Battleaxe***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 7 (1d8 + 3) Slashing damage.
 
-      ***Javelin***. *Melee or Ranged Attack Roll* : +5, reach 5 ft. or range 30/120 ft. *Hit* : 6 (1d6 + 3) Piercing damage.
+      ***Battleaxe***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 7 (1d8 + 3) Slashing
+      damage.
+
+
+      ***Javelin***. *Melee or Ranged Attack Roll* : +5, reach 5 ft. or range 30/120
+      ft. *Hit* : 6 (1d6 + 3) Piercing damage.'
     senses: Darkvision 60 ft., Passive Perception 9
     languages:
     - Common
@@ -101,12 +92,15 @@ translations:
   fr:
     name: Ogrillon Ogre
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Hache d'armes***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 7 (1d8 + 3) dégâts tranchants.
 
-      ***Javeline***. *Corps à corps ou à distance* : +5, allonge 1,50 m ou portée 9/36 m. *Touché* : 6 (1d6 + 3) dégâts perforants.
+      ***Hache d''armes***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 7 (1d8
+      + 3) dégâts tranchants.
+
+
+      ***Javeline***. *Corps à corps ou à distance* : +5, allonge 1,50 m ou portée
+      9/36 m. *Touché* : 6 (1d6 + 3) dégâts perforants.'
     senses: Vision dans le noir 18 m, Perception passive 9
     languages:
     - commun

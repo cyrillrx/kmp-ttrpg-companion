@@ -8,24 +8,12 @@ armorClass: 12
 maxHitPoints: 30
 hitDice: ''
 abilities:
-  str:
-    value: 13
-    savingThrowProficiency: none
-  dex:
-    value: 16
-    savingThrowProficiency: none
-  con:
-    value: 14
-    savingThrowProficiency: none
-  int:
-    value: 14
-    savingThrowProficiency: none
-  wis:
-    value: 11
-    savingThrowProficiency: none
-  cha:
-    value: 16
-    savingThrowProficiency: none
+  str: 13
+  dex: 16
+  con: 14
+  int: 14
+  wis: 11
+  cha: 16
 speeds:
   walk: 30
   fly: 30
@@ -88,22 +76,36 @@ translations:
   en:
     name: Fey Spirit
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Multiattack***. The spirit makes a number of Fey Blade attacks equal to half this spell's level (round down).
 
-      ***Fey Blade***. *Melee Attack Roll* : Bonus equals your spell attack modifier, reach 5 ft. *Hit* : 2d6 + 3 + the spell's level Force damage.
+      ***Multiattack***. The spirit makes a number of Fey Blade attacks equal to half
+      this spell''s level (round down).
+
+
+      ***Fey Blade***. *Melee Attack Roll* : Bonus equals your spell attack modifier,
+      reach 5 ft. *Hit* : 2d6 + 3 + the spell''s level Force damage.
+
 
       ## Bonus actions
 
-      ***Fey Step***. The spirit magically teleports up to 30 feet to an unoccupied space it can see. Then one of the following effects occurs, based on the spirit's chosen mood:
 
-      ***Fuming***. The spirit has Advantage on the next attack roll it makes before the end of this turn.
+      ***Fey Step***. The spirit magically teleports up to 30 feet to an unoccupied
+      space it can see. Then one of the following effects occurs, based on the spirit''s
+      chosen mood:
 
-      ***Mirthful***. *Wisdom Saving Throw* : DC equals your spell save DC, one creature the spirit can see within 10 feet of itself. *Failure* : The target is Charmed by you and the spirit for 1 minute or until the target takes any damage.
 
-      ***Tricksy***. The spirit fills a 10-foot Cube within 5 feet of it with magical Darkness, which lasts until the end of its next turn.
+      ***Fuming***. The spirit has Advantage on the next attack roll it makes before
+      the end of this turn.
+
+
+      ***Mirthful***. *Wisdom Saving Throw* : DC equals your spell save DC, one creature
+      the spirit can see within 10 feet of itself. *Failure* : The target is Charmed
+      by you and the spirit for 1 minute or until the target takes any damage.
+
+
+      ***Tricksy***. The spirit fills a 10-foot Cube within 5 feet of it with magical
+      Darkness, which lasts until the end of its next turn.'
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - Sylvan
@@ -111,22 +113,39 @@ translations:
   fr:
     name: Esprit féerique
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Attaques multiples***. L'esprit effectue un nombre d'attaques de Lame féerique égal à la moitié du niveau de ce sort (arrondir à l'inférieur).
 
-      ***Lame féerique***. *Corps à corps* : bonus égal à votre modificateur d'attaque des sorts, allonge 1,50 m. *Touché* : 2d6 + 3 + le niveau du sort dégâts de force.
+      ***Attaques multiples***. L''esprit effectue un nombre d''attaques de Lame féerique
+      égal à la moitié du niveau de ce sort (arrondir à l''inférieur).
+
+
+      ***Lame féerique***. *Corps à corps* : bonus égal à votre modificateur d''attaque
+      des sorts, allonge 1,50 m. *Touché* : 2d6 + 3 + le niveau du sort dégâts de
+      force.
+
 
       ## Actions Bonus
 
-      ***Foulée féerique***. L'esprit se téléporte magiquement jusqu'à 9 m dans un espace inoccupé qu'il peut voir. Ensuite, l'un des effets suivants se produit, selon l'humeur choisie par l'esprit :
 
-      ***Furibond***. L'esprit a un Avantage à son prochain jet d'attaque avant la fin de ce tour.
+      ***Foulée féerique***. L''esprit se téléporte magiquement jusqu''à 9 m dans
+      un espace inoccupé qu''il peut voir. Ensuite, l''un des effets suivants se produit,
+      selon l''humeur choisie par l''esprit :
 
-      ***Rieur***. *JdS Sagesse* : DD égal à votre DD de sauvegarde des sorts, une créature que l'esprit peut voir dans un rayon de 3 m. *Échec* : la cible est Charmée par vous et l'esprit pendant 1 minute ou jusqu'à ce qu'elle subisse des dégâts.
 
-      ***Espiègle***. L'esprit remplit un cube de 3 m de côté, dans un rayon de 1,50 m autour de lui, de Ténèbres magiques. L'effet jusqu'à la fin de son prochain tour.
+      ***Furibond***. L''esprit a un Avantage à son prochain jet d''attaque avant
+      la fin de ce tour.
+
+
+      ***Rieur***. *JdS Sagesse* : DD égal à votre DD de sauvegarde des sorts, une
+      créature que l''esprit peut voir dans un rayon de 3 m. *Échec* : la cible est
+      Charmée par vous et l''esprit pendant 1 minute ou jusqu''à ce qu''elle subisse
+      des dégâts.
+
+
+      ***Espiègle***. L''esprit remplit un cube de 3 m de côté, dans un rayon de 1,50
+      m autour de lui, de Ténèbres magiques. L''effet jusqu''à la fin de son prochain
+      tour.'
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - sylvestre

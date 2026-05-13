@@ -8,24 +8,15 @@ armorClass: 16
 maxHitPoints: 144
 hitDice: 17d8+68
 abilities:
-  str:
-    value: 14
-    savingThrowProficiency: none
-  dex:
-    value: 18
-    savingThrowProficiency: none
-  con:
-    value: 18
-    savingThrowProficiency: none
-  int:
-    value: 13
-    savingThrowProficiency: none
-  wis:
-    value: 16
-    savingThrowProficiency: proficient
-  cha:
-    value: 20
-    savingThrowProficiency: proficient
+  str: 14
+  dex: 18
+  con: 18
+  int: 13
+  wis: 16
+  cha: 20
+savingThrows:
+  wis: proficient
+  cha: proficient
 speeds:
   walk: 30
   fly: null
@@ -88,20 +79,30 @@ translations:
   en:
     name: Cultist Hierophant
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Multiattack***. The cultist makes three attacks, using Pact Blade or Radiant Ray in any combination.
 
-      ***Pact Blade***. *Melee Attack Roll* : +9, reach 5 ft. *Hit* : 12 (2d6 + 5) Slashing damage plus 18 (4d8) Radiant damage.
+      ***Multiattack***. The cultist makes three attacks, using Pact Blade or Radiant
+      Ray in any combination.
 
-      ***Radiant Ray***. *Ranged Attack Roll* : +9, range 120 ft. *Hit* : 31 (4d12 + 5) Radiant damage.
 
-      ***Spellcasting***. The cultist casts one of the following spells, using Charisma as the spellcasting ability (spell save DC 17):
+      ***Pact Blade***. *Melee Attack Roll* : +9, reach 5 ft. *Hit* : 12 (2d6 + 5)
+      Slashing damage plus 18 (4d8) Radiant damage.
+
+
+      ***Radiant Ray***. *Ranged Attack Roll* : +9, range 120 ft. *Hit* : 31 (4d12
+      + 5) Radiant damage.
+
+
+      ***Spellcasting***. The cultist casts one of the following spells, using Charisma
+      as the spellcasting ability (spell save DC 17):
+
 
       At will: *[Thaumaturgy](https://www.aidedd.org/spell/thaumaturgy)*
-      
-      1/day each: *[Jallarzi's Storm of Radiance](https://www.aidedd.org/spell/jallarzi-s-storm-of-radiance)* (level 7 version), *[Mass Suggestion](https://www.aidedd.org/spell/mass-suggestion)*
+
+
+      1/day each: *[Jallarzi''s Storm of Radiance](https://www.aidedd.org/spell/jallarzi-s-storm-of-radiance)*
+      (level 7 version), *[Mass Suggestion](https://www.aidedd.org/spell/mass-suggestion)*'
     senses: Passive Perception 17
     languages:
     - Celestial
@@ -109,20 +110,30 @@ translations:
   fr:
     name: Cultiste, hiérophante
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Attaques multiples***. Le cultiste effectue trois attaques, réparties à sa guise entre Lame de pacte et Rayon radiant.
 
-      ***Lame de pacte***. *Corps à corps* : +9, allonge 1,50 m. *Touché* : 12 (2d6 + 5) dégâts tranchants plus 18 (4d8) dégâts radiants.
+      ***Attaques multiples***. Le cultiste effectue trois attaques, réparties à sa
+      guise entre Lame de pacte et Rayon radiant.
 
-      ***Rayon radiant***. *À distance* : +9, portée 36 m. *Touché* : 31 (4d12 + 5) dégâts radiants
 
-      ***Incantation***. Le cultiste lance l'un des sorts suivants, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 17) :
+      ***Lame de pacte***. *Corps à corps* : +9, allonge 1,50 m. *Touché* : 12 (2d6
+      + 5) dégâts tranchants plus 18 (4d8) dégâts radiants.
+
+
+      ***Rayon radiant***. *À distance* : +9, portée 36 m. *Touché* : 31 (4d12 + 5)
+      dégâts radiants
+
+
+      ***Incantation***. Le cultiste lance l''un des sorts suivants, le Charisme étant
+      sa caractéristique d''incantation (DD de sauvegarde 17) :
+
 
       À volonté : *[thaumaturgie](https://www.aidedd.org/spell/fr/thaumaturgie)*
-      
-      1/jour chacun : *[tempête radieuse de Jallarzi](https://www.aidedd.org/spell/fr/tempete-radieuse-de-jallarzi")* (au niveau 7), *[suggestion de groupe](https://www.aidedd.org/spell/fr/suggestion-de-groupe)*
+
+
+      1/jour chacun : *[tempête radieuse de Jallarzi](https://www.aidedd.org/spell/fr/tempete-radieuse-de-jallarzi")*
+      (au niveau 7), *[suggestion de groupe](https://www.aidedd.org/spell/fr/suggestion-de-groupe)*'
     senses: Perception passive 17
     languages:
     - céleste

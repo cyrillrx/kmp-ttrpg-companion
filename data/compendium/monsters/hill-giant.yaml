@@ -8,24 +8,12 @@ armorClass: 13
 maxHitPoints: 105
 hitDice: 10d12+40
 abilities:
-  str:
-    value: 21
-    savingThrowProficiency: none
-  dex:
-    value: 8
-    savingThrowProficiency: none
-  con:
-    value: 19
-    savingThrowProficiency: none
-  int:
-    value: 5
-    savingThrowProficiency: none
-  wis:
-    value: 9
-    savingThrowProficiency: none
-  cha:
-    value: 6
-    savingThrowProficiency: none
+  str: 21
+  dex: 8
+  con: 19
+  int: 5
+  wis: 9
+  cha: 6
 speeds:
   walk: 40
   fly: null
@@ -88,28 +76,42 @@ translations:
   en:
     name: Hill Giant
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Multiattack***. The giant makes two attacks, using Tree Club or Trash Lob in any combination.
 
-      ***Tree Club***. *Melee Attack Roll* : +8, reach 10 ft. *Hit* : 18 (3d8 + 5) Bludgeoning damage. If the target is a Large or smaller creature, it has the Prone condition.
+      ***Multiattack***. The giant makes two attacks, using Tree Club or Trash Lob
+      in any combination.
 
-      ***Trash Lob***. *Ranged Attack Roll* : +8, range 60/240 ft. *Hit* : 16 (2d10 + 5) Bludgeoning damage, and the target has the Poisoned condition until the end of its next turn.
+
+      ***Tree Club***. *Melee Attack Roll* : +8, reach 10 ft. *Hit* : 18 (3d8 + 5)
+      Bludgeoning damage. If the target is a Large or smaller creature, it has the
+      Prone condition.
+
+
+      ***Trash Lob***. *Ranged Attack Roll* : +8, range 60/240 ft. *Hit* : 16 (2d10
+      + 5) Bludgeoning damage, and the target has the Poisoned condition until the
+      end of its next turn.'
     senses: Passive Perception 12
     languages:
     - Giant
   fr:
     name: Géant des collines
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Attaques multiples***. Le géant effectue deux attaques, réparties à sa guise entre Arbre-massue et Lancer de détritus.
 
-      ***Arbre-massue***. *Corps à corps* : +8, allonge 3 m. *Touché* : 18 (3d8 + 5) dégâts contondants. Si la cible est une créature de taille G ou inférieure, elle subit l'état À terre.
+      ***Attaques multiples***. Le géant effectue deux attaques, réparties à sa guise
+      entre Arbre-massue et Lancer de détritus.
 
-      ***Lancer de détritus***. *À distance* : +8, portée 18/72 m. *Touché* : 16 (2d10 + 5) dégâts contondants, et la cible subit l'état Empoisonné jusqu'à la fin de son tour suivant.
+
+      ***Arbre-massue***. *Corps à corps* : +8, allonge 3 m. *Touché* : 18 (3d8 +
+      5) dégâts contondants. Si la cible est une créature de taille G ou inférieure,
+      elle subit l''état À terre.
+
+
+      ***Lancer de détritus***. *À distance* : +8, portée 18/72 m. *Touché* : 16 (2d10
+      + 5) dégâts contondants, et la cible subit l''état Empoisonné jusqu''à la fin
+      de son tour suivant.'
     senses: Perception passive 12
     languages:
     - géant

@@ -8,24 +8,14 @@ armorClass: 15
 maxHitPoints: 93
 hitDice: 11d10+33
 abilities:
-  str:
-    value: 14
-    savingThrowProficiency: none
-  dex:
-    value: 8
-    savingThrowProficiency: none
-  con:
-    value: 16
-    savingThrowProficiency: none
-  int:
-    value: 3
-    savingThrowProficiency: none
-  wis:
-    value: 8
-    savingThrowProficiency: proficient
-  cha:
-    value: 5
-    savingThrowProficiency: none
+  str: 14
+  dex: 8
+  con: 16
+  int: 3
+  wis: 8
+  cha: 5
+savingThrows:
+  wis: proficient
 speeds:
   walk: 5
   fly: 20
@@ -88,52 +78,104 @@ translations:
   en:
     name: Beholder Zombie
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Undead Fortitude***. If damage reduces the zombie to 0 Hit Points, it makes a Constitution saving throw (DC 5 plus the damage taken) unless the damage is Radiant or from a Critical Hit. On a successful save, the zombie drops to 1 Hit Point instead.
+
+      ***Undead Fortitude***. If damage reduces the zombie to 0 Hit Points, it makes
+      a Constitution saving throw (DC 5 plus the damage taken) unless the damage is
+      Radiant or from a Critical Hit. On a successful save, the zombie drops to 1
+      Hit Point instead.
+
 
       ## Actions
 
+
       ***Multiattack***. The zombie uses Eye Rays twice.
 
-      ***Bite***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 16 (4d6 + 2) Piercing damage.
 
-      ***Eye Rays***. The zombie randomly shoots one of the following magical rays at a target it can see within 120 feet of itself (roll 1d4; reroll if the zombie has already used that ray during this turn):
+      ***Bite***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 16 (4d6 + 2) Piercing
+      damage.
 
-      ***1: Paralyzing Ray***. *Constitution Saving Throw* : DC 14. *Failure* : The target has the Paralyzed condition and repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically.
 
-      ***2: Fear Ray***. *Wisdom Saving Throw* : DC 14. *Failure* : 13 (3d8) Psychic damage, and the target has the Frightened condition until the end of its next turn.
+      ***Eye Rays***. The zombie randomly shoots one of the following magical rays
+      at a target it can see within 120 feet of itself (roll 1d4; reroll if the zombie
+      has already used that ray during this turn):
 
-      ***3: Enervation Ray***. *Constitution Saving Throw* : DC 14. *Failure* : 10 (3d6) Necrotic damage, and the target has the Poisoned condition until the end of its next turn. While Poisoned, the target can't regain Hit Points. *Success* : Half damage only.
 
-      ***4: Disintegration Ray***. *Dexterity Saving Throw* : DC 14. *Failure* : 27 (5d10) Force damage. If the target is a nonmagical object or a creation of magical force, a 10-foot Cube of it disintegrates into dust. *Success* : Half damage. *Failure or Success* : If the target is a creature and this damage reduces it to 0 Hit Points, it disintegrates into dust.
+      ***1: Paralyzing Ray***. *Constitution Saving Throw* : DC 14. *Failure* : The
+      target has the Paralyzed condition and repeats the save at the end of each of
+      its turns, ending the effect on itself on a success. After 1 minute, it succeeds
+      automatically.
+
+
+      ***2: Fear Ray***. *Wisdom Saving Throw* : DC 14. *Failure* : 13 (3d8) Psychic
+      damage, and the target has the Frightened condition until the end of its next
+      turn.
+
+
+      ***3: Enervation Ray***. *Constitution Saving Throw* : DC 14. *Failure* : 10
+      (3d6) Necrotic damage, and the target has the Poisoned condition until the end
+      of its next turn. While Poisoned, the target can''t regain Hit Points. *Success*
+      : Half damage only.
+
+
+      ***4: Disintegration Ray***. *Dexterity Saving Throw* : DC 14. *Failure* : 27
+      (5d10) Force damage. If the target is a nonmagical object or a creation of magical
+      force, a 10-foot Cube of it disintegrates into dust. *Success* : Half damage.
+      *Failure or Success* : If the target is a creature and this damage reduces it
+      to 0 Hit Points, it disintegrates into dust.'
     senses: Darkvision 60 ft., Passive Perception 9
     languages:
     - Understands Deep Speech and Undercommon but can't speak
   fr:
     name: Tyrannoeil zombi
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Robustesse de la non-vie***. Si des dégâts font tomber le zombi à 0 point de vie, il effectue un jet de sauvegarde de Constitution (DD 5 + les dégâts subis), sauf en cas de dégâts radiants ou de Coup critique. En cas de réussite, le zombi se retrouve en fait à 1 point de vie.
+
+      ***Robustesse de la non-vie***. Si des dégâts font tomber le zombi à 0 point
+      de vie, il effectue un jet de sauvegarde de Constitution (DD 5 + les dégâts
+      subis), sauf en cas de dégâts radiants ou de Coup critique. En cas de réussite,
+      le zombi se retrouve en fait à 1 point de vie.
+
 
       ## Actions
 
+
       ***Attaques multiples***. Le zombie utilise Rayons oculaires à deux reprises.
 
-      ***Morsure***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 16 (4d6 + 2) dégâts perforants.
 
-      ***Rayons oculaires***. Le zombie tire aléatoirement l'un des rayons magiques suivants sur une cible qu'il peut voir dans un rayon de 36 m (lancez 1d4 ; relancez si le zombie a déjà utilisé ce rayon pendant ce tour) :
+      ***Morsure***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 16 (4d6 + 2)
+      dégâts perforants.
 
-      ***1 : Rayon paralysant***. *JdS Constitution* : DD 14. *Échec* : la cible subit l'état Paralysé et doit retenter le jet de sauvegarde à la fin de chacun de ses tours. En cas de réussite, l'effet prend fin. Après 1 minute, la cible réussit automatiquement.
 
-      ***2 : Rayon de terreur***. *JdS Sagesse* : DD 14. *Échec* : 13 (3d8) dégâts psychiques et la cible subit l'état Effrayé jusqu'à la fin de son prochain tour.
+      ***Rayons oculaires***. Le zombie tire aléatoirement l''un des rayons magiques
+      suivants sur une cible qu''il peut voir dans un rayon de 36 m (lancez 1d4 ;
+      relancez si le zombie a déjà utilisé ce rayon pendant ce tour) :
 
-      ***3 : Rayon de nécrose***. *JdS Constitution* : DD 14. *Échec* : 10 (3d6) dégâts nécrotiques et la cible subit l'état Empoisonné jusqu'à la fin de son prochain tour. Tant qu'elle est empoisonnée, la cible ne peut pas récupérer de points de vie. *Réussite* : demi-dégâts uniquement.
 
-      ***4 : Rayon de désintégration***. *JdS Dextérité* : DD 14. *Échec* : 27 (5d10) dégâts de force. Si la cible est un objet non magique ou une création de force magique, un Cube de 3 mètres de côté se désintègre en poussière. *Réussite* : demi-dégâts. *Échec ou réussite* : si la cible est une créature et que ces dégâts la réduisent à 0 point de vie, elle se désintègre en poussière.
+      ***1 : Rayon paralysant***. *JdS Constitution* : DD 14. *Échec* : la cible subit
+      l''état Paralysé et doit retenter le jet de sauvegarde à la fin de chacun de
+      ses tours. En cas de réussite, l''effet prend fin. Après 1 minute, la cible
+      réussit automatiquement.
+
+
+      ***2 : Rayon de terreur***. *JdS Sagesse* : DD 14. *Échec* : 13 (3d8) dégâts
+      psychiques et la cible subit l''état Effrayé jusqu''à la fin de son prochain
+      tour.
+
+
+      ***3 : Rayon de nécrose***. *JdS Constitution* : DD 14. *Échec* : 10 (3d6) dégâts
+      nécrotiques et la cible subit l''état Empoisonné jusqu''à la fin de son prochain
+      tour. Tant qu''elle est empoisonnée, la cible ne peut pas récupérer de points
+      de vie. *Réussite* : demi-dégâts uniquement.
+
+
+      ***4 : Rayon de désintégration***. *JdS Dextérité* : DD 14. *Échec* : 27 (5d10)
+      dégâts de force. Si la cible est un objet non magique ou une création de force
+      magique, un Cube de 3 mètres de côté se désintègre en poussière. *Réussite*
+      : demi-dégâts. *Échec ou réussite* : si la cible est une créature et que ces
+      dégâts la réduisent à 0 point de vie, elle se désintègre en poussière.'
     senses: Vision dans le noir 18 m, Perception passive 9
     languages:
     - comprend le profond et le commun des profondeurs mais ne parle pas

@@ -8,24 +8,12 @@ armorClass: 15
 maxHitPoints: 110
 hitDice: 13d10+39
 abilities:
-  str:
-    value: 18
-    savingThrowProficiency: none
-  dex:
-    value: 8
-    savingThrowProficiency: none
-  con:
-    value: 16
-    savingThrowProficiency: none
-  int:
-    value: 5
-    savingThrowProficiency: none
-  wis:
-    value: 10
-    savingThrowProficiency: none
-  cha:
-    value: 5
-    savingThrowProficiency: none
+  str: 18
+  dex: 8
+  con: 16
+  int: 5
+  wis: 10
+  cha: 5
 speeds:
   walk: 30
   fly: null
@@ -88,34 +76,66 @@ translations:
   en:
     name: Shambling Mound
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Lightning Absorption***. Whenever the shambling mound is subjected to Lightning damage, it regains a number of Hit Points equal to the Lightning damage dealt.
+
+      ***Lightning Absorption***. Whenever the shambling mound is subjected to Lightning
+      damage, it regains a number of Hit Points equal to the Lightning damage dealt.
+
 
       ## Actions
 
-      ***Multiattack***. The shambling mound makes three Charged Tendril attacks. It can replace one attack with a use of Engulf.
 
-      ***Charged Tendril***. *Melee Attack Roll* : +7, reach 10 ft. *Hit* : 7 (1d6 + 4) Bludgeoning damage plus 5 (2d4) Lightning damage. If the target is a Medium or smaller creature, the shambling mound pulls the target 5 feet straight toward itself.
+      ***Multiattack***. The shambling mound makes three Charged Tendril attacks.
+      It can replace one attack with a use of Engulf.
 
-      ***Engulf***. *Strength Saving Throw* : DC 15, one Medium or smaller creature within 5 feet. *Failure* : The target is pulled into the shambling mound's space and has the Grappled condition (escape DC 14). Until the grapple ends, the target has the Blinded and Restrained conditions, and it takes 10 (3d6) Lightning damage at the start of each of its turns. When the shambling mound moves, the Grappled target moves with it, costing it no extra movement. The shambling mound can have only one creature Grappled by this action at a time.
+
+      ***Charged Tendril***. *Melee Attack Roll* : +7, reach 10 ft. *Hit* : 7 (1d6
+      + 4) Bludgeoning damage plus 5 (2d4) Lightning damage. If the target is a Medium
+      or smaller creature, the shambling mound pulls the target 5 feet straight toward
+      itself.
+
+
+      ***Engulf***. *Strength Saving Throw* : DC 15, one Medium or smaller creature
+      within 5 feet. *Failure* : The target is pulled into the shambling mound''s
+      space and has the Grappled condition (escape DC 14). Until the grapple ends,
+      the target has the Blinded and Restrained conditions, and it takes 10 (3d6)
+      Lightning damage at the start of each of its turns. When the shambling mound
+      moves, the Grappled target moves with it, costing it no extra movement. The
+      shambling mound can have only one creature Grappled by this action at a time.'
     senses: Blindsight 60 ft., Passive Perception 10
     languages: []
   fr:
     name: Tertre errant
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Absorption de la foudre***. Chaque fois que le tertre errant est soumis à des dégâts de foudre, il récupère en fait autant de points de vie que les dégâts de foudre infligés.
+
+      ***Absorption de la foudre***. Chaque fois que le tertre errant est soumis à
+      des dégâts de foudre, il récupère en fait autant de points de vie que les dégâts
+      de foudre infligés.
+
 
       ## Actions
 
-      ***Attaques multiples***. Le tertre errant effectue trois attaques de Vrille électrisée. Il peut remplacer l'une de ces attaques par une utilisation d'Enveloppement.
 
-      ***Vrille électrisée***. *Corps à corps* : +7, allonge 3 m. *Touché* : 7 (1d6 + 4) dégâts contondants plus 5 (2d4) dégâts de foudre. Si la cible est une créature de Taille M ou inférieure, le tertre errant la tire en ligne droite vers lui de 1,50 m.
+      ***Attaques multiples***. Le tertre errant effectue trois attaques de Vrille
+      électrisée. Il peut remplacer l''une de ces attaques par une utilisation d''Enveloppement.
 
-      ***Enveloppement***. *JdS Force* : DD 15, une créature de taille M ou inférieure dans un rayon de 1,50 m. *Échec* : la cible est tirée dans l'espace du tertre errant et subit l'état Agrippé (évasion DD 14). Tant qu'elle est agrippée, la cible subit les états Aveuglé et Entravé, ainsi que 10 (3d6) dégâts de foudre au début de chacun de ses tours. Quand le tertre errant se déplace, la cible Agrippée l'accompagne, sans dépense supplémentaire en déplacement. Si le tertre errant a déjà une créature Agrippée par cette action, il ne peut pas en avoir une autre.
+
+      ***Vrille électrisée***. *Corps à corps* : +7, allonge 3 m. *Touché* : 7 (1d6
+      + 4) dégâts contondants plus 5 (2d4) dégâts de foudre. Si la cible est une créature
+      de Taille M ou inférieure, le tertre errant la tire en ligne droite vers lui
+      de 1,50 m.
+
+
+      ***Enveloppement***. *JdS Force* : DD 15, une créature de taille M ou inférieure
+      dans un rayon de 1,50 m. *Échec* : la cible est tirée dans l''espace du tertre
+      errant et subit l''état Agrippé (évasion DD 14). Tant qu''elle est agrippée,
+      la cible subit les états Aveuglé et Entravé, ainsi que 10 (3d6) dégâts de foudre
+      au début de chacun de ses tours. Quand le tertre errant se déplace, la cible
+      Agrippée l''accompagne, sans dépense supplémentaire en déplacement. Si le tertre
+      errant a déjà une créature Agrippée par cette action, il ne peut pas en avoir
+      une autre.'
     senses: Vision aveugle 18 m, Perception passive 10
     languages: []

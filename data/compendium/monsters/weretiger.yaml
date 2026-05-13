@@ -8,24 +8,12 @@ armorClass: 12
 maxHitPoints: 120
 hitDice: 16d8+48
 abilities:
-  str:
-    value: 17
-    savingThrowProficiency: none
-  dex:
-    value: 15
-    savingThrowProficiency: none
-  con:
-    value: 16
-    savingThrowProficiency: none
-  int:
-    value: 10
-    savingThrowProficiency: none
-  wis:
-    value: 13
-    savingThrowProficiency: none
-  cha:
-    value: 11
-    savingThrowProficiency: none
+  str: 17
+  dex: 15
+  con: 16
+  int: 10
+  wis: 13
+  cha: 11
 speeds:
   walk: 40
   fly: null
@@ -88,44 +76,84 @@ translations:
   en:
     name: Weretiger
     subtype: Lycanthrope
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Multiattack***. The weretiger makes two attacks, using Scratch or Longbow in any combination. It can replace one attack with a Bite attack.
 
-      ***Bite (Tiger or Hybrid Form Only)***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 12 (2d8 + 3) Piercing damage. If the target is a Humanoid, it is subjected to the following effect. *Constitution Saving Throw* : DC 13. *Failure* : The target is cursed. If the cursed target drops to 0 Hit Points, it instead becomes a **Weretiger** under the DM's control and has 10 Hit Points. *Success* : The target is immune to this weretiger's curse for 24 hours.
+      ***Multiattack***. The weretiger makes two attacks, using Scratch or Longbow
+      in any combination. It can replace one attack with a Bite attack.
 
-      ***Scratch***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 10 (2d6 + 3) Slashing damage.
 
-      ***Longbow (Humanoid or Hybrid Form Only)***. *Ranged Attack Roll* : +4, range 150/600 ft. *Hit* : 11 (2d8 + 2) Piercing damage.
+      ***Bite (Tiger or Hybrid Form Only)***. *Melee Attack Roll* : +5, reach 5 ft.
+      *Hit* : 12 (2d8 + 3) Piercing damage. If the target is a Humanoid, it is subjected
+      to the following effect. *Constitution Saving Throw* : DC 13. *Failure* : The
+      target is cursed. If the cursed target drops to 0 Hit Points, it instead becomes
+      a **Weretiger** under the DM''s control and has 10 Hit Points. *Success* : The
+      target is immune to this weretiger''s curse for 24 hours.
+
+
+      ***Scratch***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 10 (2d6 + 3) Slashing
+      damage.
+
+
+      ***Longbow (Humanoid or Hybrid Form Only)***. *Ranged Attack Roll* : +4, range
+      150/600 ft. *Hit* : 11 (2d8 + 2) Piercing damage.
+
 
       ## Bonus actions
 
-      ***Prowl (Tiger or Hybrid Form Only)***. The weretiger moves up to its Speed without provoking Opportunity Attacks. At the end of this movement, the weretiger can take the Hide action.
 
-      ***Shape-Shift***. The weretiger shape-shifts into a Large tiger-humanoid hybrid or a Large tiger, or it returns to its true humanoid form. Its game statistics, other than its size, are the same in each form. Any equipment it is wearing or carrying isn't transformed.
+      ***Prowl (Tiger or Hybrid Form Only)***. The weretiger moves up to its Speed
+      without provoking Opportunity Attacks. At the end of this movement, the weretiger
+      can take the Hide action.
+
+
+      ***Shape-Shift***. The weretiger shape-shifts into a Large tiger-humanoid hybrid
+      or a Large tiger, or it returns to its true humanoid form. Its game statistics,
+      other than its size, are the same in each form. Any equipment it is wearing
+      or carrying isn''t transformed.'
     senses: Darkvision 60 ft., Passive Perception 15
     languages:
     - Common (can't speak in tiger form)
   fr:
     name: Tigre-garou
     subtype: Lycanthrope
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Attaques multiples***. Le tigre-garou effectue deux attaques, réparties à sa guise entre Éraflure et Arc long. Il peut en remplacer une par une attaque de Morsure.
 
-      ***Éraflure***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 10 (2d6 + 3) dégâts tranchants.
+      ***Attaques multiples***. Le tigre-garou effectue deux attaques, réparties à
+      sa guise entre Éraflure et Arc long. Il peut en remplacer une par une attaque
+      de Morsure.
 
-      ***Morsure (forme de tigre ou hybride uniquement)***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 12 (2d8 + 3) dégâts perforants. Si la cible est un Humanoïde, elle est soumise à l'effet suivant. *JdS Constitution* : DD 13. *Échec* : la cible est maudite. Si la cible maudite tombe à 0 point de vie, elle se retrouve en fait à 10 pv et devient un **tigre-garou** sous le contrôle du MD. *Réussite* : la cible est immunisée contre la malédiction de ce tigre-garou pendant 24 heures.
 
-      ***Arc long (forme humanoïde ou hybride uniquement)***. *À distance* : +4, portée 45/180 m. *Touché* : 11 (2d8 + 2) dégâts perforants.
+      ***Éraflure***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 10 (2d6 + 3)
+      dégâts tranchants.
+
+
+      ***Morsure (forme de tigre ou hybride uniquement)***. *Corps à corps* : +5,
+      allonge 1,50 m. *Touché* : 12 (2d8 + 3) dégâts perforants. Si la cible est un
+      Humanoïde, elle est soumise à l''effet suivant. *JdS Constitution* : DD 13.
+      *Échec* : la cible est maudite. Si la cible maudite tombe à 0 point de vie,
+      elle se retrouve en fait à 10 pv et devient un **tigre-garou** sous le contrôle
+      du MD. *Réussite* : la cible est immunisée contre la malédiction de ce tigre-garou
+      pendant 24 heures.
+
+
+      ***Arc long (forme humanoïde ou hybride uniquement)***. *À distance* : +4, portée
+      45/180 m. *Touché* : 11 (2d8 + 2) dégâts perforants.
+
 
       ## Actions Bonus
 
-      ***Affût (forme de tigre ou hybride uniquement)***. Le tigre-garou se déplace dans les limites de sa Vitesse sans provoquer d'attaque d'Opportunité. À la fin de ce déplacement, il peut prendre l'action Furtivité.
 
-      ***Changement d'aspect***. Le tigre-garou se transforme en hybride tigre-humanoïde de taille G ou en tigre de taille G, ou bien retrouve sa forme véritable d'humanoïde. En dehors de sa catégorie de taille, son profil reste le même, quelle que soit la forme. Rien de ce qu'il porte n'est transformé.
+      ***Affût (forme de tigre ou hybride uniquement)***. Le tigre-garou se déplace
+      dans les limites de sa Vitesse sans provoquer d''attaque d''Opportunité. À la
+      fin de ce déplacement, il peut prendre l''action Furtivité.
+
+
+      ***Changement d''aspect***. Le tigre-garou se transforme en hybride tigre-humanoïde
+      de taille G ou en tigre de taille G, ou bien retrouve sa forme véritable d''humanoïde.
+      En dehors de sa catégorie de taille, son profil reste le même, quelle que soit
+      la forme. Rien de ce qu''il porte n''est transformé.'
     senses: Vision dans le noir 18 m, Perception passive 15
     languages:
     - commun (ne peut pas parler sous forme de tigre)

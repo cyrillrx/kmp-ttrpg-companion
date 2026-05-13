@@ -8,24 +8,12 @@ armorClass: 15
 maxHitPoints: 9
 hitDice: 2d8
 abilities:
-  str:
-    value: 11
-    savingThrowProficiency: none
-  dex:
-    value: 12
-    savingThrowProficiency: none
-  con:
-    value: 11
-    savingThrowProficiency: none
-  int:
-    value: 12
-    savingThrowProficiency: none
-  wis:
-    value: 14
-    savingThrowProficiency: none
-  cha:
-    value: 16
-    savingThrowProficiency: none
+  str: 11
+  dex: 12
+  con: 11
+  int: 12
+  wis: 14
+  cha: 16
 speeds:
   walk: 30
   fly: null
@@ -88,28 +76,38 @@ translations:
   en:
     name: Noble
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Rapier***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 5 (1d8 + 1) Piercing damage.
+
+      ***Rapier***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 5 (1d8 + 1) Piercing
+      damage.
+
 
       ## Reactions
 
-      ***Parry***. *Trigger* : The noble is hit by a melee attack roll while holding a weapon. *Response* : The noble adds 2 to its AC against that attack, possibly causing it to miss.
+
+      ***Parry***. *Trigger* : The noble is hit by a melee attack roll while holding
+      a weapon. *Response* : The noble adds 2 to its AC against that attack, possibly
+      causing it to miss.'
     senses: Passive Perception 12
     languages:
     - Common plus two other languages
   fr:
     name: Noble
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Rapière***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 5 (1d8 + 1) dégâts perforants.
+
+      ***Rapière***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 5 (1d8 + 1)
+      dégâts perforants.
+
 
       ## Réactions
 
-      ***Parade***. *Déclencheur* : le noble est touché par un jet d'attaque au corps-à-corps alors qu'il tient une arme. *Conséquences* : le noble ajoute 2 à sa CA contre cette attaque, ce qui peut la faire rater.
+
+      ***Parade***. *Déclencheur* : le noble est touché par un jet d''attaque au corps-à-corps
+      alors qu''il tient une arme. *Conséquences* : le noble ajoute 2 à sa CA contre
+      cette attaque, ce qui peut la faire rater.'
     senses: Perception passive 12
     languages:
     - commun plus deux autres langues

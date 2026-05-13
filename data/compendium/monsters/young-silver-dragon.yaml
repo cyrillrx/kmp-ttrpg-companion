@@ -8,24 +8,15 @@ armorClass: 18
 maxHitPoints: 168
 hitDice: 16d10+80
 abilities:
-  str:
-    value: 23
-    savingThrowProficiency: none
-  dex:
-    value: 10
-    savingThrowProficiency: proficient
-  con:
-    value: 21
-    savingThrowProficiency: none
-  int:
-    value: 14
-    savingThrowProficiency: none
-  wis:
-    value: 11
-    savingThrowProficiency: proficient
-  cha:
-    value: 19
-    savingThrowProficiency: none
+  str: 23
+  dex: 10
+  con: 21
+  int: 14
+  wis: 11
+  cha: 19
+savingThrows:
+  dex: proficient
+  wis: proficient
 speeds:
   walk: 40
   fly: 80
@@ -88,16 +79,28 @@ translations:
   en:
     name: Young Silver Dragon
     subtype: Metallic
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Multiattack***. The dragon makes three Rend attacks. It can replace one attack with a use of Paralyzing Breath.
 
-      ***Rend***. *Melee Attack Roll* : +10, reach 10 ft. *Hit* : 15 (2d8 + 6) Slashing damage.
+      ***Multiattack***. The dragon makes three Rend attacks. It can replace one attack
+      with a use of Paralyzing Breath.
 
-      ***Cold Breath (Recharge 5–6)***. *Constitution Saving Throw* : DC 17, each creature in a 30-foot Cone. *Failure* : 49 (11d8) Cold damage. *Success* : Half damage.
 
-      ***Paralyzing Breath***. *Constitution Saving Throw* : DC 17, each creature in a 30-foot Cone. *First Failure* : The target has the Incapacitated condition until the end of its next turn, when it repeats the save. *Second Failure* : The target has the Paralyzed condition, and it repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically.
+      ***Rend***. *Melee Attack Roll* : +10, reach 10 ft. *Hit* : 15 (2d8 + 6) Slashing
+      damage.
+
+
+      ***Cold Breath (Recharge 5–6)***. *Constitution Saving Throw* : DC 17, each
+      creature in a 30-foot Cone. *Failure* : 49 (11d8) Cold damage. *Success* : Half
+      damage.
+
+
+      ***Paralyzing Breath***. *Constitution Saving Throw* : DC 17, each creature
+      in a 30-foot Cone. *First Failure* : The target has the Incapacitated condition
+      until the end of its next turn, when it repeats the save. *Second Failure* :
+      The target has the Paralyzed condition, and it repeats the save at the end of
+      each of its turns, ending the effect on itself on a success. After 1 minute,
+      it succeeds automatically.'
     senses: Blindsight 30 ft., Darkvision 120 ft., Passive Perception 18
     languages:
     - Common
@@ -105,16 +108,27 @@ translations:
   fr:
     name: Dragon d'argent, jeune
     subtype: Métallique
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Attaques multiples***. Le dragon effectue trois attaques de Saignée. Il peut remplacer l'une de ces attaques par une utilisation de Souffle paralysant.
 
-      ***Saignée***. *Corps à corps* : +10, allonge 3 m. *Touché* : 15 (2d8 + 6) dégâts tranchants.
+      ***Attaques multiples***. Le dragon effectue trois attaques de Saignée. Il peut
+      remplacer l''une de ces attaques par une utilisation de Souffle paralysant.
 
-      ***Souffle glacial (recharge 5–6)***. *JdS Constitution* : DD 17, chaque créature dans un Cône de 9 m. *Échec* : 49 (11d8) dégâts de froid. *Réussite* : 1/2 dégâts.
 
-      ***Souffle paralysant***. *JdS Constitution* : DD 17, chaque créature dans un Cône de 9 m. *Premier échec* : la cible subit l'état Incapable d'agir jusqu'à la fin de son tour suivant, et réitère alors son JdS. *Deuxième échec* : la cible subit l'état Paralysé et réitère le JdS à la fin de chacun de ses tours ; elle met un terme à l'effet sur elle-même en cas de réussite. Au bout de 1 minute, elle réussit automatiquement ce JdS.
+      ***Saignée***. *Corps à corps* : +10, allonge 3 m. *Touché* : 15 (2d8 + 6) dégâts
+      tranchants.
+
+
+      ***Souffle glacial (recharge 5–6)***. *JdS Constitution* : DD 17, chaque créature
+      dans un Cône de 9 m. *Échec* : 49 (11d8) dégâts de froid. *Réussite* : 1/2 dégâts.
+
+
+      ***Souffle paralysant***. *JdS Constitution* : DD 17, chaque créature dans un
+      Cône de 9 m. *Premier échec* : la cible subit l''état Incapable d''agir jusqu''à
+      la fin de son tour suivant, et réitère alors son JdS. *Deuxième échec* : la
+      cible subit l''état Paralysé et réitère le JdS à la fin de chacun de ses tours
+      ; elle met un terme à l''effet sur elle-même en cas de réussite. Au bout de
+      1 minute, elle réussit automatiquement ce JdS.'
     senses: Vision aveugle 9 m, Vision dans le noir 36 m, Perception passive 18
     languages:
     - commun

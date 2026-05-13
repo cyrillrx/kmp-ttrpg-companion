@@ -8,24 +8,17 @@ armorClass: 16
 maxHitPoints: 143
 hitDice: 26d8+26
 abilities:
-  str:
-    value: 11
-    savingThrowProficiency: none
-  dex:
-    value: 14
-    savingThrowProficiency: proficient
-  con:
-    value: 13
-    savingThrowProficiency: none
-  int:
-    value: 20
-    savingThrowProficiency: proficient
-  wis:
-    value: 17
-    savingThrowProficiency: proficient
-  cha:
-    value: 17
-    savingThrowProficiency: proficient
+  str: 11
+  dex: 14
+  con: 13
+  int: 20
+  wis: 17
+  cha: 17
+savingThrows:
+  dex: proficient
+  int: proficient
+  wis: proficient
+  cha: proficient
 speeds:
   walk: 30
   fly: 30
@@ -88,28 +81,56 @@ translations:
   en:
     name: Mind Flayer Arcanist
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Magic Resistance***. The mind flayer has Advantage on saving throws against spells and other magical effects.
+
+      ***Magic Resistance***. The mind flayer has Advantage on saving throws against
+      spells and other magical effects.
+
 
       ## Actions
 
+
       ***Multiattack***. The mind flayer makes three Arcane Tentacles attacks.
 
-      ***Arcane Tentacles***. *Melee or Ranged Attack Roll* : +9, reach 5 ft. or range 120 ft. *Hit* : 27 (4d10 + 5) Psychic damage, and the mind flayer can teleport the target up to 30 feet to an unoccupied space the mind flayer can see on a surface or liquid large enough to support the target. If this damage reduces the target to 0 Hit Points, the mind flayer kills it and magically devours its brain.
 
-      ***Mind Burst (Recharge 5–6)***. *Intelligence Saving Throw* : DC 17, each creature in a 40-foot Emanation originating from the mind flayer. *Failure* : 41 (8d8 + 5) Psychic damage, and the target has the Stunned condition until the end of the mind flayer's next turn. *Success* : Half damage only.
+      ***Arcane Tentacles***. *Melee or Ranged Attack Roll* : +9, reach 5 ft. or range
+      120 ft. *Hit* : 27 (4d10 + 5) Psychic damage, and the mind flayer can teleport
+      the target up to 30 feet to an unoccupied space the mind flayer can see on a
+      surface or liquid large enough to support the target. If this damage reduces
+      the target to 0 Hit Points, the mind flayer kills it and magically devours its
+      brain.
 
-      ***Spellcasting***. The mind flayer casts one of the following spells, requiring no spell components and using Intelligence as the spellcasting ability (spell save DC 17):
 
-      At will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts), [Disguise Self](https://www.aidedd.org/spell/disguise-self), [Mage Hand](https://www.aidedd.org/spell/mage-hand)* (the hand is Invisible)
-      
-      1/day each: *[Clairvoyance](https://www.aidedd.org/spell/clairvoyance), [Dimension Door](https://www.aidedd.org/spell/dimension-door), [Fireball](https://www.aidedd.org/spell/fireball)* (level 5 version), *[Lightning Bolt](https://www.aidedd.org/spell/lightning-bolt)* (level 5 version), *[Plane Shift](https://www.aidedd.org/spell/plane-shift)* (self only), *[Sending](https://www.aidedd.org/spell/sending)*
+      ***Mind Burst (Recharge 5–6)***. *Intelligence Saving Throw* : DC 17, each creature
+      in a 40-foot Emanation originating from the mind flayer. *Failure* : 41 (8d8
+      + 5) Psychic damage, and the target has the Stunned condition until the end
+      of the mind flayer''s next turn. *Success* : Half damage only.
+
+
+      ***Spellcasting***. The mind flayer casts one of the following spells, requiring
+      no spell components and using Intelligence as the spellcasting ability (spell
+      save DC 17):
+
+
+      At will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Detect
+      Thoughts](https://www.aidedd.org/spell/detect-thoughts), [Disguise Self](https://www.aidedd.org/spell/disguise-self),
+      [Mage Hand](https://www.aidedd.org/spell/mage-hand)* (the hand is Invisible)
+
+
+      1/day each: *[Clairvoyance](https://www.aidedd.org/spell/clairvoyance), [Dimension
+      Door](https://www.aidedd.org/spell/dimension-door), [Fireball](https://www.aidedd.org/spell/fireball)*
+      (level 5 version), *[Lightning Bolt](https://www.aidedd.org/spell/lightning-bolt)*
+      (level 5 version), *[Plane Shift](https://www.aidedd.org/spell/plane-shift)*
+      (self only), *[Sending](https://www.aidedd.org/spell/sending)*
+
 
       ## Reactions
 
-      ***Shield (2/Day)***. The mind flayer casts *[Shield](https://www.aidedd.org/spell/shield)* in response to that spell's trigger, using the same spellcasting ability as Spellcasting.
+
+      ***Shield (2/Day)***. The mind flayer casts *[Shield](https://www.aidedd.org/spell/shield)*
+      in response to that spell''s trigger, using the same spellcasting ability as
+      Spellcasting.'
     senses: Darkvision 120 ft., Passive Perception 17
     languages:
     - Deep Speech
@@ -117,24 +138,31 @@ translations:
   fr:
     name: Flagelleur mental, arcaniste
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
+
 
       Résistance à la magie.
 
+
       ## Actions
 
+
       Attaques multiples.
-      
+
+
       Tentacules arcaniques.
-      
+
+
       Explosion mentale (recharge 5–6).
-      
+
+
       Incantation.
+
 
       ## Réactions
 
-      Bouclier (2/jour).
+
+      Bouclier (2/jour).'
     senses: Vision dans le noir 36 m, Perception passive 17
     languages:
     - profond

@@ -8,24 +8,12 @@ armorClass: 13
 maxHitPoints: 38
 hitDice: 7d8+7
 abilities:
-  str:
-    value: 16
-    savingThrowProficiency: none
-  dex:
-    value: 10
-    savingThrowProficiency: none
-  con:
-    value: 12
-    savingThrowProficiency: none
-  int:
-    value: 13
-    savingThrowProficiency: none
-  wis:
-    value: 16
-    savingThrowProficiency: none
-  cha:
-    value: 13
-    savingThrowProficiency: none
+  str: 16
+  dex: 10
+  con: 12
+  int: 13
+  wis: 16
+  cha: 13
 speeds:
   walk: 30
   fly: null
@@ -88,48 +76,76 @@ translations:
   en:
     name: Priest
     subtype: Cleric
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Multiattack***. The priest makes two attacks, using Mace or Radiant Flame in any combination.
 
-      ***Mace***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 6 (1d6 + 3) Bludgeoning damage plus 5 (2d4) Radiant damage.
+      ***Multiattack***. The priest makes two attacks, using Mace or Radiant Flame
+      in any combination.
 
-      ***Radiant Flame***. *Ranged Attack Roll* : +5, range 60 ft. *Hit* : 11 (2d10) Radiant damage.
 
-      ***Spellcasting***. The priest casts one of the following spells, using Wisdom as the spellcasting ability:
+      ***Mace***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 6 (1d6 + 3) Bludgeoning
+      damage plus 5 (2d4) Radiant damage.
+
+
+      ***Radiant Flame***. *Ranged Attack Roll* : +5, range 60 ft. *Hit* : 11 (2d10)
+      Radiant damage.
+
+
+      ***Spellcasting***. The priest casts one of the following spells, using Wisdom
+      as the spellcasting ability:
+
 
       At will: *[Light](https://www.aidedd.org/spell/light), [Thaumaturgy](https://www.aidedd.org/spell/thaumaturgy)*
-      
+
+
       1/day: *[Spirit Guardians](https://www.aidedd.org/spell/spirit-guardians)*
+
 
       ## Bonus actions
 
-      ***Divine Aid (3/Day)***. The priest casts *[Bless](https://www.aidedd.org/spell/bless), [Dispel Magic](https://www.aidedd.org/spell/dispel-magic), [Healing Word](https://www.aidedd.org/spell/healing-word)*, or *[Lesser Restoration](https://www.aidedd.org/spell/lesser-restoration)* , using the same spellcasting ability as Spellcasting.
+
+      ***Divine Aid (3/Day)***. The priest casts *[Bless](https://www.aidedd.org/spell/bless),
+      [Dispel Magic](https://www.aidedd.org/spell/dispel-magic), [Healing Word](https://www.aidedd.org/spell/healing-word)*,
+      or *[Lesser Restoration](https://www.aidedd.org/spell/lesser-restoration)* ,
+      using the same spellcasting ability as Spellcasting.'
     senses: Passive Perception 15
     languages:
     - Common plus one other language
   fr:
     name: Prêtre
     subtype: Clerc
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Attaques multiples***. Le prêtre effectue deux attaques, réparties à sa guise entre Masse d'armes et Flamme radiante.
 
-      ***Masse d'armes***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 6 (1d6 + 3) dégâts contondants plus 5 (2d4) dégâts radiants.
+      ***Attaques multiples***. Le prêtre effectue deux attaques, réparties à sa guise
+      entre Masse d''armes et Flamme radiante.
 
-      ***Flamme radiante***. *À distance* : +5, portée 18 m. *Touché* : 11 (2d10) dégâts radiants.
 
-      ***Incantation***. Le prêtre lance l'un des sorts suivants, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 13) :
+      ***Masse d''armes***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 6 (1d6
+      + 3) dégâts contondants plus 5 (2d4) dégâts radiants.
+
+
+      ***Flamme radiante***. *À distance* : +5, portée 18 m. *Touché* : 11 (2d10)
+      dégâts radiants.
+
+
+      ***Incantation***. Le prêtre lance l''un des sorts suivants, la Sagesse étant
+      sa caractéristique d''incantation (DD de sauvegarde 13) :
+
 
       À volonté : *lumière,[thaumaturgie](https://www.aidedd.org/spell/fr/thaumaturgie)*
-      
+
+
       1/jour : *esprits gardiens*
+
 
       ## Actions Bonus
 
-      ***Soutien divin (3/jour)***. Le prêtre lance *bénédiction,[dissipation de la magie](https://www.aidedd.org/spell/fr/dissipation-de-la-magie), mot de guérison* ou *restauration partielle* , avec la même caractéristique d'incantation que pour Incantation.
+
+      ***Soutien divin (3/jour)***. Le prêtre lance *bénédiction,[dissipation de la
+      magie](https://www.aidedd.org/spell/fr/dissipation-de-la-magie), mot de guérison*
+      ou *restauration partielle* , avec la même caractéristique d''incantation que
+      pour Incantation.'
     senses: Perception passive 15
     languages:
     - commun plus une autre langue

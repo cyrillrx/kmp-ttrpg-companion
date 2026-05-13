@@ -8,24 +8,15 @@ armorClass: 16
 maxHitPoints: 189
 hitDice: 18d12+72
 abilities:
-  str:
-    value: 21
-    savingThrowProficiency: none
-  dex:
-    value: 19
-    savingThrowProficiency: proficient
-  con:
-    value: 18
-    savingThrowProficiency: none
-  int:
-    value: 14
-    savingThrowProficiency: none
-  wis:
-    value: 12
-    savingThrowProficiency: proficient
-  cha:
-    value: 18
-    savingThrowProficiency: none
+  str: 21
+  dex: 19
+  con: 18
+  int: 14
+  wis: 12
+  cha: 18
+savingThrows:
+  dex: proficient
+  wis: proficient
 speeds:
   walk: 40
   fly: 80
@@ -88,34 +79,59 @@ translations:
   en:
     name: Shadow Dragon
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Legendary Resistance (3/Day, or 4/Day in Lair)***. If the dragon fails a saving throw, it can choose to succeed instead.
 
-      ***Living Shadow***. While in Dim Light or Darkness, the dragon has Resistance to damage that isn't Force, Psychic, or Radiant.
+      ***Legendary Resistance (3/Day, or 4/Day in Lair)***. If the dragon fails a
+      saving throw, it can choose to succeed instead.
 
-      ***Sunlight Sensitivity***. While in sunlight, the dragon has Disadvantage on ability checks and attack rolls.
+
+      ***Living Shadow***. While in Dim Light or Darkness, the dragon has Resistance
+      to damage that isn''t Force, Psychic, or Radiant.
+
+
+      ***Sunlight Sensitivity***. While in sunlight, the dragon has Disadvantage on
+      ability checks and attack rolls.
+
 
       ## Actions
 
+
       ***Multiattack***. The dragon makes three Rend attacks.
 
-      ***Rend***. *Melee Attack Roll* : +10, reach 10 ft. *Hit* : 12 (2d6 + 5) Slashing damage plus 3 (1d6) Necrotic damage.
 
-      ***Shadow Breath (Recharge 5–6)***. *Dexterity Saving Throw* : DC 17, each creature in a 60-foot Cone. *Failure* : 35 (10d6) Necrotic damage. *Success* : Half damage. *Failure or Success* : A Humanoid reduced to 0 Hit Points by this damage dies, and a Shadow rises from the corpse. The shadow is under the dragon's control and shares the dragon's Initiative count but acts immediately after the dragon.
+      ***Rend***. *Melee Attack Roll* : +10, reach 10 ft. *Hit* : 12 (2d6 + 5) Slashing
+      damage plus 3 (1d6) Necrotic damage.
+
+
+      ***Shadow Breath (Recharge 5–6)***. *Dexterity Saving Throw* : DC 17, each creature
+      in a 60-foot Cone. *Failure* : 35 (10d6) Necrotic damage. *Success* : Half damage.
+      *Failure or Success* : A Humanoid reduced to 0 Hit Points by this damage dies,
+      and a Shadow rises from the corpse. The shadow is under the dragon''s control
+      and shares the dragon''s Initiative count but acts immediately after the dragon.
+
 
       ## Bonus actions
 
-      ***Shadow Stealth***. While in Dim Light or Darkness, the dragon takes the Hide action.
+
+      ***Shadow Stealth***. While in Dim Light or Darkness, the dragon takes the Hide
+      action.
+
 
       ## Legendary actions
 
-      Legendary Action Uses: 3 (4 in Lair). Immediately after another creature's turn, the shadow dragon can expend a use to take one of the following actions. The shadow dragon regains all expended uses at the start of each of its turns.
+
+      Legendary Action Uses: 3 (4 in Lair). Immediately after another creature''s
+      turn, the shadow dragon can expend a use to take one of the following actions.
+      The shadow dragon regains all expended uses at the start of each of its turns.
+
 
       ***Pounce***. The dragon moves up to half its Speed, and it makes one Rend attack.
 
-      ***Veil of Shadow***. The dragon uses Shadow Stealth, and one creature of its choice that it can see within 10 feet of it takes 10 (3d6) Necrotic damage. The dragon can't take this action again until the start of its next turn.
+
+      ***Veil of Shadow***. The dragon uses Shadow Stealth, and one creature of its
+      choice that it can see within 10 feet of it takes 10 (3d6) Necrotic damage.
+      The dragon can''t take this action again until the start of its next turn.'
     senses: Blindsight 30 ft., Darkvision 120 ft., Passive Perception 21
     languages:
     - Common
@@ -123,34 +139,46 @@ translations:
   fr:
     name: Dragon d'ombre
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
+
 
       Résistance légendaire (3/jour, ou 4/jour dans son antre).
-      
+
+
       Ombre vivante.
-      
+
+
       Sensibilité au soleil.
+
 
       ## Actions
 
+
       Attaques multiples.
-      
+
+
       Saignée.
-      
-      Souffle d'ombre (recharge 5–6).
+
+
+      Souffle d''ombre (recharge 5–6).
+
 
       ## Actions Bonus
 
+
       Discrétion dans les ombres
+
 
       ## Actions Légendaires
 
-      Utilisations d'action Légendaire : 3 (4 dans son antre).
+
+      Utilisations d''action Légendaire : 3 (4 dans son antre).
+
 
       Assaut incisif.
-      
-      Voile d'ombre.
+
+
+      Voile d''ombre.'
     senses: Vision aveugle 9 m, Vision dans le noir 36 m, Perception passive 21
     languages:
     - commun

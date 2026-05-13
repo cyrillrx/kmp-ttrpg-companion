@@ -8,24 +8,12 @@ armorClass: 12
 maxHitPoints: 22
 hitDice: 4d10
 abilities:
-  str:
-    value: 17
-    savingThrowProficiency: none
-  dex:
-    value: 15
-    savingThrowProficiency: none
-  con:
-    value: 11
-    savingThrowProficiency: none
-  int:
-    value: 3
-    savingThrowProficiency: none
-  wis:
-    value: 12
-    savingThrowProficiency: none
-  cha:
-    value: 8
-    savingThrowProficiency: none
+  str: 17
+  dex: 15
+  con: 11
+  int: 3
+  wis: 12
+  cha: 8
 speeds:
   walk: 50
   fly: null
@@ -88,40 +76,64 @@ translations:
   en:
     name: Lion
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Pack Tactics***. The lion has Advantage on an attack roll against a creature if at least one of the lion's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.
 
-      ***Running Leap***. With a 10-foot running start, the lion can Long Jump up to 25 feet.
+      ***Pack Tactics***. The lion has Advantage on an attack roll against a creature
+      if at least one of the lion''s allies is within 5 feet of the creature and the
+      ally doesn''t have the Incapacitated condition.
+
+
+      ***Running Leap***. With a 10-foot running start, the lion can Long Jump up
+      to 25 feet.
+
 
       ## Actions
 
-      ***Multiattack***. The lion makes two Rend attacks. It can replace one of these attacks with a use of Roar.
 
-      ***Rend***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 7 (1d8 + 3) Slashing damage.
+      ***Multiattack***. The lion makes two Rend attacks. It can replace one of these
+      attacks with a use of Roar.
 
-      ***Roar***. *Wisdom Saving Throw* : DC 11, one creature within 15 feet. *Failure* : The target has the Frightened condition until the start of the lion's next turn.
+
+      ***Rend***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 7 (1d8 + 3) Slashing
+      damage.
+
+
+      ***Roar***. *Wisdom Saving Throw* : DC 11, one creature within 15 feet. *Failure*
+      : The target has the Frightened condition until the start of the lion''s next
+      turn.'
     senses: Darkvision 60 ft., Passive Perception 13
     languages:
     - None
   fr:
     name: Lion
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Tactique de meute***. Le lion a un Avantage aux jets d'attaque contre une créature si au moins un de ses alliés est à 1,50 m ou moins de la créature et que l'allié n'a pas l'état Incapable d'agir.
 
-      ***Saut avec élan***. Avec un élan 3 m, le lion peut sauter en longueur jusqu'à 7,50 m.
+      ***Tactique de meute***. Le lion a un Avantage aux jets d''attaque contre une
+      créature si au moins un de ses alliés est à 1,50 m ou moins de la créature et
+      que l''allié n''a pas l''état Incapable d''agir.
+
+
+      ***Saut avec élan***. Avec un élan 3 m, le lion peut sauter en longueur jusqu''à
+      7,50 m.
+
 
       ## Actions
 
-      ***Attaques multiples***. Le lion effectue deux attaques de Saignée. Il peut remplacer l'une de ces attaques par une utilisation de Rugissement.
 
-      ***Saignée***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 7 (1d8 + 3) dégâts tranchants.
+      ***Attaques multiples***. Le lion effectue deux attaques de Saignée. Il peut
+      remplacer l''une de ces attaques par une utilisation de Rugissement.
 
-      ***Rugissement***. *JdS Sagesse* : DD 11, une créature dans un rayon de 4,50 m. *Échec* : la cible subit l'état Effrayé jusqu'au début du prochain tour du lion.
+
+      ***Saignée***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 7 (1d8 + 3)
+      dégâts tranchants.
+
+
+      ***Rugissement***. *JdS Sagesse* : DD 11, une créature dans un rayon de 4,50
+      m. *Échec* : la cible subit l''état Effrayé jusqu''au début du prochain tour
+      du lion.'
     senses: Vision dans le noir 18 m, Perception passive 13
     languages:
     - aucune

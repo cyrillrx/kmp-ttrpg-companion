@@ -8,24 +8,14 @@ armorClass: 14
 maxHitPoints: 82
 hitDice: 11d10+22
 abilities:
-  str:
-    value: 21
-    savingThrowProficiency: proficient
-  dex:
-    value: 7
-    savingThrowProficiency: none
-  con:
-    value: 15
-    savingThrowProficiency: none
-  int:
-    value: 2
-    savingThrowProficiency: none
-  wis:
-    value: 12
-    savingThrowProficiency: none
-  cha:
-    value: 4
-    savingThrowProficiency: none
+  str: 21
+  dex: 7
+  con: 15
+  int: 2
+  wis: 12
+  cha: 4
+savingThrows:
+  str: proficient
 speeds:
   walk: 30
   fly: null
@@ -88,32 +78,40 @@ translations:
   en:
     name: Hippopotamus
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
+
 
       ***Hold Breath***. The hippopotamus can hold its breath for 10 minutes.
 
+
       ## Actions
+
 
       ***Multiattack***. The hippopotamus makes two Bite attacks.
 
-      ***Bite***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 16 (2d10 + 5) Piercing damage.
+
+      ***Bite***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 16 (2d10 + 5) Piercing
+      damage.'
     senses: Passive Perception 13
     languages:
     - None
   fr:
     name: Hippopotame
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Apnée***. L'hippopotame peut retenir son souffle pendant 10 minutes.
+
+      ***Apnée***. L''hippopotame peut retenir son souffle pendant 10 minutes.
+
 
       ## Actions
 
-      ***Attaques multiples***. L'hippopotame effectue deux attaques de Morsure.
 
-      ***Morsure***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 16 (2d10 + 5) dégâts perforants.
+      ***Attaques multiples***. L''hippopotame effectue deux attaques de Morsure.
+
+
+      ***Morsure***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 16 (2d10 + 5)
+      dégâts perforants.'
     senses: Perception passive 13
     languages:
     - aucune

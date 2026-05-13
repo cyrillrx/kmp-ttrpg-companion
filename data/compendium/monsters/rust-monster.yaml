@@ -8,24 +8,12 @@ armorClass: 14
 maxHitPoints: 33
 hitDice: 6d8+6
 abilities:
-  str:
-    value: 13
-    savingThrowProficiency: none
-  dex:
-    value: 12
-    savingThrowProficiency: none
-  con:
-    value: 13
-    savingThrowProficiency: none
-  int:
-    value: 2
-    savingThrowProficiency: none
-  wis:
-    value: 13
-    savingThrowProficiency: none
-  cha:
-    value: 6
-    savingThrowProficiency: none
+  str: 13
+  dex: 12
+  con: 13
+  int: 2
+  wis: 13
+  cha: 6
 speeds:
   walk: 40
   fly: null
@@ -88,46 +76,84 @@ translations:
   en:
     name: Rust Monster
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Iron Scent***. The rust monster can pinpoint the location of ferrous metal within 30 feet of itself.
+
+      ***Iron Scent***. The rust monster can pinpoint the location of ferrous metal
+      within 30 feet of itself.
+
 
       ## Actions
 
-      ***Multiattack***. The rust monster makes one Bite attack and uses Antennae twice.
 
-      ***Bite***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 5 (1d8 + 1) Piercing damage.
+      ***Multiattack***. The rust monster makes one Bite attack and uses Antennae
+      twice.
 
-      ***Antennae***. The rust monster targets one nonmagical metal object—armor or a weapon—worn or carried by a creature within 5 feet of itself. *Dexterity Saving Throw* : DC 11, the creature with the object. *Failure* : The object takes a −1 penalty to the AC it offers (armor) or to its attack rolls (weapon). Armor is destroyed if the penalty reduces its AC to 10, and a weapon is destroyed if its penalty reaches −5. The penalty can be removed by casting the *[Mending](https://www.aidedd.org/spell/mending)* spell on the armor or weapon.
 
-      ***Destroy Metal***. The rust monster touches a nonmagical metal object within 5 feet of itself that isn't being worn or carried. The touch destroys a 1-foot Cube of the object.
+      ***Bite***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 5 (1d8 + 1) Piercing
+      damage.
+
+
+      ***Antennae***. The rust monster targets one nonmagical metal object—armor or
+      a weapon—worn or carried by a creature within 5 feet of itself. *Dexterity Saving
+      Throw* : DC 11, the creature with the object. *Failure* : The object takes a
+      −1 penalty to the AC it offers (armor) or to its attack rolls (weapon). Armor
+      is destroyed if the penalty reduces its AC to 10, and a weapon is destroyed
+      if its penalty reaches −5. The penalty can be removed by casting the *[Mending](https://www.aidedd.org/spell/mending)*
+      spell on the armor or weapon.
+
+
+      ***Destroy Metal***. The rust monster touches a nonmagical metal object within
+      5 feet of itself that isn''t being worn or carried. The touch destroys a 1-foot
+      Cube of the object.
+
 
       ## Reactions
 
-      ***Reflexive Antennae***. *Trigger* : An attack roll hits the rust monster. *Response* : The rust monster uses Antennae.
+
+      ***Reflexive Antennae***. *Trigger* : An attack roll hits the rust monster.
+      *Response* : The rust monster uses Antennae.'
     senses: Darkvision 60 ft., Passive Perception 11
     languages: []
   fr:
     name: Oxydeur
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Perception du fer***. L'oxydeur perçoit précisément la position de tout métal ferreux dans un rayon de 9 m.
+
+      ***Perception du fer***. L''oxydeur perçoit précisément la position de tout
+      métal ferreux dans un rayon de 9 m.
+
 
       ## Actions
 
-      ***Attaques multiples***. L'oxydeur effectue une attaque de Morsure et recourt deux fois à Antennes.
 
-      ***Morsure***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 5 (1d8 + 1) dégâts perforants.
+      ***Attaques multiples***. L''oxydeur effectue une attaque de Morsure et recourt
+      deux fois à Antennes.
 
-      ***Antennes***. L'oxydeur cible un objet en métal non magique, armure ou arme, porté par une créature dans un rayon de 1,50 m. *JdS Dextérité* : DD 11, la créature porteuse de l'objet. *Échec* : l'objet subit un malus de −1 à la CA qu'il octroie (armure) ou à ses jets d'attaque (arme). L'armure est détruite si ce malus réduit sa CA à 10, et l'arme est détruite quand le malus cumulé atteint −5. On peut annuler ce malus en lançant le sort *réparation* sur l'arme ou l'armure concernée.
 
-      ***Destruction du métal***. L'oxydeur touche un objet en métal non magique dans un rayon de 1,50 m qui n'est porté par personne. Ce contact détruit un Cube de 30 cm de l'objet.
+      ***Morsure***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 5 (1d8 + 1)
+      dégâts perforants.
+
+
+      ***Antennes***. L''oxydeur cible un objet en métal non magique, armure ou arme,
+      porté par une créature dans un rayon de 1,50 m. *JdS Dextérité* : DD 11, la
+      créature porteuse de l''objet. *Échec* : l''objet subit un malus de −1 à la
+      CA qu''il octroie (armure) ou à ses jets d''attaque (arme). L''armure est détruite
+      si ce malus réduit sa CA à 10, et l''arme est détruite quand le malus cumulé
+      atteint −5. On peut annuler ce malus en lançant le sort *réparation* sur l''arme
+      ou l''armure concernée.
+
+
+      ***Destruction du métal***. L''oxydeur touche un objet en métal non magique
+      dans un rayon de 1,50 m qui n''est porté par personne. Ce contact détruit un
+      Cube de 30 cm de l''objet.
+
 
       ## Réactions
 
-      ***Antennes réactives***. *Déclencheur* : un jet d'attaque touche l'oxydeur. *Conséquences* : l'oxydeur recourt à Antennes.
+
+      ***Antennes réactives***. *Déclencheur* : un jet d''attaque touche l''oxydeur.
+      *Conséquences* : l''oxydeur recourt à Antennes.'
     senses: Vision dans le noir 18 m, Perception passive 11
     languages: []

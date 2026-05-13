@@ -8,24 +8,12 @@ armorClass: 14
 maxHitPoints: 26
 hitDice: 4d10+4
 abilities:
-  str:
-    value: 14
-    savingThrowProficiency: none
-  dex:
-    value: 16
-    savingThrowProficiency: none
-  con:
-    value: 12
-    savingThrowProficiency: none
-  int:
-    value: 2
-    savingThrowProficiency: none
-  wis:
-    value: 11
-    savingThrowProficiency: none
-  cha:
-    value: 4
-    savingThrowProficiency: none
+  str: 14
+  dex: 16
+  con: 12
+  int: 2
+  wis: 11
+  cha: 4
 speeds:
   walk: 30
   fly: null
@@ -88,36 +76,57 @@ translations:
   en:
     name: Giant Spider
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Spider Climb***. The spider can climb difficult surfaces, including along ceilings, without needing to make an ability check.
 
-      ***Web Walker***. The spider ignores movement restrictions caused by webs, and it knows the location of any other creature in contact with the same web.
+      ***Spider Climb***. The spider can climb difficult surfaces, including along
+      ceilings, without needing to make an ability check.
+
+
+      ***Web Walker***. The spider ignores movement restrictions caused by webs, and
+      it knows the location of any other creature in contact with the same web.
+
 
       ## Actions
 
-      ***Bite***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 7 (1d8 + 3) Piercing damage plus 7 (2d6) Poison damage.
 
-      ***Web (Recharge 5–6)***. *Dexterity Saving Throw* : DC 13, one creature the spider can see within 60 feet. *Failure* : The target has the Restrained condition until the web is destroyed (AC 10; HP 5; Vulnerability to Fire damage; Immunity to Poison and Psychic damage).
+      ***Bite***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 7 (1d8 + 3) Piercing
+      damage plus 7 (2d6) Poison damage.
+
+
+      ***Web (Recharge 5–6)***. *Dexterity Saving Throw* : DC 13, one creature the
+      spider can see within 60 feet. *Failure* : The target has the Restrained condition
+      until the web is destroyed (AC 10; HP 5; Vulnerability to Fire damage; Immunity
+      to Poison and Psychic damage).'
     senses: Darkvision 60 ft., Passive Perception 14
     languages:
     - None
   fr:
     name: Araignée géante
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Pattes d'araignée***. L'araignée peut parcourir les parois les plus difficiles à escalader, y compris les plafonds, sans passer par un jet de caractéristique.
 
-      ***Marche dans les toiles***. L'araignée ignore les restrictions de mouvement causées par une toile d'araignée, et connait l'emplacement de toutes les créatures qui sont en contact avec la même toile qu'elle.
+      ***Pattes d''araignée***. L''araignée peut parcourir les parois les plus difficiles
+      à escalader, y compris les plafonds, sans passer par un jet de caractéristique.
+
+
+      ***Marche dans les toiles***. L''araignée ignore les restrictions de mouvement
+      causées par une toile d''araignée, et connait l''emplacement de toutes les créatures
+      qui sont en contact avec la même toile qu''elle.
+
 
       ## Actions
 
-      ***Morsure***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 7 (1d8 + 3) dégâts perforants plus 7 (2d6) dégâts de poison.
 
-      ***Toile d'araignée (recharge 5–6)***. *JdS Dextérité* : DD 13, une créature que l'araignée peut voir dans un rayon de 18 m. *Échec* : la cible subit l'état Entravé jusqu'à ce que la toile d'araignée soit détruite (CA 10 ; Pv 5 ; Vulnérabilité aux dégâts du feu ; Immunité aux dégâts de poison et psychiques).
+      ***Morsure***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 7 (1d8 + 3)
+      dégâts perforants plus 7 (2d6) dégâts de poison.
+
+
+      ***Toile d''araignée (recharge 5–6)***. *JdS Dextérité* : DD 13, une créature
+      que l''araignée peut voir dans un rayon de 18 m. *Échec* : la cible subit l''état
+      Entravé jusqu''à ce que la toile d''araignée soit détruite (CA 10 ; Pv 5 ; Vulnérabilité
+      aux dégâts du feu ; Immunité aux dégâts de poison et psychiques).'
     senses: Vision dans le noir 18 m, Perception passive 14
     languages:
     - aucune

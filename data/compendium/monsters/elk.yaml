@@ -8,24 +8,12 @@ armorClass: 10
 maxHitPoints: 11
 hitDice: 2d10
 abilities:
-  str:
-    value: 16
-    savingThrowProficiency: none
-  dex:
-    value: 10
-    savingThrowProficiency: none
-  con:
-    value: 11
-    savingThrowProficiency: none
-  int:
-    value: 2
-    savingThrowProficiency: none
-  wis:
-    value: 10
-    savingThrowProficiency: none
-  cha:
-    value: 6
-    savingThrowProficiency: none
+  str: 16
+  dex: 10
+  con: 11
+  int: 2
+  wis: 10
+  cha: 6
 speeds:
   walk: 50
   fly: null
@@ -88,20 +76,27 @@ translations:
   en:
     name: Elk
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Ram***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 6 (1d6 + 3) Bludgeoning damage. If the elk moved at least 20 feet straight toward the target immediately before the hit, the target takes an extra 3 (1d6) Bludgeoning damage and, if it is Huge or smaller, has the Prone condition.
+
+      ***Ram***. *Melee Attack Roll* : +5, reach 5 ft. *Hit* : 6 (1d6 + 3) Bludgeoning
+      damage. If the elk moved at least 20 feet straight toward the target immediately
+      before the hit, the target takes an extra 3 (1d6) Bludgeoning damage and, if
+      it is Huge or smaller, has the Prone condition.'
     senses: Darkvision 60 ft., Passive Perception 12
     languages:
     - None
   fr:
     name: Élan / Grand cervidé
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Coup de bélier***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 6 (1d6 + 3) dégâts contondants. Si l'élan s'est déplacé d'au moins 6 m en ligne droite vers la cible juste avant de la toucher, la cible subit 3 (1d6) dégâts contondants supplémentaires et, si elle est de taille TG ou inférieure, elle subit l'état À terre.
+
+      ***Coup de bélier***. *Corps à corps* : +5, allonge 1,50 m. *Touché* : 6 (1d6
+      + 3) dégâts contondants. Si l''élan s''est déplacé d''au moins 6 m en ligne
+      droite vers la cible juste avant de la toucher, la cible subit 3 (1d6) dégâts
+      contondants supplémentaires et, si elle est de taille TG ou inférieure, elle
+      subit l''état À terre.'
     senses: Vision dans le noir 18 m, Perception passive 12
     languages:
     - aucune

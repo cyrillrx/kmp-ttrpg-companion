@@ -8,24 +8,12 @@ armorClass: 11
 maxHitPoints: 5
 hitDice: 1d8+1
 abilities:
-  str:
-    value: 11
-    savingThrowProficiency: none
-  dex:
-    value: 13
-    savingThrowProficiency: none
-  con:
-    value: 12
-    savingThrowProficiency: none
-  int:
-    value: 2
-    savingThrowProficiency: none
-  wis:
-    value: 12
-    savingThrowProficiency: none
-  cha:
-    value: 5
-    savingThrowProficiency: none
+  str: 11
+  dex: 13
+  con: 12
+  int: 2
+  wis: 12
+  cha: 5
 speeds:
   walk: 50
   fly: null
@@ -88,28 +76,37 @@ translations:
   en:
     name: Hyena
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Pack Tactics***. The hyena has Advantage on an attack roll against a creature if at least one of the hyena's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.
+
+      ***Pack Tactics***. The hyena has Advantage on an attack roll against a creature
+      if at least one of the hyena''s allies is within 5 feet of the creature and
+      the ally doesn''t have the Incapacitated condition.
+
 
       ## Actions
 
-      ***Bite***. *Melee Attack Roll* : +2, reach 5 ft. *Hit* : 3 (1d6) Piercing damage.
+
+      ***Bite***. *Melee Attack Roll* : +2, reach 5 ft. *Hit* : 3 (1d6) Piercing damage.'
     senses: Darkvision 60 ft., Passive Perception 13
     languages:
     - None
   fr:
     name: Hyène
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Tactique de meute***. Quand au moins un de ses alliés non Incapable d'agir se situe dans un rayon de 1,50 m de la créature qu'elle cible, la hyène a un Avantage au jet d'attaque correspondant.
+
+      ***Tactique de meute***. Quand au moins un de ses alliés non Incapable d''agir
+      se situe dans un rayon de 1,50 m de la créature qu''elle cible, la hyène a un
+      Avantage au jet d''attaque correspondant.
+
 
       ## Actions
 
-      ***Morsure***. *Corps à corps* : +2, allonge 1,50 m. *Touché* : 3 (1d6) dégâts perforants.
+
+      ***Morsure***. *Corps à corps* : +2, allonge 1,50 m. *Touché* : 3 (1d6) dégâts
+      perforants.'
     senses: Vision dans le noir 18 m, Perception passive 13
     languages:
     - aucune

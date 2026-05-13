@@ -8,24 +8,12 @@ armorClass: 16
 maxHitPoints: 22
 hitDice: 5d8
 abilities:
-  str:
-    value: 10
-    savingThrowProficiency: none
-  dex:
-    value: 12
-    savingThrowProficiency: none
-  con:
-    value: 11
-    savingThrowProficiency: none
-  int:
-    value: 14
-    savingThrowProficiency: none
-  wis:
-    value: 15
-    savingThrowProficiency: none
-  cha:
-    value: 18
-    savingThrowProficiency: none
+  str: 10
+  dex: 12
+  con: 11
+  int: 14
+  wis: 15
+  cha: 18
 speeds:
   walk: 30
   fly: null
@@ -88,30 +76,52 @@ translations:
   en:
     name: Dryad
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Magic Resistance***. The dryad has Advantage on saving throws against spells and other magical effects.
 
-      ***Speak with Beasts and Plants***. The dryad can communicate with Beasts and Plants as if they shared a language.
+      ***Magic Resistance***. The dryad has Advantage on saving throws against spells
+      and other magical effects.
+
+
+      ***Speak with Beasts and Plants***. The dryad can communicate with Beasts and
+      Plants as if they shared a language.
+
 
       ## Actions
 
-      ***Multiattack***. The dryad makes one Vine Lash or Thorn Burst attack, and it can use Spellcasting to cast *[Charm Monster](https://www.aidedd.org/spell/charm-monster)*.
 
-      ***Vine Lash***. *Melee Attack Roll* : +6, reach 10 ft. *Hit* : 8 (1d8 + 4) Slashing damage.
+      ***Multiattack***. The dryad makes one Vine Lash or Thorn Burst attack, and
+      it can use Spellcasting to cast *[Charm Monster](https://www.aidedd.org/spell/charm-monster)*.
 
-      ***Thorn Burst***. *Ranged Attack Roll* : +6, range 60 ft. *Hit* : 7 (1d6 + 4) Piercing damage.
 
-      ***Spellcasting***. The dryad casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 14):
+      ***Vine Lash***. *Melee Attack Roll* : +6, reach 10 ft. *Hit* : 8 (1d8 + 4)
+      Slashing damage.
 
-      At Will: *[Animal Friendship](https://www.aidedd.org/spell/animal-friendship), [Charm Monster](https://www.aidedd.org/spell/charm-monster)* (lasts 24 hours; ends early if the dryad casts the spell again), *[Druidcraft](https://www.aidedd.org/spell/druidcraft)*
-      
-      1/Day Each: *[Entangle](https://www.aidedd.org/spell/entangled), [Pass without Trace](https://www.aidedd.org/spell/pass-without-trace)*
+
+      ***Thorn Burst***. *Ranged Attack Roll* : +6, range 60 ft. *Hit* : 7 (1d6 +
+      4) Piercing damage.
+
+
+      ***Spellcasting***. The dryad casts one of the following spells, requiring no
+      Material components and using Charisma as the spellcasting ability (spell save
+      DC 14):
+
+
+      At Will: *[Animal Friendship](https://www.aidedd.org/spell/animal-friendship),
+      [Charm Monster](https://www.aidedd.org/spell/charm-monster)* (lasts 24 hours;
+      ends early if the dryad casts the spell again), *[Druidcraft](https://www.aidedd.org/spell/druidcraft)*
+
+
+      1/Day Each: *[Entangle](https://www.aidedd.org/spell/entangled), [Pass without
+      Trace](https://www.aidedd.org/spell/pass-without-trace)*
+
 
       ## Bonus actions
 
-      ***Tree Stride***. If within 5 feet of a Large or bigger tree, the dryad teleports to an unoccupied space within 5 feet of a second Large or bigger tree that is within 60 feet of the previous tree.
+
+      ***Tree Stride***. If within 5 feet of a Large or bigger tree, the dryad teleports
+      to an unoccupied space within 5 feet of a second Large or bigger tree that is
+      within 60 feet of the previous tree.'
     senses: Darkvision 60 ft., Passive Perception 14
     languages:
     - Elvish
@@ -119,30 +129,52 @@ translations:
   fr:
     name: Dryade
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Communication avec les bêtes et les plantes***. La dryade peut communiquer avec les Bêtes et les Plantes comme si elles parlaient la même langue.
 
-      ***Résistance à la magie***. La dryade a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
+      ***Communication avec les bêtes et les plantes***. La dryade peut communiquer
+      avec les Bêtes et les Plantes comme si elles parlaient la même langue.
+
+
+      ***Résistance à la magie***. La dryade a un Avantage aux jets de sauvegarde
+      contre les sorts et autres effets magiques.
+
 
       ## Actions
 
-      ***Attaques multiples***. La dryade effectue une attaque de Vrille cinglante ou de Décharge d'épines, et peut recourir à Incantation pour lancer *charme-monstre*.
 
-      ***Vrille cinglante***. *Corps à corps* : +6, allonge 3 m. *Touché* : 8 (1d8 + 4) dégâts tranchants.
+      ***Attaques multiples***. La dryade effectue une attaque de Vrille cinglante
+      ou de Décharge d''épines, et peut recourir à Incantation pour lancer *charme-monstre*.
 
-      ***Décharge d'épines***. *À distance* : +6, portée 18 m. *Touché* : 7 (1d6 + 4) dégâts perforants.
 
-      ***Incantation***. La dryade lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 14) :
+      ***Vrille cinglante***. *Corps à corps* : +6, allonge 3 m. *Touché* : 8 (1d8
+      + 4) dégâts tranchants.
 
-      À volonté : *amitié avec les animaux, charme-monstre* (dure 24 heures ; se termine prématurément si la dryade relance le sort), *[druidisme](https://www.aidedd.org/spell/fr/druidisme)*
-      
-      1/jour chacun : *[enchevêtrement](https://www.aidedd.org/spell/fr/enchevetrement), [passage sans trace](https://www.aidedd.org/spell/fr/passage-sans-trace)*
+
+      ***Décharge d''épines***. *À distance* : +6, portée 18 m. *Touché* : 7 (1d6
+      + 4) dégâts perforants.
+
+
+      ***Incantation***. La dryade lance l''un des sorts suivants sans composantes
+      matérielles, le Charisme étant sa caractéristique d''incantation (DD de sauvegarde
+      14) :
+
+
+      À volonté : *amitié avec les animaux, charme-monstre* (dure 24 heures ; se termine
+      prématurément si la dryade relance le sort), *[druidisme](https://www.aidedd.org/spell/fr/druidisme)*
+
+
+      1/jour chacun : *[enchevêtrement](https://www.aidedd.org/spell/fr/enchevetrement),
+      [passage sans trace](https://www.aidedd.org/spell/fr/passage-sans-trace)*
+
 
       ## Actions Bonus
 
-      ***Passage par les arbres***. Si elle est dans un rayon de 1,50 m d'un arbre de taille G ou supérieure, la dryade se téléporte en un espace inoccupé à 1,50 m ou moins d'un autre arbre de taille G ou supérieure, dans un rayon de 18 m du premier.
+
+      ***Passage par les arbres***. Si elle est dans un rayon de 1,50 m d''un arbre
+      de taille G ou supérieure, la dryade se téléporte en un espace inoccupé à 1,50
+      m ou moins d''un autre arbre de taille G ou supérieure, dans un rayon de 18
+      m du premier.'
     senses: Vision dans le noir 18 m, Perception passive 14
     languages:
     - elfe

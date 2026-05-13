@@ -8,24 +8,12 @@ armorClass: 13
 maxHitPoints: 44
 hitDice: 8d8+8
 abilities:
-  str:
-    value: 14
-    savingThrowProficiency: none
-  dex:
-    value: 15
-    savingThrowProficiency: none
-  con:
-    value: 13
-    savingThrowProficiency: none
-  int:
-    value: 7
-    savingThrowProficiency: none
-  wis:
-    value: 12
-    savingThrowProficiency: none
-  cha:
-    value: 8
-    savingThrowProficiency: none
+  str: 14
+  dex: 15
+  con: 13
+  int: 7
+  wis: 12
+  cha: 8
 speeds:
   walk: 30
   fly: null
@@ -88,50 +76,89 @@ translations:
   en:
     name: Ettercap
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Spider Climb***. The ettercap can climb difficult surfaces, including along ceilings, without needing to make an ability check.
 
-      ***Web Walker***. The ettercap ignores movement restrictions caused by webs, and the ettercap knows the location of any other creature in contact with the same web.
+      ***Spider Climb***. The ettercap can climb difficult surfaces, including along
+      ceilings, without needing to make an ability check.
+
+
+      ***Web Walker***. The ettercap ignores movement restrictions caused by webs,
+      and the ettercap knows the location of any other creature in contact with the
+      same web.
+
 
       ## Actions
 
+
       ***Multiattack***. The ettercap makes one Bite attack and one Claw attack.
 
-      ***Bite***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 5 (1d6 + 2) Piercing damage plus 2 (1d4) Poison damage, and the target has the Poisoned condition until the start of the ettercap's next turn.
 
-      ***Claw***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 7 (2d4 + 2) Slashing damage.
+      ***Bite***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 5 (1d6 + 2) Piercing
+      damage plus 2 (1d4) Poison damage, and the target has the Poisoned condition
+      until the start of the ettercap''s next turn.
 
-      ***Web Strand (Recharge 5–6)***. *Dexterity Saving Throw* : DC 12, one Large or smaller creature the ettercap can see within 30 feet. *Failure* : The target has the Restrained condition until the web is destroyed (AC 10; HP 5; Vulnerability to Fire damage; Immunity to Bludgeoning, Poison, and Psychic damage).
+
+      ***Claw***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 7 (2d4 + 2) Slashing
+      damage.
+
+
+      ***Web Strand (Recharge 5–6)***. *Dexterity Saving Throw* : DC 12, one Large
+      or smaller creature the ettercap can see within 30 feet. *Failure* : The target
+      has the Restrained condition until the web is destroyed (AC 10; HP 5; Vulnerability
+      to Fire damage; Immunity to Bludgeoning, Poison, and Psychic damage).
+
 
       ## Bonus actions
 
-      ***Reel***. The ettercap pulls one creature within 30 feet of itself that is Restrained by its Web Strand up to 25 feet straight toward itself.
+
+      ***Reel***. The ettercap pulls one creature within 30 feet of itself that is
+      Restrained by its Web Strand up to 25 feet straight toward itself.'
     senses: Darkvision 60 ft., Passive Perception 13
     languages: []
   fr:
     name: Ettercap
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Marche dans les toiles***. L'ettercap n'est pas soumis aux contraintes de déplacement imposées par les toiles et connaît la position de toute autre créature en contact avec la même toile que lui.
 
-      ***Pattes d'araignée***. L'ettercap peut parcourir les parois les plus difficiles à escalader, y compris les plafonds, sans passer par un jet de caractéristique.
+      ***Marche dans les toiles***. L''ettercap n''est pas soumis aux contraintes
+      de déplacement imposées par les toiles et connaît la position de toute autre
+      créature en contact avec la même toile que lui.
+
+
+      ***Pattes d''araignée***. L''ettercap peut parcourir les parois les plus difficiles
+      à escalader, y compris les plafonds, sans passer par un jet de caractéristique.
+
 
       ## Actions
 
-      ***Attaques multiples***. L'ettercap effectue une attaque de Griffe et une de Morsure.
 
-      ***Griffe***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 7 (2d4 + 2) dégâts tranchants.
+      ***Attaques multiples***. L''ettercap effectue une attaque de Griffe et une
+      de Morsure.
 
-      ***Morsure***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 5 (1d6 + 2) dégâts perforants plus 2 (1d4) dégâts de poison, et la cible subit l'état Empoisonné jusqu'au début du tour suivant de l'ettercap.
 
-      ***Filandre (recharge 5–6)***. *JdS Dextérité* : DD 12, une créature de taille G ou inférieure que l'ettercap voit dans un rayon de 9 m. *Échec* : la cible subit l'état Entravé jusqu'à ce que la filandre soit détruite (CA 10 ; 5 pv ; Vulnérabilité aux dégâts de feu ; Immunité contre les dégâts contondants, psychiques et de poison).
+      ***Griffe***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 7 (2d4 + 2) dégâts
+      tranchants.
+
+
+      ***Morsure***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 5 (1d6 + 2)
+      dégâts perforants plus 2 (1d4) dégâts de poison, et la cible subit l''état Empoisonné
+      jusqu''au début du tour suivant de l''ettercap.
+
+
+      ***Filandre (recharge 5–6)***. *JdS Dextérité* : DD 12, une créature de taille
+      G ou inférieure que l''ettercap voit dans un rayon de 9 m. *Échec* : la cible
+      subit l''état Entravé jusqu''à ce que la filandre soit détruite (CA 10 ; 5 pv
+      ; Vulnérabilité aux dégâts de feu ; Immunité contre les dégâts contondants,
+      psychiques et de poison).
+
 
       ## Actions Bonus
 
-      ***Traction***. L'ettercap tire vers lui en ligne droite une créature Entravée par sa Filandre et située dans un rayon de 9 m, en la déplaçant d'un maximum de 7,50 m.
+
+      ***Traction***. L''ettercap tire vers lui en ligne droite une créature Entravée
+      par sa Filandre et située dans un rayon de 9 m, en la déplaçant d''un maximum
+      de 7,50 m.'
     senses: Vision dans le noir 18 m, Perception passive 13
     languages: []

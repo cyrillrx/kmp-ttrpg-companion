@@ -8,24 +8,12 @@ armorClass: 14
 maxHitPoints: 7
 hitDice: 3d6-3
 abilities:
-  str:
-    value: 7
-    savingThrowProficiency: none
-  dex:
-    value: 15
-    savingThrowProficiency: none
-  con:
-    value: 9
-    savingThrowProficiency: none
-  int:
-    value: 8
-    savingThrowProficiency: none
-  wis:
-    value: 7
-    savingThrowProficiency: none
-  cha:
-    value: 8
-    savingThrowProficiency: none
+  str: 7
+  dex: 15
+  con: 9
+  int: 8
+  wis: 7
+  cha: 8
 speeds:
   walk: 30
   fly: null
@@ -88,16 +76,23 @@ translations:
   en:
     name: Kobold Warrior
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Pack Tactics***. The kobold has Advantage on an attack roll against a creature if at least one of the kobold's allies is within 5 feet of the creature and the ally doesn't have the Incapacitated condition.
 
-      ***Sunlight Sensitivity***. While in sunlight, the kobold has Disadvantage on ability checks and attack rolls.
+      ***Pack Tactics***. The kobold has Advantage on an attack roll against a creature
+      if at least one of the kobold''s allies is within 5 feet of the creature and
+      the ally doesn''t have the Incapacitated condition.
+
+
+      ***Sunlight Sensitivity***. While in sunlight, the kobold has Disadvantage on
+      ability checks and attack rolls.
+
 
       ## Actions
 
-      ***Dagger***. *Melee or Ranged Attack Roll* : +4, reach 5 ft. or range 20/60 ft. *Hit* : 4 (1d4 + 2) Piercing damage.
+
+      ***Dagger***. *Melee or Ranged Attack Roll* : +4, reach 5 ft. or range 20/60
+      ft. *Hit* : 4 (1d4 + 2) Piercing damage.'
     senses: Darkvision 60 ft., Passive Perception 8
     languages:
     - Common
@@ -105,16 +100,23 @@ translations:
   fr:
     name: Kobold, combattant
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Sensibilité au soleil***. Tant qu'il est exposé à la lumière du soleil, le kobold subit un Désavantage aux jets de caractéristique et aux jets d'attaque.
 
-      ***Tactique de meute***. Quand au moins un de ses alliés non Incapable d'agir se situe dans un rayon de 1,50 m de la créature qu'il cible, le kobold a un Avantage au jet d'attaque correspondant.
+      ***Sensibilité au soleil***. Tant qu''il est exposé à la lumière du soleil,
+      le kobold subit un Désavantage aux jets de caractéristique et aux jets d''attaque.
+
+
+      ***Tactique de meute***. Quand au moins un de ses alliés non Incapable d''agir
+      se situe dans un rayon de 1,50 m de la créature qu''il cible, le kobold a un
+      Avantage au jet d''attaque correspondant.
+
 
       ## Actions
 
-      ***Dague***. *Corps à corps ou à distance* : +4, allonge 1,50 m ou portée 6/18 m. *Touché* : 4 (1d4 + 2) dégâts perforants.
+
+      ***Dague***. *Corps à corps ou à distance* : +4, allonge 1,50 m ou portée 6/18
+      m. *Touché* : 4 (1d4 + 2) dégâts perforants.'
     senses: Vision dans le noir 18 m, Perception passive 8
     languages:
     - commun

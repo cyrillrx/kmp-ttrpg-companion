@@ -8,24 +8,12 @@ armorClass: 12
 maxHitPoints: 97
 hitDice: 13d10+26
 abilities:
-  str:
-    value: 18
-    savingThrowProficiency: none
-  dex:
-    value: 14
-    savingThrowProficiency: none
-  con:
-    value: 15
-    savingThrowProficiency: none
-  int:
-    value: 11
-    savingThrowProficiency: none
-  wis:
-    value: 17
-    savingThrowProficiency: none
-  cha:
-    value: 16
-    savingThrowProficiency: none
+  str: 18
+  dex: 14
+  con: 15
+  int: 11
+  wis: 17
+  cha: 16
 speeds:
   walk: 50
   fly: null
@@ -88,38 +76,72 @@ translations:
   en:
     name: Unicorn
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Legendary Resistance (3/Day)***. If the unicorn fails a saving throw, it can choose to succeed instead.
 
-      ***Magic Resistance***. The unicorn has Advantage on saving throws against spells and other magical effects.
+      ***Legendary Resistance (3/Day)***. If the unicorn fails a saving throw, it
+      can choose to succeed instead.
+
+
+      ***Magic Resistance***. The unicorn has Advantage on saving throws against spells
+      and other magical effects.
+
 
       ## Actions
 
-      ***Multiattack***. The unicorn makes one Hooves attack and one Radiant Horn attack.
 
-      ***Hooves***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 11 (2d6 + 4) Bludgeoning damage.
+      ***Multiattack***. The unicorn makes one Hooves attack and one Radiant Horn
+      attack.
 
-      ***Radiant Horn***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 9 (1d10 + 4) Radiant damage.
 
-      ***Spellcasting***. The unicorn casts one of the following spells, requiring no spell components and using Charisma as the spellcasting ability (spell save DC 14):
+      ***Hooves***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 11 (2d6 + 4) Bludgeoning
+      damage.
 
-      At Will: *[Detect Evil and Good](https://www.aidedd.org/spell/detect-evil-and-good), [Druidcraft](https://www.aidedd.org/spell/druidcraft)*
-      
-      1/Day Each: *[Calm Emotions](https://www.aidedd.org/spell/calm-emotions), [Dispel Evil and Good](https://www.aidedd.org/spell/dispel-evil-and-good), [Entangle](https://www.aidedd.org/spell/entangled), [Pass without Trace](https://www.aidedd.org/spell/pass-without-trace), [Word of Recall](https://www.aidedd.org/spell/word-of-recall)*
+
+      ***Radiant Horn***. *Melee Attack Roll* : +7, reach 5 ft. *Hit* : 9 (1d10 +
+      4) Radiant damage.
+
+
+      ***Spellcasting***. The unicorn casts one of the following spells, requiring
+      no spell components and using Charisma as the spellcasting ability (spell save
+      DC 14):
+
+
+      At Will: *[Detect Evil and Good](https://www.aidedd.org/spell/detect-evil-and-good),
+      [Druidcraft](https://www.aidedd.org/spell/druidcraft)*
+
+
+      1/Day Each: *[Calm Emotions](https://www.aidedd.org/spell/calm-emotions), [Dispel
+      Evil and Good](https://www.aidedd.org/spell/dispel-evil-and-good), [Entangle](https://www.aidedd.org/spell/entangled),
+      [Pass without Trace](https://www.aidedd.org/spell/pass-without-trace), [Word
+      of Recall](https://www.aidedd.org/spell/word-of-recall)*
+
 
       ## Bonus actions
 
-      ***Unicorn's Blessing (3/Day)***. The unicorn touches another creature with its horn and casts *[Cure Wounds](https://www.aidedd.org/spell/cure-wounds)* or *[Lesser Restoration](https://www.aidedd.org/spell/lesser-restoration)* on that creature, using the same spellcasting ability as Spellcasting.
+
+      ***Unicorn''s Blessing (3/Day)***. The unicorn touches another creature with
+      its horn and casts *[Cure Wounds](https://www.aidedd.org/spell/cure-wounds)*
+      or *[Lesser Restoration](https://www.aidedd.org/spell/lesser-restoration)* on
+      that creature, using the same spellcasting ability as Spellcasting.
+
 
       ## Legendary actions
 
-      Legendary Action Uses: 3. Immediately after another creature's turn, the unicorn can expend a use to take one of the following actions. The unicorn regains all expended uses at the start of each of its turns.
 
-      ***Charging Horn***. The unicorn moves up to half its Speed without provoking Opportunity Attacks, and it makes one Radiant Horn attack.
+      Legendary Action Uses: 3. Immediately after another creature''s turn, the unicorn
+      can expend a use to take one of the following actions. The unicorn regains all
+      expended uses at the start of each of its turns.
 
-      ***Shimmering Shield***. The unicorn targets itself or one creature it can see within 60 feet of itself. The target gains 10 (3d6) Temporary Hit Points, and its AC increases by 2 until the end of the unicorn's next turn. The unicorn can't take this action again until the start of its next turn.
+
+      ***Charging Horn***. The unicorn moves up to half its Speed without provoking
+      Opportunity Attacks, and it makes one Radiant Horn attack.
+
+
+      ***Shimmering Shield***. The unicorn targets itself or one creature it can see
+      within 60 feet of itself. The target gains 10 (3d6) Temporary Hit Points, and
+      its AC increases by 2 until the end of the unicorn''s next turn. The unicorn
+      can''t take this action again until the start of its next turn.'
     senses: Darkvision 60 ft., Passive Perception 13
     languages:
     - Celestial
@@ -128,38 +150,72 @@ translations:
   fr:
     name: Licorne
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Résistance à la magie***. La licorne a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
 
-      ***Résistance légendaire (3/jour)***. Si la licorne rate un jet de sauvegarde, elle peut décider de le réussir tout de même.
+      ***Résistance à la magie***. La licorne a un Avantage aux jets de sauvegarde
+      contre les sorts et autres effets magiques.
+
+
+      ***Résistance légendaire (3/jour)***. Si la licorne rate un jet de sauvegarde,
+      elle peut décider de le réussir tout de même.
+
 
       ## Actions
 
-      ***Attaques multiples***. La licorne effectue une attaque de Corne radiante et une de Sabots.
 
-      ***Corne radiante***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 9 (1d10 + 4) dégâts radiants.
+      ***Attaques multiples***. La licorne effectue une attaque de Corne radiante
+      et une de Sabots.
 
-      ***Sabots***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 11 (2d6 + 4) dégâts contondants.
 
-      ***Incantation***. La licorne lance l'un des sorts suivants, sans composantes de sort, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 14) :
+      ***Corne radiante***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 9 (1d10
+      + 4) dégâts radiants.
 
-      À volonté : *[détection du mal et du bien](https://www.aidedd.org/spell/fr/detection-du-mal-et-du-bien), [druidisme](https://www.aidedd.org/spell/fr/druidisme)*
-      
-      1/jour chacun : *apaisement des émotions,[dissipation du mal et du bien](https://www.aidedd.org/spell/fr/dissipation-du-mal-et-du-bien), [enchevêtrement](https://www.aidedd.org/spell/fr/enchevetrement), mot de retour, [passage sans trace](https://www.aidedd.org/spell/fr/passage-sans-trace)*
+
+      ***Sabots***. *Corps à corps* : +7, allonge 1,50 m. *Touché* : 11 (2d6 + 4)
+      dégâts contondants.
+
+
+      ***Incantation***. La licorne lance l''un des sorts suivants, sans composantes
+      de sort, le Charisme étant sa caractéristique d''incantation (DD de sauvegarde
+      14) :
+
+
+      À volonté : *[détection du mal et du bien](https://www.aidedd.org/spell/fr/detection-du-mal-et-du-bien),
+      [druidisme](https://www.aidedd.org/spell/fr/druidisme)*
+
+
+      1/jour chacun : *apaisement des émotions,[dissipation du mal et du bien](https://www.aidedd.org/spell/fr/dissipation-du-mal-et-du-bien),
+      [enchevêtrement](https://www.aidedd.org/spell/fr/enchevetrement), mot de retour,
+      [passage sans trace](https://www.aidedd.org/spell/fr/passage-sans-trace)*
+
 
       ## Actions Bonus
 
-      ***Faveur de la licorne (3/jour)***. La licorne touche physiquement une autre créature avec sa corne et lance *restauration partielle* ou *soins* sur cette créature, avec la même caractéristique d'incantation que pour Incantation.
+
+      ***Faveur de la licorne (3/jour)***. La licorne touche physiquement une autre
+      créature avec sa corne et lance *restauration partielle* ou *soins* sur cette
+      créature, avec la même caractéristique d''incantation que pour Incantation.
+
 
       ## Actions Légendaires
 
-      Utilisations d'action Légendaire : 3. Aussitôt après le tour d'une autre créature, la licorne peut dépenser une utilisation pour entreprendre l'une des actions ci-après. La licorne récupère toutes ses utilisations dépensées au début de chacun de ses tours.
 
-      ***Corne la première***. La licorne se déplace à concurrence de la moitié de sa Vitesse sans provoquer d'attaque d'Opportunité, et elle effectue une attaque de Corne radiante.
+      Utilisations d''action Légendaire : 3. Aussitôt après le tour d''une autre créature,
+      la licorne peut dépenser une utilisation pour entreprendre l''une des actions
+      ci-après. La licorne récupère toutes ses utilisations dépensées au début de
+      chacun de ses tours.
 
-      ***Pavois chatoyant***. La licorne cible une créature qu'elle voit dans un rayon de 18 m (ou bien elle-même). La cible reçoit 10 (3d6) points de vie temporaires et sa CA augmente de 2 jusqu'à la fin du tour suivant de la licorne. La licorne ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.
+
+      ***Corne la première***. La licorne se déplace à concurrence de la moitié de
+      sa Vitesse sans provoquer d''attaque d''Opportunité, et elle effectue une attaque
+      de Corne radiante.
+
+
+      ***Pavois chatoyant***. La licorne cible une créature qu''elle voit dans un
+      rayon de 18 m (ou bien elle-même). La cible reçoit 10 (3d6) points de vie temporaires
+      et sa CA augmente de 2 jusqu''à la fin du tour suivant de la licorne. La licorne
+      ne peut alors plus entreprendre cette action jusqu''au début de son tour suivant.'
     senses: Vision dans le noir 18 m, Perception passive 13
     languages:
     - céleste

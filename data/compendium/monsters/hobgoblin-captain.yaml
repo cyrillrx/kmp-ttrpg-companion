@@ -8,24 +8,12 @@ armorClass: 17
 maxHitPoints: 58
 hitDice: 9d8+18
 abilities:
-  str:
-    value: 15
-    savingThrowProficiency: none
-  dex:
-    value: 14
-    savingThrowProficiency: none
-  con:
-    value: 14
-    savingThrowProficiency: none
-  int:
-    value: 12
-    savingThrowProficiency: none
-  wis:
-    value: 10
-    savingThrowProficiency: none
-  cha:
-    value: 13
-    savingThrowProficiency: none
+  str: 15
+  dex: 14
+  con: 14
+  int: 12
+  wis: 10
+  cha: 13
 speeds:
   walk: 30
   fly: null
@@ -88,18 +76,27 @@ translations:
   en:
     name: Hobgoblin Captain
     subtype: Goblinoid
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Aura of Authority***. While in a 10-foot Emanation originating from the hobgoblin, the hobgoblin and its allies have Advantage on attack rolls and saving throws, provided the hobgoblin doesn't have the Incapacitated condition.
+
+      ***Aura of Authority***. While in a 10-foot Emanation originating from the hobgoblin,
+      the hobgoblin and its allies have Advantage on attack rolls and saving throws,
+      provided the hobgoblin doesn''t have the Incapacitated condition.
+
 
       ## Actions
 
-      ***Multiattack***. The hobgoblin makes two attacks, using Greatsword or Longbow in any combination.
 
-      ***Greatsword***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 9 (2d6 + 2) Slashing damage plus 3 (1d6) Poison damage.
+      ***Multiattack***. The hobgoblin makes two attacks, using Greatsword or Longbow
+      in any combination.
 
-      ***Longbow***. *Ranged Attack Roll* : +4, range 150/600 ft. *Hit* : 6 (1d8 + 2) Piercing damage plus 5 (2d4) Poison damage.
+
+      ***Greatsword***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 9 (2d6 + 2)
+      Slashing damage plus 3 (1d6) Poison damage.
+
+
+      ***Longbow***. *Ranged Attack Roll* : +4, range 150/600 ft. *Hit* : 6 (1d8 +
+      2) Piercing damage plus 5 (2d4) Poison damage.'
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - Common
@@ -107,18 +104,28 @@ translations:
   fr:
     name: Hobgobelin, capitaine
     subtype: Gobelinoïde
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Aura d'autorité***. Tant qu'ils se trouvent dans une Émanation de 3 m centrée sur le hobgobelin et à condition que celui-ci ne subisse pas l'état Incapable d'agir, le hobgobelin et ses alliés ont un Avantage aux jets d'attaque et jets de sauvegarde.
+
+      ***Aura d''autorité***. Tant qu''ils se trouvent dans une Émanation de 3 m centrée
+      sur le hobgobelin et à condition que celui-ci ne subisse pas l''état Incapable
+      d''agir, le hobgobelin et ses alliés ont un Avantage aux jets d''attaque et
+      jets de sauvegarde.
+
 
       ## Actions
 
-      ***Attaques multiples***. Le hobgobelin effectue deux attaques, réparties à sa guise entre Épée à deux mains et Arc long.
 
-      ***Épée à deux mains***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 9 (2d6 + 2) dégâts tranchants plus 3 (1d6) dégâts de poison.
+      ***Attaques multiples***. Le hobgobelin effectue deux attaques, réparties à
+      sa guise entre Épée à deux mains et Arc long.
 
-      ***Arc long***. *À distance* : +4, portée 45/180 m. *Touché* : 6 (1d8 + 2) dégâts perforants plus 5 (2d4) dégâts de poison.
+
+      ***Épée à deux mains***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 9
+      (2d6 + 2) dégâts tranchants plus 3 (1d6) dégâts de poison.
+
+
+      ***Arc long***. *À distance* : +4, portée 45/180 m. *Touché* : 6 (1d8 + 2) dégâts
+      perforants plus 5 (2d4) dégâts de poison.'
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - commun

@@ -8,24 +8,12 @@ armorClass: 14
 maxHitPoints: 10
 hitDice: 3d4+3
 abilities:
-  str:
-    value: 6
-    savingThrowProficiency: none
-  dex:
-    value: 15
-    savingThrowProficiency: none
-  con:
-    value: 13
-    savingThrowProficiency: none
-  int:
-    value: 10
-    savingThrowProficiency: none
-  wis:
-    value: 12
-    savingThrowProficiency: none
-  cha:
-    value: 10
-    savingThrowProficiency: none
+  str: 6
+  dex: 15
+  con: 13
+  int: 10
+  wis: 12
+  cha: 10
 speeds:
   walk: 15
   fly: 60
@@ -88,36 +76,57 @@ translations:
   en:
     name: Pseudodragon
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Magic Resistance***. The pseudodragon has Advantage on saving throws against spells and other magical effects.
+
+      ***Magic Resistance***. The pseudodragon has Advantage on saving throws against
+      spells and other magical effects.
+
 
       ## Actions
 
+
       ***Multiattack***. The pseudodragon makes two Bite attacks.
 
-      ***Bite***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 4 (1d4 + 2) Piercing damage.
 
-      ***Sting***. *Constitution Saving Throw* : DC 12, one creature the pseudodragon can see within 5 feet. *Failure* : 5 (2d4) Poison damage, and the target has the Poisoned condition for 1 hour. While Poisoned, the target also has the Unconscious condition, which ends early if the target takes damage or a creature within 5 feet of it takes an action to wake it.
+      ***Bite***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 4 (1d4 + 2) Piercing
+      damage.
+
+
+      ***Sting***. *Constitution Saving Throw* : DC 12, one creature the pseudodragon
+      can see within 5 feet. *Failure* : 5 (2d4) Poison damage, and the target has
+      the Poisoned condition for 1 hour. While Poisoned, the target also has the Unconscious
+      condition, which ends early if the target takes damage or a creature within
+      5 feet of it takes an action to wake it.'
     senses: Blindsight 10 ft., Darkvision 60 ft., Passive Perception 15
     languages:
     - Understands Common and Draconic but can't speak
   fr:
     name: Pseudodragon
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Résistance à la magie***. Le pseudodragon a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
+
+      ***Résistance à la magie***. Le pseudodragon a un Avantage aux jets de sauvegarde
+      contre les sorts et autres effets magiques.
+
 
       ## Actions
 
+
       ***Attaques multiples***. Le pseudodragon effectue deux attaques de Morsure.
 
-      ***Morsure***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 4 (1d4 + 2) dégâts perforants.
 
-      ***Dard***. *JdS Constitution* : DD 12, une créature que le pseudodragon peut voir dans un rayon de 1,50 m. *Échec* : 5 (2d4) dégâts de poison, et la cible subit l'état Empoisonné pendant 1 heure. Tant qu'elle est empoisonnée, la cible a également l'état Inconscient, qui prend fin prématurément si la cible subit des dégâts ou si une créature dans un rayon de 1,50 m prend une action pour la réveiller.
+      ***Morsure***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 4 (1d4 + 2)
+      dégâts perforants.
+
+
+      ***Dard***. *JdS Constitution* : DD 12, une créature que le pseudodragon peut
+      voir dans un rayon de 1,50 m. *Échec* : 5 (2d4) dégâts de poison, et la cible
+      subit l''état Empoisonné pendant 1 heure. Tant qu''elle est empoisonnée, la
+      cible a également l''état Inconscient, qui prend fin prématurément si la cible
+      subit des dégâts ou si une créature dans un rayon de 1,50 m prend une action
+      pour la réveiller.'
     senses: Vision aveugle 3 m, Vision dans le noir 18 m, Perception passive 15
     languages:
     - comprend le commun et le draconique

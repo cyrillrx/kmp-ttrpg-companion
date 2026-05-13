@@ -8,24 +8,15 @@ armorClass: 17
 maxHitPoints: 229
 hitDice: 17d10+136
 abilities:
-  str:
-    value: 22
-    savingThrowProficiency: none
-  dex:
-    value: 12
-    savingThrowProficiency: proficient
-  con:
-    value: 26
-    savingThrowProficiency: none
-  int:
-    value: 18
-    savingThrowProficiency: none
-  wis:
-    value: 17
-    savingThrowProficiency: none
-  cha:
-    value: 18
-    savingThrowProficiency: proficient
+  str: 22
+  dex: 12
+  con: 26
+  int: 18
+  wis: 17
+  cha: 18
+savingThrows:
+  dex: proficient
+  cha: proficient
 speeds:
   walk: 30
   fly: 60
@@ -88,64 +79,124 @@ translations:
   en:
     name: Marid
     subtype: Genie
-    description: |-
-      ## Traits
+    description: '## Traits
+
 
       ***Amphibious***. The marid can breathe air and water.
 
-      ***Elemental Restoration***. If the marid dies outside the Elemental Plane of Water, its body dissolves into brine, and it gains a new body in 1d4 days, reviving with all its Hit Points somewhere on the Plane of Water.
 
-      ***Wishes***. The marid has a 30 percent chance of knowing the *[Wish](https://www.aidedd.org/spell/wish)* spell. If the marid knows it, the marid can cast it only on behalf of a non-genie creature who communicates a wish in a way the marid can understand. If the marid casts the spell for the creature, the marid suffers none of the spell's stress. Once the marid has cast it three times, the marid can't do so again for 365 days.
+      ***Elemental Restoration***. If the marid dies outside the Elemental Plane of
+      Water, its body dissolves into brine, and it gains a new body in 1d4 days, reviving
+      with all its Hit Points somewhere on the Plane of Water.
+
+
+      ***Wishes***. The marid has a 30 percent chance of knowing the *[Wish](https://www.aidedd.org/spell/wish)*
+      spell. If the marid knows it, the marid can cast it only on behalf of a non-genie
+      creature who communicates a wish in a way the marid can understand. If the marid
+      casts the spell for the creature, the marid suffers none of the spell''s stress.
+      Once the marid has cast it three times, the marid can''t do so again for 365
+      days.
+
 
       ## Actions
 
+
       ***Multiattack***. The marid makes three Aquatic Lash attacks.
 
-      ***Aquatic Lash***. *Melee Attack Roll* : +10, reach 15 ft. *Hit* : 15 (2d8 + 6) Slashing damage plus 9 (2d8) Cold damage.
 
-      ***Spellcasting***. The marid casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 16):
+      ***Aquatic Lash***. *Melee Attack Roll* : +10, reach 15 ft. *Hit* : 15 (2d8
+      + 6) Slashing damage plus 9 (2d8) Cold damage.
 
-      At will: *[Create or Destroy Water](https://www.aidedd.org/spell/create-or-destroy-water), [Detect Evil and Good](https://www.aidedd.org/spell/detect-evil-and-good), [Detect Magic](https://www.aidedd.org/spell/detect-magic), Purify Food and Drink*
-      
-      1/day each: *[Control Water](https://www.aidedd.org/spell/control-water), [Gaseous Form](https://www.aidedd.org/spell/gaseous-form), [Invisibility](https://www.aidedd.org/spell/invisibility), [Plane Shift](https://www.aidedd.org/spell/plane-shift), [Tongues](https://www.aidedd.org/spell/tongues)*
 
-      ***Water Jet***. *Dexterity Saving Throw* : DC 18, each creature in a 60-foot-long, 10-foot-wide Line. *Failure* : 31 (9d6) Cold damage. If the target is a Huge or smaller creature, it is pushed up to 20 feet straight away from the marid and has the Prone condition. *Success* : Half damage only.
+      ***Spellcasting***. The marid casts one of the following spells, requiring no
+      Material components and using Charisma as the spellcasting ability (spell save
+      DC 16):
+
+
+      At will: *[Create or Destroy Water](https://www.aidedd.org/spell/create-or-destroy-water),
+      [Detect Evil and Good](https://www.aidedd.org/spell/detect-evil-and-good), [Detect
+      Magic](https://www.aidedd.org/spell/detect-magic), Purify Food and Drink*
+
+
+      1/day each: *[Control Water](https://www.aidedd.org/spell/control-water), [Gaseous
+      Form](https://www.aidedd.org/spell/gaseous-form), [Invisibility](https://www.aidedd.org/spell/invisibility),
+      [Plane Shift](https://www.aidedd.org/spell/plane-shift), [Tongues](https://www.aidedd.org/spell/tongues)*
+
+
+      ***Water Jet***. *Dexterity Saving Throw* : DC 18, each creature in a 60-foot-long,
+      10-foot-wide Line. *Failure* : 31 (9d6) Cold damage. If the target is a Huge
+      or smaller creature, it is pushed up to 20 feet straight away from the marid
+      and has the Prone condition. *Success* : Half damage only.
+
 
       ## Bonus actions
 
-      ***Misty Veil (Recharge 5–6)***. The marid casts *[Fog Cloud](https://www.aidedd.org/spell/fog-cloud)* , using the same spellcasting ability as Spellcasting.
+
+      ***Misty Veil (Recharge 5–6)***. The marid casts *[Fog Cloud](https://www.aidedd.org/spell/fog-cloud)*
+      , using the same spellcasting ability as Spellcasting.'
     senses: Blindsight 30 ft., Darkvision 120 ft., Passive Perception 13
     languages:
     - Primordial (Aquan)
   fr:
     name: Maride
     subtype: Génie
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Amphibie***. Le maride peut respirer sous l'eau comme à l'air libre.
 
-      ***Restauration élémentaire***. Si le maride meurt en dehors du plan Élémentaire de l'Eau, son corps se dissout en eau salée et il acquiert un nouveau corps en 1d4 jours, ressuscitant avec tous ses points de vie quelque part sur le plan de l'Eau.
+      ***Amphibie***. Le maride peut respirer sous l''eau comme à l''air libre.
 
-      ***Souhaits***. Le maride a 30 % de chances de connaître le sort *[souhait](https://www.aidedd.org/spell/fr/souhait)*. S'il le connaît, il ne peut le lancer que pour le compte d'une créature autre qu'un génie qui lui adresse un souhait de manière compréhensible. S'il lance le sort pour la créature, il n'en subit pas les effets néfastes. Après l'avoir lancé trois fois, la maride ne peut plus le faire pendant 365 jours.
+
+      ***Restauration élémentaire***. Si le maride meurt en dehors du plan Élémentaire
+      de l''Eau, son corps se dissout en eau salée et il acquiert un nouveau corps
+      en 1d4 jours, ressuscitant avec tous ses points de vie quelque part sur le plan
+      de l''Eau.
+
+
+      ***Souhaits***. Le maride a 30 % de chances de connaître le sort *[souhait](https://www.aidedd.org/spell/fr/souhait)*.
+      S''il le connaît, il ne peut le lancer que pour le compte d''une créature autre
+      qu''un génie qui lui adresse un souhait de manière compréhensible. S''il lance
+      le sort pour la créature, il n''en subit pas les effets néfastes. Après l''avoir
+      lancé trois fois, la maride ne peut plus le faire pendant 365 jours.
+
 
       ## Actions
 
+
       ***Attaques multiples***. Le maride effectue trois attaques de Gifle des profondeurs.
 
-      ***Gifle des profondeurs***. *Corps à corps* : +10, allonge 4,50 m. *Touché* : 15 (2d8 + 6) dégâts tranchants plus 9 (2d8) dégâts de froid.
 
-      ***Incantation***. Le maride lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 16) :
+      ***Gifle des profondeurs***. *Corps à corps* : +10, allonge 4,50 m. *Touché*
+      : 15 (2d8 + 6) dégâts tranchants plus 9 (2d8) dégâts de froid.
 
-      À volonté : *[création ou destruction d'eau](https://www.aidedd.org/spell/fr/creation-ou-destruction-d-eau), [détection du mal ou du bien](https://www.aidedd.org/spell/fr/detection-du-mal-et-du-bien), [détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), [purification de la nourriture et de l'eau](https://www.aidedd.org/spell/fr/purification-de-la-nourriture-et-de-l-eau)*
-      
-      1/jour chacun : *[contrôle de l'eau](https://www.aidedd.org/spell/fr/controle-de-l-eau), [forme gazeuse](https://www.aidedd.org/spell/fr/forme-gazeuse), [invisibilité](https://www.aidedd.org/spell/fr/invisibilite), [changement de plan](https://www.aidedd.org/spell/fr/changement-de-plan"), [don des langues](https://www.aidedd.org/spell/fr/don-des-langues)*
 
-      ***Jet d'eau froide***. *JdS Dextérité* : DD 18, chaque créature sur une Ligne de 18 m de long et 3 m de large. *Échec* : 31 (9d6) dégâts de froid. Si la cible est une créature de taille Gig ou inférieure, elle est repoussée du maride jusqu'à 6 m en ligne droite et subit l'état À terre. *Réussite* : demi-dégâts uniquement.
+      ***Incantation***. Le maride lance l''un des sorts suivants sans composantes
+      matérielles, le Charisme étant sa caractéristique d''incantation (DD de sauvegarde
+      16) :
+
+
+      À volonté : *[création ou destruction d''eau](https://www.aidedd.org/spell/fr/creation-ou-destruction-d-eau),
+      [détection du mal ou du bien](https://www.aidedd.org/spell/fr/detection-du-mal-et-du-bien),
+      [détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie),
+      [purification de la nourriture et de l''eau](https://www.aidedd.org/spell/fr/purification-de-la-nourriture-et-de-l-eau)*
+
+
+      1/jour chacun : *[contrôle de l''eau](https://www.aidedd.org/spell/fr/controle-de-l-eau),
+      [forme gazeuse](https://www.aidedd.org/spell/fr/forme-gazeuse), [invisibilité](https://www.aidedd.org/spell/fr/invisibilite),
+      [changement de plan](https://www.aidedd.org/spell/fr/changement-de-plan"), [don
+      des langues](https://www.aidedd.org/spell/fr/don-des-langues)*
+
+
+      ***Jet d''eau froide***. *JdS Dextérité* : DD 18, chaque créature sur une Ligne
+      de 18 m de long et 3 m de large. *Échec* : 31 (9d6) dégâts de froid. Si la cible
+      est une créature de taille Gig ou inférieure, elle est repoussée du maride jusqu''à
+      6 m en ligne droite et subit l''état À terre. *Réussite* : demi-dégâts uniquement.
+
 
       ## Actions Bonus
 
-      ***Voile brumeux (recharge 5–6)***. Le maride lance *[nappe de brouillard](https://www.aidedd.org/spell/fr/nappe-de-brouillard)* , en utilisant la même capacité d'incantation que pour Incantation.
+
+      ***Voile brumeux (recharge 5–6)***. Le maride lance *[nappe de brouillard](https://www.aidedd.org/spell/fr/nappe-de-brouillard)*
+      , en utilisant la même capacité d''incantation que pour Incantation.'
     senses: Vision aveugle 9 m, Vision dans le noir 36 m, Perception passive 13
     languages:
     - primordial (aquatique)

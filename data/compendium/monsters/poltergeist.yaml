@@ -8,24 +8,12 @@ armorClass: 12
 maxHitPoints: 22
 hitDice: 5d8
 abilities:
-  str:
-    value: 1
-    savingThrowProficiency: none
-  dex:
-    value: 14
-    savingThrowProficiency: none
-  con:
-    value: 11
-    savingThrowProficiency: none
-  int:
-    value: 10
-    savingThrowProficiency: none
-  wis:
-    value: 10
-    savingThrowProficiency: none
-  cha:
-    value: 14
-    savingThrowProficiency: none
+  str: 1
+  dex: 14
+  con: 11
+  int: 10
+  wis: 10
+  cha: 14
 speeds:
   walk: 5
   fly: 50
@@ -88,44 +76,69 @@ translations:
   en:
     name: Poltergeist
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Incorporeal Movement***. The poltergeist can move through other creatures and objects as if they were Difficult Terrain. It takes 5 (1d10) Force damage if it ends its turn inside an object.
+
+      ***Incorporeal Movement***. The poltergeist can move through other creatures
+      and objects as if they were Difficult Terrain. It takes 5 (1d10) Force damage
+      if it ends its turn inside an object.
+
 
       ## Actions
 
-      ***Multiattack***. The poltergeist makes one Object Slam attack and uses Telekinetic Thrust.
 
-      ***Object Slam***. *Melee or Ranged Attack Roll* : +4, reach 5 ft. or range 30 ft. *Hit* : 7 (2d4 + 2) Bludgeoning damage.
+      ***Multiattack***. The poltergeist makes one Object Slam attack and uses Telekinetic
+      Thrust.
 
-      ***Telekinetic Thrust***. *Strength Saving Throw* : DC 12, one creature the poltergeist can see within 30 feet. *Failure* : 9 (2d6 + 2) Force damage, and the target is pushed up to 30 feet straight away from the poltergeist.
+
+      ***Object Slam***. *Melee or Ranged Attack Roll* : +4, reach 5 ft. or range
+      30 ft. *Hit* : 7 (2d4 + 2) Bludgeoning damage.
+
+
+      ***Telekinetic Thrust***. *Strength Saving Throw* : DC 12, one creature the
+      poltergeist can see within 30 feet. *Failure* : 9 (2d6 + 2) Force damage, and
+      the target is pushed up to 30 feet straight away from the poltergeist.
+
 
       ## Bonus actions
 
-      ***Vanish***. The poltergeist gives itself the Invisible condition or ends that condition on itself.
+
+      ***Vanish***. The poltergeist gives itself the Invisible condition or ends that
+      condition on itself.'
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - Common plus one other language
   fr:
     name: Poltergeist
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Déplacement intangible***. Le poltergeist peut traverser d'autres créatures et objets comme s'il s'agissait d'un Terrain difficile. Il subit 5 (1d10) dégâts de force s'il termine son tour à l'intérieur d'un objet.
+
+      ***Déplacement intangible***. Le poltergeist peut traverser d''autres créatures
+      et objets comme s''il s''agissait d''un Terrain difficile. Il subit 5 (1d10)
+      dégâts de force s''il termine son tour à l''intérieur d''un objet.
+
 
       ## Actions
 
-      ***Attaques multiples***. Le poltergeist effectue une attaque de Frappe d'objet et utilise Poussée télékinétique.
 
-      ***Frappe d'objet***. *Corps à corps ou à distance* : +4, allonge 1,50 m ou portée 9 m. *Touché* : 7 (2d4 + 2) dégâts contondants.
+      ***Attaques multiples***. Le poltergeist effectue une attaque de Frappe d''objet
+      et utilise Poussée télékinétique.
 
-      ***Poussée télékinétique***. *JdS Force* : DD 12, une créature que le poltergeist peut voir dans un rayon de 9 m. *Échec* : 9 (2d6 + 2) dégâts de Force, et la cible est repoussée en ligne droite jusqu'à 9 m du poltergeist.
+
+      ***Frappe d''objet***. *Corps à corps ou à distance* : +4, allonge 1,50 m ou
+      portée 9 m. *Touché* : 7 (2d4 + 2) dégâts contondants.
+
+
+      ***Poussée télékinétique***. *JdS Force* : DD 12, une créature que le poltergeist
+      peut voir dans un rayon de 9 m. *Échec* : 9 (2d6 + 2) dégâts de Force, et la
+      cible est repoussée en ligne droite jusqu''à 9 m du poltergeist.
+
 
       ## Actions Bonus
 
-      ***Disparition***. Le poltergeist s'octroie l'état Invisible ou y met fin.
+
+      ***Disparition***. Le poltergeist s''octroie l''état Invisible ou y met fin.'
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - commun plus une autre langue

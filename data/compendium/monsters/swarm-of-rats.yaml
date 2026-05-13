@@ -8,24 +8,14 @@ armorClass: 10
 maxHitPoints: 14
 hitDice: 4d8-4
 abilities:
-  str:
-    value: 9
-    savingThrowProficiency: none
-  dex:
-    value: 11
-    savingThrowProficiency: proficient
-  con:
-    value: 9
-    savingThrowProficiency: none
-  int:
-    value: 2
-    savingThrowProficiency: none
-  wis:
-    value: 10
-    savingThrowProficiency: none
-  cha:
-    value: 3
-    savingThrowProficiency: none
+  str: 9
+  dex: 11
+  con: 9
+  int: 2
+  wis: 10
+  cha: 3
+savingThrows:
+  dex: proficient
 speeds:
   walk: 30
   fly: null
@@ -88,28 +78,39 @@ translations:
   en:
     name: Swarm of Rats
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Swarm***. The swarm can occupy another creature's space and vice versa, and the swarm can move through any opening large enough for a Tiny rat. The swarm can't regain Hit Points or gain Temporary Hit Points.
+
+      ***Swarm***. The swarm can occupy another creature''s space and vice versa,
+      and the swarm can move through any opening large enough for a Tiny rat. The
+      swarm can''t regain Hit Points or gain Temporary Hit Points.
+
 
       ## Actions
 
-      ***Bites***. *Melee Attack Roll* : +2, reach 5 ft. *Hit* : 5 (2d4) Piercing damage, or 2 (1d4) Piercing damage if the swarm is Bloodied.
+
+      ***Bites***. *Melee Attack Roll* : +2, reach 5 ft. *Hit* : 5 (2d4) Piercing
+      damage, or 2 (1d4) Piercing damage if the swarm is Bloodied.'
     senses: Darkvision 30 ft., Passive Perception 10
     languages:
     - None
   fr:
     name: Nuée de rats
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Nuée***. La nuée peut occuper l'espace d'une autre créature et réciproquement, et elle peut se déplacer par toute ouverture assez large pour un rat de taille TP. La nuée ne peut ni récupérer de points de vie ni recevoir de points de vie temporaires.
+
+      ***Nuée***. La nuée peut occuper l''espace d''une autre créature et réciproquement,
+      et elle peut se déplacer par toute ouverture assez large pour un rat de taille
+      TP. La nuée ne peut ni récupérer de points de vie ni recevoir de points de vie
+      temporaires.
+
 
       ## Actions
 
-      ***Morsures***. *Corps à corps* : +2, allonge 1,50 m. *Touché* : 5 (2d4) dégâts perforants, ou 2 (1d4) dégâts perforants si la nuée est En péril.
+
+      ***Morsures***. *Corps à corps* : +2, allonge 1,50 m. *Touché* : 5 (2d4) dégâts
+      perforants, ou 2 (1d4) dégâts perforants si la nuée est En péril.'
     senses: Vision dans le noir 9 m, Perception passive 10
     languages:
     - aucune

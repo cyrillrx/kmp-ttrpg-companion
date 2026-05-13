@@ -8,24 +8,17 @@ armorClass: 18
 maxHitPoints: 228
 hitDice: 24d10+96
 abilities:
-  str:
-    value: 21
-    savingThrowProficiency: none
-  dex:
-    value: 14
-    savingThrowProficiency: proficient
-  con:
-    value: 18
-    savingThrowProficiency: proficient
-  int:
-    value: 18
-    savingThrowProficiency: none
-  wis:
-    value: 15
-    savingThrowProficiency: proficient
-  cha:
-    value: 18
-    savingThrowProficiency: proficient
+  str: 21
+  dex: 14
+  con: 18
+  int: 18
+  wis: 15
+  cha: 18
+savingThrows:
+  dex: proficient
+  con: proficient
+  wis: proficient
+  cha: proficient
 speeds:
   walk: 40
   fly: null
@@ -88,44 +81,82 @@ translations:
   en:
     name: Ice Devil
     subtype: Devil
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Diabolical Restoration***. If the devil dies outside the Nine Hells, its body disappears in sulfurous smoke, and it gains a new body instantly, reviving with all its Hit Points somewhere in the Nine Hells.
 
-      ***Magic Resistance***. The devil has Advantage on saving throws against spells and other magical effects.
+      ***Diabolical Restoration***. If the devil dies outside the Nine Hells, its
+      body disappears in sulfurous smoke, and it gains a new body instantly, reviving
+      with all its Hit Points somewhere in the Nine Hells.
+
+
+      ***Magic Resistance***. The devil has Advantage on saving throws against spells
+      and other magical effects.
+
 
       ## Actions
 
-      ***Multiattack***. The devil makes three Ice Spear attacks. It can replace one attack with a Tail attack.
 
-      ***Ice Spear***. *Melee or Ranged Attack Roll* : +10, reach 5 ft. or range 30/120 ft. *Hit* : 14 (2d8 + 5) Piercing damage plus 10 (3d6) Cold damage. Until the end of its next turn, the target can't take a Bonus Action or Reaction, its Speed decreases by 10 feet, and it can move or take one action on its turn, not both. *Hit or Miss* : The spear magically returns to the devil's hand immediately after a ranged attack.
+      ***Multiattack***. The devil makes three Ice Spear attacks. It can replace one
+      attack with a Tail attack.
 
-      ***Tail***. *Melee Attack Roll* : +10, reach 10 ft. *Hit* : 15 (3d6 + 5) Bludgeoning damage plus 18 (4d8) Cold damage.
 
-      ***Ice Wall (Recharge 6)***. The devil casts *[Wall of Ice](https://www.aidedd.org/spell/wall-of-ice)* (level 8 version), requiring no spell components and using Intelligence as the spellcasting ability (spell save DC 17).
+      ***Ice Spear***. *Melee or Ranged Attack Roll* : +10, reach 5 ft. or range 30/120
+      ft. *Hit* : 14 (2d8 + 5) Piercing damage plus 10 (3d6) Cold damage. Until the
+      end of its next turn, the target can''t take a Bonus Action or Reaction, its
+      Speed decreases by 10 feet, and it can move or take one action on its turn,
+      not both. *Hit or Miss* : The spear magically returns to the devil''s hand immediately
+      after a ranged attack.
+
+
+      ***Tail***. *Melee Attack Roll* : +10, reach 10 ft. *Hit* : 15 (3d6 + 5) Bludgeoning
+      damage plus 18 (4d8) Cold damage.
+
+
+      ***Ice Wall (Recharge 6)***. The devil casts *[Wall of Ice](https://www.aidedd.org/spell/wall-of-ice)*
+      (level 8 version), requiring no spell components and using Intelligence as the
+      spellcasting ability (spell save DC 17).'
     senses: Blindsight 120 ft., Passive Perception 17
     languages:
     - Infernal; telepathy 120 ft.
   fr:
     name: Diable gelé
     subtype: Diable
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Résistance à la magie***. Le diable a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
 
-      ***Restauration diabolique***. Si le diable meurt hors des Neuf Enfers, son corps disparaît dans un nuage de fumée sulfureuse, tandis qu'il en acquiert aussitôt un nouveau et revient à la vie avec tous ses pv quelque part dans les Neuf Enfers.
+      ***Résistance à la magie***. Le diable a un Avantage aux jets de sauvegarde
+      contre les sorts et autres effets magiques.
+
+
+      ***Restauration diabolique***. Si le diable meurt hors des Neuf Enfers, son
+      corps disparaît dans un nuage de fumée sulfureuse, tandis qu''il en acquiert
+      aussitôt un nouveau et revient à la vie avec tous ses pv quelque part dans les
+      Neuf Enfers.
+
 
       ## Actions
 
-      ***Attaques multiples***. Le diable effectue trois attaques de Lance de glace. Il peut en remplacer une par une attaque de Queue.
 
-      ***Lance de glace***. *Corps à corps ou à distance* : +10, allonge 1,50 m ou portée 9/36 m. *Touché* : 14 (2d8 + 5) dégâts perforants plus 10 (3d6) dégâts de froid. Jusqu'à la fin de son tour suivant, la cible ne peut entreprendre ni action Bonus ni Réaction, sa Vitesse est réduite de 3 m et elle peut se déplacer ou entreprendre son action à son tour, mais pas les deux. *Touché ou raté* : aussitôt après une attaque à distance, la lance retourne magiquement dans la main du diable.
+      ***Attaques multiples***. Le diable effectue trois attaques de Lance de glace.
+      Il peut en remplacer une par une attaque de Queue.
 
-      ***Queue***. *Corps à corps* : +10, allonge 3 m. *Touché* : 15 (3d6 + 5) dégâts contondants plus 18 (4d8) dégâts de froid.
 
-      ***Mur de glace (recharge 6)***. Le diable lance *mur de glace* (au niveau 8), sans avoir besoin de composantes de sort et en utilisant l'Intelligence comme caractéristique d'incantation (DD de sauvegarde 17).
+      ***Lance de glace***. *Corps à corps ou à distance* : +10, allonge 1,50 m ou
+      portée 9/36 m. *Touché* : 14 (2d8 + 5) dégâts perforants plus 10 (3d6) dégâts
+      de froid. Jusqu''à la fin de son tour suivant, la cible ne peut entreprendre
+      ni action Bonus ni Réaction, sa Vitesse est réduite de 3 m et elle peut se déplacer
+      ou entreprendre son action à son tour, mais pas les deux. *Touché ou raté* :
+      aussitôt après une attaque à distance, la lance retourne magiquement dans la
+      main du diable.
+
+
+      ***Queue***. *Corps à corps* : +10, allonge 3 m. *Touché* : 15 (3d6 + 5) dégâts
+      contondants plus 18 (4d8) dégâts de froid.
+
+
+      ***Mur de glace (recharge 6)***. Le diable lance *mur de glace* (au niveau 8),
+      sans avoir besoin de composantes de sort et en utilisant l''Intelligence comme
+      caractéristique d''incantation (DD de sauvegarde 17).'
     senses: Vision aveugle 36 m, Perception passive 17
     languages:
     - infernal ; télépathie 36 m

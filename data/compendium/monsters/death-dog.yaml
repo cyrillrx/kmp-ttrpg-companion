@@ -8,24 +8,12 @@ armorClass: 12
 maxHitPoints: 39
 hitDice: 6d8+12
 abilities:
-  str:
-    value: 15
-    savingThrowProficiency: none
-  dex:
-    value: 14
-    savingThrowProficiency: none
-  con:
-    value: 14
-    savingThrowProficiency: none
-  int:
-    value: 3
-    savingThrowProficiency: none
-  wis:
-    value: 13
-    savingThrowProficiency: none
-  cha:
-    value: 6
-    savingThrowProficiency: none
+  str: 15
+  dex: 14
+  con: 14
+  int: 3
+  wis: 13
+  cha: 6
 speeds:
   walk: 40
   fly: null
@@ -88,22 +76,37 @@ translations:
   en:
     name: Death Dog
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
+
 
       ***Multiattack***. The death dog makes two Bite attacks.
 
-      ***Bite***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 4 (1d4 + 2) Piercing damage. If the target is a creature, it is subjected to the following effect. *Constitution Saving Throw* : DC 12. *First Failure* : The target has the Poisoned condition. While Poisoned, the target's Hit Point maximum doesn't return to normal when finishing a Long Rest, and it repeats the save every 24 hours that elapse, ending the effect on itself on a success. Subsequent Failures: The Poisoned target's Hit Point maximum decreases by 5 (1d10).
+
+      ***Bite***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 4 (1d4 + 2) Piercing
+      damage. If the target is a creature, it is subjected to the following effect.
+      *Constitution Saving Throw* : DC 12. *First Failure* : The target has the Poisoned
+      condition. While Poisoned, the target''s Hit Point maximum doesn''t return to
+      normal when finishing a Long Rest, and it repeats the save every 24 hours that
+      elapse, ending the effect on itself on a success. Subsequent Failures: The Poisoned
+      target''s Hit Point maximum decreases by 5 (1d10).'
     senses: Darkvision 120 ft., Passive Perception 15
     languages: []
   fr:
     name: Chien du trépas
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
+
 
       ***Attaques multiples***. Le chien du trépas effectue deux attaques de Morsure.
 
-      ***Morsure***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 4 (1d4 + 2) dégâts perforants. Si la cible est une créature, elle est soumise à l'effet suivant. *JdS Constitution* : DD 12. *Premier échec* : la cible subit l'état Empoisonné. Tant que la cible est Empoisonnée, son maximum de points de vie ne revient pas à la normale quand elle termine un Repos long. La cible réitère le JdS toutes les 24 heures et met un terme à l'effet sur elle-même en cas de réussite. Échecs suivants : le maximum de points de vie de la cible Empoisonnée diminue de 5 (1d10).
+
+      ***Morsure***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 4 (1d4 + 2)
+      dégâts perforants. Si la cible est une créature, elle est soumise à l''effet
+      suivant. *JdS Constitution* : DD 12. *Premier échec* : la cible subit l''état
+      Empoisonné. Tant que la cible est Empoisonnée, son maximum de points de vie
+      ne revient pas à la normale quand elle termine un Repos long. La cible réitère
+      le JdS toutes les 24 heures et met un terme à l''effet sur elle-même en cas
+      de réussite. Échecs suivants : le maximum de points de vie de la cible Empoisonnée
+      diminue de 5 (1d10).'
     senses: Vision dans le noir 36 m, Perception passive 15
     languages: []

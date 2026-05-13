@@ -8,24 +8,12 @@ armorClass: 12
 maxHitPoints: 2
 hitDice: 1d4
 abilities:
-  str:
-    value: 13
-    savingThrowProficiency: none
-  dex:
-    value: 14
-    savingThrowProficiency: none
-  con:
-    value: 11
-    savingThrowProficiency: none
-  int:
-    value: 5
-    savingThrowProficiency: none
-  wis:
-    value: 10
-    savingThrowProficiency: none
-  cha:
-    value: 4
-    savingThrowProficiency: none
+  str: 13
+  dex: 14
+  con: 11
+  int: 5
+  wis: 10
+  cha: 4
 speeds:
   walk: 20
   fly: null
@@ -88,20 +76,20 @@ translations:
   en:
     name: Crawling Claw
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Slam***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 2 Necrotic damage.
+
+      ***Slam***. *Melee Attack Roll* : +3, reach 5 ft. *Hit* : 2 Necrotic damage.'
     senses: Blindsight 30 ft., Passive Perception 10
     languages:
     - Understands Common but can't speak
   fr:
     name: Griffe rampante / Sénestre
     subtype: null
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Coup***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 2 dégâts nécrotiques.
+
+      ***Coup***. *Corps à corps* : +3, allonge 1,50 m. *Touché* : 2 dégâts nécrotiques.'
     senses: Vision aveugle 9 m, Perception passive 10
     languages:
     - comprend le commun mais ne parle pas

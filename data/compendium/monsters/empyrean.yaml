@@ -8,24 +8,15 @@ armorClass: 22
 maxHitPoints: 346
 hitDice: 21d12+210
 abilities:
-  str:
-    value: 30
-    savingThrowProficiency: proficient
-  dex:
-    value: 21
-    savingThrowProficiency: none
-  con:
-    value: 30
-    savingThrowProficiency: none
-  int:
-    value: 21
-    savingThrowProficiency: none
-  wis:
-    value: 22
-    savingThrowProficiency: proficient
-  cha:
-    value: 27
-    savingThrowProficiency: none
+  str: 30
+  dex: 21
+  con: 30
+  int: 21
+  wis: 22
+  cha: 27
+savingThrows:
+  str: proficient
+  wis: proficient
 speeds:
   walk: 50
   fly: 50
@@ -88,68 +79,113 @@ translations:
   en:
     name: Empyrean
     subtype: Titan
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Legendary Resistance (4/Day)***. If the empyrean fails a saving throw, it can choose to succeed instead.
 
-      ***Magic Resistance***. The empyrean has Advantage on saving throws against spells and other magical effects.
+      ***Legendary Resistance (4/Day)***. If the empyrean fails a saving throw, it
+      can choose to succeed instead.
+
+
+      ***Magic Resistance***. The empyrean has Advantage on saving throws against
+      spells and other magical effects.
+
 
       ## Actions
 
-      ***Multiattack***. The empyrean makes two attacks, using Sacred Weapon or Divine Ray in any combination.
 
-      ***Sacred Weapon***. *Melee Attack Roll* : +17, reach 10 ft. *Hit* : 31 (6d6 + 10) Force damage, and the target has the Stunned condition until the start of the empyrean's next turn. The target can choose not to be Stunned, in which case it takes an extra 21 Force damage that bypasses Resistance or Immunity.
+      ***Multiattack***. The empyrean makes two attacks, using Sacred Weapon or Divine
+      Ray in any combination.
 
-      ***Divine Ray***. *Ranged Attack Roll* : +15, range 600 ft. *Hit* : 35 (6d8 + 8) Necrotic or Radiant damage (empyrean's choice).
 
-      ***Spellcasting***. The empyrean casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 23):
+      ***Sacred Weapon***. *Melee Attack Roll* : +17, reach 10 ft. *Hit* : 31 (6d6
+      + 10) Force damage, and the target has the Stunned condition until the start
+      of the empyrean''s next turn. The target can choose not to be Stunned, in which
+      case it takes an extra 21 Force damage that bypasses Resistance or Immunity.
 
-      At Will: *[Calm Emotions](https://www.aidedd.org/spell/calm-emotions), [Greater Restoration](https://www.aidedd.org/spell/greater-restoration), [Pass without Trace](https://www.aidedd.org/spell/pass-without-trace), [Water Breathing](https://www.aidedd.org/spell/water-breathing)*
-      
-      1/Day Each: *[Commune](https://www.aidedd.org/spell/commune), [Dispel Evil and Good](https://www.aidedd.org/spell/dispel-evil-and-good), [Plane Shift](https://www.aidedd.org/spell/plane-shift)*
+
+      ***Divine Ray***. *Ranged Attack Roll* : +15, range 600 ft. *Hit* : 35 (6d8
+      + 8) Necrotic or Radiant damage (empyrean''s choice).
+
+
+      ***Spellcasting***. The empyrean casts one of the following spells, requiring
+      no Material components and using Charisma as the spellcasting ability (spell
+      save DC 23):
+
+
+      At Will: *[Calm Emotions](https://www.aidedd.org/spell/calm-emotions), [Greater
+      Restoration](https://www.aidedd.org/spell/greater-restoration), [Pass without
+      Trace](https://www.aidedd.org/spell/pass-without-trace), [Water Breathing](https://www.aidedd.org/spell/water-breathing)*
+
+
+      1/Day Each: *[Commune](https://www.aidedd.org/spell/commune), [Dispel Evil and
+      Good](https://www.aidedd.org/spell/dispel-evil-and-good), [Plane Shift](https://www.aidedd.org/spell/plane-shift)*
+
 
       ## Legendary actions
 
-      Legendary Action Uses: 3. Immediately after another creature's turn, the empyrean can expend a use to take one of the following actions. The empyrean regains all expended uses at the start of each of its turns.
 
-      ***Bolster***. The empyrean gains 10 Temporary Hit Points, and the empyrean and each ally within 30 feet of it gain Advantage on D20 Tests until the end of the empyrean's next turn. The empyrean can't take this action again until the start of its next turn.
+      Legendary Action Uses: 3. Immediately after another creature''s turn, the empyrean
+      can expend a use to take one of the following actions. The empyrean regains
+      all expended uses at the start of each of its turns.
 
-      ***Shockwave of Glory***. *Constitution Saving Throw* : DC 23, each creature in a 30-foot Emanation originating from the empyrean. *Failure* : 27 (6d8) Force damage, and the target has the Prone condition. *Success* : Half damage only. *Failure or Success* : The empyrean can't take this action again until the start of its next turn.
 
-      ***Smite***. The empyrean makes one Divine Ray attack.
+      ***Bolster***. The empyrean gains 10 Temporary Hit Points, and the empyrean
+      and each ally within 30 feet of it gain Advantage on D20 Tests until the end
+      of the empyrean''s next turn. The empyrean can''t take this action again until
+      the start of its next turn.
+
+
+      ***Shockwave of Glory***. *Constitution Saving Throw* : DC 23, each creature
+      in a 30-foot Emanation originating from the empyrean. *Failure* : 27 (6d8) Force
+      damage, and the target has the Prone condition. *Success* : Half damage only.
+      *Failure or Success* : The empyrean can''t take this action again until the
+      start of its next turn.
+
+
+      ***Smite***. The empyrean makes one Divine Ray attack.'
     senses: Truesight 120 ft., Passive Perception 23
     languages:
     - All
   fr:
     name: Empyréen
     subtype: Titan
-    description: |-
-      ## Traits
+    description: '## Traits
+
 
       Résistance légendaire (4/jour).
-      
+
+
       Résistance à la magie.
+
 
       ## Actions
 
+
       Attaques multiples.
-      
+
+
       Arme sacrée.
-      
+
+
       Rayon divin.
-      
+
+
       Incantation.
+
 
       ## Actions Légendaires
 
-      Utilisations d'action Légendaire : 3.
+
+      Utilisations d''action Légendaire : 3.
+
 
       Galvanisation.
-      
+
+
       Raz-de-gloire.
-      
-      Châtiment.
+
+
+      Châtiment.'
     senses: vision véritable 36 m, Perception passive 23
     languages:
     - toutes

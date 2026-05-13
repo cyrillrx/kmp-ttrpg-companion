@@ -8,24 +8,15 @@ armorClass: 20
 maxHitPoints: 332
 hitDice: 19d20+133
 abilities:
-  str:
-    value: 27
-    savingThrowProficiency: none
-  dex:
-    value: 10
-    savingThrowProficiency: proficient
-  con:
-    value: 25
-    savingThrowProficiency: none
-  int:
-    value: 16
-    savingThrowProficiency: none
-  wis:
-    value: 15
-    savingThrowProficiency: proficient
-  cha:
-    value: 22
-    savingThrowProficiency: none
+  str: 27
+  dex: 10
+  con: 25
+  int: 16
+  wis: 15
+  cha: 22
+savingThrows:
+  dex: proficient
+  wis: proficient
 speeds:
   walk: 40
   fly: 80
@@ -88,36 +79,74 @@ translations:
   en:
     name: Ancient Brass Dragon
     subtype: Metallic
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Legendary Resistance (4/Day, or 5/Day in Lair)***. If the dragon fails a saving throw, it can choose to succeed instead.
+
+      ***Legendary Resistance (4/Day, or 5/Day in Lair)***. If the dragon fails a
+      saving throw, it can choose to succeed instead.
+
 
       ## Actions
 
-      ***Multiattack***. The dragon makes three Rend attacks. It can replace one attack with a use of (A) Sleep Breath or (B) Spellcasting to cast *[Scorching Ray](https://www.aidedd.org/spell/scorching-ray)* (level 3 version).
 
-      ***Rend***. *Melee Attack Roll* : +14, reach 15 ft. *Hit* : 19 (2d10 + 8) Slashing damage plus 7 (2d6) Fire damage.
+      ***Multiattack***. The dragon makes three Rend attacks. It can replace one attack
+      with a use of (A) Sleep Breath or (B) Spellcasting to cast *[Scorching Ray](https://www.aidedd.org/spell/scorching-ray)*
+      (level 3 version).
 
-      ***Fire Breath (Recharge 5–6)***. *Dexterity Saving Throw* : DC 21, each creature in a 90-foot-long, 5-foot-wide Line. *Failure* : 58 (13d8) Fire damage. *Success* : Half damage.
 
-      ***Sleep Breath***. *Constitution Saving Throw* : DC 21, each creature in a 90-foot Cone. *Failure* : The target has the Incapacitated condition until the end of its next turn, at which point it repeats the save. *Second Failure* : The target has the Unconscious condition for 10 minutes. This effect ends for the target if it takes damage or a creature within 5 feet of it takes an action to wake it.
+      ***Rend***. *Melee Attack Roll* : +14, reach 15 ft. *Hit* : 19 (2d10 + 8) Slashing
+      damage plus 7 (2d6) Fire damage.
 
-      ***Spellcasting***. The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 20):
 
-      At Will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Minor Illusion](https://www.aidedd.org/spell/minor-illusion), [Scorching Ray](https://www.aidedd.org/spell/scorching-ray)* (level 3 version), *[Shapechange](https://www.aidedd.org/spell/shapechange)* (Beast or Humanoid form only, no Temporary Hit Points gained from the spell, and no Concentration or Temporary Hit Points required to maintain the spell), *[Speak with Animals](https://www.aidedd.org/spell/speak-with-animals)*
-      
-      1/Day Each: *[Control Weather](https://www.aidedd.org/spell/control-weather), [Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts)*
+      ***Fire Breath (Recharge 5–6)***. *Dexterity Saving Throw* : DC 21, each creature
+      in a 90-foot-long, 5-foot-wide Line. *Failure* : 58 (13d8) Fire damage. *Success*
+      : Half damage.
+
+
+      ***Sleep Breath***. *Constitution Saving Throw* : DC 21, each creature in a
+      90-foot Cone. *Failure* : The target has the Incapacitated condition until the
+      end of its next turn, at which point it repeats the save. *Second Failure* :
+      The target has the Unconscious condition for 10 minutes. This effect ends for
+      the target if it takes damage or a creature within 5 feet of it takes an action
+      to wake it.
+
+
+      ***Spellcasting***. The dragon casts one of the following spells, requiring
+      no Material components and using Charisma as the spellcasting ability (spell
+      save DC 20):
+
+
+      At Will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Minor
+      Illusion](https://www.aidedd.org/spell/minor-illusion), [Scorching Ray](https://www.aidedd.org/spell/scorching-ray)*
+      (level 3 version), *[Shapechange](https://www.aidedd.org/spell/shapechange)*
+      (Beast or Humanoid form only, no Temporary Hit Points gained from the spell,
+      and no Concentration or Temporary Hit Points required to maintain the spell),
+      *[Speak with Animals](https://www.aidedd.org/spell/speak-with-animals)*
+
+
+      1/Day Each: *[Control Weather](https://www.aidedd.org/spell/control-weather),
+      [Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts)*
+
 
       ## Legendary actions
 
-      Legendary Action Uses: 3 (4 in Lair). Immediately after another creature's turn, the dragon can expend a use to take one of the following actions. The dragon regains all expended uses at the start of each of its turns.
 
-      ***Blazing Light***. The dragon uses Spellcasting to cast *[Scorching Ray](https://www.aidedd.org/spell/scorching-ray)* (level 3 version).
+      Legendary Action Uses: 3 (4 in Lair). Immediately after another creature''s
+      turn, the dragon can expend a use to take one of the following actions. The
+      dragon regains all expended uses at the start of each of its turns.
+
+
+      ***Blazing Light***. The dragon uses Spellcasting to cast *[Scorching Ray](https://www.aidedd.org/spell/scorching-ray)*
+      (level 3 version).
+
 
       ***Pounce***. The dragon moves up to half its Speed, and it makes one Rend attack.
 
-      ***Scorching Sands***. *Dexterity Saving Throw* : DC 20, one creature the dragon can see within 120 feet. *Failure* : 36 (8d8) Fire damage, and the target's Speed is halved until the end of its next turn. *Failure or Success* : The dragon can't take this action again until the start of its next turn.
+
+      ***Scorching Sands***. *Dexterity Saving Throw* : DC 20, one creature the dragon
+      can see within 120 feet. *Failure* : 36 (8d8) Fire damage, and the target''s
+      Speed is halved until the end of its next turn. *Failure or Success* : The dragon
+      can''t take this action again until the start of its next turn.'
     senses: Blindsight 60 ft., Darkvision 120 ft., Passive Perception 24
     languages:
     - Common
@@ -125,36 +154,78 @@ translations:
   fr:
     name: Dragon d'airain, ancien
     subtype: Métallique
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Résistance légendaire (4/jour, ou 5/jour dans son antre)***. Si le dragon rate un jet de sauvegarde, il peut décider de le réussir tout de même.
+
+      ***Résistance légendaire (4/jour, ou 5/jour dans son antre)***. Si le dragon
+      rate un jet de sauvegarde, il peut décider de le réussir tout de même.
+
 
       ## Actions
 
-      ***Actions attaques multiples***. Le dragon effectue trois attaques de Saignée. Il peut remplacer l'une de ces attaques par une utilisation de (A) Incantation pour lancer *[rayon ardent](https://www.aidedd.org/spell/fr/rayon-ardent)* (au niveau 3) ou (B) Souffle soporifique.
 
-      ***Saignée***. *Corps à corps* : +14, allonge 4,50 m. *Touché* : 19 (2d10 + 8) dégâts tranchants plus 7 (2d6) dégâts de feu.
+      ***Actions attaques multiples***. Le dragon effectue trois attaques de Saignée.
+      Il peut remplacer l''une de ces attaques par une utilisation de (A) Incantation
+      pour lancer *[rayon ardent](https://www.aidedd.org/spell/fr/rayon-ardent)* (au
+      niveau 3) ou (B) Souffle soporifique.
 
-      ***Incantation***. Le dragon lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 20) :
 
-      À volonté : *[changement de forme](https://www.aidedd.org/spell/fr/changement-de-forme)* (Bête ou Humanoïde uniquement, le sort ne fait pas gagner de points de vie temporaires, ni Concentration ni points de vie temporaires nécessaires pour maintenir le sort), *[communication avec les animaux](https://www.aidedd.org/spell/fr/communication-avec-les-animaux), [détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), [illusion mineure](https://www.aidedd.org/spell/fr/illusion-mineure), [rayon ardent](https://www.aidedd.org/spell/fr/rayon-ardent)* (au niveau 3)
-      
+      ***Saignée***. *Corps à corps* : +14, allonge 4,50 m. *Touché* : 19 (2d10 +
+      8) dégâts tranchants plus 7 (2d6) dégâts de feu.
+
+
+      ***Incantation***. Le dragon lance l''un des sorts suivants sans composantes
+      matérielles, le Charisme étant sa caractéristique d''incantation (DD de sauvegarde
+      20) :
+
+
+      À volonté : *[changement de forme](https://www.aidedd.org/spell/fr/changement-de-forme)*
+      (Bête ou Humanoïde uniquement, le sort ne fait pas gagner de points de vie temporaires,
+      ni Concentration ni points de vie temporaires nécessaires pour maintenir le
+      sort), *[communication avec les animaux](https://www.aidedd.org/spell/fr/communication-avec-les-animaux),
+      [détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie),
+      [illusion mineure](https://www.aidedd.org/spell/fr/illusion-mineure), [rayon
+      ardent](https://www.aidedd.org/spell/fr/rayon-ardent)* (au niveau 3)
+
+
       1/jour chacun : *contrôle du climat,[détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees)*
 
-      ***Souffle de feu (recharge 5–6)***. *JdS Dextérité* : DD 21, chaque créature dans une Ligne de 27 m de long sur 1,50 m de large. *Échec* : 58 (13d8) dégâts de feu. *Réussite* : demi-dégâts.
 
-      ***Souffle soporifique***. *JdS Constitution* : DD 21, chaque créature dans un Cône de 27 m. *Échec* : la cible subit l'état Incapable d'agir jusqu'à la fin de son tour suivant, et réitère alors son JdS. *Deuxième échec* : la cible subit l'état Inconscient pendant 10 minutes. Cet effet prend fin pour la cible si celle-ci subit des dégâts ou si une créature dans un rayon de 1,50 m consacre une action à la réveiller.
+      ***Souffle de feu (recharge 5–6)***. *JdS Dextérité* : DD 21, chaque créature
+      dans une Ligne de 27 m de long sur 1,50 m de large. *Échec* : 58 (13d8) dégâts
+      de feu. *Réussite* : demi-dégâts.
+
+
+      ***Souffle soporifique***. *JdS Constitution* : DD 21, chaque créature dans
+      un Cône de 27 m. *Échec* : la cible subit l''état Incapable d''agir jusqu''à
+      la fin de son tour suivant, et réitère alors son JdS. *Deuxième échec* : la
+      cible subit l''état Inconscient pendant 10 minutes. Cet effet prend fin pour
+      la cible si celle-ci subit des dégâts ou si une créature dans un rayon de 1,50
+      m consacre une action à la réveiller.
+
 
       ## Actions Légendaires
 
-      Utilisations d'action Légendaire : 3 (4 dans son antre). Aussitôt après le tour d'une autre créature, le dragon peut dépenser une utilisation pour entreprendre l'une des actions ci-après. Le dragon récupère toutes ses utilisations dépensées au début de chacun de ses tours.
 
-      ***Assaut incisif***. Le dragon se déplace à concurrence de la moitié de sa Vitesse et effectue une attaque de Saignée.
+      Utilisations d''action Légendaire : 3 (4 dans son antre). Aussitôt après le
+      tour d''une autre créature, le dragon peut dépenser une utilisation pour entreprendre
+      l''une des actions ci-après. Le dragon récupère toutes ses utilisations dépensées
+      au début de chacun de ses tours.
 
-      ***Lumière aveuglante***. Le dragon recourt à Incantation pour lancer *[rayon ardent](https://www.aidedd.org/spell/fr/rayon-ardent)* (au niveau 3).
 
-      ***Sables brûlants***. *JdS Dextérité* : DD 20, une créature que le dragon voit dans un rayon de 36 m. *Échec* : 36 (8d8) dégâts de feu, et la Vitesse de la cible est réduite de moitié jusqu'à la fin de son tour suivant. *Échec ou réussite* : le dragon ne peut alors plus entreprendre cette action jusqu'au début de son tour suivant.
+      ***Assaut incisif***. Le dragon se déplace à concurrence de la moitié de sa
+      Vitesse et effectue une attaque de Saignée.
+
+
+      ***Lumière aveuglante***. Le dragon recourt à Incantation pour lancer *[rayon
+      ardent](https://www.aidedd.org/spell/fr/rayon-ardent)* (au niveau 3).
+
+
+      ***Sables brûlants***. *JdS Dextérité* : DD 20, une créature que le dragon voit
+      dans un rayon de 36 m. *Échec* : 36 (8d8) dégâts de feu, et la Vitesse de la
+      cible est réduite de moitié jusqu''à la fin de son tour suivant. *Échec ou réussite*
+      : le dragon ne peut alors plus entreprendre cette action jusqu''au début de
+      son tour suivant.'
     senses: Vision aveugle 18 m, Vision dans le noir 36 m, Perception passive 24
     languages:
     - commun

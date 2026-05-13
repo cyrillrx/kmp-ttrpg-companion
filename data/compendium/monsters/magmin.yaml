@@ -8,24 +8,12 @@ armorClass: 14
 maxHitPoints: 13
 hitDice: 3d6+3
 abilities:
-  str:
-    value: 7
-    savingThrowProficiency: none
-  dex:
-    value: 15
-    savingThrowProficiency: none
-  con:
-    value: 12
-    savingThrowProficiency: none
-  int:
-    value: 8
-    savingThrowProficiency: none
-  wis:
-    value: 11
-    savingThrowProficiency: none
-  cha:
-    value: 10
-    savingThrowProficiency: none
+  str: 7
+  dex: 15
+  con: 12
+  int: 8
+  wis: 11
+  cha: 10
 speeds:
   walk: 30
   fly: null
@@ -88,36 +76,56 @@ translations:
   en:
     name: Magmin
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Death Burst***. The magmin explodes when it dies. *Dexterity Saving Throw* : DC 11, each creature in a 10-foot Emanation originating from the magmin. *Failure* : 7 (2d6) Fire damage. *Success* : Half damage.
+
+      ***Death Burst***. The magmin explodes when it dies. *Dexterity Saving Throw*
+      : DC 11, each creature in a 10-foot Emanation originating from the magmin. *Failure*
+      : 7 (2d6) Fire damage. *Success* : Half damage.
+
 
       ## Actions
 
-      ***Touch***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 7 (2d4 + 2) Fire damage. If the target is a creature or a flammable object that isn't being worn or carried, it starts burning.
+
+      ***Touch***. *Melee Attack Roll* : +4, reach 5 ft. *Hit* : 7 (2d4 + 2) Fire
+      damage. If the target is a creature or a flammable object that isn''t being
+      worn or carried, it starts burning.
+
 
       ## Bonus actions
 
-      ***Ignited Illumination***. The magmin sets itself ablaze or extinguishes its flames. While ablaze, the magmin sheds Bright Light in a 10-foot radius and Dim Light for an additional 10 feet.
+
+      ***Ignited Illumination***. The magmin sets itself ablaze or extinguishes its
+      flames. While ablaze, the magmin sheds Bright Light in a 10-foot radius and
+      Dim Light for an additional 10 feet.'
     senses: Darkvision 60 ft., Passive Perception 10
     languages:
     - Primordial (Ignan)
   fr:
     name: Magmatique
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Explosion finale***. Le magmatique explose quand il meurt. *JdS Dextérité* : DD 11, chaque créature dans une Émanation de 3 m centrée sur le magmatique. *Échec* : 7 (2d6) dégâts de feu. *Réussite* : demi-dégâts.
+
+      ***Explosion finale***. Le magmatique explose quand il meurt. *JdS Dextérité*
+      : DD 11, chaque créature dans une Émanation de 3 m centrée sur le magmatique.
+      *Échec* : 7 (2d6) dégâts de feu. *Réussite* : demi-dégâts.
+
 
       ## Actions
 
-      ***Contact***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 7 (2d4 + 2) dégâts de feu. Si la cible est une créature ou un objet inflammable qui n'est porté par personne, elle s'embrase.
+
+      ***Contact***. *Corps à corps* : +4, allonge 1,50 m. *Touché* : 7 (2d4 + 2)
+      dégâts de feu. Si la cible est une créature ou un objet inflammable qui n''est
+      porté par personne, elle s''embrase.
+
 
       ## Actions Bonus
 
-      ***Illumination embrasée***. Le magmatique s'embrase ou éteint ses flammes. Embrasé, le magmatique produit une Lumière vive sur un rayon de 3 m et une Lumière faible sur 3 m de plus.
+
+      ***Illumination embrasée***. Le magmatique s''embrase ou éteint ses flammes.
+      Embrasé, le magmatique produit une Lumière vive sur un rayon de 3 m et une Lumière
+      faible sur 3 m de plus.'
     senses: Vision dans le noir 18 m, Perception passive 10
     languages:
     - primordial (igné)

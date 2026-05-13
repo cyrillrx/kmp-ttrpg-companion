@@ -8,24 +8,12 @@ armorClass: 14
 maxHitPoints: 123
 hitDice: 13d10+52
 abilities:
-  str:
-    value: 20
-    savingThrowProficiency: none
-  dex:
-    value: 9
-    savingThrowProficiency: none
-  con:
-    value: 18
-    savingThrowProficiency: none
-  int:
-    value: 3
-    savingThrowProficiency: none
-  wis:
-    value: 8
-    savingThrowProficiency: none
-  cha:
-    value: 1
-    savingThrowProficiency: none
+  str: 20
+  dex: 9
+  con: 18
+  int: 3
+  wis: 8
+  cha: 1
 speeds:
   walk: 20
   fly: null
@@ -88,52 +76,90 @@ translations:
   en:
     name: Clay Golem
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Acid Absorption***. Whenever the golem is subjected to Acid damage, it takes no damage and instead regains a number of Hit Points equal to the Acid damage dealt.
 
-      ***Berserk***. Whenever the golem starts its turn Bloodied, roll 1d6. On a 6, the golem goes berserk. On each of its turns while berserk, the golem attacks the nearest creature it can see. If no creature is near enough to move to and attack, the golem attacks an object. Once the golem goes berserk, it continues to be berserk until it is destroyed or it is no longer Bloodied.
+      ***Acid Absorption***. Whenever the golem is subjected to Acid damage, it takes
+      no damage and instead regains a number of Hit Points equal to the Acid damage
+      dealt.
 
-      ***Immutable Form***. The golem can't shape-shift.
 
-      ***Magic Resistance***. The golem has Advantage on saving throws against spells and other magical effects.
+      ***Berserk***. Whenever the golem starts its turn Bloodied, roll 1d6. On a 6,
+      the golem goes berserk. On each of its turns while berserk, the golem attacks
+      the nearest creature it can see. If no creature is near enough to move to and
+      attack, the golem attacks an object. Once the golem goes berserk, it continues
+      to be berserk until it is destroyed or it is no longer Bloodied.
+
+
+      ***Immutable Form***. The golem can''t shape-shift.
+
+
+      ***Magic Resistance***. The golem has Advantage on saving throws against spells
+      and other magical effects.
+
 
       ## Actions
 
-      ***Multiattack***. The golem makes two Slam attacks, or it makes three Slam attacks if it used Hasten this turn.
 
-      ***Slam***. *Melee Attack Roll* : +9, reach 5 ft. *Hit* : 10 (1d10 + 5) Bludgeoning damage plus 6 (1d12) Acid damage, and the target's Hit Point maximum decreases by an amount equal to the Acid damage taken.
+      ***Multiattack***. The golem makes two Slam attacks, or it makes three Slam
+      attacks if it used Hasten this turn.
+
+
+      ***Slam***. *Melee Attack Roll* : +9, reach 5 ft. *Hit* : 10 (1d10 + 5) Bludgeoning
+      damage plus 6 (1d12) Acid damage, and the target''s Hit Point maximum decreases
+      by an amount equal to the Acid damage taken.
+
 
       ## Bonus actions
 
-      ***Hasten (Recharge 5–6)***. The golem takes the Dash and Disengage actions.
+
+      ***Hasten (Recharge 5–6)***. The golem takes the Dash and Disengage actions.'
     senses: Darkvision 60 ft., Passive Perception 9
     languages:
     - Common plus one other language
   fr:
     name: Golem d'argile
     subtype: null
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Absorption de l'acide***. Chaque fois que le golem est soumis à des dégâts d'acide, il ne subit aucun dégât et récupère en fait autant de points de vie que les dégâts d'acide ainsi évités.
 
-      ***Folie furieuse***. Chaque fois que le golem commence son tour En péril, lancez 1d6. Sur un résultat de 6, il devient fou. À chacun de ses tours tant qu'il est dans cet état, le golem attaque la créature la plus proche qu'il voit. Si aucune créature n'est assez proche pour qu'il puisse se déplacer et l'attaquer, le golem s'en prend à un objet. Une fois le golem devenu fou, il continue à l'être jusqu'à sa destruction ou qu'il ne soit plus En péril.
+      ***Absorption de l''acide***. Chaque fois que le golem est soumis à des dégâts
+      d''acide, il ne subit aucun dégât et récupère en fait autant de points de vie
+      que les dégâts d''acide ainsi évités.
+
+
+      ***Folie furieuse***. Chaque fois que le golem commence son tour En péril, lancez
+      1d6. Sur un résultat de 6, il devient fou. À chacun de ses tours tant qu''il
+      est dans cet état, le golem attaque la créature la plus proche qu''il voit.
+      Si aucune créature n''est assez proche pour qu''il puisse se déplacer et l''attaquer,
+      le golem s''en prend à un objet. Une fois le golem devenu fou, il continue à
+      l''être jusqu''à sa destruction ou qu''il ne soit plus En péril.
+
 
       ***Forme immuable***. Le golem ne peut pas être métamorphosé.
 
-      ***Résistance à la magie***. Le golem a un Avantage aux jets de sauvegarde contre les sorts et autres effets magiques.
+
+      ***Résistance à la magie***. Le golem a un Avantage aux jets de sauvegarde contre
+      les sorts et autres effets magiques.
+
 
       ## Actions
 
-      ***Attaques multiples***. Le golem effectue deux attaques de Coup, ou trois attaques de Coup s'il a utilisé Accélération ce tour-ci.
 
-      ***Coup***. *Corps à corps* : +9, allonge 1,50 m. *Touché* : 10 (1d10 + 5) dégâts contondants plus 6 (1d12) dégâts d'acide, et le maximum de points de vie de la cible diminue d'un montant égal aux dégâts d'acide subis.
+      ***Attaques multiples***. Le golem effectue deux attaques de Coup, ou trois
+      attaques de Coup s''il a utilisé Accélération ce tour-ci.
+
+
+      ***Coup***. *Corps à corps* : +9, allonge 1,50 m. *Touché* : 10 (1d10 + 5) dégâts
+      contondants plus 6 (1d12) dégâts d''acide, et le maximum de points de vie de
+      la cible diminue d''un montant égal aux dégâts d''acide subis.
+
 
       ## Actions Bonus
 
-      ***Accélération (recharge 5–6)***. Le golem entreprend les actions Désengagement et Pointe.
+
+      ***Accélération (recharge 5–6)***. Le golem entreprend les actions Désengagement
+      et Pointe.'
     senses: Vision dans le noir 18 m, Perception passive 9
     languages:
     - commun plus une autre langue

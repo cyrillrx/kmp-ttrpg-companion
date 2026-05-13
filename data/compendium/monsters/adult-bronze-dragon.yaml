@@ -8,24 +8,15 @@ armorClass: 18
 maxHitPoints: 212
 hitDice: 17d12+102
 abilities:
-  str:
-    value: 25
-    savingThrowProficiency: none
-  dex:
-    value: 10
-    savingThrowProficiency: proficient
-  con:
-    value: 23
-    savingThrowProficiency: none
-  int:
-    value: 16
-    savingThrowProficiency: none
-  wis:
-    value: 15
-    savingThrowProficiency: proficient
-  cha:
-    value: 20
-    savingThrowProficiency: none
+  str: 25
+  dex: 10
+  con: 23
+  int: 16
+  wis: 15
+  cha: 20
+savingThrows:
+  dex: proficient
+  wis: proficient
 speeds:
   walk: 40
   fly: 80
@@ -88,38 +79,73 @@ translations:
   en:
     name: Adult Bronze Dragon
     subtype: Metallic
-    description: |-
-      ## Traits
+    description: '## Traits
+
 
       ***Amphibious***. The dragon can breathe air and water.
 
-      ***Legendary Resistance (3/Day, or 4/Day in Lair)***. If the dragon fails a saving throw, it can choose to succeed instead.
+
+      ***Legendary Resistance (3/Day, or 4/Day in Lair)***. If the dragon fails a
+      saving throw, it can choose to succeed instead.
+
 
       ## Actions
 
-      ***Multiattack***. The dragon makes three Rend attacks. It can replace one attack with a use of (A) Repulsion Breath or (B) Spellcasting to cast *[Guiding Bolt](https://www.aidedd.org/spell/guiding-bolt)* (level 2 version).
 
-      ***Rend***. *Melee Attack Roll* : +12, reach 10 ft. *Hit* : 16 (2d8 + 7) Slashing damage plus 5 (1d10) Lightning damage.
+      ***Multiattack***. The dragon makes three Rend attacks. It can replace one attack
+      with a use of (A) Repulsion Breath or (B) Spellcasting to cast *[Guiding Bolt](https://www.aidedd.org/spell/guiding-bolt)*
+      (level 2 version).
 
-      ***Lightning Breath (Recharge 5–6)***. *Dexterity Saving Throw* : DC 19, each creature in a 90-foot-long, 5-foot-wide Line. *Failure* : 55 (10d10) Lightning damage. *Success* : Half damage.
 
-      ***Repulsion Breath***. *Strength Saving Throw* : DC 19, each creature in a 30-foot Cone. *Failure* : The target is pushed up to 60 feet straight away from the dragon and has the Prone condition.
+      ***Rend***. *Melee Attack Roll* : +12, reach 10 ft. *Hit* : 16 (2d8 + 7) Slashing
+      damage plus 5 (1d10) Lightning damage.
 
-      ***Spellcasting***. The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 17, +10 to hit with spell attacks):
 
-      At Will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Guiding Bolt](https://www.aidedd.org/spell/guiding-bolt)* (level 2 version), *[Shapechange](https://www.aidedd.org/spell/shapechange)* (Beast or Humanoid form only, no Temporary Hit Points gained from the spell, and no Concentration or Temporary Hit Points required to maintain the spell), *[Speak with Animals](https://www.aidedd.org/spell/speak-with-animals), [Thaumaturgy](https://www.aidedd.org/spell/thaumaturgy)*
-      
-      1/Day Each: *[Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts), [Water Breathing](https://www.aidedd.org/spell/water-breathing)*
+      ***Lightning Breath (Recharge 5–6)***. *Dexterity Saving Throw* : DC 19, each
+      creature in a 90-foot-long, 5-foot-wide Line. *Failure* : 55 (10d10) Lightning
+      damage. *Success* : Half damage.
+
+
+      ***Repulsion Breath***. *Strength Saving Throw* : DC 19, each creature in a
+      30-foot Cone. *Failure* : The target is pushed up to 60 feet straight away from
+      the dragon and has the Prone condition.
+
+
+      ***Spellcasting***. The dragon casts one of the following spells, requiring
+      no Material components and using Charisma as the spellcasting ability (spell
+      save DC 17, +10 to hit with spell attacks):
+
+
+      At Will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Guiding
+      Bolt](https://www.aidedd.org/spell/guiding-bolt)* (level 2 version), *[Shapechange](https://www.aidedd.org/spell/shapechange)*
+      (Beast or Humanoid form only, no Temporary Hit Points gained from the spell,
+      and no Concentration or Temporary Hit Points required to maintain the spell),
+      *[Speak with Animals](https://www.aidedd.org/spell/speak-with-animals), [Thaumaturgy](https://www.aidedd.org/spell/thaumaturgy)*
+
+
+      1/Day Each: *[Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts),
+      [Water Breathing](https://www.aidedd.org/spell/water-breathing)*
+
 
       ## Legendary actions
 
-      Legendary Action Uses: 3 (4 in Lair). Immediately after another creature's turn, the dragon can expend a use to take one of the following actions. The dragon regains all expended uses at the start of each of its turns.
 
-      ***Guiding Light***. The dragon uses Spellcasting to cast *[Guiding Bolt](https://www.aidedd.org/spell/guiding-bolt)* (level 2 version).
+      Legendary Action Uses: 3 (4 in Lair). Immediately after another creature''s
+      turn, the dragon can expend a use to take one of the following actions. The
+      dragon regains all expended uses at the start of each of its turns.
+
+
+      ***Guiding Light***. The dragon uses Spellcasting to cast *[Guiding Bolt](https://www.aidedd.org/spell/guiding-bolt)*
+      (level 2 version).
+
 
       ***Pounce***. The dragon moves up to half its Speed, and it makes one Rend attack.
 
-      ***Thunderclap***. *Constitution Saving Throw* : DC 17, each creature in a 20-foot-radius Sphere centered on a point the dragon can see within 90 feet. *Failure* : 10 (3d6) Thunder damage, and the target has the Deafened condition until the end of its next turn.
+
+      ***Thunderclap***. *Constitution Saving Throw* : DC 17, each creature in a 20-foot-radius
+      Sphere centered on a point the dragon can see within 90 feet. *Failure* : 10
+      (3d6) Thunder damage, and the target has the Deafened condition until the end
+      of its next turn.'
     senses: Blindsight 60 ft., Darkvision 120 ft., Passive Perception 22
     languages:
     - Common
@@ -127,38 +153,78 @@ translations:
   fr:
     name: Dragon de bronze, adulte
     subtype: Métallique
-    description: |-
-      ## Traits
+    description: '## Traits
 
-      ***Amphibie***. Le dragon peut respirer sous l'eau comme à l'air libre.
 
-      ***Résistance légendaire (3/jour, ou 4/jour dans son antre)***. Si le dragon rate un jet de sauvegarde, il peut décider de le réussir tout de même.
+      ***Amphibie***. Le dragon peut respirer sous l''eau comme à l''air libre.
+
+
+      ***Résistance légendaire (3/jour, ou 4/jour dans son antre)***. Si le dragon
+      rate un jet de sauvegarde, il peut décider de le réussir tout de même.
+
 
       ## Actions
 
-      ***Attaques multiples***. Le dragon effectue trois attaques de Saignée. Il peut remplacer l'une de ces attaques par une utilisation de (A) Incantation pour lancer *[rayon traçant](https://www.aidedd.org/spell/fr/rayon-tracant)* (au niveau 2) ou (B) Souffle répulsif.
 
-      ***Saignée***. *Corps à corps* : +12, allonge 3 m. *Touché* : 16 (2d8 + 7) dégâts tranchants plus 5 (1d10) dégâts de foudre.
+      ***Attaques multiples***. Le dragon effectue trois attaques de Saignée. Il peut
+      remplacer l''une de ces attaques par une utilisation de (A) Incantation pour
+      lancer *[rayon traçant](https://www.aidedd.org/spell/fr/rayon-tracant)* (au
+      niveau 2) ou (B) Souffle répulsif.
 
-      ***Incantation***. Le dragon lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 17, +10 pour toucher) :
 
-      À volonté : *[changement de forme](https://www.aidedd.org/spell/fr/changement-de-forme)* (Bête ou Humanoïde uniquement, le sort ne fait pas gagner de points de vie temporaires, ni Concentration ni points de vie temporaires nécessaires pour maintenir le sort), *[communication avec les animaux](https://www.aidedd.org/spell/fr/communication-avec-les-animaux), [détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), ~~illusion mineure~~ , [rayon traçant](https://www.aidedd.org/spell/fr/rayon-tracant)* (au niveau 2), *[thaumaturgie](https://www.aidedd.org/spell/fr/thaumaturgie)*
-      
-      1/jour chacun : *[détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees), [respiration aquatique](https://www.aidedd.org/spell/fr/respiration-aquatique)*
+      ***Saignée***. *Corps à corps* : +12, allonge 3 m. *Touché* : 16 (2d8 + 7) dégâts
+      tranchants plus 5 (1d10) dégâts de foudre.
 
-      ***Souffle de foudre (recharge 5–6)***. *JdS Dextérité* : DD 19, chaque créature dans une Ligne de 27 m de long sur 1,50 m de large. *Échec* : 55 (10d10) dégâts de foudre. *Réussite* : demi-dégâts.
 
-      ***Souffle répulsif***. *JdS Force* : DD 19, chaque créature dans un Cône de 9 m. *Échec* : la cible est repoussée du dragon sur 18 m en ligne droite et subit l'état À terre.
+      ***Incantation***. Le dragon lance l''un des sorts suivants sans composantes
+      matérielles, le Charisme étant sa caractéristique d''incantation (DD de sauvegarde
+      17, +10 pour toucher) :
+
+
+      À volonté : *[changement de forme](https://www.aidedd.org/spell/fr/changement-de-forme)*
+      (Bête ou Humanoïde uniquement, le sort ne fait pas gagner de points de vie temporaires,
+      ni Concentration ni points de vie temporaires nécessaires pour maintenir le
+      sort), *[communication avec les animaux](https://www.aidedd.org/spell/fr/communication-avec-les-animaux),
+      [détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie),
+      ~~illusion mineure~~ , [rayon traçant](https://www.aidedd.org/spell/fr/rayon-tracant)*
+      (au niveau 2), *[thaumaturgie](https://www.aidedd.org/spell/fr/thaumaturgie)*
+
+
+      1/jour chacun : *[détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees),
+      [respiration aquatique](https://www.aidedd.org/spell/fr/respiration-aquatique)*
+
+
+      ***Souffle de foudre (recharge 5–6)***. *JdS Dextérité* : DD 19, chaque créature
+      dans une Ligne de 27 m de long sur 1,50 m de large. *Échec* : 55 (10d10) dégâts
+      de foudre. *Réussite* : demi-dégâts.
+
+
+      ***Souffle répulsif***. *JdS Force* : DD 19, chaque créature dans un Cône de
+      9 m. *Échec* : la cible est repoussée du dragon sur 18 m en ligne droite et
+      subit l''état À terre.
+
 
       ## Actions Légendaires
 
-      Utilisations d'action Légendaire : 3 (4 dans son antre). Aussitôt après le tour d'une autre créature, le dragon peut dépenser une utilisation pour entreprendre l'une des actions ci-après. Le dragon récupère toutes ses utilisations dépensées au début de chacun de ses tours.
 
-      ***Assaut incisif***. Le dragon se déplace à concurrence de la moitié de sa Vitesse et effectue une attaque de Saignée.
+      Utilisations d''action Légendaire : 3 (4 dans son antre). Aussitôt après le
+      tour d''une autre créature, le dragon peut dépenser une utilisation pour entreprendre
+      l''une des actions ci-après. Le dragon récupère toutes ses utilisations dépensées
+      au début de chacun de ses tours.
 
-      ***Coup de tonnerre***. *JdS Constitution* : DD 17, chaque créature dans une Sphère de 6 m de rayon centrée sur un point que le dragon voit dans un rayon de 27 m. *Échec* : 10 (3d6) dégâts de tonnerre, et la cible subit l'état Assourdi jusqu'à la fin de son tour suivant.
 
-      ***Lumière traçante***. Le dragon recourt à Incantation pour lancer *[rayon traçant](https://www.aidedd.org/spell/fr/rayon-tracant)* (au niveau 2).
+      ***Assaut incisif***. Le dragon se déplace à concurrence de la moitié de sa
+      Vitesse et effectue une attaque de Saignée.
+
+
+      ***Coup de tonnerre***. *JdS Constitution* : DD 17, chaque créature dans une
+      Sphère de 6 m de rayon centrée sur un point que le dragon voit dans un rayon
+      de 27 m. *Échec* : 10 (3d6) dégâts de tonnerre, et la cible subit l''état Assourdi
+      jusqu''à la fin de son tour suivant.
+
+
+      ***Lumière traçante***. Le dragon recourt à Incantation pour lancer *[rayon
+      traçant](https://www.aidedd.org/spell/fr/rayon-tracant)* (au niveau 2).'
     senses: Vision aveugle 18 m, Vision dans le noir 36 m, Perception passive 22
     languages:
     - commun

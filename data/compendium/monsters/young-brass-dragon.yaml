@@ -8,24 +8,15 @@ armorClass: 17
 maxHitPoints: 110
 hitDice: 13d10+39
 abilities:
-  str:
-    value: 19
-    savingThrowProficiency: none
-  dex:
-    value: 10
-    savingThrowProficiency: proficient
-  con:
-    value: 17
-    savingThrowProficiency: none
-  int:
-    value: 12
-    savingThrowProficiency: none
-  wis:
-    value: 11
-    savingThrowProficiency: proficient
-  cha:
-    value: 15
-    savingThrowProficiency: none
+  str: 19
+  dex: 10
+  con: 17
+  int: 12
+  wis: 11
+  cha: 15
+savingThrows:
+  dex: proficient
+  wis: proficient
 speeds:
   walk: 40
   fly: 80
@@ -88,16 +79,28 @@ translations:
   en:
     name: Young Brass Dragon
     subtype: Metallic
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Multiattack***. The dragon makes three Rend attacks. It can replace two attacks with a use of Sleep Breath.
 
-      ***Rend***. *Melee Attack Roll* : +7, reach 10 ft. *Hit* : 15 (2d10 + 4) Slashing damage.
+      ***Multiattack***. The dragon makes three Rend attacks. It can replace two attacks
+      with a use of Sleep Breath.
 
-      ***Fire Breath (Recharge 5–6)***. *Dexterity Saving Throw* : DC 14, each creature in a 40-foot-long, 5-foot-wide Line. *Failure* : 38 (11d6) Fire damage. *Success* : Half damage.
 
-      ***Sleep Breath***. *Constitution Saving Throw* : DC 14, each creature in a 30-foot Cone. *Failure* : The target has the Incapacitated condition until the end of its next turn, at which point it repeats the save. *Second Failure* : The target has the Unconscious condition for 1 minute. This effect ends for the target if it takes damage or a creature within 5 feet of it takes an action to wake it.
+      ***Rend***. *Melee Attack Roll* : +7, reach 10 ft. *Hit* : 15 (2d10 + 4) Slashing
+      damage.
+
+
+      ***Fire Breath (Recharge 5–6)***. *Dexterity Saving Throw* : DC 14, each creature
+      in a 40-foot-long, 5-foot-wide Line. *Failure* : 38 (11d6) Fire damage. *Success*
+      : Half damage.
+
+
+      ***Sleep Breath***. *Constitution Saving Throw* : DC 14, each creature in a
+      30-foot Cone. *Failure* : The target has the Incapacitated condition until the
+      end of its next turn, at which point it repeats the save. *Second Failure* :
+      The target has the Unconscious condition for 1 minute. This effect ends for
+      the target if it takes damage or a creature within 5 feet of it takes an action
+      to wake it.'
     senses: Blindsight 30 ft., Darkvision 120 ft., Passive Perception 16
     languages:
     - Common
@@ -105,16 +108,28 @@ translations:
   fr:
     name: Dragon d'airain, jeune
     subtype: Métallique
-    description: |-
-      ## Actions
+    description: '## Actions
 
-      ***Attaques multiples***. Le dragon effectue trois attaques de Saignée. Il peut remplacer deux de ces attaques par une utilisation de Souffle soporifique.
 
-      ***Saignée***. *Corps à corps* : +7, allonge 3 m. *Touché* : 15 (2d10 + 4) dégâts tranchants.
+      ***Attaques multiples***. Le dragon effectue trois attaques de Saignée. Il peut
+      remplacer deux de ces attaques par une utilisation de Souffle soporifique.
 
-      ***Souffle de feu (recharge 5–6)***. *JdS Dextérité* : DD 14, chaque créature dans une Ligne de 12 m de long sur 1,50 m de large. *Échec* : 38 (11d6) dégâts de feu. *Réussite* : demi-dégâts.
 
-      ***Souffle soporifique***. *JdS Constitution* : DD 14, chaque créature dans un Cône de 9 m. *Échec* : la cible subit l'état Incapable d'agir jusqu'à la fin de son tour suivant, et réitère alors son JdS. *Deuxième échec* : la cible subit l'état Inconscient pendant 1 minute. Cet effet prend fin pour la cible si celle-ci subit des dégâts ou si une créature dans un rayon de 1,50 m consacre une action à la réveiller.
+      ***Saignée***. *Corps à corps* : +7, allonge 3 m. *Touché* : 15 (2d10 + 4) dégâts
+      tranchants.
+
+
+      ***Souffle de feu (recharge 5–6)***. *JdS Dextérité* : DD 14, chaque créature
+      dans une Ligne de 12 m de long sur 1,50 m de large. *Échec* : 38 (11d6) dégâts
+      de feu. *Réussite* : demi-dégâts.
+
+
+      ***Souffle soporifique***. *JdS Constitution* : DD 14, chaque créature dans
+      un Cône de 9 m. *Échec* : la cible subit l''état Incapable d''agir jusqu''à
+      la fin de son tour suivant, et réitère alors son JdS. *Deuxième échec* : la
+      cible subit l''état Inconscient pendant 1 minute. Cet effet prend fin pour la
+      cible si celle-ci subit des dégâts ou si une créature dans un rayon de 1,50
+      m consacre une action à la réveiller.'
     senses: Vision aveugle 9 m, Vision dans le noir 36 m, Perception passive 16
     languages:
     - commun

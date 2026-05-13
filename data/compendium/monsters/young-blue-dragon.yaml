@@ -8,24 +8,15 @@ armorClass: 18
 maxHitPoints: 152
 hitDice: 16d10+64
 abilities:
-  str:
-    value: 21
-    savingThrowProficiency: none
-  dex:
-    value: 10
-    savingThrowProficiency: proficient
-  con:
-    value: 19
-    savingThrowProficiency: none
-  int:
-    value: 14
-    savingThrowProficiency: none
-  wis:
-    value: 13
-    savingThrowProficiency: proficient
-  cha:
-    value: 17
-    savingThrowProficiency: none
+  str: 21
+  dex: 10
+  con: 19
+  int: 14
+  wis: 13
+  cha: 17
+savingThrows:
+  dex: proficient
+  wis: proficient
 speeds:
   walk: 40
   fly: 80
@@ -88,14 +79,19 @@ translations:
   en:
     name: Young Blue Dragon
     subtype: Chromatic
-    description: |-
-      ## Actions
+    description: '## Actions
+
 
       ***Multiattack***. The dragon makes three Rend attacks.
 
-      ***Rend***. *Melee Attack Roll* : +9, reach 10 ft. *Hit* : 12 (2d6 + 5) Slashing damage plus 5 (1d10) Lightning damage.
 
-      ***Lightning Breath (Recharge 5–6)***. *Dexterity Saving Throw* : DC 16, each creature in a 60-foot-long, 5-foot-wide Line. *Failure* : 55 (10d10) Lightning damage. *Success* : Half damage.
+      ***Rend***. *Melee Attack Roll* : +9, reach 10 ft. *Hit* : 12 (2d6 + 5) Slashing
+      damage plus 5 (1d10) Lightning damage.
+
+
+      ***Lightning Breath (Recharge 5–6)***. *Dexterity Saving Throw* : DC 16, each
+      creature in a 60-foot-long, 5-foot-wide Line. *Failure* : 55 (10d10) Lightning
+      damage. *Success* : Half damage.'
     senses: Blindsight 30 ft., Darkvision 120 ft., Passive Perception 19
     languages:
     - Common
@@ -103,14 +99,19 @@ translations:
   fr:
     name: Dragon bleu, jeune
     subtype: Chromatique
-    description: |-
-      ## Actions
+    description: '## Actions
+
 
       ***Attaques multiples***. Le dragon effectue trois attaques de Saignée.
 
-      ***Saignée***. *Corps à corps* : +9, allonge 3 m. *Touché* : 12 (2d6 + 5) dégâts tranchants plus 5 (1d10) dégâts de foudre.
 
-      ***Souffle de foudre (recharge 5–6)***. *JdS Dextérité* : DD 16, chaque créature dans une Ligne de 18 m de long sur 1,50 m de large. *Échec* : 55 (10d10) dégâts de foudre. *Réussite* : demi-dégâts.
+      ***Saignée***. *Corps à corps* : +9, allonge 3 m. *Touché* : 12 (2d6 + 5) dégâts
+      tranchants plus 5 (1d10) dégâts de foudre.
+
+
+      ***Souffle de foudre (recharge 5–6)***. *JdS Dextérité* : DD 16, chaque créature
+      dans une Ligne de 18 m de long sur 1,50 m de large. *Échec* : 55 (10d10) dégâts
+      de foudre. *Réussite* : demi-dégâts.'
     senses: Vision aveugle 9 m, Vision dans le noir 36 m, Perception passive 19
     languages:
     - commun
