@@ -33,6 +33,15 @@ try:
 except ImportError:
     sys.exit("Missing dependency: pip install pyyaml")
 
+
+def _str_representer(dumper: yaml.Dumper, data: str) -> yaml.ScalarNode:
+    if "\n" in data:
+        return dumper.represent_scalar("tag:yaml.org,2002:str", data, style="|")
+    return dumper.represent_scalar("tag:yaml.org,2002:str", data)
+
+
+yaml.add_representer(str, _str_representer)
+
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 DATA_DIR = os.path.join(REPO_ROOT, "data", "compendium")
 APP_RESOURCES_DIR = os.path.join(
@@ -64,6 +73,19 @@ def check_json(path: str, data: list[dict]) -> bool:
         print(f"  OUT OF DATE: {path}")
         return False
     return True
+
+
+def fmt_collection(name: str) -> int:
+    src_dir = os.path.join(DATA_DIR, name)
+    yaml_files = sorted(glob.glob(os.path.join(src_dir, "*.yaml")))
+    for path in yaml_files:
+        with open(path, encoding="utf-8") as f:
+            entity = yaml.safe_load(f)
+        if entity is not None:
+            with open(path, "w", encoding="utf-8") as f:
+                yaml.dump(entity, f, allow_unicode=True, sort_keys=False, default_flow_style=False)
+    print(f"  {name}: {len(yaml_files)} files formatted")
+    return len(yaml_files)
 
 
 def build_collection(name: str, check: bool) -> tuple[int, bool]:
@@ -103,19 +125,33 @@ def build_collection(name: str, check: bool) -> tuple[int, bool]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Build compendium JSON from YAML source.")
-    parser.add_argument(
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument(
         "--check",
         action="store_true",
         help="Verify committed JSON files are up to date (CI mode). Exit 1 if not.",
     )
+    group.add_argument(
+        "--fmt",
+        action="store_true",
+        help="Reformat all YAML source files in place (normalises block scalar style).",
+    )
     args = parser.parse_args()
+
+    collections = ("spells", "monsters", "magical-items", "pc-presets", "npc-presets")
+
+    if args.fmt:
+        print("Formatting YAML sources...")
+        total = sum(fmt_collection(name) for name in collections)
+        print(f"\nDone. {total} files formatted.")
+        return
 
     mode = "Checking" if args.check else "Building"
     print(f"{mode} compendium...")
 
     total = 0
     all_ok = True
-    for name in ("spells", "monsters", "magical-items", "pc-presets", "npc-presets"):
+    for name in collections:
         count, ok = build_collection(name, check=args.check)
         total += count
         all_ok = all_ok and ok
