@@ -14,6 +14,8 @@ Output:
     data/compendium/spells.json
     data/compendium/monsters.json
     data/compendium/magical-items.json
+    data/compendium/pc-presets.json
+    data/compendium/npc-presets.json
     (app resource files are symlinks to the above — no copy needed)
 
 CI mode (--check):
@@ -34,13 +36,22 @@ except ImportError:
     sys.exit("Missing dependency: pip install pyyaml")
 
 
-def _str_representer(dumper: yaml.Dumper, data: str) -> yaml.ScalarNode:
-    if "\n" in data:
-        return dumper.represent_scalar("tag:yaml.org,2002:str", data, style="|")
-    return dumper.represent_scalar("tag:yaml.org,2002:str", data)
+class _Literal(str):
+    """String subclass that forces YAML block-scalar (|-) output."""
 
 
-yaml.add_representer(str, _str_representer)
+def _literal_representer(dumper: yaml.Dumper, data: _Literal) -> yaml.ScalarNode:
+    return dumper.represent_scalar("tag:yaml.org,2002:str", data, style="|")
+
+
+yaml.add_representer(_Literal, _literal_representer)
+
+
+def _mark_descriptions(entity: dict) -> dict:
+    for locale_data in entity.get("translations", {}).values():
+        if isinstance(locale_data, dict) and isinstance(locale_data.get("description"), str):
+            locale_data["description"] = _Literal(locale_data["description"])
+    return entity
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 DATA_DIR = os.path.join(REPO_ROOT, "data", "compendium")
@@ -83,7 +94,7 @@ def fmt_collection(name: str) -> int:
             entity = yaml.safe_load(f)
         if entity is not None:
             with open(path, "w", encoding="utf-8") as f:
-                yaml.dump(entity, f, allow_unicode=True, sort_keys=False, default_flow_style=False)
+                yaml.dump(_mark_descriptions(entity), f, allow_unicode=True, sort_keys=False, default_flow_style=False)
     print(f"  {name}: {len(yaml_files)} files formatted")
     return len(yaml_files)
 
@@ -107,7 +118,7 @@ def build_collection(name: str, check: bool) -> tuple[int, bool]:
         with open(path, encoding="utf-8") as f:
             entity = yaml.safe_load(f)
         if entity is not None:
-            entities.append(entity)
+            entities.append(_mark_descriptions(entity))
         else:
             print(f"  WARNING: skipping empty file {path}", file=sys.stderr)
 
