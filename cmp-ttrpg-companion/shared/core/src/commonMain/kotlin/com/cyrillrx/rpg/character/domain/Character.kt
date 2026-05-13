@@ -5,7 +5,9 @@ import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.Skills
 import com.cyrillrx.rpg.creature.domain.Speeds
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class Character(
     override val id: String,
     val name: String,
@@ -24,20 +26,12 @@ data class Character(
     val background: String? = null,
     val currentHitPoints: Int = maxHitPoints,
     val temporaryHitPoints: Int = 0,
-) : Creature(
-    id = id,
-    size = size,
-    alignment = alignment,
-    abilities = abilities,
-    armorClass = armorClass,
-    maxHitPoints = maxHitPoints,
-    speeds = speeds,
-) {
+) : Creature() {
     fun resolveTranslation(locale: String): Translation? = translations[locale]
         ?: translations[FALLBACK_LOCALE]
         ?: translations.values.firstOrNull()
 
-    fun initiativeModifier(): Int = abilities.dex.modifier
+    fun initiativeModifier(): Int = abilities.dex.getModifier()
 
     fun proficiencyBonus(): Int = when (level) {
         in 1..4 -> 2
@@ -48,6 +42,7 @@ data class Character(
         else -> 0
     }
 
+    @Serializable
     data class Translation(
         val shortDescription: String = "",
         val description: String = "",

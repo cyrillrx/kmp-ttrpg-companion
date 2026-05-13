@@ -1,5 +1,8 @@
 package com.cyrillrx.rpg.creature.domain
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class Speeds(
     val walk: Int? = null,
     val fly: Int? = null,

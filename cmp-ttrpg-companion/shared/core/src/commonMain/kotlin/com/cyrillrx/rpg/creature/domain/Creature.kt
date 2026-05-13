@@ -1,14 +1,14 @@
 package com.cyrillrx.rpg.creature.domain
 
-abstract class Creature(
-    open val id: String,
-    open val size: Size,
-    open val alignment: Alignment,
-    open val abilities: Abilities,
-    open val armorClass: Int,
-    open val maxHitPoints: Int,
-    open val speeds: Speeds,
-) {
+abstract class Creature {
+    abstract val id: String
+    abstract val size: Size
+    abstract val alignment: Alignment
+    abstract val abilities: Abilities
+    abstract val armorClass: Int
+    abstract val maxHitPoints: Int
+    abstract val speeds: Speeds
+
     enum class Size {
         TINY,
         SMALL,

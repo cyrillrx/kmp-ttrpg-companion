@@ -1,10 +1,13 @@
 package com.cyrillrx.rpg.creature.domain
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 class Ability(
     val value: Int,
     val savingThrowProficiency: Proficiency = Proficiency.NONE,
 ) {
-    val modifier: Int = getModifier(value)
+    fun getModifier(): Int = computeModifier(value)
 
     fun getValueWithModifier(): String = "$value (${getSignedModifier(value)})"
 
@@ -12,11 +15,11 @@ class Ability(
         const val DEFAULT_VALUE = 10
 
         private fun getSignedModifier(abilityValue: Int): String {
-            val modifier = getModifier(abilityValue)
+            val modifier = computeModifier(abilityValue)
             return if (modifier >= 0) "+$modifier" else "$modifier"
         }
 
-        private fun getModifier(abilityValue: Int): Int = when {
+        private fun computeModifier(abilityValue: Int): Int = when {
             abilityValue < 4 -> -4
             abilityValue < 6 -> -3
             abilityValue < 8 -> -2
