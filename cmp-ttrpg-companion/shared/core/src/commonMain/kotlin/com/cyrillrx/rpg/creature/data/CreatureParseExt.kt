@@ -25,6 +25,12 @@ internal fun createAbilities(abilities: ApiAbilities?, savingThrows: ApiSavingTh
     cha = Ability(abilities?.cha ?: Ability.DEFAULT_VALUE, savingThrows?.cha.toProficiency()),
 )
 
+internal fun String?.toProficiency(): Proficiency = when (this) {
+    "proficient" -> Proficiency.PROFICIENT
+    "expert" -> Proficiency.EXPERT
+    else -> Proficiency.NONE
+}
+
 internal fun ApiSpeeds?.toSpeeds(): Speeds = Speeds(
     walk = this?.walk,
     fly = this?.fly,
@@ -39,12 +45,6 @@ internal fun String.toSize(): Creature.Size? =
 
 internal fun String.toAlignment(): Creature.Alignment? =
     Creature.Alignment.entries.find { it.name.equals(this, ignoreCase = true) }
-
-internal fun String?.toProficiency(): Proficiency = when (this) {
-    "proficient" -> Proficiency.PROFICIENT
-    "expert" -> Proficiency.EXPERT
-    else -> Proficiency.NONE
-}
 
 internal fun ApiSkills.toSkills(): Skills = Skills(
     acrobatics = acrobatics.toProficiency(),
