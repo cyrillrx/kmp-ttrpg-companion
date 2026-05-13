@@ -2,8 +2,8 @@
 
 <resources>
     <!-- Character stats -->
-    <string name="label_armor_class">AC %d</string>
-    <string name="label_hit_points">%d HP</string>
+    <string name="label_armor_class">AC %1$d</string>
+    <string name="label_hit_points">%1$d HP</string>
 
     <!-- Character list -->
     <string name="title_character_list">Characters</string>
