@@ -22,13 +22,12 @@ translations:
     materialDescription: a legume seed
     description: |-
       A Line of strong wind 60 feet long and 10 feet wide blasts from you in a direction you choose for the duration. Each creature in the Line must succeed on a Strength saving throw or be pushed 15 feet away from you in a direction following the Line. A creature that ends its turn in the Line must make the same save.
-      
+
       Any creature in the Line must spend 2 feet of movement for every 1 foot it moves when moving closer to you.
-      
+
       The gust disperses gas or vapor, and it extinguishes candles and similar unprotected flames in the area. It causes protected flames, such as those of lanterns, to dance wildly and has a 50 percent chance to extinguish them.
-      
+
       As a Bonus Action on your later turns, you can change the direction in which the Line blasts from you.
-      
   fr:
     name: Bourrasque
     castingTime: Action
@@ -37,9 +36,9 @@ translations:
     materialDescription: une graine de légumineuse
     description: |-
       Une Ligne de vent violent de 18 mètres de long et 3 mètres de large souffle depuis vous dans la direction de votre choix pendant toute la durée du sort. Toute créature sur la Ligne doit réussir un jet de sauvegarde de Force ou être repoussée de 4,50 mètres dans la direction de la Ligne. Une créature qui termine son tour dans la Ligne doit effectuer le même jet de sauvegarde.
-      
+
       Toute créature sur la Ligne doit dépenser le double de mouvement pour chaque mètre parcouru si elle se rapproche de vous.
-      
+
       La rafale disperse du gaz ou de la vapeur, et éteint les bougies et autres flammes similaires non protégées dans la zone. Les flammes protégées, comme celles des lanternes, ont 50 % de chances de s'éteindre.
-      
+
       Par une action Bonus lors de vos tours suivants, vous pouvez modifier la direction dans laquelle le vent souffle depuis vous.

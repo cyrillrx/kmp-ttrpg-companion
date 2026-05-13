@@ -9,18 +9,18 @@ translations:
     subtype: null
     description: |-
       This rusty iron sphere measures 3 inches in diameter and weighs 1 pound. You can take a Magic action to throw the sphere at a Huge or smaller creature you can see within 60 feet of yourself. As the sphere moves through the air, it opens into a tangle of metal bands.
-      
+
       Make a ranged attack roll with an attack bonus equal to your Dexterity modifier plus your Proficiency Bonus. On a hit, the target has the Restrained condition until you take a Bonus Action to issue a command that releases it. Doing so or missing with the attack causes the bands to contract and become a sphere once more.
-      
+
       A creature that can touch the bands, including the one Restrained, can take an action to make a DC 20 Strength (Athletics) check to break the iron bands. On a successful check, the item is destroyed, and the Restrained creature is freed. On a failed check, any further attempts made by that creature automatically fail until 24 hours have elapsed.
-      
+
       Once the bands are used, they can't be used again until the next dawn.
   fr:
     name: Liens de fer de Bilarro
     subtype: null
     description: |-
       Cette sphère de fer rouillée mesure 7,50 cm de diamètre et pèse 500 g. Vous pouvez prendre une action Magie pour la lancer sur une créature de taille G ou plus petite que vous pouvez voir dans un rayon de 18 mètres. Alors qu'elle se déplace dans les airs, la sphère s'ouvre en un enchevêtrement de bandes métalliques.
-      
+
       Effectuez un jet d'attaque à distance avec un bonus à l'attaque égal à votre modificateur de Dextérité plus votre bonus de Maîtrise. En cas de réussite, la cible subit l'état Entravé jusqu'à ce que vous preniez une action Bonus pour la libérer. Si vous le faites ou si vous ratez votre attaque, les bandes se contractent et redeviennent une sphère.
-      
+
       Une créature qui peut toucher les bandes, y compris celle entravée, peut effectuer un jet de Force (Athlétisme) DD 20 pour briser les bandes de fer. En cas de réussite, l'objet est détruit et la créature entravée est libérée. En cas d'échec, toute tentative ultérieure de cette créature échoue automatiquement jusqu'à ce que 24 heures se soient écoulées. Une fois les bandes utilisées, elles ne peuvent plus être utilisées avant l'aube suivante.

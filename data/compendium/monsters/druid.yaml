@@ -8,24 +8,12 @@ armorClass: 13
 maxHitPoints: 44
 hitDice: 8d8+8
 abilities:
-  str:
-    value: 10
-    savingThrowProficiency: none
-  dex:
-    value: 12
-    savingThrowProficiency: none
-  con:
-    value: 13
-    savingThrowProficiency: none
-  int:
-    value: 12
-    savingThrowProficiency: none
-  wis:
-    value: 16
-    savingThrowProficiency: none
-  cha:
-    value: 11
-    savingThrowProficiency: none
+  str: 10
+  dex: 12
+  con: 13
+  int: 12
+  wis: 16
+  cha: 11
 speeds:
   walk: 30
   fly: null
@@ -100,9 +88,9 @@ translations:
       ***Spellcasting***. The druid casts one of the following spells, using Wisdom as the spellcasting ability (spell save DC 13):
 
       At will: *[Druidcraft](https://www.aidedd.org/spell/druidcraft), [Speak with Animals](https://www.aidedd.org/spell/speak-with-animals)*
-      
+
       2/day each: *[Entangle](https://www.aidedd.org/spell/entangle), [Thunderwave](https://www.aidedd.org/spell/thunderwave)*
-      
+
       1/day each: *[Animal Messenger](https://www.aidedd.org/spell/animal-messenger), [Longstrider](https://www.aidedd.org/spell/longstrider), [Moonbeam](https://www.aidedd.org/spell/moonbeam)*
     senses: Passive Perception 15
     languages:
@@ -124,9 +112,9 @@ translations:
       ***Incantation***. Le druide lance l'un des sorts suivants, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 13) :
 
       À volonté : *[communication avec les animaux](https://www.aidedd.org/spell/fr/communication-avec-les-animaux), [druidisme](https://www.aidedd.org/spell/fr/druidisme)*
-      
+
       2/jour chacun : *[enchevêtrement](https://www.aidedd.org/spell/fr/enchevetrement), vague tonnante*
-      
+
       1/jour chacun : *grande foulée, messager animal, rayon de lune*
     senses: Perception passive 15
     languages:

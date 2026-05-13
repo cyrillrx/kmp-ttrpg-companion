@@ -8,24 +8,15 @@ armorClass: 18
 maxHitPoints: 152
 hitDice: 16d10+64
 abilities:
-  str:
-    value: 21
-    savingThrowProficiency: none
-  dex:
-    value: 10
-    savingThrowProficiency: proficient
-  con:
-    value: 19
-    savingThrowProficiency: none
-  int:
-    value: 14
-    savingThrowProficiency: none
-  wis:
-    value: 13
-    savingThrowProficiency: proficient
-  cha:
-    value: 17
-    savingThrowProficiency: none
+  str: 21
+  dex: 10
+  con: 19
+  int: 14
+  wis: 13
+  cha: 17
+savingThrows:
+  dex: proficient
+  wis: proficient
 speeds:
   walk: 40
   fly: 80

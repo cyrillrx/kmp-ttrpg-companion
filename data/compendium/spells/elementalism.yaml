@@ -21,17 +21,16 @@ translations:
     materialDescription: null
     description: |-
       You exert control over the elements, creating one of the following effects within range:
-      
+
       **Beckon Air**. You create a breeze strong enough to ripple cloth, stir dust, rustle leaves, and close open doors and shutters, all in a 5-foot Cube. Doors and shutters being held open by someone or something aren't affected.
-      
+
       **Beckon Earth**. You create a thin shroud of dust or sand that covers surfaces in a 5-foot-square area, or you cause a single word to appear in your handwriting in a patch of dirt or sand.
-      
+
       **Beckon Fire**. You create a thin cloud of harmless embers and colored, scented smoke in a 5-foot Cube. You choose the color and scent, and the embers can light candles, torches, or lamps in that area. The smoke's scent lingers for 1 minute.
-      
+
       **Beckon Water**. You create a spray of cool mist that lightly dampens creatures and objects in a 5-foot Cube. Alternatively, you create 1 cup of clean water either in an open container or on a surface, and the water evaporates in 1 minute.
-      
+
       **Sculpt Element**. You cause dirt, sand, fire, smoke, mist, or water that can fit in a 1-foot Cube to assume a crude shape (such as that of a creature or an object) for 1 hour.
-      
   fr:
     name: Élémentalisme
     castingTime: Action
@@ -40,13 +39,13 @@ translations:
     materialDescription: null
     description: |-
       Vous avez un contrôle sur les éléments, produisant un des effets suivants, dans les limites de la portée :
-      
+
       **Appel d'air**. Vous créez une brise assez forte pour faire onduler du tissu, soulever la poussière, faire bruisser les feuilles d'un arbre et fermer une porte ouverte ou des volets, dans un Cube de 1,50 mètre de côté.
-      
+
       **Appel de terre**. Vous créez un fin voile de poussière ou de sable qui recouvre les surfaces dans une zone de 1,50 mètre de côté. Ou sinon, vous pouvez faire apparaitre un seul mot, avec votre écriture, dans la terre ou le sable.
-      
+
       **Appel de feu**. Vous créez un fin nuage composé de braises et de fumée colorée et parfumée (mais inoffensive) dans un Cube de 1,50 mètre de côté. Vous choisissez la couleur et l'odeur de la fumée, et les braises peuvent allumer bougies, torches et lampes dans la zone du sort. L'odeur de la fumée persiste pendant 1 minute.
-      
+
       **Appel d'eau**. Vous créez une bruine de brume fraiche qui humidifie légèrement les créatures et les objets dans un Cube de 1,50 mètre de côté. Vous pouvez aussi choisir de créer 20 cl d'eau potable, soit dans un récipient ouvert, soit au sol. L'eau ainsi créée s'évapore en 1 minute.
-      
+
       **Façonnage élémentaire**. Vous utilisez la poussière, le sable, le feu, la fumée, la brume ou l'eau qui tiennent dans un Cube de 30 cm de côté pour former une forme grossière (comme celle d'une créature ou d'un objet) pour 1 heure.

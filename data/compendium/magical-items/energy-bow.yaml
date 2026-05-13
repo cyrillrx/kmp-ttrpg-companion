@@ -9,24 +9,24 @@ translations:
     subtype: Longbow or Shortbow
     description: |-
       You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon, which has no string. Each time you pull your arm back in a firing motion, a magical arrow made of golden energy appears nocked and ready to fire. An arrow produced by this weapon deals Force damage instead of Piercing damage on a hit, and it disappears after it hits or misses its target. Until it disappears, the arrow emits Bright Light in a 20-foot radius and Dim Light for an additional 20 feet.
-      
+
       This weapon has the following additional properties.
-      
+
       **Arrow of Restraint**. Whenever you use this weapon to make a ranged attack against a creature, you can try to restrain the target instead of dealing damage to it. If the arrow hits, the target must succeed on a DC 15 Strength saving throw or have the Restrained condition for 1 minute. As an action, a creature Restrained by an arrow can make a DC 20 Strength (Athletics) check to try to break the restraint, ending the effect on itself on a successful check.
-      
+
       **Arrow of Transport**. As a Magic action, you can fire one energy arrow from this weapon at a target you can see within 60 feet of yourself. The target can be either a willing Medium or smaller creature or an object that isn't being worn or carried, provided the object is small enough to fit inside a 5-foot Cube. The arrow teleports the target to an unoccupied space you can see within 10 feet of you.
-      
+
       **Energy Ladder**. As a Magic action, you can loose a flurry of energy arrows from this weapon at a wall up to 60 feet away from yourself. The arrows become glowing rungs that stick out of the wall, forming a magical ladder up to 60 feet long on the wall. This ladder lasts for 1 minute before disappearing.
   fr:
     name: Arc à énergie
     subtype: arc court ou arc long
     description: |-
       Vous bénéficiez d'un bonus de +1 aux jets d'attaque et de dégâts effectués avec cette arme magique sans corde. Chaque fois que vous tirez votre bras en arrière pour tirer, une flèche magique d'énergie dorée apparaît encochée et prête à partir. Une flèche produite par cette arme inflige des dégâts de force au lieu de dégâts perforants si elle touche, et disparaît après avoir touché ou manqué sa cible. Jusqu'à sa disparition, la flèche émet une Lumière vive sur un rayon de 6 mètres et une Lumière faible sur 6 mètres supplémentaires.
-      
+
       Cette arme possède les propriétés supplémentaires suivantes :
-      
+
       **Flèche d'entrave**. Chaque fois que vous utilisez cette arme pour effectuer une attaque à distance contre une créature, vous pouvez tenter de la retenir au lieu de lui infliger des dégâts. Si la flèche touche, la cible doit réussir un jet de sauvegarde de Force DD 15 ou subir l'état Entravé pendant 1 minute. Au prix d'une action, une créature entravée par une flèche peut effectuer un jet de Force (Athlétisme) DD 20 pour tenter de briser la contrainte, mettant fin à l'effet sur elle-même en cas de réussite.
-      
+
       **Flèche de transport**. Par une action Magie, vous pouvez tirer une flèche d'énergie avec cette arme sur une cible que vous pouvez voir dans un rayon de 18 mètres. La cible peut être une créature consentante de taille M ou plus petite, ou un objet non porté, à condition que l'objet soit suffisamment petit pour tenir dans un Cube de 1,50 mètre de côté. La flèche téléporte la cible vers un espace libre que vous pouvez voir dans un rayon de 3 mètres autour de vous.
-      
+
       **Échelle d'énergie**. Par une action Magie, vous pouvez tirer une rafale de flèches d'énergie avec cette arme sur un mur situé jusqu'à 18 mètres de vous. Les flèches deviennent des barreaux lumineux qui dépassent du mur, formant une échelle magique de 18 mètres de long maximum sur le mur. Cette échelle reste active 1 minute avant de disparaître.

@@ -21,9 +21,8 @@ translations:
     materialDescription: null
     description: |-
       A wave of healing energy washes out from a point you can see within range. Choose up to six creatures in a 30-foot-radius Sphere centered on that point. Each target regains Hit Points equal to 5d8 plus your spellcasting ability modifier.
-      
+
       ***Using a Higher-Level Spell Slot***. The healing increases by 1d8 for each spell slot level above 5.
-      
   fr:
     name: Soins de groupe
     castingTime: Action
@@ -32,5 +31,5 @@ translations:
     materialDescription: null
     description: |-
       Une vague d'énergie curative jaillit d'un point visible à portée. Choisissez jusqu'à six créatures dans une Sphère de 9 mètres de rayon centrée sur ce point. Chaque cible récupère un nombre de points de vie égal à 5d8 plus le modificateur de votre caractéristique d'incantation.
-      
+
       ***Emplacement de niveau supérieur***. Les soins augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 5.

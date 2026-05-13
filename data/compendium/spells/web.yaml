@@ -20,15 +20,14 @@ translations:
     materialDescription: a bit of spiderweb
     description: |-
       You conjure a mass of sticky webbing at a point within range. The webs fill a 20-foot Cube there for the duration. The webs are Difficult Terrain, and the area within them is Lightly Obscured.
-      
+
       If the webs aren't anchored between two solid masses (such as walls or trees) or layered across a floor, wall, or ceiling, the web collapses on itself, and the spell ends at the start of your next turn. Webs layered over a flat surface have a depth of 5 feet.
-      
+
       The first time a creature enters the webs on a turn or starts its turn there, it must succeed on a Dexterity saving throw or have the Restrained condition while in the webs or until it breaks free.
-      
+
       A creature Restrained by the webs can take an action to make a Strength (Athletics) check against your spell save DC. If it succeeds, it is no longer Restrained.
-      
+
       The webs are flammable. Any 5-foot Cube of webs exposed to fire burns away in 1 round, dealing 2d4 Fire damage to any creature that starts its turn in the fire.
-      
   fr:
     name: Toile d'araignée
     castingTime: Action
@@ -37,11 +36,11 @@ translations:
     materialDescription: quelques filandres de toile d'araignée
     description: |-
       Vous invoquez une masse de toile collante à un point à portée. Les toiles remplissent un Cube de 6 mètres de côté pendant toute la durée du sort. Les toiles sont un Terrain difficile et la zone à l'intérieur a une visibilité réduite.
-      
+
       Si les toiles ne sont pas ancrées entre deux masses solides (comme des murs ou des arbres) ou superposées sur un sol, un mur ou un plafond, elles s'effondrent sur elles-mêmes et le sort prend fin au début de votre prochain tour. Les toiles superposées sur une surface plane ont une profondeur de 1,50 mètre.
-      
+
       La première fois qu'une créature pénètre dans les toiles au cours d'un tour ou y commence son tour, elle doit réussir un jet de sauvegarde de Dextérité ou subir l'état Entravé tant qu'elle est dans les toiles ou jusqu'à ce qu'elle se libère.
-      
+
       Une créature retenue par les toiles peut effectuer un jet de Force (Athlétisme) contre le DD de sauvegarde de votre sort. En cas de réussite, elle n'est plus entravée.
-      
+
       Les toiles sont inflammables. Tout Cube de toiles de 1,50 mètre de côté exposé au feu brûle en 1 round, infligeant 2d4 dégâts de feu à toute créature qui commence son tour dans le feu.

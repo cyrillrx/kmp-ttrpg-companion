@@ -20,11 +20,10 @@ translations:
     materialDescription: a ball of bat guano and sulfur
     description: |-
       A bright streak flashes from you to a point you choose within range and then blossoms with a low roar into a fiery explosion. Each creature in a 20-foot-radius Sphere centered on that point makes a Dexterity saving throw, taking 8d6 Fire damage on a failed save or half as much damage on a successful one.
-      
+
       Flammable objects in the area that aren't being worn or carried start burning.
-      
+
       ***Using a Higher-Level Spell Slot***. The damage increases by 1d6 for each spell slot level above 3.
-      
   fr:
     name: Boule de feu
     castingTime: Action
@@ -33,7 +32,7 @@ translations:
     materialDescription: une boulette de guano de chauve-souris et du soufre
     description: |-
       Une traînée lumineuse jaillit de vous jusqu'à un point que vous choisissez à portée, puis explose ardemment dans un grondement sourd. Toute créature dans une Sphère de 6 mètres de rayon centrée sur ce point effectue un jet de sauvegarde de Dextérité, subissant 8d6 dégâts de feu en cas d'échec, ou la moitié de ces dégâts en cas de réussite.
-      
+
       Les objets inflammables dans la zone qui ne sont pas portés commencent à brûler.
-      
+
       ***Emplacement de niveau supérieur***. Les dégâts augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 3.

@@ -8,24 +8,15 @@ armorClass: 18
 maxHitPoints: 97
 hitDice: 13d8+39
 abilities:
-  str:
-    value: 15
-    savingThrowProficiency: none
-  dex:
-    value: 14
-    savingThrowProficiency: none
-  con:
-    value: 16
-    savingThrowProficiency: proficient
-  int:
-    value: 12
-    savingThrowProficiency: none
-  wis:
-    value: 18
-    savingThrowProficiency: proficient
-  cha:
-    value: 13
-    savingThrowProficiency: none
+  str: 15
+  dex: 14
+  con: 16
+  int: 12
+  wis: 18
+  cha: 13
+savingThrows:
+  con: proficient
+  wis: proficient
 speeds:
   walk: 30
   fly: null
@@ -104,7 +95,7 @@ translations:
       ***Spellcasting***. The azer casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 15):
 
       At will: *[Elementalism](https://www.aidedd.org/spell/elementalism), [Mage Hand](https://www.aidedd.org/spell/mage-hand)*
-      
+
       1/day: *[Fireball](https://www.aidedd.org/spell/fireball)*
 
       ## Reactions
@@ -120,15 +111,15 @@ translations:
       ## Traits
 
       Aura de feu.
-      
+
       Illumination.
 
       ## Actions
 
       Attaques multiples.
-      
+
       Projection ardente.
-      
+
       Incantation.
 
       ## Réactions

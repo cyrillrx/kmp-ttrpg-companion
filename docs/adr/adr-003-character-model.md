@@ -18,7 +18,7 @@ Creature (abstract)
 └── Character   → mutable, saved, user-managed
 ```
 
-`Character` carries all stat fields (abilities, AC, HP, speeds, languages inherited from `Creature`; plus `name`, `description`, `level`, `clazz`, `initiativeModifier`, `skills`, `proficiencyBonus`).
+`Character` carries all stat fields (abilities, AC, HP, speeds inherited from `Creature`; plus `name`, `description`, `level`, `clazz`, `languages: List<Language>`, `initiativeModifier`, `skills`, `proficiencyBonus`).
 
 The `Class` enum gains an `UNKNOWN` value to represent characters without a defined class (typical for NPCs).
 
@@ -63,6 +63,7 @@ These roles will be represented as a join between `User` and `Character` at the 
 - `PlayerCharacterRepository`, `PlayerCharacterFilter`, `RamPlayerCharacterRepository` renamed accordingly.
 - `Character.Class.UNKNOWN` is not displayed in the spell class filter UI (filtered out from `entries`).
 - `Spell.availableClasses: List<Character.Class>` — the reference from the Spell domain to Character is unchanged in intent.
+- `languages` is removed from `Creature`; `Character` owns `languages: List<Language>` typed with the `Language` enum (`com.cyrillrx.rpg.character.domain`). Monster translation languages remain free-form strings in `Translation.languages`.
 - ADR-001 section 8 and 9 updated: references to `PlayerCharacter` replaced with `Character`.
 
 ---

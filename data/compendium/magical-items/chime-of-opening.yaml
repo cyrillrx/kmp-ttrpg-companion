@@ -9,12 +9,12 @@ translations:
     subtype: null
     description: |-
       This hollow metal tube measures about 1 foot long and weighs 1 pound. As a Magic action, you can strike the chime to cast *[Knock](https://www.aidedd.org/spell/knock)*. The spell's customary knocking sound is replaced by the clear, ringing tone of the chime, which is audible out to 300 feet.
-      
+
       The chime can be used 10 times. After the tenth time, it cracks and becomes useless.
   fr:
     name: Carillon d'ouverture
     subtype: null
     description: |-
       Ce tube métallique creux mesure environ 30 cm de long et pèse 500 g. Par une action Magie, vous pouvez frapper le carillon pour lancer *[déblocage](https://www.aidedd.org/spell/fr/deblocage)*. Le son habituel du sort est remplacé par la sonorité claire et sonore du carillon, audible jusqu'à 90 mètres.
-      
+
       Le carillon peut être utilisé 10 fois. Au-delà de la dixième fois, il se fissure et devient inutilisable.

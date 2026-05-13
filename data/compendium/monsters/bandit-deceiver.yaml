@@ -8,24 +8,15 @@ armorClass: 16
 maxHitPoints: 130
 hitDice: 20d8+40
 abilities:
-  str:
-    value: 8
-    savingThrowProficiency: none
-  dex:
-    value: 16
-    savingThrowProficiency: proficient
-  con:
-    value: 14
-    savingThrowProficiency: none
-  int:
-    value: 17
-    savingThrowProficiency: proficient
-  wis:
-    value: 12
-    savingThrowProficiency: none
-  cha:
-    value: 16
-    savingThrowProficiency: none
+  str: 8
+  dex: 16
+  con: 14
+  int: 17
+  wis: 12
+  cha: 16
+savingThrows:
+  dex: proficient
+  int: proficient
 speeds:
   walk: 30
   fly: null
@@ -100,7 +91,7 @@ translations:
       ***Spellcasting***. The bandit casts one of the following spells, using Intelligence as the spellcasting ability (spell save DC 14):
 
       At will: *[Disguise Self](https://www.aidedd.org/spell/disguise-self), [Mage Hand](https://www.aidedd.org/spell/mage-hand), [Minor Illusion](https://www.aidedd.org/spell/minor-illusion)*
-      
+
       1/day each: *[Hold Person](https://www.aidedd.org/spell/hold-person)* (level 4 version), *[Mage Armor](https://www.aidedd.org/spell/mage-armor)* (included in AC), *[Major Image](https://www.aidedd.org/spell/major-image)*
     senses: Passive Perception 14
     languages:
@@ -121,7 +112,7 @@ translations:
       ***Incantation***. Le bandit lance l'un des sorts suivants, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 14) :
 
       À volonté : *[déguisement](https://www.aidedd.org/spell/fr/déguisement), [main de mage](https://www.aidedd.org/spell/fr/main-de-mage), [illusion mineure](https://www.aidedd.org/spell/fr/illusion-mineure)*
-      
+
       1/jour chacun : *[immobilisation de personne](https://www.aidedd.org/spell/fr/immobilisation-de-personne)* (au niveau 4), *[armure de mage](https://www.aidedd.org/spell/fr/armure-de-mage)* (compris dans la CA), *[image majeure](https://www.aidedd.org/spell/fr/image-majeure)*
     senses: Perception passive 14
     languages:

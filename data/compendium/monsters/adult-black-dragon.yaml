@@ -8,24 +8,15 @@ armorClass: 19
 maxHitPoints: 195
 hitDice: 17d12+85
 abilities:
-  str:
-    value: 23
-    savingThrowProficiency: none
-  dex:
-    value: 14
-    savingThrowProficiency: proficient
-  con:
-    value: 21
-    savingThrowProficiency: none
-  int:
-    value: 14
-    savingThrowProficiency: none
-  wis:
-    value: 13
-    savingThrowProficiency: proficient
-  cha:
-    value: 19
-    savingThrowProficiency: none
+  str: 23
+  dex: 14
+  con: 21
+  int: 14
+  wis: 13
+  cha: 19
+savingThrows:
+  dex: proficient
+  wis: proficient
 speeds:
   walk: 40
   fly: 80
@@ -106,7 +97,7 @@ translations:
       ***Spellcasting***. The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 17, +9 to hit with spell attacks):
 
       At Will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Fear](https://www.aidedd.org/spell/fear), [Melf's Acid Arrow](https://www.aidedd.org/spell/melf-s-acid-arrow)* (level 3 version)
-      
+
       1/Day Each: *[Speak with Dead](https://www.aidedd.org/spell/speak-with-dead), [Vitriolic Sphere](https://www.aidedd.org/spell/vitriolic-sphere)*
 
       ## Legendary actions
@@ -141,7 +132,7 @@ translations:
       ***Incantation***. Le dragon lance l'un des sorts suivants, sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 17, +9 pour toucher) :
 
       À volonté : *[[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie)](https://www.aidedd.org/spell/fr/detection-de-la-magie), flèche acide* (au niveau 3), *peur*
-      
+
       1/jour chacun : *communication avec les morts, sphère de vitriol*
 
       ***Souffle d'acide (recharge 5–6)***. *JdS Dextérité* : DD 18, chaque créature dans une Ligne de 18 m de long sur 1,50 m de large. *Échec* : 54 (12d8) dégâts d'acide. *Réussite* : demi-dégâts.

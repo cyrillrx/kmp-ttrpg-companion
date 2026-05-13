@@ -19,15 +19,14 @@ translations:
     materialDescription: null
     description: |-
       You summon an otherworldly being that appears as a loyal steed in an unoccupied space of your choice within range. This creature uses the **[Otherworldly Steed](https://www.aidedd.org/monster/otherworldly-steed)** stat block. If you already have a steed from this spell, the steed is replaced by the new one.
-      
+
       The steed resembles a Large, rideable animal of your choice, such as a horse, a camel, a dire wolf, or an elk. Whenever you cast the spell, choose the steed's creature type—Celestial, Fey, or Fiend—which determines certain traits in the stat block.
-      
+
       **Combat**. The steed is an ally to you and your allies. In combat, it shares your Initiative count, and it functions as a controlled mount while you ride it (as defined in the rules on mounted combat). If you have the Incapacitated condition, the steed takes its turn immediately after yours and acts independently, focusing on protecting you.
-      
+
       **Disappearance of the Steed**. The steed disappears if it drops to 0 Hit Points or if you die. When it disappears, it leaves behind anything it was wearing or carrying. If you cast this spell again, you decide whether you summon the steed that disappeared or a different one.
-      
+
       ***Using a Higher-Level Spell Slot***. Use the spell slot's level for the spell's level in the stat block.
-      
   fr:
     name: Appel de destrier
     castingTime: Action
@@ -36,11 +35,11 @@ translations:
     materialDescription: null
     description: |-
       Vous invoquez un être surnaturel qui apparaît comme un destrier fidèle dans une case libre de votre choix à portée. Cette créature utilise le profil de la **[monture d'Outremonde](https://www.aidedd.org/monster/fr/monture-d-outremonde)**. Si vous possédez déjà un destrier grâce à ce sort, il est remplacé par ce nouveau.
-      
+
       Le destrier ressemble à un animal de taille G de votre choix, comme un cheval, un chameau, un loup sanguinaire ou un élan. Chaque fois que vous lancez ce sort, choisissez le type de créature du destrier (Céleste, Fée ou Fiélon), qui détermine certains traits du profil.
-      
+
       **Combat**. Le destrier est votre allié et celui de vos alliés. En combat, il partage votre Initiative et fonctionne comme une monture contrôlée lorsque vous le montez (comme défini dans les règles du combat monté). Si vous avez l'état Incapable d'agir, le destrier prend son tour immédiatement après le vôtre et agit seul, se concentrant sur votre protection.
-      
+
       **Disparition de la monture**. Le destrier disparaît s'il tombe à 0 point de vie ou si vous mourez. Lorsqu'il disparaît, il laisse derrière lui tout ce qu'il portait. Si vous relancez ce sort, vous décidez si vous invoquez le destrier disparu ou un autre.
-      
+
       ***Emplacement de niveau supérieur***. Utilisez le niveau de l'emplacement de sort pour le niveau du sort dans le profil.

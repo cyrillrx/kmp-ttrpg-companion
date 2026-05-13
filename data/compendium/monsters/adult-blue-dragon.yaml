@@ -8,24 +8,15 @@ armorClass: 19
 maxHitPoints: 212
 hitDice: 17d12+102
 abilities:
-  str:
-    value: 25
-    savingThrowProficiency: none
-  dex:
-    value: 10
-    savingThrowProficiency: proficient
-  con:
-    value: 23
-    savingThrowProficiency: none
-  int:
-    value: 16
-    savingThrowProficiency: none
-  wis:
-    value: 15
-    savingThrowProficiency: proficient
-  cha:
-    value: 20
-    savingThrowProficiency: none
+  str: 25
+  dex: 10
+  con: 23
+  int: 16
+  wis: 15
+  cha: 20
+savingThrows:
+  dex: proficient
+  wis: proficient
 speeds:
   walk: 40
   fly: 80
@@ -104,7 +95,7 @@ translations:
       ***Spellcasting***. The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 18):
 
       At Will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Invisibility](https://www.aidedd.org/spell/invisibility), [Mage Hand](https://www.aidedd.org/spell/mage-hand), [Shatter](https://www.aidedd.org/spell/shatter)*
-      
+
       1/Day Each: *[Scrying](https://www.aidedd.org/spell/scrying), [Sending](https://www.aidedd.org/spell/sending)*
 
       ## Legendary actions
@@ -137,7 +128,7 @@ translations:
       ***Incantation***. Le dragon lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 18) :
 
       À volonté : *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), [fracassement](https://www.aidedd.org/spell/fr/fracassement), [invisibilité](https://www.aidedd.org/spell/fr/invisibilite), [main de mage](https://www.aidedd.org/spell/fr/main-de-mage)*
-      
+
       1/jour chacun : *[communication à distance](https://www.aidedd.org/spell/fr/communication-a-distance), [scrutation](https://www.aidedd.org/spell/fr/scrutation)*
 
       ***Souffle de foudre (recharge 5–6)***. *JdS Dextérité* : DD 19, chaque créature dans une Ligne de 27 m de long sur 1,50 m de large. *Échec* : 60 (11d10) dégâts de foudre. *Réussite* : demi-dégâts.

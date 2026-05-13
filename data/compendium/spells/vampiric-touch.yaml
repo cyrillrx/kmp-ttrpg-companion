@@ -21,11 +21,10 @@ translations:
     materialDescription: null
     description: |-
       The touch of your shadow-wreathed hand can siphon life force from others to heal your wounds. Make a melee spell attack against one creature within reach. On a hit, the target takes 3d6 Necrotic damage, and you regain Hit Points equal to half the amount of Necrotic damage dealt.
-      
+
       Until the spell ends, you can make the attack again on each of your turns as a Magic action, targeting the same creature or a different one.
-      
+
       ***Using a Higher-Level Spell Slot***. The damage increases by 1d6 for each spell slot level above 3.
-      
   fr:
     name: Caresse du vampire
     castingTime: Action
@@ -34,7 +33,7 @@ translations:
     materialDescription: null
     description: |-
       Le contact de votre main enveloppée d'ombre peut siphonner la force vitale des autres pour soigner vos blessures. Effectuez une attaque de sort au corps à corps contre une créature à portée. Si l'attaque touche, la cible subit 3d6 dégâts nécrotiques et vous récupérez des points de vie égaux à la moitié des dégâts nécrotiques infligés.
-      
+
       Jusqu'à la fin du sort, vous pouvez relancer l'attaque à chacun de vos tours par une action Magie, en ciblant la même créature ou une autre.
-      
+
       ***Emplacement de niveau supérieur***. Les dégâts augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 3.

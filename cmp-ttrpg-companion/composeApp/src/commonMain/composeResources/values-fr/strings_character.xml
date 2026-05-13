@@ -26,4 +26,24 @@
     <string name="race_dragonborn">Dragonné</string>
     <string name="race_gnome">Gnome</string>
     <string name="race_tiefling">Tieffelin</string>
+
+    <!-- Languages -->
+    <string name="language_abyssal">Abyssal</string>
+    <string name="language_celestial">Céleste</string>
+    <string name="language_common">Commun</string>
+    <string name="language_deep_speech">Profond</string>
+    <string name="language_draconic">Draconique</string>
+    <string name="language_druidic">Druidique</string>
+    <string name="language_dwarvish">Nain</string>
+    <string name="language_elvish">Elfe</string>
+    <string name="language_giant">Géant</string>
+    <string name="language_gnomish">Gnome</string>
+    <string name="language_goblin">Gobelin</string>
+    <string name="language_halfling">Halfelin</string>
+    <string name="language_infernal">Infernal</string>
+    <string name="language_orc">Orc</string>
+    <string name="language_primordial">Primordial</string>
+    <string name="language_sylvan">Sylvestre</string>
+    <string name="language_thieves_cant">Jargon des voleurs</string>
+    <string name="language_undercommon">Commun des profondeurs</string>
 </resources>

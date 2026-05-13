@@ -20,9 +20,8 @@ translations:
     materialDescription: null
     description: |-
       You shoot a greenish ray at a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 2d8 Poison damage and has the Poisoned condition until the end of your next turn.
-      
+
       ***Using a Higher-Level Spell Slot***. The damage increases by 1d8 for each spell slot level above 1.
-      
   fr:
     name: Rayon empoisonné
     castingTime: Action
@@ -31,5 +30,5 @@ translations:
     materialDescription: null
     description: |-
       Vous tirez un rayon verdâtre sur une créature à portée. Effectuez une attaque de sort à distance contre la cible. Si l'attaque touche, la cible subit 2d8 dégâts de poison et l'état Empoisonné jusqu'à la fin de votre prochain tour.
-      
+
       ***Emplacement de niveau supérieur***. Les dégâts augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 1.

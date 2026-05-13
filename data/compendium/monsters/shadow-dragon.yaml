@@ -8,24 +8,15 @@ armorClass: 16
 maxHitPoints: 189
 hitDice: 18d12+72
 abilities:
-  str:
-    value: 21
-    savingThrowProficiency: none
-  dex:
-    value: 19
-    savingThrowProficiency: proficient
-  con:
-    value: 18
-    savingThrowProficiency: none
-  int:
-    value: 14
-    savingThrowProficiency: none
-  wis:
-    value: 12
-    savingThrowProficiency: proficient
-  cha:
-    value: 18
-    savingThrowProficiency: none
+  str: 21
+  dex: 19
+  con: 18
+  int: 14
+  wis: 12
+  cha: 18
+savingThrows:
+  dex: proficient
+  wis: proficient
 speeds:
   walk: 40
   fly: 80
@@ -127,17 +118,17 @@ translations:
       ## Traits
 
       Résistance légendaire (3/jour, ou 4/jour dans son antre).
-      
+
       Ombre vivante.
-      
+
       Sensibilité au soleil.
 
       ## Actions
 
       Attaques multiples.
-      
+
       Saignée.
-      
+
       Souffle d'ombre (recharge 5–6).
 
       ## Actions Bonus
@@ -149,7 +140,7 @@ translations:
       Utilisations d'action Légendaire : 3 (4 dans son antre).
 
       Assaut incisif.
-      
+
       Voile d'ombre.
     senses: Vision aveugle 9 m, Vision dans le noir 36 m, Perception passive 21
     languages:

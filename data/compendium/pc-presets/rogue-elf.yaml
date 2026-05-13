@@ -1,0 +1,36 @@
+id: rogue-elf
+name: Sylara Dawnwhisper
+race: ELF
+clazz: ROGUE
+level: 1
+size: MEDIUM
+alignment: CHAOTIC_NEUTRAL
+background: Urchin
+abilities:
+  str: 8
+  dex: 18
+  con: 12
+  int: 14
+  wis: 10
+  cha: 14
+savingThrows:
+  dex: proficient
+  int: proficient
+armorClass: 14
+maxHitPoints: 8
+speeds:
+  walk: 30
+skills:
+  acrobatics: proficient
+  stealth: proficient
+  sleightOfHand: proficient
+languages:
+- common
+- elvish
+translations:
+  en:
+    shortDescription: Elf Rogue
+    description: ""
+  fr:
+    shortDescription: Roublard elfe
+    description: ""

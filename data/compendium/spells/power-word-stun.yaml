@@ -22,9 +22,8 @@ translations:
     materialDescription: null
     description: |-
       You overwhelm the mind of one creature you can see within range. If the target has 150 Hit Points or fewer, it has the Stunned condition. Otherwise, its Speed is 0 until the start of your next turn.
-      
+
       The Stunned target makes a Constitution saving throw at the end of each of its turns, ending the condition on itself on a success.
-      
   fr:
     name: Mot de pouvoir étourdissant
     castingTime: Action
@@ -33,5 +32,5 @@ translations:
     materialDescription: null
     description: |-
       Vous assaillez l'esprit d'une créature que vous voyez à portée. Si la cible choisie est dotée de 150 points de vie ou moins, elle subit l'état Étourdi. Dans le cas contraire, sa Vitesse tombe à 0 jusqu'au début de votre tour suivant.
-      
+
       La cible Étourdie effectue un jet de sauvegarde de Constitution à la fin de chacun de ses tours et met un terme à cet état en cas de réussite.

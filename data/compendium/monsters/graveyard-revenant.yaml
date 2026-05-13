@@ -8,24 +8,17 @@ armorClass: 14
 maxHitPoints: 161
 hitDice: 14d12+70
 abilities:
-  str:
-    value: 20
-    savingThrowProficiency: proficient
-  dex:
-    value: 14
-    savingThrowProficiency: none
-  con:
-    value: 20
-    savingThrowProficiency: proficient
-  int:
-    value: 13
-    savingThrowProficiency: none
-  wis:
-    value: 16
-    savingThrowProficiency: proficient
-  cha:
-    value: 18
-    savingThrowProficiency: proficient
+  str: 20
+  dex: 14
+  con: 20
+  int: 13
+  wis: 16
+  cha: 18
+savingThrows:
+  str: proficient
+  con: proficient
+  wis: proficient
+  cha: proficient
 speeds:
   walk: 40
   fly: null
@@ -114,9 +107,9 @@ translations:
       ## Actions
 
       Attaques multiples.
-      
+
       Asphyxie.
-      
+
       Regard tourmenteur (recharge 5–6).
     senses: Vision dans le noir 36 m, Perception passive 13
     languages:

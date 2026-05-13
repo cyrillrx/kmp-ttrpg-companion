@@ -21,13 +21,12 @@ translations:
     materialDescription: null
     description: |-
       You make terrain in an area up to 1 mile square look, sound, smell, and even feel like some other sort of terrain. Open fields or a road could be made to resemble a swamp, hill, crevasse, or some other rough or impassable terrain. A pond can be made to seem like a grassy meadow, a precipice like a gentle slope, or a rock-strewn gully like a wide and smooth road.
-      
+
       Similarly, you can alter the appearance of structures or add them where none are present. The spell doesn't disguise, conceal, or add creatures.
-      
+
       The illusion includes audible, visual, tactile, and olfactory elements, so it can turn clear ground into Difficult Terrain (or vice versa) or otherwise impede movement through the area. Any piece of the illusory terrain (such as a rock or stick) that is removed from the spell's area disappears immediately.
-      
+
       Creatures with Truesight can see through the illusion to the terrain's true form; however, all other elements of the illusion remain, so while the creature is aware of the illusion's presence, the creature can still physically interact with the illusion.
-      
   fr:
     name: Mirage
     castingTime: 10 minutes
@@ -36,9 +35,9 @@ translations:
     materialDescription: null
     description: |-
       Vous faites en sorte que l'environnement d'une zone carrée de 1,5 km de côté apparaisse différemment sur tous les plans sensoriels. Ainsi, un champ ou une route pourrait se présenter comme un marais, une colline, une crevasse glaciaire ou quelque autre environnement accidenté ou infranchissable. Une mare pourrait apparaître comme une jolie prairie, un précipice comme une pente douce et un ravin comme une route large et dégagée.
-      
+
       De même, vous pouvez altérer l'aspect des bâtiments ou en ajouter là où il n'y en a pas. Le sort ne permet pas de déguiser ni de cacher des créatures, ni d'en ajouter.
-      
+
       L'illusion comprend des éléments auditifs, visuels, tactiles et olfactifs, si bien qu'un sol dégagé peut être transformé en Terrain difficile (et vice versa) ou gêner les déplacements dans la zone. Tout élément du terrain illusoire (pierre ou branche, par exemple) retiré de la zone du sort disparaît aussitôt.
-      
+
       Les créatures dotées de la Vision véritable percent l'illusion et perçoivent le véritable environnement. Tous les autres éléments de l'illusion restent toutefois en place, si bien qu'une telle créature, consciente de l'illusion, peut toujours interagir physiquement avec ces éléments.

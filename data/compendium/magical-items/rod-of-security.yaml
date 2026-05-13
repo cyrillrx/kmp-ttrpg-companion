@@ -9,14 +9,14 @@ translations:
     subtype: null
     description: |-
       While holding this rod, you can take a Magic action to activate it. The rod then instantly transports you and up to 199 other willing creatures you can see to a demiplane. You choose the form the demiplane takes. It could be a tranquil garden, a cheery tavern, an immense palace, a tropical island, a fantastic carnival, or whatever else you can imagine. Regardless of its nature, the demiplane contains enough water and food to sustain its visitors, and the demiplane's environment can't harm its occupants. Everything else that can be interacted with there can exist only there. For example, a flower picked from a garden there disappears if it is taken outside the demiplane.
-      
+
       For each hour spent in the demiplane, a visitor regains Hit Points as if it had spent 1 Hit Point Die. Also, creatures don't age while there, although time passes normally. Visitors can remain there for up to 200 days divided by the number of creatures present (round down).
-      
+
       When the time runs out or you take a Magic action to end the effect, all visitors reappear in the location they occupied when you activated the rod or an unoccupied space nearest that location. Once used, this property can't be used again until 10 days have passed.
   fr:
     name: Sceptre de sécurité
     subtype: null
     description: |-
       Lorsque vous tenez ce sceptre, vous pouvez prendre une action Magie pour l'activer. Le sceptre vous transporte alors instantanément, ainsi que jusqu'à 199 autres créatures consentantes que vous pouvez voir, vers un demi-plan. Vous choisissez la forme que prendra ce demi-plan : un jardin paisible, une taverne animée, un immense palais, une île tropicale, une fête foraine fantastique, ou tout ce que vous pouvez imaginer. Quelle que soit sa nature, le demi-plan contient suffisamment d'eau et de nourriture pour subvenir aux besoins de ses visiteurs, et son environnement est inoffensif pour ses occupants. Tout ce avec quoi on peut interagir ne peut exister que là. Par exemple, une fleur cueillie dans un jardin disparaît si on la sort du demi-plan.
-      
+
       Pour chaque heure passée dans le demi-plan, un visiteur regagne des points de vie comme s'il avait dépensé 1 dé de vie. De plus, les créatures ne vieillissent pas, bien que le temps s'écoule normalement. Les visiteurs peuvent y rester jusqu'à 200 jours, divisés par le nombre de créatures présentes (arrondi à l'inférieur). Lorsque le temps imparti est écoulé ou que vous prenez une action Magie pour mettre fin à l'effet, tous les visiteurs réapparaissent à l'emplacement qu'ils occupaient lors de l'activation du sceptre, ou sur l'emplacement libre le plus proche. Une fois utilisée, cette propriété ne peut plus être utilisée avant 10 jours.

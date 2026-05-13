@@ -22,6 +22,10 @@ data/compendium/
     aarakocra-aeromancer.yaml
   magical-items/
     adamantine-armor.yaml
+  pc-presets/
+    aldus-brightmantle.yaml
+  npc-presets/
+    innkeeper.yaml
 ```
 
 A **build script** (`scripts/build_compendium.py`) aggregates these files back into the three JSON files consumed by the KMP app and the Rust server. The JSON files remain in the repository as generated artifacts so that the app and server require no changes.
@@ -39,21 +43,17 @@ YAML keys use **camelCase**, identical to the JSON output, to keep a 1:1 mapping
 
 ---
 
-## 2. Description Format — Phase 1: HTML, Phase 2: Markdown
+## 2. Description Format — GitHub Flavored Markdown
 
-### Phase 1 Decision (current)
+### Decision (current)
 
-Description fields are kept as **HTML** in the YAML source files, identical to the current JSON format. The build script aggregates them unchanged. No conversion is performed.
-
-### Phase 2 Decision (future — tracked separately)
-
-Description fields will be migrated to **GitHub Flavored Markdown (GFM)** when the Compose renderer is updated to consume Markdown directly. At that point, the build script will convert Markdown → HTML for backward compatibility until all clients are updated.
+Description fields use **GitHub Flavored Markdown (GFM)** in the YAML source files. The build script aggregates them unchanged. The Compose renderer (`MarkdownText`) renders GFM directly.
 
 ### Rationale
 
-- Automated HTML → Markdown conversion produces artifacts on complex content (notably `<strong><em>` combinations in stat blocks). 507 of 513 monster descriptions are affected, making automated migration unsafe for Phase 1.
-- Deferring to Phase 2 keeps the data migration risk-free: round-trip fidelity (YAML → JSON) is exact.
-- Markdown descriptions remain a firm goal: GFM tables are significantly easier to edit than HTML tables, especially before a dedicated editing tool exists.
+- GFM tables are significantly easier to read and edit than HTML tables.
+- The `MarkdownText` cross-platform renderer (introduced in Phase 2) handles GFM natively.
+- Round-trip fidelity (YAML → JSON) is exact; no conversion is needed.
 
 ---
 
@@ -64,10 +64,18 @@ Description fields will be migrated to **GitHub Flavored Markdown (GFM)** when t
 ```
 data/compendium/{type}/*.yaml
     ↓  scripts/build_compendium.py
-data/compendium/{spells,monsters,magical-items}.json   ← generated, do not edit
-    ↓  copied automatically
+data/compendium/{spells,monsters,magical-items,pc-presets,npc-presets}.json   ← generated, do not edit
+    ↓  symlinks
 cmp-ttrpg-companion/composeApp/src/commonMain/composeResources/files/
 ```
+
+The build script supports three modes:
+
+| Command                                       | Effect                                                                        |
+|-----------------------------------------------|-------------------------------------------------------------------------------|
+| `python scripts/build_compendium.py`          | Aggregate YAML → JSON (default build)                                         |
+| `python scripts/build_compendium.py --fmt`    | Reformat YAML files in place (normalise block scalar style for descriptions)  |
+| `python scripts/build_compendium.py --check`  | CI mode — verify committed JSON matches YAML source; exits 1 if not           |
 
 A CI workflow (`.github/workflows/ci-compendium.yml`) runs the build script on every PR that touches `data/compendium/**/*.yaml` and verifies that the committed JSON files are up to date.
 

@@ -8,24 +8,15 @@ armorClass: 17
 maxHitPoints: 212
 hitDice: 17d10+119
 abilities:
-  str:
-    value: 22
-    savingThrowProficiency: none
-  dex:
-    value: 12
-    savingThrowProficiency: none
-  con:
-    value: 24
-    savingThrowProficiency: none
-  int:
-    value: 16
-    savingThrowProficiency: none
-  wis:
-    value: 15
-    savingThrowProficiency: proficient
-  cha:
-    value: 19
-    savingThrowProficiency: proficient
+  str: 22
+  dex: 12
+  con: 24
+  int: 16
+  wis: 15
+  cha: 19
+savingThrows:
+  wis: proficient
+  cha: proficient
 speeds:
   walk: 40
   fly: 60
@@ -108,7 +99,7 @@ translations:
       ***Spellcasting***. The efreeti casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 16):
 
       At Will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Elementalism](https://www.aidedd.org/spell/elementalism)*
-      
+
       1/Day Each: *[Gaseous Form](https://www.aidedd.org/spell/gaseous-form), [Invisibility](https://www.aidedd.org/spell/invisibility), [Major Image](https://www.aidedd.org/spell/major-image), [Plane Shift](https://www.aidedd.org/spell/plane-shift), [Tongues](https://www.aidedd.org/spell/tongues), [Wall of Fire](https://www.aidedd.org/spell/wall-of-fire)* (level 7 version)
     senses: Darkvision 120 ft., Passive Perception 12
     languages:
@@ -136,7 +127,7 @@ translations:
       ***Incantation***. L'éfrit lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 16) :
 
       À volonté : *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), élémentalisme*
-      
+
       1/jour chacun : *[changement de plan](https://www.aidedd.org/spell/fr/changement-de-plan), don des langues, forme gazeuse, [image majeure](https://www.aidedd.org/spell/fr/image-majeure), [invisibilité](https://www.aidedd.org/spell/fr/invisibilite), mur de feu* (au niveau 7)
     senses: Vision dans le noir 36 m, Perception passive 12
     languages:

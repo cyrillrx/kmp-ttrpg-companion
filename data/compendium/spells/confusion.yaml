@@ -31,11 +31,10 @@ translations:
       | 9–10 | The target chooses its behavior. |
 
 
-      
+
       At the end of each of its turns, an affected target repeats the save, ending the spell on itself on a success.
-      
+
       ***Using a Higher-Level Spell Slot***. The Sphere's radius increases by 5 feet for each spell slot level above 4.
-      
   fr:
     name: Confusion
     castingTime: Action
@@ -53,7 +52,7 @@ translations:
       | 9–10 | La cible choisit son comportement. |
 
 
-      
+
       À la fin de chacun de ses tours, une cible affectée refait son jet de sauvegarde, mettant fin au sort sur elle-même en cas de réussite.
-      
+
       ***Emplacement de niveau supérieur***. Le rayon de la Sphère augmente de 1,50 mètre pour chaque niveau d'emplacement de sort supérieur à 4.

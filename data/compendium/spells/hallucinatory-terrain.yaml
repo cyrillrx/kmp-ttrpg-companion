@@ -22,9 +22,8 @@ translations:
     materialDescription: a mushroom
     description: |-
       You make natural terrain in a 150-foot Cube in range look, sound, and smell like another sort of natural terrain. Thus, open fields or a road can be made to resemble a swamp, hill, crevasse, or some other difficult or impassable terrain. A pond can be made to seem like a grassy meadow, a precipice like a gentle slope, or a rock-strewn gully like a wide and smooth road. Manufactured structures, equipment, and creatures within the area aren't changed.
-      
+
       The tactile characteristics of the terrain are unchanged, so creatures entering the area are likely to notice the illusion. If the difference isn't obvious by touch, a creature examining the illusion can take the Study action to make an Intelligence (Investigation) check against your spell save DC to disbelieve it. If a creature discerns that the terrain is illusory, the creature sees a vague image superimposed on the real terrain.
-      
   fr:
     name: Terrain hallucinatoire
     castingTime: 10 minutes
@@ -33,5 +32,5 @@ translations:
     materialDescription: un champignon
     description: |-
       Vous créez un terrain naturel dans un Cube de 45 mètres de côté à portée, avec l'apparence, le son et l'odeur d'un autre type de terrain naturel. Ainsi, des champs ouverts ou une route peuvent ressembler à un marais, une colline, une crevasse ou tout autre terrain difficile ou impraticable. Un étang peut ressembler à une prairie herbeuse, un précipice à une pente douce, ou un ravin rocailleux à une route large et lisse. Les structures, l'équipement et les créatures présents dans la zone restent inchangés.
-      
+
       Les caractéristiques tactiles du terrain restent également inchangées ; les créatures qui y pénètrent sont donc susceptibles de remarquer l'illusion. Si la différence n'est pas visible au toucher, une créature examinant l'illusion peut prendre l'action Étude pour effectuer un jet d'Intelligence (Investigation) contre le DD de sauvegarde de votre sort pour découvrir la supercherie. Si une créature perçoit que le terrain est illusoire, elle voit une image floue superposée au terrain réel.

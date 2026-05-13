@@ -8,24 +8,15 @@ armorClass: 20
 maxHitPoints: 333
 hitDice: 29d10+174
 abilities:
-  str:
-    value: 24
-    savingThrowProficiency: none
-  dex:
-    value: 15
-    savingThrowProficiency: proficient
-  con:
-    value: 23
-    savingThrowProficiency: none
-  int:
-    value: 19
-    savingThrowProficiency: none
-  wis:
-    value: 19
-    savingThrowProficiency: proficient
-  cha:
-    value: 25
-    savingThrowProficiency: none
+  str: 24
+  dex: 15
+  con: 23
+  int: 19
+  wis: 19
+  cha: 25
+savingThrows:
+  dex: proficient
+  wis: proficient
 speeds:
   walk: 40
   fly: null
@@ -110,7 +101,7 @@ translations:
       ***Spellcasting***. The hag casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 22):
 
       At will: *[Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts), [Dimension Door](https://www.aidedd.org/spell/dimension-door), [Dispel Magic](https://www.aidedd.org/spell/dispel-magic), [Hypnotic Pattern](https://www.aidedd.org/spell/hypnotic-pattern)*
-      
+
       2/day each: *[Mass Suggestion](https://www.aidedd.org/spell/mass-suggestion), [Modify Memory](https://www.aidedd.org/spell/modify-memory), [Plane Shift](https://www.aidedd.org/spell/plane-shift)*
 
       ## Bonus actions
@@ -156,7 +147,7 @@ translations:
       ***Incantation***. La guenaude lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 22) :
 
       À volonté : *[détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees), [porte dimensionnelle](https://www.aidedd.org/spell/fr/porte-dimensionnelle), [dissipation de la magie](https://www.aidedd.org/spell/fr/dissipation-de-la-magie), [motif hypnotique](https://www.aidedd.org/spell/fr/motif-hypnotique)*
-      
+
       2/jour chacun : *[suggestion de groupe](https://www.aidedd.org/spell/fr/suggestion-de-groupe), [modification de mémoire](https://www.aidedd.org/spell/fr/modification-de-memoire), [changement de plan](https://www.aidedd.org/spell/fr/changement-de-plan)*
 
       ## Actions Bonus

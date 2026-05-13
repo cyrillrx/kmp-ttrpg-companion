@@ -9,9 +9,9 @@ translations:
     subtype: Glaive, Greatsword, Longsword, Rapier, Scimitar, Sickle, or Shortsword
     description: |-
       You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon. While the weapon is on your person, you also gain a +1 bonus to saving throws.
-      
+
       **Luck**. If the weapon is on your person, you can call on its luck (no action required) to reroll one failed D20 Test if you don't have the Incapacitated condition. You must use the second roll. Once used, this property can't be used again until the next dawn.
-      
+
       **Wish**. The weapon has 1d3 charges. While holding it, you can expend 1 charge and cast *Wish* from it. Once used, this property can't be used again until the next dawn. The weapon loses this property if it has no charges.
   fr:
     name: Lame porte-bonheur
@@ -19,7 +19,7 @@ translations:
       courte
     description: |-
       Vous obtenez un bonus de +1 aux jets d'attaque et de dégâts effectués avec cette arme magique. Lorsque vous portez l'arme, vous obtenez également un bonus de +1 aux jets de sauvegarde.
-      
+
       **Chance**. Si vous portez l'arme, vous pouvez faire appel à sa chance (aucune action requise) pour relancer un d20 raté si vous n'avez pas l'état Incapable d'agir. Vous devez utiliser le second jet. Une fois utilisée, cette propriété ne peut plus être utilisée avant l'aube suivante.
-      
+
       **Souhait**. L'arme possède 1d3 charges. Lorsque vous la tenez, vous pouvez dépenser 1 charge et lancer *souhait* depuis elle. Une fois utilisée, cette propriété ne peut plus être utilisée avant l'aube suivante. L'arme perd cette propriété si elle n'a plus de charges.

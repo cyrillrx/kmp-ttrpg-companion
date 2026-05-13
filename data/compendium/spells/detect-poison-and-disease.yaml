@@ -22,9 +22,8 @@ translations:
     materialDescription: a yew leaf
     description: |-
       For the duration, you sense the location of poisons, poisonous or venomous creatures, and magical contagions within 30 feet of yourself. You sense the kind of poison, creature, or contagion in each case.
-      
+
       The spell is blocked by 1 foot of stone, dirt, or wood; 1 inch of metal; or a thin sheet of lead.
-      
   fr:
     name: Détection du poison et des maladies
     castingTime: Action ou Rituel
@@ -33,5 +32,5 @@ translations:
     materialDescription: une feuille d'if
     description: |-
       Pendant la durée du sort, vous détectez l'emplacement des poisons, des créatures venimeuses ou toxiques, et des contagions magiques dans un rayon de 9 mètres autour de vous. Vous détectez le type de poison, de créature ou de contagion dans chaque cas.
-      
+
       Le sort est bloqué par 30 cm de pierre, de terre ou de bois, par 2,50 cm de métal, ou par une fine feuille de plomb.

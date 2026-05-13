@@ -8,24 +8,15 @@ armorClass: 16
 maxHitPoints: 126
 hitDice: 12d12+48
 abilities:
-  str:
-    value: 22
-    savingThrowProficiency: none
-  dex:
-    value: 14
-    savingThrowProficiency: none
-  con:
-    value: 19
-    savingThrowProficiency: proficient
-  int:
-    value: 8
-    savingThrowProficiency: none
-  wis:
-    value: 15
-    savingThrowProficiency: proficient
-  cha:
-    value: 7
-    savingThrowProficiency: none
+  str: 22
+  dex: 14
+  con: 19
+  int: 8
+  wis: 15
+  cha: 7
+savingThrows:
+  con: proficient
+  wis: proficient
 speeds:
   walk: 40
   fly: 5
@@ -96,9 +87,9 @@ translations:
       ## Actions
 
       Multiattack.
-      
+
       Ravage.
-      
+
       Screech (Recharge 5–6).
     senses: Darkvision 120 ft., Passive Perception 18
     languages: []
@@ -113,9 +104,9 @@ translations:
       ## Actions
 
       Attaques multiples.
-      
+
       Dévastation.
-      
+
       Hurlement perçant (recharge 5–6).
     senses: Vision dans le noir 36 m, Perception passive 18
     languages: []

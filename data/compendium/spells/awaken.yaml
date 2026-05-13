@@ -20,9 +20,8 @@ translations:
     materialDescription: an agate worth 1,000+ GP, which the spell consumes
     description: |-
       You spend the casting time tracing magical pathways within a precious gemstone, and then touch the target. The target must be either a Beast or Plant creature with an Intelligence of 3 or less or a natural plant that isn't a creature. The target gains an Intelligence of 10 and the ability to speak one language you know. If the target is a natural plant, it becomes a Plant creature and gains the ability to move its limbs, roots, vines, creepers, and so forth, and it gains senses similar to a human's. The DM chooses statistics appropriate for the awakened Plant, such as the statistics for the **[Awakened Shrub](https://www.aidedd.org/monster/awakened-shrub)** or **[Awakened Tree](https://www.aidedd.org/monster/awakened-tree)**.
-      
+
       The awakened target has the Charmed condition for 30 days or until you or your allies deal damage to it. When that condition ends, the awakened creature chooses its attitude toward you.
-      
   fr:
     name: Éveil
     castingTime: 8 heures
@@ -31,5 +30,5 @@ translations:
     materialDescription: une agate d'une valeur minimale de 1000 po, que le sort consomme
     description: |-
       Vous passez le temps d'incantation à tracer des chemins magiques dans une pierre précieuse, puis vous touchez la cible. La cible doit être une créature du type Bête ou Plante avec une Intelligence de 3 ou moins, ou une plante naturelle qui n'est pas une créature. La cible gagne une Intelligence de 10 et la capacité de parler une langue que vous connaissez. Si la cible est une plante naturelle, elle devient une créature de type plante et acquiert la capacité de bouger ses membres, ses racines, ses lianes, etc, ainsi que des sens similaires à ceux d'un humain. Le MD choisit le profil approprié pour la plante éveillée, comme celles de l'**[arbuste éveillé](https://www.aidedd.org/monster/fr/arbuste-eveille)** ou de l'**[arbre éveillé](https://www.aidedd.org/monster/fr/arbre-eveille)**.
-      
+
       La cible éveillée a l'état Charmé pendant 30 jours ou jusqu'à ce que vous ou vos alliés lui infligiez des blessures. Lorsque cet état prend fin, la créature éveillée choisit son attitude envers vous.

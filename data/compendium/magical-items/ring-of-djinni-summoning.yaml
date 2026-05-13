@@ -9,20 +9,20 @@ translations:
     subtype: null
     description: |-
       While wearing this ring, you can take a Magic action to summon a particular **[Djinni](https://www.aidedd.org/monster/djinni)** from the Elemental Plane of Air. The djinni appears in an unoccupied space you choose within 120 feet of yourself. It remains as long as you maintain Concentration, to a maximum of 1 hour, or until it drops to 0 Hit Points.
-      
+
       While summoned, the djinni is Friendly to you and your allies, and it obeys your commands. If you fail to command it, the djinni defends itself against attackers but takes no other actions.
-      
+
       After the djinni departs, it can't be summoned again for 24 hours, and the ring becomes nonmagical if the djinni dies.
-      
+
       Rings of Djinni Summoning are often created by the djinn they summon and given to mortals as gifts of friendship or tokens of esteem.
   fr:
     name: Anneau de convocation de djinn
     subtype: null
     description: |-
       Lorsque vous portez cet anneau, vous pouvez prendre une action Magie pour invoquer un **[djinn](https://www.aidedd.org/monster/fr/djinn)** du plan élémentaire de l'air. Le djinn apparaît dans un espace libre de votre choix dans un rayon de 36 mètres. Il reste présent tant que vous maintenez votre concentration, jusqu'à un maximum d'une heure, ou jusqu'à ce qu'il tombe à 0 point de vie.
-      
+
       Lorsqu'il est invoqué, le djinn est amical envers vous et vos alliés, et obéit à vos ordres. Si vous ne lui donnez pas d'ordre, il se défend contre les attaquants mais n'effectue aucune autre action.
-      
+
       Après son départ, le djinn ne peut plus être invoqué pendant 24 heures, et l'anneau devient non magique s'il meurt.
-      
+
       Les *anneaux de convocation de djinn* sont souvent créés par le djinn qu'il invoque et offerts aux mortels en guise d'amitié ou de marque d'estime.

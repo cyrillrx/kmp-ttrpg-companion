@@ -8,24 +8,15 @@ armorClass: 16
 maxHitPoints: 66
 hitDice: 12d8+12
 abilities:
-  str:
-    value: 10
-    savingThrowProficiency: none
-  dex:
-    value: 16
-    savingThrowProficiency: proficient
-  con:
-    value: 12
-    savingThrowProficiency: none
-  int:
-    value: 13
-    savingThrowProficiency: none
-  wis:
-    value: 17
-    savingThrowProficiency: proficient
-  cha:
-    value: 12
-    savingThrowProficiency: none
+  str: 10
+  dex: 16
+  con: 12
+  int: 13
+  wis: 17
+  cha: 12
+savingThrows:
+  dex: proficient
+  wis: proficient
 speeds:
   walk: 20
   fly: 50
@@ -96,7 +87,7 @@ translations:
       ***Spellcasting***. The aarakocra casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 13):
 
       At will: *[Elementalism](https://www.aidedd.org/spell/elementalism), [Gust of Wind](https://www.aidedd.org/spell/gust-of-wind), [Mage Hand](https://www.aidedd.org/spell/mage-hand), [Message](https://www.aidedd.org/spell/message)*
-      
+
       1/day: *[Lightning Bolt](https://www.aidedd.org/spell/lightning-bolt)*
 
       ***Wind Staff***. *Melee or Ranged Attack Roll* : +5, reach 5 ft. or range 120 ft. *Hit* : 7 (1d8 + 3) Bludgeoning damage plus 11 (2d10) Lightning damage.
@@ -121,7 +112,7 @@ translations:
       ***Incantation***. L'aarakocre lance l'un des sorts suivants sans composantes matérielles, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 13) :
 
       À volonté : *[élémentalisme](https://www.aidedd.org/spell/fr/elementalisme), [bourrasque](https://www.aidedd.org/spell/fr/bourrasque), [main de mage](https://www.aidedd.org/spell/fr/main-de-mage), [message](https://www.aidedd.org/spell/fr/message)*
-      
+
       1/jour : *[Éclair](https://www.aidedd.org/spell/fr/eclair)*
 
       ***Bâton de vent***. Jet d'attaque au corps à corps ou à distance : +5, portée 1,5 m ou 36 m. Touché : 7 (1d8 + 3) dégâts contondants plus 11 (2d10) dégâts de foudre.

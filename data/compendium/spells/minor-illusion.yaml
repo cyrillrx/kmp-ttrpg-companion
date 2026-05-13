@@ -22,13 +22,12 @@ translations:
     materialDescription: a bit of fleece
     description: |-
       You create a sound or an image of an object within range that lasts for the duration. See the descriptions below for the effects of each. The illusion ends if you cast this spell again.
-      
+
       If a creature takes a Study action to examine the sound or image, the creature can determine that it is an illusion with a successful Intelligence (Investigation) check against your spell save DC. If a creature discerns the illusion for what it is, the illusion becomes faint to the creature.
-      
+
       **Sound**. If you create a sound, its volume can range from a whisper to a scream. It can be your voice, someone else's voice, a lion's roar, a beating of drums, or any other sound you choose. The sound continues unabated throughout the duration, or you can make discrete sounds at different times before the spell ends.
-      
+
       **Image**. If you create an image of an object—such as a chair, muddy footprints, or a small chest—it must be no larger than a 5-foot Cube. The image can't create sound, light, smell, or any other sensory effect. Physical interaction with the image reveals it to be an illusion, since things can pass through it.
-      
   fr:
     name: Illusion mineure
     castingTime: Action
@@ -37,9 +36,9 @@ translations:
     materialDescription: un peu de laine brute
     description: |-
       Vous créez un son ou l'image d'un objet, à portée, qui se maintient pendant toute la durée du sort. Voir les descriptions ci-dessous pour les différents effets. L'illusion disparait si vous relancez ce sort.
-      
+
       Si une créature entreprend l'action Étudier pour examiner le son ou l'image, elle peut reconnaitre qu'il s'agit d'une illusion en réussissant un jet d'Intelligence (Investigation) contre le DD de sauvegarde de votre sort. Si une créature reconnait ainsi l'illusion pour ce qu'elle est, la perçoit toujours, mais amoindrie.
-      
+
       **Son**. Si vous créez un son, son intensité peut aller du chuchotement au cri. Cela peut être votre voix, la voix de quelqu'un d'autre, un rugissement de lion, un battement de tambour ou tout autre son de votre choix. Le son se poursuit sans faiblir pendant toute la durée du sort, ou vous pouvez choisir de faire différents sons individuels, à différents intervalles, jusqu'à la fin du sort.
-      
+
       **Image**. Si vous créez l'image d'un objet (comme une chaise, des empreintes boueuses ou un petit coffre), cela ne peut pas être plus grand qu'un Cube de 1,50 mètre de côté. L'image ne produit ni son, ni lumière, ni odeur, ni autre effet sensoriel. Interagir physiquement avec l'illusion révèle sa nature, car elle est intangible.

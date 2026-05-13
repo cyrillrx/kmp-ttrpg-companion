@@ -8,24 +8,15 @@ armorClass: 22
 maxHitPoints: 468
 hitDice: 24d20+216
 abilities:
-  str:
-    value: 30
-    savingThrowProficiency: none
-  dex:
-    value: 10
-    savingThrowProficiency: proficient
-  con:
-    value: 29
-    savingThrowProficiency: none
-  int:
-    value: 18
-    savingThrowProficiency: none
-  wis:
-    value: 15
-    savingThrowProficiency: proficient
-  cha:
-    value: 26
-    savingThrowProficiency: none
+  str: 30
+  dex: 10
+  con: 29
+  int: 18
+  wis: 15
+  cha: 26
+savingThrows:
+  dex: proficient
+  wis: proficient
 speeds:
   walk: 40
   fly: 80
@@ -106,7 +97,7 @@ translations:
       ***Spellcasting***. The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 23, +15 to hit with spell attacks):
 
       At Will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Hold Monster](https://www.aidedd.org/spell/hold-monster), [Ice Knife](https://www.aidedd.org/spell/ice-knife)* (level 2 version), *[Shapechange](https://www.aidedd.org/spell/shapechange)* (Beast or Humanoid form only, no Temporary Hit Points gained from the spell, and no Concentration or Temporary Hit Points required to maintain the spell)
-      
+
       1/Day Each: *[Control Weather](https://www.aidedd.org/spell/control-weather), [Ice Storm](https://www.aidedd.org/spell/ice-storm)* (level 7 version), *[Teleport](https://www.aidedd.org/spell/teleport), [Zone of Truth](https://www.aidedd.org/spell/zone-of-truth)*
 
       ## Legendary actions
@@ -139,7 +130,7 @@ translations:
       ***Incantation***. Le dragon lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 23, +15 pour toucher) :
 
       À volonté : *[changement de forme](https://www.aidedd.org/spell/fr/changement-de-forme)* (Bête ou Humanoïde uniquement, le sort ne fait pas gagner de points de vie temporaires, ni Concentration ni points de vie temporaires nécessaires pour maintenir le sort), *couteau de glace* (au niveau 2), *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), immobilisation de monstre*
-      
+
       1/jour chacun : *contrôle du climat, téléportation, tempête de grêle* (au niveau 7), *zone de vérité*
 
       ***Souffle glacial (recharge 5–6)***. *JdS Constitution* : DD 24, chaque créature dans un Cône de 27 m. *Échec* : 67 (15d8) dégâts de froid. *Réussite* : demi-dégâts.

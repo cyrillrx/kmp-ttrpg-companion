@@ -8,24 +8,17 @@ armorClass: 20
 maxHitPoints: 370
 hitDice: 20d20+160
 abilities:
-  str:
-    value: 26
-    savingThrowProficiency: none
-  dex:
-    value: 19
-    savingThrowProficiency: proficient
-  con:
-    value: 27
-    savingThrowProficiency: proficient
-  int:
-    value: 9
-    savingThrowProficiency: none
-  wis:
-    value: 14
-    savingThrowProficiency: proficient
-  cha:
-    value: 9
-    savingThrowProficiency: proficient
+  str: 26
+  dex: 19
+  con: 27
+  int: 9
+  wis: 14
+  cha: 9
+savingThrows:
+  dex: proficient
+  con: proficient
+  wis: proficient
+  cha: proficient
 speeds:
   walk: 60
   fly: 80
@@ -92,19 +85,19 @@ translations:
       ## Traits
 
       Earth Glide.
-      
+
       Legendary Resistance (4/Day).
-      
+
       Siege Monster.
 
       ## Actions
 
       Multiattack.
-      
+
       Elemental Burst.
-      
+
       Cataclysmic Event (Recharge 4–6).
-      
+
       Control Weather.
 
       ## Legendary actions
@@ -112,7 +105,7 @@ translations:
       Legendary Action Uses: 3.
 
       Eruption.
-      
+
       Rumbling Movement.
     senses: Truesight 150 ft., Passive Perception 12
     languages:
@@ -124,19 +117,19 @@ translations:
       ## Traits
 
       Déplacement tellurique.
-      
+
       Résistance légendaire (4/jour).
-      
+
       Monstre de siège.
 
       ## Actions
 
       Attaques multiples.
-      
+
       Décharge élémentaire.
-      
+
       Événement cataclysmique (recharge 4–6).
-      
+
       Contrôle du climat.
 
       ## Actions Légendaires
@@ -144,7 +137,7 @@ translations:
       Utilisations d'action Légendaire : 3.
 
       Éruption.
-      
+
       Déplacement cataclysmal.
     senses: vision véritable 45 m, Perception passive 12
     languages:

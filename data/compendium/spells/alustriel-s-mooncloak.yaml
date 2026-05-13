@@ -22,13 +22,12 @@ translations:
     materialDescription: a moonstone worth 50+ GP
     description: |-
       For the duration, moonlight fills a 20-foot Emanation originating from you with Dim Light. While in that area, you and your allies have Half Cover and Resistance to Cold, Lightning, and Radiant damage.
-      
+
       While the spell lasts, you can use one of the following options, ending the spell immediately:
-      
+
       **Liberation.** When you fail a saving throw to avoid or end the Frightened, Grappled, or Restrained condition, you can take a Reaction to succeed on the save instead.
-      
+
       **Respite.** As a Magic action, you or an ally within the area regains Hit Points equal to 4d10 plus your spellcasting ability modifier.
-      
   fr:
     name: Manteau de lune d'Alustriel
     castingTime: Action
@@ -37,9 +36,9 @@ translations:
     materialDescription: une pierre de lune d'une valeur minimale de 50 po
     description: |-
       Pour toute la durée du sort, le clair de lune remplit d'une Lumière faible une Émanation de 6 mètres centrée sur vous. Dans cette zone, vous et vos alliés bénéficiez d'une Demi-couverture et de la Résistance aux dégâts de froid, de foudre et radieux.
-      
+
       Pendant que le sort est actif, vous pouvez utiliser l'une des options suivantes, ce qui met immédiatement fin au sort :
-      
+
       **Libération.** Lorsque vous ratez un jet de sauvegarde pour éviter ou mettre fin à l'état Terrorisé, Agrippé ou Entravé, vous pouvez utiliser une Réaction pour réussir ce jet à la place.
-      
+
       **Répit.** En tant qu'action de Magie, vous ou un allié dans la zone récupérez un nombre de points de vie égal à 4d10 plus votre modificateur de caractéristique d'incantation.

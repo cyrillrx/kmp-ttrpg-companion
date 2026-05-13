@@ -1,0 +1,37 @@
+id: caravan-guard
+name: Brynn Ashwood
+race: HUMAN
+clazz: RANGER
+level: 3
+size: MEDIUM
+alignment: NEUTRAL
+abilities:
+  str: 12
+  dex: 16
+  con: 14
+  int: 10
+  wis: 14
+  cha: 10
+savingThrows:
+  str: proficient
+  dex: proficient
+armorClass: 15
+maxHitPoints: 28
+speeds:
+  walk: 30
+skills:
+  survival: proficient
+  perception: proficient
+  stealth: proficient
+languages:
+- common
+- elvish
+translations:
+  en:
+    shortDescription: Caravan Guard
+    description: |-
+      A seasoned archer who has protected merchant convoys across dangerous roads for years.
+  fr:
+    shortDescription: Garde de caravane
+    description: |-
+      Un archer chevronné qui protège les convois marchands sur des routes dangereuses depuis des années.

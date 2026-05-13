@@ -1,0 +1,35 @@
+id: guard
+name: Aldric Brennan
+race: HUMAN
+clazz: FIGHTER
+level: 1
+size: MEDIUM
+alignment: LAWFUL_NEUTRAL
+abilities:
+  str: 13
+  dex: 12
+  con: 12
+  int: 10
+  wis: 11
+  cha: 10
+savingThrows:
+  str: proficient
+  con: proficient
+armorClass: 16
+maxHitPoints: 11
+speeds:
+  walk: 30
+skills:
+  athletics: proficient
+  perception: proficient
+languages:
+- common
+translations:
+  en:
+    shortDescription: City Guard
+    description: |-
+      A loyal soldier of the city watch, stationed at the main gate.
+  fr:
+    shortDescription: Garde de la cité
+    description: |-
+      Un soldat loyal de la garde de la ville, posté à la porte principale.

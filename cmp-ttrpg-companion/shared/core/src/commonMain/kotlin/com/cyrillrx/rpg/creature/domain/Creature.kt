@@ -8,7 +8,6 @@ abstract class Creature(
     open val armorClass: Int,
     open val maxHitPoints: Int,
     open val speeds: Speeds,
-    open val languages: List<String>,
 ) {
     enum class Size {
         TINY,

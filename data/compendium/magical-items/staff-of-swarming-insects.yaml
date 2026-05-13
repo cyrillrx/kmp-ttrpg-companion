@@ -9,11 +9,11 @@ translations:
     subtype: null
     description: |-
       This staff has 10 charges.
-      
+
       **Insect Cloud**. While holding the staff, you can take a Magic action and expend 1 charge to cause a swarm of harmless flying insects to fill a 30-foot Emanation originating from you. The insects remain for 10 minutes, making the area Heavily Obscured for creatures other than you. A strong wind (like that created by *[Gust of Wind](https://www.aidedd.org/spell/gust-of-wind)*) disperses the swarm and ends the effect.
-      
+
       **Spells**. While holding the staff, you can cast one of the spells on the following table from it, using your spell save DC and spell attack modifier. The table indicates how many charges you must expend to cast the spell.
-      
+
       | Spell | Charge Cost |
       | --- | --- |
       | *[Giant Insect](https://www.aidedd.org/spell/giant-insect)* | 4 |
@@ -25,11 +25,11 @@ translations:
     subtype: null
     description: |-
       Ce bâton possède 10 charges.
-      
+
       **Nuage d'insectes**. Lorsque vous tenez le bâton, vous pouvez prendre une action Magie et dépenser 1 charge pour qu'une nuée d'insectes volants inoffensifs remplisse une Émanation de 9 mètres centrée sur vous. Les insectes restent sur place pendant 10 minutes, rendant la zone à Visibilité nulle pour les créatures autres que vous. Un vent fort (comme celui créé par *[bourrasque](https://www.aidedd.org/spell/fr/bourrasque)*) disperse la nuée et met fin à l'effet.
-      
+
       **Sorts**. Lorsque vous tenez le bâton, vous pouvez lancer l'un des sorts de la table suivante, en utilisant votre DD de sauvegarde des sorts et votre modificateur d'attaque de sorts. La table indique le nombre de charges à dépenser pour lancer le sort.
-      
+
       | Sort | Coût en charges |
       | --- | --- |
       | *[insecte géant](https://www.aidedd.org/spell/fr/insecte-geant)* | 4 |

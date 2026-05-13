@@ -20,9 +20,8 @@ translations:
     materialDescription: null
     description: |-
       For the duration, you sense the location of any Aberration, Celestial, Elemental, Fey, Fiend, or Undead within 30 feet of yourself. You also sense whether the *[Hallow](./hallow)* spell is active there and, if so, where.
-      
+
       The spell is blocked by 1 foot of stone, dirt, or wood; 1 inch of metal; or a thin sheet of lead.
-      
   fr:
     name: Détection du mal et du bien
     castingTime: Action
@@ -31,5 +30,5 @@ translations:
     materialDescription: null
     description: |-
       Pendant la durée du sort, vous détectez l'emplacement de toute aberration, céleste, élémentaire, fée, fiélon ou mort-vivant dans un rayon de 9 mètres autour de vous. Vous détectez également si le sort *[sanctification](./fr/sanctification)* est actif par ici et, si oui, où.
-      
+
       Le sort est bloqué par 30 cm de pierre, de terre ou de bois, par 2,50 cm de métal, ou par une fine feuille de plomb.

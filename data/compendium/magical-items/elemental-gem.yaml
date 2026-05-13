@@ -9,7 +9,7 @@ translations:
     subtype: null
     description: |-
       This gem contains a mote of elemental energy. When you take a Utilize action to break the gem, an elemental is summoned, and the gem ceases to be magical. The elemental appears in an unoccupied space as close to the broken gem as possible, understands your languages, obeys your commands, and takes its turn immediately after you on your Initiative count. The elemental disappears after 1 hour, when it dies, or when you dismiss it as a Bonus Action. The type of gem determines the elemental, as shown in the following table.
-      
+
       | Gem | Summoned Elemental |
       | --- | --- |
       | Blue sapphire | [Air Elemental](https://www.aidedd.org/monster/air-elemental) |
@@ -21,7 +21,7 @@ translations:
     subtype: null
     description: |-
       Cette gemme contient une particule d'énergie élémentaire. Lorsque vous prenez une action Utilisation pour la briser, un élémentaire est convoqué et la gemme perd son pouvoir magique. L'élémentaire apparaît dans un espace libre, aussi proche que possible de la gemme brisée, comprend vos langues, obéit à vos ordres et intervient immédiatement après vous dans l'ordre d'Initiative. L'élémentaire disparaît après 1 heure, lorsqu'il meurt ou lorsque vous le renvoyez par une action Bonus. Le type de gemme détermine l'élémentaire, comme indiqué dans la table suivante.
-      
+
       | Gemme | Élémentaire convoqué |
       | --- | --- |
       | Saphir bleu | [Élémentaire de l'air](https://www.aidedd.org/monster/fr/elementaire-de-l-air) |

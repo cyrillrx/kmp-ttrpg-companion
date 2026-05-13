@@ -9,12 +9,12 @@ translations:
     subtype: null
     description: |-
       The next time you see a creature within 10 minutes after drinking this philter, you are charmed by that creature and have the Charmed condition for 1 hour.
-      
+
       This rose-hued, effervescent liquid contains one easy-to-miss bubble shaped like a heart.
   fr:
     name: Philtre d'amour
     subtype: null
     description: |-
       La prochaine fois que vous voyez une créature dans les 10 minutes après avoir bu ce philtre, vous êtes charmé par cette créature et subissait l'état Charmé pendant 1 heure.
-      
+
       Ce liquide effervescent de couleur rose contient une discrète bulle en forme de cœur.

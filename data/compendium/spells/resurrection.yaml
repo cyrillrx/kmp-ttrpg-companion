@@ -20,13 +20,12 @@ translations:
     materialDescription: a diamond worth 1,000+ GP, which the spell consumes
     description: |-
       With a touch, you revive a dead creature that has been dead for no more than a century, didn't die of old age, and wasn't Undead when it died.
-      
+
       The creature returns to life with all its Hit Points. This spell also neutralizes any poisons that affected the creature at the time of death. This spell closes all mortal wounds and restores any missing body parts.
-      
+
       Coming back from the dead is an ordeal. The target takes a −4 penalty to D20 Tests. Every time the target finishes a Long Rest, the penalty is reduced by 1 until it becomes 0.
-      
+
       Casting this spell to revive a creature that has been dead for 365 days or longer taxes you. Until you finish a Long Rest, you can't cast spells again, and you have Disadvantage on D20 Tests.
-      
   fr:
     name: Résurrection
     castingTime: 1 heure
@@ -36,9 +35,9 @@ translations:
       consomme
     description: |-
       D'un contact, vous ramenez à la vie une créature dont la mort ne remonte pas à plus d'un siècle, qui n'est pas morte de vieillesse et n'était pas un Mort-vivant au moment de mourir.
-      
+
       La créature revient à la vie avec tous ses points de vie. Ce sort neutralise également tous les poisons qui affectaient la créature au moment de mourir. Ce sort referme toutes les blessures mortelles et restitue l'anatomie manquante.
-      
+
       Revenir d'entre les morts demeure une épreuve. La cible subit un malus de –4 aux jets de d20. Chaque fois qu'elle termine un Repos long, ce malus diminue de 1, jusqu'à ce qu'il tombe à 0.
-      
+
       L'incantation de ce sort s'avère éreintante lorsqu'il s'agit de ramener à la vie une créature morte depuis 365 jours ou plus. Tant que vous n'avez pas terminé de Repos long, vous ne pouvez plus lancer de sort et vous subissez un Désavantage aux jets de d20.

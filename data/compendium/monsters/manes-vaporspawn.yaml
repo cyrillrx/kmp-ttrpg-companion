@@ -8,24 +8,12 @@ armorClass: 13
 maxHitPoints: 19
 hitDice: 3d8+6
 abilities:
-  str:
-    value: 14
-    savingThrowProficiency: none
-  dex:
-    value: 12
-    savingThrowProficiency: none
-  con:
-    value: 15
-    savingThrowProficiency: none
-  int:
-    value: 5
-    savingThrowProficiency: none
-  wis:
-    value: 8
-    savingThrowProficiency: none
-  cha:
-    value: 3
-    savingThrowProficiency: none
+  str: 14
+  dex: 12
+  con: 15
+  int: 5
+  wis: 8
+  cha: 3
 speeds:
   walk: 30
   fly: null
@@ -112,7 +100,7 @@ translations:
       ## Traits
 
       Contortionniste.
-      
+
       Vapeurs morbides.
 
       ## Actions

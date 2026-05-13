@@ -8,24 +8,15 @@ armorClass: 19
 maxHitPoints: 256
 hitDice: 19d12+133
 abilities:
-  str:
-    value: 27
-    savingThrowProficiency: none
-  dex:
-    value: 10
-    savingThrowProficiency: proficient
-  con:
-    value: 25
-    savingThrowProficiency: none
-  int:
-    value: 16
-    savingThrowProficiency: none
-  wis:
-    value: 13
-    savingThrowProficiency: proficient
-  cha:
-    value: 23
-    savingThrowProficiency: none
+  str: 27
+  dex: 10
+  con: 25
+  int: 16
+  wis: 13
+  cha: 23
+savingThrows:
+  dex: proficient
+  wis: proficient
 speeds:
   walk: 40
   fly: 80
@@ -104,7 +95,7 @@ translations:
       ***Spellcasting***. The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 20, +12 to hit with spell attacks):
 
       At will: *[Command](https://www.aidedd.org/spell/command)* (level 2 version), *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Scorching Ray](https://www.aidedd.org/spell/scorching-ray)*
-      
+
       1/day: *[Fireball](https://www.aidedd.org/spell/fireball)*
 
       ## Legendary actions
@@ -137,7 +128,7 @@ translations:
       ***Incantation***. Le dragon lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 20, +12 pour toucher) :
 
       À volonté : *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), [injonction](https://www.aidedd.org/spell/fr/injonction)* (au niveau 2), *[rayon ardent](https://www.aidedd.org/spell/fr/rayon-ardent)*
-      
+
       1/jour : *[boule de feu](https://www.aidedd.org/spell/fr/boule-de-feu)*
 
       ***Souffle de feu (recharge 5–6)***. *JdS Dextérité* : DD 21, chaque créature dans un Cône de 18 m. *Échec* : 59 (17d6) dégâts de feu. *Réussite* : demi-dégâts.

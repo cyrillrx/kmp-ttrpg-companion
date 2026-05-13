@@ -9,12 +9,12 @@ translations:
     subtype: Mace
     description: |-
       You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon. The bonus increases to +3 when you use the weapon to attack a Construct.
-      
+
       When you roll a 20 on an attack roll made with this weapon, the target takes an extra 7 Bludgeoning damage, or 14 Bludgeoning damage if it's a Construct. If a Construct has 25 Hit Points or fewer after taking this damage, it is destroyed.
   fr:
     name: Masse destructrice
     subtype: masse d'armes
     description: |-
       Vous obtenez un bonus de +1 aux jets d'attaque et de dégâts effectués avec cette arme magique. Ce bonus passe à +3 lorsque vous utilisez l'arme pour attaquer un Artificiel.
-      
+
       Lorsque vous obtenez un 20 à un jet d'attaque effectué avec cette arme, la cible subit 7 dégâts contondants supplémentaires, ou 14 dégâts contondants s'il s'agit d'un Artificiel. Si un Artificiel possède 25 points de vie ou moins après avoir subi ces dégâts, il est détruit.

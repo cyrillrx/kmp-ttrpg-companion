@@ -20,13 +20,12 @@ translations:
     materialDescription: a small crystal sphere
     description: |-
       A frigid globe streaks from you to a point of your choice within range, where it explodes in a 60-foot-radius Sphere. Each creature in that area makes a Constitution saving throw, taking 10d6 Cold damage on failed save or half as much damage on a successful one.
-      
+
       If the globe strikes a body of water, it freezes the water to a depth of 6 inches over an area 30 feet square. This ice lasts for 1 minute. Creatures that were swimming on the surface of frozen water are trapped in the ice and have the Restrained condition. A trapped creature can take an action to make a Strength (Athletics) check against your spell save DC to break free.
-      
+
       You can refrain from firing the globe after completing the spell's casting. If you do so, a globe about the size of a sling bullet, cool to the touch, appears in your hand. At any time, you or a creature you give the globe to can throw the globe (to a range of 40 feet) or hurl it with a sling (to the sling's normal range). It shatters on impact, with the same effect as a normal casting of the spell. You can also set the globe down without shattering it. After 1 minute, if the globe hasn't already shattered, it explodes.
-      
+
       ***Using a Higher-Level Spell Slot***. The damage increases by 1d6 for each spell slot level above 6.
-      
   fr:
     name: Sphère glacée d'Otiluke
     castingTime: Action
@@ -35,9 +34,9 @@ translations:
     materialDescription: une sphère miniature en cristal
     description: |-
       Un globe glacial jaillit de vous vers un point que vous choisissez à portée, où il explose sous forme d'une Sphère de 18 m de rayon. Chaque créature prise dans la zone effectue un jet de sauvegarde de Constitution et subit 10d6 dégâts de froid en cas d'échec, la moitié en cas de réussite.
-      
+
       Si le globe heurte un volume d'eau, il gèle cette eau sur une profondeur de 15 cm et une surface carrée de 9 m de côté. Cette glace persiste pendant 1 minute. Les créatures qui nageaient à la surface de l'eau désormais gelée se retrouvent bloquées dans la glace, avec l'état Entravé. Une créature bloquée peut consacrer une action à effectuer un jet de Force (Athlétisme) contre le DD de sauvegarde de votre sort pour s'extraire de la glace.
-      
+
       Vous pouvez si vous le souhaitez vous retenir de projeter le globe une fois l'incantation terminée. Dans ce cas, un globe de la taille d'une bille de fronde, froid au contact, apparaît dans votre main. À tout moment, vous ou une créature à qui vous confiez le globe pouvez le projeter (sur une distance maximale de 12 m) ou vous servir d'une fronde pour le lancer (profitant ainsi de la portée normale de la fronde). Il se brise à l'impact, en produisant les mêmes effets que l'incantation de base du sort. Vous pouvez également poser le globe sans le briser. Au bout de 1 minute, s'il ne s'est toujours pas brisé, le globe explose.
-      
+
       ***Emplacement de niveau supérieur***. Les dégâts augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 6.

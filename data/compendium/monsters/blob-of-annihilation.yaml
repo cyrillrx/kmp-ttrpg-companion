@@ -8,24 +8,15 @@ armorClass: 18
 maxHitPoints: 448
 hitDice: 23d20+207
 abilities:
-  str:
-    value: 27
-    savingThrowProficiency: none
-  dex:
-    value: 14
-    savingThrowProficiency: proficient
-  con:
-    value: 28
-    savingThrowProficiency: proficient
-  int:
-    value: 10
-    savingThrowProficiency: none
-  wis:
-    value: 16
-    savingThrowProficiency: none
-  cha:
-    value: 10
-    savingThrowProficiency: none
+  str: 27
+  dex: 14
+  con: 28
+  int: 10
+  wis: 16
+  cha: 10
+savingThrows:
+  dex: proficient
+  con: proficient
 speeds:
   walk: 30
   fly: null
@@ -92,19 +83,19 @@ translations:
       ## Traits
 
       Astral Implosion.
-      
+
       Legendary Resistance (4/Day).
-      
+
       Magic Resistance.
 
       ## Actions
 
       Multiattack.
-      
+
       Pseudopod.
-      
+
       Engulf.
-      
+
       Restraining Glob.
 
       ## Legendary actions
@@ -112,9 +103,9 @@ translations:
       Legendary Action Uses: 3.
 
       Decay.
-      
+
       Grasping Glob.
-      
+
       Lashing Goop.
     senses: Blindsight 120 ft., Passive Perception 13
     languages: []
@@ -125,19 +116,19 @@ translations:
       ## Traits
 
       Implosion astrale.
-      
+
       Résistance légendaire (4/jour).
-      
+
       Résistance à la magie.
 
       ## Actions
 
       Attaques multiples.
-      
+
       Pseudopode.
-      
+
       Enveloppement.
-      
+
       Amas entraveur.
 
       ## Actions Légendaires
@@ -145,9 +136,9 @@ translations:
       Utilisations d'action Légendaire : 3.
 
       Décomposition.
-      
+
       Chiquenaude visqueuse.
-      
+
       Happement.
     senses: Vision aveugle 36 m, Perception passive 13
     languages: []

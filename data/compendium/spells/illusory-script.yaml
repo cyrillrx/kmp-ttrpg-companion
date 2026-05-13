@@ -21,11 +21,10 @@ translations:
     materialDescription: ink worth 10+ GP, which the spell consumes
     description: |-
       You write on parchment, paper, or another suitable material and imbue it with an illusion that lasts for the duration. To you and any creatures you designate when you cast the spell, the writing appears normal, seems to be written in your hand, and conveys whatever meaning you intended when you wrote the text. To all others, the writing appears as if it were written in an unknown or magical script that is unintelligible. Alternatively, the illusion can alter the meaning, handwriting, and language of the text, though the language must be one you know.
-      
+
       If the spell is dispelled, the original script and the illusion both disappear.
-      
+
       A creature that has Truesight can read the hidden message.
-      
   fr:
     name: Texte illusoire
     castingTime: 1 minute ou Rituel
@@ -34,7 +33,7 @@ translations:
     materialDescription: de l'encre d'une valeur minimale de 10 po, que le sort consomme
     description: |-
       Vous écrivez sur du parchemin, du papier ou un autre support approprié et l'imprégnez d'une illusion qui dure toute la durée du sort. Pour vous et les créatures que vous désignez lors du lancement du sort, l'écriture paraît normale, semble écrite de votre main et transmet le sens que vous aviez prévu. Pour tous les autres, l'écriture apparaît comme étant d'un alphabet inconnu ou magique, et est inintelligible. L'illusion peut également altérer le sens, l'écriture et la langue du texte, à condition que cette langue soit connue.
-      
+
       Si le sort est dissipé, l'écriture originale et l'illusion disparaissent.
-      
+
       Une créature dotée de Vision véritable peut lire le message caché.

@@ -9,12 +9,12 @@ translations:
     subtype: null
     description: |-
       When you drink this potion, it removes any Exhaustion levels you have and ends the Poisoned condition on you. For the next 24 hours, you regain the maximum number of Hit Points for any Hit Point Die you spend.
-      
+
       This potion's crimson liquid regularly pulses with dull light, calling to mind a heartbeat.
   fr:
     name: Potion de vitalité
     subtype: null
     description: |-
       Lorsque vous buvez cette potion, elle supprime vos niveaux d'Épuisement et met fin à l'état Empoisonné. Pendant les 24 heures suivantes, vous récupérez le maximum de points de vie pour chaque dé de vie dépensé.
-      
+
       Le liquide cramoisi de cette potion émet régulièrement une lumière tamisée, rappelant un battement de cœur.

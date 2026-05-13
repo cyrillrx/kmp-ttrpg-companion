@@ -9,16 +9,16 @@ translations:
     subtype: null
     description: |-
       These furred boots are snug and feel warm. While wearing them, you gain the following benefits.
-      
+
       **Cold Resistance**. You have Resistance to Cold damage and can tolerate temperatures of 0 degrees Fahrenheit or lower without any additional protection.
-      
+
       **Winter Strider**. You ignore Difficult Terrain created by ice or snow.
   fr:
     name: Bottes des terres gelées
     subtype: null
     description: |-
       Ces bottes fourrées sont confortables et chaudes. Lorsque vous les portez, vous bénéficiez des avantages suivants :
-      
+
       **Résistance au froid**. Vous bénéficiez d'une Résistance aux dégâts de froid et pouvez supporter des températures inférieures ou égales à -18 °C sans protection supplémentaire.
-      
+
       **Arpenteur de l'hiver**. Vous ignorez les Terrains difficiles créés par la glace ou la neige.

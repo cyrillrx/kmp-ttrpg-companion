@@ -9,9 +9,9 @@ translations:
     subtype: null
     description: |-
       You have Resistance to Cold damage while you hold this staff.
-      
+
       **Spells**. The staff has 10 charges. While holding the staff, you can cast one of the spells on the following table from it, using your spell save DC. The table indicates how many charges you must expend to cast the spell.
-      
+
       | Spell | Charge Cost |
       | --- | --- |
       | *[Cone of Cold](https://www.aidedd.org/spell/cone-of-cold)* | 5 |
@@ -25,9 +25,9 @@ translations:
     subtype: null
     description: |-
       Vous bénéficiez d'une Résistance aux dégâts de froid lorsque vous tenez ce bâton.
-      
+
       **Sorts**. Le bâton possède 10 charges. En le tenant, vous pouvez lancer l'un des sorts de la table suivante, en utilisant votre DD de sauvegarde des sorts. La table indique le nombre de charges à dépenser pour lancer le sort.
-      
+
       | Sort | Coût en charges |
       | --- | --- |
       | *[cône de froid](https://www.aidedd.org/spell/fr/cone-de-froid)* | 5 |

@@ -22,11 +22,10 @@ translations:
     materialDescription: null
     description: |-
       Three illusory duplicates of yourself appear in your space. Until the spell ends, the duplicates move with you and mimic your actions, shifting position so it's impossible to track which image is real.
-      
+
       Each time a creature hits you with an attack roll during the spell's duration, roll a d6 for each of your remaining duplicates. If any of the d6s rolls a 3 or higher, one of the duplicates is hit instead of you, and the duplicate is destroyed. The duplicates otherwise ignore all other damage and effects. The spell ends when all three duplicates are destroyed.
-      
+
       A creature is unaffected by this spell if it has the Blinded condition, Blindsight, or Truesight.
-      
   fr:
     name: Image miroir
     castingTime: Action
@@ -35,7 +34,7 @@ translations:
     materialDescription: null
     description: |-
       Trois copies illusoires de vous-même apparaissent dans votre espace. Jusqu'à la fin du sort, les copies se déplacent avec vous et imitent vos actions, changeant de position de sorte qu'il est impossible de déterminer laquelle est réelle.
-      
+
       Chaque fois qu'une créature vous touche avec un jet d'attaque pendant la durée du sort, lancez un d6 pour chacune de vos copies restantes. Si au moins l'une des copies obtient 3 ou plus, une copie est touchée à votre place et détruite. Sinon, les copies ignorent tous les autres dégâts et effets. Le sort prend fin lorsque les trois copies sont détruites.
-      
+
       Une créature n'est pas affectée par ce sort si elle a l'état Aveuglé, Vision aveugle ou Vision véritable.

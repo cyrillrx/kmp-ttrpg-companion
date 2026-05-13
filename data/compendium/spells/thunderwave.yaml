@@ -22,11 +22,10 @@ translations:
     materialDescription: null
     description: |-
       You unleash a wave of thunderous energy. Each creature in a 15-foot Cube originating from you makes a Constitution saving throw. On a failed save, a creature takes 2d8 Thunder damage and is pushed 10 feet away from you. On a successful save, a creature takes half as much damage only.
-      
+
       In addition, unsecured objects that are entirely within the Cube are pushed 10 feet away from you, and a thunderous boom is audible within 300 feet.
-      
+
       ***Using a Higher-Level Spell Slot***. The damage increases by 1d8 for each spell slot level above 1.
-      
   fr:
     name: Vague tonnante
     castingTime: Action
@@ -35,7 +34,7 @@ translations:
     materialDescription: null
     description: |-
       Vous déchaînez une vague d'énergie tonitruante. Toute créature dans un Cube de 4,50 mètres de côté provenant de vous effectue un jet de sauvegarde de Constitution. En cas d'échec, une créature subit 2d8 dégâts de tonnerre et est repoussée de 3 mètres. En cas de réussite, elle subit seulement la moitié des dégâts.
-      
+
       De plus, les objets non sécurisés entièrement à l'intérieur du Cube sont repoussés de 3 mètres, et un grondement tonitruant retentit dans un rayon de 90 mètres.
-      
+
       ***Emplacement de niveau supérieur***. Les dégâts augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 1.

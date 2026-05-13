@@ -20,7 +20,6 @@ translations:
     materialDescription: an onyx worth 50+ GP, which the spell consumes
     description: |-
       For the duration, an inky aura surrounds one creature you touch. The target has Advantage on Death Saving Throws, and once per turn, when a creature within 5 feet of the target hits it with a melee attack roll, the attacker takes 2d4 Necrotic damage.
-      
   fr:
     name: Armure de mort
     castingTime: Action

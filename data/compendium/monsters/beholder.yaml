@@ -8,24 +8,15 @@ armorClass: 18
 maxHitPoints: 190
 hitDice: 20d10+80
 abilities:
-  str:
-    value: 16
-    savingThrowProficiency: none
-  dex:
-    value: 14
-    savingThrowProficiency: none
-  con:
-    value: 18
-    savingThrowProficiency: proficient
-  int:
-    value: 17
-    savingThrowProficiency: none
-  wis:
-    value: 15
-    savingThrowProficiency: proficient
-  cha:
-    value: 17
-    savingThrowProficiency: none
+  str: 16
+  dex: 14
+  con: 18
+  int: 17
+  wis: 15
+  cha: 17
+savingThrows:
+  con: proficient
+  wis: proficient
 speeds:
   walk: 5
   fly: 40
@@ -96,9 +87,9 @@ translations:
       ## Actions
 
       Multiattack.
-      
+
       Bite.
-      
+
       Eye Rays.
 
       ## Bonus actions
@@ -110,7 +101,7 @@ translations:
       Legendary Action Uses: 3 (4 in Lair).
 
       Chomp.
-      
+
       Glare.
     senses: Darkvision 120 ft., Passive Perception 22
     languages:
@@ -127,9 +118,9 @@ translations:
       ## Actions
 
       Attaques multiples.
-      
+
       Morsure.
-      
+
       Rayons oculaires.
 
       ## Actions Bonus
@@ -141,7 +132,7 @@ translations:
       Utilisations d'action Légendaire : 3 (4 dans son antre).
 
       Mastication.
-      
+
       Regard de biais.
     senses: Vision dans le noir 36 m, Perception passive 22
     languages:

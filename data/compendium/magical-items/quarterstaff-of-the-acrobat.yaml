@@ -9,32 +9,32 @@ translations:
     subtype: Quarterstaff
     description: |-
       You have a +2 bonus to attack rolls and damage rolls made with this magic weapon.
-      
+
       While holding this weapon, you can cause it to emit green Dim Light out to 10 feet, either as a Bonus Action or after you roll Initiative, or you can extinguish the light as a Bonus Action.
-      
+
       While holding this weapon, you can take a Bonus Action to alter its form, turning it into a 6-inch rod (for ease of storage) or a 10-foot pole, or reverting it a Quarterstaff; the weapon will elongate only as far as the surrounding space allows.
-      
+
       In certain forms, the weapon has the following additional properties.
-      
+
       **Acrobatic Assist (Quarterstaff or 10-Foot Pole Forms Only)**. While holding this weapon, you have Advantage on Dexterity (Acrobatics) checks.
-      
+
       **Attack Deflection (Quarterstaff Form Only)**. When you are hit by an attack while holding the weapon, you can take a Reaction to twirl the weapon around you, gaining a +5 bonus to your Armor Class against the triggering attack, potentially causing the attack to miss you. You can't use this property again until you finish a Short or Long Rest.
-      
+
       **Ranged Weapon (Quarterstaff Form Only)**. This weapon has the Thrown property with a normal range of 30 feet and a long range of 120 feet. Immediately after you make a ranged attack with the weapon, it flies back to your hand.
   fr:
     name: Bâton de l'acrobate
     subtype: bâton
     description: |-
       Vous bénéficiez d'un bonus de +2 aux jets d'attaque et de dégâts effectués avec cette arme magique.
-      
+
       Lorsque vous tenez cette arme, vous pouvez la faire émettre une Lumière faible de couleur verte jusqu'à 3 mètres, par une action Bonus ou un jet d'Initiative, ou bien l'éteindre par une action Bonus.
-      
+
       Lorsque vous tenez cette arme, vous pouvez prendre une action Bonus pour modifier sa forme, la transformant en un bâtonnet de 15 cm (pour faciliter le rangement) ou en une perche de 3 mètres, ou bien la ramener à sa forme de bâton ; l'arme ne s'allongera que dans la mesure où l'espace environnant le permet.
-      
+
       Sous certaines formes, l'arme possède les propriétés supplémentaires suivantes :
-      
+
       **Assistance acrobatique (bâton ou perche de 3 mètres uniquement)**. Lorsque vous tenez cette arme, vous bénéficiez d'un Avantage aux jets de Dextérité (Acrobaties).
-      
+
       **Déviation d'attaque (bâton uniquement)**. Lorsque vous êtes touché par une attaque alors que vous tenez l'arme, vous pouvez prendre une Réaction pour faire tournoyer l'arme autour de vous, ce qui vous confère un bonus de +5 à votre CA contre l'attaque qui déclenche l'attaque et peut ainsi la faire rater. Vous ne pouvez pas réutiliser cette propriété avant d'avoir terminé un Repos court ou long.
-      
+
       **Arme à distance (bâton uniquement)**. Cette arme possède la propriété Lancer avec une portée nominale de 9 mètres et une portée longue de 36 mètres. Immédiatement après avoir effectué une attaque à distance avec l'arme, elle revient dans votre main.

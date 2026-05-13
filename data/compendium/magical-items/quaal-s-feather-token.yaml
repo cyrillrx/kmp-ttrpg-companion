@@ -9,21 +9,21 @@ translations:
     subtype: null
     description: |-
       This object looks like a feather. Different types of feather tokens exist, each with a different single-use effect. The DM chooses the kind of token or determines it randomly by rolling on the table. The type of token determines its rarity.
-      
+
       **Anchor (Uncommon)**. You can take a Magic action to touch the token to a boat or ship. For the next 24 hours, the vessel can't be moved by any means. Touching the token to the vessel again ends the effect. When the effect ends, the token disappears.
-      
+
       **Bird (Rare)**. You can take a Magic action to toss the token 5 feet into the air. The token disappears and an enormous, multicolored bird takes its place. The bird has the statistics of a **[Roc](https://www.aidedd.org/monster/roc)** , but it can't attack. It obeys your simple commands and can carry up to 500 pounds while flying at its maximum speed (16 miles per hour for a maximum of 144 miles per day, with a 1-hour rest for every 3 hours of flying) or 1,000 pounds at half that speed. The bird disappears after flying its maximum distance for a day or if it drops to 0 Hit Points. You can dismiss the bird as a Magic action.
-      
+
       **Fan (Uncommon)**. If you are on a boat or ship, you can take a Magic action to toss the token up to 10 feet in the air. The token disappears, and a giant flapping fan takes its place. The fan floats and creates a strong wind. This wind can fill the sails of one ship, increasing its speed by 5 miles per hour for 8 hours. You can dismiss the fan as a Magic action.
-      
+
       **Swan Boat (Rare)**. You can take a Magic action to touch the token to a body of water at least 60 feet in diameter. The token disappears, and a 50-foot-long, 20-foot-wide boat shaped like a swan takes its place. The boat is self-propelled and moves across water at a speed of 6 miles per hour. You can take a Magic action while on the boat to command it to move or to turn up to 90 degrees. The boat remains for 24 hours and then disappears. You can dismiss the boat as a Magic action.
-      
+
       **Tree (Uncommon)**. You must be outdoors to use this token. You can take a Magic action to touch it to an unoccupied space on the ground. The token disappears, and in its place a nonmagical oak tree springs into existence. The tree is 60 feet tall and has a 5-foot-diameter trunk, and its branches at the top spread out in a 20-foot radius.
-      
+
       **Whip (Rare)**. You can take a Magic action to throw the token to a point within 10 feet of yourself. The token disappears, and a floating whip takes its place. You can then take a Bonus Action to make a melee spell attack against a creature within 10 feet of the whip, with an attack bonus of +9. On a hit, the target takes 1d6 + 5 Force damage.
-      
+
       As a Bonus Action, you can direct the whip to fly up to 20 feet and repeat the attack against a creature within 10 feet of the whip. The whip disappears after 1 hour, when you take a Magic action to dismiss it, or when you die or have the Incapacitated condition.
-      
+
       | 1d100 | Token | Rarity |
       | --- | --- | --- |
       | 01–20 | Anchor | Uncommon |
@@ -37,21 +37,21 @@ translations:
     subtype: null
     description: |-
       Cet objet ressemble à une plume. Il existe différents types de plume, chacun ayant un effet unique différent. Le MD choisit le type de plume ou le détermine aléatoirement en effectuant un jet sur la table ci-dessous. Le type de plume détermine sa rareté.
-      
+
       **Ancre (peu courant)**. Vous pouvez effectuer une action Magie pour mettre le jeton en contact avec un bateau ou un navire. Pendant les 24 heures suivantes, le navire ne peut être déplacé d'aucune façon. Toucher à nouveau le navire avec le jeton met fin à l'effet. À la fin de l'effet, le jeton disparaît.
-      
+
       **Oiseau (Rare)**. Vous pouvez prendre une action Magie pour lancer la plume à 1,50 mètre dans les airs. La plume disparaît et un énorme oiseau multicolore prend sa place. L'oiseau a le profil d'un **[rukh](https://www.aidedd.org/monster/fr/rukh)** , mais il ne peut pas attaquer. Il obéit à vos ordres simples et peut transporter jusqu'à 250 kg en vol à sa vitesse maximale (24 km/h pour un maximum de 216 km par jour, avec une heure de repos toutes les 3 heures de vol) ou 500 kg à la moitié de cette vitesse. L'oiseau disparaît après avoir parcouru sa distance maximale pendant une journée ou s'il tombe à 0 point de vie. Vous pouvez le renvoyer par une action Magie.
-      
+
       **Éventail (peu courant)**. Si vous êtes sur un bateau ou un navire, vous pouvez prendre une action Magie pour lancer la plume jusqu'à 3 mètres dans les airs. La plume disparaît et un éventail géant prend sa place. L'éventail flotte et crée un vent puissant. Ce vent peut gonfler les voiles d'un navire, augmentant sa vitesse de 7,5 km/h pendant 8 heures. Vous pouvez renvoyer l'éventail par une action Magie.
-      
+
       **Bateau-cygne (rare)**. Vous pouvez prendre une action Magie pour toucher une étendue d'eau d'au moins 18 mètres de diamètre avec la plume. La plume disparaît et un bateau de 15 mètres de long et 6 mètres de large en forme de cygne prend sa place. Le bateau est autopropulsé et se déplace sur l'eau à une vitesse de 9 km/h. Vous pouvez prendre une action Magie à bord du bateau pour lui ordonner de se déplacer ou de pivoter jusqu'à 90 degrés. Le bateau persiste pendant 24 heures, puis disparaît. Vous pouvez le renvoyer par une action Magie.
-      
+
       **Arbre (peu courant)**. Vous devez être à l'extérieur pour utiliser cette plume. Vous pouvez prendre une action Magie pour toucher une case libre au sol. La plume disparaît et, à sa place, un chêne non magique apparaît. L'arbre mesure 18 mètres de haut et possède un tronc de 1,50 mètre de diamètre, dont les branches s'étendent sur un rayon de 6 mètres.
-      
+
       **Fouet (rare)**. Vous pouvez prendre une action Magie pour lancer la plume jusqu'à 3 mètres. La plume disparaît et un fouet flottant prend sa place. Vous pouvez ensuite prendre une action Bonus pour effectuer une attaque de sorts au corps à corps contre une créature dans un rayon de 3 mètres du fouet, avec un bonus d'attaque de +9. En cas de réussite, la cible subit 1d6 + 5 dégâts de force.
-      
+
       Par une action Bonus, vous pouvez ordonner au fouet de voler jusqu'à 6 mètres et de répéter l'attaque contre une créature dans un rayon de 3 mètres du fouet. Le fouet disparaît au bout d'une heure, lorsque vous prenez une action Magie pour le renvoyer, ou lorsque vous mourez ou possédez l'état Incapable d'agir.
-      
+
       | 1d100 | Plume | Rareté |
       | --- | --- | --- |
       | 01–20 | Ancre | Peu courant |

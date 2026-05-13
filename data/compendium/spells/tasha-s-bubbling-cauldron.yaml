@@ -20,11 +20,10 @@ translations:
     materialDescription: a gilded ladle worth 500+ GP
     description: |-
       You conjure a claw-footed cauldron filled with bubbling liquid. The cauldron appears in an unoccupied space on the ground within 5 feet of you and lasts for the duration. The cauldron can't be moved, and disappears when the spell ends, along with the bubbling liquid inside of it.
-      
+
       The liquid in the cauldron duplicates the properties of a Common or an Uncommon potion of your choice (such as *[potion of healing](https://www.aidedd.org/magic-item/potions-of-healing)*). As a Bonus Action, you or an ally can reach into the cauldron and withdraw one potion of that kind. The potion is contained in a vial that disappears when the potion is consumed. The cauldron can produce a number of these potions equal to your spellcasting ability modifier (minimum 1). When the last of these potions is withdrawn from the cauldron, the cauldron disappears, and the spell ends.
-      
+
       Potions obtained from the cauldron that aren't consumed disappear when you cast the spell again.
-      
   fr:
     name: Chaudron bouillonnant de Tasha
     castingTime: Action
@@ -33,7 +32,7 @@ translations:
     materialDescription: une louche dorée d'une valeur minimale de 500 po
     description: |-
       Vous invoquez un chaudron à pieds griffus rempli d'un liquide bouillonnant. Le chaudron apparaît dans un espace libre au sol, dans un rayon de 1,50 mètre autour de vous, et persiste pendant toute la durée du sort. Il est inamovible et disparaît à la fin du sort, emportant avec lui le liquide bouillonnant.
-      
+
       Le liquide du chaudron reproduit les propriétés d'une potion courante ou peu courante de votre choix (comme une *[potion de guérison](https://www.aidedd.org/magic-item/fr/potions-de-guerison)*). Par une action Bonus, vous ou un allié pouvez puiser une potion de ce type dans le chaudron. La potion est contenue dans une fiole qui disparaît une fois consommée. Le chaudron peut produire un nombre de ces potions égal à votre modificateur de caractéristique d'incantation (minimum 1). Lorsque la dernière potion est consommée, le chaudron disparaît et le sort prend fin.
-      
+
       Les potions non consommées obtenues du chaudron disparaissent lorsque vous relancez le sort.

@@ -8,24 +8,15 @@ armorClass: 19
 maxHitPoints: 60
 hitDice: 8d8+24
 abilities:
-  str:
-    value: 16
-    savingThrowProficiency: none
-  dex:
-    value: 20
-    savingThrowProficiency: none
-  con:
-    value: 17
-    savingThrowProficiency: proficient
-  int:
-    value: 18
-    savingThrowProficiency: none
-  wis:
-    value: 20
-    savingThrowProficiency: proficient
-  cha:
-    value: 18
-    savingThrowProficiency: none
+  str: 16
+  dex: 20
+  con: 17
+  int: 18
+  wis: 20
+  cha: 18
+savingThrows:
+  con: proficient
+  wis: proficient
 speeds:
   walk: 30
   fly: 90
@@ -102,7 +93,7 @@ translations:
       ***Spellcasting***. The couatl casts one of the following spells, requiring no spell components and using Wisdom as the spellcasting ability (spell save DC 15):
 
       At Will: *[Detect Evil and Good](https://www.aidedd.org/spell/detect-evil-and-good), [Detect Magic](https://www.aidedd.org/spell/detect-magic), [Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts), [Shapechange](https://www.aidedd.org/spell/shapechange)* (Beast or Humanoid form only, no Temporary Hit Points gained from the spell, and no Concentration or Temporary Hit Points required to maintain the spell)
-      
+
       1/Day Each: *[Create Food and Water](https://www.aidedd.org/spell/create-food-and-water), [Dream](https://www.aidedd.org/spell/dream), [Greater Restoration](https://www.aidedd.org/spell/greater-restoration), [Scrying](https://www.aidedd.org/spell/scrying), [Sleep](https://www.aidedd.org/spell/sleep)*
 
       ## Bonus actions
@@ -128,7 +119,7 @@ translations:
       ***Incantation***. Le couatl lance l'un des sorts suivants sans la moindre composante, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 15) :
 
       À volonté : *[changement de forme](https://www.aidedd.org/spell/fr/changement-de-forme)* (Bête ou Humanoïde uniquement, le sort ne fait pas gagner de points de vie temporaires, ni Concentration ni points de vie temporaires nécessaires pour maintenir le sort), *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), [détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees), [détection du mal et du bien](https://www.aidedd.org/spell/fr/detection-du-mal-et-du-bien)*
-      
+
       1/jour chacun : *création de nourriture et d'eau,[restauration suprême](https://www.aidedd.org/spell/fr/restauration-supreme), [scrutation](https://www.aidedd.org/spell/fr/scrutation), sommeil, songe*
 
       ## Actions Bonus

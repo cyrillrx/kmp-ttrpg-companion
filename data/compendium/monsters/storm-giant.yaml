@@ -8,24 +8,17 @@ armorClass: 16
 maxHitPoints: 230
 hitDice: 20d12+100
 abilities:
-  str:
-    value: 29
-    savingThrowProficiency: proficient
-  dex:
-    value: 14
-    savingThrowProficiency: none
-  con:
-    value: 20
-    savingThrowProficiency: proficient
-  int:
-    value: 16
-    savingThrowProficiency: none
-  wis:
-    value: 20
-    savingThrowProficiency: proficient
-  cha:
-    value: 18
-    savingThrowProficiency: proficient
+  str: 29
+  dex: 14
+  con: 20
+  int: 16
+  wis: 20
+  cha: 18
+savingThrows:
+  str: proficient
+  con: proficient
+  wis: proficient
+  cha: proficient
 speeds:
   walk: 50
   fly: 25
@@ -106,7 +99,7 @@ translations:
       ***Spellcasting***. The giant casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 18):
 
       At Will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), Light*
-      
+
       1/Day: *[Control Weather](https://www.aidedd.org/spell/control-weather)*
     senses: Darkvision 120 ft., Truesight 30 ft., Passive Perception 20
     languages:
@@ -131,7 +124,7 @@ translations:
       ***Incantation***. Le géant lance l'un des sorts suivants, sans composantes matérielles, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 18) :
 
       À volonté : *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), lumière*
-      
+
       1/jour : *contrôle du climat*
 
       ***Tempête foudroyante (recharge 5–6)***. *JdS Dextérité* : DD 18, chaque créature dans un Cylindre de 3 m de rayon et 12 m de haut émanant d'un point que le géant voit dans un rayon de 150 m. *Échec* : 55 (10d10) dégâts de foudre. *Réussite* : demi-dégâts.

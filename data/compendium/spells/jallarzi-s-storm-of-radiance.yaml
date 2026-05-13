@@ -20,11 +20,10 @@ translations:
     materialDescription: a pinch of phosphorus
     description: |-
       You unleash a storm of flashing light and raging thunder in a 10-foot-radius, 40-foot-high Cylinder centered on a point you can see within range. While in this area, creatures have the Blinded and Deafened conditions, and they can't cast spells with a Verbal component.
-      
+
       When the storm appears, each creature in it makes a Constitution saving throw, taking 2d10 Radiant damage and 2d10 Thunder damage on a failed save or half as much damage on a successful one. A creature also makes this save when it enters the spell's area for the first time on a turn or ends its turn there. A creature makes this save only once per turn.
-      
+
       ***Using a Higher-Level Spell Slot***. The Radiant and Thunder damage increase by 1d10 for each spell slot level above 5.
-      
   fr:
     name: Tempête radieuse de Jallarzi
     castingTime: Action
@@ -33,7 +32,7 @@ translations:
     materialDescription: une pincée de phosphore
     description: |-
       Vous déchaînez une tempête d'éclats lumineux et de tonnerre dans un Cylindre de 3 mètres de rayon et 12 mètres de haut, centré sur un point que vous pouvez voir à portée. Dans cette zone, les créatures subissent les états Aveuglé et Assourdi, et ne peuvent pas lancer de sorts à composante verbale.
-      
+
       Lorsqu'elle apparaît, chaque créature dans la tempête effectue un jet de sauvegarde de Constitution, subissant 2d10 dégâts radiants et 2d10 dégâts de tonnerre en cas d'échec, ou seulement la moitié de ces dégâts en cas de réussite. Une créature effectue également ce jet de sauvegarde lorsqu'elle entre dans la zone du sort pour la première fois au cours d'un tour ou si elle y termine son tour. Une créature n'effectue ce jet qu'une seule fois par tour.
-      
+
       ***Emplacement de niveau supérieur***. Les dégâts radiants et de tonnerre augmentent de 1d10 pour chaque niveau d'emplacement de sort supérieur à 5.

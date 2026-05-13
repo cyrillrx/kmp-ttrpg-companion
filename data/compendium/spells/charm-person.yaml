@@ -23,9 +23,8 @@ translations:
     materialDescription: null
     description: |-
       One Humanoid you can see within range makes a Wisdom saving throw. It does so with Advantage if you or your allies are fighting it. On a failed save, the target has the Charmed condition until the spell ends or until you or your allies damage it. The Charmed creature is Friendly to you. When the spell ends, the target knows it was Charmed by you.
-      
+
       ***Using a Higher-Level Spell Slot***. You can target one additional creature for each spell slot level above 1.
-      
   fr:
     name: Charme-personne
     castingTime: Action
@@ -34,5 +33,5 @@ translations:
     materialDescription: null
     description: |-
       Un humanoïde que vous pouvez voir à portée effectue un jet de sauvegarde de Sagesse. Il le fait avec un Avantage si vous ou vos alliés le combattez. En cas d'échec, la cible subit l'état Charmé jusqu'à la fin du sort ou jusqu'à ce que vous ou vos alliés lui infligiez des dégâts. La créature charmée est amicale envers vous. À la fin du sort, la cible sait que vous l'avez charmée.
-      
+
       ***Emplacement de niveau supérieur***. Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 1.

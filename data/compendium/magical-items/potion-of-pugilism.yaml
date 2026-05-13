@@ -9,12 +9,12 @@ translations:
     subtype: null
     description: |-
       After you drink this potion, each Unarmed Strike you make deals an extra 1d6 Force damage on a hit. This effect lasts 10 minutes.
-      
+
       This potion is a thick green fluid that tastes like spinach.
   fr:
     name: Potion des pugilistes
     subtype: null
     description: |-
       Après avoir bu cette potion, chaque Frappe à mains nues inflige 1d6 points de dégâts de force supplémentaires quand elle touche. Cet effet dure 10 minutes.
-      
+
       Cette potion est un liquide vert épais au goût d'épinards.

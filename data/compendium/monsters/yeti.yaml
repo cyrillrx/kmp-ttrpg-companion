@@ -8,24 +8,12 @@ armorClass: 12
 maxHitPoints: 51
 hitDice: 6d10+18
 abilities:
-  str:
-    value: 18
-    savingThrowProficiency: none
-  dex:
-    value: 13
-    savingThrowProficiency: none
-  con:
-    value: 16
-    savingThrowProficiency: none
-  int:
-    value: 8
-    savingThrowProficiency: none
-  wis:
-    value: 12
-    savingThrowProficiency: none
-  cha:
-    value: 7
-    savingThrowProficiency: none
+  str: 18
+  dex: 13
+  con: 16
+  int: 8
+  wis: 12
+  cha: 7
 speeds:
   walk: 40
   fly: null

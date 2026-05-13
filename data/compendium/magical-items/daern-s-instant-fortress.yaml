@@ -9,16 +9,16 @@ translations:
     subtype: null
     description: |-
       As a Magic action, you can place this 1-inch adamantine statuette on the ground and, using a command word, cause it to grow rapidly into a square adamantine tower. Repeating the command word causes the tower to revert to statuette form, which works only if the tower is empty. Each creature in the area where the tower appears is pushed to an unoccupied space outside but next to the tower. Objects in the area that aren't being worn or carried are also pushed clear of the tower.
-      
+
       The tower is 20 feet on a side and 30 feet high, with arrow slits on all sides and a battlement atop it. Its interior is divided into two floors, with a ladder, staircase, or ramp (your choice) connecting them. This ladder, staircase, or ramp ends at a trapdoor leading to the roof. When created, the tower has a single door at ground level on the side facing you. The door opens only at your command, which you can issue as a Bonus Action. It is immune to the *[Knock](https://www.aidedd.org/spell/knock)* spell and similar magic.
-      
+
       Magic prevents the tower from being tipped over. The roof, the door, and the walls each have AC 20; HP 100; Immunity to Bludgeoning, Piercing, and Slashing damage except that which is dealt by siege equipment; and Resistance to all other damage. Shrinking the tower back down to statuette form doesn't repair damage to the tower. Only a *Wish* spell can repair the tower (this use of the spell counts as replicating a spell of level 8 or lower). Each casting of *Wish* causes the tower to regain all its Hit Points.
   fr:
     name: Forteresse instantanée de Daern
     subtype: null
     description: |-
       Par une action Magie, vous pouvez placer cette statuette d'adamantium de 2,50 cm au sol et, à l'aide d'un mot de commande, la faire grandir rapidement pour former une tour carrée d'adamantium. Répéter ce mot de commande fait revenir la tour à sa forme de statuette, ce qui ne fonctionne que si elle est vide. Chaque créature présente dans la zone où apparaît la tour est poussée vers un emplacement libre proche à l'extérieur de la tour. Les objets présents dans la zone qui ne sont pas portés sont également poussés hors de la tour.
-      
+
       La tour mesure 6 mètres de côté et 9 mètres de haut, avec des meurtrières de chaque côté et un rempart au sommet. Son intérieur est divisé en deux étages, reliés par une échelle, un escalier ou une rampe (au choix). Cet escalier, cette échelle ou cette rampe se termine par une trappe menant au toit. Une fois créée, la tour possède une seule porte au niveau du sol, du côté qui vous fait face. Cette porte ne s'ouvre que sur votre ordre, que vous pouvez donner par une action Bonus. Elle est immunisée contre le sort *[déblocage](https://www.aidedd.org/spell/fr/deblocage)* et autres sorts similaires.
-      
+
       La magie empêche la tour de basculer. Le toit, la porte et les murs ont chacun une CA de 20, 100 pv, une Immunité aux dégâts contondants, perforants et tranchants, sauf ceux infligés par l'équipement de siège, et une Résistance à tous les autres dégâts. Réduire la tour à sa forme de statuette ne répare pas les dégâts subis. Seul un sort de *souhait* peut réparer la tour (cette utilisation compte comme la réplication d'un sort de niveau 8 ou inférieur). Chaque incantation de *souhait* permet à la tour de regagner tous ses points de vie.

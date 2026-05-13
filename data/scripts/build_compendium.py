@@ -14,6 +14,8 @@ Output:
     data/compendium/spells.json
     data/compendium/monsters.json
     data/compendium/magical-items.json
+    data/compendium/pc-presets.json
+    data/compendium/npc-presets.json
     (app resource files are symlinks to the above — no copy needed)
 
 CI mode (--check):
@@ -32,6 +34,23 @@ try:
     import yaml
 except ImportError:
     sys.exit("Missing dependency: pip install pyyaml")
+
+
+class _Literal(str):
+    """String subclass that forces YAML block-scalar (|-) output."""
+
+
+def _literal_representer(dumper: yaml.Dumper, data: _Literal) -> yaml.ScalarNode:
+    return dumper.represent_scalar("tag:yaml.org,2002:str", data, style="|")
+
+
+yaml.add_representer(_Literal, _literal_representer)
+
+
+def _mark_descriptions(entity: dict) -> None:
+    for locale_data in entity.get("translations", {}).values():
+        if isinstance(locale_data, dict) and isinstance(locale_data.get("description"), str):
+            locale_data["description"] = _Literal(locale_data["description"])
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 DATA_DIR = os.path.join(REPO_ROOT, "data", "compendium")
@@ -66,18 +85,32 @@ def check_json(path: str, data: list[dict]) -> bool:
     return True
 
 
-def build_type(type_name: str, check: bool) -> tuple[int, bool]:
-    src_dir = os.path.join(DATA_DIR, type_name)
-    out_path = os.path.join(DATA_DIR, f"{type_name}.json")
-    app_path = os.path.join(APP_RESOURCES_DIR, f"{type_name}.json")
+def fmt_collection(name: str) -> int:
+    src_dir = os.path.join(DATA_DIR, name)
+    yaml_files = sorted(glob.glob(os.path.join(src_dir, "*.yaml")))
+    for path in yaml_files:
+        with open(path, encoding="utf-8") as f:
+            entity = yaml.safe_load(f)
+        if entity is not None:
+            with open(path, "w", encoding="utf-8") as f:
+                _mark_descriptions(entity)
+                yaml.dump(entity, f, allow_unicode=True, sort_keys=False, default_flow_style=False)
+    print(f"  {name}: {len(yaml_files)} files formatted")
+    return len(yaml_files)
+
+
+def build_collection(name: str, check: bool) -> tuple[int, bool]:
+    src_dir = os.path.join(DATA_DIR, name)
+    out_path = os.path.join(DATA_DIR, f"{name}.json")
+    app_path = os.path.join(APP_RESOURCES_DIR, f"{name}.json")
 
     yaml_files = sorted(glob.glob(os.path.join(src_dir, "*.yaml")))
     if not yaml_files:
         print(f"  WARNING: no YAML files found in {src_dir}", file=sys.stderr)
         if check:
-            print(f"  SKIPPED: {type_name} (no YAML source files — migration pending)")
+            print(f"  SKIPPED: {name} (no YAML source files — migration pending)")
         else:
-            print(f"  SKIPPED: {type_name} (no YAML source files — keeping existing JSON)")
+            print(f"  SKIPPED: {name} (no YAML source files — keeping existing JSON)")
         return 0, True
 
     entities = []
@@ -85,6 +118,7 @@ def build_type(type_name: str, check: bool) -> tuple[int, bool]:
         with open(path, encoding="utf-8") as f:
             entity = yaml.safe_load(f)
         if entity is not None:
+            _mark_descriptions(entity)
             entities.append(entity)
         else:
             print(f"  WARNING: skipping empty file {path}", file=sys.stderr)
@@ -97,26 +131,40 @@ def build_type(type_name: str, check: bool) -> tuple[int, bool]:
     # The app resource files are symlinks to data/compendium/ — no copy needed.
     if os.path.exists(app_path) and not os.path.samefile(out_path, app_path):
         shutil.copy2(out_path, app_path)
-    print(f"  {type_name}: {len(entities)} entities → {out_path}")
+    print(f"  {name}: {len(entities)} entities → {out_path}")
     return len(entities), True
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Build compendium JSON from YAML source.")
-    parser.add_argument(
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument(
         "--check",
         action="store_true",
         help="Verify committed JSON files are up to date (CI mode). Exit 1 if not.",
     )
+    group.add_argument(
+        "--fmt",
+        action="store_true",
+        help="Reformat all YAML source files in place (normalises block scalar style).",
+    )
     args = parser.parse_args()
+
+    collections = ("spells", "monsters", "magical-items", "pc-presets", "npc-presets")
+
+    if args.fmt:
+        print("Formatting YAML sources...")
+        total = sum(fmt_collection(name) for name in collections)
+        print(f"\nDone. {total} files formatted.")
+        return
 
     mode = "Checking" if args.check else "Building"
     print(f"{mode} compendium...")
 
     total = 0
     all_ok = True
-    for type_name in ("spells", "monsters", "magical-items"):
-        count, ok = build_type(type_name, check=args.check)
+    for name in collections:
+        count, ok = build_collection(name, check=args.check)
         total += count
         all_ok = all_ok and ok
 

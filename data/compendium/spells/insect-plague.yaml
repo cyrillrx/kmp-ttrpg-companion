@@ -21,11 +21,10 @@ translations:
     materialDescription: a locust
     description: |-
       Swarming locusts fill a 20-foot-radius Sphere centered on a point you choose within range. The Sphere remains for the duration, and its area is Lightly Obscured and Difficult Terrain.
-      
+
       When the swarm appears, each creature in it makes a Constitution saving throw, taking 4d10 Piercing damage on a failed save or half as much damage on a successful one. A creature also makes this save when it enters the spell's area for the first time on a turn or ends its turn there. A creature makes this save only once per turn.
-      
+
       ***Using a Higher-Level Spell Slot***. The damage increases by 1d10 for each spell slot level above 5.
-      
   fr:
     name: Fléau d'insectes
     castingTime: Action
@@ -34,7 +33,7 @@ translations:
     materialDescription: un criquet
     description: |-
       Des essaims de sauterelles remplissent une Sphère de 6 mètres de rayon centrée sur un point que vous choisissez à portée. La Sphère reste en place pendant toute la durée du sort, sa zone a une visibilité réduite et elle est considérée comme un Terrain difficile.
-      
+
       Lorsque l'essaim apparaît, toute créature qu'il contient effectue un jet de sauvegarde de Constitution, subissant 4d10 dégâts perforants en cas d'échec, ou la moitié de ces dégâts en cas de réussite. Une créature effectue également ce jet de sauvegarde lorsqu'elle entre dans la zone d'effet du sort pour la première fois au cours d'un tour ou y termine son tour. Une créature n'effectue ce jet qu'une seule fois par tour.
-      
+
       ***Emplacement de niveau supérieur***. Les dégâts augmentent de 1d10 pour chaque niveau d'emplacement de sort supérieur à 5.

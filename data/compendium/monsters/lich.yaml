@@ -8,24 +8,17 @@ armorClass: 20
 maxHitPoints: 315
 hitDice: 42d8+126
 abilities:
-  str:
-    value: 11
-    savingThrowProficiency: none
-  dex:
-    value: 16
-    savingThrowProficiency: proficient
-  con:
-    value: 16
-    savingThrowProficiency: proficient
-  int:
-    value: 21
-    savingThrowProficiency: proficient
-  wis:
-    value: 14
-    savingThrowProficiency: proficient
-  cha:
-    value: 16
-    savingThrowProficiency: none
+  str: 11
+  dex: 16
+  con: 16
+  int: 21
+  wis: 14
+  cha: 16
+savingThrows:
+  dex: proficient
+  con: proficient
+  int: proficient
+  wis: proficient
 speeds:
   walk: 30
   fly: null
@@ -106,9 +99,9 @@ translations:
       ***Spellcasting***. The lich casts one of the following spells, using Intelligence as the spellcasting ability (spell save DC 20):
 
       At will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts), [Dispel Magic](https://www.aidedd.org/spell/dispel-magic), [Fireball](https://www.aidedd.org/spell/fireball)* (level 5 version), *[Invisibility](https://www.aidedd.org/spell/invisibility), [Lightning Bolt](https://www.aidedd.org/spell/lightning-bolt)* (level 5 version), *[Mage Hand](https://www.aidedd.org/spell/mage-hand), [Prestidigitation](https://www.aidedd.org/spell/prestidigitation)*
-      
+
       2/day each: *[Animate Dead](https://www.aidedd.org/spell/animate-dead), [Dimension Door](https://www.aidedd.org/spell/dimension-door), [Plane Shift](https://www.aidedd.org/spell/plane-shift)*
-      
+
       1/day each: *[Chain Lightning](https://www.aidedd.org/spell/chain-lightning), [Finger of Death](https://www.aidedd.org/spell/finger-of-death), [Power Word Kill](https://www.aidedd.org/spell/power-word-kill), [Scrying](https://www.aidedd.org/spell/scrying)*
 
       ## Reactions
@@ -148,9 +141,9 @@ translations:
       ***Incantation***. La liche lance l'un des sorts suivants, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 20) :
 
       À volonté : *[boule de feu](https://www.aidedd.org/spell/fr/boule-de-feu)* (au niveau 5), *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), [détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees), [dissipation de la magie](https://www.aidedd.org/spell/fr/dissipation-de-la-magie), [éclair](https://www.aidedd.org/spell/fr/eclair)* (au niveau 5), *[invisibilité](https://www.aidedd.org/spell/fr/invisibilite), [main de mage](https://www.aidedd.org/spell/fr/main-de-mage), [prestidigitation](https://www.aidedd.org/spell/fr/prestidigitation)*
-      
+
       2/jour chacun : *animation des morts,[changement de plan](https://www.aidedd.org/spell/fr/changement-de-plan), [porte dimensionnelle](https://www.aidedd.org/spell/fr/porte-dimensionnelle)*
-      
+
       1/jour chacun : *chaîne d'éclairs, doigt de mort, mot de pouvoir mortel,[scrutation](https://www.aidedd.org/spell/fr/scrutation)*
 
       ## Réactions

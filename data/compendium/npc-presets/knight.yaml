@@ -1,0 +1,37 @@
+id: knight
+name: Ser Corvin Ashvale
+race: HUMAN
+clazz: PALADIN
+level: 5
+size: MEDIUM
+alignment: LAWFUL_GOOD
+abilities:
+  str: 16
+  dex: 10
+  con: 14
+  int: 10
+  wis: 12
+  cha: 16
+savingThrows:
+  wis: proficient
+  cha: proficient
+armorClass: 18
+maxHitPoints: 44
+speeds:
+  walk: 30
+skills:
+  athletics: proficient
+  persuasion: proficient
+  religion: proficient
+languages:
+- common
+- celestial
+translations:
+  en:
+    shortDescription: Order Knight
+    description: |-
+      A devout knight sworn to a holy order, bearing sacred vows and the weight of divine purpose.
+  fr:
+    shortDescription: Chevalier de l'ordre
+    description: |-
+      Un chevalier pieux lié à un ordre sacré, portant des vœux sacrés et le poids d'un dessein divin.

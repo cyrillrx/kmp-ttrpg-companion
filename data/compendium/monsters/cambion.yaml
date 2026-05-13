@@ -8,24 +8,17 @@ armorClass: 19
 maxHitPoints: 105
 hitDice: 14d8+42
 abilities:
-  str:
-    value: 18
-    savingThrowProficiency: proficient
-  dex:
-    value: 18
-    savingThrowProficiency: none
-  con:
-    value: 16
-    savingThrowProficiency: proficient
-  int:
-    value: 14
-    savingThrowProficiency: proficient
-  wis:
-    value: 12
-    savingThrowProficiency: none
-  cha:
-    value: 16
-    savingThrowProficiency: proficient
+  str: 18
+  dex: 18
+  con: 16
+  int: 14
+  wis: 12
+  cha: 16
+savingThrows:
+  str: proficient
+  con: proficient
+  int: proficient
+  cha: proficient
 speeds:
   walk: 30
   fly: 60
@@ -100,7 +93,7 @@ translations:
       ***Spellcasting***. The cambion casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 14):
 
       2/day each: *[Alter Self](https://www.aidedd.org/spell/alter-self), [Command](https://www.aidedd.org/spell/command)* (level 3 version), *[Detect Magic](https://www.aidedd.org/spell/detect-magic)*
-      
+
       1/day each: *[Dominate Person](https://www.aidedd.org/spell/dominate-person)* (level 8 version), *[Plane Shift](https://www.aidedd.org/spell/plane-shift)* (self only)
     senses: Darkvision 120 ft., Passive Perception 14
     languages:
@@ -122,7 +115,7 @@ translations:
       ***Incantation***. Le cambion lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 14) :
 
       2/jour chacun : *[modification d'apparence](https://www.aidedd.org/spell/fr/modification-d-apparence), [injonction](https://www.aidedd.org/spell/fr/injonction)* (au niveau 3), *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie)*
-      
+
       1/jour chacun : *[domination de personne](https://www.aidedd.org/spell/fr/domination-de-personne)* (au niveau 8), *[changement de plan](https://www.aidedd.org/spell/fr/changement-de-plan)* (soi-même uniquement)
     senses: Vision dans le noir 36 m, Perception passive 14
     languages:

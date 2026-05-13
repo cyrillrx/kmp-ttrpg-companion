@@ -8,24 +8,15 @@ armorClass: 22
 maxHitPoints: 346
 hitDice: 21d12+210
 abilities:
-  str:
-    value: 30
-    savingThrowProficiency: proficient
-  dex:
-    value: 21
-    savingThrowProficiency: none
-  con:
-    value: 30
-    savingThrowProficiency: none
-  int:
-    value: 21
-    savingThrowProficiency: none
-  wis:
-    value: 22
-    savingThrowProficiency: proficient
-  cha:
-    value: 27
-    savingThrowProficiency: none
+  str: 30
+  dex: 21
+  con: 30
+  int: 21
+  wis: 22
+  cha: 27
+savingThrows:
+  str: proficient
+  wis: proficient
 speeds:
   walk: 50
   fly: 50
@@ -106,7 +97,7 @@ translations:
       ***Spellcasting***. The empyrean casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 23):
 
       At Will: *[Calm Emotions](https://www.aidedd.org/spell/calm-emotions), [Greater Restoration](https://www.aidedd.org/spell/greater-restoration), [Pass without Trace](https://www.aidedd.org/spell/pass-without-trace), [Water Breathing](https://www.aidedd.org/spell/water-breathing)*
-      
+
       1/Day Each: *[Commune](https://www.aidedd.org/spell/commune), [Dispel Evil and Good](https://www.aidedd.org/spell/dispel-evil-and-good), [Plane Shift](https://www.aidedd.org/spell/plane-shift)*
 
       ## Legendary actions
@@ -128,17 +119,17 @@ translations:
       ## Traits
 
       Résistance légendaire (4/jour).
-      
+
       Résistance à la magie.
 
       ## Actions
 
       Attaques multiples.
-      
+
       Arme sacrée.
-      
+
       Rayon divin.
-      
+
       Incantation.
 
       ## Actions Légendaires
@@ -146,9 +137,9 @@ translations:
       Utilisations d'action Légendaire : 3.
 
       Galvanisation.
-      
+
       Raz-de-gloire.
-      
+
       Châtiment.
     senses: vision véritable 36 m, Perception passive 23
     languages:

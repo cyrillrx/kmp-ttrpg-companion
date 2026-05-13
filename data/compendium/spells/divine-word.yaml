@@ -26,9 +26,6 @@ translations:
       | 21–30 | The target has the Blinded, Deafened, and Stunned conditions for 1 hour. |
       | 31–40 | The target has the Blinded and Deafened conditions for 10 minutes. |
       | 41–50 | The target has the Deafened condition for 1 minute. |
-
-
-      
   fr:
     name: Parole divine
     castingTime: Action bonus
@@ -44,5 +41,3 @@ translations:
       | 21–30 | La cible subit les états Assourdi, Aveuglé et Étourdi pendant 1 heure. |
       | 31–40 | La cible subit les états Assourdi et Aveuglé pendant 10 minutes. |
       | 41–50 | La cible subit l'état Assourdi pendant 1 minute. |
-
-

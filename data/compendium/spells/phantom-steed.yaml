@@ -19,9 +19,8 @@ translations:
     materialDescription: null
     description: |-
       A Large, quasi-real, horselike creature appears on the ground in an unoccupied space of your choice within range. You decide the creature's appearance, and it is equipped with a saddle, bit, and bridle. Any of the equipment created by the spell vanishes in a puff of smoke if it is carried more than 10 feet away from the steed.
-      
+
       For the duration, you or a creature you choose can ride the steed. The steed uses the **[Riding Horse](https://www.aidedd.org/monster/riding-horse)** stat block, except it has a Speed of 100 feet and can travel 13 miles in an hour. When the spell ends, the steed gradually fades, giving the rider 1 minute to dismount. The spell ends early if the steed takes any damage.
-      
   fr:
     name: Monture fantôme
     castingTime: 1 minute ou Rituel
@@ -30,5 +29,5 @@ translations:
     materialDescription: null
     description: |-
       Une créature de taille G, quasi réelle et semblable à un cheval, apparaît au sol dans un espace libre de votre choix à portée. Vous choisissez son apparence et elle est équipée d'une selle, d'un mors et d'une bride. Tout équipement créé par le sort disparaît dans un nuage de fumée s'il est porté à plus de 3 mètres de la monture.
-      
+
       Pendant la durée du sort, vous ou une créature de votre choix pouvez monter la monture. Celle-ci utilise le profil du **[cheval de selle](https://www.aidedd.org/monster/fr/cheval-de-selle)**, mais sa Vitesse est de 30 mètres et elle peut parcourir 20 kilomètres en une heure. À la fin du sort, la monture disparaît progressivement, laissant 1 minute au cavalier pour en descendre. Le sort prend fin prématurément si la monture subit des dégâts.

@@ -8,24 +8,17 @@ armorClass: 14
 maxHitPoints: 97
 hitDice: 15d8+30
 abilities:
-  str:
-    value: 10
-    savingThrowProficiency: none
-  dex:
-    value: 18
-    savingThrowProficiency: proficient
-  con:
-    value: 14
-    savingThrowProficiency: proficient
-  int:
-    value: 13
-    savingThrowProficiency: none
-  wis:
-    value: 19
-    savingThrowProficiency: proficient
-  cha:
-    value: 15
-    savingThrowProficiency: proficient
+  str: 10
+  dex: 18
+  con: 14
+  int: 13
+  wis: 19
+  cha: 15
+savingThrows:
+  dex: proficient
+  con: proficient
+  wis: proficient
+  cha: proficient
 speeds:
   walk: 10
   fly: null
@@ -102,7 +95,7 @@ translations:
       ***Spellcasting***. The merfolk casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 15):
 
       At will: *[Elementalism](https://www.aidedd.org/spell/elementalism), [Light](https://www.aidedd.org/spell/light)*
-      
+
       1/day each: *[Control Water](https://www.aidedd.org/spell/control-water), [Create or Destroy Water](https://www.aidedd.org/spell/create-or-destroy-water)*
 
       ## Reactions
@@ -129,7 +122,7 @@ translations:
       ***Incantation***. Le thalasséen lance l'un des sorts suivants sans composantes matérielles, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 15) :
 
       À volonté : *[élémentalisme](https://www.aidedd.org/spell/fr/elementalisme), [Lumière](https://www.aidedd.org/spell/fr/lumiere)*
-      
+
       1/jour chacun : *[contrôle de l'eau](https://www.aidedd.org/spell/fr/controle-de-l-eau), [création ou destruction d'eau](https://www.aidedd.org/spell/fr/creation-ou-destruction-d-eau)*
 
       ## Réactions

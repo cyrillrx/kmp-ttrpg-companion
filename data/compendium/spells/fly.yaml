@@ -21,9 +21,8 @@ translations:
     materialDescription: a feather
     description: |-
       You touch a willing creature. For the duration, the target gains a Fly Speed of 60 feet and can hover. When the spell ends, the target falls if it is still aloft unless it can stop the fall.
-      
+
       ***Using a Higher-Level Spell Slot***. You can target one additional creature for each spell slot level above 3.
-      
   fr:
     name: Vol
     castingTime: Action
@@ -32,5 +31,5 @@ translations:
     materialDescription: une plume
     description: |-
       Vous touchez une créature consentante. Pendant la durée du sort, la cible gagne une Vitesse de vol de 18 mètres et réaliser un vol stationnaire. À la fin du sort, la cible tombe si elle est encore en l'air, à moins qu'elle ne puisse arrêter sa chute.
-      
+
       ***Emplacement de niveau supérieur***. Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 3.

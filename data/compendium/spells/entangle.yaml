@@ -20,9 +20,8 @@ translations:
     materialDescription: null
     description: |-
       Grasping plants sprout from the ground in a 20-foot square within range. For the duration, these plants turn the ground in the area into Difficult Terrain. They disappear when the spell ends.
-      
+
       Each creature (other than you) in the area when you cast the spell must succeed on a Strength saving throw or have the Restrained condition until the spell ends. A Restrained creature can take an action to make a Strength (Athletics) check against your spell save DC. On a success, it frees itself from the grasping plants and is no longer Restrained by them.
-      
   fr:
     name: Enchevêtrement
     castingTime: Action
@@ -31,5 +30,5 @@ translations:
     materialDescription: null
     description: |-
       Des plantes agrippantes surgissent du sol dans un carré de 6 mètres de côté à portée. Pendant la durée du sort, ces plantes transforment le sol de la zone en Terrain difficile. Elles disparaissent à la fin du sort.
-      
+
       Toute créature (autre que vous) présente dans la zone au moment du lancement du sort doit réussir un jet de sauvegarde de Force ou subir l'état Entravé jusqu'à la fin du sort. Une créature entravée peut effectuer un jet de Force (Athlétisme) contre le DD de sauvegarde de votre sort. En cas de réussite, elle se libère des plantes agrippantes et n'est plus entravée par elles.

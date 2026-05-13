@@ -15,7 +15,7 @@ data class Character(
     override val armorClass: Int,
     override val maxHitPoints: Int,
     override val speeds: Speeds,
-    override val languages: List<String>,
+    val languages: List<Language>,
     val level: Int,
     val clazz: Class,
     val skills: Skills,
@@ -32,7 +32,6 @@ data class Character(
     armorClass = armorClass,
     maxHitPoints = maxHitPoints,
     speeds = speeds,
-    languages = languages,
 ) {
     fun resolveTranslation(locale: String): Translation? = translations[locale]
         ?: translations[FALLBACK_LOCALE]

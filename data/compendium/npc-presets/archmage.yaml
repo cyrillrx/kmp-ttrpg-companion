@@ -1,0 +1,39 @@
+id: archmage
+name: Elindra Starweave
+race: ELF
+clazz: WIZARD
+level: 10
+size: MEDIUM
+alignment: LAWFUL_NEUTRAL
+abilities:
+  str: 8
+  dex: 14
+  con: 14
+  int: 20
+  wis: 14
+  cha: 12
+savingThrows:
+  int: proficient
+  wis: proficient
+armorClass: 12
+maxHitPoints: 62
+speeds:
+  walk: 30
+skills:
+  arcana: proficient
+  history: proficient
+  investigation: proficient
+languages:
+- common
+- elvish
+- draconic
+- celestial
+translations:
+  en:
+    shortDescription: Guild Archmage
+    description: |-
+      The formidable master of the mages' guild, whose knowledge of the arcane arts spans centuries.
+  fr:
+    shortDescription: Archimage de guilde
+    description: |-
+      La redoutable maîtresse de la guilde des mages, dont la connaissance des arts arcaniques s'étend sur des siècles.

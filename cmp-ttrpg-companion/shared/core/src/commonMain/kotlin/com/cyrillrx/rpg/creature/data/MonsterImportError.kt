@@ -19,5 +19,5 @@ sealed interface MonsterImportError : Error {
     data class MissingMaxHitPoints(val id: String) : MonsterImportError
     data class MissingChallengeRating(val id: String) : MonsterImportError
     data class MissingTranslations(val id: String) : MonsterImportError
-    data class InvalidTranslation(val id: String, val locale: String) : MonsterImportError
+    data class InvalidTranslation(val id: String, val locale: String, val field: String) : MonsterImportError
 }

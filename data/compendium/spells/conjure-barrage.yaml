@@ -19,9 +19,8 @@ translations:
     materialDescription: a Melee or Ranged weapon worth at least 1 CP
     description: |-
       You brandish the weapon used to cast the spell and conjure similar spectral weapons (or ammunition appropriate to the weapon) that launch forward and then disappear. Each creature of your choice that you can see in a 60-foot Cone makes a Dexterity saving throw, taking 5d8 Force damage on a failed save or half as much damage on a successful one.
-      
+
       ***Using a Higher-Level Spell Slot***. The damage increases by 1d8 for each spell slot level above 3.
-      
   fr:
     name: Invocation de projectiles
     castingTime: Action
@@ -31,5 +30,5 @@ translations:
       de 1 pc
     description: |-
       Vous brandissez l'arme utilisée pour lancer le sort et invoquez des armes spectrales similaires (ou des munitions adaptées à l'arme) qui se projettent vers l'avant puis disparaissent. Chaque créature de votre choix que vous pouvez voir dans un Cône de 18 mètres effectue un jet de sauvegarde de Dextérité, subissant 5d8 dégâts de Force en cas d'échec ou la moitié de ces dégâts en cas de réussite.
-      
+
       ***Emplacement de niveau supérieur***. Les dégâts augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 3.

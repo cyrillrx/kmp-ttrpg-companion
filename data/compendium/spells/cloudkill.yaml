@@ -20,13 +20,12 @@ translations:
     materialDescription: null
     description: |-
       You create a 20-foot-radius Sphere of yellow-green fog centered on a point within range. The fog lasts for the duration or until strong wind (such as the one created by *[Gust of Wind](./gust-of-wind)*) disperses it, ending the spell. Its area is Heavily Obscured.
-      
+
       Each creature in the Sphere makes a Constitution saving throw, taking 5d8 Poison damage on a failed save or half as much damage on a successful one. A creature must also make this save when the Sphere moves into its space and when it enters the Sphere or ends its turn there. A creature makes this save only once per turn.
-      
+
       The Sphere moves 10 feet away from you at the start of each of your turns.
-      
+
       ***Using a Higher-Level Spell Slot***. The damage increases by 1d8 for each spell slot level above 5.
-      
   fr:
     name: Brume mortelle
     castingTime: Action
@@ -35,9 +34,9 @@ translations:
     materialDescription: null
     description: |-
       Vous créez une Sphère de brouillard jaune-vert de 6 mètres de rayon centrée sur un point à portée. Le brouillard persiste pendant toute la durée du sort ou jusqu'à ce qu'un vent fort (comme celui créé par *[bourrasque](./fr/bourrasque)*) le disperse, mettant fin au sort. Sa zone a une Visibilité nulle.
-      
+
       Toute créature dans la Sphère effectue un jet de sauvegarde de Constitution, subissant 5d8 dégâts de poison en cas d'échec, ou la moitié de ces dégâts en cas de réussite. Une créature doit également réussir ce jet de sauvegarde lorsque la Sphère entre dans son emplacement et lorsqu'elle y pénètre ou y termine son tour. Une créature n'effectue ce jet qu'une seule fois par tour.
-      
+
       La Sphère s'éloigne de 3 mètres de vous au début de chacun de vos tours.
-      
+
       ***Emplacement de niveau supérieur***. Les dégâts augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 5.

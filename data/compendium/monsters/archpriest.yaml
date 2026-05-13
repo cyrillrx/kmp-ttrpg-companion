@@ -8,24 +8,17 @@ armorClass: 16
 maxHitPoints: 240
 hitDice: 32d8+96
 abilities:
-  str:
-    value: 16
-    savingThrowProficiency: proficient
-  dex:
-    value: 12
-    savingThrowProficiency: none
-  con:
-    value: 17
-    savingThrowProficiency: proficient
-  int:
-    value: 14
-    savingThrowProficiency: proficient
-  wis:
-    value: 21
-    savingThrowProficiency: proficient
-  cha:
-    value: 14
-    savingThrowProficiency: none
+  str: 16
+  dex: 12
+  con: 17
+  int: 14
+  wis: 21
+  cha: 14
+savingThrows:
+  str: proficient
+  con: proficient
+  int: proficient
+  wis: proficient
 speeds:
   walk: 30
   fly: null
@@ -100,7 +93,7 @@ translations:
       ***Spellcasting***. The archpriest casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 17):
 
       At will: *[Light](https://www.aidedd.org/spell/light), [Thaumaturgy](https://www.aidedd.org/spell/thaumaturgy)*
-      
+
       1/day each: *[Flame Strike](https://www.aidedd.org/spell/flame-strike)* (level 6 version), *[Greater Restoration](https://www.aidedd.org/spell/greater-restoration), [Raise Dead](https://www.aidedd.org/spell/raise-dead), [Zone of Truth](https://www.aidedd.org/spell/zone-of-truth)*
 
       ## Bonus actions
@@ -124,7 +117,7 @@ translations:
       ***Incantation***. L'archiprêtre lance l'un des sorts suivants sans composantes matérielles, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 17) :
 
       À volonté : *lumière,[thaumaturgie](https://www.aidedd.org/spell/fr/thaumaturgie)*
-      
+
       1 fois par jour : *[colonne de flamme](https://www.aidedd.org/spell/fr/colonne-de-flamme)s* (au niveau 6), *[restauration suprême](https://www.aidedd.org/spell/fr/restauration-supreme), rappel à la vie, zone de vérité*
 
       ## Actions Bonus

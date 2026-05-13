@@ -8,24 +8,15 @@ armorClass: 16
 maxHitPoints: 144
 hitDice: 17d8+68
 abilities:
-  str:
-    value: 14
-    savingThrowProficiency: none
-  dex:
-    value: 18
-    savingThrowProficiency: none
-  con:
-    value: 18
-    savingThrowProficiency: none
-  int:
-    value: 13
-    savingThrowProficiency: none
-  wis:
-    value: 16
-    savingThrowProficiency: proficient
-  cha:
-    value: 20
-    savingThrowProficiency: proficient
+  str: 14
+  dex: 18
+  con: 18
+  int: 13
+  wis: 16
+  cha: 20
+savingThrows:
+  wis: proficient
+  cha: proficient
 speeds:
   walk: 30
   fly: null
@@ -100,7 +91,7 @@ translations:
       ***Spellcasting***. The cultist casts one of the following spells, using Charisma as the spellcasting ability (spell save DC 17):
 
       At will: *[Thaumaturgy](https://www.aidedd.org/spell/thaumaturgy)*
-      
+
       1/day each: *[Jallarzi's Storm of Radiance](https://www.aidedd.org/spell/jallarzi-s-storm-of-radiance)* (level 7 version), *[Mass Suggestion](https://www.aidedd.org/spell/mass-suggestion)*
     senses: Passive Perception 17
     languages:
@@ -121,7 +112,7 @@ translations:
       ***Incantation***. Le cultiste lance l'un des sorts suivants, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 17) :
 
       À volonté : *[thaumaturgie](https://www.aidedd.org/spell/fr/thaumaturgie)*
-      
+
       1/jour chacun : *[tempête radieuse de Jallarzi](https://www.aidedd.org/spell/fr/tempete-radieuse-de-jallarzi")* (au niveau 7), *[suggestion de groupe](https://www.aidedd.org/spell/fr/suggestion-de-groupe)*
     senses: Perception passive 17
     languages:

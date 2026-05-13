@@ -8,24 +8,15 @@ armorClass: 17
 maxHitPoints: 229
 hitDice: 17d10+136
 abilities:
-  str:
-    value: 22
-    savingThrowProficiency: none
-  dex:
-    value: 12
-    savingThrowProficiency: proficient
-  con:
-    value: 26
-    savingThrowProficiency: none
-  int:
-    value: 18
-    savingThrowProficiency: none
-  wis:
-    value: 17
-    savingThrowProficiency: none
-  cha:
-    value: 18
-    savingThrowProficiency: proficient
+  str: 22
+  dex: 12
+  con: 26
+  int: 18
+  wis: 17
+  cha: 18
+savingThrows:
+  dex: proficient
+  cha: proficient
 speeds:
   walk: 30
   fly: 60
@@ -106,7 +97,7 @@ translations:
       ***Spellcasting***. The marid casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 16):
 
       At will: *[Create or Destroy Water](https://www.aidedd.org/spell/create-or-destroy-water), [Detect Evil and Good](https://www.aidedd.org/spell/detect-evil-and-good), [Detect Magic](https://www.aidedd.org/spell/detect-magic), Purify Food and Drink*
-      
+
       1/day each: *[Control Water](https://www.aidedd.org/spell/control-water), [Gaseous Form](https://www.aidedd.org/spell/gaseous-form), [Invisibility](https://www.aidedd.org/spell/invisibility), [Plane Shift](https://www.aidedd.org/spell/plane-shift), [Tongues](https://www.aidedd.org/spell/tongues)*
 
       ***Water Jet***. *Dexterity Saving Throw* : DC 18, each creature in a 60-foot-long, 10-foot-wide Line. *Failure* : 31 (9d6) Cold damage. If the target is a Huge or smaller creature, it is pushed up to 20 feet straight away from the marid and has the Prone condition. *Success* : Half damage only.
@@ -138,7 +129,7 @@ translations:
       ***Incantation***. Le maride lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 16) :
 
       À volonté : *[création ou destruction d'eau](https://www.aidedd.org/spell/fr/creation-ou-destruction-d-eau), [détection du mal ou du bien](https://www.aidedd.org/spell/fr/detection-du-mal-et-du-bien), [détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), [purification de la nourriture et de l'eau](https://www.aidedd.org/spell/fr/purification-de-la-nourriture-et-de-l-eau)*
-      
+
       1/jour chacun : *[contrôle de l'eau](https://www.aidedd.org/spell/fr/controle-de-l-eau), [forme gazeuse](https://www.aidedd.org/spell/fr/forme-gazeuse), [invisibilité](https://www.aidedd.org/spell/fr/invisibilite), [changement de plan](https://www.aidedd.org/spell/fr/changement-de-plan"), [don des langues](https://www.aidedd.org/spell/fr/don-des-langues)*
 
       ***Jet d'eau froide***. *JdS Dextérité* : DD 18, chaque créature sur une Ligne de 18 m de long et 3 m de large. *Échec* : 31 (9d6) dégâts de froid. Si la cible est une créature de taille Gig ou inférieure, elle est repoussée du maride jusqu'à 6 m en ligne droite et subit l'état À terre. *Réussite* : demi-dégâts uniquement.

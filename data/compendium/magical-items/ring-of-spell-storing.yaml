@@ -9,16 +9,16 @@ translations:
     subtype: null
     description: |-
       This ring stores spells cast into it, holding them until the attuned wearer uses them. The ring can store up to 5 levels worth of spells at a time. When found, it contains 1d6 - 1 levels of stored spells chosen by the DM.
-      
+
       Any creature can cast a spell of level 1 through 5 into the ring by touching the ring as the spell is cast. The spell has no effect other than to be stored in the ring. If the ring can't hold the spell, the spell is expended without effect. The level of the slot used to cast the spell determines how much space it uses.
-      
+
       While wearing this ring, you can cast any spell stored in it. The spell uses the slot level, spell save DC, spell attack bonus, and spellcasting ability of the original caster but is otherwise treated as if you cast the spell. The spell cast from the ring is no longer stored in it, freeing up space.
   fr:
     name: Anneau de stockage de sorts
     subtype: null
     description: |-
       Cet anneau conserve les sorts lancés jusqu'à ce que le porteur lié les utilise. Il peut contenir jusqu'à 5 niveaux de sorts à la fois. Quand on le trouve, il contient 1d6 -1 niveaux de sort stockés, choisis par le MD.
-      
+
       Toute créature peut lancer un sort de niveau 1 à 5 dans l'anneau en le touchant au moment de l'incantation. Le sort n'a d'autre effet que d'être stocké dans l'anneau. Si l'anneau ne peut pas contenir le sort, celui-ci est dépensé sans effet. Le niveau de l'emplacement utilisé pour lancer le sort détermine l'espace occupé.
-      
+
       Lorsque vous portez cet anneau, vous pouvez lancer n'importe quel sort stocké dans l'anneau. Le sort utilise le niveau d'emplacement, le DD de sauvegarde des sorts, le bonus d'attaque de sorts et la caractéristique d'incantation du lanceur initial, mais est traité comme si vous le lanciez. Le sort lancé depuis l'anneau n'y est plus stocké, libérant ainsi de l'espace.

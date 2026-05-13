@@ -20,9 +20,8 @@ translations:
       a vessel worth 2,000+ GP that is large enough to hold the creature being cloned
     description: |-
       You touch a creature or at least 1 cubic inch of its flesh. An inert duplicate of that creature forms inside the vessel used in the spell's casting and finishes growing after 120 days; you choose whether the finished clone is the same age as the creature or younger. The clone remains inert and endures indefinitely while its vessel remains undisturbed.
-      
+
       If the original creature dies after the clone finishes forming, the creature's soul transfers to the clone if the soul is free and willing to return. The clone is physically identical to the original and has the same personality, memories, and abilities, but none of the original's equipment. The creature's original remains, if any, become inert and can't be revived, since the creature's soul is elsewhere.
-      
   fr:
     name: Clone
     castingTime: 1 heure
@@ -33,5 +32,5 @@ translations:
       contenir la créature à cloner
     description: |-
       Vous touchez physiquement une créature ou au moins 15 cm3 de sa chair. Une réplique inerte se forme à l'intérieur d'un récipient utilisé pour l'incantation, sa croissance jusqu'à maturité demandant 120 jours. Vous décidez si le clone est une version plus jeune de la créature ou du même âge. Le clone reste inerte et immarcescible tant que le récipient n'est pas endommagé.
-      
+
       Si, une fois le clone formé, la créature d'origine meurt, son âme (à condition qu'elle soit libre et consentante) est transférée dans le clone. Le clone est identique à l'original sur le plan physique et présente la même personnalité ; ses souvenirs sont les mêmes, ainsi que ses caractéristiques, mais il ne récupère rien de l'équipement de la créature clonée. La dépouille du cloné, si elle existe, devient inerte et ne pourra être ramenée à la vie, étant donné que l'âme de la créature est ailleurs.

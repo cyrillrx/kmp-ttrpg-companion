@@ -8,24 +8,17 @@ armorClass: 16
 maxHitPoints: 187
 hitDice: 22d8+88
 abilities:
-  str:
-    value: 20
-    savingThrowProficiency: proficient
-  dex:
-    value: 18
-    savingThrowProficiency: proficient
-  con:
-    value: 18
-    savingThrowProficiency: none
-  int:
-    value: 19
-    savingThrowProficiency: none
-  wis:
-    value: 16
-    savingThrowProficiency: proficient
-  cha:
-    value: 21
-    savingThrowProficiency: proficient
+  str: 20
+  dex: 18
+  con: 18
+  int: 19
+  wis: 16
+  cha: 21
+savingThrows:
+  str: proficient
+  dex: proficient
+  wis: proficient
+  cha: proficient
 speeds:
   walk: 40
   fly: 40
@@ -136,19 +129,19 @@ translations:
       ## Traits
 
       Résistance légendaire (3/jour, ou 4/jour dans son antre).
-      
+
       Fuite ombreuse.
-      
+
       Faiblesses des vampires.
 
       ## Actions
 
       Attaques multiples.
-      
+
       Frappe funéraire.
-      
+
       Rayon morbide.
-      
+
       Voracité de Hadar (recharge 5–6).
 
       ## Actions Bonus
@@ -160,7 +153,7 @@ translations:
       Utilisations d'action Légendaire : 3 (4 dans son antre).
 
       Subjugation.
-      
+
       Frappe ombreuse.
     senses: Vision aveugle 36 m, Perception passive 23
     languages:

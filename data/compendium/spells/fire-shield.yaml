@@ -21,11 +21,10 @@ translations:
     materialDescription: a bit of phosphorus or a firefly
     description: |-
       Wispy flames wreathe your body for the duration, shedding Bright Light in a 10-foot radius and Dim Light for an additional 10 feet.
-      
+
       The flames provide you with a warm shield or a chill shield, as you choose. The warm shield grants you Resistance to Cold damage, and the chill shield grants you Resistance to Fire damage.
-      
+
       In addition, whenever a creature within 5 feet of you hits you with a melee attack roll, the shield erupts with flame. The attacker takes 2d8 Fire damage from a warm shield or 2d8 Cold damage from a chill shield.
-      
   fr:
     name: Bouclier de feu
     castingTime: Action
@@ -34,7 +33,7 @@ translations:
     materialDescription: un peu de phosphore ou une luciole
     description: |-
       Des flammes vaporeuses enveloppent votre corps pendant toute la durée du sort, projetant une Lumière vive sur un rayon de 3 mètres et une Lumière faible sur 3 mètres supplémentaires.
-      
+
       Les flammes vous confèrent un bouclier chaud ou glacial, au choix. Le bouclier chaud vous confère une résistance aux dégâts de froid, et le bouclier glacial une résistance aux dégâts de feu.
-      
+
       De plus, lorsqu'une créature dans un rayon de 1,50 mètre vous touche lors d'un jet d'attaque au corps à corps, le bouclier s'embrase. L'attaquant subit 2d8 dégâts de feu pour un bouclier chaud ou 2d8 dégâts de froid pour un bouclier glacial.

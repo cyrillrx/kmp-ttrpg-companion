@@ -9,9 +9,9 @@ translations:
     subtype: Glaive, Greatsword, Longsword, Rapier, Scimitar, or Shortsword
     description: |-
       When you hit with an attack roll using this magic weapon, the target takes an extra 1d6 Cold damage. In addition, while you hold the weapon, you have Resistance to Fire damage.
-      
+
       In freezing temperatures, the weapon sheds Bright Light in a 10-foot radius and Dim Light for an additional 10 feet.
-      
+
       When you draw this weapon, you can extinguish all nonmagical flames within 30 feet of yourself. Once used, this property can't be used again for 1 hour.
   fr:
     name: Fer gelé
@@ -19,7 +19,7 @@ translations:
       courte
     description: |-
       Lorsque vous touchez avec cette arme magique, la cible subit 1d6 dégâts de froid supplémentaires. De plus, lorsque vous tenez l'arme, vous bénéficiez d'une Résistance aux dégâts de feu.
-      
+
       Par temps glacial, l'arme diffuse une Lumière vive sur un rayon de 3 mètres et une Lumière faible sur 3 mètres supplémentaires.
-      
+
       Lorsque vous dégainez cette arme, vous pouvez éteindre toutes les flammes non magiques dans un rayon de 9 mètres autour de vous. Une fois utilisée, cette propriété est inutilisable pendant 1 heure.

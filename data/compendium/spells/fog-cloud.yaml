@@ -22,9 +22,8 @@ translations:
     materialDescription: null
     description: |-
       You create a 20-foot-radius Sphere of fog centered on a point within range. The Sphere is Heavily Obscured. It lasts for the duration or until a strong wind (such as one created by *[Gust of Wind](./gust-of-wind)*) disperses it.
-      
+
       ***Using a Higher-Level Spell Slot***. The fog's radius increases by 20 feet for each spell slot level above 1.
-      
   fr:
     name: Nappe de brouillard
     castingTime: Action
@@ -33,5 +32,5 @@ translations:
     materialDescription: null
     description: |-
       Vous créez une Sphère de brouillard de 6 mètres de rayon centrée sur un point à portée. La Sphère est une zone de Visibilité nulle. Elle se maintient pendant toute la durée du sort ou jusqu'à ce qu'un vent fort (comme celui créé par *[bourrasque](./fr/bourrasque)*) la disperse.
-      
+
       ***Emplacement de niveau supérieur***. Le rayon du brouillard augmente de 6 mètres pour chaque niveau d'emplacement de sort supérieur à 1.

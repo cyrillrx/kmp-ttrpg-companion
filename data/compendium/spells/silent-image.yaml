@@ -21,11 +21,10 @@ translations:
     materialDescription: a bit of fleece
     description: |-
       You create the image of an object, a creature, or some other visible phenomenon that is no larger than a 15-foot Cube. The image appears at a spot within range and lasts for the duration. The image is purely visual; it isn't accompanied by sound, smell, or other sensory effects.
-      
+
       As a Magic action, you can cause the image to move to any spot within range. As the image changes location, you can alter its appearance so that its movements appear natural for the image. For example, if you create an image of a creature and move it, you can alter the image so that it appears to be walking.
-      
+
       Physical interaction with the image reveals it to be an illusion, since things can pass through it. A creature that takes a Study action to examine the image can determine that it is an illusion with a successful Intelligence (Investigation) check against your spell save DC. If a creature discerns the illusion for what it is, the creature can see through the image.
-      
   fr:
     name: Image silencieuse
     castingTime: Action
@@ -34,7 +33,7 @@ translations:
     materialDescription: un peu de laine brute
     description: |-
       Vous créez l'image d'un objet, d'une créature ou d'un autre phénomène visible ne dépassant pas un Cube de 4,50 mètres de côté. L'image apparaît à un endroit à portée et persiste pendant toute la durée du sort. L'image est purement visuelle ; elle n'est accompagnée d'aucun son, odeur ou autre effet sensoriel.
-      
+
       Par une action Magie, vous pouvez déplacer l'image n'importe où à portée. Lorsque l'image change d'emplacement, vous pouvez modifier son apparence afin que ses mouvements paraissent naturels. Par exemple, si vous créez l'image d'une créature et que vous la déplacez, vous pouvez la modifier pour qu'elle semble marcher.
-      
+
       Une interaction physique avec l'image révèle qu'il s'agit d'une illusion, car des objets peuvent la traverser. Une créature qui prend l'action Étude pour examiner l'image peut déterminer qu'il s'agit d'une illusion en réussissant un jet d'Intelligence (Investigation) contre le DD de sauvegarde de votre sort. Si une créature perçoit l'illusion pour ce qu'elle est, elle peut voir à travers l'image.

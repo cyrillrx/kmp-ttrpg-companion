@@ -8,24 +8,12 @@ armorClass: 15
 maxHitPoints: 65
 hitDice: 10d10+10
 abilities:
-  str:
-    value: 15
-    savingThrowProficiency: none
-  dex:
-    value: 16
-    savingThrowProficiency: none
-  con:
-    value: 12
-    savingThrowProficiency: none
-  int:
-    value: 16
-    savingThrowProficiency: none
-  wis:
-    value: 15
-    savingThrowProficiency: none
-  cha:
-    value: 15
-    savingThrowProficiency: none
+  str: 15
+  dex: 16
+  con: 12
+  int: 16
+  wis: 15
+  cha: 15
 speeds:
   walk: 40
   fly: null
@@ -100,7 +88,7 @@ translations:
       ***Spellcasting***. The naga casts one of the following spells, requiring no Material components and using Intelligence as the spellcasting ability (spell save DC 13):
 
       At will: *[Mage Hand](https://www.aidedd.org/spell/mage-hand), [Thaumaturgy](https://www.aidedd.org/spell/thaumaturgy)*
-      
+
       1/day each: *[Command](https://www.aidedd.org/spell/command), [Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts), [Lightning Bolt](https://www.aidedd.org/spell/lightning-bolt)*
     senses: Darkvision 60 ft., Passive Perception 12
     languages:
@@ -120,7 +108,7 @@ translations:
       ***Incantation***. Le naga lance l'un des sorts suivants sans composantes matérielles, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 13) :
 
       À volonté : *[main de mage](https://www.aidedd.org/spell/fr/main-de-mage), [thaumaturgie](https://www.aidedd.org/spell/fr/thaumaturgie)*
-      
+
       1/jour chacun : *[injonction](https://www.aidedd.org/spell/fr/injonction"), [détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees), [éclair](https://www.aidedd.org/spell/fr/eclair)*
     senses: Vision dans le noir 18 m, Perception passive 12
     languages:

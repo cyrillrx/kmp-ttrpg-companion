@@ -26,4 +26,24 @@
     <string name="race_dragonborn">Dragonborn</string>
     <string name="race_gnome">Gnome</string>
     <string name="race_tiefling">Tiefling</string>
+
+    <!-- Languages -->
+    <string name="language_abyssal">Abyssal</string>
+    <string name="language_celestial">Celestial</string>
+    <string name="language_common">Common</string>
+    <string name="language_deep_speech">Deep Speech</string>
+    <string name="language_draconic">Draconic</string>
+    <string name="language_druidic">Druidic</string>
+    <string name="language_dwarvish">Dwarvish</string>
+    <string name="language_elvish">Elvish</string>
+    <string name="language_giant">Giant</string>
+    <string name="language_gnomish">Gnomish</string>
+    <string name="language_goblin">Goblin</string>
+    <string name="language_halfling">Halfling</string>
+    <string name="language_infernal">Infernal</string>
+    <string name="language_orc">Orc</string>
+    <string name="language_primordial">Primordial</string>
+    <string name="language_sylvan">Sylvan</string>
+    <string name="language_thieves_cant">Thieves\' Cant</string>
+    <string name="language_undercommon">Undercommon</string>
 </resources>

@@ -19,9 +19,8 @@ translations:
     materialDescription: null
     description: |-
       An aura extends from you in a 10-foot Emanation for the duration. The aura prevents creatures other than Constructs and Undead from passing or reaching through it. An affected creature can cast spells or make attacks with Ranged or Reach weapons through the barrier.
-      
+
       If you move so that an affected creature is forced to pass through the barrier, the spell ends.
-      
   fr:
     name: Coquille antivie
     castingTime: Action
@@ -30,5 +29,5 @@ translations:
     materialDescription: null
     description: |-
       Une aura s'étend autour de vous sous forme d'Émanation de 3 mètres pendant toute la durée du sort. Elle empêche les créatures autres que les créatures artificielles et les morts-vivants de la traverser. Une créature affectée peut lancer des sorts ou effectuer des attaques avec des armes à distance ou à allonge à travers la barrière.
-      
+
       Si vous vous déplacez de manière à forcer une créature affectée à traverser la barrière, le sort prend fin.

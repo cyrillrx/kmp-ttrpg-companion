@@ -8,24 +8,17 @@ armorClass: 17
 maxHitPoints: 84
 hitDice: 13d8+26
 abilities:
-  str:
-    value: 13
-    savingThrowProficiency: proficient
-  dex:
-    value: 18
-    savingThrowProficiency: proficient
-  con:
-    value: 15
-    savingThrowProficiency: none
-  int:
-    value: 16
-    savingThrowProficiency: proficient
-  wis:
-    value: 17
-    savingThrowProficiency: proficient
-  cha:
-    value: 12
-    savingThrowProficiency: none
+  str: 13
+  dex: 18
+  con: 15
+  int: 16
+  wis: 17
+  cha: 12
+savingThrows:
+  str: proficient
+  dex: proficient
+  int: proficient
+  wis: proficient
 speeds:
   walk: 40
   fly: null
@@ -98,7 +91,7 @@ translations:
       ***Spellcasting***. The githzerai casts one of the following spells, requiring no spell components and using Wisdom as the spellcasting ability (spell save DC 14):
 
       At will: *[Mage Hand](https://www.aidedd.org/spell/mage-hand)* (the hand is Invisible)
-      
+
       1/day each: *[Phantasmal Killer](https://www.aidedd.org/spell/phantasmal-killer)* (level 6 version), *[Plane Shift](https://www.aidedd.org/spell/plane-shift), [See Invisibility](https://www.aidedd.org/spell/see-invisibility)*
 
       ## Bonus actions
@@ -119,9 +112,9 @@ translations:
       ## Actions
 
       Attaques multiples.
-      
+
       Frappe psi.
-      
+
       Incantation.
 
       ## Actions Bonus

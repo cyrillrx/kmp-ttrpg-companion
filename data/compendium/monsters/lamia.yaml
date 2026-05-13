@@ -8,24 +8,12 @@ armorClass: 13
 maxHitPoints: 97
 hitDice: 13d10+26
 abilities:
-  str:
-    value: 16
-    savingThrowProficiency: none
-  dex:
-    value: 13
-    savingThrowProficiency: none
-  con:
-    value: 15
-    savingThrowProficiency: none
-  int:
-    value: 14
-    savingThrowProficiency: none
-  wis:
-    value: 15
-    savingThrowProficiency: none
-  cha:
-    value: 16
-    savingThrowProficiency: none
+  str: 16
+  dex: 13
+  con: 15
+  int: 14
+  wis: 15
+  cha: 16
 speeds:
   walk: 40
   fly: null
@@ -100,7 +88,7 @@ translations:
       ***Spellcasting***. The lamia casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 13):
 
       At Will: *[Disguise Self](https://www.aidedd.org/spell/disguise-self)* (can appear as a Large or Medium biped), *[Minor Illusion](https://www.aidedd.org/spell/minor-illusion)*
-      
+
       1/Day Each: *[Geas](https://www.aidedd.org/spell/geas), [Major Image](https://www.aidedd.org/spell/major-image), [Scrying](https://www.aidedd.org/spell/scrying)*
 
       ## Bonus actions
@@ -125,7 +113,7 @@ translations:
       ***Incantation***. La lamie lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 13) :
 
       À volonté : *déguisement* (comme bipède de taille M ou G), *[illusion mineure](https://www.aidedd.org/spell/fr/illusion-mineure)*
-      
+
       1/jour chacun : *[image majeure](https://www.aidedd.org/spell/fr/image-majeure), quête, [scrutation](https://www.aidedd.org/spell/fr/scrutation)*
 
       ## Actions Bonus

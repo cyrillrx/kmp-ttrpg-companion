@@ -8,24 +8,15 @@ armorClass: 15
 maxHitPoints: 81
 hitDice: 18d8
 abilities:
-  str:
-    value: 9
-    savingThrowProficiency: none
-  dex:
-    value: 14
-    savingThrowProficiency: none
-  con:
-    value: 11
-    savingThrowProficiency: none
-  int:
-    value: 17
-    savingThrowProficiency: proficient
-  wis:
-    value: 12
-    savingThrowProficiency: proficient
-  cha:
-    value: 11
-    savingThrowProficiency: none
+  str: 9
+  dex: 14
+  con: 11
+  int: 17
+  wis: 12
+  cha: 11
+savingThrows:
+  int: proficient
+  wis: proficient
 speeds:
   walk: 30
   fly: null
@@ -98,9 +89,9 @@ translations:
       ***Spellcasting***. The mage casts one of the following spells, using Intelligence as the spellcasting ability (spell save DC 14):
 
       At Will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Light](https://www.aidedd.org/spell/light), [Mage Armor](https://www.aidedd.org/spell/mage-armor)* (included in AC), *[Mage Hand](https://www.aidedd.org/spell/mage-hand), [Prestidigitation](https://www.aidedd.org/spell/prestidigitation)*
-      
+
       2/Day Each: *[Fireball](https://www.aidedd.org/spell/fireball)* (level 4 version), *[Invisibility](https://www.aidedd.org/spell/invisibility)*
-      
+
       1/Day Each: *[Cone of Cold](https://www.aidedd.org/spell/cone-of-cold), [Fly](https://www.aidedd.org/spell/fly)*
 
       ## Bonus actions
@@ -126,9 +117,9 @@ translations:
       ***Incantation***. Le mage lance l'un des sorts suivants, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 14) :
 
       À volonté : *[armure de mage](https://www.aidedd.org/spell/fr/armure-de-mage)* (compris dans la CA), *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), lumière, [main de mage](https://www.aidedd.org/spell/fr/main-de-mage), [prestidigitation](https://www.aidedd.org/spell/fr/prestidigitation)*
-      
+
       2/jour chacun : *[boule de feu](https://www.aidedd.org/spell/fr/boule-de-feu)* (au niveau 4), *[invisibilité](https://www.aidedd.org/spell/fr/invisibilite)*
-      
+
       1/jour chacun : *cône de froid, vol*
 
       ## Actions Bonus

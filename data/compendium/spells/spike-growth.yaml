@@ -20,9 +20,8 @@ translations:
     materialDescription: seven thorns
     description: |-
       The ground in a 20-foot-radius Sphere centered on a point within range sprouts hard spikes and thorns. The area becomes Difficult Terrain for the duration. When a creature moves into or within the area, it takes 2d4 Piercing damage for every 5 feet it travels.
-      
+
       The transformation of the ground is camouflaged to look natural. Any creature that can't see the area when the spell is cast must take a Search action and succeed on a Wisdom (Perception or Survival) check against your spell save DC to recognize the terrain as hazardous before entering it.
-      
   fr:
     name: Croissance d'épines
     castingTime: Action
@@ -31,5 +30,5 @@ translations:
     materialDescription: sept épines
     description: |-
       Le sol d'une Sphère de 6 mètres de rayon centrée sur un point à portée est recouvert de piques et d'épines dures. La zone devient un Terrain difficile pendant toute la durée du sort. Lorsqu'une créature pénètre dans la zone, elle subit 2d4 dégâts perforants par tranche de 1,50 mètre parcourue.
-      
+
       La transformation du sol est camouflée pour un aspect naturel. Toute créature qui ne voit pas la zone au moment du lancement du sort doit prendre une action Étude et réussir un jet de Sagesse (Perception ou Survie) contre le DD de sauvegarde de votre sort pour se rendre compte que le terrain est dangereux avant d'y pénétrer.

@@ -9,16 +9,16 @@ translations:
     subtype: null
     description: |-
       A *Hag Eye* has 3 charges. While wearing or holding this item, you can expend 1 charge to cast *Darkvision* (targeting yourself only) or *See Invisibility*. The *Hag Eye* regains all expended charges daily at dawn.
-      
+
       **Coven Sensor**. The *Hag Eye* is usually entrusted to a hag's minion for safekeeping and transport. As a Magic action, a hag who belongs to the coven that created the *Hag Eye* can see what the *Hag Eye* sees if the hag and the *Hag Eye* are on the same plane of existence. This effect lasts as long as the hag maintains Concentration. Multiple hags in the coven can see through the *Hag Eye* simultaneously.
-      
+
       **Creating a Hag Eye**. Only a hag coven can craft this item, which is made from a real eye coated in varnish and often fitted to a pendant or another wearable item. A hag coven can have only one *Hag Eye* at a time, and creating a new one requires all three members of the coven to perform a special rite. This rite takes 1 hour, and the hags can't perform it if one or more of them has the Incapacitated condition. If the hags take any other actions during this rite, the rite fails and ends.
   fr:
     name: Oeil de guenaude
     subtype: null
     description: |-
       Un *oeil de guenaude* possède 3 charges. Si vous portez cet objet, vous pouvez dépenser 1 charge pour lancer *vision dans le noir* (sur vous uniquement) ou *détection de l'invisibilité*. L'*oeil de guenaude* récupère toutes ses charges dépensées chaque jour à l'aube.
-      
+
       **Capteur d'assemblée**. L'*oeil de guenaude* est généralement confié à un fidèle serviteur d'une guenaude pour sa conservation et son transport. Par une action Magie, une guenaude appartenant à l'assemblée qui a créé l'*oeil de guenaude* peut voir ce que voit l'*oeil de guenaude* si elle et l'*oeil de guenaude* se trouvent sur le même plan d'existence. Cet effet dure tant que la guenaude maintient sa Concentration. Plusieurs guenaudes d'une même assemblée peuvent voir à travers l'*oeil de guenaude* simultanément.
-      
+
       **Création d'un oeil de guenaude**. Seul une assemblée de guenaudes peut fabriquer cet objet, taillé dans un véritable oeil verni et souvent monté sur un pendentif ou un autre bijou. Une assemblée de guenaudes ne peut posséder qu'un seul *oeil de guenaude* à la fois, et la création d'un nouvel oeil requiert la participation des trois membres de l'assemblée lors d'un rite spécial qui dure une heure. Les guenaudes ne peuvent l'accomplir si l'une d'entre elles, ou plusieurs, subit l'état Incapable d'agir. Toute autre action des guenaudes durant le rite entraîne son échec et sa fin.

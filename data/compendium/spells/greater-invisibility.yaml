@@ -21,7 +21,6 @@ translations:
     materialDescription: null
     description: |-
       A creature you touch has the Invisible condition until the spell ends.
-      
   fr:
     name: Invisibilité suprême
     castingTime: Action

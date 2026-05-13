@@ -20,11 +20,10 @@ translations:
     materialDescription: jade dust worth 10+ GP, which the spell consumes
     description: |-
       You implant a message within an object in range—a message that is uttered when a trigger condition is met. Choose an object that you can see and that isn't being worn or carried by another creature. Then speak the message, which must be 25 words or fewer, though it can be delivered over as long as 10 minutes. Finally, determine the circumstance that will trigger the spell to deliver your message.
-      
+
       When that trigger occurs, a magical mouth appears on the object and recites the message in your voice and at the same volume you spoke. If the object you chose has a mouth or something that looks like a mouth (for example, the mouth of a statue), the magical mouth appears there, so the words appear to come from the object's mouth. When you cast this spell, you can have the spell end after it delivers its message, or it can remain and repeat its message whenever the trigger occurs.
-      
+
       The trigger can be as general or as detailed as you like, though it must be based on visual or audible conditions that occur within 30 feet of the object. For example, you could instruct the mouth to speak when any creature moves within 30 feet of the object or when a silver bell rings within 30 feet of it.
-      
   fr:
     name: Bouche magique
     castingTime: 1 minute ou Rituel
@@ -34,7 +33,7 @@ translations:
       consomme
     description: |-
       Vous implantez un message dans un objet à portée. Ce message est prononcé lorsqu'une condition de déclenchement est remplie. Choisissez un objet que vous pouvez voir et qui n'est pas porté par une autre créature. Prononcez ensuite le message, qui doit comporter 25 mots maximum, mais peut durer jusqu'à 10 minutes. Enfin, déterminez la circonstance qui déclenchera le sort.
-      
+
       Lorsque ce déclencheur se produit, une bouche magique apparaît sur l'objet et récite le message avec votre voix et au même volume que vous avez parlé. Si l'objet choisi possède une bouche ou quelque chose qui ressemble à une bouche (par exemple, la bouche d'une statue), la bouche magique apparaît à cet endroit, de sorte que les mots semblent provenir de la bouche de l'objet. Lorsque vous lancez ce sort, vous pouvez le faire cesser après avoir délivré son message, ou le faire répéter chaque fois que le déclencheur se produit.
-      
+
       Le déclencheur peut être aussi général ou détaillé que vous le souhaitez, mais il doit être basé sur des conditions visuelles ou sonores se produisant à 9 mètres ou moins de l'objet. Par exemple, vous pouvez ordonner à la bouche de parler lorsqu'une créature se déplace à moins de 9 mètres de l'objet ou lorsqu'une clochette argentée sonne à moins de 9 mètres de celui-ci.

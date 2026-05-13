@@ -8,24 +8,15 @@ armorClass: 16
 maxHitPoints: 52
 hitDice: 8d8+16
 abilities:
-  str:
-    value: 8
-    savingThrowProficiency: none
-  dex:
-    value: 16
-    savingThrowProficiency: none
-  con:
-    value: 14
-    savingThrowProficiency: proficient
-  int:
-    value: 10
-    savingThrowProficiency: none
-  wis:
-    value: 16
-    savingThrowProficiency: proficient
-  cha:
-    value: 12
-    savingThrowProficiency: none
+  str: 8
+  dex: 16
+  con: 14
+  int: 10
+  wis: 16
+  cha: 12
+savingThrows:
+  con: proficient
+  wis: proficient
 speeds:
   walk: 30
   fly: null
@@ -104,7 +95,7 @@ translations:
       ***Spellcasting***. The bullywug casts one of the following spells, using Wisdom as the spellcasting ability (spell save DC 13, +5 to hit with spell attacks):
 
       At Will: *[Dancing Lights](https://www.aidedd.org/spell/dancing-lights), [Druidcraft](https://www.aidedd.org/spell/druidcraft), [Ray of Sickness](https://www.aidedd.org/spell/ray-of-sickness)*
-      
+
       1/Day Each: *[Speak with Plants](https://www.aidedd.org/spell/speak-with-plants), [Vitriolic Sphere](https://www.aidedd.org/spell/vitriolic-sphere)*
 
       ## Bonus actions
@@ -134,7 +125,7 @@ translations:
       ***Incantation***. Le brutacien lance l'un des sorts suivants, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 13, +5 pour toucher) :
 
       À volonté : *[druidisme](https://www.aidedd.org/spell/fr/druidisme), lumières dansantes, rayon empoisonné*
-      
+
       1/jour chacun : *communication avec les plantes, sphère de vitriol*
 
       ## Actions Bonus

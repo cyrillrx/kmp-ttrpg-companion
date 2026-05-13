@@ -8,24 +8,17 @@ armorClass: 15
 maxHitPoints: 153
 hitDice: 18d8+72
 abilities:
-  str:
-    value: 15
-    savingThrowProficiency: none
-  dex:
-    value: 19
-    savingThrowProficiency: proficient
-  con:
-    value: 18
-    savingThrowProficiency: none
-  int:
-    value: 13
-    savingThrowProficiency: proficient
-  wis:
-    value: 15
-    savingThrowProficiency: proficient
-  cha:
-    value: 17
-    savingThrowProficiency: proficient
+  str: 15
+  dex: 19
+  con: 18
+  int: 13
+  wis: 15
+  cha: 17
+savingThrows:
+  dex: proficient
+  int: proficient
+  wis: proficient
+  cha: proficient
 speeds:
   walk: 30
   fly: null
@@ -108,7 +101,7 @@ translations:
       ***Spellcasting***. The yochlol casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 15):
 
       At will: *[Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts), [Gaseous Form](https://www.aidedd.org/spell/gaseous-form)* (self only), *[Web](https://www.aidedd.org/spell/web)*
-      
+
       1/day: *[Dominate Person](https://www.aidedd.org/spell/dominate-person)*
 
       ## Bonus actions
@@ -146,7 +139,7 @@ translations:
       ***Incantation***. Le yochlol lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 15) :
 
       À volonté : *[détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees), [forme gazeuse](https://www.aidedd.org/spell/fr/forme-gazeuse)* (soi-même uniquement), *[toile d'araignée](https://www.aidedd.org/spell/fr/toile-d-araignee)*
-      
+
       1/jour chacun : *[domination de personne](https://www.aidedd.org/spell/fr/domination-de-personne)*
 
       ## Actions Bonus

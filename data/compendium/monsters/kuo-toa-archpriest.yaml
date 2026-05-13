@@ -8,24 +8,12 @@ armorClass: 13
 maxHitPoints: 105
 hitDice: 14d8+42
 abilities:
-  str:
-    value: 16
-    savingThrowProficiency: none
-  dex:
-    value: 14
-    savingThrowProficiency: none
-  con:
-    value: 16
-    savingThrowProficiency: none
-  int:
-    value: 13
-    savingThrowProficiency: none
-  wis:
-    value: 16
-    savingThrowProficiency: none
-  cha:
-    value: 14
-    savingThrowProficiency: none
+  str: 16
+  dex: 14
+  con: 16
+  int: 13
+  wis: 16
+  cha: 14
 speeds:
   walk: 30
   fly: null
@@ -102,7 +90,7 @@ translations:
       ***Spellcasting***. The kuo-toa casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 14):
 
       At will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Thaumaturgy](https://www.aidedd.org/spell/thaumaturgy)*
-      
+
       1/day each: *[Destructive Wave](https://www.aidedd.org/spell/destructive-wave), [Divination](https://www.aidedd.org/spell/divination), [Hold Monster](https://www.aidedd.org/spell/hold-monster)* (level 6 version), *[Scrying](https://www.aidedd.org/spell/scrying), [Tongues](https://www.aidedd.org/spell/tongues)*
 
       ***Strange Scepter***. *Melee or Ranged Attack Roll* : +6, reach 5 ft. or range 120 ft. *Hit* : 20 (5d6 + 3) Lightning damage.
@@ -132,7 +120,7 @@ translations:
       ***Incantation***. The kuo-toa lance l'un des sorts suivants sans composantes matérielles, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 14) :
 
       À volonté : *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), [thaumaturgie](https://www.aidedd.org/spell/fr/thaumaturgie)*
-      
+
       1/jour chacun : *[vague destructrice](https://www.aidedd.org/spell/fr/vague-destructrice), [divination](https://www.aidedd.org/spell/fr/divination), [immobilisation de monstre](https://www.aidedd.org/spell/fr/immobilisation-de-monstre)* (au niveau 6), *[scrutation](https://www.aidedd.org/spell/fr/scrutation), [don des langues](https://www.aidedd.org/spell/fr/don-des-langues)*
 
       ## Actions Bonus

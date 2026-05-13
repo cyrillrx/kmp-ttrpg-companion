@@ -9,12 +9,12 @@ translations:
     subtype: null
     description: |-
       This wooden staff is decorated with bird carvings. It has 10 charges. While holding it, you can take a Magic action to expend 1 charge from the staff and cause it to create one of the following sounds, which can be heard out to 120 feet: a finch's chirp, a raven's caw, a duck's quack, a chicken's cluck, a goose's honk, a loon's call, a turkey's gobble, a seagull's cry, an owl's hoot, or an eagle's shriek.
-      
+
       **Regaining Charges**. The staff regains 1d6 + 4 expended charges daily at dawn. If you expend the last charge, roll 1d20. On a 1, the staff explodes in a harmless cloud of bird feathers and is lost forever.
   fr:
     name: Bâton des chants d'oiseaux
     subtype: null
     description: |-
       Ce bâton en bois est orné de sculptures d'oiseaux. Il possède 10 charges. Lorsque vous le tenez, vous pouvez prendre une action Magie pour dépenser 1 charge et produire l'un des sons suivants, audibles jusqu'à 36 mètres : le pépiement d'un pinson, le croassement d'un corbeau, le cancanement d'un canard, le gloussement d'une poule, le cri d'une oie, le hurlement d'un huard, le glouglou d'une dinde, le cri d'une mouette, le hululement d'un hibou ou le cri d'un aigle.
-      
+
       **Récupération des charges** : le bâton récupère 1d6 + 4 charges dépensées chaque jour à l'aube. Si vous dépensez la dernière charge, lancez 1d20. Sur un 1, le bâton explose dans un nuage inoffensif de plumes d'oiseaux et disparaît à jamais.

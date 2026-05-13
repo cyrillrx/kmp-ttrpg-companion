@@ -9,20 +9,20 @@ translations:
     subtype: null
     description: |-
       This beetle-shaped medallion provides three benefits while it is on your person.
-      
+
       **Defense**. You gain a +1 bonus to Armor Class.
-      
+
       **Preservation**. The scarab has 12 charges. If you fail a saving throw against a Necromancy spell or a harmful effect originating from an Undead, you can take a Reaction to expend 1 charge and turn the failed save into a successful one. The scarab crumbles into powder and is destroyed when its last charge is expended.
-      
+
       **Spell Resistance**. You have Advantage on saving throws against spells.
   fr:
     name: Scarabée de protection
     subtype: null
     description: |-
       Ce médaillon en forme de scarabée vous confère trois avantages lorsque vous le portez sur vous.
-      
+
       **Défense**. Vous gagnez un bonus de +1 à la CA.
-      
+
       **Préservation**. Le scarabée possède 12 charges. Si vous ratez un jet de sauvegarde contre un sort de nécromancie ou un effet néfaste provenant d'un Mort-vivant, vous pouvez prendre une Réaction pour dépenser 1 charge et transformer l'échec en réussite. Le scarabée se réduit en poussière et est détruit lorsque sa dernière charge est dépensée.
-      
+
       **Résistance aux sorts**. Vous bénéficiez d'un Avantage aux jets de sauvegarde contre les sorts.

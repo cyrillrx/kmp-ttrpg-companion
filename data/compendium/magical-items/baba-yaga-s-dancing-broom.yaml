@@ -9,16 +9,16 @@ translations:
     subtype: null
     description: |-
       The archfey Baba Yaga crafted many of these magic brooms. No two appear exactly alike. While holding the broom, you can take a Magic action to transform it into an **[Animated Broom](https://www.aidedd.org/monster/animated-broom)** under your control. The broom then moves into an unoccupied space as close to you as possible. The broom acts immediately after you on your Initiative count and remains animate until you take a Bonus Action and use a command word to render it inanimate.
-      
+
       On your turn, you can mentally command the animated broom if it is within 30 feet of you and you don't have the Incapacitated condition (no action required). You decide what action the broom takes and where it moves during its next turn, or you can issue it a general command, such as to attack your enemies or guard a location.
-      
+
       If the broom is reduced to 0 Hit Points, it shatters and is destroyed. If the broom reverts to its inanimate form before losing all its Hit Points, it regains all of them.
   fr:
     name: Balai dansant de Baba Yaga
     subtype: null
     description: |-
       L'archifée Baba Yaga a fabriqué de nombreux balais magiques de ce type. Aucun n'est identique à un autre. Si vous tenez le balai, vous pouvez prendre une action Magie pour le transformer en **[balai animé](https://www.aidedd.org/monster/fr/balai-anime)** sous votre contrôle. Le balai se déplace alors vers un espace inoccupé aussi près que possible de vous. Il agit juste après vous dans l'ordre de l'initiative, et reste animé jusqu'à ce que vous preniez une action Bonus et utilisiez un mot de commande pour le rendre inanimé.
-      
+
       À votre tour, vous pouvez commander mentalement le balai animé s'il se trouve dans un rayon de 9 mètres de vous et si vous n'êtes pas Incapable d'agir (aucune action requise). Vous décidez de l'action que le balai prendra et de son déplacement lors de son prochain tour, ou vous pouvez lui donner un ordre général, comme attaquer vos ennemis ou garder un lieu.
-      
+
       Si le balai tombe à 0 point de vie, il se brise et est détruit. S'il reprend sa forme inanimée avant d'avoir perdu tous ses points de vie, il les récupère tous.

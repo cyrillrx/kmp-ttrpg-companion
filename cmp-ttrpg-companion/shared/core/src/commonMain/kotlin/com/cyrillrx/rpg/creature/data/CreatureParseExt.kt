@@ -1,20 +1,29 @@
 package com.cyrillrx.rpg.creature.data
 
+import com.cyrillrx.rpg.creature.data.api.ApiAbilities
 import com.cyrillrx.rpg.creature.data.api.ApiConditionImmunities
 import com.cyrillrx.rpg.creature.data.api.ApiDamageAffinities
+import com.cyrillrx.rpg.creature.data.api.ApiSavingThrows
 import com.cyrillrx.rpg.creature.data.api.ApiSkills
+import com.cyrillrx.rpg.creature.data.api.ApiSpeeds
+import com.cyrillrx.rpg.creature.domain.Abilities
+import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.creature.domain.ConditionImmunities
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.DamageAffinities
 import com.cyrillrx.rpg.creature.domain.DamageAffinity
 import com.cyrillrx.rpg.creature.domain.Proficiency
 import com.cyrillrx.rpg.creature.domain.Skills
+import com.cyrillrx.rpg.creature.domain.Speeds
 
-internal fun String.toSize(): Creature.Size? =
-    Creature.Size.entries.find { it.name.equals(this, ignoreCase = true) }
-
-internal fun String.toAlignment(): Creature.Alignment? =
-    Creature.Alignment.entries.find { it.name.equals(this, ignoreCase = true) }
+internal fun createAbilities(abilities: ApiAbilities?, savingThrows: ApiSavingThrows? = null): Abilities = Abilities(
+    str = Ability(abilities?.str ?: Ability.DEFAULT_VALUE, savingThrows?.str.toProficiency()),
+    dex = Ability(abilities?.dex ?: Ability.DEFAULT_VALUE, savingThrows?.dex.toProficiency()),
+    con = Ability(abilities?.con ?: Ability.DEFAULT_VALUE, savingThrows?.con.toProficiency()),
+    int = Ability(abilities?.int ?: Ability.DEFAULT_VALUE, savingThrows?.int.toProficiency()),
+    wis = Ability(abilities?.wis ?: Ability.DEFAULT_VALUE, savingThrows?.wis.toProficiency()),
+    cha = Ability(abilities?.cha ?: Ability.DEFAULT_VALUE, savingThrows?.cha.toProficiency()),
+)
 
 internal fun String?.toProficiency(): Proficiency = when (this) {
     "proficient" -> Proficiency.PROFICIENT
@@ -22,7 +31,22 @@ internal fun String?.toProficiency(): Proficiency = when (this) {
     else -> Proficiency.NONE
 }
 
-internal fun ApiSkills.toDomain(): Skills = Skills(
+internal fun ApiSpeeds?.toSpeeds(): Speeds = Speeds(
+    walk = this?.walk,
+    fly = this?.fly,
+    swim = this?.swim,
+    climb = this?.climb,
+    burrow = this?.burrow,
+    hover = this?.hover ?: false,
+)
+
+internal fun String.toSize(): Creature.Size? =
+    Creature.Size.entries.find { it.name.equals(this, ignoreCase = true) }
+
+internal fun String.toAlignment(): Creature.Alignment? =
+    Creature.Alignment.entries.find { it.name.equals(this, ignoreCase = true) }
+
+internal fun ApiSkills.toSkills(): Skills = Skills(
     acrobatics = acrobatics.toProficiency(),
     animalHandling = animalHandling.toProficiency(),
     arcana = arcana.toProficiency(),
@@ -50,7 +74,7 @@ internal fun String?.toDamageAffinity(): DamageAffinity = when (this) {
     else -> DamageAffinity.NONE
 }
 
-internal fun ApiDamageAffinities.toDomain(): DamageAffinities = DamageAffinities(
+internal fun ApiDamageAffinities.toDamageAffinities(): DamageAffinities = DamageAffinities(
     acid = acid.toDamageAffinity(),
     bludgeoning = bludgeoning.toDamageAffinity(),
     cold = cold.toDamageAffinity(),
@@ -69,7 +93,7 @@ internal fun ApiDamageAffinities.toDomain(): DamageAffinities = DamageAffinities
     slashingNonMagical = slashingNonMagical.toDamageAffinity(),
 )
 
-internal fun ApiConditionImmunities.toDomain(): ConditionImmunities = ConditionImmunities(
+internal fun ApiConditionImmunities.toConditionImmunities(): ConditionImmunities = ConditionImmunities(
     blinded = blinded ?: false,
     charmed = charmed ?: false,
     deafened = deafened ?: false,

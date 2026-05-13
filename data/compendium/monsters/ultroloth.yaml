@@ -8,24 +8,12 @@ armorClass: 19
 maxHitPoints: 221
 hitDice: 26d8+104
 abilities:
-  str:
-    value: 19
-    savingThrowProficiency: none
-  dex:
-    value: 16
-    savingThrowProficiency: none
-  con:
-    value: 18
-    savingThrowProficiency: none
-  int:
-    value: 19
-    savingThrowProficiency: none
-  wis:
-    value: 15
-    savingThrowProficiency: none
-  cha:
-    value: 18
-    savingThrowProficiency: none
+  str: 19
+  dex: 16
+  con: 18
+  int: 19
+  wis: 15
+  cha: 18
 speeds:
   walk: 30
   fly: 60
@@ -106,7 +94,7 @@ translations:
       ***Spellcasting***. The ultroloth casts one of the following spells, requiring no Material components and using Intelligence as the spellcasting ability (spell save DC 17):
 
       At will: *[Alter Self](https://www.aidedd.org/spell/alter-self), [Clairvoyance](https://www.aidedd.org/spell/clairvoyance), [Detect Magic](https://www.aidedd.org/spell/detect-magic)*
-      
+
       1/day each: *[Dimension Door](https://www.aidedd.org/spell/dimension-door), [Fireball](https://www.aidedd.org/spell/fireball)* (level 5 version), *[Wall of Fire](https://www.aidedd.org/spell/wall-of-fire)*
 
       ## Bonus actions
@@ -137,7 +125,7 @@ translations:
       ***Incantation***. L'ultroloth lance l'un des sorts suivants sans composantes matérielles, l'Intelligence étant sa caractéristique d'incantation (DD de sauvegarde 17) :
 
       À volonté : *[modification d'apparence](https://www.aidedd.org/spell/fr/modification-d-apparence), [clairvoyance](https://www.aidedd.org/spell/fr/clairvoyance), [détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie")*
-      
+
       1/jour chacun : *[porte dimensionnelle](https://www.aidedd.org/spell/fr/porte-dimensionnelle), [boule de feu](https://www.aidedd.org/spell/fr/boule-de-feu)* (au niveau 5), *[mur de feu](https://www.aidedd.org/spell/fr/mur-de-feu)*
 
       ## Actions Bonus

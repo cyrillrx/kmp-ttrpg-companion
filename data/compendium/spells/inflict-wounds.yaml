@@ -19,9 +19,8 @@ translations:
     materialDescription: null
     description: |-
       A creature you touch makes a Constitution saving throw, taking 2d10 Necrotic damage on a failed save or half as much damage on a successful one.
-      
+
       ***Using a Higher-Level Spell Slot***. The damage increases by 1d10 for each spell slot level above 1.
-      
   fr:
     name: Blessure
     castingTime: Action
@@ -30,5 +29,5 @@ translations:
     materialDescription: null
     description: |-
       Une créature que vous touchez effectue un jet de sauvegarde de Constitution et subit 2d10 dégâts nécrotiques en cas d'échec, ou la moitié de ces dégâts en cas de réussite.
-      
+
       ***Emplacement de niveau supérieur***. Les dégâts augmentent de 1d10 pour chaque niveau d'emplacement de sort supérieur à 1.

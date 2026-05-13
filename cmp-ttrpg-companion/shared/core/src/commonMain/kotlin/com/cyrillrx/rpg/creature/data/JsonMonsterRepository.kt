@@ -2,16 +2,12 @@ package com.cyrillrx.rpg.creature.data
 
 import com.cyrillrx.core.data.FileReader
 import com.cyrillrx.core.data.deserialize
-import com.cyrillrx.core.domain.FALLBACK_LOCALE
 import com.cyrillrx.core.domain.Result
 import com.cyrillrx.core.domain.partitionBy
 import com.cyrillrx.rpg.creature.data.api.ApiMonster
-import com.cyrillrx.rpg.creature.domain.Abilities
-import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.creature.domain.MonsterFilter
 import com.cyrillrx.rpg.creature.domain.MonsterRepository
-import com.cyrillrx.rpg.creature.domain.Speeds
 import com.cyrillrx.rpg.creature.domain.applyFilter
 
 class JsonMonsterRepository(private val fileReader: FileReader) : MonsterRepository {
@@ -79,13 +75,8 @@ class JsonMonsterRepository(private val fileReader: FileReader) : MonsterReposit
                 ?: return Result.Failure(MonsterImportError.MissingConditionImmunities(id))
             val apiTranslations = translations
                 ?: return Result.Failure(MonsterImportError.MissingTranslations(id))
-            val (translationMap, translationErrors) = apiTranslations.partitionBy { locale, t ->
-                t.toDomain(id, locale)
-            }
-            translationErrors.forEach { println("WARNING: monster import error: $it") }
-            val translations = translationMap.takeIf { it.isNotEmpty() }
+            val translations = apiTranslations.toTranslations(id)
                 ?: return Result.Failure(MonsterImportError.MissingTranslations(id))
-            val languages = (translations[FALLBACK_LOCALE] ?: translations.values.first()).languages
 
             return Result.Success(
                 Monster(
@@ -96,38 +87,39 @@ class JsonMonsterRepository(private val fileReader: FileReader) : MonsterReposit
                     alignment = alignment,
                     challengeRating = challengeRating,
                     hitDice = hitDice.orEmpty(),
-                    abilities = apiAbilities.toDomain(),
+                    abilities = createAbilities(apiAbilities, savingThrows),
                     armorClass = armorClass,
                     maxHitPoints = maxHitPoints,
-                    speeds = speeds.toDomain(),
-                    languages = languages,
-                    skills = apiSkills.toDomain(),
-                    damageAffinities = apiDamageAffinities.toDomain(),
-                    conditionImmunities = apiConditionImmunities.toDomain(),
+                    speeds = speeds.toSpeeds(),
+                    skills = apiSkills.toSkills(),
+                    damageAffinities = apiDamageAffinities.toDamageAffinities(),
+                    conditionImmunities = apiConditionImmunities.toConditionImmunities(),
                     translations = translations,
                 ),
             )
         }
 
-        private fun ApiMonster.ApiSpeeds?.toDomain(): Speeds = Speeds(
-            walk = this?.walk,
-            fly = this?.fly,
-            swim = this?.swim,
-            climb = this?.climb,
-            burrow = this?.burrow,
-            hover = this?.hover ?: false,
-        )
+        private fun Map<String, ApiMonster.Translation>.toTranslations(monsterId: String): Map<String, Monster.Translation>? {
+            val (parsedTranslations, translationErrors) = partitionBy { locale, t ->
+                t.toTranslation(monsterId, locale)
+            }
+            translationErrors.forEach { println("WARNING: monster import error: $it") }
+            return parsedTranslations.takeIf { it.isNotEmpty() }
+        }
 
-        private fun ApiMonster.Translation.toDomain(
+        private fun ApiMonster.Translation.toTranslation(
             monsterId: String,
             locale: String,
         ): Result<Monster.Translation, MonsterImportError> {
             val name = name
-                ?: return Result.Failure(MonsterImportError.InvalidTranslation(monsterId, locale))
+                ?: return Result.Failure(MonsterImportError.InvalidTranslation(monsterId, locale, field = "name"))
             val description = description
-                ?: return Result.Failure(MonsterImportError.InvalidTranslation(monsterId, locale))
+                ?: return Result.Failure(
+                    MonsterImportError.InvalidTranslation(monsterId, locale, field = "description"),
+                )
             val senses = senses
-                ?: return Result.Failure(MonsterImportError.InvalidTranslation(monsterId, locale))
+                ?: return Result.Failure(MonsterImportError.InvalidTranslation(monsterId, locale, field = "senses"))
+
             return Result.Success(
                 Monster.Translation(
                     name = name,
@@ -138,15 +130,6 @@ class JsonMonsterRepository(private val fileReader: FileReader) : MonsterReposit
                 ),
             )
         }
-
-        private fun ApiMonster.ApiAbilities.toDomain(): Abilities = Abilities(
-            str = Ability(str?.value ?: Ability.DEFAULT_VALUE, str?.savingThrowProficiency.toProficiency()),
-            dex = Ability(dex?.value ?: Ability.DEFAULT_VALUE, dex?.savingThrowProficiency.toProficiency()),
-            con = Ability(con?.value ?: Ability.DEFAULT_VALUE, con?.savingThrowProficiency.toProficiency()),
-            int = Ability(int?.value ?: Ability.DEFAULT_VALUE, int?.savingThrowProficiency.toProficiency()),
-            wis = Ability(wis?.value ?: Ability.DEFAULT_VALUE, wis?.savingThrowProficiency.toProficiency()),
-            cha = Ability(cha?.value ?: Ability.DEFAULT_VALUE, cha?.savingThrowProficiency.toProficiency()),
-        )
 
         private fun String.toType(): Monster.Type? =
             Monster.Type.entries.find { it.name.equals(this, ignoreCase = true) }

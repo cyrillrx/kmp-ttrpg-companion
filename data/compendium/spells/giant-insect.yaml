@@ -19,11 +19,10 @@ translations:
     materialDescription: null
     description: |-
       You summon a giant centipede, spider, or wasp (chosen when you cast the spell). It manifests in an unoccupied space you can see within range and uses the **[Giant Insect](https://www.aidedd.org/monster/giant-insect)** stat block. The form you choose determines certain details in its stat block. The creature disappears when it drops to 0 Hit Points or when the spell ends.
-      
+
       The creature is an ally to you and your allies. In combat, the creature shares your Initiative count, but it takes its turn immediately after yours. It obeys your verbal commands (no action required by you). If you don't issue any, it takes the Dodge action and uses its movement to avoid danger.
-      
+
       ***Using a Higher-Level Spell Slot***. Use the spell slot's level for the spell's level in the stat block.
-      
   fr:
     name: Insecte géant
     castingTime: Action
@@ -32,7 +31,7 @@ translations:
     materialDescription: null
     description: |-
       Vous invoquez un mille-pattes, une araignée ou une guêpe géante (choisie lors du lancement du sort). L'insecte se manifeste dans un espace libre que vous pouvez voir à portée et utilise le profil de l'**[insecte géant](https://www.aidedd.org/monster/fr/insecte-geant)**. La forme choisie détermine certains détails de son profil. La créature disparaît lorsqu'elle tombe à 0 point de vie ou à la fin du sort.
-      
+
       Cette créature est votre alliée et celle de vos alliés. En combat, elle partage votre Initiative, mais son tour commence immédiatement après le vôtre. Elle obéit à vos ordres verbaux (aucune action requise). Si vous n'en donnez pas, elle prend l'action Esquive et utilise son mouvement pour éviter le danger.
-      
+
       ***Emplacement de niveau supérieur***. Utilisez le niveau de l'emplacement de sort pour le niveau du sort dans le profil.

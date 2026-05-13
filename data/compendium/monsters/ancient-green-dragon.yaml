@@ -8,24 +8,15 @@ armorClass: 21
 maxHitPoints: 402
 hitDice: 23d20+161
 abilities:
-  str:
-    value: 27
-    savingThrowProficiency: none
-  dex:
-    value: 12
-    savingThrowProficiency: proficient
-  con:
-    value: 25
-    savingThrowProficiency: none
-  int:
-    value: 20
-    savingThrowProficiency: none
-  wis:
-    value: 17
-    savingThrowProficiency: proficient
-  cha:
-    value: 22
-    savingThrowProficiency: none
+  str: 27
+  dex: 12
+  con: 25
+  int: 20
+  wis: 17
+  cha: 22
+savingThrows:
+  dex: proficient
+  wis: proficient
 speeds:
   walk: 40
   fly: 80
@@ -106,7 +97,7 @@ translations:
       ***Spellcasting***. The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 21):
 
       At will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Mind Spike](https://www.aidedd.org/spell/mind-spike)* (level 5 version)
-      
+
       1/day each: *[Geas](https://www.aidedd.org/spell/geas), [Modify Memory](https://www.aidedd.org/spell/modify-memory)*
 
       ## Legendary actions
@@ -141,7 +132,7 @@ translations:
       ***Incantation***. Le dragon lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 21) :
 
       À volonté : *[détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), épine mentale* (au niveau 5)
-      
+
       1/jour chacun : *modification de mémoire, quête*
 
       ***Souffle empoisonné (recharge 5–6)***. *JdS Constitution* : DD 22, chaque créature dans un Cône de 27 m. *Échec* : 77 (22d6) dégâts de poison. *Réussite* : demi-dégâts.

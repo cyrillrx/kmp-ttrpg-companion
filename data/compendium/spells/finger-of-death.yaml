@@ -21,9 +21,8 @@ translations:
     materialDescription: null
     description: |-
       You unleash negative energy toward a creature you can see within range. The target makes a Constitution saving throw, taking 7d8 + 30 Necrotic damage on a failed save or half as much damage on a successful one.
-      
+
       A Humanoid killed by this spell rises at the start of your next turn as a **[Zombie](https://www.aidedd.org/monster/zombie)** that follows your verbal orders.
-      
   fr:
     name: Doigt de mort
     castingTime: Action
@@ -32,5 +31,5 @@ translations:
     materialDescription: null
     description: |-
       Vous libérez des énergies négatives vers une créature que vous voyez à portée. La cible effectue un jet de sauvegarde de Constitution et subit 7d8 + 30 dégâts nécrotiques en cas d'échec, la moitié en cas de réussite.
-      
+
       Un Humanoïde tué par ce sort se relève au début de votre tour suivant comme **[zombi](https://www.aidedd.org/monster/fr/zombi)** obéissant à vos instructions verbales.

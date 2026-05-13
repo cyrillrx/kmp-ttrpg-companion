@@ -9,20 +9,20 @@ translations:
     subtype: Battleaxe, Greataxe, or Halberd
     description: |-
       You gain a +1 bonus to attack rolls and damage rolls made with this magic weapon. In addition, while you are attuned to this weapon, your Hit Point maximum increases by 1 for each level you have attained.
-      
+
       **Curse**. This weapon is cursed, and becoming attuned to it extends the curse to you. As long as you remain cursed, you are unwilling to part with the weapon, keeping it within reach at all times. You also have Disadvantage on attack rolls with weapons other than this one.
-      
+
       Whenever another creature damages you while the weapon is in your possession, you must succeed on a DC 15 Wisdom saving throw or go berserk. This berserk state ends when you start your turn and there are no creatures within 60 feet of you that you can see or hear.
-      
+
       While berserk, you regard the creature nearest to you that you can see or hear as your enemy. If there are multiple possible creatures, choose one at random. On each of your turns, you must move as close to the creature as possible and take the Attack action, targeting the creature. If you're unable to get close enough to the creature to attack it with the weapon, your turn ends after you've used up all your available movement. If the creature dies or can no longer be seen or heard by you, the next nearest creature that you can see or hear becomes your new target.
   fr:
     name: Hache du berserker
     subtype: hache d'armes, hache à deux mains ou hallebarde
     description: |-
       Vous bénéficiez d'un bonus de +1 aux jets d'attaque et de dégâts effectués avec cette arme magique. De plus, lorsque vous êtes lié à cette arme, votre maximum de points de vie augmente de 1 pour chaque niveau atteint.
-      
+
       **Malédiction**. Cette arme est maudite, et se lier avec elle vous inflige sa malédiction. Lorsque vous êtes maudit, vous refusez de vous en séparer et la gardez constamment à portée de main. Vous avez également un Désavantage aux jets d'attaque avec d'autres armes.
-      
+
       Lorsqu'une autre créature vous inflige des dégâts alors que l'arme est en votre possession, vous devez réussir un jet de sauvegarde de Sagesse DD 15 pour ne pas devenir fou furieux. Cet état de folie prend fin lorsque vous commencez votre tour et qu'il n'y a plus aucune créature visible ou audible à moins de 18 mètres de vous.
-      
+
       En état de folie, vous considérez la créature la plus proche de vous que vous pouvez voir ou entendre comme votre ennemi. S'il y a plusieurs créatures possibles, choisissez-en une au hasard. À chaque tour, vous devez vous rapprocher le plus possible de cette créature et prendre l'action Attaque en la ciblant. Si vous ne parvenez pas à vous rapprocher suffisamment de la créature pour l'attaquer avec l'arme, votre tour se termine après avoir utilisé tous vos mouvements disponibles. Si la créature meurt ou que vous ne pouvez plus la voir ou l'entendre, la créature la plus proche que vous pouvez voir ou entendre devient votre nouvelle cible.

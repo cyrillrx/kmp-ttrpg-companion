@@ -1,0 +1,32 @@
+id: innkeeper
+name: Marta Hollowell
+race: HUMAN
+clazz: UNKNOWN
+level: 1
+size: MEDIUM
+alignment: NEUTRAL
+abilities:
+  str: 12
+  dex: 11
+  con: 12
+  int: 12
+  wis: 13
+  cha: 14
+armorClass: 10
+maxHitPoints: 10
+speeds:
+  walk: 30
+skills:
+  insight: proficient
+  persuasion: proficient
+languages:
+- common
+translations:
+  en:
+    shortDescription: Innkeeper
+    description: |-
+      A warm and practical woman who runs the Silver Flagon with an iron fist hidden in a velvet glove.
+  fr:
+    shortDescription: Aubergiste
+    description: |-
+      Une femme chaleureuse et pragmatique qui tient le Flacon d'Argent d'une main de fer dans un gant de velours.

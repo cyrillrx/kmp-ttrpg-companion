@@ -8,24 +8,15 @@ armorClass: 23
 maxHitPoints: 553
 hitDice: 27d20+270
 abilities:
-  str:
-    value: 30
-    savingThrowProficiency: none
-  dex:
-    value: 11
-    savingThrowProficiency: proficient
-  con:
-    value: 30
-    savingThrowProficiency: none
-  int:
-    value: 3
-    savingThrowProficiency: none
-  wis:
-    value: 11
-    savingThrowProficiency: proficient
-  cha:
-    value: 8
-    savingThrowProficiency: none
+  str: 30
+  dex: 11
+  con: 30
+  int: 3
+  wis: 11
+  cha: 8
+savingThrows:
+  dex: proficient
+  wis: proficient
 speeds:
   walk: 60
   fly: null
@@ -126,21 +117,21 @@ translations:
       ## Traits
 
       Forme immuable.
-      
+
       Résistance légendaire (4/jour).
-      
+
       Résistance à la magie.
-      
+
       Monstre de siège.
 
       ## Actions
 
       Attaques multiples.
-      
+
       Coup.
-      
+
       Rayon radiant.
-      
+
       Faisceau divin (recharge 5–6).
 
       ## Actions Légendaires
@@ -148,7 +139,7 @@ translations:
       Utilisations d'action Légendaire : 3.
 
       Châtiment.
-      
+
       Foulée écrasante.
     senses: vision véritable 90 m, Perception passive 10
     languages:

@@ -8,24 +8,15 @@ armorClass: 22
 maxHitPoints: 444
 hitDice: 24d20+192
 abilities:
-  str:
-    value: 29
-    savingThrowProficiency: none
-  dex:
-    value: 10
-    savingThrowProficiency: proficient
-  con:
-    value: 27
-    savingThrowProficiency: none
-  int:
-    value: 18
-    savingThrowProficiency: none
-  wis:
-    value: 17
-    savingThrowProficiency: proficient
-  cha:
-    value: 25
-    savingThrowProficiency: none
+  str: 29
+  dex: 10
+  con: 27
+  int: 18
+  wis: 17
+  cha: 25
+savingThrows:
+  dex: proficient
+  wis: proficient
 speeds:
   walk: 40
   fly: 80
@@ -108,7 +99,7 @@ translations:
       ***Spellcasting***. The dragon casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 22, +14 to hit with spell attacks):
 
       At Will: *[Detect Magic](https://www.aidedd.org/spell/detect-magic), [Guiding Bolt](https://www.aidedd.org/spell/guiding-bolt)* (level 2 version), *[Shapechange](https://www.aidedd.org/spell/shapechange)* (Beast or Humanoid form only, no Temporary Hit Points gained from the spell, and no Concentration or Temporary Hit Points required to maintain the spell), *[Speak with Animals](https://www.aidedd.org/spell/speak-with-animals), [Thaumaturgy](https://www.aidedd.org/spell/thaumaturgy)*
-      
+
       1/Day Each: *[Detect Thoughts](https://www.aidedd.org/spell/detect-thoughts), [Control Water](https://www.aidedd.org/spell/control-water), [Scrying](https://www.aidedd.org/spell/scrying), [Water Breathing](https://www.aidedd.org/spell/water-breathing)*
 
       ## Legendary actions
@@ -143,7 +134,7 @@ translations:
       ***Incantation***. Le dragon lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 22, +14 pour toucher) :
 
       À volonté : *[changement de forme](https://www.aidedd.org/spell/fr/changement-de-forme)* (Bête ou Humanoïde uniquement, le sort ne fait pas gagner de points de vie temporaires, ni Concentration ni points de vie temporaires nécessaires pour maintenir le sort), *[communication avec les animaux](https://www.aidedd.org/spell/fr/communication-avec-les-animaux), [détection de la magie](https://www.aidedd.org/spell/fr/detection-de-la-magie), ~~illusion mineure~~ , [rayon traçant](https://www.aidedd.org/spell/fr/rayon-tracant)* (au niveau 2), *[thaumaturgie](https://www.aidedd.org/spell/fr/thaumaturgie)*
-      
+
       1/jour chacun : *contrôle de l'eau,[détection des pensées](https://www.aidedd.org/spell/fr/detection-des-pensees), [respiration aquatique](https://www.aidedd.org/spell/fr/respiration-aquatique), [scrutation](https://www.aidedd.org/spell/fr/scrutation)*
 
       ***Souffle de foudre (recharge 5–6)***. *JdS Dextérité* : DD 23, chaque créature dans une Ligne de 36 m de long sur 3 m de large. *Échec* : 82 (15d10) dégâts de foudre. *Réussite* : demi-dégâts.

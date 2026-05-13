@@ -21,9 +21,8 @@ translations:
     materialDescription: a drop of water or a piece of ice
     description: |-
       You create a shard of ice and fling it at one creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 Piercing damage. Hit or miss, the shard then explodes. The target and each creature within 5 feet of it must succeed on a Dexterity saving throw or take 2d6 Cold damage.
-      
+
       ***Using a Higher-Level Spell Slot***. The Cold damage increases by 1d6 for each spell slot level above 1.
-      
   fr:
     name: Couteau de glace
     castingTime: Action
@@ -32,5 +31,5 @@ translations:
     materialDescription: une goutte d'eau et un morceau de glace
     description: |-
       Vous créez un éclat de glace et le lancez sur une créature à portée. Effectuez une attaque de sort à distance contre la cible. Si l'attaque touche, la cible subit 1d10 dégâts perforants. Que l'attaque soit réussie ou non, l'éclat explose. La cible et tout créature dans un rayon de 1,50 mètre doivent réussir un jet de sauvegarde de Dextérité ou subir 2d6 dégâts de froid.
-      
+
       ***Emplacement de niveau supérieur***. Les dégâts de froid augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 1.

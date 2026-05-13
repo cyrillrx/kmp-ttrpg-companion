@@ -20,9 +20,8 @@ translations:
     materialDescription: null
     description: |-
       Up to six creatures of your choice that you can see within range regain Hit Points equal to 2d4 plus your spellcasting ability modifier.
-      
+
       ***Using a Higher-Level Spell Slot***. The healing increases by 1d4 for each spell slot level above 3.
-      
   fr:
     name: Mot de guérison de groupe
     castingTime: Action bonus
@@ -31,5 +30,5 @@ translations:
     materialDescription: null
     description: |-
       Jusqu'à six créatures de votre choix que vous pouvez voir à portée regagnent des points de vie équivalents à 2d4 plus le modificateur de votre caractéristique d'incantations.
-      
+
       ***Emplacement de niveau supérieur***. Les soins augmentent de 1d4 pour chaque niveau d'emplacement de sort supérieur à 3.

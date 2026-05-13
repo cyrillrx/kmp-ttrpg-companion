@@ -8,24 +8,12 @@ armorClass: 15
 maxHitPoints: 66
 hitDice: 12d8+12
 abilities:
-  str:
-    value: 8
-    savingThrowProficiency: none
-  dex:
-    value: 17
-    savingThrowProficiency: none
-  con:
-    value: 13
-    savingThrowProficiency: none
-  int:
-    value: 15
-    savingThrowProficiency: none
-  wis:
-    value: 12
-    savingThrowProficiency: none
-  cha:
-    value: 20
-    savingThrowProficiency: none
+  str: 8
+  dex: 17
+  con: 13
+  int: 15
+  wis: 12
+  cha: 20
 speeds:
   walk: 30
   fly: 60
@@ -102,7 +90,7 @@ translations:
       ***Spellcasting***. The incubus casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 15):
 
       At Will: *[Disguise Self](https://www.aidedd.org/spell/disguise-self), [Etherealness](https://www.aidedd.org/spell/etherealness)*
-      
+
       1/Day Each: *[Dream](https://www.aidedd.org/spell/dream), [Hypnotic Pattern](https://www.aidedd.org/spell/hypnotic-pattern)*
 
       ## Bonus actions
@@ -130,7 +118,7 @@ translations:
       ***Incantation***. L'incube lance l'un des sorts suivants sans composantes matérielles, le Charisme étant sa caractéristique d'incantation (DD de sauvegarde 15) :
 
       À volonté : *déguisement, forme éthérée*
-      
+
       1/jour chacun : *motif hypnotique, songe*
 
       ## Actions Bonus

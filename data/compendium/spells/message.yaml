@@ -22,9 +22,8 @@ translations:
     materialDescription: a copper wire
     description: |-
       You point toward a creature within range and whisper a message. The target (and only the target) hears the message and can reply in a whisper that only you can hear.
-      
+
       You can cast this spell through solid objects if you are familiar with the target and know it is beyond the barrier. Magical silence; 1 foot of stone, metal, or wood; or a thin sheet of lead blocks the spell.
-      
   fr:
     name: Message
     castingTime: Action
@@ -33,5 +32,5 @@ translations:
     materialDescription: du fil de cuivre
     description: |-
       Vous pointez une créature à portée et murmurez un message. La cible (et elle seule) entend le message et peut répondre par un murmure que vous seul pouvez entendre.
-      
+
       Vous pouvez lancer ce sort à travers des objets solides si vous connaissez la cible et savez qu'elle se trouve au-delà de la barrière. Un silence magique, 30 cm de pierre, de métal ou de bois, ou une fine feuille de plomb bloquent le sort.

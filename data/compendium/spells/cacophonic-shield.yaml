@@ -21,11 +21,10 @@ translations:
     materialDescription: null
     description: |-
       Thunderous reverberations fill a 10-foot Emanation originating from you for the duration. Whenever the Emanation enters a creature's space and whenever a creature enters the Emanation or ends its turn there, the creature makes a Constitution saving throw. On a failed save, the creature takes 3d6 Thunder damage and has the Deafened condition until the start of your next turn. On a successful save, the creature takes half as much damage only. A creature makes this save only once per turn. When you cast this spell, you can designate creatures to be unaffected by it.
-      
+
       In addition, you have Resistance to Thunder damage, and ranged attack rolls against you are made with Disadvantage.
-      
+
       **Using a Higher-Level Spell Slot.** The damage increases by 1d6 for each spell slot level above 3.
-      
   fr:
     name: Bouclier cacophonique
     castingTime: Action
@@ -34,7 +33,7 @@ translations:
     materialDescription: null
     description: |-
       Des vibrations tonnantes remplissent une Émanation de 3 mètres autour de vous pour toute la durée. Lorsque l'Émanation pénètre dans l'espace d'une créature et lorsqu'une créature entre dans l'Émanation ou y termine son tour, elle effectue un jet de sauvegarde de Constitution. En cas d'échec, la créature subit 3d6 dégâts de tonnerre et subit l'état Assourdi jusqu'au début de votre prochain tour. En cas de réussite, la créature ne subit que la moitié de ces dégâts. Une créature n'effectue ce jet de sauvegarde qu'une seule fois par tour. Lorsque vous lancez ce sort, vous pouvez désigner des créatures pour qu'elles ne soient pas affectées.
-      
+
       En outre, vous bénéficiez de la Résistance aux dégâts de tonnerre, et les jets d'attaque à distance contre vous sont effectués avec le Désavantage.
-      
+
       **Emplacement de niveau supérieur.** Les dégâts augmentent de 1d6 par niveau d'emplacement au-delà du 3e.

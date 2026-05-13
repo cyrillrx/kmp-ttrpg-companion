@@ -8,24 +8,12 @@ armorClass: 12
 maxHitPoints: 66
 hitDice: 12d8+12
 abilities:
-  str:
-    value: 16
-    savingThrowProficiency: none
-  dex:
-    value: 14
-    savingThrowProficiency: none
-  con:
-    value: 13
-    savingThrowProficiency: none
-  int:
-    value: 14
-    savingThrowProficiency: none
-  wis:
-    value: 16
-    savingThrowProficiency: none
-  cha:
-    value: 12
-    savingThrowProficiency: none
+  str: 16
+  dex: 14
+  con: 13
+  int: 14
+  wis: 16
+  cha: 12
 speeds:
   walk: 30
   fly: null
@@ -102,7 +90,7 @@ translations:
       ***Spellcasting (Yuan-ti Form Only)***. The yuan-ti casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 13):
 
       At will: *[Animal Friendship](https://www.aidedd.org/spell/animal-friendship)* (snakes only)
-      
+
       2/day: *[Suggestion](https://www.aidedd.org/spell/suggestion)*
 
       ## Bonus actions
@@ -130,7 +118,7 @@ translations:
       ***Incantation (forme de yuan-ti uniquement)***. The yuan-ti lance l'un des sorts suivants sans composantes matérielles, la Sagesse étant sa caractéristique d'incantation (DD de sauvegarde 13) :
 
       À volonté : *[amitié avec les animaux](https://www.aidedd.org/spell/fr/amitie-avec-les-animaux)* (serpents uniquement)
-      
+
       2/jour : *[suggestion](https://www.aidedd.org/spell/fr/suggestion)*
 
       ## Actions Bonus

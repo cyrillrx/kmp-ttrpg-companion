@@ -20,11 +20,10 @@ translations:
     materialDescription: null
     description: |-
       A thin sheet of flames shoots forth from you. Each creature in a 15-foot Cone makes a Dexterity saving throw, taking 3d6 Fire damage on a failed save or half as much damage on a successful one.
-      
+
       Flammable objects in the Cone that aren't being worn or carried start burning.
-      
+
       ***Using a Higher-Level Spell Slot***. The damage increases by 1d6 for each spell slot level above 1.
-      
   fr:
     name: Mains brûlantes
     castingTime: Action
@@ -33,7 +32,7 @@ translations:
     materialDescription: null
     description: |-
       Une fine nappe de flammes jaillit de vous. Toute créature dans un Cône de 4,50 mètres effectue un jet de sauvegarde de Dextérité, subissant 3d6 dégâts de feu en cas d'échec, ou la moitié de ces dégâts en cas de réussite.
-      
+
       Les objets inflammables dans le Cône qui ne sont pas portés commencent à brûler.
-      
+
       ***Emplacement de niveau supérieur***. Les dégâts augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 1.
