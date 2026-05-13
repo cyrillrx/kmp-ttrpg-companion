@@ -148,9 +148,11 @@ class JsonCharacterPresetRepository(
         private fun String.toClass(): Character.Class? =
             Character.Class.entries.find { it.name.equals(this, ignoreCase = true) }
 
-        private fun String.toLanguage(id: String): Result<Language, CharacterImportError> =
-            Language.entries.find { it.name.equals(this, ignoreCase = true) }
-                ?.let { Result.Success(it) }
-                ?: Result.Failure(CharacterImportError.UnknownLanguage(id, this))
+        private fun String.toLanguage(id: String): Result<Language, CharacterImportError> {
+            val language = Language.entries.find { it.name.equals(this, ignoreCase = true) }
+                ?: return Result.Failure(CharacterImportError.UnknownLanguage(id, this))
+
+            return Result.Success(language)
+        }
     }
 }
