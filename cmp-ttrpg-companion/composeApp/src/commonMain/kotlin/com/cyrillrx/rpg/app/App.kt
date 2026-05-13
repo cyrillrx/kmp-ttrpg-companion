@@ -19,7 +19,7 @@ import com.cyrillrx.rpg.campaign.data.SQLDelightCampaignRepository
 import com.cyrillrx.rpg.campaign.navigation.handleCampaignRoutes
 import com.cyrillrx.rpg.campaign.navigation.registerCampaignRoutes
 import com.cyrillrx.rpg.character.data.JsonCharacterPresetRepository
-import com.cyrillrx.rpg.character.data.RamCharacterRepository
+import com.cyrillrx.rpg.character.data.SQLDelightCharacterRepository
 import com.cyrillrx.rpg.character.presentation.navigation.handleCharacterRoutes
 import com.cyrillrx.rpg.character.presentation.navigation.registerCharacterRoutes
 import com.cyrillrx.rpg.core.data.ComposeFileReader
@@ -95,7 +95,7 @@ fun App(dbDriverFactory: DatabaseDriverFactory) {
                 handleCampaignRoutes(backStack, SQLDelightCampaignRepository(dbDriverFactory))
                 handleCharacterRoutes(
                     backStack = backStack,
-                    characterRepository = RamCharacterRepository(),
+                    characterRepository = SQLDelightCharacterRepository(dbDriverFactory),
                     pcPresetRepository = JsonCharacterPresetRepository(fileReader, "files/pc-presets.json"),
                     npcPresetRepository = JsonCharacterPresetRepository(fileReader, "files/npc-presets.json"),
                 )
