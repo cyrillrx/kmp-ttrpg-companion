@@ -17,7 +17,7 @@ For the source format decision, see [`docs/adr/adr-002-compendium-source-format.
 - All keys are in English. French content belongs only inside `translations.fr`.
 - The `source` field identifies the origin of the entry — see [known source values](../adr/adr-001-data-model.md#2-source-field).
 - An entity with an empty `translations` map is considered malformed.
-- Descriptions are currently **HTML** (Phase 1). Migration to GFM Markdown is deferred to Phase 2, alongside the Compose renderer update.
+- Descriptions use **GitHub Flavored Markdown (GFM)**.
 
 ---
 
@@ -34,24 +34,14 @@ armorClass: 15
 maxHitPoints: 7
 hitDice: 2d6
 abilities:
-  str:
-    value: 8
-    savingThrowProficiency: none
-  dex:
-    value: 14
-    savingThrowProficiency: none
-  con:
-    value: 10
-    savingThrowProficiency: none
-  int:
-    value: 10
-    savingThrowProficiency: none
-  wis:
-    value: 8
-    savingThrowProficiency: none
-  cha:
-    value: 8
-    savingThrowProficiency: none
+  str: 8
+  dex: 14
+  con: 10
+  int: 10
+  wis: 8
+  cha: 8
+savingThrows:
+  dex: proficient
 speeds:
   walk: 30
   fly: null
@@ -132,6 +122,7 @@ translations:
       **Cimeterre.** *Attaque d'arme au corps à corps :* +4 pour toucher, allonge 1,50 m, une cible.
       *Touché :* 5 (1d6 + 2) dégâts tranchants.
     senses: Vision dans le noir 18 m, Perception passive 9
+
     languages:
       - commun
       - gobelin
@@ -139,7 +130,8 @@ translations:
 
 ### Notes
 
-- `abilities.{key}.savingThrowProficiency` — `none`, `proficient`, or `expert` (ADR-001 §5)
+- `abilities.{key}` — integer ability score; all 6 keys required (ADR-001 §5)
+- `savingThrows` — map of ability keys to `proficient` or `expert`; omit keys with no proficiency; omit the field entirely when none apply
 - `skills` — all 18 keys required; set to `none` when not proficient (ADR-001 §6)
 - `damageAffinities` — all 16 keys required; `none` / `resistant` / `immune` / `vulnerable` (ADR-001 §7)
 - `conditionImmunities` — all 14 keys required; `false` when not immune (ADR-001 §7)
@@ -149,7 +141,7 @@ translations:
 - `translations.{locale}.subtype` — locale-specific string or `null`; always present, never omitted
 - `translations.{locale}.senses` — raw locale text; EN uses feet, FR uses rounded metres
 - `translations.{locale}.languages` — array of strings (locale-specific names)
-- `translations.{locale}.description` — HTML containing traits, actions, reactions, and legendary actions; use `|-` block scalar (strip chomping, no trailing newline)
+- `translations.{locale}.description` — GFM Markdown containing traits, actions, reactions, and legendary actions; use `|-` block scalar (strip chomping, no trailing newline)
 
 ### Empty Descriptions
 
@@ -169,14 +161,15 @@ When a description field is empty after parsing the source:
 - [ ] `armorClass` — integer only (no armor type string)
 - [ ] `maxHitPoints` — integer (average)
 - [ ] `hitDice` — string (e.g., `2d6`, `23d8+92`)
-- [ ] `abilities` — all 6 keys, each with integer `value` and `savingThrowProficiency`
+- [ ] `abilities` — all 6 keys; integer score
+- [ ] `savingThrows` — map of proficient/expert abilities only; omit entirely if none
 - [ ] `speeds` — all 6 keys (`walk`, `fly`, `swim`, `climb`, `burrow`, `hover`); values in feet or `null`
 - [ ] `skills` — all 18 keys present
 - [ ] `damageAffinities` — all 16 keys present
 - [ ] `conditionImmunities` — all 14 keys present
 - [ ] `translations.{locale}.name`
 - [ ] `translations.{locale}.subtype` — locale-specific string or `null`
-- [ ] `translations.{locale}.description` — HTML (traits, actions, reactions, legendary actions)
+- [ ] `translations.{locale}.description` — GFM Markdown (traits, actions, reactions, legendary actions)
 - [ ] `translations.{locale}.senses` — raw text
 - [ ] `translations.{locale}.languages` — array of strings
 
