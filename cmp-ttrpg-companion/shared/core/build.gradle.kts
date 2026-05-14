@@ -53,6 +53,9 @@ kotlin {
         jvmMain.dependencies {
             implementation(libs.sqldelight.jvm)
         }
+        jvmTest.dependencies {
+            implementation(libs.sqldelight.jvm)
+        }
     }
 }
 

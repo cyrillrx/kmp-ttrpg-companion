@@ -3,7 +3,7 @@ package com.cyrillrx.rpg.creature.domain
 import kotlinx.serialization.Serializable
 
 @Serializable
-class Abilities(
+data class Abilities(
     val str: Ability,
     val dex: Ability,
     val con: Ability,
