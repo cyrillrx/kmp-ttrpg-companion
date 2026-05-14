@@ -73,7 +73,7 @@ fun App(dbDriverFactory: DatabaseDriverFactory) {
         val backStack = rememberNavBackStack(navSavedStateConfig, MainRoute.Home)
 
         val fileReader = ComposeFileReader()
-        val userListRepository = SQLDelightUserListRepository(dbDriverFactory)
+        val userListRepository = remember(dbDriverFactory) { SQLDelightUserListRepository(dbDriverFactory) }
 
         NavDisplay(
             backStack = backStack,
@@ -93,7 +93,7 @@ fun App(dbDriverFactory: DatabaseDriverFactory) {
                 val homeRouter = HomeRouterImpl(backStack)
                 entry<MainRoute.Home> { HomeScreen(homeRouter) }
 
-                handleCampaignRoutes(backStack, SQLDelightCampaignRepository(dbDriverFactory))
+                handleCampaignRoutes(backStack, remember(dbDriverFactory) { SQLDelightCampaignRepository(dbDriverFactory) })
                 handleCharacterRoutes(
                     backStack = backStack,
                     characterRepository = remember(dbDriverFactory) { SQLDelightCharacterRepository(dbDriverFactory) },
