@@ -27,6 +27,7 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
         dbQuery.deleteCharacter(id)
     }
 
+    @Suppress("UNUSED_PARAMETER")
     private fun mapCharacterSelecting(id: String, data: String): Character = data.deserialize()
 
     fun getAllCampaigns(): List<Campaign> {
