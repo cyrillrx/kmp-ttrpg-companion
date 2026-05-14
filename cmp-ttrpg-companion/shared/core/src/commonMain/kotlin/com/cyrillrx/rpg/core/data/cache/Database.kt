@@ -23,6 +23,9 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
         dbQuery.saveCharacter(id = character.id, data_ = character.serialize())
     }
 
+    fun getCharactersByIds(ids: Collection<String>): List<Character> =
+        dbQuery.selectCharactersByIds(ids, ::mapCharacterSelecting).executeAsList()
+
     fun deleteCharacter(id: String) {
         dbQuery.deleteCharacter(id)
     }

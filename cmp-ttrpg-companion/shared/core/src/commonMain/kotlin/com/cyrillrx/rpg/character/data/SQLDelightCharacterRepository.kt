@@ -18,10 +18,8 @@ class SQLDelightCharacterRepository(databaseDriverFactory: DatabaseDriverFactory
 
     override suspend fun get(id: String): Character? = database.getCharacter(id)
 
-    override suspend fun getByIds(ids: List<String>): List<Character> {
-        val set = ids.toHashSet()
-        return database.getAllCharacters().filter { it.id in set }
-    }
+    override suspend fun getByIds(ids: List<String>): List<Character> =
+        database.getCharactersByIds(ids)
 
     override suspend fun save(character: Character) = database.saveCharacter(character)
 

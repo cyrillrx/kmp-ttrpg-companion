@@ -31,6 +31,9 @@ SELECT Character.* FROM Character;
 selectCharacterById:
 SELECT Character.* FROM Character WHERE id = ?;
 
+selectCharactersByIds:
+SELECT Character.* FROM Character WHERE id IN ?;
+
 deleteCharacter:
 DELETE FROM Character WHERE id = ?;
 
