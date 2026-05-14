@@ -9,6 +9,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.entryProvider
@@ -95,7 +96,7 @@ fun App(dbDriverFactory: DatabaseDriverFactory) {
                 handleCampaignRoutes(backStack, SQLDelightCampaignRepository(dbDriverFactory))
                 handleCharacterRoutes(
                     backStack = backStack,
-                    characterRepository = SQLDelightCharacterRepository(dbDriverFactory),
+                    characterRepository = remember(dbDriverFactory) { SQLDelightCharacterRepository(dbDriverFactory) },
                     pcPresetRepository = JsonCharacterPresetRepository(fileReader, "files/pc-presets.json"),
                     npcPresetRepository = JsonCharacterPresetRepository(fileReader, "files/npc-presets.json"),
                 )
