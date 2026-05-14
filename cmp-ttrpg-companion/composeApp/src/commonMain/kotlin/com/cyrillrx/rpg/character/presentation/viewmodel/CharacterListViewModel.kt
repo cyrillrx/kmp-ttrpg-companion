@@ -22,7 +22,7 @@ class CharacterListViewModel(
 ) : ViewModel() {
     private var searchJob: Job? = null
     val state: StateFlow<CharacterListState>
-        field = MutableStateFlow(CharacterListState(searchQuery = "", body = CharacterListState.Body.Empty))
+        field = MutableStateFlow(CharacterListState(searchQuery = "", body = CharacterListState.Body.Loading))
 
     init {
         loadCharacters(query = "")
