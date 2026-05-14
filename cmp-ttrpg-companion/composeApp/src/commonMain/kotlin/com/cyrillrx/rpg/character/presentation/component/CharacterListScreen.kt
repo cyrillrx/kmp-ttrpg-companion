@@ -59,7 +59,7 @@ fun CharacterListScreen(
     val state by viewModel.state.collectAsStateWithLifecycle()
 
     LifecycleEventEffect(Lifecycle.Event.ON_RESUME) {
-        viewModel.onSearchQueryChanged(state.searchQuery)
+        viewModel.silentRefresh()
     }
 
     CharacterListScreen(
