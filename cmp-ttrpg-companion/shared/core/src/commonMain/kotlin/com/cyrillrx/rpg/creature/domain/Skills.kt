@@ -1,7 +1,10 @@
 package com.cyrillrx.rpg.creature.domain
 
+import kotlinx.serialization.Serializable
+
 enum class Proficiency { NONE, PROFICIENT, EXPERT }
 
+@Serializable
 data class Skills(
     val acrobatics: Proficiency = Proficiency.NONE,
     val animalHandling: Proficiency = Proficiency.NONE,

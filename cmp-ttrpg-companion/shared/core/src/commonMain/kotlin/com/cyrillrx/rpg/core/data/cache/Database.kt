@@ -1,14 +1,37 @@
 package com.cyrillrx.rpg.core.data.cache
 
+import com.cyrillrx.core.data.deserialize
+import com.cyrillrx.core.data.serialize
 import com.cyrillrx.rpg.cache.AppDatabase
 import com.cyrillrx.rpg.campaign.domain.Campaign
 import com.cyrillrx.rpg.campaign.domain.RuleSet
+import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.userlist.domain.UserList
 import kotlinx.datetime.Instant
 
 internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
     private val database = AppDatabase(databaseDriverFactory.createDriver())
     private val dbQuery = database.appDatabaseQueries
+
+    fun getAllCharacters(): List<Character> =
+        dbQuery.selectAllCharacters(::mapCharacterSelecting).executeAsList()
+
+    fun getCharacter(id: String): Character? =
+        dbQuery.selectCharacterById(id, ::mapCharacterSelecting).executeAsOneOrNull()
+
+    fun saveCharacter(character: Character) {
+        dbQuery.saveCharacter(id = character.id, data_ = character.serialize())
+    }
+
+    fun getCharactersByIds(ids: Collection<String>): List<Character> =
+        dbQuery.selectCharactersByIds(ids, ::mapCharacterSelecting).executeAsList()
+
+    fun deleteCharacter(id: String) {
+        dbQuery.deleteCharacter(id)
+    }
+
+    @Suppress("UNUSED_PARAMETER")
+    private fun mapCharacterSelecting(id: String, data: String): Character = data.deserialize()
 
     fun getAllCampaigns(): List<Campaign> {
         return dbQuery.selectAllCampaigns(::mapCampaignSelecting).executeAsList()

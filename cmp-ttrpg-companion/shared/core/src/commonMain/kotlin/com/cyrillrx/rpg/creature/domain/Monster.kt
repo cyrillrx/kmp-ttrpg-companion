@@ -3,13 +3,13 @@ package com.cyrillrx.rpg.creature.domain
 import com.cyrillrx.core.domain.FALLBACK_LOCALE
 
 class Monster(
-    id: String,
-    size: Size,
-    alignment: Alignment,
-    abilities: Abilities,
-    armorClass: Int,
-    maxHitPoints: Int,
-    speeds: Speeds,
+    override val id: String,
+    override val size: Size,
+    override val alignment: Alignment,
+    override val abilities: Abilities,
+    override val armorClass: Int,
+    override val maxHitPoints: Int,
+    override val speeds: Speeds,
     val source: String,
     val type: Type,
     val challengeRating: Float,
@@ -18,15 +18,7 @@ class Monster(
     val damageAffinities: DamageAffinities = DamageAffinities(),
     val conditionImmunities: ConditionImmunities = ConditionImmunities(),
     val translations: Map<String, Translation>,
-) : Creature(
-    id = id,
-    size = size,
-    alignment = alignment,
-    abilities = abilities,
-    armorClass = armorClass,
-    maxHitPoints = maxHitPoints,
-    speeds = speeds,
-) {
+) : Creature() {
     init {
         require(translations.isNotEmpty()) { "Monster $id must have at least one translation" }
     }

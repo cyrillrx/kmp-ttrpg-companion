@@ -9,6 +9,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.entryProvider
@@ -19,7 +20,7 @@ import com.cyrillrx.rpg.campaign.data.SQLDelightCampaignRepository
 import com.cyrillrx.rpg.campaign.navigation.handleCampaignRoutes
 import com.cyrillrx.rpg.campaign.navigation.registerCampaignRoutes
 import com.cyrillrx.rpg.character.data.JsonCharacterPresetRepository
-import com.cyrillrx.rpg.character.data.RamCharacterRepository
+import com.cyrillrx.rpg.character.data.SQLDelightCharacterRepository
 import com.cyrillrx.rpg.character.presentation.navigation.handleCharacterRoutes
 import com.cyrillrx.rpg.character.presentation.navigation.registerCharacterRoutes
 import com.cyrillrx.rpg.core.data.ComposeFileReader
@@ -72,7 +73,7 @@ fun App(dbDriverFactory: DatabaseDriverFactory) {
         val backStack = rememberNavBackStack(navSavedStateConfig, MainRoute.Home)
 
         val fileReader = ComposeFileReader()
-        val userListRepository = SQLDelightUserListRepository(dbDriverFactory)
+        val userListRepository = remember(dbDriverFactory) { SQLDelightUserListRepository(dbDriverFactory) }
 
         NavDisplay(
             backStack = backStack,
@@ -92,10 +93,10 @@ fun App(dbDriverFactory: DatabaseDriverFactory) {
                 val homeRouter = HomeRouterImpl(backStack)
                 entry<MainRoute.Home> { HomeScreen(homeRouter) }
 
-                handleCampaignRoutes(backStack, SQLDelightCampaignRepository(dbDriverFactory))
+                handleCampaignRoutes(backStack, remember(dbDriverFactory) { SQLDelightCampaignRepository(dbDriverFactory) })
                 handleCharacterRoutes(
                     backStack = backStack,
-                    characterRepository = RamCharacterRepository(),
+                    characterRepository = remember(dbDriverFactory) { SQLDelightCharacterRepository(dbDriverFactory) },
                     pcPresetRepository = JsonCharacterPresetRepository(fileReader, "files/pc-presets.json"),
                     npcPresetRepository = JsonCharacterPresetRepository(fileReader, "files/npc-presets.json"),
                 )

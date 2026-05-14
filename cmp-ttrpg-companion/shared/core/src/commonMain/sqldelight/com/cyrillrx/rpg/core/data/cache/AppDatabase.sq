@@ -17,6 +17,26 @@ DELETE FROM Campaign WHERE id = ?;
 selectAllCampaigns:
 SELECT Campaign.* FROM Campaign;
 
+CREATE TABLE IF NOT EXISTS Character (
+    id TEXT NOT NULL PRIMARY KEY,
+    data TEXT NOT NULL
+);
+
+saveCharacter:
+INSERT OR REPLACE INTO Character(id, data) VALUES(?, ?);
+
+selectAllCharacters:
+SELECT Character.* FROM Character;
+
+selectCharacterById:
+SELECT Character.* FROM Character WHERE id = ?;
+
+selectCharactersByIds:
+SELECT Character.* FROM Character WHERE id IN ?;
+
+deleteCharacter:
+DELETE FROM Character WHERE id = ?;
+
 CREATE TABLE UserList (
     id TEXT NOT NULL PRIMARY KEY,
     name TEXT NOT NULL,
