@@ -37,15 +37,7 @@ class CampaignListViewModel(
     fun silentRefresh() {
         if (state.value.body is CampaignListState.Body.Loading) return
         activeJob?.cancel()
-        activeJob = viewModelScope.launch {
-            try {
-                fetchAndUpdateCampaigns(state.value.searchQuery)
-            } catch (e: CancellationException) {
-                throw e
-            } catch (e: Exception) {
-                // Keep existing state on refresh failure
-            }
-        }
+        activeJob = refreshCampaigns()
     }
 
     fun openCampaignDetail(campaign: Campaign) {
@@ -55,6 +47,17 @@ class CampaignListViewModel(
     fun openCreateCampaign() {
         router.openCreateCampaign()
     }
+
+    private fun refreshCampaigns(): Job =
+        viewModelScope.launch {
+            try {
+                fetchAndUpdateCampaigns(state.value.searchQuery)
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                // Keep existing state on refresh failure
+            }
+        }
 
     private fun loadCampaigns(query: String): Job =
         viewModelScope.launch {

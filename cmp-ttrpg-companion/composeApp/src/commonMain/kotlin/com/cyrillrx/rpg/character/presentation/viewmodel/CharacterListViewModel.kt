@@ -36,15 +36,7 @@ class CharacterListViewModel(
     fun silentRefresh() {
         if (state.value.body is CharacterListState.Body.Loading) return
         activeJob?.cancel()
-        activeJob = viewModelScope.launch {
-            try {
-                fetchAndUpdateCharacters(state.value.searchQuery)
-            } catch (e: CancellationException) {
-                throw e
-            } catch (e: Exception) {
-                // Keep existing state on refresh failure
-            }
-        }
+        activeJob = refreshCharacters()
     }
 
     fun openCharacterDetail(character: Character) {
@@ -58,6 +50,17 @@ class CharacterListViewModel(
     fun openPresetGallery() {
         router.openPresetGallery()
     }
+
+    private fun refreshCharacters(): Job =
+        viewModelScope.launch {
+            try {
+                fetchAndUpdateCharacters(state.value.searchQuery)
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                // Keep existing state on refresh failure
+            }
+        }
 
     private fun loadCharacters(query: String): Job =
         viewModelScope.launch {
