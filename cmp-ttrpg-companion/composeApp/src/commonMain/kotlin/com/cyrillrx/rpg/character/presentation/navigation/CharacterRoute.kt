@@ -4,12 +4,13 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation3.runtime.EntryProviderScope
 import androidx.navigation3.runtime.NavBackStack
 import androidx.navigation3.runtime.NavKey
-import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.presentation.component.CharacterDetailScreen
 import com.cyrillrx.rpg.character.presentation.component.CharacterListScreen
 import com.cyrillrx.rpg.character.presentation.component.CharacterPresetGalleryScreen
 import com.cyrillrx.rpg.character.presentation.component.CreateCharacterScreen
+import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterEditViewModel
+import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterEditViewModelFactory
 import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterListViewModel
 import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterListViewModelFactory
 import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterPresetGalleryViewModel
@@ -23,7 +24,7 @@ interface CharacterRoute {
     data object List : NavKey
 
     @Serializable
-    data class Detail(val serializedCharacter: String) : NavKey
+    data class Detail(val characterId: String) : NavKey
 
     @Serializable
     data object Create : NavKey
@@ -53,10 +54,10 @@ fun EntryProviderScope<NavKey>.handleCharacterRoutes(
     }
 
     entry<CharacterRoute.Detail> { route ->
-        CharacterDetailScreen(
-            character = route.serializedCharacter.deserialize(),
-            onNavigateUpClicked = backStack::navigateUp,
-        )
+        val router = CharacterRouterImpl(backStack)
+        val factory = CharacterEditViewModelFactory(route.characterId, router, characterRepository)
+        val viewModel = viewModel<CharacterEditViewModel>(key = route.characterId, factory = factory)
+        CharacterDetailScreen(viewModel, router)
     }
 
     entry<CharacterRoute.Create> {

@@ -12,6 +12,25 @@
     <string name="btn_quick_create_subtitle">PC &amp; NPC presets</string>
     <string name="hint_search_character">Search characters…</string>
 
+    <!-- Character edit screen -->
+    <string name="label_name">Name</string>
+    <string name="label_race">Race</string>
+    <string name="label_class">Class</string>
+    <string name="label_level">Level</string>
+    <string name="label_background">Background</string>
+    <string name="label_abilities">Abilities</string>
+    <string name="label_str">STR</string>
+    <string name="label_dex">DEX</string>
+    <string name="label_con">CON</string>
+    <string name="label_int">INT</string>
+    <string name="label_wis">WIS</string>
+    <string name="label_cha">CHA</string>
+    <string name="label_combat">Combat</string>
+    <string name="label_ac">AC</string>
+    <string name="label_max_hp">Max HP</string>
+    <string name="label_walk_speed">Walk speed (ft)</string>
+    <string name="label_languages">Languages</string>
+
     <!-- Character race -->
     <string name="race_human">Human</string>
     <string name="race_elf">Elf</string>

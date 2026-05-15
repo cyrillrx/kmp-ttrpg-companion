@@ -36,8 +36,10 @@ class CharacterPresetGalleryViewModel(
     @OptIn(ExperimentalUuidApi::class)
     fun onPresetSelected(preset: Character) {
         viewModelScope.launch {
-            characterRepository.save(preset.copy(id = Uuid.random().toString()))
+            val newCharacter = preset.copy(id = Uuid.random().toString())
+            characterRepository.save(newCharacter)
             router.navigateUp()
+            router.openCharacterDetail(newCharacter.id)
         }
     }
 
