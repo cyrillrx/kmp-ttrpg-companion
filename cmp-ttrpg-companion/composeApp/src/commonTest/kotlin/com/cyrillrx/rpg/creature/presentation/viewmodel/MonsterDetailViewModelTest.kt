@@ -22,8 +22,8 @@ import kotlin.test.assertIs
 class MonsterDetailViewModelTest {
 
     private val testDispatcher = StandardTestDispatcher()
-    val repository = SampleMonsterRepository()
-    val monster = SampleMonsterRepository.getFirst()
+    private val repository = SampleMonsterRepository()
+    private val monster = SampleMonsterRepository.getFirst()
 
     @BeforeTest
     fun setUp() {
