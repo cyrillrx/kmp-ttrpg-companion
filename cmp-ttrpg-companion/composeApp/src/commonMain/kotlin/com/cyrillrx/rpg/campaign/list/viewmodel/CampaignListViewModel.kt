@@ -21,38 +21,60 @@ class CampaignListViewModel(
     private val repository: CampaignRepository,
 ) : ViewModel() {
 
-    private var updateJob: Job? = null
+    private var filterJob: Job? = null
     val state: StateFlow<CampaignListState>
-        field = MutableStateFlow(CampaignListState(searchQuery = "", body = CampaignListState.Body.Empty))
+        field = MutableStateFlow(CampaignListState(searchQuery = "", body = CampaignListState.Body.Loading))
 
-    fun filterByQuery(query: String) {
-        updateJob?.cancel()
-        updateJob = viewModelScope.launch { updateData(query) }
+    init {
+        loadCampaigns(query = "")
     }
 
-    fun onCampaignClicked(campaign: Campaign) {
+    fun filterByQuery(query: String) {
+        filterJob?.cancel()
+        filterJob = loadCampaigns(query)
+    }
+
+    fun silentRefresh() {
+        if (state.value.body is CampaignListState.Body.Loading) return
+        viewModelScope.launch {
+            try {
+                fetchAndUpdateCampaigns(state.value.searchQuery)
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                // Keep existing state on refresh failure
+            }
+        }
+    }
+
+    fun openCampaignDetail(campaign: Campaign) {
         router.openCampaignDetail(campaign)
     }
 
-    fun onCreateCampaignClicked() {
+    fun openCreateCampaign() {
         router.openCreateCampaign()
     }
 
-    private suspend fun updateData(query: String) {
-        state.update { CampaignListState(searchQuery = query, body = CampaignListState.Body.Loading) }
-
-        try {
-            val filter = CampaignFilter(query = query)
-            val campaigns = repository.getAll(filter)
-            if (campaigns.isEmpty()) {
-                state.update { it.copy(body = CampaignListState.Body.Empty) }
-            } else {
-                state.update { it.copy(body = CampaignListState.Body.WithData(campaigns)) }
+    private fun loadCampaigns(query: String): Job =
+        viewModelScope.launch {
+            state.update { CampaignListState(searchQuery = query, body = CampaignListState.Body.Loading) }
+            try {
+                fetchAndUpdateCampaigns(query)
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                state.update { it.copy(body = CampaignListState.Body.Error(errorMessage = Res.string.error_while_loading_campaign)) }
             }
-        } catch (e: CancellationException) {
-            throw e
-        } catch (e: Exception) {
-            state.update { it.copy(body = CampaignListState.Body.Error(errorMessage = Res.string.error_while_loading_campaign)) }
         }
+
+    private suspend fun fetchAndUpdateCampaigns(query: String) {
+        val filter = CampaignFilter(query = query)
+        val campaigns = repository.getAll(filter)
+        val body = if (campaigns.isEmpty()) {
+            CampaignListState.Body.Empty
+        } else {
+            CampaignListState.Body.WithData(campaigns)
+        }
+        state.update { it.copy(body = body) }
     }
 }
