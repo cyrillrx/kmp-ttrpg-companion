@@ -29,9 +29,29 @@ The application follows a **Clean Architecture** and **Layered** approach adapte
 - **Use Model-View-ViewModel (MVVM)**.
 - **Follow Unidirectional Data Flow (UDF)**:
     - State flows down: ViewModels expose a single `StateFlow<ViewState>`.
-    - Events flow up: Composables pass user actions to the ViewModel via specific functions (e.g., `viewModel::onActionClicked`).
+    - Events flow up: Composables pass user actions to the ViewModel via lambda callbacks (e.g., `onCreateCampaignClicked = viewModel::openCreateCampaign`).
 - **Keep ViewModels platform-agnostic** using `lifecycle-viewmodel-compose` from JetBrains.
 - **Do not pass ViewModels down the Composable tree**. Pass state and lambda callbacks instead.
+
+### ViewModel Method Naming
+
+ViewModel public methods must reflect **behavior** (what the app does), not the UI event that triggered them. Composable callback parameters keep the UI-event convention because they are generic lambda slots.
+
+| Context                       | Convention                     | Examples                                           |
+|-------------------------------|--------------------------------|----------------------------------------------------|
+| Composable callback parameter | `onXxxClicked`, `onXxxChanged` | `onCreateCampaignClicked`, `onSearchQueryChanged`  |
+| ViewModel public method       | Functional verb phrase         | `openCreateCampaign`, `filterByQuery`, `silentRefresh` |
+
+```kotlin
+// ✅ Correct — callback param name ≠ ViewModel method name
+fun CampaignListScreen(viewModel: CampaignListViewModel, router: CampaignRouter) {
+    CampaignListScreen(
+        onSearchQueryChanged = viewModel::filterByQuery,
+        onCampaignClicked = viewModel::openCampaignDetail,
+        onCreateCampaignClicked = viewModel::openCreateCampaign,
+    )
+}
+```
 
 ### Domain & Data Layers
 
