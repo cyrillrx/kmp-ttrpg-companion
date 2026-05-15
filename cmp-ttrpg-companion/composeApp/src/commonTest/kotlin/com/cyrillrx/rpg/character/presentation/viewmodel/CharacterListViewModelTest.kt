@@ -136,6 +136,24 @@ class CharacterListViewModelTest {
     }
 
     @Test
+    fun `silentRefresh keeps existing state when repository throws`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(FailsOnSecondCallCharacterRepository())
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        assertIs<CharacterListState.Body.Empty>(viewModel.state.value.body)
+
+        viewModel.silentRefresh()
+        advanceUntilIdle()
+
+        assertIs<CharacterListState.Body.Empty>(viewModel.state.value.body)
+    }
+
+    @Test
     fun `filterByQuery updates searchQuery in state`() = runTest(testDispatcher) {
         val viewModel = buildViewModel()
 

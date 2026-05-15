@@ -42,12 +42,17 @@ import rpg_companion.composeapp.generated.resources.hint_search_campaign
 @Composable
 fun CampaignListScreen(viewModel: CampaignListViewModel, router: CampaignRouter) {
     val state by viewModel.state.collectAsStateWithLifecycle()
+
+    LifecycleEventEffect(Lifecycle.Event.ON_RESUME) {
+        viewModel.silentRefresh()
+    }
+
     CampaignListScreen(
         state = state,
         onNavigateUpClicked = router::navigateUp,
         onSearchQueryChanged = viewModel::filterByQuery,
-        onCampaignClicked = viewModel::onCampaignClicked,
-        onCreateCampaignClicked = viewModel::onCreateCampaignClicked,
+        onCampaignClicked = viewModel::openCampaignDetail,
+        onCreateCampaignClicked = viewModel::openCreateCampaign,
     )
 }
 
@@ -59,10 +64,6 @@ fun CampaignListScreen(
     onCampaignClicked: (Campaign) -> Unit,
     onCreateCampaignClicked: () -> Unit,
 ) {
-    LifecycleEventEffect(Lifecycle.Event.ON_RESUME) {
-        onSearchQueryChanged(state.searchQuery)
-    }
-
     Scaffold(
         topBar = {
             SearchBarWithBack(
