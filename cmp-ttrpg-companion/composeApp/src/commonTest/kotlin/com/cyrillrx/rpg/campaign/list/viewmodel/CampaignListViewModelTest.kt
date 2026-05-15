@@ -183,6 +183,16 @@ class CampaignListViewModelTest {
 
         assertTrue(trackingRouter.openedCampaigns.contains(campaign))
     }
+
+    @Test
+    fun `openCreateCampaign delegates to router`() = runTest(testDispatcher) {
+        val trackingRouter = TrackingCampaignRouter()
+        val viewModel = buildViewModel(router = trackingRouter)
+
+        viewModel.openCreateCampaign()
+
+        assertTrue(trackingRouter.createCampaignCalled)
+    }
 }
 
 private class NoOpCampaignRouter : CampaignRouter {
@@ -193,10 +203,11 @@ private class NoOpCampaignRouter : CampaignRouter {
 
 private class TrackingCampaignRouter : CampaignRouter {
     val openedCampaigns = mutableListOf<Campaign>()
+    var createCampaignCalled = false
 
     override fun navigateUp() = Unit
     override fun openCampaignDetail(campaign: Campaign) { openedCampaigns.add(campaign) }
-    override fun openCreateCampaign() = Unit
+    override fun openCreateCampaign() { createCampaignCalled = true }
 }
 
 private class TestCampaignRepository : CampaignRepository {

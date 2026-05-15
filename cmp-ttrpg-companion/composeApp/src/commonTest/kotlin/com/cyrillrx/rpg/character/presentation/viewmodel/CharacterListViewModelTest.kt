@@ -187,6 +187,26 @@ class CharacterListViewModelTest {
 
         assertTrue(trackingRouter.openedCharacters.contains(character))
     }
+
+    @Test
+    fun `openCreateCharacter delegates to router`() = runTest(testDispatcher) {
+        val trackingRouter = TrackingCharacterRouter()
+        val viewModel = buildViewModel(router = trackingRouter)
+
+        viewModel.openCreateCharacter()
+
+        assertTrue(trackingRouter.createCharacterCalled)
+    }
+
+    @Test
+    fun `openPresetGallery delegates to router`() = runTest(testDispatcher) {
+        val trackingRouter = TrackingCharacterRouter()
+        val viewModel = buildViewModel(router = trackingRouter)
+
+        viewModel.openPresetGallery()
+
+        assertTrue(trackingRouter.presetGalleryCalled)
+    }
 }
 
 private class NoOpCharacterRouter : CharacterRouter {
@@ -198,11 +218,13 @@ private class NoOpCharacterRouter : CharacterRouter {
 
 private class TrackingCharacterRouter : CharacterRouter {
     val openedCharacters = mutableListOf<Character>()
+    var createCharacterCalled = false
+    var presetGalleryCalled = false
 
     override fun navigateUp() = Unit
     override fun openCharacterDetail(character: Character) { openedCharacters.add(character) }
-    override fun openCreateCharacter() = Unit
-    override fun openPresetGallery() = Unit
+    override fun openCreateCharacter() { createCharacterCalled = true }
+    override fun openPresetGallery() { presetGalleryCalled = true }
 }
 
 private class FailingCharacterRepository : CharacterRepository {
@@ -211,4 +233,18 @@ private class FailingCharacterRepository : CharacterRepository {
     override suspend fun getByIds(ids: List<String>): List<Character> = error("Repository error")
     override suspend fun save(character: Character) = error("Repository error")
     override suspend fun delete(id: String) = error("Repository error")
+}
+
+private class FailsOnSecondCallCharacterRepository : CharacterRepository {
+    private var callCount = 0
+
+    override suspend fun getAll(filter: CharacterFilter?): List<Character> {
+        if (callCount++ == 0) return emptyList()
+        error("Repository error")
+    }
+
+    override suspend fun get(id: String): Character? = null
+    override suspend fun getByIds(ids: List<String>): List<Character> = emptyList()
+    override suspend fun save(character: Character) = Unit
+    override suspend fun delete(id: String) = Unit
 }
