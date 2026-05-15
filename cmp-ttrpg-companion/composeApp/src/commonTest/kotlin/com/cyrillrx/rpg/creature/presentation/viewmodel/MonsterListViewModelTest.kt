@@ -98,7 +98,7 @@ class MonsterListViewModelTest {
     }
 
     @Test
-    fun `onSearchQueryChanged filters monsters by name`() = runTest(testDispatcher) {
+    fun `filterByQuery filters monsters by name`() = runTest(testDispatcher) {
         val viewModel = MonsterListViewModel(router, repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
@@ -107,7 +107,7 @@ class MonsterListViewModelTest {
 
         advanceUntilIdle()
 
-        viewModel.onSearchQueryChanged(goblin.resolveTranslation("en").name)
+        viewModel.filterByQuery(goblin.resolveTranslation("en").name)
 
         advanceUntilIdle()
 
@@ -153,7 +153,7 @@ class MonsterListViewModelTest {
 
         advanceUntilIdle()
 
-        viewModel.onSearchQueryChanged("no_match")
+        viewModel.filterByQuery("no_match")
 
         advanceUntilIdle()
 

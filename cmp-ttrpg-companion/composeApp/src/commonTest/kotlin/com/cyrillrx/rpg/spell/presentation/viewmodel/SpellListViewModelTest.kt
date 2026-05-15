@@ -116,7 +116,7 @@ class SpellListViewModelTest {
     }
 
     @Test
-    fun `onSearchQueryChanged filters spells by title`() = runTest(testDispatcher) {
+    fun `filterByQuery filters spells by title`() = runTest(testDispatcher) {
         val viewModel = SpellListViewModel(router, repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
@@ -126,7 +126,7 @@ class SpellListViewModelTest {
         advanceUntilIdle()
 
         val spellName = requireNotNull(spell.translations["en"]).name
-        viewModel.onSearchQueryChanged(spellName)
+        viewModel.filterByQuery(spellName)
 
         advanceUntilIdle()
 
@@ -172,7 +172,7 @@ class SpellListViewModelTest {
 
         advanceUntilIdle()
 
-        viewModel.onSearchQueryChanged("no_match")
+        viewModel.filterByQuery("no_match")
 
         advanceUntilIdle()
 

@@ -97,7 +97,7 @@ class MagicalItemListViewModelTest {
     }
 
     @Test
-    fun `onSearchQueryChanged filters items by title`() = runTest(testDispatcher) {
+    fun `filterByQuery filters items by title`() = runTest(testDispatcher) {
         val viewModel = MagicalItemListViewModel(router, repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
@@ -107,7 +107,7 @@ class MagicalItemListViewModelTest {
         advanceUntilIdle()
 
         val itemName = item.resolveTranslation("en").name
-        viewModel.onSearchQueryChanged(itemName)
+        viewModel.filterByQuery(itemName)
 
         advanceUntilIdle()
 
@@ -153,7 +153,7 @@ class MagicalItemListViewModelTest {
 
         advanceUntilIdle()
 
-        viewModel.onSearchQueryChanged("no_match")
+        viewModel.filterByQuery("no_match")
 
         advanceUntilIdle()
 

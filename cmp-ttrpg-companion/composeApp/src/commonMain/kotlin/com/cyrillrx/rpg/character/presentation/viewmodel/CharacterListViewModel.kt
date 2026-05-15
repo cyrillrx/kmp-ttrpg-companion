@@ -20,46 +20,68 @@ class CharacterListViewModel(
     private val router: CharacterRouter,
     private val repository: CharacterRepository,
 ) : ViewModel() {
-    private var updateJob: Job? = null
+    private var activeJob: Job? = null
     val state: StateFlow<CharacterListState>
-        field = MutableStateFlow(CharacterListState(searchQuery = "", body = CharacterListState.Body.Empty))
+        field = MutableStateFlow(CharacterListState(searchQuery = "", body = CharacterListState.Body.Loading))
 
     init {
-        onSearchQueryChanged(query = "")
+        loadCharacters(query = "")
     }
 
-    fun onSearchQueryChanged(query: String) {
-        updateJob?.cancel()
-        updateJob = viewModelScope.launch { updateData(query) }
+    fun filterByQuery(query: String) {
+        activeJob?.cancel()
+        activeJob = loadCharacters(query)
     }
 
-    fun onCharacterClicked(character: Character) {
+    fun silentRefresh() {
+        if (state.value.body is CharacterListState.Body.Loading) return
+        activeJob?.cancel()
+        activeJob = refreshCharacters()
+    }
+
+    fun openCharacterDetail(character: Character) {
         router.openCharacterDetail(character)
     }
 
-    fun onCreateCharacterClicked() {
+    fun openCreateCharacter() {
         router.openCreateCharacter()
     }
 
-    fun onQuickCreateClicked() {
+    fun openPresetGallery() {
         router.openPresetGallery()
     }
 
-    private suspend fun updateData(query: String) {
-        state.update { CharacterListState(searchQuery = query, body = CharacterListState.Body.Loading) }
-
-        try {
-            val filter = CharacterFilter(query = query)
-            val characters = repository.getAll(filter)
-            if (characters.isEmpty()) {
-                state.update { it.copy(body = CharacterListState.Body.Empty) }
-            } else {
-                state.update { it.copy(body = CharacterListState.Body.WithData(characters)) }
+    private fun refreshCharacters(): Job =
+        viewModelScope.launch {
+            try {
+                fetchAndUpdateCharacters(state.value.searchQuery)
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                // Keep existing state on refresh failure
             }
-        } catch (e: CancellationException) {
-            throw e
-        } catch (e: Exception) {
-            state.update { it.copy(body = CharacterListState.Body.Error(errorMessage = Res.string.error_while_loading_characters)) }
         }
+
+    private fun loadCharacters(query: String): Job =
+        viewModelScope.launch {
+            state.update { CharacterListState(searchQuery = query, body = CharacterListState.Body.Loading) }
+            try {
+                fetchAndUpdateCharacters(query)
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                state.update { it.copy(body = CharacterListState.Body.Error(errorMessage = Res.string.error_while_loading_characters)) }
+            }
+        }
+
+    private suspend fun fetchAndUpdateCharacters(query: String) {
+        val filter = CharacterFilter(query = query)
+        val characters = repository.getAll(filter)
+        val body = if (characters.isEmpty()) {
+            CharacterListState.Body.Empty
+        } else {
+            CharacterListState.Body.WithData(characters)
+        }
+        state.update { it.copy(body = body) }
     }
 }

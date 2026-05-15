@@ -29,9 +29,29 @@ The application follows a **Clean Architecture** and **Layered** approach adapte
 - **Use Model-View-ViewModel (MVVM)**.
 - **Follow Unidirectional Data Flow (UDF)**:
     - State flows down: ViewModels expose a single `StateFlow<ViewState>`.
-    - Events flow up: Composables pass user actions to the ViewModel via specific functions (e.g., `viewModel::onActionClicked`).
+    - Events flow up: Composables pass user actions to the ViewModel via lambda callbacks (e.g., `onCreateCampaignClicked = viewModel::openCreateCampaign`).
 - **Keep ViewModels platform-agnostic** using `lifecycle-viewmodel-compose` from JetBrains.
 - **Do not pass ViewModels down the Composable tree**. Pass state and lambda callbacks instead.
+
+### ViewModel Method Naming
+
+ViewModel public methods must reflect **behavior** (what the app does), not the UI event that triggered them. Composable callback parameters keep the UI-event convention because they are generic lambda slots.
+
+| Context                       | Convention                     | Examples                                           |
+|-------------------------------|--------------------------------|----------------------------------------------------|
+| Composable callback parameter | `onXxxClicked`, `onXxxChanged` | `onCreateCampaignClicked`, `onSearchQueryChanged`  |
+| ViewModel public method       | Functional verb phrase         | `openCreateCampaign`, `filterByQuery`, `silentRefresh` |
+
+```kotlin
+// ✅ Correct — callback param name ≠ ViewModel method name
+fun CampaignListScreen(viewModel: CampaignListViewModel, router: CampaignRouter) {
+    CampaignListScreen(
+        onSearchQueryChanged = viewModel::filterByQuery,
+        onCampaignClicked = viewModel::openCampaignDetail,
+        onCreateCampaignClicked = viewModel::openCreateCampaign,
+    )
+}
+```
 
 ### Domain & Data Layers
 
@@ -56,6 +76,42 @@ The project enforces code formatting using **ktlint**.
 - **State Hoisting**: Hoist state to the lowest common parent. Composables should be as stateless as possible.
 - **Previews**: Write `@Preview` functions for all UI components. Use `androidx.compose.ui.tooling.preview.Preview` from `org.jetbrains.compose.ui:ui-tooling-preview` module for Multiplatform previews.
 - **Resources**: Use the generated KMP resources (`Res.string.xxx`, `Res.drawable.xxx`).
+
+### Lifecycle-aware Refresh
+
+Screens that display mutable data (persisted in a repository) must refresh when the user returns to the screen via `LifecycleEventEffect(Lifecycle.Event.ON_RESUME)`. Use `silentRefresh()` — never the full load function — to avoid a flicker when data is already visible.
+
+**ViewModel** — every ViewModel with `ON_RESUME` refresh must expose two distinct operations:
+
+| Method                     | Sets `Loading` | Purpose                                                                                           |
+|----------------------------|----------------|---------------------------------------------------------------------------------------------------|
+| `loadXxx()` (private)      | ✅ Yes         | Initial load from `init`, or after an explicit user action (search query change, pull-to-refresh) |
+| `silentRefresh()` (public) | ❌ No          | Called by the screen on `ON_RESUME`; no-ops when state is already `Loading`                       |
+
+```kotlin
+fun silentRefresh() {
+    if (state.value.body is XxxState.Body.Loading) return
+    viewModelScope.launch {
+        try {
+            fetchAndUpdate()
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            // Keep existing state on refresh failure
+        }
+    }
+}
+```
+
+**Screen** — wire `silentRefresh()` to `ON_RESUME`:
+
+```kotlin
+LifecycleEventEffect(Lifecycle.Event.ON_RESUME) {
+    viewModel.silentRefresh()
+}
+```
+
+Never call a load function (e.g., `onSearchQueryChanged`) from `ON_RESUME`: the `init` block already handles the initial load, so doing so causes a redundant double fetch and an unnecessary `Loading` flash on every back-navigation.
 
 ## 4. Testing
 

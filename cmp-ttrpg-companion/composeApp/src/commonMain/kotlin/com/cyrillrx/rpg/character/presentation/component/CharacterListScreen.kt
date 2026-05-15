@@ -24,6 +24,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Character
@@ -56,12 +58,16 @@ fun CharacterListScreen(
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
+    LifecycleEventEffect(Lifecycle.Event.ON_RESUME) {
+        viewModel.silentRefresh()
+    }
+
     CharacterListScreen(
         state = state,
         onNavigateUpClicked = router::navigateUp,
-        onCharacterClicked = viewModel::onCharacterClicked,
-        onNewCharacterClicked = viewModel::onCreateCharacterClicked,
-        onQuickCreateClicked = viewModel::onQuickCreateClicked,
+        onCharacterClicked = viewModel::openCharacterDetail,
+        onNewCharacterClicked = viewModel::openCreateCharacter,
+        onQuickCreateClicked = viewModel::openPresetGallery,
     )
 }
 
