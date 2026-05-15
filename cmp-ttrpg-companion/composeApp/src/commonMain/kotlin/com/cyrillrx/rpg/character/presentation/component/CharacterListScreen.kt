@@ -65,9 +65,9 @@ fun CharacterListScreen(
     CharacterListScreen(
         state = state,
         onNavigateUpClicked = router::navigateUp,
-        onCharacterClicked = viewModel::onCharacterClicked,
-        onNewCharacterClicked = viewModel::onCreateCharacterClicked,
-        onQuickCreateClicked = viewModel::onQuickCreateClicked,
+        onCharacterClicked = viewModel::openCharacterDetail,
+        onNewCharacterClicked = viewModel::openCreateCharacter,
+        onQuickCreateClicked = viewModel::openPresetGallery,
     )
 }
 

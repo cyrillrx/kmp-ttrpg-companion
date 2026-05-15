@@ -47,15 +47,15 @@ class CharacterListViewModel(
         }
     }
 
-    fun onCharacterClicked(character: Character) {
+    fun openCharacterDetail(character: Character) {
         router.openCharacterDetail(character)
     }
 
-    fun onCreateCharacterClicked() {
+    fun openCreateCharacter() {
         router.openCreateCharacter()
     }
 
-    fun onQuickCreateClicked() {
+    fun openPresetGallery() {
         router.openPresetGallery()
     }
 
