@@ -15,6 +15,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_while_loading_user_list
@@ -42,9 +43,10 @@ class ListDetailViewModel<T>(
 
     private val pendingRemovals: MutableList<PendingRemoval<T>> = mutableListOf()
     private var currentList: UserList? = null
+    private var activeJob: Job? = null
 
     init {
-        loadDetail()
+        activeJob = loadDetail()
     }
 
     override fun onCleared() {
@@ -125,7 +127,11 @@ class ListDetailViewModel<T>(
 
     fun silentRefresh() {
         if (state.value.body is ListDetailState.Body.Loading) return
+        activeJob?.cancel()
+        activeJob = refreshDetail()
+    }
 
+    private fun refreshDetail(): Job =
         viewModelScope.launch {
             try {
                 fetchDetail()
@@ -135,12 +141,10 @@ class ListDetailViewModel<T>(
                 // Silently ignore — don't overwrite existing content with an error
             }
         }
-    }
 
-    private fun loadDetail() {
+    private fun loadDetail(): Job =
         viewModelScope.launch {
             state.update { it.copy(body = ListDetailState.Body.Loading) }
-
             try {
                 fetchDetail()
             } catch (e: CancellationException) {
@@ -149,7 +153,6 @@ class ListDetailViewModel<T>(
                 state.update { it.copy(body = ListDetailState.Body.Error(Res.string.error_while_loading_user_list)) }
             }
         }
-    }
 
     private suspend fun fetchDetail() {
         val list = userListRepository.get(listId) ?: error("Could not find list $listId")

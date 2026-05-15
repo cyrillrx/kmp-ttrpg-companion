@@ -15,6 +15,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_while_loading_user_lists
@@ -43,9 +44,10 @@ class UserListsViewModel(
     }
 
     private val pendingDeletions: MutableList<PendingDeletion> = mutableListOf()
+    private var activeJob: Job? = null
 
     init {
-        loadLists()
+        activeJob = loadLists()
     }
 
     override fun onCleared() {
@@ -65,7 +67,8 @@ class UserListsViewModel(
                 lastModified = Clock.System.now(),
             )
             userListRepository.save(newList)
-            loadLists()
+            activeJob?.cancel()
+            activeJob = loadLists()
         }
     }
 
@@ -133,9 +136,12 @@ class UserListsViewModel(
 
     fun silentRefresh() {
         if (state.value.body is UserListsState.Body.Loading) return
+        activeJob?.cancel()
+        activeJob = refreshLists()
+    }
 
+    private fun refreshLists(): Job =
         viewModelScope.launch {
-            // No loader to prevent view from flashing
             try {
                 fetchAndUpdateUserLists()
             } catch (e: CancellationException) {
@@ -144,12 +150,10 @@ class UserListsViewModel(
                 // Keep existing state on refresh failure
             }
         }
-    }
 
-    private fun loadLists() {
+    private fun loadLists(): Job =
         viewModelScope.launch {
             state.update { it.copy(body = UserListsState.Body.Loading) }
-
             try {
                 fetchAndUpdateUserLists()
             } catch (e: CancellationException) {
@@ -158,7 +162,6 @@ class UserListsViewModel(
                 state.update { it.copy(body = UserListsState.Body.Error(errorMessage = Res.string.error_while_loading_user_lists)) }
             }
         }
-    }
 
     private suspend fun fetchAndUpdateUserLists() {
         val lists = userListRepository.getAll(listType)
