@@ -21,8 +21,7 @@ class CampaignListViewModel(
     private val repository: CampaignRepository,
 ) : ViewModel() {
 
-    private var filterJob: Job? = null
-    private var refreshJob: Job? = null
+    private var activeJob: Job? = null
     val state: StateFlow<CampaignListState>
         field = MutableStateFlow(CampaignListState(searchQuery = "", body = CampaignListState.Body.Loading))
 
@@ -31,15 +30,14 @@ class CampaignListViewModel(
     }
 
     fun filterByQuery(query: String) {
-        refreshJob?.cancel()
-        filterJob?.cancel()
-        filterJob = loadCampaigns(query)
+        activeJob?.cancel()
+        activeJob = loadCampaigns(query)
     }
 
     fun silentRefresh() {
         if (state.value.body is CampaignListState.Body.Loading) return
-        filterJob?.cancel()
-        refreshJob = viewModelScope.launch {
+        activeJob?.cancel()
+        activeJob = viewModelScope.launch {
             try {
                 fetchAndUpdateCampaigns(state.value.searchQuery)
             } catch (e: CancellationException) {
