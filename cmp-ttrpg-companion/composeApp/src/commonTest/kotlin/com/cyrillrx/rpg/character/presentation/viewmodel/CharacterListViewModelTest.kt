@@ -136,7 +136,7 @@ class CharacterListViewModelTest {
     }
 
     @Test
-    fun `onSearchQueryChanged updates searchQuery in state`() = runTest(testDispatcher) {
+    fun `filterByQuery updates searchQuery in state`() = runTest(testDispatcher) {
         val viewModel = buildViewModel()
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
@@ -145,7 +145,7 @@ class CharacterListViewModelTest {
 
         advanceUntilIdle()
 
-        viewModel.onSearchQueryChanged("fire")
+        viewModel.filterByQuery("fire")
         advanceUntilIdle()
 
         assertEquals(expected = "fire", actual = viewModel.state.value.searchQuery)

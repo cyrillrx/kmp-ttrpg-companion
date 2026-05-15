@@ -20,7 +20,7 @@ class CharacterListViewModel(
     private val router: CharacterRouter,
     private val repository: CharacterRepository,
 ) : ViewModel() {
-    private var searchJob: Job? = null
+    private var filterJob: Job? = null
     val state: StateFlow<CharacterListState>
         field = MutableStateFlow(CharacterListState(searchQuery = "", body = CharacterListState.Body.Loading))
 
@@ -28,9 +28,9 @@ class CharacterListViewModel(
         loadCharacters(query = "")
     }
 
-    fun onSearchQueryChanged(query: String) {
-        searchJob?.cancel()
-        searchJob = loadCharacters(query)
+    fun filterByQuery(query: String) {
+        filterJob?.cancel()
+        filterJob = loadCharacters(query)
     }
 
     fun silentRefresh() {

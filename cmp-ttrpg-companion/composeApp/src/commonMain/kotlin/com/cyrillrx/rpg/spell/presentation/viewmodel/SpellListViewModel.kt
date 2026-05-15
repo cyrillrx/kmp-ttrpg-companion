@@ -31,7 +31,7 @@ class SpellListViewModel(
         refreshData()
     }
 
-    fun onSearchQueryChanged(query: String) {
+    fun filterByQuery(query: String) {
         updateFilter { it.copy(query = query) }
     }
 

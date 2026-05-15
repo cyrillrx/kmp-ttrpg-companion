@@ -51,7 +51,7 @@ fun MonsterListScreen(
     MonsterListScreen(
         state = state,
         onNavigateUpClicked = router::navigateUp,
-        onSearchQueryChanged = viewModel::onSearchQueryChanged,
+        onSearchQueryChanged = viewModel::filterByQuery,
         onMonsterClicked = viewModel::onMonsterClicked,
         onTypeToggled = viewModel::onTypeToggled,
         onChallengeRatingToggled = viewModel::onChallengeRatingToggled,

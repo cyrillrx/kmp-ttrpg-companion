@@ -45,7 +45,7 @@ fun CampaignListScreen(viewModel: CampaignListViewModel, router: CampaignRouter)
     CampaignListScreen(
         state = state,
         onNavigateUpClicked = router::navigateUp,
-        onSearchQueryChanged = viewModel::onSearchQueryChanged,
+        onSearchQueryChanged = viewModel::filterByQuery,
         onCampaignClicked = viewModel::onCampaignClicked,
         onCreateCampaignClicked = viewModel::onCreateCampaignClicked,
     )

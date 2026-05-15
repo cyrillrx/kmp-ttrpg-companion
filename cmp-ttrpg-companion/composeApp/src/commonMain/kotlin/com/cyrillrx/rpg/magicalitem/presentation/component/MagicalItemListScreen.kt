@@ -52,7 +52,7 @@ fun MagicalItemListScreen(
     MagicalItemListScreen(
         state = state,
         onNavigateUpClicked = router::navigateUp,
-        onSearchQueryChanged = viewModel::onSearchQueryChanged,
+        onSearchQueryChanged = viewModel::filterByQuery,
         onMagicalItemClicked = viewModel::onItemClicked,
         onTypeToggled = viewModel::onTypeToggled,
         onRarityToggled = viewModel::onRarityToggled,
