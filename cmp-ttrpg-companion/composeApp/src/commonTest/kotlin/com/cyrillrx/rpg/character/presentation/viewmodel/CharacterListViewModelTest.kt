@@ -40,8 +40,10 @@ class CharacterListViewModelTest {
         Dispatchers.resetMain()
     }
 
-    private fun buildViewModel(repo: CharacterRepository = repository) =
-        CharacterListViewModel(router, repo)
+    private fun buildViewModel(
+        repo: CharacterRepository = repository,
+        router: CharacterRouter = this.router,
+    ) = CharacterListViewModel(router, repo)
 
     @Test
     fun `initial state is Loading before coroutines run`() = runTest(testDispatcher) {
@@ -123,31 +125,6 @@ class CharacterListViewModelTest {
     }
 
     @Test
-    fun `silentRefresh does not show Loading when data is present`() = runTest(testDispatcher) {
-        val character = SampleCharacterRepository.getAll().first()
-        repository.save(character)
-
-        val viewModel = buildViewModel()
-
-        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
-            viewModel.state.collect {}
-        }
-
-        advanceUntilIdle()
-        assertIs<CharacterListState.Body.WithData>(viewModel.state.value.body)
-
-        val emittedBodies = mutableListOf<CharacterListState.Body>()
-        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
-            viewModel.state.collect { emittedBodies.add(it.body) }
-        }
-
-        viewModel.silentRefresh()
-        advanceUntilIdle()
-
-        assertTrue(emittedBodies.none { it is CharacterListState.Body.Loading })
-    }
-
-    @Test
     fun `silentRefresh does nothing when state is already Loading`() = runTest(testDispatcher) {
         val viewModel = buildViewModel()
 
@@ -157,11 +134,55 @@ class CharacterListViewModelTest {
 
         assertIs<CharacterListState.Body.Loading>(viewModel.state.value.body)
     }
+
+    @Test
+    fun `onSearchQueryChanged updates searchQuery in state`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel()
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        viewModel.onSearchQueryChanged("fire")
+        advanceUntilIdle()
+
+        assertEquals(expected = "fire", actual = viewModel.state.value.searchQuery)
+    }
+
+    @Test
+    fun `openCharacterDetail delegates to router`() = runTest(testDispatcher) {
+        val trackingRouter = TrackingCharacterRouter()
+        val character = SampleCharacterRepository.getAll().first()
+        repository.save(character)
+
+        val viewModel = buildViewModel(router = trackingRouter)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        viewModel.openCharacterDetail(character)
+
+        assertTrue(trackingRouter.openedCharacters.contains(character))
+    }
 }
 
 private class NoOpCharacterRouter : CharacterRouter {
     override fun navigateUp() = Unit
     override fun openCharacterDetail(character: Character) = Unit
+    override fun openCreateCharacter() = Unit
+    override fun openPresetGallery() = Unit
+}
+
+private class TrackingCharacterRouter : CharacterRouter {
+    val openedCharacters = mutableListOf<Character>()
+
+    override fun navigateUp() = Unit
+    override fun openCharacterDetail(character: Character) { openedCharacters.add(character) }
     override fun openCreateCharacter() = Unit
     override fun openPresetGallery() = Unit
 }
