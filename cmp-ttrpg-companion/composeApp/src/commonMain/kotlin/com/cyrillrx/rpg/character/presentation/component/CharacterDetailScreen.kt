@@ -1,7 +1,11 @@
 package com.cyrillrx.rpg.character.presentation.component
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -9,6 +13,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
@@ -28,14 +34,18 @@ import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Character
@@ -47,8 +57,15 @@ import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
 import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterEditViewModel
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
+import coil3.compose.AsyncImage
+import com.cyrillrx.rpg.core.presentation.component.dnd.toSvgPath
+import org.jetbrains.compose.resources.ExperimentalResourceApi
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
+import com.cyrillrx.rpg.core.presentation.component.dnd.toShortString
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
+import com.cyrillrx.rpg.core.presentation.theme.DndGold
+import com.cyrillrx.rpg.core.presentation.theme.DndParchment
+import com.cyrillrx.rpg.core.presentation.theme.Scarlet
 import com.cyrillrx.rpg.core.presentation.theme.borderAlpha
 import com.cyrillrx.rpg.core.presentation.theme.borderWidth
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
@@ -73,6 +90,7 @@ import rpg_companion.composeapp.generated.resources.label_int
 import rpg_companion.composeapp.generated.resources.label_alignment
 import rpg_companion.composeapp.generated.resources.label_languages
 import rpg_companion.composeapp.generated.resources.label_level
+import rpg_companion.composeapp.generated.resources.label_level_short
 import rpg_companion.composeapp.generated.resources.label_max_hp
 import rpg_companion.composeapp.generated.resources.label_name
 import rpg_companion.composeapp.generated.resources.label_race
@@ -141,7 +159,7 @@ fun CharacterDetailScreen(
     Scaffold(
         topBar = {
             SimpleTopBar(
-                title = state.name,
+                title = "",
                 onNavigateUpClicked = onNavigateUpClicked,
             )
         },
@@ -155,20 +173,19 @@ fun CharacterDetailScreen(
                     .padding(spacingCommon),
             verticalArrangement = Arrangement.spacedBy(spacingMedium),
         ) {
-            NameCard(name = state.name, onTap = { onFieldTapped(EditingField.Name) })
-
-            IdentityRow(
+            CharacterHeader(
+                name = state.name,
                 race = state.race,
                 clazz = state.clazz,
                 level = state.level,
-                onRaceTapped = { onFieldTapped(EditingField.Race) },
-                onClassTapped = { onFieldTapped(EditingField.Clazz) },
-                onLevelTapped = { onFieldTapped(EditingField.Level) },
-            )
-
-            BackgroundRow(
                 background = state.background,
-                onTap = { onFieldTapped(EditingField.Background) },
+                alignment = state.alignment,
+                onNameTapped = { onFieldTapped(EditingField.Name) },
+                onClassTapped = { onFieldTapped(EditingField.Clazz) },
+                onRaceTapped = { onFieldTapped(EditingField.Race) },
+                onLevelTapped = { onFieldTapped(EditingField.Level) },
+                onBackgroundTapped = { onFieldTapped(EditingField.Background) },
+                onAlignmentTapped = { onFieldTapped(EditingField.Alignment) },
             )
 
             SheetDivider(stringResource(Res.string.label_abilities))
@@ -238,131 +255,112 @@ fun CharacterDetailScreen(
 // ─── Sheet sections ──────────────────────────────────────────────────────────
 
 @Composable
-private fun NameCard(
+private fun CharacterHeader(
     name: String,
-    onTap: () -> Unit,
-) {
-    Card(
-        onClick = onTap,
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer),
-        modifier = Modifier.fillMaxWidth(),
-    ) {
-        Text(
-            text = name.uppercase(),
-            style = MaterialTheme.typography.headlineMedium,
-            fontWeight = FontWeight.Bold,
-            color = MaterialTheme.colorScheme.onPrimaryContainer,
-            textAlign = TextAlign.Center,
-            modifier =
-                Modifier
-                    .fillMaxWidth()
-                    .padding(spacingCommon),
-        )
-    }
-}
-
-@Composable
-private fun IdentityRow(
     race: Race,
     clazz: Character.Class,
     level: Int,
-    onRaceTapped: () -> Unit,
+    background: String,
+    alignment: Creature.Alignment,
+    onNameTapped: () -> Unit,
     onClassTapped: () -> Unit,
+    onRaceTapped: () -> Unit,
     onLevelTapped: () -> Unit,
+    onBackgroundTapped: () -> Unit,
+    onAlignmentTapped: () -> Unit,
 ) {
+    val levelShort = stringResource(Res.string.label_level_short)
     Row(
-        horizontalArrangement = Arrangement.spacedBy(spacingMedium),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(spacingCommon),
         modifier = Modifier.fillMaxWidth(),
     ) {
-        IdentityChip(
-            label = stringResource(Res.string.label_race),
-            value = race.toFormattedString(),
-            onClick = onRaceTapped,
-            modifier = Modifier.weight(1f),
-        )
-        IdentityChip(
-            label = stringResource(Res.string.label_class),
-            value = clazz.toFormattedString(),
-            onClick = onClassTapped,
-            modifier = Modifier.weight(1f),
-        )
-        IdentityChip(
-            label = stringResource(Res.string.label_level),
-            value = level.toString(),
-            onClick = onLevelTapped,
-            modifier = Modifier.weight(0.6f),
-        )
-    }
-}
-
-@Composable
-private fun IdentityChip(
-    label: String,
-    value: String,
-    onClick: () -> Unit,
-    modifier: Modifier = Modifier,
-) {
-    Card(
-        onClick = onClick,
-        border = BorderStroke(borderWidth, MaterialTheme.colorScheme.outline.copy(alpha = borderAlpha)),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
-        modifier = modifier,
-    ) {
+        ClassIconBox(clazz = clazz, onClick = onClassTapped)
+        Column(modifier = Modifier.weight(1f)) {
+            Text(
+                text = name,
+                style = MaterialTheme.typography.titleLarge,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.clickable(onClick = onNameTapped),
+            )
+            Spacer(Modifier.height(spacingSmall))
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(spacingSmall),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                SubtitleChip(race.toFormattedString(), onRaceTapped)
+                SubtitleDot()
+                SubtitleChip(clazz.toFormattedString(), onClassTapped)
+                if (background.isNotBlank()) {
+                    SubtitleDot()
+                    SubtitleChip(background, onBackgroundTapped)
+                }
+                if (alignment != Creature.Alignment.UNKNOWN) {
+                    SubtitleDot()
+                    SubtitleChip(alignment.toShortString(), onAlignmentTapped)
+                }
+            }
+        }
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
-            modifier =
-                Modifier
-                    .fillMaxWidth()
-                    .padding(spacingMedium),
+            modifier = Modifier.clickable(onClick = onLevelTapped),
         ) {
             Text(
-                text = label,
+                text = levelShort.uppercase(),
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
             Text(
-                text = value,
-                style = MaterialTheme.typography.bodyMedium,
-                fontWeight = FontWeight.SemiBold,
-                textAlign = TextAlign.Center,
+                text = level.toString(),
+                style = MaterialTheme.typography.titleLarge,
+                fontWeight = FontWeight.Bold,
             )
         }
     }
 }
 
+@OptIn(ExperimentalResourceApi::class)
 @Composable
-private fun BackgroundRow(
-    background: String,
-    onTap: () -> Unit,
-) {
-    Card(
-        onClick = onTap,
-        border = BorderStroke(borderWidth, MaterialTheme.colorScheme.outline.copy(alpha = borderAlpha)),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
-        modifier = Modifier.fillMaxWidth(),
-    ) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            modifier =
-                Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = spacingCommon, vertical = spacingMedium),
-        ) {
-            Text(
-                text = stringResource(Res.string.label_background),
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.weight(0.3f),
-            )
-            Text(
-                text = background.ifBlank { "—" },
-                style = MaterialTheme.typography.bodyMedium,
-                fontStyle = if (background.isBlank()) FontStyle.Italic else FontStyle.Normal,
-                color = if (background.isBlank()) MaterialTheme.colorScheme.onSurfaceVariant else MaterialTheme.colorScheme.onSurface,
-                modifier = Modifier.weight(0.7f),
-            )
-        }
+private fun ClassIconBox(clazz: Character.Class, onClick: () -> Unit) {
+    val svgBytes by produceState<ByteArray?>(null, clazz) {
+        value = Res.readBytes(clazz.toSvgPath())
     }
+    Box(
+        contentAlignment = Alignment.Center,
+        modifier = Modifier
+            .size(72.dp)
+            .clip(CircleShape)
+            .background(DndParchment)
+            .border(2.dp, DndGold, CircleShape)
+            .clickable(onClick = onClick),
+    ) {
+        AsyncImage(
+            model = svgBytes,
+            contentDescription = null,
+            colorFilter = ColorFilter.tint(Scarlet),
+            modifier = Modifier.size(44.dp),
+        )
+    }
+}
+
+@Composable
+private fun SubtitleChip(text: String, onClick: () -> Unit) {
+    Text(
+        text = text,
+        style = MaterialTheme.typography.bodySmall,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+        textDecoration = TextDecoration.Underline,
+        modifier = Modifier.clickable(onClick = onClick),
+    )
+}
+
+@Composable
+private fun SubtitleDot() {
+    Text(
+        text = "·",
+        style = MaterialTheme.typography.bodySmall,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+    )
 }
 
 @Composable

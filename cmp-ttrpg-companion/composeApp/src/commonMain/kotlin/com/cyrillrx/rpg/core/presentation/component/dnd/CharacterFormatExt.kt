@@ -49,6 +49,22 @@ import rpg_companion.composeapp.generated.resources.race_halfling
 import rpg_companion.composeapp.generated.resources.race_human
 import rpg_companion.composeapp.generated.resources.race_tiefling
 
+fun Character.Class.toSvgPath(): String = when (this) {
+    Character.Class.BARBARIAN -> "drawable/class_barbarian.svg"
+    Character.Class.BARD -> "drawable/class_bard.svg"
+    Character.Class.CLERIC -> "drawable/class_cleric.svg"
+    Character.Class.DRUID -> "drawable/class_druid.svg"
+    Character.Class.FIGHTER -> "drawable/class_warrior.svg"
+    Character.Class.MONK -> "drawable/class_monk.svg"
+    Character.Class.PALADIN -> "drawable/class_paladin.svg"
+    Character.Class.RANGER -> "drawable/class_ranger.svg"
+    Character.Class.ROGUE -> "drawable/class_rogue.svg"
+    Character.Class.SORCERER -> "drawable/class_sorcerer.svg"
+    Character.Class.WARLOCK -> "drawable/class_warlock.svg"
+    Character.Class.WIZARD -> "drawable/class_wizard.svg"
+    Character.Class.UNKNOWN -> "drawable/class_warrior.svg"
+}
+
 fun Character.Class.toDrawableResource(): DrawableResource = when (this) {
     Character.Class.BARBARIAN -> Res.drawable.class_barbarian
     Character.Class.BARD -> Res.drawable.class_bard
