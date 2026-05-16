@@ -31,6 +31,7 @@
     <string name="label_walk_speed">Walk speed (ft)</string>
     <string name="label_languages">Languages</string>
     <string name="label_level_short">lv.</string>
+    <string name="label_alignment">Alignment</string>
 
     <!-- Character race -->
     <string name="race_human">Human</string>

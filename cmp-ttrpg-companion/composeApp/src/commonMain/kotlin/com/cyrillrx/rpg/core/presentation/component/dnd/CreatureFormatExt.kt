@@ -22,6 +22,16 @@ import rpg_companion.composeapp.generated.resources.creature_size_medium
 import rpg_companion.composeapp.generated.resources.creature_size_small
 import rpg_companion.composeapp.generated.resources.creature_size_tiny
 import rpg_companion.composeapp.generated.resources.creature_size_unknown
+import rpg_companion.composeapp.generated.resources.alignment_short_chaotic_evil
+import rpg_companion.composeapp.generated.resources.alignment_short_chaotic_good
+import rpg_companion.composeapp.generated.resources.alignment_short_chaotic_neutral
+import rpg_companion.composeapp.generated.resources.alignment_short_lawful_evil
+import rpg_companion.composeapp.generated.resources.alignment_short_lawful_good
+import rpg_companion.composeapp.generated.resources.alignment_short_lawful_neutral
+import rpg_companion.composeapp.generated.resources.alignment_short_neutral
+import rpg_companion.composeapp.generated.resources.alignment_short_neutral_evil
+import rpg_companion.composeapp.generated.resources.alignment_short_neutral_good
+import rpg_companion.composeapp.generated.resources.alignment_short_unknown
 import rpg_companion.composeapp.generated.resources.speed_label_burrow
 import rpg_companion.composeapp.generated.resources.speed_label_climb
 import rpg_companion.composeapp.generated.resources.speed_label_fly
@@ -68,6 +78,22 @@ fun Speeds.toFormattedString(useFeet: Boolean): String {
         burrow?.let { add("$burrowLabel ${it.format()}") }
     }.joinToString(", ")
 }
+
+@Composable
+fun Creature.Alignment.toShortString(): String = stringResource(
+    when (this) {
+        Creature.Alignment.LAWFUL_GOOD -> Res.string.alignment_short_lawful_good
+        Creature.Alignment.LAWFUL_NEUTRAL -> Res.string.alignment_short_lawful_neutral
+        Creature.Alignment.LAWFUL_EVIL -> Res.string.alignment_short_lawful_evil
+        Creature.Alignment.NEUTRAL_GOOD -> Res.string.alignment_short_neutral_good
+        Creature.Alignment.NEUTRAL -> Res.string.alignment_short_neutral
+        Creature.Alignment.NEUTRAL_EVIL -> Res.string.alignment_short_neutral_evil
+        Creature.Alignment.CHAOTIC_GOOD -> Res.string.alignment_short_chaotic_good
+        Creature.Alignment.CHAOTIC_NEUTRAL -> Res.string.alignment_short_chaotic_neutral
+        Creature.Alignment.CHAOTIC_EVIL -> Res.string.alignment_short_chaotic_evil
+        Creature.Alignment.UNKNOWN -> Res.string.alignment_short_unknown
+    },
+)
 
 @Composable
 fun Creature.Alignment.toFormattedString(): String {

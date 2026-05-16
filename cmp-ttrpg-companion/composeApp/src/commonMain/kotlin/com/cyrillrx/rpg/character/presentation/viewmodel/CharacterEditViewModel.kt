@@ -6,6 +6,7 @@ import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
+import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.EditingField
 import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
@@ -104,6 +105,10 @@ class CharacterEditViewModel(
 
     fun saveLanguages(languages: List<Language>) {
         updateAndSave { it.copy(languages = languages, editingField = null) }
+    }
+
+    fun saveAlignment(alignment: Creature.Alignment) {
+        updateAndSave { it.copy(alignment = alignment, editingField = null) }
     }
 
     private fun updateAndSave(transform: (CharacterEditState) -> CharacterEditState) {

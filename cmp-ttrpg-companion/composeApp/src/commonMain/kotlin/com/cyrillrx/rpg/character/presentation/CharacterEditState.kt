@@ -5,6 +5,7 @@ import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.Ability
+import com.cyrillrx.rpg.creature.domain.Creature
 
 data class CharacterEditState(
     val name: String,
@@ -22,6 +23,7 @@ data class CharacterEditState(
     val maxHitPoints: Int,
     val walkSpeed: Int?,
     val languages: List<Language>,
+    val alignment: Creature.Alignment,
     val editingField: EditingField? = null,
 ) {
     sealed interface EditingField {
@@ -40,6 +42,7 @@ data class CharacterEditState(
         data object MaxHitPoints : EditingField
         data object WalkSpeed : EditingField
         data object Languages : EditingField
+        data object Alignment : EditingField
     }
 
     companion object {
@@ -59,6 +62,7 @@ data class CharacterEditState(
             maxHitPoints = character.maxHitPoints,
             walkSpeed = character.speeds.walk,
             languages = character.languages,
+            alignment = character.alignment,
         )
     }
 }
@@ -81,4 +85,5 @@ fun CharacterEditState.toCharacter(original: Character): Character = original.co
     maxHitPoints = maxHitPoints,
     speeds = original.speeds.copy(walk = walkSpeed),
     languages = languages,
+    alignment = alignment,
 )

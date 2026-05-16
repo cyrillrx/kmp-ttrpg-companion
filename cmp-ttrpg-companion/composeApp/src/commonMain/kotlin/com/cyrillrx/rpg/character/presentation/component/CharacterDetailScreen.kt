@@ -55,6 +55,7 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.creature.domain.Ability
+import com.cyrillrx.rpg.creature.domain.Creature
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
@@ -69,6 +70,7 @@ import rpg_companion.composeapp.generated.resources.label_combat
 import rpg_companion.composeapp.generated.resources.label_con
 import rpg_companion.composeapp.generated.resources.label_dex
 import rpg_companion.composeapp.generated.resources.label_int
+import rpg_companion.composeapp.generated.resources.label_alignment
 import rpg_companion.composeapp.generated.resources.label_languages
 import rpg_companion.composeapp.generated.resources.label_level
 import rpg_companion.composeapp.generated.resources.label_max_hp
@@ -107,6 +109,7 @@ fun CharacterDetailScreen(
         onMaxHitPointsConfirmed = viewModel::saveMaxHitPoints,
         onWalkSpeedConfirmed = viewModel::saveWalkSpeed,
         onLanguagesConfirmed = viewModel::saveLanguages,
+        onAlignmentConfirmed = viewModel::saveAlignment,
         onDialogDismissed = viewModel::cancelEditing,
         onNavigateUpClicked = router::navigateUp,
     )
@@ -131,6 +134,7 @@ fun CharacterDetailScreen(
     onMaxHitPointsConfirmed: (Int) -> Unit,
     onWalkSpeedConfirmed: (Int?) -> Unit,
     onLanguagesConfirmed: (List<Language>) -> Unit,
+    onAlignmentConfirmed: (Creature.Alignment) -> Unit,
     onDialogDismissed: () -> Unit,
     onNavigateUpClicked: () -> Unit,
 ) {
@@ -226,6 +230,7 @@ fun CharacterDetailScreen(
         onMaxHitPointsConfirmed = onMaxHitPointsConfirmed,
         onWalkSpeedConfirmed = onWalkSpeedConfirmed,
         onLanguagesConfirmed = onLanguagesConfirmed,
+        onAlignmentConfirmed = onAlignmentConfirmed,
         onDismiss = onDialogDismissed,
     )
 }
@@ -609,6 +614,7 @@ private fun CharacterEditDialog(
     onMaxHitPointsConfirmed: (Int) -> Unit,
     onWalkSpeedConfirmed: (Int?) -> Unit,
     onLanguagesConfirmed: (List<Language>) -> Unit,
+    onAlignmentConfirmed: (Creature.Alignment) -> Unit,
     onDismiss: () -> Unit,
 ) {
     val field = state.editingField ?: return
@@ -715,6 +721,12 @@ private fun CharacterEditDialog(
             LanguageSelectDialog(
                 current = state.languages,
                 onConfirm = onLanguagesConfirmed,
+                onDismiss = onDismiss,
+            )
+        EditingField.Alignment ->
+            AlignmentSelectDialog(
+                current = state.alignment,
+                onConfirm = onAlignmentConfirmed,
                 onDismiss = onDismiss,
             )
     }
@@ -918,6 +930,48 @@ private fun ClassSelectDialog(
 }
 
 @Composable
+private fun AlignmentSelectDialog(
+    current: Creature.Alignment,
+    onConfirm: (Creature.Alignment) -> Unit,
+    onDismiss: () -> Unit,
+) {
+    var selected by remember { mutableStateOf(current) }
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text(stringResource(Res.string.label_alignment)) },
+        text = {
+            Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
+                Creature.Alignment.entries.forEach { alignment ->
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier.fillMaxWidth(),
+                    ) {
+                        RadioButton(
+                            selected = selected == alignment,
+                            onClick = { selected = alignment },
+                        )
+                        Text(
+                            text = alignment.toFormattedString(),
+                            style = MaterialTheme.typography.bodyMedium,
+                        )
+                    }
+                }
+            }
+        },
+        confirmButton = {
+            TextButton(onClick = { onConfirm(selected) }) {
+                Text(stringResource(Res.string.btn_confirm))
+            }
+        },
+        dismissButton = {
+            TextButton(onClick = onDismiss) {
+                Text(stringResource(Res.string.btn_cancel))
+            }
+        },
+    )
+}
+
+@Composable
 private fun LanguageSelectDialog(
     current: List<Language>,
     onConfirm: (List<Language>) -> Unit,
@@ -995,6 +1049,7 @@ private fun CharacterDetailScreenPreview() {
         onMaxHitPointsConfirmed = {},
         onWalkSpeedConfirmed = {},
         onLanguagesConfirmed = {},
+        onAlignmentConfirmed = {},
         onDialogDismissed = {},
         onNavigateUpClicked = {},
     )
