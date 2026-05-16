@@ -33,76 +33,76 @@ class CharacterEditViewModel(
         }
     }
 
-    fun onFieldTapped(field: EditingField) {
+    fun editField(field: EditingField) {
         state.update { it?.copy(editingField = field) }
     }
 
-    fun onDialogDismissed() {
+    fun cancelEditing() {
         state.update { it?.copy(editingField = null) }
     }
 
-    fun onNameConfirmed(name: String) {
+    fun saveName(name: String) {
         val trimmed = name.trim()
         if (trimmed.isBlank()) {
-            onDialogDismissed()
+            cancelEditing()
             return
         }
         updateAndSave { it.copy(name = trimmed, editingField = null) }
     }
 
-    fun onRaceConfirmed(race: Race) {
+    fun saveRace(race: Race) {
         updateAndSave { it.copy(race = race, editingField = null) }
     }
 
-    fun onClassConfirmed(clazz: Character.Class) {
+    fun saveClass(clazz: Character.Class) {
         updateAndSave { it.copy(clazz = clazz, editingField = null) }
     }
 
-    fun onLevelConfirmed(level: Int) {
+    fun saveLevel(level: Int) {
         updateAndSave { it.copy(level = level.coerceAtLeast(1), editingField = null) }
     }
 
-    fun onBackgroundConfirmed(background: String) {
+    fun saveBackground(background: String) {
         updateAndSave { it.copy(background = background.trim(), editingField = null) }
     }
 
-    fun onStrConfirmed(value: Int) {
+    fun saveStr(value: Int) {
         updateAndSave { it.copy(str = value.coerceIn(1, 30), editingField = null) }
     }
 
-    fun onDexConfirmed(value: Int) {
+    fun saveDex(value: Int) {
         updateAndSave { it.copy(dex = value.coerceIn(1, 30), editingField = null) }
     }
 
-    fun onConConfirmed(value: Int) {
+    fun saveCon(value: Int) {
         updateAndSave { it.copy(con = value.coerceIn(1, 30), editingField = null) }
     }
 
-    fun onIntelligenceConfirmed(value: Int) {
+    fun saveIntelligence(value: Int) {
         updateAndSave { it.copy(intelligence = value.coerceIn(1, 30), editingField = null) }
     }
 
-    fun onWisConfirmed(value: Int) {
+    fun saveWis(value: Int) {
         updateAndSave { it.copy(wis = value.coerceIn(1, 30), editingField = null) }
     }
 
-    fun onChaConfirmed(value: Int) {
+    fun saveCha(value: Int) {
         updateAndSave { it.copy(cha = value.coerceIn(1, 30), editingField = null) }
     }
 
-    fun onArmorClassConfirmed(value: Int) {
+    fun saveArmorClass(value: Int) {
         updateAndSave { it.copy(armorClass = value.coerceAtLeast(0), editingField = null) }
     }
 
-    fun onMaxHitPointsConfirmed(value: Int) {
+    fun saveMaxHitPoints(value: Int) {
         updateAndSave { it.copy(maxHitPoints = value.coerceAtLeast(1), editingField = null) }
     }
 
-    fun onWalkSpeedConfirmed(value: Int?) {
+    fun saveWalkSpeed(value: Int?) {
         updateAndSave { it.copy(walkSpeed = value?.coerceAtLeast(0), editingField = null) }
     }
 
-    fun onLanguagesConfirmed(languages: List<Language>) {
+    fun saveLanguages(languages: List<Language>) {
         updateAndSave { it.copy(languages = languages, editingField = null) }
     }
 
