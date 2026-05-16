@@ -30,6 +30,7 @@
     <string name="label_max_hp">PV max</string>
     <string name="label_walk_speed">Vitesse (ft)</string>
     <string name="label_languages">Langues</string>
+    <string name="label_level_short">niv.</string>
 
     <!-- Character race -->
     <string name="race_human">Humain</string>
