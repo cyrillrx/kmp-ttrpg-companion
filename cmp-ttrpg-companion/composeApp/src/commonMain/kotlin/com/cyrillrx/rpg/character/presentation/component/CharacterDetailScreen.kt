@@ -86,7 +86,7 @@ fun CharacterDetailScreen(
     onCharismaConfirmed: (Int) -> Unit,
     onArmorClassConfirmed: (Int) -> Unit,
     onMaxHitPointsConfirmed: (Int) -> Unit,
-    onWalkSpeedConfirmed: (Int?) -> Unit,
+    onWalkSpeedConfirmed: (Int) -> Unit,
     onLanguagesConfirmed: (List<Language>) -> Unit,
     onAlignmentConfirmed: (Creature.Alignment) -> Unit,
     onDialogDismissed: () -> Unit,

@@ -3,6 +3,7 @@ package com.cyrillrx.rpg.character.presentation
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
+import com.cyrillrx.rpg.core.presentation.component.dnd.defaultWalkSpeed
 import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.creature.domain.Creature
@@ -21,7 +22,7 @@ data class CharacterEditState(
     val charisma: Int,
     val armorClass: Int,
     val maxHitPoints: Int,
-    val walkSpeed: Int?,
+    val walkSpeed: Int,
     val languages: List<Language>,
     val alignment: Creature.Alignment,
     val editingField: EditingField? = null,
@@ -60,7 +61,7 @@ data class CharacterEditState(
             charisma = character.abilities.cha.value,
             armorClass = character.armorClass,
             maxHitPoints = character.maxHitPoints,
-            walkSpeed = character.speeds.walk,
+            walkSpeed = character.speeds.walk ?: character.race.defaultWalkSpeed(),
             languages = character.languages,
             alignment = character.alignment,
         )

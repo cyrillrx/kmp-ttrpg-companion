@@ -66,7 +66,7 @@ internal fun CharacterEditDialog(
     onCharismaConfirmed: (Int) -> Unit,
     onArmorClassConfirmed: (Int) -> Unit,
     onMaxHitPointsConfirmed: (Int) -> Unit,
-    onWalkSpeedConfirmed: (Int?) -> Unit,
+    onWalkSpeedConfirmed: (Int) -> Unit,
     onLanguagesConfirmed: (List<Language>) -> Unit,
     onAlignmentConfirmed: (Creature.Alignment) -> Unit,
     onDismiss: () -> Unit,
@@ -152,7 +152,7 @@ internal fun CharacterEditDialog(
             onDismiss = onDismiss,
         )
 
-        EditingField.WalkSpeed -> NullableNumberEditDialog(
+        EditingField.WalkSpeed -> NumberEditDialog(
             title = stringResource(Res.string.label_walk_speed),
             initialValue = state.walkSpeed,
             onConfirm = onWalkSpeedConfirmed,
@@ -261,41 +261,6 @@ private fun NumberEditDialog(
     )
 }
 
-@Composable
-private fun NullableNumberEditDialog(
-    title: String,
-    initialValue: Int?,
-    onConfirm: (Int?) -> Unit,
-    onDismiss: () -> Unit,
-) {
-    var text by remember(title) { mutableStateOf(initialValue?.toString().orEmpty()) }
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = { Text(title) },
-        text = {
-            TextField(
-                value = text,
-                onValueChange = { text = it },
-                singleLine = true,
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                colors = TextFieldDefaults.colors(
-                    focusedContainerColor = MaterialTheme.colorScheme.surface,
-                    unfocusedContainerColor = MaterialTheme.colorScheme.surface,
-                ),
-            )
-        },
-        confirmButton = {
-            TextButton(onClick = { onConfirm(text.toIntOrNull()) }) {
-                Text(stringResource(Res.string.btn_confirm))
-            }
-        },
-        dismissButton = {
-            TextButton(onClick = onDismiss) {
-                Text(stringResource(Res.string.btn_cancel))
-            }
-        },
-    )
-}
 
 @Composable
 private fun RaceSelectDialog(

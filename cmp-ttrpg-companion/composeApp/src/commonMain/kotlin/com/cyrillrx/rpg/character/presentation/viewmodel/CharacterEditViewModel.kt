@@ -99,8 +99,8 @@ class CharacterEditViewModel(
         updateAndSave { it.copy(maxHitPoints = value.coerceAtLeast(1), editingField = null) }
     }
 
-    fun saveWalkSpeed(value: Int?) {
-        updateAndSave { it.copy(walkSpeed = value?.coerceAtLeast(0), editingField = null) }
+    fun saveWalkSpeed(value: Int) {
+        updateAndSave { it.copy(walkSpeed = value.coerceAtLeast(0), editingField = null) }
     }
 
     fun saveLanguages(languages: List<Language>) {

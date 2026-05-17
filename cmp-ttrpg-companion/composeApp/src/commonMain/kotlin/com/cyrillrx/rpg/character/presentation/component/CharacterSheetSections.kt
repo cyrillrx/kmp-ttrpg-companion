@@ -220,7 +220,7 @@ private fun StatCard(
 
 @Composable
 internal fun WalkSpeedRow(
-    walkSpeed: Int?,
+    walkSpeed: Int,
     onTap: () -> Unit,
 ) {
     Card(
@@ -242,7 +242,7 @@ internal fun WalkSpeedRow(
                 modifier = Modifier.weight(0.5f),
             )
             Text(
-                text = walkSpeed?.toString() ?: "—",
+                text = walkSpeed.toString(),
                 style = MaterialTheme.typography.bodyMedium,
                 fontWeight = FontWeight.SemiBold,
                 modifier = Modifier.weight(0.5f),
