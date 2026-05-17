@@ -4,7 +4,6 @@ import androidx.compose.runtime.Composable
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
-import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.class_barbarian
@@ -19,7 +18,6 @@ import rpg_companion.composeapp.generated.resources.class_rogue
 import rpg_companion.composeapp.generated.resources.class_sorcerer
 import rpg_companion.composeapp.generated.resources.class_unknown
 import rpg_companion.composeapp.generated.resources.class_warlock
-import rpg_companion.composeapp.generated.resources.class_warrior
 import rpg_companion.composeapp.generated.resources.class_wizard
 import rpg_companion.composeapp.generated.resources.language_abyssal
 import rpg_companion.composeapp.generated.resources.language_celestial
@@ -63,22 +61,6 @@ fun Character.Class.toSvgPath(): String = when (this) {
     Character.Class.WARLOCK -> "drawable/class_warlock.svg"
     Character.Class.WIZARD -> "drawable/class_wizard.svg"
     Character.Class.UNKNOWN -> "drawable/class_warrior.svg"
-}
-
-fun Character.Class.toDrawableResource(): DrawableResource = when (this) {
-    Character.Class.BARBARIAN -> Res.drawable.class_barbarian
-    Character.Class.BARD -> Res.drawable.class_bard
-    Character.Class.CLERIC -> Res.drawable.class_cleric
-    Character.Class.DRUID -> Res.drawable.class_druid
-    Character.Class.FIGHTER -> Res.drawable.class_warrior
-    Character.Class.MONK -> Res.drawable.class_monk
-    Character.Class.PALADIN -> Res.drawable.class_paladin
-    Character.Class.RANGER -> Res.drawable.class_ranger
-    Character.Class.ROGUE -> Res.drawable.class_rogue
-    Character.Class.SORCERER -> Res.drawable.class_sorcerer
-    Character.Class.WARLOCK -> Res.drawable.class_warlock
-    Character.Class.WIZARD -> Res.drawable.class_wizard
-    Character.Class.UNKNOWN -> Res.drawable.class_warrior
 }
 
 @Composable
