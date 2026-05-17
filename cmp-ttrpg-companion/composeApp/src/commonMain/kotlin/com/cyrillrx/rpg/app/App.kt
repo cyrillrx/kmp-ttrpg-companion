@@ -72,13 +72,12 @@ private val navSavedStateConfig = SavedStateConfiguration {
 @Composable
 @Preview
 fun App(dbDriverFactory: DatabaseDriverFactory) {
+    setSingletonImageLoaderFactory { context ->
+        ImageLoader.Builder(context)
+            .components { add(SvgDecoder.Factory()) }
+            .build()
+    }
     AppTheme {
-        setSingletonImageLoaderFactory { context ->
-            ImageLoader.Builder(context)
-                .components { add(SvgDecoder.Factory()) }
-                .build()
-        }
-
         val backStack = rememberNavBackStack(navSavedStateConfig, MainRoute.Home)
 
         val fileReader = ComposeFileReader()
