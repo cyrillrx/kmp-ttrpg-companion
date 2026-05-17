@@ -193,7 +193,7 @@ private fun TextEditDialog(
     onDismiss: () -> Unit,
     singleLine: Boolean = true,
 ) {
-    var text by remember(title) { mutableStateOf(initialValue) }
+    var text by remember(initialValue) { mutableStateOf(initialValue) }
     AlertDialog(
         onDismissRequest = onDismiss,
         title = { Text(title) },
@@ -228,7 +228,7 @@ private fun NumberEditDialog(
     onConfirm: (Int) -> Unit,
     onDismiss: () -> Unit,
 ) {
-    var text by remember(title) { mutableStateOf(initialValue.toString()) }
+    var text by remember(initialValue) { mutableStateOf(initialValue.toString()) }
     AlertDialog(
         onDismissRequest = onDismiss,
         title = { Text(title) },
