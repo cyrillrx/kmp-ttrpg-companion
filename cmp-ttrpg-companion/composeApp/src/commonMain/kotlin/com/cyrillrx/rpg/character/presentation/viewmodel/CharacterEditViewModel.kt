@@ -67,28 +67,28 @@ class CharacterEditViewModel(
         updateAndSave { it.copy(background = background.trim(), editingField = null) }
     }
 
-    fun saveStr(value: Int) {
-        updateAndSave { it.copy(str = value.coerceIn(1, 30), editingField = null) }
+    fun saveStrength(value: Int) {
+        updateAndSave { it.copy(strength = value.coerceIn(1, 30), editingField = null) }
     }
 
-    fun saveDex(value: Int) {
-        updateAndSave { it.copy(dex = value.coerceIn(1, 30), editingField = null) }
+    fun saveDexterity(value: Int) {
+        updateAndSave { it.copy(dexterity = value.coerceIn(1, 30), editingField = null) }
     }
 
-    fun saveCon(value: Int) {
-        updateAndSave { it.copy(con = value.coerceIn(1, 30), editingField = null) }
+    fun saveConstitution(value: Int) {
+        updateAndSave { it.copy(constitution = value.coerceIn(1, 30), editingField = null) }
     }
 
     fun saveIntelligence(value: Int) {
         updateAndSave { it.copy(intelligence = value.coerceIn(1, 30), editingField = null) }
     }
 
-    fun saveWis(value: Int) {
-        updateAndSave { it.copy(wis = value.coerceIn(1, 30), editingField = null) }
+    fun saveWisdom(value: Int) {
+        updateAndSave { it.copy(wisdom = value.coerceIn(1, 30), editingField = null) }
     }
 
-    fun saveCha(value: Int) {
-        updateAndSave { it.copy(cha = value.coerceIn(1, 30), editingField = null) }
+    fun saveCharisma(value: Int) {
+        updateAndSave { it.copy(charisma = value.coerceIn(1, 30), editingField = null) }
     }
 
     fun saveArmorClass(value: Int) {

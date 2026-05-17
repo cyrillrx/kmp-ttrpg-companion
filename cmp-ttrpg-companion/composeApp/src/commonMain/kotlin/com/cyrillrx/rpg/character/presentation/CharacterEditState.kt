@@ -13,12 +13,12 @@ data class CharacterEditState(
     val clazz: Character.Class,
     val level: Int,
     val background: String,
-    val str: Int,
-    val dex: Int,
-    val con: Int,
+    val strength: Int,
+    val dexterity: Int,
+    val constitution: Int,
     val intelligence: Int,
-    val wis: Int,
-    val cha: Int,
+    val wisdom: Int,
+    val charisma: Int,
     val armorClass: Int,
     val maxHitPoints: Int,
     val walkSpeed: Int?,
@@ -32,12 +32,12 @@ data class CharacterEditState(
         data object Clazz : EditingField
         data object Level : EditingField
         data object Background : EditingField
-        data object Str : EditingField
-        data object Dex : EditingField
-        data object Con : EditingField
+        data object Strength : EditingField
+        data object Dexterity : EditingField
+        data object Constitution : EditingField
         data object Intelligence : EditingField
-        data object Wis : EditingField
-        data object Cha : EditingField
+        data object Wisdom : EditingField
+        data object Charisma : EditingField
         data object ArmorClass : EditingField
         data object MaxHitPoints : EditingField
         data object WalkSpeed : EditingField
@@ -52,12 +52,12 @@ data class CharacterEditState(
             clazz = character.clazz,
             level = character.level,
             background = character.background.orEmpty(),
-            str = character.abilities.str.value,
-            dex = character.abilities.dex.value,
-            con = character.abilities.con.value,
+            strength = character.abilities.str.value,
+            dexterity = character.abilities.dex.value,
+            constitution = character.abilities.con.value,
             intelligence = character.abilities.int.value,
-            wis = character.abilities.wis.value,
-            cha = character.abilities.cha.value,
+            wisdom = character.abilities.wis.value,
+            charisma = character.abilities.cha.value,
             armorClass = character.armorClass,
             maxHitPoints = character.maxHitPoints,
             walkSpeed = character.speeds.walk,
@@ -74,12 +74,12 @@ fun CharacterEditState.toCharacter(original: Character): Character = original.co
     level = level,
     background = background.takeIf { it.isNotBlank() },
     abilities = Abilities(
-        str = Ability(str, original.abilities.str.savingThrowProficiency),
-        dex = Ability(dex, original.abilities.dex.savingThrowProficiency),
-        con = Ability(con, original.abilities.con.savingThrowProficiency),
+        str = Ability(strength, original.abilities.str.savingThrowProficiency),
+        dex = Ability(dexterity, original.abilities.dex.savingThrowProficiency),
+        con = Ability(constitution, original.abilities.con.savingThrowProficiency),
         int = Ability(intelligence, original.abilities.int.savingThrowProficiency),
-        wis = Ability(wis, original.abilities.wis.savingThrowProficiency),
-        cha = Ability(cha, original.abilities.cha.savingThrowProficiency),
+        wis = Ability(wisdom, original.abilities.wis.savingThrowProficiency),
+        cha = Ability(charisma, original.abilities.cha.savingThrowProficiency),
     ),
     armorClass = armorClass,
     maxHitPoints = maxHitPoints,

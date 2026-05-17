@@ -117,12 +117,12 @@ fun CharacterDetailScreen(
         onClassConfirmed = viewModel::saveClass,
         onLevelConfirmed = viewModel::saveLevel,
         onBackgroundConfirmed = viewModel::saveBackground,
-        onStrConfirmed = viewModel::saveStr,
-        onDexConfirmed = viewModel::saveDex,
-        onConConfirmed = viewModel::saveCon,
+        onStrengthConfirmed = viewModel::saveStrength,
+        onDexterityConfirmed = viewModel::saveDexterity,
+        onConstitutionConfirmed = viewModel::saveConstitution,
         onIntelligenceConfirmed = viewModel::saveIntelligence,
-        onWisConfirmed = viewModel::saveWis,
-        onChaConfirmed = viewModel::saveCha,
+        onWisdomConfirmed = viewModel::saveWisdom,
+        onCharismaConfirmed = viewModel::saveCharisma,
         onArmorClassConfirmed = viewModel::saveArmorClass,
         onMaxHitPointsConfirmed = viewModel::saveMaxHitPoints,
         onWalkSpeedConfirmed = viewModel::saveWalkSpeed,
@@ -142,12 +142,12 @@ fun CharacterDetailScreen(
     onClassConfirmed: (Character.Class) -> Unit,
     onLevelConfirmed: (Int) -> Unit,
     onBackgroundConfirmed: (String) -> Unit,
-    onStrConfirmed: (Int) -> Unit,
-    onDexConfirmed: (Int) -> Unit,
-    onConConfirmed: (Int) -> Unit,
+    onStrengthConfirmed: (Int) -> Unit,
+    onDexterityConfirmed: (Int) -> Unit,
+    onConstitutionConfirmed: (Int) -> Unit,
     onIntelligenceConfirmed: (Int) -> Unit,
-    onWisConfirmed: (Int) -> Unit,
-    onChaConfirmed: (Int) -> Unit,
+    onWisdomConfirmed: (Int) -> Unit,
+    onCharismaConfirmed: (Int) -> Unit,
     onArmorClassConfirmed: (Int) -> Unit,
     onMaxHitPointsConfirmed: (Int) -> Unit,
     onWalkSpeedConfirmed: (Int?) -> Unit,
@@ -191,18 +191,18 @@ fun CharacterDetailScreen(
             SheetDivider(stringResource(Res.string.label_abilities))
 
             AbilityGrid(
-                str = state.str,
-                dex = state.dex,
-                con = state.con,
+                strength = state.strength,
+                dexterity = state.dexterity,
+                constitution = state.constitution,
                 intelligence = state.intelligence,
-                wis = state.wis,
-                cha = state.cha,
-                onStrTapped = { onFieldTapped(EditingField.Str) },
-                onDexTapped = { onFieldTapped(EditingField.Dex) },
-                onConTapped = { onFieldTapped(EditingField.Con) },
+                wisdom = state.wisdom,
+                charisma = state.charisma,
+                onStrengthTapped = { onFieldTapped(EditingField.Strength) },
+                onDexterityTapped = { onFieldTapped(EditingField.Dexterity) },
+                onConstitutionTapped = { onFieldTapped(EditingField.Constitution) },
                 onIntelligenceTapped = { onFieldTapped(EditingField.Intelligence) },
-                onWisTapped = { onFieldTapped(EditingField.Wis) },
-                onChaTapped = { onFieldTapped(EditingField.Cha) },
+                onWisdomTapped = { onFieldTapped(EditingField.Wisdom) },
+                onCharismaTapped = { onFieldTapped(EditingField.Charisma) },
             )
 
             SheetDivider(stringResource(Res.string.label_combat))
@@ -237,12 +237,12 @@ fun CharacterDetailScreen(
         onClassConfirmed = onClassConfirmed,
         onLevelConfirmed = onLevelConfirmed,
         onBackgroundConfirmed = onBackgroundConfirmed,
-        onStrConfirmed = onStrConfirmed,
-        onDexConfirmed = onDexConfirmed,
-        onConConfirmed = onConConfirmed,
+        onStrengthConfirmed = onStrengthConfirmed,
+        onDexterityConfirmed = onDexterityConfirmed,
+        onConstitutionConfirmed = onConstitutionConfirmed,
         onIntelligenceConfirmed = onIntelligenceConfirmed,
-        onWisConfirmed = onWisConfirmed,
-        onChaConfirmed = onChaConfirmed,
+        onWisdomConfirmed = onWisdomConfirmed,
+        onCharismaConfirmed = onCharismaConfirmed,
         onArmorClassConfirmed = onArmorClassConfirmed,
         onMaxHitPointsConfirmed = onMaxHitPointsConfirmed,
         onWalkSpeedConfirmed = onWalkSpeedConfirmed,
@@ -382,18 +382,18 @@ private fun SheetDivider(label: String) {
 
 @Composable
 private fun AbilityGrid(
-    str: Int,
-    dex: Int,
-    con: Int,
+    strength: Int,
+    dexterity: Int,
+    constitution: Int,
     intelligence: Int,
-    wis: Int,
-    cha: Int,
-    onStrTapped: () -> Unit,
-    onDexTapped: () -> Unit,
-    onConTapped: () -> Unit,
+    wisdom: Int,
+    charisma: Int,
+    onStrengthTapped: () -> Unit,
+    onDexterityTapped: () -> Unit,
+    onConstitutionTapped: () -> Unit,
     onIntelligenceTapped: () -> Unit,
-    onWisTapped: () -> Unit,
-    onChaTapped: () -> Unit,
+    onWisdomTapped: () -> Unit,
+    onCharismaTapped: () -> Unit,
 ) {
     Column(verticalArrangement = Arrangement.spacedBy(spacingMedium)) {
         Row(
@@ -401,21 +401,21 @@ private fun AbilityGrid(
             modifier = Modifier.fillMaxWidth(),
         ) {
             AbilityCard(
-                score = str,
+                score = strength,
                 label = stringResource(Res.string.label_str),
-                onClick = onStrTapped,
+                onClick = onStrengthTapped,
                 modifier = Modifier.weight(1f),
             )
             AbilityCard(
-                score = dex,
+                score = dexterity,
                 label = stringResource(Res.string.label_dex),
-                onClick = onDexTapped,
+                onClick = onDexterityTapped,
                 modifier = Modifier.weight(1f),
             )
             AbilityCard(
-                score = con,
+                score = constitution,
                 label = stringResource(Res.string.label_con),
-                onClick = onConTapped,
+                onClick = onConstitutionTapped,
                 modifier = Modifier.weight(1f),
             )
         }
@@ -430,15 +430,15 @@ private fun AbilityGrid(
                 modifier = Modifier.weight(1f),
             )
             AbilityCard(
-                score = wis,
+                score = wisdom,
                 label = stringResource(Res.string.label_wis),
-                onClick = onWisTapped,
+                onClick = onWisdomTapped,
                 modifier = Modifier.weight(1f),
             )
             AbilityCard(
-                score = cha,
+                score = charisma,
                 label = stringResource(Res.string.label_cha),
-                onClick = onChaTapped,
+                onClick = onCharismaTapped,
                 modifier = Modifier.weight(1f),
             )
         }
@@ -625,12 +625,12 @@ private fun CharacterEditDialog(
     onClassConfirmed: (Character.Class) -> Unit,
     onLevelConfirmed: (Int) -> Unit,
     onBackgroundConfirmed: (String) -> Unit,
-    onStrConfirmed: (Int) -> Unit,
-    onDexConfirmed: (Int) -> Unit,
-    onConConfirmed: (Int) -> Unit,
+    onStrengthConfirmed: (Int) -> Unit,
+    onDexterityConfirmed: (Int) -> Unit,
+    onConstitutionConfirmed: (Int) -> Unit,
     onIntelligenceConfirmed: (Int) -> Unit,
-    onWisConfirmed: (Int) -> Unit,
-    onChaConfirmed: (Int) -> Unit,
+    onWisdomConfirmed: (Int) -> Unit,
+    onCharismaConfirmed: (Int) -> Unit,
     onArmorClassConfirmed: (Int) -> Unit,
     onMaxHitPointsConfirmed: (Int) -> Unit,
     onWalkSpeedConfirmed: (Int?) -> Unit,
@@ -663,24 +663,24 @@ private fun CharacterEditDialog(
             onDismiss = onDismiss,
         )
 
-        EditingField.Str -> NumberEditDialog(
+        EditingField.Strength -> NumberEditDialog(
             title = stringResource(Res.string.label_str),
-            initialValue = state.str,
-            onConfirm = onStrConfirmed,
+            initialValue = state.strength,
+            onConfirm = onStrengthConfirmed,
             onDismiss = onDismiss,
         )
 
-        EditingField.Dex -> NumberEditDialog(
+        EditingField.Dexterity -> NumberEditDialog(
             title = stringResource(Res.string.label_dex),
-            initialValue = state.dex,
-            onConfirm = onDexConfirmed,
+            initialValue = state.dexterity,
+            onConfirm = onDexterityConfirmed,
             onDismiss = onDismiss,
         )
 
-        EditingField.Con -> NumberEditDialog(
+        EditingField.Constitution -> NumberEditDialog(
             title = stringResource(Res.string.label_con),
-            initialValue = state.con,
-            onConfirm = onConConfirmed,
+            initialValue = state.constitution,
+            onConfirm = onConstitutionConfirmed,
             onDismiss = onDismiss,
         )
 
@@ -691,17 +691,17 @@ private fun CharacterEditDialog(
             onDismiss = onDismiss,
         )
 
-        EditingField.Wis -> NumberEditDialog(
+        EditingField.Wisdom -> NumberEditDialog(
             title = stringResource(Res.string.label_wis),
-            initialValue = state.wis,
-            onConfirm = onWisConfirmed,
+            initialValue = state.wisdom,
+            onConfirm = onWisdomConfirmed,
             onDismiss = onDismiss,
         )
 
-        EditingField.Cha -> NumberEditDialog(
+        EditingField.Charisma -> NumberEditDialog(
             title = stringResource(Res.string.label_cha),
-            initialValue = state.cha,
-            onConfirm = onChaConfirmed,
+            initialValue = state.charisma,
+            onConfirm = onCharismaConfirmed,
             onDismiss = onDismiss,
         )
 
@@ -1058,12 +1058,12 @@ private fun CharacterDetailScreenPreview() {
         onClassConfirmed = {},
         onLevelConfirmed = {},
         onBackgroundConfirmed = {},
-        onStrConfirmed = {},
-        onDexConfirmed = {},
-        onConConfirmed = {},
+        onStrengthConfirmed = {},
+        onDexterityConfirmed = {},
+        onConstitutionConfirmed = {},
         onIntelligenceConfirmed = {},
-        onWisConfirmed = {},
-        onChaConfirmed = {},
+        onWisdomConfirmed = {},
+        onCharismaConfirmed = {},
         onArmorClassConfirmed = {},
         onMaxHitPointsConfirmed = {},
         onWalkSpeedConfirmed = {},
