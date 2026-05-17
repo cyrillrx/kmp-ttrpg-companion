@@ -27,7 +27,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
-import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Character
@@ -40,6 +39,9 @@ import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.DndGold
 import com.cyrillrx.rpg.core.presentation.theme.DndParchment
 import com.cyrillrx.rpg.core.presentation.theme.Scarlet
+import com.cyrillrx.rpg.core.presentation.theme.avatarBorderWidth
+import com.cyrillrx.rpg.core.presentation.theme.avatarSize
+import com.cyrillrx.rpg.core.presentation.theme.iconSizeLarge
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.creature.domain.Creature
@@ -123,10 +125,10 @@ private fun ClassIconBox(clazz: Character.Class, onClick: () -> Unit) {
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier
-            .size(72.dp)
+            .size(avatarSize)
             .clip(CircleShape)
             .background(DndParchment)
-            .border(2.dp, DndGold, CircleShape)
+            .border(avatarBorderWidth, DndGold, CircleShape)
             .clickable(onClick = onClick),
     ) {
         when (val s = iconState) {
@@ -135,19 +137,19 @@ private fun ClassIconBox(clazz: Character.Class, onClick: () -> Unit) {
                 model = s.bytes,
                 contentDescription = null,
                 colorFilter = ColorFilter.tint(Scarlet),
-                modifier = Modifier.size(44.dp),
+                modifier = Modifier.size(iconSizeLarge),
             )
             ClassIconState.Error -> Icon(
                 imageVector = Icons.Filled.Close,
                 contentDescription = null,
                 tint = Scarlet,
-                modifier = Modifier.size(44.dp),
+                modifier = Modifier.size(iconSizeLarge),
             )
             ClassIconState.Unknown -> Icon(
                 imageVector = Icons.Filled.QuestionMark,
                 contentDescription = null,
                 tint = Scarlet,
-                modifier = Modifier.size(44.dp),
+                modifier = Modifier.size(iconSizeLarge),
             )
         }
     }
