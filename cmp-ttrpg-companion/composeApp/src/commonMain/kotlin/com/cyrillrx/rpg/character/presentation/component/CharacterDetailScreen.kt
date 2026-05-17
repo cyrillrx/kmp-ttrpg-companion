@@ -42,7 +42,7 @@ fun CharacterDetailScreen(
     val state by viewModel.state.collectAsStateWithLifecycle()
     val editState = state
     if (editState == null) {
-        Scaffold { Loader() }
+        Scaffold { innerPadding -> Loader(modifier = Modifier.padding(innerPadding)) }
         return
     }
     CharacterDetailScreen(
