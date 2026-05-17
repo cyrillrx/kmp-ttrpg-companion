@@ -1,0 +1,188 @@
+package com.cyrillrx.rpg.character.presentation.component
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.produceState
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.unit.dp
+import coil3.compose.AsyncImage
+import com.cyrillrx.rpg.character.data.SampleCharacterRepository
+import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.character.domain.Race
+import com.cyrillrx.rpg.character.presentation.CharacterEditState
+import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
+import com.cyrillrx.rpg.core.presentation.component.dnd.toShortString
+import com.cyrillrx.rpg.core.presentation.component.dnd.toSvgPath
+import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
+import com.cyrillrx.rpg.core.presentation.theme.DndGold
+import com.cyrillrx.rpg.core.presentation.theme.DndParchment
+import com.cyrillrx.rpg.core.presentation.theme.Scarlet
+import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
+import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
+import com.cyrillrx.rpg.creature.domain.Creature
+import org.jetbrains.compose.resources.ExperimentalResourceApi
+import org.jetbrains.compose.ui.tooling.preview.Preview
+import org.jetbrains.compose.resources.stringResource
+import rpg_companion.composeapp.generated.resources.Res
+import rpg_companion.composeapp.generated.resources.label_level_short
+
+@Composable
+internal fun CharacterHeader(
+    name: String,
+    race: Race,
+    clazz: Character.Class,
+    level: Int,
+    background: String,
+    alignment: Creature.Alignment,
+    onNameTapped: () -> Unit,
+    onClassTapped: () -> Unit,
+    onRaceTapped: () -> Unit,
+    onLevelTapped: () -> Unit,
+    onBackgroundTapped: () -> Unit,
+    onAlignmentTapped: () -> Unit,
+) {
+    val levelShort = stringResource(Res.string.label_level_short)
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(spacingCommon),
+        modifier = Modifier.fillMaxWidth(),
+    ) {
+        ClassIconBox(clazz = clazz, onClick = onClassTapped)
+        Column(modifier = Modifier.weight(1f)) {
+            Text(
+                text = name,
+                style = MaterialTheme.typography.titleLarge,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.clickable(onClick = onNameTapped),
+            )
+            Spacer(Modifier.height(spacingSmall))
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(spacingSmall),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                SubtitleChip(race.toFormattedString(), onRaceTapped)
+                SubtitleDot()
+                SubtitleChip(clazz.toFormattedString(), onClassTapped)
+                if (background.isNotBlank()) {
+                    SubtitleDot()
+                    SubtitleChip(background, onBackgroundTapped)
+                }
+                if (alignment != Creature.Alignment.UNKNOWN) {
+                    SubtitleDot()
+                    SubtitleChip(alignment.toShortString(), onAlignmentTapped)
+                }
+            }
+        }
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier.clickable(onClick = onLevelTapped),
+        ) {
+            Text(
+                text = levelShort.uppercase(),
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            Text(
+                text = level.toString(),
+                style = MaterialTheme.typography.titleLarge,
+                fontWeight = FontWeight.Bold,
+            )
+        }
+    }
+}
+
+@OptIn(ExperimentalResourceApi::class)
+@Composable
+private fun ClassIconBox(clazz: Character.Class, onClick: () -> Unit) {
+    val svgBytes by produceState<ByteArray?>(null, clazz) {
+        value = Res.readBytes(clazz.toSvgPath())
+    }
+    Box(
+        contentAlignment = Alignment.Center,
+        modifier = Modifier
+            .size(72.dp)
+            .clip(CircleShape)
+            .background(DndParchment)
+            .border(2.dp, DndGold, CircleShape)
+            .clickable(onClick = onClick),
+    ) {
+        AsyncImage(
+            model = svgBytes,
+            contentDescription = null,
+            colorFilter = ColorFilter.tint(Scarlet),
+            modifier = Modifier.size(44.dp),
+        )
+    }
+}
+
+@Composable
+private fun SubtitleChip(text: String, onClick: () -> Unit) {
+    Text(
+        text = text,
+        style = MaterialTheme.typography.bodySmall,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+        textDecoration = TextDecoration.Underline,
+        modifier = Modifier.clickable(onClick = onClick),
+    )
+}
+
+@Composable
+private fun SubtitleDot() {
+    Text(
+        text = "·",
+        style = MaterialTheme.typography.bodySmall,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+    )
+}
+
+// ─── Previews ────────────────────────────────────────────────────────────────
+
+@Preview
+@Composable
+private fun PreviewCharacterHeaderLight() {
+    AppThemePreview(darkTheme = false) { CharacterHeaderPreview() }
+}
+
+@Preview
+@Composable
+private fun PreviewCharacterHeaderDark() {
+    AppThemePreview(darkTheme = true) { CharacterHeaderPreview() }
+}
+
+@Composable
+private fun CharacterHeaderPreview() {
+    val state = CharacterEditState.from(SampleCharacterRepository.humanFighter())
+    CharacterHeader(
+        name = state.name,
+        race = state.race,
+        clazz = state.clazz,
+        level = state.level,
+        background = state.background,
+        alignment = state.alignment,
+        onNameTapped = {},
+        onClassTapped = {},
+        onRaceTapped = {},
+        onLevelTapped = {},
+        onBackgroundTapped = {},
+        onAlignmentTapped = {},
+    )
+}
