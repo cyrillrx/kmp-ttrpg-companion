@@ -14,8 +14,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.AlertDialog
@@ -47,6 +47,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import coil3.compose.AsyncImage
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.Language
@@ -57,11 +58,9 @@ import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
 import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterEditViewModel
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
-import coil3.compose.AsyncImage
-import com.cyrillrx.rpg.core.presentation.component.dnd.toSvgPath
-import org.jetbrains.compose.resources.ExperimentalResourceApi
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.component.dnd.toShortString
+import com.cyrillrx.rpg.core.presentation.component.dnd.toSvgPath
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.DndGold
 import com.cyrillrx.rpg.core.presentation.theme.DndParchment
@@ -73,6 +72,7 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.creature.domain.Creature
+import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
@@ -80,6 +80,7 @@ import rpg_companion.composeapp.generated.resources.btn_cancel
 import rpg_companion.composeapp.generated.resources.btn_confirm
 import rpg_companion.composeapp.generated.resources.label_abilities
 import rpg_companion.composeapp.generated.resources.label_ac
+import rpg_companion.composeapp.generated.resources.label_alignment
 import rpg_companion.composeapp.generated.resources.label_background
 import rpg_companion.composeapp.generated.resources.label_cha
 import rpg_companion.composeapp.generated.resources.label_class
@@ -87,7 +88,6 @@ import rpg_companion.composeapp.generated.resources.label_combat
 import rpg_companion.composeapp.generated.resources.label_con
 import rpg_companion.composeapp.generated.resources.label_dex
 import rpg_companion.composeapp.generated.resources.label_int
-import rpg_companion.composeapp.generated.resources.label_alignment
 import rpg_companion.composeapp.generated.resources.label_languages
 import rpg_companion.composeapp.generated.resources.label_level
 import rpg_companion.composeapp.generated.resources.label_level_short
@@ -400,9 +400,24 @@ private fun AbilityGrid(
             horizontalArrangement = Arrangement.spacedBy(spacingMedium),
             modifier = Modifier.fillMaxWidth(),
         ) {
-            AbilityCard(score = str, label = stringResource(Res.string.label_str), onClick = onStrTapped, modifier = Modifier.weight(1f))
-            AbilityCard(score = dex, label = stringResource(Res.string.label_dex), onClick = onDexTapped, modifier = Modifier.weight(1f))
-            AbilityCard(score = con, label = stringResource(Res.string.label_con), onClick = onConTapped, modifier = Modifier.weight(1f))
+            AbilityCard(
+                score = str,
+                label = stringResource(Res.string.label_str),
+                onClick = onStrTapped,
+                modifier = Modifier.weight(1f),
+            )
+            AbilityCard(
+                score = dex,
+                label = stringResource(Res.string.label_dex),
+                onClick = onDexTapped,
+                modifier = Modifier.weight(1f),
+            )
+            AbilityCard(
+                score = con,
+                label = stringResource(Res.string.label_con),
+                onClick = onConTapped,
+                modifier = Modifier.weight(1f),
+            )
         }
         Row(
             horizontalArrangement = Arrangement.spacedBy(spacingMedium),
@@ -414,8 +429,18 @@ private fun AbilityGrid(
                 onClick = onIntelligenceTapped,
                 modifier = Modifier.weight(1f),
             )
-            AbilityCard(score = wis, label = stringResource(Res.string.label_wis), onClick = onWisTapped, modifier = Modifier.weight(1f))
-            AbilityCard(score = cha, label = stringResource(Res.string.label_cha), onClick = onChaTapped, modifier = Modifier.weight(1f))
+            AbilityCard(
+                score = wis,
+                label = stringResource(Res.string.label_wis),
+                onClick = onWisTapped,
+                modifier = Modifier.weight(1f),
+            )
+            AbilityCard(
+                score = cha,
+                label = stringResource(Res.string.label_cha),
+                onClick = onChaTapped,
+                modifier = Modifier.weight(1f),
+            )
         }
     }
 }
@@ -436,10 +461,9 @@ private fun AbilityCard(
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
-            modifier =
-                Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = spacingMedium, horizontal = spacingSmall),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = spacingMedium, horizontal = spacingSmall),
         ) {
             Text(
                 text = score.toString(),
@@ -564,10 +588,9 @@ private fun LanguagesRow(
         modifier = Modifier.fillMaxWidth(),
     ) {
         Column(
-            modifier =
-                Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = spacingCommon, vertical = spacingMedium),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = spacingCommon, vertical = spacingMedium),
         ) {
             Text(
                 text = stringResource(Res.string.label_languages),
@@ -618,115 +641,114 @@ private fun CharacterEditDialog(
     val field = state.editingField ?: return
 
     when (field) {
-        EditingField.Name ->
-            TextEditDialog(
-                title = stringResource(Res.string.label_name),
-                initialValue = state.name,
-                onConfirm = onNameConfirmed,
-                onDismiss = onDismiss,
-            )
-        EditingField.Background ->
-            TextEditDialog(
-                title = stringResource(Res.string.label_background),
-                initialValue = state.background,
-                onConfirm = onBackgroundConfirmed,
-                onDismiss = onDismiss,
-                singleLine = false,
-            )
-        EditingField.Level ->
-            NumberEditDialog(
-                title = stringResource(Res.string.label_level),
-                initialValue = state.level,
-                onConfirm = onLevelConfirmed,
-                onDismiss = onDismiss,
-            )
-        EditingField.Str ->
-            NumberEditDialog(
-                title = stringResource(Res.string.label_str),
-                initialValue = state.str,
-                onConfirm = onStrConfirmed,
-                onDismiss = onDismiss,
-            )
-        EditingField.Dex ->
-            NumberEditDialog(
-                title = stringResource(Res.string.label_dex),
-                initialValue = state.dex,
-                onConfirm = onDexConfirmed,
-                onDismiss = onDismiss,
-            )
-        EditingField.Con ->
-            NumberEditDialog(
-                title = stringResource(Res.string.label_con),
-                initialValue = state.con,
-                onConfirm = onConConfirmed,
-                onDismiss = onDismiss,
-            )
-        EditingField.Intelligence ->
-            NumberEditDialog(
-                title = stringResource(Res.string.label_int),
-                initialValue = state.intelligence,
-                onConfirm = onIntelligenceConfirmed,
-                onDismiss = onDismiss,
-            )
-        EditingField.Wis ->
-            NumberEditDialog(
-                title = stringResource(Res.string.label_wis),
-                initialValue = state.wis,
-                onConfirm = onWisConfirmed,
-                onDismiss = onDismiss,
-            )
-        EditingField.Cha ->
-            NumberEditDialog(
-                title = stringResource(Res.string.label_cha),
-                initialValue = state.cha,
-                onConfirm = onChaConfirmed,
-                onDismiss = onDismiss,
-            )
-        EditingField.ArmorClass ->
-            NumberEditDialog(
-                title = stringResource(Res.string.label_ac),
-                initialValue = state.armorClass,
-                onConfirm = onArmorClassConfirmed,
-                onDismiss = onDismiss,
-            )
-        EditingField.MaxHitPoints ->
-            NumberEditDialog(
-                title = stringResource(Res.string.label_max_hp),
-                initialValue = state.maxHitPoints,
-                onConfirm = onMaxHitPointsConfirmed,
-                onDismiss = onDismiss,
-            )
-        EditingField.WalkSpeed ->
-            NullableNumberEditDialog(
-                title = stringResource(Res.string.label_walk_speed),
-                initialValue = state.walkSpeed,
-                onConfirm = onWalkSpeedConfirmed,
-                onDismiss = onDismiss,
-            )
-        EditingField.Race ->
-            RaceSelectDialog(
-                current = state.race,
-                onConfirm = onRaceConfirmed,
-                onDismiss = onDismiss,
-            )
-        EditingField.Clazz ->
-            ClassSelectDialog(
-                current = state.clazz,
-                onConfirm = onClassConfirmed,
-                onDismiss = onDismiss,
-            )
-        EditingField.Languages ->
-            LanguageSelectDialog(
-                current = state.languages,
-                onConfirm = onLanguagesConfirmed,
-                onDismiss = onDismiss,
-            )
-        EditingField.Alignment ->
-            AlignmentSelectDialog(
-                current = state.alignment,
-                onConfirm = onAlignmentConfirmed,
-                onDismiss = onDismiss,
-            )
+        EditingField.Name -> TextEditDialog(
+            title = stringResource(Res.string.label_name),
+            initialValue = state.name,
+            onConfirm = onNameConfirmed,
+            onDismiss = onDismiss,
+        )
+
+        EditingField.Background -> TextEditDialog(
+            title = stringResource(Res.string.label_background),
+            initialValue = state.background,
+            onConfirm = onBackgroundConfirmed,
+            onDismiss = onDismiss,
+            singleLine = false,
+        )
+
+        EditingField.Level -> NumberEditDialog(
+            title = stringResource(Res.string.label_level),
+            initialValue = state.level,
+            onConfirm = onLevelConfirmed,
+            onDismiss = onDismiss,
+        )
+
+        EditingField.Str -> NumberEditDialog(
+            title = stringResource(Res.string.label_str),
+            initialValue = state.str,
+            onConfirm = onStrConfirmed,
+            onDismiss = onDismiss,
+        )
+
+        EditingField.Dex -> NumberEditDialog(
+            title = stringResource(Res.string.label_dex),
+            initialValue = state.dex,
+            onConfirm = onDexConfirmed,
+            onDismiss = onDismiss,
+        )
+
+        EditingField.Con -> NumberEditDialog(
+            title = stringResource(Res.string.label_con),
+            initialValue = state.con,
+            onConfirm = onConConfirmed,
+            onDismiss = onDismiss,
+        )
+
+        EditingField.Intelligence -> NumberEditDialog(
+            title = stringResource(Res.string.label_int),
+            initialValue = state.intelligence,
+            onConfirm = onIntelligenceConfirmed,
+            onDismiss = onDismiss,
+        )
+
+        EditingField.Wis -> NumberEditDialog(
+            title = stringResource(Res.string.label_wis),
+            initialValue = state.wis,
+            onConfirm = onWisConfirmed,
+            onDismiss = onDismiss,
+        )
+
+        EditingField.Cha -> NumberEditDialog(
+            title = stringResource(Res.string.label_cha),
+            initialValue = state.cha,
+            onConfirm = onChaConfirmed,
+            onDismiss = onDismiss,
+        )
+
+        EditingField.ArmorClass -> NumberEditDialog(
+            title = stringResource(Res.string.label_ac),
+            initialValue = state.armorClass,
+            onConfirm = onArmorClassConfirmed,
+            onDismiss = onDismiss,
+        )
+
+        EditingField.MaxHitPoints -> NumberEditDialog(
+            title = stringResource(Res.string.label_max_hp),
+            initialValue = state.maxHitPoints,
+            onConfirm = onMaxHitPointsConfirmed,
+            onDismiss = onDismiss,
+        )
+
+        EditingField.WalkSpeed -> NullableNumberEditDialog(
+            title = stringResource(Res.string.label_walk_speed),
+            initialValue = state.walkSpeed,
+            onConfirm = onWalkSpeedConfirmed,
+            onDismiss = onDismiss,
+        )
+
+        EditingField.Race -> RaceSelectDialog(
+            current = state.race,
+            onConfirm = onRaceConfirmed,
+            onDismiss = onDismiss,
+        )
+
+        EditingField.Clazz -> ClassSelectDialog(
+            current = state.clazz,
+            onConfirm = onClassConfirmed,
+            onDismiss = onDismiss,
+        )
+
+        EditingField.Languages -> LanguageSelectDialog(
+            current = state.languages,
+            onConfirm = onLanguagesConfirmed,
+            onDismiss = onDismiss,
+        )
+
+        EditingField.Alignment -> AlignmentSelectDialog(
+            current = state.alignment,
+            onConfirm = onAlignmentConfirmed,
+            onDismiss = onDismiss,
+        )
     }
 }
 
@@ -823,11 +845,10 @@ private fun NullableNumberEditDialog(
                 onValueChange = { text = it },
                 singleLine = true,
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                colors =
-                    TextFieldDefaults.colors(
-                        focusedContainerColor = MaterialTheme.colorScheme.surface,
-                        unfocusedContainerColor = MaterialTheme.colorScheme.surface,
-                    ),
+                colors = TextFieldDefaults.colors(
+                    focusedContainerColor = MaterialTheme.colorScheme.surface,
+                    unfocusedContainerColor = MaterialTheme.colorScheme.surface,
+                ),
             )
         },
         confirmButton = {
