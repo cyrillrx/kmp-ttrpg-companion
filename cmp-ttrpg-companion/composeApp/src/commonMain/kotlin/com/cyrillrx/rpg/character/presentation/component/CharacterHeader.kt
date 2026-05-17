@@ -12,6 +12,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.QuestionMark
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -113,8 +117,8 @@ internal fun CharacterHeader(
 @OptIn(ExperimentalResourceApi::class)
 @Composable
 private fun ClassIconBox(clazz: Character.Class, onClick: () -> Unit) {
-    val svgBytes by produceState<ByteArray?>(null, clazz) {
-        value = Res.readBytes(clazz.toSvgPath())
+    val iconState by produceState<ClassIconState>(ClassIconState.Loading, clazz) {
+        value = resolveClassIconState(clazz) { Res.readBytes(it) }
     }
     Box(
         contentAlignment = Alignment.Center,
@@ -125,12 +129,47 @@ private fun ClassIconBox(clazz: Character.Class, onClick: () -> Unit) {
             .border(2.dp, DndGold, CircleShape)
             .clickable(onClick = onClick),
     ) {
-        AsyncImage(
-            model = svgBytes,
-            contentDescription = null,
-            colorFilter = ColorFilter.tint(Scarlet),
-            modifier = Modifier.size(44.dp),
-        )
+        when (val s = iconState) {
+            ClassIconState.Loading -> Unit
+            is ClassIconState.Loaded -> AsyncImage(
+                model = s.bytes,
+                contentDescription = null,
+                colorFilter = ColorFilter.tint(Scarlet),
+                modifier = Modifier.size(44.dp),
+            )
+            ClassIconState.Error -> Icon(
+                imageVector = Icons.Filled.Close,
+                contentDescription = null,
+                tint = Scarlet,
+                modifier = Modifier.size(44.dp),
+            )
+            ClassIconState.Unknown -> Icon(
+                imageVector = Icons.Filled.QuestionMark,
+                contentDescription = null,
+                tint = Scarlet,
+                modifier = Modifier.size(44.dp),
+            )
+        }
+    }
+}
+
+internal sealed interface ClassIconState {
+    data object Loading : ClassIconState
+    data class Loaded(val bytes: ByteArray) : ClassIconState
+    data object Error : ClassIconState
+    data object Unknown : ClassIconState
+}
+
+internal suspend fun resolveClassIconState(
+    clazz: Character.Class,
+    readBytes: suspend (String) -> ByteArray,
+): ClassIconState = if (clazz == Character.Class.UNKNOWN) {
+    ClassIconState.Unknown
+} else {
+    try {
+        ClassIconState.Loaded(readBytes(clazz.toSvgPath()))
+    } catch (_: Exception) {
+        ClassIconState.Error
     }
 }
 
