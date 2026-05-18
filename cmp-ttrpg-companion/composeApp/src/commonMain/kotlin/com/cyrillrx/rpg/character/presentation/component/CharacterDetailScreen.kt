@@ -18,9 +18,10 @@ import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
-import com.cyrillrx.rpg.character.presentation.CharacterEditState.EditingField
+import com.cyrillrx.rpg.character.presentation.CharacterEditState.Body.EditingField
 import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
 import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterEditViewModel
+import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
@@ -30,6 +31,7 @@ import com.cyrillrx.rpg.creature.domain.Creature
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
+import rpg_companion.composeapp.generated.resources.character_not_found
 import rpg_companion.composeapp.generated.resources.label_abilities
 import rpg_companion.composeapp.generated.resources.label_combat
 import rpg_companion.composeapp.generated.resources.label_languages
@@ -40,38 +42,46 @@ fun CharacterDetailScreen(
     router: CharacterRouter,
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
-    val editState = state
-    if (editState == null) {
-        Scaffold { innerPadding -> Loader(modifier = Modifier.padding(innerPadding)) }
-        return
+    when (val s = state) {
+        CharacterEditState.Loading -> Scaffold { innerPadding ->
+            Loader(modifier = Modifier.padding(innerPadding))
+        }
+
+        is CharacterEditState.NotFound -> Scaffold { innerPadding ->
+            ErrorLayout(
+                errorMessage = stringResource(Res.string.character_not_found, s.characterId),
+                modifier = Modifier.padding(innerPadding),
+            )
+        }
+
+        is CharacterEditState.Body -> CharacterDetailScreen(
+            state = s,
+            onFieldTapped = viewModel::editField,
+            onNameConfirmed = viewModel::saveName,
+            onRaceConfirmed = viewModel::saveRace,
+            onClassConfirmed = viewModel::saveClass,
+            onLevelConfirmed = viewModel::saveLevel,
+            onBackgroundConfirmed = viewModel::saveBackground,
+            onStrengthConfirmed = viewModel::saveStrength,
+            onDexterityConfirmed = viewModel::saveDexterity,
+            onConstitutionConfirmed = viewModel::saveConstitution,
+            onIntelligenceConfirmed = viewModel::saveIntelligence,
+            onWisdomConfirmed = viewModel::saveWisdom,
+            onCharismaConfirmed = viewModel::saveCharisma,
+            onArmorClassConfirmed = viewModel::saveArmorClass,
+            onMaxHitPointsConfirmed = viewModel::saveMaxHitPoints,
+            onWalkSpeedConfirmed = viewModel::saveWalkSpeed,
+            onLanguagesConfirmed = viewModel::saveLanguages,
+            onAlignmentConfirmed = viewModel::saveAlignment,
+            onDialogDismissed = viewModel::cancelEditing,
+            onNavigateUpClicked = router::navigateUp,
+        )
     }
-    CharacterDetailScreen(
-        state = editState,
-        onFieldTapped = viewModel::editField,
-        onNameConfirmed = viewModel::saveName,
-        onRaceConfirmed = viewModel::saveRace,
-        onClassConfirmed = viewModel::saveClass,
-        onLevelConfirmed = viewModel::saveLevel,
-        onBackgroundConfirmed = viewModel::saveBackground,
-        onStrengthConfirmed = viewModel::saveStrength,
-        onDexterityConfirmed = viewModel::saveDexterity,
-        onConstitutionConfirmed = viewModel::saveConstitution,
-        onIntelligenceConfirmed = viewModel::saveIntelligence,
-        onWisdomConfirmed = viewModel::saveWisdom,
-        onCharismaConfirmed = viewModel::saveCharisma,
-        onArmorClassConfirmed = viewModel::saveArmorClass,
-        onMaxHitPointsConfirmed = viewModel::saveMaxHitPoints,
-        onWalkSpeedConfirmed = viewModel::saveWalkSpeed,
-        onLanguagesConfirmed = viewModel::saveLanguages,
-        onAlignmentConfirmed = viewModel::saveAlignment,
-        onDialogDismissed = viewModel::cancelEditing,
-        onNavigateUpClicked = router::navigateUp,
-    )
 }
 
 @Composable
 fun CharacterDetailScreen(
-    state: CharacterEditState,
+    state: CharacterEditState.Body,
     onFieldTapped: (EditingField) -> Unit,
     onNameConfirmed: (String) -> Unit,
     onRaceConfirmed: (Race) -> Unit,
@@ -204,7 +214,7 @@ private fun PreviewCharacterDetailScreenDark() {
 @Composable
 private fun CharacterDetailScreenPreview() {
     CharacterDetailScreen(
-        state = CharacterEditState.from(SampleCharacterRepository.humanFighter()),
+        state = CharacterEditState.Body.from(SampleCharacterRepository.humanFighter()),
         onFieldTapped = {},
         onNameConfirmed = {},
         onRaceConfirmed = {},

@@ -26,7 +26,7 @@ import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
-import com.cyrillrx.rpg.character.presentation.CharacterEditState.EditingField
+import com.cyrillrx.rpg.character.presentation.CharacterEditState.Body.EditingField
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.creature.domain.Creature
 import org.jetbrains.compose.resources.stringResource
@@ -52,7 +52,7 @@ import rpg_companion.composeapp.generated.resources.label_wis
 
 @Composable
 internal fun CharacterEditDialog(
-    state: CharacterEditState,
+    state: CharacterEditState.Body,
     onNameConfirmed: (String) -> Unit,
     onRaceConfirmed: (Race) -> Unit,
     onClassConfirmed: (Character.Class) -> Unit,
