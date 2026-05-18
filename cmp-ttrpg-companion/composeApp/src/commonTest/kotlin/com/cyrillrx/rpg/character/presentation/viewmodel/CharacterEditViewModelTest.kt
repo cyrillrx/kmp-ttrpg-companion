@@ -2,10 +2,13 @@ package com.cyrillrx.rpg.character.presentation.viewmodel
 
 import com.cyrillrx.rpg.character.data.RamCharacterRepository
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
+import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterRepository
+import com.cyrillrx.rpg.character.domain.Language
+import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Body.EditingField
-import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
+import com.cyrillrx.rpg.creature.domain.Creature
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.StandardTestDispatcher
@@ -114,6 +117,17 @@ class CharacterEditViewModelTest {
         assertEquals("Aria", body.name)
     }
 
+    // ─── saveBackground ────────────────────────────────────────────────────────
+
+    @Test
+    fun `saveBackground trims whitespace`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(repo = repoWithFighter())
+        advanceUntilIdle()
+        viewModel.saveBackground("  Soldier  ")
+        val body = assertIs<CharacterEditState.Body>(viewModel.state.value)
+        assertEquals("Soldier", body.background)
+    }
+
     // ─── Numeric field coercion ─────────────────────────────────────────────────
 
     @Test
@@ -133,6 +147,56 @@ class CharacterEditViewModelTest {
         assertEquals(1, assertIs<CharacterEditState.Body>(viewModel.state.value).strength)
         viewModel.saveStrength(31)
         assertEquals(30, assertIs<CharacterEditState.Body>(viewModel.state.value).strength)
+    }
+
+    @Test
+    fun `saveDexterity coerces to range 1-30`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(repo = repoWithFighter())
+        advanceUntilIdle()
+        viewModel.saveDexterity(0)
+        assertEquals(1, assertIs<CharacterEditState.Body>(viewModel.state.value).dexterity)
+        viewModel.saveDexterity(31)
+        assertEquals(30, assertIs<CharacterEditState.Body>(viewModel.state.value).dexterity)
+    }
+
+    @Test
+    fun `saveConstitution coerces to range 1-30`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(repo = repoWithFighter())
+        advanceUntilIdle()
+        viewModel.saveConstitution(0)
+        assertEquals(1, assertIs<CharacterEditState.Body>(viewModel.state.value).constitution)
+        viewModel.saveConstitution(31)
+        assertEquals(30, assertIs<CharacterEditState.Body>(viewModel.state.value).constitution)
+    }
+
+    @Test
+    fun `saveIntelligence coerces to range 1-30`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(repo = repoWithFighter())
+        advanceUntilIdle()
+        viewModel.saveIntelligence(0)
+        assertEquals(1, assertIs<CharacterEditState.Body>(viewModel.state.value).intelligence)
+        viewModel.saveIntelligence(31)
+        assertEquals(30, assertIs<CharacterEditState.Body>(viewModel.state.value).intelligence)
+    }
+
+    @Test
+    fun `saveWisdom coerces to range 1-30`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(repo = repoWithFighter())
+        advanceUntilIdle()
+        viewModel.saveWisdom(0)
+        assertEquals(1, assertIs<CharacterEditState.Body>(viewModel.state.value).wisdom)
+        viewModel.saveWisdom(31)
+        assertEquals(30, assertIs<CharacterEditState.Body>(viewModel.state.value).wisdom)
+    }
+
+    @Test
+    fun `saveCharisma coerces to range 1-30`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(repo = repoWithFighter())
+        advanceUntilIdle()
+        viewModel.saveCharisma(0)
+        assertEquals(1, assertIs<CharacterEditState.Body>(viewModel.state.value).charisma)
+        viewModel.saveCharisma(31)
+        assertEquals(30, assertIs<CharacterEditState.Body>(viewModel.state.value).charisma)
     }
 
     @Test
@@ -173,11 +237,44 @@ class CharacterEditViewModelTest {
         advanceUntilIdle()
         assertEquals("Thorin", repo.get(fighter.id)?.name)
     }
-}
 
-private class NoOpCharacterRouter : CharacterRouter {
-    override fun navigateUp() = Unit
-    override fun openCharacterDetail(characterId: String) = Unit
-    override fun openCreateCharacter() = Unit
-    override fun openPresetGallery() = Unit
+    @Test
+    fun `saveRace persists to repository`() = runTest(testDispatcher) {
+        val repo = repoWithFighter()
+        val viewModel = buildViewModel(repo = repo)
+        advanceUntilIdle()
+        viewModel.saveRace(Race.ELF)
+        advanceUntilIdle()
+        assertEquals(Race.ELF, repo.get(fighter.id)?.race)
+    }
+
+    @Test
+    fun `saveClass persists to repository`() = runTest(testDispatcher) {
+        val repo = repoWithFighter()
+        val viewModel = buildViewModel(repo = repo)
+        advanceUntilIdle()
+        viewModel.saveClass(Character.Class.WIZARD)
+        advanceUntilIdle()
+        assertEquals(Character.Class.WIZARD, repo.get(fighter.id)?.clazz)
+    }
+
+    @Test
+    fun `saveAlignment persists to repository`() = runTest(testDispatcher) {
+        val repo = repoWithFighter()
+        val viewModel = buildViewModel(repo = repo)
+        advanceUntilIdle()
+        viewModel.saveAlignment(Creature.Alignment.CHAOTIC_EVIL)
+        advanceUntilIdle()
+        assertEquals(Creature.Alignment.CHAOTIC_EVIL, repo.get(fighter.id)?.alignment)
+    }
+
+    @Test
+    fun `saveLanguages persists to repository`() = runTest(testDispatcher) {
+        val repo = repoWithFighter()
+        val viewModel = buildViewModel(repo = repo)
+        advanceUntilIdle()
+        viewModel.saveLanguages(listOf(Language.ELVISH, Language.DRACONIC))
+        advanceUntilIdle()
+        assertEquals(listOf(Language.ELVISH, Language.DRACONIC), repo.get(fighter.id)?.languages)
+    }
 }

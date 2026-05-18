@@ -209,13 +209,6 @@ class CharacterListViewModelTest {
     }
 }
 
-private class NoOpCharacterRouter : CharacterRouter {
-    override fun navigateUp() = Unit
-    override fun openCharacterDetail(characterId: String) = Unit
-    override fun openCreateCharacter() = Unit
-    override fun openPresetGallery() = Unit
-}
-
 private class TrackingCharacterRouter : CharacterRouter {
     val openedCharacterIds = mutableListOf<String>()
     var createCharacterCalled = false
