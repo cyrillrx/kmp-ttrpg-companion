@@ -8,7 +8,8 @@ import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
-import com.cyrillrx.rpg.character.presentation.CharacterEditState.EditingField
+import com.cyrillrx.rpg.character.presentation.CharacterEditState.Body
+import com.cyrillrx.rpg.character.presentation.CharacterEditState.Body.EditingField
 import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
 import com.cyrillrx.rpg.character.presentation.toCharacter
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -23,23 +24,23 @@ class CharacterEditViewModel(
 ) : ViewModel() {
     private var originalCharacter: Character? = null
 
-    val state: StateFlow<CharacterEditState?>
-        field = MutableStateFlow(null)
+    val state: StateFlow<CharacterEditState>
+        field = MutableStateFlow(CharacterEditState.Loading)
 
     init {
         viewModelScope.launch {
             val character = characterRepository.get(characterId)
             originalCharacter = character
-            if (character != null) state.value = CharacterEditState.from(character)
+            state.value = if (character == null) CharacterEditState.NotFound(characterId) else Body.from(character)
         }
     }
 
     fun editField(field: EditingField) {
-        state.update { it?.copy(editingField = field) }
+        updateEditState { it.copy(editingField = field) }
     }
 
     fun cancelEditing() {
-        state.update { it?.copy(editingField = null) }
+        updateEditState { it.copy(editingField = null) }
     }
 
     fun saveName(name: String) {
@@ -111,11 +112,16 @@ class CharacterEditViewModel(
         updateAndSave { it.copy(alignment = alignment, editingField = null) }
     }
 
-    private fun updateAndSave(transform: (CharacterEditState) -> CharacterEditState) {
+    private fun updateEditState(transform: (Body) -> Body) {
+        state.update { current -> if (current is Body) transform(current) else current }
+    }
+
+    private fun updateAndSave(transform: (Body) -> Body) {
         val original = originalCharacter ?: return
-        state.update { it?.let(transform) }
+        updateEditState(transform)
         viewModelScope.launch {
-            state.value?.let { characterRepository.save(it.toCharacter(original)) }
+            val body = state.value as? Body ?: return@launch
+            characterRepository.save(body.toCharacter(original))
         }
     }
 }
