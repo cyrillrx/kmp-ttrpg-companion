@@ -79,6 +79,7 @@ internal fun CharacterEditDialog(
             initialValue = state.name,
             onConfirm = onNameConfirmed,
             onDismiss = onDismiss,
+            isValid = { it.isNotBlank() },
         )
 
         EditingField.Background -> TextEditDialog(
@@ -192,6 +193,7 @@ private fun TextEditDialog(
     onConfirm: (String) -> Unit,
     onDismiss: () -> Unit,
     singleLine: Boolean = true,
+    isValid: (String) -> Boolean = { true },
 ) {
     var text by remember(initialValue) { mutableStateOf(initialValue) }
     AlertDialog(
@@ -209,7 +211,11 @@ private fun TextEditDialog(
             )
         },
         confirmButton = {
-            TextButton(onClick = { onConfirm(text) }) {
+            val inputIsValid = remember(text) { isValid(text) }
+            TextButton(
+                onClick = { onConfirm(text) },
+                enabled = inputIsValid,
+            ) {
                 Text(stringResource(Res.string.btn_confirm))
             }
         },
