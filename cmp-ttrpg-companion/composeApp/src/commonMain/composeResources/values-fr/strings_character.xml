@@ -12,6 +12,28 @@
     <string name="btn_quick_create_subtitle">Presets PJ &amp; PNJ</string>
     <string name="hint_search_character">Rechercher un personnage…</string>
 
+    <!-- Character edit screen -->
+    <string name="character_not_found">Personnage introuvable.</string>
+    <string name="label_name">Nom</string>
+    <string name="label_race">Race</string>
+    <string name="label_class">Classe</string>
+    <string name="label_level">Niveau</string>
+    <string name="label_background">Historique</string>
+    <string name="label_abilities">Caractéristiques</string>
+    <string name="label_str">FOR</string>
+    <string name="label_dex">DEX</string>
+    <string name="label_con">CON</string>
+    <string name="label_int">INT</string>
+    <string name="label_wis">SAG</string>
+    <string name="label_cha">CHA</string>
+    <string name="label_combat">Combat</string>
+    <string name="label_ac">CA</string>
+    <string name="label_max_hp">PV max</string>
+    <string name="label_walk_speed">Vitesse (ft)</string>
+    <string name="label_languages">Langues</string>
+    <string name="label_level_short">niv.</string>
+    <string name="label_alignment">Alignement</string>
+
     <!-- Character race -->
     <string name="race_human">Humain</string>
     <string name="race_elf">Elfe</string>

@@ -14,20 +14,20 @@ import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
-fun ErrorLayout(errorMessage: String) {
+fun ErrorLayout(errorMessage: String, modifier: Modifier = Modifier) {
     Text(
         text = errorMessage,
         color = MaterialTheme.colorScheme.onBackground,
         textAlign = TextAlign.Center,
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .padding(spacingCommon),
     )
 }
 
 @Composable
-fun ErrorLayout(errorMessage: StringResource) {
-    ErrorLayout(stringResource(errorMessage))
+fun ErrorLayout(errorMessage: StringResource, modifier: Modifier = Modifier) {
+    ErrorLayout(stringResource(errorMessage), modifier)
 }
 
 @Preview

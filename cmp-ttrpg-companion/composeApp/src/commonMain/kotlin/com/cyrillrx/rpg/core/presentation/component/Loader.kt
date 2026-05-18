@@ -11,11 +11,11 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
-fun Loader() {
+fun Loader(modifier: Modifier = Modifier) {
     Text(
         text = "Loading...",
         textAlign = TextAlign.Center,
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .padding(spacingCommon),
     )

@@ -185,7 +185,7 @@ class CharacterListViewModelTest {
 
         viewModel.openCharacterDetail(character)
 
-        assertTrue(trackingRouter.openedCharacters.contains(character))
+        assertTrue(trackingRouter.openedCharacterIds.contains(character.id))
     }
 
     @Test
@@ -209,20 +209,13 @@ class CharacterListViewModelTest {
     }
 }
 
-private class NoOpCharacterRouter : CharacterRouter {
-    override fun navigateUp() = Unit
-    override fun openCharacterDetail(character: Character) = Unit
-    override fun openCreateCharacter() = Unit
-    override fun openPresetGallery() = Unit
-}
-
 private class TrackingCharacterRouter : CharacterRouter {
-    val openedCharacters = mutableListOf<Character>()
+    val openedCharacterIds = mutableListOf<String>()
     var createCharacterCalled = false
     var presetGalleryCalled = false
 
     override fun navigateUp() = Unit
-    override fun openCharacterDetail(character: Character) { openedCharacters.add(character) }
+    override fun openCharacterDetail(characterId: String) { openedCharacterIds.add(characterId) }
     override fun openCreateCharacter() { createCharacterCalled = true }
     override fun openPresetGallery() { presetGalleryCalled = true }
 }

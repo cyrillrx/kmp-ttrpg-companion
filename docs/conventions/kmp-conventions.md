@@ -53,6 +53,52 @@ fun CampaignListScreen(viewModel: CampaignListViewModel, router: CampaignRouter)
 }
 ```
 
+### ViewModel State Shape
+
+Every ViewModel exposes a single `StateFlow<XxxState>`. The shape of `XxxState` depends on the screen type.
+
+**List / read-only screens** — use a data class with a sealed `Body` field:
+
+```kotlin
+data class SpellListState(val body: Body = Body.Loading, ...) {
+    sealed interface Body {
+        data object Loading : Body
+        data object Empty : Body
+        data class WithData(val spells: List<Spell>) : Body
+        data class Error(val message: String) : Body
+    }
+}
+```
+
+**Edit / detail screens** — use a top-level sealed interface whose states model the data-fetch lifecycle:
+
+```kotlin
+sealed interface CharacterEditState {
+    data object Loading : CharacterEditState
+    data class NotFound(val id: String) : CharacterEditState
+    data class Loaded(...) : CharacterEditState {
+        sealed interface EditingField { ... }
+        companion object { fun from(entity: Entity): Loaded = ... }
+    }
+}
+```
+
+- `Loading` — initial state set synchronously before the repository call.
+- `NotFound` — set when the repository returns `null`; carries the ID for error display.
+- `Loaded` — the active, mutable state of the screen; the only state that accepts user interactions.
+
+The screen's ViewModel-taking overload uses an exhaustive `when` on the sealed state:
+
+```kotlin
+when (val s = viewModel.state.collectAsStateWithLifecycle().value) {
+    CharacterEditState.Loading -> Loader(...)
+    is CharacterEditState.NotFound -> ErrorLayout(stringResource(Res.string.character_not_found, s.id), ...)
+    is CharacterEditState.Loaded -> CharacterDetailScreen(state = s, ...)
+}
+```
+
+The screen's stateless overload takes `XxxState.Loaded` directly.
+
 ### Domain & Data Layers
 
 - **Domain**: Pure Kotlin. Contains Entities and Use Cases/Interactors. Independent of any framework.

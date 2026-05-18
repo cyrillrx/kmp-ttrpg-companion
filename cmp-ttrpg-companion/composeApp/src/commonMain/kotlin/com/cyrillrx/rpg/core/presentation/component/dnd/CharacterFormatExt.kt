@@ -47,6 +47,37 @@ import rpg_companion.composeapp.generated.resources.race_halfling
 import rpg_companion.composeapp.generated.resources.race_human
 import rpg_companion.composeapp.generated.resources.race_tiefling
 
+private const val WALK_SPEED_STANDARD_FT = 30
+private const val WALK_SPEED_SLOW_FT = 25
+
+fun Race.defaultWalkSpeed(): Int = when (this) {
+    Race.HUMAN -> WALK_SPEED_STANDARD_FT
+    Race.ELF -> WALK_SPEED_STANDARD_FT
+    Race.HALF_ELF -> WALK_SPEED_STANDARD_FT
+    Race.HALF_ORC -> WALK_SPEED_STANDARD_FT
+    Race.DRAGONBORN -> WALK_SPEED_STANDARD_FT
+    Race.TIEFLING -> WALK_SPEED_STANDARD_FT
+    Race.DWARF -> WALK_SPEED_SLOW_FT
+    Race.GNOME -> WALK_SPEED_SLOW_FT
+    Race.HALFLING -> WALK_SPEED_SLOW_FT
+}
+
+fun Character.Class.toSvgPath(): String = when (this) {
+    Character.Class.BARBARIAN -> "drawable/class_barbarian.svg"
+    Character.Class.BARD -> "drawable/class_bard.svg"
+    Character.Class.CLERIC -> "drawable/class_cleric.svg"
+    Character.Class.DRUID -> "drawable/class_druid.svg"
+    Character.Class.FIGHTER -> "drawable/class_warrior.svg"
+    Character.Class.MONK -> "drawable/class_monk.svg"
+    Character.Class.PALADIN -> "drawable/class_paladin.svg"
+    Character.Class.RANGER -> "drawable/class_ranger.svg"
+    Character.Class.ROGUE -> "drawable/class_rogue.svg"
+    Character.Class.SORCERER -> "drawable/class_sorcerer.svg"
+    Character.Class.WARLOCK -> "drawable/class_warlock.svg"
+    Character.Class.WIZARD -> "drawable/class_wizard.svg"
+    Character.Class.UNKNOWN -> "drawable/class_warrior.svg"
+}
+
 @Composable
 fun Language.toFormattedString(): String {
     val stringRes = when (this) {

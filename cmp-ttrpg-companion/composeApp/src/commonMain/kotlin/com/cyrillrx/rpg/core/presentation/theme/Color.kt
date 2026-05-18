@@ -26,3 +26,6 @@ val Green500 = Color(0xFF4CAF50)
 
 val DarkerGrey = Color(0xFF2C2C2C)
 val DarkGrey = Color(0xFF414040)
+
+val DndParchment = Color(0xFFF0E8D0)
+val DndGold = Color(0xFFD4AF37)

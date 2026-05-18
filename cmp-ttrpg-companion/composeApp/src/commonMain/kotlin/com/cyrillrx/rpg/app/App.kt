@@ -16,6 +16,9 @@ import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
 import androidx.savedstate.serialization.SavedStateConfiguration
+import coil3.ImageLoader
+import coil3.compose.setSingletonImageLoaderFactory
+import coil3.svg.SvgDecoder
 import com.cyrillrx.rpg.campaign.data.SQLDelightCampaignRepository
 import com.cyrillrx.rpg.campaign.navigation.handleCampaignRoutes
 import com.cyrillrx.rpg.campaign.navigation.registerCampaignRoutes
@@ -69,6 +72,11 @@ private val navSavedStateConfig = SavedStateConfiguration {
 @Composable
 @Preview
 fun App(dbDriverFactory: DatabaseDriverFactory) {
+    setSingletonImageLoaderFactory { context ->
+        ImageLoader.Builder(context)
+            .components { add(SvgDecoder.Factory()) }
+            .build()
+    }
     AppTheme {
         val backStack = rememberNavBackStack(navSavedStateConfig, MainRoute.Home)
 

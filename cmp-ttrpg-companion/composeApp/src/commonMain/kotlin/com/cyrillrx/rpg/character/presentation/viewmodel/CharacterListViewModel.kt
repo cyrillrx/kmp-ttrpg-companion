@@ -40,7 +40,7 @@ class CharacterListViewModel(
     }
 
     fun openCharacterDetail(character: Character) {
-        router.openCharacterDetail(character)
+        router.openCharacterDetail(character.id)
     }
 
     fun openCreateCharacter() {

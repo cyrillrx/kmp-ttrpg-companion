@@ -60,6 +60,9 @@ kotlin {
 
             implementation(libs.mikepenz.markdown.m3)
 
+            implementation(libs.coil3.compose)
+            implementation(libs.coil3.svg)
+
             implementation(libs.jetbrains.navigation3.ui)
             implementation(libs.jetbrains.lifecycle.viewmodelNavigation3)
             implementation(libs.jetbrains.lifecycle.runtime.compose)
