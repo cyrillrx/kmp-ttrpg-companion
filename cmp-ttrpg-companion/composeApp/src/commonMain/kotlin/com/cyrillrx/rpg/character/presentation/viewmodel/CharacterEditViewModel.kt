@@ -12,6 +12,7 @@ import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
 import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
 import com.cyrillrx.rpg.character.presentation.toCharacter
+import com.cyrillrx.rpg.core.presentation.component.dnd.defaultWalkSpeed
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
@@ -53,7 +54,7 @@ class CharacterEditViewModel(
     }
 
     fun saveRace(race: Race) {
-        updateAndSave { it.copy(race = race, editingField = null) }
+        updateAndSave { it.copy(race = race, walkSpeed = race.defaultWalkSpeed(), editingField = null) }
     }
 
     fun saveClass(clazz: Character.Class) {
