@@ -95,6 +95,7 @@ internal fun CharacterEditDialog(
             initialValue = state.level,
             onConfirm = onLevelConfirmed,
             onDismiss = onDismiss,
+            isValid = { it in 1..20 },
         )
 
         EditingField.Strength -> NumberEditDialog(
@@ -102,6 +103,7 @@ internal fun CharacterEditDialog(
             initialValue = state.strength,
             onConfirm = onStrengthConfirmed,
             onDismiss = onDismiss,
+            isValid = { it in 1..30 },
         )
 
         EditingField.Dexterity -> NumberEditDialog(
@@ -109,6 +111,7 @@ internal fun CharacterEditDialog(
             initialValue = state.dexterity,
             onConfirm = onDexterityConfirmed,
             onDismiss = onDismiss,
+            isValid = { it in 1..30 },
         )
 
         EditingField.Constitution -> NumberEditDialog(
@@ -116,6 +119,7 @@ internal fun CharacterEditDialog(
             initialValue = state.constitution,
             onConfirm = onConstitutionConfirmed,
             onDismiss = onDismiss,
+            isValid = { it in 1..30 },
         )
 
         EditingField.Intelligence -> NumberEditDialog(
@@ -123,6 +127,7 @@ internal fun CharacterEditDialog(
             initialValue = state.intelligence,
             onConfirm = onIntelligenceConfirmed,
             onDismiss = onDismiss,
+            isValid = { it in 1..30 },
         )
 
         EditingField.Wisdom -> NumberEditDialog(
@@ -130,6 +135,7 @@ internal fun CharacterEditDialog(
             initialValue = state.wisdom,
             onConfirm = onWisdomConfirmed,
             onDismiss = onDismiss,
+            isValid = { it in 1..30 },
         )
 
         EditingField.Charisma -> NumberEditDialog(
@@ -137,6 +143,7 @@ internal fun CharacterEditDialog(
             initialValue = state.charisma,
             onConfirm = onCharismaConfirmed,
             onDismiss = onDismiss,
+            isValid = { it in 1..30 },
         )
 
         EditingField.ArmorClass -> NumberEditDialog(
@@ -144,6 +151,7 @@ internal fun CharacterEditDialog(
             initialValue = state.armorClass,
             onConfirm = onArmorClassConfirmed,
             onDismiss = onDismiss,
+            isValid = { it >= 0 },
         )
 
         EditingField.MaxHitPoints -> NumberEditDialog(
@@ -151,6 +159,7 @@ internal fun CharacterEditDialog(
             initialValue = state.maxHitPoints,
             onConfirm = onMaxHitPointsConfirmed,
             onDismiss = onDismiss,
+            isValid = { it >= 1 },
         )
 
         EditingField.WalkSpeed -> NumberEditDialog(
@@ -158,6 +167,7 @@ internal fun CharacterEditDialog(
             initialValue = state.walkSpeed,
             onConfirm = onWalkSpeedConfirmed,
             onDismiss = onDismiss,
+            isValid = { it >= 0 },
         )
 
         EditingField.Race -> RaceSelectDialog(
@@ -233,6 +243,7 @@ private fun NumberEditDialog(
     initialValue: Int,
     onConfirm: (Int) -> Unit,
     onDismiss: () -> Unit,
+    isValid: (Int) -> Boolean = { true },
 ) {
     var text by remember(initialValue) { mutableStateOf(initialValue.toString()) }
     AlertDialog(
@@ -251,7 +262,7 @@ private fun NumberEditDialog(
             )
         },
         confirmButton = {
-            val isInputValid = remember(text) { text.toIntOrNull() != null }
+            val isInputValid = remember(text) { text.toIntOrNull()?.let(isValid) == true }
             TextButton(
                 onClick = { text.toIntOrNull()?.let(onConfirm) },
                 enabled = isInputValid,
