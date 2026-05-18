@@ -25,7 +25,7 @@ class CharacterEditViewModel(
     private var originalCharacter: Character? = null
 
     val state: StateFlow<CharacterEditState>
-        field = MutableStateFlow(CharacterEditState.Loading)
+        field = MutableStateFlow<CharacterEditState>(CharacterEditState.Loading)
 
     init {
         viewModelScope.launch {
