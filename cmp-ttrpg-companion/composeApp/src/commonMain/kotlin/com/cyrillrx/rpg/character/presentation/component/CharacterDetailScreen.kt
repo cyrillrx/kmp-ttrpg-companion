@@ -18,7 +18,7 @@ import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
-import com.cyrillrx.rpg.character.presentation.CharacterEditState.Body.EditingField
+import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
 import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
 import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterEditViewModel
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
@@ -54,7 +54,7 @@ fun CharacterDetailScreen(
             )
         }
 
-        is CharacterEditState.Body -> CharacterDetailScreen(
+        is CharacterEditState.Loaded -> CharacterDetailScreen(
             state = s,
             onFieldTapped = viewModel::editField,
             onNameConfirmed = viewModel::saveName,
@@ -81,7 +81,7 @@ fun CharacterDetailScreen(
 
 @Composable
 fun CharacterDetailScreen(
-    state: CharacterEditState.Body,
+    state: CharacterEditState.Loaded,
     onFieldTapped: (EditingField) -> Unit,
     onNameConfirmed: (String) -> Unit,
     onRaceConfirmed: (Race) -> Unit,
@@ -214,7 +214,7 @@ private fun PreviewCharacterDetailScreenDark() {
 @Composable
 private fun CharacterDetailScreenPreview() {
     CharacterDetailScreen(
-        state = CharacterEditState.Body.from(SampleCharacterRepository.humanFighter()),
+        state = CharacterEditState.Loaded.from(SampleCharacterRepository.humanFighter()),
         onFieldTapped = {},
         onNameConfirmed = {},
         onRaceConfirmed = {},

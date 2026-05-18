@@ -7,7 +7,7 @@ import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
-import com.cyrillrx.rpg.character.presentation.CharacterEditState.Body.EditingField
+import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
 import com.cyrillrx.rpg.creature.domain.Creature
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -59,11 +59,11 @@ class CharacterEditViewModelTest {
     }
 
     @Test
-    fun `state is Body after load`() = runTest(testDispatcher) {
+    fun `state is Loaded after load`() = runTest(testDispatcher) {
         val viewModel = buildViewModel(repo = repoWithFighter())
         advanceUntilIdle()
-        val body = assertIs<CharacterEditState.Body>(viewModel.state.value)
-        assertEquals(fighter.name, body.name)
+        val loaded = assertIs<CharacterEditState.Loaded>(viewModel.state.value)
+        assertEquals(fighter.name, loaded.name)
     }
 
     @Test
@@ -81,8 +81,8 @@ class CharacterEditViewModelTest {
         val viewModel = buildViewModel(repo = repoWithFighter())
         advanceUntilIdle()
         viewModel.editField(EditingField.Name)
-        val body = assertIs<CharacterEditState.Body>(viewModel.state.value)
-        assertEquals(EditingField.Name, body.editingField)
+        val loaded = assertIs<CharacterEditState.Loaded>(viewModel.state.value)
+        assertEquals(EditingField.Name, loaded.editingField)
     }
 
     @Test
@@ -91,8 +91,8 @@ class CharacterEditViewModelTest {
         advanceUntilIdle()
         viewModel.editField(EditingField.Name)
         viewModel.cancelEditing()
-        val body = assertIs<CharacterEditState.Body>(viewModel.state.value)
-        assertNull(body.editingField)
+        val loaded = assertIs<CharacterEditState.Loaded>(viewModel.state.value)
+        assertNull(loaded.editingField)
     }
 
     // ─── saveName ──────────────────────────────────────────────────────────────
@@ -103,9 +103,9 @@ class CharacterEditViewModelTest {
         advanceUntilIdle()
         viewModel.editField(EditingField.Name)
         viewModel.saveName("   ")
-        val body = assertIs<CharacterEditState.Body>(viewModel.state.value)
-        assertEquals(fighter.name, body.name)
-        assertNull(body.editingField)
+        val loaded = assertIs<CharacterEditState.Loaded>(viewModel.state.value)
+        assertEquals(fighter.name, loaded.name)
+        assertNull(loaded.editingField)
     }
 
     @Test
@@ -113,8 +113,8 @@ class CharacterEditViewModelTest {
         val viewModel = buildViewModel(repo = repoWithFighter())
         advanceUntilIdle()
         viewModel.saveName("  Aria  ")
-        val body = assertIs<CharacterEditState.Body>(viewModel.state.value)
-        assertEquals("Aria", body.name)
+        val loaded = assertIs<CharacterEditState.Loaded>(viewModel.state.value)
+        assertEquals("Aria", loaded.name)
     }
 
     // ─── saveBackground ────────────────────────────────────────────────────────
@@ -124,8 +124,8 @@ class CharacterEditViewModelTest {
         val viewModel = buildViewModel(repo = repoWithFighter())
         advanceUntilIdle()
         viewModel.saveBackground("  Soldier  ")
-        val body = assertIs<CharacterEditState.Body>(viewModel.state.value)
-        assertEquals("Soldier", body.background)
+        val loaded = assertIs<CharacterEditState.Loaded>(viewModel.state.value)
+        assertEquals("Soldier", loaded.background)
     }
 
     // ─── Numeric field coercion ─────────────────────────────────────────────────
@@ -135,8 +135,8 @@ class CharacterEditViewModelTest {
         val viewModel = buildViewModel(repo = repoWithFighter())
         advanceUntilIdle()
         viewModel.saveLevel(0)
-        val body = assertIs<CharacterEditState.Body>(viewModel.state.value)
-        assertEquals(1, body.level)
+        val loaded = assertIs<CharacterEditState.Loaded>(viewModel.state.value)
+        assertEquals(1, loaded.level)
     }
 
     @Test
@@ -144,9 +144,9 @@ class CharacterEditViewModelTest {
         val viewModel = buildViewModel(repo = repoWithFighter())
         advanceUntilIdle()
         viewModel.saveStrength(0)
-        assertEquals(1, assertIs<CharacterEditState.Body>(viewModel.state.value).strength)
+        assertEquals(1, assertIs<CharacterEditState.Loaded>(viewModel.state.value).strength)
         viewModel.saveStrength(31)
-        assertEquals(30, assertIs<CharacterEditState.Body>(viewModel.state.value).strength)
+        assertEquals(30, assertIs<CharacterEditState.Loaded>(viewModel.state.value).strength)
     }
 
     @Test
@@ -154,9 +154,9 @@ class CharacterEditViewModelTest {
         val viewModel = buildViewModel(repo = repoWithFighter())
         advanceUntilIdle()
         viewModel.saveDexterity(0)
-        assertEquals(1, assertIs<CharacterEditState.Body>(viewModel.state.value).dexterity)
+        assertEquals(1, assertIs<CharacterEditState.Loaded>(viewModel.state.value).dexterity)
         viewModel.saveDexterity(31)
-        assertEquals(30, assertIs<CharacterEditState.Body>(viewModel.state.value).dexterity)
+        assertEquals(30, assertIs<CharacterEditState.Loaded>(viewModel.state.value).dexterity)
     }
 
     @Test
@@ -164,9 +164,9 @@ class CharacterEditViewModelTest {
         val viewModel = buildViewModel(repo = repoWithFighter())
         advanceUntilIdle()
         viewModel.saveConstitution(0)
-        assertEquals(1, assertIs<CharacterEditState.Body>(viewModel.state.value).constitution)
+        assertEquals(1, assertIs<CharacterEditState.Loaded>(viewModel.state.value).constitution)
         viewModel.saveConstitution(31)
-        assertEquals(30, assertIs<CharacterEditState.Body>(viewModel.state.value).constitution)
+        assertEquals(30, assertIs<CharacterEditState.Loaded>(viewModel.state.value).constitution)
     }
 
     @Test
@@ -174,9 +174,9 @@ class CharacterEditViewModelTest {
         val viewModel = buildViewModel(repo = repoWithFighter())
         advanceUntilIdle()
         viewModel.saveIntelligence(0)
-        assertEquals(1, assertIs<CharacterEditState.Body>(viewModel.state.value).intelligence)
+        assertEquals(1, assertIs<CharacterEditState.Loaded>(viewModel.state.value).intelligence)
         viewModel.saveIntelligence(31)
-        assertEquals(30, assertIs<CharacterEditState.Body>(viewModel.state.value).intelligence)
+        assertEquals(30, assertIs<CharacterEditState.Loaded>(viewModel.state.value).intelligence)
     }
 
     @Test
@@ -184,9 +184,9 @@ class CharacterEditViewModelTest {
         val viewModel = buildViewModel(repo = repoWithFighter())
         advanceUntilIdle()
         viewModel.saveWisdom(0)
-        assertEquals(1, assertIs<CharacterEditState.Body>(viewModel.state.value).wisdom)
+        assertEquals(1, assertIs<CharacterEditState.Loaded>(viewModel.state.value).wisdom)
         viewModel.saveWisdom(31)
-        assertEquals(30, assertIs<CharacterEditState.Body>(viewModel.state.value).wisdom)
+        assertEquals(30, assertIs<CharacterEditState.Loaded>(viewModel.state.value).wisdom)
     }
 
     @Test
@@ -194,9 +194,9 @@ class CharacterEditViewModelTest {
         val viewModel = buildViewModel(repo = repoWithFighter())
         advanceUntilIdle()
         viewModel.saveCharisma(0)
-        assertEquals(1, assertIs<CharacterEditState.Body>(viewModel.state.value).charisma)
+        assertEquals(1, assertIs<CharacterEditState.Loaded>(viewModel.state.value).charisma)
         viewModel.saveCharisma(31)
-        assertEquals(30, assertIs<CharacterEditState.Body>(viewModel.state.value).charisma)
+        assertEquals(30, assertIs<CharacterEditState.Loaded>(viewModel.state.value).charisma)
     }
 
     @Test
@@ -204,8 +204,8 @@ class CharacterEditViewModelTest {
         val viewModel = buildViewModel(repo = repoWithFighter())
         advanceUntilIdle()
         viewModel.saveArmorClass(-1)
-        val body = assertIs<CharacterEditState.Body>(viewModel.state.value)
-        assertEquals(0, body.armorClass)
+        val loaded = assertIs<CharacterEditState.Loaded>(viewModel.state.value)
+        assertEquals(0, loaded.armorClass)
     }
 
     @Test
@@ -213,8 +213,8 @@ class CharacterEditViewModelTest {
         val viewModel = buildViewModel(repo = repoWithFighter())
         advanceUntilIdle()
         viewModel.saveMaxHitPoints(0)
-        val body = assertIs<CharacterEditState.Body>(viewModel.state.value)
-        assertEquals(1, body.maxHitPoints)
+        val loaded = assertIs<CharacterEditState.Loaded>(viewModel.state.value)
+        assertEquals(1, loaded.maxHitPoints)
     }
 
     @Test
@@ -222,8 +222,8 @@ class CharacterEditViewModelTest {
         val viewModel = buildViewModel(repo = repoWithFighter())
         advanceUntilIdle()
         viewModel.saveWalkSpeed(-5)
-        val body = assertIs<CharacterEditState.Body>(viewModel.state.value)
-        assertEquals(0, body.walkSpeed)
+        val loaded = assertIs<CharacterEditState.Loaded>(viewModel.state.value)
+        assertEquals(0, loaded.walkSpeed)
     }
 
     // ─── Persistence ───────────────────────────────────────────────────────────

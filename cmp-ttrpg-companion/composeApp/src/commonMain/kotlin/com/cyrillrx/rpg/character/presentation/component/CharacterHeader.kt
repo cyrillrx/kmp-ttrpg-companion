@@ -211,7 +211,7 @@ private fun PreviewCharacterHeaderDark() {
 
 @Composable
 private fun CharacterHeaderPreview() {
-    val state = CharacterEditState.Body.from(SampleCharacterRepository.humanFighter())
+    val state = CharacterEditState.Loaded.from(SampleCharacterRepository.humanFighter())
     CharacterHeader(
         name = state.name,
         race = state.race,

@@ -76,16 +76,16 @@ data class SpellListState(val body: Body = Body.Loading, ...) {
 sealed interface CharacterEditState {
     data object Loading : CharacterEditState
     data class NotFound(val id: String) : CharacterEditState
-    data class Body(...) : CharacterEditState {
+    data class Loaded(...) : CharacterEditState {
         sealed interface EditingField { ... }
-        companion object { fun from(entity: Entity): Body = ... }
+        companion object { fun from(entity: Entity): Loaded = ... }
     }
 }
 ```
 
 - `Loading` — initial state set synchronously before the repository call.
 - `NotFound` — set when the repository returns `null`; carries the ID for error display.
-- `Body` — the active, mutable state of the screen; the only state that accepts user interactions.
+- `Loaded` — the active, mutable state of the screen; the only state that accepts user interactions.
 
 The screen's ViewModel-taking overload uses an exhaustive `when` on the sealed state:
 
@@ -93,11 +93,11 @@ The screen's ViewModel-taking overload uses an exhaustive `when` on the sealed s
 when (val s = viewModel.state.collectAsStateWithLifecycle().value) {
     CharacterEditState.Loading -> Loader(...)
     is CharacterEditState.NotFound -> ErrorLayout(stringResource(Res.string.character_not_found, s.id), ...)
-    is CharacterEditState.Body -> CharacterDetailScreen(state = s, ...)
+    is CharacterEditState.Loaded -> CharacterDetailScreen(state = s, ...)
 }
 ```
 
-The screen's stateless overload takes `XxxState.Body` directly.
+The screen's stateless overload takes `XxxState.Loaded` directly.
 
 ### Domain & Data Layers
 

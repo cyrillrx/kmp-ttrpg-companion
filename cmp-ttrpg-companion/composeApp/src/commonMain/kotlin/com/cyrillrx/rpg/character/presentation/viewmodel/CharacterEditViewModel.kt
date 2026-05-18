@@ -8,8 +8,8 @@ import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
-import com.cyrillrx.rpg.character.presentation.CharacterEditState.Body
-import com.cyrillrx.rpg.character.presentation.CharacterEditState.Body.EditingField
+import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded
+import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
 import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
 import com.cyrillrx.rpg.character.presentation.toCharacter
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -31,7 +31,7 @@ class CharacterEditViewModel(
         viewModelScope.launch {
             val character = characterRepository.get(characterId)
             originalCharacter = character
-            state.value = if (character == null) CharacterEditState.NotFound(characterId) else Body.from(character)
+            state.value = if (character == null) CharacterEditState.NotFound(characterId) else Loaded.from(character)
         }
     }
 
@@ -112,16 +112,16 @@ class CharacterEditViewModel(
         updateAndSave { it.copy(alignment = alignment, editingField = null) }
     }
 
-    private fun updateEditState(transform: (Body) -> Body) {
-        state.update { current -> if (current is Body) transform(current) else current }
+    private fun updateEditState(transform: (Loaded) -> Loaded) {
+        state.update { current -> if (current is Loaded) transform(current) else current }
     }
 
-    private fun updateAndSave(transform: (Body) -> Body) {
+    private fun updateAndSave(transform: (Loaded) -> Loaded) {
         val original = originalCharacter ?: return
         updateEditState(transform)
         viewModelScope.launch {
-            val body = state.value as? Body ?: return@launch
-            characterRepository.save(body.toCharacter(original))
+            val loaded = state.value as? Loaded ?: return@launch
+            characterRepository.save(loaded.toCharacter(original))
         }
     }
 }

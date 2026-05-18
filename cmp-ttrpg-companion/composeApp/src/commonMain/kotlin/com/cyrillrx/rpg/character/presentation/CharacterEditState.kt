@@ -12,7 +12,7 @@ sealed interface CharacterEditState {
     data object Loading : CharacterEditState
     data class NotFound(val characterId: String) : CharacterEditState
 
-    data class Body(
+    data class Loaded(
         val name: String,
         val race: Race,
         val clazz: Character.Class,
@@ -51,7 +51,7 @@ sealed interface CharacterEditState {
         }
 
         companion object {
-            fun from(character: Character): Body = Body(
+            fun from(character: Character): Loaded = Loaded(
                 name = character.name,
                 race = character.race,
                 clazz = character.clazz,
@@ -73,7 +73,7 @@ sealed interface CharacterEditState {
     }
 }
 
-fun CharacterEditState.Body.toCharacter(original: Character): Character = original.copy(
+fun CharacterEditState.Loaded.toCharacter(original: Character): Character = original.copy(
     name = name,
     race = race,
     clazz = clazz,
