@@ -47,19 +47,19 @@ import rpg_companion.composeapp.generated.resources.race_halfling
 import rpg_companion.composeapp.generated.resources.race_human
 import rpg_companion.composeapp.generated.resources.race_tiefling
 
-private const val WALK_SPEED_STANDARD = 30
-private const val WALK_SPEED_SLOW = 25
+private const val WALK_SPEED_STANDARD_FT = 30
+private const val WALK_SPEED_SLOW_FT = 25
 
 fun Race.defaultWalkSpeed(): Int = when (this) {
-    Race.HUMAN -> WALK_SPEED_STANDARD
-    Race.ELF -> WALK_SPEED_STANDARD
-    Race.HALF_ELF -> WALK_SPEED_STANDARD
-    Race.HALF_ORC -> WALK_SPEED_STANDARD
-    Race.DRAGONBORN -> WALK_SPEED_STANDARD
-    Race.TIEFLING -> WALK_SPEED_STANDARD
-    Race.DWARF -> WALK_SPEED_SLOW
-    Race.GNOME -> WALK_SPEED_SLOW
-    Race.HALFLING -> WALK_SPEED_SLOW
+    Race.HUMAN -> WALK_SPEED_STANDARD_FT
+    Race.ELF -> WALK_SPEED_STANDARD_FT
+    Race.HALF_ELF -> WALK_SPEED_STANDARD_FT
+    Race.HALF_ORC -> WALK_SPEED_STANDARD_FT
+    Race.DRAGONBORN -> WALK_SPEED_STANDARD_FT
+    Race.TIEFLING -> WALK_SPEED_STANDARD_FT
+    Race.DWARF -> WALK_SPEED_SLOW_FT
+    Race.GNOME -> WALK_SPEED_SLOW_FT
+    Race.HALFLING -> WALK_SPEED_SLOW_FT
 }
 
 fun Character.Class.toSvgPath(): String = when (this) {
