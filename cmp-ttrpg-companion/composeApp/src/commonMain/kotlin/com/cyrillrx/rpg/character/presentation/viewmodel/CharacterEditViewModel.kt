@@ -61,7 +61,7 @@ class CharacterEditViewModel(
     }
 
     fun saveLevel(level: Int) {
-        updateAndSave { it.copy(level = level.coerceAtLeast(1), editingField = null) }
+        updateAndSave { it.copy(level = level.coerceIn(1, 20), editingField = null) }
     }
 
     fun saveBackground(background: String) {
