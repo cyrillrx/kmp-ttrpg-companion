@@ -129,8 +129,8 @@ private fun AbilityCard(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val modifier_ = Ability(score).getModifier()
-    val modifierText = if (modifier_ >= 0) "+$modifier_" else "$modifier_"
+    val abilityModifier = Ability(score).getModifier()
+    val modifierText = if (abilityModifier >= 0) "+$abilityModifier" else "$abilityModifier"
 
     ElevatedCard(
         onClick = onClick,
