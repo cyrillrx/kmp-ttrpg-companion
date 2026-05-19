@@ -188,6 +188,42 @@ For ViewModels with mutations (delete, rename, add): test optimistic mutation, u
 - Every bulk filter operation → `{Feature}ApplyFilterTest`
 - Every pure extension function → dedicated unit test
 
+**Framework**: use `kotlin.test` (`kotlin.test.Test`, `kotlin.test.assertEquals`, `kotlin.test.assertTrue`, …) — no JUnit dependency needed for pure function tests.
+
+**File naming**: one test file per function or class under test.
+
+| Production function      | Test file                      |
+|--------------------------|--------------------------------|
+| `isValidWalkSpeed`       | `IsValidWalkSpeedTest.kt`      |
+| `coerceToValidWalkSpeed` | `CoerceToValidWalkSpeedTest.kt`|
+
+**Method naming**: backtick strings describing the expected behaviour in plain English.
+
+**Structure**: no setup, no fakes, no coroutines needed for pure functions — just call and assert.
+
+```kotlin
+package com.cyrillrx.rpg.core.presentation.component.dnd
+
+import kotlin.test.Test
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
+
+class IsValidWalkSpeedTest {
+
+    @Test
+    fun `returns false for values below 25`() {
+        assertFalse(isValidWalkSpeed(0))
+        assertFalse(isValidWalkSpeed(24))
+    }
+
+    @Test
+    fun `returns true for valid speeds`() {
+        assertTrue(isValidWalkSpeed(25))
+        assertTrue(isValidWalkSpeed(30))
+    }
+}
+```
+
 ### E2E tests (Maestro)
 
 Test scenarios per feature are documented in [`docs/testing/e2e-test-cases.md`](../../docs/testing/e2e-test-cases.md).
