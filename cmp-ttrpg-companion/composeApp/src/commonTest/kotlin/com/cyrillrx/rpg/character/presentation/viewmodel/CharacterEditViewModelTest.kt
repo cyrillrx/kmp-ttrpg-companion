@@ -217,6 +217,17 @@ class CharacterEditViewModelTest {
         assertEquals(1, loaded.maxHitPoints)
     }
 
+    // ─── saveRace ─────────────────────────────────────────────────────────────
+
+    @Test
+    fun `saveRace resets walk speed to race default`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(repo = repoWithFighter())
+        advanceUntilIdle()
+        viewModel.saveRace(Race.DWARF)
+        val loaded = assertIs<CharacterEditState.Loaded>(viewModel.state.value)
+        assertEquals(25, loaded.walkSpeed)
+    }
+
     // ─── Persistence ───────────────────────────────────────────────────────────
 
     @Test
