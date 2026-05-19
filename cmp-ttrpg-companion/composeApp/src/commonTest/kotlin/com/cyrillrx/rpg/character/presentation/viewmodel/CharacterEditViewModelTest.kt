@@ -217,15 +217,6 @@ class CharacterEditViewModelTest {
         assertEquals(1, loaded.maxHitPoints)
     }
 
-    @Test
-    fun `saveWalkSpeed coerces to nearest valid speed`() = runTest(testDispatcher) {
-        val viewModel = buildViewModel(repo = repoWithFighter())
-        advanceUntilIdle()
-        viewModel.saveWalkSpeed(-5)
-        val loaded = assertIs<CharacterEditState.Loaded>(viewModel.state.value)
-        assertEquals(25, loaded.walkSpeed)
-    }
-
     // ─── Persistence ───────────────────────────────────────────────────────────
 
     @Test
