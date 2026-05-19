@@ -99,6 +99,41 @@ when (val s = viewModel.state.collectAsStateWithLifecycle().value) {
 
 The screen's stateless overload takes `XxxState.Loaded` directly.
 
+### ViewModel Flow Declarations
+
+Use Kotlin 2.0 explicit backing fields to expose flows with a narrower public type, avoiding a separate private backing property:
+
+```kotlin
+// ✅ Explicit backing field — single declaration, narrowed public type
+val state: StateFlow<XxxState>
+    field = MutableStateFlow<XxxState>(XxxState.Loading)
+
+val coercedValueEvent: SharedFlow<Int>
+    field = MutableSharedFlow<Int>(extraBufferCapacity = 1)
+```
+
+Within the class body, the property resolves to its backing field's concrete type (`MutableStateFlow`, `MutableSharedFlow`), so mutation methods are available directly.
+
+### One-shot events via SharedFlow
+
+For events that the UI must consume exactly once (Snackbar notifications, navigation triggers), expose a `SharedFlow<T>` with `extraBufferCapacity = 1`. Collect it in the ViewModel-taking composable with `LaunchedEffect`:
+
+```kotlin
+// ViewModel
+val coercedValueEvent: SharedFlow<Int>
+    field = MutableSharedFlow<Int>(extraBufferCapacity = 1)
+
+// Composable
+val messageTemplate = stringResource(Res.string.info_value_coerced)
+LaunchedEffect(viewModel) {
+    viewModel.coercedValueEvent.collect { value ->
+        snackbarHostState.showSnackbar(messageTemplate.format(value))
+    }
+}
+```
+
+Pass `SnackbarHostState` as a parameter to the stateless overload (with `remember { SnackbarHostState() }` as default so previews compile without changes).
+
 ### Domain & Data Layers
 
 - **Domain**: Pure Kotlin. Contains Entities and Use Cases/Interactors. Independent of any framework.
