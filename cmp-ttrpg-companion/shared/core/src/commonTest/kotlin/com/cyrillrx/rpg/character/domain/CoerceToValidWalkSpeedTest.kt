@@ -24,6 +24,9 @@ class CoerceToValidWalkSpeedTest {
         assertEquals(25, 27.coerceToValidWalkSpeed())  // remainder 2 → round down (boundary)
         assertEquals(30, 28.coerceToValidWalkSpeed())  // remainder 3 → round up
         assertEquals(35, 33.coerceToValidWalkSpeed())  // remainder 3 → round up
+        assertEquals(115, 117.coerceToValidWalkSpeed()) // remainder 2 → round down
+        assertEquals(120, 118.coerceToValidWalkSpeed()) // remainder 3 → round up to upper bound
+        assertEquals(120, 119.coerceToValidWalkSpeed()) // remainder 4 → round up to upper bound
     }
 
     @Test
