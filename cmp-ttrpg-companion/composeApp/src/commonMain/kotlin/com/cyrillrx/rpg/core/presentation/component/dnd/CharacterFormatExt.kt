@@ -74,7 +74,8 @@ fun Int.coerceToValidArmorClass(): Int = coerceAtLeast(0)
 fun Int.coerceToValidMaxHitPoints(): Int = coerceAtLeast(1)
 fun Int.coerceToValidWalkSpeed(): Int {
     val clamped = coerceAtLeast(WALK_SPEED_SLOW_FT)
-    return ((clamped + 2) / 5) * 5
+    val remainder = clamped % 5
+    return if (remainder <= 2) clamped - remainder else clamped + (5 - remainder)
 }
 
 fun Character.Class.toSvgPath(): String = when (this) {
