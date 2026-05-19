@@ -27,13 +27,7 @@ import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
-import com.cyrillrx.rpg.character.domain.isValidAbilityScore
-import com.cyrillrx.rpg.character.domain.isValidArmorClass
-import com.cyrillrx.rpg.character.domain.isValidCharacterLevel
-import com.cyrillrx.rpg.character.domain.isValidMaxHitPoints
-import com.cyrillrx.rpg.character.domain.isValidWalkSpeed
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
-import rpg_companion.composeapp.generated.resources.error_value_out_of_range
 import com.cyrillrx.rpg.creature.domain.Creature
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
@@ -101,7 +95,6 @@ internal fun CharacterEditDialog(
             initialValue = state.level,
             onConfirm = onLevelConfirmed,
             onDismiss = onDismiss,
-            isValid = ::isValidCharacterLevel,
         )
 
         EditingField.Strength -> NumberEditDialog(
@@ -109,7 +102,6 @@ internal fun CharacterEditDialog(
             initialValue = state.strength,
             onConfirm = onStrengthConfirmed,
             onDismiss = onDismiss,
-            isValid = ::isValidAbilityScore,
         )
 
         EditingField.Dexterity -> NumberEditDialog(
@@ -117,7 +109,6 @@ internal fun CharacterEditDialog(
             initialValue = state.dexterity,
             onConfirm = onDexterityConfirmed,
             onDismiss = onDismiss,
-            isValid = ::isValidAbilityScore,
         )
 
         EditingField.Constitution -> NumberEditDialog(
@@ -125,7 +116,6 @@ internal fun CharacterEditDialog(
             initialValue = state.constitution,
             onConfirm = onConstitutionConfirmed,
             onDismiss = onDismiss,
-            isValid = ::isValidAbilityScore,
         )
 
         EditingField.Intelligence -> NumberEditDialog(
@@ -133,7 +123,6 @@ internal fun CharacterEditDialog(
             initialValue = state.intelligence,
             onConfirm = onIntelligenceConfirmed,
             onDismiss = onDismiss,
-            isValid = ::isValidAbilityScore,
         )
 
         EditingField.Wisdom -> NumberEditDialog(
@@ -141,7 +130,6 @@ internal fun CharacterEditDialog(
             initialValue = state.wisdom,
             onConfirm = onWisdomConfirmed,
             onDismiss = onDismiss,
-            isValid = ::isValidAbilityScore,
         )
 
         EditingField.Charisma -> NumberEditDialog(
@@ -149,7 +137,6 @@ internal fun CharacterEditDialog(
             initialValue = state.charisma,
             onConfirm = onCharismaConfirmed,
             onDismiss = onDismiss,
-            isValid = ::isValidAbilityScore,
         )
 
         EditingField.ArmorClass -> NumberEditDialog(
@@ -157,7 +144,6 @@ internal fun CharacterEditDialog(
             initialValue = state.armorClass,
             onConfirm = onArmorClassConfirmed,
             onDismiss = onDismiss,
-            isValid = ::isValidArmorClass,
         )
 
         EditingField.MaxHitPoints -> NumberEditDialog(
@@ -165,7 +151,6 @@ internal fun CharacterEditDialog(
             initialValue = state.maxHitPoints,
             onConfirm = onMaxHitPointsConfirmed,
             onDismiss = onDismiss,
-            isValid = ::isValidMaxHitPoints,
         )
 
         EditingField.WalkSpeed -> NumberEditDialog(
@@ -173,7 +158,6 @@ internal fun CharacterEditDialog(
             initialValue = state.walkSpeed,
             onConfirm = onWalkSpeedConfirmed,
             onDismiss = onDismiss,
-            isValid = ::isValidWalkSpeed,
         )
 
         EditingField.Race -> RaceSelectDialog(
@@ -249,11 +233,9 @@ private fun NumberEditDialog(
     initialValue: Int,
     onConfirm: (Int) -> Unit,
     onDismiss: () -> Unit,
-    isValid: (Int) -> Boolean = { true },
 ) {
     var text by remember(initialValue) { mutableStateOf(initialValue.toString()) }
     val parsedValue = text.trim().toIntOrNull()
-    val isOutOfRange = parsedValue != null && !isValid(parsedValue)
     AlertDialog(
         onDismissRequest = onDismiss,
         title = { Text(title) },
@@ -263,10 +245,6 @@ private fun NumberEditDialog(
                 onValueChange = { text = it },
                 singleLine = true,
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                isError = isOutOfRange,
-                supportingText = if (isOutOfRange) {
-                    { Text(stringResource(Res.string.error_value_out_of_range)) }
-                } else null,
                 colors = TextFieldDefaults.colors(
                     focusedContainerColor = MaterialTheme.colorScheme.surface,
                     unfocusedContainerColor = MaterialTheme.colorScheme.surface,

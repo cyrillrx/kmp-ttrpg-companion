@@ -18,7 +18,9 @@ import com.cyrillrx.rpg.character.domain.coerceToValidCharacterLevel
 import com.cyrillrx.rpg.character.domain.coerceToValidMaxHitPoints
 import com.cyrillrx.rpg.character.domain.coerceToValidWalkSpeed
 import com.cyrillrx.rpg.character.domain.defaultWalkSpeed
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -32,6 +34,9 @@ class CharacterEditViewModel(
 
     val state: StateFlow<CharacterEditState>
         field = MutableStateFlow<CharacterEditState>(CharacterEditState.Loading)
+
+    val coercedValueEvent: SharedFlow<Int>
+        field = MutableSharedFlow<Int>(extraBufferCapacity = 1)
 
     init {
         viewModelScope.launch {
@@ -67,7 +72,9 @@ class CharacterEditViewModel(
     }
 
     fun saveLevel(level: Int) {
-        updateAndSave { it.copy(level = level.coerceToValidCharacterLevel(), editingField = null) }
+        val coerced = level.coerceToValidCharacterLevel()
+        if (coerced != level) coercedValueEvent.tryEmit(coerced)
+        updateAndSave { it.copy(level = coerced, editingField = null) }
     }
 
     fun saveBackground(background: String) {
@@ -75,39 +82,57 @@ class CharacterEditViewModel(
     }
 
     fun saveStrength(value: Int) {
-        updateAndSave { it.copy(strength = value.coerceToValidAbilityScore(), editingField = null) }
+        val coerced = value.coerceToValidAbilityScore()
+        if (coerced != value) coercedValueEvent.tryEmit(coerced)
+        updateAndSave { it.copy(strength = coerced, editingField = null) }
     }
 
     fun saveDexterity(value: Int) {
-        updateAndSave { it.copy(dexterity = value.coerceToValidAbilityScore(), editingField = null) }
+        val coerced = value.coerceToValidAbilityScore()
+        if (coerced != value) coercedValueEvent.tryEmit(coerced)
+        updateAndSave { it.copy(dexterity = coerced, editingField = null) }
     }
 
     fun saveConstitution(value: Int) {
-        updateAndSave { it.copy(constitution = value.coerceToValidAbilityScore(), editingField = null) }
+        val coerced = value.coerceToValidAbilityScore()
+        if (coerced != value) coercedValueEvent.tryEmit(coerced)
+        updateAndSave { it.copy(constitution = coerced, editingField = null) }
     }
 
     fun saveIntelligence(value: Int) {
-        updateAndSave { it.copy(intelligence = value.coerceToValidAbilityScore(), editingField = null) }
+        val coerced = value.coerceToValidAbilityScore()
+        if (coerced != value) coercedValueEvent.tryEmit(coerced)
+        updateAndSave { it.copy(intelligence = coerced, editingField = null) }
     }
 
     fun saveWisdom(value: Int) {
-        updateAndSave { it.copy(wisdom = value.coerceToValidAbilityScore(), editingField = null) }
+        val coerced = value.coerceToValidAbilityScore()
+        if (coerced != value) coercedValueEvent.tryEmit(coerced)
+        updateAndSave { it.copy(wisdom = coerced, editingField = null) }
     }
 
     fun saveCharisma(value: Int) {
-        updateAndSave { it.copy(charisma = value.coerceToValidAbilityScore(), editingField = null) }
+        val coerced = value.coerceToValidAbilityScore()
+        if (coerced != value) coercedValueEvent.tryEmit(coerced)
+        updateAndSave { it.copy(charisma = coerced, editingField = null) }
     }
 
     fun saveArmorClass(value: Int) {
-        updateAndSave { it.copy(armorClass = value.coerceToValidArmorClass(), editingField = null) }
+        val coerced = value.coerceToValidArmorClass()
+        if (coerced != value) coercedValueEvent.tryEmit(coerced)
+        updateAndSave { it.copy(armorClass = coerced, editingField = null) }
     }
 
     fun saveMaxHitPoints(value: Int) {
-        updateAndSave { it.copy(maxHitPoints = value.coerceToValidMaxHitPoints(), editingField = null) }
+        val coerced = value.coerceToValidMaxHitPoints()
+        if (coerced != value) coercedValueEvent.tryEmit(coerced)
+        updateAndSave { it.copy(maxHitPoints = coerced, editingField = null) }
     }
 
     fun saveWalkSpeed(value: Int) {
-        updateAndSave { it.copy(walkSpeed = value.coerceToValidWalkSpeed(), editingField = null) }
+        val coerced = value.coerceToValidWalkSpeed()
+        if (coerced != value) coercedValueEvent.tryEmit(coerced)
+        updateAndSave { it.copy(walkSpeed = coerced, editingField = null) }
     }
 
     fun saveLanguages(languages: List<Language>) {

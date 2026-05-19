@@ -9,8 +9,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
@@ -32,6 +36,7 @@ import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.character_not_found
+import rpg_companion.composeapp.generated.resources.info_value_coerced
 import rpg_companion.composeapp.generated.resources.label_abilities
 import rpg_companion.composeapp.generated.resources.label_combat
 import rpg_companion.composeapp.generated.resources.label_languages
@@ -42,6 +47,13 @@ fun CharacterDetailScreen(
     router: CharacterRouter,
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
+    val snackbarHostState = remember { SnackbarHostState() }
+    val coercedMessage = stringResource(Res.string.info_value_coerced)
+    LaunchedEffect(viewModel) {
+        viewModel.coercedValueEvent.collect { coerced ->
+            snackbarHostState.showSnackbar(coercedMessage.format(coerced))
+        }
+    }
     when (val s = state) {
         CharacterEditState.Loading -> Scaffold { innerPadding ->
             Loader(modifier = Modifier.padding(innerPadding))
@@ -56,6 +68,7 @@ fun CharacterDetailScreen(
 
         is CharacterEditState.Loaded -> CharacterDetailScreen(
             state = s,
+            snackbarHostState = snackbarHostState,
             onFieldTapped = viewModel::editField,
             onNameConfirmed = viewModel::saveName,
             onRaceConfirmed = viewModel::saveRace,
@@ -82,6 +95,7 @@ fun CharacterDetailScreen(
 @Composable
 fun CharacterDetailScreen(
     state: CharacterEditState.Loaded,
+    snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
     onFieldTapped: (EditingField) -> Unit,
     onNameConfirmed: (String) -> Unit,
     onRaceConfirmed: (Race) -> Unit,
@@ -109,6 +123,7 @@ fun CharacterDetailScreen(
                 onNavigateUpClicked = onNavigateUpClicked,
             )
         },
+        snackbarHost = { SnackbarHost(snackbarHostState) },
     ) { paddingValues ->
         Column(
             modifier = Modifier
