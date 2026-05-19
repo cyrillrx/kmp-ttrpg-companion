@@ -267,9 +267,10 @@ private fun NumberEditDialog(
             )
         },
         confirmButton = {
-            val isInputValid = remember(text) { text.toIntOrNull()?.let(isValid) == true }
+            val parsedValue = remember(text) { text.trim().toIntOrNull() }
+            val isInputValid = parsedValue?.let(isValid) == true
             TextButton(
-                onClick = { text.toIntOrNull()?.let(onConfirm) },
+                onClick = { parsedValue?.let(onConfirm) },
                 enabled = isInputValid,
             ) {
                 Text(stringResource(Res.string.btn_confirm))
