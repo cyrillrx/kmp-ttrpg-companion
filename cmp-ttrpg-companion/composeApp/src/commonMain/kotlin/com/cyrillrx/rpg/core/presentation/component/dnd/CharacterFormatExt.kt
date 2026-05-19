@@ -62,6 +62,13 @@ fun Race.defaultWalkSpeed(): Int = when (this) {
     Race.HALFLING -> WALK_SPEED_SLOW_FT
 }
 
+fun isValidWalkSpeed(value: Int): Boolean = value >= WALK_SPEED_SLOW_FT && value % 5 == 0
+
+fun coerceToValidWalkSpeed(value: Int): Int {
+    val clamped = value.coerceAtLeast(WALK_SPEED_SLOW_FT)
+    return ((clamped + 2) / 5) * 5
+}
+
 fun Character.Class.toSvgPath(): String = when (this) {
     Character.Class.BARBARIAN -> "drawable/class_barbarian.svg"
     Character.Class.BARD -> "drawable/class_bard.svg"
