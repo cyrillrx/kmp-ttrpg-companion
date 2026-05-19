@@ -62,6 +62,10 @@ fun Race.defaultWalkSpeed(): Int = when (this) {
     Race.HALFLING -> WALK_SPEED_SLOW_FT
 }
 
+fun isValidCharacterLevel(value: Int): Boolean = value in 1..20
+fun isValidAbilityScore(value: Int): Boolean = value in 1..30
+fun isValidArmorClass(value: Int): Boolean = value >= 0
+fun isValidMaxHitPoints(value: Int): Boolean = value >= 1
 fun isValidWalkSpeed(value: Int): Boolean = value >= WALK_SPEED_SLOW_FT && value % 5 == 0
 
 fun coerceToValidWalkSpeed(value: Int): Int {
