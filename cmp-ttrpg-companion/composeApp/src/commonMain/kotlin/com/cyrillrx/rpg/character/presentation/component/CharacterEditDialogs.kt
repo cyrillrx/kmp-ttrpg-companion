@@ -27,12 +27,13 @@ import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
-import com.cyrillrx.rpg.core.presentation.component.dnd.isValidAbilityScore
-import com.cyrillrx.rpg.core.presentation.component.dnd.isValidArmorClass
-import com.cyrillrx.rpg.core.presentation.component.dnd.isValidCharacterLevel
-import com.cyrillrx.rpg.core.presentation.component.dnd.isValidMaxHitPoints
-import com.cyrillrx.rpg.core.presentation.component.dnd.isValidWalkSpeed
+import com.cyrillrx.rpg.character.domain.isValidAbilityScore
+import com.cyrillrx.rpg.character.domain.isValidArmorClass
+import com.cyrillrx.rpg.character.domain.isValidCharacterLevel
+import com.cyrillrx.rpg.character.domain.isValidMaxHitPoints
+import com.cyrillrx.rpg.character.domain.isValidWalkSpeed
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
+import rpg_companion.composeapp.generated.resources.error_value_out_of_range
 import com.cyrillrx.rpg.creature.domain.Creature
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
@@ -251,6 +252,8 @@ private fun NumberEditDialog(
     isValid: (Int) -> Boolean = { true },
 ) {
     var text by remember(initialValue) { mutableStateOf(initialValue.toString()) }
+    val parsedValue = text.trim().toIntOrNull()
+    val isOutOfRange = parsedValue != null && !isValid(parsedValue)
     AlertDialog(
         onDismissRequest = onDismiss,
         title = { Text(title) },
@@ -260,6 +263,10 @@ private fun NumberEditDialog(
                 onValueChange = { text = it },
                 singleLine = true,
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                isError = isOutOfRange,
+                supportingText = if (isOutOfRange) {
+                    { Text(stringResource(Res.string.error_value_out_of_range)) }
+                } else null,
                 colors = TextFieldDefaults.colors(
                     focusedContainerColor = MaterialTheme.colorScheme.surface,
                     unfocusedContainerColor = MaterialTheme.colorScheme.surface,
@@ -267,11 +274,9 @@ private fun NumberEditDialog(
             )
         },
         confirmButton = {
-            val parsedValue = remember(text) { text.trim().toIntOrNull() }
-            val isInputValid = parsedValue?.let(isValid) == true
             TextButton(
                 onClick = { parsedValue?.let(onConfirm) },
-                enabled = isInputValid,
+                enabled = parsedValue != null,
             ) {
                 Text(stringResource(Res.string.btn_confirm))
             }

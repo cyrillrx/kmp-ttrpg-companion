@@ -1,9 +1,9 @@
-package com.cyrillrx.rpg.core.presentation.component.dnd
+package com.cyrillrx.rpg.character.domain
 
-import com.cyrillrx.rpg.character.domain.Race
-
-private const val WALK_SPEED_STANDARD_FT = 30
 private const val WALK_SPEED_SLOW_FT = 25
+private const val WALK_SPEED_STANDARD_FT = 30
+private const val WALK_SPEED_MAX_FT = 120
+private const val ARMOR_CLASS_MAX = 30
 
 fun Race.defaultWalkSpeed(): Int = when (this) {
     Race.HUMAN -> WALK_SPEED_STANDARD_FT
@@ -19,16 +19,16 @@ fun Race.defaultWalkSpeed(): Int = when (this) {
 
 fun isValidCharacterLevel(value: Int): Boolean = value in 1..20
 fun isValidAbilityScore(value: Int): Boolean = value in 1..30
-fun isValidArmorClass(value: Int): Boolean = value >= 0
+fun isValidArmorClass(value: Int): Boolean = value in 0..ARMOR_CLASS_MAX
 fun isValidMaxHitPoints(value: Int): Boolean = value >= 1
-fun isValidWalkSpeed(value: Int): Boolean = value >= WALK_SPEED_SLOW_FT && value % 5 == 0
+fun isValidWalkSpeed(value: Int): Boolean = value in WALK_SPEED_SLOW_FT..WALK_SPEED_MAX_FT && value % 5 == 0
 
 fun Int.coerceToValidCharacterLevel(): Int = coerceIn(1, 20)
 fun Int.coerceToValidAbilityScore(): Int = coerceIn(1, 30)
-fun Int.coerceToValidArmorClass(): Int = coerceAtLeast(0)
+fun Int.coerceToValidArmorClass(): Int = coerceIn(0, ARMOR_CLASS_MAX)
 fun Int.coerceToValidMaxHitPoints(): Int = coerceAtLeast(1)
 fun Int.coerceToValidWalkSpeed(): Int {
-    val clamped = coerceAtLeast(WALK_SPEED_SLOW_FT)
+    val clamped = coerceIn(WALK_SPEED_SLOW_FT, WALK_SPEED_MAX_FT)
     val remainder = clamped % 5
     return if (remainder <= 2) clamped - remainder else clamped + (5 - remainder)
 }
