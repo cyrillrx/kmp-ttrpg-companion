@@ -13,8 +13,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.QuestionMark
+import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -140,7 +140,7 @@ private fun ClassIconBox(clazz: Character.Class, onClick: () -> Unit) {
                 modifier = Modifier.size(iconSizeLarge),
             )
             ClassIconState.Error -> Icon(
-                imageVector = Icons.Filled.Close,
+                imageVector = Icons.Filled.Warning,
                 contentDescription = null,
                 tint = Scarlet,
                 modifier = Modifier.size(iconSizeLarge),

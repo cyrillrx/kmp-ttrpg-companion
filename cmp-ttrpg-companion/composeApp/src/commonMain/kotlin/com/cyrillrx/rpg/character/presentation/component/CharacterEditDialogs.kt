@@ -235,6 +235,7 @@ private fun NumberEditDialog(
     onDismiss: () -> Unit,
 ) {
     var text by remember(initialValue) { mutableStateOf(initialValue.toString()) }
+    val parsedValue = text.trim().toIntOrNull()
     AlertDialog(
         onDismissRequest = onDismiss,
         title = { Text(title) },
@@ -251,10 +252,9 @@ private fun NumberEditDialog(
             )
         },
         confirmButton = {
-            val isInputValid = remember(text) { text.toIntOrNull() != null }
             TextButton(
-                onClick = { text.toIntOrNull()?.let(onConfirm) },
-                enabled = isInputValid,
+                onClick = { parsedValue?.let(onConfirm) },
+                enabled = parsedValue != null,
             ) {
                 Text(stringResource(Res.string.btn_confirm))
             }

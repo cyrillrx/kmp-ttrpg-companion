@@ -43,4 +43,6 @@
 
     <string name="no_result_found">Aucun résultat trouvé.</string>
     <string name="no_result_found_for_query">Aucun résultat trouvé pour '%1$s'.</string>
+
+    <string name="info_value_coerced">Valeur adaptée : %1$d</string>
 </resources>
