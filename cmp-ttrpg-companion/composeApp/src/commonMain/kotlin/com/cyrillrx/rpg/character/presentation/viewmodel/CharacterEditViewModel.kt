@@ -12,6 +12,10 @@ import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
 import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
 import com.cyrillrx.rpg.character.presentation.toCharacter
+import com.cyrillrx.rpg.core.presentation.component.dnd.coerceToValidAbilityScore
+import com.cyrillrx.rpg.core.presentation.component.dnd.coerceToValidArmorClass
+import com.cyrillrx.rpg.core.presentation.component.dnd.coerceToValidCharacterLevel
+import com.cyrillrx.rpg.core.presentation.component.dnd.coerceToValidMaxHitPoints
 import com.cyrillrx.rpg.core.presentation.component.dnd.coerceToValidWalkSpeed
 import com.cyrillrx.rpg.core.presentation.component.dnd.defaultWalkSpeed
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -63,7 +67,7 @@ class CharacterEditViewModel(
     }
 
     fun saveLevel(level: Int) {
-        updateAndSave { it.copy(level = level.coerceIn(1, 20), editingField = null) }
+        updateAndSave { it.copy(level = level.coerceToValidCharacterLevel(), editingField = null) }
     }
 
     fun saveBackground(background: String) {
@@ -71,39 +75,39 @@ class CharacterEditViewModel(
     }
 
     fun saveStrength(value: Int) {
-        updateAndSave { it.copy(strength = value.coerceIn(1, 30), editingField = null) }
+        updateAndSave { it.copy(strength = value.coerceToValidAbilityScore(), editingField = null) }
     }
 
     fun saveDexterity(value: Int) {
-        updateAndSave { it.copy(dexterity = value.coerceIn(1, 30), editingField = null) }
+        updateAndSave { it.copy(dexterity = value.coerceToValidAbilityScore(), editingField = null) }
     }
 
     fun saveConstitution(value: Int) {
-        updateAndSave { it.copy(constitution = value.coerceIn(1, 30), editingField = null) }
+        updateAndSave { it.copy(constitution = value.coerceToValidAbilityScore(), editingField = null) }
     }
 
     fun saveIntelligence(value: Int) {
-        updateAndSave { it.copy(intelligence = value.coerceIn(1, 30), editingField = null) }
+        updateAndSave { it.copy(intelligence = value.coerceToValidAbilityScore(), editingField = null) }
     }
 
     fun saveWisdom(value: Int) {
-        updateAndSave { it.copy(wisdom = value.coerceIn(1, 30), editingField = null) }
+        updateAndSave { it.copy(wisdom = value.coerceToValidAbilityScore(), editingField = null) }
     }
 
     fun saveCharisma(value: Int) {
-        updateAndSave { it.copy(charisma = value.coerceIn(1, 30), editingField = null) }
+        updateAndSave { it.copy(charisma = value.coerceToValidAbilityScore(), editingField = null) }
     }
 
     fun saveArmorClass(value: Int) {
-        updateAndSave { it.copy(armorClass = value.coerceAtLeast(0), editingField = null) }
+        updateAndSave { it.copy(armorClass = value.coerceToValidArmorClass(), editingField = null) }
     }
 
     fun saveMaxHitPoints(value: Int) {
-        updateAndSave { it.copy(maxHitPoints = value.coerceAtLeast(1), editingField = null) }
+        updateAndSave { it.copy(maxHitPoints = value.coerceToValidMaxHitPoints(), editingField = null) }
     }
 
     fun saveWalkSpeed(value: Int) {
-        updateAndSave { it.copy(walkSpeed = coerceToValidWalkSpeed(value), editingField = null) }
+        updateAndSave { it.copy(walkSpeed = value.coerceToValidWalkSpeed(), editingField = null) }
     }
 
     fun saveLanguages(languages: List<Language>) {
