@@ -27,6 +27,10 @@ import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
+import com.cyrillrx.rpg.core.presentation.component.dnd.isValidAbilityScore
+import com.cyrillrx.rpg.core.presentation.component.dnd.isValidArmorClass
+import com.cyrillrx.rpg.core.presentation.component.dnd.isValidCharacterLevel
+import com.cyrillrx.rpg.core.presentation.component.dnd.isValidMaxHitPoints
 import com.cyrillrx.rpg.core.presentation.component.dnd.isValidWalkSpeed
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.creature.domain.Creature
@@ -96,7 +100,7 @@ internal fun CharacterEditDialog(
             initialValue = state.level,
             onConfirm = onLevelConfirmed,
             onDismiss = onDismiss,
-            isValid = { it in 1..20 },
+            isValid = ::isValidCharacterLevel,
         )
 
         EditingField.Strength -> NumberEditDialog(
@@ -104,7 +108,7 @@ internal fun CharacterEditDialog(
             initialValue = state.strength,
             onConfirm = onStrengthConfirmed,
             onDismiss = onDismiss,
-            isValid = { it in 1..30 },
+            isValid = ::isValidAbilityScore,
         )
 
         EditingField.Dexterity -> NumberEditDialog(
@@ -112,7 +116,7 @@ internal fun CharacterEditDialog(
             initialValue = state.dexterity,
             onConfirm = onDexterityConfirmed,
             onDismiss = onDismiss,
-            isValid = { it in 1..30 },
+            isValid = ::isValidAbilityScore,
         )
 
         EditingField.Constitution -> NumberEditDialog(
@@ -120,7 +124,7 @@ internal fun CharacterEditDialog(
             initialValue = state.constitution,
             onConfirm = onConstitutionConfirmed,
             onDismiss = onDismiss,
-            isValid = { it in 1..30 },
+            isValid = ::isValidAbilityScore,
         )
 
         EditingField.Intelligence -> NumberEditDialog(
@@ -128,7 +132,7 @@ internal fun CharacterEditDialog(
             initialValue = state.intelligence,
             onConfirm = onIntelligenceConfirmed,
             onDismiss = onDismiss,
-            isValid = { it in 1..30 },
+            isValid = ::isValidAbilityScore,
         )
 
         EditingField.Wisdom -> NumberEditDialog(
@@ -136,7 +140,7 @@ internal fun CharacterEditDialog(
             initialValue = state.wisdom,
             onConfirm = onWisdomConfirmed,
             onDismiss = onDismiss,
-            isValid = { it in 1..30 },
+            isValid = ::isValidAbilityScore,
         )
 
         EditingField.Charisma -> NumberEditDialog(
@@ -144,7 +148,7 @@ internal fun CharacterEditDialog(
             initialValue = state.charisma,
             onConfirm = onCharismaConfirmed,
             onDismiss = onDismiss,
-            isValid = { it in 1..30 },
+            isValid = ::isValidAbilityScore,
         )
 
         EditingField.ArmorClass -> NumberEditDialog(
@@ -152,7 +156,7 @@ internal fun CharacterEditDialog(
             initialValue = state.armorClass,
             onConfirm = onArmorClassConfirmed,
             onDismiss = onDismiss,
-            isValid = { it >= 0 },
+            isValid = ::isValidArmorClass,
         )
 
         EditingField.MaxHitPoints -> NumberEditDialog(
@@ -160,7 +164,7 @@ internal fun CharacterEditDialog(
             initialValue = state.maxHitPoints,
             onConfirm = onMaxHitPointsConfirmed,
             onDismiss = onDismiss,
-            isValid = { it >= 1 },
+            isValid = ::isValidMaxHitPoints,
         )
 
         EditingField.WalkSpeed -> NumberEditDialog(
