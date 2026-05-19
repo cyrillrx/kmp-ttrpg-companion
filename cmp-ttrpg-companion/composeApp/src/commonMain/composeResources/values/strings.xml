@@ -47,4 +47,6 @@
     <string name="error_monster_not_found">Monster not found: %1$s</string>
     <string name="error_spell_not_found">Spell not found: %1$s</string>
     <string name="error_magical_item_not_found">Magical item not found: %1$s</string>
+
+    <string name="error_value_out_of_range">Value out of range</string>
 </resources>

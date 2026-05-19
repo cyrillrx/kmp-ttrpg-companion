@@ -43,4 +43,6 @@
 
     <string name="no_result_found">Aucun résultat trouvé.</string>
     <string name="no_result_found_for_query">Aucun résultat trouvé pour '%1$s'.</string>
+
+    <string name="error_value_out_of_range">Valeur hors limites</string>
 </resources>
