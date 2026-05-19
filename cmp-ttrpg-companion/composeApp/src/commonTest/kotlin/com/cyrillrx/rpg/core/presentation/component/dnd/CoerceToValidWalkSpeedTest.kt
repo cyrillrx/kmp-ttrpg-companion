@@ -7,22 +7,22 @@ class CoerceToValidWalkSpeedTest {
 
     @Test
     fun `clamps values below 25 to 25`() {
-        assertEquals(25, coerceToValidWalkSpeed(0))
-        assertEquals(25, coerceToValidWalkSpeed(20))
-        assertEquals(25, coerceToValidWalkSpeed(24))
+        assertEquals(25, 0.coerceToValidWalkSpeed())
+        assertEquals(25, 20.coerceToValidWalkSpeed())
+        assertEquals(25, 24.coerceToValidWalkSpeed())
     }
 
     @Test
     fun `rounds to nearest multiple of 5`() {
-        assertEquals(25, coerceToValidWalkSpeed(26))
-        assertEquals(30, coerceToValidWalkSpeed(28))
-        assertEquals(35, coerceToValidWalkSpeed(33))
+        assertEquals(25, 26.coerceToValidWalkSpeed())
+        assertEquals(30, 28.coerceToValidWalkSpeed())
+        assertEquals(35, 33.coerceToValidWalkSpeed())
     }
 
     @Test
     fun `returns valid values unchanged`() {
-        assertEquals(25, coerceToValidWalkSpeed(25))
-        assertEquals(30, coerceToValidWalkSpeed(30))
-        assertEquals(60, coerceToValidWalkSpeed(60))
+        assertEquals(25, 25.coerceToValidWalkSpeed())
+        assertEquals(30, 30.coerceToValidWalkSpeed())
+        assertEquals(60, 60.coerceToValidWalkSpeed())
     }
 }

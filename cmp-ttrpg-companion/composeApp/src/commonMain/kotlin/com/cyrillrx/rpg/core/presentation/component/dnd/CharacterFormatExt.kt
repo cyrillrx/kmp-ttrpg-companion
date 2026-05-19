@@ -68,8 +68,12 @@ fun isValidArmorClass(value: Int): Boolean = value >= 0
 fun isValidMaxHitPoints(value: Int): Boolean = value >= 1
 fun isValidWalkSpeed(value: Int): Boolean = value >= WALK_SPEED_SLOW_FT && value % 5 == 0
 
-fun coerceToValidWalkSpeed(value: Int): Int {
-    val clamped = value.coerceAtLeast(WALK_SPEED_SLOW_FT)
+fun Int.coerceToValidCharacterLevel(): Int = coerceIn(1, 20)
+fun Int.coerceToValidAbilityScore(): Int = coerceIn(1, 30)
+fun Int.coerceToValidArmorClass(): Int = coerceAtLeast(0)
+fun Int.coerceToValidMaxHitPoints(): Int = coerceAtLeast(1)
+fun Int.coerceToValidWalkSpeed(): Int {
+    val clamped = coerceAtLeast(WALK_SPEED_SLOW_FT)
     return ((clamped + 2) / 5) * 5
 }
 
