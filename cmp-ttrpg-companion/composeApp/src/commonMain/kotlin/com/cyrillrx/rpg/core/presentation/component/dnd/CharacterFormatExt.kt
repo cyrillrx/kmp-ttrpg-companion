@@ -47,37 +47,6 @@ import rpg_companion.composeapp.generated.resources.race_halfling
 import rpg_companion.composeapp.generated.resources.race_human
 import rpg_companion.composeapp.generated.resources.race_tiefling
 
-private const val WALK_SPEED_STANDARD_FT = 30
-private const val WALK_SPEED_SLOW_FT = 25
-
-fun Race.defaultWalkSpeed(): Int = when (this) {
-    Race.HUMAN -> WALK_SPEED_STANDARD_FT
-    Race.ELF -> WALK_SPEED_STANDARD_FT
-    Race.HALF_ELF -> WALK_SPEED_STANDARD_FT
-    Race.HALF_ORC -> WALK_SPEED_STANDARD_FT
-    Race.DRAGONBORN -> WALK_SPEED_STANDARD_FT
-    Race.TIEFLING -> WALK_SPEED_STANDARD_FT
-    Race.DWARF -> WALK_SPEED_SLOW_FT
-    Race.GNOME -> WALK_SPEED_SLOW_FT
-    Race.HALFLING -> WALK_SPEED_SLOW_FT
-}
-
-fun isValidCharacterLevel(value: Int): Boolean = value in 1..20
-fun isValidAbilityScore(value: Int): Boolean = value in 1..30
-fun isValidArmorClass(value: Int): Boolean = value >= 0
-fun isValidMaxHitPoints(value: Int): Boolean = value >= 1
-fun isValidWalkSpeed(value: Int): Boolean = value >= WALK_SPEED_SLOW_FT && value % 5 == 0
-
-fun Int.coerceToValidCharacterLevel(): Int = coerceIn(1, 20)
-fun Int.coerceToValidAbilityScore(): Int = coerceIn(1, 30)
-fun Int.coerceToValidArmorClass(): Int = coerceAtLeast(0)
-fun Int.coerceToValidMaxHitPoints(): Int = coerceAtLeast(1)
-fun Int.coerceToValidWalkSpeed(): Int {
-    val clamped = coerceAtLeast(WALK_SPEED_SLOW_FT)
-    val remainder = clamped % 5
-    return if (remainder <= 2) clamped - remainder else clamped + (5 - remainder)
-}
-
 fun Character.Class.toSvgPath(): String = when (this) {
     Character.Class.BARBARIAN -> "drawable/class_barbarian.svg"
     Character.Class.BARD -> "drawable/class_bard.svg"
