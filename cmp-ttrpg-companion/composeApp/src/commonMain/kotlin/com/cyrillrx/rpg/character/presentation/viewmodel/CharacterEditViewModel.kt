@@ -12,6 +12,7 @@ import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
 import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
 import com.cyrillrx.rpg.character.presentation.toCharacter
+import com.cyrillrx.rpg.core.presentation.component.dnd.coerceToValidWalkSpeed
 import com.cyrillrx.rpg.core.presentation.component.dnd.defaultWalkSpeed
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -102,7 +103,7 @@ class CharacterEditViewModel(
     }
 
     fun saveWalkSpeed(value: Int) {
-        updateAndSave { it.copy(walkSpeed = value.coerceAtLeast(0), editingField = null) }
+        updateAndSave { it.copy(walkSpeed = coerceToValidWalkSpeed(value), editingField = null) }
     }
 
     fun saveLanguages(languages: List<Language>) {

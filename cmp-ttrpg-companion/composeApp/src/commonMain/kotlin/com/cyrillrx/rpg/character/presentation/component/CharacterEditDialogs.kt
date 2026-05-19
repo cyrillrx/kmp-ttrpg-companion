@@ -27,6 +27,7 @@ import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
+import com.cyrillrx.rpg.core.presentation.component.dnd.isValidWalkSpeed
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.creature.domain.Creature
 import org.jetbrains.compose.resources.stringResource
@@ -167,7 +168,7 @@ internal fun CharacterEditDialog(
             initialValue = state.walkSpeed,
             onConfirm = onWalkSpeedConfirmed,
             onDismiss = onDismiss,
-            isValid = { it >= 0 },
+            isValid = ::isValidWalkSpeed,
         )
 
         EditingField.Race -> RaceSelectDialog(
