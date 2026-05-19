@@ -16,6 +16,7 @@ import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
+import kotlinx.coroutines.launch
 import kotlin.test.AfterTest
 import kotlin.test.BeforeTest
 import kotlin.test.Test
@@ -215,6 +216,34 @@ class CharacterEditViewModelTest {
         viewModel.saveMaxHitPoints(0)
         val loaded = assertIs<CharacterEditState.Loaded>(viewModel.state.value)
         assertEquals(1, loaded.maxHitPoints)
+    }
+
+    // ─── coercedValueEvent ────────────────────────────────────────────────────
+
+    @Test
+    fun `coercedValueEvent emits coerced value when input is out of range`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(repo = repoWithFighter())
+        advanceUntilIdle()
+        val events = mutableListOf<Int>()
+        val job = launch { viewModel.coercedValueEvent.collect { events.add(it) } }
+        advanceUntilIdle()
+        viewModel.saveLevel(25)  // max is 20, coerced to 20
+        advanceUntilIdle()
+        assertEquals(listOf(20), events)
+        job.cancel()
+    }
+
+    @Test
+    fun `coercedValueEvent does not emit when input is already valid`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(repo = repoWithFighter())
+        advanceUntilIdle()
+        val events = mutableListOf<Int>()
+        val job = launch { viewModel.coercedValueEvent.collect { events.add(it) } }
+        advanceUntilIdle()
+        viewModel.saveLevel(5)  // valid, no coercion
+        advanceUntilIdle()
+        assertEquals(emptyList<Int>(), events)
+        job.cancel()
     }
 
     // ─── saveRace ─────────────────────────────────────────────────────────────
