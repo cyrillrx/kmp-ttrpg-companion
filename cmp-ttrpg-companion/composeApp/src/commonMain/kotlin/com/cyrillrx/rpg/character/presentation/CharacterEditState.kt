@@ -32,7 +32,6 @@ sealed interface CharacterEditState {
         val editingField: EditingField? = null,
     ) : CharacterEditState {
         sealed interface EditingField {
-            data object Name : EditingField
             data object Race : EditingField
             data object Clazz : EditingField
             data object Level : EditingField

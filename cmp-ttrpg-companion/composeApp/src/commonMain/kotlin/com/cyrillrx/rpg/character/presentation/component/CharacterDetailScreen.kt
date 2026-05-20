@@ -1,5 +1,6 @@
 package com.cyrillrx.rpg.character.presentation.component
 
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -16,6 +17,8 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Character
@@ -125,10 +128,12 @@ fun CharacterDetailScreen(
         },
         snackbarHost = { SnackbarHost(snackbarHostState) },
     ) { paddingValues ->
+        val focusManager = LocalFocusManager.current
         Column(
             modifier = Modifier
                 .padding(paddingValues)
                 .fillMaxSize()
+                .pointerInput(focusManager) { detectTapGestures(onTap = { focusManager.clearFocus() }) }
                 .verticalScroll(rememberScrollState())
                 .padding(spacingCommon),
             verticalArrangement = Arrangement.spacedBy(spacingMedium),
@@ -140,7 +145,7 @@ fun CharacterDetailScreen(
                 level = state.level,
                 background = state.background,
                 alignment = state.alignment,
-                onNameTapped = { onFieldTapped(EditingField.Name) },
+                onNameConfirmed = onNameConfirmed,
                 onClassTapped = { onFieldTapped(EditingField.Clazz) },
                 onRaceTapped = { onFieldTapped(EditingField.Race) },
                 onLevelTapped = { onFieldTapped(EditingField.Level) },
@@ -192,7 +197,6 @@ fun CharacterDetailScreen(
 
     CharacterEditDialog(
         state = state,
-        onNameConfirmed = onNameConfirmed,
         onRaceConfirmed = onRaceConfirmed,
         onClassConfirmed = onClassConfirmed,
         onLevelConfirmed = onLevelConfirmed,

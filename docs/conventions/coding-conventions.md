@@ -48,6 +48,7 @@ Refer to `../../AGENTS.md` for overall project guidelines.
 - **Automated Formatting**: Rely 100% on formatters (`ktlint`, `rustfmt`). If the CI pipeline passes, the formatting is correct. No debates.
 - **Newspaper Metaphor**: Put high-level concepts at the top of the file, increasing detail as you read downward.
 - **Keep Related Code Close**: Group related concepts vertically. Declare local variables right before their first use.
+- **Early Return Spacing**: Always leave a blank line after an early return (guard clause) to visually separate the guard from the function body.
 
 ## 7. Objects and Data Structures
 
