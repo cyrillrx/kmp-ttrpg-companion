@@ -133,7 +133,7 @@ fun CharacterDetailScreen(
             modifier = Modifier
                 .padding(paddingValues)
                 .fillMaxSize()
-                .pointerInput(Unit) { detectTapGestures { focusManager.clearFocus() } }
+                .pointerInput(Unit) { detectTapGestures(onTap = { focusManager.clearFocus() }) }
                 .verticalScroll(rememberScrollState())
                 .padding(spacingCommon),
             verticalArrangement = Arrangement.spacedBy(spacingMedium),

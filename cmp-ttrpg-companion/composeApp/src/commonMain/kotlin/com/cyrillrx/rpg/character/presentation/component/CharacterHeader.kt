@@ -199,7 +199,10 @@ private fun InlineEditableText(
 ) {
     var isEditing by remember { mutableStateOf(false) }
     var draft by remember(text) { mutableStateOf(TextFieldValue(text, TextRange(text.length))) }
+    var hasFocused by remember(isEditing) { mutableStateOf(false) }
     val focusRequester = remember { FocusRequester() }
+
+    LaunchedEffect(isEditing) { if (isEditing) focusRequester.requestFocus() }
 
     fun commit() {
         if (!isEditing) return
@@ -210,8 +213,6 @@ private fun InlineEditableText(
     }
 
     if (isEditing) {
-        var hasFocused by remember { mutableStateOf(false) }
-        LaunchedEffect(Unit) { focusRequester.requestFocus() }
         BasicTextField(
             value = draft,
             onValueChange = { draft = it },

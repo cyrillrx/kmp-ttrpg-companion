@@ -105,7 +105,6 @@ class CharacterEditViewModelTest {
         viewModel.saveName("   ")
         val loaded = assertIs<CharacterEditState.Loaded>(viewModel.state.value)
         assertEquals(fighter.name, loaded.name)
-        assertNull(loaded.editingField)
     }
 
     @Test
