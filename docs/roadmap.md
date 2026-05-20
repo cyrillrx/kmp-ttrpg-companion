@@ -47,7 +47,18 @@ For detailed feature specifications, see the [PRDs](prd/).
 > Allow users to create and manage character sheets. - [PRD-002](prd/prd-002-character-sheet.md)
 
 - [ ] Create, list and edit character sheets
-- [ ] Persist `Character` with SQLDelight (currently RAM only)
+  - [x] Basic character info (name, race, class, background, alignment)
+  - [x] Ability scores
+  - [ ] Combat stats
+    - [x] Max hit points
+    - [x] Armor class
+    - [ ] Initiative
+    - [ ] Speed (base speed, in feet and meters)
+    - [ ] Current hit points
+  - [ ] Skills
+  - [ ] Combat actions
+  - [ ] Inventory
+- [x] Persist `Character` with SQLDelight
 - [ ] Sync character sheets with backend
 
 ## Phase 6 - Notes
