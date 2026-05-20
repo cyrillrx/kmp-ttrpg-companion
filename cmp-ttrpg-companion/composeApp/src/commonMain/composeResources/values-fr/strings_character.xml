@@ -28,6 +28,7 @@
     <string name="label_cha">CHA</string>
     <string name="label_combat">Combat</string>
     <string name="label_ac">CA</string>
+    <string name="label_initiative">Initiative</string>
     <string name="label_max_hp">PV max</string>
     <string name="label_walk_speed">Vitesse (ft)</string>
     <string name="label_languages">Langues</string>

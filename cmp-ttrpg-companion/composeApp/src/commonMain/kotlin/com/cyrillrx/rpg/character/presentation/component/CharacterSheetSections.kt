@@ -6,8 +6,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
@@ -34,6 +32,7 @@ import rpg_companion.composeapp.generated.resources.label_ac
 import rpg_companion.composeapp.generated.resources.label_cha
 import rpg_companion.composeapp.generated.resources.label_con
 import rpg_companion.composeapp.generated.resources.label_dex
+import rpg_companion.composeapp.generated.resources.label_initiative
 import rpg_companion.composeapp.generated.resources.label_int
 import rpg_companion.composeapp.generated.resources.label_languages
 import rpg_companion.composeapp.generated.resources.label_max_hp
@@ -164,6 +163,7 @@ private fun AbilityCard(
 @Composable
 internal fun CombatRow(
     armorClass: Int,
+    dexterity: Int,
     maxHitPoints: Int,
     onAcTapped: () -> Unit,
     onMaxHpTapped: () -> Unit,
@@ -179,6 +179,11 @@ internal fun CombatRow(
             modifier = Modifier.weight(1f),
         )
         StatCard(
+            label = stringResource(Res.string.label_initiative),
+            value = Ability(dexterity).getModifier().toSignedString(),
+            modifier = Modifier.weight(1f),
+        )
+        StatCard(
             label = stringResource(Res.string.label_max_hp),
             value = maxHitPoints.toString(),
             onClick = onMaxHpTapped,
@@ -191,13 +196,10 @@ internal fun CombatRow(
 private fun StatCard(
     label: String,
     value: String,
-    onClick: () -> Unit,
+    onClick: (() -> Unit)? = null,
     modifier: Modifier = Modifier,
 ) {
-    ElevatedCard(
-        onClick = onClick,
-        modifier = modifier,
-    ) {
+    val cardContent: @Composable () -> Unit = {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
@@ -215,6 +217,11 @@ private fun StatCard(
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
         }
+    }
+    if (onClick == null) {
+        ElevatedCard(modifier = modifier, content = { cardContent() })
+    } else {
+        ElevatedCard(onClick = onClick, modifier = modifier, content = { cardContent() })
     }
 }
 
