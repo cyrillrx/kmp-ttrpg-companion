@@ -146,10 +146,11 @@ mutation($threadId:ID!) {
 
 ### Step 7 — Re-run /review
 
-Invoke the `/review` skill with the same PR number to verify the state of the PR after fixes.
+Before invoking `/review`, suggest to the user that they run `/clear` first to start a
+fresh context — `/review` reads the full diff and all touched files, so stale context
+inflates token usage unnecessarily. Do **not** run `/clear` yourself.
 
-> `/review` reads the full diff and all touched files — run it in a **fresh context**
-> (`/clear` first) to avoid stale context inflating token usage.
+Then invoke the `/review` skill with the same PR number:
 
 ```
 /review <PR_NUMBER>
