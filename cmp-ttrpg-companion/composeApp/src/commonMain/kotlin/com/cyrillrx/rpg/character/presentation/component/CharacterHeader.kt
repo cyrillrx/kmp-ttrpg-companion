@@ -194,7 +194,7 @@ internal suspend fun resolveClassIconState(
 private fun InlineEditableText(
     text: String,
     onConfirmed: (String) -> Unit,
-    style: TextStyle = MaterialTheme.typography.bodyMedium,
+    style: TextStyle,
     modifier: Modifier = Modifier,
 ) {
     var isEditing by remember { mutableStateOf(false) }
