@@ -44,7 +44,6 @@ import rpg_companion.composeapp.generated.resources.label_int
 import rpg_companion.composeapp.generated.resources.label_languages
 import rpg_companion.composeapp.generated.resources.label_level
 import rpg_companion.composeapp.generated.resources.label_max_hp
-import rpg_companion.composeapp.generated.resources.label_name
 import rpg_companion.composeapp.generated.resources.label_race
 import rpg_companion.composeapp.generated.resources.label_str
 import rpg_companion.composeapp.generated.resources.label_walk_speed
@@ -53,7 +52,6 @@ import rpg_companion.composeapp.generated.resources.label_wis
 @Composable
 internal fun CharacterEditDialog(
     state: CharacterEditState.Loaded,
-    onNameConfirmed: (String) -> Unit,
     onRaceConfirmed: (Race) -> Unit,
     onClassConfirmed: (Character.Class) -> Unit,
     onLevelConfirmed: (Int) -> Unit,
@@ -74,14 +72,6 @@ internal fun CharacterEditDialog(
     val field = state.editingField ?: return
 
     when (field) {
-        EditingField.Name -> TextEditDialog(
-            title = stringResource(Res.string.label_name),
-            initialValue = state.name,
-            onConfirm = onNameConfirmed,
-            onDismiss = onDismiss,
-            isValid = { it.isNotBlank() },
-        )
-
         EditingField.Background -> TextEditDialog(
             title = stringResource(Res.string.label_background),
             initialValue = state.background,

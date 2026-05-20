@@ -140,7 +140,7 @@ fun CharacterDetailScreen(
                 level = state.level,
                 background = state.background,
                 alignment = state.alignment,
-                onNameTapped = { onFieldTapped(EditingField.Name) },
+                onNameConfirmed = onNameConfirmed,
                 onClassTapped = { onFieldTapped(EditingField.Clazz) },
                 onRaceTapped = { onFieldTapped(EditingField.Race) },
                 onLevelTapped = { onFieldTapped(EditingField.Level) },
@@ -192,7 +192,6 @@ fun CharacterDetailScreen(
 
     CharacterEditDialog(
         state = state,
-        onNameConfirmed = onNameConfirmed,
         onRaceConfirmed = onRaceConfirmed,
         onClassConfirmed = onClassConfirmed,
         onLevelConfirmed = onLevelConfirmed,

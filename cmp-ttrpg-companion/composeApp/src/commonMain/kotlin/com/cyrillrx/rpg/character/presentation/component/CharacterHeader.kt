@@ -12,6 +12,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.QuestionMark
 import androidx.compose.material.icons.filled.Warning
@@ -19,13 +22,22 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.produceState
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextDecoration
 import coil3.compose.AsyncImage
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
@@ -59,7 +71,7 @@ internal fun CharacterHeader(
     level: Int,
     background: String,
     alignment: Creature.Alignment,
-    onNameTapped: () -> Unit,
+    onNameConfirmed: (String) -> Unit,
     onClassTapped: () -> Unit,
     onRaceTapped: () -> Unit,
     onLevelTapped: () -> Unit,
@@ -74,11 +86,11 @@ internal fun CharacterHeader(
     ) {
         ClassIconBox(clazz = clazz, onClick = onClassTapped)
         Column(modifier = Modifier.weight(1f)) {
-            Text(
+            InlineEditableText(
                 text = name,
-                style = MaterialTheme.typography.titleLarge,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier.clickable(onClick = onNameTapped),
+                onConfirmed = onNameConfirmed,
+                style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold),
+                modifier = Modifier.fillMaxWidth(),
             )
             Spacer(Modifier.height(spacingSmall))
             Row(
@@ -176,6 +188,49 @@ internal suspend fun resolveClassIconState(
 }
 
 @Composable
+private fun InlineEditableText(
+    text: String,
+    onConfirmed: (String) -> Unit,
+    style: TextStyle = MaterialTheme.typography.bodyMedium,
+    modifier: Modifier = Modifier,
+) {
+    var isEditing by remember { mutableStateOf(false) }
+    var draft by remember(text) { mutableStateOf(text) }
+    val focusRequester = remember { FocusRequester() }
+
+    fun commit() {
+        val trimmed = draft.trim()
+        if (trimmed.isNotBlank()) onConfirmed(trimmed) else draft = text
+        isEditing = false
+    }
+
+    if (isEditing) {
+        var hasFocused by remember { mutableStateOf(false) }
+        LaunchedEffect(Unit) { focusRequester.requestFocus() }
+        BasicTextField(
+            value = draft,
+            onValueChange = { draft = it },
+            textStyle = style.copy(color = MaterialTheme.colorScheme.onSurface),
+            singleLine = true,
+            keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
+            keyboardActions = KeyboardActions(onDone = { commit() }),
+            modifier = modifier
+                .focusRequester(focusRequester)
+                .onFocusChanged { fs ->
+                    if (fs.isFocused) hasFocused = true
+                    else if (hasFocused) commit()
+                },
+        )
+    } else {
+        Text(
+            text = text,
+            style = style,
+            modifier = modifier.clickable { isEditing = true },
+        )
+    }
+}
+
+@Composable
 private fun SubtitleChip(text: String, onClick: () -> Unit) {
     Text(
         text = text,
@@ -219,7 +274,7 @@ private fun CharacterHeaderPreview() {
         level = state.level,
         background = state.background,
         alignment = state.alignment,
-        onNameTapped = {},
+        onNameConfirmed = {},
         onClassTapped = {},
         onRaceTapped = {},
         onLevelTapped = {},
