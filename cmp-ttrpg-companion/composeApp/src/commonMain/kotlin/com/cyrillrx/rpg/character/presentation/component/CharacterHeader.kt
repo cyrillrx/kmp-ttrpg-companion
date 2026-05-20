@@ -201,9 +201,11 @@ private fun InlineEditableText(
     val focusRequester = remember { FocusRequester() }
 
     fun commit() {
-        val trimmed = draft.text.trim()
-        if (trimmed.isNotBlank()) onConfirmed(trimmed) else draft = TextFieldValue(text, TextRange(text.length))
+        if (!isEditing) return
+
         isEditing = false
+        val trimmed = draft.text.trim()
+        if (trimmed.isNotBlank() && trimmed != text) onConfirmed(trimmed)
     }
 
     if (isEditing) {
