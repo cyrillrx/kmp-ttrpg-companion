@@ -35,9 +35,11 @@ import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextDecoration
 import coil3.compose.AsyncImage
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
@@ -195,12 +197,12 @@ private fun InlineEditableText(
     modifier: Modifier = Modifier,
 ) {
     var isEditing by remember { mutableStateOf(false) }
-    var draft by remember(text) { mutableStateOf(text) }
+    var draft by remember(text) { mutableStateOf(TextFieldValue(text, TextRange(text.length))) }
     val focusRequester = remember { FocusRequester() }
 
     fun commit() {
-        val trimmed = draft.trim()
-        if (trimmed.isNotBlank()) onConfirmed(trimmed) else draft = text
+        val trimmed = draft.text.trim()
+        if (trimmed.isNotBlank()) onConfirmed(trimmed) else draft = TextFieldValue(text, TextRange(text.length))
         isEditing = false
     }
 
