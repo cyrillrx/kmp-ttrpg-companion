@@ -35,6 +35,7 @@ import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -215,13 +216,14 @@ private fun InlineEditableText(
             value = draft,
             onValueChange = { draft = it },
             textStyle = style.copy(color = MaterialTheme.colorScheme.onSurface),
+            cursorBrush = SolidColor(MaterialTheme.colorScheme.primary),
             singleLine = true,
             keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
             keyboardActions = KeyboardActions(onDone = { commit() }),
             modifier = modifier
                 .focusRequester(focusRequester)
-                .onFocusChanged { fs ->
-                    if (fs.isFocused) hasFocused = true
+                .onFocusChanged { focusState ->
+                    if (focusState.isFocused) hasFocused = true
                     else if (hasFocused) commit()
                 },
         )
