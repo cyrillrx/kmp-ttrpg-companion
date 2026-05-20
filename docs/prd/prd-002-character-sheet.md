@@ -37,18 +37,18 @@ Campaign integration (attaching sheets to a campaign, sharing with other players
 ### Phase 1 — MVP (Offline)
 
 **General Info**
-- [ ] Character name
-- [ ] Race / Ancestry
-- [ ] Class(es) and level
-- [ ] Background
-- [ ] Alignment
+- [x] Character name
+- [x] Race / Ancestry
+- [x] Class(es) and level
+- [x] Background
+- [x] Alignment
 
 **Ability Scores & Modifiers**
-- [ ] The six core stats: Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma
-- [ ] Auto-calculated modifiers from scores
+- [x] The six core stats: Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma
+- [x] Auto-calculated modifiers from scores
 
 **Combat Stats**
-- [ ] Armor Class (AC)
+- [x] Armor Class (AC)
 - [ ] Initiative (calculated from DEX modifier by default; trait/feat bonuses handled in a later phase)
 - [ ] Speed
 - [ ] Current HP, Maximum HP, Temporary HP

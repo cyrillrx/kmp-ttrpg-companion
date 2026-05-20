@@ -50,11 +50,15 @@ For detailed feature specifications, see the [PRDs](prd/).
   - [x] Basic character info (name, race, class, background, alignment)
   - [x] Ability scores
   - [ ] Combat stats
-  - [ ] Speed (base speed, in feets and meters)
+    - [x] Max hit points
+    - [x] Armor class
+    - [ ] Initiative
+    - [ ] Speed (base speed, in feet and meters)
+    - [ ] Current hit points
   - [ ] Skills
   - [ ] Combat actions
   - [ ] Inventory
-- [x] Persist `Character` with SQLDelight (currently RAM only)
+- [x] Persist `Character` with SQLDelight
 - [ ] Sync character sheets with backend
 
 ## Phase 6 - Notes
