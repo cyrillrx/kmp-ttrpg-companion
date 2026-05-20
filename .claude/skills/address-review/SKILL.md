@@ -87,16 +87,19 @@ Wait for the user to confirm, adjust, or override each recommendation before pro
 
 For each thread, apply the outcome and post a reply via the GitHub REST API.
 
-For **inline** review comments (attached to a file and line):
+For **inline** review comments (attached to a file and line), use `in_reply_to`:
 
 ```bash
-gh api repos/<OWNER>/<REPO>/pulls/comments/<COMMENT_DATABASE_ID>/replies \
-  -X POST -f body="<reply>"
+gh api repos/<OWNER>/<REPO>/pulls/<PR_NUMBER>/comments \
+  -X POST -f body="<reply>" -F in_reply_to=<COMMENT_DATABASE_ID>
 ```
 
 Use the `databaseId` of the **first** comment in the thread as `<COMMENT_DATABASE_ID>`.
 
-For **general** PR comments (no associated file/line — the above endpoint returns 404):
+> Do **not** use `POST /pulls/comments/{id}/replies` — it returns 404 for comments
+> created by bots (Gemini, CodeRabbit, etc.) and is unreliable in general.
+
+For **general** PR comments (no associated file/line):
 
 ```bash
 gh api repos/<OWNER>/<REPO>/issues/<PR_NUMBER>/comments \
@@ -143,7 +146,11 @@ mutation($threadId:ID!) {
 
 ### Step 7 — Re-run /review
 
-Invoke the `/review` skill with the same PR number to verify the state of the PR after fixes:
+Before invoking `/review`, suggest to the user that they run `/clear` first to start a
+fresh context — `/review` reads the full diff and all touched files, so stale context
+inflates token usage unnecessarily. Do **not** run `/clear` yourself.
+
+Then invoke the `/review` skill with the same PR number:
 
 ```
 /review <PR_NUMBER>
