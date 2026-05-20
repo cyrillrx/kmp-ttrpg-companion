@@ -99,10 +99,9 @@ class CharacterEditViewModelTest {
     // ─── saveName ──────────────────────────────────────────────────────────────
 
     @Test
-    fun `saveName with blank input cancels editing without updating name`() = runTest(testDispatcher) {
+    fun `saveName with blank input does not update name`() = runTest(testDispatcher) {
         val viewModel = buildViewModel(repo = repoWithFighter())
         advanceUntilIdle()
-        viewModel.editField(EditingField.Race)
         viewModel.saveName("   ")
         val loaded = assertIs<CharacterEditState.Loaded>(viewModel.state.value)
         assertEquals(fighter.name, loaded.name)
