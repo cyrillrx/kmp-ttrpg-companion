@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import com.cyrillrx.rpg.character.domain.Language
+import com.cyrillrx.rpg.core.domain.toSignedString
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.borderAlpha
 import com.cyrillrx.rpg.core.presentation.theme.borderWidth
@@ -129,8 +130,7 @@ private fun AbilityCard(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val abilityModifier = Ability(score).getModifier()
-    val modifierText = if (abilityModifier >= 0) "+$abilityModifier" else "$abilityModifier"
+    val modifierText = Ability(score).getModifier().toSignedString()
 
     ElevatedCard(
         onClick = onClick,
