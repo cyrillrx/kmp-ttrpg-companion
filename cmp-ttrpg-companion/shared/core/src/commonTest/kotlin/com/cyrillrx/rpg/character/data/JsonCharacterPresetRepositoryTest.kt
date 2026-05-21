@@ -112,6 +112,13 @@ class JsonCharacterPresetRepositoryTest {
         }
 
     @Test
+    fun `preset with missing walk speed is skipped`() =
+        runTest {
+            val json = preset(speeds = null)
+            assertTrue(repository(json).getAll(null).isEmpty())
+        }
+
+    @Test
     fun `preset with unknown language is skipped`() =
         runTest {
             val json = preset(languages = """["klingon"]""")
