@@ -62,7 +62,8 @@ import rpg_companion.composeapp.generated.resources.race_human
 import rpg_companion.composeapp.generated.resources.race_tiefling
 
 @Composable
-fun Background.toFormattedString(): String {
+fun Background?.toFormattedString(): String {
+    this ?: return ""
     val stringRes = when (this) {
         Background.ACOLYTE -> Res.string.background_acolyte
         Background.CHARLATAN -> Res.string.background_charlatan

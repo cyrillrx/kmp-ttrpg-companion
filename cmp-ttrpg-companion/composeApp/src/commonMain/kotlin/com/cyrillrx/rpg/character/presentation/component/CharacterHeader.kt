@@ -283,7 +283,7 @@ private fun CharacterHeaderPreview() {
         race = character.race,
         clazz = character.clazz,
         level = character.level,
-        background = character.background?.toFormattedString().orEmpty(),
+        background = character.background.toFormattedString(),
         alignment = character.alignment,
         onNameConfirmed = {},
         onClassTapped = {},

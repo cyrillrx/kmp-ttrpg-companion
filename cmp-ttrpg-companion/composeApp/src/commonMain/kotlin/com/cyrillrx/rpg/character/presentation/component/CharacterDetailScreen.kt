@@ -145,7 +145,7 @@ fun CharacterDetailScreen(
                 race = state.character.race,
                 clazz = state.character.clazz,
                 level = state.character.level,
-                background = state.character.background?.toFormattedString().orEmpty(),
+                background = state.character.background.toFormattedString(),
                 alignment = state.character.alignment,
                 onNameConfirmed = onNameConfirmed,
                 onClassTapped = { onFieldTapped(EditingField.Clazz) },
