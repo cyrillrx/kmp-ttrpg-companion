@@ -1,5 +1,6 @@
 package com.cyrillrx.rpg.character.presentation.component
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -22,6 +23,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
+import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
@@ -31,6 +33,7 @@ import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.creature.domain.Creature
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
+import rpg_companion.composeapp.generated.resources.background_none
 import rpg_companion.composeapp.generated.resources.btn_cancel
 import rpg_companion.composeapp.generated.resources.btn_confirm
 import rpg_companion.composeapp.generated.resources.label_ac
@@ -55,7 +58,7 @@ internal fun CharacterEditDialog(
     onRaceConfirmed: (Race) -> Unit,
     onClassConfirmed: (Character.Class) -> Unit,
     onLevelConfirmed: (Int) -> Unit,
-    onBackgroundConfirmed: (String) -> Unit,
+    onBackgroundConfirmed: (Background?) -> Unit,
     onStrengthConfirmed: (Int) -> Unit,
     onDexterityConfirmed: (Int) -> Unit,
     onConstitutionConfirmed: (Int) -> Unit,
@@ -72,12 +75,14 @@ internal fun CharacterEditDialog(
     val field = state.editingField ?: return
 
     when (field) {
-        EditingField.Background -> TextEditDialog(
+        EditingField.Background -> SingleChoiceDialog(
             title = stringResource(Res.string.label_background),
-            initialValue = state.character.background.orEmpty(),
+            selected = state.character.background,
+            options = Background.entries,
+            optionLabel = { it.toFormattedString() },
+            noneLabel = stringResource(Res.string.background_none),
             onConfirm = onBackgroundConfirmed,
             onDismiss = onDismiss,
-            singleLine = false,
         )
 
         EditingField.Level -> NumberEditDialog(
@@ -150,15 +155,21 @@ internal fun CharacterEditDialog(
             onDismiss = onDismiss,
         )
 
-        EditingField.Race -> RaceSelectDialog(
-            current = state.character.race,
-            onConfirm = onRaceConfirmed,
+        EditingField.Race -> SingleChoiceDialog(
+            title = stringResource(Res.string.label_race),
+            selected = state.character.race,
+            options = Race.entries,
+            optionLabel = { it.toFormattedString() },
+            onConfirm = { it?.let(onRaceConfirmed) },
             onDismiss = onDismiss,
         )
 
-        EditingField.Clazz -> ClassSelectDialog(
-            current = state.character.clazz,
-            onConfirm = onClassConfirmed,
+        EditingField.Clazz -> SingleChoiceDialog(
+            title = stringResource(Res.string.label_class),
+            selected = state.character.clazz,
+            options = Character.Class.entries,
+            optionLabel = { it.toFormattedString() },
+            onConfirm = { it?.let(onClassConfirmed) },
             onDismiss = onDismiss,
         )
 
@@ -168,9 +179,12 @@ internal fun CharacterEditDialog(
             onDismiss = onDismiss,
         )
 
-        EditingField.Alignment -> AlignmentSelectDialog(
-            current = state.character.alignment,
-            onConfirm = onAlignmentConfirmed,
+        EditingField.Alignment -> SingleChoiceDialog(
+            title = stringResource(Res.string.label_alignment),
+            selected = state.character.alignment,
+            options = Creature.Alignment.entries,
+            optionLabel = { it.toFormattedString() },
+            onConfirm = { it?.let(onAlignmentConfirmed) },
             onDismiss = onDismiss,
         )
     }
@@ -258,123 +272,44 @@ private fun NumberEditDialog(
 }
 
 @Composable
-private fun RaceSelectDialog(
-    current: Race,
-    onConfirm: (Race) -> Unit,
+private fun <T : Any> SingleChoiceDialog(
+    title: String,
+    selected: T?,
+    options: List<T>,
+    optionLabel: @Composable (T) -> String,
+    noneLabel: String? = null,
+    onConfirm: (T?) -> Unit,
     onDismiss: () -> Unit,
 ) {
-    var selected by remember { mutableStateOf(current) }
     AlertDialog(
         onDismissRequest = onDismiss,
-        title = { Text(stringResource(Res.string.label_race)) },
+        title = { Text(title) },
         text = {
             Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
-                Race.entries.forEach { race ->
+                if (noneLabel != null) {
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier.fillMaxWidth(),
+                        modifier = Modifier.fillMaxWidth().clickable { onConfirm(null) },
                     ) {
-                        RadioButton(
-                            selected = selected == race,
-                            onClick = { selected = race },
-                        )
+                        RadioButton(selected = selected == null, onClick = null)
+                        Text(text = noneLabel, style = MaterialTheme.typography.bodyMedium)
+                    }
+                }
+                options.forEach { option ->
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier.fillMaxWidth().clickable { onConfirm(option) },
+                    ) {
+                        RadioButton(selected = selected == option, onClick = null)
                         Text(
-                            text = race.toFormattedString(),
+                            text = optionLabel(option),
                             style = MaterialTheme.typography.bodyMedium,
                         )
                     }
                 }
             }
         },
-        confirmButton = {
-            TextButton(onClick = { onConfirm(selected) }) {
-                Text(stringResource(Res.string.btn_confirm))
-            }
-        },
-        dismissButton = {
-            TextButton(onClick = onDismiss) {
-                Text(stringResource(Res.string.btn_cancel))
-            }
-        },
-    )
-}
-
-@Composable
-private fun ClassSelectDialog(
-    current: Character.Class,
-    onConfirm: (Character.Class) -> Unit,
-    onDismiss: () -> Unit,
-) {
-    var selected by remember { mutableStateOf(current) }
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = { Text(stringResource(Res.string.label_class)) },
-        text = {
-            Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
-                Character.Class.entries.forEach { clazz ->
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier.fillMaxWidth(),
-                    ) {
-                        RadioButton(
-                            selected = selected == clazz,
-                            onClick = { selected = clazz },
-                        )
-                        Text(
-                            text = clazz.toFormattedString(),
-                            style = MaterialTheme.typography.bodyMedium,
-                        )
-                    }
-                }
-            }
-        },
-        confirmButton = {
-            TextButton(onClick = { onConfirm(selected) }) {
-                Text(stringResource(Res.string.btn_confirm))
-            }
-        },
-        dismissButton = {
-            TextButton(onClick = onDismiss) {
-                Text(stringResource(Res.string.btn_cancel))
-            }
-        },
-    )
-}
-
-@Composable
-private fun AlignmentSelectDialog(
-    current: Creature.Alignment,
-    onConfirm: (Creature.Alignment) -> Unit,
-    onDismiss: () -> Unit,
-) {
-    var selected by remember { mutableStateOf(current) }
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = { Text(stringResource(Res.string.label_alignment)) },
-        text = {
-            Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
-                Creature.Alignment.entries.forEach { alignment ->
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier.fillMaxWidth(),
-                    ) {
-                        RadioButton(
-                            selected = selected == alignment,
-                            onClick = { selected = alignment },
-                        )
-                        Text(
-                            text = alignment.toFormattedString(),
-                            style = MaterialTheme.typography.bodyMedium,
-                        )
-                    }
-                }
-            }
-        },
-        confirmButton = {
-            TextButton(onClick = { onConfirm(selected) }) {
-                Text(stringResource(Res.string.btn_confirm))
-            }
-        },
+        confirmButton = {},
         dismissButton = {
             TextButton(onClick = onDismiss) {
                 Text(stringResource(Res.string.btn_cancel))
@@ -398,13 +333,13 @@ private fun LanguageSelectDialog(
                 Language.entries.forEach { language ->
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier.fillMaxWidth(),
+                        modifier = Modifier.fillMaxWidth().clickable {
+                            selected = if (language in selected) selected - language else selected + language
+                        },
                     ) {
                         Checkbox(
                             checked = language in selected,
-                            onCheckedChange = { checked ->
-                                selected = if (checked) selected + language else selected - language
-                            },
+                            onCheckedChange = null,
                         )
                         Text(
                             text = language.toFormattedString(),

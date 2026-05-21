@@ -23,7 +23,7 @@ data class Character(
     val skills: Skills,
     val race: Race = Race.HUMAN,
     val translations: Map<String, Translation> = emptyMap(),
-    val background: String? = null,
+    val background: Background? = null,
     val currentHitPoints: Int = maxHitPoints,
     val temporaryHitPoints: Int = 0,
 ) : Creature() {

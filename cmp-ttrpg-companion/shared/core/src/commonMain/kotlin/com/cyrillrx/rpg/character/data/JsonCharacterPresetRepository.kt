@@ -5,6 +5,7 @@ import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.core.domain.Result
 import com.cyrillrx.core.domain.partitionBy
 import com.cyrillrx.rpg.character.data.api.ApiCharacter
+import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterFilter
 import com.cyrillrx.rpg.character.domain.CharacterRepository
@@ -101,7 +102,7 @@ class JsonCharacterPresetRepository(
                     id = id,
                     name = name,
                     translations = translations,
-                    background = background,
+                    background = background?.toBackground(),
                     race = race,
                     clazz = clazz,
                     level = level,
@@ -144,6 +145,11 @@ class JsonCharacterPresetRepository(
                 ),
             )
         }
+
+        private fun String.toBackground(): Background? =
+            Background.entries
+                .find { it.name.equals(this, ignoreCase = true) }
+                .also { if (it == null) println("WARNING: unknown background '$this'") }
 
         private fun String.toRace(): Race? = Race.entries.find { it.name.equals(this, ignoreCase = true) }
 

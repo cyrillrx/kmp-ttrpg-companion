@@ -1,11 +1,25 @@
 package com.cyrillrx.rpg.core.presentation.component.dnd
 
 import androidx.compose.runtime.Composable
+import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
+import rpg_companion.composeapp.generated.resources.background_acolyte
+import rpg_companion.composeapp.generated.resources.background_charlatan
+import rpg_companion.composeapp.generated.resources.background_criminal
+import rpg_companion.composeapp.generated.resources.background_entertainer
+import rpg_companion.composeapp.generated.resources.background_folk_hero
+import rpg_companion.composeapp.generated.resources.background_guild_artisan
+import rpg_companion.composeapp.generated.resources.background_hermit
+import rpg_companion.composeapp.generated.resources.background_noble
+import rpg_companion.composeapp.generated.resources.background_outlander
+import rpg_companion.composeapp.generated.resources.background_sage
+import rpg_companion.composeapp.generated.resources.background_sailor
+import rpg_companion.composeapp.generated.resources.background_soldier
+import rpg_companion.composeapp.generated.resources.background_urchin
 import rpg_companion.composeapp.generated.resources.class_barbarian
 import rpg_companion.composeapp.generated.resources.class_bard
 import rpg_companion.composeapp.generated.resources.class_cleric
@@ -46,6 +60,27 @@ import rpg_companion.composeapp.generated.resources.race_half_orc
 import rpg_companion.composeapp.generated.resources.race_halfling
 import rpg_companion.composeapp.generated.resources.race_human
 import rpg_companion.composeapp.generated.resources.race_tiefling
+
+@Composable
+fun Background?.toFormattedString(): String {
+    this ?: return ""
+    val stringRes = when (this) {
+        Background.ACOLYTE -> Res.string.background_acolyte
+        Background.CHARLATAN -> Res.string.background_charlatan
+        Background.CRIMINAL -> Res.string.background_criminal
+        Background.ENTERTAINER -> Res.string.background_entertainer
+        Background.FOLK_HERO -> Res.string.background_folk_hero
+        Background.GUILD_ARTISAN -> Res.string.background_guild_artisan
+        Background.HERMIT -> Res.string.background_hermit
+        Background.NOBLE -> Res.string.background_noble
+        Background.OUTLANDER -> Res.string.background_outlander
+        Background.SAGE -> Res.string.background_sage
+        Background.SAILOR -> Res.string.background_sailor
+        Background.SOLDIER -> Res.string.background_soldier
+        Background.URCHIN -> Res.string.background_urchin
+    }
+    return stringResource(stringRes)
+}
 
 fun Character.Class.toSvgPath(): String = when (this) {
     Character.Class.BARBARIAN -> "drawable/class_barbarian.svg"

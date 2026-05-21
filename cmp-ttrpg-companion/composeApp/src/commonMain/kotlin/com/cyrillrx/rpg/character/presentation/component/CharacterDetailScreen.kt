@@ -21,9 +21,11 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
+import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
+import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
 import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
@@ -104,7 +106,7 @@ fun CharacterDetailScreen(
     onRaceConfirmed: (Race) -> Unit,
     onClassConfirmed: (Character.Class) -> Unit,
     onLevelConfirmed: (Int) -> Unit,
-    onBackgroundConfirmed: (String) -> Unit,
+    onBackgroundConfirmed: (Background?) -> Unit,
     onStrengthConfirmed: (Int) -> Unit,
     onDexterityConfirmed: (Int) -> Unit,
     onConstitutionConfirmed: (Int) -> Unit,
@@ -143,7 +145,7 @@ fun CharacterDetailScreen(
                 race = state.character.race,
                 clazz = state.character.clazz,
                 level = state.character.level,
-                background = state.character.background.orEmpty(),
+                background = state.character.background.toFormattedString(),
                 alignment = state.character.alignment,
                 onNameConfirmed = onNameConfirmed,
                 onClassTapped = { onFieldTapped(EditingField.Clazz) },
