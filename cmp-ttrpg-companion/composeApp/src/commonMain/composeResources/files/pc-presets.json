@@ -7,7 +7,7 @@
     "level": 1,
     "size": "medium",
     "alignment": "lawful_good",
-    "background": "acolyte",
+    "background": "Acolyte",
     "abilities": {
       "str": 14,
       "dex": 8,
@@ -52,7 +52,7 @@
     "level": 1,
     "size": "medium",
     "alignment": "neutral",
-    "background": "soldier",
+    "background": "Soldier",
     "abilities": {
       "str": 16,
       "dex": 12,
@@ -93,7 +93,7 @@
     "level": 1,
     "size": "medium",
     "alignment": "chaotic_neutral",
-    "background": "urchin",
+    "background": "Urchin",
     "abilities": {
       "str": 8,
       "dex": 18,
@@ -139,7 +139,7 @@
     "level": 1,
     "size": "medium",
     "alignment": "neutral_good",
-    "background": "sage",
+    "background": "Sage",
     "abilities": {
       "str": 8,
       "dex": 14,
