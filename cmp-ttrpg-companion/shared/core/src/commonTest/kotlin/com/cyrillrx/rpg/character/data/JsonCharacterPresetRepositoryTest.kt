@@ -85,14 +85,14 @@ class JsonCharacterPresetRepositoryTest {
     @Test
     fun `preset with unknown race is skipped`() =
         runTest {
-            val json = preset(race = "MARTIAN")
+            val json = preset(race = "martian")
             assertTrue(repository(json).getAll(null).isEmpty())
         }
 
     @Test
     fun `preset with unknown class is skipped`() =
         runTest {
-            val json = preset(clazz = "JEDI")
+            val json = preset(clazz = "jedi")
             assertTrue(repository(json).getAll(null).isEmpty())
         }
 
@@ -130,7 +130,7 @@ class JsonCharacterPresetRepositoryTest {
         runTest {
             val json = """[
             ${preset().trimArray()},
-            ${preset(id = "second-fighter", race = "MARTIAN").trimArray()}
+            ${preset(id = "second-fighter", race = "martian").trimArray()}
         ]"""
             val result = repository(json).getAll(null)
             assertEquals(1, result.size)
