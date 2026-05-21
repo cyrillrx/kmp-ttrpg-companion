@@ -1,5 +1,6 @@
 package com.cyrillrx.rpg.creature.domain
 
+import com.cyrillrx.rpg.core.domain.toSignedString
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -9,15 +10,10 @@ data class Ability(
 ) {
     fun getModifier(): Int = computeModifier(value)
 
-    fun getValueWithModifier(): String = "$value (${getSignedModifier(value)})"
+    fun getValueWithModifier(): String = "$value (${getModifier().toSignedString()})"
 
     companion object {
         const val DEFAULT_VALUE = 10
-
-        private fun getSignedModifier(abilityValue: Int): String {
-            val modifier = computeModifier(abilityValue)
-            return if (modifier >= 0) "+$modifier" else "$modifier"
-        }
 
         private fun computeModifier(abilityValue: Int): Int = when {
             abilityValue < 4 -> -4
