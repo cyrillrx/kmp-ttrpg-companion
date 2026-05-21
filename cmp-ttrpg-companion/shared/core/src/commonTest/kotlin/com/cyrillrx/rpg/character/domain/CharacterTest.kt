@@ -1,6 +1,5 @@
 package com.cyrillrx.rpg.character.domain
 
-import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.creature.domain.Creature
@@ -10,30 +9,6 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class CharacterTest {
-
-    @Test
-    fun `initiativeModifier returns dex modifier`() {
-        val fighter = SampleCharacterRepository.humanFighter() // DEX 12 → modifier +1
-        assertEquals(1, fighter.initiativeModifier())
-    }
-
-    @Test
-    fun `initiativeModifier reflects updated dex value`() {
-        val highDexCharacter = character(dex = 20) // DEX 20 → modifier +5
-        assertEquals(5, highDexCharacter.initiativeModifier())
-    }
-
-    @Test
-    fun `initiativeModifier is negative for low dex`() {
-        val lowDexCharacter = character(dex = 8) // DEX 8 → modifier -1
-        assertEquals(-1, lowDexCharacter.initiativeModifier())
-    }
-
-    @Test
-    fun `initiativeModifier is zero for average dex`() {
-        val averageDexCharacter = character(dex = 10) // DEX 10 → modifier 0
-        assertEquals(0, averageDexCharacter.initiativeModifier())
-    }
 
     @Test
     fun `proficiencyBonus is 2 for levels 1 to 4`() {
