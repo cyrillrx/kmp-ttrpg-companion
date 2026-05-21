@@ -146,6 +146,7 @@ class JsonCharacterPresetRepositoryTest {
         savingThrows: String? = null,
         armorClass: Int? = 17,
         maxHitPoints: Int? = 28,
+        speeds: String? = """{"walk": 30}""",
         skills: String? = "{}",
         languages: String? = """["common", "elvish"]""",
         translations: String? = """{"en": {"shortDescription": "Human Fighter", "description": ""}}""",
@@ -163,6 +164,7 @@ class JsonCharacterPresetRepositoryTest {
                 savingThrows?.let { add(""""savingThrows": $it""") }
                 armorClass?.let { add(""""armorClass": $it""") }
                 maxHitPoints?.let { add(""""maxHitPoints": $it""") }
+                speeds?.let { add(""""speeds": $it""") }
                 skills?.let { add(""""skills": $it""") }
                 languages?.let { add(""""languages": $it""") }
                 translations?.let { add(""""translations": $it""") }

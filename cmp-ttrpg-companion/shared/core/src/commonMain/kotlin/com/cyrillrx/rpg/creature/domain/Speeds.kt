@@ -4,7 +4,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Speeds(
-    val walk: Int? = null,
+    val walk: Int,
     val fly: Int? = null,
     val swim: Int? = null,
     val climb: Int? = null,
