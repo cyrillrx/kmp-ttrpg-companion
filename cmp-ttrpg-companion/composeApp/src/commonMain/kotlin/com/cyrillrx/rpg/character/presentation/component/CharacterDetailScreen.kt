@@ -156,12 +156,7 @@ fun CharacterDetailScreen(
             SheetDivider(stringResource(Res.string.label_abilities))
 
             AbilityGrid(
-                strength = state.strength,
-                dexterity = state.dexterity,
-                constitution = state.constitution,
-                intelligence = state.intelligence,
-                wisdom = state.wisdom,
-                charisma = state.charisma,
+                abilities = state.abilities,
                 onStrengthTapped = { onFieldTapped(EditingField.Strength) },
                 onDexterityTapped = { onFieldTapped(EditingField.Dexterity) },
                 onConstitutionTapped = { onFieldTapped(EditingField.Constitution) },
@@ -174,7 +169,7 @@ fun CharacterDetailScreen(
 
             CombatRow(
                 armorClass = state.armorClass,
-                dexterity = state.dexterity,
+                dexterity = state.abilities.dex,
                 maxHitPoints = state.maxHitPoints,
                 onAcTapped = { onFieldTapped(EditingField.ArmorClass) },
                 onMaxHpTapped = { onFieldTapped(EditingField.MaxHitPoints) },

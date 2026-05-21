@@ -26,6 +26,7 @@ import com.cyrillrx.rpg.core.presentation.theme.borderWidth
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
+import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.Ability
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
@@ -60,12 +61,7 @@ internal fun SheetDivider(label: String) {
 
 @Composable
 internal fun AbilityGrid(
-    strength: Int,
-    dexterity: Int,
-    constitution: Int,
-    intelligence: Int,
-    wisdom: Int,
-    charisma: Int,
+    abilities: Abilities,
     onStrengthTapped: () -> Unit,
     onDexterityTapped: () -> Unit,
     onConstitutionTapped: () -> Unit,
@@ -79,19 +75,19 @@ internal fun AbilityGrid(
             modifier = Modifier.fillMaxWidth(),
         ) {
             AbilityCard(
-                score = strength,
+                score = abilities.str.value,
                 label = stringResource(Res.string.label_str),
                 onClick = onStrengthTapped,
                 modifier = Modifier.weight(1f),
             )
             AbilityCard(
-                score = dexterity,
+                score = abilities.dex.value,
                 label = stringResource(Res.string.label_dex),
                 onClick = onDexterityTapped,
                 modifier = Modifier.weight(1f),
             )
             AbilityCard(
-                score = constitution,
+                score = abilities.con.value,
                 label = stringResource(Res.string.label_con),
                 onClick = onConstitutionTapped,
                 modifier = Modifier.weight(1f),
@@ -102,19 +98,19 @@ internal fun AbilityGrid(
             modifier = Modifier.fillMaxWidth(),
         ) {
             AbilityCard(
-                score = intelligence,
+                score = abilities.int.value,
                 label = stringResource(Res.string.label_int),
                 onClick = onIntelligenceTapped,
                 modifier = Modifier.weight(1f),
             )
             AbilityCard(
-                score = wisdom,
+                score = abilities.wis.value,
                 label = stringResource(Res.string.label_wis),
                 onClick = onWisdomTapped,
                 modifier = Modifier.weight(1f),
             )
             AbilityCard(
-                score = charisma,
+                score = abilities.cha.value,
                 label = stringResource(Res.string.label_cha),
                 onClick = onCharismaTapped,
                 modifier = Modifier.weight(1f),
@@ -164,7 +160,7 @@ private fun AbilityCard(
 @Composable
 internal fun CombatRow(
     armorClass: Int,
-    dexterity: Int,
+    dexterity: Ability,
     maxHitPoints: Int,
     onAcTapped: () -> Unit,
     onMaxHpTapped: () -> Unit,
@@ -181,7 +177,7 @@ internal fun CombatRow(
         )
         StatCard(
             label = stringResource(Res.string.label_initiative),
-            value = Ability(dexterity).getModifier().toSignedString(),
+            value = dexterity.getModifier().toSignedString(),
             modifier = Modifier.weight(1f),
         )
         StatCard(

@@ -89,42 +89,42 @@ internal fun CharacterEditDialog(
 
         EditingField.Strength -> NumberEditDialog(
             title = stringResource(Res.string.label_str),
-            initialValue = state.strength,
+            initialValue = state.abilities.str.value,
             onConfirm = onStrengthConfirmed,
             onDismiss = onDismiss,
         )
 
         EditingField.Dexterity -> NumberEditDialog(
             title = stringResource(Res.string.label_dex),
-            initialValue = state.dexterity,
+            initialValue = state.abilities.dex.value,
             onConfirm = onDexterityConfirmed,
             onDismiss = onDismiss,
         )
 
         EditingField.Constitution -> NumberEditDialog(
             title = stringResource(Res.string.label_con),
-            initialValue = state.constitution,
+            initialValue = state.abilities.con.value,
             onConfirm = onConstitutionConfirmed,
             onDismiss = onDismiss,
         )
 
         EditingField.Intelligence -> NumberEditDialog(
             title = stringResource(Res.string.label_int),
-            initialValue = state.intelligence,
+            initialValue = state.abilities.int.value,
             onConfirm = onIntelligenceConfirmed,
             onDismiss = onDismiss,
         )
 
         EditingField.Wisdom -> NumberEditDialog(
             title = stringResource(Res.string.label_wis),
-            initialValue = state.wisdom,
+            initialValue = state.abilities.wis.value,
             onConfirm = onWisdomConfirmed,
             onDismiss = onDismiss,
         )
 
         EditingField.Charisma -> NumberEditDialog(
             title = stringResource(Res.string.label_cha),
-            initialValue = state.charisma,
+            initialValue = state.abilities.cha.value,
             onConfirm = onCharismaConfirmed,
             onDismiss = onDismiss,
         )
