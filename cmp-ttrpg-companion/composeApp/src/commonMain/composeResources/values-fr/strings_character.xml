@@ -46,6 +46,22 @@
     <string name="race_gnome">Gnome</string>
     <string name="race_tiefling">Tieffelin</string>
 
+    <!-- Character backgrounds -->
+    <string name="background_none">Aucun</string>
+    <string name="background_acolyte">Acolyte</string>
+    <string name="background_charlatan">Charlatan</string>
+    <string name="background_criminal">Criminel</string>
+    <string name="background_entertainer">Artiste</string>
+    <string name="background_folk_hero">Héros du peuple</string>
+    <string name="background_guild_artisan">Artisan de guilde</string>
+    <string name="background_hermit">Ermite</string>
+    <string name="background_noble">Noble</string>
+    <string name="background_outlander">Hors-la-loi</string>
+    <string name="background_sage">Sage</string>
+    <string name="background_sailor">Marin</string>
+    <string name="background_soldier">Soldat</string>
+    <string name="background_urchin">Enfant des rues</string>
+
     <!-- Languages -->
     <string name="language_abyssal">Abyssal</string>
     <string name="language_celestial">Céleste</string>

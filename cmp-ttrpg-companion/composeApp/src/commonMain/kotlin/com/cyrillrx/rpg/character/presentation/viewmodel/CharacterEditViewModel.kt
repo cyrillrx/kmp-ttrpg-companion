@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.character.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.domain.Language
@@ -74,8 +75,8 @@ class CharacterEditViewModel(
         copy(character = character.copy(level = coerced), editingField = null)
     }
 
-    fun saveBackground(background: String) {
-        updateAndSave { copy(character = character.copy(background = background.trim().takeIf { it.isNotBlank() }), editingField = null) }
+    fun saveBackground(background: Background?) {
+        updateAndSave { copy(character = character.copy(background = background), editingField = null) }
     }
 
     fun saveStrength(value: Int) = saveAbility(value, Abilities::strength) { coerced -> copy(strength = strength.copy(value = coerced)) }

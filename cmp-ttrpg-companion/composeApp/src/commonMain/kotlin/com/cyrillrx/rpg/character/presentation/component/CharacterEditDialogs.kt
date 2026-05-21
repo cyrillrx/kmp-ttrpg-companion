@@ -22,6 +22,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
+import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
@@ -35,6 +36,7 @@ import rpg_companion.composeapp.generated.resources.btn_cancel
 import rpg_companion.composeapp.generated.resources.btn_confirm
 import rpg_companion.composeapp.generated.resources.label_ac
 import rpg_companion.composeapp.generated.resources.label_alignment
+import rpg_companion.composeapp.generated.resources.background_none
 import rpg_companion.composeapp.generated.resources.label_background
 import rpg_companion.composeapp.generated.resources.label_cha
 import rpg_companion.composeapp.generated.resources.label_class
@@ -55,7 +57,7 @@ internal fun CharacterEditDialog(
     onRaceConfirmed: (Race) -> Unit,
     onClassConfirmed: (Character.Class) -> Unit,
     onLevelConfirmed: (Int) -> Unit,
-    onBackgroundConfirmed: (String) -> Unit,
+    onBackgroundConfirmed: (Background?) -> Unit,
     onStrengthConfirmed: (Int) -> Unit,
     onDexterityConfirmed: (Int) -> Unit,
     onConstitutionConfirmed: (Int) -> Unit,
@@ -72,12 +74,10 @@ internal fun CharacterEditDialog(
     val field = state.editingField ?: return
 
     when (field) {
-        EditingField.Background -> TextEditDialog(
-            title = stringResource(Res.string.label_background),
-            initialValue = state.character.background.orEmpty(),
+        EditingField.Background -> BackgroundSelectDialog(
+            current = state.character.background,
             onConfirm = onBackgroundConfirmed,
             onDismiss = onDismiss,
-            singleLine = false,
         )
 
         EditingField.Level -> NumberEditDialog(
@@ -246,6 +246,61 @@ private fun NumberEditDialog(
                 onClick = { parsedValue?.let(onConfirm) },
                 enabled = parsedValue != null,
             ) {
+                Text(stringResource(Res.string.btn_confirm))
+            }
+        },
+        dismissButton = {
+            TextButton(onClick = onDismiss) {
+                Text(stringResource(Res.string.btn_cancel))
+            }
+        },
+    )
+}
+
+@Composable
+private fun BackgroundSelectDialog(
+    current: Background?,
+    onConfirm: (Background?) -> Unit,
+    onDismiss: () -> Unit,
+) {
+    var selected by remember { mutableStateOf(current) }
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text(stringResource(Res.string.label_background)) },
+        text = {
+            Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.fillMaxWidth(),
+                ) {
+                    RadioButton(
+                        selected = selected == null,
+                        onClick = { selected = null },
+                    )
+                    Text(
+                        text = stringResource(Res.string.background_none),
+                        style = MaterialTheme.typography.bodyMedium,
+                    )
+                }
+                Background.entries.forEach { background ->
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier.fillMaxWidth(),
+                    ) {
+                        RadioButton(
+                            selected = selected == background,
+                            onClick = { selected = background },
+                        )
+                        Text(
+                            text = background.toFormattedString(),
+                            style = MaterialTheme.typography.bodyMedium,
+                        )
+                    }
+                }
+            }
+        },
+        confirmButton = {
+            TextButton(onClick = { onConfirm(selected) }) {
                 Text(stringResource(Res.string.btn_confirm))
             }
         },

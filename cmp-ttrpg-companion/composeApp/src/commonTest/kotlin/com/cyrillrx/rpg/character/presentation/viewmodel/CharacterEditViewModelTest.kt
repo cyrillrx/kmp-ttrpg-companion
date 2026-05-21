@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.character.presentation.viewmodel
 
 import com.cyrillrx.rpg.character.data.RamCharacterRepository
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
+import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.domain.Language
@@ -119,28 +120,19 @@ class CharacterEditViewModelTest {
     // ─── saveBackground ────────────────────────────────────────────────────────
 
     @Test
-    fun `saveBackground trims whitespace`() = runTest(testDispatcher) {
+    fun `saveBackground sets background value`() = runTest(testDispatcher) {
         val viewModel = buildViewModel(repo = repoWithFighter())
         advanceUntilIdle()
-        viewModel.saveBackground("  Soldier  ")
+        viewModel.saveBackground(Background.SOLDIER)
         val loaded = assertIs<CharacterEditState.Loaded>(viewModel.state.value)
-        assertEquals("Soldier", loaded.character.background)
+        assertEquals(Background.SOLDIER, loaded.character.background)
     }
 
     @Test
-    fun `saveBackground with blank input sets background to null`() = runTest(testDispatcher) {
+    fun `saveBackground with null clears background`() = runTest(testDispatcher) {
         val viewModel = buildViewModel(repo = repoWithFighter())
         advanceUntilIdle()
-        viewModel.saveBackground("   ")
-        val loaded = assertIs<CharacterEditState.Loaded>(viewModel.state.value)
-        assertNull(loaded.character.background)
-    }
-
-    @Test
-    fun `saveBackground with empty string sets background to null`() = runTest(testDispatcher) {
-        val viewModel = buildViewModel(repo = repoWithFighter())
-        advanceUntilIdle()
-        viewModel.saveBackground("")
+        viewModel.saveBackground(null)
         val loaded = assertIs<CharacterEditState.Loaded>(viewModel.state.value)
         assertNull(loaded.character.background)
     }
