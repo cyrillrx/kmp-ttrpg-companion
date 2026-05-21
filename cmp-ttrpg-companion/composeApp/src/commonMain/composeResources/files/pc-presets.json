@@ -2,11 +2,11 @@
   {
     "id": "cleric-dwarf",
     "name": "Thordak Stonecraft",
-    "race": "DWARF",
-    "clazz": "CLERIC",
+    "race": "dwarf",
+    "clazz": "cleric",
     "level": 1,
-    "size": "MEDIUM",
-    "alignment": "LAWFUL_GOOD",
+    "size": "medium",
+    "alignment": "lawful_good",
     "background": "Acolyte",
     "abilities": {
       "str": 14,
@@ -47,11 +47,11 @@
   {
     "id": "fighter-human",
     "name": "Gareth Ironhold",
-    "race": "HUMAN",
-    "clazz": "FIGHTER",
+    "race": "human",
+    "clazz": "fighter",
     "level": 1,
-    "size": "MEDIUM",
-    "alignment": "NEUTRAL",
+    "size": "medium",
+    "alignment": "neutral",
     "background": "Soldier",
     "abilities": {
       "str": 16,
@@ -88,11 +88,11 @@
   {
     "id": "rogue-elf",
     "name": "Sylara Dawnwhisper",
-    "race": "ELF",
-    "clazz": "ROGUE",
+    "race": "elf",
+    "clazz": "rogue",
     "level": 1,
-    "size": "MEDIUM",
-    "alignment": "CHAOTIC_NEUTRAL",
+    "size": "medium",
+    "alignment": "chaotic_neutral",
     "background": "Urchin",
     "abilities": {
       "str": 8,
@@ -134,11 +134,11 @@
   {
     "id": "wizard-human",
     "name": "Aldus Vance",
-    "race": "HUMAN",
-    "clazz": "WIZARD",
+    "race": "human",
+    "clazz": "wizard",
     "level": 1,
-    "size": "MEDIUM",
-    "alignment": "NEUTRAL_GOOD",
+    "size": "medium",
+    "alignment": "neutral_good",
     "background": "Sage",
     "abilities": {
       "str": 8,
