@@ -32,7 +32,7 @@ internal fun String?.toProficiency(): Proficiency = when (this) {
 }
 
 internal fun ApiSpeeds?.toSpeeds(): Speeds = Speeds(
-    walk = this?.walk,
+    walk = requireNotNull(this?.walk) { "walk speed is required" },
     fly = this?.fly,
     swim = this?.swim,
     climb = this?.climb,

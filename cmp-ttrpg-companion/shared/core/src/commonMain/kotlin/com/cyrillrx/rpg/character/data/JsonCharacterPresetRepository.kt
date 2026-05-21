@@ -79,6 +79,8 @@ class JsonCharacterPresetRepository(
                 ?: return Result.Failure(CharacterImportError.MissingArmorClass(id))
             val maxHitPoints = maxHitPoints
                 ?: return Result.Failure(CharacterImportError.MissingMaxHitPoints(id))
+            speeds?.walk
+                ?: return Result.Failure(CharacterImportError.MissingWalkSpeed(id))
             val apiSkills = skills
                 ?: return Result.Failure(CharacterImportError.MissingSkills(id))
             val apiRace = race

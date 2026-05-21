@@ -68,7 +68,7 @@ fun Speeds.toFormattedString(useFeet: Boolean): String {
     fun Int.format() = if (useFeet) "$this ft." else toMetersDisplay()
 
     return buildList {
-        walk?.let { add(it.format()) }
+        add(walk.format())
         fly?.let {
             val suffix = if (hover) " ($hoverLabel)" else ""
             add("$flyLabel ${it.format()}$suffix")
