@@ -1,30 +1,16 @@
 package com.cyrillrx.rpg.character.presentation
 
 import com.cyrillrx.rpg.character.domain.Character
-import com.cyrillrx.rpg.character.domain.Language
-import com.cyrillrx.rpg.character.domain.Race
-import com.cyrillrx.rpg.character.domain.defaultWalkSpeed
-import com.cyrillrx.rpg.creature.domain.Abilities
-import com.cyrillrx.rpg.creature.domain.Creature
 
 sealed interface CharacterEditState {
     data object Loading : CharacterEditState
     data class NotFound(val characterId: String) : CharacterEditState
 
     data class Loaded(
-        val name: String,
-        val race: Race,
-        val clazz: Character.Class,
-        val level: Int,
-        val background: String,
-        val abilities: Abilities,
-        val armorClass: Int,
-        val maxHitPoints: Int,
-        val walkSpeed: Int,
-        val languages: List<Language>,
-        val alignment: Creature.Alignment,
+        val character: Character,
         val editingField: EditingField? = null,
     ) : CharacterEditState {
+
         sealed interface EditingField {
             data object Race : EditingField
             data object Clazz : EditingField
@@ -42,35 +28,5 @@ sealed interface CharacterEditState {
             data object Languages : EditingField
             data object Alignment : EditingField
         }
-
-        companion object {
-            fun from(character: Character): Loaded = Loaded(
-                name = character.name,
-                race = character.race,
-                clazz = character.clazz,
-                level = character.level,
-                background = character.background.orEmpty(),
-                abilities = character.abilities,
-                armorClass = character.armorClass,
-                maxHitPoints = character.maxHitPoints,
-                walkSpeed = character.speeds.walk ?: character.race.defaultWalkSpeed(),
-                languages = character.languages,
-                alignment = character.alignment,
-            )
-        }
     }
 }
-
-fun CharacterEditState.Loaded.toCharacter(original: Character): Character = original.copy(
-    name = name,
-    race = race,
-    clazz = clazz,
-    level = level,
-    background = background.takeIf { it.isNotBlank() },
-    abilities = abilities,
-    armorClass = armorClass,
-    maxHitPoints = maxHitPoints,
-    speeds = original.speeds.copy(walk = walkSpeed),
-    languages = languages,
-    alignment = alignment,
-)

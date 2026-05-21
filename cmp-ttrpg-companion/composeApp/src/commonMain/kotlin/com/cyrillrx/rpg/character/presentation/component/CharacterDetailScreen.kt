@@ -24,6 +24,7 @@ import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
+import com.cyrillrx.rpg.character.domain.defaultWalkSpeed
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
 import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
@@ -139,12 +140,12 @@ fun CharacterDetailScreen(
             verticalArrangement = Arrangement.spacedBy(spacingMedium),
         ) {
             CharacterHeader(
-                name = state.name,
-                race = state.race,
-                clazz = state.clazz,
-                level = state.level,
-                background = state.background,
-                alignment = state.alignment,
+                name = state.character.name,
+                race = state.character.race,
+                clazz = state.character.clazz,
+                level = state.character.level,
+                background = state.character.background.orEmpty(),
+                alignment = state.character.alignment,
                 onNameConfirmed = onNameConfirmed,
                 onClassTapped = { onFieldTapped(EditingField.Clazz) },
                 onRaceTapped = { onFieldTapped(EditingField.Race) },
@@ -156,7 +157,7 @@ fun CharacterDetailScreen(
             SheetDivider(stringResource(Res.string.label_abilities))
 
             AbilityGrid(
-                abilities = state.abilities,
+                abilities = state.character.abilities,
                 onStrengthTapped = { onFieldTapped(EditingField.Strength) },
                 onDexterityTapped = { onFieldTapped(EditingField.Dexterity) },
                 onConstitutionTapped = { onFieldTapped(EditingField.Constitution) },
@@ -168,22 +169,22 @@ fun CharacterDetailScreen(
             SheetDivider(stringResource(Res.string.label_combat))
 
             CombatRow(
-                armorClass = state.armorClass,
-                dexterity = state.abilities.dexterity,
-                maxHitPoints = state.maxHitPoints,
+                armorClass = state.character.armorClass,
+                dexterity = state.character.abilities.dexterity,
+                maxHitPoints = state.character.maxHitPoints,
                 onAcTapped = { onFieldTapped(EditingField.ArmorClass) },
                 onMaxHpTapped = { onFieldTapped(EditingField.MaxHitPoints) },
             )
 
             WalkSpeedRow(
-                walkSpeed = state.walkSpeed,
+                walkSpeed = state.character.speeds.walk ?: state.character.race.defaultWalkSpeed(),
                 onTap = { onFieldTapped(EditingField.WalkSpeed) },
             )
 
             SheetDivider(stringResource(Res.string.label_languages))
 
             LanguagesRow(
-                languages = state.languages,
+                languages = state.character.languages,
                 onTap = { onFieldTapped(EditingField.Languages) },
             )
 
@@ -229,7 +230,7 @@ private fun PreviewCharacterDetailScreenDark() {
 @Composable
 private fun CharacterDetailScreenPreview() {
     CharacterDetailScreen(
-        state = CharacterEditState.Loaded.from(SampleCharacterRepository.humanFighter()),
+        state = CharacterEditState.Loaded(SampleCharacterRepository.humanFighter()),
         onFieldTapped = {},
         onNameConfirmed = {},
         onRaceConfirmed = {},

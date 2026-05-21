@@ -46,7 +46,6 @@ import coil3.compose.AsyncImage
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.Race
-import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.component.dnd.toShortString
 import com.cyrillrx.rpg.core.presentation.component.dnd.toSvgPath
@@ -278,14 +277,14 @@ private fun PreviewCharacterHeaderDark() {
 
 @Composable
 private fun CharacterHeaderPreview() {
-    val state = CharacterEditState.Loaded.from(SampleCharacterRepository.humanFighter())
+    val character = SampleCharacterRepository.humanFighter()
     CharacterHeader(
-        name = state.name,
-        race = state.race,
-        clazz = state.clazz,
-        level = state.level,
-        background = state.background,
-        alignment = state.alignment,
+        name = character.name,
+        race = character.race,
+        clazz = character.clazz,
+        level = character.level,
+        background = character.background.orEmpty(),
+        alignment = character.alignment,
         onNameConfirmed = {},
         onClassTapped = {},
         onRaceTapped = {},
