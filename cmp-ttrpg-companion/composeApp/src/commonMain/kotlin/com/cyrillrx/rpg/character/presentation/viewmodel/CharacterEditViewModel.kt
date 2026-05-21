@@ -46,11 +46,11 @@ class CharacterEditViewModel(
     }
 
     fun editField(field: EditingField) {
-        updateEditState { it.copy(editingField = field) }
+        updateEditState { copy(editingField = field) }
     }
 
     fun cancelEditing() {
-        updateEditState { it.copy(editingField = null) }
+        updateEditState { copy(editingField = null) }
     }
 
     fun saveName(name: String) {
@@ -59,15 +59,15 @@ class CharacterEditViewModel(
             cancelEditing()
             return
         }
-        updateAndSave { it.copy(character = it.character.copy(name = trimmed), editingField = null) }
+        updateAndSave { copy(character = character.copy(name = trimmed), editingField = null) }
     }
 
     fun saveRace(race: Race) {
-        updateAndSave { it.copy(character = it.character.copy(race = race, speeds = it.character.speeds.copy(walk = race.defaultWalkSpeed())), editingField = null) }
+        updateAndSave { copy(character = character.copy(race = race, speeds = character.speeds.copy(walk = race.defaultWalkSpeed())), editingField = null) }
     }
 
     fun saveClass(clazz: Character.Class) {
-        updateAndSave { it.copy(character = it.character.copy(clazz = clazz), editingField = null) }
+        updateAndSave { copy(character = character.copy(clazz = clazz), editingField = null) }
     }
 
     fun saveLevel(level: Int) = updateAndSave(level, Int::coerceToValidCharacterLevel) { coerced ->
@@ -75,7 +75,7 @@ class CharacterEditViewModel(
     }
 
     fun saveBackground(background: String) {
-        updateAndSave { it.copy(character = it.character.copy(background = background.trim().takeIf { it.isNotBlank() }), editingField = null) }
+        updateAndSave { copy(character = character.copy(background = background.trim().takeIf { it.isNotBlank() }), editingField = null) }
     }
 
     fun saveStrength(value: Int) = saveAbility(value, Abilities::strength) { coerced -> copy(strength = strength.copy(value = coerced)) }
@@ -103,11 +103,11 @@ class CharacterEditViewModel(
     }
 
     fun saveLanguages(languages: List<Language>) {
-        updateAndSave { it.copy(character = it.character.copy(languages = languages), editingField = null) }
+        updateAndSave { copy(character = character.copy(languages = languages), editingField = null) }
     }
 
     fun saveAlignment(alignment: Creature.Alignment) {
-        updateAndSave { it.copy(character = it.character.copy(alignment = alignment), editingField = null) }
+        updateAndSave { copy(character = character.copy(alignment = alignment), editingField = null) }
     }
 
     private fun saveAbility(candidate: Int, getAbility: Abilities.() -> Ability, update: Abilities.(Int) -> Abilities) {
@@ -121,18 +121,18 @@ class CharacterEditViewModel(
         }
     }
 
-    private fun updateEditState(transform: (Loaded) -> Loaded) {
-        state.update { current -> if (current is Loaded) transform(current) else current }
+    private fun updateEditState(applyEdit: Loaded.() -> Loaded) {
+        state.update { current -> if (current is Loaded) current.applyEdit() else current }
     }
 
-    private fun updateAndSave(candidate: Int, coerce: (Int) -> Int, transform: Loaded.(Int) -> Loaded) {
+    private fun updateAndSave(candidate: Int, coerce: (Int) -> Int, applyEdit: Loaded.(Int) -> Loaded) {
         val coerced = coerce(candidate)
         if (coerced != candidate) coercedValueEvent.tryEmit(coerced)
-        updateAndSave { loaded -> loaded.transform(coerced) }
+        updateAndSave { applyEdit(coerced) }
     }
 
-    private fun updateAndSave(transform: (Loaded) -> Loaded) {
-        updateEditState(transform)
+    private fun updateAndSave(applyEdit: Loaded.() -> Loaded) {
+        updateEditState(applyEdit)
         viewModelScope.launch {
             val loaded = state.value as? Loaded ?: return@launch
             characterRepository.save(loaded.character)
