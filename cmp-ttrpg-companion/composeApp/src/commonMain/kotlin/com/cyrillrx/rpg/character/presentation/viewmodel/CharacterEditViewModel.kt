@@ -113,7 +113,7 @@ class CharacterEditViewModel(
     private fun saveAbility(candidate: Int, getAbility: Abilities.() -> Ability, update: Abilities.(Int) -> Abilities) {
         updateAndSave(candidate, Int::coerceToValidAbilityScore) { coerced ->
             val formerValue = character.abilities.getAbility().value
-            if (formerValue == candidate) {
+            if (formerValue == candidate || formerValue == coerced) {
                 copy(editingField = null)
             } else {
                 copy(character = character.copy(abilities = character.abilities.update(coerced)), editingField = null)
