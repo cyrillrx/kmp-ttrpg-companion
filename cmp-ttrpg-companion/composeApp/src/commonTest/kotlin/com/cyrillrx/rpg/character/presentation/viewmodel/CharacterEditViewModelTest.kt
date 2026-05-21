@@ -127,6 +127,24 @@ class CharacterEditViewModelTest {
         assertEquals("Soldier", loaded.character.background)
     }
 
+    @Test
+    fun `saveBackground with blank input sets background to null`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(repo = repoWithFighter())
+        advanceUntilIdle()
+        viewModel.saveBackground("   ")
+        val loaded = assertIs<CharacterEditState.Loaded>(viewModel.state.value)
+        assertNull(loaded.character.background)
+    }
+
+    @Test
+    fun `saveBackground with empty string sets background to null`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(repo = repoWithFighter())
+        advanceUntilIdle()
+        viewModel.saveBackground("")
+        val loaded = assertIs<CharacterEditState.Loaded>(viewModel.state.value)
+        assertNull(loaded.character.background)
+    }
+
     // ─── Numeric field coercion ─────────────────────────────────────────────────
 
     @Test
