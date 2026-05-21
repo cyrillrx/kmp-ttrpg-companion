@@ -5,7 +5,6 @@ import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.domain.defaultWalkSpeed
 import com.cyrillrx.rpg.creature.domain.Abilities
-import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.creature.domain.Creature
 
 sealed interface CharacterEditState {
@@ -18,12 +17,7 @@ sealed interface CharacterEditState {
         val clazz: Character.Class,
         val level: Int,
         val background: String,
-        val strength: Int,
-        val dexterity: Int,
-        val constitution: Int,
-        val intelligence: Int,
-        val wisdom: Int,
-        val charisma: Int,
+        val abilities: Abilities,
         val armorClass: Int,
         val maxHitPoints: Int,
         val walkSpeed: Int,
@@ -56,12 +50,7 @@ sealed interface CharacterEditState {
                 clazz = character.clazz,
                 level = character.level,
                 background = character.background.orEmpty(),
-                strength = character.abilities.str.value,
-                dexterity = character.abilities.dex.value,
-                constitution = character.abilities.con.value,
-                intelligence = character.abilities.int.value,
-                wisdom = character.abilities.wis.value,
-                charisma = character.abilities.cha.value,
+                abilities = character.abilities,
                 armorClass = character.armorClass,
                 maxHitPoints = character.maxHitPoints,
                 walkSpeed = character.speeds.walk ?: character.race.defaultWalkSpeed(),
@@ -78,14 +67,7 @@ fun CharacterEditState.Loaded.toCharacter(original: Character): Character = orig
     clazz = clazz,
     level = level,
     background = background.takeIf { it.isNotBlank() },
-    abilities = Abilities(
-        str = Ability(strength, original.abilities.str.savingThrowProficiency),
-        dex = Ability(dexterity, original.abilities.dex.savingThrowProficiency),
-        con = Ability(constitution, original.abilities.con.savingThrowProficiency),
-        int = Ability(intelligence, original.abilities.int.savingThrowProficiency),
-        wis = Ability(wisdom, original.abilities.wis.savingThrowProficiency),
-        cha = Ability(charisma, original.abilities.cha.savingThrowProficiency),
-    ),
+    abilities = abilities,
     armorClass = armorClass,
     maxHitPoints = maxHitPoints,
     speeds = original.speeds.copy(walk = walkSpeed),
