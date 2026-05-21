@@ -24,7 +24,7 @@ import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
-import com.cyrillrx.rpg.character.domain.defaultWalkSpeed
+
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
 import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
@@ -177,7 +177,7 @@ fun CharacterDetailScreen(
             )
 
             WalkSpeedRow(
-                walkSpeed = state.character.speeds.walk ?: state.character.race.defaultWalkSpeed(),
+                walkSpeed = state.character.speeds.walk,
                 onTap = { onFieldTapped(EditingField.WalkSpeed) },
             )
 
