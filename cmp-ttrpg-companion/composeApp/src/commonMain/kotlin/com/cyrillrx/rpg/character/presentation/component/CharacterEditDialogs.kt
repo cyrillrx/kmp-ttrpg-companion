@@ -1,5 +1,6 @@
 package com.cyrillrx.rpg.character.presentation.component
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -32,11 +33,11 @@ import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.creature.domain.Creature
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
+import rpg_companion.composeapp.generated.resources.background_none
 import rpg_companion.composeapp.generated.resources.btn_cancel
 import rpg_companion.composeapp.generated.resources.btn_confirm
 import rpg_companion.composeapp.generated.resources.label_ac
 import rpg_companion.composeapp.generated.resources.label_alignment
-import rpg_companion.composeapp.generated.resources.background_none
 import rpg_companion.composeapp.generated.resources.label_background
 import rpg_companion.composeapp.generated.resources.label_cha
 import rpg_companion.composeapp.generated.resources.label_class
@@ -74,8 +75,12 @@ internal fun CharacterEditDialog(
     val field = state.editingField ?: return
 
     when (field) {
-        EditingField.Background -> BackgroundSelectDialog(
-            current = state.character.background,
+        EditingField.Background -> SingleChoiceDialog(
+            title = stringResource(Res.string.label_background),
+            selected = state.character.background,
+            options = Background.entries,
+            optionLabel = { it.toFormattedString() },
+            noneLabel = stringResource(Res.string.background_none),
             onConfirm = onBackgroundConfirmed,
             onDismiss = onDismiss,
         )
@@ -150,15 +155,21 @@ internal fun CharacterEditDialog(
             onDismiss = onDismiss,
         )
 
-        EditingField.Race -> RaceSelectDialog(
-            current = state.character.race,
-            onConfirm = onRaceConfirmed,
+        EditingField.Race -> SingleChoiceDialog(
+            title = stringResource(Res.string.label_race),
+            selected = state.character.race,
+            options = Race.entries,
+            optionLabel = { it.toFormattedString() },
+            onConfirm = { it?.let(onRaceConfirmed) },
             onDismiss = onDismiss,
         )
 
-        EditingField.Clazz -> ClassSelectDialog(
-            current = state.character.clazz,
-            onConfirm = onClassConfirmed,
+        EditingField.Clazz -> SingleChoiceDialog(
+            title = stringResource(Res.string.label_class),
+            selected = state.character.clazz,
+            options = Character.Class.entries,
+            optionLabel = { it.toFormattedString() },
+            onConfirm = { it?.let(onClassConfirmed) },
             onDismiss = onDismiss,
         )
 
@@ -168,9 +179,12 @@ internal fun CharacterEditDialog(
             onDismiss = onDismiss,
         )
 
-        EditingField.Alignment -> AlignmentSelectDialog(
-            current = state.character.alignment,
-            onConfirm = onAlignmentConfirmed,
+        EditingField.Alignment -> SingleChoiceDialog(
+            title = stringResource(Res.string.label_alignment),
+            selected = state.character.alignment,
+            options = Creature.Alignment.entries,
+            optionLabel = { it.toFormattedString() },
+            onConfirm = { it?.let(onAlignmentConfirmed) },
             onDismiss = onDismiss,
         )
     }
@@ -258,41 +272,38 @@ private fun NumberEditDialog(
 }
 
 @Composable
-private fun BackgroundSelectDialog(
-    current: Background?,
-    onConfirm: (Background?) -> Unit,
+private fun <T : Any> SingleChoiceDialog(
+    title: String,
+    selected: T?,
+    options: List<T>,
+    optionLabel: @Composable (T) -> String,
+    noneLabel: String? = null,
+    onConfirm: (T?) -> Unit,
     onDismiss: () -> Unit,
 ) {
-    var selected by remember { mutableStateOf(current) }
+    var current by remember { mutableStateOf(selected) }
     AlertDialog(
         onDismissRequest = onDismiss,
-        title = { Text(stringResource(Res.string.label_background)) },
+        title = { Text(title) },
         text = {
             Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    modifier = Modifier.fillMaxWidth(),
-                ) {
-                    RadioButton(
-                        selected = selected == null,
-                        onClick = { selected = null },
-                    )
-                    Text(
-                        text = stringResource(Res.string.background_none),
-                        style = MaterialTheme.typography.bodyMedium,
-                    )
-                }
-                Background.entries.forEach { background ->
+                if (noneLabel != null) {
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier.fillMaxWidth(),
+                        modifier = Modifier.fillMaxWidth().clickable { current = null },
                     ) {
-                        RadioButton(
-                            selected = selected == background,
-                            onClick = { selected = background },
-                        )
+                        RadioButton(selected = current == null, onClick = null)
+                        Text(text = noneLabel, style = MaterialTheme.typography.bodyMedium)
+                    }
+                }
+                options.forEach { option ->
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier.fillMaxWidth().clickable { current = option },
+                    ) {
+                        RadioButton(selected = current == option, onClick = null)
                         Text(
-                            text = background.toFormattedString(),
+                            text = optionLabel(option),
                             style = MaterialTheme.typography.bodyMedium,
                         )
                     }
@@ -300,133 +311,7 @@ private fun BackgroundSelectDialog(
             }
         },
         confirmButton = {
-            TextButton(onClick = { onConfirm(selected) }) {
-                Text(stringResource(Res.string.btn_confirm))
-            }
-        },
-        dismissButton = {
-            TextButton(onClick = onDismiss) {
-                Text(stringResource(Res.string.btn_cancel))
-            }
-        },
-    )
-}
-
-@Composable
-private fun RaceSelectDialog(
-    current: Race,
-    onConfirm: (Race) -> Unit,
-    onDismiss: () -> Unit,
-) {
-    var selected by remember { mutableStateOf(current) }
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = { Text(stringResource(Res.string.label_race)) },
-        text = {
-            Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
-                Race.entries.forEach { race ->
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier.fillMaxWidth(),
-                    ) {
-                        RadioButton(
-                            selected = selected == race,
-                            onClick = { selected = race },
-                        )
-                        Text(
-                            text = race.toFormattedString(),
-                            style = MaterialTheme.typography.bodyMedium,
-                        )
-                    }
-                }
-            }
-        },
-        confirmButton = {
-            TextButton(onClick = { onConfirm(selected) }) {
-                Text(stringResource(Res.string.btn_confirm))
-            }
-        },
-        dismissButton = {
-            TextButton(onClick = onDismiss) {
-                Text(stringResource(Res.string.btn_cancel))
-            }
-        },
-    )
-}
-
-@Composable
-private fun ClassSelectDialog(
-    current: Character.Class,
-    onConfirm: (Character.Class) -> Unit,
-    onDismiss: () -> Unit,
-) {
-    var selected by remember { mutableStateOf(current) }
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = { Text(stringResource(Res.string.label_class)) },
-        text = {
-            Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
-                Character.Class.entries.forEach { clazz ->
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier.fillMaxWidth(),
-                    ) {
-                        RadioButton(
-                            selected = selected == clazz,
-                            onClick = { selected = clazz },
-                        )
-                        Text(
-                            text = clazz.toFormattedString(),
-                            style = MaterialTheme.typography.bodyMedium,
-                        )
-                    }
-                }
-            }
-        },
-        confirmButton = {
-            TextButton(onClick = { onConfirm(selected) }) {
-                Text(stringResource(Res.string.btn_confirm))
-            }
-        },
-        dismissButton = {
-            TextButton(onClick = onDismiss) {
-                Text(stringResource(Res.string.btn_cancel))
-            }
-        },
-    )
-}
-
-@Composable
-private fun AlignmentSelectDialog(
-    current: Creature.Alignment,
-    onConfirm: (Creature.Alignment) -> Unit,
-    onDismiss: () -> Unit,
-) {
-    var selected by remember { mutableStateOf(current) }
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = { Text(stringResource(Res.string.label_alignment)) },
-        text = {
-            Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
-                Creature.Alignment.entries.forEach { alignment ->
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier.fillMaxWidth(),
-                    ) {
-                        RadioButton(
-                            selected = selected == alignment,
-                            onClick = { selected = alignment },
-                        )
-                        Text(
-                            text = alignment.toFormattedString(),
-                            style = MaterialTheme.typography.bodyMedium,
-                        )
-                    }
-                }
-            }
-        },
-        confirmButton = {
-            TextButton(onClick = { onConfirm(selected) }) {
+            TextButton(onClick = { onConfirm(current) }) {
                 Text(stringResource(Res.string.btn_confirm))
             }
         },
@@ -453,13 +338,13 @@ private fun LanguageSelectDialog(
                 Language.entries.forEach { language ->
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier.fillMaxWidth(),
+                        modifier = Modifier.fillMaxWidth().clickable {
+                            selected = if (language in selected) selected - language else selected + language
+                        },
                     ) {
                         Checkbox(
                             checked = language in selected,
-                            onCheckedChange = { checked ->
-                                selected = if (checked) selected + language else selected - language
-                            },
+                            onCheckedChange = null,
                         )
                         Text(
                             text = language.toFormattedString(),
