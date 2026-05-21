@@ -3,6 +3,7 @@ package com.cyrillrx.rpg.character.presentation.component
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -199,7 +200,7 @@ private fun StatCard(
     onClick: (() -> Unit)? = null,
     modifier: Modifier = Modifier,
 ) {
-    val cardContent: @Composable () -> Unit = {
+    val cardContent: @Composable ColumnScope.() -> Unit = {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
@@ -219,9 +220,9 @@ private fun StatCard(
         }
     }
     if (onClick == null) {
-        ElevatedCard(modifier = modifier, content = { cardContent() })
+        ElevatedCard(modifier = modifier, content = cardContent)
     } else {
-        ElevatedCard(onClick = onClick, modifier = modifier, content = { cardContent() })
+        ElevatedCard(onClick = onClick, modifier = modifier, content = cardContent)
     }
 }
 
