@@ -25,6 +25,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
+import com.cyrillrx.rpg.character.domain.defaultWalkSpeed
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
@@ -74,7 +75,7 @@ internal fun CharacterEditDialog(
     when (field) {
         EditingField.Background -> TextEditDialog(
             title = stringResource(Res.string.label_background),
-            initialValue = state.background,
+            initialValue = state.character.background.orEmpty(),
             onConfirm = onBackgroundConfirmed,
             onDismiss = onDismiss,
             singleLine = false,
@@ -82,94 +83,94 @@ internal fun CharacterEditDialog(
 
         EditingField.Level -> NumberEditDialog(
             title = stringResource(Res.string.label_level),
-            initialValue = state.level,
+            initialValue = state.character.level,
             onConfirm = onLevelConfirmed,
             onDismiss = onDismiss,
         )
 
         EditingField.Strength -> NumberEditDialog(
             title = stringResource(Res.string.label_str),
-            initialValue = state.strength,
+            initialValue = state.character.abilities.strength.value,
             onConfirm = onStrengthConfirmed,
             onDismiss = onDismiss,
         )
 
         EditingField.Dexterity -> NumberEditDialog(
             title = stringResource(Res.string.label_dex),
-            initialValue = state.dexterity,
+            initialValue = state.character.abilities.dexterity.value,
             onConfirm = onDexterityConfirmed,
             onDismiss = onDismiss,
         )
 
         EditingField.Constitution -> NumberEditDialog(
             title = stringResource(Res.string.label_con),
-            initialValue = state.constitution,
+            initialValue = state.character.abilities.constitution.value,
             onConfirm = onConstitutionConfirmed,
             onDismiss = onDismiss,
         )
 
         EditingField.Intelligence -> NumberEditDialog(
             title = stringResource(Res.string.label_int),
-            initialValue = state.intelligence,
+            initialValue = state.character.abilities.intelligence.value,
             onConfirm = onIntelligenceConfirmed,
             onDismiss = onDismiss,
         )
 
         EditingField.Wisdom -> NumberEditDialog(
             title = stringResource(Res.string.label_wis),
-            initialValue = state.wisdom,
+            initialValue = state.character.abilities.wisdom.value,
             onConfirm = onWisdomConfirmed,
             onDismiss = onDismiss,
         )
 
         EditingField.Charisma -> NumberEditDialog(
             title = stringResource(Res.string.label_cha),
-            initialValue = state.charisma,
+            initialValue = state.character.abilities.charisma.value,
             onConfirm = onCharismaConfirmed,
             onDismiss = onDismiss,
         )
 
         EditingField.ArmorClass -> NumberEditDialog(
             title = stringResource(Res.string.label_ac),
-            initialValue = state.armorClass,
+            initialValue = state.character.armorClass,
             onConfirm = onArmorClassConfirmed,
             onDismiss = onDismiss,
         )
 
         EditingField.MaxHitPoints -> NumberEditDialog(
             title = stringResource(Res.string.label_max_hp),
-            initialValue = state.maxHitPoints,
+            initialValue = state.character.maxHitPoints,
             onConfirm = onMaxHitPointsConfirmed,
             onDismiss = onDismiss,
         )
 
         EditingField.WalkSpeed -> NumberEditDialog(
             title = stringResource(Res.string.label_walk_speed),
-            initialValue = state.walkSpeed,
+            initialValue = state.character.speeds.walk ?: state.character.race.defaultWalkSpeed(),
             onConfirm = onWalkSpeedConfirmed,
             onDismiss = onDismiss,
         )
 
         EditingField.Race -> RaceSelectDialog(
-            current = state.race,
+            current = state.character.race,
             onConfirm = onRaceConfirmed,
             onDismiss = onDismiss,
         )
 
         EditingField.Clazz -> ClassSelectDialog(
-            current = state.clazz,
+            current = state.character.clazz,
             onConfirm = onClassConfirmed,
             onDismiss = onDismiss,
         )
 
         EditingField.Languages -> LanguageSelectDialog(
-            current = state.languages,
+            current = state.character.languages,
             onConfirm = onLanguagesConfirmed,
             onDismiss = onDismiss,
         )
 
         EditingField.Alignment -> AlignmentSelectDialog(
-            current = state.alignment,
+            current = state.character.alignment,
             onConfirm = onAlignmentConfirmed,
             onDismiss = onDismiss,
         )

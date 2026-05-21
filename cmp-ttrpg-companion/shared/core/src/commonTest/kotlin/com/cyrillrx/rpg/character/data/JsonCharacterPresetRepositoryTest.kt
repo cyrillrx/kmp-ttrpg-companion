@@ -104,11 +104,11 @@ class JsonCharacterPresetRepositoryTest {
                 savingThrows = """{"str": "proficient", "con": "proficient"}""",
             )
             val character = repository(json).getAll(null).first()
-            assertEquals(16, character.abilities.str.value)
-            assertEquals(Proficiency.PROFICIENT, character.abilities.str.savingThrowProficiency)
-            assertEquals(12, character.abilities.dex.value)
-            assertEquals(Proficiency.NONE, character.abilities.dex.savingThrowProficiency)
-            assertEquals(Proficiency.PROFICIENT, character.abilities.con.savingThrowProficiency)
+            assertEquals(16, character.abilities.strength.value)
+            assertEquals(Proficiency.PROFICIENT, character.abilities.strength.savingThrowProficiency)
+            assertEquals(12, character.abilities.dexterity.value)
+            assertEquals(Proficiency.NONE, character.abilities.dexterity.savingThrowProficiency)
+            assertEquals(Proficiency.PROFICIENT, character.abilities.constitution.savingThrowProficiency)
         }
 
     @Test

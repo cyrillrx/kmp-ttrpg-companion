@@ -9,6 +9,8 @@ abstract class Creature {
     abstract val maxHitPoints: Int
     abstract val speeds: Speeds
 
+    fun initiativeModifier(): Int = abilities.dexterity.getModifier()
+
     enum class Size {
         TINY,
         SMALL,

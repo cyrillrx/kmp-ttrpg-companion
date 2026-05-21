@@ -17,12 +17,12 @@ import com.cyrillrx.rpg.creature.domain.Skills
 import com.cyrillrx.rpg.creature.domain.Speeds
 
 internal fun createAbilities(abilities: ApiAbilities?, savingThrows: ApiSavingThrows? = null): Abilities = Abilities(
-    str = Ability(abilities?.str ?: Ability.DEFAULT_VALUE, savingThrows?.str.toProficiency()),
-    dex = Ability(abilities?.dex ?: Ability.DEFAULT_VALUE, savingThrows?.dex.toProficiency()),
-    con = Ability(abilities?.con ?: Ability.DEFAULT_VALUE, savingThrows?.con.toProficiency()),
-    int = Ability(abilities?.int ?: Ability.DEFAULT_VALUE, savingThrows?.int.toProficiency()),
-    wis = Ability(abilities?.wis ?: Ability.DEFAULT_VALUE, savingThrows?.wis.toProficiency()),
-    cha = Ability(abilities?.cha ?: Ability.DEFAULT_VALUE, savingThrows?.cha.toProficiency()),
+    strength = Ability(abilities?.str ?: Ability.DEFAULT_VALUE, savingThrows?.str.toProficiency()),
+    dexterity = Ability(abilities?.dex ?: Ability.DEFAULT_VALUE, savingThrows?.dex.toProficiency()),
+    constitution = Ability(abilities?.con ?: Ability.DEFAULT_VALUE, savingThrows?.con.toProficiency()),
+    intelligence = Ability(abilities?.int ?: Ability.DEFAULT_VALUE, savingThrows?.int.toProficiency()),
+    wisdom = Ability(abilities?.wis ?: Ability.DEFAULT_VALUE, savingThrows?.wis.toProficiency()),
+    charisma = Ability(abilities?.cha ?: Ability.DEFAULT_VALUE, savingThrows?.cha.toProficiency()),
 )
 
 internal fun String?.toProficiency(): Proficiency = when (this) {
