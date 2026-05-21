@@ -160,7 +160,7 @@ private fun AbilityCard(
 @Composable
 internal fun CombatRow(
     armorClass: Int,
-    dexterity: Ability,
+    initiative: Int,
     maxHitPoints: Int,
     onAcTapped: () -> Unit,
     onMaxHpTapped: () -> Unit,
@@ -177,7 +177,7 @@ internal fun CombatRow(
         )
         StatCard(
             label = stringResource(Res.string.label_initiative),
-            value = dexterity.getModifier().toSignedString(),
+            value = initiative.toSignedString(),
             modifier = Modifier.weight(1f),
         )
         StatCard(
