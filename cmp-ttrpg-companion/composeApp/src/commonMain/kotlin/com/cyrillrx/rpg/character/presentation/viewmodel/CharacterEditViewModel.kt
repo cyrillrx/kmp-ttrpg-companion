@@ -110,10 +110,14 @@ class CharacterEditViewModel(
         updateAndSave { it.copy(character = it.character.copy(alignment = alignment), editingField = null) }
     }
 
-    private fun saveAbility(newValue: Int, getAbility: Abilities.() -> Ability, update: Abilities.(Int) -> Abilities) {
-        updateAndSave(newValue, Int::coerceToValidAbilityScore) { coerced ->
-            if (character.abilities.getAbility().value == newValue) copy(editingField = null)
-            else copy(character = character.copy(abilities = character.abilities.update(coerced)), editingField = null)
+    private fun saveAbility(candidate: Int, getAbility: Abilities.() -> Ability, update: Abilities.(Int) -> Abilities) {
+        updateAndSave(candidate, Int::coerceToValidAbilityScore) { coerced ->
+            val formerValue = character.abilities.getAbility().value
+            if (formerValue == candidate) {
+                copy(editingField = null)
+            } else {
+                copy(character = character.copy(abilities = character.abilities.update(coerced)), editingField = null)
+            }
         }
     }
 
@@ -121,9 +125,9 @@ class CharacterEditViewModel(
         state.update { current -> if (current is Loaded) transform(current) else current }
     }
 
-    private fun updateAndSave(newValue: Int, coerce: (Int) -> Int, transform: Loaded.(Int) -> Loaded) {
-        val coerced = coerce(newValue)
-        if (coerced != newValue) coercedValueEvent.tryEmit(coerced)
+    private fun updateAndSave(candidate: Int, coerce: (Int) -> Int, transform: Loaded.(Int) -> Loaded) {
+        val coerced = coerce(candidate)
+        if (coerced != candidate) coercedValueEvent.tryEmit(coerced)
         updateAndSave { loaded -> loaded.transform(coerced) }
     }
 
