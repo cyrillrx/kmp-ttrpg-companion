@@ -15,7 +15,7 @@ abilities:
   wis: 10
   cha: 5
 speeds:
-  walk: null
+  walk: 30
   fly: null
   swim: null
   climb: null
