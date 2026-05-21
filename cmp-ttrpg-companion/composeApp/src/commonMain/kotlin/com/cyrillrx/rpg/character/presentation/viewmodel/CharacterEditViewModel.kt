@@ -85,37 +85,37 @@ class CharacterEditViewModel(
     fun saveStrength(value: Int) {
         val coerced = value.coerceToValidAbilityScore()
         if (coerced != value) coercedValueEvent.tryEmit(coerced)
-        updateAndSave { it.copy(abilities = it.abilities.copy(str = Ability(coerced, it.abilities.str.savingThrowProficiency)), editingField = null) }
+        updateAndSave { it.copy(abilities = it.abilities.copy(strength = Ability(coerced, it.abilities.strength.savingThrowProficiency)), editingField = null) }
     }
 
     fun saveDexterity(value: Int) {
         val coerced = value.coerceToValidAbilityScore()
         if (coerced != value) coercedValueEvent.tryEmit(coerced)
-        updateAndSave { it.copy(abilities = it.abilities.copy(dex = Ability(coerced, it.abilities.dex.savingThrowProficiency)), editingField = null) }
+        updateAndSave { it.copy(abilities = it.abilities.copy(dexterity = Ability(coerced, it.abilities.dexterity.savingThrowProficiency)), editingField = null) }
     }
 
     fun saveConstitution(value: Int) {
         val coerced = value.coerceToValidAbilityScore()
         if (coerced != value) coercedValueEvent.tryEmit(coerced)
-        updateAndSave { it.copy(abilities = it.abilities.copy(con = Ability(coerced, it.abilities.con.savingThrowProficiency)), editingField = null) }
+        updateAndSave { it.copy(abilities = it.abilities.copy(constitution = Ability(coerced, it.abilities.constitution.savingThrowProficiency)), editingField = null) }
     }
 
     fun saveIntelligence(value: Int) {
         val coerced = value.coerceToValidAbilityScore()
         if (coerced != value) coercedValueEvent.tryEmit(coerced)
-        updateAndSave { it.copy(abilities = it.abilities.copy(int = Ability(coerced, it.abilities.int.savingThrowProficiency)), editingField = null) }
+        updateAndSave { it.copy(abilities = it.abilities.copy(intelligence = Ability(coerced, it.abilities.intelligence.savingThrowProficiency)), editingField = null) }
     }
 
     fun saveWisdom(value: Int) {
         val coerced = value.coerceToValidAbilityScore()
         if (coerced != value) coercedValueEvent.tryEmit(coerced)
-        updateAndSave { it.copy(abilities = it.abilities.copy(wis = Ability(coerced, it.abilities.wis.savingThrowProficiency)), editingField = null) }
+        updateAndSave { it.copy(abilities = it.abilities.copy(wisdom = Ability(coerced, it.abilities.wisdom.savingThrowProficiency)), editingField = null) }
     }
 
     fun saveCharisma(value: Int) {
         val coerced = value.coerceToValidAbilityScore()
         if (coerced != value) coercedValueEvent.tryEmit(coerced)
-        updateAndSave { it.copy(abilities = it.abilities.copy(cha = Ability(coerced, it.abilities.cha.savingThrowProficiency)), editingField = null) }
+        updateAndSave { it.copy(abilities = it.abilities.copy(charisma = Ability(coerced, it.abilities.charisma.savingThrowProficiency)), editingField = null) }
     }
 
     fun saveArmorClass(value: Int) {

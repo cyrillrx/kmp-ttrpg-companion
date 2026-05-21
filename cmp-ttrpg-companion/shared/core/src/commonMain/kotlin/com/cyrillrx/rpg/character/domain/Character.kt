@@ -31,7 +31,7 @@ data class Character(
         ?: translations[FALLBACK_LOCALE]
         ?: translations.values.firstOrNull()
 
-    fun initiativeModifier(): Int = abilities.dex.getModifier()
+    fun initiativeModifier(): Int = abilities.dexterity.getModifier()
 
     fun proficiencyBonus(): Int = when (level) {
         in 1..4 -> 2

@@ -75,19 +75,19 @@ internal fun AbilityGrid(
             modifier = Modifier.fillMaxWidth(),
         ) {
             AbilityCard(
-                score = abilities.str.value,
+                score = abilities.strength.value,
                 label = stringResource(Res.string.label_str),
                 onClick = onStrengthTapped,
                 modifier = Modifier.weight(1f),
             )
             AbilityCard(
-                score = abilities.dex.value,
+                score = abilities.dexterity.value,
                 label = stringResource(Res.string.label_dex),
                 onClick = onDexterityTapped,
                 modifier = Modifier.weight(1f),
             )
             AbilityCard(
-                score = abilities.con.value,
+                score = abilities.constitution.value,
                 label = stringResource(Res.string.label_con),
                 onClick = onConstitutionTapped,
                 modifier = Modifier.weight(1f),
@@ -98,19 +98,19 @@ internal fun AbilityGrid(
             modifier = Modifier.fillMaxWidth(),
         ) {
             AbilityCard(
-                score = abilities.int.value,
+                score = abilities.intelligence.value,
                 label = stringResource(Res.string.label_int),
                 onClick = onIntelligenceTapped,
                 modifier = Modifier.weight(1f),
             )
             AbilityCard(
-                score = abilities.wis.value,
+                score = abilities.wisdom.value,
                 label = stringResource(Res.string.label_wis),
                 onClick = onWisdomTapped,
                 modifier = Modifier.weight(1f),
             )
             AbilityCard(
-                score = abilities.cha.value,
+                score = abilities.charisma.value,
                 label = stringResource(Res.string.label_cha),
                 onClick = onCharismaTapped,
                 modifier = Modifier.weight(1f),

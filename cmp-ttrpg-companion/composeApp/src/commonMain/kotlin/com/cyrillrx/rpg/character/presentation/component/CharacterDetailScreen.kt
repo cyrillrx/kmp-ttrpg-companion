@@ -169,7 +169,7 @@ fun CharacterDetailScreen(
 
             CombatRow(
                 armorClass = state.armorClass,
-                dexterity = state.abilities.dex,
+                dexterity = state.abilities.dexterity,
                 maxHitPoints = state.maxHitPoints,
                 onAcTapped = { onFieldTapped(EditingField.ArmorClass) },
                 onMaxHpTapped = { onFieldTapped(EditingField.MaxHitPoints) },

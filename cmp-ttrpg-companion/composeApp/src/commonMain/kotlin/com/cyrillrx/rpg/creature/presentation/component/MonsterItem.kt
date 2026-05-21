@@ -40,12 +40,12 @@ fun MonsterItem(
 
         val abilities = monster.abilities
         AbilitiesLayout(
-            str = abilities.str.getValueWithModifier(),
-            dex = abilities.dex.getValueWithModifier(),
-            con = abilities.con.getValueWithModifier(),
-            int = abilities.int.getValueWithModifier(),
-            wis = abilities.wis.getValueWithModifier(),
-            cha = abilities.cha.getValueWithModifier(),
+            str = abilities.strength.getValueWithModifier(),
+            dex = abilities.dexterity.getValueWithModifier(),
+            con = abilities.constitution.getValueWithModifier(),
+            int = abilities.intelligence.getValueWithModifier(),
+            wis = abilities.wisdom.getValueWithModifier(),
+            cha = abilities.charisma.getValueWithModifier(),
         )
 
         MarkdownText(text = translation.description)
