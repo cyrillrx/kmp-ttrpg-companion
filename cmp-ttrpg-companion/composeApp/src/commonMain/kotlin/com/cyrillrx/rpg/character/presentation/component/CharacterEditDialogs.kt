@@ -281,7 +281,6 @@ private fun <T : Any> SingleChoiceDialog(
     onConfirm: (T?) -> Unit,
     onDismiss: () -> Unit,
 ) {
-    var current by remember { mutableStateOf(selected) }
     AlertDialog(
         onDismissRequest = onDismiss,
         title = { Text(title) },
@@ -290,18 +289,18 @@ private fun <T : Any> SingleChoiceDialog(
                 if (noneLabel != null) {
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier.fillMaxWidth().clickable { current = null },
+                        modifier = Modifier.fillMaxWidth().clickable { onConfirm(null) },
                     ) {
-                        RadioButton(selected = current == null, onClick = null)
+                        RadioButton(selected = selected == null, onClick = null)
                         Text(text = noneLabel, style = MaterialTheme.typography.bodyMedium)
                     }
                 }
                 options.forEach { option ->
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier.fillMaxWidth().clickable { current = option },
+                        modifier = Modifier.fillMaxWidth().clickable { onConfirm(option) },
                     ) {
-                        RadioButton(selected = current == option, onClick = null)
+                        RadioButton(selected = selected == option, onClick = null)
                         Text(
                             text = optionLabel(option),
                             style = MaterialTheme.typography.bodyMedium,
@@ -310,11 +309,7 @@ private fun <T : Any> SingleChoiceDialog(
                 }
             }
         },
-        confirmButton = {
-            TextButton(onClick = { onConfirm(current) }) {
-                Text(stringResource(Res.string.btn_confirm))
-            }
-        },
+        confirmButton = {},
         dismissButton = {
             TextButton(onClick = onDismiss) {
                 Text(stringResource(Res.string.btn_cancel))
