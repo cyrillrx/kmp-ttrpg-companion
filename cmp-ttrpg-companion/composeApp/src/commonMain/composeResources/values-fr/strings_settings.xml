@@ -3,4 +3,10 @@
 <resources>
     <!--  Settings  -->
     <string name="title_settings">Paramètres</string>
+
+    <!--  Theme  -->
+    <string name="settings_section_theme">Thème</string>
+    <string name="settings_theme_light">Clair</string>
+    <string name="settings_theme_dark">Sombre</string>
+    <string name="settings_theme_system">Système</string>
 </resources>

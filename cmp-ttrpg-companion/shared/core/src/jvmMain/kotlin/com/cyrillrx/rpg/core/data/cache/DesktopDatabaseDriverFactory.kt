@@ -19,13 +19,7 @@ class DesktopDatabaseDriverFactory : DatabaseDriverFactory {
 
         when {
             storedVersion == 0L -> {
-                // Fresh install or pre-migration DB (never had version stamped)
-                try {
-                    AppDatabase.Schema.create(driver)
-                } catch (e: Exception) {
-                    println("WARNING: DB creation failed (existing unversioned DB?), migrating from v1: ${e.message}")
-                    AppDatabase.Schema.migrate(driver, 1L, targetVersion)
-                }
+                AppDatabase.Schema.create(driver)
                 driver.execute(null, "PRAGMA user_version = $targetVersion", 0)
             }
             storedVersion < targetVersion -> {

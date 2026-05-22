@@ -10,7 +10,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.entryProvider
@@ -41,14 +45,14 @@ import com.cyrillrx.rpg.magicalitem.data.JsonMagicalItemRepository
 import com.cyrillrx.rpg.magicalitem.presentation.navigation.MagicalItemRouterImpl
 import com.cyrillrx.rpg.magicalitem.presentation.navigation.handleMagicalItemRoutes
 import com.cyrillrx.rpg.magicalitem.presentation.navigation.registerMagicalItemRoutes
-import com.cyrillrx.rpg.spell.data.JsonSpellRepository
-import com.cyrillrx.rpg.spell.presentation.navigation.SpellRouterImpl
-import com.cyrillrx.rpg.spell.presentation.navigation.handleSpellRoutes
-import com.cyrillrx.rpg.spell.presentation.navigation.registerSpellRoutes
 import com.cyrillrx.rpg.settings.data.SqlDelightUserPreferencesRepository
 import com.cyrillrx.rpg.settings.domain.UserPreferencesRepository
 import com.cyrillrx.rpg.settings.presentation.navigation.handleSettingsRoutes
 import com.cyrillrx.rpg.settings.presentation.navigation.registerSettingsRoutes
+import com.cyrillrx.rpg.spell.data.JsonSpellRepository
+import com.cyrillrx.rpg.spell.presentation.navigation.SpellRouterImpl
+import com.cyrillrx.rpg.spell.presentation.navigation.handleSpellRoutes
+import com.cyrillrx.rpg.spell.presentation.navigation.registerSpellRoutes
 import com.cyrillrx.rpg.userlist.data.SQLDelightUserListRepository
 import com.cyrillrx.rpg.userlist.presentation.navigation.UserListRouterImpl
 import com.cyrillrx.rpg.userlist.presentation.navigation.handleUserListRoutes
@@ -84,13 +88,21 @@ fun App(dbDriverFactory: DatabaseDriverFactory) {
             .components { add(SvgDecoder.Factory()) }
             .build()
     }
-    AppTheme {
+    val prefsRepository: UserPreferencesRepository = remember(dbDriverFactory) { SqlDelightUserPreferencesRepository(dbDriverFactory) }
+    var prefsInitialized by remember { mutableStateOf(false) }
+    LaunchedEffect(prefsRepository) {
+        prefsRepository.initialize()
+        prefsInitialized = true
+    }
+    val prefs by prefsRepository.preferences.collectAsState()
+
+    if (!prefsInitialized) return
+
+    AppTheme(theme = prefs.theme) {
         val backStack = rememberNavBackStack(navSavedStateConfig, MainRoute.Home)
 
         val fileReader = ComposeFileReader()
         val userListRepository = remember(dbDriverFactory) { SQLDelightUserListRepository(dbDriverFactory) }
-        val prefsRepository: UserPreferencesRepository = remember(dbDriverFactory) { SqlDelightUserPreferencesRepository(dbDriverFactory) }
-        LaunchedEffect(prefsRepository) { prefsRepository.initialize() }
 
         NavDisplay(
             backStack = backStack,
@@ -136,7 +148,7 @@ fun App(dbDriverFactory: DatabaseDriverFactory) {
 
                 handleUserListRoutes(UserListRouterImpl(backStack), userListRepository)
 
-                handleSettingsRoutes(backStack)
+                handleSettingsRoutes(backStack, prefsRepository)
             },
         )
     }
