@@ -85,8 +85,8 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
     fun getUserPreferences(): UserPreferences =
         dbQuery.getUserPreferences { _, themeMode, distanceUnit ->
             UserPreferences(
-                theme = Theme.valueOf(themeMode.uppercase()),
-                distanceUnit = DistanceUnit.valueOf(distanceUnit.uppercase()),
+                theme = Theme.entries.find { it.name.equals(themeMode, ignoreCase = true) } ?: Theme.AUTO,
+                distanceUnit = DistanceUnit.entries.find { it.name.equals(distanceUnit, ignoreCase = true) } ?: DistanceUnit.FEET,
             )
         }.executeAsOneOrNull() ?: UserPreferences()
 
@@ -94,8 +94,8 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
         dbQuery.updateThemeMode(theme.name.lowercase())
     }
 
-    fun updateDistanceUnit(unit: DistanceUnit) {
-        dbQuery.updateDistanceUnit(unit.name.lowercase())
+    fun updateDistanceUnit(distanceUnit: DistanceUnit) {
+        dbQuery.updateDistanceUnit(distanceUnit.name.lowercase())
     }
 
     private fun mapUserListSelecting(id: String, name: String, type: String, itemIds: String, lastModified: Long): UserList =

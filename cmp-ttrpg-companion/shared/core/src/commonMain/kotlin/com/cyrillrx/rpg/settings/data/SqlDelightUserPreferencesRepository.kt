@@ -9,6 +9,7 @@ import com.cyrillrx.rpg.settings.domain.UserPreferencesRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 
 class SqlDelightUserPreferencesRepository(driverFactory: DatabaseDriverFactory) : UserPreferencesRepository {
     private val db = Database(driverFactory).also { it.initUserPreferences() }
@@ -18,11 +19,11 @@ class SqlDelightUserPreferencesRepository(driverFactory: DatabaseDriverFactory) 
 
     override suspend fun setTheme(theme: Theme) {
         db.updateTheme(theme)
-        _preferences.value = _preferences.value.copy(theme = theme)
+        _preferences.update { it.copy(theme = theme) }
     }
 
-    override suspend fun setDistanceUnit(unit: DistanceUnit) {
-        db.updateDistanceUnit(unit)
-        _preferences.value = _preferences.value.copy(distanceUnit = unit)
+    override suspend fun setDistanceUnit(distanceUnit: DistanceUnit) {
+        db.updateDistanceUnit(distanceUnit)
+        _preferences.update { it.copy(distanceUnit = distanceUnit) }
     }
 }
