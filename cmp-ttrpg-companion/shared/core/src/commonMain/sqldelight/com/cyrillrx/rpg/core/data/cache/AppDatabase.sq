@@ -37,6 +37,24 @@ SELECT Character.* FROM Character WHERE id IN ?;
 deleteCharacter:
 DELETE FROM Character WHERE id = ?;
 
+CREATE TABLE UserPreferencesEntity (
+    id INTEGER NOT NULL PRIMARY KEY DEFAULT 1,
+    theme TEXT NOT NULL DEFAULT 'system',
+    distance_unit TEXT NOT NULL DEFAULT 'feet'
+);
+
+initUserPreferences:
+INSERT OR IGNORE INTO UserPreferencesEntity (id) VALUES (1);
+
+getUserPreferences:
+SELECT * FROM UserPreferencesEntity WHERE id = 1;
+
+updateTheme:
+UPDATE UserPreferencesEntity SET theme = ? WHERE id = 1;
+
+updateDistanceUnit:
+UPDATE UserPreferencesEntity SET distance_unit = ? WHERE id = 1;
+
 CREATE TABLE UserList (
     id TEXT NOT NULL PRIMARY KEY,
     name TEXT NOT NULL,

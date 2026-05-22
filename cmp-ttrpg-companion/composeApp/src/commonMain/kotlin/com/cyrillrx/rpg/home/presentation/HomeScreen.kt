@@ -10,15 +10,19 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AutoAwesome
 import androidx.compose.material.icons.filled.Diamond
 import androidx.compose.material.icons.filled.Pets
+import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
-import com.cyrillrx.rpg.core.presentation.theme.spacingLarge
 import com.cyrillrx.rpg.home.presentation.navigation.HomeRouter
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -34,23 +38,29 @@ import rpg_companion.composeapp.generated.resources.btn_my_spell_lists
 import rpg_companion.composeapp.generated.resources.btn_spell_book
 import rpg_companion.composeapp.generated.resources.section_compendium
 import rpg_companion.composeapp.generated.resources.section_my_lists
+import rpg_companion.composeapp.generated.resources.title_settings
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(router: HomeRouter) {
-    Scaffold { paddingValues ->
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text(stringResource(Res.string.app_name)) },
+                actions = {
+                    IconButton(onClick = router::openSettings) {
+                        Icon(Icons.Filled.Settings, contentDescription = stringResource(Res.string.title_settings))
+                    }
+                },
+                colors = TopAppBarDefaults.topAppBarColors(containerColor = MaterialTheme.colorScheme.background),
+            )
+        },
+    ) { paddingValues ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues),
         ) {
-            Text(
-                text = stringResource(Res.string.app_name),
-                style = MaterialTheme.typography.titleLarge,
-                modifier = Modifier
-                    .padding(spacingLarge)
-                    .align(alignment = Alignment.CenterHorizontally),
-            )
-
             HomeButton(stringResource(Res.string.btn_campaign_list), router::openCampaignList)
             HomeButton(stringResource(Res.string.btn_character_sheets), router::openCharacterSheetList)
 
@@ -119,11 +129,23 @@ fun HomeScreen(router: HomeRouter) {
     }
 }
 
+private object PreviewHomeRouter : HomeRouter {
+    override fun openCampaignList() {}
+    override fun openCharacterSheetList() {}
+    override fun openSpellCompendium() {}
+    override fun openMagicalItemCompendium() {}
+    override fun openMonsterCompendium() {}
+    override fun openMySpellLists() {}
+    override fun openMyMagicalItemLists() {}
+    override fun openMyMonsterLists() {}
+    override fun openSettings() {}
+}
+
 @Preview
 @Composable
 private fun PreviewHomeScreenLight() {
     AppThemePreview(darkTheme = false) {
-        HomeScreen(object : HomeRouter {})
+        HomeScreen(PreviewHomeRouter)
     }
 }
 
@@ -131,6 +153,6 @@ private fun PreviewHomeScreenLight() {
 @Composable
 private fun PreviewHomeScreenDark() {
     AppThemePreview(darkTheme = true) {
-        HomeScreen(object : HomeRouter {})
+        HomeScreen(PreviewHomeRouter)
     }
 }

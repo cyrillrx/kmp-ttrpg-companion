@@ -1,0 +1,6 @@
+CREATE TABLE UserPreferencesEntity (
+    id INTEGER NOT NULL PRIMARY KEY DEFAULT 1,
+    theme TEXT NOT NULL DEFAULT 'system',
+    distance_unit TEXT NOT NULL DEFAULT 'feet'
+);
+INSERT OR IGNORE INTO UserPreferencesEntity (id) VALUES (1);
