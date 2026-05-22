@@ -109,7 +109,7 @@ private fun ThemeSection(
 private fun PreviewSettingsScreenLight() {
     AppThemePreview(darkTheme = false) {
         SettingsScreen(
-            preferences = UserPreferences(theme = Theme.SYSTEM),
+            preferences = UserPreferences(theme = Theme.LIGHT),
             onThemeSelected = {},
             router = object : SettingsRouter { override fun navigateUp() {} },
         )

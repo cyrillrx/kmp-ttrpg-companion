@@ -25,6 +25,7 @@ class SettingsViewModel(
 class SettingsViewModelFactory(
     private val prefsRepository: UserPreferencesRepository,
 ) : ViewModelProvider.Factory {
+    @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: KClass<T>, extras: CreationExtras): T =
         SettingsViewModel(prefsRepository) as T
 }
