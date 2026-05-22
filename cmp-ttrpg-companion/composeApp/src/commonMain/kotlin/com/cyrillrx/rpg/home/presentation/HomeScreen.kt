@@ -129,13 +129,23 @@ fun HomeScreen(router: HomeRouter) {
     }
 }
 
+private object PreviewHomeRouter : HomeRouter {
+    override fun openCampaignList() {}
+    override fun openCharacterSheetList() {}
+    override fun openSpellCompendium() {}
+    override fun openMagicalItemCompendium() {}
+    override fun openMonsterCompendium() {}
+    override fun openMySpellLists() {}
+    override fun openMyMagicalItemLists() {}
+    override fun openMyMonsterLists() {}
+    override fun openSettings() {}
+}
+
 @Preview
 @Composable
 private fun PreviewHomeScreenLight() {
     AppThemePreview(darkTheme = false) {
-        HomeScreen(object : HomeRouter {
-            override fun openSettings() {}
-        })
+        HomeScreen(PreviewHomeRouter)
     }
 }
 
@@ -143,8 +153,6 @@ private fun PreviewHomeScreenLight() {
 @Composable
 private fun PreviewHomeScreenDark() {
     AppThemePreview(darkTheme = true) {
-        HomeScreen(object : HomeRouter {
-            override fun openSettings() {}
-        })
+        HomeScreen(PreviewHomeRouter)
     }
 }

@@ -11,14 +11,14 @@ import com.cyrillrx.rpg.spell.presentation.navigation.SpellRoute
 import com.cyrillrx.rpg.userlist.presentation.navigation.UserListRoute
 
 interface HomeRouter {
-    fun openCampaignList() {}
-    fun openCharacterSheetList() {}
-    fun openSpellCompendium() {}
-    fun openMagicalItemCompendium() {}
-    fun openMonsterCompendium() {}
-    fun openMySpellLists() {}
-    fun openMyMagicalItemLists() {}
-    fun openMyMonsterLists() {}
+    fun openCampaignList()
+    fun openCharacterSheetList()
+    fun openSpellCompendium()
+    fun openMagicalItemCompendium()
+    fun openMonsterCompendium()
+    fun openMySpellLists()
+    fun openMyMagicalItemLists()
+    fun openMyMonsterLists()
     fun openSettings()
 }
 

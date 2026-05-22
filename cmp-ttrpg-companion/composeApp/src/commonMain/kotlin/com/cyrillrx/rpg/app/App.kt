@@ -46,6 +46,7 @@ import com.cyrillrx.rpg.spell.presentation.navigation.SpellRouterImpl
 import com.cyrillrx.rpg.spell.presentation.navigation.handleSpellRoutes
 import com.cyrillrx.rpg.spell.presentation.navigation.registerSpellRoutes
 import com.cyrillrx.rpg.settings.data.SqlDelightUserPreferencesRepository
+import com.cyrillrx.rpg.settings.domain.UserPreferencesRepository
 import com.cyrillrx.rpg.settings.presentation.navigation.handleSettingsRoutes
 import com.cyrillrx.rpg.settings.presentation.navigation.registerSettingsRoutes
 import com.cyrillrx.rpg.userlist.data.SQLDelightUserListRepository
@@ -88,7 +89,7 @@ fun App(dbDriverFactory: DatabaseDriverFactory) {
 
         val fileReader = ComposeFileReader()
         val userListRepository = remember(dbDriverFactory) { SQLDelightUserListRepository(dbDriverFactory) }
-        val prefsRepository = remember(dbDriverFactory) { SqlDelightUserPreferencesRepository(dbDriverFactory) }
+        val prefsRepository: UserPreferencesRepository = remember(dbDriverFactory) { SqlDelightUserPreferencesRepository(dbDriverFactory) }
         LaunchedEffect(prefsRepository) { prefsRepository.initialize() }
 
         NavDisplay(
