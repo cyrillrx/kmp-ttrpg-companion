@@ -6,6 +6,9 @@ import com.cyrillrx.rpg.cache.AppDatabase
 import com.cyrillrx.rpg.campaign.domain.Campaign
 import com.cyrillrx.rpg.campaign.domain.RuleSet
 import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.settings.domain.DistanceUnit
+import com.cyrillrx.rpg.settings.domain.Theme
+import com.cyrillrx.rpg.settings.domain.UserPreferences
 import com.cyrillrx.rpg.userlist.domain.UserList
 import kotlinx.datetime.Instant
 
@@ -73,6 +76,26 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
 
     fun deleteUserList(id: String) {
         dbQuery.deleteUserList(id)
+    }
+
+    fun initUserPreferences() {
+        dbQuery.initUserPreferences()
+    }
+
+    fun getUserPreferences(): UserPreferences =
+        dbQuery.getUserPreferences { _, themeMode, distanceUnit ->
+            UserPreferences(
+                theme = Theme.valueOf(themeMode.uppercase()),
+                distanceUnit = DistanceUnit.valueOf(distanceUnit.uppercase()),
+            )
+        }.executeAsOneOrNull() ?: UserPreferences()
+
+    fun updateTheme(theme: Theme) {
+        dbQuery.updateThemeMode(theme.name.lowercase())
+    }
+
+    fun updateDistanceUnit(unit: DistanceUnit) {
+        dbQuery.updateDistanceUnit(unit.name.lowercase())
     }
 
     private fun mapUserListSelecting(id: String, name: String, type: String, itemIds: String, lastModified: Long): UserList =
