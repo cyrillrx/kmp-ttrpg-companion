@@ -12,7 +12,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.entryProvider
@@ -87,8 +89,14 @@ fun App(dbDriverFactory: DatabaseDriverFactory) {
             .build()
     }
     val prefsRepository: UserPreferencesRepository = remember(dbDriverFactory) { SqlDelightUserPreferencesRepository(dbDriverFactory) }
-    LaunchedEffect(prefsRepository) { prefsRepository.initialize() }
+    var prefsInitialized by remember { mutableStateOf(false) }
+    LaunchedEffect(prefsRepository) {
+        prefsRepository.initialize()
+        prefsInitialized = true
+    }
     val prefs by prefsRepository.preferences.collectAsState()
+
+    if (!prefsInitialized) return
 
     AppTheme(theme = prefs.theme) {
         val backStack = rememberNavBackStack(navSavedStateConfig, MainRoute.Home)
