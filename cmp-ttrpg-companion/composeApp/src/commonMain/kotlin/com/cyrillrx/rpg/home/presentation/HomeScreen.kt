@@ -133,7 +133,9 @@ fun HomeScreen(router: HomeRouter) {
 @Composable
 private fun PreviewHomeScreenLight() {
     AppThemePreview(darkTheme = false) {
-        HomeScreen(object : HomeRouter {})
+        HomeScreen(object : HomeRouter {
+            override fun openSettings() {}
+        })
     }
 }
 
@@ -141,6 +143,8 @@ private fun PreviewHomeScreenLight() {
 @Composable
 private fun PreviewHomeScreenDark() {
     AppThemePreview(darkTheme = true) {
-        HomeScreen(object : HomeRouter {})
+        HomeScreen(object : HomeRouter {
+            override fun openSettings() {}
+        })
     }
 }

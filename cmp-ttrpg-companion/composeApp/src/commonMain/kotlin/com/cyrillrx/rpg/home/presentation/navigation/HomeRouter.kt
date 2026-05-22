@@ -19,7 +19,7 @@ interface HomeRouter {
     fun openMySpellLists() {}
     fun openMyMagicalItemLists() {}
     fun openMyMonsterLists() {}
-    fun openSettings() {}
+    fun openSettings()
 }
 
 class HomeRouterImpl(private val backStack: NavBackStack<NavKey>) : HomeRouter {

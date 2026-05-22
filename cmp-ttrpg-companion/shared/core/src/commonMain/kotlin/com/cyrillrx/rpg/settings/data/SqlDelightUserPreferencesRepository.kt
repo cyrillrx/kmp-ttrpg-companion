@@ -19,7 +19,7 @@ class SqlDelightUserPreferencesRepository(driverFactory: DatabaseDriverFactory) 
     override val preferences: StateFlow<UserPreferences>
         field = MutableStateFlow(UserPreferences())
 
-    suspend fun initialize() {
+    override suspend fun initialize() {
         withContext(Dispatchers.IO) {
             db.initUserPreferences()
             preferences.value = db.getUserPreferences()
@@ -27,12 +27,16 @@ class SqlDelightUserPreferencesRepository(driverFactory: DatabaseDriverFactory) 
     }
 
     override suspend fun setTheme(theme: Theme) {
-        withContext(Dispatchers.IO) { db.updateTheme(theme) }
-        preferences.update { it.copy(theme = theme) }
+        withContext(Dispatchers.IO) {
+            db.updateTheme(theme)
+            preferences.update { it.copy(theme = theme) }
+        }
     }
 
     override suspend fun setDistanceUnit(distanceUnit: DistanceUnit) {
-        withContext(Dispatchers.IO) { db.updateDistanceUnit(distanceUnit) }
-        preferences.update { it.copy(distanceUnit = distanceUnit) }
+        withContext(Dispatchers.IO) {
+            db.updateDistanceUnit(distanceUnit)
+            preferences.update { it.copy(distanceUnit = distanceUnit) }
+        }
     }
 }
