@@ -33,7 +33,9 @@ import com.cyrillrx.rpg.character.presentation.navigation.handleCharacterRoutes
 import com.cyrillrx.rpg.character.presentation.navigation.registerCharacterRoutes
 import com.cyrillrx.rpg.core.data.ComposeFileReader
 import com.cyrillrx.rpg.core.data.cache.DatabaseDriverFactory
+import androidx.compose.runtime.CompositionLocalProvider
 import com.cyrillrx.rpg.core.navigation.navigateUp
+import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
 import com.cyrillrx.rpg.core.presentation.theme.AppTheme
 import com.cyrillrx.rpg.creature.data.JsonMonsterRepository
 import com.cyrillrx.rpg.creature.presentation.navigation.MonsterRouterImpl
@@ -99,6 +101,7 @@ fun App(dbDriverFactory: DatabaseDriverFactory) {
     if (!prefsInitialized) return
 
     AppTheme(theme = prefs.theme) {
+        CompositionLocalProvider(LocalDistanceUnit provides prefs.distanceUnit) {
         val backStack = rememberNavBackStack(navSavedStateConfig, MainRoute.Home)
 
         val fileReader = ComposeFileReader()
@@ -151,5 +154,6 @@ fun App(dbDriverFactory: DatabaseDriverFactory) {
                 handleSettingsRoutes(backStack, prefsRepository)
             },
         )
+        } // CompositionLocalProvider
     }
 }

@@ -39,6 +39,8 @@ import rpg_companion.composeapp.generated.resources.label_int
 import rpg_companion.composeapp.generated.resources.label_languages
 import rpg_companion.composeapp.generated.resources.label_max_hp
 import rpg_companion.composeapp.generated.resources.label_str
+import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
+import com.cyrillrx.rpg.core.presentation.component.dnd.toDistanceString
 import rpg_companion.composeapp.generated.resources.label_walk_speed
 import rpg_companion.composeapp.generated.resources.label_wis
 
@@ -246,7 +248,7 @@ internal fun WalkSpeedRow(
                 modifier = Modifier.weight(0.5f),
             )
             Text(
-                text = walkSpeed.toString(),
+                text = walkSpeed.toDistanceString(LocalDistanceUnit.current),
                 style = MaterialTheme.typography.bodyMedium,
                 fontWeight = FontWeight.SemiBold,
                 modifier = Modifier.weight(0.5f),
