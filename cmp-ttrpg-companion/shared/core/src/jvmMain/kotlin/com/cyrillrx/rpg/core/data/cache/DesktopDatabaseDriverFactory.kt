@@ -23,7 +23,7 @@ class DesktopDatabaseDriverFactory : DatabaseDriverFactory {
                 try {
                     AppDatabase.Schema.create(driver)
                 } catch (e: Exception) {
-                    // Existing unversioned DB: treat as v1, run remaining migrations
+                    println("WARNING: DB creation failed (existing unversioned DB?), migrating from v1: ${e.message}")
                     AppDatabase.Schema.migrate(driver, 1L, targetVersion)
                 }
                 driver.execute(null, "PRAGMA user_version = $targetVersion", 0)
