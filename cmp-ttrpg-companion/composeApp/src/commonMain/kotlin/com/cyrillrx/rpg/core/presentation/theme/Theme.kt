@@ -10,6 +10,7 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import com.cyrillrx.rpg.settings.domain.Theme
 
 private val LightColors = lightColorScheme(
     primary = Purple700,
@@ -47,9 +48,14 @@ private val DarkColors = darkColorScheme(
 
 @Composable
 fun AppTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
+    theme: Theme = Theme.SYSTEM,
     content: @Composable () -> Unit,
 ) {
+    val darkTheme = when (theme) {
+        Theme.LIGHT -> false
+        Theme.DARK -> true
+        Theme.SYSTEM -> isSystemInDarkTheme()
+    }
     MaterialTheme(
         colorScheme = if (darkTheme) DarkColors else LightColors,
         typography = Typography,
@@ -63,9 +69,10 @@ fun AppThemePreview(
     darkTheme: Boolean,
     content: @Composable () -> Unit,
 ) {
+    val theme = if (darkTheme) Theme.DARK else Theme.LIGHT
     val colors = if (darkTheme) DarkColors else LightColors
     AppTheme(
-        darkTheme = darkTheme,
+        theme = theme,
         content = {
             Box(
                 modifier = Modifier
