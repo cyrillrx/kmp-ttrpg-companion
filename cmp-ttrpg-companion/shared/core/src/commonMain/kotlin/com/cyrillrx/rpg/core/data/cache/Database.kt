@@ -83,15 +83,15 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
     }
 
     fun getUserPreferences(): UserPreferences =
-        dbQuery.getUserPreferences { _, themeMode, distanceUnit ->
+        dbQuery.getUserPreferences { _, theme, distanceUnit ->
             UserPreferences(
-                theme = Theme.entries.find { it.name.equals(themeMode, ignoreCase = true) } ?: Theme.AUTO,
+                theme = Theme.entries.find { it.name.equals(theme, ignoreCase = true) } ?: Theme.SYSTEM,
                 distanceUnit = DistanceUnit.entries.find { it.name.equals(distanceUnit, ignoreCase = true) } ?: DistanceUnit.FEET,
             )
         }.executeAsOneOrNull() ?: UserPreferences()
 
     fun updateTheme(theme: Theme) {
-        dbQuery.updateThemeMode(theme.name.lowercase())
+        dbQuery.updateTheme(theme.name.lowercase())
     }
 
     fun updateDistanceUnit(distanceUnit: DistanceUnit) {
