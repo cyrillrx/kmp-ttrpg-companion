@@ -9,6 +9,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.navigation3.runtime.NavKey
@@ -88,6 +89,7 @@ fun App(dbDriverFactory: DatabaseDriverFactory) {
         val fileReader = ComposeFileReader()
         val userListRepository = remember(dbDriverFactory) { SQLDelightUserListRepository(dbDriverFactory) }
         val prefsRepository = remember(dbDriverFactory) { SqlDelightUserPreferencesRepository(dbDriverFactory) }
+        LaunchedEffect(prefsRepository) { prefsRepository.initialize() }
 
         NavDisplay(
             backStack = backStack,
@@ -133,7 +135,7 @@ fun App(dbDriverFactory: DatabaseDriverFactory) {
 
                 handleUserListRoutes(UserListRouterImpl(backStack), userListRepository)
 
-                handleSettingsRoutes(backStack, prefsRepository)
+                handleSettingsRoutes(backStack)
             },
         )
     }
