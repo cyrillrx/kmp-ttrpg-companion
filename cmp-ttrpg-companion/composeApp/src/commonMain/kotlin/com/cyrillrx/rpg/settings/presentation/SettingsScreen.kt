@@ -13,6 +13,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
@@ -81,11 +82,13 @@ private fun ThemeSection(
     selectedTheme: Theme,
     onThemeSelected: (Theme) -> Unit,
 ) {
-    val options: List<Pair<Theme, StringResource>> = listOf(
-        Theme.LIGHT to Res.string.settings_theme_light,
-        Theme.DARK to Res.string.settings_theme_dark,
-        Theme.SYSTEM to Res.string.settings_theme_system,
-    )
+    val options = remember {
+        listOf(
+            Theme.LIGHT to Res.string.settings_theme_light,
+            Theme.DARK to Res.string.settings_theme_dark,
+            Theme.SYSTEM to Res.string.settings_theme_system,
+        )
+    }
 
     Text(
         text = stringResource(Res.string.settings_section_theme),
