@@ -27,12 +27,15 @@ import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
+import com.cyrillrx.rpg.character.domain.coerceToValidWalkSpeedInFeet
+import com.cyrillrx.rpg.character.domain.coerceToValidWalkSpeedInMeters
+import com.cyrillrx.rpg.character.domain.walkSpeedMetersToFeet
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
 import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
-import com.cyrillrx.rpg.settings.domain.DistanceUnit
 import com.cyrillrx.rpg.creature.domain.Creature
+import com.cyrillrx.rpg.settings.domain.DistanceUnit
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.background_none
@@ -162,8 +165,8 @@ internal fun CharacterEditDialog(
                 initialValue = displayValue,
                 onConfirm = { entered ->
                     val feet = when (unit) {
-                        DistanceUnit.FEET -> entered
-                        DistanceUnit.METERS -> entered * 10 / 3
+                        DistanceUnit.FEET -> entered.coerceToValidWalkSpeedInFeet()
+                        DistanceUnit.METERS -> entered.coerceToValidWalkSpeedInMeters().walkSpeedMetersToFeet()
                     }
                     onWalkSpeedConfirmed(feet)
                 },

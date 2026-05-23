@@ -11,7 +11,7 @@ import com.cyrillrx.rpg.character.domain.coerceToValidAbilityScore
 import com.cyrillrx.rpg.character.domain.coerceToValidArmorClass
 import com.cyrillrx.rpg.character.domain.coerceToValidCharacterLevel
 import com.cyrillrx.rpg.character.domain.coerceToValidMaxHitPoints
-import com.cyrillrx.rpg.character.domain.coerceToValidWalkSpeed
+import com.cyrillrx.rpg.character.domain.coerceToValidWalkSpeedInFeet
 import com.cyrillrx.rpg.character.domain.defaultWalkSpeed
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded
@@ -99,7 +99,7 @@ class CharacterEditViewModel(
         copy(character = character.copy(maxHitPoints = coerced), editingField = null)
     }
 
-    fun saveWalkSpeed(value: Int) = updateAndSave(value, Int::coerceToValidWalkSpeed) { coerced ->
+    fun saveWalkSpeed(value: Int) = updateAndSave(value, Int::coerceToValidWalkSpeedInFeet) { coerced ->
         copy(character = character.copy(speeds = character.speeds.copy(walk = coerced)), editingField = null)
     }
 
