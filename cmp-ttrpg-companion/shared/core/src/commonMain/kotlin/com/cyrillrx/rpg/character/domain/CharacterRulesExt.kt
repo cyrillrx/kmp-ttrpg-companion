@@ -55,5 +55,3 @@ fun Float.coerceToValidWalkSpeedInMeters(): Float =
     coerceToNearestStep(step = WALK_SPEED_STEP_M, min = WALK_SPEED_MIN_M, max = WALK_SPEED_MAX_M)
 
 fun Int.coerceToValidWalkSpeedInMeters(): Float = toFloat().coerceToValidWalkSpeedInMeters()
-
-fun Float.walkSpeedMetersToFeet(): Int = (this / WALK_SPEED_STEP_M * WALK_SPEED_STEP_FT).roundToInt()
