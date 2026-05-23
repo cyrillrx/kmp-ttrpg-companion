@@ -27,8 +27,6 @@ import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
-import com.cyrillrx.rpg.character.domain.coerceToValidWalkSpeedInFeet
-import com.cyrillrx.rpg.character.domain.coerceToValidWalkSpeedInMeters
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
 import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
@@ -168,13 +166,14 @@ internal fun CharacterEditDialog(
                 DistanceUnit.FEET -> NumberEditDialog(
                     title = title,
                     initialValue = walkFeet,
-                    onConfirm = { entered -> onWalkSpeedConfirmed(entered.coerceToValidWalkSpeedInFeet()) },
+                    onConfirm = onWalkSpeedConfirmed,
                     onDismiss = onDismiss,
                 )
+
                 DistanceUnit.METERS -> FloatEditDialog(
                     title = title,
                     initialValue = walkFeet.feetToMeters(),
-                    onConfirm = { entered -> onWalkSpeedConfirmed(entered.coerceToValidWalkSpeedInMeters().metersToFeet()) },
+                    onConfirm = { entered -> onWalkSpeedConfirmed(entered.metersToFeet()) },
                     onDismiss = onDismiss,
                 )
             }
