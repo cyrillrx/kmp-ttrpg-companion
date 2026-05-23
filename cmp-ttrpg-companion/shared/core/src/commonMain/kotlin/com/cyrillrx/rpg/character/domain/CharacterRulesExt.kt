@@ -1,5 +1,7 @@
 package com.cyrillrx.rpg.character.domain
 
+import com.cyrillrx.rpg.dnd.domain.DND_FEET_STEP
+import com.cyrillrx.rpg.dnd.domain.DND_METERS_STEP
 import kotlin.math.roundToInt
 
 private const val WALK_SPEED_SLOW_FT = 25
@@ -9,8 +11,6 @@ private const val WALK_SPEED_MIN_FT = 25
 private const val WALK_SPEED_MAX_FT = 120
 private const val WALK_SPEED_MIN_M = 7.5f
 private const val WALK_SPEED_MAX_M = 36f
-private const val WALK_SPEED_STEP_FT = 5
-private const val WALK_SPEED_STEP_M = 1.5f
 
 fun Race.defaultWalkSpeed(): Int = when (this) {
     Race.HUMAN -> WALK_SPEED_STANDARD_FT
@@ -29,10 +29,10 @@ fun isValidAbilityScore(value: Int): Boolean = value in 1..30
 fun isValidArmorClass(value: Int): Boolean = value in 0..30
 fun isValidMaxHitPoints(value: Int): Boolean = value >= 1
 fun isValidWalkSpeedInFeet(value: Int): Boolean =
-    value in WALK_SPEED_MIN_FT..WALK_SPEED_MAX_FT && value % WALK_SPEED_STEP_FT == 0
+    value in WALK_SPEED_MIN_FT..WALK_SPEED_MAX_FT && value % DND_FEET_STEP == 0
 
 fun isValidWalkSpeedInMeters(value: Float): Boolean =
-    value in WALK_SPEED_MIN_M..WALK_SPEED_MAX_M && value % WALK_SPEED_STEP_M == 0f
+    value in WALK_SPEED_MIN_M..WALK_SPEED_MAX_M && value % DND_METERS_STEP == 0f
 
 fun Int.coerceToValidCharacterLevel(): Int = coerceIn(1, 20)
 fun Int.coerceToValidAbilityScore(): Int = coerceIn(1, 30)
@@ -46,12 +46,12 @@ private fun Float.coerceToNearestStep(step: Float, min: Float, max: Float): Floa
 
 fun Int.coerceToValidWalkSpeedInFeet(): Int =
     toFloat().coerceToNearestStep(
-        step = WALK_SPEED_STEP_FT.toFloat(),
+        step = DND_FEET_STEP.toFloat(),
         min = WALK_SPEED_MIN_FT.toFloat(),
         max = WALK_SPEED_MAX_FT.toFloat(),
     ).roundToInt()
 
 fun Float.coerceToValidWalkSpeedInMeters(): Float =
-    coerceToNearestStep(step = WALK_SPEED_STEP_M, min = WALK_SPEED_MIN_M, max = WALK_SPEED_MAX_M)
+    coerceToNearestStep(step = DND_METERS_STEP, min = WALK_SPEED_MIN_M, max = WALK_SPEED_MAX_M)
 
 fun Int.coerceToValidWalkSpeedInMeters(): Float = toFloat().coerceToValidWalkSpeedInMeters()
