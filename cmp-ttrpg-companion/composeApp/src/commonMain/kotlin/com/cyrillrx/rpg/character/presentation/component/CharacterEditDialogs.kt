@@ -29,8 +29,12 @@ import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
+import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.creature.domain.Creature
+import com.cyrillrx.rpg.dnd.domain.feetToMeters
+import com.cyrillrx.rpg.dnd.domain.metersToFeet
+import com.cyrillrx.rpg.settings.domain.DistanceUnit
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.background_none
@@ -51,6 +55,8 @@ import rpg_companion.composeapp.generated.resources.label_race
 import rpg_companion.composeapp.generated.resources.label_str
 import rpg_companion.composeapp.generated.resources.label_walk_speed
 import rpg_companion.composeapp.generated.resources.label_wis
+import rpg_companion.composeapp.generated.resources.settings_unit_feet_abbr
+import rpg_companion.composeapp.generated.resources.settings_unit_meters_abbr
 
 @Composable
 internal fun CharacterEditDialog(
@@ -148,12 +154,30 @@ internal fun CharacterEditDialog(
             onDismiss = onDismiss,
         )
 
-        EditingField.WalkSpeed -> NumberEditDialog(
-            title = stringResource(Res.string.label_walk_speed),
-            initialValue = state.character.speeds.walk,
-            onConfirm = onWalkSpeedConfirmed,
-            onDismiss = onDismiss,
-        )
+        EditingField.WalkSpeed -> {
+            val unit = LocalDistanceUnit.current
+            val walkFeet = state.character.speeds.walk
+            val unitAbbrRes = when (unit) {
+                DistanceUnit.FEET -> Res.string.settings_unit_feet_abbr
+                DistanceUnit.METERS -> Res.string.settings_unit_meters_abbr
+            }
+            val title = stringResource(Res.string.label_walk_speed, stringResource(unitAbbrRes))
+            when (unit) {
+                DistanceUnit.FEET -> NumberEditDialog(
+                    title = title,
+                    initialValue = walkFeet,
+                    onConfirm = onWalkSpeedConfirmed,
+                    onDismiss = onDismiss,
+                )
+
+                DistanceUnit.METERS -> FloatEditDialog(
+                    title = title,
+                    initialValue = walkFeet.feetToMeters(),
+                    onConfirm = { entered -> onWalkSpeedConfirmed(entered.metersToFeet()) },
+                    onDismiss = onDismiss,
+                )
+            }
+        }
 
         EditingField.Race -> SingleChoiceDialog(
             title = stringResource(Res.string.label_race),
@@ -249,6 +273,47 @@ private fun NumberEditDialog(
                 onValueChange = { text = it },
                 singleLine = true,
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                colors = TextFieldDefaults.colors(
+                    focusedContainerColor = MaterialTheme.colorScheme.surface,
+                    unfocusedContainerColor = MaterialTheme.colorScheme.surface,
+                ),
+            )
+        },
+        confirmButton = {
+            TextButton(
+                onClick = { parsedValue?.let(onConfirm) },
+                enabled = parsedValue != null,
+            ) {
+                Text(stringResource(Res.string.btn_confirm))
+            }
+        },
+        dismissButton = {
+            TextButton(onClick = onDismiss) {
+                Text(stringResource(Res.string.btn_cancel))
+            }
+        },
+    )
+}
+
+@Composable
+private fun FloatEditDialog(
+    title: String,
+    initialValue: Float,
+    onConfirm: (Float) -> Unit,
+    onDismiss: () -> Unit,
+) {
+    val initialText = if (initialValue % 1 == 0f) initialValue.toInt().toString() else initialValue.toString()
+    var text by remember(initialValue) { mutableStateOf(initialText) }
+    val parsedValue = text.trim().toFloatOrNull()
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text(title) },
+        text = {
+            TextField(
+                value = text,
+                onValueChange = { text = it },
+                singleLine = true,
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
                 colors = TextFieldDefaults.colors(
                     focusedContainerColor = MaterialTheme.colorScheme.surface,
                     unfocusedContainerColor = MaterialTheme.colorScheme.surface,

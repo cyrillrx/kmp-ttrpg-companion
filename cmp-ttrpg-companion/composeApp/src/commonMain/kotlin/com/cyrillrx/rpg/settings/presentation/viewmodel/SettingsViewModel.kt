@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.CreationExtras
+import com.cyrillrx.rpg.settings.domain.DistanceUnit
 import com.cyrillrx.rpg.settings.domain.Theme
 import com.cyrillrx.rpg.settings.domain.UserPreferences
 import com.cyrillrx.rpg.settings.domain.UserPreferencesRepository
@@ -19,6 +20,10 @@ class SettingsViewModel(
 
     fun setTheme(theme: Theme) {
         viewModelScope.launch { prefsRepository.setTheme(theme) }
+    }
+
+    fun setDistanceUnit(unit: DistanceUnit) {
+        viewModelScope.launch { prefsRepository.setDistanceUnit(unit) }
     }
 }
 

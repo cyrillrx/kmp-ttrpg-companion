@@ -3,8 +3,20 @@ package com.cyrillrx.rpg.core.presentation.component.dnd
 import androidx.compose.runtime.Composable
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.Speeds
+import com.cyrillrx.rpg.dnd.domain.feetToMeters
+import com.cyrillrx.rpg.settings.domain.DistanceUnit
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
+import rpg_companion.composeapp.generated.resources.alignment_short_chaotic_evil
+import rpg_companion.composeapp.generated.resources.alignment_short_chaotic_good
+import rpg_companion.composeapp.generated.resources.alignment_short_chaotic_neutral
+import rpg_companion.composeapp.generated.resources.alignment_short_lawful_evil
+import rpg_companion.composeapp.generated.resources.alignment_short_lawful_good
+import rpg_companion.composeapp.generated.resources.alignment_short_lawful_neutral
+import rpg_companion.composeapp.generated.resources.alignment_short_neutral
+import rpg_companion.composeapp.generated.resources.alignment_short_neutral_evil
+import rpg_companion.composeapp.generated.resources.alignment_short_neutral_good
+import rpg_companion.composeapp.generated.resources.alignment_short_unknown
 import rpg_companion.composeapp.generated.resources.creature_alignment_chaotic_evil
 import rpg_companion.composeapp.generated.resources.creature_alignment_chaotic_good
 import rpg_companion.composeapp.generated.resources.creature_alignment_chaotic_neutral
@@ -22,16 +34,6 @@ import rpg_companion.composeapp.generated.resources.creature_size_medium
 import rpg_companion.composeapp.generated.resources.creature_size_small
 import rpg_companion.composeapp.generated.resources.creature_size_tiny
 import rpg_companion.composeapp.generated.resources.creature_size_unknown
-import rpg_companion.composeapp.generated.resources.alignment_short_chaotic_evil
-import rpg_companion.composeapp.generated.resources.alignment_short_chaotic_good
-import rpg_companion.composeapp.generated.resources.alignment_short_chaotic_neutral
-import rpg_companion.composeapp.generated.resources.alignment_short_lawful_evil
-import rpg_companion.composeapp.generated.resources.alignment_short_lawful_good
-import rpg_companion.composeapp.generated.resources.alignment_short_lawful_neutral
-import rpg_companion.composeapp.generated.resources.alignment_short_neutral
-import rpg_companion.composeapp.generated.resources.alignment_short_neutral_evil
-import rpg_companion.composeapp.generated.resources.alignment_short_neutral_good
-import rpg_companion.composeapp.generated.resources.alignment_short_unknown
 import rpg_companion.composeapp.generated.resources.speed_label_burrow
 import rpg_companion.composeapp.generated.resources.speed_label_climb
 import rpg_companion.composeapp.generated.resources.speed_label_fly
@@ -52,20 +54,22 @@ fun Creature.Size.toFormattedString(): String {
     return stringResource(stringRes)
 }
 
-private fun Int.toMetersDisplay(): String {
-    val halfMeters = this * 3 / 5
-    return if (halfMeters % 2 == 0) "${halfMeters / 2} m" else "${halfMeters / 2},5 m"
+private fun Float.toMetersString(): String =
+    if (this % 1 == 0f) "${this.toInt()} m" else "$this m"
+
+internal fun Int.toDistanceString(unit: DistanceUnit): String = when (unit) {
+    DistanceUnit.FEET -> "$this ft."
+    DistanceUnit.METERS -> feetToMeters().toMetersString()
 }
 
 @Composable
-fun Speeds.toFormattedString(useFeet: Boolean): String {
+fun Speeds.toFormattedString(unit: DistanceUnit): String {
     val flyLabel = stringResource(Res.string.speed_label_fly)
     val swimLabel = stringResource(Res.string.speed_label_swim)
     val climbLabel = stringResource(Res.string.speed_label_climb)
     val burrowLabel = stringResource(Res.string.speed_label_burrow)
     val hoverLabel = stringResource(Res.string.speed_label_hover)
-
-    fun Int.format() = if (useFeet) "$this ft." else toMetersDisplay()
+    fun Int.format() = toDistanceString(unit)
 
     return buildList {
         add(walk.format())
