@@ -57,6 +57,8 @@ import rpg_companion.composeapp.generated.resources.label_race
 import rpg_companion.composeapp.generated.resources.label_str
 import rpg_companion.composeapp.generated.resources.label_walk_speed
 import rpg_companion.composeapp.generated.resources.label_wis
+import rpg_companion.composeapp.generated.resources.settings_unit_feet_abbr
+import rpg_companion.composeapp.generated.resources.settings_unit_meters_abbr
 
 @Composable
 internal fun CharacterEditDialog(
@@ -157,15 +159,20 @@ internal fun CharacterEditDialog(
         EditingField.WalkSpeed -> {
             val unit = LocalDistanceUnit.current
             val walkFeet = state.character.speeds.walk
+            val unitAbbrRes = when (unit) {
+                DistanceUnit.FEET -> Res.string.settings_unit_feet_abbr
+                DistanceUnit.METERS -> Res.string.settings_unit_meters_abbr
+            }
+            val title = stringResource(Res.string.label_walk_speed, stringResource(unitAbbrRes))
             when (unit) {
                 DistanceUnit.FEET -> NumberEditDialog(
-                    title = stringResource(Res.string.label_walk_speed),
+                    title = title,
                     initialValue = walkFeet,
                     onConfirm = { entered -> onWalkSpeedConfirmed(entered.coerceToValidWalkSpeedInFeet()) },
                     onDismiss = onDismiss,
                 )
                 DistanceUnit.METERS -> FloatEditDialog(
-                    title = stringResource(Res.string.label_walk_speed),
+                    title = title,
                     initialValue = walkFeet.feetToMeters(),
                     onConfirm = { entered -> onWalkSpeedConfirmed(entered.coerceToValidWalkSpeedInMeters().metersToFeet()) },
                     onDismiss = onDismiss,

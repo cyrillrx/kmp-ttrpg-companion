@@ -14,4 +14,6 @@
     <string name="settings_section_distance_unit">Unité de distance</string>
     <string name="settings_unit_feet">Pieds</string>
     <string name="settings_unit_meters">Mètres</string>
+    <string name="settings_unit_feet_abbr">ft.</string>
+    <string name="settings_unit_meters_abbr">m</string>
 </resources>

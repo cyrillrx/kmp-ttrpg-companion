@@ -20,6 +20,8 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.core.domain.toSignedString
+import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
+import com.cyrillrx.rpg.core.presentation.component.dnd.toDistanceString
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.borderAlpha
 import com.cyrillrx.rpg.core.presentation.theme.borderWidth
@@ -28,6 +30,7 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.Ability
+import com.cyrillrx.rpg.settings.domain.DistanceUnit
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.label_ac
@@ -39,10 +42,10 @@ import rpg_companion.composeapp.generated.resources.label_int
 import rpg_companion.composeapp.generated.resources.label_languages
 import rpg_companion.composeapp.generated.resources.label_max_hp
 import rpg_companion.composeapp.generated.resources.label_str
-import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
-import com.cyrillrx.rpg.core.presentation.component.dnd.toDistanceString
 import rpg_companion.composeapp.generated.resources.label_walk_speed
 import rpg_companion.composeapp.generated.resources.label_wis
+import rpg_companion.composeapp.generated.resources.settings_unit_feet_abbr
+import rpg_companion.composeapp.generated.resources.settings_unit_meters_abbr
 
 @Composable
 internal fun SheetDivider(label: String) {
@@ -242,7 +245,15 @@ internal fun WalkSpeedRow(
                 .padding(horizontal = spacingCommon, vertical = spacingMedium),
         ) {
             Text(
-                text = stringResource(Res.string.label_walk_speed),
+                text = stringResource(
+                    Res.string.label_walk_speed,
+                    stringResource(
+                        when (LocalDistanceUnit.current) {
+                            DistanceUnit.FEET -> Res.string.settings_unit_feet_abbr
+                            DistanceUnit.METERS -> Res.string.settings_unit_meters_abbr
+                        },
+                    ),
+                ),
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.weight(0.5f),
