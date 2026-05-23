@@ -9,4 +9,9 @@
     <string name="settings_theme_light">Light</string>
     <string name="settings_theme_dark">Dark</string>
     <string name="settings_theme_system">System</string>
+
+    <!--  Distance unit  -->
+    <string name="settings_section_distance_unit">Distance unit</string>
+    <string name="settings_unit_feet">Feet</string>
+    <string name="settings_unit_meters">Meters</string>
 </resources>

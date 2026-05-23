@@ -9,4 +9,9 @@
     <string name="settings_theme_light">Clair</string>
     <string name="settings_theme_dark">Sombre</string>
     <string name="settings_theme_system">Système</string>
+
+    <!--  Distance unit  -->
+    <string name="settings_section_distance_unit">Unité de distance</string>
+    <string name="settings_unit_feet">Pieds</string>
+    <string name="settings_unit_meters">Mètres</string>
 </resources>

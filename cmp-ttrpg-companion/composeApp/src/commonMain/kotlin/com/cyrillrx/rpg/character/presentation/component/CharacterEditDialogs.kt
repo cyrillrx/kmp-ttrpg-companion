@@ -29,7 +29,9 @@ import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
+import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
+import com.cyrillrx.rpg.settings.domain.DistanceUnit
 import com.cyrillrx.rpg.creature.domain.Creature
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
@@ -148,12 +150,26 @@ internal fun CharacterEditDialog(
             onDismiss = onDismiss,
         )
 
-        EditingField.WalkSpeed -> NumberEditDialog(
-            title = stringResource(Res.string.label_walk_speed),
-            initialValue = state.character.speeds.walk,
-            onConfirm = onWalkSpeedConfirmed,
-            onDismiss = onDismiss,
-        )
+        EditingField.WalkSpeed -> {
+            val unit = LocalDistanceUnit.current
+            val walkFeet = state.character.speeds.walk
+            val displayValue = when (unit) {
+                DistanceUnit.FEET -> walkFeet
+                DistanceUnit.METERS -> walkFeet * 3 / 10
+            }
+            NumberEditDialog(
+                title = stringResource(Res.string.label_walk_speed),
+                initialValue = displayValue,
+                onConfirm = { entered ->
+                    val feet = when (unit) {
+                        DistanceUnit.FEET -> entered
+                        DistanceUnit.METERS -> entered * 10 / 3
+                    }
+                    onWalkSpeedConfirmed(feet)
+                },
+                onDismiss = onDismiss,
+            )
+        }
 
         EditingField.Race -> SingleChoiceDialog(
             title = stringResource(Res.string.label_race),

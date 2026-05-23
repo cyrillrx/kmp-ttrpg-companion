@@ -19,6 +19,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
+import com.cyrillrx.rpg.settings.domain.DistanceUnit
 import com.cyrillrx.rpg.settings.domain.Theme
 import com.cyrillrx.rpg.settings.domain.UserPreferences
 import com.cyrillrx.rpg.settings.domain.UserPreferencesRepository
@@ -29,10 +30,13 @@ import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
+import rpg_companion.composeapp.generated.resources.settings_section_distance_unit
 import rpg_companion.composeapp.generated.resources.settings_section_theme
 import rpg_companion.composeapp.generated.resources.settings_theme_dark
 import rpg_companion.composeapp.generated.resources.settings_theme_light
 import rpg_companion.composeapp.generated.resources.settings_theme_system
+import rpg_companion.composeapp.generated.resources.settings_unit_feet
+import rpg_companion.composeapp.generated.resources.settings_unit_meters
 import rpg_companion.composeapp.generated.resources.title_settings
 
 @Composable
@@ -45,6 +49,7 @@ fun SettingsScreen(
     SettingsScreen(
         preferences = preferences,
         onThemeSelected = viewModel::setTheme,
+        onDistanceUnitSelected = viewModel::setDistanceUnit,
         router = router,
     )
 }
@@ -53,6 +58,7 @@ fun SettingsScreen(
 fun SettingsScreen(
     preferences: UserPreferences,
     onThemeSelected: (Theme) -> Unit,
+    onDistanceUnitSelected: (DistanceUnit) -> Unit,
     router: SettingsRouter,
 ) {
     Scaffold(
@@ -72,6 +78,10 @@ fun SettingsScreen(
             ThemeSection(
                 selectedTheme = preferences.theme,
                 onThemeSelected = onThemeSelected,
+            )
+            DistanceUnitSection(
+                selectedUnit = preferences.distanceUnit,
+                onUnitSelected = onDistanceUnitSelected,
             )
         }
     }
@@ -107,6 +117,35 @@ private fun ThemeSection(
     }
 }
 
+@Composable
+private fun DistanceUnitSection(
+    selectedUnit: DistanceUnit,
+    onUnitSelected: (DistanceUnit) -> Unit,
+) {
+    val options = remember {
+        listOf(
+            DistanceUnit.FEET to Res.string.settings_unit_feet,
+            DistanceUnit.METERS to Res.string.settings_unit_meters,
+        )
+    }
+
+    Text(
+        text = stringResource(Res.string.settings_section_distance_unit),
+        style = MaterialTheme.typography.titleMedium,
+        modifier = Modifier.padding(top = spacingCommon, bottom = spacingCommon),
+    )
+    SingleChoiceSegmentedButtonRow(modifier = Modifier.fillMaxWidth()) {
+        options.forEachIndexed { index, (unit, labelRes) ->
+            SegmentedButton(
+                selected = selectedUnit == unit,
+                onClick = { onUnitSelected(unit) },
+                shape = SegmentedButtonDefaults.itemShape(index = index, count = options.size),
+                label = { Text(stringResource(labelRes)) },
+            )
+        }
+    }
+}
+
 @Preview
 @Composable
 private fun PreviewSettingsScreenLight() {
@@ -114,6 +153,7 @@ private fun PreviewSettingsScreenLight() {
         SettingsScreen(
             preferences = UserPreferences(theme = Theme.LIGHT),
             onThemeSelected = {},
+            onDistanceUnitSelected = {},
             router = object : SettingsRouter { override fun navigateUp() {} },
         )
     }
@@ -126,6 +166,7 @@ private fun PreviewSettingsScreenDark() {
         SettingsScreen(
             preferences = UserPreferences(theme = Theme.DARK),
             onThemeSelected = {},
+            onDistanceUnitSelected = {},
             router = object : SettingsRouter { override fun navigateUp() {} },
         )
     }
