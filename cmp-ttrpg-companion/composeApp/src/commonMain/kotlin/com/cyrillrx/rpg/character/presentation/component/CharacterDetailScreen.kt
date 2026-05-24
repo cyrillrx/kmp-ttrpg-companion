@@ -16,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalFocusManager
@@ -25,9 +26,12 @@ import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
+import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
+import com.cyrillrx.rpg.core.presentation.component.dnd.toDistanceString
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
+import com.cyrillrx.rpg.character.presentation.CoercedValue
 import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
 import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterEditViewModel
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
@@ -54,9 +58,14 @@ fun CharacterDetailScreen(
     val state by viewModel.state.collectAsStateWithLifecycle()
     val snackbarHostState = remember { SnackbarHostState() }
     val coercedMessage = stringResource(Res.string.info_value_coerced)
+    val unit by rememberUpdatedState(LocalDistanceUnit.current)
     LaunchedEffect(viewModel) {
-        viewModel.coercedValueEvent.collect { coerced ->
-            snackbarHostState.showSnackbar(coercedMessage.format(coerced))
+        viewModel.coercedValueEvent.collect { event ->
+            val (from, to) = when (event) {
+                is CoercedValue.Numeric -> event.original.toString() to event.coerced.toString()
+                is CoercedValue.Distance -> event.originalFeet.toDistanceString(unit) to event.coercedFeet.toDistanceString(unit)
+            }
+            snackbarHostState.showSnackbar(coercedMessage.format(from, to))
         }
     }
     when (val s = state) {
