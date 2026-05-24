@@ -9,6 +9,7 @@ import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
+import com.cyrillrx.rpg.character.presentation.CoercedValue
 import com.cyrillrx.rpg.creature.domain.Creature
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -24,6 +25,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertIs
 import kotlin.test.assertNull
+import kotlin.test.assertTrue
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class CharacterEditViewModelTest {
@@ -229,15 +231,15 @@ class CharacterEditViewModelTest {
     // ─── coercedValueEvent ────────────────────────────────────────────────────
 
     @Test
-    fun `coercedValueEvent emits coerced value when input is out of range`() = runTest(testDispatcher) {
+    fun `coercedValueEvent emits Numeric when level is out of range`() = runTest(testDispatcher) {
         val viewModel = buildViewModel(repo = repoWithFighter())
         advanceUntilIdle()
-        val events = mutableListOf<Int>()
+        val events = mutableListOf<CoercedValue>()
         val job = launch { viewModel.coercedValueEvent.collect { events.add(it) } }
         advanceUntilIdle()
         viewModel.saveLevel(25)  // max is 20, coerced to 20
         advanceUntilIdle()
-        assertEquals(listOf(20), events)
+        assertEquals(listOf<CoercedValue>(CoercedValue.Numeric(25, 20)), events)
         job.cancel()
     }
 
@@ -245,12 +247,25 @@ class CharacterEditViewModelTest {
     fun `coercedValueEvent does not emit when input is already valid`() = runTest(testDispatcher) {
         val viewModel = buildViewModel(repo = repoWithFighter())
         advanceUntilIdle()
-        val events = mutableListOf<Int>()
+        val events = mutableListOf<CoercedValue>()
         val job = launch { viewModel.coercedValueEvent.collect { events.add(it) } }
         advanceUntilIdle()
         viewModel.saveLevel(5)  // valid, no coercion
         advanceUntilIdle()
-        assertEquals(emptyList<Int>(), events)
+        assertTrue(events.isEmpty())
+        job.cancel()
+    }
+
+    @Test
+    fun `coercedValueEvent emits Distance when walk speed is invalid`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(repo = repoWithFighter())
+        advanceUntilIdle()
+        val events = mutableListOf<CoercedValue>()
+        val job = launch { viewModel.coercedValueEvent.collect { events.add(it) } }
+        advanceUntilIdle()
+        viewModel.saveWalkSpeed(27)  // not a multiple of 5, coerced to 25
+        advanceUntilIdle()
+        assertEquals(listOf<CoercedValue>(CoercedValue.Distance(27, 25)), events)
         job.cancel()
     }
 
