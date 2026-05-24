@@ -58,12 +58,12 @@ fun CharacterDetailScreen(
     val state by viewModel.state.collectAsStateWithLifecycle()
     val snackbarHostState = remember { SnackbarHostState() }
     val coercedMessage = stringResource(Res.string.info_value_coerced)
-    val unit by rememberUpdatedState(LocalDistanceUnit.current)
+    val distanceUnit by rememberUpdatedState(LocalDistanceUnit.current)
     LaunchedEffect(viewModel) {
         viewModel.coercedValueEvent.collect { event ->
             val (from, to) = when (event) {
                 is CoercedValue.Numeric -> event.original.toString() to event.coerced.toString()
-                is CoercedValue.Distance -> event.originalFeet.toDistanceString(unit) to event.coercedFeet.toDistanceString(unit)
+                is CoercedValue.Distance -> event.originalFeet.toDistanceString(distanceUnit) to event.coercedFeet.toDistanceString(distanceUnit)
             }
             snackbarHostState.showSnackbar(coercedMessage.format(from, to))
         }
