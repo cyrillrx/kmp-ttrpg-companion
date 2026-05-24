@@ -16,6 +16,7 @@ import com.cyrillrx.rpg.character.domain.defaultWalkSpeed
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
+import com.cyrillrx.rpg.character.presentation.CoercedValue
 import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
 import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.Ability
@@ -36,8 +37,8 @@ class CharacterEditViewModel(
     val state: StateFlow<CharacterEditState>
         field = MutableStateFlow<CharacterEditState>(CharacterEditState.Loading)
 
-    val coercedValueEvent: SharedFlow<Int>
-        field = MutableSharedFlow<Int>(extraBufferCapacity = 1)
+    val coercedValueEvent: SharedFlow<CoercedValue>
+        field = MutableSharedFlow<CoercedValue>(extraBufferCapacity = 1)
 
     init {
         viewModelScope.launch {
@@ -99,8 +100,10 @@ class CharacterEditViewModel(
         copy(character = character.copy(maxHitPoints = coerced), editingField = null)
     }
 
-    fun saveWalkSpeed(value: Int) = updateAndSave(value, Int::coerceToValidWalkSpeedInFeet) { coerced ->
-        copy(character = character.copy(speeds = character.speeds.copy(walk = coerced)), editingField = null)
+    fun saveWalkSpeed(value: Int) {
+        val coerced = value.coerceToValidWalkSpeedInFeet()
+        if (coerced != value) coercedValueEvent.tryEmit(CoercedValue.Distance(value, coerced))
+        updateAndSave { copy(character = character.copy(speeds = character.speeds.copy(walk = coerced)), editingField = null) }
     }
 
     fun saveLanguages(languages: List<Language>) {
@@ -128,7 +131,7 @@ class CharacterEditViewModel(
 
     private fun updateAndSave(candidate: Int, coerce: (Int) -> Int, applyEdit: Loaded.(Int) -> Loaded) {
         val coerced = coerce(candidate)
-        if (coerced != candidate) coercedValueEvent.tryEmit(coerced)
+        if (coerced != candidate) coercedValueEvent.tryEmit(CoercedValue.Numeric(candidate, coerced))
         updateAndSave { applyEdit(coerced) }
     }
 
