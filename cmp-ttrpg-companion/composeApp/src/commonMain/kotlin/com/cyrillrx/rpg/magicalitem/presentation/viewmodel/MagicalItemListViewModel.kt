@@ -9,7 +9,9 @@ import com.cyrillrx.rpg.magicalitem.domain.MagicalItemRepository
 import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemListState
 import com.cyrillrx.rpg.magicalitem.presentation.navigation.MagicalItemRouter
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -25,6 +27,14 @@ class MagicalItemListViewModel(
     private var updateJob: Job? = null
     val state: StateFlow<MagicalItemListState>
         field = MutableStateFlow(MagicalItemListState(body = MagicalItemListState.Body.Empty))
+
+    var savedScrollIndex: Int = 0
+        private set
+
+    val scrollToTopEvents: SharedFlow<Unit>
+        field = MutableSharedFlow(replay = 0)
+
+    fun saveScrollIndex(index: Int) { savedScrollIndex = index }
 
     init {
         refreshData()
@@ -52,6 +62,7 @@ class MagicalItemListViewModel(
 
     private fun updateFilter(transform: (MagicalItemFilter) -> MagicalItemFilter) {
         state.update { it.copy(filter = transform(it.filter)) }
+        scrollToTopEvents.tryEmit(Unit)
         refreshData()
     }
 

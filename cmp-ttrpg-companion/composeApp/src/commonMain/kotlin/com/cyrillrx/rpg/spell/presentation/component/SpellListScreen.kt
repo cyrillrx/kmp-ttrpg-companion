@@ -13,6 +13,10 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.snapshotFlow
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.flow.emptyFlow
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -60,6 +64,9 @@ fun SpellListScreen(
         onClassToggled = viewModel::onClassToggled,
         onResetFilters = viewModel::onResetFilters,
         addToListProvider = addToListProvider,
+        initialScrollIndex = viewModel.savedScrollIndex,
+        scrollToTopEvents = viewModel.scrollToTopEvents,
+        onScrollIndexChanged = viewModel::saveScrollIndex,
     )
 }
 
@@ -74,6 +81,9 @@ fun SpellListScreen(
     onClassToggled: (Character.Class) -> Unit,
     onResetFilters: () -> Unit,
     addToListProvider: AddToListProvider<Spell>,
+    initialScrollIndex: Int = 0,
+    scrollToTopEvents: Flow<Unit> = emptyFlow(),
+    onScrollIndexChanged: (Int) -> Unit = {},
 ) {
     var showFilterSheet by remember { mutableStateOf(false) }
     var spellToAdd by remember { mutableStateOf<Spell?>(null) }
@@ -104,6 +114,9 @@ fun SpellListScreen(
                     spells = body.searchResults,
                     onSpellClicked = onSpellClicked,
                     showAddToList = { spell -> spellToAdd = spell },
+                    initialScrollIndex = initialScrollIndex,
+                    scrollToTopEvents = scrollToTopEvents,
+                    onScrollIndexChanged = onScrollIndexChanged,
                 )
             }
         }
@@ -133,10 +146,17 @@ private fun SpellList(
     spells: List<Spell>,
     onSpellClicked: (Spell) -> Unit,
     showAddToList: (Spell) -> Unit,
+    initialScrollIndex: Int,
+    scrollToTopEvents: Flow<Unit>,
+    onScrollIndexChanged: (Int) -> Unit,
 ) {
-    val searchResultsListState = rememberLazyListState()
-    LaunchedEffect(spells) {
-        searchResultsListState.animateScrollToItem(0)
+    val searchResultsListState = rememberLazyListState(initialFirstVisibleItemIndex = initialScrollIndex)
+    LaunchedEffect(Unit) {
+        scrollToTopEvents.collect { searchResultsListState.scrollToItem(0) }
+    }
+    LaunchedEffect(searchResultsListState) {
+        snapshotFlow { searchResultsListState.firstVisibleItemIndex }
+            .collect(onScrollIndexChanged)
     }
 
     LazyColumn(

@@ -9,7 +9,9 @@ import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.creature.presentation.MonsterListState
 import com.cyrillrx.rpg.creature.presentation.navigation.MonsterRouter
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -25,6 +27,14 @@ class MonsterListViewModel(
     private var updateJob: Job? = null
     val state: StateFlow<MonsterListState>
         field = MutableStateFlow(MonsterListState(body = MonsterListState.Body.Empty))
+
+    var savedScrollIndex: Int = 0
+        private set
+
+    val scrollToTopEvents: SharedFlow<Unit>
+        field = MutableSharedFlow(replay = 0)
+
+    fun saveScrollIndex(index: Int) { savedScrollIndex = index }
 
     init {
         refreshData()
@@ -52,6 +62,7 @@ class MonsterListViewModel(
 
     private fun updateFilter(transform: (MonsterFilter) -> MonsterFilter) {
         state.update { it.copy(filter = transform(it.filter)) }
+        scrollToTopEvents.tryEmit(Unit)
         refreshData()
     }
 

@@ -13,6 +13,10 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.snapshotFlow
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.flow.emptyFlow
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -58,6 +62,9 @@ fun MagicalItemListScreen(
         onRarityToggled = viewModel::onRarityToggled,
         onResetFilters = viewModel::onResetFilters,
         addToListProvider = addToListProvider,
+        initialScrollIndex = viewModel.savedScrollIndex,
+        scrollToTopEvents = viewModel.scrollToTopEvents,
+        onScrollIndexChanged = viewModel::saveScrollIndex,
     )
 }
 
@@ -71,6 +78,9 @@ fun MagicalItemListScreen(
     onRarityToggled: (MagicalItem.Rarity) -> Unit,
     onResetFilters: () -> Unit,
     addToListProvider: AddToListProvider<MagicalItem>,
+    initialScrollIndex: Int = 0,
+    scrollToTopEvents: Flow<Unit> = emptyFlow(),
+    onScrollIndexChanged: (Int) -> Unit = {},
 ) {
     var showFilterSheet by remember { mutableStateOf(false) }
     var itemToAdd by remember { mutableStateOf<MagicalItem?>(null) }
@@ -101,6 +111,9 @@ fun MagicalItemListScreen(
                     magicalItems = body.searchResults,
                     onMagicalItemClicked = onMagicalItemClicked,
                     showAddToList = { item -> itemToAdd = item },
+                    initialScrollIndex = initialScrollIndex,
+                    scrollToTopEvents = scrollToTopEvents,
+                    onScrollIndexChanged = onScrollIndexChanged,
                 )
             }
         }
@@ -129,10 +142,17 @@ private fun MagicalItemList(
     magicalItems: List<MagicalItem>,
     onMagicalItemClicked: (MagicalItem) -> Unit,
     showAddToList: (MagicalItem) -> Unit,
+    initialScrollIndex: Int,
+    scrollToTopEvents: Flow<Unit>,
+    onScrollIndexChanged: (Int) -> Unit,
 ) {
-    val listState = rememberLazyListState()
-    LaunchedEffect(magicalItems) {
-        listState.animateScrollToItem(0)
+    val listState = rememberLazyListState(initialFirstVisibleItemIndex = initialScrollIndex)
+    LaunchedEffect(Unit) {
+        scrollToTopEvents.collect { listState.scrollToItem(0) }
+    }
+    LaunchedEffect(listState) {
+        snapshotFlow { listState.firstVisibleItemIndex }
+            .collect(onScrollIndexChanged)
     }
 
     LazyColumn(
