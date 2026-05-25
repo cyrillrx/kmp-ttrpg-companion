@@ -1,17 +1,15 @@
 package com.cyrillrx.rpg.magicalitem.presentation.viewmodel
 
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.core.domain.toggled
+import com.cyrillrx.rpg.core.presentation.viewmodel.BaseListViewModel
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemFilter
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemRepository
 import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemListState
 import com.cyrillrx.rpg.magicalitem.presentation.navigation.MagicalItemRouter
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -22,19 +20,11 @@ import kotlin.coroutines.cancellation.CancellationException
 class MagicalItemListViewModel(
     private val router: MagicalItemRouter,
     private val repository: MagicalItemRepository,
-) : ViewModel() {
+) : BaseListViewModel() {
 
     private var updateJob: Job? = null
     val state: StateFlow<MagicalItemListState>
         field = MutableStateFlow(MagicalItemListState(body = MagicalItemListState.Body.Empty))
-
-    var savedScrollIndex: Int = 0
-        private set
-
-    val scrollToTopEvents: SharedFlow<Unit>
-        field = MutableSharedFlow(replay = 0)
-
-    fun saveScrollIndex(index: Int) { savedScrollIndex = index }
 
     init {
         refreshData()
@@ -62,7 +52,7 @@ class MagicalItemListViewModel(
 
     private fun updateFilter(transform: (MagicalItemFilter) -> MagicalItemFilter) {
         state.update { it.copy(filter = transform(it.filter)) }
-        scrollToTopEvents.tryEmit(Unit)
+        scrollToTop()
         refreshData()
     }
 

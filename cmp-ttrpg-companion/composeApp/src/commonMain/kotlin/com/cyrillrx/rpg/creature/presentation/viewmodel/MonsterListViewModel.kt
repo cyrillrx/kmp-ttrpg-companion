@@ -1,17 +1,15 @@
 package com.cyrillrx.rpg.creature.presentation.viewmodel
 
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.core.domain.toggled
+import com.cyrillrx.rpg.core.presentation.viewmodel.BaseListViewModel
 import com.cyrillrx.rpg.creature.domain.MonsterFilter
 import com.cyrillrx.rpg.creature.domain.MonsterRepository
 import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.creature.presentation.MonsterListState
 import com.cyrillrx.rpg.creature.presentation.navigation.MonsterRouter
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -22,19 +20,11 @@ import kotlin.coroutines.cancellation.CancellationException
 class MonsterListViewModel(
     private val router: MonsterRouter,
     private val repository: MonsterRepository,
-) : ViewModel() {
+) : BaseListViewModel() {
 
     private var updateJob: Job? = null
     val state: StateFlow<MonsterListState>
         field = MutableStateFlow(MonsterListState(body = MonsterListState.Body.Empty))
-
-    var savedScrollIndex: Int = 0
-        private set
-
-    val scrollToTopEvents: SharedFlow<Unit>
-        field = MutableSharedFlow(replay = 0)
-
-    fun saveScrollIndex(index: Int) { savedScrollIndex = index }
 
     init {
         refreshData()
@@ -62,7 +52,7 @@ class MonsterListViewModel(
 
     private fun updateFilter(transform: (MonsterFilter) -> MonsterFilter) {
         state.update { it.copy(filter = transform(it.filter)) }
-        scrollToTopEvents.tryEmit(Unit)
+        scrollToTop()
         refreshData()
     }
 

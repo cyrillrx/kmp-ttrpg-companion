@@ -1,18 +1,16 @@
 package com.cyrillrx.rpg.spell.presentation.viewmodel
 
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.core.domain.toggled
+import com.cyrillrx.rpg.core.presentation.viewmodel.BaseListViewModel
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.domain.SpellFilter
 import com.cyrillrx.rpg.spell.domain.SpellRepository
 import com.cyrillrx.rpg.spell.presentation.SpellListState
 import com.cyrillrx.rpg.spell.presentation.navigation.SpellRouter
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -23,19 +21,11 @@ import kotlin.coroutines.cancellation.CancellationException
 class SpellListViewModel(
     private val router: SpellRouter,
     private val repository: SpellRepository,
-) : ViewModel() {
+) : BaseListViewModel() {
 
     private var updateJob: Job? = null
     val state: StateFlow<SpellListState>
         field = MutableStateFlow(SpellListState(body = SpellListState.Body.Empty))
-
-    var savedScrollIndex: Int = 0
-        private set
-
-    val scrollToTopEvents: SharedFlow<Unit>
-        field = MutableSharedFlow(replay = 0)
-
-    fun saveScrollIndex(index: Int) { savedScrollIndex = index }
 
     init {
         refreshData()
@@ -67,7 +57,7 @@ class SpellListViewModel(
 
     private fun updateFilter(transform: (SpellFilter) -> SpellFilter) {
         state.update { it.copy(filter = transform(it.filter)) }
-        scrollToTopEvents.tryEmit(Unit)
+        scrollToTop()
         refreshData()
     }
 

@@ -14,8 +14,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.snapshotFlow
+import com.cyrillrx.rpg.core.presentation.ScrollPosition
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.emptyFlow
 
 import androidx.compose.runtime.mutableStateOf
@@ -64,9 +64,9 @@ fun SpellListScreen(
         onClassToggled = viewModel::onClassToggled,
         onResetFilters = viewModel::onResetFilters,
         addToListProvider = addToListProvider,
-        initialScrollIndex = viewModel.savedScrollIndex,
+        initialScrollPosition = viewModel.savedScrollPosition,
         scrollToTopEvents = viewModel.scrollToTopEvents,
-        onScrollIndexChanged = viewModel::saveScrollIndex,
+        onScrollPositionChanged = viewModel::saveScrollPosition,
     )
 }
 
@@ -81,9 +81,9 @@ fun SpellListScreen(
     onClassToggled: (Character.Class) -> Unit,
     onResetFilters: () -> Unit,
     addToListProvider: AddToListProvider<Spell>,
-    initialScrollIndex: Int = 0,
+    initialScrollPosition: ScrollPosition = ScrollPosition(),
     scrollToTopEvents: Flow<Unit> = emptyFlow(),
-    onScrollIndexChanged: (Int) -> Unit = {},
+    onScrollPositionChanged: (ScrollPosition) -> Unit = {},
 ) {
     var showFilterSheet by remember { mutableStateOf(false) }
     var spellToAdd by remember { mutableStateOf<Spell?>(null) }
@@ -114,9 +114,9 @@ fun SpellListScreen(
                     spells = body.searchResults,
                     onSpellClicked = onSpellClicked,
                     showAddToList = { spell -> spellToAdd = spell },
-                    initialScrollIndex = initialScrollIndex,
+                    initialScrollPosition = initialScrollPosition,
                     scrollToTopEvents = scrollToTopEvents,
-                    onScrollIndexChanged = onScrollIndexChanged,
+                    onScrollPositionChanged = onScrollPositionChanged,
                 )
             }
         }
@@ -146,17 +146,24 @@ private fun SpellList(
     spells: List<Spell>,
     onSpellClicked: (Spell) -> Unit,
     showAddToList: (Spell) -> Unit,
-    initialScrollIndex: Int,
+    initialScrollPosition: ScrollPosition,
     scrollToTopEvents: Flow<Unit>,
-    onScrollIndexChanged: (Int) -> Unit,
+    onScrollPositionChanged: (ScrollPosition) -> Unit,
 ) {
-    val searchResultsListState = rememberLazyListState(initialFirstVisibleItemIndex = initialScrollIndex)
+    val searchResultsListState = rememberLazyListState(
+        initialFirstVisibleItemIndex = initialScrollPosition.index,
+        initialFirstVisibleItemScrollOffset = initialScrollPosition.offset,
+    )
     LaunchedEffect(Unit) {
         scrollToTopEvents.collect { searchResultsListState.scrollToItem(0) }
     }
-    LaunchedEffect(searchResultsListState) {
-        snapshotFlow { searchResultsListState.firstVisibleItemIndex }
-            .collect(onScrollIndexChanged)
+    LaunchedEffect(searchResultsListState, onScrollPositionChanged) {
+        snapshotFlow {
+            ScrollPosition(
+                searchResultsListState.firstVisibleItemIndex,
+                searchResultsListState.firstVisibleItemScrollOffset,
+            )
+        }.collect(onScrollPositionChanged)
     }
 
     LazyColumn(
