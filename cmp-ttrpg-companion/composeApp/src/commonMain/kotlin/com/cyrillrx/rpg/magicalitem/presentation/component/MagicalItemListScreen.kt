@@ -13,6 +13,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.snapshotFlow
 import com.cyrillrx.rpg.core.presentation.ScrollPosition
 import kotlinx.coroutines.flow.Flow
@@ -153,13 +154,14 @@ private fun MagicalItemList(
     LaunchedEffect(Unit) {
         scrollToTopEvents.collect { listState.scrollToItem(0) }
     }
-    LaunchedEffect(listState, onScrollPositionChanged) {
+    val currentOnScrollPositionChanged by rememberUpdatedState(onScrollPositionChanged)
+    LaunchedEffect(listState) {
         snapshotFlow {
             ScrollPosition(
                 listState.firstVisibleItemIndex,
                 listState.firstVisibleItemScrollOffset,
             )
-        }.collect(onScrollPositionChanged)
+        }.collect { currentOnScrollPositionChanged(it) }
     }
 
     LazyColumn(

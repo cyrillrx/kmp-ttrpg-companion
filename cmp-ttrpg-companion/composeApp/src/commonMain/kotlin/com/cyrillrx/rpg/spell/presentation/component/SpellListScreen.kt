@@ -13,6 +13,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.snapshotFlow
 import com.cyrillrx.rpg.core.presentation.ScrollPosition
 import kotlinx.coroutines.flow.Flow
@@ -157,13 +158,14 @@ private fun SpellList(
     LaunchedEffect(Unit) {
         scrollToTopEvents.collect { searchResultsListState.scrollToItem(0) }
     }
-    LaunchedEffect(searchResultsListState, onScrollPositionChanged) {
+    val currentOnScrollPositionChanged by rememberUpdatedState(onScrollPositionChanged)
+    LaunchedEffect(searchResultsListState) {
         snapshotFlow {
             ScrollPosition(
                 searchResultsListState.firstVisibleItemIndex,
                 searchResultsListState.firstVisibleItemScrollOffset,
             )
-        }.collect(onScrollPositionChanged)
+        }.collect { currentOnScrollPositionChanged(it) }
     }
 
     LazyColumn(
