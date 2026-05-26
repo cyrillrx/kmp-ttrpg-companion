@@ -1,8 +1,8 @@
 package com.cyrillrx.rpg.magicalitem.presentation.viewmodel
 
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.core.domain.toggled
+import com.cyrillrx.rpg.core.presentation.viewmodel.BaseListViewModel
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemFilter
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemRepository
@@ -20,7 +20,7 @@ import kotlin.coroutines.cancellation.CancellationException
 class MagicalItemListViewModel(
     private val router: MagicalItemRouter,
     private val repository: MagicalItemRepository,
-) : ViewModel() {
+) : BaseListViewModel() {
 
     private var updateJob: Job? = null
     val state: StateFlow<MagicalItemListState>
@@ -52,6 +52,7 @@ class MagicalItemListViewModel(
 
     private fun updateFilter(transform: (MagicalItemFilter) -> MagicalItemFilter) {
         state.update { it.copy(filter = transform(it.filter)) }
+        scrollToTop()
         refreshData()
     }
 

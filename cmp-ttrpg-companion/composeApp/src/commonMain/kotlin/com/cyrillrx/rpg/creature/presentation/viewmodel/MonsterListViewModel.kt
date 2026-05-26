@@ -1,11 +1,11 @@
 package com.cyrillrx.rpg.creature.presentation.viewmodel
 
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.core.domain.toggled
+import com.cyrillrx.rpg.core.presentation.viewmodel.BaseListViewModel
+import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.creature.domain.MonsterFilter
 import com.cyrillrx.rpg.creature.domain.MonsterRepository
-import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.creature.presentation.MonsterListState
 import com.cyrillrx.rpg.creature.presentation.navigation.MonsterRouter
 import kotlinx.coroutines.Job
@@ -20,7 +20,7 @@ import kotlin.coroutines.cancellation.CancellationException
 class MonsterListViewModel(
     private val router: MonsterRouter,
     private val repository: MonsterRepository,
-) : ViewModel() {
+) : BaseListViewModel() {
 
     private var updateJob: Job? = null
     val state: StateFlow<MonsterListState>
@@ -52,6 +52,7 @@ class MonsterListViewModel(
 
     private fun updateFilter(transform: (MonsterFilter) -> MonsterFilter) {
         state.update { it.copy(filter = transform(it.filter)) }
+        scrollToTop()
         refreshData()
     }
 

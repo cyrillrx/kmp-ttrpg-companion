@@ -15,10 +15,13 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.cyrillrx.rpg.core.presentation.ScrollPosition
 import com.cyrillrx.rpg.core.presentation.component.EmptySearch
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
@@ -35,6 +38,8 @@ import com.cyrillrx.rpg.creature.presentation.navigation.MonsterRouter
 import com.cyrillrx.rpg.creature.presentation.viewmodel.MonsterListViewModel
 import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
 import com.cyrillrx.rpg.userlist.presentation.AddToListProvider
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.emptyFlow
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
@@ -57,6 +62,9 @@ fun MonsterListScreen(
         onChallengeRatingToggled = viewModel::onChallengeRatingToggled,
         onResetFilters = viewModel::onResetFilters,
         addToListProvider = addToListProvider,
+        initialScrollPosition = viewModel.savedScrollPosition,
+        scrollToTopEvents = viewModel.scrollToTopEvents,
+        onScrollPositionChanged = viewModel::saveScrollPosition,
     )
 }
 
@@ -70,6 +78,9 @@ fun MonsterListScreen(
     onChallengeRatingToggled: (Float) -> Unit,
     onResetFilters: () -> Unit,
     addToListProvider: AddToListProvider<Monster>,
+    initialScrollPosition: ScrollPosition = ScrollPosition(),
+    scrollToTopEvents: Flow<Unit> = emptyFlow(),
+    onScrollPositionChanged: (ScrollPosition) -> Unit = {},
 ) {
     var showFilterSheet by remember { mutableStateOf(false) }
     var creatureToAdd by remember { mutableStateOf<Monster?>(null) }
@@ -100,6 +111,9 @@ fun MonsterListScreen(
                     monsters = body.searchResults,
                     onMonsterClicked = onMonsterClicked,
                     showAddToList = { creature -> creatureToAdd = creature },
+                    initialScrollPosition = initialScrollPosition,
+                    scrollToTopEvents = scrollToTopEvents,
+                    onScrollPositionChanged = onScrollPositionChanged,
                 )
             }
         }
@@ -128,10 +142,25 @@ private fun MonsterList(
     monsters: List<Monster>,
     onMonsterClicked: (Monster) -> Unit,
     showAddToList: (Monster) -> Unit,
+    initialScrollPosition: ScrollPosition,
+    scrollToTopEvents: Flow<Unit>,
+    onScrollPositionChanged: (ScrollPosition) -> Unit,
 ) {
-    val listState = rememberLazyListState()
-    LaunchedEffect(monsters) {
-        listState.animateScrollToItem(0)
+    val listState = rememberLazyListState(
+        initialFirstVisibleItemIndex = initialScrollPosition.index,
+        initialFirstVisibleItemScrollOffset = initialScrollPosition.offset,
+    )
+    LaunchedEffect(Unit) {
+        scrollToTopEvents.collect { listState.scrollToItem(0) }
+    }
+    val currentOnScrollPositionChanged by rememberUpdatedState(onScrollPositionChanged)
+    LaunchedEffect(listState) {
+        snapshotFlow {
+            ScrollPosition(
+                listState.firstVisibleItemIndex,
+                listState.firstVisibleItemScrollOffset,
+            )
+        }.collect { currentOnScrollPositionChanged(it) }
     }
 
     LazyColumn(

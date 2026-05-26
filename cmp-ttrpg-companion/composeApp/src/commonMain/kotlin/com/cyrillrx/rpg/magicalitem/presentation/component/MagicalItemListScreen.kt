@@ -13,13 +13,15 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.cyrillrx.rpg.core.presentation.ScrollPosition
 import com.cyrillrx.rpg.core.presentation.component.EmptySearch
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
@@ -36,6 +38,8 @@ import com.cyrillrx.rpg.magicalitem.presentation.navigation.MagicalItemRouter
 import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.MagicalItemListViewModel
 import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
 import com.cyrillrx.rpg.userlist.presentation.AddToListProvider
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.emptyFlow
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
@@ -58,6 +62,9 @@ fun MagicalItemListScreen(
         onRarityToggled = viewModel::onRarityToggled,
         onResetFilters = viewModel::onResetFilters,
         addToListProvider = addToListProvider,
+        initialScrollPosition = viewModel.savedScrollPosition,
+        scrollToTopEvents = viewModel.scrollToTopEvents,
+        onScrollPositionChanged = viewModel::saveScrollPosition,
     )
 }
 
@@ -71,6 +78,9 @@ fun MagicalItemListScreen(
     onRarityToggled: (MagicalItem.Rarity) -> Unit,
     onResetFilters: () -> Unit,
     addToListProvider: AddToListProvider<MagicalItem>,
+    initialScrollPosition: ScrollPosition = ScrollPosition(),
+    scrollToTopEvents: Flow<Unit> = emptyFlow(),
+    onScrollPositionChanged: (ScrollPosition) -> Unit = {},
 ) {
     var showFilterSheet by remember { mutableStateOf(false) }
     var itemToAdd by remember { mutableStateOf<MagicalItem?>(null) }
@@ -101,6 +111,9 @@ fun MagicalItemListScreen(
                     magicalItems = body.searchResults,
                     onMagicalItemClicked = onMagicalItemClicked,
                     showAddToList = { item -> itemToAdd = item },
+                    initialScrollPosition = initialScrollPosition,
+                    scrollToTopEvents = scrollToTopEvents,
+                    onScrollPositionChanged = onScrollPositionChanged,
                 )
             }
         }
@@ -129,10 +142,25 @@ private fun MagicalItemList(
     magicalItems: List<MagicalItem>,
     onMagicalItemClicked: (MagicalItem) -> Unit,
     showAddToList: (MagicalItem) -> Unit,
+    initialScrollPosition: ScrollPosition,
+    scrollToTopEvents: Flow<Unit>,
+    onScrollPositionChanged: (ScrollPosition) -> Unit,
 ) {
-    val listState = rememberLazyListState()
-    LaunchedEffect(magicalItems) {
-        listState.animateScrollToItem(0)
+    val listState = rememberLazyListState(
+        initialFirstVisibleItemIndex = initialScrollPosition.index,
+        initialFirstVisibleItemScrollOffset = initialScrollPosition.offset,
+    )
+    LaunchedEffect(Unit) {
+        scrollToTopEvents.collect { listState.scrollToItem(0) }
+    }
+    val currentOnScrollPositionChanged by rememberUpdatedState(onScrollPositionChanged)
+    LaunchedEffect(listState) {
+        snapshotFlow {
+            ScrollPosition(
+                listState.firstVisibleItemIndex,
+                listState.firstVisibleItemScrollOffset,
+            )
+        }.collect { currentOnScrollPositionChanged(it) }
     }
 
     LazyColumn(
