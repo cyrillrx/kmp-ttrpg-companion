@@ -18,9 +18,16 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarDuration
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
@@ -36,12 +43,17 @@ import com.cyrillrx.rpg.core.presentation.component.EmptySearch
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
+import com.cyrillrx.rpg.core.presentation.component.SwipeToDelete
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.borderAlpha
 import com.cyrillrx.rpg.core.presentation.theme.borderWidth
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.launch
+import org.jetbrains.compose.resources.getString
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
@@ -49,6 +61,9 @@ import rpg_companion.composeapp.generated.resources.btn_new_character
 import rpg_companion.composeapp.generated.resources.btn_new_character_subtitle
 import rpg_companion.composeapp.generated.resources.btn_quick_create
 import rpg_companion.composeapp.generated.resources.btn_quick_create_subtitle
+import rpg_companion.composeapp.generated.resources.btn_undo
+import rpg_companion.composeapp.generated.resources.snackbar_character_deleted
+import rpg_companion.composeapp.generated.resources.snackbar_error_deleting_character
 import rpg_companion.composeapp.generated.resources.title_character_list
 
 @Composable
@@ -64,21 +79,64 @@ fun CharacterListScreen(
 
     CharacterListScreen(
         state = state,
+        events = viewModel.events,
         onNavigateUpClicked = router::navigateUp,
         onCharacterClicked = viewModel::openCharacterDetail,
         onNewCharacterClicked = viewModel::openCreateCharacter,
         onQuickCreateClicked = viewModel::openPresetGallery,
+        onDeleteCharacterOptimistically = viewModel::deleteCharacterOptimistically,
+        onUndoDeletion = viewModel::undoDeletion,
+        onCommitDeletion = viewModel::commitDeletion,
     )
 }
 
 @Composable
 fun CharacterListScreen(
     state: CharacterListState,
+    events: SharedFlow<CharacterListViewModel.Event>,
     onNavigateUpClicked: () -> Unit,
     onCharacterClicked: (Character) -> Unit,
     onNewCharacterClicked: () -> Unit,
     onQuickCreateClicked: () -> Unit,
+    onDeleteCharacterOptimistically: (Character) -> CharacterListViewModel.PendingDeletion?,
+    onUndoDeletion: (CharacterListViewModel.PendingDeletion) -> Unit,
+    onCommitDeletion: (CharacterListViewModel.PendingDeletion) -> Unit,
 ) {
+    val snackbarHostState = remember { SnackbarHostState() }
+    val coroutineScope = rememberCoroutineScope()
+    val undoLabel = stringResource(Res.string.btn_undo)
+
+    LaunchedEffect(events) {
+        events.collect { event ->
+            when (event) {
+                is CharacterListViewModel.Event.DeletionError -> {
+                    val errorMessage = getString(Res.string.snackbar_error_deleting_character, event.character.name)
+                    snackbarHostState.showSnackbar(
+                        message = errorMessage,
+                        duration = SnackbarDuration.Short,
+                    )
+                }
+            }
+        }
+    }
+
+    fun onDeleteCharacter(character: Character) {
+        val pending = onDeleteCharacterOptimistically(character) ?: return
+
+        coroutineScope.launch {
+            val deletedMessage = getString(Res.string.snackbar_character_deleted, character.name)
+            val result = snackbarHostState.showSnackbar(
+                message = deletedMessage,
+                actionLabel = undoLabel,
+                duration = SnackbarDuration.Short,
+            )
+            when (result) {
+                SnackbarResult.ActionPerformed -> onUndoDeletion(pending)
+                SnackbarResult.Dismissed -> onCommitDeletion(pending)
+            }
+        }
+    }
+
     Scaffold(
         topBar = {
             SimpleTopBar(
@@ -86,6 +144,7 @@ fun CharacterListScreen(
                 onNavigateUpClicked = onNavigateUpClicked,
             )
         },
+        snackbarHost = { SnackbarHost(snackbarHostState) },
     ) { paddingValues ->
         Column(
             modifier =
@@ -127,6 +186,7 @@ fun CharacterListScreen(
                         CharacterList(
                             characters = body.searchResults,
                             onCharacterClicked = onCharacterClicked,
+                            onDeleteCharacter = ::onDeleteCharacter,
                         )
                 }
             }
@@ -181,6 +241,7 @@ private fun CharacterActionCard(
 private fun CharacterList(
     characters: List<Character>,
     onCharacterClicked: (Character) -> Unit,
+    onDeleteCharacter: (Character) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     LazyColumn(
@@ -189,11 +250,13 @@ private fun CharacterList(
         verticalArrangement = Arrangement.spacedBy(spacingSmall),
     ) {
         items(characters, key = { it.id }) { character ->
-            CharacterListItem(
-                character = character,
-                onClick = { onCharacterClicked(character) },
-                modifier = Modifier.fillMaxWidth(),
-            )
+            SwipeToDelete(onSwiped = { onDeleteCharacter(character) }) {
+                CharacterListItem(
+                    character = character,
+                    onClick = { onCharacterClicked(character) },
+                    modifier = Modifier.fillMaxWidth().animateItem(),
+                )
+            }
         }
     }
 }
@@ -218,9 +281,13 @@ private fun CharacterListScreenPreview() {
                 searchQuery = "",
                 body = CharacterListState.Body.WithData(SampleCharacterRepository.getAll()),
             ),
+        events = MutableSharedFlow(),
         onNavigateUpClicked = {},
         onCharacterClicked = {},
         onNewCharacterClicked = {},
         onQuickCreateClicked = {},
+        onDeleteCharacterOptimistically = { null },
+        onUndoDeletion = {},
+        onCommitDeletion = {},
     )
 }
