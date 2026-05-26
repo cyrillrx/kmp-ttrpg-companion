@@ -3,6 +3,8 @@
 <resources>
     <!-- Character list -->
     <string name="title_character_list">Characters</string>
+    <string name="snackbar_character_deleted">'%1$s' was deleted</string>
+    <string name="snackbar_error_deleting_character">Error deleting '%1$s'.</string>
     <string name="title_preset_gallery">Quick Create</string>
     <string name="tab_player_characters">Characters</string>
     <string name="tab_non_player_characters">NPCs</string>
