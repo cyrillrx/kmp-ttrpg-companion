@@ -129,7 +129,13 @@ class UserListsViewModel(
 
         CoroutineScope(ioDispatcher).launch {
             toCommit.forEach { pending ->
-                userListRepository.delete(pending.list.id)
+                try {
+                    userListRepository.delete(pending.list.id)
+                } catch (e: CancellationException) {
+                    throw e
+                } catch (e: Exception) {
+                    // Best-effort; ViewModel is cleared so the UI cannot be recovered
+                }
             }
         }
     }

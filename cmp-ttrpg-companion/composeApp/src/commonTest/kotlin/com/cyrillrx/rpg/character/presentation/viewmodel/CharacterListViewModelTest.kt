@@ -267,6 +267,35 @@ class CharacterListViewModelTest {
     }
 
     @Test
+    fun `commitDeletion restores character and emits error when repository throws`() = runTest(testDispatcher) {
+        val failingRepo = FailsOnDeleteCharacterRepository()
+        val character = SampleCharacterRepository.getAll().first()
+        failingRepo.save(character)
+
+        val viewModel = buildViewModel(repo = failingRepo)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        val receivedEvents = mutableListOf<CharacterListViewModel.Event>()
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.events.collect { receivedEvents.add(it) }
+        }
+
+        val pending = requireNotNull(viewModel.deleteCharacterOptimistically(character))
+        viewModel.commitDeletion(pending)
+        advanceUntilIdle()
+
+        val body = assertIs<CharacterListState.Body.WithData>(viewModel.state.value.body)
+        assertEquals(character, body.searchResults.first())
+        assertEquals(1, receivedEvents.size)
+        assertIs<CharacterListViewModel.Event.DeletionError>(receivedEvents.first())
+    }
+
+    @Test
     fun `commitAllPendingDeletions commits pending deletions`() = runTest(testDispatcher) {
         val character = SampleCharacterRepository.getAll().first()
         repository.save(character)
@@ -304,6 +333,15 @@ private class FailingCharacterRepository : CharacterRepository {
     override suspend fun getByIds(ids: List<String>): List<Character> = error("Repository error")
     override suspend fun save(character: Character) = error("Repository error")
     override suspend fun delete(id: String) = error("Repository error")
+}
+
+private class FailsOnDeleteCharacterRepository : CharacterRepository {
+    private val delegate = RamCharacterRepository()
+    override suspend fun getAll(filter: CharacterFilter?): List<Character> = delegate.getAll(filter)
+    override suspend fun get(id: String): Character? = delegate.get(id)
+    override suspend fun getByIds(ids: List<String>): List<Character> = delegate.getByIds(ids)
+    override suspend fun save(character: Character) = delegate.save(character)
+    override suspend fun delete(id: String) = error("Delete failed")
 }
 
 private class FailsOnSecondCallCharacterRepository : CharacterRepository {

@@ -120,7 +120,13 @@ class ListDetailViewModel<T>(
 
         CoroutineScope(ioDispatcher).launch {
             toCommit.forEach { pending ->
-                userListRepository.removeFromList(listId, pending.itemId)
+                try {
+                    userListRepository.removeFromList(listId, pending.itemId)
+                } catch (e: CancellationException) {
+                    throw e
+                } catch (e: Exception) {
+                    // Best-effort; ViewModel is cleared so the UI cannot be recovered
+                }
             }
         }
     }

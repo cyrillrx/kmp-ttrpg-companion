@@ -128,7 +128,13 @@ class CharacterListViewModel(
 
         CoroutineScope(ioDispatcher).launch {
             toCommit.forEach { pending ->
-                repository.delete(pending.character.id)
+                try {
+                    repository.delete(pending.character.id)
+                } catch (e: CancellationException) {
+                    throw e
+                } catch (e: Exception) {
+                    // Best-effort; ViewModel is cleared so the UI cannot be recovered
+                }
             }
         }
     }

@@ -161,6 +161,37 @@ class UserListsViewModelTest {
     }
 
     @Test
+    fun `commitDeletion restores list and emits error when repository throws`() = runTest(testDispatcher) {
+        val failingRepo = FailsOnDeleteUserListRepository()
+        val viewModel = UserListsViewModel(UserList.Type.SPELL, router, failingRepo, testDispatcher)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+        viewModel.createList(LIST_NAME)
+        advanceUntilIdle()
+
+        val body = assertIs<UserListsState.Body.WithData>(viewModel.state.value.body)
+        val list = body.lists.first()
+
+        val receivedEvents = mutableListOf<UserListsViewModel.Event>()
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.events.collect { receivedEvents.add(it) }
+        }
+
+        val pending = requireNotNull(viewModel.deleteListOptimistically(list))
+        viewModel.commitDeletion(pending)
+        advanceUntilIdle()
+
+        val restoredBody = assertIs<UserListsState.Body.WithData>(viewModel.state.value.body)
+        assertEquals(list, restoredBody.lists.first())
+        assertEquals(1, receivedEvents.size)
+        assertIs<UserListsViewModel.Event.DeletionError>(receivedEvents.first())
+    }
+
+    @Test
     fun `commitAllPendingDeletions commits pending deletions`() = runTest(testDispatcher) {
         val viewModel = buildViewModel()
 
@@ -263,6 +294,14 @@ class UserListsViewModelTest {
 
         assertTrue(trackingRouter.openedLists.contains(list))
     }
+}
+
+private class FailsOnDeleteUserListRepository : UserListRepository {
+    private val delegate = RamUserListRepository()
+    override suspend fun getAll(type: UserList.Type): List<UserList> = delegate.getAll(type)
+    override suspend fun get(id: String): UserList? = delegate.get(id)
+    override suspend fun save(list: UserList) = delegate.save(list)
+    override suspend fun delete(id: String) = error("Delete failed")
 }
 
 private class NoOpUserListRouter : UserListRouter {

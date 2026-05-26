@@ -286,6 +286,35 @@ class ListDetailViewModelTest {
     }
 
     @Test
+    fun `commitRemoval restores item and emits error when repository returns failure`() = runTest(testDispatcher) {
+        val failingRepo = FailsOnRemoveUserListRepository()
+        val list = UserList(TEST_LIST_ID, LIST_NAME, UserList.Type.SPELL, listOf(spell.id))
+        failingRepo.save(list)
+
+        val viewModel = buildViewModel(TEST_LIST_ID, failingRepo)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        val receivedEvents = mutableListOf<ListDetailViewModel.Event<Spell>>()
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.events.collect { receivedEvents.add(it) }
+        }
+
+        val pending = requireNotNull(viewModel.removeItemOptimistically(spell.id, spell))
+        viewModel.commitRemoval(pending)
+        advanceUntilIdle()
+
+        val body = assertIs<ListDetailState.Body.WithData<Spell>>(viewModel.state.value.body)
+        assertEquals(spell, body.items.first())
+        assertEquals(1, receivedEvents.size)
+        assertIs<ListDetailViewModel.Event.RemovalError<Spell>>(receivedEvents.first())
+    }
+
+    @Test
     fun `onCleared commits pending removals that were never confirmed`() = runTest(testDispatcher) {
         val list = UserList(TEST_LIST_ID, LIST_NAME, UserList.Type.SPELL, listOf(spell.id))
         userListRepository.save(list)
@@ -304,4 +333,14 @@ class ListDetailViewModelTest {
         val updatedList = userListRepository.get(TEST_LIST_ID)!!
         assertTrue(updatedList.itemIds.none { it == spell.id })
     }
+}
+
+private class FailsOnRemoveUserListRepository : UserListRepository {
+    private val delegate = RamUserListRepository()
+    override suspend fun getAll(type: UserList.Type): List<UserList> = delegate.getAll(type)
+    override suspend fun get(id: String): UserList? = delegate.get(id)
+    override suspend fun save(list: UserList) = delegate.save(list)
+    override suspend fun delete(id: String) = delegate.delete(id)
+    override suspend fun removeFromList(listId: String, itemId: String): UserListRepository.Result =
+        UserListRepository.Result.Error("Simulated failure")
 }
