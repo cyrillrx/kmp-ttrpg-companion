@@ -11,7 +11,7 @@ abstract class BaseListViewModel : ViewModel() {
         private set
 
     val scrollToTopEvents: SharedFlow<Unit>
-        field = MutableSharedFlow(replay = 0)
+        field = MutableSharedFlow(replay = 0, extraBufferCapacity = 1)
 
     fun saveScrollPosition(position: ScrollPosition) {
         savedScrollPosition = position
