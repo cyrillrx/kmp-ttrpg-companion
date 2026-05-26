@@ -3,6 +3,8 @@
 <resources>
     <!-- Character list -->
     <string name="title_character_list">Personnages</string>
+    <string name="snackbar_character_deleted">« %1$s » a été supprimé</string>
+    <string name="snackbar_error_deleting_character">Erreur lors de la suppression de « %1$s ».</string>
     <string name="title_preset_gallery">Création rapide</string>
     <string name="tab_player_characters">Personnages</string>
     <string name="tab_non_player_characters">PNJ</string>
