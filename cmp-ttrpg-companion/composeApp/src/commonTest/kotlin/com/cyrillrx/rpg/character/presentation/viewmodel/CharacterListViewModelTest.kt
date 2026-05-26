@@ -43,7 +43,7 @@ class CharacterListViewModelTest {
     private fun buildViewModel(
         repo: CharacterRepository = repository,
         router: CharacterRouter = this.router,
-    ) = CharacterListViewModel(router, repo)
+    ) = CharacterListViewModel(router, repo, testDispatcher)
 
     @Test
     fun `initial state is Loading before coroutines run`() = runTest(testDispatcher) {
@@ -206,6 +206,84 @@ class CharacterListViewModelTest {
         viewModel.openPresetGallery()
 
         assertTrue(trackingRouter.presetGalleryCalled)
+    }
+
+    @Test
+    fun `deleteCharacterOptimistically removes the character from UI`() = runTest(testDispatcher) {
+        val character = SampleCharacterRepository.getAll().first()
+        repository.save(character)
+
+        val viewModel = buildViewModel()
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        viewModel.deleteCharacterOptimistically(character)
+
+        assertIs<CharacterListState.Body.Empty>(viewModel.state.value.body)
+    }
+
+    @Test
+    fun `undoDeletion restores the character`() = runTest(testDispatcher) {
+        val character = SampleCharacterRepository.getAll().first()
+        repository.save(character)
+
+        val viewModel = buildViewModel()
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        val pending = requireNotNull(viewModel.deleteCharacterOptimistically(character))
+        viewModel.undoDeletion(pending)
+
+        val restoredBody = assertIs<CharacterListState.Body.WithData>(viewModel.state.value.body)
+        assertEquals(character, restoredBody.searchResults.first())
+    }
+
+    @Test
+    fun `commitDeletion removes the character from repository`() = runTest(testDispatcher) {
+        val character = SampleCharacterRepository.getAll().first()
+        repository.save(character)
+
+        val viewModel = buildViewModel()
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        val pending = requireNotNull(viewModel.deleteCharacterOptimistically(character))
+        viewModel.commitDeletion(pending)
+        advanceUntilIdle()
+
+        assertTrue(repository.getAll(null).isEmpty())
+    }
+
+    @Test
+    fun `commitAllPendingDeletions commits pending deletions`() = runTest(testDispatcher) {
+        val character = SampleCharacterRepository.getAll().first()
+        repository.save(character)
+
+        val viewModel = buildViewModel()
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        viewModel.deleteCharacterOptimistically(character) // no commit
+        viewModel.commitAllPendingDeletions() // simulate onCleared
+        advanceUntilIdle()
+
+        assertTrue(repository.getAll(null).isEmpty())
     }
 }
 
