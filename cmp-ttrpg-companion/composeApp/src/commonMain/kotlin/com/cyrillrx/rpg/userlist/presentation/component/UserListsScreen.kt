@@ -107,19 +107,21 @@ fun UserListsScreen(
         }
     }
 
-    fun onDeleteList(list: UserList) {
-        val pending = onDeleteListOptimistically(list) ?: return
+    val onDeleteList: (UserList) -> Unit = remember(onDeleteListOptimistically, onUndoDeletion, onCommitDeletion) {
+        handler@{ list ->
+            val pending = onDeleteListOptimistically(list) ?: return@handler
 
-        coroutineScope.launch {
-            val deletedMessage = getString(Res.string.snackbar_list_deleted, list.name)
-            val result = snackbarHostState.showSnackbar(
-                message = deletedMessage,
-                actionLabel = undoLabel,
-                duration = SnackbarDuration.Short,
-            )
-            when (result) {
-                SnackbarResult.ActionPerformed -> onUndoDeletion(pending)
-                SnackbarResult.Dismissed -> onCommitDeletion(pending)
+            coroutineScope.launch {
+                val deletedMessage = getString(Res.string.snackbar_list_deleted, list.name)
+                val result = snackbarHostState.showSnackbar(
+                    message = deletedMessage,
+                    actionLabel = undoLabel,
+                    duration = SnackbarDuration.Short,
+                )
+                when (result) {
+                    SnackbarResult.ActionPerformed -> onUndoDeletion(pending)
+                    SnackbarResult.Dismissed -> onCommitDeletion(pending)
+                }
             }
         }
     }
@@ -154,7 +156,7 @@ fun UserListsScreen(
                 is UserListsState.Body.WithData -> UserLists(
                     lists = body.lists,
                     onListClicked = onListClicked,
-                    onDeleteList = ::onDeleteList,
+                    onDeleteList = onDeleteList,
                 )
             }
         }

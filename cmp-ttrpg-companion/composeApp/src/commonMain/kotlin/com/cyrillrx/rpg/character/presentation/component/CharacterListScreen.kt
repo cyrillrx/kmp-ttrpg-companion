@@ -120,19 +120,21 @@ fun CharacterListScreen(
         }
     }
 
-    fun onDeleteCharacter(character: Character) {
-        val pending = onDeleteCharacterOptimistically(character) ?: return
+    val onDeleteCharacter: (Character) -> Unit = remember(onDeleteCharacterOptimistically, onUndoDeletion, onCommitDeletion) {
+        handler@{ character ->
+            val pending = onDeleteCharacterOptimistically(character) ?: return@handler
 
-        coroutineScope.launch {
-            val deletedMessage = getString(Res.string.snackbar_character_deleted, character.name)
-            val result = snackbarHostState.showSnackbar(
-                message = deletedMessage,
-                actionLabel = undoLabel,
-                duration = SnackbarDuration.Short,
-            )
-            when (result) {
-                SnackbarResult.ActionPerformed -> onUndoDeletion(pending)
-                SnackbarResult.Dismissed -> onCommitDeletion(pending)
+            coroutineScope.launch {
+                val deletedMessage = getString(Res.string.snackbar_character_deleted, character.name)
+                val result = snackbarHostState.showSnackbar(
+                    message = deletedMessage,
+                    actionLabel = undoLabel,
+                    duration = SnackbarDuration.Short,
+                )
+                when (result) {
+                    SnackbarResult.ActionPerformed -> onUndoDeletion(pending)
+                    SnackbarResult.Dismissed -> onCommitDeletion(pending)
+                }
             }
         }
     }
@@ -186,7 +188,7 @@ fun CharacterListScreen(
                         CharacterList(
                             characters = body.searchResults,
                             onCharacterClicked = onCharacterClicked,
-                            onDeleteCharacter = ::onDeleteCharacter,
+                            onDeleteCharacter = onDeleteCharacter,
                         )
                 }
             }

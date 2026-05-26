@@ -110,20 +110,22 @@ fun <T> ListDetailScreen(
         }
     }
 
-    fun onRemoveItem(item: T) {
-        val pending = onRemoveItemOptimistically(itemProvider.getId(item), item) ?: return
+    val onRemoveItem: (T) -> Unit = remember(onRemoveItemOptimistically, onUndoRemoval, onCommitRemoval, itemProvider) {
+        handler@{ item ->
+            val pending = onRemoveItemOptimistically(itemProvider.getId(item), item) ?: return@handler
 
-        coroutineScope.launch {
-            val displayName = itemProvider.getDisplayName(item, currentLocale())
-            val removedMessage = getString(Res.string.snackbar_removed_from_list, displayName)
-            val result = snackbarHostState.showSnackbar(
-                message = removedMessage,
-                actionLabel = undoLabel,
-                duration = SnackbarDuration.Short,
-            )
-            when (result) {
-                SnackbarResult.ActionPerformed -> onUndoRemoval(pending)
-                SnackbarResult.Dismissed -> onCommitRemoval(pending)
+            coroutineScope.launch {
+                val displayName = itemProvider.getDisplayName(item, currentLocale())
+                val removedMessage = getString(Res.string.snackbar_removed_from_list, displayName)
+                val result = snackbarHostState.showSnackbar(
+                    message = removedMessage,
+                    actionLabel = undoLabel,
+                    duration = SnackbarDuration.Short,
+                )
+                when (result) {
+                    SnackbarResult.ActionPerformed -> onUndoRemoval(pending)
+                    SnackbarResult.Dismissed -> onCommitRemoval(pending)
+                }
             }
         }
     }
@@ -166,7 +168,7 @@ fun <T> ListDetailScreen(
                 is ListDetailState.Body.WithData -> EntityDetailList(
                     items = body.items,
                     uiProvider = itemProvider,
-                    onRemoveItem = ::onRemoveItem,
+                    onRemoveItem = onRemoveItem,
                 )
             }
         }
