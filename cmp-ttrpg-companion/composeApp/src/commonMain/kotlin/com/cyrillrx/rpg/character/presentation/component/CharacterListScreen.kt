@@ -250,11 +250,14 @@ private fun CharacterList(
         verticalArrangement = Arrangement.spacedBy(spacingSmall),
     ) {
         items(characters, key = { it.id }) { character ->
-            SwipeToDelete(onSwiped = { onDeleteCharacter(character) }) {
+            SwipeToDelete(
+                onSwiped = { onDeleteCharacter(character) },
+                modifier = Modifier.fillMaxWidth().animateItem(),
+            ) {
                 CharacterListItem(
                     character = character,
                     onClick = { onCharacterClicked(character) },
-                    modifier = Modifier.fillMaxWidth().animateItem(),
+                    modifier = Modifier.fillMaxWidth(),
                 )
             }
         }
