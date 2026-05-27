@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.core.presentation
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 import kotlin.coroutines.cancellation.CancellationException
 
@@ -13,7 +14,7 @@ internal fun <T> MutableList<T>.commitAllPending(
     clear()
     if (toCommit.isEmpty()) return
 
-    CoroutineScope(dispatcher).launch {
+    CoroutineScope(SupervisorJob() + dispatcher).launch {
         toCommit.forEach { item ->
             try {
                 block(item)
