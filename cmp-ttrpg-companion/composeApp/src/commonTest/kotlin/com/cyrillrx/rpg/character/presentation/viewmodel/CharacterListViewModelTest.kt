@@ -296,7 +296,7 @@ class CharacterListViewModelTest {
     }
 
     @Test
-    fun `commitAllPendingDeletions commits pending deletions`() = runTest(testDispatcher) {
+    fun `commitAllPendingDeletions commits pending deletions that were never confirmed`() = runTest(testDispatcher) {
         val character = SampleCharacterRepository.getAll().first()
         repository.save(character)
 
@@ -309,7 +309,7 @@ class CharacterListViewModelTest {
         advanceUntilIdle()
 
         viewModel.deleteCharacterOptimistically(character) // no commit
-        viewModel.commitAllPendingDeletions() // simulate onCleared
+        viewModel.commitAllPendingDeletions()
         advanceUntilIdle()
 
         assertTrue(repository.getAll(null).isEmpty())

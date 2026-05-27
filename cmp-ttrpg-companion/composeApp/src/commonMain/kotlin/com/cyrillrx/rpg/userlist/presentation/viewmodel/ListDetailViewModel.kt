@@ -49,12 +49,6 @@ class ListDetailViewModel<T>(
         activeJob = loadDetail()
     }
 
-    override fun onCleared() {
-        super.onCleared()
-
-        commitAllPendingRemovals()
-    }
-
     fun renameList(newName: String) {
         val list = currentList ?: return
 

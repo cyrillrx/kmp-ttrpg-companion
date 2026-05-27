@@ -47,11 +47,6 @@ class CharacterListViewModel(
         loadCharacters(query = "")
     }
 
-    override fun onCleared() {
-        super.onCleared()
-        commitAllPendingDeletions()
-    }
-
     fun filterByQuery(query: String) {
         activeJob?.cancel()
         activeJob = loadCharacters(query)

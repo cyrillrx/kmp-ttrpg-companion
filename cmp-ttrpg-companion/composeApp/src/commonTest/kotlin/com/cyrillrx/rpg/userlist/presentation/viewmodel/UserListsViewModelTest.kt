@@ -192,7 +192,7 @@ class UserListsViewModelTest {
     }
 
     @Test
-    fun `commitAllPendingDeletions commits pending deletions`() = runTest(testDispatcher) {
+    fun `commitAllPendingDeletions commits pending deletions that were never confirmed`() = runTest(testDispatcher) {
         val viewModel = buildViewModel()
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
@@ -207,7 +207,7 @@ class UserListsViewModelTest {
         val list = body.lists.first()
 
         viewModel.deleteListOptimistically(list) // no commit
-        viewModel.commitAllPendingDeletions() // simulate onCleared
+        viewModel.commitAllPendingDeletions()
         advanceUntilIdle()
 
         assertTrue(repository.getAll(UserList.Type.SPELL).isEmpty())

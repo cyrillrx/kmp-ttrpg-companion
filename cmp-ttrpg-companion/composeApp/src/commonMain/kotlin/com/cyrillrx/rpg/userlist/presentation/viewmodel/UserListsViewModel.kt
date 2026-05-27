@@ -50,12 +50,6 @@ class UserListsViewModel(
         activeJob = loadLists()
     }
 
-    override fun onCleared() {
-        super.onCleared()
-
-        commitAllPendingDeletions()
-    }
-
     @OptIn(ExperimentalUuidApi::class)
     fun createList(name: String) {
         viewModelScope.launch {

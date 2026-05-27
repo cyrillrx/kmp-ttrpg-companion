@@ -315,7 +315,7 @@ class ListDetailViewModelTest {
     }
 
     @Test
-    fun `onCleared commits pending removals that were never confirmed`() = runTest(testDispatcher) {
+    fun `commitAllPendingRemovals commits pending removals that were never confirmed`() = runTest(testDispatcher) {
         val list = UserList(TEST_LIST_ID, LIST_NAME, UserList.Type.SPELL, listOf(spell.id))
         userListRepository.save(list)
 
@@ -327,7 +327,7 @@ class ListDetailViewModelTest {
         advanceUntilIdle()
 
         viewModel.removeItemOptimistically(spell.id, spell) // no commit
-        viewModel.commitAllPendingRemovals() // simulate navigation away
+        viewModel.commitAllPendingRemovals()
         advanceUntilIdle()
 
         val updatedList = userListRepository.get(TEST_LIST_ID)!!
