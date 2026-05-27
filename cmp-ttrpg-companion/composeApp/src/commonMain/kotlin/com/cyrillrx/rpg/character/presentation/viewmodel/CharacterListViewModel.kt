@@ -7,8 +7,8 @@ import com.cyrillrx.rpg.character.domain.CharacterFilter
 import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.presentation.CharacterListState
 import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
+import com.cyrillrx.rpg.core.presentation.commitAllPending
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
 import kotlinx.coroutines.Job
@@ -101,7 +101,8 @@ class CharacterListViewModel(
             is CharacterListState.Body.Empty -> emptyList()
             else -> return
         }
-        val restoredList = currentList.toMutableList().apply { add(pending.index.coerceAtMost(size), pending.character) }
+        val restoredList = currentList.toMutableList()
+            .apply { add(pending.index.coerceAtMost(size), pending.character) }
         state.update { it.copy(body = CharacterListState.Body.WithData(restoredList)) }
     }
 
@@ -122,20 +123,8 @@ class CharacterListViewModel(
     }
 
     internal fun commitAllPendingDeletions() {
-        val toCommit = pendingDeletions.toList()
-        pendingDeletions.clear()
-        if (toCommit.isEmpty()) return
-
-        CoroutineScope(ioDispatcher).launch {
-            toCommit.forEach { pending ->
-                try {
-                    repository.delete(pending.character.id)
-                } catch (e: CancellationException) {
-                    throw e
-                } catch (e: Exception) {
-                    // Best-effort; ViewModel is cleared so the UI cannot be recovered
-                }
-            }
+        pendingDeletions.commitAllPending(ioDispatcher) { pending ->
+            repository.delete(pending.character.id)
         }
     }
 

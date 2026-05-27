@@ -2,20 +2,20 @@ package com.cyrillrx.rpg.userlist.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.cyrillrx.rpg.core.presentation.commitAllPending
 import com.cyrillrx.rpg.userlist.domain.UserList
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
 import com.cyrillrx.rpg.userlist.presentation.UserListsState
 import com.cyrillrx.rpg.userlist.presentation.navigation.UserListRouter
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_while_loading_user_lists
@@ -123,20 +123,8 @@ class UserListsViewModel(
     }
 
     internal fun commitAllPendingDeletions() {
-        val toCommit = pendingDeletions.toList()
-        pendingDeletions.clear()
-        if (toCommit.isEmpty()) return
-
-        CoroutineScope(ioDispatcher).launch {
-            toCommit.forEach { pending ->
-                try {
-                    userListRepository.delete(pending.list.id)
-                } catch (e: CancellationException) {
-                    throw e
-                } catch (e: Exception) {
-                    // Best-effort; ViewModel is cleared so the UI cannot be recovered
-                }
-            }
+        pendingDeletions.commitAllPending(ioDispatcher) { pending ->
+            userListRepository.delete(pending.list.id)
         }
     }
 
