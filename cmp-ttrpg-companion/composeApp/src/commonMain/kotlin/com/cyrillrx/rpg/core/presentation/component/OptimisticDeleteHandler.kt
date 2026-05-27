@@ -21,7 +21,7 @@ fun <Item, Pending> rememberOptimisticDeleteHandler(
 ): (Item) -> Unit {
     val coroutineScope = rememberCoroutineScope()
     val undoLabel = stringResource(Res.string.btn_undo)
-    return remember(onDeleteOptimistically, onUndo, onCommit) {
+    return remember(onDeleteOptimistically, onUndo, onCommit, undoLabel) {
         handler@{ item ->
             val pending = onDeleteOptimistically(item) ?: return@handler
 
