@@ -56,7 +56,7 @@ fun CreateCampaignScreen(viewModel: CreateCampaignViewModel, router: CampaignRou
         onNavigateUpClicked = router::navigateUp,
         onCampaignNameChanged = viewModel::onCampaignNameChanged,
         onRuleSetSelected = viewModel::onRuleSetSelected,
-        onCreateButtonClicked = viewModel::onCreateCampaignClicked,
+        onCreateButtonClicked = { viewModel.onCreateCampaignClicked(router::navigateUp) },
         clearError = viewModel::clearError,
     )
 }

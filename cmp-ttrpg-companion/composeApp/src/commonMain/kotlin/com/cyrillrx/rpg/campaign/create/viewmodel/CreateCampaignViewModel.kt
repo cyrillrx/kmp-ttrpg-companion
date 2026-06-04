@@ -6,14 +6,12 @@ import com.cyrillrx.rpg.campaign.create.CreateCampaignState
 import com.cyrillrx.rpg.campaign.domain.Campaign
 import com.cyrillrx.rpg.campaign.domain.CampaignRepository
 import com.cyrillrx.rpg.campaign.domain.RuleSet
-import com.cyrillrx.rpg.campaign.navigation.CampaignRouter
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class CreateCampaignViewModel(
-    private val router: CampaignRouter,
     private val repository: CampaignRepository,
 ) : ViewModel() {
 
@@ -28,7 +26,7 @@ class CreateCampaignViewModel(
         state.update { it.copy(selectedRuleSet = ruleSet) }
     }
 
-    fun onCreateCampaignClicked() {
+    fun onCreateCampaignClicked(onSaved: () -> Unit) {
         val currentState = state.value
         val campaignName = currentState.campaignName.trim()
         val selectedRuleSet = currentState.selectedRuleSet
@@ -57,7 +55,7 @@ class CreateCampaignViewModel(
             }
 
             repository.save(newCampaign)
-            router.navigateUp()
+            onSaved()
         }
     }
 

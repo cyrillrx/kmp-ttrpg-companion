@@ -13,6 +13,7 @@ import com.cyrillrx.rpg.campaign.domain.CampaignRepository
 import com.cyrillrx.rpg.campaign.list.CampaignListScreen
 import com.cyrillrx.rpg.campaign.list.viewmodel.CampaignListViewModel
 import com.cyrillrx.rpg.campaign.list.viewmodel.CampaignListViewModelFactory
+import com.cyrillrx.rpg.core.navigation.navigateUp
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.modules.PolymorphicModuleBuilder
 
@@ -34,10 +35,9 @@ fun PolymorphicModuleBuilder<NavKey>.registerCampaignRoutes() {
 }
 
 fun EntryProviderScope<NavKey>.handleCampaignRoutes(backStack: NavBackStack<NavKey>, repository: CampaignRepository) {
-    val router = CampaignRouterImpl(backStack)
-
     entry<CampaignRoute.List> {
-        val viewModelFactory = CampaignListViewModelFactory(router, repository)
+        val router = CampaignRouterImpl(backStack)
+        val viewModelFactory = CampaignListViewModelFactory(repository)
         val viewModel = viewModel<CampaignListViewModel>(factory = viewModelFactory)
         CampaignListScreen(viewModel, router)
     }
@@ -45,12 +45,13 @@ fun EntryProviderScope<NavKey>.handleCampaignRoutes(backStack: NavBackStack<NavK
     entry<CampaignRoute.Detail> { route ->
         CampaignDetailScreen(
             campaign = route.serializedCampaign.deserialize(),
-            onNavigateUpClicked = router::navigateUp,
+            onNavigateUpClicked = backStack::navigateUp,
         )
     }
 
     entry<CampaignRoute.Create> {
-        val viewModelFactory = CreateCampaignViewModelFactory(router, repository)
+        val router = CampaignRouterImpl(backStack)
+        val viewModelFactory = CreateCampaignViewModelFactory(repository)
         val viewModel = viewModel<CreateCampaignViewModel>(factory = viewModelFactory)
         CreateCampaignScreen(viewModel, router)
     }

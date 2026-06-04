@@ -5,7 +5,6 @@ import com.cyrillrx.rpg.campaign.domain.CampaignFilter
 import com.cyrillrx.rpg.campaign.domain.CampaignRepository
 import com.cyrillrx.rpg.campaign.domain.RuleSet
 import com.cyrillrx.rpg.campaign.list.CampaignListState
-import com.cyrillrx.rpg.campaign.navigation.CampaignRouter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
@@ -27,7 +26,6 @@ class CampaignListViewModelTest {
 
     private val testDispatcher = StandardTestDispatcher()
     private val repository = TestCampaignRepository()
-    private val router = NoOpCampaignRouter()
 
     @BeforeTest
     fun setUp() {
@@ -39,10 +37,7 @@ class CampaignListViewModelTest {
         Dispatchers.resetMain()
     }
 
-    private fun buildViewModel(
-        repo: CampaignRepository = repository,
-        router: CampaignRouter = this.router,
-    ) = CampaignListViewModel(router, repo)
+    private fun buildViewModel(repo: CampaignRepository = repository) = CampaignListViewModel(repo)
 
     @Test
     fun `initial state is Loading before coroutines run`() = runTest(testDispatcher) {
@@ -165,49 +160,6 @@ class CampaignListViewModelTest {
         assertEquals(expected = "dnd", actual = viewModel.state.value.searchQuery)
     }
 
-    @Test
-    fun `openCampaignDetail delegates to router`() = runTest(testDispatcher) {
-        val trackingRouter = TrackingCampaignRouter()
-        val campaign = Campaign("1", "Campaign 1", RuleSet.DND5E)
-        repository.save(campaign)
-
-        val viewModel = buildViewModel(router = trackingRouter)
-
-        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
-            viewModel.state.collect {}
-        }
-
-        advanceUntilIdle()
-
-        viewModel.openCampaignDetail(campaign)
-
-        assertTrue(trackingRouter.openedCampaigns.contains(campaign))
-    }
-
-    @Test
-    fun `openCreateCampaign delegates to router`() = runTest(testDispatcher) {
-        val trackingRouter = TrackingCampaignRouter()
-        val viewModel = buildViewModel(router = trackingRouter)
-
-        viewModel.openCreateCampaign()
-
-        assertTrue(trackingRouter.createCampaignCalled)
-    }
-}
-
-private class NoOpCampaignRouter : CampaignRouter {
-    override fun navigateUp() = Unit
-    override fun openCampaignDetail(campaign: Campaign) = Unit
-    override fun openCreateCampaign() = Unit
-}
-
-private class TrackingCampaignRouter : CampaignRouter {
-    val openedCampaigns = mutableListOf<Campaign>()
-    var createCampaignCalled = false
-
-    override fun navigateUp() = Unit
-    override fun openCampaignDetail(campaign: Campaign) { openedCampaigns.add(campaign) }
-    override fun openCreateCampaign() { createCampaignCalled = true }
 }
 
 private class TestCampaignRepository : CampaignRepository {
