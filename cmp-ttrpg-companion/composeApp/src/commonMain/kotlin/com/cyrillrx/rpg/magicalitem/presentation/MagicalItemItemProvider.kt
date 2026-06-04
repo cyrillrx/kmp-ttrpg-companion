@@ -13,7 +13,7 @@ import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.empty_list_browse_magical_items
 
 class MagicalItemItemProvider(
-    private val onItemClicked: (String) -> Unit,
+    private val onItemClicked: (MagicalItem) -> Unit,
     override val onEmptyLayoutBtnClicked: () -> Unit = {},
 ) : ListItemProvider<MagicalItem> {
 
@@ -27,6 +27,6 @@ class MagicalItemItemProvider(
 
     @Composable
     override fun ListItem(entity: MagicalItem, modifier: Modifier) {
-        MagicalItemListItem(magicalItem = entity, onClick = { onItemClicked(entity.id) }, modifier = modifier)
+        MagicalItemListItem(magicalItem = entity, onClick = { onItemClicked(entity) }, modifier = modifier)
     }
 }

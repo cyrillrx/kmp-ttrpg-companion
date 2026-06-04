@@ -83,7 +83,7 @@ fun CharacterListScreen(
         state = state,
         events = viewModel.events,
         onNavigateUpClicked = router::navigateUp,
-        onCharacterClicked = { router.openCharacterDetail(it.id) },
+        onCharacterClicked = router::openCharacterDetail,
         onNewCharacterClicked = router::openCreateCharacter,
         onQuickCreateClicked = router::openPresetGallery,
         onDeleteCharacterOptimistically = viewModel::deleteCharacterOptimistically,

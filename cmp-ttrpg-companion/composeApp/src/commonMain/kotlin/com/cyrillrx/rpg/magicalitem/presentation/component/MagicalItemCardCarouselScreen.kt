@@ -39,7 +39,7 @@ fun MagicalItemCardCarouselScreen(viewModel: MagicalItemListViewModel, router: M
         state = state,
         onNavigateUpClicked = router::navigateUp,
         onSearchQueryChanged = viewModel::filterByQuery,
-        onMagicalItemClicked = { router.openDetail(it.id) },
+        onMagicalItemClicked = router::openDetail,
         onTypeToggled = viewModel::onTypeToggled,
         onRarityToggled = viewModel::onRarityToggled,
         onResetFilters = viewModel::onResetFilters,

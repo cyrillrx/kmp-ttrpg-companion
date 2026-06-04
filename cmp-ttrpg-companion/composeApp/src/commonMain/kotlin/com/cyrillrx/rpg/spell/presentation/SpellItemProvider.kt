@@ -13,7 +13,7 @@ import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.empty_list_browse_spells
 
 class SpellItemProvider(
-    private val onItemClicked: (String) -> Unit,
+    private val onItemClicked: (Spell) -> Unit,
     override val onEmptyLayoutBtnClicked: () -> Unit = {},
 ) : ListItemProvider<Spell> {
 
@@ -27,6 +27,6 @@ class SpellItemProvider(
 
     @Composable
     override fun ListItem(entity: Spell, modifier: Modifier) {
-        SpellListItem(spell = entity, onClick = { onItemClicked(entity.id) }, modifier = modifier)
+        SpellListItem(spell = entity, onClick = { onItemClicked(entity) }, modifier = modifier)
     }
 }
