@@ -143,7 +143,7 @@ Do not inject the router into ViewModels. Because the ViewModel outlives configu
 fun CharacterListScreen(viewModel: CharacterListViewModel, router: CharacterRouter) {
     CharacterListScreen(
         state = ...,
-        onCharacterClicked    = { router.openCharacterDetail(it.id) },
+        onCharacterClicked    = router::openCharacterDetail,
         onNewCharacterClicked = router::openCreateCharacter,
         onQuickCreateClicked  = router::openPresetGallery,
         onNavigateUpClicked   = router::navigateUp,
@@ -165,19 +165,19 @@ When a ViewModel must navigate **after async work** (e.g. save before navigate),
 
 ```kotlin
 // ViewModel
-fun onPresetSelected(preset: Character, onSaved: (characterId: String) -> Unit) {
+fun onPresetSelected(preset: Character, onSaved: (character: Character) -> Unit) {
     viewModelScope.launch {
         val newCharacter = preset.copy(id = Uuid.random().toString())
         characterRepository.save(newCharacter)
-        onSaved(newCharacter.id)
+        onSaved(newCharacter)
     }
 }
 
 // Composable
 onPresetSelected = { preset ->
-    viewModel.onPresetSelected(preset) { characterId ->
+    viewModel.onPresetSelected(preset) { character ->
         router.navigateUp()
-        router.openCharacterDetail(characterId)
+        router.openCharacterDetail(character)
     }
 }
 ```
