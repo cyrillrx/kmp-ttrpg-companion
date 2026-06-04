@@ -47,9 +47,9 @@ fun CharacterPresetGalleryScreen(
         onNavigateUpClicked = router::navigateUp,
         onTabSelected = viewModel::onTabSelected,
         onPresetSelected = { preset ->
-            viewModel.onPresetSelected(preset) { characterId ->
+            viewModel.onPresetSelected(preset) { character ->
                 router.navigateUp()
-                router.openCharacterDetail(characterId)
+                router.openCharacterDetail(character)
             }
         },
     )
