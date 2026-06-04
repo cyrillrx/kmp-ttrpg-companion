@@ -8,11 +8,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Check
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Checkbox
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -332,76 +329,6 @@ private fun FloatEditDialog(
                 Text(stringResource(Res.string.btn_confirm))
             }
         },
-        dismissButton = {
-            TextButton(onClick = onDismiss) {
-                Text(stringResource(Res.string.btn_cancel))
-            }
-        },
-    )
-}
-
-@Composable
-private fun <T : Any> SingleChoiceDialog(
-    title: String,
-    selected: T?,
-    options: List<T>,
-    optionLabel: @Composable (T) -> String,
-    noneLabel: String? = null,
-    onConfirm: (T?) -> Unit,
-    onDismiss: () -> Unit,
-) {
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = { Text(title) },
-        text = {
-            Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
-                if (noneLabel != null) {
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clickable { onConfirm(null) }
-                            .padding(vertical = spacingMedium),
-                    ) {
-                        Text(
-                            text = noneLabel,
-                            style = MaterialTheme.typography.bodyMedium,
-                            modifier = Modifier.weight(1f),
-                        )
-                        if (selected == null) {
-                            Icon(
-                                imageVector = Icons.Default.Check,
-                                contentDescription = null,
-                                tint = MaterialTheme.colorScheme.primary,
-                            )
-                        }
-                    }
-                }
-                options.forEach { option ->
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clickable { onConfirm(option) }
-                            .padding(vertical = spacingMedium),
-                    ) {
-                        Text(
-                            text = optionLabel(option),
-                            style = MaterialTheme.typography.bodyMedium,
-                            modifier = Modifier.weight(1f),
-                        )
-                        if (selected == option) {
-                            Icon(
-                                imageVector = Icons.Default.Check,
-                                contentDescription = null,
-                                tint = MaterialTheme.colorScheme.primary,
-                            )
-                        }
-                    }
-                }
-            }
-        },
-        confirmButton = {},
         dismissButton = {
             TextButton(onClick = onDismiss) {
                 Text(stringResource(Res.string.btn_cancel))
