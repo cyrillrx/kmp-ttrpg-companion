@@ -161,23 +161,34 @@ fun CharacterListScreen(viewModel: CharacterListViewModel, router: CharacterRout
 }
 ```
 
-When a ViewModel must navigate **after async work** (e.g. save before navigate), the ViewModel method must accept a navigation callback provided by the composable with the fresh router:
+When a ViewModel must navigate **after async work** (e.g. save before navigate), expose a `SharedFlow<NavigationEvent>` and collect it in a `LaunchedEffect(viewModel)` in the primary composable:
 
 ```kotlin
 // ViewModel
-fun onPresetSelected(preset: Character, onSaved: (character: Character) -> Unit) {
+sealed interface NavigationEvent {
+    data class NavigateToDetail(val character: Character) : NavigationEvent
+}
+
+val navigationEvents: SharedFlow<NavigationEvent>
+    field = MutableSharedFlow(extraBufferCapacity = 1)
+
+fun onPresetSelected(preset: Character) {
     viewModelScope.launch {
         val newCharacter = preset.copy(id = Uuid.random().toString())
         characterRepository.save(newCharacter)
-        onSaved(newCharacter)
+        navigationEvents.tryEmit(NavigationEvent.NavigateToDetail(newCharacter))
     }
 }
 
-// Composable
-onPresetSelected = { preset ->
-    viewModel.onPresetSelected(preset) { character ->
-        router.navigateUp()
-        router.openCharacterDetail(character)
+// Composable (primary overload)
+LaunchedEffect(viewModel) {
+    viewModel.navigationEvents.collect { event ->
+        when (event) {
+            is CharacterPresetGalleryViewModel.NavigationEvent.NavigateToDetail -> {
+                router.navigateUp()
+                router.openCharacterDetail(event.character)
+            }
+        }
     }
 }
 ```
