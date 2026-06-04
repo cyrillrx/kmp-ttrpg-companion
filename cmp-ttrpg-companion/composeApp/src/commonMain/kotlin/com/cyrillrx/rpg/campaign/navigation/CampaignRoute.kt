@@ -43,10 +43,9 @@ fun EntryProviderScope<NavKey>.handleCampaignRoutes(backStack: NavBackStack<NavK
     }
 
     entry<CampaignRoute.Detail> { route ->
-        val router = CampaignRouterImpl(backStack)
         CampaignDetailScreen(
             campaign = route.serializedCampaign.deserialize(),
-            onNavigateUpClicked = router::navigateUp,
+            onNavigateUpClicked = backStack::navigateUp,
         )
     }
 
