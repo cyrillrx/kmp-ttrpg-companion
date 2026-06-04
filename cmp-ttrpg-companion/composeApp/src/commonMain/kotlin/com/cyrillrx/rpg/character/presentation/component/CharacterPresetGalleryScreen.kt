@@ -14,6 +14,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -42,16 +43,22 @@ fun CharacterPresetGalleryScreen(
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
+    LaunchedEffect(viewModel) {
+        viewModel.navigationEvents.collect { event ->
+            when (event) {
+                is CharacterPresetGalleryViewModel.NavigationEvent.NavigateToDetail -> {
+                    router.navigateUp()
+                    router.openCharacterDetail(event.character)
+                }
+            }
+        }
+    }
+
     CharacterPresetGalleryScreen(
         state = state,
         onNavigateUpClicked = router::navigateUp,
         onTabSelected = viewModel::onTabSelected,
-        onPresetSelected = { preset ->
-            viewModel.onPresetSelected(preset) { character ->
-                router.navigateUp()
-                router.openCharacterDetail(character)
-            }
-        },
+        onPresetSelected = viewModel::onPresetSelected,
     )
 }
 

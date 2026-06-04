@@ -19,6 +19,7 @@ import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -51,12 +52,21 @@ import rpg_companion.composeapp.generated.resources.title_create_campaign
 @Composable
 fun CreateCampaignScreen(viewModel: CreateCampaignViewModel, router: CampaignRouter) {
     val state by viewModel.state.collectAsStateWithLifecycle()
+
+    LaunchedEffect(viewModel) {
+        viewModel.navigationEvents.collect { event ->
+            when (event) {
+                CreateCampaignViewModel.NavigationEvent.NavigateUp -> router.navigateUp()
+            }
+        }
+    }
+
     CreateCampaignScreen(
         state = state,
         onNavigateUpClicked = router::navigateUp,
         onCampaignNameChanged = viewModel::onCampaignNameChanged,
         onRuleSetSelected = viewModel::onRuleSetSelected,
-        onCreateButtonClicked = { viewModel.onCreateCampaignClicked(router::navigateUp) },
+        onCreateButtonClicked = viewModel::onCreateCampaignClicked,
         clearError = viewModel::clearError,
     )
 }

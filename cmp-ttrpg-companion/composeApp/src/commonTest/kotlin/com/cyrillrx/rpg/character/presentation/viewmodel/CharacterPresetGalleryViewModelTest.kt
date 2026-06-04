@@ -77,13 +77,17 @@ class CharacterPresetGalleryViewModelTest {
         val preset = SampleCharacterRepository.humanFighter()
         val viewModel = buildViewModel()
 
-        var savedCharacter: Character? = null
-        viewModel.onPresetSelected(preset) { savedCharacter = it }
+        var navigationEvent: CharacterPresetGalleryViewModel.NavigationEvent? = null
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.navigationEvents.collect { navigationEvent = it }
+        }
+
+        viewModel.onPresetSelected(preset)
         advanceUntilIdle()
 
-        val saved = requireNotNull(savedCharacter)
-        assertNotEquals(illegal = preset.id, actual = saved.id)
-        assertEquals(expected = preset.name, actual = saved.name)
+        val event = assertIs<CharacterPresetGalleryViewModel.NavigationEvent.NavigateToDetail>(navigationEvent)
+        assertNotEquals(illegal = preset.id, actual = event.character.id)
+        assertEquals(expected = preset.name, actual = event.character.name)
     }
 
     @Test
@@ -91,7 +95,7 @@ class CharacterPresetGalleryViewModelTest {
         val preset = SampleCharacterRepository.humanFighter()
         val viewModel = buildViewModel()
 
-        viewModel.onPresetSelected(preset) {}
+        viewModel.onPresetSelected(preset)
         advanceUntilIdle()
 
         val saved = characterRepository.getAll(null)
@@ -100,17 +104,21 @@ class CharacterPresetGalleryViewModelTest {
     }
 
     @Test
-    fun `onPresetSelected invokes onSaved with the newly created character`() = runTest(testDispatcher) {
+    fun `onPresetSelected emits NavigateToDetail event with the newly created character`() = runTest(testDispatcher) {
         val preset = SampleCharacterRepository.humanFighter()
         val viewModel = buildViewModel()
 
-        var callbackCharacter: Character? = null
-        viewModel.onPresetSelected(preset) { callbackCharacter = it }
+        var navigationEvent: CharacterPresetGalleryViewModel.NavigationEvent? = null
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.navigationEvents.collect { navigationEvent = it }
+        }
+
+        viewModel.onPresetSelected(preset)
         advanceUntilIdle()
 
-        val character = requireNotNull(callbackCharacter)
-        assertNotEquals(illegal = preset.id, actual = character.id)
-        assertEquals(expected = preset.name, actual = character.name)
-        assertEquals(expected = characterRepository.getAll(null).first().id, actual = character.id)
+        val event = assertIs<CharacterPresetGalleryViewModel.NavigationEvent.NavigateToDetail>(navigationEvent)
+        assertNotEquals(illegal = preset.id, actual = event.character.id)
+        assertEquals(expected = preset.name, actual = event.character.name)
+        assertEquals(expected = characterRepository.getAll(null).first().id, actual = event.character.id)
     }
 }

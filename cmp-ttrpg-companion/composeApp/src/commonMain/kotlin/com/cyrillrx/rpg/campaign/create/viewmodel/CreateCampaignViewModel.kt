@@ -6,7 +6,9 @@ import com.cyrillrx.rpg.campaign.create.CreateCampaignState
 import com.cyrillrx.rpg.campaign.domain.Campaign
 import com.cyrillrx.rpg.campaign.domain.CampaignRepository
 import com.cyrillrx.rpg.campaign.domain.RuleSet
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -15,8 +17,15 @@ class CreateCampaignViewModel(
     private val repository: CampaignRepository,
 ) : ViewModel() {
 
+    sealed interface NavigationEvent {
+        data object NavigateUp : NavigationEvent
+    }
+
     val state: StateFlow<CreateCampaignState>
         field = MutableStateFlow(CreateCampaignState(campaignName = "", selectedRuleSet = RuleSet.UNDEFINED, error = null))
+
+    val navigationEvents: SharedFlow<NavigationEvent>
+        field = MutableSharedFlow(extraBufferCapacity = 1)
 
     fun onCampaignNameChanged(name: String) {
         state.update { it.copy(campaignName = name) }
@@ -26,7 +35,7 @@ class CreateCampaignViewModel(
         state.update { it.copy(selectedRuleSet = ruleSet) }
     }
 
-    fun onCreateCampaignClicked(onSaved: () -> Unit) {
+    fun onCreateCampaignClicked() {
         val currentState = state.value
         val campaignName = currentState.campaignName.trim()
         val selectedRuleSet = currentState.selectedRuleSet
@@ -55,7 +64,7 @@ class CreateCampaignViewModel(
             }
 
             repository.save(newCampaign)
-            onSaved()
+            navigationEvents.tryEmit(NavigationEvent.NavigateUp)
         }
     }
 

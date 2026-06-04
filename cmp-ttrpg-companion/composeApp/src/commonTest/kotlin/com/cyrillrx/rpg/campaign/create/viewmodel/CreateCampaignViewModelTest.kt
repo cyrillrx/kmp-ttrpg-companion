@@ -7,10 +7,12 @@ import com.cyrillrx.rpg.campaign.domain.RuleSet
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.StandardTestDispatcher
+import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
+import kotlinx.coroutines.launch
 import kotlin.test.AfterTest
 import kotlin.test.BeforeTest
 import kotlin.test.Test
@@ -42,11 +44,15 @@ class CreateCampaignViewModelTest {
         val viewModel = buildViewModel()
         viewModel.onRuleSetSelected(RuleSet.DND5E)
 
-        var callbackInvoked = false
-        viewModel.onCreateCampaignClicked { callbackInvoked = true }
+        var navigationEmitted = false
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.navigationEvents.collect { navigationEmitted = true }
+        }
+
+        viewModel.onCreateCampaignClicked()
 
         assertIs<CreateCampaignError.EmptyCampaignName>(viewModel.state.value.error)
-        assertTrue(!callbackInvoked)
+        assertTrue(!navigationEmitted)
     }
 
     @Test
@@ -54,11 +60,15 @@ class CreateCampaignViewModelTest {
         val viewModel = buildViewModel()
         viewModel.onCampaignNameChanged("My Campaign")
 
-        var callbackInvoked = false
-        viewModel.onCreateCampaignClicked { callbackInvoked = true }
+        var navigationEmitted = false
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.navigationEvents.collect { navigationEmitted = true }
+        }
+
+        viewModel.onCreateCampaignClicked()
 
         assertIs<CreateCampaignError.UndefinedRuleSet>(viewModel.state.value.error)
-        assertTrue(!callbackInvoked)
+        assertTrue(!navigationEmitted)
     }
 
     @Test
@@ -68,25 +78,33 @@ class CreateCampaignViewModelTest {
         viewModel.onCampaignNameChanged("My Campaign")
         viewModel.onRuleSetSelected(RuleSet.DND5E)
 
-        var callbackInvoked = false
-        viewModel.onCreateCampaignClicked { callbackInvoked = true }
+        var navigationEmitted = false
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.navigationEvents.collect { navigationEmitted = true }
+        }
+
+        viewModel.onCreateCampaignClicked()
         advanceUntilIdle()
 
         assertIs<CreateCampaignError.CampaignAlreadyExists>(viewModel.state.value.error)
-        assertTrue(!callbackInvoked)
+        assertTrue(!navigationEmitted)
     }
 
     @Test
-    fun `onCreateCampaignClicked saves campaign and invokes onSaved`() = runTest(testDispatcher) {
+    fun `onCreateCampaignClicked saves campaign and emits NavigateUp event`() = runTest(testDispatcher) {
         val viewModel = buildViewModel()
         viewModel.onCampaignNameChanged("New Campaign")
         viewModel.onRuleSetSelected(RuleSet.DND5E)
 
-        var callbackInvoked = false
-        viewModel.onCreateCampaignClicked { callbackInvoked = true }
+        var navigationEmitted = false
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.navigationEvents.collect { navigationEmitted = true }
+        }
+
+        viewModel.onCreateCampaignClicked()
         advanceUntilIdle()
 
-        assertTrue(callbackInvoked)
+        assertTrue(navigationEmitted)
         assertNull(viewModel.state.value.error)
         assertEquals(1, repository.campaigns.size)
         assertEquals("New Campaign", repository.campaigns.first().name)
@@ -96,7 +114,7 @@ class CreateCampaignViewModelTest {
     fun `clearError removes current error from state`() = runTest(testDispatcher) {
         val viewModel = buildViewModel()
 
-        viewModel.onCreateCampaignClicked {}
+        viewModel.onCreateCampaignClicked()
 
         assertIs<CreateCampaignError.EmptyCampaignName>(viewModel.state.value.error)
 

@@ -5,7 +5,9 @@ import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.presentation.CharacterPresetGalleryState
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -20,8 +22,16 @@ class CharacterPresetGalleryViewModel(
     private val npcPresetRepository: CharacterRepository,
     private val characterRepository: CharacterRepository,
 ) : ViewModel() {
+
+    sealed interface NavigationEvent {
+        data class NavigateToDetail(val character: Character) : NavigationEvent
+    }
+
     val state: StateFlow<CharacterPresetGalleryState>
         field = MutableStateFlow(CharacterPresetGalleryState())
+
+    val navigationEvents: SharedFlow<NavigationEvent>
+        field = MutableSharedFlow(extraBufferCapacity = 1)
 
     init {
         loadPresets()
@@ -32,11 +42,11 @@ class CharacterPresetGalleryViewModel(
     }
 
     @OptIn(ExperimentalUuidApi::class)
-    fun onPresetSelected(preset: Character, onSaved: (character: Character) -> Unit) {
+    fun onPresetSelected(preset: Character) {
         viewModelScope.launch {
             val newCharacter = preset.copy(id = Uuid.random().toString())
             characterRepository.save(newCharacter)
-            onSaved(newCharacter)
+            navigationEvents.tryEmit(NavigationEvent.NavigateToDetail(newCharacter))
         }
     }
 
