@@ -134,6 +134,54 @@ LaunchedEffect(viewModel) {
 
 Pass `SnackbarHostState` as a parameter to the stateless overload (with `remember { SnackbarHostState() }` as default so previews compile without changes).
 
+### Navigation callbacks in primary composables
+
+ViewModels receive a `{Feature}Router` injected at construction time. Because the ViewModel outlives configuration changes (rotation), its router reference can point to a stale `NavBackStack` after recreation. **Always bind navigation callbacks directly to the fresh `router` parameter in the ViewModel-taking composable overload** — never to ViewModel methods that delegate to the injected router.
+
+```kotlin
+// ✅ Correct — navigation goes through the fresh router parameter
+fun CharacterListScreen(viewModel: CharacterListViewModel, router: CharacterRouter) {
+    CharacterListScreen(
+        state = ...,
+        onCharacterClicked    = { router.openCharacterDetail(it.id) },
+        onNewCharacterClicked = router::openCreateCharacter,
+        onQuickCreateClicked  = router::openPresetGallery,
+        onNavigateUpClicked   = router::navigateUp,
+        ...
+    )
+}
+
+// ❌ Wrong — viewModel holds a stale router after rotation
+fun CharacterListScreen(viewModel: CharacterListViewModel, router: CharacterRouter) {
+    CharacterListScreen(
+        onCharacterClicked    = viewModel::openCharacterDetail, // stale router
+        onNewCharacterClicked = viewModel::openCreateCharacter, // stale router
+        ...
+    )
+}
+```
+
+When a ViewModel must navigate **after async work** (e.g. save before navigate), the ViewModel method must accept a navigation callback provided by the composable with the fresh router:
+
+```kotlin
+// ViewModel
+fun onPresetSelected(preset: Character, onSaved: (characterId: String) -> Unit) {
+    viewModelScope.launch {
+        val newCharacter = preset.copy(id = Uuid.random().toString())
+        characterRepository.save(newCharacter)
+        onSaved(newCharacter.id)
+    }
+}
+
+// Composable
+onPresetSelected = { preset ->
+    viewModel.onPresetSelected(preset) { characterId ->
+        router.navigateUp()
+        router.openCharacterDetail(characterId)
+    }
+}
+```
+
 ### Domain & Data Layers
 
 - **Domain**: Pure Kotlin. Contains Entities and Use Cases/Interactors. Independent of any framework.
