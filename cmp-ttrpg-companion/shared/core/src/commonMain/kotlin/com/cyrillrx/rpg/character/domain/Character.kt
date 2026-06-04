@@ -47,6 +47,7 @@ data class Character(
     )
 
     enum class Class {
+        ARTIFICER,
         BARBARIAN,
         BARD,
         CLERIC,
