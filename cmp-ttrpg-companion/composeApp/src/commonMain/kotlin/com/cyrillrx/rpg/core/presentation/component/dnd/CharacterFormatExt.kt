@@ -20,6 +20,7 @@ import rpg_companion.composeapp.generated.resources.background_sage
 import rpg_companion.composeapp.generated.resources.background_sailor
 import rpg_companion.composeapp.generated.resources.background_soldier
 import rpg_companion.composeapp.generated.resources.background_urchin
+import rpg_companion.composeapp.generated.resources.class_artificer
 import rpg_companion.composeapp.generated.resources.class_barbarian
 import rpg_companion.composeapp.generated.resources.class_bard
 import rpg_companion.composeapp.generated.resources.class_cleric
@@ -83,6 +84,7 @@ fun Background?.toFormattedString(): String {
 }
 
 fun Character.Class.toSvgPath(): String = when (this) {
+    Character.Class.ARTIFICER -> "drawable/class_artificer.svg"
     Character.Class.BARBARIAN -> "drawable/class_barbarian.svg"
     Character.Class.BARD -> "drawable/class_bard.svg"
     Character.Class.CLERIC -> "drawable/class_cleric.svg"
@@ -142,6 +144,7 @@ fun Race.toFormattedString(): String {
 @Composable
 fun Character.Class.toFormattedString(): String {
     val stringRes = when (this) {
+        Character.Class.ARTIFICER -> Res.string.class_artificer
         Character.Class.BARBARIAN -> Res.string.class_barbarian
         Character.Class.BARD -> Res.string.class_bard
         Character.Class.CLERIC -> Res.string.class_cleric
