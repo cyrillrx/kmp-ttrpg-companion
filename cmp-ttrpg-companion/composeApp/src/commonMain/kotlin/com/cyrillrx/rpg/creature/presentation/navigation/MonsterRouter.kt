@@ -3,11 +3,12 @@ package com.cyrillrx.rpg.creature.presentation.navigation
 import androidx.navigation3.runtime.NavBackStack
 import androidx.navigation3.runtime.NavKey
 import com.cyrillrx.rpg.core.navigation.navigateUp
+import com.cyrillrx.rpg.creature.domain.Monster
 
 interface MonsterRouter {
     fun navigateUp()
     fun openCompendium()
-    fun openDetail(monsterId: String)
+    fun openDetail(monster: Monster)
 }
 
 class MonsterRouterImpl(private val backStack: NavBackStack<NavKey>) : MonsterRouter {
@@ -19,7 +20,7 @@ class MonsterRouterImpl(private val backStack: NavBackStack<NavKey>) : MonsterRo
         backStack.add(MonsterRoute.Compendium)
     }
 
-    override fun openDetail(monsterId: String) {
-        backStack.add(MonsterRoute.Detail(monsterId))
+    override fun openDetail(monster: Monster) {
+        backStack.add(MonsterRoute.Detail(monster.id))
     }
 }

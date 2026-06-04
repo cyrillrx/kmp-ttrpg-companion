@@ -41,7 +41,7 @@ fun SpellCardCarouselScreen(viewModel: SpellListViewModel, router: SpellRouter) 
         state = state,
         onNavigateUpClicked = router::navigateUp,
         onSearchQueryChanged = viewModel::filterByQuery,
-        onSpellClicked = { spell -> router.openDetail(spell.id) },
+        onSpellClicked = router::openDetail,
         onLevelToggled = viewModel::onLevelToggled,
         onSchoolToggled = viewModel::onSchoolToggled,
         onClassToggled = viewModel::onClassToggled,

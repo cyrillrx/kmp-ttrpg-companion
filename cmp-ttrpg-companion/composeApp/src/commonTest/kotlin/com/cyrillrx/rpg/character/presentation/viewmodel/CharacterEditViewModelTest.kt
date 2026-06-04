@@ -52,7 +52,7 @@ class CharacterEditViewModelTest {
     private fun buildViewModel(
         characterId: String = fighter.id,
         repo: CharacterRepository,
-    ) = CharacterEditViewModel(characterId, NoOpCharacterRouter(), repo)
+    ) = CharacterEditViewModel(characterId, repo)
 
     // ─── Init ──────────────────────────────────────────────────────────────────
 

@@ -17,7 +17,6 @@ import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
 import com.cyrillrx.rpg.character.presentation.CoercedValue
-import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
 import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.creature.domain.Creature
@@ -30,7 +29,6 @@ import kotlinx.coroutines.launch
 
 class CharacterEditViewModel(
     private val characterId: String,
-    private val router: CharacterRouter,
     private val characterRepository: CharacterRepository,
 ) : ViewModel() {
 

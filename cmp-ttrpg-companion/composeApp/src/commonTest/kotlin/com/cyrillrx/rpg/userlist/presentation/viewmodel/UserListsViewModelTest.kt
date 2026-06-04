@@ -4,7 +4,6 @@ import com.cyrillrx.rpg.userlist.data.RamUserListRepository
 import com.cyrillrx.rpg.userlist.domain.UserList
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
 import com.cyrillrx.rpg.userlist.presentation.UserListsState
-import com.cyrillrx.rpg.userlist.presentation.navigation.UserListRouter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
@@ -30,7 +29,6 @@ class UserListsViewModelTest {
 
     private val testDispatcher = StandardTestDispatcher()
     private val repository = RamUserListRepository()
-    private val router = NoOpUserListRouter()
 
     @BeforeTest
     fun setUp() {
@@ -43,7 +41,7 @@ class UserListsViewModelTest {
     }
 
     private fun buildViewModel(repo: UserListRepository = repository) =
-        UserListsViewModel(UserList.Type.SPELL, router, repo, testDispatcher)
+        UserListsViewModel(UserList.Type.SPELL, repo, testDispatcher)
 
     @Test
     fun `initial state is Loading before coroutines run`() = runTest(testDispatcher) {
@@ -163,7 +161,7 @@ class UserListsViewModelTest {
     @Test
     fun `commitDeletion restores list and emits error when repository throws`() = runTest(testDispatcher) {
         val failingRepo = FailsOnDeleteUserListRepository()
-        val viewModel = UserListsViewModel(UserList.Type.SPELL, router, failingRepo, testDispatcher)
+        val viewModel = UserListsViewModel(UserList.Type.SPELL, failingRepo, testDispatcher)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -274,26 +272,6 @@ class UserListsViewModelTest {
         assertIs<UserListsState.Body.Loading>(viewModel.state.value.body)
     }
 
-    @Test
-    fun `openList delegates to router`() = runTest(testDispatcher) {
-        val trackingRouter = TrackingUserListRouter()
-        val viewModel = UserListsViewModel(UserList.Type.SPELL, trackingRouter, repository)
-
-        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
-            viewModel.state.collect {}
-        }
-
-        advanceUntilIdle()
-        viewModel.createList(LIST_NAME)
-        advanceUntilIdle()
-
-        val body = assertIs<UserListsState.Body.WithData>(viewModel.state.value.body)
-        val list = body.lists.first()
-
-        viewModel.openList(list)
-
-        assertTrue(trackingRouter.openedLists.contains(list))
-    }
 }
 
 private class FailsOnDeleteUserListRepository : UserListRepository {
@@ -304,16 +282,3 @@ private class FailsOnDeleteUserListRepository : UserListRepository {
     override suspend fun delete(id: String) = error("Delete failed")
 }
 
-private class NoOpUserListRouter : UserListRouter {
-    override fun navigateUp() = Unit
-    override fun openUserList(list: UserList) = Unit
-}
-
-private class TrackingUserListRouter : UserListRouter {
-    val openedLists = mutableListOf<UserList>()
-
-    override fun navigateUp() = Unit
-    override fun openUserList(list: UserList) {
-        openedLists.add(list)
-    }
-}

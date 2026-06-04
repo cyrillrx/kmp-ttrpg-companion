@@ -2,11 +2,12 @@ package com.cyrillrx.rpg.character.presentation.navigation
 
 import androidx.navigation3.runtime.NavBackStack
 import androidx.navigation3.runtime.NavKey
+import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.core.navigation.navigateUp
 
 interface CharacterRouter {
     fun navigateUp()
-    fun openCharacterDetail(characterId: String)
+    fun openCharacterDetail(character: Character)
     fun openCreateCharacter()
     fun openPresetGallery()
 }
@@ -16,8 +17,8 @@ class CharacterRouterImpl(private val backStack: NavBackStack<NavKey>) : Charact
         backStack.navigateUp()
     }
 
-    override fun openCharacterDetail(characterId: String) {
-        backStack.add(CharacterRoute.Detail(characterId))
+    override fun openCharacterDetail(character: Character) {
+        backStack.add(CharacterRoute.Detail(character.id))
     }
 
     override fun openCreateCharacter() {

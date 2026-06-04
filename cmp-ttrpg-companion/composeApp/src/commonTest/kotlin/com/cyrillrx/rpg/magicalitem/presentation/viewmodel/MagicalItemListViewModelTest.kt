@@ -5,7 +5,6 @@ import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemFilter
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemRepository
 import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemListState
-import com.cyrillrx.rpg.magicalitem.presentation.navigation.MagicalItemRouter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
@@ -29,7 +28,6 @@ class MagicalItemListViewModelTest {
     private val testDispatcher = StandardTestDispatcher()
     private val repository = SampleMagicalItemRepository()
     private val item = SampleMagicalItemRepository.getFirst()
-    private val router = NoOpMagicalItemRouter()
 
     @BeforeTest
     fun setUp() {
@@ -43,7 +41,7 @@ class MagicalItemListViewModelTest {
 
     @Test
     fun `initial state loads all items`() = runTest(testDispatcher) {
-        val viewModel = MagicalItemListViewModel(router, repository)
+        val viewModel = MagicalItemListViewModel(repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -58,7 +56,7 @@ class MagicalItemListViewModelTest {
 
     @Test
     fun `onTypeToggled filters items by type`() = runTest(testDispatcher) {
-        val viewModel = MagicalItemListViewModel(router, repository)
+        val viewModel = MagicalItemListViewModel(repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -78,7 +76,7 @@ class MagicalItemListViewModelTest {
 
     @Test
     fun `onRarityToggled filters items by rarity`() = runTest(testDispatcher) {
-        val viewModel = MagicalItemListViewModel(router, repository)
+        val viewModel = MagicalItemListViewModel(repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -98,7 +96,7 @@ class MagicalItemListViewModelTest {
 
     @Test
     fun `filterByQuery filters items by title`() = runTest(testDispatcher) {
-        val viewModel = MagicalItemListViewModel(router, repository)
+        val viewModel = MagicalItemListViewModel(repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -119,7 +117,7 @@ class MagicalItemListViewModelTest {
 
     @Test
     fun `onResetFilters clears active filters`() = runTest(testDispatcher) {
-        val viewModel = MagicalItemListViewModel(router, repository)
+        val viewModel = MagicalItemListViewModel(repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -145,7 +143,7 @@ class MagicalItemListViewModelTest {
 
     @Test
     fun `state is Empty when no items match filter`() = runTest(testDispatcher) {
-        val viewModel = MagicalItemListViewModel(router, repository)
+        val viewModel = MagicalItemListViewModel(repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -163,7 +161,7 @@ class MagicalItemListViewModelTest {
     @Test
     fun `state is Error when repository throws`() = runTest(testDispatcher) {
         val failingRepository = FailingMagicalItemRepository()
-        val viewModel = MagicalItemListViewModel(router, failingRepository)
+        val viewModel = MagicalItemListViewModel(failingRepository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -173,12 +171,6 @@ class MagicalItemListViewModelTest {
 
         assertIs<MagicalItemListState.Body.Error>(viewModel.state.value.body)
     }
-}
-
-private class NoOpMagicalItemRouter : MagicalItemRouter {
-    override fun navigateUp() = Unit
-    override fun openCompendium() = Unit
-    override fun openDetail(magicalItemId: String) = Unit
 }
 
 private class FailingMagicalItemRepository : MagicalItemRepository {

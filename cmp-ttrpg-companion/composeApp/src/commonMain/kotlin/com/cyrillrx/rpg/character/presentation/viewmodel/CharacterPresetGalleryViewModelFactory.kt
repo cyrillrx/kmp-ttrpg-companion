@@ -4,11 +4,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.CreationExtras
 import com.cyrillrx.rpg.character.domain.CharacterRepository
-import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
 import kotlin.reflect.KClass
 
 class CharacterPresetGalleryViewModelFactory(
-    private val router: CharacterRouter,
     private val pcPresetRepository: CharacterRepository,
     private val npcPresetRepository: CharacterRepository,
     private val characterRepository: CharacterRepository,
@@ -16,5 +14,5 @@ class CharacterPresetGalleryViewModelFactory(
     override fun <T : ViewModel> create(
         modelClass: KClass<T>,
         extras: CreationExtras,
-    ): T = CharacterPresetGalleryViewModel(router, pcPresetRepository, npcPresetRepository, characterRepository) as T
+    ): T = CharacterPresetGalleryViewModel(pcPresetRepository, npcPresetRepository, characterRepository) as T
 }

@@ -2,11 +2,9 @@ package com.cyrillrx.rpg.campaign.list.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.cyrillrx.rpg.campaign.domain.Campaign
 import com.cyrillrx.rpg.campaign.domain.CampaignFilter
 import com.cyrillrx.rpg.campaign.domain.CampaignRepository
 import com.cyrillrx.rpg.campaign.list.CampaignListState
-import com.cyrillrx.rpg.campaign.navigation.CampaignRouter
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -17,7 +15,6 @@ import rpg_companion.composeapp.generated.resources.error_while_loading_campaign
 import kotlin.coroutines.cancellation.CancellationException
 
 class CampaignListViewModel(
-    private val router: CampaignRouter,
     private val repository: CampaignRepository,
 ) : ViewModel() {
 
@@ -38,14 +35,6 @@ class CampaignListViewModel(
         if (state.value.body is CampaignListState.Body.Loading) return
         activeJob?.cancel()
         activeJob = refreshCampaigns()
-    }
-
-    fun openCampaignDetail(campaign: Campaign) {
-        router.openCampaignDetail(campaign)
-    }
-
-    fun openCreateCampaign() {
-        router.openCreateCampaign()
     }
 
     private fun refreshCampaigns(): Job =

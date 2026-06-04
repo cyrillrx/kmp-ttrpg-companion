@@ -5,7 +5,6 @@ import com.cyrillrx.rpg.creature.domain.MonsterFilter
 import com.cyrillrx.rpg.creature.domain.MonsterRepository
 import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.creature.presentation.MonsterListState
-import com.cyrillrx.rpg.creature.presentation.navigation.MonsterRouter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
@@ -30,7 +29,6 @@ class MonsterListViewModelTest {
     private val repository = SampleMonsterRepository()
     private val goblin = SampleMonsterRepository.goblin()
     private val dragon = SampleMonsterRepository.youngRedDragon()
-    private val router = NoOpMonsterRouter()
 
     @BeforeTest
     fun setUp() {
@@ -44,7 +42,7 @@ class MonsterListViewModelTest {
 
     @Test
     fun `initial state loads all monsters`() = runTest(testDispatcher) {
-        val viewModel = MonsterListViewModel(router, repository)
+        val viewModel = MonsterListViewModel(repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -59,7 +57,7 @@ class MonsterListViewModelTest {
 
     @Test
     fun `onTypeToggled filters monsters by type`() = runTest(testDispatcher) {
-        val viewModel = MonsterListViewModel(router, repository)
+        val viewModel = MonsterListViewModel(repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -80,7 +78,7 @@ class MonsterListViewModelTest {
 
     @Test
     fun `onChallengeRatingToggled filters monsters by CR`() = runTest(testDispatcher) {
-        val viewModel = MonsterListViewModel(router, repository)
+        val viewModel = MonsterListViewModel(repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -99,7 +97,7 @@ class MonsterListViewModelTest {
 
     @Test
     fun `filterByQuery filters monsters by name`() = runTest(testDispatcher) {
-        val viewModel = MonsterListViewModel(router, repository)
+        val viewModel = MonsterListViewModel(repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -119,7 +117,7 @@ class MonsterListViewModelTest {
 
     @Test
     fun `onResetFilters clears active filters`() = runTest(testDispatcher) {
-        val viewModel = MonsterListViewModel(router, repository)
+        val viewModel = MonsterListViewModel(repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -145,7 +143,7 @@ class MonsterListViewModelTest {
 
     @Test
     fun `state is Empty when no monsters match filter`() = runTest(testDispatcher) {
-        val viewModel = MonsterListViewModel(router, repository)
+        val viewModel = MonsterListViewModel(repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -163,7 +161,7 @@ class MonsterListViewModelTest {
     @Test
     fun `state is Error when repository throws`() = runTest(testDispatcher) {
         val failingRepository = FailingMonsterRepository()
-        val viewModel = MonsterListViewModel(router, failingRepository)
+        val viewModel = MonsterListViewModel(failingRepository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -173,12 +171,6 @@ class MonsterListViewModelTest {
 
         assertIs<MonsterListState.Body.Error>(viewModel.state.value.body)
     }
-}
-
-private class NoOpMonsterRouter : MonsterRouter {
-    override fun navigateUp() = Unit
-    override fun openCompendium() = Unit
-    override fun openDetail(monsterId: String) = Unit
 }
 
 private class FailingMonsterRepository : MonsterRepository {

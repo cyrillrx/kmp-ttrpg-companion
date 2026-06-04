@@ -1,7 +1,7 @@
 package com.cyrillrx.rpg.spell.presentation
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.MenuBook
+import androidx.compose.material.icons.automirrored.outlined.MenuBook
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -13,11 +13,11 @@ import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.empty_list_browse_spells
 
 class SpellItemProvider(
-    private val onItemClicked: (String) -> Unit,
+    private val onItemClicked: (Spell) -> Unit,
     override val onEmptyLayoutBtnClicked: () -> Unit = {},
 ) : ListItemProvider<Spell> {
 
-    override val emptyLayoutIcon: ImageVector = Icons.Outlined.MenuBook
+    override val emptyLayoutIcon: ImageVector = Icons.AutoMirrored.Outlined.MenuBook
     override val emptyLayoutBtnText: StringResource = Res.string.empty_list_browse_spells
 
     override fun getId(entity: Spell): String = entity.id
@@ -27,6 +27,6 @@ class SpellItemProvider(
 
     @Composable
     override fun ListItem(entity: Spell, modifier: Modifier) {
-        SpellListItem(spell = entity, onClick = { onItemClicked(entity.id) }, modifier = modifier)
+        SpellListItem(spell = entity, onClick = { onItemClicked(entity) }, modifier = modifier)
     }
 }

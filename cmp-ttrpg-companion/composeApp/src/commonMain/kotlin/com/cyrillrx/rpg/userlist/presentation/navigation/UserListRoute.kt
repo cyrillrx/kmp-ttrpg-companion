@@ -39,7 +39,7 @@ fun EntryProviderScope<NavKey>.handleUserListRoutes(
 ) {
     entry<UserListRoute.Spell> {
         val listType = UserList.Type.SPELL
-        val viewModelFactory = UserListsViewModelFactory(listType, router, userListRepository)
+        val viewModelFactory = UserListsViewModelFactory(listType, userListRepository)
         val viewModel = viewModel<UserListsViewModel>(
             key = listType.name,
             factory = viewModelFactory,
@@ -50,7 +50,7 @@ fun EntryProviderScope<NavKey>.handleUserListRoutes(
 
     entry<UserListRoute.MagicalItem> {
         val listType = UserList.Type.MAGICAL_ITEM
-        val viewModelFactory = UserListsViewModelFactory(listType, router, userListRepository)
+        val viewModelFactory = UserListsViewModelFactory(listType, userListRepository)
         val viewModel = viewModel<UserListsViewModel>(
             key = listType.name,
             factory = viewModelFactory,
@@ -61,7 +61,7 @@ fun EntryProviderScope<NavKey>.handleUserListRoutes(
 
     entry<UserListRoute.Creature> {
         val listType = UserList.Type.MONSTER
-        val viewModelFactory = UserListsViewModelFactory(listType, router, userListRepository)
+        val viewModelFactory = UserListsViewModelFactory(listType, userListRepository)
         val viewModel = viewModel<UserListsViewModel>(
             key = listType.name,
             factory = viewModelFactory,

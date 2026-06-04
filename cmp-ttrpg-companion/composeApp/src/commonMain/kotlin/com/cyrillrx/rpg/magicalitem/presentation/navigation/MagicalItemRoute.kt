@@ -43,7 +43,7 @@ fun EntryProviderScope<NavKey>.handleMagicalItemRoutes(
     userListRepository: UserListRepository,
 ) {
     entry<MagicalItemRoute.Compendium> {
-        val viewModelFactory = MagicalItemListViewModelFactory(router, repository)
+        val viewModelFactory = MagicalItemListViewModelFactory(repository)
         val viewModel = viewModel<MagicalItemListViewModel>(factory = viewModelFactory)
         val addToListProvider = MagicalItemAddToListProvider(repository, userListRepository)
         MagicalItemListScreen(viewModel, router, addToListProvider)

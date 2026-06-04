@@ -48,14 +48,14 @@ fun EntryProviderScope<NavKey>.handleCharacterRoutes(
 ) {
     entry<CharacterRoute.List> {
         val router = CharacterRouterImpl(backStack)
-        val viewModelFactory = CharacterListViewModelFactory(router, characterRepository)
+        val viewModelFactory = CharacterListViewModelFactory(characterRepository)
         val viewModel = viewModel<CharacterListViewModel>(factory = viewModelFactory)
         CharacterListScreen(viewModel, router)
     }
 
     entry<CharacterRoute.Detail> { route ->
         val router = CharacterRouterImpl(backStack)
-        val factory = CharacterEditViewModelFactory(route.characterId, router, characterRepository)
+        val factory = CharacterEditViewModelFactory(route.characterId, characterRepository)
         val viewModel = viewModel<CharacterEditViewModel>(key = route.characterId, factory = factory)
         CharacterDetailScreen(viewModel, router)
     }
@@ -68,7 +68,7 @@ fun EntryProviderScope<NavKey>.handleCharacterRoutes(
 
     entry<CharacterRoute.PresetGallery> {
         val router = CharacterRouterImpl(backStack)
-        val viewModelFactory = CharacterPresetGalleryViewModelFactory(router, pcPresetRepository, npcPresetRepository, characterRepository)
+        val viewModelFactory = CharacterPresetGalleryViewModelFactory(pcPresetRepository, npcPresetRepository, characterRepository)
         val viewModel = viewModel<CharacterPresetGalleryViewModel>(factory = viewModelFactory)
         CharacterPresetGalleryScreen(viewModel, router)
     }

@@ -6,7 +6,6 @@ import com.cyrillrx.rpg.core.presentation.commitAllPending
 import com.cyrillrx.rpg.userlist.domain.UserList
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
 import com.cyrillrx.rpg.userlist.presentation.UserListsState
-import com.cyrillrx.rpg.userlist.presentation.navigation.UserListRouter
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
@@ -26,7 +25,6 @@ import kotlin.uuid.Uuid
 
 class UserListsViewModel(
     private val listType: UserList.Type,
-    private val router: UserListRouter,
     private val userListRepository: UserListRepository,
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
 ) : ViewModel() {
@@ -110,10 +108,6 @@ class UserListsViewModel(
                 events.emit(Event.DeletionError(pending.list))
             }
         }
-    }
-
-    fun openList(list: UserList) {
-        router.openUserList(list)
     }
 
     internal fun commitAllPendingDeletions() {

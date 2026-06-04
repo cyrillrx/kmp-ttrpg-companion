@@ -8,7 +8,6 @@ import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.domain.SpellFilter
 import com.cyrillrx.rpg.spell.domain.SpellRepository
 import com.cyrillrx.rpg.spell.presentation.SpellListState
-import com.cyrillrx.rpg.spell.presentation.navigation.SpellRouter
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -19,7 +18,6 @@ import rpg_companion.composeapp.generated.resources.error_while_loading_spells
 import kotlin.coroutines.cancellation.CancellationException
 
 class SpellListViewModel(
-    private val router: SpellRouter,
     private val repository: SpellRepository,
 ) : BaseListViewModel() {
 
@@ -33,10 +31,6 @@ class SpellListViewModel(
 
     fun filterByQuery(query: String) {
         updateFilter { it.copy(query = query) }
-    }
-
-    fun onSpellClicked(spell: Spell) {
-        router.openDetail(spell.id)
     }
 
     fun onLevelToggled(level: Int) {

@@ -13,7 +13,7 @@ import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.empty_list_browse_creatures
 
 class MonsterItemProvider(
-    private val onItemClicked: (String) -> Unit,
+    private val onItemClicked: (Monster) -> Unit,
     override val onEmptyLayoutBtnClicked: () -> Unit = {},
 ) : ListItemProvider<Monster> {
 
@@ -27,6 +27,6 @@ class MonsterItemProvider(
 
     @Composable
     override fun ListItem(entity: Monster, modifier: Modifier) {
-        MonsterListItem(monster = entity, onClick = { onItemClicked(entity.id) }, modifier = modifier)
+        MonsterListItem(monster = entity, onClick = { onItemClicked(entity) }, modifier = modifier)
     }
 }

@@ -44,7 +44,7 @@ fun EntryProviderScope<NavKey>.handleMonsterRoutes(
     userListRepository: UserListRepository,
 ) {
     entry<MonsterRoute.Compendium> {
-        val viewModelFactory = MonsterListViewModelFactory(router, repository)
+        val viewModelFactory = MonsterListViewModelFactory(repository)
         val viewModel = viewModel<MonsterListViewModel>(factory = viewModelFactory)
         val addToListProvider = MonsterAddToListProvider(repository, userListRepository)
         MonsterListScreen(viewModel, router, addToListProvider)

@@ -134,6 +134,65 @@ LaunchedEffect(viewModel) {
 
 Pass `SnackbarHostState` as a parameter to the stateless overload (with `remember { SnackbarHostState() }` as default so previews compile without changes).
 
+### Navigation callbacks in primary composables
+
+Do not inject the router into ViewModels. Because the ViewModel outlives configuration changes (rotation), an injected router reference can point to a stale `NavBackStack` after recreation. **Always bind navigation callbacks directly to the fresh `router` parameter in the ViewModel-taking composable overload** — never to ViewModel methods that delegate to an injected router.
+
+```kotlin
+// ✅ Correct — navigation goes through the fresh router parameter
+fun CharacterListScreen(viewModel: CharacterListViewModel, router: CharacterRouter) {
+    CharacterListScreen(
+        state = ...,
+        onCharacterClicked    = router::openCharacterDetail,
+        onNewCharacterClicked = router::openCreateCharacter,
+        onQuickCreateClicked  = router::openPresetGallery,
+        onNavigateUpClicked   = router::navigateUp,
+        ...
+    )
+}
+
+// ❌ Wrong — viewModel holds a stale router after rotation
+fun CharacterListScreen(viewModel: CharacterListViewModel, router: CharacterRouter) {
+    CharacterListScreen(
+        onCharacterClicked    = viewModel::openCharacterDetail, // stale router
+        onNewCharacterClicked = viewModel::openCreateCharacter, // stale router
+        ...
+    )
+}
+```
+
+When a ViewModel must navigate **after async work** (e.g. save before navigate), expose a `SharedFlow<NavigationEvent>` and collect it in a `LaunchedEffect(viewModel)` in the primary composable:
+
+```kotlin
+// ViewModel
+sealed interface NavigationEvent {
+    data class NavigateToDetail(val character: Character) : NavigationEvent
+}
+
+val navigationEvents: SharedFlow<NavigationEvent>
+    field = MutableSharedFlow(extraBufferCapacity = 1)
+
+fun onPresetSelected(preset: Character) {
+    viewModelScope.launch {
+        val newCharacter = preset.copy(id = Uuid.random().toString())
+        characterRepository.save(newCharacter)
+        navigationEvents.tryEmit(NavigationEvent.NavigateToDetail(newCharacter))
+    }
+}
+
+// Composable (primary overload)
+LaunchedEffect(viewModel) {
+    viewModel.navigationEvents.collect { event ->
+        when (event) {
+            is CharacterPresetGalleryViewModel.NavigationEvent.NavigateToDetail -> {
+                router.navigateUp()
+                router.openCharacterDetail(event.character)
+            }
+        }
+    }
+}
+```
+
 ### Domain & Data Layers
 
 - **Domain**: Pure Kotlin. Contains Entities and Use Cases/Interactors. Independent of any framework.
@@ -149,6 +208,7 @@ The project enforces code formatting using **ktlint**.
 - Use Kotlin Coroutines and Flows for asynchronous programming.
 - Use `require()`, `check()`, and `error()` for preconditions and state validation.
 - Avoid nullable types where possible. Use sealed classes/interfaces for representing exhaustive states (e.g., `Loading`, `Success`, `Error`).
+- Prefer method references (`::`) over explicit lambdas when the signatures match: use `router::openDetail` instead of `{ router.openDetail(it) }`.
 
 ### Jetpack Compose Guidelines
 
