@@ -136,7 +136,7 @@ Pass `SnackbarHostState` as a parameter to the stateless overload (with `remembe
 
 ### Navigation callbacks in primary composables
 
-ViewModels receive a `{Feature}Router` injected at construction time. Because the ViewModel outlives configuration changes (rotation), its router reference can point to a stale `NavBackStack` after recreation. **Always bind navigation callbacks directly to the fresh `router` parameter in the ViewModel-taking composable overload** — never to ViewModel methods that delegate to the injected router.
+Do not inject the router into ViewModels. Because the ViewModel outlives configuration changes (rotation), an injected router reference can point to a stale `NavBackStack` after recreation. **Always bind navigation callbacks directly to the fresh `router` parameter in the ViewModel-taking composable overload** — never to ViewModel methods that delegate to an injected router.
 
 ```kotlin
 // ✅ Correct — navigation goes through the fresh router parameter
