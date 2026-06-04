@@ -6,7 +6,6 @@ import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.domain.SpellFilter
 import com.cyrillrx.rpg.spell.domain.SpellRepository
 import com.cyrillrx.rpg.spell.presentation.SpellListState
-import com.cyrillrx.rpg.spell.presentation.navigation.SpellRouter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
@@ -30,7 +29,6 @@ class SpellListViewModelTest {
     private val testDispatcher = StandardTestDispatcher()
     private val repository = SampleSpellRepository()
     private val spell = SampleSpellRepository.getFirst()
-    private val router = NoOpSpellRouter()
 
     @BeforeTest
     fun setUp() {
@@ -44,7 +42,7 @@ class SpellListViewModelTest {
 
     @Test
     fun `initial state loads all spells`() = runTest(testDispatcher) {
-        val viewModel = SpellListViewModel(router, repository)
+        val viewModel = SpellListViewModel(repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -59,7 +57,7 @@ class SpellListViewModelTest {
 
     @Test
     fun `onSchoolToggled filters spells by school`() = runTest(testDispatcher) {
-        val viewModel = SpellListViewModel(router, repository)
+        val viewModel = SpellListViewModel(repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -79,7 +77,7 @@ class SpellListViewModelTest {
 
     @Test
     fun `onLevelToggled filters spells by level`() = runTest(testDispatcher) {
-        val viewModel = SpellListViewModel(router, repository)
+        val viewModel = SpellListViewModel(repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -98,7 +96,7 @@ class SpellListViewModelTest {
 
     @Test
     fun `onClassToggled filters spells by class`() = runTest(testDispatcher) {
-        val viewModel = SpellListViewModel(router, repository)
+        val viewModel = SpellListViewModel(repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -117,7 +115,7 @@ class SpellListViewModelTest {
 
     @Test
     fun `filterByQuery filters spells by title`() = runTest(testDispatcher) {
-        val viewModel = SpellListViewModel(router, repository)
+        val viewModel = SpellListViewModel(repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -138,7 +136,7 @@ class SpellListViewModelTest {
 
     @Test
     fun `onResetFilters clears active filters`() = runTest(testDispatcher) {
-        val viewModel = SpellListViewModel(router, repository)
+        val viewModel = SpellListViewModel(repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -164,7 +162,7 @@ class SpellListViewModelTest {
 
     @Test
     fun `state is Empty when no spells match filter`() = runTest(testDispatcher) {
-        val viewModel = SpellListViewModel(router, repository)
+        val viewModel = SpellListViewModel(repository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -182,7 +180,7 @@ class SpellListViewModelTest {
     @Test
     fun `state is Error when repository throws`() = runTest(testDispatcher) {
         val failingRepository = FailingSpellRepository()
-        val viewModel = SpellListViewModel(router, failingRepository)
+        val viewModel = SpellListViewModel(failingRepository)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -192,12 +190,6 @@ class SpellListViewModelTest {
 
         assertIs<SpellListState.Body.Error>(viewModel.state.value.body)
     }
-}
-
-private class NoOpSpellRouter : SpellRouter {
-    override fun navigateUp() = Unit
-    override fun openCompendium() = Unit
-    override fun openDetail(spellId: String) = Unit
 }
 
 private class FailingSpellRepository : SpellRepository {

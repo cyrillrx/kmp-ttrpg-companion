@@ -6,7 +6,6 @@ import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterFilter
 import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.presentation.CharacterListState
-import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
 import com.cyrillrx.rpg.core.presentation.commitAllPending
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
@@ -23,7 +22,6 @@ import rpg_companion.composeapp.generated.resources.error_while_loading_characte
 import kotlin.coroutines.cancellation.CancellationException
 
 class CharacterListViewModel(
-    private val router: CharacterRouter,
     private val repository: CharacterRepository,
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
 ) : ViewModel() {
@@ -56,18 +54,6 @@ class CharacterListViewModel(
         if (state.value.body is CharacterListState.Body.Loading) return
         activeJob?.cancel()
         activeJob = refreshCharacters()
-    }
-
-    fun openCharacterDetail(character: Character) {
-        router.openCharacterDetail(character.id)
-    }
-
-    fun openCreateCharacter() {
-        router.openCreateCharacter()
-    }
-
-    fun openPresetGallery() {
-        router.openPresetGallery()
     }
 
     fun deleteCharacterOptimistically(character: Character): PendingDeletion? {

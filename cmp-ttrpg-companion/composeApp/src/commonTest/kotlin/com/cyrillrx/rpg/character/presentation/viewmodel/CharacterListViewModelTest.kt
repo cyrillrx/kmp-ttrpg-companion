@@ -6,7 +6,6 @@ import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterFilter
 import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.presentation.CharacterListState
-import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
@@ -28,7 +27,6 @@ class CharacterListViewModelTest {
 
     private val testDispatcher = StandardTestDispatcher()
     private val repository = RamCharacterRepository()
-    private val router = NoOpCharacterRouter()
 
     @BeforeTest
     fun setUp() {
@@ -40,10 +38,8 @@ class CharacterListViewModelTest {
         Dispatchers.resetMain()
     }
 
-    private fun buildViewModel(
-        repo: CharacterRepository = repository,
-        router: CharacterRouter = this.router,
-    ) = CharacterListViewModel(router, repo, testDispatcher)
+    private fun buildViewModel(repo: CharacterRepository = repository) =
+        CharacterListViewModel(repo, testDispatcher)
 
     @Test
     fun `initial state is Loading before coroutines run`() = runTest(testDispatcher) {
@@ -170,45 +166,6 @@ class CharacterListViewModelTest {
     }
 
     @Test
-    fun `openCharacterDetail delegates to router`() = runTest(testDispatcher) {
-        val trackingRouter = TrackingCharacterRouter()
-        val character = SampleCharacterRepository.getAll().first()
-        repository.save(character)
-
-        val viewModel = buildViewModel(router = trackingRouter)
-
-        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
-            viewModel.state.collect {}
-        }
-
-        advanceUntilIdle()
-
-        viewModel.openCharacterDetail(character)
-
-        assertTrue(trackingRouter.openedCharacterIds.contains(character.id))
-    }
-
-    @Test
-    fun `openCreateCharacter delegates to router`() = runTest(testDispatcher) {
-        val trackingRouter = TrackingCharacterRouter()
-        val viewModel = buildViewModel(router = trackingRouter)
-
-        viewModel.openCreateCharacter()
-
-        assertTrue(trackingRouter.createCharacterCalled)
-    }
-
-    @Test
-    fun `openPresetGallery delegates to router`() = runTest(testDispatcher) {
-        val trackingRouter = TrackingCharacterRouter()
-        val viewModel = buildViewModel(router = trackingRouter)
-
-        viewModel.openPresetGallery()
-
-        assertTrue(trackingRouter.presetGalleryCalled)
-    }
-
-    @Test
     fun `deleteCharacterOptimistically removes the character from UI`() = runTest(testDispatcher) {
         val character = SampleCharacterRepository.getAll().first()
         repository.save(character)
@@ -314,17 +271,6 @@ class CharacterListViewModelTest {
 
         assertTrue(repository.getAll(null).isEmpty())
     }
-}
-
-private class TrackingCharacterRouter : CharacterRouter {
-    val openedCharacterIds = mutableListOf<String>()
-    var createCharacterCalled = false
-    var presetGalleryCalled = false
-
-    override fun navigateUp() = Unit
-    override fun openCharacterDetail(characterId: String) { openedCharacterIds.add(characterId) }
-    override fun openCreateCharacter() { createCharacterCalled = true }
-    override fun openPresetGallery() { presetGalleryCalled = true }
 }
 
 private class FailingCharacterRepository : CharacterRepository {

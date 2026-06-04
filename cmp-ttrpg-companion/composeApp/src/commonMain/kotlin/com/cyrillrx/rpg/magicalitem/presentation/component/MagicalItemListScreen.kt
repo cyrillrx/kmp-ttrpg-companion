@@ -57,7 +57,7 @@ fun MagicalItemListScreen(
         state = state,
         onNavigateUpClicked = router::navigateUp,
         onSearchQueryChanged = viewModel::filterByQuery,
-        onMagicalItemClicked = viewModel::onItemClicked,
+        onMagicalItemClicked = { router.openDetail(it.id) },
         onTypeToggled = viewModel::onTypeToggled,
         onRarityToggled = viewModel::onRarityToggled,
         onResetFilters = viewModel::onResetFilters,

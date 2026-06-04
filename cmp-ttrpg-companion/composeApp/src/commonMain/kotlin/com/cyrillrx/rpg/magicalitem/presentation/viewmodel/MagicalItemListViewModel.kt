@@ -7,7 +7,6 @@ import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemFilter
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemRepository
 import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemListState
-import com.cyrillrx.rpg.magicalitem.presentation.navigation.MagicalItemRouter
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -18,7 +17,6 @@ import rpg_companion.composeapp.generated.resources.error_while_loading_magical_
 import kotlin.coroutines.cancellation.CancellationException
 
 class MagicalItemListViewModel(
-    private val router: MagicalItemRouter,
     private val repository: MagicalItemRepository,
 ) : BaseListViewModel() {
 
@@ -32,10 +30,6 @@ class MagicalItemListViewModel(
 
     fun filterByQuery(query: String) {
         updateFilter { it.copy(query = query) }
-    }
-
-    fun onItemClicked(magicalItem: MagicalItem) {
-        router.openDetail(magicalItem.id)
     }
 
     fun onTypeToggled(type: MagicalItem.Type) {

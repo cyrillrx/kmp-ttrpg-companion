@@ -48,7 +48,7 @@ fun EntryProviderScope<NavKey>.handleCharacterRoutes(
 ) {
     entry<CharacterRoute.List> {
         val router = CharacterRouterImpl(backStack)
-        val viewModelFactory = CharacterListViewModelFactory(router, characterRepository)
+        val viewModelFactory = CharacterListViewModelFactory(characterRepository)
         val viewModel = viewModel<CharacterListViewModel>(factory = viewModelFactory)
         CharacterListScreen(viewModel, router)
     }

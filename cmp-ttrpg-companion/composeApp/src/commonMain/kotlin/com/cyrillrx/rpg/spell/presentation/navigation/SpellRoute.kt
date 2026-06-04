@@ -43,7 +43,7 @@ fun EntryProviderScope<NavKey>.handleSpellRoutes(
     userListRepository: UserListRepository,
 ) {
     entry<SpellRoute.Compendium> {
-        val viewModelFactory = SpellListViewModelFactory(router, spellRepository)
+        val viewModelFactory = SpellListViewModelFactory(spellRepository)
         val viewModel = viewModel<SpellListViewModel>(factory = viewModelFactory)
         val bottomSheetProvider = SpellAddToListProvider(
             spellRepository = spellRepository,

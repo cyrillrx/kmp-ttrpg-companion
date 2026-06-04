@@ -7,7 +7,6 @@ import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.creature.domain.MonsterFilter
 import com.cyrillrx.rpg.creature.domain.MonsterRepository
 import com.cyrillrx.rpg.creature.presentation.MonsterListState
-import com.cyrillrx.rpg.creature.presentation.navigation.MonsterRouter
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -18,7 +17,6 @@ import rpg_companion.composeapp.generated.resources.error_while_loading_monsters
 import kotlin.coroutines.cancellation.CancellationException
 
 class MonsterListViewModel(
-    private val router: MonsterRouter,
     private val repository: MonsterRepository,
 ) : BaseListViewModel() {
 
@@ -32,10 +30,6 @@ class MonsterListViewModel(
 
     fun filterByQuery(query: String) {
         updateFilter { it.copy(query = query) }
-    }
-
-    fun onMonsterClicked(monster: Monster) {
-        router.openDetail(monster.id)
     }
 
     fun onTypeToggled(type: Monster.Type) {
