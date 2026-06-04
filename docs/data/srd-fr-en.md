@@ -63,6 +63,7 @@ All JSON enum values use the **English key** column in lowercase with underscore
 
 | English key  | Display EN | Display FR            |
 |--------------|------------|-----------------------|
+| `artificer`  | Artificer  | Artificier            |
 | `barbarian`  | Barbarian  | Barbare               |
 | `bard`       | Bard       | Barde                 |
 | `cleric`     | Cleric     | Clerc                 |

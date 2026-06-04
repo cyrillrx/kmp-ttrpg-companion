@@ -17,6 +17,7 @@
 
     <!-- Class -->
     <string name="class_unknown">Inconnue</string>
+    <string name="class_artificer">Artificier</string>
     <string name="class_barbarian">Barbare</string>
     <string name="class_bard">Barde</string>
     <string name="class_cleric">Clerc</string>
