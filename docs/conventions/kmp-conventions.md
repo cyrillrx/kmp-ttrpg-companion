@@ -197,6 +197,7 @@ The project enforces code formatting using **ktlint**.
 - Use Kotlin Coroutines and Flows for asynchronous programming.
 - Use `require()`, `check()`, and `error()` for preconditions and state validation.
 - Avoid nullable types where possible. Use sealed classes/interfaces for representing exhaustive states (e.g., `Loading`, `Success`, `Error`).
+- Prefer method references (`::`) over explicit lambdas when the signatures match: use `router::openDetail` instead of `{ router.openDetail(it) }`.
 
 ### Jetpack Compose Guidelines
 

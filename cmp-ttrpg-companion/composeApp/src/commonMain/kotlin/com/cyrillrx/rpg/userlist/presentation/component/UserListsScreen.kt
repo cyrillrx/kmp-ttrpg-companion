@@ -74,7 +74,7 @@ fun UserListsScreen(viewModel: UserListsViewModel, router: UserListRouter, title
         onDeleteListOptimistically = viewModel::deleteListOptimistically,
         onUndoDeletion = viewModel::undoDeletion,
         onCommitDeletion = viewModel::commitDeletion,
-        onListClicked = viewModel::openList,
+        onListClicked = router::openUserList,
     )
 }
 
