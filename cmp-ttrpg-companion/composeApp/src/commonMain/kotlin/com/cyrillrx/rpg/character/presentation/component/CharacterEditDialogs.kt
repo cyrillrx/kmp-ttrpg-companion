@@ -4,13 +4,16 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Check
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Checkbox
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextField
@@ -23,6 +26,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
+import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.Language
@@ -354,22 +358,45 @@ private fun <T : Any> SingleChoiceDialog(
                 if (noneLabel != null) {
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier.fillMaxWidth().clickable { onConfirm(null) },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable { onConfirm(null) }
+                            .padding(vertical = spacingMedium),
                     ) {
-                        RadioButton(selected = selected == null, onClick = null)
-                        Text(text = noneLabel, style = MaterialTheme.typography.bodyMedium)
+                        Text(
+                            text = noneLabel,
+                            style = MaterialTheme.typography.bodyMedium,
+                            modifier = Modifier.weight(1f),
+                        )
+                        if (selected == null) {
+                            Icon(
+                                imageVector = Icons.Default.Check,
+                                contentDescription = null,
+                                tint = MaterialTheme.colorScheme.primary,
+                            )
+                        }
                     }
                 }
                 options.forEach { option ->
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier.fillMaxWidth().clickable { onConfirm(option) },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable { onConfirm(option) }
+                            .padding(vertical = spacingMedium),
                     ) {
-                        RadioButton(selected = selected == option, onClick = null)
                         Text(
                             text = optionLabel(option),
                             style = MaterialTheme.typography.bodyMedium,
+                            modifier = Modifier.weight(1f),
                         )
+                        if (selected == option) {
+                            Icon(
+                                imageVector = Icons.Default.Check,
+                                contentDescription = null,
+                                tint = MaterialTheme.colorScheme.primary,
+                            )
+                        }
                     }
                 }
             }
@@ -398,9 +425,12 @@ private fun LanguageSelectDialog(
                 Language.entries.forEach { language ->
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier.fillMaxWidth().clickable {
-                            selected = if (language in selected) selected - language else selected + language
-                        },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable {
+                                selected = if (language in selected) selected - language else selected + language
+                            }
+                            .padding(vertical = spacingMedium),
                     ) {
                         Checkbox(
                             checked = language in selected,
