@@ -5,7 +5,6 @@ import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.presentation.CharacterPresetGalleryState
-import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
@@ -17,7 +16,6 @@ import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
 class CharacterPresetGalleryViewModel(
-    private val router: CharacterRouter,
     private val pcPresetRepository: CharacterRepository,
     private val npcPresetRepository: CharacterRepository,
     private val characterRepository: CharacterRepository,
@@ -34,12 +32,11 @@ class CharacterPresetGalleryViewModel(
     }
 
     @OptIn(ExperimentalUuidApi::class)
-    fun onPresetSelected(preset: Character) {
+    fun onPresetSelected(preset: Character, onSaved: (characterId: String) -> Unit) {
         viewModelScope.launch {
             val newCharacter = preset.copy(id = Uuid.random().toString())
             characterRepository.save(newCharacter)
-            router.navigateUp()
-            router.openCharacterDetail(newCharacter.id)
+            onSaved(newCharacter.id)
         }
     }
 
