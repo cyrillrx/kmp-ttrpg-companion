@@ -44,9 +44,9 @@ internal fun <T : Any> SingleChoiceDialog(
                         verticalAlignment = Alignment.CenterVertically,
                         modifier = Modifier
                             .fillMaxWidth()
+                            .semantics { this.selected = selected == null }
                             .clickable { onConfirm(null) }
-                            .padding(vertical = spacingMedium)
-                            .semantics { this.selected = selected == null },
+                            .padding(vertical = spacingMedium),
                     ) {
                         Text(
                             text = noneLabel,
@@ -68,9 +68,9 @@ internal fun <T : Any> SingleChoiceDialog(
                         verticalAlignment = Alignment.CenterVertically,
                         modifier = Modifier
                             .fillMaxWidth()
+                            .semantics { this.selected = isSelected }
                             .clickable { onConfirm(option) }
-                            .padding(vertical = spacingMedium)
-                            .semantics { this.selected = isSelected },
+                            .padding(vertical = spacingMedium),
                     ) {
                         Text(
                             text = optionLabel(option),
