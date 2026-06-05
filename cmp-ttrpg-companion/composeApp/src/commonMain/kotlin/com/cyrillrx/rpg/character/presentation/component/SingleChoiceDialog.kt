@@ -17,6 +17,8 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.selected
+import androidx.compose.ui.semantics.semantics
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
@@ -43,7 +45,8 @@ internal fun <T : Any> SingleChoiceDialog(
                         modifier = Modifier
                             .fillMaxWidth()
                             .clickable { onConfirm(null) }
-                            .padding(vertical = spacingMedium),
+                            .padding(vertical = spacingMedium)
+                            .semantics { this.selected = selected == null },
                     ) {
                         Text(
                             text = noneLabel,
@@ -60,19 +63,21 @@ internal fun <T : Any> SingleChoiceDialog(
                     }
                 }
                 options.forEach { option ->
+                    val isSelected = selected == option
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
                         modifier = Modifier
                             .fillMaxWidth()
                             .clickable { onConfirm(option) }
-                            .padding(vertical = spacingMedium),
+                            .padding(vertical = spacingMedium)
+                            .semantics { this.selected = isSelected },
                     ) {
                         Text(
                             text = optionLabel(option),
                             style = MaterialTheme.typography.bodyMedium,
                             modifier = Modifier.weight(1f),
                         )
-                        if (selected == option) {
+                        if (isSelected) {
                             Icon(
                                 imageVector = Icons.Default.Check,
                                 contentDescription = null,
