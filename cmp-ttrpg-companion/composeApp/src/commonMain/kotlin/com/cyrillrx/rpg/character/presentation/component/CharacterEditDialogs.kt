@@ -23,7 +23,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
-import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
+import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.Language
@@ -357,7 +357,7 @@ private fun LanguageSelectDialog(
                             .clickable {
                                 selected = if (language in selected) selected - language else selected + language
                             }
-                            .padding(vertical = spacingMedium),
+                            .padding(vertical = spacingCommon),
                     ) {
                         Checkbox(
                             checked = language in selected,

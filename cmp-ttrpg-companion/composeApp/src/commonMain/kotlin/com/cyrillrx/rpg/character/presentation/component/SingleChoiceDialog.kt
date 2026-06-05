@@ -19,7 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.selected
 import androidx.compose.ui.semantics.semantics
-import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
+import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.btn_cancel
@@ -46,7 +46,7 @@ internal fun <T : Any> SingleChoiceDialog(
                             .fillMaxWidth()
                             .semantics { this.selected = selected == null }
                             .clickable { onConfirm(null) }
-                            .padding(vertical = spacingMedium),
+                            .padding(vertical = spacingCommon),
                     ) {
                         Text(
                             text = noneLabel,
@@ -70,7 +70,7 @@ internal fun <T : Any> SingleChoiceDialog(
                             .fillMaxWidth()
                             .semantics { this.selected = isSelected }
                             .clickable { onConfirm(option) }
-                            .padding(vertical = spacingMedium),
+                            .padding(vertical = spacingCommon),
                     ) {
                         Text(
                             text = optionLabel(option),
