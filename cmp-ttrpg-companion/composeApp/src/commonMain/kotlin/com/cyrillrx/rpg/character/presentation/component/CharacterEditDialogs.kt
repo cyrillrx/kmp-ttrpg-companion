@@ -4,13 +4,13 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextField
@@ -23,6 +23,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
+import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.Language
@@ -337,53 +338,6 @@ private fun FloatEditDialog(
 }
 
 @Composable
-private fun <T : Any> SingleChoiceDialog(
-    title: String,
-    selected: T?,
-    options: List<T>,
-    optionLabel: @Composable (T) -> String,
-    noneLabel: String? = null,
-    onConfirm: (T?) -> Unit,
-    onDismiss: () -> Unit,
-) {
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = { Text(title) },
-        text = {
-            Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
-                if (noneLabel != null) {
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier.fillMaxWidth().clickable { onConfirm(null) },
-                    ) {
-                        RadioButton(selected = selected == null, onClick = null)
-                        Text(text = noneLabel, style = MaterialTheme.typography.bodyMedium)
-                    }
-                }
-                options.forEach { option ->
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier.fillMaxWidth().clickable { onConfirm(option) },
-                    ) {
-                        RadioButton(selected = selected == option, onClick = null)
-                        Text(
-                            text = optionLabel(option),
-                            style = MaterialTheme.typography.bodyMedium,
-                        )
-                    }
-                }
-            }
-        },
-        confirmButton = {},
-        dismissButton = {
-            TextButton(onClick = onDismiss) {
-                Text(stringResource(Res.string.btn_cancel))
-            }
-        },
-    )
-}
-
-@Composable
 private fun LanguageSelectDialog(
     current: List<Language>,
     onConfirm: (List<Language>) -> Unit,
@@ -398,9 +352,12 @@ private fun LanguageSelectDialog(
                 Language.entries.forEach { language ->
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier.fillMaxWidth().clickable {
-                            selected = if (language in selected) selected - language else selected + language
-                        },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable {
+                                selected = if (language in selected) selected - language else selected + language
+                            }
+                            .padding(vertical = spacingCommon),
                     ) {
                         Checkbox(
                             checked = language in selected,
