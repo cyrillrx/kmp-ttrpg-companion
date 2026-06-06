@@ -3,9 +3,9 @@ package com.cyrillrx.rpg.creature.data
 import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.creature.domain.Creature
+import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.creature.domain.MonsterFilter
 import com.cyrillrx.rpg.creature.domain.MonsterRepository
-import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.creature.domain.Speeds
 import com.cyrillrx.rpg.creature.domain.applyFilter
 
