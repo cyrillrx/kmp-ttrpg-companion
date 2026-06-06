@@ -9,7 +9,7 @@ class CoerceToValidWalkSpeedInMetersTest {
     fun `clamps values below 7,5 to 7,5`() {
         assertEquals(7.5f, 0f.coerceToValidWalkSpeedInMeters())
         assertEquals(7.5f, 5f.coerceToValidWalkSpeedInMeters())
-        assertEquals(7.5f, 7f.coerceToValidWalkSpeedInMeters())  // closer to 7.5 than to 9
+        assertEquals(7.5f, 7f.coerceToValidWalkSpeedInMeters()) // closer to 7.5 than to 9
     }
 
     @Test
@@ -20,10 +20,10 @@ class CoerceToValidWalkSpeedInMetersTest {
 
     @Test
     fun `rounds to nearest multiple of 1,5`() {
-        assertEquals(7.5f, 8f.coerceToValidWalkSpeedInMeters())    // closer to 7.5 than to 9
-        assertEquals(10.5f, 10f.coerceToValidWalkSpeedInMeters())   // closer to 10.5 than to 9
-        assertEquals(10.5f, 11f.coerceToValidWalkSpeedInMeters())   // closer to 10.5 than to 12
-        assertEquals(34.5f, 35f.coerceToValidWalkSpeedInMeters())   // closer to 34.5 than to 36
+        assertEquals(7.5f, 8f.coerceToValidWalkSpeedInMeters()) // closer to 7.5 than to 9
+        assertEquals(10.5f, 10f.coerceToValidWalkSpeedInMeters()) // closer to 10.5 than to 9
+        assertEquals(10.5f, 11f.coerceToValidWalkSpeedInMeters()) // closer to 10.5 than to 12
+        assertEquals(34.5f, 35f.coerceToValidWalkSpeedInMeters()) // closer to 34.5 than to 36
     }
 
     @Test
