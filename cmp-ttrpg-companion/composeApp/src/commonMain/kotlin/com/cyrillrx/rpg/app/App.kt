@@ -86,7 +86,8 @@ private val navSavedStateConfig = SavedStateConfiguration {
 @Preview
 fun App(dbDriverFactory: DatabaseDriverFactory) {
     setSingletonImageLoaderFactory { context ->
-        ImageLoader.Builder(context)
+        ImageLoader
+            .Builder(context)
             .components { add(SvgDecoder.Factory()) }
             .build()
     }

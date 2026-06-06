@@ -1,4 +1,3 @@
-
 package com.cyrillrx.rpg.core.presentation.component
 
 import androidx.compose.foundation.background
@@ -177,7 +176,9 @@ private fun rememberColumnWidths(
         val boldStyle = style.copy(fontWeight = FontWeight.Bold)
         val paddingPx = with(density) { (tableCellPadding * 2).roundToPx() }
         (0 until columnCount).map { colIdx ->
-            val headerPx = headerNode.children.filter { it.type == CELL }.getOrNull(colIdx)
+            val headerPx = headerNode.children
+                .filter { it.type == CELL }
+                .getOrNull(colIdx)
                 ?.let { cell ->
                     val text = content.substring(cell.startOffset, cell.endOffset).trim().stripMarkdown()
                     if (text.isEmpty()) {
