@@ -1,5 +1,7 @@
 package com.cyrillrx.rpg.settings.domain
 
 enum class Theme {
-    LIGHT, DARK, SYSTEM
+    LIGHT,
+    DARK,
+    SYSTEM,
 }
