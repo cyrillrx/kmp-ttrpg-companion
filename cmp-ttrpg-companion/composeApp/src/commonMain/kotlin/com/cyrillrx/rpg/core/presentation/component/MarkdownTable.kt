@@ -207,9 +207,12 @@ private fun rememberColumnWidths(
     }
 }
 
+private val LINK_REGEX = Regex("\\[([^]]+)]\\([^)]*\\)")
+private val MARKDOWN_CHARS_REGEX = Regex("[*_`]+")
+
 internal fun String.stripMarkdown(): String = this
-    .replace(Regex("\\[([^]]+)]\\([^)]*\\)"), "$1") // [text](url) → text
-    .replace(Regex("[*_`]+"), "") // *, **, _, __, ` → nothing
+    .replace(LINK_REGEX, "$1") // [text](url) → text
+    .replace(MARKDOWN_CHARS_REGEX, "") // *, **, _, __, ` → nothing
 
 @Composable
 private fun TableContent(

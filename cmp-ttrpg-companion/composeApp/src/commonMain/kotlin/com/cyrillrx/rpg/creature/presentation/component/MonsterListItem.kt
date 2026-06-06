@@ -98,10 +98,10 @@ fun MonsterListItem(
                     color = MaterialTheme.colorScheme.onSurface,
                 )
 
-                val formattedMonterType = monster.type.toFormattedString()
+                val formattedMonsterType = monster.type.toFormattedString()
                 val formattedMonsterSize = monster.size.name.lowercase().replaceFirstChar { it.uppercase() }
                 Text(
-                    text = "$formattedMonterType · $formattedMonsterSize",
+                    text = "$formattedMonsterType · $formattedMonsterSize",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     maxLines = 1,
