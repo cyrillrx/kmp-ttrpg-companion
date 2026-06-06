@@ -52,7 +52,8 @@ class SampleMonsterRepository : MonsterRepository {
             translations = mapOf(
                 "en" to Monster.Translation(
                     name = "Goblin",
-                    description = "A small, black-hearted creature that lairs in despoiled dungeons and other dismal settings.",
+                    description = "A small, black-hearted creature that lairs in despoiled dungeons and other " +
+                        "dismal settings.",
                     senses = "Darkvision 60 ft.",
                     languages = listOf("Common", "Goblin"),
                 ),

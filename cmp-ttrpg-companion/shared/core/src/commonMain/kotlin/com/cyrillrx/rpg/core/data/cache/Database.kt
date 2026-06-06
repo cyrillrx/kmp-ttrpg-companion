@@ -62,7 +62,8 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
     fun getAllUserLists(type: UserList.Type): List<UserList> =
         dbQuery.selectAllUserListsByType(type.name, ::mapUserListSelecting).executeAsList()
 
-    fun getUserList(id: String): UserList? = dbQuery.selectUserListById(id, ::mapUserListSelecting).executeAsOneOrNull()
+    fun getUserList(id: String): UserList? =
+        dbQuery.selectUserListById(id, ::mapUserListSelecting).executeAsOneOrNull()
 
     fun saveUserList(list: UserList) {
         dbQuery.saveUserList(
@@ -85,8 +86,10 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
     fun getUserPreferences(): UserPreferences =
         dbQuery.getUserPreferences { _, theme, distanceUnit ->
             UserPreferences(
-                theme = Theme.entries.find { it.name.equals(theme, ignoreCase = true) } ?: Theme.SYSTEM,
-                distanceUnit = DistanceUnit.entries.find { it.name.equals(distanceUnit, ignoreCase = true) } ?: DistanceUnit.FEET,
+                theme = Theme.entries.find { it.name.equals(theme, ignoreCase = true) }
+                    ?: Theme.SYSTEM,
+                distanceUnit = DistanceUnit.entries.find { it.name.equals(distanceUnit, ignoreCase = true) }
+                    ?: DistanceUnit.FEET,
             )
         }.executeAsOneOrNull() ?: UserPreferences()
 
@@ -98,7 +101,7 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
         dbQuery.updateDistanceUnit(distanceUnit.name.lowercase())
     }
 
-    private fun mapUserListSelecting(id: String, name: String, type: String, itemIds: String, lastModified: Long): UserList =
+    private fun mapUserListSelecting(id: String, name: String, type: String, itemIds: String, lastModified: Long) =
         UserList(
             id = id,
             name = name,

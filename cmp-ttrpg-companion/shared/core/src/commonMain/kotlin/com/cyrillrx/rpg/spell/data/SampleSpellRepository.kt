@@ -45,7 +45,8 @@ class SampleSpellRepository : SpellRepository {
                     range = "150 feet",
                     duration = "Instantaneous",
                     materialDescription = "a tiny ball of bat guano and sulfur",
-                    description = "A bright streak flashes from your pointing finger to a point you choose within range and then blossoms with a low roar into an explosion of flame.",
+                    description = "A bright streak flashes from your pointing finger to a point you choose within " +
+                        "range and then blossoms with a low roar into an explosion of flame.",
                 ),
                 "fr" to Spell.Translation(
                     name = "Boule de feu",
@@ -53,7 +54,8 @@ class SampleSpellRepository : SpellRepository {
                     range = "45 mètres",
                     duration = "Instantanée",
                     materialDescription = "une minuscule bille de fiente de chauve-souris et de soufre",
-                    description = "Un trait lumineux jaillit de votre doigt pointé vers un point choisi à portée, puis explose dans un grondement sourd en une explosion de flammes.",
+                    description = "Un trait lumineux jaillit de votre doigt pointé vers un point choisi à portée, " +
+                        "puis explose dans un grondement sourd en une explosion de flammes.",
                 ),
             ),
         )
@@ -74,7 +76,8 @@ class SampleSpellRepository : SpellRepository {
                     range = "Touch",
                     duration = "8 hours",
                     materialDescription = "a piece of cured leather",
-                    description = "You touch a willing creature who isn't wearing armor, and a protective magical force surrounds it until the spell ends.",
+                    description = "You touch a willing creature who isn't wearing armor, " +
+                        "and a protective magical force surrounds it until the spell ends.",
                 ),
             ),
         )

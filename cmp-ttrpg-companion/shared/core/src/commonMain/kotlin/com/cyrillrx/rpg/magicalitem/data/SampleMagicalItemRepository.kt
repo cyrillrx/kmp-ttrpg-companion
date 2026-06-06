@@ -38,7 +38,8 @@ class SampleMagicalItemRepository : MagicalItemRepository {
                 "en" to MagicalItem.Translation(
                     name = "Oath Axe",
                     subtype = null,
-                    description = "When you make a melee attack with this weapon, you can speak its command word. The target of your attack becomes your sworn enemy.",
+                    description = "When you make a melee attack with this weapon, you can speak its command word. " +
+                        "The target of your attack becomes your sworn enemy.",
                 ),
             ),
         )
@@ -88,7 +89,8 @@ class SampleMagicalItemRepository : MagicalItemRepository {
                 "en" to MagicalItem.Translation(
                     name = "Shield +1",
                     subtype = "shield",
-                    description = "While holding this shield, you have a +1 bonus to AC in addition to the shield's normal bonus.",
+                    description = "While holding this shield, you have a +1 bonus to AC in addition " +
+                        "to the shield's normal bonus.",
                 ),
             ),
         )
@@ -103,7 +105,8 @@ class SampleMagicalItemRepository : MagicalItemRepository {
                 "en" to MagicalItem.Translation(
                     name = "Wand of Fireballs",
                     subtype = null,
-                    description = "This wand has 7 charges. While holding it, you can use an action to expend 1 or more of its charges to cast the fireball spell.",
+                    description = "This wand has 7 charges. While holding it, you can use an action " +
+                        "to expend 1 or more of its charges to cast the fireball spell.",
                 ),
             ),
         )
@@ -133,7 +136,8 @@ class SampleMagicalItemRepository : MagicalItemRepository {
                 "en" to MagicalItem.Translation(
                     name = "Fireball Scroll",
                     subtype = null,
-                    description = "A fireball spell is written on this scroll. If the spell is on your class's spell list, you can cast it.",
+                    description = "A fireball spell is written on this scroll. " +
+                        "If the spell is on your class's spell list, you can cast it.",
                 ),
             ),
         )
@@ -148,7 +152,8 @@ class SampleMagicalItemRepository : MagicalItemRepository {
                 "en" to MagicalItem.Translation(
                     name = "Staff of Power",
                     subtype = null,
-                    description = "This staff grants a +2 bonus to attack and damage rolls made with it as a melee weapon.",
+                    description = "This staff grants a +2 bonus to attack and damage rolls made with " +
+                        "it as a melee weapon.",
                 ),
             ),
         )

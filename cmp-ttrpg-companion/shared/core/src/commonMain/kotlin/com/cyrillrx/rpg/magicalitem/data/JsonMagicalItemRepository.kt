@@ -79,20 +79,22 @@ class JsonMagicalItemRepository(private val fileReader: FileReader) : MagicalIte
             locale: String,
         ): Result<MagicalItem.Translation, MagicalItemImportError> {
             val name = name
-                ?: return Result.Failure(MagicalItemImportError.InvalidTranslation(itemId, locale, field = "name"))
+                ?: return Result.Failure(
+                    MagicalItemImportError.InvalidTranslation(itemId, locale, field = "name"),
+                )
             val description = description
-                ?: return Result.Failure(MagicalItemImportError.InvalidTranslation(itemId, locale, field = "description"))
+                ?: return Result.Failure(
+                    MagicalItemImportError.InvalidTranslation(itemId, locale, field = "description"),
+                )
 
             return Result.Success(
-                MagicalItem.Translation(
-                    name = name,
-                    subtype = subtype,
-                    description = description,
-                ),
+                MagicalItem.Translation(name = name, subtype = subtype, description = description),
             )
         }
 
-        private fun Map<String, ApiMagicalItem.Translation>.toTranslations(itemId: String): Map<String, MagicalItem.Translation>? {
+        private fun Map<String, ApiMagicalItem.Translation>.toTranslations(
+            itemId: String,
+        ): Map<String, MagicalItem.Translation>? {
             val (parsedTranslations, translationErrors) = partitionBy { locale, t ->
                 t.toTranslation(itemId, locale)
             }
