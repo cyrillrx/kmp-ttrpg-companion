@@ -25,6 +25,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedCR
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
@@ -37,7 +38,6 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.creature.data.SampleMonsterRepository
-import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.creature.domain.Monster
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -98,8 +98,10 @@ fun MonsterListItem(
                     color = MaterialTheme.colorScheme.onSurface,
                 )
 
+                val formattedMonterType = monster.type.toFormattedString()
+                val formattedMonsterSize = monster.size.name.lowercase().replaceFirstChar { it.uppercase() }
                 Text(
-                    text = "${monster.type.toFormattedString()} · ${monster.size.name.lowercase().replaceFirstChar { it.uppercase() }}",
+                    text = "$formattedMonterType · $formattedMonsterSize",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     maxLines = 1,

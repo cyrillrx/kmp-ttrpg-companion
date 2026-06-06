@@ -159,7 +159,6 @@ class CampaignListViewModelTest {
 
         assertEquals(expected = "dnd", actual = viewModel.state.value.searchQuery)
     }
-
 }
 
 private class TestCampaignRepository : CampaignRepository {
@@ -172,8 +171,12 @@ private class TestCampaignRepository : CampaignRepository {
     }
 
     override suspend fun get(id: String): Campaign? = campaigns.find { it.id == id }
-    override suspend fun save(campaign: Campaign) { campaigns.add(campaign) }
-    override suspend fun delete(id: String) { campaigns.removeAll { it.id == id } }
+    override suspend fun save(campaign: Campaign) {
+        campaigns.add(campaign)
+    }
+    override suspend fun delete(id: String) {
+        campaigns.removeAll { it.id == id }
+    }
 }
 
 private class FailingCampaignRepository : CampaignRepository {

@@ -13,12 +13,12 @@ import com.cyrillrx.rpg.character.presentation.CoercedValue
 import com.cyrillrx.rpg.creature.domain.Creature
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
-import kotlinx.coroutines.launch
 import kotlin.test.AfterTest
 import kotlin.test.BeforeTest
 import kotlin.test.Test
@@ -175,9 +175,15 @@ class CharacterEditViewModelTest {
         val viewModel = buildViewModel(repo = repoWithFighter())
         advanceUntilIdle()
         viewModel.saveConstitution(0)
-        assertEquals(1, assertIs<CharacterEditState.Loaded>(viewModel.state.value).character.abilities.constitution.value)
+        assertEquals(
+            expected = 1,
+            actual = assertIs<CharacterEditState.Loaded>(viewModel.state.value).character.abilities.constitution.value,
+        )
         viewModel.saveConstitution(31)
-        assertEquals(30, assertIs<CharacterEditState.Loaded>(viewModel.state.value).character.abilities.constitution.value)
+        assertEquals(
+            expected = 30,
+            actual = assertIs<CharacterEditState.Loaded>(viewModel.state.value).character.abilities.constitution.value,
+        )
     }
 
     @Test
@@ -185,9 +191,15 @@ class CharacterEditViewModelTest {
         val viewModel = buildViewModel(repo = repoWithFighter())
         advanceUntilIdle()
         viewModel.saveIntelligence(0)
-        assertEquals(1, assertIs<CharacterEditState.Loaded>(viewModel.state.value).character.abilities.intelligence.value)
+        assertEquals(
+            expected = 1,
+            actual = assertIs<CharacterEditState.Loaded>(viewModel.state.value).character.abilities.intelligence.value,
+        )
         viewModel.saveIntelligence(31)
-        assertEquals(30, assertIs<CharacterEditState.Loaded>(viewModel.state.value).character.abilities.intelligence.value)
+        assertEquals(
+            expected = 30,
+            actual = assertIs<CharacterEditState.Loaded>(viewModel.state.value).character.abilities.intelligence.value,
+        )
     }
 
     @Test
@@ -237,7 +249,7 @@ class CharacterEditViewModelTest {
         val events = mutableListOf<CoercedValue>()
         val job = launch { viewModel.coercedValueEvent.collect { events.add(it) } }
         advanceUntilIdle()
-        viewModel.saveLevel(25)  // max is 20, coerced to 20
+        viewModel.saveLevel(25) // max is 20, coerced to 20
         advanceUntilIdle()
         assertEquals(listOf<CoercedValue>(CoercedValue.Numeric(25, 20)), events)
         job.cancel()
@@ -250,7 +262,7 @@ class CharacterEditViewModelTest {
         val events = mutableListOf<CoercedValue>()
         val job = launch { viewModel.coercedValueEvent.collect { events.add(it) } }
         advanceUntilIdle()
-        viewModel.saveLevel(5)  // valid, no coercion
+        viewModel.saveLevel(5) // valid, no coercion
         advanceUntilIdle()
         assertTrue(events.isEmpty())
         job.cancel()
@@ -263,7 +275,7 @@ class CharacterEditViewModelTest {
         val events = mutableListOf<CoercedValue>()
         val job = launch { viewModel.coercedValueEvent.collect { events.add(it) } }
         advanceUntilIdle()
-        viewModel.saveWalkSpeed(27)  // not a multiple of 5, coerced to 25
+        viewModel.saveWalkSpeed(27) // not a multiple of 5, coerced to 25
         advanceUntilIdle()
         assertEquals(listOf<CoercedValue>(CoercedValue.Distance(27, 25)), events)
         job.cancel()

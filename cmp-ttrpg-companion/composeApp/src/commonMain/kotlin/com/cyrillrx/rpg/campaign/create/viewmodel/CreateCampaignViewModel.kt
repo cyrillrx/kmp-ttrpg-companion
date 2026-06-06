@@ -20,9 +20,10 @@ class CreateCampaignViewModel(
     sealed interface NavigationEvent {
         data object NavigateUp : NavigationEvent
     }
-
     val state: StateFlow<CreateCampaignState>
-        field = MutableStateFlow(CreateCampaignState(campaignName = "", selectedRuleSet = RuleSet.UNDEFINED, error = null))
+        field = MutableStateFlow(
+            CreateCampaignState(campaignName = "", selectedRuleSet = RuleSet.UNDEFINED, error = null),
+        )
 
     val navigationEvents: SharedFlow<NavigationEvent>
         field = MutableSharedFlow(extraBufferCapacity = 1)

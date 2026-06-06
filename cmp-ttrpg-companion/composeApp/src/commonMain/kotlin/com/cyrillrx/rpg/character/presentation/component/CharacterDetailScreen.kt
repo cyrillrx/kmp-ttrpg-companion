@@ -26,17 +26,17 @@ import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
-import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
-import com.cyrillrx.rpg.core.presentation.component.dnd.toDistanceString
-import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
 import com.cyrillrx.rpg.character.presentation.CoercedValue
 import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
 import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterEditViewModel
+import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
+import com.cyrillrx.rpg.core.presentation.component.dnd.toDistanceString
+import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
@@ -63,7 +63,9 @@ fun CharacterDetailScreen(
         viewModel.coercedValueEvent.collect { event ->
             val (from, to) = when (event) {
                 is CoercedValue.Numeric -> event.original.toString() to event.coerced.toString()
-                is CoercedValue.Distance -> event.originalFeet.toDistanceString(distanceUnit) to event.coercedFeet.toDistanceString(distanceUnit)
+                is CoercedValue.Distance ->
+                    event.originalFeet.toDistanceString(distanceUnit) to
+                        event.coercedFeet.toDistanceString(distanceUnit)
             }
             snackbarHostState.showSnackbar(coercedMessage.format(from, to))
         }

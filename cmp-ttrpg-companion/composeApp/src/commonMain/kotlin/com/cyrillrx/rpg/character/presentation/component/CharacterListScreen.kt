@@ -200,7 +200,14 @@ private fun CharacterActionCard(
     Card(
         onClick = onClick,
         shape = MaterialTheme.shapes.medium,
-        border = if (filled) null else BorderStroke(borderWidth, MaterialTheme.colorScheme.outline.copy(alpha = borderAlpha)),
+        border = if (filled) {
+            null
+        } else {
+            BorderStroke(
+                width = borderWidth,
+                color = MaterialTheme.colorScheme.outline.copy(alpha = borderAlpha),
+            )
+        },
         colors = CardDefaults.cardColors(containerColor = containerColor),
         modifier = modifier,
     ) {

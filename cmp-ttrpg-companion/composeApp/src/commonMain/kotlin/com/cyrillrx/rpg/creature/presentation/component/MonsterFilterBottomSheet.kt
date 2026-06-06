@@ -25,8 +25,8 @@ import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingLarge
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
-import com.cyrillrx.rpg.creature.domain.MonsterFilter
 import com.cyrillrx.rpg.creature.domain.Monster
+import com.cyrillrx.rpg.creature.domain.MonsterFilter
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
@@ -36,10 +36,31 @@ import rpg_companion.composeapp.generated.resources.label_filter_type
 import rpg_companion.composeapp.generated.resources.title_filter_monsters
 
 private val commonCRs = listOf(
-    0f, 0.125f, 0.25f, 0.5f,
-    1f, 2f, 3f, 4f, 5f, 6f, 7f, 8f, 9f, 10f,
-    11f, 12f, 13f, 14f, 15f, 16f, 17f,
-    20f, 21f, 24f, 30f,
+    0f,
+    0.125f,
+    0.25f,
+    0.5f,
+    1f,
+    2f,
+    3f,
+    4f,
+    5f,
+    6f,
+    7f,
+    8f,
+    9f,
+    10f,
+    11f,
+    12f,
+    13f,
+    14f,
+    15f,
+    16f,
+    17f,
+    20f,
+    21f,
+    24f,
+    30f,
 )
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)

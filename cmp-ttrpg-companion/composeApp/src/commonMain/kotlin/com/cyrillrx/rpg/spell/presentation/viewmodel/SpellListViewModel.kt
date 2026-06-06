@@ -75,7 +75,9 @@ class SpellListViewModel(
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {
-            state.update { it.copy(body = SpellListState.Body.Error(errorMessage = Res.string.error_while_loading_spells)) }
+            state.update {
+                it.copy(body = SpellListState.Body.Error(errorMessage = Res.string.error_while_loading_spells))
+            }
         }
     }
 }

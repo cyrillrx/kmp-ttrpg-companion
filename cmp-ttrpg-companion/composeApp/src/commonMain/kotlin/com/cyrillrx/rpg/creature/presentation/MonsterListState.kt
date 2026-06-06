@@ -1,7 +1,7 @@
 package com.cyrillrx.rpg.creature.presentation
 
-import com.cyrillrx.rpg.creature.domain.MonsterFilter
 import com.cyrillrx.rpg.creature.domain.Monster
+import com.cyrillrx.rpg.creature.domain.MonsterFilter
 import org.jetbrains.compose.resources.StringResource
 
 data class MonsterListState(

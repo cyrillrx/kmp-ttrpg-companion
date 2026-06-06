@@ -10,6 +10,8 @@ ktlint_standard_blank-line-before-declaration = disabled
 ktlint_standard_no-empty-first-line-in-class-body = disabled
 ktlint_standard_function-expression-body = disabled
 ktlint_standard_chain-method-continuation = disabled
+ktlint_standard_function-naming = disabled
+ktlint_standard_filename = disabled
 
 [**/generated/**/*]
 ktlint = disabled

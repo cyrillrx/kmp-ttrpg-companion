@@ -128,7 +128,11 @@ class CharacterListViewModel(
             } catch (e: CancellationException) {
                 throw e
             } catch (e: Exception) {
-                state.update { it.copy(body = CharacterListState.Body.Error(errorMessage = Res.string.error_while_loading_characters)) }
+                state.update {
+                    it.copy(
+                        body = CharacterListState.Body.Error(errorMessage = Res.string.error_while_loading_characters),
+                    )
+                }
             }
         }
 

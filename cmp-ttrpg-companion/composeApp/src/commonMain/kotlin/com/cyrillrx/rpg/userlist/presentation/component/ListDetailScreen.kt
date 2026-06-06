@@ -28,12 +28,13 @@ import androidx.compose.ui.Modifier
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
 import com.cyrillrx.rpg.core.presentation.component.SwipeToDelete
-import com.cyrillrx.rpg.core.presentation.component.rememberOptimisticDeleteHandler
 import com.cyrillrx.rpg.core.presentation.component.dialog.RenameListDialog
+import com.cyrillrx.rpg.core.presentation.component.rememberOptimisticDeleteHandler
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
@@ -41,7 +42,6 @@ import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.spell.presentation.SpellItemProvider
 import com.cyrillrx.rpg.userlist.presentation.ListDetailState
 import com.cyrillrx.rpg.userlist.presentation.ListItemProvider
-import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.ListDetailViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow

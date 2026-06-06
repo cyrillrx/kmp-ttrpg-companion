@@ -228,8 +228,11 @@ private fun InlineEditableText(
             modifier = modifier
                 .focusRequester(focusRequester)
                 .onFocusChanged { focusState ->
-                    if (focusState.isFocused) hasFocused = true
-                    else if (hasFocused) commit()
+                    if (focusState.isFocused) {
+                        hasFocused = true
+                    } else if (hasFocused) {
+                        commit()
+                    }
                 },
         )
     } else {

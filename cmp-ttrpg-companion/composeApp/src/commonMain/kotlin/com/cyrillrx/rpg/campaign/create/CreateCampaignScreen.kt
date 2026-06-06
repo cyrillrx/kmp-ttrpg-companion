@@ -99,14 +99,7 @@ fun CreateCampaignScreen(
         },
         snackbarHost = { SnackbarHost(hostState = snackbarHostState) },
     ) { paddingValues ->
-        val localizedRuleSets = RuleSet.entries
-            .mapNotNull {
-                if (it == RuleSet.UNDEFINED || it == RuleSet.OTHER) return@mapNotNull null
-                LocalizedRuleSet(it, stringResource(it.getName()))
-            }
-            .sortedBy { it.localizedName } + LocalizedRuleSet(
-            RuleSet.OTHER, stringResource(Res.string.ruleset_other),
-        )
+        val localizedRuleSets = getLocalizedRuleSets()
 
         Column(
             Modifier.padding(
@@ -192,6 +185,18 @@ fun ChooseRuleSetButton(
             }
         }
     }
+}
+
+@Composable
+private fun getLocalizedRuleSets(): List<LocalizedRuleSet> {
+    val localizedRuleSets = RuleSet.entries
+        .mapNotNull {
+            if (it == RuleSet.UNDEFINED || it == RuleSet.OTHER) return@mapNotNull null
+            LocalizedRuleSet(it, stringResource(it.getName()))
+        }
+        .sortedBy { it.localizedName }
+
+    return localizedRuleSets + LocalizedRuleSet(RuleSet.OTHER, stringResource(Res.string.ruleset_other))
 }
 
 @Preview

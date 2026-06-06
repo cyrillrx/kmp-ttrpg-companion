@@ -63,7 +63,12 @@ class CharacterEditViewModel(
     }
 
     fun saveRace(race: Race) {
-        updateAndSave { copy(character = character.copy(race = race, speeds = character.speeds.copy(walk = race.defaultWalkSpeed())), editingField = null) }
+        updateAndSave {
+            copy(
+                character = character.copy(race = race, speeds = character.speeds.copy(walk = race.defaultWalkSpeed())),
+                editingField = null,
+            )
+        }
     }
 
     fun saveClass(clazz: Character.Class) {
@@ -78,17 +83,29 @@ class CharacterEditViewModel(
         updateAndSave { copy(character = character.copy(background = background), editingField = null) }
     }
 
-    fun saveStrength(value: Int) = saveAbility(value, Abilities::strength) { coerced -> copy(strength = strength.copy(value = coerced)) }
+    fun saveStrength(value: Int) = saveAbility(value, Abilities::strength) { coerced ->
+        copy(strength = strength.copy(value = coerced))
+    }
 
-    fun saveDexterity(value: Int) = saveAbility(value, Abilities::dexterity) { coerced -> copy(dexterity = dexterity.copy(value = coerced)) }
+    fun saveDexterity(value: Int) = saveAbility(value, Abilities::dexterity) { coerced ->
+        copy(dexterity = dexterity.copy(value = coerced))
+    }
 
-    fun saveConstitution(value: Int) = saveAbility(value, Abilities::constitution) { coerced -> copy(constitution = constitution.copy(value = coerced)) }
+    fun saveConstitution(value: Int) = saveAbility(value, Abilities::constitution) { coerced ->
+        copy(constitution = constitution.copy(value = coerced))
+    }
 
-    fun saveIntelligence(value: Int) = saveAbility(value, Abilities::intelligence) { coerced -> copy(intelligence = intelligence.copy(value = coerced)) }
+    fun saveIntelligence(value: Int) = saveAbility(value, Abilities::intelligence) { coerced ->
+        copy(intelligence = intelligence.copy(value = coerced))
+    }
 
-    fun saveWisdom(value: Int) = saveAbility(value, Abilities::wisdom) { coerced -> copy(wisdom = wisdom.copy(value = coerced)) }
+    fun saveWisdom(value: Int) = saveAbility(value, Abilities::wisdom) { coerced ->
+        copy(wisdom = wisdom.copy(value = coerced))
+    }
 
-    fun saveCharisma(value: Int) = saveAbility(value, Abilities::charisma) { coerced -> copy(charisma = charisma.copy(value = coerced)) }
+    fun saveCharisma(value: Int) = saveAbility(value, Abilities::charisma) { coerced ->
+        copy(charisma = charisma.copy(value = coerced))
+    }
 
     fun saveArmorClass(value: Int) = updateAndSave(value, Int::coerceToValidArmorClass) { coerced ->
         copy(character = character.copy(armorClass = coerced), editingField = null)
@@ -101,7 +118,9 @@ class CharacterEditViewModel(
     fun saveWalkSpeed(value: Int) {
         val coerced = value.coerceToValidWalkSpeedInFeet()
         if (coerced != value) coercedValueEvent.tryEmit(CoercedValue.Distance(value, coerced))
-        updateAndSave { copy(character = character.copy(speeds = character.speeds.copy(walk = coerced)), editingField = null) }
+        updateAndSave {
+            copy(character = character.copy(speeds = character.speeds.copy(walk = coerced)), editingField = null)
+        }
     }
 
     fun saveLanguages(languages: List<Language>) {

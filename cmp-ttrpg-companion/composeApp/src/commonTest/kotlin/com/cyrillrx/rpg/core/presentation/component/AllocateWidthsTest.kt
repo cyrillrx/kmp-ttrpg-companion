@@ -110,8 +110,8 @@ class AllocateWidthsTest {
 
     private fun assertDpApprox(expected: Dp, actual: Dp, tolerance: Float = 0.1f) {
         assertTrue(
-            abs(expected.value - actual.value) < tolerance,
-            "Expected ~${expected} but was ${actual}",
+            actual = abs(expected.value - actual.value) < tolerance,
+            message = "Expected ~$expected but was $actual",
         )
     }
 }

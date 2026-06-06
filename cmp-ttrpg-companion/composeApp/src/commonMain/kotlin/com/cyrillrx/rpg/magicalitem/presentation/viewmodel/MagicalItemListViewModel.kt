@@ -70,7 +70,11 @@ class MagicalItemListViewModel(
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {
-            state.update { it.copy(body = MagicalItemListState.Body.Error(errorMessage = Res.string.error_while_loading_magical_items)) }
+            state.update {
+                it.copy(
+                    body = MagicalItemListState.Body.Error(errorMessage = Res.string.error_while_loading_magical_items),
+                )
+            }
         }
     }
 }

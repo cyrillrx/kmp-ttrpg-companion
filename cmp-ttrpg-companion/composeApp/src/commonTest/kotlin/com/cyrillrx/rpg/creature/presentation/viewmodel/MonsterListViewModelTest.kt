@@ -1,9 +1,9 @@
 package com.cyrillrx.rpg.creature.presentation.viewmodel
 
 import com.cyrillrx.rpg.creature.data.SampleMonsterRepository
+import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.creature.domain.MonsterFilter
 import com.cyrillrx.rpg.creature.domain.MonsterRepository
-import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.creature.presentation.MonsterListState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -73,7 +73,10 @@ class MonsterListViewModelTest {
         assertTrue(state.filter.types.contains(Monster.Type.DRAGON))
         val body = assertIs<MonsterListState.Body.WithData>(state.body)
         assertEquals(expected = 1, actual = body.searchResults.size)
-        assertEquals(expected = dragon.resolveTranslation("en").name, actual = body.searchResults.first().resolveTranslation("en").name)
+        assertEquals(
+            expected = dragon.resolveTranslation("en").name,
+            actual = body.searchResults.first().resolveTranslation("en").name,
+        )
     }
 
     @Test
@@ -112,7 +115,10 @@ class MonsterListViewModelTest {
         val state = viewModel.state.value
         val body = assertIs<MonsterListState.Body.WithData>(state.body)
         assertEquals(expected = 1, actual = body.searchResults.size)
-        assertEquals(expected = goblin.resolveTranslation("en").name, actual = body.searchResults.first().resolveTranslation("en").name)
+        assertEquals(
+            expected = goblin.resolveTranslation("en").name,
+            actual = body.searchResults.first().resolveTranslation("en").name,
+        )
     }
 
     @Test

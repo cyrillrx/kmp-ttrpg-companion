@@ -2,7 +2,6 @@ package com.cyrillrx.rpg.character.presentation.viewmodel
 
 import com.cyrillrx.rpg.character.data.RamCharacterRepository
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
-import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.presentation.CharacterPresetGalleryState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
