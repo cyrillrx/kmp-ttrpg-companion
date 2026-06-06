@@ -35,7 +35,9 @@ class MapPartitionByExtTest {
 
     @Test
     fun `partitionBy empty map returns empty map and empty errors`() {
-        val (result, errors) = emptyMap<String, Int>().partitionBy<String, Int, Int, Error> { _, v -> Result.Success(v) }
+        val (result, errors) = emptyMap<String, Int>().partitionBy<String, Int, Int, Error> { _, v ->
+            Result.Success(v)
+        }
         assertTrue(result.isEmpty())
         assertTrue(errors.isEmpty())
     }
@@ -43,7 +45,9 @@ class MapPartitionByExtTest {
     @Test
     fun `partitionBy key is preserved in result map`() {
         val input = mapOf("locale" to "value")
-        val (result, _) = input.partitionBy<String, String, String, Error> { _, v -> Result.Success(v.uppercase()) }
+        val (result, _) = input.partitionBy<String, String, String, Error> { _, v ->
+            Result.Success(v.uppercase())
+        }
         assertEquals(expected = "VALUE", actual = result["locale"])
     }
 
