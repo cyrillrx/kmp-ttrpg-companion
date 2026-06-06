@@ -6,9 +6,7 @@ import com.cyrillrx.rpg.magicalitem.domain.MagicalItemRepository
 import com.cyrillrx.rpg.magicalitem.domain.applyFilter
 
 class SampleMagicalItemRepository : MagicalItemRepository {
-    override suspend fun getAll(filter: MagicalItemFilter?): List<MagicalItem> {
-        return items.applyFilter(filter)
-    }
+    override suspend fun getAll(filter: MagicalItemFilter?): List<MagicalItem> = items.applyFilter(filter)
 
     override suspend fun getById(id: String): MagicalItem? = items.firstOrNull { it.id == id }
 

@@ -7,9 +7,7 @@ import com.cyrillrx.rpg.spell.domain.SpellRepository
 import com.cyrillrx.rpg.spell.domain.applyFilter
 
 class SampleSpellRepository : SpellRepository {
-    override suspend fun getAll(filter: SpellFilter?): List<Spell> {
-        return spells.applyFilter(filter)
-    }
+    override suspend fun getAll(filter: SpellFilter?): List<Spell> = spells.applyFilter(filter)
 
     override suspend fun getById(id: String): Spell? = spells.firstOrNull { it.id == id }
 

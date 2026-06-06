@@ -36,9 +36,7 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
     @Suppress("UNUSED_PARAMETER")
     private fun mapCharacterSelecting(id: String, data: String): Character = data.deserialize()
 
-    fun getAllCampaigns(): List<Campaign> {
-        return dbQuery.selectAllCampaigns(::mapCampaignSelecting).executeAsList()
-    }
+    fun getAllCampaigns(): List<Campaign> = dbQuery.selectAllCampaigns(::mapCampaignSelecting).executeAsList()
 
     fun insertCampaign(campaign: Campaign) {
         dbQuery.insertCampaign(
@@ -48,9 +46,7 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
         )
     }
 
-    fun getCampaign(id: String): Campaign? {
-        return dbQuery.selectCampaignById(id, ::mapCampaignSelecting).executeAsOneOrNull()
-    }
+    fun getCampaign(id: String): Campaign? = dbQuery.selectCampaignById(id, ::mapCampaignSelecting).executeAsOneOrNull()
 
     fun deleteCampaign(id: String) {
         dbQuery.deleteCampaign(id)

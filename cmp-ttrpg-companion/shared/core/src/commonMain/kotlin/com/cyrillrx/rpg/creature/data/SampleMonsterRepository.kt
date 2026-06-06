@@ -10,9 +10,7 @@ import com.cyrillrx.rpg.creature.domain.Speeds
 import com.cyrillrx.rpg.creature.domain.applyFilter
 
 class SampleMonsterRepository : MonsterRepository {
-    override suspend fun getAll(filter: MonsterFilter?): List<Monster> {
-        return monsters.applyFilter(filter)
-    }
+    override suspend fun getAll(filter: MonsterFilter?): List<Monster> = monsters.applyFilter(filter)
 
     override suspend fun getById(id: String): Monster? = monsters.firstOrNull { it.id == id }
 

@@ -16,12 +16,11 @@ fun List<Spell>.applyFilter(filter: SpellFilter?): List<Spell> {
     return filter { it.matches(filter) }
 }
 
-internal fun Spell.matches(filter: SpellFilter): Boolean {
-    return (filter.schools.isEmpty() || school in filter.schools) &&
+internal fun Spell.matches(filter: SpellFilter): Boolean =
+    (filter.schools.isEmpty() || school in filter.schools) &&
         (filter.characterClasses.isEmpty() || availableClasses.any { filter.characterClasses.contains(it) }) &&
         (filter.levels.isEmpty() || filter.levels.contains(level)) &&
         (filter.query.isBlank() || matchesQuery(filter.query))
-}
 
 private fun Spell.matchesQuery(query: String): Boolean {
     val trimmed = query.trim()

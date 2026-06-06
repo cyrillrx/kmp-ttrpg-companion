@@ -13,11 +13,10 @@ fun List<Monster>.applyFilter(filter: MonsterFilter?): List<Monster> {
     return filter { it.matches(filter) }
 }
 
-internal fun Monster.matches(filter: MonsterFilter): Boolean {
-    return (filter.types.isEmpty() || filter.types.contains(type)) &&
+internal fun Monster.matches(filter: MonsterFilter): Boolean =
+    (filter.types.isEmpty() || filter.types.contains(type)) &&
         (filter.challengeRatings.isEmpty() || filter.challengeRatings.contains(challengeRating)) &&
         (filter.query.isBlank() || matches(filter.query))
-}
 
 private fun Monster.matches(query: String): Boolean {
     val trimmedQuery = query.trim()
