@@ -43,11 +43,13 @@ fun SearchBar(
         onValueChange = onQueryChanged,
         shape = RoundedCornerShape(50),
         colors = TextFieldDefaults.colors(),
-        placeholder = { Text(
-            text = hint,
-            maxLines = 1,
-            overflow = TextOverflow.Ellipsis,
-        ) },
+        placeholder = {
+            Text(
+                text = hint,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+            )
+        },
         leadingIcon = {
             Icon(
                 imageVector = Icons.Default.Search,

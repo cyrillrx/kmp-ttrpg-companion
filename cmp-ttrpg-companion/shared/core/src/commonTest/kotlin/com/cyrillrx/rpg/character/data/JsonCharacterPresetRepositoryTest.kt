@@ -15,51 +15,46 @@ import kotlin.test.assertTrue
 
 class JsonCharacterPresetRepositoryTest {
     @Test
-    fun `valid preset is parsed with correct field values`() =
-        runTest {
-            val result = repository(preset()).getAll(null)
+    fun `valid preset is parsed with correct field values`() = runTest {
+        val result = repository(preset()).getAll(null)
 
-            assertEquals(1, result.size)
-            val character = result.first()
-            assertEquals("test-fighter", character.id)
-            assertEquals("Aldus Test", character.name)
-            assertEquals(Race.HUMAN, character.race)
-            assertEquals(Character.Class.FIGHTER, character.clazz)
-            assertEquals(3, character.level)
-            assertEquals(Creature.Size.MEDIUM, character.size)
-            assertEquals(Creature.Alignment.LAWFUL_GOOD, character.alignment)
-            assertEquals(17, character.armorClass)
-            assertEquals(28, character.maxHitPoints)
-            assertEquals(listOf(Language.COMMON, Language.ELVISH), character.languages)
-        }
-
-    @Test
-    fun `preset with missing id is skipped`() =
-        runTest {
-            val json = preset(id = null)
-            assertTrue(repository(json).getAll(null).isEmpty())
-        }
+        assertEquals(1, result.size)
+        val character = result.first()
+        assertEquals("test-fighter", character.id)
+        assertEquals("Aldus Test", character.name)
+        assertEquals(Race.HUMAN, character.race)
+        assertEquals(Character.Class.FIGHTER, character.clazz)
+        assertEquals(3, character.level)
+        assertEquals(Creature.Size.MEDIUM, character.size)
+        assertEquals(Creature.Alignment.LAWFUL_GOOD, character.alignment)
+        assertEquals(17, character.armorClass)
+        assertEquals(28, character.maxHitPoints)
+        assertEquals(listOf(Language.COMMON, Language.ELVISH), character.languages)
+    }
 
     @Test
-    fun `preset with missing name is skipped`() =
-        runTest {
-            val json = preset(name = null)
-            assertTrue(repository(json).getAll(null).isEmpty())
-        }
+    fun `preset with missing id is skipped`() = runTest {
+        val json = preset(id = null)
+        assertTrue(repository(json).getAll(null).isEmpty())
+    }
 
     @Test
-    fun `preset with missing translations is skipped`() =
-        runTest {
-            val json = preset(translations = null)
-            assertTrue(repository(json).getAll(null).isEmpty())
-        }
+    fun `preset with missing name is skipped`() = runTest {
+        val json = preset(name = null)
+        assertTrue(repository(json).getAll(null).isEmpty())
+    }
 
     @Test
-    fun `preset with missing level is skipped`() =
-        runTest {
-            val json = preset(level = null)
-            assertTrue(repository(json).getAll(null).isEmpty())
-        }
+    fun `preset with missing translations is skipped`() = runTest {
+        val json = preset(translations = null)
+        assertTrue(repository(json).getAll(null).isEmpty())
+    }
+
+    @Test
+    fun `preset with missing level is skipped`() = runTest {
+        val json = preset(level = null)
+        assertTrue(repository(json).getAll(null).isEmpty())
+    }
 
     @Test
     fun `preset with unknown size is skipped`() =
@@ -69,73 +64,65 @@ class JsonCharacterPresetRepositoryTest {
         }
 
     @Test
-    fun `preset with unknown alignment is skipped`() =
-        runTest {
-            val json = preset(alignment = "CHAOTIC_POTATO")
-            assertTrue(repository(json).getAll(null).isEmpty())
-        }
+    fun `preset with unknown alignment is skipped`() = runTest {
+        val json = preset(alignment = "CHAOTIC_POTATO")
+        assertTrue(repository(json).getAll(null).isEmpty())
+    }
 
     @Test
-    fun `preset with missing skills is skipped`() =
-        runTest {
-            val json = preset(skills = null)
-            assertTrue(repository(json).getAll(null).isEmpty())
-        }
+    fun `preset with missing skills is skipped`() = runTest {
+        val json = preset(skills = null)
+        assertTrue(repository(json).getAll(null).isEmpty())
+    }
 
     @Test
-    fun `preset with unknown race is skipped`() =
-        runTest {
-            val json = preset(race = "martian")
-            assertTrue(repository(json).getAll(null).isEmpty())
-        }
+    fun `preset with unknown race is skipped`() = runTest {
+        val json = preset(race = "martian")
+        assertTrue(repository(json).getAll(null).isEmpty())
+    }
 
     @Test
-    fun `preset with unknown class is skipped`() =
-        runTest {
-            val json = preset(clazz = "jedi")
-            assertTrue(repository(json).getAll(null).isEmpty())
-        }
+    fun `preset with unknown class is skipped`() = runTest {
+        val json = preset(clazz = "jedi")
+        assertTrue(repository(json).getAll(null).isEmpty())
+    }
 
     @Test
-    fun `abilities and saving throws are parsed correctly`() =
-        runTest {
-            val json = preset(
-                abilities = """{"str": 16, "dex": 12, "con": 14, "int": 10, "wis": 10, "cha": 8}""",
-                savingThrows = """{"str": "proficient", "con": "proficient"}""",
-            )
-            val character = repository(json).getAll(null).first()
-            assertEquals(16, character.abilities.strength.value)
-            assertEquals(Proficiency.PROFICIENT, character.abilities.strength.savingThrowProficiency)
-            assertEquals(12, character.abilities.dexterity.value)
-            assertEquals(Proficiency.NONE, character.abilities.dexterity.savingThrowProficiency)
-            assertEquals(Proficiency.PROFICIENT, character.abilities.constitution.savingThrowProficiency)
-        }
+    fun `abilities and saving throws are parsed correctly`() = runTest {
+        val json = preset(
+            abilities = """{"str": 16, "dex": 12, "con": 14, "int": 10, "wis": 10, "cha": 8}""",
+            savingThrows = """{"str": "proficient", "con": "proficient"}""",
+        )
+        val character = repository(json).getAll(null).first()
+        assertEquals(16, character.abilities.strength.value)
+        assertEquals(Proficiency.PROFICIENT, character.abilities.strength.savingThrowProficiency)
+        assertEquals(12, character.abilities.dexterity.value)
+        assertEquals(Proficiency.NONE, character.abilities.dexterity.savingThrowProficiency)
+        assertEquals(Proficiency.PROFICIENT, character.abilities.constitution.savingThrowProficiency)
+    }
 
     @Test
-    fun `preset with missing walk speed is skipped`() =
-        runTest {
-            val json = preset(speeds = null)
-            assertTrue(repository(json).getAll(null).isEmpty())
-        }
+    fun `preset with missing walk speed is skipped`() = runTest {
+        val json = preset(speeds = null)
+        assertTrue(repository(json).getAll(null).isEmpty())
+    }
 
     @Test
-    fun `preset with unknown language is skipped`() =
-        runTest {
-            val json = preset(languages = """["klingon"]""")
-            assertTrue(repository(json).getAll(null).isEmpty())
-        }
+    fun `preset with unknown language is skipped`() = runTest {
+        val json = preset(languages = """["klingon"]""")
+        assertTrue(repository(json).getAll(null).isEmpty())
+    }
 
     @Test
-    fun `valid records are returned even when some records are invalid`() =
-        runTest {
-            val json = """[
+    fun `valid records are returned even when some records are invalid`() = runTest {
+        val json = """[
             ${preset().trimArray()},
             ${preset(id = "second-fighter", race = "martian").trimArray()}
         ]"""
-            val result = repository(json).getAll(null)
-            assertEquals(1, result.size)
-            assertEquals("test-fighter", result.first().id)
-        }
+        val result = repository(json).getAll(null)
+        assertEquals(1, result.size)
+        assertEquals("test-fighter", result.first().id)
+    }
 
     private fun repository(json: String) = JsonCharacterPresetRepository(FakeFileReader(json), "")
 

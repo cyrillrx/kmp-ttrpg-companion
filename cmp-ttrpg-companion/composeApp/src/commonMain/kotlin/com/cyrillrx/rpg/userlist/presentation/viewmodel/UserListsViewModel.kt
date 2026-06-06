@@ -141,7 +141,9 @@ class UserListsViewModel(
             } catch (e: CancellationException) {
                 throw e
             } catch (e: Exception) {
-                state.update { it.copy(body = UserListsState.Body.Error(errorMessage = Res.string.error_while_loading_user_lists)) }
+                state.update {
+                    it.copy(body = UserListsState.Body.Error(errorMessage = Res.string.error_while_loading_user_lists))
+                }
             }
         }
 

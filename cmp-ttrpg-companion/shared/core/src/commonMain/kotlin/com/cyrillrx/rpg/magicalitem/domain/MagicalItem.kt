@@ -1,8 +1,7 @@
 package com.cyrillrx.rpg.magicalitem.domain
 
-import kotlinx.serialization.Serializable
-
 import com.cyrillrx.core.domain.FALLBACK_LOCALE
+import kotlinx.serialization.Serializable
 
 @Serializable
 class MagicalItem(

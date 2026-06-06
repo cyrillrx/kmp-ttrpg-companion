@@ -20,10 +20,10 @@ class CoerceToValidWalkSpeedInFeetTest {
 
     @Test
     fun `rounds to nearest multiple of 5`() {
-        assertEquals(25, 26.coerceToValidWalkSpeedInFeet())  // remainder 1 → round down
-        assertEquals(25, 27.coerceToValidWalkSpeedInFeet())  // remainder 2 → round down (boundary)
-        assertEquals(30, 28.coerceToValidWalkSpeedInFeet())  // remainder 3 → round up
-        assertEquals(35, 33.coerceToValidWalkSpeedInFeet())  // remainder 3 → round up
+        assertEquals(25, 26.coerceToValidWalkSpeedInFeet()) // remainder 1 → round down
+        assertEquals(25, 27.coerceToValidWalkSpeedInFeet()) // remainder 2 → round down (boundary)
+        assertEquals(30, 28.coerceToValidWalkSpeedInFeet()) // remainder 3 → round up
+        assertEquals(35, 33.coerceToValidWalkSpeedInFeet()) // remainder 3 → round up
         assertEquals(115, 117.coerceToValidWalkSpeedInFeet()) // remainder 2 → round down
         assertEquals(120, 118.coerceToValidWalkSpeedInFeet()) // remainder 3 → round up to upper bound
         assertEquals(120, 119.coerceToValidWalkSpeedInFeet()) // remainder 4 → round up to upper bound

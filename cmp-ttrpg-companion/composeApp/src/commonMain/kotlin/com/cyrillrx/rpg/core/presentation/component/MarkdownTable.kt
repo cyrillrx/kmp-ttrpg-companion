@@ -1,4 +1,3 @@
-
 package com.cyrillrx.rpg.core.presentation.component
 
 import androidx.compose.foundation.background
@@ -177,18 +176,26 @@ private fun rememberColumnWidths(
         val boldStyle = style.copy(fontWeight = FontWeight.Bold)
         val paddingPx = with(density) { (tableCellPadding * 2).roundToPx() }
         (0 until columnCount).map { colIdx ->
-            val headerPx = headerNode.children.filter { it.type == CELL }.getOrNull(colIdx)
+            val headerPx = headerNode.children
+                .filter { it.type == CELL }
+                .getOrNull(colIdx)
                 ?.let { cell ->
                     val text = content.substring(cell.startOffset, cell.endOffset).trim().stripMarkdown()
-                    if (text.isEmpty()) 1
-                    else textMeasurer.measure(text, style = boldStyle, softWrap = false).size.width
+                    if (text.isEmpty()) {
+                        1
+                    } else {
+                        textMeasurer.measure(text, style = boldStyle, softWrap = false).size.width
+                    }
                 } ?: 1
             val dataPx = dataRows.maxOfOrNull { rowNode ->
                 val cell = rowNode.children.filter { it.type == CELL }.getOrNull(colIdx)
                     ?: return@maxOfOrNull 1
                 val text = content.substring(cell.startOffset, cell.endOffset).trim().stripMarkdown()
-                if (text.isEmpty()) 1
-                else textMeasurer.measure(text, style = style, softWrap = false).size.width
+                if (text.isEmpty()) {
+                    1
+                } else {
+                    textMeasurer.measure(text, style = style, softWrap = false).size.width
+                }
             } ?: 1
             with(density) {
                 ColumnWidthData(
@@ -200,9 +207,12 @@ private fun rememberColumnWidths(
     }
 }
 
+private val LINK_REGEX = Regex("\\[([^]]+)]\\([^)]*\\)")
+private val MARKDOWN_CHARS_REGEX = Regex("[*_`]+")
+
 internal fun String.stripMarkdown(): String = this
-    .replace(Regex("\\[([^]]+)]\\([^)]*\\)"), "$1") // [text](url) → text
-    .replace(Regex("[*_`]+"), "")                    // *, **, _, __, ` → nothing
+    .replace(LINK_REGEX, "$1") // [text](url) → text
+    .replace(MARKDOWN_CHARS_REGEX, "") // *, **, _, __, ` → nothing
 
 @Composable
 private fun TableContent(
@@ -215,7 +225,14 @@ private fun TableContent(
 ) {
     node.children.forEach { child ->
         when (child.type) {
-            HEADER -> TableRow(content, child, colWidths, style.copy(fontWeight = FontWeight.Bold), cellPadding, annotatorSettings)
+            HEADER -> TableRow(
+                content,
+                child,
+                colWidths,
+                style.copy(fontWeight = FontWeight.Bold),
+                cellPadding,
+                annotatorSettings,
+            )
             ROW -> TableRow(content, child, colWidths, style, cellPadding, annotatorSettings)
             TABLE_SEPARATOR -> MarkdownDivider()
         }
@@ -255,7 +272,8 @@ private fun TableRow(
     }
 }
 
-private val SAMPLE_TABLE = """
+private val SAMPLE_TABLE =
+    """
     | Spell Level | Rarity | Spell Save DC | Attack Bonus |
     |-------------|--------|---------------|--------------|
     | 0 (cantrip) | Common | 13 | +5 |
@@ -263,7 +281,7 @@ private val SAMPLE_TABLE = """
     | 3rd–4th | Uncommon | 15 | +7 |
     | 5th–6th | Rare | 17 | +9 |
     | 7th–8th | Very Rare | 18 | +10 |
-""".trimIndent()
+    """.trimIndent()
 
 @Preview
 @Composable

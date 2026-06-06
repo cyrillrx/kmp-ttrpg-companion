@@ -271,7 +271,6 @@ class UserListsViewModelTest {
 
         assertIs<UserListsState.Body.Loading>(viewModel.state.value.body)
     }
-
 }
 
 private class FailsOnDeleteUserListRepository : UserListRepository {
@@ -281,4 +280,3 @@ private class FailsOnDeleteUserListRepository : UserListRepository {
     override suspend fun save(list: UserList) = delegate.save(list)
     override suspend fun delete(id: String) = error("Delete failed")
 }
-

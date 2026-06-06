@@ -68,7 +68,11 @@ fun EntryProviderScope<NavKey>.handleCharacterRoutes(
 
     entry<CharacterRoute.PresetGallery> {
         val router = CharacterRouterImpl(backStack)
-        val viewModelFactory = CharacterPresetGalleryViewModelFactory(pcPresetRepository, npcPresetRepository, characterRepository)
+        val viewModelFactory = CharacterPresetGalleryViewModelFactory(
+            pcPresetRepository = pcPresetRepository,
+            npcPresetRepository = npcPresetRepository,
+            characterRepository = characterRepository,
+        )
         val viewModel = viewModel<CharacterPresetGalleryViewModel>(factory = viewModelFactory)
         CharacterPresetGalleryScreen(viewModel, router)
     }

@@ -70,6 +70,9 @@ class MonsterDetailViewModelTest {
         val state = viewModel.state.value
         assertIs<DetailState.Found<Monster>>(state)
         assertEquals(expected = monster.id, actual = state.item.id)
-        assertEquals(expected = monster.resolveTranslation("en").name, actual = state.item.resolveTranslation("en").name)
+        assertEquals(
+            expected = monster.resolveTranslation("en").name,
+            actual = state.item.resolveTranslation("en").name,
+        )
     }
 }

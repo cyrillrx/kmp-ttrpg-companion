@@ -70,7 +70,9 @@ class MonsterListViewModel(
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {
-            state.update { it.copy(body = MonsterListState.Body.Error(errorMessage = Res.string.error_while_loading_monsters)) }
+            state.update {
+                it.copy(body = MonsterListState.Body.Error(errorMessage = Res.string.error_while_loading_monsters))
+            }
         }
     }
 }

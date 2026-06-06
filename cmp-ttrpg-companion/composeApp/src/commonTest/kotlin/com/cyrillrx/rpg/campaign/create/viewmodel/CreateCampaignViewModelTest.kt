@@ -6,13 +6,13 @@ import com.cyrillrx.rpg.campaign.domain.CampaignRepository
 import com.cyrillrx.rpg.campaign.domain.RuleSet
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
-import kotlinx.coroutines.launch
 import kotlin.test.AfterTest
 import kotlin.test.BeforeTest
 import kotlin.test.Test
@@ -143,6 +143,10 @@ private class TestCampaignRepository : CampaignRepository {
 
     override suspend fun getAll(filter: CampaignFilter?): List<Campaign> = campaigns
     override suspend fun get(id: String): Campaign? = campaigns.find { it.id == id }
-    override suspend fun save(campaign: Campaign) { campaigns.add(campaign) }
-    override suspend fun delete(id: String) { campaigns.removeAll { it.id == id } }
+    override suspend fun save(campaign: Campaign) {
+        campaigns.add(campaign)
+    }
+    override suspend fun delete(id: String) {
+        campaigns.removeAll { it.id == id }
+    }
 }

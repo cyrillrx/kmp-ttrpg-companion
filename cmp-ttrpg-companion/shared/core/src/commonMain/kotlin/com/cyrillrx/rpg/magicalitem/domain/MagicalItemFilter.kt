@@ -13,11 +13,10 @@ fun List<MagicalItem>.applyFilter(filter: MagicalItemFilter?): List<MagicalItem>
     return filter { it.matches(filter) }
 }
 
-internal fun MagicalItem.matches(filter: MagicalItemFilter): Boolean {
-    return (filter.types.isEmpty() || filter.types.contains(type)) &&
+internal fun MagicalItem.matches(filter: MagicalItemFilter): Boolean =
+    (filter.types.isEmpty() || filter.types.contains(type)) &&
         (filter.rarities.isEmpty() || filter.rarities.contains(rarity)) &&
         (filter.query.isBlank() || matchesQuery(filter.query))
-}
 
 private fun MagicalItem.matchesQuery(query: String): Boolean {
     val trimmed = query.trim()

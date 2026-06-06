@@ -136,7 +136,7 @@ private fun PreviewSettingsScreenLight() {
             preferences = UserPreferences(theme = Theme.LIGHT),
             onThemeSelected = {},
             onDistanceUnitSelected = {},
-            router = object : SettingsRouter { override fun navigateUp() {} },
+            router = NoOpRouter(),
         )
     }
 }
@@ -149,7 +149,11 @@ private fun PreviewSettingsScreenDark() {
             preferences = UserPreferences(theme = Theme.DARK),
             onThemeSelected = {},
             onDistanceUnitSelected = {},
-            router = object : SettingsRouter { override fun navigateUp() {} },
+            router = NoOpRouter(),
         )
     }
+}
+
+private class NoOpRouter : SettingsRouter {
+    override fun navigateUp() {}
 }

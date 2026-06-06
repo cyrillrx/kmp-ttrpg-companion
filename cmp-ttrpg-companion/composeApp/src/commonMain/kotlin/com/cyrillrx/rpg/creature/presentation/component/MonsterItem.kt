@@ -23,9 +23,11 @@ fun MonsterItem(
     modifier: Modifier = Modifier,
 ) {
     val translation = monster.resolveTranslation(currentLocale())
-    Column(modifier = modifier
-        .background(MaterialTheme.colorScheme.background)
-        .padding(spacingCommon)) {
+    Column(
+        modifier = modifier
+            .background(MaterialTheme.colorScheme.background)
+            .padding(spacingCommon),
+    ) {
         Text(
             text = translation.name,
             style = MaterialTheme.typography.headlineSmall,

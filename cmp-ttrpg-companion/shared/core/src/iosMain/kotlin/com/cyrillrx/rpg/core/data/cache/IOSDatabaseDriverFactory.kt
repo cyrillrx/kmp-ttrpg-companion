@@ -6,7 +6,5 @@ import com.cyrillrx.rpg.cache.AppDatabase
 import com.cyrillrx.rpg.core.data.cache.Database.Companion.DATABASE_NAME
 
 class IOSDatabaseDriverFactory : DatabaseDriverFactory {
-    override fun createDriver(): SqlDriver {
-        return NativeSqliteDriver(AppDatabase.Schema, DATABASE_NAME)
-    }
+    override fun createDriver(): SqlDriver = NativeSqliteDriver(AppDatabase.Schema, DATABASE_NAME)
 }

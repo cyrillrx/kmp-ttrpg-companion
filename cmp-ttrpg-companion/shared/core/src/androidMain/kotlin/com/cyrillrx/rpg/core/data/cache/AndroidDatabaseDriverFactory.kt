@@ -7,7 +7,5 @@ import com.cyrillrx.rpg.cache.AppDatabase
 import com.cyrillrx.rpg.core.data.cache.Database.Companion.DATABASE_NAME
 
 class AndroidDatabaseDriverFactory(private val context: Context) : DatabaseDriverFactory {
-    override fun createDriver(): SqlDriver {
-        return AndroidSqliteDriver(AppDatabase.Schema, context, DATABASE_NAME)
-    }
+    override fun createDriver(): SqlDriver = AndroidSqliteDriver(AppDatabase.Schema, context, DATABASE_NAME)
 }

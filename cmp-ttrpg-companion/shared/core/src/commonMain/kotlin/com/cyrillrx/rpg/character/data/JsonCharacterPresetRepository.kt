@@ -118,7 +118,9 @@ class JsonCharacterPresetRepository(
             )
         }
 
-        private fun Map<String, ApiCharacter.Translation>.toTranslations(characterId: String): Map<String, Character.Translation>? {
+        private fun Map<String, ApiCharacter.Translation>.toTranslations(
+            characterId: String,
+        ): Map<String, Character.Translation>? {
             val (parsedTranslations, translationErrors) = partitionBy { locale, t ->
                 t.toTranslation(characterId, locale)
             }

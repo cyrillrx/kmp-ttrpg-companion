@@ -3,16 +3,14 @@ package com.cyrillrx.rpg.creature.data
 import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.creature.domain.Creature
+import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.creature.domain.MonsterFilter
 import com.cyrillrx.rpg.creature.domain.MonsterRepository
-import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.creature.domain.Speeds
 import com.cyrillrx.rpg.creature.domain.applyFilter
 
 class SampleMonsterRepository : MonsterRepository {
-    override suspend fun getAll(filter: MonsterFilter?): List<Monster> {
-        return monsters.applyFilter(filter)
-    }
+    override suspend fun getAll(filter: MonsterFilter?): List<Monster> = monsters.applyFilter(filter)
 
     override suspend fun getById(id: String): Monster? = monsters.firstOrNull { it.id == id }
 
@@ -52,7 +50,8 @@ class SampleMonsterRepository : MonsterRepository {
             translations = mapOf(
                 "en" to Monster.Translation(
                     name = "Goblin",
-                    description = "A small, black-hearted creature that lairs in despoiled dungeons and other dismal settings.",
+                    description = "A small, black-hearted creature that lairs in despoiled dungeons and other " +
+                        "dismal settings.",
                     senses = "Darkvision 60 ft.",
                     languages = listOf("Common", "Goblin"),
                 ),

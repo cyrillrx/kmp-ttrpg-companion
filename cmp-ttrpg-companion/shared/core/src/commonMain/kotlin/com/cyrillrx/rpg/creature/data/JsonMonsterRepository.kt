@@ -99,7 +99,9 @@ class JsonMonsterRepository(private val fileReader: FileReader) : MonsterReposit
             )
         }
 
-        private fun Map<String, ApiMonster.Translation>.toTranslations(monsterId: String): Map<String, Monster.Translation>? {
+        private fun Map<String, ApiMonster.Translation>.toTranslations(
+            monsterId: String,
+        ): Map<String, Monster.Translation>? {
             val (parsedTranslations, translationErrors) = partitionBy { locale, t ->
                 t.toTranslation(monsterId, locale)
             }

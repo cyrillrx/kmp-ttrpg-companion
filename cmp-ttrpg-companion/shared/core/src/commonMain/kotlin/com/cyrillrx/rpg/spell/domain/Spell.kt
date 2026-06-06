@@ -1,9 +1,8 @@
 package com.cyrillrx.rpg.spell.domain
 
+import com.cyrillrx.core.domain.FALLBACK_LOCALE
 import com.cyrillrx.rpg.character.domain.Character
 import kotlinx.serialization.Serializable
-
-import com.cyrillrx.core.domain.FALLBACK_LOCALE
 
 @Serializable
 class Spell(

@@ -53,7 +53,6 @@ fun SpellListItem(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.padding(spacingCommon),
         ) {
-
             // Spell info
             Column(
                 verticalArrangement = Arrangement.spacedBy(spacingSmall),
