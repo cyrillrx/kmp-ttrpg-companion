@@ -69,15 +69,4 @@
     <string name="title_filter_monsters">Filter Monsters</string>
     <string name="label_filter_cr">Challenge Rating</string>
 
-    <!-- Alignment short labels -->
-    <string name="alignment_short_lawful_good">LG</string>
-    <string name="alignment_short_lawful_neutral">LN</string>
-    <string name="alignment_short_lawful_evil">LE</string>
-    <string name="alignment_short_neutral_good">NG</string>
-    <string name="alignment_short_neutral">N</string>
-    <string name="alignment_short_neutral_evil">NE</string>
-    <string name="alignment_short_chaotic_good">CG</string>
-    <string name="alignment_short_chaotic_neutral">CN</string>
-    <string name="alignment_short_chaotic_evil">CE</string>
-    <string name="alignment_short_unknown">?</string>
 </resources>
