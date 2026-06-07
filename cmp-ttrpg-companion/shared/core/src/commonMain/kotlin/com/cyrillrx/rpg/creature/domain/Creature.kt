@@ -31,6 +31,8 @@ abstract class Creature {
         CHAOTIC_GOOD,
         CHAOTIC_NEUTRAL,
         CHAOTIC_EVIL,
+        UNALIGNED,
+        ANY_ALIGNMENT,
         UNKNOWN,
     }
 }
