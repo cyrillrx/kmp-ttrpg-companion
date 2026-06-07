@@ -64,6 +64,7 @@
     <string name="monster_type_monstrosity">Créature monstrueuse</string>
     <string name="monster_type_ooze">Vase</string>
     <string name="monster_type_plant">Plante</string>
+    <string name="monster_type_swarm">Nuée</string>
     <string name="monster_type_undead">Mort-vivant</string>
     <string name="monster_type_unknown">Inconnu</string>
 

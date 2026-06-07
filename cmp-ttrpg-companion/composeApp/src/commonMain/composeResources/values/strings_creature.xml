@@ -64,6 +64,7 @@
     <string name="monster_type_monstrosity">Monstrosity</string>
     <string name="monster_type_ooze">Ooze</string>
     <string name="monster_type_plant">Plant</string>
+    <string name="monster_type_swarm">Swarm</string>
     <string name="monster_type_undead">Undead</string>
     <string name="monster_type_unknown">Unknown</string>
 

@@ -4,6 +4,7 @@ import com.cyrillrx.core.data.FileReader
 import com.cyrillrx.core.domain.FileReaderError
 import com.cyrillrx.core.domain.Result
 import com.cyrillrx.rpg.creature.domain.Creature
+import com.cyrillrx.rpg.creature.domain.Monster
 import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -38,8 +39,19 @@ class JsonMonsterRepositoryTest {
     }
 
     @Test
-    fun `monster with unknown type is skipped`() = runTest {
-        assertTrue(repository(monster(type = "dragon_ball")).getAll(null).isEmpty())
+    fun `monster with unknown type falls back to UNKNOWN`() = runTest {
+        val result = repository(monster(type = "dragon_ball")).getAll(null)
+
+        assertEquals(1, result.size)
+        assertEquals(Monster.Type.UNKNOWN, result.first().type)
+    }
+
+    @Test
+    fun `monster with swarm type is parsed as SWARM`() = runTest {
+        val result = repository(monster(type = "swarm_of_tiny_beasts")).getAll(null)
+
+        assertEquals(1, result.size)
+        assertEquals(Monster.Type.SWARM, result.first().type)
     }
 
     @Test

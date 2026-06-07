@@ -6,7 +6,6 @@ sealed interface MonsterImportError : Error {
     data object MissingId : MonsterImportError
     data class MissingSource(val id: String) : MonsterImportError
     data class MissingType(val id: String) : MonsterImportError
-    data class UnknownType(val id: String, val raw: String) : MonsterImportError
     data class MissingSize(val id: String) : MonsterImportError
     data class UnknownSize(val id: String, val raw: String) : MonsterImportError
     data class MissingAlignment(val id: String) : MonsterImportError

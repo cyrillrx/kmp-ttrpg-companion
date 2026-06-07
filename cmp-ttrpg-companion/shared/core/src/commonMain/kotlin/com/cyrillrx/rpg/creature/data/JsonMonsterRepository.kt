@@ -50,7 +50,6 @@ class JsonMonsterRepository(private val fileReader: FileReader) : MonsterReposit
             val apiType = type
                 ?: return Result.Failure(MonsterImportError.MissingType(id))
             val type = apiType.toType()
-                ?: return Result.Failure(MonsterImportError.UnknownType(id, apiType))
             val apiSize = size
                 ?: return Result.Failure(MonsterImportError.MissingSize(id))
             val size = apiSize.toSize()
@@ -133,7 +132,10 @@ class JsonMonsterRepository(private val fileReader: FileReader) : MonsterReposit
             )
         }
 
-        private fun String.toType(): Monster.Type? =
-            Monster.Type.entries.find { it.name.equals(this, ignoreCase = true) }
+        private fun String.toType(): Monster.Type = when {
+            startsWith("swarm", ignoreCase = true) -> Monster.Type.SWARM
+            else -> Monster.Type.entries.find { it.name.equals(this, ignoreCase = true) }
+                ?: Monster.Type.UNKNOWN.also { println("WARNING: unknown monster type '$this', falling back to UNKNOWN") }
+        }
     }
 }
