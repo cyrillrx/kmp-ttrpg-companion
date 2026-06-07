@@ -28,8 +28,11 @@ class JsonMonsterRepositoryTest {
     }
 
     @Test
-    fun `monster with unknown alignment is skipped`() = runTest {
-        assertTrue(repository(monster(alignment = "chaotic_potato")).getAll(null).isEmpty())
+    fun `monster with unknown alignment falls back to UNKNOWN`() = runTest {
+        val result = repository(monster(alignment = "chaotic_potato")).getAll(null)
+
+        assertEquals(1, result.size)
+        assertEquals(Creature.Alignment.UNKNOWN, result.first().alignment)
     }
 
     @Test
@@ -43,15 +46,18 @@ class JsonMonsterRepositoryTest {
     }
 
     @Test
-    fun `monster with unknown size is skipped`() = runTest {
-        assertTrue(repository(monster(size = "gigantic")).getAll(null).isEmpty())
+    fun `monster with unknown size falls back to UNKNOWN`() = runTest {
+        val result = repository(monster(size = "gigantic")).getAll(null)
+
+        assertEquals(1, result.size)
+        assertEquals(Creature.Size.UNKNOWN, result.first().size)
     }
 
     @Test
     fun `valid records are returned even when some records are invalid`() = runTest {
         val json = """[
             ${monster().trimArray()},
-            ${monster(id = "second", alignment = "chaotic_potato").trimArray()}
+            ${monster(id = null).trimArray()}
         ]"""
         val result = repository(json).getAll(null)
         assertEquals(1, result.size)
