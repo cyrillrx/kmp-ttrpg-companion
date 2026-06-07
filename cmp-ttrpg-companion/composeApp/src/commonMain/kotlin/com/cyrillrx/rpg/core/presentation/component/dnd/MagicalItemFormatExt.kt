@@ -7,6 +7,7 @@ import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.item_rarity_artifact
 import rpg_companion.composeapp.generated.resources.item_rarity_common
+import rpg_companion.composeapp.generated.resources.item_rarity_varies
 import rpg_companion.composeapp.generated.resources.item_rarity_legendary
 import rpg_companion.composeapp.generated.resources.item_rarity_rare
 import rpg_companion.composeapp.generated.resources.item_rarity_uncommon
@@ -47,6 +48,7 @@ fun MagicalItem.Rarity.toFormattedString(): String {
         MagicalItem.Rarity.VERY_RARE -> Res.string.item_rarity_very_rare
         MagicalItem.Rarity.LEGENDARY -> Res.string.item_rarity_legendary
         MagicalItem.Rarity.ARTIFACT -> Res.string.item_rarity_artifact
+        MagicalItem.Rarity.VARIES -> Res.string.item_rarity_varies
     }
     return stringResource(stringRes)
 }
