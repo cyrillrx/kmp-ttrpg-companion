@@ -43,9 +43,8 @@ internal fun ApiSpeeds?.toSpeeds(): Speeds = Speeds(
 internal fun String.toSize(): Creature.Size? =
     Creature.Size.entries.find { it.name.equals(this, ignoreCase = true) }
 
-internal fun String.toAlignment(): Creature.Alignment =
+internal fun String.toAlignment(): Creature.Alignment? =
     Creature.Alignment.entries.find { it.name.equals(this, ignoreCase = true) }
-        ?: Creature.Alignment.UNKNOWN.also { println("WARNING: unknown alignment '$this', falling back to UNKNOWN") }
 
 internal fun ApiSkills.toSkills(): Skills = Skills(
     acrobatics = acrobatics.toProficiency(),

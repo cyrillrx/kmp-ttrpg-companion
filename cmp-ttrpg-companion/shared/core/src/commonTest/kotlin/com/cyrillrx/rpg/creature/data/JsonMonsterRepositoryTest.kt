@@ -28,11 +28,8 @@ class JsonMonsterRepositoryTest {
     }
 
     @Test
-    fun `monster with unknown alignment falls back to UNKNOWN`() = runTest {
-        val result = repository(monster(alignment = "chaotic_potato")).getAll(null)
-
-        assertEquals(1, result.size)
-        assertEquals(Creature.Alignment.UNKNOWN, result.first().alignment)
+    fun `monster with unknown alignment is skipped`() = runTest {
+        assertTrue(repository(monster(alignment = "chaotic_potato")).getAll(null).isEmpty())
     }
 
     @Test

@@ -58,6 +58,7 @@ class JsonMonsterRepository(private val fileReader: FileReader) : MonsterReposit
             val apiAlignment = alignment
                 ?: return Result.Failure(MonsterImportError.MissingAlignment(id))
             val alignment = apiAlignment.toAlignment()
+                ?: return Result.Failure(MonsterImportError.UnknownAlignment(id, apiAlignment))
             val challengeRating = challengeRating
                 ?: return Result.Failure(MonsterImportError.MissingChallengeRating(id))
             val apiAbilities = abilities
