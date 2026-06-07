@@ -46,11 +46,8 @@ class JsonMonsterRepositoryTest {
     }
 
     @Test
-    fun `monster with unknown size falls back to UNKNOWN`() = runTest {
-        val result = repository(monster(size = "gigantic")).getAll(null)
-
-        assertEquals(1, result.size)
-        assertEquals(Creature.Size.UNKNOWN, result.first().size)
+    fun `monster with unknown size is skipped`() = runTest {
+        assertTrue(repository(monster(size = "gigantic")).getAll(null).isEmpty())
     }
 
     @Test

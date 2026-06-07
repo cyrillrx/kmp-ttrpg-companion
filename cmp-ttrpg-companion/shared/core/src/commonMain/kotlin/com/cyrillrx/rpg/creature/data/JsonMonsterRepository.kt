@@ -54,6 +54,7 @@ class JsonMonsterRepository(private val fileReader: FileReader) : MonsterReposit
             val apiSize = size
                 ?: return Result.Failure(MonsterImportError.MissingSize(id))
             val size = apiSize.toSize()
+                ?: return Result.Failure(MonsterImportError.UnknownSize(id, apiSize))
             val apiAlignment = alignment
                 ?: return Result.Failure(MonsterImportError.MissingAlignment(id))
             val alignment = apiAlignment.toAlignment()

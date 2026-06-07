@@ -40,9 +40,8 @@ internal fun ApiSpeeds?.toSpeeds(): Speeds = Speeds(
     hover = this?.hover ?: false,
 )
 
-internal fun String.toSize(): Creature.Size =
+internal fun String.toSize(): Creature.Size? =
     Creature.Size.entries.find { it.name.equals(this, ignoreCase = true) }
-        ?: Creature.Size.UNKNOWN.also { println("WARNING: unknown size '$this', falling back to UNKNOWN") }
 
 internal fun String.toAlignment(): Creature.Alignment =
     Creature.Alignment.entries.find { it.name.equals(this, ignoreCase = true) }
