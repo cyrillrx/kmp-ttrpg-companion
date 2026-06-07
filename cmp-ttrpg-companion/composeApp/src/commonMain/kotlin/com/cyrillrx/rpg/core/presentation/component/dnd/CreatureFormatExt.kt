@@ -21,8 +21,11 @@ import rpg_companion.composeapp.generated.resources.creature_alignment_unknown
 import rpg_companion.composeapp.generated.resources.creature_alignment_unaligned
 import rpg_companion.composeapp.generated.resources.creature_size_gargantuan
 import rpg_companion.composeapp.generated.resources.creature_size_huge
+import rpg_companion.composeapp.generated.resources.creature_size_huge_or_gargantuan
+import rpg_companion.composeapp.generated.resources.creature_size_huge_or_smaller
 import rpg_companion.composeapp.generated.resources.creature_size_large
 import rpg_companion.composeapp.generated.resources.creature_size_medium
+import rpg_companion.composeapp.generated.resources.creature_size_medium_or_small
 import rpg_companion.composeapp.generated.resources.creature_size_small
 import rpg_companion.composeapp.generated.resources.creature_size_tiny
 import rpg_companion.composeapp.generated.resources.creature_size_unknown
@@ -41,6 +44,9 @@ fun Creature.Size.toFormattedString(): String {
         Creature.Size.LARGE -> Res.string.creature_size_large
         Creature.Size.HUGE -> Res.string.creature_size_huge
         Creature.Size.GARGANTUAN -> Res.string.creature_size_gargantuan
+        Creature.Size.MEDIUM_OR_SMALL -> Res.string.creature_size_medium_or_small
+        Creature.Size.HUGE_OR_GARGANTUAN -> Res.string.creature_size_huge_or_gargantuan
+        Creature.Size.HUGE_OR_SMALLER -> Res.string.creature_size_huge_or_smaller
         Creature.Size.UNKNOWN -> Res.string.creature_size_unknown
     }
     return stringResource(stringRes)

@@ -23,6 +23,9 @@
     <string name="creature_size_large">Large</string>
     <string name="creature_size_huge">Huge</string>
     <string name="creature_size_gargantuan">Gargantuan</string>
+    <string name="creature_size_medium_or_small">Medium or Small</string>
+    <string name="creature_size_huge_or_gargantuan">Huge or Gargantuan</string>
+    <string name="creature_size_huge_or_smaller">Huge or Smaller</string>
     <string name="creature_size_unknown">Unknown</string>
 
     <!-- Creature alignment -->
