@@ -47,7 +47,6 @@ import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
-import com.cyrillrx.rpg.core.presentation.component.dnd.toShortString
 import com.cyrillrx.rpg.core.presentation.component.dnd.toSvgPath
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.DndGold
@@ -108,7 +107,7 @@ internal fun CharacterHeader(
                 }
                 if (alignment != Creature.Alignment.UNKNOWN) {
                     SubtitleDot()
-                    SubtitleChip(alignment.toShortString(), onAlignmentTapped)
+                    SubtitleChip(alignment.toFormattedString(), onAlignmentTapped)
                 }
             }
         }
