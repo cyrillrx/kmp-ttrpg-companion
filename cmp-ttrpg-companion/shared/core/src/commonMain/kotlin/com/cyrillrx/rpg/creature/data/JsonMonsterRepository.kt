@@ -135,7 +135,8 @@ class JsonMonsterRepository(private val fileReader: FileReader) : MonsterReposit
         private fun String.toType(): Monster.Type = when {
             startsWith("swarm", ignoreCase = true) -> Monster.Type.SWARM
             else -> Monster.Type.entries.find { it.name.equals(this, ignoreCase = true) }
-                ?: Monster.Type.UNKNOWN.also { println("WARNING: unknown monster type '$this', falling back to UNKNOWN") }
+                ?: Monster.Type.UNKNOWN
+                    .also { println("WARNING: unknown monster type '$this', falling back to UNKNOWN") }
         }
     }
 }
