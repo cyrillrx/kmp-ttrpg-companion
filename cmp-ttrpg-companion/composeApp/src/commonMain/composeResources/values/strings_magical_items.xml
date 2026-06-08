@@ -19,6 +19,7 @@
     <string name="item_rarity_very_rare">Very rare</string>
     <string name="item_rarity_legendary">Legendary</string>
     <string name="item_rarity_artifact">Artifact</string>
+    <string name="item_rarity_varies">Varies</string>
     <string name="item_requires_attunement">Requires attunement</string>
 
     <!-- Magical Item Filter -->

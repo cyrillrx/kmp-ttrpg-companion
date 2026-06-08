@@ -18,6 +18,9 @@ abstract class Creature {
         LARGE,
         HUGE,
         GARGANTUAN,
+        MEDIUM_OR_SMALL,
+        HUGE_OR_GARGANTUAN,
+        HUGE_OR_SMALLER,
         UNKNOWN,
     }
 
@@ -31,6 +34,8 @@ abstract class Creature {
         CHAOTIC_GOOD,
         CHAOTIC_NEUTRAL,
         CHAOTIC_EVIL,
+        UNALIGNED,
+        ANY_ALIGNMENT,
         UNKNOWN,
     }
 }

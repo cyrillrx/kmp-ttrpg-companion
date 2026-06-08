@@ -52,6 +52,7 @@ class Monster(
         MONSTROSITY,
         OOZE,
         PLANT,
+        SWARM,
         UNDEAD,
         UNKNOWN,
     }

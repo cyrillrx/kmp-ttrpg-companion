@@ -1,8 +1,6 @@
 package com.cyrillrx.rpg.character.data
 
-import com.cyrillrx.core.data.FileReader
-import com.cyrillrx.core.domain.FileReaderError
-import com.cyrillrx.core.domain.Result
+import com.cyrillrx.core.data.FakeFileReader
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
@@ -164,11 +162,5 @@ class JsonCharacterPresetRepositoryTest {
                 translations?.let { add(""""translations": $it""") }
             }
         return "[{${fields.joinToString(", ")}}]"
-    }
-
-    private class FakeFileReader(
-        private val json: String,
-    ) : FileReader {
-        override suspend fun readFile(path: String): Result<String, FileReaderError> = Result.Success(json)
     }
 }

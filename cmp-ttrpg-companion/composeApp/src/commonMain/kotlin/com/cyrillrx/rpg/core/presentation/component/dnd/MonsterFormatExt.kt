@@ -6,6 +6,7 @@ import androidx.compose.material.icons.filled.Bolt
 import androidx.compose.material.icons.filled.BugReport
 import androidx.compose.material.icons.filled.Dangerous
 import androidx.compose.material.icons.filled.Forest
+import androidx.compose.material.icons.filled.Grain
 import androidx.compose.material.icons.filled.Groups
 import androidx.compose.material.icons.filled.Pets
 import androidx.compose.material.icons.filled.Psychology
@@ -35,6 +36,7 @@ import rpg_companion.composeapp.generated.resources.monster_type_humanoid
 import rpg_companion.composeapp.generated.resources.monster_type_monstrosity
 import rpg_companion.composeapp.generated.resources.monster_type_ooze
 import rpg_companion.composeapp.generated.resources.monster_type_plant
+import rpg_companion.composeapp.generated.resources.monster_type_swarm
 import rpg_companion.composeapp.generated.resources.monster_type_undead
 import rpg_companion.composeapp.generated.resources.monster_type_unknown
 
@@ -54,6 +56,7 @@ fun Monster.Type.toFormattedString(): String {
         Monster.Type.MONSTROSITY -> Res.string.monster_type_monstrosity
         Monster.Type.OOZE -> Res.string.monster_type_ooze
         Monster.Type.PLANT -> Res.string.monster_type_plant
+        Monster.Type.SWARM -> Res.string.monster_type_swarm
         Monster.Type.UNDEAD -> Res.string.monster_type_undead
         Monster.Type.UNKNOWN -> Res.string.monster_type_unknown
     }
@@ -74,6 +77,7 @@ fun Monster.Type.toIcon(): ImageVector = when (this) {
     Monster.Type.MONSTROSITY -> Icons.Filled.BugReport
     Monster.Type.OOZE -> Icons.Filled.Water
     Monster.Type.PLANT -> Icons.Filled.Forest
+    Monster.Type.SWARM -> Icons.Filled.Grain
     Monster.Type.UNDEAD -> Icons.Filled.Dangerous
     Monster.Type.UNKNOWN -> Icons.Filled.QuestionMark
 }

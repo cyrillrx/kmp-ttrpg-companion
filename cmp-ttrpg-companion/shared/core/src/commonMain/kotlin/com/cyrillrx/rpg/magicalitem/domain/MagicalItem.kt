@@ -24,7 +24,7 @@ class MagicalItem(
             }
 
     enum class Type { ARMOR, POTION, RING, ROD, SCROLL, STAFF, WAND, WEAPON, WONDROUS_ITEM }
-    enum class Rarity { COMMON, UNCOMMON, RARE, VERY_RARE, LEGENDARY, ARTIFACT }
+    enum class Rarity { COMMON, UNCOMMON, RARE, VERY_RARE, LEGENDARY, ARTIFACT, VARIES }
 
     @Serializable
     data class Translation(
