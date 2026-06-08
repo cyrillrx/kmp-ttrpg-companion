@@ -6,6 +6,7 @@ import androidx.compose.material.icons.filled.Bolt
 import androidx.compose.material.icons.filled.BugReport
 import androidx.compose.material.icons.filled.Dangerous
 import androidx.compose.material.icons.filled.Forest
+import androidx.compose.material.icons.filled.Grain
 import androidx.compose.material.icons.filled.Groups
 import androidx.compose.material.icons.filled.Pets
 import androidx.compose.material.icons.filled.Psychology
@@ -76,7 +77,7 @@ fun Monster.Type.toIcon(): ImageVector = when (this) {
     Monster.Type.MONSTROSITY -> Icons.Filled.BugReport
     Monster.Type.OOZE -> Icons.Filled.Water
     Monster.Type.PLANT -> Icons.Filled.Forest
-    Monster.Type.SWARM -> Icons.Filled.Groups
+    Monster.Type.SWARM -> Icons.Filled.Grain
     Monster.Type.UNDEAD -> Icons.Filled.Dangerous
     Monster.Type.UNKNOWN -> Icons.Filled.QuestionMark
 }
