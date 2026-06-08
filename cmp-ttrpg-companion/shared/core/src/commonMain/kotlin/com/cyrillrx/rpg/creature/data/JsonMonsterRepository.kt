@@ -146,7 +146,7 @@ class JsonMonsterRepository(private val fileReader: FileReader) : MonsterReposit
                 return primary.toType()
             }
 
-            if (startsWith("swarm", ignoreCase = true)) {
+            if (equals("swarm", ignoreCase = true) || startsWith("swarm_", ignoreCase = true)) {
                 return Monster.Type.SWARM
             }
 
