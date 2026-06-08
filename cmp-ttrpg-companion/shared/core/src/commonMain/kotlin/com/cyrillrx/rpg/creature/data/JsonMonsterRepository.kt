@@ -133,12 +133,26 @@ class JsonMonsterRepository(private val fileReader: FileReader) : MonsterReposit
             )
         }
 
-        private fun String.toType(): Monster.Type? = when {
-            startsWith("swarm", ignoreCase = true) -> Monster.Type.SWARM
-            else -> {
-                val primary = substringBefore("_or_")
-                Monster.Type.entries.find { it.name.equals(primary, ignoreCase = true) }
+        // Exact match first; composite values (e.g. "celestial_or_fiend") resolve to their
+        // primary type as a temporary measure until Monster.Type is refactored to handle them
+        // properly (tracked separately). Swarm variants ("swarm_of_*") are handled last as a
+        // dedicated fallback because they never match by name.
+        private fun String.toType(): Monster.Type? {
+            val monsterType = Monster.Type.entries.find { it.name.equals(this, ignoreCase = true) }
+            if (monsterType != null) {
+                return monsterType
             }
+
+            val primary = substringBefore("_or_")
+            if (primary != this) { // Prevent infinite loop
+                return primary.toType()
+            }
+
+            if (startsWith("swarm", ignoreCase = true)) {
+                return Monster.Type.SWARM
+            }
+
+            return null
         }
     }
 }

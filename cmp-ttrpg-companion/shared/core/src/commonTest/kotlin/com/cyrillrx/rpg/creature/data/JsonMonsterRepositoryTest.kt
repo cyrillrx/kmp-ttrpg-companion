@@ -73,6 +73,22 @@ class JsonMonsterRepositoryTest {
     }
 
     @Test
+    fun `monster with huge_or_gargantuan size is parsed as HUGE_OR_GARGANTUAN`() = runTest {
+        val result = repository(monster(size = "huge_or_gargantuan")).getAll(null)
+
+        assertEquals(1, result.size)
+        assertEquals(Creature.Size.HUGE_OR_GARGANTUAN, result.first().size)
+    }
+
+    @Test
+    fun `monster with huge_or_smaller size is parsed as HUGE_OR_SMALLER`() = runTest {
+        val result = repository(monster(size = "huge_or_smaller")).getAll(null)
+
+        assertEquals(1, result.size)
+        assertEquals(Creature.Size.HUGE_OR_SMALLER, result.first().size)
+    }
+
+    @Test
     fun `valid records are returned even when some records are invalid`() = runTest {
         val json = """[
             ${monster().trimArray()},
