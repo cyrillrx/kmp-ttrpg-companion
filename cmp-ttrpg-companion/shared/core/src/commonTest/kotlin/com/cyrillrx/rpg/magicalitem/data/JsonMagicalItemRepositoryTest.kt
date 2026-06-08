@@ -34,18 +34,13 @@ class JsonMagicalItemRepositoryTest {
 
     @Test
     fun `valid records are returned even when some records are invalid`() = runTest {
-        val json = """[
-            ${item().trimArray()},
-            ${item(id = "second", rarity = "mythic").trimArray()}
-        ]"""
-        val result = repository(json).getAll(null)
+        val result = repository(item(), item(id = "second", rarity = "mythic")).getAll(null)
         assertEquals(1, result.size)
         assertEquals("test-item", result.first().id)
     }
 
-    private fun repository(json: String) = JsonMagicalItemRepository(FakeFileReader(json))
-
-    private fun String.trimArray() = trim().removePrefix("[").removeSuffix("]").trim()
+    private fun repository(vararg items: String) =
+        JsonMagicalItemRepository(FakeFileReader("[${items.joinToString(",")}]"))
 
     private fun item(
         id: String? = "test-item",
@@ -63,6 +58,6 @@ class JsonMagicalItemRepositoryTest {
             add(""""attunement": $attunement""")
             translations?.let { add(""""translations": $it""") }
         }
-        return "[{${fields.joinToString(", ")}}]"
+        return "{${fields.joinToString(", ")}}"
     }
 }
