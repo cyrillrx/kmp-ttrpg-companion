@@ -47,7 +47,15 @@ class JsonMonsterRepositoryTest {
     }
 
     @Test
-    fun `monster with swarm type is parsed as SWARM`() = runTest {
+    fun `monster with swarm exact type is parsed as SWARM`() = runTest {
+        val result = repository(monster(type = "swarm")).getAll(null)
+
+        assertEquals(1, result.size)
+        assertEquals(Monster.Type.SWARM, result.first().type)
+    }
+
+    @Test
+    fun `monster with swarm prefix type is parsed as SWARM`() = runTest {
         val result = repository(monster(type = "swarm_of_tiny_beasts")).getAll(null)
 
         assertEquals(1, result.size)
@@ -60,6 +68,11 @@ class JsonMonsterRepositoryTest {
 
         assertEquals(1, result.size)
         assertEquals(Monster.Type.CELESTIAL, result.first().type)
+    }
+
+    @Test
+    fun `monster with composite type whose first component is unknown is skipped`() = runTest {
+        assertTrue(repository(monster(type = "newtype_or_fiend")).getAll(null).isEmpty())
     }
 
     @Test

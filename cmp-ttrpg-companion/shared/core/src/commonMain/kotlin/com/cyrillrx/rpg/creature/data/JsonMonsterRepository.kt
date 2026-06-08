@@ -133,21 +133,19 @@ class JsonMonsterRepository(private val fileReader: FileReader) : MonsterReposit
             )
         }
 
-        // Fallback chain: exact match → first component of "A_or_B" composites → "swarm_of_*" prefix.
+        // Fallback chain: exact match → "swarm_of_*" prefix → first component of "A_or_B" composites.
         // Composite resolution is a temporary workaround; a future PR will refactor Monster.Type to handle these natively.
         private fun String.toType(): Monster.Type? {
-            val monsterType = Monster.Type.entries.find { it.name.equals(this, ignoreCase = true) }
-            if (monsterType != null) {
-                return monsterType
-            }
-
-            val primary = substringBefore("_or_")
-            if (primary != this) { // Prevent infinite loop
-                return primary.toType()
-            }
+            Monster.Type.entries.find { it.name.equals(this, ignoreCase = true) }
+                ?.let { return it }
 
             if (equals("swarm", ignoreCase = true) || startsWith("swarm_", ignoreCase = true)) {
                 return Monster.Type.SWARM
+            }
+
+            val primary = substringBefore("_or_")
+            if (primary != this) {
+                return Monster.Type.entries.find { it.name.equals(primary, ignoreCase = true) }
             }
 
             return null
