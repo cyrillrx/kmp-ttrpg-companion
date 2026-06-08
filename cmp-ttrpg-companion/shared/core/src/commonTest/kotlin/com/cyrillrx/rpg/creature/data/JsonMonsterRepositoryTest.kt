@@ -1,8 +1,6 @@
 package com.cyrillrx.rpg.creature.data
 
-import com.cyrillrx.core.data.FileReader
-import com.cyrillrx.core.domain.FileReaderError
-import com.cyrillrx.core.domain.Result
+import com.cyrillrx.core.data.FakeFileReader
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.Monster
 import kotlinx.coroutines.test.runTest
@@ -142,9 +140,5 @@ class JsonMonsterRepositoryTest {
             translations?.let { add(""""translations": $it""") }
         }
         return "[{${fields.joinToString(", ")}}]"
-    }
-
-    private class FakeFileReader(private val json: String) : FileReader {
-        override suspend fun readFile(path: String): Result<String, FileReaderError> = Result.Success(json)
     }
 }
