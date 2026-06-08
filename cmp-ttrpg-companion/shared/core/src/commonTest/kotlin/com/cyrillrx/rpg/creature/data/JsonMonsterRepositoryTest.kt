@@ -39,11 +39,8 @@ class JsonMonsterRepositoryTest {
     }
 
     @Test
-    fun `monster with unknown type falls back to UNKNOWN`() = runTest {
-        val result = repository(monster(type = "dragon_ball")).getAll(null)
-
-        assertEquals(1, result.size)
-        assertEquals(Monster.Type.UNKNOWN, result.first().type)
+    fun `monster with unknown type is skipped`() = runTest {
+        assertTrue(repository(monster(type = "dragon_ball")).getAll(null).isEmpty())
     }
 
     @Test
@@ -52,6 +49,14 @@ class JsonMonsterRepositoryTest {
 
         assertEquals(1, result.size)
         assertEquals(Monster.Type.SWARM, result.first().type)
+    }
+
+    @Test
+    fun `monster with composite type uses first type`() = runTest {
+        val result = repository(monster(type = "celestial_or_fiend")).getAll(null)
+
+        assertEquals(1, result.size)
+        assertEquals(Monster.Type.CELESTIAL, result.first().type)
     }
 
     @Test
