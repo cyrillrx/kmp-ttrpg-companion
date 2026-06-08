@@ -42,6 +42,11 @@ class JsonMonsterRepositoryTest {
     }
 
     @Test
+    fun `monster with swarmer type is skipped`() = runTest {
+        assertTrue(repository(monster(type = "swarmer")).getAll(null).isEmpty())
+    }
+
+    @Test
     fun `monster with swarm type is parsed as SWARM`() = runTest {
         val result = repository(monster(type = "swarm_of_tiny_beasts")).getAll(null)
 
@@ -88,18 +93,13 @@ class JsonMonsterRepositoryTest {
 
     @Test
     fun `valid records are returned even when some records are invalid`() = runTest {
-        val json = """[
-            ${monster().trimArray()},
-            ${monster(id = null).trimArray()}
-        ]"""
-        val result = repository(json).getAll(null)
+        val result = repository(monster(), monster(id = null)).getAll(null)
         assertEquals(1, result.size)
         assertEquals("test-monster", result.first().id)
     }
 
-    private fun repository(json: String) = JsonMonsterRepository(FakeFileReader(json))
-
-    private fun String.trimArray() = trim().removePrefix("[").removeSuffix("]").trim()
+    private fun repository(vararg monsters: String) =
+        JsonMonsterRepository(FakeFileReader("[${monsters.joinToString(",")}]"))
 
     private fun monster(
         id: String? = "test-monster",
@@ -139,6 +139,6 @@ class JsonMonsterRepositoryTest {
             add(""""conditionImmunities": {}""")
             translations?.let { add(""""translations": $it""") }
         }
-        return "[{${fields.joinToString(", ")}}]"
+        return "{${fields.joinToString(", ")}}"
     }
 }
