@@ -133,10 +133,8 @@ class JsonMonsterRepository(private val fileReader: FileReader) : MonsterReposit
             )
         }
 
-        // Exact match first; composite values (e.g. "celestial_or_fiend") resolve to their
-        // primary type as a temporary measure until Monster.Type is refactored to handle them
-        // properly (tracked separately). Swarm variants ("swarm_of_*") are handled last as a
-        // dedicated fallback because they never match by name.
+        // Fallback chain: exact match → first component of "A_or_B" composites → "swarm_of_*" prefix.
+        // Composite resolution is a temporary workaround; a future PR will refactor Monster.Type to handle these natively.
         private fun String.toType(): Monster.Type? {
             val monsterType = Monster.Type.entries.find { it.name.equals(this, ignoreCase = true) }
             if (monsterType != null) {
