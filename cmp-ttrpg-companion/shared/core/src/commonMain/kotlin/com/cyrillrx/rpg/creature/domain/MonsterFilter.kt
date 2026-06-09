@@ -14,7 +14,7 @@ fun List<Monster>.applyFilter(filter: MonsterFilter?): List<Monster> {
 }
 
 internal fun Monster.matches(filter: MonsterFilter): Boolean =
-    (filter.types.isEmpty() || filter.types.contains(type)) &&
+    (filter.types.isEmpty() || filter.types.any { it in types }) &&
         (filter.challengeRatings.isEmpty() || filter.challengeRatings.contains(challengeRating)) &&
         (filter.query.isBlank() || matches(filter.query))
 
