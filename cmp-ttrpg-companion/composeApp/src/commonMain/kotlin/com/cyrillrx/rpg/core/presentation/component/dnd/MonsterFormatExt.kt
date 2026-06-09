@@ -88,9 +88,18 @@ fun Monster.Type.getColor(): Color = when (this) {
 }
 
 @Composable
+fun Set<Monster.Type>.toFormattedString(): String {
+    val parts = mutableListOf<String>()
+    for (type in this) {
+        parts.add(type.toFormattedString())
+    }
+    return parts.joinToString(" / ")
+}
+
+@Composable
 fun Monster.getSubtitle(): String = stringResource(
     Res.string.monster_subtitle,
-    type.toFormattedString(),
+    types.toFormattedString(),
     size.toFormattedString(),
     alignment.toFormattedString(),
 )

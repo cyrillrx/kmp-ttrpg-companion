@@ -52,7 +52,7 @@ class MonsterAddToListProvider(
                 color = MaterialTheme.colorScheme.onSurface,
             )
             Text(
-                text = entity.type.toFormattedString(),
+                text = entity.types.toFormattedString(),
                 style = MaterialTheme.typography.bodyLarge,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 maxLines = 1,
