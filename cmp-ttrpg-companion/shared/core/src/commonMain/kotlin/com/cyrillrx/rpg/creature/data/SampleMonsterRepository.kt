@@ -31,7 +31,7 @@ class SampleMonsterRepository : MonsterRepository {
         fun goblin() = Monster(
             id = "1",
             source = "srd_5.1",
-            type = Monster.Type.HUMANOID,
+            types = setOf(Monster.Type.HUMANOID),
             size = Creature.Size.SMALL,
             alignment = Creature.Alignment.NEUTRAL_EVIL,
             challengeRating = 0.25f,
@@ -61,7 +61,7 @@ class SampleMonsterRepository : MonsterRepository {
         fun youngRedDragon() = Monster(
             id = "2",
             source = "srd_5.1",
-            type = Monster.Type.DRAGON,
+            types = setOf(Monster.Type.DRAGON),
             size = Creature.Size.LARGE,
             alignment = Creature.Alignment.CHAOTIC_EVIL,
             challengeRating = 10f,
@@ -90,7 +90,7 @@ class SampleMonsterRepository : MonsterRepository {
         private fun skeleton() = Monster(
             id = "3",
             source = "srd_5.1",
-            type = Monster.Type.UNDEAD,
+            types = setOf(Monster.Type.UNDEAD),
             size = Creature.Size.MEDIUM,
             alignment = Creature.Alignment.LAWFUL_EVIL,
             challengeRating = 0.25f,
@@ -119,7 +119,7 @@ class SampleMonsterRepository : MonsterRepository {
         private fun direWolf() = Monster(
             id = "4",
             source = "srd_5.1",
-            type = Monster.Type.BEAST,
+            types = setOf(Monster.Type.BEAST),
             size = Creature.Size.LARGE,
             alignment = Creature.Alignment.NEUTRAL,
             challengeRating = 1f,
@@ -148,7 +148,7 @@ class SampleMonsterRepository : MonsterRepository {
         private fun balor() = Monster(
             id = "5",
             source = "srd_5.1",
-            type = Monster.Type.FIEND,
+            types = setOf(Monster.Type.FIEND),
             size = Creature.Size.HUGE,
             alignment = Creature.Alignment.CHAOTIC_EVIL,
             challengeRating = 19f,
@@ -177,7 +177,7 @@ class SampleMonsterRepository : MonsterRepository {
         private fun gelatinousCube() = Monster(
             id = "6",
             source = "srd_5.1",
-            type = Monster.Type.OOZE,
+            types = setOf(Monster.Type.OOZE),
             size = Creature.Size.LARGE,
             alignment = Creature.Alignment.NEUTRAL,
             challengeRating = 2f,
