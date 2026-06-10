@@ -146,6 +146,6 @@ class JsonMonsterRepository(private val fileReader: FileReader) : MonsterReposit
         }
 
         private fun String.isTypeSwarm(): Boolean =
-            equals("swarm", ignoreCase = true) || startsWith("swarm_", ignoreCase = true)
+            equals("swarm", ignoreCase = true) || startsWith("swarm_of", ignoreCase = true)
     }
 }

@@ -63,6 +63,14 @@ class JsonMonsterRepositoryTest {
     }
 
     @Test
+    fun `monster with swarm_or composite type resolves as composite not swarm`() = runTest {
+        val result = repository(monster(type = "swarm_or_fiend")).getAll(null)
+
+        assertEquals(1, result.size)
+        assertEquals(setOf(Monster.Type.SWARM, Monster.Type.FIEND), result.first().types)
+    }
+
+    @Test
     fun `monster with composite type resolves all known types`() = runTest {
         val result = repository(monster(type = "celestial_or_fiend")).getAll(null)
 
