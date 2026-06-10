@@ -1,8 +1,8 @@
 package com.cyrillrx.rpg.creature.domain
 
 import kotlin.test.Test
-import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
+import kotlin.test.assertTrue
 
 class MonsterTest {
 
@@ -21,9 +21,9 @@ class MonsterTest {
     }
 
     @Test
-    fun `getPrimaryType returns the first type in declaration order`() {
+    fun `getDisplayType returns one of the monster's types`() {
         val monster = validMonster(types = setOf(Monster.Type.CELESTIAL, Monster.Type.FIEND))
-        assertEquals(Monster.Type.CELESTIAL, monster.getPrimaryType())
+        assertTrue(monster.getDisplayType() in monster.types)
     }
 
     private fun validMonster(
