@@ -55,7 +55,8 @@ fun MonsterListItem(
     modifier: Modifier = Modifier,
 ) {
     val translation = monster.resolveTranslation(currentLocale())
-    val typeColor = monster.type.getColor()
+    val monsterType = monster.getDisplayType()
+    val typeColor = monsterType.getColor()
 
     Card(
         onClick = onClick,
@@ -78,7 +79,7 @@ fun MonsterListItem(
                     ),
             ) {
                 Icon(
-                    imageVector = monster.type.toIcon(),
+                    imageVector = monsterType.toIcon(),
                     contentDescription = null,
                     tint = typeColor,
                     modifier = Modifier.size(typeIconSize),
@@ -98,8 +99,8 @@ fun MonsterListItem(
                     color = MaterialTheme.colorScheme.onSurface,
                 )
 
-                val formattedMonsterType = monster.type.toFormattedString()
-                val formattedMonsterSize = monster.size.name.lowercase().replaceFirstChar { it.uppercase() }
+                val formattedMonsterType = monster.types.toFormattedString()
+                val formattedMonsterSize = monster.size.toFormattedString()
                 Text(
                     text = "$formattedMonsterType · $formattedMonsterSize",
                     style = MaterialTheme.typography.bodySmall,

@@ -22,6 +22,7 @@ class SampleMonsterRepository : MonsterRepository {
             direWolf(),
             balor(),
             gelatinousCube(),
+            celestialFiend(),
         )
 
         fun getAll(): List<Monster> = monsters
@@ -31,7 +32,7 @@ class SampleMonsterRepository : MonsterRepository {
         fun goblin() = Monster(
             id = "1",
             source = "srd_5.1",
-            type = Monster.Type.HUMANOID,
+            types = setOf(Monster.Type.HUMANOID),
             size = Creature.Size.SMALL,
             alignment = Creature.Alignment.NEUTRAL_EVIL,
             challengeRating = 0.25f,
@@ -61,7 +62,7 @@ class SampleMonsterRepository : MonsterRepository {
         fun youngRedDragon() = Monster(
             id = "2",
             source = "srd_5.1",
-            type = Monster.Type.DRAGON,
+            types = setOf(Monster.Type.DRAGON),
             size = Creature.Size.LARGE,
             alignment = Creature.Alignment.CHAOTIC_EVIL,
             challengeRating = 10f,
@@ -90,7 +91,7 @@ class SampleMonsterRepository : MonsterRepository {
         private fun skeleton() = Monster(
             id = "3",
             source = "srd_5.1",
-            type = Monster.Type.UNDEAD,
+            types = setOf(Monster.Type.UNDEAD),
             size = Creature.Size.MEDIUM,
             alignment = Creature.Alignment.LAWFUL_EVIL,
             challengeRating = 0.25f,
@@ -119,7 +120,7 @@ class SampleMonsterRepository : MonsterRepository {
         private fun direWolf() = Monster(
             id = "4",
             source = "srd_5.1",
-            type = Monster.Type.BEAST,
+            types = setOf(Monster.Type.BEAST),
             size = Creature.Size.LARGE,
             alignment = Creature.Alignment.NEUTRAL,
             challengeRating = 1f,
@@ -148,7 +149,7 @@ class SampleMonsterRepository : MonsterRepository {
         private fun balor() = Monster(
             id = "5",
             source = "srd_5.1",
-            type = Monster.Type.FIEND,
+            types = setOf(Monster.Type.FIEND),
             size = Creature.Size.HUGE,
             alignment = Creature.Alignment.CHAOTIC_EVIL,
             challengeRating = 19f,
@@ -177,7 +178,7 @@ class SampleMonsterRepository : MonsterRepository {
         private fun gelatinousCube() = Monster(
             id = "6",
             source = "srd_5.1",
-            type = Monster.Type.OOZE,
+            types = setOf(Monster.Type.OOZE),
             size = Creature.Size.LARGE,
             alignment = Creature.Alignment.NEUTRAL,
             challengeRating = 2f,
@@ -199,6 +200,35 @@ class SampleMonsterRepository : MonsterRepository {
                     description = "A nearly transparent ooze that fills dungeon corridors.",
                     senses = "Blindsight 60 ft.",
                     languages = emptyList(),
+                ),
+            ),
+        )
+
+        fun celestialFiend() = Monster(
+            id = "7",
+            source = "srd_5.1",
+            types = setOf(Monster.Type.CELESTIAL, Monster.Type.FIEND),
+            size = Creature.Size.MEDIUM,
+            alignment = Creature.Alignment.CHAOTIC_EVIL,
+            challengeRating = 4f,
+            hitDice = "9d8",
+            abilities = Abilities(
+                strength = Ability(16),
+                dexterity = Ability(12),
+                constitution = Ability(13),
+                intelligence = Ability(14),
+                wisdom = Ability(11),
+                charisma = Ability(10),
+            ),
+            armorClass = 13,
+            maxHitPoints = 40,
+            speeds = Speeds(walk = 30),
+            translations = mapOf(
+                "en" to Monster.Translation(
+                    name = "Celestial Fiend",
+                    description = "A creature of dual nature.",
+                    senses = "Darkvision 60 ft.",
+                    languages = listOf("Common", "Celestial", "Infernal"),
                 ),
             ),
         )

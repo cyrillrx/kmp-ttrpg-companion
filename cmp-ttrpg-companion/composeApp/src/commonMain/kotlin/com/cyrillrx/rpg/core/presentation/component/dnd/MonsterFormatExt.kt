@@ -88,9 +88,13 @@ fun Monster.Type.getColor(): Color = when (this) {
 }
 
 @Composable
+fun Set<Monster.Type>.toFormattedString(): String =
+    map { it.toFormattedString() }.joinToString(" / ")
+
+@Composable
 fun Monster.getSubtitle(): String = stringResource(
     Res.string.monster_subtitle,
-    type.toFormattedString(),
+    types.toFormattedString(),
     size.toFormattedString(),
     alignment.toFormattedString(),
 )

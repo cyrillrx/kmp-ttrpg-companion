@@ -11,7 +11,7 @@ class Monster(
     override val maxHitPoints: Int,
     override val speeds: Speeds,
     val source: String,
-    val type: Type,
+    val types: Set<Type>,
     val challengeRating: Float,
     val hitDice: String,
     val skills: Skills = Skills(),
@@ -20,8 +20,11 @@ class Monster(
     val translations: Map<String, Translation>,
 ) : Creature() {
     init {
+        require(types.isNotEmpty()) { "Monster $id must have at least one type" }
         require(translations.isNotEmpty()) { "Monster $id must have at least one translation" }
     }
+
+    fun getDisplayType(): Type = types.first()
 
     fun resolveTranslation(locale: String): Translation =
         translations[locale]
@@ -54,6 +57,10 @@ class Monster(
         PLANT,
         SWARM,
         UNDEAD,
-        UNKNOWN,
+        UNKNOWN;
+
+        companion object {
+            fun valueOfOrNull(type: String): Type? = entries.find { it.name.equals(type, ignoreCase = true) }
+        }
     }
 }

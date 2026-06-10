@@ -51,7 +51,7 @@ class JsonMonsterRepositoryTest {
         val result = repository(monster(type = "swarm")).getAll(null)
 
         assertEquals(1, result.size)
-        assertEquals(Monster.Type.SWARM, result.first().type)
+        assertEquals(setOf(Monster.Type.SWARM), result.first().types)
     }
 
     @Test
@@ -59,20 +59,30 @@ class JsonMonsterRepositoryTest {
         val result = repository(monster(type = "swarm_of_tiny_beasts")).getAll(null)
 
         assertEquals(1, result.size)
-        assertEquals(Monster.Type.SWARM, result.first().type)
+        assertEquals(setOf(Monster.Type.SWARM), result.first().types)
     }
 
     @Test
-    fun `monster with composite type uses first type`() = runTest {
+    fun `monster with swarm_or composite type resolves as composite not swarm`() = runTest {
+        val result = repository(monster(type = "swarm_or_fiend")).getAll(null)
+
+        assertEquals(1, result.size)
+        assertEquals(setOf(Monster.Type.SWARM, Monster.Type.FIEND), result.first().types)
+    }
+
+    @Test
+    fun `monster with composite type resolves all known types`() = runTest {
         val result = repository(monster(type = "celestial_or_fiend")).getAll(null)
 
         assertEquals(1, result.size)
-        assertEquals(Monster.Type.CELESTIAL, result.first().type)
+        assertEquals(setOf(Monster.Type.CELESTIAL, Monster.Type.FIEND), result.first().types)
     }
 
     @Test
-    fun `monster with composite type whose first component is unknown is skipped`() = runTest {
+    fun `monster with composite type whose any component is unknown is skipped`() = runTest {
         assertTrue(repository(monster(type = "newtype_or_fiend")).getAll(null).isEmpty())
+        assertTrue(repository(monster(type = "fiend_or_newtype")).getAll(null).isEmpty())
+        assertTrue(repository(monster(type = "newtype_or_newtype")).getAll(null).isEmpty())
     }
 
     @Test

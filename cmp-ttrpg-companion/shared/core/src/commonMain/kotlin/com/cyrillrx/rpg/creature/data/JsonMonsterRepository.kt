@@ -49,7 +49,7 @@ class JsonMonsterRepository(private val fileReader: FileReader) : MonsterReposit
                 ?: return Result.Failure(MonsterImportError.MissingSource(id))
             val apiType = type
                 ?: return Result.Failure(MonsterImportError.MissingType(id))
-            val type = apiType.toType()
+            val types = apiType.toTypes()
                 ?: return Result.Failure(MonsterImportError.UnknownType(id, apiType))
             val apiSize = size
                 ?: return Result.Failure(MonsterImportError.MissingSize(id))
@@ -82,7 +82,7 @@ class JsonMonsterRepository(private val fileReader: FileReader) : MonsterReposit
                 Monster(
                     id = id,
                     source = source,
-                    type = type,
+                    types = types,
                     size = size,
                     alignment = alignment,
                     challengeRating = challengeRating,
@@ -133,22 +133,19 @@ class JsonMonsterRepository(private val fileReader: FileReader) : MonsterReposit
             )
         }
 
-        // Fallback chain: exact match → "swarm_of_*" prefix → first component of "A_or_B" composites.
-        // Composite resolution is a temporary workaround; a future PR will refactor Monster.Type to handle these natively.
-        private fun String.toType(): Monster.Type? {
-            Monster.Type.entries.find { it.name.equals(this, ignoreCase = true) }
-                ?.let { return it }
+        private fun String.toTypes(): Set<Monster.Type>? {
+            val monsterType = Monster.Type.valueOfOrNull(type = this)
+            if (monsterType != null) return setOf(monsterType)
 
-            if (equals("swarm", ignoreCase = true) || startsWith("swarm_", ignoreCase = true)) {
-                return Monster.Type.SWARM
-            }
+            if (isTypeSwarm()) return setOf(Monster.Type.SWARM)
 
-            val primary = substringBefore("_or_")
-            if (primary != this) {
-                return Monster.Type.entries.find { it.name.equals(primary, ignoreCase = true) }
-            }
+            val monsterTypes = split("_or_")
+            if (monsterTypes.size <= 1) return null
 
-            return null
+            return monsterTypes.mapTo(LinkedHashSet()) { type -> Monster.Type.valueOfOrNull(type) ?: return null }
         }
+
+        private fun String.isTypeSwarm(): Boolean =
+            equals("swarm", ignoreCase = true) || startsWith("swarm_of", ignoreCase = true)
     }
 }
