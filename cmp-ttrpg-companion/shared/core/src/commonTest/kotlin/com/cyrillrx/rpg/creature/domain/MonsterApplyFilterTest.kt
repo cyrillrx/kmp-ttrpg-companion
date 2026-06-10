@@ -29,6 +29,18 @@ class MonsterApplyFilterTest {
     }
 
     @Test
+    fun `filter by type matches multi-type monster on first type`() {
+        val result = monsters.applyFilter(MonsterFilter(types = setOf(Monster.Type.CELESTIAL)))
+        assertEquals(1, result.size)
+    }
+
+    @Test
+    fun `filter by type matches multi-type monster on second type`() {
+        val result = monsters.applyFilter(MonsterFilter(types = setOf(Monster.Type.FIEND)))
+        assertEquals(2, result.size)
+    }
+
+    @Test
     fun `filter by challenge rating keeps only matching creatures`() {
         val result = monsters.applyFilter(MonsterFilter(challengeRatings = setOf(0.25f)))
         assertTrue(result.all { it.challengeRating == 0.25f })

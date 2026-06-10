@@ -52,7 +52,7 @@ class MonsterListViewModelTest {
 
         val state = viewModel.state.value
         val body = assertIs<MonsterListState.Body.WithData>(state.body)
-        assertEquals(expected = 6, actual = body.searchResults.size)
+        assertEquals(expected = 7, actual = body.searchResults.size)
     }
 
     @Test
@@ -144,7 +144,7 @@ class MonsterListViewModelTest {
         assertFalse(viewModel.state.value.filter.hasActiveFilters)
         assertEquals(expected = MonsterFilter(), actual = viewModel.state.value.filter)
         val body = assertIs<MonsterListState.Body.WithData>(viewModel.state.value.body)
-        assertEquals(expected = 6, actual = body.searchResults.size)
+        assertEquals(expected = 7, actual = body.searchResults.size)
     }
 
     @Test

@@ -22,6 +22,7 @@ class SampleMonsterRepository : MonsterRepository {
             direWolf(),
             balor(),
             gelatinousCube(),
+            celestialFiend(),
         )
 
         fun getAll(): List<Monster> = monsters
@@ -199,6 +200,35 @@ class SampleMonsterRepository : MonsterRepository {
                     description = "A nearly transparent ooze that fills dungeon corridors.",
                     senses = "Blindsight 60 ft.",
                     languages = emptyList(),
+                ),
+            ),
+        )
+
+        fun celestialFiend() = Monster(
+            id = "7",
+            source = "srd_5.1",
+            types = setOf(Monster.Type.CELESTIAL, Monster.Type.FIEND),
+            size = Creature.Size.MEDIUM,
+            alignment = Creature.Alignment.CHAOTIC_EVIL,
+            challengeRating = 4f,
+            hitDice = "9d8",
+            abilities = Abilities(
+                strength = Ability(16),
+                dexterity = Ability(12),
+                constitution = Ability(13),
+                intelligence = Ability(14),
+                wisdom = Ability(11),
+                charisma = Ability(10),
+            ),
+            armorClass = 13,
+            maxHitPoints = 40,
+            speeds = Speeds(walk = 30),
+            translations = mapOf(
+                "en" to Monster.Translation(
+                    name = "Celestial Fiend",
+                    description = "A creature of dual nature.",
+                    senses = "Darkvision 60 ft.",
+                    languages = listOf("Common", "Celestial", "Infernal"),
                 ),
             ),
         )
