@@ -134,23 +134,18 @@ class JsonMonsterRepository(private val fileReader: FileReader) : MonsterReposit
         }
 
         private fun String.toTypes(): Set<Monster.Type>? {
-            Monster.Type.entries.find { it.name.equals(this, ignoreCase = true) }
-                ?.let { return setOf(it) }
+            val monsterType = Monster.Type.valueOfOrNull(type = this)
+            if (monsterType != null) return setOf(monsterType)
 
-            if (equals("swarm", ignoreCase = true) || startsWith("swarm_", ignoreCase = true)) {
-                return setOf(Monster.Type.SWARM)
-            }
+            if (isTypeSwarm()) return setOf(Monster.Type.SWARM)
 
-            val parts = split("_or_")
-            if (parts.size > 1) {
-                val resolved = parts.map { part ->
-                    Monster.Type.entries.find { it.name.equals(part, ignoreCase = true) }
-                        ?: return null
-                }.toSet()
-                return resolved
-            }
+            val monsterTypes = split("_or_")
+            if (monsterTypes.size <= 1) return null
 
-            return null
+            return monsterTypes.mapTo(HashSet()) { type -> Monster.Type.valueOfOrNull(type) ?: return null }
         }
+
+        private fun String.isTypeSwarm(): Boolean =
+            equals("swarm", ignoreCase = true) || startsWith("swarm_", ignoreCase = true)
     }
 }
