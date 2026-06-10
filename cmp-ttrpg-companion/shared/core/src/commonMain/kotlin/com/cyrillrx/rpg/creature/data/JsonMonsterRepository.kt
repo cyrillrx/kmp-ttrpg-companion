@@ -142,7 +142,7 @@ class JsonMonsterRepository(private val fileReader: FileReader) : MonsterReposit
             val monsterTypes = split("_or_")
             if (monsterTypes.size <= 1) return null
 
-            return monsterTypes.mapTo(HashSet()) { type -> Monster.Type.valueOfOrNull(type) ?: return null }
+            return monsterTypes.mapTo(LinkedHashSet()) { type -> Monster.Type.valueOfOrNull(type) ?: return null }
         }
 
         private fun String.isTypeSwarm(): Boolean =

@@ -27,7 +27,7 @@ class MonsterTest {
     }
 
     private fun validMonster(
-        types: Set<Monster.Type> = hashSetOf(Monster.Type.BEAST),
+        types: Set<Monster.Type> = setOf(Monster.Type.BEAST),
         translations: Map<String, Monster.Translation> = mapOf(
             "en" to Monster.Translation(
                 name = "Test",
