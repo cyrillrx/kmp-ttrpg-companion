@@ -16,6 +16,7 @@ sealed interface CharacterEditState {
             data object Clazz : EditingField
             data object Level : EditingField
             data object Background : EditingField
+            data object ShortDescription : EditingField
             data object Strength : EditingField
             data object Dexterity : EditingField
             data object Constitution : EditingField

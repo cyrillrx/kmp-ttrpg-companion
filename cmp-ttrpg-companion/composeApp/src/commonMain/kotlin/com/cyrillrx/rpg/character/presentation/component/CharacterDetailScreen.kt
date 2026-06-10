@@ -9,9 +9,11 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -21,6 +23,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
@@ -34,6 +37,7 @@ import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterEditViewModel
 import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
+import com.cyrillrx.rpg.core.presentation.component.OverflowMenu
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
 import com.cyrillrx.rpg.core.presentation.component.dnd.toDistanceString
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
@@ -49,6 +53,7 @@ import rpg_companion.composeapp.generated.resources.info_value_coerced
 import rpg_companion.composeapp.generated.resources.label_abilities
 import rpg_companion.composeapp.generated.resources.label_combat
 import rpg_companion.composeapp.generated.resources.label_languages
+import rpg_companion.composeapp.generated.resources.label_short_description
 
 @Composable
 fun CharacterDetailScreen(
@@ -82,29 +87,34 @@ fun CharacterDetailScreen(
             )
         }
 
-        is CharacterEditState.Loaded -> CharacterDetailScreen(
-            state = s,
-            snackbarHostState = snackbarHostState,
-            onFieldTapped = viewModel::editField,
-            onNameConfirmed = viewModel::saveName,
-            onRaceConfirmed = viewModel::saveRace,
-            onClassConfirmed = viewModel::saveClass,
-            onLevelConfirmed = viewModel::saveLevel,
-            onBackgroundConfirmed = viewModel::saveBackground,
-            onStrengthConfirmed = viewModel::saveStrength,
-            onDexterityConfirmed = viewModel::saveDexterity,
-            onConstitutionConfirmed = viewModel::saveConstitution,
-            onIntelligenceConfirmed = viewModel::saveIntelligence,
-            onWisdomConfirmed = viewModel::saveWisdom,
-            onCharismaConfirmed = viewModel::saveCharisma,
-            onArmorClassConfirmed = viewModel::saveArmorClass,
-            onMaxHitPointsConfirmed = viewModel::saveMaxHitPoints,
-            onWalkSpeedConfirmed = viewModel::saveWalkSpeed,
-            onLanguagesConfirmed = viewModel::saveLanguages,
-            onAlignmentConfirmed = viewModel::saveAlignment,
-            onDialogDismissed = viewModel::cancelEditing,
-            onNavigateUpClicked = router::navigateUp,
-        )
+        is CharacterEditState.Loaded -> {
+            val locale = currentLocale()
+            CharacterDetailScreen(
+                state = s,
+                snackbarHostState = snackbarHostState,
+                onFieldTapped = viewModel::editField,
+                onNameConfirmed = viewModel::saveName,
+                onShortDescriptionTapped = { viewModel.editField(EditingField.ShortDescription) },
+                onShortDescriptionConfirmed = { desc -> viewModel.saveShortDescription(desc, locale) },
+                onRaceConfirmed = viewModel::saveRace,
+                onClassConfirmed = viewModel::saveClass,
+                onLevelConfirmed = viewModel::saveLevel,
+                onBackgroundConfirmed = viewModel::saveBackground,
+                onStrengthConfirmed = viewModel::saveStrength,
+                onDexterityConfirmed = viewModel::saveDexterity,
+                onConstitutionConfirmed = viewModel::saveConstitution,
+                onIntelligenceConfirmed = viewModel::saveIntelligence,
+                onWisdomConfirmed = viewModel::saveWisdom,
+                onCharismaConfirmed = viewModel::saveCharisma,
+                onArmorClassConfirmed = viewModel::saveArmorClass,
+                onMaxHitPointsConfirmed = viewModel::saveMaxHitPoints,
+                onWalkSpeedConfirmed = viewModel::saveWalkSpeed,
+                onLanguagesConfirmed = viewModel::saveLanguages,
+                onAlignmentConfirmed = viewModel::saveAlignment,
+                onDialogDismissed = viewModel::cancelEditing,
+                onNavigateUpClicked = router::navigateUp,
+            )
+        }
     }
 }
 
@@ -114,6 +124,8 @@ fun CharacterDetailScreen(
     snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
     onFieldTapped: (EditingField) -> Unit,
     onNameConfirmed: (String) -> Unit,
+    onShortDescriptionTapped: () -> Unit,
+    onShortDescriptionConfirmed: (String) -> Unit,
     onRaceConfirmed: (Race) -> Unit,
     onClassConfirmed: (Character.Class) -> Unit,
     onLevelConfirmed: (Int) -> Unit,
@@ -132,11 +144,21 @@ fun CharacterDetailScreen(
     onDialogDismissed: () -> Unit,
     onNavigateUpClicked: () -> Unit,
 ) {
+    val locale = currentLocale()
+    val shortDescription = state.character.resolveTranslation(locale)?.shortDescription.orEmpty()
     Scaffold(
         topBar = {
             SimpleTopBar(
                 title = "",
                 onNavigateUpClicked = onNavigateUpClicked,
+                actions = {
+                    OverflowMenu {
+                        DropdownMenuItem(
+                            text = { Text(stringResource(Res.string.label_short_description)) },
+                            onClick = onShortDescriptionTapped,
+                        )
+                    }
+                },
             )
         },
         snackbarHost = { SnackbarHost(snackbarHostState) },
@@ -153,12 +175,14 @@ fun CharacterDetailScreen(
         ) {
             CharacterHeader(
                 name = state.character.name,
+                shortDescription = shortDescription,
                 race = state.character.race,
                 clazz = state.character.clazz,
                 level = state.character.level,
                 background = state.character.background.toFormattedString(),
                 alignment = state.character.alignment,
                 onNameConfirmed = onNameConfirmed,
+                onShortDescriptionTapped = onShortDescriptionTapped,
                 onClassTapped = { onFieldTapped(EditingField.Clazz) },
                 onRaceTapped = { onFieldTapped(EditingField.Race) },
                 onLevelTapped = { onFieldTapped(EditingField.Level) },
@@ -210,6 +234,7 @@ fun CharacterDetailScreen(
         onClassConfirmed = onClassConfirmed,
         onLevelConfirmed = onLevelConfirmed,
         onBackgroundConfirmed = onBackgroundConfirmed,
+        onShortDescriptionConfirmed = onShortDescriptionConfirmed,
         onStrengthConfirmed = onStrengthConfirmed,
         onDexterityConfirmed = onDexterityConfirmed,
         onConstitutionConfirmed = onConstitutionConfirmed,
@@ -245,6 +270,8 @@ private fun CharacterDetailScreenPreview() {
         state = CharacterEditState.Loaded(SampleCharacterRepository.humanFighter()),
         onFieldTapped = {},
         onNameConfirmed = {},
+        onShortDescriptionTapped = {},
+        onShortDescriptionConfirmed = {},
         onRaceConfirmed = {},
         onClassConfirmed = {},
         onLevelConfirmed = {},

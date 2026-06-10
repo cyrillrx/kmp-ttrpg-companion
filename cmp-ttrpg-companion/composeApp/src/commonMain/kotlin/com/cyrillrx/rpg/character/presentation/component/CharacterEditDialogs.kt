@@ -3,7 +3,9 @@ package com.cyrillrx.rpg.character.presentation.component
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
@@ -22,7 +24,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.input.KeyboardType
+import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.Language
@@ -32,6 +36,7 @@ import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.Editing
 import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
+import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.dnd.domain.feetToMeters
 import com.cyrillrx.rpg.dnd.domain.metersToFeet
@@ -41,6 +46,7 @@ import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.background_none
 import rpg_companion.composeapp.generated.resources.btn_cancel
 import rpg_companion.composeapp.generated.resources.btn_confirm
+import rpg_companion.composeapp.generated.resources.hint_short_description
 import rpg_companion.composeapp.generated.resources.label_ac
 import rpg_companion.composeapp.generated.resources.label_alignment
 import rpg_companion.composeapp.generated.resources.label_background
@@ -53,6 +59,7 @@ import rpg_companion.composeapp.generated.resources.label_languages
 import rpg_companion.composeapp.generated.resources.label_level
 import rpg_companion.composeapp.generated.resources.label_max_hp
 import rpg_companion.composeapp.generated.resources.label_race
+import rpg_companion.composeapp.generated.resources.label_short_description
 import rpg_companion.composeapp.generated.resources.label_str
 import rpg_companion.composeapp.generated.resources.label_walk_speed
 import rpg_companion.composeapp.generated.resources.label_wis
@@ -66,6 +73,7 @@ internal fun CharacterEditDialog(
     onClassConfirmed: (Character.Class) -> Unit,
     onLevelConfirmed: (Int) -> Unit,
     onBackgroundConfirmed: (Background?) -> Unit,
+    onShortDescriptionConfirmed: (String) -> Unit,
     onStrengthConfirmed: (Int) -> Unit,
     onDexterityConfirmed: (Int) -> Unit,
     onConstitutionConfirmed: (Int) -> Unit,
@@ -82,6 +90,12 @@ internal fun CharacterEditDialog(
     val field = state.editingField ?: return
 
     when (field) {
+        EditingField.ShortDescription -> ShortDescriptionEditDialog(
+            initialValue = state.character.resolveTranslation(currentLocale())?.shortDescription.orEmpty(),
+            onConfirm = onShortDescriptionConfirmed,
+            onDismiss = onDismiss,
+        )
+
         EditingField.Background -> SingleChoiceDialog(
             title = stringResource(Res.string.label_background),
             selected = state.character.background,
@@ -213,6 +227,49 @@ internal fun CharacterEditDialog(
             onDismiss = onDismiss,
         )
     }
+}
+
+@Composable
+private fun ShortDescriptionEditDialog(
+    initialValue: String,
+    onConfirm: (String) -> Unit,
+    onDismiss: () -> Unit,
+) {
+    var text by remember(initialValue) { mutableStateOf(initialValue) }
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text(stringResource(Res.string.label_short_description)) },
+        text = {
+            Column {
+                Text(
+                    text = stringResource(Res.string.hint_short_description),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                Spacer(Modifier.height(spacingMedium))
+                TextField(
+                    value = text,
+                    onValueChange = { text = it },
+                    singleLine = true,
+                    textStyle = MaterialTheme.typography.bodyMedium.copy(fontStyle = FontStyle.Italic),
+                    colors = TextFieldDefaults.colors(
+                        focusedContainerColor = MaterialTheme.colorScheme.surface,
+                        unfocusedContainerColor = MaterialTheme.colorScheme.surface,
+                    ),
+                )
+            }
+        },
+        confirmButton = {
+            TextButton(onClick = { onConfirm(text) }) {
+                Text(stringResource(Res.string.btn_confirm))
+            }
+        },
+        dismissButton = {
+            TextButton(onClick = onDismiss) {
+                Text(stringResource(Res.string.btn_cancel))
+            }
+        },
+    )
 }
 
 @Composable

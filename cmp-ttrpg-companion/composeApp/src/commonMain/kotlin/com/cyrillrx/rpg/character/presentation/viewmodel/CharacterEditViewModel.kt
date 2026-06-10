@@ -127,6 +127,15 @@ class CharacterEditViewModel(
         updateAndSave { copy(character = character.copy(languages = languages), editingField = null) }
     }
 
+    fun saveShortDescription(description: String, locale: String) {
+        updateAndSave {
+            val updated = character.translations.toMutableMap()
+            val existing = updated[locale] ?: Character.Translation()
+            updated[locale] = existing.copy(shortDescription = description.trim())
+            copy(character = character.copy(translations = updated.toMap()), editingField = null)
+        }
+    }
+
     fun saveAlignment(alignment: Creature.Alignment) {
         updateAndSave { copy(character = character.copy(alignment = alignment), editingField = null) }
     }
