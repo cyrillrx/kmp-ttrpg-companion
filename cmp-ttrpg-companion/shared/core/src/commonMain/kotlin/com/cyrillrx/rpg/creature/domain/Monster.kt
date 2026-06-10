@@ -57,6 +57,10 @@ class Monster(
         PLANT,
         SWARM,
         UNDEAD,
-        UNKNOWN,
+        UNKNOWN;
+
+        companion object {
+            fun valueOfOrNull(type: String): Type? = entries.find { it.name.equals(type, ignoreCase = true) }
+        }
     }
 }
