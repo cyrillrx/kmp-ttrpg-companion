@@ -55,7 +55,7 @@ fun MonsterListItem(
     modifier: Modifier = Modifier,
 ) {
     val translation = monster.resolveTranslation(currentLocale())
-    val primaryType = monster.types.first()
+    val primaryType = monster.getPrimaryType()
     val typeColor = primaryType.getColor()
 
     Card(

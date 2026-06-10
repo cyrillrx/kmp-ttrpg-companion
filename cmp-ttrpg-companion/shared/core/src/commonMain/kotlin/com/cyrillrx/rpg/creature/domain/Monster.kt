@@ -24,6 +24,8 @@ class Monster(
         require(translations.isNotEmpty()) { "Monster $id must have at least one translation" }
     }
 
+    fun getPrimaryType(): Type = types.first()
+
     fun resolveTranslation(locale: String): Translation =
         translations[locale]
             ?: translations[FALLBACK_LOCALE]
