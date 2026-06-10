@@ -1,6 +1,7 @@
 package com.cyrillrx.rpg.creature.domain
 
 import kotlin.test.Test
+import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
 
 class MonsterTest {
@@ -19,8 +20,14 @@ class MonsterTest {
         }
     }
 
+    @Test
+    fun `getPrimaryType returns the first type in declaration order`() {
+        val monster = validMonster(types = setOf(Monster.Type.CELESTIAL, Monster.Type.FIEND))
+        assertEquals(Monster.Type.CELESTIAL, monster.getPrimaryType())
+    }
+
     private fun validMonster(
-        types: Set<Monster.Type> = setOf(Monster.Type.BEAST),
+        types: Set<Monster.Type> = hashSetOf(Monster.Type.BEAST),
         translations: Map<String, Monster.Translation> = mapOf(
             "en" to Monster.Translation(
                 name = "Test",
