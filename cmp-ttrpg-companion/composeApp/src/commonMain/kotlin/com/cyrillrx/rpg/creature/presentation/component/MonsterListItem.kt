@@ -100,7 +100,7 @@ fun MonsterListItem(
                 )
 
                 val formattedMonsterType = monster.types.toFormattedString()
-                val formattedMonsterSize = monster.size.name.lowercase().replaceFirstChar { it.uppercase() }
+                val formattedMonsterSize = monster.size.toFormattedString()
                 Text(
                     text = "$formattedMonsterType · $formattedMonsterSize",
                     style = MaterialTheme.typography.bodySmall,
