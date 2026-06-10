@@ -74,6 +74,7 @@ class JsonMonsterRepositoryTest {
     fun `monster with composite type whose any component is unknown is skipped`() = runTest {
         assertTrue(repository(monster(type = "newtype_or_fiend")).getAll(null).isEmpty())
         assertTrue(repository(monster(type = "fiend_or_newtype")).getAll(null).isEmpty())
+        assertTrue(repository(monster(type = "newtype_or_newtype")).getAll(null).isEmpty())
     }
 
     @Test
