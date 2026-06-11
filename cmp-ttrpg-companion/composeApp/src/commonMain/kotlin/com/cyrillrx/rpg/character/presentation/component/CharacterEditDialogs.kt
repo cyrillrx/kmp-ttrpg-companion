@@ -3,9 +3,7 @@ package com.cyrillrx.rpg.character.presentation.component
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
@@ -35,7 +33,6 @@ import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.Editing
 import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
-import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.dnd.domain.feetToMeters
 import com.cyrillrx.rpg.dnd.domain.metersToFeet
@@ -45,6 +42,7 @@ import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.background_none
 import rpg_companion.composeapp.generated.resources.btn_cancel
 import rpg_companion.composeapp.generated.resources.btn_confirm
+import rpg_companion.composeapp.generated.resources.hint_leave_blank_to_remove
 import rpg_companion.composeapp.generated.resources.hint_short_description
 import rpg_companion.composeapp.generated.resources.label_ac
 import rpg_companion.composeapp.generated.resources.label_alignment
@@ -238,26 +236,28 @@ private fun ShortDescriptionEditDialog(
     var text by remember(initialValue) { mutableStateOf(initialValue) }
     AlertDialog(
         onDismissRequest = onDismiss,
-        title = { Text(stringResource(Res.string.label_short_description)) },
-        text = {
+        title = {
             Column {
+                Text(stringResource(Res.string.label_short_description))
                 Text(
-                    text = stringResource(Res.string.hint_short_description),
+                    text = stringResource(Res.string.hint_leave_blank_to_remove),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
-                Spacer(Modifier.height(spacingMedium))
-                TextField(
-                    value = text,
-                    onValueChange = { text = it },
-                    singleLine = true,
-                    textStyle = MaterialTheme.typography.bodyMedium.copy(fontStyle = FontStyle.Italic),
-                    colors = TextFieldDefaults.colors(
-                        focusedContainerColor = MaterialTheme.colorScheme.surface,
-                        unfocusedContainerColor = MaterialTheme.colorScheme.surface,
-                    ),
-                )
             }
+        },
+        text = {
+            TextField(
+                value = text,
+                onValueChange = { text = it },
+                singleLine = true,
+                placeholder = { Text(stringResource(Res.string.hint_short_description)) },
+                textStyle = MaterialTheme.typography.bodyMedium.copy(fontStyle = FontStyle.Italic),
+                colors = TextFieldDefaults.colors(
+                    focusedContainerColor = MaterialTheme.colorScheme.surface,
+                    unfocusedContainerColor = MaterialTheme.colorScheme.surface,
+                ),
+            )
         },
         confirmButton = {
             TextButton(onClick = { onConfirm(text) }) {

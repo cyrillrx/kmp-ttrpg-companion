@@ -17,7 +17,8 @@
     <!-- Character edit screen -->
     <string name="character_not_found">Character not found: %1$s</string>
     <string name="label_short_description">Short Description</string>
-    <string name="hint_short_description">Role, title, affiliation… One line is enough. Leave blank to remove.</string>
+    <string name="hint_short_description">Role, title, affiliation…</string>
+    <string name="hint_leave_blank_to_remove">Leave blank to remove.</string>
     <string name="label_name">Name</string>
     <string name="label_race">Race</string>
     <string name="label_class">Class</string>
