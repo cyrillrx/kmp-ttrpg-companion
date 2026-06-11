@@ -34,6 +34,7 @@ import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.creature.domain.Creature
+import com.cyrillrx.rpg.creature.domain.Proficiency
 import com.cyrillrx.rpg.dnd.domain.feetToMeters
 import com.cyrillrx.rpg.dnd.domain.metersToFeet
 import com.cyrillrx.rpg.settings.domain.DistanceUnit
@@ -72,12 +73,12 @@ internal fun CharacterEditDialog(
     onLevelConfirmed: (Int) -> Unit,
     onBackgroundConfirmed: (Background?) -> Unit,
     onShortDescriptionConfirmed: (String) -> Unit,
-    onStrengthConfirmed: (Int) -> Unit,
-    onDexterityConfirmed: (Int) -> Unit,
-    onConstitutionConfirmed: (Int) -> Unit,
-    onIntelligenceConfirmed: (Int) -> Unit,
-    onWisdomConfirmed: (Int) -> Unit,
-    onCharismaConfirmed: (Int) -> Unit,
+    onStrengthConfirmed: (Int, Proficiency) -> Unit,
+    onDexterityConfirmed: (Int, Proficiency) -> Unit,
+    onConstitutionConfirmed: (Int, Proficiency) -> Unit,
+    onIntelligenceConfirmed: (Int, Proficiency) -> Unit,
+    onWisdomConfirmed: (Int, Proficiency) -> Unit,
+    onCharismaConfirmed: (Int, Proficiency) -> Unit,
     onArmorClassConfirmed: (Int) -> Unit,
     onMaxHitPointsConfirmed: (Int) -> Unit,
     onWalkSpeedConfirmed: (Int) -> Unit,
@@ -111,44 +112,50 @@ internal fun CharacterEditDialog(
             onDismiss = onDismiss,
         )
 
-        EditingField.Strength -> NumberEditDialog(
+        EditingField.Strength -> AbilityEditDialog(
             title = stringResource(Res.string.label_str),
             initialValue = state.character.abilities.strength.value,
+            initialProficiency = state.character.abilities.strength.savingThrowProficiency,
             onConfirm = onStrengthConfirmed,
             onDismiss = onDismiss,
         )
 
-        EditingField.Dexterity -> NumberEditDialog(
+        EditingField.Dexterity -> AbilityEditDialog(
             title = stringResource(Res.string.label_dex),
             initialValue = state.character.abilities.dexterity.value,
+            initialProficiency = state.character.abilities.dexterity.savingThrowProficiency,
             onConfirm = onDexterityConfirmed,
             onDismiss = onDismiss,
         )
 
-        EditingField.Constitution -> NumberEditDialog(
+        EditingField.Constitution -> AbilityEditDialog(
             title = stringResource(Res.string.label_con),
             initialValue = state.character.abilities.constitution.value,
+            initialProficiency = state.character.abilities.constitution.savingThrowProficiency,
             onConfirm = onConstitutionConfirmed,
             onDismiss = onDismiss,
         )
 
-        EditingField.Intelligence -> NumberEditDialog(
+        EditingField.Intelligence -> AbilityEditDialog(
             title = stringResource(Res.string.label_int),
             initialValue = state.character.abilities.intelligence.value,
+            initialProficiency = state.character.abilities.intelligence.savingThrowProficiency,
             onConfirm = onIntelligenceConfirmed,
             onDismiss = onDismiss,
         )
 
-        EditingField.Wisdom -> NumberEditDialog(
+        EditingField.Wisdom -> AbilityEditDialog(
             title = stringResource(Res.string.label_wis),
             initialValue = state.character.abilities.wisdom.value,
+            initialProficiency = state.character.abilities.wisdom.savingThrowProficiency,
             onConfirm = onWisdomConfirmed,
             onDismiss = onDismiss,
         )
 
-        EditingField.Charisma -> NumberEditDialog(
+        EditingField.Charisma -> AbilityEditDialog(
             title = stringResource(Res.string.label_cha),
             initialValue = state.character.abilities.charisma.value,
+            initialProficiency = state.character.abilities.charisma.savingThrowProficiency,
             onConfirm = onCharismaConfirmed,
             onDismiss = onDismiss,
         )

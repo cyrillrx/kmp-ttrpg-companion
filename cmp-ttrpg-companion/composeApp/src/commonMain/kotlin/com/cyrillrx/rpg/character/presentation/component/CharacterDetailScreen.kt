@@ -42,6 +42,7 @@ import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.creature.domain.Creature
+import com.cyrillrx.rpg.creature.domain.Proficiency
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
@@ -123,12 +124,12 @@ fun CharacterDetailScreen(
     onClassConfirmed: (Character.Class) -> Unit,
     onLevelConfirmed: (Int) -> Unit,
     onBackgroundConfirmed: (Background?) -> Unit,
-    onStrengthConfirmed: (Int) -> Unit,
-    onDexterityConfirmed: (Int) -> Unit,
-    onConstitutionConfirmed: (Int) -> Unit,
-    onIntelligenceConfirmed: (Int) -> Unit,
-    onWisdomConfirmed: (Int) -> Unit,
-    onCharismaConfirmed: (Int) -> Unit,
+    onStrengthConfirmed: (Int, Proficiency) -> Unit,
+    onDexterityConfirmed: (Int, Proficiency) -> Unit,
+    onConstitutionConfirmed: (Int, Proficiency) -> Unit,
+    onIntelligenceConfirmed: (Int, Proficiency) -> Unit,
+    onWisdomConfirmed: (Int, Proficiency) -> Unit,
+    onCharismaConfirmed: (Int, Proficiency) -> Unit,
     onArmorClassConfirmed: (Int) -> Unit,
     onMaxHitPointsConfirmed: (Int) -> Unit,
     onWalkSpeedConfirmed: (Int) -> Unit,
@@ -262,12 +263,12 @@ private fun CharacterDetailScreenPreview() {
         onClassConfirmed = {},
         onLevelConfirmed = {},
         onBackgroundConfirmed = {},
-        onStrengthConfirmed = {},
-        onDexterityConfirmed = {},
-        onConstitutionConfirmed = {},
-        onIntelligenceConfirmed = {},
-        onWisdomConfirmed = {},
-        onCharismaConfirmed = {},
+        onStrengthConfirmed = { _, _ -> },
+        onDexterityConfirmed = { _, _ -> },
+        onConstitutionConfirmed = { _, _ -> },
+        onIntelligenceConfirmed = { _, _ -> },
+        onWisdomConfirmed = { _, _ -> },
+        onCharismaConfirmed = { _, _ -> },
         onArmorClassConfirmed = {},
         onMaxHitPointsConfirmed = {},
         onWalkSpeedConfirmed = {},
