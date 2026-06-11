@@ -1,5 +1,6 @@
 package com.cyrillrx.rpg.character.presentation.viewmodel
 
+import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.character.data.RamCharacterRepository
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Background
@@ -23,6 +24,7 @@ import kotlin.test.AfterTest
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFalse
 import kotlin.test.assertIs
 import kotlin.test.assertNull
 import kotlin.test.assertTrue
@@ -342,5 +344,85 @@ class CharacterEditViewModelTest {
         viewModel.saveLanguages(listOf(Language.ELVISH, Language.DRACONIC))
         advanceUntilIdle()
         assertEquals(listOf(Language.ELVISH, Language.DRACONIC), repo.get(fighter.id)?.languages)
+    }
+
+    // ─── saveShortDescription ─────────────────────────────────────────────────
+
+    private val otherLocale get() = if (currentLocale() == "fr") "en" else "fr"
+
+    @Test
+    fun `saveShortDescription saves description to current locale`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(repo = repoWithFighter())
+        advanceUntilIdle()
+        viewModel.saveShortDescription("Hero of the realm")
+        val loaded = assertIs<CharacterEditState.Loaded>(viewModel.state.value)
+        assertEquals("Hero of the realm", loaded.character.resolveTranslation(currentLocale())?.shortDescription)
+    }
+
+    @Test
+    fun `saveShortDescription trims whitespace`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(repo = repoWithFighter())
+        advanceUntilIdle()
+        viewModel.saveShortDescription("  Hero  ")
+        val loaded = assertIs<CharacterEditState.Loaded>(viewModel.state.value)
+        assertEquals("Hero", loaded.character.resolveTranslation(currentLocale())?.shortDescription)
+    }
+
+    @Test
+    fun `saveShortDescription clears editingField`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(repo = repoWithFighter())
+        advanceUntilIdle()
+        viewModel.editField(EditingField.ShortDescription)
+        viewModel.saveShortDescription("Hero")
+        val loaded = assertIs<CharacterEditState.Loaded>(viewModel.state.value)
+        assertNull(loaded.editingField)
+    }
+
+    @Test
+    fun `saveShortDescription with blank input results in empty translations`() = runTest(testDispatcher) {
+        val repo = RamCharacterRepository()
+        repo.save(fighter.copy(translations = mapOf(otherLocale to Character.Translation(shortDescription = "Héros"))))
+        val viewModel = buildViewModel(repo = repo)
+        advanceUntilIdle()
+        viewModel.saveShortDescription("  ")
+        val loaded = assertIs<CharacterEditState.Loaded>(viewModel.state.value)
+        assertTrue(loaded.character.translations.isEmpty())
+    }
+
+    @Test
+    fun `saveShortDescription removes other locale translation when it becomes empty`() = runTest(testDispatcher) {
+        val repo = RamCharacterRepository()
+        repo.save(fighter.copy(translations = mapOf(otherLocale to Character.Translation(shortDescription = "Héros"))))
+        val viewModel = buildViewModel(repo = repo)
+        advanceUntilIdle()
+        viewModel.saveShortDescription("Hero")
+        val loaded = assertIs<CharacterEditState.Loaded>(viewModel.state.value)
+        assertFalse(loaded.character.translations.containsKey(otherLocale))
+    }
+
+    @Test
+    fun `saveShortDescription preserves other translation fields when clearing short description`() = runTest(testDispatcher) {
+        val repo = RamCharacterRepository()
+        repo.save(
+            fighter.copy(
+                translations = mapOf(otherLocale to Character.Translation(shortDescription = "Héros", description = "Un brave guerrier")),
+            ),
+        )
+        val viewModel = buildViewModel(repo = repo)
+        advanceUntilIdle()
+        viewModel.saveShortDescription("Hero")
+        val loaded = assertIs<CharacterEditState.Loaded>(viewModel.state.value)
+        assertEquals("", loaded.character.translations[otherLocale]?.shortDescription)
+        assertEquals("Un brave guerrier", loaded.character.translations[otherLocale]?.description)
+    }
+
+    @Test
+    fun `saveShortDescription persists to repository`() = runTest(testDispatcher) {
+        val repo = repoWithFighter()
+        val viewModel = buildViewModel(repo = repo)
+        advanceUntilIdle()
+        viewModel.saveShortDescription("Thorin the Brave")
+        advanceUntilIdle()
+        assertEquals("Thorin the Brave", repo.get(fighter.id)?.resolveTranslation(currentLocale())?.shortDescription)
     }
 }
