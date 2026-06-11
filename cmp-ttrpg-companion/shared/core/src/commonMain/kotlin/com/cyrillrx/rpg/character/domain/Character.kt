@@ -44,7 +44,9 @@ data class Character(
     data class Translation(
         val shortDescription: String = "",
         val description: String = "",
-    )
+    ) {
+        fun isEmpty(): Boolean = shortDescription.isBlank() && description.isBlank()
+    }
 
     enum class Class {
         ARTIFICER,
