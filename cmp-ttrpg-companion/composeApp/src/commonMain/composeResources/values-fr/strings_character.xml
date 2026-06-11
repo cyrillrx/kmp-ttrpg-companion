@@ -46,7 +46,7 @@
     <string name="label_level_short">niv.</string>
     <string name="label_alignment">Alignement</string>
     <string name="label_saving_throw_proficiency">Maîtrise de sauvegarde</string>
-    <string name="hint_ability">Min %1$d · Max %2$d · Score initial %3$d</string>
+    <string name="hint_ability">Min %1$d · Max %2$d · Score initial %3$s</string>
 
     <!-- Character race -->
     <string name="race_human">Humain</string>
