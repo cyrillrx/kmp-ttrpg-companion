@@ -12,6 +12,7 @@ import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
 import com.cyrillrx.rpg.character.presentation.CoercedValue
 import com.cyrillrx.rpg.creature.domain.Creature
+import com.cyrillrx.rpg.creature.domain.Proficiency
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
@@ -156,19 +157,29 @@ class CharacterEditViewModelTest {
     fun `saveStrength coerces to range 1-30`() = runTest(testDispatcher) {
         val viewModel = buildViewModel(repo = repoWithFighter())
         advanceUntilIdle()
-        viewModel.saveStrength(0)
+        viewModel.saveStrength(0, Proficiency.NONE)
         assertEquals(1, assertIs<CharacterEditState.Loaded>(viewModel.state.value).character.abilities.strength.value)
-        viewModel.saveStrength(31)
+        viewModel.saveStrength(31, Proficiency.NONE)
         assertEquals(30, assertIs<CharacterEditState.Loaded>(viewModel.state.value).character.abilities.strength.value)
+    }
+
+    @Test
+    fun `saveStrength persists saving throw proficiency`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(repo = repoWithFighter())
+        advanceUntilIdle()
+        viewModel.saveStrength(16, Proficiency.PROFICIENT)
+        val strength = assertIs<CharacterEditState.Loaded>(viewModel.state.value).character.abilities.strength
+        assertEquals(16, strength.value)
+        assertEquals(Proficiency.PROFICIENT, strength.savingThrowProficiency)
     }
 
     @Test
     fun `saveDexterity coerces to range 1-30`() = runTest(testDispatcher) {
         val viewModel = buildViewModel(repo = repoWithFighter())
         advanceUntilIdle()
-        viewModel.saveDexterity(0)
+        viewModel.saveDexterity(0, Proficiency.NONE)
         assertEquals(1, assertIs<CharacterEditState.Loaded>(viewModel.state.value).character.abilities.dexterity.value)
-        viewModel.saveDexterity(31)
+        viewModel.saveDexterity(31, Proficiency.NONE)
         assertEquals(30, assertIs<CharacterEditState.Loaded>(viewModel.state.value).character.abilities.dexterity.value)
     }
 
@@ -176,12 +187,12 @@ class CharacterEditViewModelTest {
     fun `saveConstitution coerces to range 1-30`() = runTest(testDispatcher) {
         val viewModel = buildViewModel(repo = repoWithFighter())
         advanceUntilIdle()
-        viewModel.saveConstitution(0)
+        viewModel.saveConstitution(0, Proficiency.NONE)
         assertEquals(
             expected = 1,
             actual = assertIs<CharacterEditState.Loaded>(viewModel.state.value).character.abilities.constitution.value,
         )
-        viewModel.saveConstitution(31)
+        viewModel.saveConstitution(31, Proficiency.NONE)
         assertEquals(
             expected = 30,
             actual = assertIs<CharacterEditState.Loaded>(viewModel.state.value).character.abilities.constitution.value,
@@ -192,12 +203,12 @@ class CharacterEditViewModelTest {
     fun `saveIntelligence coerces to range 1-30`() = runTest(testDispatcher) {
         val viewModel = buildViewModel(repo = repoWithFighter())
         advanceUntilIdle()
-        viewModel.saveIntelligence(0)
+        viewModel.saveIntelligence(0, Proficiency.NONE)
         assertEquals(
             expected = 1,
             actual = assertIs<CharacterEditState.Loaded>(viewModel.state.value).character.abilities.intelligence.value,
         )
-        viewModel.saveIntelligence(31)
+        viewModel.saveIntelligence(31, Proficiency.NONE)
         assertEquals(
             expected = 30,
             actual = assertIs<CharacterEditState.Loaded>(viewModel.state.value).character.abilities.intelligence.value,
@@ -208,9 +219,9 @@ class CharacterEditViewModelTest {
     fun `saveWisdom coerces to range 1-30`() = runTest(testDispatcher) {
         val viewModel = buildViewModel(repo = repoWithFighter())
         advanceUntilIdle()
-        viewModel.saveWisdom(0)
+        viewModel.saveWisdom(0, Proficiency.NONE)
         assertEquals(1, assertIs<CharacterEditState.Loaded>(viewModel.state.value).character.abilities.wisdom.value)
-        viewModel.saveWisdom(31)
+        viewModel.saveWisdom(31, Proficiency.NONE)
         assertEquals(30, assertIs<CharacterEditState.Loaded>(viewModel.state.value).character.abilities.wisdom.value)
     }
 
@@ -218,9 +229,9 @@ class CharacterEditViewModelTest {
     fun `saveCharisma coerces to range 1-30`() = runTest(testDispatcher) {
         val viewModel = buildViewModel(repo = repoWithFighter())
         advanceUntilIdle()
-        viewModel.saveCharisma(0)
+        viewModel.saveCharisma(0, Proficiency.NONE)
         assertEquals(1, assertIs<CharacterEditState.Loaded>(viewModel.state.value).character.abilities.charisma.value)
-        viewModel.saveCharisma(31)
+        viewModel.saveCharisma(31, Proficiency.NONE)
         assertEquals(30, assertIs<CharacterEditState.Loaded>(viewModel.state.value).character.abilities.charisma.value)
     }
 
