@@ -26,7 +26,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.input.KeyboardType
-import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.Language
@@ -69,6 +68,7 @@ import rpg_companion.composeapp.generated.resources.settings_unit_meters_abbr
 @Composable
 internal fun CharacterEditDialog(
     state: CharacterEditState.Loaded,
+    shortDescription: String,
     onRaceConfirmed: (Race) -> Unit,
     onClassConfirmed: (Character.Class) -> Unit,
     onLevelConfirmed: (Int) -> Unit,
@@ -91,7 +91,7 @@ internal fun CharacterEditDialog(
 
     when (field) {
         EditingField.ShortDescription -> ShortDescriptionEditDialog(
-            initialValue = state.character.resolveTranslation(currentLocale())?.shortDescription.orEmpty(),
+            initialValue = shortDescription,
             onConfirm = onShortDescriptionConfirmed,
             onDismiss = onDismiss,
         )

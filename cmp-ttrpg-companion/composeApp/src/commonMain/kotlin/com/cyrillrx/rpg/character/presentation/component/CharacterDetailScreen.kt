@@ -227,6 +227,7 @@ fun CharacterDetailScreen(
 
     CharacterEditDialog(
         state = state,
+        shortDescription = shortDescription,
         onRaceConfirmed = onRaceConfirmed,
         onClassConfirmed = onClassConfirmed,
         onLevelConfirmed = onLevelConfirmed,
