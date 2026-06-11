@@ -31,6 +31,12 @@
     <string name="label_int">INT</string>
     <string name="label_wis">SAG</string>
     <string name="label_cha">CHA</string>
+    <string name="label_strength">Force</string>
+    <string name="label_dexterity">Dextérité</string>
+    <string name="label_constitution">Constitution</string>
+    <string name="label_intelligence">Intelligence</string>
+    <string name="label_wisdom">Sagesse</string>
+    <string name="label_charisma">Charisme</string>
     <string name="label_combat">Combat</string>
     <string name="label_ac">CA</string>
     <string name="label_initiative">Initiative</string>
@@ -40,6 +46,8 @@
     <string name="label_level_short">niv.</string>
     <string name="label_alignment">Alignement</string>
     <string name="label_saving_throw_proficiency">Maîtrise de sauvegarde</string>
+    <string name="hint_ability_initial_stats">Score initial : %1$d · Modificateur %2$s</string>
+    <string name="hint_ability_range">Min %1$d · Max %2$d</string>
 
     <!-- Character race -->
     <string name="race_human">Humain</string>
