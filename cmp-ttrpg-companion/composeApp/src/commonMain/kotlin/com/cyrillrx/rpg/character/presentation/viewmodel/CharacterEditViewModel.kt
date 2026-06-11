@@ -134,7 +134,7 @@ class CharacterEditViewModel(
         updateAndSave {
             val cleared = character.translations
                 .mapValues { (_, translation) -> translation.copy(shortDescription = "") }
-                .filter { (_, translation) -> translation != Character.Translation() }
+                .filter { (_, translation) -> !translation.isEmpty() }
                 .toMutableMap()
             if (trimmed.isNotBlank()) {
                 val current = cleared[locale] ?: Character.Translation()
