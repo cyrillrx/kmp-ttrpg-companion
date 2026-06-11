@@ -132,15 +132,15 @@ class CharacterEditViewModel(
         val trimmed = description.trim()
         val locale = currentLocale()
         updateAndSave {
-            val translations = character.translations.toMutableMap()
-            val currentTranslation = translations[locale] ?: Character.Translation()
-            val newTranslation = currentTranslation.copy(shortDescription = trimmed)
-            if (newTranslation == Character.Translation()) {
-                translations.remove(locale)
-            } else {
-                translations[locale] = newTranslation
+            val cleared = character.translations
+                .mapValues { (_, translation) -> translation.copy(shortDescription = "") }
+                .filter { (_, translation) -> translation != Character.Translation() }
+                .toMutableMap()
+            if (trimmed.isNotBlank()) {
+                val current = cleared[locale] ?: Character.Translation()
+                cleared[locale] = current.copy(shortDescription = trimmed)
             }
-            copy(character = character.copy(translations = translations.toMap()), editingField = null)
+            copy(character = character.copy(translations = cleared.toMap()), editingField = null)
         }
     }
 
