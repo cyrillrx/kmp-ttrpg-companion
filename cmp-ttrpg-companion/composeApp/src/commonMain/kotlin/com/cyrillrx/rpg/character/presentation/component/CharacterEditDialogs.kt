@@ -45,22 +45,22 @@ import rpg_companion.composeapp.generated.resources.btn_cancel
 import rpg_companion.composeapp.generated.resources.btn_confirm
 import rpg_companion.composeapp.generated.resources.hint_leave_blank_to_remove
 import rpg_companion.composeapp.generated.resources.hint_short_description
-import rpg_companion.composeapp.generated.resources.label_ac
 import rpg_companion.composeapp.generated.resources.label_alignment
+import rpg_companion.composeapp.generated.resources.label_armor_class
 import rpg_companion.composeapp.generated.resources.label_background
-import rpg_companion.composeapp.generated.resources.label_cha
+import rpg_companion.composeapp.generated.resources.label_charisma
 import rpg_companion.composeapp.generated.resources.label_class
-import rpg_companion.composeapp.generated.resources.label_con
-import rpg_companion.composeapp.generated.resources.label_dex
-import rpg_companion.composeapp.generated.resources.label_int
+import rpg_companion.composeapp.generated.resources.label_constitution
+import rpg_companion.composeapp.generated.resources.label_dexterity
+import rpg_companion.composeapp.generated.resources.label_intelligence
 import rpg_companion.composeapp.generated.resources.label_languages
 import rpg_companion.composeapp.generated.resources.label_level
 import rpg_companion.composeapp.generated.resources.label_max_hp
 import rpg_companion.composeapp.generated.resources.label_race
 import rpg_companion.composeapp.generated.resources.label_short_description
-import rpg_companion.composeapp.generated.resources.label_str
+import rpg_companion.composeapp.generated.resources.label_strength
 import rpg_companion.composeapp.generated.resources.label_walk_speed
-import rpg_companion.composeapp.generated.resources.label_wis
+import rpg_companion.composeapp.generated.resources.label_wisdom
 import rpg_companion.composeapp.generated.resources.settings_unit_feet_abbr
 import rpg_companion.composeapp.generated.resources.settings_unit_meters_abbr
 
@@ -113,7 +113,7 @@ internal fun CharacterEditDialog(
         )
 
         EditingField.Strength -> AbilityEditDialog(
-            title = stringResource(Res.string.label_str),
+            title = stringResource(Res.string.label_strength),
             initialValue = state.character.abilities.strength.value,
             initialProficiency = state.character.abilities.strength.savingThrowProficiency,
             onConfirm = onStrengthConfirmed,
@@ -121,7 +121,7 @@ internal fun CharacterEditDialog(
         )
 
         EditingField.Dexterity -> AbilityEditDialog(
-            title = stringResource(Res.string.label_dex),
+            title = stringResource(Res.string.label_dexterity),
             initialValue = state.character.abilities.dexterity.value,
             initialProficiency = state.character.abilities.dexterity.savingThrowProficiency,
             onConfirm = onDexterityConfirmed,
@@ -129,7 +129,7 @@ internal fun CharacterEditDialog(
         )
 
         EditingField.Constitution -> AbilityEditDialog(
-            title = stringResource(Res.string.label_con),
+            title = stringResource(Res.string.label_constitution),
             initialValue = state.character.abilities.constitution.value,
             initialProficiency = state.character.abilities.constitution.savingThrowProficiency,
             onConfirm = onConstitutionConfirmed,
@@ -137,7 +137,7 @@ internal fun CharacterEditDialog(
         )
 
         EditingField.Intelligence -> AbilityEditDialog(
-            title = stringResource(Res.string.label_int),
+            title = stringResource(Res.string.label_intelligence),
             initialValue = state.character.abilities.intelligence.value,
             initialProficiency = state.character.abilities.intelligence.savingThrowProficiency,
             onConfirm = onIntelligenceConfirmed,
@@ -145,7 +145,7 @@ internal fun CharacterEditDialog(
         )
 
         EditingField.Wisdom -> AbilityEditDialog(
-            title = stringResource(Res.string.label_wis),
+            title = stringResource(Res.string.label_wisdom),
             initialValue = state.character.abilities.wisdom.value,
             initialProficiency = state.character.abilities.wisdom.savingThrowProficiency,
             onConfirm = onWisdomConfirmed,
@@ -153,7 +153,7 @@ internal fun CharacterEditDialog(
         )
 
         EditingField.Charisma -> AbilityEditDialog(
-            title = stringResource(Res.string.label_cha),
+            title = stringResource(Res.string.label_charisma),
             initialValue = state.character.abilities.charisma.value,
             initialProficiency = state.character.abilities.charisma.savingThrowProficiency,
             onConfirm = onCharismaConfirmed,
@@ -161,7 +161,7 @@ internal fun CharacterEditDialog(
         )
 
         EditingField.ArmorClass -> NumberEditDialog(
-            title = stringResource(Res.string.label_ac),
+            title = stringResource(Res.string.label_armor_class),
             initialValue = state.character.armorClass,
             onConfirm = onArmorClassConfirmed,
             onDismiss = onDismiss,
