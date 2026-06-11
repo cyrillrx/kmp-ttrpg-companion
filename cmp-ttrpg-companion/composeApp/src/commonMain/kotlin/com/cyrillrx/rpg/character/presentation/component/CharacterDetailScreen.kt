@@ -21,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
@@ -87,6 +88,8 @@ fun CharacterDetailScreen(
             snackbarHostState = snackbarHostState,
             onFieldTapped = viewModel::editField,
             onNameConfirmed = viewModel::saveName,
+            onShortDescriptionTapped = { viewModel.editField(EditingField.ShortDescription) },
+            onShortDescriptionConfirmed = viewModel::saveShortDescription,
             onRaceConfirmed = viewModel::saveRace,
             onClassConfirmed = viewModel::saveClass,
             onLevelConfirmed = viewModel::saveLevel,
@@ -114,6 +117,8 @@ fun CharacterDetailScreen(
     snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
     onFieldTapped: (EditingField) -> Unit,
     onNameConfirmed: (String) -> Unit,
+    onShortDescriptionTapped: () -> Unit,
+    onShortDescriptionConfirmed: (String) -> Unit,
     onRaceConfirmed: (Race) -> Unit,
     onClassConfirmed: (Character.Class) -> Unit,
     onLevelConfirmed: (Int) -> Unit,
@@ -132,6 +137,8 @@ fun CharacterDetailScreen(
     onDialogDismissed: () -> Unit,
     onNavigateUpClicked: () -> Unit,
 ) {
+    val locale = currentLocale()
+    val shortDescription = state.character.resolveTranslation(locale)?.shortDescription.orEmpty()
     Scaffold(
         topBar = {
             SimpleTopBar(
@@ -153,12 +160,14 @@ fun CharacterDetailScreen(
         ) {
             CharacterHeader(
                 name = state.character.name,
+                shortDescription = shortDescription,
                 race = state.character.race,
                 clazz = state.character.clazz,
                 level = state.character.level,
                 background = state.character.background.toFormattedString(),
                 alignment = state.character.alignment,
                 onNameConfirmed = onNameConfirmed,
+                onShortDescriptionTapped = onShortDescriptionTapped,
                 onClassTapped = { onFieldTapped(EditingField.Clazz) },
                 onRaceTapped = { onFieldTapped(EditingField.Race) },
                 onLevelTapped = { onFieldTapped(EditingField.Level) },
@@ -206,10 +215,12 @@ fun CharacterDetailScreen(
 
     CharacterEditDialog(
         state = state,
+        shortDescription = shortDescription,
         onRaceConfirmed = onRaceConfirmed,
         onClassConfirmed = onClassConfirmed,
         onLevelConfirmed = onLevelConfirmed,
         onBackgroundConfirmed = onBackgroundConfirmed,
+        onShortDescriptionConfirmed = onShortDescriptionConfirmed,
         onStrengthConfirmed = onStrengthConfirmed,
         onDexterityConfirmed = onDexterityConfirmed,
         onConstitutionConfirmed = onConstitutionConfirmed,
@@ -245,6 +256,8 @@ private fun CharacterDetailScreenPreview() {
         state = CharacterEditState.Loaded(SampleCharacterRepository.humanFighter()),
         onFieldTapped = {},
         onNameConfirmed = {},
+        onShortDescriptionTapped = {},
+        onShortDescriptionConfirmed = {},
         onRaceConfirmed = {},
         onClassConfirmed = {},
         onLevelConfirmed = {},

@@ -36,8 +36,12 @@ import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.role
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.TextFieldValue
@@ -67,12 +71,14 @@ import rpg_companion.composeapp.generated.resources.label_level_short
 @Composable
 internal fun CharacterHeader(
     name: String,
+    shortDescription: String,
     race: Race,
     clazz: Character.Class,
     level: Int,
     background: String,
     alignment: Creature.Alignment,
     onNameConfirmed: (String) -> Unit,
+    onShortDescriptionTapped: () -> Unit,
     onClassTapped: () -> Unit,
     onRaceTapped: () -> Unit,
     onLevelTapped: () -> Unit,
@@ -93,6 +99,16 @@ internal fun CharacterHeader(
                 style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold),
                 modifier = Modifier.fillMaxWidth(),
             )
+            if (shortDescription.isNotBlank()) {
+                Text(
+                    text = shortDescription,
+                    style = MaterialTheme.typography.bodyMedium.copy(fontStyle = FontStyle.Italic),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier
+                        .semantics { role = Role.Button }
+                        .clickable(onClick = onShortDescriptionTapped),
+                )
+            }
             Spacer(Modifier.height(spacingSmall))
             Row(
                 horizontalArrangement = Arrangement.spacedBy(spacingSmall),
@@ -282,12 +298,14 @@ private fun CharacterHeaderPreview() {
     val character = SampleCharacterRepository.humanFighter()
     CharacterHeader(
         name = character.name,
+        shortDescription = character.translations.values.firstOrNull()?.shortDescription.orEmpty(),
         race = character.race,
         clazz = character.clazz,
         level = character.level,
         background = character.background.toFormattedString(),
         alignment = character.alignment,
         onNameConfirmed = {},
+        onShortDescriptionTapped = {},
         onClassTapped = {},
         onRaceTapped = {},
         onLevelTapped = {},

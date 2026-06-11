@@ -16,6 +16,9 @@
 
     <!-- Character edit screen -->
     <string name="character_not_found">Personnage introuvable : %1$s</string>
+    <string name="label_short_description">Courte description</string>
+    <string name="hint_short_description">Rôle, titre, affiliation…</string>
+    <string name="hint_leave_blank_to_remove">Laisser vide pour supprimer.</string>
     <string name="label_name">Nom</string>
     <string name="label_race">Race</string>
     <string name="label_class">Classe</string>

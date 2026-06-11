@@ -7,10 +7,10 @@ import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.item_rarity_artifact
 import rpg_companion.composeapp.generated.resources.item_rarity_common
-import rpg_companion.composeapp.generated.resources.item_rarity_varies
 import rpg_companion.composeapp.generated.resources.item_rarity_legendary
 import rpg_companion.composeapp.generated.resources.item_rarity_rare
 import rpg_companion.composeapp.generated.resources.item_rarity_uncommon
+import rpg_companion.composeapp.generated.resources.item_rarity_varies
 import rpg_companion.composeapp.generated.resources.item_rarity_very_rare
 import rpg_companion.composeapp.generated.resources.item_requires_attunement
 import rpg_companion.composeapp.generated.resources.item_type_armor

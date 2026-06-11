@@ -22,6 +22,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.input.KeyboardType
 import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
@@ -41,6 +42,8 @@ import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.background_none
 import rpg_companion.composeapp.generated.resources.btn_cancel
 import rpg_companion.composeapp.generated.resources.btn_confirm
+import rpg_companion.composeapp.generated.resources.hint_leave_blank_to_remove
+import rpg_companion.composeapp.generated.resources.hint_short_description
 import rpg_companion.composeapp.generated.resources.label_ac
 import rpg_companion.composeapp.generated.resources.label_alignment
 import rpg_companion.composeapp.generated.resources.label_background
@@ -53,6 +56,7 @@ import rpg_companion.composeapp.generated.resources.label_languages
 import rpg_companion.composeapp.generated.resources.label_level
 import rpg_companion.composeapp.generated.resources.label_max_hp
 import rpg_companion.composeapp.generated.resources.label_race
+import rpg_companion.composeapp.generated.resources.label_short_description
 import rpg_companion.composeapp.generated.resources.label_str
 import rpg_companion.composeapp.generated.resources.label_walk_speed
 import rpg_companion.composeapp.generated.resources.label_wis
@@ -62,10 +66,12 @@ import rpg_companion.composeapp.generated.resources.settings_unit_meters_abbr
 @Composable
 internal fun CharacterEditDialog(
     state: CharacterEditState.Loaded,
+    shortDescription: String,
     onRaceConfirmed: (Race) -> Unit,
     onClassConfirmed: (Character.Class) -> Unit,
     onLevelConfirmed: (Int) -> Unit,
     onBackgroundConfirmed: (Background?) -> Unit,
+    onShortDescriptionConfirmed: (String) -> Unit,
     onStrengthConfirmed: (Int) -> Unit,
     onDexterityConfirmed: (Int) -> Unit,
     onConstitutionConfirmed: (Int) -> Unit,
@@ -82,6 +88,12 @@ internal fun CharacterEditDialog(
     val field = state.editingField ?: return
 
     when (field) {
+        EditingField.ShortDescription -> ShortDescriptionEditDialog(
+            initialValue = shortDescription,
+            onConfirm = onShortDescriptionConfirmed,
+            onDismiss = onDismiss,
+        )
+
         EditingField.Background -> SingleChoiceDialog(
             title = stringResource(Res.string.label_background),
             selected = state.character.background,
@@ -213,6 +225,51 @@ internal fun CharacterEditDialog(
             onDismiss = onDismiss,
         )
     }
+}
+
+@Composable
+private fun ShortDescriptionEditDialog(
+    initialValue: String,
+    onConfirm: (String) -> Unit,
+    onDismiss: () -> Unit,
+) {
+    var text by remember(initialValue) { mutableStateOf(initialValue) }
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = {
+            Column {
+                Text(stringResource(Res.string.label_short_description))
+                Text(
+                    text = stringResource(Res.string.hint_leave_blank_to_remove),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+        },
+        text = {
+            TextField(
+                value = text,
+                onValueChange = { text = it },
+                singleLine = true,
+                placeholder = { Text(stringResource(Res.string.hint_short_description)) },
+                textStyle = MaterialTheme.typography.bodyMedium.copy(fontStyle = FontStyle.Italic),
+                colors = TextFieldDefaults.colors(
+                    focusedContainerColor = MaterialTheme.colorScheme.surface,
+                    unfocusedContainerColor = MaterialTheme.colorScheme.surface,
+                ),
+            )
+        },
+        confirmButton = {
+            TextButton(onClick = { onConfirm(text) }) {
+                Text(stringResource(Res.string.btn_confirm))
+            }
+        },
+        dismissButton = {
+            TextButton(onClick = onDismiss) {
+                Text(stringResource(Res.string.btn_cancel))
+            }
+        },
+    )
 }
 
 @Composable

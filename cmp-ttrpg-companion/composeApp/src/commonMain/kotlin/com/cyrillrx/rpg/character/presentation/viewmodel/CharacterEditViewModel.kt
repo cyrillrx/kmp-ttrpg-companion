@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.character.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterRepository
@@ -125,6 +126,22 @@ class CharacterEditViewModel(
 
     fun saveLanguages(languages: List<Language>) {
         updateAndSave { copy(character = character.copy(languages = languages), editingField = null) }
+    }
+
+    fun saveShortDescription(description: String) {
+        val trimmed = description.trim()
+        val locale = currentLocale()
+        updateAndSave {
+            val cleared = character.translations
+                .mapValues { (_, translation) -> translation.copy(shortDescription = "") }
+                .filter { (_, translation) -> !translation.isEmpty() }
+                .toMutableMap()
+            if (trimmed.isNotBlank()) {
+                val current = cleared[locale] ?: Character.Translation()
+                cleared[locale] = current.copy(shortDescription = trimmed)
+            }
+            copy(character = character.copy(translations = cleared.toMap()), editingField = null)
+        }
     }
 
     fun saveAlignment(alignment: Creature.Alignment) {
