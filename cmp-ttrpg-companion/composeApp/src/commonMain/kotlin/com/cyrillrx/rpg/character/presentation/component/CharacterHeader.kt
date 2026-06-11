@@ -36,6 +36,9 @@ import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.role
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontStyle
@@ -101,7 +104,9 @@ internal fun CharacterHeader(
                     text = shortDescription,
                     style = MaterialTheme.typography.bodyMedium.copy(fontStyle = FontStyle.Italic),
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier.clickable(onClick = onShortDescriptionTapped),
+                    modifier = Modifier
+                        .semantics { role = Role.Button }
+                        .clickable(onClick = onShortDescriptionTapped),
                 )
             }
             Spacer(Modifier.height(spacingSmall))
