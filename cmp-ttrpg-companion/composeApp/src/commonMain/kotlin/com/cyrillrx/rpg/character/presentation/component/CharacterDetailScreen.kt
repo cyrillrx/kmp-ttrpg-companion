@@ -87,34 +87,31 @@ fun CharacterDetailScreen(
             )
         }
 
-        is CharacterEditState.Loaded -> {
-            val locale = currentLocale()
-            CharacterDetailScreen(
-                state = s,
-                snackbarHostState = snackbarHostState,
-                onFieldTapped = viewModel::editField,
-                onNameConfirmed = viewModel::saveName,
-                onShortDescriptionTapped = { viewModel.editField(EditingField.ShortDescription) },
-                onShortDescriptionConfirmed = { desc -> viewModel.saveShortDescription(desc, locale) },
-                onRaceConfirmed = viewModel::saveRace,
-                onClassConfirmed = viewModel::saveClass,
-                onLevelConfirmed = viewModel::saveLevel,
-                onBackgroundConfirmed = viewModel::saveBackground,
-                onStrengthConfirmed = viewModel::saveStrength,
-                onDexterityConfirmed = viewModel::saveDexterity,
-                onConstitutionConfirmed = viewModel::saveConstitution,
-                onIntelligenceConfirmed = viewModel::saveIntelligence,
-                onWisdomConfirmed = viewModel::saveWisdom,
-                onCharismaConfirmed = viewModel::saveCharisma,
-                onArmorClassConfirmed = viewModel::saveArmorClass,
-                onMaxHitPointsConfirmed = viewModel::saveMaxHitPoints,
-                onWalkSpeedConfirmed = viewModel::saveWalkSpeed,
-                onLanguagesConfirmed = viewModel::saveLanguages,
-                onAlignmentConfirmed = viewModel::saveAlignment,
-                onDialogDismissed = viewModel::cancelEditing,
-                onNavigateUpClicked = router::navigateUp,
-            )
-        }
+        is CharacterEditState.Loaded -> CharacterDetailScreen(
+            state = s,
+            snackbarHostState = snackbarHostState,
+            onFieldTapped = viewModel::editField,
+            onNameConfirmed = viewModel::saveName,
+            onShortDescriptionTapped = { viewModel.editField(EditingField.ShortDescription) },
+            onShortDescriptionConfirmed = viewModel::saveShortDescription,
+            onRaceConfirmed = viewModel::saveRace,
+            onClassConfirmed = viewModel::saveClass,
+            onLevelConfirmed = viewModel::saveLevel,
+            onBackgroundConfirmed = viewModel::saveBackground,
+            onStrengthConfirmed = viewModel::saveStrength,
+            onDexterityConfirmed = viewModel::saveDexterity,
+            onConstitutionConfirmed = viewModel::saveConstitution,
+            onIntelligenceConfirmed = viewModel::saveIntelligence,
+            onWisdomConfirmed = viewModel::saveWisdom,
+            onCharismaConfirmed = viewModel::saveCharisma,
+            onArmorClassConfirmed = viewModel::saveArmorClass,
+            onMaxHitPointsConfirmed = viewModel::saveMaxHitPoints,
+            onWalkSpeedConfirmed = viewModel::saveWalkSpeed,
+            onLanguagesConfirmed = viewModel::saveLanguages,
+            onAlignmentConfirmed = viewModel::saveAlignment,
+            onDialogDismissed = viewModel::cancelEditing,
+            onNavigateUpClicked = router::navigateUp,
+        )
     }
 }
 
