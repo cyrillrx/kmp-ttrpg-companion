@@ -91,11 +91,18 @@ internal fun AbilityEditDialog(
                     ) {
                         Text("-", style = MaterialTheme.typography.headlineMedium)
                     }
-                    Text(
-                        text = value.toString(),
-                        style = MaterialTheme.typography.displaySmall,
-                        fontWeight = FontWeight.Bold,
-                    )
+                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                        Text(
+                            text = value.toString(),
+                            style = MaterialTheme.typography.displaySmall,
+                            fontWeight = FontWeight.Bold,
+                        )
+                        Text(
+                            text = Ability(value).getModifier().toSignedString(),
+                            style = MaterialTheme.typography.titleMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
                     FilledTonalIconButton(
                         onClick = { value++ },
                         enabled = value < MAX_ABILITY_SCORE,
