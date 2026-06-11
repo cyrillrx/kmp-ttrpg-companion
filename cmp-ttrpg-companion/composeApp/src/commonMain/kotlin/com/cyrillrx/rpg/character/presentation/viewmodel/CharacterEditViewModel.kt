@@ -128,11 +128,17 @@ class CharacterEditViewModel(
     }
 
     fun saveShortDescription(description: String, locale: String) {
+        val trimmed = description.trim()
         updateAndSave {
-            val updated = character.translations.toMutableMap()
-            val existing = updated[locale] ?: Character.Translation()
-            updated[locale] = existing.copy(shortDescription = description.trim())
-            copy(character = character.copy(translations = updated.toMap()), editingField = null)
+            val mutableTranslations = character.translations.toMutableMap()
+            val currentTranslation = mutableTranslations[locale] ?: Character.Translation()
+            val newTranslation = currentTranslation.copy(shortDescription = trimmed)
+            if (newTranslation == Character.Translation()) {
+                mutableTranslations.remove(locale)
+            } else {
+                mutableTranslations[locale] = newTranslation
+            }
+            copy(character = character.copy(translations = mutableTranslations.toMap()), editingField = null)
         }
     }
 
