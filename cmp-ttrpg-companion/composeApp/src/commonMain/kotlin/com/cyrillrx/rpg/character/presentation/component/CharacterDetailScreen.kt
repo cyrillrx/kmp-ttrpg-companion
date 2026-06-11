@@ -42,8 +42,8 @@ import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
+import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.creature.domain.Creature
-import com.cyrillrx.rpg.creature.domain.Proficiency
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
@@ -125,12 +125,12 @@ fun CharacterDetailScreen(
     onClassConfirmed: (Character.Class) -> Unit,
     onLevelConfirmed: (Int) -> Unit,
     onBackgroundConfirmed: (Background?) -> Unit,
-    onStrengthConfirmed: (Int, Proficiency) -> Unit,
-    onDexterityConfirmed: (Int, Proficiency) -> Unit,
-    onConstitutionConfirmed: (Int, Proficiency) -> Unit,
-    onIntelligenceConfirmed: (Int, Proficiency) -> Unit,
-    onWisdomConfirmed: (Int, Proficiency) -> Unit,
-    onCharismaConfirmed: (Int, Proficiency) -> Unit,
+    onStrengthConfirmed: (Ability) -> Unit,
+    onDexterityConfirmed: (Ability) -> Unit,
+    onConstitutionConfirmed: (Ability) -> Unit,
+    onIntelligenceConfirmed: (Ability) -> Unit,
+    onWisdomConfirmed: (Ability) -> Unit,
+    onCharismaConfirmed: (Ability) -> Unit,
     onArmorClassConfirmed: (Int) -> Unit,
     onMaxHitPointsConfirmed: (Int) -> Unit,
     onWalkSpeedConfirmed: (Int) -> Unit,
@@ -264,12 +264,12 @@ private fun CharacterDetailScreenPreview() {
         onClassConfirmed = {},
         onLevelConfirmed = {},
         onBackgroundConfirmed = {},
-        onStrengthConfirmed = { _, _ -> },
-        onDexterityConfirmed = { _, _ -> },
-        onConstitutionConfirmed = { _, _ -> },
-        onIntelligenceConfirmed = { _, _ -> },
-        onWisdomConfirmed = { _, _ -> },
-        onCharismaConfirmed = { _, _ -> },
+        onStrengthConfirmed = {},
+        onDexterityConfirmed = {},
+        onConstitutionConfirmed = {},
+        onIntelligenceConfirmed = {},
+        onWisdomConfirmed = {},
+        onCharismaConfirmed = {},
         onArmorClassConfirmed = {},
         onMaxHitPointsConfirmed = {},
         onWalkSpeedConfirmed = {},

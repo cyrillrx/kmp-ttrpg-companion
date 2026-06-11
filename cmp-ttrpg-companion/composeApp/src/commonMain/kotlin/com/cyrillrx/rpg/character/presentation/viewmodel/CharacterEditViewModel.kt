@@ -21,7 +21,6 @@ import com.cyrillrx.rpg.character.presentation.CoercedValue
 import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.creature.domain.Creature
-import com.cyrillrx.rpg.creature.domain.Proficiency
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
@@ -85,35 +84,23 @@ class CharacterEditViewModel(
         updateAndSave { copy(character = character.copy(background = background), editingField = null) }
     }
 
-    fun saveStrength(value: Int, savingThrowProficiency: Proficiency) =
-        saveAbility(value, savingThrowProficiency, Abilities::strength) { coerced, prof ->
-            copy(strength = strength.copy(value = coerced, savingThrowProficiency = prof))
-        }
+    fun saveStrength(ability: Ability) =
+        saveAbility(ability, Abilities::strength) { updated -> copy(strength = updated) }
 
-    fun saveDexterity(value: Int, savingThrowProficiency: Proficiency) =
-        saveAbility(value, savingThrowProficiency, Abilities::dexterity) { coerced, prof ->
-            copy(dexterity = dexterity.copy(value = coerced, savingThrowProficiency = prof))
-        }
+    fun saveDexterity(ability: Ability) =
+        saveAbility(ability, Abilities::dexterity) { updated -> copy(dexterity = updated) }
 
-    fun saveConstitution(value: Int, savingThrowProficiency: Proficiency) =
-        saveAbility(value, savingThrowProficiency, Abilities::constitution) { coerced, prof ->
-            copy(constitution = constitution.copy(value = coerced, savingThrowProficiency = prof))
-        }
+    fun saveConstitution(ability: Ability) =
+        saveAbility(ability, Abilities::constitution) { updated -> copy(constitution = updated) }
 
-    fun saveIntelligence(value: Int, savingThrowProficiency: Proficiency) =
-        saveAbility(value, savingThrowProficiency, Abilities::intelligence) { coerced, prof ->
-            copy(intelligence = intelligence.copy(value = coerced, savingThrowProficiency = prof))
-        }
+    fun saveIntelligence(ability: Ability) =
+        saveAbility(ability, Abilities::intelligence) { updated -> copy(intelligence = updated) }
 
-    fun saveWisdom(value: Int, savingThrowProficiency: Proficiency) =
-        saveAbility(value, savingThrowProficiency, Abilities::wisdom) { coerced, prof ->
-            copy(wisdom = wisdom.copy(value = coerced, savingThrowProficiency = prof))
-        }
+    fun saveWisdom(ability: Ability) =
+        saveAbility(ability, Abilities::wisdom) { updated -> copy(wisdom = updated) }
 
-    fun saveCharisma(value: Int, savingThrowProficiency: Proficiency) =
-        saveAbility(value, savingThrowProficiency, Abilities::charisma) { coerced, prof ->
-            copy(charisma = charisma.copy(value = coerced, savingThrowProficiency = prof))
-        }
+    fun saveCharisma(ability: Ability) =
+        saveAbility(ability, Abilities::charisma) { updated -> copy(charisma = updated) }
 
     fun saveArmorClass(value: Int) = updateAndSave(value, Int::coerceToValidArmorClass) { coerced ->
         copy(character = character.copy(armorClass = coerced), editingField = null)
@@ -156,19 +143,17 @@ class CharacterEditViewModel(
     }
 
     private fun saveAbility(
-        candidate: Int,
-        savingThrowProficiency: Proficiency,
+        ability: Ability,
         getAbility: Abilities.() -> Ability,
-        update: Abilities.(Int, Proficiency) -> Abilities,
+        update: Abilities.(Ability) -> Abilities,
     ) {
-        updateAndSave(candidate, Int::coerceToValidAbilityScore) { coerced ->
+        updateAndSave(ability.value, Int::coerceToValidAbilityScore) { coerced ->
             val former = character.abilities.getAbility()
-            val valueUnchanged = former.value == candidate || former.value == coerced
-            val proficiencyUnchanged = former.savingThrowProficiency == savingThrowProficiency
-            if (valueUnchanged && proficiencyUnchanged) {
+            val coercedAbility = ability.copy(value = coerced)
+            if (former == coercedAbility) {
                 copy(editingField = null)
             } else {
-                copy(character = character.copy(abilities = character.abilities.update(coerced, savingThrowProficiency)), editingField = null)
+                copy(character = character.copy(abilities = character.abilities.update(coercedAbility)), editingField = null)
             }
         }
     }

@@ -33,8 +33,8 @@ import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.Editing
 import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
+import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.creature.domain.Creature
-import com.cyrillrx.rpg.creature.domain.Proficiency
 import com.cyrillrx.rpg.dnd.domain.feetToMeters
 import com.cyrillrx.rpg.dnd.domain.metersToFeet
 import com.cyrillrx.rpg.settings.domain.DistanceUnit
@@ -73,12 +73,12 @@ internal fun CharacterEditDialog(
     onLevelConfirmed: (Int) -> Unit,
     onBackgroundConfirmed: (Background?) -> Unit,
     onShortDescriptionConfirmed: (String) -> Unit,
-    onStrengthConfirmed: (Int, Proficiency) -> Unit,
-    onDexterityConfirmed: (Int, Proficiency) -> Unit,
-    onConstitutionConfirmed: (Int, Proficiency) -> Unit,
-    onIntelligenceConfirmed: (Int, Proficiency) -> Unit,
-    onWisdomConfirmed: (Int, Proficiency) -> Unit,
-    onCharismaConfirmed: (Int, Proficiency) -> Unit,
+    onStrengthConfirmed: (Ability) -> Unit,
+    onDexterityConfirmed: (Ability) -> Unit,
+    onConstitutionConfirmed: (Ability) -> Unit,
+    onIntelligenceConfirmed: (Ability) -> Unit,
+    onWisdomConfirmed: (Ability) -> Unit,
+    onCharismaConfirmed: (Ability) -> Unit,
     onArmorClassConfirmed: (Int) -> Unit,
     onMaxHitPointsConfirmed: (Int) -> Unit,
     onWalkSpeedConfirmed: (Int) -> Unit,
@@ -114,48 +114,42 @@ internal fun CharacterEditDialog(
 
         EditingField.Strength -> AbilityEditDialog(
             title = stringResource(Res.string.label_strength),
-            initialValue = state.character.abilities.strength.value,
-            initialProficiency = state.character.abilities.strength.savingThrowProficiency,
+            initialAbility = state.character.abilities.strength,
             onConfirm = onStrengthConfirmed,
             onDismiss = onDismiss,
         )
 
         EditingField.Dexterity -> AbilityEditDialog(
             title = stringResource(Res.string.label_dexterity),
-            initialValue = state.character.abilities.dexterity.value,
-            initialProficiency = state.character.abilities.dexterity.savingThrowProficiency,
+            initialAbility = state.character.abilities.dexterity,
             onConfirm = onDexterityConfirmed,
             onDismiss = onDismiss,
         )
 
         EditingField.Constitution -> AbilityEditDialog(
             title = stringResource(Res.string.label_constitution),
-            initialValue = state.character.abilities.constitution.value,
-            initialProficiency = state.character.abilities.constitution.savingThrowProficiency,
+            initialAbility = state.character.abilities.constitution,
             onConfirm = onConstitutionConfirmed,
             onDismiss = onDismiss,
         )
 
         EditingField.Intelligence -> AbilityEditDialog(
             title = stringResource(Res.string.label_intelligence),
-            initialValue = state.character.abilities.intelligence.value,
-            initialProficiency = state.character.abilities.intelligence.savingThrowProficiency,
+            initialAbility = state.character.abilities.intelligence,
             onConfirm = onIntelligenceConfirmed,
             onDismiss = onDismiss,
         )
 
         EditingField.Wisdom -> AbilityEditDialog(
             title = stringResource(Res.string.label_wisdom),
-            initialValue = state.character.abilities.wisdom.value,
-            initialProficiency = state.character.abilities.wisdom.savingThrowProficiency,
+            initialAbility = state.character.abilities.wisdom,
             onConfirm = onWisdomConfirmed,
             onDismiss = onDismiss,
         )
 
         EditingField.Charisma -> AbilityEditDialog(
             title = stringResource(Res.string.label_charisma),
-            initialValue = state.character.abilities.charisma.value,
-            initialProficiency = state.character.abilities.charisma.savingThrowProficiency,
+            initialAbility = state.character.abilities.charisma,
             onConfirm = onCharismaConfirmed,
             onDismiss = onDismiss,
         )

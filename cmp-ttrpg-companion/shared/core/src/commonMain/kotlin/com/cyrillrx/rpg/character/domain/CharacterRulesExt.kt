@@ -4,6 +4,9 @@ import com.cyrillrx.rpg.dnd.domain.DND_FEET_STEP
 import com.cyrillrx.rpg.dnd.domain.DND_METERS_STEP
 import kotlin.math.roundToInt
 
+const val MIN_ABILITY_SCORE = 1
+const val MAX_ABILITY_SCORE = 30
+
 private const val WALK_SPEED_SLOW_FT = 25
 private const val WALK_SPEED_STANDARD_FT = 30
 
@@ -35,7 +38,7 @@ fun isValidWalkSpeedInMeters(value: Float): Boolean =
     value in WALK_SPEED_MIN_M..WALK_SPEED_MAX_M && value % DND_METERS_STEP == 0f
 
 fun Int.coerceToValidCharacterLevel(): Int = coerceIn(1, 20)
-fun Int.coerceToValidAbilityScore(): Int = coerceIn(1, 30)
+fun Int.coerceToValidAbilityScore(): Int = coerceIn(MIN_ABILITY_SCORE, MAX_ABILITY_SCORE)
 fun Int.coerceToValidArmorClass(): Int = coerceIn(0, 30)
 fun Int.coerceToValidMaxHitPoints(): Int = coerceAtLeast(1)
 

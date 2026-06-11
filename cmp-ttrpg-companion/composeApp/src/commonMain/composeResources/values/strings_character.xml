@@ -46,8 +46,7 @@
     <string name="label_level_short">lv.</string>
     <string name="label_alignment">Alignment</string>
     <string name="label_saving_throw_proficiency">Saving throw proficiency</string>
-    <string name="hint_ability_initial_stats">Initial score: %1$d · Modifier %2$s</string>
-    <string name="hint_ability_range">Min %1$d · Max %2$d</string>
+    <string name="hint_ability">Min %1$d · Max %2$d · Initial score %3$d</string>
 
     <!-- Character race -->
     <string name="race_human">Human</string>

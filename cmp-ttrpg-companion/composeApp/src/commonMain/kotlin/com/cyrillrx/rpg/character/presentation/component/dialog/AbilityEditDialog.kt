@@ -23,6 +23,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.cyrillrx.rpg.character.domain.MAX_ABILITY_SCORE
+import com.cyrillrx.rpg.character.domain.MIN_ABILITY_SCORE
 import com.cyrillrx.rpg.core.domain.toSignedString
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.creature.domain.Ability
@@ -31,31 +33,20 @@ import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.btn_cancel
 import rpg_companion.composeapp.generated.resources.btn_confirm
-import rpg_companion.composeapp.generated.resources.hint_ability_initial_stats
-import rpg_companion.composeapp.generated.resources.hint_ability_range
+import rpg_companion.composeapp.generated.resources.hint_ability
 import rpg_companion.composeapp.generated.resources.label_saving_throw_proficiency
-
-private const val MIN_ABILITY_SCORE = 1
-private const val MAX_ABILITY_SCORE = 30
 
 @Composable
 internal fun AbilityEditDialog(
     title: String,
-    initialValue: Int,
-    initialProficiency: Proficiency,
-    onConfirm: (Int, Proficiency) -> Unit,
+    initialAbility: Ability,
+    onConfirm: (Ability) -> Unit,
     onDismiss: () -> Unit,
 ) {
-    var value by remember(initialValue) {
-        mutableIntStateOf(
-            initialValue.coerceIn(
-                MIN_ABILITY_SCORE,
-                MAX_ABILITY_SCORE,
-            ),
-        )
+    var value by remember(initialAbility) {
+        mutableIntStateOf(initialAbility.value.coerceIn(MIN_ABILITY_SCORE, MAX_ABILITY_SCORE))
     }
-    var proficiency by remember(initialProficiency) { mutableStateOf(initialProficiency) }
-    val initialModifier = remember(initialValue) { Ability(initialValue).getModifier() }
+    var proficiency by remember(initialAbility) { mutableStateOf(initialAbility.savingThrowProficiency) }
 
     AlertDialog(
         onDismissRequest = onDismiss,
@@ -64,9 +55,10 @@ internal fun AbilityEditDialog(
                 Text(title)
                 Text(
                     text = stringResource(
-                        Res.string.hint_ability_initial_stats,
-                        initialValue,
-                        initialModifier.toSignedString(),
+                        Res.string.hint_ability,
+                        MIN_ABILITY_SCORE,
+                        MAX_ABILITY_SCORE,
+                        initialAbility.getValueWithModifier(),
                     ),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -111,11 +103,6 @@ internal fun AbilityEditDialog(
                         Text("+", style = MaterialTheme.typography.headlineMedium)
                     }
                 }
-                Text(
-                    text = stringResource(Res.string.hint_ability_range, MIN_ABILITY_SCORE, MAX_ABILITY_SCORE),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     modifier = Modifier
@@ -136,7 +123,9 @@ internal fun AbilityEditDialog(
             }
         },
         confirmButton = {
-            TextButton(onClick = { onConfirm(value, proficiency) }) {
+            TextButton(
+                onClick = { onConfirm(initialAbility.copy(value = value, savingThrowProficiency = proficiency)) },
+            ) {
                 Text(stringResource(Res.string.btn_confirm))
             }
         },
