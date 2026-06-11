@@ -25,26 +25,12 @@
     <string name="label_level">Level</string>
     <string name="label_background">Background</string>
     <string name="label_abilities">Abilities</string>
-    <string name="label_str">STR</string>
-    <string name="label_dex">DEX</string>
-    <string name="label_con">CON</string>
-    <string name="label_int">INT</string>
-    <string name="label_wis">WIS</string>
-    <string name="label_cha">CHA</string>
-    <string name="label_strength">Strength</string>
-    <string name="label_dexterity">Dexterity</string>
-    <string name="label_constitution">Constitution</string>
-    <string name="label_intelligence">Intelligence</string>
-    <string name="label_wisdom">Wisdom</string>
-    <string name="label_charisma">Charisma</string>
     <string name="label_combat">Combat</string>
-    <string name="label_ac">AC</string>
     <string name="label_initiative">Initiative</string>
     <string name="label_max_hp">Max HP</string>
     <string name="label_walk_speed">Walk speed (%1$s)</string>
     <string name="label_languages">Languages</string>
     <string name="label_level_short">lv.</string>
-    <string name="label_alignment">Alignment</string>
     <string name="label_saving_throw_proficiency">Saving throw proficiency</string>
     <string name="hint_ability">Min %1$d · Max %2$d · Initial score %3$s</string>
 

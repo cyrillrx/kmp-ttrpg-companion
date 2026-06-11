@@ -2,12 +2,13 @@
 
 <resources>
     <!-- Creature stats -->
-    <string name="label_armor_class">CA %1$d</string>
-    <string name="label_hit_points">%1$d PV</string>
+    <string name="label_ac">CA</string>
+    <string name="label_armor_class">Classe d'armure</string>
+    <string name="label_hit_points">Point de vie</string>
+    <string name="label_speed">Vitesse</string>
 
-    <string name="creature_ac">Classe d'armure</string>
-    <string name="creature_hp">Point de vie</string>
-    <string name="creature_speed">Vitesse</string>
+    <string name="value_armor_class">CA %1$d</string>
+    <string name="value_hit_points">%1$d PV</string>
 
     <!-- Speed types -->
     <string name="speed_label_fly">vol</string>
@@ -29,6 +30,7 @@
     <string name="creature_size_unknown">Inconnue</string>
 
     <!-- Creature alignment -->
+    <string name="label_alignment">Alignement</string>
     <string name="creature_alignment_lawful_good">Loyal bon</string>
     <string name="creature_alignment_neutral_good">Neutre bon</string>
     <string name="creature_alignment_chaotic_good">Chaotique bon</string>
@@ -49,6 +51,13 @@
     <string name="ability_label_int">Int</string>
     <string name="ability_label_wis">Sag</string>
     <string name="ability_label_cha">Cha</string>
+
+    <string name="ability_label_strength">Force</string>
+    <string name="ability_label_dexterity">Dextérité</string>
+    <string name="ability_label_constitution">Constitution</string>
+    <string name="ability_label_intelligence">Intelligence</string>
+    <string name="ability_label_wisdom">Sagesse</string>
+    <string name="ability_label_charisma">Charisme</string>
 
     <!-- Monster type -->
     <string name="monster_type_aberration">Aberration</string>

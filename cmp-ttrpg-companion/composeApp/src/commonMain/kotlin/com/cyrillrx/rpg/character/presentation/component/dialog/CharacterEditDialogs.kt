@@ -46,21 +46,22 @@ import rpg_companion.composeapp.generated.resources.btn_confirm
 import rpg_companion.composeapp.generated.resources.hint_leave_blank_to_remove
 import rpg_companion.composeapp.generated.resources.hint_short_description
 import rpg_companion.composeapp.generated.resources.label_alignment
-import rpg_companion.composeapp.generated.resources.label_armor_class
+import rpg_companion.composeapp.generated.resources.label_ac
 import rpg_companion.composeapp.generated.resources.label_background
-import rpg_companion.composeapp.generated.resources.label_charisma
+import rpg_companion.composeapp.generated.resources.ability_label_charisma
+import rpg_companion.composeapp.generated.resources.ability_label_constitution
+import rpg_companion.composeapp.generated.resources.ability_label_dexterity
+import rpg_companion.composeapp.generated.resources.ability_label_intelligence
 import rpg_companion.composeapp.generated.resources.label_class
-import rpg_companion.composeapp.generated.resources.label_constitution
-import rpg_companion.composeapp.generated.resources.label_dexterity
-import rpg_companion.composeapp.generated.resources.label_intelligence
 import rpg_companion.composeapp.generated.resources.label_languages
 import rpg_companion.composeapp.generated.resources.label_level
 import rpg_companion.composeapp.generated.resources.label_max_hp
 import rpg_companion.composeapp.generated.resources.label_race
 import rpg_companion.composeapp.generated.resources.label_short_description
-import rpg_companion.composeapp.generated.resources.label_strength
+import rpg_companion.composeapp.generated.resources.ability_label_strength
+import rpg_companion.composeapp.generated.resources.ability_label_wisdom
+import rpg_companion.composeapp.generated.resources.label_armor_class
 import rpg_companion.composeapp.generated.resources.label_walk_speed
-import rpg_companion.composeapp.generated.resources.label_wisdom
 import rpg_companion.composeapp.generated.resources.settings_unit_feet_abbr
 import rpg_companion.composeapp.generated.resources.settings_unit_meters_abbr
 
@@ -113,42 +114,42 @@ internal fun CharacterEditDialog(
         )
 
         EditingField.Strength -> AbilityEditDialog(
-            title = stringResource(Res.string.label_strength),
+            title = stringResource(Res.string.ability_label_strength),
             initialAbility = state.character.abilities.strength,
             onConfirm = onStrengthConfirmed,
             onDismiss = onDismiss,
         )
 
         EditingField.Dexterity -> AbilityEditDialog(
-            title = stringResource(Res.string.label_dexterity),
+            title = stringResource(Res.string.ability_label_dexterity),
             initialAbility = state.character.abilities.dexterity,
             onConfirm = onDexterityConfirmed,
             onDismiss = onDismiss,
         )
 
         EditingField.Constitution -> AbilityEditDialog(
-            title = stringResource(Res.string.label_constitution),
+            title = stringResource(Res.string.ability_label_constitution),
             initialAbility = state.character.abilities.constitution,
             onConfirm = onConstitutionConfirmed,
             onDismiss = onDismiss,
         )
 
         EditingField.Intelligence -> AbilityEditDialog(
-            title = stringResource(Res.string.label_intelligence),
+            title = stringResource(Res.string.ability_label_intelligence),
             initialAbility = state.character.abilities.intelligence,
             onConfirm = onIntelligenceConfirmed,
             onDismiss = onDismiss,
         )
 
         EditingField.Wisdom -> AbilityEditDialog(
-            title = stringResource(Res.string.label_wisdom),
+            title = stringResource(Res.string.ability_label_wisdom),
             initialAbility = state.character.abilities.wisdom,
             onConfirm = onWisdomConfirmed,
             onDismiss = onDismiss,
         )
 
         EditingField.Charisma -> AbilityEditDialog(
-            title = stringResource(Res.string.label_charisma),
+            title = stringResource(Res.string.ability_label_charisma),
             initialAbility = state.character.abilities.charisma,
             onConfirm = onCharismaConfirmed,
             onDismiss = onDismiss,
