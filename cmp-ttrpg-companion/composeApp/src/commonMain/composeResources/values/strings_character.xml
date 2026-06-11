@@ -39,6 +39,7 @@
     <string name="label_languages">Languages</string>
     <string name="label_level_short">lv.</string>
     <string name="label_alignment">Alignment</string>
+    <string name="label_saving_throw_proficiency">Saving throw proficiency</string>
 
     <!-- Character race -->
     <string name="race_human">Human</string>

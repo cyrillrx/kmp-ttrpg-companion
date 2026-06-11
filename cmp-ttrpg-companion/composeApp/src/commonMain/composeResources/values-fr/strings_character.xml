@@ -39,6 +39,7 @@
     <string name="label_languages">Langues</string>
     <string name="label_level_short">niv.</string>
     <string name="label_alignment">Alignement</string>
+    <string name="label_saving_throw_proficiency">Maîtrise de sauvegarde</string>
 
     <!-- Character race -->
     <string name="race_human">Humain</string>
