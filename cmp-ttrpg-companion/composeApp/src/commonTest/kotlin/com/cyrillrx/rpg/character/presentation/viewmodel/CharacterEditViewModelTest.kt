@@ -58,6 +58,16 @@ class CharacterEditViewModelTest {
         repo: CharacterRepository,
     ) = CharacterEditViewModel(characterId, repo)
 
+    private class SaveCountingRepository(private val delegate: CharacterRepository) : CharacterRepository by delegate {
+        var saveCount = 0
+            private set
+
+        override suspend fun save(character: Character) {
+            saveCount++
+            delegate.save(character)
+        }
+    }
+
     // ─── Init ──────────────────────────────────────────────────────────────────
 
     @Test
@@ -172,6 +182,18 @@ class CharacterEditViewModelTest {
         val strength = assertIs<CharacterEditState.Loaded>(viewModel.state.value).character.abilities.strength
         assertEquals(16, strength.value)
         assertEquals(Proficiency.PROFICIENT, strength.savingThrowProficiency)
+    }
+
+    @Test
+    fun `saveStrength with unchanged ability closes dialog without persisting`() = runTest(testDispatcher) {
+        val repo = SaveCountingRepository(repoWithFighter())
+        val viewModel = buildViewModel(repo = repo)
+        advanceUntilIdle()
+        viewModel.editField(EditingField.Strength)
+        viewModel.saveStrength(fighter.abilities.strength)
+        advanceUntilIdle()
+        assertEquals(0, repo.saveCount)
+        assertNull(assertIs<CharacterEditState.Loaded>(viewModel.state.value).editingField)
     }
 
     @Test

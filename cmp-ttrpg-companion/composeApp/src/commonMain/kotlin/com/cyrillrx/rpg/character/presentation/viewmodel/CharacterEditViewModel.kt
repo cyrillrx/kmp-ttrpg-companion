@@ -147,14 +147,16 @@ class CharacterEditViewModel(
         getAbility: Abilities.() -> Ability,
         update: Abilities.(Ability) -> Abilities,
     ) {
-        updateAndSave(ability.value, Int::coerceToValidAbilityScore) { coerced ->
-            val former = character.abilities.getAbility()
-            val coercedAbility = ability.copy(value = coerced)
-            if (former == coercedAbility) {
-                copy(editingField = null)
-            } else {
-                copy(character = character.copy(abilities = character.abilities.update(coercedAbility)), editingField = null)
-            }
+        val coerced = ability.value.coerceToValidAbilityScore()
+        if (coerced != ability.value) coercedValueEvent.tryEmit(CoercedValue.Numeric(ability.value, coerced))
+        val coercedAbility = ability.copy(value = coerced)
+        val loaded = state.value as? Loaded ?: return
+        if (loaded.character.abilities.getAbility() == coercedAbility) {
+            cancelEditing()
+            return
+        }
+        updateAndSave {
+            copy(character = character.copy(abilities = character.abilities.update(coercedAbility)), editingField = null)
         }
     }
 
