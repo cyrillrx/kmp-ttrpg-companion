@@ -21,16 +21,19 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.withStyle
 import com.cyrillrx.rpg.character.domain.MAX_ABILITY_SCORE
 import com.cyrillrx.rpg.character.domain.MIN_ABILITY_SCORE
 import com.cyrillrx.rpg.core.domain.toSignedString
+import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.creature.domain.Proficiency
 import org.jetbrains.compose.resources.stringResource
+import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.hint_ability
 import rpg_companion.composeapp.generated.resources.label_saving_throw_proficiency
@@ -94,7 +97,7 @@ internal fun AbilityEditDialog(
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .clickable { proficiency = proficiency.next() }
+                    .clickable(role = Role.Button) { proficiency = proficiency.next() }
                     .padding(vertical = spacingMedium),
             ) {
                 Icon(imageVector = icon, contentDescription = null, tint = tint)
@@ -112,3 +115,28 @@ internal fun AbilityEditDialog(
     }
 }
 
+@Preview
+@Composable
+private fun PreviewAbilityEditDialogLight() {
+    AppThemePreview(darkTheme = false) {
+        AbilityEditDialog(
+            title = "Strength",
+            initialAbility = Ability(16, Proficiency.PROFICIENT),
+            onConfirm = {},
+            onDismiss = {},
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewAbilityEditDialogDark() {
+    AppThemePreview(darkTheme = true) {
+        AbilityEditDialog(
+            title = "Strength",
+            initialAbility = Ability(16, Proficiency.PROFICIENT),
+            onConfirm = {},
+            onDismiss = {},
+        )
+    }
+}
