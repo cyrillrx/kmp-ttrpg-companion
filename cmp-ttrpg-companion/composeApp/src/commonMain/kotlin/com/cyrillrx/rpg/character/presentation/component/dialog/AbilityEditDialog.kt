@@ -7,9 +7,13 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.CheckBox
+import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.outlined.CheckBoxOutlineBlank
 import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.Checkbox
 import androidx.compose.material3.FilledTonalIconButton
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -21,8 +25,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.text.withStyle
 import com.cyrillrx.rpg.character.domain.MAX_ABILITY_SCORE
 import com.cyrillrx.rpg.character.domain.MIN_ABILITY_SCORE
 import com.cyrillrx.rpg.core.domain.toSignedString
@@ -36,6 +42,9 @@ import rpg_companion.composeapp.generated.resources.btn_cancel
 import rpg_companion.composeapp.generated.resources.btn_confirm
 import rpg_companion.composeapp.generated.resources.hint_ability
 import rpg_companion.composeapp.generated.resources.label_saving_throw_proficiency
+import rpg_companion.composeapp.generated.resources.proficiency_expert
+import rpg_companion.composeapp.generated.resources.proficiency_none
+import rpg_companion.composeapp.generated.resources.proficiency_proficient
 
 @Composable
 internal fun AbilityEditDialog(
@@ -104,19 +113,32 @@ internal fun AbilityEditDialog(
                         Text("+", style = MaterialTheme.typography.headlineMedium)
                     }
                 }
+                val (icon, tint) = when (proficiency) {
+                    Proficiency.NONE -> Icons.Outlined.CheckBoxOutlineBlank to MaterialTheme.colorScheme.onSurfaceVariant
+                    Proficiency.PROFICIENT -> Icons.Filled.CheckBox to MaterialTheme.colorScheme.primary
+                    Proficiency.EXPERT -> Icons.Filled.Star to MaterialTheme.colorScheme.tertiary
+                }
+                val stateLabel = stringResource(
+                    when (proficiency) {
+                        Proficiency.NONE -> Res.string.proficiency_none
+                        Proficiency.PROFICIENT -> Res.string.proficiency_proficient
+                        Proficiency.EXPERT -> Res.string.proficiency_expert
+                    },
+                )
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .clickable {
-                            proficiency =
-                                if (proficiency == Proficiency.NONE) Proficiency.PROFICIENT else Proficiency.NONE
-                        }
+                        .clickable { proficiency = proficiency.next() }
                         .padding(vertical = spacingMedium),
                 ) {
-                    Checkbox(checked = proficiency != Proficiency.NONE, onCheckedChange = null)
+                    Icon(imageVector = icon, contentDescription = null, tint = tint)
                     Text(
-                        text = stringResource(Res.string.label_saving_throw_proficiency),
+                        text = buildAnnotatedString {
+                            append(stringResource(Res.string.label_saving_throw_proficiency))
+                            append(": ")
+                            withStyle(SpanStyle(color = tint)) { append(stateLabel) }
+                        },
                         style = MaterialTheme.typography.bodyMedium,
                         modifier = Modifier.padding(start = spacingMedium),
                     )
@@ -136,4 +158,10 @@ internal fun AbilityEditDialog(
             }
         },
     )
+}
+
+private fun Proficiency.next(): Proficiency = when (this) {
+    Proficiency.NONE -> Proficiency.PROFICIENT
+    Proficiency.PROFICIENT -> Proficiency.EXPERT
+    Proficiency.EXPERT -> Proficiency.NONE
 }

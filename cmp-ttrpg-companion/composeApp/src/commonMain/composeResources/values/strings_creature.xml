@@ -59,6 +59,11 @@
     <string name="ability_label_wisdom">Wisdom</string>
     <string name="ability_label_charisma">Charisma</string>
 
+    <!-- Creature proficiency -->
+    <string name="proficiency_none">None</string>
+    <string name="proficiency_proficient">Proficient</string>
+    <string name="proficiency_expert">Expert</string>
+
     <!-- Monster type -->
     <string name="monster_type_aberration">Aberration</string>
     <string name="monster_type_beast">Beast</string>
