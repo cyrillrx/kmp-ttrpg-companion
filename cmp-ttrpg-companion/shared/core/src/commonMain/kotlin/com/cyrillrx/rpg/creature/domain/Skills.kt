@@ -2,19 +2,6 @@ package com.cyrillrx.rpg.creature.domain
 
 import kotlinx.serialization.Serializable
 
-enum class Proficiency {
-    NONE,
-    PROFICIENT,
-    EXPERT,
-    ;
-
-    fun next(): Proficiency = when (this) {
-        NONE -> PROFICIENT
-        PROFICIENT -> EXPERT
-        EXPERT -> NONE
-    }
-}
-
 @Serializable
 data class Skills(
     val acrobatics: Proficiency = Proficiency.NONE,
