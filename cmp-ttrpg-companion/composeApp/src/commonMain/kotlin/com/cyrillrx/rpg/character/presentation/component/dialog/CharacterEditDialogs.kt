@@ -240,7 +240,7 @@ private fun ShortDescriptionEditDialog(
     onDismiss: () -> Unit,
 ) {
     var text by remember(initialValue) { mutableStateOf(initialValue) }
-    Dialog(
+    EditDialog(
         title = stringResource(Res.string.label_short_description),
         subtitle = stringResource(Res.string.hint_leave_blank_to_remove),
         onDismiss = onDismiss,
@@ -270,7 +270,7 @@ private fun NumberStepperDialog(
     onDismiss: () -> Unit,
 ) {
     var value by remember(initialValue) { mutableIntStateOf(initialValue.coerceIn(minValue, maxValue)) }
-    Dialog(
+    EditDialog(
         title = title,
         onDismiss = onDismiss,
         onConfirm = { onConfirm(value) },
@@ -294,7 +294,7 @@ private fun NumberEditDialog(
 ) {
     var text by remember(initialValue) { mutableStateOf(initialValue.toString()) }
     val parsedValue = text.trim().toIntOrNull()
-    Dialog(
+    EditDialog(
         title = title,
         onDismiss = onDismiss,
         onConfirm = { parsedValue?.let(onConfirm) },
@@ -323,7 +323,7 @@ private fun FloatEditDialog(
     val initialText = if (initialValue % 1 == 0f) initialValue.toInt().toString() else initialValue.toString()
     var text by remember(initialValue) { mutableStateOf(initialText) }
     val parsedValue = text.trim().toFloatOrNull()
-    Dialog(
+    EditDialog(
         title = title,
         onDismiss = onDismiss,
         onConfirm = { parsedValue?.let(onConfirm) },
@@ -349,7 +349,7 @@ private fun LanguageSelectDialog(
     onDismiss: () -> Unit,
 ) {
     var selected by remember { mutableStateOf(current.toSet()) }
-    Dialog(
+    EditDialog(
         title = stringResource(Res.string.label_languages),
         onDismiss = onDismiss,
         onConfirm = { onConfirm(selected.toList()) },

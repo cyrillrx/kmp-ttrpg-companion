@@ -53,7 +53,7 @@ internal fun AbilityEditDialog(
     }
     var proficiency by remember(initialAbility) { mutableStateOf(initialAbility.savingThrowProficiency) }
 
-    Dialog(
+    EditDialog(
         title = title,
         subtitle = stringResource(
             Res.string.hint_ability,

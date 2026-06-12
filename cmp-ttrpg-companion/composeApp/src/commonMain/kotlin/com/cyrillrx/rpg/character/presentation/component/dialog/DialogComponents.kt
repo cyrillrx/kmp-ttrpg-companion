@@ -30,7 +30,7 @@ import rpg_companion.composeapp.generated.resources.btn_cancel
 import rpg_companion.composeapp.generated.resources.btn_confirm
 
 @Composable
-internal fun Dialog(
+internal fun EditDialog(
     title: String,
     subtitle: String? = null,
     onDismiss: () -> Unit,

@@ -29,7 +29,7 @@ internal fun <T : Any> SingleChoiceDialog(
     onConfirm: (T?) -> Unit,
     onDismiss: () -> Unit,
 ) {
-    Dialog(
+    EditDialog(
         title = title,
         onDismiss = onDismiss,
     ) {
