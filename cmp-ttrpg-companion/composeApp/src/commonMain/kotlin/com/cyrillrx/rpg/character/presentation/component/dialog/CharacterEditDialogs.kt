@@ -261,35 +261,6 @@ private fun ShortDescriptionEditDialog(
 }
 
 @Composable
-private fun TextEditDialog(
-    title: String,
-    initialValue: String,
-    onConfirm: (String) -> Unit,
-    onDismiss: () -> Unit,
-    singleLine: Boolean = true,
-    isValid: (String) -> Boolean = { true },
-) {
-    var text by remember(initialValue) { mutableStateOf(initialValue) }
-    val inputIsValid = remember(text) { isValid(text) }
-    Dialog(
-        title = title,
-        onDismiss = onDismiss,
-        onConfirm = { onConfirm(text) },
-        confirmEnabled = inputIsValid,
-    ) {
-        TextField(
-            value = text,
-            onValueChange = { text = it },
-            singleLine = singleLine,
-            colors = TextFieldDefaults.colors(
-                focusedContainerColor = MaterialTheme.colorScheme.surface,
-                unfocusedContainerColor = MaterialTheme.colorScheme.surface,
-            ),
-        )
-    }
-}
-
-@Composable
 private fun NumberStepperDialog(
     title: String,
     initialValue: Int,
