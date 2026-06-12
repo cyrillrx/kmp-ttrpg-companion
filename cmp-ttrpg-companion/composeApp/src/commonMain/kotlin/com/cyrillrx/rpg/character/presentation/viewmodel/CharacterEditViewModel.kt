@@ -105,6 +105,8 @@ class CharacterEditViewModel(
     }
 
     fun saveWalkSpeed(value: Int) {
+        if (state.value !is Loaded) return
+
         val coerced = value.coerceToValidWalkSpeedInFeet()
         if (coerced != value) coercedValueEvent.tryEmit(CoercedValue.Distance(value, coerced))
         updateAndSave {
@@ -138,6 +140,7 @@ class CharacterEditViewModel(
 
     private fun saveAbility(ability: Ability, update: Abilities.(Ability) -> Abilities) {
         if (state.value !is Loaded) return
+
         val coerced = ability.value.coerceToValidAbilityScore()
         if (coerced != ability.value) coercedValueEvent.tryEmit(CoercedValue.Numeric(ability.value, coerced))
         val coercedAbility = ability.copy(value = coerced)
@@ -151,6 +154,8 @@ class CharacterEditViewModel(
     }
 
     private fun updateAndSave(candidate: Int, coerce: (Int) -> Int, applyEdit: Loaded.(Int) -> Loaded) {
+        if (state.value !is Loaded) return
+
         val coerced = coerce(candidate)
         if (coerced != candidate) coercedValueEvent.tryEmit(CoercedValue.Numeric(candidate, coerced))
         updateAndSave { applyEdit(coerced) }
@@ -158,6 +163,7 @@ class CharacterEditViewModel(
 
     private fun updateAndSave(applyEdit: Loaded.() -> Loaded) {
         val characterBeforeEdit = (state.value as? Loaded)?.character ?: return
+
         updateEditState(applyEdit)
         viewModelScope.launch {
             val loaded = state.value as? Loaded ?: return@launch
