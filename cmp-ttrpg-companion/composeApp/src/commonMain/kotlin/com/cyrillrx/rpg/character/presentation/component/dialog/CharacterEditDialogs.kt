@@ -15,6 +15,7 @@ import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -25,6 +26,10 @@ import androidx.compose.ui.text.input.KeyboardType
 import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.Language
+import com.cyrillrx.rpg.character.domain.MAX_ARMOR_CLASS
+import com.cyrillrx.rpg.character.domain.MAX_CHARACTER_LEVEL
+import com.cyrillrx.rpg.character.domain.MIN_ARMOR_CLASS
+import com.cyrillrx.rpg.character.domain.MIN_CHARACTER_LEVEL
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
@@ -101,9 +106,11 @@ internal fun CharacterEditDialog(
             onDismiss = onDismiss,
         )
 
-        EditingField.Level -> NumberEditDialog(
+        EditingField.Level -> NumberStepperDialog(
             title = stringResource(Res.string.label_level),
             initialValue = state.character.level,
+            minValue = MIN_CHARACTER_LEVEL,
+            maxValue = MAX_CHARACTER_LEVEL,
             onConfirm = onLevelConfirmed,
             onDismiss = onDismiss,
         )
@@ -150,9 +157,11 @@ internal fun CharacterEditDialog(
             onDismiss = onDismiss,
         )
 
-        EditingField.ArmorClass -> NumberEditDialog(
+        EditingField.ArmorClass -> NumberStepperDialog(
             title = stringResource(Res.string.label_armor_class),
             initialValue = state.character.armorClass,
+            minValue = MIN_ARMOR_CLASS,
+            maxValue = MAX_ARMOR_CLASS,
             onConfirm = onArmorClassConfirmed,
             onDismiss = onDismiss,
         )
@@ -276,6 +285,33 @@ private fun TextEditDialog(
                 focusedContainerColor = MaterialTheme.colorScheme.surface,
                 unfocusedContainerColor = MaterialTheme.colorScheme.surface,
             ),
+        )
+    }
+}
+
+@Composable
+private fun NumberStepperDialog(
+    title: String,
+    initialValue: Int,
+    minValue: Int,
+    maxValue: Int,
+    onConfirm: (Int) -> Unit,
+    onDismiss: () -> Unit,
+    step: Int = 1,
+    valueLabel: (Int) -> String = Int::toString,
+) {
+    var value by remember(initialValue) { mutableIntStateOf(initialValue.coerceIn(minValue, maxValue)) }
+    Dialog(
+        title = title,
+        onDismiss = onDismiss,
+        onConfirm = { onConfirm(value) },
+    ) {
+        DecrementIncrementRow(
+            value = value,
+            minValue = minValue,
+            maxValue = maxValue,
+            onDecrement = { value -= step },
+            onIncrement = { value += step },
         )
     }
 }
