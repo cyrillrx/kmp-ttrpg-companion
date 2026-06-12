@@ -4,7 +4,7 @@
     <!-- Creature stats -->
     <string name="label_ac">CA</string>
     <string name="label_armor_class">Classe d'armure</string>
-    <string name="label_hit_points">Point de vie</string>
+    <string name="label_hit_points">Points de vie</string>
     <string name="label_speed">Vitesse</string>
 
     <string name="value_armor_class">CA %1$d</string>
