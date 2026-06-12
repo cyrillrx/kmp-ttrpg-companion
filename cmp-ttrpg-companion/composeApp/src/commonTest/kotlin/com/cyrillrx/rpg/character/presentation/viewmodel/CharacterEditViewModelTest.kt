@@ -165,6 +165,30 @@ class CharacterEditViewModelTest {
     }
 
     @Test
+    fun `saveLevel with unchanged value closes dialog without persisting`() = runTest(testDispatcher) {
+        val repo = SaveCountingRepository(repoWithFighter())
+        val viewModel = buildViewModel(repo = repo)
+        advanceUntilIdle()
+        viewModel.editField(EditingField.Level)
+        viewModel.saveLevel(fighter.level)
+        advanceUntilIdle()
+        assertEquals(0, repo.saveCount)
+        assertNull(assertIs<CharacterEditState.Loaded>(viewModel.state.value).editingField)
+    }
+
+    @Test
+    fun `saveArmorClass with unchanged value closes dialog without persisting`() = runTest(testDispatcher) {
+        val repo = SaveCountingRepository(repoWithFighter())
+        val viewModel = buildViewModel(repo = repo)
+        advanceUntilIdle()
+        viewModel.editField(EditingField.ArmorClass)
+        viewModel.saveArmorClass(fighter.armorClass)
+        advanceUntilIdle()
+        assertEquals(0, repo.saveCount)
+        assertNull(assertIs<CharacterEditState.Loaded>(viewModel.state.value).editingField)
+    }
+
+    @Test
     fun `saveStrength coerces to range 1-30`() = runTest(testDispatcher) {
         val viewModel = buildViewModel(repo = repoWithFighter())
         advanceUntilIdle()

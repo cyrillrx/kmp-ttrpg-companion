@@ -84,23 +84,17 @@ class CharacterEditViewModel(
         updateAndSave { copy(character = character.copy(background = background), editingField = null) }
     }
 
-    fun saveStrength(ability: Ability) =
-        saveAbility(ability, Abilities::strength) { updated -> copy(strength = updated) }
+    fun saveStrength(ability: Ability) = saveAbility(ability) { updated -> copy(strength = updated) }
 
-    fun saveDexterity(ability: Ability) =
-        saveAbility(ability, Abilities::dexterity) { updated -> copy(dexterity = updated) }
+    fun saveDexterity(ability: Ability) = saveAbility(ability) { updated -> copy(dexterity = updated) }
 
-    fun saveConstitution(ability: Ability) =
-        saveAbility(ability, Abilities::constitution) { updated -> copy(constitution = updated) }
+    fun saveConstitution(ability: Ability) = saveAbility(ability) { updated -> copy(constitution = updated) }
 
-    fun saveIntelligence(ability: Ability) =
-        saveAbility(ability, Abilities::intelligence) { updated -> copy(intelligence = updated) }
+    fun saveIntelligence(ability: Ability) = saveAbility(ability) { updated -> copy(intelligence = updated) }
 
-    fun saveWisdom(ability: Ability) =
-        saveAbility(ability, Abilities::wisdom) { updated -> copy(wisdom = updated) }
+    fun saveWisdom(ability: Ability) = saveAbility(ability) { updated -> copy(wisdom = updated) }
 
-    fun saveCharisma(ability: Ability) =
-        saveAbility(ability, Abilities::charisma) { updated -> copy(charisma = updated) }
+    fun saveCharisma(ability: Ability) = saveAbility(ability) { updated -> copy(charisma = updated) }
 
     fun saveArmorClass(value: Int) = updateAndSave(value, Int::coerceToValidArmorClass) { coerced ->
         copy(character = character.copy(armorClass = coerced), editingField = null)
@@ -142,19 +136,11 @@ class CharacterEditViewModel(
         updateAndSave { copy(character = character.copy(alignment = alignment), editingField = null) }
     }
 
-    private fun saveAbility(
-        ability: Ability,
-        getAbility: Abilities.() -> Ability,
-        update: Abilities.(Ability) -> Abilities,
-    ) {
-        val loaded = state.value as? Loaded ?: return
+    private fun saveAbility(ability: Ability, update: Abilities.(Ability) -> Abilities) {
+        if (state.value !is Loaded) return
         val coerced = ability.value.coerceToValidAbilityScore()
         if (coerced != ability.value) coercedValueEvent.tryEmit(CoercedValue.Numeric(ability.value, coerced))
         val coercedAbility = ability.copy(value = coerced)
-        if (loaded.character.abilities.getAbility() == coercedAbility) {
-            cancelEditing()
-            return
-        }
         updateAndSave {
             copy(character = character.copy(abilities = character.abilities.update(coercedAbility)), editingField = null)
         }
@@ -171,9 +157,11 @@ class CharacterEditViewModel(
     }
 
     private fun updateAndSave(applyEdit: Loaded.() -> Loaded) {
+        val characterBeforeEdit = (state.value as? Loaded)?.character ?: return
         updateEditState(applyEdit)
         viewModelScope.launch {
             val loaded = state.value as? Loaded ?: return@launch
+            if (loaded.character == characterBeforeEdit) return@launch
             characterRepository.save(loaded.character)
         }
     }
