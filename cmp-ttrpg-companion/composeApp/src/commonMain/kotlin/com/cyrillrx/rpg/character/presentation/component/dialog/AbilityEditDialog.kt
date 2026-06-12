@@ -77,7 +77,7 @@ internal fun AbilityEditDialog(
                 onIncrement = { value++ },
             )
             Text(
-                text = Ability(value).getModifier().toSignedString(),
+                text = Ability.computeModifier(value).toSignedString(),
                 style = MaterialTheme.typography.titleMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )

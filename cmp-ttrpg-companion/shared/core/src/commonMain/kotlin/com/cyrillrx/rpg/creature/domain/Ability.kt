@@ -15,7 +15,7 @@ data class Ability(
     companion object {
         const val DEFAULT_VALUE = 10
 
-        private fun computeModifier(abilityValue: Int): Int = when {
+        fun computeModifier(abilityValue: Int): Int = when {
             abilityValue < 4 -> -4
             abilityValue < 6 -> -3
             abilityValue < 8 -> -2
