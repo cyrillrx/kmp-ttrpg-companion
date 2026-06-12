@@ -8,11 +8,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
@@ -47,8 +45,6 @@ import rpg_companion.composeapp.generated.resources.ability_label_intelligence
 import rpg_companion.composeapp.generated.resources.ability_label_strength
 import rpg_companion.composeapp.generated.resources.ability_label_wisdom
 import rpg_companion.composeapp.generated.resources.background_none
-import rpg_companion.composeapp.generated.resources.btn_cancel
-import rpg_companion.composeapp.generated.resources.btn_confirm
 import rpg_companion.composeapp.generated.resources.hint_leave_blank_to_remove
 import rpg_companion.composeapp.generated.resources.hint_short_description
 import rpg_companion.composeapp.generated.resources.label_alignment
@@ -235,42 +231,24 @@ private fun ShortDescriptionEditDialog(
     onDismiss: () -> Unit,
 ) {
     var text by remember(initialValue) { mutableStateOf(initialValue) }
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = {
-            Column {
-                Text(stringResource(Res.string.label_short_description))
-                Text(
-                    text = stringResource(Res.string.hint_leave_blank_to_remove),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
-        },
-        text = {
-            TextField(
-                value = text,
-                onValueChange = { text = it },
-                singleLine = true,
-                placeholder = { Text(stringResource(Res.string.hint_short_description)) },
-                textStyle = MaterialTheme.typography.bodyMedium.copy(fontStyle = FontStyle.Italic),
-                colors = TextFieldDefaults.colors(
-                    focusedContainerColor = MaterialTheme.colorScheme.surface,
-                    unfocusedContainerColor = MaterialTheme.colorScheme.surface,
-                ),
-            )
-        },
-        confirmButton = {
-            TextButton(onClick = { onConfirm(text) }) {
-                Text(stringResource(Res.string.btn_confirm))
-            }
-        },
-        dismissButton = {
-            TextButton(onClick = onDismiss) {
-                Text(stringResource(Res.string.btn_cancel))
-            }
-        },
-    )
+    Dialog(
+        title = stringResource(Res.string.label_short_description),
+        subtitle = stringResource(Res.string.hint_leave_blank_to_remove),
+        onDismiss = onDismiss,
+        onConfirm = { onConfirm(text) },
+    ) {
+        TextField(
+            value = text,
+            onValueChange = { text = it },
+            singleLine = true,
+            placeholder = { Text(stringResource(Res.string.hint_short_description)) },
+            textStyle = MaterialTheme.typography.bodyMedium.copy(fontStyle = FontStyle.Italic),
+            colors = TextFieldDefaults.colors(
+                focusedContainerColor = MaterialTheme.colorScheme.surface,
+                unfocusedContainerColor = MaterialTheme.colorScheme.surface,
+            ),
+        )
+    }
 }
 
 @Composable
@@ -283,35 +261,23 @@ private fun TextEditDialog(
     isValid: (String) -> Boolean = { true },
 ) {
     var text by remember(initialValue) { mutableStateOf(initialValue) }
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = { Text(title) },
-        text = {
-            TextField(
-                value = text,
-                onValueChange = { text = it },
-                singleLine = singleLine,
-                colors = TextFieldDefaults.colors(
-                    focusedContainerColor = MaterialTheme.colorScheme.surface,
-                    unfocusedContainerColor = MaterialTheme.colorScheme.surface,
-                ),
-            )
-        },
-        confirmButton = {
-            val inputIsValid = remember(text) { isValid(text) }
-            TextButton(
-                onClick = { onConfirm(text) },
-                enabled = inputIsValid,
-            ) {
-                Text(stringResource(Res.string.btn_confirm))
-            }
-        },
-        dismissButton = {
-            TextButton(onClick = onDismiss) {
-                Text(stringResource(Res.string.btn_cancel))
-            }
-        },
-    )
+    val inputIsValid = remember(text) { isValid(text) }
+    Dialog(
+        title = title,
+        onDismiss = onDismiss,
+        onConfirm = { onConfirm(text) },
+        confirmEnabled = inputIsValid,
+    ) {
+        TextField(
+            value = text,
+            onValueChange = { text = it },
+            singleLine = singleLine,
+            colors = TextFieldDefaults.colors(
+                focusedContainerColor = MaterialTheme.colorScheme.surface,
+                unfocusedContainerColor = MaterialTheme.colorScheme.surface,
+            ),
+        )
+    }
 }
 
 @Composable
@@ -323,35 +289,23 @@ private fun NumberEditDialog(
 ) {
     var text by remember(initialValue) { mutableStateOf(initialValue.toString()) }
     val parsedValue = text.trim().toIntOrNull()
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = { Text(title) },
-        text = {
-            TextField(
-                value = text,
-                onValueChange = { text = it },
-                singleLine = true,
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                colors = TextFieldDefaults.colors(
-                    focusedContainerColor = MaterialTheme.colorScheme.surface,
-                    unfocusedContainerColor = MaterialTheme.colorScheme.surface,
-                ),
-            )
-        },
-        confirmButton = {
-            TextButton(
-                onClick = { parsedValue?.let(onConfirm) },
-                enabled = parsedValue != null,
-            ) {
-                Text(stringResource(Res.string.btn_confirm))
-            }
-        },
-        dismissButton = {
-            TextButton(onClick = onDismiss) {
-                Text(stringResource(Res.string.btn_cancel))
-            }
-        },
-    )
+    Dialog(
+        title = title,
+        onDismiss = onDismiss,
+        onConfirm = { parsedValue?.let(onConfirm) },
+        confirmEnabled = parsedValue != null,
+    ) {
+        TextField(
+            value = text,
+            onValueChange = { text = it },
+            singleLine = true,
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+            colors = TextFieldDefaults.colors(
+                focusedContainerColor = MaterialTheme.colorScheme.surface,
+                unfocusedContainerColor = MaterialTheme.colorScheme.surface,
+            ),
+        )
+    }
 }
 
 @Composable
@@ -364,35 +318,23 @@ private fun FloatEditDialog(
     val initialText = if (initialValue % 1 == 0f) initialValue.toInt().toString() else initialValue.toString()
     var text by remember(initialValue) { mutableStateOf(initialText) }
     val parsedValue = text.trim().toFloatOrNull()
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = { Text(title) },
-        text = {
-            TextField(
-                value = text,
-                onValueChange = { text = it },
-                singleLine = true,
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
-                colors = TextFieldDefaults.colors(
-                    focusedContainerColor = MaterialTheme.colorScheme.surface,
-                    unfocusedContainerColor = MaterialTheme.colorScheme.surface,
-                ),
-            )
-        },
-        confirmButton = {
-            TextButton(
-                onClick = { parsedValue?.let(onConfirm) },
-                enabled = parsedValue != null,
-            ) {
-                Text(stringResource(Res.string.btn_confirm))
-            }
-        },
-        dismissButton = {
-            TextButton(onClick = onDismiss) {
-                Text(stringResource(Res.string.btn_cancel))
-            }
-        },
-    )
+    Dialog(
+        title = title,
+        onDismiss = onDismiss,
+        onConfirm = { parsedValue?.let(onConfirm) },
+        confirmEnabled = parsedValue != null,
+    ) {
+        TextField(
+            value = text,
+            onValueChange = { text = it },
+            singleLine = true,
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
+            colors = TextFieldDefaults.colors(
+                focusedContainerColor = MaterialTheme.colorScheme.surface,
+                unfocusedContainerColor = MaterialTheme.colorScheme.surface,
+            ),
+        )
+    }
 }
 
 @Composable
@@ -402,42 +344,32 @@ private fun LanguageSelectDialog(
     onDismiss: () -> Unit,
 ) {
     var selected by remember { mutableStateOf(current.toSet()) }
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = { Text(stringResource(Res.string.label_languages)) },
-        text = {
-            Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
-                Language.entries.forEach { language ->
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clickable {
-                                selected = if (language in selected) selected - language else selected + language
-                            }
-                            .padding(vertical = spacingCommon),
-                    ) {
-                        Checkbox(
-                            checked = language in selected,
-                            onCheckedChange = null,
-                        )
-                        Text(
-                            text = language.toFormattedString(),
-                            style = MaterialTheme.typography.bodyMedium,
-                        )
-                    }
+    Dialog(
+        title = stringResource(Res.string.label_languages),
+        onDismiss = onDismiss,
+        onConfirm = { onConfirm(selected.toList()) },
+    ) {
+        Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
+            Language.entries.forEach { language ->
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable {
+                            selected = if (language in selected) selected - language else selected + language
+                        }
+                        .padding(vertical = spacingCommon),
+                ) {
+                    Checkbox(
+                        checked = language in selected,
+                        onCheckedChange = null,
+                    )
+                    Text(
+                        text = language.toFormattedString(),
+                        style = MaterialTheme.typography.bodyMedium,
+                    )
                 }
             }
-        },
-        confirmButton = {
-            TextButton(onClick = { onConfirm(selected.toList()) }) {
-                Text(stringResource(Res.string.btn_confirm))
-            }
-        },
-        dismissButton = {
-            TextButton(onClick = onDismiss) {
-                Text(stringResource(Res.string.btn_cancel))
-            }
-        },
-    )
+        }
+    }
 }
