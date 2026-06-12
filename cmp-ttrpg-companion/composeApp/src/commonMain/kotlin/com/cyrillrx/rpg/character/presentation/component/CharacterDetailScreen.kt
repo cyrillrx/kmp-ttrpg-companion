@@ -52,6 +52,7 @@ import rpg_companion.composeapp.generated.resources.info_value_coerced
 import rpg_companion.composeapp.generated.resources.label_abilities
 import rpg_companion.composeapp.generated.resources.label_combat
 import rpg_companion.composeapp.generated.resources.label_languages
+import rpg_companion.composeapp.generated.resources.label_saving_throws
 
 @Composable
 fun CharacterDetailScreen(
@@ -187,6 +188,13 @@ fun CharacterDetailScreen(
                 onIntelligenceTapped = { onFieldTapped(EditingField.Intelligence) },
                 onWisdomTapped = { onFieldTapped(EditingField.Wisdom) },
                 onCharismaTapped = { onFieldTapped(EditingField.Charisma) },
+            )
+
+            SheetDivider(stringResource(Res.string.label_saving_throws))
+
+            SavingThrowsSection(
+                abilities = state.character.abilities,
+                proficiencyBonus = state.character.proficiencyBonus(),
             )
 
             SheetDivider(stringResource(Res.string.label_combat))

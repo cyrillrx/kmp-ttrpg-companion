@@ -30,16 +30,17 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.Ability
+import com.cyrillrx.rpg.creature.domain.Proficiency
 import com.cyrillrx.rpg.settings.domain.DistanceUnit
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.label_ac
 import rpg_companion.composeapp.generated.resources.ability_label_cha
 import rpg_companion.composeapp.generated.resources.ability_label_con
 import rpg_companion.composeapp.generated.resources.ability_label_dex
 import rpg_companion.composeapp.generated.resources.ability_label_int
 import rpg_companion.composeapp.generated.resources.ability_label_str
 import rpg_companion.composeapp.generated.resources.ability_label_wis
+import rpg_companion.composeapp.generated.resources.label_ac
 import rpg_companion.composeapp.generated.resources.label_initiative
 import rpg_companion.composeapp.generated.resources.label_languages
 import rpg_companion.composeapp.generated.resources.label_max_hp
@@ -157,6 +158,96 @@ private fun AbilityCard(
                 text = modifierText,
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.primary,
+            )
+        }
+    }
+}
+
+@Composable
+internal fun SavingThrowsSection(
+    abilities: Abilities,
+    proficiencyBonus: Int,
+) {
+    Column(verticalArrangement = Arrangement.spacedBy(spacingMedium)) {
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(spacingMedium),
+            modifier = Modifier.fillMaxWidth(),
+        ) {
+            SavingThrowCard(
+                ability = abilities.strength,
+                label = stringResource(Res.string.ability_label_str),
+                proficiencyBonus = proficiencyBonus,
+                modifier = Modifier.weight(1f),
+            )
+            SavingThrowCard(
+                ability = abilities.dexterity,
+                label = stringResource(Res.string.ability_label_dex),
+                proficiencyBonus = proficiencyBonus,
+                modifier = Modifier.weight(1f),
+            )
+            SavingThrowCard(
+                ability = abilities.constitution,
+                label = stringResource(Res.string.ability_label_con),
+                proficiencyBonus = proficiencyBonus,
+                modifier = Modifier.weight(1f),
+            )
+        }
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(spacingMedium),
+            modifier = Modifier.fillMaxWidth(),
+        ) {
+            SavingThrowCard(
+                ability = abilities.intelligence,
+                label = stringResource(Res.string.ability_label_int),
+                proficiencyBonus = proficiencyBonus,
+                modifier = Modifier.weight(1f),
+            )
+            SavingThrowCard(
+                ability = abilities.wisdom,
+                label = stringResource(Res.string.ability_label_wis),
+                proficiencyBonus = proficiencyBonus,
+                modifier = Modifier.weight(1f),
+            )
+            SavingThrowCard(
+                ability = abilities.charisma,
+                label = stringResource(Res.string.ability_label_cha),
+                proficiencyBonus = proficiencyBonus,
+                modifier = Modifier.weight(1f),
+            )
+        }
+    }
+}
+
+@Composable
+private fun SavingThrowCard(
+    ability: Ability,
+    label: String,
+    proficiencyBonus: Int,
+    modifier: Modifier = Modifier,
+) {
+    val savingThrow = ability.getModifier() + when (ability.savingThrowProficiency) {
+        Proficiency.NONE -> 0
+        Proficiency.PROFICIENT -> proficiencyBonus
+        Proficiency.EXPERT -> proficiencyBonus * 2
+    }
+    val isProficient = ability.savingThrowProficiency != Proficiency.NONE
+    ElevatedCard(modifier = modifier) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = spacingMedium, horizontal = spacingSmall),
+        ) {
+            Text(
+                text = savingThrow.toSignedString(),
+                style = MaterialTheme.typography.headlineSmall,
+                fontWeight = FontWeight.Bold,
+                color = if (isProficient) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface,
+            )
+            Text(
+                text = label,
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
         }
     }
