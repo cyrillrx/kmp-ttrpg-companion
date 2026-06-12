@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.dp
 import com.cyrillrx.rpg.character.domain.MAX_ABILITY_SCORE
 import com.cyrillrx.rpg.character.domain.MIN_ABILITY_SCORE
 import com.cyrillrx.rpg.core.domain.toSignedString
+import com.cyrillrx.rpg.core.presentation.theme.iconButtonSize
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.creature.domain.Proficiency
@@ -79,7 +80,7 @@ internal fun AbilityEditDialog(
                     FilledTonalIconButton(
                         onClick = { value-- },
                         enabled = value > MIN_ABILITY_SCORE,
-                        modifier = Modifier.size(56.dp),
+                        modifier = Modifier.size(iconButtonSize),
                     ) {
                         Text("-", style = MaterialTheme.typography.headlineMedium)
                     }
@@ -98,7 +99,7 @@ internal fun AbilityEditDialog(
                     FilledTonalIconButton(
                         onClick = { value++ },
                         enabled = value < MAX_ABILITY_SCORE,
-                        modifier = Modifier.size(56.dp),
+                        modifier = Modifier.size(iconButtonSize),
                     ) {
                         Text("+", style = MaterialTheme.typography.headlineMedium)
                     }
