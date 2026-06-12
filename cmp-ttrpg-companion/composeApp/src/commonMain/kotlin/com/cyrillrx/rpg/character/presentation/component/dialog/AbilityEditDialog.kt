@@ -112,8 +112,3 @@ internal fun AbilityEditDialog(
     }
 }
 
-private fun Proficiency.next(): Proficiency = when (this) {
-    Proficiency.NONE -> Proficiency.PROFICIENT
-    Proficiency.PROFICIENT -> Proficiency.EXPERT
-    Proficiency.EXPERT -> Proficiency.NONE
-}
