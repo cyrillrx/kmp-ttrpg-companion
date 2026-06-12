@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.character.presentation.component
+package com.cyrillrx.rpg.character.presentation.component.dialog
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -8,15 +8,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -27,39 +26,42 @@ import androidx.compose.ui.text.input.KeyboardType
 import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.Language
+import com.cyrillrx.rpg.character.domain.MAX_ARMOR_CLASS
+import com.cyrillrx.rpg.character.domain.MAX_CHARACTER_LEVEL
+import com.cyrillrx.rpg.character.domain.MIN_ARMOR_CLASS
+import com.cyrillrx.rpg.character.domain.MIN_CHARACTER_LEVEL
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
 import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
+import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.dnd.domain.feetToMeters
 import com.cyrillrx.rpg.dnd.domain.metersToFeet
 import com.cyrillrx.rpg.settings.domain.DistanceUnit
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
+import rpg_companion.composeapp.generated.resources.ability_label_charisma
+import rpg_companion.composeapp.generated.resources.ability_label_constitution
+import rpg_companion.composeapp.generated.resources.ability_label_dexterity
+import rpg_companion.composeapp.generated.resources.ability_label_intelligence
+import rpg_companion.composeapp.generated.resources.ability_label_strength
+import rpg_companion.composeapp.generated.resources.ability_label_wisdom
 import rpg_companion.composeapp.generated.resources.background_none
-import rpg_companion.composeapp.generated.resources.btn_cancel
-import rpg_companion.composeapp.generated.resources.btn_confirm
 import rpg_companion.composeapp.generated.resources.hint_leave_blank_to_remove
 import rpg_companion.composeapp.generated.resources.hint_short_description
-import rpg_companion.composeapp.generated.resources.label_ac
 import rpg_companion.composeapp.generated.resources.label_alignment
+import rpg_companion.composeapp.generated.resources.label_armor_class
 import rpg_companion.composeapp.generated.resources.label_background
-import rpg_companion.composeapp.generated.resources.label_cha
 import rpg_companion.composeapp.generated.resources.label_class
-import rpg_companion.composeapp.generated.resources.label_con
-import rpg_companion.composeapp.generated.resources.label_dex
-import rpg_companion.composeapp.generated.resources.label_int
 import rpg_companion.composeapp.generated.resources.label_languages
 import rpg_companion.composeapp.generated.resources.label_level
 import rpg_companion.composeapp.generated.resources.label_max_hp
 import rpg_companion.composeapp.generated.resources.label_race
 import rpg_companion.composeapp.generated.resources.label_short_description
-import rpg_companion.composeapp.generated.resources.label_str
 import rpg_companion.composeapp.generated.resources.label_walk_speed
-import rpg_companion.composeapp.generated.resources.label_wis
 import rpg_companion.composeapp.generated.resources.settings_unit_feet_abbr
 import rpg_companion.composeapp.generated.resources.settings_unit_meters_abbr
 
@@ -72,12 +74,12 @@ internal fun CharacterEditDialog(
     onLevelConfirmed: (Int) -> Unit,
     onBackgroundConfirmed: (Background?) -> Unit,
     onShortDescriptionConfirmed: (String) -> Unit,
-    onStrengthConfirmed: (Int) -> Unit,
-    onDexterityConfirmed: (Int) -> Unit,
-    onConstitutionConfirmed: (Int) -> Unit,
-    onIntelligenceConfirmed: (Int) -> Unit,
-    onWisdomConfirmed: (Int) -> Unit,
-    onCharismaConfirmed: (Int) -> Unit,
+    onStrengthConfirmed: (Ability) -> Unit,
+    onDexterityConfirmed: (Ability) -> Unit,
+    onConstitutionConfirmed: (Ability) -> Unit,
+    onIntelligenceConfirmed: (Ability) -> Unit,
+    onWisdomConfirmed: (Ability) -> Unit,
+    onCharismaConfirmed: (Ability) -> Unit,
     onArmorClassConfirmed: (Int) -> Unit,
     onMaxHitPointsConfirmed: (Int) -> Unit,
     onWalkSpeedConfirmed: (Int) -> Unit,
@@ -104,58 +106,62 @@ internal fun CharacterEditDialog(
             onDismiss = onDismiss,
         )
 
-        EditingField.Level -> NumberEditDialog(
+        EditingField.Level -> NumberStepperDialog(
             title = stringResource(Res.string.label_level),
             initialValue = state.character.level,
+            minValue = MIN_CHARACTER_LEVEL,
+            maxValue = MAX_CHARACTER_LEVEL,
             onConfirm = onLevelConfirmed,
             onDismiss = onDismiss,
         )
 
-        EditingField.Strength -> NumberEditDialog(
-            title = stringResource(Res.string.label_str),
-            initialValue = state.character.abilities.strength.value,
+        EditingField.Strength -> AbilityEditDialog(
+            title = stringResource(Res.string.ability_label_strength),
+            initialAbility = state.character.abilities.strength,
             onConfirm = onStrengthConfirmed,
             onDismiss = onDismiss,
         )
 
-        EditingField.Dexterity -> NumberEditDialog(
-            title = stringResource(Res.string.label_dex),
-            initialValue = state.character.abilities.dexterity.value,
+        EditingField.Dexterity -> AbilityEditDialog(
+            title = stringResource(Res.string.ability_label_dexterity),
+            initialAbility = state.character.abilities.dexterity,
             onConfirm = onDexterityConfirmed,
             onDismiss = onDismiss,
         )
 
-        EditingField.Constitution -> NumberEditDialog(
-            title = stringResource(Res.string.label_con),
-            initialValue = state.character.abilities.constitution.value,
+        EditingField.Constitution -> AbilityEditDialog(
+            title = stringResource(Res.string.ability_label_constitution),
+            initialAbility = state.character.abilities.constitution,
             onConfirm = onConstitutionConfirmed,
             onDismiss = onDismiss,
         )
 
-        EditingField.Intelligence -> NumberEditDialog(
-            title = stringResource(Res.string.label_int),
-            initialValue = state.character.abilities.intelligence.value,
+        EditingField.Intelligence -> AbilityEditDialog(
+            title = stringResource(Res.string.ability_label_intelligence),
+            initialAbility = state.character.abilities.intelligence,
             onConfirm = onIntelligenceConfirmed,
             onDismiss = onDismiss,
         )
 
-        EditingField.Wisdom -> NumberEditDialog(
-            title = stringResource(Res.string.label_wis),
-            initialValue = state.character.abilities.wisdom.value,
+        EditingField.Wisdom -> AbilityEditDialog(
+            title = stringResource(Res.string.ability_label_wisdom),
+            initialAbility = state.character.abilities.wisdom,
             onConfirm = onWisdomConfirmed,
             onDismiss = onDismiss,
         )
 
-        EditingField.Charisma -> NumberEditDialog(
-            title = stringResource(Res.string.label_cha),
-            initialValue = state.character.abilities.charisma.value,
+        EditingField.Charisma -> AbilityEditDialog(
+            title = stringResource(Res.string.ability_label_charisma),
+            initialAbility = state.character.abilities.charisma,
             onConfirm = onCharismaConfirmed,
             onDismiss = onDismiss,
         )
 
-        EditingField.ArmorClass -> NumberEditDialog(
-            title = stringResource(Res.string.label_ac),
+        EditingField.ArmorClass -> NumberStepperDialog(
+            title = stringResource(Res.string.label_armor_class),
             initialValue = state.character.armorClass,
+            minValue = MIN_ARMOR_CLASS,
+            maxValue = MAX_ARMOR_CLASS,
             onConfirm = onArmorClassConfirmed,
             onDismiss = onDismiss,
         )
@@ -234,83 +240,49 @@ private fun ShortDescriptionEditDialog(
     onDismiss: () -> Unit,
 ) {
     var text by remember(initialValue) { mutableStateOf(initialValue) }
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = {
-            Column {
-                Text(stringResource(Res.string.label_short_description))
-                Text(
-                    text = stringResource(Res.string.hint_leave_blank_to_remove),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
-        },
-        text = {
-            TextField(
-                value = text,
-                onValueChange = { text = it },
-                singleLine = true,
-                placeholder = { Text(stringResource(Res.string.hint_short_description)) },
-                textStyle = MaterialTheme.typography.bodyMedium.copy(fontStyle = FontStyle.Italic),
-                colors = TextFieldDefaults.colors(
-                    focusedContainerColor = MaterialTheme.colorScheme.surface,
-                    unfocusedContainerColor = MaterialTheme.colorScheme.surface,
-                ),
-            )
-        },
-        confirmButton = {
-            TextButton(onClick = { onConfirm(text) }) {
-                Text(stringResource(Res.string.btn_confirm))
-            }
-        },
-        dismissButton = {
-            TextButton(onClick = onDismiss) {
-                Text(stringResource(Res.string.btn_cancel))
-            }
-        },
-    )
+    EditDialog(
+        title = stringResource(Res.string.label_short_description),
+        subtitle = stringResource(Res.string.hint_leave_blank_to_remove),
+        onDismiss = onDismiss,
+        onConfirm = { onConfirm(text) },
+    ) {
+        TextField(
+            value = text,
+            onValueChange = { text = it },
+            singleLine = true,
+            placeholder = { Text(stringResource(Res.string.hint_short_description)) },
+            textStyle = MaterialTheme.typography.bodyMedium.copy(fontStyle = FontStyle.Italic),
+            colors = TextFieldDefaults.colors(
+                focusedContainerColor = MaterialTheme.colorScheme.surface,
+                unfocusedContainerColor = MaterialTheme.colorScheme.surface,
+            ),
+        )
+    }
 }
 
 @Composable
-private fun TextEditDialog(
+private fun NumberStepperDialog(
     title: String,
-    initialValue: String,
-    onConfirm: (String) -> Unit,
+    initialValue: Int,
+    minValue: Int,
+    maxValue: Int,
+    onConfirm: (Int) -> Unit,
     onDismiss: () -> Unit,
-    singleLine: Boolean = true,
-    isValid: (String) -> Boolean = { true },
 ) {
-    var text by remember(initialValue) { mutableStateOf(initialValue) }
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = { Text(title) },
-        text = {
-            TextField(
-                value = text,
-                onValueChange = { text = it },
-                singleLine = singleLine,
-                colors = TextFieldDefaults.colors(
-                    focusedContainerColor = MaterialTheme.colorScheme.surface,
-                    unfocusedContainerColor = MaterialTheme.colorScheme.surface,
-                ),
-            )
-        },
-        confirmButton = {
-            val inputIsValid = remember(text) { isValid(text) }
-            TextButton(
-                onClick = { onConfirm(text) },
-                enabled = inputIsValid,
-            ) {
-                Text(stringResource(Res.string.btn_confirm))
-            }
-        },
-        dismissButton = {
-            TextButton(onClick = onDismiss) {
-                Text(stringResource(Res.string.btn_cancel))
-            }
-        },
-    )
+    var value by remember(initialValue) { mutableIntStateOf(initialValue.coerceIn(minValue, maxValue)) }
+    EditDialog(
+        title = title,
+        onDismiss = onDismiss,
+        onConfirm = { onConfirm(value) },
+    ) {
+        DecrementIncrementRow(
+            value = value,
+            minValue = minValue,
+            maxValue = maxValue,
+            onDecrement = { value-- },
+            onIncrement = { value++ },
+        )
+    }
 }
 
 @Composable
@@ -322,35 +294,23 @@ private fun NumberEditDialog(
 ) {
     var text by remember(initialValue) { mutableStateOf(initialValue.toString()) }
     val parsedValue = text.trim().toIntOrNull()
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = { Text(title) },
-        text = {
-            TextField(
-                value = text,
-                onValueChange = { text = it },
-                singleLine = true,
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                colors = TextFieldDefaults.colors(
-                    focusedContainerColor = MaterialTheme.colorScheme.surface,
-                    unfocusedContainerColor = MaterialTheme.colorScheme.surface,
-                ),
-            )
-        },
-        confirmButton = {
-            TextButton(
-                onClick = { parsedValue?.let(onConfirm) },
-                enabled = parsedValue != null,
-            ) {
-                Text(stringResource(Res.string.btn_confirm))
-            }
-        },
-        dismissButton = {
-            TextButton(onClick = onDismiss) {
-                Text(stringResource(Res.string.btn_cancel))
-            }
-        },
-    )
+    EditDialog(
+        title = title,
+        onDismiss = onDismiss,
+        onConfirm = { parsedValue?.let(onConfirm) },
+        confirmEnabled = parsedValue != null,
+    ) {
+        TextField(
+            value = text,
+            onValueChange = { text = it },
+            singleLine = true,
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+            colors = TextFieldDefaults.colors(
+                focusedContainerColor = MaterialTheme.colorScheme.surface,
+                unfocusedContainerColor = MaterialTheme.colorScheme.surface,
+            ),
+        )
+    }
 }
 
 @Composable
@@ -363,35 +323,23 @@ private fun FloatEditDialog(
     val initialText = if (initialValue % 1 == 0f) initialValue.toInt().toString() else initialValue.toString()
     var text by remember(initialValue) { mutableStateOf(initialText) }
     val parsedValue = text.trim().toFloatOrNull()
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = { Text(title) },
-        text = {
-            TextField(
-                value = text,
-                onValueChange = { text = it },
-                singleLine = true,
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
-                colors = TextFieldDefaults.colors(
-                    focusedContainerColor = MaterialTheme.colorScheme.surface,
-                    unfocusedContainerColor = MaterialTheme.colorScheme.surface,
-                ),
-            )
-        },
-        confirmButton = {
-            TextButton(
-                onClick = { parsedValue?.let(onConfirm) },
-                enabled = parsedValue != null,
-            ) {
-                Text(stringResource(Res.string.btn_confirm))
-            }
-        },
-        dismissButton = {
-            TextButton(onClick = onDismiss) {
-                Text(stringResource(Res.string.btn_cancel))
-            }
-        },
-    )
+    EditDialog(
+        title = title,
+        onDismiss = onDismiss,
+        onConfirm = { parsedValue?.let(onConfirm) },
+        confirmEnabled = parsedValue != null,
+    ) {
+        TextField(
+            value = text,
+            onValueChange = { text = it },
+            singleLine = true,
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
+            colors = TextFieldDefaults.colors(
+                focusedContainerColor = MaterialTheme.colorScheme.surface,
+                unfocusedContainerColor = MaterialTheme.colorScheme.surface,
+            ),
+        )
+    }
 }
 
 @Composable
@@ -401,42 +349,32 @@ private fun LanguageSelectDialog(
     onDismiss: () -> Unit,
 ) {
     var selected by remember { mutableStateOf(current.toSet()) }
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = { Text(stringResource(Res.string.label_languages)) },
-        text = {
-            Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
-                Language.entries.forEach { language ->
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clickable {
-                                selected = if (language in selected) selected - language else selected + language
-                            }
-                            .padding(vertical = spacingCommon),
-                    ) {
-                        Checkbox(
-                            checked = language in selected,
-                            onCheckedChange = null,
-                        )
-                        Text(
-                            text = language.toFormattedString(),
-                            style = MaterialTheme.typography.bodyMedium,
-                        )
-                    }
+    EditDialog(
+        title = stringResource(Res.string.label_languages),
+        onDismiss = onDismiss,
+        onConfirm = { onConfirm(selected.toList()) },
+    ) {
+        Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
+            Language.entries.forEach { language ->
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable {
+                            selected = if (language in selected) selected - language else selected + language
+                        }
+                        .padding(vertical = spacingCommon),
+                ) {
+                    Checkbox(
+                        checked = language in selected,
+                        onCheckedChange = null,
+                    )
+                    Text(
+                        text = language.toFormattedString(),
+                        style = MaterialTheme.typography.bodyMedium,
+                    )
                 }
             }
-        },
-        confirmButton = {
-            TextButton(onClick = { onConfirm(selected.toList()) }) {
-                Text(stringResource(Res.string.btn_confirm))
-            }
-        },
-        dismissButton = {
-            TextButton(onClick = onDismiss) {
-                Text(stringResource(Res.string.btn_cancel))
-            }
-        },
-    )
+        }
+    }
 }

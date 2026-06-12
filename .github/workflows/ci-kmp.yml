@@ -11,8 +11,40 @@ on:
 
 jobs:
   kmp-tests:
-    name: CMP Client - JVM Tests & Sonar
+    name: CMP Client - JVM Tests
     runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: gradle
+
+      - name: Make gradlew executable
+        working-directory: cmp-ttrpg-companion
+        run: chmod +x gradlew
+
+      - name: Run JVM tests and generate Kover reports
+        working-directory: cmp-ttrpg-companion
+        run: ./gradlew jvmTest koverXmlReportJvm --no-daemon
+
+      - name: Upload Kover reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: kover-reports
+          path: |
+            cmp-ttrpg-companion/composeApp/build/reports/kover/reportJvm.xml
+            cmp-ttrpg-companion/shared/core/build/reports/kover/reportJvm.xml
+
+  sonar:
+    name: CMP Client - SonarCloud
+    runs-on: ubuntu-latest
+    needs: kmp-tests
 
     steps:
       - name: Checkout repository
@@ -31,9 +63,11 @@ jobs:
         working-directory: cmp-ttrpg-companion
         run: chmod +x gradlew
 
-      - name: Run JVM tests and generate Kover reports
-        working-directory: cmp-ttrpg-companion
-        run: ./gradlew jvmTest koverXmlReportJvm --no-daemon
+      - name: Download Kover reports
+        uses: actions/download-artifact@v4
+        with:
+          name: kover-reports
+          path: cmp-ttrpg-companion
 
       - name: SonarCloud analysis
         working-directory: cmp-ttrpg-companion

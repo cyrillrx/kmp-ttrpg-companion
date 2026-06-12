@@ -34,16 +34,16 @@ import com.cyrillrx.rpg.settings.domain.DistanceUnit
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.label_ac
-import rpg_companion.composeapp.generated.resources.label_cha
-import rpg_companion.composeapp.generated.resources.label_con
-import rpg_companion.composeapp.generated.resources.label_dex
+import rpg_companion.composeapp.generated.resources.ability_label_cha
+import rpg_companion.composeapp.generated.resources.ability_label_con
+import rpg_companion.composeapp.generated.resources.ability_label_dex
+import rpg_companion.composeapp.generated.resources.ability_label_int
+import rpg_companion.composeapp.generated.resources.ability_label_str
+import rpg_companion.composeapp.generated.resources.ability_label_wis
 import rpg_companion.composeapp.generated.resources.label_initiative
-import rpg_companion.composeapp.generated.resources.label_int
 import rpg_companion.composeapp.generated.resources.label_languages
 import rpg_companion.composeapp.generated.resources.label_max_hp
-import rpg_companion.composeapp.generated.resources.label_str
 import rpg_companion.composeapp.generated.resources.label_walk_speed
-import rpg_companion.composeapp.generated.resources.label_wis
 import rpg_companion.composeapp.generated.resources.settings_unit_feet_abbr
 import rpg_companion.composeapp.generated.resources.settings_unit_meters_abbr
 
@@ -81,19 +81,19 @@ internal fun AbilityGrid(
         ) {
             AbilityCard(
                 score = abilities.strength.value,
-                label = stringResource(Res.string.label_str),
+                label = stringResource(Res.string.ability_label_str),
                 onClick = onStrengthTapped,
                 modifier = Modifier.weight(1f),
             )
             AbilityCard(
                 score = abilities.dexterity.value,
-                label = stringResource(Res.string.label_dex),
+                label = stringResource(Res.string.ability_label_dex),
                 onClick = onDexterityTapped,
                 modifier = Modifier.weight(1f),
             )
             AbilityCard(
                 score = abilities.constitution.value,
-                label = stringResource(Res.string.label_con),
+                label = stringResource(Res.string.ability_label_con),
                 onClick = onConstitutionTapped,
                 modifier = Modifier.weight(1f),
             )
@@ -104,19 +104,19 @@ internal fun AbilityGrid(
         ) {
             AbilityCard(
                 score = abilities.intelligence.value,
-                label = stringResource(Res.string.label_int),
+                label = stringResource(Res.string.ability_label_int),
                 onClick = onIntelligenceTapped,
                 modifier = Modifier.weight(1f),
             )
             AbilityCard(
                 score = abilities.wisdom.value,
-                label = stringResource(Res.string.label_wis),
+                label = stringResource(Res.string.ability_label_wis),
                 onClick = onWisdomTapped,
                 modifier = Modifier.weight(1f),
             )
             AbilityCard(
                 score = abilities.charisma.value,
-                label = stringResource(Res.string.label_cha),
+                label = stringResource(Res.string.ability_label_cha),
                 onClick = onCharismaTapped,
                 modifier = Modifier.weight(1f),
             )

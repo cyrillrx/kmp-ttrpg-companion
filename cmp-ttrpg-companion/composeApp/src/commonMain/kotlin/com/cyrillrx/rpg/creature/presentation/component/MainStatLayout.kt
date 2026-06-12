@@ -19,9 +19,9 @@ import com.cyrillrx.rpg.creature.domain.Monster
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.creature_ac
-import rpg_companion.composeapp.generated.resources.creature_hp
-import rpg_companion.composeapp.generated.resources.creature_speed
+import rpg_companion.composeapp.generated.resources.label_armor_class
+import rpg_companion.composeapp.generated.resources.label_hit_points
+import rpg_companion.composeapp.generated.resources.label_speed
 
 @Composable
 fun MainStatLayout(
@@ -45,7 +45,7 @@ fun MainStatLayout(
         Text(
             buildAnnotatedString {
                 withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {
-                    append(stringResource(Res.string.creature_ac))
+                    append(stringResource(Res.string.label_armor_class))
                     append(" ")
                 }
                 append(monster.armorClass.toString())
@@ -55,7 +55,7 @@ fun MainStatLayout(
         Text(
             buildAnnotatedString {
                 withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {
-                    append(stringResource(Res.string.creature_hp))
+                    append(stringResource(Res.string.label_hit_points))
                     append(" ")
                 }
                 append(monster.maxHitPoints.toString())
@@ -65,7 +65,7 @@ fun MainStatLayout(
         Text(
             buildAnnotatedString {
                 withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {
-                    append(stringResource(Res.string.creature_speed))
+                    append(stringResource(Res.string.label_speed))
                     append(" ")
                 }
                 append(monster.speeds.toFormattedString(LocalDistanceUnit.current))

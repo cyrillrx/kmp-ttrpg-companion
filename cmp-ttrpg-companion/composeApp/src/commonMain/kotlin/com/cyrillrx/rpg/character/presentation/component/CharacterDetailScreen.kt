@@ -30,6 +30,7 @@ import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
 import com.cyrillrx.rpg.character.presentation.CoercedValue
+import com.cyrillrx.rpg.character.presentation.component.dialog.CharacterEditDialog
 import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
 import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterEditViewModel
 import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
@@ -41,6 +42,7 @@ import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
+import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.creature.domain.Creature
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -123,12 +125,12 @@ fun CharacterDetailScreen(
     onClassConfirmed: (Character.Class) -> Unit,
     onLevelConfirmed: (Int) -> Unit,
     onBackgroundConfirmed: (Background?) -> Unit,
-    onStrengthConfirmed: (Int) -> Unit,
-    onDexterityConfirmed: (Int) -> Unit,
-    onConstitutionConfirmed: (Int) -> Unit,
-    onIntelligenceConfirmed: (Int) -> Unit,
-    onWisdomConfirmed: (Int) -> Unit,
-    onCharismaConfirmed: (Int) -> Unit,
+    onStrengthConfirmed: (Ability) -> Unit,
+    onDexterityConfirmed: (Ability) -> Unit,
+    onConstitutionConfirmed: (Ability) -> Unit,
+    onIntelligenceConfirmed: (Ability) -> Unit,
+    onWisdomConfirmed: (Ability) -> Unit,
+    onCharismaConfirmed: (Ability) -> Unit,
     onArmorClassConfirmed: (Int) -> Unit,
     onMaxHitPointsConfirmed: (Int) -> Unit,
     onWalkSpeedConfirmed: (Int) -> Unit,

@@ -11,6 +11,14 @@ plugins {
     alias(libs.plugins.sonarqube)
 }
 
+// The androidApp launcher module has no analyzable code and trips a scanner/AGP 9
+// incompatibility (sonarResolver queries res providers before their producing task runs).
+project(":androidApp") {
+    extensions.configure<org.sonarqube.gradle.SonarExtension>("sonar") {
+        isSkipProject = true
+    }
+}
+
 sonar {
     properties {
         property("sonar.projectKey", "cyrillrx_ttrpg-companion_client-cmp")

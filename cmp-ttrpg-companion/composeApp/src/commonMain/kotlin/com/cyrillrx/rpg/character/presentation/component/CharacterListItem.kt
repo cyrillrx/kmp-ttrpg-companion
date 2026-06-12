@@ -34,8 +34,8 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.label_armor_class
-import rpg_companion.composeapp.generated.resources.label_hit_points
+import rpg_companion.composeapp.generated.resources.value_armor_class
+import rpg_companion.composeapp.generated.resources.value_hit_points
 
 @Composable
 fun CharacterListItem(
@@ -95,7 +95,7 @@ fun CharacterListItem(
                             modifier = Modifier.size(iconSizeSmall),
                         )
                         Text(
-                            text = stringResource(Res.string.label_armor_class, character.armorClass),
+                            text = stringResource(Res.string.value_armor_class, character.armorClass),
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                         )
@@ -112,7 +112,7 @@ fun CharacterListItem(
                             modifier = Modifier.size(iconSizeSmall),
                         )
                         Text(
-                            text = stringResource(Res.string.label_hit_points, character.maxHitPoints),
+                            text = stringResource(Res.string.value_hit_points, character.maxHitPoints),
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                         )
