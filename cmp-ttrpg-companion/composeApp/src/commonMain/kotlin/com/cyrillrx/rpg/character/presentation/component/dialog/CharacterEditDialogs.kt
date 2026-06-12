@@ -297,8 +297,6 @@ private fun NumberStepperDialog(
     maxValue: Int,
     onConfirm: (Int) -> Unit,
     onDismiss: () -> Unit,
-    step: Int = 1,
-    valueLabel: (Int) -> String = Int::toString,
 ) {
     var value by remember(initialValue) { mutableIntStateOf(initialValue.coerceIn(minValue, maxValue)) }
     Dialog(
@@ -310,8 +308,8 @@ private fun NumberStepperDialog(
             value = value,
             minValue = minValue,
             maxValue = maxValue,
-            onDecrement = { value -= step },
-            onIncrement = { value += step },
+            onDecrement = { value-- },
+            onIncrement = { value++ },
         )
     }
 }
