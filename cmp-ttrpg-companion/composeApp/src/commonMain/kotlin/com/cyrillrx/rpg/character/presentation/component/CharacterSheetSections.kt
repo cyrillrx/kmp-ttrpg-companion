@@ -73,54 +73,58 @@ internal fun AbilityGrid(
     onWisdomTapped: () -> Unit,
     onCharismaTapped: () -> Unit,
 ) {
-    Column(verticalArrangement = Arrangement.spacedBy(spacingMedium)) {
-        Row(
-            horizontalArrangement = Arrangement.spacedBy(spacingMedium),
-            modifier = Modifier.fillMaxWidth(),
-        ) {
-            AbilityCard(
-                score = abilities.strength.value,
-                label = stringResource(Res.string.ability_label_str),
-                onClick = onStrengthTapped,
-                modifier = Modifier.weight(1f),
-            )
-            AbilityCard(
-                score = abilities.dexterity.value,
-                label = stringResource(Res.string.ability_label_dex),
-                onClick = onDexterityTapped,
-                modifier = Modifier.weight(1f),
-            )
-            AbilityCard(
-                score = abilities.constitution.value,
-                label = stringResource(Res.string.ability_label_con),
-                onClick = onConstitutionTapped,
-                modifier = Modifier.weight(1f),
-            )
-        }
-        Row(
-            horizontalArrangement = Arrangement.spacedBy(spacingMedium),
-            modifier = Modifier.fillMaxWidth(),
-        ) {
-            AbilityCard(
-                score = abilities.intelligence.value,
-                label = stringResource(Res.string.ability_label_int),
-                onClick = onIntelligenceTapped,
-                modifier = Modifier.weight(1f),
-            )
-            AbilityCard(
-                score = abilities.wisdom.value,
-                label = stringResource(Res.string.ability_label_wis),
-                onClick = onWisdomTapped,
-                modifier = Modifier.weight(1f),
-            )
-            AbilityCard(
-                score = abilities.charisma.value,
-                label = stringResource(Res.string.ability_label_cha),
-                onClick = onCharismaTapped,
-                modifier = Modifier.weight(1f),
-            )
-        }
-    }
+    StatCellGrid(
+        cells = listOf(
+            { modifier ->
+                AbilityCard(
+                    score = abilities.strength.value,
+                    label = stringResource(Res.string.ability_label_str),
+                    onClick = onStrengthTapped,
+                    modifier = modifier,
+                )
+            },
+            { modifier ->
+                AbilityCard(
+                    score = abilities.dexterity.value,
+                    label = stringResource(Res.string.ability_label_dex),
+                    onClick = onDexterityTapped,
+                    modifier = modifier,
+                )
+            },
+            { modifier ->
+                AbilityCard(
+                    score = abilities.constitution.value,
+                    label = stringResource(Res.string.ability_label_con),
+                    onClick = onConstitutionTapped,
+                    modifier = modifier,
+                )
+            },
+            { modifier ->
+                AbilityCard(
+                    abilities.intelligence.value,
+                    stringResource(Res.string.ability_label_int),
+                    onIntelligenceTapped,
+                    modifier,
+                )
+            },
+            { modifier ->
+                AbilityCard(
+                    score = abilities.wisdom.value,
+                    label = stringResource(Res.string.ability_label_wis),
+                    onClick = onWisdomTapped,
+                    modifier = modifier,
+                )
+            },
+            { modifier ->
+                AbilityCard(
+                    score = abilities.charisma.value,
+                    label = stringResource(Res.string.ability_label_cha),
+                    onClick = onCharismaTapped,
+                    modifier = modifier,
+                )
+            },
+        ),
+    )
 }
 
 @Composable
@@ -144,54 +148,58 @@ internal fun SavingThrowsSection(
     abilities: Abilities,
     proficiencyBonus: Int,
 ) {
-    Column(verticalArrangement = Arrangement.spacedBy(spacingMedium)) {
-        Row(
-            horizontalArrangement = Arrangement.spacedBy(spacingMedium),
-            modifier = Modifier.fillMaxWidth(),
-        ) {
-            SavingThrowCard(
-                label = stringResource(Res.string.ability_label_str),
-                ability = abilities.strength,
-                proficiencyBonus = proficiencyBonus,
-                modifier = Modifier.weight(1f),
-            )
-            SavingThrowCard(
-                label = stringResource(Res.string.ability_label_dex),
-                ability = abilities.dexterity,
-                proficiencyBonus = proficiencyBonus,
-                modifier = Modifier.weight(1f),
-            )
-            SavingThrowCard(
-                label = stringResource(Res.string.ability_label_con),
-                ability = abilities.constitution,
-                proficiencyBonus = proficiencyBonus,
-                modifier = Modifier.weight(1f),
-            )
-        }
-        Row(
-            horizontalArrangement = Arrangement.spacedBy(spacingMedium),
-            modifier = Modifier.fillMaxWidth(),
-        ) {
-            SavingThrowCard(
-                label = stringResource(Res.string.ability_label_int),
-                ability = abilities.intelligence,
-                proficiencyBonus = proficiencyBonus,
-                modifier = Modifier.weight(1f),
-            )
-            SavingThrowCard(
-                label = stringResource(Res.string.ability_label_wis),
-                ability = abilities.wisdom,
-                proficiencyBonus = proficiencyBonus,
-                modifier = Modifier.weight(1f),
-            )
-            SavingThrowCard(
-                label = stringResource(Res.string.ability_label_cha),
-                ability = abilities.charisma,
-                proficiencyBonus = proficiencyBonus,
-                modifier = Modifier.weight(1f),
-            )
-        }
-    }
+    StatCellGrid(
+        cells = listOf(
+            { modifier ->
+                SavingThrowCard(
+                    label = stringResource(Res.string.ability_label_str),
+                    ability = abilities.strength,
+                    proficiencyBonus = proficiencyBonus,
+                    modifier = modifier,
+                )
+            },
+            { modifier ->
+                SavingThrowCard(
+                    label = stringResource(Res.string.ability_label_dex),
+                    ability = abilities.dexterity,
+                    proficiencyBonus = proficiencyBonus,
+                    modifier = modifier,
+                )
+            },
+            { modifier ->
+                SavingThrowCard(
+                    label = stringResource(Res.string.ability_label_con),
+                    ability = abilities.constitution,
+                    proficiencyBonus = proficiencyBonus,
+                    modifier = modifier,
+                )
+            },
+            { modifier ->
+                SavingThrowCard(
+                    label = stringResource(Res.string.ability_label_int),
+                    ability = abilities.intelligence,
+                    proficiencyBonus = proficiencyBonus,
+                    modifier = modifier,
+                )
+            },
+            { modifier ->
+                SavingThrowCard(
+                    label = stringResource(Res.string.ability_label_wis),
+                    ability = abilities.wisdom,
+                    proficiencyBonus = proficiencyBonus,
+                    modifier = modifier,
+                )
+            },
+            { modifier ->
+                SavingThrowCard(
+                    label = stringResource(Res.string.ability_label_cha),
+                    ability = abilities.charisma,
+                    proficiencyBonus = proficiencyBonus,
+                    modifier = modifier,
+                )
+            },
+        ),
+    )
 }
 
 @Composable
