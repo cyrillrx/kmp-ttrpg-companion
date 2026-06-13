@@ -101,10 +101,10 @@ internal fun AbilityGrid(
             },
             { modifier ->
                 AbilityCard(
-                    abilities.intelligence.value,
-                    stringResource(Res.string.ability_label_int),
-                    onIntelligenceTapped,
-                    modifier,
+                    score = abilities.intelligence.value,
+                    label = stringResource(Res.string.ability_label_int),
+                    onClick = onIntelligenceTapped,
+                    modifier = modifier,
                 )
             },
             { modifier ->
