@@ -8,6 +8,7 @@ import com.cyrillrx.rpg.character.domain.applyFilter
 import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.creature.domain.Creature
+import com.cyrillrx.rpg.creature.domain.Proficiency
 import com.cyrillrx.rpg.creature.domain.Skills
 import com.cyrillrx.rpg.creature.domain.Speeds
 
@@ -42,9 +43,9 @@ class SampleCharacterRepository : CharacterRepository {
                 alignment = Creature.Alignment.LAWFUL_GOOD,
                 abilities =
                     Abilities(
-                        strength = Ability(16),
+                        strength = Ability(16, Proficiency.PROFICIENT),
                         dexterity = Ability(12),
-                        constitution = Ability(14),
+                        constitution = Ability(14, Proficiency.PROFICIENT),
                         intelligence = Ability(10),
                         wisdom = Ability(10),
                         charisma = Ability(8),

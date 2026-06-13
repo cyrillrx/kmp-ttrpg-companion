@@ -145,7 +145,8 @@ class CharacterEditViewModel(
         if (coerced != ability.value) coercedValueEvent.tryEmit(CoercedValue.Numeric(ability.value, coerced))
         val coercedAbility = ability.copy(value = coerced)
         updateAndSave {
-            copy(character = character.copy(abilities = character.abilities.update(coercedAbility)), editingField = null)
+            val updatedCharacter = character.copy(abilities = character.abilities.update(coercedAbility))
+            copy(character = updatedCharacter, editingField = null)
         }
     }
 
