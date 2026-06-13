@@ -14,8 +14,8 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
  */
 @Composable
 internal fun StatCellGrid(
+    columns: Int,
     cells: List<@Composable (Modifier) -> Unit>,
-    columns: Int = 3,
 ) {
     Column(verticalArrangement = Arrangement.spacedBy(spacingMedium)) {
         cells.chunked(columns).forEach { rowCells ->

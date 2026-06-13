@@ -74,6 +74,7 @@ internal fun AbilityGrid(
     onCharismaTapped: () -> Unit,
 ) {
     StatCellGrid(
+        columns = 3,
         cells = listOf(
             { modifier ->
                 AbilityCard(
@@ -149,6 +150,7 @@ internal fun SavingThrowsSection(
     proficiencyBonus: Int,
 ) {
     StatCellGrid(
+        columns = 3,
         cells = listOf(
             { modifier ->
                 SavingThrowCard(
