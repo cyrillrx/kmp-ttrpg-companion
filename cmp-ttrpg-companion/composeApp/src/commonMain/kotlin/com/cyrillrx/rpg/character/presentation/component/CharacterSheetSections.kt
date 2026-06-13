@@ -3,14 +3,11 @@ package com.cyrillrx.rpg.character.presentation.component
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ColumnScope
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -242,53 +239,6 @@ internal fun CombatRow(
             onClick = onMaxHpTapped,
             modifier = Modifier.weight(1f),
         )
-    }
-}
-
-/**
- * Shared stat cell used by ability, saving throw and combat sections: an [ElevatedCard] showing a
- * bold [value] above a muted [label], with an optional [caption] line and an optional click action.
- */
-@Composable
-private fun StatCell(
-    label: String,
-    value: String,
-    modifier: Modifier = Modifier,
-    valueColor: Color = Color.Unspecified,
-    caption: String? = null,
-    onClick: (() -> Unit)? = null,
-) {
-    val cardContent: @Composable ColumnScope.() -> Unit = {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(PaddingValues(vertical = spacingMedium)),
-        ) {
-            Text(
-                text = label,
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-            Text(
-                text = value,
-                style = MaterialTheme.typography.headlineSmall,
-                fontWeight = FontWeight.Bold,
-                color = valueColor,
-            )
-            if (caption != null) {
-                Text(
-                    text = caption,
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.primary,
-                )
-            }
-        }
-    }
-    if (onClick == null) {
-        ElevatedCard(modifier = modifier, content = cardContent)
-    } else {
-        ElevatedCard(onClick = onClick, modifier = modifier, content = cardContent)
     }
 }
 
