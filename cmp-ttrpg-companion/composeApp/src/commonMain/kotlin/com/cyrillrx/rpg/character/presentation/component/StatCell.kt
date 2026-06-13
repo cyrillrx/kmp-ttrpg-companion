@@ -2,7 +2,6 @@ package com.cyrillrx.rpg.character.presentation.component
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ElevatedCard
@@ -33,7 +32,7 @@ internal fun StatCell(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(PaddingValues(all = spacingMedium)),
+                .padding(spacingMedium),
         ) {
             Text(
                 text = label,
