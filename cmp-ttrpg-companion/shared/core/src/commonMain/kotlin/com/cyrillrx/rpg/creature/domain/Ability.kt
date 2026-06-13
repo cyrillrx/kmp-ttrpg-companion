@@ -12,6 +12,12 @@ data class Ability(
 
     fun getValueWithModifier(): String = "$value (${getModifier().toSignedString()})"
 
+    fun getSavingThrow(proficiencyBonus: Int): Int = getModifier() + when (savingThrowProficiency) {
+        Proficiency.NONE -> 0
+        Proficiency.PROFICIENT -> proficiencyBonus
+        Proficiency.EXPERT -> proficiencyBonus * 2
+    }
+
     companion object {
         const val DEFAULT_VALUE = 10
 

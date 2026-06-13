@@ -27,4 +27,16 @@ class AbilityTest {
         assertEquals("10 (+0)", Ability(10).getValueWithModifier())
         assertEquals("8 (-1)", Ability(8).getValueWithModifier())
     }
+
+    @Test
+    fun `getSavingThrow adds proficiency bonus per proficiency level`() {
+        assertEquals(2, Ability(14, Proficiency.NONE).getSavingThrow(3))
+        assertEquals(5, Ability(14, Proficiency.PROFICIENT).getSavingThrow(3))
+        assertEquals(8, Ability(14, Proficiency.EXPERT).getSavingThrow(3))
+    }
+
+    @Test
+    fun `getSavingThrow keeps negative modifier when not proficient`() {
+        assertEquals(-1, Ability(8, Proficiency.NONE).getSavingThrow(3))
+    }
 }

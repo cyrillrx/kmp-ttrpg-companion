@@ -439,7 +439,7 @@ class CharacterEditViewModelTest {
     @Test
     fun `saveShortDescription with blank input results in empty translations`() = runTest(testDispatcher) {
         val repo = RamCharacterRepository()
-        repo.save(fighter.copy(translations = mapOf(otherLocale to Character.Translation(shortDescription = "Héros"))))
+        repo.save(fighter.copy(translations = mapOf(otherLocale to Character.Translation(shortDescription = "Hero"))))
         val viewModel = buildViewModel(repo = repo)
         advanceUntilIdle()
         viewModel.saveShortDescription("  ")
@@ -450,7 +450,7 @@ class CharacterEditViewModelTest {
     @Test
     fun `saveShortDescription removes other locale translation when it becomes empty`() = runTest(testDispatcher) {
         val repo = RamCharacterRepository()
-        repo.save(fighter.copy(translations = mapOf(otherLocale to Character.Translation(shortDescription = "Héros"))))
+        repo.save(fighter.copy(translations = mapOf(otherLocale to Character.Translation(shortDescription = "Hero"))))
         val viewModel = buildViewModel(repo = repo)
         advanceUntilIdle()
         viewModel.saveShortDescription("Hero")
@@ -459,11 +459,15 @@ class CharacterEditViewModelTest {
     }
 
     @Test
-    fun `saveShortDescription preserves other translation fields when clearing short description`() = runTest(testDispatcher) {
+    fun `saveShortDescription preserves other translation fields when clearing short description`() = runTest(
+        testDispatcher,
+    ) {
         val repo = RamCharacterRepository()
         repo.save(
             fighter.copy(
-                translations = mapOf(otherLocale to Character.Translation(shortDescription = "Héros", description = "Un brave guerrier")),
+                translations = mapOf(
+                    otherLocale to Character.Translation(shortDescription = "Hero", description = "A brave warrior"),
+                ),
             ),
         )
         val viewModel = buildViewModel(repo = repo)
@@ -471,7 +475,7 @@ class CharacterEditViewModelTest {
         viewModel.saveShortDescription("Hero")
         val loaded = assertIs<CharacterEditState.Loaded>(viewModel.state.value)
         assertEquals("", loaded.character.translations[otherLocale]?.shortDescription)
-        assertEquals("Un brave guerrier", loaded.character.translations[otherLocale]?.description)
+        assertEquals("A brave warrior", loaded.character.translations[otherLocale]?.description)
     }
 
     @Test
