@@ -4,6 +4,7 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -28,7 +29,6 @@ import com.cyrillrx.rpg.core.presentation.theme.borderAlpha
 import com.cyrillrx.rpg.core.presentation.theme.borderWidth
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
-import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.creature.domain.Proficiency
@@ -133,35 +133,13 @@ private fun AbilityCard(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val modifierText = Ability(score).getModifier().toSignedString()
-
-    ElevatedCard(
+    StatCell(
+        label = label,
+        value = score.toString(),
+        caption = Ability(score).getModifier().toSignedString(),
         onClick = onClick,
         modifier = modifier,
-    ) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = spacingMedium, horizontal = spacingSmall),
-        ) {
-            Text(
-                text = score.toString(),
-                style = MaterialTheme.typography.headlineSmall,
-                fontWeight = FontWeight.Bold,
-            )
-            Text(
-                text = label,
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-            Text(
-                text = modifierText,
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.primary,
-            )
-        }
-    }
+    )
 }
 
 @Composable
@@ -175,20 +153,20 @@ internal fun SavingThrowsSection(
             modifier = Modifier.fillMaxWidth(),
         ) {
             SavingThrowCard(
-                ability = abilities.strength,
                 label = stringResource(Res.string.ability_label_str),
+                ability = abilities.strength,
                 proficiencyBonus = proficiencyBonus,
                 modifier = Modifier.weight(1f),
             )
             SavingThrowCard(
-                ability = abilities.dexterity,
                 label = stringResource(Res.string.ability_label_dex),
+                ability = abilities.dexterity,
                 proficiencyBonus = proficiencyBonus,
                 modifier = Modifier.weight(1f),
             )
             SavingThrowCard(
-                ability = abilities.constitution,
                 label = stringResource(Res.string.ability_label_con),
+                ability = abilities.constitution,
                 proficiencyBonus = proficiencyBonus,
                 modifier = Modifier.weight(1f),
             )
@@ -198,20 +176,20 @@ internal fun SavingThrowsSection(
             modifier = Modifier.fillMaxWidth(),
         ) {
             SavingThrowCard(
-                ability = abilities.intelligence,
                 label = stringResource(Res.string.ability_label_int),
+                ability = abilities.intelligence,
                 proficiencyBonus = proficiencyBonus,
                 modifier = Modifier.weight(1f),
             )
             SavingThrowCard(
-                ability = abilities.wisdom,
                 label = stringResource(Res.string.ability_label_wis),
+                ability = abilities.wisdom,
                 proficiencyBonus = proficiencyBonus,
                 modifier = Modifier.weight(1f),
             )
             SavingThrowCard(
-                ability = abilities.charisma,
                 label = stringResource(Res.string.ability_label_cha),
+                ability = abilities.charisma,
                 proficiencyBonus = proficiencyBonus,
                 modifier = Modifier.weight(1f),
             )
@@ -221,33 +199,18 @@ internal fun SavingThrowsSection(
 
 @Composable
 private fun SavingThrowCard(
-    ability: Ability,
     label: String,
+    ability: Ability,
     proficiencyBonus: Int,
     modifier: Modifier = Modifier,
 ) {
-    val savingThrow = ability.getSavingThrow(proficiencyBonus)
     val isProficient = ability.savingThrowProficiency != Proficiency.NONE
-    ElevatedCard(modifier = modifier) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = spacingMedium, horizontal = spacingSmall),
-        ) {
-            Text(
-                text = savingThrow.toSignedString(),
-                style = MaterialTheme.typography.headlineSmall,
-                fontWeight = FontWeight.Bold,
-                color = if (isProficient) MaterialTheme.colorScheme.primary else Color.Unspecified,
-            )
-            Text(
-                text = label,
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-        }
-    }
+    StatCell(
+        label = label,
+        value = ability.getSavingThrow(proficiencyBonus).toSignedString(),
+        valueColor = if (isProficient) MaterialTheme.colorScheme.primary else Color.Unspecified,
+        modifier = modifier,
+    )
 }
 
 @Composable
@@ -262,18 +225,18 @@ internal fun CombatRow(
         horizontalArrangement = Arrangement.spacedBy(spacingMedium),
         modifier = Modifier.fillMaxWidth(),
     ) {
-        StatCard(
+        StatCell(
             label = stringResource(Res.string.label_ac),
             value = armorClass.toString(),
             onClick = onAcTapped,
             modifier = Modifier.weight(1f),
         )
-        StatCard(
+        StatCell(
             label = stringResource(Res.string.label_initiative),
             value = initiative.toSignedString(),
             modifier = Modifier.weight(1f),
         )
-        StatCard(
+        StatCell(
             label = stringResource(Res.string.label_max_hp),
             value = maxHitPoints.toString(),
             onClick = onMaxHpTapped,
@@ -282,30 +245,44 @@ internal fun CombatRow(
     }
 }
 
+/**
+ * Shared stat cell used by ability, saving throw and combat sections: an [ElevatedCard] showing a
+ * bold [value] above a muted [label], with an optional [caption] line and an optional click action.
+ */
 @Composable
-private fun StatCard(
+private fun StatCell(
     label: String,
     value: String,
-    onClick: (() -> Unit)? = null,
     modifier: Modifier = Modifier,
+    valueColor: Color = Color.Unspecified,
+    caption: String? = null,
+    onClick: (() -> Unit)? = null,
 ) {
     val cardContent: @Composable ColumnScope.() -> Unit = {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(spacingMedium),
+                .padding(PaddingValues(vertical = spacingMedium)),
         ) {
-            Text(
-                text = value,
-                style = MaterialTheme.typography.headlineSmall,
-                fontWeight = FontWeight.Bold,
-            )
             Text(
                 text = label,
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
+            Text(
+                text = value,
+                style = MaterialTheme.typography.headlineSmall,
+                fontWeight = FontWeight.Bold,
+                color = valueColor,
+            )
+            if (caption != null) {
+                Text(
+                    text = caption,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.primary,
+                )
+            }
         }
     }
     if (onClick == null) {
