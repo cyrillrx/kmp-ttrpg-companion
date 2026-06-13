@@ -33,7 +33,7 @@ internal fun StatCell(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(PaddingValues(vertical = spacingMedium)),
+                .padding(PaddingValues(all = spacingMedium)),
         ) {
             Text(
                 text = label,
