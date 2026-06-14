@@ -28,7 +28,7 @@ import com.cyrillrx.rpg.creature.domain.Proficiency
 import com.cyrillrx.rpg.creature.domain.Skill
 import com.cyrillrx.rpg.creature.domain.Skills
 import com.cyrillrx.rpg.creature.domain.getProficiency
-import com.cyrillrx.rpg.creature.domain.getRelatedAbility
+import com.cyrillrx.rpg.creature.domain.getRelatedAbilityScore
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.label_skills
@@ -92,7 +92,7 @@ private fun SkillEntry(
 ) {
     val prof = skill.getProficiency(skills)
     val isProficient = prof != Proficiency.NONE
-    val bonus = skill.getRelatedAbility(abilities).getModifier() + when (prof) {
+    val bonus = skill.getRelatedAbilityScore(abilities).getModifier() + when (prof) {
         Proficiency.NONE -> 0
         Proficiency.PROFICIENT -> proficiencyBonus
         Proficiency.EXPERT -> proficiencyBonus * 2

@@ -5,10 +5,13 @@ import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
+import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.creature.domain.Skill
+import com.cyrillrx.rpg.creature.domain.getRelatedAbility
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.ability_label_cha
+import rpg_companion.composeapp.generated.resources.ability_label_con
 import rpg_companion.composeapp.generated.resources.ability_label_dex
 import rpg_companion.composeapp.generated.resources.ability_label_int
 import rpg_companion.composeapp.generated.resources.ability_label_str
@@ -191,29 +194,20 @@ fun Skill.toFormattedString(): String {
 }
 
 @Composable
-fun Skill.relatedAbilityAbbreviation(): String {
+fun Ability.toAbbreviationString(): String {
     val stringRes = when (this) {
-        Skill.ACROBATICS -> Res.string.ability_label_dex
-        Skill.ANIMAL_HANDLING -> Res.string.ability_label_wis
-        Skill.ARCANA -> Res.string.ability_label_int
-        Skill.ATHLETICS -> Res.string.ability_label_str
-        Skill.DECEPTION -> Res.string.ability_label_cha
-        Skill.HISTORY -> Res.string.ability_label_int
-        Skill.INSIGHT -> Res.string.ability_label_wis
-        Skill.INTIMIDATION -> Res.string.ability_label_cha
-        Skill.INVESTIGATION -> Res.string.ability_label_int
-        Skill.MEDICINE -> Res.string.ability_label_wis
-        Skill.NATURE -> Res.string.ability_label_int
-        Skill.PERCEPTION -> Res.string.ability_label_wis
-        Skill.PERFORMANCE -> Res.string.ability_label_cha
-        Skill.PERSUASION -> Res.string.ability_label_cha
-        Skill.RELIGION -> Res.string.ability_label_int
-        Skill.SLEIGHT_OF_HAND -> Res.string.ability_label_dex
-        Skill.STEALTH -> Res.string.ability_label_dex
-        Skill.SURVIVAL -> Res.string.ability_label_wis
+        Ability.STRENGTH -> Res.string.ability_label_str
+        Ability.DEXTERITY -> Res.string.ability_label_dex
+        Ability.CONSTITUTION -> Res.string.ability_label_con
+        Ability.INTELLIGENCE -> Res.string.ability_label_int
+        Ability.WISDOM -> Res.string.ability_label_wis
+        Ability.CHARISMA -> Res.string.ability_label_cha
     }
     return stringResource(stringRes)
 }
+
+@Composable
+fun Skill.relatedAbilityAbbreviation(): String = getRelatedAbility().toAbbreviationString()
 
 @Composable
 fun Character.Class.toFormattedString(): String {

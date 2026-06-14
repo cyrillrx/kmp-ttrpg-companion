@@ -21,26 +21,28 @@ enum class Skill {
     SURVIVAL,
 }
 
-fun Skill.getRelatedAbility(abilities: Abilities): AbilityScore = when (this) {
-    Skill.ACROBATICS -> abilities.dexterity
-    Skill.ANIMAL_HANDLING -> abilities.wisdom
-    Skill.ARCANA -> abilities.intelligence
-    Skill.ATHLETICS -> abilities.strength
-    Skill.DECEPTION -> abilities.charisma
-    Skill.HISTORY -> abilities.intelligence
-    Skill.INSIGHT -> abilities.wisdom
-    Skill.INTIMIDATION -> abilities.charisma
-    Skill.INVESTIGATION -> abilities.intelligence
-    Skill.MEDICINE -> abilities.wisdom
-    Skill.NATURE -> abilities.intelligence
-    Skill.PERCEPTION -> abilities.wisdom
-    Skill.PERFORMANCE -> abilities.charisma
-    Skill.PERSUASION -> abilities.charisma
-    Skill.RELIGION -> abilities.intelligence
-    Skill.SLEIGHT_OF_HAND -> abilities.dexterity
-    Skill.STEALTH -> abilities.dexterity
-    Skill.SURVIVAL -> abilities.wisdom
+fun Skill.getRelatedAbility(): Ability = when (this) {
+    Skill.ACROBATICS -> Ability.DEXTERITY
+    Skill.ANIMAL_HANDLING -> Ability.WISDOM
+    Skill.ARCANA -> Ability.INTELLIGENCE
+    Skill.ATHLETICS -> Ability.STRENGTH
+    Skill.DECEPTION -> Ability.CHARISMA
+    Skill.HISTORY -> Ability.INTELLIGENCE
+    Skill.INSIGHT -> Ability.WISDOM
+    Skill.INTIMIDATION -> Ability.CHARISMA
+    Skill.INVESTIGATION -> Ability.INTELLIGENCE
+    Skill.MEDICINE -> Ability.WISDOM
+    Skill.NATURE -> Ability.INTELLIGENCE
+    Skill.PERCEPTION -> Ability.WISDOM
+    Skill.PERFORMANCE -> Ability.CHARISMA
+    Skill.PERSUASION -> Ability.CHARISMA
+    Skill.RELIGION -> Ability.INTELLIGENCE
+    Skill.SLEIGHT_OF_HAND -> Ability.DEXTERITY
+    Skill.STEALTH -> Ability.DEXTERITY
+    Skill.SURVIVAL -> Ability.WISDOM
 }
+
+fun Skill.getRelatedAbilityScore(abilities: Abilities): AbilityScore = getRelatedAbility().toAbilityScore(abilities)
 
 fun Skill.getProficiency(skills: Skills): Proficiency = when (this) {
     Skill.ACROBATICS -> skills.acrobatics
