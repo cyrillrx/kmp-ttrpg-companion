@@ -1,7 +1,6 @@
 package com.cyrillrx.rpg.character.presentation.component.section
 
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -13,8 +12,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
-import com.cyrillrx.rpg.character.presentation.component.StatCell
-import com.cyrillrx.rpg.core.domain.toSignedString
 import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
 import com.cyrillrx.rpg.core.presentation.component.dnd.toDistanceString
 import com.cyrillrx.rpg.core.presentation.theme.borderAlpha
@@ -24,44 +21,9 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.settings.domain.DistanceUnit
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.label_ac
-import rpg_companion.composeapp.generated.resources.label_initiative
-import rpg_companion.composeapp.generated.resources.label_max_hp
 import rpg_companion.composeapp.generated.resources.label_walk_speed
 import rpg_companion.composeapp.generated.resources.settings_unit_feet_abbr
 import rpg_companion.composeapp.generated.resources.settings_unit_meters_abbr
-
-@Composable
-internal fun CombatRow(
-    armorClass: Int,
-    initiative: Int,
-    maxHitPoints: Int,
-    onArmorClassTapped: () -> Unit,
-    onMaxHitPointsTapped: () -> Unit,
-) {
-    Row(
-        horizontalArrangement = Arrangement.spacedBy(spacingMedium),
-        modifier = Modifier.fillMaxWidth(),
-    ) {
-        StatCell(
-            label = stringResource(Res.string.label_ac),
-            value = armorClass.toString(),
-            onClick = onArmorClassTapped,
-            modifier = Modifier.weight(1f),
-        )
-        StatCell(
-            label = stringResource(Res.string.label_initiative),
-            value = initiative.toSignedString(),
-            modifier = Modifier.weight(1f),
-        )
-        StatCell(
-            label = stringResource(Res.string.label_max_hp),
-            value = maxHitPoints.toString(),
-            onClick = onMaxHitPointsTapped,
-            modifier = Modifier.weight(1f),
-        )
-    }
-}
 
 @Composable
 internal fun WalkSpeedRow(
