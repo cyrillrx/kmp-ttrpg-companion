@@ -20,6 +20,7 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.label_languages
+import rpg_companion.composeapp.generated.resources.label_languages_none
 
 @Composable
 internal fun LanguagesRow(
@@ -44,7 +45,7 @@ internal fun LanguagesRow(
             )
             if (languages.isEmpty()) {
                 Text(
-                    text = "—",
+                    text = stringResource(Res.string.label_languages_none),
                     style = MaterialTheme.typography.bodyMedium,
                     fontStyle = FontStyle.Italic,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
