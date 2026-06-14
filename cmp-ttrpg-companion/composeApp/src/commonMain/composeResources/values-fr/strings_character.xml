@@ -34,7 +34,28 @@
     <string name="label_level_short">niv.</string>
     <string name="label_saving_throws">Jets de sauvegarde</string>
     <string name="label_saving_throw_proficiency">Maîtrise de sauvegarde</string>
+    <string name="label_skills">Compétences</string>
     <string name="hint_ability">Min %1$d · Max %2$d · Score initial %3$s</string>
+
+    <!-- Skills -->
+    <string name="skill_acrobatics">Acrobatie</string>
+    <string name="skill_animal_handling">Dressage</string>
+    <string name="skill_arcana">Arcanes</string>
+    <string name="skill_athletics">Athlétisme</string>
+    <string name="skill_deception">Tromperie</string>
+    <string name="skill_history">Histoire</string>
+    <string name="skill_insight">Perspicacité</string>
+    <string name="skill_intimidation">Intimidation</string>
+    <string name="skill_investigation">Investigation</string>
+    <string name="skill_medicine">Médecine</string>
+    <string name="skill_nature">Nature</string>
+    <string name="skill_perception">Perception</string>
+    <string name="skill_performance">Représentation</string>
+    <string name="skill_persuasion">Persuasion</string>
+    <string name="skill_religion">Religion</string>
+    <string name="skill_sleight_of_hand">Tour de passe-passe</string>
+    <string name="skill_stealth">Discrétion</string>
+    <string name="skill_survival">Survie</string>
 
     <!-- Character race -->
     <string name="race_human">Humain</string>
