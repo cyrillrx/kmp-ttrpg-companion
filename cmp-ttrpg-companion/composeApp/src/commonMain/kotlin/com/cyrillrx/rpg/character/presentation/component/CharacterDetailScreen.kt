@@ -31,6 +31,12 @@ import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
 import com.cyrillrx.rpg.character.presentation.CoercedValue
 import com.cyrillrx.rpg.character.presentation.component.dialog.CharacterEditDialog
+import com.cyrillrx.rpg.character.presentation.component.section.AbilitySection
+import com.cyrillrx.rpg.character.presentation.component.section.CombatRow
+import com.cyrillrx.rpg.character.presentation.component.section.LanguagesRow
+import com.cyrillrx.rpg.character.presentation.component.section.SavingThrowsSection
+import com.cyrillrx.rpg.character.presentation.component.section.SheetDivider
+import com.cyrillrx.rpg.character.presentation.component.section.WalkSpeedRow
 import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
 import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterEditViewModel
 import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
@@ -180,7 +186,7 @@ fun CharacterDetailScreen(
 
             SheetDivider(stringResource(Res.string.label_abilities))
 
-            AbilityGrid(
+            AbilitySection(
                 abilities = state.character.abilities,
                 onStrengthTapped = { onFieldTapped(EditingField.Strength) },
                 onDexterityTapped = { onFieldTapped(EditingField.Dexterity) },
@@ -203,8 +209,8 @@ fun CharacterDetailScreen(
                 armorClass = state.character.armorClass,
                 initiative = state.character.initiativeModifier(),
                 maxHitPoints = state.character.maxHitPoints,
-                onAcTapped = { onFieldTapped(EditingField.ArmorClass) },
-                onMaxHpTapped = { onFieldTapped(EditingField.MaxHitPoints) },
+                onArmorClassTapped = { onFieldTapped(EditingField.ArmorClass) },
+                onMaxHitPointsTapped = { onFieldTapped(EditingField.MaxHitPoints) },
             )
 
             WalkSpeedRow(
