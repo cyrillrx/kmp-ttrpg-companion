@@ -36,8 +36,8 @@ internal fun CombatRow(
     armorClass: Int,
     initiative: Int,
     maxHitPoints: Int,
-    onAcTapped: () -> Unit,
-    onMaxHpTapped: () -> Unit,
+    onArmorClassTapped: () -> Unit,
+    onMaxHitPointsTapped: () -> Unit,
 ) {
     Row(
         horizontalArrangement = Arrangement.spacedBy(spacingMedium),
@@ -46,7 +46,7 @@ internal fun CombatRow(
         StatCell(
             label = stringResource(Res.string.label_ac),
             value = armorClass.toString(),
-            onClick = onAcTapped,
+            onClick = onArmorClassTapped,
             modifier = Modifier.weight(1f),
         )
         StatCell(
@@ -57,7 +57,7 @@ internal fun CombatRow(
         StatCell(
             label = stringResource(Res.string.label_max_hp),
             value = maxHitPoints.toString(),
-            onClick = onMaxHpTapped,
+            onClick = onMaxHitPointsTapped,
             modifier = Modifier.weight(1f),
         )
     }

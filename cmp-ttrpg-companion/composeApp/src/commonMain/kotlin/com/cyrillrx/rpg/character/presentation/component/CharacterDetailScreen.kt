@@ -209,8 +209,8 @@ fun CharacterDetailScreen(
                 armorClass = state.character.armorClass,
                 initiative = state.character.initiativeModifier(),
                 maxHitPoints = state.character.maxHitPoints,
-                onAcTapped = { onFieldTapped(EditingField.ArmorClass) },
-                onMaxHpTapped = { onFieldTapped(EditingField.MaxHitPoints) },
+                onArmorClassTapped = { onFieldTapped(EditingField.ArmorClass) },
+                onMaxHitPointsTapped = { onFieldTapped(EditingField.MaxHitPoints) },
             )
 
             WalkSpeedRow(
