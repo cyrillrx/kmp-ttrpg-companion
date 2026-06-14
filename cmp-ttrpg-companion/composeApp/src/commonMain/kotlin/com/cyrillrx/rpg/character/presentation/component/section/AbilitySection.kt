@@ -17,7 +17,7 @@ import rpg_companion.composeapp.generated.resources.ability_label_str
 import rpg_companion.composeapp.generated.resources.ability_label_wis
 
 @Composable
-internal fun AbilityGrid(
+internal fun AbilitySection(
     abilities: Abilities,
     onStrengthTapped: () -> Unit,
     onDexterityTapped: () -> Unit,

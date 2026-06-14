@@ -31,7 +31,7 @@ import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
 import com.cyrillrx.rpg.character.presentation.CoercedValue
 import com.cyrillrx.rpg.character.presentation.component.dialog.CharacterEditDialog
-import com.cyrillrx.rpg.character.presentation.component.section.AbilityGrid
+import com.cyrillrx.rpg.character.presentation.component.section.AbilitySection
 import com.cyrillrx.rpg.character.presentation.component.section.CombatRow
 import com.cyrillrx.rpg.character.presentation.component.section.LanguagesRow
 import com.cyrillrx.rpg.character.presentation.component.section.SavingThrowsSection
@@ -186,7 +186,7 @@ fun CharacterDetailScreen(
 
             SheetDivider(stringResource(Res.string.label_abilities))
 
-            AbilityGrid(
+            AbilitySection(
                 abilities = state.character.abilities,
                 onStrengthTapped = { onFieldTapped(EditingField.Strength) },
                 onDexterityTapped = { onFieldTapped(EditingField.Dexterity) },
