@@ -1,6 +1,7 @@
 package com.cyrillrx.rpg.character.presentation.component.section
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import com.cyrillrx.rpg.character.presentation.component.StatCell
 import com.cyrillrx.rpg.character.presentation.component.StatCellGrid
 import com.cyrillrx.rpg.core.domain.toSignedString
@@ -85,7 +86,7 @@ private fun AbilityCard(
     score: Int,
     label: String,
     onClick: () -> Unit,
-    modifier: androidx.compose.ui.Modifier = androidx.compose.ui.Modifier,
+    modifier: Modifier = Modifier,
 ) {
     StatCell(
         label = label,

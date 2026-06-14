@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.character.presentation.component.section
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import com.cyrillrx.rpg.character.presentation.component.StatCell
 import com.cyrillrx.rpg.character.presentation.component.StatCellGrid
@@ -83,7 +84,7 @@ private fun SavingThrowCard(
     label: String,
     ability: Ability,
     proficiencyBonus: Int,
-    modifier: androidx.compose.ui.Modifier = androidx.compose.ui.Modifier,
+    modifier: Modifier = Modifier,
 ) {
     val isProficient = ability.savingThrowProficiency != Proficiency.NONE
     StatCell(
