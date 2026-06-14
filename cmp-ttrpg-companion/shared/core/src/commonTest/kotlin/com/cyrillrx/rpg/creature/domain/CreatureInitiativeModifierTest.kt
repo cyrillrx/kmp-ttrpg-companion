@@ -30,12 +30,12 @@ class CreatureInitiativeModifierTest {
         override val size = Size.MEDIUM
         override val alignment = Alignment.NEUTRAL
         override val abilities = Abilities(
-            strength = Ability(10),
-            dexterity = Ability(dex),
-            constitution = Ability(10),
-            intelligence = Ability(10),
-            wisdom = Ability(10),
-            charisma = Ability(10),
+            strength = AbilityScore(10),
+            dexterity = AbilityScore(dex),
+            constitution = AbilityScore(10),
+            intelligence = AbilityScore(10),
+            wisdom = AbilityScore(10),
+            charisma = AbilityScore(10),
         )
         override val armorClass = 10
         override val maxHitPoints = 10

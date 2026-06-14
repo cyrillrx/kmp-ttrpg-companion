@@ -38,7 +38,7 @@ import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.creature.domain.Abilities
-import com.cyrillrx.rpg.creature.domain.Ability
+import com.cyrillrx.rpg.creature.domain.AbilityScore
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.Proficiency
 import com.cyrillrx.rpg.creature.domain.Skill
@@ -83,12 +83,12 @@ internal fun CharacterEditDialog(
     onLevelConfirmed: (Int) -> Unit,
     onBackgroundConfirmed: (Background?) -> Unit,
     onShortDescriptionConfirmed: (String) -> Unit,
-    onStrengthConfirmed: (Ability) -> Unit,
-    onDexterityConfirmed: (Ability) -> Unit,
-    onConstitutionConfirmed: (Ability) -> Unit,
-    onIntelligenceConfirmed: (Ability) -> Unit,
-    onWisdomConfirmed: (Ability) -> Unit,
-    onCharismaConfirmed: (Ability) -> Unit,
+    onStrengthConfirmed: (AbilityScore) -> Unit,
+    onDexterityConfirmed: (AbilityScore) -> Unit,
+    onConstitutionConfirmed: (AbilityScore) -> Unit,
+    onIntelligenceConfirmed: (AbilityScore) -> Unit,
+    onWisdomConfirmed: (AbilityScore) -> Unit,
+    onCharismaConfirmed: (AbilityScore) -> Unit,
     onArmorClassConfirmed: (Int) -> Unit,
     onMaxHitPointsConfirmed: (Int) -> Unit,
     onWalkSpeedConfirmed: (Int) -> Unit,

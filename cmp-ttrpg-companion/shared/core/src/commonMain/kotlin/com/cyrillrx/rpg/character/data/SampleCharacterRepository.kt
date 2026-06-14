@@ -6,7 +6,7 @@ import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.applyFilter
 import com.cyrillrx.rpg.creature.domain.Abilities
-import com.cyrillrx.rpg.creature.domain.Ability
+import com.cyrillrx.rpg.creature.domain.AbilityScore
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.Proficiency
 import com.cyrillrx.rpg.creature.domain.Skills
@@ -43,12 +43,12 @@ class SampleCharacterRepository : CharacterRepository {
                 alignment = Creature.Alignment.LAWFUL_GOOD,
                 abilities =
                     Abilities(
-                        strength = Ability(16, Proficiency.PROFICIENT),
-                        dexterity = Ability(12),
-                        constitution = Ability(14, Proficiency.PROFICIENT),
-                        intelligence = Ability(10),
-                        wisdom = Ability(10),
-                        charisma = Ability(8),
+                        strength = AbilityScore(16, Proficiency.PROFICIENT),
+                        dexterity = AbilityScore(12),
+                        constitution = AbilityScore(14, Proficiency.PROFICIENT),
+                        intelligence = AbilityScore(10),
+                        wisdom = AbilityScore(10),
+                        charisma = AbilityScore(8),
                     ),
                 armorClass = 16,
                 maxHitPoints = 12,
@@ -67,12 +67,12 @@ class SampleCharacterRepository : CharacterRepository {
                 alignment = Creature.Alignment.CHAOTIC_NEUTRAL,
                 abilities =
                     Abilities(
-                        strength = Ability(8),
-                        dexterity = Ability(16),
-                        constitution = Ability(12),
-                        intelligence = Ability(14),
-                        wisdom = Ability(10),
-                        charisma = Ability(14),
+                        strength = AbilityScore(8),
+                        dexterity = AbilityScore(16),
+                        constitution = AbilityScore(12),
+                        intelligence = AbilityScore(14),
+                        wisdom = AbilityScore(10),
+                        charisma = AbilityScore(14),
                     ),
                 armorClass = 14,
                 maxHitPoints = 8,

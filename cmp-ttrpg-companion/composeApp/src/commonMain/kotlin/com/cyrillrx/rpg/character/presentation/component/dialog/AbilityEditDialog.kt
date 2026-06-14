@@ -30,7 +30,7 @@ import com.cyrillrx.rpg.character.domain.MIN_ABILITY_SCORE
 import com.cyrillrx.rpg.core.domain.toSignedString
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
-import com.cyrillrx.rpg.creature.domain.Ability
+import com.cyrillrx.rpg.creature.domain.AbilityScore
 import com.cyrillrx.rpg.creature.domain.Proficiency
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -44,8 +44,8 @@ import rpg_companion.composeapp.generated.resources.proficiency_proficient
 @Composable
 internal fun AbilityEditDialog(
     title: String,
-    initialAbility: Ability,
-    onConfirm: (Ability) -> Unit,
+    initialAbility: AbilityScore,
+    onConfirm: (AbilityScore) -> Unit,
     onDismiss: () -> Unit,
 ) {
     var value by remember(initialAbility) {
@@ -77,7 +77,7 @@ internal fun AbilityEditDialog(
                 onIncrement = { value++ },
             )
             Text(
-                text = Ability.computeModifier(value).toSignedString(),
+                text = AbilityScore.computeModifier(value).toSignedString(),
                 style = MaterialTheme.typography.titleMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
@@ -121,7 +121,7 @@ private fun PreviewAbilityEditDialogLight() {
     AppThemePreview(darkTheme = false) {
         AbilityEditDialog(
             title = "Strength",
-            initialAbility = Ability(16, Proficiency.PROFICIENT),
+            initialAbility = AbilityScore(16, Proficiency.PROFICIENT),
             onConfirm = {},
             onDismiss = {},
         )
@@ -134,7 +134,7 @@ private fun PreviewAbilityEditDialogDark() {
     AppThemePreview(darkTheme = true) {
         AbilityEditDialog(
             title = "Strength",
-            initialAbility = Ability(16, Proficiency.PROFICIENT),
+            initialAbility = AbilityScore(16, Proficiency.PROFICIENT),
             onConfirm = {},
             onDismiss = {},
         )

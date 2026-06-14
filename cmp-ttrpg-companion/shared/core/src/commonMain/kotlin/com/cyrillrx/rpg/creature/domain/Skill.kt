@@ -21,7 +21,7 @@ enum class Skill {
     SURVIVAL,
 }
 
-fun Skill.getRelatedAbility(abilities: Abilities): Ability = when (this) {
+fun Skill.getRelatedAbility(abilities: Abilities): AbilityScore = when (this) {
     Skill.ACROBATICS -> abilities.dexterity
     Skill.ANIMAL_HANDLING -> abilities.wisdom
     Skill.ARCANA -> abilities.intelligence

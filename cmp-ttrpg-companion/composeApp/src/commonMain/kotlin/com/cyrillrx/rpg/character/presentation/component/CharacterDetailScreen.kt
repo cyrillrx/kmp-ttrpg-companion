@@ -50,7 +50,7 @@ import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
-import com.cyrillrx.rpg.creature.domain.Ability
+import com.cyrillrx.rpg.creature.domain.AbilityScore
 import com.cyrillrx.rpg.creature.domain.Creature
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -136,12 +136,12 @@ fun CharacterDetailScreen(
     onClassConfirmed: (Character.Class) -> Unit,
     onLevelConfirmed: (Int) -> Unit,
     onBackgroundConfirmed: (Background?) -> Unit,
-    onStrengthConfirmed: (Ability) -> Unit,
-    onDexterityConfirmed: (Ability) -> Unit,
-    onConstitutionConfirmed: (Ability) -> Unit,
-    onIntelligenceConfirmed: (Ability) -> Unit,
-    onWisdomConfirmed: (Ability) -> Unit,
-    onCharismaConfirmed: (Ability) -> Unit,
+    onStrengthConfirmed: (AbilityScore) -> Unit,
+    onDexterityConfirmed: (AbilityScore) -> Unit,
+    onConstitutionConfirmed: (AbilityScore) -> Unit,
+    onIntelligenceConfirmed: (AbilityScore) -> Unit,
+    onWisdomConfirmed: (AbilityScore) -> Unit,
+    onCharismaConfirmed: (AbilityScore) -> Unit,
     onArmorClassConfirmed: (Int) -> Unit,
     onMaxHitPointsConfirmed: (Int) -> Unit,
     onWalkSpeedConfirmed: (Int) -> Unit,

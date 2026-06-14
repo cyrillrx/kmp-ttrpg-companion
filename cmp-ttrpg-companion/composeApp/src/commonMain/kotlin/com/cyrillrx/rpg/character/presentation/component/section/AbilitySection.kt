@@ -6,7 +6,7 @@ import com.cyrillrx.rpg.character.presentation.component.StatCell
 import com.cyrillrx.rpg.character.presentation.component.StatCellGrid
 import com.cyrillrx.rpg.core.domain.toSignedString
 import com.cyrillrx.rpg.creature.domain.Abilities
-import com.cyrillrx.rpg.creature.domain.Ability
+import com.cyrillrx.rpg.creature.domain.AbilityScore
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.ability_label_cha
@@ -91,7 +91,7 @@ private fun AbilityCard(
     StatCell(
         label = label,
         value = score.toString(),
-        caption = Ability(score).getModifier().toSignedString(),
+        caption = AbilityScore(score).getModifier().toSignedString(),
         onClick = onClick,
         modifier = modifier,
     )

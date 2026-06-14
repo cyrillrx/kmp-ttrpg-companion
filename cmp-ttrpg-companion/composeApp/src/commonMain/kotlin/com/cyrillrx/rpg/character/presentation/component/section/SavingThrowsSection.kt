@@ -8,7 +8,7 @@ import com.cyrillrx.rpg.character.presentation.component.StatCell
 import com.cyrillrx.rpg.character.presentation.component.StatCellGrid
 import com.cyrillrx.rpg.core.domain.toSignedString
 import com.cyrillrx.rpg.creature.domain.Abilities
-import com.cyrillrx.rpg.creature.domain.Ability
+import com.cyrillrx.rpg.creature.domain.AbilityScore
 import com.cyrillrx.rpg.creature.domain.Proficiency
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
@@ -82,7 +82,7 @@ internal fun SavingThrowsSection(
 @Composable
 private fun SavingThrowCard(
     label: String,
-    ability: Ability,
+    ability: AbilityScore,
     proficiencyBonus: Int,
     modifier: Modifier = Modifier,
 ) {

@@ -4,7 +4,7 @@ import com.cyrillrx.rpg.core.domain.toSignedString
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Ability(
+data class AbilityScore(
     val value: Int,
     val savingThrowProficiency: Proficiency = Proficiency.NONE,
 ) {
