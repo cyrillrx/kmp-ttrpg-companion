@@ -4,10 +4,10 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Abilities(
-    val strength: Ability,
-    val dexterity: Ability,
-    val constitution: Ability,
-    val intelligence: Ability,
-    val wisdom: Ability,
-    val charisma: Ability,
+    val strength: AbilityScore,
+    val dexterity: AbilityScore,
+    val constitution: AbilityScore,
+    val intelligence: AbilityScore,
+    val wisdom: AbilityScore,
+    val charisma: AbilityScore,
 )
