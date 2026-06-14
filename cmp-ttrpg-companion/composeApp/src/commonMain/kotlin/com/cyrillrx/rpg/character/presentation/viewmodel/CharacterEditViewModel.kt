@@ -21,6 +21,7 @@ import com.cyrillrx.rpg.character.presentation.CoercedValue
 import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.creature.domain.Creature
+import com.cyrillrx.rpg.creature.domain.Skills
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
@@ -116,6 +117,10 @@ class CharacterEditViewModel(
 
     fun saveLanguages(languages: List<Language>) {
         updateAndSave { copy(character = character.copy(languages = languages), editingField = null) }
+    }
+
+    fun saveSkills(skills: Skills) {
+        updateAndSave { copy(character = character.copy(skills = skills), editingField = null) }
     }
 
     fun saveShortDescription(description: String) {

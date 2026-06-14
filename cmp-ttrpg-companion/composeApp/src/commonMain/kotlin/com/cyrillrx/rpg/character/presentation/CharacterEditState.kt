@@ -28,6 +28,7 @@ sealed interface CharacterEditState {
             data object WalkSpeed : EditingField
             data object Languages : EditingField
             data object Alignment : EditingField
+            data object Skills : EditingField
         }
     }
 }

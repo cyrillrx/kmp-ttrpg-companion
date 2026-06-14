@@ -5,8 +5,14 @@ import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
+import com.cyrillrx.rpg.creature.domain.Skill
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
+import rpg_companion.composeapp.generated.resources.ability_label_cha
+import rpg_companion.composeapp.generated.resources.ability_label_dex
+import rpg_companion.composeapp.generated.resources.ability_label_int
+import rpg_companion.composeapp.generated.resources.ability_label_str
+import rpg_companion.composeapp.generated.resources.ability_label_wis
 import rpg_companion.composeapp.generated.resources.background_acolyte
 import rpg_companion.composeapp.generated.resources.background_charlatan
 import rpg_companion.composeapp.generated.resources.background_criminal
@@ -53,6 +59,24 @@ import rpg_companion.composeapp.generated.resources.language_sylvan
 import rpg_companion.composeapp.generated.resources.language_thieves_cant
 import rpg_companion.composeapp.generated.resources.language_undercommon
 import rpg_companion.composeapp.generated.resources.race_dragonborn
+import rpg_companion.composeapp.generated.resources.skill_acrobatics
+import rpg_companion.composeapp.generated.resources.skill_animal_handling
+import rpg_companion.composeapp.generated.resources.skill_arcana
+import rpg_companion.composeapp.generated.resources.skill_athletics
+import rpg_companion.composeapp.generated.resources.skill_deception
+import rpg_companion.composeapp.generated.resources.skill_history
+import rpg_companion.composeapp.generated.resources.skill_insight
+import rpg_companion.composeapp.generated.resources.skill_intimidation
+import rpg_companion.composeapp.generated.resources.skill_investigation
+import rpg_companion.composeapp.generated.resources.skill_medicine
+import rpg_companion.composeapp.generated.resources.skill_nature
+import rpg_companion.composeapp.generated.resources.skill_perception
+import rpg_companion.composeapp.generated.resources.skill_performance
+import rpg_companion.composeapp.generated.resources.skill_persuasion
+import rpg_companion.composeapp.generated.resources.skill_religion
+import rpg_companion.composeapp.generated.resources.skill_sleight_of_hand
+import rpg_companion.composeapp.generated.resources.skill_stealth
+import rpg_companion.composeapp.generated.resources.skill_survival
 import rpg_companion.composeapp.generated.resources.race_dwarf
 import rpg_companion.composeapp.generated.resources.race_elf
 import rpg_companion.composeapp.generated.resources.race_gnome
@@ -137,6 +161,56 @@ fun Race.toFormattedString(): String {
         Race.DRAGONBORN -> Res.string.race_dragonborn
         Race.GNOME -> Res.string.race_gnome
         Race.TIEFLING -> Res.string.race_tiefling
+    }
+    return stringResource(stringRes)
+}
+
+@Composable
+fun Skill.toFormattedString(): String {
+    val stringRes = when (this) {
+        Skill.ACROBATICS -> Res.string.skill_acrobatics
+        Skill.ANIMAL_HANDLING -> Res.string.skill_animal_handling
+        Skill.ARCANA -> Res.string.skill_arcana
+        Skill.ATHLETICS -> Res.string.skill_athletics
+        Skill.DECEPTION -> Res.string.skill_deception
+        Skill.HISTORY -> Res.string.skill_history
+        Skill.INSIGHT -> Res.string.skill_insight
+        Skill.INTIMIDATION -> Res.string.skill_intimidation
+        Skill.INVESTIGATION -> Res.string.skill_investigation
+        Skill.MEDICINE -> Res.string.skill_medicine
+        Skill.NATURE -> Res.string.skill_nature
+        Skill.PERCEPTION -> Res.string.skill_perception
+        Skill.PERFORMANCE -> Res.string.skill_performance
+        Skill.PERSUASION -> Res.string.skill_persuasion
+        Skill.RELIGION -> Res.string.skill_religion
+        Skill.SLEIGHT_OF_HAND -> Res.string.skill_sleight_of_hand
+        Skill.STEALTH -> Res.string.skill_stealth
+        Skill.SURVIVAL -> Res.string.skill_survival
+    }
+    return stringResource(stringRes)
+}
+
+@Composable
+fun Skill.relatedAbilityAbbreviation(): String {
+    val stringRes = when (this) {
+        Skill.ACROBATICS -> Res.string.ability_label_dex
+        Skill.ANIMAL_HANDLING -> Res.string.ability_label_wis
+        Skill.ARCANA -> Res.string.ability_label_int
+        Skill.ATHLETICS -> Res.string.ability_label_str
+        Skill.DECEPTION -> Res.string.ability_label_cha
+        Skill.HISTORY -> Res.string.ability_label_int
+        Skill.INSIGHT -> Res.string.ability_label_wis
+        Skill.INTIMIDATION -> Res.string.ability_label_cha
+        Skill.INVESTIGATION -> Res.string.ability_label_int
+        Skill.MEDICINE -> Res.string.ability_label_wis
+        Skill.NATURE -> Res.string.ability_label_int
+        Skill.PERCEPTION -> Res.string.ability_label_wis
+        Skill.PERFORMANCE -> Res.string.ability_label_cha
+        Skill.PERSUASION -> Res.string.ability_label_cha
+        Skill.RELIGION -> Res.string.ability_label_int
+        Skill.SLEIGHT_OF_HAND -> Res.string.ability_label_dex
+        Skill.STEALTH -> Res.string.ability_label_dex
+        Skill.SURVIVAL -> Res.string.ability_label_wis
     }
     return stringResource(stringRes)
 }

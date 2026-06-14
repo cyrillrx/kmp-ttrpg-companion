@@ -33,11 +33,19 @@ import com.cyrillrx.rpg.character.domain.MIN_CHARACTER_LEVEL
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
+import com.cyrillrx.rpg.core.domain.toSignedString
 import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
+import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.creature.domain.Creature
+import com.cyrillrx.rpg.creature.domain.Proficiency
+import com.cyrillrx.rpg.creature.domain.Skill
+import com.cyrillrx.rpg.creature.domain.Skills
+import com.cyrillrx.rpg.creature.domain.getProficiency
+import com.cyrillrx.rpg.creature.domain.getRelatedAbility
+import com.cyrillrx.rpg.creature.domain.withProficiency
 import com.cyrillrx.rpg.dnd.domain.feetToMeters
 import com.cyrillrx.rpg.dnd.domain.metersToFeet
 import com.cyrillrx.rpg.settings.domain.DistanceUnit
@@ -61,6 +69,7 @@ import rpg_companion.composeapp.generated.resources.label_level
 import rpg_companion.composeapp.generated.resources.label_max_hp
 import rpg_companion.composeapp.generated.resources.label_race
 import rpg_companion.composeapp.generated.resources.label_short_description
+import rpg_companion.composeapp.generated.resources.label_skills
 import rpg_companion.composeapp.generated.resources.label_walk_speed
 import rpg_companion.composeapp.generated.resources.settings_unit_feet_abbr
 import rpg_companion.composeapp.generated.resources.settings_unit_meters_abbr
@@ -85,6 +94,7 @@ internal fun CharacterEditDialog(
     onWalkSpeedConfirmed: (Int) -> Unit,
     onLanguagesConfirmed: (List<Language>) -> Unit,
     onAlignmentConfirmed: (Creature.Alignment) -> Unit,
+    onSkillsConfirmed: (Skills) -> Unit,
     onDismiss: () -> Unit,
 ) {
     val field = state.editingField ?: return
@@ -230,6 +240,14 @@ internal fun CharacterEditDialog(
             onConfirm = { it?.let(onAlignmentConfirmed) },
             onDismiss = onDismiss,
         )
+
+        EditingField.Skills -> SkillSelectDialog(
+            current = state.character.skills,
+            abilities = state.character.abilities,
+            proficiencyBonus = state.character.proficiencyBonus(),
+            onConfirm = onSkillsConfirmed,
+            onDismiss = onDismiss,
+        )
     }
 }
 
@@ -372,6 +390,71 @@ private fun LanguageSelectDialog(
                     Text(
                         text = language.toFormattedString(),
                         style = MaterialTheme.typography.bodyMedium,
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun SkillSelectDialog(
+    current: Skills,
+    abilities: Abilities,
+    proficiencyBonus: Int,
+    onConfirm: (Skills) -> Unit,
+    onDismiss: () -> Unit,
+) {
+    var selected by remember {
+        mutableStateOf(Skill.entries.filter { it.getProficiency(current) != Proficiency.NONE }.toSet())
+    }
+    EditDialog(
+        title = stringResource(Res.string.label_skills),
+        onDismiss = onDismiss,
+        onConfirm = {
+            val newSkills = Skill.entries.fold(current) { updatedSkills, skill ->
+                val wasNonNone = skill.getProficiency(current) != Proficiency.NONE
+                val isSelected = skill in selected
+                when {
+                    isSelected && wasNonNone -> updatedSkills
+                    isSelected -> updatedSkills.withProficiency(skill, Proficiency.PROFICIENT)
+                    else -> updatedSkills.withProficiency(skill, Proficiency.NONE)
+                }
+            }
+            onConfirm(newSkills)
+        },
+    ) {
+        Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
+            Skill.entries.forEach { skill ->
+                val prof = skill.getProficiency(current)
+                val ability = skill.getRelatedAbility(abilities)
+                val modifier = ability.getModifier() + when (prof) {
+                    Proficiency.NONE -> 0
+                    Proficiency.PROFICIENT -> proficiencyBonus
+                    Proficiency.EXPERT -> proficiencyBonus * 2
+                }
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable {
+                            selected = if (skill in selected) selected - skill else selected + skill
+                        }
+                        .padding(vertical = spacingCommon),
+                ) {
+                    Checkbox(
+                        checked = skill in selected,
+                        onCheckedChange = null,
+                    )
+                    Text(
+                        text = skill.toFormattedString(),
+                        style = MaterialTheme.typography.bodyMedium,
+                        modifier = Modifier.weight(1f),
+                    )
+                    Text(
+                        text = modifier.toSignedString(),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = if (skill in selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface,
                     )
                 }
             }
