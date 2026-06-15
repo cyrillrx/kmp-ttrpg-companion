@@ -72,11 +72,8 @@ fun Skill.getProficiency(skills: Skills): Proficiency = when (this) {
     Skill.SURVIVAL -> skills.survival
 }
 
-fun Skills.applySelection(selected: Map<Skill, Proficiency>): Skills {
-    var result = this
-    selected.forEach { (skill, proficiency) -> result = result.withProficiency(skill, proficiency) }
-    return result
-}
+fun Skills.applySelection(selected: Map<Skill, Proficiency>): Skills =
+    selected.entries.fold(this) { acc, (skill, proficiency) -> acc.withProficiency(skill, proficiency) }
 
 fun Skills.withProficiency(skill: Skill, proficiency: Proficiency): Skills = when (skill) {
     Skill.ACROBATICS -> copy(acrobatics = proficiency)
