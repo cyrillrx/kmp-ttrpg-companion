@@ -58,25 +58,30 @@ internal fun SkillsSection(
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
-            Skill.entries.chunked(2).forEach { chunk ->
+            val half = (Skill.entries.size + 1) / 2
+            val columns = Skill.entries.chunked(half)
+            val leftColumn = columns[0]
+            val rightColumn = columns.getOrElse(1) { emptyList() }
+            leftColumn.forEachIndexed { index, left ->
                 Row(modifier = Modifier.fillMaxWidth()) {
                     SkillEntry(
-                        skill = chunk[0],
+                        skill = left,
                         skills = skills,
                         abilities = abilities,
                         proficiencyBonus = proficiencyBonus,
                         modifier = Modifier.weight(1f),
                     )
-                    if (chunk.size > 1) {
+                    val right = rightColumn.getOrNull(index)
+                    if (right == null) {
+                        Spacer(modifier = Modifier.weight(1f))
+                    } else {
                         SkillEntry(
-                            skill = chunk[1],
+                            skill = right,
                             skills = skills,
                             abilities = abilities,
                             proficiencyBonus = proficiencyBonus,
                             modifier = Modifier.weight(1f),
                         )
-                    } else {
-                        Spacer(modifier = Modifier.weight(1f))
                     }
                 }
             }
