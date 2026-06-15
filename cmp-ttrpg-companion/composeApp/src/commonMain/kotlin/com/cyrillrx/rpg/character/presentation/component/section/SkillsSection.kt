@@ -19,20 +19,26 @@ import androidx.compose.ui.text.font.FontWeight
 import com.cyrillrx.rpg.core.domain.toSignedString
 import com.cyrillrx.rpg.core.presentation.component.dnd.relatedAbilityAbbreviation
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
+import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.borderAlpha
 import com.cyrillrx.rpg.core.presentation.theme.borderWidth
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.creature.domain.Abilities
+import com.cyrillrx.rpg.creature.domain.AbilityScore
 import com.cyrillrx.rpg.creature.domain.Proficiency
 import com.cyrillrx.rpg.creature.domain.Skill
 import com.cyrillrx.rpg.creature.domain.Skills
-import com.cyrillrx.rpg.creature.domain.computeModifier
-import com.cyrillrx.rpg.creature.domain.getProficiency
 import org.jetbrains.compose.resources.stringResource
+import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.label_skills
+
+private val skillColumns: List<List<Skill>> = run {
+    val half = (Skill.entries.size + 1) / 2
+    Skill.entries.chunked(half)
+}
 
 @Composable
 internal fun SkillsSection(
@@ -58,10 +64,8 @@ internal fun SkillsSection(
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
-            val half = (Skill.entries.size + 1) / 2
-            val columns = Skill.entries.chunked(half)
-            val leftColumn = columns[0]
-            val rightColumn = columns.getOrElse(1) { emptyList() }
+            val leftColumn = skillColumns[0]
+            val rightColumn = skillColumns.getOrElse(1) { emptyList() }
             leftColumn.forEachIndexed { index, left ->
                 Row(modifier = Modifier.fillMaxWidth()) {
                     SkillEntry(
@@ -116,6 +120,46 @@ private fun SkillEntry(
             text = "${skill.toFormattedString()} (${skill.relatedAbilityAbbreviation()})",
             style = MaterialTheme.typography.bodySmall,
             color = color,
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewSkillsSectionLight() {
+    AppThemePreview(darkTheme = false) {
+        SkillsSection(
+            skills = Skills(acrobatics = Proficiency.PROFICIENT, perception = Proficiency.EXPERT),
+            abilities = Abilities(
+                strength = AbilityScore(10),
+                dexterity = AbilityScore(14),
+                constitution = AbilityScore(12),
+                intelligence = AbilityScore(10),
+                wisdom = AbilityScore(12),
+                charisma = AbilityScore(8),
+            ),
+            proficiencyBonus = 3,
+            onTap = {},
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewSkillsSectionDark() {
+    AppThemePreview(darkTheme = true) {
+        SkillsSection(
+            skills = Skills(acrobatics = Proficiency.PROFICIENT, perception = Proficiency.EXPERT),
+            abilities = Abilities(
+                strength = AbilityScore(10),
+                dexterity = AbilityScore(14),
+                constitution = AbilityScore(12),
+                intelligence = AbilityScore(10),
+                wisdom = AbilityScore(12),
+                charisma = AbilityScore(8),
+            ),
+            proficiencyBonus = 3,
+            onTap = {},
         )
     }
 }
