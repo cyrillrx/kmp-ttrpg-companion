@@ -16,7 +16,7 @@ class SkillsApplySelectionTest {
     }
 
     @Test
-    fun `applySelection sets NONE for skills absent from map`() {
+    fun `applySelection preserves base value for skills absent from map`() {
         val selected = mapOf(Skill.ACROBATICS to Proficiency.PROFICIENT)
         val result = empty.applySelection(selected)
         assertEquals(Proficiency.NONE, result.athletics)
