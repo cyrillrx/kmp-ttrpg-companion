@@ -14,6 +14,7 @@ import com.cyrillrx.rpg.character.presentation.CoercedValue
 import com.cyrillrx.rpg.creature.domain.AbilityScore
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.Proficiency
+import com.cyrillrx.rpg.creature.domain.Skills
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
@@ -352,6 +353,19 @@ class CharacterEditViewModelTest {
         assertEquals(25, loaded.character.speeds.walk)
     }
 
+    // ─── saveSkills ───────────────────────────────────────────────────────────
+
+    @Test
+    fun `saveSkills updates skills on character state`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(repo = repoWithFighter())
+        advanceUntilIdle()
+        val newSkills = Skills(acrobatics = Proficiency.PROFICIENT, perception = Proficiency.EXPERT)
+        viewModel.saveSkills(newSkills)
+        val loaded = assertIs<CharacterEditState.Loaded>(viewModel.state.value)
+        assertEquals(Proficiency.PROFICIENT, loaded.character.skills.acrobatics)
+        assertEquals(Proficiency.EXPERT, loaded.character.skills.perception)
+    }
+
     // ─── Persistence ───────────────────────────────────────────────────────────
 
     @Test
@@ -402,6 +416,19 @@ class CharacterEditViewModelTest {
         viewModel.saveLanguages(listOf(Language.ELVISH, Language.DRACONIC))
         advanceUntilIdle()
         assertEquals(listOf(Language.ELVISH, Language.DRACONIC), repo.get(fighter.id)?.languages)
+    }
+
+    @Test
+    fun `saveSkills persists to repository`() = runTest(testDispatcher) {
+        val repo = repoWithFighter()
+        val viewModel = buildViewModel(repo = repo)
+        advanceUntilIdle()
+        val newSkills = Skills(acrobatics = Proficiency.PROFICIENT, perception = Proficiency.EXPERT)
+        viewModel.saveSkills(newSkills)
+        advanceUntilIdle()
+        val saved = repo.get(fighter.id)
+        assertEquals(Proficiency.PROFICIENT, saved?.skills?.acrobatics)
+        assertEquals(Proficiency.EXPERT, saved?.skills?.perception)
     }
 
     // ─── saveShortDescription ─────────────────────────────────────────────────
