@@ -77,7 +77,8 @@ fun CharacterDetailScreen(
                     event.originalFeet.toDistanceString(distanceUnit) to
                         event.coercedFeet.toDistanceString(distanceUnit)
             }
-            snackbarHostState.showSnackbar(getString(Res.string.info_value_coerced, from, to))
+            val message = getString(Res.string.info_value_coerced, from, to)
+            snackbarHostState.showSnackbar(message)
         }
     }
     when (val s = state) {
