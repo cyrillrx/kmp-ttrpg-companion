@@ -185,7 +185,7 @@ fun Proficiency.toFormattedString(): String {
 
 @Composable
 fun Proficiency.getColor(): Color = when (this) {
-    Proficiency.NONE -> MaterialTheme.colorScheme.onSurfaceVariant
+    Proficiency.NONE -> Color.Unspecified
     Proficiency.PROFICIENT -> MaterialTheme.colorScheme.primary
     Proficiency.EXPERT -> MaterialTheme.colorScheme.tertiary
 }
