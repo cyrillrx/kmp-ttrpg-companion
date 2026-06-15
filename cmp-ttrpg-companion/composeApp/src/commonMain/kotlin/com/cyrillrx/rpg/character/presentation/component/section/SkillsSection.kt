@@ -94,7 +94,7 @@ private fun SkillEntry(
 ) {
     val proficiency = skill.getProficiency(skills)
     val isProficient = proficiency != Proficiency.NONE
-    val bonus = skill.computeModifier(abilities, proficiency, proficiencyBonus)
+    val skillModifier = skill.computeModifier(abilities, proficiency, proficiencyBonus)
     val color = if (isProficient) MaterialTheme.colorScheme.primary else Color.Unspecified
     Row(
         verticalAlignment = Alignment.CenterVertically,
@@ -102,7 +102,7 @@ private fun SkillEntry(
         modifier = modifier,
     ) {
         Text(
-            text = bonus.toSignedString(),
+            text = skillModifier.toSignedString(),
             style = MaterialTheme.typography.bodySmall,
             fontWeight = if (isProficient) FontWeight.Bold else FontWeight.Normal,
             color = color,
