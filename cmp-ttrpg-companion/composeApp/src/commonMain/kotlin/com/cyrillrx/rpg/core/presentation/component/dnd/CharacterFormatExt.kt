@@ -1,11 +1,14 @@
 package com.cyrillrx.rpg.core.presentation.component.dnd
 
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.creature.domain.Ability
+import com.cyrillrx.rpg.creature.domain.Proficiency
 import com.cyrillrx.rpg.creature.domain.Skill
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
@@ -60,6 +63,9 @@ import rpg_companion.composeapp.generated.resources.language_primordial
 import rpg_companion.composeapp.generated.resources.language_sylvan
 import rpg_companion.composeapp.generated.resources.language_thieves_cant
 import rpg_companion.composeapp.generated.resources.language_undercommon
+import rpg_companion.composeapp.generated.resources.proficiency_expert
+import rpg_companion.composeapp.generated.resources.proficiency_none
+import rpg_companion.composeapp.generated.resources.proficiency_proficient
 import rpg_companion.composeapp.generated.resources.race_dragonborn
 import rpg_companion.composeapp.generated.resources.race_dwarf
 import rpg_companion.composeapp.generated.resources.race_elf
@@ -165,6 +171,23 @@ fun Race.toFormattedString(): String {
         Race.TIEFLING -> Res.string.race_tiefling
     }
     return stringResource(stringRes)
+}
+
+@Composable
+fun Proficiency.toFormattedString(): String {
+    val stringRes = when (this) {
+        Proficiency.NONE -> Res.string.proficiency_none
+        Proficiency.PROFICIENT -> Res.string.proficiency_proficient
+        Proficiency.EXPERT -> Res.string.proficiency_expert
+    }
+    return stringResource(stringRes)
+}
+
+@Composable
+fun Proficiency.toColor(): Color = when (this) {
+    Proficiency.NONE -> MaterialTheme.colorScheme.onSurfaceVariant
+    Proficiency.PROFICIENT -> MaterialTheme.colorScheme.primary
+    Proficiency.EXPERT -> MaterialTheme.colorScheme.tertiary
 }
 
 @Composable
