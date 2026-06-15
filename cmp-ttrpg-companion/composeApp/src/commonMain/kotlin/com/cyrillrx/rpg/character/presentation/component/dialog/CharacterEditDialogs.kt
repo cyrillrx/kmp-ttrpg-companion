@@ -406,7 +406,7 @@ private fun SkillSelectDialog(
     onConfirm: (Skills) -> Unit,
     onDismiss: () -> Unit,
 ) {
-    var selected by remember {
+    var selected by remember(current) {
         mutableStateOf(Skill.entries.associateWith { it.getProficiency(current) })
     }
     EditDialog(
