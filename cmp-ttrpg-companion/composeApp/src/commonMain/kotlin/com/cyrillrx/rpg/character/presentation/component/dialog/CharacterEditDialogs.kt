@@ -437,9 +437,7 @@ private fun SkillSelectDialog(
                     Text(
                         text = modifier.toSignedString(),
                         style = MaterialTheme.typography.bodyMedium,
-                        color = if (proficiency !=
-                            Proficiency.NONE
-                        ) {
+                        color = if (proficiency != Proficiency.NONE) {
                             MaterialTheme.colorScheme.primary
                         } else {
                             MaterialTheme.colorScheme.onSurface
