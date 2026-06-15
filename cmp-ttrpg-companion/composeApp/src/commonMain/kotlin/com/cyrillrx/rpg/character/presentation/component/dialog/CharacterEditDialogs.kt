@@ -37,6 +37,7 @@ import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.Editing
 import com.cyrillrx.rpg.core.domain.toSignedString
 import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
+import com.cyrillrx.rpg.core.presentation.component.dnd.ProficiencyCheckbox
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.creature.domain.Abilities
@@ -45,9 +46,9 @@ import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.Proficiency
 import com.cyrillrx.rpg.creature.domain.Skill
 import com.cyrillrx.rpg.creature.domain.Skills
-import com.cyrillrx.rpg.creature.domain.getProficiency
+import com.cyrillrx.rpg.creature.domain.applySelection
 import com.cyrillrx.rpg.creature.domain.computeModifier
-import com.cyrillrx.rpg.creature.domain.withProficiency
+import com.cyrillrx.rpg.creature.domain.getProficiency
 import com.cyrillrx.rpg.dnd.domain.feetToMeters
 import com.cyrillrx.rpg.dnd.domain.metersToFeet
 import com.cyrillrx.rpg.settings.domain.DistanceUnit
@@ -409,47 +410,28 @@ private fun SkillSelectDialog(
     onDismiss: () -> Unit,
 ) {
     var selected by remember {
-        mutableStateOf(Skill.entries.filter { it.getProficiency(current) != Proficiency.NONE }.toSet())
+        mutableStateOf(Skill.entries.associateWith { it.getProficiency(current) })
     }
     EditDialog(
         title = stringResource(Res.string.label_skills),
         onDismiss = onDismiss,
-        onConfirm = {
-            val newSkills = Skill.entries.fold(current) { updatedSkills, skill ->
-                val wasNonNone = skill.getProficiency(current) != Proficiency.NONE
-                val isSelected = skill in selected
-                when {
-                    isSelected && wasNonNone -> updatedSkills
-                    isSelected -> updatedSkills.withProficiency(skill, Proficiency.PROFICIENT)
-                    else -> updatedSkills.withProficiency(skill, Proficiency.NONE)
-                }
-            }
-            onConfirm(newSkills)
-        },
+        onConfirm = { onConfirm(current.applySelection(selected)) },
     ) {
         Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
             Skill.entries.forEach { skill ->
-                val savedProf = skill.getProficiency(current)
-                val effectiveProf = when {
-                    skill !in selected -> Proficiency.NONE
-                    savedProf != Proficiency.NONE -> savedProf
-                    else -> Proficiency.PROFICIENT
-                }
-                val modifier = skill.computeModifier(abilities, effectiveProf, proficiencyBonus)
+                val proficiency = selected[skill] ?: Proficiency.NONE
+                val modifier = skill.computeModifier(abilities, proficiency, proficiencyBonus)
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(spacingMedium),
                     modifier = Modifier
                         .fillMaxWidth()
                         .clickable {
-                            selected = if (skill in selected) selected - skill else selected + skill
+                            selected = selected + (skill to proficiency.next())
                         }
                         .padding(vertical = spacingCommon),
                 ) {
-                    Checkbox(
-                        checked = skill in selected,
-                        onCheckedChange = null,
-                    )
+                    ProficiencyCheckbox(proficiency = proficiency)
                     Text(
                         text = skill.toFormattedString(),
                         style = MaterialTheme.typography.bodyMedium,
@@ -458,7 +440,7 @@ private fun SkillSelectDialog(
                     Text(
                         text = modifier.toSignedString(),
                         style = MaterialTheme.typography.bodyMedium,
-                        color = if (skill in selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface,
+                        color = if (proficiency != Proficiency.NONE) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface,
                     )
                 }
             }
