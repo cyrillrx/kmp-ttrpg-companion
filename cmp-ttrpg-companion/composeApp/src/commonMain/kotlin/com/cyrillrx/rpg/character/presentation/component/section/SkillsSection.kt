@@ -14,9 +14,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import com.cyrillrx.rpg.core.domain.toSignedString
+import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
 import com.cyrillrx.rpg.core.presentation.component.dnd.relatedAbilityAbbreviation
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
@@ -104,7 +104,7 @@ private fun SkillEntry(
     val proficiency = skill.getProficiency(skills)
     val isProficient = proficiency != Proficiency.NONE
     val skillModifier = skill.computeModifier(abilities, proficiency, proficiencyBonus)
-    val color = if (isProficient) MaterialTheme.colorScheme.primary else Color.Unspecified
+    val color = proficiency.getColor()
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(spacingSmall),

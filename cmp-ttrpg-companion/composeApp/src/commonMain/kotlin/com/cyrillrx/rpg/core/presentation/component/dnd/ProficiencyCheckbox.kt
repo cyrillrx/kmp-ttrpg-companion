@@ -22,7 +22,7 @@ fun ProficiencyCheckbox(
     Icon(
         imageVector = icon,
         contentDescription = proficiency.toFormattedString(),
-        tint = proficiency.toColor(),
+        tint = proficiency.getColor(),
         modifier = modifier,
     )
 }

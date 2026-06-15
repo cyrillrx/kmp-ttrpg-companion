@@ -24,7 +24,7 @@ import com.cyrillrx.rpg.character.domain.MAX_ABILITY_SCORE
 import com.cyrillrx.rpg.character.domain.MIN_ABILITY_SCORE
 import com.cyrillrx.rpg.core.domain.toSignedString
 import com.cyrillrx.rpg.core.presentation.component.dnd.ProficiencyCheckbox
-import com.cyrillrx.rpg.core.presentation.component.dnd.toColor
+import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
@@ -88,7 +88,7 @@ internal fun AbilityEditDialog(
                     text = buildAnnotatedString {
                         append(stringResource(Res.string.label_saving_throw_proficiency))
                         append(": ")
-                        withStyle(SpanStyle(color = proficiency.toColor())) { append(proficiency.toFormattedString()) }
+                        withStyle(SpanStyle(color = proficiency.getColor())) { append(proficiency.toFormattedString()) }
                     },
                     style = MaterialTheme.typography.bodyMedium,
                     modifier = Modifier.padding(start = spacingMedium),

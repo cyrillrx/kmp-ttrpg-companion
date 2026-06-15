@@ -37,13 +37,13 @@ import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.Editing
 import com.cyrillrx.rpg.core.domain.toSignedString
 import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
 import com.cyrillrx.rpg.core.presentation.component.dnd.ProficiencyCheckbox
+import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.AbilityScore
 import com.cyrillrx.rpg.creature.domain.Creature
-import com.cyrillrx.rpg.creature.domain.Proficiency
 import com.cyrillrx.rpg.creature.domain.Skill
 import com.cyrillrx.rpg.creature.domain.Skills
 import com.cyrillrx.rpg.dnd.domain.feetToMeters
@@ -437,11 +437,7 @@ private fun SkillSelectDialog(
                     Text(
                         text = modifier.toSignedString(),
                         style = MaterialTheme.typography.bodyMedium,
-                        color = if (proficiency != Proficiency.NONE) {
-                            MaterialTheme.colorScheme.primary
-                        } else {
-                            MaterialTheme.colorScheme.onSurface
-                        },
+                        color = proficiency.getColor(),
                     )
                 }
             }
