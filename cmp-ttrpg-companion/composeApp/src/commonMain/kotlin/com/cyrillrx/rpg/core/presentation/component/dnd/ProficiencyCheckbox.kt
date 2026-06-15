@@ -9,6 +9,11 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.cyrillrx.rpg.creature.domain.Proficiency
+import org.jetbrains.compose.resources.stringResource
+import rpg_companion.composeapp.generated.resources.Res
+import rpg_companion.composeapp.generated.resources.proficiency_expert
+import rpg_companion.composeapp.generated.resources.proficiency_none
+import rpg_companion.composeapp.generated.resources.proficiency_proficient
 
 @Composable
 fun ProficiencyCheckbox(
@@ -20,5 +25,12 @@ fun ProficiencyCheckbox(
         Proficiency.PROFICIENT -> Icons.Filled.CheckBox to MaterialTheme.colorScheme.primary
         Proficiency.EXPERT -> Icons.Filled.Star to MaterialTheme.colorScheme.tertiary
     }
-    Icon(imageVector = icon, contentDescription = null, tint = tint, modifier = modifier)
+    val contentDescription = stringResource(
+        when (proficiency) {
+            Proficiency.NONE -> Res.string.proficiency_none
+            Proficiency.PROFICIENT -> Res.string.proficiency_proficient
+            Proficiency.EXPERT -> Res.string.proficiency_expert
+        },
+    )
+    Icon(imageVector = icon, contentDescription = contentDescription, tint = tint, modifier = modifier)
 }
