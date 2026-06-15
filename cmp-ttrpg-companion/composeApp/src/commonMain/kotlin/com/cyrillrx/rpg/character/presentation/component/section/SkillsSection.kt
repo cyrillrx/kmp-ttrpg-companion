@@ -4,6 +4,7 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card
@@ -57,25 +58,26 @@ internal fun SkillsSection(
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
-            val half = (Skill.entries.size + 1) / 2
-            val leftColumn = Skill.entries.take(half)
-            val rightColumn = Skill.entries.drop(half)
-            leftColumn.zip(rightColumn).forEach { (left, right) ->
+            Skill.entries.chunked(2).forEach { chunk ->
                 Row(modifier = Modifier.fillMaxWidth()) {
                     SkillEntry(
-                        skill = left,
+                        skill = chunk[0],
                         skills = skills,
                         abilities = abilities,
                         proficiencyBonus = proficiencyBonus,
                         modifier = Modifier.weight(1f),
                     )
-                    SkillEntry(
-                        skill = right,
-                        skills = skills,
-                        abilities = abilities,
-                        proficiencyBonus = proficiencyBonus,
-                        modifier = Modifier.weight(1f),
-                    )
+                    if (chunk.size > 1) {
+                        SkillEntry(
+                            skill = chunk[1],
+                            skills = skills,
+                            abilities = abilities,
+                            proficiencyBonus = proficiencyBonus,
+                            modifier = Modifier.weight(1f),
+                        )
+                    } else {
+                        Spacer(modifier = Modifier.weight(1f))
+                    }
                 }
             }
         }
