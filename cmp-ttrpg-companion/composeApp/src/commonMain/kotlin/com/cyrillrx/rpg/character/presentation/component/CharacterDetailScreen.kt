@@ -38,7 +38,6 @@ import com.cyrillrx.rpg.character.presentation.component.section.SavingThrowsSec
 import com.cyrillrx.rpg.character.presentation.component.section.SheetDivider
 import com.cyrillrx.rpg.character.presentation.component.section.SkillsSection
 import com.cyrillrx.rpg.character.presentation.component.section.WalkSpeedRow
-import com.cyrillrx.rpg.creature.domain.Skills
 import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
 import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterEditViewModel
 import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
@@ -52,6 +51,7 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.creature.domain.AbilityScore
 import com.cyrillrx.rpg.creature.domain.Creature
+import com.cyrillrx.rpg.creature.domain.Skills
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res

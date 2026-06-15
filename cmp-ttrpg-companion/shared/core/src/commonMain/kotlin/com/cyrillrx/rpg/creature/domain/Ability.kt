@@ -7,13 +7,14 @@ enum class Ability {
     INTELLIGENCE,
     WISDOM,
     CHARISMA,
-}
+    ;
 
-fun Ability.toAbilityScore(abilities: Abilities): AbilityScore = when (this) {
-    Ability.STRENGTH -> abilities.strength
-    Ability.DEXTERITY -> abilities.dexterity
-    Ability.CONSTITUTION -> abilities.constitution
-    Ability.INTELLIGENCE -> abilities.intelligence
-    Ability.WISDOM -> abilities.wisdom
-    Ability.CHARISMA -> abilities.charisma
+    fun toAbilityScore(abilities: Abilities): AbilityScore = when (this) {
+        STRENGTH -> abilities.strength
+        DEXTERITY -> abilities.dexterity
+        CONSTITUTION -> abilities.constitution
+        INTELLIGENCE -> abilities.intelligence
+        WISDOM -> abilities.wisdom
+        CHARISMA -> abilities.charisma
+    }
 }

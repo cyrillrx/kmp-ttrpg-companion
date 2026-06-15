@@ -7,7 +7,6 @@ import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.creature.domain.Skill
-import com.cyrillrx.rpg.creature.domain.getRelatedAbility
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.ability_label_cha
@@ -62,6 +61,14 @@ import rpg_companion.composeapp.generated.resources.language_sylvan
 import rpg_companion.composeapp.generated.resources.language_thieves_cant
 import rpg_companion.composeapp.generated.resources.language_undercommon
 import rpg_companion.composeapp.generated.resources.race_dragonborn
+import rpg_companion.composeapp.generated.resources.race_dwarf
+import rpg_companion.composeapp.generated.resources.race_elf
+import rpg_companion.composeapp.generated.resources.race_gnome
+import rpg_companion.composeapp.generated.resources.race_half_elf
+import rpg_companion.composeapp.generated.resources.race_half_orc
+import rpg_companion.composeapp.generated.resources.race_halfling
+import rpg_companion.composeapp.generated.resources.race_human
+import rpg_companion.composeapp.generated.resources.race_tiefling
 import rpg_companion.composeapp.generated.resources.skill_acrobatics
 import rpg_companion.composeapp.generated.resources.skill_animal_handling
 import rpg_companion.composeapp.generated.resources.skill_arcana
@@ -80,14 +87,6 @@ import rpg_companion.composeapp.generated.resources.skill_religion
 import rpg_companion.composeapp.generated.resources.skill_sleight_of_hand
 import rpg_companion.composeapp.generated.resources.skill_stealth
 import rpg_companion.composeapp.generated.resources.skill_survival
-import rpg_companion.composeapp.generated.resources.race_dwarf
-import rpg_companion.composeapp.generated.resources.race_elf
-import rpg_companion.composeapp.generated.resources.race_gnome
-import rpg_companion.composeapp.generated.resources.race_half_elf
-import rpg_companion.composeapp.generated.resources.race_half_orc
-import rpg_companion.composeapp.generated.resources.race_halfling
-import rpg_companion.composeapp.generated.resources.race_human
-import rpg_companion.composeapp.generated.resources.race_tiefling
 
 @Composable
 fun Background?.toFormattedString(): String {
