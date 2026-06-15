@@ -416,7 +416,7 @@ private fun SkillSelectDialog(
     ) {
         Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
             Skill.entries.forEach { skill ->
-                val proficiency = selected[skill] ?: Proficiency.NONE
+                val proficiency = selected.getValue(skill)
                 val modifier = skill.computeModifier(abilities, proficiency, proficiencyBonus)
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
