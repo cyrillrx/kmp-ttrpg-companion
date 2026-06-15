@@ -46,7 +46,7 @@ import com.cyrillrx.rpg.creature.domain.Proficiency
 import com.cyrillrx.rpg.creature.domain.Skill
 import com.cyrillrx.rpg.creature.domain.Skills
 import com.cyrillrx.rpg.creature.domain.getProficiency
-import com.cyrillrx.rpg.creature.domain.getRelatedAbilityScore
+import com.cyrillrx.rpg.creature.domain.computeModifier
 import com.cyrillrx.rpg.creature.domain.withProficiency
 import com.cyrillrx.rpg.dnd.domain.feetToMeters
 import com.cyrillrx.rpg.dnd.domain.metersToFeet
@@ -429,13 +429,13 @@ private fun SkillSelectDialog(
     ) {
         Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
             Skill.entries.forEach { skill ->
-                val prof = skill.getProficiency(current)
-                val ability = skill.getRelatedAbilityScore(abilities)
-                val modifier = ability.getModifier() + when (prof) {
-                    Proficiency.NONE -> 0
-                    Proficiency.PROFICIENT -> proficiencyBonus
-                    Proficiency.EXPERT -> proficiencyBonus * 2
+                val savedProf = skill.getProficiency(current)
+                val effectiveProf = when {
+                    skill !in selected -> Proficiency.NONE
+                    savedProf != Proficiency.NONE -> savedProf
+                    else -> Proficiency.PROFICIENT
                 }
+                val modifier = skill.computeModifier(abilities, effectiveProf, proficiencyBonus)
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(spacingMedium),

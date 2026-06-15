@@ -44,6 +44,13 @@ fun Skill.getRelatedAbility(): Ability = when (this) {
 
 fun Skill.getRelatedAbilityScore(abilities: Abilities): AbilityScore = getRelatedAbility().toAbilityScore(abilities)
 
+fun Skill.computeModifier(abilities: Abilities, proficiency: Proficiency, proficiencyBonus: Int): Int =
+    getRelatedAbilityScore(abilities).getModifier() + when (proficiency) {
+        Proficiency.NONE -> 0
+        Proficiency.PROFICIENT -> proficiencyBonus
+        Proficiency.EXPERT -> proficiencyBonus * 2
+    }
+
 fun Skill.getProficiency(skills: Skills): Proficiency = when (this) {
     Skill.ACROBATICS -> skills.acrobatics
     Skill.ANIMAL_HANDLING -> skills.animalHandling
