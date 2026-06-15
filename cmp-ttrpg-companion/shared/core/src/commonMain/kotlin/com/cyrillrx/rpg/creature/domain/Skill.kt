@@ -45,11 +45,7 @@ enum class Skill {
     fun getRelatedAbilityScore(abilities: Abilities): AbilityScore = getRelatedAbility().toAbilityScore(abilities)
 
     fun computeModifier(abilities: Abilities, proficiency: Proficiency, proficiencyBonus: Int): Int =
-        getRelatedAbilityScore(abilities).getModifier() + when (proficiency) {
-            Proficiency.NONE -> 0
-            Proficiency.PROFICIENT -> proficiencyBonus
-            Proficiency.EXPERT -> proficiencyBonus * 2
-        }
+        getRelatedAbilityScore(abilities).getModifier() + proficiency.applyMultiplier(proficiencyBonus)
 
     fun getProficiency(skills: Skills): Proficiency = when (this) {
         ACROBATICS -> skills.acrobatics

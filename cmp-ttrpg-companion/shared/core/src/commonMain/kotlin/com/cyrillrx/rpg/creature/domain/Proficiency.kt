@@ -11,4 +11,10 @@ enum class Proficiency {
         PROFICIENT -> EXPERT
         EXPERT -> NONE
     }
+
+    fun applyMultiplier(proficiencyBonus: Int): Int = when (this) {
+        NONE -> 0
+        PROFICIENT -> proficiencyBonus
+        EXPERT -> proficiencyBonus * 2
+    }
 }
