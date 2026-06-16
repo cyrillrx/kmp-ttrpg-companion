@@ -3,6 +3,7 @@ package com.cyrillrx.rpg.core.presentation.component.dnd
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.Language
@@ -188,6 +189,11 @@ fun Proficiency.getColor(): Color = when (this) {
     Proficiency.NONE -> Color.Unspecified
     Proficiency.PROFICIENT -> MaterialTheme.colorScheme.primary
     Proficiency.EXPERT -> MaterialTheme.colorScheme.tertiary
+}
+
+fun Proficiency.getFontWeight(): FontWeight = when (this) {
+    Proficiency.NONE -> FontWeight.Normal
+    Proficiency.PROFICIENT, Proficiency.EXPERT -> FontWeight.Bold
 }
 
 @Composable

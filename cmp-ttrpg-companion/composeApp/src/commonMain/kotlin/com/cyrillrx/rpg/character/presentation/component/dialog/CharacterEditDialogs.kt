@@ -38,6 +38,7 @@ import com.cyrillrx.rpg.core.domain.toSignedString
 import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
 import com.cyrillrx.rpg.core.presentation.component.dnd.ProficiencyCheckbox
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
+import com.cyrillrx.rpg.core.presentation.component.dnd.getFontWeight
 import com.cyrillrx.rpg.core.presentation.component.dnd.sortedByLocalizedName
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
@@ -438,6 +439,7 @@ private fun SkillSelectDialog(
                     Text(
                         text = modifier.toSignedString(),
                         style = MaterialTheme.typography.bodyMedium,
+                        fontWeight = proficiency.getFontWeight(),
                         color = proficiency.getColor(),
                     )
                 }
