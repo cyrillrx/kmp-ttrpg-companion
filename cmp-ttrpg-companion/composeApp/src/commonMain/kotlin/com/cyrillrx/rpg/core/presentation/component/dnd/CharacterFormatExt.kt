@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.core.presentation.component.dnd
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import com.cyrillrx.rpg.character.domain.Background
@@ -223,11 +224,10 @@ fun Skill.toFormattedString(): String {
 
 @Composable
 fun List<Skill>.sortedByLocalizedName(): List<Skill> {
-    val localizedNames = HashMap<Skill, String>(size)
-    for (skill in this) {
-        localizedNames[skill] = skill.toFormattedString()
+    val localizedNames = associateWith { it.toFormattedString() }
+    return remember(localizedNames) {
+        sortedBy { localizedNames.getValue(it).lowercase() }
     }
-    return sortedBy { localizedNames.getValue(it).lowercase() }
 }
 
 @Composable
