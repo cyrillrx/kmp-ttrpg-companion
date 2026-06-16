@@ -42,12 +42,13 @@ internal fun SkillsSection(
     abilities: Abilities,
     proficiencyBonus: Int,
     onTap: () -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     Card(
         onClick = onTap,
         border = BorderStroke(borderWidth, MaterialTheme.colorScheme.outline.copy(alpha = borderAlpha)),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
-        modifier = Modifier.fillMaxWidth(),
+        modifier = modifier.fillMaxWidth(),
     ) {
         Column(
             modifier = Modifier
