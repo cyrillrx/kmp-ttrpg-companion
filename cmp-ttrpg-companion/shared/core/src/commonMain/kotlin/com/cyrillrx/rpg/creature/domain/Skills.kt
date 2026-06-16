@@ -23,8 +23,13 @@ data class Skills(
     val stealth: Proficiency = Proficiency.NONE,
     val survival: Proficiency = Proficiency.NONE,
 ) {
-    fun applySelection(selected: Map<Skill, Proficiency>): Skills =
-        selected.entries.fold(this) { acc, (skill, proficiency) -> acc.withProficiency(skill, proficiency) }
+    fun applySelection(selected: Map<Skill, Proficiency>): Skills {
+        var result = this
+        selected.forEach { (skill, proficiency) ->
+            result = result.withProficiency(skill, proficiency)
+        }
+        return result
+    }
 
     private fun withProficiency(skill: Skill, proficiency: Proficiency): Skills = when (skill) {
         Skill.ACROBATICS -> copy(acrobatics = proficiency)
