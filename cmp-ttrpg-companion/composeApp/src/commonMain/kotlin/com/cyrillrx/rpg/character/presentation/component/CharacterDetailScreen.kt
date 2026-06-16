@@ -52,6 +52,7 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.creature.domain.AbilityScore
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.Skills
+import org.jetbrains.compose.resources.getString
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
@@ -70,7 +71,6 @@ fun CharacterDetailScreen(
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     val snackbarHostState = remember { SnackbarHostState() }
-    val coercedMessage = stringResource(Res.string.info_value_coerced)
     val distanceUnit by rememberUpdatedState(LocalDistanceUnit.current)
     LaunchedEffect(viewModel) {
         viewModel.coercedValueEvent.collect { event ->
@@ -80,7 +80,8 @@ fun CharacterDetailScreen(
                     event.originalFeet.toDistanceString(distanceUnit) to
                         event.coercedFeet.toDistanceString(distanceUnit)
             }
-            snackbarHostState.showSnackbar(coercedMessage.format(from, to))
+            val message = getString(Res.string.info_value_coerced, from, to)
+            snackbarHostState.showSnackbar(message)
         }
     }
     when (val s = state) {
