@@ -63,7 +63,7 @@ internal fun SkillsSection(
             )
             val sortedSkills = Skill.entries.sortedByLocalizedName()
             val skillColumns = sortedSkills.chunked((sortedSkills.size + 1) / 2)
-            val leftColumn = skillColumns[0]
+            val leftColumn = skillColumns.getOrElse(0) { emptyList() }
             val rightColumn = skillColumns.getOrElse(1) { emptyList() }
             leftColumn.forEachIndexed { index, left ->
                 Row(modifier = Modifier.fillMaxWidth()) {
