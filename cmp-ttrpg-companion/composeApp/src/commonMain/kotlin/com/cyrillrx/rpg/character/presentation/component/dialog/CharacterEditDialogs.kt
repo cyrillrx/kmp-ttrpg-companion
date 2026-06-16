@@ -425,9 +425,7 @@ private fun SkillSelectDialog(
                     horizontalArrangement = Arrangement.spacedBy(spacingMedium),
                     modifier = Modifier
                         .fillMaxWidth()
-                        .clickable {
-                            selected = selected + (skill to proficiency.next())
-                        }
+                        .clickable { selected = selected + (skill to proficiency.next()) }
                         .padding(vertical = spacingCommon),
                 ) {
                     ProficiencyCheckbox(proficiency = proficiency)
