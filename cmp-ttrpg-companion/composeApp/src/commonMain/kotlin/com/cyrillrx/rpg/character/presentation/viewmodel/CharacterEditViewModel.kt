@@ -19,8 +19,9 @@ import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
 import com.cyrillrx.rpg.character.presentation.CoercedValue
 import com.cyrillrx.rpg.creature.domain.Abilities
-import com.cyrillrx.rpg.creature.domain.Ability
+import com.cyrillrx.rpg.creature.domain.AbilityScore
 import com.cyrillrx.rpg.creature.domain.Creature
+import com.cyrillrx.rpg.creature.domain.Skills
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
@@ -84,17 +85,17 @@ class CharacterEditViewModel(
         updateAndSave { copy(character = character.copy(background = background), editingField = null) }
     }
 
-    fun saveStrength(ability: Ability) = saveAbility(ability) { updated -> copy(strength = updated) }
+    fun saveStrength(ability: AbilityScore) = saveAbility(ability) { updated -> copy(strength = updated) }
 
-    fun saveDexterity(ability: Ability) = saveAbility(ability) { updated -> copy(dexterity = updated) }
+    fun saveDexterity(ability: AbilityScore) = saveAbility(ability) { updated -> copy(dexterity = updated) }
 
-    fun saveConstitution(ability: Ability) = saveAbility(ability) { updated -> copy(constitution = updated) }
+    fun saveConstitution(ability: AbilityScore) = saveAbility(ability) { updated -> copy(constitution = updated) }
 
-    fun saveIntelligence(ability: Ability) = saveAbility(ability) { updated -> copy(intelligence = updated) }
+    fun saveIntelligence(ability: AbilityScore) = saveAbility(ability) { updated -> copy(intelligence = updated) }
 
-    fun saveWisdom(ability: Ability) = saveAbility(ability) { updated -> copy(wisdom = updated) }
+    fun saveWisdom(ability: AbilityScore) = saveAbility(ability) { updated -> copy(wisdom = updated) }
 
-    fun saveCharisma(ability: Ability) = saveAbility(ability) { updated -> copy(charisma = updated) }
+    fun saveCharisma(ability: AbilityScore) = saveAbility(ability) { updated -> copy(charisma = updated) }
 
     fun saveArmorClass(value: Int) = updateAndSave(value, Int::coerceToValidArmorClass) { coerced ->
         copy(character = character.copy(armorClass = coerced), editingField = null)
@@ -118,6 +119,10 @@ class CharacterEditViewModel(
         updateAndSave { copy(character = character.copy(languages = languages), editingField = null) }
     }
 
+    fun saveSkills(skills: Skills) {
+        updateAndSave { copy(character = character.copy(skills = skills), editingField = null) }
+    }
+
     fun saveShortDescription(description: String) {
         val trimmed = description.trim()
         val locale = currentLocale()
@@ -138,7 +143,7 @@ class CharacterEditViewModel(
         updateAndSave { copy(character = character.copy(alignment = alignment), editingField = null) }
     }
 
-    private fun saveAbility(ability: Ability, update: Abilities.(Ability) -> Abilities) {
+    private fun saveAbility(ability: AbilityScore, update: Abilities.(AbilityScore) -> Abilities) {
         if (state.value !is Loaded) return
 
         val coerced = ability.value.coerceToValidAbilityScore()

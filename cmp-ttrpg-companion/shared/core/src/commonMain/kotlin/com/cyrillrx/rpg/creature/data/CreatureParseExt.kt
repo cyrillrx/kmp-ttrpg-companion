@@ -7,7 +7,7 @@ import com.cyrillrx.rpg.creature.data.api.ApiSavingThrows
 import com.cyrillrx.rpg.creature.data.api.ApiSkills
 import com.cyrillrx.rpg.creature.data.api.ApiSpeeds
 import com.cyrillrx.rpg.creature.domain.Abilities
-import com.cyrillrx.rpg.creature.domain.Ability
+import com.cyrillrx.rpg.creature.domain.AbilityScore
 import com.cyrillrx.rpg.creature.domain.ConditionImmunities
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.DamageAffinities
@@ -17,12 +17,12 @@ import com.cyrillrx.rpg.creature.domain.Skills
 import com.cyrillrx.rpg.creature.domain.Speeds
 
 internal fun createAbilities(abilities: ApiAbilities?, savingThrows: ApiSavingThrows? = null): Abilities = Abilities(
-    strength = Ability(abilities?.str ?: Ability.DEFAULT_VALUE, savingThrows?.str.toProficiency()),
-    dexterity = Ability(abilities?.dex ?: Ability.DEFAULT_VALUE, savingThrows?.dex.toProficiency()),
-    constitution = Ability(abilities?.con ?: Ability.DEFAULT_VALUE, savingThrows?.con.toProficiency()),
-    intelligence = Ability(abilities?.int ?: Ability.DEFAULT_VALUE, savingThrows?.int.toProficiency()),
-    wisdom = Ability(abilities?.wis ?: Ability.DEFAULT_VALUE, savingThrows?.wis.toProficiency()),
-    charisma = Ability(abilities?.cha ?: Ability.DEFAULT_VALUE, savingThrows?.cha.toProficiency()),
+    strength = AbilityScore(abilities?.str ?: AbilityScore.DEFAULT_VALUE, savingThrows?.str.toProficiency()),
+    dexterity = AbilityScore(abilities?.dex ?: AbilityScore.DEFAULT_VALUE, savingThrows?.dex.toProficiency()),
+    constitution = AbilityScore(abilities?.con ?: AbilityScore.DEFAULT_VALUE, savingThrows?.con.toProficiency()),
+    intelligence = AbilityScore(abilities?.int ?: AbilityScore.DEFAULT_VALUE, savingThrows?.int.toProficiency()),
+    wisdom = AbilityScore(abilities?.wis ?: AbilityScore.DEFAULT_VALUE, savingThrows?.wis.toProficiency()),
+    charisma = AbilityScore(abilities?.cha ?: AbilityScore.DEFAULT_VALUE, savingThrows?.cha.toProficiency()),
 )
 
 internal fun String?.toProficiency(): Proficiency = when (this) {

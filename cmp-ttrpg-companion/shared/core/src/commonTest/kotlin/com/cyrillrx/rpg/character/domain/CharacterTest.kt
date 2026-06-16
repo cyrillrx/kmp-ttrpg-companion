@@ -1,7 +1,7 @@
 package com.cyrillrx.rpg.character.domain
 
 import com.cyrillrx.rpg.creature.domain.Abilities
-import com.cyrillrx.rpg.creature.domain.Ability
+import com.cyrillrx.rpg.creature.domain.AbilityScore
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.Skills
 import com.cyrillrx.rpg.creature.domain.Speeds
@@ -34,12 +34,12 @@ class CharacterTest {
         size = Creature.Size.MEDIUM,
         alignment = Creature.Alignment.NEUTRAL,
         abilities = Abilities(
-            strength = Ability(10),
-            dexterity = Ability(dex),
-            constitution = Ability(10),
-            intelligence = Ability(10),
-            wisdom = Ability(10),
-            charisma = Ability(10),
+            strength = AbilityScore(10),
+            dexterity = AbilityScore(dex),
+            constitution = AbilityScore(10),
+            intelligence = AbilityScore(10),
+            wisdom = AbilityScore(10),
+            charisma = AbilityScore(10),
         ),
         armorClass = 10,
         maxHitPoints = 10,

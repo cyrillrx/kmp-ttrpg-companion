@@ -1,6 +1,7 @@
 package com.cyrillrx.rpg.character.presentation.component.dialog
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -33,11 +34,20 @@ import com.cyrillrx.rpg.character.domain.MIN_CHARACTER_LEVEL
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
+import com.cyrillrx.rpg.core.domain.toSignedString
 import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
+import com.cyrillrx.rpg.core.presentation.component.dnd.ProficiencyCheckbox
+import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
+import com.cyrillrx.rpg.core.presentation.component.dnd.getFontWeight
+import com.cyrillrx.rpg.core.presentation.component.dnd.sortedByLocalizedName
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
-import com.cyrillrx.rpg.creature.domain.Ability
+import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
+import com.cyrillrx.rpg.creature.domain.Abilities
+import com.cyrillrx.rpg.creature.domain.AbilityScore
 import com.cyrillrx.rpg.creature.domain.Creature
+import com.cyrillrx.rpg.creature.domain.Skill
+import com.cyrillrx.rpg.creature.domain.Skills
 import com.cyrillrx.rpg.dnd.domain.feetToMeters
 import com.cyrillrx.rpg.dnd.domain.metersToFeet
 import com.cyrillrx.rpg.settings.domain.DistanceUnit
@@ -61,6 +71,7 @@ import rpg_companion.composeapp.generated.resources.label_level
 import rpg_companion.composeapp.generated.resources.label_max_hp
 import rpg_companion.composeapp.generated.resources.label_race
 import rpg_companion.composeapp.generated.resources.label_short_description
+import rpg_companion.composeapp.generated.resources.label_skills
 import rpg_companion.composeapp.generated.resources.label_walk_speed
 import rpg_companion.composeapp.generated.resources.settings_unit_feet_abbr
 import rpg_companion.composeapp.generated.resources.settings_unit_meters_abbr
@@ -74,17 +85,18 @@ internal fun CharacterEditDialog(
     onLevelConfirmed: (Int) -> Unit,
     onBackgroundConfirmed: (Background?) -> Unit,
     onShortDescriptionConfirmed: (String) -> Unit,
-    onStrengthConfirmed: (Ability) -> Unit,
-    onDexterityConfirmed: (Ability) -> Unit,
-    onConstitutionConfirmed: (Ability) -> Unit,
-    onIntelligenceConfirmed: (Ability) -> Unit,
-    onWisdomConfirmed: (Ability) -> Unit,
-    onCharismaConfirmed: (Ability) -> Unit,
+    onStrengthConfirmed: (AbilityScore) -> Unit,
+    onDexterityConfirmed: (AbilityScore) -> Unit,
+    onConstitutionConfirmed: (AbilityScore) -> Unit,
+    onIntelligenceConfirmed: (AbilityScore) -> Unit,
+    onWisdomConfirmed: (AbilityScore) -> Unit,
+    onCharismaConfirmed: (AbilityScore) -> Unit,
     onArmorClassConfirmed: (Int) -> Unit,
     onMaxHitPointsConfirmed: (Int) -> Unit,
     onWalkSpeedConfirmed: (Int) -> Unit,
     onLanguagesConfirmed: (List<Language>) -> Unit,
     onAlignmentConfirmed: (Creature.Alignment) -> Unit,
+    onSkillsConfirmed: (Skills) -> Unit,
     onDismiss: () -> Unit,
 ) {
     val field = state.editingField ?: return
@@ -230,6 +242,14 @@ internal fun CharacterEditDialog(
             onConfirm = { it?.let(onAlignmentConfirmed) },
             onDismiss = onDismiss,
         )
+
+        EditingField.Skills -> SkillSelectDialog(
+            current = state.character.skills,
+            abilities = state.character.abilities,
+            proficiencyBonus = state.character.proficiencyBonus(),
+            onConfirm = onSkillsConfirmed,
+            onDismiss = onDismiss,
+        )
     }
 }
 
@@ -358,6 +378,7 @@ private fun LanguageSelectDialog(
             Language.entries.forEach { language ->
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(spacingMedium),
                     modifier = Modifier
                         .fillMaxWidth()
                         .clickable {
@@ -372,6 +393,54 @@ private fun LanguageSelectDialog(
                     Text(
                         text = language.toFormattedString(),
                         style = MaterialTheme.typography.bodyMedium,
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun SkillSelectDialog(
+    current: Skills,
+    abilities: Abilities,
+    proficiencyBonus: Int,
+    onConfirm: (Skills) -> Unit,
+    onDismiss: () -> Unit,
+) {
+    var selected by remember(current) {
+        mutableStateOf(Skill.entries.associateWith { it.getProficiency(current) })
+    }
+    EditDialog(
+        title = stringResource(Res.string.label_skills),
+        onDismiss = onDismiss,
+        onConfirm = { onConfirm(current.applySelection(selected)) },
+    ) {
+        Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
+            Skill.entries.sortedByLocalizedName().forEach { skill ->
+                val proficiency = selected.getValue(skill)
+                val modifier = skill.computeModifier(abilities, proficiency, proficiencyBonus)
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(spacingMedium),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable { selected = selected + (skill to proficiency.next()) }
+                        .padding(vertical = spacingCommon),
+                ) {
+                    ProficiencyCheckbox(proficiency = proficiency)
+                    Text(
+                        text = skill.toFormattedString(),
+                        style = MaterialTheme.typography.bodyMedium,
+                        fontWeight = proficiency.getFontWeight(),
+                        color = proficiency.getColor(),
+                        modifier = Modifier.weight(1f),
+                    )
+                    Text(
+                        text = modifier.toSignedString(),
+                        style = MaterialTheme.typography.bodyMedium,
+                        fontWeight = proficiency.getFontWeight(),
+                        color = proficiency.getColor(),
                     )
                 }
             }

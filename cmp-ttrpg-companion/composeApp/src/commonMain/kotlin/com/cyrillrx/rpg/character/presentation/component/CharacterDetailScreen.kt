@@ -36,6 +36,7 @@ import com.cyrillrx.rpg.character.presentation.component.section.CombatRow
 import com.cyrillrx.rpg.character.presentation.component.section.LanguagesRow
 import com.cyrillrx.rpg.character.presentation.component.section.SavingThrowsSection
 import com.cyrillrx.rpg.character.presentation.component.section.SheetDivider
+import com.cyrillrx.rpg.character.presentation.component.section.SkillsSection
 import com.cyrillrx.rpg.character.presentation.component.section.WalkSpeedRow
 import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
 import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterEditViewModel
@@ -48,8 +49,9 @@ import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
-import com.cyrillrx.rpg.creature.domain.Ability
+import com.cyrillrx.rpg.creature.domain.AbilityScore
 import com.cyrillrx.rpg.creature.domain.Creature
+import com.cyrillrx.rpg.creature.domain.Skills
 import org.jetbrains.compose.resources.getString
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -60,6 +62,7 @@ import rpg_companion.composeapp.generated.resources.label_abilities
 import rpg_companion.composeapp.generated.resources.label_combat
 import rpg_companion.composeapp.generated.resources.label_languages
 import rpg_companion.composeapp.generated.resources.label_saving_throws
+import rpg_companion.composeapp.generated.resources.label_skills
 
 @Composable
 fun CharacterDetailScreen(
@@ -115,6 +118,7 @@ fun CharacterDetailScreen(
             onWalkSpeedConfirmed = viewModel::saveWalkSpeed,
             onLanguagesConfirmed = viewModel::saveLanguages,
             onAlignmentConfirmed = viewModel::saveAlignment,
+            onSkillsConfirmed = viewModel::saveSkills,
             onDialogDismissed = viewModel::cancelEditing,
             onNavigateUpClicked = router::navigateUp,
         )
@@ -133,17 +137,18 @@ fun CharacterDetailScreen(
     onClassConfirmed: (Character.Class) -> Unit,
     onLevelConfirmed: (Int) -> Unit,
     onBackgroundConfirmed: (Background?) -> Unit,
-    onStrengthConfirmed: (Ability) -> Unit,
-    onDexterityConfirmed: (Ability) -> Unit,
-    onConstitutionConfirmed: (Ability) -> Unit,
-    onIntelligenceConfirmed: (Ability) -> Unit,
-    onWisdomConfirmed: (Ability) -> Unit,
-    onCharismaConfirmed: (Ability) -> Unit,
+    onStrengthConfirmed: (AbilityScore) -> Unit,
+    onDexterityConfirmed: (AbilityScore) -> Unit,
+    onConstitutionConfirmed: (AbilityScore) -> Unit,
+    onIntelligenceConfirmed: (AbilityScore) -> Unit,
+    onWisdomConfirmed: (AbilityScore) -> Unit,
+    onCharismaConfirmed: (AbilityScore) -> Unit,
     onArmorClassConfirmed: (Int) -> Unit,
     onMaxHitPointsConfirmed: (Int) -> Unit,
     onWalkSpeedConfirmed: (Int) -> Unit,
     onLanguagesConfirmed: (List<Language>) -> Unit,
     onAlignmentConfirmed: (Creature.Alignment) -> Unit,
+    onSkillsConfirmed: (Skills) -> Unit,
     onDialogDismissed: () -> Unit,
     onNavigateUpClicked: () -> Unit,
 ) {
@@ -219,6 +224,15 @@ fun CharacterDetailScreen(
                 onTap = { onFieldTapped(EditingField.WalkSpeed) },
             )
 
+            SheetDivider(stringResource(Res.string.label_skills))
+
+            SkillsSection(
+                skills = state.character.skills,
+                abilities = state.character.abilities,
+                proficiencyBonus = state.character.proficiencyBonus(),
+                onTap = { onFieldTapped(EditingField.Skills) },
+            )
+
             SheetDivider(stringResource(Res.string.label_languages))
 
             LanguagesRow(
@@ -249,6 +263,7 @@ fun CharacterDetailScreen(
         onWalkSpeedConfirmed = onWalkSpeedConfirmed,
         onLanguagesConfirmed = onLanguagesConfirmed,
         onAlignmentConfirmed = onAlignmentConfirmed,
+        onSkillsConfirmed = onSkillsConfirmed,
         onDismiss = onDialogDismissed,
     )
 }
@@ -290,6 +305,7 @@ private fun CharacterDetailScreenPreview() {
         onWalkSpeedConfirmed = {},
         onLanguagesConfirmed = {},
         onAlignmentConfirmed = {},
+        onSkillsConfirmed = {},
         onDialogDismissed = {},
         onNavigateUpClicked = {},
     )

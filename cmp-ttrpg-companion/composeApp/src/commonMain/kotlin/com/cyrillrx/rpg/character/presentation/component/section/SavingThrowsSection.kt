@@ -1,15 +1,13 @@
 package com.cyrillrx.rpg.character.presentation.component.section
 
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import com.cyrillrx.rpg.character.presentation.component.StatCell
 import com.cyrillrx.rpg.character.presentation.component.StatCellGrid
 import com.cyrillrx.rpg.core.domain.toSignedString
+import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
 import com.cyrillrx.rpg.creature.domain.Abilities
-import com.cyrillrx.rpg.creature.domain.Ability
-import com.cyrillrx.rpg.creature.domain.Proficiency
+import com.cyrillrx.rpg.creature.domain.AbilityScore
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.ability_label_cha
@@ -82,15 +80,14 @@ internal fun SavingThrowsSection(
 @Composable
 private fun SavingThrowCard(
     label: String,
-    ability: Ability,
+    ability: AbilityScore,
     proficiencyBonus: Int,
     modifier: Modifier = Modifier,
 ) {
-    val isProficient = ability.savingThrowProficiency != Proficiency.NONE
     StatCell(
         label = label,
         value = ability.getSavingThrow(proficiencyBonus).toSignedString(),
-        valueColor = if (isProficient) MaterialTheme.colorScheme.primary else Color.Unspecified,
+        valueColor = ability.savingThrowProficiency.getColor(),
         modifier = modifier,
     )
 }
