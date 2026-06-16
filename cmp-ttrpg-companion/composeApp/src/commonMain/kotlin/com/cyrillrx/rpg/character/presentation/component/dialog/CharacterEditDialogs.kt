@@ -432,6 +432,8 @@ private fun SkillSelectDialog(
                     Text(
                         text = skill.toFormattedString(),
                         style = MaterialTheme.typography.bodyMedium,
+                        fontWeight = proficiency.getFontWeight(),
+                        color = proficiency.getColor(),
                         modifier = Modifier.weight(1f),
                     )
                     Text(

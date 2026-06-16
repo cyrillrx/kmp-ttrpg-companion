@@ -116,6 +116,7 @@ private fun SkillEntry(
         Text(
             text = "${skill.toFormattedString()} (${skill.relatedAbilityAbbreviation()})",
             style = MaterialTheme.typography.bodySmall,
+            fontWeight = proficiency.getFontWeight(),
             color = color,
         )
     }
