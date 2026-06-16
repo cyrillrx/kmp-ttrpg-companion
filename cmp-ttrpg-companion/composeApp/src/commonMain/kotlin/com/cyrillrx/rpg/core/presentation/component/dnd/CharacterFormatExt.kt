@@ -216,6 +216,15 @@ fun Skill.toFormattedString(): String {
 }
 
 @Composable
+fun List<Skill>.sortedByLocalizedName(): List<Skill> {
+    val localizedNames = HashMap<Skill, String>(size)
+    for (skill in this) {
+        localizedNames[skill] = skill.toFormattedString()
+    }
+    return sortedBy { localizedNames.getValue(it).lowercase() }
+}
+
+@Composable
 fun Ability.toAbbreviationString(): String {
     val stringRes = when (this) {
         Ability.STRENGTH -> Res.string.ability_label_str

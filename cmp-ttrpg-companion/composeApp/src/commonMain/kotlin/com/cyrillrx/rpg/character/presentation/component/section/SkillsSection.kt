@@ -18,6 +18,7 @@ import androidx.compose.ui.text.font.FontWeight
 import com.cyrillrx.rpg.core.domain.toSignedString
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
 import com.cyrillrx.rpg.core.presentation.component.dnd.relatedAbilityAbbreviation
+import com.cyrillrx.rpg.core.presentation.component.dnd.sortedByLocalizedName
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.borderAlpha
@@ -34,11 +35,6 @@ import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.label_skills
-
-private val skillColumns: List<List<Skill>> = run {
-    val half = (Skill.entries.size + 1) / 2
-    Skill.entries.chunked(half)
-}
 
 @Composable
 internal fun SkillsSection(
@@ -64,6 +60,8 @@ internal fun SkillsSection(
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
+            val sortedSkills = Skill.entries.sortedByLocalizedName()
+            val skillColumns = sortedSkills.chunked((sortedSkills.size + 1) / 2)
             val leftColumn = skillColumns[0]
             val rightColumn = skillColumns.getOrElse(1) { emptyList() }
             leftColumn.forEachIndexed { index, left ->

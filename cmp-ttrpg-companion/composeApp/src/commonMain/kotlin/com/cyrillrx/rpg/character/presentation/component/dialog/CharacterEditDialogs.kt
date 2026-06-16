@@ -38,6 +38,7 @@ import com.cyrillrx.rpg.core.domain.toSignedString
 import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
 import com.cyrillrx.rpg.core.presentation.component.dnd.ProficiencyCheckbox
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
+import com.cyrillrx.rpg.core.presentation.component.dnd.sortedByLocalizedName
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
@@ -415,7 +416,7 @@ private fun SkillSelectDialog(
         onConfirm = { onConfirm(current.applySelection(selected)) },
     ) {
         Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
-            Skill.entries.forEach { skill ->
+            Skill.entries.sortedByLocalizedName().forEach { skill ->
                 val proficiency = selected.getValue(skill)
                 val modifier = skill.computeModifier(abilities, proficiency, proficiencyBonus)
                 Row(
