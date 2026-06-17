@@ -7,6 +7,8 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -19,11 +21,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.rememberUpdatedState
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalFocusManager
@@ -59,6 +59,7 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.creature.domain.AbilityScore
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.Skills
+import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.getString
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -216,39 +217,45 @@ fun CharacterDetailScreen(
                 )
             }
 
-            var selectedTab by rememberSaveable { mutableStateOf(0) }
-            PrimaryTabRow(selectedTabIndex = selectedTab) {
+            val pagerState = rememberPagerState(pageCount = { 3 })
+            val coroutineScope = rememberCoroutineScope()
+            PrimaryTabRow(selectedTabIndex = pagerState.currentPage) {
                 Tab(
-                    selected = selectedTab == 0,
-                    onClick = { selectedTab = 0 },
+                    selected = pagerState.currentPage == 0,
+                    onClick = { coroutineScope.launch { pagerState.animateScrollToPage(0) } },
                     text = { Text(stringResource(Res.string.label_combat)) },
                 )
                 Tab(
-                    selected = selectedTab == 1,
-                    onClick = { selectedTab = 1 },
+                    selected = pagerState.currentPage == 1,
+                    onClick = { coroutineScope.launch { pagerState.animateScrollToPage(1) } },
                     text = { Text(stringResource(Res.string.label_skills)) },
                 )
                 Tab(
-                    selected = selectedTab == 2,
-                    onClick = { selectedTab = 2 },
+                    selected = pagerState.currentPage == 2,
+                    onClick = { coroutineScope.launch { pagerState.animateScrollToPage(2) } },
                     text = { Text(stringResource(Res.string.label_profile)) },
                 )
             }
 
-            Column(
-                modifier = Modifier
-                    .weight(1f)
-                    .verticalScroll(rememberScrollState())
-                    .padding(spacingCommon),
-                verticalArrangement = Arrangement.spacedBy(spacingMedium),
-            ) {
-                when (selectedTab) {
-                    0 -> CombatTabContent(state, onFieldTapped)
-                    1 -> SkillsTabContent(state, onFieldTapped)
-                    else -> ProfileTabContent(state, onFieldTapped)
-                }
+            HorizontalPager(
+                state = pagerState,
+                modifier = Modifier.weight(1f),
+            ) { page ->
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .verticalScroll(rememberScrollState())
+                        .padding(spacingCommon),
+                    verticalArrangement = Arrangement.spacedBy(spacingMedium),
+                ) {
+                    when (page) {
+                        0 -> CombatTabContent(state, onFieldTapped)
+                        1 -> SkillsTabContent(state, onFieldTapped)
+                        else -> ProfileTabContent(state, onFieldTapped)
+                    }
 
-                Spacer(Modifier.height(spacingCommon))
+                    Spacer(Modifier.height(spacingCommon))
+                }
             }
         }
     }
