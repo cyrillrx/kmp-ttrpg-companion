@@ -123,7 +123,7 @@ fun Character.Class.toSvgPath(): String = when (this) {
     Character.Class.BARD -> "drawable/class_bard.svg"
     Character.Class.CLERIC -> "drawable/class_cleric.svg"
     Character.Class.DRUID -> "drawable/class_druid.svg"
-    Character.Class.FIGHTER -> "drawable/class_warrior.svg"
+    Character.Class.FIGHTER -> "drawable/class_fighter.svg"
     Character.Class.MONK -> "drawable/class_monk.svg"
     Character.Class.PALADIN -> "drawable/class_paladin.svg"
     Character.Class.RANGER -> "drawable/class_ranger.svg"
@@ -131,7 +131,8 @@ fun Character.Class.toSvgPath(): String = when (this) {
     Character.Class.SORCERER -> "drawable/class_sorcerer.svg"
     Character.Class.WARLOCK -> "drawable/class_warlock.svg"
     Character.Class.WIZARD -> "drawable/class_wizard.svg"
-    Character.Class.UNKNOWN -> "drawable/class_warrior.svg"
+    // UNKNOWN never reaches here: it is short-circuited to ClassIconState.Unknown ("?") in resolveClassIconState.
+    Character.Class.UNKNOWN -> error("UNKNOWN has no class icon; it is rendered as a '?' fallback")
 }
 
 @Composable
