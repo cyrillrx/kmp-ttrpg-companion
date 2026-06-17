@@ -9,14 +9,21 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.PrimaryTabRow
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.Tab
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalFocusManager
@@ -61,6 +68,7 @@ import rpg_companion.composeapp.generated.resources.info_value_coerced
 import rpg_companion.composeapp.generated.resources.label_abilities
 import rpg_companion.composeapp.generated.resources.label_combat
 import rpg_companion.composeapp.generated.resources.label_languages
+import rpg_companion.composeapp.generated.resources.label_profile
 import rpg_companion.composeapp.generated.resources.label_saving_throws
 import rpg_companion.composeapp.generated.resources.label_skills
 
@@ -125,6 +133,7 @@ fun CharacterDetailScreen(
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CharacterDetailScreen(
     state: CharacterEditState.Loaded,
@@ -168,79 +177,79 @@ fun CharacterDetailScreen(
             modifier = Modifier
                 .padding(paddingValues)
                 .fillMaxSize()
-                .pointerInput(focusManager) { detectTapGestures(onTap = { focusManager.clearFocus() }) }
-                .verticalScroll(rememberScrollState())
-                .padding(spacingCommon),
-            verticalArrangement = Arrangement.spacedBy(spacingMedium),
+                .pointerInput(focusManager) { detectTapGestures(onTap = { focusManager.clearFocus() }) },
         ) {
-            CharacterHeader(
-                name = state.character.name,
-                shortDescription = shortDescription,
-                race = state.character.race,
-                clazz = state.character.clazz,
-                level = state.character.level,
-                background = state.character.background.toFormattedString(),
-                alignment = state.character.alignment,
-                onNameConfirmed = onNameConfirmed,
-                onShortDescriptionTapped = onShortDescriptionTapped,
-                onClassTapped = { onFieldTapped(EditingField.Clazz) },
-                onRaceTapped = { onFieldTapped(EditingField.Race) },
-                onLevelTapped = { onFieldTapped(EditingField.Level) },
-                onBackgroundTapped = { onFieldTapped(EditingField.Background) },
-                onAlignmentTapped = { onFieldTapped(EditingField.Alignment) },
-            )
+            // Persistent zone: identity header + abilities stay visible on every tab.
+            Column(
+                modifier = Modifier
+                    .padding(horizontal = spacingCommon)
+                    .padding(top = spacingCommon),
+                verticalArrangement = Arrangement.spacedBy(spacingMedium),
+            ) {
+                CharacterHeader(
+                    name = state.character.name,
+                    shortDescription = shortDescription,
+                    race = state.character.race,
+                    clazz = state.character.clazz,
+                    level = state.character.level,
+                    background = state.character.background.toFormattedString(),
+                    alignment = state.character.alignment,
+                    onNameConfirmed = onNameConfirmed,
+                    onShortDescriptionTapped = onShortDescriptionTapped,
+                    onClassTapped = { onFieldTapped(EditingField.Clazz) },
+                    onRaceTapped = { onFieldTapped(EditingField.Race) },
+                    onLevelTapped = { onFieldTapped(EditingField.Level) },
+                    onBackgroundTapped = { onFieldTapped(EditingField.Background) },
+                    onAlignmentTapped = { onFieldTapped(EditingField.Alignment) },
+                )
 
-            SheetDivider(stringResource(Res.string.label_abilities))
+                SheetDivider(stringResource(Res.string.label_abilities))
 
-            AbilitySection(
-                abilities = state.character.abilities,
-                onStrengthTapped = { onFieldTapped(EditingField.Strength) },
-                onDexterityTapped = { onFieldTapped(EditingField.Dexterity) },
-                onConstitutionTapped = { onFieldTapped(EditingField.Constitution) },
-                onIntelligenceTapped = { onFieldTapped(EditingField.Intelligence) },
-                onWisdomTapped = { onFieldTapped(EditingField.Wisdom) },
-                onCharismaTapped = { onFieldTapped(EditingField.Charisma) },
-            )
+                AbilitySection(
+                    abilities = state.character.abilities,
+                    onStrengthTapped = { onFieldTapped(EditingField.Strength) },
+                    onDexterityTapped = { onFieldTapped(EditingField.Dexterity) },
+                    onConstitutionTapped = { onFieldTapped(EditingField.Constitution) },
+                    onIntelligenceTapped = { onFieldTapped(EditingField.Intelligence) },
+                    onWisdomTapped = { onFieldTapped(EditingField.Wisdom) },
+                    onCharismaTapped = { onFieldTapped(EditingField.Charisma) },
+                )
+            }
 
-            SheetDivider(stringResource(Res.string.label_saving_throws))
+            var selectedTab by rememberSaveable { mutableStateOf(0) }
+            PrimaryTabRow(selectedTabIndex = selectedTab) {
+                Tab(
+                    selected = selectedTab == 0,
+                    onClick = { selectedTab = 0 },
+                    text = { Text(stringResource(Res.string.label_combat)) },
+                )
+                Tab(
+                    selected = selectedTab == 1,
+                    onClick = { selectedTab = 1 },
+                    text = { Text(stringResource(Res.string.label_skills)) },
+                )
+                Tab(
+                    selected = selectedTab == 2,
+                    onClick = { selectedTab = 2 },
+                    text = { Text(stringResource(Res.string.label_profile)) },
+                )
+            }
 
-            SavingThrowsSection(
-                abilities = state.character.abilities,
-                proficiencyBonus = state.character.proficiencyBonus(),
-            )
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .verticalScroll(rememberScrollState())
+                    .padding(spacingCommon),
+                verticalArrangement = Arrangement.spacedBy(spacingMedium),
+            ) {
+                when (selectedTab) {
+                    0 -> CombatTabContent(state, onFieldTapped)
+                    1 -> SkillsTabContent(state, onFieldTapped)
+                    else -> ProfileTabContent(state, onFieldTapped)
+                }
 
-            SheetDivider(stringResource(Res.string.label_combat))
-
-            CombatRow(
-                armorClass = state.character.armorClass,
-                initiative = state.character.initiativeModifier(),
-                maxHitPoints = state.character.maxHitPoints,
-                onArmorClassTapped = { onFieldTapped(EditingField.ArmorClass) },
-                onMaxHitPointsTapped = { onFieldTapped(EditingField.MaxHitPoints) },
-            )
-
-            WalkSpeedRow(
-                walkSpeed = state.character.speeds.walk,
-                onTap = { onFieldTapped(EditingField.WalkSpeed) },
-            )
-
-            SheetDivider(stringResource(Res.string.label_skills))
-
-            SkillsSection(
-                skills = state.character.skills,
-                abilities = state.character.abilities,
-                proficiencyBonus = state.character.proficiencyBonus(),
-                onTap = { onFieldTapped(EditingField.Skills) },
-            )
-
-            SheetDivider(stringResource(Res.string.label_languages))
-
-            LanguagesRow(
-                languages = state.character.languages,
-                onTap = { onFieldTapped(EditingField.Languages) },
-            )
-
-            Spacer(Modifier.height(spacingCommon))
+                Spacer(Modifier.height(spacingCommon))
+            }
         }
     }
 
@@ -265,6 +274,62 @@ fun CharacterDetailScreen(
         onAlignmentConfirmed = onAlignmentConfirmed,
         onSkillsConfirmed = onSkillsConfirmed,
         onDismiss = onDialogDismissed,
+    )
+}
+
+// ─── Tab content ─────────────────────────────────────────────────────────────
+
+@Composable
+private fun CombatTabContent(
+    state: CharacterEditState.Loaded,
+    onFieldTapped: (EditingField) -> Unit,
+) {
+    CombatRow(
+        armorClass = state.character.armorClass,
+        initiative = state.character.initiativeModifier(),
+        maxHitPoints = state.character.maxHitPoints,
+        onArmorClassTapped = { onFieldTapped(EditingField.ArmorClass) },
+        onMaxHitPointsTapped = { onFieldTapped(EditingField.MaxHitPoints) },
+    )
+
+    WalkSpeedRow(
+        walkSpeed = state.character.speeds.walk,
+        onTap = { onFieldTapped(EditingField.WalkSpeed) },
+    )
+}
+
+@Composable
+private fun SkillsTabContent(
+    state: CharacterEditState.Loaded,
+    onFieldTapped: (EditingField) -> Unit,
+) {
+    SheetDivider(stringResource(Res.string.label_saving_throws))
+
+    SavingThrowsSection(
+        abilities = state.character.abilities,
+        proficiencyBonus = state.character.proficiencyBonus(),
+    )
+
+    SheetDivider(stringResource(Res.string.label_skills))
+
+    SkillsSection(
+        skills = state.character.skills,
+        abilities = state.character.abilities,
+        proficiencyBonus = state.character.proficiencyBonus(),
+        onTap = { onFieldTapped(EditingField.Skills) },
+    )
+}
+
+@Composable
+private fun ProfileTabContent(
+    state: CharacterEditState.Loaded,
+    onFieldTapped: (EditingField) -> Unit,
+) {
+    SheetDivider(stringResource(Res.string.label_languages))
+
+    LanguagesRow(
+        languages = state.character.languages,
+        onTap = { onFieldTapped(EditingField.Languages) },
     )
 }
 
