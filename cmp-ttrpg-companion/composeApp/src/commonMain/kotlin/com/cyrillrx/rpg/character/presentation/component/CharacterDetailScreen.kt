@@ -2,16 +2,24 @@ package com.cyrillrx.rpg.character.presentation.component
 
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.rounded.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.PrimaryTabRow
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
@@ -21,11 +29,21 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.draw.clipToBounds
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
+import androidx.compose.ui.input.nestedscroll.NestedScrollSource
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.layout.layout
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.app.currentLocale
@@ -50,12 +68,12 @@ import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterEditViewModel
 import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
-import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
 import com.cyrillrx.rpg.core.presentation.component.dnd.toDistanceString
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
+import com.cyrillrx.rpg.core.presentation.theme.topAppBarHeight
 import com.cyrillrx.rpg.creature.domain.AbilityScore
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.Skills
@@ -64,6 +82,7 @@ import org.jetbrains.compose.resources.getString
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
+import rpg_companion.composeapp.generated.resources.btn_back
 import rpg_companion.composeapp.generated.resources.character_not_found
 import rpg_companion.composeapp.generated.resources.info_value_coerced
 import rpg_companion.composeapp.generated.resources.label_abilities
@@ -72,6 +91,7 @@ import rpg_companion.composeapp.generated.resources.label_languages
 import rpg_companion.composeapp.generated.resources.label_profile
 import rpg_companion.composeapp.generated.resources.label_saving_throws
 import rpg_companion.composeapp.generated.resources.label_skills
+import kotlin.math.roundToInt
 
 @Composable
 fun CharacterDetailScreen(
@@ -164,13 +184,32 @@ fun CharacterDetailScreen(
 ) {
     val locale = currentLocale()
     val shortDescription = state.character.resolveTranslation(locale)?.shortDescription.orEmpty()
+    val pagerState = rememberPagerState(pageCount = { 3 })
+    val coroutineScope = rememberCoroutineScope()
+
+    // Collapsing header state, driven by the nested scroll of the pager content.
+    var expandableHeightPx by remember { mutableStateOf(0) }
+    var collapse by remember { mutableStateOf(0f) }
+    val collapsedFraction = if (expandableHeightPx == 0) 0f else collapse / expandableHeightPx
+    val collapseConnection = remember {
+        object : NestedScrollConnection {
+            private fun consume(deltaY: Float): Offset {
+                val previous = collapse
+                collapse = (collapse - deltaY).coerceIn(0f, expandableHeightPx.toFloat())
+                return Offset(0f, -(collapse - previous))
+            }
+
+            // Collapse first when scrolling up.
+            override fun onPreScroll(available: Offset, source: NestedScrollSource): Offset =
+                if (available.y < 0f) consume(available.y) else Offset.Zero
+
+            // Re-expand only once the content has reached its top.
+            override fun onPostScroll(consumed: Offset, available: Offset, source: NestedScrollSource): Offset =
+                if (available.y > 0f) consume(available.y) else Offset.Zero
+        }
+    }
+
     Scaffold(
-        topBar = {
-            SimpleTopBar(
-                title = "",
-                onNavigateUpClicked = onNavigateUpClicked,
-            )
-        },
         snackbarHost = { SnackbarHost(snackbarHostState) },
     ) { paddingValues ->
         val focusManager = LocalFocusManager.current
@@ -178,57 +217,77 @@ fun CharacterDetailScreen(
             modifier = Modifier
                 .padding(paddingValues)
                 .fillMaxSize()
-                .pointerInput(focusManager) { detectTapGestures(onTap = { focusManager.clearFocus() }) },
+                .pointerInput(focusManager) { detectTapGestures(onTap = { focusManager.clearFocus() }) }
+                .nestedScroll(collapseConnection),
         ) {
-            // Persistent zone: identity header + abilities stay visible on every tab.
-            Column(
+            // Pinned compact bar: back button, plus the name fading in once collapsed.
+            Row(
                 modifier = Modifier
-                    .padding(horizontal = spacingCommon)
-                    .padding(top = spacingCommon),
-                verticalArrangement = Arrangement.spacedBy(spacingMedium),
+                    .fillMaxWidth()
+                    .height(topAppBarHeight),
+                verticalAlignment = Alignment.CenterVertically,
             ) {
-                CharacterHeader(
-                    name = state.character.name,
-                    shortDescription = shortDescription,
-                    race = state.character.race,
-                    clazz = state.character.clazz,
-                    level = state.character.level,
-                    background = state.character.background.toFormattedString(),
-                    alignment = state.character.alignment,
-                    onNameConfirmed = onNameConfirmed,
-                    onShortDescriptionTapped = onShortDescriptionTapped,
-                    onClassTapped = { onFieldTapped(EditingField.Clazz) },
-                    onRaceTapped = { onFieldTapped(EditingField.Race) },
-                    onLevelTapped = { onFieldTapped(EditingField.Level) },
-                    onBackgroundTapped = { onFieldTapped(EditingField.Background) },
-                    onAlignmentTapped = { onFieldTapped(EditingField.Alignment) },
-                )
-
-                SheetDivider(stringResource(Res.string.label_abilities))
-
-                AbilitySection(
-                    abilities = state.character.abilities,
-                    onStrengthTapped = { onFieldTapped(EditingField.Strength) },
-                    onDexterityTapped = { onFieldTapped(EditingField.Dexterity) },
-                    onConstitutionTapped = { onFieldTapped(EditingField.Constitution) },
-                    onIntelligenceTapped = { onFieldTapped(EditingField.Intelligence) },
-                    onWisdomTapped = { onFieldTapped(EditingField.Wisdom) },
-                    onCharismaTapped = { onFieldTapped(EditingField.Charisma) },
+                IconButton(onClick = onNavigateUpClicked) {
+                    Icon(
+                        Icons.AutoMirrored.Rounded.ArrowBack,
+                        contentDescription = stringResource(Res.string.btn_back),
+                    )
+                }
+                Text(
+                    text = state.character.name,
+                    style = MaterialTheme.typography.titleLarge,
+                    modifier = Modifier.alpha(collapsedFraction),
                 )
             }
 
-            val pagerState = rememberPagerState(pageCount = { 3 })
-            val coroutineScope = rememberCoroutineScope()
+            // Rich identity header; its measured height shrinks with `collapse`.
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clipToBounds()
+                    .layout { measurable, constraints ->
+                        val placeable = measurable.measure(constraints)
+                        expandableHeightPx = placeable.height
+                        val collapsePx = collapse.roundToInt().coerceIn(0, placeable.height)
+                        layout(placeable.width, placeable.height - collapsePx) {
+                            placeable.place(0, -collapsePx)
+                        }
+                    },
+            ) {
+                Column(
+                    modifier = Modifier
+                        .padding(horizontal = spacingCommon)
+                        .padding(bottom = spacingMedium),
+                ) {
+                    CharacterHeader(
+                        name = state.character.name,
+                        shortDescription = shortDescription,
+                        race = state.character.race,
+                        clazz = state.character.clazz,
+                        level = state.character.level,
+                        background = state.character.background.toFormattedString(),
+                        alignment = state.character.alignment,
+                        onNameConfirmed = onNameConfirmed,
+                        onShortDescriptionTapped = onShortDescriptionTapped,
+                        onClassTapped = { onFieldTapped(EditingField.Clazz) },
+                        onRaceTapped = { onFieldTapped(EditingField.Race) },
+                        onLevelTapped = { onFieldTapped(EditingField.Level) },
+                        onBackgroundTapped = { onFieldTapped(EditingField.Background) },
+                        onAlignmentTapped = { onFieldTapped(EditingField.Alignment) },
+                    )
+                }
+            }
+
             PrimaryTabRow(selectedTabIndex = pagerState.currentPage) {
                 Tab(
                     selected = pagerState.currentPage == 0,
                     onClick = { coroutineScope.launch { pagerState.animateScrollToPage(0) } },
-                    text = { Text(stringResource(Res.string.label_combat)) },
+                    text = { Text(stringResource(Res.string.label_abilities)) },
                 )
                 Tab(
                     selected = pagerState.currentPage == 1,
                     onClick = { coroutineScope.launch { pagerState.animateScrollToPage(1) } },
-                    text = { Text(stringResource(Res.string.label_skills)) },
+                    text = { Text(stringResource(Res.string.label_combat)) },
                 )
                 Tab(
                     selected = pagerState.currentPage == 2,
@@ -249,8 +308,8 @@ fun CharacterDetailScreen(
                     verticalArrangement = Arrangement.spacedBy(spacingMedium),
                 ) {
                     when (page) {
-                        0 -> CombatTabContent(state, onFieldTapped)
-                        1 -> SkillsTabContent(state, onFieldTapped)
+                        0 -> AbilitiesTabContent(state, onFieldTapped)
+                        1 -> CombatTabContent(state, onFieldTapped)
                         else -> ProfileTabContent(state, onFieldTapped)
                     }
 
@@ -306,10 +365,22 @@ private fun CombatTabContent(
 }
 
 @Composable
-private fun SkillsTabContent(
+private fun AbilitiesTabContent(
     state: CharacterEditState.Loaded,
     onFieldTapped: (EditingField) -> Unit,
 ) {
+    SheetDivider(stringResource(Res.string.label_abilities))
+
+    AbilitySection(
+        abilities = state.character.abilities,
+        onStrengthTapped = { onFieldTapped(EditingField.Strength) },
+        onDexterityTapped = { onFieldTapped(EditingField.Dexterity) },
+        onConstitutionTapped = { onFieldTapped(EditingField.Constitution) },
+        onIntelligenceTapped = { onFieldTapped(EditingField.Intelligence) },
+        onWisdomTapped = { onFieldTapped(EditingField.Wisdom) },
+        onCharismaTapped = { onFieldTapped(EditingField.Charisma) },
+    )
+
     SheetDivider(stringResource(Res.string.label_saving_throws))
 
     SavingThrowsSection(
