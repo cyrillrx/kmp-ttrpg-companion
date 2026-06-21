@@ -2,7 +2,6 @@ package com.cyrillrx.rpg.character.presentation.component
 
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -19,7 +18,6 @@ import androidx.compose.material.icons.automirrored.rounded.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.PrimaryTabRow
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
@@ -29,21 +27,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.rememberUpdatedState
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.draw.clipToBounds
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
-import androidx.compose.ui.input.nestedscroll.NestedScrollSource
-import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.input.pointer.pointerInput
-import androidx.compose.ui.layout.layout
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.app.currentLocale
@@ -91,7 +80,6 @@ import rpg_companion.composeapp.generated.resources.label_languages
 import rpg_companion.composeapp.generated.resources.label_profile
 import rpg_companion.composeapp.generated.resources.label_saving_throws
 import rpg_companion.composeapp.generated.resources.label_skills
-import kotlin.math.roundToInt
 
 @Composable
 fun CharacterDetailScreen(
@@ -187,28 +175,6 @@ fun CharacterDetailScreen(
     val pagerState = rememberPagerState(pageCount = { 3 })
     val coroutineScope = rememberCoroutineScope()
 
-    // Collapsing header state, driven by the nested scroll of the pager content.
-    var expandableHeightPx by remember { mutableStateOf(0) }
-    var collapse by remember { mutableStateOf(0f) }
-    val collapsedFraction = if (expandableHeightPx == 0) 0f else collapse / expandableHeightPx
-    val collapseConnection = remember {
-        object : NestedScrollConnection {
-            private fun consume(deltaY: Float): Offset {
-                val previous = collapse
-                collapse = (collapse - deltaY).coerceIn(0f, expandableHeightPx.toFloat())
-                return Offset(0f, -(collapse - previous))
-            }
-
-            // Collapse first when scrolling up.
-            override fun onPreScroll(available: Offset, source: NestedScrollSource): Offset =
-                if (available.y < 0f) consume(available.y) else Offset.Zero
-
-            // Re-expand only once the content has reached its top.
-            override fun onPostScroll(consumed: Offset, available: Offset, source: NestedScrollSource): Offset =
-                if (available.y > 0f) consume(available.y) else Offset.Zero
-        }
-    }
-
     Scaffold(
         snackbarHost = { SnackbarHost(snackbarHostState) },
     ) { paddingValues ->
@@ -217,10 +183,9 @@ fun CharacterDetailScreen(
             modifier = Modifier
                 .padding(paddingValues)
                 .fillMaxSize()
-                .pointerInput(focusManager) { detectTapGestures(onTap = { focusManager.clearFocus() }) }
-                .nestedScroll(collapseConnection),
+                .pointerInput(focusManager) { detectTapGestures(onTap = { focusManager.clearFocus() }) },
         ) {
-            // Pinned compact bar: back button, plus the name fading in once collapsed.
+            // Pinned compact bar: back button only (the name lives in the header below).
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -233,51 +198,33 @@ fun CharacterDetailScreen(
                         contentDescription = stringResource(Res.string.btn_back),
                     )
                 }
-                Text(
-                    text = state.character.name,
-                    style = MaterialTheme.typography.titleLarge,
-                    modifier = Modifier.alpha(collapsedFraction),
+            }
+
+            // Pinned rich identity header.
+            Column(
+                modifier = Modifier
+                    .padding(horizontal = spacingCommon)
+                    .padding(bottom = spacingMedium),
+            ) {
+                CharacterHeader(
+                    name = state.character.name,
+                    shortDescription = shortDescription,
+                    race = state.character.race,
+                    clazz = state.character.clazz,
+                    level = state.character.level,
+                    background = state.character.background.toFormattedString(),
+                    alignment = state.character.alignment,
+                    onNameConfirmed = onNameConfirmed,
+                    onShortDescriptionTapped = onShortDescriptionTapped,
+                    onClassTapped = { onFieldTapped(EditingField.Clazz) },
+                    onRaceTapped = { onFieldTapped(EditingField.Race) },
+                    onLevelTapped = { onFieldTapped(EditingField.Level) },
+                    onBackgroundTapped = { onFieldTapped(EditingField.Background) },
+                    onAlignmentTapped = { onFieldTapped(EditingField.Alignment) },
                 )
             }
 
-            // Rich identity header; its measured height shrinks with `collapse`.
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .clipToBounds()
-                    .layout { measurable, constraints ->
-                        val placeable = measurable.measure(constraints)
-                        expandableHeightPx = placeable.height
-                        val collapsePx = collapse.roundToInt().coerceIn(0, placeable.height)
-                        layout(placeable.width, placeable.height - collapsePx) {
-                            placeable.place(0, -collapsePx)
-                        }
-                    },
-            ) {
-                Column(
-                    modifier = Modifier
-                        .padding(horizontal = spacingCommon)
-                        .padding(bottom = spacingMedium),
-                ) {
-                    CharacterHeader(
-                        name = state.character.name,
-                        shortDescription = shortDescription,
-                        race = state.character.race,
-                        clazz = state.character.clazz,
-                        level = state.character.level,
-                        background = state.character.background.toFormattedString(),
-                        alignment = state.character.alignment,
-                        onNameConfirmed = onNameConfirmed,
-                        onShortDescriptionTapped = onShortDescriptionTapped,
-                        onClassTapped = { onFieldTapped(EditingField.Clazz) },
-                        onRaceTapped = { onFieldTapped(EditingField.Race) },
-                        onLevelTapped = { onFieldTapped(EditingField.Level) },
-                        onBackgroundTapped = { onFieldTapped(EditingField.Background) },
-                        onAlignmentTapped = { onFieldTapped(EditingField.Alignment) },
-                    )
-                }
-            }
-
+            // Pinned tab row, kept in sync with the pager.
             PrimaryTabRow(selectedTabIndex = pagerState.currentPage) {
                 Tab(
                     selected = pagerState.currentPage == 0,
@@ -296,6 +243,7 @@ fun CharacterDetailScreen(
                 )
             }
 
+            // Only the tab content scrolls (vertically) and swipes (horizontally).
             HorizontalPager(
                 state = pagerState,
                 modifier = Modifier.weight(1f),
