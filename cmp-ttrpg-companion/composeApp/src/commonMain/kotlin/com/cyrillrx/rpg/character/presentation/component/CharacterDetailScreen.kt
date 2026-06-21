@@ -75,6 +75,7 @@ import rpg_companion.composeapp.generated.resources.btn_back
 import rpg_companion.composeapp.generated.resources.character_not_found
 import rpg_companion.composeapp.generated.resources.info_value_coerced
 import rpg_companion.composeapp.generated.resources.label_abilities
+import rpg_companion.composeapp.generated.resources.label_aptitudes
 import rpg_companion.composeapp.generated.resources.label_combat
 import rpg_companion.composeapp.generated.resources.label_languages
 import rpg_companion.composeapp.generated.resources.label_profile
@@ -229,7 +230,7 @@ fun CharacterDetailScreen(
                 Tab(
                     selected = pagerState.currentPage == 0,
                     onClick = { coroutineScope.launch { pagerState.animateScrollToPage(0) } },
-                    text = { Text(stringResource(Res.string.label_abilities)) },
+                    text = { Text(stringResource(Res.string.label_aptitudes)) },
                 )
                 Tab(
                     selected = pagerState.currentPage == 1,
