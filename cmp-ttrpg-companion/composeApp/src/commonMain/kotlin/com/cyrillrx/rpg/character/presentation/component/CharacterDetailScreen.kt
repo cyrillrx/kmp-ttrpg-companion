@@ -45,13 +45,10 @@ import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
 import com.cyrillrx.rpg.character.presentation.CoercedValue
 import com.cyrillrx.rpg.character.presentation.component.dialog.CharacterEditDialog
-import com.cyrillrx.rpg.character.presentation.component.section.AbilitySection
-import com.cyrillrx.rpg.character.presentation.component.section.CombatRow
-import com.cyrillrx.rpg.character.presentation.component.section.LanguagesRow
-import com.cyrillrx.rpg.character.presentation.component.section.SavingThrowsSection
-import com.cyrillrx.rpg.character.presentation.component.section.SheetDivider
-import com.cyrillrx.rpg.character.presentation.component.section.SkillsSection
-import com.cyrillrx.rpg.character.presentation.component.section.WalkSpeedRow
+import com.cyrillrx.rpg.character.presentation.component.tab.AptitudesTabContent
+import com.cyrillrx.rpg.character.presentation.component.tab.CharacterSheetTab
+import com.cyrillrx.rpg.character.presentation.component.tab.CombatTabContent
+import com.cyrillrx.rpg.character.presentation.component.tab.ProfileTabContent
 import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
 import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterEditViewModel
 import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
@@ -74,13 +71,6 @@ import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.btn_back
 import rpg_companion.composeapp.generated.resources.character_not_found
 import rpg_companion.composeapp.generated.resources.info_value_coerced
-import rpg_companion.composeapp.generated.resources.label_abilities
-import rpg_companion.composeapp.generated.resources.label_aptitudes
-import rpg_companion.composeapp.generated.resources.label_combat
-import rpg_companion.composeapp.generated.resources.label_languages
-import rpg_companion.composeapp.generated.resources.label_profile
-import rpg_companion.composeapp.generated.resources.label_saving_throws
-import rpg_companion.composeapp.generated.resources.label_skills
 
 @Composable
 fun CharacterDetailScreen(
@@ -173,7 +163,7 @@ fun CharacterDetailScreen(
 ) {
     val locale = currentLocale()
     val shortDescription = state.character.resolveTranslation(locale)?.shortDescription.orEmpty()
-    val pagerState = rememberPagerState(pageCount = { 3 })
+    val pagerState = rememberPagerState(pageCount = { CharacterSheetTab.entries.size })
     val coroutineScope = rememberCoroutineScope()
 
     Scaffold(
@@ -227,21 +217,13 @@ fun CharacterDetailScreen(
 
             // Pinned tab row, kept in sync with the pager.
             PrimaryTabRow(selectedTabIndex = pagerState.currentPage) {
-                Tab(
-                    selected = pagerState.currentPage == 0,
-                    onClick = { coroutineScope.launch { pagerState.animateScrollToPage(0) } },
-                    text = { Text(stringResource(Res.string.label_aptitudes)) },
-                )
-                Tab(
-                    selected = pagerState.currentPage == 1,
-                    onClick = { coroutineScope.launch { pagerState.animateScrollToPage(1) } },
-                    text = { Text(stringResource(Res.string.label_combat)) },
-                )
-                Tab(
-                    selected = pagerState.currentPage == 2,
-                    onClick = { coroutineScope.launch { pagerState.animateScrollToPage(2) } },
-                    text = { Text(stringResource(Res.string.label_profile)) },
-                )
+                CharacterSheetTab.entries.forEachIndexed { index, tab ->
+                    Tab(
+                        selected = pagerState.currentPage == index,
+                        onClick = { coroutineScope.launch { pagerState.animateScrollToPage(index) } },
+                        text = { Text(stringResource(tab.label)) },
+                    )
+                }
             }
 
             // Only the tab content scrolls (vertically) and swipes (horizontally).
@@ -256,10 +238,10 @@ fun CharacterDetailScreen(
                         .padding(spacingCommon),
                     verticalArrangement = Arrangement.spacedBy(spacingMedium),
                 ) {
-                    when (page) {
-                        0 -> AbilitiesTabContent(state, onFieldTapped)
-                        1 -> CombatTabContent(state, onFieldTapped)
-                        else -> ProfileTabContent(state, onFieldTapped)
+                    when (CharacterSheetTab.entries[page]) {
+                        CharacterSheetTab.APTITUDES -> AptitudesTabContent(state, onFieldTapped)
+                        CharacterSheetTab.COMBAT -> CombatTabContent(state, onFieldTapped)
+                        CharacterSheetTab.PROFILE -> ProfileTabContent(state, onFieldTapped)
                     }
 
                     Spacer(Modifier.height(spacingCommon))
@@ -289,74 +271,6 @@ fun CharacterDetailScreen(
         onAlignmentConfirmed = onAlignmentConfirmed,
         onSkillsConfirmed = onSkillsConfirmed,
         onDismiss = onDialogDismissed,
-    )
-}
-
-// ─── Tab content ─────────────────────────────────────────────────────────────
-
-@Composable
-private fun CombatTabContent(
-    state: CharacterEditState.Loaded,
-    onFieldTapped: (EditingField) -> Unit,
-) {
-    CombatRow(
-        armorClass = state.character.armorClass,
-        initiative = state.character.initiativeModifier(),
-        maxHitPoints = state.character.maxHitPoints,
-        onArmorClassTapped = { onFieldTapped(EditingField.ArmorClass) },
-        onMaxHitPointsTapped = { onFieldTapped(EditingField.MaxHitPoints) },
-    )
-
-    WalkSpeedRow(
-        walkSpeed = state.character.speeds.walk,
-        onTap = { onFieldTapped(EditingField.WalkSpeed) },
-    )
-}
-
-@Composable
-private fun AbilitiesTabContent(
-    state: CharacterEditState.Loaded,
-    onFieldTapped: (EditingField) -> Unit,
-) {
-    SheetDivider(stringResource(Res.string.label_abilities))
-
-    AbilitySection(
-        abilities = state.character.abilities,
-        onStrengthTapped = { onFieldTapped(EditingField.Strength) },
-        onDexterityTapped = { onFieldTapped(EditingField.Dexterity) },
-        onConstitutionTapped = { onFieldTapped(EditingField.Constitution) },
-        onIntelligenceTapped = { onFieldTapped(EditingField.Intelligence) },
-        onWisdomTapped = { onFieldTapped(EditingField.Wisdom) },
-        onCharismaTapped = { onFieldTapped(EditingField.Charisma) },
-    )
-
-    SheetDivider(stringResource(Res.string.label_saving_throws))
-
-    SavingThrowsSection(
-        abilities = state.character.abilities,
-        proficiencyBonus = state.character.proficiencyBonus(),
-    )
-
-    SheetDivider(stringResource(Res.string.label_skills))
-
-    SkillsSection(
-        skills = state.character.skills,
-        abilities = state.character.abilities,
-        proficiencyBonus = state.character.proficiencyBonus(),
-        onTap = { onFieldTapped(EditingField.Skills) },
-    )
-}
-
-@Composable
-private fun ProfileTabContent(
-    state: CharacterEditState.Loaded,
-    onFieldTapped: (EditingField) -> Unit,
-) {
-    SheetDivider(stringResource(Res.string.label_languages))
-
-    LanguagesRow(
-        languages = state.character.languages,
-        onTap = { onFieldTapped(EditingField.Languages) },
     )
 }
 
