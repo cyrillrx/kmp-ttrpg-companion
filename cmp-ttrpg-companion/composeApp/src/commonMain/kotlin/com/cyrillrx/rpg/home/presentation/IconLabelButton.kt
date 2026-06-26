@@ -2,8 +2,8 @@ package com.cyrillrx.rpg.home.presentation
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -20,6 +20,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
+import com.cyrillrx.rpg.core.presentation.theme.iconCardMaxHeight
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -33,7 +34,7 @@ fun IconLabelButton(
 ) {
     Card(
         onClick = onClick,
-        modifier = modifier.aspectRatio(1f),
+        modifier = modifier.height(iconCardMaxHeight),
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,

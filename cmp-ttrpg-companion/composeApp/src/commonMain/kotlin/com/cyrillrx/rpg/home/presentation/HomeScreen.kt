@@ -1,11 +1,15 @@
 package com.cyrillrx.rpg.home.presentation
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AutoAwesome
 import androidx.compose.material.icons.filled.Diamond
@@ -20,9 +24,13 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
+import com.cyrillrx.rpg.core.presentation.theme.contentMaxWidth
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
+import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
+import com.cyrillrx.rpg.core.presentation.theme.widthExpandedMin
 import com.cyrillrx.rpg.home.presentation.navigation.HomeRouter
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -56,75 +64,121 @@ fun HomeScreen(router: HomeRouter) {
             )
         },
     ) { paddingValues ->
-        Column(
+        BoxWithConstraints(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues),
         ) {
-            HomeButton(stringResource(Res.string.btn_campaign_list), router::openCampaignList)
-            HomeButton(stringResource(Res.string.btn_character_sheets), router::openCharacterSheetList)
+            val contentModifier = Modifier
+                .align(Alignment.TopCenter)
+                .widthIn(max = contentMaxWidth)
+                .fillMaxWidth()
 
-            SectionHeader(
-                title = stringResource(Res.string.section_compendium),
-                modifier = Modifier.padding(spacingCommon),
-            )
-
-            Row(
-                horizontalArrangement = Arrangement.spacedBy(spacingCommon),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = spacingCommon),
-            ) {
-                IconLabelButton(
-                    label = stringResource(Res.string.btn_spell_book),
-                    icon = Icons.Filled.AutoAwesome,
-                    onClick = router::openSpellCompendium,
-                    modifier = Modifier.weight(1f),
-                )
-                IconLabelButton(
-                    label = stringResource(Res.string.btn_magical_items),
-                    icon = Icons.Filled.Diamond,
-                    onClick = router::openMagicalItemCompendium,
-                    modifier = Modifier.weight(1f),
-                )
-                IconLabelButton(
-                    label = stringResource(Res.string.btn_bestiary),
-                    icon = Icons.Filled.Pets,
-                    onClick = router::openMonsterCompendium,
-                    modifier = Modifier.weight(1f),
-                )
+            if (maxWidth >= widthExpandedMin) {
+                HomeWideScreen(router, contentModifier)
+            } else {
+                HomeDefault(router, contentModifier)
             }
+        }
+    }
+}
 
-            SectionHeader(
-                title = stringResource(Res.string.section_my_lists),
-                modifier = Modifier.padding(spacingCommon),
+/** Single-column layout for phones and narrow tablets. */
+@Composable
+private fun HomeDefault(router: HomeRouter, modifier: Modifier = Modifier) {
+    Column(
+        verticalArrangement = Arrangement.spacedBy(spacingMedium),
+        modifier = modifier
+            .verticalScroll(rememberScrollState())
+            .padding(horizontal = spacingCommon, vertical = spacingMedium),
+    ) {
+        HomeButton(stringResource(Res.string.btn_campaign_list), router::openCampaignList)
+        HomeButton(stringResource(Res.string.btn_character_sheets), router::openCharacterSheetList)
+        CompendiumSection(router, modifier = Modifier.fillMaxWidth())
+        MyListsSection(router, modifier = Modifier.fillMaxWidth())
+    }
+}
+
+/** Two-pane layout for large landscape screens. */
+@Composable
+private fun HomeWideScreen(router: HomeRouter, modifier: Modifier = Modifier) {
+    Column(
+        verticalArrangement = Arrangement.spacedBy(spacingMedium),
+        modifier = modifier
+            .verticalScroll(rememberScrollState())
+            .padding(horizontal = spacingCommon, vertical = spacingMedium),
+    ) {
+        HomeButton(stringResource(Res.string.btn_campaign_list), router::openCampaignList)
+        HomeButton(stringResource(Res.string.btn_character_sheets), router::openCharacterSheetList)
+        Row(horizontalArrangement = Arrangement.spacedBy(spacingCommon)) {
+            CompendiumSection(router, modifier = Modifier.weight(1f))
+            MyListsSection(router, modifier = Modifier.weight(1f))
+        }
+    }
+}
+
+@Composable
+private fun CompendiumSection(router: HomeRouter, modifier: Modifier = Modifier) {
+    Column(
+        verticalArrangement = Arrangement.spacedBy(spacingMedium),
+        modifier = modifier,
+    ) {
+        SectionHeader(title = stringResource(Res.string.section_compendium))
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(spacingCommon),
+            modifier = Modifier.fillMaxWidth(),
+        ) {
+            IconLabelButton(
+                label = stringResource(Res.string.btn_spell_book),
+                icon = Icons.Filled.AutoAwesome,
+                onClick = router::openSpellCompendium,
+                modifier = Modifier.weight(1f),
             )
+            IconLabelButton(
+                label = stringResource(Res.string.btn_magical_items),
+                icon = Icons.Filled.Diamond,
+                onClick = router::openMagicalItemCompendium,
+                modifier = Modifier.weight(1f),
+            )
+            IconLabelButton(
+                label = stringResource(Res.string.btn_bestiary),
+                icon = Icons.Filled.Pets,
+                onClick = router::openMonsterCompendium,
+                modifier = Modifier.weight(1f),
+            )
+        }
+    }
+}
 
-            Row(
-                horizontalArrangement = Arrangement.spacedBy(spacingCommon),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = spacingCommon),
-            ) {
-                IconLabelButton(
-                    label = stringResource(Res.string.btn_my_spell_lists),
-                    icon = Icons.Filled.AutoAwesome,
-                    onClick = router::openMySpellLists,
-                    modifier = Modifier.weight(1f),
-                )
-                IconLabelButton(
-                    label = stringResource(Res.string.btn_my_item_lists),
-                    icon = Icons.Filled.Diamond,
-                    onClick = router::openMyMagicalItemLists,
-                    modifier = Modifier.weight(1f),
-                )
-                IconLabelButton(
-                    label = stringResource(Res.string.btn_my_bestiary_lists),
-                    icon = Icons.Filled.Pets,
-                    onClick = router::openMyMonsterLists,
-                    modifier = Modifier.weight(1f),
-                )
-            }
+@Composable
+private fun MyListsSection(router: HomeRouter, modifier: Modifier = Modifier) {
+    Column(
+        verticalArrangement = Arrangement.spacedBy(spacingMedium),
+        modifier = modifier,
+    ) {
+        SectionHeader(title = stringResource(Res.string.section_my_lists))
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(spacingCommon),
+            modifier = Modifier.fillMaxWidth(),
+        ) {
+            IconLabelButton(
+                label = stringResource(Res.string.btn_my_spell_lists),
+                icon = Icons.Filled.AutoAwesome,
+                onClick = router::openMySpellLists,
+                modifier = Modifier.weight(1f),
+            )
+            IconLabelButton(
+                label = stringResource(Res.string.btn_my_item_lists),
+                icon = Icons.Filled.Diamond,
+                onClick = router::openMyMagicalItemLists,
+                modifier = Modifier.weight(1f),
+            )
+            IconLabelButton(
+                label = stringResource(Res.string.btn_my_bestiary_lists),
+                icon = Icons.Filled.Pets,
+                onClick = router::openMyMonsterLists,
+                modifier = Modifier.weight(1f),
+            )
         }
     }
 }
