@@ -18,3 +18,8 @@ val iconSizeLarge = 44.dp
 val iconButtonSize = 56.dp
 val avatarSize = 72.dp
 val avatarBorderWidth = 2.dp
+
+// Responsive layout breakpoints
+val widthExpandedMin = 840.dp
+val contentMaxWidth = 840.dp
+val iconCardMaxHeight = 120.dp

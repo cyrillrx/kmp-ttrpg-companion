@@ -1,23 +1,18 @@
 package com.cyrillrx.rpg.home.presentation
 
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
-import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
-fun HomeButton(text: String, onClick: () -> Unit) {
+fun HomeButton(text: String, onClick: () -> Unit, modifier: Modifier = Modifier) {
     Button(
         onClick = onClick,
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(PaddingValues(spacingMedium)),
+        modifier = modifier.fillMaxWidth(),
     ) {
         Text(text = text)
     }
