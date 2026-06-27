@@ -3,8 +3,11 @@ package com.cyrillrx.rpg.character.presentation.component
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
@@ -41,7 +44,7 @@ fun CharacterCreateActions(
 ) {
     Row(
         horizontalArrangement = Arrangement.spacedBy(spacingMedium),
-        modifier = modifier.fillMaxWidth(),
+        modifier = modifier.fillMaxWidth().height(IntrinsicSize.Max),
     ) {
         CharacterActionCard(
             icon = Icons.Filled.Add,
@@ -49,7 +52,7 @@ fun CharacterCreateActions(
             subtitle = stringResource(Res.string.btn_new_character_subtitle),
             onClick = onNewCharacterClicked,
             filled = true,
-            modifier = Modifier.weight(1f),
+            modifier = Modifier.weight(1f).fillMaxHeight(),
         )
         CharacterActionCard(
             icon = Icons.Filled.Bolt,
@@ -57,7 +60,7 @@ fun CharacterCreateActions(
             subtitle = stringResource(Res.string.btn_quick_create_subtitle),
             onClick = onQuickCreateClicked,
             filled = false,
-            modifier = Modifier.weight(1f),
+            modifier = Modifier.weight(1f).fillMaxHeight(),
         )
     }
 }
