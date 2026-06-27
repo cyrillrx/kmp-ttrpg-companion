@@ -39,7 +39,7 @@ All commands run from `cmp-ttrpg-companion/`:
 
 ```bash
 ./gradlew build               # Build all targets
-./gradlew desktopRun          # Run on Desktop (JVM)
+./gradlew :composeApp:run     # Run on Desktop (JVM)
 ./gradlew installDebug        # Install on Android
 ./gradlew test                # Run all tests
 ./gradlew jvmTest             # Run JVM/Desktop tests only
