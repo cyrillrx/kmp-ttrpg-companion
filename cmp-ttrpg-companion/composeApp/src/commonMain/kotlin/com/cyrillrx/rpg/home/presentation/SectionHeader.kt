@@ -1,8 +1,10 @@
 package com.cyrillrx.rpg.home.presentation
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -11,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
+import com.cyrillrx.rpg.core.presentation.theme.sectionHeaderHeight
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
@@ -19,11 +22,15 @@ fun SectionHeader(
     title: String,
     modifier: Modifier = Modifier,
 ) {
-    Text(
-        text = title,
-        style = MaterialTheme.typography.titleLarge,
-        modifier = modifier,
-    )
+    Box(
+        contentAlignment = Alignment.CenterStart,
+        modifier = modifier.heightIn(min = sectionHeaderHeight),
+    ) {
+        Text(
+            text = title,
+            style = MaterialTheme.typography.titleLarge,
+        )
+    }
 }
 
 @Composable
@@ -36,7 +43,9 @@ fun SectionHeaderWithAction(
     Row(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
-        modifier = modifier.fillMaxWidth(),
+        modifier = modifier
+            .fillMaxWidth()
+            .heightIn(min = sectionHeaderHeight),
     ) {
         SectionHeader(title = title)
         TextButton(onClick = onActionClick) {
