@@ -19,6 +19,9 @@ val iconButtonSize = 56.dp
 val avatarSize = 72.dp
 val avatarBorderWidth = 2.dp
 
+// Height shared by section headers (with or without a trailing action) so they align across panes
+val sectionHeaderHeight = 48.dp
+
 // Responsive layout breakpoints
 val widthExpandedMin = 840.dp
 val contentMaxWidth = 840.dp

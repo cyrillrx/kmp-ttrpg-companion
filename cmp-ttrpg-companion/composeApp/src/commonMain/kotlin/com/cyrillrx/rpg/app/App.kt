@@ -17,6 +17,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
@@ -43,6 +44,8 @@ import com.cyrillrx.rpg.creature.presentation.navigation.handleMonsterRoutes
 import com.cyrillrx.rpg.creature.presentation.navigation.registerMonsterRoutes
 import com.cyrillrx.rpg.home.presentation.HomeScreen
 import com.cyrillrx.rpg.home.presentation.navigation.HomeRouterImpl
+import com.cyrillrx.rpg.home.presentation.viewmodel.HomeViewModel
+import com.cyrillrx.rpg.home.presentation.viewmodel.HomeViewModelFactory
 import com.cyrillrx.rpg.magicalitem.data.JsonMagicalItemRepository
 import com.cyrillrx.rpg.magicalitem.presentation.navigation.MagicalItemRouterImpl
 import com.cyrillrx.rpg.magicalitem.presentation.navigation.handleMagicalItemRoutes
@@ -109,6 +112,7 @@ fun App(dbDriverFactory: DatabaseDriverFactory) {
 
             val fileReader = ComposeFileReader()
             val userListRepository = remember(dbDriverFactory) { SQLDelightUserListRepository(dbDriverFactory) }
+            val characterRepository = remember(dbDriverFactory) { SQLDelightCharacterRepository(dbDriverFactory) }
 
             NavDisplay(
                 backStack = backStack,
@@ -126,7 +130,12 @@ fun App(dbDriverFactory: DatabaseDriverFactory) {
                 },
                 entryProvider = entryProvider {
                     val homeRouter = HomeRouterImpl(backStack)
-                    entry<MainRoute.Home> { HomeScreen(homeRouter) }
+                    entry<MainRoute.Home> {
+                        val viewModel = viewModel<HomeViewModel>(
+                            factory = HomeViewModelFactory(characterRepository),
+                        )
+                        HomeScreen(viewModel, homeRouter)
+                    }
 
                     handleCampaignRoutes(
                         backStack = backStack,
@@ -136,9 +145,7 @@ fun App(dbDriverFactory: DatabaseDriverFactory) {
                     )
                     handleCharacterRoutes(
                         backStack = backStack,
-                        characterRepository = remember(dbDriverFactory) {
-                            SQLDelightCharacterRepository(dbDriverFactory)
-                        },
+                        characterRepository = characterRepository,
                         pcPresetRepository = JsonCharacterPresetRepository(fileReader, "files/pc-presets.json"),
                         npcPresetRepository = JsonCharacterPresetRepository(fileReader, "files/npc-presets.json"),
                     )

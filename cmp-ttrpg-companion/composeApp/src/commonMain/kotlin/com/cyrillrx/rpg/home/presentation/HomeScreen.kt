@@ -24,21 +24,27 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LifecycleEventEffect
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.cyrillrx.rpg.character.data.SampleCharacterRepository
+import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.contentMaxWidth
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.widthExpandedMin
 import com.cyrillrx.rpg.home.presentation.navigation.HomeRouter
+import com.cyrillrx.rpg.home.presentation.viewmodel.HomeViewModel
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.app_name
 import rpg_companion.composeapp.generated.resources.btn_bestiary
 import rpg_companion.composeapp.generated.resources.btn_campaign_list
-import rpg_companion.composeapp.generated.resources.btn_character_sheets
 import rpg_companion.composeapp.generated.resources.btn_magical_items
 import rpg_companion.composeapp.generated.resources.btn_my_bestiary_lists
 import rpg_companion.composeapp.generated.resources.btn_my_item_lists
@@ -48,9 +54,20 @@ import rpg_companion.composeapp.generated.resources.section_compendium
 import rpg_companion.composeapp.generated.resources.section_my_lists
 import rpg_companion.composeapp.generated.resources.title_settings
 
+@Composable
+fun HomeScreen(viewModel: HomeViewModel, router: HomeRouter) {
+    val state by viewModel.state.collectAsStateWithLifecycle()
+
+    LifecycleEventEffect(Lifecycle.Event.ON_RESUME) {
+        viewModel.silentRefresh()
+    }
+
+    HomeScreen(state = state, router = router)
+}
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(router: HomeRouter) {
+fun HomeScreen(state: HomeState, router: HomeRouter) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -75,9 +92,9 @@ fun HomeScreen(router: HomeRouter) {
                 .fillMaxWidth()
 
             if (maxWidth >= widthExpandedMin) {
-                HomeWideScreen(router, contentModifier)
+                HomeWideScreen(state, router, contentModifier)
             } else {
-                HomeDefault(router, contentModifier)
+                HomeDefault(state, router, contentModifier)
             }
         }
     }
@@ -85,7 +102,7 @@ fun HomeScreen(router: HomeRouter) {
 
 /** Single-column layout for phones and narrow tablets. */
 @Composable
-private fun HomeDefault(router: HomeRouter, modifier: Modifier = Modifier) {
+private fun HomeDefault(state: HomeState, router: HomeRouter, modifier: Modifier = Modifier) {
     Column(
         verticalArrangement = Arrangement.spacedBy(spacingMedium),
         modifier = modifier
@@ -93,7 +110,7 @@ private fun HomeDefault(router: HomeRouter, modifier: Modifier = Modifier) {
             .padding(horizontal = spacingCommon, vertical = spacingMedium),
     ) {
         HomeButton(stringResource(Res.string.btn_campaign_list), router::openCampaignList)
-        HomeButton(stringResource(Res.string.btn_character_sheets), router::openCharacterSheetList)
+        CharacterPreviewSection(state, router, modifier = Modifier.fillMaxWidth())
         CompendiumSection(router, modifier = Modifier.fillMaxWidth())
         MyListsSection(router, modifier = Modifier.fillMaxWidth())
     }
@@ -101,7 +118,7 @@ private fun HomeDefault(router: HomeRouter, modifier: Modifier = Modifier) {
 
 /** Two-pane layout for large landscape screens. */
 @Composable
-private fun HomeWideScreen(router: HomeRouter, modifier: Modifier = Modifier) {
+private fun HomeWideScreen(state: HomeState, router: HomeRouter, modifier: Modifier = Modifier) {
     Column(
         verticalArrangement = Arrangement.spacedBy(spacingMedium),
         modifier = modifier
@@ -109,10 +126,15 @@ private fun HomeWideScreen(router: HomeRouter, modifier: Modifier = Modifier) {
             .padding(horizontal = spacingCommon, vertical = spacingMedium),
     ) {
         HomeButton(stringResource(Res.string.btn_campaign_list), router::openCampaignList)
-        HomeButton(stringResource(Res.string.btn_character_sheets), router::openCharacterSheetList)
         Row(horizontalArrangement = Arrangement.spacedBy(spacingCommon)) {
-            CompendiumSection(router, modifier = Modifier.weight(1f))
-            MyListsSection(router, modifier = Modifier.weight(1f))
+            CharacterPreviewSection(state, router, modifier = Modifier.weight(1f))
+            Column(
+                verticalArrangement = Arrangement.spacedBy(spacingMedium),
+                modifier = Modifier.weight(1f),
+            ) {
+                CompendiumSection(router, modifier = Modifier.fillMaxWidth())
+                MyListsSection(router, modifier = Modifier.fillMaxWidth())
+            }
         }
     }
 }
@@ -183,9 +205,12 @@ private fun MyListsSection(router: HomeRouter, modifier: Modifier = Modifier) {
     }
 }
 
-private object PreviewHomeRouter : HomeRouter {
+internal object PreviewHomeRouter : HomeRouter {
     override fun openCampaignList() {}
     override fun openCharacterSheetList() {}
+    override fun openCharacterDetail(character: Character) {}
+    override fun openCreateCharacter() {}
+    override fun openPresetGallery() {}
     override fun openSpellCompendium() {}
     override fun openMagicalItemCompendium() {}
     override fun openMonsterCompendium() {}
@@ -195,18 +220,22 @@ private object PreviewHomeRouter : HomeRouter {
     override fun openSettings() {}
 }
 
+@Composable
+private fun HomeScreenPreview() {
+    HomeScreen(
+        state = HomeState(body = HomeState.Body.WithData(SampleCharacterRepository.getAll())),
+        router = PreviewHomeRouter,
+    )
+}
+
 @Preview
 @Composable
 private fun PreviewHomeScreenLight() {
-    AppThemePreview(darkTheme = false) {
-        HomeScreen(PreviewHomeRouter)
-    }
+    AppThemePreview(darkTheme = false) { HomeScreenPreview() }
 }
 
 @Preview
 @Composable
 private fun PreviewHomeScreenDark() {
-    AppThemePreview(darkTheme = true) {
-        HomeScreen(PreviewHomeRouter)
-    }
+    AppThemePreview(darkTheme = true) { HomeScreenPreview() }
 }
