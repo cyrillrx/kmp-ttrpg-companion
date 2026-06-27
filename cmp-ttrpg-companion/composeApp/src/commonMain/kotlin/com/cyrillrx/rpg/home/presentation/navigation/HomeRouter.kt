@@ -3,6 +3,7 @@ package com.cyrillrx.rpg.home.presentation.navigation
 import androidx.navigation3.runtime.NavBackStack
 import androidx.navigation3.runtime.NavKey
 import com.cyrillrx.rpg.campaign.navigation.CampaignRoute
+import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.presentation.navigation.CharacterRoute
 import com.cyrillrx.rpg.creature.presentation.navigation.MonsterRoute
 import com.cyrillrx.rpg.magicalitem.presentation.navigation.MagicalItemRoute
@@ -13,6 +14,9 @@ import com.cyrillrx.rpg.userlist.presentation.navigation.UserListRoute
 interface HomeRouter {
     fun openCampaignList()
     fun openCharacterSheetList()
+    fun openCharacterDetail(character: Character)
+    fun openCreateCharacter()
+    fun openPresetGallery()
     fun openSpellCompendium()
     fun openMagicalItemCompendium()
     fun openMonsterCompendium()
@@ -29,6 +33,18 @@ class HomeRouterImpl(private val backStack: NavBackStack<NavKey>) : HomeRouter {
 
     override fun openCharacterSheetList() {
         backStack.add(CharacterRoute.List)
+    }
+
+    override fun openCharacterDetail(character: Character) {
+        backStack.add(CharacterRoute.Detail(character.id))
+    }
+
+    override fun openCreateCharacter() {
+        backStack.add(CharacterRoute.Create)
+    }
+
+    override fun openPresetGallery() {
+        backStack.add(CharacterRoute.PresetGallery)
     }
 
     override fun openSpellCompendium() {
