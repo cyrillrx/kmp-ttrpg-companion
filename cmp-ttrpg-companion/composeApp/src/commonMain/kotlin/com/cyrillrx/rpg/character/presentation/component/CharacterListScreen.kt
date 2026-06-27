@@ -33,7 +33,6 @@ import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
 import com.cyrillrx.rpg.core.presentation.component.SwipeToDelete
 import com.cyrillrx.rpg.core.presentation.component.rememberOptimisticDeleteHandler
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
-import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -127,7 +126,7 @@ fun CharacterListScreen(
             CharacterCreateActions(
                 onNewCharacterClicked = onNewCharacterClicked,
                 onQuickCreateClicked = onQuickCreateClicked,
-                modifier = Modifier.padding(spacingCommon),
+                modifier = Modifier.padding(spacingMedium),
             )
 
             Column(modifier = Modifier.weight(1f).fillMaxWidth()) {
