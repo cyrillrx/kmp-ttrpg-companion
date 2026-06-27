@@ -18,7 +18,6 @@ import com.cyrillrx.rpg.character.presentation.component.CharacterListItem
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.iconSizeLarge
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
-import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.home.presentation.navigation.HomeRouter
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -33,7 +32,7 @@ fun CharacterPreviewSection(
     modifier: Modifier = Modifier,
 ) {
     Column(
-        verticalArrangement = Arrangement.spacedBy(spacingSmall),
+        verticalArrangement = Arrangement.spacedBy(spacingMedium),
         modifier = modifier,
     ) {
         SectionHeaderWithAction(
