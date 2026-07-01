@@ -28,6 +28,7 @@ import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import kotlin.time.Clock
 
 class CharacterEditViewModel(
     private val characterId: String,
@@ -171,10 +172,13 @@ class CharacterEditViewModel(
         val characterBeforeEdit = (state.value as? Loaded)?.character ?: return
 
         updateEditState(applyEdit)
+        val editedCharacter = (state.value as? Loaded)?.character ?: return
+        if (editedCharacter == characterBeforeEdit) return
+
+        val stampedCharacter = editedCharacter.copy(lastModified = Clock.System.now())
+        updateEditState { copy(character = stampedCharacter) }
         viewModelScope.launch {
-            val loaded = state.value as? Loaded ?: return@launch
-            if (loaded.character == characterBeforeEdit) return@launch
-            characterRepository.save(loaded.character)
+            characterRepository.save(stampedCharacter)
         }
     }
 }
