@@ -1,9 +1,5 @@
 package com.cyrillrx.rpg.core.presentation.component.dialog
 
-import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -11,9 +7,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import com.cyrillrx.rpg.core.presentation.component.accessibilityId
+import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import org.jetbrains.compose.resources.stringResource
+import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.btn_cancel
 import rpg_companion.composeapp.generated.resources.btn_create_list
 import rpg_companion.composeapp.generated.resources.hint_list_name
 import rpg_companion.composeapp.generated.resources.title_create_list
@@ -25,29 +22,34 @@ fun CreateListDialog(
 ) {
     var name by remember { mutableStateOf("") }
 
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = { Text(stringResource(Res.string.title_create_list)) },
-        text = {
-            TextField(
-                value = name,
-                onValueChange = { name = it },
-                placeholder = { Text(stringResource(Res.string.hint_list_name)) },
-                singleLine = true,
-                modifier = Modifier.accessibilityId("input_list_name"),
-            )
-        },
-        confirmButton = {
-            TextButton(
-                onClick = { if (name.isNotBlank()) onConfirm(name) },
-            ) {
-                Text(stringResource(Res.string.btn_create_list))
-            }
-        },
-        dismissButton = {
-            TextButton(onClick = onDismiss) {
-                Text(stringResource(Res.string.btn_cancel))
-            }
-        },
-    )
+    EditDialog(
+        title = stringResource(Res.string.title_create_list),
+        onDismiss = onDismiss,
+        onConfirm = { onConfirm(name) },
+        confirmEnabled = name.isNotBlank(),
+        confirmLabel = stringResource(Res.string.btn_create_list),
+    ) {
+        DialogTextField(
+            value = name,
+            onValueChange = { name = it },
+            placeholder = stringResource(Res.string.hint_list_name),
+            modifier = Modifier.accessibilityId("input_list_name"),
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewCreateListDialogLight() {
+    AppThemePreview(darkTheme = false) {
+        CreateListDialog(onConfirm = {}, onDismiss = {})
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewCreateListDialogDark() {
+    AppThemePreview(darkTheme = true) {
+        CreateListDialog(onConfirm = {}, onDismiss = {})
+    }
 }
