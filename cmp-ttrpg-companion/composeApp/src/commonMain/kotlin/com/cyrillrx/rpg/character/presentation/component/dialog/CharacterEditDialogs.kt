@@ -12,8 +12,6 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
-import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -36,6 +34,8 @@ import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
 import com.cyrillrx.rpg.core.domain.toSignedString
 import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
+import com.cyrillrx.rpg.core.presentation.component.dialog.DialogTextField
+import com.cyrillrx.rpg.core.presentation.component.dialog.EditDialog
 import com.cyrillrx.rpg.core.presentation.component.dnd.ProficiencyCheckbox
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
 import com.cyrillrx.rpg.core.presentation.component.dnd.getFontWeight
@@ -266,16 +266,11 @@ private fun ShortDescriptionEditDialog(
         onDismiss = onDismiss,
         onConfirm = { onConfirm(text) },
     ) {
-        TextField(
+        DialogTextField(
             value = text,
             onValueChange = { text = it },
-            singleLine = true,
-            placeholder = { Text(stringResource(Res.string.hint_short_description)) },
+            placeholder = stringResource(Res.string.hint_short_description),
             textStyle = MaterialTheme.typography.bodyMedium.copy(fontStyle = FontStyle.Italic),
-            colors = TextFieldDefaults.colors(
-                focusedContainerColor = MaterialTheme.colorScheme.surface,
-                unfocusedContainerColor = MaterialTheme.colorScheme.surface,
-            ),
         )
     }
 }
@@ -320,15 +315,10 @@ private fun NumberEditDialog(
         onConfirm = { parsedValue?.let(onConfirm) },
         confirmEnabled = parsedValue != null,
     ) {
-        TextField(
+        DialogTextField(
             value = text,
             onValueChange = { text = it },
-            singleLine = true,
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-            colors = TextFieldDefaults.colors(
-                focusedContainerColor = MaterialTheme.colorScheme.surface,
-                unfocusedContainerColor = MaterialTheme.colorScheme.surface,
-            ),
         )
     }
 }
@@ -349,15 +339,10 @@ private fun FloatEditDialog(
         onConfirm = { parsedValue?.let(onConfirm) },
         confirmEnabled = parsedValue != null,
     ) {
-        TextField(
+        DialogTextField(
             value = text,
             onValueChange = { text = it },
-            singleLine = true,
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
-            colors = TextFieldDefaults.colors(
-                focusedContainerColor = MaterialTheme.colorScheme.surface,
-                unfocusedContainerColor = MaterialTheme.colorScheme.surface,
-            ),
         )
     }
 }
