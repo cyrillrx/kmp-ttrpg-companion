@@ -21,12 +21,13 @@ fun CreateListDialog(
     onDismiss: () -> Unit,
 ) {
     var name by remember { mutableStateOf("") }
+    val trimmedName = name.trim()
 
     EditDialog(
         title = stringResource(Res.string.title_create_list),
         onDismiss = onDismiss,
-        onConfirm = { onConfirm(name) },
-        confirmEnabled = name.isNotBlank(),
+        onConfirm = { onConfirm(trimmedName) },
+        confirmEnabled = trimmedName.isNotBlank(),
         confirmLabel = stringResource(Res.string.btn_create_list),
     ) {
         DialogTextField(
