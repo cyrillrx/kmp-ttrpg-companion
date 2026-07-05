@@ -1,6 +1,5 @@
 package com.cyrillrx.rpg.character.presentation.component
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -10,8 +9,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Favorite
 import androidx.compose.material.icons.outlined.Shield
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -25,11 +22,10 @@ import androidx.compose.ui.text.style.TextOverflow
 import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.core.presentation.component.ListItemCard
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.formatRelativeTime
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
-import com.cyrillrx.rpg.core.presentation.theme.borderAlpha
-import com.cyrillrx.rpg.core.presentation.theme.borderWidth
 import com.cyrillrx.rpg.core.presentation.theme.iconSizeSmall
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
@@ -51,13 +47,7 @@ fun CharacterListItem(
     val secondaryText = if (shortDescription.isNotBlank()) character.name else ""
     val relativeTime = character.lastModified.formatRelativeTime()
 
-    Card(
-        onClick = onClick,
-        shape = MaterialTheme.shapes.medium,
-        border = BorderStroke(borderWidth, MaterialTheme.colorScheme.outline.copy(alpha = borderAlpha)),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
-        modifier = modifier,
-    ) {
+    ListItemCard(onClick = onClick, modifier = modifier) {
         Column(
             verticalArrangement = Arrangement.spacedBy(spacingSmall),
             modifier = Modifier

@@ -1,12 +1,11 @@
 package com.cyrillrx.rpg.campaign.list
 
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
@@ -30,10 +29,13 @@ import com.cyrillrx.rpg.campaign.list.viewmodel.CampaignListViewModel
 import com.cyrillrx.rpg.campaign.navigation.CampaignRouter
 import com.cyrillrx.rpg.core.presentation.component.EmptySearch
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
+import com.cyrillrx.rpg.core.presentation.component.ListItemCard
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SearchBarWithBack
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
+import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
+import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
@@ -113,14 +115,14 @@ private fun CampaignItemList(
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         state = searchResultsListState,
+        contentPadding = PaddingValues(spacingMedium),
+        verticalArrangement = Arrangement.spacedBy(spacingSmall),
     ) {
         items(campaigns) { campaign ->
             CampaignItem(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .wrapContentHeight()
-                    .clickable { onCampaignClicked(campaign) },
                 campaign = campaign,
+                onClick = { onCampaignClicked(campaign) },
+                modifier = Modifier.fillMaxWidth(),
             )
         }
     }
@@ -128,17 +130,14 @@ private fun CampaignItemList(
 
 @Composable
 private fun CampaignItem(
-    modifier: Modifier,
     campaign: Campaign,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
 ) {
-    Row(modifier = modifier) {
-//        Icon(
-//            bitmap = imageResource(campaign.getIcon()),
-//            contentDescription = campaign.name,
-//            modifier = Modifier.padding(spacingCommon),
-//        )
+    ListItemCard(onClick = onClick, modifier = modifier) {
         Text(
             text = campaign.name,
+            style = MaterialTheme.typography.bodyLarge,
             modifier = Modifier.padding(spacingCommon),
         )
     }
