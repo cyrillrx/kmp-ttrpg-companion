@@ -15,14 +15,9 @@ import androidx.compose.material.icons.filled.AutoAwesome
 import androidx.compose.material.icons.filled.Diamond
 import androidx.compose.material.icons.filled.Pets
 import androidx.compose.material.icons.filled.Settings
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -32,6 +27,7 @@ import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.contentMaxWidth
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
@@ -65,19 +61,17 @@ fun HomeScreen(viewModel: HomeViewModel, router: HomeRouter) {
     HomeScreen(state = state, router = router)
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(state: HomeState, router: HomeRouter) {
     Scaffold(
         topBar = {
-            TopAppBar(
-                title = { Text(stringResource(Res.string.app_name)) },
+            SimpleTopBar(
+                titleResource = Res.string.app_name,
                 actions = {
                     IconButton(onClick = router::openSettings) {
                         Icon(Icons.Filled.Settings, contentDescription = stringResource(Res.string.title_settings))
                     }
                 },
-                colors = TopAppBarDefaults.topAppBarColors(containerColor = MaterialTheme.colorScheme.background),
             )
         },
     ) { paddingValues ->
