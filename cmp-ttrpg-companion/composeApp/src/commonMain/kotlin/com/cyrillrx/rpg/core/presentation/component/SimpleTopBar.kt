@@ -19,7 +19,7 @@ import rpg_companion.composeapp.generated.resources.btn_back
 @Composable
 fun SimpleTopBar(
     titleResource: StringResource,
-    onNavigateUpClicked: () -> Unit,
+    onNavigateUpClicked: (() -> Unit)? = null,
     actions: @Composable RowScope.() -> Unit = {},
 ) {
     SimpleTopBar(stringResource(titleResource), onNavigateUpClicked, actions)
@@ -29,17 +29,19 @@ fun SimpleTopBar(
 @Composable
 fun SimpleTopBar(
     title: String,
-    onNavigateUpClicked: () -> Unit,
+    onNavigateUpClicked: (() -> Unit)? = null,
     actions: @Composable RowScope.() -> Unit = {},
 ) {
     TopAppBar(
         title = { Text(title) },
         navigationIcon = {
-            IconButton(onClick = onNavigateUpClicked) {
-                Icon(
-                    Icons.AutoMirrored.Rounded.ArrowBack,
-                    contentDescription = stringResource(Res.string.btn_back),
-                )
+            if (onNavigateUpClicked != null) {
+                IconButton(onClick = onNavigateUpClicked) {
+                    Icon(
+                        Icons.AutoMirrored.Rounded.ArrowBack,
+                        contentDescription = stringResource(Res.string.btn_back),
+                    )
+                }
             }
         },
         actions = actions,
