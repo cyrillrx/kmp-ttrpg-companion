@@ -21,7 +21,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.unit.dp
 import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.ListItemCard
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
@@ -29,6 +28,7 @@ import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedCR
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.component.dnd.toIcon
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
+import com.cyrillrx.rpg.core.presentation.theme.iconSizeMediumLarge
 import com.cyrillrx.rpg.core.presentation.theme.iconSizeSmall
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
@@ -41,8 +41,8 @@ import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.value_armor_class
 import rpg_companion.composeapp.generated.resources.value_hit_points
 
-private val typeIconSize = 36.dp
-private val typeIconPadding = 8.dp
+private val typeIconSize = iconSizeMediumLarge
+private val typeIconPadding = spacingCommon
 
 @Composable
 fun MonsterListItem(
