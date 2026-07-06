@@ -21,6 +21,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.iconCardMaxHeight
+import com.cyrillrx.rpg.core.presentation.theme.iconSizeMediumLarge
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -48,7 +49,7 @@ fun IconLabelButton(
                 tint = MaterialTheme.colorScheme.primary,
                 contentDescription = label,
                 modifier = Modifier
-                    .size(32.dp)
+                    .size(iconSizeMediumLarge)
                     .padding(bottom = spacingSmall),
             )
             Text(
