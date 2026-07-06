@@ -12,7 +12,7 @@ import androidx.compose.material.icons.outlined.Dangerous
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
-import com.cyrillrx.rpg.core.presentation.theme.Red900
+import com.cyrillrx.rpg.core.presentation.theme.SpellColor
 import com.cyrillrx.rpg.spell.domain.Spell
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
@@ -36,7 +36,7 @@ import rpg_companion.composeapp.generated.resources.spell_level_8th
 import rpg_companion.composeapp.generated.resources.spell_level_9th
 import rpg_companion.composeapp.generated.resources.spell_level_cantrip
 
-fun Spell.getColor(): Color = Red900
+fun Spell.getColor(): Color = SpellColor
 
 @Composable
 fun Spell.getFormattedSchool() =
