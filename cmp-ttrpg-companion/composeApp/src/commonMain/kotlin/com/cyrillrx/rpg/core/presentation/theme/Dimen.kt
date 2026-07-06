@@ -14,6 +14,7 @@ val borderWidth = 1.dp
 val borderAlpha = 0.3f
 val iconSizeSmall = 14.dp
 val iconSizeMedium = 20.dp
+val iconSizeMediumLarge = 32.dp
 val iconSizeLarge = 44.dp
 val iconButtonSize = 56.dp
 val avatarSize = 72.dp
