@@ -91,7 +91,7 @@ internal fun SpellCardHeader(spell: Spell) {
         text = spell.getFormattedSchool(),
         style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Bold),
         textAlign = TextAlign.Center,
-        color = Color.White,
+        color = MaterialTheme.colorScheme.onPrimary,
         modifier = Modifier
             .fillMaxWidth()
             .background(spellColor)

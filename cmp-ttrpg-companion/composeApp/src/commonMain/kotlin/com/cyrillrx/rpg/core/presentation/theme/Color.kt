@@ -20,12 +20,21 @@ val Purple600 = Color(0xFF5E35B1)
 val Purple700 = Color(0xFF512DA8)
 val Purple800 = Color(0xFF4527A0)
 val Purple900 = Color(0xFF311B92)
-val Scarlet = Color(0xff9b1c47)
+val Scarlet = Color(0xff9b1c47) // D&D theming accent, used directly (see note below)
 
 val Green500 = Color(0xFF4CAF50)
 
 val DarkerGrey = Color(0xFF2C2C2C)
 val DarkGrey = Color(0xFF414040)
 
+// D&D theming colors used directly in UI (Scarlet, DndParchment, DndGold) — an
+// intentional exception to the "use MaterialTheme.colorScheme" rule.
 val DndParchment = Color(0xFFF0E8D0)
 val DndGold = Color(0xFFD4AF37)
+
+// Domain / category accent colors — fixed brand colors used for item/spell typing,
+// intentionally theme-independent. Referenced by the *.getColor() format helpers.
+val WeaponColor = Color(0xFF9B0B4E)
+val ArmorColor = Color(0xFF007AB3)
+val ObjectColor = Color(0xFF00B38C)
+val SpellColor = Red900

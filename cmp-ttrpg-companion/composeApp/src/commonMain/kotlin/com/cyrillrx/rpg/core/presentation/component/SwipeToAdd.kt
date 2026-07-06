@@ -21,7 +21,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import com.cyrillrx.rpg.core.presentation.theme.Green500
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 
@@ -63,7 +62,7 @@ fun SwipeToAdd(
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.PlaylistAdd,
                     contentDescription = null,
-                    tint = Color.White,
+                    tint = MaterialTheme.colorScheme.onPrimary,
                 )
             }
         },
