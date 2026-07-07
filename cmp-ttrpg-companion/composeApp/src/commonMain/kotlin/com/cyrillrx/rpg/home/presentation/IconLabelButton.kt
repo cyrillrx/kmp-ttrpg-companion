@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AutoAwesome
-import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -19,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.cyrillrx.rpg.core.presentation.component.ListItemCard
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.iconCardMaxHeight
 import com.cyrillrx.rpg.core.presentation.theme.iconSizeMediumLarge
@@ -33,7 +33,7 @@ fun IconLabelButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    Card(
+    ListItemCard(
         onClick = onClick,
         modifier = modifier.height(iconCardMaxHeight),
     ) {

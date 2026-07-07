@@ -24,7 +24,7 @@ fun ListItemCard(
         onClick = onClick,
         shape = MaterialTheme.shapes.medium,
         border = BorderStroke(borderWidth, MaterialTheme.colorScheme.outline.copy(alpha = borderAlpha)),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer),
         modifier = modifier,
         content = content,
     )
