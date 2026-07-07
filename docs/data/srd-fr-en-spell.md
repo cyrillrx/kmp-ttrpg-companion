@@ -183,7 +183,7 @@ English key is the slugified EN name used as `id` in `data/compendium/spells/*.y
 | goodberry                          | Goodberry                          | Baies nourricières                        |
 | grasping-vine                      | Grasping Vine                      | Liane avide                               |
 | grease                             | Grease                             | Graisse                                   |
-| greater-invisibility               | Greater Invisibility               | Invisibilité suprême                      |
+| greater-invisibility               | Greater Invisibility               | Invisibilité supérieure / suprême         |
 | greater-restoration                | Greater Restoration                | Restauration suprême                      |
 | guardian-of-faith                  | Guardian of Faith                  | Gardien de la foi                         |
 | guards-and-wards                   | Guards and Wards                   | Protections et sceaux                     |

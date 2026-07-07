@@ -22,7 +22,7 @@ translations:
     description: |-
       A creature you touch has the Invisible condition until the spell ends.
   fr:
-    name: Invisibilité suprême
+    name: Invisibilité supérieure / suprême
     castingTime: Action
     range: Contact
     duration: Concentration, jusqu'à 1 minute
