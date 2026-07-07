@@ -1,11 +1,11 @@
 id: wizard-human
 name: Aldus Vance
-race: HUMAN
-clazz: WIZARD
+race: human
+clazz: wizard
 level: 1
-size: MEDIUM
-alignment: NEUTRAL_GOOD
-background: Sage
+size: medium
+alignment: neutral_good
+background: sage
 abilities:
   str: 8
   dex: 14

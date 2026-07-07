@@ -1,10 +1,10 @@
 id: guard
 name: Aldric Brennan
-race: HUMAN
-clazz: FIGHTER
+race: human
+clazz: fighter
 level: 1
-size: MEDIUM
-alignment: LAWFUL_NEUTRAL
+size: medium
+alignment: lawful_neutral
 abilities:
   str: 13
   dex: 12
