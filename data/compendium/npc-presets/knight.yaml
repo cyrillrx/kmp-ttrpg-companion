@@ -1,10 +1,10 @@
 id: knight
 name: Ser Corvin Ashvale
-race: HUMAN
-clazz: PALADIN
+race: human
+clazz: paladin
 level: 5
-size: MEDIUM
-alignment: LAWFUL_GOOD
+size: medium
+alignment: lawful_good
 abilities:
   str: 16
   dex: 10

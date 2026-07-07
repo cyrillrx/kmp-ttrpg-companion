@@ -1,11 +1,11 @@
 id: rogue-elf
 name: Sylara Dawnwhisper
-race: ELF
-clazz: ROGUE
+race: elf
+clazz: rogue
 level: 1
-size: MEDIUM
-alignment: CHAOTIC_NEUTRAL
-background: Urchin
+size: medium
+alignment: chaotic_neutral
+background: urchin
 abilities:
   str: 8
   dex: 18
