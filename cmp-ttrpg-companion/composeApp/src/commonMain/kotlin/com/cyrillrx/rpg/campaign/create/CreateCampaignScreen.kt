@@ -27,7 +27,6 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.campaign.common.LocalizedRuleSet
 import com.cyrillrx.rpg.campaign.common.getMessage
@@ -121,8 +120,7 @@ fun CreateCampaignScreen(
             ) {
                 Text(
                     text = stringResource(Res.string.label_campaign_rule_set),
-                    style = MaterialTheme.typography.bodyMedium,
-                    fontSize = 16.sp,
+                    style = MaterialTheme.typography.bodyLarge,
                 )
 
                 ChooseRuleSetButton(

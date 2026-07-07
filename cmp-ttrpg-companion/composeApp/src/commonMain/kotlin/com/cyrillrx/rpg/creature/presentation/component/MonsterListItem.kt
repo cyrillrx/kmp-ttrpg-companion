@@ -85,7 +85,6 @@ fun MonsterListItem(
                 Text(
                     text = translation.name,
                     style = MaterialTheme.typography.titleSmall,
-                    fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.onSurface,
                 )
 

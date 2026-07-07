@@ -9,7 +9,6 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
-import androidx.compose.ui.unit.sp
 import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
 import com.cyrillrx.rpg.core.presentation.component.dnd.getSubtitle
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
@@ -31,12 +30,7 @@ fun MainStatLayout(
     Column(modifier) {
         Text(
             buildAnnotatedString {
-                withStyle(
-                    SpanStyle(
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 18.sp,
-                    ),
-                ) {
+                withStyle(MaterialTheme.typography.titleMedium.toSpanStyle()) {
                     append(monster.getSubtitle())
                 }
             },
