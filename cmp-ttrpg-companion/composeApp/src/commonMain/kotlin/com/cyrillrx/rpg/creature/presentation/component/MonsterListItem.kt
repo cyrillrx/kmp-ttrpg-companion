@@ -22,7 +22,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.AppCard
-import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedCR
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.component.dnd.toIcon
@@ -51,7 +50,6 @@ fun MonsterListItem(
 ) {
     val translation = monster.resolveTranslation(currentLocale())
     val monsterType = monster.getDisplayType()
-    val typeColor = monsterType.getColor()
 
     AppCard(onClick = onClick, modifier = modifier) {
         Row(
@@ -63,14 +61,14 @@ fun MonsterListItem(
                 modifier = Modifier
                     .size(typeIconSize + typeIconPadding * 2)
                     .background(
-                        color = typeColor.copy(alpha = 0.12f),
+                        color = MaterialTheme.colorScheme.primaryContainer,
                         shape = MaterialTheme.shapes.small,
                     ),
             ) {
                 Icon(
                     imageVector = monsterType.toIcon(),
                     contentDescription = null,
-                    tint = typeColor,
+                    tint = MaterialTheme.colorScheme.primary,
                     modifier = Modifier.size(typeIconSize),
                 )
             }
@@ -143,7 +141,7 @@ fun MonsterListItem(
                 text = monster.toFormattedCR(),
                 style = MaterialTheme.typography.labelSmall,
                 fontWeight = FontWeight.Bold,
-                color = typeColor,
+                color = MaterialTheme.colorScheme.primary,
             )
         }
     }
