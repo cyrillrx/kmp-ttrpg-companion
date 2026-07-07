@@ -148,9 +148,9 @@ private fun ClassIconBox(clazz: Character.Class, onClick: () -> Unit) {
     val iconState by produceState<ClassIconState>(ClassIconState.Loading, clazz) {
         value = resolveClassIconState(clazz) { Res.readBytes(it) }
     }
-    val iconColor = MaterialTheme.colorScheme.primary
+    val iconColor = MaterialTheme.colorScheme.onPrimaryContainer
     val backgroundColor = MaterialTheme.colorScheme.primaryContainer
-    val borderColor = MaterialTheme.colorScheme.primary
+    val borderColor = MaterialTheme.colorScheme.onPrimaryContainer
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier

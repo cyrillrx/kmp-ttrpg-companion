@@ -20,7 +20,9 @@ private val PurpleLightScheme = lightColorScheme(
     primary = Color(0xFF512DA8),
     onPrimary = Color(0xFFFFFFFF),
     primaryContainer = Color(0xFFE9DDFF),
-    onPrimaryContainer = Color(0xFF21005E),
+    // Deliberately the `primary` tone rather than the high-contrast M3 default, so a
+    // primary-hued icon reads as tonal on `primaryContainer` badges (~7:1 contrast here).
+    onPrimaryContainer = Color(0xFF512DA8),
     inversePrimary = Color(0xFFD0BCFF),
     secondary = Color(0xFF625B71),
     onSecondary = Color(0xFFFFFFFF),
@@ -57,7 +59,9 @@ private val PurpleDarkScheme = darkColorScheme(
     primary = Color(0xFFB69DF8),
     onPrimary = Color(0xFF381E72),
     primaryContainer = Color(0xFF4F378A),
-    onPrimaryContainer = Color(0xFFE9DDFF),
+    // Deliberately the `primary` tone rather than the high-contrast M3 default, so a
+    // primary-hued icon reads as tonal on `primaryContainer` badges (~4:1 contrast here).
+    onPrimaryContainer = Color(0xFFB69DF8),
     inversePrimary = Color(0xFF512DA8),
     secondary = Color(0xFFD3C1EC),
     onSecondary = Color(0xFF382C4B),
