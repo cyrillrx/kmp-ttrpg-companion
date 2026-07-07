@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Favorite
 import androidx.compose.material.icons.outlined.Shield
@@ -65,7 +64,7 @@ fun MonsterListItem(
                     .size(typeIconSize + typeIconPadding * 2)
                     .background(
                         color = typeColor.copy(alpha = 0.12f),
-                        shape = RoundedCornerShape(spacingMedium),
+                        shape = MaterialTheme.shapes.small,
                     ),
             ) {
                 Icon(
