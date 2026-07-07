@@ -18,7 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.cyrillrx.rpg.core.presentation.component.ListItemCard
+import com.cyrillrx.rpg.core.presentation.component.AppCard
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.iconCardMaxHeight
 import com.cyrillrx.rpg.core.presentation.theme.iconSizeMediumLarge
@@ -33,7 +33,7 @@ fun IconLabelButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    ListItemCard(
+    AppCard(
         onClick = onClick,
         modifier = modifier.height(iconCardMaxHeight),
     ) {

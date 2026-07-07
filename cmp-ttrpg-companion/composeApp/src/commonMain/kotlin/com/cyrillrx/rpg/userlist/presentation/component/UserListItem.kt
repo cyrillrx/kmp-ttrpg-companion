@@ -6,7 +6,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.cyrillrx.rpg.core.presentation.component.ListItemCard
+import com.cyrillrx.rpg.core.presentation.component.AppCard
 import com.cyrillrx.rpg.core.presentation.formatRelativeTime
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
@@ -25,7 +25,7 @@ fun UserListItem(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    ListItemCard(onClick = onClick, modifier = modifier) {
+    AppCard(onClick = onClick, modifier = modifier) {
         Column(modifier = Modifier.padding(spacingCommon)) {
             Text(
                 text = list.name,

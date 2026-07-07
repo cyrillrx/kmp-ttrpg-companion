@@ -22,7 +22,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Character
-import com.cyrillrx.rpg.core.presentation.component.ListItemCard
+import com.cyrillrx.rpg.core.presentation.component.AppCard
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.formatRelativeTime
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
@@ -47,7 +47,7 @@ fun CharacterListItem(
     val secondaryText = if (shortDescription.isNotBlank()) character.name else ""
     val relativeTime = character.lastModified.formatRelativeTime()
 
-    ListItemCard(onClick = onClick, modifier = modifier) {
+    AppCard(onClick = onClick, modifier = modifier) {
         Column(
             verticalArrangement = Arrangement.spacedBy(spacingSmall),
             modifier = Modifier
