@@ -20,7 +20,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.sp
 import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.MarkdownText
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
@@ -75,7 +74,7 @@ internal fun SpellCardHeader(spell: Spell) {
     val spellColor = spell.getColor()
     Text(
         text = translation.name,
-        style = MaterialTheme.typography.titleLarge.copy(fontSize = 20.sp, fontWeight = FontWeight.Bold),
+        style = MaterialTheme.typography.titleLarge,
         textAlign = TextAlign.Center,
         modifier = Modifier
             .fillMaxWidth()
@@ -140,7 +139,7 @@ private fun SpellGridItem(label: String, value: String, spellColor: Color) {
     Column(Modifier.background(MaterialTheme.colorScheme.background)) {
         Text(
             text = label,
-            style = MaterialTheme.typography.titleMedium.copy(fontSize = 18.sp, fontWeight = FontWeight.Bold),
+            style = MaterialTheme.typography.titleMedium,
             textAlign = TextAlign.Center,
             maxLines = 1,
             color = spellColor,

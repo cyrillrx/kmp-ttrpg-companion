@@ -13,8 +13,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontStyle
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.sp
 import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.MarkdownText
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
@@ -70,7 +68,7 @@ internal fun MagicalItemCardHeader(magicalItem: MagicalItem) {
     val color = magicalItem.getColor()
     Text(
         text = translation.name,
-        style = MaterialTheme.typography.titleLarge.copy(fontSize = 20.sp, fontWeight = FontWeight.Bold),
+        style = MaterialTheme.typography.titleLarge,
         color = MaterialTheme.colorScheme.onPrimary,
         modifier = Modifier
             .fillMaxWidth()
