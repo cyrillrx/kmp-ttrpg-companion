@@ -82,7 +82,7 @@ fun CampaignListScreen(
             ) {
                 Icon(
                     imageVector = Icons.Default.Add,
-                    tint = MaterialTheme.colorScheme.onPrimary,
+                    tint = MaterialTheme.colorScheme.onPrimaryContainer,
                     contentDescription = "Create campaign",
                 )
             }

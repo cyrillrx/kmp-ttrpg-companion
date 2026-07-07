@@ -68,7 +68,7 @@ fun MonsterListItem(
                 Icon(
                     imageVector = monsterType.toIcon(),
                     contentDescription = null,
-                    tint = MaterialTheme.colorScheme.primary,
+                    tint = MaterialTheme.colorScheme.onPrimaryContainer,
                     modifier = Modifier.size(typeIconSize),
                 )
             }
