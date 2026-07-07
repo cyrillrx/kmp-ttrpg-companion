@@ -27,9 +27,9 @@ import com.cyrillrx.rpg.campaign.domain.Campaign
 import com.cyrillrx.rpg.campaign.domain.RuleSet
 import com.cyrillrx.rpg.campaign.list.viewmodel.CampaignListViewModel
 import com.cyrillrx.rpg.campaign.navigation.CampaignRouter
+import com.cyrillrx.rpg.core.presentation.component.AppCard
 import com.cyrillrx.rpg.core.presentation.component.EmptySearch
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
-import com.cyrillrx.rpg.core.presentation.component.ListItemCard
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SearchBarWithBack
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
@@ -134,7 +134,7 @@ private fun CampaignItem(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    ListItemCard(onClick = onClick, modifier = modifier) {
+    AppCard(onClick = onClick, modifier = modifier) {
         Text(
             text = campaign.name,
             style = MaterialTheme.typography.bodyLarge,

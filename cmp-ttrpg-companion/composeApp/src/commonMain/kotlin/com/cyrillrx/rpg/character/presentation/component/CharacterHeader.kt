@@ -53,9 +53,6 @@ import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.component.dnd.toSvgPath
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
-import com.cyrillrx.rpg.core.presentation.theme.DndGold
-import com.cyrillrx.rpg.core.presentation.theme.DndParchment
-import com.cyrillrx.rpg.core.presentation.theme.Scarlet
 import com.cyrillrx.rpg.core.presentation.theme.avatarBorderWidth
 import com.cyrillrx.rpg.core.presentation.theme.avatarSize
 import com.cyrillrx.rpg.core.presentation.theme.iconSizeLarge
@@ -151,13 +148,16 @@ private fun ClassIconBox(clazz: Character.Class, onClick: () -> Unit) {
     val iconState by produceState<ClassIconState>(ClassIconState.Loading, clazz) {
         value = resolveClassIconState(clazz) { Res.readBytes(it) }
     }
+    val iconColor = MaterialTheme.colorScheme.primary
+    val backgroundColor = MaterialTheme.colorScheme.primaryContainer
+    val borderColor = MaterialTheme.colorScheme.primary
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier
             .size(avatarSize)
             .clip(CircleShape)
-            .background(DndParchment)
-            .border(avatarBorderWidth, DndGold, CircleShape)
+            .background(backgroundColor)
+            .border(width = avatarBorderWidth, color = borderColor, shape = CircleShape)
             .clickable(onClick = onClick),
     ) {
         when (val s = iconState) {
@@ -165,19 +165,19 @@ private fun ClassIconBox(clazz: Character.Class, onClick: () -> Unit) {
             is ClassIconState.Loaded -> AsyncImage(
                 model = s.bytes,
                 contentDescription = null,
-                colorFilter = ColorFilter.tint(Scarlet),
+                colorFilter = ColorFilter.tint(iconColor),
                 modifier = Modifier.size(iconSizeLarge),
             )
             ClassIconState.Error -> Icon(
                 imageVector = Icons.Filled.Warning,
                 contentDescription = null,
-                tint = Scarlet,
+                tint = iconColor,
                 modifier = Modifier.size(iconSizeLarge),
             )
             ClassIconState.Unknown -> Icon(
                 imageVector = Icons.Filled.QuestionMark,
                 contentDescription = null,
-                tint = Scarlet,
+                tint = iconColor,
                 modifier = Modifier.size(iconSizeLarge),
             )
         }
