@@ -6,9 +6,8 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.ui.graphics.Color
 
 /**
- * A theme palette: a light/dark [ColorScheme] pair. Palettes are declinable (a base
- * purple one today, D&D-red / druid-green later), so raw color literals belong here
- * rather than in component code.
+ * A theme palette: a self-contained color identity as a light/dark [ColorScheme]
+ * pair. Raw color literals belong here rather than in component code.
  */
 enum class AppPalette(
     val light: ColorScheme,
