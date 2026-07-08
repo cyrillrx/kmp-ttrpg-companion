@@ -105,7 +105,7 @@ fun SpellDetail(
             }
         }
 
-        translation.materialDescription?.let { material ->
+        translation.materialDescription?.takeIf { it.isNotBlank() }?.let { material ->
             Text(
                 text = "* ($material)",
                 style = MaterialTheme.typography.bodySmall.copy(fontStyle = FontStyle.Italic),
