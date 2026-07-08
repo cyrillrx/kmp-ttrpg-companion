@@ -1,14 +1,14 @@
 package com.cyrillrx.rpg.spell.presentation.component
 
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Button
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.PlaylistAdd
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -22,7 +22,6 @@ import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
 import com.cyrillrx.rpg.core.presentation.state.DetailState
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
-import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.presentation.SpellAddToListProvider
@@ -67,30 +66,24 @@ private fun SpellDetailScreen(
             SimpleTopBar(
                 title = spell.resolveTranslation(currentLocale()).name,
                 onNavigateUpClicked = onNavigateUpClicked,
+                actions = {
+                    IconButton(onClick = { showAddToListBottomSheet = true }) {
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.PlaylistAdd,
+                            contentDescription = stringResource(Res.string.btn_add_to_list),
+                        )
+                    }
+                },
             )
         },
     ) { paddingValues ->
-        Column(
+        SpellDetail(
+            spell = spell,
             modifier = Modifier
                 .padding(paddingValues)
-                .fillMaxSize(),
-        ) {
-            SpellDetail(
-                spell = spell,
-                modifier = Modifier
-                    .weight(1f)
-                    .fillMaxWidth()
-                    .verticalScroll(rememberScrollState()),
-            )
-            Button(
-                onClick = { showAddToListBottomSheet = true },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(spacingMedium),
-            ) {
-                Text(stringResource(Res.string.btn_add_to_list))
-            }
-        }
+                .fillMaxSize()
+                .verticalScroll(rememberScrollState()),
+        )
     }
 
     if (showAddToListBottomSheet) {
