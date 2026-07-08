@@ -1,14 +1,12 @@
 package com.cyrillrx.rpg.spell.presentation.component
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -21,11 +19,10 @@ import androidx.compose.ui.Modifier
 import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
-import com.cyrillrx.rpg.core.presentation.component.MarkdownText
+import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
 import com.cyrillrx.rpg.core.presentation.state.DetailState
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
-import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.presentation.SpellAddToListProvider
@@ -48,11 +45,8 @@ fun SpellCardScreen(
     val state by viewModel.state.collectAsState()
     when (val s = state) {
         DetailState.Loading -> Loader()
-        is DetailState.NotFound -> ErrorLayout(
-            stringResource(Res.string.error_spell_not_found, s.id),
-        )
-
-        is DetailState.Found -> SpellCardContent(
+        is DetailState.NotFound -> ErrorLayout(stringResource(Res.string.error_spell_not_found, s.id))
+        is DetailState.Found -> SpellDetailScreen(
             spell = s.item,
             onNavigateUpClicked = router::navigateUp,
             addToListProvider = bottomSheetProvider,
@@ -61,44 +55,38 @@ fun SpellCardScreen(
 }
 
 @Composable
-private fun SpellCardContent(
+private fun SpellDetailScreen(
     spell: Spell,
     onNavigateUpClicked: () -> Unit,
     addToListProvider: AddToListProvider<Spell>,
 ) {
     var showAddToListBottomSheet by remember { mutableStateOf(false) }
 
-    Scaffold { paddingValues ->
-        Column(modifier = Modifier.padding(paddingValues)) {
-            SpellCard(
+    Scaffold(
+        topBar = {
+            SimpleTopBar(
+                title = spell.resolveTranslation(currentLocale()).name,
+                onNavigateUpClicked = onNavigateUpClicked,
+            )
+        },
+    ) { paddingValues ->
+        Column(
+            modifier = Modifier
+                .padding(paddingValues)
+                .fillMaxSize(),
+        ) {
+            SpellDetail(
                 spell = spell,
                 modifier = Modifier
                     .weight(1f)
                     .fillMaxWidth()
-                    .padding(spacingSmall)
-                    .clickable { onNavigateUpClicked() },
-                content = {
-                    val translation = spell.resolveTranslation(currentLocale())
-                    Column(
-                        modifier = Modifier
-                            .weight(1f)
-                            .verticalScroll(rememberScrollState()),
-                    ) {
-                        MarkdownText(
-                            text = translation.description,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .background(MaterialTheme.colorScheme.background)
-                                .padding(spacingMedium),
-                        )
-                    }
-                },
+                    .verticalScroll(rememberScrollState()),
             )
             Button(
                 onClick = { showAddToListBottomSheet = true },
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = spacingMedium),
+                    .padding(spacingMedium),
             ) {
                 Text(stringResource(Res.string.btn_add_to_list))
             }
@@ -133,6 +121,6 @@ private fun PreviewSpellCardScreen(darkTheme: Boolean) {
     val bottomSheetProvider = SpellAddToListProvider(spellRepository, userListRepository)
 
     AppThemePreview(darkTheme = darkTheme) {
-        SpellCardContent(spell, onNavigateUpClicked = {}, addToListProvider = bottomSheetProvider)
+        SpellDetailScreen(spell, onNavigateUpClicked = {}, addToListProvider = bottomSheetProvider)
     }
 }

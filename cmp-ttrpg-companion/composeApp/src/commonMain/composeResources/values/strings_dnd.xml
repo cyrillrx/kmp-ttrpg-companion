@@ -42,6 +42,8 @@
     <string name="formatted_spell_components">Components:</string>
     <string name="formatted_spell_range">Range:</string>
     <string name="formatted_spell_duration">Duration:</string>
+    <string name="spell_ritual">Ritual</string>
+    <string name="spell_concentration">Concentration</string>
 
     <!-- Spell Level -->
     <string name="spell_level_cantrip">Cantrip</string>
