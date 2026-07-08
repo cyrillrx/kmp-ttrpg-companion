@@ -30,9 +30,17 @@ val DarkGrey = Color(0xFF414040)
 val DndParchment = Color(0xFFF0E8D0)
 val DndGold = Color(0xFFD4AF37)
 
-// Domain / category accent colors — fixed brand colors used for item/spell typing,
-// intentionally theme-independent. Referenced by the *.getColor() format helpers.
+// Domain / category accent colors — fixed brand hues, theme-independent.
 val WeaponColor = Color(0xFF9B0B4E)
 val ArmorColor = Color(0xFF007AB3)
 val ObjectColor = Color(0xFF00B38C)
-val SpellColor = Red900
+
+// Spell school accent colors.
+val SchoolAbjuration = Color(0xFF3B82C4)
+val SchoolConjuration = Color(0xFFC9A227)
+val SchoolDivination = Color(0xFF4FB0C6)
+val SchoolEnchantment = Color(0xFFC2569E)
+val SchoolEvocation = Color(0xFFD9534F)
+val SchoolIllusion = Color(0xFF8A63D2)
+val SchoolNecromancy = Color(0xFF4E9A5B)
+val SchoolTransmutation = Color(0xFFD08A3E)
