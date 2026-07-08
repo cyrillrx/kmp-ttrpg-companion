@@ -7,7 +7,7 @@ import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.domain.SpellRepository
 import com.cyrillrx.rpg.spell.presentation.SpellAddToListProvider
 import com.cyrillrx.rpg.spell.presentation.SpellItemProvider
-import com.cyrillrx.rpg.spell.presentation.component.SpellCardScreen
+import com.cyrillrx.rpg.spell.presentation.component.SpellDetailScreen
 import com.cyrillrx.rpg.spell.presentation.component.SpellListScreen
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellDetailViewModel
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellDetailViewModelFactory
@@ -61,7 +61,7 @@ fun EntryProviderScope<NavKey>.handleSpellRoutes(
             spellRepository = spellRepository,
             userListRepository = userListRepository,
         )
-        SpellCardScreen(viewModel, router, bottomSheetProvider)
+        SpellDetailScreen(viewModel, router, bottomSheetProvider)
     }
 
     entry<SpellRoute.UserListDetail> { route ->

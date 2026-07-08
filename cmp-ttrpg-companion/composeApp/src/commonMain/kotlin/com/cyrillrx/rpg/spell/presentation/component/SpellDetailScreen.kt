@@ -41,7 +41,7 @@ import rpg_companion.composeapp.generated.resources.btn_add_to_list
 import rpg_companion.composeapp.generated.resources.error_spell_not_found
 
 @Composable
-fun SpellCardScreen(
+fun SpellDetailScreen(
     viewModel: SpellDetailViewModel,
     router: SpellRouter,
     bottomSheetProvider: AddToListProvider<Spell>,
@@ -50,7 +50,7 @@ fun SpellCardScreen(
     when (val s = state) {
         DetailState.Loading -> Loader()
         is DetailState.NotFound -> ErrorLayout(stringResource(Res.string.error_spell_not_found, s.id))
-        is DetailState.Found -> SpellDetailScreen(
+        is DetailState.Found -> SpellDetailContent(
             spell = s.item,
             onNavigateUpClicked = router::navigateUp,
             addToListProvider = bottomSheetProvider,
@@ -59,7 +59,7 @@ fun SpellCardScreen(
 }
 
 @Composable
-private fun SpellDetailScreen(
+private fun SpellDetailContent(
     spell: Spell,
     onNavigateUpClicked: () -> Unit,
     addToListProvider: AddToListProvider<Spell>,
@@ -125,24 +125,24 @@ private fun SpellDetailScreen(
 
 @Preview
 @Composable
-fun PreviewSpellCardScreenLight() {
-    PreviewSpellCardScreen(darkTheme = false)
+fun PreviewSpellDetailScreenLight() {
+    PreviewSpellDetailScreen(darkTheme = false)
 }
 
 @Preview
 @Composable
-fun PreviewSpellCardScreenDark() {
-    PreviewSpellCardScreen(darkTheme = true)
+fun PreviewSpellDetailScreenDark() {
+    PreviewSpellDetailScreen(darkTheme = true)
 }
 
 @Composable
-private fun PreviewSpellCardScreen(darkTheme: Boolean) {
+private fun PreviewSpellDetailScreen(darkTheme: Boolean) {
     val spell = SampleSpellRepository.fireball()
     val spellRepository = SampleSpellRepository()
     val userListRepository = SampleUserListRepository()
     val bottomSheetProvider = SpellAddToListProvider(spellRepository, userListRepository)
 
     AppThemePreview(darkTheme = darkTheme) {
-        SpellDetailScreen(spell, onNavigateUpClicked = {}, addToListProvider = bottomSheetProvider)
+        SpellDetailContent(spell, onNavigateUpClicked = {}, addToListProvider = bottomSheetProvider)
     }
 }
