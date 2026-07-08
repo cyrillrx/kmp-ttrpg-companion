@@ -3,9 +3,12 @@ package com.cyrillrx.rpg.spell.presentation.component
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
@@ -66,7 +69,10 @@ fun SpellDetail(
         SpellHeader(spell, accent)
 
         Column(verticalArrangement = Arrangement.spacedBy(spacingSmall)) {
-            Row(horizontalArrangement = Arrangement.spacedBy(spacingSmall)) {
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(spacingSmall),
+                modifier = Modifier.height(IntrinsicSize.Min),
+            ) {
                 SpellMetaCell(
                     Icons.Outlined.Schedule,
                     stringResource(Res.string.spell_casting_time),
@@ -80,7 +86,10 @@ fun SpellDetail(
                     accent,
                 )
             }
-            Row(horizontalArrangement = Arrangement.spacedBy(spacingSmall)) {
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(spacingSmall),
+                modifier = Modifier.height(IntrinsicSize.Min),
+            ) {
                 SpellMetaCell(
                     Icons.Outlined.Category,
                     stringResource(Res.string.spell_components),
@@ -152,7 +161,9 @@ private fun RowScope.SpellMetaCell(
     accent: Color,
 ) {
     Card(
-        modifier = Modifier.weight(1f),
+        modifier = Modifier
+            .weight(1f)
+            .fillMaxHeight(),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer),
     ) {
         Column(
