@@ -35,8 +35,7 @@ import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.MarkdownText
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
 import com.cyrillrx.rpg.core.presentation.component.dnd.getFormattedComponents
-import com.cyrillrx.rpg.core.presentation.component.dnd.getSchool
-import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedLevel
+import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedSchoolAndLevel
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.iconSizeMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
@@ -58,6 +57,7 @@ import rpg_companion.composeapp.generated.resources.spell_ritual
 fun SpellDetail(
     spell: Spell,
     modifier: Modifier = Modifier,
+    titleModifier: Modifier = Modifier,
 ) {
     val translation = spell.resolveTranslation(currentLocale())
     val accent = spell.getColor()
@@ -66,7 +66,7 @@ fun SpellDetail(
         modifier = modifier.padding(spacingCommon),
         verticalArrangement = Arrangement.spacedBy(spacingCommon),
     ) {
-        SpellHeader(spell, accent)
+        SpellHeader(spell, accent, titleModifier)
 
         Column(verticalArrangement = Arrangement.spacedBy(spacingSmall)) {
             Row(
@@ -118,24 +118,25 @@ fun SpellDetail(
 }
 
 @Composable
-private fun SpellHeader(spell: Spell, accent: Color) {
+private fun SpellHeader(spell: Spell, accent: Color, titleModifier: Modifier = Modifier) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(spacingSmall),
         modifier = Modifier.fillMaxWidth(),
     ) {
         Text(
-            text = "${spell.toFormattedLevel()} · ${spell.getSchool()}".uppercase(),
-            style = MaterialTheme.typography.labelMedium,
-            fontWeight = FontWeight.Bold,
-            color = accent,
-        )
-        Text(
             text = spell.resolveTranslation(currentLocale()).name,
             style = MaterialTheme.typography.headlineMedium,
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center,
             color = MaterialTheme.colorScheme.onSurface,
+            modifier = titleModifier,
+        )
+        Text(
+            text = spell.toFormattedSchoolAndLevel().uppercase(),
+            style = MaterialTheme.typography.labelMedium,
+            fontWeight = FontWeight.Bold,
+            color = accent,
         )
         HorizontalDivider(
             color = accent,

@@ -1,5 +1,6 @@
 package com.cyrillrx.rpg.spell.presentation.component
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
@@ -11,11 +12,15 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.layout.positionInRoot
 import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
@@ -61,11 +66,23 @@ private fun SpellDetailScreen(
 ) {
     var showAddToListBottomSheet by remember { mutableStateOf(false) }
 
+    // Reveal the top-bar title as the header name scrolls up: alpha ramps from 0 (no
+    // scroll) to 1 when the scroll offset reaches the name's bottom (name behind the bar).
+    val scrollState = rememberScrollState()
+    var contentTop by remember { mutableFloatStateOf(0f) }
+    var titleBottomOffset by remember { mutableFloatStateOf(0f) }
+    val titleAlpha by remember {
+        derivedStateOf {
+            if (titleBottomOffset <= 0f) 0f else (scrollState.value / titleBottomOffset).coerceIn(0f, 1f)
+        }
+    }
+
     Scaffold(
         topBar = {
             SimpleTopBar(
                 title = spell.resolveTranslation(currentLocale()).name,
                 onNavigateUpClicked = onNavigateUpClicked,
+                titleAlpha = titleAlpha,
                 actions = {
                     IconButton(onClick = { showAddToListBottomSheet = true }) {
                         Icon(
@@ -77,13 +94,25 @@ private fun SpellDetailScreen(
             )
         },
     ) { paddingValues ->
-        SpellDetail(
-            spell = spell,
+        Box(
             modifier = Modifier
                 .padding(paddingValues)
                 .fillMaxSize()
-                .verticalScroll(rememberScrollState()),
-        )
+                .onGloballyPositioned { contentTop = it.positionInRoot().y },
+        ) {
+            SpellDetail(
+                spell = spell,
+                modifier = Modifier
+                    .fillMaxSize()
+                    .verticalScroll(scrollState),
+                titleModifier = Modifier.onGloballyPositioned {
+                    // Name bottom offset from the content top, stable across scroll.
+                    // positionInRoot is unclipped (unlike boundsInRoot, which clamps once
+                    // the name scrolls out of the viewport and corrupts the value).
+                    titleBottomOffset = it.positionInRoot().y + it.size.height - contentTop + scrollState.value
+                },
+            )
+        }
     }
 
     if (showAddToListBottomSheet) {

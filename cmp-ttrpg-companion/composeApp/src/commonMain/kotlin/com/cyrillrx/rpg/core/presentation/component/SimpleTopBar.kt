@@ -11,6 +11,8 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.graphicsLayer
 import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
@@ -20,9 +22,10 @@ import rpg_companion.composeapp.generated.resources.btn_back
 fun SimpleTopBar(
     titleResource: StringResource,
     onNavigateUpClicked: (() -> Unit)? = null,
+    titleAlpha: Float = 1f,
     actions: @Composable RowScope.() -> Unit = {},
 ) {
-    SimpleTopBar(stringResource(titleResource), onNavigateUpClicked, actions)
+    SimpleTopBar(stringResource(titleResource), onNavigateUpClicked, titleAlpha, actions)
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -30,10 +33,16 @@ fun SimpleTopBar(
 fun SimpleTopBar(
     title: String,
     onNavigateUpClicked: (() -> Unit)? = null,
+    titleAlpha: Float = 1f,
     actions: @Composable RowScope.() -> Unit = {},
 ) {
     TopAppBar(
-        title = { Text(title) },
+        title = {
+            Text(
+                text = title,
+                modifier = Modifier.graphicsLayer { alpha = titleAlpha },
+            )
+        },
         navigationIcon = {
             if (onNavigateUpClicked != null) {
                 IconButton(onClick = onNavigateUpClicked) {
