@@ -57,7 +57,7 @@ fun Spell.School.getColor(): Color = when (this) {
 }
 
 @Composable
-fun Spell.getFormattedSchool() =
+fun Spell.toFormattedSchoolAndLevel() =
     stringResource(Res.string.formatted_spell_school_level, getSchool(), level)
 
 fun Spell.getFormattedComponents(): String = components.toFormattedString()
