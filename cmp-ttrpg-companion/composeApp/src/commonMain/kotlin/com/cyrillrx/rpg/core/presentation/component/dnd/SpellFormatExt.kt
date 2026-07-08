@@ -12,7 +12,14 @@ import androidx.compose.material.icons.outlined.Dangerous
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
-import com.cyrillrx.rpg.core.presentation.theme.SpellColor
+import com.cyrillrx.rpg.core.presentation.theme.SchoolAbjuration
+import com.cyrillrx.rpg.core.presentation.theme.SchoolConjuration
+import com.cyrillrx.rpg.core.presentation.theme.SchoolDivination
+import com.cyrillrx.rpg.core.presentation.theme.SchoolEnchantment
+import com.cyrillrx.rpg.core.presentation.theme.SchoolEvocation
+import com.cyrillrx.rpg.core.presentation.theme.SchoolIllusion
+import com.cyrillrx.rpg.core.presentation.theme.SchoolNecromancy
+import com.cyrillrx.rpg.core.presentation.theme.SchoolTransmutation
 import com.cyrillrx.rpg.spell.domain.Spell
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
@@ -36,10 +43,21 @@ import rpg_companion.composeapp.generated.resources.spell_level_8th
 import rpg_companion.composeapp.generated.resources.spell_level_9th
 import rpg_companion.composeapp.generated.resources.spell_level_cantrip
 
-fun Spell.getColor(): Color = SpellColor
+fun Spell.getColor(): Color = school.getColor()
+
+fun Spell.School.getColor(): Color = when (this) {
+    Spell.School.ABJURATION -> SchoolAbjuration
+    Spell.School.CONJURATION -> SchoolConjuration
+    Spell.School.DIVINATION -> SchoolDivination
+    Spell.School.ENCHANTMENT -> SchoolEnchantment
+    Spell.School.EVOCATION -> SchoolEvocation
+    Spell.School.ILLUSION -> SchoolIllusion
+    Spell.School.NECROMANCY -> SchoolNecromancy
+    Spell.School.TRANSMUTATION -> SchoolTransmutation
+}
 
 @Composable
-fun Spell.getFormattedSchool() =
+fun Spell.toFormattedSchoolAndLevel() =
     stringResource(Res.string.formatted_spell_school_level, getSchool(), level)
 
 fun Spell.getFormattedComponents(): String = components.toFormattedString()
@@ -47,7 +65,7 @@ fun Spell.getFormattedComponents(): String = components.toFormattedString()
 private fun Spell.Components.toFormattedString(): String = buildList {
     if (verbal) add("V")
     if (somatic) add("S")
-    if (material) add("M")
+    if (material) add("M*")
 }.joinToString(", ")
 
 @Composable

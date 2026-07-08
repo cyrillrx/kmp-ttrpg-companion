@@ -16,7 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import com.cyrillrx.rpg.app.currentLocale
-import com.cyrillrx.rpg.core.presentation.component.dnd.getFormattedSchool
+import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedSchoolAndLevel
 import com.cyrillrx.rpg.core.presentation.component.dnd.toIcon
 import com.cyrillrx.rpg.core.presentation.theme.iconSizeMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
@@ -69,7 +69,7 @@ class SpellAddToListProvider(
                     modifier = Modifier.size(iconSizeMedium),
                 )
                 Text(
-                    text = entity.getFormattedSchool(),
+                    text = entity.toFormattedSchoolAndLevel(),
                     style = MaterialTheme.typography.bodyLarge,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     maxLines = 1,

@@ -36,12 +36,15 @@
     <string name="formatted_spell_school_level">%1$s de niveau %2$d</string>
     <string name="spell_casting_time">Incantation</string>
     <string name="spell_components">Composantes</string>
+    <string name="spell_material_components">Composantes matérielles</string>
     <string name="spell_range">Portée</string>
     <string name="spell_duration">Durée</string>
     <string name="formatted_spell_casting_time">Incantation :</string>
     <string name="formatted_spell_components">Composantes :</string>
     <string name="formatted_spell_range">Portée :</string>
     <string name="formatted_spell_duration">Durée :</string>
+    <string name="spell_ritual">Rituel</string>
+    <string name="spell_concentration">Concentration</string>
 
     <!-- Spell Level -->
     <string name="spell_level_cantrip">Tour de magie</string>
