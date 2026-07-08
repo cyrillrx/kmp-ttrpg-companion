@@ -28,9 +28,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.withStyle
 import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.MarkdownText
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
@@ -50,6 +52,7 @@ import rpg_companion.composeapp.generated.resources.spell_casting_time
 import rpg_companion.composeapp.generated.resources.spell_components
 import rpg_companion.composeapp.generated.resources.spell_concentration
 import rpg_companion.composeapp.generated.resources.spell_duration
+import rpg_companion.composeapp.generated.resources.spell_material_components
 import rpg_companion.composeapp.generated.resources.spell_range
 import rpg_companion.composeapp.generated.resources.spell_ritual
 
@@ -106,9 +109,17 @@ fun SpellDetail(
         }
 
         translation.materialDescription?.takeIf { it.isNotBlank() }?.let { material ->
+            val label = stringResource(Res.string.spell_material_components)
             Text(
-                text = "* ($material)",
-                style = MaterialTheme.typography.bodySmall.copy(fontStyle = FontStyle.Italic),
+                text = buildAnnotatedString {
+                    withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {
+                        append("* ")
+                        append(label)
+                        append(". ")
+                    }
+                    append(material)
+                },
+                style = MaterialTheme.typography.bodyLarge,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
         }
