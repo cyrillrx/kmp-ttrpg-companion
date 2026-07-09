@@ -59,7 +59,7 @@ fun SpellCardCarouselScreen(
     onLevelToggled: (Int) -> Unit,
     onSchoolToggled: (Spell.School) -> Unit,
     onClassToggled: (Character.Class) -> Unit,
-    onComponentToggled: (Spell.Component) -> Unit,
+    onComponentToggled: (Spell.ComponentType) -> Unit,
     onResetFilters: () -> Unit,
 ) {
     var showFilterSheet by remember { mutableStateOf(false) }

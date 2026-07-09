@@ -80,7 +80,7 @@ fun SpellListScreen(
     onLevelToggled: (Int) -> Unit,
     onSchoolToggled: (Spell.School) -> Unit,
     onClassToggled: (Character.Class) -> Unit,
-    onComponentToggled: (Spell.Component) -> Unit,
+    onComponentToggled: (Spell.ComponentType) -> Unit,
     onResetFilters: () -> Unit,
     addToListProvider: AddToListProvider<Spell>,
     initialScrollPosition: ScrollPosition = ScrollPosition(),

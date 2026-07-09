@@ -38,7 +38,7 @@ class Spell(
         TRANSMUTATION,
     }
 
-    enum class Component {
+    enum class ComponentType {
         VERBAL,
         SOMATIC,
         MATERIAL,

@@ -72,11 +72,11 @@ private fun Spell.Components.toFormattedString(): String = buildList {
 }.joinToString(", ")
 
 @Composable
-fun Spell.Component.toFormattedString(): String {
+fun Spell.ComponentType.toFormattedString(): String {
     val stringRes = when (this) {
-        Spell.Component.VERBAL -> Res.string.component_verbal
-        Spell.Component.SOMATIC -> Res.string.component_somatic
-        Spell.Component.MATERIAL -> Res.string.component_material
+        Spell.ComponentType.VERBAL -> Res.string.component_verbal
+        Spell.ComponentType.SOMATIC -> Res.string.component_somatic
+        Spell.ComponentType.MATERIAL -> Res.string.component_material
     }
     return stringResource(stringRes)
 }

@@ -46,7 +46,7 @@ class SpellListViewModel(
         updateFilter { it.copy(characterClasses = it.characterClasses.toggled(characterClass)) }
     }
 
-    fun onComponentToggled(component: Spell.Component) {
+    fun onComponentToggled(component: Spell.ComponentType) {
         updateFilter { it.copy(components = it.components.cycled(component)) }
     }
 
@@ -60,9 +60,9 @@ class SpellListViewModel(
         refreshData()
     }
 
-    private fun Map<Spell.Component, ComponentFilter>.cycled(
-        component: Spell.Component,
-    ): Map<Spell.Component, ComponentFilter> {
+    private fun Map<Spell.ComponentType, ComponentFilter>.cycled(
+        component: Spell.ComponentType,
+    ): Map<Spell.ComponentType, ComponentFilter> {
         val next = when (this[component]) {
             null -> ComponentFilter.REQUIRED
             ComponentFilter.REQUIRED -> ComponentFilter.EXCLUDED

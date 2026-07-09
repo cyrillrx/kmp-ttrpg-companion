@@ -54,7 +54,7 @@ fun SpellFilterBottomSheet(
     onLevelToggled: (Int) -> Unit,
     onSchoolToggled: (Spell.School) -> Unit,
     onClassToggled: (Character.Class) -> Unit,
-    onComponentToggled: (Spell.Component) -> Unit,
+    onComponentToggled: (Spell.ComponentType) -> Unit,
     onResetFilters: () -> Unit,
     onDismiss: () -> Unit,
 ) {
@@ -142,7 +142,7 @@ fun SpellFilterBottomSheet(
             FlowRow(
                 horizontalArrangement = Arrangement.spacedBy(spacingMedium),
             ) {
-                Spell.Component.entries.forEach { component ->
+                Spell.ComponentType.entries.forEach { component ->
                     ComponentFilterChip(
                         label = component.toFormattedString(),
                         state = filter.components[component],
@@ -204,8 +204,8 @@ private fun PreviewSpellFilterBottomSheetLight() {
         characterClasses = setOf(Character.Class.SORCERER),
         schools = setOf(Spell.School.ABJURATION, Spell.School.EVOCATION),
         components = mapOf(
-            Spell.Component.SOMATIC to ComponentFilter.REQUIRED,
-            Spell.Component.MATERIAL to ComponentFilter.EXCLUDED,
+            Spell.ComponentType.SOMATIC to ComponentFilter.REQUIRED,
+            Spell.ComponentType.MATERIAL to ComponentFilter.EXCLUDED,
         ),
     )
     AppThemePreview(darkTheme = false) {
@@ -221,8 +221,8 @@ private fun PreviewSpellFilterBottomSheetDark() {
         characterClasses = setOf(Character.Class.SORCERER),
         schools = setOf(Spell.School.ABJURATION, Spell.School.EVOCATION),
         components = mapOf(
-            Spell.Component.SOMATIC to ComponentFilter.REQUIRED,
-            Spell.Component.MATERIAL to ComponentFilter.EXCLUDED,
+            Spell.ComponentType.SOMATIC to ComponentFilter.REQUIRED,
+            Spell.ComponentType.MATERIAL to ComponentFilter.EXCLUDED,
         ),
     )
     AppThemePreview(darkTheme = true) {
