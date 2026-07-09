@@ -4,7 +4,7 @@ import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.core.domain.toggled
 import com.cyrillrx.rpg.core.presentation.viewmodel.BaseListViewModel
-import com.cyrillrx.rpg.spell.domain.ComponentFilter
+import com.cyrillrx.rpg.spell.domain.ComponentFilterState
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.domain.SpellFilter
 import com.cyrillrx.rpg.spell.domain.SpellRepository
@@ -60,15 +60,11 @@ class SpellListViewModel(
         refreshData()
     }
 
-    private fun Map<Spell.ComponentType, ComponentFilter>.cycled(
+    private fun Map<Spell.ComponentType, ComponentFilterState>.cycled(
         component: Spell.ComponentType,
-    ): Map<Spell.ComponentType, ComponentFilter> {
-        val next = when (this[component]) {
-            null -> ComponentFilter.REQUIRED
-            ComponentFilter.REQUIRED -> ComponentFilter.EXCLUDED
-            ComponentFilter.EXCLUDED -> null
-        }
-        return if (next == null) this - component else this + (component to next)
+    ): Map<Spell.ComponentType, ComponentFilterState> {
+        val next = (this[component] ?: ComponentFilterState.NONE).next()
+        return if (next == ComponentFilterState.NONE) this - component else this + (component to next)
     }
 
     private fun refreshData() {

@@ -2,14 +2,25 @@ package com.cyrillrx.rpg.spell.domain
 
 import com.cyrillrx.rpg.character.domain.Character
 
-enum class ComponentFilter { REQUIRED, EXCLUDED }
+enum class ComponentFilterState {
+    NONE,
+    REQUIRED,
+    EXCLUDED,
+    ;
+
+    fun next(): ComponentFilterState = when (this) {
+        NONE -> REQUIRED
+        REQUIRED -> EXCLUDED
+        EXCLUDED -> NONE
+    }
+}
 
 data class SpellFilter(
     val query: String = "",
     val schools: Set<Spell.School> = emptySet(),
     val characterClasses: Set<Character.Class> = emptySet(),
     val levels: Set<Int> = emptySet(),
-    val components: Map<Spell.ComponentType, ComponentFilter> = emptyMap(),
+    val components: Map<Spell.ComponentType, ComponentFilterState> = emptyMap(),
 ) {
     val hasActiveFilters: Boolean =
         schools.isNotEmpty() || characterClasses.isNotEmpty() || levels.isNotEmpty() || components.isNotEmpty()
@@ -26,8 +37,9 @@ internal fun Spell.matches(filter: SpellFilter): Boolean =
         (filter.levels.isEmpty() || filter.levels.contains(level)) &&
         filter.components.all { (component, state) ->
             when (state) {
-                ComponentFilter.REQUIRED -> component.isPresentIn(components)
-                ComponentFilter.EXCLUDED -> !component.isPresentIn(components)
+                ComponentFilterState.NONE -> true
+                ComponentFilterState.REQUIRED -> component.isPresentIn(components)
+                ComponentFilterState.EXCLUDED -> !component.isPresentIn(components)
             }
         } &&
         (filter.query.isBlank() || matchesQuery(filter.query))

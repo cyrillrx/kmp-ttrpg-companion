@@ -33,7 +33,7 @@ import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingLarge
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
-import com.cyrillrx.rpg.spell.domain.ComponentFilter
+import com.cyrillrx.rpg.spell.domain.ComponentFilterState
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.domain.SpellFilter
 import org.jetbrains.compose.resources.stringResource
@@ -149,14 +149,14 @@ private fun SchoolFilterSection(
 
 @Composable
 private fun ComponentFilterSection(
-    components: Map<Spell.ComponentType, ComponentFilter>,
+    components: Map<Spell.ComponentType, ComponentFilterState>,
     onComponentToggled: (Spell.ComponentType) -> Unit,
 ) {
     FilterSection(title = stringResource(Res.string.label_filter_components)) {
         Spell.ComponentType.entries.forEach { component ->
             ComponentFilterChip(
                 label = component.toFormattedString(),
-                state = components[component],
+                state = components[component] ?: ComponentFilterState.NONE,
                 onClick = { onComponentToggled(component) },
             )
         }
@@ -183,21 +183,21 @@ private fun FilterSection(
 @Composable
 private fun ComponentFilterChip(
     label: String,
-    state: ComponentFilter?,
+    state: ComponentFilterState,
     onClick: () -> Unit,
 ) {
     val leadingIcon: ImageVector? = when (state) {
-        ComponentFilter.REQUIRED -> Icons.Default.Check
-        ComponentFilter.EXCLUDED -> Icons.Default.Close
-        null -> null
+        ComponentFilterState.NONE -> null
+        ComponentFilterState.REQUIRED -> Icons.Default.Check
+        ComponentFilterState.EXCLUDED -> Icons.Default.Close
     }
     val iconContentDescription = when (state) {
-        ComponentFilter.REQUIRED -> stringResource(Res.string.filter_component_required)
-        ComponentFilter.EXCLUDED -> stringResource(Res.string.filter_component_excluded)
-        null -> null
+        ComponentFilterState.NONE -> null
+        ComponentFilterState.REQUIRED -> stringResource(Res.string.filter_component_required)
+        ComponentFilterState.EXCLUDED -> stringResource(Res.string.filter_component_excluded)
     }
     val colors = when (state) {
-        ComponentFilter.EXCLUDED -> FilterChipDefaults.filterChipColors(
+        ComponentFilterState.EXCLUDED -> FilterChipDefaults.filterChipColors(
             selectedContainerColor = MaterialTheme.colorScheme.errorContainer,
             selectedLabelColor = MaterialTheme.colorScheme.onErrorContainer,
             selectedLeadingIconColor = MaterialTheme.colorScheme.onErrorContainer,
@@ -205,7 +205,7 @@ private fun ComponentFilterChip(
         else -> FilterChipDefaults.filterChipColors()
     }
     FilterChip(
-        selected = state != null,
+        selected = state != ComponentFilterState.NONE,
         onClick = onClick,
         label = { Text(text = label) },
         leadingIcon = leadingIcon?.let { icon ->
@@ -229,8 +229,8 @@ private fun PreviewSpellFilterBottomSheetLight() {
         characterClasses = setOf(Character.Class.SORCERER),
         schools = setOf(Spell.School.ABJURATION, Spell.School.EVOCATION),
         components = mapOf(
-            Spell.ComponentType.SOMATIC to ComponentFilter.REQUIRED,
-            Spell.ComponentType.MATERIAL to ComponentFilter.EXCLUDED,
+            Spell.ComponentType.SOMATIC to ComponentFilterState.REQUIRED,
+            Spell.ComponentType.MATERIAL to ComponentFilterState.EXCLUDED,
         ),
     )
     AppThemePreview(darkTheme = false) {
@@ -246,8 +246,8 @@ private fun PreviewSpellFilterBottomSheetDark() {
         characterClasses = setOf(Character.Class.SORCERER),
         schools = setOf(Spell.School.ABJURATION, Spell.School.EVOCATION),
         components = mapOf(
-            Spell.ComponentType.SOMATIC to ComponentFilter.REQUIRED,
-            Spell.ComponentType.MATERIAL to ComponentFilter.EXCLUDED,
+            Spell.ComponentType.SOMATIC to ComponentFilterState.REQUIRED,
+            Spell.ComponentType.MATERIAL to ComponentFilterState.EXCLUDED,
         ),
     )
     AppThemePreview(darkTheme = true) {

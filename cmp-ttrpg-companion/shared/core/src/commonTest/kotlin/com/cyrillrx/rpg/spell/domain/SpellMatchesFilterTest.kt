@@ -59,7 +59,7 @@ class SpellMatchesFilterTest {
     @Test
     fun `required component keeps spells that have it`() {
         // Fireball has a material component, thunderwave does not.
-        val filter = SpellFilter(components = mapOf(Spell.ComponentType.MATERIAL to ComponentFilter.REQUIRED))
+        val filter = SpellFilter(components = mapOf(Spell.ComponentType.MATERIAL to ComponentFilterState.REQUIRED))
         assertTrue(fireball.matches(filter))
         assertFalse(thunderwave.matches(filter))
     }
@@ -67,7 +67,7 @@ class SpellMatchesFilterTest {
     @Test
     fun `excluded component keeps spells that lack it`() {
         // Thunderwave has no material component, fireball does.
-        val filter = SpellFilter(components = mapOf(Spell.ComponentType.MATERIAL to ComponentFilter.EXCLUDED))
+        val filter = SpellFilter(components = mapOf(Spell.ComponentType.MATERIAL to ComponentFilterState.EXCLUDED))
         assertTrue(thunderwave.matches(filter))
         assertFalse(fireball.matches(filter))
     }
@@ -77,9 +77,9 @@ class SpellMatchesFilterTest {
         // "Only somatic": counterspell has somatic alone; thunderwave also has verbal.
         val filter = SpellFilter(
             components = mapOf(
-                Spell.ComponentType.VERBAL to ComponentFilter.EXCLUDED,
-                Spell.ComponentType.SOMATIC to ComponentFilter.REQUIRED,
-                Spell.ComponentType.MATERIAL to ComponentFilter.EXCLUDED,
+                Spell.ComponentType.VERBAL to ComponentFilterState.EXCLUDED,
+                Spell.ComponentType.SOMATIC to ComponentFilterState.REQUIRED,
+                Spell.ComponentType.MATERIAL to ComponentFilterState.EXCLUDED,
             ),
         )
         assertTrue(counterspell.matches(filter))
@@ -90,7 +90,7 @@ class SpellMatchesFilterTest {
     @Test
     fun `a single required component ignores the other components`() {
         // "At least verbal": fireball has V+S+M and still qualifies; counterspell lacks verbal.
-        val filter = SpellFilter(components = mapOf(Spell.ComponentType.VERBAL to ComponentFilter.REQUIRED))
+        val filter = SpellFilter(components = mapOf(Spell.ComponentType.VERBAL to ComponentFilterState.REQUIRED))
         assertTrue(fireball.matches(filter))
         assertFalse(counterspell.matches(filter))
     }
