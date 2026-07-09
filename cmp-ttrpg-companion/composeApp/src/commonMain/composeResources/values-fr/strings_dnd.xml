@@ -45,6 +45,9 @@
     <string name="formatted_spell_duration">Durée :</string>
     <string name="spell_ritual">Rituel</string>
     <string name="spell_concentration">Concentration</string>
+    <string name="component_verbal">Verbale</string>
+    <string name="component_somatic">Somatique</string>
+    <string name="component_material">Matérielle</string>
 
     <!-- Spell Level -->
     <string name="spell_level_cantrip">Tour de magie</string>
@@ -73,5 +76,6 @@
     <string name="label_filter_level">Niveau</string>
     <string name="label_filter_class">Classe</string>
     <string name="label_filter_school">Ecole</string>
+    <string name="label_filter_components">Composantes</string>
 
 </resources>

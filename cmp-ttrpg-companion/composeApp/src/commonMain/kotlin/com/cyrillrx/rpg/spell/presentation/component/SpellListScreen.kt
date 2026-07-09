@@ -62,6 +62,7 @@ fun SpellListScreen(
         onLevelToggled = viewModel::onLevelToggled,
         onSchoolToggled = viewModel::onSchoolToggled,
         onClassToggled = viewModel::onClassToggled,
+        onComponentToggled = viewModel::onComponentToggled,
         onResetFilters = viewModel::onResetFilters,
         addToListProvider = addToListProvider,
         initialScrollPosition = viewModel.savedScrollPosition,
@@ -79,6 +80,7 @@ fun SpellListScreen(
     onLevelToggled: (Int) -> Unit,
     onSchoolToggled: (Spell.School) -> Unit,
     onClassToggled: (Character.Class) -> Unit,
+    onComponentToggled: (Spell.Component) -> Unit,
     onResetFilters: () -> Unit,
     addToListProvider: AddToListProvider<Spell>,
     initialScrollPosition: ScrollPosition = ScrollPosition(),
@@ -128,6 +130,7 @@ fun SpellListScreen(
             onLevelToggled = onLevelToggled,
             onSchoolToggled = onSchoolToggled,
             onClassToggled = onClassToggled,
+            onComponentToggled = onComponentToggled,
             onResetFilters = onResetFilters,
             onDismiss = { showFilterSheet = false },
         )
@@ -209,5 +212,5 @@ private fun SpellListPeekScreenPreview() {
     )
     val bottomSheetProvider = SpellAddToListProvider(spellRepository, userListRepository)
 
-    SpellListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, {}, bottomSheetProvider)
+    SpellListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, {}, {}, bottomSheetProvider)
 }
