@@ -36,7 +36,6 @@ import com.cyrillrx.rpg.core.presentation.component.dialog.CreateListDialog
 import com.cyrillrx.rpg.core.presentation.component.rememberOptimisticDeleteHandler
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
-import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
 import com.cyrillrx.rpg.userlist.domain.UserList
 import com.cyrillrx.rpg.userlist.presentation.UserListsState
@@ -171,7 +170,7 @@ private fun UserLists(
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(spacingMedium),
-        verticalArrangement = Arrangement.spacedBy(spacingSmall),
+        verticalArrangement = Arrangement.spacedBy(spacingMedium),
     ) {
         items(lists, key = { it.id }) { list ->
             SwipeToDelete(

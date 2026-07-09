@@ -34,7 +34,6 @@ import com.cyrillrx.rpg.core.presentation.component.SwipeToDelete
 import com.cyrillrx.rpg.core.presentation.component.rememberOptimisticDeleteHandler
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
-import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
 import org.jetbrains.compose.resources.getString
@@ -156,7 +155,7 @@ private fun CharacterList(
     LazyColumn(
         modifier = modifier.fillMaxSize(),
         contentPadding = PaddingValues(spacingMedium),
-        verticalArrangement = Arrangement.spacedBy(spacingSmall),
+        verticalArrangement = Arrangement.spacedBy(spacingMedium),
     ) {
         items(characters, key = { it.id }) { character ->
             SwipeToDelete(

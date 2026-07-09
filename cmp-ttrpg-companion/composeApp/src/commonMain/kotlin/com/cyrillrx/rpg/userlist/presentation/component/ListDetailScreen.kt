@@ -37,7 +37,6 @@ import com.cyrillrx.rpg.core.presentation.component.dialog.RenameListDialog
 import com.cyrillrx.rpg.core.presentation.component.rememberOptimisticDeleteHandler
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
-import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.spell.presentation.SpellItemProvider
 import com.cyrillrx.rpg.userlist.presentation.ListDetailState
@@ -175,7 +174,7 @@ private fun <T> EntityDetailList(
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(spacingMedium),
-        verticalArrangement = Arrangement.spacedBy(spacingSmall),
+        verticalArrangement = Arrangement.spacedBy(spacingMedium),
     ) {
         items(items, key = { uiProvider.getId(it) }) { item ->
             SwipeToDelete(

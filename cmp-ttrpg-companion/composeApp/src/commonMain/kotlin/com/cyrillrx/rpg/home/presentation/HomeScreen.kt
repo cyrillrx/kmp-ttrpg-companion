@@ -141,7 +141,7 @@ private fun CompendiumSection(router: HomeRouter, modifier: Modifier = Modifier)
     ) {
         SectionHeader(title = stringResource(Res.string.section_compendium))
         Row(
-            horizontalArrangement = Arrangement.spacedBy(spacingCommon),
+            horizontalArrangement = Arrangement.spacedBy(spacingMedium),
             modifier = Modifier.fillMaxWidth(),
         ) {
             IconLabelButton(
@@ -174,7 +174,7 @@ private fun MyListsSection(router: HomeRouter, modifier: Modifier = Modifier) {
     ) {
         SectionHeader(title = stringResource(Res.string.section_my_lists))
         Row(
-            horizontalArrangement = Arrangement.spacedBy(spacingCommon),
+            horizontalArrangement = Arrangement.spacedBy(spacingMedium),
             modifier = Modifier.fillMaxWidth(),
         ) {
             IconLabelButton(
