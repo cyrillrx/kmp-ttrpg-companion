@@ -23,7 +23,8 @@ data class SpellFilter(
     val components: Map<Spell.ComponentType, ComponentFilterState> = emptyMap(),
 ) {
     val hasActiveFilters: Boolean =
-        schools.isNotEmpty() || characterClasses.isNotEmpty() || levels.isNotEmpty() || components.isNotEmpty()
+        schools.isNotEmpty() || characterClasses.isNotEmpty() || levels.isNotEmpty() ||
+            components.values.any { it != ComponentFilterState.NONE }
 }
 
 fun List<Spell>.applyFilter(filter: SpellFilter?): List<Spell> {
