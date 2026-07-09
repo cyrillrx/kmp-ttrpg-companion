@@ -1,32 +1,32 @@
 package com.cyrillrx.rpg.magicalitem.presentation.component
 
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Button
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.PlaylistAdd
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.layout.positionInRoot
 import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
-import com.cyrillrx.rpg.core.presentation.component.MarkdownText
-import com.cyrillrx.rpg.core.presentation.component.dnd.getSubtitle
+import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
 import com.cyrillrx.rpg.core.presentation.state.DetailState
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
-import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
-import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.magicalitem.data.SampleMagicalItemRepository
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemAddToListProvider
@@ -41,7 +41,7 @@ import rpg_companion.composeapp.generated.resources.btn_add_to_list
 import rpg_companion.composeapp.generated.resources.error_magical_item_not_found
 
 @Composable
-fun MagicalItemCardScreen(
+fun MagicalItemDetailScreen(
     viewModel: MagicalItemDetailViewModel,
     router: MagicalItemRouter,
     addToListProvider: AddToListProvider<MagicalItem>,
@@ -50,7 +50,7 @@ fun MagicalItemCardScreen(
     when (val s = state) {
         DetailState.Loading -> Loader()
         is DetailState.NotFound -> ErrorLayout(stringResource(Res.string.error_magical_item_not_found, s.id))
-        is DetailState.Found -> MagicalItemCardContent(
+        is DetailState.Found -> MagicalItemDetailContent(
             magicalItem = s.item,
             onNavigateUpClicked = router::navigateUp,
             addToListProvider = addToListProvider,
@@ -59,53 +59,54 @@ fun MagicalItemCardScreen(
 }
 
 @Composable
-private fun MagicalItemCardContent(
+private fun MagicalItemDetailContent(
     magicalItem: MagicalItem,
     onNavigateUpClicked: () -> Unit,
     addToListProvider: AddToListProvider<MagicalItem>,
 ) {
     var showAddToListBottomSheet by remember { mutableStateOf(false) }
 
-    Scaffold { paddingValues ->
-        Column(modifier = Modifier.padding(paddingValues)) {
-            MagicalItemCard(
-                magicalItem = magicalItem,
-                modifier = Modifier
-                    .weight(1f)
-                    .fillMaxWidth()
-                    .padding(spacingSmall)
-                    .clickable { onNavigateUpClicked() },
-                content = {
-                    val translation = magicalItem.resolveTranslation(currentLocale())
-                    Column(
-                        modifier = Modifier
-                            .weight(1f)
-                            .verticalScroll(rememberScrollState()),
-                    ) {
-                        Text(
-                            text = magicalItem.getSubtitle(translation),
-                            style = MaterialTheme.typography.bodyMedium.copy(fontStyle = FontStyle.Italic),
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(start = spacingMedium, end = spacingMedium, top = spacingMedium),
-                        )
-                        MarkdownText(
-                            text = translation.description,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(spacingMedium),
+    val scrollState = rememberScrollState()
+    var contentTop by remember { mutableFloatStateOf(0f) }
+    var titleBottomOffset by remember { mutableFloatStateOf(0f) }
+    val titleAlpha by remember {
+        derivedStateOf {
+            if (titleBottomOffset <= 0f) 0f else (scrollState.value / titleBottomOffset).coerceIn(0f, 1f)
+        }
+    }
+
+    Scaffold(
+        topBar = {
+            SimpleTopBar(
+                title = magicalItem.resolveTranslation(currentLocale()).name,
+                onNavigateUpClicked = onNavigateUpClicked,
+                titleAlpha = titleAlpha,
+                actions = {
+                    IconButton(onClick = { showAddToListBottomSheet = true }) {
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.PlaylistAdd,
+                            contentDescription = stringResource(Res.string.btn_add_to_list),
                         )
                     }
                 },
             )
-            Button(
-                onClick = { showAddToListBottomSheet = true },
+        },
+    ) { paddingValues ->
+        Box(
+            modifier = Modifier
+                .padding(paddingValues)
+                .fillMaxSize()
+                .onGloballyPositioned { contentTop = it.positionInRoot().y },
+        ) {
+            MagicalItemDetail(
+                magicalItem = magicalItem,
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = spacingMedium),
-            ) {
-                Text(stringResource(Res.string.btn_add_to_list))
-            }
+                    .fillMaxSize()
+                    .verticalScroll(scrollState),
+                titleModifier = Modifier.onGloballyPositioned {
+                    titleBottomOffset = it.positionInRoot().y + it.size.height - contentTop + scrollState.value
+                },
+            )
         }
     }
 
@@ -119,21 +120,21 @@ private fun MagicalItemCardContent(
 
 @Preview
 @Composable
-fun PreviewMagicalItemCardScreenLight() {
-    PreviewMagicalItemCardScreen(darkTheme = false)
+fun PreviewMagicalItemDetailScreenLight() {
+    PreviewMagicalItemDetailScreen(darkTheme = false)
 }
 
 @Preview
 @Composable
-fun PreviewMagicalItemCardScreenDark() {
-    PreviewMagicalItemCardScreen(darkTheme = true)
+fun PreviewMagicalItemDetailScreenDark() {
+    PreviewMagicalItemDetailScreen(darkTheme = true)
 }
 
 @Composable
-private fun PreviewMagicalItemCardScreen(darkTheme: Boolean) {
+private fun PreviewMagicalItemDetailScreen(darkTheme: Boolean) {
     val magicalItem = SampleMagicalItemRepository.getFirst()
     val addToListProvider = MagicalItemAddToListProvider(SampleMagicalItemRepository(), SampleUserListRepository())
     AppThemePreview(darkTheme = darkTheme) {
-        MagicalItemCardContent(magicalItem, onNavigateUpClicked = {}, addToListProvider = addToListProvider)
+        MagicalItemDetailContent(magicalItem, onNavigateUpClicked = {}, addToListProvider = addToListProvider)
     }
 }
