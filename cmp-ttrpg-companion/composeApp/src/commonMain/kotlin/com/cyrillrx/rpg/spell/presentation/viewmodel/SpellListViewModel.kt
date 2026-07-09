@@ -4,10 +4,10 @@ import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.core.domain.toggled
 import com.cyrillrx.rpg.core.presentation.viewmodel.BaseListViewModel
-import com.cyrillrx.rpg.spell.domain.ComponentFilterState
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.domain.SpellFilter
 import com.cyrillrx.rpg.spell.domain.SpellRepository
+import com.cyrillrx.rpg.spell.domain.cycled
 import com.cyrillrx.rpg.spell.presentation.SpellListState
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -58,13 +58,6 @@ class SpellListViewModel(
         state.update { it.copy(filter = transform(it.filter)) }
         scrollToTop()
         refreshData()
-    }
-
-    private fun Map<Spell.ComponentType, ComponentFilterState>.cycled(
-        component: Spell.ComponentType,
-    ): Map<Spell.ComponentType, ComponentFilterState> {
-        val nextState = (this[component] ?: ComponentFilterState.NONE).next()
-        return if (nextState == ComponentFilterState.NONE) this - component else this + (component to nextState)
     }
 
     private fun refreshData() {

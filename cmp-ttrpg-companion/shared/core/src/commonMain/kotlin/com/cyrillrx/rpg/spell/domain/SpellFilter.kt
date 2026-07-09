@@ -15,6 +15,14 @@ enum class ComponentFilterState {
     }
 }
 
+/** Cycles [component] to its next state, dropping the entry when it returns to [ComponentFilterState.NONE]. */
+fun Map<Spell.ComponentType, ComponentFilterState>.cycled(
+    component: Spell.ComponentType,
+): Map<Spell.ComponentType, ComponentFilterState> {
+    val nextState = (this[component] ?: ComponentFilterState.NONE).next()
+    return if (nextState == ComponentFilterState.NONE) this - component else this + (component to nextState)
+}
+
 data class SpellFilter(
     val query: String = "",
     val schools: Set<Spell.School> = emptySet(),
@@ -23,7 +31,9 @@ data class SpellFilter(
     val components: Map<Spell.ComponentType, ComponentFilterState> = emptyMap(),
 ) {
     val hasActiveFilters: Boolean =
-        schools.isNotEmpty() || characterClasses.isNotEmpty() || levels.isNotEmpty() ||
+        schools.isNotEmpty() ||
+            characterClasses.isNotEmpty() ||
+            levels.isNotEmpty() ||
             components.values.any { it != ComponentFilterState.NONE }
 }
 
