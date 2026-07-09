@@ -38,6 +38,12 @@ class Spell(
         TRANSMUTATION,
     }
 
+    enum class ComponentType {
+        VERBAL,
+        SOMATIC,
+        MATERIAL,
+    }
+
     @Serializable
     data class Components(
         val verbal: Boolean,

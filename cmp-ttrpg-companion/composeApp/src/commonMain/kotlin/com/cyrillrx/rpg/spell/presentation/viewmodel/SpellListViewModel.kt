@@ -7,6 +7,7 @@ import com.cyrillrx.rpg.core.presentation.viewmodel.BaseListViewModel
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.domain.SpellFilter
 import com.cyrillrx.rpg.spell.domain.SpellRepository
+import com.cyrillrx.rpg.spell.domain.cycled
 import com.cyrillrx.rpg.spell.presentation.SpellListState
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -43,6 +44,10 @@ class SpellListViewModel(
 
     fun onClassToggled(characterClass: Character.Class) {
         updateFilter { it.copy(characterClasses = it.characterClasses.toggled(characterClass)) }
+    }
+
+    fun onComponentToggled(component: Spell.ComponentType) {
+        updateFilter { it.copy(components = it.components.cycled(component)) }
     }
 
     fun onResetFilters() {

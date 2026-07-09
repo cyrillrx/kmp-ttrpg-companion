@@ -23,6 +23,9 @@ import com.cyrillrx.rpg.core.presentation.theme.SchoolTransmutation
 import com.cyrillrx.rpg.spell.domain.Spell
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
+import rpg_companion.composeapp.generated.resources.component_material
+import rpg_companion.composeapp.generated.resources.component_somatic
+import rpg_companion.composeapp.generated.resources.component_verbal
 import rpg_companion.composeapp.generated.resources.formatted_spell_school_level
 import rpg_companion.composeapp.generated.resources.school_abjuration
 import rpg_companion.composeapp.generated.resources.school_conjuration
@@ -67,6 +70,16 @@ private fun Spell.Components.toFormattedString(): String = buildList {
     if (somatic) add("S")
     if (material) add("M*")
 }.joinToString(", ")
+
+@Composable
+fun Spell.ComponentType.toFormattedString(): String {
+    val stringRes = when (this) {
+        Spell.ComponentType.VERBAL -> Res.string.component_verbal
+        Spell.ComponentType.SOMATIC -> Res.string.component_somatic
+        Spell.ComponentType.MATERIAL -> Res.string.component_material
+    }
+    return stringResource(stringRes)
+}
 
 @Composable
 fun Spell.getSchool(): String = school.toFormattedString()

@@ -45,6 +45,9 @@
     <string name="formatted_spell_duration">Duration:</string>
     <string name="spell_ritual">Ritual</string>
     <string name="spell_concentration">Concentration</string>
+    <string name="component_verbal">Verbal</string>
+    <string name="component_somatic">Somatic</string>
+    <string name="component_material">Material</string>
 
     <!-- Spell Level -->
     <string name="spell_level_cantrip">Cantrip</string>
@@ -73,5 +76,8 @@
     <string name="label_filter_level">Level</string>
     <string name="label_filter_class">Class</string>
     <string name="label_filter_school">School</string>
+    <string name="label_filter_components">Components</string>
+    <string name="filter_component_required">Required</string>
+    <string name="filter_component_excluded">Excluded</string>
 
 </resources>

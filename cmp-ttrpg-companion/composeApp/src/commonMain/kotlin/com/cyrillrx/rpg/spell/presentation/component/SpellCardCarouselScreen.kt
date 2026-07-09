@@ -45,6 +45,7 @@ fun SpellCardCarouselScreen(viewModel: SpellListViewModel, router: SpellRouter) 
         onLevelToggled = viewModel::onLevelToggled,
         onSchoolToggled = viewModel::onSchoolToggled,
         onClassToggled = viewModel::onClassToggled,
+        onComponentToggled = viewModel::onComponentToggled,
         onResetFilters = viewModel::onResetFilters,
     )
 }
@@ -58,6 +59,7 @@ fun SpellCardCarouselScreen(
     onLevelToggled: (Int) -> Unit,
     onSchoolToggled: (Spell.School) -> Unit,
     onClassToggled: (Character.Class) -> Unit,
+    onComponentToggled: (Spell.ComponentType) -> Unit,
     onResetFilters: () -> Unit,
 ) {
     var showFilterSheet by remember { mutableStateOf(false) }
@@ -90,6 +92,7 @@ fun SpellCardCarouselScreen(
             onLevelToggled = onLevelToggled,
             onSchoolToggled = onSchoolToggled,
             onClassToggled = onClassToggled,
+            onComponentToggled = onComponentToggled,
             onResetFilters = onResetFilters,
             onDismiss = { showFilterSheet = false },
         )
@@ -130,7 +133,7 @@ private val stateWithSampleData = SpellListState(
 @Composable
 fun PreviewSpellCardCarouselScreenLight() {
     AppThemePreview(darkTheme = false) {
-        SpellCardCarouselScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, {})
+        SpellCardCarouselScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, {}, {})
     }
 }
 
@@ -138,6 +141,6 @@ fun PreviewSpellCardCarouselScreenLight() {
 @Composable
 fun PreviewSpellCardCarouselScreenDark() {
     AppThemePreview(darkTheme = true) {
-        SpellCardCarouselScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, {})
+        SpellCardCarouselScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, {}, {})
     }
 }
