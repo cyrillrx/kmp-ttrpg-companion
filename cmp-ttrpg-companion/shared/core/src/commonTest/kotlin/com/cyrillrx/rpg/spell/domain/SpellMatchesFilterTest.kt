@@ -89,8 +89,8 @@ class SpellMatchesFilterTest {
 
     @Test
     fun `a single required component ignores the other components`() {
-        // "At least material": fireball qualifies, counterspell does not.
-        val filter = SpellFilter(components = mapOf(Spell.Component.MATERIAL to ComponentFilter.REQUIRED))
+        // "At least verbal": fireball has V+S+M and still qualifies; counterspell lacks verbal.
+        val filter = SpellFilter(components = mapOf(Spell.Component.VERBAL to ComponentFilter.REQUIRED))
         assertTrue(fireball.matches(filter))
         assertFalse(counterspell.matches(filter))
     }
