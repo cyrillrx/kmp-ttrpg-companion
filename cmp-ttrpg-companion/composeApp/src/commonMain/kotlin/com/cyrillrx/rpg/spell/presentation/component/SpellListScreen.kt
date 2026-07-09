@@ -30,7 +30,6 @@ import com.cyrillrx.rpg.core.presentation.component.SearchBarWithBack
 import com.cyrillrx.rpg.core.presentation.component.SwipeToAdd
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
-import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.presentation.SpellAddToListProvider
@@ -171,7 +170,7 @@ private fun SpellList(
         modifier = Modifier.fillMaxSize(),
         state = searchResultsListState,
         contentPadding = PaddingValues(spacingMedium),
-        verticalArrangement = Arrangement.spacedBy(spacingSmall),
+        verticalArrangement = Arrangement.spacedBy(spacingMedium),
     ) {
         items(spells, key = { it.id }) { spell ->
             SwipeToAdd(
