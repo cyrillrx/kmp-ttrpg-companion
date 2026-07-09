@@ -2,11 +2,6 @@ package com.cyrillrx.rpg.spell.presentation.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.FlowRow
-import androidx.compose.foundation.layout.FlowRowScope
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
@@ -21,25 +16,23 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.core.presentation.component.FilterSection
+import com.cyrillrx.rpg.core.presentation.component.FilterSheetHeader
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingLarge
-import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.spell.domain.ComponentFilterState
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.domain.SpellFilter
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.btn_reset_all
 import rpg_companion.composeapp.generated.resources.filter_component_excluded
 import rpg_companion.composeapp.generated.resources.filter_component_required
 import rpg_companion.composeapp.generated.resources.label_filter_class
@@ -70,28 +63,14 @@ fun SpellFilterBottomSheet(
                 .padding(bottom = spacingLarge),
             verticalArrangement = Arrangement.spacedBy(spacingCommon),
         ) {
-            FilterSheetHeader(onResetFilters = onResetFilters)
+            FilterSheetHeader(
+                title = stringResource(Res.string.title_filter_spells),
+                onResetFilters = onResetFilters,
+            )
             LevelFilterSection(filter.levels, onLevelToggled)
             ClassFilterSection(filter.characterClasses, onClassToggled)
             SchoolFilterSection(filter.schools, onSchoolToggled)
             ComponentFilterSection(filter.components, onComponentToggled)
-        }
-    }
-}
-
-@Composable
-private fun FilterSheetHeader(onResetFilters: () -> Unit) {
-    Row(
-        modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        Text(
-            text = stringResource(Res.string.title_filter_spells),
-            style = MaterialTheme.typography.titleLarge,
-        )
-        TextButton(onClick = onResetFilters) {
-            Text(text = stringResource(Res.string.btn_reset_all))
         }
     }
 }
@@ -161,22 +140,6 @@ private fun ComponentFilterSection(
             )
         }
     }
-}
-
-@OptIn(ExperimentalLayoutApi::class)
-@Composable
-private fun FilterSection(
-    title: String,
-    content: @Composable FlowRowScope.() -> Unit,
-) {
-    Text(
-        text = title,
-        style = MaterialTheme.typography.titleSmall,
-    )
-    FlowRow(
-        horizontalArrangement = Arrangement.spacedBy(spacingMedium),
-        content = content,
-    )
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
