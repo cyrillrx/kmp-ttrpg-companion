@@ -39,6 +39,8 @@ import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.btn_reset_all
+import rpg_companion.composeapp.generated.resources.filter_component_excluded
+import rpg_companion.composeapp.generated.resources.filter_component_required
 import rpg_companion.composeapp.generated.resources.label_filter_class
 import rpg_companion.composeapp.generated.resources.label_filter_components
 import rpg_companion.composeapp.generated.resources.label_filter_level
@@ -164,6 +166,11 @@ private fun ComponentFilterChip(
         ComponentFilter.EXCLUDED -> Icons.Default.Close
         null -> null
     }
+    val iconContentDescription = when (state) {
+        ComponentFilter.REQUIRED -> stringResource(Res.string.filter_component_required)
+        ComponentFilter.EXCLUDED -> stringResource(Res.string.filter_component_excluded)
+        null -> null
+    }
     val colors = when (state) {
         ComponentFilter.EXCLUDED -> FilterChipDefaults.filterChipColors(
             selectedContainerColor = MaterialTheme.colorScheme.errorContainer,
@@ -180,7 +187,7 @@ private fun ComponentFilterChip(
             {
                 Icon(
                     imageVector = icon,
-                    contentDescription = null,
+                    contentDescription = iconContentDescription,
                     modifier = Modifier.size(FilterChipDefaults.IconSize),
                 )
             }

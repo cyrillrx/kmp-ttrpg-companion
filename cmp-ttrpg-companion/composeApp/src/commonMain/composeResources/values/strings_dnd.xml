@@ -77,5 +77,7 @@
     <string name="label_filter_class">Class</string>
     <string name="label_filter_school">School</string>
     <string name="label_filter_components">Components</string>
+    <string name="filter_component_required">Required</string>
+    <string name="filter_component_excluded">Excluded</string>
 
 </resources>
