@@ -19,8 +19,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.layout.LayoutCoordinates
 import androidx.compose.ui.layout.onGloballyPositioned
-import androidx.compose.ui.layout.positionInRoot
 import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
@@ -34,6 +35,7 @@ import com.cyrillrx.rpg.spell.presentation.navigation.SpellRouter
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellDetailViewModel
 import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
 import com.cyrillrx.rpg.userlist.presentation.AddToListProvider
+import kotlin.math.abs
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
@@ -69,7 +71,7 @@ private fun SpellDetailContent(
     // Reveal the top-bar title as the header name scrolls up: alpha ramps from 0 (no
     // scroll) to 1 when the scroll offset reaches the name's bottom (name behind the bar).
     val scrollState = rememberScrollState()
-    var contentTop by remember { mutableFloatStateOf(0f) }
+    var containerCoordinates by remember { mutableStateOf<LayoutCoordinates?>(null) }
     var titleBottomOffset by remember { mutableFloatStateOf(0f) }
     val titleAlpha by remember {
         derivedStateOf {
@@ -98,18 +100,22 @@ private fun SpellDetailContent(
             modifier = Modifier
                 .padding(paddingValues)
                 .fillMaxSize()
-                .onGloballyPositioned { contentTop = it.positionInRoot().y },
+                .onGloballyPositioned { containerCoordinates = it },
         ) {
             SpellDetail(
                 spell = spell,
                 modifier = Modifier
                     .fillMaxSize()
                     .verticalScroll(scrollState),
-                titleModifier = Modifier.onGloballyPositioned {
-                    // Name bottom offset from the content top, stable across scroll.
-                    // positionInRoot is unclipped (unlike boundsInRoot, which clamps once
-                    // the name scrolls out of the viewport and corrupts the value).
-                    titleBottomOffset = it.positionInRoot().y + it.size.height - contentTop + scrollState.value
+                titleModifier = Modifier.onGloballyPositioned { coordinates ->
+                    // Name bottom offset relative to the container, stable across scroll.
+                    containerCoordinates?.let { container ->
+                        val positionInContainer = container.localPositionOf(coordinates, Offset.Zero)
+                        val newValue = positionInContainer.y + coordinates.size.height + scrollState.value
+                        if (abs(titleBottomOffset - newValue) > 0.5f) {
+                            titleBottomOffset = newValue
+                        }
+                    }
                 },
             )
         }
