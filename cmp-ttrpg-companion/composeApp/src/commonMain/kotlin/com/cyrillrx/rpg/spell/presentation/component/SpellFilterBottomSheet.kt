@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.layout.FlowRowScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -47,7 +48,7 @@ import rpg_companion.composeapp.generated.resources.label_filter_level
 import rpg_companion.composeapp.generated.resources.label_filter_school
 import rpg_companion.composeapp.generated.resources.title_filter_spells
 
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SpellFilterBottomSheet(
     filter: SpellFilter,
@@ -69,89 +70,113 @@ fun SpellFilterBottomSheet(
                 .padding(bottom = spacingLarge),
             verticalArrangement = Arrangement.spacedBy(spacingCommon),
         ) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Text(
-                    text = stringResource(Res.string.title_filter_spells),
-                    style = MaterialTheme.typography.titleLarge,
-                )
-                TextButton(onClick = onResetFilters) {
-                    Text(text = stringResource(Res.string.btn_reset_all))
-                }
-            }
-
-            // Level
-            Text(
-                text = stringResource(Res.string.label_filter_level),
-                style = MaterialTheme.typography.titleSmall,
-            )
-            FlowRow(
-                horizontalArrangement = Arrangement.spacedBy(spacingMedium),
-            ) {
-                (0..9).forEach { level ->
-                    FilterChip(
-                        selected = level in filter.levels,
-                        onClick = { onLevelToggled(level) },
-                        label = { Text(text = level.toString()) },
-                    )
-                }
-            }
-
-            // Class
-            Text(
-                text = stringResource(Res.string.label_filter_class),
-                style = MaterialTheme.typography.titleSmall,
-            )
-            FlowRow(
-                horizontalArrangement = Arrangement.spacedBy(spacingMedium),
-            ) {
-                Character.Class.entries.filter { it != Character.Class.UNKNOWN }.forEach { characterClass ->
-                    FilterChip(
-                        selected = characterClass in filter.characterClasses,
-                        onClick = { onClassToggled(characterClass) },
-                        label = { Text(text = characterClass.toFormattedString()) },
-                    )
-                }
-            }
-
-            // School
-            Text(
-                text = stringResource(Res.string.label_filter_school),
-                style = MaterialTheme.typography.titleSmall,
-            )
-            FlowRow(
-                horizontalArrangement = Arrangement.spacedBy(spacingMedium),
-            ) {
-                Spell.School.entries.forEach { school ->
-                    FilterChip(
-                        selected = school in filter.schools,
-                        onClick = { onSchoolToggled(school) },
-                        label = { Text(text = school.toFormattedString()) },
-                    )
-                }
-            }
-
-            // Components (tri-state: indifferent, required, excluded)
-            Text(
-                text = stringResource(Res.string.label_filter_components),
-                style = MaterialTheme.typography.titleSmall,
-            )
-            FlowRow(
-                horizontalArrangement = Arrangement.spacedBy(spacingMedium),
-            ) {
-                Spell.ComponentType.entries.forEach { component ->
-                    ComponentFilterChip(
-                        label = component.toFormattedString(),
-                        state = filter.components[component],
-                        onClick = { onComponentToggled(component) },
-                    )
-                }
-            }
+            FilterSheetHeader(onResetFilters = onResetFilters)
+            LevelFilterSection(filter.levels, onLevelToggled)
+            ClassFilterSection(filter.characterClasses, onClassToggled)
+            SchoolFilterSection(filter.schools, onSchoolToggled)
+            ComponentFilterSection(filter.components, onComponentToggled)
         }
     }
+}
+
+@Composable
+private fun FilterSheetHeader(onResetFilters: () -> Unit) {
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Text(
+            text = stringResource(Res.string.title_filter_spells),
+            style = MaterialTheme.typography.titleLarge,
+        )
+        TextButton(onClick = onResetFilters) {
+            Text(text = stringResource(Res.string.btn_reset_all))
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun LevelFilterSection(
+    selectedLevels: Set<Int>,
+    onLevelToggled: (Int) -> Unit,
+) {
+    FilterSection(title = stringResource(Res.string.label_filter_level)) {
+        (0..9).forEach { level ->
+            FilterChip(
+                selected = level in selectedLevels,
+                onClick = { onLevelToggled(level) },
+                label = { Text(text = level.toString()) },
+            )
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun ClassFilterSection(
+    selectedClasses: Set<Character.Class>,
+    onClassToggled: (Character.Class) -> Unit,
+) {
+    FilterSection(title = stringResource(Res.string.label_filter_class)) {
+        Character.Class.entries.filter { it != Character.Class.UNKNOWN }.forEach { characterClass ->
+            FilterChip(
+                selected = characterClass in selectedClasses,
+                onClick = { onClassToggled(characterClass) },
+                label = { Text(text = characterClass.toFormattedString()) },
+            )
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun SchoolFilterSection(
+    selectedSchools: Set<Spell.School>,
+    onSchoolToggled: (Spell.School) -> Unit,
+) {
+    FilterSection(title = stringResource(Res.string.label_filter_school)) {
+        Spell.School.entries.forEach { school ->
+            FilterChip(
+                selected = school in selectedSchools,
+                onClick = { onSchoolToggled(school) },
+                label = { Text(text = school.toFormattedString()) },
+            )
+        }
+    }
+}
+
+@Composable
+private fun ComponentFilterSection(
+    components: Map<Spell.ComponentType, ComponentFilter>,
+    onComponentToggled: (Spell.ComponentType) -> Unit,
+) {
+    FilterSection(title = stringResource(Res.string.label_filter_components)) {
+        Spell.ComponentType.entries.forEach { component ->
+            ComponentFilterChip(
+                label = component.toFormattedString(),
+                state = components[component],
+                onClick = { onComponentToggled(component) },
+            )
+        }
+    }
+}
+
+@OptIn(ExperimentalLayoutApi::class)
+@Composable
+private fun FilterSection(
+    title: String,
+    content: @Composable FlowRowScope.() -> Unit,
+) {
+    Text(
+        text = title,
+        style = MaterialTheme.typography.titleSmall,
+    )
+    FlowRow(
+        horizontalArrangement = Arrangement.spacedBy(spacingMedium),
+        content = content,
+    )
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
