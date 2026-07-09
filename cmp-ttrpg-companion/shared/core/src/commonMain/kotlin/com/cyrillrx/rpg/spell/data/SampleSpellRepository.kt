@@ -104,7 +104,7 @@ class SampleSpellRepository : SpellRepository {
             ),
         )
 
-        private fun thunderwave() = Spell(
+        fun thunderwave() = Spell(
             id = "thunderwave",
             source = "srd_5.1",
             level = 1,
@@ -129,7 +129,7 @@ class SampleSpellRepository : SpellRepository {
             ),
         )
 
-        private fun counterspell() = Spell(
+        fun counterspell() = Spell(
             id = "counterspell",
             source = "srd_5.1",
             level = 3,

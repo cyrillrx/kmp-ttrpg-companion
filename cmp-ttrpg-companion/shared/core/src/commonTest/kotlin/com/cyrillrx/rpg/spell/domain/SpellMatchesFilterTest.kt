@@ -10,6 +10,8 @@ class SpellMatchesFilterTest {
 
     private val fireball = SampleSpellRepository.fireball()
     private val mageArmor = SampleSpellRepository.mageArmor()
+    private val thunderwave = SampleSpellRepository.thunderwave()
+    private val counterspell = SampleSpellRepository.counterspell()
 
     @Test
     fun `default filter matches any spell`() {
@@ -52,6 +54,45 @@ class SpellMatchesFilterTest {
     fun `filter by non-matching class does not match`() {
         val filter = SpellFilter(characterClasses = setOf(Character.Class.PALADIN))
         assertFalse(fireball.matches(filter))
+    }
+
+    @Test
+    fun `required component keeps spells that have it`() {
+        // Fireball has a material component, thunderwave does not.
+        val filter = SpellFilter(components = mapOf(Spell.Component.MATERIAL to ComponentFilter.REQUIRED))
+        assertTrue(fireball.matches(filter))
+        assertFalse(thunderwave.matches(filter))
+    }
+
+    @Test
+    fun `excluded component keeps spells that lack it`() {
+        // Thunderwave has no material component, fireball does.
+        val filter = SpellFilter(components = mapOf(Spell.Component.MATERIAL to ComponentFilter.EXCLUDED))
+        assertTrue(thunderwave.matches(filter))
+        assertFalse(fireball.matches(filter))
+    }
+
+    @Test
+    fun `required and excluded combine to match exact components`() {
+        // "Only somatic": counterspell has somatic alone; thunderwave also has verbal.
+        val filter = SpellFilter(
+            components = mapOf(
+                Spell.Component.VERBAL to ComponentFilter.EXCLUDED,
+                Spell.Component.SOMATIC to ComponentFilter.REQUIRED,
+                Spell.Component.MATERIAL to ComponentFilter.EXCLUDED,
+            ),
+        )
+        assertTrue(counterspell.matches(filter))
+        assertFalse(thunderwave.matches(filter))
+        assertFalse(fireball.matches(filter))
+    }
+
+    @Test
+    fun `a single required component ignores the other components`() {
+        // "At least material": fireball qualifies, counterspell does not.
+        val filter = SpellFilter(components = mapOf(Spell.Component.MATERIAL to ComponentFilter.REQUIRED))
+        assertTrue(fireball.matches(filter))
+        assertFalse(counterspell.matches(filter))
     }
 
     @Test
