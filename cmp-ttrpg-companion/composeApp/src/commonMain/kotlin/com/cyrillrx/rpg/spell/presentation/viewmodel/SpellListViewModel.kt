@@ -63,8 +63,8 @@ class SpellListViewModel(
     private fun Map<Spell.ComponentType, ComponentFilterState>.cycled(
         component: Spell.ComponentType,
     ): Map<Spell.ComponentType, ComponentFilterState> {
-        val next = (this[component] ?: ComponentFilterState.NONE).next()
-        return if (next == ComponentFilterState.NONE) this - component else this + (component to next)
+        val nextState = (this[component] ?: ComponentFilterState.NONE).next()
+        return if (nextState == ComponentFilterState.NONE) this - component else this + (component to nextState)
     }
 
     private fun refreshData() {
