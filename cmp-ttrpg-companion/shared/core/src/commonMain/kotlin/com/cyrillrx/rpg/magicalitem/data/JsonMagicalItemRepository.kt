@@ -9,16 +9,23 @@ import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemFilter
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemRepository
 import com.cyrillrx.rpg.magicalitem.domain.applyFilter
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.IO
+import kotlinx.coroutines.withContext
 
-class JsonMagicalItemRepository(private val fileReader: FileReader) : MagicalItemRepository {
+class JsonMagicalItemRepository(
+    private val fileReader: FileReader,
+    private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
+) : MagicalItemRepository {
 
     private var cache: List<MagicalItem>? = null
 
-    override suspend fun getAll(filter: MagicalItemFilter?): List<MagicalItem> {
+    override suspend fun getAll(filter: MagicalItemFilter?): List<MagicalItem> = withContext(ioDispatcher) {
         val allItems = cache ?: loadFromFile()
             .parse()
             .also { cache = it }
-        return allItems.applyFilter(filter)
+        allItems.applyFilter(filter)
     }
 
     override suspend fun getById(id: String): MagicalItem? =

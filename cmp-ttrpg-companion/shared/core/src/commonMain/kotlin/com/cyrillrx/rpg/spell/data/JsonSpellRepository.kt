@@ -10,16 +10,23 @@ import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.domain.SpellFilter
 import com.cyrillrx.rpg.spell.domain.SpellRepository
 import com.cyrillrx.rpg.spell.domain.applyFilter
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.IO
+import kotlinx.coroutines.withContext
 
-class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository {
+class JsonSpellRepository(
+    private val fileReader: FileReader,
+    private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
+) : SpellRepository {
 
     private var cache: List<Spell>? = null
 
-    override suspend fun getAll(filter: SpellFilter?): List<Spell> {
+    override suspend fun getAll(filter: SpellFilter?): List<Spell> = withContext(ioDispatcher) {
         val allSpells = cache ?: loadFromFile()
             .parse()
             .also { cache = it }
-        return allSpells.applyFilter(filter)
+        allSpells.applyFilter(filter)
     }
 
     override suspend fun getById(id: String): Spell? =

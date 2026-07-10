@@ -17,18 +17,23 @@ import com.cyrillrx.rpg.creature.data.toAlignment
 import com.cyrillrx.rpg.creature.data.toSize
 import com.cyrillrx.rpg.creature.data.toSkills
 import com.cyrillrx.rpg.creature.data.toSpeeds
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.IO
+import kotlinx.coroutines.withContext
 
 class JsonCharacterPresetRepository(
     private val fileReader: FileReader,
     private val filePath: String,
+    private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
 ) : CharacterRepository {
     private var cache: List<Character>? = null
 
-    override suspend fun getAll(filter: CharacterFilter?): List<Character> {
+    override suspend fun getAll(filter: CharacterFilter?): List<Character> = withContext(ioDispatcher) {
         val all = cache ?: loadFromFile()
             .parse()
             .also { cache = it }
-        return all.applyFilter(filter)
+        all.applyFilter(filter)
     }
 
     override suspend fun get(id: String): Character? = getAll(null).firstOrNull { it.id == id }
