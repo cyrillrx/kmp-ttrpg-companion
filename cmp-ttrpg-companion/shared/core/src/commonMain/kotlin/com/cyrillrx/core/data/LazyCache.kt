@@ -2,6 +2,7 @@ package com.cyrillrx.core.data
 
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
+import kotlin.concurrent.Volatile
 
 /**
  * Memoizes the result of a suspending [loader].
@@ -13,6 +14,8 @@ import kotlinx.coroutines.sync.withLock
  */
 class LazyCache<T : Any>(private val loader: suspend () -> T) {
     private val mutex = Mutex()
+
+    @Volatile
     private var value: T? = null
 
     suspend fun get(): T =
