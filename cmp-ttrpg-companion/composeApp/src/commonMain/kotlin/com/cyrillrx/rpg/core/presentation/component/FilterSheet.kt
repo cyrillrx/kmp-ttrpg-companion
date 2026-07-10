@@ -24,9 +24,10 @@ import rpg_companion.composeapp.generated.resources.btn_reset_all
 fun FilterSheetHeader(
     title: String,
     onResetFilters: () -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     Row(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
     ) {
