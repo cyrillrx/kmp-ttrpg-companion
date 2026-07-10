@@ -9,7 +9,9 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import org.jetbrains.compose.resources.stringResource
+import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.btn_reset_all
 
@@ -34,5 +36,21 @@ fun FilterSheetHeader(
         TextButton(onClick = onResetFilters) {
             Text(text = stringResource(Res.string.btn_reset_all))
         }
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewFilterSheetHeaderLight() {
+    AppThemePreview(darkTheme = false) {
+        FilterSheetHeader(title = "Filters", onResetFilters = {})
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewFilterSheetHeaderDark() {
+    AppThemePreview(darkTheme = true) {
+        FilterSheetHeader(title = "Filters", onResetFilters = {})
     }
 }
