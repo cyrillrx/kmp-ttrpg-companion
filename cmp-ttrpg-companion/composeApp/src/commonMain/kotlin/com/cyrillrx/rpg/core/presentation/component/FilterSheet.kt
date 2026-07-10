@@ -1,6 +1,7 @@
 package com.cyrillrx.rpg.core.presentation.component
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.FlowRowScope
@@ -49,14 +50,20 @@ fun FilterSheetHeader(
 @Composable
 fun FilterSection(
     title: String,
+    modifier: Modifier = Modifier,
     content: @Composable FlowRowScope.() -> Unit,
 ) {
-    Text(
-        text = title,
-        style = MaterialTheme.typography.titleSmall,
-    )
-    FlowRow(
-        horizontalArrangement = Arrangement.spacedBy(spacingMedium),
-        content = content,
-    )
+    Column(
+        modifier = modifier,
+        verticalArrangement = Arrangement.spacedBy(spacingMedium),
+    ) {
+        Text(
+            text = title,
+            style = MaterialTheme.typography.titleSmall,
+        )
+        FlowRow(
+            horizontalArrangement = Arrangement.spacedBy(spacingMedium),
+            content = content,
+        )
+    }
 }
