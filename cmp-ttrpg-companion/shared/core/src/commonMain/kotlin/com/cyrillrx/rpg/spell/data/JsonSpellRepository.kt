@@ -1,6 +1,7 @@
 package com.cyrillrx.rpg.spell.data
 
 import com.cyrillrx.core.data.FileReader
+import com.cyrillrx.core.data.LazyCache
 import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.core.domain.Result
 import com.cyrillrx.core.domain.partitionBy
@@ -10,16 +11,20 @@ import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.domain.SpellFilter
 import com.cyrillrx.rpg.spell.domain.SpellRepository
 import com.cyrillrx.rpg.spell.domain.applyFilter
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.IO
+import kotlinx.coroutines.withContext
 
-class JsonSpellRepository(private val fileReader: FileReader) : SpellRepository {
+class JsonSpellRepository(
+    private val fileReader: FileReader,
+    private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
+) : SpellRepository {
 
-    private var cache: List<Spell>? = null
+    private val cache = LazyCache { loadFromFile().parse() }
 
-    override suspend fun getAll(filter: SpellFilter?): List<Spell> {
-        val allSpells = cache ?: loadFromFile()
-            .parse()
-            .also { cache = it }
-        return allSpells.applyFilter(filter)
+    override suspend fun getAll(filter: SpellFilter?): List<Spell> = withContext(ioDispatcher) {
+        cache.get().applyFilter(filter)
     }
 
     override suspend fun getById(id: String): Spell? =

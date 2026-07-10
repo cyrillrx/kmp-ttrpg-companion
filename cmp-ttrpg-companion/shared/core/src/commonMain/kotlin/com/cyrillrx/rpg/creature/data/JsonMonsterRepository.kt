@@ -1,6 +1,7 @@
 package com.cyrillrx.rpg.creature.data
 
 import com.cyrillrx.core.data.FileReader
+import com.cyrillrx.core.data.LazyCache
 import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.core.domain.Result
 import com.cyrillrx.core.domain.partitionBy
@@ -9,14 +10,20 @@ import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.creature.domain.MonsterFilter
 import com.cyrillrx.rpg.creature.domain.MonsterRepository
 import com.cyrillrx.rpg.creature.domain.applyFilter
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.IO
+import kotlinx.coroutines.withContext
 
-class JsonMonsterRepository(private val fileReader: FileReader) : MonsterRepository {
+class JsonMonsterRepository(
+    private val fileReader: FileReader,
+    private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
+) : MonsterRepository {
 
-    private var cache: List<Monster>? = null
+    private val cache = LazyCache { loadFromFile().parse() }
 
-    override suspend fun getAll(filter: MonsterFilter?): List<Monster> {
-        val all = cache ?: loadFromFile().parse().also { cache = it }
-        return all.applyFilter(filter)
+    override suspend fun getAll(filter: MonsterFilter?): List<Monster> = withContext(ioDispatcher) {
+        cache.get().applyFilter(filter)
     }
 
     override suspend fun getById(id: String): Monster? =

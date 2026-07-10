@@ -1,6 +1,7 @@
 package com.cyrillrx.rpg.character.data
 
 import com.cyrillrx.core.data.FileReader
+import com.cyrillrx.core.data.LazyCache
 import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.core.domain.Result
 import com.cyrillrx.core.domain.partitionBy
@@ -17,18 +18,20 @@ import com.cyrillrx.rpg.creature.data.toAlignment
 import com.cyrillrx.rpg.creature.data.toSize
 import com.cyrillrx.rpg.creature.data.toSkills
 import com.cyrillrx.rpg.creature.data.toSpeeds
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.IO
+import kotlinx.coroutines.withContext
 
 class JsonCharacterPresetRepository(
     private val fileReader: FileReader,
     private val filePath: String,
+    private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
 ) : CharacterRepository {
-    private var cache: List<Character>? = null
+    private val cache = LazyCache { loadFromFile().parse() }
 
-    override suspend fun getAll(filter: CharacterFilter?): List<Character> {
-        val all = cache ?: loadFromFile()
-            .parse()
-            .also { cache = it }
-        return all.applyFilter(filter)
+    override suspend fun getAll(filter: CharacterFilter?): List<Character> = withContext(ioDispatcher) {
+        cache.get().applyFilter(filter)
     }
 
     override suspend fun get(id: String): Character? = getAll(null).firstOrNull { it.id == id }
