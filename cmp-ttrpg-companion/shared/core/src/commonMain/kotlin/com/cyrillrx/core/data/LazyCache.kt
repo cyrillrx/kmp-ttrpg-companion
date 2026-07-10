@@ -11,6 +11,9 @@ import kotlin.concurrent.Volatile
  * the [Mutex] serializes the load and the double-check skips it once the value is set. This
  * guards the lazy repository caches against the check-then-act race that a multi-threaded
  * dispatcher makes reachable.
+ *
+ * A failing [loader] is not memoized: the exception propagates to the caller and the next
+ * [get] retries the load.
  */
 class LazyCache<T : Any>(private val loader: suspend () -> T) {
     private val mutex = Mutex()
