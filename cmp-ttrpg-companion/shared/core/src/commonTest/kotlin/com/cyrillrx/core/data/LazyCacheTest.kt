@@ -6,6 +6,7 @@ import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.yield
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
 import kotlin.test.assertTrue
 
 class LazyCacheTest {
@@ -36,5 +37,19 @@ class LazyCacheTest {
 
         assertEquals(1, loads)
         assertTrue(results.all { it == "value" })
+    }
+
+    @Test
+    fun `does not memoize a failed load and retries on the next get`() = runTest {
+        var loads = 0
+        val cache = LazyCache {
+            loads++
+            if (loads == 1) error("boom")
+            "value"
+        }
+
+        assertFailsWith<IllegalStateException> { cache.get() }
+        assertEquals("value", cache.get())
+        assertEquals(2, loads)
     }
 }
