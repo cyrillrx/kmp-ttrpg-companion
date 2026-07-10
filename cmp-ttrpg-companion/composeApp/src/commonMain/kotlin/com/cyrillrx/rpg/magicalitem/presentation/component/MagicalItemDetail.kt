@@ -60,12 +60,6 @@ private fun MagicalItemHeader(
         modifier = Modifier.fillMaxWidth(),
     ) {
         Text(
-            text = "${magicalItem.type.toFormattedString()} - ${magicalItem.rarity.toFormattedString()}".uppercase(),
-            style = MaterialTheme.typography.labelMedium,
-            fontWeight = FontWeight.Bold,
-            color = accent,
-        )
-        Text(
             text = translation.name,
             style = MaterialTheme.typography.headlineMedium,
             fontWeight = FontWeight.Bold,
@@ -80,6 +74,12 @@ private fun MagicalItemHeader(
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
         }
+        Text(
+            text = "${magicalItem.type.toFormattedString()} - ${magicalItem.rarity.toFormattedString()}".uppercase(),
+            style = MaterialTheme.typography.labelMedium,
+            fontWeight = FontWeight.Bold,
+            color = accent,
+        )
         HorizontalDivider(
             color = accent,
             modifier = Modifier.padding(horizontal = spacingCommon, vertical = spacingSmall),
