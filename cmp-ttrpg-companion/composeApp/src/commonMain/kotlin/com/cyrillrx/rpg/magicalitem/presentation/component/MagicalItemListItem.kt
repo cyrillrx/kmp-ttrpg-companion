@@ -15,8 +15,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.AppCard
+import com.cyrillrx.rpg.core.presentation.component.dnd.SubtitleSeparator
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
-import com.cyrillrx.rpg.core.presentation.component.dnd.getSubtitle
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
@@ -24,7 +24,10 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.magicalitem.data.SampleMagicalItemRepository
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
+import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
+import rpg_companion.composeapp.generated.resources.Res
+import rpg_companion.composeapp.generated.resources.item_requires_attunement
 
 @Composable
 fun MagicalItemListItem(
@@ -48,22 +51,43 @@ fun MagicalItemListItem(
                     color = MaterialTheme.colorScheme.onSurface,
                 )
 
-                Text(
-                    text = magicalItem.getSubtitle(translation),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                )
+                // Type + subtype + attunement
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        text = magicalItem.type.toFormattedString(),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = magicalItem.getColor(),
+                        maxLines = 1,
+                    )
+                    translation.subtype?.let { subtype ->
+                        Text(
+                            text = " ($subtype)",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                            modifier = Modifier.weight(1f, fill = false),
+                        )
+                    }
+                    if (magicalItem.attunement) {
+                        SubtitleSeparator()
+                        Text(
+                            text = stringResource(Res.string.item_requires_attunement),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            maxLines = 1,
+                        )
+                    }
+                }
             }
 
             Spacer(modifier = Modifier.width(spacingMedium))
 
             Text(
-                text = magicalItem.type.toFormattedString(),
+                text = magicalItem.rarity.toFormattedString(),
                 style = MaterialTheme.typography.labelSmall,
                 fontWeight = FontWeight.Bold,
-                color = magicalItem.getColor(),
+                color = MaterialTheme.colorScheme.primary,
             )
         }
     }
