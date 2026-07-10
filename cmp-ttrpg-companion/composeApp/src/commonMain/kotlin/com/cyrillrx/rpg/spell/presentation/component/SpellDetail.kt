@@ -32,8 +32,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import com.cyrillrx.rpg.app.currentLocale
-import com.cyrillrx.rpg.core.presentation.component.TintedTag
 import com.cyrillrx.rpg.core.presentation.component.MarkdownText
+import com.cyrillrx.rpg.core.presentation.component.TintedTag
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
 import com.cyrillrx.rpg.core.presentation.component.dnd.getFormattedComponents
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedSchoolAndLevel
