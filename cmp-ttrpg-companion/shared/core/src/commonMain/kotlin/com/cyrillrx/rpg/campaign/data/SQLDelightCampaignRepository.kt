@@ -19,19 +19,12 @@ class SQLDelightCampaignRepository(
 
     override suspend fun getAll(filter: CampaignFilter?): List<Campaign> = withContext(ioDispatcher) {
         val campaigns = database.getAllCampaigns()
-        if (filter == null) {
-            campaigns
-        } else {
-            val query = filter.query
-            val ruleSets = filter.ruleSets
-            campaigns.filter {
-                (ruleSets.isEmpty() || ruleSets.contains(it.ruleSet)) &&
-                    (query.isBlank() || it.matches(query))
-            }
-        }
+        if (filter == null) campaigns else campaigns.filter { it.matches(filter) }
     }
 
-    private fun Campaign.matches(query: String): Boolean = name.contains(query, ignoreCase = true)
+    private fun Campaign.matches(filter: CampaignFilter): Boolean =
+        (filter.ruleSets.isEmpty() || filter.ruleSets.contains(ruleSet)) &&
+            (filter.query.isBlank() || name.contains(filter.query, ignoreCase = true))
 
     override suspend fun get(id: String): Campaign? = withContext(ioDispatcher) { database.getCampaign(id) }
 
