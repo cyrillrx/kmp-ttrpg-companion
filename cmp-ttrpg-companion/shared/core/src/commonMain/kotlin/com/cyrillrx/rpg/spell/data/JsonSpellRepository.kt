@@ -1,6 +1,7 @@
 package com.cyrillrx.rpg.spell.data
 
 import com.cyrillrx.core.data.FileReader
+import com.cyrillrx.core.data.LazyCache
 import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.core.domain.Result
 import com.cyrillrx.core.domain.partitionBy
@@ -20,13 +21,10 @@ class JsonSpellRepository(
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
 ) : SpellRepository {
 
-    private var cache: List<Spell>? = null
+    private val cache = LazyCache { loadFromFile().parse() }
 
     override suspend fun getAll(filter: SpellFilter?): List<Spell> = withContext(ioDispatcher) {
-        val allSpells = cache ?: loadFromFile()
-            .parse()
-            .also { cache = it }
-        allSpells.applyFilter(filter)
+        cache.get().applyFilter(filter)
     }
 
     override suspend fun getById(id: String): Spell? =

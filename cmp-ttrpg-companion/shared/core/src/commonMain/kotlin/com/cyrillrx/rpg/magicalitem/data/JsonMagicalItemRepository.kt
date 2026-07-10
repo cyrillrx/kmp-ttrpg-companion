@@ -1,6 +1,7 @@
 package com.cyrillrx.rpg.magicalitem.data
 
 import com.cyrillrx.core.data.FileReader
+import com.cyrillrx.core.data.LazyCache
 import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.core.domain.Result
 import com.cyrillrx.core.domain.partitionBy
@@ -19,13 +20,10 @@ class JsonMagicalItemRepository(
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
 ) : MagicalItemRepository {
 
-    private var cache: List<MagicalItem>? = null
+    private val cache = LazyCache { loadFromFile().parse() }
 
     override suspend fun getAll(filter: MagicalItemFilter?): List<MagicalItem> = withContext(ioDispatcher) {
-        val allItems = cache ?: loadFromFile()
-            .parse()
-            .also { cache = it }
-        allItems.applyFilter(filter)
+        cache.get().applyFilter(filter)
     }
 
     override suspend fun getById(id: String): MagicalItem? =
