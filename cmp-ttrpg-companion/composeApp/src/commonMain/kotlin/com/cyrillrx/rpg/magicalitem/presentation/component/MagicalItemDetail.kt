@@ -1,6 +1,5 @@
 package com.cyrillrx.rpg.magicalitem.presentation.component
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -11,11 +10,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import com.cyrillrx.rpg.app.currentLocale
+import com.cyrillrx.rpg.core.presentation.component.TintedTag
 import com.cyrillrx.rpg.core.presentation.component.MarkdownText
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
@@ -85,23 +84,9 @@ private fun MagicalItemHeader(
             modifier = Modifier.padding(horizontal = spacingCommon, vertical = spacingSmall),
         )
         if (magicalItem.attunement) {
-            MagicalItemBadge(stringResource(Res.string.item_requires_attunement), accent)
+            TintedTag(stringResource(Res.string.item_requires_attunement), accent)
         }
     }
-}
-
-@Composable
-private fun MagicalItemBadge(text: String, accent: Color) {
-    Text(
-        text = text.uppercase(),
-        style = MaterialTheme.typography.labelSmall,
-        fontWeight = FontWeight.Bold,
-        color = accent,
-        modifier = Modifier
-            .clip(MaterialTheme.shapes.small)
-            .background(accent.copy(alpha = 0.15f))
-            .padding(horizontal = spacingSmall, vertical = spacingSmall / 2),
-    )
 }
 
 @Preview
