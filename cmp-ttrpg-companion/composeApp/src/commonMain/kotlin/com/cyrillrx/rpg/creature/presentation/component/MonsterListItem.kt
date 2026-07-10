@@ -1,8 +1,6 @@
 package com.cyrillrx.rpg.creature.presentation.component
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -22,11 +20,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.AppCard
+import com.cyrillrx.rpg.core.presentation.component.dnd.SubtitleSeparator
+import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedCR
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.component.dnd.toIcon
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
-import com.cyrillrx.rpg.core.presentation.theme.iconSizeMediumLarge
 import com.cyrillrx.rpg.core.presentation.theme.iconSizeSmall
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
@@ -39,9 +38,6 @@ import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.value_armor_class
 import rpg_companion.composeapp.generated.resources.value_hit_points
 
-private val typeIconSize = iconSizeMediumLarge
-private val typeIconPadding = spacingCommon
-
 @Composable
 fun MonsterListItem(
     monster: Monster,
@@ -50,31 +46,13 @@ fun MonsterListItem(
 ) {
     val translation = monster.resolveTranslation(currentLocale())
     val monsterType = monster.getDisplayType()
+    val accent = monsterType.getColor()
 
     AppCard(onClick = onClick, modifier = modifier) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.padding(spacingCommon),
         ) {
-            Box(
-                contentAlignment = Alignment.Center,
-                modifier = Modifier
-                    .size(typeIconSize + typeIconPadding * 2)
-                    .background(
-                        color = MaterialTheme.colorScheme.primaryContainer,
-                        shape = MaterialTheme.shapes.small,
-                    ),
-            ) {
-                Icon(
-                    imageVector = monsterType.toIcon(),
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.onPrimaryContainer,
-                    modifier = Modifier.size(typeIconSize),
-                )
-            }
-
-            Spacer(modifier = Modifier.width(spacingMedium))
-
             Column(
                 verticalArrangement = Arrangement.spacedBy(spacingSmall),
                 modifier = Modifier.weight(1f),
@@ -85,15 +63,31 @@ fun MonsterListItem(
                     color = MaterialTheme.colorScheme.onSurface,
                 )
 
-                val formattedMonsterType = monster.types.toFormattedString()
-                val formattedMonsterSize = monster.size.toFormattedString()
-                Text(
-                    text = "$formattedMonsterType · $formattedMonsterSize",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                )
+                // Type + Size
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Icon(
+                        imageVector = monsterType.toIcon(),
+                        contentDescription = null,
+                        tint = accent,
+                        modifier = Modifier.size(iconSizeSmall),
+                    )
+                    Spacer(modifier = Modifier.width(spacingSmall))
+                    Text(
+                        text = monster.types.toFormattedString(),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = accent,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                        modifier = Modifier.weight(1f, fill = false),
+                    )
+                    SubtitleSeparator()
+                    Text(
+                        text = monster.size.toFormattedString(),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        maxLines = 1,
+                    )
+                }
 
                 Row(
                     horizontalArrangement = Arrangement.spacedBy(spacingCommon),
