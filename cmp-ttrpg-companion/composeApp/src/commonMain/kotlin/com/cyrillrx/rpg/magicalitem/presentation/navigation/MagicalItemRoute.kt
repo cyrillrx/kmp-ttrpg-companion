@@ -7,7 +7,7 @@ import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemRepository
 import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemAddToListProvider
 import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemItemProvider
-import com.cyrillrx.rpg.magicalitem.presentation.component.MagicalItemCardScreen
+import com.cyrillrx.rpg.magicalitem.presentation.component.MagicalItemDetailScreen
 import com.cyrillrx.rpg.magicalitem.presentation.component.MagicalItemListScreen
 import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.MagicalItemDetailViewModel
 import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.MagicalItemDetailViewModelFactory
@@ -55,7 +55,7 @@ fun EntryProviderScope<NavKey>.handleMagicalItemRoutes(
         val viewModelFactory = MagicalItemDetailViewModelFactory(magicalItemId, repository)
         val viewModel = viewModel<MagicalItemDetailViewModel>(key = magicalItemId, factory = viewModelFactory)
         val addToListProvider = MagicalItemAddToListProvider(repository, userListRepository)
-        MagicalItemCardScreen(viewModel, router, addToListProvider)
+        MagicalItemDetailScreen(viewModel, router, addToListProvider)
     }
 
     entry<MagicalItemRoute.UserListDetail> { route ->

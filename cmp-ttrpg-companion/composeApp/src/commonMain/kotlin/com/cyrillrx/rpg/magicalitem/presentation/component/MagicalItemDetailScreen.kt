@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.spell.presentation.component
+package com.cyrillrx.rpg.magicalitem.presentation.component
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.PlaylistAdd
@@ -16,47 +16,47 @@ import com.cyrillrx.rpg.core.presentation.component.FadingTitleScaffold
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.state.DetailState
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
-import com.cyrillrx.rpg.spell.data.SampleSpellRepository
-import com.cyrillrx.rpg.spell.domain.Spell
-import com.cyrillrx.rpg.spell.presentation.SpellAddToListProvider
-import com.cyrillrx.rpg.spell.presentation.navigation.SpellRouter
-import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellDetailViewModel
+import com.cyrillrx.rpg.magicalitem.data.SampleMagicalItemRepository
+import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
+import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemAddToListProvider
+import com.cyrillrx.rpg.magicalitem.presentation.navigation.MagicalItemRouter
+import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.MagicalItemDetailViewModel
 import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
 import com.cyrillrx.rpg.userlist.presentation.AddToListProvider
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.btn_add_to_list
-import rpg_companion.composeapp.generated.resources.error_spell_not_found
+import rpg_companion.composeapp.generated.resources.error_magical_item_not_found
 
 @Composable
-fun SpellDetailScreen(
-    viewModel: SpellDetailViewModel,
-    router: SpellRouter,
-    bottomSheetProvider: AddToListProvider<Spell>,
+fun MagicalItemDetailScreen(
+    viewModel: MagicalItemDetailViewModel,
+    router: MagicalItemRouter,
+    addToListProvider: AddToListProvider<MagicalItem>,
 ) {
     val state by viewModel.state.collectAsState()
     when (val s = state) {
         DetailState.Loading -> Loader()
-        is DetailState.NotFound -> ErrorLayout(stringResource(Res.string.error_spell_not_found, s.id))
-        is DetailState.Found -> SpellDetailContent(
-            spell = s.item,
+        is DetailState.NotFound -> ErrorLayout(stringResource(Res.string.error_magical_item_not_found, s.id))
+        is DetailState.Found -> MagicalItemDetailContent(
+            magicalItem = s.item,
             onNavigateUpClicked = router::navigateUp,
-            addToListProvider = bottomSheetProvider,
+            addToListProvider = addToListProvider,
         )
     }
 }
 
 @Composable
-private fun SpellDetailContent(
-    spell: Spell,
+private fun MagicalItemDetailContent(
+    magicalItem: MagicalItem,
     onNavigateUpClicked: () -> Unit,
-    addToListProvider: AddToListProvider<Spell>,
+    addToListProvider: AddToListProvider<MagicalItem>,
 ) {
     var showAddToListBottomSheet by remember { mutableStateOf(false) }
 
     FadingTitleScaffold(
-        title = spell.resolveTranslation(currentLocale()).name,
+        title = magicalItem.resolveTranslation(currentLocale()).name,
         onNavigateUpClicked = onNavigateUpClicked,
         actions = {
             IconButton(onClick = { showAddToListBottomSheet = true }) {
@@ -67,8 +67,8 @@ private fun SpellDetailContent(
             }
         },
     ) { scrollModifier, titleModifier ->
-        SpellDetail(
-            spell = spell,
+        MagicalItemDetail(
+            magicalItem = magicalItem,
             modifier = scrollModifier,
             titleModifier = titleModifier,
         )
@@ -76,7 +76,7 @@ private fun SpellDetailContent(
 
     if (showAddToListBottomSheet) {
         addToListProvider.BottomSheet(
-            entityId = spell.id,
+            entityId = magicalItem.id,
             onDismiss = { showAddToListBottomSheet = false },
         )
     }
@@ -84,24 +84,21 @@ private fun SpellDetailContent(
 
 @Preview
 @Composable
-fun PreviewSpellDetailScreenLight() {
-    PreviewSpellDetailScreen(darkTheme = false)
+fun PreviewMagicalItemDetailScreenLight() {
+    PreviewMagicalItemDetailScreen(darkTheme = false)
 }
 
 @Preview
 @Composable
-fun PreviewSpellDetailScreenDark() {
-    PreviewSpellDetailScreen(darkTheme = true)
+fun PreviewMagicalItemDetailScreenDark() {
+    PreviewMagicalItemDetailScreen(darkTheme = true)
 }
 
 @Composable
-private fun PreviewSpellDetailScreen(darkTheme: Boolean) {
-    val spell = SampleSpellRepository.fireball()
-    val spellRepository = SampleSpellRepository()
-    val userListRepository = SampleUserListRepository()
-    val bottomSheetProvider = SpellAddToListProvider(spellRepository, userListRepository)
-
+private fun PreviewMagicalItemDetailScreen(darkTheme: Boolean) {
+    val magicalItem = SampleMagicalItemRepository.getFirst()
+    val addToListProvider = MagicalItemAddToListProvider(SampleMagicalItemRepository(), SampleUserListRepository())
     AppThemePreview(darkTheme = darkTheme) {
-        SpellDetailContent(spell, onNavigateUpClicked = {}, addToListProvider = bottomSheetProvider)
+        MagicalItemDetailContent(magicalItem, onNavigateUpClicked = {}, addToListProvider = addToListProvider)
     }
 }

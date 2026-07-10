@@ -1,6 +1,5 @@
 package com.cyrillrx.rpg.spell.presentation.component
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
@@ -25,7 +24,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.SpanStyle
@@ -35,6 +33,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.MarkdownText
+import com.cyrillrx.rpg.core.presentation.component.TintedTag
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
 import com.cyrillrx.rpg.core.presentation.component.dnd.getFormattedComponents
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedSchoolAndLevel
@@ -153,13 +152,13 @@ private fun SpellHeader(spell: Spell, accent: Color, titleModifier: Modifier = M
             color = accent,
             modifier = Modifier.padding(horizontal = spacingCommon, vertical = spacingSmall),
         )
-        val badges = buildList {
+        val tags = buildList {
             if (spell.ritual) add(stringResource(Res.string.spell_ritual))
             if (spell.concentration) add(stringResource(Res.string.spell_concentration))
         }
-        if (badges.isNotEmpty()) {
+        if (tags.isNotEmpty()) {
             Row(horizontalArrangement = Arrangement.spacedBy(spacingSmall)) {
-                badges.forEach { SpellBadge(it, accent) }
+                tags.forEach { TintedTag(it, accent) }
             }
         }
     }
@@ -205,20 +204,6 @@ private fun RowScope.SpellMetaCell(
             )
         }
     }
-}
-
-@Composable
-private fun SpellBadge(text: String, accent: Color) {
-    Text(
-        text = text.uppercase(),
-        style = MaterialTheme.typography.labelSmall,
-        fontWeight = FontWeight.Bold,
-        color = accent,
-        modifier = Modifier
-            .clip(MaterialTheme.shapes.small)
-            .background(accent.copy(alpha = 0.15f))
-            .padding(horizontal = spacingSmall, vertical = spacingSmall / 2),
-    )
 }
 
 @Preview
