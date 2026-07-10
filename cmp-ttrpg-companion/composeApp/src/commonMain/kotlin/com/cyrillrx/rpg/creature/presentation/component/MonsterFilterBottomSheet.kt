@@ -2,35 +2,28 @@ package com.cyrillrx.rpg.creature.presentation.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.FlowRow
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import com.cyrillrx.rpg.core.presentation.component.FilterSection
+import com.cyrillrx.rpg.core.presentation.component.FilterSheetHeader
 import com.cyrillrx.rpg.core.presentation.component.dnd.formatCRValue
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingLarge
-import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.creature.domain.MonsterFilter
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.btn_reset_all
 import rpg_companion.composeapp.generated.resources.label_filter_cr
 import rpg_companion.composeapp.generated.resources.label_filter_type
 import rpg_companion.composeapp.generated.resources.title_filter_monsters
@@ -63,7 +56,7 @@ private val commonCRs = listOf(
     30f,
 )
 
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MonsterFilterBottomSheet(
     filter: MonsterFilter,
@@ -83,28 +76,12 @@ fun MonsterFilterBottomSheet(
                 .padding(bottom = spacingLarge),
             verticalArrangement = Arrangement.spacedBy(spacingCommon),
         ) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Text(
-                    text = stringResource(Res.string.title_filter_monsters),
-                    style = MaterialTheme.typography.titleLarge,
-                )
-                TextButton(onClick = onResetFilters) {
-                    Text(text = stringResource(Res.string.btn_reset_all))
-                }
-            }
-
-            // Type
-            Text(
-                text = stringResource(Res.string.label_filter_type),
-                style = MaterialTheme.typography.titleSmall,
+            FilterSheetHeader(
+                title = stringResource(Res.string.title_filter_monsters),
+                onResetFilters = onResetFilters,
             )
-            FlowRow(
-                horizontalArrangement = Arrangement.spacedBy(spacingMedium),
-            ) {
+
+            FilterSection(title = stringResource(Res.string.label_filter_type)) {
                 Monster.Type.entries.forEach { type ->
                     FilterChip(
                         selected = type in filter.types,
@@ -114,14 +91,7 @@ fun MonsterFilterBottomSheet(
                 }
             }
 
-            // Challenge Rating
-            Text(
-                text = stringResource(Res.string.label_filter_cr),
-                style = MaterialTheme.typography.titleSmall,
-            )
-            FlowRow(
-                horizontalArrangement = Arrangement.spacedBy(spacingMedium),
-            ) {
+            FilterSection(title = stringResource(Res.string.label_filter_cr)) {
                 commonCRs.forEach { cr ->
                     val crLabel = formatCRValue(cr)
                     FilterChip(
