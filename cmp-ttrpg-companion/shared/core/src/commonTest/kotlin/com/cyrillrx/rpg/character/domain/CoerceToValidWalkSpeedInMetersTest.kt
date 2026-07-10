@@ -6,7 +6,7 @@ import kotlin.test.assertEquals
 class CoerceToValidWalkSpeedInMetersTest {
 
     @Test
-    fun `clamps values below 7,5 to 7,5`() {
+    fun `clamps values below 7 point 5 to 7 point 5`() {
         assertEquals(7.5f, 0f.coerceToValidWalkSpeedInMeters())
         assertEquals(7.5f, 5f.coerceToValidWalkSpeedInMeters())
         assertEquals(7.5f, 7f.coerceToValidWalkSpeedInMeters()) // closer to 7.5 than to 9
@@ -19,7 +19,7 @@ class CoerceToValidWalkSpeedInMetersTest {
     }
 
     @Test
-    fun `rounds to nearest multiple of 1,5`() {
+    fun `rounds to nearest multiple of 1 point 5`() {
         assertEquals(7.5f, 8f.coerceToValidWalkSpeedInMeters()) // closer to 7.5 than to 9
         assertEquals(10.5f, 10f.coerceToValidWalkSpeedInMeters()) // closer to 10.5 than to 9
         assertEquals(10.5f, 11f.coerceToValidWalkSpeedInMeters()) // closer to 10.5 than to 12

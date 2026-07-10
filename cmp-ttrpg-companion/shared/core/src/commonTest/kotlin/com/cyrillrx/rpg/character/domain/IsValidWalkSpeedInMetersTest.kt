@@ -7,14 +7,14 @@ import kotlin.test.assertTrue
 class IsValidWalkSpeedInMetersTest {
 
     @Test
-    fun `returns false for values below 7,5`() {
+    fun `returns false for values below 7 point 5`() {
         assertFalse(isValidWalkSpeedInMeters(0f))
         assertFalse(isValidWalkSpeedInMeters(5f))
         assertFalse(isValidWalkSpeedInMeters(7f))
     }
 
     @Test
-    fun `returns false for non-multiples of 1,5`() {
+    fun `returns false for non-multiples of 1 point 5`() {
         assertFalse(isValidWalkSpeedInMeters(8f))
         assertFalse(isValidWalkSpeedInMeters(10f))
         assertFalse(isValidWalkSpeedInMeters(11f))
