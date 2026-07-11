@@ -15,6 +15,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.AppCard
+import com.cyrillrx.rpg.core.presentation.component.TintedSubtitle
 import com.cyrillrx.rpg.core.presentation.component.dnd.SUBTITLE_SEPARATOR
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
 import com.cyrillrx.rpg.core.presentation.component.dnd.joinNonNull
@@ -54,27 +55,12 @@ fun MagicalItemListItem(
                     overflow = TextOverflow.Ellipsis,
                 )
 
-                // Type + subtype + attunement
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(
-                        text = magicalItem.type.toFormattedString(),
-                        style = MaterialTheme.typography.bodySmall,
-                        color = magicalItem.getColor(),
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis,
-                    )
-
-                    getSubtitle(magicalItem, translation)?.let { subtitle ->
-                        Text(
-                            text = subtitle,
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            maxLines = 1,
-                            overflow = TextOverflow.Ellipsis,
-                            modifier = Modifier.weight(1f, fill = false),
-                        )
-                    }
-                }
+                TintedSubtitle(
+                    icon = null,
+                    type = magicalItem.type.toFormattedString(),
+                    color = magicalItem.getColor(),
+                    subtitle = getSubtitle(magicalItem, translation),
+                )
             }
 
             Spacer(modifier = Modifier.width(spacingMedium))
