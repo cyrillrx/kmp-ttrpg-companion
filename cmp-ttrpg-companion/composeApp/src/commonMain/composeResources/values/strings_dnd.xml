@@ -5,7 +5,6 @@
     <string name="btn_campaign_list">Campaigns</string>
     <string name="btn_character_sheets">Character sheets</string>
     <string name="btn_spell_book">Spellbook</string>
-    <string name="btn_alternative_spell_book">Alternative Spellbook</string>
     <string name="btn_bestiary">Bestiary</string>
     <string name="btn_magical_items">Magical items</string>
     <string name="btn_see_all">See all</string>
