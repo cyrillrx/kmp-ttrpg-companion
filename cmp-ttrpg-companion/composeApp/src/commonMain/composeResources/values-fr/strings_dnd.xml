@@ -39,10 +39,6 @@
     <string name="spell_material_components">Composantes matérielles</string>
     <string name="spell_range">Portée</string>
     <string name="spell_duration">Durée</string>
-    <string name="formatted_spell_casting_time">Incantation :</string>
-    <string name="formatted_spell_components">Composantes :</string>
-    <string name="formatted_spell_range">Portée :</string>
-    <string name="formatted_spell_duration">Durée :</string>
     <string name="spell_ritual">Rituel</string>
     <string name="spell_concentration">Concentration</string>
     <string name="component_verbal">Verbale</string>
