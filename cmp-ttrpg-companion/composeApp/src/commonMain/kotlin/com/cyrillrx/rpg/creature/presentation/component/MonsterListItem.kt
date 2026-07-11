@@ -5,12 +5,10 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Favorite
 import androidx.compose.material.icons.outlined.Shield
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -21,6 +19,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.AppCard
 import com.cyrillrx.rpg.core.presentation.component.IconLabel
+import com.cyrillrx.rpg.core.presentation.component.TintedSubtitle
 import com.cyrillrx.rpg.core.presentation.component.dnd.SUBTITLE_SEPARATOR
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
 import com.cyrillrx.rpg.core.presentation.component.dnd.getIcon
@@ -28,7 +27,6 @@ import com.cyrillrx.rpg.core.presentation.component.dnd.joinNonNull
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedCR
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
-import com.cyrillrx.rpg.core.presentation.theme.iconSizeSmall
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
@@ -67,32 +65,12 @@ fun MonsterListItem(
                     overflow = TextOverflow.Ellipsis,
                 )
 
-                // Type + Size + alignment
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Icon(
-                        imageVector = monsterType.getIcon(),
-                        contentDescription = null,
-                        tint = accent,
-                        modifier = Modifier.size(iconSizeSmall),
-                    )
-                    Spacer(modifier = Modifier.width(spacingSmall))
-                    Text(
-                        text = monster.types.toFormattedString(),
-                        style = MaterialTheme.typography.bodySmall,
-                        color = accent,
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis,
-                    )
-
-                    Text(
-                        text = getSubtitle(monster, translation),
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis,
-                        modifier = Modifier.weight(1f, fill = false),
-                    )
-                }
+                TintedSubtitle(
+                    icon = monsterType.getIcon(),
+                    type = monster.types.toFormattedString(),
+                    color = accent,
+                    subtitle = getSubtitle(monster, translation),
+                )
 
                 Row(
                     horizontalArrangement = Arrangement.spacedBy(spacingCommon),
@@ -122,12 +100,12 @@ fun MonsterListItem(
 }
 
 @Composable
-private fun getSubtitle(monster: Monster, translation: Monster.Translation): String {
+private fun getSubtitle(monster: Monster, translation: Monster.Translation): String? {
     val subtype = translation.subtype?.let { " ($it)" }
     val size = SUBTITLE_SEPARATOR + monster.size.toFormattedString()
     val alignment = SUBTITLE_SEPARATOR + monster.alignment.toFormattedString()
 
-    return joinNonNull(subtype, size, alignment).orEmpty()
+    return joinNonNull(subtype, size, alignment)
 }
 
 @Preview
