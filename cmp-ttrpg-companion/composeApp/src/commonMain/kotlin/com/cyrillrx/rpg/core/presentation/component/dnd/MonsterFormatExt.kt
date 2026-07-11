@@ -16,7 +16,24 @@ import androidx.compose.material.icons.filled.SmartToy
 import androidx.compose.material.icons.filled.Water
 import androidx.compose.material.icons.filled.Whatshot
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import com.cyrillrx.rpg.core.presentation.theme.MonsterAberration
+import com.cyrillrx.rpg.core.presentation.theme.MonsterBeast
+import com.cyrillrx.rpg.core.presentation.theme.MonsterCelestial
+import com.cyrillrx.rpg.core.presentation.theme.MonsterConstruct
+import com.cyrillrx.rpg.core.presentation.theme.MonsterDragon
+import com.cyrillrx.rpg.core.presentation.theme.MonsterElemental
+import com.cyrillrx.rpg.core.presentation.theme.MonsterFey
+import com.cyrillrx.rpg.core.presentation.theme.MonsterFiend
+import com.cyrillrx.rpg.core.presentation.theme.MonsterGiant
+import com.cyrillrx.rpg.core.presentation.theme.MonsterHumanoid
+import com.cyrillrx.rpg.core.presentation.theme.MonsterMonstrosity
+import com.cyrillrx.rpg.core.presentation.theme.MonsterOoze
+import com.cyrillrx.rpg.core.presentation.theme.MonsterPlant
+import com.cyrillrx.rpg.core.presentation.theme.MonsterSwarm
+import com.cyrillrx.rpg.core.presentation.theme.MonsterUndead
+import com.cyrillrx.rpg.core.presentation.theme.MonsterUnknown
 import com.cyrillrx.rpg.creature.domain.Monster
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
@@ -61,7 +78,7 @@ fun Monster.Type.toFormattedString(): String {
     return stringResource(stringRes)
 }
 
-fun Monster.Type.toIcon(): ImageVector = when (this) {
+fun Monster.Type.getIcon(): ImageVector = when (this) {
     Monster.Type.ABERRATION -> Icons.Filled.Psychology
     Monster.Type.BEAST -> Icons.Filled.Pets
     Monster.Type.CELESTIAL -> Icons.Filled.Bolt
@@ -78,6 +95,25 @@ fun Monster.Type.toIcon(): ImageVector = when (this) {
     Monster.Type.SWARM -> Icons.Filled.Grain
     Monster.Type.UNDEAD -> Icons.Filled.Dangerous
     Monster.Type.UNKNOWN -> Icons.Filled.QuestionMark
+}
+
+fun Monster.Type.getColor(): Color = when (this) {
+    Monster.Type.ABERRATION -> MonsterAberration
+    Monster.Type.BEAST -> MonsterBeast
+    Monster.Type.CELESTIAL -> MonsterCelestial
+    Monster.Type.CONSTRUCT -> MonsterConstruct
+    Monster.Type.DRAGON -> MonsterDragon
+    Monster.Type.ELEMENTAL -> MonsterElemental
+    Monster.Type.FEY -> MonsterFey
+    Monster.Type.FIEND -> MonsterFiend
+    Monster.Type.GIANT -> MonsterGiant
+    Monster.Type.HUMANOID -> MonsterHumanoid
+    Monster.Type.MONSTROSITY -> MonsterMonstrosity
+    Monster.Type.OOZE -> MonsterOoze
+    Monster.Type.PLANT -> MonsterPlant
+    Monster.Type.SWARM -> MonsterSwarm
+    Monster.Type.UNDEAD -> MonsterUndead
+    Monster.Type.UNKNOWN -> MonsterUnknown
 }
 
 @Composable

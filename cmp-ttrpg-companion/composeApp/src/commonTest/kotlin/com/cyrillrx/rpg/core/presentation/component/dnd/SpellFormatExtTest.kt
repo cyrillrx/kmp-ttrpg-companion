@@ -15,13 +15,13 @@ import kotlin.test.assertEquals
 class SpellFormatExtTest {
 
     @Test
-    fun `getFormattedComponents joins verbal, somatic and marks material with asterisk`() {
+    fun `getFormattedComponents joins verbal, somatic and material`() {
         val spell = spellWith(verbal = true, somatic = true, material = true)
-        assertEquals(expected = "V, S, M*", actual = spell.getFormattedComponents())
+        assertEquals(expected = "V, S, M", actual = spell.getFormattedComponents())
     }
 
     @Test
-    fun `getFormattedComponents omits material marker when material is absent`() {
+    fun `getFormattedComponents omits material when material is absent`() {
         val spell = spellWith(verbal = true, somatic = true, material = false)
         assertEquals(expected = "V, S", actual = spell.getFormattedComponents())
     }
@@ -33,7 +33,7 @@ class SpellFormatExtTest {
         val materialOnly = spellWith(verbal = false, somatic = false, material = true)
         assertEquals(expected = "V", actual = verbalOnly.getFormattedComponents())
         assertEquals(expected = "S", actual = somaticOnly.getFormattedComponents())
-        assertEquals(expected = "M*", actual = materialOnly.getFormattedComponents())
+        assertEquals(expected = "M", actual = materialOnly.getFormattedComponents())
     }
 
     @Test

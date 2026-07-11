@@ -8,7 +8,7 @@
     <string name="label_speed">Vitesse</string>
 
     <string name="value_armor_class">CA %1$d</string>
-    <string name="value_hit_points">%1$d PV</string>
+    <string name="value_hit_points">PV %1$d</string>
 
     <!-- Speed types -->
     <string name="speed_label_fly">vol</string>

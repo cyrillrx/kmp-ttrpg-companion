@@ -36,7 +36,7 @@ import com.cyrillrx.rpg.core.presentation.component.MarkdownText
 import com.cyrillrx.rpg.core.presentation.component.TintedTag
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
 import com.cyrillrx.rpg.core.presentation.component.dnd.getFormattedComponents
-import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedSchoolAndLevel
+import com.cyrillrx.rpg.core.presentation.component.dnd.getFormattedSchoolAndLevel
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.iconSizeMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
@@ -54,6 +54,8 @@ import rpg_companion.composeapp.generated.resources.spell_duration
 import rpg_companion.composeapp.generated.resources.spell_material_components
 import rpg_companion.composeapp.generated.resources.spell_range
 import rpg_companion.composeapp.generated.resources.spell_ritual
+
+private const val MATERIAL_MARKER = "*"
 
 @Composable
 fun SpellDetail(
@@ -95,7 +97,7 @@ fun SpellDetail(
                 SpellMetaCell(
                     Icons.Outlined.Category,
                     stringResource(Res.string.spell_components),
-                    spell.getFormattedComponents(),
+                    spell.getFormattedComponents() + if (spell.components.material) MATERIAL_MARKER else "",
                     accent,
                 )
                 SpellMetaCell(
@@ -112,7 +114,7 @@ fun SpellDetail(
             Text(
                 text = buildAnnotatedString {
                     withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {
-                        append("* ")
+                        append("$MATERIAL_MARKER ")
                         append(label)
                         append(". ")
                     }
@@ -143,7 +145,7 @@ private fun SpellHeader(spell: Spell, accent: Color, titleModifier: Modifier = M
             modifier = titleModifier,
         )
         Text(
-            text = spell.toFormattedSchoolAndLevel().uppercase(),
+            text = spell.getFormattedSchoolAndLevel().uppercase(),
             style = MaterialTheme.typography.labelMedium,
             fontWeight = FontWeight.Bold,
             color = accent,

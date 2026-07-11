@@ -60,7 +60,7 @@ fun Spell.School.getColor(): Color = when (this) {
 }
 
 @Composable
-fun Spell.toFormattedSchoolAndLevel() =
+fun Spell.getFormattedSchoolAndLevel() =
     stringResource(Res.string.formatted_spell_school_level, getSchool(), level)
 
 fun Spell.getFormattedComponents(): String = components.toFormattedString()
@@ -68,7 +68,7 @@ fun Spell.getFormattedComponents(): String = components.toFormattedString()
 private fun Spell.Components.toFormattedString(): String = buildList {
     if (verbal) add("V")
     if (somatic) add("S")
-    if (material) add("M*")
+    if (material) add("M")
 }.joinToString(", ")
 
 @Composable
@@ -99,7 +99,7 @@ fun Spell.School.toFormattedString(): String {
     return stringResource(stringRes)
 }
 
-fun Spell.School?.toIcon(): ImageVector = when (this) {
+fun Spell.School?.getIcon(): ImageVector = when (this) {
     Spell.School.ABJURATION -> Icons.Filled.Shield
     Spell.School.CONJURATION -> Icons.Filled.Flare
     Spell.School.DIVINATION -> Icons.Filled.Visibility
@@ -112,7 +112,7 @@ fun Spell.School?.toIcon(): ImageVector = when (this) {
 }
 
 @Composable
-fun Spell.toFormattedLevel(): String = stringResource(
+fun Spell.getFormattedLevel(): String = stringResource(
     when (level) {
         0 -> Res.string.spell_level_cantrip
         1 -> Res.string.spell_level_1st

@@ -8,7 +8,7 @@
     <string name="label_speed">Speed</string>
 
     <string name="value_armor_class">AC %1$d</string>
-    <string name="value_hit_points">%1$d HP</string>
+    <string name="value_hit_points">HP %1$d</string>
 
     <!-- Speed types -->
     <string name="speed_label_fly">Fly</string>

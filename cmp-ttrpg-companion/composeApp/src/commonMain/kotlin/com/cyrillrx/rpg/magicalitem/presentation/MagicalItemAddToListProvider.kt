@@ -53,7 +53,7 @@ class MagicalItemAddToListProvider(
                 color = MaterialTheme.colorScheme.onSurface,
             )
             Text(
-                text = entity.getSubtitle(translation),
+                text = entity.getSubtitle(),
                 style = MaterialTheme.typography.bodyLarge,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 maxLines = 1,
