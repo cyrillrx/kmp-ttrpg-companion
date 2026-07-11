@@ -35,7 +35,7 @@ fun MagicalItemCard(
     content: @Composable ColumnScope.() -> Unit = {
         val translation = magicalItem.resolveTranslation(currentLocale())
         Text(
-            text = magicalItem.getSubtitle(translation),
+            text = magicalItem.getSubtitle(),
             style = MaterialTheme.typography.bodyMedium.copy(fontStyle = FontStyle.Italic),
             modifier = Modifier
                 .fillMaxWidth()
