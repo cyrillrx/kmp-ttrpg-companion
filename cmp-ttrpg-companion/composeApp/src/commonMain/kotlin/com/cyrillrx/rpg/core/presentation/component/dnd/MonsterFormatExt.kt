@@ -78,7 +78,7 @@ fun Monster.Type.toFormattedString(): String {
     return stringResource(stringRes)
 }
 
-fun Monster.Type.toIcon(): ImageVector = when (this) {
+fun Monster.Type.getIcon(): ImageVector = when (this) {
     Monster.Type.ABERRATION -> Icons.Filled.Psychology
     Monster.Type.BEAST -> Icons.Filled.Pets
     Monster.Type.CELESTIAL -> Icons.Filled.Bolt

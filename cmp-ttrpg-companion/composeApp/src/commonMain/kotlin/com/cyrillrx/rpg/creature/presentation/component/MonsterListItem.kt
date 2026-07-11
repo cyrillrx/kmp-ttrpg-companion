@@ -20,11 +20,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.AppCard
-import com.cyrillrx.rpg.core.presentation.component.dnd.SubtitleSeparator
+import com.cyrillrx.rpg.core.presentation.component.dnd.SUBTITLE_SEPARATOR
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
+import com.cyrillrx.rpg.core.presentation.component.dnd.getIcon
+import com.cyrillrx.rpg.core.presentation.component.dnd.joinNonNull
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedCR
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
-import com.cyrillrx.rpg.core.presentation.component.dnd.toIcon
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.iconSizeSmall
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
@@ -61,34 +62,34 @@ fun MonsterListItem(
                     text = translation.name,
                     style = MaterialTheme.typography.titleSmall,
                     color = MaterialTheme.colorScheme.onSurface,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
                 )
 
-                // Type + Size
+                // Type + Size + alignment
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Icon(
-                        imageVector = monsterType.toIcon(),
+                        imageVector = monsterType.getIcon(),
                         contentDescription = null,
                         tint = accent,
                         modifier = Modifier.size(iconSizeSmall),
                     )
                     Spacer(modifier = Modifier.width(spacingSmall))
-                    val formattedTypes = monster.types.toFormattedString()
-                    if (formattedTypes.isNotBlank()) {
-                        Text(
-                            text = formattedTypes,
-                            style = MaterialTheme.typography.bodySmall,
-                            color = accent,
-                            maxLines = 1,
-                            overflow = TextOverflow.Ellipsis,
-                            modifier = Modifier.weight(1f, fill = false),
-                        )
-                        SubtitleSeparator()
-                    }
                     Text(
-                        text = monster.size.toFormattedString(),
+                        text = monster.types.toFormattedString(),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = accent,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+
+                    Text(
+                        text = getSubtitle(monster, translation),
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                        modifier = Modifier.weight(1f, fill = false),
                     )
                 }
 
@@ -142,6 +143,15 @@ fun MonsterListItem(
             )
         }
     }
+}
+
+@Composable
+private fun getSubtitle(monster: Monster, translation: Monster.Translation): String {
+    val subtype = translation.subtype?.let { " ($it)" }
+    val size = SUBTITLE_SEPARATOR + monster.size.toFormattedString()
+    val alignment = SUBTITLE_SEPARATOR + monster.alignment.toFormattedString()
+
+    return joinNonNull(subtype, size, alignment).orEmpty()
 }
 
 @Preview
