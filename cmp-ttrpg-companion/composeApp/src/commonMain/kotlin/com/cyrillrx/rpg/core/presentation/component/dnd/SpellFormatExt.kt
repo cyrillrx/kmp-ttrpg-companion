@@ -68,7 +68,7 @@ fun Spell.getFormattedComponents(): String = components.toFormattedString()
 private fun Spell.Components.toFormattedString(): String = buildList {
     if (verbal) add("V")
     if (somatic) add("S")
-    if (material) add("M*")
+    if (material) add("M")
 }.joinToString(", ")
 
 @Composable

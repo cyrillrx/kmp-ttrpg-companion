@@ -17,7 +17,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.AppCard
+import com.cyrillrx.rpg.core.presentation.component.dnd.SubtitleSeparator
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
+import com.cyrillrx.rpg.core.presentation.component.dnd.getFormattedComponents
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedLevel
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.component.dnd.toIcon
@@ -57,7 +59,7 @@ fun SpellListItem(
                     color = MaterialTheme.colorScheme.onSurface,
                 )
 
-                // School + Casting time
+                // School + Components + Casting time
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Icon(
                         imageVector = school.toIcon(),
@@ -71,17 +73,21 @@ fun SpellListItem(
                         style = MaterialTheme.typography.bodySmall,
                         color = accent,
                     )
+                    SubtitleSeparator()
                     Text(
-                        text = " · ",
+                        text = spell.getFormattedComponents(),
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        maxLines = 1,
                     )
+                    SubtitleSeparator()
                     Text(
                         text = translation.castingTime,
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis,
+                        modifier = Modifier.weight(1f, fill = false),
                     )
                 }
             }

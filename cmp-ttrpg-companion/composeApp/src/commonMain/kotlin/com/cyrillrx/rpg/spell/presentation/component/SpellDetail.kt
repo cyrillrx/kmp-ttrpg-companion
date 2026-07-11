@@ -55,6 +55,8 @@ import rpg_companion.composeapp.generated.resources.spell_material_components
 import rpg_companion.composeapp.generated.resources.spell_range
 import rpg_companion.composeapp.generated.resources.spell_ritual
 
+private const val MATERIAL_MARKER = "*"
+
 @Composable
 fun SpellDetail(
     spell: Spell,
@@ -95,7 +97,7 @@ fun SpellDetail(
                 SpellMetaCell(
                     Icons.Outlined.Category,
                     stringResource(Res.string.spell_components),
-                    spell.getFormattedComponents(),
+                    spell.getFormattedComponents() + if (spell.components.material) MATERIAL_MARKER else "",
                     accent,
                 )
                 SpellMetaCell(
@@ -112,7 +114,7 @@ fun SpellDetail(
             Text(
                 text = buildAnnotatedString {
                     withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {
-                        append("* ")
+                        append("$MATERIAL_MARKER ")
                         append(label)
                         append(". ")
                     }
