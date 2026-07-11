@@ -73,13 +73,16 @@ fun SpellListItem(
                         style = MaterialTheme.typography.bodySmall,
                         color = accent,
                     )
-                    SubtitleSeparator()
-                    Text(
-                        text = spell.getFormattedComponents(),
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        maxLines = 1,
-                    )
+                    val components = spell.getFormattedComponents()
+                    if (components.isNotBlank()) {
+                        SubtitleSeparator()
+                        Text(
+                            text = components,
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            maxLines = 1,
+                        )
+                    }
                     SubtitleSeparator()
                     Text(
                         text = translation.castingTime,

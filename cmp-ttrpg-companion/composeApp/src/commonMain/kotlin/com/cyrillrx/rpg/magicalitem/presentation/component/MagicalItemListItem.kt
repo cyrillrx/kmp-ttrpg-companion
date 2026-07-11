@@ -59,7 +59,7 @@ fun MagicalItemListItem(
                         color = magicalItem.getColor(),
                         maxLines = 1,
                     )
-                    translation.subtype?.let { subtype ->
+                    translation.subtype?.takeIf { it.isNotBlank() }?.let { subtype ->
                         Text(
                             text = " ($subtype)",
                             style = MaterialTheme.typography.bodySmall,

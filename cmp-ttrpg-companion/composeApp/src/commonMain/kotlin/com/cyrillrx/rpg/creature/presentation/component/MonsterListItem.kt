@@ -72,15 +72,18 @@ fun MonsterListItem(
                         modifier = Modifier.size(iconSizeSmall),
                     )
                     Spacer(modifier = Modifier.width(spacingSmall))
-                    Text(
-                        text = monster.types.toFormattedString(),
-                        style = MaterialTheme.typography.bodySmall,
-                        color = accent,
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis,
-                        modifier = Modifier.weight(1f, fill = false),
-                    )
-                    SubtitleSeparator()
+                    val formattedTypes = monster.types.toFormattedString()
+                    if (formattedTypes.isNotBlank()) {
+                        Text(
+                            text = formattedTypes,
+                            style = MaterialTheme.typography.bodySmall,
+                            color = accent,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                            modifier = Modifier.weight(1f, fill = false),
+                        )
+                        SubtitleSeparator()
+                    }
                     Text(
                         text = monster.size.toFormattedString(),
                         style = MaterialTheme.typography.bodySmall,
