@@ -2,6 +2,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.androidx.baselineprofile)
 }
 
 android {
@@ -42,7 +43,9 @@ kotlin {
 
 dependencies {
     implementation(projects.composeApp)
+    implementation(libs.androidx.profileinstaller)
     debugImplementation(libs.androidx.ui.tooling)
+    baselineProfile(projects.baselineprofile)
 }
 
 // Workaround: com.android.kotlin.multiplatform.library does not bundle Compose Resources into
