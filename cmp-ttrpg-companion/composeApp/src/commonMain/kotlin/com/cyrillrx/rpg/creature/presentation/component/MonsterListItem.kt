@@ -20,6 +20,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.AppCard
+import com.cyrillrx.rpg.core.presentation.component.IconLabel
 import com.cyrillrx.rpg.core.presentation.component.dnd.SUBTITLE_SEPARATOR
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
 import com.cyrillrx.rpg.core.presentation.component.dnd.getIcon
@@ -97,39 +98,14 @@ fun MonsterListItem(
                     horizontalArrangement = Arrangement.spacedBy(spacingCommon),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
-                    Row(
-                        horizontalArrangement = Arrangement.spacedBy(spacingSmall),
-                        verticalAlignment = Alignment.CenterVertically,
-                    ) {
-                        Icon(
-                            imageVector = Icons.Outlined.Shield,
-                            contentDescription = null,
-                            tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                            modifier = Modifier.size(iconSizeSmall),
-                        )
-                        Text(
-                            text = stringResource(Res.string.value_armor_class, monster.armorClass),
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                    }
-
-                    Row(
-                        horizontalArrangement = Arrangement.spacedBy(spacingSmall),
-                        verticalAlignment = Alignment.CenterVertically,
-                    ) {
-                        Icon(
-                            imageVector = Icons.Outlined.Favorite,
-                            contentDescription = null,
-                            tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                            modifier = Modifier.size(iconSizeSmall),
-                        )
-                        Text(
-                            text = stringResource(Res.string.value_hit_points, monster.maxHitPoints),
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        )
-                    }
+                    IconLabel(
+                        icon = Icons.Outlined.Shield,
+                        text = stringResource(Res.string.value_armor_class, monster.armorClass),
+                    )
+                    IconLabel(
+                        icon = Icons.Outlined.Favorite,
+                        text = stringResource(Res.string.value_hit_points, monster.maxHitPoints),
+                    )
                 }
             }
 
