@@ -15,8 +15,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.AppCard
-import com.cyrillrx.rpg.core.presentation.component.dnd.SubtitleSeparator
+import com.cyrillrx.rpg.core.presentation.component.dnd.SUBTITLE_SEPARATOR
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
+import com.cyrillrx.rpg.core.presentation.component.dnd.joinNonNull
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
@@ -49,6 +50,8 @@ fun MagicalItemListItem(
                     text = translation.name,
                     style = MaterialTheme.typography.titleSmall,
                     color = MaterialTheme.colorScheme.onSurface,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
                 )
 
                 // Type + subtype + attunement
@@ -58,24 +61,17 @@ fun MagicalItemListItem(
                         style = MaterialTheme.typography.bodySmall,
                         color = magicalItem.getColor(),
                         maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
                     )
-                    translation.subtype?.takeIf { it.isNotBlank() }?.let { subtype ->
+
+                    getSubtitle(magicalItem, translation)?.let { subtitle ->
                         Text(
-                            text = " ($subtype)",
+                            text = subtitle,
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
                             modifier = Modifier.weight(1f, fill = false),
-                        )
-                    }
-                    if (magicalItem.attunement) {
-                        SubtitleSeparator()
-                        Text(
-                            text = stringResource(Res.string.item_requires_attunement),
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            maxLines = 1,
                         )
                     }
                 }
@@ -91,6 +87,17 @@ fun MagicalItemListItem(
             )
         }
     }
+}
+
+@Composable
+private fun getSubtitle(magicalItem: MagicalItem, translation: MagicalItem.Translation): String? {
+    val subtype = translation.subtype?.let { " ($it)" }
+    val attunement = if (magicalItem.attunement) {
+        SUBTITLE_SEPARATOR + stringResource(Res.string.item_requires_attunement)
+    } else {
+        null
+    }
+    return joinNonNull(subtype, attunement)
 }
 
 @Preview
