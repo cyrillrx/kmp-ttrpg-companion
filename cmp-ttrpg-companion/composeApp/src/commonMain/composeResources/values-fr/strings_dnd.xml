@@ -5,7 +5,6 @@
     <string name="btn_campaign_list">Campagnes</string>
     <string name="btn_character_sheets">Fiches de perso</string>
     <string name="btn_spell_book">Grimoire</string>
-    <string name="btn_alternative_spell_book">Grimoire alternatif</string>
     <string name="btn_bestiary">Bestiaire</string>
     <string name="btn_magical_items">Objets magiques</string>
     <string name="btn_see_all">Voir tout</string>
@@ -39,10 +38,6 @@
     <string name="spell_material_components">Composantes matérielles</string>
     <string name="spell_range">Portée</string>
     <string name="spell_duration">Durée</string>
-    <string name="formatted_spell_casting_time">Incantation :</string>
-    <string name="formatted_spell_components">Composantes :</string>
-    <string name="formatted_spell_range">Portée :</string>
-    <string name="formatted_spell_duration">Durée :</string>
     <string name="spell_ritual">Rituel</string>
     <string name="spell_concentration">Concentration</string>
     <string name="component_verbal">Verbale</string>

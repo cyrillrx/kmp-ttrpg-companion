@@ -12,7 +12,6 @@
     <string name="section_compendium">Compendium</string>
 
     <!--  Campaign  -->
-    <string name="title_campaign_list">Campaigns</string>
     <string name="title_create_campaign">New Campaign</string>
     <string name="label_campaign_name">Campaign name</string>
     <string name="label_campaign_rule_set">Rule Set:</string>
@@ -20,10 +19,6 @@
     <string name="error_empty_campaign_name">The Campaign name must be filled</string>
     <string name="error_undefined_rule_set">The Rule Set must be filled</string>
     <string name="error_campaign_already_exists">A Campaign with the same name already exists</string>
-
-    <!--  Player Character  -->
-    <string name="label_create_player_name">Player Character name</string>
-    <string name="btn_create_player_character">Create the Player Character</string>
 
     <string name="ruleset_dnd5e">DnD 5e</string>
     <string name="ruleset_pathfinder_2e">Pathfinder 2e</string>

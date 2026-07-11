@@ -50,7 +50,6 @@ fun EntryProviderScope<NavKey>.handleSpellRoutes(
             userListRepository = userListRepository,
         )
         SpellListScreen(viewModel, router, bottomSheetProvider)
-        // SpellCardCarouselScreen(viewModel, router)
     }
 
     entry<SpellRoute.Detail> { route ->

@@ -47,7 +47,6 @@ fun EntryProviderScope<NavKey>.handleMagicalItemRoutes(
         val viewModel = viewModel<MagicalItemListViewModel>(factory = viewModelFactory)
         val addToListProvider = MagicalItemAddToListProvider(repository, userListRepository)
         MagicalItemListScreen(viewModel, router, addToListProvider)
-        // MagicalItemCardCarouselScreen(viewModel, router)
     }
 
     entry<MagicalItemRoute.Detail> { route ->
