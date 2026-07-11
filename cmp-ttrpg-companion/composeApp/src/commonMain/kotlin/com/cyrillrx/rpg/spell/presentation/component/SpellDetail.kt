@@ -36,7 +36,7 @@ import com.cyrillrx.rpg.core.presentation.component.MarkdownText
 import com.cyrillrx.rpg.core.presentation.component.TintedTag
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
 import com.cyrillrx.rpg.core.presentation.component.dnd.getFormattedComponents
-import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedSchoolAndLevel
+import com.cyrillrx.rpg.core.presentation.component.dnd.getFormattedSchoolAndLevel
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.iconSizeMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
@@ -145,7 +145,7 @@ private fun SpellHeader(spell: Spell, accent: Color, titleModifier: Modifier = M
             modifier = titleModifier,
         )
         Text(
-            text = spell.toFormattedSchoolAndLevel().uppercase(),
+            text = spell.getFormattedSchoolAndLevel().uppercase(),
             style = MaterialTheme.typography.labelMedium,
             fontWeight = FontWeight.Bold,
             color = accent,

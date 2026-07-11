@@ -24,7 +24,7 @@ import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.MarkdownText
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
 import com.cyrillrx.rpg.core.presentation.component.dnd.getFormattedComponents
-import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedSchoolAndLevel
+import com.cyrillrx.rpg.core.presentation.component.dnd.getFormattedSchoolAndLevel
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
@@ -87,7 +87,7 @@ internal fun SpellCardHeader(spell: Spell) {
             ),
     )
     Text(
-        text = spell.toFormattedSchoolAndLevel(),
+        text = spell.getFormattedSchoolAndLevel(),
         style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Bold),
         textAlign = TextAlign.Center,
         color = MaterialTheme.colorScheme.onPrimary,
