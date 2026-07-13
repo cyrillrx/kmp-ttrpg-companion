@@ -9,9 +9,10 @@ and measures scroll performance of the compendium lists. Targets `:androidApp`.
 ./gradlew :androidApp:generateBaselineProfile
 ```
 
-Runs `BaselineProfileGenerator` (open + scroll each compendium list) on the managed device
-`pixel6Api34` and writes the profile into the app. Profile generation does **not** rely on frame
-timing, so the managed (emulator) device is fine here.
+Runs `BaselineProfileGenerator` on the managed device `pixel6Api34` and writes two profiles into
+the app: a **baseline profile** (`baseline-prof.txt`, open + scroll each compendium list) and a
+**startup profile** (`startup-prof.txt`, the cold-launch path). Profile generation does **not** rely
+on frame timing, so the managed (emulator) device is fine here.
 
 ## Measure scroll jank (`ScrollBenchmark`)
 

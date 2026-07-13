@@ -11,7 +11,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 /**
- * Generates a baseline profile exercising the three compendium lists (open + scroll).
+ * Generates the app's baseline and startup profiles.
  *
  * Run on the managed device with `./gradlew :androidApp:generateBaselineProfile`. Labels are the
  * default (English) home-button texts, matching the GMD's default locale.
@@ -22,6 +22,17 @@ class BaselineProfileGenerator {
     @get:Rule
     val rule = BaselineProfileRule()
 
+    /** Startup profile: the cold-launch path to the home screen only. */
+    @Test
+    fun generateStartupProfile() = rule.collect(
+        packageName = APP_PACKAGE,
+        includeInStartupProfile = true,
+    ) {
+        pressHome()
+        startActivityAndWait()
+    }
+
+    /** Baseline profile: open and scroll each compendium list. */
     @Test
     fun generate() = rule.collect(packageName = APP_PACKAGE) {
         pressHome()
