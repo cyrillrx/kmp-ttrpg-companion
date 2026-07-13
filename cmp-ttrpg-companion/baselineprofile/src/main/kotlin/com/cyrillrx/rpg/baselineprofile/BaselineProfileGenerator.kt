@@ -40,9 +40,13 @@ private fun MacrobenchmarkScope.openAndScroll(entryLabel: String) {
     entry.click()
     device.waitForIdle()
 
-    val list = device.wait(Until.findObject(By.scrollable(true)), WAIT_TIMEOUT) ?: return
-    list.setGestureMargin(device.displayWidth / 5)
+    // Re-find the list each iteration: a fling can re-layout it and invalidate a previously captured
+    // UiObject2 (StaleObjectException). The stable testTag (exposed as a resource id) targets the
+    // LazyColumn container reliably, unlike By.scrollable(true).
     repeat(SCROLL_ITERATIONS) {
+        val list = device.wait(Until.findObject(By.res(COMPENDIUM_LIST_TAG)), WAIT_TIMEOUT)
+            ?: return@repeat
+        list.setGestureMargin(device.displayWidth / 5)
         list.fling(Direction.DOWN)
         device.waitForIdle()
     }
@@ -52,4 +56,5 @@ private const val APP_PACKAGE = "com.cyrillrx.rpg"
 private const val WAIT_TIMEOUT = 5_000L
 private const val SCROLL_ITERATIONS = 3
 private const val HOME_ANCHOR = "Spellbook"
+private const val COMPENDIUM_LIST_TAG = "compendium_list"
 private val COMPENDIUM_ENTRIES = listOf("Spellbook", "Bestiary", "Magical items")

@@ -15,6 +15,11 @@ android {
         minSdk = 28
         targetSdk = Version.COMPILE_SDK
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        // The managed device is an emulator, where absolute frame timings are unreliable. Suppress
+        // the guard so ScrollBenchmark runs and yields RELATIVE numbers (None vs BaselineProfile on
+        // the same device). Use a physical device for absolute measurements.
+        testInstrumentationRunnerArguments["androidx.benchmark.suppressErrors"] = "EMULATOR"
     }
 
     compileOptions {
