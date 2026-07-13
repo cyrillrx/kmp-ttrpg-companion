@@ -20,8 +20,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.core.presentation.COMPENDIUM_LIST_TEST_TAG
 import com.cyrillrx.rpg.core.presentation.ScrollPosition
 import com.cyrillrx.rpg.core.presentation.component.EmptySearch
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
@@ -170,7 +172,7 @@ private fun SpellList(
     }
 
     LazyColumn(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxSize().testTag(COMPENDIUM_LIST_TEST_TAG),
         state = searchResultsListState,
         contentPadding = PaddingValues(spacingMedium),
         verticalArrangement = Arrangement.spacedBy(spacingMedium),
