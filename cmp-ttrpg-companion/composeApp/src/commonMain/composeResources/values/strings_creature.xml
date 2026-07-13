@@ -85,6 +85,48 @@
     <!-- Monster header -->
     <string name="monster_subtitle">%1$s of size %2$s, %3$s</string>
 
+    <!-- Monster stat block -->
+    <string name="label_senses">Senses</string>
+    <string name="label_challenge_rating">Challenge Rating</string>
+    <string name="label_damage_resistances">Damage resistances</string>
+    <string name="label_damage_immunities">Damage immunities</string>
+    <string name="label_damage_vulnerabilities">Damage vulnerabilities</string>
+    <string name="label_condition_immunities">Condition immunities</string>
+
+    <!-- Damage types -->
+    <string name="damage_type_acid">acid</string>
+    <string name="damage_type_bludgeoning">bludgeoning</string>
+    <string name="damage_type_cold">cold</string>
+    <string name="damage_type_fire">fire</string>
+    <string name="damage_type_force">force</string>
+    <string name="damage_type_lightning">lightning</string>
+    <string name="damage_type_necrotic">necrotic</string>
+    <string name="damage_type_piercing">piercing</string>
+    <string name="damage_type_poison">poison</string>
+    <string name="damage_type_psychic">psychic</string>
+    <string name="damage_type_radiant">radiant</string>
+    <string name="damage_type_slashing">slashing</string>
+    <string name="damage_type_thunder">thunder</string>
+    <string name="damage_type_bludgeoning_nonmagical">bludgeoning (nonmagical)</string>
+    <string name="damage_type_piercing_nonmagical">piercing (nonmagical)</string>
+    <string name="damage_type_slashing_nonmagical">slashing (nonmagical)</string>
+
+    <!-- Conditions -->
+    <string name="condition_blinded">blinded</string>
+    <string name="condition_charmed">charmed</string>
+    <string name="condition_deafened">deafened</string>
+    <string name="condition_exhaustion">exhaustion</string>
+    <string name="condition_frightened">frightened</string>
+    <string name="condition_grappled">grappled</string>
+    <string name="condition_incapacitated">incapacitated</string>
+    <string name="condition_paralyzed">paralyzed</string>
+    <string name="condition_petrified">petrified</string>
+    <string name="condition_poisoned">poisoned</string>
+    <string name="condition_prone">prone</string>
+    <string name="condition_restrained">restrained</string>
+    <string name="condition_stunned">stunned</string>
+    <string name="condition_unconscious">unconscious</string>
+
     <!-- Monster filter -->
     <string name="title_filter_monsters">Filter Monsters</string>
     <string name="label_filter_cr">Challenge Rating</string>
