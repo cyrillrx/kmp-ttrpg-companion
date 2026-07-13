@@ -11,14 +11,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.capitalize
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.intl.Locale
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.withStyle
 import com.cyrillrx.rpg.app.currentLocale
+import com.cyrillrx.rpg.core.presentation.component.LabeledParagraph
 import com.cyrillrx.rpg.core.presentation.component.MarkdownText
 import com.cyrillrx.rpg.core.presentation.component.dnd.formatCRValue
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
@@ -122,41 +120,28 @@ private fun MonsterHeader(
 @Composable
 private fun MonsterStatBlock(monster: Monster, translation: Monster.Translation) {
     Column(verticalArrangement = Arrangement.spacedBy(spacingSmall)) {
-        StatLine(stringResource(Res.string.label_saving_throws), monster.getFormattedSavingThrows())
-        StatLine(stringResource(Res.string.label_skills), monster.getFormattedSkills())
-        StatLine(
+        LabeledParagraph(stringResource(Res.string.label_saving_throws), monster.getFormattedSavingThrows())
+        LabeledParagraph(stringResource(Res.string.label_skills), monster.getFormattedSkills())
+        LabeledParagraph(
             stringResource(Res.string.label_damage_resistances),
             monster.getFormattedDamageAffinities(DamageAffinity.RESISTANT),
         )
-        StatLine(
+        LabeledParagraph(
             stringResource(Res.string.label_damage_immunities),
             monster.getFormattedDamageAffinities(DamageAffinity.IMMUNE),
         )
-        StatLine(
+        LabeledParagraph(
             stringResource(Res.string.label_damage_vulnerabilities),
             monster.getFormattedDamageAffinities(DamageAffinity.VULNERABLE),
         )
-        StatLine(stringResource(Res.string.label_condition_immunities), monster.getFormattedConditionImmunities())
-        StatLine(stringResource(Res.string.label_senses), translation.senses)
-        StatLine(stringResource(Res.string.label_languages), translation.languages.joinToString(", "))
-        StatLine(stringResource(Res.string.label_challenge_rating), formatCRValue(monster.challengeRating))
+        LabeledParagraph(
+            stringResource(Res.string.label_condition_immunities),
+            monster.getFormattedConditionImmunities(),
+        )
+        LabeledParagraph(stringResource(Res.string.label_senses), translation.senses)
+        LabeledParagraph(stringResource(Res.string.label_languages), translation.languages.joinToString(", "))
+        LabeledParagraph(stringResource(Res.string.label_challenge_rating), formatCRValue(monster.challengeRating))
     }
-}
-
-@Composable
-private fun StatLine(label: String, value: String) {
-    if (value.isBlank()) return
-    Text(
-        text = buildAnnotatedString {
-            withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {
-                append(label)
-                append(". ")
-            }
-            append(value)
-        },
-        style = MaterialTheme.typography.bodyLarge,
-        color = MaterialTheme.colorScheme.onSurface,
-    )
 }
 
 @Preview

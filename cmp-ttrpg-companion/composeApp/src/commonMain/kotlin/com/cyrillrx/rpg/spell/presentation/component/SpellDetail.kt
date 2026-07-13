@@ -26,12 +26,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.withStyle
 import com.cyrillrx.rpg.app.currentLocale
+import com.cyrillrx.rpg.core.presentation.component.LabeledParagraph
 import com.cyrillrx.rpg.core.presentation.component.MarkdownText
 import com.cyrillrx.rpg.core.presentation.component.TintedTag
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
@@ -109,19 +107,10 @@ fun SpellDetail(
             }
         }
 
-        translation.materialDescription?.takeIf { it.isNotBlank() }?.let { material ->
-            val label = stringResource(Res.string.spell_material_components)
-            Text(
-                text = buildAnnotatedString {
-                    withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {
-                        append("$MATERIAL_MARKER ")
-                        append(label)
-                        append(". ")
-                    }
-                    append(material)
-                },
-                style = MaterialTheme.typography.bodyLarge,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
+        translation.materialDescription?.let { material ->
+            LabeledParagraph(
+                label = "$MATERIAL_MARKER ${stringResource(Res.string.spell_material_components)}",
+                value = material,
             )
         }
 
