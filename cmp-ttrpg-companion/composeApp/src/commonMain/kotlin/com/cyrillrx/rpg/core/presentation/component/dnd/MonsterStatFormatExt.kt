@@ -2,22 +2,15 @@ package com.cyrillrx.rpg.core.presentation.component.dnd
 
 import androidx.compose.runtime.Composable
 import com.cyrillrx.rpg.core.domain.toSignedString
-import com.cyrillrx.rpg.creature.domain.AbilityScore
-import com.cyrillrx.rpg.creature.domain.ConditionImmunities
-import com.cyrillrx.rpg.creature.domain.DamageAffinities
+import com.cyrillrx.rpg.creature.domain.Ability
+import com.cyrillrx.rpg.creature.domain.Condition
 import com.cyrillrx.rpg.creature.domain.DamageAffinity
+import com.cyrillrx.rpg.creature.domain.DamageType
 import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.creature.domain.Proficiency
 import com.cyrillrx.rpg.creature.domain.Skill
-import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.ability_label_cha
-import rpg_companion.composeapp.generated.resources.ability_label_con
-import rpg_companion.composeapp.generated.resources.ability_label_dex
-import rpg_companion.composeapp.generated.resources.ability_label_int
-import rpg_companion.composeapp.generated.resources.ability_label_str
-import rpg_companion.composeapp.generated.resources.ability_label_wis
 import rpg_companion.composeapp.generated.resources.condition_blinded
 import rpg_companion.composeapp.generated.resources.condition_charmed
 import rpg_companion.composeapp.generated.resources.condition_deafened
@@ -48,23 +41,17 @@ import rpg_companion.composeapp.generated.resources.damage_type_radiant
 import rpg_companion.composeapp.generated.resources.damage_type_slashing
 import rpg_companion.composeapp.generated.resources.damage_type_slashing_nonmagical
 import rpg_companion.composeapp.generated.resources.damage_type_thunder
-import kotlin.reflect.KProperty1
 
 @Composable
 fun Monster.getFormattedSavingThrows(): String {
     val proficiencyBonus = proficiencyBonus()
     return buildList {
-        fun appendSave(label: String, score: AbilityScore) {
+        Ability.entries.forEach { ability ->
+            val score = ability.toAbilityScore(abilities)
             if (score.savingThrowProficiency != Proficiency.NONE) {
-                add("$label ${score.getSavingThrow(proficiencyBonus).toSignedString()}")
+                add("${ability.toAbbreviationString()} ${score.getSavingThrow(proficiencyBonus).toSignedString()}")
             }
         }
-        appendSave(stringResource(Res.string.ability_label_str), abilities.strength)
-        appendSave(stringResource(Res.string.ability_label_dex), abilities.dexterity)
-        appendSave(stringResource(Res.string.ability_label_con), abilities.constitution)
-        appendSave(stringResource(Res.string.ability_label_int), abilities.intelligence)
-        appendSave(stringResource(Res.string.ability_label_wis), abilities.wisdom)
-        appendSave(stringResource(Res.string.ability_label_cha), abilities.charisma)
     }.joinToString(", ")
 }
 
@@ -82,52 +69,60 @@ fun Monster.getFormattedSkills(): String {
     }.joinToString(", ")
 }
 
-private val damageTypeResources: List<Pair<KProperty1<DamageAffinities, DamageAffinity>, StringResource>> = listOf(
-    DamageAffinities::acid to Res.string.damage_type_acid,
-    DamageAffinities::bludgeoning to Res.string.damage_type_bludgeoning,
-    DamageAffinities::cold to Res.string.damage_type_cold,
-    DamageAffinities::fire to Res.string.damage_type_fire,
-    DamageAffinities::force to Res.string.damage_type_force,
-    DamageAffinities::lightning to Res.string.damage_type_lightning,
-    DamageAffinities::necrotic to Res.string.damage_type_necrotic,
-    DamageAffinities::piercing to Res.string.damage_type_piercing,
-    DamageAffinities::poison to Res.string.damage_type_poison,
-    DamageAffinities::psychic to Res.string.damage_type_psychic,
-    DamageAffinities::radiant to Res.string.damage_type_radiant,
-    DamageAffinities::slashing to Res.string.damage_type_slashing,
-    DamageAffinities::thunder to Res.string.damage_type_thunder,
-    DamageAffinities::bludgeoningNonMagical to Res.string.damage_type_bludgeoning_nonmagical,
-    DamageAffinities::piercingNonMagical to Res.string.damage_type_piercing_nonmagical,
-    DamageAffinities::slashingNonMagical to Res.string.damage_type_slashing_nonmagical,
-)
+@Composable
+fun DamageType.toFormattedString(): String {
+    val stringRes = when (this) {
+        DamageType.ACID -> Res.string.damage_type_acid
+        DamageType.BLUDGEONING -> Res.string.damage_type_bludgeoning
+        DamageType.COLD -> Res.string.damage_type_cold
+        DamageType.FIRE -> Res.string.damage_type_fire
+        DamageType.FORCE -> Res.string.damage_type_force
+        DamageType.LIGHTNING -> Res.string.damage_type_lightning
+        DamageType.NECROTIC -> Res.string.damage_type_necrotic
+        DamageType.PIERCING -> Res.string.damage_type_piercing
+        DamageType.POISON -> Res.string.damage_type_poison
+        DamageType.PSYCHIC -> Res.string.damage_type_psychic
+        DamageType.RADIANT -> Res.string.damage_type_radiant
+        DamageType.SLASHING -> Res.string.damage_type_slashing
+        DamageType.THUNDER -> Res.string.damage_type_thunder
+        DamageType.BLUDGEONING_NONMAGICAL -> Res.string.damage_type_bludgeoning_nonmagical
+        DamageType.PIERCING_NONMAGICAL -> Res.string.damage_type_piercing_nonmagical
+        DamageType.SLASHING_NONMAGICAL -> Res.string.damage_type_slashing_nonmagical
+    }
+    return stringResource(stringRes)
+}
 
-private val conditionImmunityResources: List<Pair<KProperty1<ConditionImmunities, Boolean>, StringResource>> = listOf(
-    ConditionImmunities::blinded to Res.string.condition_blinded,
-    ConditionImmunities::charmed to Res.string.condition_charmed,
-    ConditionImmunities::deafened to Res.string.condition_deafened,
-    ConditionImmunities::exhaustion to Res.string.condition_exhaustion,
-    ConditionImmunities::frightened to Res.string.condition_frightened,
-    ConditionImmunities::grappled to Res.string.condition_grappled,
-    ConditionImmunities::incapacitated to Res.string.condition_incapacitated,
-    ConditionImmunities::paralyzed to Res.string.condition_paralyzed,
-    ConditionImmunities::petrified to Res.string.condition_petrified,
-    ConditionImmunities::poisoned to Res.string.condition_poisoned,
-    ConditionImmunities::prone to Res.string.condition_prone,
-    ConditionImmunities::restrained to Res.string.condition_restrained,
-    ConditionImmunities::stunned to Res.string.condition_stunned,
-    ConditionImmunities::unconscious to Res.string.condition_unconscious,
-)
+@Composable
+fun Condition.toFormattedString(): String {
+    val stringRes = when (this) {
+        Condition.BLINDED -> Res.string.condition_blinded
+        Condition.CHARMED -> Res.string.condition_charmed
+        Condition.DEAFENED -> Res.string.condition_deafened
+        Condition.EXHAUSTION -> Res.string.condition_exhaustion
+        Condition.FRIGHTENED -> Res.string.condition_frightened
+        Condition.GRAPPLED -> Res.string.condition_grappled
+        Condition.INCAPACITATED -> Res.string.condition_incapacitated
+        Condition.PARALYZED -> Res.string.condition_paralyzed
+        Condition.PETRIFIED -> Res.string.condition_petrified
+        Condition.POISONED -> Res.string.condition_poisoned
+        Condition.PRONE -> Res.string.condition_prone
+        Condition.RESTRAINED -> Res.string.condition_restrained
+        Condition.STUNNED -> Res.string.condition_stunned
+        Condition.UNCONSCIOUS -> Res.string.condition_unconscious
+    }
+    return stringResource(stringRes)
+}
 
 @Composable
 fun Monster.getFormattedDamageAffinities(target: DamageAffinity): String = buildList {
-    damageTypeResources.forEach { (affinity, resource) ->
-        if (affinity.get(damageAffinities) == target) add(stringResource(resource))
+    DamageType.entries.forEach { damageType ->
+        if (damageType.select(damageAffinities) == target) add(damageType.toFormattedString())
     }
 }.joinToString(", ")
 
 @Composable
 fun Monster.getFormattedConditionImmunities(): String = buildList {
-    conditionImmunityResources.forEach { (immunity, resource) ->
-        if (immunity.get(conditionImmunities)) add(stringResource(resource))
+    Condition.entries.forEach { condition ->
+        if (condition.isImmune(conditionImmunities)) add(condition.toFormattedString())
     }
 }.joinToString(", ")
