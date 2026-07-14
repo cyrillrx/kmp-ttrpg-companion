@@ -16,3 +16,26 @@ data class ConditionImmunities(
     val stunned: Boolean = false,
     val unconscious: Boolean = false,
 )
+
+/**
+ * Enumerates every condition carried by [ConditionImmunities]. Each entry knows how to read its
+ * own immunity flag, so callers can iterate over [entries] instead of hand-listing accessors.
+ * The [isImmune] reference is a plain function type (not a `KProperty1`), so it compiles to a
+ * direct getter call with no reflection.
+ */
+enum class Condition(val isImmune: (ConditionImmunities) -> Boolean) {
+    BLINDED(ConditionImmunities::blinded),
+    CHARMED(ConditionImmunities::charmed),
+    DEAFENED(ConditionImmunities::deafened),
+    EXHAUSTION(ConditionImmunities::exhaustion),
+    FRIGHTENED(ConditionImmunities::frightened),
+    GRAPPLED(ConditionImmunities::grappled),
+    INCAPACITATED(ConditionImmunities::incapacitated),
+    PARALYZED(ConditionImmunities::paralyzed),
+    PETRIFIED(ConditionImmunities::petrified),
+    POISONED(ConditionImmunities::poisoned),
+    PRONE(ConditionImmunities::prone),
+    RESTRAINED(ConditionImmunities::restrained),
+    STUNNED(ConditionImmunities::stunned),
+    UNCONSCIOUS(ConditionImmunities::unconscious),
+}

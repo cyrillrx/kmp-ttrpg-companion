@@ -20,3 +20,28 @@ data class DamageAffinities(
     val piercingNonMagical: DamageAffinity = DamageAffinity.NONE,
     val slashingNonMagical: DamageAffinity = DamageAffinity.NONE,
 )
+
+/**
+ * Enumerates every damage type carried by [DamageAffinities]. Each entry knows how to read its
+ * own affinity, so callers can iterate over [entries] instead of hand-listing accessors.
+ * The [select] reference is a plain function type (not a `KProperty1`), so it compiles to a
+ * direct getter call with no reflection.
+ */
+enum class DamageType(val select: (DamageAffinities) -> DamageAffinity) {
+    ACID(DamageAffinities::acid),
+    BLUDGEONING(DamageAffinities::bludgeoning),
+    COLD(DamageAffinities::cold),
+    FIRE(DamageAffinities::fire),
+    FORCE(DamageAffinities::force),
+    LIGHTNING(DamageAffinities::lightning),
+    NECROTIC(DamageAffinities::necrotic),
+    PIERCING(DamageAffinities::piercing),
+    POISON(DamageAffinities::poison),
+    PSYCHIC(DamageAffinities::psychic),
+    RADIANT(DamageAffinities::radiant),
+    SLASHING(DamageAffinities::slashing),
+    THUNDER(DamageAffinities::thunder),
+    BLUDGEONING_NONMAGICAL(DamageAffinities::bludgeoningNonMagical),
+    PIERCING_NONMAGICAL(DamageAffinities::piercingNonMagical),
+    SLASHING_NONMAGICAL(DamageAffinities::slashingNonMagical),
+}
