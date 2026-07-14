@@ -10,6 +10,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
+import kotlinx.coroutines.test.advanceTimeBy
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
@@ -159,6 +160,48 @@ class MagicalItemListViewModelTest {
     }
 
     @Test
+    fun `filterByQuery debounces rapid input into a single load`() = runTest(testDispatcher) {
+        val countingRepository = CountingMagicalItemRepository()
+        val viewModel = MagicalItemListViewModel(countingRepository)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+        val loadsAfterInit = countingRepository.getAllCount
+
+        viewModel.filterByQuery("a")
+        advanceTimeBy(100)
+        viewModel.filterByQuery("ab")
+        advanceTimeBy(100)
+        viewModel.filterByQuery("abc")
+        advanceUntilIdle()
+
+        assertEquals(expected = loadsAfterInit + 1, actual = countingRepository.getAllCount)
+        assertEquals(expected = "abc", actual = viewModel.state.value.filter.query)
+    }
+
+    @Test
+    fun `filterByQuery does not flash Loading while data is shown`() = runTest(testDispatcher) {
+        val viewModel = MagicalItemListViewModel(repository)
+        val bodies = mutableListOf<MagicalItemListState.Body>()
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect { bodies.add(it.body) }
+        }
+
+        advanceUntilIdle()
+        bodies.clear()
+
+        viewModel.filterByQuery(item.resolveTranslation("en").name)
+        advanceUntilIdle()
+
+        assertFalse(bodies.any { it is MagicalItemListState.Body.Loading })
+        assertIs<MagicalItemListState.Body.WithData>(viewModel.state.value.body)
+    }
+
+    @Test
     fun `state is Error when repository throws`() = runTest(testDispatcher) {
         val failingRepository = FailingMagicalItemRepository()
         val viewModel = MagicalItemListViewModel(failingRepository)
@@ -181,4 +224,17 @@ private class FailingMagicalItemRepository : MagicalItemRepository {
     override suspend fun getById(id: String): MagicalItem? {
         throw RuntimeException("Simulated repository error")
     }
+}
+
+private class CountingMagicalItemRepository : MagicalItemRepository {
+    private val delegate = SampleMagicalItemRepository()
+    var getAllCount = 0
+        private set
+
+    override suspend fun getAll(filter: MagicalItemFilter?): List<MagicalItem> {
+        getAllCount++
+        return delegate.getAll(filter)
+    }
+
+    override suspend fun getById(id: String): MagicalItem? = delegate.getById(id)
 }
