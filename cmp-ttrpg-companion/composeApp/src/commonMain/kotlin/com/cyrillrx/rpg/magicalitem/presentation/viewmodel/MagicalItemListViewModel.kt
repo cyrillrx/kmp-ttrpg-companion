@@ -3,11 +3,13 @@ package com.cyrillrx.rpg.magicalitem.presentation.viewmodel
 import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.core.domain.toggled
 import com.cyrillrx.rpg.core.presentation.viewmodel.BaseListViewModel
+import com.cyrillrx.rpg.core.presentation.viewmodel.SEARCH_DEBOUNCE_MS
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemFilter
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemRepository
 import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemListState
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
@@ -29,7 +31,7 @@ class MagicalItemListViewModel(
     }
 
     fun filterByQuery(query: String) {
-        updateFilter { it.copy(query = query) }
+        updateFilter(debounce = true) { it.copy(query = query) }
     }
 
     fun onTypeToggled(type: MagicalItem.Type) {
@@ -44,20 +46,25 @@ class MagicalItemListViewModel(
         updateFilter { MagicalItemFilter(query = it.query) }
     }
 
-    private fun updateFilter(transform: (MagicalItemFilter) -> MagicalItemFilter) {
+    private fun updateFilter(debounce: Boolean = false, transform: (MagicalItemFilter) -> MagicalItemFilter) {
         state.update { it.copy(filter = transform(it.filter)) }
         scrollToTop()
-        refreshData()
+        refreshData(debounce)
     }
 
-    private fun refreshData() {
+    private fun refreshData(debounce: Boolean = false) {
         updateJob?.cancel()
-        updateJob = viewModelScope.launch { updateData() }
+        updateJob = viewModelScope.launch {
+            if (debounce) delay(SEARCH_DEBOUNCE_MS)
+            updateData()
+        }
     }
 
     private suspend fun updateData() {
         val filter = state.value.filter
-        state.update { it.copy(body = MagicalItemListState.Body.Loading) }
+        if (state.value.body !is MagicalItemListState.Body.WithData) {
+            state.update { it.copy(body = MagicalItemListState.Body.Loading) }
+        }
 
         try {
             val magicalItems = repository.getAll(filter)

@@ -3,11 +3,13 @@ package com.cyrillrx.rpg.creature.presentation.viewmodel
 import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.core.domain.toggled
 import com.cyrillrx.rpg.core.presentation.viewmodel.BaseListViewModel
+import com.cyrillrx.rpg.core.presentation.viewmodel.SEARCH_DEBOUNCE_MS
 import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.creature.domain.MonsterFilter
 import com.cyrillrx.rpg.creature.domain.MonsterRepository
 import com.cyrillrx.rpg.creature.presentation.MonsterListState
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
@@ -29,7 +31,7 @@ class MonsterListViewModel(
     }
 
     fun filterByQuery(query: String) {
-        updateFilter { it.copy(query = query) }
+        updateFilter(debounce = true) { it.copy(query = query) }
     }
 
     fun onTypeToggled(type: Monster.Type) {
@@ -44,20 +46,25 @@ class MonsterListViewModel(
         updateFilter { MonsterFilter(query = it.query) }
     }
 
-    private fun updateFilter(transform: (MonsterFilter) -> MonsterFilter) {
+    private fun updateFilter(debounce: Boolean = false, transform: (MonsterFilter) -> MonsterFilter) {
         state.update { it.copy(filter = transform(it.filter)) }
         scrollToTop()
-        refreshData()
+        refreshData(debounce)
     }
 
-    private fun refreshData() {
+    private fun refreshData(debounce: Boolean = false) {
         updateJob?.cancel()
-        updateJob = viewModelScope.launch { updateData() }
+        updateJob = viewModelScope.launch {
+            if (debounce) delay(SEARCH_DEBOUNCE_MS)
+            updateData()
+        }
     }
 
     private suspend fun updateData() {
         val filter = state.value.filter
-        state.update { it.copy(body = MonsterListState.Body.Loading) }
+        if (state.value.body !is MonsterListState.Body.WithData) {
+            state.update { it.copy(body = MonsterListState.Body.Loading) }
+        }
 
         try {
             val monsters = repository.getAll(filter)

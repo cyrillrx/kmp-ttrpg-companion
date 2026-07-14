@@ -5,6 +5,9 @@ import com.cyrillrx.rpg.core.presentation.ScrollPosition
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
 
+/** Delay before re-filtering after a search-query change, so typing doesn't filter on every keystroke. */
+internal const val SEARCH_DEBOUNCE_MS = 250L
+
 abstract class BaseListViewModel : ViewModel() {
 
     var savedScrollPosition: ScrollPosition = ScrollPosition()
