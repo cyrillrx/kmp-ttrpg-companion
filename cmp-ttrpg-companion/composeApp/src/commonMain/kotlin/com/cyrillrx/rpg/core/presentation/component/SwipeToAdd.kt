@@ -51,21 +51,30 @@ fun SwipeToAdd(
         enableDismissFromStartToEnd = true,
         enableDismissFromEndToStart = false,
         backgroundContent = {
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .clip(MaterialTheme.shapes.medium)
-                    .background(Green500)
-                    .padding(start = spacingMedium),
-                contentAlignment = Alignment.CenterStart,
-            ) {
-                Icon(
-                    imageVector = Icons.AutoMirrored.Filled.PlaylistAdd,
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.onPrimary,
-                )
+            // Compose the background only while a swipe is in progress; every non-swiped row
+            // (the common case during scroll) then skips this subtree entirely.
+            if (dismissState.dismissDirection == SwipeToDismissBoxValue.StartToEnd) {
+                SwipeAddBackground()
             }
         },
         content = content,
     )
+}
+
+@Composable
+private fun SwipeAddBackground() {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .clip(MaterialTheme.shapes.medium)
+            .background(Green500)
+            .padding(start = spacingMedium),
+        contentAlignment = Alignment.CenterStart,
+    ) {
+        Icon(
+            imageVector = Icons.AutoMirrored.Filled.PlaylistAdd,
+            contentDescription = null,
+            tint = MaterialTheme.colorScheme.onPrimary,
+        )
+    }
 }
