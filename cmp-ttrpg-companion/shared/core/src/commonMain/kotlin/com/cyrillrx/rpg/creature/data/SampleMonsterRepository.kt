@@ -146,7 +146,7 @@ class SampleMonsterRepository : MonsterRepository {
             ),
         )
 
-        fun balor() = Monster(
+        private fun balor() = Monster(
             id = "5",
             source = "srd_5.1",
             types = setOf(Monster.Type.FIEND),
