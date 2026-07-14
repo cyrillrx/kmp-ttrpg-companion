@@ -19,6 +19,7 @@ rootProject.name = "RPG_companion"
 
 include(
     ":androidApp",
+    ":baselineprofile",
     ":composeApp",
     ":shared:core",
 )

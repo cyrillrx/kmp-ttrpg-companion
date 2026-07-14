@@ -2,6 +2,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.androidx.baselineprofile)
 }
 
 android {
@@ -42,7 +43,9 @@ kotlin {
 
 dependencies {
     implementation(projects.composeApp)
+    implementation(libs.androidx.profileinstaller)
     debugImplementation(libs.androidx.ui.tooling)
+    baselineProfile(projects.baselineprofile)
 }
 
 // Workaround: com.android.kotlin.multiplatform.library does not bundle Compose Resources into
@@ -66,7 +69,7 @@ val copyCmpResourcesToAssets = tasks.register("copyCmpResourcesToAssets", Copy::
     into(layout.buildDirectory.dir("generated/cmpResources/assets/composeResources/rpg_companion.composeapp.generated.resources"))
 }
 
-afterEvaluate {
-    tasks.named("mergeDebugAssets") { dependsOn(copyCmpResourcesToAssets) }
-    tasks.named("mergeReleaseAssets") { dependsOn(copyCmpResourcesToAssets) }
-}
+// Every variant's asset merge must wait for the Compose resources to be copied into assets,
+// including the baseline-profile plugin's benchmarkRelease and nonMinifiedRelease variants.
+tasks.matching { it.name.startsWith("merge") && it.name.endsWith("Assets") }
+    .configureEach { dependsOn(copyCmpResourcesToAssets) }

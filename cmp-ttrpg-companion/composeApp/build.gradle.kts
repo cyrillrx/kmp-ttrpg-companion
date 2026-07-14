@@ -12,6 +12,12 @@ plugins {
     alias(libs.plugins.kover)
 }
 
+composeCompiler {
+    reportsDestination = layout.buildDirectory.dir("compose_reports")
+    metricsDestination = layout.buildDirectory.dir("compose_metrics")
+    stabilityConfigurationFile = rootProject.file("compose_stability.conf")
+}
+
 kotlin {
     @OptIn(ExperimentalKotlinGradlePluginApi::class)
     compilerOptions {
