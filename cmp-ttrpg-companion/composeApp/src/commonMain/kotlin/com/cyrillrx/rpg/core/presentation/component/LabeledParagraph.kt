@@ -6,13 +6,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 /**
- * A single stat-block line: a bold [label] followed by ". " and the plain [value].
+ * A single stat-block line: a bold italic [label] followed by ". " and the plain [value].
  * Renders nothing when [value] is blank. Shared by the spell material line and the
  * monster stat block.
  */
@@ -21,7 +22,7 @@ fun LabeledParagraph(label: String, value: String, modifier: Modifier = Modifier
     if (value.isBlank()) return
     Text(
         text = buildAnnotatedString {
-            withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {
+            withStyle(SpanStyle(fontWeight = FontWeight.Bold, fontStyle = FontStyle.Italic)) {
                 append(label)
                 append(". ")
             }
