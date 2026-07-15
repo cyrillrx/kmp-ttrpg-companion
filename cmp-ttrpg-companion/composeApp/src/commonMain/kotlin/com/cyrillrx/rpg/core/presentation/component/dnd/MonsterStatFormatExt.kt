@@ -43,8 +43,7 @@ import rpg_companion.composeapp.generated.resources.damage_type_slashing_nonmagi
 import rpg_companion.composeapp.generated.resources.damage_type_thunder
 
 @Composable
-fun Monster.getFormattedSavingThrows(): String {
-    val proficiencyBonus = proficiencyBonus()
+fun Monster.getFormattedSavingThrows(proficiencyBonus: Int): String {
     return buildList {
         Ability.entries.forEach { ability ->
             val score = ability.toAbilityScore(abilities)
@@ -56,8 +55,7 @@ fun Monster.getFormattedSavingThrows(): String {
 }
 
 @Composable
-fun Monster.getFormattedSkills(): String {
-    val proficiencyBonus = proficiencyBonus()
+fun Monster.getFormattedSkills(proficiencyBonus: Int): String {
     return buildList {
         Skill.entries.forEach { skill ->
             val proficiency = skill.getProficiency(skills)

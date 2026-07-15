@@ -119,9 +119,10 @@ private fun MonsterHeader(
 
 @Composable
 private fun MonsterStatBlock(monster: Monster, translation: Monster.Translation) {
+    val proficiencyBonus = monster.proficiencyBonus()
     Column(verticalArrangement = Arrangement.spacedBy(spacingSmall)) {
-        LabeledParagraph(stringResource(Res.string.label_saving_throws), monster.getFormattedSavingThrows())
-        LabeledParagraph(stringResource(Res.string.label_skills), monster.getFormattedSkills())
+        LabeledParagraph(stringResource(Res.string.label_saving_throws), monster.getFormattedSavingThrows(proficiencyBonus))
+        LabeledParagraph(stringResource(Res.string.label_skills), monster.getFormattedSkills(proficiencyBonus))
         LabeledParagraph(
             stringResource(Res.string.label_damage_resistances),
             monster.getFormattedDamageAffinities(DamageAffinity.RESISTANT),
