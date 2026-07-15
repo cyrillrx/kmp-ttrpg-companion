@@ -1,3 +1,5 @@
+import org.sonarqube.gradle.SonarExtension
+
 plugins {
     // trick: for the same plugin versions in all submodules
     alias(libs.plugins.android.application) apply false
@@ -13,11 +15,13 @@ plugins {
     alias(libs.plugins.sonarqube)
 }
 
-// The androidApp launcher module has no analyzable code and trips a scanner/AGP 9
-// incompatibility (sonarResolver queries res providers before their producing task runs).
-project(":androidApp") {
-    extensions.configure<org.sonarqube.gradle.SonarExtension>("sonar") {
-        isSkipProject = true
+// These modules have no analyzable code and trip a scanner/AGP 9 incompatibility
+// (sonarResolver queries res providers before their producing task runs).
+listOf(":androidApp", ":baselineprofile").forEach { path ->
+    project(path) {
+        extensions.configure<SonarExtension>("sonar") {
+            isSkipProject = true
+        }
     }
 }
 
