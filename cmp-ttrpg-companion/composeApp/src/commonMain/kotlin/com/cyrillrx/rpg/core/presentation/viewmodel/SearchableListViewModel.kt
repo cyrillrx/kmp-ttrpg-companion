@@ -14,10 +14,8 @@ import kotlin.coroutines.cancellation.CancellationException
 internal const val SEARCH_DEBOUNCE_MS = 250L
 
 /**
- * Base view model for filterable/searchable lists. Owns the load lifecycle shared by every
- * compendium list: a single cancellable [updateJob], search-query debouncing, scroll reset timing
- * and the "keep current results visible while re-filtering" behavior. Subclasses only describe how
- * to read/write their own [State]/[Body] and how to fetch results for the current filter.
+ * Base view model for filterable/searchable lists: owns the cancellable load job, query debouncing,
+ * scroll-reset timing and the no-loader-flicker guard shared by every compendium list.
  */
 abstract class SearchableListViewModel<State : Any, Body : Any>(
     initialState: State,
@@ -31,29 +29,15 @@ abstract class SearchableListViewModel<State : Any, Body : Any>(
     protected abstract fun State.body(): Body
     protected abstract fun State.withBody(body: Body): State
 
-    /** Body shown while the initial (or a post-error) load is running. */
     protected abstract fun loadingBody(): Body
 
-    /** Body shown when [loadContent] fails. */
     protected abstract fun errorBody(): Body
 
-    /**
-     * Whether [body] already shows something the user can keep looking at (results or an empty
-     * result) while a new load runs. When true, no loader is shown, avoiding a list → loader → list
-     * flicker on every re-filter.
-     */
+    /** Whether [body] already shows content that can stay visible during a refilter, so no loader flashes. */
     protected abstract fun showsContent(body: Body): Boolean
 
-    /** Fetches the results for the current filter and maps them to a display body. */
     protected abstract suspend fun loadContent(): Body
 
-    /**
-     * Cancels any in-flight load and (re)loads the list.
-     *
-     * @param debounce collapses a burst of query changes into a single load once the user pauses.
-     * @param resetScroll scrolls the list back to top on the same (debounced) path, so the scroll
-     *   reset stays in sync with the results instead of firing on every keystroke.
-     */
     protected fun refresh(debounce: Boolean = false, resetScroll: Boolean = false) {
         updateJob?.cancel()
         updateJob = viewModelScope.launch {
