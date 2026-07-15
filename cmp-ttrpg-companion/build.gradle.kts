@@ -1,3 +1,5 @@
+import org.sonarqube.gradle.SonarExtension
+
 plugins {
     // trick: for the same plugin versions in all submodules
     alias(libs.plugins.android.application) apply false
@@ -17,7 +19,7 @@ plugins {
 // (sonarResolver queries res providers before their producing task runs).
 listOf(":androidApp", ":baselineprofile").forEach { path ->
     project(path) {
-        extensions.configure<org.sonarqube.gradle.SonarExtension>("sonar") {
+        extensions.configure<SonarExtension>("sonar") {
             isSkipProject = true
         }
     }
