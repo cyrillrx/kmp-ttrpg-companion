@@ -1,5 +1,6 @@
 package com.cyrillrx.rpg.creature.presentation.viewmodel
 
+import com.cyrillrx.rpg.core.presentation.viewmodel.SEARCH_DEBOUNCE_MS
 import com.cyrillrx.rpg.creature.data.SampleMonsterRepository
 import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.creature.domain.MonsterFilter
@@ -178,9 +179,9 @@ class MonsterListViewModelTest {
         val loadsAfterInit = countingRepository.getAllCount
 
         viewModel.filterByQuery("a")
-        advanceTimeBy(100)
+        advanceTimeBy(SEARCH_DEBOUNCE_MS / 2)
         viewModel.filterByQuery("ab")
-        advanceTimeBy(100)
+        advanceTimeBy(SEARCH_DEBOUNCE_MS / 2)
         viewModel.filterByQuery("abc")
         advanceUntilIdle()
 

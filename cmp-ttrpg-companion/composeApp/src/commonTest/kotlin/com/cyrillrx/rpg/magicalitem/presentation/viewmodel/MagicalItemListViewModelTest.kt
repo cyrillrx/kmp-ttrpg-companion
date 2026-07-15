@@ -1,5 +1,6 @@
 package com.cyrillrx.rpg.magicalitem.presentation.viewmodel
 
+import com.cyrillrx.rpg.core.presentation.viewmodel.SEARCH_DEBOUNCE_MS
 import com.cyrillrx.rpg.magicalitem.data.SampleMagicalItemRepository
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemFilter
@@ -172,9 +173,9 @@ class MagicalItemListViewModelTest {
         val loadsAfterInit = countingRepository.getAllCount
 
         viewModel.filterByQuery("a")
-        advanceTimeBy(100)
+        advanceTimeBy(SEARCH_DEBOUNCE_MS / 2)
         viewModel.filterByQuery("ab")
-        advanceTimeBy(100)
+        advanceTimeBy(SEARCH_DEBOUNCE_MS / 2)
         viewModel.filterByQuery("abc")
         advanceUntilIdle()
 

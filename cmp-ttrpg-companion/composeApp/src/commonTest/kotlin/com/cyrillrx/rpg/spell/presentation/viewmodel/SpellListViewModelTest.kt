@@ -1,6 +1,7 @@
 package com.cyrillrx.rpg.spell.presentation.viewmodel
 
 import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.core.presentation.viewmodel.SEARCH_DEBOUNCE_MS
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.domain.SpellFilter
@@ -191,9 +192,9 @@ class SpellListViewModelTest {
         val loadsAfterInit = countingRepository.getAllCount
 
         viewModel.filterByQuery("a")
-        advanceTimeBy(100)
+        advanceTimeBy(SEARCH_DEBOUNCE_MS / 2)
         viewModel.filterByQuery("ab")
-        advanceTimeBy(100)
+        advanceTimeBy(SEARCH_DEBOUNCE_MS / 2)
         viewModel.filterByQuery("abc")
         advanceUntilIdle()
 
