@@ -54,9 +54,10 @@ private fun MonsterDetailContent(
     addToListProvider: AddToListProvider<Monster>,
 ) {
     var showAddToListBottomSheet by remember { mutableStateOf(false) }
+    val translation = monster.resolveTranslation(currentLocale())
 
     FadingTitleScaffold(
-        title = monster.resolveTranslation(currentLocale()).name,
+        title = translation.name,
         onNavigateUpClicked = onNavigateUpClicked,
         actions = {
             IconButton(onClick = { showAddToListBottomSheet = true }) {
@@ -71,6 +72,7 @@ private fun MonsterDetailContent(
             monster = monster,
             modifier = scrollModifier,
             titleModifier = titleModifier,
+            translation = translation,
         )
     }
 

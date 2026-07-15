@@ -49,8 +49,8 @@ fun MonsterDetail(
     monster: Monster,
     modifier: Modifier = Modifier,
     titleModifier: Modifier = Modifier,
+    translation: Monster.Translation = monster.resolveTranslation(currentLocale()),
 ) {
-    val translation = monster.resolveTranslation(currentLocale())
     val accent = monster.getDisplayType().getColor()
 
     Column(
