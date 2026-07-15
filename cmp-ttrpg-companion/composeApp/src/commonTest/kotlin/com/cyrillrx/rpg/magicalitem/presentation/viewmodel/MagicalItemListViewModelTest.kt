@@ -202,6 +202,28 @@ class MagicalItemListViewModelTest {
     }
 
     @Test
+    fun `filterByQuery does not flash Loading after an empty result`() = runTest(testDispatcher) {
+        val viewModel = MagicalItemListViewModel(repository)
+        val bodies = mutableListOf<MagicalItemListState.Body>()
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect { bodies.add(it.body) }
+        }
+
+        advanceUntilIdle()
+        viewModel.filterByQuery("no_match")
+        advanceUntilIdle()
+        assertIs<MagicalItemListState.Body.Empty>(viewModel.state.value.body)
+        bodies.clear()
+
+        viewModel.filterByQuery("still_no_match")
+        advanceUntilIdle()
+
+        assertFalse(bodies.any { it is MagicalItemListState.Body.Loading })
+        assertIs<MagicalItemListState.Body.Empty>(viewModel.state.value.body)
+    }
+
+    @Test
     fun `state is Error when repository throws`() = runTest(testDispatcher) {
         val failingRepository = FailingMagicalItemRepository()
         val viewModel = MagicalItemListViewModel(failingRepository)

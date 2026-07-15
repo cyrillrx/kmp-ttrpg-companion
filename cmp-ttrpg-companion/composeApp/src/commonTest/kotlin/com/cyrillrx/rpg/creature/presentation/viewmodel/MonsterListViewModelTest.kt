@@ -208,6 +208,28 @@ class MonsterListViewModelTest {
     }
 
     @Test
+    fun `filterByQuery does not flash Loading after an empty result`() = runTest(testDispatcher) {
+        val viewModel = MonsterListViewModel(repository)
+        val bodies = mutableListOf<MonsterListState.Body>()
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect { bodies.add(it.body) }
+        }
+
+        advanceUntilIdle()
+        viewModel.filterByQuery("no_match")
+        advanceUntilIdle()
+        assertIs<MonsterListState.Body.Empty>(viewModel.state.value.body)
+        bodies.clear()
+
+        viewModel.filterByQuery("still_no_match")
+        advanceUntilIdle()
+
+        assertFalse(bodies.any { it is MonsterListState.Body.Loading })
+        assertIs<MonsterListState.Body.Empty>(viewModel.state.value.body)
+    }
+
+    @Test
     fun `state is Error when repository throws`() = runTest(testDispatcher) {
         val failingRepository = FailingMonsterRepository()
         val viewModel = MonsterListViewModel(failingRepository)

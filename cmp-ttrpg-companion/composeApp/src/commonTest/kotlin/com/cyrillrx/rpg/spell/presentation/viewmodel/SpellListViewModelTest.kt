@@ -223,6 +223,28 @@ class SpellListViewModelTest {
     }
 
     @Test
+    fun `filterByQuery does not flash Loading after an empty result`() = runTest(testDispatcher) {
+        val viewModel = SpellListViewModel(repository)
+        val bodies = mutableListOf<SpellListState.Body>()
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect { bodies.add(it.body) }
+        }
+
+        advanceUntilIdle()
+        viewModel.filterByQuery("no_match")
+        advanceUntilIdle()
+        assertIs<SpellListState.Body.Empty>(viewModel.state.value.body)
+        bodies.clear()
+
+        viewModel.filterByQuery("still_no_match")
+        advanceUntilIdle()
+
+        assertFalse(bodies.any { it is SpellListState.Body.Loading })
+        assertIs<SpellListState.Body.Empty>(viewModel.state.value.body)
+    }
+
+    @Test
     fun `state is Error when repository throws`() = runTest(testDispatcher) {
         val failingRepository = FailingSpellRepository()
         val viewModel = SpellListViewModel(failingRepository)
