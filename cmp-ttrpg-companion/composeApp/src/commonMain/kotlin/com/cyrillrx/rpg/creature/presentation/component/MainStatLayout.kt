@@ -10,7 +10,6 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
 import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
-import com.cyrillrx.rpg.core.presentation.component.dnd.getSubtitle
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.creature.data.SampleMonsterRepository
@@ -28,14 +27,6 @@ fun MainStatLayout(
     modifier: Modifier = Modifier,
 ) {
     Column(modifier) {
-        Text(
-            buildAnnotatedString {
-                withStyle(MaterialTheme.typography.titleMedium.toSpanStyle()) {
-                    append(monster.getSubtitle())
-                }
-            },
-            color = MaterialTheme.colorScheme.onBackground,
-        )
         Text(
             buildAnnotatedString {
                 withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {

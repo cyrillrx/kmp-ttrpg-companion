@@ -26,6 +26,17 @@ class Monster(
 
     fun getDisplayType(): Type = types.first()
 
+    fun proficiencyBonus(): Int = when {
+        challengeRating < 5f -> 2
+        challengeRating < 9f -> 3
+        challengeRating < 13f -> 4
+        challengeRating < 17f -> 5
+        challengeRating < 21f -> 6
+        challengeRating < 25f -> 7
+        challengeRating < 29f -> 8
+        else -> 9
+    }
+
     fun resolveTranslation(locale: String): Translation =
         translations[locale]
             ?: translations[FALLBACK_LOCALE]

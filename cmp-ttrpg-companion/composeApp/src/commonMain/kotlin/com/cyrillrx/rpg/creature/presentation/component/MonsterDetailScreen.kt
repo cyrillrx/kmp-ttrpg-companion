@@ -1,26 +1,21 @@
 package com.cyrillrx.rpg.creature.presentation.component
 
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Button
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.PlaylistAdd
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Modifier
 import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
+import com.cyrillrx.rpg.core.presentation.component.FadingTitleScaffold
 import com.cyrillrx.rpg.core.presentation.component.Loader
-import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
 import com.cyrillrx.rpg.core.presentation.state.DetailState
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
-import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.creature.data.SampleMonsterRepository
 import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.creature.presentation.MonsterAddToListProvider
@@ -59,30 +54,25 @@ private fun MonsterDetailContent(
     addToListProvider: AddToListProvider<Monster>,
 ) {
     var showAddToListBottomSheet by remember { mutableStateOf(false) }
+    val translation = monster.resolveTranslation(currentLocale())
 
-    Scaffold(
-        topBar = {
-            SimpleTopBar(
-                title = monster.resolveTranslation(currentLocale()).name,
-                onNavigateUpClicked = onNavigateUpClicked,
-            )
-        },
-        bottomBar = {
-            Button(
-                onClick = { showAddToListBottomSheet = true },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = spacingMedium),
-            ) {
-                Text(stringResource(Res.string.btn_add_to_list))
+    FadingTitleScaffold(
+        title = translation.name,
+        onNavigateUpClicked = onNavigateUpClicked,
+        actions = {
+            IconButton(onClick = { showAddToListBottomSheet = true }) {
+                Icon(
+                    imageVector = Icons.AutoMirrored.Filled.PlaylistAdd,
+                    contentDescription = stringResource(Res.string.btn_add_to_list),
+                )
             }
         },
-    ) { paddingValues ->
-        MonsterItem(
+    ) { scrollModifier, titleModifier ->
+        MonsterDetail(
             monster = monster,
-            modifier = Modifier
-                .padding(paddingValues)
-                .verticalScroll(rememberScrollState()),
+            modifier = scrollModifier,
+            titleModifier = titleModifier,
+            translation = translation,
         )
     }
 

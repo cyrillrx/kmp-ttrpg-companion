@@ -85,6 +85,48 @@
     <!-- Monster header -->
     <string name="monster_subtitle">%1$s de taille %2$s, %3$s</string>
 
+    <!-- Monster stat block -->
+    <string name="label_senses">Sens</string>
+    <string name="label_challenge_rating">Indice de dangerosité</string>
+    <string name="label_damage_resistances">Résistances aux dégâts</string>
+    <string name="label_damage_immunities">Immunités aux dégâts</string>
+    <string name="label_damage_vulnerabilities">Vulnérabilités aux dégâts</string>
+    <string name="label_condition_immunities">Immunités aux états</string>
+
+    <!-- Damage types -->
+    <string name="damage_type_acid">acide</string>
+    <string name="damage_type_bludgeoning">contondant</string>
+    <string name="damage_type_cold">froid</string>
+    <string name="damage_type_fire">feu</string>
+    <string name="damage_type_force">force</string>
+    <string name="damage_type_lightning">foudre</string>
+    <string name="damage_type_necrotic">nécrotique</string>
+    <string name="damage_type_piercing">perforant</string>
+    <string name="damage_type_poison">poison</string>
+    <string name="damage_type_psychic">psychique</string>
+    <string name="damage_type_radiant">radiant</string>
+    <string name="damage_type_slashing">tranchant</string>
+    <string name="damage_type_thunder">tonnerre</string>
+    <string name="damage_type_bludgeoning_nonmagical">contondant (non magique)</string>
+    <string name="damage_type_piercing_nonmagical">perforant (non magique)</string>
+    <string name="damage_type_slashing_nonmagical">tranchant (non magique)</string>
+
+    <!-- Conditions -->
+    <string name="condition_blinded">aveuglé</string>
+    <string name="condition_charmed">charmé</string>
+    <string name="condition_deafened">assourdi</string>
+    <string name="condition_exhaustion">épuisement</string>
+    <string name="condition_frightened">effrayé</string>
+    <string name="condition_grappled">agrippé</string>
+    <string name="condition_incapacitated">neutralisé</string>
+    <string name="condition_paralyzed">paralysé</string>
+    <string name="condition_petrified">pétrifié</string>
+    <string name="condition_poisoned">empoisonné</string>
+    <string name="condition_prone">à terre</string>
+    <string name="condition_restrained">entravé</string>
+    <string name="condition_stunned">étourdi</string>
+    <string name="condition_unconscious">inconscient</string>
+
     <!-- Monster filter -->
     <string name="title_filter_monsters">Filtrer les monstres</string>
     <string name="label_filter_cr">Indice de dangerosité</string>
