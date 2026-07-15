@@ -75,4 +75,9 @@
     <string name="filter_component_required">Required</string>
     <string name="filter_component_excluded">Excluded</string>
 
+    <!-- Shared stat labels -->
+    <string name="label_saving_throws">Saving Throws</string>
+    <string name="label_skills">Skills</string>
+    <string name="label_languages">Languages</string>
+
 </resources>

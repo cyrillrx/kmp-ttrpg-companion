@@ -27,12 +27,9 @@
     <string name="label_initiative">Initiative</string>
     <string name="label_max_hp">PV max</string>
     <string name="label_walk_speed">Vitesse (%1$s)</string>
-    <string name="label_languages">Langues</string>
     <string name="label_languages_none">—</string>
     <string name="label_level_short">niv.</string>
-    <string name="label_saving_throws">Jets de sauvegarde</string>
     <string name="label_saving_throw_proficiency">Maîtrise de sauvegarde</string>
-    <string name="label_skills">Compétences</string>
     <string name="label_aptitudes">Aptitudes</string>
     <string name="label_profile">Profil</string>
     <string name="hint_ability">Min %1$d · Max %2$d · Score initial %3$s</string>
