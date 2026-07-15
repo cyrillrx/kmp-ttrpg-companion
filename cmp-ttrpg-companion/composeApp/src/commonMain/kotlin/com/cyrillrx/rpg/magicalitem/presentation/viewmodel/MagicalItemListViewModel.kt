@@ -1,33 +1,23 @@
 package com.cyrillrx.rpg.magicalitem.presentation.viewmodel
 
-import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.core.domain.toggled
-import com.cyrillrx.rpg.core.presentation.viewmodel.BaseListViewModel
-import com.cyrillrx.rpg.core.presentation.viewmodel.SEARCH_DEBOUNCE_MS
+import com.cyrillrx.rpg.core.presentation.viewmodel.SearchableListViewModel
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemFilter
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemRepository
 import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemListState
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
-import kotlinx.coroutines.launch
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_while_loading_magical_items
-import kotlin.coroutines.cancellation.CancellationException
 
 class MagicalItemListViewModel(
     private val repository: MagicalItemRepository,
-) : BaseListViewModel() {
-
-    private var updateJob: Job? = null
-    val state: StateFlow<MagicalItemListState>
-        field = MutableStateFlow(MagicalItemListState(body = MagicalItemListState.Body.Empty))
+) : SearchableListViewModel<MagicalItemListState, MagicalItemListState.Body>(
+        initialState = MagicalItemListState(body = MagicalItemListState.Body.Loading),
+    ) {
 
     init {
-        refreshData()
+        refresh()
     }
 
     fun filterByQuery(query: String) {
@@ -47,41 +37,29 @@ class MagicalItemListViewModel(
     }
 
     private fun updateFilter(debounce: Boolean = false, transform: (MagicalItemFilter) -> MagicalItemFilter) {
-        state.update { it.copy(filter = transform(it.filter)) }
-        scrollToTop()
-        refreshData(debounce)
+        mutableState.update { it.copy(filter = transform(it.filter)) }
+        refresh(debounce = debounce, resetScroll = true)
     }
 
-    private fun refreshData(debounce: Boolean = false) {
-        updateJob?.cancel()
-        updateJob = viewModelScope.launch {
-            if (debounce) delay(SEARCH_DEBOUNCE_MS)
-            updateData()
-        }
-    }
+    override fun MagicalItemListState.body(): MagicalItemListState.Body = body
 
-    private suspend fun updateData() {
-        val filter = state.value.filter
-        if (state.value.body !is MagicalItemListState.Body.WithData) {
-            state.update { it.copy(body = MagicalItemListState.Body.Loading) }
-        }
+    override fun MagicalItemListState.withBody(body: MagicalItemListState.Body): MagicalItemListState =
+        copy(body = body)
 
-        try {
-            val magicalItems = repository.getAll(filter)
-            val body = if (magicalItems.isEmpty()) {
-                MagicalItemListState.Body.Empty
-            } else {
-                MagicalItemListState.Body.WithData(searchResults = magicalItems)
-            }
-            state.update { it.copy(body = body) }
-        } catch (e: CancellationException) {
-            throw e
-        } catch (e: Exception) {
-            state.update {
-                it.copy(
-                    body = MagicalItemListState.Body.Error(errorMessage = Res.string.error_while_loading_magical_items),
-                )
-            }
+    override fun loadingBody(): MagicalItemListState.Body = MagicalItemListState.Body.Loading
+
+    override fun errorBody(): MagicalItemListState.Body =
+        MagicalItemListState.Body.Error(errorMessage = Res.string.error_while_loading_magical_items)
+
+    override fun showsContent(body: MagicalItemListState.Body): Boolean =
+        body is MagicalItemListState.Body.WithData || body is MagicalItemListState.Body.Empty
+
+    override suspend fun loadContent(): MagicalItemListState.Body {
+        val magicalItems = repository.getAll(mutableState.value.filter)
+        return if (magicalItems.isEmpty()) {
+            MagicalItemListState.Body.Empty
+        } else {
+            MagicalItemListState.Body.WithData(searchResults = magicalItems)
         }
     }
 }

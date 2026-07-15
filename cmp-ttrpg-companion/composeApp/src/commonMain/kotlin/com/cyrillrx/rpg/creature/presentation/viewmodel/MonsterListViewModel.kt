@@ -1,33 +1,23 @@
 package com.cyrillrx.rpg.creature.presentation.viewmodel
 
-import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.core.domain.toggled
-import com.cyrillrx.rpg.core.presentation.viewmodel.BaseListViewModel
-import com.cyrillrx.rpg.core.presentation.viewmodel.SEARCH_DEBOUNCE_MS
+import com.cyrillrx.rpg.core.presentation.viewmodel.SearchableListViewModel
 import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.creature.domain.MonsterFilter
 import com.cyrillrx.rpg.creature.domain.MonsterRepository
 import com.cyrillrx.rpg.creature.presentation.MonsterListState
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
-import kotlinx.coroutines.launch
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_while_loading_monsters
-import kotlin.coroutines.cancellation.CancellationException
 
 class MonsterListViewModel(
     private val repository: MonsterRepository,
-) : BaseListViewModel() {
-
-    private var updateJob: Job? = null
-    val state: StateFlow<MonsterListState>
-        field = MutableStateFlow(MonsterListState(body = MonsterListState.Body.Empty))
+) : SearchableListViewModel<MonsterListState, MonsterListState.Body>(
+        initialState = MonsterListState(body = MonsterListState.Body.Loading),
+    ) {
 
     init {
-        refreshData()
+        refresh()
     }
 
     fun filterByQuery(query: String) {
@@ -47,39 +37,28 @@ class MonsterListViewModel(
     }
 
     private fun updateFilter(debounce: Boolean = false, transform: (MonsterFilter) -> MonsterFilter) {
-        state.update { it.copy(filter = transform(it.filter)) }
-        scrollToTop()
-        refreshData(debounce)
+        mutableState.update { it.copy(filter = transform(it.filter)) }
+        refresh(debounce = debounce, resetScroll = true)
     }
 
-    private fun refreshData(debounce: Boolean = false) {
-        updateJob?.cancel()
-        updateJob = viewModelScope.launch {
-            if (debounce) delay(SEARCH_DEBOUNCE_MS)
-            updateData()
-        }
-    }
+    override fun MonsterListState.body(): MonsterListState.Body = body
 
-    private suspend fun updateData() {
-        val filter = state.value.filter
-        if (state.value.body !is MonsterListState.Body.WithData) {
-            state.update { it.copy(body = MonsterListState.Body.Loading) }
-        }
+    override fun MonsterListState.withBody(body: MonsterListState.Body): MonsterListState = copy(body = body)
 
-        try {
-            val monsters = repository.getAll(filter)
-            val body = if (monsters.isEmpty()) {
-                MonsterListState.Body.Empty
-            } else {
-                MonsterListState.Body.WithData(searchResults = monsters)
-            }
-            state.update { it.copy(body = body) }
-        } catch (e: CancellationException) {
-            throw e
-        } catch (e: Exception) {
-            state.update {
-                it.copy(body = MonsterListState.Body.Error(errorMessage = Res.string.error_while_loading_monsters))
-            }
+    override fun loadingBody(): MonsterListState.Body = MonsterListState.Body.Loading
+
+    override fun errorBody(): MonsterListState.Body =
+        MonsterListState.Body.Error(errorMessage = Res.string.error_while_loading_monsters)
+
+    override fun showsContent(body: MonsterListState.Body): Boolean =
+        body is MonsterListState.Body.WithData || body is MonsterListState.Body.Empty
+
+    override suspend fun loadContent(): MonsterListState.Body {
+        val monsters = repository.getAll(mutableState.value.filter)
+        return if (monsters.isEmpty()) {
+            MonsterListState.Body.Empty
+        } else {
+            MonsterListState.Body.WithData(searchResults = monsters)
         }
     }
 }
