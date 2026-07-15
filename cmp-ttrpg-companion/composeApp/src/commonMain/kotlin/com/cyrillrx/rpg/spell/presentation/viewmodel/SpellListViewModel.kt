@@ -1,37 +1,29 @@
 package com.cyrillrx.rpg.spell.presentation.viewmodel
 
-import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.core.domain.toggled
-import com.cyrillrx.rpg.core.presentation.viewmodel.BaseListViewModel
+import com.cyrillrx.rpg.core.presentation.viewmodel.SearchableListViewModel
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.domain.SpellFilter
 import com.cyrillrx.rpg.spell.domain.SpellRepository
 import com.cyrillrx.rpg.spell.domain.cycled
 import com.cyrillrx.rpg.spell.presentation.SpellListState
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
-import kotlinx.coroutines.launch
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_while_loading_spells
-import kotlin.coroutines.cancellation.CancellationException
 
 class SpellListViewModel(
     private val repository: SpellRepository,
-) : BaseListViewModel() {
-
-    private var updateJob: Job? = null
-    val state: StateFlow<SpellListState>
-        field = MutableStateFlow(SpellListState(body = SpellListState.Body.Empty))
+) : SearchableListViewModel<SpellListState, SpellListState.Body>(
+        initialState = SpellListState(body = SpellListState.Body.Loading),
+    ) {
 
     init {
-        refreshData()
+        refresh()
     }
 
     fun filterByQuery(query: String) {
-        updateFilter { it.copy(query = query) }
+        updateFilter(debounce = true) { it.copy(query = query) }
     }
 
     fun onLevelToggled(level: Int) {
@@ -54,35 +46,29 @@ class SpellListViewModel(
         updateFilter { SpellFilter(query = it.query) }
     }
 
-    private fun updateFilter(transform: (SpellFilter) -> SpellFilter) {
-        state.update { it.copy(filter = transform(it.filter)) }
-        scrollToTop()
-        refreshData()
+    private fun updateFilter(debounce: Boolean = false, transform: (SpellFilter) -> SpellFilter) {
+        mutableState.update { it.copy(filter = transform(it.filter)) }
+        refresh(debounce = debounce, resetScroll = true)
     }
 
-    private fun refreshData() {
-        updateJob?.cancel()
-        updateJob = viewModelScope.launch { updateData() }
-    }
+    override fun SpellListState.body(): SpellListState.Body = body
 
-    private suspend fun updateData() {
-        val filter = state.value.filter
-        state.update { it.copy(body = SpellListState.Body.Loading) }
+    override fun SpellListState.withBody(body: SpellListState.Body): SpellListState = copy(body = body)
 
-        try {
-            val spells = repository.getAll(filter)
-            val body = if (spells.isEmpty()) {
-                SpellListState.Body.Empty
-            } else {
-                SpellListState.Body.WithData(spells)
-            }
-            state.update { it.copy(body = body) }
-        } catch (e: CancellationException) {
-            throw e
-        } catch (e: Exception) {
-            state.update {
-                it.copy(body = SpellListState.Body.Error(errorMessage = Res.string.error_while_loading_spells))
-            }
+    override fun loadingBody(): SpellListState.Body = SpellListState.Body.Loading
+
+    override fun errorBody(): SpellListState.Body =
+        SpellListState.Body.Error(errorMessage = Res.string.error_while_loading_spells)
+
+    override fun showsContent(body: SpellListState.Body): Boolean =
+        body is SpellListState.Body.WithData || body is SpellListState.Body.Empty
+
+    override suspend fun loadContent(): SpellListState.Body {
+        val spells = repository.getAll(mutableState.value.filter)
+        return if (spells.isEmpty()) {
+            SpellListState.Body.Empty
+        } else {
+            SpellListState.Body.WithData(spells)
         }
     }
 }

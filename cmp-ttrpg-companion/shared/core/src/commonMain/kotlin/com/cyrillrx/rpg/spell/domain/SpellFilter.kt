@@ -35,6 +35,8 @@ data class SpellFilter(
             characterClasses.isNotEmpty() ||
             levels.isNotEmpty() ||
             components.values.any { it != ComponentFilterState.NONE }
+
+    internal val trimmedQuery: String = query.trim()
 }
 
 fun List<Spell>.applyFilter(filter: SpellFilter?): List<Spell> {
@@ -53,7 +55,7 @@ internal fun Spell.matches(filter: SpellFilter): Boolean =
                 ComponentFilterState.EXCLUDED -> !component.isPresentIn(components)
             }
         } &&
-        (filter.query.isBlank() || matchesQuery(filter.query))
+        (filter.trimmedQuery.isEmpty() || matchesQuery(filter.trimmedQuery))
 
 private fun Spell.ComponentType.isPresentIn(components: Spell.Components): Boolean = when (this) {
     Spell.ComponentType.VERBAL -> components.verbal
@@ -61,10 +63,8 @@ private fun Spell.ComponentType.isPresentIn(components: Spell.Components): Boole
     Spell.ComponentType.MATERIAL -> components.material
 }
 
-private fun Spell.matchesQuery(query: String): Boolean {
-    val trimmed = query.trim()
-    return translations.values.any { translation ->
-        translation.name.contains(trimmed, ignoreCase = true) ||
-            translation.description.contains(trimmed, ignoreCase = true)
+private fun Spell.matchesQuery(query: String): Boolean =
+    translations.values.any { translation ->
+        translation.name.contains(query, ignoreCase = true) ||
+            translation.description.contains(query, ignoreCase = true)
     }
-}

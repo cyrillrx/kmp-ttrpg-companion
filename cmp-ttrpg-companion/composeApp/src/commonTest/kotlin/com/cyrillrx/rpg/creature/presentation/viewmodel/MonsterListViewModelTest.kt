@@ -1,5 +1,6 @@
 package com.cyrillrx.rpg.creature.presentation.viewmodel
 
+import com.cyrillrx.rpg.core.presentation.viewmodel.SEARCH_DEBOUNCE_MS
 import com.cyrillrx.rpg.creature.data.SampleMonsterRepository
 import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.creature.domain.MonsterFilter
@@ -10,6 +11,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
+import kotlinx.coroutines.test.advanceTimeBy
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
@@ -165,6 +167,70 @@ class MonsterListViewModelTest {
     }
 
     @Test
+    fun `filterByQuery debounces rapid input into a single load`() = runTest(testDispatcher) {
+        val countingRepository = CountingMonsterRepository()
+        val viewModel = MonsterListViewModel(countingRepository)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+        val loadsAfterInit = countingRepository.getAllCount
+
+        viewModel.filterByQuery("a")
+        advanceTimeBy(SEARCH_DEBOUNCE_MS / 2)
+        viewModel.filterByQuery("ab")
+        advanceTimeBy(SEARCH_DEBOUNCE_MS / 2)
+        viewModel.filterByQuery("abc")
+        advanceUntilIdle()
+
+        assertEquals(expected = loadsAfterInit + 1, actual = countingRepository.getAllCount)
+        assertEquals(expected = "abc", actual = viewModel.state.value.filter.query)
+    }
+
+    @Test
+    fun `filterByQuery does not flash Loading while data is shown`() = runTest(testDispatcher) {
+        val viewModel = MonsterListViewModel(repository)
+        val bodies = mutableListOf<MonsterListState.Body>()
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect { bodies.add(it.body) }
+        }
+
+        advanceUntilIdle()
+        bodies.clear()
+
+        viewModel.filterByQuery(goblin.resolveTranslation("en").name)
+        advanceUntilIdle()
+
+        assertFalse(bodies.any { it is MonsterListState.Body.Loading })
+        assertIs<MonsterListState.Body.WithData>(viewModel.state.value.body)
+    }
+
+    @Test
+    fun `filterByQuery does not flash Loading after an empty result`() = runTest(testDispatcher) {
+        val viewModel = MonsterListViewModel(repository)
+        val bodies = mutableListOf<MonsterListState.Body>()
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect { bodies.add(it.body) }
+        }
+
+        advanceUntilIdle()
+        viewModel.filterByQuery("no_match")
+        advanceUntilIdle()
+        assertIs<MonsterListState.Body.Empty>(viewModel.state.value.body)
+        bodies.clear()
+
+        viewModel.filterByQuery("still_no_match")
+        advanceUntilIdle()
+
+        assertFalse(bodies.any { it is MonsterListState.Body.Loading })
+        assertIs<MonsterListState.Body.Empty>(viewModel.state.value.body)
+    }
+
+    @Test
     fun `state is Error when repository throws`() = runTest(testDispatcher) {
         val failingRepository = FailingMonsterRepository()
         val viewModel = MonsterListViewModel(failingRepository)
@@ -187,4 +253,17 @@ private class FailingMonsterRepository : MonsterRepository {
     override suspend fun getById(id: String): Monster? {
         throw RuntimeException("Simulated repository error")
     }
+}
+
+private class CountingMonsterRepository : MonsterRepository {
+    private val delegate = SampleMonsterRepository()
+    var getAllCount = 0
+        private set
+
+    override suspend fun getAll(filter: MonsterFilter?): List<Monster> {
+        getAllCount++
+        return delegate.getAll(filter)
+    }
+
+    override suspend fun getById(id: String): Monster? = delegate.getById(id)
 }

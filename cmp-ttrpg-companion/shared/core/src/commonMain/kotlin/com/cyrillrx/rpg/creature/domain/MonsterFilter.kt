@@ -6,6 +6,8 @@ data class MonsterFilter(
     val challengeRatings: Set<Float> = emptySet(),
 ) {
     val hasActiveFilters: Boolean = types.isNotEmpty() || challengeRatings.isNotEmpty()
+
+    internal val trimmedQuery: String = query.trim()
 }
 
 fun List<Monster>.applyFilter(filter: MonsterFilter?): List<Monster> {
@@ -16,12 +18,10 @@ fun List<Monster>.applyFilter(filter: MonsterFilter?): List<Monster> {
 internal fun Monster.matches(filter: MonsterFilter): Boolean =
     (filter.types.isEmpty() || filter.types.any { it in types }) &&
         (filter.challengeRatings.isEmpty() || filter.challengeRatings.contains(challengeRating)) &&
-        (filter.query.isBlank() || matches(filter.query))
+        (filter.trimmedQuery.isEmpty() || matches(filter.trimmedQuery))
 
-private fun Monster.matches(query: String): Boolean {
-    val trimmedQuery = query.trim()
-    return translations.values.any { t ->
-        t.name.contains(trimmedQuery, ignoreCase = true) ||
-            t.description.contains(trimmedQuery, ignoreCase = true)
+private fun Monster.matches(query: String): Boolean =
+    translations.values.any { t ->
+        t.name.contains(query, ignoreCase = true) ||
+            t.description.contains(query, ignoreCase = true)
     }
-}
