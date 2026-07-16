@@ -72,5 +72,10 @@ private const val SCROLL_ITERATIONS = 3
 // depend on composeApp, so the values are duplicated rather than referenced. Targeting by resource
 // id (not localized home-button text) keeps generation independent of the device locale.
 private const val COMPENDIUM_LIST_TAG = "compendium_list"
-private const val HOME_ANCHOR_TAG = "home_spell_entry"
-private val COMPENDIUM_ENTRY_TAGS = listOf("home_spell_entry", "home_magical_item_entry", "home_monster_entry")
+private const val HOME_SPELL_ENTRY_TAG = "home_spell_entry"
+private const val HOME_MAGICAL_ITEM_ENTRY_TAG = "home_magical_item_entry"
+private const val HOME_MONSTER_ENTRY_TAG = "home_monster_entry"
+private val COMPENDIUM_ENTRY_TAGS = listOf(HOME_SPELL_ENTRY_TAG, HOME_MAGICAL_ITEM_ENTRY_TAG, HOME_MONSTER_ENTRY_TAG)
+
+// The spell entry doubles as the home anchor waited on after returning from each list.
+private const val HOME_ANCHOR_TAG = HOME_SPELL_ENTRY_TAG
