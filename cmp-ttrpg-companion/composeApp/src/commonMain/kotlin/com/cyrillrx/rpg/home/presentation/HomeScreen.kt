@@ -22,11 +22,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.core.presentation.HOME_MAGICAL_ITEM_ENTRY_TEST_TAG
+import com.cyrillrx.rpg.core.presentation.HOME_MONSTER_ENTRY_TEST_TAG
+import com.cyrillrx.rpg.core.presentation.HOME_SPELL_ENTRY_TEST_TAG
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.contentMaxWidth
@@ -148,19 +152,25 @@ private fun CompendiumSection(router: HomeRouter, modifier: Modifier = Modifier)
                 label = stringResource(Res.string.btn_spell_book),
                 icon = Icons.Filled.AutoAwesome,
                 onClick = router::openSpellCompendium,
-                modifier = Modifier.weight(1f),
+                modifier = Modifier
+                    .weight(1f)
+                    .testTag(HOME_SPELL_ENTRY_TEST_TAG),
             )
             IconLabelButton(
                 label = stringResource(Res.string.btn_magical_items),
                 icon = Icons.Filled.Diamond,
                 onClick = router::openMagicalItemCompendium,
-                modifier = Modifier.weight(1f),
+                modifier = Modifier
+                    .weight(1f)
+                    .testTag(HOME_MAGICAL_ITEM_ENTRY_TEST_TAG),
             )
             IconLabelButton(
                 label = stringResource(Res.string.btn_bestiary),
                 icon = Icons.Filled.Pets,
                 onClick = router::openMonsterCompendium,
-                modifier = Modifier.weight(1f),
+                modifier = Modifier
+                    .weight(1f)
+                    .testTag(HOME_MONSTER_ENTRY_TEST_TAG),
             )
         }
     }
