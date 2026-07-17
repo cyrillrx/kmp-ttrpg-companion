@@ -3,6 +3,7 @@ package com.cyrillrx.rpg.settings.data
 import com.cyrillrx.rpg.core.data.cache.Database
 import com.cyrillrx.rpg.core.data.cache.DatabaseDriverFactory
 import com.cyrillrx.rpg.settings.domain.DistanceUnit
+import com.cyrillrx.rpg.settings.domain.Palette
 import com.cyrillrx.rpg.settings.domain.Theme
 import com.cyrillrx.rpg.settings.domain.UserPreferences
 import com.cyrillrx.rpg.settings.domain.UserPreferencesRepository
@@ -34,6 +35,13 @@ class SqlDelightUserPreferencesRepository(
         withContext(ioDispatcher) {
             db.updateTheme(theme)
             preferences.update { it.copy(theme = theme) }
+        }
+    }
+
+    override suspend fun setPalette(palette: Palette) {
+        withContext(ioDispatcher) {
+            db.updatePalette(palette)
+            preferences.update { it.copy(palette = palette) }
         }
     }
 
