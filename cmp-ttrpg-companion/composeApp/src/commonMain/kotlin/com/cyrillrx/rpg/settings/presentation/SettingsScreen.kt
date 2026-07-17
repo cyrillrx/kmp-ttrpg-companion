@@ -21,6 +21,7 @@ import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.settings.domain.DistanceUnit
+import com.cyrillrx.rpg.settings.domain.Palette
 import com.cyrillrx.rpg.settings.domain.Theme
 import com.cyrillrx.rpg.settings.domain.UserPreferences
 import com.cyrillrx.rpg.settings.domain.UserPreferencesRepository
@@ -31,7 +32,11 @@ import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
+import rpg_companion.composeapp.generated.resources.settings_palette_arcane
+import rpg_companion.composeapp.generated.resources.settings_palette_dragon
+import rpg_companion.composeapp.generated.resources.settings_palette_grove
 import rpg_companion.composeapp.generated.resources.settings_section_distance_unit
+import rpg_companion.composeapp.generated.resources.settings_section_palette
 import rpg_companion.composeapp.generated.resources.settings_section_theme
 import rpg_companion.composeapp.generated.resources.settings_theme_dark
 import rpg_companion.composeapp.generated.resources.settings_theme_light
@@ -50,6 +55,7 @@ fun SettingsScreen(
     SettingsScreen(
         preferences = preferences,
         onThemeSelected = viewModel::setTheme,
+        onPaletteSelected = viewModel::setPalette,
         onDistanceUnitSelected = viewModel::setDistanceUnit,
         router = router,
     )
@@ -59,6 +65,7 @@ fun SettingsScreen(
 fun SettingsScreen(
     preferences: UserPreferences,
     onThemeSelected: (Theme) -> Unit,
+    onPaletteSelected: (Palette) -> Unit,
     onDistanceUnitSelected: (DistanceUnit) -> Unit,
     router: SettingsRouter,
 ) {
@@ -88,6 +95,18 @@ fun SettingsScreen(
                 },
                 selected = preferences.theme,
                 onOptionSelected = onThemeSelected,
+            )
+            SettingsSectionRow(
+                titleRes = Res.string.settings_section_palette,
+                options = remember {
+                    listOf(
+                        Palette.ARCANE to Res.string.settings_palette_arcane,
+                        Palette.DRAGON to Res.string.settings_palette_dragon,
+                        Palette.GROVE to Res.string.settings_palette_grove,
+                    )
+                },
+                selected = preferences.palette,
+                onOptionSelected = onPaletteSelected,
             )
             SettingsSectionRow(
                 titleRes = Res.string.settings_section_distance_unit,
@@ -135,6 +154,7 @@ private fun PreviewSettingsScreenLight() {
         SettingsScreen(
             preferences = UserPreferences(theme = Theme.LIGHT),
             onThemeSelected = {},
+            onPaletteSelected = {},
             onDistanceUnitSelected = {},
             router = NoOpRouter(),
         )
@@ -148,6 +168,7 @@ private fun PreviewSettingsScreenDark() {
         SettingsScreen(
             preferences = UserPreferences(theme = Theme.DARK),
             onThemeSelected = {},
+            onPaletteSelected = {},
             onDistanceUnitSelected = {},
             router = NoOpRouter(),
         )

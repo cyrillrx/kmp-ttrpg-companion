@@ -10,6 +10,12 @@
     <string name="settings_theme_dark">Dark</string>
     <string name="settings_theme_system">System</string>
 
+    <!--  Palette  -->
+    <string name="settings_section_palette">Palette</string>
+    <string name="settings_palette_arcane">Arcane</string>
+    <string name="settings_palette_dragon">Dragon</string>
+    <string name="settings_palette_grove">Grove</string>
+
     <!--  Distance unit  -->
     <string name="settings_section_distance_unit">Distance unit</string>
     <string name="settings_unit_feet">Feet</string>
