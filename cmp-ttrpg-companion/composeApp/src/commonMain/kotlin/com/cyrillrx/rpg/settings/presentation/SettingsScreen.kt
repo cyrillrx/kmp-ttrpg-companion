@@ -14,7 +14,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
@@ -44,6 +43,23 @@ import rpg_companion.composeapp.generated.resources.settings_theme_system
 import rpg_companion.composeapp.generated.resources.settings_unit_feet
 import rpg_companion.composeapp.generated.resources.settings_unit_meters
 import rpg_companion.composeapp.generated.resources.title_settings
+
+private val themeOptions = listOf(
+    Theme.LIGHT to Res.string.settings_theme_light,
+    Theme.DARK to Res.string.settings_theme_dark,
+    Theme.SYSTEM to Res.string.settings_theme_system,
+)
+
+private val paletteOptions = listOf(
+    Palette.ARCANE to Res.string.settings_palette_arcane,
+    Palette.DRAGON to Res.string.settings_palette_dragon,
+    Palette.GROVE to Res.string.settings_palette_grove,
+)
+
+private val distanceUnitOptions = listOf(
+    DistanceUnit.FEET to Res.string.settings_unit_feet,
+    DistanceUnit.METERS to Res.string.settings_unit_meters,
+)
 
 @Composable
 fun SettingsScreen(
@@ -86,36 +102,19 @@ fun SettingsScreen(
         ) {
             SettingsSectionRow(
                 titleRes = Res.string.settings_section_theme,
-                options = remember {
-                    listOf(
-                        Theme.LIGHT to Res.string.settings_theme_light,
-                        Theme.DARK to Res.string.settings_theme_dark,
-                        Theme.SYSTEM to Res.string.settings_theme_system,
-                    )
-                },
+                options = themeOptions,
                 selected = preferences.theme,
                 onOptionSelected = onThemeSelected,
             )
             SettingsSectionRow(
                 titleRes = Res.string.settings_section_palette,
-                options = remember {
-                    listOf(
-                        Palette.ARCANE to Res.string.settings_palette_arcane,
-                        Palette.DRAGON to Res.string.settings_palette_dragon,
-                        Palette.GROVE to Res.string.settings_palette_grove,
-                    )
-                },
+                options = paletteOptions,
                 selected = preferences.palette,
                 onOptionSelected = onPaletteSelected,
             )
             SettingsSectionRow(
                 titleRes = Res.string.settings_section_distance_unit,
-                options = remember {
-                    listOf(
-                        DistanceUnit.FEET to Res.string.settings_unit_feet,
-                        DistanceUnit.METERS to Res.string.settings_unit_meters,
-                    )
-                },
+                options = distanceUnitOptions,
                 selected = preferences.distanceUnit,
                 onOptionSelected = onDistanceUnitSelected,
             )
