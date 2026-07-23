@@ -32,6 +32,7 @@ class SqlDelightUserPreferencesRepository(
     }
 
     override suspend fun setTheme(theme: Theme) {
+        if (preferences.value.theme == theme) return
         withContext(ioDispatcher) {
             db.updateTheme(theme)
             preferences.update { it.copy(theme = theme) }
@@ -39,6 +40,7 @@ class SqlDelightUserPreferencesRepository(
     }
 
     override suspend fun setPalette(palette: Palette) {
+        if (preferences.value.palette == palette) return
         withContext(ioDispatcher) {
             db.updatePalette(palette)
             preferences.update { it.copy(palette = palette) }
@@ -46,6 +48,7 @@ class SqlDelightUserPreferencesRepository(
     }
 
     override suspend fun setDistanceUnit(distanceUnit: DistanceUnit) {
+        if (preferences.value.distanceUnit == distanceUnit) return
         withContext(ioDispatcher) {
             db.updateDistanceUnit(distanceUnit)
             preferences.update { it.copy(distanceUnit = distanceUnit) }
