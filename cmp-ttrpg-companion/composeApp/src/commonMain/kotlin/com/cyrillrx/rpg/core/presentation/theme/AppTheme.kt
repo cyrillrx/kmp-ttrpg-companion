@@ -1,6 +1,7 @@
 package com.cyrillrx.rpg.core.presentation.theme
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
@@ -15,8 +16,14 @@ fun AppTheme(
     palette: Palette = Palette.ARCANE,
     content: @Composable () -> Unit,
 ) {
+    val darkTheme = when (theme) {
+        Theme.LIGHT -> false
+        Theme.DARK -> true
+        Theme.SYSTEM -> isSystemInDarkTheme()
+    }
+    val appPalette = palette.toAppPalette()
     MaterialTheme(
-        colorScheme = palette.colorScheme(theme),
+        colorScheme = if (darkTheme) appPalette.dark else appPalette.light,
         typography = Typography,
         shapes = Shapes,
         content = content,

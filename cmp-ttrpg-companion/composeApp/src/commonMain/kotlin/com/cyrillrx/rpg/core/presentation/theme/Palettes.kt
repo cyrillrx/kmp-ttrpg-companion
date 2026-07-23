@@ -1,30 +1,18 @@
 package com.cyrillrx.rpg.core.presentation.theme
 
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import com.cyrillrx.rpg.settings.domain.Palette
-import com.cyrillrx.rpg.settings.domain.Theme
 
-/**
- * Resolves a domain [Palette] to its Material 3 [ColorScheme] for the given [theme]
- * (light / dark / follow-system). Raw color literals live here rather than in component code.
- */
-@Composable
-fun Palette.colorScheme(theme: Theme): ColorScheme {
-    val darkTheme = when (theme) {
-        Theme.LIGHT -> false
-        Theme.DARK -> true
-        Theme.SYSTEM -> isSystemInDarkTheme()
-    }
-    return when (this) {
-        Palette.ARCANE -> if (darkTheme) ArcaneDarkScheme else ArcaneLightScheme
-        Palette.DRAGON -> if (darkTheme) DragonDarkScheme else DragonLightScheme
-        Palette.GROVE -> if (darkTheme) GroveDarkScheme else GroveLightScheme
-    }
+data class AppPalette(val light: ColorScheme, val dark: ColorScheme)
+
+/** Maps a domain [Palette] to its light/dark schemes. Exhaustive: a new palette must be listed here. */
+fun Palette.toAppPalette(): AppPalette = when (this) {
+    Palette.ARCANE -> AppPalette(ArcaneLightScheme, ArcaneDarkScheme)
+    Palette.DRAGON -> AppPalette(DragonLightScheme, DragonDarkScheme)
+    Palette.GROVE -> AppPalette(GroveLightScheme, GroveDarkScheme)
 }
 
 private val ArcaneLightScheme = lightColorScheme(
