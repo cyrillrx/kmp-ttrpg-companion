@@ -36,13 +36,16 @@ class ScrollBenchmark {
         packageName = APP_PACKAGE,
         metrics = listOf(FrameTimingMetric()),
         compilationMode = mode,
-        startupMode = StartupMode.COLD,
+        startupMode = StartupMode.WARM,
         iterations = ITERATIONS,
         setupBlock = {
+            // Launch and navigate to the spell list here so the measured block below captures scroll
+            // frames only, not cold-start/navigation frames. StartupMode.WARM recreates the activity
+            // before this block, keeping each iteration's starting state consistent.
             pressHome()
             startActivityAndWait()
-            val entry = device.wait(Until.findObject(By.text(SPELL_LIST_ENTRY)), WAIT_TIMEOUT)
-                ?: error("Home entry '$SPELL_LIST_ENTRY' not found; cannot open the spell list.")
+            val entry = device.wait(Until.findObject(By.res(SPELL_ENTRY_TAG)), WAIT_TIMEOUT)
+                ?: error("Home entry '$SPELL_ENTRY_TAG' not found; cannot open the spell list.")
             entry.click()
             device.waitForIdle()
         },
@@ -64,8 +67,9 @@ private const val APP_PACKAGE = "com.cyrillrx.rpg"
 private const val WAIT_TIMEOUT = 5_000L
 private const val ITERATIONS = 10
 private const val SCROLL_ITERATIONS = 3
-private const val SPELL_LIST_ENTRY = "Spellbook"
 
-// Keep in sync with COMPENDIUM_LIST_TEST_TAG in composeApp's core/presentation/TestTags.kt. This
-// module cannot depend on composeApp, so the value is duplicated rather than referenced.
+// Keep in sync with the test tags in composeApp's core/presentation/TestTags.kt. This module cannot
+// depend on composeApp, so the values are duplicated rather than referenced. Targeting by resource
+// id (not localized home-button text) keeps the benchmark independent of the device locale.
 private const val COMPENDIUM_LIST_TAG = "compendium_list"
+private const val SPELL_ENTRY_TAG = "home_spell_entry"
