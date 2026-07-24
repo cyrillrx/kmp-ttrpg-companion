@@ -7,6 +7,7 @@ import com.cyrillrx.rpg.campaign.domain.Campaign
 import com.cyrillrx.rpg.campaign.domain.RuleSet
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.settings.domain.DistanceUnit
+import com.cyrillrx.rpg.settings.domain.Palette
 import com.cyrillrx.rpg.settings.domain.Theme
 import com.cyrillrx.rpg.settings.domain.UserPreferences
 import com.cyrillrx.rpg.userlist.domain.UserList
@@ -80,10 +81,12 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
     }
 
     fun getUserPreferences(): UserPreferences =
-        dbQuery.getUserPreferences { _, theme, distanceUnit ->
+        dbQuery.getUserPreferences { _, theme, palette, distanceUnit ->
             UserPreferences(
                 theme = Theme.entries.find { it.name.equals(theme, ignoreCase = true) }
                     ?: Theme.SYSTEM,
+                palette = Palette.entries.find { it.name.equals(palette, ignoreCase = true) }
+                    ?: Palette.ARCANE,
                 distanceUnit = DistanceUnit.entries.find { it.name.equals(distanceUnit, ignoreCase = true) }
                     ?: DistanceUnit.FEET,
             )
@@ -91,6 +94,10 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
 
     fun updateTheme(theme: Theme) {
         dbQuery.updateTheme(theme.name.lowercase())
+    }
+
+    fun updatePalette(palette: Palette) {
+        dbQuery.updatePalette(palette.name.lowercase())
     }
 
     fun updateDistanceUnit(distanceUnit: DistanceUnit) {

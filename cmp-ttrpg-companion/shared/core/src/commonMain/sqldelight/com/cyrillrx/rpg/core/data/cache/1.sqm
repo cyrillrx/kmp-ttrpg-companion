@@ -1,0 +1,1 @@
+ALTER TABLE UserPreferencesEntity ADD COLUMN palette TEXT NOT NULL DEFAULT 'arcane';

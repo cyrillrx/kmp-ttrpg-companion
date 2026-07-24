@@ -14,13 +14,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.settings.domain.DistanceUnit
+import com.cyrillrx.rpg.settings.domain.Palette
 import com.cyrillrx.rpg.settings.domain.Theme
 import com.cyrillrx.rpg.settings.domain.UserPreferences
 import com.cyrillrx.rpg.settings.domain.UserPreferencesRepository
@@ -31,7 +31,11 @@ import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
+import rpg_companion.composeapp.generated.resources.settings_palette_arcane
+import rpg_companion.composeapp.generated.resources.settings_palette_dragon
+import rpg_companion.composeapp.generated.resources.settings_palette_grove
 import rpg_companion.composeapp.generated.resources.settings_section_distance_unit
+import rpg_companion.composeapp.generated.resources.settings_section_palette
 import rpg_companion.composeapp.generated.resources.settings_section_theme
 import rpg_companion.composeapp.generated.resources.settings_theme_dark
 import rpg_companion.composeapp.generated.resources.settings_theme_light
@@ -39,6 +43,23 @@ import rpg_companion.composeapp.generated.resources.settings_theme_system
 import rpg_companion.composeapp.generated.resources.settings_unit_feet
 import rpg_companion.composeapp.generated.resources.settings_unit_meters
 import rpg_companion.composeapp.generated.resources.title_settings
+
+private val themeOptions = listOf(
+    Theme.LIGHT to Res.string.settings_theme_light,
+    Theme.DARK to Res.string.settings_theme_dark,
+    Theme.SYSTEM to Res.string.settings_theme_system,
+)
+
+private val paletteOptions = listOf(
+    Palette.ARCANE to Res.string.settings_palette_arcane,
+    Palette.DRAGON to Res.string.settings_palette_dragon,
+    Palette.GROVE to Res.string.settings_palette_grove,
+)
+
+private val distanceUnitOptions = listOf(
+    DistanceUnit.FEET to Res.string.settings_unit_feet,
+    DistanceUnit.METERS to Res.string.settings_unit_meters,
+)
 
 @Composable
 fun SettingsScreen(
@@ -50,6 +71,7 @@ fun SettingsScreen(
     SettingsScreen(
         preferences = preferences,
         onThemeSelected = viewModel::setTheme,
+        onPaletteSelected = viewModel::setPalette,
         onDistanceUnitSelected = viewModel::setDistanceUnit,
         router = router,
     )
@@ -59,6 +81,7 @@ fun SettingsScreen(
 fun SettingsScreen(
     preferences: UserPreferences,
     onThemeSelected: (Theme) -> Unit,
+    onPaletteSelected: (Palette) -> Unit,
     onDistanceUnitSelected: (DistanceUnit) -> Unit,
     router: SettingsRouter,
 ) {
@@ -79,24 +102,19 @@ fun SettingsScreen(
         ) {
             SettingsSectionRow(
                 titleRes = Res.string.settings_section_theme,
-                options = remember {
-                    listOf(
-                        Theme.LIGHT to Res.string.settings_theme_light,
-                        Theme.DARK to Res.string.settings_theme_dark,
-                        Theme.SYSTEM to Res.string.settings_theme_system,
-                    )
-                },
+                options = themeOptions,
                 selected = preferences.theme,
                 onOptionSelected = onThemeSelected,
             )
             SettingsSectionRow(
+                titleRes = Res.string.settings_section_palette,
+                options = paletteOptions,
+                selected = preferences.palette,
+                onOptionSelected = onPaletteSelected,
+            )
+            SettingsSectionRow(
                 titleRes = Res.string.settings_section_distance_unit,
-                options = remember {
-                    listOf(
-                        DistanceUnit.FEET to Res.string.settings_unit_feet,
-                        DistanceUnit.METERS to Res.string.settings_unit_meters,
-                    )
-                },
+                options = distanceUnitOptions,
                 selected = preferences.distanceUnit,
                 onOptionSelected = onDistanceUnitSelected,
             )
@@ -135,6 +153,7 @@ private fun PreviewSettingsScreenLight() {
         SettingsScreen(
             preferences = UserPreferences(theme = Theme.LIGHT),
             onThemeSelected = {},
+            onPaletteSelected = {},
             onDistanceUnitSelected = {},
             router = NoOpRouter(),
         )
@@ -148,6 +167,7 @@ private fun PreviewSettingsScreenDark() {
         SettingsScreen(
             preferences = UserPreferences(theme = Theme.DARK),
             onThemeSelected = {},
+            onPaletteSelected = {},
             onDistanceUnitSelected = {},
             router = NoOpRouter(),
         )

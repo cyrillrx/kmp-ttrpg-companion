@@ -10,6 +10,12 @@
     <string name="settings_theme_dark">Sombre</string>
     <string name="settings_theme_system">Système</string>
 
+    <!--  Palette  -->
+    <string name="settings_section_palette">Palette</string>
+    <string name="settings_palette_arcane">Arcane</string>
+    <string name="settings_palette_dragon">Dragon</string>
+    <string name="settings_palette_grove">Bosquet</string>
+
     <!--  Distance unit  -->
     <string name="settings_section_distance_unit">Unité de distance</string>
     <string name="settings_unit_feet">Pieds</string>

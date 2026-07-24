@@ -106,7 +106,7 @@ fun App(dbDriverFactory: DatabaseDriverFactory) {
 
     if (!prefsInitialized) return
 
-    AppTheme(theme = prefs.theme) {
+    AppTheme(theme = prefs.theme, palette = prefs.palette) {
         CompositionLocalProvider(LocalDistanceUnit provides prefs.distanceUnit) {
             val backStack = rememberNavBackStack(navSavedStateConfig, MainRoute.Home)
 
