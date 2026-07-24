@@ -30,6 +30,17 @@ val DarkGrey = Color(0xFF414040)
 val DndParchment = Color(0xFFF0E8D0)
 val DndGold = Color(0xFFD4AF37)
 
+// Semantic error colors — palette-agnostic, shared by every palette.
+val ErrorLight = Color(0xFFBA1A1A)
+val OnErrorLight = Color(0xFFFFFFFF)
+val ErrorContainerLight = Color(0xFFFFDAD6)
+val OnErrorContainerLight = Color(0xFF410002)
+
+val ErrorDark = Color(0xFFFFB4AB)
+val OnErrorDark = Color(0xFF690005)
+val ErrorContainerDark = Color(0xFF93000A)
+val OnErrorContainerDark = Color(0xFFFFDAD6)
+
 // Domain / category accent colors — fixed brand hues, theme-independent.
 val WeaponColor = Color(0xFF9B0B4E)
 val ArmorColor = Color(0xFF007AB3)
