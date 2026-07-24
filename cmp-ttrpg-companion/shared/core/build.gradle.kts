@@ -70,6 +70,7 @@ sqldelight {
     databases {
         create("AppDatabase") {
             packageName.set("com.cyrillrx.rpg.cache")
+            schemaOutputDirectory.set(file("src/commonMain/sqldelight/databases"))
         }
     }
 }
