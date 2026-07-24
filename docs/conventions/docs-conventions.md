@@ -1,12 +1,18 @@
 # Documentation Conventions
 
-## File naming
+> **Single source of truth — do not duplicate here.**
+> The generic documentation conventions (file naming, Markdown tables) are maintained,
+> project-agnostic, in the shared
+> [`cyrillrx/coding-conventions`](https://github.com/cyrillrx/coding-conventions) repository.
+>
+> 📖 **Read the canonical document:**
+> <https://github.com/cyrillrx/coding-conventions/blob/main/conventions/docs-conventions.md>
 
-- All documentation files use `lowercase-with-hyphens.md`.
-- Exception: well-known tooling files (`README.md`, `AGENTS.md`, `CLAUDE.md`) stay uppercase — they are industry-standard names recognized by GitHub, Claude Code, or other tooling.
-- Structured documents keep their lowercase prefix: `prd-000-vision.md`, `adr-001-data-model.md`.
+The additions below are specific to this project's game-ruleset content and stay here.
 
-## Ruleset-scoped docs
+## Project-specific additions
+
+### Ruleset-scoped docs
 
 Files in `docs/data/` are scoped to a game ruleset using a filename prefix.
 
@@ -15,23 +21,10 @@ Files in `docs/data/` are scoped to a game ruleset using a filename prefix.
 - For a completely different system, use a distinct slug (e.g. `7th-sea-`, `pathfinder-`).
 - When a ruleset accumulates 10 or more files, move them into a dedicated subdirectory (e.g. `docs/data/srd/`).
 
-## `docs/rules/` naming
+### `docs/rules/` naming
 
 Files in `docs/rules/` name the **game system**, not the data source. Pattern: `{game-system}.md`.
 
 Examples: `5e-srd.md` (5e-compatible core rules), `7th-sea.md`.
 
 The ruleset prefix does NOT apply here — it is reserved for data content in `docs/data/`.
-
-## Markdown tables
-
-- Always align table columns with spaces so pipes are vertically aligned.
-- Include a separator row (`| --- | --- |`) after the header row.
-- Every table cell must have at least one space of padding on each side.
-
-Example:
-
-| Column A    | Column B         |
-| ----------- | ---------------- |
-| short value | a longer value   |
-| another row | yet another cell |

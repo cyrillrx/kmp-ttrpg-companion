@@ -1,64 +1,18 @@
 # Go Backend Conventions
 
-This document outlines the architectural patterns, coding conventions, and best practices for any Go services within the project.
+> **Single source of truth — do not duplicate here.**
+> The Go conventions (tech stack, layered architecture, coding style, testing) are maintained,
+> project-agnostic, in the shared
+> [`cyrillrx/coding-conventions`](https://github.com/cyrillrx/coding-conventions) repository.
+>
+> 📖 **Read the canonical document:**
+> <https://github.com/cyrillrx/coding-conventions/blob/main/conventions/go-conventions.md>
 
-Refer to `../../AGENTS.md` for project-wide guidelines.
+They apply as-is to the `server-go/` service. Only the project-specific bindings below differ.
 
-## 1. Tech Stack & Dependency Management
+## Project-specific additions
 
-- **Language**: Go (latest stable version).
-- **Package Manager**: Go Modules (`go.mod` / `go.sum`).
-- **Router**: `github.com/go-chi/chi/v5` (lightweight, idiomatic, stdlib-compatible).
-- **Dependency Management**: Keep `go.mod` and `go.sum` committed for reproducible builds.
-
-## 2. Architecture
-
-### Service Architecture
-
-- Follow a layered approach: **Handlers → Store interface → Store implementation**.
-- Keep the `CompendiumStore` interface as the sole boundary between HTTP handlers and data access.
-  This decouples routing logic from data source details and allows swapping JSON → DB without touching handlers.
-- Use `internal/` packages to enforce encapsulation within the module.
-
-### Package Layout
-
-```
-cmd/
-└── server/
-    └── main.go          ← entrypoint: wires store + router, starts server
-internal/
-├── handler/             ← HTTP handler functions (one file per resource)
-├── model/               ← response DTOs + raw JSON structs (one file per resource)
-└── store/
-    ├── store.go         ← CompendiumStore interface
-    └── json_store.go    ← JSON file-backed implementation
-```
-
-## 3. Coding Conventions
-
-- **Formatting**: Always run `gofmt` (enforced by `go vet` and most editors).
-- **Linting**: Use `go vet ./...` as a minimum. Consider `golangci-lint` for stricter checks.
-- **Error Handling**: Always handle errors explicitly. Use `fmt.Errorf("context: %w", err)` for wrapping.
-- **Naming**: Follow standard Go conventions — exported names are PascalCase, unexported are camelCase.
-- **Comments**: Document all exported types and functions with a `//` comment starting with the identifier name.
-
-## 4. API Design
-
-- Follow RESTful principles with resource-based URL paths (e.g. `/compendium/spells`).
-- Return `application/json` with consistent camelCase field names.
-- Use `json.NewEncoder(w).Encode(data)` for streaming responses.
-
-## 5. Testing
-
-- **Unit Tests**: Place test files alongside the code they test (`*_test.go`).
-- **Integration Tests**: Test the full HTTP stack using `net/http/httptest`.
-- Run with `go test ./...`.
-
-## 6. CI & Policies
-
-Refer to [`git-and-collaboration.md`](git-and-collaboration.md) for general CI policies.
-
-Go-specific CI requirements (`.github/workflows/ci-server-go.yml`):
-- `go build ./...` must pass.
-- `go test ./...` must pass.
-- `go vet ./...` must pass.
+- **Store name**: the canonical `Store` interface is realized here as `CompendiumStore`
+  (`internal/store/store.go`), backed by a JSON implementation (`internal/store/json_store.go`).
+- **CI workflow**: Go checks run in [`.github/workflows/ci-server-go.yml`](../../.github/workflows/ci-server-go.yml)
+  — `go build ./...`, `go test ./...`, and `go vet ./...` must all pass.

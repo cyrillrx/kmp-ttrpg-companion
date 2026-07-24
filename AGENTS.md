@@ -9,6 +9,11 @@ For feature specifications and product decisions, refer to the [Product Requirem
 
 ## 2. Project Guidelines and Conventions
 
+The conventions are maintained, project-agnostic, in the shared
+[`cyrillrx/coding-conventions`](https://github.com/cyrillrx/coding-conventions) repository — the single
+source of truth. The documents linked below are thin pointers to it; they carry only this project's
+specific bindings (module names, CI workflows, ruleset content). Do not duplicate the shared rules here.
+
 ### Collaboration and Communication
 
 - **Collaboration, Git & CI Conventions**: [`git-and-collaboration.md`](docs/conventions/git-and-collaboration.md)

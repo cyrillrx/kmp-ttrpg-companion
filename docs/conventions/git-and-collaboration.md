@@ -1,124 +1,41 @@
 # Git & Collaboration Conventions
 
-This document outlines the collaboration guidelines, Git conventions, and branching strategy used across the project.
-Adhering to these conventions helps maintain a clean, understandable, and traceable project history.
+> **Single source of truth — do not duplicate here.**
+> The Conventional Commits format, trunk-based branching, atomic-commit rules, PR etiquette,
+> authorship rule, and ADR guidance are maintained, project-agnostic, in the shared
+> [`cyrillrx/coding-conventions`](https://github.com/cyrillrx/coding-conventions) repository.
+>
+> 📖 **Read the canonical document:**
+> <https://github.com/cyrillrx/coding-conventions/blob/main/collaboration/git-and-collaboration.md>
+>
+> Code review emoji legend:
+> <https://github.com/cyrillrx/coding-conventions/blob/main/collaboration/code-review-emojis.md>
 
-Refer to `../../AGENTS.md` for overall project guidelines.
+Only the project-specific bindings below differ.
 
-## 1. Collaboration & Communication
+## Project-specific additions
 
-- **Respectful Interaction**: All interactions should be respectful and constructive.
-- **Clear Communication**: Be clear and concise in your communications (code comments, commit messages, pull request descriptions).
-- **Ask Questions**: Don't hesitate to ask questions if something is unclear.
+### Commit scopes
 
-## 2. Conventional Commits
+Use short, consistent scopes matching this repository's structure, e.g.
+`project`, `compose-app`, `server-rust`, `server-go`, `bruno-api`, `agents`, `prd`, `spell`, `campaign`.
 
-We follow **Conventional Commits** to keep the history clean and to allow automated changelog generation.
+AI/agent configuration changes use the `docs(agents)` scope (see [`AGENTS.md`](../../AGENTS.md)).
 
-### Commit Format
+### CI pipeline
 
-```
-<type>(<scope>): <subject>
+CI is split per component under [`.github/workflows/`](../../.github/workflows/):
+[`ci-kmp.yml`](../../.github/workflows/ci-kmp.yml) (KMP client — JVM tests via `./gradlew jvmTest`
+in `cmp-ttrpg-companion/`), [`ci-server-rust.yml`](../../.github/workflows/ci-server-rust.yml),
+[`ci-server-go.yml`](../../.github/workflows/ci-server-go.yml),
+[`ci-bruno.yml`](../../.github/workflows/ci-bruno.yml), and
+[`ci-compendium.yml`](../../.github/workflows/ci-compendium.yml). The relevant checks must pass
+for a PR to be mergeable.
 
-<body>
-```
+### ADRs
 
-- **Types**: `feat`, `fix`, `ui`, `refactor`, `style`, `docs`, `test`, `chore`, `ci`, `build` (and potentially `perf`, `security`).
-  - `feat` — new user-facing functionality
-  - `ui` — visible UI change that is not a new feature (e.g. removing an icon, adjusting layout, tweaking a component)
-  - `refactor` — internal code restructuring with **no visible change** to the user
-- **Scope**: The component affected (e.g., `project`, `compose-app`, `server-auth`, `bruno-api`, `agents`, `prd`).
-- **Subject**: Use the imperative, present tense: "change" not "changed" nor "changes". Don't capitalize the first letter. No dot (.) at the end.
+ADRs live in [`docs/adr/`](../adr/). Beyond the canonical triggers, this project requires an ADR for:
 
-## 3. Commit Examples
-
-Here are some examples of valid commit messages:
-
-- feat(compose-app): add new campaign creation form
-- fix(server-auth): prevent XSS attack in login endpoint
-- docs(project): update README.md with new project overview
-- docs(pdr): add product requirement document to describe spell filtering 
-- docs(agents): add co-authorship rule to AGENTS.md
-- style(compose-app): format `CampaignListScreen.kt` with ktlint
-- ui(spell): remove trailing chevron from spell list item
-- refactor(spring-server): extract common logging logic to a utility class
-- test(bruno-api): add E2E test for user registration flow
-- build(compose-app): update gradle wrapper to 8.x
-
-## 4. Trunk-Based Development Branching Strategy
-
-We utilize a **Trunk-Based Development** branching strategy. This means:
-
-- **Single Main Branch:** All development happens directly on or very close to a single main branch (often named `main`).
-- **Small, Frequent Commits:** Developers commit small changes frequently to the main branch, often multiple times a day.
-- **Short-Lived Feature Branches:** If feature branches are used, they are kept very short-lived and merged back into the main branch as quickly as possible (typically within a day or two). Branch names mirror commit types: `feat/short-description`, `fix/issue-description`, `refactor/short-description`, `docs/short-description`, `chore/short-description`, etc. (e.g., `feat/create-campaign`, `fix/login-xss`).
-- **Continuous Integration:** A robust Continuous Integration (CI) system is essential to automatically build and test changes pushed to the main branch, catching integration issues early.
-- **Feature Flags:** To deploy incomplete features without affecting users, feature flags (also known as feature toggles) are used to enable or disable features at runtime. This allows for continuous delivery and reduces the need for long-lived feature branches.
-
-This approach promotes continuous integration, reduces merge conflicts, and enables faster delivery of features.
-
-## 5. File Renames
-
-Always use `git mv <old-path> <new-path>` when renaming or moving files. Never delete and recreate.
-
-`git mv` preserves the file's history so that `git log --follow` and `git blame` remain meaningful across renames. A delete+create severs the history chain even when the content is nearly identical.
-
-Apply this to all file types: Kotlin sources, resource files, YAML data files, documentation, etc.
-
-## 6. Atomic & Incremental Commits
-
-Each commit must be a **single, self-contained logical change**. This makes code review easier, enables clean `git bisect` and `git revert`, and keeps the project history readable.
-
-- **One commit = one change**: a commit should do one thing — add a component, update a data model, add string resources, etc. Do not mix unrelated changes or changes across different layers in the same commit.
-- **Compilable at every commit**: the project must build and all tests must pass after each individual commit.
-- **Incremental on feature branches**: progress through small, successive commits that a reviewer can validate one by one. Avoid large "big bang" commits that bundle many changes together.
-- **Easy to revert**: an atomic commit can be reverted without side effects on unrelated code.
-
-### Examples
-
-Good (atomic):
-```
-feat(spell): add spell level string resources
-feat(spell): add SampleSpellRepository with diverse spells
-feat(spell): rewrite SpellListItem as compact card
-feat(spell): update SpellListScreen to use new SpellListItem
-```
-
-Bad (monolithic):
-```
-feat(spell): redesign spell list screen with new item, samples, and strings
-```
-
-## 7. Pull Request Etiquette
-
-### Authors
-
-- Keep the diff under 200 lines and 10 files when possible. For mechanical changes (renaming, moving files), exceptions are acceptable.
-- Proofread your own PR before submitting — check diff, description, and comments.
-- Assign reviewers directly on GitHub.
-
-### Reviewers
-
-- Review PRs within 24 hours when possible. If you're short on time, don't rush — an unreviewed PR is better than a rubber-stamped one.
-- Be constructive and kind: critique the code, not the author.
-- Back your comments with sources (docs, articles, benchmarks) rather than personal preference. Don't request changes you can't justify.
-- Use [Code Review Emojis](https://github.com/cyrillrx/coding-conventions/blob/main/code-review-emojis.md) to add meaning to your comments (blocking vs. non-blocking, suggestion vs. question, etc.).
-
-## 8. CI & Policies
-
-- **Pull Requests**: All code must be reviewed via PRs before merging into `main`.
-- **Code Quality**: PRs must pass all automated checks (linting, tests, build) on the CI pipeline. The CI pipeline (`.github/workflows/ci.yml`) runs `KMP Client - JVM Tests` (`./gradlew jvmTest` in `cmp-ttrpg-companion/`) on every PR targeting the default branch. It must pass for a PR to be mergeable.
-- **Warnings as Errors**: Treat compiler warnings seriously. Fix them proactively.
-- **Security Scans**: Integrate automated security scanning where applicable.
-
-## 9. Architecture Decision Records (ADRs)
-
-For any change that significantly affects the data model, source format, or technical architecture, an **ADR must be created or updated before starting the implementation**.
-
-ADRs live in [`docs/adr/`](../adr/) and follow the naming convention `adr-###-kebab-case-title.md`. Creating the ADR in a dedicated commit (or early in the implementation PR) before the bulk of the implementation is strongly encouraged — it gives reviewers context and prevents costly rework.
-
-Changes that require an ADR include, but are not limited to:
 - Compendium source format or schema changes
 - Data distribution format changes (JSON structure, API contracts)
-- New cross-cutting architectural patterns (deeplink conventions, navigation model, etc.)
 - Database schema changes with migration implications

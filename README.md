@@ -33,14 +33,19 @@ A digital toolkit for tabletop role-playing game sessions. Designed for Game Mas
 
 ### Conventions
 
-| File                                                                        | Description                                |
-|-----------------------------------------------------------------------------|--------------------------------------------|
-| [`CODING_CONVENTIONS.md`](docs/conventions/CODING_CONVENTIONS.md)           | Clean Code principles (all technologies)   |
-| [`GIT_AND_COLLABORATION.md`](docs/conventions/GIT_AND_COLLABORATION.md)     | Commit format, branching, CI policies      |
-| [`KMP_CONVENTIONS.md`](docs/conventions/KMP_CONVENTIONS.md)                 | KMP/Compose Multiplatform architecture     |
-| [`RUST_CONVENTIONS.md`](docs/conventions/RUST_CONVENTIONS.md)               | Rust conventions (Axum, server patterns)   |
-| [`GO_CONVENTIONS.md`](docs/conventions/GO_CONVENTIONS.md)                   | Go conventions (chi, server patterns)      |
-| [`BRUNO_CONVENTIONS.md`](docs/conventions/BRUNO_CONVENTIONS.md)             | API testing with Bruno                     |
+The conventions are maintained, project-agnostic, in the shared
+[`cyrillrx/coding-conventions`](https://github.com/cyrillrx/coding-conventions) repository (the single
+source of truth). The files below are thin pointers to it, plus any project-specific bindings.
+
+| File                                                                    | Description                                          |
+|-------------------------------------------------------------------------|------------------------------------------------------|
+| [`coding-conventions.md`](docs/conventions/coding-conventions.md)       | Clean Code principles (all technologies)             |
+| [`git-and-collaboration.md`](docs/conventions/git-and-collaboration.md) | Commit format, branching, CI policies                |
+| [`kmp-conventions.md`](docs/conventions/kmp-conventions.md)             | KMP/Compose Multiplatform architecture + E2E         |
+| [`rust-conventions.md`](docs/conventions/rust-conventions.md)           | Rust conventions (`server-rust/`)                    |
+| [`go-conventions.md`](docs/conventions/go-conventions.md)               | Go conventions (`server-go/`)                        |
+| [`bruno-conventions.md`](docs/conventions/bruno-conventions.md)         | API testing with Bruno                               |
+| [`docs-conventions.md`](docs/conventions/docs-conventions.md)           | Doc naming, Markdown tables, ruleset-scoped content  |
 
 ### Product Requirements
 
