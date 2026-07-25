@@ -27,7 +27,7 @@ A digital toolkit for tabletop role-playing game sessions. Designed for Game Mas
 | Document                                 | Description                                      |
 |------------------------------------------|--------------------------------------------------|
 | [`AGENTS.md`](AGENTS.md)                 | Central contributor guide — start here           |
-| [`docs/ROADMAP.md`](docs/ROADMAP.md)     | Planned phases and feature progress              |
+| [`docs/roadmap.md`](docs/roadmap.md)     | Planned phases and feature progress              |
 | [`docs/conventions/`](docs/conventions/) | Coding, Git, and technology-specific conventions |
 | [`docs/prd/`](docs/prd/)                 | Product Requirement Documents                    |
 
@@ -53,13 +53,13 @@ source of truth). The files below are thin pointers to it, plus any project-spec
 
 | PRD                                              | Feature                                                                                                                                            |
 |--------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
-| [`PRD-000`](docs/prd/PRD-000-VISION.md)          | Vision, roles, connectivity phases                                                                                                                 |
-| [`PRD-001`](docs/prd/PRD-001-REFERENCE-DATA.md)  | Reference data — [Spellbook](docs/prd/PRD-001a-SPELLBOOK.md) · [Items](docs/prd/PRD-001b-ITEM-LIST.md) · [Bestiary](docs/prd/PRD-001c-BESTIARY.md) |
-| [`PRD-002`](docs/prd/PRD-002-CHARACTER-SHEET.md) | Character sheets                                                                                                                                   |
-| [`PRD-003`](docs/prd/PRD-003-CAMPAIGNS.md)       | Campaigns                                                                                                                                          |
-| [`PRD-004`](docs/prd/PRD-004-NOTES.md)           | Notes                                                                                                                                              |
-| [`PRD-005`](docs/prd/PRD-005-GENERATORS.md)      | Generators                                                                                                                                         |
-| [`PRD-006`](docs/prd/PRD-006-DICE.md)            | Virtual dice                                                                                                                                       |
+| [`PRD-000`](docs/prd/prd-000-vision.md)          | Vision, roles, connectivity phases                                                                                                                 |
+| [`PRD-001`](docs/prd/prd-001-reference-data.md)  | Reference data — [Spellbook](docs/prd/prd-001a-spellbook.md) · [Items](docs/prd/prd-001b-item-list.md) · [Bestiary](docs/prd/prd-001c-bestiary.md) |
+| [`PRD-002`](docs/prd/prd-002-character-sheet.md) | Character sheets                                                                                                                                   |
+| [`PRD-003`](docs/prd/prd-003-campaigns.md)       | Campaigns                                                                                                                                          |
+| [`PRD-004`](docs/prd/prd-004-notes.md)           | Notes                                                                                                                                              |
+| [`PRD-005`](docs/prd/prd-005-generators.md)      | Generators                                                                                                                                         |
+| [`PRD-006`](docs/prd/prd-006-dice.md)            | Virtual dice                                                                                                                                       |
 
 ## Getting Started
 
