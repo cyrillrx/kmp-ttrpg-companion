@@ -1,17 +1,11 @@
 # Git & Collaboration Conventions
 
-> **Single source of truth — do not duplicate here.**
-> The Conventional Commits format, trunk-based branching, atomic-commit rules, PR etiquette,
-> authorship rule, and ADR guidance are maintained, project-agnostic, in the shared
-> [`cyrillrx/coding-conventions`](https://github.com/cyrillrx/coding-conventions) repository.
->
-> 📖 **Read the canonical document:**
-> <https://github.com/cyrillrx/coding-conventions/blob/main/collaboration/git-and-collaboration.md>
->
-> Code review emoji legend:
-> <https://github.com/cyrillrx/coding-conventions/blob/main/collaboration/code-review-emojis.md>
+> [!IMPORTANT]
+> **Canonical source of truth** (shared, project-agnostic): [`collaboration/git-and-collaboration.md`](https://github.com/cyrillrx/coding-conventions/blob/main/collaboration/git-and-collaboration.md) — do not duplicate here.
 
-Only the project-specific bindings below differ.
+Conventional Commits, trunk-based branching, atomic commits, PR etiquette, the authorship rule, ADR
+guidance, and the [code review emoji legend](https://github.com/cyrillrx/coding-conventions/blob/main/collaboration/code-review-emojis.md)
+all live in the canonical document. Only the project-specific bindings below differ.
 
 ## Project-specific additions
 

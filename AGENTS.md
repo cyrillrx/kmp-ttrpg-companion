@@ -9,15 +9,15 @@ For feature specifications and product decisions, refer to the [Product Requirem
 
 ## 2. Project Guidelines and Conventions
 
-The conventions are maintained, project-agnostic, in the shared
+The conventions live in the shared
 [`cyrillrx/coding-conventions`](https://github.com/cyrillrx/coding-conventions) repository — the single
-source of truth. The documents linked below are thin pointers to it; they carry only this project's
-specific bindings (module names, CI workflows, ruleset content). Do not duplicate the shared rules here.
+source of truth. The documents below are thin pointers to it; some add project-specific bindings
+(marked _+ project_). Do not duplicate the shared rules here.
 
 ### Collaboration and Communication
 
-- **Collaboration, Git & CI Conventions**: [`git-and-collaboration.md`](docs/conventions/git-and-collaboration.md)
-- **Documentation Conventions** (file naming, ruleset prefixes, Markdown tables): [`docs-conventions.md`](docs/conventions/docs-conventions.md)
+- **Collaboration, Git & CI Conventions**: [`git-and-collaboration.md`](docs/conventions/git-and-collaboration.md) _(+ project)_
+- **Documentation Conventions** (file naming, ruleset prefixes, Markdown tables): [`docs-conventions.md`](docs/conventions/docs-conventions.md) _(+ project)_
 - **Documentation language**: All documentation, comments, commit messages, and PR descriptions must be written in English.
 - **AI Co-authorship**: Do not add AI co-author tags (e.g. `Co-Authored-By: Claude`) to commits or pull requests.
 - **AI/Agent rules**: All rules applying to AI agents must be written in this file (`AGENTS.md`). Agent-specific config files (e.g. `.claude/CLAUDE.md`) must only point to this file — never duplicate or extend rules there.
@@ -25,18 +25,18 @@ specific bindings (module names, CI workflows, ruleset content). Do not duplicat
 
 ### Code Quality and Maintainability
 
-- **General Coding Conventions**: [`coding-conventions.md`](docs/conventions/coding-conventions.md)
+- **General Coding Conventions**: [`coding-conventions.md`](docs/conventions/coding-conventions.md) _(pointer)_
 
 ### Technology-Specific Guidelines
 
 - **Client Application (KMP/Compose Multiplatform) Conventions**:
-    - [`kmp-conventions.md`](docs/conventions/kmp-conventions.md)
+    - [`kmp-conventions.md`](docs/conventions/kmp-conventions.md) _(+ project)_
 - **Rust Backend Server Conventions**:
-    - [`rust-conventions.md`](docs/conventions/rust-conventions.md)
+    - [`rust-conventions.md`](docs/conventions/rust-conventions.md) _(pointer)_
 - **Go Backend Server Conventions**:
-    - [`go-conventions.md`](docs/conventions/go-conventions.md)
+    - [`go-conventions.md`](docs/conventions/go-conventions.md) _(+ project)_
 - **API Testing with Bruno Conventions**:
-    - [`bruno-conventions.md`](docs/conventions/bruno-conventions.md)
+    - [`bruno-conventions.md`](docs/conventions/bruno-conventions.md) _(pointer)_
 
 ## 3. KMP Client — Commands
 

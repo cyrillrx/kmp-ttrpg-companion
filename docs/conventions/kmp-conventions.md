@@ -1,15 +1,11 @@
 # Kotlin Multiplatform & Compose Multiplatform Conventions
 
-> **Single source of truth — do not duplicate here.**
-> The KMP / Compose Multiplatform conventions (MVVM + UDF architecture, state & event modeling,
-> navigation, lifecycle-aware refresh, Compose rules, naming, formatting, testing) are maintained,
-> project-agnostic, in the shared
-> [`cyrillrx/coding-conventions`](https://github.com/cyrillrx/coding-conventions) repository.
->
-> 📖 **Read the canonical document:**
-> <https://github.com/cyrillrx/coding-conventions/blob/main/conventions/kmp-conventions.md>
+> [!IMPORTANT]
+> **Canonical source of truth** (shared, project-agnostic): [`conventions/kmp-conventions.md`](https://github.com/cyrillrx/coding-conventions/blob/main/conventions/kmp-conventions.md) — do not duplicate here.
 
-They apply as-is to the `cmp-ttrpg-companion/` client. The project-specific bindings below stay here.
+The full KMP / Compose Multiplatform conventions (MVVM + UDF, state & event modeling, navigation,
+lifecycle-aware refresh, Compose rules, naming, formatting, testing) live in the canonical document and
+apply as-is to the `cmp-ttrpg-companion/` client. The project-specific bindings below stay here.
 
 ## Project-specific additions
 

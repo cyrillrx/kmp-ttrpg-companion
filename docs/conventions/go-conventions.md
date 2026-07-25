@@ -1,12 +1,7 @@
 # Go Backend Conventions
 
-> **Single source of truth — do not duplicate here.**
-> The Go conventions (tech stack, layered architecture, coding style, testing) are maintained,
-> project-agnostic, in the shared
-> [`cyrillrx/coding-conventions`](https://github.com/cyrillrx/coding-conventions) repository.
->
-> 📖 **Read the canonical document:**
-> <https://github.com/cyrillrx/coding-conventions/blob/main/conventions/go-conventions.md>
+> [!IMPORTANT]
+> **Canonical source of truth** (shared, project-agnostic): [`conventions/go-conventions.md`](https://github.com/cyrillrx/coding-conventions/blob/main/conventions/go-conventions.md) — do not duplicate here.
 
 They apply as-is to the `server-go/` service. Only the project-specific bindings below differ.
 

@@ -1,14 +1,10 @@
 # Documentation Conventions
 
-> **Single source of truth — do not duplicate here.**
-> The generic documentation conventions (file naming, Markdown tables) are maintained,
-> project-agnostic, in the shared
-> [`cyrillrx/coding-conventions`](https://github.com/cyrillrx/coding-conventions) repository.
->
-> 📖 **Read the canonical document:**
-> <https://github.com/cyrillrx/coding-conventions/blob/main/conventions/docs-conventions.md>
+> [!IMPORTANT]
+> **Canonical source of truth** (shared, project-agnostic): [`conventions/docs-conventions.md`](https://github.com/cyrillrx/coding-conventions/blob/main/conventions/docs-conventions.md) — do not duplicate here.
 
-The additions below are specific to this project's game-ruleset content and stay here.
+Generic file-naming and Markdown-table rules live in the canonical document. The additions below are
+specific to this project's game-ruleset content and stay here.
 
 ## Project-specific additions
 
