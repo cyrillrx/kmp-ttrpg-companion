@@ -56,7 +56,7 @@ ktlint is **strict** in `shared/core` (`ignoreFailures=false`) and permissive in
 
 ## 4. KMP Client — Project-specific patterns
 
-> For full architecture (MVVM/UDF, layer separation, Compose rules), see [`kmp-conventions.md`](docs/conventions/kmp-conventions.md).
+> For full architecture (MVVM/UDF, state & event modeling, layer separation, Compose rules), see [`kmp-conventions.md`](docs/conventions/kmp-conventions.md).
 
 ### Module structure
 
@@ -105,13 +105,9 @@ composable<SpellRoute.List> {
 
 Each feature defines a `{Feature}Router` interface and a `{Feature}RouterImpl(backStack: NavBackStack<NavKey>)`. The interface is injected into ViewModels; the impl lives in the navigation layer. Navigation calls use `backStack.add(route)` to push and `backStack.removeLastOrNull()` to pop. A `NavBackStack<NavKey>.navigateUp()` extension in `core/navigation/NavExt.kt` wraps `removeLastOrNull()` for convenience. `onNavigateUpClicked` callbacks are wired directly from the route entry (not from the ViewModel). When calling `viewModel()` for shared ViewModel types (`UserListsViewModel`, `ListDetailViewModel<T>`), always pass an explicit `key` to avoid ViewModel sharing across entries.
 
-### State
-
-`StateFlow` + sealed `Body` interface (`Loading`, `Empty`, `WithData`, `Error`) per screen.
-
 ### Stateless composables
 
-Each screen has two overloads: one taking `ViewModel + Router` (runtime), one taking `State + callbacks` (previews). Always provide light and dark preview variants using `AppThemePreview(darkTheme = false/true)`.
+Every screen's stateless overload (see [`kmp-conventions.md`](docs/conventions/kmp-conventions.md)) gets light and dark preview variants via `AppThemePreview(darkTheme = false/true)`.
 
 ## 5. KMP Client — Design System
 

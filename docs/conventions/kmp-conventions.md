@@ -11,7 +11,7 @@ and the Maestro E2E approach) live in the canonical document and apply as-is to 
 ## Project-specific additions
 
 - **Concrete architecture** — module structure (`shared/core`, `composeApp`), package layout
-  (`com.cyrillrx.rpg.*`), manual DI, the navigation/router pattern, state shape, and the design
+  (`com.cyrillrx.rpg.*`), manual DI, the navigation/router pattern, and the design
   system are documented in [`AGENTS.md`](../../AGENTS.md) (sections 4–5).
 - **Test location** — ViewModel tests live in `composeApp/src/commonTest/`.
 - **E2E flows** — scenarios are documented in [`../testing/e2e-test-cases.md`](../testing/e2e-test-cases.md);
