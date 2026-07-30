@@ -27,32 +27,39 @@ A digital toolkit for tabletop role-playing game sessions. Designed for Game Mas
 | Document                                 | Description                                      |
 |------------------------------------------|--------------------------------------------------|
 | [`AGENTS.md`](AGENTS.md)                 | Central contributor guide — start here           |
-| [`docs/ROADMAP.md`](docs/ROADMAP.md)     | Planned phases and feature progress              |
+| [`docs/roadmap.md`](docs/roadmap.md)     | Planned phases and feature progress              |
 | [`docs/conventions/`](docs/conventions/) | Coding, Git, and technology-specific conventions |
 | [`docs/prd/`](docs/prd/)                 | Product Requirement Documents                    |
 
 ### Conventions
 
-| File                                                                        | Description                                |
-|-----------------------------------------------------------------------------|--------------------------------------------|
-| [`CODING_CONVENTIONS.md`](docs/conventions/CODING_CONVENTIONS.md)           | Clean Code principles (all technologies)   |
-| [`GIT_AND_COLLABORATION.md`](docs/conventions/GIT_AND_COLLABORATION.md)     | Commit format, branching, CI policies      |
-| [`KMP_CONVENTIONS.md`](docs/conventions/KMP_CONVENTIONS.md)                 | KMP/Compose Multiplatform architecture     |
-| [`RUST_CONVENTIONS.md`](docs/conventions/RUST_CONVENTIONS.md)               | Rust conventions (Axum, server patterns)   |
-| [`GO_CONVENTIONS.md`](docs/conventions/GO_CONVENTIONS.md)                   | Go conventions (chi, server patterns)      |
-| [`BRUNO_CONVENTIONS.md`](docs/conventions/BRUNO_CONVENTIONS.md)             | API testing with Bruno                     |
+The conventions are maintained, project-agnostic, in the shared
+[`cyrillrx/coding-conventions`](https://github.com/cyrillrx/coding-conventions) repository (the single
+source of truth). The files below are thin pointers to it, plus any project-specific bindings.
+
+`Type` shows whether a file is a pure pointer to the canonical doc or a pointer plus project-specific bindings.
+
+| File                                                                    | Type                | Description                                  |
+|-------------------------------------------------------------------------|---------------------|----------------------------------------------|
+| [`coding-conventions.md`](docs/conventions/coding-conventions.md)       | → pointer           | Clean Code principles (all technologies)     |
+| [`git-and-collaboration.md`](docs/conventions/git-and-collaboration.md) | → pointer + project | Commit format, branching, CI policies        |
+| [`kmp-conventions.md`](docs/conventions/kmp-conventions.md)             | → pointer + project | KMP/Compose Multiplatform architecture + E2E |
+| [`rust-conventions.md`](docs/conventions/rust-conventions.md)           | → pointer           | Rust conventions (`server-rust/`)            |
+| [`go-conventions.md`](docs/conventions/go-conventions.md)               | → pointer + project | Go conventions (`server-go/`)                |
+| [`bruno-conventions.md`](docs/conventions/bruno-conventions.md)         | → pointer           | API testing with Bruno                       |
+| [`docs-conventions.md`](docs/conventions/docs-conventions.md)           | → pointer + project | Doc naming, tables, ruleset-scoped content   |
 
 ### Product Requirements
 
 | PRD                                              | Feature                                                                                                                                            |
 |--------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
-| [`PRD-000`](docs/prd/PRD-000-VISION.md)          | Vision, roles, connectivity phases                                                                                                                 |
-| [`PRD-001`](docs/prd/PRD-001-REFERENCE-DATA.md)  | Reference data — [Spellbook](docs/prd/PRD-001a-SPELLBOOK.md) · [Items](docs/prd/PRD-001b-ITEM-LIST.md) · [Bestiary](docs/prd/PRD-001c-BESTIARY.md) |
-| [`PRD-002`](docs/prd/PRD-002-CHARACTER-SHEET.md) | Character sheets                                                                                                                                   |
-| [`PRD-003`](docs/prd/PRD-003-CAMPAIGNS.md)       | Campaigns                                                                                                                                          |
-| [`PRD-004`](docs/prd/PRD-004-NOTES.md)           | Notes                                                                                                                                              |
-| [`PRD-005`](docs/prd/PRD-005-GENERATORS.md)      | Generators                                                                                                                                         |
-| [`PRD-006`](docs/prd/PRD-006-DICE.md)            | Virtual dice                                                                                                                                       |
+| [`PRD-000`](docs/prd/prd-000-vision.md)          | Vision, roles, connectivity phases                                                                                                                 |
+| [`PRD-001`](docs/prd/prd-001-reference-data.md)  | Reference data — [Spellbook](docs/prd/prd-001a-spellbook.md) · [Items](docs/prd/prd-001b-item-list.md) · [Bestiary](docs/prd/prd-001c-bestiary.md) |
+| [`PRD-002`](docs/prd/prd-002-character-sheet.md) | Character sheets                                                                                                                                   |
+| [`PRD-003`](docs/prd/prd-003-campaigns.md)       | Campaigns                                                                                                                                          |
+| [`PRD-004`](docs/prd/prd-004-notes.md)           | Notes                                                                                                                                              |
+| [`PRD-005`](docs/prd/prd-005-generators.md)      | Generators                                                                                                                                         |
+| [`PRD-006`](docs/prd/prd-006-dice.md)            | Virtual dice                                                                                                                                       |
 
 ## Getting Started
 

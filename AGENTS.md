@@ -9,10 +9,15 @@ For feature specifications and product decisions, refer to the [Product Requirem
 
 ## 2. Project Guidelines and Conventions
 
+The conventions live in the shared
+[`cyrillrx/coding-conventions`](https://github.com/cyrillrx/coding-conventions) repository — the single
+source of truth. The documents below are thin pointers to it; some add project-specific bindings
+(marked _+ project_). Do not duplicate the shared rules here.
+
 ### Collaboration and Communication
 
-- **Collaboration, Git & CI Conventions**: [`git-and-collaboration.md`](docs/conventions/git-and-collaboration.md)
-- **Documentation Conventions** (file naming, ruleset prefixes, Markdown tables): [`docs-conventions.md`](docs/conventions/docs-conventions.md)
+- **Collaboration, Git & CI Conventions**: [`git-and-collaboration.md`](docs/conventions/git-and-collaboration.md) _(+ project)_
+- **Documentation Conventions** (file naming, ruleset prefixes, Markdown tables): [`docs-conventions.md`](docs/conventions/docs-conventions.md) _(+ project)_
 - **Documentation language**: All documentation, comments, commit messages, and PR descriptions must be written in English.
 - **AI Co-authorship**: Do not add AI co-author tags (e.g. `Co-Authored-By: Claude`) to commits or pull requests.
 - **AI/Agent rules**: All rules applying to AI agents must be written in this file (`AGENTS.md`). Agent-specific config files (e.g. `.claude/CLAUDE.md`) must only point to this file — never duplicate or extend rules there.
@@ -20,18 +25,18 @@ For feature specifications and product decisions, refer to the [Product Requirem
 
 ### Code Quality and Maintainability
 
-- **General Coding Conventions**: [`coding-conventions.md`](docs/conventions/coding-conventions.md)
+- **General Coding Conventions**: [`coding-conventions.md`](docs/conventions/coding-conventions.md) _(pointer)_
 
 ### Technology-Specific Guidelines
 
 - **Client Application (KMP/Compose Multiplatform) Conventions**:
-    - [`kmp-conventions.md`](docs/conventions/kmp-conventions.md)
+    - [`kmp-conventions.md`](docs/conventions/kmp-conventions.md) _(+ project)_
 - **Rust Backend Server Conventions**:
-    - [`rust-conventions.md`](docs/conventions/rust-conventions.md)
+    - [`rust-conventions.md`](docs/conventions/rust-conventions.md) _(pointer)_
 - **Go Backend Server Conventions**:
-    - [`go-conventions.md`](docs/conventions/go-conventions.md)
+    - [`go-conventions.md`](docs/conventions/go-conventions.md) _(+ project)_
 - **API Testing with Bruno Conventions**:
-    - [`bruno-conventions.md`](docs/conventions/bruno-conventions.md)
+    - [`bruno-conventions.md`](docs/conventions/bruno-conventions.md) _(pointer)_
 
 ## 3. KMP Client — Commands
 
@@ -51,7 +56,7 @@ ktlint is **strict** in `shared/core` (`ignoreFailures=false`) and permissive in
 
 ## 4. KMP Client — Project-specific patterns
 
-> For full architecture (MVVM/UDF, layer separation, Compose rules), see [`kmp-conventions.md`](docs/conventions/kmp-conventions.md).
+> For full architecture (MVVM/UDF, state & event modeling, layer separation, Compose rules), see [`kmp-conventions.md`](docs/conventions/kmp-conventions.md).
 
 ### Module structure
 
@@ -100,13 +105,9 @@ composable<SpellRoute.List> {
 
 Each feature defines a `{Feature}Router` interface and a `{Feature}RouterImpl(backStack: NavBackStack<NavKey>)`. The interface is injected into ViewModels; the impl lives in the navigation layer. Navigation calls use `backStack.add(route)` to push and `backStack.removeLastOrNull()` to pop. A `NavBackStack<NavKey>.navigateUp()` extension in `core/navigation/NavExt.kt` wraps `removeLastOrNull()` for convenience. `onNavigateUpClicked` callbacks are wired directly from the route entry (not from the ViewModel). When calling `viewModel()` for shared ViewModel types (`UserListsViewModel`, `ListDetailViewModel<T>`), always pass an explicit `key` to avoid ViewModel sharing across entries.
 
-### State
-
-`StateFlow` + sealed `Body` interface (`Loading`, `Empty`, `WithData`, `Error`) per screen.
-
 ### Stateless composables
 
-Each screen has two overloads: one taking `ViewModel + Router` (runtime), one taking `State + callbacks` (previews). Always provide light and dark preview variants using `AppThemePreview(darkTheme = false/true)`.
+Every screen's stateless overload (see [`kmp-conventions.md`](docs/conventions/kmp-conventions.md)) gets light and dark preview variants via `AppThemePreview(darkTheme = false/true)`.
 
 ## 5. KMP Client — Design System
 
