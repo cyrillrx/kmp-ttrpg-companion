@@ -39,15 +39,15 @@ source of truth). The files below are thin pointers to it, plus any project-spec
 
 `Type` shows whether a file is a pure pointer to the canonical doc or a pointer plus project-specific bindings.
 
-| File                                                                    | Type              | Description                                          |
-|-------------------------------------------------------------------------|-------------------|------------------------------------------------------|
-| [`coding-conventions.md`](docs/conventions/coding-conventions.md)       | → pointer         | Clean Code principles (all technologies)             |
-| [`git-and-collaboration.md`](docs/conventions/git-and-collaboration.md) | → pointer + project | Commit format, branching, CI policies              |
-| [`kmp-conventions.md`](docs/conventions/kmp-conventions.md)             | → pointer + project | KMP/Compose Multiplatform architecture + E2E       |
-| [`rust-conventions.md`](docs/conventions/rust-conventions.md)           | → pointer         | Rust conventions (`server-rust/`)                    |
-| [`go-conventions.md`](docs/conventions/go-conventions.md)               | → pointer + project | Go conventions (`server-go/`)                      |
-| [`bruno-conventions.md`](docs/conventions/bruno-conventions.md)         | → pointer         | API testing with Bruno                               |
-| [`docs-conventions.md`](docs/conventions/docs-conventions.md)           | → pointer + project | Doc naming, tables, ruleset-scoped content         |
+| File                                                                    | Type                | Description                                  |
+|-------------------------------------------------------------------------|---------------------|----------------------------------------------|
+| [`coding-conventions.md`](docs/conventions/coding-conventions.md)       | → pointer           | Clean Code principles (all technologies)     |
+| [`git-and-collaboration.md`](docs/conventions/git-and-collaboration.md) | → pointer + project | Commit format, branching, CI policies        |
+| [`kmp-conventions.md`](docs/conventions/kmp-conventions.md)             | → pointer + project | KMP/Compose Multiplatform architecture + E2E |
+| [`rust-conventions.md`](docs/conventions/rust-conventions.md)           | → pointer           | Rust conventions (`server-rust/`)            |
+| [`go-conventions.md`](docs/conventions/go-conventions.md)               | → pointer + project | Go conventions (`server-go/`)                |
+| [`bruno-conventions.md`](docs/conventions/bruno-conventions.md)         | → pointer           | API testing with Bruno                       |
+| [`docs-conventions.md`](docs/conventions/docs-conventions.md)           | → pointer + project | Doc naming, tables, ruleset-scoped content   |
 
 ### Product Requirements
 
