@@ -37,7 +37,7 @@ class SampleCharacterRepository : CharacterRepository {
             )
 
         private fun Character.stored(): Stored<Character> =
-            Stored(value = this, createdAt = UNKNOWN_TIMESTAMP, updatedAt = UNKNOWN_TIMESTAMP)
+            Stored(value = this, updatedAt = UNKNOWN_TIMESTAMP)
 
         fun getAll(): List<Character> = characters
 

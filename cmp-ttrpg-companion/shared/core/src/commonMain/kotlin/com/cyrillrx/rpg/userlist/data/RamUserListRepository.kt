@@ -18,9 +18,7 @@ class RamUserListRepository(
     override suspend fun get(id: String): UserList? = lists[id]?.value
 
     override suspend fun save(list: UserList) {
-        val now = clock.now()
-        val createdAt = lists[list.id]?.createdAt ?: now
-        lists[list.id] = Stored(value = list, createdAt = createdAt, updatedAt = now)
+        lists[list.id] = Stored(value = list, updatedAt = clock.now())
     }
 
     override suspend fun delete(id: String) {

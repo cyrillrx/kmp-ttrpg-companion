@@ -116,7 +116,7 @@ class SQLDelightCharacterRepositoryTest {
     }
 
     @Test
-    fun `save preserves createdAt and advances updatedAt on update`() = runTest {
+    fun `save advances updatedAt on update`() = runTest {
         val clock = MutableClock(Instant.fromEpochMilliseconds(1_000L))
         val repository = buildRepository(clock)
         val fighter = SampleCharacterRepository.humanFighter()
@@ -126,7 +126,6 @@ class SQLDelightCharacterRepositoryTest {
         repository.save(fighter.copy(currentHitPoints = 1))
 
         val stored = repository.getAll(null).single()
-        assertEquals(Instant.fromEpochMilliseconds(1_000L), stored.createdAt)
         assertEquals(Instant.fromEpochMilliseconds(5_000L), stored.updatedAt)
     }
 }

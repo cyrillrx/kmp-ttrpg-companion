@@ -32,7 +32,7 @@ class SQLDelightCharacterRepository(
 
     override suspend fun save(character: Character) {
         val now = clock.now().toEpochMilliseconds()
-        withContext(ioDispatcher) { database.saveCharacter(character, createdAt = now, updatedAt = now) }
+        withContext(ioDispatcher) { database.saveCharacter(character, updatedAt = now) }
     }
 
     override suspend fun delete(id: String) {

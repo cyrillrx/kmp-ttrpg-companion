@@ -24,11 +24,10 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
     fun getCharacter(id: String): Character? =
         dbQuery.selectCharacterById(id, ::mapCharacterSelecting).executeAsOneOrNull()
 
-    fun saveCharacter(character: Character, createdAt: Long, updatedAt: Long) {
+    fun saveCharacter(character: Character, updatedAt: Long) {
         dbQuery.saveCharacter(
             id = character.id,
-            data = character.serialize(),
-            createdAt = createdAt,
+            data_ = character.serialize(),
             updatedAt = updatedAt,
         )
     }
@@ -41,14 +40,12 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
     }
 
     @Suppress("UNUSED_PARAMETER")
-    private fun mapCharacterSelecting(id: String, data: String, createdAt: Long, updatedAt: Long): Character =
+    private fun mapCharacterSelecting(id: String, data: String, updatedAt: Long): Character =
         data.deserialize()
 
-    @Suppress("UNUSED_PARAMETER")
-    private fun mapCharacterStored(id: String, data: String, createdAt: Long, updatedAt: Long): Stored<Character> =
+    private fun mapCharacterStored(id: String, data: String, updatedAt: Long): Stored<Character> =
         Stored(
             value = data.deserialize(),
-            createdAt = Instant.fromEpochMilliseconds(createdAt),
             updatedAt = Instant.fromEpochMilliseconds(updatedAt),
         )
 
@@ -77,13 +74,12 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
     fun getUserList(id: String): UserList? =
         dbQuery.selectUserListById(id, ::mapUserListSelecting).executeAsOneOrNull()
 
-    fun saveUserList(list: UserList, createdAt: Long, updatedAt: Long) {
+    fun saveUserList(list: UserList, updatedAt: Long) {
         dbQuery.saveUserList(
             id = list.id,
             name = list.name,
             type = list.type.name,
             itemIds = list.itemIds.joinToString(LIST_DELIMITER),
-            createdAt = createdAt,
             updatedAt = updatedAt,
         )
     }
@@ -126,7 +122,6 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
         name: String,
         type: String,
         itemIds: String,
-        createdAt: Long,
         updatedAt: Long,
     ) = UserList(
         id = id,
@@ -140,11 +135,9 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
         name: String,
         type: String,
         itemIds: String,
-        createdAt: Long,
         updatedAt: Long,
     ) = Stored(
-        value = mapUserListSelecting(id, name, type, itemIds, createdAt, updatedAt),
-        createdAt = Instant.fromEpochMilliseconds(createdAt),
+        value = mapUserListSelecting(id, name, type, itemIds, updatedAt),
         updatedAt = Instant.fromEpochMilliseconds(updatedAt),
     )
 

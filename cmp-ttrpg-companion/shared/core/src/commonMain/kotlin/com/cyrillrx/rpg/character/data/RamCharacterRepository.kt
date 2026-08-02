@@ -23,9 +23,7 @@ class RamCharacterRepository(
     override suspend fun getByIds(ids: List<String>): List<Character> = ids.mapNotNull { characters[it]?.value }
 
     override suspend fun save(character: Character) {
-        val now = clock.now()
-        val createdAt = characters[character.id]?.createdAt ?: now
-        characters[character.id] = Stored(value = character, createdAt = createdAt, updatedAt = now)
+        characters[character.id] = Stored(value = character, updatedAt = clock.now())
     }
 
     override suspend fun delete(id: String) {

@@ -34,7 +34,7 @@ class JsonCharacterPresetRepository(
 
     override suspend fun getAll(filter: CharacterFilter?): List<Stored<Character>> = withContext(ioDispatcher) {
         cache.get().applyFilter(filter)
-            .map { Stored(value = it, createdAt = UNKNOWN_TIMESTAMP, updatedAt = UNKNOWN_TIMESTAMP) }
+            .map { Stored(value = it, updatedAt = UNKNOWN_TIMESTAMP) }
     }
 
     override suspend fun get(id: String): Character? =

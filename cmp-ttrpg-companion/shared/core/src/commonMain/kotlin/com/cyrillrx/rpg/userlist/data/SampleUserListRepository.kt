@@ -16,12 +16,7 @@ class SampleUserListRepository(
     override suspend fun get(id: String): UserList? = lists[id]?.value
 
     override suspend fun save(list: UserList) {
-        val now = clock.now()
-        lists[list.id] = Stored(
-            value = list,
-            createdAt = lists[list.id]?.createdAt ?: now,
-            updatedAt = now,
-        )
+        lists[list.id] = Stored(value = list, updatedAt = clock.now())
     }
 
     override suspend fun delete(id: String) {
@@ -73,9 +68,7 @@ class SampleUserListRepository(
             updatedAt = "2024-01-20T14:00:00Z",
         )
 
-        private fun stored(list: UserList, updatedAt: String): Stored<UserList> {
-            val instant = Instant.parse(updatedAt)
-            return Stored(value = list, createdAt = instant, updatedAt = instant)
-        }
+        private fun stored(list: UserList, updatedAt: String): Stored<UserList> =
+            Stored(value = list, updatedAt = Instant.parse(updatedAt))
     }
 }

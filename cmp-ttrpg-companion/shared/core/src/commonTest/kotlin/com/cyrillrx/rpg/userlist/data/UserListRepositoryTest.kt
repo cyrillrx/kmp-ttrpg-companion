@@ -106,7 +106,7 @@ class UserListRepositoryTest {
     }
 
     @Test
-    fun `save preserves createdAt and advances updatedAt on update`() = runTest {
+    fun `save advances updatedAt on update`() = runTest {
         val clock = MutableClock(Instant.fromEpochMilliseconds(1_000L))
         val repository = buildRepository(clock)
         val list = UserList(id = "1", name = "Spellbook", type = UserList.Type.SPELL, itemIds = emptyList())
@@ -116,7 +116,6 @@ class UserListRepositoryTest {
         repository.save(list.copy(itemIds = listOf("spell1")))
 
         val stored = repository.getAll(UserList.Type.SPELL).single()
-        assertEquals(Instant.fromEpochMilliseconds(1_000L), stored.createdAt)
         assertEquals(Instant.fromEpochMilliseconds(5_000L), stored.updatedAt)
     }
 }

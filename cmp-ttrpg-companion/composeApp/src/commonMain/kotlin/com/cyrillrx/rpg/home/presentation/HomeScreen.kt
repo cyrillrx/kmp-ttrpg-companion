@@ -232,7 +232,7 @@ private fun HomeScreenPreview() {
         state = HomeState(
             body = HomeState.Body.WithData(
                 SampleCharacterRepository.getAll().map {
-                    Stored(value = it, createdAt = UNKNOWN_TIMESTAMP, updatedAt = UNKNOWN_TIMESTAMP)
+                    Stored(value = it, updatedAt = UNKNOWN_TIMESTAMP)
                 },
             ),
         ),

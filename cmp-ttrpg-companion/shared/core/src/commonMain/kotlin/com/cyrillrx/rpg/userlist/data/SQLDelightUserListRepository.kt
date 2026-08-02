@@ -25,7 +25,7 @@ class SQLDelightUserListRepository(
 
     override suspend fun save(list: UserList) {
         val now = clock.now().toEpochMilliseconds()
-        withContext(ioDispatcher) { database.saveUserList(list, createdAt = now, updatedAt = now) }
+        withContext(ioDispatcher) { database.saveUserList(list, updatedAt = now) }
     }
 
     override suspend fun delete(id: String) {
