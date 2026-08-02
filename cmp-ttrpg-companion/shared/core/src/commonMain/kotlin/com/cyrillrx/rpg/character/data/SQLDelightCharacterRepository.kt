@@ -3,6 +3,7 @@ package com.cyrillrx.rpg.character.data
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterFilter
 import com.cyrillrx.rpg.character.domain.CharacterRepository
+import com.cyrillrx.rpg.character.domain.applyFilter
 import com.cyrillrx.rpg.core.data.cache.Database
 import com.cyrillrx.rpg.core.data.cache.DatabaseDriverFactory
 import com.cyrillrx.rpg.core.domain.Stored
@@ -21,8 +22,7 @@ class SQLDelightCharacterRepository(
     private val database = Database(databaseDriverFactory)
 
     override suspend fun getAll(filter: CharacterFilter?): List<Stored<Character>> = withContext(ioDispatcher) {
-        val characters = database.getAllCharacters()
-        if (filter == null) characters else characters.filter { it.value.matches(filter) }
+        database.getAllCharacters().applyFilter(filter)
     }
 
     override suspend fun get(id: String): Character? = withContext(ioDispatcher) { database.getCharacter(id) }
@@ -38,7 +38,4 @@ class SQLDelightCharacterRepository(
     override suspend fun delete(id: String) {
         withContext(ioDispatcher) { database.deleteCharacter(id) }
     }
-
-    private fun Character.matches(filter: CharacterFilter): Boolean =
-        filter.query.isBlank() || name.contains(filter.query, ignoreCase = true)
 }

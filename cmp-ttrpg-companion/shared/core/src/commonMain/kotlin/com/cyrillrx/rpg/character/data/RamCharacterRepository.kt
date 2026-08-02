@@ -3,7 +3,7 @@ package com.cyrillrx.rpg.character.data
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterFilter
 import com.cyrillrx.rpg.character.domain.CharacterRepository
-import com.cyrillrx.rpg.character.domain.matches
+import com.cyrillrx.rpg.character.domain.applyFilter
 import com.cyrillrx.rpg.core.domain.Stored
 import kotlin.time.Clock
 
@@ -14,9 +14,9 @@ class RamCharacterRepository(
     private val characters = mutableMapOf<String, Stored<Character>>()
 
     override suspend fun getAll(filter: CharacterFilter?): List<Stored<Character>> =
-        characters.values
+        characters.values.toList()
+            .applyFilter(filter)
             .sortedByDescending { it.updatedAt }
-            .filter { filter == null || it.value.matches(filter) }
 
     override suspend fun get(id: String): Character? = characters[id]?.value
 
