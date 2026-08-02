@@ -6,13 +6,13 @@ import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.applyFilter
 import com.cyrillrx.rpg.core.domain.Stored
+import com.cyrillrx.rpg.core.domain.UNKNOWN_TIMESTAMP
 import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.AbilityScore
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.Proficiency
 import com.cyrillrx.rpg.creature.domain.Skills
 import com.cyrillrx.rpg.creature.domain.Speeds
-import kotlinx.datetime.Instant
 
 class SampleCharacterRepository : CharacterRepository {
     override suspend fun getAll(filter: CharacterFilter?): List<Stored<Character>> =
@@ -37,9 +37,7 @@ class SampleCharacterRepository : CharacterRepository {
             )
 
         private fun Character.stored(): Stored<Character> =
-            Stored(value = this, createdAt = EPOCH_ZERO, updatedAt = EPOCH_ZERO)
-
-        private val EPOCH_ZERO = Instant.fromEpochMilliseconds(0L)
+            Stored(value = this, createdAt = UNKNOWN_TIMESTAMP, updatedAt = UNKNOWN_TIMESTAMP)
 
         fun getAll(): List<Character> = characters
 

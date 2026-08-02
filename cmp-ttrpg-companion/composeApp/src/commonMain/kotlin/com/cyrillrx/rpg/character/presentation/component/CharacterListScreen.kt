@@ -27,6 +27,7 @@ import com.cyrillrx.rpg.character.presentation.CharacterListState
 import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
 import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterListViewModel
 import com.cyrillrx.rpg.core.domain.Stored
+import com.cyrillrx.rpg.core.domain.UNKNOWN_TIMESTAMP
 import com.cyrillrx.rpg.core.presentation.component.EmptySearch
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
@@ -37,15 +38,12 @@ import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
-import kotlinx.datetime.Instant
 import org.jetbrains.compose.resources.getString
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.snackbar_character_deleted
 import rpg_companion.composeapp.generated.resources.snackbar_error_deleting_character
 import rpg_companion.composeapp.generated.resources.title_character_list
-
-private val EPOCH_ZERO = Instant.fromEpochMilliseconds(0L)
 
 @Composable
 fun CharacterListScreen(
@@ -197,7 +195,7 @@ private fun CharacterListScreenPreview() {
                 searchQuery = "",
                 body = CharacterListState.Body.WithData(
                     SampleCharacterRepository.getAll().map {
-                        Stored(value = it, createdAt = EPOCH_ZERO, updatedAt = EPOCH_ZERO)
+                        Stored(value = it, createdAt = UNKNOWN_TIMESTAMP, updatedAt = UNKNOWN_TIMESTAMP)
                     },
                 ),
             ),

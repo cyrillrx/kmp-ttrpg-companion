@@ -29,6 +29,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.core.domain.Stored
+import com.cyrillrx.rpg.core.domain.UNKNOWN_TIMESTAMP
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
@@ -44,7 +45,6 @@ import com.cyrillrx.rpg.userlist.presentation.navigation.UserListRouter
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.UserListsViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
-import kotlinx.datetime.Instant
 import org.jetbrains.compose.resources.getString
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -211,11 +211,7 @@ private fun UserListsScreenPreview(darkTheme: Boolean) {
             state = UserListsState(
                 body = UserListsState.Body.WithData(
                     lists = SampleUserListRepository.getAll().map {
-                        Stored(
-                            value = it,
-                            createdAt = Instant.fromEpochMilliseconds(0L),
-                            updatedAt = Instant.fromEpochMilliseconds(0L),
-                        )
+                        Stored(value = it, createdAt = UNKNOWN_TIMESTAMP, updatedAt = UNKNOWN_TIMESTAMP)
                     },
                 ),
             ),

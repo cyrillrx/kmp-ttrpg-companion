@@ -14,6 +14,7 @@ import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.domain.applyFilter
 import com.cyrillrx.rpg.core.domain.Stored
+import com.cyrillrx.rpg.core.domain.UNKNOWN_TIMESTAMP
 import com.cyrillrx.rpg.creature.data.createAbilities
 import com.cyrillrx.rpg.creature.data.toAlignment
 import com.cyrillrx.rpg.creature.data.toSize
@@ -23,7 +24,6 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
 import kotlinx.coroutines.withContext
-import kotlinx.datetime.Instant
 
 class JsonCharacterPresetRepository(
     private val fileReader: FileReader,
@@ -33,8 +33,8 @@ class JsonCharacterPresetRepository(
     private val cache = LazyCache { loadFromFile().parse() }
 
     override suspend fun getAll(filter: CharacterFilter?): List<Stored<Character>> = withContext(ioDispatcher) {
-        // Presets have no real modification date: wrap them with the epoch-zero sentinel.
-        cache.get().applyFilter(filter).map { Stored(value = it, createdAt = EPOCH_ZERO, updatedAt = EPOCH_ZERO) }
+        cache.get().applyFilter(filter)
+            .map { Stored(value = it, createdAt = UNKNOWN_TIMESTAMP, updatedAt = UNKNOWN_TIMESTAMP) }
     }
 
     override suspend fun get(id: String): Character? =
@@ -58,8 +58,6 @@ class JsonCharacterPresetRepository(
     }
 
     companion object {
-        private val EPOCH_ZERO = Instant.fromEpochMilliseconds(0L)
-
         private fun List<ApiCharacter>.parse(): List<Character> {
             val (characters, errors) = partitionBy { it.toCharacter() }
             errors.forEach { println("WARNING: character preset import error: $it") }

@@ -16,11 +16,11 @@ import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.presentation.component.CharacterCreateActions
 import com.cyrillrx.rpg.character.presentation.component.CharacterListItem
 import com.cyrillrx.rpg.core.domain.Stored
+import com.cyrillrx.rpg.core.domain.UNKNOWN_TIMESTAMP
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.iconSizeLarge
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.home.presentation.navigation.HomeRouter
-import kotlinx.datetime.Instant
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
@@ -80,12 +80,11 @@ fun CharacterPreviewSection(
 
 @Composable
 private fun CharacterPreviewSectionPreview() {
-    val epochZero = Instant.fromEpochMilliseconds(0L)
     CharacterPreviewSection(
         state = HomeState(
             body = HomeState.Body.WithData(
                 SampleCharacterRepository.getAll().map {
-                    Stored(value = it, createdAt = epochZero, updatedAt = epochZero)
+                    Stored(value = it, createdAt = UNKNOWN_TIMESTAMP, updatedAt = UNKNOWN_TIMESTAMP)
                 },
             ),
         ),

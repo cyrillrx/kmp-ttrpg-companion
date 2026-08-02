@@ -23,13 +23,13 @@ import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.presentation.CharacterPresetGalleryState
 import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
 import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterPresetGalleryViewModel
+import com.cyrillrx.rpg.core.domain.UNKNOWN_TIMESTAMP
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
-import kotlinx.datetime.Instant
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
@@ -121,8 +121,7 @@ private fun PresetList(
         items(presets, key = { it.id }) { preset ->
             CharacterListItem(
                 character = preset,
-                // Presets have no modification date: the epoch-zero sentinel hides it.
-                updatedAt = Instant.fromEpochMilliseconds(0L),
+                updatedAt = UNKNOWN_TIMESTAMP,
                 onClick = { onPresetSelected(preset) },
                 modifier = Modifier.fillMaxWidth(),
             )
