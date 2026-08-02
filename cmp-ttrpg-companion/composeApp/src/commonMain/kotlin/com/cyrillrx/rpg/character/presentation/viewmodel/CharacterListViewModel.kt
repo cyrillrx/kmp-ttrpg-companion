@@ -139,7 +139,7 @@ class CharacterListViewModel(
 
     private suspend fun fetchAndUpdateCharacters(query: String) {
         val filter = CharacterFilter(query = query)
-        val characters = repository.getAll(filter)
+        val characters = repository.getAll(filter).sortedByDescending { it.updatedAt }
         val body = if (characters.isEmpty()) {
             CharacterListState.Body.Empty
         } else {
