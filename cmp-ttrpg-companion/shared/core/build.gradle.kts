@@ -43,7 +43,6 @@ kotlin {
             api(libs.kotlinx.coroutines.core)
             api(libs.kotlinx.serialization.core)
             api(libs.kotlinx.serialization.json)
-            api(libs.kotlinx.datetime)
 
             implementation(libs.sqldelight.runtime)
         }

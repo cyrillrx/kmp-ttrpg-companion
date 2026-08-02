@@ -53,7 +53,6 @@ kotlin {
         }
         commonMain.dependencies {
             implementation(projects.shared.core)
-            implementation(libs.kotlinx.datetime)
 
             implementation(compose.runtime)
             implementation(compose.foundation)
@@ -89,7 +88,6 @@ kotlin {
 
             implementation(libs.kotlinx.coroutines.core)
             implementation(libs.kotlinx.coroutines.swing)
-            implementation(libs.kotlinx.datetime)
         }
     }
 }
