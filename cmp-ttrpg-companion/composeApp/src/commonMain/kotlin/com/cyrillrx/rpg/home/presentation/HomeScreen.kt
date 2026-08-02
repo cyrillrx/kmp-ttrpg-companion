@@ -28,6 +28,7 @@ import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.core.presentation.HOME_MAGICAL_ITEM_ENTRY_TEST_TAG
 import com.cyrillrx.rpg.core.presentation.HOME_MONSTER_ENTRY_TEST_TAG
 import com.cyrillrx.rpg.core.presentation.HOME_SPELL_ENTRY_TEST_TAG
@@ -39,6 +40,7 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.widthExpandedMin
 import com.cyrillrx.rpg.home.presentation.navigation.HomeRouter
 import com.cyrillrx.rpg.home.presentation.viewmodel.HomeViewModel
+import kotlinx.datetime.Instant
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
@@ -226,8 +228,15 @@ internal object PreviewHomeRouter : HomeRouter {
 
 @Composable
 private fun HomeScreenPreview() {
+    val epochZero = Instant.fromEpochMilliseconds(0L)
     HomeScreen(
-        state = HomeState(body = HomeState.Body.WithData(SampleCharacterRepository.getAll())),
+        state = HomeState(
+            body = HomeState.Body.WithData(
+                SampleCharacterRepository.getAll().map {
+                    Stored(value = it, createdAt = epochZero, updatedAt = epochZero)
+                },
+            ),
+        ),
         router = PreviewHomeRouter,
     )
 }

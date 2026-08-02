@@ -1,7 +1,9 @@
 package com.cyrillrx.rpg.character.domain
 
+import com.cyrillrx.rpg.core.domain.Stored
+
 interface CharacterRepository {
-    suspend fun getAll(filter: CharacterFilter?): List<Character>
+    suspend fun getAll(filter: CharacterFilter?): List<Stored<Character>>
     suspend fun get(id: String): Character?
     suspend fun getByIds(ids: List<String>): List<Character>
     suspend fun save(character: Character)

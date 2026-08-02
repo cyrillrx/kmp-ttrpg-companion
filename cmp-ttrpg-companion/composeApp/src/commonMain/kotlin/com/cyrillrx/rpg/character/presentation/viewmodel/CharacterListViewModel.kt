@@ -6,6 +6,7 @@ import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterFilter
 import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.presentation.CharacterListState
+import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.core.presentation.commitAllPending
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
@@ -32,7 +33,7 @@ class CharacterListViewModel(
     val events: SharedFlow<Event>
         field = MutableSharedFlow<Event>()
 
-    data class PendingDeletion(val character: Character, val index: Int)
+    data class PendingDeletion(val stored: Stored<Character>, val index: Int)
 
     sealed interface Event {
         data class DeletionError(val character: Character) : Event
@@ -56,15 +57,15 @@ class CharacterListViewModel(
         activeJob = refreshCharacters()
     }
 
-    fun deleteCharacterOptimistically(character: Character): PendingDeletion? {
+    fun deleteCharacterOptimistically(stored: Stored<Character>): PendingDeletion? {
         val currentState = state.value.body as? CharacterListState.Body.WithData ?: return null
 
-        val index = currentState.searchResults.indexOf(character)
+        val index = currentState.searchResults.indexOf(stored)
         if (index == -1) return null
 
-        val pending = PendingDeletion(character, index)
+        val pending = PendingDeletion(stored, index)
         pendingDeletions.add(pending)
-        val updatedList = currentState.searchResults - character
+        val updatedList = currentState.searchResults - stored
         val newBody = if (updatedList.isEmpty()) {
             CharacterListState.Body.Empty
         } else {
@@ -83,7 +84,7 @@ class CharacterListViewModel(
             else -> return
         }
         val restoredList = currentList.toMutableList()
-            .apply { add(pending.index.coerceAtMost(size), pending.character) }
+            .apply { add(pending.index.coerceAtMost(size), pending.stored) }
         state.update { it.copy(body = CharacterListState.Body.WithData(restoredList)) }
     }
 
@@ -92,20 +93,20 @@ class CharacterListViewModel(
 
         viewModelScope.launch {
             try {
-                repository.delete(pending.character.id)
+                repository.delete(pending.stored.value.id)
             } catch (e: CancellationException) {
                 throw e
             } catch (e: Exception) {
                 pendingDeletions.add(pending)
                 undoDeletion(pending)
-                events.emit(Event.DeletionError(pending.character))
+                events.emit(Event.DeletionError(pending.stored.value))
             }
         }
     }
 
     internal fun commitAllPendingDeletions() {
         pendingDeletions.commitAllPending(ioDispatcher) { pending ->
-            repository.delete(pending.character.id)
+            repository.delete(pending.stored.value.id)
         }
     }
 
@@ -138,7 +139,7 @@ class CharacterListViewModel(
 
     private suspend fun fetchAndUpdateCharacters(query: String) {
         val filter = CharacterFilter(query = query)
-        val characters = repository.getAll(filter).sortedByDescending { it.lastModified }
+        val characters = repository.getAll(filter)
         val body = if (characters.isEmpty()) {
             CharacterListState.Body.Empty
         } else {

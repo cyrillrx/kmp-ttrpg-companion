@@ -5,21 +5,24 @@ import com.cyrillrx.rpg.character.domain.CharacterFilter
 import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.core.data.cache.Database
 import com.cyrillrx.rpg.core.data.cache.DatabaseDriverFactory
+import com.cyrillrx.rpg.core.domain.Stored
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
 import kotlinx.coroutines.withContext
+import kotlin.time.Clock
 
 class SQLDelightCharacterRepository(
     databaseDriverFactory: DatabaseDriverFactory,
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
+    private val clock: Clock = Clock.System,
 ) : CharacterRepository {
 
     private val database = Database(databaseDriverFactory)
 
-    override suspend fun getAll(filter: CharacterFilter?): List<Character> = withContext(ioDispatcher) {
+    override suspend fun getAll(filter: CharacterFilter?): List<Stored<Character>> = withContext(ioDispatcher) {
         val characters = database.getAllCharacters()
-        if (filter == null) characters else characters.filter { it.matches(filter) }
+        if (filter == null) characters else characters.filter { it.value.matches(filter) }
     }
 
     override suspend fun get(id: String): Character? = withContext(ioDispatcher) { database.getCharacter(id) }
@@ -28,7 +31,8 @@ class SQLDelightCharacterRepository(
         withContext(ioDispatcher) { database.getCharactersByIds(ids) }
 
     override suspend fun save(character: Character) {
-        withContext(ioDispatcher) { database.saveCharacter(character) }
+        val now = clock.now().toEpochMilliseconds()
+        withContext(ioDispatcher) { database.saveCharacter(character, createdAt = now, updatedAt = now) }
     }
 
     override suspend fun delete(id: String) {

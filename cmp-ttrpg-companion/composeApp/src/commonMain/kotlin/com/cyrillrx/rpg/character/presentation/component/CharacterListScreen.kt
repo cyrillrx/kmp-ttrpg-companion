@@ -26,6 +26,7 @@ import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.presentation.CharacterListState
 import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
 import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterListViewModel
+import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.core.presentation.component.EmptySearch
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
@@ -36,12 +37,15 @@ import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.datetime.Instant
 import org.jetbrains.compose.resources.getString
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.snackbar_character_deleted
 import rpg_companion.composeapp.generated.resources.snackbar_error_deleting_character
 import rpg_companion.composeapp.generated.resources.title_character_list
+
+private val EPOCH_ZERO = Instant.fromEpochMilliseconds(0L)
 
 @Composable
 fun CharacterListScreen(
@@ -79,7 +83,7 @@ fun CharacterListScreen(
     onCharacterClicked: (Character) -> Unit,
     onNewCharacterClicked: () -> Unit,
     onQuickCreateClicked: () -> Unit,
-    onDeleteCharacterOptimistically: (Character) -> CharacterListViewModel.PendingDeletion?,
+    onDeleteCharacterOptimistically: (Stored<Character>) -> CharacterListViewModel.PendingDeletion?,
     onUndoDeletion: (CharacterListViewModel.PendingDeletion) -> Unit,
     onCommitDeletion: (CharacterListViewModel.PendingDeletion) -> Unit,
 ) {
@@ -104,7 +108,7 @@ fun CharacterListScreen(
         onDeleteOptimistically = onDeleteCharacterOptimistically,
         onUndo = onUndoDeletion,
         onCommit = onCommitDeletion,
-        getMessage = { character -> getString(Res.string.snackbar_character_deleted, character.name) },
+        getMessage = { stored -> getString(Res.string.snackbar_character_deleted, stored.value.name) },
     )
 
     Scaffold(
@@ -147,9 +151,9 @@ fun CharacterListScreen(
 
 @Composable
 private fun CharacterList(
-    characters: List<Character>,
+    characters: List<Stored<Character>>,
     onCharacterClicked: (Character) -> Unit,
-    onDeleteCharacter: (Character) -> Unit,
+    onDeleteCharacter: (Stored<Character>) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     LazyColumn(
@@ -157,14 +161,15 @@ private fun CharacterList(
         contentPadding = PaddingValues(spacingMedium),
         verticalArrangement = Arrangement.spacedBy(spacingMedium),
     ) {
-        items(characters, key = { it.id }) { character ->
+        items(characters, key = { it.value.id }) { stored ->
             SwipeToDelete(
-                onSwiped = { onDeleteCharacter(character) },
+                onSwiped = { onDeleteCharacter(stored) },
                 modifier = Modifier.fillMaxWidth().animateItem(),
             ) {
                 CharacterListItem(
-                    character = character,
-                    onClick = { onCharacterClicked(character) },
+                    character = stored.value,
+                    updatedAt = stored.updatedAt,
+                    onClick = { onCharacterClicked(stored.value) },
                     modifier = Modifier.fillMaxWidth(),
                 )
             }
@@ -190,7 +195,11 @@ private fun CharacterListScreenPreview() {
         state =
             CharacterListState(
                 searchQuery = "",
-                body = CharacterListState.Body.WithData(SampleCharacterRepository.getAll()),
+                body = CharacterListState.Body.WithData(
+                    SampleCharacterRepository.getAll().map {
+                        Stored(value = it, createdAt = EPOCH_ZERO, updatedAt = EPOCH_ZERO)
+                    },
+                ),
             ),
         events = MutableSharedFlow(),
         onNavigateUpClicked = {},

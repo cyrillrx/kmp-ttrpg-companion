@@ -6,6 +6,7 @@ import com.cyrillrx.rpg.cache.AppDatabase
 import com.cyrillrx.rpg.campaign.domain.Campaign
 import com.cyrillrx.rpg.campaign.domain.RuleSet
 import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.settings.domain.DistanceUnit
 import com.cyrillrx.rpg.settings.domain.Palette
 import com.cyrillrx.rpg.settings.domain.Theme
@@ -17,14 +18,21 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
     private val database = AppDatabase(databaseDriverFactory.createDriver())
     private val dbQuery = database.appDatabaseQueries
 
-    fun getAllCharacters(): List<Character> =
-        dbQuery.selectAllCharacters(::mapCharacterSelecting).executeAsList()
+    fun getAllCharacters(): List<Stored<Character>> =
+        dbQuery.selectAllCharacters(::mapCharacterStored).executeAsList()
 
     fun getCharacter(id: String): Character? =
         dbQuery.selectCharacterById(id, ::mapCharacterSelecting).executeAsOneOrNull()
 
-    fun saveCharacter(character: Character) {
-        dbQuery.saveCharacter(id = character.id, data_ = character.serialize())
+    fun saveCharacter(character: Character, createdAt: Long, updatedAt: Long) {
+        // Preserve the original createdAt on update (INSERT OR REPLACE would otherwise overwrite it).
+        val effectiveCreatedAt = dbQuery.selectCharacterCreatedAt(character.id).executeAsOneOrNull() ?: createdAt
+        dbQuery.saveCharacter(
+            id = character.id,
+            data_ = character.serialize(),
+            createdAt = effectiveCreatedAt,
+            updatedAt = updatedAt,
+        )
     }
 
     fun getCharactersByIds(ids: Collection<String>): List<Character> =
@@ -35,7 +43,16 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
     }
 
     @Suppress("UNUSED_PARAMETER")
-    private fun mapCharacterSelecting(id: String, data: String): Character = data.deserialize()
+    private fun mapCharacterSelecting(id: String, data: String, createdAt: Long, updatedAt: Long): Character =
+        data.deserialize()
+
+    @Suppress("UNUSED_PARAMETER")
+    private fun mapCharacterStored(id: String, data: String, createdAt: Long, updatedAt: Long): Stored<Character> =
+        Stored(
+            value = data.deserialize(),
+            createdAt = Instant.fromEpochMilliseconds(createdAt),
+            updatedAt = Instant.fromEpochMilliseconds(updatedAt),
+        )
 
     fun getAllCampaigns(): List<Campaign> = dbQuery.selectAllCampaigns(::mapCampaignSelecting).executeAsList()
 

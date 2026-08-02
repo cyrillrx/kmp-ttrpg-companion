@@ -15,10 +15,12 @@ import androidx.compose.ui.Modifier
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.presentation.component.CharacterCreateActions
 import com.cyrillrx.rpg.character.presentation.component.CharacterListItem
+import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.iconSizeLarge
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.home.presentation.navigation.HomeRouter
+import kotlinx.datetime.Instant
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
@@ -64,10 +66,11 @@ fun CharacterPreviewSection(
                 )
 
             is HomeState.Body.WithData ->
-                body.characters.forEach { character ->
+                body.characters.forEach { stored ->
                     CharacterListItem(
-                        character = character,
-                        onClick = { router.openCharacterDetail(character) },
+                        character = stored.value,
+                        updatedAt = stored.updatedAt,
+                        onClick = { router.openCharacterDetail(stored.value) },
                         modifier = Modifier.fillMaxWidth(),
                     )
                 }
@@ -77,8 +80,15 @@ fun CharacterPreviewSection(
 
 @Composable
 private fun CharacterPreviewSectionPreview() {
+    val epochZero = Instant.fromEpochMilliseconds(0L)
     CharacterPreviewSection(
-        state = HomeState(body = HomeState.Body.WithData(SampleCharacterRepository.getAll())),
+        state = HomeState(
+            body = HomeState.Body.WithData(
+                SampleCharacterRepository.getAll().map {
+                    Stored(value = it, createdAt = epochZero, updatedAt = epochZero)
+                },
+            ),
+        ),
         router = PreviewHomeRouter,
     )
 }

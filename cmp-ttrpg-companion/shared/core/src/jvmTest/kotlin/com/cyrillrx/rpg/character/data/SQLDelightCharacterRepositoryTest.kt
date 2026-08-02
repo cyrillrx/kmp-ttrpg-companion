@@ -3,14 +3,21 @@ package com.cyrillrx.rpg.character.data
 import com.cyrillrx.rpg.character.domain.CharacterFilter
 import com.cyrillrx.rpg.core.data.cache.TestDatabaseDriverFactory
 import kotlinx.coroutines.test.runTest
+import kotlinx.datetime.Instant
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
 import kotlin.test.assertTrue
+import kotlin.time.Clock
 
 class SQLDelightCharacterRepositoryTest {
 
-    private fun buildRepository() = SQLDelightCharacterRepository(TestDatabaseDriverFactory())
+    private class MutableClock(var instant: Instant) : Clock {
+        override fun now(): Instant = instant
+    }
+
+    private fun buildRepository(clock: Clock = Clock.System) =
+        SQLDelightCharacterRepository(TestDatabaseDriverFactory(), clock = clock)
 
     @Test
     fun `save and getAll returns all saved characters`() = runTest {
@@ -21,7 +28,7 @@ class SQLDelightCharacterRepositoryTest {
         repository.save(fighter)
         repository.save(rogue)
 
-        val result = repository.getAll(null)
+        val result = repository.getAll(null).map { it.value }
         assertEquals(2, result.size)
         assertTrue(result.contains(fighter))
         assertTrue(result.contains(rogue))
@@ -75,7 +82,7 @@ class SQLDelightCharacterRepositoryTest {
 
         val result = repository.getAll(CharacterFilter(query = "Lyra"))
         assertEquals(1, result.size)
-        assertEquals("Lyra Vossen", result.first().name)
+        assertEquals("Lyra Vossen", result.first().value.name)
     }
 
     @Test
@@ -90,5 +97,36 @@ class SQLDelightCharacterRepositoryTest {
         val result = repository.getByIds(listOf(fighter.id))
         assertEquals(1, result.size)
         assertEquals(fighter, result.first())
+    }
+
+    @Test
+    fun `getAll returns characters ordered by updatedAt descending`() = runTest {
+        val clock = MutableClock(Instant.fromEpochMilliseconds(1_000L))
+        val repository = buildRepository(clock)
+        val fighter = SampleCharacterRepository.humanFighter()
+        val rogue = SampleCharacterRepository.elfRogue()
+
+        repository.save(fighter)
+        clock.instant = Instant.fromEpochMilliseconds(2_000L)
+        repository.save(rogue)
+
+        val result = repository.getAll(null)
+        assertEquals(rogue, result.first().value)
+        assertEquals(fighter, result.last().value)
+    }
+
+    @Test
+    fun `save preserves createdAt and advances updatedAt on update`() = runTest {
+        val clock = MutableClock(Instant.fromEpochMilliseconds(1_000L))
+        val repository = buildRepository(clock)
+        val fighter = SampleCharacterRepository.humanFighter()
+
+        repository.save(fighter)
+        clock.instant = Instant.fromEpochMilliseconds(5_000L)
+        repository.save(fighter.copy(currentHitPoints = 1))
+
+        val stored = repository.getAll(null).single()
+        assertEquals(Instant.fromEpochMilliseconds(1_000L), stored.createdAt)
+        assertEquals(Instant.fromEpochMilliseconds(5_000L), stored.updatedAt)
     }
 }

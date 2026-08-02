@@ -99,7 +99,7 @@ class CharacterPresetGalleryViewModelTest {
 
         val saved = characterRepository.getAll(null)
         assertEquals(expected = 1, actual = saved.size)
-        assertEquals(expected = preset.name, actual = saved.first().name)
+        assertEquals(expected = preset.name, actual = saved.first().value.name)
     }
 
     @Test
@@ -118,6 +118,6 @@ class CharacterPresetGalleryViewModelTest {
         val event = assertIs<CharacterPresetGalleryViewModel.NavigationEvent.NavigateToDetail>(navigationEvent)
         assertNotEquals(illegal = preset.id, actual = event.character.id)
         assertEquals(expected = preset.name, actual = event.character.name)
-        assertEquals(expected = characterRepository.getAll(null).first().id, actual = event.character.id)
+        assertEquals(expected = characterRepository.getAll(null).first().value.id, actual = event.character.id)
     }
 }

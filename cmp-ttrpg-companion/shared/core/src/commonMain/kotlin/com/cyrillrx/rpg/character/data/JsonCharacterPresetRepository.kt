@@ -13,6 +13,7 @@ import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.domain.applyFilter
+import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.creature.data.createAbilities
 import com.cyrillrx.rpg.creature.data.toAlignment
 import com.cyrillrx.rpg.creature.data.toSize
@@ -22,6 +23,7 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
 import kotlinx.coroutines.withContext
+import kotlinx.datetime.Instant
 
 class JsonCharacterPresetRepository(
     private val fileReader: FileReader,
@@ -30,15 +32,17 @@ class JsonCharacterPresetRepository(
 ) : CharacterRepository {
     private val cache = LazyCache { loadFromFile().parse() }
 
-    override suspend fun getAll(filter: CharacterFilter?): List<Character> = withContext(ioDispatcher) {
-        cache.get().applyFilter(filter)
+    override suspend fun getAll(filter: CharacterFilter?): List<Stored<Character>> = withContext(ioDispatcher) {
+        // Presets have no real modification date: wrap them with the epoch-zero sentinel.
+        cache.get().applyFilter(filter).map { Stored(value = it, createdAt = EPOCH_ZERO, updatedAt = EPOCH_ZERO) }
     }
 
-    override suspend fun get(id: String): Character? = getAll(null).firstOrNull { it.id == id }
+    override suspend fun get(id: String): Character? =
+        withContext(ioDispatcher) { cache.get().firstOrNull { it.id == id } }
 
-    override suspend fun getByIds(ids: List<String>): List<Character> {
-        val all = getAll(null).associateBy { it.id }
-        return ids.mapNotNull { all[it] }
+    override suspend fun getByIds(ids: List<String>): List<Character> = withContext(ioDispatcher) {
+        val all = cache.get().associateBy { it.id }
+        ids.mapNotNull { all[it] }
     }
 
     override suspend fun save(character: Character) = Unit
@@ -54,6 +58,8 @@ class JsonCharacterPresetRepository(
     }
 
     companion object {
+        private val EPOCH_ZERO = Instant.fromEpochMilliseconds(0L)
+
         private fun List<ApiCharacter>.parse(): List<Character> {
             val (characters, errors) = partitionBy { it.toCharacter() }
             errors.forEach { println("WARNING: character preset import error: $it") }

@@ -26,6 +26,7 @@ import com.cyrillrx.rpg.core.presentation.formatRelativeTime
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
+import kotlinx.datetime.Instant
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
@@ -35,6 +36,7 @@ import rpg_companion.composeapp.generated.resources.value_hit_points
 @Composable
 fun CharacterListItem(
     character: Character,
+    updatedAt: Instant,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -42,7 +44,7 @@ fun CharacterListItem(
     val shortDescription = character.resolveTranslation(locale)?.shortDescription.orEmpty()
     val primaryText = shortDescription.ifBlank { character.name }
     val secondaryText = if (shortDescription.isNotBlank()) character.name else ""
-    val relativeTime = character.lastModified.formatRelativeTime()
+    val relativeTime = updatedAt.formatRelativeTime()
 
     AppCard(onClick = onClick, modifier = modifier) {
         Column(
@@ -117,7 +119,7 @@ private fun PreviewCharacterListItemLight() {
     AppThemePreview(darkTheme = false) {
         Column(verticalArrangement = Arrangement.spacedBy(spacingSmall)) {
             SampleCharacterRepository.getAll().forEach {
-                CharacterListItem(character = it, onClick = {})
+                CharacterListItem(character = it, updatedAt = Instant.fromEpochMilliseconds(0L), onClick = {})
             }
         }
     }
@@ -129,7 +131,7 @@ private fun PreviewCharacterListItemDark() {
     AppThemePreview(darkTheme = true) {
         Column(verticalArrangement = Arrangement.spacedBy(spacingSmall)) {
             SampleCharacterRepository.getAll().forEach {
-                CharacterListItem(character = it, onClick = {})
+                CharacterListItem(character = it, updatedAt = Instant.fromEpochMilliseconds(0L), onClick = {})
             }
         }
     }
