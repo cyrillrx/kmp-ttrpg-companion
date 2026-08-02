@@ -8,7 +8,6 @@ interface UserListRepository {
     suspend fun save(list: UserList)
     suspend fun delete(id: String)
 
-    // The storage layer stamps updatedAt on save.
     suspend fun addToList(list: UserList, itemId: String): Result {
         save(list.copy(itemIds = list.itemIds + itemId))
         return Result.Success

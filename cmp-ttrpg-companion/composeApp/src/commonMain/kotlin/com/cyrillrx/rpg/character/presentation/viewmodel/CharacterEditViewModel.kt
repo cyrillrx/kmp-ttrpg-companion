@@ -174,7 +174,6 @@ class CharacterEditViewModel(
         val editedCharacter = (state.value as? Loaded)?.character ?: return
         if (editedCharacter == characterBeforeEdit) return
 
-        // The storage layer stamps updatedAt on save.
         viewModelScope.launch {
             characterRepository.save(editedCharacter)
         }
