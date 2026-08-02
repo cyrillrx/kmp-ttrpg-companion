@@ -3,9 +3,12 @@ package com.cyrillrx.rpg.userlist.data
 import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.userlist.domain.UserList
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
-import kotlinx.datetime.Instant
+import kotlin.time.Clock
+import kotlin.time.Instant
 
-class SampleUserListRepository : UserListRepository {
+class SampleUserListRepository(
+    private val clock: Clock = Clock.System,
+) : UserListRepository {
 
     override suspend fun getAll(type: UserList.Type): List<Stored<UserList>> =
         lists.values.filter { it.value.type == type }
@@ -13,12 +16,11 @@ class SampleUserListRepository : UserListRepository {
     override suspend fun get(id: String): UserList? = lists[id]?.value
 
     override suspend fun save(list: UserList) {
-        val existing = lists[list.id]
-        val now = Instant.fromEpochMilliseconds(0L)
+        val now = clock.now()
         lists[list.id] = Stored(
             value = list,
-            createdAt = existing?.createdAt ?: now,
-            updatedAt = existing?.updatedAt ?: now,
+            createdAt = lists[list.id]?.createdAt ?: now,
+            updatedAt = now,
         )
     }
 
