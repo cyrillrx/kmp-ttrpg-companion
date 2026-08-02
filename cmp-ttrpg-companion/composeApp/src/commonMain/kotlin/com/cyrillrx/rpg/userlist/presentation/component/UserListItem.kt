@@ -12,6 +12,7 @@ import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
 import com.cyrillrx.rpg.userlist.domain.UserList
+import kotlinx.datetime.Instant
 import org.jetbrains.compose.resources.pluralStringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
@@ -22,6 +23,7 @@ import rpg_companion.composeapp.generated.resources.spell_count
 @Composable
 fun UserListItem(
     list: UserList,
+    updatedAt: Instant,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -32,7 +34,7 @@ fun UserListItem(
                 style = MaterialTheme.typography.bodyLarge,
             )
             Text(
-                text = list.subtitle(),
+                text = list.subtitle(updatedAt),
                 style = MaterialTheme.typography.bodySmall,
             )
         }
@@ -40,9 +42,9 @@ fun UserListItem(
 }
 
 @Composable
-private fun UserList.subtitle(): String {
+private fun UserList.subtitle(updatedAt: Instant): String {
     val countItemText = formattedCount()
-    val relativeTimeText = lastModified.formatRelativeTime()
+    val relativeTimeText = updatedAt.formatRelativeTime()
     return if (relativeTimeText == null) countItemText else "$countItemText - $relativeTimeText"
 }
 
@@ -77,6 +79,7 @@ private fun UserListItemPreview(darkTheme: Boolean) {
     AppThemePreview(darkTheme = darkTheme) {
         UserListItem(
             list = SampleUserListRepository.getFirst(),
+            updatedAt = Instant.parse("2024-01-15T10:30:00Z"),
             onClick = {},
         )
     }

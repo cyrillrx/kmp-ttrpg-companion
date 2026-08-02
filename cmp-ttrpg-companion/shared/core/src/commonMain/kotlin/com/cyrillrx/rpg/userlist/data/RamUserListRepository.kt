@@ -1,20 +1,26 @@
 package com.cyrillrx.rpg.userlist.data
 
+import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.userlist.domain.UserList
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
+import kotlin.time.Clock
 
-class RamUserListRepository : UserListRepository {
-    private val lists = mutableMapOf<String, UserList>()
+class RamUserListRepository(
+    private val clock: Clock = Clock.System,
+) : UserListRepository {
+    private val lists = mutableMapOf<String, Stored<UserList>>()
 
-    override suspend fun getAll(type: UserList.Type): List<UserList> =
+    override suspend fun getAll(type: UserList.Type): List<Stored<UserList>> =
         lists.values
-            .filter { it.type == type }
-            .sortedByDescending { it.lastModified }
+            .filter { it.value.type == type }
+            .sortedByDescending { it.updatedAt }
 
-    override suspend fun get(id: String): UserList? = lists[id]
+    override suspend fun get(id: String): UserList? = lists[id]?.value
 
     override suspend fun save(list: UserList) {
-        lists[list.id] = list
+        val now = clock.now()
+        val createdAt = lists[list.id]?.createdAt ?: now
+        lists[list.id] = Stored(value = list, createdAt = createdAt, updatedAt = now)
     }
 
     override suspend fun delete(id: String) {

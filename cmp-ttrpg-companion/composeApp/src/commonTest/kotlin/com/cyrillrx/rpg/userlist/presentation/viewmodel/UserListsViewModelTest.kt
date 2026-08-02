@@ -1,5 +1,6 @@
 package com.cyrillrx.rpg.userlist.presentation.viewmodel
 
+import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.userlist.data.RamUserListRepository
 import com.cyrillrx.rpg.userlist.domain.UserList
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
@@ -90,8 +91,8 @@ class UserListsViewModelTest {
 
         val body = assertIs<UserListsState.Body.WithData>(viewModel.state.value.body)
         assertEquals(expected = 1, actual = body.lists.size)
-        assertEquals(expected = LIST_NAME, actual = body.lists.first().name)
-        assertEquals(expected = UserList.Type.SPELL, actual = body.lists.first().type)
+        assertEquals(expected = LIST_NAME, actual = body.lists.first().value.name)
+        assertEquals(expected = UserList.Type.SPELL, actual = body.lists.first().value.type)
     }
 
     @Test
@@ -228,7 +229,7 @@ class UserListsViewModelTest {
 
         val body = assertIs<UserListsState.Body.WithData>(viewModel.state.value.body)
         assertEquals(expected = 1, actual = body.lists.size)
-        assertEquals(expected = spellList, actual = body.lists.first())
+        assertEquals(expected = spellList, actual = body.lists.first().value)
     }
 
     @Test
@@ -258,7 +259,7 @@ class UserListsViewModelTest {
         assertTrue(emittedBodies.none { it is UserListsState.Body.Loading })
         val body = assertIs<UserListsState.Body.WithData>(viewModel.state.value.body)
         assertEquals(expected = 1, actual = body.lists.size)
-        assertEquals(expected = UPDATED_LIST_NAME, actual = body.lists.first().name)
+        assertEquals(expected = UPDATED_LIST_NAME, actual = body.lists.first().value.name)
     }
 
     @Test
@@ -275,7 +276,7 @@ class UserListsViewModelTest {
 
 private class FailsOnDeleteUserListRepository : UserListRepository {
     private val delegate = RamUserListRepository()
-    override suspend fun getAll(type: UserList.Type): List<UserList> = delegate.getAll(type)
+    override suspend fun getAll(type: UserList.Type): List<Stored<UserList>> = delegate.getAll(type)
     override suspend fun get(id: String): UserList? = delegate.get(id)
     override suspend fun save(list: UserList) = delegate.save(list)
     override suspend fun delete(id: String) = error("Delete failed")

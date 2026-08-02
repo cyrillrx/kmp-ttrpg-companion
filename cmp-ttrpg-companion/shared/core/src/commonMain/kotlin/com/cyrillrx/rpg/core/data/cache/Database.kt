@@ -73,19 +73,22 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
     private fun mapCampaignSelecting(id: String, name: String, ruleSet: Long): Campaign =
         Campaign(id = id, name = name, ruleSet = RuleSet.fromInt(ruleSet.toInt()))
 
-    fun getAllUserLists(type: UserList.Type): List<UserList> =
-        dbQuery.selectAllUserListsByType(type.name, ::mapUserListSelecting).executeAsList()
+    fun getAllUserLists(type: UserList.Type): List<Stored<UserList>> =
+        dbQuery.selectAllUserListsByType(type.name, ::mapUserListStored).executeAsList()
 
     fun getUserList(id: String): UserList? =
         dbQuery.selectUserListById(id, ::mapUserListSelecting).executeAsOneOrNull()
 
-    fun saveUserList(list: UserList) {
+    fun saveUserList(list: UserList, createdAt: Long, updatedAt: Long) {
+        // Preserve the original createdAt on update (INSERT OR REPLACE would otherwise overwrite it).
+        val effectiveCreatedAt = dbQuery.selectUserListCreatedAt(list.id).executeAsOneOrNull() ?: createdAt
         dbQuery.saveUserList(
             id = list.id,
             name = list.name,
             type = list.type.name,
             itemIds = list.itemIds.joinToString(LIST_DELIMITER),
-            lastModified = list.lastModified.toEpochMilliseconds(),
+            createdAt = effectiveCreatedAt,
+            updatedAt = updatedAt,
         )
     }
 
@@ -121,14 +124,33 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
         dbQuery.updateDistanceUnit(distanceUnit.name.lowercase())
     }
 
-    private fun mapUserListSelecting(id: String, name: String, type: String, itemIds: String, lastModified: Long) =
-        UserList(
-            id = id,
-            name = name,
-            type = UserList.Type.valueOf(type),
-            itemIds = if (itemIds.isEmpty()) emptyList() else itemIds.split(LIST_DELIMITER),
-            lastModified = Instant.fromEpochMilliseconds(lastModified),
-        )
+    @Suppress("UNUSED_PARAMETER")
+    private fun mapUserListSelecting(
+        id: String,
+        name: String,
+        type: String,
+        itemIds: String,
+        createdAt: Long,
+        updatedAt: Long,
+    ) = UserList(
+        id = id,
+        name = name,
+        type = UserList.Type.valueOf(type),
+        itemIds = if (itemIds.isEmpty()) emptyList() else itemIds.split(LIST_DELIMITER),
+    )
+
+    private fun mapUserListStored(
+        id: String,
+        name: String,
+        type: String,
+        itemIds: String,
+        createdAt: Long,
+        updatedAt: Long,
+    ) = Stored(
+        value = mapUserListSelecting(id, name, type, itemIds, createdAt, updatedAt),
+        createdAt = Instant.fromEpochMilliseconds(createdAt),
+        updatedAt = Instant.fromEpochMilliseconds(updatedAt),
+    )
 
     companion object {
         const val DATABASE_NAME = "ttrpg_companion.db"

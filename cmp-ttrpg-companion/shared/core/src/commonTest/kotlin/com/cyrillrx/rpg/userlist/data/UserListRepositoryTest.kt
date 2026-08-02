@@ -7,9 +7,14 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
 import kotlin.test.assertTrue
+import kotlin.time.Clock
 
 class UserListRepositoryTest {
-    private fun buildRepository() = RamUserListRepository()
+    private class MutableClock(var instant: Instant) : Clock {
+        override fun now(): Instant = instant
+    }
+
+    private fun buildRepository(clock: Clock = Clock.System) = RamUserListRepository(clock)
 
     @Test
     fun `save and getAll returns list filtered by type`() = runTest {
@@ -23,11 +28,11 @@ class UserListRepositoryTest {
 
         val spellLists = repository.getAll(UserList.Type.SPELL)
         assertEquals(expected = 1, actual = spellLists.size)
-        assertEquals(expected = spellList, actual = spellLists.first())
+        assertEquals(expected = spellList, actual = spellLists.first().value)
 
         val itemLists = repository.getAll(UserList.Type.MAGICAL_ITEM)
         assertEquals(expected = 1, actual = itemLists.size)
-        assertEquals(expected = itemList, actual = itemLists.first())
+        assertEquals(expected = itemList, actual = itemLists.first().value)
     }
 
     @Test
@@ -85,28 +90,33 @@ class UserListRepositoryTest {
     }
 
     @Test
-    fun `lists are returned sorted by lastModified descending`() = runTest {
-        val repository = buildRepository()
-        val older = UserList(
-            id = "1",
-            name = "Older",
-            type = UserList.Type.SPELL,
-            itemIds = emptyList(),
-            lastModified = Instant.fromEpochMilliseconds(1000L),
-        )
-        val newer = UserList(
-            id = "2",
-            name = "Newer",
-            type = UserList.Type.SPELL,
-            itemIds = emptyList(),
-            lastModified = Instant.fromEpochMilliseconds(2000L),
-        )
+    fun `lists are returned sorted by updatedAt descending`() = runTest {
+        val clock = MutableClock(Instant.fromEpochMilliseconds(1_000L))
+        val repository = buildRepository(clock)
+        val older = UserList(id = "1", name = "Older", type = UserList.Type.SPELL, itemIds = emptyList())
+        val newer = UserList(id = "2", name = "Newer", type = UserList.Type.SPELL, itemIds = emptyList())
 
         repository.save(older)
+        clock.instant = Instant.fromEpochMilliseconds(2_000L)
         repository.save(newer)
 
         val result = repository.getAll(UserList.Type.SPELL)
-        assertEquals(expected = newer, actual = result.first())
-        assertEquals(expected = older, actual = result.last())
+        assertEquals(expected = newer, actual = result.first().value)
+        assertEquals(expected = older, actual = result.last().value)
+    }
+
+    @Test
+    fun `save preserves createdAt and advances updatedAt on update`() = runTest {
+        val clock = MutableClock(Instant.fromEpochMilliseconds(1_000L))
+        val repository = buildRepository(clock)
+        val list = UserList(id = "1", name = "Spellbook", type = UserList.Type.SPELL, itemIds = emptyList())
+
+        repository.save(list)
+        clock.instant = Instant.fromEpochMilliseconds(5_000L)
+        repository.save(list.copy(itemIds = listOf("spell1")))
+
+        val stored = repository.getAll(UserList.Type.SPELL).single()
+        assertEquals(Instant.fromEpochMilliseconds(1_000L), stored.createdAt)
+        assertEquals(Instant.fromEpochMilliseconds(5_000L), stored.updatedAt)
     }
 }

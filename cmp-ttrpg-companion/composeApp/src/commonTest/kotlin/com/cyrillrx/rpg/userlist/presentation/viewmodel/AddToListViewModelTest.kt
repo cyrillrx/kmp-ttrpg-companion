@@ -283,8 +283,8 @@ class AddToListViewModelTest {
 
         val lists = userListRepository.getAll(UserList.Type.SPELL)
         assertEquals(expected = 1, actual = lists.size)
-        assertEquals(expected = CREATED_LIST_NAME, actual = lists.first().name)
-        assertTrue(actual = lists.first().itemIds.contains(spell.id))
+        assertEquals(expected = CREATED_LIST_NAME, actual = lists.first().value.name)
+        assertTrue(actual = lists.first().value.itemIds.contains(spell.id))
 
         val body = assertIs<AddToListState.Body.WithData<Spell>>(viewModel.state.value.body)
         val newEntry = body.selectableLists.first { it.list.name == CREATED_LIST_NAME }
@@ -294,7 +294,8 @@ class AddToListViewModelTest {
 }
 
 private class FailingAddToListRepository : com.cyrillrx.rpg.userlist.domain.UserListRepository {
-    override suspend fun getAll(type: UserList.Type): List<UserList> = error("Repository failure")
+    override suspend fun getAll(type: UserList.Type): List<com.cyrillrx.rpg.core.domain.Stored<UserList>> =
+        error("Repository failure")
     override suspend fun get(id: String): UserList? = error("Repository failure")
     override suspend fun save(list: UserList) = Unit
     override suspend fun delete(id: String) = Unit

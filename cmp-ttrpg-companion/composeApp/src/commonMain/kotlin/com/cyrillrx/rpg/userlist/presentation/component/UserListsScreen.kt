@@ -28,6 +28,7 @@ import androidx.compose.ui.Modifier
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
@@ -43,6 +44,7 @@ import com.cyrillrx.rpg.userlist.presentation.navigation.UserListRouter
 import com.cyrillrx.rpg.userlist.presentation.viewmodel.UserListsViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.datetime.Instant
 import org.jetbrains.compose.resources.getString
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -84,7 +86,7 @@ fun UserListsScreen(
     events: SharedFlow<UserListsViewModel.Event>,
     onNavigateUpClicked: () -> Unit,
     onAddBtnClicked: (String) -> Unit,
-    onDeleteListOptimistically: (UserList) -> UserListsViewModel.PendingDeletion?,
+    onDeleteListOptimistically: (Stored<UserList>) -> UserListsViewModel.PendingDeletion?,
     onUndoDeletion: (UserListsViewModel.PendingDeletion) -> Unit,
     onCommitDeletion: (UserListsViewModel.PendingDeletion) -> Unit,
     onListClicked: (UserList) -> Unit,
@@ -111,7 +113,7 @@ fun UserListsScreen(
         onDeleteOptimistically = onDeleteListOptimistically,
         onUndo = onUndoDeletion,
         onCommit = onCommitDeletion,
-        getMessage = { list -> getString(Res.string.snackbar_list_deleted, list.name) },
+        getMessage = { stored -> getString(Res.string.snackbar_list_deleted, stored.value.name) },
     )
 
     Scaffold(
@@ -163,25 +165,26 @@ fun UserListsScreen(
 
 @Composable
 private fun UserLists(
-    lists: List<UserList>,
+    lists: List<Stored<UserList>>,
     onListClicked: (UserList) -> Unit,
-    onDeleteList: (UserList) -> Unit,
+    onDeleteList: (Stored<UserList>) -> Unit,
 ) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(spacingMedium),
         verticalArrangement = Arrangement.spacedBy(spacingMedium),
     ) {
-        items(lists, key = { it.id }) { list ->
+        items(lists, key = { it.value.id }) { stored ->
             SwipeToDelete(
-                onSwiped = { onDeleteList(list) },
+                onSwiped = { onDeleteList(stored) },
                 modifier = Modifier
                     .fillMaxWidth()
                     .animateItem(),
             ) {
                 UserListItem(
-                    list = list,
-                    onClick = { onListClicked(list) },
+                    list = stored.value,
+                    updatedAt = stored.updatedAt,
+                    onClick = { onListClicked(stored.value) },
                     modifier = Modifier.fillMaxWidth(),
                 )
             }
@@ -207,7 +210,13 @@ private fun UserListsScreenPreview(darkTheme: Boolean) {
         UserListsScreen(
             state = UserListsState(
                 body = UserListsState.Body.WithData(
-                    lists = SampleUserListRepository.getAll(),
+                    lists = SampleUserListRepository.getAll().map {
+                        Stored(
+                            value = it,
+                            createdAt = Instant.fromEpochMilliseconds(0L),
+                            updatedAt = Instant.fromEpochMilliseconds(0L),
+                        )
+                    },
                 ),
             ),
             title = "Spellbooks",

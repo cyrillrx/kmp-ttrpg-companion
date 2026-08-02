@@ -34,6 +34,7 @@ class AppDatabaseMigrationTest {
         val driver = JdbcSqliteDriver(JdbcSqliteDriver.IN_MEMORY)
         driver.execute(null, V1_USER_PREFERENCES, 0)
         driver.execute(null, V1_CHARACTER, 0)
+        driver.execute(null, V1_USER_LIST, 0)
         driver.execute(
             null,
             "INSERT INTO UserPreferencesEntity (id, theme, distance_unit) VALUES (1, 'dark', 'meters');",
@@ -72,6 +73,17 @@ class AppDatabaseMigrationTest {
             CREATE TABLE Character (
                 id TEXT NOT NULL PRIMARY KEY,
                 data TEXT NOT NULL
+            );
+            """.trimIndent()
+
+        val V1_USER_LIST =
+            """
+            CREATE TABLE UserList (
+                id TEXT NOT NULL PRIMARY KEY,
+                name TEXT NOT NULL,
+                type TEXT NOT NULL,
+                itemIds TEXT NOT NULL DEFAULT '',
+                lastModified INTEGER NOT NULL DEFAULT 0
             );
             """.trimIndent()
     }

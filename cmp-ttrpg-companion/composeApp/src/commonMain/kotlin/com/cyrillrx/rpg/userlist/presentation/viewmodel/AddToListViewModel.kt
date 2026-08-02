@@ -49,7 +49,7 @@ class AddToListViewModel<T>(
 
             val userLists = userListRepository.getAll(listType)
             val selectableLists = userLists
-                .map { list -> SelectableUserList(list, alreadyAdded = itemId in list.itemIds) }
+                .map { stored -> SelectableUserList(stored.value, alreadyAdded = itemId in stored.value.itemIds) }
             state.update { it.copy(body = AddToListState.Body.WithData(item, selectableLists)) }
         } catch (e: CancellationException) {
             throw e
