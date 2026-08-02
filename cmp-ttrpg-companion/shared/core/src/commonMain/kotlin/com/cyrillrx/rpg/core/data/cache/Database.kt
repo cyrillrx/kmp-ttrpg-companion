@@ -25,12 +25,10 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
         dbQuery.selectCharacterById(id, ::mapCharacterSelecting).executeAsOneOrNull()
 
     fun saveCharacter(character: Character, createdAt: Long, updatedAt: Long) {
-        // Preserve the original createdAt on update (INSERT OR REPLACE would otherwise overwrite it).
-        val effectiveCreatedAt = dbQuery.selectCharacterCreatedAt(character.id).executeAsOneOrNull() ?: createdAt
         dbQuery.saveCharacter(
             id = character.id,
-            data_ = character.serialize(),
-            createdAt = effectiveCreatedAt,
+            data = character.serialize(),
+            createdAt = createdAt,
             updatedAt = updatedAt,
         )
     }
@@ -80,14 +78,12 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
         dbQuery.selectUserListById(id, ::mapUserListSelecting).executeAsOneOrNull()
 
     fun saveUserList(list: UserList, createdAt: Long, updatedAt: Long) {
-        // Preserve the original createdAt on update (INSERT OR REPLACE would otherwise overwrite it).
-        val effectiveCreatedAt = dbQuery.selectUserListCreatedAt(list.id).executeAsOneOrNull() ?: createdAt
         dbQuery.saveUserList(
             id = list.id,
             name = list.name,
             type = list.type.name,
             itemIds = list.itemIds.joinToString(LIST_DELIMITER),
-            createdAt = effectiveCreatedAt,
+            createdAt = createdAt,
             updatedAt = updatedAt,
         )
     }

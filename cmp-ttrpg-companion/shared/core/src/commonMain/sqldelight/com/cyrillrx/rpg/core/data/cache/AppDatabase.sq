@@ -25,10 +25,13 @@ CREATE TABLE IF NOT EXISTS Character (
 );
 
 saveCharacter:
-INSERT OR REPLACE INTO Character(id, data, createdAt, updatedAt) VALUES(?, ?, ?, ?);
-
-selectCharacterCreatedAt:
-SELECT createdAt FROM Character WHERE id = ?;
+INSERT OR REPLACE INTO Character(id, data, createdAt, updatedAt)
+VALUES (
+    :id,
+    :data,
+    COALESCE((SELECT createdAt FROM Character WHERE id = :id), :createdAt),
+    :updatedAt
+);
 
 selectAllCharacters:
 SELECT Character.* FROM Character ORDER BY updatedAt DESC;
@@ -74,10 +77,15 @@ CREATE TABLE IF NOT EXISTS UserList (
 );
 
 saveUserList:
-INSERT OR REPLACE INTO UserList(id, name, type, itemIds, createdAt, updatedAt) VALUES(?, ?, ?, ?, ?, ?);
-
-selectUserListCreatedAt:
-SELECT createdAt FROM UserList WHERE id = ?;
+INSERT OR REPLACE INTO UserList(id, name, type, itemIds, createdAt, updatedAt)
+VALUES (
+    :id,
+    :name,
+    :type,
+    :itemIds,
+    COALESCE((SELECT createdAt FROM UserList WHERE id = :id), :createdAt),
+    :updatedAt
+);
 
 selectAllUserListsByType:
 SELECT * FROM UserList WHERE type = ? ORDER BY updatedAt DESC;
