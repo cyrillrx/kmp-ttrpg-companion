@@ -12,13 +12,13 @@ import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
 import com.cyrillrx.rpg.userlist.domain.UserList
-import kotlinx.datetime.Instant
 import org.jetbrains.compose.resources.pluralStringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.creature_count
 import rpg_companion.composeapp.generated.resources.magical_item_count
 import rpg_companion.composeapp.generated.resources.spell_count
+import kotlin.time.Instant
 
 @Composable
 fun UserListItem(

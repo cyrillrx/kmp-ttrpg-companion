@@ -2,12 +2,12 @@ package com.cyrillrx.rpg.userlist.data
 
 import com.cyrillrx.rpg.userlist.domain.UserList
 import kotlinx.coroutines.test.runTest
-import kotlinx.datetime.Instant
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
 import kotlin.test.assertTrue
 import kotlin.time.Clock
+import kotlin.time.Instant
 
 class UserListRepositoryTest {
     private class MutableClock(var instant: Instant) : Clock {
