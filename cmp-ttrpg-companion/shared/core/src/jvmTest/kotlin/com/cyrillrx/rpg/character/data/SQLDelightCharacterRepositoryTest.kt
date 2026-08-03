@@ -100,22 +100,6 @@ class SQLDelightCharacterRepositoryTest {
     }
 
     @Test
-    fun `getAll returns characters ordered by updatedAt descending`() = runTest {
-        val clock = MutableClock(Instant.fromEpochMilliseconds(1_000L))
-        val repository = buildRepository(clock)
-        val fighter = SampleCharacterRepository.humanFighter()
-        val rogue = SampleCharacterRepository.elfRogue()
-
-        repository.save(fighter)
-        clock.instant = Instant.fromEpochMilliseconds(2_000L)
-        repository.save(rogue)
-
-        val result = repository.getAll(null)
-        assertEquals(rogue, result.first().value)
-        assertEquals(fighter, result.last().value)
-    }
-
-    @Test
     fun `save advances updatedAt on update`() = runTest {
         val clock = MutableClock(Instant.fromEpochMilliseconds(1_000L))
         val repository = buildRepository(clock)

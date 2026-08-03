@@ -14,9 +14,7 @@ class RamCharacterRepository(
     private val characters = mutableMapOf<String, Stored<Character>>()
 
     override suspend fun getAll(filter: CharacterFilter?): List<Stored<Character>> =
-        characters.values.toList()
-            .applyFilter(filter)
-            .sortedByDescending { it.updatedAt }
+        characters.values.toList().applyFilter(filter)
 
     override suspend fun get(id: String): Character? = characters[id]?.value
 

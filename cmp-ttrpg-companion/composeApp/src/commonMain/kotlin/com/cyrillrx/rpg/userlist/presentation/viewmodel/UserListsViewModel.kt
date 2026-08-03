@@ -147,7 +147,7 @@ class UserListsViewModel(
         }
 
     private suspend fun fetchAndUpdateUserLists() {
-        val lists = userListRepository.getAll(listType)
+        val lists = userListRepository.getAll(listType).sortedByDescending { it.updatedAt }
         val body = if (lists.isEmpty()) {
             UserListsState.Body.Empty
         } else {

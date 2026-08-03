@@ -22,6 +22,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertIs
 import kotlin.test.assertTrue
+import kotlin.time.Instant
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class CharacterListViewModelTest {
@@ -275,6 +276,35 @@ class CharacterListViewModelTest {
 
         assertTrue(repository.getAll(null).isEmpty())
     }
+
+    @Test
+    fun `characters are ordered by updatedAt descending`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(ScrambledCharacterRepository())
+
+        advanceUntilIdle()
+
+        val body = assertIs<CharacterListState.Body.WithData>(viewModel.state.value.body)
+        assertEquals(expected = listOf("Newest", "Middle", "Oldest"), actual = body.searchResults.map { it.value.name })
+    }
+}
+
+/** Returns characters whose timestamps deliberately disagree with their position, so only the caller's ordering shows. */
+private class ScrambledCharacterRepository : CharacterRepository {
+    override suspend fun getAll(filter: CharacterFilter?): List<Stored<Character>> = listOf(
+        stored("Middle", 2_000L),
+        stored("Oldest", 1_000L),
+        stored("Newest", 3_000L),
+    )
+
+    override suspend fun get(id: String): Character? = null
+    override suspend fun getByIds(ids: List<String>): List<Character> = emptyList()
+    override suspend fun save(character: Character) = Unit
+    override suspend fun delete(id: String) = Unit
+
+    private fun stored(name: String, epochMillis: Long) = Stored(
+        value = SampleCharacterRepository.humanFighter().copy(id = name, name = name),
+        updatedAt = Instant.fromEpochMilliseconds(epochMillis),
+    )
 }
 
 private class FailingCharacterRepository : CharacterRepository {

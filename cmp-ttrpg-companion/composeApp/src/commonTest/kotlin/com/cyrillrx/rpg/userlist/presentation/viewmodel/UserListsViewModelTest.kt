@@ -20,6 +20,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertIs
 import kotlin.test.assertTrue
+import kotlin.time.Instant
 
 private const val TEST_LIST_ID = "1"
 private const val LIST_NAME = "Name of the list"
@@ -263,6 +264,16 @@ class UserListsViewModelTest {
     }
 
     @Test
+    fun `lists are ordered by updatedAt descending`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(ScrambledUserListRepository())
+
+        advanceUntilIdle()
+
+        val body = assertIs<UserListsState.Body.WithData>(viewModel.state.value.body)
+        assertEquals(expected = listOf("Newest", "Middle", "Oldest"), actual = body.lists.map { it.value.name })
+    }
+
+    @Test
     fun `silentRefresh does nothing when state is already Loading`() = runTest(testDispatcher) {
         val viewModel = buildViewModel()
 
@@ -272,6 +283,24 @@ class UserListsViewModelTest {
 
         assertIs<UserListsState.Body.Loading>(viewModel.state.value.body)
     }
+}
+
+/** Returns lists whose timestamps deliberately disagree with their position, so only the caller's ordering shows. */
+private class ScrambledUserListRepository : UserListRepository {
+    override suspend fun getAll(type: UserList.Type): List<Stored<UserList>> = listOf(
+        stored("Middle", 2_000L),
+        stored("Oldest", 1_000L),
+        stored("Newest", 3_000L),
+    )
+
+    override suspend fun get(id: String): UserList? = null
+    override suspend fun save(list: UserList) = Unit
+    override suspend fun delete(id: String) = Unit
+
+    private fun stored(name: String, epochMillis: Long) = Stored(
+        value = UserList(id = name, name = name, type = UserList.Type.SPELL, itemIds = emptyList()),
+        updatedAt = Instant.fromEpochMilliseconds(epochMillis),
+    )
 }
 
 private class FailsOnDeleteUserListRepository : UserListRepository {

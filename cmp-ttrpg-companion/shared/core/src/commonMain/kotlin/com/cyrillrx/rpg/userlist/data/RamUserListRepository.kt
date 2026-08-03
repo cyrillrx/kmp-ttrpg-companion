@@ -11,9 +11,7 @@ class RamUserListRepository(
     private val lists = mutableMapOf<String, Stored<UserList>>()
 
     override suspend fun getAll(type: UserList.Type): List<Stored<UserList>> =
-        lists.values
-            .filter { it.value.type == type }
-            .sortedByDescending { it.updatedAt }
+        lists.values.filter { it.value.type == type }
 
     override suspend fun get(id: String): UserList? = lists[id]?.value
 

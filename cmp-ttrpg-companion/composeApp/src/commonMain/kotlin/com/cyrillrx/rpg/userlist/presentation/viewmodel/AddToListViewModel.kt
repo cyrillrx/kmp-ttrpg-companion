@@ -47,7 +47,7 @@ class AddToListViewModel<T>(
         try {
             val item = repository.getById(itemId) ?: error("Could not find item $itemId")
 
-            val userLists = userListRepository.getAll(listType)
+            val userLists = userListRepository.getAll(listType).sortedByDescending { it.updatedAt }
             val selectableLists = userLists
                 .map { stored -> SelectableUserList(stored.value, alreadyAdded = itemId in stored.value.itemIds) }
             state.update { it.copy(body = AddToListState.Body.WithData(item, selectableLists)) }

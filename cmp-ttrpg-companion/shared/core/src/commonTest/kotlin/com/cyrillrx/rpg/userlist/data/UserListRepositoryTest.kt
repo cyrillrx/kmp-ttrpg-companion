@@ -90,22 +90,6 @@ class UserListRepositoryTest {
     }
 
     @Test
-    fun `lists are returned sorted by updatedAt descending`() = runTest {
-        val clock = MutableClock(Instant.fromEpochMilliseconds(1_000L))
-        val repository = buildRepository(clock)
-        val older = UserList(id = "1", name = "Older", type = UserList.Type.SPELL, itemIds = emptyList())
-        val newer = UserList(id = "2", name = "Newer", type = UserList.Type.SPELL, itemIds = emptyList())
-
-        repository.save(older)
-        clock.instant = Instant.fromEpochMilliseconds(2_000L)
-        repository.save(newer)
-
-        val result = repository.getAll(UserList.Type.SPELL)
-        assertEquals(expected = newer, actual = result.first().value)
-        assertEquals(expected = older, actual = result.last().value)
-    }
-
-    @Test
     fun `save advances updatedAt on update`() = runTest {
         val clock = MutableClock(Instant.fromEpochMilliseconds(1_000L))
         val repository = buildRepository(clock)
