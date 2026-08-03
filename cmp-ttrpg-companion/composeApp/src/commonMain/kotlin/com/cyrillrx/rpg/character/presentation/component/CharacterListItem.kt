@@ -19,7 +19,6 @@ import androidx.compose.ui.text.style.TextOverflow
 import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Character
-import com.cyrillrx.rpg.core.domain.UNKNOWN_TIMESTAMP
 import com.cyrillrx.rpg.core.presentation.component.AppCard
 import com.cyrillrx.rpg.core.presentation.component.IconLabel
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
@@ -119,8 +118,8 @@ fun CharacterListItem(
 private fun PreviewCharacterListItemLight() {
     AppThemePreview(darkTheme = false) {
         Column(verticalArrangement = Arrangement.spacedBy(spacingSmall)) {
-            SampleCharacterRepository.getAll().forEach {
-                CharacterListItem(character = it, updatedAt = UNKNOWN_TIMESTAMP, onClick = {})
+            SampleCharacterRepository.getAllStored().forEach {
+                CharacterListItem(character = it.value, updatedAt = it.updatedAt, onClick = {})
             }
         }
     }
@@ -131,8 +130,8 @@ private fun PreviewCharacterListItemLight() {
 private fun PreviewCharacterListItemDark() {
     AppThemePreview(darkTheme = true) {
         Column(verticalArrangement = Arrangement.spacedBy(spacingSmall)) {
-            SampleCharacterRepository.getAll().forEach {
-                CharacterListItem(character = it, updatedAt = UNKNOWN_TIMESTAMP, onClick = {})
+            SampleCharacterRepository.getAllStored().forEach {
+                CharacterListItem(character = it.value, updatedAt = it.updatedAt, onClick = {})
             }
         }
     }

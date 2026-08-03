@@ -36,7 +36,11 @@ class SampleUserListRepository(
 
         fun getAll(): List<UserList> = samples.map { it.value }
 
+        fun getAllStored(): List<Stored<UserList>> = samples
+
         fun getFirst(): UserList = samples.first().value
+
+        fun getFirstStored(): Stored<UserList> = samples.first()
 
         private fun combatSpells() = stored(
             UserList(

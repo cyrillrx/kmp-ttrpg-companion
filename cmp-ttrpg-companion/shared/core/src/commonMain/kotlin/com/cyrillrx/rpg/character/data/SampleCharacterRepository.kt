@@ -6,23 +6,22 @@ import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.applyFilter
 import com.cyrillrx.rpg.core.domain.Stored
-import com.cyrillrx.rpg.core.domain.UNKNOWN_TIMESTAMP
 import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.AbilityScore
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.Proficiency
 import com.cyrillrx.rpg.creature.domain.Skills
 import com.cyrillrx.rpg.creature.domain.Speeds
+import kotlin.time.Instant
 
 class SampleCharacterRepository : CharacterRepository {
-    override suspend fun getAll(filter: CharacterFilter?): List<Stored<Character>> =
-        characters.applyFilter(filter).map { it.stored() }
+    override suspend fun getAll(filter: CharacterFilter?): List<Stored<Character>> = characters.applyFilter(filter)
 
-    override suspend fun get(id: String): Character? = characters.firstOrNull { it.id == id }
+    override suspend fun get(id: String): Character? = characters.firstOrNull { it.value.id == id }?.value
 
     override suspend fun getByIds(ids: List<String>): List<Character> {
-        val all = characters.associateBy { it.id }
-        return ids.mapNotNull { all[it] }
+        val all = characters.associateBy { it.value.id }
+        return ids.mapNotNull { all[it]?.value }
     }
 
     override suspend fun save(character: Character) = Unit
@@ -30,16 +29,18 @@ class SampleCharacterRepository : CharacterRepository {
     override suspend fun delete(id: String) = Unit
 
     companion object {
-        private val characters: List<Character> =
+        private val characters: List<Stored<Character>> =
             listOf(
-                humanFighter(),
-                elfRogue(),
+                stored(humanFighter(), updatedAt = "2024-01-18T09:15:00Z"),
+                stored(elfRogue(), updatedAt = "2024-01-12T17:45:00Z"),
             )
 
-        private fun Character.stored(): Stored<Character> =
-            Stored(value = this, updatedAt = UNKNOWN_TIMESTAMP)
+        private fun stored(character: Character, updatedAt: String): Stored<Character> =
+            Stored(value = character, updatedAt = Instant.parse(updatedAt))
 
-        fun getAll(): List<Character> = characters
+        fun getAll(): List<Character> = characters.map { it.value }
+
+        fun getAllStored(): List<Stored<Character>> = characters
 
         fun humanFighter() =
             Character(

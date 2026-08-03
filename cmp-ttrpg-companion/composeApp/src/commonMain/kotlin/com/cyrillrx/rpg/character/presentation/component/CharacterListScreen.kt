@@ -27,7 +27,6 @@ import com.cyrillrx.rpg.character.presentation.CharacterListState
 import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
 import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterListViewModel
 import com.cyrillrx.rpg.core.domain.Stored
-import com.cyrillrx.rpg.core.domain.UNKNOWN_TIMESTAMP
 import com.cyrillrx.rpg.core.presentation.component.EmptySearch
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
@@ -193,11 +192,7 @@ private fun CharacterListScreenPreview() {
         state =
             CharacterListState(
                 searchQuery = "",
-                body = CharacterListState.Body.WithData(
-                    SampleCharacterRepository.getAll().map {
-                        Stored(value = it, updatedAt = UNKNOWN_TIMESTAMP)
-                    },
-                ),
+                body = CharacterListState.Body.WithData(SampleCharacterRepository.getAllStored()),
             ),
         events = MutableSharedFlow(),
         onNavigateUpClicked = {},

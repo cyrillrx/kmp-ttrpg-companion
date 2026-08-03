@@ -29,7 +29,6 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.core.domain.Stored
-import com.cyrillrx.rpg.core.domain.UNKNOWN_TIMESTAMP
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
@@ -210,9 +209,7 @@ private fun UserListsScreenPreview(darkTheme: Boolean) {
         UserListsScreen(
             state = UserListsState(
                 body = UserListsState.Body.WithData(
-                    lists = SampleUserListRepository.getAll().map {
-                        Stored(value = it, updatedAt = UNKNOWN_TIMESTAMP)
-                    },
+                    lists = SampleUserListRepository.getAllStored(),
                 ),
             ),
             title = "Spellbooks",

@@ -28,8 +28,6 @@ import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Character
-import com.cyrillrx.rpg.core.domain.Stored
-import com.cyrillrx.rpg.core.domain.UNKNOWN_TIMESTAMP
 import com.cyrillrx.rpg.core.presentation.HOME_MAGICAL_ITEM_ENTRY_TEST_TAG
 import com.cyrillrx.rpg.core.presentation.HOME_MONSTER_ENTRY_TEST_TAG
 import com.cyrillrx.rpg.core.presentation.HOME_SPELL_ENTRY_TEST_TAG
@@ -229,13 +227,7 @@ internal object PreviewHomeRouter : HomeRouter {
 @Composable
 private fun HomeScreenPreview() {
     HomeScreen(
-        state = HomeState(
-            body = HomeState.Body.WithData(
-                SampleCharacterRepository.getAll().map {
-                    Stored(value = it, updatedAt = UNKNOWN_TIMESTAMP)
-                },
-            ),
-        ),
+        state = HomeState(body = HomeState.Body.WithData(SampleCharacterRepository.getAllStored())),
         router = PreviewHomeRouter,
     )
 }

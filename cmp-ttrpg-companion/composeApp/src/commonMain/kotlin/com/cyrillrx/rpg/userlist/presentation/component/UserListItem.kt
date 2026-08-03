@@ -77,9 +77,10 @@ private fun PreviewUserListItemDark() {
 @Composable
 private fun UserListItemPreview(darkTheme: Boolean) {
     AppThemePreview(darkTheme = darkTheme) {
+        val sample = SampleUserListRepository.getFirstStored()
         UserListItem(
-            list = SampleUserListRepository.getFirst(),
-            updatedAt = Instant.parse("2024-01-15T10:30:00Z"),
+            list = sample.value,
+            updatedAt = sample.updatedAt,
             onClick = {},
         )
     }

@@ -15,8 +15,6 @@ import androidx.compose.ui.Modifier
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.presentation.component.CharacterCreateActions
 import com.cyrillrx.rpg.character.presentation.component.CharacterListItem
-import com.cyrillrx.rpg.core.domain.Stored
-import com.cyrillrx.rpg.core.domain.UNKNOWN_TIMESTAMP
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.iconSizeLarge
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
@@ -81,13 +79,7 @@ fun CharacterPreviewSection(
 @Composable
 private fun CharacterPreviewSectionPreview() {
     CharacterPreviewSection(
-        state = HomeState(
-            body = HomeState.Body.WithData(
-                SampleCharacterRepository.getAll().map {
-                    Stored(value = it, updatedAt = UNKNOWN_TIMESTAMP)
-                },
-            ),
-        ),
+        state = HomeState(body = HomeState.Body.WithData(SampleCharacterRepository.getAllStored())),
         router = PreviewHomeRouter,
     )
 }
