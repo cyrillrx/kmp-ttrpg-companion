@@ -29,6 +29,10 @@ jobs:
         working-directory: cmp-ttrpg-companion
         run: chmod +x gradlew
 
+      - name: Verify SQLDelight migrations
+        working-directory: cmp-ttrpg-companion
+        run: ./gradlew :shared:core:verifyCommonMainAppDatabaseMigration --no-daemon
+
       - name: Run JVM tests and generate Kover reports
         working-directory: cmp-ttrpg-companion
         run: ./gradlew jvmTest koverXmlReportJvm --no-daemon

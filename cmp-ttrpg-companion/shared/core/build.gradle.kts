@@ -70,6 +70,8 @@ sqldelight {
         create("AppDatabase") {
             packageName.set("com.cyrillrx.rpg.cache")
             schemaOutputDirectory.set(file("src/commonMain/sqldelight/databases"))
+            // Fails the build when the .sq schema changes without a matching .sqm migration.
+            verifyMigrations.set(true)
         }
     }
 }
