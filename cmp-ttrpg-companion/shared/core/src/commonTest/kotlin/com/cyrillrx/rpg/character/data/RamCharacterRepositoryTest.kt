@@ -1,7 +1,6 @@
 package com.cyrillrx.rpg.character.data
 
 import com.cyrillrx.rpg.character.domain.CharacterFilter
-import com.cyrillrx.rpg.core.data.cache.TestDatabaseDriverFactory
 import com.cyrillrx.rpg.core.domain.MutableClock
 import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
@@ -11,10 +10,9 @@ import kotlin.test.assertTrue
 import kotlin.time.Clock
 import kotlin.time.Instant
 
-class SQLDelightCharacterRepositoryTest {
+class RamCharacterRepositoryTest {
 
-    private fun buildRepository(clock: Clock = Clock.System) =
-        SQLDelightCharacterRepository(TestDatabaseDriverFactory(), clock = clock)
+    private fun buildRepository(clock: Clock = Clock.System) = RamCharacterRepository(clock)
 
     @Test
     fun `save and getAll returns all saved characters`() = runTest {
@@ -26,41 +24,53 @@ class SQLDelightCharacterRepositoryTest {
         repository.save(rogue)
 
         val result = repository.getAll(null).map { it.value }
-        assertEquals(2, result.size)
+        assertEquals(expected = 2, actual = result.size)
         assertTrue(result.contains(fighter))
         assertTrue(result.contains(rogue))
     }
 
     @Test
-    fun `get returns character by id`() = runTest {
+    fun `get returns the character by id`() = runTest {
         val repository = buildRepository()
         val fighter = SampleCharacterRepository.humanFighter()
 
         repository.save(fighter)
 
-        assertEquals(fighter, repository.get(fighter.id))
+        assertEquals(expected = fighter, actual = repository.get(fighter.id))
     }
 
     @Test
     fun `get returns null for unknown id`() = runTest {
-        val repository = buildRepository()
-        assertNull(repository.get("missing"))
+        assertNull(buildRepository().get("missing"))
     }
 
     @Test
-    fun `save updates an existing character`() = runTest {
+    fun `getByIds returns only the known characters in the requested order`() = runTest {
+        val repository = buildRepository()
+        val fighter = SampleCharacterRepository.humanFighter()
+        val rogue = SampleCharacterRepository.elfRogue()
+
+        repository.save(fighter)
+        repository.save(rogue)
+
+        val result = repository.getByIds(listOf(rogue.id, "missing", fighter.id))
+        assertEquals(expected = listOf(rogue, fighter), actual = result)
+    }
+
+    @Test
+    fun `save replaces the character with the same id`() = runTest {
         val repository = buildRepository()
         val fighter = SampleCharacterRepository.humanFighter()
 
         repository.save(fighter)
-        val updated = fighter.copy(currentHitPoints = 5, temporaryHitPoints = 2)
-        repository.save(updated)
+        repository.save(fighter.copy(currentHitPoints = 1))
 
-        assertEquals(updated, repository.get(fighter.id))
+        val stored = repository.getAll(null).single()
+        assertEquals(expected = 1, actual = stored.value.currentHitPoints)
     }
 
     @Test
-    fun `delete removes character by id`() = runTest {
+    fun `delete removes the character by id`() = runTest {
         val repository = buildRepository()
         val fighter = SampleCharacterRepository.humanFighter()
 
@@ -72,28 +82,16 @@ class SQLDelightCharacterRepositoryTest {
     }
 
     @Test
-    fun `getAll with filter returns only matching characters`() = runTest {
-        val repository = buildRepository()
-        repository.save(SampleCharacterRepository.humanFighter())
-        repository.save(SampleCharacterRepository.elfRogue())
-
-        val result = repository.getAll(CharacterFilter(query = "Lyra"))
-        assertEquals(1, result.size)
-        assertEquals("Lyra Vossen", result.first().value.name)
-    }
-
-    @Test
-    fun `getByIds returns only the requested characters`() = runTest {
+    fun `getAll applies the name filter`() = runTest {
         val repository = buildRepository()
         val fighter = SampleCharacterRepository.humanFighter()
-        val rogue = SampleCharacterRepository.elfRogue()
 
         repository.save(fighter)
-        repository.save(rogue)
+        repository.save(SampleCharacterRepository.elfRogue())
 
-        val result = repository.getByIds(listOf(fighter.id))
-        assertEquals(1, result.size)
-        assertEquals(fighter, result.first())
+        val result = repository.getAll(CharacterFilter(query = fighter.name))
+        assertEquals(expected = 1, actual = result.size)
+        assertEquals(expected = fighter, actual = result.single().value)
     }
 
     @Test
@@ -107,6 +105,6 @@ class SQLDelightCharacterRepositoryTest {
         repository.save(fighter.copy(currentHitPoints = 1))
 
         val stored = repository.getAll(null).single()
-        assertEquals(Instant.fromEpochMilliseconds(5_000L), stored.updatedAt)
+        assertEquals(expected = Instant.fromEpochMilliseconds(5_000L), actual = stored.updatedAt)
     }
 }

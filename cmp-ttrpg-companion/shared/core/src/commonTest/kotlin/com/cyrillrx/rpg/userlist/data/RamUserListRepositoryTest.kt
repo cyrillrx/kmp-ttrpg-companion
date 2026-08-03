@@ -1,5 +1,6 @@
 package com.cyrillrx.rpg.userlist.data
 
+import com.cyrillrx.rpg.core.domain.MutableClock
 import com.cyrillrx.rpg.userlist.domain.UserList
 import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
@@ -9,10 +10,7 @@ import kotlin.test.assertTrue
 import kotlin.time.Clock
 import kotlin.time.Instant
 
-class UserListRepositoryTest {
-    private class MutableClock(var instant: Instant) : Clock {
-        override fun now(): Instant = instant
-    }
+class RamUserListRepositoryTest {
 
     private fun buildRepository(clock: Clock = Clock.System) = RamUserListRepository(clock)
 
