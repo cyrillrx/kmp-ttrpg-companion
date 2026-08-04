@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.presentation.CharacterPresetGalleryState
+import com.cyrillrx.rpg.core.domain.values
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
@@ -53,8 +54,8 @@ class CharacterPresetGalleryViewModel(
     private fun loadPresets() {
         viewModelScope.launch {
             try {
-                val pcPresets = pcPresetRepository.getAll(null).map { it.value }
-                val npcPresets = npcPresetRepository.getAll(null).map { it.value }
+                val pcPresets = pcPresetRepository.getAll(null).values()
+                val npcPresets = npcPresetRepository.getAll(null).values()
                 state.update {
                     it.copy(
                         body = CharacterPresetGalleryState.Body.WithData(

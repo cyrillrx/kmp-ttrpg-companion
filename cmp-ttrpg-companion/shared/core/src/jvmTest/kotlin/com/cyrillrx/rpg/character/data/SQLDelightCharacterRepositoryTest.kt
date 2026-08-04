@@ -3,6 +3,7 @@ package com.cyrillrx.rpg.character.data
 import com.cyrillrx.rpg.character.domain.CharacterFilter
 import com.cyrillrx.rpg.core.data.cache.TestDatabaseDriverFactory
 import com.cyrillrx.rpg.core.domain.MutableClock
+import com.cyrillrx.rpg.core.domain.values
 import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -25,7 +26,7 @@ class SQLDelightCharacterRepositoryTest {
         repository.save(fighter)
         repository.save(rogue)
 
-        val result = repository.getAll(null).map { it.value }
+        val result = repository.getAll(null).values()
         assertEquals(2, result.size)
         assertTrue(result.contains(fighter))
         assertTrue(result.contains(rogue))

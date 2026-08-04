@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.character.data
 
 import com.cyrillrx.rpg.character.domain.CharacterFilter
 import com.cyrillrx.rpg.core.domain.MutableClock
+import com.cyrillrx.rpg.core.domain.values
 import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -23,7 +24,7 @@ class RamCharacterRepositoryTest {
         repository.save(fighter)
         repository.save(rogue)
 
-        val result = repository.getAll(null).map { it.value }
+        val result = repository.getAll(null).values()
         assertEquals(expected = 2, actual = result.size)
         assertTrue(result.contains(fighter))
         assertTrue(result.contains(rogue))
