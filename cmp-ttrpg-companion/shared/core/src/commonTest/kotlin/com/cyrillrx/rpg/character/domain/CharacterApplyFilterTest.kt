@@ -7,7 +7,7 @@ import kotlin.test.assertTrue
 
 class CharacterApplyFilterTest {
 
-    private val characters = SampleCharacterRepository.getAll()
+    private val characters = SampleCharacterRepository.getAllValues()
 
     @Test
     fun `null filter returns the full list`() {

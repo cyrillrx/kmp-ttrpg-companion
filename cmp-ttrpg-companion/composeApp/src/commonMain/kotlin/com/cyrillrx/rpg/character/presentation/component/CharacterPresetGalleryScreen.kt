@@ -143,7 +143,7 @@ private fun PreviewCharacterPresetGalleryScreenDark() {
 
 @Composable
 private fun CharacterPresetGalleryScreenPreview() {
-    val characters = SampleCharacterRepository.getAll()
+    val characters = SampleCharacterRepository.getAllValues()
     CharacterPresetGalleryScreen(
         state = CharacterPresetGalleryState(
             selectedTabIndex = 0,

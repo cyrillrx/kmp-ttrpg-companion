@@ -209,7 +209,7 @@ private fun UserListsScreenPreview(darkTheme: Boolean) {
         UserListsScreen(
             state = UserListsState(
                 body = UserListsState.Body.WithData(
-                    lists = SampleUserListRepository.getAllStored(),
+                    lists = SampleUserListRepository.getAll(),
                 ),
             ),
             title = "Spellbooks",

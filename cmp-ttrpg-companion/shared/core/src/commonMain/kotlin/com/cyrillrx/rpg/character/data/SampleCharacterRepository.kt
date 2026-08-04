@@ -6,6 +6,7 @@ import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.applyFilter
 import com.cyrillrx.rpg.core.domain.Stored
+import com.cyrillrx.rpg.core.domain.values
 import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.AbilityScore
 import com.cyrillrx.rpg.creature.domain.Creature
@@ -38,9 +39,9 @@ class SampleCharacterRepository : CharacterRepository {
         private fun stored(character: Character, updatedAt: String): Stored<Character> =
             Stored(value = character, updatedAt = Instant.parse(updatedAt))
 
-        fun getAll(): List<Character> = characters.map { it.value }
+        fun getAll(): List<Stored<Character>> = characters
 
-        fun getAllStored(): List<Stored<Character>> = characters
+        fun getAllValues(): List<Character> = characters.values()
 
         fun humanFighter() =
             Character(

@@ -72,7 +72,7 @@ private fun PreviewSelectableUserListItemDark() {
 private fun SelectableUserListItemPreview(darkTheme: Boolean, isSelected: Boolean) {
     AppThemePreview(darkTheme = darkTheme) {
         SelectableUserListItem(
-            name = SampleUserListRepository.getFirst().name,
+            name = SampleUserListRepository.getFirstValue().name,
             isSelected = isSelected,
             onClick = {},
         )

@@ -227,7 +227,7 @@ internal object PreviewHomeRouter : HomeRouter {
 @Composable
 private fun HomeScreenPreview() {
     HomeScreen(
-        state = HomeState(body = HomeState.Body.WithData(SampleCharacterRepository.getAllStored())),
+        state = HomeState(body = HomeState.Body.WithData(SampleCharacterRepository.getAll())),
         router = PreviewHomeRouter,
     )
 }

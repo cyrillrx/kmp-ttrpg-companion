@@ -81,7 +81,7 @@ class CharacterListViewModelTest {
 
     @Test
     fun `initial state is WithData when characters exist`() = runTest(testDispatcher) {
-        val character = SampleCharacterRepository.getAll().first()
+        val character = SampleCharacterRepository.getAllValues().first()
         repository.save(character)
 
         val viewModel = buildViewModel()
@@ -98,7 +98,7 @@ class CharacterListViewModelTest {
 
     @Test
     fun `silentRefresh updates state with fresh data without showing Loading`() = runTest(testDispatcher) {
-        val character = SampleCharacterRepository.getAll().first()
+        val character = SampleCharacterRepository.getAllValues().first()
         repository.save(character)
 
         val viewModel = buildViewModel()
@@ -109,7 +109,7 @@ class CharacterListViewModelTest {
 
         advanceUntilIdle()
 
-        val newCharacter = SampleCharacterRepository.getAll().last()
+        val newCharacter = SampleCharacterRepository.getAllValues().last()
         repository.save(newCharacter)
 
         val emittedBodies = mutableListOf<CharacterListState.Body>()
@@ -172,7 +172,7 @@ class CharacterListViewModelTest {
 
     @Test
     fun `deleteCharacterOptimistically removes the character from UI`() = runTest(testDispatcher) {
-        val character = SampleCharacterRepository.getAll().first()
+        val character = SampleCharacterRepository.getAllValues().first()
         repository.save(character)
 
         val viewModel = buildViewModel()
@@ -190,7 +190,7 @@ class CharacterListViewModelTest {
 
     @Test
     fun `undoDeletion restores the character`() = runTest(testDispatcher) {
-        val character = SampleCharacterRepository.getAll().first()
+        val character = SampleCharacterRepository.getAllValues().first()
         repository.save(character)
 
         val viewModel = buildViewModel()
@@ -210,7 +210,7 @@ class CharacterListViewModelTest {
 
     @Test
     fun `commitDeletion removes the character from repository`() = runTest(testDispatcher) {
-        val character = SampleCharacterRepository.getAll().first()
+        val character = SampleCharacterRepository.getAllValues().first()
         repository.save(character)
 
         val viewModel = buildViewModel()
@@ -231,7 +231,7 @@ class CharacterListViewModelTest {
     @Test
     fun `commitDeletion restores character and emits error when repository throws`() = runTest(testDispatcher) {
         val failingRepo = FailsOnDeleteCharacterRepository()
-        val character = SampleCharacterRepository.getAll().first()
+        val character = SampleCharacterRepository.getAllValues().first()
         failingRepo.save(character)
 
         val viewModel = buildViewModel(repo = failingRepo)
@@ -259,7 +259,7 @@ class CharacterListViewModelTest {
 
     @Test
     fun `commitAllPendingDeletions commits pending deletions that were never confirmed`() = runTest(testDispatcher) {
-        val character = SampleCharacterRepository.getAll().first()
+        val character = SampleCharacterRepository.getAllValues().first()
         repository.save(character)
 
         val viewModel = buildViewModel()

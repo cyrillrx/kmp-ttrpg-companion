@@ -118,7 +118,7 @@ fun CharacterListItem(
 private fun PreviewCharacterListItemLight() {
     AppThemePreview(darkTheme = false) {
         Column(verticalArrangement = Arrangement.spacedBy(spacingSmall)) {
-            SampleCharacterRepository.getAllStored().forEach {
+            SampleCharacterRepository.getAll().forEach {
                 CharacterListItem(character = it.value, updatedAt = it.updatedAt, onClick = {})
             }
         }
@@ -130,7 +130,7 @@ private fun PreviewCharacterListItemLight() {
 private fun PreviewCharacterListItemDark() {
     AppThemePreview(darkTheme = true) {
         Column(verticalArrangement = Arrangement.spacedBy(spacingSmall)) {
-            SampleCharacterRepository.getAllStored().forEach {
+            SampleCharacterRepository.getAll().forEach {
                 CharacterListItem(character = it.value, updatedAt = it.updatedAt, onClick = {})
             }
         }

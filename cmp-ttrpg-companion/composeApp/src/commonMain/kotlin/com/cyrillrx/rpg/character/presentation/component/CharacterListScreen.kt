@@ -192,7 +192,7 @@ private fun CharacterListScreenPreview() {
         state =
             CharacterListState(
                 searchQuery = "",
-                body = CharacterListState.Body.WithData(SampleCharacterRepository.getAllStored()),
+                body = CharacterListState.Body.WithData(SampleCharacterRepository.getAll()),
             ),
         events = MutableSharedFlow(),
         onNavigateUpClicked = {},

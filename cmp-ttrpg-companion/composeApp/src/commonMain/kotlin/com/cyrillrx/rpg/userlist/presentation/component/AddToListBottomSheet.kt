@@ -169,7 +169,7 @@ private fun AddToListBottomSheetPreview(darkTheme: Boolean) {
 
     val body = AddToListState.Body.WithData(
         item = spell,
-        selectableLists = SampleUserListRepository.getAll().map {
+        selectableLists = SampleUserListRepository.getAllValues().map {
             AddToListState.SelectableUserList(it, alreadyAdded = it.itemIds.contains(spell.id))
         },
     )

@@ -79,7 +79,7 @@ fun CharacterPreviewSection(
 @Composable
 private fun CharacterPreviewSectionPreview() {
     CharacterPreviewSection(
-        state = HomeState(body = HomeState.Body.WithData(SampleCharacterRepository.getAllStored())),
+        state = HomeState(body = HomeState.Body.WithData(SampleCharacterRepository.getAll())),
         router = PreviewHomeRouter,
     )
 }
