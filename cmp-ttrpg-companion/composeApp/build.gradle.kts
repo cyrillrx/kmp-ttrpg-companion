@@ -114,6 +114,25 @@ sonar {
     }
 }
 
+kover {
+    reports {
+        filters {
+            // Coverage only comes from jvmTest, which cannot exercise composables,
+            // design tokens or navigation declarations.
+            excludes {
+                classes(
+                    "*.presentation.component.*",
+                    "*.presentation.theme.*",
+                    "*.navigation.*",
+                    "*.ComposableSingletons*",
+                    "*Screen",
+                    "*ScreenKt",
+                )
+            }
+        }
+    }
+}
+
 ktlint {
     debug.set(true)
     verbose.set(true)
