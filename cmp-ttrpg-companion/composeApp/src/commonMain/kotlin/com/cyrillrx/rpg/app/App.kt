@@ -35,6 +35,7 @@ import com.cyrillrx.rpg.character.presentation.navigation.handleCharacterRoutes
 import com.cyrillrx.rpg.character.presentation.navigation.registerCharacterRoutes
 import com.cyrillrx.rpg.core.data.ComposeFileReader
 import com.cyrillrx.rpg.core.data.cache.DatabaseDriverFactory
+import com.cyrillrx.rpg.core.data.cache.SharedDatabaseDriverFactory
 import com.cyrillrx.rpg.core.navigation.navigateUp
 import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
 import com.cyrillrx.rpg.core.presentation.theme.AppTheme
@@ -94,8 +95,10 @@ fun App(dbDriverFactory: DatabaseDriverFactory) {
             .components { add(SvgDecoder.Factory()) }
             .build()
     }
-    val prefsRepository: UserPreferencesRepository = remember(dbDriverFactory) {
-        SqlDelightUserPreferencesRepository(dbDriverFactory)
+    // Share a single database connection across all repositories instead of one per repository.
+    val driverFactory = remember(dbDriverFactory) { SharedDatabaseDriverFactory(dbDriverFactory) }
+    val prefsRepository: UserPreferencesRepository = remember(driverFactory) {
+        SqlDelightUserPreferencesRepository(driverFactory)
     }
     var prefsInitialized by remember { mutableStateOf(false) }
     LaunchedEffect(prefsRepository) {
@@ -110,9 +113,9 @@ fun App(dbDriverFactory: DatabaseDriverFactory) {
         CompositionLocalProvider(LocalDistanceUnit provides prefs.distanceUnit) {
             val backStack = rememberNavBackStack(navSavedStateConfig, MainRoute.Home)
 
-            val fileReader = ComposeFileReader()
-            val userListRepository = remember(dbDriverFactory) { SQLDelightUserListRepository(dbDriverFactory) }
-            val characterRepository = remember(dbDriverFactory) { SQLDelightCharacterRepository(dbDriverFactory) }
+            val fileReader = remember { ComposeFileReader() }
+            val userListRepository = remember(driverFactory) { SQLDelightUserListRepository(driverFactory) }
+            val characterRepository = remember(driverFactory) { SQLDelightCharacterRepository(driverFactory) }
 
             NavDisplay(
                 backStack = backStack,
@@ -139,29 +142,33 @@ fun App(dbDriverFactory: DatabaseDriverFactory) {
 
                     handleCampaignRoutes(
                         backStack = backStack,
-                        repository = remember(dbDriverFactory) {
-                            SQLDelightCampaignRepository(dbDriverFactory)
+                        repository = remember(driverFactory) {
+                            SQLDelightCampaignRepository(driverFactory)
                         },
                     )
                     handleCharacterRoutes(
                         backStack = backStack,
                         characterRepository = characterRepository,
-                        pcPresetRepository = JsonCharacterPresetRepository(fileReader, "files/pc-presets.json"),
-                        npcPresetRepository = JsonCharacterPresetRepository(fileReader, "files/npc-presets.json"),
+                        pcPresetRepository = remember(fileReader) {
+                            JsonCharacterPresetRepository(fileReader, "files/pc-presets.json")
+                        },
+                        npcPresetRepository = remember(fileReader) {
+                            JsonCharacterPresetRepository(fileReader, "files/npc-presets.json")
+                        },
                     )
                     handleSpellRoutes(
                         router = SpellRouterImpl(backStack),
-                        spellRepository = JsonSpellRepository(fileReader),
+                        spellRepository = remember(fileReader) { JsonSpellRepository(fileReader) },
                         userListRepository = userListRepository,
                     )
                     handleMagicalItemRoutes(
                         router = MagicalItemRouterImpl(backStack),
-                        repository = JsonMagicalItemRepository(fileReader),
+                        repository = remember(fileReader) { JsonMagicalItemRepository(fileReader) },
                         userListRepository = userListRepository,
                     )
                     handleMonsterRoutes(
                         router = MonsterRouterImpl(backStack),
-                        repository = JsonMonsterRepository(fileReader),
+                        repository = remember(fileReader) { JsonMonsterRepository(fileReader) },
                         userListRepository = userListRepository,
                     )
                     handleUserListRoutes(UserListRouterImpl(backStack), userListRepository)
