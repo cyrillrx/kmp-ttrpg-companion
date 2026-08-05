@@ -119,7 +119,8 @@ private fun <T> ColumnScope.AddToListBottomSheetContent(
                 }
                 items(body.selectableLists, key = { it.list.id }) { item ->
                     SelectableUserListItem(
-                        name = item.list.name,
+                        list = item.list,
+                        updatedAt = item.stored.updatedAt,
                         isSelected = item.isSelected,
                         onClick = { onToggleSelection(item.list.id) },
                         modifier = Modifier.fillMaxWidth(),
@@ -169,8 +170,8 @@ private fun AddToListBottomSheetPreview(darkTheme: Boolean) {
 
     val body = AddToListState.Body.WithData(
         item = spell,
-        selectableLists = SampleUserListRepository.getAllValues().map {
-            AddToListState.SelectableUserList(it, alreadyAdded = it.itemIds.contains(spell.id))
+        selectableLists = SampleUserListRepository.getAll().map {
+            AddToListState.SelectableUserList(it, alreadyAdded = it.value.itemIds.contains(spell.id))
         },
     )
     AppThemePreview(darkTheme = darkTheme) {

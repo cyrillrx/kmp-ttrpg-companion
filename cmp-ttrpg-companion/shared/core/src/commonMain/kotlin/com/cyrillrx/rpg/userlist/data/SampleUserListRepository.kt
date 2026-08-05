@@ -1,7 +1,6 @@
 package com.cyrillrx.rpg.userlist.data
 
 import com.cyrillrx.rpg.core.domain.Stored
-import com.cyrillrx.rpg.core.domain.values
 import com.cyrillrx.rpg.userlist.domain.UserList
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
 import kotlin.time.Clock
@@ -37,11 +36,7 @@ class SampleUserListRepository(
 
         fun getAll(): List<Stored<UserList>> = samples
 
-        fun getAllValues(): List<UserList> = samples.values()
-
         fun getFirst(): Stored<UserList> = samples.first()
-
-        fun getFirstValue(): UserList = samples.first().value
 
         private fun combatSpells() = stored(
             UserList(
