@@ -104,6 +104,16 @@ compose.desktop {
     }
 }
 
+sonar {
+    properties {
+        // Absolute: a relative path would be resolved against this module's directory.
+        property(
+            "sonar.coverage.jacoco.xmlReportPaths",
+            layout.buildDirectory.file("reports/kover/reportJvm.xml").get().asFile.absolutePath,
+        )
+    }
+}
+
 ktlint {
     debug.set(true)
     verbose.set(true)
