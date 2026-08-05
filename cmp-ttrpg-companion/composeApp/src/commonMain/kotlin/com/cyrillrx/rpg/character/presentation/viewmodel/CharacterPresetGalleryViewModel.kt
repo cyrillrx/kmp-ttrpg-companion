@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.presentation.CharacterPresetGalleryState
+import com.cyrillrx.rpg.core.domain.values
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
@@ -14,7 +15,6 @@ import kotlinx.coroutines.launch
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_while_loading_characters
 import kotlin.coroutines.cancellation.CancellationException
-import kotlin.time.Clock
 import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
@@ -45,7 +45,7 @@ class CharacterPresetGalleryViewModel(
     @OptIn(ExperimentalUuidApi::class)
     fun onPresetSelected(preset: Character) {
         viewModelScope.launch {
-            val newCharacter = preset.copy(id = Uuid.random().toString(), lastModified = Clock.System.now())
+            val newCharacter = preset.copy(id = Uuid.random().toString())
             characterRepository.save(newCharacter)
             navigationEvents.tryEmit(NavigationEvent.NavigateToDetail(newCharacter))
         }
@@ -54,8 +54,8 @@ class CharacterPresetGalleryViewModel(
     private fun loadPresets() {
         viewModelScope.launch {
             try {
-                val pcPresets = pcPresetRepository.getAll(null)
-                val npcPresets = npcPresetRepository.getAll(null)
+                val pcPresets = pcPresetRepository.getAll(null).values()
+                val npcPresets = npcPresetRepository.getAll(null).values()
                 state.update {
                     it.copy(
                         body = CharacterPresetGalleryState.Body.WithData(

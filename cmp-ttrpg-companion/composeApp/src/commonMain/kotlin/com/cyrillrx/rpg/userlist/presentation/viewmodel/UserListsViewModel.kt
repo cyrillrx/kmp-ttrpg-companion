@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.userlist.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.core.presentation.commitAllPending
 import com.cyrillrx.rpg.userlist.domain.UserList
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
@@ -19,7 +20,6 @@ import kotlinx.coroutines.launch
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_while_loading_user_lists
 import kotlin.coroutines.cancellation.CancellationException
-import kotlin.time.Clock
 import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
@@ -35,7 +35,7 @@ class UserListsViewModel(
     val events: SharedFlow<Event>
         field = MutableSharedFlow<Event>()
 
-    data class PendingDeletion(val list: UserList, val index: Int)
+    data class PendingDeletion(val stored: Stored<UserList>, val index: Int)
 
     sealed interface Event {
         data class DeletionError(val list: UserList) : Event
@@ -56,7 +56,6 @@ class UserListsViewModel(
                 name = name,
                 type = listType,
                 itemIds = emptyList(),
-                lastModified = Clock.System.now(),
             )
             userListRepository.save(newList)
             activeJob?.cancel()
@@ -64,15 +63,15 @@ class UserListsViewModel(
         }
     }
 
-    fun deleteListOptimistically(list: UserList): PendingDeletion? {
+    fun deleteListOptimistically(stored: Stored<UserList>): PendingDeletion? {
         val currentState = state.value.body as? UserListsState.Body.WithData ?: return null
 
-        val index = currentState.lists.indexOf(list)
+        val index = currentState.lists.indexOf(stored)
         if (index == -1) return null
 
-        val pending = PendingDeletion(list, index)
+        val pending = PendingDeletion(stored, index)
         pendingDeletions.add(pending)
-        val updatedLists = currentState.lists - list
+        val updatedLists = currentState.lists - stored
         val newBody = if (updatedLists.isEmpty()) {
             UserListsState.Body.Empty
         } else {
@@ -90,7 +89,7 @@ class UserListsViewModel(
             is UserListsState.Body.Empty -> emptyList()
             else -> return
         }
-        val restoredLists = currentLists.toMutableList().apply { add(pending.index.coerceAtMost(size), pending.list) }
+        val restoredLists = currentLists.toMutableList().apply { add(pending.index.coerceAtMost(size), pending.stored) }
         state.update { it.copy(body = UserListsState.Body.WithData(restoredLists)) }
     }
 
@@ -99,20 +98,20 @@ class UserListsViewModel(
 
         viewModelScope.launch {
             try {
-                userListRepository.delete(pending.list.id)
+                userListRepository.delete(pending.stored.value.id)
             } catch (e: CancellationException) {
                 throw e
             } catch (e: Exception) {
                 pendingDeletions.add(pending)
                 undoDeletion(pending)
-                events.emit(Event.DeletionError(pending.list))
+                events.emit(Event.DeletionError(pending.stored.value))
             }
         }
     }
 
     internal fun commitAllPendingDeletions() {
         pendingDeletions.commitAllPending(ioDispatcher) { pending ->
-            userListRepository.delete(pending.list.id)
+            userListRepository.delete(pending.stored.value.id)
         }
     }
 
@@ -148,7 +147,7 @@ class UserListsViewModel(
         }
 
     private suspend fun fetchAndUpdateUserLists() {
-        val lists = userListRepository.getAll(listType)
+        val lists = userListRepository.getAll(listType).sortedByDescending { it.updatedAt }
         val body = if (lists.isEmpty()) {
             UserListsState.Body.Empty
         } else {

@@ -3,6 +3,7 @@ package com.cyrillrx.rpg.userlist.presentation.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.core.domain.EntityRepository
+import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.userlist.domain.UserList
 import com.cyrillrx.rpg.userlist.domain.UserListRepository
 import com.cyrillrx.rpg.userlist.presentation.AddToListState
@@ -16,6 +17,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.StringResource
+import kotlin.time.Clock
 import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
@@ -47,9 +49,9 @@ class AddToListViewModel<T>(
         try {
             val item = repository.getById(itemId) ?: error("Could not find item $itemId")
 
-            val userLists = userListRepository.getAll(listType)
+            val userLists = userListRepository.getAll(listType).sortedByDescending { it.updatedAt }
             val selectableLists = userLists
-                .map { list -> SelectableUserList(list, alreadyAdded = itemId in list.itemIds) }
+                .map { stored -> SelectableUserList(stored, alreadyAdded = itemId in stored.value.itemIds) }
             state.update { it.copy(body = AddToListState.Body.WithData(item, selectableLists)) }
         } catch (e: CancellationException) {
             throw e
@@ -78,10 +80,11 @@ class AddToListViewModel<T>(
                 itemIds = listOf(itemId),
             )
             userListRepository.save(newList)
+            val stored = Stored(newList, Clock.System.now())
 
             state.update { state ->
                 val body = state.body as? AddToListState.Body.WithData ?: return@update state
-                val newLists = body.selectableLists + SelectableUserList(newList, alreadyAdded = true)
+                val newLists = body.selectableLists + SelectableUserList(stored, alreadyAdded = true)
                 state.copy(body = body.copy(selectableLists = newLists))
             }
         }

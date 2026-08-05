@@ -31,10 +31,12 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.value_armor_class
 import rpg_companion.composeapp.generated.resources.value_hit_points
+import kotlin.time.Instant
 
 @Composable
 fun CharacterListItem(
     character: Character,
+    updatedAt: Instant,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -42,7 +44,7 @@ fun CharacterListItem(
     val shortDescription = character.resolveTranslation(locale)?.shortDescription.orEmpty()
     val primaryText = shortDescription.ifBlank { character.name }
     val secondaryText = if (shortDescription.isNotBlank()) character.name else ""
-    val relativeTime = character.lastModified.formatRelativeTime()
+    val relativeTime = updatedAt.formatRelativeTime()
 
     AppCard(onClick = onClick, modifier = modifier) {
         Column(
@@ -117,7 +119,7 @@ private fun PreviewCharacterListItemLight() {
     AppThemePreview(darkTheme = false) {
         Column(verticalArrangement = Arrangement.spacedBy(spacingSmall)) {
             SampleCharacterRepository.getAll().forEach {
-                CharacterListItem(character = it, onClick = {})
+                CharacterListItem(character = it.value, updatedAt = it.updatedAt, onClick = {})
             }
         }
     }
@@ -129,7 +131,7 @@ private fun PreviewCharacterListItemDark() {
     AppThemePreview(darkTheme = true) {
         Column(verticalArrangement = Arrangement.spacedBy(spacingSmall)) {
             SampleCharacterRepository.getAll().forEach {
-                CharacterListItem(character = it, onClick = {})
+                CharacterListItem(character = it.value, updatedAt = it.updatedAt, onClick = {})
             }
         }
     }

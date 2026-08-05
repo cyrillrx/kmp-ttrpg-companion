@@ -17,7 +17,7 @@ class JsonCharacterPresetRepositoryTest {
         val result = repository(preset()).getAll(null)
 
         assertEquals(1, result.size)
-        val character = result.first()
+        val character = result.first().value
         assertEquals("test-fighter", character.id)
         assertEquals("Aldus Test", character.name)
         assertEquals(Race.HUMAN, character.race)
@@ -91,7 +91,7 @@ class JsonCharacterPresetRepositoryTest {
             abilities = """{"str": 16, "dex": 12, "con": 14, "int": 10, "wis": 10, "cha": 8}""",
             savingThrows = """{"str": "proficient", "con": "proficient"}""",
         )
-        val character = repository(json).getAll(null).first()
+        val character = repository(json).getAll(null).first().value
         assertEquals(16, character.abilities.strength.value)
         assertEquals(Proficiency.PROFICIENT, character.abilities.strength.savingThrowProficiency)
         assertEquals(12, character.abilities.dexterity.value)
@@ -119,7 +119,7 @@ class JsonCharacterPresetRepositoryTest {
         ]"""
         val result = repository(json).getAll(null)
         assertEquals(1, result.size)
-        assertEquals("test-fighter", result.first().id)
+        assertEquals("test-fighter", result.first().value.id)
     }
 
     private fun repository(json: String) = JsonCharacterPresetRepository(FakeFileReader(json), "")

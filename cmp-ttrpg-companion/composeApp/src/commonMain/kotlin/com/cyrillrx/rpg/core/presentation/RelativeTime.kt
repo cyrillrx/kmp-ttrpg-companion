@@ -1,7 +1,6 @@
 package com.cyrillrx.rpg.core.presentation
 
 import androidx.compose.runtime.Composable
-import kotlinx.datetime.Instant
 import org.jetbrains.compose.resources.pluralStringResource
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
@@ -12,6 +11,7 @@ import rpg_companion.composeapp.generated.resources.time_ago_months
 import rpg_companion.composeapp.generated.resources.time_ago_now
 import rpg_companion.composeapp.generated.resources.time_ago_years
 import kotlin.time.Clock
+import kotlin.time.Instant
 
 /** Coarse relative-time bucket computed from the elapsed duration between two instants. */
 sealed interface RelativeTimePeriod {

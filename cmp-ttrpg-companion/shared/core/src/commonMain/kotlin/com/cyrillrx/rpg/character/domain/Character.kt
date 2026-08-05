@@ -5,7 +5,6 @@ import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.Skills
 import com.cyrillrx.rpg.creature.domain.Speeds
-import kotlinx.datetime.Instant
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -27,7 +26,6 @@ data class Character(
     val background: Background? = null,
     val currentHitPoints: Int = maxHitPoints,
     val temporaryHitPoints: Int = 0,
-    val lastModified: Instant = Instant.fromEpochMilliseconds(0L),
 ) : Creature() {
     fun resolveTranslation(locale: String): Translation? = translations[locale]
         ?: translations[FALLBACK_LOCALE]

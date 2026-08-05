@@ -1,6 +1,7 @@
 package com.cyrillrx.rpg.home.presentation
 
 import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.core.domain.Stored
 import org.jetbrains.compose.resources.StringResource
 
 data class HomeState(
@@ -9,6 +10,6 @@ data class HomeState(
     sealed interface Body {
         data object Loading : Body
         data class Error(val errorMessage: StringResource) : Body
-        data class WithData(val characters: List<Character>) : Body
+        data class WithData(val characters: List<Stored<Character>>) : Body
     }
 }

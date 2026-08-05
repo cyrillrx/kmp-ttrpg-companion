@@ -1,6 +1,7 @@
 package com.cyrillrx.rpg.userlist.presentation.component
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -17,11 +18,14 @@ import androidx.compose.ui.Modifier
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
+import com.cyrillrx.rpg.userlist.domain.UserList
 import org.jetbrains.compose.ui.tooling.preview.Preview
+import kotlin.time.Instant
 
 @Composable
 fun SelectableUserListItem(
-    name: String,
+    list: UserList,
+    updatedAt: Instant,
     isSelected: Boolean,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
@@ -34,11 +38,16 @@ fun SelectableUserListItem(
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            Text(
-                text = name,
-                style = MaterialTheme.typography.bodyLarge,
-                modifier = Modifier.weight(1f),
-            )
+            Column(modifier = Modifier.weight(1f)) {
+                Text(
+                    text = list.name,
+                    style = MaterialTheme.typography.bodyLarge,
+                )
+                Text(
+                    text = list.subtitle(updatedAt),
+                    style = MaterialTheme.typography.bodySmall,
+                )
+            }
             if (isSelected) {
                 Icon(
                     imageVector = Icons.Filled.CheckCircle,
@@ -71,8 +80,10 @@ private fun PreviewSelectableUserListItemDark() {
 @Composable
 private fun SelectableUserListItemPreview(darkTheme: Boolean, isSelected: Boolean) {
     AppThemePreview(darkTheme = darkTheme) {
+        val sample = SampleUserListRepository.getFirst()
         SelectableUserListItem(
-            name = SampleUserListRepository.getFirst().name,
+            list = sample.value,
+            updatedAt = sample.updatedAt,
             isSelected = isSelected,
             onClick = {},
         )

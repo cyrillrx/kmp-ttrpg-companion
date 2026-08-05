@@ -20,7 +20,6 @@ import kotlinx.coroutines.launch
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_while_loading_user_list
 import kotlin.coroutines.cancellation.CancellationException
-import kotlin.time.Clock
 
 class ListDetailViewModel<T>(
     private val listId: String,
@@ -53,7 +52,7 @@ class ListDetailViewModel<T>(
         val list = currentList ?: return
 
         viewModelScope.launch {
-            val updatedList = list.copy(name = newName, lastModified = Clock.System.now())
+            val updatedList = list.copy(name = newName)
             try {
                 userListRepository.save(updatedList)
                 currentList = updatedList

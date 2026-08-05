@@ -23,6 +23,7 @@ import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.presentation.CharacterPresetGalleryState
 import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
 import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterPresetGalleryViewModel
+import com.cyrillrx.rpg.core.domain.UNKNOWN_TIMESTAMP
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
@@ -120,6 +121,7 @@ private fun PresetList(
         items(presets, key = { it.id }) { preset ->
             CharacterListItem(
                 character = preset,
+                updatedAt = UNKNOWN_TIMESTAMP,
                 onClick = { onPresetSelected(preset) },
                 modifier = Modifier.fillMaxWidth(),
             )
@@ -141,7 +143,7 @@ private fun PreviewCharacterPresetGalleryScreenDark() {
 
 @Composable
 private fun CharacterPresetGalleryScreenPreview() {
-    val characters = SampleCharacterRepository.getAll()
+    val characters = SampleCharacterRepository.getAllValues()
     CharacterPresetGalleryScreen(
         state = CharacterPresetGalleryState(
             selectedTabIndex = 0,

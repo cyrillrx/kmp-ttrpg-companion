@@ -37,7 +37,7 @@ class HomeViewModel(
             if (showLoading) state.update { it.copy(body = HomeState.Body.Loading) }
             try {
                 val characters = repository.getAll(filter = null)
-                    .sortedByDescending { it.lastModified }
+                    .sortedByDescending { it.updatedAt }
                     .take(RECENT_LIMIT)
                 state.update { it.copy(body = HomeState.Body.WithData(characters)) }
             } catch (e: CancellationException) {

@@ -1,5 +1,6 @@
 package com.cyrillrx.rpg.userlist.presentation.viewmodel
 
+import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.userlist.data.RamUserListRepository
@@ -337,7 +338,7 @@ class ListDetailViewModelTest {
 
 private class FailsOnRemoveUserListRepository : UserListRepository {
     private val delegate = RamUserListRepository()
-    override suspend fun getAll(type: UserList.Type): List<UserList> = delegate.getAll(type)
+    override suspend fun getAll(type: UserList.Type): List<Stored<UserList>> = delegate.getAll(type)
     override suspend fun get(id: String): UserList? = delegate.get(id)
     override suspend fun save(list: UserList) = delegate.save(list)
     override suspend fun delete(id: String) = delegate.delete(id)

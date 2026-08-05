@@ -6,6 +6,7 @@ import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterFilter
 import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.presentation.CharacterListState
+import com.cyrillrx.rpg.core.domain.Stored
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
@@ -21,6 +22,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertIs
 import kotlin.test.assertTrue
+import kotlin.time.Instant
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class CharacterListViewModelTest {
@@ -40,6 +42,9 @@ class CharacterListViewModelTest {
 
     private fun buildViewModel(repo: CharacterRepository = repository) =
         CharacterListViewModel(repo, testDispatcher)
+
+    private fun CharacterListViewModel.firstStored(): Stored<Character> =
+        (state.value.body as CharacterListState.Body.WithData).searchResults.first()
 
     @Test
     fun `initial state is Loading before coroutines run`() = runTest(testDispatcher) {
@@ -76,7 +81,7 @@ class CharacterListViewModelTest {
 
     @Test
     fun `initial state is WithData when characters exist`() = runTest(testDispatcher) {
-        val character = SampleCharacterRepository.getAll().first()
+        val character = SampleCharacterRepository.getAllValues().first()
         repository.save(character)
 
         val viewModel = buildViewModel()
@@ -93,7 +98,7 @@ class CharacterListViewModelTest {
 
     @Test
     fun `silentRefresh updates state with fresh data without showing Loading`() = runTest(testDispatcher) {
-        val character = SampleCharacterRepository.getAll().first()
+        val character = SampleCharacterRepository.getAllValues().first()
         repository.save(character)
 
         val viewModel = buildViewModel()
@@ -104,7 +109,7 @@ class CharacterListViewModelTest {
 
         advanceUntilIdle()
 
-        val newCharacter = SampleCharacterRepository.getAll().last()
+        val newCharacter = SampleCharacterRepository.getAllValues().last()
         repository.save(newCharacter)
 
         val emittedBodies = mutableListOf<CharacterListState.Body>()
@@ -167,7 +172,7 @@ class CharacterListViewModelTest {
 
     @Test
     fun `deleteCharacterOptimistically removes the character from UI`() = runTest(testDispatcher) {
-        val character = SampleCharacterRepository.getAll().first()
+        val character = SampleCharacterRepository.getAllValues().first()
         repository.save(character)
 
         val viewModel = buildViewModel()
@@ -178,14 +183,14 @@ class CharacterListViewModelTest {
 
         advanceUntilIdle()
 
-        viewModel.deleteCharacterOptimistically(character)
+        viewModel.deleteCharacterOptimistically(viewModel.firstStored())
 
         assertIs<CharacterListState.Body.Empty>(viewModel.state.value.body)
     }
 
     @Test
     fun `undoDeletion restores the character`() = runTest(testDispatcher) {
-        val character = SampleCharacterRepository.getAll().first()
+        val character = SampleCharacterRepository.getAllValues().first()
         repository.save(character)
 
         val viewModel = buildViewModel()
@@ -196,16 +201,16 @@ class CharacterListViewModelTest {
 
         advanceUntilIdle()
 
-        val pending = requireNotNull(viewModel.deleteCharacterOptimistically(character))
+        val pending = requireNotNull(viewModel.deleteCharacterOptimistically(viewModel.firstStored()))
         viewModel.undoDeletion(pending)
 
         val restoredBody = assertIs<CharacterListState.Body.WithData>(viewModel.state.value.body)
-        assertEquals(character, restoredBody.searchResults.first())
+        assertEquals(character, restoredBody.searchResults.first().value)
     }
 
     @Test
     fun `commitDeletion removes the character from repository`() = runTest(testDispatcher) {
-        val character = SampleCharacterRepository.getAll().first()
+        val character = SampleCharacterRepository.getAllValues().first()
         repository.save(character)
 
         val viewModel = buildViewModel()
@@ -216,7 +221,7 @@ class CharacterListViewModelTest {
 
         advanceUntilIdle()
 
-        val pending = requireNotNull(viewModel.deleteCharacterOptimistically(character))
+        val pending = requireNotNull(viewModel.deleteCharacterOptimistically(viewModel.firstStored()))
         viewModel.commitDeletion(pending)
         advanceUntilIdle()
 
@@ -226,7 +231,7 @@ class CharacterListViewModelTest {
     @Test
     fun `commitDeletion restores character and emits error when repository throws`() = runTest(testDispatcher) {
         val failingRepo = FailsOnDeleteCharacterRepository()
-        val character = SampleCharacterRepository.getAll().first()
+        val character = SampleCharacterRepository.getAllValues().first()
         failingRepo.save(character)
 
         val viewModel = buildViewModel(repo = failingRepo)
@@ -242,19 +247,19 @@ class CharacterListViewModelTest {
             viewModel.events.collect { receivedEvents.add(it) }
         }
 
-        val pending = requireNotNull(viewModel.deleteCharacterOptimistically(character))
+        val pending = requireNotNull(viewModel.deleteCharacterOptimistically(viewModel.firstStored()))
         viewModel.commitDeletion(pending)
         advanceUntilIdle()
 
         val body = assertIs<CharacterListState.Body.WithData>(viewModel.state.value.body)
-        assertEquals(character, body.searchResults.first())
+        assertEquals(character, body.searchResults.first().value)
         assertEquals(1, receivedEvents.size)
         assertIs<CharacterListViewModel.Event.DeletionError>(receivedEvents.first())
     }
 
     @Test
     fun `commitAllPendingDeletions commits pending deletions that were never confirmed`() = runTest(testDispatcher) {
-        val character = SampleCharacterRepository.getAll().first()
+        val character = SampleCharacterRepository.getAllValues().first()
         repository.save(character)
 
         val viewModel = buildViewModel()
@@ -265,16 +270,45 @@ class CharacterListViewModelTest {
 
         advanceUntilIdle()
 
-        viewModel.deleteCharacterOptimistically(character) // no commit
+        viewModel.deleteCharacterOptimistically(viewModel.firstStored()) // no commit
         viewModel.commitAllPendingDeletions()
         advanceUntilIdle()
 
         assertTrue(repository.getAll(null).isEmpty())
     }
+
+    @Test
+    fun `characters are ordered by updatedAt descending`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(ScrambledCharacterRepository())
+
+        advanceUntilIdle()
+
+        val body = assertIs<CharacterListState.Body.WithData>(viewModel.state.value.body)
+        assertEquals(expected = listOf("Newest", "Middle", "Oldest"), actual = body.searchResults.map { it.value.name })
+    }
+}
+
+/** Returns characters whose timestamps deliberately disagree with their position, so only the caller's ordering shows. */
+private class ScrambledCharacterRepository : CharacterRepository {
+    override suspend fun getAll(filter: CharacterFilter?): List<Stored<Character>> = listOf(
+        stored("Middle", 2_000L),
+        stored("Oldest", 1_000L),
+        stored("Newest", 3_000L),
+    )
+
+    override suspend fun get(id: String): Character? = null
+    override suspend fun getByIds(ids: List<String>): List<Character> = emptyList()
+    override suspend fun save(character: Character) = Unit
+    override suspend fun delete(id: String) = Unit
+
+    private fun stored(name: String, epochMillis: Long) = Stored(
+        value = SampleCharacterRepository.humanFighter().copy(id = name, name = name),
+        updatedAt = Instant.fromEpochMilliseconds(epochMillis),
+    )
 }
 
 private class FailingCharacterRepository : CharacterRepository {
-    override suspend fun getAll(filter: CharacterFilter?): List<Character> = error("Repository error")
+    override suspend fun getAll(filter: CharacterFilter?): List<Stored<Character>> = error("Repository error")
     override suspend fun get(id: String): Character? = error("Repository error")
     override suspend fun getByIds(ids: List<String>): List<Character> = error("Repository error")
     override suspend fun save(character: Character) = error("Repository error")
@@ -283,7 +317,7 @@ private class FailingCharacterRepository : CharacterRepository {
 
 private class FailsOnDeleteCharacterRepository : CharacterRepository {
     private val delegate = RamCharacterRepository()
-    override suspend fun getAll(filter: CharacterFilter?): List<Character> = delegate.getAll(filter)
+    override suspend fun getAll(filter: CharacterFilter?): List<Stored<Character>> = delegate.getAll(filter)
     override suspend fun get(id: String): Character? = delegate.get(id)
     override suspend fun getByIds(ids: List<String>): List<Character> = delegate.getByIds(ids)
     override suspend fun save(character: Character) = delegate.save(character)
@@ -293,7 +327,7 @@ private class FailsOnDeleteCharacterRepository : CharacterRepository {
 private class FailsOnSecondCallCharacterRepository : CharacterRepository {
     private var callCount = 0
 
-    override suspend fun getAll(filter: CharacterFilter?): List<Character> {
+    override suspend fun getAll(filter: CharacterFilter?): List<Stored<Character>> {
         if (callCount++ == 0) return emptyList()
         error("Repository error")
     }

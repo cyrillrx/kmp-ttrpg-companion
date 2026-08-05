@@ -64,10 +64,11 @@ fun CharacterPreviewSection(
                 )
 
             is HomeState.Body.WithData ->
-                body.characters.forEach { character ->
+                body.characters.forEach { stored ->
                     CharacterListItem(
-                        character = character,
-                        onClick = { router.openCharacterDetail(character) },
+                        character = stored.value,
+                        updatedAt = stored.updatedAt,
+                        onClick = { router.openCharacterDetail(stored.value) },
                         modifier = Modifier.fillMaxWidth(),
                     )
                 }

@@ -12,11 +12,15 @@ class AppDatabaseMigrationTest {
     @Test
     fun `migrating an existing database reaches the canonical schema`() {
         val canonical = JdbcSqliteDriver(JdbcSqliteDriver.IN_MEMORY).also { AppDatabase.Schema.create(it) }
+        val migrated = migratedFromV1()
 
-        assertEquals(
-            userPreferencesColumns(canonical),
-            userPreferencesColumns(migratedFromV1()),
-        )
+        MIGRATED_TABLES.forEach { table ->
+            assertEquals(
+                expected = columnsOf(canonical, table),
+                actual = columnsOf(migrated, table),
+                message = "schema mismatch on $table",
+            )
+        }
     }
 
     @Test
@@ -30,21 +34,67 @@ class AppDatabaseMigrationTest {
         assertEquals("meters", preferences.third)
     }
 
-    private fun migratedFromV1(): SqlDriver {
+    @Test
+    fun `migrating from v2 carries the user list lastModified over to updatedAt`() {
+        val driver = v2Database()
+        driver.execute(
+            null,
+            "INSERT INTO UserList (id, name, type, itemIds, lastModified) " +
+                "VALUES ('list-1', 'Combat Spells', 'SPELL', 'Fireball|Thunderwave', 1700000000000);",
+            0,
+        )
+        AppDatabase.Schema.migrate(driver, oldVersion = 2L, newVersion = AppDatabase.Schema.version)
+
+        val lists = AppDatabase(driver).appDatabaseQueries
+            .selectAllUserListsByType("SPELL") { _, name, _, itemIds, updatedAt -> Triple(name, itemIds, updatedAt) }
+            .executeAsList()
+
+        assertEquals(1, lists.size)
+        assertEquals("Combat Spells", lists.first().first)
+        assertEquals("Fireball|Thunderwave", lists.first().second)
+        assertEquals(1_700_000_000_000L, lists.first().third)
+    }
+
+    @Test
+    fun `migrating from v2 preserves characters and defaults updatedAt to zero`() {
+        val driver = v2Database()
+        driver.execute(null, "INSERT INTO Character (id, data) VALUES ('char-1', '{\"name\":\"Aldus\"}');", 0)
+        AppDatabase.Schema.migrate(driver, oldVersion = 2L, newVersion = AppDatabase.Schema.version)
+
+        val characters = AppDatabase(driver).appDatabaseQueries
+            .selectAllCharacters { id, data, updatedAt -> Triple(id, data, updatedAt) }
+            .executeAsList()
+
+        assertEquals(1, characters.size)
+        assertEquals("char-1", characters.first().first)
+        assertEquals("{\"name\":\"Aldus\"}", characters.first().second)
+        assertEquals(0L, characters.first().third)
+    }
+
+    /** Database shaped as the schema released in v1, seeded with one preferences row. */
+    private fun v1Database(): SqlDriver {
         val driver = JdbcSqliteDriver(JdbcSqliteDriver.IN_MEMORY)
-        driver.execute(null, V1_USER_PREFERENCES, 0)
+        listOf(V1_USER_PREFERENCES, V1_CAMPAIGN, V1_CHARACTER, V1_USER_LIST).forEach { driver.execute(null, it, 0) }
         driver.execute(
             null,
             "INSERT INTO UserPreferencesEntity (id, theme, distance_unit) VALUES (1, 'dark', 'meters');",
             0,
         )
-        AppDatabase.Schema.migrate(driver, oldVersion = 1L, newVersion = AppDatabase.Schema.version)
         return driver
     }
 
-    private fun userPreferencesColumns(driver: SqlDriver): Set<String> = driver.executeQuery(
+    /** Database shaped as the schema released in v2, i.e. v1 plus the palette column. */
+    private fun v2Database(): SqlDriver = v1Database().also {
+        AppDatabase.Schema.migrate(it, oldVersion = 1L, newVersion = 2L)
+    }
+
+    private fun migratedFromV1(): SqlDriver = v1Database().also {
+        AppDatabase.Schema.migrate(it, oldVersion = 1L, newVersion = AppDatabase.Schema.version)
+    }
+
+    private fun columnsOf(driver: SqlDriver, table: String): Set<String> = driver.executeQuery(
         null,
-        "PRAGMA table_info(UserPreferencesEntity)",
+        "PRAGMA table_info($table)",
         { cursor ->
             val columns = mutableSetOf<String>()
             while (cursor.next().value) {
@@ -57,12 +107,42 @@ class AppDatabaseMigrationTest {
     ).value
 
     private companion object {
+        val MIGRATED_TABLES = listOf("UserPreferencesEntity", "Campaign", "Character", "UserList")
+
         val V1_USER_PREFERENCES =
             """
             CREATE TABLE UserPreferencesEntity (
                 id INTEGER NOT NULL PRIMARY KEY DEFAULT 1,
                 theme TEXT NOT NULL DEFAULT 'system',
                 distance_unit TEXT NOT NULL DEFAULT 'feet'
+            );
+            """.trimIndent()
+
+        val V1_CAMPAIGN =
+            """
+            CREATE TABLE Campaign (
+                id TEXT NOT NULL PRIMARY KEY,
+                name TEXT NOT NULL,
+                ruleSet INTEGER NOT NULL
+            );
+            """.trimIndent()
+
+        val V1_CHARACTER =
+            """
+            CREATE TABLE Character (
+                id TEXT NOT NULL PRIMARY KEY,
+                data TEXT NOT NULL
+            );
+            """.trimIndent()
+
+        val V1_USER_LIST =
+            """
+            CREATE TABLE UserList (
+                id TEXT NOT NULL PRIMARY KEY,
+                name TEXT NOT NULL,
+                type TEXT NOT NULL,
+                itemIds TEXT NOT NULL DEFAULT '',
+                lastModified INTEGER NOT NULL DEFAULT 0
             );
             """.trimIndent()
     }

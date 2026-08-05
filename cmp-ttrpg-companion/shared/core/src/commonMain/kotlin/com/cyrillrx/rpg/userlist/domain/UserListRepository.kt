@@ -1,16 +1,15 @@
 package com.cyrillrx.rpg.userlist.domain
 
-import kotlin.time.Clock
+import com.cyrillrx.rpg.core.domain.Stored
 
 interface UserListRepository {
-    suspend fun getAll(type: UserList.Type): List<UserList>
+    suspend fun getAll(type: UserList.Type): List<Stored<UserList>>
     suspend fun get(id: String): UserList?
     suspend fun save(list: UserList)
     suspend fun delete(id: String)
 
     suspend fun addToList(list: UserList, itemId: String): Result {
-        val updatedList = list.copy(itemIds = list.itemIds + itemId, lastModified = Clock.System.now())
-        save(updatedList)
+        save(list.copy(itemIds = list.itemIds + itemId))
         return Result.Success
     }
 
@@ -21,8 +20,7 @@ interface UserListRepository {
     }
 
     suspend fun removeFromList(list: UserList, itemId: String): Result {
-        val updatedList = list.copy(itemIds = list.itemIds - itemId, lastModified = Clock.System.now())
-        save(updatedList)
+        save(list.copy(itemIds = list.itemIds - itemId))
         return Result.Success
     }
 
