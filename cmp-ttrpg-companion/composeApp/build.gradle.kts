@@ -127,6 +127,8 @@ kover {
                     "*.ComposableSingletons*",
                     "*Screen",
                     "*ScreenKt",
+                    // Generated: Compose resources accessors.
+                    "*.generated.resources.*",
                 )
             }
         }

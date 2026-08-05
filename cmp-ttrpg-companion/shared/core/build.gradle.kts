@@ -76,6 +76,17 @@ sqldelight {
     }
 }
 
+kover {
+    reports {
+        filters {
+            excludes {
+                // Generated: SQLDelight database, queries and row types.
+                classes("*.rpg.cache.*")
+            }
+        }
+    }
+}
+
 sonar {
     properties {
         // Absolute: a relative path would be resolved against this module's directory.
