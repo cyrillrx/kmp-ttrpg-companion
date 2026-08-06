@@ -3,10 +3,12 @@ package com.cyrillrx.rpg.app
 import androidx.navigation3.runtime.NavKey
 import com.cyrillrx.rpg.spell.presentation.navigation.SpellRoute
 import com.cyrillrx.rpg.usercollection.presentation.navigation.UserCollectionRoute
+import kotlinx.serialization.ExperimentalSerializationApi
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
 
+@OptIn(ExperimentalSerializationApi::class)
 class NavSavedStateTest {
 
     @Test
