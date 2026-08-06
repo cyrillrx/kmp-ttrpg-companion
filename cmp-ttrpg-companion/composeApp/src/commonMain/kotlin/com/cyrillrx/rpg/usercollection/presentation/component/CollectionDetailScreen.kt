@@ -50,6 +50,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.btn_rename_collection
 import rpg_companion.composeapp.generated.resources.snackbar_error_removing_from_collection
+import rpg_companion.composeapp.generated.resources.snackbar_error_renaming_collection
 import rpg_companion.composeapp.generated.resources.snackbar_removed_from_collection
 
 @Composable
@@ -105,6 +106,13 @@ fun <T> CollectionDetailScreen(
                         duration = SnackbarDuration.Short,
                     )
                 }
+
+                is CollectionDetailViewModel.Event.RenameError -> {
+                    snackbarHostState.showSnackbar(
+                        message = getString(Res.string.snackbar_error_renaming_collection),
+                        duration = SnackbarDuration.Short,
+                    )
+                }
             }
         }
     }
@@ -137,8 +145,13 @@ fun <T> CollectionDetailScreen(
                 title = state.collectionName,
                 onNavigateUpClicked = onNavigateUpClicked,
                 actions = {
-                    IconButton(onClick = { showRenameDialog = true }) {
-                        Icon(Icons.Default.Edit, contentDescription = stringResource(Res.string.btn_rename_collection))
+                    if (state.isLoaded) {
+                        IconButton(onClick = { showRenameDialog = true }) {
+                            Icon(
+                                Icons.Default.Edit,
+                                contentDescription = stringResource(Res.string.btn_rename_collection),
+                            )
+                        }
                     }
                 },
             )

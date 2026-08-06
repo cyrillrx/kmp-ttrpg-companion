@@ -29,6 +29,7 @@
     <string name="snackbar_error_removing_from_collection">Error removing '%1$s' from the collection.</string>
     <string name="snackbar_collection_deleted">Collection '%1$s' was deleted</string>
     <string name="snackbar_error_deleting_collection">Error deleting collection '%1$s'.</string>
+    <string name="snackbar_error_renaming_collection">Error renaming the collection.</string>
     <string name="btn_undo">Undo</string>
 
     <string name="empty_collection_browse_spells">Browse spells</string>

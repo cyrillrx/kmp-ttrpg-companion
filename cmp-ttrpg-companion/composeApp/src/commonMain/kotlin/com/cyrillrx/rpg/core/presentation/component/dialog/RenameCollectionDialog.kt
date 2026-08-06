@@ -20,7 +20,7 @@ fun RenameCollectionDialog(
     onConfirm: (String) -> Unit,
     onDismiss: () -> Unit,
 ) {
-    var name by remember { mutableStateOf(currentName) }
+    var name by remember(currentName) { mutableStateOf(currentName) }
     val trimmedName = name.trim()
 
     EditDialog(

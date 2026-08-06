@@ -38,6 +38,7 @@ class CollectionDetailViewModel<T>(
 
     sealed interface Event<out T> {
         data class RemovalError<T>(val item: T) : Event<T>
+        data object RenameError : Event<Nothing>
     }
 
     private val pendingRemovals: MutableList<PendingRemoval<T>> = mutableListOf()
@@ -49,16 +50,19 @@ class CollectionDetailViewModel<T>(
     }
 
     fun renameCollection(newName: String) {
-        val collection = currentCollection ?: return
-
         viewModelScope.launch {
-            val updatedCollection = collection.copy(name = newName)
             try {
-                userCollectionRepository.save(updatedCollection)
-                currentCollection = updatedCollection
-                state.update { it.copy(collectionName = newName) }
+                val result = userCollectionRepository.rename(collectionId, newName)
+                if (result is UserCollectionRepository.Result.Success) {
+                    currentCollection = currentCollection?.copy(name = newName)
+                    state.update { it.copy(collectionName = newName) }
+                } else {
+                    events.emit(Event.RenameError)
+                }
+            } catch (e: CancellationException) {
+                throw e
             } catch (e: Exception) {
-                // TODO: Emit an event to notify UI about the error
+                events.emit(Event.RenameError)
             }
         }
     }
@@ -97,7 +101,13 @@ class CollectionDetailViewModel<T>(
         if (!pendingRemovals.remove(pending)) return
 
         viewModelScope.launch {
-            val result = userCollectionRepository.removeFromCollection(collectionId, pending.itemId)
+            val result = try {
+                userCollectionRepository.removeFromCollection(collectionId, pending.itemId)
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                UserCollectionRepository.Result.Error(e.message ?: "removal failed")
+            }
             if (result !is UserCollectionRepository.Result.Success) {
                 pendingRemovals.add(pending)
                 undoRemoval(pending)

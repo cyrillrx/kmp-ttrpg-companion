@@ -29,6 +29,7 @@
     <string name="snackbar_error_removing_from_collection">Erreur lors de la suppression de '%1$s'.</string>
     <string name="snackbar_collection_deleted">La collection '%1$s' a été supprimée</string>
     <string name="snackbar_error_deleting_collection">Erreur lors de la suppression de la collection '%1$s'.</string>
+    <string name="snackbar_error_renaming_collection">Erreur lors du renommage de la collection.</string>
     <string name="btn_undo">Annuler</string>
 
     <string name="empty_collection_browse_spells">Parcourir les sorts</string>
