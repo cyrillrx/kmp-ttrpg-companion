@@ -1,0 +1,21 @@
+appId: com.cyrillrx.rpg
+---
+- launchApp:
+    clearState: true
+
+# Navigate to My Collections
+- tapOn:
+    text: "Spells"
+
+# Open the create-collection dialog
+- tapOn:
+    text: "Create"
+- tapOn:
+    id: "input_collection_name"
+- inputText: "My Test Collection"
+- tapOn:
+    text: "Create"
+
+# Verify the collection appears in the Collections screen
+- assertVisible:
+    text: "My Test Collection"

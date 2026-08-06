@@ -20,7 +20,7 @@ class RamUserCollectionRepositoryTest {
 
         val spellList = UserCollection(
             id = "1",
-            name = "Spellbook",
+            name = "My Spells",
             type = UserCollection.Type.SPELL,
             itemIds = emptyList(),
         )
@@ -63,7 +63,7 @@ class RamUserCollectionRepositoryTest {
     @Test
     fun `save updates itemIds on existing list`() = runTest {
         val repository = buildRepository()
-        val list = UserCollection(id = "1", name = "Spellbook", type = UserCollection.Type.SPELL, itemIds = emptyList())
+        val list = UserCollection(id = "1", name = "My Spells", type = UserCollection.Type.SPELL, itemIds = emptyList())
 
         repository.save(list)
 
@@ -77,7 +77,7 @@ class RamUserCollectionRepositoryTest {
     @Test
     fun `delete removes list by id`() = runTest {
         val repository = buildRepository()
-        val list = UserCollection(id = "1", name = "Spellbook", type = UserCollection.Type.SPELL, itemIds = emptyList())
+        val list = UserCollection(id = "1", name = "My Spells", type = UserCollection.Type.SPELL, itemIds = emptyList())
 
         repository.save(list)
         repository.delete("1")
@@ -89,7 +89,7 @@ class RamUserCollectionRepositoryTest {
     @Test
     fun `getAll returns empty list when no lists of given type exist`() = runTest {
         val repository = buildRepository()
-        val list = UserCollection(id = "1", name = "Spellbook", type = UserCollection.Type.SPELL, itemIds = emptyList())
+        val list = UserCollection(id = "1", name = "My Spells", type = UserCollection.Type.SPELL, itemIds = emptyList())
 
         repository.save(list)
 
@@ -101,7 +101,7 @@ class RamUserCollectionRepositoryTest {
     fun `save advances updatedAt on update`() = runTest {
         val clock = MutableClock(Instant.fromEpochMilliseconds(1_000L))
         val repository = buildRepository(clock)
-        val list = UserCollection(id = "1", name = "Spellbook", type = UserCollection.Type.SPELL, itemIds = emptyList())
+        val list = UserCollection(id = "1", name = "My Spells", type = UserCollection.Type.SPELL, itemIds = emptyList())
 
         repository.save(list)
         clock.instant = Instant.fromEpochMilliseconds(5_000L)

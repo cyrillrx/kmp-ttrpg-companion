@@ -3,13 +3,13 @@ appId: com.cyrillrx.rpg
 - launchApp:
     clearState: true
 
-# Step 1 – create a spell list from the home screen
+# Step 1 – create a spell collection from the home screen
 - tapOn:
-    text: "Spellbooks"
+    text: "Spells"
 - tapOn:
     text: "Create"
 - tapOn:
-    id: "input_list_name"
+    id: "input_collection_name"
 - inputText: "My Spells"
 - tapOn:
     text: "Create"
@@ -22,7 +22,7 @@ appId: com.cyrillrx.rpg
 - tapOn:
     text: "Spellbook"
 
-# Step 3 – swipe RIGHT (StartToEnd) on the first spell to open the Add-to-List sheet
+# Step 3 – swipe RIGHT (StartToEnd) on the first spell to open the Add-to-collection sheet
 # "Aspersion acide" is the first entry in grimoire.json (file order preserved, no sort)
 - swipe:
     direction: RIGHT
@@ -40,7 +40,7 @@ appId: com.cyrillrx.rpg
 - tapOn:
     text: "Back"
 - tapOn:
-    text: "Spellbooks"
+    text: "Spells"
 - tapOn:
     text: "My Spells"
 - assertVisible:

@@ -17,7 +17,7 @@ class SQLDelightUserCollectionRepositoryTest {
     private fun buildRepository(clock: Clock = Clock.System) =
         SQLDelightUserCollectionRepository(TestDatabaseDriverFactory(), clock = clock)
 
-    private fun spellList(id: String = "1", name: String = "Spellbook", itemIds: List<String> = emptyList()) =
+    private fun spellList(id: String = "1", name: String = "My Spells", itemIds: List<String> = emptyList()) =
         UserCollection(id = id, name = name, type = UserCollection.Type.SPELL, itemIds = itemIds)
 
     @Test
