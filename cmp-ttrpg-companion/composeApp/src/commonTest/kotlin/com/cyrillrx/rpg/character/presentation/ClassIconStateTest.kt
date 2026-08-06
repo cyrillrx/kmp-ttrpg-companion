@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.character.presentation.component
+package com.cyrillrx.rpg.character.presentation
 
 import com.cyrillrx.rpg.character.domain.Character
 import kotlinx.coroutines.test.runTest
