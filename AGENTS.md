@@ -50,9 +50,18 @@ All commands run from `cmp-ttrpg-companion/`:
 ./gradlew jvmTest             # Run JVM/Desktop tests only
 ./gradlew ktlintCheck         # Check formatting
 ./gradlew ktlintFormat        # Auto-fix formatting
+./gradlew koverXmlReportJvm   # Generate the coverage reports SonarCloud reads
 ```
 
 ktlint is **strict** in `shared/core` (`ignoreFailures=false`) and permissive in `composeApp` (`ignoreFailures=true`).
+
+### Coverage policy
+
+Coverage is produced by `jvmTest` alone and reported to SonarCloud through Kover. Each module declares its own report path and its own exclusions — see the `sonar { }` and `kover { }` blocks in `composeApp/build.gradle.kts` and `shared/core/build.gradle.kts`.
+
+What is excluded, and why: composables, design tokens and route declarations (no UI test feeds Kover, so measuring them would count tests that are never collected), and generated code (Compose resource accessors, SQLDelight types), which Sonar does not index either.
+
+The practical rule when writing code: **keep testable logic out of `*.presentation.component.*`**. Kover counts per class, so a pure function sharing a file with a composable is excluded along with it, and its tests stop counting.
 
 ## 4. KMP Client — Project-specific patterns
 
