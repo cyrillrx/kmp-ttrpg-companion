@@ -6,6 +6,7 @@ import app.cash.sqldelight.driver.jdbc.sqlite.JdbcSqliteDriver
 import com.cyrillrx.rpg.cache.AppDatabase
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertTrue
 
 class AppDatabaseMigrationTest {
 
@@ -15,8 +16,12 @@ class AppDatabaseMigrationTest {
         val migrated = migratedFromV1()
 
         MIGRATED_TABLES.forEach { table ->
+            val expected = columnsOf(canonical, table)
+            // PRAGMA table_info answers an unknown table with zero rows, so without this the
+            // comparison below would pass by comparing two empty sets.
+            assertTrue(expected.isNotEmpty(), "$table is missing from the canonical schema")
             assertEquals(
-                expected = columnsOf(canonical, table),
+                expected = expected,
                 actual = columnsOf(migrated, table),
                 message = "schema mismatch on $table",
             )
@@ -73,6 +78,31 @@ class AppDatabaseMigrationTest {
         assertEquals(0L, characters.first().third)
     }
 
+    @Test
+    fun `migrating from v3 renames the user list table and preserves its rows`() {
+        val driver = v3Database()
+        driver.execute(
+            null,
+            "INSERT INTO UserList (id, name, type, itemIds, updatedAt) " +
+                "VALUES ('list-1', 'Combat Spells', 'SPELL', 'Fireball|Thunderwave', 1700000000000);",
+            0,
+        )
+        AppDatabase.Schema.migrate(driver, oldVersion = 3L, newVersion = AppDatabase.Schema.version)
+
+        val collections = AppDatabase(driver).appDatabaseQueries
+            .selectAllUserCollectionsByType("SPELL") { id, name, _, itemIds, updatedAt ->
+                listOf(id, name, itemIds, updatedAt.toString())
+            }
+            .executeAsList()
+
+        assertEquals(1, collections.size)
+        assertEquals(
+            listOf("list-1", "Combat Spells", "Fireball|Thunderwave", "1700000000000"),
+            collections.first(),
+        )
+        assertTrue(columnsOf(driver, "UserList").isEmpty(), "UserList should have been renamed, not copied")
+    }
+
     /** Database shaped as the schema released in v1, seeded with one preferences row. */
     private fun v1Database(): SqlDriver {
         val driver = JdbcSqliteDriver(JdbcSqliteDriver.IN_MEMORY)
@@ -88,6 +118,11 @@ class AppDatabaseMigrationTest {
     /** Database shaped as the schema released in v2, i.e. v1 plus the palette column. */
     private fun v2Database(): SqlDriver = v1Database().also {
         AppDatabase.Schema.migrate(it, oldVersion = 1L, newVersion = 2L)
+    }
+
+    /** Database shaped as the schema released in v3, i.e. v2 plus `updatedAt` on lists and characters. */
+    private fun v3Database(): SqlDriver = v2Database().also {
+        AppDatabase.Schema.migrate(it, oldVersion = 2L, newVersion = 3L)
     }
 
     private fun migratedFromV1(): SqlDriver = v1Database().also {
