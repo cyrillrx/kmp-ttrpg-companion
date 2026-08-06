@@ -29,7 +29,7 @@ interface MonsterRoute {
     data class Detail(val monsterId: String) : NavKey
 
     @Serializable
-    data class UserCollectionDetail(val listId: String) : NavKey
+    data class UserCollectionDetail(val collectionId: String) : NavKey
 }
 
 fun PolymorphicModuleBuilder<NavKey>.registerMonsterRoutes() {
@@ -59,13 +59,13 @@ fun EntryProviderScope<NavKey>.handleMonsterRoutes(
     }
 
     entry<MonsterRoute.UserCollectionDetail> { route ->
-        val listId = route.listId
+        val collectionId = route.collectionId
         val viewModelFactory = CollectionDetailViewModelFactory(
-            listId = listId,
+            collectionId = collectionId,
             userCollectionRepository = userCollectionRepository,
             repository = repository,
         )
-        val viewModel = viewModel<CollectionDetailViewModel<Monster>>(key = listId, factory = viewModelFactory)
+        val viewModel = viewModel<CollectionDetailViewModel<Monster>>(key = collectionId, factory = viewModelFactory)
         val itemProvider = MonsterItemProvider(
             onItemClicked = router::openDetail,
             onEmptyLayoutBtnClicked = router::openCompendium,

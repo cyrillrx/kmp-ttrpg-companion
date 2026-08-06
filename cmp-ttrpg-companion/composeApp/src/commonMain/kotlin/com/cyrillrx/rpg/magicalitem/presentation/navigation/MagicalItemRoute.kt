@@ -28,7 +28,7 @@ interface MagicalItemRoute {
     data class Detail(val magicalItemId: String) : NavKey
 
     @Serializable
-    data class UserCollectionDetail(val listId: String) : NavKey
+    data class UserCollectionDetail(val collectionId: String) : NavKey
 }
 
 fun PolymorphicModuleBuilder<NavKey>.registerMagicalItemRoutes() {
@@ -58,13 +58,14 @@ fun EntryProviderScope<NavKey>.handleMagicalItemRoutes(
     }
 
     entry<MagicalItemRoute.UserCollectionDetail> { route ->
-        val listId = route.listId
+        val collectionId = route.collectionId
         val viewModelFactory = CollectionDetailViewModelFactory(
-            listId = listId,
+            collectionId = collectionId,
             userCollectionRepository = userCollectionRepository,
             repository = repository,
         )
-        val viewModel = viewModel<CollectionDetailViewModel<MagicalItem>>(key = listId, factory = viewModelFactory)
+        val viewModel =
+            viewModel<CollectionDetailViewModel<MagicalItem>>(key = collectionId, factory = viewModelFactory)
         val itemProvider = MagicalItemItemProvider(
             onItemClicked = router::openDetail,
             onEmptyLayoutBtnClicked = router::openCompendium,

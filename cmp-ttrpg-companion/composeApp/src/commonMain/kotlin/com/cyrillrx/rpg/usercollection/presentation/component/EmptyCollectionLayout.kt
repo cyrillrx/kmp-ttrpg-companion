@@ -69,7 +69,7 @@ private fun EmptyCollectionLayoutPreview(darkTheme: Boolean) {
     AppThemePreview(darkTheme = darkTheme) {
         EmptyCollectionLayout(
             icon = Icons.AutoMirrored.Outlined.MenuBook,
-            message = "The list is empty",
+            message = "The collection is empty",
             btnText = "Browse spells",
             onBtnClicked = {},
         )

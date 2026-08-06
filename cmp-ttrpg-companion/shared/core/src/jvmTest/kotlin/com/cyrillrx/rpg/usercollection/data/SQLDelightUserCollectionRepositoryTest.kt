@@ -17,13 +17,13 @@ class SQLDelightUserCollectionRepositoryTest {
     private fun buildRepository(clock: Clock = Clock.System) =
         SQLDelightUserCollectionRepository(TestDatabaseDriverFactory(), clock = clock)
 
-    private fun spellList(id: String = "1", name: String = "My Spells", itemIds: List<String> = emptyList()) =
+    private fun spellCollection(id: String = "1", name: String = "My Spells", itemIds: List<String> = emptyList()) =
         UserCollection(id = id, name = name, type = UserCollection.Type.SPELL, itemIds = itemIds)
 
     @Test
-    fun `save and getAll returns lists filtered by type`() = runTest {
+    fun `save and getAll returns collections filtered by type`() = runTest {
         val repository = buildRepository()
-        val spells = spellList()
+        val spells = spellCollection()
         val items = UserCollection(
             id = "2",
             name = "Artefacts",
@@ -40,13 +40,13 @@ class SQLDelightUserCollectionRepositoryTest {
     }
 
     @Test
-    fun `get returns the list by id`() = runTest {
+    fun `get returns the collection by id`() = runTest {
         val repository = buildRepository()
-        val list = spellList(id = "abc", itemIds = listOf("Fireball", "Thunderwave"))
+        val collection = spellCollection(id = "abc", itemIds = listOf("Fireball", "Thunderwave"))
 
-        repository.save(list)
+        repository.save(collection)
 
-        assertEquals(expected = list, actual = repository.get("abc"))
+        assertEquals(expected = collection, actual = repository.get("abc"))
     }
 
     @Test
@@ -55,12 +55,12 @@ class SQLDelightUserCollectionRepositoryTest {
     }
 
     @Test
-    fun `save replaces the list with the same id`() = runTest {
+    fun `save replaces the collection with the same id`() = runTest {
         val repository = buildRepository()
-        val list = spellList()
+        val collection = spellCollection()
 
-        repository.save(list)
-        val updated = list.copy(itemIds = listOf("spell1", "spell2"))
+        repository.save(collection)
+        val updated = collection.copy(itemIds = listOf("spell1", "spell2"))
         repository.save(updated)
 
         assertEquals(expected = updated, actual = repository.get("1"))
@@ -68,10 +68,10 @@ class SQLDelightUserCollectionRepositoryTest {
     }
 
     @Test
-    fun `delete removes the list by id`() = runTest {
+    fun `delete removes the collection by id`() = runTest {
         val repository = buildRepository()
 
-        repository.save(spellList())
+        repository.save(spellCollection())
         repository.delete("1")
 
         assertNull(repository.get("1"))
@@ -79,29 +79,29 @@ class SQLDelightUserCollectionRepositoryTest {
     }
 
     @Test
-    fun `addToList appends the item and removeFromList drops it`() = runTest {
+    fun `addToCollection appends the item and removeFromCollection drops it`() = runTest {
         val repository = buildRepository()
-        val list = spellList()
-        repository.save(list)
+        val collection = spellCollection()
+        repository.save(collection)
 
         assertEquals(
             expected = UserCollectionRepository.Result.Success,
-            actual = repository.addToList(repository.get("1")!!, "Fireball"),
+            actual = repository.addToCollection(repository.get("1")!!, "Fireball"),
         )
         assertEquals(expected = listOf("Fireball"), actual = repository.get("1")?.itemIds)
 
         assertEquals(
             expected = UserCollectionRepository.Result.Success,
-            actual = repository.removeFromList("1", "Fireball"),
+            actual = repository.removeFromCollection("1", "Fireball"),
         )
         assertEquals(expected = emptyList(), actual = repository.get("1")?.itemIds)
     }
 
     @Test
-    fun `removeFromList reports a missing list`() = runTest {
+    fun `removeFromCollection reports a missing collection`() = runTest {
         assertEquals(
             expected = UserCollectionRepository.Result.NotFound,
-            actual = buildRepository().removeFromList("missing", "Fireball"),
+            actual = buildRepository().removeFromCollection("missing", "Fireball"),
         )
     }
 
@@ -109,11 +109,11 @@ class SQLDelightUserCollectionRepositoryTest {
     fun `save advances updatedAt on update`() = runTest {
         val clock = MutableClock(Instant.fromEpochMilliseconds(1_000L))
         val repository = buildRepository(clock)
-        val list = spellList()
+        val collection = spellCollection()
 
-        repository.save(list)
+        repository.save(collection)
         clock.instant = Instant.fromEpochMilliseconds(5_000L)
-        repository.save(list.copy(itemIds = listOf("spell1")))
+        repository.save(collection.copy(itemIds = listOf("spell1")))
 
         val stored = repository.getAll(UserCollection.Type.SPELL).single()
         assertEquals(expected = Instant.fromEpochMilliseconds(5_000L), actual = stored.updatedAt)

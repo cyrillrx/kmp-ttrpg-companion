@@ -74,12 +74,12 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
     fun getUserCollection(id: String): UserCollection? =
         dbQuery.selectUserCollectionById(id, ::mapUserCollectionSelecting).executeAsOneOrNull()
 
-    fun saveUserCollection(list: UserCollection, updatedAt: Long) {
+    fun saveUserCollection(collection: UserCollection, updatedAt: Long) {
         dbQuery.saveUserCollection(
-            id = list.id,
-            name = list.name,
-            type = list.type.name,
-            itemIds = list.itemIds.joinToString(LIST_DELIMITER),
+            id = collection.id,
+            name = collection.name,
+            type = collection.type.name,
+            itemIds = collection.itemIds.joinToString(LIST_DELIMITER),
             updatedAt = updatedAt,
         )
     }

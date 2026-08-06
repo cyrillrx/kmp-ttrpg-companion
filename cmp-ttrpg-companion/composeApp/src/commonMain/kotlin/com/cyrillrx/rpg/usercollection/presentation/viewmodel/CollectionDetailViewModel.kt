@@ -22,7 +22,7 @@ import rpg_companion.composeapp.generated.resources.error_while_loading_collecti
 import kotlin.coroutines.cancellation.CancellationException
 
 class CollectionDetailViewModel<T>(
-    private val listId: String,
+    private val collectionId: String,
     private val userCollectionRepository: UserCollectionRepository,
     private val repository: EntityRepository<T>,
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
@@ -41,22 +41,22 @@ class CollectionDetailViewModel<T>(
     }
 
     private val pendingRemovals: MutableList<PendingRemoval<T>> = mutableListOf()
-    private var currentList: UserCollection? = null
+    private var currentCollection: UserCollection? = null
     private var activeJob: Job? = null
 
     init {
         activeJob = loadDetail()
     }
 
-    fun renameList(newName: String) {
-        val list = currentList ?: return
+    fun renameCollection(newName: String) {
+        val collection = currentCollection ?: return
 
         viewModelScope.launch {
-            val updatedList = list.copy(name = newName)
+            val updatedCollection = collection.copy(name = newName)
             try {
-                userCollectionRepository.save(updatedList)
-                currentList = updatedList
-                state.update { it.copy(listName = newName) }
+                userCollectionRepository.save(updatedCollection)
+                currentCollection = updatedCollection
+                state.update { it.copy(collectionName = newName) }
             } catch (e: Exception) {
                 // TODO: Emit an event to notify UI about the error
             }
@@ -73,7 +73,7 @@ class CollectionDetailViewModel<T>(
         pendingRemovals.add(pending)
         val updatedItems = currentState.items - item
         val newBody = if (updatedItems.isEmpty()) {
-            CollectionDetailState.Body.EmptyList
+            CollectionDetailState.Body.Empty
         } else {
             CollectionDetailState.Body.WithData(updatedItems)
         }
@@ -86,7 +86,7 @@ class CollectionDetailViewModel<T>(
 
         val currentItems = when (val body = state.value.body) {
             is CollectionDetailState.Body.WithData -> body.items
-            is CollectionDetailState.Body.EmptyList -> emptyList()
+            is CollectionDetailState.Body.Empty -> emptyList()
             else -> return
         }
         val restoredItems = currentItems.toMutableList().apply { add(pending.index.coerceAtMost(size), pending.item) }
@@ -97,7 +97,7 @@ class CollectionDetailViewModel<T>(
         if (!pendingRemovals.remove(pending)) return
 
         viewModelScope.launch {
-            val result = userCollectionRepository.removeFromList(listId, pending.itemId)
+            val result = userCollectionRepository.removeFromCollection(collectionId, pending.itemId)
             if (result !is UserCollectionRepository.Result.Success) {
                 pendingRemovals.add(pending)
                 undoRemoval(pending)
@@ -108,7 +108,7 @@ class CollectionDetailViewModel<T>(
 
     internal fun commitAllPendingRemovals() {
         pendingRemovals.commitAllPending(ioDispatcher) { pending ->
-            userCollectionRepository.removeFromList(listId, pending.itemId)
+            userCollectionRepository.removeFromCollection(collectionId, pending.itemId)
         }
     }
 
@@ -144,13 +144,13 @@ class CollectionDetailViewModel<T>(
         }
 
     private suspend fun fetchDetail() {
-        val list = userCollectionRepository.get(listId) ?: error("Could not find list $listId")
-        currentList = list
-        state.update { it.copy(listName = list.name) }
+        val collection = userCollectionRepository.get(collectionId) ?: error("Could not find collection $collectionId")
+        currentCollection = collection
+        state.update { it.copy(collectionName = collection.name) }
 
-        val items = repository.getByIds(list.itemIds)
+        val items = repository.getByIds(collection.itemIds)
         val body = if (items.isEmpty()) {
-            CollectionDetailState.Body.EmptyList
+            CollectionDetailState.Body.Empty
         } else {
             CollectionDetailState.Body.WithData(items)
         }

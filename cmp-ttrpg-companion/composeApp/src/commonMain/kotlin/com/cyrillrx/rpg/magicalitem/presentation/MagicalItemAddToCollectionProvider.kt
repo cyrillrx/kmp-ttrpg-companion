@@ -29,10 +29,10 @@ class MagicalItemAddToCollectionProvider(
     repository: MagicalItemRepository,
     userCollectionRepository: UserCollectionRepository,
 ) : AddToCollectionProvider<MagicalItem> {
-    override val listType: UserCollection.Type = UserCollection.Type.MAGICAL_ITEM
+    override val collectionType: UserCollection.Type = UserCollection.Type.MAGICAL_ITEM
 
     override val viewModelFactory = AddToCollectionViewModelFactory(
-        listType = listType,
+        collectionType = collectionType,
         userCollectionRepository = userCollectionRepository,
         entityRepository = repository,
         errorMessage = Res.string.error_while_loading_magical_items,

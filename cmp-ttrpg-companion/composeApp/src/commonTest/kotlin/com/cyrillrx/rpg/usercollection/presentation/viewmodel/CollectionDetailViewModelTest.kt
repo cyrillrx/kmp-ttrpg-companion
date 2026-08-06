@@ -23,9 +23,9 @@ import kotlin.test.assertEquals
 import kotlin.test.assertIs
 import kotlin.test.assertTrue
 
-private const val TEST_LIST_ID = "list1"
-private const val LIST_NAME = "Name of the list"
-private const val RENAMED_LIST_NAME = "New Name"
+private const val TEST_COLLECTION_ID = "collection1"
+private const val COLLECTION_NAME = "Name of the collection"
+private const val RENAMED_COLLECTION_NAME = "New Name"
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class CollectionDetailViewModelTest {
@@ -46,19 +46,19 @@ class CollectionDetailViewModelTest {
         Dispatchers.resetMain()
     }
 
-    private fun buildViewModel(listId: String, repo: UserCollectionRepository = userCollectionRepository) =
-        CollectionDetailViewModel(listId, repo, spellRepository, testDispatcher)
+    private fun buildViewModel(collectionId: String, repo: UserCollectionRepository = userCollectionRepository) =
+        CollectionDetailViewModel(collectionId, repo, spellRepository, testDispatcher)
 
     @Test
     fun `initial state is Loading before coroutines run`() = runTest(testDispatcher) {
-        val viewModel = buildViewModel(TEST_LIST_ID)
+        val viewModel = buildViewModel(TEST_COLLECTION_ID)
 
         assertIs<CollectionDetailState.Body.Loading>(viewModel.state.value.body)
     }
 
     @Test
     fun `state is Error when repository throws`() = runTest(testDispatcher) {
-        val viewModel = buildViewModel(TEST_LIST_ID, FailingUserCollectionRepository())
+        val viewModel = buildViewModel(TEST_COLLECTION_ID, FailingUserCollectionRepository())
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -70,8 +70,8 @@ class CollectionDetailViewModelTest {
     }
 
     @Test
-    fun `state is Error when list is not found`() = runTest(testDispatcher) {
-        val viewModel = buildViewModel("non_existent_list")
+    fun `state is Error when collection is not found`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel("non_existent_collection")
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -83,11 +83,11 @@ class CollectionDetailViewModelTest {
     }
 
     @Test
-    fun `state is Empty when list has no spells`() = runTest(testDispatcher) {
-        val list = UserCollection(TEST_LIST_ID, LIST_NAME, UserCollection.Type.SPELL, emptyList())
-        userCollectionRepository.save(list)
+    fun `state is Empty when collection has no spells`() = runTest(testDispatcher) {
+        val collection = UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, emptyList())
+        userCollectionRepository.save(collection)
 
-        val viewModel = buildViewModel(TEST_LIST_ID)
+        val viewModel = buildViewModel(TEST_COLLECTION_ID)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -95,16 +95,17 @@ class CollectionDetailViewModelTest {
 
         advanceUntilIdle()
 
-        assertIs<CollectionDetailState.Body.EmptyList>(viewModel.state.value.body)
-        assertEquals(expected = LIST_NAME, actual = viewModel.state.value.listName)
+        assertIs<CollectionDetailState.Body.Empty>(viewModel.state.value.body)
+        assertEquals(expected = COLLECTION_NAME, actual = viewModel.state.value.collectionName)
     }
 
     @Test
-    fun `state is WithData when list has spells`() = runTest(testDispatcher) {
-        val list = UserCollection(TEST_LIST_ID, LIST_NAME, UserCollection.Type.SPELL, listOf(spell.id))
-        userCollectionRepository.save(list)
+    fun `state is WithData when collection has spells`() = runTest(testDispatcher) {
+        val collection =
+            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+        userCollectionRepository.save(collection)
 
-        val viewModel = buildViewModel(TEST_LIST_ID)
+        val viewModel = buildViewModel(TEST_COLLECTION_ID)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -118,12 +119,13 @@ class CollectionDetailViewModelTest {
     }
 
     @Test
-    fun `removeItemOptimistically then commit removes spell from list`() = runTest(testDispatcher) {
+    fun `removeItemOptimistically then commit removes spell from collection`() = runTest(testDispatcher) {
         val spells = SampleSpellRepository.getAll()
-        val list = UserCollection(TEST_LIST_ID, LIST_NAME, UserCollection.Type.SPELL, spells.map { it.id })
-        userCollectionRepository.save(list)
+        val collection =
+            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, spells.map { it.id })
+        userCollectionRepository.save(collection)
 
-        val viewModel = buildViewModel(TEST_LIST_ID)
+        val viewModel = buildViewModel(TEST_COLLECTION_ID)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -143,10 +145,11 @@ class CollectionDetailViewModelTest {
 
     @Test
     fun `undoRemoval restores the item`() = runTest(testDispatcher) {
-        val list = UserCollection(TEST_LIST_ID, LIST_NAME, UserCollection.Type.SPELL, listOf(spell.id))
-        userCollectionRepository.save(list)
+        val collection =
+            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+        userCollectionRepository.save(collection)
 
-        val viewModel = buildViewModel(TEST_LIST_ID)
+        val viewModel = buildViewModel(TEST_COLLECTION_ID)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -164,10 +167,11 @@ class CollectionDetailViewModelTest {
     @Test
     fun `removeItemOptimistically then commit transitions to Empty when last spell removed`() =
         runTest(testDispatcher) {
-            val list = UserCollection(TEST_LIST_ID, LIST_NAME, UserCollection.Type.SPELL, listOf(spell.id))
-            userCollectionRepository.save(list)
+            val collection =
+                UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+            userCollectionRepository.save(collection)
 
-            val viewModel = buildViewModel(TEST_LIST_ID)
+            val viewModel = buildViewModel(TEST_COLLECTION_ID)
 
             backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
                 viewModel.state.collect {}
@@ -180,15 +184,16 @@ class CollectionDetailViewModelTest {
 
             advanceUntilIdle()
 
-            assertIs<CollectionDetailState.Body.EmptyList>(viewModel.state.value.body)
+            assertIs<CollectionDetailState.Body.Empty>(viewModel.state.value.body)
         }
 
     @Test
     fun `silentRefresh reflects new items added to repository`() = runTest(testDispatcher) {
-        val list = UserCollection(TEST_LIST_ID, LIST_NAME, UserCollection.Type.SPELL, listOf(spell.id))
-        userCollectionRepository.save(list)
+        val collection =
+            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+        userCollectionRepository.save(collection)
 
-        val viewModel = buildViewModel(TEST_LIST_ID)
+        val viewModel = buildViewModel(TEST_COLLECTION_ID)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -199,8 +204,8 @@ class CollectionDetailViewModelTest {
         val initialBody = assertIs<CollectionDetailState.Body.WithData<Spell>>(viewModel.state.value.body)
         assertEquals(expected = 1, actual = initialBody.items.size)
 
-        val updatedList = list.copy(itemIds = list.itemIds + secondSpell.id)
-        userCollectionRepository.save(updatedList)
+        val updatedCollection = collection.copy(itemIds = collection.itemIds + secondSpell.id)
+        userCollectionRepository.save(updatedCollection)
 
         viewModel.silentRefresh()
         advanceUntilIdle()
@@ -211,10 +216,11 @@ class CollectionDetailViewModelTest {
 
     @Test
     fun `silentRefresh does not transition to Loading state`() = runTest(testDispatcher) {
-        val list = UserCollection(TEST_LIST_ID, LIST_NAME, UserCollection.Type.SPELL, listOf(spell.id))
-        userCollectionRepository.save(list)
+        val collection =
+            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+        userCollectionRepository.save(collection)
 
-        val viewModel = buildViewModel(TEST_LIST_ID)
+        val viewModel = buildViewModel(TEST_COLLECTION_ID)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -235,10 +241,11 @@ class CollectionDetailViewModelTest {
 
     @Test
     fun `silentRefresh does nothing when state is already Loading`() = runTest(testDispatcher) {
-        val list = UserCollection(TEST_LIST_ID, LIST_NAME, UserCollection.Type.SPELL, listOf(spell.id))
-        userCollectionRepository.save(list)
+        val collection =
+            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+        userCollectionRepository.save(collection)
 
-        val viewModel = buildViewModel(TEST_LIST_ID)
+        val viewModel = buildViewModel(TEST_COLLECTION_ID)
 
         assertIs<CollectionDetailState.Body.Loading>(viewModel.state.value.body)
 
@@ -248,11 +255,12 @@ class CollectionDetailViewModelTest {
     }
 
     @Test
-    fun `renameList updates list name in state`() = runTest(testDispatcher) {
-        val list = UserCollection(TEST_LIST_ID, LIST_NAME, UserCollection.Type.SPELL, listOf(spell.id))
-        userCollectionRepository.save(list)
+    fun `renameCollection updates collection name in state`() = runTest(testDispatcher) {
+        val collection =
+            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+        userCollectionRepository.save(collection)
 
-        val viewModel = buildViewModel(TEST_LIST_ID)
+        val viewModel = buildViewModel(TEST_COLLECTION_ID)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -260,18 +268,19 @@ class CollectionDetailViewModelTest {
 
         advanceUntilIdle()
 
-        viewModel.renameList(RENAMED_LIST_NAME)
+        viewModel.renameCollection(RENAMED_COLLECTION_NAME)
         advanceUntilIdle()
 
-        assertEquals(expected = RENAMED_LIST_NAME, actual = viewModel.state.value.listName)
+        assertEquals(expected = RENAMED_COLLECTION_NAME, actual = viewModel.state.value.collectionName)
     }
 
     @Test
-    fun `renameList persists updated name to repository`() = runTest(testDispatcher) {
-        val list = UserCollection(TEST_LIST_ID, LIST_NAME, UserCollection.Type.SPELL, listOf(spell.id))
-        userCollectionRepository.save(list)
+    fun `renameCollection persists updated name to repository`() = runTest(testDispatcher) {
+        val collection =
+            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+        userCollectionRepository.save(collection)
 
-        val viewModel = buildViewModel(TEST_LIST_ID)
+        val viewModel = buildViewModel(TEST_COLLECTION_ID)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -279,20 +288,21 @@ class CollectionDetailViewModelTest {
 
         advanceUntilIdle()
 
-        viewModel.renameList(RENAMED_LIST_NAME)
+        viewModel.renameCollection(RENAMED_COLLECTION_NAME)
         advanceUntilIdle()
 
-        val savedList = userCollectionRepository.get(TEST_LIST_ID)
-        assertEquals(expected = RENAMED_LIST_NAME, actual = savedList?.name)
+        val savedCollection = userCollectionRepository.get(TEST_COLLECTION_ID)
+        assertEquals(expected = RENAMED_COLLECTION_NAME, actual = savedCollection?.name)
     }
 
     @Test
     fun `commitRemoval restores item and emits error when repository returns failure`() = runTest(testDispatcher) {
         val failingRepo = FailsOnRemoveUserCollectionRepository()
-        val list = UserCollection(TEST_LIST_ID, LIST_NAME, UserCollection.Type.SPELL, listOf(spell.id))
-        failingRepo.save(list)
+        val collection =
+            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+        failingRepo.save(collection)
 
-        val viewModel = buildViewModel(TEST_LIST_ID, failingRepo)
+        val viewModel = buildViewModel(TEST_COLLECTION_ID, failingRepo)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -317,10 +327,11 @@ class CollectionDetailViewModelTest {
 
     @Test
     fun `commitAllPendingRemovals commits pending removals that were never confirmed`() = runTest(testDispatcher) {
-        val list = UserCollection(TEST_LIST_ID, LIST_NAME, UserCollection.Type.SPELL, listOf(spell.id))
-        userCollectionRepository.save(list)
+        val collection =
+            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+        userCollectionRepository.save(collection)
 
-        val viewModel = buildViewModel(TEST_LIST_ID)
+        val viewModel = buildViewModel(TEST_COLLECTION_ID)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -331,8 +342,8 @@ class CollectionDetailViewModelTest {
         viewModel.commitAllPendingRemovals()
         advanceUntilIdle()
 
-        val updatedList = userCollectionRepository.get(TEST_LIST_ID)!!
-        assertTrue(updatedList.itemIds.none { it == spell.id })
+        val updatedCollection = userCollectionRepository.get(TEST_COLLECTION_ID)!!
+        assertTrue(updatedCollection.itemIds.none { it == spell.id })
     }
 }
 
@@ -340,8 +351,8 @@ private class FailsOnRemoveUserCollectionRepository : UserCollectionRepository {
     private val delegate = RamUserCollectionRepository()
     override suspend fun getAll(type: UserCollection.Type): List<Stored<UserCollection>> = delegate.getAll(type)
     override suspend fun get(id: String): UserCollection? = delegate.get(id)
-    override suspend fun save(list: UserCollection) = delegate.save(list)
+    override suspend fun save(collection: UserCollection) = delegate.save(collection)
     override suspend fun delete(id: String) = delegate.delete(id)
-    override suspend fun removeFromList(listId: String, itemId: String): UserCollectionRepository.Result =
+    override suspend fun removeFromCollection(collectionId: String, itemId: String): UserCollectionRepository.Result =
         UserCollectionRepository.Result.Error("Simulated failure")
 }

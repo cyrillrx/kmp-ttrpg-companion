@@ -10,13 +10,13 @@ import org.jetbrains.compose.resources.StringResource
 import kotlin.reflect.KClass
 
 class AddToCollectionViewModelFactory<T>(
-    private val listType: UserCollection.Type,
+    private val collectionType: UserCollection.Type,
     private val userCollectionRepository: UserCollectionRepository,
     private val entityRepository: EntityRepository<T>,
     private val errorMessage: StringResource,
 ) : ViewModelProvider.Factory {
     override fun <VM : ViewModel> create(modelClass: KClass<VM>, extras: CreationExtras): VM {
         @Suppress("UNCHECKED_CAST")
-        return AddToCollectionViewModel(listType, userCollectionRepository, entityRepository, errorMessage) as VM
+        return AddToCollectionViewModel(collectionType, userCollectionRepository, entityRepository, errorMessage) as VM
     }
 }

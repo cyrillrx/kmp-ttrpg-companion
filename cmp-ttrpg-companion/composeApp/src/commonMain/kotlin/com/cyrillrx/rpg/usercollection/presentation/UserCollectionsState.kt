@@ -11,6 +11,6 @@ data class UserCollectionsState(
         data object Loading : Body
         data object Empty : Body
         data class Error(val errorMessage: StringResource) : Body
-        data class WithData(val lists: List<Stored<UserCollection>>) : Body
+        data class WithData(val collections: List<Stored<UserCollection>>) : Body
     }
 }

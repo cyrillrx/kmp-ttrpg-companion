@@ -38,10 +38,10 @@ fun EntryProviderScope<NavKey>.handleUserCollectionRoutes(
     userCollectionRepository: UserCollectionRepository,
 ) {
     entry<UserCollectionRoute.Spell> {
-        val listType = UserCollection.Type.SPELL
-        val viewModelFactory = UserCollectionsViewModelFactory(listType, userCollectionRepository)
+        val collectionType = UserCollection.Type.SPELL
+        val viewModelFactory = UserCollectionsViewModelFactory(collectionType, userCollectionRepository)
         val viewModel = viewModel<UserCollectionsViewModel>(
-            key = listType.name,
+            key = collectionType.name,
             factory = viewModelFactory,
         )
         val title = stringResource(Res.string.title_spell_collections)
@@ -49,10 +49,10 @@ fun EntryProviderScope<NavKey>.handleUserCollectionRoutes(
     }
 
     entry<UserCollectionRoute.MagicalItem> {
-        val listType = UserCollection.Type.MAGICAL_ITEM
-        val viewModelFactory = UserCollectionsViewModelFactory(listType, userCollectionRepository)
+        val collectionType = UserCollection.Type.MAGICAL_ITEM
+        val viewModelFactory = UserCollectionsViewModelFactory(collectionType, userCollectionRepository)
         val viewModel = viewModel<UserCollectionsViewModel>(
-            key = listType.name,
+            key = collectionType.name,
             factory = viewModelFactory,
         )
         val title = stringResource(Res.string.title_item_collections)
@@ -60,10 +60,10 @@ fun EntryProviderScope<NavKey>.handleUserCollectionRoutes(
     }
 
     entry<UserCollectionRoute.Creature> {
-        val listType = UserCollection.Type.MONSTER
-        val viewModelFactory = UserCollectionsViewModelFactory(listType, userCollectionRepository)
+        val collectionType = UserCollection.Type.MONSTER
+        val viewModelFactory = UserCollectionsViewModelFactory(collectionType, userCollectionRepository)
         val viewModel = viewModel<UserCollectionsViewModel>(
-            key = listType.name,
+            key = collectionType.name,
             factory = viewModelFactory,
         )
         val title = stringResource(Res.string.title_bestiary_collections)

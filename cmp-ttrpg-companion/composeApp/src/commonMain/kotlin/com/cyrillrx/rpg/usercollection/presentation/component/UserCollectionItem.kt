@@ -16,7 +16,7 @@ import kotlin.time.Instant
 
 @Composable
 fun UserCollectionItem(
-    list: UserCollection,
+    collection: UserCollection,
     updatedAt: Instant,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
@@ -24,11 +24,11 @@ fun UserCollectionItem(
     AppCard(onClick = onClick, modifier = modifier) {
         Column(modifier = Modifier.padding(spacingCommon)) {
             Text(
-                text = list.name,
+                text = collection.name,
                 style = MaterialTheme.typography.bodyLarge,
             )
             Text(
-                text = list.subtitle(updatedAt),
+                text = collection.subtitle(updatedAt),
                 style = MaterialTheme.typography.bodySmall,
             )
         }
@@ -52,7 +52,7 @@ private fun UserCollectionItemPreview(darkTheme: Boolean) {
     AppThemePreview(darkTheme = darkTheme) {
         val sample = SampleUserCollectionRepository.getFirst()
         UserCollectionItem(
-            list = sample.value,
+            collection = sample.value,
             updatedAt = sample.updatedAt,
             onClick = {},
         )

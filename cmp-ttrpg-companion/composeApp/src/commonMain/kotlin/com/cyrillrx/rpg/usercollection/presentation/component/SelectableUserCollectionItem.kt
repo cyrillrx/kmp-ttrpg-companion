@@ -24,7 +24,7 @@ import kotlin.time.Instant
 
 @Composable
 fun SelectableUserCollectionItem(
-    list: UserCollection,
+    collection: UserCollection,
     updatedAt: Instant,
     isSelected: Boolean,
     onClick: () -> Unit,
@@ -40,11 +40,11 @@ fun SelectableUserCollectionItem(
         ) {
             Column(modifier = Modifier.weight(1f)) {
                 Text(
-                    text = list.name,
+                    text = collection.name,
                     style = MaterialTheme.typography.bodyLarge,
                 )
                 Text(
-                    text = list.subtitle(updatedAt),
+                    text = collection.subtitle(updatedAt),
                     style = MaterialTheme.typography.bodySmall,
                 )
             }
@@ -82,7 +82,7 @@ private fun SelectableUserCollectionItemPreview(darkTheme: Boolean, isSelected: 
     AppThemePreview(darkTheme = darkTheme) {
         val sample = SampleUserCollectionRepository.getFirst()
         SelectableUserCollectionItem(
-            list = sample.value,
+            collection = sample.value,
             updatedAt = sample.updatedAt,
             isSelected = isSelected,
             onClick = {},

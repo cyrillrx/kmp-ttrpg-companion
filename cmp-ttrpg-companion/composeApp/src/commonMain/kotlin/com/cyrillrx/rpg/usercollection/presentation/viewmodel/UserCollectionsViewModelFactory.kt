@@ -8,11 +8,11 @@ import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
 import kotlin.reflect.KClass
 
 class UserCollectionsViewModelFactory(
-    private val listType: UserCollection.Type,
+    private val collectionType: UserCollection.Type,
     private val userCollectionRepository: UserCollectionRepository,
 ) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: KClass<T>, extras: CreationExtras): T {
         @Suppress("UNCHECKED_CAST")
-        return UserCollectionsViewModel(listType, userCollectionRepository) as T
+        return UserCollectionsViewModel(collectionType, userCollectionRepository) as T
     }
 }

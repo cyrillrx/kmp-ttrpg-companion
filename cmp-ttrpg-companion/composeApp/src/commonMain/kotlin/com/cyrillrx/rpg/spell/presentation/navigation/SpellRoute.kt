@@ -28,7 +28,7 @@ interface SpellRoute {
     data class Detail(val spellId: String) : NavKey
 
     @Serializable
-    data class UserCollectionDetail(val listId: String) : NavKey
+    data class UserCollectionDetail(val collectionId: String) : NavKey
 }
 
 fun PolymorphicModuleBuilder<NavKey>.registerSpellRoutes() {
@@ -64,13 +64,13 @@ fun EntryProviderScope<NavKey>.handleSpellRoutes(
     }
 
     entry<SpellRoute.UserCollectionDetail> { route ->
-        val listId = route.listId
+        val collectionId = route.collectionId
         val viewModelFactory = CollectionDetailViewModelFactory(
-            listId = listId,
+            collectionId = collectionId,
             userCollectionRepository = userCollectionRepository,
             repository = spellRepository,
         )
-        val viewModel = viewModel<CollectionDetailViewModel<Spell>>(key = listId, factory = viewModelFactory)
+        val viewModel = viewModel<CollectionDetailViewModel<Spell>>(key = collectionId, factory = viewModelFactory)
         val itemProvider = SpellItemProvider(
             onItemClicked = router::openDetail,
             onEmptyLayoutBtnClicked = router::openCompendium,

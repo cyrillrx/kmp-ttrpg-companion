@@ -23,9 +23,9 @@ class SQLDelightUserCollectionRepository(
 
     override suspend fun get(id: String): UserCollection? = withContext(ioDispatcher) { database.getUserCollection(id) }
 
-    override suspend fun save(list: UserCollection) {
+    override suspend fun save(collection: UserCollection) {
         val now = clock.now().toEpochMilliseconds()
-        withContext(ioDispatcher) { database.saveUserCollection(list, updatedAt = now) }
+        withContext(ioDispatcher) { database.saveUserCollection(collection, updatedAt = now) }
     }
 
     override suspend fun delete(id: String) {

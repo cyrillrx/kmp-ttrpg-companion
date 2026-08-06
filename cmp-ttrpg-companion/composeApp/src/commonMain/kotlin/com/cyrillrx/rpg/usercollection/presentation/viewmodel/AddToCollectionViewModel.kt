@@ -22,7 +22,7 @@ import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
 class AddToCollectionViewModel<T>(
-    private val listType: UserCollection.Type,
+    private val collectionType: UserCollection.Type,
     private val userCollectionRepository: UserCollectionRepository,
     private val repository: EntityRepository<T>,
     private val errorMessage: StringResource,
@@ -40,17 +40,17 @@ class AddToCollectionViewModel<T>(
     fun loadEntity(entityId: String) {
         itemId = entityId
         loadJob?.cancel()
-        loadJob = viewModelScope.launch { loadLists() }
+        loadJob = viewModelScope.launch { loadCollections() }
     }
 
-    private suspend fun loadLists() {
+    private suspend fun loadCollections() {
         state.update { it.copy(body = AddToCollectionState.Body.Loading) }
 
         try {
             val item = repository.getById(itemId) ?: error("Could not find item $itemId")
 
-            val userLists = userCollectionRepository.getAll(listType).sortedByDescending { it.updatedAt }
-            val selectableCollections = userLists
+            val userCollections = userCollectionRepository.getAll(collectionType).sortedByDescending { it.updatedAt }
+            val selectableCollections = userCollections
                 .map { stored -> SelectableUserCollection(stored, alreadyAdded = itemId in stored.value.itemIds) }
             state.update { it.copy(body = AddToCollectionState.Body.WithData(item, selectableCollections)) }
         } catch (e: CancellationException) {
@@ -60,11 +60,11 @@ class AddToCollectionViewModel<T>(
         }
     }
 
-    fun toggleSelection(listId: String) {
+    fun toggleSelection(collectionId: String) {
         state.update { state ->
             val body = state.body as? AddToCollectionState.Body.WithData ?: return@update state
             val updated = body.selectableCollections.map { item ->
-                if (item.list.id == listId) item.copy(isSelected = !item.isSelected) else item
+                if (item.collection.id == collectionId) item.copy(isSelected = !item.isSelected) else item
             }
             state.copy(body = body.copy(selectableCollections = updated))
         }
@@ -73,19 +73,19 @@ class AddToCollectionViewModel<T>(
     @OptIn(ExperimentalUuidApi::class)
     fun createAndAdd(name: String) {
         viewModelScope.launch {
-            val newList = UserCollection(
+            val newCollection = UserCollection(
                 id = Uuid.random().toString(),
                 name = name,
-                type = listType,
+                type = collectionType,
                 itemIds = listOf(itemId),
             )
-            userCollectionRepository.save(newList)
-            val stored = Stored(newList, Clock.System.now())
+            userCollectionRepository.save(newCollection)
+            val stored = Stored(newCollection, Clock.System.now())
 
             state.update { state ->
                 val body = state.body as? AddToCollectionState.Body.WithData ?: return@update state
-                val newLists = body.selectableCollections + SelectableUserCollection(stored, alreadyAdded = true)
-                state.copy(body = body.copy(selectableCollections = newLists))
+                val newCollections = body.selectableCollections + SelectableUserCollection(stored, alreadyAdded = true)
+                state.copy(body = body.copy(selectableCollections = newCollections))
             }
         }
     }
@@ -100,8 +100,8 @@ class AddToCollectionViewModel<T>(
 
     private suspend fun SelectableUserCollection.confirmSelection() {
         when {
-            !alreadyAdded && isSelected -> userCollectionRepository.addToList(list, itemId)
-            alreadyAdded && !isSelected -> userCollectionRepository.removeFromList(list, itemId)
+            !alreadyAdded && isSelected -> userCollectionRepository.addToCollection(collection, itemId)
+            alreadyAdded && !isSelected -> userCollectionRepository.removeFromCollection(collection, itemId)
         }
     }
 

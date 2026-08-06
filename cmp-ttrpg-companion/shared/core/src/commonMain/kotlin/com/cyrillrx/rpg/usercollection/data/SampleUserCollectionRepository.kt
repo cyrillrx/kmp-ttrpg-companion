@@ -11,16 +11,16 @@ class SampleUserCollectionRepository(
 ) : UserCollectionRepository {
 
     override suspend fun getAll(type: UserCollection.Type): List<Stored<UserCollection>> =
-        lists.values.filter { it.value.type == type }
+        collections.values.filter { it.value.type == type }
 
-    override suspend fun get(id: String): UserCollection? = lists[id]?.value
+    override suspend fun get(id: String): UserCollection? = collections[id]?.value
 
-    override suspend fun save(list: UserCollection) {
-        lists[list.id] = Stored(value = list, updatedAt = clock.now())
+    override suspend fun save(collection: UserCollection) {
+        collections[collection.id] = Stored(value = collection, updatedAt = clock.now())
     }
 
     override suspend fun delete(id: String) {
-        lists.remove(id)
+        collections.remove(id)
     }
 
     companion object {
@@ -30,7 +30,7 @@ class SampleUserCollectionRepository(
             gandalfSpells(),
         )
 
-        private val lists = mutableMapOf<String, Stored<UserCollection>>().apply {
+        private val collections = mutableMapOf<String, Stored<UserCollection>>().apply {
             samples.forEach { put(it.value.id, it) }
         }
 
@@ -40,7 +40,7 @@ class SampleUserCollectionRepository(
 
         private fun combatSpells() = stored(
             UserCollection(
-                id = "sample-spell-list-1",
+                id = "sample-spell-collection-1",
                 name = "Combat Spells",
                 type = UserCollection.Type.SPELL,
                 itemIds = listOf("Fireball", "Thunderwave", "Counterspell"),
@@ -50,7 +50,7 @@ class SampleUserCollectionRepository(
 
         private fun supportSpells() = stored(
             UserCollection(
-                id = "sample-spell-list-2",
+                id = "sample-spell-collection-2",
                 name = "Support Spells",
                 type = UserCollection.Type.SPELL,
                 itemIds = listOf("Mage Armor", "Detect Thoughts"),
@@ -60,7 +60,7 @@ class SampleUserCollectionRepository(
 
         private fun gandalfSpells() = stored(
             UserCollection(
-                id = "sample-spell-list-3",
+                id = "sample-spell-collection-3",
                 name = "Gandalf's Spells",
                 type = UserCollection.Type.SPELL,
                 itemIds = listOf("Fireball", "Thunderwave", "Counterspell"),
@@ -68,7 +68,7 @@ class SampleUserCollectionRepository(
             updatedAt = "2024-01-20T14:00:00Z",
         )
 
-        private fun stored(list: UserCollection, updatedAt: String): Stored<UserCollection> =
-            Stored(value = list, updatedAt = Instant.parse(updatedAt))
+        private fun stored(collection: UserCollection, updatedAt: String): Stored<UserCollection> =
+            Stored(value = collection, updatedAt = Instant.parse(updatedAt))
     }
 }

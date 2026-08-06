@@ -15,43 +15,44 @@ class RamUserCollectionRepositoryTest {
     private fun buildRepository(clock: Clock = Clock.System) = RamUserCollectionRepository(clock)
 
     @Test
-    fun `save and getAll returns list filtered by type`() = runTest {
+    fun `save and getAll return collections filtered by type`() = runTest {
         val repository = buildRepository()
 
-        val spellList = UserCollection(
+        val spellCollection = UserCollection(
             id = "1",
             name = "My Spells",
             type = UserCollection.Type.SPELL,
             itemIds = emptyList(),
         )
-        val itemList = UserCollection(
+        val itemCollection = UserCollection(
             id = "2",
             name = "Artefacts",
             type = UserCollection.Type.MAGICAL_ITEM,
             itemIds = emptyList(),
         )
 
-        repository.save(spellList)
-        repository.save(itemList)
+        repository.save(spellCollection)
+        repository.save(itemCollection)
 
-        val spellLists = repository.getAll(UserCollection.Type.SPELL)
-        assertEquals(expected = 1, actual = spellLists.size)
-        assertEquals(expected = spellList, actual = spellLists.first().value)
+        val spellCollections = repository.getAll(UserCollection.Type.SPELL)
+        assertEquals(expected = 1, actual = spellCollections.size)
+        assertEquals(expected = spellCollection, actual = spellCollections.first().value)
 
-        val itemLists = repository.getAll(UserCollection.Type.MAGICAL_ITEM)
-        assertEquals(expected = 1, actual = itemLists.size)
-        assertEquals(expected = itemList, actual = itemLists.first().value)
+        val itemCollections = repository.getAll(UserCollection.Type.MAGICAL_ITEM)
+        assertEquals(expected = 1, actual = itemCollections.size)
+        assertEquals(expected = itemCollection, actual = itemCollections.first().value)
     }
 
     @Test
-    fun `get returns the list by id`() = runTest {
+    fun `get returns the collection by id`() = runTest {
         val repository = buildRepository()
-        val list = UserCollection(id = "abc", name = "Test", type = UserCollection.Type.SPELL, itemIds = emptyList())
+        val collection =
+            UserCollection(id = "abc", name = "Test", type = UserCollection.Type.SPELL, itemIds = emptyList())
 
-        repository.save(list)
+        repository.save(collection)
 
         val result = repository.get("abc")
-        assertEquals(expected = list, actual = result)
+        assertEquals(expected = collection, actual = result)
     }
 
     @Test
@@ -61,13 +62,14 @@ class RamUserCollectionRepositoryTest {
     }
 
     @Test
-    fun `save updates itemIds on existing list`() = runTest {
+    fun `save updates itemIds on existing collection`() = runTest {
         val repository = buildRepository()
-        val list = UserCollection(id = "1", name = "My Spells", type = UserCollection.Type.SPELL, itemIds = emptyList())
+        val collection =
+            UserCollection(id = "1", name = "My Spells", type = UserCollection.Type.SPELL, itemIds = emptyList())
 
-        repository.save(list)
+        repository.save(collection)
 
-        val updated = list.copy(itemIds = listOf("spell1", "spell2"))
+        val updated = collection.copy(itemIds = listOf("spell1", "spell2"))
         repository.save(updated)
 
         val result = repository.get("1")
@@ -75,11 +77,12 @@ class RamUserCollectionRepositoryTest {
     }
 
     @Test
-    fun `delete removes list by id`() = runTest {
+    fun `delete removes collection by id`() = runTest {
         val repository = buildRepository()
-        val list = UserCollection(id = "1", name = "My Spells", type = UserCollection.Type.SPELL, itemIds = emptyList())
+        val collection =
+            UserCollection(id = "1", name = "My Spells", type = UserCollection.Type.SPELL, itemIds = emptyList())
 
-        repository.save(list)
+        repository.save(collection)
         repository.delete("1")
 
         assertNull(repository.get("1"))
@@ -87,25 +90,27 @@ class RamUserCollectionRepositoryTest {
     }
 
     @Test
-    fun `getAll returns empty list when no lists of given type exist`() = runTest {
+    fun `getAll returns nothing when no collection of the given type exists`() = runTest {
         val repository = buildRepository()
-        val list = UserCollection(id = "1", name = "My Spells", type = UserCollection.Type.SPELL, itemIds = emptyList())
+        val collection =
+            UserCollection(id = "1", name = "My Spells", type = UserCollection.Type.SPELL, itemIds = emptyList())
 
-        repository.save(list)
+        repository.save(collection)
 
-        val monsterLists = repository.getAll(UserCollection.Type.MONSTER)
-        assertTrue(monsterLists.isEmpty())
+        val monsterCollections = repository.getAll(UserCollection.Type.MONSTER)
+        assertTrue(monsterCollections.isEmpty())
     }
 
     @Test
     fun `save advances updatedAt on update`() = runTest {
         val clock = MutableClock(Instant.fromEpochMilliseconds(1_000L))
         val repository = buildRepository(clock)
-        val list = UserCollection(id = "1", name = "My Spells", type = UserCollection.Type.SPELL, itemIds = emptyList())
+        val collection =
+            UserCollection(id = "1", name = "My Spells", type = UserCollection.Type.SPELL, itemIds = emptyList())
 
-        repository.save(list)
+        repository.save(collection)
         clock.instant = Instant.fromEpochMilliseconds(5_000L)
-        repository.save(list.copy(itemIds = listOf("spell1")))
+        repository.save(collection.copy(itemIds = listOf("spell1")))
 
         val stored = repository.getAll(UserCollection.Type.SPELL).single()
         assertEquals(Instant.fromEpochMilliseconds(5_000L), stored.updatedAt)

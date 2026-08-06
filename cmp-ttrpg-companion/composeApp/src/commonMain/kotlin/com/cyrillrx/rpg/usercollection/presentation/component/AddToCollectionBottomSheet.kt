@@ -69,7 +69,7 @@ fun <T> AddToCollectionBottomSheet(
             header = header,
             onToggleSelection = viewModel::toggleSelection,
             onConfirm = viewModel::confirmSelection,
-            onCreateListClicked = { showCreateDialog = true },
+            onCreateCollectionClicked = { showCreateDialog = true },
         )
     }
 
@@ -90,7 +90,7 @@ private fun <T> ColumnScope.AddToCollectionBottomSheetContent(
     header: @Composable (T) -> Unit,
     onToggleSelection: (String) -> Unit,
     onConfirm: () -> Unit,
-    onCreateListClicked: () -> Unit,
+    onCreateCollectionClicked: () -> Unit,
 ) {
     LazyColumn(
         modifier = Modifier.weight(1f, fill = false),
@@ -117,12 +117,12 @@ private fun <T> ColumnScope.AddToCollectionBottomSheetContent(
                             .padding(spacingMedium),
                     )
                 }
-                items(body.selectableCollections, key = { it.list.id }) { item ->
+                items(body.selectableCollections, key = { it.collection.id }) { item ->
                     SelectableUserCollectionItem(
-                        list = item.list,
+                        collection = item.collection,
                         updatedAt = item.stored.updatedAt,
                         isSelected = item.isSelected,
-                        onClick = { onToggleSelection(item.list.id) },
+                        onClick = { onToggleSelection(item.collection.id) },
                         modifier = Modifier.fillMaxWidth(),
                     )
                 }
@@ -131,7 +131,7 @@ private fun <T> ColumnScope.AddToCollectionBottomSheetContent(
 
         item {
             TextButton(
-                onClick = onCreateListClicked,
+                onClick = onCreateCollectionClicked,
                 modifier = Modifier.fillMaxWidth(),
             ) {
                 Text(stringResource(Res.string.btn_create_collection))
@@ -181,7 +181,7 @@ private fun AddToCollectionBottomSheetPreview(darkTheme: Boolean) {
                 header = bottomSheetProvider::Header,
                 onToggleSelection = {},
                 onConfirm = {},
-                onCreateListClicked = {},
+                onCreateCollectionClicked = {},
             )
         }
     }

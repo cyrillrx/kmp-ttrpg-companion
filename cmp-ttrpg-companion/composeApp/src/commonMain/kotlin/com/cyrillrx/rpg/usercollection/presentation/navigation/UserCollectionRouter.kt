@@ -10,7 +10,7 @@ import com.cyrillrx.rpg.usercollection.domain.UserCollection
 
 interface UserCollectionRouter {
     fun navigateUp()
-    fun openUserCollection(list: UserCollection)
+    fun openUserCollection(collection: UserCollection)
 }
 
 class UserCollectionRouterImpl(private val backStack: NavBackStack<NavKey>) : UserCollectionRouter {
@@ -18,11 +18,11 @@ class UserCollectionRouterImpl(private val backStack: NavBackStack<NavKey>) : Us
         backStack.navigateUp()
     }
 
-    override fun openUserCollection(list: UserCollection) {
-        when (list.type) {
-            UserCollection.Type.SPELL -> backStack.add(SpellRoute.UserCollectionDetail(list.id))
-            UserCollection.Type.MAGICAL_ITEM -> backStack.add(MagicalItemRoute.UserCollectionDetail(list.id))
-            UserCollection.Type.MONSTER -> backStack.add(MonsterRoute.UserCollectionDetail(list.id))
+    override fun openUserCollection(collection: UserCollection) {
+        when (collection.type) {
+            UserCollection.Type.SPELL -> backStack.add(SpellRoute.UserCollectionDetail(collection.id))
+            UserCollection.Type.MAGICAL_ITEM -> backStack.add(MagicalItemRoute.UserCollectionDetail(collection.id))
+            UserCollection.Type.MONSTER -> backStack.add(MonsterRoute.UserCollectionDetail(collection.id))
         }
     }
 }

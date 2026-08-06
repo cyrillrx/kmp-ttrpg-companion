@@ -70,8 +70,8 @@ fun UserCollectionsScreen(viewModel: UserCollectionsViewModel, router: UserColle
         title = title,
         events = viewModel.events,
         onNavigateUpClicked = router::navigateUp,
-        onAddBtnClicked = viewModel::createList,
-        onDeleteListOptimistically = viewModel::deleteListOptimistically,
+        onAddBtnClicked = viewModel::createCollection,
+        onDeleteCollectionOptimistically = viewModel::deleteCollectionOptimistically,
         onUndoDeletion = viewModel::undoDeletion,
         onCommitDeletion = viewModel::commitDeletion,
         onCollectionClicked = router::openUserCollection,
@@ -85,7 +85,7 @@ fun UserCollectionsScreen(
     events: SharedFlow<UserCollectionsViewModel.Event>,
     onNavigateUpClicked: () -> Unit,
     onAddBtnClicked: (String) -> Unit,
-    onDeleteListOptimistically: (Stored<UserCollection>) -> UserCollectionsViewModel.PendingDeletion?,
+    onDeleteCollectionOptimistically: (Stored<UserCollection>) -> UserCollectionsViewModel.PendingDeletion?,
     onUndoDeletion: (UserCollectionsViewModel.PendingDeletion) -> Unit,
     onCommitDeletion: (UserCollectionsViewModel.PendingDeletion) -> Unit,
     onCollectionClicked: (UserCollection) -> Unit,
@@ -97,7 +97,7 @@ fun UserCollectionsScreen(
         events.collect { event ->
             when (event) {
                 is UserCollectionsViewModel.Event.DeletionError -> {
-                    val errorMessage = getString(Res.string.snackbar_error_deleting_collection, event.list.name)
+                    val errorMessage = getString(Res.string.snackbar_error_deleting_collection, event.collection.name)
                     snackbarHostState.showSnackbar(
                         message = errorMessage,
                         duration = SnackbarDuration.Short,
@@ -107,9 +107,9 @@ fun UserCollectionsScreen(
         }
     }
 
-    val onDeleteList = rememberOptimisticDeleteHandler(
+    val onDeleteCollection = rememberOptimisticDeleteHandler(
         snackbarHostState = snackbarHostState,
-        onDeleteOptimistically = onDeleteListOptimistically,
+        onDeleteOptimistically = onDeleteCollectionOptimistically,
         onUndo = onUndoDeletion,
         onCommit = onCommitDeletion,
         getMessage = { stored -> getString(Res.string.snackbar_collection_deleted, stored.value.name) },
@@ -143,9 +143,9 @@ fun UserCollectionsScreen(
                 is UserCollectionsState.Body.Empty -> ErrorLayout(Res.string.no_result_found)
                 is UserCollectionsState.Body.Error -> ErrorLayout(body.errorMessage)
                 is UserCollectionsState.Body.WithData -> UserCollections(
-                    lists = body.lists,
+                    collections = body.collections,
                     onCollectionClicked = onCollectionClicked,
-                    onDeleteList = onDeleteList,
+                    onDeleteCollection = onDeleteCollection,
                 )
             }
         }
@@ -164,24 +164,24 @@ fun UserCollectionsScreen(
 
 @Composable
 private fun UserCollections(
-    lists: List<Stored<UserCollection>>,
+    collections: List<Stored<UserCollection>>,
     onCollectionClicked: (UserCollection) -> Unit,
-    onDeleteList: (Stored<UserCollection>) -> Unit,
+    onDeleteCollection: (Stored<UserCollection>) -> Unit,
 ) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(spacingMedium),
         verticalArrangement = Arrangement.spacedBy(spacingMedium),
     ) {
-        items(lists, key = { it.value.id }) { stored ->
+        items(collections, key = { it.value.id }) { stored ->
             SwipeToDelete(
-                onSwiped = { onDeleteList(stored) },
+                onSwiped = { onDeleteCollection(stored) },
                 modifier = Modifier
                     .fillMaxWidth()
                     .animateItem(),
             ) {
                 UserCollectionItem(
-                    list = stored.value,
+                    collection = stored.value,
                     updatedAt = stored.updatedAt,
                     onClick = { onCollectionClicked(stored.value) },
                     modifier = Modifier.fillMaxWidth(),
@@ -209,14 +209,14 @@ private fun UserCollectionsScreenPreview(darkTheme: Boolean) {
         UserCollectionsScreen(
             state = UserCollectionsState(
                 body = UserCollectionsState.Body.WithData(
-                    lists = SampleUserCollectionRepository.getAll(),
+                    collections = SampleUserCollectionRepository.getAll(),
                 ),
             ),
             title = "Spellbooks",
             events = MutableSharedFlow(),
             onNavigateUpClicked = {},
             onAddBtnClicked = {},
-            onDeleteListOptimistically = { null },
+            onDeleteCollectionOptimistically = { null },
             onUndoDeletion = {},
             onCommitDeletion = {},
             onCollectionClicked = {},

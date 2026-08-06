@@ -12,7 +12,7 @@ data class AddToCollectionState<T>(
         val alreadyAdded: Boolean,
         val isSelected: Boolean = alreadyAdded,
     ) {
-        val list: UserCollection = stored.value
+        val collection: UserCollection = stored.value
     }
 
     sealed interface Body<out T> {

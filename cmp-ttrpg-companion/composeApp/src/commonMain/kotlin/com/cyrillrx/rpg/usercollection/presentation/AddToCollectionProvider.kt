@@ -9,7 +9,7 @@ import com.cyrillrx.rpg.usercollection.presentation.viewmodel.AddToCollectionVie
 import com.cyrillrx.rpg.usercollection.presentation.viewmodel.AddToCollectionViewModelFactory
 
 interface AddToCollectionProvider<T> {
-    val listType: UserCollection.Type
+    val collectionType: UserCollection.Type
     val viewModelFactory: AddToCollectionViewModelFactory<T>
 
     @Composable
@@ -20,7 +20,7 @@ interface AddToCollectionProvider<T> {
         entityId: String,
         onDismiss: () -> Unit,
     ) {
-        val viewModel = viewModel<AddToCollectionViewModel<T>>(key = listType.name, factory = viewModelFactory)
+        val viewModel = viewModel<AddToCollectionViewModel<T>>(key = collectionType.name, factory = viewModelFactory)
         LaunchedEffect(entityId) { viewModel.loadEntity(entityId) }
         AddToCollectionBottomSheet(viewModel, ::Header, onDismiss = onDismiss)
     }

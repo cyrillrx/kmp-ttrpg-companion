@@ -42,7 +42,7 @@ fun RenameCollectionDialog(
 @Composable
 private fun PreviewRenameCollectionDialogLight() {
     AppThemePreview(darkTheme = false) {
-        RenameCollectionDialog(currentName = "My list", onConfirm = {}, onDismiss = {})
+        RenameCollectionDialog(currentName = "My collection", onConfirm = {}, onDismiss = {})
     }
 }
 
@@ -50,6 +50,6 @@ private fun PreviewRenameCollectionDialogLight() {
 @Composable
 private fun PreviewRenameCollectionDialogDark() {
     AppThemePreview(darkTheme = true) {
-        RenameCollectionDialog(currentName = "My list", onConfirm = {}, onDismiss = {})
+        RenameCollectionDialog(currentName = "My collection", onConfirm = {}, onDismiss = {})
     }
 }

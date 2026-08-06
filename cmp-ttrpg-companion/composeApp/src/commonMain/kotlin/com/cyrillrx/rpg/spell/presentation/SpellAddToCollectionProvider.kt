@@ -29,10 +29,10 @@ class SpellAddToCollectionProvider(
     spellRepository: SpellRepository,
     userCollectionRepository: UserCollectionRepository,
 ) : AddToCollectionProvider<Spell> {
-    override val listType: UserCollection.Type = UserCollection.Type.SPELL
+    override val collectionType: UserCollection.Type = UserCollection.Type.SPELL
 
     override val viewModelFactory = AddToCollectionViewModelFactory(
-        listType = listType,
+        collectionType = collectionType,
         userCollectionRepository = userCollectionRepository,
         entityRepository = spellRepository,
         errorMessage = Res.string.error_while_loading_spells,

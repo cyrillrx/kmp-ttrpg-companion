@@ -24,7 +24,7 @@ import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
 class UserCollectionsViewModel(
-    private val listType: UserCollection.Type,
+    private val collectionType: UserCollection.Type,
     private val userCollectionRepository: UserCollectionRepository,
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
 ) : ViewModel() {
@@ -38,44 +38,44 @@ class UserCollectionsViewModel(
     data class PendingDeletion(val stored: Stored<UserCollection>, val index: Int)
 
     sealed interface Event {
-        data class DeletionError(val list: UserCollection) : Event
+        data class DeletionError(val collection: UserCollection) : Event
     }
 
     private val pendingDeletions: MutableList<PendingDeletion> = mutableListOf()
     private var activeJob: Job? = null
 
     init {
-        activeJob = loadLists()
+        activeJob = loadCollections()
     }
 
     @OptIn(ExperimentalUuidApi::class)
-    fun createList(name: String) {
+    fun createCollection(name: String) {
         viewModelScope.launch {
-            val newList = UserCollection(
+            val newCollection = UserCollection(
                 id = Uuid.random().toString(),
                 name = name,
-                type = listType,
+                type = collectionType,
                 itemIds = emptyList(),
             )
-            userCollectionRepository.save(newList)
+            userCollectionRepository.save(newCollection)
             activeJob?.cancel()
-            activeJob = loadLists()
+            activeJob = loadCollections()
         }
     }
 
-    fun deleteListOptimistically(stored: Stored<UserCollection>): PendingDeletion? {
+    fun deleteCollectionOptimistically(stored: Stored<UserCollection>): PendingDeletion? {
         val currentState = state.value.body as? UserCollectionsState.Body.WithData ?: return null
 
-        val index = currentState.lists.indexOf(stored)
+        val index = currentState.collections.indexOf(stored)
         if (index == -1) return null
 
         val pending = PendingDeletion(stored, index)
         pendingDeletions.add(pending)
-        val updatedLists = currentState.lists - stored
-        val newBody = if (updatedLists.isEmpty()) {
+        val updatedCollections = currentState.collections - stored
+        val newBody = if (updatedCollections.isEmpty()) {
             UserCollectionsState.Body.Empty
         } else {
-            UserCollectionsState.Body.WithData(updatedLists)
+            UserCollectionsState.Body.WithData(updatedCollections)
         }
         state.update { it.copy(body = newBody) }
         return pending
@@ -84,13 +84,15 @@ class UserCollectionsViewModel(
     fun undoDeletion(pending: PendingDeletion) {
         if (!pendingDeletions.remove(pending)) return
 
-        val currentLists = when (val body = state.value.body) {
-            is UserCollectionsState.Body.WithData -> body.lists
+        val currentCollections = when (val body = state.value.body) {
+            is UserCollectionsState.Body.WithData -> body.collections
             is UserCollectionsState.Body.Empty -> emptyList()
             else -> return
         }
-        val restoredLists = currentLists.toMutableList().apply { add(pending.index.coerceAtMost(size), pending.stored) }
-        state.update { it.copy(body = UserCollectionsState.Body.WithData(restoredLists)) }
+        val restoredCollections = currentCollections.toMutableList().apply {
+            add(pending.index.coerceAtMost(size), pending.stored)
+        }
+        state.update { it.copy(body = UserCollectionsState.Body.WithData(restoredCollections)) }
     }
 
     fun commitDeletion(pending: PendingDeletion) {
@@ -118,10 +120,10 @@ class UserCollectionsViewModel(
     fun silentRefresh() {
         if (state.value.body is UserCollectionsState.Body.Loading) return
         activeJob?.cancel()
-        activeJob = refreshLists()
+        activeJob = refreshCollections()
     }
 
-    private fun refreshLists(): Job =
+    private fun refreshCollections(): Job =
         viewModelScope.launch {
             try {
                 fetchAndUpdateUserCollections()
@@ -132,7 +134,7 @@ class UserCollectionsViewModel(
             }
         }
 
-    private fun loadLists(): Job =
+    private fun loadCollections(): Job =
         viewModelScope.launch {
             state.update { it.copy(body = UserCollectionsState.Body.Loading) }
             try {
@@ -151,11 +153,11 @@ class UserCollectionsViewModel(
         }
 
     private suspend fun fetchAndUpdateUserCollections() {
-        val lists = userCollectionRepository.getAll(listType).sortedByDescending { it.updatedAt }
-        val body = if (lists.isEmpty()) {
+        val collections = userCollectionRepository.getAll(collectionType).sortedByDescending { it.updatedAt }
+        val body = if (collections.isEmpty()) {
             UserCollectionsState.Body.Empty
         } else {
-            UserCollectionsState.Body.WithData(lists)
+            UserCollectionsState.Body.WithData(collections)
         }
         state.update { it.copy(body = body) }
     }

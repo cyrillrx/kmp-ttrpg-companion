@@ -24,10 +24,10 @@ import kotlin.test.assertFalse
 import kotlin.test.assertIs
 import kotlin.test.assertTrue
 
-private const val TEST_LIST_ID = "list1"
-private const val TEST_LIST_ID_2 = "list2"
-private const val LIST_NAME = "Grimoire"
-private const val CREATED_LIST_NAME = "Nouveau grimoire"
+private const val TEST_COLLECTION_ID = "collection1"
+private const val TEST_COLLECTION_ID_2 = "collection2"
+private const val COLLECTION_NAME = "Grimoire"
+private const val CREATED_COLLECTION_NAME = "Nouveau grimoire"
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class AddToCollectionViewModelTest {
@@ -49,7 +49,7 @@ class AddToCollectionViewModelTest {
 
     private fun buildViewModel(itemId: String = spell.id): AddToCollectionViewModel<Spell> {
         val vm = AddToCollectionViewModel(
-            listType = UserCollection.Type.SPELL,
+            collectionType = UserCollection.Type.SPELL,
             userCollectionRepository = userCollectionRepository,
             repository = spellRepository,
             errorMessage = Res.string.error_while_loading_spells,
@@ -81,7 +81,7 @@ class AddToCollectionViewModelTest {
     @Test
     fun `state is Error when repository throws`() = runTest(testDispatcher) {
         val viewModel = AddToCollectionViewModel(
-            listType = UserCollection.Type.SPELL,
+            collectionType = UserCollection.Type.SPELL,
             userCollectionRepository = FailingAddToCollectionRepository(),
             repository = spellRepository,
             errorMessage = Res.string.error_while_loading_spells,
@@ -98,9 +98,9 @@ class AddToCollectionViewModelTest {
     }
 
     @Test
-    fun `initial state loads existing lists of given type`() = runTest(testDispatcher) {
-        val list = UserCollection(TEST_LIST_ID, LIST_NAME, UserCollection.Type.SPELL, emptyList())
-        userCollectionRepository.save(list)
+    fun `initial state loads existing collections of given type`() = runTest(testDispatcher) {
+        val collection = UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, emptyList())
+        userCollectionRepository.save(collection)
 
         val viewModel = buildViewModel()
 
@@ -112,15 +112,16 @@ class AddToCollectionViewModelTest {
 
         val body = assertIs<AddToCollectionState.Body.WithData<Spell>>(viewModel.state.value.body)
         assertEquals(expected = 1, actual = body.selectableCollections.size)
-        assertEquals(expected = LIST_NAME, actual = body.selectableCollections.first().list.name)
+        assertEquals(expected = COLLECTION_NAME, actual = body.selectableCollections.first().collection.name)
     }
 
     @Test
-    fun `initial state pre-selects lists where item is already added`() = runTest(testDispatcher) {
-        val list1 = UserCollection(TEST_LIST_ID, LIST_NAME, UserCollection.Type.SPELL, listOf(spell.id))
-        val list2 = UserCollection(TEST_LIST_ID_2, "Other", UserCollection.Type.SPELL, emptyList())
-        userCollectionRepository.save(list1)
-        userCollectionRepository.save(list2)
+    fun `initial state pre-selects collections where item is already added`() = runTest(testDispatcher) {
+        val collection1 =
+            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+        val collection2 = UserCollection(TEST_COLLECTION_ID_2, "Other", UserCollection.Type.SPELL, emptyList())
+        userCollectionRepository.save(collection1)
+        userCollectionRepository.save(collection2)
 
         val viewModel = buildViewModel()
 
@@ -132,14 +133,14 @@ class AddToCollectionViewModelTest {
 
         val body = assertIs<AddToCollectionState.Body.WithData<Spell>>(viewModel.state.value.body)
         val selectableCollections = body.selectableCollections
-        assertTrue(selectableCollections.first { it.list.id == TEST_LIST_ID }.isSelected)
-        assertFalse(selectableCollections.first { it.list.id == TEST_LIST_ID_2 }.isSelected)
+        assertTrue(selectableCollections.first { it.collection.id == TEST_COLLECTION_ID }.isSelected)
+        assertFalse(selectableCollections.first { it.collection.id == TEST_COLLECTION_ID_2 }.isSelected)
     }
 
     @Test
-    fun `toggleSelection selects the list`() = runTest(testDispatcher) {
-        val list = UserCollection(TEST_LIST_ID, LIST_NAME, UserCollection.Type.SPELL, emptyList())
-        userCollectionRepository.save(list)
+    fun `toggleSelection selects the collection`() = runTest(testDispatcher) {
+        val collection = UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, emptyList())
+        userCollectionRepository.save(collection)
 
         val viewModel = buildViewModel()
 
@@ -149,16 +150,17 @@ class AddToCollectionViewModelTest {
 
         advanceUntilIdle()
 
-        viewModel.toggleSelection(TEST_LIST_ID)
+        viewModel.toggleSelection(TEST_COLLECTION_ID)
 
         val body = assertIs<AddToCollectionState.Body.WithData<Spell>>(viewModel.state.value.body)
-        assertTrue(body.selectableCollections.first { it.list.id == TEST_LIST_ID }.isSelected)
+        assertTrue(body.selectableCollections.first { it.collection.id == TEST_COLLECTION_ID }.isSelected)
     }
 
     @Test
-    fun `toggleSelection deselects the list`() = runTest(testDispatcher) {
-        val list = UserCollection(TEST_LIST_ID, LIST_NAME, UserCollection.Type.SPELL, listOf(spell.id))
-        userCollectionRepository.save(list)
+    fun `toggleSelection deselects the collection`() = runTest(testDispatcher) {
+        val collection =
+            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+        userCollectionRepository.save(collection)
 
         val viewModel = buildViewModel()
 
@@ -168,16 +170,16 @@ class AddToCollectionViewModelTest {
 
         advanceUntilIdle()
 
-        viewModel.toggleSelection(TEST_LIST_ID)
+        viewModel.toggleSelection(TEST_COLLECTION_ID)
 
         val body = assertIs<AddToCollectionState.Body.WithData<Spell>>(viewModel.state.value.body)
-        assertFalse(body.selectableCollections.first { it.list.id == TEST_LIST_ID }.isSelected)
+        assertFalse(body.selectableCollections.first { it.collection.id == TEST_COLLECTION_ID }.isSelected)
     }
 
     @Test
-    fun `confirmSelection adds item to newly selected lists`() = runTest(testDispatcher) {
-        val list = UserCollection(TEST_LIST_ID, LIST_NAME, UserCollection.Type.SPELL, emptyList())
-        userCollectionRepository.save(list)
+    fun `confirmSelection adds item to newly selected collections`() = runTest(testDispatcher) {
+        val collection = UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, emptyList())
+        userCollectionRepository.save(collection)
 
         val viewModel = buildViewModel()
 
@@ -187,19 +189,20 @@ class AddToCollectionViewModelTest {
 
         advanceUntilIdle()
 
-        viewModel.toggleSelection(TEST_LIST_ID)
+        viewModel.toggleSelection(TEST_COLLECTION_ID)
         viewModel.confirmSelection()
 
         advanceUntilIdle()
 
-        val savedList = userCollectionRepository.get(TEST_LIST_ID)
-        assertTrue(savedList?.itemIds?.contains(spell.id) ?: false)
+        val savedCollection = userCollectionRepository.get(TEST_COLLECTION_ID)
+        assertTrue(savedCollection?.itemIds?.contains(spell.id) ?: false)
     }
 
     @Test
-    fun `confirmSelection removes item from deselected lists`() = runTest(testDispatcher) {
-        val list = UserCollection(TEST_LIST_ID, LIST_NAME, UserCollection.Type.SPELL, listOf(spell.id))
-        userCollectionRepository.save(list)
+    fun `confirmSelection removes item from deselected collections`() = runTest(testDispatcher) {
+        val collection =
+            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+        userCollectionRepository.save(collection)
 
         val viewModel = buildViewModel()
 
@@ -209,13 +212,13 @@ class AddToCollectionViewModelTest {
 
         advanceUntilIdle()
 
-        viewModel.toggleSelection(TEST_LIST_ID)
+        viewModel.toggleSelection(TEST_COLLECTION_ID)
         viewModel.confirmSelection()
 
         advanceUntilIdle()
 
-        val savedList = userCollectionRepository.get(TEST_LIST_ID)
-        assertFalse(savedList?.itemIds?.contains(spell.id) ?: true)
+        val savedCollection = userCollectionRepository.get(TEST_COLLECTION_ID)
+        assertFalse(savedCollection?.itemIds?.contains(spell.id) ?: true)
     }
 
     @Test
@@ -241,7 +244,7 @@ class AddToCollectionViewModelTest {
     }
 
     @Test
-    fun `loadEntity reflects fresh list data when called again after repository changes`() =
+    fun `loadEntity reflects fresh collection data when called again after repository changes`() =
         runTest(testDispatcher) {
             val viewModel = buildViewModel()
 
@@ -254,9 +257,10 @@ class AddToCollectionViewModelTest {
             val initialBody = assertIs<AddToCollectionState.Body.WithData<Spell>>(viewModel.state.value.body)
             assertTrue(initialBody.selectableCollections.isEmpty())
 
-            // Simulate: spell was added to a new list externally (e.g. from another screen)
-            val newList = UserCollection(TEST_LIST_ID, LIST_NAME, UserCollection.Type.SPELL, listOf(spell.id))
-            userCollectionRepository.save(newList)
+            // Simulate: spell was added to a new collection externally (e.g. from another screen)
+            val newCollection =
+                UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+            userCollectionRepository.save(newCollection)
 
             // Re-call loadEntity — simulates the bottom sheet being re-opened
             viewModel.loadEntity(spell.id)
@@ -268,7 +272,7 @@ class AddToCollectionViewModelTest {
         }
 
     @Test
-    fun `createAndAdd creates a new list with the itemId`() = runTest(testDispatcher) {
+    fun `createAndAdd creates a new collection with the itemId`() = runTest(testDispatcher) {
         val viewModel = buildViewModel()
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
@@ -277,17 +281,17 @@ class AddToCollectionViewModelTest {
 
         advanceUntilIdle()
 
-        viewModel.createAndAdd(CREATED_LIST_NAME)
+        viewModel.createAndAdd(CREATED_COLLECTION_NAME)
 
         advanceUntilIdle()
 
-        val lists = userCollectionRepository.getAll(UserCollection.Type.SPELL)
-        assertEquals(expected = 1, actual = lists.size)
-        assertEquals(expected = CREATED_LIST_NAME, actual = lists.first().value.name)
-        assertTrue(actual = lists.first().value.itemIds.contains(spell.id))
+        val collections = userCollectionRepository.getAll(UserCollection.Type.SPELL)
+        assertEquals(expected = 1, actual = collections.size)
+        assertEquals(expected = CREATED_COLLECTION_NAME, actual = collections.first().value.name)
+        assertTrue(actual = collections.first().value.itemIds.contains(spell.id))
 
         val body = assertIs<AddToCollectionState.Body.WithData<Spell>>(viewModel.state.value.body)
-        val newEntry = body.selectableCollections.first { it.list.name == CREATED_LIST_NAME }
+        val newEntry = body.selectableCollections.first { it.collection.name == CREATED_COLLECTION_NAME }
         assertTrue(newEntry.alreadyAdded)
         assertTrue(newEntry.isSelected)
     }
@@ -297,6 +301,6 @@ private class FailingAddToCollectionRepository : com.cyrillrx.rpg.usercollection
     override suspend fun getAll(type: UserCollection.Type): List<com.cyrillrx.rpg.core.domain.Stored<UserCollection>> =
         error("Repository failure")
     override suspend fun get(id: String): UserCollection? = error("Repository failure")
-    override suspend fun save(list: UserCollection) = Unit
+    override suspend fun save(collection: UserCollection) = Unit
     override suspend fun delete(id: String) = Unit
 }

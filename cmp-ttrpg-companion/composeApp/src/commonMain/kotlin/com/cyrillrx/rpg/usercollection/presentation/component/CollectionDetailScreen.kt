@@ -73,7 +73,7 @@ fun <T> CollectionDetailScreen(
         events = viewModel.events,
         itemProvider = itemProvider,
         onNavigateUpClicked = onNavigateUp,
-        onRenameList = viewModel::renameList,
+        onRenameCollection = viewModel::renameCollection,
         onRemoveItemOptimistically = viewModel::removeItemOptimistically,
         onUndoRemoval = viewModel::undoRemoval,
         onCommitRemoval = viewModel::commitRemoval,
@@ -86,7 +86,7 @@ fun <T> CollectionDetailScreen(
     events: SharedFlow<CollectionDetailViewModel.Event<T>>,
     itemProvider: CollectionItemProvider<T>,
     onNavigateUpClicked: () -> Unit,
-    onRenameList: (String) -> Unit,
+    onRenameCollection: (String) -> Unit,
     onRemoveItemOptimistically: (id: String, item: T) -> CollectionDetailViewModel.PendingRemoval<T>?,
     onUndoRemoval: (CollectionDetailViewModel.PendingRemoval<T>) -> Unit,
     onCommitRemoval: (CollectionDetailViewModel.PendingRemoval<T>) -> Unit,
@@ -122,9 +122,9 @@ fun <T> CollectionDetailScreen(
 
     if (showRenameDialog) {
         RenameCollectionDialog(
-            currentName = state.listName,
+            currentName = state.collectionName,
             onConfirm = { newName ->
-                onRenameList(newName)
+                onRenameCollection(newName)
                 showRenameDialog = false
             },
             onDismiss = { showRenameDialog = false },
@@ -134,7 +134,7 @@ fun <T> CollectionDetailScreen(
     Scaffold(
         topBar = {
             SimpleTopBar(
-                title = state.listName,
+                title = state.collectionName,
                 onNavigateUpClicked = onNavigateUpClicked,
                 actions = {
                     IconButton(onClick = { showRenameDialog = true }) {
@@ -153,7 +153,7 @@ fun <T> CollectionDetailScreen(
         ) {
             when (val body = state.body) {
                 is CollectionDetailState.Body.Loading -> Loader()
-                is CollectionDetailState.Body.EmptyList -> itemProvider.EmptyLayout()
+                is CollectionDetailState.Body.Empty -> itemProvider.EmptyLayout()
                 is CollectionDetailState.Body.Error -> ErrorLayout(body.errorMessage)
                 is CollectionDetailState.Body.WithData -> EntityDetailList(
                     items = body.items,
@@ -204,13 +204,13 @@ private fun CollectionDetailScreenPreview(darkTheme: Boolean) {
     AppThemePreview(darkTheme = darkTheme) {
         CollectionDetailScreen(
             state = CollectionDetailState(
-                listName = "Gandalf's Spells",
+                collectionName = "Gandalf's Spells",
                 body = CollectionDetailState.Body.WithData(SampleSpellRepository.getAll()),
             ),
             events = MutableSharedFlow(),
             itemProvider = SpellItemProvider(onItemClicked = {}),
             onNavigateUpClicked = {},
-            onRenameList = {},
+            onRenameCollection = {},
             onRemoveItemOptimistically = { _, _ -> null },
             onUndoRemoval = {},
             onCommitRemoval = {},
@@ -235,13 +235,13 @@ private fun EmptyCollectionDetailScreenPreview(darkTheme: Boolean) {
     AppThemePreview(darkTheme = darkTheme) {
         CollectionDetailScreen(
             state = CollectionDetailState(
-                listName = "Gandalf's Spells",
-                body = CollectionDetailState.Body.EmptyList,
+                collectionName = "Gandalf's Spells",
+                body = CollectionDetailState.Body.Empty,
             ),
             events = MutableSharedFlow(),
             itemProvider = SpellItemProvider(onItemClicked = {}),
             onNavigateUpClicked = {},
-            onRenameList = {},
+            onRenameCollection = {},
             onRemoveItemOptimistically = { _, _ -> null },
             onUndoRemoval = {},
             onCommitRemoval = {},

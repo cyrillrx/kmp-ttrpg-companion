@@ -29,10 +29,10 @@ class MonsterAddToCollectionProvider(
     repository: MonsterRepository,
     userCollectionRepository: UserCollectionRepository,
 ) : AddToCollectionProvider<Monster> {
-    override val listType: UserCollection.Type = UserCollection.Type.MONSTER
+    override val collectionType: UserCollection.Type = UserCollection.Type.MONSTER
 
     override val viewModelFactory = AddToCollectionViewModelFactory(
-        listType = listType,
+        collectionType = collectionType,
         userCollectionRepository = userCollectionRepository,
         entityRepository = repository,
         errorMessage = Res.string.error_while_loading_monsters,
