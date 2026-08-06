@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.core.presentation.component.dnd
+package com.cyrillrx.rpg.core.presentation.format
 
 import com.cyrillrx.rpg.core.presentation.theme.SchoolAbjuration
 import com.cyrillrx.rpg.core.presentation.theme.SchoolConjuration

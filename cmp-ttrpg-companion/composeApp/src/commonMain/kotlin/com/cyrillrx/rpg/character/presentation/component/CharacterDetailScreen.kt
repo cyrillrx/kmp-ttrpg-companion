@@ -54,8 +54,8 @@ import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterEditViewModel
 import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
-import com.cyrillrx.rpg.core.presentation.component.dnd.toDistanceString
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
+import com.cyrillrx.rpg.core.presentation.format.toDistanceString
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium

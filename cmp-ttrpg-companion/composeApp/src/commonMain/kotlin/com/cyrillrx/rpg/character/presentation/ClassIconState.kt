@@ -1,7 +1,7 @@
 package com.cyrillrx.rpg.character.presentation
 
 import com.cyrillrx.rpg.character.domain.Character
-import com.cyrillrx.rpg.core.presentation.component.dnd.toSvgPath
+import com.cyrillrx.rpg.core.presentation.format.toSvgPath
 
 internal sealed interface ClassIconState {
     data object Loading : ClassIconState

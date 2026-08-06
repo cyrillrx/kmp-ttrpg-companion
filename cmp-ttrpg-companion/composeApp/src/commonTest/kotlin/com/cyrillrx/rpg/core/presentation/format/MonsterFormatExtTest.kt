@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.core.presentation.component.dnd
+package com.cyrillrx.rpg.core.presentation.format
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AcUnit

@@ -14,8 +14,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.cyrillrx.rpg.core.presentation.component.FilterSection
 import com.cyrillrx.rpg.core.presentation.component.FilterSheetHeader
-import com.cyrillrx.rpg.core.presentation.component.dnd.formatCRValue
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
+import com.cyrillrx.rpg.core.presentation.format.formatCRValue
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingLarge

@@ -1,9 +1,9 @@
 package com.cyrillrx.rpg.core.presentation.component.dnd
 
 import androidx.compose.runtime.Composable
+import com.cyrillrx.rpg.core.presentation.format.toDistanceString
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.Speeds
-import com.cyrillrx.rpg.dnd.domain.feetToMeters
 import com.cyrillrx.rpg.settings.domain.DistanceUnit
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
@@ -50,14 +50,6 @@ fun Creature.Size.toFormattedString(): String {
         Creature.Size.UNKNOWN -> Res.string.creature_size_unknown
     }
     return stringResource(stringRes)
-}
-
-private fun Float.toMetersString(): String =
-    if (this % 1 == 0f) "${this.toInt()} m" else "$this m"
-
-internal fun Int.toDistanceString(unit: DistanceUnit): String = when (unit) {
-    DistanceUnit.FEET -> "$this ft."
-    DistanceUnit.METERS -> feetToMeters().toMetersString()
 }
 
 @Composable

@@ -13,7 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
-import com.cyrillrx.rpg.core.presentation.component.dnd.toDistanceString
+import com.cyrillrx.rpg.core.presentation.format.toDistanceString
 import com.cyrillrx.rpg.core.presentation.theme.borderAlpha
 import com.cyrillrx.rpg.core.presentation.theme.borderWidth
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon

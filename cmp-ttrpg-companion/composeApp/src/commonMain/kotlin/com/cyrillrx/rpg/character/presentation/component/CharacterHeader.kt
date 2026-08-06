@@ -53,7 +53,6 @@ import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.presentation.ClassIconState
 import com.cyrillrx.rpg.character.presentation.resolveClassIconState
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
-import com.cyrillrx.rpg.core.presentation.component.dnd.toSvgPath
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.avatarBorderWidth
 import com.cyrillrx.rpg.core.presentation.theme.avatarSize
