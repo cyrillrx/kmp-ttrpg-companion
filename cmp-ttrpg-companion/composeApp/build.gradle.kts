@@ -131,6 +131,8 @@ kover {
                     "*ScreenKt",
                     // Navigation root, plus locale constants and an expect declaration.
                     "*.app.*",
+                    // Desktop entry point: no jvmTest can run main() or application { }.
+                    "MainKt",
                     // Generated: Compose resources accessors.
                     "*.generated.resources.*",
                 )
