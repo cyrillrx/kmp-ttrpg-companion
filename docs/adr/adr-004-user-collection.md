@@ -51,7 +51,9 @@ Full alignment down to the schema, so nothing internally still says "UserList". 
 - Maestro flows, test fixtures, and docs (`roadmap.md`, `docs/testing/e2e-test-cases.md`, PRD-001a Phase 2) are harmonized to "collection".
 - The spell **compendium** ("Spellbook" singular, `btn_spell_book`) and all SRD/compendium data are **unchanged**.
 
-**Saved navigation state**: the `@Serializable` `UserListRoute` NavKeys use their default (fully-qualified) serial names in the polymorphic back-stack serializer. Renaming the package/class changes those names, so a back stack persisted by an older build will not deserialize after update. This only resets in-flight navigation (the user lands on Home); the collection **data** is preserved by the DB migration. We accept this reset rather than pinning legacy `@SerialName` values, to avoid freezing old package names into new code.
+**Saved navigation state**: the `@Serializable` `UserListRoute` NavKeys use their default (fully-qualified) serial names in the polymorphic back-stack serializer. Renaming the package/class changes those names, so a back stack persisted by an older build will not deserialize after update. We accept that reset rather than pinning legacy `@SerialName` values, to avoid freezing old package names into new code; the collection **data** is preserved by the DB migration either way.
+
+The reset has to be implemented, though: an unknown discriminator makes polymorphic decoding throw, and `rememberNavBackStack` has no fallback, so restoring such a back stack would crash at launch. `navSerializersModule` therefore declares `defaultDeserializer { MainRoute.Home.serializer() }` — every unrecognized entry decodes as Home. A stack of N entries restores as N Home entries: degraded, but navigable, and it covers any future route move rather than just this rename.
 
 ---
 
