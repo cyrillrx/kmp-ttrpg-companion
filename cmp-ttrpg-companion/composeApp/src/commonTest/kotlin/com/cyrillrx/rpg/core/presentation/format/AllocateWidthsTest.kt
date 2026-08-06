@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.core.presentation.component
+package com.cyrillrx.rpg.core.presentation.format
 
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
