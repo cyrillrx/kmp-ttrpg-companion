@@ -76,6 +76,27 @@ sqldelight {
     }
 }
 
+kover {
+    reports {
+        filters {
+            excludes {
+                // Generated: SQLDelight database, queries and row types.
+                classes("com.cyrillrx.rpg.cache.*")
+            }
+        }
+    }
+}
+
+sonar {
+    properties {
+        // Absolute: the report is then found whatever base directory Sonar resolves against.
+        property(
+            "sonar.coverage.jacoco.xmlReportPaths",
+            layout.buildDirectory.file("reports/kover/reportJvm.xml").get().asFile.absolutePath,
+        )
+    }
+}
+
 ktlint {
     debug.set(true)
     verbose.set(true)
