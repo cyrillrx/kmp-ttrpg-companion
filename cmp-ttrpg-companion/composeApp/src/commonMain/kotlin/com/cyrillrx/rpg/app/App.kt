@@ -34,7 +34,6 @@ import com.cyrillrx.rpg.character.data.SQLDelightCharacterRepository
 import com.cyrillrx.rpg.character.presentation.navigation.handleCharacterRoutes
 import com.cyrillrx.rpg.character.presentation.navigation.registerCharacterRoutes
 import com.cyrillrx.rpg.core.data.ComposeFileReader
-import com.cyrillrx.rpg.core.data.cache.DatabaseDriverFactory
 import com.cyrillrx.rpg.core.data.cache.SharedDatabaseDriverFactory
 import com.cyrillrx.rpg.core.navigation.navigateUp
 import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
@@ -86,19 +85,21 @@ private val navSavedStateConfig = SavedStateConfiguration {
     }
 }
 
+/**
+ * @param dbDriverFactory the process-wide factory owned by the platform entry point. Its type
+ *   guarantees every repository below shares a single database connection.
+ */
 @Composable
 @Preview
-fun App(dbDriverFactory: DatabaseDriverFactory) {
+fun App(dbDriverFactory: SharedDatabaseDriverFactory) {
     setSingletonImageLoaderFactory { context ->
         ImageLoader
             .Builder(context)
             .components { add(SvgDecoder.Factory()) }
             .build()
     }
-    // Share a single database connection across all repositories instead of one per repository.
-    val driverFactory = remember(dbDriverFactory) { SharedDatabaseDriverFactory(dbDriverFactory) }
-    val prefsRepository: UserPreferencesRepository = remember(driverFactory) {
-        SqlDelightUserPreferencesRepository(driverFactory)
+    val prefsRepository: UserPreferencesRepository = remember(dbDriverFactory) {
+        SqlDelightUserPreferencesRepository(dbDriverFactory)
     }
     var prefsInitialized by remember { mutableStateOf(false) }
     LaunchedEffect(prefsRepository) {
@@ -114,8 +115,8 @@ fun App(dbDriverFactory: DatabaseDriverFactory) {
             val backStack = rememberNavBackStack(navSavedStateConfig, MainRoute.Home)
 
             val fileReader = remember { ComposeFileReader() }
-            val userListRepository = remember(driverFactory) { SQLDelightUserListRepository(driverFactory) }
-            val characterRepository = remember(driverFactory) { SQLDelightCharacterRepository(driverFactory) }
+            val userListRepository = remember(dbDriverFactory) { SQLDelightUserListRepository(dbDriverFactory) }
+            val characterRepository = remember(dbDriverFactory) { SQLDelightCharacterRepository(dbDriverFactory) }
 
             NavDisplay(
                 backStack = backStack,
@@ -142,8 +143,8 @@ fun App(dbDriverFactory: DatabaseDriverFactory) {
 
                     handleCampaignRoutes(
                         backStack = backStack,
-                        repository = remember(driverFactory) {
-                            SQLDelightCampaignRepository(driverFactory)
+                        repository = remember(dbDriverFactory) {
+                            SQLDelightCampaignRepository(dbDriverFactory)
                         },
                     )
                     handleCharacterRoutes(

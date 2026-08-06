@@ -11,7 +11,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.testTagsAsResourceId
 import com.cyrillrx.rpg.app.App
-import com.cyrillrx.rpg.core.data.cache.AndroidDatabaseDriverFactory
 
 class MainActivity : ComponentActivity() {
 
@@ -20,7 +19,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
 
-        val databaseDriverFactory = AndroidDatabaseDriverFactory(applicationContext)
+        val databaseDriverFactory = (application as com.cyrillrx.rpg.App).databaseDriverFactory
         setContent {
             // Expose Compose testTags as resource ids so UiAutomator (macrobenchmarks) can target
             // tagged nodes such as the compendium list containers.
