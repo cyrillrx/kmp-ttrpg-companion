@@ -25,7 +25,7 @@ import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
-import com.cyrillrx.rpg.core.presentation.component.dialog.CreateListDialog
+import com.cyrillrx.rpg.core.presentation.component.dialog.CreateCollectionDialog
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
@@ -39,8 +39,8 @@ import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.btn_confirm
-import rpg_companion.composeapp.generated.resources.btn_create_list
-import rpg_companion.composeapp.generated.resources.title_save_to_list
+import rpg_companion.composeapp.generated.resources.btn_create_collection
+import rpg_companion.composeapp.generated.resources.title_save_to_collection
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -74,7 +74,7 @@ fun <T> AddToCollectionBottomSheet(
     }
 
     if (showCreateDialog) {
-        CreateListDialog(
+        CreateCollectionDialog(
             onConfirm = { name ->
                 viewModel.createAndAdd(name)
                 showCreateDialog = false
@@ -109,7 +109,7 @@ private fun <T> ColumnScope.AddToCollectionBottomSheetContent(
                 item { header(body.item) }
                 item {
                     Text(
-                        text = stringResource(Res.string.title_save_to_list),
+                        text = stringResource(Res.string.title_save_to_collection),
                         style = MaterialTheme.typography.titleMedium,
                         color = MaterialTheme.colorScheme.onSurface,
                         modifier = Modifier
@@ -134,7 +134,7 @@ private fun <T> ColumnScope.AddToCollectionBottomSheetContent(
                 onClick = onCreateListClicked,
                 modifier = Modifier.fillMaxWidth(),
             ) {
-                Text(stringResource(Res.string.btn_create_list))
+                Text(stringResource(Res.string.btn_create_collection))
             }
         }
     }

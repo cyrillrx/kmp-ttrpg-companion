@@ -10,7 +10,7 @@ import com.cyrillrx.rpg.creature.presentation.component.MonsterListItem
 import com.cyrillrx.rpg.usercollection.presentation.CollectionItemProvider
 import org.jetbrains.compose.resources.StringResource
 import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.empty_list_browse_creatures
+import rpg_companion.composeapp.generated.resources.empty_collection_browse_creatures
 
 class MonsterItemProvider(
     private val onItemClicked: (Monster) -> Unit,
@@ -18,7 +18,7 @@ class MonsterItemProvider(
 ) : CollectionItemProvider<Monster> {
 
     override val emptyLayoutIcon: ImageVector = Icons.Outlined.Pets
-    override val emptyLayoutBtnText: StringResource = Res.string.empty_list_browse_creatures
+    override val emptyLayoutBtnText: StringResource = Res.string.empty_collection_browse_creatures
 
     override fun getId(entity: Monster): String = entity.id
 

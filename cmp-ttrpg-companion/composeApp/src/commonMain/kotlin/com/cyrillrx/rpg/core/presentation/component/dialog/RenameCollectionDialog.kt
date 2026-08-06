@@ -11,11 +11,11 @@ import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.dialog_rename_list_title
-import rpg_companion.composeapp.generated.resources.hint_list_name
+import rpg_companion.composeapp.generated.resources.dialog_rename_collection_title
+import rpg_companion.composeapp.generated.resources.hint_collection_name
 
 @Composable
-fun RenameListDialog(
+fun RenameCollectionDialog(
     currentName: String,
     onConfirm: (String) -> Unit,
     onDismiss: () -> Unit,
@@ -24,7 +24,7 @@ fun RenameListDialog(
     val trimmedName = name.trim()
 
     EditDialog(
-        title = stringResource(Res.string.dialog_rename_list_title),
+        title = stringResource(Res.string.dialog_rename_collection_title),
         onDismiss = onDismiss,
         onConfirm = { onConfirm(trimmedName) },
         confirmEnabled = trimmedName.isNotBlank() && trimmedName != currentName,
@@ -32,24 +32,24 @@ fun RenameListDialog(
         DialogTextField(
             value = name,
             onValueChange = { name = it },
-            placeholder = stringResource(Res.string.hint_list_name),
-            modifier = Modifier.accessibilityId("input_list_name"),
+            placeholder = stringResource(Res.string.hint_collection_name),
+            modifier = Modifier.accessibilityId("input_collection_name"),
         )
     }
 }
 
 @Preview
 @Composable
-private fun PreviewRenameListDialogLight() {
+private fun PreviewRenameCollectionDialogLight() {
     AppThemePreview(darkTheme = false) {
-        RenameListDialog(currentName = "My list", onConfirm = {}, onDismiss = {})
+        RenameCollectionDialog(currentName = "My list", onConfirm = {}, onDismiss = {})
     }
 }
 
 @Preview
 @Composable
-private fun PreviewRenameListDialogDark() {
+private fun PreviewRenameCollectionDialogDark() {
     AppThemePreview(darkTheme = true) {
-        RenameListDialog(currentName = "My list", onConfirm = {}, onDismiss = {})
+        RenameCollectionDialog(currentName = "My list", onConfirm = {}, onDismiss = {})
     }
 }

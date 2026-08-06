@@ -18,7 +18,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.error_while_loading_user_lists
+import rpg_companion.composeapp.generated.resources.error_while_loading_collections
 import kotlin.coroutines.cancellation.CancellationException
 import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
@@ -143,7 +143,7 @@ class UserCollectionsViewModel(
                 state.update {
                     it.copy(
                         body = UserCollectionsState.Body.Error(
-                            errorMessage = Res.string.error_while_loading_user_lists,
+                            errorMessage = Res.string.error_while_loading_collections,
                         ),
                     )
                 }

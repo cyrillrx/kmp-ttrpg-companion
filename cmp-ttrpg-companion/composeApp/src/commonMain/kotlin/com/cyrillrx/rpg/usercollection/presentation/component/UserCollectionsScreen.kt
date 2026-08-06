@@ -33,7 +33,7 @@ import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
 import com.cyrillrx.rpg.core.presentation.component.SwipeToDelete
-import com.cyrillrx.rpg.core.presentation.component.dialog.CreateListDialog
+import com.cyrillrx.rpg.core.presentation.component.dialog.CreateCollectionDialog
 import com.cyrillrx.rpg.core.presentation.component.rememberOptimisticDeleteHandler
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
@@ -48,10 +48,10 @@ import org.jetbrains.compose.resources.getString
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.btn_create_list
+import rpg_companion.composeapp.generated.resources.btn_create_collection
 import rpg_companion.composeapp.generated.resources.no_result_found
-import rpg_companion.composeapp.generated.resources.snackbar_error_deleting_list
-import rpg_companion.composeapp.generated.resources.snackbar_list_deleted
+import rpg_companion.composeapp.generated.resources.snackbar_error_deleting_collection
+import rpg_companion.composeapp.generated.resources.snackbar_collection_deleted
 
 @Composable
 fun UserCollectionsScreen(viewModel: UserCollectionsViewModel, router: UserCollectionRouter, title: String) {
@@ -97,7 +97,7 @@ fun UserCollectionsScreen(
         events.collect { event ->
             when (event) {
                 is UserCollectionsViewModel.Event.DeletionError -> {
-                    val errorMessage = getString(Res.string.snackbar_error_deleting_list, event.list.name)
+                    val errorMessage = getString(Res.string.snackbar_error_deleting_collection, event.list.name)
                     snackbarHostState.showSnackbar(
                         message = errorMessage,
                         duration = SnackbarDuration.Short,
@@ -112,7 +112,7 @@ fun UserCollectionsScreen(
         onDeleteOptimistically = onDeleteListOptimistically,
         onUndo = onUndoDeletion,
         onCommit = onCommitDeletion,
-        getMessage = { stored -> getString(Res.string.snackbar_list_deleted, stored.value.name) },
+        getMessage = { stored -> getString(Res.string.snackbar_collection_deleted, stored.value.name) },
     )
 
     Scaffold(
@@ -126,7 +126,7 @@ fun UserCollectionsScreen(
             FloatingActionButton(onClick = { showCreateDialog = true }) {
                 Icon(
                     Icons.Filled.Add,
-                    contentDescription = stringResource(Res.string.btn_create_list),
+                    contentDescription = stringResource(Res.string.btn_create_collection),
                 )
             }
         },
@@ -152,7 +152,7 @@ fun UserCollectionsScreen(
     }
 
     if (showCreateDialog) {
-        CreateListDialog(
+        CreateCollectionDialog(
             onConfirm = { name ->
                 onAddBtnClicked(name)
                 showCreateDialog = false

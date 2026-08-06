@@ -7,7 +7,7 @@ import com.cyrillrx.rpg.usercollection.presentation.component.EmptyCollectionLay
 import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.message_list_is_empty
+import rpg_companion.composeapp.generated.resources.message_collection_is_empty
 
 interface CollectionItemProvider<T> {
     val emptyLayoutIcon: ImageVector
@@ -24,7 +24,7 @@ interface CollectionItemProvider<T> {
     fun EmptyLayout() {
         EmptyCollectionLayout(
             icon = emptyLayoutIcon,
-            message = stringResource(Res.string.message_list_is_empty),
+            message = stringResource(Res.string.message_collection_is_empty),
             btnText = stringResource(emptyLayoutBtnText),
             onBtnClicked = onEmptyLayoutBtnClicked,
         )

@@ -26,7 +26,7 @@ import com.cyrillrx.rpg.usercollection.presentation.AddToCollectionProvider
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.btn_add_to_list
+import rpg_companion.composeapp.generated.resources.btn_add_to_collection
 import rpg_companion.composeapp.generated.resources.error_monster_not_found
 
 @Composable
@@ -63,7 +63,7 @@ private fun MonsterDetailContent(
             IconButton(onClick = { showAddToCollectionBottomSheet = true }) {
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.PlaylistAdd,
-                    contentDescription = stringResource(Res.string.btn_add_to_list),
+                    contentDescription = stringResource(Res.string.btn_add_to_collection),
                 )
             }
         },

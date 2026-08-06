@@ -12,9 +12,9 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.modules.PolymorphicModuleBuilder
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.title_my_bestiary_lists
-import rpg_companion.composeapp.generated.resources.title_my_item_lists
-import rpg_companion.composeapp.generated.resources.title_my_spell_lists
+import rpg_companion.composeapp.generated.resources.title_bestiary_collections
+import rpg_companion.composeapp.generated.resources.title_item_collections
+import rpg_companion.composeapp.generated.resources.title_spell_collections
 
 interface UserCollectionRoute {
     @Serializable
@@ -44,7 +44,7 @@ fun EntryProviderScope<NavKey>.handleUserCollectionRoutes(
             key = listType.name,
             factory = viewModelFactory,
         )
-        val title = stringResource(Res.string.title_my_spell_lists)
+        val title = stringResource(Res.string.title_spell_collections)
         UserCollectionsScreen(viewModel, router, title)
     }
 
@@ -55,7 +55,7 @@ fun EntryProviderScope<NavKey>.handleUserCollectionRoutes(
             key = listType.name,
             factory = viewModelFactory,
         )
-        val title = stringResource(Res.string.title_my_item_lists)
+        val title = stringResource(Res.string.title_item_collections)
         UserCollectionsScreen(viewModel, router, title)
     }
 
@@ -66,7 +66,7 @@ fun EntryProviderScope<NavKey>.handleUserCollectionRoutes(
             key = listType.name,
             factory = viewModelFactory,
         )
-        val title = stringResource(Res.string.title_my_bestiary_lists)
+        val title = stringResource(Res.string.title_bestiary_collections)
         UserCollectionsScreen(viewModel, router, title)
     }
 }

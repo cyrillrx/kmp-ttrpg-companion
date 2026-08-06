@@ -33,7 +33,7 @@ import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
 import com.cyrillrx.rpg.core.presentation.component.SwipeToDelete
-import com.cyrillrx.rpg.core.presentation.component.dialog.RenameListDialog
+import com.cyrillrx.rpg.core.presentation.component.dialog.RenameCollectionDialog
 import com.cyrillrx.rpg.core.presentation.component.rememberOptimisticDeleteHandler
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
@@ -48,9 +48,9 @@ import org.jetbrains.compose.resources.getString
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.btn_rename_list
-import rpg_companion.composeapp.generated.resources.snackbar_error_removing_from_list
-import rpg_companion.composeapp.generated.resources.snackbar_removed_from_list
+import rpg_companion.composeapp.generated.resources.btn_rename_collection
+import rpg_companion.composeapp.generated.resources.snackbar_error_removing_from_collection
+import rpg_companion.composeapp.generated.resources.snackbar_removed_from_collection
 
 @Composable
 fun <T> CollectionDetailScreen(
@@ -99,7 +99,7 @@ fun <T> CollectionDetailScreen(
             when (event) {
                 is CollectionDetailViewModel.Event.RemovalError -> {
                     val displayName = itemProvider.getDisplayName(event.item, currentLocale())
-                    val errorMessage = getString(Res.string.snackbar_error_removing_from_list, displayName)
+                    val errorMessage = getString(Res.string.snackbar_error_removing_from_collection, displayName)
                     snackbarHostState.showSnackbar(
                         message = errorMessage,
                         duration = SnackbarDuration.Short,
@@ -116,12 +116,12 @@ fun <T> CollectionDetailScreen(
         onCommit = onCommitRemoval,
         getMessage = { item ->
             val displayName = itemProvider.getDisplayName(item, currentLocale())
-            getString(Res.string.snackbar_removed_from_list, displayName)
+            getString(Res.string.snackbar_removed_from_collection, displayName)
         },
     )
 
     if (showRenameDialog) {
-        RenameListDialog(
+        RenameCollectionDialog(
             currentName = state.listName,
             onConfirm = { newName ->
                 onRenameList(newName)
@@ -138,7 +138,7 @@ fun <T> CollectionDetailScreen(
                 onNavigateUpClicked = onNavigateUpClicked,
                 actions = {
                     IconButton(onClick = { showRenameDialog = true }) {
-                        Icon(Icons.Default.Edit, contentDescription = stringResource(Res.string.btn_rename_list))
+                        Icon(Icons.Default.Edit, contentDescription = stringResource(Res.string.btn_rename_collection))
                     }
                 },
             )

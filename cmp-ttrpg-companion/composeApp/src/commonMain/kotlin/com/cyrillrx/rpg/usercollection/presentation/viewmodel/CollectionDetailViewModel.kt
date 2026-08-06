@@ -18,7 +18,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.error_while_loading_user_list
+import rpg_companion.composeapp.generated.resources.error_while_loading_collection
 import kotlin.coroutines.cancellation.CancellationException
 
 class CollectionDetailViewModel<T>(
@@ -138,7 +138,7 @@ class CollectionDetailViewModel<T>(
                 throw e
             } catch (e: Exception) {
                 state.update {
-                    it.copy(body = CollectionDetailState.Body.Error(Res.string.error_while_loading_user_list))
+                    it.copy(body = CollectionDetailState.Body.Error(Res.string.error_while_loading_collection))
                 }
             }
         }

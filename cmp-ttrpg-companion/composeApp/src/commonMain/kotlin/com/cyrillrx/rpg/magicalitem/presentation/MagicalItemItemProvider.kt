@@ -10,7 +10,7 @@ import com.cyrillrx.rpg.magicalitem.presentation.component.MagicalItemListItem
 import com.cyrillrx.rpg.usercollection.presentation.CollectionItemProvider
 import org.jetbrains.compose.resources.StringResource
 import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.empty_list_browse_magical_items
+import rpg_companion.composeapp.generated.resources.empty_collection_browse_magical_items
 
 class MagicalItemItemProvider(
     private val onItemClicked: (MagicalItem) -> Unit,
@@ -18,7 +18,7 @@ class MagicalItemItemProvider(
 ) : CollectionItemProvider<MagicalItem> {
 
     override val emptyLayoutIcon: ImageVector = Icons.Outlined.Stars
-    override val emptyLayoutBtnText: StringResource = Res.string.empty_list_browse_magical_items
+    override val emptyLayoutBtnText: StringResource = Res.string.empty_collection_browse_magical_items
 
     override fun getId(entity: MagicalItem): String = entity.id
 
