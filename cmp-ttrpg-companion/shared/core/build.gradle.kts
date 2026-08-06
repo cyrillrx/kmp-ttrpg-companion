@@ -81,7 +81,7 @@ kover {
         filters {
             excludes {
                 // Generated: SQLDelight database, queries and row types.
-                classes("*.rpg.cache.*")
+                classes("com.cyrillrx.rpg.cache.*")
             }
         }
     }
