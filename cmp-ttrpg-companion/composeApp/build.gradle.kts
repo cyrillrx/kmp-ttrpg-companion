@@ -111,6 +111,26 @@ sonar {
             "sonar.coverage.jacoco.xmlReportPaths",
             layout.buildDirectory.file("reports/kover/reportJvm.xml").get().asFile.absolutePath,
         )
+        // Sonar derives its own executable lines from the sources, so a file merely missing from
+        // the Kover report counts as uncovered debt. Whatever Kover filters out must be declared
+        // here too, or the new-code gate fails on code that is deliberately not measured.
+        property(
+            "sonar.coverage.exclusions",
+            listOf(
+                // Mirrors the Kover excludes below.
+                "**/presentation/component/**",
+                "**/presentation/theme/**",
+                "**/navigation/**",
+                "**/*Screen.kt",
+                "**/app/**",
+                "**/generated/**",
+                // Only jvmTest feeds coverage, so no test can reach the other source sets.
+                "**/androidMain/**",
+                "**/iosMain/**",
+                // Desktop entry point: no jvmTest can run main() or application { }.
+                "**/jvmMain/kotlin/main.kt",
+            ).joinToString(","),
+        )
     }
 }
 
