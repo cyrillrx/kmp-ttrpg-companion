@@ -1,8 +1,8 @@
-package com.cyrillrx.rpg.userlist.presentation
+package com.cyrillrx.rpg.usercollection.presentation
 
 import org.jetbrains.compose.resources.StringResource
 
-data class ListDetailState<T>(
+data class CollectionDetailState<T>(
     val listName: String = "",
     val body: Body<T> = Body.Loading,
 ) {

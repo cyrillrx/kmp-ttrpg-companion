@@ -18,22 +18,22 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemRepository
-import com.cyrillrx.rpg.userlist.domain.UserList
-import com.cyrillrx.rpg.userlist.domain.UserListRepository
-import com.cyrillrx.rpg.userlist.presentation.AddToListProvider
-import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddToListViewModelFactory
+import com.cyrillrx.rpg.usercollection.domain.UserCollection
+import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
+import com.cyrillrx.rpg.usercollection.presentation.AddToCollectionProvider
+import com.cyrillrx.rpg.usercollection.presentation.viewmodel.AddToCollectionViewModelFactory
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_while_loading_magical_items
 
-class MagicalItemAddToListProvider(
+class MagicalItemAddToCollectionProvider(
     repository: MagicalItemRepository,
-    userListRepository: UserListRepository,
-) : AddToListProvider<MagicalItem> {
-    override val listType: UserList.Type = UserList.Type.MAGICAL_ITEM
+    userCollectionRepository: UserCollectionRepository,
+) : AddToCollectionProvider<MagicalItem> {
+    override val listType: UserCollection.Type = UserCollection.Type.MAGICAL_ITEM
 
-    override val viewModelFactory = AddToListViewModelFactory(
+    override val viewModelFactory = AddToCollectionViewModelFactory(
         listType = listType,
-        userListRepository = userListRepository,
+        userCollectionRepository = userCollectionRepository,
         entityRepository = repository,
         errorMessage = Res.string.error_while_loading_magical_items,
     )

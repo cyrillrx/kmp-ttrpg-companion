@@ -1,13 +1,13 @@
-package com.cyrillrx.rpg.userlist.presentation.viewmodel
+package com.cyrillrx.rpg.usercollection.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.core.domain.EntityRepository
 import com.cyrillrx.rpg.core.domain.Stored
-import com.cyrillrx.rpg.userlist.domain.UserList
-import com.cyrillrx.rpg.userlist.domain.UserListRepository
-import com.cyrillrx.rpg.userlist.presentation.AddToListState
-import com.cyrillrx.rpg.userlist.presentation.AddToListState.SelectableUserList
+import com.cyrillrx.rpg.usercollection.domain.UserCollection
+import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
+import com.cyrillrx.rpg.usercollection.presentation.AddToCollectionState
+import com.cyrillrx.rpg.usercollection.presentation.AddToCollectionState.SelectableUserCollection
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -21,15 +21,15 @@ import kotlin.time.Clock
 import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
-class AddToListViewModel<T>(
-    private val listType: UserList.Type,
-    private val userListRepository: UserListRepository,
+class AddToCollectionViewModel<T>(
+    private val listType: UserCollection.Type,
+    private val userCollectionRepository: UserCollectionRepository,
     private val repository: EntityRepository<T>,
     private val errorMessage: StringResource,
 ) : ViewModel() {
 
-    val state: StateFlow<AddToListState<T>>
-        field = MutableStateFlow(AddToListState())
+    val state: StateFlow<AddToCollectionState<T>>
+        field = MutableStateFlow(AddToCollectionState())
 
     val events: SharedFlow<Event>
         field = MutableSharedFlow<Event>()
@@ -44,64 +44,64 @@ class AddToListViewModel<T>(
     }
 
     private suspend fun loadLists() {
-        state.update { it.copy(body = AddToListState.Body.Loading) }
+        state.update { it.copy(body = AddToCollectionState.Body.Loading) }
 
         try {
             val item = repository.getById(itemId) ?: error("Could not find item $itemId")
 
-            val userLists = userListRepository.getAll(listType).sortedByDescending { it.updatedAt }
-            val selectableLists = userLists
-                .map { stored -> SelectableUserList(stored, alreadyAdded = itemId in stored.value.itemIds) }
-            state.update { it.copy(body = AddToListState.Body.WithData(item, selectableLists)) }
+            val userLists = userCollectionRepository.getAll(listType).sortedByDescending { it.updatedAt }
+            val selectableCollections = userLists
+                .map { stored -> SelectableUserCollection(stored, alreadyAdded = itemId in stored.value.itemIds) }
+            state.update { it.copy(body = AddToCollectionState.Body.WithData(item, selectableCollections)) }
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {
-            state.update { it.copy(body = AddToListState.Body.Error(errorMessage)) }
+            state.update { it.copy(body = AddToCollectionState.Body.Error(errorMessage)) }
         }
     }
 
     fun toggleSelection(listId: String) {
         state.update { state ->
-            val body = state.body as? AddToListState.Body.WithData ?: return@update state
-            val updated = body.selectableLists.map { item ->
+            val body = state.body as? AddToCollectionState.Body.WithData ?: return@update state
+            val updated = body.selectableCollections.map { item ->
                 if (item.list.id == listId) item.copy(isSelected = !item.isSelected) else item
             }
-            state.copy(body = body.copy(selectableLists = updated))
+            state.copy(body = body.copy(selectableCollections = updated))
         }
     }
 
     @OptIn(ExperimentalUuidApi::class)
     fun createAndAdd(name: String) {
         viewModelScope.launch {
-            val newList = UserList(
+            val newList = UserCollection(
                 id = Uuid.random().toString(),
                 name = name,
                 type = listType,
                 itemIds = listOf(itemId),
             )
-            userListRepository.save(newList)
+            userCollectionRepository.save(newList)
             val stored = Stored(newList, Clock.System.now())
 
             state.update { state ->
-                val body = state.body as? AddToListState.Body.WithData ?: return@update state
-                val newLists = body.selectableLists + SelectableUserList(stored, alreadyAdded = true)
-                state.copy(body = body.copy(selectableLists = newLists))
+                val body = state.body as? AddToCollectionState.Body.WithData ?: return@update state
+                val newLists = body.selectableCollections + SelectableUserCollection(stored, alreadyAdded = true)
+                state.copy(body = body.copy(selectableCollections = newLists))
             }
         }
     }
 
     fun confirmSelection() {
         viewModelScope.launch {
-            val body = state.value.body as? AddToListState.Body.WithData ?: return@launch
-            body.selectableLists.forEach { it.confirmSelection() }
+            val body = state.value.body as? AddToCollectionState.Body.WithData ?: return@launch
+            body.selectableCollections.forEach { it.confirmSelection() }
             events.emit(Event.Dismiss)
         }
     }
 
-    private suspend fun SelectableUserList.confirmSelection() {
+    private suspend fun SelectableUserCollection.confirmSelection() {
         when {
-            !alreadyAdded && isSelected -> userListRepository.addToList(list, itemId)
-            alreadyAdded && !isSelected -> userListRepository.removeFromList(list, itemId)
+            !alreadyAdded && isSelected -> userCollectionRepository.addToList(list, itemId)
+            alreadyAdded && !isSelected -> userCollectionRepository.removeFromList(list, itemId)
         }
     }
 

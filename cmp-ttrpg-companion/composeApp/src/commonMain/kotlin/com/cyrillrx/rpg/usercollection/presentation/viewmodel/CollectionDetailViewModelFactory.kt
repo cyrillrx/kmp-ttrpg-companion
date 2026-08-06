@@ -1,19 +1,19 @@
-package com.cyrillrx.rpg.userlist.presentation.viewmodel
+package com.cyrillrx.rpg.usercollection.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.CreationExtras
 import com.cyrillrx.rpg.core.domain.EntityRepository
-import com.cyrillrx.rpg.userlist.domain.UserListRepository
+import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
 import kotlin.reflect.KClass
 
-class ListDetailViewModelFactory<T>(
+class CollectionDetailViewModelFactory<T>(
     private val listId: String,
-    private val userListRepository: UserListRepository,
+    private val userCollectionRepository: UserCollectionRepository,
     private val repository: EntityRepository<T>,
 ) : ViewModelProvider.Factory {
     override fun <VM : ViewModel> create(modelClass: KClass<VM>, extras: CreationExtras): VM {
         @Suppress("UNCHECKED_CAST")
-        return ListDetailViewModel(listId, userListRepository, repository) as VM
+        return CollectionDetailViewModel(listId, userCollectionRepository, repository) as VM
     }
 }

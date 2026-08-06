@@ -1,16 +1,16 @@
-package com.cyrillrx.rpg.userlist.presentation
+package com.cyrillrx.rpg.usercollection.presentation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.cyrillrx.rpg.userlist.domain.UserList
-import com.cyrillrx.rpg.userlist.presentation.component.AddToListBottomSheet
-import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddToListViewModel
-import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddToListViewModelFactory
+import com.cyrillrx.rpg.usercollection.domain.UserCollection
+import com.cyrillrx.rpg.usercollection.presentation.component.AddToCollectionBottomSheet
+import com.cyrillrx.rpg.usercollection.presentation.viewmodel.AddToCollectionViewModel
+import com.cyrillrx.rpg.usercollection.presentation.viewmodel.AddToCollectionViewModelFactory
 
-interface AddToListProvider<T> {
-    val listType: UserList.Type
-    val viewModelFactory: AddToListViewModelFactory<T>
+interface AddToCollectionProvider<T> {
+    val listType: UserCollection.Type
+    val viewModelFactory: AddToCollectionViewModelFactory<T>
 
     @Composable
     fun Header(entity: T)
@@ -20,8 +20,8 @@ interface AddToListProvider<T> {
         entityId: String,
         onDismiss: () -> Unit,
     ) {
-        val viewModel = viewModel<AddToListViewModel<T>>(key = listType.name, factory = viewModelFactory)
+        val viewModel = viewModel<AddToCollectionViewModel<T>>(key = listType.name, factory = viewModelFactory)
         LaunchedEffect(entityId) { viewModel.loadEntity(entityId) }
-        AddToListBottomSheet(viewModel, ::Header, onDismiss = onDismiss)
+        AddToCollectionBottomSheet(viewModel, ::Header, onDismiss = onDismiss)
     }
 }

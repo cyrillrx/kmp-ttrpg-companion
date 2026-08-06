@@ -18,22 +18,22 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.creature.domain.MonsterRepository
-import com.cyrillrx.rpg.userlist.domain.UserList
-import com.cyrillrx.rpg.userlist.domain.UserListRepository
-import com.cyrillrx.rpg.userlist.presentation.AddToListProvider
-import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddToListViewModelFactory
+import com.cyrillrx.rpg.usercollection.domain.UserCollection
+import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
+import com.cyrillrx.rpg.usercollection.presentation.AddToCollectionProvider
+import com.cyrillrx.rpg.usercollection.presentation.viewmodel.AddToCollectionViewModelFactory
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_while_loading_monsters
 
-class MonsterAddToListProvider(
+class MonsterAddToCollectionProvider(
     repository: MonsterRepository,
-    userListRepository: UserListRepository,
-) : AddToListProvider<Monster> {
-    override val listType: UserList.Type = UserList.Type.MONSTER
+    userCollectionRepository: UserCollectionRepository,
+) : AddToCollectionProvider<Monster> {
+    override val listType: UserCollection.Type = UserCollection.Type.MONSTER
 
-    override val viewModelFactory = AddToListViewModelFactory(
+    override val viewModelFactory = AddToCollectionViewModelFactory(
         listType = listType,
-        userListRepository = userListRepository,
+        userCollectionRepository = userCollectionRepository,
         entityRepository = repository,
         errorMessage = Res.string.error_while_loading_monsters,
     )

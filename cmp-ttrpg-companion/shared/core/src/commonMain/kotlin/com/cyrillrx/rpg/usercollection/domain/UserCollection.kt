@@ -1,6 +1,6 @@
-package com.cyrillrx.rpg.userlist.domain
+package com.cyrillrx.rpg.usercollection.domain
 
-data class UserList(
+data class UserCollection(
     val id: String,
     val name: String,
     val type: Type,

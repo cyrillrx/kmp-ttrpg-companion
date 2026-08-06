@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.userlist.presentation.component
+package com.cyrillrx.rpg.usercollection.presentation.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -39,9 +39,9 @@ import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.spell.presentation.SpellItemProvider
-import com.cyrillrx.rpg.userlist.presentation.ListDetailState
-import com.cyrillrx.rpg.userlist.presentation.ListItemProvider
-import com.cyrillrx.rpg.userlist.presentation.viewmodel.ListDetailViewModel
+import com.cyrillrx.rpg.usercollection.presentation.CollectionDetailState
+import com.cyrillrx.rpg.usercollection.presentation.CollectionItemProvider
+import com.cyrillrx.rpg.usercollection.presentation.viewmodel.CollectionDetailViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
 import org.jetbrains.compose.resources.getString
@@ -53,9 +53,9 @@ import rpg_companion.composeapp.generated.resources.snackbar_error_removing_from
 import rpg_companion.composeapp.generated.resources.snackbar_removed_from_list
 
 @Composable
-fun <T> ListDetailScreen(
-    viewModel: ListDetailViewModel<T>,
-    itemProvider: ListItemProvider<T>,
+fun <T> CollectionDetailScreen(
+    viewModel: CollectionDetailViewModel<T>,
+    itemProvider: CollectionItemProvider<T>,
     onNavigateUp: () -> Unit,
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
@@ -68,7 +68,7 @@ fun <T> ListDetailScreen(
         onDispose { viewModel.commitAllPendingRemovals() }
     }
 
-    ListDetailScreen(
+    CollectionDetailScreen(
         state = state,
         events = viewModel.events,
         itemProvider = itemProvider,
@@ -81,15 +81,15 @@ fun <T> ListDetailScreen(
 }
 
 @Composable
-fun <T> ListDetailScreen(
-    state: ListDetailState<T>,
-    events: SharedFlow<ListDetailViewModel.Event<T>>,
-    itemProvider: ListItemProvider<T>,
+fun <T> CollectionDetailScreen(
+    state: CollectionDetailState<T>,
+    events: SharedFlow<CollectionDetailViewModel.Event<T>>,
+    itemProvider: CollectionItemProvider<T>,
     onNavigateUpClicked: () -> Unit,
     onRenameList: (String) -> Unit,
-    onRemoveItemOptimistically: (id: String, item: T) -> ListDetailViewModel.PendingRemoval<T>?,
-    onUndoRemoval: (ListDetailViewModel.PendingRemoval<T>) -> Unit,
-    onCommitRemoval: (ListDetailViewModel.PendingRemoval<T>) -> Unit,
+    onRemoveItemOptimistically: (id: String, item: T) -> CollectionDetailViewModel.PendingRemoval<T>?,
+    onUndoRemoval: (CollectionDetailViewModel.PendingRemoval<T>) -> Unit,
+    onCommitRemoval: (CollectionDetailViewModel.PendingRemoval<T>) -> Unit,
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
     var showRenameDialog by remember { mutableStateOf(false) }
@@ -97,7 +97,7 @@ fun <T> ListDetailScreen(
     LaunchedEffect(events) {
         events.collect { event ->
             when (event) {
-                is ListDetailViewModel.Event.RemovalError -> {
+                is CollectionDetailViewModel.Event.RemovalError -> {
                     val displayName = itemProvider.getDisplayName(event.item, currentLocale())
                     val errorMessage = getString(Res.string.snackbar_error_removing_from_list, displayName)
                     snackbarHostState.showSnackbar(
@@ -109,7 +109,7 @@ fun <T> ListDetailScreen(
         }
     }
 
-    val onRemoveItem = rememberOptimisticDeleteHandler<T, ListDetailViewModel.PendingRemoval<T>>(
+    val onRemoveItem = rememberOptimisticDeleteHandler<T, CollectionDetailViewModel.PendingRemoval<T>>(
         snackbarHostState = snackbarHostState,
         onDeleteOptimistically = { item -> onRemoveItemOptimistically(itemProvider.getId(item), item) },
         onUndo = onUndoRemoval,
@@ -152,10 +152,10 @@ fun <T> ListDetailScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             when (val body = state.body) {
-                is ListDetailState.Body.Loading -> Loader()
-                is ListDetailState.Body.EmptyList -> itemProvider.EmptyLayout()
-                is ListDetailState.Body.Error -> ErrorLayout(body.errorMessage)
-                is ListDetailState.Body.WithData -> EntityDetailList(
+                is CollectionDetailState.Body.Loading -> Loader()
+                is CollectionDetailState.Body.EmptyList -> itemProvider.EmptyLayout()
+                is CollectionDetailState.Body.Error -> ErrorLayout(body.errorMessage)
+                is CollectionDetailState.Body.WithData -> EntityDetailList(
                     items = body.items,
                     uiProvider = itemProvider,
                     onRemoveItem = onRemoveItem,
@@ -168,7 +168,7 @@ fun <T> ListDetailScreen(
 @Composable
 private fun <T> EntityDetailList(
     items: List<T>,
-    uiProvider: ListItemProvider<T>,
+    uiProvider: CollectionItemProvider<T>,
     onRemoveItem: (T) -> Unit,
 ) {
     LazyColumn(
@@ -189,23 +189,23 @@ private fun <T> EntityDetailList(
 
 @Preview
 @Composable
-private fun PreviewListDetailScreenLight() {
-    ListDetailScreenPreview(darkTheme = false)
+private fun PreviewCollectionDetailScreenLight() {
+    CollectionDetailScreenPreview(darkTheme = false)
 }
 
 @Preview
 @Composable
-private fun PreviewListDetailScreenDark() {
-    ListDetailScreenPreview(darkTheme = true)
+private fun PreviewCollectionDetailScreenDark() {
+    CollectionDetailScreenPreview(darkTheme = true)
 }
 
 @Composable
-private fun ListDetailScreenPreview(darkTheme: Boolean) {
+private fun CollectionDetailScreenPreview(darkTheme: Boolean) {
     AppThemePreview(darkTheme = darkTheme) {
-        ListDetailScreen(
-            state = ListDetailState(
+        CollectionDetailScreen(
+            state = CollectionDetailState(
                 listName = "Gandalf's Spells",
-                body = ListDetailState.Body.WithData(SampleSpellRepository.getAll()),
+                body = CollectionDetailState.Body.WithData(SampleSpellRepository.getAll()),
             ),
             events = MutableSharedFlow(),
             itemProvider = SpellItemProvider(onItemClicked = {}),
@@ -220,23 +220,23 @@ private fun ListDetailScreenPreview(darkTheme: Boolean) {
 
 @Preview
 @Composable
-private fun PreviewEmptyListDetailScreenLight() {
-    EmptyListDetailScreenPreview(darkTheme = false)
+private fun PreviewEmptyCollectionDetailScreenLight() {
+    EmptyCollectionDetailScreenPreview(darkTheme = false)
 }
 
 @Preview
 @Composable
-private fun PreviewEmptyListDetailScreenDark() {
-    EmptyListDetailScreenPreview(darkTheme = true)
+private fun PreviewEmptyCollectionDetailScreenDark() {
+    EmptyCollectionDetailScreenPreview(darkTheme = true)
 }
 
 @Composable
-private fun EmptyListDetailScreenPreview(darkTheme: Boolean) {
+private fun EmptyCollectionDetailScreenPreview(darkTheme: Boolean) {
     AppThemePreview(darkTheme = darkTheme) {
-        ListDetailScreen(
-            state = ListDetailState(
+        CollectionDetailScreen(
+            state = CollectionDetailState(
                 listName = "Gandalf's Spells",
-                body = ListDetailState.Body.EmptyList,
+                body = CollectionDetailState.Body.EmptyList,
             ),
             events = MutableSharedFlow(),
             itemProvider = SpellItemProvider(onItemClicked = {}),

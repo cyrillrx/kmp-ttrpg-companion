@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.userlist.presentation.component
+package com.cyrillrx.rpg.usercollection.presentation.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -37,11 +37,11 @@ import com.cyrillrx.rpg.core.presentation.component.dialog.CreateListDialog
 import com.cyrillrx.rpg.core.presentation.component.rememberOptimisticDeleteHandler
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
-import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
-import com.cyrillrx.rpg.userlist.domain.UserList
-import com.cyrillrx.rpg.userlist.presentation.UserListsState
-import com.cyrillrx.rpg.userlist.presentation.navigation.UserListRouter
-import com.cyrillrx.rpg.userlist.presentation.viewmodel.UserListsViewModel
+import com.cyrillrx.rpg.usercollection.data.SampleUserCollectionRepository
+import com.cyrillrx.rpg.usercollection.domain.UserCollection
+import com.cyrillrx.rpg.usercollection.presentation.UserCollectionsState
+import com.cyrillrx.rpg.usercollection.presentation.navigation.UserCollectionRouter
+import com.cyrillrx.rpg.usercollection.presentation.viewmodel.UserCollectionsViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
 import org.jetbrains.compose.resources.getString
@@ -54,7 +54,7 @@ import rpg_companion.composeapp.generated.resources.snackbar_error_deleting_list
 import rpg_companion.composeapp.generated.resources.snackbar_list_deleted
 
 @Composable
-fun UserListsScreen(viewModel: UserListsViewModel, router: UserListRouter, title: String) {
+fun UserCollectionsScreen(viewModel: UserCollectionsViewModel, router: UserCollectionRouter, title: String) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
     LifecycleEventEffect(Lifecycle.Event.ON_RESUME) {
@@ -65,7 +65,7 @@ fun UserListsScreen(viewModel: UserListsViewModel, router: UserListRouter, title
         onDispose { viewModel.commitAllPendingDeletions() }
     }
 
-    UserListsScreen(
+    UserCollectionsScreen(
         state = state,
         title = title,
         events = viewModel.events,
@@ -74,21 +74,21 @@ fun UserListsScreen(viewModel: UserListsViewModel, router: UserListRouter, title
         onDeleteListOptimistically = viewModel::deleteListOptimistically,
         onUndoDeletion = viewModel::undoDeletion,
         onCommitDeletion = viewModel::commitDeletion,
-        onListClicked = router::openUserList,
+        onCollectionClicked = router::openUserCollection,
     )
 }
 
 @Composable
-fun UserListsScreen(
-    state: UserListsState,
+fun UserCollectionsScreen(
+    state: UserCollectionsState,
     title: String,
-    events: SharedFlow<UserListsViewModel.Event>,
+    events: SharedFlow<UserCollectionsViewModel.Event>,
     onNavigateUpClicked: () -> Unit,
     onAddBtnClicked: (String) -> Unit,
-    onDeleteListOptimistically: (Stored<UserList>) -> UserListsViewModel.PendingDeletion?,
-    onUndoDeletion: (UserListsViewModel.PendingDeletion) -> Unit,
-    onCommitDeletion: (UserListsViewModel.PendingDeletion) -> Unit,
-    onListClicked: (UserList) -> Unit,
+    onDeleteListOptimistically: (Stored<UserCollection>) -> UserCollectionsViewModel.PendingDeletion?,
+    onUndoDeletion: (UserCollectionsViewModel.PendingDeletion) -> Unit,
+    onCommitDeletion: (UserCollectionsViewModel.PendingDeletion) -> Unit,
+    onCollectionClicked: (UserCollection) -> Unit,
 ) {
     var showCreateDialog by remember { mutableStateOf(false) }
     val snackbarHostState = remember { SnackbarHostState() }
@@ -96,7 +96,7 @@ fun UserListsScreen(
     LaunchedEffect(events) {
         events.collect { event ->
             when (event) {
-                is UserListsViewModel.Event.DeletionError -> {
+                is UserCollectionsViewModel.Event.DeletionError -> {
                     val errorMessage = getString(Res.string.snackbar_error_deleting_list, event.list.name)
                     snackbarHostState.showSnackbar(
                         message = errorMessage,
@@ -139,12 +139,12 @@ fun UserListsScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             when (val body = state.body) {
-                is UserListsState.Body.Loading -> Loader()
-                is UserListsState.Body.Empty -> ErrorLayout(Res.string.no_result_found)
-                is UserListsState.Body.Error -> ErrorLayout(body.errorMessage)
-                is UserListsState.Body.WithData -> UserLists(
+                is UserCollectionsState.Body.Loading -> Loader()
+                is UserCollectionsState.Body.Empty -> ErrorLayout(Res.string.no_result_found)
+                is UserCollectionsState.Body.Error -> ErrorLayout(body.errorMessage)
+                is UserCollectionsState.Body.WithData -> UserCollections(
                     lists = body.lists,
-                    onListClicked = onListClicked,
+                    onCollectionClicked = onCollectionClicked,
                     onDeleteList = onDeleteList,
                 )
             }
@@ -163,10 +163,10 @@ fun UserListsScreen(
 }
 
 @Composable
-private fun UserLists(
-    lists: List<Stored<UserList>>,
-    onListClicked: (UserList) -> Unit,
-    onDeleteList: (Stored<UserList>) -> Unit,
+private fun UserCollections(
+    lists: List<Stored<UserCollection>>,
+    onCollectionClicked: (UserCollection) -> Unit,
+    onDeleteList: (Stored<UserCollection>) -> Unit,
 ) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
@@ -180,10 +180,10 @@ private fun UserLists(
                     .fillMaxWidth()
                     .animateItem(),
             ) {
-                UserListItem(
+                UserCollectionItem(
                     list = stored.value,
                     updatedAt = stored.updatedAt,
-                    onClick = { onListClicked(stored.value) },
+                    onClick = { onCollectionClicked(stored.value) },
                     modifier = Modifier.fillMaxWidth(),
                 )
             }
@@ -193,23 +193,23 @@ private fun UserLists(
 
 @Preview
 @Composable
-private fun PreviewUserListsScreenLight() {
-    UserListsScreenPreview(false)
+private fun PreviewUserCollectionsScreenLight() {
+    UserCollectionsScreenPreview(false)
 }
 
 @Preview
 @Composable
-private fun PreviewUserListsScreenDark() {
-    UserListsScreenPreview(true)
+private fun PreviewUserCollectionsScreenDark() {
+    UserCollectionsScreenPreview(true)
 }
 
 @Composable
-private fun UserListsScreenPreview(darkTheme: Boolean) {
+private fun UserCollectionsScreenPreview(darkTheme: Boolean) {
     AppThemePreview(darkTheme = darkTheme) {
-        UserListsScreen(
-            state = UserListsState(
-                body = UserListsState.Body.WithData(
-                    lists = SampleUserListRepository.getAll(),
+        UserCollectionsScreen(
+            state = UserCollectionsState(
+                body = UserCollectionsState.Body.WithData(
+                    lists = SampleUserCollectionRepository.getAll(),
                 ),
             ),
             title = "Spellbooks",
@@ -219,7 +219,7 @@ private fun UserListsScreenPreview(darkTheme: Boolean) {
             onDeleteListOptimistically = { null },
             onUndoDeletion = {},
             onCommitDeletion = {},
-            onListClicked = {},
+            onCollectionClicked = {},
         )
     }
 }

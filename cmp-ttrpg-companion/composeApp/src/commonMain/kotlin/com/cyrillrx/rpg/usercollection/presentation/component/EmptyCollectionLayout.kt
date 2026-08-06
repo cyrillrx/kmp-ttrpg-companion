@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.userlist.presentation.component
+package com.cyrillrx.rpg.usercollection.presentation.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -22,7 +22,7 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
-fun EmptyListLayout(
+fun EmptyCollectionLayout(
     icon: ImageVector,
     message: String,
     btnText: String,
@@ -54,20 +54,20 @@ fun EmptyListLayout(
 
 @Preview
 @Composable
-private fun PreviewEmptyListLayoutLight() {
-    EmptyListLayoutPreview(darkTheme = false)
+private fun PreviewEmptyCollectionLayoutLight() {
+    EmptyCollectionLayoutPreview(darkTheme = false)
 }
 
 @Preview
 @Composable
-private fun PreviewEmptyListLayoutDark() {
-    EmptyListLayoutPreview(darkTheme = true)
+private fun PreviewEmptyCollectionLayoutDark() {
+    EmptyCollectionLayoutPreview(darkTheme = true)
 }
 
 @Composable
-private fun EmptyListLayoutPreview(darkTheme: Boolean) {
+private fun EmptyCollectionLayoutPreview(darkTheme: Boolean) {
     AppThemePreview(darkTheme = darkTheme) {
-        EmptyListLayout(
+        EmptyCollectionLayout(
             icon = Icons.AutoMirrored.Outlined.MenuBook,
             message = "The list is empty",
             btnText = "Browse spells",

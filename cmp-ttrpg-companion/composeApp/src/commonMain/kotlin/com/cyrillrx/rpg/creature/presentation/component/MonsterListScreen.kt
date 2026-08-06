@@ -33,12 +33,12 @@ import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.creature.data.SampleMonsterRepository
 import com.cyrillrx.rpg.creature.domain.Monster
-import com.cyrillrx.rpg.creature.presentation.MonsterAddToListProvider
+import com.cyrillrx.rpg.creature.presentation.MonsterAddToCollectionProvider
 import com.cyrillrx.rpg.creature.presentation.MonsterListState
 import com.cyrillrx.rpg.creature.presentation.navigation.MonsterRouter
 import com.cyrillrx.rpg.creature.presentation.viewmodel.MonsterListViewModel
-import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
-import com.cyrillrx.rpg.userlist.presentation.AddToListProvider
+import com.cyrillrx.rpg.usercollection.data.SampleUserCollectionRepository
+import com.cyrillrx.rpg.usercollection.presentation.AddToCollectionProvider
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emptyFlow
 import org.jetbrains.compose.resources.stringResource
@@ -50,7 +50,7 @@ import rpg_companion.composeapp.generated.resources.hint_search_creature
 fun MonsterListScreen(
     viewModel: MonsterListViewModel,
     router: MonsterRouter,
-    addToListProvider: AddToListProvider<Monster>,
+    addToCollectionProvider: AddToCollectionProvider<Monster>,
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
@@ -62,7 +62,7 @@ fun MonsterListScreen(
         onTypeToggled = viewModel::onTypeToggled,
         onChallengeRatingToggled = viewModel::onChallengeRatingToggled,
         onResetFilters = viewModel::onResetFilters,
-        addToListProvider = addToListProvider,
+        addToCollectionProvider = addToCollectionProvider,
         initialScrollPosition = viewModel.savedScrollPosition,
         scrollToTopEvents = viewModel.scrollToTopEvents,
         onScrollPositionChanged = viewModel::saveScrollPosition,
@@ -78,7 +78,7 @@ fun MonsterListScreen(
     onTypeToggled: (Monster.Type) -> Unit,
     onChallengeRatingToggled: (Float) -> Unit,
     onResetFilters: () -> Unit,
-    addToListProvider: AddToListProvider<Monster>,
+    addToCollectionProvider: AddToCollectionProvider<Monster>,
     initialScrollPosition: ScrollPosition = ScrollPosition(),
     scrollToTopEvents: Flow<Unit> = emptyFlow(),
     onScrollPositionChanged: (ScrollPosition) -> Unit = {},
@@ -111,7 +111,7 @@ fun MonsterListScreen(
                 is MonsterListState.Body.WithData -> MonsterList(
                     monsters = body.searchResults,
                     onMonsterClicked = onMonsterClicked,
-                    showAddToList = { creature -> creatureToAdd = creature },
+                    showAddToCollection = { creature -> creatureToAdd = creature },
                     initialScrollPosition = initialScrollPosition,
                     scrollToTopEvents = scrollToTopEvents,
                     onScrollPositionChanged = onScrollPositionChanged,
@@ -131,7 +131,7 @@ fun MonsterListScreen(
     }
 
     creatureToAdd?.let { creature ->
-        addToListProvider.BottomSheet(
+        addToCollectionProvider.BottomSheet(
             entityId = creature.id,
             onDismiss = { creatureToAdd = null },
         )
@@ -142,7 +142,7 @@ fun MonsterListScreen(
 private fun MonsterList(
     monsters: List<Monster>,
     onMonsterClicked: (Monster) -> Unit,
-    showAddToList: (Monster) -> Unit,
+    showAddToCollection: (Monster) -> Unit,
     initialScrollPosition: ScrollPosition,
     scrollToTopEvents: Flow<Unit>,
     onScrollPositionChanged: (ScrollPosition) -> Unit,
@@ -172,7 +172,7 @@ private fun MonsterList(
     ) {
         items(monsters, key = { it.id }) { creature ->
             SwipeToAdd(
-                onSwiped = { showAddToList(creature) },
+                onSwiped = { showAddToCollection(creature) },
                 modifier = Modifier.fillMaxWidth(),
             ) {
                 MonsterListItem(
@@ -206,6 +206,7 @@ private fun MonsterListScreenPreview() {
     val stateWithSampleData = MonsterListState(
         body = MonsterListState.Body.WithData(SampleMonsterRepository.getAll()),
     )
-    val addToListProvider = MonsterAddToListProvider(SampleMonsterRepository(), SampleUserListRepository())
-    MonsterListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, addToListProvider)
+    val addToCollectionProvider =
+        MonsterAddToCollectionProvider(SampleMonsterRepository(), SampleUserCollectionRepository())
+    MonsterListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, addToCollectionProvider)
 }

@@ -18,11 +18,11 @@ import com.cyrillrx.rpg.core.presentation.state.DetailState
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.creature.data.SampleMonsterRepository
 import com.cyrillrx.rpg.creature.domain.Monster
-import com.cyrillrx.rpg.creature.presentation.MonsterAddToListProvider
+import com.cyrillrx.rpg.creature.presentation.MonsterAddToCollectionProvider
 import com.cyrillrx.rpg.creature.presentation.navigation.MonsterRouter
 import com.cyrillrx.rpg.creature.presentation.viewmodel.MonsterDetailViewModel
-import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
-import com.cyrillrx.rpg.userlist.presentation.AddToListProvider
+import com.cyrillrx.rpg.usercollection.data.SampleUserCollectionRepository
+import com.cyrillrx.rpg.usercollection.presentation.AddToCollectionProvider
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
@@ -33,7 +33,7 @@ import rpg_companion.composeapp.generated.resources.error_monster_not_found
 fun MonsterDetailScreen(
     viewModel: MonsterDetailViewModel,
     router: MonsterRouter,
-    addToListProvider: AddToListProvider<Monster>,
+    addToCollectionProvider: AddToCollectionProvider<Monster>,
 ) {
     val state by viewModel.state.collectAsState()
     when (val s = state) {
@@ -42,7 +42,7 @@ fun MonsterDetailScreen(
         is DetailState.Found -> MonsterDetailContent(
             monster = s.item,
             onNavigateUpClicked = router::navigateUp,
-            addToListProvider = addToListProvider,
+            addToCollectionProvider = addToCollectionProvider,
         )
     }
 }
@@ -51,16 +51,16 @@ fun MonsterDetailScreen(
 private fun MonsterDetailContent(
     monster: Monster,
     onNavigateUpClicked: () -> Unit,
-    addToListProvider: AddToListProvider<Monster>,
+    addToCollectionProvider: AddToCollectionProvider<Monster>,
 ) {
-    var showAddToListBottomSheet by remember { mutableStateOf(false) }
+    var showAddToCollectionBottomSheet by remember { mutableStateOf(false) }
     val translation = monster.resolveTranslation(currentLocale())
 
     FadingTitleScaffold(
         title = translation.name,
         onNavigateUpClicked = onNavigateUpClicked,
         actions = {
-            IconButton(onClick = { showAddToListBottomSheet = true }) {
+            IconButton(onClick = { showAddToCollectionBottomSheet = true }) {
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.PlaylistAdd,
                     contentDescription = stringResource(Res.string.btn_add_to_list),
@@ -76,10 +76,10 @@ private fun MonsterDetailContent(
         )
     }
 
-    if (showAddToListBottomSheet) {
-        addToListProvider.BottomSheet(
+    if (showAddToCollectionBottomSheet) {
+        addToCollectionProvider.BottomSheet(
             entityId = monster.id,
-            onDismiss = { showAddToListBottomSheet = false },
+            onDismiss = { showAddToCollectionBottomSheet = false },
         )
     }
 }
@@ -98,10 +98,11 @@ private fun PreviewMonsterDetailScreenDark() {
 
 @Composable
 private fun MonsterDetailContentPreview() {
-    val addToListProvider = MonsterAddToListProvider(SampleMonsterRepository(), SampleUserListRepository())
+    val addToCollectionProvider =
+        MonsterAddToCollectionProvider(SampleMonsterRepository(), SampleUserCollectionRepository())
     MonsterDetailContent(
         monster = SampleMonsterRepository.getFirst(),
         onNavigateUpClicked = {},
-        addToListProvider = addToListProvider,
+        addToCollectionProvider = addToCollectionProvider,
     )
 }

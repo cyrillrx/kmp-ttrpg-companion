@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.userlist.presentation.navigation
+package com.cyrillrx.rpg.usercollection.presentation.navigation
 
 import androidx.navigation3.runtime.NavBackStack
 import androidx.navigation3.runtime.NavKey
@@ -6,23 +6,23 @@ import com.cyrillrx.rpg.core.navigation.navigateUp
 import com.cyrillrx.rpg.creature.presentation.navigation.MonsterRoute
 import com.cyrillrx.rpg.magicalitem.presentation.navigation.MagicalItemRoute
 import com.cyrillrx.rpg.spell.presentation.navigation.SpellRoute
-import com.cyrillrx.rpg.userlist.domain.UserList
+import com.cyrillrx.rpg.usercollection.domain.UserCollection
 
-interface UserListRouter {
+interface UserCollectionRouter {
     fun navigateUp()
-    fun openUserList(list: UserList)
+    fun openUserCollection(list: UserCollection)
 }
 
-class UserListRouterImpl(private val backStack: NavBackStack<NavKey>) : UserListRouter {
+class UserCollectionRouterImpl(private val backStack: NavBackStack<NavKey>) : UserCollectionRouter {
     override fun navigateUp() {
         backStack.navigateUp()
     }
 
-    override fun openUserList(list: UserList) {
+    override fun openUserCollection(list: UserCollection) {
         when (list.type) {
-            UserList.Type.SPELL -> backStack.add(SpellRoute.UserListDetail(list.id))
-            UserList.Type.MAGICAL_ITEM -> backStack.add(MagicalItemRoute.UserListDetail(list.id))
-            UserList.Type.MONSTER -> backStack.add(MonsterRoute.UserListDetail(list.id))
+            UserCollection.Type.SPELL -> backStack.add(SpellRoute.UserCollectionDetail(list.id))
+            UserCollection.Type.MAGICAL_ITEM -> backStack.add(MagicalItemRoute.UserCollectionDetail(list.id))
+            UserCollection.Type.MONSTER -> backStack.add(MonsterRoute.UserCollectionDetail(list.id))
         }
     }
 }

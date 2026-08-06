@@ -1,14 +1,14 @@
-package com.cyrillrx.rpg.userlist.domain
+package com.cyrillrx.rpg.usercollection.domain
 
 import com.cyrillrx.rpg.core.domain.Stored
 
-interface UserListRepository {
-    suspend fun getAll(type: UserList.Type): List<Stored<UserList>>
-    suspend fun get(id: String): UserList?
-    suspend fun save(list: UserList)
+interface UserCollectionRepository {
+    suspend fun getAll(type: UserCollection.Type): List<Stored<UserCollection>>
+    suspend fun get(id: String): UserCollection?
+    suspend fun save(list: UserCollection)
     suspend fun delete(id: String)
 
-    suspend fun addToList(list: UserList, itemId: String): Result {
+    suspend fun addToList(list: UserCollection, itemId: String): Result {
         save(list.copy(itemIds = list.itemIds + itemId))
         return Result.Success
     }
@@ -19,7 +19,7 @@ interface UserListRepository {
         return removeFromList(list, itemId)
     }
 
-    suspend fun removeFromList(list: UserList, itemId: String): Result {
+    suspend fun removeFromList(list: UserCollection, itemId: String): Result {
         save(list.copy(itemIds = list.itemIds - itemId))
         return Result.Success
     }

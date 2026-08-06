@@ -1,12 +1,12 @@
-package com.cyrillrx.rpg.userlist.presentation.viewmodel
+package com.cyrillrx.rpg.usercollection.presentation.viewmodel
 
 import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.spell.domain.Spell
-import com.cyrillrx.rpg.userlist.data.RamUserListRepository
-import com.cyrillrx.rpg.userlist.domain.UserList
-import com.cyrillrx.rpg.userlist.domain.UserListRepository
-import com.cyrillrx.rpg.userlist.presentation.ListDetailState
+import com.cyrillrx.rpg.usercollection.data.RamUserCollectionRepository
+import com.cyrillrx.rpg.usercollection.domain.UserCollection
+import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
+import com.cyrillrx.rpg.usercollection.presentation.CollectionDetailState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
@@ -28,11 +28,11 @@ private const val LIST_NAME = "Name of the list"
 private const val RENAMED_LIST_NAME = "New Name"
 
 @OptIn(ExperimentalCoroutinesApi::class)
-class ListDetailViewModelTest {
+class CollectionDetailViewModelTest {
 
     private val testDispatcher = StandardTestDispatcher()
     private val spellRepository = SampleSpellRepository()
-    private val userListRepository = RamUserListRepository()
+    private val userCollectionRepository = RamUserCollectionRepository()
     private val spell = SampleSpellRepository.getFirst()
     private val secondSpell = SampleSpellRepository.getAll()[1]
 
@@ -46,19 +46,19 @@ class ListDetailViewModelTest {
         Dispatchers.resetMain()
     }
 
-    private fun buildViewModel(listId: String, repo: UserListRepository = userListRepository) =
-        ListDetailViewModel(listId, repo, spellRepository, testDispatcher)
+    private fun buildViewModel(listId: String, repo: UserCollectionRepository = userCollectionRepository) =
+        CollectionDetailViewModel(listId, repo, spellRepository, testDispatcher)
 
     @Test
     fun `initial state is Loading before coroutines run`() = runTest(testDispatcher) {
         val viewModel = buildViewModel(TEST_LIST_ID)
 
-        assertIs<ListDetailState.Body.Loading>(viewModel.state.value.body)
+        assertIs<CollectionDetailState.Body.Loading>(viewModel.state.value.body)
     }
 
     @Test
     fun `state is Error when repository throws`() = runTest(testDispatcher) {
-        val viewModel = buildViewModel(TEST_LIST_ID, FailingUserListRepository())
+        val viewModel = buildViewModel(TEST_LIST_ID, FailingUserCollectionRepository())
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -66,7 +66,7 @@ class ListDetailViewModelTest {
 
         advanceUntilIdle()
 
-        assertIs<ListDetailState.Body.Error>(viewModel.state.value.body)
+        assertIs<CollectionDetailState.Body.Error>(viewModel.state.value.body)
     }
 
     @Test
@@ -79,13 +79,13 @@ class ListDetailViewModelTest {
 
         advanceUntilIdle()
 
-        assertIs<ListDetailState.Body.Error>(viewModel.state.value.body)
+        assertIs<CollectionDetailState.Body.Error>(viewModel.state.value.body)
     }
 
     @Test
     fun `state is Empty when list has no spells`() = runTest(testDispatcher) {
-        val list = UserList(TEST_LIST_ID, LIST_NAME, UserList.Type.SPELL, emptyList())
-        userListRepository.save(list)
+        val list = UserCollection(TEST_LIST_ID, LIST_NAME, UserCollection.Type.SPELL, emptyList())
+        userCollectionRepository.save(list)
 
         val viewModel = buildViewModel(TEST_LIST_ID)
 
@@ -95,14 +95,14 @@ class ListDetailViewModelTest {
 
         advanceUntilIdle()
 
-        assertIs<ListDetailState.Body.EmptyList>(viewModel.state.value.body)
+        assertIs<CollectionDetailState.Body.EmptyList>(viewModel.state.value.body)
         assertEquals(expected = LIST_NAME, actual = viewModel.state.value.listName)
     }
 
     @Test
     fun `state is WithData when list has spells`() = runTest(testDispatcher) {
-        val list = UserList(TEST_LIST_ID, LIST_NAME, UserList.Type.SPELL, listOf(spell.id))
-        userListRepository.save(list)
+        val list = UserCollection(TEST_LIST_ID, LIST_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+        userCollectionRepository.save(list)
 
         val viewModel = buildViewModel(TEST_LIST_ID)
 
@@ -112,7 +112,7 @@ class ListDetailViewModelTest {
 
         advanceUntilIdle()
 
-        val body = assertIs<ListDetailState.Body.WithData<Spell>>(viewModel.state.value.body)
+        val body = assertIs<CollectionDetailState.Body.WithData<Spell>>(viewModel.state.value.body)
         assertEquals(expected = 1, actual = body.items.size)
         assertEquals(expected = spell.id, actual = body.items.first().id)
     }
@@ -120,8 +120,8 @@ class ListDetailViewModelTest {
     @Test
     fun `removeItemOptimistically then commit removes spell from list`() = runTest(testDispatcher) {
         val spells = SampleSpellRepository.getAll()
-        val list = UserList(TEST_LIST_ID, LIST_NAME, UserList.Type.SPELL, spells.map { it.id })
-        userListRepository.save(list)
+        val list = UserCollection(TEST_LIST_ID, LIST_NAME, UserCollection.Type.SPELL, spells.map { it.id })
+        userCollectionRepository.save(list)
 
         val viewModel = buildViewModel(TEST_LIST_ID)
 
@@ -136,15 +136,15 @@ class ListDetailViewModelTest {
 
         advanceUntilIdle()
 
-        val body = assertIs<ListDetailState.Body.WithData<Spell>>(viewModel.state.value.body)
+        val body = assertIs<CollectionDetailState.Body.WithData<Spell>>(viewModel.state.value.body)
         assertEquals(expected = spells.size - 1, actual = body.items.size)
         assertTrue(body.items.none { it.id == spell.id })
     }
 
     @Test
     fun `undoRemoval restores the item`() = runTest(testDispatcher) {
-        val list = UserList(TEST_LIST_ID, LIST_NAME, UserList.Type.SPELL, listOf(spell.id))
-        userListRepository.save(list)
+        val list = UserCollection(TEST_LIST_ID, LIST_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+        userCollectionRepository.save(list)
 
         val viewModel = buildViewModel(TEST_LIST_ID)
 
@@ -157,15 +157,15 @@ class ListDetailViewModelTest {
         val pending = requireNotNull(viewModel.removeItemOptimistically(spell.id, spell))
         viewModel.undoRemoval(pending)
 
-        val restoredBody = assertIs<ListDetailState.Body.WithData<Spell>>(viewModel.state.value.body)
+        val restoredBody = assertIs<CollectionDetailState.Body.WithData<Spell>>(viewModel.state.value.body)
         assertEquals(spell, restoredBody.items.first())
     }
 
     @Test
     fun `removeItemOptimistically then commit transitions to Empty when last spell removed`() =
         runTest(testDispatcher) {
-            val list = UserList(TEST_LIST_ID, LIST_NAME, UserList.Type.SPELL, listOf(spell.id))
-            userListRepository.save(list)
+            val list = UserCollection(TEST_LIST_ID, LIST_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+            userCollectionRepository.save(list)
 
             val viewModel = buildViewModel(TEST_LIST_ID)
 
@@ -180,13 +180,13 @@ class ListDetailViewModelTest {
 
             advanceUntilIdle()
 
-            assertIs<ListDetailState.Body.EmptyList>(viewModel.state.value.body)
+            assertIs<CollectionDetailState.Body.EmptyList>(viewModel.state.value.body)
         }
 
     @Test
     fun `silentRefresh reflects new items added to repository`() = runTest(testDispatcher) {
-        val list = UserList(TEST_LIST_ID, LIST_NAME, UserList.Type.SPELL, listOf(spell.id))
-        userListRepository.save(list)
+        val list = UserCollection(TEST_LIST_ID, LIST_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+        userCollectionRepository.save(list)
 
         val viewModel = buildViewModel(TEST_LIST_ID)
 
@@ -196,23 +196,23 @@ class ListDetailViewModelTest {
 
         advanceUntilIdle()
 
-        val initialBody = assertIs<ListDetailState.Body.WithData<Spell>>(viewModel.state.value.body)
+        val initialBody = assertIs<CollectionDetailState.Body.WithData<Spell>>(viewModel.state.value.body)
         assertEquals(expected = 1, actual = initialBody.items.size)
 
         val updatedList = list.copy(itemIds = list.itemIds + secondSpell.id)
-        userListRepository.save(updatedList)
+        userCollectionRepository.save(updatedList)
 
         viewModel.silentRefresh()
         advanceUntilIdle()
 
-        val refreshedBody = assertIs<ListDetailState.Body.WithData<Spell>>(viewModel.state.value.body)
+        val refreshedBody = assertIs<CollectionDetailState.Body.WithData<Spell>>(viewModel.state.value.body)
         assertEquals(expected = 2, actual = refreshedBody.items.size)
     }
 
     @Test
     fun `silentRefresh does not transition to Loading state`() = runTest(testDispatcher) {
-        val list = UserList(TEST_LIST_ID, LIST_NAME, UserList.Type.SPELL, listOf(spell.id))
-        userListRepository.save(list)
+        val list = UserCollection(TEST_LIST_ID, LIST_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+        userCollectionRepository.save(list)
 
         val viewModel = buildViewModel(TEST_LIST_ID)
 
@@ -222,7 +222,7 @@ class ListDetailViewModelTest {
 
         advanceUntilIdle()
 
-        val emittedBodies = mutableListOf<ListDetailState.Body<Spell>>()
+        val emittedBodies = mutableListOf<CollectionDetailState.Body<Spell>>()
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect { emittedBodies.add(it.body) }
         }
@@ -230,27 +230,27 @@ class ListDetailViewModelTest {
         viewModel.silentRefresh()
         advanceUntilIdle()
 
-        assertTrue(emittedBodies.none { it is ListDetailState.Body.Loading })
+        assertTrue(emittedBodies.none { it is CollectionDetailState.Body.Loading })
     }
 
     @Test
     fun `silentRefresh does nothing when state is already Loading`() = runTest(testDispatcher) {
-        val list = UserList(TEST_LIST_ID, LIST_NAME, UserList.Type.SPELL, listOf(spell.id))
-        userListRepository.save(list)
+        val list = UserCollection(TEST_LIST_ID, LIST_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+        userCollectionRepository.save(list)
 
         val viewModel = buildViewModel(TEST_LIST_ID)
 
-        assertIs<ListDetailState.Body.Loading>(viewModel.state.value.body)
+        assertIs<CollectionDetailState.Body.Loading>(viewModel.state.value.body)
 
         viewModel.silentRefresh()
 
-        assertIs<ListDetailState.Body.Loading>(viewModel.state.value.body)
+        assertIs<CollectionDetailState.Body.Loading>(viewModel.state.value.body)
     }
 
     @Test
     fun `renameList updates list name in state`() = runTest(testDispatcher) {
-        val list = UserList(TEST_LIST_ID, LIST_NAME, UserList.Type.SPELL, listOf(spell.id))
-        userListRepository.save(list)
+        val list = UserCollection(TEST_LIST_ID, LIST_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+        userCollectionRepository.save(list)
 
         val viewModel = buildViewModel(TEST_LIST_ID)
 
@@ -268,8 +268,8 @@ class ListDetailViewModelTest {
 
     @Test
     fun `renameList persists updated name to repository`() = runTest(testDispatcher) {
-        val list = UserList(TEST_LIST_ID, LIST_NAME, UserList.Type.SPELL, listOf(spell.id))
-        userListRepository.save(list)
+        val list = UserCollection(TEST_LIST_ID, LIST_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+        userCollectionRepository.save(list)
 
         val viewModel = buildViewModel(TEST_LIST_ID)
 
@@ -282,14 +282,14 @@ class ListDetailViewModelTest {
         viewModel.renameList(RENAMED_LIST_NAME)
         advanceUntilIdle()
 
-        val savedList = userListRepository.get(TEST_LIST_ID)
+        val savedList = userCollectionRepository.get(TEST_LIST_ID)
         assertEquals(expected = RENAMED_LIST_NAME, actual = savedList?.name)
     }
 
     @Test
     fun `commitRemoval restores item and emits error when repository returns failure`() = runTest(testDispatcher) {
-        val failingRepo = FailsOnRemoveUserListRepository()
-        val list = UserList(TEST_LIST_ID, LIST_NAME, UserList.Type.SPELL, listOf(spell.id))
+        val failingRepo = FailsOnRemoveUserCollectionRepository()
+        val list = UserCollection(TEST_LIST_ID, LIST_NAME, UserCollection.Type.SPELL, listOf(spell.id))
         failingRepo.save(list)
 
         val viewModel = buildViewModel(TEST_LIST_ID, failingRepo)
@@ -300,7 +300,7 @@ class ListDetailViewModelTest {
 
         advanceUntilIdle()
 
-        val receivedEvents = mutableListOf<ListDetailViewModel.Event<Spell>>()
+        val receivedEvents = mutableListOf<CollectionDetailViewModel.Event<Spell>>()
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.events.collect { receivedEvents.add(it) }
         }
@@ -309,16 +309,16 @@ class ListDetailViewModelTest {
         viewModel.commitRemoval(pending)
         advanceUntilIdle()
 
-        val body = assertIs<ListDetailState.Body.WithData<Spell>>(viewModel.state.value.body)
+        val body = assertIs<CollectionDetailState.Body.WithData<Spell>>(viewModel.state.value.body)
         assertEquals(spell, body.items.first())
         assertEquals(1, receivedEvents.size)
-        assertIs<ListDetailViewModel.Event.RemovalError<Spell>>(receivedEvents.first())
+        assertIs<CollectionDetailViewModel.Event.RemovalError<Spell>>(receivedEvents.first())
     }
 
     @Test
     fun `commitAllPendingRemovals commits pending removals that were never confirmed`() = runTest(testDispatcher) {
-        val list = UserList(TEST_LIST_ID, LIST_NAME, UserList.Type.SPELL, listOf(spell.id))
-        userListRepository.save(list)
+        val list = UserCollection(TEST_LIST_ID, LIST_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+        userCollectionRepository.save(list)
 
         val viewModel = buildViewModel(TEST_LIST_ID)
 
@@ -331,17 +331,17 @@ class ListDetailViewModelTest {
         viewModel.commitAllPendingRemovals()
         advanceUntilIdle()
 
-        val updatedList = userListRepository.get(TEST_LIST_ID)!!
+        val updatedList = userCollectionRepository.get(TEST_LIST_ID)!!
         assertTrue(updatedList.itemIds.none { it == spell.id })
     }
 }
 
-private class FailsOnRemoveUserListRepository : UserListRepository {
-    private val delegate = RamUserListRepository()
-    override suspend fun getAll(type: UserList.Type): List<Stored<UserList>> = delegate.getAll(type)
-    override suspend fun get(id: String): UserList? = delegate.get(id)
-    override suspend fun save(list: UserList) = delegate.save(list)
+private class FailsOnRemoveUserCollectionRepository : UserCollectionRepository {
+    private val delegate = RamUserCollectionRepository()
+    override suspend fun getAll(type: UserCollection.Type): List<Stored<UserCollection>> = delegate.getAll(type)
+    override suspend fun get(id: String): UserCollection? = delegate.get(id)
+    override suspend fun save(list: UserCollection) = delegate.save(list)
     override suspend fun delete(id: String) = delegate.delete(id)
-    override suspend fun removeFromList(listId: String, itemId: String): UserListRepository.Result =
-        UserListRepository.Result.Error("Simulated failure")
+    override suspend fun removeFromList(listId: String, itemId: String): UserCollectionRepository.Result =
+        UserCollectionRepository.Result.Error("Simulated failure")
 }

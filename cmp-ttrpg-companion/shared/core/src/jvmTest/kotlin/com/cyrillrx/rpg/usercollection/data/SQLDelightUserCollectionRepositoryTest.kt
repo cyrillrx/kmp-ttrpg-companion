@@ -1,9 +1,9 @@
-package com.cyrillrx.rpg.userlist.data
+package com.cyrillrx.rpg.usercollection.data
 
 import com.cyrillrx.rpg.core.data.cache.TestDatabaseDriverFactory
 import com.cyrillrx.rpg.core.domain.MutableClock
-import com.cyrillrx.rpg.userlist.domain.UserList
-import com.cyrillrx.rpg.userlist.domain.UserListRepository
+import com.cyrillrx.rpg.usercollection.domain.UserCollection
+import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
 import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -12,26 +12,31 @@ import kotlin.test.assertTrue
 import kotlin.time.Clock
 import kotlin.time.Instant
 
-class SQLDelightUserListRepositoryTest {
+class SQLDelightUserCollectionRepositoryTest {
 
     private fun buildRepository(clock: Clock = Clock.System) =
-        SQLDelightUserListRepository(TestDatabaseDriverFactory(), clock = clock)
+        SQLDelightUserCollectionRepository(TestDatabaseDriverFactory(), clock = clock)
 
     private fun spellList(id: String = "1", name: String = "Spellbook", itemIds: List<String> = emptyList()) =
-        UserList(id = id, name = name, type = UserList.Type.SPELL, itemIds = itemIds)
+        UserCollection(id = id, name = name, type = UserCollection.Type.SPELL, itemIds = itemIds)
 
     @Test
     fun `save and getAll returns lists filtered by type`() = runTest {
         val repository = buildRepository()
         val spells = spellList()
-        val items = UserList(id = "2", name = "Artefacts", type = UserList.Type.MAGICAL_ITEM, itemIds = emptyList())
+        val items = UserCollection(
+            id = "2",
+            name = "Artefacts",
+            type = UserCollection.Type.MAGICAL_ITEM,
+            itemIds = emptyList(),
+        )
 
         repository.save(spells)
         repository.save(items)
 
-        assertEquals(expected = spells, actual = repository.getAll(UserList.Type.SPELL).single().value)
-        assertEquals(expected = items, actual = repository.getAll(UserList.Type.MAGICAL_ITEM).single().value)
-        assertTrue(repository.getAll(UserList.Type.MONSTER).isEmpty())
+        assertEquals(expected = spells, actual = repository.getAll(UserCollection.Type.SPELL).single().value)
+        assertEquals(expected = items, actual = repository.getAll(UserCollection.Type.MAGICAL_ITEM).single().value)
+        assertTrue(repository.getAll(UserCollection.Type.MONSTER).isEmpty())
     }
 
     @Test
@@ -59,7 +64,7 @@ class SQLDelightUserListRepositoryTest {
         repository.save(updated)
 
         assertEquals(expected = updated, actual = repository.get("1"))
-        assertEquals(expected = 1, actual = repository.getAll(UserList.Type.SPELL).size)
+        assertEquals(expected = 1, actual = repository.getAll(UserCollection.Type.SPELL).size)
     }
 
     @Test
@@ -70,7 +75,7 @@ class SQLDelightUserListRepositoryTest {
         repository.delete("1")
 
         assertNull(repository.get("1"))
-        assertTrue(repository.getAll(UserList.Type.SPELL).isEmpty())
+        assertTrue(repository.getAll(UserCollection.Type.SPELL).isEmpty())
     }
 
     @Test
@@ -80,13 +85,13 @@ class SQLDelightUserListRepositoryTest {
         repository.save(list)
 
         assertEquals(
-            expected = UserListRepository.Result.Success,
+            expected = UserCollectionRepository.Result.Success,
             actual = repository.addToList(repository.get("1")!!, "Fireball"),
         )
         assertEquals(expected = listOf("Fireball"), actual = repository.get("1")?.itemIds)
 
         assertEquals(
-            expected = UserListRepository.Result.Success,
+            expected = UserCollectionRepository.Result.Success,
             actual = repository.removeFromList("1", "Fireball"),
         )
         assertEquals(expected = emptyList(), actual = repository.get("1")?.itemIds)
@@ -95,7 +100,7 @@ class SQLDelightUserListRepositoryTest {
     @Test
     fun `removeFromList reports a missing list`() = runTest {
         assertEquals(
-            expected = UserListRepository.Result.NotFound,
+            expected = UserCollectionRepository.Result.NotFound,
             actual = buildRepository().removeFromList("missing", "Fireball"),
         )
     }
@@ -110,7 +115,7 @@ class SQLDelightUserListRepositoryTest {
         clock.instant = Instant.fromEpochMilliseconds(5_000L)
         repository.save(list.copy(itemIds = listOf("spell1")))
 
-        val stored = repository.getAll(UserList.Type.SPELL).single()
+        val stored = repository.getAll(UserCollection.Type.SPELL).single()
         assertEquals(expected = Instant.fromEpochMilliseconds(5_000L), actual = stored.updatedAt)
     }
 }

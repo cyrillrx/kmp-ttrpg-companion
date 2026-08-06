@@ -5,7 +5,7 @@ import androidx.navigation3.runtime.EntryProviderScope
 import androidx.navigation3.runtime.NavKey
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItemRepository
-import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemAddToListProvider
+import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemAddToCollectionProvider
 import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemItemProvider
 import com.cyrillrx.rpg.magicalitem.presentation.component.MagicalItemDetailScreen
 import com.cyrillrx.rpg.magicalitem.presentation.component.MagicalItemListScreen
@@ -13,10 +13,10 @@ import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.MagicalItemDetailView
 import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.MagicalItemDetailViewModelFactory
 import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.MagicalItemListViewModel
 import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.MagicalItemListViewModelFactory
-import com.cyrillrx.rpg.userlist.domain.UserListRepository
-import com.cyrillrx.rpg.userlist.presentation.component.ListDetailScreen
-import com.cyrillrx.rpg.userlist.presentation.viewmodel.ListDetailViewModel
-import com.cyrillrx.rpg.userlist.presentation.viewmodel.ListDetailViewModelFactory
+import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
+import com.cyrillrx.rpg.usercollection.presentation.component.CollectionDetailScreen
+import com.cyrillrx.rpg.usercollection.presentation.viewmodel.CollectionDetailViewModel
+import com.cyrillrx.rpg.usercollection.presentation.viewmodel.CollectionDetailViewModelFactory
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.modules.PolymorphicModuleBuilder
 
@@ -28,48 +28,48 @@ interface MagicalItemRoute {
     data class Detail(val magicalItemId: String) : NavKey
 
     @Serializable
-    data class UserListDetail(val listId: String) : NavKey
+    data class UserCollectionDetail(val listId: String) : NavKey
 }
 
 fun PolymorphicModuleBuilder<NavKey>.registerMagicalItemRoutes() {
     subclass(MagicalItemRoute.Compendium::class, MagicalItemRoute.Compendium.serializer())
     subclass(MagicalItemRoute.Detail::class, MagicalItemRoute.Detail.serializer())
-    subclass(MagicalItemRoute.UserListDetail::class, MagicalItemRoute.UserListDetail.serializer())
+    subclass(MagicalItemRoute.UserCollectionDetail::class, MagicalItemRoute.UserCollectionDetail.serializer())
 }
 
 fun EntryProviderScope<NavKey>.handleMagicalItemRoutes(
     router: MagicalItemRouter,
     repository: MagicalItemRepository,
-    userListRepository: UserListRepository,
+    userCollectionRepository: UserCollectionRepository,
 ) {
     entry<MagicalItemRoute.Compendium> {
         val viewModelFactory = MagicalItemListViewModelFactory(repository)
         val viewModel = viewModel<MagicalItemListViewModel>(factory = viewModelFactory)
-        val addToListProvider = MagicalItemAddToListProvider(repository, userListRepository)
-        MagicalItemListScreen(viewModel, router, addToListProvider)
+        val addToCollectionProvider = MagicalItemAddToCollectionProvider(repository, userCollectionRepository)
+        MagicalItemListScreen(viewModel, router, addToCollectionProvider)
     }
 
     entry<MagicalItemRoute.Detail> { route ->
         val magicalItemId = route.magicalItemId
         val viewModelFactory = MagicalItemDetailViewModelFactory(magicalItemId, repository)
         val viewModel = viewModel<MagicalItemDetailViewModel>(key = magicalItemId, factory = viewModelFactory)
-        val addToListProvider = MagicalItemAddToListProvider(repository, userListRepository)
-        MagicalItemDetailScreen(viewModel, router, addToListProvider)
+        val addToCollectionProvider = MagicalItemAddToCollectionProvider(repository, userCollectionRepository)
+        MagicalItemDetailScreen(viewModel, router, addToCollectionProvider)
     }
 
-    entry<MagicalItemRoute.UserListDetail> { route ->
+    entry<MagicalItemRoute.UserCollectionDetail> { route ->
         val listId = route.listId
-        val viewModelFactory = ListDetailViewModelFactory(
+        val viewModelFactory = CollectionDetailViewModelFactory(
             listId = listId,
-            userListRepository = userListRepository,
+            userCollectionRepository = userCollectionRepository,
             repository = repository,
         )
-        val viewModel = viewModel<ListDetailViewModel<MagicalItem>>(key = listId, factory = viewModelFactory)
+        val viewModel = viewModel<CollectionDetailViewModel<MagicalItem>>(key = listId, factory = viewModelFactory)
         val itemProvider = MagicalItemItemProvider(
             onItemClicked = router::openDetail,
             onEmptyLayoutBtnClicked = router::openCompendium,
         )
-        ListDetailScreen(
+        CollectionDetailScreen(
             viewModel = viewModel,
             itemProvider = itemProvider,
             onNavigateUp = router::navigateUp,

@@ -5,7 +5,7 @@ import androidx.navigation3.runtime.EntryProviderScope
 import androidx.navigation3.runtime.NavKey
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.domain.SpellRepository
-import com.cyrillrx.rpg.spell.presentation.SpellAddToListProvider
+import com.cyrillrx.rpg.spell.presentation.SpellAddToCollectionProvider
 import com.cyrillrx.rpg.spell.presentation.SpellItemProvider
 import com.cyrillrx.rpg.spell.presentation.component.SpellDetailScreen
 import com.cyrillrx.rpg.spell.presentation.component.SpellListScreen
@@ -13,10 +13,10 @@ import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellDetailViewModel
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellDetailViewModelFactory
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellListViewModel
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellListViewModelFactory
-import com.cyrillrx.rpg.userlist.domain.UserListRepository
-import com.cyrillrx.rpg.userlist.presentation.component.ListDetailScreen
-import com.cyrillrx.rpg.userlist.presentation.viewmodel.ListDetailViewModel
-import com.cyrillrx.rpg.userlist.presentation.viewmodel.ListDetailViewModelFactory
+import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
+import com.cyrillrx.rpg.usercollection.presentation.component.CollectionDetailScreen
+import com.cyrillrx.rpg.usercollection.presentation.viewmodel.CollectionDetailViewModel
+import com.cyrillrx.rpg.usercollection.presentation.viewmodel.CollectionDetailViewModelFactory
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.modules.PolymorphicModuleBuilder
 
@@ -28,26 +28,26 @@ interface SpellRoute {
     data class Detail(val spellId: String) : NavKey
 
     @Serializable
-    data class UserListDetail(val listId: String) : NavKey
+    data class UserCollectionDetail(val listId: String) : NavKey
 }
 
 fun PolymorphicModuleBuilder<NavKey>.registerSpellRoutes() {
     subclass(SpellRoute.Compendium::class, SpellRoute.Compendium.serializer())
-    subclass(SpellRoute.UserListDetail::class, SpellRoute.UserListDetail.serializer())
+    subclass(SpellRoute.UserCollectionDetail::class, SpellRoute.UserCollectionDetail.serializer())
     subclass(SpellRoute.Detail::class, SpellRoute.Detail.serializer())
 }
 
 fun EntryProviderScope<NavKey>.handleSpellRoutes(
     router: SpellRouter,
     spellRepository: SpellRepository,
-    userListRepository: UserListRepository,
+    userCollectionRepository: UserCollectionRepository,
 ) {
     entry<SpellRoute.Compendium> {
         val viewModelFactory = SpellListViewModelFactory(spellRepository)
         val viewModel = viewModel<SpellListViewModel>(factory = viewModelFactory)
-        val bottomSheetProvider = SpellAddToListProvider(
+        val bottomSheetProvider = SpellAddToCollectionProvider(
             spellRepository = spellRepository,
-            userListRepository = userListRepository,
+            userCollectionRepository = userCollectionRepository,
         )
         SpellListScreen(viewModel, router, bottomSheetProvider)
     }
@@ -56,26 +56,26 @@ fun EntryProviderScope<NavKey>.handleSpellRoutes(
         val spellId = route.spellId
         val viewModelFactory = SpellDetailViewModelFactory(spellId, spellRepository)
         val viewModel = viewModel<SpellDetailViewModel>(key = spellId, factory = viewModelFactory)
-        val bottomSheetProvider = SpellAddToListProvider(
+        val bottomSheetProvider = SpellAddToCollectionProvider(
             spellRepository = spellRepository,
-            userListRepository = userListRepository,
+            userCollectionRepository = userCollectionRepository,
         )
         SpellDetailScreen(viewModel, router, bottomSheetProvider)
     }
 
-    entry<SpellRoute.UserListDetail> { route ->
+    entry<SpellRoute.UserCollectionDetail> { route ->
         val listId = route.listId
-        val viewModelFactory = ListDetailViewModelFactory(
+        val viewModelFactory = CollectionDetailViewModelFactory(
             listId = listId,
-            userListRepository = userListRepository,
+            userCollectionRepository = userCollectionRepository,
             repository = spellRepository,
         )
-        val viewModel = viewModel<ListDetailViewModel<Spell>>(key = listId, factory = viewModelFactory)
+        val viewModel = viewModel<CollectionDetailViewModel<Spell>>(key = listId, factory = viewModelFactory)
         val itemProvider = SpellItemProvider(
             onItemClicked = router::openDetail,
             onEmptyLayoutBtnClicked = router::openCompendium,
         )
-        ListDetailScreen(
+        CollectionDetailScreen(
             viewModel = viewModel,
             itemProvider = itemProvider,
             onNavigateUp = router::navigateUp,

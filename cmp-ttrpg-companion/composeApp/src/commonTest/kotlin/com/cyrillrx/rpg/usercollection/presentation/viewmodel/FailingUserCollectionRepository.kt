@@ -1,12 +1,12 @@
-package com.cyrillrx.rpg.userlist.presentation.viewmodel
+package com.cyrillrx.rpg.usercollection.presentation.viewmodel
 
 import com.cyrillrx.rpg.core.domain.Stored
-import com.cyrillrx.rpg.userlist.domain.UserList
-import com.cyrillrx.rpg.userlist.domain.UserListRepository
+import com.cyrillrx.rpg.usercollection.domain.UserCollection
+import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
 
-class FailingUserListRepository : UserListRepository {
-    override suspend fun getAll(type: UserList.Type): List<Stored<UserList>> = error("Repository failure")
-    override suspend fun get(id: String): UserList = error("Repository failure")
-    override suspend fun save(list: UserList) = Unit
+class FailingUserCollectionRepository : UserCollectionRepository {
+    override suspend fun getAll(type: UserCollection.Type): List<Stored<UserCollection>> = error("Repository failure")
+    override suspend fun get(id: String): UserCollection = error("Repository failure")
+    override suspend fun save(list: UserCollection) = Unit
     override suspend fun delete(id: String) = Unit
 }

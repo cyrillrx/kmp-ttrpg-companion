@@ -1,10 +1,10 @@
-package com.cyrillrx.rpg.userlist.presentation.viewmodel
+package com.cyrillrx.rpg.usercollection.presentation.viewmodel
 
 import com.cyrillrx.rpg.core.domain.Stored
-import com.cyrillrx.rpg.userlist.data.RamUserListRepository
-import com.cyrillrx.rpg.userlist.domain.UserList
-import com.cyrillrx.rpg.userlist.domain.UserListRepository
-import com.cyrillrx.rpg.userlist.presentation.UserListsState
+import com.cyrillrx.rpg.usercollection.data.RamUserCollectionRepository
+import com.cyrillrx.rpg.usercollection.domain.UserCollection
+import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
+import com.cyrillrx.rpg.usercollection.presentation.UserCollectionsState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
@@ -27,10 +27,10 @@ private const val LIST_NAME = "Name of the list"
 private const val UPDATED_LIST_NAME = "Updated name of the list"
 
 @OptIn(ExperimentalCoroutinesApi::class)
-class UserListsViewModelTest {
+class UserCollectionsViewModelTest {
 
     private val testDispatcher = StandardTestDispatcher()
-    private val repository = RamUserListRepository()
+    private val repository = RamUserCollectionRepository()
 
     @BeforeTest
     fun setUp() {
@@ -42,19 +42,19 @@ class UserListsViewModelTest {
         Dispatchers.resetMain()
     }
 
-    private fun buildViewModel(repo: UserListRepository = repository) =
-        UserListsViewModel(UserList.Type.SPELL, repo, testDispatcher)
+    private fun buildViewModel(repo: UserCollectionRepository = repository) =
+        UserCollectionsViewModel(UserCollection.Type.SPELL, repo, testDispatcher)
 
     @Test
     fun `initial state is Loading before coroutines run`() = runTest(testDispatcher) {
         val viewModel = buildViewModel()
 
-        assertIs<UserListsState.Body.Loading>(viewModel.state.value.body)
+        assertIs<UserCollectionsState.Body.Loading>(viewModel.state.value.body)
     }
 
     @Test
     fun `state is Error when repository throws`() = runTest(testDispatcher) {
-        val viewModel = buildViewModel(FailingUserListRepository())
+        val viewModel = buildViewModel(FailingUserCollectionRepository())
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -62,7 +62,7 @@ class UserListsViewModelTest {
 
         advanceUntilIdle()
 
-        assertIs<UserListsState.Body.Error>(viewModel.state.value.body)
+        assertIs<UserCollectionsState.Body.Error>(viewModel.state.value.body)
     }
 
     @Test
@@ -75,7 +75,7 @@ class UserListsViewModelTest {
 
         advanceUntilIdle()
 
-        assertIs<UserListsState.Body.Empty>(viewModel.state.value.body)
+        assertIs<UserCollectionsState.Body.Empty>(viewModel.state.value.body)
     }
 
     @Test
@@ -90,10 +90,10 @@ class UserListsViewModelTest {
         viewModel.createList(LIST_NAME)
         advanceUntilIdle()
 
-        val body = assertIs<UserListsState.Body.WithData>(viewModel.state.value.body)
+        val body = assertIs<UserCollectionsState.Body.WithData>(viewModel.state.value.body)
         assertEquals(expected = 1, actual = body.lists.size)
         assertEquals(expected = LIST_NAME, actual = body.lists.first().value.name)
-        assertEquals(expected = UserList.Type.SPELL, actual = body.lists.first().value.type)
+        assertEquals(expected = UserCollection.Type.SPELL, actual = body.lists.first().value.type)
     }
 
     @Test
@@ -108,12 +108,12 @@ class UserListsViewModelTest {
         viewModel.createList(LIST_NAME)
         advanceUntilIdle()
 
-        val body = assertIs<UserListsState.Body.WithData>(viewModel.state.value.body)
+        val body = assertIs<UserCollectionsState.Body.WithData>(viewModel.state.value.body)
         val list = body.lists.first()
 
         viewModel.deleteListOptimistically(list)
 
-        assertIs<UserListsState.Body.Empty>(viewModel.state.value.body)
+        assertIs<UserCollectionsState.Body.Empty>(viewModel.state.value.body)
     }
 
     @Test
@@ -128,13 +128,13 @@ class UserListsViewModelTest {
         viewModel.createList(LIST_NAME)
         advanceUntilIdle()
 
-        val body = assertIs<UserListsState.Body.WithData>(viewModel.state.value.body)
+        val body = assertIs<UserCollectionsState.Body.WithData>(viewModel.state.value.body)
         val list = body.lists.first()
 
         val pending = requireNotNull(viewModel.deleteListOptimistically(list))
         viewModel.undoDeletion(pending)
 
-        val restoredBody = assertIs<UserListsState.Body.WithData>(viewModel.state.value.body)
+        val restoredBody = assertIs<UserCollectionsState.Body.WithData>(viewModel.state.value.body)
         assertEquals(list, restoredBody.lists.first())
     }
 
@@ -150,20 +150,20 @@ class UserListsViewModelTest {
         viewModel.createList(LIST_NAME)
         advanceUntilIdle()
 
-        val body = assertIs<UserListsState.Body.WithData>(viewModel.state.value.body)
+        val body = assertIs<UserCollectionsState.Body.WithData>(viewModel.state.value.body)
         val list = body.lists.first()
 
         val pending = requireNotNull(viewModel.deleteListOptimistically(list))
         viewModel.commitDeletion(pending)
         advanceUntilIdle()
 
-        assertTrue(repository.getAll(UserList.Type.SPELL).isEmpty())
+        assertTrue(repository.getAll(UserCollection.Type.SPELL).isEmpty())
     }
 
     @Test
     fun `commitDeletion restores list and emits error when repository throws`() = runTest(testDispatcher) {
-        val failingRepo = FailsOnDeleteUserListRepository()
-        val viewModel = UserListsViewModel(UserList.Type.SPELL, failingRepo, testDispatcher)
+        val failingRepo = FailsOnDeleteUserCollectionRepository()
+        val viewModel = UserCollectionsViewModel(UserCollection.Type.SPELL, failingRepo, testDispatcher)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -173,10 +173,10 @@ class UserListsViewModelTest {
         viewModel.createList(LIST_NAME)
         advanceUntilIdle()
 
-        val body = assertIs<UserListsState.Body.WithData>(viewModel.state.value.body)
+        val body = assertIs<UserCollectionsState.Body.WithData>(viewModel.state.value.body)
         val list = body.lists.first()
 
-        val receivedEvents = mutableListOf<UserListsViewModel.Event>()
+        val receivedEvents = mutableListOf<UserCollectionsViewModel.Event>()
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.events.collect { receivedEvents.add(it) }
         }
@@ -185,10 +185,10 @@ class UserListsViewModelTest {
         viewModel.commitDeletion(pending)
         advanceUntilIdle()
 
-        val restoredBody = assertIs<UserListsState.Body.WithData>(viewModel.state.value.body)
+        val restoredBody = assertIs<UserCollectionsState.Body.WithData>(viewModel.state.value.body)
         assertEquals(list, restoredBody.lists.first())
         assertEquals(1, receivedEvents.size)
-        assertIs<UserListsViewModel.Event.DeletionError>(receivedEvents.first())
+        assertIs<UserCollectionsViewModel.Event.DeletionError>(receivedEvents.first())
     }
 
     @Test
@@ -203,20 +203,20 @@ class UserListsViewModelTest {
         viewModel.createList(LIST_NAME)
         advanceUntilIdle()
 
-        val body = assertIs<UserListsState.Body.WithData>(viewModel.state.value.body)
+        val body = assertIs<UserCollectionsState.Body.WithData>(viewModel.state.value.body)
         val list = body.lists.first()
 
         viewModel.deleteListOptimistically(list) // no commit
         viewModel.commitAllPendingDeletions()
         advanceUntilIdle()
 
-        assertTrue(repository.getAll(UserList.Type.SPELL).isEmpty())
+        assertTrue(repository.getAll(UserCollection.Type.SPELL).isEmpty())
     }
 
     @Test
     fun `only lists matching the configured type are shown`() = runTest(testDispatcher) {
-        val spellList = UserList(TEST_LIST_ID, LIST_NAME, UserList.Type.SPELL, emptyList())
-        val itemList = UserList("2", "Artefacts", UserList.Type.MAGICAL_ITEM, emptyList())
+        val spellList = UserCollection(TEST_LIST_ID, LIST_NAME, UserCollection.Type.SPELL, emptyList())
+        val itemList = UserCollection("2", "Artefacts", UserCollection.Type.MAGICAL_ITEM, emptyList())
         repository.save(spellList)
         repository.save(itemList)
 
@@ -228,14 +228,14 @@ class UserListsViewModelTest {
 
         advanceUntilIdle()
 
-        val body = assertIs<UserListsState.Body.WithData>(viewModel.state.value.body)
+        val body = assertIs<UserCollectionsState.Body.WithData>(viewModel.state.value.body)
         assertEquals(expected = 1, actual = body.lists.size)
         assertEquals(expected = spellList, actual = body.lists.first().value)
     }
 
     @Test
     fun `silentRefresh updates state with fresh data without showing Loading`() = runTest(testDispatcher) {
-        val spellList = UserList(TEST_LIST_ID, LIST_NAME, UserList.Type.SPELL, emptyList())
+        val spellList = UserCollection(TEST_LIST_ID, LIST_NAME, UserCollection.Type.SPELL, emptyList())
         repository.save(spellList)
 
         val viewModel = buildViewModel()
@@ -249,7 +249,7 @@ class UserListsViewModelTest {
         val updatedList = spellList.copy(name = UPDATED_LIST_NAME)
         repository.save(updatedList)
 
-        val emittedBodies = mutableListOf<UserListsState.Body>()
+        val emittedBodies = mutableListOf<UserCollectionsState.Body>()
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect { emittedBodies.add(it.body) }
         }
@@ -257,19 +257,19 @@ class UserListsViewModelTest {
         viewModel.silentRefresh()
         advanceUntilIdle()
 
-        assertTrue(emittedBodies.none { it is UserListsState.Body.Loading })
-        val body = assertIs<UserListsState.Body.WithData>(viewModel.state.value.body)
+        assertTrue(emittedBodies.none { it is UserCollectionsState.Body.Loading })
+        val body = assertIs<UserCollectionsState.Body.WithData>(viewModel.state.value.body)
         assertEquals(expected = 1, actual = body.lists.size)
         assertEquals(expected = UPDATED_LIST_NAME, actual = body.lists.first().value.name)
     }
 
     @Test
     fun `lists are ordered by updatedAt descending`() = runTest(testDispatcher) {
-        val viewModel = buildViewModel(ScrambledUserListRepository())
+        val viewModel = buildViewModel(ScrambledUserCollectionRepository())
 
         advanceUntilIdle()
 
-        val body = assertIs<UserListsState.Body.WithData>(viewModel.state.value.body)
+        val body = assertIs<UserCollectionsState.Body.WithData>(viewModel.state.value.body)
         assertEquals(expected = listOf("Newest", "Middle", "Oldest"), actual = body.lists.map { it.value.name })
     }
 
@@ -277,36 +277,36 @@ class UserListsViewModelTest {
     fun `silentRefresh does nothing when state is already Loading`() = runTest(testDispatcher) {
         val viewModel = buildViewModel()
 
-        assertIs<UserListsState.Body.Loading>(viewModel.state.value.body)
+        assertIs<UserCollectionsState.Body.Loading>(viewModel.state.value.body)
 
         viewModel.silentRefresh()
 
-        assertIs<UserListsState.Body.Loading>(viewModel.state.value.body)
+        assertIs<UserCollectionsState.Body.Loading>(viewModel.state.value.body)
     }
 }
 
 /** Returns lists whose timestamps deliberately disagree with their position, so only the caller's ordering shows. */
-private class ScrambledUserListRepository : UserListRepository {
-    override suspend fun getAll(type: UserList.Type): List<Stored<UserList>> = listOf(
+private class ScrambledUserCollectionRepository : UserCollectionRepository {
+    override suspend fun getAll(type: UserCollection.Type): List<Stored<UserCollection>> = listOf(
         stored("Middle", 2_000L),
         stored("Oldest", 1_000L),
         stored("Newest", 3_000L),
     )
 
-    override suspend fun get(id: String): UserList? = null
-    override suspend fun save(list: UserList) = Unit
+    override suspend fun get(id: String): UserCollection? = null
+    override suspend fun save(list: UserCollection) = Unit
     override suspend fun delete(id: String) = Unit
 
     private fun stored(name: String, epochMillis: Long) = Stored(
-        value = UserList(id = name, name = name, type = UserList.Type.SPELL, itemIds = emptyList()),
+        value = UserCollection(id = name, name = name, type = UserCollection.Type.SPELL, itemIds = emptyList()),
         updatedAt = Instant.fromEpochMilliseconds(epochMillis),
     )
 }
 
-private class FailsOnDeleteUserListRepository : UserListRepository {
-    private val delegate = RamUserListRepository()
-    override suspend fun getAll(type: UserList.Type): List<Stored<UserList>> = delegate.getAll(type)
-    override suspend fun get(id: String): UserList? = delegate.get(id)
-    override suspend fun save(list: UserList) = delegate.save(list)
+private class FailsOnDeleteUserCollectionRepository : UserCollectionRepository {
+    private val delegate = RamUserCollectionRepository()
+    override suspend fun getAll(type: UserCollection.Type): List<Stored<UserCollection>> = delegate.getAll(type)
+    override suspend fun get(id: String): UserCollection? = delegate.get(id)
+    override suspend fun save(list: UserCollection) = delegate.save(list)
     override suspend fun delete(id: String) = error("Delete failed")
 }

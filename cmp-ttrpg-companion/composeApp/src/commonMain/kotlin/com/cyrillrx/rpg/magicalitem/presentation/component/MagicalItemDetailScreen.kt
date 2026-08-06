@@ -18,11 +18,11 @@ import com.cyrillrx.rpg.core.presentation.state.DetailState
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.magicalitem.data.SampleMagicalItemRepository
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
-import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemAddToListProvider
+import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemAddToCollectionProvider
 import com.cyrillrx.rpg.magicalitem.presentation.navigation.MagicalItemRouter
 import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.MagicalItemDetailViewModel
-import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
-import com.cyrillrx.rpg.userlist.presentation.AddToListProvider
+import com.cyrillrx.rpg.usercollection.data.SampleUserCollectionRepository
+import com.cyrillrx.rpg.usercollection.presentation.AddToCollectionProvider
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
@@ -33,7 +33,7 @@ import rpg_companion.composeapp.generated.resources.error_magical_item_not_found
 fun MagicalItemDetailScreen(
     viewModel: MagicalItemDetailViewModel,
     router: MagicalItemRouter,
-    addToListProvider: AddToListProvider<MagicalItem>,
+    addToCollectionProvider: AddToCollectionProvider<MagicalItem>,
 ) {
     val state by viewModel.state.collectAsState()
     when (val s = state) {
@@ -42,7 +42,7 @@ fun MagicalItemDetailScreen(
         is DetailState.Found -> MagicalItemDetailContent(
             magicalItem = s.item,
             onNavigateUpClicked = router::navigateUp,
-            addToListProvider = addToListProvider,
+            addToCollectionProvider = addToCollectionProvider,
         )
     }
 }
@@ -51,15 +51,15 @@ fun MagicalItemDetailScreen(
 private fun MagicalItemDetailContent(
     magicalItem: MagicalItem,
     onNavigateUpClicked: () -> Unit,
-    addToListProvider: AddToListProvider<MagicalItem>,
+    addToCollectionProvider: AddToCollectionProvider<MagicalItem>,
 ) {
-    var showAddToListBottomSheet by remember { mutableStateOf(false) }
+    var showAddToCollectionBottomSheet by remember { mutableStateOf(false) }
 
     FadingTitleScaffold(
         title = magicalItem.resolveTranslation(currentLocale()).name,
         onNavigateUpClicked = onNavigateUpClicked,
         actions = {
-            IconButton(onClick = { showAddToListBottomSheet = true }) {
+            IconButton(onClick = { showAddToCollectionBottomSheet = true }) {
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.PlaylistAdd,
                     contentDescription = stringResource(Res.string.btn_add_to_list),
@@ -74,10 +74,10 @@ private fun MagicalItemDetailContent(
         )
     }
 
-    if (showAddToListBottomSheet) {
-        addToListProvider.BottomSheet(
+    if (showAddToCollectionBottomSheet) {
+        addToCollectionProvider.BottomSheet(
             entityId = magicalItem.id,
-            onDismiss = { showAddToListBottomSheet = false },
+            onDismiss = { showAddToCollectionBottomSheet = false },
         )
     }
 }
@@ -97,8 +97,13 @@ fun PreviewMagicalItemDetailScreenDark() {
 @Composable
 private fun PreviewMagicalItemDetailScreen(darkTheme: Boolean) {
     val magicalItem = SampleMagicalItemRepository.getFirst()
-    val addToListProvider = MagicalItemAddToListProvider(SampleMagicalItemRepository(), SampleUserListRepository())
+    val addToCollectionProvider =
+        MagicalItemAddToCollectionProvider(SampleMagicalItemRepository(), SampleUserCollectionRepository())
     AppThemePreview(darkTheme = darkTheme) {
-        MagicalItemDetailContent(magicalItem, onNavigateUpClicked = {}, addToListProvider = addToListProvider)
+        MagicalItemDetailContent(
+            magicalItem,
+            onNavigateUpClicked = {},
+            addToCollectionProvider = addToCollectionProvider,
+        )
     }
 }

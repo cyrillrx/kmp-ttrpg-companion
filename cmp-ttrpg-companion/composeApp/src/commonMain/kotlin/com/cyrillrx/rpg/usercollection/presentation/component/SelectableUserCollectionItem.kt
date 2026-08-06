@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.userlist.presentation.component
+package com.cyrillrx.rpg.usercollection.presentation.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -17,14 +17,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
-import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
-import com.cyrillrx.rpg.userlist.domain.UserList
+import com.cyrillrx.rpg.usercollection.data.SampleUserCollectionRepository
+import com.cyrillrx.rpg.usercollection.domain.UserCollection
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import kotlin.time.Instant
 
 @Composable
-fun SelectableUserListItem(
-    list: UserList,
+fun SelectableUserCollectionItem(
+    list: UserCollection,
     updatedAt: Instant,
     isSelected: Boolean,
     onClick: () -> Unit,
@@ -67,21 +67,21 @@ fun SelectableUserListItem(
 
 @Preview
 @Composable
-private fun PreviewSelectableUserListItemLight() {
-    SelectableUserListItemPreview(false, false)
+private fun PreviewSelectableUserCollectionItemLight() {
+    SelectableUserCollectionItemPreview(false, false)
 }
 
 @Preview
 @Composable
-private fun PreviewSelectableUserListItemDark() {
-    SelectableUserListItemPreview(true, true)
+private fun PreviewSelectableUserCollectionItemDark() {
+    SelectableUserCollectionItemPreview(true, true)
 }
 
 @Composable
-private fun SelectableUserListItemPreview(darkTheme: Boolean, isSelected: Boolean) {
+private fun SelectableUserCollectionItemPreview(darkTheme: Boolean, isSelected: Boolean) {
     AppThemePreview(darkTheme = darkTheme) {
-        val sample = SampleUserListRepository.getFirst()
-        SelectableUserListItem(
+        val sample = SampleUserCollectionRepository.getFirst()
+        SelectableUserCollectionItem(
             list = sample.value,
             updatedAt = sample.updatedAt,
             isSelected = isSelected,

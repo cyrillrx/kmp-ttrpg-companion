@@ -1,21 +1,21 @@
-package com.cyrillrx.rpg.userlist.data
+package com.cyrillrx.rpg.usercollection.data
 
 import com.cyrillrx.rpg.core.domain.Stored
-import com.cyrillrx.rpg.userlist.domain.UserList
-import com.cyrillrx.rpg.userlist.domain.UserListRepository
+import com.cyrillrx.rpg.usercollection.domain.UserCollection
+import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
 import kotlin.time.Clock
 import kotlin.time.Instant
 
-class SampleUserListRepository(
+class SampleUserCollectionRepository(
     private val clock: Clock = Clock.System,
-) : UserListRepository {
+) : UserCollectionRepository {
 
-    override suspend fun getAll(type: UserList.Type): List<Stored<UserList>> =
+    override suspend fun getAll(type: UserCollection.Type): List<Stored<UserCollection>> =
         lists.values.filter { it.value.type == type }
 
-    override suspend fun get(id: String): UserList? = lists[id]?.value
+    override suspend fun get(id: String): UserCollection? = lists[id]?.value
 
-    override suspend fun save(list: UserList) {
+    override suspend fun save(list: UserCollection) {
         lists[list.id] = Stored(value = list, updatedAt = clock.now())
     }
 
@@ -24,51 +24,51 @@ class SampleUserListRepository(
     }
 
     companion object {
-        private val samples: List<Stored<UserList>> = listOf(
+        private val samples: List<Stored<UserCollection>> = listOf(
             combatSpells(),
             supportSpells(),
             gandalfSpells(),
         )
 
-        private val lists = mutableMapOf<String, Stored<UserList>>().apply {
+        private val lists = mutableMapOf<String, Stored<UserCollection>>().apply {
             samples.forEach { put(it.value.id, it) }
         }
 
-        fun getAll(): List<Stored<UserList>> = samples
+        fun getAll(): List<Stored<UserCollection>> = samples
 
-        fun getFirst(): Stored<UserList> = samples.first()
+        fun getFirst(): Stored<UserCollection> = samples.first()
 
         private fun combatSpells() = stored(
-            UserList(
+            UserCollection(
                 id = "sample-spell-list-1",
                 name = "Combat Spells",
-                type = UserList.Type.SPELL,
+                type = UserCollection.Type.SPELL,
                 itemIds = listOf("Fireball", "Thunderwave", "Counterspell"),
             ),
             updatedAt = "2024-01-15T10:30:00Z",
         )
 
         private fun supportSpells() = stored(
-            UserList(
+            UserCollection(
                 id = "sample-spell-list-2",
                 name = "Support Spells",
-                type = UserList.Type.SPELL,
+                type = UserCollection.Type.SPELL,
                 itemIds = listOf("Mage Armor", "Detect Thoughts"),
             ),
             updatedAt = "2024-01-10T08:00:00Z",
         )
 
         private fun gandalfSpells() = stored(
-            UserList(
+            UserCollection(
                 id = "sample-spell-list-3",
                 name = "Gandalf's Spells",
-                type = UserList.Type.SPELL,
+                type = UserCollection.Type.SPELL,
                 itemIds = listOf("Fireball", "Thunderwave", "Counterspell"),
             ),
             updatedAt = "2024-01-20T14:00:00Z",
         )
 
-        private fun stored(list: UserList, updatedAt: String): Stored<UserList> =
+        private fun stored(list: UserCollection, updatedAt: String): Stored<UserCollection> =
             Stored(value = list, updatedAt = Instant.parse(updatedAt))
     }
 }

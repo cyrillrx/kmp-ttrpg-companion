@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.userlist.presentation.component
+package com.cyrillrx.rpg.usercollection.presentation.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -31,10 +31,10 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
-import com.cyrillrx.rpg.spell.presentation.SpellAddToListProvider
-import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
-import com.cyrillrx.rpg.userlist.presentation.AddToListState
-import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddToListViewModel
+import com.cyrillrx.rpg.spell.presentation.SpellAddToCollectionProvider
+import com.cyrillrx.rpg.usercollection.data.SampleUserCollectionRepository
+import com.cyrillrx.rpg.usercollection.presentation.AddToCollectionState
+import com.cyrillrx.rpg.usercollection.presentation.viewmodel.AddToCollectionViewModel
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
@@ -44,8 +44,8 @@ import rpg_companion.composeapp.generated.resources.title_save_to_list
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun <T> AddToListBottomSheet(
-    viewModel: AddToListViewModel<T>,
+fun <T> AddToCollectionBottomSheet(
+    viewModel: AddToCollectionViewModel<T>,
     header: @Composable (T) -> Unit,
     onDismiss: () -> Unit,
 ) {
@@ -55,7 +55,7 @@ fun <T> AddToListBottomSheet(
     LaunchedEffect(viewModel) {
         viewModel.events.collect {
             when (it) {
-                AddToListViewModel.Event.Dismiss -> onDismiss()
+                AddToCollectionViewModel.Event.Dismiss -> onDismiss()
             }
         }
     }
@@ -64,7 +64,7 @@ fun <T> AddToListBottomSheet(
         onDismissRequest = onDismiss,
         sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true),
     ) {
-        AddToListBottomSheetContent(
+        AddToCollectionBottomSheetContent(
             body = state.body,
             header = header,
             onToggleSelection = viewModel::toggleSelection,
@@ -85,8 +85,8 @@ fun <T> AddToListBottomSheet(
 }
 
 @Composable
-private fun <T> ColumnScope.AddToListBottomSheetContent(
-    body: AddToListState.Body<T>,
+private fun <T> ColumnScope.AddToCollectionBottomSheetContent(
+    body: AddToCollectionState.Body<T>,
     header: @Composable (T) -> Unit,
     onToggleSelection: (String) -> Unit,
     onConfirm: () -> Unit,
@@ -103,9 +103,9 @@ private fun <T> ColumnScope.AddToListBottomSheetContent(
         verticalArrangement = Arrangement.spacedBy(spacingSmall),
     ) {
         when (body) {
-            is AddToListState.Body.Loading -> item { Loader() }
-            is AddToListState.Body.Error -> item { ErrorLayout(body.errorMessage) }
-            is AddToListState.Body.WithData -> {
+            is AddToCollectionState.Body.Loading -> item { Loader() }
+            is AddToCollectionState.Body.Error -> item { ErrorLayout(body.errorMessage) }
+            is AddToCollectionState.Body.WithData -> {
                 item { header(body.item) }
                 item {
                     Text(
@@ -117,8 +117,8 @@ private fun <T> ColumnScope.AddToListBottomSheetContent(
                             .padding(spacingMedium),
                     )
                 }
-                items(body.selectableLists, key = { it.list.id }) { item ->
-                    SelectableUserListItem(
+                items(body.selectableCollections, key = { it.list.id }) { item ->
+                    SelectableUserCollectionItem(
                         list = item.list,
                         updatedAt = item.stored.updatedAt,
                         isSelected = item.isSelected,
@@ -151,32 +151,32 @@ private fun <T> ColumnScope.AddToListBottomSheetContent(
 
 @Preview
 @Composable
-private fun PreviewAddToListBottomSheetLight() {
-    AddToListBottomSheetPreview(darkTheme = false)
+private fun PreviewAddToCollectionBottomSheetLight() {
+    AddToCollectionBottomSheetPreview(darkTheme = false)
 }
 
 @Preview
 @Composable
-private fun PreviewAddToListBottomSheetDark() {
-    AddToListBottomSheetPreview(darkTheme = true)
+private fun PreviewAddToCollectionBottomSheetDark() {
+    AddToCollectionBottomSheetPreview(darkTheme = true)
 }
 
 @Composable
-private fun AddToListBottomSheetPreview(darkTheme: Boolean) {
+private fun AddToCollectionBottomSheetPreview(darkTheme: Boolean) {
     val spell = SampleSpellRepository.getFirst()
     val spellRepository = SampleSpellRepository()
-    val userListRepository = SampleUserListRepository()
-    val bottomSheetProvider = SpellAddToListProvider(spellRepository, userListRepository)
+    val userCollectionRepository = SampleUserCollectionRepository()
+    val bottomSheetProvider = SpellAddToCollectionProvider(spellRepository, userCollectionRepository)
 
-    val body = AddToListState.Body.WithData(
+    val body = AddToCollectionState.Body.WithData(
         item = spell,
-        selectableLists = SampleUserListRepository.getAll().map {
-            AddToListState.SelectableUserList(it, alreadyAdded = it.value.itemIds.contains(spell.id))
+        selectableCollections = SampleUserCollectionRepository.getAll().map {
+            AddToCollectionState.SelectableUserCollection(it, alreadyAdded = it.value.itemIds.contains(spell.id))
         },
     )
     AppThemePreview(darkTheme = darkTheme) {
         Column {
-            AddToListBottomSheetContent(
+            AddToCollectionBottomSheetContent(
                 body = body,
                 header = bottomSheetProvider::Header,
                 onToggleSelection = {},

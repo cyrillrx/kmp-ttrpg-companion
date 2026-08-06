@@ -58,10 +58,10 @@ import com.cyrillrx.rpg.spell.data.JsonSpellRepository
 import com.cyrillrx.rpg.spell.presentation.navigation.SpellRouterImpl
 import com.cyrillrx.rpg.spell.presentation.navigation.handleSpellRoutes
 import com.cyrillrx.rpg.spell.presentation.navigation.registerSpellRoutes
-import com.cyrillrx.rpg.userlist.data.SQLDelightUserListRepository
-import com.cyrillrx.rpg.userlist.presentation.navigation.UserListRouterImpl
-import com.cyrillrx.rpg.userlist.presentation.navigation.handleUserListRoutes
-import com.cyrillrx.rpg.userlist.presentation.navigation.registerUserListRoutes
+import com.cyrillrx.rpg.usercollection.data.SQLDelightUserCollectionRepository
+import com.cyrillrx.rpg.usercollection.presentation.navigation.UserCollectionRouterImpl
+import com.cyrillrx.rpg.usercollection.presentation.navigation.handleUserCollectionRoutes
+import com.cyrillrx.rpg.usercollection.presentation.navigation.registerUserCollectionRoutes
 import kotlinx.serialization.modules.SerializersModule
 import kotlinx.serialization.modules.polymorphic
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -78,7 +78,7 @@ private val navSavedStateConfig = SavedStateConfiguration {
             registerMagicalItemRoutes()
             registerMonsterRoutes()
 
-            registerUserListRoutes()
+            registerUserCollectionRoutes()
 
             registerSettingsRoutes()
         }
@@ -111,7 +111,8 @@ fun App(dbDriverFactory: DatabaseDriverFactory) {
             val backStack = rememberNavBackStack(navSavedStateConfig, MainRoute.Home)
 
             val fileReader = ComposeFileReader()
-            val userListRepository = remember(dbDriverFactory) { SQLDelightUserListRepository(dbDriverFactory) }
+            val userCollectionRepository =
+                remember(dbDriverFactory) { SQLDelightUserCollectionRepository(dbDriverFactory) }
             val characterRepository = remember(dbDriverFactory) { SQLDelightCharacterRepository(dbDriverFactory) }
 
             NavDisplay(
@@ -152,19 +153,19 @@ fun App(dbDriverFactory: DatabaseDriverFactory) {
                     handleSpellRoutes(
                         router = SpellRouterImpl(backStack),
                         spellRepository = JsonSpellRepository(fileReader),
-                        userListRepository = userListRepository,
+                        userCollectionRepository = userCollectionRepository,
                     )
                     handleMagicalItemRoutes(
                         router = MagicalItemRouterImpl(backStack),
                         repository = JsonMagicalItemRepository(fileReader),
-                        userListRepository = userListRepository,
+                        userCollectionRepository = userCollectionRepository,
                     )
                     handleMonsterRoutes(
                         router = MonsterRouterImpl(backStack),
                         repository = JsonMonsterRepository(fileReader),
-                        userListRepository = userListRepository,
+                        userCollectionRepository = userCollectionRepository,
                     )
-                    handleUserListRoutes(UserListRouterImpl(backStack), userListRepository)
+                    handleUserCollectionRoutes(UserCollectionRouterImpl(backStack), userCollectionRepository)
                     handleSettingsRoutes(backStack, prefsRepository)
                 },
             )

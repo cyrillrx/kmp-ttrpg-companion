@@ -1,12 +1,12 @@
-package com.cyrillrx.rpg.userlist.presentation.viewmodel
+package com.cyrillrx.rpg.usercollection.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.core.domain.EntityRepository
 import com.cyrillrx.rpg.core.presentation.commitAllPending
-import com.cyrillrx.rpg.userlist.domain.UserList
-import com.cyrillrx.rpg.userlist.domain.UserListRepository
-import com.cyrillrx.rpg.userlist.presentation.ListDetailState
+import com.cyrillrx.rpg.usercollection.domain.UserCollection
+import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
+import com.cyrillrx.rpg.usercollection.presentation.CollectionDetailState
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
@@ -21,15 +21,15 @@ import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_while_loading_user_list
 import kotlin.coroutines.cancellation.CancellationException
 
-class ListDetailViewModel<T>(
+class CollectionDetailViewModel<T>(
     private val listId: String,
-    private val userListRepository: UserListRepository,
+    private val userCollectionRepository: UserCollectionRepository,
     private val repository: EntityRepository<T>,
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
 ) : ViewModel() {
 
-    val state: StateFlow<ListDetailState<T>>
-        field = MutableStateFlow(ListDetailState())
+    val state: StateFlow<CollectionDetailState<T>>
+        field = MutableStateFlow(CollectionDetailState())
 
     val events: SharedFlow<Event<T>>
         field = MutableSharedFlow<Event<T>>()
@@ -41,7 +41,7 @@ class ListDetailViewModel<T>(
     }
 
     private val pendingRemovals: MutableList<PendingRemoval<T>> = mutableListOf()
-    private var currentList: UserList? = null
+    private var currentList: UserCollection? = null
     private var activeJob: Job? = null
 
     init {
@@ -54,7 +54,7 @@ class ListDetailViewModel<T>(
         viewModelScope.launch {
             val updatedList = list.copy(name = newName)
             try {
-                userListRepository.save(updatedList)
+                userCollectionRepository.save(updatedList)
                 currentList = updatedList
                 state.update { it.copy(listName = newName) }
             } catch (e: Exception) {
@@ -64,7 +64,7 @@ class ListDetailViewModel<T>(
     }
 
     fun removeItemOptimistically(itemId: String, item: T): PendingRemoval<T>? {
-        val currentState = state.value.body as? ListDetailState.Body.WithData ?: return null
+        val currentState = state.value.body as? CollectionDetailState.Body.WithData ?: return null
 
         val index = currentState.items.indexOf(item)
         if (index == -1) return null
@@ -73,9 +73,9 @@ class ListDetailViewModel<T>(
         pendingRemovals.add(pending)
         val updatedItems = currentState.items - item
         val newBody = if (updatedItems.isEmpty()) {
-            ListDetailState.Body.EmptyList
+            CollectionDetailState.Body.EmptyList
         } else {
-            ListDetailState.Body.WithData(updatedItems)
+            CollectionDetailState.Body.WithData(updatedItems)
         }
         state.update { it.copy(body = newBody) }
         return pending
@@ -85,20 +85,20 @@ class ListDetailViewModel<T>(
         if (!pendingRemovals.remove(pending)) return
 
         val currentItems = when (val body = state.value.body) {
-            is ListDetailState.Body.WithData -> body.items
-            is ListDetailState.Body.EmptyList -> emptyList()
+            is CollectionDetailState.Body.WithData -> body.items
+            is CollectionDetailState.Body.EmptyList -> emptyList()
             else -> return
         }
         val restoredItems = currentItems.toMutableList().apply { add(pending.index.coerceAtMost(size), pending.item) }
-        state.update { it.copy(body = ListDetailState.Body.WithData(restoredItems)) }
+        state.update { it.copy(body = CollectionDetailState.Body.WithData(restoredItems)) }
     }
 
     fun commitRemoval(pending: PendingRemoval<T>) {
         if (!pendingRemovals.remove(pending)) return
 
         viewModelScope.launch {
-            val result = userListRepository.removeFromList(listId, pending.itemId)
-            if (result !is UserListRepository.Result.Success) {
+            val result = userCollectionRepository.removeFromList(listId, pending.itemId)
+            if (result !is UserCollectionRepository.Result.Success) {
                 pendingRemovals.add(pending)
                 undoRemoval(pending)
                 events.emit(Event.RemovalError(pending.item))
@@ -108,12 +108,12 @@ class ListDetailViewModel<T>(
 
     internal fun commitAllPendingRemovals() {
         pendingRemovals.commitAllPending(ioDispatcher) { pending ->
-            userListRepository.removeFromList(listId, pending.itemId)
+            userCollectionRepository.removeFromList(listId, pending.itemId)
         }
     }
 
     fun silentRefresh() {
-        if (state.value.body is ListDetailState.Body.Loading) return
+        if (state.value.body is CollectionDetailState.Body.Loading) return
         activeJob?.cancel()
         activeJob = refreshDetail()
     }
@@ -131,26 +131,28 @@ class ListDetailViewModel<T>(
 
     private fun loadDetail(): Job =
         viewModelScope.launch {
-            state.update { it.copy(body = ListDetailState.Body.Loading) }
+            state.update { it.copy(body = CollectionDetailState.Body.Loading) }
             try {
                 fetchDetail()
             } catch (e: CancellationException) {
                 throw e
             } catch (e: Exception) {
-                state.update { it.copy(body = ListDetailState.Body.Error(Res.string.error_while_loading_user_list)) }
+                state.update {
+                    it.copy(body = CollectionDetailState.Body.Error(Res.string.error_while_loading_user_list))
+                }
             }
         }
 
     private suspend fun fetchDetail() {
-        val list = userListRepository.get(listId) ?: error("Could not find list $listId")
+        val list = userCollectionRepository.get(listId) ?: error("Could not find list $listId")
         currentList = list
         state.update { it.copy(listName = list.name) }
 
         val items = repository.getByIds(list.itemIds)
         val body = if (items.isEmpty()) {
-            ListDetailState.Body.EmptyList
+            CollectionDetailState.Body.EmptyList
         } else {
-            ListDetailState.Body.WithData(items)
+            CollectionDetailState.Body.WithData(items)
         }
         state.update { it.copy(body = body) }
     }

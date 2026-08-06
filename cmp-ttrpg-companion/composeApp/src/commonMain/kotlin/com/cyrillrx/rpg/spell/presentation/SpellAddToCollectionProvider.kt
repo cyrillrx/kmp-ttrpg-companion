@@ -18,22 +18,22 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.domain.SpellRepository
-import com.cyrillrx.rpg.userlist.domain.UserList
-import com.cyrillrx.rpg.userlist.domain.UserListRepository
-import com.cyrillrx.rpg.userlist.presentation.AddToListProvider
-import com.cyrillrx.rpg.userlist.presentation.viewmodel.AddToListViewModelFactory
+import com.cyrillrx.rpg.usercollection.domain.UserCollection
+import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
+import com.cyrillrx.rpg.usercollection.presentation.AddToCollectionProvider
+import com.cyrillrx.rpg.usercollection.presentation.viewmodel.AddToCollectionViewModelFactory
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_while_loading_spells
 
-class SpellAddToListProvider(
+class SpellAddToCollectionProvider(
     spellRepository: SpellRepository,
-    userListRepository: UserListRepository,
-) : AddToListProvider<Spell> {
-    override val listType: UserList.Type = UserList.Type.SPELL
+    userCollectionRepository: UserCollectionRepository,
+) : AddToCollectionProvider<Spell> {
+    override val listType: UserCollection.Type = UserCollection.Type.SPELL
 
-    override val viewModelFactory = AddToListViewModelFactory(
+    override val viewModelFactory = AddToCollectionViewModelFactory(
         listType = listType,
-        userListRepository = userListRepository,
+        userCollectionRepository = userCollectionRepository,
         entityRepository = spellRepository,
         errorMessage = Res.string.error_while_loading_spells,
     )

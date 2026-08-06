@@ -18,11 +18,11 @@ import com.cyrillrx.rpg.core.presentation.state.DetailState
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.spell.domain.Spell
-import com.cyrillrx.rpg.spell.presentation.SpellAddToListProvider
+import com.cyrillrx.rpg.spell.presentation.SpellAddToCollectionProvider
 import com.cyrillrx.rpg.spell.presentation.navigation.SpellRouter
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellDetailViewModel
-import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
-import com.cyrillrx.rpg.userlist.presentation.AddToListProvider
+import com.cyrillrx.rpg.usercollection.data.SampleUserCollectionRepository
+import com.cyrillrx.rpg.usercollection.presentation.AddToCollectionProvider
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
@@ -33,7 +33,7 @@ import rpg_companion.composeapp.generated.resources.error_spell_not_found
 fun SpellDetailScreen(
     viewModel: SpellDetailViewModel,
     router: SpellRouter,
-    bottomSheetProvider: AddToListProvider<Spell>,
+    bottomSheetProvider: AddToCollectionProvider<Spell>,
 ) {
     val state by viewModel.state.collectAsState()
     when (val s = state) {
@@ -42,7 +42,7 @@ fun SpellDetailScreen(
         is DetailState.Found -> SpellDetailContent(
             spell = s.item,
             onNavigateUpClicked = router::navigateUp,
-            addToListProvider = bottomSheetProvider,
+            addToCollectionProvider = bottomSheetProvider,
         )
     }
 }
@@ -51,15 +51,15 @@ fun SpellDetailScreen(
 private fun SpellDetailContent(
     spell: Spell,
     onNavigateUpClicked: () -> Unit,
-    addToListProvider: AddToListProvider<Spell>,
+    addToCollectionProvider: AddToCollectionProvider<Spell>,
 ) {
-    var showAddToListBottomSheet by remember { mutableStateOf(false) }
+    var showAddToCollectionBottomSheet by remember { mutableStateOf(false) }
 
     FadingTitleScaffold(
         title = spell.resolveTranslation(currentLocale()).name,
         onNavigateUpClicked = onNavigateUpClicked,
         actions = {
-            IconButton(onClick = { showAddToListBottomSheet = true }) {
+            IconButton(onClick = { showAddToCollectionBottomSheet = true }) {
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.PlaylistAdd,
                     contentDescription = stringResource(Res.string.btn_add_to_list),
@@ -74,10 +74,10 @@ private fun SpellDetailContent(
         )
     }
 
-    if (showAddToListBottomSheet) {
-        addToListProvider.BottomSheet(
+    if (showAddToCollectionBottomSheet) {
+        addToCollectionProvider.BottomSheet(
             entityId = spell.id,
-            onDismiss = { showAddToListBottomSheet = false },
+            onDismiss = { showAddToCollectionBottomSheet = false },
         )
     }
 }
@@ -98,10 +98,10 @@ fun PreviewSpellDetailScreenDark() {
 private fun PreviewSpellDetailScreen(darkTheme: Boolean) {
     val spell = SampleSpellRepository.fireball()
     val spellRepository = SampleSpellRepository()
-    val userListRepository = SampleUserListRepository()
-    val bottomSheetProvider = SpellAddToListProvider(spellRepository, userListRepository)
+    val userCollectionRepository = SampleUserCollectionRepository()
+    val bottomSheetProvider = SpellAddToCollectionProvider(spellRepository, userCollectionRepository)
 
     AppThemePreview(darkTheme = darkTheme) {
-        SpellDetailContent(spell, onNavigateUpClicked = {}, addToListProvider = bottomSheetProvider)
+        SpellDetailContent(spell, onNavigateUpClicked = {}, addToCollectionProvider = bottomSheetProvider)
     }
 }

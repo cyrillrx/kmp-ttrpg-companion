@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.userlist.presentation.component
+package com.cyrillrx.rpg.usercollection.presentation.component
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -9,14 +9,14 @@ import androidx.compose.ui.Modifier
 import com.cyrillrx.rpg.core.presentation.component.AppCard
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
-import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
-import com.cyrillrx.rpg.userlist.domain.UserList
+import com.cyrillrx.rpg.usercollection.data.SampleUserCollectionRepository
+import com.cyrillrx.rpg.usercollection.domain.UserCollection
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import kotlin.time.Instant
 
 @Composable
-fun UserListItem(
-    list: UserList,
+fun UserCollectionItem(
+    list: UserCollection,
     updatedAt: Instant,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
@@ -37,21 +37,21 @@ fun UserListItem(
 
 @Preview
 @Composable
-private fun PreviewUserListItemLight() {
-    UserListItemPreview(false)
+private fun PreviewUserCollectionItemLight() {
+    UserCollectionItemPreview(false)
 }
 
 @Preview
 @Composable
-private fun PreviewUserListItemDark() {
-    UserListItemPreview(true)
+private fun PreviewUserCollectionItemDark() {
+    UserCollectionItemPreview(true)
 }
 
 @Composable
-private fun UserListItemPreview(darkTheme: Boolean) {
+private fun UserCollectionItemPreview(darkTheme: Boolean) {
     AppThemePreview(darkTheme = darkTheme) {
-        val sample = SampleUserListRepository.getFirst()
-        UserListItem(
+        val sample = SampleUserCollectionRepository.getFirst()
+        UserCollectionItem(
             list = sample.value,
             updatedAt = sample.updatedAt,
             onClick = {},

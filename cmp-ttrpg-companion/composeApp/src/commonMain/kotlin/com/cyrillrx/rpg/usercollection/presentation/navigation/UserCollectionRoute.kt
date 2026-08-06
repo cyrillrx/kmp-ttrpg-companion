@@ -1,13 +1,13 @@
-package com.cyrillrx.rpg.userlist.presentation.navigation
+package com.cyrillrx.rpg.usercollection.presentation.navigation
 
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation3.runtime.EntryProviderScope
 import androidx.navigation3.runtime.NavKey
-import com.cyrillrx.rpg.userlist.domain.UserList
-import com.cyrillrx.rpg.userlist.domain.UserListRepository
-import com.cyrillrx.rpg.userlist.presentation.component.UserListsScreen
-import com.cyrillrx.rpg.userlist.presentation.viewmodel.UserListsViewModel
-import com.cyrillrx.rpg.userlist.presentation.viewmodel.UserListsViewModelFactory
+import com.cyrillrx.rpg.usercollection.domain.UserCollection
+import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
+import com.cyrillrx.rpg.usercollection.presentation.component.UserCollectionsScreen
+import com.cyrillrx.rpg.usercollection.presentation.viewmodel.UserCollectionsViewModel
+import com.cyrillrx.rpg.usercollection.presentation.viewmodel.UserCollectionsViewModelFactory
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.modules.PolymorphicModuleBuilder
 import org.jetbrains.compose.resources.stringResource
@@ -16,7 +16,7 @@ import rpg_companion.composeapp.generated.resources.title_my_bestiary_lists
 import rpg_companion.composeapp.generated.resources.title_my_item_lists
 import rpg_companion.composeapp.generated.resources.title_my_spell_lists
 
-interface UserListRoute {
+interface UserCollectionRoute {
     @Serializable
     data object Spell : NavKey
 
@@ -27,46 +27,46 @@ interface UserListRoute {
     data object Creature : NavKey
 }
 
-fun PolymorphicModuleBuilder<NavKey>.registerUserListRoutes() {
-    subclass(UserListRoute.Spell::class, UserListRoute.Spell.serializer())
-    subclass(UserListRoute.MagicalItem::class, UserListRoute.MagicalItem.serializer())
-    subclass(UserListRoute.Creature::class, UserListRoute.Creature.serializer())
+fun PolymorphicModuleBuilder<NavKey>.registerUserCollectionRoutes() {
+    subclass(UserCollectionRoute.Spell::class, UserCollectionRoute.Spell.serializer())
+    subclass(UserCollectionRoute.MagicalItem::class, UserCollectionRoute.MagicalItem.serializer())
+    subclass(UserCollectionRoute.Creature::class, UserCollectionRoute.Creature.serializer())
 }
 
-fun EntryProviderScope<NavKey>.handleUserListRoutes(
-    router: UserListRouter,
-    userListRepository: UserListRepository,
+fun EntryProviderScope<NavKey>.handleUserCollectionRoutes(
+    router: UserCollectionRouter,
+    userCollectionRepository: UserCollectionRepository,
 ) {
-    entry<UserListRoute.Spell> {
-        val listType = UserList.Type.SPELL
-        val viewModelFactory = UserListsViewModelFactory(listType, userListRepository)
-        val viewModel = viewModel<UserListsViewModel>(
+    entry<UserCollectionRoute.Spell> {
+        val listType = UserCollection.Type.SPELL
+        val viewModelFactory = UserCollectionsViewModelFactory(listType, userCollectionRepository)
+        val viewModel = viewModel<UserCollectionsViewModel>(
             key = listType.name,
             factory = viewModelFactory,
         )
         val title = stringResource(Res.string.title_my_spell_lists)
-        UserListsScreen(viewModel, router, title)
+        UserCollectionsScreen(viewModel, router, title)
     }
 
-    entry<UserListRoute.MagicalItem> {
-        val listType = UserList.Type.MAGICAL_ITEM
-        val viewModelFactory = UserListsViewModelFactory(listType, userListRepository)
-        val viewModel = viewModel<UserListsViewModel>(
+    entry<UserCollectionRoute.MagicalItem> {
+        val listType = UserCollection.Type.MAGICAL_ITEM
+        val viewModelFactory = UserCollectionsViewModelFactory(listType, userCollectionRepository)
+        val viewModel = viewModel<UserCollectionsViewModel>(
             key = listType.name,
             factory = viewModelFactory,
         )
         val title = stringResource(Res.string.title_my_item_lists)
-        UserListsScreen(viewModel, router, title)
+        UserCollectionsScreen(viewModel, router, title)
     }
 
-    entry<UserListRoute.Creature> {
-        val listType = UserList.Type.MONSTER
-        val viewModelFactory = UserListsViewModelFactory(listType, userListRepository)
-        val viewModel = viewModel<UserListsViewModel>(
+    entry<UserCollectionRoute.Creature> {
+        val listType = UserCollection.Type.MONSTER
+        val viewModelFactory = UserCollectionsViewModelFactory(listType, userCollectionRepository)
+        val viewModel = viewModel<UserCollectionsViewModel>(
             key = listType.name,
             factory = viewModelFactory,
         )
         val title = stringResource(Res.string.title_my_bestiary_lists)
-        UserListsScreen(viewModel, router, title)
+        UserCollectionsScreen(viewModel, router, title)
     }
 }

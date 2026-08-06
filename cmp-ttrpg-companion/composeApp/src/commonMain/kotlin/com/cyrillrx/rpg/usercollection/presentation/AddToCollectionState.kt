@@ -1,18 +1,18 @@
-package com.cyrillrx.rpg.userlist.presentation
+package com.cyrillrx.rpg.usercollection.presentation
 
 import com.cyrillrx.rpg.core.domain.Stored
-import com.cyrillrx.rpg.userlist.domain.UserList
+import com.cyrillrx.rpg.usercollection.domain.UserCollection
 import org.jetbrains.compose.resources.StringResource
 
-data class AddToListState<T>(
+data class AddToCollectionState<T>(
     val body: Body<T> = Body.Loading,
 ) {
-    data class SelectableUserList(
-        val stored: Stored<UserList>,
+    data class SelectableUserCollection(
+        val stored: Stored<UserCollection>,
         val alreadyAdded: Boolean,
         val isSelected: Boolean = alreadyAdded,
     ) {
-        val list: UserList = stored.value
+        val list: UserCollection = stored.value
     }
 
     sealed interface Body<out T> {
@@ -20,7 +20,7 @@ data class AddToListState<T>(
         data class Error(val errorMessage: StringResource) : Body<Nothing>
         data class WithData<T>(
             val item: T,
-            val selectableLists: List<SelectableUserList>,
+            val selectableCollections: List<SelectableUserCollection>,
         ) : Body<T>
     }
 }
