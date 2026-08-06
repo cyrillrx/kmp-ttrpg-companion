@@ -84,6 +84,10 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
         )
     }
 
+    fun renameUserCollection(id: String, name: String, updatedAt: Long) {
+        dbQuery.renameUserCollection(name = name, updatedAt = updatedAt, id = id)
+    }
+
     fun deleteUserCollection(id: String) {
         dbQuery.deleteUserCollection(id)
     }

@@ -55,6 +55,30 @@ class SQLDelightUserCollectionRepositoryTest {
     }
 
     @Test
+    fun `rename writes the name without rewriting the items`() = runTest {
+        val clock = MutableClock(Instant.fromEpochMilliseconds(1_000L))
+        val repository = buildRepository(clock)
+        repository.save(spellCollection(itemIds = listOf("Fireball", "Thunderwave")))
+
+        clock.instant = Instant.fromEpochMilliseconds(5_000L)
+        val result = repository.rename("1", "Combat Spells")
+
+        assertEquals(expected = UserCollectionRepository.Result.Success, actual = result)
+        val stored = repository.getAll(UserCollection.Type.SPELL).single()
+        assertEquals(expected = "Combat Spells", actual = stored.value.name)
+        assertEquals(expected = listOf("Fireball", "Thunderwave"), actual = stored.value.itemIds)
+        assertEquals(expected = Instant.fromEpochMilliseconds(5_000L), actual = stored.updatedAt)
+    }
+
+    @Test
+    fun `rename reports a missing collection`() = runTest {
+        assertEquals(
+            expected = UserCollectionRepository.Result.NotFound,
+            actual = buildRepository().rename("missing", "Combat Spells"),
+        )
+    }
+
+    @Test
     fun `save replaces the collection with the same id`() = runTest {
         val repository = buildRepository()
         val collection = spellCollection()
