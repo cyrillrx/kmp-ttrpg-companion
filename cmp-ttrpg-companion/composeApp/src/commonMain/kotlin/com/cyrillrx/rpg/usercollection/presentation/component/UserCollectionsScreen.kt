@@ -50,8 +50,8 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.btn_create_collection
 import rpg_companion.composeapp.generated.resources.no_result_found
-import rpg_companion.composeapp.generated.resources.snackbar_error_deleting_collection
 import rpg_companion.composeapp.generated.resources.snackbar_collection_deleted
+import rpg_companion.composeapp.generated.resources.snackbar_error_deleting_collection
 
 @Composable
 fun UserCollectionsScreen(viewModel: UserCollectionsViewModel, router: UserCollectionRouter, title: String) {

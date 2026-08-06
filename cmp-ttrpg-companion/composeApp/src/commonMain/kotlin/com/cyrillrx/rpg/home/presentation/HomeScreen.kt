@@ -44,12 +44,12 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.app_name
 import rpg_companion.composeapp.generated.resources.btn_bestiary
-import rpg_companion.composeapp.generated.resources.btn_campaign_list
-import rpg_companion.composeapp.generated.resources.btn_magical_items
 import rpg_companion.composeapp.generated.resources.btn_bestiary_collections
+import rpg_companion.composeapp.generated.resources.btn_campaign_list
 import rpg_companion.composeapp.generated.resources.btn_item_collections
-import rpg_companion.composeapp.generated.resources.btn_spell_collections
+import rpg_companion.composeapp.generated.resources.btn_magical_items
 import rpg_companion.composeapp.generated.resources.btn_spell_book
+import rpg_companion.composeapp.generated.resources.btn_spell_collections
 import rpg_companion.composeapp.generated.resources.section_compendium
 import rpg_companion.composeapp.generated.resources.section_my_collections
 import rpg_companion.composeapp.generated.resources.title_settings
