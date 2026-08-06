@@ -94,6 +94,17 @@ sonar {
             "sonar.coverage.jacoco.xmlReportPaths",
             layout.buildDirectory.file("reports/kover/reportJvm.xml").get().asFile.absolutePath,
         )
+        // Same both-sides rule as composeApp: a source Kover never measures still counts as
+        // uncovered debt until Sonar is told to skip it. The SQLDelight types excluded above need
+        // no mirror — they are generated under build/ and never indexed as sources.
+        property(
+            "sonar.coverage.exclusions",
+            listOf(
+                // Only jvmTest feeds coverage, so no test can reach the other source sets.
+                "**/androidMain/**",
+                "**/iosMain/**",
+            ).joinToString(","),
+        )
     }
 }
 

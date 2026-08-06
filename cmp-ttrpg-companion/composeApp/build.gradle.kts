@@ -117,7 +117,10 @@ sonar {
         property(
             "sonar.coverage.exclusions",
             listOf(
-                // Mirrors the Kover excludes below.
+                // Mirrors the Kover excludes below, translated from class names to paths. The
+                // `*Screen`, `*ScreenKt` and `ComposableSingletons*` classes all come out of a
+                // `*Screen.kt` file, so the single path pattern covers the three of them — a class
+                // named `*Screen` in a differently named file would not be excluded here.
                 "**/presentation/component/**",
                 "**/presentation/theme/**",
                 "**/navigation/**",

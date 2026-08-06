@@ -61,7 +61,7 @@ Coverage is produced by `jvmTest` alone and reported to SonarCloud through Kover
 
 Exclusions live on **both** sides. A `kover { }` filter keeps a class out of the report; Sonar still derives executable lines from the sources, so the same target must appear in `sonar.coverage.exclusions` — otherwise the file counts as uncovered debt and sinks the coverage-on-new-code gate. Adding one without the other is the classic way to get a red gate on code nobody intended to measure.
 
-What is excluded, and why: composables, design tokens and route declarations (no UI test feeds Kover, so measuring them would count tests that are never collected), generated code (Compose resource accessors, SQLDelight types), which Sonar does not index either, the `androidMain` and `iosMain` source sets, which `jvmTest` cannot reach at all, and the desktop entry point (`main()` and `application { }`).
+What is excluded, and why: composables, design tokens and route declarations (no UI test feeds Kover, so measuring them would count tests that are never collected), generated code (Compose resource accessors, SQLDelight types), which Sonar does not index either, the `androidMain` and `iosMain` source sets of **both** modules, which `jvmTest` cannot reach at all, and the desktop entry point (`main()` and `application { }`).
 
 The practical rule when writing code: **keep testable logic out of `*.presentation.component.*`**. Kover counts per class, so a pure function sharing a file with a composable is excluded along with it, and its tests stop counting.
 
