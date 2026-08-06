@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.core.presentation.component.dnd
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import com.cyrillrx.rpg.core.presentation.format.SUBTITLE_SEPARATOR
 import com.cyrillrx.rpg.core.presentation.theme.ArmorColor
 import com.cyrillrx.rpg.core.presentation.theme.ObjectColor
 import com.cyrillrx.rpg.core.presentation.theme.WeaponColor

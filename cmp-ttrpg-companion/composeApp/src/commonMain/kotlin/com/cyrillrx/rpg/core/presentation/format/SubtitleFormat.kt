@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.core.presentation.component.dnd
+package com.cyrillrx.rpg.core.presentation.format
 
 const val SUBTITLE_SEPARATOR = " · "
 

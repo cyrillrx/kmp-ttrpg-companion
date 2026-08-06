@@ -1,7 +1,6 @@
-package com.cyrillrx.rpg.core.presentation.component.dnd
+package com.cyrillrx.rpg.core.presentation.format
 
 import androidx.compose.ui.graphics.Color
-import com.cyrillrx.rpg.core.presentation.component.buildSubtitle
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNull

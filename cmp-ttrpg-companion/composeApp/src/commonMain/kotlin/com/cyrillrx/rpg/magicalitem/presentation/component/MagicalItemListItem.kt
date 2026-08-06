@@ -16,9 +16,9 @@ import androidx.compose.ui.text.style.TextOverflow
 import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.AppCard
 import com.cyrillrx.rpg.core.presentation.component.TintedSubtitle
-import com.cyrillrx.rpg.core.presentation.component.dnd.SUBTITLE_SEPARATOR
+import com.cyrillrx.rpg.core.presentation.format.SUBTITLE_SEPARATOR
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
-import com.cyrillrx.rpg.core.presentation.component.dnd.joinNonNull
+import com.cyrillrx.rpg.core.presentation.format.joinNonNull
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
