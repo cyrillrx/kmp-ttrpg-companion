@@ -10,6 +10,7 @@ import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.withContext
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
 import kotlin.test.assertSame
 import kotlin.test.assertTrue
 
@@ -86,6 +87,27 @@ class SharedDatabaseDriverFactoryTest {
         shared.close()
 
         assertEquals(expected = 0, actual = delegate.createCount)
+    }
+
+    @Test
+    fun `close is terminal and the factory hands nothing out afterwards`() {
+        val shared = SharedDatabaseDriverFactory(CountingDriverFactory())
+        shared.createDriver()
+
+        shared.close()
+
+        assertFailsWith<IllegalStateException> { shared.createDriver() }
+        assertFailsWith<IllegalStateException> { shared.createDatabase() }
+    }
+
+    @Test
+    fun `creates the database once and returns the same instance across calls`() {
+        val delegate = CountingDriverFactory()
+
+        val shared = SharedDatabaseDriverFactory(delegate)
+
+        assertSame(shared.createDatabase(), shared.createDatabase())
+        assertEquals(expected = 1, actual = delegate.createCount)
     }
 
     companion object {

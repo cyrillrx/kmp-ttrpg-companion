@@ -8,15 +8,18 @@ fun main() {
     // Built outside the composition: a recomposition would otherwise open a second connection.
     val databaseDriverFactory = SharedDatabaseDriverFactory(DesktopDatabaseDriverFactory())
 
-    application {
-        Window(
-            onCloseRequest = {
-                databaseDriverFactory.close()
-                exitApplication()
-            },
-            title = "TTRPG companion",
-        ) {
-            App(databaseDriverFactory)
+    try {
+        application {
+            Window(
+                onCloseRequest = ::exitApplication,
+                title = "TTRPG companion",
+            ) {
+                App(databaseDriverFactory)
+            }
         }
+    } finally {
+        // After application { } returns, so the composition is disposed and no query is still in
+        // flight when the connection goes away.
+        databaseDriverFactory.close()
     }
 }

@@ -2,7 +2,6 @@ package com.cyrillrx.rpg.core.data.cache
 
 import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.core.data.serialize
-import com.cyrillrx.rpg.cache.AppDatabase
 import com.cyrillrx.rpg.campaign.domain.Campaign
 import com.cyrillrx.rpg.campaign.domain.RuleSet
 import com.cyrillrx.rpg.character.domain.Character
@@ -20,7 +19,7 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
      * dispatcher of the first query, instead of on whichever thread constructs the repository —
      * which, for the repositories built during composition, is the main thread.
      */
-    private val dbQuery by lazy { AppDatabase(databaseDriverFactory.createDriver()).appDatabaseQueries }
+    private val dbQuery by lazy { databaseDriverFactory.createDatabase().appDatabaseQueries }
 
     fun getAllCharacters(): List<Stored<Character>> =
         dbQuery.selectAllCharacters(::mapCharacterStored).executeAsList()
