@@ -4,7 +4,7 @@ import android.app.Application
 import com.cyrillrx.rpg.core.data.cache.AndroidDatabaseDriverFactory
 import com.cyrillrx.rpg.core.data.cache.SharedDatabaseDriverFactory
 
-class App : Application() {
+class TtrpgApp : Application() {
 
     /**
      * Held here rather than in the activity so that an activity recreation reuses the already open

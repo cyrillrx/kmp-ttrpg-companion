@@ -19,7 +19,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
 
-        val databaseDriverFactory = (application as com.cyrillrx.rpg.App).databaseDriverFactory
+        val databaseDriverFactory = (application as TtrpgApp).databaseDriverFactory
         setContent {
             // Expose Compose testTags as resource ids so UiAutomator (macrobenchmarks) can target
             // tagged nodes such as the compendium list containers.
