@@ -89,7 +89,7 @@ kover {
 
 sonar {
     properties {
-        // Absolute: a relative path would be resolved against this module's directory.
+        // Absolute: the report is then found whatever base directory Sonar resolves against.
         property(
             "sonar.coverage.jacoco.xmlReportPaths",
             layout.buildDirectory.file("reports/kover/reportJvm.xml").get().asFile.absolutePath,
