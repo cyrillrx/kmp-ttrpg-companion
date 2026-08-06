@@ -16,7 +16,7 @@ Refer to [PRD-001 — Reference Data](prd-001-reference-data.md) for the shared 
 |-------|-------------------------------------------------|------------------------------------------------------------|
 | User  | Browse and search the full spell list           | I can quickly look up a spell during a session             |
 | User  | Filter spells by level, school, and class       | I can narrow down relevant options                         |
-| User  | Add a spell to a personal named list (grimoire) | I can organize spells for a specific character or campaign |
+| User  | Add a spell to a personal named collection      | I can organize spells for a specific character or campaign |
 | User  | Create a custom spell                           | I can use homebrew content                                 |
 | User  | Export a spell / import a shared spell          | I can exchange homebrew content with others                |
 
@@ -29,9 +29,9 @@ Refer to [PRD-001 — Reference Data](prd-001-reference-data.md) for the shared 
 - [x] Filter by level, school of magic, and casting class.
 - [x] View spell detail: name, level, school, casting time, range, components, duration, description.
 
-### Phase 2 — Local Lists
+### Phase 2 — Local Collections
 
-- [x] Create, edit, and delete personal named spell lists (grimoires) stored locally.
+- [x] Create, edit, and delete personal named collections stored locally.
 
 ### Phase 3 — Online Public Data
 
@@ -39,6 +39,6 @@ Refer to [PRD-001 — Reference Data](prd-001-reference-data.md) for the shared 
 
 ### Phase 4 — Advanced
 
-- [ ] Sync personal grimoires across devices.
+- [ ] Sync personal collections across devices.
 - [ ] Create, edit, and delete custom spells.
 - [ ] Export a spell as a shareable format; import a spell shared by another user.

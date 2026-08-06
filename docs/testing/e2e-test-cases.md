@@ -3,14 +3,14 @@
 Functional test scenarios per feature, independent of tooling.
 Automated flows are implemented with Maestro in `cmp-ttrpg-companion/.maestro/flows/`.
 
-## User Lists
+## Collections
 
-| ID    | Scenario                                     | Success criterion                                 | Automated                                          |
-|-------|----------------------------------------------|---------------------------------------------------|----------------------------------------------------|
-| UL-01 | Create a spell list                          | The list appears in the Spellbooks screen         | ✅ `UL-01_create-spell-list.yaml`                 |
-| UL-02 | Rename a list from its detail screen         | The updated name is shown in the top bar          | ✅ `UL-02_rename-spell-list.yaml`                 |
-| UL-03 | Swipe to delete a list, then undo            | The list is restored after tapping Undo           | ✅ `UL-03_swipe-to-delete-with-undo.yaml`         |
-| UL-04 | Add a spell to a list, navigate back, verify | The spell appears in the list detail              | ✅ `UL-04_add-spell-to-list-and-verify.yaml`      |
+| ID    | Scenario                                           | Success criterion                             | Automated                                           |
+|-------|----------------------------------------------------|-----------------------------------------------|-----------------------------------------------------|
+| UL-01 | Create a spell collection                          | The collection appears in the Spells screen   | ✅ `UL-01_create-spell-collection.yaml`             |
+| UL-02 | Rename a collection from its detail screen         | The updated name is shown in the top bar      | ✅ `UL-02_rename-spell-collection.yaml`             |
+| UL-03 | Swipe to delete a collection, then undo            | The collection is restored after tapping Undo | ✅ `UL-03_swipe-to-delete-with-undo.yaml`           |
+| UL-04 | Add a spell to a collection, navigate back, verify | The spell appears in the collection detail    | ✅ `UL-04_add-spell-to-collection-and-verify.yaml`  |
 
 ## Spellbook Compendium
 
