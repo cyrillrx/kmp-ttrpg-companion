@@ -93,16 +93,6 @@ class SharedDatabaseDriverFactoryTest {
     }
 }
 
-private class CountingDriverFactory : DatabaseDriverFactory {
-    var createCount = 0
-        private set
-
-    override fun createDriver(): SqlDriver {
-        createCount++
-        return TestDatabaseDriverFactory().createDriver()
-    }
-}
-
 private class CloseTrackingDriver(private val delegate: SqlDriver) : SqlDriver by delegate {
     var closed = false
         private set
