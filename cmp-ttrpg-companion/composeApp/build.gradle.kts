@@ -129,6 +129,8 @@ kover {
                     "*.ComposableSingletons*",
                     "*Screen",
                     "*ScreenKt",
+                    // Navigation root, plus locale constants and an expect declaration.
+                    "*.app.*",
                     // Generated: Compose resources accessors.
                     "*.generated.resources.*",
                 )
