@@ -103,6 +103,26 @@ class AppDatabaseMigrationTest {
         assertTrue(columnsOf(driver, "UserList").isEmpty(), "UserList should have been renamed, not copied")
     }
 
+    @Test
+    fun `an empty database is detected as version zero`() {
+        assertEquals(0L, JdbcSqliteDriver(JdbcSqliteDriver.IN_MEMORY).schemaVersion())
+    }
+
+    @Test
+    fun `a stamped database reports the version it was stamped with`() {
+        val driver = JdbcSqliteDriver(JdbcSqliteDriver.IN_MEMORY).also { AppDatabase.Schema.create(it) }
+        driver.execute(null, "PRAGMA user_version = ${AppDatabase.Schema.version}", 0)
+
+        assertEquals(AppDatabase.Schema.version, driver.schemaVersion())
+    }
+
+    @Test
+    fun `unstamped databases are detected from their schema instead of being taken for empty`() {
+        assertEquals(1L, v1Database().schemaVersion())
+        assertEquals(2L, v2Database().schemaVersion())
+        assertEquals(3L, v3Database().schemaVersion())
+    }
+
     /** Database shaped as the schema released in v1, seeded with one preferences row. */
     private fun v1Database(): SqlDriver {
         val driver = JdbcSqliteDriver(JdbcSqliteDriver.IN_MEMORY)
