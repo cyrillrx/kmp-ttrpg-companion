@@ -46,7 +46,9 @@ class AppDatabaseMigrationTest {
         AppDatabase.Schema.migrate(driver, oldVersion = 2L, newVersion = AppDatabase.Schema.version)
 
         val lists = AppDatabase(driver).appDatabaseQueries
-            .selectAllUserListsByType("SPELL") { _, name, _, itemIds, updatedAt -> Triple(name, itemIds, updatedAt) }
+            .selectAllUserCollectionsByType("SPELL") { _, name, _, itemIds, updatedAt ->
+                Triple(name, itemIds, updatedAt)
+            }
             .executeAsList()
 
         assertEquals(1, lists.size)
@@ -107,7 +109,7 @@ class AppDatabaseMigrationTest {
     ).value
 
     private companion object {
-        val MIGRATED_TABLES = listOf("UserPreferencesEntity", "Campaign", "Character", "UserList")
+        val MIGRATED_TABLES = listOf("UserPreferencesEntity", "Campaign", "Character", "UserCollection")
 
         val V1_USER_PREFERENCES =
             """

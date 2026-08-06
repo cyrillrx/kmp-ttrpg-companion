@@ -69,13 +69,13 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
         Campaign(id = id, name = name, ruleSet = RuleSet.fromInt(ruleSet.toInt()))
 
     fun getAllUserLists(type: UserList.Type): List<Stored<UserList>> =
-        dbQuery.selectAllUserListsByType(type.name, ::mapUserListStored).executeAsList()
+        dbQuery.selectAllUserCollectionsByType(type.name, ::mapUserListStored).executeAsList()
 
     fun getUserList(id: String): UserList? =
-        dbQuery.selectUserListById(id, ::mapUserListSelecting).executeAsOneOrNull()
+        dbQuery.selectUserCollectionById(id, ::mapUserListSelecting).executeAsOneOrNull()
 
     fun saveUserList(list: UserList, updatedAt: Long) {
-        dbQuery.saveUserList(
+        dbQuery.saveUserCollection(
             id = list.id,
             name = list.name,
             type = list.type.name,
@@ -85,7 +85,7 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
     }
 
     fun deleteUserList(id: String) {
-        dbQuery.deleteUserList(id)
+        dbQuery.deleteUserCollection(id)
     }
 
     fun initUserPreferences() {
