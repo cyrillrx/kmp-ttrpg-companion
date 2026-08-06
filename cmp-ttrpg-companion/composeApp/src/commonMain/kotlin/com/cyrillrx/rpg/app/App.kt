@@ -117,6 +117,16 @@ fun App(dbDriverFactory: SharedDatabaseDriverFactory) {
             val fileReader = remember { ComposeFileReader() }
             val userListRepository = remember(dbDriverFactory) { SQLDelightUserListRepository(dbDriverFactory) }
             val characterRepository = remember(dbDriverFactory) { SQLDelightCharacterRepository(dbDriverFactory) }
+            val campaignRepository = remember(dbDriverFactory) { SQLDelightCampaignRepository(dbDriverFactory) }
+            val pcPresetRepository = remember(fileReader) {
+                JsonCharacterPresetRepository(fileReader, "files/pc-presets.json")
+            }
+            val npcPresetRepository = remember(fileReader) {
+                JsonCharacterPresetRepository(fileReader, "files/npc-presets.json")
+            }
+            val spellRepository = remember(fileReader) { JsonSpellRepository(fileReader) }
+            val magicalItemRepository = remember(fileReader) { JsonMagicalItemRepository(fileReader) }
+            val monsterRepository = remember(fileReader) { JsonMonsterRepository(fileReader) }
 
             NavDisplay(
                 backStack = backStack,
@@ -143,33 +153,27 @@ fun App(dbDriverFactory: SharedDatabaseDriverFactory) {
 
                     handleCampaignRoutes(
                         backStack = backStack,
-                        repository = remember(dbDriverFactory) {
-                            SQLDelightCampaignRepository(dbDriverFactory)
-                        },
+                        repository = campaignRepository,
                     )
                     handleCharacterRoutes(
                         backStack = backStack,
                         characterRepository = characterRepository,
-                        pcPresetRepository = remember(fileReader) {
-                            JsonCharacterPresetRepository(fileReader, "files/pc-presets.json")
-                        },
-                        npcPresetRepository = remember(fileReader) {
-                            JsonCharacterPresetRepository(fileReader, "files/npc-presets.json")
-                        },
+                        pcPresetRepository = pcPresetRepository,
+                        npcPresetRepository = npcPresetRepository,
                     )
                     handleSpellRoutes(
                         router = SpellRouterImpl(backStack),
-                        spellRepository = remember(fileReader) { JsonSpellRepository(fileReader) },
+                        spellRepository = spellRepository,
                         userListRepository = userListRepository,
                     )
                     handleMagicalItemRoutes(
                         router = MagicalItemRouterImpl(backStack),
-                        repository = remember(fileReader) { JsonMagicalItemRepository(fileReader) },
+                        repository = magicalItemRepository,
                         userListRepository = userListRepository,
                     )
                     handleMonsterRoutes(
                         router = MonsterRouterImpl(backStack),
-                        repository = remember(fileReader) { JsonMonsterRepository(fileReader) },
+                        repository = monsterRepository,
                         userListRepository = userListRepository,
                     )
                     handleUserListRoutes(UserListRouterImpl(backStack), userListRepository)
