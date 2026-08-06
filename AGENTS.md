@@ -90,7 +90,7 @@ com.cyrillrx.rpg.{feature}.presentation.component
 com.cyrillrx.rpg.{feature}.presentation.navigation  # {Feature}Route, {Feature}Router
 ```
 
-Active features: `home`, `campaign`, `spell`, `creature`, `magicalitem`, `character`.
+Active features: `home`, `campaign`, `spell`, `creature`, `magicalitem`, `character`, `usercollection`.
 
 ### Manual DI
 
@@ -108,11 +108,11 @@ composable<SpellRoute.List> {
 
 ### Navigation
 
-`App.kt` is the `NavDisplay` root. The back stack is a `NavBackStack<NavKey>` created with `rememberNavBackStack(savedStateConfig, startKey)`. Each feature registers its routes via an `EntryProviderScope<NavKey>` extension function (`handleSpellRoutes`, `handleCampaignRoutes`, etc.) inside the `entryProvider { }` block. Routes are `@Serializable` data objects/classes implementing `NavKey`. A `SavedStateConfiguration` with polymorphic serializers for every route type is required for non-JVM targets (iOS) — each feature exposes a `register*Routes()` extension on `PolymorphicModuleBuilder<NavKey>` for this purpose. Complex objects are passed as serialized strings using `serialize()`/`deserialize()` helpers from the `Serializer.kt` utility in the `shared/core` module.
+`App.kt` is the `NavDisplay` root. The back stack is a `NavBackStack<NavKey>` created with `rememberNavBackStack(savedStateConfig, startKey)`. Each feature registers its routes via an `EntryProviderScope<NavKey>` extension function (`handleSpellRoutes`, `handleCampaignRoutes`, etc.) inside the `entryProvider { }` block. Routes are `@Serializable` data objects/classes implementing `NavKey`. A `SavedStateConfiguration` with polymorphic serializers for every route type is required for non-JVM targets (iOS) — each feature exposes a `register*Routes()` extension on `PolymorphicModuleBuilder<NavKey>` for this purpose, all assembled in `app/NavSavedState.kt`. That module also declares a `defaultDeserializer` falling back to `MainRoute.Home`: routes serialize under their fully-qualified name, so moving one to another package would otherwise make an already-persisted back stack throw on restore instead of resetting. Complex objects are passed as serialized strings using `serialize()`/`deserialize()` helpers from the `Serializer.kt` utility in the `shared/core` module.
 
 ### Router pattern
 
-Each feature defines a `{Feature}Router` interface and a `{Feature}RouterImpl(backStack: NavBackStack<NavKey>)`. The interface is injected into ViewModels; the impl lives in the navigation layer. Navigation calls use `backStack.add(route)` to push and `backStack.removeLastOrNull()` to pop. A `NavBackStack<NavKey>.navigateUp()` extension in `core/navigation/NavExt.kt` wraps `removeLastOrNull()` for convenience. `onNavigateUpClicked` callbacks are wired directly from the route entry (not from the ViewModel). When calling `viewModel()` for shared ViewModel types (`UserListsViewModel`, `ListDetailViewModel<T>`), always pass an explicit `key` to avoid ViewModel sharing across entries.
+Each feature defines a `{Feature}Router` interface and a `{Feature}RouterImpl(backStack: NavBackStack<NavKey>)`. The interface is injected into ViewModels; the impl lives in the navigation layer. Navigation calls use `backStack.add(route)` to push and `backStack.removeLastOrNull()` to pop. A `NavBackStack<NavKey>.navigateUp()` extension in `core/navigation/NavExt.kt` wraps `removeLastOrNull()` for convenience. `onNavigateUpClicked` callbacks are wired directly from the route entry (not from the ViewModel). When calling `viewModel()` for shared ViewModel types (`UserCollectionsViewModel`, `CollectionDetailViewModel<T>`), always pass an explicit `key` to avoid ViewModel sharing across entries.
 
 ### Stateless composables
 
