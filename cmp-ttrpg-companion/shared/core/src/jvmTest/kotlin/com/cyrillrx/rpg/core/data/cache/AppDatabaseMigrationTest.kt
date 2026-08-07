@@ -116,6 +116,11 @@ class AppDatabaseMigrationTest {
         assertEquals(AppDatabase.Schema.version, driver.schemaVersion())
     }
 
+    @Test
+    fun `an unstamped database reports zero whatever it already holds`() {
+        assertEquals(0L, v3Database().schemaVersion())
+    }
+
     /** Database shaped as the schema released in v1, seeded with one preferences row. */
     private fun v1Database(): SqlDriver {
         val driver = JdbcSqliteDriver(JdbcSqliteDriver.IN_MEMORY)
