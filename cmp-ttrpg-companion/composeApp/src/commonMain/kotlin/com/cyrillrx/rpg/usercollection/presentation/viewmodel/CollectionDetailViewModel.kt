@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.core.domain.EntityRepository
 import com.cyrillrx.rpg.core.presentation.commitAllPending
-import com.cyrillrx.rpg.usercollection.domain.UserCollection
 import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
 import com.cyrillrx.rpg.usercollection.presentation.CollectionDetailState
 import kotlinx.coroutines.CoroutineDispatcher
@@ -42,7 +41,6 @@ class CollectionDetailViewModel<T>(
     }
 
     private val pendingRemovals: MutableList<PendingRemoval<T>> = mutableListOf()
-    private var currentCollection: UserCollection? = null
     private var activeJob: Job? = null
 
     init {
@@ -54,7 +52,6 @@ class CollectionDetailViewModel<T>(
             try {
                 val result = userCollectionRepository.rename(collectionId, newName)
                 if (result is UserCollectionRepository.Result.Success) {
-                    currentCollection = currentCollection?.copy(name = newName)
                     state.update { it.copy(collectionName = newName) }
                 } else {
                     events.emit(Event.RenameError)
@@ -155,7 +152,6 @@ class CollectionDetailViewModel<T>(
 
     private suspend fun fetchDetail() {
         val collection = userCollectionRepository.get(collectionId) ?: error("Could not find collection $collectionId")
-        currentCollection = collection
         state.update { it.copy(collectionName = collection.name) }
 
         val items = repository.getByIds(collection.itemIds)
