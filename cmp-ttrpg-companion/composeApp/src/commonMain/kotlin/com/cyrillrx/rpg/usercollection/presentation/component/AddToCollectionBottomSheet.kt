@@ -126,15 +126,14 @@ private fun <T> ColumnScope.AddToCollectionBottomSheetContent(
                         modifier = Modifier.fillMaxWidth(),
                     )
                 }
-            }
-        }
-
-        item {
-            TextButton(
-                onClick = onCreateCollectionClicked,
-                modifier = Modifier.fillMaxWidth(),
-            ) {
-                Text(stringResource(Res.string.btn_create_collection))
+                item {
+                    TextButton(
+                        onClick = onCreateCollectionClicked,
+                        modifier = Modifier.fillMaxWidth(),
+                    ) {
+                        Text(stringResource(Res.string.btn_create_collection))
+                    }
+                }
             }
         }
     }

@@ -295,4 +295,21 @@ class AddToCollectionViewModelTest {
         assertTrue(newEntry.alreadyAdded)
         assertTrue(newEntry.isSelected)
     }
+
+    @Test
+    fun `createAndAdd persists nothing when the collections could not be loaded`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(itemId = "non-existent-id")
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+        assertIs<AddToCollectionState.Body.Error>(viewModel.state.value.body)
+
+        viewModel.createAndAdd(CREATED_COLLECTION_NAME)
+        advanceUntilIdle()
+
+        assertTrue(userCollectionRepository.getAll(UserCollection.Type.SPELL).isEmpty())
+    }
 }
