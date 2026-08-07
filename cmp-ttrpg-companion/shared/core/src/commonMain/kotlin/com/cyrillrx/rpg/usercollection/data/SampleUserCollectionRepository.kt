@@ -6,22 +6,8 @@ import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
 import kotlin.time.Clock
 import kotlin.time.Instant
 
-class SampleUserCollectionRepository(
-    private val clock: Clock = Clock.System,
-) : UserCollectionRepository {
-
-    override suspend fun getAll(type: UserCollection.Type): List<Stored<UserCollection>> =
-        collections.values.filter { it.value.type == type }
-
-    override suspend fun get(id: String): UserCollection? = collections[id]?.value
-
-    override suspend fun save(collection: UserCollection) {
-        collections[collection.id] = Stored(value = collection, updatedAt = clock.now())
-    }
-
-    override suspend fun delete(id: String) {
-        collections.remove(id)
-    }
+class SampleUserCollectionRepository(clock: Clock = Clock.System) :
+    UserCollectionRepository by RamUserCollectionRepository(samples, clock) {
 
     companion object {
         private val samples: List<Stored<UserCollection>> = listOf(
@@ -29,10 +15,6 @@ class SampleUserCollectionRepository(
             supportSpells(),
             gandalfSpells(),
         )
-
-        private val collections = mutableMapOf<String, Stored<UserCollection>>().apply {
-            samples.forEach { put(it.value.id, it) }
-        }
 
         fun getAll(): List<Stored<UserCollection>> = samples
 

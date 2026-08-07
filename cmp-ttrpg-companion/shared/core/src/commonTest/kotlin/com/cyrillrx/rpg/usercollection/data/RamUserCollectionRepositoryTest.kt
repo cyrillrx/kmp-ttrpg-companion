@@ -12,7 +12,7 @@ import kotlin.time.Instant
 
 class RamUserCollectionRepositoryTest {
 
-    private fun buildRepository(clock: Clock = Clock.System) = RamUserCollectionRepository(clock)
+    private fun buildRepository(clock: Clock = Clock.System) = RamUserCollectionRepository(clock = clock)
 
     @Test
     fun `save and getAll return collections filtered by type`() = runTest {

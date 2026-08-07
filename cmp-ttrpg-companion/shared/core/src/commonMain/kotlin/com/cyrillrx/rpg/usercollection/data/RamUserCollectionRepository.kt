@@ -6,9 +6,10 @@ import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
 import kotlin.time.Clock
 
 class RamUserCollectionRepository(
+    initial: List<Stored<UserCollection>> = emptyList(),
     private val clock: Clock = Clock.System,
 ) : UserCollectionRepository {
-    private val collections = mutableMapOf<String, Stored<UserCollection>>()
+    private val collections = initial.associateByTo(mutableMapOf()) { it.value.id }
 
     override suspend fun getAll(type: UserCollection.Type): List<Stored<UserCollection>> =
         collections.values.filter { it.value.type == type }
