@@ -16,18 +16,34 @@ class DesktopDatabaseDriverFactory : DatabaseDriverFactory {
         // keeps its own stamp rather than being pulled back to this build's version.
         if (storedVersion >= targetVersion) return driver
 
-        if (storedVersion == 0L) {
-            AppDatabase.Schema.create(driver)
-        } else {
-            AppDatabase.Schema.migrate(driver, storedVersion, targetVersion)
+        // Schema and version stamp commit together: SQLite rolls DDL back with the transaction,
+        // so an interrupted launch retries from the version it started at rather than resuming
+        // halfway through a migration the database already claims to have applied.
+        driver.transactional {
+            if (storedVersion == 0L) {
+                AppDatabase.Schema.create(driver)
+            } else {
+                AppDatabase.Schema.migrate(driver, storedVersion, targetVersion)
+            }
+            driver.execute(null, "PRAGMA user_version = $targetVersion", 0)
         }
-        driver.execute(null, "PRAGMA user_version = $targetVersion", 0)
 
         return driver
     }
 
     companion object {
         const val URL_PREFIX = "jdbc:sqlite:"
+    }
+}
+
+private fun SqlDriver.transactional(block: () -> Unit) {
+    execute(null, "BEGIN", 0)
+    try {
+        block()
+        execute(null, "COMMIT", 0)
+    } catch (throwable: Throwable) {
+        execute(null, "ROLLBACK", 0)
+        throw throwable
     }
 }
 
