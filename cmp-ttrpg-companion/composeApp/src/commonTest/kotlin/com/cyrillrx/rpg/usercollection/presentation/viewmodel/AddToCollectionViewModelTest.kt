@@ -82,7 +82,7 @@ class AddToCollectionViewModelTest {
     fun `state is Error when repository throws`() = runTest(testDispatcher) {
         val viewModel = AddToCollectionViewModel(
             collectionType = UserCollection.Type.SPELL,
-            userCollectionRepository = FailingAddToCollectionRepository(),
+            userCollectionRepository = FailingUserCollectionRepository(),
             repository = spellRepository,
             errorMessage = Res.string.error_while_loading_spells,
         )
@@ -295,12 +295,4 @@ class AddToCollectionViewModelTest {
         assertTrue(newEntry.alreadyAdded)
         assertTrue(newEntry.isSelected)
     }
-}
-
-private class FailingAddToCollectionRepository : com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository {
-    override suspend fun getAll(type: UserCollection.Type): List<com.cyrillrx.rpg.core.domain.Stored<UserCollection>> =
-        error("Repository failure")
-    override suspend fun get(id: String): UserCollection? = error("Repository failure")
-    override suspend fun save(collection: UserCollection) = Unit
-    override suspend fun delete(id: String) = Unit
 }
