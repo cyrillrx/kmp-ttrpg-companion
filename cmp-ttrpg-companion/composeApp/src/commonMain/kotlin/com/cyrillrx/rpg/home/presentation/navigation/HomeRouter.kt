@@ -20,9 +20,9 @@ interface HomeRouter {
     fun openSpellCompendium()
     fun openMagicalItemCompendium()
     fun openMonsterCompendium()
-    fun openMySpellLists()
-    fun openMyMagicalItemLists()
-    fun openMyMonsterLists()
+    fun openMySpellCollections()
+    fun openMyMagicalItemCollections()
+    fun openMyMonsterCollections()
     fun openSettings()
 }
 
@@ -59,15 +59,15 @@ class HomeRouterImpl(private val backStack: NavBackStack<NavKey>) : HomeRouter {
         backStack.add(MonsterRoute.Compendium)
     }
 
-    override fun openMySpellLists() {
+    override fun openMySpellCollections() {
         backStack.add(UserCollectionRoute.Spell)
     }
 
-    override fun openMyMagicalItemLists() {
+    override fun openMyMagicalItemCollections() {
         backStack.add(UserCollectionRoute.MagicalItem)
     }
 
-    override fun openMyMonsterLists() {
+    override fun openMyMonsterCollections() {
         backStack.add(UserCollectionRoute.Creature)
     }
 
