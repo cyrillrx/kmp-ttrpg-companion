@@ -84,9 +84,9 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
         )
     }
 
-    fun renameUserCollection(id: String, name: String, updatedAt: Long) {
-        dbQuery.renameUserCollection(name = name, updatedAt = updatedAt, id = id)
-    }
+    /** Renames the collection and reports whether it existed. */
+    fun renameUserCollection(id: String, name: String, updatedAt: Long): Boolean =
+        dbQuery.renameUserCollection(name = name, updatedAt = updatedAt, id = id).value > 0L
 
     fun deleteUserCollection(id: String) {
         dbQuery.deleteUserCollection(id)

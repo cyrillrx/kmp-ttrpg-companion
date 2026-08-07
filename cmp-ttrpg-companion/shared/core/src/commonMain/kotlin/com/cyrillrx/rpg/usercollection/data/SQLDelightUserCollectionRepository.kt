@@ -30,12 +30,8 @@ class SQLDelightUserCollectionRepository(
 
     override suspend fun rename(id: String, name: String): UserCollectionRepository.Result =
         withContext(ioDispatcher) {
-            if (database.getUserCollection(id) == null) {
-                UserCollectionRepository.Result.NotFound
-            } else {
-                database.renameUserCollection(id, name, updatedAt = clock.now().toEpochMilliseconds())
-                UserCollectionRepository.Result.Success
-            }
+            val renamed = database.renameUserCollection(id, name, updatedAt = clock.now().toEpochMilliseconds())
+            if (renamed) UserCollectionRepository.Result.Success else UserCollectionRepository.Result.NotFound
         }
 
     override suspend fun delete(id: String) {
