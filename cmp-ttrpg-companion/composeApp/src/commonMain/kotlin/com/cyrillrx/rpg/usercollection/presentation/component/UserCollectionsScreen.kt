@@ -52,6 +52,7 @@ import rpg_companion.composeapp.generated.resources.btn_create_collection
 import rpg_companion.composeapp.generated.resources.no_result_found
 import rpg_companion.composeapp.generated.resources.snackbar_collection_deleted
 import rpg_companion.composeapp.generated.resources.snackbar_error_deleting_collection
+import rpg_companion.composeapp.generated.resources.title_spell_collections
 
 @Composable
 fun UserCollectionsScreen(viewModel: UserCollectionsViewModel, router: UserCollectionRouter, title: String) {
@@ -212,7 +213,7 @@ private fun UserCollectionsScreenPreview(darkTheme: Boolean) {
                     collections = SampleUserCollectionRepository.getAll(),
                 ),
             ),
-            title = "Spellbooks",
+            title = stringResource(Res.string.title_spell_collections),
             events = MutableSharedFlow(),
             onNavigateUpClicked = {},
             onAddBtnClicked = {},
