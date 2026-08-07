@@ -1,6 +1,7 @@
 package com.cyrillrx.rpg.usercollection.data
 
 import com.cyrillrx.rpg.core.domain.MutableClock
+import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.usercollection.domain.UserCollection
 import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
@@ -59,6 +60,31 @@ class RamUserCollectionRepositoryTest {
     fun `get returns null for unknown id`() = runTest {
         val repository = buildRepository()
         assertNull(repository.get("missing"))
+    }
+
+    @Test
+    fun `initial collections are keyed by id and keep their timestamp`() = runTest {
+        val collection =
+            UserCollection(id = "seed", name = "Seeded", type = UserCollection.Type.SPELL, itemIds = listOf("Fireball"))
+        val updatedAt = Instant.parse("2024-01-15T10:30:00Z")
+        val repository = RamUserCollectionRepository(listOf(Stored(value = collection, updatedAt = updatedAt)))
+
+        assertEquals(expected = collection, actual = repository.get("seed"))
+
+        val stored = repository.getAll(UserCollection.Type.SPELL)
+        assertEquals(expected = 1, actual = stored.size)
+        assertEquals(expected = updatedAt, actual = stored.first().updatedAt)
+    }
+
+    @Test
+    fun `seeded collections stay per instance`() = runTest {
+        val collection =
+            UserCollection(id = "seed", name = "Seeded", type = UserCollection.Type.SPELL, itemIds = emptyList())
+        val seed = listOf(Stored(value = collection, updatedAt = Instant.parse("2024-01-15T10:30:00Z")))
+
+        RamUserCollectionRepository(seed).delete("seed")
+
+        assertEquals(expected = collection, actual = RamUserCollectionRepository(seed).get("seed"))
     }
 
     @Test
