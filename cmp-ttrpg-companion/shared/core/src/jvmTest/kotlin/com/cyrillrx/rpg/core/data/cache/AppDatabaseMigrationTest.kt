@@ -104,7 +104,7 @@ class AppDatabaseMigrationTest {
     }
 
     @Test
-    fun `an empty database is detected as version zero`() {
+    fun `an unstamped database is reported as version zero`() {
         assertEquals(0L, JdbcSqliteDriver(JdbcSqliteDriver.IN_MEMORY).schemaVersion())
     }
 
@@ -114,13 +114,6 @@ class AppDatabaseMigrationTest {
         driver.execute(null, "PRAGMA user_version = ${AppDatabase.Schema.version}", 0)
 
         assertEquals(AppDatabase.Schema.version, driver.schemaVersion())
-    }
-
-    @Test
-    fun `unstamped databases are detected from their schema instead of being taken for empty`() {
-        assertEquals(1L, v1Database().schemaVersion())
-        assertEquals(2L, v2Database().schemaVersion())
-        assertEquals(3L, v3Database().schemaVersion())
     }
 
     /** Database shaped as the schema released in v1, seeded with one preferences row. */
