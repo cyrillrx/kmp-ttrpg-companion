@@ -34,12 +34,12 @@ import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.spell.domain.Spell
-import com.cyrillrx.rpg.spell.presentation.SpellAddToListProvider
+import com.cyrillrx.rpg.spell.presentation.SpellAddToCollectionProvider
 import com.cyrillrx.rpg.spell.presentation.SpellListState
 import com.cyrillrx.rpg.spell.presentation.navigation.SpellRouter
 import com.cyrillrx.rpg.spell.presentation.viewmodel.SpellListViewModel
-import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
-import com.cyrillrx.rpg.userlist.presentation.AddToListProvider
+import com.cyrillrx.rpg.usercollection.data.SampleUserCollectionRepository
+import com.cyrillrx.rpg.usercollection.presentation.AddToCollectionProvider
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emptyFlow
 import org.jetbrains.compose.resources.stringResource
@@ -51,7 +51,7 @@ import rpg_companion.composeapp.generated.resources.hint_search_spell
 fun SpellListScreen(
     viewModel: SpellListViewModel,
     router: SpellRouter,
-    addToListProvider: AddToListProvider<Spell>,
+    addToCollectionProvider: AddToCollectionProvider<Spell>,
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
@@ -65,7 +65,7 @@ fun SpellListScreen(
         onClassToggled = viewModel::onClassToggled,
         onComponentToggled = viewModel::onComponentToggled,
         onResetFilters = viewModel::onResetFilters,
-        addToListProvider = addToListProvider,
+        addToCollectionProvider = addToCollectionProvider,
         initialScrollPosition = viewModel.savedScrollPosition,
         scrollToTopEvents = viewModel.scrollToTopEvents,
         onScrollPositionChanged = viewModel::saveScrollPosition,
@@ -83,7 +83,7 @@ fun SpellListScreen(
     onClassToggled: (Character.Class) -> Unit,
     onComponentToggled: (Spell.ComponentType) -> Unit,
     onResetFilters: () -> Unit,
-    addToListProvider: AddToListProvider<Spell>,
+    addToCollectionProvider: AddToCollectionProvider<Spell>,
     initialScrollPosition: ScrollPosition = ScrollPosition(),
     scrollToTopEvents: Flow<Unit> = emptyFlow(),
     onScrollPositionChanged: (ScrollPosition) -> Unit = {},
@@ -116,7 +116,7 @@ fun SpellListScreen(
                 is SpellListState.Body.WithData -> SpellList(
                     spells = body.searchResults,
                     onSpellClicked = onSpellClicked,
-                    showAddToList = { spell -> spellToAdd = spell },
+                    showAddToCollection = { spell -> spellToAdd = spell },
                     initialScrollPosition = initialScrollPosition,
                     scrollToTopEvents = scrollToTopEvents,
                     onScrollPositionChanged = onScrollPositionChanged,
@@ -138,7 +138,7 @@ fun SpellListScreen(
     }
 
     spellToAdd?.let { spell ->
-        addToListProvider.BottomSheet(
+        addToCollectionProvider.BottomSheet(
             entityId = spell.id,
             onDismiss = { spellToAdd = null },
         )
@@ -149,7 +149,7 @@ fun SpellListScreen(
 private fun SpellList(
     spells: List<Spell>,
     onSpellClicked: (Spell) -> Unit,
-    showAddToList: (Spell) -> Unit,
+    showAddToCollection: (Spell) -> Unit,
     initialScrollPosition: ScrollPosition,
     scrollToTopEvents: Flow<Unit>,
     onScrollPositionChanged: (ScrollPosition) -> Unit,
@@ -179,7 +179,7 @@ private fun SpellList(
     ) {
         items(spells, key = { it.id }) { spell ->
             SwipeToAdd(
-                onSwiped = { showAddToList(spell) },
+                onSwiped = { showAddToCollection(spell) },
                 modifier = Modifier.fillMaxWidth(),
             ) {
                 SpellListItem(
@@ -206,12 +206,12 @@ fun PreviewSpellListPeekScreenDark() {
 
 @Composable
 private fun SpellListPeekScreenPreview() {
-    val userListRepository = SampleUserListRepository()
+    val userCollectionRepository = SampleUserCollectionRepository()
     val spellRepository = SampleSpellRepository()
     val stateWithSampleData = SpellListState(
         body = SpellListState.Body.WithData(SampleSpellRepository.getAll()),
     )
-    val bottomSheetProvider = SpellAddToListProvider(spellRepository, userListRepository)
+    val bottomSheetProvider = SpellAddToCollectionProvider(spellRepository, userCollectionRepository)
 
     SpellListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, {}, {}, bottomSheetProvider)
 }

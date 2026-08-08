@@ -10,23 +10,18 @@ class DesktopDatabaseDriverFactory : DatabaseDriverFactory {
     override fun createDriver(): SqlDriver {
         val driver: SqlDriver = JdbcSqliteDriver(URL_PREFIX + DATABASE_NAME)
         val targetVersion = AppDatabase.Schema.version
-        val storedVersion = driver.executeQuery(
-            identifier = null,
-            sql = "PRAGMA user_version",
-            mapper = { cursor -> QueryResult.Value(cursor.getLong(0) ?: 0L) },
-            parameters = 0,
-        ).value
+        val storedVersion = driver.schemaVersion()
 
-        when {
-            storedVersion == 0L -> {
-                AppDatabase.Schema.create(driver)
-                driver.execute(null, "PRAGMA user_version = $targetVersion", 0)
-            }
-            storedVersion < targetVersion -> {
-                AppDatabase.Schema.migrate(driver, storedVersion, targetVersion)
-                driver.execute(null, "PRAGMA user_version = $targetVersion", 0)
-            }
+        // A database at or beyond the target needs nothing: one written by a more recent build
+        // keeps its own stamp rather than being pulled back to this build's version.
+        if (storedVersion >= targetVersion) return driver
+
+        if (storedVersion == 0L) {
+            AppDatabase.Schema.create(driver)
+        } else {
+            AppDatabase.Schema.migrate(driver, storedVersion, targetVersion)
         }
+        driver.execute(null, "PRAGMA user_version = $targetVersion", 0)
 
         return driver
     }
@@ -35,3 +30,14 @@ class DesktopDatabaseDriverFactory : DatabaseDriverFactory {
         const val URL_PREFIX = "jdbc:sqlite:"
     }
 }
+
+/** Schema version the database behind this driver was last stamped with, or `0` when it never was. */
+internal fun SqlDriver.schemaVersion(): Long = executeQuery(
+    identifier = null,
+    sql = "PRAGMA user_version",
+    mapper = { cursor ->
+        cursor.next()
+        QueryResult.Value(cursor.getLong(0) ?: 0L)
+    },
+    parameters = 0,
+).value

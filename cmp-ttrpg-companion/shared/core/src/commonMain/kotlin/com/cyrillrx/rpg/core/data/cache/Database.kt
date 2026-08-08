@@ -11,7 +11,7 @@ import com.cyrillrx.rpg.settings.domain.DistanceUnit
 import com.cyrillrx.rpg.settings.domain.Palette
 import com.cyrillrx.rpg.settings.domain.Theme
 import com.cyrillrx.rpg.settings.domain.UserPreferences
-import com.cyrillrx.rpg.userlist.domain.UserList
+import com.cyrillrx.rpg.usercollection.domain.UserCollection
 import kotlin.time.Instant
 
 internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
@@ -68,24 +68,24 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
     private fun mapCampaignSelecting(id: String, name: String, ruleSet: Long): Campaign =
         Campaign(id = id, name = name, ruleSet = RuleSet.fromInt(ruleSet.toInt()))
 
-    fun getAllUserLists(type: UserList.Type): List<Stored<UserList>> =
-        dbQuery.selectAllUserListsByType(type.name, ::mapUserListStored).executeAsList()
+    fun getAllUserCollections(type: UserCollection.Type): List<Stored<UserCollection>> =
+        dbQuery.selectAllUserCollectionsByType(type.name, ::mapUserCollectionStored).executeAsList()
 
-    fun getUserList(id: String): UserList? =
-        dbQuery.selectUserListById(id, ::mapUserListSelecting).executeAsOneOrNull()
+    fun getUserCollection(id: String): UserCollection? =
+        dbQuery.selectUserCollectionById(id, ::mapUserCollectionSelecting).executeAsOneOrNull()
 
-    fun saveUserList(list: UserList, updatedAt: Long) {
-        dbQuery.saveUserList(
-            id = list.id,
-            name = list.name,
-            type = list.type.name,
-            itemIds = list.itemIds.joinToString(LIST_DELIMITER),
+    fun saveUserCollection(collection: UserCollection, updatedAt: Long) {
+        dbQuery.saveUserCollection(
+            id = collection.id,
+            name = collection.name,
+            type = collection.type.name,
+            itemIds = collection.itemIds.joinToString(LIST_DELIMITER),
             updatedAt = updatedAt,
         )
     }
 
-    fun deleteUserList(id: String) {
-        dbQuery.deleteUserList(id)
+    fun deleteUserCollection(id: String) {
+        dbQuery.deleteUserCollection(id)
     }
 
     fun initUserPreferences() {
@@ -117,27 +117,27 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
     }
 
     @Suppress("UNUSED_PARAMETER")
-    private fun mapUserListSelecting(
+    private fun mapUserCollectionSelecting(
         id: String,
         name: String,
         type: String,
         itemIds: String,
         updatedAt: Long,
-    ) = UserList(
+    ) = UserCollection(
         id = id,
         name = name,
-        type = UserList.Type.valueOf(type),
+        type = UserCollection.Type.valueOf(type),
         itemIds = if (itemIds.isEmpty()) emptyList() else itemIds.split(LIST_DELIMITER),
     )
 
-    private fun mapUserListStored(
+    private fun mapUserCollectionStored(
         id: String,
         name: String,
         type: String,
         itemIds: String,
         updatedAt: Long,
     ) = Stored(
-        value = mapUserListSelecting(id, name, type, itemIds, updatedAt),
+        value = mapUserCollectionSelecting(id, name, type, itemIds, updatedAt),
         updatedAt = Instant.fromEpochMilliseconds(updatedAt),
     )
 

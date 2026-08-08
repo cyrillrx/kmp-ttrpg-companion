@@ -7,18 +7,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.presentation.component.SpellListItem
-import com.cyrillrx.rpg.userlist.presentation.ListItemProvider
+import com.cyrillrx.rpg.usercollection.presentation.CollectionItemProvider
 import org.jetbrains.compose.resources.StringResource
 import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.empty_list_browse_spells
+import rpg_companion.composeapp.generated.resources.empty_collection_browse_spells
 
 class SpellItemProvider(
     private val onItemClicked: (Spell) -> Unit,
     override val onEmptyLayoutBtnClicked: () -> Unit = {},
-) : ListItemProvider<Spell> {
+) : CollectionItemProvider<Spell> {
 
     override val emptyLayoutIcon: ImageVector = Icons.AutoMirrored.Outlined.MenuBook
-    override val emptyLayoutBtnText: StringResource = Res.string.empty_list_browse_spells
+    override val emptyLayoutBtnText: StringResource = Res.string.empty_collection_browse_spells
 
     override fun getId(entity: Spell): String = entity.id
 
