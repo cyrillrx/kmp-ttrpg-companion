@@ -7,32 +7,33 @@ import com.cyrillrx.rpg.cache.AppDatabase
 import com.cyrillrx.rpg.core.data.cache.Database.Companion.DATABASE_NAME
 
 class DesktopDatabaseDriverFactory : DatabaseDriverFactory {
-    override fun createDriver(): SqlDriver {
-        val driver: SqlDriver = JdbcSqliteDriver(URL_PREFIX + DATABASE_NAME)
-        val targetVersion = AppDatabase.Schema.version
-        val storedVersion = driver.schemaVersion()
-
-        // A database at or beyond the target needs nothing: one written by a more recent build
-        // keeps its own stamp rather than being pulled back to this build's version.
-        if (storedVersion >= targetVersion) return driver
-
-        // Schema and version stamp commit together: SQLite rolls DDL back with the transaction,
-        // so an interrupted launch retries from the version it started at rather than resuming
-        // halfway through a migration the database already claims to have applied.
-        driver.transactional {
-            if (storedVersion == 0L) {
-                AppDatabase.Schema.create(driver)
-            } else {
-                AppDatabase.Schema.migrate(driver, storedVersion, targetVersion)
-            }
-            driver.execute(null, "PRAGMA user_version = $targetVersion", 0)
-        }
-
-        return driver
-    }
+    override fun createDriver(): SqlDriver =
+        JdbcSqliteDriver(URL_PREFIX + DATABASE_NAME).also { it.reconcileSchema() }
 
     companion object {
         const val URL_PREFIX = "jdbc:sqlite:"
+    }
+}
+
+/** Brings the database behind this driver up to [AppDatabase.Schema]'s version, stamping it as it goes. */
+internal fun SqlDriver.reconcileSchema() {
+    val targetVersion = AppDatabase.Schema.version
+    val storedVersion = schemaVersion()
+
+    // A database at or beyond the target needs nothing: one written by a more recent build
+    // keeps its own stamp rather than being pulled back to this build's version.
+    if (storedVersion >= targetVersion) return
+
+    // Schema and version stamp commit together: SQLite rolls DDL back with the transaction,
+    // so an interrupted launch retries from the version it started at rather than resuming
+    // halfway through a migration the database already claims to have applied.
+    transactional {
+        if (storedVersion == 0L) {
+            AppDatabase.Schema.create(this)
+        } else {
+            AppDatabase.Schema.migrate(this, storedVersion, targetVersion)
+        }
+        execute(null, "PRAGMA user_version = $targetVersion", 0)
     }
 }
 
