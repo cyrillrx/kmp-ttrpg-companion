@@ -111,6 +111,20 @@ sonar {
             "sonar.coverage.jacoco.xmlReportPaths",
             layout.buildDirectory.file("reports/kover/reportJvm.xml").get().asFile.absolutePath,
         )
+        // Sonar indexes these files either way and reads their absence from the report as zero
+        // coverage. See the coverage policy in AGENTS.md.
+        property(
+            "sonar.coverage.exclusions",
+            listOf(
+                "**/presentation/component/**",
+                "**/presentation/theme/**",
+                "**/navigation/**",
+                "**/*Screen.kt",
+                "**/app/**",
+                "**/androidMain/**",
+                "**/iosMain/**",
+            ).joinToString(","),
+        )
     }
 }
 
@@ -121,7 +135,7 @@ kover {
             // composables would only count tests that are never collected.
             excludes {
                 classes(
-                    // TODO: move the pure helpers out of `component` so they get measured again.
+                    // TODO(#179): move the pure helpers out of `component` so they get measured again.
                     "*.presentation.component.*",
                     "*.presentation.theme.*",
                     // Route declarations, mostly kotlinx.serialization generated members.
