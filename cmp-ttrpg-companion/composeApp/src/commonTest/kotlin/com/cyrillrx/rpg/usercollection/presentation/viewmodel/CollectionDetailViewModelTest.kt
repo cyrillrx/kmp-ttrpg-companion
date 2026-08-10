@@ -406,6 +406,36 @@ class CollectionDetailViewModelTest {
     }
 
     @Test
+    fun `commitRemoval restores item and emits error when the repository throws`() = runTest(testDispatcher) {
+        val throwingRepo = ThrowsOnRemoveUserCollectionRepository()
+        val collection =
+            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+        throwingRepo.save(collection)
+
+        val viewModel = buildViewModel(TEST_COLLECTION_ID, throwingRepo)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        val receivedEvents = mutableListOf<CollectionDetailViewModel.Event<Spell>>()
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.events.collect { receivedEvents.add(it) }
+        }
+
+        val pending = requireNotNull(viewModel.removeItemOptimistically(spell.id, spell))
+        viewModel.commitRemoval(pending)
+        advanceUntilIdle()
+
+        val body = assertIs<CollectionDetailState.Body.WithData<Spell>>(viewModel.state.value.body)
+        assertEquals(spell, body.items.first())
+        assertEquals(1, receivedEvents.size)
+        assertIs<CollectionDetailViewModel.Event.RemovalError<Spell>>(receivedEvents.first())
+    }
+
+    @Test
     fun `commitAllPendingRemovals commits pending removals that were never confirmed`() = runTest(testDispatcher) {
         val collection =
             UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, listOf(spell.id))
@@ -435,6 +465,13 @@ private class FailsOnRemoveUserCollectionRepository : UserCollectionRepository {
     override suspend fun delete(id: String) = delegate.delete(id)
     override suspend fun removeFromCollection(collectionId: String, itemId: String): UserCollectionRepository.Result =
         UserCollectionRepository.Result.Error("Simulated failure")
+}
+
+/** Distinct from [FailsOnRemoveUserCollectionRepository]: this one throws rather than reporting a failure. */
+private class ThrowsOnRemoveUserCollectionRepository :
+    UserCollectionRepository by RamUserCollectionRepository() {
+    override suspend fun removeFromCollection(collectionId: String, itemId: String): UserCollectionRepository.Result =
+        error("Simulated crash")
 }
 
 private class FailsOnRenameUserCollectionRepository : UserCollectionRepository {
