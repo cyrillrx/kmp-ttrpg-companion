@@ -37,15 +37,12 @@ internal fun SqlDriver.reconcileSchema() {
     }
 }
 
+// Going through the transacter rather than issuing BEGIN and COMMIT as plain statements: the
+// driver only keeps a connection alive across calls once its own transaction is set, and on the
+// file-backed database of a real launch every statement would otherwise run on a connection of
+// its own, in autocommit, with nothing left to commit at the end.
 private fun SqlDriver.transactional(block: () -> Unit) {
-    execute(null, "BEGIN", 0)
-    try {
-        block()
-        execute(null, "COMMIT", 0)
-    } catch (throwable: Throwable) {
-        execute(null, "ROLLBACK", 0)
-        throw throwable
-    }
+    AppDatabase(this).transaction { block() }
 }
 
 /** Schema version the database behind this driver was last stamped with, or `0` when it never was. */
