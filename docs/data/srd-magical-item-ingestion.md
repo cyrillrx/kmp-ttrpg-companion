@@ -9,8 +9,6 @@ For the source format decision, see [`docs/adr/adr-002-compendium-source-format.
 > **Source files are in `data/compendium/magical-items/*.yaml`.**  
 > The JSON files (`data/compendium/magical-items.json`, `composeResources/files/magical-items.json`) are **generated** — run `scripts/build_compendium.py` after editing. Do not edit the JSON files directly.
 
----
-
 ## General Rules
 
 - All enum values use **lowercase English with underscores** (e.g., `"wondrous_item"`, `"uncommon"`).
@@ -18,8 +16,6 @@ For the source format decision, see [`docs/adr/adr-002-compendium-source-format.
 - The `source` field identifies the origin of the entry — see [known source values](../adr/adr-001-data-model.md#2-source-field).
 - An entity with an empty `translations` map is considered malformed.
 - Descriptions use **GitHub Flavored Markdown (GFM)**.
-
----
 
 ## Magical Item Entry Format
 
@@ -69,8 +65,6 @@ When a description field is empty after parsing the source:
 - [ ] `translations.{locale}.name`
 - [ ] `translations.{locale}.subtype` — locale-specific string or `null`
 - [ ] `translations.{locale}.description` — GFM Markdown
-
----
 
 ## Validation Rules
 

@@ -4,8 +4,6 @@ Game mechanics reference common to the 5e-compatible family (D&D 2014, D&D 2024,
 
 This document contains rules that drive computed values in the app — modifier formulas, proficiency tables, class hit dice. It is distinct from translations ([`docs/data/srd-fr-en.md`](../data/srd-fr-en.md)) and architecture decisions ([`docs/adr/adr-001-data-model.md`](../adr/adr-001-data-model.md)).
 
----
-
 ## Ability Score Modifier
 
 ```
@@ -31,8 +29,6 @@ modifier = floor((score - 10) / 2)
 | 28–29 | +9       |
 | 30    | +10      |
 
----
-
 ## Proficiency Bonus
 
 Applies identically to characters (by level) and creatures (by challenge rating).
@@ -45,8 +41,6 @@ Applies identically to characters (by level) and creatures (by challenge rating)
 | 13–16      | +5                |
 | 17–20      | +6                |
 | 21+        | +7                |
-
----
 
 ## Skill Check Modifier
 
@@ -78,8 +72,6 @@ skillModifier = abilityModifier                          (Proficiency.NONE)
 | Intimidation    | CHA     |
 | Performance     | CHA     |
 | Persuasion      | CHA     |
-
----
 
 ## Hit Die Per Class
 

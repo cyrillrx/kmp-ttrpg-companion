@@ -4,8 +4,6 @@
 **Date**: 2026-05-09  
 **Context**: Phase 5 — Character sheets design, before implementation begins.
 
----
-
 ## Decision
 
 `PlayerCharacter` is renamed to `Character`. There is no separate `Npc` subtype.
@@ -22,16 +20,12 @@ Creature (abstract)
 
 The `Class` enum gains an `UNKNOWN` value to represent characters without a defined class (typical for NPCs).
 
----
-
 ## Context
 
 Before this ADR, the only mutable character entity was `PlayerCharacter`, leaving no model for NPCs. Two design questions had to be resolved:
 
 1. **Should NPC be a separate subtype of `Character`?**
 2. **Where does ownership (GM vs. Player) live?**
-
----
 
 ## Why no `Npc` subtype
 
@@ -43,8 +37,6 @@ NPCs and PCs are structurally identical: same base stats, same fields, same data
 
 Introducing a subtype would create code duplication with no structural difference, and would make NPC→PC conversion unnecessarily complex. A single `Character` class with `Class.UNKNOWN` handles the NPC case without sacrificing type safety.
 
----
-
 ## Why ownership is not on `Character`
 
 Ownership (who can read and edit a character) is a campaign-level concern, not a character-level one. The same character sheet may be:
@@ -55,8 +47,6 @@ Ownership (who can read and edit a character) is a campaign-level concern, not a
 
 These roles will be represented as a join between `User` and `Character` at the campaign layer (see PRD-003). Adding a `role` or `isNpc` flag to `Character` would conflate data with access control.
 
----
-
 ## Consequences
 
 - `PlayerCharacter.kt` → `Character.kt`; all references updated.
@@ -65,8 +55,6 @@ These roles will be represented as a join between `User` and `Character` at the 
 - `Spell.availableClasses: List<Character.Class>` — the reference from the Spell domain to Character is unchanged in intent.
 - `languages` is removed from `Creature`; `Character` owns `languages: List<Language>` typed with the `Language` enum (`com.cyrillrx.rpg.character.domain`). Monster translation languages remain free-form strings in `Translation.languages`.
 - ADR-001 section 8 and 9 updated: references to `PlayerCharacter` replaced with `Character`.
-
----
 
 ## Alternatives considered
 

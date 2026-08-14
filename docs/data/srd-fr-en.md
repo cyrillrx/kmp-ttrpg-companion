@@ -11,8 +11,6 @@ All JSON enum values use the **English key** column in lowercase with underscore
 
 **SRD versions covered**: `srd_5.1` (2014) and `srd_5.2` (2024). Sections marked with a version apply to that version only; unmarked sections apply to both.
 
----
-
 ## Ability Scores
 
 > Applies to: `srd_5.1`, `srd_5.2`
@@ -26,8 +24,6 @@ All JSON enum values use the **English key** column in lowercase with underscore
 | `wis`       | Wisdom       | Sagesse       |
 | `cha`       | Charisma     | Charisme      |
 
----
-
 ## Proficiency Levels
 
 > Applies to: `srd_5.1`, `srd_5.2`
@@ -37,8 +33,6 @@ All JSON enum values use the **English key** column in lowercase with underscore
 | `none`       | —          | —           |
 | `proficient` | Proficient | Maîtrise    |
 | `expert`     | Expertise  | Expertise   |
-
----
 
 ## Spell Schools
 
@@ -54,8 +48,6 @@ All JSON enum values use the **English key** column in lowercase with underscore
 | `illusion`      | Illusion      | Illusion      |
 | `necromancy`    | Necromancy    | Nécromancie   |
 | `transmutation` | Transmutation | Transmutation |
-
----
 
 ## Character Classes
 
@@ -76,8 +68,6 @@ All JSON enum values use the **English key** column in lowercase with underscore
 | `sorcerer`   | Sorcerer   | Ensorceleur           |
 | `warlock`    | Warlock    | Occultiste            |
 | `wizard`     | Wizard     | Magicien              |
-
----
 
 ## Creature Types
 
@@ -100,8 +90,6 @@ All JSON enum values use the **English key** column in lowercase with underscore
 | `plant`       | Plant       | Plante                  |
 | `undead`      | Undead      | Mort-vivant             |
 
----
-
 ## Creature Sizes
 
 > Applies to: `srd_5.1`, `srd_5.2`
@@ -114,8 +102,6 @@ All JSON enum values use the **English key** column in lowercase with underscore
 | `large`      | Large      | L       | Grande       | G       |
 | `huge`       | Huge       | H       | Très grande  | TG      |
 | `gargantuan` | Gargantuan | G       | Gigantesque  | Gig     |
-
----
 
 ## Alignments
 
@@ -134,8 +120,6 @@ All JSON enum values use the **English key** column in lowercase with underscore
 | `chaotic_evil`     | Chaotic Evil      | Chaotique mauvais     |
 | `unaligned`        | Unaligned         | Sans alignement       |
 
----
-
 ## Magical Item Types
 
 > Applies to: `srd_5.1`, `srd_5.2`
@@ -152,8 +136,6 @@ All JSON enum values use the **English key** column in lowercase with underscore
 | `weapon`        | Weapon        | Arme              |
 | `wondrous_item` | Wondrous Item | Objet merveilleux |
 
----
-
 ## Magical Item Rarities
 
 > Applies to: `srd_5.1`, `srd_5.2`
@@ -166,8 +148,6 @@ All JSON enum values use the **English key** column in lowercase with underscore
 | `very_rare`  | Very Rare  | Très rare     |
 | `legendary`  | Legendary  | Légendaire    |
 | `artifact`   | Artifact   | Artéfact      |
-
----
 
 ## Skills
 
@@ -194,8 +174,6 @@ All JSON enum values use the **English key** column in lowercase with underscore
 | `performance`    | Performance     | Représentation  |
 | `persuasion`     | Persuasion      | Persuasion      |
 
----
-
 ## Damage Types
 
 > Applies to: `srd_5.1`, `srd_5.2`
@@ -219,8 +197,6 @@ All JSON enum values use the **English key** column in lowercase with underscore
 | `piercingNonMagical`      | Piercing (non-magical)     | Perforant (non magique)     |
 | `slashingNonMagical`      | Slashing (non-magical)     | Tranchant (non magique)     |
 
----
-
 ## Damage Affinities
 
 > Applies to: `srd_5.1`, `srd_5.2`
@@ -231,8 +207,6 @@ All JSON enum values use the **English key** column in lowercase with underscore
 | `resistant`  | Resistant  | Résistance    |
 | `immune`     | Immune     | Immunité      |
 | `vulnerable` | Vulnerable | Vulnérabilité |
-
----
 
 ## Conditions
 

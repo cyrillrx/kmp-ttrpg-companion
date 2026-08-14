@@ -32,8 +32,6 @@ Generated content is saved as **Notes** (see [PRD-004](prd-004-notes.md)) and ma
 | Food & Drink         | Name, description, optional effect                                                  |
 | Magic Item           | Name, type, appearance, effect/property                                             |
 
----
-
 ## Phase 1 — Curated Gallery (Offline)
 
 Pre-written entries are bundled in the app and browsed like a gallery. No procedural generation — content is hand-crafted and curated.
@@ -54,8 +52,6 @@ Pre-written entries are bundled in the app and browsed like a gallery. No proced
 - [ ] Save any entry as a Note (PRD-004) with one tap.
 - [ ] Edit and delete saved entries.
 - [ ] All content bundled locally — no network required.
-
----
 
 ## Phase 3 — LLM Generation via API (Online)
 
@@ -79,8 +75,6 @@ LLM-based generation using an API. The app exposes campaign context (tone, setti
 - [ ] Save result as a Note (PRD-004).
 - [ ] Gracefully degrade to Phase 1 gallery when offline.
 
----
-
 ## Future Exploration — Local Model on External Client
 
 > ⚠️ Highly uncertain. Requires dedicated feasibility study.
@@ -92,8 +86,6 @@ A local LLM (e.g. Ollama, llama.cpp) runs on a separate device or machine (not t
 - How is authentication and user identity handled between the local client and the server?
 - What guarantees do we have on output format from a local model?
 - What is the latency and UX impact of an async delivery model (note appears after a delay)?
-
----
 
 ## Non-Functional Requirements
 
