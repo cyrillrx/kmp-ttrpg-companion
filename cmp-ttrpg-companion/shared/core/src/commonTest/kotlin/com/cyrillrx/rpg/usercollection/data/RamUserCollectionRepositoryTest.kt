@@ -3,6 +3,7 @@ package com.cyrillrx.rpg.usercollection.data
 import com.cyrillrx.rpg.core.domain.MutableClock
 import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.usercollection.domain.UserCollection
+import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
 import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -125,6 +126,35 @@ class RamUserCollectionRepositoryTest {
 
         val monsterCollections = repository.getAll(UserCollection.Type.MONSTER)
         assertTrue(monsterCollections.isEmpty())
+    }
+
+    @Test
+    fun `rename changes the name and leaves the items alone`() = runTest {
+        val repository = buildRepository()
+        val collection = UserCollection(
+            id = "1",
+            name = "My Spells",
+            type = UserCollection.Type.SPELL,
+            itemIds = listOf("spell1", "spell2"),
+        )
+        repository.save(collection)
+
+        val result = repository.rename("1", "Combat Spells")
+
+        assertEquals(expected = UserCollectionRepository.Result.Success, actual = result)
+        val renamed = repository.get("1")
+        assertEquals(expected = "Combat Spells", actual = renamed?.name)
+        assertEquals(expected = listOf("spell1", "spell2"), actual = renamed?.itemIds)
+    }
+
+    @Test
+    fun `rename reports a missing collection`() = runTest {
+        val repository = buildRepository()
+
+        assertEquals(
+            expected = UserCollectionRepository.Result.NotFound,
+            actual = repository.rename("missing", "Combat Spells"),
+        )
     }
 
     @Test

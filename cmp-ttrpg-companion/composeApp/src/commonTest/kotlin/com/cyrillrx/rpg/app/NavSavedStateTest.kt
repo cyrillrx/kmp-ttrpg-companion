@@ -1,5 +1,6 @@
 package com.cyrillrx.rpg.app
 
+import androidx.navigation3.runtime.NavBackStack
 import androidx.navigation3.runtime.NavKey
 import com.cyrillrx.rpg.spell.presentation.navigation.SpellRoute
 import com.cyrillrx.rpg.usercollection.presentation.navigation.UserCollectionRoute
@@ -33,5 +34,26 @@ class NavSavedStateTest {
 
             assertEquals(expected.descriptor, serializer?.descriptor)
         }
+    }
+
+    @Test
+    fun `a stack restored through the fallback is reset to a single Home`() {
+        // What [Home, UserListRoute.Spell, SpellRoute.UserListDetail] decodes to on the first launch
+        // after the rename.
+        val backStack = NavBackStack<NavKey>(MainRoute.Home, MainRoute.Home, MainRoute.Home)
+
+        backStack.resetIfRestoredThroughFallback()
+
+        assertEquals(listOf(MainRoute.Home), backStack.toList())
+    }
+
+    @Test
+    fun `a stack that decoded cleanly is left alone`() {
+        val entries = listOf<NavKey>(MainRoute.Home, UserCollectionRoute.Spell, SpellRoute.Compendium)
+        val backStack = NavBackStack<NavKey>(*entries.toTypedArray())
+
+        backStack.resetIfRestoredThroughFallback()
+
+        assertEquals(entries, backStack.toList())
     }
 }

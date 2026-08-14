@@ -19,7 +19,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation3.runtime.entryProvider
-import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
 import coil3.ImageLoader
 import coil3.compose.setSingletonImageLoaderFactory
@@ -78,7 +77,7 @@ fun App(dbDriverFactory: DatabaseDriverFactory) {
 
     AppTheme(theme = prefs.theme, palette = prefs.palette) {
         CompositionLocalProvider(LocalDistanceUnit provides prefs.distanceUnit) {
-            val backStack = rememberNavBackStack(navSavedStateConfig, MainRoute.Home)
+            val backStack = rememberAppBackStack()
 
             val fileReader = ComposeFileReader()
             val userCollectionRepository =

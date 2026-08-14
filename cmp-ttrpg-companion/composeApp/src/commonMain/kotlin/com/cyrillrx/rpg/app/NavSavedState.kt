@@ -1,6 +1,10 @@
 package com.cyrillrx.rpg.app
 
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import androidx.navigation3.runtime.NavBackStack
 import androidx.navigation3.runtime.NavKey
+import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.savedstate.serialization.SavedStateConfiguration
 import com.cyrillrx.rpg.campaign.navigation.registerCampaignRoutes
 import com.cyrillrx.rpg.character.presentation.navigation.registerCharacterRoutes
@@ -36,4 +40,32 @@ internal val navSerializersModule = SerializersModule {
 
 internal val navSavedStateConfig = SavedStateConfiguration {
     serializersModule = navSerializersModule
+}
+
+/**
+ * Back stack for [App], restored from saved state and cleared of entries the fallback above produced.
+ */
+@Composable
+internal fun rememberAppBackStack(): NavBackStack<NavKey> {
+    val backStack = rememberNavBackStack(navSavedStateConfig, MainRoute.Home)
+
+    // During composition rather than in an effect: NavDisplay composes the entries in this same
+    // pass, and a repeated key crashes it before any effect would get the chance to run.
+    remember(backStack) { backStack.resetIfRestoredThroughFallback() }
+
+    return backStack
+}
+
+/**
+ * Resets a back stack in which [MainRoute.Home] shows up past the first entry.
+ *
+ * Only the fallback above puts it there, and it fills every slot it answers for with that same key.
+ * Navigation 3 keys the state it saves per entry by the key itself, so leaving the repetitions in
+ * place would crash the next transition rather than reset navigation the way the fallback intends.
+ */
+internal fun MutableList<NavKey>.resetIfRestoredThroughFallback() {
+    if (drop(1).none { it == MainRoute.Home }) return
+
+    clear()
+    add(MainRoute.Home)
 }

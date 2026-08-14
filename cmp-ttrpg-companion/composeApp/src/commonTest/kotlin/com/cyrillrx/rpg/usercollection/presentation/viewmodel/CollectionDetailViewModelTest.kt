@@ -296,6 +296,86 @@ class CollectionDetailViewModelTest {
     }
 
     @Test
+    fun `renameCollection keeps items removed since the collection was loaded`() = runTest(testDispatcher) {
+        val collection = UserCollection(
+            TEST_COLLECTION_ID,
+            COLLECTION_NAME,
+            UserCollection.Type.SPELL,
+            listOf(spell.id, secondSpell.id),
+        )
+        userCollectionRepository.save(collection)
+
+        val viewModel = buildViewModel(TEST_COLLECTION_ID)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        val pending = requireNotNull(viewModel.removeItemOptimistically(spell.id, spell))
+        viewModel.commitRemoval(pending)
+        advanceUntilIdle()
+
+        viewModel.renameCollection(RENAMED_COLLECTION_NAME)
+        advanceUntilIdle()
+
+        val stored = requireNotNull(userCollectionRepository.get(TEST_COLLECTION_ID))
+        assertEquals(expected = RENAMED_COLLECTION_NAME, actual = stored.name)
+        assertEquals(expected = listOf(secondSpell.id), actual = stored.itemIds)
+    }
+
+    @Test
+    fun `renameCollection emits an error when the repository reports a failure`() = runTest(testDispatcher) {
+        val failingRepo = FailsOnRenameUserCollectionRepository()
+        val collection =
+            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+        failingRepo.save(collection)
+
+        val viewModel = buildViewModel(TEST_COLLECTION_ID, failingRepo)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        val receivedEvents = mutableListOf<CollectionDetailViewModel.Event<Spell>>()
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.events.collect { receivedEvents.add(it) }
+        }
+
+        viewModel.renameCollection(RENAMED_COLLECTION_NAME)
+        advanceUntilIdle()
+
+        assertEquals(1, receivedEvents.size)
+        assertIs<CollectionDetailViewModel.Event.RenameError>(receivedEvents.first())
+        assertEquals(expected = COLLECTION_NAME, actual = viewModel.state.value.collectionName)
+    }
+
+    @Test
+    fun `renameCollection emits an error when the repository throws`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(TEST_COLLECTION_ID, FailingUserCollectionRepository())
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        val receivedEvents = mutableListOf<CollectionDetailViewModel.Event<Spell>>()
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.events.collect { receivedEvents.add(it) }
+        }
+
+        viewModel.renameCollection(RENAMED_COLLECTION_NAME)
+        advanceUntilIdle()
+
+        assertEquals(1, receivedEvents.size)
+        assertIs<CollectionDetailViewModel.Event.RenameError>(receivedEvents.first())
+    }
+
+    @Test
     fun `commitRemoval restores item and emits error when repository returns failure`() = runTest(testDispatcher) {
         val failingRepo = FailsOnRemoveUserCollectionRepository()
         val collection =
@@ -303,6 +383,36 @@ class CollectionDetailViewModelTest {
         failingRepo.save(collection)
 
         val viewModel = buildViewModel(TEST_COLLECTION_ID, failingRepo)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        val receivedEvents = mutableListOf<CollectionDetailViewModel.Event<Spell>>()
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.events.collect { receivedEvents.add(it) }
+        }
+
+        val pending = requireNotNull(viewModel.removeItemOptimistically(spell.id, spell))
+        viewModel.commitRemoval(pending)
+        advanceUntilIdle()
+
+        val body = assertIs<CollectionDetailState.Body.WithData<Spell>>(viewModel.state.value.body)
+        assertEquals(spell, body.items.first())
+        assertEquals(1, receivedEvents.size)
+        assertIs<CollectionDetailViewModel.Event.RemovalError<Spell>>(receivedEvents.first())
+    }
+
+    @Test
+    fun `commitRemoval restores item and emits error when the repository throws`() = runTest(testDispatcher) {
+        val throwingRepo = ThrowsOnRemoveUserCollectionRepository()
+        val collection =
+            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+        throwingRepo.save(collection)
+
+        val viewModel = buildViewModel(TEST_COLLECTION_ID, throwingRepo)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -354,5 +464,22 @@ private class FailsOnRemoveUserCollectionRepository : UserCollectionRepository {
     override suspend fun save(collection: UserCollection) = delegate.save(collection)
     override suspend fun delete(id: String) = delegate.delete(id)
     override suspend fun removeFromCollection(collectionId: String, itemId: String): UserCollectionRepository.Result =
+        UserCollectionRepository.Result.Error("Simulated failure")
+}
+
+/** Distinct from [FailsOnRemoveUserCollectionRepository]: this one throws rather than reporting a failure. */
+private class ThrowsOnRemoveUserCollectionRepository :
+    UserCollectionRepository by RamUserCollectionRepository() {
+    override suspend fun removeFromCollection(collectionId: String, itemId: String): UserCollectionRepository.Result =
+        error("Simulated crash")
+}
+
+private class FailsOnRenameUserCollectionRepository : UserCollectionRepository {
+    private val delegate = RamUserCollectionRepository()
+    override suspend fun getAll(type: UserCollection.Type): List<Stored<UserCollection>> = delegate.getAll(type)
+    override suspend fun get(id: String): UserCollection? = delegate.get(id)
+    override suspend fun save(collection: UserCollection) = delegate.save(collection)
+    override suspend fun delete(id: String) = delegate.delete(id)
+    override suspend fun rename(id: String, name: String): UserCollectionRepository.Result =
         UserCollectionRepository.Result.Error("Simulated failure")
 }

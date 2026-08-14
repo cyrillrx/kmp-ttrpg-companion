@@ -73,6 +73,10 @@ class AddToCollectionViewModel<T>(
     @OptIn(ExperimentalUuidApi::class)
     fun createAndAdd(name: String) {
         viewModelScope.launch {
+            // Guarded before writing: the state update below can only append to a loaded list, so
+            // creating from any other body would persist a collection nothing ever surfaces.
+            if (state.value.body !is AddToCollectionState.Body.WithData) return@launch
+
             val newCollection = UserCollection(
                 id = Uuid.random().toString(),
                 name = name,

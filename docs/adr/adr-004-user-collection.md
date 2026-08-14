@@ -43,7 +43,9 @@ Full alignment down to the schema, so nothing internally still says "UserList". 
 
 **Saved navigation state**: the `@Serializable` `UserListRoute` NavKeys use their default (fully-qualified) serial names in the polymorphic back-stack serializer. Renaming the package/class changes those names, so a back stack persisted by an older build will not deserialize after update. We accept that reset rather than pinning legacy `@SerialName` values, to avoid freezing old package names into new code; the collection **data** is preserved by the DB migration either way.
 
-The reset has to be implemented, though: an unknown discriminator makes polymorphic decoding throw, and `rememberNavBackStack` has no fallback, so restoring such a back stack would crash at launch. `navSerializersModule` therefore declares `defaultDeserializer { MainRoute.Home.serializer() }` — every unrecognized entry decodes as Home. A stack of N entries restores as N Home entries: degraded, but navigable, and it covers any future route move rather than just this rename.
+The reset has to be implemented, though: an unknown discriminator makes polymorphic decoding throw, and `rememberNavBackStack` has no fallback, so restoring such a back stack would crash at launch. `navSerializersModule` therefore declares `defaultDeserializer { MainRoute.Home.serializer() }` — every unrecognized entry decodes as Home, which covers any future route move rather than just this rename.
+
+That fallback is not enough on its own: it turns a stack of N entries into N Home entries, and Navigation 3 keys the state it saves per entry key, so the repeated key crashes the next transition. `rememberAppBackStack` therefore collapses such a stack to a single Home entry before `NavDisplay` composes it.
 
 ## Alternatives considered
 

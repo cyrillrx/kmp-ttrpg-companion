@@ -71,6 +71,9 @@ CREATE TABLE IF NOT EXISTS UserCollection (
 saveUserCollection:
 INSERT OR REPLACE INTO UserCollection(id, name, type, itemIds, updatedAt) VALUES(?, ?, ?, ?, ?);
 
+renameUserCollection:
+UPDATE UserCollection SET name = ?, updatedAt = ? WHERE id = ?;
+
 selectAllUserCollectionsByType:
 SELECT * FROM UserCollection WHERE type = ?;
 

@@ -8,6 +8,19 @@ interface UserCollectionRepository {
     suspend fun save(collection: UserCollection)
     suspend fun delete(id: String)
 
+    /**
+     * Renames the collection identified by [id], leaving its items untouched.
+     *
+     * Takes an id rather than a [UserCollection] on purpose: [save] rewrites the whole row, so
+     * renaming from a snapshot held by a caller would resurrect items removed since it was read.
+     */
+    suspend fun rename(id: String, name: String): Result {
+        val collection = get(id) ?: return Result.NotFound
+
+        save(collection.copy(name = name))
+        return Result.Success
+    }
+
     suspend fun addToCollection(collection: UserCollection, itemId: String): Result {
         save(collection.copy(itemIds = collection.itemIds + itemId))
         return Result.Success

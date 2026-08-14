@@ -28,6 +28,12 @@ class SQLDelightUserCollectionRepository(
         withContext(ioDispatcher) { database.saveUserCollection(collection, updatedAt = now) }
     }
 
+    override suspend fun rename(id: String, name: String): UserCollectionRepository.Result =
+        withContext(ioDispatcher) {
+            val renamed = database.renameUserCollection(id, name, updatedAt = clock.now().toEpochMilliseconds())
+            if (renamed) UserCollectionRepository.Result.Success else UserCollectionRepository.Result.NotFound
+        }
+
     override suspend fun delete(id: String) {
         withContext(ioDispatcher) { database.deleteUserCollection(id) }
     }
