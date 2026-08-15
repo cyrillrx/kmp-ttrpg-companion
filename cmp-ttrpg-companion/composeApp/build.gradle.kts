@@ -106,31 +106,21 @@ compose.desktop {
 
 sonar {
     properties {
-        // Absolute: the report is then found whatever base directory Sonar resolves against.
         property(
             "sonar.coverage.jacoco.xmlReportPaths",
             layout.buildDirectory.file("reports/kover/reportJvm.xml").get().asFile.absolutePath,
         )
-        // Sonar derives its own executable lines from the sources, so a file merely missing from
-        // the Kover report counts as uncovered debt. Whatever Kover filters out must be declared
-        // here too, or the new-code gate fails on code that is deliberately not measured.
         property(
             "sonar.coverage.exclusions",
             listOf(
-                // Mirrors the Kover excludes below, translated from class names to paths. The
-                // `*Screen`, `*ScreenKt` and `ComposableSingletons*` classes all come out of a
-                // `*Screen.kt` file, so the single path pattern covers the three of them — a class
-                // named `*Screen` in a differently named file would not be excluded here.
                 "**/presentation/component/**",
                 "**/presentation/theme/**",
                 "**/navigation/**",
                 "**/*Screen.kt",
                 "**/app/**",
                 "**/generated/**",
-                // Only jvmTest feeds coverage, so no test can reach the other source sets.
                 "**/androidMain/**",
                 "**/iosMain/**",
-                // Desktop entry point: no jvmTest can run main() or application { }.
                 "**/jvmMain/kotlin/main.kt",
             ).joinToString(","),
         )
@@ -140,23 +130,16 @@ sonar {
 kover {
     reports {
         filters {
-            // Coverage only comes from jvmTest and no Compose UI test feeds Kover, so measuring
-            // composables would only count tests that are never collected.
             excludes {
                 classes(
-                    // TODO: move the pure helpers out of `component` so they get measured again.
                     "*.presentation.component.*",
                     "*.presentation.theme.*",
-                    // Route declarations, mostly kotlinx.serialization generated members.
                     "*.navigation.*",
                     "*.ComposableSingletons*",
                     "*Screen",
                     "*ScreenKt",
-                    // Navigation root, plus locale constants and an expect declaration.
                     "*.app.*",
-                    // Desktop entry point: no jvmTest can run main() or application { }.
                     "MainKt",
-                    // Generated: Compose resources accessors.
                     "*.generated.resources.*",
                 )
             }

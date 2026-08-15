@@ -52,8 +52,6 @@ class SharedDatabaseDriverFactoryTest {
 
     @Test
     fun `repositories built from the same factory share the driver`() = runTest {
-        // Each in-memory driver owns its own database, so reading back a character written through
-        // another repository can only succeed when both repositories got the very same driver.
         val shared = SharedDatabaseDriverFactory(TestDatabaseDriverFactory())
         val writer = SQLDelightCharacterRepository(shared)
         val reader = SQLDelightCharacterRepository(shared)

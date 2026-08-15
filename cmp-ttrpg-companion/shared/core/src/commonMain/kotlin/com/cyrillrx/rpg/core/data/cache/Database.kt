@@ -14,11 +14,7 @@ import com.cyrillrx.rpg.userlist.domain.UserList
 import kotlin.time.Instant
 
 internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
-    /**
-     * Lazy so that opening the file, reading the schema version and migrating happen on the
-     * dispatcher of the first query, instead of on whichever thread constructs the repository —
-     * which, for the repositories built during composition, is the main thread.
-     */
+    // Lazy: opens the file on the first query's dispatcher, not the (main) construction thread.
     private val dbQuery by lazy { databaseDriverFactory.createDatabase().appDatabaseQueries }
 
     fun getAllCharacters(): List<Stored<Character>> =

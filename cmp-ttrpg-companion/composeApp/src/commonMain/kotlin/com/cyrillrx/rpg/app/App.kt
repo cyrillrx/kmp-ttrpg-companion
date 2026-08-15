@@ -85,10 +85,6 @@ private val navSavedStateConfig = SavedStateConfiguration {
     }
 }
 
-/**
- * @param dbDriverFactory the process-wide factory owned by the platform entry point. Its type
- *   guarantees every repository below shares a single database connection.
- */
 @Composable
 @Preview
 fun App(dbDriverFactory: SharedDatabaseDriverFactory) {
