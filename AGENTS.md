@@ -59,9 +59,11 @@ ktlint is **strict** in `shared/core` (`ignoreFailures=false`) and permissive in
 
 Coverage is produced by `jvmTest` alone and reported to SonarCloud through Kover. Each module declares its own report path and its own exclusions — see the `sonar { }` and `kover { }` blocks in `composeApp/build.gradle.kts` and `shared/core/build.gradle.kts`.
 
-What is excluded, and why: composables, design tokens and route declarations (no UI test feeds Kover, so measuring them would count tests that are never collected), and generated code (Compose resource accessors, SQLDelight types), which Sonar does not index either.
+What is excluded, and why: composables, design tokens and route declarations (no UI test feeds Kover, so measuring them would count tests that are never collected), the Android and iOS source sets (`jvmTest` never compiles them, so no test can ever cover them), and generated code (Compose resource accessors, SQLDelight types), which Sonar does not index either.
 
-The practical rule when writing code: **keep testable logic out of `*.presentation.component.*`**. Kover counts per class, so a pure function sharing a file with a composable is excluded along with it, and its tests stop counting.
+**An exclusion has to be declared on both sides.** Kover decides what lands in the report; Sonar indexes the sources either way and reads a file's absence from the report as zero coverage. So anything excluded in `kover { }` needs its counterpart in `sonar.coverage.exclusions`, or the quality gate charges the new code for lines the project decided not to measure. Note the two use different vocabularies: Kover matches class names, Sonar matches file paths — a file holding both a composable and another class is only partly in the report.
+
+The practical rule when writing code: **keep testable logic out of `presentation/component/`, `presentation/theme/`, `navigation/`, `app/` and any `*Screen.kt` file**. Kover counts per class, so a pure function sharing a file with a composable is excluded along with it; Sonar counts per file, so `*Screen.kt` drops even the classes Kover still measures. Either way the tests stop counting. Conversely, a composable belongs in one of those locations — a composable-only file elsewhere is measured, and charged at zero.
 
 ## 4. KMP Client — Project-specific patterns
 
