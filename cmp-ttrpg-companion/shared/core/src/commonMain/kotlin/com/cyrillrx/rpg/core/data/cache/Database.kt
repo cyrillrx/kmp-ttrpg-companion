@@ -2,7 +2,6 @@ package com.cyrillrx.rpg.core.data.cache
 
 import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.core.data.serialize
-import com.cyrillrx.rpg.cache.AppDatabase
 import com.cyrillrx.rpg.campaign.domain.Campaign
 import com.cyrillrx.rpg.campaign.domain.RuleSet
 import com.cyrillrx.rpg.character.domain.Character
@@ -15,8 +14,8 @@ import com.cyrillrx.rpg.usercollection.domain.UserCollection
 import kotlin.time.Instant
 
 internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
-    private val database = AppDatabase(databaseDriverFactory.createDriver())
-    private val dbQuery = database.appDatabaseQueries
+    // Lazy: opens the file on the first query's dispatcher, not the (main) construction thread.
+    private val dbQuery by lazy { databaseDriverFactory.createDatabase().appDatabaseQueries }
 
     fun getAllCharacters(): List<Stored<Character>> =
         dbQuery.selectAllCharacters(::mapCharacterStored).executeAsList()

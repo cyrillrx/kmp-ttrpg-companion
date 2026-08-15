@@ -29,7 +29,7 @@ import com.cyrillrx.rpg.character.data.JsonCharacterPresetRepository
 import com.cyrillrx.rpg.character.data.SQLDelightCharacterRepository
 import com.cyrillrx.rpg.character.presentation.navigation.handleCharacterRoutes
 import com.cyrillrx.rpg.core.data.ComposeFileReader
-import com.cyrillrx.rpg.core.data.cache.DatabaseDriverFactory
+import com.cyrillrx.rpg.core.data.cache.SharedDatabaseDriverFactory
 import com.cyrillrx.rpg.core.navigation.navigateUp
 import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
 import com.cyrillrx.rpg.core.presentation.theme.AppTheme
@@ -56,7 +56,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
 @Preview
-fun App(dbDriverFactory: DatabaseDriverFactory) {
+fun App(dbDriverFactory: SharedDatabaseDriverFactory) {
     setSingletonImageLoaderFactory { context ->
         ImageLoader
             .Builder(context)
@@ -79,10 +79,20 @@ fun App(dbDriverFactory: DatabaseDriverFactory) {
         CompositionLocalProvider(LocalDistanceUnit provides prefs.distanceUnit) {
             val backStack = rememberAppBackStack()
 
-            val fileReader = ComposeFileReader()
+            val fileReader = remember { ComposeFileReader() }
             val userCollectionRepository =
                 remember(dbDriverFactory) { SQLDelightUserCollectionRepository(dbDriverFactory) }
             val characterRepository = remember(dbDriverFactory) { SQLDelightCharacterRepository(dbDriverFactory) }
+            val campaignRepository = remember(dbDriverFactory) { SQLDelightCampaignRepository(dbDriverFactory) }
+            val pcPresetRepository = remember(fileReader) {
+                JsonCharacterPresetRepository(fileReader, "files/pc-presets.json")
+            }
+            val npcPresetRepository = remember(fileReader) {
+                JsonCharacterPresetRepository(fileReader, "files/npc-presets.json")
+            }
+            val spellRepository = remember(fileReader) { JsonSpellRepository(fileReader) }
+            val magicalItemRepository = remember(fileReader) { JsonMagicalItemRepository(fileReader) }
+            val monsterRepository = remember(fileReader) { JsonMonsterRepository(fileReader) }
 
             NavDisplay(
                 backStack = backStack,
@@ -109,29 +119,27 @@ fun App(dbDriverFactory: DatabaseDriverFactory) {
 
                     handleCampaignRoutes(
                         backStack = backStack,
-                        repository = remember(dbDriverFactory) {
-                            SQLDelightCampaignRepository(dbDriverFactory)
-                        },
+                        repository = campaignRepository,
                     )
                     handleCharacterRoutes(
                         backStack = backStack,
                         characterRepository = characterRepository,
-                        pcPresetRepository = JsonCharacterPresetRepository(fileReader, "files/pc-presets.json"),
-                        npcPresetRepository = JsonCharacterPresetRepository(fileReader, "files/npc-presets.json"),
+                        pcPresetRepository = pcPresetRepository,
+                        npcPresetRepository = npcPresetRepository,
                     )
                     handleSpellRoutes(
                         router = SpellRouterImpl(backStack),
-                        spellRepository = JsonSpellRepository(fileReader),
+                        spellRepository = spellRepository,
                         userCollectionRepository = userCollectionRepository,
                     )
                     handleMagicalItemRoutes(
                         router = MagicalItemRouterImpl(backStack),
-                        repository = JsonMagicalItemRepository(fileReader),
+                        repository = magicalItemRepository,
                         userCollectionRepository = userCollectionRepository,
                     )
                     handleMonsterRoutes(
                         router = MonsterRouterImpl(backStack),
-                        repository = JsonMonsterRepository(fileReader),
+                        repository = monsterRepository,
                         userCollectionRepository = userCollectionRepository,
                     )
                     handleUserCollectionRoutes(UserCollectionRouterImpl(backStack), userCollectionRepository)

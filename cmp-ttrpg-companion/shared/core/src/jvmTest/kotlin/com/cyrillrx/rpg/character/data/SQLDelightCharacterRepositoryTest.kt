@@ -1,6 +1,7 @@
 package com.cyrillrx.rpg.character.data
 
 import com.cyrillrx.rpg.character.domain.CharacterFilter
+import com.cyrillrx.rpg.core.data.cache.CountingDriverFactory
 import com.cyrillrx.rpg.core.data.cache.TestDatabaseDriverFactory
 import com.cyrillrx.rpg.core.domain.MutableClock
 import com.cyrillrx.rpg.core.domain.values
@@ -16,6 +17,17 @@ class SQLDelightCharacterRepositoryTest {
 
     private fun buildRepository(clock: Clock = Clock.System) =
         SQLDelightCharacterRepository(TestDatabaseDriverFactory(), clock = clock)
+
+    @Test
+    fun `does not open the database before the first query`() = runTest {
+        val driverFactory = CountingDriverFactory()
+        val repository = SQLDelightCharacterRepository(driverFactory)
+        assertEquals(expected = 0, actual = driverFactory.createCount)
+
+        repository.getAll(null)
+
+        assertEquals(expected = 1, actual = driverFactory.createCount)
+    }
 
     @Test
     fun `save and getAll returns all saved characters`() = runTest {
