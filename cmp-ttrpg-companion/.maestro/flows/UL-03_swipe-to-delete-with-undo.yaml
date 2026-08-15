@@ -3,25 +3,25 @@ appId: com.cyrillrx.rpg
 - launchApp:
     clearState: true
 
-# Navigate to My Spell Lists and create a list to delete
+# Navigate to My Collections and create a collection to delete
 - tapOn:
-    text: "Spellbooks"
+    text: "Spells"
 - tapOn:
     text: "Create"
 - tapOn:
-    id: "input_list_name"
-- inputText: "List to Delete"
+    id: "input_collection_name"
+- inputText: "Collection to Delete"
 - tapOn:
     text: "Create"
 - assertVisible:
-    text: "List to Delete"
+    text: "Collection to Delete"
 
 # Swipe LEFT (EndToStart) to trigger the optimistic delete
 - swipe:
     direction: LEFT
     duration: 100
     from:
-      text: "List to Delete"
+      text: "Collection to Delete"
 
 # Snackbar with Undo should appear
 - assertVisible:
@@ -31,6 +31,6 @@ appId: com.cyrillrx.rpg
 - tapOn:
     text: "Undo"
 
-# Verify the list is still visible
+# Verify the collection is still visible
 - assertVisible:
-    text: "List to Delete"
+    text: "Collection to Delete"

@@ -5,7 +5,7 @@ import androidx.navigation3.runtime.EntryProviderScope
 import androidx.navigation3.runtime.NavKey
 import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.creature.domain.MonsterRepository
-import com.cyrillrx.rpg.creature.presentation.MonsterAddToListProvider
+import com.cyrillrx.rpg.creature.presentation.MonsterAddToCollectionProvider
 import com.cyrillrx.rpg.creature.presentation.MonsterItemProvider
 import com.cyrillrx.rpg.creature.presentation.component.MonsterDetailScreen
 import com.cyrillrx.rpg.creature.presentation.component.MonsterListScreen
@@ -13,10 +13,10 @@ import com.cyrillrx.rpg.creature.presentation.viewmodel.MonsterDetailViewModel
 import com.cyrillrx.rpg.creature.presentation.viewmodel.MonsterDetailViewModelFactory
 import com.cyrillrx.rpg.creature.presentation.viewmodel.MonsterListViewModel
 import com.cyrillrx.rpg.creature.presentation.viewmodel.MonsterListViewModelFactory
-import com.cyrillrx.rpg.userlist.domain.UserListRepository
-import com.cyrillrx.rpg.userlist.presentation.component.ListDetailScreen
-import com.cyrillrx.rpg.userlist.presentation.viewmodel.ListDetailViewModel
-import com.cyrillrx.rpg.userlist.presentation.viewmodel.ListDetailViewModelFactory
+import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
+import com.cyrillrx.rpg.usercollection.presentation.component.CollectionDetailScreen
+import com.cyrillrx.rpg.usercollection.presentation.viewmodel.CollectionDetailViewModel
+import com.cyrillrx.rpg.usercollection.presentation.viewmodel.CollectionDetailViewModelFactory
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.modules.PolymorphicModuleBuilder
 
@@ -29,48 +29,48 @@ interface MonsterRoute {
     data class Detail(val monsterId: String) : NavKey
 
     @Serializable
-    data class UserListDetail(val listId: String) : NavKey
+    data class UserCollectionDetail(val collectionId: String) : NavKey
 }
 
 fun PolymorphicModuleBuilder<NavKey>.registerMonsterRoutes() {
     subclass(MonsterRoute.Compendium::class, MonsterRoute.Compendium.serializer())
     subclass(MonsterRoute.Detail::class, MonsterRoute.Detail.serializer())
-    subclass(MonsterRoute.UserListDetail::class, MonsterRoute.UserListDetail.serializer())
+    subclass(MonsterRoute.UserCollectionDetail::class, MonsterRoute.UserCollectionDetail.serializer())
 }
 
 fun EntryProviderScope<NavKey>.handleMonsterRoutes(
     router: MonsterRouter,
     repository: MonsterRepository,
-    userListRepository: UserListRepository,
+    userCollectionRepository: UserCollectionRepository,
 ) {
     entry<MonsterRoute.Compendium> {
         val viewModelFactory = MonsterListViewModelFactory(repository)
         val viewModel = viewModel<MonsterListViewModel>(factory = viewModelFactory)
-        val addToListProvider = MonsterAddToListProvider(repository, userListRepository)
-        MonsterListScreen(viewModel, router, addToListProvider)
+        val addToCollectionProvider = MonsterAddToCollectionProvider(repository, userCollectionRepository)
+        MonsterListScreen(viewModel, router, addToCollectionProvider)
     }
 
     entry<MonsterRoute.Detail> { route ->
         val monsterId = route.monsterId
         val viewModelFactory = MonsterDetailViewModelFactory(monsterId, repository)
         val viewModel = viewModel<MonsterDetailViewModel>(key = monsterId, factory = viewModelFactory)
-        val addToListProvider = MonsterAddToListProvider(repository, userListRepository)
-        MonsterDetailScreen(viewModel, router, addToListProvider)
+        val addToCollectionProvider = MonsterAddToCollectionProvider(repository, userCollectionRepository)
+        MonsterDetailScreen(viewModel, router, addToCollectionProvider)
     }
 
-    entry<MonsterRoute.UserListDetail> { route ->
-        val listId = route.listId
-        val viewModelFactory = ListDetailViewModelFactory(
-            listId = listId,
-            userListRepository = userListRepository,
+    entry<MonsterRoute.UserCollectionDetail> { route ->
+        val collectionId = route.collectionId
+        val viewModelFactory = CollectionDetailViewModelFactory(
+            collectionId = collectionId,
+            userCollectionRepository = userCollectionRepository,
             repository = repository,
         )
-        val viewModel = viewModel<ListDetailViewModel<Monster>>(key = listId, factory = viewModelFactory)
+        val viewModel = viewModel<CollectionDetailViewModel<Monster>>(key = collectionId, factory = viewModelFactory)
         val itemProvider = MonsterItemProvider(
             onItemClicked = router::openDetail,
             onEmptyLayoutBtnClicked = router::openCompendium,
         )
-        ListDetailScreen(
+        CollectionDetailScreen(
             viewModel = viewModel,
             itemProvider = itemProvider,
             onNavigateUp = router::navigateUp,

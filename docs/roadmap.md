@@ -18,19 +18,19 @@ For detailed feature specifications, see the [PRDs](prd/).
 - [x] Complete Magical item filters (type, rarity) - [PRD-001b](prd/prd-001b-item-list.md)
 - [x] Complete Bestiary filters (type, CR) - [PRD-001c](prd/prd-001c-bestiary.md)
 
-## Phase 3 - Local Lists
+## Phase 3 - Collections
 
-> Allow users to build and manage their own lists offline. - [PRD-001](prd/prd-001-reference-data.md)
+> Allow users to build and manage their own collections offline. - [PRD-001](prd/prd-001-reference-data.md)
 
 *Requires: Reference Data - Browsing & Filtering*
 
-- [x] Local spell lists - [PRD-001a](prd/prd-001a-spellbook.md)
-- [x] Local item lists - [PRD-001b](prd/prd-001b-item-list.md)
-- [x] Local bestiary lists - [PRD-001c](prd/prd-001c-bestiary.md)
+- [x] Local spell collections - [PRD-001a](prd/prd-001a-spellbook.md)
+- [x] Local item collections - [PRD-001b](prd/prd-001b-item-list.md)
+- [x] Local bestiary collections - [PRD-001c](prd/prd-001c-bestiary.md)
 
 ## Phase 4 - Backend setup and sync engine
 
-> Fetch public reference data from the server and sync user lists. - [PRD-001](prd/prd-001-reference-data.md)
+> Fetch public reference data from the server and sync collections. - [PRD-001](prd/prd-001-reference-data.md)
 
 - [x] Setup backend service with a simple API
 - [ ] Data quality & coherence — DB-ready models, i18n, source tracking
@@ -40,7 +40,7 @@ For detailed feature specifications, see the [PRDs](prd/).
   - [x] Creatures: full stat block (speed, senses, skills, saving throws, damage affinities); character model coherence
 - [ ] Fetch public reference data from backend (spells, items, creatures)
 - [ ] Develop the sync engine on which will rely all sync logic and conflict resolution
-- [ ] Sync user lists with backend
+- [ ] Sync collections with backend
 
 ## Phase 5 - Character Sheets
 

@@ -4,8 +4,6 @@
 **Date**: 2026-04-26  
 **Context**: Phase 4 intermediate step — data quality & coherence, before backend consumption by clients.
 
----
-
 ## 1. Entity + Translations Pattern
 
 ### Decision
@@ -43,8 +41,6 @@ Applied consistently in all repository implementations (KMP, backend):
 ### i18n in Detail Views
 The API exposes the full `translations` map. Detail views display the active locale and allow the user to switch between available locales without a new network request.
 
----
-
 ## 2. Source Field
 
 ### Decision
@@ -74,8 +70,6 @@ Every entity has a `source` field — a single string identifying its origin.
 - `isCustom: true` (present in the current raw data) is replaced by `source: "custom"`.
 - The model can be enriched later (e.g., adding author identity for UGC) without breaking existing data.
 
----
-
 ## 3. Lowercase English Enum Values in JSON
 
 ### Decision
@@ -93,8 +87,6 @@ All enum values in JSON source files and API responses use **lowercase English w
 
 ### Reference
 Complete FR↔EN mapping tables: [`docs/data/srd-fr-en.md`](../data/srd-fr-en.md)
-
----
 
 ## 4. Proficiency-Based Modifier Computation
 
@@ -118,8 +110,6 @@ Proficiency bonus table (game rule): see [`docs/rules/5e-srd.md`](../rules/5e-sr
 - Pre-computed values become inconsistent if scores change (custom creatures, character progression).
 - This matches the D&D 5e SRD design.
 
----
-
 ## 5. Saving Throw Proficiency Embedded in Ability
 
 ### Decision
@@ -140,8 +130,6 @@ class Ability(
 - Avoids a redundant parallel structure (an `Abilities` object + a `SavingThrows` object with identical keys).
 - Simplifies serialization: each ability entry in JSON carries both its score and its saving throw proficiency.
 
----
-
 ## 6. Bounded Object Pattern for Skills
 
 ### Decision
@@ -161,8 +149,6 @@ data class Skills(
 - DB-ready: maps directly to columns without requiring a join table.
 
 Skill → ability mapping (game rule, not architecture): see [`docs/rules/5e-srd.md`](../rules/5e-srd.md).
-
----
 
 ## 7. DamageAffinity Enum for Resistances and Immunities
 
@@ -214,8 +200,6 @@ data class ConditionImmunities(
 - A single enum value per damage type is unambiguous.
 - DB-ready: each damage type maps to a column.
 
----
-
 ## 8. currentHitPoints Belongs Outside the Compendium Model
 
 ### Decision
@@ -226,8 +210,6 @@ data class ConditionImmunities(
 - A single encounter may have multiple instances of the same creature type, each with independent current HP.
 - Tracking current HP belongs in a future **combat tracker** feature, using a `CombatInstance` entity referencing a `Creature` by ID.
 - For `Character` (Phase 5), `currentHitPoints` is appropriate because there is one persistent instance per character.
-
----
 
 ## 9. hitDice on Monster Only, Not Creature
 

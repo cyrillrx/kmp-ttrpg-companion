@@ -1,0 +1,33 @@
+appId: com.cyrillrx.rpg
+---
+- launchApp:
+    clearState: true
+
+# Setup: create a collection to rename
+- tapOn:
+    text: "Spells"
+- tapOn:
+    text: "Create"
+- tapOn:
+    id: "input_collection_name"
+- inputText: "My Test Collection"
+- tapOn:
+    text: "Create"
+
+# Open the collection detail
+- tapOn:
+    text: "My Test Collection"
+
+# Rename the collection
+- tapOn:
+    text: "Rename"
+- tapOn:
+    id: "input_collection_name"
+- eraseText
+- inputText: "Renamed Collection"
+- tapOn:
+    text: "Confirm"
+
+# Verify the updated name is shown in the top bar
+- assertVisible:
+    text: "Renamed Collection"

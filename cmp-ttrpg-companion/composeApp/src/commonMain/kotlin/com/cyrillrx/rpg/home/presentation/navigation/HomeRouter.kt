@@ -9,7 +9,7 @@ import com.cyrillrx.rpg.creature.presentation.navigation.MonsterRoute
 import com.cyrillrx.rpg.magicalitem.presentation.navigation.MagicalItemRoute
 import com.cyrillrx.rpg.settings.presentation.navigation.SettingsRoute
 import com.cyrillrx.rpg.spell.presentation.navigation.SpellRoute
-import com.cyrillrx.rpg.userlist.presentation.navigation.UserListRoute
+import com.cyrillrx.rpg.usercollection.presentation.navigation.UserCollectionRoute
 
 interface HomeRouter {
     fun openCampaignList()
@@ -20,9 +20,9 @@ interface HomeRouter {
     fun openSpellCompendium()
     fun openMagicalItemCompendium()
     fun openMonsterCompendium()
-    fun openMySpellLists()
-    fun openMyMagicalItemLists()
-    fun openMyMonsterLists()
+    fun openMySpellCollections()
+    fun openMyMagicalItemCollections()
+    fun openMyMonsterCollections()
     fun openSettings()
 }
 
@@ -59,16 +59,16 @@ class HomeRouterImpl(private val backStack: NavBackStack<NavKey>) : HomeRouter {
         backStack.add(MonsterRoute.Compendium)
     }
 
-    override fun openMySpellLists() {
-        backStack.add(UserListRoute.Spell)
+    override fun openMySpellCollections() {
+        backStack.add(UserCollectionRoute.Spell)
     }
 
-    override fun openMyMagicalItemLists() {
-        backStack.add(UserListRoute.MagicalItem)
+    override fun openMyMagicalItemCollections() {
+        backStack.add(UserCollectionRoute.MagicalItem)
     }
 
-    override fun openMyMonsterLists() {
-        backStack.add(UserListRoute.Creature)
+    override fun openMyMonsterCollections() {
+        backStack.add(UserCollectionRoute.Creature)
     }
 
     override fun openSettings() {

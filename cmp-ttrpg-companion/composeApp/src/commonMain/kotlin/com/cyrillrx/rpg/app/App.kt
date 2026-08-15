@@ -18,21 +18,16 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.entryProvider
-import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
-import androidx.savedstate.serialization.SavedStateConfiguration
 import coil3.ImageLoader
 import coil3.compose.setSingletonImageLoaderFactory
 import coil3.svg.SvgDecoder
 import com.cyrillrx.rpg.campaign.data.SQLDelightCampaignRepository
 import com.cyrillrx.rpg.campaign.navigation.handleCampaignRoutes
-import com.cyrillrx.rpg.campaign.navigation.registerCampaignRoutes
 import com.cyrillrx.rpg.character.data.JsonCharacterPresetRepository
 import com.cyrillrx.rpg.character.data.SQLDelightCharacterRepository
 import com.cyrillrx.rpg.character.presentation.navigation.handleCharacterRoutes
-import com.cyrillrx.rpg.character.presentation.navigation.registerCharacterRoutes
 import com.cyrillrx.rpg.core.data.ComposeFileReader
 import com.cyrillrx.rpg.core.data.cache.SharedDatabaseDriverFactory
 import com.cyrillrx.rpg.core.navigation.navigateUp
@@ -41,7 +36,6 @@ import com.cyrillrx.rpg.core.presentation.theme.AppTheme
 import com.cyrillrx.rpg.creature.data.JsonMonsterRepository
 import com.cyrillrx.rpg.creature.presentation.navigation.MonsterRouterImpl
 import com.cyrillrx.rpg.creature.presentation.navigation.handleMonsterRoutes
-import com.cyrillrx.rpg.creature.presentation.navigation.registerMonsterRoutes
 import com.cyrillrx.rpg.home.presentation.HomeScreen
 import com.cyrillrx.rpg.home.presentation.navigation.HomeRouterImpl
 import com.cyrillrx.rpg.home.presentation.viewmodel.HomeViewModel
@@ -49,41 +43,16 @@ import com.cyrillrx.rpg.home.presentation.viewmodel.HomeViewModelFactory
 import com.cyrillrx.rpg.magicalitem.data.JsonMagicalItemRepository
 import com.cyrillrx.rpg.magicalitem.presentation.navigation.MagicalItemRouterImpl
 import com.cyrillrx.rpg.magicalitem.presentation.navigation.handleMagicalItemRoutes
-import com.cyrillrx.rpg.magicalitem.presentation.navigation.registerMagicalItemRoutes
 import com.cyrillrx.rpg.settings.data.SqlDelightUserPreferencesRepository
 import com.cyrillrx.rpg.settings.domain.UserPreferencesRepository
 import com.cyrillrx.rpg.settings.presentation.navigation.handleSettingsRoutes
-import com.cyrillrx.rpg.settings.presentation.navigation.registerSettingsRoutes
 import com.cyrillrx.rpg.spell.data.JsonSpellRepository
 import com.cyrillrx.rpg.spell.presentation.navigation.SpellRouterImpl
 import com.cyrillrx.rpg.spell.presentation.navigation.handleSpellRoutes
-import com.cyrillrx.rpg.spell.presentation.navigation.registerSpellRoutes
-import com.cyrillrx.rpg.userlist.data.SQLDelightUserListRepository
-import com.cyrillrx.rpg.userlist.presentation.navigation.UserListRouterImpl
-import com.cyrillrx.rpg.userlist.presentation.navigation.handleUserListRoutes
-import com.cyrillrx.rpg.userlist.presentation.navigation.registerUserListRoutes
-import kotlinx.serialization.modules.SerializersModule
-import kotlinx.serialization.modules.polymorphic
+import com.cyrillrx.rpg.usercollection.data.SQLDelightUserCollectionRepository
+import com.cyrillrx.rpg.usercollection.presentation.navigation.UserCollectionRouterImpl
+import com.cyrillrx.rpg.usercollection.presentation.navigation.handleUserCollectionRoutes
 import org.jetbrains.compose.ui.tooling.preview.Preview
-
-private val navSavedStateConfig = SavedStateConfiguration {
-    serializersModule = SerializersModule {
-        polymorphic(NavKey::class) {
-            subclass(MainRoute.Home::class, MainRoute.Home.serializer())
-
-            registerCampaignRoutes()
-            registerCharacterRoutes()
-
-            registerSpellRoutes()
-            registerMagicalItemRoutes()
-            registerMonsterRoutes()
-
-            registerUserListRoutes()
-
-            registerSettingsRoutes()
-        }
-    }
-}
 
 @Composable
 @Preview
@@ -108,10 +77,11 @@ fun App(dbDriverFactory: SharedDatabaseDriverFactory) {
 
     AppTheme(theme = prefs.theme, palette = prefs.palette) {
         CompositionLocalProvider(LocalDistanceUnit provides prefs.distanceUnit) {
-            val backStack = rememberNavBackStack(navSavedStateConfig, MainRoute.Home)
+            val backStack = rememberAppBackStack()
 
             val fileReader = remember { ComposeFileReader() }
-            val userListRepository = remember(dbDriverFactory) { SQLDelightUserListRepository(dbDriverFactory) }
+            val userCollectionRepository =
+                remember(dbDriverFactory) { SQLDelightUserCollectionRepository(dbDriverFactory) }
             val characterRepository = remember(dbDriverFactory) { SQLDelightCharacterRepository(dbDriverFactory) }
             val campaignRepository = remember(dbDriverFactory) { SQLDelightCampaignRepository(dbDriverFactory) }
             val pcPresetRepository = remember(fileReader) {
@@ -160,19 +130,19 @@ fun App(dbDriverFactory: SharedDatabaseDriverFactory) {
                     handleSpellRoutes(
                         router = SpellRouterImpl(backStack),
                         spellRepository = spellRepository,
-                        userListRepository = userListRepository,
+                        userCollectionRepository = userCollectionRepository,
                     )
                     handleMagicalItemRoutes(
                         router = MagicalItemRouterImpl(backStack),
                         repository = magicalItemRepository,
-                        userListRepository = userListRepository,
+                        userCollectionRepository = userCollectionRepository,
                     )
                     handleMonsterRoutes(
                         router = MonsterRouterImpl(backStack),
                         repository = monsterRepository,
-                        userListRepository = userListRepository,
+                        userCollectionRepository = userCollectionRepository,
                     )
-                    handleUserListRoutes(UserListRouterImpl(backStack), userListRepository)
+                    handleUserCollectionRoutes(UserCollectionRouterImpl(backStack), userCollectionRepository)
                     handleSettingsRoutes(backStack, prefsRepository)
                 },
             )

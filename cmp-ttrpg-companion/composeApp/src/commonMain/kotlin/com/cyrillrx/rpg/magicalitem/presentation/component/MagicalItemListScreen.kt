@@ -33,12 +33,12 @@ import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.magicalitem.data.SampleMagicalItemRepository
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
-import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemAddToListProvider
+import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemAddToCollectionProvider
 import com.cyrillrx.rpg.magicalitem.presentation.MagicalItemListState
 import com.cyrillrx.rpg.magicalitem.presentation.navigation.MagicalItemRouter
 import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.MagicalItemListViewModel
-import com.cyrillrx.rpg.userlist.data.SampleUserListRepository
-import com.cyrillrx.rpg.userlist.presentation.AddToListProvider
+import com.cyrillrx.rpg.usercollection.data.SampleUserCollectionRepository
+import com.cyrillrx.rpg.usercollection.presentation.AddToCollectionProvider
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emptyFlow
 import org.jetbrains.compose.resources.stringResource
@@ -50,7 +50,7 @@ import rpg_companion.composeapp.generated.resources.hint_search_magical_item
 fun MagicalItemListScreen(
     viewModel: MagicalItemListViewModel,
     router: MagicalItemRouter,
-    addToListProvider: AddToListProvider<MagicalItem>,
+    addToCollectionProvider: AddToCollectionProvider<MagicalItem>,
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
@@ -62,7 +62,7 @@ fun MagicalItemListScreen(
         onTypeToggled = viewModel::onTypeToggled,
         onRarityToggled = viewModel::onRarityToggled,
         onResetFilters = viewModel::onResetFilters,
-        addToListProvider = addToListProvider,
+        addToCollectionProvider = addToCollectionProvider,
         initialScrollPosition = viewModel.savedScrollPosition,
         scrollToTopEvents = viewModel.scrollToTopEvents,
         onScrollPositionChanged = viewModel::saveScrollPosition,
@@ -78,7 +78,7 @@ fun MagicalItemListScreen(
     onTypeToggled: (MagicalItem.Type) -> Unit,
     onRarityToggled: (MagicalItem.Rarity) -> Unit,
     onResetFilters: () -> Unit,
-    addToListProvider: AddToListProvider<MagicalItem>,
+    addToCollectionProvider: AddToCollectionProvider<MagicalItem>,
     initialScrollPosition: ScrollPosition = ScrollPosition(),
     scrollToTopEvents: Flow<Unit> = emptyFlow(),
     onScrollPositionChanged: (ScrollPosition) -> Unit = {},
@@ -111,7 +111,7 @@ fun MagicalItemListScreen(
                 is MagicalItemListState.Body.WithData -> MagicalItemList(
                     magicalItems = body.searchResults,
                     onMagicalItemClicked = onMagicalItemClicked,
-                    showAddToList = { item -> itemToAdd = item },
+                    showAddToCollection = { item -> itemToAdd = item },
                     initialScrollPosition = initialScrollPosition,
                     scrollToTopEvents = scrollToTopEvents,
                     onScrollPositionChanged = onScrollPositionChanged,
@@ -131,7 +131,7 @@ fun MagicalItemListScreen(
     }
 
     itemToAdd?.let { item ->
-        addToListProvider.BottomSheet(
+        addToCollectionProvider.BottomSheet(
             entityId = item.id,
             onDismiss = { itemToAdd = null },
         )
@@ -142,7 +142,7 @@ fun MagicalItemListScreen(
 private fun MagicalItemList(
     magicalItems: List<MagicalItem>,
     onMagicalItemClicked: (MagicalItem) -> Unit,
-    showAddToList: (MagicalItem) -> Unit,
+    showAddToCollection: (MagicalItem) -> Unit,
     initialScrollPosition: ScrollPosition,
     scrollToTopEvents: Flow<Unit>,
     onScrollPositionChanged: (ScrollPosition) -> Unit,
@@ -172,7 +172,7 @@ private fun MagicalItemList(
     ) {
         items(magicalItems, key = { it.id }) { item ->
             SwipeToAdd(
-                onSwiped = { showAddToList(item) },
+                onSwiped = { showAddToCollection(item) },
                 modifier = Modifier.fillMaxWidth(),
             ) {
                 MagicalItemListItem(
@@ -203,6 +203,7 @@ private fun PreviewMagicalItemListScreenDark() {
 
 @Composable
 private fun MagicalItemListScreenPreview() {
-    val addToListProvider = MagicalItemAddToListProvider(SampleMagicalItemRepository(), SampleUserListRepository())
-    MagicalItemListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, addToListProvider)
+    val addToCollectionProvider =
+        MagicalItemAddToCollectionProvider(SampleMagicalItemRepository(), SampleUserCollectionRepository())
+    MagicalItemListScreen(stateWithSampleData, {}, {}, {}, {}, {}, {}, addToCollectionProvider)
 }

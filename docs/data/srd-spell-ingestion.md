@@ -9,8 +9,6 @@ For the source format decision, see [`docs/adr/adr-002-compendium-source-format.
 > **Source files are in `data/compendium/spells/*.yaml`.**  
 > The JSON files (`data/compendium/spells.json`, `composeResources/files/spells.json`) are **generated** — run `scripts/build_compendium.py` after editing. Do not edit the JSON files directly.
 
----
-
 ## General Rules
 
 - All enum values use **lowercase English with underscores** (e.g., `"conjuration"`, `"evocation"`).
@@ -18,8 +16,6 @@ For the source format decision, see [`docs/adr/adr-002-compendium-source-format.
 - The `source` field identifies the origin of the entry — see [known source values](../adr/adr-001-data-model.md#2-source-field).
 - An entity with an empty `translations` map is considered malformed.
 - Descriptions use **GitHub Flavored Markdown (GFM)**.
-
----
 
 ## Spell Entry Format
 
@@ -91,8 +87,6 @@ When a description field is empty after parsing the source:
 - [ ] `translations.{locale}.duration`
 - [ ] `translations.{locale}.materialDescription` — string or `null`
 - [ ] `translations.{locale}.description` — GFM Markdown
-
----
 
 ## Validation Rules
 

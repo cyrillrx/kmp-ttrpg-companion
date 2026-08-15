@@ -59,11 +59,11 @@ ktlint is **strict** in `shared/core` (`ignoreFailures=false`) and permissive in
 
 Coverage is produced by `jvmTest` alone and reported to SonarCloud through Kover. Each module declares its own report path and its own exclusions — see the `sonar { }` and `kover { }` blocks in `composeApp/build.gradle.kts` and `shared/core/build.gradle.kts`.
 
-Exclusions live on **both** sides. A `kover { }` filter keeps a class out of the report; Sonar still derives executable lines from the sources, so the same target must appear in `sonar.coverage.exclusions` — otherwise the file counts as uncovered debt and sinks the coverage-on-new-code gate. Adding one without the other is the classic way to get a red gate on code nobody intended to measure.
+What is excluded, and why: composables, design tokens and route declarations (no UI test feeds Kover, so measuring them would count tests that are never collected), the Android and iOS source sets (`jvmTest` never compiles them, so no test can ever cover them), and generated code (Compose resource accessors, SQLDelight types), which Sonar does not index either.
 
-What is excluded, and why: composables, design tokens and route declarations (no UI test feeds Kover, so measuring them would count tests that are never collected), generated code (Compose resource accessors, SQLDelight types), which Sonar does not index either, the `androidMain` and `iosMain` source sets of **both** modules, which `jvmTest` cannot reach at all, and the desktop entry point (`main()` and `application { }`).
+**An exclusion has to be declared on both sides.** Kover decides what lands in the report; Sonar indexes the sources either way and reads a file's absence from the report as zero coverage. So anything excluded in `kover { }` needs its counterpart in `sonar.coverage.exclusions`, or the quality gate charges the new code for lines the project decided not to measure. Note the two use different vocabularies: Kover matches class names, Sonar matches file paths — a file holding both a composable and another class is only partly in the report.
 
-The practical rule when writing code: **keep testable logic out of `*.presentation.component.*`**. Kover counts per class, so a pure function sharing a file with a composable is excluded along with it, and its tests stop counting.
+The practical rule when writing code: **keep testable logic out of `presentation/component/`, `presentation/theme/`, `navigation/`, `app/` and any `*Screen.kt` file**. Kover counts per class, so a pure function sharing a file with a composable is excluded along with it; Sonar counts per file, so `*Screen.kt` drops even the classes Kover still measures. Either way the tests stop counting. Conversely, a composable belongs in one of those locations — a composable-only file elsewhere is measured, and charged at zero.
 
 ## 4. KMP Client — Project-specific patterns
 
@@ -92,7 +92,7 @@ com.cyrillrx.rpg.{feature}.presentation.component
 com.cyrillrx.rpg.{feature}.presentation.navigation  # {Feature}Route, {Feature}Router
 ```
 
-Active features: `home`, `campaign`, `spell`, `creature`, `magicalitem`, `character`.
+Active features: `home`, `campaign`, `spell`, `creature`, `magicalitem`, `character`, `usercollection`.
 
 ### Manual DI
 
@@ -110,11 +110,11 @@ composable<SpellRoute.List> {
 
 ### Navigation
 
-`App.kt` is the `NavDisplay` root. The back stack is a `NavBackStack<NavKey>` created with `rememberNavBackStack(savedStateConfig, startKey)`. Each feature registers its routes via an `EntryProviderScope<NavKey>` extension function (`handleSpellRoutes`, `handleCampaignRoutes`, etc.) inside the `entryProvider { }` block. Routes are `@Serializable` data objects/classes implementing `NavKey`. A `SavedStateConfiguration` with polymorphic serializers for every route type is required for non-JVM targets (iOS) — each feature exposes a `register*Routes()` extension on `PolymorphicModuleBuilder<NavKey>` for this purpose. Complex objects are passed as serialized strings using `serialize()`/`deserialize()` helpers from the `Serializer.kt` utility in the `shared/core` module.
+`App.kt` is the `NavDisplay` root. The back stack is a `NavBackStack<NavKey>` created with `rememberNavBackStack(savedStateConfig, startKey)`. Each feature registers its routes via an `EntryProviderScope<NavKey>` extension function (`handleSpellRoutes`, `handleCampaignRoutes`, etc.) inside the `entryProvider { }` block. Routes are `@Serializable` data objects/classes implementing `NavKey`. A `SavedStateConfiguration` with polymorphic serializers for every route type is required for non-JVM targets (iOS) — each feature exposes a `register*Routes()` extension on `PolymorphicModuleBuilder<NavKey>` for this purpose, all assembled in `app/NavSavedState.kt`. That module also declares a `defaultDeserializer` falling back to `MainRoute.Home`: routes serialize under their fully-qualified name, so moving one to another package would otherwise make an already-persisted back stack throw on restore instead of resetting. Complex objects are passed as serialized strings using `serialize()`/`deserialize()` helpers from the `Serializer.kt` utility in the `shared/core` module.
 
 ### Router pattern
 
-Each feature defines a `{Feature}Router` interface and a `{Feature}RouterImpl(backStack: NavBackStack<NavKey>)`. The interface is injected into ViewModels; the impl lives in the navigation layer. Navigation calls use `backStack.add(route)` to push and `backStack.removeLastOrNull()` to pop. A `NavBackStack<NavKey>.navigateUp()` extension in `core/navigation/NavExt.kt` wraps `removeLastOrNull()` for convenience. `onNavigateUpClicked` callbacks are wired directly from the route entry (not from the ViewModel). When calling `viewModel()` for shared ViewModel types (`UserListsViewModel`, `ListDetailViewModel<T>`), always pass an explicit `key` to avoid ViewModel sharing across entries.
+Each feature defines a `{Feature}Router` interface and a `{Feature}RouterImpl(backStack: NavBackStack<NavKey>)`. The interface is injected into ViewModels; the impl lives in the navigation layer. Navigation calls use `backStack.add(route)` to push and `backStack.removeLastOrNull()` to pop. A `NavBackStack<NavKey>.navigateUp()` extension in `core/navigation/NavExt.kt` wraps `removeLastOrNull()` for convenience. `onNavigateUpClicked` callbacks are wired directly from the route entry (not from the ViewModel). When calling `viewModel()` for shared ViewModel types (`UserCollectionsViewModel`, `CollectionDetailViewModel<T>`), always pass an explicit `key` to avoid ViewModel sharing across entries.
 
 ### Stateless composables
 

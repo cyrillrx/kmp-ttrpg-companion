@@ -4,8 +4,6 @@
 **Date**: 2026-05-04  
 **Context**: Improving contributor ergonomics before the compendium editing tool is built.
 
----
-
 ## 1. One YAML File per Entity
 
 ### Decision
@@ -41,8 +39,6 @@ YAML keys use **camelCase**, identical to the JSON output, to keep a 1:1 mapping
 - **Tool-readiness**: one file per entity is the natural unit for a future CRUD editing tool.
 - **YAML over JSON**: YAML supports multiline strings natively (via `|` block scalar), which is essential for readable Markdown descriptions. Comments are also supported for contributor notes.
 
----
-
 ## 2. Description Format — GitHub Flavored Markdown
 
 ### Decision (current)
@@ -54,8 +50,6 @@ Description fields use **GitHub Flavored Markdown (GFM)** in the YAML source fil
 - GFM tables are significantly easier to read and edit than HTML tables.
 - The `MarkdownText` cross-platform renderer (introduced in Phase 2) handles GFM natively.
 - Round-trip fidelity (YAML → JSON) is exact; no conversion is needed.
-
----
 
 ## 3. Build Pipeline
 
@@ -88,8 +82,6 @@ A migration script (`scripts/migrate_json_to_yaml.py`) handles the one-time conv
 - Keeping the generated JSON in the repo means zero changes to consumers (KMP app, Rust server).
 - CI enforcement prevents contributors from forgetting to run the build step.
 - The migration script is retained in the repository for traceability, even after it has been run.
-
----
 
 ## 4. Consequences
 
