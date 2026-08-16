@@ -15,17 +15,12 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.QuestionMark
-import androidx.compose.material.icons.filled.Warning
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -34,7 +29,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.focus.onFocusChanged
-import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.role
@@ -46,12 +40,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextDecoration
-import coil3.compose.AsyncImage
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.Race
-import com.cyrillrx.rpg.character.presentation.ClassIconState
-import com.cyrillrx.rpg.character.presentation.resolveClassIconState
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.avatarBorderWidth
@@ -60,7 +51,6 @@ import com.cyrillrx.rpg.core.presentation.theme.iconSizeLarge
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import com.cyrillrx.rpg.creature.domain.Creature
-import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
@@ -143,12 +133,8 @@ internal fun CharacterHeader(
     }
 }
 
-@OptIn(ExperimentalResourceApi::class)
 @Composable
 private fun ClassIconBox(clazz: Character.Class, onClick: () -> Unit) {
-    val iconState by produceState<ClassIconState>(ClassIconState.Loading, clazz) {
-        value = resolveClassIconState(clazz) { Res.readBytes(it) }
-    }
     val iconColor = MaterialTheme.colorScheme.onPrimaryContainer
     val backgroundColor = MaterialTheme.colorScheme.primaryContainer
     val borderColor = MaterialTheme.colorScheme.onPrimaryContainer
@@ -161,27 +147,7 @@ private fun ClassIconBox(clazz: Character.Class, onClick: () -> Unit) {
             .border(width = avatarBorderWidth, color = borderColor, shape = CircleShape)
             .clickable(onClick = onClick),
     ) {
-        when (val s = iconState) {
-            ClassIconState.Loading -> Unit
-            is ClassIconState.Loaded -> AsyncImage(
-                model = s.bytes,
-                contentDescription = null,
-                colorFilter = ColorFilter.tint(iconColor),
-                modifier = Modifier.size(iconSizeLarge),
-            )
-            ClassIconState.Error -> Icon(
-                imageVector = Icons.Filled.Warning,
-                contentDescription = null,
-                tint = iconColor,
-                modifier = Modifier.size(iconSizeLarge),
-            )
-            ClassIconState.Unknown -> Icon(
-                imageVector = Icons.Filled.QuestionMark,
-                contentDescription = null,
-                tint = iconColor,
-                modifier = Modifier.size(iconSizeLarge),
-            )
-        }
+        ClassIcon(clazz = clazz, tint = iconColor, modifier = Modifier.size(iconSizeLarge))
     }
 }
 
