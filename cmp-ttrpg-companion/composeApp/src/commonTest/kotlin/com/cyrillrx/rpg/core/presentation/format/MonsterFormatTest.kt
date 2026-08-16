@@ -36,7 +36,7 @@ import com.cyrillrx.rpg.creature.domain.Monster
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class MonsterFormatExtTest {
+class MonsterFormatTest {
 
     @Test
     fun `formatCRValue returns 0 for zero`() {

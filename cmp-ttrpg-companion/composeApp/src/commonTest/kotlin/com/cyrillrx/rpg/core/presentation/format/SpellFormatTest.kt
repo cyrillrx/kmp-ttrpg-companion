@@ -21,7 +21,7 @@ import com.cyrillrx.rpg.spell.domain.Spell
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class SpellFormatExtTest {
+class SpellFormatTest {
 
     @Test
     fun `getFormattedComponents joins verbal, somatic and material`() {

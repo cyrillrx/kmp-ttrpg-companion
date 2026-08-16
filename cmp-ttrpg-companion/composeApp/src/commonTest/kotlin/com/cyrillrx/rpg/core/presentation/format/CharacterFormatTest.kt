@@ -7,7 +7,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
 
-class CharacterFormatExtTest {
+class CharacterFormatTest {
 
     @Test
     fun `toSvgPath maps every known class to its drawable`() {

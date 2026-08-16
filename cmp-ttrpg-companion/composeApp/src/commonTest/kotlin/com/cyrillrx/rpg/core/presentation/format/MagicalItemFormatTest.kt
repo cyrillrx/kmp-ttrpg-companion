@@ -7,7 +7,7 @@ import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class MagicalItemFormatExtTest {
+class MagicalItemFormatTest {
 
     @Test
     fun `getColor maps every type to its category color`() {

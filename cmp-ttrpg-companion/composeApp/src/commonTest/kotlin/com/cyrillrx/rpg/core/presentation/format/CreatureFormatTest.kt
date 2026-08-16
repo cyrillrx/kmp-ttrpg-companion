@@ -4,7 +4,7 @@ import com.cyrillrx.rpg.settings.domain.DistanceUnit
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class CreatureFormatExtTest {
+class CreatureFormatTest {
 
     @Test
     fun `toDistanceString in feet appends the ft suffix`() {
