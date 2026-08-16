@@ -120,7 +120,7 @@ internal fun CharacterEditDialog(
 
         EditingField.Level -> NumberStepperDialog(
             title = stringResource(Res.string.label_level),
-            initialValue = state.character.level,
+            initialValue = state.character.totalLevel.coerceAtLeast(MIN_CHARACTER_LEVEL),
             minValue = MIN_CHARACTER_LEVEL,
             maxValue = MAX_CHARACTER_LEVEL,
             onConfirm = onLevelConfirmed,
@@ -221,7 +221,7 @@ internal fun CharacterEditDialog(
 
         EditingField.Clazz -> SingleChoiceDialog(
             title = stringResource(Res.string.label_class),
-            selected = state.character.clazz,
+            selected = state.character.primaryClass ?: Character.Class.UNKNOWN,
             options = Character.Class.entries,
             optionLabel = { it.toFormattedString() },
             onConfirm = { it?.let(onClassConfirmed) },

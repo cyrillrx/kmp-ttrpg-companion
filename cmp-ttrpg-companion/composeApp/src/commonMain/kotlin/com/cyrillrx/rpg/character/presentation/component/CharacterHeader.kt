@@ -42,7 +42,9 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextDecoration
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.character.domain.ClassLevel
 import com.cyrillrx.rpg.character.domain.Race
+import com.cyrillrx.rpg.core.presentation.component.dnd.toClassesLabel
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.avatarBorderWidth
@@ -61,8 +63,7 @@ internal fun CharacterHeader(
     name: String,
     shortDescription: String,
     race: Race,
-    clazz: Character.Class,
-    level: Int,
+    classes: List<ClassLevel>,
     background: String,
     alignment: Creature.Alignment,
     onNameConfirmed: (String) -> Unit,
@@ -74,12 +75,14 @@ internal fun CharacterHeader(
     onAlignmentTapped: () -> Unit,
 ) {
     val levelShort = stringResource(Res.string.label_level_short)
+    val primaryClass = classes.maxByOrNull { it.level }?.clazz ?: Character.Class.UNKNOWN
+    val totalLevel = classes.sumOf { it.level }
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(spacingCommon),
         modifier = Modifier.fillMaxWidth(),
     ) {
-        ClassIconBox(clazz = clazz, onClick = onClassTapped)
+        ClassIconBox(clazz = primaryClass, onClick = onClassTapped)
         Column(modifier = Modifier.weight(1f)) {
             InlineEditableText(
                 text = name,
@@ -104,7 +107,7 @@ internal fun CharacterHeader(
             ) {
                 SubtitleChip(race.toFormattedString(), onRaceTapped)
                 SubtitleDot()
-                SubtitleChip(clazz.toFormattedString(), onClassTapped)
+                SubtitleChip(classes.toClassesLabel(), onClassTapped)
                 if (background.isNotBlank()) {
                     SubtitleDot()
                     SubtitleChip(background, onBackgroundTapped)
@@ -115,20 +118,22 @@ internal fun CharacterHeader(
                 }
             }
         }
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier.clickable(onClick = onLevelTapped),
-        ) {
-            Text(
-                text = levelShort.uppercase(),
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-            Text(
-                text = level.toString(),
-                style = MaterialTheme.typography.titleLarge,
-                fontWeight = FontWeight.Bold,
-            )
+        if (classes.isNotEmpty()) {
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier.clickable(onClick = onLevelTapped),
+            ) {
+                Text(
+                    text = levelShort.uppercase(),
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                Text(
+                    text = totalLevel.toString(),
+                    style = MaterialTheme.typography.titleLarge,
+                    fontWeight = FontWeight.Bold,
+                )
+            }
         }
     }
 }
@@ -247,8 +252,7 @@ private fun CharacterHeaderPreview() {
         name = character.name,
         shortDescription = character.translations.values.firstOrNull()?.shortDescription.orEmpty(),
         race = character.race,
-        clazz = character.clazz,
-        level = character.level,
+        classes = character.classes,
         background = character.background.toFormattedString(),
         alignment = character.alignment,
         onNameConfirmed = {},

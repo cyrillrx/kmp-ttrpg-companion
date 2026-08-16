@@ -20,6 +20,7 @@
     <string name="hint_leave_blank_to_remove">Leave blank to remove.</string>
     <string name="label_race">Race</string>
     <string name="label_class">Class</string>
+    <string name="label_no_class">No class</string>
     <string name="label_level">Level</string>
     <string name="label_background">Background</string>
     <string name="label_abilities">Abilities</string>

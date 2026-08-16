@@ -6,6 +6,7 @@ import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterRepository
+import com.cyrillrx.rpg.character.domain.ClassLevel
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.domain.coerceToValidAbilityScore
@@ -74,11 +75,22 @@ class CharacterEditViewModel(
     }
 
     fun saveClass(clazz: Character.Class) {
-        updateAndSave { copy(character = character.copy(clazz = clazz), editingField = null) }
+        updateAndSave {
+            val newClasses = if (clazz == Character.Class.UNKNOWN) {
+                emptyList()
+            } else {
+                listOf(ClassLevel(clazz, character.totalLevel.coerceToValidCharacterLevel()))
+            }
+            copy(character = character.copy(classes = newClasses), editingField = null)
+        }
     }
 
     fun saveLevel(level: Int) = updateAndSave(level, Int::coerceToValidCharacterLevel) { coerced ->
-        copy(character = character.copy(level = coerced), editingField = null)
+        val primaryIndex = character.classes.indices.maxByOrNull { character.classes[it].level } ?: 0
+        val newClasses = character.classes.mapIndexed { index, classLevel ->
+            if (index == primaryIndex) classLevel.copy(level = coerced) else classLevel
+        }
+        copy(character = character.copy(classes = newClasses), editingField = null)
     }
 
     fun saveBackground(background: Background?) {

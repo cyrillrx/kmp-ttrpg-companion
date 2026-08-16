@@ -162,7 +162,7 @@ class CharacterEditViewModelTest {
         advanceUntilIdle()
         viewModel.saveLevel(0)
         val loaded = assertIs<CharacterEditState.Loaded>(viewModel.state.value)
-        assertEquals(1, loaded.character.level)
+        assertEquals(1, loaded.character.totalLevel)
     }
 
     @Test
@@ -171,7 +171,7 @@ class CharacterEditViewModelTest {
         val viewModel = buildViewModel(repo = repo)
         advanceUntilIdle()
         viewModel.editField(EditingField.Level)
-        viewModel.saveLevel(fighter.level)
+        viewModel.saveLevel(fighter.totalLevel)
         advanceUntilIdle()
         assertEquals(0, repo.saveCount)
         assertNull(assertIs<CharacterEditState.Loaded>(viewModel.state.value).editingField)
@@ -395,7 +395,7 @@ class CharacterEditViewModelTest {
         advanceUntilIdle()
         viewModel.saveClass(Character.Class.WIZARD)
         advanceUntilIdle()
-        assertEquals(Character.Class.WIZARD, repo.get(fighter.id)?.clazz)
+        assertEquals(Character.Class.WIZARD, repo.get(fighter.id)?.primaryClass)
     }
 
     @Test

@@ -6,6 +6,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
 import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.character.domain.ClassLevel
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.creature.domain.Ability
@@ -46,6 +47,8 @@ import rpg_companion.composeapp.generated.resources.class_sorcerer
 import rpg_companion.composeapp.generated.resources.class_unknown
 import rpg_companion.composeapp.generated.resources.class_warlock
 import rpg_companion.composeapp.generated.resources.class_wizard
+import rpg_companion.composeapp.generated.resources.label_level_short
+import rpg_companion.composeapp.generated.resources.label_no_class
 import rpg_companion.composeapp.generated.resources.language_abyssal
 import rpg_companion.composeapp.generated.resources.language_celestial
 import rpg_companion.composeapp.generated.resources.language_common
@@ -242,4 +245,30 @@ fun Character.Class.toFormattedString(): String {
         Character.Class.UNKNOWN -> Res.string.class_unknown
     }
     return stringResource(stringRes)
+}
+
+/** Detailed multiclass label, e.g. "Fighter 3 / Rogue 2". Empty class list → "No class". */
+@Composable
+fun List<ClassLevel>.toClassesLabel(): String {
+    if (isEmpty()) return stringResource(Res.string.label_no_class)
+    val label = StringBuilder()
+    forEachIndexed { index, classLevel ->
+        if (index > 0) label.append(" / ")
+        label.append(classLevel.clazz.toFormattedString()).append(' ').append(classLevel.level)
+    }
+    return label.toString()
+}
+
+/** Compact multiclass summary, e.g. "Rogue/Wizard lv. 5". Empty class list → "No class". */
+@Composable
+fun List<ClassLevel>.toClassesSummary(): String {
+    if (isEmpty()) return stringResource(Res.string.label_no_class)
+    val names = StringBuilder()
+    forEachIndexed { index, classLevel ->
+        if (index > 0) names.append('/')
+        names.append(classLevel.clazz.toFormattedString())
+    }
+    val levelShort = stringResource(Res.string.label_level_short)
+    val totalLevel = sumOf { it.level }
+    return "$names $levelShort $totalLevel"
 }
