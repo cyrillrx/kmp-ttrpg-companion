@@ -38,9 +38,9 @@ import com.cyrillrx.rpg.core.presentation.component.dialog.DialogTextField
 import com.cyrillrx.rpg.core.presentation.component.dialog.EditDialog
 import com.cyrillrx.rpg.core.presentation.component.dnd.ProficiencyCheckbox
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
-import com.cyrillrx.rpg.core.presentation.component.dnd.getFontWeight
 import com.cyrillrx.rpg.core.presentation.component.dnd.sortedByLocalizedName
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
+import com.cyrillrx.rpg.core.presentation.format.getFontWeight
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.creature.domain.Abilities

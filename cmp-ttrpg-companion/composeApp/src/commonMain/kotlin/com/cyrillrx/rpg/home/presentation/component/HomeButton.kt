@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.home.presentation
+package com.cyrillrx.rpg.home.presentation.component
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Button

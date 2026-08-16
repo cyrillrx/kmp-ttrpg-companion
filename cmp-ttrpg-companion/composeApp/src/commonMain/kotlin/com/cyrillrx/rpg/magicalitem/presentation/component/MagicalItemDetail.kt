@@ -18,8 +18,8 @@ import androidx.compose.ui.text.style.TextAlign
 import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.MarkdownText
 import com.cyrillrx.rpg.core.presentation.component.TintedTag
-import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
 import com.cyrillrx.rpg.core.presentation.component.dnd.getSubtitle
+import com.cyrillrx.rpg.core.presentation.format.getColor
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall

@@ -18,13 +18,13 @@ import androidx.compose.ui.text.style.TextAlign
 import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.LabeledParagraph
 import com.cyrillrx.rpg.core.presentation.component.MarkdownText
-import com.cyrillrx.rpg.core.presentation.component.dnd.formatCRValue
-import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
 import com.cyrillrx.rpg.core.presentation.component.dnd.getFormattedConditionImmunities
 import com.cyrillrx.rpg.core.presentation.component.dnd.getFormattedDamageAffinities
 import com.cyrillrx.rpg.core.presentation.component.dnd.getFormattedSavingThrows
 import com.cyrillrx.rpg.core.presentation.component.dnd.getFormattedSkills
 import com.cyrillrx.rpg.core.presentation.component.dnd.getSubtitle
+import com.cyrillrx.rpg.core.presentation.format.formatCRValue
+import com.cyrillrx.rpg.core.presentation.format.getColor
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall

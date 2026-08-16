@@ -1,10 +1,7 @@
 package com.cyrillrx.rpg.core.presentation.component.dnd
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.Color
-import com.cyrillrx.rpg.core.presentation.theme.ArmorColor
-import com.cyrillrx.rpg.core.presentation.theme.ObjectColor
-import com.cyrillrx.rpg.core.presentation.theme.WeaponColor
+import com.cyrillrx.rpg.core.presentation.format.SUBTITLE_SEPARATOR
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
@@ -57,15 +54,3 @@ fun MagicalItem.Rarity.toFormattedString(): String {
 
 @Composable
 fun MagicalItem.getSubtitle(): String = type.toFormattedString() + SUBTITLE_SEPARATOR + rarity.toFormattedString()
-
-fun MagicalItem.getColor(): Color = when (type) {
-    MagicalItem.Type.ARMOR -> ArmorColor
-    MagicalItem.Type.POTION -> ObjectColor
-    MagicalItem.Type.RING -> ObjectColor
-    MagicalItem.Type.ROD -> WeaponColor
-    MagicalItem.Type.SCROLL -> ObjectColor
-    MagicalItem.Type.STAFF -> WeaponColor
-    MagicalItem.Type.WAND -> WeaponColor
-    MagicalItem.Type.WEAPON -> WeaponColor
-    MagicalItem.Type.WONDROUS_ITEM -> ObjectColor
-}

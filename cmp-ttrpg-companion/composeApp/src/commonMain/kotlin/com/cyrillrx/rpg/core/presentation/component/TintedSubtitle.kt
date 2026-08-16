@@ -17,11 +17,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.AnnotatedString
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.text.withStyle
-import com.cyrillrx.rpg.core.presentation.component.dnd.SUBTITLE_SEPARATOR
+import com.cyrillrx.rpg.core.presentation.format.SUBTITLE_SEPARATOR
+import com.cyrillrx.rpg.core.presentation.format.buildSubtitle
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.iconSizeSmall
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
@@ -60,18 +58,6 @@ fun TintedSubtitle(
         )
         Spacer(modifier = Modifier.width(spacingSmall))
         SubtitleText(text)
-    }
-}
-
-internal fun buildSubtitle(
-    type: String,
-    typeColor: Color,
-    subtitle: String?,
-    subtitleColor: Color,
-): AnnotatedString = buildAnnotatedString {
-    withStyle(SpanStyle(color = typeColor)) { append(type) }
-    subtitle?.let {
-        withStyle(SpanStyle(color = subtitleColor)) { append(subtitle) }
     }
 }
 

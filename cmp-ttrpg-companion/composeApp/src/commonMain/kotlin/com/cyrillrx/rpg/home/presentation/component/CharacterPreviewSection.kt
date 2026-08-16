@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.home.presentation
+package com.cyrillrx.rpg.home.presentation.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -18,6 +18,8 @@ import com.cyrillrx.rpg.character.presentation.component.CharacterListItem
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.iconSizeLarge
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
+import com.cyrillrx.rpg.home.presentation.HomeState
+import com.cyrillrx.rpg.home.presentation.PreviewHomeRouter
 import com.cyrillrx.rpg.home.presentation.navigation.HomeRouter
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview

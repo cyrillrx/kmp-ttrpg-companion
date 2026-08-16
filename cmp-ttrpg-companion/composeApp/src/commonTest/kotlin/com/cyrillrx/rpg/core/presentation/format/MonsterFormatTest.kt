@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.core.presentation.component.dnd
+package com.cyrillrx.rpg.core.presentation.format
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AcUnit
@@ -36,7 +36,7 @@ import com.cyrillrx.rpg.creature.domain.Monster
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class MonsterFormatExtTest {
+class MonsterFormatTest {
 
     @Test
     fun `formatCRValue returns 0 for zero`() {

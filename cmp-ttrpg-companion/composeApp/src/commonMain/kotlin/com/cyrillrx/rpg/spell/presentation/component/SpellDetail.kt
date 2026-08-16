@@ -32,9 +32,9 @@ import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.presentation.component.LabeledParagraph
 import com.cyrillrx.rpg.core.presentation.component.MarkdownText
 import com.cyrillrx.rpg.core.presentation.component.TintedTag
-import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
-import com.cyrillrx.rpg.core.presentation.component.dnd.getFormattedComponents
 import com.cyrillrx.rpg.core.presentation.component.dnd.getFormattedSchoolAndLevel
+import com.cyrillrx.rpg.core.presentation.format.getColor
+import com.cyrillrx.rpg.core.presentation.format.getFormattedComponents
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.iconSizeMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon

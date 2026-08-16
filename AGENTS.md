@@ -65,6 +65,8 @@ What is excluded, and why: composables, design tokens and route declarations (no
 
 The practical rule when writing code: **keep testable logic out of `presentation/component/`, `presentation/theme/`, `navigation/`, `app/` and any `*Screen.kt` file**. Kover counts per class, so a pure function sharing a file with a composable is excluded along with it; Sonar counts per file, so `*Screen.kt` drops even the classes Kover still measures. Either way the tests stop counting. Conversely, a composable belongs in one of those locations — a composable-only file elsewhere is measured, and charged at zero.
 
+Where that logic goes instead: **`core/presentation/format`** for the shared formatters, or `{feature}/presentation` next to the other state holders when it is feature-specific. No exclusion pattern matches either. Extracting a top-level declaration takes a **new file**, not just a new function: every top-level declaration in `Foo.kt` compiles into a single `FooKt` facade, and the facade is what the Kover filter matches, so a pure function left behind in an excluded file stays excluded.
+
 ## 4. KMP Client — Project-specific patterns
 
 > For full architecture (MVVM/UDF, state & event modeling, layer separation, Compose rules), see [`kmp-conventions.md`](docs/conventions/kmp-conventions.md).
@@ -80,11 +82,13 @@ Two Gradle modules:
 
 **`composeApp`** — Presentation layer only.
 - `core/presentation/` — shared components, theme, navigation utilities
+- `core/presentation/format/` — pure formatters, no Compose (see the coverage policy above)
 - `{feature}/presentation/` — ViewModels, screens, routers per feature
 
 ### Package structure
 
 ```
+com.cyrillrx.rpg.core.presentation.format           # pure formatters, no Compose
 com.cyrillrx.rpg.{feature}.domain     # entities, repository interfaces
 com.cyrillrx.rpg.{feature}.data       # repository implementations
 com.cyrillrx.rpg.{feature}.presentation.viewmodel

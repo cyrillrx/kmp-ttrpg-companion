@@ -135,7 +135,6 @@ kover {
             // composables would only count tests that are never collected.
             excludes {
                 classes(
-                    // TODO(#179): move the pure helpers out of `component` so they get measured again.
                     "*.presentation.component.*",
                     "*.presentation.theme.*",
                     // Route declarations, mostly kotlinx.serialization generated members.
