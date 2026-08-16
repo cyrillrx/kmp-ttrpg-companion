@@ -1,5 +1,14 @@
 package com.cyrillrx.rpg.core.presentation.format
 
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AutoAwesome
+import androidx.compose.material.icons.filled.Bolt
+import androidx.compose.material.icons.filled.Flare
+import androidx.compose.material.icons.filled.Psychology
+import androidx.compose.material.icons.filled.Shield
+import androidx.compose.material.icons.filled.SwapHoriz
+import androidx.compose.material.icons.filled.Visibility
+import androidx.compose.material.icons.outlined.Dangerous
 import com.cyrillrx.rpg.core.presentation.theme.SchoolAbjuration
 import com.cyrillrx.rpg.core.presentation.theme.SchoolConjuration
 import com.cyrillrx.rpg.core.presentation.theme.SchoolDivination
@@ -58,6 +67,19 @@ class SpellFormatExtTest {
     fun `Spell getColor delegates to its school`() {
         val spell = spellWith(school = Spell.School.NECROMANCY)
         assertEquals(expected = SchoolNecromancy, actual = spell.getColor())
+    }
+
+    @Test
+    fun `School getIcon maps every school and the null case to an icon`() {
+        assertEquals(expected = Icons.Filled.Shield, actual = Spell.School.ABJURATION.getIcon())
+        assertEquals(expected = Icons.Filled.Flare, actual = Spell.School.CONJURATION.getIcon())
+        assertEquals(expected = Icons.Filled.Visibility, actual = Spell.School.DIVINATION.getIcon())
+        assertEquals(expected = Icons.Filled.Psychology, actual = Spell.School.ENCHANTMENT.getIcon())
+        assertEquals(expected = Icons.Filled.Bolt, actual = Spell.School.EVOCATION.getIcon())
+        assertEquals(expected = Icons.Filled.AutoAwesome, actual = Spell.School.ILLUSION.getIcon())
+        assertEquals(expected = Icons.Outlined.Dangerous, actual = Spell.School.NECROMANCY.getIcon())
+        assertEquals(expected = Icons.Filled.SwapHoriz, actual = Spell.School.TRANSMUTATION.getIcon())
+        assertEquals(expected = Icons.Filled.AutoAwesome, actual = (null as Spell.School?).getIcon())
     }
 
     private fun spellWith(
