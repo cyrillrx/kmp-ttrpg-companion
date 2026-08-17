@@ -26,6 +26,7 @@ source of truth. The documents below are thin pointers to it; some add project-s
 ### Code Quality and Maintainability
 
 - **General Coding Conventions**: [`coding-conventions.md`](docs/conventions/coding-conventions.md) _(pointer)_
+- **Comments**: Do not write comments (including KDoc) that restate what the code does. Only add a comment when it captures non-obvious *rationale* ("why"), or a short example of a formatting function's output (e.g. `// e.g. "Rogue/Wizard lv. 5"`). Prefer self-documenting names over comments.
 
 ### Technology-Specific Guidelines
 
