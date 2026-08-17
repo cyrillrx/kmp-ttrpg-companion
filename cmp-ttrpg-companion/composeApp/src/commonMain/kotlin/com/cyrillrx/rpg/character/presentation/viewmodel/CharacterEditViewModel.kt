@@ -6,7 +6,6 @@ import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterRepository
-import com.cyrillrx.rpg.character.domain.ClassLevel
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.domain.coerceToValidAbilityScore
@@ -15,6 +14,7 @@ import com.cyrillrx.rpg.character.domain.coerceToValidCharacterLevel
 import com.cyrillrx.rpg.character.domain.coerceToValidMaxHitPoints
 import com.cyrillrx.rpg.character.domain.coerceToValidWalkSpeedInFeet
 import com.cyrillrx.rpg.character.domain.defaultWalkSpeed
+import com.cyrillrx.rpg.character.domain.primaryClass
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
@@ -77,18 +77,19 @@ class CharacterEditViewModel(
     fun saveClass(clazz: Character.Class) {
         updateAndSave {
             val newClasses = if (clazz == Character.Class.UNKNOWN) {
-                emptyList()
+                emptyMap()
             } else {
-                listOf(ClassLevel(clazz, character.totalLevel.coerceToValidCharacterLevel()))
+                mapOf(clazz to character.totalLevel.coerceToValidCharacterLevel())
             }
             copy(character = character.copy(classes = newClasses), editingField = null)
         }
     }
 
     fun saveLevel(level: Int) = updateAndSave(level, Int::coerceToValidCharacterLevel) { coerced ->
-        val primaryIndex = character.classes.indices.maxByOrNull { character.classes[it].level } ?: 0
-        val newClasses = character.classes.mapIndexed { index, classLevel ->
-            if (index == primaryIndex) classLevel.copy(level = coerced) else classLevel
+        val newClasses = if (character.classes.isEmpty()) {
+            character.classes
+        } else {
+            character.classes + (character.classes.primaryClass to coerced)
         }
         copy(character = character.copy(classes = newClasses), editingField = null)
     }

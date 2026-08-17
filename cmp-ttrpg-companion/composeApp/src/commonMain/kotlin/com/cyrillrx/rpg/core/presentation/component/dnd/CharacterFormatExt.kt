@@ -6,9 +6,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
 import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
-import com.cyrillrx.rpg.character.domain.ClassLevel
+import com.cyrillrx.rpg.character.domain.ClassLevels
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
+import com.cyrillrx.rpg.character.domain.totalLevel
 import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.creature.domain.Proficiency
 import com.cyrillrx.rpg.creature.domain.Skill
@@ -247,28 +248,27 @@ fun Character.Class.toFormattedString(): String {
     return stringResource(stringRes)
 }
 
-/** Detailed multiclass label, e.g. "Fighter 3 / Rogue 2". Empty class list → "No class". */
+// e.g. "Fighter 3 / Rogue 2", or "No class" when empty.
 @Composable
-fun List<ClassLevel>.toClassesLabel(): String {
+fun ClassLevels.toClassesLabel(): String {
     if (isEmpty()) return stringResource(Res.string.label_no_class)
     val label = StringBuilder()
-    forEachIndexed { index, classLevel ->
+    entries.forEachIndexed { index, (clazz, level) ->
         if (index > 0) label.append(" / ")
-        label.append(classLevel.clazz.toFormattedString()).append(' ').append(classLevel.level)
+        label.append(clazz.toFormattedString()).append(' ').append(level)
     }
     return label.toString()
 }
 
-/** Compact multiclass summary, e.g. "Rogue/Wizard lv. 5". Empty class list → "No class". */
+// e.g. "Rogue/Wizard lv. 5", or "No class" when empty.
 @Composable
-fun List<ClassLevel>.toClassesSummary(): String {
+fun ClassLevels.toClassesSummary(): String {
     if (isEmpty()) return stringResource(Res.string.label_no_class)
     val names = StringBuilder()
-    forEachIndexed { index, classLevel ->
+    entries.forEachIndexed { index, (clazz, _) ->
         if (index > 0) names.append('/')
-        names.append(classLevel.clazz.toFormattedString())
+        names.append(clazz.toFormattedString())
     }
     val levelShort = stringResource(Res.string.label_level_short)
-    val totalLevel = sumOf { it.level }
     return "$names $levelShort $totalLevel"
 }

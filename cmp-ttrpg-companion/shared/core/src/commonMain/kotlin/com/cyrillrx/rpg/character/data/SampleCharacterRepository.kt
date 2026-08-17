@@ -3,7 +3,6 @@ package com.cyrillrx.rpg.character.data
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterFilter
 import com.cyrillrx.rpg.character.domain.CharacterRepository
-import com.cyrillrx.rpg.character.domain.ClassLevel
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.applyFilter
 import com.cyrillrx.rpg.core.domain.Stored
@@ -63,7 +62,7 @@ class SampleCharacterRepository : CharacterRepository {
                 maxHitPoints = 12,
                 speeds = Speeds(walk = 30),
                 languages = listOf(Language.COMMON, Language.DWARVISH),
-                classes = listOf(ClassLevel(Character.Class.FIGHTER, 1)),
+                classes = mapOf(Character.Class.FIGHTER to 1),
                 skills = Skills(),
             )
 
@@ -86,7 +85,7 @@ class SampleCharacterRepository : CharacterRepository {
                 maxHitPoints = 8,
                 speeds = Speeds(walk = 30),
                 languages = listOf(Language.COMMON, Language.ELVISH),
-                classes = listOf(ClassLevel(Character.Class.ROGUE, 1)),
+                classes = mapOf(Character.Class.ROGUE to 1),
                 skills = Skills(),
             )
     }

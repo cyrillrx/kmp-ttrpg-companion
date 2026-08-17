@@ -221,7 +221,7 @@ internal fun CharacterEditDialog(
 
         EditingField.Clazz -> SingleChoiceDialog(
             title = stringResource(Res.string.label_class),
-            selected = state.character.primaryClass ?: Character.Class.UNKNOWN,
+            selected = state.character.primaryClass,
             options = Character.Class.entries,
             optionLabel = { it.toFormattedString() },
             onConfirm = { it?.let(onClassConfirmed) },

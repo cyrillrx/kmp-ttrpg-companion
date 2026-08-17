@@ -24,13 +24,11 @@ data class Character(
     val background: Background? = null,
     val currentHitPoints: Int = maxHitPoints,
     val temporaryHitPoints: Int = 0,
-    val classes: List<ClassLevel> = emptyList(),
+    val classes: ClassLevels = emptyMap(),
 ) : Creature() {
-    /** Sum of every class level; 0 when the character has no class. */
-    val totalLevel: Int get() = classes.sumOf { it.level }
+    val totalLevel: Int get() = classes.totalLevel
 
-    /** Class with the most levels (used for the icon); null when the character has no class. */
-    val primaryClass: Class? get() = classes.maxByOrNull { it.level }?.clazz
+    val primaryClass: Class get() = classes.primaryClass
 
     fun resolveTranslation(locale: String): Translation? = translations[locale]
         ?: translations[FALLBACK_LOCALE]

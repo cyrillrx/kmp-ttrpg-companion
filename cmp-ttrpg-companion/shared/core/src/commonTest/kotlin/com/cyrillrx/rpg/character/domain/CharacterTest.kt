@@ -7,7 +7,6 @@ import com.cyrillrx.rpg.creature.domain.Skills
 import com.cyrillrx.rpg.creature.domain.Speeds
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertNull
 
 class CharacterTest {
 
@@ -32,9 +31,9 @@ class CharacterTest {
     @Test
     fun `totalLevel sums every class level and drives the proficiency bonus`() {
         val multiclass = character().copy(
-            classes = listOf(
-                ClassLevel(Character.Class.ROGUE, 3),
-                ClassLevel(Character.Class.WIZARD, 2),
+            classes = mapOf(
+                Character.Class.ROGUE to 3,
+                Character.Class.WIZARD to 2,
             ),
         )
         assertEquals(5, multiclass.totalLevel)
@@ -44,9 +43,9 @@ class CharacterTest {
     @Test
     fun `primaryClass is the class with the most levels`() {
         val multiclass = character().copy(
-            classes = listOf(
-                ClassLevel(Character.Class.ROGUE, 2),
-                ClassLevel(Character.Class.WIZARD, 4),
+            classes = mapOf(
+                Character.Class.ROGUE to 2,
+                Character.Class.WIZARD to 4,
             ),
         )
         assertEquals(Character.Class.WIZARD, multiclass.primaryClass)
@@ -54,10 +53,10 @@ class CharacterTest {
 
     @Test
     fun `a character without a class has no level and no primary class`() {
-        val noClass = character().copy(classes = emptyList())
+        val noClass = character().copy(classes = emptyMap())
         assertEquals(0, noClass.totalLevel)
         assertEquals(0, noClass.proficiencyBonus())
-        assertNull(noClass.primaryClass)
+        assertEquals(Character.Class.UNKNOWN, noClass.primaryClass)
     }
 
     private fun character(dex: Int = 10, level: Int = 1) = Character(
@@ -77,7 +76,7 @@ class CharacterTest {
         maxHitPoints = 10,
         speeds = Speeds(walk = 30),
         languages = emptyList(),
-        classes = listOf(ClassLevel(Character.Class.FIGHTER, level)),
+        classes = mapOf(Character.Class.FIGHTER to level),
         skills = Skills(),
     )
 }

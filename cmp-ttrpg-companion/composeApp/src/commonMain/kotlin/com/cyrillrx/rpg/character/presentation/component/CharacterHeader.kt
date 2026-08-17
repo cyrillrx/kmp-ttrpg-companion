@@ -42,8 +42,10 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextDecoration
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Character
-import com.cyrillrx.rpg.character.domain.ClassLevel
+import com.cyrillrx.rpg.character.domain.ClassLevels
 import com.cyrillrx.rpg.character.domain.Race
+import com.cyrillrx.rpg.character.domain.primaryClass
+import com.cyrillrx.rpg.character.domain.totalLevel
 import com.cyrillrx.rpg.core.presentation.component.dnd.toClassesLabel
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
@@ -63,7 +65,7 @@ internal fun CharacterHeader(
     name: String,
     shortDescription: String,
     race: Race,
-    classes: List<ClassLevel>,
+    classes: ClassLevels,
     background: String,
     alignment: Creature.Alignment,
     onNameConfirmed: (String) -> Unit,
@@ -75,8 +77,8 @@ internal fun CharacterHeader(
     onAlignmentTapped: () -> Unit,
 ) {
     val levelShort = stringResource(Res.string.label_level_short)
-    val primaryClass = classes.maxByOrNull { it.level }?.clazz ?: Character.Class.UNKNOWN
-    val totalLevel = classes.sumOf { it.level }
+    val primaryClass = classes.primaryClass
+    val totalLevel = classes.totalLevel
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(spacingCommon),

@@ -10,7 +10,6 @@ import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterFilter
 import com.cyrillrx.rpg.character.domain.CharacterRepository
-import com.cyrillrx.rpg.character.domain.ClassLevel
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.domain.applyFilter
@@ -112,7 +111,7 @@ class JsonCharacterPresetRepository(
                     translations = translations,
                     background = background?.toBackground(),
                     race = race,
-                    classes = if (clazz == Character.Class.UNKNOWN) emptyList() else listOf(ClassLevel(clazz, level)),
+                    classes = if (clazz == Character.Class.UNKNOWN) emptyMap() else mapOf(clazz to level),
                     size = size,
                     alignment = alignment,
                     abilities = createAbilities(abilities, savingThrows),

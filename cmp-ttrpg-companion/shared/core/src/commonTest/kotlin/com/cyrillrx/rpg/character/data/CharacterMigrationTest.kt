@@ -3,7 +3,6 @@ package com.cyrillrx.rpg.character.data
 import com.cyrillrx.core.data.defaultSerializer
 import com.cyrillrx.core.data.serialize
 import com.cyrillrx.rpg.character.domain.Character
-import com.cyrillrx.rpg.character.domain.ClassLevel
 import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.buildJsonObject
 import kotlinx.serialization.json.jsonObject
@@ -16,7 +15,7 @@ class CharacterMigrationTest {
     @Test
     fun `legacy clazz and level are migrated to a single class entry`() {
         val migrated = legacyJson(clazz = "FIGHTER", level = 4).deserializeCharacter()
-        assertEquals(listOf(ClassLevel(Character.Class.FIGHTER, 4)), migrated.classes)
+        assertEquals(mapOf(Character.Class.FIGHTER to 4), migrated.classes)
     }
 
     @Test
@@ -28,11 +27,10 @@ class CharacterMigrationTest {
     @Test
     fun `modern classes are left untouched`() {
         val modern = SampleCharacterRepository.humanFighter()
-            .copy(classes = listOf(ClassLevel(Character.Class.ROGUE, 3), ClassLevel(Character.Class.WIZARD, 2)))
+            .copy(classes = mapOf(Character.Class.ROGUE to 3, Character.Class.WIZARD to 2))
         assertEquals(modern.classes, modern.serialize().deserializeCharacter().classes)
     }
 
-    /** A stored character in the legacy single-class shape (`clazz` + `level`, no `classes`). */
     private fun legacyJson(clazz: String, level: Int): String {
         val modern = defaultSerializer.parseToJsonElement(
             SampleCharacterRepository.humanFighter().serialize(),
