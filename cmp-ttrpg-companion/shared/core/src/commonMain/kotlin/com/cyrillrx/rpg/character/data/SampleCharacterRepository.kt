@@ -66,6 +66,18 @@ class SampleCharacterRepository : CharacterRepository {
                 skills = Skills(),
             )
 
+        fun multiclassBarbarian() =
+            humanFighter().copy(
+                id = "sample-multiclass",
+                name = "Rhogar Sangfroid",
+                classes =
+                    mapOf(
+                        Character.Class.BARBARIAN to 5,
+                        Character.Class.SORCERER to 4,
+                        Character.Class.WARLOCK to 3,
+                    ),
+            )
+
         fun elfRogue() =
             Character(
                 id = "sample-rogue",
