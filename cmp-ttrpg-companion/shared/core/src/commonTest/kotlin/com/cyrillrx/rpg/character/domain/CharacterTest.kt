@@ -41,22 +41,22 @@ class CharacterTest {
     }
 
     @Test
-    fun `primaryClass is the class with the most levels`() {
-        val multiclass = character().copy(
+    fun `proficiencyBonus stays at 6 when the class levels sum above 20`() {
+        val overTwenty = character().copy(
             classes = mapOf(
+                Character.Class.FIGHTER to 20,
                 Character.Class.ROGUE to 2,
-                Character.Class.WIZARD to 4,
             ),
         )
-        assertEquals(Character.Class.WIZARD, multiclass.primaryClass)
+        assertEquals(22, overTwenty.totalLevel)
+        assertEquals(6, overTwenty.proficiencyBonus())
     }
 
     @Test
-    fun `a character without a class has no level and no primary class`() {
-        val noClass = character().copy(classes = emptyMap())
-        assertEquals(0, noClass.totalLevel)
-        assertEquals(0, noClass.proficiencyBonus())
-        assertEquals(Character.Class.UNKNOWN, noClass.primaryClass)
+    fun `an unspecified class still carries a level and a proficiency bonus`() {
+        val unspecified = character().copy(classes = mapOf(Character.Class.UNKNOWN to 1))
+        assertEquals(1, unspecified.totalLevel)
+        assertEquals(2, unspecified.proficiencyBonus())
     }
 
     private fun character(dex: Int = 10, level: Int = 1) = Character(

@@ -1,21 +1,21 @@
 package com.cyrillrx.rpg.character.data
 
-import com.cyrillrx.core.data.deserialize
+import com.cyrillrx.core.data.defaultSerializer
 import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.character.domain.MIN_CHARACTER_LEVEL
 import com.cyrillrx.rpg.character.domain.coerceToValidCharacterLevel
+import com.cyrillrx.rpg.character.domain.orDefault
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.decodeFromJsonElement
+import kotlinx.serialization.json.jsonObject
 
 internal fun String.deserializeCharacter(): Character {
-    val character = deserialize<Character>()
-    if (character.classes.isNotEmpty()) return character
-
-    val legacy = deserialize<LegacyClassLevel>()
-    val clazz = legacy.clazz
-    return if (clazz == null || clazz == Character.Class.UNKNOWN) {
-        character
-    } else {
-        character.copy(classes = mapOf(clazz to (legacy.level ?: 1).coerceToValidCharacterLevel()))
-    }
+    val json = defaultSerializer.parseToJsonElement(this).jsonObject
+    val character = defaultSerializer.decodeFromJsonElement<Character>(json)
+    val legacy = defaultSerializer.decodeFromJsonElement<LegacyClassLevel>(json)
+    val clazz = legacy.clazz ?: return character.copy(classes = character.classes.orDefault())
+    val level = (legacy.level ?: MIN_CHARACTER_LEVEL).coerceToValidCharacterLevel()
+    return character.copy(classes = mapOf(clazz to level))
 }
 
 @Serializable

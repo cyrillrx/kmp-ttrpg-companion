@@ -111,7 +111,7 @@ class JsonCharacterPresetRepository(
                     translations = translations,
                     background = background?.toBackground(),
                     race = race,
-                    classes = if (clazz == Character.Class.UNKNOWN) emptyMap() else mapOf(clazz to level),
+                    classes = mapOf(clazz to level),
                     size = size,
                     alignment = alignment,
                     abilities = createAbilities(abilities, savingThrows),

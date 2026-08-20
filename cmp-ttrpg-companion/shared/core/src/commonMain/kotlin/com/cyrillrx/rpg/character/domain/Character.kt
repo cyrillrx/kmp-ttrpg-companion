@@ -24,23 +24,20 @@ data class Character(
     val background: Background? = null,
     val currentHitPoints: Int = maxHitPoints,
     val temporaryHitPoints: Int = 0,
-    val classes: ClassLevels = emptyMap(),
+    val classes: ClassLevels = DEFAULT_CLASS_LEVELS,
 ) : Creature() {
     val totalLevel: Int get() = classes.totalLevel
-
-    val primaryClass: Class get() = classes.primaryClass
 
     fun resolveTranslation(locale: String): Translation? = translations[locale]
         ?: translations[FALLBACK_LOCALE]
         ?: translations.values.firstOrNull()
 
-    fun proficiencyBonus(): Int = when (totalLevel) {
+    fun proficiencyBonus(): Int = when (totalLevel.coerceIn(MIN_CHARACTER_LEVEL, MAX_CHARACTER_LEVEL)) {
         in 1..4 -> 2
         in 5..8 -> 3
         in 9..12 -> 4
         in 13..16 -> 5
-        in 17..20 -> 6
-        else -> 0
+        else -> 6
     }
 
     @Serializable
