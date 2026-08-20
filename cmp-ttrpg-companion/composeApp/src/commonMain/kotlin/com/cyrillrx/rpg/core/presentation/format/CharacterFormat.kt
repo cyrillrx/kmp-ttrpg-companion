@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.core.presentation.format
 
 import androidx.compose.ui.text.font.FontWeight
 import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.character.domain.ClassLevels
 import com.cyrillrx.rpg.creature.domain.Proficiency
 
 fun Character.Class.toSvgPath(): String = when (this) {
@@ -26,3 +27,13 @@ fun Proficiency.getFontWeight(): FontWeight = when (this) {
     Proficiency.NONE -> FontWeight.Normal
     Proficiency.PROFICIENT, Proficiency.EXPERT -> FontWeight.Bold
 }
+
+/** Classes ordered by decreasing level, ties broken alphabetically on the localized name. */
+fun ClassLevels.sortedByLevelThenName(nameOf: (Character.Class) -> String): List<Pair<Character.Class, Int>> {
+    val comparator = compareByDescending<Map.Entry<Character.Class, Int>> { it.value }
+        .thenBy { nameOf(it.key).localizedSortKey() }
+    return entries.sortedWith(comparator).map { it.key to it.value }
+}
+
+fun ClassLevels.primaryClass(nameOf: (Character.Class) -> String): Character.Class =
+    sortedByLevelThenName(nameOf).firstOrNull()?.first ?: Character.Class.UNKNOWN

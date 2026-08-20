@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.core.presentation.format
 
 import androidx.compose.ui.text.font.FontWeight
 import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.character.domain.ClassLevels
 import com.cyrillrx.rpg.creature.domain.Proficiency
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -43,5 +44,95 @@ class CharacterFormatTest {
         assertEquals(expected = FontWeight.Normal, actual = Proficiency.NONE.getFontWeight())
         assertEquals(expected = FontWeight.Bold, actual = Proficiency.PROFICIENT.getFontWeight())
         assertEquals(expected = FontWeight.Bold, actual = Proficiency.EXPERT.getFontWeight())
+    }
+
+    @Test
+    fun `sortedByLevelThenName orders by decreasing level`() {
+        val classes: ClassLevels = mapOf(
+            Character.Class.ROGUE to 2,
+            Character.Class.WIZARD to 5,
+            Character.Class.FIGHTER to 3,
+        )
+
+        assertEquals(
+            expected = listOf(Character.Class.WIZARD, Character.Class.FIGHTER, Character.Class.ROGUE),
+            actual = classes.sortedByLevelThenName(FRENCH_NAMES::getValue).map { it.first },
+        )
+    }
+
+    @Test
+    fun `sortedByLevelThenName breaks ties alphabetically in the current language`() {
+        val classes: ClassLevels = mapOf(
+            Character.Class.RANGER to 3,
+            Character.Class.ROGUE to 3,
+        )
+
+        // "Rôdeur" before "Roublard", but "Ranger" before "Rogue".
+        assertEquals(
+            expected = listOf(Character.Class.RANGER, Character.Class.ROGUE),
+            actual = classes.sortedByLevelThenName(FRENCH_NAMES::getValue).map { it.first },
+        )
+        assertEquals(
+            expected = listOf(Character.Class.RANGER, Character.Class.ROGUE),
+            actual = classes.sortedByLevelThenName(ENGLISH_NAMES::getValue).map { it.first },
+        )
+    }
+
+    @Test
+    fun `sortedByLevelThenName follows the language when the two orders disagree`() {
+        val classes: ClassLevels = mapOf(
+            Character.Class.FIGHTER to 3,
+            Character.Class.SORCERER to 3,
+        )
+
+        // "Fighter" before "Sorcerer" in English, but "Ensorceleur" before "Guerrier" in French.
+        assertEquals(
+            expected = listOf(Character.Class.FIGHTER, Character.Class.SORCERER),
+            actual = classes.sortedByLevelThenName(ENGLISH_NAMES::getValue).map { it.first },
+        )
+        assertEquals(
+            expected = listOf(Character.Class.SORCERER, Character.Class.FIGHTER),
+            actual = classes.sortedByLevelThenName(FRENCH_NAMES::getValue).map { it.first },
+        )
+    }
+
+    @Test
+    fun `primaryClass is the highest level, ties broken by localized name`() {
+        val classes: ClassLevels = mapOf(
+            Character.Class.RANGER to 3,
+            Character.Class.ROGUE to 3,
+            Character.Class.WIZARD to 1,
+        )
+
+        assertEquals(
+            expected = Character.Class.RANGER,
+            actual = classes.primaryClass(FRENCH_NAMES::getValue),
+        )
+    }
+
+    @Test
+    fun `primaryClass falls back to UNKNOWN for an empty map`() {
+        assertEquals(
+            expected = Character.Class.UNKNOWN,
+            actual = emptyMap<Character.Class, Int>().primaryClass(FRENCH_NAMES::getValue),
+        )
+    }
+
+    private companion object {
+        val FRENCH_NAMES = mapOf(
+            Character.Class.FIGHTER to "Guerrier",
+            Character.Class.RANGER to "Rôdeur",
+            Character.Class.ROGUE to "Roublard",
+            Character.Class.SORCERER to "Ensorceleur",
+            Character.Class.WIZARD to "Magicien",
+        )
+
+        val ENGLISH_NAMES = mapOf(
+            Character.Class.FIGHTER to "Fighter",
+            Character.Class.RANGER to "Ranger",
+            Character.Class.ROGUE to "Rogue",
+            Character.Class.SORCERER to "Sorcerer",
+            Character.Class.WIZARD to "Wizard",
+        )
     }
 }
