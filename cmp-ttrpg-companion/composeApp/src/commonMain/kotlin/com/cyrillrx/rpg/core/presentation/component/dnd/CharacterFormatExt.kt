@@ -10,6 +10,9 @@ import com.cyrillrx.rpg.character.domain.ClassLevels
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.domain.totalLevel
+import com.cyrillrx.rpg.core.presentation.format.localizedSortKey
+import com.cyrillrx.rpg.core.presentation.format.primaryClass
+import com.cyrillrx.rpg.core.presentation.format.sortedByLevelThenName
 import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.creature.domain.Proficiency
 import com.cyrillrx.rpg.creature.domain.Skill
@@ -49,7 +52,6 @@ import rpg_companion.composeapp.generated.resources.class_unknown
 import rpg_companion.composeapp.generated.resources.class_warlock
 import rpg_companion.composeapp.generated.resources.class_wizard
 import rpg_companion.composeapp.generated.resources.label_level_short
-import rpg_companion.composeapp.generated.resources.label_no_class
 import rpg_companion.composeapp.generated.resources.language_abyssal
 import rpg_companion.composeapp.generated.resources.language_celestial
 import rpg_companion.composeapp.generated.resources.language_common
@@ -207,7 +209,7 @@ fun Skill.toFormattedString(): String {
 fun List<Skill>.sortedByLocalizedName(): List<Skill> {
     val localizedNames = associateWith { it.toFormattedString() }
     return remember(localizedNames) {
-        sortedBy { localizedNames.getValue(it).lowercase() }
+        sortedBy { localizedNames.getValue(it).localizedSortKey() }
     }
 }
 
@@ -248,27 +250,29 @@ fun Character.Class.toFormattedString(): String {
     return stringResource(stringRes)
 }
 
-// e.g. "Fighter 3 / Rogue 2", or "No class" when empty.
 @Composable
-fun ClassLevels.toClassesLabel(): String {
-    if (isEmpty()) return stringResource(Res.string.label_no_class)
-    val label = StringBuilder()
-    entries.forEachIndexed { index, (clazz, level) ->
-        if (index > 0) label.append(" / ")
-        label.append(clazz.toFormattedString()).append(' ').append(level)
-    }
-    return label.toString()
+private fun ClassLevels.localizedNames(): Map<Character.Class, String> =
+    keys.associateWith { it.toFormattedString() }
+
+@Composable
+fun ClassLevels.primaryClass(): Character.Class {
+    val names = localizedNames()
+    return primaryClass { names.getValue(it) }
 }
 
-// e.g. "Rogue/Wizard lv. 5", or "No class" when empty.
+// e.g. "Fighter 3 / Rogue 2"
+@Composable
+fun ClassLevels.toClassesLabel(): String {
+    val names = localizedNames()
+    return sortedByLevelThenName { names.getValue(it) }
+        .joinToString(" / ") { (clazz, level) -> "${names.getValue(clazz)} $level" }
+}
+
+// e.g. "Rogue/Wizard lv. 5"
 @Composable
 fun ClassLevels.toClassesSummary(): String {
-    if (isEmpty()) return stringResource(Res.string.label_no_class)
-    val names = StringBuilder()
-    entries.forEachIndexed { index, (clazz, _) ->
-        if (index > 0) names.append('/')
-        names.append(clazz.toFormattedString())
-    }
-    val levelShort = stringResource(Res.string.label_level_short)
-    return "$names $levelShort $totalLevel"
+    val names = localizedNames()
+    val classNames = sortedByLevelThenName { names.getValue(it) }
+        .joinToString("/") { (clazz, _) -> names.getValue(clazz) }
+    return "$classNames ${stringResource(Res.string.label_level_short)} $totalLevel"
 }

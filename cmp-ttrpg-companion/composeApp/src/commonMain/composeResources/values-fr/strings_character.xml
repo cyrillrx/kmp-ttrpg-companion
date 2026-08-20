@@ -20,7 +20,6 @@
     <string name="hint_leave_blank_to_remove">Laisser vide pour supprimer.</string>
     <string name="label_race">Race</string>
     <string name="label_class">Classe</string>
-    <string name="label_no_class">Sans classe</string>
     <string name="label_level">Niveau</string>
     <string name="label_background">Historique</string>
     <string name="label_abilities">Caractéristiques</string>
