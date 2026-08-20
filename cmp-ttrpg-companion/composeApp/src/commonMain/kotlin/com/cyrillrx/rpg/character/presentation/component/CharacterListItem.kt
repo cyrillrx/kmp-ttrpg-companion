@@ -72,6 +72,9 @@ fun CharacterListItem(
                     style = MaterialTheme.typography.labelSmall,
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.primary,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                    modifier = Modifier.weight(1f, fill = false),
                 )
             }
 
@@ -121,6 +124,11 @@ private fun PreviewCharacterListItemLight() {
             SampleCharacterRepository.getAll().forEach {
                 CharacterListItem(character = it.value, updatedAt = it.updatedAt, onClick = {})
             }
+            CharacterListItem(
+                character = SampleCharacterRepository.multiclassBarbarian(),
+                updatedAt = SampleCharacterRepository.getAll().first().updatedAt,
+                onClick = {},
+            )
         }
     }
 }
@@ -133,6 +141,11 @@ private fun PreviewCharacterListItemDark() {
             SampleCharacterRepository.getAll().forEach {
                 CharacterListItem(character = it.value, updatedAt = it.updatedAt, onClick = {})
             }
+            CharacterListItem(
+                character = SampleCharacterRepository.multiclassBarbarian(),
+                updatedAt = SampleCharacterRepository.getAll().first().updatedAt,
+                onClick = {},
+            )
         }
     }
 }
