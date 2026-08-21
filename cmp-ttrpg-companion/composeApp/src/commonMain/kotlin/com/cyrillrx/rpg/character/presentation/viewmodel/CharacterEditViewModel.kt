@@ -74,12 +74,16 @@ class CharacterEditViewModel(
     }
 
     fun saveClass(clazz: Character.Class) {
-        updateAndSave { copy(character = character.copy(clazz = clazz), editingField = null) }
+        updateAndSave {
+            val newClasses = mapOf(clazz to character.totalLevel.coerceToValidCharacterLevel())
+            copy(character = character.copy(classes = newClasses), editingField = null)
+        }
     }
 
-    fun saveLevel(level: Int) = updateAndSave(level, Int::coerceToValidCharacterLevel) { coerced ->
-        copy(character = character.copy(level = coerced), editingField = null)
-    }
+    fun saveLevel(clazz: Character.Class, level: Int) =
+        updateAndSave(level, Int::coerceToValidCharacterLevel) { coerced ->
+            copy(character = character.copy(classes = character.classes + (clazz to coerced)), editingField = null)
+        }
 
     fun saveBackground(background: Background?) {
         updateAndSave { copy(character = character.copy(background = background), editingField = null) }

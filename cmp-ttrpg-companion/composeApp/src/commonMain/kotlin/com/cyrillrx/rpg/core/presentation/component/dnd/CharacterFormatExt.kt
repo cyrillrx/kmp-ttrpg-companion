@@ -6,8 +6,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
 import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.character.domain.ClassLevels
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
+import com.cyrillrx.rpg.character.domain.totalLevel
+import com.cyrillrx.rpg.core.presentation.format.localizedSortKey
+import com.cyrillrx.rpg.core.presentation.format.primaryClass
+import com.cyrillrx.rpg.core.presentation.format.sortedByLevelThenName
 import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.creature.domain.Proficiency
 import com.cyrillrx.rpg.creature.domain.Skill
@@ -46,6 +51,7 @@ import rpg_companion.composeapp.generated.resources.class_sorcerer
 import rpg_companion.composeapp.generated.resources.class_unknown
 import rpg_companion.composeapp.generated.resources.class_warlock
 import rpg_companion.composeapp.generated.resources.class_wizard
+import rpg_companion.composeapp.generated.resources.label_level_short
 import rpg_companion.composeapp.generated.resources.language_abyssal
 import rpg_companion.composeapp.generated.resources.language_celestial
 import rpg_companion.composeapp.generated.resources.language_common
@@ -203,7 +209,7 @@ fun Skill.toFormattedString(): String {
 fun List<Skill>.sortedByLocalizedName(): List<Skill> {
     val localizedNames = associateWith { it.toFormattedString() }
     return remember(localizedNames) {
-        sortedBy { localizedNames.getValue(it).lowercase() }
+        sortedBy { localizedNames.getValue(it).localizedSortKey() }
     }
 }
 
@@ -242,4 +248,31 @@ fun Character.Class.toFormattedString(): String {
         Character.Class.UNKNOWN -> Res.string.class_unknown
     }
     return stringResource(stringRes)
+}
+
+@Composable
+private fun ClassLevels.localizedNames(): Map<Character.Class, String> =
+    keys.associateWith { it.toFormattedString() }
+
+@Composable
+fun ClassLevels.primaryClass(): Character.Class {
+    val names = localizedNames()
+    return primaryClass { names.getValue(it) }
+}
+
+// e.g. "Fighter 3 / Rogue 2"
+@Composable
+fun ClassLevels.toClassesLabel(): String {
+    val names = localizedNames()
+    return sortedByLevelThenName { names.getValue(it) }
+        .joinToString(" / ") { (clazz, level) -> "${names.getValue(clazz)} $level" }
+}
+
+// e.g. "Rogue/Wizard lv. 5"
+@Composable
+fun ClassLevels.toClassesSummary(): String {
+    val names = localizedNames()
+    val classNames = sortedByLevelThenName { names.getValue(it) }
+        .joinToString("/") { (clazz, _) -> names.getValue(clazz) }
+    return "$classNames ${stringResource(Res.string.label_level_short)} $totalLevel"
 }

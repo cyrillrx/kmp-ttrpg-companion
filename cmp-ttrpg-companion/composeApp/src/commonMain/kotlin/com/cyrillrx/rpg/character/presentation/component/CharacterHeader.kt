@@ -6,6 +6,8 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -42,7 +44,11 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextDecoration
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.character.domain.ClassLevels
 import com.cyrillrx.rpg.character.domain.Race
+import com.cyrillrx.rpg.character.domain.totalLevel
+import com.cyrillrx.rpg.core.presentation.component.dnd.primaryClass
+import com.cyrillrx.rpg.core.presentation.component.dnd.toClassesLabel
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.avatarBorderWidth
@@ -56,13 +62,13 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.label_level_short
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 internal fun CharacterHeader(
     name: String,
     shortDescription: String,
     race: Race,
-    clazz: Character.Class,
-    level: Int,
+    classes: ClassLevels,
     background: String,
     alignment: Creature.Alignment,
     onNameConfirmed: (String) -> Unit,
@@ -74,12 +80,14 @@ internal fun CharacterHeader(
     onAlignmentTapped: () -> Unit,
 ) {
     val levelShort = stringResource(Res.string.label_level_short)
+    val primaryClass = classes.primaryClass()
+    val totalLevel = classes.totalLevel
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(spacingCommon),
         modifier = Modifier.fillMaxWidth(),
     ) {
-        ClassIconBox(clazz = clazz, onClick = onClassTapped)
+        ClassIconBox(clazz = primaryClass, onClick = onClassTapped)
         Column(modifier = Modifier.weight(1f)) {
             InlineEditableText(
                 text = name,
@@ -98,13 +106,14 @@ internal fun CharacterHeader(
                 )
             }
             Spacer(Modifier.height(spacingSmall))
-            Row(
+            FlowRow(
                 horizontalArrangement = Arrangement.spacedBy(spacingSmall),
-                verticalAlignment = Alignment.CenterVertically,
+                verticalArrangement = Arrangement.spacedBy(spacingSmall),
+                itemVerticalAlignment = Alignment.CenterVertically,
             ) {
                 SubtitleChip(race.toFormattedString(), onRaceTapped)
                 SubtitleDot()
-                SubtitleChip(clazz.toFormattedString(), onClassTapped)
+                SubtitleChip(classes.toClassesLabel(), onClassTapped)
                 if (background.isNotBlank()) {
                     SubtitleDot()
                     SubtitleChip(background, onBackgroundTapped)
@@ -125,7 +134,7 @@ internal fun CharacterHeader(
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
             Text(
-                text = level.toString(),
+                text = totalLevel.toString(),
                 style = MaterialTheme.typography.titleLarge,
                 fontWeight = FontWeight.Bold,
             )
@@ -240,15 +249,30 @@ private fun PreviewCharacterHeaderDark() {
     AppThemePreview(darkTheme = true) { CharacterHeaderPreview() }
 }
 
+@Preview
 @Composable
-private fun CharacterHeaderPreview() {
+private fun PreviewCharacterHeaderMulticlassLight() {
+    AppThemePreview(darkTheme = false) {
+        CharacterHeaderPreview(SampleCharacterRepository.multiclassBarbarian().classes)
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewCharacterHeaderMulticlassDark() {
+    AppThemePreview(darkTheme = true) {
+        CharacterHeaderPreview(SampleCharacterRepository.multiclassBarbarian().classes)
+    }
+}
+
+@Composable
+private fun CharacterHeaderPreview(classes: ClassLevels? = null) {
     val character = SampleCharacterRepository.humanFighter()
     CharacterHeader(
         name = character.name,
         shortDescription = character.translations.values.firstOrNull()?.shortDescription.orEmpty(),
         race = character.race,
-        clazz = character.clazz,
-        level = character.level,
+        classes = classes ?: character.classes,
         background = character.background.toFormattedString(),
         alignment = character.alignment,
         onNameConfirmed = {},

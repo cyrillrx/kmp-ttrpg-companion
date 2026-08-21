@@ -21,8 +21,8 @@ class JsonCharacterPresetRepositoryTest {
         assertEquals("test-fighter", character.id)
         assertEquals("Aldus Test", character.name)
         assertEquals(Race.HUMAN, character.race)
-        assertEquals(Character.Class.FIGHTER, character.clazz)
-        assertEquals(3, character.level)
+        assertEquals(mapOf(Character.Class.FIGHTER to 3), character.classes)
+        assertEquals(3, character.totalLevel)
         assertEquals(Creature.Size.MEDIUM, character.size)
         assertEquals(Creature.Alignment.LAWFUL_GOOD, character.alignment)
         assertEquals(17, character.armorClass)
@@ -83,6 +83,15 @@ class JsonCharacterPresetRepositoryTest {
     fun `preset with unknown class is skipped`() = runTest {
         val json = preset(clazz = "jedi")
         assertTrue(repository(json).getAll(null).isEmpty())
+    }
+
+    @Test
+    fun `preset with an unspecified class keeps its level and proficiency bonus`() = runTest {
+        val character = repository(preset(clazz = "unknown", level = 1)).getAll(null).first().value
+
+        assertEquals(mapOf(Character.Class.UNKNOWN to 1), character.classes)
+        assertEquals(1, character.totalLevel)
+        assertEquals(2, character.proficiencyBonus())
     }
 
     @Test

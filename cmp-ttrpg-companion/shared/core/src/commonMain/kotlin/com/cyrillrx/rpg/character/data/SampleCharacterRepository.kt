@@ -62,9 +62,20 @@ class SampleCharacterRepository : CharacterRepository {
                 maxHitPoints = 12,
                 speeds = Speeds(walk = 30),
                 languages = listOf(Language.COMMON, Language.DWARVISH),
-                level = 1,
-                clazz = Character.Class.FIGHTER,
+                classes = mapOf(Character.Class.FIGHTER to 1),
                 skills = Skills(),
+            )
+
+        fun multiclassBarbarian() =
+            humanFighter().copy(
+                id = "sample-multiclass",
+                name = "Rhogar Sangfroid",
+                classes =
+                    mapOf(
+                        Character.Class.BARBARIAN to 5,
+                        Character.Class.SORCERER to 4,
+                        Character.Class.WARLOCK to 3,
+                    ),
             )
 
         fun elfRogue() =
@@ -86,8 +97,7 @@ class SampleCharacterRepository : CharacterRepository {
                 maxHitPoints = 8,
                 speeds = Speeds(walk = 30),
                 languages = listOf(Language.COMMON, Language.ELVISH),
-                level = 1,
-                clazz = Character.Class.ROGUE,
+                classes = mapOf(Character.Class.ROGUE to 1),
                 skills = Skills(),
             )
     }
