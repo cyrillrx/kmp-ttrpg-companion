@@ -4,6 +4,7 @@ import com.cyrillrx.core.data.defaultSerializer
 import com.cyrillrx.core.data.serialize
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.DEFAULT_CLASS_LEVELS
+import com.cyrillrx.rpg.character.domain.totalLevel
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.buildJsonObject
@@ -42,9 +43,9 @@ class CharacterMigrationTest {
 
     @Test
     fun `modern classes are left untouched`() {
-        val modern = SampleCharacterRepository.humanFighter()
-            .copy(classes = mapOf(Character.Class.ROGUE to 3, Character.Class.WIZARD to 2))
+        val modern = SampleCharacterRepository.multiclassBarbarian()
         assertEquals(modern.classes, modern.serialize().deserializeCharacter().classes)
+        assertEquals(12, modern.totalLevel)
     }
 
     private fun legacyJson(clazz: String, level: Int): String = buildJsonObject {
