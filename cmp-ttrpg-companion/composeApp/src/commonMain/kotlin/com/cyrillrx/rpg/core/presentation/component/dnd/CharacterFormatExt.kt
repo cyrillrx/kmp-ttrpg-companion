@@ -13,7 +13,7 @@ import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.core.presentation.format.localizedSortKey
 import com.cyrillrx.rpg.core.presentation.format.primaryClass
-import com.cyrillrx.rpg.core.presentation.format.sortedByLevelThenName
+import com.cyrillrx.rpg.core.presentation.format.toClassBreakdown
 import com.cyrillrx.rpg.core.presentation.format.toClassNames
 import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.creature.domain.Proficiency
@@ -265,12 +265,11 @@ fun ClassLevels.primaryClass(): Character.Class {
     return primaryClass { names.getValue(it) }
 }
 
-// e.g. "Fighter 3 / Rogue 2"
+// e.g. "Fighter 3 / Rogue 2", or "Fighter" for a single class.
 @Composable
 fun ClassLevels.toClassesLabel(): String {
     val names = localizedNames()
-    return sortedByLevelThenName { names.getValue(it) }
-        .joinToString(" / ") { (clazz, level) -> "${names.getValue(clazz)} $level" }
+    return toClassBreakdown { names.getValue(it) }
 }
 
 // e.g. "Dwarf Cleric/Ranger" (en), "Clerc/Rôdeur nain" (fr); the race alone when no class is set.
