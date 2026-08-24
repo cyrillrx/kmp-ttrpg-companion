@@ -168,6 +168,33 @@ class CharacterFormatTest {
         )
     }
 
+    @Test
+    fun `toClassBreakdown pairs each class with its level by decreasing level`() {
+        val classes: ClassLevels = mapOf(
+            Character.Class.ROGUE to 2,
+            Character.Class.WIZARD to 5,
+        )
+
+        assertEquals(expected = "Magicien 5 / Roublard 2", actual = classes.toClassBreakdown(FRENCH_NAMES::getValue))
+        assertEquals(expected = "Wizard 5 / Rogue 2", actual = classes.toClassBreakdown(ENGLISH_NAMES::getValue))
+    }
+
+    @Test
+    fun `toClassBreakdown omits the level of a lone class`() {
+        val classes: ClassLevels = mapOf(Character.Class.FIGHTER to 7)
+
+        assertEquals(expected = "Guerrier", actual = classes.toClassBreakdown(FRENCH_NAMES::getValue))
+        assertEquals(expected = "Inconnue", actual = DEFAULT_CLASS_LEVELS.toClassBreakdown(FRENCH_NAMES::getValue))
+    }
+
+    @Test
+    fun `toClassBreakdown is empty for an empty map`() {
+        assertEquals(
+            expected = "",
+            actual = emptyMap<Character.Class, Int>().toClassBreakdown(FRENCH_NAMES::getValue),
+        )
+    }
+
     private companion object {
         val FRENCH_NAMES = mapOf(
             Character.Class.FIGHTER to "Guerrier",
