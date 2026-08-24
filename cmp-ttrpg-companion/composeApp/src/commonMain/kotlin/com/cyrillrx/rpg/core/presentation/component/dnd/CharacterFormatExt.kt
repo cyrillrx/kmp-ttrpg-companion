@@ -4,15 +4,17 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.capitalize
+import androidx.compose.ui.text.intl.Locale
 import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.ClassLevels
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
-import com.cyrillrx.rpg.character.domain.totalLevel
 import com.cyrillrx.rpg.core.presentation.format.localizedSortKey
 import com.cyrillrx.rpg.core.presentation.format.primaryClass
 import com.cyrillrx.rpg.core.presentation.format.sortedByLevelThenName
+import com.cyrillrx.rpg.core.presentation.format.toClassNames
 import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.creature.domain.Proficiency
 import com.cyrillrx.rpg.creature.domain.Skill
@@ -51,7 +53,6 @@ import rpg_companion.composeapp.generated.resources.class_sorcerer
 import rpg_companion.composeapp.generated.resources.class_unknown
 import rpg_companion.composeapp.generated.resources.class_warlock
 import rpg_companion.composeapp.generated.resources.class_wizard
-import rpg_companion.composeapp.generated.resources.label_level_short
 import rpg_companion.composeapp.generated.resources.language_abyssal
 import rpg_companion.composeapp.generated.resources.language_celestial
 import rpg_companion.composeapp.generated.resources.language_common
@@ -100,6 +101,7 @@ import rpg_companion.composeapp.generated.resources.skill_religion
 import rpg_companion.composeapp.generated.resources.skill_sleight_of_hand
 import rpg_companion.composeapp.generated.resources.skill_stealth
 import rpg_companion.composeapp.generated.resources.skill_survival
+import rpg_companion.composeapp.generated.resources.value_race_classes
 
 @Composable
 fun Background?.toFormattedString(): String {
@@ -148,7 +150,7 @@ fun Language.toFormattedString(): String {
 }
 
 @Composable
-fun Race.toFormattedString(): String {
+private fun Race.toAdjective(): String {
     val stringRes = when (this) {
         Race.HUMAN -> Res.string.race_human
         Race.ELF -> Res.string.race_elf
@@ -162,6 +164,9 @@ fun Race.toFormattedString(): String {
     }
     return stringResource(stringRes)
 }
+
+@Composable
+fun Race.toFormattedString(): String = toAdjective().capitalize(Locale.current)
 
 @Composable
 fun Proficiency.toFormattedString(): String {
@@ -268,11 +273,16 @@ fun ClassLevels.toClassesLabel(): String {
         .joinToString(" / ") { (clazz, level) -> "${names.getValue(clazz)} $level" }
 }
 
-// e.g. "Rogue/Wizard lv. 5"
+// e.g. "Dwarf Cleric/Ranger" (en), "Clerc/Rôdeur nain" (fr); the race alone when no class is set.
 @Composable
-fun ClassLevels.toClassesSummary(): String {
+fun ClassLevels.toClassesRaceLabel(race: Race): String {
     val names = localizedNames()
-    val classNames = sortedByLevelThenName { names.getValue(it) }
-        .joinToString("/") { (clazz, _) -> names.getValue(clazz) }
-    return "$classNames ${stringResource(Res.string.label_level_short)} $totalLevel"
+    val classNames = toClassNames { names.getValue(it) }
+    val raceAdjective = race.toAdjective()
+    val label = if (classNames.isEmpty()) {
+        raceAdjective
+    } else {
+        stringResource(Res.string.value_race_classes, raceAdjective, classNames)
+    }
+    return label.capitalize(Locale.current)
 }

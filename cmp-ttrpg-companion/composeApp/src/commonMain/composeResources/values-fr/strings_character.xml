@@ -29,6 +29,8 @@
     <string name="label_walk_speed">Vitesse (%1$s)</string>
     <string name="label_languages_none">—</string>
     <string name="label_level_short">niv.</string>
+    <string name="value_level_short">niv. %1$d</string>
+    <string name="value_race_classes">%2$s %1$s</string>
     <string name="label_saving_throw_proficiency">Maîtrise de sauvegarde</string>
     <string name="label_aptitudes">Aptitudes</string>
     <string name="label_profile">Profil</string>
@@ -55,15 +57,15 @@
     <string name="skill_survival">Survie</string>
 
     <!-- Character race -->
-    <string name="race_human">Humain</string>
-    <string name="race_elf">Elfe</string>
-    <string name="race_dwarf">Nain</string>
-    <string name="race_halfling">Halfelin</string>
-    <string name="race_half_elf">Demi-elfe</string>
-    <string name="race_half_orc">Demi-orc</string>
-    <string name="race_dragonborn">Dragonné</string>
-    <string name="race_gnome">Gnome</string>
-    <string name="race_tiefling">Tieffelin</string>
+    <string name="race_human">humain</string>
+    <string name="race_elf">elfe</string>
+    <string name="race_dwarf">nain</string>
+    <string name="race_halfling">halfelin</string>
+    <string name="race_half_elf">demi-elfe</string>
+    <string name="race_half_orc">demi-orc</string>
+    <string name="race_dragonborn">drakéide</string>
+    <string name="race_gnome">gnome</string>
+    <string name="race_tiefling">tieffelin</string>
 
     <!-- Character backgrounds -->
     <string name="background_none">Aucun</string>

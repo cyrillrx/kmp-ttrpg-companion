@@ -28,7 +28,9 @@
     <string name="label_max_hp">Max HP</string>
     <string name="label_walk_speed">Walk speed (%1$s)</string>
     <string name="label_languages_none">—</string>
-    <string name="label_level_short">lv.</string>
+    <string name="label_level_short">lvl</string>
+    <string name="value_level_short">lvl %1$d</string>
+    <string name="value_race_classes">%1$s %2$s</string>
     <string name="label_saving_throw_proficiency">Saving throw proficiency</string>
     <string name="label_aptitudes">Aptitudes</string>
     <string name="label_profile">Profile</string>
@@ -55,15 +57,15 @@
     <string name="skill_survival">Survival</string>
 
     <!-- Character race -->
-    <string name="race_human">Human</string>
-    <string name="race_elf">Elf</string>
-    <string name="race_dwarf">Dwarf</string>
-    <string name="race_halfling">Halfling</string>
-    <string name="race_half_elf">Half-Elf</string>
-    <string name="race_half_orc">Half-Orc</string>
-    <string name="race_dragonborn">Dragonborn</string>
-    <string name="race_gnome">Gnome</string>
-    <string name="race_tiefling">Tiefling</string>
+    <string name="race_human">human</string>
+    <string name="race_elf">elf</string>
+    <string name="race_dwarf">dwarf</string>
+    <string name="race_halfling">halfling</string>
+    <string name="race_half_elf">half-elf</string>
+    <string name="race_half_orc">half-orc</string>
+    <string name="race_dragonborn">dragonborn</string>
+    <string name="race_gnome">gnome</string>
+    <string name="race_tiefling">tiefling</string>
 
     <!-- Character backgrounds -->
     <string name="background_none">None</string>

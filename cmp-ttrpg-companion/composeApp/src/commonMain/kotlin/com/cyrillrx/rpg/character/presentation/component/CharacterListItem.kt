@@ -16,12 +16,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
+import com.cyrillrx.core.domain.FALLBACK_LOCALE
 import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.character.domain.DEFAULT_CLASS_LEVELS
 import com.cyrillrx.rpg.core.presentation.component.AppCard
 import com.cyrillrx.rpg.core.presentation.component.IconLabel
-import com.cyrillrx.rpg.core.presentation.component.dnd.toClassesSummary
+import com.cyrillrx.rpg.core.presentation.component.dnd.toClassesRaceLabel
 import com.cyrillrx.rpg.core.presentation.formatRelativeTime
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
@@ -31,6 +33,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.value_armor_class
 import rpg_companion.composeapp.generated.resources.value_hit_points
+import rpg_companion.composeapp.generated.resources.value_level_short
 import kotlin.time.Instant
 
 @Composable
@@ -42,8 +45,7 @@ fun CharacterListItem(
 ) {
     val locale = currentLocale()
     val shortDescription = character.resolveTranslation(locale)?.shortDescription.orEmpty()
-    val primaryText = shortDescription.ifBlank { character.name }
-    val secondaryText = if (shortDescription.isNotBlank()) character.name else ""
+    val subtitle = shortDescription.ifBlank { character.classes.toClassesRaceLabel(character.race) }
     val relativeTime = updatedAt.formatRelativeTime()
 
     AppCard(onClick = onClick, modifier = modifier) {
@@ -53,40 +55,36 @@ fun CharacterListItem(
                 .fillMaxWidth()
                 .padding(spacingCommon),
         ) {
-            // Title line: name / short description on the left, class on the right.
+            // Title line: character name on the left, total level on the right.
             Row(
                 horizontalArrangement = Arrangement.spacedBy(spacingCommon),
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier.fillMaxWidth(),
             ) {
                 Text(
-                    text = primaryText,
+                    text = character.name,
                     style = MaterialTheme.typography.titleSmall,
                     color = MaterialTheme.colorScheme.onSurface,
-                    maxLines = 2,
+                    maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
                     modifier = Modifier.weight(1f),
                 )
                 Text(
-                    text = character.classes.toClassesSummary(),
+                    text = stringResource(Res.string.value_level_short, character.totalLevel),
                     style = MaterialTheme.typography.labelSmall,
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.primary,
                     maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                    modifier = Modifier.weight(1f, fill = false),
                 )
             }
 
-            if (shortDescription.isNotBlank()) {
-                Text(
-                    text = secondaryText,
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                )
-            }
+            Text(
+                text = subtitle,
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+            )
 
             // Stats line: armor class / hit points on the left, last-modified date on the right.
             Row(
@@ -116,36 +114,36 @@ fun CharacterListItem(
     }
 }
 
-@Preview
 @Composable
-private fun PreviewCharacterListItemLight() {
-    AppThemePreview(darkTheme = false) {
-        Column(verticalArrangement = Arrangement.spacedBy(spacingSmall)) {
-            SampleCharacterRepository.getAll().forEach {
-                CharacterListItem(character = it.value, updatedAt = it.updatedAt, onClick = {})
-            }
-            CharacterListItem(
-                character = SampleCharacterRepository.multiclassBarbarian(),
-                updatedAt = SampleCharacterRepository.getAll().first().updatedAt,
-                onClick = {},
-            )
+private fun CharacterListItemPreview() {
+    val updatedAt = SampleCharacterRepository.getAll().first().updatedAt
+    val described = SampleCharacterRepository.elfRogue().copy(
+        translations = mapOf(FALLBACK_LOCALE to Character.Translation(shortDescription = "Guild Archmage")),
+    )
+    val unspecifiedClass = SampleCharacterRepository.humanFighter().copy(classes = DEFAULT_CLASS_LEVELS)
+
+    Column(verticalArrangement = Arrangement.spacedBy(spacingSmall)) {
+        SampleCharacterRepository.getAll().forEach {
+            CharacterListItem(character = it.value, updatedAt = it.updatedAt, onClick = {})
+        }
+        listOf(
+            SampleCharacterRepository.multiclassBarbarian(),
+            described,
+            unspecifiedClass,
+        ).forEach {
+            CharacterListItem(character = it, updatedAt = updatedAt, onClick = {})
         }
     }
 }
 
 @Preview
 @Composable
+private fun PreviewCharacterListItemLight() {
+    AppThemePreview(darkTheme = false) { CharacterListItemPreview() }
+}
+
+@Preview
+@Composable
 private fun PreviewCharacterListItemDark() {
-    AppThemePreview(darkTheme = true) {
-        Column(verticalArrangement = Arrangement.spacedBy(spacingSmall)) {
-            SampleCharacterRepository.getAll().forEach {
-                CharacterListItem(character = it.value, updatedAt = it.updatedAt, onClick = {})
-            }
-            CharacterListItem(
-                character = SampleCharacterRepository.multiclassBarbarian(),
-                updatedAt = SampleCharacterRepository.getAll().first().updatedAt,
-                onClick = {},
-            )
-        }
-    }
+    AppThemePreview(darkTheme = true) { CharacterListItemPreview() }
 }
