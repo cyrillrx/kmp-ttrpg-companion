@@ -3,6 +3,7 @@ package com.cyrillrx.rpg.core.presentation.format
 import androidx.compose.ui.text.font.FontWeight
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.ClassLevels
+import com.cyrillrx.rpg.character.domain.DEFAULT_CLASS_LEVELS
 import com.cyrillrx.rpg.creature.domain.Proficiency
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -118,6 +119,55 @@ class CharacterFormatTest {
         )
     }
 
+    @Test
+    fun `toClassNames joins localized class names by decreasing level`() {
+        val classes: ClassLevels = mapOf(
+            Character.Class.ROGUE to 2,
+            Character.Class.WIZARD to 5,
+            Character.Class.FIGHTER to 3,
+        )
+
+        assertEquals(expected = "Magicien/Guerrier/Roublard", actual = classes.toClassNames(FRENCH_NAMES::getValue))
+        assertEquals(expected = "Wizard/Fighter/Rogue", actual = classes.toClassNames(ENGLISH_NAMES::getValue))
+    }
+
+    @Test
+    fun `toClassNames breaks ties on the localized name`() {
+        val classes: ClassLevels = mapOf(
+            Character.Class.FIGHTER to 3,
+            Character.Class.SORCERER to 3,
+        )
+
+        assertEquals(expected = "Ensorceleur/Guerrier", actual = classes.toClassNames(FRENCH_NAMES::getValue))
+        assertEquals(expected = "Fighter/Sorcerer", actual = classes.toClassNames(ENGLISH_NAMES::getValue))
+    }
+
+    @Test
+    fun `toClassNames renders a single class without a separator`() {
+        val classes: ClassLevels = mapOf(Character.Class.ROGUE to 4)
+
+        assertEquals(expected = "Roublard", actual = classes.toClassNames(FRENCH_NAMES::getValue))
+    }
+
+    @Test
+    fun `toClassNames drops the unspecified class`() {
+        val classes: ClassLevels = mapOf(
+            Character.Class.FIGHTER to 3,
+            Character.Class.UNKNOWN to 1,
+        )
+
+        assertEquals(expected = "Guerrier", actual = classes.toClassNames(FRENCH_NAMES::getValue))
+        assertEquals(expected = "", actual = DEFAULT_CLASS_LEVELS.toClassNames(FRENCH_NAMES::getValue))
+    }
+
+    @Test
+    fun `toClassNames is empty for an empty map`() {
+        assertEquals(
+            expected = "",
+            actual = emptyMap<Character.Class, Int>().toClassNames(FRENCH_NAMES::getValue),
+        )
+    }
+
     private companion object {
         val FRENCH_NAMES = mapOf(
             Character.Class.FIGHTER to "Guerrier",
@@ -125,6 +175,7 @@ class CharacterFormatTest {
             Character.Class.ROGUE to "Roublard",
             Character.Class.SORCERER to "Ensorceleur",
             Character.Class.WIZARD to "Magicien",
+            Character.Class.UNKNOWN to "Inconnue",
         )
 
         val ENGLISH_NAMES = mapOf(
@@ -133,6 +184,7 @@ class CharacterFormatTest {
             Character.Class.ROGUE to "Rogue",
             Character.Class.SORCERER to "Sorcerer",
             Character.Class.WIZARD to "Wizard",
+            Character.Class.UNKNOWN to "Unknown",
         )
     }
 }
