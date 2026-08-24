@@ -4,6 +4,7 @@ import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterFilter
 import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.domain.Language
+import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.domain.applyFilter
 import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.core.domain.values
@@ -70,6 +71,7 @@ class SampleCharacterRepository : CharacterRepository {
             humanFighter().copy(
                 id = "sample-multiclass",
                 name = "Rhogar Sangfroid",
+                race = Race.DRAGONBORN,
                 classes =
                     mapOf(
                         Character.Class.BARBARIAN to 5,
@@ -82,6 +84,7 @@ class SampleCharacterRepository : CharacterRepository {
             Character(
                 id = "sample-rogue",
                 name = "Lyra Vossen",
+                race = Race.ELF,
                 size = Creature.Size.MEDIUM,
                 alignment = Creature.Alignment.CHAOTIC_NEUTRAL,
                 abilities =
