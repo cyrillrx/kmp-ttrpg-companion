@@ -43,3 +43,13 @@ fun ClassLevels.toClassNames(nameOf: (Character.Class) -> String): String =
     sortedByLevelThenName(nameOf)
         .filterNot { (clazz, _) -> clazz == Character.Class.UNKNOWN }
         .joinToString("/") { (clazz, _) -> nameOf(clazz) }
+
+/**
+ * Class breakdown ordered by decreasing level, e.g. "Cleric 5 / Ranger 3". A lone class keeps its name
+ * only, since its level is the total already shown next to it.
+ */
+fun ClassLevels.toClassBreakdown(nameOf: (Character.Class) -> String): String {
+    val sorted = sortedByLevelThenName(nameOf)
+    if (sorted.size == 1) return nameOf(sorted.first().first)
+    return sorted.joinToString(" / ") { (clazz, level) -> "${nameOf(clazz)} $level" }
+}
