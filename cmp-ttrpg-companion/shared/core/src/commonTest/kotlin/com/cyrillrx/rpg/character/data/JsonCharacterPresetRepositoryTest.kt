@@ -95,6 +95,15 @@ class JsonCharacterPresetRepositoryTest {
     }
 
     @Test
+    fun `preset with an out-of-range level is clamped`() = runTest {
+        val tooLow = repository(preset(level = 0)).getAll(null).first().value
+        assertEquals(mapOf(Character.Class.FIGHTER to 1), tooLow.classes)
+
+        val tooHigh = repository(preset(level = 25)).getAll(null).first().value
+        assertEquals(mapOf(Character.Class.FIGHTER to 20), tooHigh.classes)
+    }
+
+    @Test
     fun `abilities and saving throws are parsed correctly`() = runTest {
         val json = preset(
             abilities = """{"str": 16, "dex": 12, "con": 14, "int": 10, "wis": 10, "cha": 8}""",

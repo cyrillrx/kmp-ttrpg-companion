@@ -13,6 +13,7 @@ import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.domain.applyFilter
+import com.cyrillrx.rpg.character.domain.coerceToValidCharacterLevel
 import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.core.domain.UNKNOWN_TIMESTAMP
 import com.cyrillrx.rpg.creature.data.createAbilities
@@ -111,7 +112,7 @@ class JsonCharacterPresetRepository(
                     translations = translations,
                     background = background?.toBackground(),
                     race = race,
-                    classes = mapOf(clazz to level),
+                    classes = mapOf(clazz to level.coerceToValidCharacterLevel()),
                     size = size,
                     alignment = alignment,
                     abilities = createAbilities(abilities, savingThrows),
