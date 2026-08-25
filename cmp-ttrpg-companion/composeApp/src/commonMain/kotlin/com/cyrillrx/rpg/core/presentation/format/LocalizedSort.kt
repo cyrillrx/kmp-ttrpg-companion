@@ -26,7 +26,8 @@ private fun MutableMap<Char, Char>.fold(accented: String, base: Char) {
     accented.forEach { put(it, base) }
 }
 
-fun String.foldDiacritics(): String = map { DIACRITIC_FOLDING[it] ?: it }.joinToString("")
+/** Maps lowercase letters only; [localizedSortKey] lowercases beforehand. */
+internal fun String.foldDiacritics(): String = map { DIACRITIC_FOLDING[it] ?: it }.joinToString("")
 
 /** Sort key approximating alphabetical order in the current language, accents included. */
 fun String.localizedSortKey(): String = lowercase().foldDiacritics()

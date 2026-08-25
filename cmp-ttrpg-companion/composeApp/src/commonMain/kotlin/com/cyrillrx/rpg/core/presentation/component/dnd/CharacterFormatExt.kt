@@ -11,8 +11,8 @@ import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.ClassLevels
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
-import com.cyrillrx.rpg.core.presentation.format.localizedSortKey
 import com.cyrillrx.rpg.core.presentation.format.primaryClass
+import com.cyrillrx.rpg.core.presentation.format.sortedByLocalizedName
 import com.cyrillrx.rpg.core.presentation.format.toClassBreakdown
 import com.cyrillrx.rpg.core.presentation.format.toClassNames
 import com.cyrillrx.rpg.creature.domain.Ability
@@ -214,7 +214,7 @@ fun Skill.toFormattedString(): String {
 fun List<Skill>.sortedByLocalizedName(): List<Skill> {
     val localizedNames = associateWith { it.toFormattedString() }
     return remember(localizedNames) {
-        sortedBy { localizedNames.getValue(it).localizedSortKey() }
+        sortedByLocalizedName { localizedNames.getValue(it) }
     }
 }
 
