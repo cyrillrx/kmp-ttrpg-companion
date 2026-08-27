@@ -82,6 +82,7 @@ internal fun CharacterHeader(
     val levelShort = stringResource(Res.string.label_level_short)
     val primaryClass = classes.primaryClass()
     val totalLevel = classes.totalLevel
+    val classLabel = classes.toClassesLabel()
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(spacingCommon),
@@ -113,7 +114,7 @@ internal fun CharacterHeader(
             ) {
                 SubtitleChip(race.toFormattedString(), onRaceTapped)
                 SubtitleDot()
-                SubtitleChip(classes.toClassesLabel(), onClassTapped)
+                SubtitleChip(classLabel, onClassTapped)
                 if (background.isNotBlank()) {
                     SubtitleDot()
                     SubtitleChip(background, onBackgroundTapped)
