@@ -6,13 +6,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.capitalize
 import androidx.compose.ui.text.intl.Locale
+import com.cyrillrx.core.domain.sortedByLocalizedName
 import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.ClassLevels
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.core.presentation.format.primaryClass
-import com.cyrillrx.rpg.core.presentation.format.sortedByLocalizedName
 import com.cyrillrx.rpg.core.presentation.format.toClassBreakdown
 import com.cyrillrx.rpg.core.presentation.format.toClassNames
 import com.cyrillrx.rpg.creature.domain.Ability

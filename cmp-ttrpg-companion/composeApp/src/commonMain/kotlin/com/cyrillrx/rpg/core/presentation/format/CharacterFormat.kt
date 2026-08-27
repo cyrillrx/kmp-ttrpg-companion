@@ -1,6 +1,7 @@
 package com.cyrillrx.rpg.core.presentation.format
 
 import androidx.compose.ui.text.font.FontWeight
+import com.cyrillrx.core.domain.localizedSortKey
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.ClassLevels
 import com.cyrillrx.rpg.creature.domain.Proficiency

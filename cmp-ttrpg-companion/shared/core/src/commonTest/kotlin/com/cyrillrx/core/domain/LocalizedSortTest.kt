@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.core.presentation.format
+package com.cyrillrx.core.domain
 
 import kotlin.test.Test
 import kotlin.test.assertEquals

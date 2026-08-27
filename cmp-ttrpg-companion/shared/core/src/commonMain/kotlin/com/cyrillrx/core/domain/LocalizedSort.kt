@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.core.presentation.format
+package com.cyrillrx.core.domain
 
 /**
  * Latin letters stripped of their diacritics. Kotlin common has no `Normalizer`, so the mapping is explicit.
