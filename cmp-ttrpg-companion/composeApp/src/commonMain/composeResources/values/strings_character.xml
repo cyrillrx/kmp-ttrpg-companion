@@ -57,15 +57,15 @@
     <string name="skill_survival">Survival</string>
 
     <!-- Character race -->
-    <string name="race_human">human</string>
-    <string name="race_elf">elf</string>
-    <string name="race_dwarf">dwarf</string>
-    <string name="race_halfling">halfling</string>
-    <string name="race_half_elf">half-elf</string>
-    <string name="race_half_orc">half-orc</string>
-    <string name="race_dragonborn">dragonborn</string>
-    <string name="race_gnome">gnome</string>
-    <string name="race_tiefling">tiefling</string>
+    <string name="race_human">Human</string>
+    <string name="race_elf">Elf</string>
+    <string name="race_dwarf">Dwarf</string>
+    <string name="race_halfling">Halfling</string>
+    <string name="race_half_elf">Half-Elf</string>
+    <string name="race_half_orc">Half-Orc</string>
+    <string name="race_dragonborn">Dragonborn</string>
+    <string name="race_gnome">Gnome</string>
+    <string name="race_tiefling">Tiefling</string>
 
     <!-- Character backgrounds -->
     <string name="background_none">None</string>
