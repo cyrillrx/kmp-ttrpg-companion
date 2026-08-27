@@ -1,9 +1,9 @@
 package com.cyrillrx.rpg.core.data.cache
 
+import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.core.data.serialize
 import com.cyrillrx.rpg.campaign.domain.Campaign
 import com.cyrillrx.rpg.campaign.domain.RuleSet
-import com.cyrillrx.rpg.character.data.deserializeCharacter
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.settings.domain.DistanceUnit
@@ -40,11 +40,11 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
 
     @Suppress("UNUSED_PARAMETER")
     private fun mapCharacterSelecting(id: String, data: String, updatedAt: Long): Character =
-        data.deserializeCharacter()
+        data.deserialize()
 
     private fun mapCharacterStored(id: String, data: String, updatedAt: Long): Stored<Character> =
         Stored(
-            value = data.deserializeCharacter(),
+            value = data.deserialize(),
             updatedAt = Instant.fromEpochMilliseconds(updatedAt),
         )
 

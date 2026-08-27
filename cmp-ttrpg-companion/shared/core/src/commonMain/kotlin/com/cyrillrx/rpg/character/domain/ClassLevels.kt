@@ -6,5 +6,3 @@ typealias ClassLevels = Map<Character.Class, Int>
 val DEFAULT_CLASS_LEVELS: ClassLevels = mapOf(Character.Class.UNKNOWN to MIN_CHARACTER_LEVEL)
 
 val ClassLevels.totalLevel: Int get() = values.sum()
-
-fun ClassLevels.orDefault(): ClassLevels = ifEmpty { DEFAULT_CLASS_LEVELS }
