@@ -13,6 +13,12 @@ class LocalizedSortTest {
     }
 
     @Test
+    fun `foldDiacritics strips accents from uppercase letters too`() {
+        assertEquals(expected = "ECOLE", actual = "ÉCOLE".foldDiacritics())
+        assertEquals(expected = "Ecole", actual = "École".foldDiacritics())
+    }
+
+    @Test
     fun `foldDiacritics leaves ligatures untouched`() {
         assertEquals(expected = "œuvre", actual = "œuvre".foldDiacritics())
     }

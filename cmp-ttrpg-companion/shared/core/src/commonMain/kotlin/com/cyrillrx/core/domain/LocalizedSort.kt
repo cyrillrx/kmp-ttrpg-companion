@@ -1,8 +1,8 @@
 package com.cyrillrx.core.domain
 
 /**
- * Latin letters stripped of their diacritics. Kotlin common has no `Normalizer`, so the mapping is explicit.
- * Ligatures (æ, œ, ß) expand to several letters and are deliberately left alone.
+ * Latin letters stripped of their diacritics, in both cases. Kotlin common has no `Normalizer`, so the
+ * mapping is explicit. Ligatures (æ, œ, ß) expand to several letters and are deliberately left alone.
  */
 private val DIACRITIC_FOLDING: Map<Char, Char> = buildMap {
     fold("àáâãäåāăą", 'a')
@@ -23,10 +23,12 @@ private val DIACRITIC_FOLDING: Map<Char, Char> = buildMap {
 }
 
 private fun MutableMap<Char, Char>.fold(accented: String, base: Char) {
-    accented.forEach { put(it, base) }
+    accented.forEach {
+        put(it, base)
+        put(it.uppercaseChar(), base.uppercaseChar())
+    }
 }
 
-/** Maps lowercase letters only; [localizedSortKey] lowercases beforehand. */
 internal fun String.foldDiacritics(): String = map { DIACRITIC_FOLDING[it] ?: it }.joinToString("")
 
 /** Sort key approximating alphabetical order in the current language, accents included. */
