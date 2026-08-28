@@ -160,9 +160,9 @@ class CharacterEditViewModelTest {
     fun `saveLevel coerces to minimum 1`() = runTest(testDispatcher) {
         val viewModel = buildViewModel(repo = repoWithFighter())
         advanceUntilIdle()
-        viewModel.saveLevel(0)
+        viewModel.saveLevel(Character.Class.FIGHTER, 0)
         val loaded = assertIs<CharacterEditState.Loaded>(viewModel.state.value)
-        assertEquals(1, loaded.character.level)
+        assertEquals(1, loaded.character.totalLevel)
     }
 
     @Test
@@ -171,10 +171,45 @@ class CharacterEditViewModelTest {
         val viewModel = buildViewModel(repo = repo)
         advanceUntilIdle()
         viewModel.editField(EditingField.Level)
-        viewModel.saveLevel(fighter.level)
+        viewModel.saveLevel(Character.Class.FIGHTER, fighter.totalLevel)
         advanceUntilIdle()
         assertEquals(0, repo.saveCount)
         assertNull(assertIs<CharacterEditState.Loaded>(viewModel.state.value).editingField)
+    }
+
+    @Test
+    fun `saveLevel only changes the class it targets`() = runTest(testDispatcher) {
+        val multiclass = SampleCharacterRepository.multiclassBarbarian()
+        val repo = RamCharacterRepository().apply { save(multiclass) }
+        val viewModel = buildViewModel(characterId = multiclass.id, repo = repo)
+        advanceUntilIdle()
+
+        viewModel.saveLevel(Character.Class.SORCERER, 6)
+        advanceUntilIdle()
+
+        assertEquals(
+            expected = mapOf(
+                Character.Class.BARBARIAN to 5,
+                Character.Class.SORCERER to 6,
+                Character.Class.WARLOCK to 3,
+            ),
+            actual = repo.get(multiclass.id)?.classes,
+        )
+    }
+
+    @Test
+    fun `saveClass to an unspecified class keeps the level`() = runTest(testDispatcher) {
+        val repo = repoWithFighter()
+        val viewModel = buildViewModel(repo = repo)
+        advanceUntilIdle()
+
+        viewModel.saveClass(Character.Class.UNKNOWN)
+        advanceUntilIdle()
+
+        assertEquals(
+            expected = mapOf(Character.Class.UNKNOWN to fighter.totalLevel),
+            actual = repo.get(fighter.id)?.classes,
+        )
     }
 
     @Test
@@ -310,7 +345,7 @@ class CharacterEditViewModelTest {
         val events = mutableListOf<CoercedValue>()
         val job = launch { viewModel.coercedValueEvent.collect { events.add(it) } }
         advanceUntilIdle()
-        viewModel.saveLevel(25) // max is 20, coerced to 20
+        viewModel.saveLevel(Character.Class.FIGHTER, 25) // max is 20, coerced to 20
         advanceUntilIdle()
         assertEquals(listOf<CoercedValue>(CoercedValue.Numeric(25, 20)), events)
         job.cancel()
@@ -323,7 +358,7 @@ class CharacterEditViewModelTest {
         val events = mutableListOf<CoercedValue>()
         val job = launch { viewModel.coercedValueEvent.collect { events.add(it) } }
         advanceUntilIdle()
-        viewModel.saveLevel(5) // valid, no coercion
+        viewModel.saveLevel(Character.Class.FIGHTER, 5) // valid, no coercion
         advanceUntilIdle()
         assertTrue(events.isEmpty())
         job.cancel()
@@ -395,7 +430,7 @@ class CharacterEditViewModelTest {
         advanceUntilIdle()
         viewModel.saveClass(Character.Class.WIZARD)
         advanceUntilIdle()
-        assertEquals(Character.Class.WIZARD, repo.get(fighter.id)?.clazz)
+        assertEquals(mapOf(Character.Class.WIZARD to fighter.totalLevel), repo.get(fighter.id)?.classes)
     }
 
     @Test

@@ -38,6 +38,7 @@ import com.cyrillrx.rpg.core.presentation.component.dialog.DialogTextField
 import com.cyrillrx.rpg.core.presentation.component.dialog.EditDialog
 import com.cyrillrx.rpg.core.presentation.component.dnd.ProficiencyCheckbox
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
+import com.cyrillrx.rpg.core.presentation.component.dnd.primaryClass
 import com.cyrillrx.rpg.core.presentation.component.dnd.sortedByLocalizedName
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.format.getFontWeight
@@ -82,7 +83,7 @@ internal fun CharacterEditDialog(
     shortDescription: String,
     onRaceConfirmed: (Race) -> Unit,
     onClassConfirmed: (Character.Class) -> Unit,
-    onLevelConfirmed: (Int) -> Unit,
+    onLevelConfirmed: (Character.Class, Int) -> Unit,
     onBackgroundConfirmed: (Background?) -> Unit,
     onShortDescriptionConfirmed: (String) -> Unit,
     onStrengthConfirmed: (AbilityScore) -> Unit,
@@ -118,14 +119,17 @@ internal fun CharacterEditDialog(
             onDismiss = onDismiss,
         )
 
-        EditingField.Level -> NumberStepperDialog(
-            title = stringResource(Res.string.label_level),
-            initialValue = state.character.level,
-            minValue = MIN_CHARACTER_LEVEL,
-            maxValue = MAX_CHARACTER_LEVEL,
-            onConfirm = onLevelConfirmed,
-            onDismiss = onDismiss,
-        )
+        EditingField.Level -> {
+            val primaryClass = state.character.classes.primaryClass()
+            NumberStepperDialog(
+                title = stringResource(Res.string.label_level),
+                initialValue = state.character.classes[primaryClass] ?: MIN_CHARACTER_LEVEL,
+                minValue = MIN_CHARACTER_LEVEL,
+                maxValue = MAX_CHARACTER_LEVEL,
+                onConfirm = { onLevelConfirmed(primaryClass, it) },
+                onDismiss = onDismiss,
+            )
+        }
 
         EditingField.Strength -> AbilityEditDialog(
             title = stringResource(Res.string.ability_label_strength),
@@ -221,7 +225,7 @@ internal fun CharacterEditDialog(
 
         EditingField.Clazz -> SingleChoiceDialog(
             title = stringResource(Res.string.label_class),
-            selected = state.character.clazz,
+            selected = state.character.classes.primaryClass(),
             options = Character.Class.entries,
             optionLabel = { it.toFormattedString() },
             onConfirm = { it?.let(onClassConfirmed) },

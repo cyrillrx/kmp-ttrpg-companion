@@ -28,7 +28,9 @@
     <string name="label_max_hp">Max HP</string>
     <string name="label_walk_speed">Walk speed (%1$s)</string>
     <string name="label_languages_none">—</string>
-    <string name="label_level_short">lv.</string>
+    <string name="label_level_short">lvl</string>
+    <string name="value_level_short">lvl %1$d</string>
+    <string name="value_race_classes">%1$s %2$s</string>
     <string name="label_saving_throw_proficiency">Saving throw proficiency</string>
     <string name="label_aptitudes">Aptitudes</string>
     <string name="label_profile">Profile</string>

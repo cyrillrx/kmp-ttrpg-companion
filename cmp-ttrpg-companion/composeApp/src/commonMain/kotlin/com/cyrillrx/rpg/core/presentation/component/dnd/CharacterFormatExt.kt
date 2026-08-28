@@ -4,10 +4,17 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.capitalize
+import androidx.compose.ui.text.intl.Locale
+import com.cyrillrx.core.domain.sortedByLocalizedName
 import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.character.domain.ClassLevels
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
+import com.cyrillrx.rpg.core.presentation.format.primaryClass
+import com.cyrillrx.rpg.core.presentation.format.toClassBreakdown
+import com.cyrillrx.rpg.core.presentation.format.toClassNames
 import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.creature.domain.Proficiency
 import com.cyrillrx.rpg.creature.domain.Skill
@@ -94,6 +101,7 @@ import rpg_companion.composeapp.generated.resources.skill_religion
 import rpg_companion.composeapp.generated.resources.skill_sleight_of_hand
 import rpg_companion.composeapp.generated.resources.skill_stealth
 import rpg_companion.composeapp.generated.resources.skill_survival
+import rpg_companion.composeapp.generated.resources.value_race_classes
 
 @Composable
 fun Background?.toFormattedString(): String {
@@ -142,7 +150,7 @@ fun Language.toFormattedString(): String {
 }
 
 @Composable
-fun Race.toFormattedString(): String {
+private fun Race.toAdjective(): String {
     val stringRes = when (this) {
         Race.HUMAN -> Res.string.race_human
         Race.ELF -> Res.string.race_elf
@@ -156,6 +164,9 @@ fun Race.toFormattedString(): String {
     }
     return stringResource(stringRes)
 }
+
+@Composable
+fun Race.toFormattedString(): String = toAdjective().capitalize(Locale.current)
 
 @Composable
 fun Proficiency.toFormattedString(): String {
@@ -203,7 +214,7 @@ fun Skill.toFormattedString(): String {
 fun List<Skill>.sortedByLocalizedName(): List<Skill> {
     val localizedNames = associateWith { it.toFormattedString() }
     return remember(localizedNames) {
-        sortedBy { localizedNames.getValue(it).lowercase() }
+        sortedByLocalizedName { localizedNames.getValue(it) }
     }
 }
 
@@ -242,4 +253,35 @@ fun Character.Class.toFormattedString(): String {
         Character.Class.UNKNOWN -> Res.string.class_unknown
     }
     return stringResource(stringRes)
+}
+
+@Composable
+private fun ClassLevels.localizedNames(): Map<Character.Class, String> =
+    keys.associateWith { it.toFormattedString() }
+
+@Composable
+fun ClassLevels.primaryClass(): Character.Class {
+    val names = localizedNames()
+    return primaryClass { names.getValue(it) }
+}
+
+// e.g. "Fighter 3 / Rogue 2", or "Fighter" for a single class.
+@Composable
+fun ClassLevels.toClassesLabel(): String {
+    val names = localizedNames()
+    return toClassBreakdown { names.getValue(it) }
+}
+
+// e.g. "Dwarf Cleric/Ranger" (en), "Clerc/Rôdeur nain" (fr); the race alone when no class is set.
+@Composable
+fun ClassLevels.toClassesRaceLabel(race: Race): String {
+    val names = localizedNames()
+    val classNames = toClassNames { names.getValue(it) }
+    val raceAdjective = race.toAdjective()
+    val label = if (classNames.isEmpty()) {
+        raceAdjective
+    } else {
+        stringResource(Res.string.value_race_classes, raceAdjective, classNames)
+    }
+    return label.capitalize(Locale.current)
 }

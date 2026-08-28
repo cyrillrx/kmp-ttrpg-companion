@@ -1,7 +1,9 @@
 package com.cyrillrx.rpg.core.presentation.format
 
 import androidx.compose.ui.text.font.FontWeight
+import com.cyrillrx.core.domain.localizedSortKey
 import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.character.domain.ClassLevels
 import com.cyrillrx.rpg.creature.domain.Proficiency
 
 fun Character.Class.toSvgPath(): String = when (this) {
@@ -25,4 +27,30 @@ fun Character.Class.toSvgPath(): String = when (this) {
 fun Proficiency.getFontWeight(): FontWeight = when (this) {
     Proficiency.NONE -> FontWeight.Normal
     Proficiency.PROFICIENT, Proficiency.EXPERT -> FontWeight.Bold
+}
+
+/** Classes ordered by decreasing level, ties broken alphabetically on the localized name. */
+fun ClassLevels.sortedByLevelThenName(nameOf: (Character.Class) -> String): List<Pair<Character.Class, Int>> {
+    val comparator = compareByDescending<Map.Entry<Character.Class, Int>> { it.value }
+        .thenBy { nameOf(it.key).localizedSortKey() }
+    return entries.sortedWith(comparator).map { it.key to it.value }
+}
+
+fun ClassLevels.primaryClass(nameOf: (Character.Class) -> String): Character.Class =
+    sortedByLevelThenName(nameOf).firstOrNull()?.first ?: Character.Class.UNKNOWN
+
+/** Class names ordered by decreasing level, e.g. "Cleric/Ranger". Empty when only UNKNOWN is set. */
+fun ClassLevels.toClassNames(nameOf: (Character.Class) -> String): String =
+    sortedByLevelThenName(nameOf)
+        .filterNot { (clazz, _) -> clazz == Character.Class.UNKNOWN }
+        .joinToString("/") { (clazz, _) -> nameOf(clazz) }
+
+/**
+ * Class breakdown ordered by decreasing level, e.g. "Cleric 5 / Ranger 3". A lone class keeps its name
+ * only, since its level is the total already shown next to it.
+ */
+fun ClassLevels.toClassBreakdown(nameOf: (Character.Class) -> String): String {
+    val sorted = sortedByLevelThenName(nameOf)
+    if (sorted.size == 1) return nameOf(sorted.first().first)
+    return sorted.joinToString(" / ") { (clazz, level) -> "${nameOf(clazz)} $level" }
 }

@@ -28,6 +28,37 @@ class CharacterTest {
         assertEquals(6, character(level = 20).proficiencyBonus())
     }
 
+    @Test
+    fun `totalLevel sums every class level and drives the proficiency bonus`() {
+        val multiclass = character().copy(
+            classes = mapOf(
+                Character.Class.ROGUE to 3,
+                Character.Class.WIZARD to 2,
+            ),
+        )
+        assertEquals(5, multiclass.totalLevel)
+        assertEquals(3, multiclass.proficiencyBonus())
+    }
+
+    @Test
+    fun `proficiencyBonus stays at 6 when the class levels sum above 20`() {
+        val overTwenty = character().copy(
+            classes = mapOf(
+                Character.Class.FIGHTER to 20,
+                Character.Class.ROGUE to 2,
+            ),
+        )
+        assertEquals(22, overTwenty.totalLevel)
+        assertEquals(6, overTwenty.proficiencyBonus())
+    }
+
+    @Test
+    fun `an unspecified class still carries a level and a proficiency bonus`() {
+        val unspecified = character().copy(classes = mapOf(Character.Class.UNKNOWN to 1))
+        assertEquals(1, unspecified.totalLevel)
+        assertEquals(2, unspecified.proficiencyBonus())
+    }
+
     private fun character(dex: Int = 10, level: Int = 1) = Character(
         id = "test",
         name = "Test",
@@ -45,8 +76,7 @@ class CharacterTest {
         maxHitPoints = 10,
         speeds = Speeds(walk = 30),
         languages = emptyList(),
-        level = level,
-        clazz = Character.Class.FIGHTER,
+        classes = mapOf(Character.Class.FIGHTER to level),
         skills = Skills(),
     )
 }
