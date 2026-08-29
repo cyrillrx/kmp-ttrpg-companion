@@ -1,8 +1,8 @@
 id: innkeeper
 name: Marta Hollowell
 race: human
-clazz: unknown
-level: 1
+classes:
+  unknown: 1
 size: medium
 alignment: neutral
 abilities:

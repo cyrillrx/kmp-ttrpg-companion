@@ -1,8 +1,8 @@
 id: cleric-dwarf
 name: Thordak Stonecraft
 race: dwarf
-clazz: cleric
-level: 1
+classes:
+  cleric: 1
 size: medium
 alignment: lawful_good
 background: acolyte

@@ -3,8 +3,9 @@
     "id": "archmage",
     "name": "Elindra Starweave",
     "race": "elf",
-    "clazz": "wizard",
-    "level": 10,
+    "classes": {
+      "wizard": 10
+    },
     "size": "medium",
     "alignment": "lawful_neutral",
     "abilities": {
@@ -50,8 +51,9 @@
     "id": "caravan-guard",
     "name": "Brynn Ashwood",
     "race": "human",
-    "clazz": "ranger",
-    "level": 3,
+    "classes": {
+      "ranger": 3
+    },
     "size": "medium",
     "alignment": "neutral",
     "abilities": {
@@ -95,8 +97,9 @@
     "id": "guard",
     "name": "Aldric Brennan",
     "race": "human",
-    "clazz": "fighter",
-    "level": 1,
+    "classes": {
+      "fighter": 1
+    },
     "size": "medium",
     "alignment": "lawful_neutral",
     "abilities": {
@@ -138,8 +141,9 @@
     "id": "innkeeper",
     "name": "Marta Hollowell",
     "race": "human",
-    "clazz": "unknown",
-    "level": 1,
+    "classes": {
+      "unknown": 1
+    },
     "size": "medium",
     "alignment": "neutral",
     "abilities": {
@@ -177,8 +181,9 @@
     "id": "knight",
     "name": "Ser Corvin Ashvale",
     "race": "human",
-    "clazz": "paladin",
-    "level": 5,
+    "classes": {
+      "paladin": 5
+    },
     "size": "medium",
     "alignment": "lawful_good",
     "abilities": {
@@ -222,8 +227,9 @@
     "id": "merchant",
     "name": "Oryn Fairweather",
     "race": "human",
-    "clazz": "unknown",
-    "level": 1,
+    "classes": {
+      "unknown": 1
+    },
     "size": "medium",
     "alignment": "neutral",
     "abilities": {

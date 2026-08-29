@@ -49,9 +49,9 @@ class JsonCharacterPresetRepositoryTest {
     }
 
     @Test
-    fun `preset with missing level is skipped`() = runTest {
-        val json = preset(level = null)
-        assertTrue(repository(json).getAll(null).isEmpty())
+    fun `preset with no classes is skipped`() = runTest {
+        assertTrue(repository(preset(classes = null)).getAll(null).isEmpty())
+        assertTrue(repository(preset(classes = "{}")).getAll(null).isEmpty())
     }
 
     @Test
@@ -81,13 +81,13 @@ class JsonCharacterPresetRepositoryTest {
 
     @Test
     fun `preset with unknown class is skipped`() = runTest {
-        val json = preset(clazz = "jedi")
+        val json = preset(classes = """{"jedi": 1}""")
         assertTrue(repository(json).getAll(null).isEmpty())
     }
 
     @Test
     fun `preset with an unspecified class keeps its level and proficiency bonus`() = runTest {
-        val character = repository(preset(clazz = "unknown", level = 1)).getAll(null).first().value
+        val character = repository(preset(classes = """{"unknown": 1}""")).getAll(null).first().value
 
         assertEquals(mapOf(Character.Class.UNKNOWN to 1), character.classes)
         assertEquals(1, character.totalLevel)
@@ -96,11 +96,27 @@ class JsonCharacterPresetRepositoryTest {
 
     @Test
     fun `preset with an out-of-range level is clamped`() = runTest {
-        val tooLow = repository(preset(level = 0)).getAll(null).first().value
+        val tooLow = repository(preset(classes = """{"fighter": 0}""")).getAll(null).first().value
         assertEquals(mapOf(Character.Class.FIGHTER to 1), tooLow.classes)
 
-        val tooHigh = repository(preset(level = 25)).getAll(null).first().value
+        val tooHigh = repository(preset(classes = """{"fighter": 25}""")).getAll(null).first().value
         assertEquals(mapOf(Character.Class.FIGHTER to 20), tooHigh.classes)
+    }
+
+    @Test
+    fun `multiclass preset keeps every class with its own level`() = runTest {
+        val json = preset(classes = """{"fighter": 3, "rogue": 2}""")
+
+        val character = repository(json).getAll(null).first().value
+
+        assertEquals(mapOf(Character.Class.FIGHTER to 3, Character.Class.ROGUE to 2), character.classes)
+        assertEquals(5, character.totalLevel)
+    }
+
+    @Test
+    fun `multiclass preset is skipped when one of its classes is unknown`() = runTest {
+        val json = preset(classes = """{"fighter": 3, "jedi": 2}""")
+        assertTrue(repository(json).getAll(null).isEmpty())
     }
 
     @Test
@@ -148,8 +164,7 @@ class JsonCharacterPresetRepositoryTest {
         id: String? = "test-fighter",
         name: String? = "Aldus Test",
         race: String? = "human",
-        clazz: String? = "fighter",
-        level: Int? = 3,
+        classes: String? = """{"fighter": 3}""",
         size: String? = "medium",
         alignment: String? = "lawful_good",
         abilities: String? = null,
@@ -166,8 +181,7 @@ class JsonCharacterPresetRepositoryTest {
                 id?.let { add(""""id": "$it"""") }
                 name?.let { add(""""name": "$it"""") }
                 race?.let { add(""""race": "$it"""") }
-                clazz?.let { add(""""clazz": "$it"""") }
-                level?.let { add(""""level": $it""") }
+                classes?.let { add(""""classes": $it""") }
                 size?.let { add(""""size": "$it"""") }
                 alignment?.let { add(""""alignment": "$it"""") }
                 abilities?.let { add(""""abilities": $it""") }

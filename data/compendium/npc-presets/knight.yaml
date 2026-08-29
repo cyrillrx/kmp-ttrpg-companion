@@ -1,8 +1,8 @@
 id: knight
 name: Ser Corvin Ashvale
 race: human
-clazz: paladin
-level: 5
+classes:
+  paladin: 5
 size: medium
 alignment: lawful_good
 abilities:
