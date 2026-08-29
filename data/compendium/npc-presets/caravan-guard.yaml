@@ -1,8 +1,8 @@
 id: caravan-guard
 name: Brynn Ashwood
 race: human
-clazz: ranger
-level: 3
+classes:
+  ranger: 3
 size: medium
 alignment: neutral
 abilities:

@@ -3,8 +3,9 @@
     "id": "cleric-dwarf",
     "name": "Thordak Stonecraft",
     "race": "dwarf",
-    "clazz": "cleric",
-    "level": 1,
+    "classes": {
+      "cleric": 1
+    },
     "size": "medium",
     "alignment": "lawful_good",
     "background": "acolyte",
@@ -48,8 +49,9 @@
     "id": "fighter-human",
     "name": "Gareth Ironhold",
     "race": "human",
-    "clazz": "fighter",
-    "level": 1,
+    "classes": {
+      "fighter": 1
+    },
     "size": "medium",
     "alignment": "neutral",
     "background": "soldier",
@@ -89,8 +91,9 @@
     "id": "rogue-elf",
     "name": "Sylara Dawnwhisper",
     "race": "elf",
-    "clazz": "rogue",
-    "level": 1,
+    "classes": {
+      "rogue": 1
+    },
     "size": "medium",
     "alignment": "chaotic_neutral",
     "background": "urchin",
@@ -135,8 +138,9 @@
     "id": "wizard-human",
     "name": "Aldus Vance",
     "race": "human",
-    "clazz": "wizard",
-    "level": 1,
+    "classes": {
+      "wizard": 1
+    },
     "size": "medium",
     "alignment": "neutral_good",
     "background": "sage",

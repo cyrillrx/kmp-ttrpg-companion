@@ -74,8 +74,6 @@ class JsonCharacterPresetRepository(
                 ?: return Result.Failure(CharacterImportError.MissingTranslations(id))
             val translations = apiTranslations.toTranslations(id)
                 ?: return Result.Failure(CharacterImportError.MissingTranslations(id))
-            val level = level
-                ?: return Result.Failure(CharacterImportError.MissingLevel(id))
             val apiSize = size
                 ?: return Result.Failure(CharacterImportError.MissingSize(id))
             val size = apiSize.toSize()
@@ -96,10 +94,13 @@ class JsonCharacterPresetRepository(
                 ?: return Result.Failure(CharacterImportError.MissingRace(id))
             val race = apiRace.toRace()
                 ?: return Result.Failure(CharacterImportError.UnknownRace(id, apiRace))
-            val apiClazz = clazz
-                ?: return Result.Failure(CharacterImportError.MissingClass(id))
-            val clazz = apiClazz.toClass()
-                ?: return Result.Failure(CharacterImportError.UnknownClass(id, apiClazz))
+            val apiClasses = classes?.takeIf { it.isNotEmpty() }
+                ?: return Result.Failure(CharacterImportError.MissingClasses(id))
+            val classLevels = apiClasses.entries.associate { (apiClass, level) ->
+                val clazz = apiClass.toClass()
+                    ?: return Result.Failure(CharacterImportError.UnknownClass(id, apiClass))
+                clazz to level.coerceToValidCharacterLevel()
+            }
             val (parsedLanguages, languageErrors) = languages.orEmpty().partitionBy { lang -> lang.toLanguage(id) }
             languageErrors.forEach { println("WARNING: character preset import error: $it") }
             val languages = parsedLanguages.takeIf { languageErrors.isEmpty() }
@@ -112,7 +113,7 @@ class JsonCharacterPresetRepository(
                     translations = translations,
                     background = background?.toBackground(),
                     race = race,
-                    classes = mapOf(clazz to level.coerceToValidCharacterLevel()),
+                    classes = classLevels,
                     size = size,
                     alignment = alignment,
                     abilities = createAbilities(abilities, savingThrows),

@@ -1,8 +1,8 @@
 id: archmage
 name: Elindra Starweave
 race: elf
-clazz: wizard
-level: 10
+classes:
+  wizard: 10
 size: medium
 alignment: lawful_neutral
 abilities:
