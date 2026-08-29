@@ -12,7 +12,6 @@ import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.ClassLevels
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
-import com.cyrillrx.rpg.core.presentation.format.primaryClass
 import com.cyrillrx.rpg.core.presentation.format.toClassBreakdown
 import com.cyrillrx.rpg.core.presentation.format.toClassNames
 import com.cyrillrx.rpg.creature.domain.Ability
@@ -258,12 +257,6 @@ fun Character.Class.toFormattedString(): String {
 @Composable
 private fun ClassLevels.localizedNames(): Map<Character.Class, String> =
     keys.associateWith { it.toFormattedString() }
-
-@Composable
-fun ClassLevels.primaryClass(): Character.Class {
-    val names = localizedNames()
-    return primaryClass { names.getValue(it) }
-}
 
 // e.g. "Fighter 3 / Rogue 2", or "Fighter" for a single class.
 @Composable

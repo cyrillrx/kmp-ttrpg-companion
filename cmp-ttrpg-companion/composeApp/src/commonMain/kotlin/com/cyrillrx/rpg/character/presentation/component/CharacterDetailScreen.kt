@@ -202,6 +202,7 @@ fun CharacterDetailScreen(
                     shortDescription = shortDescription,
                     race = state.character.race,
                     classes = state.character.classes,
+                    primaryClass = state.character.primaryClass,
                     background = state.character.background.toFormattedString(),
                     alignment = state.character.alignment,
                     onNameConfirmed = onNameConfirmed,

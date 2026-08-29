@@ -25,6 +25,7 @@ data class Character(
     val currentHitPoints: Int = maxHitPoints,
     val temporaryHitPoints: Int = 0,
     val classes: ClassLevels = DEFAULT_CLASS_LEVELS,
+    val primaryClass: Class,
 ) : Creature() {
     val totalLevel: Int get() = classes.totalLevel
 

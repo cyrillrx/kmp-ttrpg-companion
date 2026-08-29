@@ -7,6 +7,7 @@ import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.domain.Language
+import com.cyrillrx.rpg.character.domain.MAX_CHARACTER_LEVEL
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
@@ -195,6 +196,36 @@ class CharacterEditViewModelTest {
             ),
             actual = repo.get(multiclass.id)?.classes,
         )
+    }
+
+    @Test
+    fun `saveLevel refuses the increment that would push the total above the cap`() = runTest(testDispatcher) {
+        val multiclass = SampleCharacterRepository.multiclassBarbarian()
+        val repo = RamCharacterRepository().apply { save(multiclass) }
+        val viewModel = buildViewModel(characterId = multiclass.id, repo = repo)
+        advanceUntilIdle()
+        val events = mutableListOf<CoercedValue>()
+        val job = launch { viewModel.coercedValueEvent.collect { events.add(it) } }
+        advanceUntilIdle()
+
+        viewModel.saveLevel(Character.Class.SORCERER, MAX_CHARACTER_LEVEL)
+        advanceUntilIdle()
+
+        assertEquals(MAX_CHARACTER_LEVEL, repo.get(multiclass.id)?.totalLevel)
+        assertEquals(listOf<CoercedValue>(CoercedValue.Numeric(MAX_CHARACTER_LEVEL, 12)), events)
+        job.cancel()
+    }
+
+    @Test
+    fun `saveClass makes the picked class the primary one`() = runTest(testDispatcher) {
+        val repo = repoWithFighter()
+        val viewModel = buildViewModel(repo = repo)
+        advanceUntilIdle()
+
+        viewModel.saveClass(Character.Class.WIZARD)
+        advanceUntilIdle()
+
+        assertEquals(Character.Class.WIZARD, repo.get(fighter.id)?.primaryClass)
     }
 
     @Test
