@@ -120,7 +120,8 @@ private fun CharacterListItemPreview() {
     val described = SampleCharacterRepository.elfRogue().copy(
         translations = mapOf(FALLBACK_LOCALE to Character.Translation(shortDescription = "Guild Archmage")),
     )
-    val unspecifiedClass = SampleCharacterRepository.humanFighter().copy(classes = DEFAULT_CLASS_LEVELS)
+    val unspecifiedClass = SampleCharacterRepository.humanFighter()
+        .copy(classes = DEFAULT_CLASS_LEVELS, primaryClass = Character.Class.UNKNOWN)
 
     Column(verticalArrangement = Arrangement.spacedBy(spacingSmall)) {
         SampleCharacterRepository.getAll().forEach {

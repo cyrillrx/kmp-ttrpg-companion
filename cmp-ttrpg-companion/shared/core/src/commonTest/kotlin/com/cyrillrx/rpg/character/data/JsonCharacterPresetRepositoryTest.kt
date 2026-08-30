@@ -110,6 +110,7 @@ class JsonCharacterPresetRepositoryTest {
         val character = repository(json).getAll(null).first().value
 
         assertEquals(mapOf(Character.Class.FIGHTER to 3, Character.Class.ROGUE to 2), character.classes)
+        assertEquals(Character.Class.FIGHTER, character.primaryClass)
         assertEquals(5, character.totalLevel)
     }
 
