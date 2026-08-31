@@ -13,8 +13,7 @@ sealed interface CharacterEditState {
 
         sealed interface EditingField {
             data object Race : EditingField
-            data object Clazz : EditingField
-            data object Level : EditingField
+            data object Classes : EditingField
             data object Background : EditingField
             data object ShortDescription : EditingField
             data object Strength : EditingField

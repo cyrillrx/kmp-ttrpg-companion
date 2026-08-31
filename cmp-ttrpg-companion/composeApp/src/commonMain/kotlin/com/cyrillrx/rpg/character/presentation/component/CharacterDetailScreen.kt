@@ -39,6 +39,7 @@ import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.character.domain.ClassLevels
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
@@ -112,8 +113,7 @@ fun CharacterDetailScreen(
             onShortDescriptionTapped = { viewModel.editField(EditingField.ShortDescription) },
             onShortDescriptionConfirmed = viewModel::saveShortDescription,
             onRaceConfirmed = viewModel::saveRace,
-            onClassConfirmed = viewModel::saveClass,
-            onLevelConfirmed = viewModel::saveLevel,
+            onClassesConfirmed = viewModel::saveClasses,
             onBackgroundConfirmed = viewModel::saveBackground,
             onStrengthConfirmed = viewModel::saveStrength,
             onDexterityConfirmed = viewModel::saveDexterity,
@@ -143,8 +143,7 @@ fun CharacterDetailScreen(
     onShortDescriptionTapped: () -> Unit,
     onShortDescriptionConfirmed: (String) -> Unit,
     onRaceConfirmed: (Race) -> Unit,
-    onClassConfirmed: (Character.Class) -> Unit,
-    onLevelConfirmed: (Character.Class, Int) -> Unit,
+    onClassesConfirmed: (ClassLevels, Character.Class) -> Unit,
     onBackgroundConfirmed: (Background?) -> Unit,
     onStrengthConfirmed: (AbilityScore) -> Unit,
     onDexterityConfirmed: (AbilityScore) -> Unit,
@@ -207,9 +206,9 @@ fun CharacterDetailScreen(
                     alignment = state.character.alignment,
                     onNameConfirmed = onNameConfirmed,
                     onShortDescriptionTapped = onShortDescriptionTapped,
-                    onClassTapped = { onFieldTapped(EditingField.Clazz) },
+                    onClassTapped = { onFieldTapped(EditingField.Classes) },
                     onRaceTapped = { onFieldTapped(EditingField.Race) },
-                    onLevelTapped = { onFieldTapped(EditingField.Level) },
+                    onLevelTapped = { onFieldTapped(EditingField.Classes) },
                     onBackgroundTapped = { onFieldTapped(EditingField.Background) },
                     onAlignmentTapped = { onFieldTapped(EditingField.Alignment) },
                 )
@@ -254,8 +253,7 @@ fun CharacterDetailScreen(
         state = state,
         shortDescription = shortDescription,
         onRaceConfirmed = onRaceConfirmed,
-        onClassConfirmed = onClassConfirmed,
-        onLevelConfirmed = onLevelConfirmed,
+        onClassesConfirmed = onClassesConfirmed,
         onBackgroundConfirmed = onBackgroundConfirmed,
         onShortDescriptionConfirmed = onShortDescriptionConfirmed,
         onStrengthConfirmed = onStrengthConfirmed,
@@ -297,8 +295,7 @@ private fun CharacterDetailScreenPreview() {
         onShortDescriptionTapped = {},
         onShortDescriptionConfirmed = {},
         onRaceConfirmed = {},
-        onClassConfirmed = {},
-        onLevelConfirmed = { _, _ -> },
+        onClassesConfirmed = { _, _ -> },
         onBackgroundConfirmed = {},
         onStrengthConfirmed = {},
         onDexterityConfirmed = {},
