@@ -96,8 +96,30 @@ class CharacterClassesExtTest {
     }
 
     @Test
-    fun `the primary class can only be one of the assigned classes`() {
-        assertEquals(Character.Class.WARLOCK, multiclass.withPrimaryClass(Character.Class.WARLOCK).primaryClass)
-        assertEquals(multiclass, multiclass.withPrimaryClass(Character.Class.MONK))
+    fun `raising a class above the primary makes it the new primary`() {
+        val updated = multiclass.withClassLevel(Character.Class.WARLOCK, 6)
+
+        assertEquals(Character.Class.WARLOCK, updated.primaryClass)
+    }
+
+    @Test
+    fun `lowering the primary below another class reassigns the primary`() {
+        val updated = multiclass.withClassLevel(Character.Class.BARBARIAN, 1)
+
+        assertEquals(Character.Class.SORCERER, updated.primaryClass)
+    }
+
+    @Test
+    fun `a class tied with the primary keeps the current primary`() {
+        val updated = multiclass.withClassLevel(Character.Class.SORCERER, 5)
+
+        assertEquals(Character.Class.BARBARIAN, updated.primaryClass)
+    }
+
+    @Test
+    fun `lowering a secondary class keeps the primary one`() {
+        val updated = multiclass.withClassLevel(Character.Class.WARLOCK, 1)
+
+        assertEquals(Character.Class.BARBARIAN, updated.primaryClass)
     }
 }
