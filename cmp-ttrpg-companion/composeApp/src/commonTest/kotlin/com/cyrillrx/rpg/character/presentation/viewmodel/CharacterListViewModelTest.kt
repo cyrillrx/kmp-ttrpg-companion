@@ -209,6 +209,64 @@ class CharacterListViewModelTest {
     }
 
     @Test
+    fun `a refresh inside the undo window keeps the character hidden and undo restores one entry`() =
+        runTest(testDispatcher) {
+            val character = SampleCharacterRepository.getAllValues().first()
+            repository.save(character)
+
+            val viewModel = buildViewModel()
+
+            backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+                viewModel.state.collect {}
+            }
+
+            advanceUntilIdle()
+
+            val pending = requireNotNull(viewModel.deleteCharacterOptimistically(viewModel.firstStored()))
+            viewModel.silentRefresh()
+            advanceUntilIdle()
+
+            assertIs<CharacterListState.Body.Empty>(viewModel.state.value.body)
+
+            viewModel.undoDeletion(pending)
+
+            val restoredBody = assertIs<CharacterListState.Body.WithData>(viewModel.state.value.body)
+            assertEquals(expected = 1, actual = restoredBody.searchResults.size)
+            assertEquals(expected = character.id, actual = restoredBody.searchResults.first().value.id)
+        }
+
+    @Test
+    fun `a commit failing after a refresh restores one entry and emits an error`() = runTest(testDispatcher) {
+        val failingRepo = FailsOnDeleteCharacterRepository()
+        val character = SampleCharacterRepository.getAllValues().first()
+        failingRepo.save(character)
+
+        val viewModel = buildViewModel(repo = failingRepo)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        val receivedEvents = mutableListOf<CharacterListViewModel.Event>()
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.events.collect { receivedEvents.add(it) }
+        }
+
+        val pending = requireNotNull(viewModel.deleteCharacterOptimistically(viewModel.firstStored()))
+        viewModel.silentRefresh()
+        advanceUntilIdle()
+        viewModel.commitDeletion(pending)
+        advanceUntilIdle()
+
+        val body = assertIs<CharacterListState.Body.WithData>(viewModel.state.value.body)
+        assertEquals(expected = 1, actual = body.searchResults.size)
+        assertEquals(1, receivedEvents.size)
+        assertIs<CharacterListViewModel.Event.DeletionError>(receivedEvents.first())
+    }
+
+    @Test
     fun `commitDeletion removes the character from repository`() = runTest(testDispatcher) {
         val character = SampleCharacterRepository.getAllValues().first()
         repository.save(character)

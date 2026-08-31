@@ -35,13 +35,19 @@ class UserCollectionsViewModel(
     val events: SharedFlow<Event>
         field = MutableSharedFlow<Event>()
 
-    data class PendingDeletion(val stored: Stored<UserCollection>, val index: Int)
+    data class PendingDeletion(val stored: Stored<UserCollection>)
 
     sealed interface Event {
         data class DeletionError(val collection: UserCollection) : Event
     }
 
     private val pendingDeletions: MutableList<PendingDeletion> = mutableListOf()
+
+    /**
+     * Last list read from the repository. The rendered body is derived from it by subtracting the
+     * pending deletions, so a refresh landing inside the undo window cannot resurrect a swiped row.
+     */
+    private var loadedCollections: List<Stored<UserCollection>> = emptyList()
     private var activeJob: Job? = null
 
     init {
@@ -64,50 +70,37 @@ class UserCollectionsViewModel(
     }
 
     fun deleteCollectionOptimistically(stored: Stored<UserCollection>): PendingDeletion? {
-        val currentState = state.value.body as? UserCollectionsState.Body.WithData ?: return null
+        val body = state.value.body as? UserCollectionsState.Body.WithData ?: return null
+        if (stored !in body.collections) return null
 
-        val index = currentState.collections.indexOf(stored)
-        if (index == -1) return null
-
-        val pending = PendingDeletion(stored, index)
+        val pending = PendingDeletion(stored)
         pendingDeletions.add(pending)
-        val updatedCollections = currentState.collections - stored
-        val newBody = if (updatedCollections.isEmpty()) {
-            UserCollectionsState.Body.Empty
-        } else {
-            UserCollectionsState.Body.WithData(updatedCollections)
-        }
-        state.update { it.copy(body = newBody) }
+        renderBody()
         return pending
     }
 
     fun undoDeletion(pending: PendingDeletion) {
         if (!pendingDeletions.remove(pending)) return
 
-        val currentCollections = when (val body = state.value.body) {
-            is UserCollectionsState.Body.WithData -> body.collections
-            is UserCollectionsState.Body.Empty -> emptyList()
-            else -> return
-        }
-        val restoredCollections = currentCollections.toMutableList().apply {
-            add(pending.index.coerceAtMost(size), pending.stored)
-        }
-        state.update { it.copy(body = UserCollectionsState.Body.WithData(restoredCollections)) }
+        renderBody()
     }
 
     fun commitDeletion(pending: PendingDeletion) {
         if (!pendingDeletions.remove(pending)) return
 
+        val deletedId = pending.stored.value.id
         viewModelScope.launch {
-            try {
-                userCollectionRepository.delete(pending.stored.value.id)
+            val deleted = try {
+                userCollectionRepository.delete(deletedId)
+                true
             } catch (e: CancellationException) {
                 throw e
             } catch (e: Exception) {
-                pendingDeletions.add(pending)
-                undoDeletion(pending)
-                events.emit(Event.DeletionError(pending.stored.value))
+                false
             }
+            if (deleted) loadedCollections = loadedCollections.filterNot { it.value.id == deletedId }
+            renderBody()
+            if (!deleted) events.emit(Event.DeletionError(pending.stored.value))
         }
     }
 
@@ -153,11 +146,17 @@ class UserCollectionsViewModel(
         }
 
     private suspend fun fetchAndUpdateUserCollections() {
-        val collections = userCollectionRepository.getAll(collectionType).sortedByDescending { it.updatedAt }
-        val body = if (collections.isEmpty()) {
+        loadedCollections = userCollectionRepository.getAll(collectionType).sortedByDescending { it.updatedAt }
+        renderBody()
+    }
+
+    private fun renderBody() {
+        val hiddenIds = pendingDeletions.mapTo(mutableSetOf()) { it.stored.value.id }
+        val visibleCollections = loadedCollections.filterNot { it.value.id in hiddenIds }
+        val body = if (visibleCollections.isEmpty()) {
             UserCollectionsState.Body.Empty
         } else {
-            UserCollectionsState.Body.WithData(collections)
+            UserCollectionsState.Body.WithData(visibleCollections)
         }
         state.update { it.copy(body = body) }
     }

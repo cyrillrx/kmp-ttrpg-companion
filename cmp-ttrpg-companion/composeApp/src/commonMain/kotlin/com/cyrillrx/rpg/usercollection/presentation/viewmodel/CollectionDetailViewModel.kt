@@ -33,7 +33,7 @@ class CollectionDetailViewModel<T>(
     val events: SharedFlow<Event<T>>
         field = MutableSharedFlow<Event<T>>()
 
-    data class PendingRemoval<T>(val itemId: String, val index: Int, val item: T)
+    data class PendingRemoval<T>(val itemId: String, val item: T)
 
     sealed interface Event<out T> {
         data class RemovalError<T>(val item: T) : Event<T>
@@ -41,6 +41,12 @@ class CollectionDetailViewModel<T>(
     }
 
     private val pendingRemovals: MutableList<PendingRemoval<T>> = mutableListOf()
+
+    /**
+     * Last list read from the repository. The rendered body is derived from it by subtracting the
+     * pending removals, so a refresh landing inside the undo window cannot resurrect a swiped item.
+     */
+    private var loadedItems: List<T> = emptyList()
     private var activeJob: Job? = null
 
     init {
@@ -65,33 +71,19 @@ class CollectionDetailViewModel<T>(
     }
 
     fun removeItemOptimistically(itemId: String, item: T): PendingRemoval<T>? {
-        val currentState = state.value.body as? CollectionDetailState.Body.WithData ?: return null
+        val body = state.value.body as? CollectionDetailState.Body.WithData ?: return null
+        if (item !in body.items) return null
 
-        val index = currentState.items.indexOf(item)
-        if (index == -1) return null
-
-        val pending = PendingRemoval(itemId, index, item)
+        val pending = PendingRemoval(itemId, item)
         pendingRemovals.add(pending)
-        val updatedItems = currentState.items - item
-        val newBody = if (updatedItems.isEmpty()) {
-            CollectionDetailState.Body.Empty
-        } else {
-            CollectionDetailState.Body.WithData(updatedItems)
-        }
-        state.update { it.copy(body = newBody) }
+        renderBody()
         return pending
     }
 
     fun undoRemoval(pending: PendingRemoval<T>) {
         if (!pendingRemovals.remove(pending)) return
 
-        val currentItems = when (val body = state.value.body) {
-            is CollectionDetailState.Body.WithData -> body.items
-            is CollectionDetailState.Body.Empty -> emptyList()
-            else -> return
-        }
-        val restoredItems = currentItems.toMutableList().apply { add(pending.index.coerceAtMost(size), pending.item) }
-        state.update { it.copy(body = CollectionDetailState.Body.WithData(restoredItems)) }
+        renderBody()
     }
 
     fun commitRemoval(pending: PendingRemoval<T>) {
@@ -105,11 +97,10 @@ class CollectionDetailViewModel<T>(
             } catch (e: Exception) {
                 UserCollectionRepository.Result.Error(e.message ?: "removal failed")
             }
-            if (result !is UserCollectionRepository.Result.Success) {
-                pendingRemovals.add(pending)
-                undoRemoval(pending)
-                events.emit(Event.RemovalError(pending.item))
-            }
+            val removed = result is UserCollectionRepository.Result.Success
+            if (removed) loadedItems = loadedItems - pending.item
+            renderBody()
+            if (!removed) events.emit(Event.RemovalError(pending.item))
         }
     }
 
@@ -154,11 +145,17 @@ class CollectionDetailViewModel<T>(
         val collection = userCollectionRepository.get(collectionId) ?: error("Could not find collection $collectionId")
         state.update { it.copy(collectionName = collection.name) }
 
-        val items = repository.getByIds(collection.itemIds)
-        val body = if (items.isEmpty()) {
+        loadedItems = repository.getByIds(collection.itemIds)
+        renderBody()
+    }
+
+    private fun renderBody() {
+        val hiddenItems = pendingRemovals.map { it.item }
+        val visibleItems = loadedItems.filterNot { it in hiddenItems }
+        val body = if (visibleItems.isEmpty()) {
             CollectionDetailState.Body.Empty
         } else {
-            CollectionDetailState.Body.WithData(items)
+            CollectionDetailState.Body.WithData(visibleItems)
         }
         state.update { it.copy(body = body) }
     }

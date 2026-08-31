@@ -165,6 +165,66 @@ class CollectionDetailViewModelTest {
     }
 
     @Test
+    fun `a refresh inside the undo window keeps the item hidden and undo restores one entry`() =
+        runTest(testDispatcher) {
+            val collection =
+                UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+            userCollectionRepository.save(collection)
+
+            val viewModel = buildViewModel(TEST_COLLECTION_ID)
+
+            backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+                viewModel.state.collect {}
+            }
+
+            advanceUntilIdle()
+
+            val pending = requireNotNull(viewModel.removeItemOptimistically(spell.id, spell))
+            viewModel.silentRefresh()
+            advanceUntilIdle()
+
+            assertIs<CollectionDetailState.Body.Empty>(viewModel.state.value.body)
+
+            viewModel.undoRemoval(pending)
+
+            val restoredBody = assertIs<CollectionDetailState.Body.WithData<Spell>>(viewModel.state.value.body)
+            assertEquals(expected = 1, actual = restoredBody.items.size)
+            assertEquals(expected = spell.id, actual = restoredBody.items.first().id)
+        }
+
+    @Test
+    fun `a commit failing after a refresh restores one entry and emits an error`() = runTest(testDispatcher) {
+        val failingRepo = FailsOnRemoveUserCollectionRepository()
+        val collection =
+            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+        failingRepo.save(collection)
+
+        val viewModel = buildViewModel(TEST_COLLECTION_ID, failingRepo)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        val receivedEvents = mutableListOf<CollectionDetailViewModel.Event<Spell>>()
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.events.collect { receivedEvents.add(it) }
+        }
+
+        val pending = requireNotNull(viewModel.removeItemOptimistically(spell.id, spell))
+        viewModel.silentRefresh()
+        advanceUntilIdle()
+        viewModel.commitRemoval(pending)
+        advanceUntilIdle()
+
+        val restoredBody = assertIs<CollectionDetailState.Body.WithData<Spell>>(viewModel.state.value.body)
+        assertEquals(expected = 1, actual = restoredBody.items.size)
+        assertEquals(1, receivedEvents.size)
+        assertIs<CollectionDetailViewModel.Event.RemovalError<Spell>>(receivedEvents.first())
+    }
+
+    @Test
     fun `removeItemOptimistically then commit transitions to Empty when last spell removed`() =
         runTest(testDispatcher) {
             val collection =

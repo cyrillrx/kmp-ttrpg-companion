@@ -139,6 +139,68 @@ class UserCollectionsViewModelTest {
     }
 
     @Test
+    fun `a refresh inside the undo window keeps the collection hidden and undo restores one entry`() =
+        runTest(testDispatcher) {
+            val viewModel = buildViewModel()
+
+            backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+                viewModel.state.collect {}
+            }
+
+            advanceUntilIdle()
+            viewModel.createCollection(COLLECTION_NAME)
+            advanceUntilIdle()
+
+            val body = assertIs<UserCollectionsState.Body.WithData>(viewModel.state.value.body)
+            val collection = body.collections.first()
+
+            val pending = requireNotNull(viewModel.deleteCollectionOptimistically(collection))
+            viewModel.silentRefresh()
+            advanceUntilIdle()
+
+            assertIs<UserCollectionsState.Body.Empty>(viewModel.state.value.body)
+
+            viewModel.undoDeletion(pending)
+
+            val restoredBody = assertIs<UserCollectionsState.Body.WithData>(viewModel.state.value.body)
+            assertEquals(expected = 1, actual = restoredBody.collections.size)
+            assertEquals(expected = collection.value.id, actual = restoredBody.collections.first().value.id)
+        }
+
+    @Test
+    fun `a commit failing after a refresh restores one entry and emits an error`() = runTest(testDispatcher) {
+        val failingRepo = FailsOnDeleteUserCollectionRepository()
+        val viewModel = UserCollectionsViewModel(UserCollection.Type.SPELL, failingRepo, testDispatcher)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+        viewModel.createCollection(COLLECTION_NAME)
+        advanceUntilIdle()
+
+        val body = assertIs<UserCollectionsState.Body.WithData>(viewModel.state.value.body)
+        val collection = body.collections.first()
+
+        val receivedEvents = mutableListOf<UserCollectionsViewModel.Event>()
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.events.collect { receivedEvents.add(it) }
+        }
+
+        val pending = requireNotNull(viewModel.deleteCollectionOptimistically(collection))
+        viewModel.silentRefresh()
+        advanceUntilIdle()
+        viewModel.commitDeletion(pending)
+        advanceUntilIdle()
+
+        val restoredBody = assertIs<UserCollectionsState.Body.WithData>(viewModel.state.value.body)
+        assertEquals(expected = 1, actual = restoredBody.collections.size)
+        assertEquals(1, receivedEvents.size)
+        assertIs<UserCollectionsViewModel.Event.DeletionError>(receivedEvents.first())
+    }
+
+    @Test
     fun `commitDeletion removes the collection from repository`() = runTest(testDispatcher) {
         val viewModel = buildViewModel()
 
