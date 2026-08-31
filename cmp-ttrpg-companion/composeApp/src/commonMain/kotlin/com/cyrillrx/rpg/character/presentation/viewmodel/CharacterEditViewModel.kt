@@ -14,6 +14,7 @@ import com.cyrillrx.rpg.character.domain.coerceToValidCharacterLevel
 import com.cyrillrx.rpg.character.domain.coerceToValidMaxHitPoints
 import com.cyrillrx.rpg.character.domain.coerceToValidWalkSpeedInFeet
 import com.cyrillrx.rpg.character.domain.defaultWalkSpeed
+import com.cyrillrx.rpg.character.domain.withClassLevel
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
@@ -76,14 +77,18 @@ class CharacterEditViewModel(
     fun saveClass(clazz: Character.Class) {
         updateAndSave {
             val newClasses = mapOf(clazz to character.totalLevel.coerceToValidCharacterLevel())
-            copy(character = character.copy(classes = newClasses), editingField = null)
+            copy(character = character.copy(classes = newClasses, primaryClass = clazz), editingField = null)
         }
     }
 
-    fun saveLevel(clazz: Character.Class, level: Int) =
-        updateAndSave(level, Int::coerceToValidCharacterLevel) { coerced ->
-            copy(character = character.copy(classes = character.classes + (clazz to coerced)), editingField = null)
-        }
+    fun saveLevel(clazz: Character.Class, level: Int) {
+        val current = (state.value as? Loaded)?.character ?: return
+
+        val updated = current.withClassLevel(clazz, level)
+        val coerced = updated.classes[clazz] ?: return
+        if (coerced != level) coercedValueEvent.tryEmit(CoercedValue.Numeric(level, coerced))
+        updateAndSave { copy(character = updated, editingField = null) }
+    }
 
     fun saveBackground(background: Background?) {
         updateAndSave { copy(character = character.copy(background = background), editingField = null) }

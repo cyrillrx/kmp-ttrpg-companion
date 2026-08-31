@@ -98,28 +98,6 @@ class CharacterFormatTest {
     }
 
     @Test
-    fun `primaryClass is the highest level, ties broken by localized name`() {
-        val classes: ClassLevels = mapOf(
-            Character.Class.RANGER to 3,
-            Character.Class.ROGUE to 3,
-            Character.Class.WIZARD to 1,
-        )
-
-        assertEquals(
-            expected = Character.Class.RANGER,
-            actual = classes.primaryClass(FRENCH_NAMES::getValue),
-        )
-    }
-
-    @Test
-    fun `primaryClass falls back to UNKNOWN for an empty map`() {
-        assertEquals(
-            expected = Character.Class.UNKNOWN,
-            actual = emptyMap<Character.Class, Int>().primaryClass(FRENCH_NAMES::getValue),
-        )
-    }
-
-    @Test
     fun `toClassNames joins localized class names by decreasing level`() {
         val classes: ClassLevels = mapOf(
             Character.Class.ROGUE to 2,

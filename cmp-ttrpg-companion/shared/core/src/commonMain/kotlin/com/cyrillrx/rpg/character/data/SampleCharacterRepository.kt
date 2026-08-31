@@ -64,6 +64,7 @@ class SampleCharacterRepository : CharacterRepository {
                 speeds = Speeds(walk = 30),
                 languages = listOf(Language.COMMON, Language.DWARVISH),
                 classes = mapOf(Character.Class.FIGHTER to 1),
+                primaryClass = Character.Class.FIGHTER,
                 skills = Skills(),
             )
 
@@ -78,6 +79,7 @@ class SampleCharacterRepository : CharacterRepository {
                         Character.Class.SORCERER to 4,
                         Character.Class.WARLOCK to 3,
                     ),
+                primaryClass = Character.Class.BARBARIAN,
             )
 
         fun elfRogue() =
@@ -101,6 +103,7 @@ class SampleCharacterRepository : CharacterRepository {
                 speeds = Speeds(walk = 30),
                 languages = listOf(Language.COMMON, Language.ELVISH),
                 classes = mapOf(Character.Class.ROGUE to 1),
+                primaryClass = Character.Class.ROGUE,
                 skills = Skills(),
             )
     }

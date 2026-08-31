@@ -35,6 +35,7 @@ class CharacterTest {
                 Character.Class.ROGUE to 3,
                 Character.Class.WIZARD to 2,
             ),
+            primaryClass = Character.Class.ROGUE,
         )
         assertEquals(5, multiclass.totalLevel)
         assertEquals(3, multiclass.proficiencyBonus())
@@ -54,7 +55,10 @@ class CharacterTest {
 
     @Test
     fun `an unspecified class still carries a level and a proficiency bonus`() {
-        val unspecified = character().copy(classes = mapOf(Character.Class.UNKNOWN to 1))
+        val unspecified = character().copy(
+            classes = mapOf(Character.Class.UNKNOWN to 1),
+            primaryClass = Character.Class.UNKNOWN,
+        )
         assertEquals(1, unspecified.totalLevel)
         assertEquals(2, unspecified.proficiencyBonus())
     }
@@ -77,6 +81,7 @@ class CharacterTest {
         speeds = Speeds(walk = 30),
         languages = emptyList(),
         classes = mapOf(Character.Class.FIGHTER to level),
+        primaryClass = Character.Class.FIGHTER,
         skills = Skills(),
     )
 }

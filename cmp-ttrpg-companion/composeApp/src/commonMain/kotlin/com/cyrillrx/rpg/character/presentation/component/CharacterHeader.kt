@@ -47,7 +47,6 @@ import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.ClassLevels
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.domain.totalLevel
-import com.cyrillrx.rpg.core.presentation.component.dnd.primaryClass
 import com.cyrillrx.rpg.core.presentation.component.dnd.toClassesLabel
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
@@ -69,6 +68,7 @@ internal fun CharacterHeader(
     shortDescription: String,
     race: Race,
     classes: ClassLevels,
+    primaryClass: Character.Class,
     background: String,
     alignment: Creature.Alignment,
     onNameConfirmed: (String) -> Unit,
@@ -80,7 +80,6 @@ internal fun CharacterHeader(
     onAlignmentTapped: () -> Unit,
 ) {
     val levelShort = stringResource(Res.string.label_level_short)
-    val primaryClass = classes.primaryClass()
     val totalLevel = classes.totalLevel
     val classLabel = classes.toClassesLabel()
     Row(
@@ -254,7 +253,7 @@ private fun PreviewCharacterHeaderDark() {
 @Composable
 private fun PreviewCharacterHeaderMulticlassLight() {
     AppThemePreview(darkTheme = false) {
-        CharacterHeaderPreview(SampleCharacterRepository.multiclassBarbarian().classes)
+        CharacterHeaderPreview(SampleCharacterRepository.multiclassBarbarian())
     }
 }
 
@@ -262,18 +261,18 @@ private fun PreviewCharacterHeaderMulticlassLight() {
 @Composable
 private fun PreviewCharacterHeaderMulticlassDark() {
     AppThemePreview(darkTheme = true) {
-        CharacterHeaderPreview(SampleCharacterRepository.multiclassBarbarian().classes)
+        CharacterHeaderPreview(SampleCharacterRepository.multiclassBarbarian())
     }
 }
 
 @Composable
-private fun CharacterHeaderPreview(classes: ClassLevels? = null) {
-    val character = SampleCharacterRepository.humanFighter()
+private fun CharacterHeaderPreview(character: Character = SampleCharacterRepository.humanFighter()) {
     CharacterHeader(
         name = character.name,
         shortDescription = character.translations.values.firstOrNull()?.shortDescription.orEmpty(),
         race = character.race,
-        classes = classes ?: character.classes,
+        classes = character.classes,
+        primaryClass = character.primaryClass,
         background = character.background.toFormattedString(),
         alignment = character.alignment,
         onNameConfirmed = {},

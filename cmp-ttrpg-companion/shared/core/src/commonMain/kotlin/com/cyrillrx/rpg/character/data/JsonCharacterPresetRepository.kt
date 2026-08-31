@@ -114,6 +114,8 @@ class JsonCharacterPresetRepository(
                     background = background?.toBackground(),
                     race = race,
                     classes = classLevels,
+                    // The preset format carries no primary class: the first declared one stands in.
+                    primaryClass = classLevels.keys.first(),
                     size = size,
                     alignment = alignment,
                     abilities = createAbilities(abilities, savingThrows),

@@ -36,9 +36,6 @@ fun ClassLevels.sortedByLevelThenName(nameOf: (Character.Class) -> String): List
     return entries.sortedWith(comparator).map { it.key to it.value }
 }
 
-fun ClassLevels.primaryClass(nameOf: (Character.Class) -> String): Character.Class =
-    sortedByLevelThenName(nameOf).firstOrNull()?.first ?: Character.Class.UNKNOWN
-
 /** Class names ordered by decreasing level, e.g. "Cleric/Ranger". Empty when only UNKNOWN is set. */
 fun ClassLevels.toClassNames(nameOf: (Character.Class) -> String): String =
     sortedByLevelThenName(nameOf)
