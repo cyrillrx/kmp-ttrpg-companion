@@ -11,10 +11,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.Delete
-import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -25,6 +22,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.ClassLevels
 import com.cyrillrx.rpg.character.domain.MIN_CHARACTER_LEVEL
@@ -45,7 +43,6 @@ import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.btn_add_class
 import rpg_companion.composeapp.generated.resources.btn_remove_class
 import rpg_companion.composeapp.generated.resources.label_classes
-import rpg_companion.composeapp.generated.resources.label_primary_class
 
 @Composable
 internal fun ClassEditorDialog(
@@ -68,7 +65,7 @@ internal fun ClassEditorDialog(
         return
     }
 
-    val assigned = working.classes.filterKeys { it != Character.Class.UNKNOWN }.toList()
+    val assigned = working.classes.toList()
     val untakenExists = (Character.Class.entries - working.classes.keys - Character.Class.UNKNOWN).isNotEmpty()
 
     EditDialog(
@@ -111,6 +108,7 @@ private fun ClassLevelRow(
     onLevelChange: (Int) -> Unit,
     onRemove: () -> Unit,
 ) {
+    val highlight = if (isPrimary) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface
     Column(modifier = Modifier.padding(vertical = spacingSmall)) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -119,28 +117,16 @@ private fun ClassLevelRow(
         ) {
             ClassIcon(
                 clazz = clazz,
-                tint = MaterialTheme.colorScheme.onSurface,
+                tint = highlight,
                 modifier = Modifier.size(iconSizeMediumLarge),
             )
             Text(
                 text = clazz.toFormattedString(),
                 style = MaterialTheme.typography.bodyLarge,
+                color = highlight,
+                fontWeight = if (isPrimary) FontWeight.Bold else FontWeight.Normal,
                 modifier = Modifier.weight(1f),
             )
-            if (isPrimary) {
-                Icon(
-                    imageVector = Icons.Filled.Star,
-                    contentDescription = stringResource(Res.string.label_primary_class),
-                    tint = MaterialTheme.colorScheme.primary,
-                    modifier = Modifier.size(iconSizeMedium),
-                )
-            }
-            IconButton(onClick = onRemove) {
-                Icon(
-                    imageVector = Icons.Filled.Delete,
-                    contentDescription = stringResource(Res.string.btn_remove_class),
-                )
-            }
         }
         DecrementIncrementRow(
             value = level,
@@ -148,6 +134,9 @@ private fun ClassLevelRow(
             maxValue = maxLevel,
             onDecrement = { onLevelChange(level - 1) },
             onIncrement = { onLevelChange(level + 1) },
+            onRemoveAtMin = onRemove,
+            removeAtMinEnabled = clazz != Character.Class.UNKNOWN,
+            removeAtMinContentDescription = stringResource(Res.string.btn_remove_class),
         )
     }
 }

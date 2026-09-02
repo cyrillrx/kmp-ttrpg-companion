@@ -24,7 +24,6 @@
     <string name="label_level">Level</string>
     <string name="btn_add_class">Add a class</string>
     <string name="btn_remove_class">Remove class</string>
-    <string name="label_primary_class">Primary class</string>
     <string name="label_background">Background</string>
     <string name="label_abilities">Abilities</string>
     <string name="label_combat">Combat</string>
