@@ -50,7 +50,7 @@ class CharacterListViewModel(
     private var activeJob: Job? = null
 
     init {
-        loadCharacters(query = "")
+        activeJob = loadCharacters(query = "")
     }
 
     fun filterByQuery(query: String) {
