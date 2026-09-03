@@ -20,7 +20,10 @@
     <string name="hint_leave_blank_to_remove">Laisser vide pour supprimer.</string>
     <string name="label_race">Race</string>
     <string name="label_class">Classe</string>
+    <string name="label_classes">Classes</string>
     <string name="label_level">Niveau</string>
+    <string name="btn_add_class">Ajouter une classe</string>
+    <string name="btn_remove_class">Retirer la classe</string>
     <string name="label_background">Historique</string>
     <string name="label_abilities">Caractéristiques</string>
     <string name="label_combat">Combat</string>

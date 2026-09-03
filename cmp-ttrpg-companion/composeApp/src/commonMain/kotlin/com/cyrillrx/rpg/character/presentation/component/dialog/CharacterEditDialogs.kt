@@ -24,12 +24,11 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.input.KeyboardType
 import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.character.domain.ClassLevels
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.MAX_ARMOR_CLASS
 import com.cyrillrx.rpg.character.domain.MIN_ARMOR_CLASS
-import com.cyrillrx.rpg.character.domain.MIN_CHARACTER_LEVEL
 import com.cyrillrx.rpg.character.domain.Race
-import com.cyrillrx.rpg.character.domain.maxLevelFor
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
 import com.cyrillrx.rpg.core.domain.toSignedString
@@ -65,9 +64,7 @@ import rpg_companion.composeapp.generated.resources.hint_short_description
 import rpg_companion.composeapp.generated.resources.label_alignment
 import rpg_companion.composeapp.generated.resources.label_armor_class
 import rpg_companion.composeapp.generated.resources.label_background
-import rpg_companion.composeapp.generated.resources.label_class
 import rpg_companion.composeapp.generated.resources.label_languages
-import rpg_companion.composeapp.generated.resources.label_level
 import rpg_companion.composeapp.generated.resources.label_max_hp
 import rpg_companion.composeapp.generated.resources.label_race
 import rpg_companion.composeapp.generated.resources.label_short_description
@@ -81,8 +78,7 @@ internal fun CharacterEditDialog(
     state: CharacterEditState.Loaded,
     shortDescription: String,
     onRaceConfirmed: (Race) -> Unit,
-    onClassConfirmed: (Character.Class) -> Unit,
-    onLevelConfirmed: (Character.Class, Int) -> Unit,
+    onClassesConfirmed: (ClassLevels, Character.Class) -> Unit,
     onBackgroundConfirmed: (Background?) -> Unit,
     onShortDescriptionConfirmed: (String) -> Unit,
     onStrengthConfirmed: (AbilityScore) -> Unit,
@@ -118,17 +114,11 @@ internal fun CharacterEditDialog(
             onDismiss = onDismiss,
         )
 
-        EditingField.Level -> {
-            val primaryClass = state.character.primaryClass
-            NumberStepperDialog(
-                title = stringResource(Res.string.label_level),
-                initialValue = state.character.classes[primaryClass] ?: MIN_CHARACTER_LEVEL,
-                minValue = MIN_CHARACTER_LEVEL,
-                maxValue = state.character.maxLevelFor(primaryClass),
-                onConfirm = { onLevelConfirmed(primaryClass, it) },
-                onDismiss = onDismiss,
-            )
-        }
+        EditingField.Classes -> ClassEditorDialog(
+            character = state.character,
+            onConfirm = onClassesConfirmed,
+            onDismiss = onDismiss,
+        )
 
         EditingField.Strength -> AbilityEditDialog(
             title = stringResource(Res.string.ability_label_strength),
@@ -219,15 +209,6 @@ internal fun CharacterEditDialog(
             options = Race.entries,
             optionLabel = { it.toFormattedString() },
             onConfirm = { it?.let(onRaceConfirmed) },
-            onDismiss = onDismiss,
-        )
-
-        EditingField.Clazz -> SingleChoiceDialog(
-            title = stringResource(Res.string.label_class),
-            selected = state.character.primaryClass,
-            options = Character.Class.entries,
-            optionLabel = { it.toFormattedString() },
-            onConfirm = { it?.let(onClassConfirmed) },
             onDismiss = onDismiss,
         )
 

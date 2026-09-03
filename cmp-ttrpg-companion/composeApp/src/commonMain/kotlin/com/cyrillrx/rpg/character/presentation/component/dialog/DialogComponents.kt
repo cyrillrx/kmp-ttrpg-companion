@@ -6,7 +6,11 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material3.FilledTonalIconButton
+import androidx.compose.material3.Icon
+import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -30,17 +34,34 @@ internal fun DecrementIncrementRow(
     onDecrement: () -> Unit,
     onIncrement: () -> Unit,
     modifier: Modifier = Modifier,
+    onRemoveAtMin: (() -> Unit)? = null,
+    removeAtMinEnabled: Boolean = true,
+    removeAtMinContentDescription: String? = null,
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceEvenly,
         modifier = modifier.fillMaxWidth(),
     ) {
-        RepeatingIconButton(
-            onClick = onDecrement,
-            enabled = value > minValue,
-        ) {
-            Text("-", style = MaterialTheme.typography.headlineMedium)
+        if (value <= minValue && onRemoveAtMin != null) {
+            FilledTonalIconButton(
+                onClick = onRemoveAtMin,
+                enabled = removeAtMinEnabled,
+                modifier = Modifier.size(iconButtonSize),
+            ) {
+                Icon(
+                    imageVector = Icons.Filled.Delete,
+                    contentDescription = removeAtMinContentDescription,
+                    tint = if (removeAtMinEnabled) MaterialTheme.colorScheme.error else LocalContentColor.current,
+                )
+            }
+        } else {
+            RepeatingIconButton(
+                onClick = onDecrement,
+                enabled = value > minValue,
+            ) {
+                Text("-", style = MaterialTheme.typography.headlineMedium)
+            }
         }
         Text(
             text = value.toString(),

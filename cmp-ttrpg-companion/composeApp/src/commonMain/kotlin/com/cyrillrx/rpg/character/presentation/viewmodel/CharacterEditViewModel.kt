@@ -6,15 +6,14 @@ import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterRepository
+import com.cyrillrx.rpg.character.domain.ClassLevels
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.domain.coerceToValidAbilityScore
 import com.cyrillrx.rpg.character.domain.coerceToValidArmorClass
-import com.cyrillrx.rpg.character.domain.coerceToValidCharacterLevel
 import com.cyrillrx.rpg.character.domain.coerceToValidMaxHitPoints
 import com.cyrillrx.rpg.character.domain.coerceToValidWalkSpeedInFeet
 import com.cyrillrx.rpg.character.domain.defaultWalkSpeed
-import com.cyrillrx.rpg.character.domain.withClassLevel
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
@@ -74,20 +73,10 @@ class CharacterEditViewModel(
         }
     }
 
-    fun saveClass(clazz: Character.Class) {
+    fun saveClasses(classes: ClassLevels, primaryClass: Character.Class) {
         updateAndSave {
-            val newClasses = mapOf(clazz to character.totalLevel.coerceToValidCharacterLevel())
-            copy(character = character.copy(classes = newClasses, primaryClass = clazz), editingField = null)
+            copy(character = character.copy(classes = classes, primaryClass = primaryClass), editingField = null)
         }
-    }
-
-    fun saveLevel(clazz: Character.Class, level: Int) {
-        val current = (state.value as? Loaded)?.character ?: return
-
-        val updated = current.withClassLevel(clazz, level)
-        val coerced = updated.classes[clazz] ?: return
-        if (coerced != level) coercedValueEvent.tryEmit(CoercedValue.Numeric(level, coerced))
-        updateAndSave { copy(character = updated, editingField = null) }
     }
 
     fun saveBackground(background: Background?) {
