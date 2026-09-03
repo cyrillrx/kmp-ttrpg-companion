@@ -36,8 +36,9 @@ fun Character.withClassRemoved(clazz: Character.Class): Character {
 }
 
 /**
- * The primary class is the highest-level one; a tie keeps the current primary, so raising a class above the
- * primary — or lowering the primary below another — is what reassigns it. Independent of the app language.
+ * The primary class is the highest-level one.
+ * A tie keeps the current primary.
+ * Raising a class above the primary (or lowering the primary below another) is what reassigns it.
  */
 private fun Character.withRecomputedPrimary(): Character =
     if ((classes[primaryClass] ?: 0) == classes.values.max()) {
