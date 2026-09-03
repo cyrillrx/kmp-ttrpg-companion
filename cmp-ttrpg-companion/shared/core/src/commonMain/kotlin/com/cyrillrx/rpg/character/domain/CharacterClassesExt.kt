@@ -16,7 +16,9 @@ fun Character.withClassLevel(clazz: Character.Class, level: Int): Character {
 fun Character.withClassAdded(clazz: Character.Class): Character {
     if (clazz in classes || !canAddClass()) return this
 
-    val assigned = classes - Character.Class.UNKNOWN
+    // Only the pristine "unspecified" default is replaced by the first real class; a levelled or
+    // coexisting unknown class is a class of its own and is kept.
+    val assigned = if (classes == DEFAULT_CLASS_LEVELS) classes - Character.Class.UNKNOWN else classes
     return copy(
         classes = assigned + (clazz to MIN_CHARACTER_LEVEL),
         primaryClass = if (assigned.isEmpty()) clazz else primaryClass,

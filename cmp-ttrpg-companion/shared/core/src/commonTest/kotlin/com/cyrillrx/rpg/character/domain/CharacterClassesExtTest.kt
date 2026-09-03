@@ -28,6 +28,27 @@ class CharacterClassesExtTest {
     }
 
     @Test
+    fun `adding a class keeps a levelled unknown class instead of dropping it`() {
+        val unknownAtLevelTwo = fighter.copy(
+            classes = mapOf(Character.Class.UNKNOWN to 2),
+            primaryClass = Character.Class.UNKNOWN,
+        )
+
+        val updated = unknownAtLevelTwo.withClassAdded(Character.Class.FIGHTER)
+
+        assertEquals(mapOf(Character.Class.UNKNOWN to 2, Character.Class.FIGHTER to 1), updated.classes)
+        assertEquals(Character.Class.UNKNOWN, updated.primaryClass)
+    }
+
+    @Test
+    fun `the unknown class can be added as a secondary class`() {
+        val updated = fighter.withClassAdded(Character.Class.UNKNOWN)
+
+        assertEquals(mapOf(Character.Class.FIGHTER to 1, Character.Class.UNKNOWN to 1), updated.classes)
+        assertEquals(Character.Class.FIGHTER, updated.primaryClass)
+    }
+
+    @Test
     fun `adding an already assigned class changes nothing`() {
         assertEquals(multiclass, multiclass.withClassAdded(Character.Class.SORCERER))
     }
