@@ -83,7 +83,7 @@ class CollectionDetailViewModel<T>(
     fun undoRemoval(pending: PendingRemoval<T>) {
         if (!pendingRemovals.remove(pending)) return
 
-        renderBody()
+        renderBodyIfLoaded()
     }
 
     fun commitRemoval(pending: PendingRemoval<T>) {
@@ -99,7 +99,7 @@ class CollectionDetailViewModel<T>(
             }
             val removed = result is UserCollectionRepository.Result.Success
             if (removed) loadedItems = loadedItems - pending.item
-            renderBody()
+            renderBodyIfLoaded()
             if (!removed) events.emit(Event.RemovalError(pending.item))
         }
     }
@@ -146,6 +146,18 @@ class CollectionDetailViewModel<T>(
         state.update { it.copy(collectionName = collection.name) }
 
         loadedItems = repository.getByIds(collection.itemIds)
+        renderBody()
+    }
+
+    /**
+     * Re-derives the body only when one is already displayed. A `Loading` or `Error` body means a
+     * fetch is in flight or has failed, and rendering there would cover it with the previous read,
+     * hiding the pending load or the error message behind stale data. [renderBody] cannot hold the
+     * guard itself: a load sets `Loading` first and relies on its own fetch to render over it.
+     */
+    private fun renderBodyIfLoaded() {
+        if (!state.value.isLoaded) return
+
         renderBody()
     }
 

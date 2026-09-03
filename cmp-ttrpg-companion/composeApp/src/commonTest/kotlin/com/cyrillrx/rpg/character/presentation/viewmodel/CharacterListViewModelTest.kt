@@ -7,6 +7,7 @@ import com.cyrillrx.rpg.character.domain.CharacterFilter
 import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.presentation.CharacterListState
 import com.cyrillrx.rpg.core.domain.Stored
+import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
@@ -336,6 +337,39 @@ class CharacterListViewModelTest {
     }
 
     @Test
+    fun `a commit landing during a search does not replace the Loading body`() = runTest(testDispatcher) {
+        val gatedRepository = GatedCharacterRepository()
+        gatedRepository.save(SampleCharacterRepository.getAllValues().first())
+
+        val viewModel = buildViewModel(gatedRepository)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        val pending = requireNotNull(viewModel.deleteCharacterOptimistically(viewModel.firstStored()))
+
+        val gate = CompletableDeferred<Unit>()
+        gatedRepository.gate = gate
+        viewModel.filterByQuery("Borin")
+        advanceUntilIdle()
+
+        assertIs<CharacterListState.Body.Loading>(viewModel.state.value.body)
+
+        viewModel.commitDeletion(pending)
+        advanceUntilIdle()
+
+        assertIs<CharacterListState.Body.Loading>(viewModel.state.value.body)
+
+        gate.complete(Unit)
+        advanceUntilIdle()
+
+        assertIs<CharacterListState.Body.Empty>(viewModel.state.value.body)
+    }
+
+    @Test
     fun `characters are ordered by updatedAt descending`() = runTest(testDispatcher) {
         val viewModel = buildViewModel(ScrambledCharacterRepository())
 
@@ -394,4 +428,21 @@ private class FailsOnSecondCallCharacterRepository : CharacterRepository {
     override suspend fun getByIds(ids: List<String>): List<Character> = emptyList()
     override suspend fun save(character: Character) = Unit
     override suspend fun delete(id: String) = Unit
+}
+
+/** Suspends [getAll] until [gate] completes, so a commit can be observed while a load is still in flight. */
+private class GatedCharacterRepository : CharacterRepository {
+    private val delegate = RamCharacterRepository()
+
+    var gate: CompletableDeferred<Unit>? = null
+
+    override suspend fun getAll(filter: CharacterFilter?): List<Stored<Character>> {
+        gate?.await()
+        return delegate.getAll(filter)
+    }
+
+    override suspend fun get(id: String): Character? = delegate.get(id)
+    override suspend fun getByIds(ids: List<String>): List<Character> = delegate.getByIds(ids)
+    override suspend fun save(character: Character) = delegate.save(character)
+    override suspend fun delete(id: String) = delegate.delete(id)
 }

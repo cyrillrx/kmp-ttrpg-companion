@@ -77,7 +77,7 @@ class CharacterListViewModel(
     fun undoDeletion(pending: PendingDeletion) {
         if (!pendingDeletions.remove(pending)) return
 
-        renderBody()
+        renderBodyIfLoaded()
     }
 
     fun commitDeletion(pending: PendingDeletion) {
@@ -94,7 +94,7 @@ class CharacterListViewModel(
                 false
             }
             if (deleted) loadedCharacters = loadedCharacters.filterNot { it.value.id == deletedId }
-            renderBody()
+            renderBodyIfLoaded()
             if (!deleted) events.emit(Event.DeletionError(pending.stored.value))
         }
     }
@@ -135,6 +135,19 @@ class CharacterListViewModel(
     private suspend fun fetchAndUpdateCharacters(query: String) {
         val filter = CharacterFilter(query = query)
         loadedCharacters = repository.getAll(filter).sortedByDescending { it.updatedAt }
+        renderBody()
+    }
+
+    /**
+     * Re-derives the body only when one is already displayed. A `Loading` or `Error` body means a
+     * fetch is in flight or has failed, and rendering there would cover it with the previous read,
+     * hiding the pending load or the error message behind stale data. [renderBody] cannot hold the
+     * guard itself: a load sets `Loading` first and relies on its own fetch to render over it.
+     */
+    private fun renderBodyIfLoaded() {
+        val body = state.value.body
+        if (body !is CharacterListState.Body.WithData && body !is CharacterListState.Body.Empty) return
+
         renderBody()
     }
 
