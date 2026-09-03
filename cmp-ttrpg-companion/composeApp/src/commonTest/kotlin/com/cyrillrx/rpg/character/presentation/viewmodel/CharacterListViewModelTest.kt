@@ -337,6 +337,35 @@ class CharacterListViewModelTest {
     }
 
     @Test
+    fun `a render after commitAllPendingDeletions does not bring the committed character back`() =
+        runTest(testDispatcher) {
+            SampleCharacterRepository.getAllValues().take(2).forEach { repository.save(it) }
+
+            val viewModel = buildViewModel()
+
+            backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+                viewModel.state.collect {}
+            }
+
+            advanceUntilIdle()
+
+            val loaded = assertIs<CharacterListState.Body.WithData>(viewModel.state.value.body).searchResults
+            assertEquals(expected = 2, actual = loaded.size)
+            val committed = loaded.first()
+            val kept = loaded.last()
+
+            viewModel.deleteCharacterOptimistically(committed) // no commit
+            viewModel.commitAllPendingDeletions()
+            advanceUntilIdle()
+
+            val pending = requireNotNull(viewModel.deleteCharacterOptimistically(kept))
+            viewModel.undoDeletion(pending)
+
+            val body = assertIs<CharacterListState.Body.WithData>(viewModel.state.value.body)
+            assertEquals(expected = listOf(kept.value.id), actual = body.searchResults.map { it.value.id })
+        }
+
+    @Test
     fun `a commit landing during a search does not replace the Loading body`() = runTest(testDispatcher) {
         val gatedRepository = GatedCharacterRepository()
         gatedRepository.save(SampleCharacterRepository.getAllValues().first())

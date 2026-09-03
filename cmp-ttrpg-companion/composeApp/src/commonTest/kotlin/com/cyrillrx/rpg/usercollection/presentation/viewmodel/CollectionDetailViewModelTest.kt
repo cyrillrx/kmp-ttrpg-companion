@@ -515,6 +515,35 @@ class CollectionDetailViewModelTest {
         val updatedCollection = userCollectionRepository.get(TEST_COLLECTION_ID)!!
         assertTrue(updatedCollection.itemIds.none { it == spell.id })
     }
+
+    @Test
+    fun `a render after commitAllPendingRemovals does not bring the committed item back`() =
+        runTest(testDispatcher) {
+            val collection = UserCollection(
+                TEST_COLLECTION_ID,
+                COLLECTION_NAME,
+                UserCollection.Type.SPELL,
+                listOf(spell.id, secondSpell.id),
+            )
+            userCollectionRepository.save(collection)
+
+            val viewModel = buildViewModel(TEST_COLLECTION_ID)
+
+            backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+                viewModel.state.collect {}
+            }
+            advanceUntilIdle()
+
+            viewModel.removeItemOptimistically(spell.id, spell) // no commit
+            viewModel.commitAllPendingRemovals()
+            advanceUntilIdle()
+
+            val pending = requireNotNull(viewModel.removeItemOptimistically(secondSpell.id, secondSpell))
+            viewModel.undoRemoval(pending)
+
+            val body = assertIs<CollectionDetailState.Body.WithData<Spell>>(viewModel.state.value.body)
+            assertEquals(expected = listOf(secondSpell.id), actual = body.items.map { it.id })
+        }
 }
 
 private class FailsOnRemoveUserCollectionRepository : UserCollectionRepository {

@@ -105,9 +105,12 @@ class CollectionDetailViewModel<T>(
     }
 
     internal fun commitAllPendingRemovals() {
+        val committedItems = pendingRemovals.map { it.item }
         pendingRemovals.commitAllPending(ioDispatcher) { pending ->
             userCollectionRepository.removeFromCollection(collectionId, pending.itemId)
         }
+        loadedItems = loadedItems - committedItems
+        renderBodyIfLoaded()
     }
 
     fun silentRefresh() {

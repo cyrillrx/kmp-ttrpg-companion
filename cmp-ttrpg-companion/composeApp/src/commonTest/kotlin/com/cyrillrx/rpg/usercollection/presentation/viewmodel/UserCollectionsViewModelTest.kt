@@ -276,6 +276,36 @@ class UserCollectionsViewModelTest {
     }
 
     @Test
+    fun `a render after commitAllPendingDeletions does not bring the committed collection back`() =
+        runTest(testDispatcher) {
+            val viewModel = buildViewModel()
+
+            backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+                viewModel.state.collect {}
+            }
+
+            advanceUntilIdle()
+            viewModel.createCollection(COLLECTION_NAME)
+            viewModel.createCollection(UPDATED_COLLECTION_NAME)
+            advanceUntilIdle()
+
+            val loaded = assertIs<UserCollectionsState.Body.WithData>(viewModel.state.value.body).collections
+            assertEquals(expected = 2, actual = loaded.size)
+            val committed = loaded.first()
+            val kept = loaded.last()
+
+            viewModel.deleteCollectionOptimistically(committed) // no commit
+            viewModel.commitAllPendingDeletions()
+            advanceUntilIdle()
+
+            val pending = requireNotNull(viewModel.deleteCollectionOptimistically(kept))
+            viewModel.undoDeletion(pending)
+
+            val body = assertIs<UserCollectionsState.Body.WithData>(viewModel.state.value.body)
+            assertEquals(expected = listOf(kept.value.id), actual = body.collections.map { it.value.id })
+        }
+
+    @Test
     fun `only collections matching the configured type are shown`() = runTest(testDispatcher) {
         val spellCollection =
             UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, emptyList())

@@ -100,9 +100,12 @@ class CharacterListViewModel(
     }
 
     internal fun commitAllPendingDeletions() {
+        val committedIds = pendingDeletions.mapTo(mutableSetOf()) { it.stored.value.id }
         pendingDeletions.commitAllPending(ioDispatcher) { pending ->
             repository.delete(pending.stored.value.id)
         }
+        loadedCharacters = loadedCharacters.filterNot { it.value.id in committedIds }
+        renderBodyIfLoaded()
     }
 
     private fun refreshCharacters(): Job =

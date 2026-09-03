@@ -105,9 +105,12 @@ class UserCollectionsViewModel(
     }
 
     internal fun commitAllPendingDeletions() {
+        val committedIds = pendingDeletions.mapTo(mutableSetOf()) { it.stored.value.id }
         pendingDeletions.commitAllPending(ioDispatcher) { pending ->
             userCollectionRepository.delete(pending.stored.value.id)
         }
+        loadedCollections = loadedCollections.filterNot { it.value.id in committedIds }
+        renderBodyIfLoaded()
     }
 
     fun silentRefresh() {
