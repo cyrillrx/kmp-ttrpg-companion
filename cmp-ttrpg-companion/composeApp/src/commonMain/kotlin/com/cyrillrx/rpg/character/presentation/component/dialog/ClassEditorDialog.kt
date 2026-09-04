@@ -66,7 +66,7 @@ internal fun ClassEditorDialog(
     }
 
     val assigned = working.classes.toList()
-    val untakenExists = (Character.Class.entries - working.classes.keys - Character.Class.UNKNOWN).isNotEmpty()
+    val untakenExists = (Character.Class.entries - working.classes.keys).isNotEmpty()
 
     EditDialog(
         title = stringResource(Res.string.label_classes),
@@ -80,6 +80,7 @@ internal fun ClassEditorDialog(
                     level = level,
                     maxLevel = working.maxLevelFor(clazz),
                     isPrimary = assigned.size >= 2 && clazz == working.primaryClass,
+                    removable = assigned.size > 1 || clazz != Character.Class.UNKNOWN,
                     onLevelChange = { working = working.withClassLevel(clazz, it) },
                     onRemove = { working = working.withClassRemoved(clazz) },
                 )
@@ -105,6 +106,7 @@ private fun ClassLevelRow(
     level: Int,
     maxLevel: Int,
     isPrimary: Boolean,
+    removable: Boolean,
     onLevelChange: (Int) -> Unit,
     onRemove: () -> Unit,
 ) {
@@ -135,7 +137,7 @@ private fun ClassLevelRow(
             onDecrement = { onLevelChange(level - 1) },
             onIncrement = { onLevelChange(level + 1) },
             onRemoveAtMin = onRemove,
-            removeAtMinEnabled = clazz != Character.Class.UNKNOWN,
+            removeAtMinEnabled = removable,
             removeAtMinContentDescription = stringResource(Res.string.btn_remove_class),
         )
     }
@@ -147,7 +149,7 @@ private fun ClassPickerDialog(
     onPick: (Character.Class) -> Unit,
     onDismiss: () -> Unit,
 ) {
-    val options = Character.Class.entries - taken - Character.Class.UNKNOWN
+    val options = Character.Class.entries - taken
     EditDialog(
         title = stringResource(Res.string.btn_add_class),
         onDismiss = onDismiss,
