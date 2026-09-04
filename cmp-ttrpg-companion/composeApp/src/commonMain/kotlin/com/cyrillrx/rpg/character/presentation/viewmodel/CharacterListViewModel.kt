@@ -41,11 +41,7 @@ class CharacterListViewModel(
 
     private val pendingDeletions: MutableList<PendingDeletion> = mutableListOf()
 
-    /**
-     * Characters matching the current query, as last read from the repository. The rendered body is
-     * derived from it by subtracting the pending deletions, so a refresh landing inside the undo
-     * window cannot resurrect a swiped row.
-     */
+    /** Held apart from the rendered body: a refresh inside the undo window must not resurrect a swiped row. */
     private var loadedCharacters: List<Stored<Character>> = emptyList()
     private var activeJob: Job? = null
 
@@ -142,10 +138,9 @@ class CharacterListViewModel(
     }
 
     /**
-     * Re-derives the body only when one is already displayed. A `Loading` or `Error` body means a
-     * fetch is in flight or has failed, and rendering there would cover it with the previous read,
-     * hiding the pending load or the error message behind stale data. [renderBody] cannot hold the
-     * guard itself: a load sets `Loading` first and relies on its own fetch to render over it.
+     * Rendering over a `Loading` or `Error` body would bury the pending fetch or the error message
+     * under the previous read. [renderBody] cannot hold the guard itself: a load sets `Loading`
+     * first and relies on its own fetch to render over it.
      */
     private fun renderBodyIfLoaded() {
         val body = state.value.body
