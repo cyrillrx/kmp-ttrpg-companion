@@ -33,17 +33,20 @@ class CharacterListViewModel(
     val events: SharedFlow<Event>
         field = MutableSharedFlow<Event>()
 
-    data class PendingDeletion(val stored: Stored<Character>, val index: Int)
+    data class PendingDeletion(val stored: Stored<Character>)
 
     sealed interface Event {
         data class DeletionError(val character: Character) : Event
     }
 
     private val pendingDeletions: MutableList<PendingDeletion> = mutableListOf()
+
+    /** Held apart from the rendered body: a refresh inside the undo window must not resurrect a swiped row. */
+    private var loadedCharacters: List<Stored<Character>> = emptyList()
     private var activeJob: Job? = null
 
     init {
-        loadCharacters(query = "")
+        activeJob = loadCharacters(query = "")
     }
 
     fun filterByQuery(query: String) {
@@ -58,56 +61,47 @@ class CharacterListViewModel(
     }
 
     fun deleteCharacterOptimistically(stored: Stored<Character>): PendingDeletion? {
-        val currentState = state.value.body as? CharacterListState.Body.WithData ?: return null
+        val body = state.value.body as? CharacterListState.Body.WithData ?: return null
+        if (stored !in body.searchResults) return null
 
-        val index = currentState.searchResults.indexOf(stored)
-        if (index == -1) return null
-
-        val pending = PendingDeletion(stored, index)
+        val pending = PendingDeletion(stored)
         pendingDeletions.add(pending)
-        val updatedList = currentState.searchResults - stored
-        val newBody = if (updatedList.isEmpty()) {
-            CharacterListState.Body.Empty
-        } else {
-            CharacterListState.Body.WithData(updatedList)
-        }
-        state.update { it.copy(body = newBody) }
+        renderBody()
         return pending
     }
 
     fun undoDeletion(pending: PendingDeletion) {
         if (!pendingDeletions.remove(pending)) return
 
-        val currentList = when (val body = state.value.body) {
-            is CharacterListState.Body.WithData -> body.searchResults
-            is CharacterListState.Body.Empty -> emptyList()
-            else -> return
-        }
-        val restoredList = currentList.toMutableList()
-            .apply { add(pending.index.coerceAtMost(size), pending.stored) }
-        state.update { it.copy(body = CharacterListState.Body.WithData(restoredList)) }
+        renderBodyIfLoaded()
     }
 
     fun commitDeletion(pending: PendingDeletion) {
         if (!pendingDeletions.remove(pending)) return
 
+        val deletedId = pending.stored.value.id
         viewModelScope.launch {
-            try {
-                repository.delete(pending.stored.value.id)
+            val deleted = try {
+                repository.delete(deletedId)
+                true
             } catch (e: CancellationException) {
                 throw e
             } catch (e: Exception) {
-                pendingDeletions.add(pending)
-                undoDeletion(pending)
-                events.emit(Event.DeletionError(pending.stored.value))
+                false
             }
+            if (deleted) loadedCharacters = loadedCharacters.filterNot { it.value.id == deletedId }
+            renderBodyIfLoaded()
+            if (!deleted) events.emit(Event.DeletionError(pending.stored.value))
         }
     }
 
     internal fun commitAllPendingDeletions() {
+        val committedIds = pendingDeletions.mapTo(mutableSetOf()) { it.stored.value.id }
         pendingDeletions.commitAllPending(ioDispatcher) { pending ->
             repository.delete(pending.stored.value.id)
         }
+        loadedCharacters = loadedCharacters.filterNot { it.value.id in committedIds }
+        renderBodyIfLoaded()
     }
 
     private fun refreshCharacters(): Job =
@@ -139,11 +133,29 @@ class CharacterListViewModel(
 
     private suspend fun fetchAndUpdateCharacters(query: String) {
         val filter = CharacterFilter(query = query)
-        val characters = repository.getAll(filter).sortedByDescending { it.updatedAt }
-        val body = if (characters.isEmpty()) {
+        loadedCharacters = repository.getAll(filter).sortedByDescending { it.updatedAt }
+        renderBody()
+    }
+
+    /**
+     * Rendering over a `Loading` or `Error` body would bury the pending fetch or the error message
+     * under the previous read. [renderBody] cannot hold the guard itself: a load sets `Loading`
+     * first and relies on its own fetch to render over it.
+     */
+    private fun renderBodyIfLoaded() {
+        val body = state.value.body
+        if (body !is CharacterListState.Body.WithData && body !is CharacterListState.Body.Empty) return
+
+        renderBody()
+    }
+
+    private fun renderBody() {
+        val hiddenIds = pendingDeletions.mapTo(mutableSetOf()) { it.stored.value.id }
+        val visibleCharacters = loadedCharacters.filterNot { it.value.id in hiddenIds }
+        val body = if (visibleCharacters.isEmpty()) {
             CharacterListState.Body.Empty
         } else {
-            CharacterListState.Body.WithData(characters)
+            CharacterListState.Body.WithData(visibleCharacters)
         }
         state.update { it.copy(body = body) }
     }

@@ -7,6 +7,7 @@ import com.cyrillrx.rpg.character.domain.CharacterFilter
 import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.presentation.CharacterListState
 import com.cyrillrx.rpg.core.domain.Stored
+import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
@@ -209,6 +210,64 @@ class CharacterListViewModelTest {
     }
 
     @Test
+    fun `a refresh inside the undo window keeps the character hidden and undo restores one entry`() =
+        runTest(testDispatcher) {
+            val character = SampleCharacterRepository.getAllValues().first()
+            repository.save(character)
+
+            val viewModel = buildViewModel()
+
+            backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+                viewModel.state.collect {}
+            }
+
+            advanceUntilIdle()
+
+            val pending = requireNotNull(viewModel.deleteCharacterOptimistically(viewModel.firstStored()))
+            viewModel.silentRefresh()
+            advanceUntilIdle()
+
+            assertIs<CharacterListState.Body.Empty>(viewModel.state.value.body)
+
+            viewModel.undoDeletion(pending)
+
+            val restoredBody = assertIs<CharacterListState.Body.WithData>(viewModel.state.value.body)
+            assertEquals(expected = 1, actual = restoredBody.searchResults.size)
+            assertEquals(expected = character.id, actual = restoredBody.searchResults.first().value.id)
+        }
+
+    @Test
+    fun `a commit failing after a refresh restores one entry and emits an error`() = runTest(testDispatcher) {
+        val failingRepo = FailsOnDeleteCharacterRepository()
+        val character = SampleCharacterRepository.getAllValues().first()
+        failingRepo.save(character)
+
+        val viewModel = buildViewModel(repo = failingRepo)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        val receivedEvents = mutableListOf<CharacterListViewModel.Event>()
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.events.collect { receivedEvents.add(it) }
+        }
+
+        val pending = requireNotNull(viewModel.deleteCharacterOptimistically(viewModel.firstStored()))
+        viewModel.silentRefresh()
+        advanceUntilIdle()
+        viewModel.commitDeletion(pending)
+        advanceUntilIdle()
+
+        val body = assertIs<CharacterListState.Body.WithData>(viewModel.state.value.body)
+        assertEquals(expected = 1, actual = body.searchResults.size)
+        assertEquals(1, receivedEvents.size)
+        assertIs<CharacterListViewModel.Event.DeletionError>(receivedEvents.first())
+    }
+
+    @Test
     fun `commitDeletion removes the character from repository`() = runTest(testDispatcher) {
         val character = SampleCharacterRepository.getAllValues().first()
         repository.save(character)
@@ -278,6 +337,68 @@ class CharacterListViewModelTest {
     }
 
     @Test
+    fun `a render after commitAllPendingDeletions does not bring the committed character back`() =
+        runTest(testDispatcher) {
+            SampleCharacterRepository.getAllValues().take(2).forEach { repository.save(it) }
+
+            val viewModel = buildViewModel()
+
+            backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+                viewModel.state.collect {}
+            }
+
+            advanceUntilIdle()
+
+            val loaded = assertIs<CharacterListState.Body.WithData>(viewModel.state.value.body).searchResults
+            assertEquals(expected = 2, actual = loaded.size)
+            val committed = loaded.first()
+            val kept = loaded.last()
+
+            viewModel.deleteCharacterOptimistically(committed) // no commit
+            viewModel.commitAllPendingDeletions()
+            advanceUntilIdle()
+
+            val pending = requireNotNull(viewModel.deleteCharacterOptimistically(kept))
+            viewModel.undoDeletion(pending)
+
+            val body = assertIs<CharacterListState.Body.WithData>(viewModel.state.value.body)
+            assertEquals(expected = listOf(kept.value.id), actual = body.searchResults.map { it.value.id })
+        }
+
+    @Test
+    fun `a commit landing during a search does not replace the Loading body`() = runTest(testDispatcher) {
+        val gatedRepository = GatedCharacterRepository()
+        gatedRepository.save(SampleCharacterRepository.getAllValues().first())
+
+        val viewModel = buildViewModel(gatedRepository)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        val pending = requireNotNull(viewModel.deleteCharacterOptimistically(viewModel.firstStored()))
+
+        val gate = CompletableDeferred<Unit>()
+        gatedRepository.gate = gate
+        viewModel.filterByQuery("Borin")
+        advanceUntilIdle()
+
+        assertIs<CharacterListState.Body.Loading>(viewModel.state.value.body)
+
+        viewModel.commitDeletion(pending)
+        advanceUntilIdle()
+
+        assertIs<CharacterListState.Body.Loading>(viewModel.state.value.body)
+
+        gate.complete(Unit)
+        advanceUntilIdle()
+
+        assertIs<CharacterListState.Body.Empty>(viewModel.state.value.body)
+    }
+
+    @Test
     fun `characters are ordered by updatedAt descending`() = runTest(testDispatcher) {
         val viewModel = buildViewModel(ScrambledCharacterRepository())
 
@@ -336,4 +457,21 @@ private class FailsOnSecondCallCharacterRepository : CharacterRepository {
     override suspend fun getByIds(ids: List<String>): List<Character> = emptyList()
     override suspend fun save(character: Character) = Unit
     override suspend fun delete(id: String) = Unit
+}
+
+/** Suspends [getAll] until [gate] completes, so a commit can be observed while a load is still in flight. */
+private class GatedCharacterRepository : CharacterRepository {
+    private val delegate = RamCharacterRepository()
+
+    var gate: CompletableDeferred<Unit>? = null
+
+    override suspend fun getAll(filter: CharacterFilter?): List<Stored<Character>> {
+        gate?.await()
+        return delegate.getAll(filter)
+    }
+
+    override suspend fun get(id: String): Character? = delegate.get(id)
+    override suspend fun getByIds(ids: List<String>): List<Character> = delegate.getByIds(ids)
+    override suspend fun save(character: Character) = delegate.save(character)
+    override suspend fun delete(id: String) = delegate.delete(id)
 }
