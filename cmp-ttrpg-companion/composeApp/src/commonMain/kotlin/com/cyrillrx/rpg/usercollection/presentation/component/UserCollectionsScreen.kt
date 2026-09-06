@@ -51,6 +51,7 @@ import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.btn_create_collection
 import rpg_companion.composeapp.generated.resources.no_result_found
 import rpg_companion.composeapp.generated.resources.snackbar_collection_deleted
+import rpg_companion.composeapp.generated.resources.snackbar_error_creating_collection
 import rpg_companion.composeapp.generated.resources.snackbar_error_deleting_collection
 import rpg_companion.composeapp.generated.resources.title_spell_collections
 
@@ -99,6 +100,14 @@ fun UserCollectionsScreen(
             when (event) {
                 is UserCollectionsViewModel.Event.DeletionError -> {
                     val errorMessage = getString(Res.string.snackbar_error_deleting_collection, event.collection.name)
+                    snackbarHostState.showSnackbar(
+                        message = errorMessage,
+                        duration = SnackbarDuration.Short,
+                    )
+                }
+
+                is UserCollectionsViewModel.Event.CreationError -> {
+                    val errorMessage = getString(Res.string.snackbar_error_creating_collection, event.name)
                     snackbarHostState.showSnackbar(
                         message = errorMessage,
                         duration = SnackbarDuration.Short,

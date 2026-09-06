@@ -297,6 +297,29 @@ class AddToCollectionViewModelTest {
     }
 
     @Test
+    fun `createAndAdd emits an error and adds nothing when the save fails`() = runTest(testDispatcher) {
+        val viewModel = AddToCollectionViewModel(
+            collectionType = UserCollection.Type.SPELL,
+            userCollectionRepository = FailsOnSaveUserCollectionRepository(),
+            repository = spellRepository,
+            errorMessage = Res.string.error_while_loading_spells,
+        )
+        viewModel.loadEntity(spell.id)
+
+        val events = mutableListOf<AddToCollectionViewModel.Event>()
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) { viewModel.state.collect {} }
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) { viewModel.events.collect { events.add(it) } }
+        advanceUntilIdle()
+
+        viewModel.createAndAdd(CREATED_COLLECTION_NAME)
+        advanceUntilIdle()
+
+        assertIs<AddToCollectionViewModel.Event.CreationError>(events.first())
+        val body = assertIs<AddToCollectionState.Body.WithData<Spell>>(viewModel.state.value.body)
+        assertTrue(body.selectableCollections.isEmpty())
+    }
+
+    @Test
     fun `createAndAdd persists nothing when the collections could not be loaded`() = runTest(testDispatcher) {
         val viewModel = buildViewModel(itemId = "non-existent-id")
 

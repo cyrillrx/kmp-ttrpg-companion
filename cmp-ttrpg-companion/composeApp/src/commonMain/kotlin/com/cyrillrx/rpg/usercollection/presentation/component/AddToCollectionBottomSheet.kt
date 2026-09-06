@@ -12,6 +12,8 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.rememberModalBottomSheetState
@@ -35,11 +37,13 @@ import com.cyrillrx.rpg.spell.presentation.SpellAddToCollectionProvider
 import com.cyrillrx.rpg.usercollection.data.SampleUserCollectionRepository
 import com.cyrillrx.rpg.usercollection.presentation.AddToCollectionState
 import com.cyrillrx.rpg.usercollection.presentation.viewmodel.AddToCollectionViewModel
+import org.jetbrains.compose.resources.getString
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.btn_confirm
 import rpg_companion.composeapp.generated.resources.btn_create_collection
+import rpg_companion.composeapp.generated.resources.snackbar_error_creating_collection
 import rpg_companion.composeapp.generated.resources.title_save_to_collection
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -51,11 +55,16 @@ fun <T> AddToCollectionBottomSheet(
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     var showCreateDialog by remember { mutableStateOf(false) }
+    val snackbarHostState = remember { SnackbarHostState() }
 
     LaunchedEffect(viewModel) {
-        viewModel.events.collect {
-            when (it) {
+        viewModel.events.collect { event ->
+            when (event) {
                 AddToCollectionViewModel.Event.Dismiss -> onDismiss()
+                is AddToCollectionViewModel.Event.CreationError ->
+                    snackbarHostState.showSnackbar(
+                        getString(Res.string.snackbar_error_creating_collection, event.name),
+                    )
             }
         }
     }
@@ -71,6 +80,7 @@ fun <T> AddToCollectionBottomSheet(
             onConfirm = viewModel::confirmSelection,
             onCreateCollectionClicked = { showCreateDialog = true },
         )
+        SnackbarHost(snackbarHostState)
     }
 
     if (showCreateDialog) {

@@ -97,6 +97,26 @@ class UserCollectionsViewModelTest {
     }
 
     @Test
+    fun `createCollection emits an error and keeps the state when the save fails`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(FailsOnSaveUserCollectionRepository())
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) { viewModel.state.collect {} }
+        advanceUntilIdle()
+
+        val receivedEvents = mutableListOf<UserCollectionsViewModel.Event>()
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.events.collect { receivedEvents.add(it) }
+        }
+
+        viewModel.createCollection(COLLECTION_NAME)
+        advanceUntilIdle()
+
+        assertIs<UserCollectionsState.Body.Empty>(viewModel.state.value.body)
+        assertEquals(expected = 1, actual = receivedEvents.size)
+        assertIs<UserCollectionsViewModel.Event.CreationError>(receivedEvents.first())
+    }
+
+    @Test
     fun `deleteCollectionOptimistically removes the collection from UI`() = runTest(testDispatcher) {
         val viewModel = buildViewModel()
 
