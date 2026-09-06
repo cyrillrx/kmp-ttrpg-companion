@@ -138,13 +138,15 @@ private fun <T> ColumnScope.AddToCollectionBottomSheetContent(
         }
     }
 
-    Button(
-        onClick = onConfirm,
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = spacingMedium, vertical = spacingCommon),
-    ) {
-        Text(stringResource(Res.string.btn_confirm))
+    if (body is AddToCollectionState.Body.WithData) {
+        Button(
+            onClick = onConfirm,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = spacingMedium, vertical = spacingCommon),
+        ) {
+            Text(stringResource(Res.string.btn_confirm))
+        }
     }
 }
 
