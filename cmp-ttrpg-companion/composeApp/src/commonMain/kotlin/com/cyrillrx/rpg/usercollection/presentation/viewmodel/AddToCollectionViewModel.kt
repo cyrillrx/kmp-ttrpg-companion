@@ -83,7 +83,14 @@ class AddToCollectionViewModel<T>(
                 type = collectionType,
                 itemIds = listOf(itemId),
             )
-            userCollectionRepository.save(newCollection)
+            try {
+                userCollectionRepository.save(newCollection)
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                events.emit(Event.CreationError(name))
+                return@launch
+            }
             val stored = Stored(newCollection, Clock.System.now())
 
             state.update { state ->
@@ -111,5 +118,6 @@ class AddToCollectionViewModel<T>(
 
     sealed class Event {
         data object Dismiss : Event()
+        data class CreationError(val name: String) : Event()
     }
 }

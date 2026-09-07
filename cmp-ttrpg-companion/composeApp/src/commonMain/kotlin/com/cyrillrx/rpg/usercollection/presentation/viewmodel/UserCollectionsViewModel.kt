@@ -39,6 +39,7 @@ class UserCollectionsViewModel(
 
     sealed interface Event {
         data class DeletionError(val collection: UserCollection) : Event
+        data class CreationError(val name: String) : Event
     }
 
     private val pendingDeletions: MutableList<PendingDeletion> = mutableListOf()
@@ -60,7 +61,14 @@ class UserCollectionsViewModel(
                 type = collectionType,
                 itemIds = emptyList(),
             )
-            userCollectionRepository.save(newCollection)
+            try {
+                userCollectionRepository.save(newCollection)
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                events.emit(Event.CreationError(name))
+                return@launch
+            }
             activeJob?.cancel()
             activeJob = loadCollections()
         }
