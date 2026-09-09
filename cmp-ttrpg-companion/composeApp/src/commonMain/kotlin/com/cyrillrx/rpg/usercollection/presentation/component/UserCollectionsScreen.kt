@@ -29,6 +29,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.core.domain.Stored
+import com.cyrillrx.rpg.core.presentation.OptimisticDeletions
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
@@ -87,9 +88,10 @@ fun UserCollectionsScreen(
     events: SharedFlow<UserCollectionsViewModel.Event>,
     onNavigateUpClicked: () -> Unit,
     onAddBtnClicked: (String) -> Unit,
-    onDeleteCollectionOptimistically: (Stored<UserCollection>) -> UserCollectionsViewModel.PendingDeletion?,
-    onUndoDeletion: (UserCollectionsViewModel.PendingDeletion) -> Unit,
-    onCommitDeletion: (UserCollectionsViewModel.PendingDeletion) -> Unit,
+    onDeleteCollectionOptimistically:
+        (Stored<UserCollection>) -> OptimisticDeletions.Pending<Stored<UserCollection>>?,
+    onUndoDeletion: (OptimisticDeletions.Pending<Stored<UserCollection>>) -> Unit,
+    onCommitDeletion: (OptimisticDeletions.Pending<Stored<UserCollection>>) -> Unit,
     onCollectionClicked: (UserCollection) -> Unit,
 ) {
     var showCreateDialog by remember { mutableStateOf(false) }

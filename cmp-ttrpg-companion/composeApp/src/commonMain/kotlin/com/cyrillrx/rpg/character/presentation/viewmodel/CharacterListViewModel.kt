@@ -7,17 +7,20 @@ import com.cyrillrx.rpg.character.domain.CharacterFilter
 import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.presentation.CharacterListState
 import com.cyrillrx.rpg.core.domain.Stored
-import com.cyrillrx.rpg.core.presentation.commitAllPending
+import com.cyrillrx.rpg.core.presentation.OptimisticDeletions
 import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_while_loading_characters
 import kotlin.coroutines.cancellation.CancellationException
@@ -33,16 +36,18 @@ class CharacterListViewModel(
     val events: SharedFlow<Event>
         field = MutableSharedFlow<Event>()
 
-    data class PendingDeletion(val stored: Stored<Character>)
-
     sealed interface Event {
         data class DeletionError(val character: Character) : Event
     }
 
-    private val pendingDeletions: MutableList<PendingDeletion> = mutableListOf()
+    private val deletions = OptimisticDeletions<Stored<Character>> { it.value.id }
 
-    /** Held apart from the rendered body: a refresh inside the undo window must not resurrect a swiped row. */
-    private var loadedCharacters: List<Stored<Character>> = emptyList()
+    /**
+     * Detached from [viewModelScope] on purpose: a commit started when the snackbar expired must reach
+     * the repository even if the user leaves the screen while the call is in flight.
+     */
+    private val commitScope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
+
     private var activeJob: Job? = null
 
     init {
@@ -60,48 +65,44 @@ class CharacterListViewModel(
         activeJob = refreshCharacters()
     }
 
-    fun deleteCharacterOptimistically(stored: Stored<Character>): PendingDeletion? {
-        val body = state.value.body as? CharacterListState.Body.WithData ?: return null
-        if (stored !in body.searchResults) return null
+    fun deleteCharacterOptimistically(stored: Stored<Character>): OptimisticDeletions.Pending<Stored<Character>>? {
+        if (state.value.body !is CharacterListState.Body.WithData) return null
 
-        val pending = PendingDeletion(stored)
-        pendingDeletions.add(pending)
+        val pending = deletions.hide(stored) ?: return null
         renderBody()
         return pending
     }
 
-    fun undoDeletion(pending: PendingDeletion) {
-        if (!pendingDeletions.remove(pending)) return
+    fun undoDeletion(pending: OptimisticDeletions.Pending<Stored<Character>>) {
+        if (!deletions.undo(pending)) return
 
         renderBodyIfLoaded()
     }
 
-    fun commitDeletion(pending: PendingDeletion) {
-        if (!pendingDeletions.remove(pending)) return
+    fun commitDeletion(pending: OptimisticDeletions.Pending<Stored<Character>>) {
+        if (!deletions.claim(pending)) return
 
-        val deletedId = pending.stored.value.id
-        viewModelScope.launch {
+        commit(pending)
+    }
+
+    internal fun commitAllPendingDeletions() {
+        deletions.claimAll().forEach(::commit)
+    }
+
+    private fun commit(pending: OptimisticDeletions.Pending<Stored<Character>>) {
+        commitScope.launch {
             val deleted = try {
-                repository.delete(deletedId)
+                withContext(ioDispatcher) { repository.delete(pending.item.value.id) }
                 true
             } catch (e: CancellationException) {
                 throw e
             } catch (e: Exception) {
                 false
             }
-            if (deleted) loadedCharacters = loadedCharacters.filterNot { it.value.id == deletedId }
+            deletions.settle(pending, deleted)
             renderBodyIfLoaded()
-            if (!deleted) events.emit(Event.DeletionError(pending.stored.value))
+            if (!deleted) events.emit(Event.DeletionError(pending.item.value))
         }
-    }
-
-    internal fun commitAllPendingDeletions() {
-        val committedIds = pendingDeletions.mapTo(mutableSetOf()) { it.stored.value.id }
-        pendingDeletions.commitAllPending(ioDispatcher) { pending ->
-            repository.delete(pending.stored.value.id)
-        }
-        loadedCharacters = loadedCharacters.filterNot { it.value.id in committedIds }
-        renderBodyIfLoaded()
     }
 
     private fun refreshCharacters(): Job =
@@ -133,7 +134,7 @@ class CharacterListViewModel(
 
     private suspend fun fetchAndUpdateCharacters(query: String) {
         val filter = CharacterFilter(query = query)
-        loadedCharacters = repository.getAll(filter).sortedByDescending { it.updatedAt }
+        deletions.setLoaded(repository.getAll(filter).sortedByDescending { it.updatedAt })
         renderBody()
     }
 
@@ -150,12 +151,11 @@ class CharacterListViewModel(
     }
 
     private fun renderBody() {
-        val hiddenIds = pendingDeletions.mapTo(mutableSetOf()) { it.stored.value.id }
-        val visibleCharacters = loadedCharacters.filterNot { it.value.id in hiddenIds }
-        val body = if (visibleCharacters.isEmpty()) {
+        val visible = deletions.visible
+        val body = if (visible.isEmpty()) {
             CharacterListState.Body.Empty
         } else {
-            CharacterListState.Body.WithData(visibleCharacters)
+            CharacterListState.Body.WithData(visible)
         }
         state.update { it.copy(body = body) }
     }

@@ -3,20 +3,23 @@ package com.cyrillrx.rpg.usercollection.presentation.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.core.domain.Stored
-import com.cyrillrx.rpg.core.presentation.commitAllPending
+import com.cyrillrx.rpg.core.presentation.OptimisticDeletions
 import com.cyrillrx.rpg.usercollection.domain.UserCollection
 import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
 import com.cyrillrx.rpg.usercollection.presentation.UserCollectionsState
 import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_while_loading_collections
 import kotlin.coroutines.cancellation.CancellationException
@@ -35,17 +38,19 @@ class UserCollectionsViewModel(
     val events: SharedFlow<Event>
         field = MutableSharedFlow<Event>()
 
-    data class PendingDeletion(val stored: Stored<UserCollection>)
-
     sealed interface Event {
         data class DeletionError(val collection: UserCollection) : Event
         data class CreationError(val name: String) : Event
     }
 
-    private val pendingDeletions: MutableList<PendingDeletion> = mutableListOf()
+    private val deletions = OptimisticDeletions<Stored<UserCollection>> { it.value.id }
 
-    /** Held apart from the rendered body: a refresh inside the undo window must not resurrect a swiped row. */
-    private var loadedCollections: List<Stored<UserCollection>> = emptyList()
+    /**
+     * Detached from [viewModelScope] on purpose: a commit started when the snackbar expired must reach
+     * the repository even if the user leaves the screen while the call is in flight.
+     */
+    private val commitScope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
+
     private var activeJob: Job? = null
 
     init {
@@ -74,48 +79,46 @@ class UserCollectionsViewModel(
         }
     }
 
-    fun deleteCollectionOptimistically(stored: Stored<UserCollection>): PendingDeletion? {
-        val body = state.value.body as? UserCollectionsState.Body.WithData ?: return null
-        if (stored !in body.collections) return null
+    fun deleteCollectionOptimistically(
+        stored: Stored<UserCollection>,
+    ): OptimisticDeletions.Pending<Stored<UserCollection>>? {
+        if (state.value.body !is UserCollectionsState.Body.WithData) return null
 
-        val pending = PendingDeletion(stored)
-        pendingDeletions.add(pending)
+        val pending = deletions.hide(stored) ?: return null
         renderBody()
         return pending
     }
 
-    fun undoDeletion(pending: PendingDeletion) {
-        if (!pendingDeletions.remove(pending)) return
+    fun undoDeletion(pending: OptimisticDeletions.Pending<Stored<UserCollection>>) {
+        if (!deletions.undo(pending)) return
 
         renderBodyIfLoaded()
     }
 
-    fun commitDeletion(pending: PendingDeletion) {
-        if (!pendingDeletions.remove(pending)) return
+    fun commitDeletion(pending: OptimisticDeletions.Pending<Stored<UserCollection>>) {
+        if (!deletions.claim(pending)) return
 
-        val deletedId = pending.stored.value.id
-        viewModelScope.launch {
+        commit(pending)
+    }
+
+    internal fun commitAllPendingDeletions() {
+        deletions.claimAll().forEach(::commit)
+    }
+
+    private fun commit(pending: OptimisticDeletions.Pending<Stored<UserCollection>>) {
+        commitScope.launch {
             val deleted = try {
-                userCollectionRepository.delete(deletedId)
+                withContext(ioDispatcher) { userCollectionRepository.delete(pending.item.value.id) }
                 true
             } catch (e: CancellationException) {
                 throw e
             } catch (e: Exception) {
                 false
             }
-            if (deleted) loadedCollections = loadedCollections.filterNot { it.value.id == deletedId }
+            deletions.settle(pending, deleted)
             renderBodyIfLoaded()
-            if (!deleted) events.emit(Event.DeletionError(pending.stored.value))
+            if (!deleted) events.emit(Event.DeletionError(pending.item.value))
         }
-    }
-
-    internal fun commitAllPendingDeletions() {
-        val committedIds = pendingDeletions.mapTo(mutableSetOf()) { it.stored.value.id }
-        pendingDeletions.commitAllPending(ioDispatcher) { pending ->
-            userCollectionRepository.delete(pending.stored.value.id)
-        }
-        loadedCollections = loadedCollections.filterNot { it.value.id in committedIds }
-        renderBodyIfLoaded()
     }
 
     fun silentRefresh() {
@@ -154,7 +157,7 @@ class UserCollectionsViewModel(
         }
 
     private suspend fun fetchAndUpdateUserCollections() {
-        loadedCollections = userCollectionRepository.getAll(collectionType).sortedByDescending { it.updatedAt }
+        deletions.setLoaded(userCollectionRepository.getAll(collectionType).sortedByDescending { it.updatedAt })
         renderBody()
     }
 
@@ -171,12 +174,11 @@ class UserCollectionsViewModel(
     }
 
     private fun renderBody() {
-        val hiddenIds = pendingDeletions.mapTo(mutableSetOf()) { it.stored.value.id }
-        val visibleCollections = loadedCollections.filterNot { it.value.id in hiddenIds }
-        val body = if (visibleCollections.isEmpty()) {
+        val visible = deletions.visible
+        val body = if (visible.isEmpty()) {
             UserCollectionsState.Body.Empty
         } else {
-            UserCollectionsState.Body.WithData(visibleCollections)
+            UserCollectionsState.Body.WithData(visible)
         }
         state.update { it.copy(body = body) }
     }

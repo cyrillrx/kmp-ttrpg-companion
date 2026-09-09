@@ -39,6 +39,8 @@ import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.spell.presentation.SpellItemProvider
+import com.cyrillrx.rpg.core.domain.Identifiable
+import com.cyrillrx.rpg.core.presentation.OptimisticDeletions
 import com.cyrillrx.rpg.usercollection.presentation.CollectionDetailState
 import com.cyrillrx.rpg.usercollection.presentation.CollectionItemProvider
 import com.cyrillrx.rpg.usercollection.presentation.viewmodel.CollectionDetailViewModel
@@ -54,7 +56,7 @@ import rpg_companion.composeapp.generated.resources.snackbar_error_renaming_coll
 import rpg_companion.composeapp.generated.resources.snackbar_removed_from_collection
 
 @Composable
-fun <T> CollectionDetailScreen(
+fun <T : Identifiable> CollectionDetailScreen(
     viewModel: CollectionDetailViewModel<T>,
     itemProvider: CollectionItemProvider<T>,
     onNavigateUp: () -> Unit,
@@ -82,15 +84,15 @@ fun <T> CollectionDetailScreen(
 }
 
 @Composable
-fun <T> CollectionDetailScreen(
+fun <T : Identifiable> CollectionDetailScreen(
     state: CollectionDetailState<T>,
     events: SharedFlow<CollectionDetailViewModel.Event<T>>,
     itemProvider: CollectionItemProvider<T>,
     onNavigateUpClicked: () -> Unit,
     onRenameCollection: (String) -> Unit,
-    onRemoveItemOptimistically: (id: String, item: T) -> CollectionDetailViewModel.PendingRemoval<T>?,
-    onUndoRemoval: (CollectionDetailViewModel.PendingRemoval<T>) -> Unit,
-    onCommitRemoval: (CollectionDetailViewModel.PendingRemoval<T>) -> Unit,
+    onRemoveItemOptimistically: (item: T) -> OptimisticDeletions.Pending<T>?,
+    onUndoRemoval: (OptimisticDeletions.Pending<T>) -> Unit,
+    onCommitRemoval: (OptimisticDeletions.Pending<T>) -> Unit,
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
     var showRenameDialog by remember { mutableStateOf(false) }
@@ -117,9 +119,9 @@ fun <T> CollectionDetailScreen(
         }
     }
 
-    val onRemoveItem = rememberOptimisticDeleteHandler<T, CollectionDetailViewModel.PendingRemoval<T>>(
+    val onRemoveItem = rememberOptimisticDeleteHandler<T, OptimisticDeletions.Pending<T>>(
         snackbarHostState = snackbarHostState,
-        onDeleteOptimistically = { item -> onRemoveItemOptimistically(itemProvider.getId(item), item) },
+        onDeleteOptimistically = onRemoveItemOptimistically,
         onUndo = onUndoRemoval,
         onCommit = onCommitRemoval,
         getMessage = { item ->
@@ -224,7 +226,7 @@ private fun CollectionDetailScreenPreview(darkTheme: Boolean) {
             itemProvider = SpellItemProvider(onItemClicked = {}),
             onNavigateUpClicked = {},
             onRenameCollection = {},
-            onRemoveItemOptimistically = { _, _ -> null },
+            onRemoveItemOptimistically = { null },
             onUndoRemoval = {},
             onCommitRemoval = {},
         )
@@ -255,7 +257,7 @@ private fun EmptyCollectionDetailScreenPreview(darkTheme: Boolean) {
             itemProvider = SpellItemProvider(onItemClicked = {}),
             onNavigateUpClicked = {},
             onRenameCollection = {},
-            onRemoveItemOptimistically = { _, _ -> null },
+            onRemoveItemOptimistically = { null },
             onUndoRemoval = {},
             onCommitRemoval = {},
         )

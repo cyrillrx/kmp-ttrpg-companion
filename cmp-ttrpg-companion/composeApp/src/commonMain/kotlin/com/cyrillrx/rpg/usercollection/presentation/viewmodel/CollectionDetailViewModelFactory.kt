@@ -4,10 +4,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.CreationExtras
 import com.cyrillrx.rpg.core.domain.EntityRepository
+import com.cyrillrx.rpg.core.domain.Identifiable
 import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
 import kotlin.reflect.KClass
 
-class CollectionDetailViewModelFactory<T>(
+class CollectionDetailViewModelFactory<T : Identifiable>(
     private val collectionId: String,
     private val userCollectionRepository: UserCollectionRepository,
     private val repository: EntityRepository<T>,

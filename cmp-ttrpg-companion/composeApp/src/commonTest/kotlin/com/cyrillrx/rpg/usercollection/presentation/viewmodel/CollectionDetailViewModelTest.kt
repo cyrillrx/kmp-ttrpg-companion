@@ -133,7 +133,7 @@ class CollectionDetailViewModelTest {
 
         advanceUntilIdle()
 
-        val pending = requireNotNull(viewModel.removeItemOptimistically(spell.id, spell))
+        val pending = requireNotNull(viewModel.removeItemOptimistically(spell))
         viewModel.commitRemoval(pending)
 
         advanceUntilIdle()
@@ -157,7 +157,7 @@ class CollectionDetailViewModelTest {
 
         advanceUntilIdle()
 
-        val pending = requireNotNull(viewModel.removeItemOptimistically(spell.id, spell))
+        val pending = requireNotNull(viewModel.removeItemOptimistically(spell))
         viewModel.undoRemoval(pending)
 
         val restoredBody = assertIs<CollectionDetailState.Body.WithData<Spell>>(viewModel.state.value.body)
@@ -179,7 +179,7 @@ class CollectionDetailViewModelTest {
 
             advanceUntilIdle()
 
-            val pending = requireNotNull(viewModel.removeItemOptimistically(spell.id, spell))
+            val pending = requireNotNull(viewModel.removeItemOptimistically(spell))
             viewModel.silentRefresh()
             advanceUntilIdle()
 
@@ -212,7 +212,7 @@ class CollectionDetailViewModelTest {
             viewModel.events.collect { receivedEvents.add(it) }
         }
 
-        val pending = requireNotNull(viewModel.removeItemOptimistically(spell.id, spell))
+        val pending = requireNotNull(viewModel.removeItemOptimistically(spell))
         viewModel.silentRefresh()
         advanceUntilIdle()
         viewModel.commitRemoval(pending)
@@ -239,7 +239,7 @@ class CollectionDetailViewModelTest {
 
             advanceUntilIdle()
 
-            val pending = requireNotNull(viewModel.removeItemOptimistically(spell.id, spell))
+            val pending = requireNotNull(viewModel.removeItemOptimistically(spell))
             viewModel.commitRemoval(pending)
 
             advanceUntilIdle()
@@ -373,7 +373,7 @@ class CollectionDetailViewModelTest {
 
         advanceUntilIdle()
 
-        val pending = requireNotNull(viewModel.removeItemOptimistically(spell.id, spell))
+        val pending = requireNotNull(viewModel.removeItemOptimistically(spell))
         viewModel.commitRemoval(pending)
         advanceUntilIdle()
 
@@ -455,7 +455,7 @@ class CollectionDetailViewModelTest {
             viewModel.events.collect { receivedEvents.add(it) }
         }
 
-        val pending = requireNotNull(viewModel.removeItemOptimistically(spell.id, spell))
+        val pending = requireNotNull(viewModel.removeItemOptimistically(spell))
         viewModel.commitRemoval(pending)
         advanceUntilIdle()
 
@@ -485,7 +485,7 @@ class CollectionDetailViewModelTest {
             viewModel.events.collect { receivedEvents.add(it) }
         }
 
-        val pending = requireNotNull(viewModel.removeItemOptimistically(spell.id, spell))
+        val pending = requireNotNull(viewModel.removeItemOptimistically(spell))
         viewModel.commitRemoval(pending)
         advanceUntilIdle()
 
@@ -508,7 +508,7 @@ class CollectionDetailViewModelTest {
         }
         advanceUntilIdle()
 
-        viewModel.removeItemOptimistically(spell.id, spell) // no commit
+        viewModel.removeItemOptimistically(spell) // no commit
         viewModel.commitAllPendingRemovals()
         advanceUntilIdle()
 
@@ -534,11 +534,11 @@ class CollectionDetailViewModelTest {
             }
             advanceUntilIdle()
 
-            viewModel.removeItemOptimistically(spell.id, spell) // no commit
+            viewModel.removeItemOptimistically(spell) // no commit
             viewModel.commitAllPendingRemovals()
             advanceUntilIdle()
 
-            val pending = requireNotNull(viewModel.removeItemOptimistically(secondSpell.id, secondSpell))
+            val pending = requireNotNull(viewModel.removeItemOptimistically(secondSpell))
             viewModel.undoRemoval(pending)
 
             val body = assertIs<CollectionDetailState.Body.WithData<Spell>>(viewModel.state.value.body)

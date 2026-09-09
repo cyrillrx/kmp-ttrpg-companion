@@ -27,6 +27,7 @@ import com.cyrillrx.rpg.character.presentation.CharacterListState
 import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
 import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterListViewModel
 import com.cyrillrx.rpg.core.domain.Stored
+import com.cyrillrx.rpg.core.presentation.OptimisticDeletions
 import com.cyrillrx.rpg.core.presentation.component.EmptySearch
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
@@ -80,9 +81,9 @@ fun CharacterListScreen(
     onCharacterClicked: (Character) -> Unit,
     onNewCharacterClicked: () -> Unit,
     onQuickCreateClicked: () -> Unit,
-    onDeleteCharacterOptimistically: (Stored<Character>) -> CharacterListViewModel.PendingDeletion?,
-    onUndoDeletion: (CharacterListViewModel.PendingDeletion) -> Unit,
-    onCommitDeletion: (CharacterListViewModel.PendingDeletion) -> Unit,
+    onDeleteCharacterOptimistically: (Stored<Character>) -> OptimisticDeletions.Pending<Stored<Character>>?,
+    onUndoDeletion: (OptimisticDeletions.Pending<Stored<Character>>) -> Unit,
+    onCommitDeletion: (OptimisticDeletions.Pending<Stored<Character>>) -> Unit,
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
 
