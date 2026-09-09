@@ -1,17 +1,18 @@
 package com.cyrillrx.rpg.magicalitem.domain
 
 import com.cyrillrx.core.domain.FALLBACK_LOCALE
+import com.cyrillrx.rpg.core.domain.Identifiable
 import kotlinx.serialization.Serializable
 
 @Serializable
 class MagicalItem(
-    val id: String,
+    override val id: String,
     val source: String,
     val type: Type,
     val rarity: Rarity,
     val attunement: Boolean,
     val translations: Map<String, Translation>,
-) {
+) : Identifiable {
     init {
         require(translations.isNotEmpty()) { "MagicalItem $id must have at least one translation" }
     }

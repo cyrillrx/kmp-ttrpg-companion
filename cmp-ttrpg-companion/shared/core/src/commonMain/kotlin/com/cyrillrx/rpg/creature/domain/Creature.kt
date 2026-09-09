@@ -1,7 +1,9 @@
 package com.cyrillrx.rpg.creature.domain
 
-abstract class Creature {
-    abstract val id: String
+import com.cyrillrx.rpg.core.domain.Identifiable
+
+abstract class Creature : Identifiable {
+    abstract override val id: String
     abstract val size: Size
     abstract val alignment: Alignment
     abstract val abilities: Abilities
