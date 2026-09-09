@@ -3,24 +3,28 @@ package com.cyrillrx.rpg.usercollection.presentation.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.core.domain.EntityRepository
-import com.cyrillrx.rpg.core.presentation.commitAllPending
+import com.cyrillrx.rpg.core.domain.Identifiable
+import com.cyrillrx.rpg.core.presentation.OptimisticDeletions
 import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
 import com.cyrillrx.rpg.usercollection.presentation.CollectionDetailState
 import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_while_loading_collection
 import kotlin.coroutines.cancellation.CancellationException
 
-class CollectionDetailViewModel<T>(
+class CollectionDetailViewModel<T : Identifiable>(
     private val collectionId: String,
     private val userCollectionRepository: UserCollectionRepository,
     private val repository: EntityRepository<T>,
@@ -33,17 +37,19 @@ class CollectionDetailViewModel<T>(
     val events: SharedFlow<Event<T>>
         field = MutableSharedFlow<Event<T>>()
 
-    data class PendingRemoval<T>(val itemId: String, val item: T)
-
     sealed interface Event<out T> {
         data class RemovalError<T>(val item: T) : Event<T>
         data object RenameError : Event<Nothing>
     }
 
-    private val pendingRemovals: MutableList<PendingRemoval<T>> = mutableListOf()
+    private val removals = OptimisticDeletions<T> { it.id }
 
-    /** Held apart from the rendered body: a refresh inside the undo window must not resurrect a swiped item. */
-    private var loadedItems: List<T> = emptyList()
+    /**
+     * Detached from [viewModelScope] on purpose: a commit started when the snackbar expired must reach
+     * the repository even if the user leaves the screen while the call is in flight.
+     */
+    private val commitScope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
+
     private var activeJob: Job? = null
 
     init {
@@ -67,47 +73,46 @@ class CollectionDetailViewModel<T>(
         }
     }
 
-    fun removeItemOptimistically(itemId: String, item: T): PendingRemoval<T>? {
-        val body = state.value.body as? CollectionDetailState.Body.WithData ?: return null
-        if (item !in body.items) return null
+    fun removeItemOptimistically(item: T): OptimisticDeletions.Pending<T>? {
+        if (state.value.body !is CollectionDetailState.Body.WithData) return null
 
-        val pending = PendingRemoval(itemId, item)
-        pendingRemovals.add(pending)
+        val pending = removals.hide(item) ?: return null
         renderBody()
         return pending
     }
 
-    fun undoRemoval(pending: PendingRemoval<T>) {
-        if (!pendingRemovals.remove(pending)) return
+    fun undoRemoval(pending: OptimisticDeletions.Pending<T>) {
+        if (!removals.undo(pending)) return
 
         renderBodyIfLoaded()
     }
 
-    fun commitRemoval(pending: PendingRemoval<T>) {
-        if (!pendingRemovals.remove(pending)) return
+    fun commitRemoval(pending: OptimisticDeletions.Pending<T>) {
+        if (!removals.claim(pending)) return
 
-        viewModelScope.launch {
+        commit(pending)
+    }
+
+    internal fun commitAllPendingRemovals() {
+        removals.claimAll().forEach(::commit)
+    }
+
+    private fun commit(pending: OptimisticDeletions.Pending<T>) {
+        commitScope.launch {
             val result = try {
-                userCollectionRepository.removeFromCollection(collectionId, pending.itemId)
+                withContext(ioDispatcher) {
+                    userCollectionRepository.removeFromCollection(collectionId, pending.item.id)
+                }
             } catch (e: CancellationException) {
                 throw e
             } catch (e: Exception) {
                 UserCollectionRepository.Result.Error(e.message ?: "removal failed")
             }
             val removed = result is UserCollectionRepository.Result.Success
-            if (removed) loadedItems = loadedItems - pending.item
+            removals.settle(pending, removed)
             renderBodyIfLoaded()
             if (!removed) events.emit(Event.RemovalError(pending.item))
         }
-    }
-
-    internal fun commitAllPendingRemovals() {
-        val committedItems = pendingRemovals.map { it.item }
-        pendingRemovals.commitAllPending(ioDispatcher) { pending ->
-            userCollectionRepository.removeFromCollection(collectionId, pending.itemId)
-        }
-        loadedItems = loadedItems - committedItems
-        renderBodyIfLoaded()
     }
 
     fun silentRefresh() {
@@ -145,7 +150,7 @@ class CollectionDetailViewModel<T>(
         val collection = userCollectionRepository.get(collectionId) ?: error("Could not find collection $collectionId")
         state.update { it.copy(collectionName = collection.name) }
 
-        loadedItems = repository.getByIds(collection.itemIds)
+        removals.setLoaded(repository.getByIds(collection.itemIds))
         renderBody()
     }
 
@@ -161,12 +166,11 @@ class CollectionDetailViewModel<T>(
     }
 
     private fun renderBody() {
-        val hiddenItems = pendingRemovals.map { it.item }
-        val visibleItems = loadedItems.filterNot { it in hiddenItems }
-        val body = if (visibleItems.isEmpty()) {
+        val visible = removals.visible
+        val body = if (visible.isEmpty()) {
             CollectionDetailState.Body.Empty
         } else {
-            CollectionDetailState.Body.WithData(visibleItems)
+            CollectionDetailState.Body.WithData(visible)
         }
         state.update { it.copy(body = body) }
     }
