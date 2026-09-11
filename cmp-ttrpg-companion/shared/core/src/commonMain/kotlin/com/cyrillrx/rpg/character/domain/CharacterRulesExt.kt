@@ -10,6 +10,9 @@ const val MIN_ABILITY_SCORE = 1
 const val MAX_ABILITY_SCORE = 30
 const val MIN_ARMOR_CLASS = 0
 const val MAX_ARMOR_CLASS = 30
+const val MIN_HIT_POINTS = 0
+const val MIN_MAX_HIT_POINTS = 1
+const val MAX_HIT_POINTS = 999
 
 private const val WALK_SPEED_SLOW_FT = 25
 private const val WALK_SPEED_STANDARD_FT = 30
@@ -34,7 +37,7 @@ fun Race.defaultWalkSpeed(): Int = when (this) {
 fun isValidCharacterLevel(value: Int): Boolean = value in MIN_CHARACTER_LEVEL..MAX_CHARACTER_LEVEL
 fun isValidAbilityScore(value: Int): Boolean = value in MIN_ABILITY_SCORE..MAX_ABILITY_SCORE
 fun isValidArmorClass(value: Int): Boolean = value in MIN_ARMOR_CLASS..MAX_ARMOR_CLASS
-fun isValidMaxHitPoints(value: Int): Boolean = value >= 1
+fun isValidMaxHitPoints(value: Int): Boolean = value in MIN_MAX_HIT_POINTS..MAX_HIT_POINTS
 fun isValidWalkSpeedInFeet(value: Int): Boolean =
     value in MIN_WALK_SPEED_FT..MAX_WALK_SPEED_FT && value % DND_FEET_STEP == 0
 
@@ -44,7 +47,9 @@ fun isValidWalkSpeedInMeters(value: Float): Boolean =
 fun Int.coerceToValidCharacterLevel(): Int = coerceIn(MIN_CHARACTER_LEVEL, MAX_CHARACTER_LEVEL)
 fun Int.coerceToValidAbilityScore(): Int = coerceIn(MIN_ABILITY_SCORE, MAX_ABILITY_SCORE)
 fun Int.coerceToValidArmorClass(): Int = coerceIn(MIN_ARMOR_CLASS, MAX_ARMOR_CLASS)
-fun Int.coerceToValidMaxHitPoints(): Int = coerceAtLeast(1)
+fun Int.coerceToValidMaxHitPoints(): Int = coerceIn(MIN_MAX_HIT_POINTS, MAX_HIT_POINTS)
+fun Int.coerceToValidCurrentHitPoints(maxHitPoints: Int): Int = coerceIn(MIN_HIT_POINTS, maxHitPoints)
+fun Int.coerceToValidHitPointAmount(): Int = coerceIn(MIN_HIT_POINTS, MAX_HIT_POINTS)
 
 private fun Float.coerceToNearestStep(step: Float, min: Float, max: Float): Float {
     val rounded = (this / step).roundToInt() * step

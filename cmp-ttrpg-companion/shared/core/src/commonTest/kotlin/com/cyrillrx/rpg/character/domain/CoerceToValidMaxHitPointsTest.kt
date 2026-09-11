@@ -12,9 +12,16 @@ class CoerceToValidMaxHitPointsTest {
     }
 
     @Test
+    fun `clamps values above 999 to 999`() {
+        assertEquals(999, 1_000.coerceToValidMaxHitPoints())
+        assertEquals(999, 10_000.coerceToValidMaxHitPoints())
+    }
+
+    @Test
     fun `returns valid max hit points unchanged`() {
         assertEquals(1, 1.coerceToValidMaxHitPoints())
         assertEquals(10, 10.coerceToValidMaxHitPoints())
         assertEquals(100, 100.coerceToValidMaxHitPoints())
+        assertEquals(999, 999.coerceToValidMaxHitPoints())
     }
 }
