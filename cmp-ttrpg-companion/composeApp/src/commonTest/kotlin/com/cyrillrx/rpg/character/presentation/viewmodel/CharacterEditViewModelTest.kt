@@ -6,11 +6,14 @@ import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterRepository
+import com.cyrillrx.rpg.character.domain.HitPointAdjustment
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
+import com.cyrillrx.rpg.character.domain.hitPoints
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
 import com.cyrillrx.rpg.character.presentation.CoercedValue
+import com.cyrillrx.rpg.character.presentation.HitPointsEditorState
 import com.cyrillrx.rpg.creature.domain.AbilityScore
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.Proficiency
@@ -37,6 +40,7 @@ class CharacterEditViewModelTest {
 
     private val testDispatcher = StandardTestDispatcher()
     private val fighter = SampleCharacterRepository.humanFighter()
+    private val wounded = fighter.copy(maxHitPoints = 24, currentHitPoints = 22, temporaryHitPoints = 5)
 
     @BeforeTest
     fun setUp() {
@@ -48,9 +52,11 @@ class CharacterEditViewModelTest {
         Dispatchers.resetMain()
     }
 
-    private suspend fun repoWithFighter(): RamCharacterRepository {
+    private suspend fun repoWithFighter(): RamCharacterRepository = repoWith(fighter)
+
+    private suspend fun repoWith(character: Character): RamCharacterRepository {
         val repo = RamCharacterRepository()
-        repo.save(fighter)
+        repo.save(character)
         return repo
     }
 
@@ -58,6 +64,9 @@ class CharacterEditViewModelTest {
         characterId: String = fighter.id,
         repo: CharacterRepository,
     ) = CharacterEditViewModel(characterId, repo)
+
+    private fun loadedCharacter(viewModel: CharacterEditViewModel): Character =
+        assertIs<CharacterEditState.Loaded>(viewModel.state.value).character
 
     private class SaveCountingRepository(private val delegate: CharacterRepository) : CharacterRepository by delegate {
         var saveCount = 0
@@ -319,6 +328,128 @@ class CharacterEditViewModelTest {
         viewModel.saveMaxHitPoints(0)
         val loaded = assertIs<CharacterEditState.Loaded>(viewModel.state.value)
         assertEquals(1, loaded.character.maxHitPoints)
+    }
+
+    // ─── Hit points ───────────────────────────────────────────────────────────
+
+    @Test
+    fun `saveHitPoints applies damage to the temporary pool first`() = runTest(testDispatcher) {
+        val repo = repoWith(wounded)
+        val viewModel = buildViewModel(repo = repo)
+        advanceUntilIdle()
+
+        viewModel.saveHitPoints(HitPointAdjustment.DAMAGE, 8)
+        advanceUntilIdle()
+
+        val saved = repo.get(wounded.id)
+        assertEquals(19, saved?.currentHitPoints)
+        assertEquals(0, saved?.temporaryHitPoints)
+    }
+
+    @Test
+    fun `saveHitPoints floors the current hit points at zero`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(repo = repoWith(wounded))
+        advanceUntilIdle()
+
+        viewModel.saveHitPoints(HitPointAdjustment.DAMAGE, 100)
+        advanceUntilIdle()
+
+        assertEquals(0, loadedCharacter(viewModel).currentHitPoints)
+    }
+
+    @Test
+    fun `saveHitPoints caps healing at the maximum hit points`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(repo = repoWith(wounded))
+        advanceUntilIdle()
+
+        viewModel.saveHitPoints(HitPointAdjustment.HEALING, 20)
+        advanceUntilIdle()
+
+        assertEquals(24, loadedCharacter(viewModel).currentHitPoints)
+    }
+
+    @Test
+    fun `saveHitPoints replaces the temporary hit points`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(repo = repoWith(wounded))
+        advanceUntilIdle()
+
+        viewModel.saveHitPoints(HitPointAdjustment.TEMPORARY, 3)
+        advanceUntilIdle()
+
+        assertEquals(3, loadedCharacter(viewModel).temporaryHitPoints)
+    }
+
+    @Test
+    fun `saveHitPoints closes the editor`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(repo = repoWith(wounded))
+        advanceUntilIdle()
+        viewModel.editField(EditingField.Health(HitPointAdjustment.DAMAGE))
+
+        viewModel.saveHitPoints(HitPointAdjustment.DAMAGE, 5)
+        advanceUntilIdle()
+
+        assertNull(assertIs<CharacterEditState.Loaded>(viewModel.state.value).editingField)
+    }
+
+    @Test
+    fun `saveHitPoints with a zero amount closes the editor without persisting`() = runTest(testDispatcher) {
+        val repo = SaveCountingRepository(repoWith(wounded))
+        val viewModel = buildViewModel(repo = repo)
+        advanceUntilIdle()
+        viewModel.editField(EditingField.Health(HitPointAdjustment.DAMAGE))
+
+        viewModel.saveHitPoints(HitPointAdjustment.DAMAGE, 0)
+        advanceUntilIdle()
+
+        assertEquals(0, repo.saveCount)
+        assertNull(assertIs<CharacterEditState.Loaded>(viewModel.state.value).editingField)
+    }
+
+    /** Guards the promise that what the dialog previews is exactly what the view model writes. */
+    @Test
+    fun `saveHitPoints persists the value previewed by the editor state`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(repo = repoWith(wounded))
+        advanceUntilIdle()
+        val editor = HitPointsEditorState(wounded.hitPoints, HitPointAdjustment.DAMAGE, input = "35")
+
+        viewModel.saveHitPoints(editor.adjustment, editor.amount)
+        advanceUntilIdle()
+
+        assertEquals(editor.preview, loadedCharacter(viewModel).hitPoints)
+    }
+
+    @Test
+    fun `saveMaxHitPoints coerces to maximum 999`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(repo = repoWithFighter())
+        advanceUntilIdle()
+
+        viewModel.saveMaxHitPoints(1_000)
+
+        assertEquals(999, loadedCharacter(viewModel).maxHitPoints)
+    }
+
+    @Test
+    fun `saveMaxHitPoints caps the current hit points when the maximum drops`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(repo = repoWith(wounded))
+        advanceUntilIdle()
+
+        viewModel.saveMaxHitPoints(10)
+        advanceUntilIdle()
+
+        val character = loadedCharacter(viewModel)
+        assertEquals(10, character.maxHitPoints)
+        assertEquals(10, character.currentHitPoints)
+    }
+
+    @Test
+    fun `saveMaxHitPoints does not heal when the maximum rises`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(repo = repoWith(wounded))
+        advanceUntilIdle()
+
+        viewModel.saveMaxHitPoints(40)
+        advanceUntilIdle()
+
+        assertEquals(22, loadedCharacter(viewModel).currentHitPoints)
     }
 
     // ─── coercedValueEvent ────────────────────────────────────────────────────

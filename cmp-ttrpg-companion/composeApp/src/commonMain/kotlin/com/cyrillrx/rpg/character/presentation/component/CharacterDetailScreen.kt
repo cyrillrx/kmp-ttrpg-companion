@@ -40,6 +40,7 @@ import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.ClassLevels
+import com.cyrillrx.rpg.character.domain.HitPointAdjustment
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
@@ -123,6 +124,7 @@ fun CharacterDetailScreen(
             onCharismaConfirmed = viewModel::saveCharisma,
             onArmorClassConfirmed = viewModel::saveArmorClass,
             onMaxHitPointsConfirmed = viewModel::saveMaxHitPoints,
+            onHitPointsConfirmed = viewModel::saveHitPoints,
             onWalkSpeedConfirmed = viewModel::saveWalkSpeed,
             onLanguagesConfirmed = viewModel::saveLanguages,
             onAlignmentConfirmed = viewModel::saveAlignment,
@@ -153,6 +155,7 @@ fun CharacterDetailScreen(
     onCharismaConfirmed: (AbilityScore) -> Unit,
     onArmorClassConfirmed: (Int) -> Unit,
     onMaxHitPointsConfirmed: (Int) -> Unit,
+    onHitPointsConfirmed: (HitPointAdjustment, Int) -> Unit,
     onWalkSpeedConfirmed: (Int) -> Unit,
     onLanguagesConfirmed: (List<Language>) -> Unit,
     onAlignmentConfirmed: (Creature.Alignment) -> Unit,
@@ -264,6 +267,7 @@ fun CharacterDetailScreen(
         onCharismaConfirmed = onCharismaConfirmed,
         onArmorClassConfirmed = onArmorClassConfirmed,
         onMaxHitPointsConfirmed = onMaxHitPointsConfirmed,
+        onHitPointsConfirmed = onHitPointsConfirmed,
         onWalkSpeedConfirmed = onWalkSpeedConfirmed,
         onLanguagesConfirmed = onLanguagesConfirmed,
         onAlignmentConfirmed = onAlignmentConfirmed,
@@ -305,6 +309,7 @@ private fun CharacterDetailScreenPreview() {
         onCharismaConfirmed = {},
         onArmorClassConfirmed = {},
         onMaxHitPointsConfirmed = {},
+        onHitPointsConfirmed = { _, _ -> },
         onWalkSpeedConfirmed = {},
         onLanguagesConfirmed = {},
         onAlignmentConfirmed = {},
