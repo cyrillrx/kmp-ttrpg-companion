@@ -31,7 +31,6 @@
     <string name="label_max_hp">PV max</string>
     <string name="label_current_hp">PV actuels</string>
     <string name="label_temp_hp">PV temp</string>
-    <string name="label_speed">Vitesse</string>
     <string name="label_walk_speed">Vitesse (%1$s)</string>
     <string name="label_languages_none">—</string>
     <string name="label_level_short">niv.</string>
