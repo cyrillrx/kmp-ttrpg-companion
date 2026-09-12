@@ -28,7 +28,9 @@ import com.cyrillrx.rpg.character.domain.ClassLevels
 import com.cyrillrx.rpg.character.domain.HitPointAdjustment
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.MAX_ARMOR_CLASS
+import com.cyrillrx.rpg.character.domain.MAX_HIT_POINTS
 import com.cyrillrx.rpg.character.domain.MIN_ARMOR_CLASS
+import com.cyrillrx.rpg.character.domain.MIN_MAX_HIT_POINTS
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.domain.hitPoints
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
@@ -174,9 +176,11 @@ internal fun CharacterEditDialog(
             onDismiss = onDismiss,
         )
 
-        EditingField.MaxHitPoints -> NumberEditDialog(
+        EditingField.MaxHitPoints -> NumberStepperDialog(
             title = stringResource(Res.string.label_max_hp),
             initialValue = state.character.maxHitPoints,
+            minValue = MIN_MAX_HIT_POINTS,
+            maxValue = MAX_HIT_POINTS,
             onConfirm = onMaxHitPointsConfirmed,
             onDismiss = onDismiss,
         )
