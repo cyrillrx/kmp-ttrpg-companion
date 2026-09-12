@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import com.cyrillrx.rpg.settings.domain.Palette
 import com.cyrillrx.rpg.settings.domain.Theme
@@ -22,12 +23,16 @@ fun AppTheme(
         Theme.SYSTEM -> isSystemInDarkTheme()
     }
     val appPalette = palette.toAppPalette()
-    MaterialTheme(
-        colorScheme = if (darkTheme) appPalette.dark else appPalette.light,
-        typography = Typography,
-        shapes = Shapes,
-        content = content,
-    )
+    CompositionLocalProvider(
+        LocalHealthColors provides if (darkTheme) healthColorsDark else healthColorsLight,
+    ) {
+        MaterialTheme(
+            colorScheme = if (darkTheme) appPalette.dark else appPalette.light,
+            typography = Typography,
+            shapes = Shapes,
+            content = content,
+        )
+    }
 }
 
 @Composable
