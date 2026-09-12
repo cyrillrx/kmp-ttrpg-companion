@@ -9,9 +9,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.AssistChip
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.FilterChip
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SegmentedButton
 import androidx.compose.material3.SegmentedButtonDefaults
@@ -32,9 +32,10 @@ import com.cyrillrx.rpg.character.domain.HitPoints
 import com.cyrillrx.rpg.character.presentation.HitPointsEditorState
 import com.cyrillrx.rpg.character.presentation.cleared
 import com.cyrillrx.rpg.character.presentation.withAdjustment
-import com.cyrillrx.rpg.character.presentation.withAmount
+import com.cyrillrx.rpg.character.presentation.withAmountAdded
 import com.cyrillrx.rpg.character.presentation.withDigitAppended
 import com.cyrillrx.rpg.character.presentation.withLastDigitRemoved
+import com.cyrillrx.rpg.core.domain.toSignedString
 import com.cyrillrx.rpg.core.presentation.component.dialog.EditDialog
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
@@ -47,17 +48,20 @@ import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.badge_down
 import rpg_companion.composeapp.generated.resources.hp_subtitle_damage
 import rpg_companion.composeapp.generated.resources.hp_subtitle_healing
+import rpg_companion.composeapp.generated.resources.hp_subtitle_maximum
 import rpg_companion.composeapp.generated.resources.hp_subtitle_temp
 import rpg_companion.composeapp.generated.resources.hp_tab_damage
 import rpg_companion.composeapp.generated.resources.hp_tab_healing
-import rpg_companion.composeapp.generated.resources.hp_tab_temp
 import rpg_companion.composeapp.generated.resources.hp_title_damage
 import rpg_companion.composeapp.generated.resources.hp_title_healing
+import rpg_companion.composeapp.generated.resources.hp_title_maximum
 import rpg_companion.composeapp.generated.resources.hp_title_temp
 import rpg_companion.composeapp.generated.resources.label_hp_result
+import rpg_companion.composeapp.generated.resources.label_max_hp
+import rpg_companion.composeapp.generated.resources.label_temp_hp
 import rpg_companion.composeapp.generated.resources.value_hp_transition
 
-private val shortcuts = listOf(5, 10, 15, 20, 25, 50)
+private val shortcuts = listOf(1, 2, 5, 10, 25, 50)
 
 @Composable
 internal fun HitPointsEditDialog(
@@ -91,10 +95,7 @@ internal fun HitPointsEditDialog(
                 onClear = { editor = editor.cleared() },
                 onBackspace = { editor = editor.withLastDigitRemoved() },
             )
-            ShortcutRow(
-                editor = editor,
-                onShortcutSelected = { editor = editor.withAmount(it) },
-            )
+            ShortcutRow(onShortcutTapped = { editor = editor.withAmountAdded(it) })
         }
     }
 }
@@ -177,19 +178,15 @@ private fun DownBadge() {
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-private fun ShortcutRow(
-    editor: HitPointsEditorState,
-    onShortcutSelected: (Int) -> Unit,
-) {
+private fun ShortcutRow(onShortcutTapped: (Int) -> Unit) {
     FlowRow(
         horizontalArrangement = Arrangement.spacedBy(spacingSmall),
         modifier = Modifier.fillMaxWidth(),
     ) {
         shortcuts.forEach { shortcut ->
-            FilterChip(
-                selected = shortcut == editor.amount,
-                onClick = { onShortcutSelected(shortcut) },
-                label = { Text(editor.withAmount(shortcut).signedAmount) },
+            AssistChip(
+                onClick = { onShortcutTapped(shortcut) },
+                label = { Text(shortcut.toSignedString()) },
             )
         }
     }
@@ -200,6 +197,7 @@ private val HitPointAdjustment.title: StringResource
         HitPointAdjustment.DAMAGE -> Res.string.hp_title_damage
         HitPointAdjustment.HEALING -> Res.string.hp_title_healing
         HitPointAdjustment.TEMPORARY -> Res.string.hp_title_temp
+        HitPointAdjustment.MAXIMUM -> Res.string.hp_title_maximum
     }
 
 private val HitPointAdjustment.subtitle: StringResource
@@ -207,13 +205,15 @@ private val HitPointAdjustment.subtitle: StringResource
         HitPointAdjustment.DAMAGE -> Res.string.hp_subtitle_damage
         HitPointAdjustment.HEALING -> Res.string.hp_subtitle_healing
         HitPointAdjustment.TEMPORARY -> Res.string.hp_subtitle_temp
+        HitPointAdjustment.MAXIMUM -> Res.string.hp_subtitle_maximum
     }
 
 private val HitPointAdjustment.tabLabel: StringResource
     get() = when (this) {
         HitPointAdjustment.DAMAGE -> Res.string.hp_tab_damage
         HitPointAdjustment.HEALING -> Res.string.hp_tab_healing
-        HitPointAdjustment.TEMPORARY -> Res.string.hp_tab_temp
+        HitPointAdjustment.TEMPORARY -> Res.string.label_temp_hp
+        HitPointAdjustment.MAXIMUM -> Res.string.label_max_hp
     }
 
 private val HitPointAdjustment.accentColor: Color
@@ -221,6 +221,7 @@ private val HitPointAdjustment.accentColor: Color
         HitPointAdjustment.DAMAGE -> MaterialTheme.colorScheme.error
         HitPointAdjustment.HEALING -> MaterialTheme.colorScheme.primary
         HitPointAdjustment.TEMPORARY -> MaterialTheme.colorScheme.tertiary
+        HitPointAdjustment.MAXIMUM -> MaterialTheme.colorScheme.secondary
     }
 
 private val HitPointAdjustment.containerColor: Color
@@ -228,6 +229,7 @@ private val HitPointAdjustment.containerColor: Color
         HitPointAdjustment.DAMAGE -> MaterialTheme.colorScheme.errorContainer
         HitPointAdjustment.HEALING -> MaterialTheme.colorScheme.primaryContainer
         HitPointAdjustment.TEMPORARY -> MaterialTheme.colorScheme.tertiaryContainer
+        HitPointAdjustment.MAXIMUM -> MaterialTheme.colorScheme.secondaryContainer
     }
 
 // ─── Previews ────────────────────────────────────────────────────────────────

@@ -12,11 +12,9 @@ import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.domain.coerceToValidAbilityScore
 import com.cyrillrx.rpg.character.domain.coerceToValidArmorClass
-import com.cyrillrx.rpg.character.domain.coerceToValidMaxHitPoints
 import com.cyrillrx.rpg.character.domain.coerceToValidWalkSpeedInFeet
 import com.cyrillrx.rpg.character.domain.defaultWalkSpeed
 import com.cyrillrx.rpg.character.domain.withHitPointsAdjusted
-import com.cyrillrx.rpg.character.domain.withMaxHitPoints
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
@@ -100,10 +98,6 @@ class CharacterEditViewModel(
 
     fun saveArmorClass(value: Int) = updateAndSave(value, Int::coerceToValidArmorClass) { coerced ->
         copy(character = character.copy(armorClass = coerced), editingField = null)
-    }
-
-    fun saveMaxHitPoints(value: Int) = updateAndSave(value, Int::coerceToValidMaxHitPoints) { coerced ->
-        copy(character = character.withMaxHitPoints(coerced), editingField = null)
     }
 
     // No CoercedValue is emitted here: 100 damage on 22 hit points is the game rule doing its job,

@@ -66,13 +66,18 @@ class HitPointsEditorStateTest {
     }
 
     @Test
-    fun `a shortcut replaces the typed amount`() {
-        assertEquals(10, editor(input = "35").withAmount(10).amount)
+    fun `a shortcut adds to the typed amount`() {
+        assertEquals(45, editor(input = "35").withAmountAdded(10).amount)
+    }
+
+    @Test
+    fun `shortcuts stack onto each other`() {
+        assertEquals(17, editor().withAmountAdded(5).withAmountAdded(2).withAmountAdded(10).amount)
     }
 
     @Test
     fun `a shortcut is clamped to the maximum amount`() {
-        assertEquals(999, editor().withAmount(5_000).amount)
+        assertEquals(999, editor(input = "990").withAmountAdded(50).amount)
     }
 
     @Test
@@ -101,6 +106,20 @@ class HitPointsEditorStateTest {
     @Test
     fun `the temporary preview replaces the value`() {
         assertEquals(12, editor(HitPointAdjustment.TEMPORARY, input = "12").preview.temporary)
+    }
+
+    @Test
+    fun `the maximum preview caps the current pool when it drops`() {
+        val preview = editor(HitPointAdjustment.MAXIMUM, input = "10").preview
+
+        assertEquals(10, preview.max)
+        assertEquals(10, preview.current)
+    }
+
+    @Test
+    fun `apply is disabled while the typed maximum is below one`() {
+        assertFalse(editor(HitPointAdjustment.MAXIMUM).isApplyEnabled)
+        assertFalse(editor(HitPointAdjustment.MAXIMUM, input = "0").isApplyEnabled)
     }
 
     @Test
@@ -159,15 +178,40 @@ class HitPointsEditorStateTest {
     }
 
     @Test
-    fun `the signed amount is unsigned for temporary hit points`() {
+    fun `the signed amount is unsigned for temporary and maximum hit points`() {
         assertEquals("12", editor(HitPointAdjustment.TEMPORARY, input = "12").signedAmount)
+        assertEquals("40", editor(HitPointAdjustment.MAXIMUM, input = "40").signedAmount)
     }
 
     @Test
     fun `the ratios read as current over maximum`() {
-        val state = editor(input = "99")
+        val state = HitPointsEditorState(pool.copy(temporary = 0), HitPointAdjustment.DAMAGE, input = "99")
 
         assertEquals("22/24", state.currentRatio)
         assertEquals("0/24", state.previewRatio)
+    }
+
+    @Test
+    fun `the ratios spell out the temporary pool once it is in play`() {
+        val state = editor(input = "3")
+
+        assertEquals("22/24(+5)", state.currentRatio)
+        assertEquals("22/24(+2)", state.previewRatio)
+    }
+
+    @Test
+    fun `the ratios keep the temporary pool visible once it falls to zero`() {
+        val state = editor(input = "8")
+
+        assertEquals("22/24(+5)", state.currentRatio)
+        assertEquals("19/24(+0)", state.previewRatio)
+    }
+
+    @Test
+    fun `the ratios spell out a temporary pool the preview is about to grant`() {
+        val state = HitPointsEditorState(pool.copy(temporary = 0), HitPointAdjustment.TEMPORARY, input = "5")
+
+        assertEquals("22/24(+0)", state.currentRatio)
+        assertEquals("22/24(+5)", state.previewRatio)
     }
 }

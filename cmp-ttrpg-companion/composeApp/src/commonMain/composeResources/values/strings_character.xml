@@ -44,13 +44,14 @@
     <!-- Hit point editor -->
     <string name="hp_tab_damage">Damage</string>
     <string name="hp_tab_healing">Healing</string>
-    <string name="hp_tab_temp">Temp HP</string>
     <string name="hp_title_damage">Take damage</string>
     <string name="hp_title_healing">Heal</string>
     <string name="hp_title_temp">Temporary hit points</string>
+    <string name="hp_title_maximum">Maximum hit points</string>
     <string name="hp_subtitle_damage">Temporary hit points absorb first.</string>
     <string name="hp_subtitle_healing">Capped at max HP.</string>
     <string name="hp_subtitle_temp">Replaces the current value.</string>
+    <string name="hp_subtitle_maximum">Lowering it caps the current hit points.</string>
     <string name="label_hp_result">Result</string>
     <string name="value_hp_transition">%1$s → %2$s</string>
     <string name="badge_down">Down</string>

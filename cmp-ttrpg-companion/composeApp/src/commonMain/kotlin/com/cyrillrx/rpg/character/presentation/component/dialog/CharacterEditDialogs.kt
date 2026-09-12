@@ -28,9 +28,7 @@ import com.cyrillrx.rpg.character.domain.ClassLevels
 import com.cyrillrx.rpg.character.domain.HitPointAdjustment
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.MAX_ARMOR_CLASS
-import com.cyrillrx.rpg.character.domain.MAX_HIT_POINTS
 import com.cyrillrx.rpg.character.domain.MIN_ARMOR_CLASS
-import com.cyrillrx.rpg.character.domain.MIN_MAX_HIT_POINTS
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.domain.hitPoints
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
@@ -69,7 +67,6 @@ import rpg_companion.composeapp.generated.resources.label_alignment
 import rpg_companion.composeapp.generated.resources.label_armor_class
 import rpg_companion.composeapp.generated.resources.label_background
 import rpg_companion.composeapp.generated.resources.label_languages
-import rpg_companion.composeapp.generated.resources.label_max_hp
 import rpg_companion.composeapp.generated.resources.label_race
 import rpg_companion.composeapp.generated.resources.label_short_description
 import rpg_companion.composeapp.generated.resources.label_skills
@@ -92,7 +89,6 @@ internal fun CharacterEditDialog(
     onWisdomConfirmed: (AbilityScore) -> Unit,
     onCharismaConfirmed: (AbilityScore) -> Unit,
     onArmorClassConfirmed: (Int) -> Unit,
-    onMaxHitPointsConfirmed: (Int) -> Unit,
     onHitPointsConfirmed: (HitPointAdjustment, Int) -> Unit,
     onWalkSpeedConfirmed: (Int) -> Unit,
     onLanguagesConfirmed: (List<Language>) -> Unit,
@@ -173,15 +169,6 @@ internal fun CharacterEditDialog(
             minValue = MIN_ARMOR_CLASS,
             maxValue = MAX_ARMOR_CLASS,
             onConfirm = onArmorClassConfirmed,
-            onDismiss = onDismiss,
-        )
-
-        EditingField.MaxHitPoints -> NumberStepperDialog(
-            title = stringResource(Res.string.label_max_hp),
-            initialValue = state.character.maxHitPoints,
-            minValue = MIN_MAX_HIT_POINTS,
-            maxValue = MAX_HIT_POINTS,
-            onConfirm = onMaxHitPointsConfirmed,
             onDismiss = onDismiss,
         )
 

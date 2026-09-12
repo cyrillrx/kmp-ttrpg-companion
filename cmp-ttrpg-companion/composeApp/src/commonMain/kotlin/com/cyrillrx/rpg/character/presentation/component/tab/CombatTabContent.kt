@@ -31,7 +31,7 @@ internal fun CombatTabContent(
         maxHitPoints = state.character.maxHitPoints,
         temporaryHitPoints = state.character.temporaryHitPoints,
         onCurrentHitPointsTapped = { onFieldTapped(EditingField.Health(HitPointAdjustment.DAMAGE)) },
-        onMaxHitPointsTapped = { onFieldTapped(EditingField.MaxHitPoints) },
+        onMaxHitPointsTapped = { onFieldTapped(EditingField.Health(HitPointAdjustment.MAXIMUM)) },
         onTemporaryHitPointsTapped = { onFieldTapped(EditingField.Health(HitPointAdjustment.TEMPORARY)) },
     )
 }

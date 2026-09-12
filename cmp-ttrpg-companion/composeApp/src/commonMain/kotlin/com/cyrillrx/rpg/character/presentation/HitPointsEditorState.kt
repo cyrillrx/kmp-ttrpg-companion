@@ -23,21 +23,25 @@ internal data class HitPointsEditorState(
 
     val isPreviewDown: Boolean get() = preview.isDown
 
-    // e.g. "-35" for damage, "+20" for healing, "5" for temporary hit points
+    // e.g. "-35" for damage, "+20" for healing; temporary and maximum hit points are absolute, not deltas
     val signedAmount: String
         get() {
             if (amount == 0) return "0"
             return when (adjustment) {
                 HitPointAdjustment.DAMAGE -> (-amount).toSignedString()
                 HitPointAdjustment.HEALING -> amount.toSignedString()
-                HitPointAdjustment.TEMPORARY -> amount.toString()
+                HitPointAdjustment.TEMPORARY, HitPointAdjustment.MAXIMUM -> amount.toString()
             }
         }
 
-    // e.g. "22/24"
-    val currentRatio: String get() = hitPoints.toRatio()
+    // e.g. "22/24", or "22/24(+5)" once temporary hit points are in play on either side
+    val currentRatio: String get() = hitPoints.toRatio(showsTemporary)
 
-    val previewRatio: String get() = preview.toRatio()
+    val previewRatio: String get() = preview.toRatio(showsTemporary)
+
+    // Spelling out a temporary pool that stays empty would be noise; dropping the one that falls to
+    // zero would hide the change. So both sides carry the suffix as soon as either one needs it.
+    private val showsTemporary: Boolean get() = hitPoints.temporary > 0 || preview.temporary > 0
 }
 
 internal fun HitPointsEditorState.withAdjustment(adjustment: HitPointAdjustment): HitPointsEditorState =
@@ -52,7 +56,8 @@ internal fun HitPointsEditorState.withLastDigitRemoved(): HitPointsEditorState =
 
 internal fun HitPointsEditorState.cleared(): HitPointsEditorState = copy(input = "")
 
-internal fun HitPointsEditorState.withAmount(amount: Int): HitPointsEditorState =
-    copy(input = amount.coerceToValidHitPointAmount().toString())
+internal fun HitPointsEditorState.withAmountAdded(delta: Int): HitPointsEditorState =
+    copy(input = (amount + delta).coerceToValidHitPointAmount().toString())
 
-private fun HitPoints.toRatio(): String = "$current/$max"
+private fun HitPoints.toRatio(withTemporary: Boolean): String =
+    if (withTemporary) "$current/$max(${temporary.toSignedString()})" else "$current/$max"

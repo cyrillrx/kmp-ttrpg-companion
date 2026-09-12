@@ -113,6 +113,13 @@ class CharacterHitPointsExtTest {
         assertEquals(pool.withDamageTaken(8), pool.applying(HitPointAdjustment.DAMAGE, 8))
         assertEquals(pool.withHealingApplied(8), pool.applying(HitPointAdjustment.HEALING, 8))
         assertEquals(pool.withTemporaryHitPointsSet(8), pool.applying(HitPointAdjustment.TEMPORARY, 8))
+        assertEquals(pool.withMaxHitPointsSet(8), pool.applying(HitPointAdjustment.MAXIMUM, 8))
+    }
+
+    @Test
+    fun `applying a maximum below one leaves the pools unchanged`() {
+        assertEquals(pool, pool.applying(HitPointAdjustment.MAXIMUM, 0))
+        assertEquals(pool, pool.applying(HitPointAdjustment.MAXIMUM, -5))
     }
 
     @Test
@@ -141,10 +148,10 @@ class CharacterHitPointsExtTest {
     }
 
     @Test
-    fun `withMaxHitPoints caps the current hit points of the character`() {
+    fun `withHitPointsAdjusted caps the current hit points when the maximum drops`() {
         val character = SampleCharacterRepository.humanFighter().copy(currentHitPoints = 12)
 
-        val updated = character.withMaxHitPoints(6)
+        val updated = character.withHitPointsAdjusted(HitPointAdjustment.MAXIMUM, 6)
 
         assertEquals(6, updated.maxHitPoints)
         assertEquals(6, updated.currentHitPoints)

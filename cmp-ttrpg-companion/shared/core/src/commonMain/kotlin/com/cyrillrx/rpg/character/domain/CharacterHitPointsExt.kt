@@ -30,9 +30,9 @@ fun HitPoints.applying(adjustment: HitPointAdjustment, amount: Int): HitPoints =
     HitPointAdjustment.DAMAGE -> withDamageTaken(amount)
     HitPointAdjustment.HEALING -> withHealingApplied(amount)
     HitPointAdjustment.TEMPORARY -> withTemporaryHitPointsSet(amount)
+    // An absolute value, not a delta: an amount nobody could mean is no change rather than a maximum of 1.
+    HitPointAdjustment.MAXIMUM -> if (amount < MIN_MAX_HIT_POINTS) this else withMaxHitPointsSet(amount)
 }
 
 fun Character.withHitPointsAdjusted(adjustment: HitPointAdjustment, amount: Int): Character =
     withHitPoints(hitPoints.applying(adjustment, amount))
-
-fun Character.withMaxHitPoints(value: Int): Character = withHitPoints(hitPoints.withMaxHitPointsSet(value))

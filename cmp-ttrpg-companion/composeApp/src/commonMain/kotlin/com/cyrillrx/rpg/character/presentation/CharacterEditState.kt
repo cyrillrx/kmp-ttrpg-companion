@@ -24,7 +24,6 @@ sealed interface CharacterEditState {
             data object Wisdom : EditingField
             data object Charisma : EditingField
             data object ArmorClass : EditingField
-            data object MaxHitPoints : EditingField
             data class Health(val adjustment: HitPointAdjustment) : EditingField
             data object WalkSpeed : EditingField
             data object Languages : EditingField
