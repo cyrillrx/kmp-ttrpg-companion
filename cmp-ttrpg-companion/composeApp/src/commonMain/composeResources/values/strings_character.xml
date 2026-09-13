@@ -29,7 +29,6 @@
     <string name="label_combat">Combat</string>
     <string name="label_initiative">Initiative</string>
     <string name="label_max_hp">Max HP</string>
-    <string name="label_current_hp">Current HP</string>
     <string name="label_temp_hp">Temp HP</string>
     <string name="label_walk_speed">Walk speed (%1$s)</string>
     <string name="label_languages_none">—</string>

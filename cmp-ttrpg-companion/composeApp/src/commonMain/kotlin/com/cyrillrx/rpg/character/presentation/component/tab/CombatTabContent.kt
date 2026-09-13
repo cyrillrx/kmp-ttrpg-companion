@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.character.presentation.component.tab
 
 import androidx.compose.runtime.Composable
 import com.cyrillrx.rpg.character.domain.HitPointAdjustment
+import com.cyrillrx.rpg.character.domain.hitPoints
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
 import com.cyrillrx.rpg.character.presentation.component.section.CombatRow
@@ -27,11 +28,9 @@ internal fun CombatTabContent(
     )
 
     HealthRow(
-        currentHitPoints = state.character.currentHitPoints,
-        maxHitPoints = state.character.maxHitPoints,
-        temporaryHitPoints = state.character.temporaryHitPoints,
-        onCurrentHitPointsTapped = { onFieldTapped(EditingField.Health(HitPointAdjustment.DAMAGE)) },
-        onMaxHitPointsTapped = { onFieldTapped(EditingField.Health(HitPointAdjustment.MAXIMUM)) },
-        onTemporaryHitPointsTapped = { onFieldTapped(EditingField.Health(HitPointAdjustment.TEMPORARY)) },
+        hitPoints = state.character.hitPoints,
+        onGaugeTapped = { onFieldTapped(EditingField.Health(HitPointAdjustment.MAXIMUM)) },
+        onDamageTapped = { onFieldTapped(EditingField.Health(HitPointAdjustment.DAMAGE)) },
+        onHealTapped = { onFieldTapped(EditingField.Health(HitPointAdjustment.HEALING)) },
     )
 }
