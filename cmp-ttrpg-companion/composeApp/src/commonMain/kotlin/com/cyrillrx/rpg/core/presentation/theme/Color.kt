@@ -41,15 +41,15 @@ val OnErrorDark = Color(0xFF690005)
 val ErrorContainerDark = Color(0xFF93000A)
 val OnErrorContainerDark = Color(0xFFFFDAD6)
 
-// Hit point gauge colors — palette-agnostic like the error block above: a game-wide reading of how
-// hurt a character is, not part of any palette's identity. The low end reuses the error red.
-val HealthHighLight = Color(0xFF2E7D32)
-val HealthMediumLight = Color(0xFFE65100)
-val TemporaryHitPointsLight = Color(0xFF0277BD)
+// Health colors — palette-agnostic like the error block above: healing reads green and a dwindling
+// pool reads amber whatever palette the player picked. Damage and an empty pool reuse the error red.
+val HealLight = Color(0xFF2E7D32)
+val HealContainerLight = Color(0xFFC8E6C9)
+val WarningLight = Color(0xFFE65100)
 
-val HealthHighDark = Color(0xFF81C784)
-val HealthMediumDark = Color(0xFFFFB74D)
-val TemporaryHitPointsDark = Color(0xFF4FC3F7)
+val HealDark = Color(0xFF81C784)
+val HealContainerDark = Color(0xFF1B5E20)
+val WarningDark = Color(0xFFFFB74D)
 
 // Domain / category accent colors — fixed brand hues, theme-independent.
 val WeaponColor = Color(0xFF9B0B4E)

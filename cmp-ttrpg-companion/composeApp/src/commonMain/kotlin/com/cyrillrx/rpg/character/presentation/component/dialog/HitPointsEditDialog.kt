@@ -27,6 +27,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import com.cyrillrx.rpg.character.domain.HitPointAdjustment
 import com.cyrillrx.rpg.character.domain.HitPoints
 import com.cyrillrx.rpg.character.presentation.HitPointsEditorState
@@ -38,6 +39,7 @@ import com.cyrillrx.rpg.character.presentation.withLastDigitRemoved
 import com.cyrillrx.rpg.core.domain.toSignedString
 import com.cyrillrx.rpg.core.presentation.component.dialog.EditDialog
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
+import com.cyrillrx.rpg.core.presentation.theme.LocalHealthColors
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
@@ -111,7 +113,14 @@ private fun AdjustmentSelector(
                 selected = adjustment == selected,
                 onClick = { onSelected(adjustment) },
                 shape = SegmentedButtonDefaults.itemShape(index = index, count = HitPointAdjustment.entries.size),
-                label = { Text(stringResource(adjustment.tabLabel)) },
+                icon = {},
+                label = {
+                    Text(
+                        text = stringResource(adjustment.tabLabel),
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+                },
             )
         }
     }
@@ -219,7 +228,7 @@ private val HitPointAdjustment.tabLabel: StringResource
 private val HitPointAdjustment.accentColor: Color
     @Composable get() = when (this) {
         HitPointAdjustment.DAMAGE -> MaterialTheme.colorScheme.error
-        HitPointAdjustment.HEALING -> MaterialTheme.colorScheme.primary
+        HitPointAdjustment.HEALING -> LocalHealthColors.current.heal
         HitPointAdjustment.TEMPORARY -> MaterialTheme.colorScheme.tertiary
         HitPointAdjustment.MAXIMUM -> MaterialTheme.colorScheme.secondary
     }
@@ -227,7 +236,7 @@ private val HitPointAdjustment.accentColor: Color
 private val HitPointAdjustment.containerColor: Color
     @Composable get() = when (this) {
         HitPointAdjustment.DAMAGE -> MaterialTheme.colorScheme.errorContainer
-        HitPointAdjustment.HEALING -> MaterialTheme.colorScheme.primaryContainer
+        HitPointAdjustment.HEALING -> LocalHealthColors.current.healContainer
         HitPointAdjustment.TEMPORARY -> MaterialTheme.colorScheme.tertiaryContainer
         HitPointAdjustment.MAXIMUM -> MaterialTheme.colorScheme.secondaryContainer
     }

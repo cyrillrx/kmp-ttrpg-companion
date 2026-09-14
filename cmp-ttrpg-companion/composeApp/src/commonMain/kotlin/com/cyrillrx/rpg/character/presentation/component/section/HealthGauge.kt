@@ -23,7 +23,6 @@ internal fun HealthGauge(
     state: HealthGaugeState,
     modifier: Modifier = Modifier,
 ) {
-    val healthColors = LocalHealthColors.current
     val remainingFraction = 1f - state.currentFraction - state.temporaryFraction
     Row(
         modifier = modifier
@@ -34,7 +33,7 @@ internal fun HealthGauge(
     ) {
         // A zero weight is not a valid constraint, so an empty segment is left out rather than sized.
         GaugeSegment(state.currentFraction, state.level.color)
-        GaugeSegment(state.temporaryFraction, healthColors.temporary)
+        GaugeSegment(state.temporaryFraction, MaterialTheme.colorScheme.tertiary)
         if (remainingFraction > 0f) Spacer(Modifier.weight(remainingFraction))
     }
 }
@@ -51,10 +50,8 @@ private fun RowScope.GaugeSegment(fraction: Float, color: Color) {
 }
 
 internal val HealthLevel.color: Color
-    @Composable get() = with(LocalHealthColors.current) {
-        when (this@color) {
-            HealthLevel.HIGH -> high
-            HealthLevel.MEDIUM -> medium
-            HealthLevel.LOW -> low
-        }
+    @Composable get() = when (this) {
+        HealthLevel.HIGH -> MaterialTheme.colorScheme.primary
+        HealthLevel.MEDIUM -> LocalHealthColors.current.warning
+        HealthLevel.LOW -> MaterialTheme.colorScheme.error
     }

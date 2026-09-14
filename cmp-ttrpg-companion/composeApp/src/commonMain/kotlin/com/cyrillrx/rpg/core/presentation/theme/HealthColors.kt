@@ -4,24 +4,21 @@ import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 
 data class HealthColors(
-    val high: Color,
-    val medium: Color,
-    val low: Color,
-    val temporary: Color,
+    val heal: Color,
+    val healContainer: Color,
+    val warning: Color,
 )
 
 val healthColorsLight = HealthColors(
-    high = HealthHighLight,
-    medium = HealthMediumLight,
-    low = ErrorLight,
-    temporary = TemporaryHitPointsLight,
+    heal = HealLight,
+    healContainer = HealContainerLight,
+    warning = WarningLight,
 )
 
 val healthColorsDark = HealthColors(
-    high = HealthHighDark,
-    medium = HealthMediumDark,
-    low = ErrorDark,
-    temporary = TemporaryHitPointsDark,
+    heal = HealDark,
+    healContainer = HealContainerDark,
+    warning = WarningDark,
 )
 
 val LocalHealthColors = staticCompositionLocalOf { healthColorsLight }

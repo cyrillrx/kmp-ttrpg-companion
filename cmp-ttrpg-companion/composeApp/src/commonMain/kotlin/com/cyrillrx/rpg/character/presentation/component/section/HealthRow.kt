@@ -48,7 +48,6 @@ internal fun HealthRow(
     onDamageTapped: () -> Unit,
     onHealTapped: () -> Unit,
 ) {
-    val healthColors = LocalHealthColors.current
     val state = hitPoints.toGaugeState()
 
     Column(verticalArrangement = Arrangement.spacedBy(spacingMedium)) {
@@ -80,7 +79,7 @@ internal fun HealthRow(
                             text = stringResource(Res.string.badge_down),
                             style = MaterialTheme.typography.labelSmall,
                             fontWeight = FontWeight.Bold,
-                            color = healthColors.low,
+                            color = MaterialTheme.colorScheme.error,
                         )
                     }
                     state.temporary?.let { temporary ->
@@ -88,7 +87,7 @@ internal fun HealthRow(
                             text = temporary,
                             style = MaterialTheme.typography.bodyMedium,
                             fontWeight = FontWeight.SemiBold,
-                            color = healthColors.temporary,
+                            color = MaterialTheme.colorScheme.tertiary,
                         )
                     }
                     Text(
@@ -108,14 +107,14 @@ internal fun HealthRow(
             HealthActionButton(
                 label = stringResource(Res.string.hp_tab_damage),
                 icon = Icons.Filled.HeartBroken,
-                color = healthColors.low,
+                color = MaterialTheme.colorScheme.error,
                 onClick = onDamageTapped,
                 modifier = Modifier.weight(1f),
             )
             HealthActionButton(
                 label = stringResource(Res.string.hp_tab_healing),
                 icon = Icons.Filled.Healing,
-                color = healthColors.high,
+                color = LocalHealthColors.current.heal,
                 onClick = onHealTapped,
                 modifier = Modifier.weight(1f),
             )
