@@ -20,6 +20,8 @@ val iconButtonSize = 56.dp
 val avatarSize = 72.dp
 val avatarBorderWidth = 2.dp
 
+val gaugeHeight = 12.dp
+
 // Height shared by section headers (with or without a trailing action) so they align across panes
 val sectionHeaderHeight = 48.dp
 
