@@ -7,20 +7,22 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.cyrillrx.rpg.character.presentation.component.StatCell
 import com.cyrillrx.rpg.core.domain.toSignedString
+import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
+import com.cyrillrx.rpg.core.presentation.format.toDistanceString
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.label_ac
 import rpg_companion.composeapp.generated.resources.label_initiative
-import rpg_companion.composeapp.generated.resources.label_max_hp
+import rpg_companion.composeapp.generated.resources.label_speed
 
 @Composable
 internal fun CombatRow(
     armorClass: Int,
     initiative: Int,
-    maxHitPoints: Int,
+    walkSpeed: Int,
     onArmorClassTapped: () -> Unit,
-    onMaxHitPointsTapped: () -> Unit,
+    onWalkSpeedTapped: () -> Unit,
 ) {
     Row(
         horizontalArrangement = Arrangement.spacedBy(spacingMedium),
@@ -38,9 +40,9 @@ internal fun CombatRow(
             modifier = Modifier.weight(1f),
         )
         StatCell(
-            label = stringResource(Res.string.label_max_hp),
-            value = maxHitPoints.toString(),
-            onClick = onMaxHitPointsTapped,
+            label = stringResource(Res.string.label_speed),
+            value = walkSpeed.toDistanceString(LocalDistanceUnit.current),
+            onClick = onWalkSpeedTapped,
             modifier = Modifier.weight(1f),
         )
     }
