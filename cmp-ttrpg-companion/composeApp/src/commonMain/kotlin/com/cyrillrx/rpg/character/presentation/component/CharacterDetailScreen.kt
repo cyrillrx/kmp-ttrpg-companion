@@ -273,8 +273,6 @@ fun CharacterDetailScreen(
     )
 }
 
-// ─── Previews ────────────────────────────────────────────────────────────────
-
 @Preview
 @Composable
 private fun PreviewCharacterDetailScreenLight() {

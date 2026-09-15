@@ -235,8 +235,6 @@ private fun SubtitleDot() {
     )
 }
 
-// ─── Previews ────────────────────────────────────────────────────────────────
-
 @Preview
 @Composable
 private fun PreviewCharacterHeaderLight() {
