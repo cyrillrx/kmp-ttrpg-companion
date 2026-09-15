@@ -29,6 +29,7 @@
     <string name="label_combat">Combat</string>
     <string name="label_initiative">Initiative</string>
     <string name="label_max_hp">Max HP</string>
+    <string name="label_temp_hp">Temp HP</string>
     <string name="label_walk_speed">Walk speed (%1$s)</string>
     <string name="label_languages_none">—</string>
     <string name="label_level_short">lvl</string>
@@ -38,6 +39,23 @@
     <string name="label_aptitudes">Aptitudes</string>
     <string name="label_profile">Profile</string>
     <string name="hint_ability">Min %1$d · Max %2$d · Initial score %3$s</string>
+
+    <!-- Hit point editor -->
+    <string name="hp_tab_damage">Damage</string>
+    <string name="hp_tab_healing">Healing</string>
+    <string name="hp_title_damage">Take damage</string>
+    <string name="hp_title_healing">Heal</string>
+    <string name="hp_title_temp">Temporary hit points</string>
+    <string name="hp_title_maximum">Maximum hit points</string>
+    <string name="hp_subtitle_damage">Temporary hit points absorb first.</string>
+    <string name="hp_subtitle_healing">Capped at max HP.</string>
+    <string name="hp_subtitle_temp">Replaces the current value.</string>
+    <string name="hp_subtitle_maximum">Lowering it caps the current hit points.</string>
+    <string name="label_hp_result">Result</string>
+    <string name="value_hp_transition">%1$s → %2$s</string>
+    <string name="badge_down">Down</string>
+    <string name="btn_clear">Clear</string>
+    <string name="btn_backspace">Backspace</string>
 
     <!-- Skills -->
     <string name="skill_acrobatics">Acrobatics</string>

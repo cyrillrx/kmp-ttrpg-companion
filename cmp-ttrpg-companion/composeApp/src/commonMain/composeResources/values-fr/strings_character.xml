@@ -29,6 +29,7 @@
     <string name="label_combat">Combat</string>
     <string name="label_initiative">Initiative</string>
     <string name="label_max_hp">PV max</string>
+    <string name="label_temp_hp">PV temp</string>
     <string name="label_walk_speed">Vitesse (%1$s)</string>
     <string name="label_languages_none">—</string>
     <string name="label_level_short">niv.</string>
@@ -38,6 +39,23 @@
     <string name="label_aptitudes">Aptitudes</string>
     <string name="label_profile">Profil</string>
     <string name="hint_ability">Min %1$d · Max %2$d · Score initial %3$s</string>
+
+    <!-- Hit point editor -->
+    <string name="hp_tab_damage">Dégâts</string>
+    <string name="hp_tab_healing">Soins</string>
+    <string name="hp_title_damage">Subir des dégâts</string>
+    <string name="hp_title_healing">Soigner</string>
+    <string name="hp_title_temp">PV temporaires</string>
+    <string name="hp_title_maximum">PV maximum</string>
+    <string name="hp_subtitle_damage">Les PV temporaires absorbent en premier.</string>
+    <string name="hp_subtitle_healing">Plafonné aux PV max.</string>
+    <string name="hp_subtitle_temp">Remplace la valeur actuelle.</string>
+    <string name="hp_subtitle_maximum">Baisser le max plafonne les PV actuels.</string>
+    <string name="label_hp_result">Résultat</string>
+    <string name="value_hp_transition">%1$s → %2$s</string>
+    <string name="badge_down">KO</string>
+    <string name="btn_clear">Effacer</string>
+    <string name="btn_backspace">Retour arrière</string>
 
     <!-- Skills -->
     <string name="skill_acrobatics">Acrobatie</string>
