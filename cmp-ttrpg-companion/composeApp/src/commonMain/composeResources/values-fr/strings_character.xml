@@ -54,6 +54,7 @@
     <string name="label_hp_result">Résultat</string>
     <string name="value_hp_transition">%1$s → %2$s</string>
     <string name="badge_down">KO</string>
+    <string name="badge_dead">Mort</string>
     <string name="btn_clear">Effacer</string>
     <string name="btn_backspace">Retour arrière</string>
 

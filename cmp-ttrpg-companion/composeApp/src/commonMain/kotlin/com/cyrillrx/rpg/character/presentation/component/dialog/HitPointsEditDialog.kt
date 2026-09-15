@@ -47,6 +47,7 @@ import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
+import rpg_companion.composeapp.generated.resources.badge_dead
 import rpg_companion.composeapp.generated.resources.badge_down
 import rpg_companion.composeapp.generated.resources.hp_subtitle_damage
 import rpg_companion.composeapp.generated.resources.hp_subtitle_healing
@@ -162,7 +163,9 @@ private fun ResultCard(editor: HitPointsEditorState) {
                         style = MaterialTheme.typography.bodyMedium,
                         fontWeight = FontWeight.SemiBold,
                     )
-                    if (editor.isPreviewDown) DownBadge()
+                    if (editor.isPreviewDown) {
+                        OutcomeBadge(if (editor.isPreviewLethal) Res.string.badge_dead else Res.string.badge_down)
+                    }
                 }
             }
         }
@@ -170,14 +173,14 @@ private fun ResultCard(editor: HitPointsEditorState) {
 }
 
 @Composable
-private fun DownBadge() {
+private fun OutcomeBadge(label: StringResource) {
     Surface(
         color = MaterialTheme.colorScheme.error,
         contentColor = MaterialTheme.colorScheme.onError,
         shape = MaterialTheme.shapes.small,
     ) {
         Text(
-            text = stringResource(Res.string.badge_down),
+            text = stringResource(label),
             style = MaterialTheme.typography.labelSmall,
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(horizontal = spacingMedium, vertical = spacingSmall),

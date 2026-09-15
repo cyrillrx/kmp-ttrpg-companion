@@ -128,6 +128,19 @@ class HitPointsEditorStateTest {
         assertTrue(editor(input = "99").isPreviewDown)
     }
 
+    @Test
+    fun `a blow whose remainder reaches the maximum previews as lethal`() {
+        assertTrue(editor(input = "51").isPreviewLethal)
+        assertFalse(editor(input = "50").isPreviewLethal)
+    }
+
+    @Test
+    fun `only damage can preview as lethal`() {
+        assertFalse(editor(HitPointAdjustment.HEALING, input = "51").isPreviewLethal)
+        assertFalse(editor(HitPointAdjustment.TEMPORARY, input = "51").isPreviewLethal)
+        assertFalse(editor(HitPointAdjustment.MAXIMUM, input = "51").isPreviewLethal)
+    }
+
     /** Guards the promise that what the dialog shows is exactly what the view model writes. */
     @Test
     fun `the preview matches the domain rule for every adjustment and amount`() {

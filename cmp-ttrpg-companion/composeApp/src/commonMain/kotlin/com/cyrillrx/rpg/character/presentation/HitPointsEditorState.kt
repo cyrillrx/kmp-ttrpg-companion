@@ -6,6 +6,7 @@ import com.cyrillrx.rpg.character.domain.MAX_HIT_POINTS
 import com.cyrillrx.rpg.character.domain.adjust
 import com.cyrillrx.rpg.character.domain.coerceToValidHitPointAmount
 import com.cyrillrx.rpg.character.domain.isDown
+import com.cyrillrx.rpg.character.domain.isLethalDamage
 import com.cyrillrx.rpg.core.domain.toSignedString
 
 private val maxInputLength = MAX_HIT_POINTS.toString().length
@@ -22,6 +23,9 @@ internal data class HitPointsEditorState(
     val isApplyEnabled: Boolean get() = preview != hitPoints
 
     val isPreviewDown: Boolean get() = preview.isDown
+
+    val isPreviewLethal: Boolean
+        get() = adjustment == HitPointAdjustment.DAMAGE && hitPoints.isLethalDamage(amount)
 
     // e.g. "-35" for damage, "+20" for healing; temporary and maximum hit points are absolute, not deltas
     val signedAmount: String

@@ -54,6 +54,7 @@
     <string name="label_hp_result">Result</string>
     <string name="value_hp_transition">%1$s → %2$s</string>
     <string name="badge_down">Down</string>
+    <string name="badge_dead">Dead</string>
     <string name="btn_clear">Clear</string>
     <string name="btn_backspace">Backspace</string>
 
