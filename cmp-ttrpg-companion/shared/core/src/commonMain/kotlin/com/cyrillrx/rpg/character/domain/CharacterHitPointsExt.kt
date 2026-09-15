@@ -2,6 +2,9 @@ package com.cyrillrx.rpg.character.domain
 
 val HitPoints.isDown: Boolean get() = current <= MIN_HIT_POINTS
 
+fun HitPoints.isLethalDamage(amount: Int): Boolean =
+    amount.coerceToValidHitPointAmount() - temporary - current >= max
+
 /** Temporary hit points absorb first; whatever is left erodes the current pool, floored at zero. */
 fun HitPoints.takeDamage(amount: Int): HitPoints {
     val dealt = amount.coerceToValidHitPointAmount()

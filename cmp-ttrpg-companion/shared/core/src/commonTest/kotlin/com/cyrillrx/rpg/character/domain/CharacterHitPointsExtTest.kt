@@ -46,6 +46,29 @@ class CharacterHitPointsExtTest {
         assertEquals(pool, pool.takeDamage(-10))
     }
 
+    @Test
+    fun `damage is lethal when what is left after reaching zero reaches the maximum`() {
+        // 5 temporary and 22 current absorb 27, so 24 more reach the maximum of 24
+        assertTrue(pool.isLethalDamage(51))
+    }
+
+    @Test
+    fun `damage one short of the maximum only knocks the character down`() {
+        assertFalse(pool.isLethalDamage(50))
+    }
+
+    @Test
+    fun `the temporary pool counts towards surviving a massive blow`() {
+        assertTrue(pool.copy(temporary = 0).isLethalDamage(46))
+        assertFalse(pool.isLethalDamage(46))
+    }
+
+    @Test
+    fun `damage that leaves the character standing is never lethal`() {
+        assertFalse(pool.isLethalDamage(8))
+        assertFalse(pool.isLethalDamage(0))
+    }
+
     // ─── Healing ─────────────────────────────────────────────────────────────
 
     @Test
