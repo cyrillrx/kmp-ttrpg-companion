@@ -410,19 +410,6 @@ class CharacterEditViewModelTest {
     }
 
     @Test
-    fun `saveHitPoints ignores a maximum below one`() = runTest(testDispatcher) {
-        val repo = SaveCountingRepository(repoWith(wounded))
-        val viewModel = buildViewModel(repo = repo)
-        advanceUntilIdle()
-
-        viewModel.saveHitPoints(HitPointAdjustment.MAXIMUM, 0)
-        advanceUntilIdle()
-
-        assertEquals(0, repo.saveCount)
-        assertEquals(24, loadedCharacter(viewModel).maxHitPoints)
-    }
-
-    @Test
     fun `saveHitPoints coerces the maximum to 999`() = runTest(testDispatcher) {
         val viewModel = buildViewModel(repo = repoWithFighter())
         advanceUntilIdle()

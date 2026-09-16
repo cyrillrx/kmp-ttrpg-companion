@@ -18,7 +18,9 @@ internal data class HitPointsEditorState(
 ) {
     val amount: Int get() = input.toIntOrNull() ?: 0
 
-    val preview: HitPoints get() = hitPoints.adjust(adjustment, amount)
+    // Nothing typed is not an amount of zero: the rules all coerce, so adjust(TEMPORARY, 0) would
+    // clear the pool and adjust(MAXIMUM, 0) would drop the maximum to one, both on an empty keypad.
+    val preview: HitPoints get() = if (amount == 0) hitPoints else hitPoints.adjust(adjustment, amount)
 
     val isApplyEnabled: Boolean get() = preview != hitPoints
 

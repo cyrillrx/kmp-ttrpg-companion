@@ -145,11 +145,26 @@ class HitPointsEditorStateTest {
     @Test
     fun `the preview matches the domain rule for every adjustment and amount`() {
         HitPointAdjustment.entries.forEach { adjustment ->
-            listOf(0, 1, 5, 22, 999).forEach { amount ->
+            listOf(1, 5, 22, 999).forEach { amount ->
                 val state = editor(adjustment, input = amount.toString())
 
                 assertEquals(pool.adjust(adjustment, amount), state.preview)
             }
+        }
+    }
+
+    @Test
+    fun `an empty keypad previews no change at all`() {
+        HitPointAdjustment.entries.forEach { adjustment ->
+            assertEquals(pool, editor(adjustment).preview)
+            assertEquals(pool, editor(adjustment, input = "0").preview)
+        }
+    }
+
+    @Test
+    fun `an empty keypad leaves apply disabled on every adjustment`() {
+        HitPointAdjustment.entries.forEach { adjustment ->
+            assertFalse(editor(adjustment).isApplyEnabled)
         }
     }
 
