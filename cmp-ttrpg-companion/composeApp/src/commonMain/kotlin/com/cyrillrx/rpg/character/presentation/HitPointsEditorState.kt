@@ -7,6 +7,7 @@ import com.cyrillrx.rpg.character.domain.adjust
 import com.cyrillrx.rpg.character.domain.coerceToValidHitPointAmount
 import com.cyrillrx.rpg.character.domain.isDown
 import com.cyrillrx.rpg.character.domain.isLethalDamage
+import com.cyrillrx.rpg.character.domain.isValidMaxHitPoints
 import com.cyrillrx.rpg.core.domain.toSignedString
 
 private val maxInputLength = MAX_HIT_POINTS.toString().length
@@ -18,11 +19,16 @@ internal data class HitPointsEditorState(
 ) {
     val amount: Int get() = input.toIntOrNull() ?: 0
 
-    // Nothing typed is not an amount of zero: the rules all coerce, so adjust(TEMPORARY, 0) would
-    // clear the pool and adjust(MAXIMUM, 0) would drop the maximum to one, both on an empty keypad.
-    val preview: HitPoints get() = if (amount == 0) hitPoints else hitPoints.adjust(adjustment, amount)
+    // An empty keypad is not an amount of zero: a typed zero clears the temporary pool, while
+    // nothing typed leaves it alone. A maximum of zero would coerce up to one, so it is refused.
+    private val hasValidAmount: Boolean
+        get() = input.isNotEmpty() && (adjustment != HitPointAdjustment.MAXIMUM || isValidMaxHitPoints(amount))
 
-    val isApplyEnabled: Boolean get() = preview != hitPoints
+    val preview: HitPoints get() = if (hasValidAmount) hitPoints.adjust(adjustment, amount) else hitPoints
+
+    // A killing blow on a character already at zero moves no pool, but refusing it would contradict
+    // the badge announcing it.
+    val isApplyEnabled: Boolean get() = hasValidAmount && (preview != hitPoints || isPreviewLethal)
 
     val isPreviewDown: Boolean get() = preview.isDown
 
@@ -54,7 +60,7 @@ internal fun HitPointsEditorState.withAdjustment(adjustment: HitPointAdjustment)
     copy(adjustment = adjustment)
 
 internal fun HitPointsEditorState.withDigitAppended(digit: Int): HitPointsEditorState {
-    val appended = (input + digit).trimStart('0')
+    val appended = (input + digit).trimStart('0').ifEmpty { "0" }
     return if (appended.length > maxInputLength) this else copy(input = appended)
 }
 

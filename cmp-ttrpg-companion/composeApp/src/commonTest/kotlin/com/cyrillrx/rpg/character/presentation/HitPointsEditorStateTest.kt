@@ -40,8 +40,13 @@ class HitPointsEditorStateTest {
     }
 
     @Test
-    fun `a leading zero is dropped`() {
-        assertEquals("", editor().withDigitAppended(0).input)
+    fun `a lone zero is kept`() {
+        assertEquals("0", editor().withDigitAppended(0).input)
+        assertEquals("0", editor(input = "0").withDigitAppended(0).input)
+    }
+
+    @Test
+    fun `a leading zero is dropped once another digit follows`() {
         assertEquals("5", editor().withDigitAppended(0).withDigitAppended(5).input)
     }
 
@@ -157,8 +162,22 @@ class HitPointsEditorStateTest {
     fun `an empty keypad previews no change at all`() {
         HitPointAdjustment.entries.forEach { adjustment ->
             assertEquals(pool, editor(adjustment).preview)
-            assertEquals(pool, editor(adjustment, input = "0").preview)
         }
+    }
+
+    @Test
+    fun `a typed zero clears the temporary pool`() {
+        val state = editor(HitPointAdjustment.TEMPORARY, input = "0")
+
+        assertEquals(0, state.preview.temporary)
+        assertTrue(state.isApplyEnabled)
+    }
+
+    @Test
+    fun `a typed zero leaves the other adjustments alone`() {
+        assertEquals(pool, editor(HitPointAdjustment.DAMAGE, input = "0").preview)
+        assertEquals(pool, editor(HitPointAdjustment.HEALING, input = "0").preview)
+        assertEquals(pool, editor(HitPointAdjustment.MAXIMUM, input = "0").preview)
     }
 
     @Test
@@ -189,6 +208,19 @@ class HitPointsEditorStateTest {
     @Test
     fun `apply is enabled once the preview changes the pools`() {
         assertTrue(editor(input = "1").isApplyEnabled)
+    }
+
+    @Test
+    fun `a killing blow stays applicable on a character already at zero`() {
+        val downed = HitPointsEditorState(
+            hitPoints = HitPoints(current = 0, max = 24, temporary = 0),
+            adjustment = HitPointAdjustment.DAMAGE,
+            input = "30",
+        )
+
+        assertEquals(downed.hitPoints, downed.preview)
+        assertTrue(downed.isPreviewLethal)
+        assertTrue(downed.isApplyEnabled)
     }
 
     // ─── Formatting ──────────────────────────────────────────────────────────
