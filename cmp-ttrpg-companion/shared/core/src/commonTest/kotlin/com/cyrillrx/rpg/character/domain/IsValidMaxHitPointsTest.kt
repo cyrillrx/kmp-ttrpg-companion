@@ -13,9 +13,16 @@ class IsValidMaxHitPointsTest {
     }
 
     @Test
+    fun `returns false for values above 999`() {
+        assertFalse(isValidMaxHitPoints(1_000))
+        assertFalse(isValidMaxHitPoints(10_000))
+    }
+
+    @Test
     fun `returns true for valid max hit points`() {
         assertTrue(isValidMaxHitPoints(1))
         assertTrue(isValidMaxHitPoints(10))
         assertTrue(isValidMaxHitPoints(100))
+        assertTrue(isValidMaxHitPoints(999))
     }
 }
