@@ -85,8 +85,10 @@ class JsonCharacterPresetRepository(
                 ?: return Result.Failure(CharacterImportError.UnknownAlignment(id, apiAlignment))
             val armorClass = armorClass
                 ?: return Result.Failure(CharacterImportError.MissingArmorClass(id))
-            val maxHitPoints = maxHitPoints?.coerceToValidMaxHitPoints()
+            val declaredMaxHitPoints = maxHitPoints
                 ?: return Result.Failure(CharacterImportError.MissingMaxHitPoints(id))
+            val maxHitPoints = declaredMaxHitPoints.coerceToValidMaxHitPoints()
+                .also { if (it != declaredMaxHitPoints) warnCoercedMaxHitPoints(id, declaredMaxHitPoints, it) }
             speeds?.walk
                 ?: return Result.Failure(CharacterImportError.MissingWalkSpeed(id))
             val apiSkills = skills
@@ -158,6 +160,11 @@ class JsonCharacterPresetRepository(
                 ),
             )
         }
+
+        // Clamping keeps the preset usable, which a Result.Failure would not; the warning is what
+        // tells the homebrew author their sheet declares hit points the rules cannot hold.
+        private fun warnCoercedMaxHitPoints(id: String, declared: Int, coerced: Int) =
+            println("WARNING: character preset '$id' max hit points $declared coerced to $coerced")
 
         private fun String.toBackground(): Background? =
             Background.entries
