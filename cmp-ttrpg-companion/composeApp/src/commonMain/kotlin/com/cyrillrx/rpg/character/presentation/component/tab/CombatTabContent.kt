@@ -1,6 +1,7 @@
 package com.cyrillrx.rpg.character.presentation.component.tab
 
 import androidx.compose.runtime.Composable
+import com.cyrillrx.rpg.character.domain.HitPointAdjustment
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
 import com.cyrillrx.rpg.character.presentation.component.section.CombatRow
@@ -22,7 +23,7 @@ internal fun CombatTabContent(
         initiative = state.character.initiativeModifier(),
         maxHitPoints = state.character.maxHitPoints,
         onArmorClassTapped = { onFieldTapped(EditingField.ArmorClass) },
-        onMaxHitPointsTapped = { onFieldTapped(EditingField.MaxHitPoints) },
+        onMaxHitPointsTapped = { onFieldTapped(EditingField.Health(HitPointAdjustment.MAXIMUM)) },
     )
 
     WalkSpeedRow(

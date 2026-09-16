@@ -7,11 +7,12 @@ import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.domain.ClassLevels
+import com.cyrillrx.rpg.character.domain.HitPointAdjustment
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
+import com.cyrillrx.rpg.character.domain.adjustHitPoints
 import com.cyrillrx.rpg.character.domain.coerceToValidAbilityScore
 import com.cyrillrx.rpg.character.domain.coerceToValidArmorClass
-import com.cyrillrx.rpg.character.domain.coerceToValidMaxHitPoints
 import com.cyrillrx.rpg.character.domain.coerceToValidWalkSpeedInFeet
 import com.cyrillrx.rpg.character.domain.defaultWalkSpeed
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
@@ -99,8 +100,10 @@ class CharacterEditViewModel(
         copy(character = character.copy(armorClass = coerced), editingField = null)
     }
 
-    fun saveMaxHitPoints(value: Int) = updateAndSave(value, Int::coerceToValidMaxHitPoints) { coerced ->
-        copy(character = character.copy(maxHitPoints = coerced), editingField = null)
+    fun saveHitPoints(adjustment: HitPointAdjustment, amount: Int) {
+        updateAndSave {
+            copy(character = character.adjustHitPoints(adjustment, amount), editingField = null)
+        }
     }
 
     fun saveWalkSpeed(value: Int) {

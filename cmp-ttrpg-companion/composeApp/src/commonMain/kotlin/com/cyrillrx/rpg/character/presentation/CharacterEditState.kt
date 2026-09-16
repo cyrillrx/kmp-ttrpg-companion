@@ -1,6 +1,7 @@
 package com.cyrillrx.rpg.character.presentation
 
 import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.character.domain.HitPointAdjustment
 
 sealed interface CharacterEditState {
     data object Loading : CharacterEditState
@@ -23,7 +24,7 @@ sealed interface CharacterEditState {
             data object Wisdom : EditingField
             data object Charisma : EditingField
             data object ArmorClass : EditingField
-            data object MaxHitPoints : EditingField
+            data class Health(val adjustment: HitPointAdjustment) : EditingField
             data object WalkSpeed : EditingField
             data object Languages : EditingField
             data object Alignment : EditingField
