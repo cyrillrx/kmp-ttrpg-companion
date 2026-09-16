@@ -14,6 +14,7 @@ import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.domain.applyFilter
 import com.cyrillrx.rpg.character.domain.coerceToValidCharacterLevel
+import com.cyrillrx.rpg.character.domain.coerceToValidMaxHitPoints
 import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.core.domain.UNKNOWN_TIMESTAMP
 import com.cyrillrx.rpg.creature.data.createAbilities
@@ -84,7 +85,7 @@ class JsonCharacterPresetRepository(
                 ?: return Result.Failure(CharacterImportError.UnknownAlignment(id, apiAlignment))
             val armorClass = armorClass
                 ?: return Result.Failure(CharacterImportError.MissingArmorClass(id))
-            val maxHitPoints = maxHitPoints
+            val maxHitPoints = maxHitPoints?.coerceToValidMaxHitPoints()
                 ?: return Result.Failure(CharacterImportError.MissingMaxHitPoints(id))
             speeds?.walk
                 ?: return Result.Failure(CharacterImportError.MissingWalkSpeed(id))

@@ -69,6 +69,15 @@ class CharacterHitPointsExtTest {
         assertFalse(pool.isLethalDamage(0))
     }
 
+    @Test
+    fun `a lethal blow stays lethal past the damage cap`() {
+        // 600 to reach zero and 600 more to reach the maximum, well beyond MAX_HIT_POINTS
+        val colossus = HitPoints(current = 600, max = 600)
+
+        assertTrue(colossus.isLethalDamage(1200))
+        assertFalse(colossus.isLethalDamage(1199))
+    }
+
     // ─── Healing ─────────────────────────────────────────────────────────────
 
     @Test
