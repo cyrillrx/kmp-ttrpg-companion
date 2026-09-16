@@ -124,9 +124,14 @@ class CharacterHitPointsExtTest {
     }
 
     @Test
-    fun `the maximum is coerced into the valid range`() {
-        assertEquals(1, pool.setMaxHitPoints(0).max)
+    fun `the maximum is capped at 999`() {
         assertEquals(999, pool.setMaxHitPoints(5_000).max)
+    }
+
+    @Test
+    fun `a maximum below one leaves the pools unchanged`() {
+        assertEquals(pool, pool.setMaxHitPoints(0))
+        assertEquals(pool, pool.setMaxHitPoints(-5))
     }
 
     // ─── Dispatch ────────────────────────────────────────────────────────────
@@ -137,12 +142,6 @@ class CharacterHitPointsExtTest {
         assertEquals(pool.heal(8), pool.adjust(HitPointAdjustment.HEALING, 8))
         assertEquals(pool.setTemporaryHitPoints(8), pool.adjust(HitPointAdjustment.TEMPORARY, 8))
         assertEquals(pool.setMaxHitPoints(8), pool.adjust(HitPointAdjustment.MAXIMUM, 8))
-    }
-
-    @Test
-    fun `adjusting a maximum below one leaves the pools unchanged`() {
-        assertEquals(pool, pool.adjust(HitPointAdjustment.MAXIMUM, 0))
-        assertEquals(pool, pool.adjust(HitPointAdjustment.MAXIMUM, -5))
     }
 
     @Test
