@@ -18,6 +18,13 @@ class CoerceToValidCurrentHitPointsTest {
     }
 
     @Test
+    fun `clamps to zero when the maximum is itself invalid`() {
+        assertEquals(0, 7.coerceToValidCurrentHitPoints(maxHitPoints = -1))
+        assertEquals(0, (-3).coerceToValidCurrentHitPoints(maxHitPoints = -30))
+        assertEquals(0, 7.coerceToValidCurrentHitPoints(maxHitPoints = 0))
+    }
+
+    @Test
     fun `returns valid current hit points unchanged`() {
         assertEquals(0, 0.coerceToValidCurrentHitPoints(maxHitPoints = 12))
         assertEquals(7, 7.coerceToValidCurrentHitPoints(maxHitPoints = 12))
