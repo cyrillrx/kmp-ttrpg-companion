@@ -138,9 +138,12 @@ class CharacterHitPointsExtTest {
     }
 
     @Test
-    fun `a maximum below one leaves the pools unchanged`() {
-        assertEquals(pool, pool.setMaxHitPoints(0))
-        assertEquals(pool, pool.setMaxHitPoints(-5))
+    fun `a maximum below one is raised to one`() {
+        val floored = pool.setMaxHitPoints(0)
+
+        assertEquals(1, floored.max)
+        assertEquals(1, floored.current)
+        assertEquals(floored, pool.setMaxHitPoints(-5))
     }
 
     // ─── Dispatch ────────────────────────────────────────────────────────────

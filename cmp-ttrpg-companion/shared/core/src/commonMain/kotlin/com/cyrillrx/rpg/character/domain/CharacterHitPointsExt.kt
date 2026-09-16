@@ -22,7 +22,6 @@ fun HitPoints.setTemporaryHitPoints(amount: Int): HitPoints =
     copy(temporary = amount.coerceToValidHitPointAmount())
 
 fun HitPoints.setMaxHitPoints(value: Int): HitPoints {
-    if (value < MIN_MAX_HIT_POINTS) return this
     val coerced = value.coerceToValidMaxHitPoints()
     return copy(max = coerced, current = current.coerceToValidCurrentHitPoints(coerced))
 }
