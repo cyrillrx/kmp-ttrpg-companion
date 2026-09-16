@@ -35,6 +35,11 @@ internal data class HitPointsEditorState(
     val isPreviewLethal: Boolean
         get() = adjustment == HitPointAdjustment.DAMAGE && hitPoints.isLethalDamage(amount)
 
+    // A shortcut adds to the typed amount, which only reads as a delta on damage and healing:
+    // the temporary and maximum amounts replace the pool rather than move it.
+    val showsShortcuts: Boolean
+        get() = adjustment == HitPointAdjustment.DAMAGE || adjustment == HitPointAdjustment.HEALING
+
     // e.g. "-35" for damage, "+20" for healing; temporary and maximum hit points are absolute, not deltas
     val signedAmount: String
         get() {

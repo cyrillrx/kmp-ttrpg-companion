@@ -223,6 +223,16 @@ class HitPointsEditorStateTest {
         assertTrue(downed.isApplyEnabled)
     }
 
+    // ─── Shortcuts ───────────────────────────────────────────────────────────
+
+    @Test
+    fun `shortcuts show only where the amount reads as a delta`() {
+        assertTrue(editor(HitPointAdjustment.DAMAGE).showsShortcuts)
+        assertTrue(editor(HitPointAdjustment.HEALING).showsShortcuts)
+        assertFalse(editor(HitPointAdjustment.TEMPORARY).showsShortcuts)
+        assertFalse(editor(HitPointAdjustment.MAXIMUM).showsShortcuts)
+    }
+
     // ─── Formatting ──────────────────────────────────────────────────────────
 
     @Test

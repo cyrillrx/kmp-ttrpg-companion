@@ -98,7 +98,9 @@ internal fun HitPointsEditDialog(
                 onClear = { editor = editor.cleared() },
                 onBackspace = { editor = editor.withLastDigitRemoved() },
             )
-            ShortcutRow(onShortcutTapped = { editor = editor.withAmountAdded(it) })
+            if (editor.showsShortcuts) {
+                ShortcutRow(onShortcutTapped = { editor = editor.withAmountAdded(it) })
+            }
         }
     }
 }
