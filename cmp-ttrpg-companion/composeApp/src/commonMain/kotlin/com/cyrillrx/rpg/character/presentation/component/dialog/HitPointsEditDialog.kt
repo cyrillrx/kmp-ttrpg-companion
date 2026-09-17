@@ -31,6 +31,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import com.cyrillrx.rpg.character.domain.HitPointAdjustment
 import com.cyrillrx.rpg.character.domain.HitPoints
 import com.cyrillrx.rpg.character.presentation.HitPointsEditorState
+import com.cyrillrx.rpg.character.presentation.PreviewOutcome
 import com.cyrillrx.rpg.character.presentation.cleared
 import com.cyrillrx.rpg.character.presentation.withAdjustment
 import com.cyrillrx.rpg.character.presentation.withAmountAdded
@@ -165,8 +166,10 @@ private fun ResultCard(editor: HitPointsEditorState) {
                         style = MaterialTheme.typography.bodyMedium,
                         fontWeight = FontWeight.SemiBold,
                     )
-                    if (editor.isPreviewDown) {
-                        OutcomeBadge(if (editor.isPreviewLethal) Res.string.badge_dead else Res.string.badge_down)
+                    when (editor.outcome) {
+                        PreviewOutcome.LETHAL -> OutcomeBadge(Res.string.badge_dead)
+                        PreviewOutcome.DOWN -> OutcomeBadge(Res.string.badge_down)
+                        PreviewOutcome.STANDING -> Unit
                     }
                 }
             }

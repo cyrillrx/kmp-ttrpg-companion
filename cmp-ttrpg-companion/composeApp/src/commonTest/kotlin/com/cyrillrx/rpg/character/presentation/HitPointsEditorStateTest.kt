@@ -128,22 +128,25 @@ class HitPointsEditorStateTest {
     }
 
     @Test
-    fun `the preview reports the character as down when damage reaches zero`() {
-        assertFalse(editor(input = "8").isPreviewDown)
-        assertTrue(editor(input = "99").isPreviewDown)
+    fun `a blow the character walks away from outcomes as standing`() {
+        assertEquals(PreviewOutcome.STANDING, editor(input = "8").outcome)
     }
 
     @Test
-    fun `a blow whose remainder reaches the maximum previews as lethal`() {
-        assertTrue(editor(input = "51").isPreviewLethal)
-        assertFalse(editor(input = "50").isPreviewLethal)
+    fun `a blow that empties the pool outcomes as down`() {
+        assertEquals(PreviewOutcome.DOWN, editor(input = "50").outcome)
     }
 
     @Test
-    fun `only damage can preview as lethal`() {
-        assertFalse(editor(HitPointAdjustment.HEALING, input = "51").isPreviewLethal)
-        assertFalse(editor(HitPointAdjustment.TEMPORARY, input = "51").isPreviewLethal)
-        assertFalse(editor(HitPointAdjustment.MAXIMUM, input = "51").isPreviewLethal)
+    fun `a blow whose remainder reaches the maximum outcomes as lethal`() {
+        assertEquals(PreviewOutcome.LETHAL, editor(input = "51").outcome)
+    }
+
+    @Test
+    fun `only damage can outcome as lethal`() {
+        assertEquals(PreviewOutcome.STANDING, editor(HitPointAdjustment.HEALING, input = "51").outcome)
+        assertEquals(PreviewOutcome.STANDING, editor(HitPointAdjustment.TEMPORARY, input = "51").outcome)
+        assertEquals(PreviewOutcome.STANDING, editor(HitPointAdjustment.MAXIMUM, input = "51").outcome)
     }
 
     /** Guards the promise that what the dialog shows is exactly what the view model writes. */
@@ -219,7 +222,7 @@ class HitPointsEditorStateTest {
         )
 
         assertEquals(downed.hitPoints, downed.preview)
-        assertTrue(downed.isPreviewLethal)
+        assertEquals(PreviewOutcome.LETHAL, downed.outcome)
         assertTrue(downed.isApplyEnabled)
     }
 
