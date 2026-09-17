@@ -52,5 +52,5 @@ internal val HealthLevel.color: Color
     @Composable get() = when (this) {
         HealthLevel.HIGH -> MaterialTheme.colorScheme.primary
         HealthLevel.MEDIUM -> LocalHealthColors.current.warning
-        HealthLevel.LOW -> MaterialTheme.colorScheme.error
+        HealthLevel.LOW -> LocalHealthColors.current.danger
     }
