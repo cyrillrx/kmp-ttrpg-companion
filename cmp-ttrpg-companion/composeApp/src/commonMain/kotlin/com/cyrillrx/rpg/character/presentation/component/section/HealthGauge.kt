@@ -50,7 +50,7 @@ private fun RowScope.GaugeSegment(fraction: Float, color: Color) {
 
 internal val HealthLevel.color: Color
     @Composable get() = when (this) {
-        HealthLevel.HIGH -> MaterialTheme.colorScheme.primary
+        HealthLevel.HIGH -> LocalHealthColors.current.heal
         HealthLevel.MEDIUM -> LocalHealthColors.current.warning
         HealthLevel.LOW -> LocalHealthColors.current.danger
     }
