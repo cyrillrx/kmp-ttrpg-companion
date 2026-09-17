@@ -38,7 +38,7 @@ internal fun HitPoints.toGaugeState(): HealthGaugeState {
             else -> HealthLevel.LOW
         },
         isDown = current <= MIN_HIT_POINTS,
-        ratio = "$current / $max",
+        ratio = "$current/$max",
         temporary = if (temporary > MIN_HIT_POINTS) temporary.toSignedString() else null,
     )
 }

@@ -123,7 +123,7 @@ class HealthGaugeStateTest {
 
     @Test
     fun `the ratio reads as current over maximum`() {
-        assertEquals("6 / 12", gauge(current = 6).ratio)
+        assertEquals("6/12", gauge(current = 6).ratio)
     }
 
     @Test

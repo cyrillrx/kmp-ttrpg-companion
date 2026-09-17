@@ -82,6 +82,11 @@ internal fun HealthRow(
                             color = MaterialTheme.colorScheme.error,
                         )
                     }
+                    Text(
+                        text = state.ratio,
+                        style = MaterialTheme.typography.bodyMedium,
+                        fontWeight = FontWeight.SemiBold,
+                    )
                     state.temporary?.let { temporary ->
                         Text(
                             text = temporary,
@@ -90,11 +95,6 @@ internal fun HealthRow(
                             color = MaterialTheme.colorScheme.tertiary,
                         )
                     }
-                    Text(
-                        text = state.ratio,
-                        style = MaterialTheme.typography.bodyMedium,
-                        fontWeight = FontWeight.SemiBold,
-                    )
                 }
                 HealthGauge(state)
             }
