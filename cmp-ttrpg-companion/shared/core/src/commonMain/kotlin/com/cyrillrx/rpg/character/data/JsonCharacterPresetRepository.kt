@@ -85,10 +85,8 @@ class JsonCharacterPresetRepository(
                 ?: return Result.Failure(CharacterImportError.UnknownAlignment(id, apiAlignment))
             val armorClass = armorClass
                 ?: return Result.Failure(CharacterImportError.MissingArmorClass(id))
-            val declaredMaxHitPoints = maxHitPoints
+            val maxHitPoints = maxHitPoints?.coerceAndWarn(id, "max hit points", Int::coerceToValidMaxHitPoints)
                 ?: return Result.Failure(CharacterImportError.MissingMaxHitPoints(id))
-            val maxHitPoints = declaredMaxHitPoints.coerceToValidMaxHitPoints()
-                .also { if (it != declaredMaxHitPoints) warnCoercedMaxHitPoints(id, declaredMaxHitPoints, it) }
             speeds?.walk
                 ?: return Result.Failure(CharacterImportError.MissingWalkSpeed(id))
             val apiSkills = skills
@@ -102,7 +100,7 @@ class JsonCharacterPresetRepository(
             val classLevels = apiClasses.entries.associate { (apiClass, level) ->
                 val clazz = apiClass.toClass()
                     ?: return Result.Failure(CharacterImportError.UnknownClass(id, apiClass))
-                clazz to level.coerceToValidCharacterLevel()
+                clazz to level.coerceAndWarn(id, "class level", Int::coerceToValidCharacterLevel)
             }
             val (parsedLanguages, languageErrors) = languages.orEmpty().partitionBy { lang -> lang.toLanguage(id) }
             languageErrors.forEach { println("WARNING: character preset import error: $it") }
@@ -162,9 +160,9 @@ class JsonCharacterPresetRepository(
         }
 
         // Clamping keeps the preset usable, which a Result.Failure would not; the warning is what
-        // tells the homebrew author their sheet declares hit points the rules cannot hold.
-        private fun warnCoercedMaxHitPoints(id: String, declared: Int, coerced: Int) =
-            println("WARNING: character preset '$id' max hit points $declared coerced to $coerced")
+        // tells the homebrew author their sheet declares a value the rules cannot hold.
+        private fun Int.coerceAndWarn(id: String, field: String, coerce: (Int) -> Int): Int = coerce(this)
+            .also { if (it != this) println("WARNING: character preset '$id' $field $this coerced to $it") }
 
         private fun String.toBackground(): Background? =
             Background.entries
