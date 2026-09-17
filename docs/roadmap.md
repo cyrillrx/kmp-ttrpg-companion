@@ -49,12 +49,12 @@ For detailed feature specifications, see the [PRDs](prd/).
 - [ ] Create, list and edit character sheets
   - [x] Basic character info (name, race, class, background, alignment)
   - [x] Ability scores
-  - [ ] Combat stats
+  - [x] Combat stats
     - [x] Max hit points
     - [x] Armor class
-    - [ ] Initiative
-    - [ ] Speed (base speed, in feet and meters)
-    - [ ] Current hit points
+    - [x] Initiative
+    - [x] Speed (base speed, in feet and meters)
+    - [x] Current hit points
   - [ ] Skills
   - [ ] Combat actions
   - [ ] Inventory

@@ -22,4 +22,16 @@ class CreatureFormatTest {
         // 5 ft converts to 1.5 m
         assertEquals(expected = "1.5 m", actual = 5.toDistanceString(DistanceUnit.METERS))
     }
+
+    @Test
+    fun `toDistanceValue in feet keeps the amount as is`() {
+        assertEquals(expected = "30", actual = 30.toDistanceValue(DistanceUnit.FEET))
+    }
+
+    @Test
+    fun `toDistanceValue in meters converts without the suffix`() {
+        // 10 ft converts to 3.0 m, 5 ft to 1.5 m
+        assertEquals(expected = "3", actual = 10.toDistanceValue(DistanceUnit.METERS))
+        assertEquals(expected = "1.5", actual = 5.toDistanceValue(DistanceUnit.METERS))
+    }
 }

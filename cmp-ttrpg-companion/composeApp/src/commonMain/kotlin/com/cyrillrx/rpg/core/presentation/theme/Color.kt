@@ -41,13 +41,22 @@ val OnErrorDark = Color(0xFF690005)
 val ErrorContainerDark = Color(0xFF93000A)
 val OnErrorContainerDark = Color(0xFFFFDAD6)
 
-// Health colors — palette-agnostic like the error block above: healing reads green whatever palette
-// the player picked. Damage reuses the error red.
+// Health colors — palette-agnostic like the error block above: a healthy pool and healing read green
+// and a dwindling pool reads amber whatever palette the player picked. Following colorScheme.primary
+// for the healthy segment would tie it to the palette: the Dragon one is red by construction, which
+// left a full bar and a critical one the same colour.
+// A critical pool fills with Danger rather than colorScheme.error: the Material dark error tone is a
+// pale salmon meant for text drawn on a surface, and a bar filled with it reads no redder than the
+// amber it replaces. The error colour stays where it belongs, on the badge and the damage button.
 val HealLight = Color(0xFF2E7D32)
 val HealContainerLight = Color(0xFFC8E6C9)
+val WarningLight = Color(0xFFE65100)
+val DangerLight = Color(0xFFC62828)
 
 val HealDark = Color(0xFF81C784)
 val HealContainerDark = Color(0xFF1B5E20)
+val WarningDark = Color(0xFFFFB74D)
+val DangerDark = Color(0xFFE57373)
 
 // Domain / category accent colors — fixed brand hues, theme-independent.
 val WeaponColor = Color(0xFF9B0B4E)

@@ -49,9 +49,9 @@ Campaign integration (attaching sheets to a campaign, sharing with other players
 
 **Combat Stats**
 - [x] Armor Class (AC)
-- [ ] Initiative (calculated from DEX modifier by default; trait/feat bonuses handled in a later phase)
-- [ ] Speed
-- [ ] Current HP, Maximum HP, Temporary HP
+- [x] Initiative (calculated from DEX modifier by default; trait/feat bonuses handled in a later phase)
+- [x] Speed
+- [x] Current HP, Maximum HP, Temporary HP
 - [ ] Hit Dice (calculated from `level + class.hitDie`, not stored — see [ADR-001 §9](../adr/adr-001-data-model.md))
 
 **Skills & Proficiencies**
