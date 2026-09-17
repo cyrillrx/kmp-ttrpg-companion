@@ -48,8 +48,12 @@ fun Int.coerceToValidCharacterLevel(): Int = coerceIn(MIN_CHARACTER_LEVEL, MAX_C
 fun Int.coerceToValidAbilityScore(): Int = coerceIn(MIN_ABILITY_SCORE, MAX_ABILITY_SCORE)
 fun Int.coerceToValidArmorClass(): Int = coerceIn(MIN_ARMOR_CLASS, MAX_ARMOR_CLASS)
 fun Int.coerceToValidMaxHitPoints(): Int = coerceIn(MIN_MAX_HIT_POINTS, MAX_HIT_POINTS)
-fun Int.coerceToValidCurrentHitPoints(maxHitPoints: Int): Int = coerceIn(MIN_HIT_POINTS, maxHitPoints)
 fun Int.coerceToValidHitPointAmount(): Int = coerceIn(MIN_HIT_POINTS, MAX_HIT_POINTS)
+
+// coerceIn throws when the upper bound is below the lower one, and the maximum comes from stored
+// data no validation guards: a corrupt sheet would crash the editor instead of reading as empty.
+fun Int.coerceToValidCurrentHitPoints(maxHitPoints: Int): Int =
+    coerceIn(MIN_HIT_POINTS, maxHitPoints.coerceAtLeast(MIN_HIT_POINTS))
 
 private fun Float.coerceToNearestStep(step: Float, min: Float, max: Float): Float {
     val rounded = (this / step).roundToInt() * step

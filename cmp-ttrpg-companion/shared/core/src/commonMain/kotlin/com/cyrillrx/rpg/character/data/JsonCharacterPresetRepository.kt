@@ -85,7 +85,7 @@ class JsonCharacterPresetRepository(
                 ?: return Result.Failure(CharacterImportError.UnknownAlignment(id, apiAlignment))
             val armorClass = armorClass
                 ?: return Result.Failure(CharacterImportError.MissingArmorClass(id))
-            val maxHitPoints = maxHitPoints?.coerceToValidMaxHitPoints()
+            val maxHitPoints = maxHitPoints?.coerceAndWarn(id, "max hit points", Int::coerceToValidMaxHitPoints)
                 ?: return Result.Failure(CharacterImportError.MissingMaxHitPoints(id))
             speeds?.walk
                 ?: return Result.Failure(CharacterImportError.MissingWalkSpeed(id))
@@ -100,7 +100,7 @@ class JsonCharacterPresetRepository(
             val classLevels = apiClasses.entries.associate { (apiClass, level) ->
                 val clazz = apiClass.toClass()
                     ?: return Result.Failure(CharacterImportError.UnknownClass(id, apiClass))
-                clazz to level.coerceToValidCharacterLevel()
+                clazz to level.coerceAndWarn(id, "class level", Int::coerceToValidCharacterLevel)
             }
             val (parsedLanguages, languageErrors) = languages.orEmpty().partitionBy { lang -> lang.toLanguage(id) }
             languageErrors.forEach { println("WARNING: character preset import error: $it") }
@@ -158,6 +158,11 @@ class JsonCharacterPresetRepository(
                 ),
             )
         }
+
+        // Clamping keeps the preset usable, which a Result.Failure would not; the warning is what
+        // tells the homebrew author their sheet declares a value the rules cannot hold.
+        private fun Int.coerceAndWarn(id: String, field: String, coerce: (Int) -> Int): Int = coerce(this)
+            .also { if (it != this) println("WARNING: character preset '$id' $field $this coerced to $it") }
 
         private fun String.toBackground(): Background? =
             Background.entries

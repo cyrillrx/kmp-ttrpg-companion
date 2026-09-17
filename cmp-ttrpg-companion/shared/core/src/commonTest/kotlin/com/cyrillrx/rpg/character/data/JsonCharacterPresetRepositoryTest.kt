@@ -104,6 +104,15 @@ class JsonCharacterPresetRepositoryTest {
     }
 
     @Test
+    fun `preset with out-of-range max hit points is clamped and kept`() = runTest {
+        val tooHigh = repository(preset(maxHitPoints = 1200)).getAll(null).first().value
+        assertEquals(999, tooHigh.maxHitPoints)
+
+        val tooLow = repository(preset(maxHitPoints = 0)).getAll(null).first().value
+        assertEquals(1, tooLow.maxHitPoints)
+    }
+
+    @Test
     fun `multiclass preset keeps every class with its own level`() = runTest {
         val json = preset(classes = """{"fighter": 3, "rogue": 2}""")
 
