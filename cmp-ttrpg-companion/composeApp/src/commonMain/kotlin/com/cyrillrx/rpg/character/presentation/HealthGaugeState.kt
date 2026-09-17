@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.character.presentation
 
 import com.cyrillrx.rpg.character.domain.HitPoints
 import com.cyrillrx.rpg.character.domain.MIN_HIT_POINTS
+import com.cyrillrx.rpg.character.domain.isDown
 import com.cyrillrx.rpg.core.domain.toSignedString
 
 private const val HIGH_THRESHOLD = 0.5f
@@ -37,7 +38,7 @@ internal fun HitPoints.toGaugeState(): HealthGaugeState {
             ratioToMax > MEDIUM_THRESHOLD -> HealthLevel.MEDIUM
             else -> HealthLevel.LOW
         },
-        isDown = current <= MIN_HIT_POINTS,
+        isDown = isDown,
         ratio = "$current/$max",
         temporary = if (temporary > MIN_HIT_POINTS) temporary.toSignedString() else null,
     )
