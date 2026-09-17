@@ -11,6 +11,7 @@ internal enum class HealthLevel { HIGH, MEDIUM, LOW }
 
 internal data class HealthGaugeState(
     val currentFraction: Float,
+    val missingFraction: Float,
     val temporaryFraction: Float,
     val level: HealthLevel,
     val isDown: Boolean,
@@ -19,15 +20,17 @@ internal data class HealthGaugeState(
 )
 
 /**
- * The gauge spans [HitPoints.max] plus [HitPoints.temporary], so temporary hit points show up beyond
- * the maximum the way they stack on top of it in play. The colour threshold ignores them: they are a
- * buffer, not health.
+ * The gauge spans [HitPoints.max] plus [HitPoints.temporary], and the missing health keeps its place
+ * between the two, so temporary hit points show up beyond the maximum the way they stack on top of it
+ * in play. The colour threshold ignores them: they are a buffer, not health.
  */
 internal fun HitPoints.toGaugeState(): HealthGaugeState {
     val total = max + temporary
     val ratioToMax = if (max > 0) current.toFloat() / max else 0f
+    val filled = current.coerceAtLeast(MIN_HIT_POINTS).coerceAtMost(max)
     return HealthGaugeState(
-        currentFraction = if (total > 0) current.toFloat() / total else 0f,
+        currentFraction = if (total > 0) filled.toFloat() / total else 0f,
+        missingFraction = if (total > 0) (max - filled).toFloat() / total else 0f,
         temporaryFraction = if (total > 0) temporary.toFloat() / total else 0f,
         level = when {
             ratioToMax > HIGH_THRESHOLD -> HealthLevel.HIGH

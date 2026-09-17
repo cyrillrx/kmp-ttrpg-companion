@@ -23,7 +23,6 @@ internal fun HealthGauge(
     state: HealthGaugeState,
     modifier: Modifier = Modifier,
 ) {
-    val remainingFraction = 1f - state.currentFraction - state.temporaryFraction
     Row(
         modifier = modifier
             .fillMaxWidth()
@@ -33,8 +32,8 @@ internal fun HealthGauge(
     ) {
         // A zero weight is not a valid constraint, so an empty segment is left out rather than sized.
         GaugeSegment(state.currentFraction, state.level.color)
+        if (state.missingFraction > 0f) Spacer(Modifier.weight(state.missingFraction))
         GaugeSegment(state.temporaryFraction, MaterialTheme.colorScheme.tertiary)
-        if (remainingFraction > 0f) Spacer(Modifier.weight(remainingFraction))
     }
 }
 

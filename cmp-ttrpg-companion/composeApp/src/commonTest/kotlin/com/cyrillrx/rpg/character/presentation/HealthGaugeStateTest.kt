@@ -19,6 +19,7 @@ class HealthGaugeStateTest {
         val state = gauge(current = 6)
 
         assertEquals(0.5f, state.currentFraction)
+        assertEquals(0.5f, state.missingFraction)
         assertEquals(0f, state.temporaryFraction)
     }
 
@@ -27,17 +28,47 @@ class HealthGaugeStateTest {
         val state = gauge(current = 6, temporary = 5)
 
         assertEquals(6f / 17f, state.currentFraction)
+        assertEquals(6f / 17f, state.missingFraction)
         assertEquals(5f / 17f, state.temporaryFraction)
     }
 
     @Test
+    fun `the temporary segment starts where the maximum ends`() {
+        val state = gauge(current = 6, temporary = 5)
+
+        assertEquals(12f / 17f, state.currentFraction + state.missingFraction)
+    }
+
+    @Test
     fun `a full character with no temporary pool fills the whole gauge`() {
-        assertEquals(1f, gauge(current = 12).currentFraction)
+        val state = gauge(current = 12)
+
+        assertEquals(1f, state.currentFraction)
+        assertEquals(0f, state.missingFraction)
     }
 
     @Test
     fun `a downed character fills nothing`() {
-        assertEquals(0f, gauge(current = 0).currentFraction)
+        val state = gauge(current = 0)
+
+        assertEquals(0f, state.currentFraction)
+        assertEquals(1f, state.missingFraction)
+    }
+
+    @Test
+    fun `hit points above the maximum do not overflow the gauge`() {
+        val state = gauge(current = 15)
+
+        assertEquals(1f, state.currentFraction)
+        assertEquals(0f, state.missingFraction)
+    }
+
+    @Test
+    fun `hit points below zero leave the gauge empty`() {
+        val state = gauge(current = -3)
+
+        assertEquals(0f, state.currentFraction)
+        assertEquals(1f, state.missingFraction)
     }
 
     @Test
@@ -45,6 +76,7 @@ class HealthGaugeStateTest {
         val state = gauge(current = 0, max = 0)
 
         assertEquals(0f, state.currentFraction)
+        assertEquals(0f, state.missingFraction)
         assertEquals(0f, state.temporaryFraction)
     }
 
