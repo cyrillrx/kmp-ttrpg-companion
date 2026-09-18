@@ -12,6 +12,8 @@ import com.cyrillrx.rpg.core.domain.toSignedString
 
 private val maxInputLength = MAX_HIT_POINTS.toString().length
 
+internal enum class PreviewOutcome { STANDING, DOWN, LETHAL }
+
 internal data class HitPointsEditorState(
     val hitPoints: HitPoints,
     val adjustment: HitPointAdjustment,
@@ -28,12 +30,16 @@ internal data class HitPointsEditorState(
 
     // A killing blow on a character already at zero moves no pool, but refusing it would contradict
     // the badge announcing it.
-    val isApplyEnabled: Boolean get() = hasValidAmount && (preview != hitPoints || isPreviewLethal)
+    val isApplyEnabled: Boolean
+        get() = hasValidAmount && (preview != hitPoints || outcome == PreviewOutcome.LETHAL)
 
-    val isPreviewDown: Boolean get() = preview.isDown
-
-    val isPreviewLethal: Boolean
-        get() = adjustment == HitPointAdjustment.DAMAGE && hitPoints.isLethalDamage(amount)
+    // A lethal blow always empties the pool, so the two cases are ordered rather than combined.
+    val outcome: PreviewOutcome
+        get() = when {
+            adjustment == HitPointAdjustment.DAMAGE && hitPoints.isLethalDamage(amount) -> PreviewOutcome.LETHAL
+            preview.isDown -> PreviewOutcome.DOWN
+            else -> PreviewOutcome.STANDING
+        }
 
     // A shortcut adds to the typed amount, which only reads as a delta on damage and healing:
     // the temporary and maximum amounts replace the pool rather than move it.
