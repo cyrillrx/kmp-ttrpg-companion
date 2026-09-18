@@ -169,7 +169,7 @@ private fun ResultCard(editor: HitPointsEditorState) {
                     when (editor.outcome) {
                         PreviewOutcome.LETHAL -> OutcomeBadge(Res.string.badge_dead)
                         PreviewOutcome.DOWN -> OutcomeBadge(Res.string.badge_down)
-                        PreviewOutcome.STANDING -> Unit
+                        PreviewOutcome.STANDING, PreviewOutcome.NONE -> Unit
                     }
                 }
             }

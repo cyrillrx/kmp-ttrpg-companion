@@ -138,6 +138,16 @@ class HitPointsEditorStateTest {
     }
 
     @Test
+    fun `an empty keypad previews no outcome on a character already down`() {
+        val downed = HitPointsEditorState(
+            hitPoints = HitPoints(current = 0, max = 24, temporary = 0),
+            adjustment = HitPointAdjustment.DAMAGE,
+        )
+
+        assertEquals(PreviewOutcome.NONE, downed.outcome)
+    }
+
+    @Test
     fun `a blow whose remainder reaches the maximum previews as lethal`() {
         assertEquals(PreviewOutcome.LETHAL, editor(input = "51").outcome)
     }
