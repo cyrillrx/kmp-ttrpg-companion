@@ -128,22 +128,22 @@ class HitPointsEditorStateTest {
     }
 
     @Test
-    fun `a blow the character walks away from outcomes as standing`() {
+    fun `a blow the character walks away from previews as standing`() {
         assertEquals(PreviewOutcome.STANDING, editor(input = "8").outcome)
     }
 
     @Test
-    fun `a blow that empties the pool outcomes as down`() {
+    fun `a blow that empties the pool previews as down`() {
         assertEquals(PreviewOutcome.DOWN, editor(input = "50").outcome)
     }
 
     @Test
-    fun `a blow whose remainder reaches the maximum outcomes as lethal`() {
+    fun `a blow whose remainder reaches the maximum previews as lethal`() {
         assertEquals(PreviewOutcome.LETHAL, editor(input = "51").outcome)
     }
 
     @Test
-    fun `only damage can outcome as lethal`() {
+    fun `only damage can preview as lethal`() {
         assertEquals(PreviewOutcome.STANDING, editor(HitPointAdjustment.HEALING, input = "51").outcome)
         assertEquals(PreviewOutcome.STANDING, editor(HitPointAdjustment.TEMPORARY, input = "51").outcome)
         assertEquals(PreviewOutcome.STANDING, editor(HitPointAdjustment.MAXIMUM, input = "51").outcome)
