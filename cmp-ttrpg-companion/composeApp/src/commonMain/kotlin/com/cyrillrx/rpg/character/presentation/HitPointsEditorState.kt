@@ -12,7 +12,7 @@ import com.cyrillrx.rpg.core.domain.toSignedString
 
 private val maxInputLength = MAX_HIT_POINTS.toString().length
 
-internal enum class PreviewOutcome { STANDING, DOWN, LETHAL }
+internal enum class PreviewOutcome { NONE, STANDING, DOWN, LETHAL }
 
 internal data class HitPointsEditorState(
     val hitPoints: HitPoints,
@@ -33,9 +33,12 @@ internal data class HitPointsEditorState(
     val isApplyEnabled: Boolean
         get() = hasValidAmount && (preview != hitPoints || outcome == PreviewOutcome.LETHAL)
 
-    // A lethal blow always empties the pool, so the two cases are ordered rather than combined.
+    // NONE is no blow to speak of, which is not the same as a blow they walk away from: an empty
+    // keypad announces nothing even on a character who is already down. A lethal blow always
+    // empties the pool, so the two remaining cases are ordered rather than combined.
     val outcome: PreviewOutcome
         get() = when {
+            !hasValidAmount -> PreviewOutcome.NONE
             adjustment == HitPointAdjustment.DAMAGE && hitPoints.isLethalDamage(amount) -> PreviewOutcome.LETHAL
             preview.isDown -> PreviewOutcome.DOWN
             else -> PreviewOutcome.STANDING
