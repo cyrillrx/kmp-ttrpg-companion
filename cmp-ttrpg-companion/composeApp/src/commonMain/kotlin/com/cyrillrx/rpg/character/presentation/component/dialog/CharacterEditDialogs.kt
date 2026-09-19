@@ -264,7 +264,7 @@ private fun NumberStepperDialog(
     step: Int = 1,
     valueLabel: (Int) -> String = { it.toString() },
 ) {
-    var value by remember(initialValue) { mutableIntStateOf(initialValue.coerceIn(minValue, maxValue)) }
+    var value by remember(initialValue) { mutableIntStateOf(initialValue) }
     EditDialog(
         title = title,
         onDismiss = onDismiss,
@@ -275,8 +275,8 @@ private fun NumberStepperDialog(
             minValue = minValue,
             maxValue = maxValue,
             valueLabel = valueLabel(value),
-            onDecrement = { value = (value - step).coerceAtLeast(minValue) },
-            onIncrement = { value = (value + step).coerceAtMost(maxValue) },
+            onDecrement = { value = (value - step).coerceIn(minValue, maxValue) },
+            onIncrement = { value = (value + step).coerceIn(minValue, maxValue) },
         )
     }
 }
