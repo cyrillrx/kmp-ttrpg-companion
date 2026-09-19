@@ -30,7 +30,6 @@ import com.cyrillrx.rpg.character.domain.MAX_WALK_SPEED_FT
 import com.cyrillrx.rpg.character.domain.MIN_ARMOR_CLASS
 import com.cyrillrx.rpg.character.domain.MIN_WALK_SPEED_FT
 import com.cyrillrx.rpg.character.domain.Race
-import com.cyrillrx.rpg.character.domain.coerceToValidWalkSpeedInFeet
 import com.cyrillrx.rpg.character.domain.hitPoints
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
 import com.cyrillrx.rpg.character.presentation.CharacterEditState.Loaded.EditingField
@@ -188,7 +187,7 @@ internal fun CharacterEditDialog(
             }
             NumberStepperDialog(
                 title = stringResource(Res.string.label_walk_speed, stringResource(unitAbbrRes)),
-                initialValue = state.character.speeds.walk.coerceToValidWalkSpeedInFeet(),
+                initialValue = state.character.speeds.walk,
                 minValue = MIN_WALK_SPEED_FT,
                 maxValue = MAX_WALK_SPEED_FT,
                 onConfirm = onWalkSpeedConfirmed,
