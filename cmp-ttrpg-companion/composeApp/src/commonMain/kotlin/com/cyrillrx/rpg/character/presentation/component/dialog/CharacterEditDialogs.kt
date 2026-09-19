@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.MaterialTheme
@@ -21,14 +20,15 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontStyle
-import androidx.compose.ui.text.input.KeyboardType
 import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.ClassLevels
 import com.cyrillrx.rpg.character.domain.HitPointAdjustment
 import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.MAX_ARMOR_CLASS
+import com.cyrillrx.rpg.character.domain.MAX_WALK_SPEED_FT
 import com.cyrillrx.rpg.character.domain.MIN_ARMOR_CLASS
+import com.cyrillrx.rpg.character.domain.MIN_WALK_SPEED_FT
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.domain.hitPoints
 import com.cyrillrx.rpg.character.presentation.CharacterEditState
@@ -42,6 +42,7 @@ import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
 import com.cyrillrx.rpg.core.presentation.component.dnd.sortedByLocalizedName
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.format.getFontWeight
+import com.cyrillrx.rpg.core.presentation.format.toDistanceValue
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.creature.domain.Abilities
@@ -49,8 +50,7 @@ import com.cyrillrx.rpg.creature.domain.AbilityScore
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.Skill
 import com.cyrillrx.rpg.creature.domain.Skills
-import com.cyrillrx.rpg.dnd.domain.feetToMeters
-import com.cyrillrx.rpg.dnd.domain.metersToFeet
+import com.cyrillrx.rpg.dnd.domain.DND_FEET_STEP
 import com.cyrillrx.rpg.settings.domain.DistanceUnit
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
@@ -181,27 +181,20 @@ internal fun CharacterEditDialog(
 
         EditingField.WalkSpeed -> {
             val unit = LocalDistanceUnit.current
-            val walkFeet = state.character.speeds.walk
             val unitAbbrRes = when (unit) {
                 DistanceUnit.FEET -> Res.string.settings_unit_feet_abbr
                 DistanceUnit.METERS -> Res.string.settings_unit_meters_abbr
             }
-            val title = stringResource(Res.string.label_walk_speed, stringResource(unitAbbrRes))
-            when (unit) {
-                DistanceUnit.FEET -> NumberEditDialog(
-                    title = title,
-                    initialValue = walkFeet,
-                    onConfirm = onWalkSpeedConfirmed,
-                    onDismiss = onDismiss,
-                )
-
-                DistanceUnit.METERS -> FloatEditDialog(
-                    title = title,
-                    initialValue = walkFeet.feetToMeters(),
-                    onConfirm = { entered -> onWalkSpeedConfirmed(entered.metersToFeet()) },
-                    onDismiss = onDismiss,
-                )
-            }
+            NumberStepperDialog(
+                title = stringResource(Res.string.label_walk_speed, stringResource(unitAbbrRes)),
+                initialValue = state.character.speeds.walk,
+                minValue = MIN_WALK_SPEED_FT,
+                maxValue = MAX_WALK_SPEED_FT,
+                onConfirm = onWalkSpeedConfirmed,
+                onDismiss = onDismiss,
+                step = DND_FEET_STEP,
+                valueLabel = { it.toDistanceValue(unit) },
+            )
         }
 
         EditingField.Race -> SingleChoiceDialog(
@@ -268,6 +261,8 @@ private fun NumberStepperDialog(
     maxValue: Int,
     onConfirm: (Int) -> Unit,
     onDismiss: () -> Unit,
+    step: Int = 1,
+    valueLabel: (Int) -> String = { it.toString() },
 ) {
     var value by remember(initialValue) { mutableIntStateOf(initialValue.coerceIn(minValue, maxValue)) }
     EditDialog(
@@ -279,55 +274,9 @@ private fun NumberStepperDialog(
             value = value,
             minValue = minValue,
             maxValue = maxValue,
-            onDecrement = { value-- },
-            onIncrement = { value++ },
-        )
-    }
-}
-
-@Composable
-private fun NumberEditDialog(
-    title: String,
-    initialValue: Int,
-    onConfirm: (Int) -> Unit,
-    onDismiss: () -> Unit,
-) {
-    var text by remember(initialValue) { mutableStateOf(initialValue.toString()) }
-    val parsedValue = text.trim().toIntOrNull()
-    EditDialog(
-        title = title,
-        onDismiss = onDismiss,
-        onConfirm = { parsedValue?.let(onConfirm) },
-        confirmEnabled = parsedValue != null,
-    ) {
-        DialogTextField(
-            value = text,
-            onValueChange = { text = it },
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-        )
-    }
-}
-
-@Composable
-private fun FloatEditDialog(
-    title: String,
-    initialValue: Float,
-    onConfirm: (Float) -> Unit,
-    onDismiss: () -> Unit,
-) {
-    val initialText = if (initialValue % 1 == 0f) initialValue.toInt().toString() else initialValue.toString()
-    var text by remember(initialValue) { mutableStateOf(initialText) }
-    val parsedValue = text.trim().toFloatOrNull()
-    EditDialog(
-        title = title,
-        onDismiss = onDismiss,
-        onConfirm = { parsedValue?.let(onConfirm) },
-        confirmEnabled = parsedValue != null,
-    ) {
-        DialogTextField(
-            value = text,
-            onValueChange = { text = it },
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
+            valueLabel = valueLabel(value),
+            onDecrement = { value = (value - step).coerceAtLeast(minValue) },
+            onIncrement = { value = (value + step).coerceAtMost(maxValue) },
         )
     }
 }
