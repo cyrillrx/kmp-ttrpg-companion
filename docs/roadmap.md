@@ -3,6 +3,8 @@
 This document tracks the macro vision and planned phases for the TTRPG Companion app.
 For detailed feature specifications, see the [PRDs](prd/).
 
+**Current focus** — UI & Polish, then the remaining Phase 5 items.
+
 ## Phase 1 - Cleanup + `HomeScreen` revamp
 
 > Resolve open design decisions before moving forward.
@@ -38,6 +40,7 @@ For detailed feature specifications, see the [PRDs](prd/).
   - [x] Spells: structured components, concentration/ritual flags, complete class list
   - [x] Magical items: typed fields normalized
   - [x] Creatures: full stat block (speed, senses, skills, saving throws, damage affinities); character model coherence
+  - [ ] Descriptions: handle the source links (aidedd) carried in imported text
 - [ ] Fetch public reference data from backend (spells, items, creatures)
 - [ ] Develop the sync engine on which will rely all sync logic and conflict resolution
 - [ ] Sync collections with backend
@@ -55,10 +58,12 @@ For detailed feature specifications, see the [PRDs](prd/).
     - [x] Initiative
     - [x] Speed (base speed, in feet and meters)
     - [x] Current hit points
-  - [ ] Skills
+  - [x] Skills
   - [ ] Combat actions
   - [ ] Inventory
 - [x] Persist `Character` with SQLDelight
+- [ ] Sort the character sheet list by last modified or by name — needs a `lastModified` field on `Character`, hence a SQLDelight migration
+- [ ] Expand the PC and NPC preset gallery
 - [ ] Sync character sheets with backend
 
 ## Phase 6 - Notes
@@ -89,10 +94,27 @@ For detailed feature specifications, see the [PRDs](prd/).
 
 - [ ] Link notes to other entities (simple reference or inline)
 
+## UI & Polish
+
+> Cross-cutting interface work, independent of the phases above.
+
+- [ ] Sort the Compendium lists alphabetically
+- [ ] Sort the filter values alphabetically (#210)
+- [ ] Harmonize the detail pages and their Markdown rendering (oversized titles)
+- [ ] Compendium detail: revisit how the type and sub-type are presented (#198, #200)
+- [ ] Browse from one item to the next by swiping through a list
+
 ## Standalone Features
 
 > Independent features with no hard dependencies on other phases.
 
+- [ ] Export a character sheet
 - [ ] Dice roller - [PRD-006](prd/prd-006-dice.md)
 - [ ] Generator gallery (curated tables) - [PRD-005](prd/prd-005-generators.md)
 - [ ] AI-based generators - feasibility study required [PRD-005](prd/prd-005-generators.md)
+
+## Exploration
+
+> Ideas to qualify before they become phases.
+
+- [ ] Split the app into focused mini apps, each covering one subset (spells, items, creatures, characters)
