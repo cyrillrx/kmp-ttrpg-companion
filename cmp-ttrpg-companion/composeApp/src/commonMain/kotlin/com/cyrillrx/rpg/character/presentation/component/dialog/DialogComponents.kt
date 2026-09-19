@@ -34,6 +34,7 @@ internal fun DecrementIncrementRow(
     onDecrement: () -> Unit,
     onIncrement: () -> Unit,
     modifier: Modifier = Modifier,
+    valueLabel: String = value.toString(),
     onRemoveAtMin: (() -> Unit)? = null,
     removeAtMinEnabled: Boolean = true,
     removeAtMinContentDescription: String? = null,
@@ -64,7 +65,7 @@ internal fun DecrementIncrementRow(
             }
         }
         Text(
-            text = value.toString(),
+            text = valueLabel,
             style = MaterialTheme.typography.displaySmall,
             fontWeight = FontWeight.Bold,
         )

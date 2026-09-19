@@ -17,8 +17,8 @@ const val MAX_HIT_POINTS = 999
 private const val WALK_SPEED_SLOW_FT = 25
 private const val WALK_SPEED_STANDARD_FT = 30
 
-private const val MIN_WALK_SPEED_FT = 25
-private const val MAX_WALK_SPEED_FT = 120
+const val MIN_WALK_SPEED_FT = 25
+const val MAX_WALK_SPEED_FT = 120
 private const val MIN_WALK_SPEED_M = 7.5f
 private const val MAX_WALK_SPEED_M = 36f
 
