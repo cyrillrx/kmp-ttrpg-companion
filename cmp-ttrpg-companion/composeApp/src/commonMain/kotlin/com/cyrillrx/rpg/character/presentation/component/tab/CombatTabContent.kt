@@ -30,7 +30,7 @@ internal fun CombatTabContent(
     HealthRow(
         hitPoints = state.character.hitPoints,
         onGaugeTapped = { onFieldTapped(EditingField.Health(HitPointAdjustment.MAXIMUM)) },
-        onDamageTapped = { onFieldTapped(EditingField.Health(HitPointAdjustment.DAMAGE)) },
         onHealTapped = { onFieldTapped(EditingField.Health(HitPointAdjustment.HEALING)) },
+        onDamageTapped = { onFieldTapped(EditingField.Health(HitPointAdjustment.DAMAGE)) },
     )
 }
