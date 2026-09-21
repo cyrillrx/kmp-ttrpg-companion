@@ -1,5 +1,7 @@
 package com.cyrillrx.rpg.spell.presentation.viewmodel
 
+import com.cyrillrx.core.domain.sortedByLocalizedName
+import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.core.domain.toggled
 import com.cyrillrx.rpg.core.presentation.viewmodel.SearchableListViewModel
@@ -14,6 +16,7 @@ import rpg_companion.composeapp.generated.resources.error_while_loading_spells
 
 class SpellListViewModel(
     private val repository: SpellRepository,
+    private val locale: String = currentLocale(),
 ) : SearchableListViewModel<SpellListState, SpellListState.Body>(
         initialState = SpellListState(body = SpellListState.Body.Loading),
     ) {
@@ -65,6 +68,7 @@ class SpellListViewModel(
 
     override suspend fun loadContent(): SpellListState.Body {
         val spells = repository.getAll(mutableState.value.filter)
+            .sortedByLocalizedName { it.resolveTranslation(locale).name }
         return if (spells.isEmpty()) {
             SpellListState.Body.Empty
         } else {

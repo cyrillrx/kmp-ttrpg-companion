@@ -243,6 +243,31 @@ class MonsterListViewModelTest {
 
         assertIs<MonsterListState.Body.Error>(viewModel.state.value.body)
     }
+
+    @Test
+    fun `monsters are ordered by their localized name`() = runTest(testDispatcher) {
+        val viewModel = MonsterListViewModel(repository, locale = "en")
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        val body = assertIs<MonsterListState.Body.WithData>(viewModel.state.value.body)
+        assertEquals(
+            expected = listOf(
+                "Balor",
+                "Celestial Fiend",
+                "Dire Wolf",
+                "Gelatinous Cube",
+                "Goblin",
+                "Skeleton",
+                "Young Red Dragon",
+            ),
+            actual = body.searchResults.map { it.resolveTranslation("en").name },
+        )
+    }
 }
 
 private class FailingMonsterRepository : MonsterRepository {

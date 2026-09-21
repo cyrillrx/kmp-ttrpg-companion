@@ -258,6 +258,40 @@ class SpellListViewModelTest {
 
         assertIs<SpellListState.Body.Error>(viewModel.state.value.body)
     }
+
+    @Test
+    fun `spells are ordered by their localized name`() = runTest(testDispatcher) {
+        val viewModel = SpellListViewModel(repository, locale = "en")
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        val body = assertIs<SpellListState.Body.WithData>(viewModel.state.value.body)
+        assertEquals(
+            expected = listOf("Counterspell", "Detect Thoughts", "Fireball", "Mage Armor", "Thunderwave"),
+            actual = body.searchResults.map { it.resolveTranslation("en").name },
+        )
+    }
+
+    @Test
+    fun `spells missing a translation are ordered on the fallback name`() = runTest(testDispatcher) {
+        val viewModel = SpellListViewModel(repository, locale = "fr")
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        val body = assertIs<SpellListState.Body.WithData>(viewModel.state.value.body)
+        assertEquals(
+            expected = listOf("Boule de feu", "Counterspell", "Detect Thoughts", "Mage Armor", "Thunderwave"),
+            actual = body.searchResults.map { it.resolveTranslation("fr").name },
+        )
+    }
 }
 
 private class FailingSpellRepository : SpellRepository {
