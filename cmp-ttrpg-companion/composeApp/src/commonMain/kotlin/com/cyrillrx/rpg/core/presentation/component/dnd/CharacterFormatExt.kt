@@ -101,6 +101,7 @@ import rpg_companion.composeapp.generated.resources.skill_sleight_of_hand
 import rpg_companion.composeapp.generated.resources.skill_stealth
 import rpg_companion.composeapp.generated.resources.skill_survival
 import rpg_companion.composeapp.generated.resources.value_race_classes
+import kotlin.jvm.JvmName
 
 @Composable
 fun Background?.toFormattedString(): String {
@@ -252,6 +253,16 @@ fun Character.Class.toFormattedString(): String {
         Character.Class.UNKNOWN -> Res.string.class_unknown
     }
     return stringResource(stringRes)
+}
+
+// Same JVM signature as the Skill overload above once the generics are erased.
+@JvmName("sortedClassesByLocalizedName")
+@Composable
+fun List<Character.Class>.sortedByLocalizedName(): List<Character.Class> {
+    val localizedNames = associateWith { it.toFormattedString() }
+    return remember(localizedNames) {
+        sortedByLocalizedName { localizedNames.getValue(it) }
+    }
 }
 
 @Composable

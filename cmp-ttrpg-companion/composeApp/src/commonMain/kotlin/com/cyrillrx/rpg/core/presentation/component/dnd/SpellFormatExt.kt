@@ -1,6 +1,8 @@
 package com.cyrillrx.rpg.core.presentation.component.dnd
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import com.cyrillrx.core.domain.sortedByLocalizedName
 import com.cyrillrx.rpg.spell.domain.Spell
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
@@ -57,6 +59,14 @@ fun Spell.School.toFormattedString(): String {
         Spell.School.TRANSMUTATION -> Res.string.school_transmutation
     }
     return stringResource(stringRes)
+}
+
+@Composable
+fun List<Spell.School>.sortedByLocalizedName(): List<Spell.School> {
+    val localizedNames = associateWith { it.toFormattedString() }
+    return remember(localizedNames) {
+        sortedByLocalizedName { localizedNames.getValue(it) }
+    }
 }
 
 @Composable
