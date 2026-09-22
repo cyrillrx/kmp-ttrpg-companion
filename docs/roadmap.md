@@ -62,7 +62,7 @@ For detailed feature specifications, see the [PRDs](prd/).
   - [ ] Combat actions
   - [ ] Inventory
 - [x] Persist `Character` with SQLDelight
-- [ ] Sort the character sheet list by last modified or by name — needs a `lastModified` field on `Character`, hence a SQLDelight migration
+- [ ] Let the user order the character sheet list by name or by last modified — the stored `updatedAt` already drives the default order, so only the choice is missing
 - [ ] Expand the PC and NPC preset gallery
 - [ ] Sync character sheets with backend
 
@@ -98,8 +98,9 @@ For detailed feature specifications, see the [PRDs](prd/).
 
 > Cross-cutting interface work, independent of the phases above.
 
-- [ ] Sort the Compendium lists alphabetically
-- [ ] Sort the filter values alphabetically (#210)
+- [ ] Sort the Compendium lists alphabetically (#247)
+- [ ] Sort the filter values alphabetically (#210, #248)
+- [ ] Let the user order a collection by name or by when its entries were added
 - [ ] Harmonize the detail pages and their Markdown rendering (oversized titles)
 - [ ] Compendium detail: revisit how the type and sub-type are presented (#198, #200)
 - [ ] Browse from one item to the next by swiping through a list
