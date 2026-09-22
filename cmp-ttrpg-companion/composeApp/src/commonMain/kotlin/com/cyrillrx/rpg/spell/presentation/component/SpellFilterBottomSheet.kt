@@ -23,6 +23,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.core.presentation.component.FilterSection
 import com.cyrillrx.rpg.core.presentation.component.FilterSheetHeader
+import com.cyrillrx.rpg.core.presentation.component.dnd.sortedByLocalizedName
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
@@ -99,13 +100,16 @@ private fun ClassFilterSection(
     onClassToggled: (Character.Class) -> Unit,
 ) {
     FilterSection(title = stringResource(Res.string.label_filter_class)) {
-        Character.Class.entries.filter { it != Character.Class.UNKNOWN }.forEach { characterClass ->
-            FilterChip(
-                selected = characterClass in selectedClasses,
-                onClick = { onClassToggled(characterClass) },
-                label = { Text(text = characterClass.toFormattedString()) },
-            )
-        }
+        Character.Class.entries
+            .filter { it != Character.Class.UNKNOWN }
+            .sortedByLocalizedName()
+            .forEach { characterClass ->
+                FilterChip(
+                    selected = characterClass in selectedClasses,
+                    onClick = { onClassToggled(characterClass) },
+                    label = { Text(text = characterClass.toFormattedString()) },
+                )
+            }
     }
 }
 
@@ -116,7 +120,7 @@ private fun SchoolFilterSection(
     onSchoolToggled: (Spell.School) -> Unit,
 ) {
     FilterSection(title = stringResource(Res.string.label_filter_school)) {
-        Spell.School.entries.forEach { school ->
+        Spell.School.entries.sortedByLocalizedName().forEach { school ->
             FilterChip(
                 selected = school in selectedSchools,
                 onClick = { onSchoolToggled(school) },

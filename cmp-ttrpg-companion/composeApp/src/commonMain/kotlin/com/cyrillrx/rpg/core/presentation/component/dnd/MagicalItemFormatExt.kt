@@ -1,6 +1,8 @@
 package com.cyrillrx.rpg.core.presentation.component.dnd
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import com.cyrillrx.core.domain.sortedByLocalizedName
 import com.cyrillrx.rpg.core.presentation.format.SUBTITLE_SEPARATOR
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
 import org.jetbrains.compose.resources.stringResource
@@ -36,6 +38,14 @@ fun MagicalItem.Type.toFormattedString(): String {
         MagicalItem.Type.WONDROUS_ITEM -> Res.string.item_type_wondrous_item
     }
     return stringResource(stringRes)
+}
+
+@Composable
+fun List<MagicalItem.Type>.sortedByLocalizedName(): List<MagicalItem.Type> {
+    val localizedNames = associateWith { it.toFormattedString() }
+    return remember(localizedNames) {
+        sortedByLocalizedName { localizedNames.getValue(it) }
+    }
 }
 
 @Composable

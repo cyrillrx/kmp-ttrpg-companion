@@ -1,6 +1,8 @@
 package com.cyrillrx.rpg.core.presentation.component.dnd
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import com.cyrillrx.core.domain.sortedByLocalizedName
 import com.cyrillrx.rpg.creature.domain.Monster
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
@@ -43,6 +45,14 @@ fun Monster.Type.toFormattedString(): String {
         Monster.Type.UNKNOWN -> Res.string.monster_type_unknown
     }
     return stringResource(stringRes)
+}
+
+@Composable
+fun List<Monster.Type>.sortedByLocalizedName(): List<Monster.Type> {
+    val localizedNames = associateWith { it.toFormattedString() }
+    return remember(localizedNames) {
+        sortedByLocalizedName { localizedNames.getValue(it) }
+    }
 }
 
 @Composable
