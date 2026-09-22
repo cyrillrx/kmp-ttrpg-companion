@@ -7,7 +7,7 @@ data class HitPoints(
     val temporary: Int = 0,
 )
 
-enum class HitPointAdjustment { DAMAGE, HEALING, MAXIMUM, TEMPORARY }
+enum class HitPointAdjustment { HEALING, DAMAGE, MAXIMUM, TEMPORARY }
 
 val Character.hitPoints: HitPoints
     get() = HitPoints(current = currentHitPoints, max = maxHitPoints, temporary = temporaryHitPoints)

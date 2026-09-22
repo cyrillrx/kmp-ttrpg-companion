@@ -45,8 +45,8 @@ import rpg_companion.composeapp.generated.resources.label_hit_points
 internal fun HealthRow(
     hitPoints: HitPoints,
     onGaugeTapped: () -> Unit,
-    onDamageTapped: () -> Unit,
     onHealTapped: () -> Unit,
+    onDamageTapped: () -> Unit,
 ) {
     val state = hitPoints.toGaugeState()
 
@@ -105,17 +105,17 @@ internal fun HealthRow(
             modifier = Modifier.fillMaxWidth(),
         ) {
             HealthActionButton(
-                label = stringResource(Res.string.hp_tab_damage),
-                icon = Icons.Filled.HeartBroken,
-                color = MaterialTheme.colorScheme.error,
-                onClick = onDamageTapped,
-                modifier = Modifier.weight(1f),
-            )
-            HealthActionButton(
                 label = stringResource(Res.string.hp_tab_healing),
                 icon = Icons.Filled.Healing,
                 color = LocalHealthColors.current.heal,
                 onClick = onHealTapped,
+                modifier = Modifier.weight(1f),
+            )
+            HealthActionButton(
+                label = stringResource(Res.string.hp_tab_damage),
+                icon = Icons.Filled.HeartBroken,
+                color = MaterialTheme.colorScheme.error,
+                onClick = onDamageTapped,
                 modifier = Modifier.weight(1f),
             )
         }
