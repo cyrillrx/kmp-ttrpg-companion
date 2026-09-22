@@ -1,5 +1,7 @@
 package com.cyrillrx.rpg.magicalitem.presentation.viewmodel
 
+import com.cyrillrx.core.domain.sortedByLocalizedName
+import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.domain.toggled
 import com.cyrillrx.rpg.core.presentation.viewmodel.SearchableListViewModel
 import com.cyrillrx.rpg.magicalitem.domain.MagicalItem
@@ -12,6 +14,7 @@ import rpg_companion.composeapp.generated.resources.error_while_loading_magical_
 
 class MagicalItemListViewModel(
     private val repository: MagicalItemRepository,
+    private val locale: String = currentLocale(),
 ) : SearchableListViewModel<MagicalItemListState, MagicalItemListState.Body>(
         initialState = MagicalItemListState(body = MagicalItemListState.Body.Loading),
     ) {
@@ -56,6 +59,7 @@ class MagicalItemListViewModel(
 
     override suspend fun loadContent(): MagicalItemListState.Body {
         val magicalItems = repository.getAll(mutableState.value.filter)
+            .sortedByLocalizedName { it.resolveTranslation(locale).name }
         return if (magicalItems.isEmpty()) {
             MagicalItemListState.Body.Empty
         } else {

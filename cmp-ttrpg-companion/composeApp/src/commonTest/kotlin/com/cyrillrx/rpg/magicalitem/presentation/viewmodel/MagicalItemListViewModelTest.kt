@@ -237,6 +237,32 @@ class MagicalItemListViewModelTest {
 
         assertIs<MagicalItemListState.Body.Error>(viewModel.state.value.body)
     }
+
+    @Test
+    fun `items are ordered by their localized name`() = runTest(testDispatcher) {
+        val viewModel = MagicalItemListViewModel(repository, locale = "en")
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        val body = assertIs<MagicalItemListState.Body.WithData>(viewModel.state.value.body)
+        assertEquals(
+            expected = listOf(
+                "Cloak of Protection",
+                "Fireball Scroll",
+                "Healing Potion",
+                "Oath Axe",
+                "Ring of Protection",
+                "Shield +1",
+                "Staff of Power",
+                "Wand of Fireballs",
+            ),
+            actual = body.searchResults.map { it.resolveTranslation("en").name },
+        )
+    }
 }
 
 private class FailingMagicalItemRepository : MagicalItemRepository {
