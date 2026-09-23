@@ -29,6 +29,8 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.app.currentLocale
+import com.cyrillrx.rpg.core.domain.Identifiable
+import com.cyrillrx.rpg.core.presentation.OptimisticDeletions
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
@@ -39,8 +41,6 @@ import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.spell.presentation.SpellItemProvider
-import com.cyrillrx.rpg.core.domain.Identifiable
-import com.cyrillrx.rpg.core.presentation.OptimisticDeletions
 import com.cyrillrx.rpg.usercollection.presentation.CollectionDetailState
 import com.cyrillrx.rpg.usercollection.presentation.CollectionItemProvider
 import com.cyrillrx.rpg.usercollection.presentation.viewmodel.CollectionDetailViewModel
