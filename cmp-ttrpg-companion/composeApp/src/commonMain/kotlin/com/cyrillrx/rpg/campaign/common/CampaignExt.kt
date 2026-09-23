@@ -28,7 +28,7 @@ fun Campaign.getIcon(): DrawableResource = when (ruleSet) {
     RuleSet.UNDEFINED -> Res.drawable.class_cleric
 }
 
-fun RuleSet.getName(): StringResource = when (this) {
+fun RuleSet.toStringRes(): StringResource = when (this) {
     RuleSet.DND5E -> Res.string.ruleset_dnd5e
     RuleSet.PATHFINDER_2E -> Res.string.ruleset_pathfinder_2e
     RuleSet.STARFINDER -> Res.string.ruleset_starfinder
@@ -38,7 +38,7 @@ fun RuleSet.getName(): StringResource = when (this) {
     RuleSet.UNDEFINED -> Res.string.ruleset_undefined
 }
 
-fun CreateCampaignError.getMessage(): StringResource = when (this) {
+fun CreateCampaignError.toStringRes(): StringResource = when (this) {
     CreateCampaignError.EmptyCampaignName -> Res.string.error_empty_campaign_name
     CreateCampaignError.UndefinedRuleSet -> Res.string.error_undefined_rule_set
     CreateCampaignError.CampaignAlreadyExists -> Res.string.error_campaign_already_exists

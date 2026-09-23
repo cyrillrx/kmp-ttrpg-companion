@@ -29,8 +29,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.campaign.common.LocalizedRuleSet
-import com.cyrillrx.rpg.campaign.common.getMessage
-import com.cyrillrx.rpg.campaign.common.getName
+import com.cyrillrx.rpg.campaign.common.toStringRes
 import com.cyrillrx.rpg.campaign.create.viewmodel.CreateCampaignViewModel
 import com.cyrillrx.rpg.campaign.domain.RuleSet
 import com.cyrillrx.rpg.campaign.navigation.CampaignRouter
@@ -83,7 +82,7 @@ fun CreateCampaignScreen(
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
     val coroutineScope = rememberCoroutineScope()
-    val errorMessage = state.error?.getMessage()?.let { stringResource(it) }
+    val errorMessage = state.error?.toStringRes()?.let { stringResource(it) }
     if (errorMessage != null) {
         coroutineScope.launch {
             clearError()
@@ -167,7 +166,7 @@ fun ChooseRuleSetButton(
     Box(modifier = modifier) {
         InputChip(
             onClick = { showMenu = !showMenu },
-            label = { Text(text = stringResource(selectedRuleSet.getName())) },
+            label = { Text(text = stringResource(selectedRuleSet.toStringRes())) },
             selected = selectedRuleSet != RuleSet.UNDEFINED,
         )
 
@@ -190,8 +189,8 @@ fun ChooseRuleSetButton(
 private fun getLocalizedRuleSets(): List<LocalizedRuleSet> {
     val localizedRuleSets = RuleSet.entries
         .filterNot { it == RuleSet.UNDEFINED || it == RuleSet.OTHER }
-        .sortedByLocalizedName { it.getName() }
-        .map { LocalizedRuleSet(it, stringResource(it.getName())) }
+        .sortedByLocalizedName { it.toStringRes() }
+        .map { LocalizedRuleSet(it, stringResource(it.toStringRes())) }
 
     return localizedRuleSets + LocalizedRuleSet(RuleSet.OTHER, stringResource(Res.string.ruleset_other))
 }
