@@ -35,6 +35,7 @@ import com.cyrillrx.rpg.campaign.create.viewmodel.CreateCampaignViewModel
 import com.cyrillrx.rpg.campaign.domain.RuleSet
 import com.cyrillrx.rpg.campaign.navigation.CampaignRouter
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
+import com.cyrillrx.rpg.core.presentation.component.sortedByLocalizedName
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
@@ -188,11 +189,9 @@ fun ChooseRuleSetButton(
 @Composable
 private fun getLocalizedRuleSets(): List<LocalizedRuleSet> {
     val localizedRuleSets = RuleSet.entries
-        .mapNotNull {
-            if (it == RuleSet.UNDEFINED || it == RuleSet.OTHER) return@mapNotNull null
-            LocalizedRuleSet(it, stringResource(it.getName()))
-        }
-        .sortedBy { it.localizedName }
+        .filterNot { it == RuleSet.UNDEFINED || it == RuleSet.OTHER }
+        .sortedByLocalizedName { it.getName() }
+        .map { LocalizedRuleSet(it, stringResource(it.getName())) }
 
     return localizedRuleSets + LocalizedRuleSet(RuleSet.OTHER, stringResource(Res.string.ruleset_other))
 }
