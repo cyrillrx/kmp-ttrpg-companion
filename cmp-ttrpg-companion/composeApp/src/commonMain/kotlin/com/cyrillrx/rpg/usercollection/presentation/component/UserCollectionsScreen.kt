@@ -88,8 +88,7 @@ fun UserCollectionsScreen(
     events: SharedFlow<UserCollectionsViewModel.Event>,
     onNavigateUpClicked: () -> Unit,
     onAddBtnClicked: (String) -> Unit,
-    onDeleteCollectionOptimistically:
-        (Stored<UserCollection>) -> OptimisticDeletions.Pending<Stored<UserCollection>>?,
+    onDeleteCollectionOptimistically: (Stored<UserCollection>) -> OptimisticDeletions.Pending<Stored<UserCollection>>?,
     onUndoDeletion: (OptimisticDeletions.Pending<Stored<UserCollection>>) -> Unit,
     onCommitDeletion: (OptimisticDeletions.Pending<Stored<UserCollection>>) -> Unit,
     onCollectionClicked: (UserCollection) -> Unit,
