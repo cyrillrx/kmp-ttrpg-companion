@@ -295,27 +295,29 @@ private fun LanguageSelectDialog(
         onConfirm = { onConfirm(selected.toList()) },
     ) {
         Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
-            Language.entries.sortedByLocalizedName { it.toStringRes() }.forEach { language ->
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(spacingMedium),
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .clickable {
-                            selected = if (language in selected) selected - language else selected + language
-                        }
-                        .padding(vertical = spacingCommon),
-                ) {
-                    Checkbox(
-                        checked = language in selected,
-                        onCheckedChange = null,
-                    )
-                    Text(
-                        text = language.toFormattedString(),
-                        style = MaterialTheme.typography.bodyMedium,
-                    )
+            Language.entries
+                .sortedByLocalizedName { it.toStringRes() }
+                .forEach { language ->
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(spacingMedium),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable {
+                                selected = if (language in selected) selected - language else selected + language
+                            }
+                            .padding(vertical = spacingCommon),
+                    ) {
+                        Checkbox(
+                            checked = language in selected,
+                            onCheckedChange = null,
+                        )
+                        Text(
+                            text = language.toFormattedString(),
+                            style = MaterialTheme.typography.bodyMedium,
+                        )
+                    }
                 }
-            }
         }
     }
 }
@@ -337,33 +339,35 @@ private fun SkillSelectDialog(
         onConfirm = { onConfirm(current.applySelection(selected)) },
     ) {
         Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
-            Skill.entries.sortedByLocalizedName { it.toStringRes() }.forEach { skill ->
-                val proficiency = selected.getValue(skill)
-                val modifier = skill.computeModifier(abilities, proficiency, proficiencyBonus)
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(spacingMedium),
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .clickable { selected = selected + (skill to proficiency.next()) }
-                        .padding(vertical = spacingCommon),
-                ) {
-                    ProficiencyCheckbox(proficiency = proficiency)
-                    Text(
-                        text = skill.toFormattedString(),
-                        style = MaterialTheme.typography.bodyMedium,
-                        fontWeight = proficiency.getFontWeight(),
-                        color = proficiency.getColor(),
-                        modifier = Modifier.weight(1f),
-                    )
-                    Text(
-                        text = modifier.toSignedString(),
-                        style = MaterialTheme.typography.bodyMedium,
-                        fontWeight = proficiency.getFontWeight(),
-                        color = proficiency.getColor(),
-                    )
+            Skill.entries
+                .sortedByLocalizedName { it.toStringRes() }
+                .forEach { skill ->
+                    val proficiency = selected.getValue(skill)
+                    val modifier = skill.computeModifier(abilities, proficiency, proficiencyBonus)
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(spacingMedium),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable { selected = selected + (skill to proficiency.next()) }
+                            .padding(vertical = spacingCommon),
+                    ) {
+                        ProficiencyCheckbox(proficiency = proficiency)
+                        Text(
+                            text = skill.toFormattedString(),
+                            style = MaterialTheme.typography.bodyMedium,
+                            fontWeight = proficiency.getFontWeight(),
+                            color = proficiency.getColor(),
+                            modifier = Modifier.weight(1f),
+                        )
+                        Text(
+                            text = modifier.toSignedString(),
+                            style = MaterialTheme.typography.bodyMedium,
+                            fontWeight = proficiency.getFontWeight(),
+                            color = proficiency.getColor(),
+                        )
+                    }
                 }
-            }
         }
     }
 }

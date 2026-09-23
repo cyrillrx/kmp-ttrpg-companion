@@ -55,13 +55,15 @@ fun MagicalItemFilterBottomSheet(
             )
 
             FilterSection(title = stringResource(Res.string.label_filter_type)) {
-                MagicalItem.Type.entries.sortedByLocalizedName { it.toStringRes() }.forEach { type ->
-                    FilterChip(
-                        selected = type in filter.types,
-                        onClick = { onTypeToggled(type) },
-                        label = { Text(text = type.toFormattedString()) },
-                    )
-                }
+                MagicalItem.Type.entries
+                    .sortedByLocalizedName { it.toStringRes() }
+                    .forEach { type ->
+                        FilterChip(
+                            selected = type in filter.types,
+                            onClick = { onTypeToggled(type) },
+                            label = { Text(text = type.toFormattedString()) },
+                        )
+                    }
             }
 
             FilterSection(title = stringResource(Res.string.label_filter_rarity)) {

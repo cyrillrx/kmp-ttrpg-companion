@@ -121,13 +121,15 @@ private fun SchoolFilterSection(
     onSchoolToggled: (Spell.School) -> Unit,
 ) {
     FilterSection(title = stringResource(Res.string.label_filter_school)) {
-        Spell.School.entries.sortedByLocalizedName { it.toStringRes() }.forEach { school ->
-            FilterChip(
-                selected = school in selectedSchools,
-                onClick = { onSchoolToggled(school) },
-                label = { Text(text = school.toFormattedString()) },
-            )
-        }
+        Spell.School.entries
+            .sortedByLocalizedName { it.toStringRes() }
+            .forEach { school ->
+                FilterChip(
+                    selected = school in selectedSchools,
+                    onClick = { onSchoolToggled(school) },
+                    label = { Text(text = school.toFormattedString()) },
+                )
+            }
     }
 }
 
