@@ -17,8 +17,9 @@ import androidx.compose.ui.Modifier
 import com.cyrillrx.rpg.core.domain.toSignedString
 import com.cyrillrx.rpg.core.presentation.component.dnd.getColor
 import com.cyrillrx.rpg.core.presentation.component.dnd.relatedAbilityAbbreviation
-import com.cyrillrx.rpg.core.presentation.component.dnd.sortedByLocalizedName
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
+import com.cyrillrx.rpg.core.presentation.component.dnd.toStringRes
+import com.cyrillrx.rpg.core.presentation.component.sortedByLocalizedName
 import com.cyrillrx.rpg.core.presentation.format.getFontWeight
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.borderAlpha
@@ -61,7 +62,7 @@ internal fun SkillsSection(
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
-            val sortedSkills = Skill.entries.sortedByLocalizedName()
+            val sortedSkills = Skill.entries.sortedByLocalizedName { it.toStringRes() }
             val skillColumns = sortedSkills.chunked((sortedSkills.size + 1) / 2)
             val leftColumn = skillColumns.getOrElse(0) { emptyList() }
             val rightColumn = skillColumns.getOrElse(1) { emptyList() }
