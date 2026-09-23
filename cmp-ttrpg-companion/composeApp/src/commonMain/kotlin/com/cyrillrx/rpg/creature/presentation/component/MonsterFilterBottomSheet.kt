@@ -14,8 +14,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.cyrillrx.rpg.core.presentation.component.FilterSection
 import com.cyrillrx.rpg.core.presentation.component.FilterSheetHeader
-import com.cyrillrx.rpg.core.presentation.component.dnd.sortedByLocalizedName
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
+import com.cyrillrx.rpg.core.presentation.component.dnd.toStringRes
+import com.cyrillrx.rpg.core.presentation.component.sortedByLocalizedName
 import com.cyrillrx.rpg.core.presentation.format.formatCRValue
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
@@ -83,13 +84,15 @@ fun MonsterFilterBottomSheet(
             )
 
             FilterSection(title = stringResource(Res.string.label_filter_type)) {
-                Monster.Type.entries.sortedByLocalizedName().forEach { type ->
-                    FilterChip(
-                        selected = type in filter.types,
-                        onClick = { onTypeToggled(type) },
-                        label = { Text(text = type.toFormattedString()) },
-                    )
-                }
+                Monster.Type.entries
+                    .sortedByLocalizedName { it.toStringRes() }
+                    .forEach { type ->
+                        FilterChip(
+                            selected = type in filter.types,
+                            onClick = { onTypeToggled(type) },
+                            label = { Text(text = type.toFormattedString()) },
+                        )
+                    }
             }
 
             FilterSection(title = stringResource(Res.string.label_filter_cr)) {

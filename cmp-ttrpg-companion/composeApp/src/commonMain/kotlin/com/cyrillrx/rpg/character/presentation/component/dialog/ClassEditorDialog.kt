@@ -34,6 +34,8 @@ import com.cyrillrx.rpg.character.domain.withClassRemoved
 import com.cyrillrx.rpg.character.presentation.component.ClassIcon
 import com.cyrillrx.rpg.core.presentation.component.dialog.EditDialog
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
+import com.cyrillrx.rpg.core.presentation.component.dnd.toStringRes
+import com.cyrillrx.rpg.core.presentation.component.sortedByLocalizedName
 import com.cyrillrx.rpg.core.presentation.theme.iconSizeMedium
 import com.cyrillrx.rpg.core.presentation.theme.iconSizeMediumLarge
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
@@ -149,7 +151,7 @@ private fun ClassPickerDialog(
     onPick: (Character.Class) -> Unit,
     onDismiss: () -> Unit,
 ) {
-    val options = Character.Class.entries - taken
+    val options = (Character.Class.entries - taken).sortedByLocalizedName { it.toStringRes() }
     EditDialog(
         title = stringResource(Res.string.btn_add_class),
         onDismiss = onDismiss,

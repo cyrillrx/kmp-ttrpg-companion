@@ -2,11 +2,9 @@ package com.cyrillrx.rpg.core.presentation.component.dnd
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.capitalize
 import androidx.compose.ui.text.intl.Locale
-import com.cyrillrx.core.domain.sortedByLocalizedName
 import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.ClassLevels
@@ -16,6 +14,7 @@ import com.cyrillrx.rpg.core.presentation.format.toClassBreakdown
 import com.cyrillrx.rpg.core.presentation.format.toClassNames
 import com.cyrillrx.rpg.creature.domain.Ability
 import com.cyrillrx.rpg.creature.domain.Proficiency
+import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.ability_label_cha
@@ -83,67 +82,66 @@ import rpg_companion.composeapp.generated.resources.race_human
 import rpg_companion.composeapp.generated.resources.race_tiefling
 import rpg_companion.composeapp.generated.resources.value_race_classes
 
+fun Background.toStringRes(): StringResource = when (this) {
+    Background.ACOLYTE -> Res.string.background_acolyte
+    Background.CHARLATAN -> Res.string.background_charlatan
+    Background.CRIMINAL -> Res.string.background_criminal
+    Background.ENTERTAINER -> Res.string.background_entertainer
+    Background.FOLK_HERO -> Res.string.background_folk_hero
+    Background.GUILD_ARTISAN -> Res.string.background_guild_artisan
+    Background.HERMIT -> Res.string.background_hermit
+    Background.NOBLE -> Res.string.background_noble
+    Background.OUTLANDER -> Res.string.background_outlander
+    Background.SAGE -> Res.string.background_sage
+    Background.SAILOR -> Res.string.background_sailor
+    Background.SOLDIER -> Res.string.background_soldier
+    Background.URCHIN -> Res.string.background_urchin
+}
+
 @Composable
 fun Background?.toFormattedString(): String {
     this ?: return ""
-    val stringRes = when (this) {
-        Background.ACOLYTE -> Res.string.background_acolyte
-        Background.CHARLATAN -> Res.string.background_charlatan
-        Background.CRIMINAL -> Res.string.background_criminal
-        Background.ENTERTAINER -> Res.string.background_entertainer
-        Background.FOLK_HERO -> Res.string.background_folk_hero
-        Background.GUILD_ARTISAN -> Res.string.background_guild_artisan
-        Background.HERMIT -> Res.string.background_hermit
-        Background.NOBLE -> Res.string.background_noble
-        Background.OUTLANDER -> Res.string.background_outlander
-        Background.SAGE -> Res.string.background_sage
-        Background.SAILOR -> Res.string.background_sailor
-        Background.SOLDIER -> Res.string.background_soldier
-        Background.URCHIN -> Res.string.background_urchin
-    }
-    return stringResource(stringRes)
+    return stringResource(toStringRes())
+}
+
+fun Language.toStringRes(): StringResource = when (this) {
+    Language.ABYSSAL -> Res.string.language_abyssal
+    Language.CELESTIAL -> Res.string.language_celestial
+    Language.COMMON -> Res.string.language_common
+    Language.DEEP_SPEECH -> Res.string.language_deep_speech
+    Language.DRACONIC -> Res.string.language_draconic
+    Language.DRUIDIC -> Res.string.language_druidic
+    Language.DWARVISH -> Res.string.language_dwarvish
+    Language.ELVISH -> Res.string.language_elvish
+    Language.GIANT -> Res.string.language_giant
+    Language.GNOMISH -> Res.string.language_gnomish
+    Language.GOBLIN -> Res.string.language_goblin
+    Language.HALFLING -> Res.string.language_halfling
+    Language.INFERNAL -> Res.string.language_infernal
+    Language.ORC -> Res.string.language_orc
+    Language.PRIMORDIAL -> Res.string.language_primordial
+    Language.SYLVAN -> Res.string.language_sylvan
+    Language.THIEVES_CANT -> Res.string.language_thieves_cant
+    Language.UNDERCOMMON -> Res.string.language_undercommon
 }
 
 @Composable
-fun Language.toFormattedString(): String {
-    val stringRes = when (this) {
-        Language.ABYSSAL -> Res.string.language_abyssal
-        Language.CELESTIAL -> Res.string.language_celestial
-        Language.COMMON -> Res.string.language_common
-        Language.DEEP_SPEECH -> Res.string.language_deep_speech
-        Language.DRACONIC -> Res.string.language_draconic
-        Language.DRUIDIC -> Res.string.language_druidic
-        Language.DWARVISH -> Res.string.language_dwarvish
-        Language.ELVISH -> Res.string.language_elvish
-        Language.GIANT -> Res.string.language_giant
-        Language.GNOMISH -> Res.string.language_gnomish
-        Language.GOBLIN -> Res.string.language_goblin
-        Language.HALFLING -> Res.string.language_halfling
-        Language.INFERNAL -> Res.string.language_infernal
-        Language.ORC -> Res.string.language_orc
-        Language.PRIMORDIAL -> Res.string.language_primordial
-        Language.SYLVAN -> Res.string.language_sylvan
-        Language.THIEVES_CANT -> Res.string.language_thieves_cant
-        Language.UNDERCOMMON -> Res.string.language_undercommon
-    }
-    return stringResource(stringRes)
+fun Language.toFormattedString(): String = stringResource(toStringRes())
+
+fun Race.toStringRes(): StringResource = when (this) {
+    Race.HUMAN -> Res.string.race_human
+    Race.ELF -> Res.string.race_elf
+    Race.DWARF -> Res.string.race_dwarf
+    Race.HALFLING -> Res.string.race_halfling
+    Race.HALF_ELF -> Res.string.race_half_elf
+    Race.HALF_ORC -> Res.string.race_half_orc
+    Race.DRAGONBORN -> Res.string.race_dragonborn
+    Race.GNOME -> Res.string.race_gnome
+    Race.TIEFLING -> Res.string.race_tiefling
 }
 
 @Composable
-private fun Race.toAdjective(): String {
-    val stringRes = when (this) {
-        Race.HUMAN -> Res.string.race_human
-        Race.ELF -> Res.string.race_elf
-        Race.DWARF -> Res.string.race_dwarf
-        Race.HALFLING -> Res.string.race_halfling
-        Race.HALF_ELF -> Res.string.race_half_elf
-        Race.HALF_ORC -> Res.string.race_half_orc
-        Race.DRAGONBORN -> Res.string.race_dragonborn
-        Race.GNOME -> Res.string.race_gnome
-        Race.TIEFLING -> Res.string.race_tiefling
-    }
-    return stringResource(stringRes)
-}
+private fun Race.toAdjective(): String = stringResource(toStringRes())
 
 @Composable
 fun Race.toFormattedString(): String = toAdjective().capitalize(Locale.current)
@@ -178,34 +176,25 @@ fun Ability.toAbbreviationString(): String {
     return stringResource(stringRes)
 }
 
-@Composable
-fun Character.Class.toFormattedString(): String {
-    val stringRes = when (this) {
-        Character.Class.ARTIFICER -> Res.string.class_artificer
-        Character.Class.BARBARIAN -> Res.string.class_barbarian
-        Character.Class.BARD -> Res.string.class_bard
-        Character.Class.CLERIC -> Res.string.class_cleric
-        Character.Class.DRUID -> Res.string.class_druid
-        Character.Class.FIGHTER -> Res.string.class_fighter
-        Character.Class.MONK -> Res.string.class_monk
-        Character.Class.PALADIN -> Res.string.class_paladin
-        Character.Class.RANGER -> Res.string.class_ranger
-        Character.Class.ROGUE -> Res.string.class_rogue
-        Character.Class.SORCERER -> Res.string.class_sorcerer
-        Character.Class.WARLOCK -> Res.string.class_warlock
-        Character.Class.WIZARD -> Res.string.class_wizard
-        Character.Class.UNKNOWN -> Res.string.class_unknown
-    }
-    return stringResource(stringRes)
+fun Character.Class.toStringRes(): StringResource = when (this) {
+    Character.Class.ARTIFICER -> Res.string.class_artificer
+    Character.Class.BARBARIAN -> Res.string.class_barbarian
+    Character.Class.BARD -> Res.string.class_bard
+    Character.Class.CLERIC -> Res.string.class_cleric
+    Character.Class.DRUID -> Res.string.class_druid
+    Character.Class.FIGHTER -> Res.string.class_fighter
+    Character.Class.MONK -> Res.string.class_monk
+    Character.Class.PALADIN -> Res.string.class_paladin
+    Character.Class.RANGER -> Res.string.class_ranger
+    Character.Class.ROGUE -> Res.string.class_rogue
+    Character.Class.SORCERER -> Res.string.class_sorcerer
+    Character.Class.WARLOCK -> Res.string.class_warlock
+    Character.Class.WIZARD -> Res.string.class_wizard
+    Character.Class.UNKNOWN -> Res.string.class_unknown
 }
 
 @Composable
-fun List<Character.Class>.sortedByLocalizedName(): List<Character.Class> {
-    val localizedNames = associateWith { it.toFormattedString() }
-    return remember(localizedNames) {
-        sortedByLocalizedName { localizedNames.getValue(it) }
-    }
-}
+fun Character.Class.toFormattedString(): String = stringResource(toStringRes())
 
 @Composable
 private fun ClassLevels.localizedNames(): Map<Character.Class, String> =

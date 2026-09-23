@@ -1,9 +1,8 @@
 package com.cyrillrx.rpg.core.presentation.component.dnd
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
-import com.cyrillrx.core.domain.sortedByLocalizedName
 import com.cyrillrx.rpg.spell.domain.Spell
+import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.component_material
@@ -46,28 +45,19 @@ fun Spell.ComponentType.toFormattedString(): String {
 @Composable
 fun Spell.getSchool(): String = school.toFormattedString()
 
-@Composable
-fun Spell.School.toFormattedString(): String {
-    val stringRes = when (this) {
-        Spell.School.ABJURATION -> Res.string.school_abjuration
-        Spell.School.CONJURATION -> Res.string.school_conjuration
-        Spell.School.DIVINATION -> Res.string.school_divination
-        Spell.School.ENCHANTMENT -> Res.string.school_enchantment
-        Spell.School.EVOCATION -> Res.string.school_evocation
-        Spell.School.ILLUSION -> Res.string.school_illusion
-        Spell.School.NECROMANCY -> Res.string.school_necromancy
-        Spell.School.TRANSMUTATION -> Res.string.school_transmutation
-    }
-    return stringResource(stringRes)
+fun Spell.School.toStringRes(): StringResource = when (this) {
+    Spell.School.ABJURATION -> Res.string.school_abjuration
+    Spell.School.CONJURATION -> Res.string.school_conjuration
+    Spell.School.DIVINATION -> Res.string.school_divination
+    Spell.School.ENCHANTMENT -> Res.string.school_enchantment
+    Spell.School.EVOCATION -> Res.string.school_evocation
+    Spell.School.ILLUSION -> Res.string.school_illusion
+    Spell.School.NECROMANCY -> Res.string.school_necromancy
+    Spell.School.TRANSMUTATION -> Res.string.school_transmutation
 }
 
 @Composable
-fun List<Spell.School>.sortedByLocalizedName(): List<Spell.School> {
-    val localizedNames = associateWith { it.toFormattedString() }
-    return remember(localizedNames) {
-        sortedByLocalizedName { localizedNames.getValue(it) }
-    }
-}
+fun Spell.School.toFormattedString(): String = stringResource(toStringRes())
 
 @Composable
 fun Spell.getFormattedLevel(): String = stringResource(
