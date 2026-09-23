@@ -29,12 +29,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.campaign.common.LocalizedRuleSet
-import com.cyrillrx.rpg.campaign.common.getMessage
-import com.cyrillrx.rpg.campaign.common.getName
+import com.cyrillrx.rpg.campaign.common.toStringRes
 import com.cyrillrx.rpg.campaign.create.viewmodel.CreateCampaignViewModel
 import com.cyrillrx.rpg.campaign.domain.RuleSet
 import com.cyrillrx.rpg.campaign.navigation.CampaignRouter
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
+import com.cyrillrx.rpg.core.presentation.component.sortedByLocalizedName
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
@@ -82,7 +82,7 @@ fun CreateCampaignScreen(
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
     val coroutineScope = rememberCoroutineScope()
-    val errorMessage = state.error?.getMessage()?.let { stringResource(it) }
+    val errorMessage = state.error?.toStringRes()?.let { stringResource(it) }
     if (errorMessage != null) {
         coroutineScope.launch {
             clearError()
@@ -166,7 +166,7 @@ fun ChooseRuleSetButton(
     Box(modifier = modifier) {
         InputChip(
             onClick = { showMenu = !showMenu },
-            label = { Text(text = stringResource(selectedRuleSet.getName())) },
+            label = { Text(text = stringResource(selectedRuleSet.toStringRes())) },
             selected = selectedRuleSet != RuleSet.UNDEFINED,
         )
 
@@ -188,11 +188,9 @@ fun ChooseRuleSetButton(
 @Composable
 private fun getLocalizedRuleSets(): List<LocalizedRuleSet> {
     val localizedRuleSets = RuleSet.entries
-        .mapNotNull {
-            if (it == RuleSet.UNDEFINED || it == RuleSet.OTHER) return@mapNotNull null
-            LocalizedRuleSet(it, stringResource(it.getName()))
-        }
-        .sortedBy { it.localizedName }
+        .filterNot { it == RuleSet.UNDEFINED || it == RuleSet.OTHER }
+        .sortedByLocalizedName { it.toStringRes() }
+        .map { LocalizedRuleSet(it, stringResource(it.toStringRes())) }
 
     return localizedRuleSets + LocalizedRuleSet(RuleSet.OTHER, stringResource(Res.string.ruleset_other))
 }
