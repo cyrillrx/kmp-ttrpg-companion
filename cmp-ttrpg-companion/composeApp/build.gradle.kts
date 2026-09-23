@@ -157,5 +157,5 @@ ktlint {
     verbose.set(true)
     android.set(false)
     outputToConsole.set(true)
-    ignoreFailures.set(true)
+    ignoreFailures.set(false)
 }

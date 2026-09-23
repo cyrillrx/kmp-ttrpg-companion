@@ -54,7 +54,7 @@ All commands run from `cmp-ttrpg-companion/`:
 ./gradlew koverXmlReportJvm   # Generate the coverage reports SonarCloud reads
 ```
 
-ktlint is **strict** in `shared/core` (`ignoreFailures=false`) and permissive in `composeApp` (`ignoreFailures=true`).
+ktlint is **strict** in both modules (`ignoreFailures=false`), and the `CMP Client - ktlint` CI job fails the build on any violation. Run `ktlintFormat` before pushing.
 
 ### Coverage policy
 
