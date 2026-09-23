@@ -98,8 +98,9 @@ For detailed feature specifications, see the [PRDs](prd/).
 
 > Cross-cutting interface work, independent of the phases above.
 
-- [ ] Sort the Compendium lists alphabetically (#247)
-- [ ] Sort the filter values alphabetically (#210, #248)
+- [x] Sort the Compendium lists alphabetically (#247)
+- [x] Sort the filter values alphabetically (#248)
+- [ ] Sort localized labels with a real locale collator (#210)
 - [ ] Let the user order a collection by name or by when its entries were added
 - [ ] Harmonize the detail pages and their Markdown rendering (oversized titles)
 - [ ] Compendium detail: revisit how the type and sub-type are presented (#198, #200)
