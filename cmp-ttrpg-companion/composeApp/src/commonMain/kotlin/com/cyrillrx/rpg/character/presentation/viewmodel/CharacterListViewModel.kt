@@ -118,7 +118,7 @@ class CharacterListViewModel(
 
     private fun loadCharacters(query: String): Job =
         viewModelScope.launch {
-            state.update { CharacterListState(searchQuery = query, body = CharacterListState.Body.Loading) }
+            state.update { it.copy(searchQuery = query, body = CharacterListState.Body.Loading) }
             try {
                 fetchAndUpdateCharacters(query)
             } catch (e: CancellationException) {
