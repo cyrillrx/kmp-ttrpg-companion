@@ -19,8 +19,11 @@ class LocalizedSortTest {
     }
 
     @Test
-    fun `foldDiacritics leaves ligatures untouched`() {
-        assertEquals(expected = "œuvre", actual = "œuvre".foldDiacritics())
+    fun `foldDiacritics expands ligatures into the letters they stand for`() {
+        assertEquals(expected = "oeuvre", actual = "œuvre".foldDiacritics())
+        assertEquals(expected = "OEuvre", actual = "Œuvre".foldDiacritics())
+        assertEquals(expected = "aegis", actual = "ægis".foldDiacritics())
+        assertEquals(expected = "strasse", actual = "straße".foldDiacritics())
     }
 
     @Test
@@ -33,6 +36,13 @@ class LocalizedSortTest {
         val ordered = listOf("Roublard", "Rôdeur").sortedByLocalizedName { it }
 
         assertEquals(expected = listOf("Rôdeur", "Roublard"), actual = ordered)
+    }
+
+    @Test
+    fun `sortedByLocalizedName files a ligature under the letters it stands for`() {
+        val ordered = listOf("Ozone", "Œil magique", "Obscurité").sortedByLocalizedName { it }
+
+        assertEquals(expected = listOf("Obscurité", "Œil magique", "Ozone"), actual = ordered)
     }
 
     @Test
