@@ -61,6 +61,17 @@ class CharacterListViewModel(
         activeJob = loadCharacters(query)
     }
 
+    fun setSortOrder(order: CharacterSortOrder) {
+        if (state.value.sortOrder == order) return
+
+        state.update { current ->
+            current.copy(
+                sortOrder = order,
+                body = if (current.body is CharacterListState.Body.WithData) bodyOf(order) else current.body,
+            )
+        }
+    }
+
     fun silentRefresh() {
         if (state.value.body is CharacterListState.Body.Loading) return
         activeJob?.cancel()

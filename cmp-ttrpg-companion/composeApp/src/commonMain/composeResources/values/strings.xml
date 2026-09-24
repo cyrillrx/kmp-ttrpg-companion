@@ -7,6 +7,7 @@
     <string name="btn_filter">Filter</string>
     <string name="btn_reset_all">Reset All</string>
     <string name="btn_more">More</string>
+    <string name="btn_sort">Sort</string>
 
     <!--  Home  -->
     <string name="section_compendium">Compendium</string>
