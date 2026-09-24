@@ -8,10 +8,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 
-/**
- * [anchor] is handed the way to open the menu and [content] the way to close it, since picking an
- * entry is what usually closes it.
- */
 @Composable
 fun AnchoredMenu(
     anchor: @Composable (toggle: () -> Unit) -> Unit,
