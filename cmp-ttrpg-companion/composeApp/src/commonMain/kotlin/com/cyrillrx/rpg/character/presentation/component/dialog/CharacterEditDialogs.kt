@@ -25,9 +25,7 @@ import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.ClassLevels
 import com.cyrillrx.rpg.character.domain.HitPointAdjustment
 import com.cyrillrx.rpg.character.domain.Language
-import com.cyrillrx.rpg.character.domain.MAX_ARMOR_CLASS
 import com.cyrillrx.rpg.character.domain.MAX_WALK_SPEED_FT
-import com.cyrillrx.rpg.character.domain.MIN_ARMOR_CLASS
 import com.cyrillrx.rpg.character.domain.MIN_WALK_SPEED_FT
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.domain.hitPoints
@@ -49,6 +47,8 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.creature.domain.Abilities
 import com.cyrillrx.rpg.creature.domain.AbilityScore
 import com.cyrillrx.rpg.creature.domain.Creature
+import com.cyrillrx.rpg.creature.domain.MAX_ARMOR_CLASS
+import com.cyrillrx.rpg.creature.domain.MIN_ARMOR_CLASS
 import com.cyrillrx.rpg.creature.domain.Skill
 import com.cyrillrx.rpg.creature.domain.Skills
 import com.cyrillrx.rpg.dnd.domain.DND_FEET_STEP

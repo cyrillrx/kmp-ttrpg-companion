@@ -313,12 +313,12 @@ class CharacterEditViewModelTest {
     }
 
     @Test
-    fun `saveArmorClass coerces to minimum 0`() = runTest(testDispatcher) {
+    fun `saveArmorClass coerces to minimum 1`() = runTest(testDispatcher) {
         val viewModel = buildViewModel(repo = repoWithFighter())
         advanceUntilIdle()
         viewModel.saveArmorClass(-1)
         val loaded = assertIs<CharacterEditState.Loaded>(viewModel.state.value)
-        assertEquals(0, loaded.character.armorClass)
+        assertEquals(1, loaded.character.armorClass)
     }
 
     // ─── Hit points ───────────────────────────────────────────────────────────

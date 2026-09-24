@@ -1,5 +1,7 @@
 package com.cyrillrx.rpg.character.domain
 
+import com.cyrillrx.rpg.creature.domain.coerceToValidMaxHitPoints
+
 val HitPoints.isDown: Boolean get() = current <= MIN_HIT_POINTS
 
 fun HitPoints.isLethalDamage(amount: Int): Boolean =

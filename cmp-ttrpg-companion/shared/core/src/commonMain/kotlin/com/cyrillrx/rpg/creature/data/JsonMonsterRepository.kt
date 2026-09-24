@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.creature.data
 
 import com.cyrillrx.core.data.FileReader
 import com.cyrillrx.core.data.LazyCache
+import com.cyrillrx.core.data.coerceAndWarn
 import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.core.domain.Result
 import com.cyrillrx.core.domain.partitionBy
@@ -10,6 +11,9 @@ import com.cyrillrx.rpg.creature.domain.Monster
 import com.cyrillrx.rpg.creature.domain.MonsterFilter
 import com.cyrillrx.rpg.creature.domain.MonsterRepository
 import com.cyrillrx.rpg.creature.domain.applyFilter
+import com.cyrillrx.rpg.creature.domain.coerceToValidArmorClass
+import com.cyrillrx.rpg.creature.domain.coerceToValidCreatureSpeeds
+import com.cyrillrx.rpg.creature.domain.coerceToValidMaxHitPoints
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
@@ -43,6 +47,8 @@ class JsonMonsterRepository(
     }
 
     companion object {
+        private const val SOURCE = "monster"
+
         private fun List<ApiMonster>.parse(): List<Monster> {
             val (monsters, errors) = partitionBy { it.toMonster() }
             errors.forEach { println("WARNING: monster import error: $it") }
@@ -70,9 +76,9 @@ class JsonMonsterRepository(
                 ?: return Result.Failure(MonsterImportError.MissingChallengeRating(id))
             val apiAbilities = abilities
                 ?: return Result.Failure(MonsterImportError.MissingAbilities(id))
-            val armorClass = armorClass
+            val armorClass = armorClass?.coerceAndWarn(SOURCE, id, "armor class", Int::coerceToValidArmorClass)
                 ?: return Result.Failure(MonsterImportError.MissingArmorClass(id))
-            val maxHitPoints = maxHitPoints
+            val maxHitPoints = maxHitPoints?.coerceAndWarn(SOURCE, id, "max hit points", Int::coerceToValidMaxHitPoints)
                 ?: return Result.Failure(MonsterImportError.MissingMaxHitPoints(id))
             val apiSkills = skills
                 ?: return Result.Failure(MonsterImportError.MissingSkills(id))
@@ -97,7 +103,8 @@ class JsonMonsterRepository(
                     abilities = createAbilities(apiAbilities, savingThrows),
                     armorClass = armorClass,
                     maxHitPoints = maxHitPoints,
-                    speeds = speeds.toSpeeds(),
+                    speeds = speeds.toSpeeds()
+                        .coerceAndWarn(SOURCE, id, "speeds") { it.coerceToValidCreatureSpeeds() },
                     skills = apiSkills.toSkills(),
                     damageAffinities = apiDamageAffinities.toDamageAffinities(),
                     conditionImmunities = apiConditionImmunities.toConditionImmunities(),

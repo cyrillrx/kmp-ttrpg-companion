@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.character.data
 
 import com.cyrillrx.core.data.FileReader
 import com.cyrillrx.core.data.LazyCache
+import com.cyrillrx.core.data.coerceAndWarn
 import com.cyrillrx.core.data.deserialize
 import com.cyrillrx.core.domain.Result
 import com.cyrillrx.core.domain.partitionBy
@@ -14,7 +15,7 @@ import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.domain.applyFilter
 import com.cyrillrx.rpg.character.domain.coerceToValidCharacterLevel
-import com.cyrillrx.rpg.character.domain.coerceToValidMaxHitPoints
+import com.cyrillrx.rpg.character.domain.coerceToValidCharacterSpeeds
 import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.core.domain.UNKNOWN_TIMESTAMP
 import com.cyrillrx.rpg.creature.data.createAbilities
@@ -22,6 +23,8 @@ import com.cyrillrx.rpg.creature.data.toAlignment
 import com.cyrillrx.rpg.creature.data.toSize
 import com.cyrillrx.rpg.creature.data.toSkills
 import com.cyrillrx.rpg.creature.data.toSpeeds
+import com.cyrillrx.rpg.creature.domain.coerceToValidArmorClass
+import com.cyrillrx.rpg.creature.domain.coerceToValidMaxHitPoints
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
@@ -60,6 +63,8 @@ class JsonCharacterPresetRepository(
     }
 
     companion object {
+        private const val SOURCE = "character preset"
+
         private fun List<ApiCharacter>.parse(): List<Character> {
             val (characters, errors) = partitionBy { it.toCharacter() }
             errors.forEach { println("WARNING: character preset import error: $it") }
@@ -83,9 +88,9 @@ class JsonCharacterPresetRepository(
                 ?: return Result.Failure(CharacterImportError.MissingAlignment(id))
             val alignment = apiAlignment.toAlignment()
                 ?: return Result.Failure(CharacterImportError.UnknownAlignment(id, apiAlignment))
-            val armorClass = armorClass
+            val armorClass = armorClass?.coerceAndWarn(SOURCE, id, "armor class", Int::coerceToValidArmorClass)
                 ?: return Result.Failure(CharacterImportError.MissingArmorClass(id))
-            val maxHitPoints = maxHitPoints?.coerceAndWarn(id, "max hit points", Int::coerceToValidMaxHitPoints)
+            val maxHitPoints = maxHitPoints?.coerceAndWarn(SOURCE, id, "max hit points", Int::coerceToValidMaxHitPoints)
                 ?: return Result.Failure(CharacterImportError.MissingMaxHitPoints(id))
             speeds?.walk
                 ?: return Result.Failure(CharacterImportError.MissingWalkSpeed(id))
@@ -100,7 +105,7 @@ class JsonCharacterPresetRepository(
             val classLevels = apiClasses.entries.associate { (apiClass, level) ->
                 val clazz = apiClass.toClass()
                     ?: return Result.Failure(CharacterImportError.UnknownClass(id, apiClass))
-                clazz to level.coerceAndWarn(id, "class level", Int::coerceToValidCharacterLevel)
+                clazz to level.coerceAndWarn(SOURCE, id, "class level", Int::coerceToValidCharacterLevel)
             }
             val (parsedLanguages, languageErrors) = languages.orEmpty().partitionBy { lang -> lang.toLanguage(id) }
             languageErrors.forEach { println("WARNING: character preset import error: $it") }
@@ -122,7 +127,8 @@ class JsonCharacterPresetRepository(
                     abilities = createAbilities(abilities, savingThrows),
                     armorClass = armorClass,
                     maxHitPoints = maxHitPoints,
-                    speeds = speeds.toSpeeds(),
+                    speeds = speeds.toSpeeds()
+                        .coerceAndWarn(SOURCE, id, "speeds") { it.coerceToValidCharacterSpeeds() },
                     languages = languages,
                     skills = apiSkills.toSkills(),
                 ),
@@ -158,11 +164,6 @@ class JsonCharacterPresetRepository(
                 ),
             )
         }
-
-        // Clamping keeps the preset usable, which a Result.Failure would not; the warning is what
-        // tells the homebrew author their sheet declares a value the rules cannot hold.
-        private fun Int.coerceAndWarn(id: String, field: String, coerce: (Int) -> Int): Int = coerce(this)
-            .also { if (it != this) println("WARNING: character preset '$id' $field $this coerced to $it") }
 
         private fun String.toBackground(): Background? =
             Background.entries
