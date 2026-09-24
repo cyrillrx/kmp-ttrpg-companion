@@ -47,6 +47,9 @@ class CharacterListViewModelTest {
     private fun CharacterListViewModel.firstStored(): Stored<Character> =
         (state.value.body as CharacterListState.Body.WithData).searchResults.first()
 
+    private fun CharacterListViewModel.renderedNames(): List<String> =
+        (state.value.body as CharacterListState.Body.WithData).searchResults.map { it.value.name }
+
     @Test
     fun `initial state is Loading before coroutines run`() = runTest(testDispatcher) {
         val viewModel = buildViewModel()
@@ -399,13 +402,30 @@ class CharacterListViewModelTest {
     }
 
     @Test
-    fun `characters are ordered by updatedAt descending`() = runTest(testDispatcher) {
+    fun `characters are ordered by updatedAt descending by default`() = runTest(testDispatcher) {
         val viewModel = buildViewModel(ScrambledCharacterRepository())
 
         advanceUntilIdle()
 
-        val body = assertIs<CharacterListState.Body.WithData>(viewModel.state.value.body)
-        assertEquals(expected = listOf("Newest", "Middle", "Oldest"), actual = body.searchResults.map { it.value.name })
+        assertEquals(expected = listOf("Newest", "Middle", "Oldest"), actual = viewModel.renderedNames())
+    }
+
+    @Test
+    fun `the order survives a deletion and its undo`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(ScrambledCharacterRepository())
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        val pending = requireNotNull(viewModel.deleteCharacterOptimistically(viewModel.firstStored()))
+        assertEquals(expected = listOf("Middle", "Oldest"), actual = viewModel.renderedNames())
+
+        viewModel.undoDeletion(pending)
+
+        assertEquals(expected = listOf("Newest", "Middle", "Oldest"), actual = viewModel.renderedNames())
     }
 }
 

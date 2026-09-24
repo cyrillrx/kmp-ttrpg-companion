@@ -5,6 +5,8 @@ import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterFilter
 import com.cyrillrx.rpg.character.domain.CharacterRepository
+import com.cyrillrx.rpg.character.domain.CharacterSortOrder
+import com.cyrillrx.rpg.character.domain.applySort
 import com.cyrillrx.rpg.character.presentation.CharacterListState
 import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.core.presentation.OptimisticDeletions
@@ -134,7 +136,7 @@ class CharacterListViewModel(
 
     private suspend fun fetchAndUpdateCharacters(query: String) {
         val filter = CharacterFilter(query = query)
-        deletions.setLoaded(repository.getAll(filter).sortedByDescending { it.updatedAt })
+        deletions.setLoaded(repository.getAll(filter))
         renderBody()
     }
 
@@ -151,12 +153,16 @@ class CharacterListViewModel(
     }
 
     private fun renderBody() {
+        state.update { it.copy(body = bodyOf(it.sortOrder)) }
+    }
+
+    /** Reads [OptimisticDeletions.visible] afresh, so it stays correct should [update] replay the lambda. */
+    private fun bodyOf(order: CharacterSortOrder): CharacterListState.Body {
         val visible = deletions.visible
-        val body = if (visible.isEmpty()) {
+        return if (visible.isEmpty()) {
             CharacterListState.Body.Empty
         } else {
-            CharacterListState.Body.WithData(visible)
+            CharacterListState.Body.WithData(visible.applySort(order))
         }
-        state.update { it.copy(body = body) }
     }
 }
