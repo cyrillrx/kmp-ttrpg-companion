@@ -43,7 +43,8 @@ Automated flows are implemented with Maestro in `cmp-ttrpg-companion/.maestro/fl
 
 ## Character Sheets
 
-| ID    | Scenario                | Success criterion                              | Automated |
-|-------|-------------------------|------------------------------------------------|-----------|
-| CS-01 | Create a character      | Character appears in the list                  | ❌        |
-| CS-02 | Open a character detail | Character details are shown                    | ❌        |
+| ID    | Scenario                         | Success criterion                              | Automated |
+|-------|----------------------------------|------------------------------------------------|-----------|
+| CS-01 | Create a character               | Character appears in the list                  | ❌        |
+| CS-02 | Open a character detail          | Character details are shown                    | ❌        |
+| CS-03 | Order the character list by name | The list reorders alphabetically               | ❌        |

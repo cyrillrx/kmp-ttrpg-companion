@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
@@ -23,6 +24,7 @@ import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.character.domain.CharacterSortOrder
 import com.cyrillrx.rpg.character.presentation.CharacterListState
 import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
 import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterListViewModel
@@ -67,6 +69,7 @@ fun CharacterListScreen(
         onCharacterClicked = router::openCharacterDetail,
         onNewCharacterClicked = router::openCreateCharacter,
         onQuickCreateClicked = router::openPresetGallery,
+        onSortOrderSelected = viewModel::setSortOrder,
         onDeleteCharacterOptimistically = viewModel::deleteCharacterOptimistically,
         onUndoDeletion = viewModel::undoDeletion,
         onCommitDeletion = viewModel::commitDeletion,
@@ -81,6 +84,7 @@ fun CharacterListScreen(
     onCharacterClicked: (Character) -> Unit,
     onNewCharacterClicked: () -> Unit,
     onQuickCreateClicked: () -> Unit,
+    onSortOrderSelected: (CharacterSortOrder) -> Unit,
     onDeleteCharacterOptimistically: (Stored<Character>) -> OptimisticDeletions.Pending<Stored<Character>>?,
     onUndoDeletion: (OptimisticDeletions.Pending<Stored<Character>>) -> Unit,
     onCommitDeletion: (OptimisticDeletions.Pending<Stored<Character>>) -> Unit,
@@ -138,6 +142,8 @@ fun CharacterListScreen(
                     is CharacterListState.Body.WithData ->
                         CharacterList(
                             characters = body.searchResults,
+                            sortOrder = state.sortOrder,
+                            onSortOrderSelected = onSortOrderSelected,
                             onCharacterClicked = onCharacterClicked,
                             onDeleteCharacter = onDeleteCharacter,
                         )
@@ -150,15 +156,26 @@ fun CharacterListScreen(
 @Composable
 private fun CharacterList(
     characters: List<Stored<Character>>,
+    sortOrder: CharacterSortOrder,
+    onSortOrderSelected: (CharacterSortOrder) -> Unit,
     onCharacterClicked: (Character) -> Unit,
     onDeleteCharacter: (Stored<Character>) -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    val listState = rememberLazyListState()
+
+    LaunchedEffect(sortOrder) { listState.animateScrollToItem(0) }
+
     LazyColumn(
+        state = listState,
         modifier = modifier.fillMaxSize(),
         contentPadding = PaddingValues(spacingMedium),
         verticalArrangement = Arrangement.spacedBy(spacingMedium),
     ) {
+        item {
+            CharacterSortHeader(sortOrder = sortOrder, onSortOrderSelected = onSortOrderSelected)
+        }
+
         items(characters, key = { it.value.id }) { stored ->
             SwipeToDelete(
                 onSwiped = { onDeleteCharacter(stored) },
@@ -200,6 +217,7 @@ private fun CharacterListScreenPreview() {
         onCharacterClicked = {},
         onNewCharacterClicked = {},
         onQuickCreateClicked = {},
+        onSortOrderSelected = {},
         onDeleteCharacterOptimistically = { null },
         onUndoDeletion = {},
         onCommitDeletion = {},

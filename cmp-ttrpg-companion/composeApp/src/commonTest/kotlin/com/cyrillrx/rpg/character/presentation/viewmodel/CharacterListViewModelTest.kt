@@ -5,6 +5,7 @@ import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterFilter
 import com.cyrillrx.rpg.character.domain.CharacterRepository
+import com.cyrillrx.rpg.character.domain.CharacterSortOrder
 import com.cyrillrx.rpg.character.presentation.CharacterListState
 import com.cyrillrx.rpg.core.domain.Stored
 import kotlinx.coroutines.CompletableDeferred
@@ -46,6 +47,9 @@ class CharacterListViewModelTest {
 
     private fun CharacterListViewModel.firstStored(): Stored<Character> =
         (state.value.body as CharacterListState.Body.WithData).searchResults.first()
+
+    private fun CharacterListViewModel.renderedNames(): List<String> =
+        (state.value.body as CharacterListState.Body.WithData).searchResults.map { it.value.name }
 
     @Test
     fun `initial state is Loading before coroutines run`() = runTest(testDispatcher) {
@@ -399,23 +403,127 @@ class CharacterListViewModelTest {
     }
 
     @Test
-    fun `characters are ordered by updatedAt descending`() = runTest(testDispatcher) {
+    fun `characters are ordered by updatedAt descending by default`() = runTest(testDispatcher) {
         val viewModel = buildViewModel(ScrambledCharacterRepository())
 
         advanceUntilIdle()
 
-        val body = assertIs<CharacterListState.Body.WithData>(viewModel.state.value.body)
-        assertEquals(expected = listOf("Newest", "Middle", "Oldest"), actual = body.searchResults.map { it.value.name })
+        assertEquals(expected = listOf("Newest", "Middle", "Oldest"), actual = viewModel.renderedNames())
+    }
+
+    @Test
+    fun `the order survives a deletion and its undo`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(ScrambledCharacterRepository())
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        val pending = requireNotNull(viewModel.deleteCharacterOptimistically(viewModel.firstStored()))
+        assertEquals(expected = listOf("Middle", "Oldest"), actual = viewModel.renderedNames())
+
+        viewModel.undoDeletion(pending)
+
+        assertEquals(expected = listOf("Newest", "Middle", "Oldest"), actual = viewModel.renderedNames())
+    }
+
+    @Test
+    fun `setSortOrder reorders the rendered list without reading the repository again`() =
+        runTest(testDispatcher) {
+            val repository = ScrambledCharacterRepository()
+            val viewModel = buildViewModel(repository)
+
+            backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+                viewModel.state.collect {}
+            }
+
+            advanceUntilIdle()
+
+            viewModel.setSortOrder(CharacterSortOrder.NAME)
+
+            assertEquals(expected = listOf("Middle", "Newest", "Oldest"), actual = viewModel.renderedNames())
+            assertEquals(expected = 1, actual = repository.reads)
+        }
+
+    @Test
+    fun `setSortOrder emits a single state`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(ScrambledCharacterRepository())
+        val states = mutableListOf<CharacterListState>()
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect { states.add(it) }
+        }
+
+        advanceUntilIdle()
+        states.clear()
+
+        viewModel.setSortOrder(CharacterSortOrder.NAME)
+
+        assertEquals(expected = 1, actual = states.size)
+    }
+
+    @Test
+    fun `a sort order set while loading applies to the fetch that lands after`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(ScrambledCharacterRepository())
+
+        assertIs<CharacterListState.Body.Loading>(viewModel.state.value.body)
+        viewModel.setSortOrder(CharacterSortOrder.NAME)
+
+        advanceUntilIdle()
+
+        assertEquals(expected = listOf("Middle", "Newest", "Oldest"), actual = viewModel.renderedNames())
+    }
+
+    @Test
+    fun `filterByQuery keeps the sort order`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(ScrambledCharacterRepository())
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        viewModel.setSortOrder(CharacterSortOrder.NAME)
+        viewModel.filterByQuery("")
+        advanceUntilIdle()
+
+        assertEquals(expected = CharacterSortOrder.NAME, actual = viewModel.state.value.sortOrder)
+        assertEquals(expected = listOf("Middle", "Newest", "Oldest"), actual = viewModel.renderedNames())
+    }
+
+    @Test
+    fun `a pending deletion stays hidden when the sort order changes`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(ScrambledCharacterRepository())
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        viewModel.deleteCharacterOptimistically(viewModel.firstStored())
+        viewModel.setSortOrder(CharacterSortOrder.NAME)
+
+        assertEquals(expected = listOf("Middle", "Oldest"), actual = viewModel.renderedNames())
     }
 }
 
 /** Returns characters whose timestamps deliberately disagree with their position, so only the caller's ordering shows. */
 private class ScrambledCharacterRepository : CharacterRepository {
-    override suspend fun getAll(filter: CharacterFilter?): List<Stored<Character>> = listOf(
-        stored("Middle", 2_000L),
-        stored("Oldest", 1_000L),
-        stored("Newest", 3_000L),
-    )
+    var reads = 0
+        private set
+
+    override suspend fun getAll(filter: CharacterFilter?): List<Stored<Character>> {
+        reads++
+        return listOf(
+            stored("Middle", 2_000L),
+            stored("Oldest", 1_000L),
+            stored("Newest", 3_000L),
+        )
+    }
 
     override suspend fun get(id: String): Character? = null
     override suspend fun getByIds(ids: List<String>): List<Character> = emptyList()

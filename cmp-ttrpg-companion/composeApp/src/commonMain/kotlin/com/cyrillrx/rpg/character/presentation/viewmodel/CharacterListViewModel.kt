@@ -5,6 +5,8 @@ import androidx.lifecycle.viewModelScope
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterFilter
 import com.cyrillrx.rpg.character.domain.CharacterRepository
+import com.cyrillrx.rpg.character.domain.CharacterSortOrder
+import com.cyrillrx.rpg.character.domain.applySort
 import com.cyrillrx.rpg.character.presentation.CharacterListState
 import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.core.presentation.OptimisticDeletions
@@ -57,6 +59,17 @@ class CharacterListViewModel(
     fun filterByQuery(query: String) {
         activeJob?.cancel()
         activeJob = loadCharacters(query)
+    }
+
+    fun setSortOrder(order: CharacterSortOrder) {
+        if (state.value.sortOrder == order) return
+
+        state.update { current ->
+            current.copy(
+                sortOrder = order,
+                body = if (current.body is CharacterListState.Body.WithData) sortedBody(order) else current.body,
+            )
+        }
     }
 
     fun silentRefresh() {
@@ -118,7 +131,7 @@ class CharacterListViewModel(
 
     private fun loadCharacters(query: String): Job =
         viewModelScope.launch {
-            state.update { CharacterListState(searchQuery = query, body = CharacterListState.Body.Loading) }
+            state.update { it.copy(searchQuery = query, body = CharacterListState.Body.Loading) }
             try {
                 fetchAndUpdateCharacters(query)
             } catch (e: CancellationException) {
@@ -134,7 +147,7 @@ class CharacterListViewModel(
 
     private suspend fun fetchAndUpdateCharacters(query: String) {
         val filter = CharacterFilter(query = query)
-        deletions.setLoaded(repository.getAll(filter).sortedByDescending { it.updatedAt })
+        deletions.setLoaded(repository.getAll(filter))
         renderBody()
     }
 
@@ -151,12 +164,16 @@ class CharacterListViewModel(
     }
 
     private fun renderBody() {
+        state.update { it.copy(body = sortedBody(it.sortOrder)) }
+    }
+
+    private fun sortedBody(order: CharacterSortOrder): CharacterListState.Body {
+        // Read afresh, so the body stays correct should the state update replay its lambda.
         val visible = deletions.visible
-        val body = if (visible.isEmpty()) {
+        return if (visible.isEmpty()) {
             CharacterListState.Body.Empty
         } else {
-            CharacterListState.Body.WithData(visible)
+            CharacterListState.Body.WithData(visible.applySort(order))
         }
-        state.update { it.copy(body = body) }
     }
 }

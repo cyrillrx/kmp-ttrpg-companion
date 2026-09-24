@@ -1,12 +1,14 @@
 package com.cyrillrx.rpg.character.presentation
 
 import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.character.domain.CharacterSortOrder
 import com.cyrillrx.rpg.core.domain.Stored
 import org.jetbrains.compose.resources.StringResource
 
 data class CharacterListState(
     val searchQuery: String,
     val body: Body,
+    val sortOrder: CharacterSortOrder = CharacterSortOrder.LAST_MODIFIED,
 ) {
     sealed interface Body {
         data object Loading : Body
