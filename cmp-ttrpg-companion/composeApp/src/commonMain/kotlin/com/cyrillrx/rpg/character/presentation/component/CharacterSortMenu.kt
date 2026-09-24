@@ -6,12 +6,13 @@ import androidx.compose.material.icons.automirrored.outlined.Sort
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.cyrillrx.rpg.character.domain.CharacterSortOrder
-import com.cyrillrx.rpg.core.presentation.component.IconMenu
+import com.cyrillrx.rpg.core.presentation.component.AnchoredMenu
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import org.jetbrains.compose.resources.stringResource
@@ -31,13 +32,14 @@ fun CharacterSortMenu(
     sortOrder: CharacterSortOrder,
     onSortOrderSelected: (CharacterSortOrder) -> Unit,
 ) {
-    IconMenu(
-        icon = Icons.AutoMirrored.Outlined.Sort,
-        contentDescription = stringResource(Res.string.btn_sort),
-        tint = if (sortOrder == CharacterSortOrder.LAST_MODIFIED) {
-            MaterialTheme.colorScheme.onSurface
-        } else {
-            MaterialTheme.colorScheme.primary
+    AnchoredMenu(
+        anchor = { toggle ->
+            IconButton(onClick = toggle) {
+                Icon(
+                    imageVector = Icons.AutoMirrored.Outlined.Sort,
+                    contentDescription = stringResource(Res.string.btn_sort),
+                )
+            }
         },
     ) { dismiss ->
         Text(
