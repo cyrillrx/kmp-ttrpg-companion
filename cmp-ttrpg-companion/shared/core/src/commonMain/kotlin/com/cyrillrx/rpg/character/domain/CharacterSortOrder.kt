@@ -8,12 +8,10 @@ enum class CharacterSortOrder { LAST_MODIFIED, NAME }
 /** Sheets with no known date — the rows written before `updatedAt` existed — sink to the bottom. */
 private val BY_LAST_MODIFIED: Comparator<Stored<Character>> =
     compareByDescending<Stored<Character>> { it.updatedAt }
-        .thenBy { it.value.name.localizedSortKey() }
         .thenBy { it.value.id }
 
 private val BY_NAME: Comparator<Stored<Character>> =
     compareBy<Stored<Character>> { it.value.name.localizedSortKey() }
-        .thenByDescending { it.updatedAt }
         .thenBy { it.value.id }
 
 /**

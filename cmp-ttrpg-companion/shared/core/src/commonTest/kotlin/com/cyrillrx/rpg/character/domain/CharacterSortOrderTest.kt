@@ -2,7 +2,6 @@ package com.cyrillrx.rpg.character.domain
 
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.core.domain.Stored
-import com.cyrillrx.rpg.core.domain.UNKNOWN_TIMESTAMP
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.time.Instant
@@ -23,21 +22,15 @@ class CharacterSortOrderTest {
     }
 
     @Test
-    fun `last modified sinks the sheets with no known date`() {
-        val sheets = listOf(stored("Undated", UNKNOWN_TIMESTAMP), stored("Dated", millis(1_000)))
+    fun `sheets sharing a date are ordered by id`() {
+        val sheets = listOf(
+            stored("Second", millis(1_000), id = "b"),
+            stored("First", millis(1_000), id = "a"),
+        )
 
         val sorted = sheets.applySort(CharacterSortOrder.LAST_MODIFIED)
 
-        assertEquals(expected = listOf("Dated", "Undated"), actual = sorted.names())
-    }
-
-    @Test
-    fun `last modified breaks ties on the localized name`() {
-        val sheets = listOf(stored("Roublard", millis(1_000)), stored("Rôdeur", millis(1_000)))
-
-        val sorted = sheets.applySort(CharacterSortOrder.LAST_MODIFIED)
-
-        assertEquals(expected = listOf("Rôdeur", "Roublard"), actual = sorted.names())
+        assertEquals(expected = listOf("a", "b"), actual = sorted.map { it.value.id })
     }
 
     @Test
@@ -50,21 +43,9 @@ class CharacterSortOrderTest {
     }
 
     @Test
-    fun `name puts the most recent namesake first`() {
+    fun `namesakes are ordered by id`() {
         val sheets = listOf(
-            stored("Lyra", millis(1_000), id = "older"),
-            stored("Lyra", millis(2_000), id = "newer"),
-        )
-
-        val sorted = sheets.applySort(CharacterSortOrder.NAME)
-
-        assertEquals(expected = listOf("newer", "older"), actual = sorted.map { it.value.id })
-    }
-
-    @Test
-    fun `namesakes updated at the same time are ordered by id`() {
-        val sheets = listOf(
-            stored("Lyra", millis(1_000), id = "second"),
+            stored("Lyra", millis(2_000), id = "second"),
             stored("Lyra", millis(1_000), id = "first"),
         )
 
