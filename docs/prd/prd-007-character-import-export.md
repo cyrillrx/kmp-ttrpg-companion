@@ -93,7 +93,7 @@ The standard media type is what keeps the file usable across mail, messaging and
 Import distinguishes what cannot be guessed from what has an obvious correction.
 
 - [ ] A missing required field, or a value the app does not recognise (unknown class, race, size, alignment, language), **rejects the file** and names the offending field. The sheet is not created, even partially.
-- [ ] A numeric value outside its valid range is **clamped and reported**, following the rules in `CharacterRulesExt.kt`. The sheet is created with the corrected value.
+- [ ] A numeric value outside its valid range is **clamped and reported**, following the rules in `CreatureRulesExt.kt` (armor class, hit points, speeds) and `CharacterRulesExt.kt` (level, ability scores, walk speed). The sheet is created with the corrected value.
 - [ ] A file that is not valid JSON, or whose envelope is malformed, is rejected with a distinct message.
 - [ ] Rejection messages name the field, not the internal error type.
 
@@ -118,5 +118,6 @@ A received file and a bundled preset go through the same mapper and the same pol
 
 - Should the app declare a document type so a file can be opened from a file manager or a mail attachment? Rejected for this version: it requires per-platform type declarations, and is not reachable on Desktop without native packaging.
 - Should an imported file be able to join the preset gallery instead of becoming a sheet? Deferred until saving a sheet as a preset exists — the gallery is bundled resources today.
+- How is a clamped value **reported**? A one-off message as the sheet opens says it once and loses it; a marker carried by the sheet says it forever, including long after the value has been edited by hand. The ground is ready either way: `Character` is `@Serializable` and persisted as a JSON blob, so a field with a default needs no migration, and `TintedTag` is already the design system's flag component. The channel itself is #234's subject — today an adjustment only reaches a `println`, and coercions are not part of any `errors` list.
 - Should a later version use `sourceId` to offer replacing an existing sheet rather than duplicating it?
 - What is the exact file-name normalization rule for accents, spaces and characters each platform forbids?
