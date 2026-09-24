@@ -1,0 +1,63 @@
+package com.cyrillrx.rpg.creature.data
+
+import com.cyrillrx.core.data.deserialize
+import com.cyrillrx.rpg.creature.data.api.ApiMonster
+import com.cyrillrx.rpg.creature.domain.isValidArmorClass
+import com.cyrillrx.rpg.creature.domain.isValidCreatureSpeedInFeet
+import com.cyrillrx.rpg.creature.domain.isValidMaxHitPoints
+import java.io.File
+import kotlin.test.Test
+import kotlin.test.assertTrue
+import kotlin.test.fail
+
+/**
+ * The import clamps silently, so a bound set too tight would rewrite the bestiary without anyone
+ * noticing. This reads the file the app actually ships and asserts nothing in it needs coercing.
+ */
+class ShippedMonsterBoundsTest {
+
+    @Test
+    fun `no shipped monster is out of bounds`() {
+        val monsters = monstersFile().readText().deserialize<List<ApiMonster>>()
+        assertTrue(monsters.size > 500, "expected the full bestiary, found ${monsters.size}")
+
+        val offenders = monsters.flatMap { monster ->
+            val id = monster.id ?: "<no id>"
+            buildList {
+                monster.armorClass
+                    ?.takeUnless { isValidArmorClass(it) }
+                    ?.let { add("$id armor class $it") }
+                monster.maxHitPoints
+                    ?.takeUnless { isValidMaxHitPoints(it) }
+                    ?.let { add("$id max hit points $it") }
+                monster.speeds?.let { speeds ->
+                    listOf(
+                        "walk" to speeds.walk,
+                        "fly" to speeds.fly,
+                        "swim" to speeds.swim,
+                        "climb" to speeds.climb,
+                        "burrow" to speeds.burrow,
+                    ).forEach { (mode, value) ->
+                        value?.takeUnless { isValidCreatureSpeedInFeet(it) }?.let { add("$id $mode $it") }
+                    }
+                }
+            }
+        }
+
+        assertTrue(offenders.isEmpty(), "shipped monsters outside the creature bounds: $offenders")
+    }
+
+    private fun monstersFile(): File {
+        var directory: File? = File(".").absoluteFile
+        while (directory != null) {
+            val candidate = File(directory, RELATIVE_PATH)
+            if (candidate.isFile) return candidate
+            directory = directory.parentFile
+        }
+        fail("could not find $RELATIVE_PATH above ${File(".").absolutePath}")
+    }
+
+    private companion object {
+        const val RELATIVE_PATH = "composeApp/src/commonMain/composeResources/files/monsters.json"
+    }
+}

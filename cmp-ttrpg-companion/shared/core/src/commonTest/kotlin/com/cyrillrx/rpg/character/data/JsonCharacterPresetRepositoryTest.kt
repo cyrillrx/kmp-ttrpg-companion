@@ -113,6 +113,41 @@ class JsonCharacterPresetRepositoryTest {
     }
 
     @Test
+    fun `preset with an out-of-range armor class is clamped and kept`() = runTest {
+        val tooHigh = repository(preset(armorClass = 5000)).getAll(null).first().value
+        assertEquals(40, tooHigh.armorClass)
+
+        val tooLow = repository(preset(armorClass = 0)).getAll(null).first().value
+        assertEquals(1, tooLow.armorClass)
+    }
+
+    @Test
+    fun `preset with an out-of-range walk speed is clamped to the character range`() = runTest {
+        val tooFast = repository(preset(speeds = """{"walk": 400}""")).getAll(null).first().value
+        assertEquals(120, tooFast.speeds.walk)
+
+        val tooSlow = repository(preset(speeds = """{"walk": 10}""")).getAll(null).first().value
+        assertEquals(25, tooSlow.speeds.walk)
+    }
+
+    @Test
+    fun `preset with a walk speed off the grid is rounded`() = runTest {
+        val character = repository(preset(speeds = """{"walk": 33}""")).getAll(null).first().value
+
+        assertEquals(35, character.speeds.walk)
+    }
+
+    @Test
+    fun `preset keeps its other movement modes within the creature range`() = runTest {
+        val json = """{"walk": 30, "fly": 9999, "swim": 33}"""
+
+        val speeds = repository(preset(speeds = json)).getAll(null).first().value.speeds
+
+        assertEquals(200, speeds.fly)
+        assertEquals(35, speeds.swim)
+    }
+
+    @Test
     fun `multiclass preset keeps every class with its own level`() = runTest {
         val json = preset(classes = """{"fighter": 3, "rogue": 2}""")
 

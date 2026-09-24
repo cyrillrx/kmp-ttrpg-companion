@@ -121,6 +121,43 @@ class JsonMonsterRepositoryTest {
         assertEquals("test-monster", result.first().id)
     }
 
+    @Test
+    fun `monster with an out-of-range armor class is clamped`() = runTest {
+        val tooLow = repository(monster(armorClass = 0)).getAll(null).first()
+        assertEquals(1, tooLow.armorClass)
+
+        val tooHigh = repository(monster(armorClass = 100)).getAll(null).first()
+        assertEquals(40, tooHigh.armorClass)
+    }
+
+    @Test
+    fun `monster with out-of-range max hit points is clamped`() = runTest {
+        val tooLow = repository(monster(maxHitPoints = 0)).getAll(null).first()
+        assertEquals(1, tooLow.maxHitPoints)
+
+        val tooHigh = repository(monster(maxHitPoints = 1200)).getAll(null).first()
+        assertEquals(999, tooHigh.maxHitPoints)
+    }
+
+    @Test
+    fun `monster speeds are clamped and rounded to the grid`() = runTest {
+        val json = """{"walk": 33, "fly": 9999, "swim": -10}"""
+
+        val speeds = repository(monster(speeds = json)).getAll(null).first().speeds
+
+        assertEquals(35, speeds.walk)
+        assertEquals(200, speeds.fly)
+        assertEquals(0, speeds.swim)
+    }
+
+    @Test
+    fun `monster keeps a speed the character range would reject`() = runTest {
+        val speeds = repository(monster(speeds = """{"walk": 5, "fly": 150}""")).getAll(null).first().speeds
+
+        assertEquals(5, speeds.walk)
+        assertEquals(150, speeds.fly)
+    }
+
     private fun repository(vararg monsters: String) =
         JsonMonsterRepository(FakeFileReader("[${monsters.joinToString(",")}]"))
 
@@ -133,6 +170,7 @@ class JsonMonsterRepositoryTest {
         challengeRating: Float? = 1.0f,
         armorClass: Int? = 12,
         maxHitPoints: Int? = 20,
+        speeds: String = """{"walk": 30}""",
         translations: String? = """
             {
                 "en": {
@@ -145,7 +183,6 @@ class JsonMonsterRepositoryTest {
             }""",
     ): String {
         val abilities = """{"str": 10, "dex": 10, "con": 10, "int": 10, "wis": 10, "cha": 10}"""
-        val speeds = """{"walk": 30}"""
         val fields = buildList {
             id?.let { add(""""id": "$it"""") }
             source?.let { add(""""source": "$it"""") }

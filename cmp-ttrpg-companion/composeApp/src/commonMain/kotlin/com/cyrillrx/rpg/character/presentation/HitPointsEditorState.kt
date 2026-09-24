@@ -2,13 +2,13 @@ package com.cyrillrx.rpg.character.presentation
 
 import com.cyrillrx.rpg.character.domain.HitPointAdjustment
 import com.cyrillrx.rpg.character.domain.HitPoints
-import com.cyrillrx.rpg.character.domain.MAX_HIT_POINTS
 import com.cyrillrx.rpg.character.domain.adjust
 import com.cyrillrx.rpg.character.domain.coerceToValidHitPointAmount
 import com.cyrillrx.rpg.character.domain.isDown
 import com.cyrillrx.rpg.character.domain.isLethalDamage
-import com.cyrillrx.rpg.character.domain.isValidMaxHitPoints
 import com.cyrillrx.rpg.core.domain.toSignedString
+import com.cyrillrx.rpg.creature.domain.MAX_HIT_POINTS
+import com.cyrillrx.rpg.creature.domain.isValidMaxHitPoints
 
 private val maxInputLength = MAX_HIT_POINTS.toString().length
 

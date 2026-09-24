@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.character.domain
+package com.cyrillrx.rpg.creature.domain
 
 import kotlin.test.Test
 import kotlin.test.assertEquals
