@@ -7,9 +7,11 @@ internal const val DND_METERS_STEP = 1.5f
 
 fun Int.feetToMeters(): Float = this / DND_FEET_STEP.toFloat() * DND_METERS_STEP
 
-// Rounding before clamping keeps the result on the grid; clamping first could land between two
-// squares. [min] and [max] are expected to sit on the grid themselves.
+// Clamping first keeps the multiplication away from Int.MAX_VALUE, where it would overflow and land
+// on the opposite bound. [min] and [max] sit on the grid themselves, so an out-of-range value rounds
+// to the bound it was clamped to, and the second clamp only guards bounds that do not.
 fun Int.coerceToNearestFootStep(min: Int, max: Int): Int {
-    val rounded = (toFloat() / DND_FEET_STEP).roundToInt() * DND_FEET_STEP
+    val clamped = coerceIn(min, max)
+    val rounded = (clamped.toFloat() / DND_FEET_STEP).roundToInt() * DND_FEET_STEP
     return rounded.coerceIn(min, max)
 }
