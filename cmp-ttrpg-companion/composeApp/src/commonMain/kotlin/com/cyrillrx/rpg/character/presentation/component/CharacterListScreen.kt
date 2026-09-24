@@ -118,11 +118,6 @@ fun CharacterListScreen(
             SimpleTopBar(
                 titleResource = Res.string.title_character_list,
                 onNavigateUpClicked = onNavigateUpClicked,
-                actions = {
-                    if (state.body is CharacterListState.Body.WithData) {
-                        CharacterSortMenu(state.sortOrder, onSortOrderSelected)
-                    }
-                },
             )
         },
         snackbarHost = { SnackbarHost(snackbarHostState) },
@@ -148,6 +143,7 @@ fun CharacterListScreen(
                         CharacterList(
                             characters = body.searchResults,
                             sortOrder = state.sortOrder,
+                            onSortOrderSelected = onSortOrderSelected,
                             onCharacterClicked = onCharacterClicked,
                             onDeleteCharacter = onDeleteCharacter,
                         )
@@ -161,6 +157,7 @@ fun CharacterListScreen(
 private fun CharacterList(
     characters: List<Stored<Character>>,
     sortOrder: CharacterSortOrder,
+    onSortOrderSelected: (CharacterSortOrder) -> Unit,
     onCharacterClicked: (Character) -> Unit,
     onDeleteCharacter: (Stored<Character>) -> Unit,
     modifier: Modifier = Modifier,
@@ -176,6 +173,10 @@ private fun CharacterList(
         contentPadding = PaddingValues(spacingMedium),
         verticalArrangement = Arrangement.spacedBy(spacingMedium),
     ) {
+        item {
+            CharacterSortHeader(sortOrder = sortOrder, onSortOrderSelected = onSortOrderSelected)
+        }
+
         items(characters, key = { it.value.id }) { stored ->
             SwipeToDelete(
                 onSwiped = { onDeleteCharacter(stored) },
