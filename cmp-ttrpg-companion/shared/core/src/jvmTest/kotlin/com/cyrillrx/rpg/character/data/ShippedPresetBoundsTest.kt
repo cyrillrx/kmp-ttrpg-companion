@@ -11,10 +11,7 @@ import com.cyrillrx.rpg.creature.domain.isValidMaxHitPoints
 import kotlin.test.Test
 import kotlin.test.assertTrue
 
-/**
- * Same guard as [com.cyrillrx.rpg.creature.data.ShippedMonsterBoundsTest], on the side where the
- * bounds are tightest: a preset walks 25 to 120 ft where a creature may crawl at 5.
- */
+/** The import clamps silently, so a bound set too tight would rewrite the bundled presets unnoticed. */
 class ShippedPresetBoundsTest {
 
     @Test

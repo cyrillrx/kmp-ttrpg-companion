@@ -9,10 +9,7 @@ import com.cyrillrx.rpg.creature.domain.isValidMaxHitPoints
 import kotlin.test.Test
 import kotlin.test.assertTrue
 
-/**
- * The import clamps silently, so a bound set too tight would rewrite the bestiary without anyone
- * noticing. This reads the file the app actually ships and asserts nothing in it needs coercing.
- */
+/** The import clamps silently, so a bound set too tight would rewrite the bestiary unnoticed. */
 class ShippedMonsterBoundsTest {
 
     @Test

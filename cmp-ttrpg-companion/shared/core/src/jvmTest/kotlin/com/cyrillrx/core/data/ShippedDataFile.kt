@@ -5,10 +5,8 @@ import kotlin.test.fail
 
 private const val RESOURCES_PATH = "composeApp/src/commonMain/composeResources/files"
 
-/**
- * The bundled file of that name, found by walking up from the test working directory: the resources
- * live in composeApp, which has no JVM test source set of its own.
- */
+// Walking up rather than resolving a fixed path: the resources live in composeApp, which has no JVM
+// test source set of its own.
 fun shippedDataFile(name: String): File {
     val relativePath = "$RESOURCES_PATH/$name"
     var directory: File? = File(".").absoluteFile

@@ -18,8 +18,6 @@ class CoerceToNearestFootStepTest {
         assertEquals(120, 500.coerceToNearestFootStep(min = 25, max = 120))
     }
 
-    // The multiplication used to run on the unclamped value, so an extreme input overflowed and
-    // landed on the opposite bound: Int.MAX_VALUE came back as the minimum.
     @Test
     fun `clamps extreme values to the bound they are past`() {
         assertEquals(120, Int.MAX_VALUE.coerceToNearestFootStep(min = 25, max = 120))
