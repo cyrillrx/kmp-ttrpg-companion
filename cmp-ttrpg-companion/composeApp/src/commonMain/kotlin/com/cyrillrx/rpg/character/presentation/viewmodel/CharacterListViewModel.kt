@@ -67,7 +67,7 @@ class CharacterListViewModel(
         state.update { current ->
             current.copy(
                 sortOrder = order,
-                body = if (current.body is CharacterListState.Body.WithData) bodyOf(order) else current.body,
+                body = if (current.body is CharacterListState.Body.WithData) sortedBody(order) else current.body,
             )
         }
     }
@@ -164,11 +164,11 @@ class CharacterListViewModel(
     }
 
     private fun renderBody() {
-        state.update { it.copy(body = bodyOf(it.sortOrder)) }
+        state.update { it.copy(body = sortedBody(it.sortOrder)) }
     }
 
-    /** Reads [OptimisticDeletions.visible] afresh, so it stays correct should [update] replay the lambda. */
-    private fun bodyOf(order: CharacterSortOrder): CharacterListState.Body {
+    private fun sortedBody(order: CharacterSortOrder): CharacterListState.Body {
+        // Read afresh, so the body stays correct should the state update replay its lambda.
         val visible = deletions.visible
         return if (visible.isEmpty()) {
             CharacterListState.Body.Empty

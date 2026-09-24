@@ -164,7 +164,6 @@ private fun CharacterList(
 ) {
     val listState = rememberLazyListState()
 
-    // Reordering leaves the user at an offset that now points at unrelated sheets.
     LaunchedEffect(sortOrder) { listState.animateScrollToItem(0) }
 
     LazyColumn(
