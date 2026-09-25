@@ -2,13 +2,14 @@ package com.cyrillrx.rpg.character.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterFilter
 import com.cyrillrx.rpg.character.domain.CharacterRepository
-import com.cyrillrx.rpg.character.domain.CharacterSortOrder
-import com.cyrillrx.rpg.character.domain.applySort
 import com.cyrillrx.rpg.character.presentation.CharacterListState
 import com.cyrillrx.rpg.core.domain.Stored
+import com.cyrillrx.rpg.core.domain.StoredSortOrder
+import com.cyrillrx.rpg.core.domain.applySort
 import com.cyrillrx.rpg.core.presentation.OptimisticDeletions
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
@@ -30,6 +31,7 @@ import kotlin.coroutines.cancellation.CancellationException
 class CharacterListViewModel(
     private val repository: CharacterRepository,
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
+    private val locale: String = currentLocale(),
 ) : ViewModel() {
 
     val state: StateFlow<CharacterListState>
@@ -61,7 +63,7 @@ class CharacterListViewModel(
         activeJob = loadCharacters(query)
     }
 
-    fun setSortOrder(order: CharacterSortOrder) {
+    fun setSortOrder(order: StoredSortOrder) {
         if (state.value.sortOrder == order) return
 
         state.update { current ->
@@ -167,13 +169,13 @@ class CharacterListViewModel(
         state.update { it.copy(body = sortedBody(it.sortOrder)) }
     }
 
-    private fun sortedBody(order: CharacterSortOrder): CharacterListState.Body {
+    private fun sortedBody(order: StoredSortOrder): CharacterListState.Body {
         // Read afresh, so the body stays correct should the state update replay its lambda.
         val visible = deletions.visible
         return if (visible.isEmpty()) {
             CharacterListState.Body.Empty
         } else {
-            CharacterListState.Body.WithData(visible.applySort(order))
+            CharacterListState.Body.WithData(visible.applySort(order, locale))
         }
     }
 }

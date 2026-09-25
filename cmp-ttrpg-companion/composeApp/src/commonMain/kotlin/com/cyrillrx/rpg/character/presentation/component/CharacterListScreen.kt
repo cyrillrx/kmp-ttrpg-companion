@@ -24,11 +24,11 @@ import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Character
-import com.cyrillrx.rpg.character.domain.CharacterSortOrder
 import com.cyrillrx.rpg.character.presentation.CharacterListState
 import com.cyrillrx.rpg.character.presentation.navigation.CharacterRouter
 import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterListViewModel
 import com.cyrillrx.rpg.core.domain.Stored
+import com.cyrillrx.rpg.core.domain.StoredSortOrder
 import com.cyrillrx.rpg.core.presentation.OptimisticDeletions
 import com.cyrillrx.rpg.core.presentation.component.EmptySearch
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
@@ -84,7 +84,7 @@ fun CharacterListScreen(
     onCharacterClicked: (Character) -> Unit,
     onNewCharacterClicked: () -> Unit,
     onQuickCreateClicked: () -> Unit,
-    onSortOrderSelected: (CharacterSortOrder) -> Unit,
+    onSortOrderSelected: (StoredSortOrder) -> Unit,
     onDeleteCharacterOptimistically: (Stored<Character>) -> OptimisticDeletions.Pending<Stored<Character>>?,
     onUndoDeletion: (OptimisticDeletions.Pending<Stored<Character>>) -> Unit,
     onCommitDeletion: (OptimisticDeletions.Pending<Stored<Character>>) -> Unit,
@@ -156,8 +156,8 @@ fun CharacterListScreen(
 @Composable
 private fun CharacterList(
     characters: List<Stored<Character>>,
-    sortOrder: CharacterSortOrder,
-    onSortOrderSelected: (CharacterSortOrder) -> Unit,
+    sortOrder: StoredSortOrder,
+    onSortOrderSelected: (StoredSortOrder) -> Unit,
     onCharacterClicked: (Character) -> Unit,
     onDeleteCharacter: (Stored<Character>) -> Unit,
     modifier: Modifier = Modifier,

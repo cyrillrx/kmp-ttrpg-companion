@@ -19,7 +19,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.cyrillrx.rpg.character.domain.CharacterSortOrder
+import com.cyrillrx.rpg.core.domain.StoredSortOrder
 import com.cyrillrx.rpg.core.presentation.component.AnchoredMenu
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
@@ -35,8 +35,8 @@ import rpg_companion.composeapp.generated.resources.sort_character_name
 
 @Composable
 fun CharacterSortHeader(
-    sortOrder: CharacterSortOrder,
-    onSortOrderSelected: (CharacterSortOrder) -> Unit,
+    sortOrder: StoredSortOrder,
+    onSortOrderSelected: (StoredSortOrder) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Row(
@@ -63,7 +63,7 @@ fun CharacterSortHeader(
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.padding(horizontal = spacingCommon, vertical = spacingSmall),
             )
-            CharacterSortOrder.entries.forEach { order ->
+            StoredSortOrder.entries.forEach { order ->
                 DropdownMenuItem(
                     text = { Text(text = stringResource(order.toStringRes())) },
                     onClick = {
@@ -81,16 +81,16 @@ fun CharacterSortHeader(
     }
 }
 
-private fun CharacterSortOrder.toStringRes(): StringResource = when (this) {
-    CharacterSortOrder.LAST_MODIFIED -> Res.string.sort_character_last_modified
-    CharacterSortOrder.NAME -> Res.string.sort_character_name
+private fun StoredSortOrder.toStringRes(): StringResource = when (this) {
+    StoredSortOrder.LAST_MODIFIED -> Res.string.sort_character_last_modified
+    StoredSortOrder.NAME -> Res.string.sort_character_name
 }
 
 @Preview
 @Composable
 private fun PreviewCharacterSortHeaderLight() {
     AppThemePreview(darkTheme = false) {
-        CharacterSortHeader(sortOrder = CharacterSortOrder.LAST_MODIFIED, onSortOrderSelected = {})
+        CharacterSortHeader(sortOrder = StoredSortOrder.LAST_MODIFIED, onSortOrderSelected = {})
     }
 }
 
@@ -98,6 +98,6 @@ private fun PreviewCharacterSortHeaderLight() {
 @Composable
 private fun PreviewCharacterSortHeaderDark() {
     AppThemePreview(darkTheme = true) {
-        CharacterSortHeader(sortOrder = CharacterSortOrder.NAME, onSortOrderSelected = {})
+        CharacterSortHeader(sortOrder = StoredSortOrder.NAME, onSortOrderSelected = {})
     }
 }

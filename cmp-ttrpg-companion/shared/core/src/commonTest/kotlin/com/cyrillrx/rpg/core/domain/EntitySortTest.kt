@@ -1,12 +1,14 @@
-package com.cyrillrx.rpg.character.domain
+package com.cyrillrx.rpg.core.domain
 
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
-import com.cyrillrx.rpg.core.domain.Stored
+import com.cyrillrx.rpg.character.domain.Character
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.time.Instant
 
-class CharacterSortOrderTest {
+class EntitySortTest {
+
+    private val locale = "en"
 
     @Test
     fun `last modified puts the most recently updated sheet first`() {
@@ -16,7 +18,7 @@ class CharacterSortOrderTest {
             stored("Newest", millis(3_000)),
         )
 
-        val sorted = sheets.applySort(CharacterSortOrder.LAST_MODIFIED)
+        val sorted = sheets.applySort(StoredSortOrder.LAST_MODIFIED, locale)
 
         assertEquals(expected = listOf("Newest", "Middle", "Oldest"), actual = sorted.names())
     }
@@ -28,7 +30,7 @@ class CharacterSortOrderTest {
             stored("First", millis(1_000), id = "a"),
         )
 
-        val sorted = sheets.applySort(CharacterSortOrder.LAST_MODIFIED)
+        val sorted = sheets.applySort(StoredSortOrder.LAST_MODIFIED, locale)
 
         assertEquals(expected = listOf("a", "b"), actual = sorted.map { it.value.id })
     }
@@ -37,7 +39,7 @@ class CharacterSortOrderTest {
     fun `name orders accented sheets as French does`() {
         val sheets = listOf(stored("Roublard", millis(1_000)), stored("Rôdeur", millis(2_000)))
 
-        val sorted = sheets.applySort(CharacterSortOrder.NAME)
+        val sorted = sheets.applySort(StoredSortOrder.NAME, locale)
 
         assertEquals(expected = listOf("Rôdeur", "Roublard"), actual = sorted.names())
     }
@@ -49,7 +51,7 @@ class CharacterSortOrderTest {
             stored("Lyra", millis(1_000), id = "first"),
         )
 
-        val sorted = sheets.applySort(CharacterSortOrder.NAME)
+        val sorted = sheets.applySort(StoredSortOrder.NAME, locale)
 
         assertEquals(expected = listOf("first", "second"), actual = sorted.map { it.value.id })
     }
