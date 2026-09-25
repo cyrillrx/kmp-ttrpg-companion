@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.usercollection.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.cyrillrx.rpg.core.domain.Entity
 import com.cyrillrx.rpg.core.domain.EntityRepository
 import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.usercollection.domain.UserCollection
@@ -21,7 +22,7 @@ import kotlin.time.Clock
 import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
-class AddToCollectionViewModel<T>(
+class AddToCollectionViewModel<T : Entity>(
     private val collectionType: UserCollection.ItemType,
     private val userCollectionRepository: UserCollectionRepository,
     private val repository: EntityRepository<T>,

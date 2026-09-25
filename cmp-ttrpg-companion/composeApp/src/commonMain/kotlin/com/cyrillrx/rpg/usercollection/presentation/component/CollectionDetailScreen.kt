@@ -29,7 +29,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.app.currentLocale
-import com.cyrillrx.rpg.core.domain.Identifiable
+import com.cyrillrx.rpg.core.domain.Entity
 import com.cyrillrx.rpg.core.presentation.OptimisticDeletions
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
@@ -56,7 +56,7 @@ import rpg_companion.composeapp.generated.resources.snackbar_error_renaming_coll
 import rpg_companion.composeapp.generated.resources.snackbar_removed_from_collection
 
 @Composable
-fun <T : Identifiable> CollectionDetailScreen(
+fun <T : Entity> CollectionDetailScreen(
     viewModel: CollectionDetailViewModel<T>,
     itemProvider: CollectionItemProvider<T>,
     onNavigateUp: () -> Unit,
@@ -84,7 +84,7 @@ fun <T : Identifiable> CollectionDetailScreen(
 }
 
 @Composable
-fun <T : Identifiable> CollectionDetailScreen(
+fun <T : Entity> CollectionDetailScreen(
     state: CollectionDetailState<T>,
     events: SharedFlow<CollectionDetailViewModel.Event<T>>,
     itemProvider: CollectionItemProvider<T>,
