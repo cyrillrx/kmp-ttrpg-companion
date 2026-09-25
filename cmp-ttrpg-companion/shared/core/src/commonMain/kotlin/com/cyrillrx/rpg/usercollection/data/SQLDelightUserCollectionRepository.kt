@@ -18,7 +18,7 @@ class SQLDelightUserCollectionRepository(
 ) : UserCollectionRepository {
     private val database = Database(databaseDriverFactory)
 
-    override suspend fun getAll(type: UserCollection.Type): List<Stored<UserCollection>> =
+    override suspend fun getAll(type: UserCollection.ItemType): List<Stored<UserCollection>> =
         withContext(ioDispatcher) { database.getAllUserCollections(type) }
 
     override suspend fun get(id: String): UserCollection? = withContext(ioDispatcher) { database.getUserCollection(id) }

@@ -22,7 +22,7 @@ import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
 class AddToCollectionViewModel<T>(
-    private val collectionType: UserCollection.Type,
+    private val collectionType: UserCollection.ItemType,
     private val userCollectionRepository: UserCollectionRepository,
     private val repository: EntityRepository<T>,
     private val errorMessage: StringResource,
@@ -80,7 +80,7 @@ class AddToCollectionViewModel<T>(
             val newCollection = UserCollection(
                 id = Uuid.random().toString(),
                 name = name,
-                type = collectionType,
+                itemType = collectionType,
                 itemIds = listOf(itemId),
             )
             try {

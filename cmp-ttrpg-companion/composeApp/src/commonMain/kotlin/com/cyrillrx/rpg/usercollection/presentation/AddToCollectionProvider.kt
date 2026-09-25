@@ -9,7 +9,7 @@ import com.cyrillrx.rpg.usercollection.presentation.viewmodel.AddToCollectionVie
 import com.cyrillrx.rpg.usercollection.presentation.viewmodel.AddToCollectionViewModelFactory
 
 interface AddToCollectionProvider<T> {
-    val collectionType: UserCollection.Type
+    val collectionType: UserCollection.ItemType
     val viewModelFactory: AddToCollectionViewModelFactory<T>
 
     @Composable

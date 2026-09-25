@@ -67,7 +67,7 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
     private fun mapCampaignSelecting(id: String, name: String, ruleSet: Long): Campaign =
         Campaign(id = id, name = name, ruleSet = RuleSet.fromInt(ruleSet.toInt()))
 
-    fun getAllUserCollections(type: UserCollection.Type): List<Stored<UserCollection>> =
+    fun getAllUserCollections(type: UserCollection.ItemType): List<Stored<UserCollection>> =
         dbQuery.selectAllUserCollectionsByType(type.name, ::mapUserCollectionStored).executeAsList()
 
     fun getUserCollection(id: String): UserCollection? =
@@ -77,7 +77,7 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
         dbQuery.saveUserCollection(
             id = collection.id,
             name = collection.name,
-            type = collection.type.name,
+            type = collection.itemType.name,
             itemIds = collection.itemIds.joinToString(LIST_DELIMITER),
             updatedAt = updatedAt,
         )
@@ -129,7 +129,7 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
     ) = UserCollection(
         id = id,
         name = name,
-        type = UserCollection.Type.valueOf(type),
+        itemType = UserCollection.ItemType.valueOf(type),
         itemIds = if (itemIds.isEmpty()) emptyList() else itemIds.split(LIST_DELIMITER),
     )
 

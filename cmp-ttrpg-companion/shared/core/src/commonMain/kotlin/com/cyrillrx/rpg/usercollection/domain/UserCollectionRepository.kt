@@ -3,7 +3,7 @@ package com.cyrillrx.rpg.usercollection.domain
 import com.cyrillrx.rpg.core.domain.Stored
 
 interface UserCollectionRepository {
-    suspend fun getAll(type: UserCollection.Type): List<Stored<UserCollection>>
+    suspend fun getAll(type: UserCollection.ItemType): List<Stored<UserCollection>>
     suspend fun get(id: String): UserCollection?
     suspend fun save(collection: UserCollection)
     suspend fun delete(id: String)

@@ -10,7 +10,7 @@ import org.jetbrains.compose.resources.StringResource
 import kotlin.reflect.KClass
 
 class AddToCollectionViewModelFactory<T>(
-    private val collectionType: UserCollection.Type,
+    private val collectionType: UserCollection.ItemType,
     private val userCollectionRepository: UserCollectionRepository,
     private val entityRepository: EntityRepository<T>,
     private val errorMessage: StringResource,

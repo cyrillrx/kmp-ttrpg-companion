@@ -21,10 +21,10 @@ internal fun UserCollection.subtitle(updatedAt: Instant): String {
 private fun UserCollection.formattedCount(): String {
     val count = itemIds.size
     return pluralStringResource(
-        resource = when (type) {
-            UserCollection.Type.SPELL -> Res.plurals.spell_count
-            UserCollection.Type.MAGICAL_ITEM -> Res.plurals.magical_item_count
-            UserCollection.Type.MONSTER -> Res.plurals.creature_count
+        resource = when (itemType) {
+            UserCollection.ItemType.SPELL -> Res.plurals.spell_count
+            UserCollection.ItemType.MAGICAL_ITEM -> Res.plurals.magical_item_count
+            UserCollection.ItemType.MONSTER -> Res.plurals.creature_count
         },
         quantity = count,
         count,
