@@ -1,6 +1,6 @@
 package com.cyrillrx.rpg.core.domain
 
-data class Entity(
+data class EntityRef(
     val id: String,
     val type: Type,
 ) {
