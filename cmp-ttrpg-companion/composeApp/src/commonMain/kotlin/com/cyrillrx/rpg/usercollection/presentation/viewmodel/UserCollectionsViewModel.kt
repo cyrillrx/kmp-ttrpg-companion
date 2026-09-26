@@ -27,7 +27,7 @@ import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
 class UserCollectionsViewModel(
-    private val collectionType: UserCollection.Type,
+    private val collectionType: UserCollection.ItemType,
     private val userCollectionRepository: UserCollectionRepository,
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
 ) : ViewModel() {
@@ -63,7 +63,7 @@ class UserCollectionsViewModel(
             val newCollection = UserCollection(
                 id = Uuid.random().toString(),
                 name = name,
-                type = collectionType,
+                itemType = collectionType,
                 itemIds = emptyList(),
             )
             try {

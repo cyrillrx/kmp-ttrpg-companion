@@ -1,10 +1,14 @@
 package com.cyrillrx.rpg.usercollection.domain
 
+import com.cyrillrx.rpg.core.domain.Entity
+
 data class UserCollection(
-    val id: String,
+    override val id: String,
     val name: String,
-    val type: Type,
+    val itemType: ItemType,
     val itemIds: List<String>,
-) {
-    enum class Type { SPELL, MAGICAL_ITEM, MONSTER }
+) : Entity {
+    override fun displayName(locale: String): String = name
+
+    enum class ItemType { SPELL, MAGICAL_ITEM, MONSTER }
 }

@@ -23,24 +23,24 @@ class RamUserCollectionRepositoryTest {
         val spellCollection = UserCollection(
             id = "1",
             name = "My Spells",
-            type = UserCollection.Type.SPELL,
+            itemType = UserCollection.ItemType.SPELL,
             itemIds = emptyList(),
         )
         val itemCollection = UserCollection(
             id = "2",
             name = "Artefacts",
-            type = UserCollection.Type.MAGICAL_ITEM,
+            itemType = UserCollection.ItemType.MAGICAL_ITEM,
             itemIds = emptyList(),
         )
 
         repository.save(spellCollection)
         repository.save(itemCollection)
 
-        val spellCollections = repository.getAll(UserCollection.Type.SPELL)
+        val spellCollections = repository.getAll(UserCollection.ItemType.SPELL)
         assertEquals(expected = 1, actual = spellCollections.size)
         assertEquals(expected = spellCollection, actual = spellCollections.first().value)
 
-        val itemCollections = repository.getAll(UserCollection.Type.MAGICAL_ITEM)
+        val itemCollections = repository.getAll(UserCollection.ItemType.MAGICAL_ITEM)
         assertEquals(expected = 1, actual = itemCollections.size)
         assertEquals(expected = itemCollection, actual = itemCollections.first().value)
     }
@@ -49,7 +49,7 @@ class RamUserCollectionRepositoryTest {
     fun `get returns the collection by id`() = runTest {
         val repository = buildRepository()
         val collection =
-            UserCollection(id = "abc", name = "Test", type = UserCollection.Type.SPELL, itemIds = emptyList())
+            UserCollection(id = "abc", name = "Test", itemType = UserCollection.ItemType.SPELL, itemIds = emptyList())
 
         repository.save(collection)
 
@@ -66,13 +66,18 @@ class RamUserCollectionRepositoryTest {
     @Test
     fun `initial collections are keyed by id and keep their timestamp`() = runTest {
         val collection =
-            UserCollection(id = "seed", name = "Seeded", type = UserCollection.Type.SPELL, itemIds = listOf("Fireball"))
+            UserCollection(
+                id = "seed",
+                name = "Seeded",
+                itemType = UserCollection.ItemType.SPELL,
+                itemIds = listOf("Fireball"),
+            )
         val updatedAt = Instant.parse("2024-01-15T10:30:00Z")
         val repository = RamUserCollectionRepository(listOf(Stored(value = collection, updatedAt = updatedAt)))
 
         assertEquals(expected = collection, actual = repository.get("seed"))
 
-        val stored = repository.getAll(UserCollection.Type.SPELL)
+        val stored = repository.getAll(UserCollection.ItemType.SPELL)
         assertEquals(expected = 1, actual = stored.size)
         assertEquals(expected = updatedAt, actual = stored.first().updatedAt)
     }
@@ -80,7 +85,12 @@ class RamUserCollectionRepositoryTest {
     @Test
     fun `seeded collections stay per instance`() = runTest {
         val collection =
-            UserCollection(id = "seed", name = "Seeded", type = UserCollection.Type.SPELL, itemIds = emptyList())
+            UserCollection(
+                id = "seed",
+                name = "Seeded",
+                itemType = UserCollection.ItemType.SPELL,
+                itemIds = emptyList(),
+            )
         val seed = listOf(Stored(value = collection, updatedAt = Instant.parse("2024-01-15T10:30:00Z")))
 
         RamUserCollectionRepository(seed).delete("seed")
@@ -92,7 +102,12 @@ class RamUserCollectionRepositoryTest {
     fun `save updates itemIds on existing collection`() = runTest {
         val repository = buildRepository()
         val collection =
-            UserCollection(id = "1", name = "My Spells", type = UserCollection.Type.SPELL, itemIds = emptyList())
+            UserCollection(
+                id = "1",
+                name = "My Spells",
+                itemType = UserCollection.ItemType.SPELL,
+                itemIds = emptyList(),
+            )
 
         repository.save(collection)
 
@@ -107,24 +122,34 @@ class RamUserCollectionRepositoryTest {
     fun `delete removes collection by id`() = runTest {
         val repository = buildRepository()
         val collection =
-            UserCollection(id = "1", name = "My Spells", type = UserCollection.Type.SPELL, itemIds = emptyList())
+            UserCollection(
+                id = "1",
+                name = "My Spells",
+                itemType = UserCollection.ItemType.SPELL,
+                itemIds = emptyList(),
+            )
 
         repository.save(collection)
         repository.delete("1")
 
         assertNull(repository.get("1"))
-        assertTrue(repository.getAll(UserCollection.Type.SPELL).isEmpty())
+        assertTrue(repository.getAll(UserCollection.ItemType.SPELL).isEmpty())
     }
 
     @Test
     fun `getAll returns nothing when no collection of the given type exists`() = runTest {
         val repository = buildRepository()
         val collection =
-            UserCollection(id = "1", name = "My Spells", type = UserCollection.Type.SPELL, itemIds = emptyList())
+            UserCollection(
+                id = "1",
+                name = "My Spells",
+                itemType = UserCollection.ItemType.SPELL,
+                itemIds = emptyList(),
+            )
 
         repository.save(collection)
 
-        val monsterCollections = repository.getAll(UserCollection.Type.MONSTER)
+        val monsterCollections = repository.getAll(UserCollection.ItemType.MONSTER)
         assertTrue(monsterCollections.isEmpty())
     }
 
@@ -134,7 +159,7 @@ class RamUserCollectionRepositoryTest {
         val collection = UserCollection(
             id = "1",
             name = "My Spells",
-            type = UserCollection.Type.SPELL,
+            itemType = UserCollection.ItemType.SPELL,
             itemIds = listOf("spell1", "spell2"),
         )
         repository.save(collection)
@@ -162,13 +187,18 @@ class RamUserCollectionRepositoryTest {
         val clock = MutableClock(Instant.fromEpochMilliseconds(1_000L))
         val repository = buildRepository(clock)
         val collection =
-            UserCollection(id = "1", name = "My Spells", type = UserCollection.Type.SPELL, itemIds = emptyList())
+            UserCollection(
+                id = "1",
+                name = "My Spells",
+                itemType = UserCollection.ItemType.SPELL,
+                itemIds = emptyList(),
+            )
 
         repository.save(collection)
         clock.instant = Instant.fromEpochMilliseconds(5_000L)
         repository.save(collection.copy(itemIds = listOf("spell1")))
 
-        val stored = repository.getAll(UserCollection.Type.SPELL).single()
+        val stored = repository.getAll(UserCollection.ItemType.SPELL).single()
         assertEquals(Instant.fromEpochMilliseconds(5_000L), stored.updatedAt)
     }
 }

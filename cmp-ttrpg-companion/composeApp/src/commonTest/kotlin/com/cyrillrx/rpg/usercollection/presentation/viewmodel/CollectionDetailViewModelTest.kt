@@ -84,7 +84,7 @@ class CollectionDetailViewModelTest {
 
     @Test
     fun `state is Empty when collection has no spells`() = runTest(testDispatcher) {
-        val collection = UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, emptyList())
+        val collection = UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.ItemType.SPELL, emptyList())
         userCollectionRepository.save(collection)
 
         val viewModel = buildViewModel(TEST_COLLECTION_ID)
@@ -102,7 +102,7 @@ class CollectionDetailViewModelTest {
     @Test
     fun `state is WithData when collection has spells`() = runTest(testDispatcher) {
         val collection =
-            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.ItemType.SPELL, listOf(spell.id))
         userCollectionRepository.save(collection)
 
         val viewModel = buildViewModel(TEST_COLLECTION_ID)
@@ -122,7 +122,7 @@ class CollectionDetailViewModelTest {
     fun `removeItemOptimistically then commit removes spell from collection`() = runTest(testDispatcher) {
         val spells = SampleSpellRepository.getAll()
         val collection =
-            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, spells.map { it.id })
+            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.ItemType.SPELL, spells.map { it.id })
         userCollectionRepository.save(collection)
 
         val viewModel = buildViewModel(TEST_COLLECTION_ID)
@@ -146,7 +146,7 @@ class CollectionDetailViewModelTest {
     @Test
     fun `undoRemoval restores the item`() = runTest(testDispatcher) {
         val collection =
-            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.ItemType.SPELL, listOf(spell.id))
         userCollectionRepository.save(collection)
 
         val viewModel = buildViewModel(TEST_COLLECTION_ID)
@@ -168,7 +168,7 @@ class CollectionDetailViewModelTest {
     fun `a refresh inside the undo window keeps the item hidden and undo restores one entry`() =
         runTest(testDispatcher) {
             val collection =
-                UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+                UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.ItemType.SPELL, listOf(spell.id))
             userCollectionRepository.save(collection)
 
             val viewModel = buildViewModel(TEST_COLLECTION_ID)
@@ -196,7 +196,7 @@ class CollectionDetailViewModelTest {
     fun `a commit failing after a refresh restores one entry and emits an error`() = runTest(testDispatcher) {
         val failingRepo = FailsOnRemoveUserCollectionRepository()
         val collection =
-            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.ItemType.SPELL, listOf(spell.id))
         failingRepo.save(collection)
 
         val viewModel = buildViewModel(TEST_COLLECTION_ID, failingRepo)
@@ -228,7 +228,7 @@ class CollectionDetailViewModelTest {
     fun `removeItemOptimistically then commit transitions to Empty when last spell removed`() =
         runTest(testDispatcher) {
             val collection =
-                UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+                UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.ItemType.SPELL, listOf(spell.id))
             userCollectionRepository.save(collection)
 
             val viewModel = buildViewModel(TEST_COLLECTION_ID)
@@ -250,7 +250,7 @@ class CollectionDetailViewModelTest {
     @Test
     fun `silentRefresh reflects new items added to repository`() = runTest(testDispatcher) {
         val collection =
-            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.ItemType.SPELL, listOf(spell.id))
         userCollectionRepository.save(collection)
 
         val viewModel = buildViewModel(TEST_COLLECTION_ID)
@@ -277,7 +277,7 @@ class CollectionDetailViewModelTest {
     @Test
     fun `silentRefresh does not transition to Loading state`() = runTest(testDispatcher) {
         val collection =
-            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.ItemType.SPELL, listOf(spell.id))
         userCollectionRepository.save(collection)
 
         val viewModel = buildViewModel(TEST_COLLECTION_ID)
@@ -302,7 +302,7 @@ class CollectionDetailViewModelTest {
     @Test
     fun `silentRefresh does nothing when state is already Loading`() = runTest(testDispatcher) {
         val collection =
-            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.ItemType.SPELL, listOf(spell.id))
         userCollectionRepository.save(collection)
 
         val viewModel = buildViewModel(TEST_COLLECTION_ID)
@@ -317,7 +317,7 @@ class CollectionDetailViewModelTest {
     @Test
     fun `renameCollection updates collection name in state`() = runTest(testDispatcher) {
         val collection =
-            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.ItemType.SPELL, listOf(spell.id))
         userCollectionRepository.save(collection)
 
         val viewModel = buildViewModel(TEST_COLLECTION_ID)
@@ -337,7 +337,7 @@ class CollectionDetailViewModelTest {
     @Test
     fun `renameCollection persists updated name to repository`() = runTest(testDispatcher) {
         val collection =
-            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.ItemType.SPELL, listOf(spell.id))
         userCollectionRepository.save(collection)
 
         val viewModel = buildViewModel(TEST_COLLECTION_ID)
@@ -360,7 +360,7 @@ class CollectionDetailViewModelTest {
         val collection = UserCollection(
             TEST_COLLECTION_ID,
             COLLECTION_NAME,
-            UserCollection.Type.SPELL,
+            UserCollection.ItemType.SPELL,
             listOf(spell.id, secondSpell.id),
         )
         userCollectionRepository.save(collection)
@@ -389,7 +389,7 @@ class CollectionDetailViewModelTest {
     fun `renameCollection emits an error when the repository reports a failure`() = runTest(testDispatcher) {
         val failingRepo = FailsOnRenameUserCollectionRepository()
         val collection =
-            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.ItemType.SPELL, listOf(spell.id))
         failingRepo.save(collection)
 
         val viewModel = buildViewModel(TEST_COLLECTION_ID, failingRepo)
@@ -439,7 +439,7 @@ class CollectionDetailViewModelTest {
     fun `commitRemoval restores item and emits error when repository returns failure`() = runTest(testDispatcher) {
         val failingRepo = FailsOnRemoveUserCollectionRepository()
         val collection =
-            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.ItemType.SPELL, listOf(spell.id))
         failingRepo.save(collection)
 
         val viewModel = buildViewModel(TEST_COLLECTION_ID, failingRepo)
@@ -469,7 +469,7 @@ class CollectionDetailViewModelTest {
     fun `commitRemoval restores item and emits error when the repository throws`() = runTest(testDispatcher) {
         val throwingRepo = ThrowsOnRemoveUserCollectionRepository()
         val collection =
-            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.ItemType.SPELL, listOf(spell.id))
         throwingRepo.save(collection)
 
         val viewModel = buildViewModel(TEST_COLLECTION_ID, throwingRepo)
@@ -498,7 +498,7 @@ class CollectionDetailViewModelTest {
     @Test
     fun `commitAllPendingRemovals commits pending removals that were never confirmed`() = runTest(testDispatcher) {
         val collection =
-            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.ItemType.SPELL, listOf(spell.id))
         userCollectionRepository.save(collection)
 
         val viewModel = buildViewModel(TEST_COLLECTION_ID)
@@ -522,7 +522,7 @@ class CollectionDetailViewModelTest {
             val collection = UserCollection(
                 TEST_COLLECTION_ID,
                 COLLECTION_NAME,
-                UserCollection.Type.SPELL,
+                UserCollection.ItemType.SPELL,
                 listOf(spell.id, secondSpell.id),
             )
             userCollectionRepository.save(collection)
@@ -548,7 +548,7 @@ class CollectionDetailViewModelTest {
 
 private class FailsOnRemoveUserCollectionRepository : UserCollectionRepository {
     private val delegate = RamUserCollectionRepository()
-    override suspend fun getAll(type: UserCollection.Type): List<Stored<UserCollection>> = delegate.getAll(type)
+    override suspend fun getAll(type: UserCollection.ItemType): List<Stored<UserCollection>> = delegate.getAll(type)
     override suspend fun get(id: String): UserCollection? = delegate.get(id)
     override suspend fun save(collection: UserCollection) = delegate.save(collection)
     override suspend fun delete(id: String) = delegate.delete(id)
@@ -565,7 +565,7 @@ private class ThrowsOnRemoveUserCollectionRepository :
 
 private class FailsOnRenameUserCollectionRepository : UserCollectionRepository {
     private val delegate = RamUserCollectionRepository()
-    override suspend fun getAll(type: UserCollection.Type): List<Stored<UserCollection>> = delegate.getAll(type)
+    override suspend fun getAll(type: UserCollection.ItemType): List<Stored<UserCollection>> = delegate.getAll(type)
     override suspend fun get(id: String): UserCollection? = delegate.get(id)
     override suspend fun save(collection: UserCollection) = delegate.save(collection)
     override suspend fun delete(id: String) = delegate.delete(id)

@@ -5,9 +5,9 @@ import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterFilter
 import com.cyrillrx.rpg.character.domain.CharacterRepository
-import com.cyrillrx.rpg.character.domain.CharacterSortOrder
 import com.cyrillrx.rpg.character.presentation.CharacterListState
 import com.cyrillrx.rpg.core.domain.Stored
+import com.cyrillrx.rpg.core.domain.StoredSortOrder
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -441,7 +441,7 @@ class CharacterListViewModelTest {
 
             advanceUntilIdle()
 
-            viewModel.setSortOrder(CharacterSortOrder.NAME)
+            viewModel.setSortOrder(StoredSortOrder.NAME)
 
             assertEquals(expected = listOf("Middle", "Newest", "Oldest"), actual = viewModel.renderedNames())
             assertEquals(expected = 1, actual = repository.reads)
@@ -459,7 +459,7 @@ class CharacterListViewModelTest {
         advanceUntilIdle()
         states.clear()
 
-        viewModel.setSortOrder(CharacterSortOrder.NAME)
+        viewModel.setSortOrder(StoredSortOrder.NAME)
 
         assertEquals(expected = 1, actual = states.size)
     }
@@ -469,7 +469,7 @@ class CharacterListViewModelTest {
         val viewModel = buildViewModel(ScrambledCharacterRepository())
 
         assertIs<CharacterListState.Body.Loading>(viewModel.state.value.body)
-        viewModel.setSortOrder(CharacterSortOrder.NAME)
+        viewModel.setSortOrder(StoredSortOrder.NAME)
 
         advanceUntilIdle()
 
@@ -486,11 +486,11 @@ class CharacterListViewModelTest {
 
         advanceUntilIdle()
 
-        viewModel.setSortOrder(CharacterSortOrder.NAME)
+        viewModel.setSortOrder(StoredSortOrder.NAME)
         viewModel.filterByQuery("")
         advanceUntilIdle()
 
-        assertEquals(expected = CharacterSortOrder.NAME, actual = viewModel.state.value.sortOrder)
+        assertEquals(expected = StoredSortOrder.NAME, actual = viewModel.state.value.sortOrder)
         assertEquals(expected = listOf("Middle", "Newest", "Oldest"), actual = viewModel.renderedNames())
     }
 
@@ -505,7 +505,7 @@ class CharacterListViewModelTest {
         advanceUntilIdle()
 
         viewModel.deleteCharacterOptimistically(viewModel.firstStored())
-        viewModel.setSortOrder(CharacterSortOrder.NAME)
+        viewModel.setSortOrder(StoredSortOrder.NAME)
 
         assertEquals(expected = listOf("Middle", "Oldest"), actual = viewModel.renderedNames())
     }

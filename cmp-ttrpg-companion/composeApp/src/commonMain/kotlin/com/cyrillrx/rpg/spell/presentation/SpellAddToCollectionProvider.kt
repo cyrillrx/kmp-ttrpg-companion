@@ -29,7 +29,7 @@ class SpellAddToCollectionProvider(
     spellRepository: SpellRepository,
     userCollectionRepository: UserCollectionRepository,
 ) : AddToCollectionProvider<Spell> {
-    override val collectionType: UserCollection.Type = UserCollection.Type.SPELL
+    override val collectionType: UserCollection.ItemType = UserCollection.ItemType.SPELL
 
     override val viewModelFactory = AddToCollectionViewModelFactory(
         collectionType = collectionType,

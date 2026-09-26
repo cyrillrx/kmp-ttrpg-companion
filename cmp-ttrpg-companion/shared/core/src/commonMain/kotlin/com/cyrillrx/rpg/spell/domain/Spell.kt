@@ -2,7 +2,7 @@ package com.cyrillrx.rpg.spell.domain
 
 import com.cyrillrx.core.domain.FALLBACK_LOCALE
 import com.cyrillrx.rpg.character.domain.Character
-import com.cyrillrx.rpg.core.domain.Identifiable
+import com.cyrillrx.rpg.core.domain.Entity
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -16,10 +16,12 @@ class Spell(
     val components: Components,
     val availableClasses: List<Character.Class>,
     val translations: Map<String, Translation>,
-) : Identifiable {
+) : Entity {
     init {
         require(translations.isNotEmpty()) { "Spell $id must have at least one translation" }
     }
+
+    override fun displayName(locale: String): String = resolveTranslation(locale).name
 
     fun resolveTranslation(locale: String): Translation =
         translations[locale]

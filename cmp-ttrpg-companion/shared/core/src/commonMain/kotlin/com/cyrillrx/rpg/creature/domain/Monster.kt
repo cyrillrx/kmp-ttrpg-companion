@@ -24,6 +24,8 @@ class Monster(
         require(translations.isNotEmpty()) { "Monster $id must have at least one translation" }
     }
 
+    override fun displayName(locale: String): String = resolveTranslation(locale).name
+
     fun getDisplayType(): Type = types.first()
 
     fun proficiencyBonus(): Int = when {

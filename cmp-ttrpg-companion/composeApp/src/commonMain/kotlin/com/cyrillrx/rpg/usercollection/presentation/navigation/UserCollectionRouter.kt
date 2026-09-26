@@ -19,10 +19,10 @@ class UserCollectionRouterImpl(private val backStack: NavBackStack<NavKey>) : Us
     }
 
     override fun openUserCollection(collection: UserCollection) {
-        when (collection.type) {
-            UserCollection.Type.SPELL -> backStack.add(SpellRoute.UserCollectionDetail(collection.id))
-            UserCollection.Type.MAGICAL_ITEM -> backStack.add(MagicalItemRoute.UserCollectionDetail(collection.id))
-            UserCollection.Type.MONSTER -> backStack.add(MonsterRoute.UserCollectionDetail(collection.id))
+        when (collection.itemType) {
+            UserCollection.ItemType.SPELL -> backStack.add(SpellRoute.UserCollectionDetail(collection.id))
+            UserCollection.ItemType.MAGICAL_ITEM -> backStack.add(MagicalItemRoute.UserCollectionDetail(collection.id))
+            UserCollection.ItemType.MONSTER -> backStack.add(MonsterRoute.UserCollectionDetail(collection.id))
         }
     }
 }

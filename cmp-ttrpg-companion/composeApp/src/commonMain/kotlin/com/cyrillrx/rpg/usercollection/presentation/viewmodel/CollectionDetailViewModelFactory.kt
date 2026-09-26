@@ -3,12 +3,12 @@ package com.cyrillrx.rpg.usercollection.presentation.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.CreationExtras
+import com.cyrillrx.rpg.core.domain.Entity
 import com.cyrillrx.rpg.core.domain.EntityRepository
-import com.cyrillrx.rpg.core.domain.Identifiable
 import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
 import kotlin.reflect.KClass
 
-class CollectionDetailViewModelFactory<T : Identifiable>(
+class CollectionDetailViewModelFactory<T : Entity>(
     private val collectionId: String,
     private val userCollectionRepository: UserCollectionRepository,
     private val repository: EntityRepository<T>,
