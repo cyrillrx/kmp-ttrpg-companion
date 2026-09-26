@@ -25,4 +25,9 @@ class CoerceToNearestFootStepTest {
         assertEquals(200, Int.MAX_VALUE.coerceToNearestFootStep(min = 0, max = 200))
         assertEquals(0, Int.MIN_VALUE.coerceToNearestFootStep(min = 0, max = 200))
     }
+
+    @Test
+    fun `rounds within a bound larger than the multiplication can hold`() {
+        assertEquals(2147483645, Int.MAX_VALUE.coerceToNearestFootStep(min = 0, max = Int.MAX_VALUE))
+    }
 }
