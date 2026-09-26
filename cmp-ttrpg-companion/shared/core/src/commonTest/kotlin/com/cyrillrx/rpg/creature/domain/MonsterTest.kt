@@ -1,6 +1,7 @@
 package com.cyrillrx.rpg.creature.domain
 
 import kotlin.test.Test
+import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
 import kotlin.test.assertTrue
 
@@ -24,6 +25,14 @@ class MonsterTest {
     fun `getDisplayType returns one of the monster's types`() {
         val monster = validMonster(types = setOf(Monster.Type.CELESTIAL, Monster.Type.FIEND))
         assertTrue(monster.getDisplayType() in monster.types)
+    }
+
+    @Test
+    fun `displayName returns the name of the resolved translation`() {
+        val monster = validMonster()
+
+        assertEquals(expected = "Test", actual = monster.displayName("en"))
+        assertEquals(expected = "Test", actual = monster.displayName("de"))
     }
 
     private fun validMonster(
