@@ -48,5 +48,7 @@ fun Int.coerceToValidWalkSpeedInFeet(): Int = coerceToNearestFootStep(MIN_WALK_S
 
 // The walk speed is held to the narrower character range; the other modes fall back to the creature
 // bounds, the rules defining no character-specific ceiling for flying or swimming.
-fun Speeds.coerceToValidCharacterSpeeds(): Speeds =
-    coerceToValidCreatureSpeeds().copy(walk = walk.coerceToValidWalkSpeedInFeet())
+fun Speeds.coerceToValidCharacterSpeeds(): Speeds {
+    val speeds = coerceToValidCreatureSpeeds()
+    return speeds.copy(walk = speeds.walk.coerceToValidWalkSpeedInFeet())
+}

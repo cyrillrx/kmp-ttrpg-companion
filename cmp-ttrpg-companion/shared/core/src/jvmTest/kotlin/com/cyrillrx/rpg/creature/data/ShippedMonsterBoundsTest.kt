@@ -1,24 +1,20 @@
 package com.cyrillrx.rpg.creature.data
 
 import com.cyrillrx.core.data.deserialize
+import com.cyrillrx.core.data.shippedDataFile
 import com.cyrillrx.rpg.creature.data.api.ApiMonster
 import com.cyrillrx.rpg.creature.domain.isValidArmorClass
 import com.cyrillrx.rpg.creature.domain.isValidCreatureSpeedInFeet
 import com.cyrillrx.rpg.creature.domain.isValidMaxHitPoints
-import java.io.File
 import kotlin.test.Test
 import kotlin.test.assertTrue
-import kotlin.test.fail
 
-/**
- * The import clamps silently, so a bound set too tight would rewrite the bestiary without anyone
- * noticing. This reads the file the app actually ships and asserts nothing in it needs coercing.
- */
+/** The import clamps silently, so a bound set too tight would rewrite the bestiary unnoticed. */
 class ShippedMonsterBoundsTest {
 
     @Test
     fun `no shipped monster is out of bounds`() {
-        val monsters = monstersFile().readText().deserialize<List<ApiMonster>>()
+        val monsters = shippedDataFile("monsters.json").readText().deserialize<List<ApiMonster>>()
         assertTrue(monsters.size > 500, "expected the full bestiary, found ${monsters.size}")
 
         val offenders = monsters.flatMap { monster ->
@@ -45,19 +41,5 @@ class ShippedMonsterBoundsTest {
         }
 
         assertTrue(offenders.isEmpty(), "shipped monsters outside the creature bounds: $offenders")
-    }
-
-    private fun monstersFile(): File {
-        var directory: File? = File(".").absoluteFile
-        while (directory != null) {
-            val candidate = File(directory, RELATIVE_PATH)
-            if (candidate.isFile) return candidate
-            directory = directory.parentFile
-        }
-        fail("could not find $RELATIVE_PATH above ${File(".").absolutePath}")
-    }
-
-    private companion object {
-        const val RELATIVE_PATH = "composeApp/src/commonMain/composeResources/files/monsters.json"
     }
 }
