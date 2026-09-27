@@ -319,6 +319,33 @@ class AddToCollectionViewModelTest {
     }
 
     @Test
+    fun `a created collection is shown first`() = runTest(testDispatcher) {
+        val viewModel = AddToCollectionViewModel(
+            collectionType = UserCollection.ItemType.SPELL,
+            userCollectionRepository = DatedUserCollectionRepository(),
+            repository = spellRepository,
+            errorMessage = Res.string.error_while_loading_spells,
+        )
+        viewModel.loadEntity(spell.id)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        viewModel.createAndAdd(CREATED_COLLECTION_NAME)
+
+        advanceUntilIdle()
+
+        val body = assertIs<AddToCollectionState.Body.WithData<Spell>>(viewModel.state.value.body)
+        assertEquals(
+            expected = CREATED_COLLECTION_NAME,
+            actual = body.selectableCollections.first().collection.name,
+        )
+    }
+
+    @Test
     fun `createAndAdd emits an error and adds nothing when the save fails`() = runTest(testDispatcher) {
         val viewModel = AddToCollectionViewModel(
             collectionType = UserCollection.ItemType.SPELL,
