@@ -7,12 +7,12 @@ import com.cyrillrx.rpg.core.presentation.component.SortHeader
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.sort_character_last_modified
-import rpg_companion.composeapp.generated.resources.sort_character_name
+import rpg_companion.composeapp.generated.resources.sort_last_modified
+import rpg_companion.composeapp.generated.resources.sort_name
 
 private val sortOrderOptions = listOf(
-    StoredSortOrder.LAST_MODIFIED to Res.string.sort_character_last_modified,
-    StoredSortOrder.NAME to Res.string.sort_character_name,
+    StoredSortOrder.LAST_MODIFIED to Res.string.sort_last_modified,
+    StoredSortOrder.NAME to Res.string.sort_name,
 )
 
 @Composable
