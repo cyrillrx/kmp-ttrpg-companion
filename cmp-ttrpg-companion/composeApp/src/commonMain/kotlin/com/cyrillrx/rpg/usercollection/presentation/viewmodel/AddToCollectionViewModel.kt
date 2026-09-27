@@ -2,9 +2,12 @@ package com.cyrillrx.rpg.usercollection.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.domain.Entity
 import com.cyrillrx.rpg.core.domain.EntityRepository
 import com.cyrillrx.rpg.core.domain.Stored
+import com.cyrillrx.rpg.core.domain.StoredSortOrder
+import com.cyrillrx.rpg.core.domain.applySort
 import com.cyrillrx.rpg.usercollection.domain.UserCollection
 import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
 import com.cyrillrx.rpg.usercollection.presentation.AddToCollectionState
@@ -27,6 +30,7 @@ class AddToCollectionViewModel<T : Entity>(
     private val userCollectionRepository: UserCollectionRepository,
     private val repository: EntityRepository<T>,
     private val errorMessage: StringResource,
+    private val locale: String = currentLocale(),
 ) : ViewModel() {
 
     val state: StateFlow<AddToCollectionState<T>>
@@ -50,7 +54,8 @@ class AddToCollectionViewModel<T : Entity>(
         try {
             val item = repository.getById(itemId) ?: error("Could not find item $itemId")
 
-            val userCollections = userCollectionRepository.getAll(collectionType).sortedByDescending { it.updatedAt }
+            val userCollections = userCollectionRepository.getAll(collectionType)
+                .applySort(StoredSortOrder.LAST_MODIFIED, locale)
             val selectableCollections = userCollections
                 .map { stored -> SelectableUserCollection(stored, alreadyAdded = itemId in stored.value.itemIds) }
             state.update { it.copy(body = AddToCollectionState.Body.WithData(item, selectableCollections)) }

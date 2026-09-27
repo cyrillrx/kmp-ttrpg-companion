@@ -2,7 +2,10 @@ package com.cyrillrx.rpg.usercollection.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.domain.Stored
+import com.cyrillrx.rpg.core.domain.StoredSortOrder
+import com.cyrillrx.rpg.core.domain.applySort
 import com.cyrillrx.rpg.core.presentation.OptimisticDeletions
 import com.cyrillrx.rpg.usercollection.domain.UserCollection
 import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
@@ -30,6 +33,7 @@ class UserCollectionsViewModel(
     private val collectionType: UserCollection.ItemType,
     private val userCollectionRepository: UserCollectionRepository,
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
+    private val locale: String = currentLocale(),
 ) : ViewModel() {
 
     val state: StateFlow<UserCollectionsState>
@@ -157,7 +161,7 @@ class UserCollectionsViewModel(
         }
 
     private suspend fun fetchAndUpdateUserCollections() {
-        deletions.setLoaded(userCollectionRepository.getAll(collectionType).sortedByDescending { it.updatedAt })
+        deletions.setLoaded(userCollectionRepository.getAll(collectionType))
         renderBody()
     }
 
@@ -178,7 +182,7 @@ class UserCollectionsViewModel(
         val body = if (visible.isEmpty()) {
             UserCollectionsState.Body.Empty
         } else {
-            UserCollectionsState.Body.WithData(visible)
+            UserCollectionsState.Body.WithData(visible.applySort(StoredSortOrder.LAST_MODIFIED, locale))
         }
         state.update { it.copy(body = body) }
     }
