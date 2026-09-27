@@ -31,14 +31,31 @@ class AppDatabaseMigrationTest {
     }
 
     @Test
-    fun `migrating from v1 preserves existing rows and defaults palette to arcane`() {
+    fun `migrating from v1 preserves existing rows and defaults the columns added since`() {
         val preferences = AppDatabase(migratedFromV1()).appDatabaseQueries
-            .getUserPreferences { _, theme, palette, distanceUnit -> Triple(theme, palette, distanceUnit) }
+            .getUserPreferences(::preferenceColumns)
             .executeAsOne()
 
-        assertEquals("arcane", preferences.second)
-        assertEquals("dark", preferences.first)
-        assertEquals("meters", preferences.third)
+        assertEquals(
+            expected = listOf("dark", "arcane", "meters", "last_modified", "last_modified", "added"),
+            actual = preferences,
+        )
+    }
+
+    @Test
+    fun `migrating from v4 preserves the preferences and defaults the list orders`() {
+        val driver = v4Database()
+        driver.execute(null, "UPDATE UserPreferencesEntity SET theme = 'light', palette = 'grove' WHERE id = 1;", 0)
+        AppDatabase.Schema.migrate(driver, oldVersion = 4L, newVersion = AppDatabase.Schema.version)
+
+        val preferences = AppDatabase(driver).appDatabaseQueries
+            .getUserPreferences(::preferenceColumns)
+            .executeAsOne()
+
+        assertEquals(
+            expected = listOf("light", "grove", "meters", "last_modified", "last_modified", "added"),
+            actual = preferences,
+        )
     }
 
     @Test
@@ -209,6 +226,21 @@ class AppDatabaseMigrationTest {
     private fun v3Database(url: String = JdbcSqliteDriver.IN_MEMORY): SqlDriver = v2Database(url).also {
         AppDatabase.Schema.migrate(it, oldVersion = 2L, newVersion = 3L)
     }
+
+    private fun v4Database(url: String = JdbcSqliteDriver.IN_MEMORY): SqlDriver = v3Database(url).also {
+        AppDatabase.Schema.migrate(it, oldVersion = 3L, newVersion = 4L)
+    }
+
+    @Suppress("UNUSED_PARAMETER", "LongParameterList")
+    private fun preferenceColumns(
+        id: Long,
+        theme: String,
+        palette: String,
+        distanceUnit: String,
+        characterSortOrder: String,
+        collectionSortOrder: String,
+        collectionItemOrder: String,
+    ) = listOf(theme, palette, distanceUnit, characterSortOrder, collectionSortOrder, collectionItemOrder)
 
     private fun migratedFromV1(): SqlDriver = v1Database().also {
         AppDatabase.Schema.migrate(it, oldVersion = 1L, newVersion = AppDatabase.Schema.version)

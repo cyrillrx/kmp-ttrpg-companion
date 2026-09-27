@@ -6,10 +6,12 @@ import com.cyrillrx.rpg.campaign.domain.Campaign
 import com.cyrillrx.rpg.campaign.domain.RuleSet
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.core.domain.Stored
+import com.cyrillrx.rpg.core.domain.StoredSortOrder
 import com.cyrillrx.rpg.settings.domain.DistanceUnit
 import com.cyrillrx.rpg.settings.domain.Palette
 import com.cyrillrx.rpg.settings.domain.Theme
 import com.cyrillrx.rpg.settings.domain.UserPreferences
+import com.cyrillrx.rpg.usercollection.domain.CollectionItemOrder
 import com.cyrillrx.rpg.usercollection.domain.UserCollection
 import kotlin.time.Instant
 
@@ -96,7 +98,7 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
     }
 
     fun getUserPreferences(): UserPreferences =
-        dbQuery.getUserPreferences { _, theme, palette, distanceUnit ->
+        dbQuery.getUserPreferences { _, theme, palette, distanceUnit, characterOrder, collectionOrder, itemOrder ->
             UserPreferences(
                 theme = Theme.entries.find { it.name.equals(theme, ignoreCase = true) }
                     ?: Theme.SYSTEM,
@@ -104,6 +106,13 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
                     ?: Palette.ARCANE,
                 distanceUnit = DistanceUnit.entries.find { it.name.equals(distanceUnit, ignoreCase = true) }
                     ?: DistanceUnit.FEET,
+                characterSortOrder = StoredSortOrder.entries.find { it.name.equals(characterOrder, ignoreCase = true) }
+                    ?: StoredSortOrder.LAST_MODIFIED,
+                collectionSortOrder = StoredSortOrder.entries
+                    .find { it.name.equals(collectionOrder, ignoreCase = true) }
+                    ?: StoredSortOrder.LAST_MODIFIED,
+                collectionItemOrder = CollectionItemOrder.entries.find { it.name.equals(itemOrder, ignoreCase = true) }
+                    ?: CollectionItemOrder.ADDED,
             )
         }.executeAsOneOrNull() ?: UserPreferences()
 
@@ -117,6 +126,18 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
 
     fun updateDistanceUnit(distanceUnit: DistanceUnit) {
         dbQuery.updateDistanceUnit(distanceUnit.name.lowercase())
+    }
+
+    fun updateCharacterSortOrder(order: StoredSortOrder) {
+        dbQuery.updateCharacterSortOrder(order.name.lowercase())
+    }
+
+    fun updateCollectionSortOrder(order: StoredSortOrder) {
+        dbQuery.updateCollectionSortOrder(order.name.lowercase())
+    }
+
+    fun updateCollectionItemOrder(order: CollectionItemOrder) {
+        dbQuery.updateCollectionItemOrder(order.name.lowercase())
     }
 
     @Suppress("UNUSED_PARAMETER")
