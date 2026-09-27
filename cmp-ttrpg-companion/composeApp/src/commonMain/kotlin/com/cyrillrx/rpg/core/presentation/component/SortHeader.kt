@@ -27,7 +27,6 @@ import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.btn_sort
 import rpg_companion.composeapp.generated.resources.label_sort_by
 
-/** Sits at the head of a list, spelling out the order in force rather than hiding it behind an icon. */
 @Composable
 fun <T> SortHeader(
     selected: T,

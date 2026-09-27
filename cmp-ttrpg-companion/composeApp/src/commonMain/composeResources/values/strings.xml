@@ -11,7 +11,7 @@
     <string name="label_sort_by">Sort by</string>
     <string name="sort_last_modified">Last modified</string>
     <string name="sort_name">Name</string>
-    <string name="sort_added">Added</string>
+    <string name="sort_added">Last added</string>
 
     <!--  Home  -->
     <string name="section_compendium">Compendium</string>
