@@ -34,6 +34,7 @@ import com.cyrillrx.rpg.core.domain.StoredSortOrder
 import com.cyrillrx.rpg.core.presentation.OptimisticDeletions
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
+import com.cyrillrx.rpg.core.presentation.component.ScrollToTopOnChange
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
 import com.cyrillrx.rpg.core.presentation.component.StoredSortHeader
 import com.cyrillrx.rpg.core.presentation.component.SwipeToDelete
@@ -190,7 +191,7 @@ private fun UserCollections(
 ) {
     val listState = rememberLazyListState()
 
-    LaunchedEffect(sortOrder) { listState.animateScrollToItem(0) }
+    ScrollToTopOnChange(key = sortOrder, listState = listState)
 
     LazyColumn(
         state = listState,
