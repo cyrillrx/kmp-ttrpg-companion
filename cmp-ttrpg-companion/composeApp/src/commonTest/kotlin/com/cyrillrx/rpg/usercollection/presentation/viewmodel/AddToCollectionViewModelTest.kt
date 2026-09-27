@@ -1,9 +1,11 @@
 package com.cyrillrx.rpg.usercollection.presentation.viewmodel
 
+import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.usercollection.data.RamUserCollectionRepository
 import com.cyrillrx.rpg.usercollection.domain.UserCollection
+import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
 import com.cyrillrx.rpg.usercollection.presentation.AddToCollectionState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -23,6 +25,7 @@ import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertIs
 import kotlin.test.assertTrue
+import kotlin.time.Instant
 
 private const val TEST_COLLECTION_ID = "collection1"
 private const val TEST_COLLECTION_ID_2 = "collection2"
@@ -56,6 +59,25 @@ class AddToCollectionViewModelTest {
         )
         vm.loadEntity(itemId)
         return vm
+    }
+
+    @Test
+    fun `collections are ordered most recently updated first`() = runTest(testDispatcher) {
+        val viewModel = AddToCollectionViewModel(
+            collectionType = UserCollection.ItemType.SPELL,
+            userCollectionRepository = DatedUserCollectionRepository(),
+            repository = spellRepository,
+            errorMessage = Res.string.error_while_loading_spells,
+        )
+        viewModel.loadEntity(spell.id)
+
+        advanceUntilIdle()
+
+        val body = assertIs<AddToCollectionState.Body.WithData<Spell>>(viewModel.state.value.body)
+        assertEquals(
+            expected = listOf("Newest", "Middle", "Oldest"),
+            actual = body.selectableCollections.map { it.collection.name },
+        )
     }
 
     @Test
@@ -335,4 +357,22 @@ class AddToCollectionViewModelTest {
 
         assertTrue(userCollectionRepository.getAll(UserCollection.ItemType.SPELL).isEmpty())
     }
+}
+
+/** Returns collections whose timestamps disagree with their position, so only the caller's ordering shows. */
+private class DatedUserCollectionRepository : UserCollectionRepository {
+    override suspend fun getAll(type: UserCollection.ItemType): List<Stored<UserCollection>> = listOf(
+        stored("Middle", 2_000L),
+        stored("Oldest", 1_000L),
+        stored("Newest", 3_000L),
+    )
+
+    override suspend fun get(id: String): UserCollection? = null
+    override suspend fun save(collection: UserCollection) = Unit
+    override suspend fun delete(id: String) = Unit
+
+    private fun stored(name: String, epochMillis: Long) = Stored(
+        value = UserCollection(id = name, name = name, itemType = UserCollection.ItemType.SPELL, itemIds = emptyList()),
+        updatedAt = Instant.fromEpochMilliseconds(epochMillis),
+    )
 }

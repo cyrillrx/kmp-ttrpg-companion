@@ -388,6 +388,16 @@ class UserCollectionsViewModelTest {
     }
 
     @Test
+    fun `collections sharing a date are ordered by id`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(TiedUserCollectionRepository())
+
+        advanceUntilIdle()
+
+        val body = assertIs<UserCollectionsState.Body.WithData>(viewModel.state.value.body)
+        assertEquals(expected = listOf("a", "b"), actual = body.collections.map { it.value.id })
+    }
+
+    @Test
     fun `silentRefresh does nothing when state is already Loading`() = runTest(testDispatcher) {
         val viewModel = buildViewModel()
 
@@ -414,6 +424,23 @@ private class ScrambledUserCollectionRepository : UserCollectionRepository {
     private fun stored(name: String, epochMillis: Long) = Stored(
         value = UserCollection(id = name, name = name, itemType = UserCollection.ItemType.SPELL, itemIds = emptyList()),
         updatedAt = Instant.fromEpochMilliseconds(epochMillis),
+    )
+}
+
+/** Returns collections written at the same instant, so only the caller's tiebreaker shows. */
+private class TiedUserCollectionRepository : UserCollectionRepository {
+    override suspend fun getAll(type: UserCollection.ItemType): List<Stored<UserCollection>> = listOf(
+        stored("b"),
+        stored("a"),
+    )
+
+    override suspend fun get(id: String): UserCollection? = null
+    override suspend fun save(collection: UserCollection) = Unit
+    override suspend fun delete(id: String) = Unit
+
+    private fun stored(id: String) = Stored(
+        value = UserCollection(id = id, name = "Same", itemType = UserCollection.ItemType.SPELL, itemIds = emptyList()),
+        updatedAt = Instant.fromEpochMilliseconds(1_000L),
     )
 }
 
