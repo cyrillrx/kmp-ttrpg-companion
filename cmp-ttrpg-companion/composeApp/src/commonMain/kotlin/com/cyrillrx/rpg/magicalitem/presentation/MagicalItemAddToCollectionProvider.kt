@@ -29,7 +29,7 @@ class MagicalItemAddToCollectionProvider(
     repository: MagicalItemRepository,
     userCollectionRepository: UserCollectionRepository,
 ) : AddToCollectionProvider<MagicalItem> {
-    override val collectionType: UserCollection.Type = UserCollection.Type.MAGICAL_ITEM
+    override val collectionType: UserCollection.ItemType = UserCollection.ItemType.MAGICAL_ITEM
 
     override val viewModelFactory = AddToCollectionViewModelFactory(
         collectionType = collectionType,

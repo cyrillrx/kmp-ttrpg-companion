@@ -2,8 +2,8 @@ package com.cyrillrx.rpg.usercollection.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.cyrillrx.rpg.core.domain.Entity
 import com.cyrillrx.rpg.core.domain.EntityRepository
-import com.cyrillrx.rpg.core.domain.Identifiable
 import com.cyrillrx.rpg.core.presentation.OptimisticDeletions
 import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
 import com.cyrillrx.rpg.usercollection.presentation.CollectionDetailState
@@ -24,7 +24,7 @@ import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_while_loading_collection
 import kotlin.coroutines.cancellation.CancellationException
 
-class CollectionDetailViewModel<T : Identifiable>(
+class CollectionDetailViewModel<T : Entity>(
     private val collectionId: String,
     private val userCollectionRepository: UserCollectionRepository,
     private val repository: EntityRepository<T>,

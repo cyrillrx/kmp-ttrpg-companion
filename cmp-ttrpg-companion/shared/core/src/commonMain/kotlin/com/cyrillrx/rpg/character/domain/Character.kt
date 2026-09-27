@@ -29,6 +29,8 @@ data class Character(
 ) : Creature() {
     val totalLevel: Int get() = classes.totalLevel
 
+    override fun displayName(locale: String): String = name
+
     fun resolveTranslation(locale: String): Translation? = translations[locale]
         ?: translations[FALLBACK_LOCALE]
         ?: translations.values.firstOrNull()

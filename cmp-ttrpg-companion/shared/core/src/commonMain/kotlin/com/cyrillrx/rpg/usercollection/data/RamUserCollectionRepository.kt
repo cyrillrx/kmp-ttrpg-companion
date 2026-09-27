@@ -11,8 +11,8 @@ class RamUserCollectionRepository(
 ) : UserCollectionRepository {
     private val collections = initial.associateByTo(mutableMapOf()) { it.value.id }
 
-    override suspend fun getAll(type: UserCollection.Type): List<Stored<UserCollection>> =
-        collections.values.filter { it.value.type == type }
+    override suspend fun getAll(type: UserCollection.ItemType): List<Stored<UserCollection>> =
+        collections.values.filter { it.value.itemType == type }
 
     override suspend fun get(id: String): UserCollection? = collections[id]?.value
 

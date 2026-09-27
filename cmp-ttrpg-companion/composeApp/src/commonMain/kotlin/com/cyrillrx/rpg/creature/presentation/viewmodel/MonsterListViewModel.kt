@@ -1,7 +1,7 @@
 package com.cyrillrx.rpg.creature.presentation.viewmodel
 
-import com.cyrillrx.core.domain.sortedByLocalizedName
 import com.cyrillrx.rpg.app.currentLocale
+import com.cyrillrx.rpg.core.domain.sortedByName
 import com.cyrillrx.rpg.core.domain.toggled
 import com.cyrillrx.rpg.core.presentation.viewmodel.SearchableListViewModel
 import com.cyrillrx.rpg.creature.domain.Monster
@@ -58,7 +58,7 @@ class MonsterListViewModel(
 
     override suspend fun loadContent(): MonsterListState.Body {
         val monsters = repository.getAll(mutableState.value.filter)
-            .sortedByLocalizedName { it.resolveTranslation(locale).name }
+            .sortedByName(locale)
         return if (monsters.isEmpty()) {
             MonsterListState.Body.Empty
         } else {

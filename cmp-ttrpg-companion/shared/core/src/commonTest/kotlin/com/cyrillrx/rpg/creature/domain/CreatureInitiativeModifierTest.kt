@@ -27,6 +27,7 @@ class CreatureInitiativeModifierTest {
 
     private fun creature(dex: Int) = object : Creature() {
         override val id = "test"
+        override fun displayName(locale: String) = "Test creature"
         override val size = Size.MEDIUM
         override val alignment = Alignment.NEUTRAL
         override val abilities = Abilities(

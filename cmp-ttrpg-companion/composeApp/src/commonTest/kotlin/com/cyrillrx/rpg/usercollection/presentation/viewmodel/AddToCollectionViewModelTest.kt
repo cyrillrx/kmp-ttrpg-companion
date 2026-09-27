@@ -49,7 +49,7 @@ class AddToCollectionViewModelTest {
 
     private fun buildViewModel(itemId: String = spell.id): AddToCollectionViewModel<Spell> {
         val vm = AddToCollectionViewModel(
-            collectionType = UserCollection.Type.SPELL,
+            collectionType = UserCollection.ItemType.SPELL,
             userCollectionRepository = userCollectionRepository,
             repository = spellRepository,
             errorMessage = Res.string.error_while_loading_spells,
@@ -81,7 +81,7 @@ class AddToCollectionViewModelTest {
     @Test
     fun `state is Error when repository throws`() = runTest(testDispatcher) {
         val viewModel = AddToCollectionViewModel(
-            collectionType = UserCollection.Type.SPELL,
+            collectionType = UserCollection.ItemType.SPELL,
             userCollectionRepository = FailingUserCollectionRepository(),
             repository = spellRepository,
             errorMessage = Res.string.error_while_loading_spells,
@@ -99,7 +99,7 @@ class AddToCollectionViewModelTest {
 
     @Test
     fun `initial state loads existing collections of given type`() = runTest(testDispatcher) {
-        val collection = UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, emptyList())
+        val collection = UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.ItemType.SPELL, emptyList())
         userCollectionRepository.save(collection)
 
         val viewModel = buildViewModel()
@@ -118,8 +118,8 @@ class AddToCollectionViewModelTest {
     @Test
     fun `initial state pre-selects collections where item is already added`() = runTest(testDispatcher) {
         val collection1 =
-            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, listOf(spell.id))
-        val collection2 = UserCollection(TEST_COLLECTION_ID_2, "Other", UserCollection.Type.SPELL, emptyList())
+            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.ItemType.SPELL, listOf(spell.id))
+        val collection2 = UserCollection(TEST_COLLECTION_ID_2, "Other", UserCollection.ItemType.SPELL, emptyList())
         userCollectionRepository.save(collection1)
         userCollectionRepository.save(collection2)
 
@@ -139,7 +139,7 @@ class AddToCollectionViewModelTest {
 
     @Test
     fun `toggleSelection selects the collection`() = runTest(testDispatcher) {
-        val collection = UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, emptyList())
+        val collection = UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.ItemType.SPELL, emptyList())
         userCollectionRepository.save(collection)
 
         val viewModel = buildViewModel()
@@ -159,7 +159,7 @@ class AddToCollectionViewModelTest {
     @Test
     fun `toggleSelection deselects the collection`() = runTest(testDispatcher) {
         val collection =
-            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.ItemType.SPELL, listOf(spell.id))
         userCollectionRepository.save(collection)
 
         val viewModel = buildViewModel()
@@ -178,7 +178,7 @@ class AddToCollectionViewModelTest {
 
     @Test
     fun `confirmSelection adds item to newly selected collections`() = runTest(testDispatcher) {
-        val collection = UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, emptyList())
+        val collection = UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.ItemType.SPELL, emptyList())
         userCollectionRepository.save(collection)
 
         val viewModel = buildViewModel()
@@ -201,7 +201,7 @@ class AddToCollectionViewModelTest {
     @Test
     fun `confirmSelection removes item from deselected collections`() = runTest(testDispatcher) {
         val collection =
-            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.ItemType.SPELL, listOf(spell.id))
         userCollectionRepository.save(collection)
 
         val viewModel = buildViewModel()
@@ -259,7 +259,7 @@ class AddToCollectionViewModelTest {
 
             // Simulate: spell was added to a new collection externally (e.g. from another screen)
             val newCollection =
-                UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, listOf(spell.id))
+                UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.ItemType.SPELL, listOf(spell.id))
             userCollectionRepository.save(newCollection)
 
             // Re-call loadEntity — simulates the bottom sheet being re-opened
@@ -285,7 +285,7 @@ class AddToCollectionViewModelTest {
 
         advanceUntilIdle()
 
-        val collections = userCollectionRepository.getAll(UserCollection.Type.SPELL)
+        val collections = userCollectionRepository.getAll(UserCollection.ItemType.SPELL)
         assertEquals(expected = 1, actual = collections.size)
         assertEquals(expected = CREATED_COLLECTION_NAME, actual = collections.first().value.name)
         assertTrue(actual = collections.first().value.itemIds.contains(spell.id))
@@ -299,7 +299,7 @@ class AddToCollectionViewModelTest {
     @Test
     fun `createAndAdd emits an error and adds nothing when the save fails`() = runTest(testDispatcher) {
         val viewModel = AddToCollectionViewModel(
-            collectionType = UserCollection.Type.SPELL,
+            collectionType = UserCollection.ItemType.SPELL,
             userCollectionRepository = FailsOnSaveUserCollectionRepository(),
             repository = spellRepository,
             errorMessage = Res.string.error_while_loading_spells,
@@ -333,6 +333,6 @@ class AddToCollectionViewModelTest {
         viewModel.createAndAdd(CREATED_COLLECTION_NAME)
         advanceUntilIdle()
 
-        assertTrue(userCollectionRepository.getAll(UserCollection.Type.SPELL).isEmpty())
+        assertTrue(userCollectionRepository.getAll(UserCollection.ItemType.SPELL).isEmpty())
     }
 }

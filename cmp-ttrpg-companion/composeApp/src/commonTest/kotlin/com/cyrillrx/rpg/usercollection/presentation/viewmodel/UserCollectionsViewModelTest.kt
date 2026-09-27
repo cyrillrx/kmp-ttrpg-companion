@@ -43,7 +43,7 @@ class UserCollectionsViewModelTest {
     }
 
     private fun buildViewModel(repo: UserCollectionRepository = repository) =
-        UserCollectionsViewModel(UserCollection.Type.SPELL, repo, testDispatcher)
+        UserCollectionsViewModel(UserCollection.ItemType.SPELL, repo, testDispatcher)
 
     @Test
     fun `initial state is Loading before coroutines run`() = runTest(testDispatcher) {
@@ -93,7 +93,7 @@ class UserCollectionsViewModelTest {
         val body = assertIs<UserCollectionsState.Body.WithData>(viewModel.state.value.body)
         assertEquals(expected = 1, actual = body.collections.size)
         assertEquals(expected = COLLECTION_NAME, actual = body.collections.first().value.name)
-        assertEquals(expected = UserCollection.Type.SPELL, actual = body.collections.first().value.type)
+        assertEquals(expected = UserCollection.ItemType.SPELL, actual = body.collections.first().value.itemType)
     }
 
     @Test
@@ -190,7 +190,7 @@ class UserCollectionsViewModelTest {
     @Test
     fun `a commit failing after a refresh restores one entry and emits an error`() = runTest(testDispatcher) {
         val failingRepo = FailsOnDeleteUserCollectionRepository()
-        val viewModel = UserCollectionsViewModel(UserCollection.Type.SPELL, failingRepo, testDispatcher)
+        val viewModel = UserCollectionsViewModel(UserCollection.ItemType.SPELL, failingRepo, testDispatcher)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -239,13 +239,13 @@ class UserCollectionsViewModelTest {
         viewModel.commitDeletion(pending)
         advanceUntilIdle()
 
-        assertTrue(repository.getAll(UserCollection.Type.SPELL).isEmpty())
+        assertTrue(repository.getAll(UserCollection.ItemType.SPELL).isEmpty())
     }
 
     @Test
     fun `commitDeletion restores collection and emits error when repository throws`() = runTest(testDispatcher) {
         val failingRepo = FailsOnDeleteUserCollectionRepository()
-        val viewModel = UserCollectionsViewModel(UserCollection.Type.SPELL, failingRepo, testDispatcher)
+        val viewModel = UserCollectionsViewModel(UserCollection.ItemType.SPELL, failingRepo, testDispatcher)
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -292,7 +292,7 @@ class UserCollectionsViewModelTest {
         viewModel.commitAllPendingDeletions()
         advanceUntilIdle()
 
-        assertTrue(repository.getAll(UserCollection.Type.SPELL).isEmpty())
+        assertTrue(repository.getAll(UserCollection.ItemType.SPELL).isEmpty())
     }
 
     @Test
@@ -328,8 +328,8 @@ class UserCollectionsViewModelTest {
     @Test
     fun `only collections matching the configured type are shown`() = runTest(testDispatcher) {
         val spellCollection =
-            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, emptyList())
-        val itemCollection = UserCollection("2", "Artefacts", UserCollection.Type.MAGICAL_ITEM, emptyList())
+            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.ItemType.SPELL, emptyList())
+        val itemCollection = UserCollection("2", "Artefacts", UserCollection.ItemType.MAGICAL_ITEM, emptyList())
         repository.save(spellCollection)
         repository.save(itemCollection)
 
@@ -349,7 +349,7 @@ class UserCollectionsViewModelTest {
     @Test
     fun `silentRefresh updates state with fresh data without showing Loading`() = runTest(testDispatcher) {
         val spellCollection =
-            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.Type.SPELL, emptyList())
+            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.ItemType.SPELL, emptyList())
         repository.save(spellCollection)
 
         val viewModel = buildViewModel()
@@ -401,7 +401,7 @@ class UserCollectionsViewModelTest {
 
 /** Returns collections whose timestamps deliberately disagree with their position, so only the caller's ordering shows. */
 private class ScrambledUserCollectionRepository : UserCollectionRepository {
-    override suspend fun getAll(type: UserCollection.Type): List<Stored<UserCollection>> = listOf(
+    override suspend fun getAll(type: UserCollection.ItemType): List<Stored<UserCollection>> = listOf(
         stored("Middle", 2_000L),
         stored("Oldest", 1_000L),
         stored("Newest", 3_000L),
@@ -412,14 +412,14 @@ private class ScrambledUserCollectionRepository : UserCollectionRepository {
     override suspend fun delete(id: String) = Unit
 
     private fun stored(name: String, epochMillis: Long) = Stored(
-        value = UserCollection(id = name, name = name, type = UserCollection.Type.SPELL, itemIds = emptyList()),
+        value = UserCollection(id = name, name = name, itemType = UserCollection.ItemType.SPELL, itemIds = emptyList()),
         updatedAt = Instant.fromEpochMilliseconds(epochMillis),
     )
 }
 
 private class FailsOnDeleteUserCollectionRepository : UserCollectionRepository {
     private val delegate = RamUserCollectionRepository()
-    override suspend fun getAll(type: UserCollection.Type): List<Stored<UserCollection>> = delegate.getAll(type)
+    override suspend fun getAll(type: UserCollection.ItemType): List<Stored<UserCollection>> = delegate.getAll(type)
     override suspend fun get(id: String): UserCollection? = delegate.get(id)
     override suspend fun save(collection: UserCollection) = delegate.save(collection)
     override suspend fun delete(id: String) = error("Delete failed")

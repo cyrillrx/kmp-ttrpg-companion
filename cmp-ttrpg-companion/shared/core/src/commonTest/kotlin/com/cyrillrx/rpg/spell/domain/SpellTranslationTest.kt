@@ -45,6 +45,21 @@ class SpellTranslationTest {
         assertEquals(expected = "de-name", actual = name)
     }
 
+    @Test
+    fun `displayName returns the name of the resolved translation`() {
+        val spell = spellWithTranslations("en", "fr")
+
+        assertEquals(expected = "en-name", actual = spell.displayName("en"))
+        assertEquals(expected = "fr-name", actual = spell.displayName("fr"))
+    }
+
+    @Test
+    fun `displayName falls back when the locale is missing`() {
+        val spell = spellWithTranslations("en")
+
+        assertEquals(expected = "en-name", actual = spell.displayName("de"))
+    }
+
     private fun spellWithTranslations(vararg locales: String) = Spell(
         id = "test-spell",
         source = "test",

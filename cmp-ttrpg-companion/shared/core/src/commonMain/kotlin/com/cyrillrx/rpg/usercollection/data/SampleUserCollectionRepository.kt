@@ -24,7 +24,7 @@ class SampleUserCollectionRepository(clock: Clock = Clock.System) :
             UserCollection(
                 id = "sample-spell-collection-1",
                 name = "Combat Spells",
-                type = UserCollection.Type.SPELL,
+                itemType = UserCollection.ItemType.SPELL,
                 itemIds = listOf("Fireball", "Thunderwave", "Counterspell"),
             ),
             updatedAt = "2024-01-15T10:30:00Z",
@@ -34,7 +34,7 @@ class SampleUserCollectionRepository(clock: Clock = Clock.System) :
             UserCollection(
                 id = "sample-spell-collection-2",
                 name = "Support Spells",
-                type = UserCollection.Type.SPELL,
+                itemType = UserCollection.ItemType.SPELL,
                 itemIds = listOf("Mage Armor", "Detect Thoughts"),
             ),
             updatedAt = "2024-01-10T08:00:00Z",
@@ -44,7 +44,7 @@ class SampleUserCollectionRepository(clock: Clock = Clock.System) :
             UserCollection(
                 id = "sample-spell-collection-3",
                 name = "Gandalf's Spells",
-                type = UserCollection.Type.SPELL,
+                itemType = UserCollection.ItemType.SPELL,
                 itemIds = listOf("Fireball", "Thunderwave", "Counterspell"),
             ),
             updatedAt = "2024-01-20T14:00:00Z",

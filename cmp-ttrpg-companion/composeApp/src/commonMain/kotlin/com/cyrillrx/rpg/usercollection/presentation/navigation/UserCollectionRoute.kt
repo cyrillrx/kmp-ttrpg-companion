@@ -38,7 +38,7 @@ fun EntryProviderScope<NavKey>.handleUserCollectionRoutes(
     userCollectionRepository: UserCollectionRepository,
 ) {
     entry<UserCollectionRoute.Spell> {
-        val collectionType = UserCollection.Type.SPELL
+        val collectionType = UserCollection.ItemType.SPELL
         val viewModelFactory = UserCollectionsViewModelFactory(collectionType, userCollectionRepository)
         val viewModel = viewModel<UserCollectionsViewModel>(
             key = collectionType.name,
@@ -49,7 +49,7 @@ fun EntryProviderScope<NavKey>.handleUserCollectionRoutes(
     }
 
     entry<UserCollectionRoute.MagicalItem> {
-        val collectionType = UserCollection.Type.MAGICAL_ITEM
+        val collectionType = UserCollection.ItemType.MAGICAL_ITEM
         val viewModelFactory = UserCollectionsViewModelFactory(collectionType, userCollectionRepository)
         val viewModel = viewModel<UserCollectionsViewModel>(
             key = collectionType.name,
@@ -60,7 +60,7 @@ fun EntryProviderScope<NavKey>.handleUserCollectionRoutes(
     }
 
     entry<UserCollectionRoute.Creature> {
-        val collectionType = UserCollection.Type.MONSTER
+        val collectionType = UserCollection.ItemType.MONSTER
         val viewModelFactory = UserCollectionsViewModelFactory(collectionType, userCollectionRepository)
         val viewModel = viewModel<UserCollectionsViewModel>(
             key = collectionType.name,

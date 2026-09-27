@@ -29,7 +29,7 @@ class MonsterAddToCollectionProvider(
     repository: MonsterRepository,
     userCollectionRepository: UserCollectionRepository,
 ) : AddToCollectionProvider<Monster> {
-    override val collectionType: UserCollection.Type = UserCollection.Type.MONSTER
+    override val collectionType: UserCollection.ItemType = UserCollection.ItemType.MONSTER
 
     override val viewModelFactory = AddToCollectionViewModelFactory(
         collectionType = collectionType,

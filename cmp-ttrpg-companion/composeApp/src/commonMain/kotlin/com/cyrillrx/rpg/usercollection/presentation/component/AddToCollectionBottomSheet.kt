@@ -25,6 +25,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.cyrillrx.rpg.core.domain.Entity
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.dialog.CreateCollectionDialog
@@ -48,7 +49,7 @@ import rpg_companion.composeapp.generated.resources.title_save_to_collection
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun <T> AddToCollectionBottomSheet(
+fun <T : Entity> AddToCollectionBottomSheet(
     viewModel: AddToCollectionViewModel<T>,
     header: @Composable (T) -> Unit,
     onDismiss: () -> Unit,
@@ -95,7 +96,7 @@ fun <T> AddToCollectionBottomSheet(
 }
 
 @Composable
-private fun <T> ColumnScope.AddToCollectionBottomSheetContent(
+private fun <T : Entity> ColumnScope.AddToCollectionBottomSheetContent(
     body: AddToCollectionState.Body<T>,
     header: @Composable (T) -> Unit,
     onToggleSelection: (String) -> Unit,

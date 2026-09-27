@@ -18,7 +18,7 @@ class SQLDelightUserCollectionRepositoryTest {
         SQLDelightUserCollectionRepository(TestDatabaseDriverFactory(), clock = clock)
 
     private fun spellCollection(id: String = "1", name: String = "My Spells", itemIds: List<String> = emptyList()) =
-        UserCollection(id = id, name = name, type = UserCollection.Type.SPELL, itemIds = itemIds)
+        UserCollection(id = id, name = name, itemType = UserCollection.ItemType.SPELL, itemIds = itemIds)
 
     @Test
     fun `save and getAll returns collections filtered by type`() = runTest {
@@ -27,16 +27,16 @@ class SQLDelightUserCollectionRepositoryTest {
         val items = UserCollection(
             id = "2",
             name = "Artefacts",
-            type = UserCollection.Type.MAGICAL_ITEM,
+            itemType = UserCollection.ItemType.MAGICAL_ITEM,
             itemIds = emptyList(),
         )
 
         repository.save(spells)
         repository.save(items)
 
-        assertEquals(expected = spells, actual = repository.getAll(UserCollection.Type.SPELL).single().value)
-        assertEquals(expected = items, actual = repository.getAll(UserCollection.Type.MAGICAL_ITEM).single().value)
-        assertTrue(repository.getAll(UserCollection.Type.MONSTER).isEmpty())
+        assertEquals(expected = spells, actual = repository.getAll(UserCollection.ItemType.SPELL).single().value)
+        assertEquals(expected = items, actual = repository.getAll(UserCollection.ItemType.MAGICAL_ITEM).single().value)
+        assertTrue(repository.getAll(UserCollection.ItemType.MONSTER).isEmpty())
     }
 
     @Test
@@ -64,7 +64,7 @@ class SQLDelightUserCollectionRepositoryTest {
         val result = repository.rename("1", "Combat Spells")
 
         assertEquals(expected = UserCollectionRepository.Result.Success, actual = result)
-        val stored = repository.getAll(UserCollection.Type.SPELL).single()
+        val stored = repository.getAll(UserCollection.ItemType.SPELL).single()
         assertEquals(expected = "Combat Spells", actual = stored.value.name)
         assertEquals(expected = listOf("Fireball", "Thunderwave"), actual = stored.value.itemIds)
         assertEquals(expected = Instant.fromEpochMilliseconds(5_000L), actual = stored.updatedAt)
@@ -88,7 +88,7 @@ class SQLDelightUserCollectionRepositoryTest {
         repository.save(updated)
 
         assertEquals(expected = updated, actual = repository.get("1"))
-        assertEquals(expected = 1, actual = repository.getAll(UserCollection.Type.SPELL).size)
+        assertEquals(expected = 1, actual = repository.getAll(UserCollection.ItemType.SPELL).size)
     }
 
     @Test
@@ -99,7 +99,7 @@ class SQLDelightUserCollectionRepositoryTest {
         repository.delete("1")
 
         assertNull(repository.get("1"))
-        assertTrue(repository.getAll(UserCollection.Type.SPELL).isEmpty())
+        assertTrue(repository.getAll(UserCollection.ItemType.SPELL).isEmpty())
     }
 
     @Test
@@ -139,7 +139,7 @@ class SQLDelightUserCollectionRepositoryTest {
         clock.instant = Instant.fromEpochMilliseconds(5_000L)
         repository.save(collection.copy(itemIds = listOf("spell1")))
 
-        val stored = repository.getAll(UserCollection.Type.SPELL).single()
+        val stored = repository.getAll(UserCollection.ItemType.SPELL).single()
         assertEquals(expected = Instant.fromEpochMilliseconds(5_000L), actual = stored.updatedAt)
     }
 }

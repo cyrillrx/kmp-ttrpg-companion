@@ -8,7 +8,7 @@ import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
 import kotlin.reflect.KClass
 
 class UserCollectionsViewModelFactory(
-    private val collectionType: UserCollection.Type,
+    private val collectionType: UserCollection.ItemType,
     private val userCollectionRepository: UserCollectionRepository,
 ) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: KClass<T>, extras: CreationExtras): T {

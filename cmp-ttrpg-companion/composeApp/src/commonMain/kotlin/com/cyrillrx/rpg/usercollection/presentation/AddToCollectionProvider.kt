@@ -3,13 +3,14 @@ package com.cyrillrx.rpg.usercollection.presentation
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.cyrillrx.rpg.core.domain.Entity
 import com.cyrillrx.rpg.usercollection.domain.UserCollection
 import com.cyrillrx.rpg.usercollection.presentation.component.AddToCollectionBottomSheet
 import com.cyrillrx.rpg.usercollection.presentation.viewmodel.AddToCollectionViewModel
 import com.cyrillrx.rpg.usercollection.presentation.viewmodel.AddToCollectionViewModelFactory
 
-interface AddToCollectionProvider<T> {
-    val collectionType: UserCollection.Type
+interface AddToCollectionProvider<T : Entity> {
+    val collectionType: UserCollection.ItemType
     val viewModelFactory: AddToCollectionViewModelFactory<T>
 
     @Composable
