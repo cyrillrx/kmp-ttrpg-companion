@@ -1,6 +1,7 @@
 package com.cyrillrx.rpg.usercollection.presentation.viewmodel
 
 import com.cyrillrx.rpg.core.domain.Stored
+import com.cyrillrx.rpg.core.domain.StoredSortOrder
 import com.cyrillrx.rpg.usercollection.data.RamUserCollectionRepository
 import com.cyrillrx.rpg.usercollection.domain.UserCollection
 import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
@@ -385,6 +386,22 @@ class UserCollectionsViewModelTest {
 
         val body = assertIs<UserCollectionsState.Body.WithData>(viewModel.state.value.body)
         assertEquals(expected = listOf("Newest", "Middle", "Oldest"), actual = body.collections.map { it.value.name })
+    }
+
+    @Test
+    fun `setSortOrder orders the collections by name`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(ScrambledUserCollectionRepository())
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        viewModel.setSortOrder(StoredSortOrder.NAME)
+
+        val body = assertIs<UserCollectionsState.Body.WithData>(viewModel.state.value.body)
+        assertEquals(expected = listOf("Middle", "Newest", "Oldest"), actual = body.collections.map { it.value.name })
     }
 
     @Test

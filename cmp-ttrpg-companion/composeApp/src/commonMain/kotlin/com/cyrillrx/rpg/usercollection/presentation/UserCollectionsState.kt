@@ -1,11 +1,13 @@
 package com.cyrillrx.rpg.usercollection.presentation
 
 import com.cyrillrx.rpg.core.domain.Stored
+import com.cyrillrx.rpg.core.domain.StoredSortOrder
 import com.cyrillrx.rpg.usercollection.domain.UserCollection
 import org.jetbrains.compose.resources.StringResource
 
 data class UserCollectionsState(
     val body: Body = Body.Loading,
+    val sortOrder: StoredSortOrder = StoredSortOrder.LAST_MODIFIED,
 ) {
     sealed interface Body {
         data object Loading : Body

@@ -1,9 +1,8 @@
-package com.cyrillrx.rpg.character.presentation.component
+package com.cyrillrx.rpg.core.presentation.component
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.cyrillrx.rpg.core.domain.StoredSortOrder
-import com.cyrillrx.rpg.core.presentation.component.SortHeader
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
@@ -16,7 +15,7 @@ private val sortOrderOptions = listOf(
 )
 
 @Composable
-fun CharacterSortHeader(
+fun StoredSortHeader(
     sortOrder: StoredSortOrder,
     onSortOrderSelected: (StoredSortOrder) -> Unit,
     modifier: Modifier = Modifier,
@@ -31,16 +30,16 @@ fun CharacterSortHeader(
 
 @Preview
 @Composable
-private fun PreviewCharacterSortHeaderLight() {
+private fun PreviewStoredSortHeaderLight() {
     AppThemePreview(darkTheme = false) {
-        CharacterSortHeader(sortOrder = StoredSortOrder.LAST_MODIFIED, onSortOrderSelected = {})
+        StoredSortHeader(sortOrder = StoredSortOrder.LAST_MODIFIED, onSortOrderSelected = {})
     }
 }
 
 @Preview
 @Composable
-private fun PreviewCharacterSortHeaderDark() {
+private fun PreviewStoredSortHeaderDark() {
     AppThemePreview(darkTheme = true) {
-        CharacterSortHeader(sortOrder = StoredSortOrder.NAME, onSortOrderSelected = {})
+        StoredSortHeader(sortOrder = StoredSortOrder.NAME, onSortOrderSelected = {})
     }
 }

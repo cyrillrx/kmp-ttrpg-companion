@@ -21,6 +21,10 @@ class OptimisticDeletions<Item>(private val identity: (Item) -> Any) {
     private val claimed = mutableListOf<Pending<Item>>()
     private var loaded: List<Item> = emptyList()
 
+    /**
+     * Recomputed on every read: read it inside a state update lambda, so a replayed update still renders
+     * the current list.
+     */
     val visible: List<Item>
         get() {
             val hiddenIds = hiddenIds()

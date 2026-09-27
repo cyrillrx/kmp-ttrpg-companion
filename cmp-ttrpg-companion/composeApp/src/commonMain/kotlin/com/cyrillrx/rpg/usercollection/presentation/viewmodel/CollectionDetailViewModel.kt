@@ -185,7 +185,6 @@ class CollectionDetailViewModel<T : Entity>(
     }
 
     private fun sortedBody(order: CollectionItemOrder): CollectionDetailState.Body<T> {
-        // Read afresh, so the body stays correct should the state update replay its lambda.
         val visible = removals.visible
         return if (visible.isEmpty()) {
             CollectionDetailState.Body.Empty

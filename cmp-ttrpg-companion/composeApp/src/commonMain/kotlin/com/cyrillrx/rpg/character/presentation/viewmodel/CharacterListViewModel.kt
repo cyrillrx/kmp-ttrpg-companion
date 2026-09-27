@@ -170,7 +170,6 @@ class CharacterListViewModel(
     }
 
     private fun sortedBody(order: StoredSortOrder): CharacterListState.Body {
-        // Read afresh, so the body stays correct should the state update replay its lambda.
         val visible = deletions.visible
         return if (visible.isEmpty()) {
             CharacterListState.Body.Empty
