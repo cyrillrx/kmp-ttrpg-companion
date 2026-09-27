@@ -34,6 +34,7 @@ import com.cyrillrx.rpg.core.presentation.component.EmptySearch
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
+import com.cyrillrx.rpg.core.presentation.component.StoredSortHeader
 import com.cyrillrx.rpg.core.presentation.component.SwipeToDelete
 import com.cyrillrx.rpg.core.presentation.component.rememberOptimisticDeleteHandler
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
@@ -173,7 +174,7 @@ private fun CharacterList(
         verticalArrangement = Arrangement.spacedBy(spacingMedium),
     ) {
         item {
-            CharacterSortHeader(sortOrder = sortOrder, onSortOrderSelected = onSortOrderSelected)
+            StoredSortHeader(sortOrder = sortOrder, onSortOrderSelected = onSortOrderSelected)
         }
 
         items(characters, key = { it.value.id }) { stored ->
