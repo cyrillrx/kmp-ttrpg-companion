@@ -44,6 +44,35 @@ class HomeViewModelTest {
         val body = assertIs<HomeState.Body.WithData>(viewModel.state.value.body)
         assertEquals(expected = listOf("Newest", "Middle"), actual = body.characters.map { it.value.name })
     }
+
+    @Test
+    fun `sheets sharing a date are kept in id order`() = runTest(testDispatcher) {
+        val viewModel = HomeViewModel(TiedCharacterRepository())
+
+        advanceUntilIdle()
+
+        val body = assertIs<HomeState.Body.WithData>(viewModel.state.value.body)
+        assertEquals(expected = listOf("a", "b"), actual = body.characters.map { it.value.id })
+    }
+}
+
+/** Returns sheets written at the same instant, so only the caller's tiebreaker shows. */
+private class TiedCharacterRepository : CharacterRepository {
+    override suspend fun getAll(filter: CharacterFilter?): List<Stored<Character>> = listOf(
+        stored("c"),
+        stored("b"),
+        stored("a"),
+    )
+
+    override suspend fun get(id: String): Character? = null
+    override suspend fun getByIds(ids: List<String>): List<Character> = emptyList()
+    override suspend fun save(character: Character) = Unit
+    override suspend fun delete(id: String) = Unit
+
+    private fun stored(id: String) = Stored(
+        value = SampleCharacterRepository.humanFighter().copy(id = id, name = "Same"),
+        updatedAt = Instant.fromEpochMilliseconds(1_000L),
+    )
 }
 
 /** Returns sheets whose timestamps disagree with their position, so only the caller's ordering shows. */

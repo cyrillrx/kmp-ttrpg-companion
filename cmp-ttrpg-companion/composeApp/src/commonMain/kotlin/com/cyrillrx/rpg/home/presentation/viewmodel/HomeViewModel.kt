@@ -2,7 +2,10 @@ package com.cyrillrx.rpg.home.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.character.domain.CharacterRepository
+import com.cyrillrx.rpg.core.domain.StoredSortOrder
+import com.cyrillrx.rpg.core.domain.applySort
 import com.cyrillrx.rpg.home.presentation.HomeState
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -15,6 +18,7 @@ import kotlin.coroutines.cancellation.CancellationException
 
 class HomeViewModel(
     private val repository: CharacterRepository,
+    private val locale: String = currentLocale(),
 ) : ViewModel() {
 
     val state: StateFlow<HomeState>
@@ -37,7 +41,7 @@ class HomeViewModel(
             if (showLoading) state.update { it.copy(body = HomeState.Body.Loading) }
             try {
                 val characters = repository.getAll(filter = null)
-                    .sortedByDescending { it.updatedAt }
+                    .applySort(StoredSortOrder.LAST_MODIFIED, locale)
                     .take(RECENT_LIMIT)
                 state.update { it.copy(body = HomeState.Body.WithData(characters)) }
             } catch (e: CancellationException) {
