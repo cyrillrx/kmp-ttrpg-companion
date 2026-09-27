@@ -2,11 +2,14 @@ package com.cyrillrx.rpg.usercollection.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.domain.Entity
 import com.cyrillrx.rpg.core.domain.EntityRepository
 import com.cyrillrx.rpg.core.presentation.OptimisticDeletions
 import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
 import com.cyrillrx.rpg.usercollection.presentation.CollectionDetailState
+import com.cyrillrx.rpg.usercollection.presentation.CollectionItemOrder
+import com.cyrillrx.rpg.usercollection.presentation.applyOrder
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -29,6 +32,7 @@ class CollectionDetailViewModel<T : Entity>(
     private val userCollectionRepository: UserCollectionRepository,
     private val repository: EntityRepository<T>,
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
+    private val locale: String = currentLocale(),
 ) : ViewModel() {
 
     val state: StateFlow<CollectionDetailState<T>>
@@ -115,6 +119,17 @@ class CollectionDetailViewModel<T : Entity>(
         }
     }
 
+    fun setSortOrder(order: CollectionItemOrder) {
+        if (state.value.sortOrder == order) return
+
+        state.update { current ->
+            current.copy(
+                sortOrder = order,
+                body = if (current.body is CollectionDetailState.Body.WithData) sortedBody(order) else current.body,
+            )
+        }
+    }
+
     fun silentRefresh() {
         if (state.value.body is CollectionDetailState.Body.Loading) return
         activeJob?.cancel()
@@ -166,12 +181,16 @@ class CollectionDetailViewModel<T : Entity>(
     }
 
     private fun renderBody() {
+        state.update { it.copy(body = sortedBody(it.sortOrder)) }
+    }
+
+    private fun sortedBody(order: CollectionItemOrder): CollectionDetailState.Body<T> {
+        // Read afresh, so the body stays correct should the state update replay its lambda.
         val visible = removals.visible
-        val body = if (visible.isEmpty()) {
+        return if (visible.isEmpty()) {
             CollectionDetailState.Body.Empty
         } else {
-            CollectionDetailState.Body.WithData(visible)
+            CollectionDetailState.Body.WithData(visible.applyOrder(order, locale))
         }
-        state.update { it.copy(body = body) }
     }
 }

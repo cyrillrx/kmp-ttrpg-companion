@@ -7,6 +7,7 @@ import com.cyrillrx.rpg.usercollection.data.RamUserCollectionRepository
 import com.cyrillrx.rpg.usercollection.domain.UserCollection
 import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
 import com.cyrillrx.rpg.usercollection.presentation.CollectionDetailState
+import com.cyrillrx.rpg.usercollection.presentation.CollectionItemOrder
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
@@ -26,6 +27,7 @@ import kotlin.test.assertTrue
 private const val TEST_COLLECTION_ID = "collection1"
 private const val COLLECTION_NAME = "Name of the collection"
 private const val RENAMED_COLLECTION_NAME = "New Name"
+private const val LOCALE = "en"
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class CollectionDetailViewModelTest {
@@ -47,7 +49,13 @@ class CollectionDetailViewModelTest {
     }
 
     private fun buildViewModel(collectionId: String, repo: UserCollectionRepository = userCollectionRepository) =
-        CollectionDetailViewModel(collectionId, repo, spellRepository, testDispatcher)
+        CollectionDetailViewModel(collectionId, repo, spellRepository, testDispatcher, LOCALE)
+
+    private suspend fun saveCollection(itemIds: List<String>) {
+        userCollectionRepository.save(
+            UserCollection(TEST_COLLECTION_ID, COLLECTION_NAME, UserCollection.ItemType.SPELL, itemIds),
+        )
+    }
 
     @Test
     fun `initial state is Loading before coroutines run`() = runTest(testDispatcher) {
@@ -97,6 +105,40 @@ class CollectionDetailViewModelTest {
 
         assertIs<CollectionDetailState.Body.Empty>(viewModel.state.value.body)
         assertEquals(expected = COLLECTION_NAME, actual = viewModel.state.value.collectionName)
+    }
+
+    @Test
+    fun `entries are shown most recently added first`() = runTest(testDispatcher) {
+        val spells = SampleSpellRepository.getAll().take(3)
+        saveCollection(spells.map { it.id })
+
+        val viewModel = buildViewModel(TEST_COLLECTION_ID)
+
+        advanceUntilIdle()
+
+        val body = assertIs<CollectionDetailState.Body.WithData<Spell>>(viewModel.state.value.body)
+        assertEquals(expected = spells.map { it.id }.reversed(), actual = body.items.map { it.id })
+    }
+
+    @Test
+    fun `setSortOrder orders the entries by localized name`() = runTest(testDispatcher) {
+        val spells = SampleSpellRepository.getAll().take(3)
+        saveCollection(spells.map { it.id })
+
+        val viewModel = buildViewModel(TEST_COLLECTION_ID)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+        viewModel.setSortOrder(CollectionItemOrder.NAME)
+
+        val body = assertIs<CollectionDetailState.Body.WithData<Spell>>(viewModel.state.value.body)
+        assertEquals(
+            expected = spells.map { it.displayName(LOCALE) }.sortedBy { it.lowercase() },
+            actual = body.items.map { it.displayName(LOCALE) },
+        )
     }
 
     @Test
