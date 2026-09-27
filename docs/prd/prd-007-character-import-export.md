@@ -1,6 +1,6 @@
 # PRD-007 — Character Import & Export
 
-> **Status**: Draft | **Version**: 0.1 | **Last updated**: 2026-09-19
+> **Status**: Draft | **Version**: 0.2 | **Last updated**: 2026-09-28
 
 ## Overview
 
@@ -58,6 +58,8 @@ The payload is the `ApiCharacter` shape already used by the bundled presets (`pc
 
 - `currentHitPoints` and `temporaryHitPoints` are added as optional fields. Presets, which do not declare them, keep loading with the existing default of `currentHitPoints = maxHitPoints`.
 - `translations` is exported in full, every locale included. A sheet written in English stays readable for someone running the app in French, and an export followed by an import loses nothing.
+- `translations` may be empty: a sheet created in the app holds none until its short description is filled in. A missing `translations`, or one whose every entry is invalid, is still rejected.
+- `classes` declares the primary class first. The payload has no primary class field, and reading a file takes the first declared class as the primary one.
 
 ### Versioning
 
@@ -67,6 +69,14 @@ The payload is the `ApiCharacter` shape already used by the bundled presets (`pc
 ### File name
 
 `<character-name>.character.json`, for instance `Aldwin.character.json`, served as `application/json`.
+
+The name is derived from the character name as follows:
+
+- Characters forbidden on at least one platform (`/ \ : * ? " < > |` and control characters) become spaces.
+- Runs of whitespace collapse into a single space; leading and trailing spaces and dots are dropped.
+- Accents and other non-ASCII letters are kept.
+- The result is cut at 100 characters, then trimmed again.
+- A name left empty falls back to `character`, giving `character.character.json`.
 
 The standard media type is what keeps the file usable across mail, messaging and cloud apps, which requalify unknown types as binary. The `.character` segment carries the identity that a custom extension would have provided, and remains compatible with a declared document type should the app later want to be opened from a file manager.
 
@@ -120,4 +130,3 @@ A received file and a bundled preset go through the same mapper and the same pol
 - Should an imported file be able to join the preset gallery instead of becoming a sheet? Deferred until saving a sheet as a preset exists — the gallery is bundled resources today.
 - How is a clamped value **reported**? A one-off message as the sheet opens says it once and loses it; a marker carried by the sheet says it forever, including long after the value has been edited by hand. The ground is ready either way: `Character` is `@Serializable` and persisted as a JSON blob, so a field with a default needs no migration, and `TintedTag` is already the design system's flag component. The channel itself is #234's subject — today an adjustment only reaches a `println`, and coercions are not part of any `errors` list.
 - Should a later version use `sourceId` to offer replacing an existing sheet rather than duplicating it?
-- What is the exact file-name normalization rule for accents, spaces and characters each platform forbids?
