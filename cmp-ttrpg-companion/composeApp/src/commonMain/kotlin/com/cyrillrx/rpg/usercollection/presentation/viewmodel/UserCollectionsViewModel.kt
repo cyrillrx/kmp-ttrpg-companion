@@ -193,7 +193,6 @@ class UserCollectionsViewModel(
     }
 
     private fun sortedBody(order: StoredSortOrder): UserCollectionsState.Body {
-        // Read afresh, so the body stays correct should the state update replay its lambda.
         val visible = deletions.visible
         return if (visible.isEmpty()) {
             UserCollectionsState.Body.Empty
