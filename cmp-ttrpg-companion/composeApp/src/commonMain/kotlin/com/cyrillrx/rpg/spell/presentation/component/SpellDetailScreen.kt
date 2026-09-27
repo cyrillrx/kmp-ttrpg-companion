@@ -56,7 +56,7 @@ private fun SpellDetailContent(
     var showAddToCollectionBottomSheet by remember { mutableStateOf(false) }
 
     FadingTitleScaffold(
-        title = spell.resolveTranslation(currentLocale()).name,
+        title = spell.displayName(currentLocale()),
         onNavigateUpClicked = onNavigateUpClicked,
         actions = {
             IconButton(onClick = { showAddToCollectionBottomSheet = true }) {

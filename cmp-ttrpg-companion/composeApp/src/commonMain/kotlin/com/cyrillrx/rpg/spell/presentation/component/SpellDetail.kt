@@ -126,7 +126,7 @@ private fun SpellHeader(spell: Spell, accent: Color, titleModifier: Modifier = M
         modifier = Modifier.fillMaxWidth(),
     ) {
         Text(
-            text = spell.resolveTranslation(currentLocale()).name,
+            text = spell.displayName(currentLocale()),
             style = MaterialTheme.typography.headlineMedium,
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center,

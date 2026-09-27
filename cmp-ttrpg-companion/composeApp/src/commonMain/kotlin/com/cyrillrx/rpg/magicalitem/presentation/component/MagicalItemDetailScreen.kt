@@ -56,7 +56,7 @@ private fun MagicalItemDetailContent(
     var showAddToCollectionBottomSheet by remember { mutableStateOf(false) }
 
     FadingTitleScaffold(
-        title = magicalItem.resolveTranslation(currentLocale()).name,
+        title = magicalItem.displayName(currentLocale()),
         onNavigateUpClicked = onNavigateUpClicked,
         actions = {
             IconButton(onClick = { showAddToCollectionBottomSheet = true }) {

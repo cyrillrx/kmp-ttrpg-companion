@@ -46,7 +46,7 @@ class MonsterAddToCollectionProvider(
             modifier = Modifier.fillMaxWidth(),
         ) {
             Text(
-                text = entity.resolveTranslation(currentLocale()).name,
+                text = entity.displayName(currentLocale()),
                 style = MaterialTheme.typography.titleLarge,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.onSurface,
