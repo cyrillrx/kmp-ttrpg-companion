@@ -1,8 +1,8 @@
 package com.cyrillrx.rpg.spell.presentation.viewmodel
 
-import com.cyrillrx.core.domain.sortedByLocalizedName
 import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.character.domain.Character
+import com.cyrillrx.rpg.core.domain.sortedByName
 import com.cyrillrx.rpg.core.domain.toggled
 import com.cyrillrx.rpg.core.presentation.viewmodel.SearchableListViewModel
 import com.cyrillrx.rpg.spell.domain.Spell
@@ -68,7 +68,7 @@ class SpellListViewModel(
 
     override suspend fun loadContent(): SpellListState.Body {
         val spells = repository.getAll(mutableState.value.filter)
-            .sortedByLocalizedName { it.resolveTranslation(locale).name }
+            .sortedByName(locale)
         return if (spells.isEmpty()) {
             SpellListState.Body.Empty
         } else {
