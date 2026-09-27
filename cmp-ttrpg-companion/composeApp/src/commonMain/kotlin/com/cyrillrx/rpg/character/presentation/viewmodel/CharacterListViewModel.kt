@@ -11,6 +11,7 @@ import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.core.domain.StoredSortOrder
 import com.cyrillrx.rpg.core.domain.applySort
 import com.cyrillrx.rpg.core.presentation.OptimisticDeletions
+import com.cyrillrx.rpg.settings.domain.UserPreferencesRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -30,12 +31,19 @@ import kotlin.coroutines.cancellation.CancellationException
 
 class CharacterListViewModel(
     private val repository: CharacterRepository,
+    private val prefsRepository: UserPreferencesRepository,
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
     private val locale: String = currentLocale(),
 ) : ViewModel() {
 
     val state: StateFlow<CharacterListState>
-        field = MutableStateFlow(CharacterListState(searchQuery = "", body = CharacterListState.Body.Loading))
+        field = MutableStateFlow(
+            CharacterListState(
+                searchQuery = "",
+                body = CharacterListState.Body.Loading,
+                sortOrder = prefsRepository.preferences.value.characterSortOrder,
+            ),
+        )
 
     val events: SharedFlow<Event>
         field = MutableSharedFlow<Event>()
@@ -72,6 +80,7 @@ class CharacterListViewModel(
                 body = if (current.body is CharacterListState.Body.WithData) sortedBody(order) else current.body,
             )
         }
+        viewModelScope.launch { prefsRepository.setCharacterSortOrder(order) }
     }
 
     fun silentRefresh() {
