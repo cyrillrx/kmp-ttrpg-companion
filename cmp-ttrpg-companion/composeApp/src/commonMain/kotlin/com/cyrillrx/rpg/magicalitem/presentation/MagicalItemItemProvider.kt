@@ -20,11 +20,6 @@ class MagicalItemItemProvider(
     override val emptyLayoutIcon: ImageVector = Icons.Outlined.Stars
     override val emptyLayoutBtnText: StringResource = Res.string.empty_collection_browse_magical_items
 
-    override fun getId(entity: MagicalItem): String = entity.id
-
-    override fun getDisplayName(entity: MagicalItem, locale: String): String =
-        entity.resolveTranslation(locale).name
-
     @Composable
     override fun ListItem(entity: MagicalItem, modifier: Modifier) {
         MagicalItemListItem(magicalItem = entity, onClick = { onItemClicked(entity) }, modifier = modifier)

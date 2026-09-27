@@ -20,11 +20,6 @@ class MonsterItemProvider(
     override val emptyLayoutIcon: ImageVector = Icons.Outlined.Pets
     override val emptyLayoutBtnText: StringResource = Res.string.empty_collection_browse_creatures
 
-    override fun getId(entity: Monster): String = entity.id
-
-    override fun getDisplayName(entity: Monster, locale: String): String =
-        entity.resolveTranslation(locale).name
-
     @Composable
     override fun ListItem(entity: Monster, modifier: Modifier) {
         MonsterListItem(monster = entity, onClick = { onItemClicked(entity) }, modifier = modifier)

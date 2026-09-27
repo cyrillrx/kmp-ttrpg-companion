@@ -101,7 +101,7 @@ fun <T : Entity> CollectionDetailScreen(
         events.collect { event ->
             when (event) {
                 is CollectionDetailViewModel.Event.RemovalError -> {
-                    val displayName = itemProvider.getDisplayName(event.item, currentLocale())
+                    val displayName = event.item.displayName(currentLocale())
                     val errorMessage = getString(Res.string.snackbar_error_removing_from_collection, displayName)
                     snackbarHostState.showSnackbar(
                         message = errorMessage,
@@ -125,7 +125,7 @@ fun <T : Entity> CollectionDetailScreen(
         onUndo = onUndoRemoval,
         onCommit = onCommitRemoval,
         getMessage = { item ->
-            val displayName = itemProvider.getDisplayName(item, currentLocale())
+            val displayName = item.displayName(currentLocale())
             getString(Res.string.snackbar_removed_from_collection, displayName)
         },
     )
@@ -181,7 +181,7 @@ fun <T : Entity> CollectionDetailScreen(
 }
 
 @Composable
-private fun <T> EntityDetailList(
+private fun <T : Entity> EntityDetailList(
     items: List<T>,
     uiProvider: CollectionItemProvider<T>,
     onRemoveItem: (T) -> Unit,
@@ -191,7 +191,7 @@ private fun <T> EntityDetailList(
         contentPadding = PaddingValues(spacingMedium),
         verticalArrangement = Arrangement.spacedBy(spacingMedium),
     ) {
-        items(items, key = { uiProvider.getId(it) }) { item ->
+        items(items, key = { it.id }) { item ->
             SwipeToDelete(
                 onSwiped = { onRemoveItem(item) },
                 modifier = Modifier.fillMaxWidth().animateItem(),
