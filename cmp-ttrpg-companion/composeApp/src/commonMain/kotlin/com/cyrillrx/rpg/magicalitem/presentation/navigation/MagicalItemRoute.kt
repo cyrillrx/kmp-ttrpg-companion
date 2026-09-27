@@ -13,6 +13,7 @@ import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.MagicalItemDetailView
 import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.MagicalItemDetailViewModelFactory
 import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.MagicalItemListViewModel
 import com.cyrillrx.rpg.magicalitem.presentation.viewmodel.MagicalItemListViewModelFactory
+import com.cyrillrx.rpg.settings.domain.UserPreferencesRepository
 import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
 import com.cyrillrx.rpg.usercollection.presentation.component.CollectionDetailScreen
 import com.cyrillrx.rpg.usercollection.presentation.viewmodel.CollectionDetailViewModel
@@ -41,6 +42,7 @@ fun EntryProviderScope<NavKey>.handleMagicalItemRoutes(
     router: MagicalItemRouter,
     repository: MagicalItemRepository,
     userCollectionRepository: UserCollectionRepository,
+    prefsRepository: UserPreferencesRepository,
 ) {
     entry<MagicalItemRoute.Compendium> {
         val viewModelFactory = MagicalItemListViewModelFactory(repository)
@@ -63,6 +65,7 @@ fun EntryProviderScope<NavKey>.handleMagicalItemRoutes(
             collectionId = collectionId,
             userCollectionRepository = userCollectionRepository,
             repository = repository,
+            prefsRepository = prefsRepository,
         )
         val viewModel =
             viewModel<CollectionDetailViewModel<MagicalItem>>(key = collectionId, factory = viewModelFactory)

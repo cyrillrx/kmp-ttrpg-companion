@@ -6,6 +6,7 @@ import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.domain.Entity
 import com.cyrillrx.rpg.core.domain.EntityRepository
 import com.cyrillrx.rpg.core.presentation.OptimisticDeletions
+import com.cyrillrx.rpg.settings.domain.UserPreferencesRepository
 import com.cyrillrx.rpg.usercollection.domain.CollectionItemOrder
 import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
 import com.cyrillrx.rpg.usercollection.domain.applyOrder
@@ -31,12 +32,15 @@ class CollectionDetailViewModel<T : Entity>(
     private val collectionId: String,
     private val userCollectionRepository: UserCollectionRepository,
     private val repository: EntityRepository<T>,
+    private val prefsRepository: UserPreferencesRepository,
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
     private val locale: String = currentLocale(),
 ) : ViewModel() {
 
     val state: StateFlow<CollectionDetailState<T>>
-        field = MutableStateFlow(CollectionDetailState())
+        field = MutableStateFlow(
+            CollectionDetailState<T>(sortOrder = prefsRepository.preferences.value.collectionItemOrder),
+        )
 
     val events: SharedFlow<Event<T>>
         field = MutableSharedFlow<Event<T>>()
@@ -128,6 +132,7 @@ class CollectionDetailViewModel<T : Entity>(
                 body = if (current.body is CollectionDetailState.Body.WithData) sortedBody(order) else current.body,
             )
         }
+        viewModelScope.launch { prefsRepository.setCollectionItemOrder(order) }
     }
 
     fun silentRefresh() {

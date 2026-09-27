@@ -7,6 +7,7 @@ import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.core.domain.StoredSortOrder
 import com.cyrillrx.rpg.core.domain.applySort
 import com.cyrillrx.rpg.core.presentation.OptimisticDeletions
+import com.cyrillrx.rpg.settings.domain.UserPreferencesRepository
 import com.cyrillrx.rpg.usercollection.domain.UserCollection
 import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
 import com.cyrillrx.rpg.usercollection.presentation.UserCollectionsState
@@ -32,12 +33,15 @@ import kotlin.uuid.Uuid
 class UserCollectionsViewModel(
     private val collectionType: UserCollection.ItemType,
     private val userCollectionRepository: UserCollectionRepository,
+    private val prefsRepository: UserPreferencesRepository,
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
     private val locale: String = currentLocale(),
 ) : ViewModel() {
 
     val state: StateFlow<UserCollectionsState>
-        field = MutableStateFlow(UserCollectionsState())
+        field = MutableStateFlow(
+            UserCollectionsState(sortOrder = prefsRepository.preferences.value.collectionSortOrder),
+        )
 
     val events: SharedFlow<Event>
         field = MutableSharedFlow<Event>()
@@ -134,6 +138,7 @@ class UserCollectionsViewModel(
                 body = if (current.body is UserCollectionsState.Body.WithData) sortedBody(order) else current.body,
             )
         }
+        viewModelScope.launch { prefsRepository.setCollectionSortOrder(order) }
     }
 
     fun silentRefresh() {

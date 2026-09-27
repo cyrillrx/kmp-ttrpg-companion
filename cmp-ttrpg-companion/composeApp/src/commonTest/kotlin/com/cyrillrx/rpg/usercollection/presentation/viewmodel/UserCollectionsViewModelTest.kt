@@ -2,6 +2,9 @@ package com.cyrillrx.rpg.usercollection.presentation.viewmodel
 
 import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.core.domain.StoredSortOrder
+import com.cyrillrx.rpg.settings.FakeUserPreferencesRepository
+import com.cyrillrx.rpg.settings.domain.UserPreferences
+import com.cyrillrx.rpg.settings.domain.UserPreferencesRepository
 import com.cyrillrx.rpg.usercollection.data.RamUserCollectionRepository
 import com.cyrillrx.rpg.usercollection.domain.UserCollection
 import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
@@ -43,8 +46,10 @@ class UserCollectionsViewModelTest {
         Dispatchers.resetMain()
     }
 
-    private fun buildViewModel(repo: UserCollectionRepository = repository) =
-        UserCollectionsViewModel(UserCollection.ItemType.SPELL, repo, testDispatcher)
+    private fun buildViewModel(
+        repo: UserCollectionRepository = repository,
+        prefsRepository: UserPreferencesRepository = FakeUserPreferencesRepository(),
+    ) = UserCollectionsViewModel(UserCollection.ItemType.SPELL, repo, prefsRepository, testDispatcher)
 
     @Test
     fun `initial state is Loading before coroutines run`() = runTest(testDispatcher) {
@@ -191,7 +196,13 @@ class UserCollectionsViewModelTest {
     @Test
     fun `a commit failing after a refresh restores one entry and emits an error`() = runTest(testDispatcher) {
         val failingRepo = FailsOnDeleteUserCollectionRepository()
-        val viewModel = UserCollectionsViewModel(UserCollection.ItemType.SPELL, failingRepo, testDispatcher)
+        val viewModel =
+            UserCollectionsViewModel(
+                UserCollection.ItemType.SPELL,
+                failingRepo,
+                FakeUserPreferencesRepository(),
+                testDispatcher,
+            )
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -246,7 +257,13 @@ class UserCollectionsViewModelTest {
     @Test
     fun `commitDeletion restores collection and emits error when repository throws`() = runTest(testDispatcher) {
         val failingRepo = FailsOnDeleteUserCollectionRepository()
-        val viewModel = UserCollectionsViewModel(UserCollection.ItemType.SPELL, failingRepo, testDispatcher)
+        val viewModel =
+            UserCollectionsViewModel(
+                UserCollection.ItemType.SPELL,
+                failingRepo,
+                FakeUserPreferencesRepository(),
+                testDispatcher,
+            )
 
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
             viewModel.state.collect {}
@@ -402,6 +419,30 @@ class UserCollectionsViewModelTest {
 
         val body = assertIs<UserCollectionsState.Body.WithData>(viewModel.state.value.body)
         assertEquals(expected = listOf("Middle", "Newest", "Oldest"), actual = body.collections.map { it.value.name })
+    }
+
+    @Test
+    fun `the list opens on the stored order`() = runTest(testDispatcher) {
+        val prefs = FakeUserPreferencesRepository(UserPreferences(collectionSortOrder = StoredSortOrder.NAME))
+        val viewModel = buildViewModel(ScrambledUserCollectionRepository(), prefs)
+
+        advanceUntilIdle()
+
+        val body = assertIs<UserCollectionsState.Body.WithData>(viewModel.state.value.body)
+        assertEquals(expected = listOf("Middle", "Newest", "Oldest"), actual = body.collections.map { it.value.name })
+    }
+
+    @Test
+    fun `setSortOrder stores the chosen order`() = runTest(testDispatcher) {
+        val prefs = FakeUserPreferencesRepository()
+        val viewModel = buildViewModel(ScrambledUserCollectionRepository(), prefs)
+
+        advanceUntilIdle()
+
+        viewModel.setSortOrder(StoredSortOrder.NAME)
+        advanceUntilIdle()
+
+        assertEquals(expected = StoredSortOrder.NAME, actual = prefs.preferences.value.collectionSortOrder)
     }
 
     @Test

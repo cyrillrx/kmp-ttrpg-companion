@@ -3,6 +3,7 @@ package com.cyrillrx.rpg.usercollection.presentation.navigation
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation3.runtime.EntryProviderScope
 import androidx.navigation3.runtime.NavKey
+import com.cyrillrx.rpg.settings.domain.UserPreferencesRepository
 import com.cyrillrx.rpg.usercollection.domain.UserCollection
 import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
 import com.cyrillrx.rpg.usercollection.presentation.component.UserCollectionsScreen
@@ -36,10 +37,12 @@ fun PolymorphicModuleBuilder<NavKey>.registerUserCollectionRoutes() {
 fun EntryProviderScope<NavKey>.handleUserCollectionRoutes(
     router: UserCollectionRouter,
     userCollectionRepository: UserCollectionRepository,
+    prefsRepository: UserPreferencesRepository,
 ) {
     entry<UserCollectionRoute.Spell> {
         val collectionType = UserCollection.ItemType.SPELL
-        val viewModelFactory = UserCollectionsViewModelFactory(collectionType, userCollectionRepository)
+        val viewModelFactory =
+            UserCollectionsViewModelFactory(collectionType, userCollectionRepository, prefsRepository)
         val viewModel = viewModel<UserCollectionsViewModel>(
             key = collectionType.name,
             factory = viewModelFactory,
@@ -50,7 +53,8 @@ fun EntryProviderScope<NavKey>.handleUserCollectionRoutes(
 
     entry<UserCollectionRoute.MagicalItem> {
         val collectionType = UserCollection.ItemType.MAGICAL_ITEM
-        val viewModelFactory = UserCollectionsViewModelFactory(collectionType, userCollectionRepository)
+        val viewModelFactory =
+            UserCollectionsViewModelFactory(collectionType, userCollectionRepository, prefsRepository)
         val viewModel = viewModel<UserCollectionsViewModel>(
             key = collectionType.name,
             factory = viewModelFactory,
@@ -61,7 +65,8 @@ fun EntryProviderScope<NavKey>.handleUserCollectionRoutes(
 
     entry<UserCollectionRoute.Creature> {
         val collectionType = UserCollection.ItemType.MONSTER
-        val viewModelFactory = UserCollectionsViewModelFactory(collectionType, userCollectionRepository)
+        val viewModelFactory =
+            UserCollectionsViewModelFactory(collectionType, userCollectionRepository, prefsRepository)
         val viewModel = viewModel<UserCollectionsViewModel>(
             key = collectionType.name,
             factory = viewModelFactory,
