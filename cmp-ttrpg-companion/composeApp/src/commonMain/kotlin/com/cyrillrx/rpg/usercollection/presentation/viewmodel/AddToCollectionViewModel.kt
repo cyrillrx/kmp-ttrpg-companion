@@ -54,10 +54,9 @@ class AddToCollectionViewModel<T : Entity>(
         try {
             val item = repository.getById(itemId) ?: error("Could not find item $itemId")
 
-            val userCollections = userCollectionRepository.getAll(collectionType)
-                .applySort(StoredSortOrder.LAST_MODIFIED, locale)
-            val selectableCollections = userCollections
+            val selectableCollections = userCollectionRepository.getAll(collectionType)
                 .map { stored -> SelectableUserCollection(stored, alreadyAdded = itemId in stored.value.itemIds) }
+                .inSharedOrder()
             state.update { it.copy(body = AddToCollectionState.Body.WithData(item, selectableCollections)) }
         } catch (e: CancellationException) {
             throw e
@@ -101,10 +100,24 @@ class AddToCollectionViewModel<T : Entity>(
 
             state.update { state ->
                 val body = state.body as? AddToCollectionState.Body.WithData ?: return@update state
-                val newCollections = body.selectableCollections + SelectableUserCollection(stored, alreadyAdded = true)
+                val newCollections = (
+                    body.selectableCollections + SelectableUserCollection(
+                        stored,
+                        alreadyAdded = true,
+                    )
+                )
+                    .inSharedOrder()
                 state.copy(body = body.copy(selectableCollections = newCollections))
             }
         }
+    }
+
+    /** Orders the rows through the shared list order rather than re-deriving one for the sheet. */
+    private fun List<SelectableUserCollection>.inSharedOrder(): List<SelectableUserCollection> {
+        val rowsById = associateBy { it.stored.value.id }
+        return map { it.stored }
+            .applySort(StoredSortOrder.LAST_MODIFIED, locale)
+            .map { rowsById.getValue(it.value.id) }
     }
 
     fun confirmSelection() {
