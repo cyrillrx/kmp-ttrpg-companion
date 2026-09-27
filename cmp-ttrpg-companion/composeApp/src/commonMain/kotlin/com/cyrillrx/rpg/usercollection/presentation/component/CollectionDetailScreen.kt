@@ -43,8 +43,8 @@ import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.spell.presentation.SpellItemProvider
+import com.cyrillrx.rpg.usercollection.domain.CollectionItemOrder
 import com.cyrillrx.rpg.usercollection.presentation.CollectionDetailState
-import com.cyrillrx.rpg.usercollection.presentation.CollectionItemOrder
 import com.cyrillrx.rpg.usercollection.presentation.CollectionItemProvider
 import com.cyrillrx.rpg.usercollection.presentation.viewmodel.CollectionDetailViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow

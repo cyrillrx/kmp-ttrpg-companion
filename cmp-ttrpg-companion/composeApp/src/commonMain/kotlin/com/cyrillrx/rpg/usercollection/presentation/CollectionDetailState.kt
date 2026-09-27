@@ -1,5 +1,6 @@
 package com.cyrillrx.rpg.usercollection.presentation
 
+import com.cyrillrx.rpg.usercollection.domain.CollectionItemOrder
 import org.jetbrains.compose.resources.StringResource
 
 data class CollectionDetailState<T>(

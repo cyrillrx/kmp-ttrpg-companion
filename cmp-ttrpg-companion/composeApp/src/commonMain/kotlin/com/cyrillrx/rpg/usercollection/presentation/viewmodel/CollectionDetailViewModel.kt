@@ -6,10 +6,10 @@ import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.domain.Entity
 import com.cyrillrx.rpg.core.domain.EntityRepository
 import com.cyrillrx.rpg.core.presentation.OptimisticDeletions
+import com.cyrillrx.rpg.usercollection.domain.CollectionItemOrder
 import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
+import com.cyrillrx.rpg.usercollection.domain.applyOrder
 import com.cyrillrx.rpg.usercollection.presentation.CollectionDetailState
-import com.cyrillrx.rpg.usercollection.presentation.CollectionItemOrder
-import com.cyrillrx.rpg.usercollection.presentation.applyOrder
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

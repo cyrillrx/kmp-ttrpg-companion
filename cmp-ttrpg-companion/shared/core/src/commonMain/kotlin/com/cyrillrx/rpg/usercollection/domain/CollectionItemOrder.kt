@@ -1,4 +1,4 @@
-package com.cyrillrx.rpg.usercollection.presentation
+package com.cyrillrx.rpg.usercollection.domain
 
 import com.cyrillrx.rpg.core.domain.Entity
 import com.cyrillrx.rpg.core.domain.sortedByName
