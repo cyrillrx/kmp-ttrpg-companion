@@ -62,7 +62,7 @@ For detailed feature specifications, see the [PRDs](prd/).
   - [ ] Combat actions
   - [ ] Inventory
 - [x] Persist `Character` with SQLDelight
-- [ ] Let the user order the character sheet list by name or by last modified — the stored `updatedAt` already drives the default order, so only the choice is missing
+- [x] Let the user order the character sheet list by name or by last modified (#256), remembered between launches ([ADR-005](adr/adr-005-list-order-preferences.md))
 - [ ] Expand the PC and NPC preset gallery
 - [ ] Sync character sheets with backend
 
