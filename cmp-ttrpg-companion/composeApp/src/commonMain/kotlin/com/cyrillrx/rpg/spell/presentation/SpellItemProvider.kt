@@ -20,11 +20,6 @@ class SpellItemProvider(
     override val emptyLayoutIcon: ImageVector = Icons.AutoMirrored.Outlined.MenuBook
     override val emptyLayoutBtnText: StringResource = Res.string.empty_collection_browse_spells
 
-    override fun getId(entity: Spell): String = entity.id
-
-    override fun getDisplayName(entity: Spell, locale: String): String =
-        entity.resolveTranslation(locale).name
-
     @Composable
     override fun ListItem(entity: Spell, modifier: Modifier) {
         SpellListItem(spell = entity, onClick = { onItemClicked(entity) }, modifier = modifier)
