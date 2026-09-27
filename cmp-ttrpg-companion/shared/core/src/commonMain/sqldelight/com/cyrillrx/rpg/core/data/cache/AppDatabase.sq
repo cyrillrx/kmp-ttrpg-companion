@@ -42,7 +42,10 @@ CREATE TABLE IF NOT EXISTS UserPreferencesEntity (
     id INTEGER NOT NULL PRIMARY KEY DEFAULT 1,
     theme TEXT NOT NULL DEFAULT 'system',
     palette TEXT NOT NULL DEFAULT 'arcane',
-    distance_unit TEXT NOT NULL DEFAULT 'feet'
+    distance_unit TEXT NOT NULL DEFAULT 'feet',
+    character_sort_order TEXT NOT NULL DEFAULT 'last_modified',
+    collection_sort_order TEXT NOT NULL DEFAULT 'last_modified',
+    collection_item_order TEXT NOT NULL DEFAULT 'added'
 );
 
 initUserPreferences:
@@ -59,6 +62,15 @@ UPDATE UserPreferencesEntity SET palette = ? WHERE id = 1;
 
 updateDistanceUnit:
 UPDATE UserPreferencesEntity SET distance_unit = ? WHERE id = 1;
+
+updateCharacterSortOrder:
+UPDATE UserPreferencesEntity SET character_sort_order = ? WHERE id = 1;
+
+updateCollectionSortOrder:
+UPDATE UserPreferencesEntity SET collection_sort_order = ? WHERE id = 1;
+
+updateCollectionItemOrder:
+UPDATE UserPreferencesEntity SET collection_item_order = ? WHERE id = 1;
 
 CREATE TABLE IF NOT EXISTS UserCollection (
     id TEXT NOT NULL PRIMARY KEY,

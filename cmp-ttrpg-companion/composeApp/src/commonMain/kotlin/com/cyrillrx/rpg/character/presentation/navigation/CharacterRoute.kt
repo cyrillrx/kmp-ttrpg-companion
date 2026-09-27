@@ -16,6 +16,7 @@ import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterListViewModelF
 import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterPresetGalleryViewModel
 import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterPresetGalleryViewModelFactory
 import com.cyrillrx.rpg.core.navigation.navigateUp
+import com.cyrillrx.rpg.settings.domain.UserPreferencesRepository
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.modules.PolymorphicModuleBuilder
 
@@ -45,10 +46,11 @@ fun EntryProviderScope<NavKey>.handleCharacterRoutes(
     characterRepository: CharacterRepository,
     pcPresetRepository: CharacterRepository,
     npcPresetRepository: CharacterRepository,
+    prefsRepository: UserPreferencesRepository,
 ) {
     entry<CharacterRoute.List> {
         val router = CharacterRouterImpl(backStack)
-        val viewModelFactory = CharacterListViewModelFactory(characterRepository)
+        val viewModelFactory = CharacterListViewModelFactory(characterRepository, prefsRepository)
         val viewModel = viewModel<CharacterListViewModel>(factory = viewModelFactory)
         CharacterListScreen(viewModel, router)
     }

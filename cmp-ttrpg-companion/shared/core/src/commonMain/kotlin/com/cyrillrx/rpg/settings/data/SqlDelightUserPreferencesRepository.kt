@@ -2,11 +2,13 @@ package com.cyrillrx.rpg.settings.data
 
 import com.cyrillrx.rpg.core.data.cache.Database
 import com.cyrillrx.rpg.core.data.cache.DatabaseDriverFactory
+import com.cyrillrx.rpg.core.domain.StoredSortOrder
 import com.cyrillrx.rpg.settings.domain.DistanceUnit
 import com.cyrillrx.rpg.settings.domain.Palette
 import com.cyrillrx.rpg.settings.domain.Theme
 import com.cyrillrx.rpg.settings.domain.UserPreferences
 import com.cyrillrx.rpg.settings.domain.UserPreferencesRepository
+import com.cyrillrx.rpg.usercollection.domain.CollectionItemOrder
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
@@ -44,6 +46,30 @@ class SqlDelightUserPreferencesRepository(
         withContext(ioDispatcher) {
             db.updatePalette(palette)
             preferences.update { it.copy(palette = palette) }
+        }
+    }
+
+    override suspend fun setCharacterSortOrder(order: StoredSortOrder) {
+        if (preferences.value.characterSortOrder == order) return
+        withContext(ioDispatcher) {
+            db.updateCharacterSortOrder(order)
+            preferences.update { it.copy(characterSortOrder = order) }
+        }
+    }
+
+    override suspend fun setCollectionSortOrder(order: StoredSortOrder) {
+        if (preferences.value.collectionSortOrder == order) return
+        withContext(ioDispatcher) {
+            db.updateCollectionSortOrder(order)
+            preferences.update { it.copy(collectionSortOrder = order) }
+        }
+    }
+
+    override suspend fun setCollectionItemOrder(order: CollectionItemOrder) {
+        if (preferences.value.collectionItemOrder == order) return
+        withContext(ioDispatcher) {
+            db.updateCollectionItemOrder(order)
+            preferences.update { it.copy(collectionItemOrder = order) }
         }
     }
 

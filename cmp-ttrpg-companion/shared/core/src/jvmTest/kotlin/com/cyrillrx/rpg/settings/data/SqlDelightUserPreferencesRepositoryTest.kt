@@ -5,9 +5,11 @@ import app.cash.sqldelight.db.SqlDriver
 import app.cash.sqldelight.db.SqlPreparedStatement
 import com.cyrillrx.rpg.core.data.cache.DatabaseDriverFactory
 import com.cyrillrx.rpg.core.data.cache.TestDatabaseDriverFactory
+import com.cyrillrx.rpg.core.domain.StoredSortOrder
 import com.cyrillrx.rpg.settings.domain.DistanceUnit
 import com.cyrillrx.rpg.settings.domain.Palette
 import com.cyrillrx.rpg.settings.domain.Theme
+import com.cyrillrx.rpg.usercollection.domain.CollectionItemOrder
 import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -46,6 +48,67 @@ class SqlDelightUserPreferencesRepositoryTest {
 
             assertEquals(palette, repository.preferences.value.palette)
         }
+    }
+
+    @Test
+    fun `every list order round-trips through the database`() = runTest {
+        for (order in StoredSortOrder.entries) {
+            val repository = buildRepository()
+            repository.initialize()
+
+            repository.setCharacterSortOrder(order)
+            repository.setCollectionSortOrder(order)
+            repository.initialize() // re-reads from the database, proving the choices were persisted
+
+            assertEquals(order, repository.preferences.value.characterSortOrder)
+            assertEquals(order, repository.preferences.value.collectionSortOrder)
+        }
+        for (order in CollectionItemOrder.entries) {
+            val repository = buildRepository()
+            repository.initialize()
+
+            repository.setCollectionItemOrder(order)
+            repository.initialize()
+
+            assertEquals(order, repository.preferences.value.collectionItemOrder)
+        }
+    }
+
+    @Test
+    fun `an order no longer known falls back to the default`() = runTest {
+        val driver = TestDatabaseDriverFactory().createDriver()
+        val repository = SqlDelightUserPreferencesRepository(
+            object : DatabaseDriverFactory {
+                override fun createDriver() = driver
+            },
+        )
+        repository.initialize()
+        driver.execute(
+            null,
+            "UPDATE UserPreferencesEntity SET character_sort_order = 'by_vibes', " +
+                "collection_sort_order = 'by_vibes', collection_item_order = 'by_vibes' WHERE id = 1;",
+            0,
+        )
+
+        repository.initialize() // re-reads what the database now holds
+
+        val preferences = repository.preferences.value
+        assertEquals(StoredSortOrder.LAST_MODIFIED, preferences.characterSortOrder)
+        assertEquals(StoredSortOrder.LAST_MODIFIED, preferences.collectionSortOrder)
+        assertEquals(CollectionItemOrder.ADDED, preferences.collectionItemOrder)
+    }
+
+    @Test
+    fun `each list keeps its own order`() = runTest {
+        val repository = buildRepository()
+        repository.initialize()
+
+        repository.setCharacterSortOrder(StoredSortOrder.NAME)
+
+        val preferences = repository.preferences.value
+        assertEquals(StoredSortOrder.NAME, preferences.characterSortOrder)
+        assertEquals(StoredSortOrder.LAST_MODIFIED, preferences.collectionSortOrder)
+        assertEquals(CollectionItemOrder.ADDED, preferences.collectionItemOrder)
     }
 
     @Test

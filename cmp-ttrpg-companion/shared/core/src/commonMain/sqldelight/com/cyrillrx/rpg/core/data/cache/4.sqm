@@ -1,0 +1,3 @@
+ALTER TABLE UserPreferencesEntity ADD COLUMN character_sort_order TEXT NOT NULL DEFAULT 'last_modified';
+ALTER TABLE UserPreferencesEntity ADD COLUMN collection_sort_order TEXT NOT NULL DEFAULT 'last_modified';
+ALTER TABLE UserPreferencesEntity ADD COLUMN collection_item_order TEXT NOT NULL DEFAULT 'added';

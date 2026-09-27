@@ -4,10 +4,10 @@ import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.usercollection.data.RamUserCollectionRepository
+import com.cyrillrx.rpg.usercollection.domain.CollectionItemOrder
 import com.cyrillrx.rpg.usercollection.domain.UserCollection
 import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
 import com.cyrillrx.rpg.usercollection.presentation.CollectionDetailState
-import com.cyrillrx.rpg.usercollection.presentation.CollectionItemOrder
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch

@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.cyrillrx.rpg.core.presentation.component.SortHeader
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
-import com.cyrillrx.rpg.usercollection.presentation.CollectionItemOrder
+import com.cyrillrx.rpg.usercollection.domain.CollectionItemOrder
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.sort_added

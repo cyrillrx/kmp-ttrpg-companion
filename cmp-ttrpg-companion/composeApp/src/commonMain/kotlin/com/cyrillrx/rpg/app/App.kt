@@ -126,6 +126,7 @@ fun App(dbDriverFactory: SharedDatabaseDriverFactory) {
                         characterRepository = characterRepository,
                         pcPresetRepository = pcPresetRepository,
                         npcPresetRepository = npcPresetRepository,
+                        prefsRepository = prefsRepository,
                     )
                     handleSpellRoutes(
                         router = SpellRouterImpl(backStack),

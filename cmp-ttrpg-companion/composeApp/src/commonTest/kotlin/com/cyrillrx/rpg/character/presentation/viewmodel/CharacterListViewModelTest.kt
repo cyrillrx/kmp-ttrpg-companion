@@ -8,6 +8,9 @@ import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.presentation.CharacterListState
 import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.core.domain.StoredSortOrder
+import com.cyrillrx.rpg.settings.FakeUserPreferencesRepository
+import com.cyrillrx.rpg.settings.domain.UserPreferences
+import com.cyrillrx.rpg.settings.domain.UserPreferencesRepository
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -42,8 +45,10 @@ class CharacterListViewModelTest {
         Dispatchers.resetMain()
     }
 
-    private fun buildViewModel(repo: CharacterRepository = repository) =
-        CharacterListViewModel(repo, testDispatcher)
+    private fun buildViewModel(
+        repo: CharacterRepository = repository,
+        prefsRepository: UserPreferencesRepository = FakeUserPreferencesRepository(),
+    ) = CharacterListViewModel(repo, prefsRepository, testDispatcher)
 
     private fun CharacterListViewModel.firstStored(): Stored<Character> =
         (state.value.body as CharacterListState.Body.WithData).searchResults.first()
@@ -446,6 +451,30 @@ class CharacterListViewModelTest {
             assertEquals(expected = listOf("Middle", "Newest", "Oldest"), actual = viewModel.renderedNames())
             assertEquals(expected = 1, actual = repository.reads)
         }
+
+    @Test
+    fun `the list opens on the stored order`() = runTest(testDispatcher) {
+        val prefs = FakeUserPreferencesRepository(UserPreferences(characterSortOrder = StoredSortOrder.NAME))
+        val viewModel = buildViewModel(ScrambledCharacterRepository(), prefs)
+
+        advanceUntilIdle()
+
+        assertEquals(expected = StoredSortOrder.NAME, actual = viewModel.state.value.sortOrder)
+        assertEquals(expected = listOf("Middle", "Newest", "Oldest"), actual = viewModel.renderedNames())
+    }
+
+    @Test
+    fun `setSortOrder stores the chosen order`() = runTest(testDispatcher) {
+        val prefs = FakeUserPreferencesRepository()
+        val viewModel = buildViewModel(ScrambledCharacterRepository(), prefs)
+
+        advanceUntilIdle()
+
+        viewModel.setSortOrder(StoredSortOrder.NAME)
+        advanceUntilIdle()
+
+        assertEquals(expected = StoredSortOrder.NAME, actual = prefs.preferences.value.characterSortOrder)
+    }
 
     @Test
     fun `setSortOrder emits a single state`() = runTest(testDispatcher) {
