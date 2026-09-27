@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.Icon
@@ -42,6 +43,7 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.spell.presentation.SpellItemProvider
 import com.cyrillrx.rpg.usercollection.presentation.CollectionDetailState
+import com.cyrillrx.rpg.usercollection.presentation.CollectionItemOrder
 import com.cyrillrx.rpg.usercollection.presentation.CollectionItemProvider
 import com.cyrillrx.rpg.usercollection.presentation.viewmodel.CollectionDetailViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -77,6 +79,7 @@ fun <T : Entity> CollectionDetailScreen(
         itemProvider = itemProvider,
         onNavigateUpClicked = onNavigateUp,
         onRenameCollection = viewModel::renameCollection,
+        onSortOrderSelected = viewModel::setSortOrder,
         onRemoveItemOptimistically = viewModel::removeItemOptimistically,
         onUndoRemoval = viewModel::undoRemoval,
         onCommitRemoval = viewModel::commitRemoval,
@@ -90,6 +93,7 @@ fun <T : Entity> CollectionDetailScreen(
     itemProvider: CollectionItemProvider<T>,
     onNavigateUpClicked: () -> Unit,
     onRenameCollection: (String) -> Unit,
+    onSortOrderSelected: (CollectionItemOrder) -> Unit,
     onRemoveItemOptimistically: (item: T) -> OptimisticDeletions.Pending<T>?,
     onUndoRemoval: (OptimisticDeletions.Pending<T>) -> Unit,
     onCommitRemoval: (OptimisticDeletions.Pending<T>) -> Unit,
@@ -173,6 +177,8 @@ fun <T : Entity> CollectionDetailScreen(
                 is CollectionDetailState.Body.WithData -> EntityDetailList(
                     items = body.items,
                     uiProvider = itemProvider,
+                    sortOrder = state.sortOrder,
+                    onSortOrderSelected = onSortOrderSelected,
                     onRemoveItem = onRemoveItem,
                 )
             }
@@ -184,13 +190,24 @@ fun <T : Entity> CollectionDetailScreen(
 private fun <T : Entity> EntityDetailList(
     items: List<T>,
     uiProvider: CollectionItemProvider<T>,
+    sortOrder: CollectionItemOrder,
+    onSortOrderSelected: (CollectionItemOrder) -> Unit,
     onRemoveItem: (T) -> Unit,
 ) {
+    val listState = rememberLazyListState()
+
+    LaunchedEffect(sortOrder) { listState.animateScrollToItem(0) }
+
     LazyColumn(
+        state = listState,
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(spacingMedium),
         verticalArrangement = Arrangement.spacedBy(spacingMedium),
     ) {
+        item {
+            CollectionSortHeader(sortOrder = sortOrder, onSortOrderSelected = onSortOrderSelected)
+        }
+
         items(items, key = { it.id }) { item ->
             SwipeToDelete(
                 onSwiped = { onRemoveItem(item) },
@@ -226,6 +243,7 @@ private fun CollectionDetailScreenPreview(darkTheme: Boolean) {
             itemProvider = SpellItemProvider(onItemClicked = {}),
             onNavigateUpClicked = {},
             onRenameCollection = {},
+            onSortOrderSelected = {},
             onRemoveItemOptimistically = { null },
             onUndoRemoval = {},
             onCommitRemoval = {},
@@ -257,6 +275,7 @@ private fun EmptyCollectionDetailScreenPreview(darkTheme: Boolean) {
             itemProvider = SpellItemProvider(onItemClicked = {}),
             onNavigateUpClicked = {},
             onRenameCollection = {},
+            onSortOrderSelected = {},
             onRemoveItemOptimistically = { null },
             onUndoRemoval = {},
             onCommitRemoval = {},

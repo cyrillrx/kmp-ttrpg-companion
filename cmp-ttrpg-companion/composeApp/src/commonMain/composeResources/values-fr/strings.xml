@@ -8,6 +8,10 @@
     <string name="btn_reset_all">Tout effacer</string>
     <string name="btn_more">Plus</string>
     <string name="btn_sort">Trier</string>
+    <string name="label_sort_by">Trier par</string>
+    <string name="sort_last_modified">Dernière modification</string>
+    <string name="sort_name">Nom</string>
+    <string name="sort_added">Dernier ajout</string>
 
     <!--  Home  -->
     <string name="section_compendium">Compendium</string>
