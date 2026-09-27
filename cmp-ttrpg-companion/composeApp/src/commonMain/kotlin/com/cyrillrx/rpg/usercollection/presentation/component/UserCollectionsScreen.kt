@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.FloatingActionButton
@@ -29,10 +30,12 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.core.domain.Stored
+import com.cyrillrx.rpg.core.domain.StoredSortOrder
 import com.cyrillrx.rpg.core.presentation.OptimisticDeletions
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
+import com.cyrillrx.rpg.core.presentation.component.StoredSortHeader
 import com.cyrillrx.rpg.core.presentation.component.SwipeToDelete
 import com.cyrillrx.rpg.core.presentation.component.dialog.CreateCollectionDialog
 import com.cyrillrx.rpg.core.presentation.component.rememberOptimisticDeleteHandler
@@ -74,6 +77,7 @@ fun UserCollectionsScreen(viewModel: UserCollectionsViewModel, router: UserColle
         events = viewModel.events,
         onNavigateUpClicked = router::navigateUp,
         onAddBtnClicked = viewModel::createCollection,
+        onSortOrderSelected = viewModel::setSortOrder,
         onDeleteCollectionOptimistically = viewModel::deleteCollectionOptimistically,
         onUndoDeletion = viewModel::undoDeletion,
         onCommitDeletion = viewModel::commitDeletion,
@@ -88,6 +92,7 @@ fun UserCollectionsScreen(
     events: SharedFlow<UserCollectionsViewModel.Event>,
     onNavigateUpClicked: () -> Unit,
     onAddBtnClicked: (String) -> Unit,
+    onSortOrderSelected: (StoredSortOrder) -> Unit,
     onDeleteCollectionOptimistically: (Stored<UserCollection>) -> OptimisticDeletions.Pending<Stored<UserCollection>>?,
     onUndoDeletion: (OptimisticDeletions.Pending<Stored<UserCollection>>) -> Unit,
     onCommitDeletion: (OptimisticDeletions.Pending<Stored<UserCollection>>) -> Unit,
@@ -155,6 +160,8 @@ fun UserCollectionsScreen(
                 is UserCollectionsState.Body.Error -> ErrorLayout(body.errorMessage)
                 is UserCollectionsState.Body.WithData -> UserCollections(
                     collections = body.collections,
+                    sortOrder = state.sortOrder,
+                    onSortOrderSelected = onSortOrderSelected,
                     onCollectionClicked = onCollectionClicked,
                     onDeleteCollection = onDeleteCollection,
                 )
@@ -176,14 +183,25 @@ fun UserCollectionsScreen(
 @Composable
 private fun UserCollections(
     collections: List<Stored<UserCollection>>,
+    sortOrder: StoredSortOrder,
+    onSortOrderSelected: (StoredSortOrder) -> Unit,
     onCollectionClicked: (UserCollection) -> Unit,
     onDeleteCollection: (Stored<UserCollection>) -> Unit,
 ) {
+    val listState = rememberLazyListState()
+
+    LaunchedEffect(sortOrder) { listState.animateScrollToItem(0) }
+
     LazyColumn(
+        state = listState,
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(spacingMedium),
         verticalArrangement = Arrangement.spacedBy(spacingMedium),
     ) {
+        item {
+            StoredSortHeader(sortOrder = sortOrder, onSortOrderSelected = onSortOrderSelected)
+        }
+
         items(collections, key = { it.value.id }) { stored ->
             SwipeToDelete(
                 onSwiped = { onDeleteCollection(stored) },
@@ -227,6 +245,7 @@ private fun UserCollectionsScreenPreview(darkTheme: Boolean) {
             events = MutableSharedFlow(),
             onNavigateUpClicked = {},
             onAddBtnClicked = {},
+            onSortOrderSelected = {},
             onDeleteCollectionOptimistically = { null },
             onUndoDeletion = {},
             onCommitDeletion = {},

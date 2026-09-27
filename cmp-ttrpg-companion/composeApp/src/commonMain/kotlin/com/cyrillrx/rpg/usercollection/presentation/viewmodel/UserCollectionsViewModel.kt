@@ -125,6 +125,17 @@ class UserCollectionsViewModel(
         }
     }
 
+    fun setSortOrder(order: StoredSortOrder) {
+        if (state.value.sortOrder == order) return
+
+        state.update { current ->
+            current.copy(
+                sortOrder = order,
+                body = if (current.body is UserCollectionsState.Body.WithData) sortedBody(order) else current.body,
+            )
+        }
+    }
+
     fun silentRefresh() {
         if (state.value.body is UserCollectionsState.Body.Loading) return
         activeJob?.cancel()
@@ -178,12 +189,16 @@ class UserCollectionsViewModel(
     }
 
     private fun renderBody() {
+        state.update { it.copy(body = sortedBody(it.sortOrder)) }
+    }
+
+    private fun sortedBody(order: StoredSortOrder): UserCollectionsState.Body {
+        // Read afresh, so the body stays correct should the state update replay its lambda.
         val visible = deletions.visible
-        val body = if (visible.isEmpty()) {
+        return if (visible.isEmpty()) {
             UserCollectionsState.Body.Empty
         } else {
-            UserCollectionsState.Body.WithData(visible.applySort(StoredSortOrder.LAST_MODIFIED, locale))
+            UserCollectionsState.Body.WithData(visible.applySort(order, locale))
         }
-        state.update { it.copy(body = body) }
     }
 }
