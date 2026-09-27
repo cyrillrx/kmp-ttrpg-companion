@@ -10,6 +10,8 @@ import com.cyrillrx.rpg.character.domain.Language
 import com.cyrillrx.rpg.character.domain.Race
 import com.cyrillrx.rpg.character.domain.coerceToValidCharacterLevel
 import com.cyrillrx.rpg.character.domain.coerceToValidCharacterSpeeds
+import com.cyrillrx.rpg.character.domain.coerceToValidCurrentHitPoints
+import com.cyrillrx.rpg.character.domain.coerceToValidHitPointAmount
 import com.cyrillrx.rpg.creature.data.createAbilities
 import com.cyrillrx.rpg.creature.data.toAlignment
 import com.cyrillrx.rpg.creature.data.toSize
@@ -39,6 +41,12 @@ internal fun ApiCharacter.toCharacter(source: String): Result<Character, Charact
         ?: return Result.Failure(CharacterImportError.MissingArmorClass(id))
     val maxHitPoints = maxHitPoints?.coerceAndWarn(source, id, "max hit points", Int::coerceToValidMaxHitPoints)
         ?: return Result.Failure(CharacterImportError.MissingMaxHitPoints(id))
+    val currentHitPoints = currentHitPoints
+        ?.coerceAndWarn(source, id, "current hit points") { it.coerceToValidCurrentHitPoints(maxHitPoints) }
+        ?: maxHitPoints
+    val temporaryHitPoints = temporaryHitPoints
+        ?.coerceAndWarn(source, id, "temporary hit points", Int::coerceToValidHitPointAmount)
+        ?: 0
     speeds?.walk
         ?: return Result.Failure(CharacterImportError.MissingWalkSpeed(id))
     val apiSkills = skills
@@ -74,6 +82,8 @@ internal fun ApiCharacter.toCharacter(source: String): Result<Character, Charact
             abilities = createAbilities(abilities, savingThrows),
             armorClass = armorClass,
             maxHitPoints = maxHitPoints,
+            currentHitPoints = currentHitPoints,
+            temporaryHitPoints = temporaryHitPoints,
             speeds = speeds.toSpeeds()
                 .coerceAndWarn(source, id, "speeds") { it.coerceToValidCharacterSpeeds() },
             languages = languages,
