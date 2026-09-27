@@ -75,6 +75,30 @@ class SqlDelightUserPreferencesRepositoryTest {
     }
 
     @Test
+    fun `an order no longer known falls back to the default`() = runTest {
+        val driver = TestDatabaseDriverFactory().createDriver()
+        val repository = SqlDelightUserPreferencesRepository(
+            object : DatabaseDriverFactory {
+                override fun createDriver() = driver
+            },
+        )
+        repository.initialize()
+        driver.execute(
+            null,
+            "UPDATE UserPreferencesEntity SET character_sort_order = 'by_vibes', " +
+                "collection_sort_order = 'by_vibes', collection_item_order = 'by_vibes' WHERE id = 1;",
+            0,
+        )
+
+        repository.initialize() // re-reads what the database now holds
+
+        val preferences = repository.preferences.value
+        assertEquals(StoredSortOrder.LAST_MODIFIED, preferences.characterSortOrder)
+        assertEquals(StoredSortOrder.LAST_MODIFIED, preferences.collectionSortOrder)
+        assertEquals(CollectionItemOrder.ADDED, preferences.collectionItemOrder)
+    }
+
+    @Test
     fun `each list keeps its own order`() = runTest {
         val repository = buildRepository()
         repository.initialize()
