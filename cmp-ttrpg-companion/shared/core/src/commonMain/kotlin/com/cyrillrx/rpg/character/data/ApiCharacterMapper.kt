@@ -96,6 +96,8 @@ private fun Map<String, ApiCharacter.Translation>.toTranslations(
     source: String,
     characterId: String,
 ): Map<String, Character.Translation>? {
+    // A sheet created in the app holds no translation until its short description is filled in.
+    if (isEmpty()) return emptyMap()
     val (parsedTranslations, translationErrors) = partitionBy { locale, t ->
         t.toTranslation(characterId, locale)
     }

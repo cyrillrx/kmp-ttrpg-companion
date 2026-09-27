@@ -49,6 +49,19 @@ class JsonCharacterPresetRepositoryTest {
     }
 
     @Test
+    fun `preset with no translation is kept`() = runTest {
+        val character = repository(preset(translations = "{}")).getAll(null).first().value
+
+        assertEquals(emptyMap(), character.translations)
+    }
+
+    @Test
+    fun `preset whose every translation is invalid is skipped`() = runTest {
+        val json = preset(translations = """{"en": {"description": ""}}""")
+        assertTrue(repository(json).getAll(null).isEmpty())
+    }
+
+    @Test
     fun `preset with no classes is skipped`() = runTest {
         assertTrue(repository(preset(classes = null)).getAll(null).isEmpty())
         assertTrue(repository(preset(classes = "{}")).getAll(null).isEmpty())
