@@ -54,8 +54,9 @@ class UserCollectionsViewModel(
     private val deletions = OptimisticDeletions<Stored<UserCollection>> { it.value.id }
 
     /**
-     * Detached from [viewModelScope] on purpose: a commit started when the snackbar expired must reach
-     * the repository even if the user leaves the screen while the call is in flight.
+     * Detached from [viewModelScope] on purpose: a write started as the user leaves the screen — a commit
+     * whose snackbar expired, or the order they just picked — must reach the repository even when the
+     * entry is popped while the call is in flight.
      */
     private val commitScope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
 
@@ -138,7 +139,7 @@ class UserCollectionsViewModel(
                 body = if (current.body is UserCollectionsState.Body.WithData) sortedBody(order) else current.body,
             )
         }
-        viewModelScope.launch { prefsRepository.setCollectionSortOrder(order) }
+        commitScope.launch { prefsRepository.setCollectionSortOrder(order) }
     }
 
     fun silentRefresh() {
