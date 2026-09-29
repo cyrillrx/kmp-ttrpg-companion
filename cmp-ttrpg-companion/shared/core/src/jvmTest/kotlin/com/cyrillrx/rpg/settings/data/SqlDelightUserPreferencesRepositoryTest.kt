@@ -53,15 +53,17 @@ class SqlDelightUserPreferencesRepositoryTest {
     @Test
     fun `every list order round-trips through the database`() = runTest {
         for (order in StoredSortOrder.entries) {
+            // Opposite values on the two lists: a setter writing into the other column shows up here.
+            val otherOrder = StoredSortOrder.entries.first { it != order }
             val repository = buildRepository()
             repository.initialize()
 
             repository.setCharacterSortOrder(order)
-            repository.setCollectionSortOrder(order)
+            repository.setCollectionSortOrder(otherOrder)
             repository.initialize() // re-reads from the database, proving the choices were persisted
 
             assertEquals(order, repository.preferences.value.characterSortOrder)
-            assertEquals(order, repository.preferences.value.collectionSortOrder)
+            assertEquals(otherOrder, repository.preferences.value.collectionSortOrder)
         }
         for (order in CollectionItemOrder.entries) {
             val repository = buildRepository()
@@ -104,6 +106,7 @@ class SqlDelightUserPreferencesRepositoryTest {
         repository.initialize()
 
         repository.setCharacterSortOrder(StoredSortOrder.NAME)
+        repository.initialize() // re-reads: the in-memory state alone would hide a write to the wrong column
 
         val preferences = repository.preferences.value
         assertEquals(StoredSortOrder.NAME, preferences.characterSortOrder)
