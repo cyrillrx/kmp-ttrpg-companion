@@ -10,6 +10,9 @@ import com.cyrillrx.rpg.settings.domain.DistanceUnit
 import com.cyrillrx.rpg.settings.domain.Palette
 import com.cyrillrx.rpg.settings.domain.Theme
 import com.cyrillrx.rpg.usercollection.domain.CollectionItemOrder
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.test.StandardTestDispatcher
+import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -130,6 +133,24 @@ class SqlDelightUserPreferencesRepositoryTest {
 
         repository.setPalette(Palette.DRAGON) // a real change: a write happens
         assertTrue(driver.writeCount > writesBefore)
+    }
+
+    @Test
+    fun `reverting to the stored value while a write is in flight keeps the reverted value`() = runTest {
+        // A dispatcher distinct from the test's own makes withContext suspend, so the second call runs mid-write.
+        val repository = SqlDelightUserPreferencesRepository(
+            TestDatabaseDriverFactory(),
+            ioDispatcher = StandardTestDispatcher(testScheduler),
+        )
+        repository.initialize()
+
+        launch { repository.setCollectionSortOrder(StoredSortOrder.NAME) }
+        launch { repository.setCollectionSortOrder(StoredSortOrder.LAST_MODIFIED) }
+        advanceUntilIdle()
+
+        assertEquals(StoredSortOrder.LAST_MODIFIED, repository.preferences.value.collectionSortOrder)
+        repository.initialize()
+        assertEquals(StoredSortOrder.LAST_MODIFIED, repository.preferences.value.collectionSortOrder)
     }
 
     @Test
