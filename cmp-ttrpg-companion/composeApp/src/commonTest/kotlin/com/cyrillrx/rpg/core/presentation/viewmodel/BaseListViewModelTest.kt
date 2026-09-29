@@ -31,7 +31,7 @@ class BaseListViewModelTest {
     }
 
     @Test
-    fun `savedScrollPosition defaults to ScrollPosition()`() = runTest(testDispatcher) {
+    fun `savedScrollPosition defaults to the top of the list`() = runTest(testDispatcher) {
         val viewModel = TestableBaseListViewModel()
 
         assertEquals(expected = ScrollPosition(), actual = viewModel.savedScrollPosition)

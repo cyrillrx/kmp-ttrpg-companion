@@ -41,7 +41,7 @@ class CharacterFormatTest {
     }
 
     @Test
-    fun `getFontWeight is bold for proficient and expert, normal otherwise`() {
+    fun `getFontWeight is bold for proficient and expert and normal otherwise`() {
         assertEquals(expected = FontWeight.Normal, actual = Proficiency.NONE.getFontWeight())
         assertEquals(expected = FontWeight.Bold, actual = Proficiency.PROFICIENT.getFontWeight())
         assertEquals(expected = FontWeight.Bold, actual = Proficiency.EXPERT.getFontWeight())

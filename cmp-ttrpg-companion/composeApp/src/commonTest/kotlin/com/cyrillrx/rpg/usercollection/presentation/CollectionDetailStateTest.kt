@@ -10,7 +10,7 @@ import kotlin.test.assertTrue
 class CollectionDetailStateTest {
 
     @Test
-    fun `a collection is loaded once its items are known, empty or not`() {
+    fun `a collection is loaded once its items are known even when empty`() {
         assertTrue(stateWith(CollectionDetailState.Body.Empty).isLoaded)
         assertTrue(stateWith(CollectionDetailState.Body.WithData(emptyList<Spell>())).isLoaded)
     }

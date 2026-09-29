@@ -46,7 +46,7 @@ class LocalizedSortTest {
     }
 
     @Test
-    fun `sortedByLocalizedName sorts on the localized name, not on the value`() {
+    fun `sortedByLocalizedName sorts on the localized name rather than on the value`() {
         val ordered = listOf("FIGHTER", "BARBARIAN").sortedByLocalizedName { name ->
             when (name) {
                 "FIGHTER" -> "Guerrier"
