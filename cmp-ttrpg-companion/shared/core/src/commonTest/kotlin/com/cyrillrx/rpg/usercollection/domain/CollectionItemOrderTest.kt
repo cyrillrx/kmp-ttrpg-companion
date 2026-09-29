@@ -16,7 +16,7 @@ class CollectionItemOrderTest {
     }
 
     @Test
-    fun `name orders accented entries as French does`() {
+    fun `name sorts an accented letter with its base letter`() {
         val entries = listOf(Row("a", "Roublard"), Row("b", "Rôdeur"))
 
         assertEquals(expected = listOf("b", "a"), actual = entries.orderedIds(CollectionItemOrder.NAME, locale))
