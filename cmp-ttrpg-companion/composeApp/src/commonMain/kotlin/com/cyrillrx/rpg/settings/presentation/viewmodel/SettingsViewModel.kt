@@ -19,6 +19,8 @@ class SettingsViewModel(
 
     val preferences: StateFlow<UserPreferences> = prefsRepository.preferences
 
+    // TODO(#281): these three writes run on viewModelScope with no catch, so onCleared() can drop the one
+    // picked just before navigating up, and a repository failure crashes the app.
     fun setTheme(theme: Theme) {
         viewModelScope.launch { prefsRepository.setTheme(theme) }
     }
