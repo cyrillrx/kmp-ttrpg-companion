@@ -139,7 +139,15 @@ class UserCollectionsViewModel(
                 body = if (current.body is UserCollectionsState.Body.WithData) sortedBody(order) else current.body,
             )
         }
-        commitScope.launch { prefsRepository.setCollectionSortOrder(order) }
+        commitScope.launch {
+            try {
+                prefsRepository.setCollectionSortOrder(order)
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                // The chosen order stays applied for the session; only its persistence is lost.
+            }
+        }
     }
 
     fun silentRefresh() {

@@ -81,7 +81,15 @@ class CharacterListViewModel(
                 body = if (current.body is CharacterListState.Body.WithData) sortedBody(order) else current.body,
             )
         }
-        commitScope.launch { prefsRepository.setCharacterSortOrder(order) }
+        commitScope.launch {
+            try {
+                prefsRepository.setCharacterSortOrder(order)
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                // The chosen order stays applied for the session; only its persistence is lost.
+            }
+        }
     }
 
     fun silentRefresh() {

@@ -446,6 +446,19 @@ class UserCollectionsViewModelTest {
     }
 
     @Test
+    fun `a failing preference write leaves the chosen order applied`() = runTest(testDispatcher) {
+        val prefs = FakeUserPreferencesRepository().apply { writeError = IllegalStateException("write failed") }
+        val viewModel = buildViewModel(ScrambledUserCollectionRepository(), prefs)
+
+        advanceUntilIdle()
+
+        viewModel.setSortOrder(StoredSortOrder.NAME)
+        advanceUntilIdle()
+
+        assertEquals(expected = StoredSortOrder.NAME, actual = viewModel.state.value.sortOrder)
+    }
+
+    @Test
     fun `collections sharing a date are ordered by id`() = runTest(testDispatcher) {
         val viewModel = buildViewModel(TiedUserCollectionRepository())
 

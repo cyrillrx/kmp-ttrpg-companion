@@ -133,7 +133,15 @@ class CollectionDetailViewModel<T : Entity>(
                 body = if (current.body is CollectionDetailState.Body.WithData) sortedBody(order) else current.body,
             )
         }
-        commitScope.launch { prefsRepository.setCollectionItemOrder(order) }
+        commitScope.launch {
+            try {
+                prefsRepository.setCollectionItemOrder(order)
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                // The chosen order stays applied for the session; only its persistence is lost.
+            }
+        }
     }
 
     fun silentRefresh() {

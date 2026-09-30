@@ -162,6 +162,24 @@ class CollectionDetailViewModelTest {
     }
 
     @Test
+    fun `a failing preference write leaves the chosen order applied`() = runTest(testDispatcher) {
+        saveCollection(SampleSpellRepository.getAll().take(3).map { it.id })
+        val prefs = FakeUserPreferencesRepository().apply { writeError = IllegalStateException("write failed") }
+        val viewModel = buildViewModel(TEST_COLLECTION_ID, prefsRepository = prefs)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        viewModel.setSortOrder(CollectionItemOrder.NAME)
+        advanceUntilIdle()
+
+        assertEquals(expected = CollectionItemOrder.NAME, actual = viewModel.state.value.sortOrder)
+    }
+
+    @Test
     fun `setSortOrder orders the entries by localized name`() = runTest(testDispatcher) {
         val spells = SampleSpellRepository.getAll().take(3)
         saveCollection(spells.map { it.id })

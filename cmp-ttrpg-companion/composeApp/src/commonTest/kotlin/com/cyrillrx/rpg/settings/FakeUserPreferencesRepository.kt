@@ -15,31 +15,38 @@ class FakeUserPreferencesRepository(initial: UserPreferences = UserPreferences()
 
     private val state = MutableStateFlow(initial)
 
+    var writeError: Exception? = null
+
     override val preferences: StateFlow<UserPreferences> = state
 
     override suspend fun initialize() = Unit
 
     override suspend fun setTheme(theme: Theme) {
-        state.update { it.copy(theme = theme) }
+        write { it.copy(theme = theme) }
     }
 
     override suspend fun setPalette(palette: Palette) {
-        state.update { it.copy(palette = palette) }
+        write { it.copy(palette = palette) }
     }
 
     override suspend fun setDistanceUnit(unit: DistanceUnit) {
-        state.update { it.copy(distanceUnit = unit) }
+        write { it.copy(distanceUnit = unit) }
     }
 
     override suspend fun setCharacterSortOrder(order: StoredSortOrder) {
-        state.update { it.copy(characterSortOrder = order) }
+        write { it.copy(characterSortOrder = order) }
     }
 
     override suspend fun setCollectionSortOrder(order: StoredSortOrder) {
-        state.update { it.copy(collectionSortOrder = order) }
+        write { it.copy(collectionSortOrder = order) }
     }
 
     override suspend fun setCollectionItemOrder(order: CollectionItemOrder) {
-        state.update { it.copy(collectionItemOrder = order) }
+        write { it.copy(collectionItemOrder = order) }
+    }
+
+    private fun write(update: (UserPreferences) -> UserPreferences) {
+        writeError?.let { throw it }
+        state.update(update)
     }
 }

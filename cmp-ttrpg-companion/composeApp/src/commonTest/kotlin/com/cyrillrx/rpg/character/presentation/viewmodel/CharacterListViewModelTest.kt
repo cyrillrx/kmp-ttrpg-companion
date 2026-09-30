@@ -477,6 +477,19 @@ class CharacterListViewModelTest {
     }
 
     @Test
+    fun `a failing preference write leaves the chosen order applied`() = runTest(testDispatcher) {
+        val prefs = FakeUserPreferencesRepository().apply { writeError = IllegalStateException("write failed") }
+        val viewModel = buildViewModel(ScrambledCharacterRepository(), prefs)
+
+        advanceUntilIdle()
+
+        viewModel.setSortOrder(StoredSortOrder.NAME)
+        advanceUntilIdle()
+
+        assertEquals(expected = StoredSortOrder.NAME, actual = viewModel.state.value.sortOrder)
+    }
+
+    @Test
     fun `setSortOrder emits a single state`() = runTest(testDispatcher) {
         val viewModel = buildViewModel(ScrambledCharacterRepository())
         val states = mutableListOf<CharacterListState>()
