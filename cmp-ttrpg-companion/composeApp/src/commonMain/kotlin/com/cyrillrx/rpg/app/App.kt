@@ -63,6 +63,8 @@ fun App(dbDriverFactory: SharedDatabaseDriverFactory) {
             .components { add(SvgDecoder.Factory()) }
             .build()
     }
+    // TODO(#280): held in the composition, so an Activity recreation builds a second instance while the
+    // surviving view models keep reading the first one.
     val prefsRepository: UserPreferencesRepository = remember(dbDriverFactory) {
         SqlDelightUserPreferencesRepository(dbDriverFactory)
     }
