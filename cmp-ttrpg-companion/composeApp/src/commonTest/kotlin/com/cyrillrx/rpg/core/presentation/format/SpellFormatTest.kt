@@ -24,7 +24,7 @@ import kotlin.test.assertEquals
 class SpellFormatTest {
 
     @Test
-    fun `getFormattedComponents joins verbal, somatic and material`() {
+    fun `getFormattedComponents joins verbal somatic and material`() {
         val spell = spellWith(verbal = true, somatic = true, material = true)
         assertEquals(expected = "V, S, M", actual = spell.getFormattedComponents())
     }

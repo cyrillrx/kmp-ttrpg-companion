@@ -10,7 +10,7 @@ import kotlin.test.assertTrue
 class AllocateWidthsTest {
 
     @Test
-    fun `preferred fit - returns preferred unchanged (compact keeps natural widths)`() {
+    fun `preferred fit - returns preferred unchanged as compact keeps natural widths`() {
         val minimums = listOf(50.dp, 100.dp)
         val preferred = listOf(100.dp, 200.dp)
         val result = allocateWidths(minimums, preferred, available = 400.dp)
