@@ -1,6 +1,8 @@
 package com.cyrillrx.rpg.usercollection.presentation.viewmodel
 
+import androidx.lifecycle.ViewModelStore
 import com.cyrillrx.rpg.core.domain.Stored
+import com.cyrillrx.rpg.core.presentation.viewmodel.hold
 import com.cyrillrx.rpg.settings.FakeUserPreferencesRepository
 import com.cyrillrx.rpg.settings.domain.UserPreferences
 import com.cyrillrx.rpg.settings.domain.UserPreferencesRepository
@@ -156,6 +158,24 @@ class CollectionDetailViewModelTest {
         advanceUntilIdle()
 
         viewModel.setSortOrder(CollectionItemOrder.NAME)
+        advanceUntilIdle()
+
+        assertEquals(expected = CollectionItemOrder.NAME, actual = prefs.preferences.value.collectionItemOrder)
+    }
+
+    @Test
+    fun `setSortOrder stores the chosen order even when the view model is cleared`() = runTest(testDispatcher) {
+        saveCollection(SampleSpellRepository.getAll().take(3).map { it.id })
+        val prefs = FakeUserPreferencesRepository()
+        val store = ViewModelStore()
+        val viewModel = store.hold(CollectionDetailViewModel::class) {
+            buildViewModel(TEST_COLLECTION_ID, prefsRepository = prefs)
+        }
+
+        advanceUntilIdle()
+
+        viewModel.setSortOrder(CollectionItemOrder.NAME)
+        store.clear()
         advanceUntilIdle()
 
         assertEquals(expected = CollectionItemOrder.NAME, actual = prefs.preferences.value.collectionItemOrder)
