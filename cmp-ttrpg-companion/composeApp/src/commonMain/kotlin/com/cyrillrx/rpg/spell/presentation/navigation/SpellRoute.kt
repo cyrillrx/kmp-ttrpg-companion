@@ -3,6 +3,7 @@ package com.cyrillrx.rpg.spell.presentation.navigation
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation3.runtime.EntryProviderScope
 import androidx.navigation3.runtime.NavKey
+import com.cyrillrx.rpg.settings.domain.UserPreferencesRepository
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.spell.domain.SpellRepository
 import com.cyrillrx.rpg.spell.presentation.SpellAddToCollectionProvider
@@ -41,6 +42,7 @@ fun EntryProviderScope<NavKey>.handleSpellRoutes(
     router: SpellRouter,
     spellRepository: SpellRepository,
     userCollectionRepository: UserCollectionRepository,
+    prefsRepository: UserPreferencesRepository,
 ) {
     entry<SpellRoute.Compendium> {
         val viewModelFactory = SpellListViewModelFactory(spellRepository)
@@ -69,6 +71,7 @@ fun EntryProviderScope<NavKey>.handleSpellRoutes(
             collectionId = collectionId,
             userCollectionRepository = userCollectionRepository,
             repository = spellRepository,
+            prefsRepository = prefsRepository,
         )
         val viewModel = viewModel<CollectionDetailViewModel<Spell>>(key = collectionId, factory = viewModelFactory)
         val itemProvider = SpellItemProvider(

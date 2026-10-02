@@ -63,6 +63,8 @@ fun App(dbDriverFactory: SharedDatabaseDriverFactory) {
             .components { add(SvgDecoder.Factory()) }
             .build()
     }
+    // TODO(#280): held in the composition, so an Activity recreation builds a second instance while the
+    // surviving view models keep reading the first one.
     val prefsRepository: UserPreferencesRepository = remember(dbDriverFactory) {
         SqlDelightUserPreferencesRepository(dbDriverFactory)
     }
@@ -132,18 +134,25 @@ fun App(dbDriverFactory: SharedDatabaseDriverFactory) {
                         router = SpellRouterImpl(backStack),
                         spellRepository = spellRepository,
                         userCollectionRepository = userCollectionRepository,
+                        prefsRepository = prefsRepository,
                     )
                     handleMagicalItemRoutes(
                         router = MagicalItemRouterImpl(backStack),
                         repository = magicalItemRepository,
                         userCollectionRepository = userCollectionRepository,
+                        prefsRepository = prefsRepository,
                     )
                     handleMonsterRoutes(
                         router = MonsterRouterImpl(backStack),
                         repository = monsterRepository,
                         userCollectionRepository = userCollectionRepository,
+                        prefsRepository = prefsRepository,
                     )
-                    handleUserCollectionRoutes(UserCollectionRouterImpl(backStack), userCollectionRepository)
+                    handleUserCollectionRoutes(
+                        router = UserCollectionRouterImpl(backStack),
+                        userCollectionRepository = userCollectionRepository,
+                        prefsRepository = prefsRepository,
+                    )
                     handleSettingsRoutes(backStack, prefsRepository)
                 },
             )

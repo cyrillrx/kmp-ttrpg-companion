@@ -1,6 +1,11 @@
 package com.cyrillrx.rpg.usercollection.presentation.viewmodel
 
+import androidx.lifecycle.ViewModelStore
 import com.cyrillrx.rpg.core.domain.Stored
+import com.cyrillrx.rpg.core.presentation.viewmodel.hold
+import com.cyrillrx.rpg.settings.FakeUserPreferencesRepository
+import com.cyrillrx.rpg.settings.domain.UserPreferences
+import com.cyrillrx.rpg.settings.domain.UserPreferencesRepository
 import com.cyrillrx.rpg.spell.data.SampleSpellRepository
 import com.cyrillrx.rpg.spell.domain.Spell
 import com.cyrillrx.rpg.usercollection.data.RamUserCollectionRepository
@@ -48,8 +53,11 @@ class CollectionDetailViewModelTest {
         Dispatchers.resetMain()
     }
 
-    private fun buildViewModel(collectionId: String, repo: UserCollectionRepository = userCollectionRepository) =
-        CollectionDetailViewModel(collectionId, repo, spellRepository, testDispatcher, LOCALE)
+    private fun buildViewModel(
+        collectionId: String,
+        repo: UserCollectionRepository = userCollectionRepository,
+        prefsRepository: UserPreferencesRepository = FakeUserPreferencesRepository(),
+    ) = CollectionDetailViewModel(collectionId, repo, spellRepository, prefsRepository, testDispatcher, LOCALE)
 
     private suspend fun saveCollection(itemIds: List<String>) {
         userCollectionRepository.save(
@@ -118,6 +126,77 @@ class CollectionDetailViewModelTest {
 
         val body = assertIs<CollectionDetailState.Body.WithData<Spell>>(viewModel.state.value.body)
         assertEquals(expected = spells.map { it.id }.reversed(), actual = body.items.map { it.id })
+    }
+
+    @Test
+    fun `the collection opens on the stored order`() = runTest(testDispatcher) {
+        val spells = SampleSpellRepository.getAll().take(3)
+        saveCollection(spells.map { it.id })
+        val prefs = FakeUserPreferencesRepository(UserPreferences(collectionItemOrder = CollectionItemOrder.NAME))
+
+        val viewModel = buildViewModel(TEST_COLLECTION_ID, prefsRepository = prefs)
+
+        advanceUntilIdle()
+
+        val body = assertIs<CollectionDetailState.Body.WithData<Spell>>(viewModel.state.value.body)
+        assertEquals(
+            expected = spells.map { it.displayName(LOCALE) }.sortedBy { it.lowercase() },
+            actual = body.items.map { it.displayName(LOCALE) },
+        )
+    }
+
+    @Test
+    fun `setSortOrder stores the chosen order`() = runTest(testDispatcher) {
+        saveCollection(SampleSpellRepository.getAll().take(3).map { it.id })
+        val prefs = FakeUserPreferencesRepository()
+        val viewModel = buildViewModel(TEST_COLLECTION_ID, prefsRepository = prefs)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        viewModel.setSortOrder(CollectionItemOrder.NAME)
+        advanceUntilIdle()
+
+        assertEquals(expected = CollectionItemOrder.NAME, actual = prefs.preferences.value.collectionItemOrder)
+    }
+
+    @Test
+    fun `setSortOrder stores the chosen order even when the view model is cleared`() = runTest(testDispatcher) {
+        saveCollection(SampleSpellRepository.getAll().take(3).map { it.id })
+        val prefs = FakeUserPreferencesRepository()
+        val store = ViewModelStore()
+        val viewModel = store.hold(CollectionDetailViewModel::class) {
+            buildViewModel(TEST_COLLECTION_ID, prefsRepository = prefs)
+        }
+
+        advanceUntilIdle()
+
+        viewModel.setSortOrder(CollectionItemOrder.NAME)
+        store.clear()
+        advanceUntilIdle()
+
+        assertEquals(expected = CollectionItemOrder.NAME, actual = prefs.preferences.value.collectionItemOrder)
+    }
+
+    @Test
+    fun `a failing preference write leaves the chosen order applied`() = runTest(testDispatcher) {
+        saveCollection(SampleSpellRepository.getAll().take(3).map { it.id })
+        val prefs = FakeUserPreferencesRepository().apply { writeError = IllegalStateException("write failed") }
+        val viewModel = buildViewModel(TEST_COLLECTION_ID, prefsRepository = prefs)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        viewModel.setSortOrder(CollectionItemOrder.NAME)
+        advanceUntilIdle()
+
+        assertEquals(expected = CollectionItemOrder.NAME, actual = viewModel.state.value.sortOrder)
     }
 
     @Test

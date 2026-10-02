@@ -13,6 +13,7 @@ import com.cyrillrx.rpg.creature.presentation.viewmodel.MonsterDetailViewModel
 import com.cyrillrx.rpg.creature.presentation.viewmodel.MonsterDetailViewModelFactory
 import com.cyrillrx.rpg.creature.presentation.viewmodel.MonsterListViewModel
 import com.cyrillrx.rpg.creature.presentation.viewmodel.MonsterListViewModelFactory
+import com.cyrillrx.rpg.settings.domain.UserPreferencesRepository
 import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
 import com.cyrillrx.rpg.usercollection.presentation.component.CollectionDetailScreen
 import com.cyrillrx.rpg.usercollection.presentation.viewmodel.CollectionDetailViewModel
@@ -42,6 +43,7 @@ fun EntryProviderScope<NavKey>.handleMonsterRoutes(
     router: MonsterRouter,
     repository: MonsterRepository,
     userCollectionRepository: UserCollectionRepository,
+    prefsRepository: UserPreferencesRepository,
 ) {
     entry<MonsterRoute.Compendium> {
         val viewModelFactory = MonsterListViewModelFactory(repository)
@@ -64,6 +66,7 @@ fun EntryProviderScope<NavKey>.handleMonsterRoutes(
             collectionId = collectionId,
             userCollectionRepository = userCollectionRepository,
             repository = repository,
+            prefsRepository = prefsRepository,
         )
         val viewModel = viewModel<CollectionDetailViewModel<Monster>>(key = collectionId, factory = viewModelFactory)
         val itemProvider = MonsterItemProvider(

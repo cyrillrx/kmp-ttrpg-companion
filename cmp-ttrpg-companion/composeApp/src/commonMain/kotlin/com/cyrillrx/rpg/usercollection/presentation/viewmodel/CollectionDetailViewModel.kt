@@ -6,16 +6,16 @@ import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.core.domain.Entity
 import com.cyrillrx.rpg.core.domain.EntityRepository
 import com.cyrillrx.rpg.core.presentation.OptimisticDeletions
+import com.cyrillrx.rpg.core.presentation.detachedCommitScope
+import com.cyrillrx.rpg.settings.domain.UserPreferencesRepository
 import com.cyrillrx.rpg.usercollection.domain.CollectionItemOrder
 import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
 import com.cyrillrx.rpg.usercollection.domain.applyOrder
 import com.cyrillrx.rpg.usercollection.presentation.CollectionDetailState
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
@@ -31,12 +31,15 @@ class CollectionDetailViewModel<T : Entity>(
     private val collectionId: String,
     private val userCollectionRepository: UserCollectionRepository,
     private val repository: EntityRepository<T>,
+    private val prefsRepository: UserPreferencesRepository,
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
     private val locale: String = currentLocale(),
 ) : ViewModel() {
 
     val state: StateFlow<CollectionDetailState<T>>
-        field = MutableStateFlow(CollectionDetailState())
+        field = MutableStateFlow(
+            CollectionDetailState<T>(sortOrder = prefsRepository.preferences.value.collectionItemOrder),
+        )
 
     val events: SharedFlow<Event<T>>
         field = MutableSharedFlow<Event<T>>()
@@ -48,11 +51,7 @@ class CollectionDetailViewModel<T : Entity>(
 
     private val removals = OptimisticDeletions<T> { it.id }
 
-    /**
-     * Detached from [viewModelScope] on purpose: a commit started when the snackbar expired must reach
-     * the repository even if the user leaves the screen while the call is in flight.
-     */
-    private val commitScope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
+    private val commitScope = detachedCommitScope()
 
     private var activeJob: Job? = null
 
@@ -127,6 +126,16 @@ class CollectionDetailViewModel<T : Entity>(
                 sortOrder = order,
                 body = if (current.body is CollectionDetailState.Body.WithData) sortedBody(order) else current.body,
             )
+        }
+        commitScope.launch {
+            try {
+                prefsRepository.setCollectionItemOrder(order)
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                // The chosen order stays applied for the session; only its persistence is lost.
+                println("WARNING: failed to persist the collection item order: $e")
+            }
         }
     }
 

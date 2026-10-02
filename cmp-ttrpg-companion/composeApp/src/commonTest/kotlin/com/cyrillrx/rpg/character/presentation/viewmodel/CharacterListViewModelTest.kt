@@ -1,5 +1,6 @@
 package com.cyrillrx.rpg.character.presentation.viewmodel
 
+import androidx.lifecycle.ViewModelStore
 import com.cyrillrx.rpg.character.data.RamCharacterRepository
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
 import com.cyrillrx.rpg.character.domain.Character
@@ -8,6 +9,7 @@ import com.cyrillrx.rpg.character.domain.CharacterRepository
 import com.cyrillrx.rpg.character.presentation.CharacterListState
 import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.core.domain.StoredSortOrder
+import com.cyrillrx.rpg.core.presentation.viewmodel.hold
 import com.cyrillrx.rpg.settings.FakeUserPreferencesRepository
 import com.cyrillrx.rpg.settings.domain.UserPreferences
 import com.cyrillrx.rpg.settings.domain.UserPreferencesRepository
@@ -474,6 +476,36 @@ class CharacterListViewModelTest {
         advanceUntilIdle()
 
         assertEquals(expected = StoredSortOrder.NAME, actual = prefs.preferences.value.characterSortOrder)
+    }
+
+    @Test
+    fun `setSortOrder stores the chosen order even when the view model is cleared`() = runTest(testDispatcher) {
+        val prefs = FakeUserPreferencesRepository()
+        val store = ViewModelStore()
+        val viewModel = store.hold(CharacterListViewModel::class) {
+            buildViewModel(ScrambledCharacterRepository(), prefs)
+        }
+
+        advanceUntilIdle()
+
+        viewModel.setSortOrder(StoredSortOrder.NAME)
+        store.clear()
+        advanceUntilIdle()
+
+        assertEquals(expected = StoredSortOrder.NAME, actual = prefs.preferences.value.characterSortOrder)
+    }
+
+    @Test
+    fun `a failing preference write leaves the chosen order applied`() = runTest(testDispatcher) {
+        val prefs = FakeUserPreferencesRepository().apply { writeError = IllegalStateException("write failed") }
+        val viewModel = buildViewModel(ScrambledCharacterRepository(), prefs)
+
+        advanceUntilIdle()
+
+        viewModel.setSortOrder(StoredSortOrder.NAME)
+        advanceUntilIdle()
+
+        assertEquals(expected = StoredSortOrder.NAME, actual = viewModel.state.value.sortOrder)
     }
 
     @Test

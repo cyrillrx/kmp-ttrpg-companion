@@ -7,15 +7,15 @@ import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.core.domain.StoredSortOrder
 import com.cyrillrx.rpg.core.domain.applySort
 import com.cyrillrx.rpg.core.presentation.OptimisticDeletions
+import com.cyrillrx.rpg.core.presentation.detachedCommitScope
+import com.cyrillrx.rpg.settings.domain.UserPreferencesRepository
 import com.cyrillrx.rpg.usercollection.domain.UserCollection
 import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
 import com.cyrillrx.rpg.usercollection.presentation.UserCollectionsState
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
@@ -32,12 +32,15 @@ import kotlin.uuid.Uuid
 class UserCollectionsViewModel(
     private val collectionType: UserCollection.ItemType,
     private val userCollectionRepository: UserCollectionRepository,
+    private val prefsRepository: UserPreferencesRepository,
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
     private val locale: String = currentLocale(),
 ) : ViewModel() {
 
     val state: StateFlow<UserCollectionsState>
-        field = MutableStateFlow(UserCollectionsState())
+        field = MutableStateFlow(
+            UserCollectionsState(sortOrder = prefsRepository.preferences.value.collectionSortOrder),
+        )
 
     val events: SharedFlow<Event>
         field = MutableSharedFlow<Event>()
@@ -49,11 +52,7 @@ class UserCollectionsViewModel(
 
     private val deletions = OptimisticDeletions<Stored<UserCollection>> { it.value.id }
 
-    /**
-     * Detached from [viewModelScope] on purpose: a commit started when the snackbar expired must reach
-     * the repository even if the user leaves the screen while the call is in flight.
-     */
-    private val commitScope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
+    private val commitScope = detachedCommitScope()
 
     private var activeJob: Job? = null
 
@@ -133,6 +132,16 @@ class UserCollectionsViewModel(
                 sortOrder = order,
                 body = if (current.body is UserCollectionsState.Body.WithData) sortedBody(order) else current.body,
             )
+        }
+        commitScope.launch {
+            try {
+                prefsRepository.setCollectionSortOrder(order)
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                // The chosen order stays applied for the session; only its persistence is lost.
+                println("WARNING: failed to persist the collection sort order: $e")
+            }
         }
     }
 

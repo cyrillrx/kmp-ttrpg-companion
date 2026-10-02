@@ -3,6 +3,7 @@ package com.cyrillrx.rpg.usercollection.presentation.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.CreationExtras
+import com.cyrillrx.rpg.settings.domain.UserPreferencesRepository
 import com.cyrillrx.rpg.usercollection.domain.UserCollection
 import com.cyrillrx.rpg.usercollection.domain.UserCollectionRepository
 import kotlin.reflect.KClass
@@ -10,9 +11,10 @@ import kotlin.reflect.KClass
 class UserCollectionsViewModelFactory(
     private val collectionType: UserCollection.ItemType,
     private val userCollectionRepository: UserCollectionRepository,
+    private val prefsRepository: UserPreferencesRepository,
 ) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: KClass<T>, extras: CreationExtras): T {
         @Suppress("UNCHECKED_CAST")
-        return UserCollectionsViewModel(collectionType, userCollectionRepository) as T
+        return UserCollectionsViewModel(collectionType, userCollectionRepository, prefsRepository) as T
     }
 }

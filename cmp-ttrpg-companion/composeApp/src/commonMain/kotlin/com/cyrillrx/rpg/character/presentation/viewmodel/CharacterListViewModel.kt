@@ -11,13 +11,12 @@ import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.core.domain.StoredSortOrder
 import com.cyrillrx.rpg.core.domain.applySort
 import com.cyrillrx.rpg.core.presentation.OptimisticDeletions
+import com.cyrillrx.rpg.core.presentation.detachedCommitScope
 import com.cyrillrx.rpg.settings.domain.UserPreferencesRepository
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
@@ -54,11 +53,7 @@ class CharacterListViewModel(
 
     private val deletions = OptimisticDeletions<Stored<Character>> { it.value.id }
 
-    /**
-     * Detached from [viewModelScope] on purpose: a commit started when the snackbar expired must reach
-     * the repository even if the user leaves the screen while the call is in flight.
-     */
-    private val commitScope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
+    private val commitScope = detachedCommitScope()
 
     private var activeJob: Job? = null
 
@@ -80,7 +75,16 @@ class CharacterListViewModel(
                 body = if (current.body is CharacterListState.Body.WithData) sortedBody(order) else current.body,
             )
         }
-        viewModelScope.launch { prefsRepository.setCharacterSortOrder(order) }
+        commitScope.launch {
+            try {
+                prefsRepository.setCharacterSortOrder(order)
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                // The chosen order stays applied for the session; only its persistence is lost.
+                println("WARNING: failed to persist the character sort order: $e")
+            }
+        }
     }
 
     fun silentRefresh() {
