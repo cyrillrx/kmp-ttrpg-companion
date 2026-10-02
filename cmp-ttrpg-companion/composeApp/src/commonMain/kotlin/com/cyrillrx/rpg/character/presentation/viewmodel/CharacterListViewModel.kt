@@ -88,6 +88,7 @@ class CharacterListViewModel(
                 throw e
             } catch (e: Exception) {
                 // The chosen order stays applied for the session; only its persistence is lost.
+                println("WARNING: failed to persist the character sort order: $e")
             }
         }
     }

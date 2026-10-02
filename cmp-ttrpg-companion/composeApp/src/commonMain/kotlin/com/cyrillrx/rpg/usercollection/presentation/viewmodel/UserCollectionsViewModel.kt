@@ -146,6 +146,7 @@ class UserCollectionsViewModel(
                 throw e
             } catch (e: Exception) {
                 // The chosen order stays applied for the session; only its persistence is lost.
+                println("WARNING: failed to persist the collection sort order: $e")
             }
         }
     }
