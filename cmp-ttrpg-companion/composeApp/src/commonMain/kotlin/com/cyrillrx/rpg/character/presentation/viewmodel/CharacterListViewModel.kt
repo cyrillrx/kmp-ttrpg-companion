@@ -11,13 +11,12 @@ import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.core.domain.StoredSortOrder
 import com.cyrillrx.rpg.core.domain.applySort
 import com.cyrillrx.rpg.core.presentation.OptimisticDeletions
+import com.cyrillrx.rpg.core.presentation.detachedCommitScope
 import com.cyrillrx.rpg.settings.domain.UserPreferencesRepository
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
@@ -54,12 +53,7 @@ class CharacterListViewModel(
 
     private val deletions = OptimisticDeletions<Stored<Character>> { it.value.id }
 
-    /**
-     * Detached from [viewModelScope] on purpose: a write started as the user leaves the screen — a commit
-     * whose snackbar expired, or the order they just picked — must reach the repository even when the
-     * entry is popped while the call is in flight.
-     */
-    private val commitScope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
+    private val commitScope = detachedCommitScope()
 
     private var activeJob: Job? = null
 
