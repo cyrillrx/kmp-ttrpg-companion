@@ -28,11 +28,6 @@ class SqlDelightUserPreferencesRepository(
     override val preferences: StateFlow<UserPreferences>
         field = MutableStateFlow(UserPreferences())
 
-    /**
-     * Held across the equality check, the write and the state update: [preferences] only reflects a write once
-     * it completes, so an unguarded call made meanwhile compares against a stale value and may skip its own
-     * write, or land before the one it follows.
-     */
     private val writeLock = Mutex()
 
     override suspend fun initialize() {
