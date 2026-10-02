@@ -15,6 +15,8 @@ import kotlinx.coroutines.IO
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
 
 class SqlDelightUserPreferencesRepository(
@@ -26,58 +28,74 @@ class SqlDelightUserPreferencesRepository(
     override val preferences: StateFlow<UserPreferences>
         field = MutableStateFlow(UserPreferences())
 
+    private val writeLock = Mutex()
+
     override suspend fun initialize() {
-        withContext(ioDispatcher) {
-            db.initUserPreferences()
-            preferences.value = db.getUserPreferences()
+        writeLock.withLock {
+            withContext(ioDispatcher) {
+                db.initUserPreferences()
+                preferences.value = db.getUserPreferences()
+            }
         }
     }
 
     override suspend fun setTheme(theme: Theme) {
-        if (preferences.value.theme == theme) return
-        withContext(ioDispatcher) {
-            db.updateTheme(theme)
-            preferences.update { it.copy(theme = theme) }
+        writeLock.withLock {
+            if (preferences.value.theme == theme) return
+            withContext(ioDispatcher) {
+                db.updateTheme(theme)
+                preferences.update { it.copy(theme = theme) }
+            }
         }
     }
 
     override suspend fun setPalette(palette: Palette) {
-        if (preferences.value.palette == palette) return
-        withContext(ioDispatcher) {
-            db.updatePalette(palette)
-            preferences.update { it.copy(palette = palette) }
+        writeLock.withLock {
+            if (preferences.value.palette == palette) return
+            withContext(ioDispatcher) {
+                db.updatePalette(palette)
+                preferences.update { it.copy(palette = palette) }
+            }
         }
     }
 
     override suspend fun setCharacterSortOrder(order: StoredSortOrder) {
-        if (preferences.value.characterSortOrder == order) return
-        withContext(ioDispatcher) {
-            db.updateCharacterSortOrder(order)
-            preferences.update { it.copy(characterSortOrder = order) }
+        writeLock.withLock {
+            if (preferences.value.characterSortOrder == order) return
+            withContext(ioDispatcher) {
+                db.updateCharacterSortOrder(order)
+                preferences.update { it.copy(characterSortOrder = order) }
+            }
         }
     }
 
     override suspend fun setCollectionSortOrder(order: StoredSortOrder) {
-        if (preferences.value.collectionSortOrder == order) return
-        withContext(ioDispatcher) {
-            db.updateCollectionSortOrder(order)
-            preferences.update { it.copy(collectionSortOrder = order) }
+        writeLock.withLock {
+            if (preferences.value.collectionSortOrder == order) return
+            withContext(ioDispatcher) {
+                db.updateCollectionSortOrder(order)
+                preferences.update { it.copy(collectionSortOrder = order) }
+            }
         }
     }
 
     override suspend fun setCollectionItemOrder(order: CollectionItemOrder) {
-        if (preferences.value.collectionItemOrder == order) return
-        withContext(ioDispatcher) {
-            db.updateCollectionItemOrder(order)
-            preferences.update { it.copy(collectionItemOrder = order) }
+        writeLock.withLock {
+            if (preferences.value.collectionItemOrder == order) return
+            withContext(ioDispatcher) {
+                db.updateCollectionItemOrder(order)
+                preferences.update { it.copy(collectionItemOrder = order) }
+            }
         }
     }
 
     override suspend fun setDistanceUnit(distanceUnit: DistanceUnit) {
-        if (preferences.value.distanceUnit == distanceUnit) return
-        withContext(ioDispatcher) {
-            db.updateDistanceUnit(distanceUnit)
-            preferences.update { it.copy(distanceUnit = distanceUnit) }
+        writeLock.withLock {
+            if (preferences.value.distanceUnit == distanceUnit) return
+            withContext(ioDispatcher) {
+                db.updateDistanceUnit(distanceUnit)
+                preferences.update { it.copy(distanceUnit = distanceUnit) }
+            }
         }
     }
 }
