@@ -75,7 +75,6 @@ internal fun ApiCharacter.toCharacter(source: String): Result<Character, Charact
             background = background?.toBackground(),
             race = race,
             classes = classLevels,
-            // The preset format carries no primary class: the first declared one stands in.
             primaryClass = classLevels.keys.first(),
             size = size,
             alignment = alignment,
@@ -96,7 +95,6 @@ private fun Map<String, ApiCharacter.Translation>.toTranslations(
     source: String,
     characterId: String,
 ): Map<String, Character.Translation>? {
-    // A sheet created in the app holds no translation until its short description is filled in.
     if (isEmpty()) return emptyMap()
     val (parsedTranslations, translationErrors) = partitionBy { locale, t ->
         t.toTranslation(characterId, locale)

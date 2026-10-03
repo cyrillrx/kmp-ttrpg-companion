@@ -17,9 +17,13 @@ private const val FALLBACK_FILE_NAME = "character"
 private const val SEGMENT_SEPARATOR = '_'
 private const val WORD_SEPARATOR = '-'
 
-// The "_lvl20_2026-10-02" segments and the suffix take at most 32 ASCII bytes, and a UTF-16 unit
-// at most 3 UTF-8 bytes, so 74 units keep the name within the 255-byte limit of APFS and ext4.
-private const val MAX_NAME_LENGTH = 74
+// APFS and ext4
+private const val MAX_FILE_NAME_BYTES = 255
+
+// e.g. "_lvl20_2026-10-02.character.json"
+private const val MAX_SUFFIX_BYTES = 32
+private const val MAX_UTF8_BYTES_PER_UTF16_UNIT = 3
+private const val MAX_NAME_LENGTH = (MAX_FILE_NAME_BYTES - MAX_SUFFIX_BYTES) / MAX_UTF8_BYTES_PER_UTF16_UNIT
 
 // Forbidden on at least one of the platforms a file may travel to, plus the dot and the underscore:
 // keeping the first dot for the suffix leaves no Windows device name (CON, NUL…) in front of it.

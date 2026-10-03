@@ -36,8 +36,6 @@ internal fun Character.toApiCharacter(): ApiCharacter = ApiCharacter(
     },
 )
 
-// The format carries no primary class and reading it back takes the first declared one, so the
-// order is what keeps the primary class across an export.
 private fun Character.classesPrimaryFirst(): Map<Character.Class, Int> {
     val primaryLevel = classes[primaryClass] ?: return classes
     return mapOf(primaryClass to primaryLevel) + (classes - primaryClass)

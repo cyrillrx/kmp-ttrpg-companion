@@ -9,7 +9,6 @@ val defaultSerializer: Json = Json {
     isLenient = true
 }
 
-// A user opens an exported file to see what they are about to share.
 val exportSerializer: Json = Json(defaultSerializer) {
     prettyPrint = true
 }
