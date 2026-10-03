@@ -9,6 +9,10 @@ val defaultSerializer: Json = Json {
     isLenient = true
 }
 
+val exportSerializer: Json = Json(defaultSerializer) {
+    prettyPrint = true
+}
+
 @Throws(SerializationException::class, IllegalArgumentException::class)
 inline fun <reified T> String.deserialize(): T = defaultSerializer.decodeFromString<T>(this)
 

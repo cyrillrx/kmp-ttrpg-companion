@@ -49,6 +49,19 @@ class JsonCharacterPresetRepositoryTest {
     }
 
     @Test
+    fun `preset with no translation is kept`() = runTest {
+        val character = repository(preset(translations = "{}")).getAll(null).first().value
+
+        assertEquals(emptyMap(), character.translations)
+    }
+
+    @Test
+    fun `preset whose every translation is invalid is skipped`() = runTest {
+        val json = preset(translations = """{"en": {"description": ""}}""")
+        assertTrue(repository(json).getAll(null).isEmpty())
+    }
+
+    @Test
     fun `preset with no classes is skipped`() = runTest {
         assertTrue(repository(preset(classes = null)).getAll(null).isEmpty())
         assertTrue(repository(preset(classes = "{}")).getAll(null).isEmpty())
@@ -110,6 +123,49 @@ class JsonCharacterPresetRepositoryTest {
 
         val tooLow = repository(preset(maxHitPoints = 0)).getAll(null).first().value
         assertEquals(1, tooLow.maxHitPoints)
+    }
+
+    @Test
+    fun `preset without game state starts at full health`() = runTest {
+        val character = repository(preset()).getAll(null).first().value
+
+        assertEquals(28, character.currentHitPoints)
+        assertEquals(0, character.temporaryHitPoints)
+    }
+
+    @Test
+    fun `declared current and temporary hit points are kept`() = runTest {
+        val json = preset(currentHitPoints = 12, temporaryHitPoints = 5)
+
+        val character = repository(json).getAll(null).first().value
+
+        assertEquals(12, character.currentHitPoints)
+        assertEquals(5, character.temporaryHitPoints)
+    }
+
+    @Test
+    fun `current hit points are clamped to the maximum`() = runTest {
+        val aboveMax = repository(preset(currentHitPoints = 40)).getAll(null).first().value
+        assertEquals(28, aboveMax.currentHitPoints)
+
+        val negative = repository(preset(currentHitPoints = -3)).getAll(null).first().value
+        assertEquals(0, negative.currentHitPoints)
+    }
+
+    @Test
+    fun `current hit points are clamped to the clamped maximum`() = runTest {
+        val json = preset(maxHitPoints = 1200, currentHitPoints = 1100)
+
+        val character = repository(json).getAll(null).first().value
+
+        assertEquals(999, character.currentHitPoints)
+    }
+
+    @Test
+    fun `negative temporary hit points are clamped to zero`() = runTest {
+        val character = repository(preset(temporaryHitPoints = -4)).getAll(null).first().value
+
+        assertEquals(0, character.temporaryHitPoints)
     }
 
     @Test
@@ -216,6 +272,8 @@ class JsonCharacterPresetRepositoryTest {
         savingThrows: String? = null,
         armorClass: Int? = 17,
         maxHitPoints: Int? = 28,
+        currentHitPoints: Int? = null,
+        temporaryHitPoints: Int? = null,
         speeds: String? = """{"walk": 30}""",
         skills: String? = "{}",
         languages: String? = """["common", "elvish"]""",
@@ -233,6 +291,8 @@ class JsonCharacterPresetRepositoryTest {
                 savingThrows?.let { add(""""savingThrows": $it""") }
                 armorClass?.let { add(""""armorClass": $it""") }
                 maxHitPoints?.let { add(""""maxHitPoints": $it""") }
+                currentHitPoints?.let { add(""""currentHitPoints": $it""") }
+                temporaryHitPoints?.let { add(""""temporaryHitPoints": $it""") }
                 speeds?.let { add(""""speeds": $it""") }
                 skills?.let { add(""""skills": $it""") }
                 languages?.let { add(""""languages": $it""") }
