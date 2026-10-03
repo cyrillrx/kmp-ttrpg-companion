@@ -75,7 +75,7 @@ The name is derived from the character name as follows:
 - Characters forbidden on at least one platform (`/ \ : * ? " < > |` and control characters) become spaces.
 - Runs of whitespace collapse into a single space; leading and trailing spaces and dots are dropped.
 - Accents and other non-ASCII letters are kept.
-- The result is cut at 100 characters, then trimmed again.
+- The result is cut at 80 characters, then trimmed again.
 - A name left empty falls back to `character`, giving `character.character.json`.
 
 The standard media type is what keeps the file usable across mail, messaging and cloud apps, which requalify unknown types as binary. The `.character` segment carries the identity that a custom extension would have provided, and remains compatible with a declared document type should the app later want to be opened from a file manager.

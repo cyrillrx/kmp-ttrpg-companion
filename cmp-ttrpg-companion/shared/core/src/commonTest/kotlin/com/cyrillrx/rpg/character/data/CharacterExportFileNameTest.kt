@@ -2,6 +2,9 @@ package com.cyrillrx.rpg.character.data
 
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertTrue
+
+private const val MAX_NAME_LENGTH = 80
 
 class CharacterExportFileNameTest {
     @Test
@@ -40,8 +43,23 @@ class CharacterExportFileNameTest {
 
     @Test
     fun `a long name is shortened without a trailing space`() {
-        val name = "a".repeat(99) + " b" + "c".repeat(50)
+        val name = "a".repeat(MAX_NAME_LENGTH - 1) + " b" + "c".repeat(50)
 
-        assertEquals("a".repeat(99) + ".character.json", characterExportFileName(name))
+        assertEquals("a".repeat(MAX_NAME_LENGTH - 1) + ".character.json", characterExportFileName(name))
+    }
+
+    @Test
+    fun `a long name in a multibyte script fits the 255-byte limit`() {
+        val fileName = characterExportFileName("龍".repeat(100))
+
+        assertEquals("龍".repeat(MAX_NAME_LENGTH) + ".character.json", fileName)
+        assertTrue(fileName.encodeToByteArray().size <= 255)
+    }
+
+    @Test
+    fun `an emoji straddling the limit is dropped whole`() {
+        val name = "a".repeat(MAX_NAME_LENGTH - 1) + "\uD83D\uDC09"
+
+        assertEquals("a".repeat(MAX_NAME_LENGTH - 1) + ".character.json", characterExportFileName(name))
     }
 }
