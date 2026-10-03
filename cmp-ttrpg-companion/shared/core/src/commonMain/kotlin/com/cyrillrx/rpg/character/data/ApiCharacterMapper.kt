@@ -1,6 +1,6 @@
 package com.cyrillrx.rpg.character.data
 
-import com.cyrillrx.core.data.coerceAndWarn
+import com.cyrillrx.core.data.Imported
 import com.cyrillrx.core.domain.Result
 import com.cyrillrx.core.domain.partitionBy
 import com.cyrillrx.rpg.character.data.api.ApiCharacter
@@ -28,15 +28,24 @@ import com.cyrillrx.rpg.creature.domain.Speeds
 import com.cyrillrx.rpg.creature.domain.coerceToValidArmorClass
 import com.cyrillrx.rpg.creature.domain.coerceToValidMaxHitPoints
 
-internal fun ApiCharacter.toCharacter(source: String): Result<Character, CharacterImportError> {
+internal fun ApiCharacter.toCharacter(): Result<Imported<Character, CharacterImportWarning>, CharacterImportError> {
     val id = id
         ?: return Result.Failure(CharacterImportError.MissingId)
+    val warnings = mutableListOf<CharacterImportWarning>()
+
+    fun <T> T.coerce(field: String, coerce: (T) -> T): T = coerce(this).also {
+        if (it != this) warnings += CharacterImportWarning.ValueCoerced(id, field, declared = "$this", kept = "$it")
+    }
+
     val name = name
         ?: return Result.Failure(CharacterImportError.MissingName(id))
     val apiTranslations = translations
         ?: return Result.Failure(CharacterImportError.MissingTranslations(id))
-    val translations = apiTranslations.toTranslations(source, id)
-        ?: return Result.Failure(CharacterImportError.MissingTranslations(id))
+    val (translations, translationErrors) = apiTranslations.partitionBy { locale, t -> t.toTranslation(id, locale) }
+    if (translations.isEmpty() && translationErrors.isNotEmpty()) {
+        return Result.Failure(CharacterImportError.MissingTranslations(id))
+    }
+    translationErrors.forEach { warnings += CharacterImportWarning.TranslationDropped(it) }
     val apiSize = size
         ?: return Result.Failure(CharacterImportError.MissingSize(id))
     val size = apiSize.toSize()
@@ -45,15 +54,15 @@ internal fun ApiCharacter.toCharacter(source: String): Result<Character, Charact
         ?: return Result.Failure(CharacterImportError.MissingAlignment(id))
     val alignment = apiAlignment.toAlignment()
         ?: return Result.Failure(CharacterImportError.UnknownAlignment(id, apiAlignment))
-    val armorClass = armorClass?.coerceAndWarn(source, id, "armor class", Int::coerceToValidArmorClass)
+    val armorClass = armorClass?.coerce("armor class", Int::coerceToValidArmorClass)
         ?: return Result.Failure(CharacterImportError.MissingArmorClass(id))
-    val maxHitPoints = maxHitPoints?.coerceAndWarn(source, id, "max hit points", Int::coerceToValidMaxHitPoints)
+    val maxHitPoints = maxHitPoints?.coerce("max hit points", Int::coerceToValidMaxHitPoints)
         ?: return Result.Failure(CharacterImportError.MissingMaxHitPoints(id))
     val currentHitPoints = currentHitPoints
-        ?.coerceAndWarn(source, id, "current hit points") { it.coerceToValidCurrentHitPoints(maxHitPoints) }
+        ?.coerce("current hit points") { it.coerceToValidCurrentHitPoints(maxHitPoints) }
         ?: maxHitPoints
     val temporaryHitPoints = temporaryHitPoints
-        ?.coerceAndWarn(source, id, "temporary hit points", Int::coerceToValidHitPointAmount)
+        ?.coerce("temporary hit points", Int::coerceToValidHitPointAmount)
         ?: 0
     speeds?.walk
         ?: return Result.Failure(CharacterImportError.MissingWalkSpeed(id))
@@ -68,53 +77,42 @@ internal fun ApiCharacter.toCharacter(source: String): Result<Character, Charact
     val classLevels = apiClasses.entries.associate { (apiClass, level) ->
         val clazz = apiClass.toClass()
             ?: return Result.Failure(CharacterImportError.UnknownClass(id, apiClass))
-        clazz to level.coerceAndWarn(source, id, "class level", Int::coerceToValidCharacterLevel)
+        clazz to level.coerce("class level", Int::coerceToValidCharacterLevel)
     }
     val (parsedLanguages, languageErrors) = languages.orEmpty().partitionBy { lang -> lang.toLanguage(id) }
-    languageErrors.forEach { println("WARNING: $source import error: $it") }
     val languages = parsedLanguages.takeIf { languageErrors.isEmpty() }
         ?: return Result.Failure(languageErrors.first())
-
-    return Result.Success(
-        Character(
-            id = id,
-            name = name,
-            translations = translations,
-            background = background?.toBackground(),
-            race = race,
-            classes = classLevels,
-            primaryClass = classLevels.keys.first(),
-            size = size,
-            alignment = alignment,
-            abilities = createAbilities(abilities, savingThrows),
-            armorClass = armorClass,
-            maxHitPoints = maxHitPoints,
-            currentHitPoints = currentHitPoints,
-            temporaryHitPoints = temporaryHitPoints,
-            speeds = speeds.toSpeeds()
-                .coerceAndWarn(source, id, "speeds") { it.coerceToValidCharacterSpeeds() },
-            languages = languages,
-            skills = apiSkills.toSkills(),
-        ),
-    )
-}
-
-private fun Map<String, ApiCharacter.Translation>.toTranslations(
-    source: String,
-    characterId: String,
-): Map<String, Character.Translation>? {
-    if (isEmpty()) return emptyMap()
-    val (parsedTranslations, translationErrors) = partitionBy { locale, t ->
-        t.toTranslation(characterId, locale)
+    val background = background?.let { apiBackground ->
+        apiBackground.toBackground()
+            .also { if (it == null) warnings += CharacterImportWarning.UnknownBackground(id, apiBackground) }
     }
-    translationErrors.forEach { println("WARNING: $source import error: $it") }
-    return parsedTranslations.takeIf { it.isNotEmpty() }
+
+    val character = Character(
+        id = id,
+        name = name,
+        translations = translations,
+        background = background,
+        race = race,
+        classes = classLevels,
+        primaryClass = classLevels.keys.first(),
+        size = size,
+        alignment = alignment,
+        abilities = createAbilities(abilities, savingThrows),
+        armorClass = armorClass,
+        maxHitPoints = maxHitPoints,
+        currentHitPoints = currentHitPoints,
+        temporaryHitPoints = temporaryHitPoints,
+        speeds = speeds.toSpeeds().coerce("speeds") { it.coerceToValidCharacterSpeeds() },
+        languages = languages,
+        skills = apiSkills.toSkills(),
+    )
+    return Result.Success(Imported(character, warnings))
 }
 
 private fun ApiCharacter.Translation.toTranslation(
     characterId: String,
     locale: String,
-): Result<Character.Translation, CharacterImportError> {
+): Result<Character.Translation, CharacterImportError.InvalidTranslation> {
     val shortDescription = shortDescription
         ?: return Result.Failure(
             CharacterImportError.InvalidTranslation(characterId, locale, field = "shortDescription"),
@@ -131,10 +129,7 @@ private fun ApiCharacter.Translation.toTranslation(
     )
 }
 
-private fun String.toBackground(): Background? =
-    Background.entries
-        .find { it.name.equals(this, ignoreCase = true) }
-        .also { if (it == null) println("WARNING: unknown background '$this'") }
+private fun String.toBackground(): Background? = Background.entries.find { it.name.equals(this, ignoreCase = true) }
 
 private fun String.toRace(): Race? = Race.entries.find { it.name.equals(this, ignoreCase = true) }
 

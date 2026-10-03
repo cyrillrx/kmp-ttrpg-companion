@@ -97,8 +97,8 @@ class CharacterExportTest {
 
     private fun Character.exportAndReadBack(): Character {
         val envelope = toExportFile(APP_VERSION, exportedAt, PARIS).content.deserialize<ApiCharacterExport>()
-        val result = requireNotNull(envelope.character).toCharacter("test")
-        return (result as Result.Success).value
+        val result = requireNotNull(envelope.character).toCharacter()
+        return (result as Result.Success).value.value
     }
 
     private fun richCharacter(): Character = SampleCharacterRepository.humanFighter().copy(

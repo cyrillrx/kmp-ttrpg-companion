@@ -53,9 +53,10 @@ class JsonCharacterPresetRepository(
         private const val SOURCE = "character preset"
 
         private fun List<ApiCharacter>.parse(): List<Character> {
-            val (characters, errors) = partitionBy { it.toCharacter(SOURCE) }
+            val (imported, errors) = partitionBy { it.toCharacter() }
             errors.forEach { println("WARNING: $SOURCE import error: $it") }
-            return characters
+            imported.flatMap { it.warnings }.forEach { println("WARNING: $SOURCE import warning: $it") }
+            return imported.map { it.value }
         }
     }
 }
