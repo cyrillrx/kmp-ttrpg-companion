@@ -11,6 +11,7 @@ import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.Proficiency
 import com.cyrillrx.rpg.creature.domain.Skills
 import com.cyrillrx.rpg.creature.domain.Speeds
+import kotlinx.datetime.TimeZone
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.jsonObject
 import kotlin.test.Test
@@ -44,7 +45,7 @@ class CharacterExportTest {
 
     @Test
     fun `the envelope carries every required field`() {
-        val content = richCharacter().toExportFile(APP_VERSION, exportedAt).content
+        val content = richCharacter().toExportFile(APP_VERSION, exportedAt, PARIS).content
 
         val envelope = content.deserialize<ApiCharacterExport>()
 
@@ -61,7 +62,7 @@ class CharacterExportTest {
 
     @Test
     fun `the file is written as readable JSON`() {
-        val file = richCharacter().toExportFile(APP_VERSION, exportedAt)
+        val file = richCharacter().toExportFile(APP_VERSION, exportedAt, PARIS)
 
         assertEquals("application/json", file.mimeType)
         assertTrue(file.content.lines().size > 1)
@@ -69,7 +70,7 @@ class CharacterExportTest {
 
     @Test
     fun `values are written in the preset vocabulary`() {
-        val content = richCharacter().toExportFile(APP_VERSION, exportedAt).content
+        val content = richCharacter().toExportFile(APP_VERSION, exportedAt, PARIS).content
 
         assertTrue(""""race": "half_elf"""" in content)
         assertTrue(""""alignment": "chaotic_good"""" in content)
@@ -78,12 +79,24 @@ class CharacterExportTest {
     }
 
     @Test
-    fun `the file is named after the character`() {
-        assertEquals("Élowen Brume.character.json", richCharacter().toExportFile(APP_VERSION, exportedAt).name)
+    fun `the file is named after the character its level and the export date`() {
+        assertEquals(
+            "élowen-brume_lvl9_2026-09-19.character.json",
+            richCharacter().toExportFile(APP_VERSION, exportedAt, PARIS).name,
+        )
+    }
+
+    @Test
+    fun `the export date is the local one`() {
+        val lateEvening = Instant.parse("2026-09-19T22:30:00Z")
+
+        assertTrue(
+            richCharacter().toExportFile(APP_VERSION, lateEvening, PARIS).name.endsWith("_2026-09-20.character.json"),
+        )
     }
 
     private fun Character.exportAndReadBack(): Character {
-        val envelope = toExportFile(APP_VERSION, exportedAt).content.deserialize<ApiCharacterExport>()
+        val envelope = toExportFile(APP_VERSION, exportedAt, PARIS).content.deserialize<ApiCharacterExport>()
         val result = requireNotNull(envelope.character).toCharacter("test")
         return (result as Result.Success).value
     }
@@ -109,5 +122,6 @@ class CharacterExportTest {
 
     private companion object {
         const val APP_VERSION = "1.4.0"
+        val PARIS = TimeZone.of("Europe/Paris")
     }
 }

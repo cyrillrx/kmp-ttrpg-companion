@@ -68,15 +68,17 @@ The payload is the `ApiCharacter` shape already used by the bundled presets (`pc
 
 ### File name
 
-`<character-name>.character.json`, for instance `Aldwin.character.json`, served as `application/json`.
+`<character-name>_lvl<total-level>_<export-date>.character.json`, for instance `aldwin-le-brave_lvl10_2026-10-02.character.json`, served as `application/json`. The level and the local export date tell apart the successive exports of a character, which sort by name, then level, then date.
 
-The name is derived from the character name as follows:
+The name segment is derived from the character name as follows:
 
-- Characters forbidden on at least one platform (`/ \ : * ? " < > |` and control characters) become spaces.
-- Runs of whitespace collapse into a single space; leading and trailing spaces and dots are dropped.
+- It is lowercased: file systems disagree on case sensitivity.
+- Whitespace, dots, underscores, hyphens and the characters forbidden on at least one platform (`/ \ : * ? " < > |` and control characters) become hyphens; runs of them collapse into a single one, and leading and trailing hyphens are dropped.
 - Accents and other non-ASCII letters are kept.
-- The result is cut at 80 characters, then trimmed again.
-- A name left empty falls back to `character`, giving `character.character.json`.
+- The result is cut at 74 characters, then trimmed again, which keeps the whole file name within 255 bytes.
+- A name left empty falls back to `character`, giving for instance `character_lvl1_2026-10-02.character.json`.
+
+The underscore separates the segments and the hyphen the words within one. The only dot is the one starting `.character.json`, so the part before it always carries the level and can never be a Windows device name (`CON`, `NUL`…).
 
 The standard media type is what keeps the file usable across mail, messaging and cloud apps, which requalify unknown types as binary. The `.character` segment carries the identity that a custom extension would have provided, and remains compatible with a declared document type should the app later want to be opened from a file manager.
 
