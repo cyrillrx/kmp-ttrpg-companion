@@ -9,6 +9,11 @@ val defaultSerializer: Json = Json {
     isLenient = true
 }
 
+// A user opens an exported file to see what they are about to share.
+val exportSerializer: Json = Json(defaultSerializer) {
+    prettyPrint = true
+}
+
 @Throws(SerializationException::class, IllegalArgumentException::class)
 inline fun <reified T> String.deserialize(): T = defaultSerializer.decodeFromString<T>(this)
 

@@ -1,6 +1,6 @@
 # PRD-007 — Character Import & Export
 
-> **Status**: Draft | **Version**: 0.1 | **Last updated**: 2026-09-19
+> **Status**: Draft | **Version**: 0.2 | **Last updated**: 2026-09-28
 
 ## Overview
 
@@ -58,6 +58,8 @@ The payload is the `ApiCharacter` shape already used by the bundled presets (`pc
 
 - `currentHitPoints` and `temporaryHitPoints` are added as optional fields. Presets, which do not declare them, keep loading with the existing default of `currentHitPoints = maxHitPoints`.
 - `translations` is exported in full, every locale included. A sheet written in English stays readable for someone running the app in French, and an export followed by an import loses nothing.
+- `translations` may be empty: a sheet created in the app holds none until its short description is filled in. A missing `translations`, or one whose every entry is invalid, is still rejected.
+- `classes` declares the primary class first. The payload has no primary class field, and reading a file takes the first declared class as the primary one.
 
 ### Versioning
 
@@ -66,7 +68,17 @@ The payload is the `ApiCharacter` shape already used by the bundled presets (`pc
 
 ### File name
 
-`<character-name>.character.json`, for instance `Aldwin.character.json`, served as `application/json`.
+`<character-name>_lvl<total-level>_<export-date>.character.json`, for instance `aldwin-le-brave_lvl10_2026-10-02.character.json`, served as `application/json`. The level and the local export date tell apart the successive exports of a character, which sort by name, then level, then date.
+
+The name segment is derived from the character name as follows:
+
+- It is lowercased: file systems disagree on case sensitivity.
+- Whitespace, dots, underscores, hyphens and the characters forbidden on at least one platform (`/ \ : * ? " < > |` and control characters) become hyphens; runs of them collapse into a single one, and leading and trailing hyphens are dropped.
+- Accents and other non-ASCII letters are kept.
+- The result is cut at 74 characters, then trimmed again, which keeps the whole file name within 255 bytes.
+- A name left empty falls back to `character`, giving for instance `character_lvl1_2026-10-02.character.json`.
+
+The underscore separates the segments and the hyphen the words within one. The only dot is the one starting `.character.json`, so the part before it always carries the level and can never be a Windows device name (`CON`, `NUL`…).
 
 The standard media type is what keeps the file usable across mail, messaging and cloud apps, which requalify unknown types as binary. The `.character` segment carries the identity that a custom extension would have provided, and remains compatible with a declared document type should the app later want to be opened from a file manager.
 
@@ -120,4 +132,3 @@ A received file and a bundled preset go through the same mapper and the same pol
 - Should an imported file be able to join the preset gallery instead of becoming a sheet? Deferred until saving a sheet as a preset exists — the gallery is bundled resources today.
 - How is a clamped value **reported**? A one-off message as the sheet opens says it once and loses it; a marker carried by the sheet says it forever, including long after the value has been edited by hand. The ground is ready either way: `Character` is `@Serializable` and persisted as a JSON blob, so a field with a default needs no migration, and `TintedTag` is already the design system's flag component. The channel itself is #234's subject — today an adjustment only reaches a `println`, and coercions are not part of any `errors` list.
 - Should a later version use `sourceId` to offer replacing an existing sheet rather than duplicating it?
-- What is the exact file-name normalization rule for accents, spaces and characters each platform forbids?

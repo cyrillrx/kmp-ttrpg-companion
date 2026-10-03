@@ -19,6 +19,8 @@ internal class ApiCharacter(
     val savingThrows: ApiSavingThrows?,
     val armorClass: Int?,
     val maxHitPoints: Int?,
+    val currentHitPoints: Int? = null,
+    val temporaryHitPoints: Int? = null,
     val speeds: ApiSpeeds?,
     val skills: ApiSkills?,
     val languages: List<String>?,
