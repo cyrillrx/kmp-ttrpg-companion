@@ -21,7 +21,7 @@ fun readCharacterExport(
         ?: return Result.Failure(CharacterFileImportError.InvalidJson)
     val envelope = json as? JsonObject
         ?: return Result.Failure(CharacterFileImportError.MalformedEnvelope)
-    val formatVersion = envelope.primitive("formatVersion")?.intOrNull
+    val formatVersion = envelope.primitive("formatVersion")?.intOrNull?.takeIf { it > 0 }
         ?: return Result.Failure(CharacterFileImportError.MalformedEnvelope)
     if (formatVersion > CHARACTER_EXPORT_FORMAT_VERSION) {
         return Result.Failure(CharacterFileImportError.UnsupportedFormatVersion(formatVersion))

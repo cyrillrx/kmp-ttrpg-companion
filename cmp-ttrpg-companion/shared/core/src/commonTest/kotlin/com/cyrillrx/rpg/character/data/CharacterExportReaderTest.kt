@@ -49,6 +49,13 @@ class CharacterExportReaderTest {
     }
 
     @Test
+    fun `a non-positive format version is rejected as a malformed envelope`() {
+        val result = readCharacterExport(exported.replace(""""formatVersion": 1""", """"formatVersion": 0"""))
+
+        assertEquals(Result.Failure(CharacterFileImportError.MalformedEnvelope), result)
+    }
+
+    @Test
     fun `a file without an entity type is rejected as a malformed envelope`() {
         val result = readCharacterExport(exported.withoutLine(""""entityType""""))
 
