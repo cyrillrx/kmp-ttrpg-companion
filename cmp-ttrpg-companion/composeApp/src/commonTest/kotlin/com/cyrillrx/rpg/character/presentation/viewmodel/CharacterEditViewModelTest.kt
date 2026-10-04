@@ -1,8 +1,10 @@
 package com.cyrillrx.rpg.character.presentation.viewmodel
 
+import com.cyrillrx.core.data.ExportFile
 import com.cyrillrx.rpg.app.currentLocale
 import com.cyrillrx.rpg.character.data.RamCharacterRepository
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
+import com.cyrillrx.rpg.character.data.characterExportFileName
 import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterRepository
@@ -22,10 +24,13 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.StandardTestDispatcher
+import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
+import kotlinx.datetime.LocalDate
+import kotlinx.datetime.TimeZone
 import kotlin.test.AfterTest
 import kotlin.test.BeforeTest
 import kotlin.test.Test
@@ -34,6 +39,8 @@ import kotlin.test.assertFalse
 import kotlin.test.assertIs
 import kotlin.test.assertNull
 import kotlin.test.assertTrue
+import kotlin.time.Clock
+import kotlin.time.Instant
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class CharacterEditViewModelTest {
@@ -63,7 +70,7 @@ class CharacterEditViewModelTest {
     private fun buildViewModel(
         characterId: String = fighter.id,
         repo: CharacterRepository,
-    ) = CharacterEditViewModel(characterId, repo)
+    ) = CharacterEditViewModel(characterId, repo, APP_VERSION, fixedClock, TimeZone.UTC)
 
     private fun loadedCharacter(viewModel: CharacterEditViewModel): Character =
         assertIs<CharacterEditState.Loaded>(viewModel.state.value).character
@@ -645,5 +652,81 @@ class CharacterEditViewModelTest {
         viewModel.saveShortDescription("Thorin the Brave")
         advanceUntilIdle()
         assertEquals("Thorin the Brave", repo.get(fighter.id)?.resolveTranslation(currentLocale())?.shortDescription)
+    }
+
+    // ─── exportCharacter ──────────────────────────────────────────────────────
+
+    @Test
+    fun `exportCharacter emits a file named after the character and the export date`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(repo = repoWithFighter())
+        advanceUntilIdle()
+        val events = mutableListOf<ExportFile>()
+        val job = launch { viewModel.exportEvent.collect { events.add(it) } }
+        advanceUntilIdle()
+
+        viewModel.exportCharacter()
+        advanceUntilIdle()
+
+        val file = events.single()
+        assertEquals(characterExportFileName(fighter.name, fighter.totalLevel, LocalDate(2026, 10, 2)), file.name)
+        assertEquals("application/json", file.mimeType)
+        assertTrue(""""appVersion": "$APP_VERSION"""" in file.content)
+        assertTrue(""""exportedAt": "2026-10-02T23:30:00Z"""" in file.content)
+        assertTrue(""""sourceId": "${fighter.id}"""" in file.content)
+        job.cancel()
+    }
+
+    @Test
+    fun `exportCharacter exports the sheet as last edited`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(repo = repoWithFighter())
+        advanceUntilIdle()
+        val events = mutableListOf<ExportFile>()
+        val job = launch { viewModel.exportEvent.collect { events.add(it) } }
+        advanceUntilIdle()
+
+        viewModel.saveName("Thorin")
+        viewModel.exportCharacter()
+        advanceUntilIdle()
+
+        assertTrue(""""name": "Thorin"""" in events.single().content)
+        job.cancel()
+    }
+
+    @Test
+    fun `exportCharacter emits nothing while the sheet is loading`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(repo = repoWithFighter())
+        val events = mutableListOf<ExportFile>()
+        // Subscribes right away, while the sheet itself is still waiting to load.
+        val job = launch(UnconfinedTestDispatcher(testScheduler)) { viewModel.exportEvent.collect { events.add(it) } }
+        assertIs<CharacterEditState.Loading>(viewModel.state.value)
+
+        viewModel.exportCharacter()
+        advanceUntilIdle()
+
+        assertTrue(events.isEmpty())
+        job.cancel()
+    }
+
+    @Test
+    fun `exportCharacter emits nothing when the sheet is not found`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(characterId = "missing", repo = RamCharacterRepository())
+        advanceUntilIdle()
+        val events = mutableListOf<ExportFile>()
+        val job = launch { viewModel.exportEvent.collect { events.add(it) } }
+        advanceUntilIdle()
+
+        viewModel.exportCharacter()
+        advanceUntilIdle()
+
+        assertTrue(events.isEmpty())
+        job.cancel()
+    }
+
+    private companion object {
+        const val APP_VERSION = "9.9.9"
+
+        val fixedClock = object : Clock {
+            override fun now(): Instant = Instant.parse("2026-10-02T23:30:00Z")
+        }
     }
 }

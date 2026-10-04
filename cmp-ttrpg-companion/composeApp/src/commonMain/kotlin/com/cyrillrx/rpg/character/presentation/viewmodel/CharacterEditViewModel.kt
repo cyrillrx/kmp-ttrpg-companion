@@ -2,7 +2,10 @@ package com.cyrillrx.rpg.character.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.cyrillrx.core.data.ExportFile
+import com.cyrillrx.rpg.app.APP_VERSION
 import com.cyrillrx.rpg.app.currentLocale
+import com.cyrillrx.rpg.character.data.toExportFile
 import com.cyrillrx.rpg.character.domain.Background
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterRepository
@@ -29,10 +32,15 @@ import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import kotlinx.datetime.TimeZone
+import kotlin.time.Clock
 
 class CharacterEditViewModel(
     private val characterId: String,
     private val characterRepository: CharacterRepository,
+    private val appVersion: String = APP_VERSION,
+    private val clock: Clock = Clock.System,
+    private val timeZone: TimeZone = TimeZone.currentSystemDefault(),
 ) : ViewModel() {
 
     val state: StateFlow<CharacterEditState>
@@ -40,6 +48,9 @@ class CharacterEditViewModel(
 
     val coercedValueEvent: SharedFlow<CoercedValue>
         field = MutableSharedFlow<CoercedValue>(extraBufferCapacity = 1)
+
+    val exportEvent: SharedFlow<ExportFile>
+        field = MutableSharedFlow<ExportFile>(extraBufferCapacity = 1)
 
     init {
         viewModelScope.launch {
@@ -142,6 +153,11 @@ class CharacterEditViewModel(
 
     fun saveAlignment(alignment: Creature.Alignment) {
         updateAndSave { copy(character = character.copy(alignment = alignment), editingField = null) }
+    }
+
+    fun exportCharacter() {
+        val character = (state.value as? Loaded)?.character ?: return
+        exportEvent.tryEmit(character.toExportFile(appVersion, clock.now(), timeZone))
     }
 
     private fun saveAbility(ability: AbilityScore, update: Abilities.(AbilityScore) -> Abilities) {

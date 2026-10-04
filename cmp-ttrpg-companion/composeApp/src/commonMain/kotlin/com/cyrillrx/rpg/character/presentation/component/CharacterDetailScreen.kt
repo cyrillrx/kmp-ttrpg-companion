@@ -15,6 +15,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.ArrowBack
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -56,7 +57,9 @@ import com.cyrillrx.rpg.character.presentation.viewmodel.CharacterEditViewModel
 import com.cyrillrx.rpg.core.presentation.LocalDistanceUnit
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
+import com.cyrillrx.rpg.core.presentation.component.OverflowMenu
 import com.cyrillrx.rpg.core.presentation.component.dnd.toFormattedString
+import com.cyrillrx.rpg.core.presentation.component.rememberFileSharer
 import com.cyrillrx.rpg.core.presentation.format.toDistanceString
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
@@ -65,13 +68,16 @@ import com.cyrillrx.rpg.core.presentation.theme.topAppBarHeight
 import com.cyrillrx.rpg.creature.domain.AbilityScore
 import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.Skills
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.getString
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.btn_back
+import rpg_companion.composeapp.generated.resources.btn_export
 import rpg_companion.composeapp.generated.resources.character_not_found
+import rpg_companion.composeapp.generated.resources.error_export_failed
 import rpg_companion.composeapp.generated.resources.info_value_coerced
 
 @Composable
@@ -92,6 +98,18 @@ fun CharacterDetailScreen(
             }
             val message = getString(Res.string.info_value_coerced, from, to)
             snackbarHostState.showSnackbar(message)
+        }
+    }
+    val fileSharer = rememberFileSharer()
+    LaunchedEffect(viewModel, fileSharer) {
+        viewModel.exportEvent.collect { file ->
+            try {
+                fileSharer.share(file)
+            } catch (e: CancellationException) {
+                throw e
+            } catch (_: Exception) {
+                snackbarHostState.showSnackbar(getString(Res.string.error_export_failed))
+            }
         }
     }
     when (val s = state) {
@@ -129,6 +147,7 @@ fun CharacterDetailScreen(
             onAlignmentConfirmed = viewModel::saveAlignment,
             onSkillsConfirmed = viewModel::saveSkills,
             onDialogDismissed = viewModel::cancelEditing,
+            onExportClicked = viewModel::exportCharacter,
             onNavigateUpClicked = router::navigateUp,
         )
     }
@@ -159,6 +178,7 @@ fun CharacterDetailScreen(
     onAlignmentConfirmed: (Creature.Alignment) -> Unit,
     onSkillsConfirmed: (Skills) -> Unit,
     onDialogDismissed: () -> Unit,
+    onExportClicked: () -> Unit,
     onNavigateUpClicked: () -> Unit,
 ) {
     val locale = currentLocale()
@@ -176,7 +196,7 @@ fun CharacterDetailScreen(
                 .fillMaxSize()
                 .pointerInput(focusManager) { detectTapGestures(onTap = { focusManager.clearFocus() }) },
         ) {
-            // Pinned compact bar: back button only (the name lives in the header below).
+            // Pinned compact bar: no title, the name lives in the header below.
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -187,6 +207,16 @@ fun CharacterDetailScreen(
                     Icon(
                         Icons.AutoMirrored.Rounded.ArrowBack,
                         contentDescription = stringResource(Res.string.btn_back),
+                    )
+                }
+                Spacer(modifier = Modifier.weight(1f))
+                OverflowMenu { dismiss ->
+                    DropdownMenuItem(
+                        text = { Text(text = stringResource(Res.string.btn_export)) },
+                        onClick = {
+                            onExportClicked()
+                            dismiss()
+                        },
                     )
                 }
             }
@@ -309,6 +339,7 @@ private fun CharacterDetailScreenPreview() {
         onAlignmentConfirmed = {},
         onSkillsConfirmed = {},
         onDialogDismissed = {},
+        onExportClicked = {},
         onNavigateUpClicked = {},
     )
 }
