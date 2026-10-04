@@ -69,6 +69,7 @@ fun CharacterListScreen(
         events = viewModel.events,
         onNavigateUpClicked = router::navigateUp,
         onCharacterClicked = router::openCharacterDetail,
+        onCharacterImported = router::openCharacterDetail,
         onNewCharacterClicked = router::openCreateCharacter,
         onQuickCreateClicked = router::openPresetGallery,
         onSortOrderSelected = viewModel::setSortOrder,
@@ -84,6 +85,7 @@ fun CharacterListScreen(
     events: SharedFlow<CharacterListViewModel.Event>,
     onNavigateUpClicked: () -> Unit,
     onCharacterClicked: (Character) -> Unit,
+    onCharacterImported: (Character) -> Unit,
     onNewCharacterClicked: () -> Unit,
     onQuickCreateClicked: () -> Unit,
     onSortOrderSelected: (StoredSortOrder) -> Unit,
@@ -101,6 +103,17 @@ fun CharacterListScreen(
                     snackbarHostState.showSnackbar(
                         message = errorMessage,
                         duration = SnackbarDuration.Short,
+                    )
+                }
+
+                is CharacterListViewModel.Event.ImportSucceeded -> onCharacterImported(event.character)
+
+                is CharacterListViewModel.Event.ImportFailed -> {
+                    val field = event.failure.field?.let { getString(it) }
+                    val args = listOfNotNull(field, event.failure.value)
+                    snackbarHostState.showSnackbar(
+                        message = getString(event.failure.message, *args.toTypedArray()),
+                        duration = SnackbarDuration.Long,
                     )
                 }
             }
@@ -217,6 +230,7 @@ private fun CharacterListScreenPreview() {
         events = MutableSharedFlow(),
         onNavigateUpClicked = {},
         onCharacterClicked = {},
+        onCharacterImported = {},
         onNewCharacterClicked = {},
         onQuickCreateClicked = {},
         onSortOrderSelected = {},

@@ -2,11 +2,15 @@ package com.cyrillrx.rpg.character.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.cyrillrx.core.domain.Result
 import com.cyrillrx.rpg.app.currentLocale
+import com.cyrillrx.rpg.character.data.readCharacterExport
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterFilter
 import com.cyrillrx.rpg.character.domain.CharacterRepository
+import com.cyrillrx.rpg.character.presentation.CharacterImportFailure
 import com.cyrillrx.rpg.character.presentation.CharacterListState
+import com.cyrillrx.rpg.character.presentation.toImportFailure
 import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.core.domain.StoredSortOrder
 import com.cyrillrx.rpg.core.domain.applySort
@@ -27,6 +31,8 @@ import kotlinx.coroutines.withContext
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.error_while_loading_characters
 import kotlin.coroutines.cancellation.CancellationException
+import kotlin.uuid.ExperimentalUuidApi
+import kotlin.uuid.Uuid
 
 class CharacterListViewModel(
     private val repository: CharacterRepository,
@@ -49,6 +55,8 @@ class CharacterListViewModel(
 
     sealed interface Event {
         data class DeletionError(val character: Character) : Event
+        data class ImportSucceeded(val character: Character, val adjustmentCount: Int) : Event
+        data class ImportFailed(val failure: CharacterImportFailure) : Event
     }
 
     private val deletions = OptimisticDeletions<Stored<Character>> { it.value.id }
@@ -84,6 +92,27 @@ class CharacterListViewModel(
                 // The chosen order stays applied for the session; only its persistence is lost.
                 println("WARNING: failed to persist the character sort order: $e")
             }
+        }
+    }
+
+    @OptIn(ExperimentalUuidApi::class)
+    fun importCharacter(content: String) {
+        viewModelScope.launch {
+            val event = try {
+                when (val result = withContext(ioDispatcher) { readCharacterExport(content) }) {
+                    is Result.Failure -> Event.ImportFailed(result.error.toImportFailure())
+                    is Result.Success -> {
+                        val character = result.value.value.copy(id = Uuid.random().toString())
+                        withContext(ioDispatcher) { repository.save(character) }
+                        Event.ImportSucceeded(character, adjustmentCount = result.value.warnings.size)
+                    }
+                }
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                Event.ImportFailed(CharacterImportFailure.SaveFailed)
+            }
+            events.emit(event)
         }
     }
 

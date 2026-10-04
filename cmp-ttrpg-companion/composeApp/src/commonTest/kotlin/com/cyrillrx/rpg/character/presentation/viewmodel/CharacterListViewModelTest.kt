@@ -1,12 +1,16 @@
 package com.cyrillrx.rpg.character.presentation.viewmodel
 
 import androidx.lifecycle.ViewModelStore
+import com.cyrillrx.rpg.character.data.CharacterFileImportError
 import com.cyrillrx.rpg.character.data.RamCharacterRepository
 import com.cyrillrx.rpg.character.data.SampleCharacterRepository
+import com.cyrillrx.rpg.character.data.toExportFile
 import com.cyrillrx.rpg.character.domain.Character
 import com.cyrillrx.rpg.character.domain.CharacterFilter
 import com.cyrillrx.rpg.character.domain.CharacterRepository
+import com.cyrillrx.rpg.character.presentation.CharacterImportFailure
 import com.cyrillrx.rpg.character.presentation.CharacterListState
+import com.cyrillrx.rpg.character.presentation.toImportFailure
 import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.core.domain.StoredSortOrder
 import com.cyrillrx.rpg.core.presentation.viewmodel.hold
@@ -18,11 +22,13 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.StandardTestDispatcher
+import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
+import kotlinx.datetime.TimeZone
 import kotlin.test.AfterTest
 import kotlin.test.BeforeTest
 import kotlin.test.Test
@@ -570,6 +576,95 @@ class CharacterListViewModelTest {
 
         assertEquals(expected = listOf("Middle", "Oldest"), actual = viewModel.renderedNames())
     }
+
+    @Test
+    fun `importCharacter saves the sheet under a new id and reports it`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel()
+        val receivedEvents = collectEvents(viewModel)
+
+        viewModel.importCharacter(exportedFighter())
+        advanceUntilIdle()
+
+        val event = assertIs<CharacterListViewModel.Event.ImportSucceeded>(receivedEvents.single())
+        val imported = event.character
+        assertTrue(imported.id != SampleCharacterRepository.humanFighter().id)
+        assertEquals(SampleCharacterRepository.humanFighter().copy(id = imported.id), imported)
+        assertEquals(imported, repository.get(imported.id))
+        assertEquals(0, event.adjustmentCount)
+    }
+
+    @Test
+    fun `importing the same file twice creates two sheets`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel()
+
+        viewModel.importCharacter(exportedFighter())
+        viewModel.importCharacter(exportedFighter())
+        advanceUntilIdle()
+
+        assertEquals(2, repository.getAll(null).map { it.value.id }.distinct().size)
+    }
+
+    @Test
+    fun `importCharacter never touches an existing sheet`() = runTest(testDispatcher) {
+        val existing = SampleCharacterRepository.humanFighter()
+        repository.save(existing)
+        val viewModel = buildViewModel()
+
+        viewModel.importCharacter(exportedFighter().replace(""""name": "Borin Pierrenoire"""", """"name": "Other""""))
+        advanceUntilIdle()
+
+        assertEquals(existing, repository.get(existing.id))
+        assertEquals(2, repository.getAll(null).size)
+    }
+
+    @Test
+    fun `importCharacter counts the values it had to adjust`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel()
+        val receivedEvents = collectEvents(viewModel)
+
+        viewModel.importCharacter(exportedFighter().replace(""""armorClass": 16""", """"armorClass": 5000"""))
+        advanceUntilIdle()
+
+        val event = assertIs<CharacterListViewModel.Event.ImportSucceeded>(receivedEvents.single())
+        assertEquals(1, event.adjustmentCount)
+    }
+
+    @Test
+    fun `an invalid file is reported and nothing is saved`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel()
+        val receivedEvents = collectEvents(viewModel)
+
+        viewModel.importCharacter("not a character")
+        advanceUntilIdle()
+
+        val event = assertIs<CharacterListViewModel.Event.ImportFailed>(receivedEvents.single())
+        assertEquals(CharacterFileImportError.InvalidJson.toImportFailure(), event.failure)
+        assertTrue(repository.getAll(null).isEmpty())
+    }
+
+    @Test
+    fun `a sheet that cannot be saved is reported as a failed import`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(FailingCharacterRepository())
+        val receivedEvents = collectEvents(viewModel)
+
+        viewModel.importCharacter(exportedFighter())
+        advanceUntilIdle()
+
+        val event = assertIs<CharacterListViewModel.Event.ImportFailed>(receivedEvents.single())
+        assertEquals(CharacterImportFailure.SaveFailed, event.failure)
+    }
+
+    private fun TestScope.collectEvents(viewModel: CharacterListViewModel): List<CharacterListViewModel.Event> {
+        val receivedEvents = mutableListOf<CharacterListViewModel.Event>()
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.events.collect { receivedEvents.add(it) }
+        }
+        return receivedEvents
+    }
+
+    private fun exportedFighter(): String = SampleCharacterRepository.humanFighter()
+        .toExportFile("1.0.0", Instant.parse("2026-10-04T10:00:00Z"), TimeZone.UTC)
+        .content
 }
 
 /** Returns characters whose timestamps deliberately disagree with their position, so only the caller's ordering shows. */

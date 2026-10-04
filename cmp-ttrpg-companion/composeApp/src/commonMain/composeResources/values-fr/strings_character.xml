@@ -26,6 +26,16 @@
     <string name="btn_remove_class">Retirer la classe</string>
     <string name="btn_export">Exporter</string>
     <string name="error_export_failed">La fiche n\'a pas pu être exportée.</string>
+    <string name="error_import_failed">La fiche n\'a pas pu être importée.</string>
+    <string name="error_import_not_json">Ce fichier n\'est pas une fiche de personnage.</string>
+    <string name="error_import_malformed_file">Ce fichier de personnage est incomplet ou endommagé.</string>
+    <string name="error_import_unsupported_file">Ce fichier demande une version plus récente de l\'application. Mettez-la à jour pour importer la fiche.</string>
+    <string name="error_import_missing_field">%1$s : absent du fichier.</string>
+    <string name="error_import_unknown_value">%1$s : valeur inconnue « %2$s ».</string>
+    <string name="label_identifier">Identifiant</string>
+    <string name="label_name">Nom</string>
+    <string name="label_size">Taille</string>
+    <string name="label_description">Description</string>
     <string name="label_background">Historique</string>
     <string name="label_abilities">Caractéristiques</string>
     <string name="label_combat">Combat</string>
