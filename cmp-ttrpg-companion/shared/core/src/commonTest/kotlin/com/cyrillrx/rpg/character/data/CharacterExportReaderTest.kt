@@ -77,6 +77,17 @@ class CharacterExportReaderTest {
     }
 
     @Test
+    fun `a newer format version is refused even when its character no longer decodes`() {
+        val result = readCharacterExport(
+            exported
+                .replace(""""formatVersion": 1""", """"formatVersion": 2""")
+                .replace(""""armorClass": 16""", """"armorClass": [16]"""),
+        )
+
+        assertEquals(Result.Failure(CharacterFileImportError.UnsupportedFormatVersion(2)), result)
+    }
+
+    @Test
     fun `a file holding another entity type is refused`() {
         val result = readCharacterExport(exported.replace(""""entityType": "character"""", """"entityType": "spell""""))
 
