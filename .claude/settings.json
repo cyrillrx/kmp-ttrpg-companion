@@ -9,6 +9,13 @@
   },
   "enabledPlugins": {
     "git-workflow@cyrillrx-conventions": true,
+    "kotlin-conventions@cyrillrx-conventions": true,
+    "compose-conventions@cyrillrx-conventions": true,
     "coding-conventions@cyrillrx-conventions": true
+  },
+  "permissions": {
+    "allow": [
+      "Read(~/.claude/plugins/cache/cyrillrx-conventions/**)"
+    ]
   }
 }

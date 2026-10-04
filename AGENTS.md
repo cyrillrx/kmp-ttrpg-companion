@@ -31,7 +31,8 @@ source of truth. The documents below are thin pointers to it; some add project-s
 ### Technology-Specific Guidelines
 
 - **Client Application (KMP/Compose Multiplatform) Conventions**:
-    - [`kmp-conventions.md`](docs/conventions/kmp-conventions.md) _(+ project)_
+    - [`kotlin-conventions.md`](docs/conventions/kotlin-conventions.md) _(pointer)_
+    - [`compose-conventions.md`](docs/conventions/compose-conventions.md) _(+ project)_
 - **Rust Backend Server Conventions**:
     - [`rust-conventions.md`](docs/conventions/rust-conventions.md) _(pointer)_
 - **Go Backend Server Conventions**:
@@ -70,7 +71,7 @@ Where that logic goes instead: **`core/presentation/format`** for the shared for
 
 ## 4. KMP Client — Project-specific patterns
 
-> For full architecture (MVVM/UDF, state & event modeling, layer separation, Compose rules), see [`kmp-conventions.md`](docs/conventions/kmp-conventions.md).
+> For full architecture (MVVM/UDF, state & event modeling, layer separation, Compose rules), see [`compose-conventions.md`](docs/conventions/compose-conventions.md).
 
 ### Module structure
 
@@ -123,7 +124,7 @@ Each feature defines a `{Feature}Router` interface and a `{Feature}RouterImpl(ba
 
 ### Stateless composables
 
-Every screen's stateless overload (see [`kmp-conventions.md`](docs/conventions/kmp-conventions.md)) gets light and dark preview variants via `AppThemePreview(darkTheme = false/true)`.
+Every screen's stateless overload (see [`compose-conventions.md`](docs/conventions/compose-conventions.md)) gets light and dark preview variants via `AppThemePreview(darkTheme = false/true)`.
 
 ## 5. KMP Client — Design System
 
