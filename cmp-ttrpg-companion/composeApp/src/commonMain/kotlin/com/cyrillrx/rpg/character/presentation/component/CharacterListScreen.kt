@@ -42,6 +42,7 @@ import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.getString
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
@@ -98,7 +99,7 @@ fun CharacterListScreen(
     LaunchedEffect(events) {
         events.collect { event ->
             when (event) {
-                is CharacterListViewModel.Event.DeletionError -> {
+                is CharacterListViewModel.Event.DeletionError -> launch {
                     val errorMessage = getString(Res.string.snackbar_error_deleting_character, event.character.name)
                     snackbarHostState.showSnackbar(
                         message = errorMessage,
@@ -108,7 +109,7 @@ fun CharacterListScreen(
 
                 is CharacterListViewModel.Event.ImportSucceeded -> onCharacterImported(event.character)
 
-                is CharacterListViewModel.Event.ImportFailed -> {
+                is CharacterListViewModel.Event.ImportFailed -> launch {
                     val field = event.failure.field?.let { getString(it) }
                     val args = listOfNotNull(field, event.failure.value)
                     snackbarHostState.showSnackbar(
