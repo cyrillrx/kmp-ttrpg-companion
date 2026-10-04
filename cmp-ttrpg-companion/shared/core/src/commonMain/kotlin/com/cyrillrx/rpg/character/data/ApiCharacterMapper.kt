@@ -79,9 +79,12 @@ internal fun ApiCharacter.toCharacter(): Result<Imported<Character, CharacterImp
             ?: return Result.Failure(CharacterImportError.UnknownClass(id, apiClass))
         clazz to level.coerce("class level", Int::coerceToValidCharacterLevel)
     }
-    val (parsedLanguages, languageErrors) = languages.orEmpty().partitionBy { lang -> lang.toLanguage(id) }
-    val languages = parsedLanguages.takeIf { languageErrors.isEmpty() }
-        ?: return Result.Failure(languageErrors.first())
+    val apiLanguages = languages.orEmpty()
+    val unknownLanguages = apiLanguages.filter { it.toLanguage() == null }
+    if (unknownLanguages.isNotEmpty()) {
+        return Result.Failure(CharacterImportError.UnknownLanguages(id, unknownLanguages))
+    }
+    val languages = apiLanguages.mapNotNull { it.toLanguage() }
     val background = background?.let { apiBackground ->
         apiBackground.toBackground()
             .also { if (it == null) warnings += CharacterImportWarning.UnknownBackground(id, apiBackground) }
@@ -136,12 +139,7 @@ private fun String.toRace(): Race? = Race.entries.find { it.name.equals(this, ig
 private fun String.toClass(): Character.Class? =
     Character.Class.entries.find { it.name.equals(this, ignoreCase = true) }
 
-private fun String.toLanguage(id: String): Result<Language, CharacterImportError> {
-    val language = Language.entries.find { it.name.equals(this, ignoreCase = true) }
-        ?: return Result.Failure(CharacterImportError.UnknownLanguage(id, this))
-
-    return Result.Success(language)
-}
+private fun String.toLanguage(): Language? = Language.entries.find { it.name.equals(this, ignoreCase = true) }
 
 internal fun Character.toApiCharacter(): ApiCharacter = ApiCharacter(
     id = id,

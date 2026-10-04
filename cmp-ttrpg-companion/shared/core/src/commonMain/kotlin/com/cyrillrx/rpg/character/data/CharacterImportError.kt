@@ -19,5 +19,5 @@ sealed interface CharacterImportError : Error {
     data class UnknownClass(val id: String, val value: String) : CharacterImportError
     data class UnknownSize(val id: String, val value: String) : CharacterImportError
     data class UnknownAlignment(val id: String, val value: String) : CharacterImportError
-    data class UnknownLanguage(val id: String, val value: String) : CharacterImportError
+    data class UnknownLanguages(val id: String, val values: List<String>) : CharacterImportError
 }
