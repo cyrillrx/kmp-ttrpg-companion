@@ -21,9 +21,13 @@ actual fun rememberFileSharer(): FileSharer {
 private class DesktopFileSharer(private val dialogTitle: String) : FileSharer {
     override suspend fun share(file: ExportFile) {
         val dialog = FileDialog(null as Frame?, dialogTitle, FileDialog.SAVE).apply { this.file = file.name }
-        dialog.isVisible = true
-        val directory = dialog.directory ?: return
-        val fileName = dialog.file ?: return
-        withContext(Dispatchers.IO) { File(directory, fileName).writeText(file.content) }
+        val target =
+            try {
+                dialog.isVisible = true
+                File(dialog.directory ?: return, dialog.file ?: return)
+            } finally {
+                dialog.dispose()
+            }
+        withContext(Dispatchers.IO) { target.writeText(file.content) }
     }
 }
