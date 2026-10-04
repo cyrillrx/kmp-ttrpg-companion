@@ -43,7 +43,8 @@ source of truth). The files below are thin pointers to it, plus any project-spec
 |-------------------------------------------------------------------------|---------------------|----------------------------------------------|
 | [`coding-conventions.md`](docs/conventions/coding-conventions.md)       | → pointer           | Clean Code principles (all technologies)     |
 | [`git-and-collaboration.md`](docs/conventions/git-and-collaboration.md) | → pointer + project | Commit format, branching, CI policies        |
-| [`kmp-conventions.md`](docs/conventions/kmp-conventions.md)             | → pointer + project | KMP/Compose Multiplatform architecture + E2E |
+| [`kotlin-conventions.md`](docs/conventions/kotlin-conventions.md)       | → pointer           | Kotlin style, idioms, testing, multiplatform |
+| [`compose-conventions.md`](docs/conventions/compose-conventions.md)     | → pointer + project | Compose UI architecture + E2E                |
 | [`rust-conventions.md`](docs/conventions/rust-conventions.md)           | → pointer           | Rust conventions (`server-rust/`)            |
 | [`go-conventions.md`](docs/conventions/go-conventions.md)               | → pointer + project | Go conventions (`server-go/`)                |
 | [`bruno-conventions.md`](docs/conventions/bruno-conventions.md)         | → pointer           | API testing with Bruno                       |
