@@ -65,12 +65,24 @@ class ApiCharacterMapperTest {
         assertEquals(listOf(CharacterImportWarning.UnknownBackground(SHEET_ID, "pirate-king")), imported.warnings)
     }
 
-    private fun importSheet(vararg overrides: Pair<String, JsonElement>): Imported<Character, CharacterImportWarning> {
-        val sheet = defaultSerializer.encodeToJsonElement(SampleCharacterRepository.humanFighter().toApiCharacter())
-        val apiCharacter = defaultSerializer.decodeFromJsonElement<ApiCharacter>(
-            JsonObject(sheet.jsonObject + overrides),
+    @Test
+    fun `every unknown language is named in the failure`() {
+        val languages = """["klingon", "common", "atlantean"]"""
+
+        val result = sheet("languages" to defaultSerializer.parseToJsonElement(languages)).toCharacter()
+
+        assertEquals(
+            Result.Failure(CharacterImportError.UnknownLanguages(SHEET_ID, listOf("klingon", "atlantean"))),
+            result,
         )
-        return (apiCharacter.toCharacter() as Result.Success).value
+    }
+
+    private fun importSheet(vararg overrides: Pair<String, JsonElement>): Imported<Character, CharacterImportWarning> =
+        (sheet(*overrides).toCharacter() as Result.Success).value
+
+    private fun sheet(vararg overrides: Pair<String, JsonElement>): ApiCharacter {
+        val sheet = defaultSerializer.encodeToJsonElement(SampleCharacterRepository.humanFighter().toApiCharacter())
+        return defaultSerializer.decodeFromJsonElement<ApiCharacter>(JsonObject(sheet.jsonObject + overrides))
     }
 
     private companion object {
