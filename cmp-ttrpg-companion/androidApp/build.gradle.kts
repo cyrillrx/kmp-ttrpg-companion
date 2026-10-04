@@ -14,7 +14,7 @@ android {
         minSdk = Version.MIN_SDK
         targetSdk = Version.COMPILE_SDK
         versionCode = 1
-        versionName = "1.0"
+        versionName = Version.APP_VERSION
     }
 
     packaging {

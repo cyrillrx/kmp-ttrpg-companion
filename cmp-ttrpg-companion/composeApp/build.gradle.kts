@@ -12,6 +12,19 @@ plugins {
     alias(libs.plugins.kover)
 }
 
+// Common code has no BuildConfig: the version an exported file records is generated from the build.
+val generateAppVersion by tasks.registering {
+    val appVersion = Version.APP_VERSION
+    val outputDir = layout.buildDirectory.dir("generated/appVersion/commonMain/kotlin")
+    inputs.property("appVersion", appVersion)
+    outputs.dir(outputDir)
+    doLast {
+        val file = outputDir.get().file("com/cyrillrx/rpg/app/AppVersion.kt").asFile
+        file.parentFile.mkdirs()
+        file.writeText("package com.cyrillrx.rpg.app\n\nconst val APP_VERSION = \"$appVersion\"\n")
+    }
+}
+
 composeCompiler {
     reportsDestination = layout.buildDirectory.dir("compose_reports")
     metricsDestination = layout.buildDirectory.dir("compose_metrics")
@@ -46,6 +59,9 @@ kotlin {
     jvm()
 
     sourceSets {
+        commonMain {
+            kotlin.srcDir(generateAppVersion)
+        }
         commonTest.dependencies {
             implementation(kotlin("test"))
             implementation(libs.kotlinx.coroutines.test)
@@ -98,7 +114,7 @@ compose.desktop {
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "com.cyrillrx.rpg"
-            packageVersion = "1.0.0"
+            packageVersion = Version.APP_VERSION
         }
     }
 }

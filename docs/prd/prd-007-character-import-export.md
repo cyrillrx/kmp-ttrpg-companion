@@ -1,6 +1,6 @@
 # PRD-007 — Character Import & Export
 
-> **Status**: Draft | **Version**: 0.2 | **Last updated**: 2026-09-28
+> **Status**: Draft | **Version**: 0.3 | **Last updated**: 2026-10-04
 
 ## Overview
 
@@ -86,11 +86,11 @@ The standard media type is what keeps the file usable across mail, messaging and
 
 ### Export
 
-- [ ] The character sheet overflow menu offers an **Export** action.
-- [ ] Exporting produces one file containing exactly one character.
-- [ ] The file carries the full sheet, including current and temporary hit points, and every translation.
-- [ ] The export opens the native share sheet on Android and iOS, and a save dialog on Desktop.
-- [ ] The file name derives from the character name, with a fallback when the name yields no usable file name.
+- [x] The character sheet overflow menu offers an **Export** action.
+- [x] Exporting produces one file containing exactly one character.
+- [x] The file carries the full sheet, including current and temporary hit points, and every translation.
+- [x] The export opens the native share sheet on Android and iOS, and a save dialog on Desktop.
+- [x] The file name derives from the character name, with a fallback when the name yields no usable file name.
 
 ### Import
 
