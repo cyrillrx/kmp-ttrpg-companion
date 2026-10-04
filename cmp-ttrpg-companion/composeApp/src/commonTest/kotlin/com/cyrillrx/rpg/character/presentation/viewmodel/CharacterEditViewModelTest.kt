@@ -696,7 +696,6 @@ class CharacterEditViewModelTest {
     fun `exportCharacter emits nothing while the sheet is loading`() = runTest(testDispatcher) {
         val viewModel = buildViewModel(repo = repoWithFighter())
         val events = mutableListOf<ExportFile>()
-        // Subscribes right away, while the sheet itself is still waiting to load.
         val job = launch(UnconfinedTestDispatcher(testScheduler)) { viewModel.exportEvent.collect { events.add(it) } }
         assertIs<CharacterEditState.Loading>(viewModel.state.value)
 

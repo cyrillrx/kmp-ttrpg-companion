@@ -12,7 +12,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.File
 
-// Must match the provider authority and the cache path declared by the application manifest.
 private const val FILE_PROVIDER_AUTHORITY_SUFFIX = ".fileprovider"
 private const val EXPORT_DIRECTORY = "exports"
 
