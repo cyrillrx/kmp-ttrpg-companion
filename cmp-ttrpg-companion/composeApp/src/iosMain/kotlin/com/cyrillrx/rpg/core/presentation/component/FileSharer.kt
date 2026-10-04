@@ -29,7 +29,7 @@ private class IosFileSharer : FileSharer {
             .writeToURL(url, atomically = true, encoding = NSUTF8StringEncoding, error = null)
         check(written) { "Unable to write ${file.name}" }
 
-        val presenter = topViewController() ?: return
+        val presenter = checkNotNull(topViewController()) { "No window to present the share sheet from" }
         val controller = UIActivityViewController(activityItems = listOf(url), applicationActivities = null)
         // An iPad presents the sheet as a popover, which crashes without an anchor.
         controller.popoverPresentationController?.sourceView = presenter.view
