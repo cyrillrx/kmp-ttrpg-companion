@@ -5,6 +5,9 @@ import androidx.compose.runtime.remember
 import com.cyrillrx.core.data.ExportFile
 import kotlinx.cinterop.BetaInteropApi
 import kotlinx.cinterop.ExperimentalForeignApi
+import platform.CoreGraphics.CGRectGetMidX
+import platform.CoreGraphics.CGRectGetMidY
+import platform.CoreGraphics.CGRectMake
 import platform.Foundation.NSString
 import platform.Foundation.NSTemporaryDirectory
 import platform.Foundation.NSURL
@@ -32,7 +35,13 @@ private class IosFileSharer : FileSharer {
         val presenter = checkNotNull(topViewController()) { "No window to present the share sheet from" }
         val controller = UIActivityViewController(activityItems = listOf(url), applicationActivities = null)
         // An iPad presents the sheet as a popover, which crashes without an anchor.
-        controller.popoverPresentationController?.sourceView = presenter.view
+        // Without a source rect it would point at the top-left corner, so it is centered with no arrow.
+        controller.popoverPresentationController?.apply {
+            val view = presenter.view
+            sourceView = view
+            sourceRect = CGRectMake(CGRectGetMidX(view.bounds), CGRectGetMidY(view.bounds), 0.0, 0.0)
+            permittedArrowDirections = 0u
+        }
         presenter.presentViewController(controller, animated = true, completion = null)
     }
 
