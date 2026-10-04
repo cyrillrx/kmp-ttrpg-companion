@@ -13,7 +13,7 @@ android {
     defaultConfig {
         // Baseline-profile generation and macrobenchmark require API 28+.
         minSdk = 28
-        targetSdk = Version.TARGET_SDK
+        targetSdk = Version.COMPILE_SDK
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         // The managed device is an emulator, where absolute frame timings are unreliable. Suppress

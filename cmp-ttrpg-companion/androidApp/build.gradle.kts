@@ -12,7 +12,7 @@ android {
     defaultConfig {
         applicationId = "com.cyrillrx.rpg"
         minSdk = Version.MIN_SDK
-        targetSdk = Version.TARGET_SDK
+        targetSdk = Version.COMPILE_SDK
         versionCode = 1
         versionName = "1.0"
     }
