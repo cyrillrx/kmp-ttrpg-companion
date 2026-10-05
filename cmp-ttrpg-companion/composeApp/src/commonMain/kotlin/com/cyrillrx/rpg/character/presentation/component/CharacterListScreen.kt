@@ -151,8 +151,8 @@ fun CharacterListScreen(
                         DropdownMenuItem(
                             text = { Text(text = stringResource(Res.string.btn_import)) },
                             onClick = {
-                                onImportClicked()
                                 dismiss()
+                                onImportClicked()
                             },
                         )
                     }
