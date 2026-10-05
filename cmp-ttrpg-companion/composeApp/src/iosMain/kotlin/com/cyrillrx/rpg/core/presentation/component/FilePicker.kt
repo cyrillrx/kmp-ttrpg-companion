@@ -14,11 +14,9 @@ import platform.Foundation.stringWithContentsOfURL
 import platform.UIKit.UIDocumentPickerDelegateProtocol
 import platform.UIKit.UIDocumentPickerViewController
 import platform.UniformTypeIdentifiers.UTTypeData
-import platform.UniformTypeIdentifiers.UTTypeJSON
-import platform.UniformTypeIdentifiers.UTTypePlainText
 import platform.darwin.NSObject
 
-private val PICKABLE_CONTENT_TYPES = listOf(UTTypeJSON, UTTypeData, UTTypePlainText)
+private val PICKABLE_CONTENT_TYPES = listOf(UTTypeData)
 
 @Composable
 actual fun rememberFilePicker(onFileRead: (content: String) -> Unit, onReadFailed: () -> Unit): FilePicker {
