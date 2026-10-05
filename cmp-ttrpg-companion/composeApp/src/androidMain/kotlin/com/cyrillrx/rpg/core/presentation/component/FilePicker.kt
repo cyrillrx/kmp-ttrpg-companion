@@ -16,8 +16,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.InputStream
 
-// Messaging and mail apps often save an attachment without its JSON type.
-private val PICKABLE_MIME_TYPES = arrayOf("application/json", "application/octet-stream", "text/plain")
+private val PICKABLE_MIME_TYPES = arrayOf("*/*")
 
 @Composable
 actual fun rememberFilePicker(onFileRead: (content: String) -> Unit, onReadFailed: () -> Unit): FilePicker {
