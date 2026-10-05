@@ -27,10 +27,11 @@ actual fun rememberFilePicker(onFileRead: (content: String) -> Unit, onReadFaile
             scope.launch {
                 val content = try {
                     withContext(Dispatchers.IO) {
-                        check(file.length() <= FilePicker.MAX_FILE_BYTES) {
+                        val bytes = file.inputStream().use { it.readNBytes(FilePicker.MAX_FILE_BYTES + 1) }
+                        check(bytes.size <= FilePicker.MAX_FILE_BYTES) {
                             "$file exceeds ${FilePicker.MAX_FILE_BYTES} bytes"
                         }
-                        file.readBytes().decodeToString(throwOnInvalidSequence = true)
+                        bytes.decodeToString(throwOnInvalidSequence = true)
                     }
                 } catch (e: CancellationException) {
                     throw e
