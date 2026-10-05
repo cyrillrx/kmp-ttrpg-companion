@@ -5,6 +5,7 @@ import android.net.Uri
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.platform.LocalContext
@@ -36,7 +37,7 @@ actual fun rememberFilePicker(onFileRead: (content: String) -> Unit, onReadFaile
             if (content == null) currentOnReadFailed.value() else currentOnFileRead.value(content)
         }
     }
-    return FilePicker { launcher.launch(PICKABLE_MIME_TYPES) }
+    return remember(launcher) { FilePicker { launcher.launch(PICKABLE_MIME_TYPES) } }
 }
 
 private fun Context.readText(uri: Uri): String {

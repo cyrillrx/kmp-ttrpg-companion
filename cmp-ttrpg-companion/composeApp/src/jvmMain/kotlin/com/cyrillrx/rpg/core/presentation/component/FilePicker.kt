@@ -1,6 +1,7 @@
 package com.cyrillrx.rpg.core.presentation.component
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.rememberUpdatedState
 import kotlinx.coroutines.CancellationException
@@ -20,22 +21,24 @@ actual fun rememberFilePicker(onFileRead: (content: String) -> Unit, onReadFaile
     val scope = rememberCoroutineScope()
     val currentOnFileRead = rememberUpdatedState(onFileRead)
     val currentOnReadFailed = rememberUpdatedState(onReadFailed)
-    return FilePicker {
-        val file = chooseFile(dialogTitle) ?: return@FilePicker
-        scope.launch {
-            val content = try {
-                withContext(Dispatchers.IO) {
-                    check(file.length() <= FilePicker.MAX_FILE_BYTES) {
-                        "$file exceeds ${FilePicker.MAX_FILE_BYTES} bytes"
+    return remember(dialogTitle, scope) {
+        FilePicker {
+            val file = chooseFile(dialogTitle) ?: return@FilePicker
+            scope.launch {
+                val content = try {
+                    withContext(Dispatchers.IO) {
+                        check(file.length() <= FilePicker.MAX_FILE_BYTES) {
+                            "$file exceeds ${FilePicker.MAX_FILE_BYTES} bytes"
+                        }
+                        file.readBytes().decodeToString(throwOnInvalidSequence = true)
                     }
-                    file.readBytes().decodeToString(throwOnInvalidSequence = true)
+                } catch (e: CancellationException) {
+                    throw e
+                } catch (_: Exception) {
+                    null
                 }
-            } catch (e: CancellationException) {
-                throw e
-            } catch (_: Exception) {
-                null
+                if (content == null) currentOnReadFailed.value() else currentOnFileRead.value(content)
             }
-            if (content == null) currentOnReadFailed.value() else currentOnFileRead.value(content)
         }
     }
 }
