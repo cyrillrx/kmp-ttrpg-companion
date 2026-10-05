@@ -4,6 +4,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
 import kotlinx.cinterop.ExperimentalForeignApi
+import platform.Foundation.NSFileManager
+import platform.Foundation.NSFileSize
+import platform.Foundation.NSNumber
 import platform.Foundation.NSString
 import platform.Foundation.NSURL
 import platform.Foundation.NSUTF8StringEncoding
@@ -35,7 +38,12 @@ actual fun rememberFilePicker(onFileRead: (content: String) -> Unit, onReadFaile
 }
 
 @OptIn(ExperimentalForeignApi::class)
-private fun NSURL.readText(): String? = NSString.stringWithContentsOfURL(this, NSUTF8StringEncoding, null)
+private fun NSURL.readText(): String? {
+    val attributes = path?.let { NSFileManager.defaultManager.attributesOfItemAtPath(it, null) } ?: return null
+    val size = (attributes[NSFileSize] as? NSNumber)?.longLongValue ?: return null
+    if (size > FilePicker.MAX_FILE_BYTES) return null
+    return NSString.stringWithContentsOfURL(this, NSUTF8StringEncoding, null)
+}
 
 private class DocumentPickerDelegate(private val onPicked: (NSURL) -> Unit) :
     NSObject(),
