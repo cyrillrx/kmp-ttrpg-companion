@@ -1,5 +1,6 @@
 package com.cyrillrx.rpg.core.presentation.component
 
+import android.content.ActivityNotFoundException
 import android.content.Context
 import android.net.Uri
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -37,7 +38,15 @@ actual fun rememberFilePicker(onFileRead: (content: String) -> Unit, onReadFaile
             if (content == null) currentOnReadFailed.value() else currentOnFileRead.value(content)
         }
     }
-    return remember(launcher) { FilePicker { launcher.launch(PICKABLE_MIME_TYPES) } }
+    return remember(launcher) {
+        FilePicker {
+            try {
+                launcher.launch(PICKABLE_MIME_TYPES)
+            } catch (_: ActivityNotFoundException) {
+                currentOnReadFailed.value()
+            }
+        }
+    }
 }
 
 private fun Context.readText(uri: Uri): String {
