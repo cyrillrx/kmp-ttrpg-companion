@@ -12,6 +12,7 @@ import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.io.InputStream
 
 // Messaging and mail apps often save an attachment without its JSON type.
 private val PICKABLE_MIME_TYPES = arrayOf("application/json", "application/octet-stream", "text/plain")
@@ -38,7 +39,20 @@ actual fun rememberFilePicker(onFileRead: (content: String) -> Unit, onReadFaile
     return FilePicker { launcher.launch(PICKABLE_MIME_TYPES) }
 }
 
-private fun Context.readText(uri: Uri): String =
-    checkNotNull(contentResolver.openInputStream(uri)) { "Unable to open $uri" }
-        .bufferedReader()
-        .use { it.readText() }
+private fun Context.readText(uri: Uri): String {
+    val stream = checkNotNull(contentResolver.openInputStream(uri)) { "Unable to open $uri" }
+    val bytes = stream.use { it.readAtMost(FilePicker.MAX_FILE_BYTES + 1) }
+    check(bytes.size <= FilePicker.MAX_FILE_BYTES) { "$uri exceeds ${FilePicker.MAX_FILE_BYTES} bytes" }
+    return bytes.decodeToString()
+}
+
+private fun InputStream.readAtMost(limit: Int): ByteArray {
+    val buffer = ByteArray(limit)
+    var total = 0
+    while (total < limit) {
+        val read = read(buffer, total, limit - total)
+        if (read == -1) break
+        total += read
+    }
+    return buffer.copyOf(total)
+}

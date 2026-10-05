@@ -24,7 +24,12 @@ actual fun rememberFilePicker(onFileRead: (content: String) -> Unit, onReadFaile
         val file = chooseFile(dialogTitle) ?: return@FilePicker
         scope.launch {
             val content = try {
-                withContext(Dispatchers.IO) { file.readText() }
+                withContext(Dispatchers.IO) {
+                    check(file.length() <= FilePicker.MAX_FILE_BYTES) {
+                        "$file exceeds ${FilePicker.MAX_FILE_BYTES} bytes"
+                    }
+                    file.readText()
+                }
             } catch (e: CancellationException) {
                 throw e
             } catch (_: Exception) {
