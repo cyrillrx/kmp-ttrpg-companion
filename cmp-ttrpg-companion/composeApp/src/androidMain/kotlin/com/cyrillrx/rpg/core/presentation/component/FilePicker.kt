@@ -43,7 +43,7 @@ private fun Context.readText(uri: Uri): String {
     val stream = checkNotNull(contentResolver.openInputStream(uri)) { "Unable to open $uri" }
     val bytes = stream.use { it.readAtMost(FilePicker.MAX_FILE_BYTES + 1) }
     check(bytes.size <= FilePicker.MAX_FILE_BYTES) { "$uri exceeds ${FilePicker.MAX_FILE_BYTES} bytes" }
-    return bytes.decodeToString()
+    return bytes.decodeToString(throwOnInvalidSequence = true)
 }
 
 private fun InputStream.readAtMost(limit: Int): ByteArray {

@@ -28,7 +28,7 @@ actual fun rememberFilePicker(onFileRead: (content: String) -> Unit, onReadFaile
                     check(file.length() <= FilePicker.MAX_FILE_BYTES) {
                         "$file exceeds ${FilePicker.MAX_FILE_BYTES} bytes"
                     }
-                    file.readText()
+                    file.readBytes().decodeToString(throwOnInvalidSequence = true)
                 }
             } catch (e: CancellationException) {
                 throw e
