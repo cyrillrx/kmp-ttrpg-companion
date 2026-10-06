@@ -25,7 +25,6 @@
     <string name="btn_add_class">Ajouter une classe</string>
     <string name="btn_remove_class">Retirer la classe</string>
     <string name="btn_export">Exporter</string>
-    <string name="btn_import">Importer</string>
     <string name="error_export_failed">La fiche n\'a pas pu être exportée.</string>
     <string name="error_import_failed">La fiche n\'a pas pu être importée.</string>
     <string name="error_import_not_json">Ce fichier n\'est pas une fiche de personnage.</string>

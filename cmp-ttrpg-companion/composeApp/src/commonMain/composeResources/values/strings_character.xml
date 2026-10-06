@@ -25,7 +25,6 @@
     <string name="btn_add_class">Add a class</string>
     <string name="btn_remove_class">Remove class</string>
     <string name="btn_export">Export</string>
-    <string name="btn_import">Import</string>
     <string name="error_export_failed">The sheet could not be exported.</string>
     <string name="error_import_failed">The sheet could not be imported.</string>
     <string name="error_import_not_json">This file is not a character sheet.</string>
