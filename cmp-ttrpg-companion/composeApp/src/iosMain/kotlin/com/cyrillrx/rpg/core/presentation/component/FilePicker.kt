@@ -26,6 +26,7 @@ actual fun rememberFilePicker(onFileRead: (content: String) -> Unit, onReadFaile
     val delegate = remember {
         DocumentPickerDelegate { url ->
             val content = url.readText()
+            url.delete()
             if (content == null) currentOnReadFailed.value() else currentOnFileRead.value(content)
         }
     }
@@ -45,6 +46,11 @@ private fun NSURL.readText(): String? {
     val size = (attributes[NSFileSize] as? NSNumber)?.longLongValue ?: return null
     if (size > FilePicker.MAX_FILE_BYTES) return null
     return NSString.stringWithContentsOfURL(this, NSUTF8StringEncoding, null)
+}
+
+@OptIn(ExperimentalForeignApi::class)
+private fun NSURL.delete() {
+    NSFileManager.defaultManager.removeItemAtURL(this, null)
 }
 
 private class DocumentPickerDelegate(private val onPicked: (NSURL) -> Unit) :
