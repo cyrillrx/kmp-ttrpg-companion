@@ -9,10 +9,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
@@ -33,10 +35,12 @@ import com.cyrillrx.rpg.core.presentation.OptimisticDeletions
 import com.cyrillrx.rpg.core.presentation.component.EmptySearch
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
+import com.cyrillrx.rpg.core.presentation.component.OverflowMenu
 import com.cyrillrx.rpg.core.presentation.component.ScrollToTopOnChange
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
 import com.cyrillrx.rpg.core.presentation.component.StoredSortHeader
 import com.cyrillrx.rpg.core.presentation.component.SwipeToDelete
+import com.cyrillrx.rpg.core.presentation.component.rememberFilePicker
 import com.cyrillrx.rpg.core.presentation.component.rememberOptimisticDeleteHandler
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
@@ -44,8 +48,10 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.getString
+import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
+import rpg_companion.composeapp.generated.resources.btn_import
 import rpg_companion.composeapp.generated.resources.snackbar_character_deleted
 import rpg_companion.composeapp.generated.resources.snackbar_error_deleting_character
 import rpg_companion.composeapp.generated.resources.title_character_list
@@ -56,6 +62,10 @@ fun CharacterListScreen(
     router: CharacterRouter,
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
+    val filePicker = rememberFilePicker(
+        onFileRead = viewModel::importCharacter,
+        onReadFailed = viewModel::reportUnreadableImport,
+    )
 
     LifecycleEventEffect(Lifecycle.Event.ON_RESUME) {
         viewModel.silentRefresh()
@@ -73,6 +83,7 @@ fun CharacterListScreen(
         onCharacterImported = router::openCharacterDetail,
         onNewCharacterClicked = router::openCreateCharacter,
         onQuickCreateClicked = router::openPresetGallery,
+        onImportClicked = filePicker::pick,
         onSortOrderSelected = viewModel::setSortOrder,
         onDeleteCharacterOptimistically = viewModel::deleteCharacterOptimistically,
         onUndoDeletion = viewModel::undoDeletion,
@@ -89,6 +100,7 @@ fun CharacterListScreen(
     onCharacterImported: (Character) -> Unit,
     onNewCharacterClicked: () -> Unit,
     onQuickCreateClicked: () -> Unit,
+    onImportClicked: () -> Unit,
     onSortOrderSelected: (StoredSortOrder) -> Unit,
     onDeleteCharacterOptimistically: (Stored<Character>) -> OptimisticDeletions.Pending<Stored<Character>>?,
     onUndoDeletion: (OptimisticDeletions.Pending<Stored<Character>>) -> Unit,
@@ -134,6 +146,17 @@ fun CharacterListScreen(
             SimpleTopBar(
                 titleResource = Res.string.title_character_list,
                 onNavigateUpClicked = onNavigateUpClicked,
+                actions = {
+                    OverflowMenu { dismiss ->
+                        DropdownMenuItem(
+                            text = { Text(text = stringResource(Res.string.btn_import)) },
+                            onClick = {
+                                dismiss()
+                                onImportClicked()
+                            },
+                        )
+                    }
+                },
             )
         },
         snackbarHost = { SnackbarHost(snackbarHostState) },
@@ -234,6 +257,7 @@ private fun CharacterListScreenPreview() {
         onCharacterImported = {},
         onNewCharacterClicked = {},
         onQuickCreateClicked = {},
+        onImportClicked = {},
         onSortOrderSelected = {},
         onDeleteCharacterOptimistically = { null },
         onUndoDeletion = {},

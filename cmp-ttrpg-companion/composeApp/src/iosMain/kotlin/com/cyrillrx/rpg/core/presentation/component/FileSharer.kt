@@ -15,10 +15,6 @@ import platform.Foundation.NSUTF8StringEncoding
 import platform.Foundation.create
 import platform.Foundation.writeToURL
 import platform.UIKit.UIActivityViewController
-import platform.UIKit.UIApplication
-import platform.UIKit.UIViewController
-import platform.UIKit.UIWindow
-import platform.UIKit.UIWindowScene
 import platform.UIKit.popoverPresentationController
 
 @Composable
@@ -43,15 +39,5 @@ private class IosFileSharer : FileSharer {
             permittedArrowDirections = 0u
         }
         presenter.presentViewController(controller, animated = true, completion = null)
-    }
-
-    private fun topViewController(): UIViewController? {
-        val root = UIApplication.sharedApplication.connectedScenes
-            .filterIsInstance<UIWindowScene>()
-            .flatMap { scene -> scene.windows.filterIsInstance<UIWindow>() }
-            .firstOrNull { it.isKeyWindow() }
-            ?.rootViewController
-            ?: return null
-        return generateSequence(root) { it.presentedViewController }.last()
     }
 }
