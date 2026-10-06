@@ -16,6 +16,8 @@ fun interface FilePicker {
  *
  * The result comes back through callbacks rather than a suspend call: on Android the picker is another
  * activity, and the screen may be recreated before it returns.
+ *
+ * TODO(#296): share the read pipeline across platforms and run it outside the composition.
  */
 @Composable
 expect fun rememberFilePicker(onFileRead: (content: String) -> Unit, onReadFailed: () -> Unit): FilePicker
