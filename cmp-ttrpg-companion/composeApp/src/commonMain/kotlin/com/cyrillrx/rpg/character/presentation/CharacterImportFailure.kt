@@ -34,7 +34,7 @@ data class CharacterImportFailure(
     val value: String? = null,
 ) {
     companion object {
-        val SaveFailed = CharacterImportFailure(Res.string.error_import_failed)
+        val Unexpected = CharacterImportFailure(Res.string.error_import_failed)
     }
 }
 

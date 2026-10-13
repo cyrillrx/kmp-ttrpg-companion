@@ -651,7 +651,19 @@ class CharacterListViewModelTest {
         advanceUntilIdle()
 
         val event = assertIs<CharacterListViewModel.Event.ImportFailed>(receivedEvents.single())
-        assertEquals(CharacterImportFailure.SaveFailed, event.failure)
+        assertEquals(CharacterImportFailure.Unexpected, event.failure)
+    }
+
+    @Test
+    fun `an unreadable file is reported as a failed import`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel()
+        val receivedEvents = collectEvents(viewModel)
+
+        viewModel.reportUnreadableImport()
+        advanceUntilIdle()
+
+        val event = assertIs<CharacterListViewModel.Event.ImportFailed>(receivedEvents.single())
+        assertEquals(CharacterImportFailure.Unexpected, event.failure)
     }
 
     private fun TestScope.collectEvents(viewModel: CharacterListViewModel): List<CharacterListViewModel.Event> {

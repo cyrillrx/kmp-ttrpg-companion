@@ -110,10 +110,14 @@ class CharacterListViewModel(
             } catch (e: CancellationException) {
                 throw e
             } catch (e: Exception) {
-                Event.ImportFailed(CharacterImportFailure.SaveFailed)
+                Event.ImportFailed(CharacterImportFailure.Unexpected)
             }
             events.emit(event)
         }
+    }
+
+    fun reportUnreadableImport() {
+        viewModelScope.launch { events.emit(Event.ImportFailed(CharacterImportFailure.Unexpected)) }
     }
 
     fun silentRefresh() {
