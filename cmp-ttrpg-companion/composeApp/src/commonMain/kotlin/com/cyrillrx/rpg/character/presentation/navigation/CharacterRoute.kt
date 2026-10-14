@@ -24,6 +24,7 @@ interface CharacterRoute {
     @Serializable
     data object List : NavKey
 
+    // TODO(#301): hand the adjustment count over once instead of persisting it in the route
     @Serializable
     data class Detail(val characterId: String, val adjustmentCount: Int = 0) : NavKey
 
