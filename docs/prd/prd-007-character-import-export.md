@@ -1,6 +1,6 @@
 # PRD-007 — Character Import & Export
 
-> **Status**: Draft | **Version**: 0.3 | **Last updated**: 2026-10-04
+> **Status**: Draft | **Version**: 0.4 | **Last updated**: 2026-10-14
 
 ## Overview
 
@@ -94,20 +94,20 @@ The standard media type is what keeps the file usable across mail, messaging and
 
 ### Import
 
-- [ ] The character list overflow menu offers an **Import** action, opening the platform file picker.
-- [ ] A valid file creates a new character sheet with a newly generated identifier.
-- [ ] Existing sheets are never modified or replaced by an import.
-- [ ] On success, the app opens the imported sheet.
-- [ ] Importing the same file twice creates two distinct sheets.
+- [x] The character list overflow menu offers an **Import** action, opening the platform file picker.
+- [x] A valid file creates a new character sheet with a newly generated identifier.
+- [x] Existing sheets are never modified or replaced by an import.
+- [x] On success, the app opens the imported sheet.
+- [x] Importing the same file twice creates two distinct sheets.
 
 ### Error Handling
 
 Import distinguishes what cannot be guessed from what has an obvious correction.
 
-- [ ] A missing required field, or a value the app does not recognise (unknown class, race, size, alignment, language), **rejects the file** and names the offending field. The sheet is not created, even partially.
+- [x] A missing required field, or a value the app does not recognise (unknown class, race, size, alignment, language), **rejects the file** and names the offending field. The sheet is not created, even partially.
 - [ ] A numeric value outside its valid range is **clamped and reported**, following the rules in `CreatureRulesExt.kt` (armor class, hit points, speeds) and `CharacterRulesExt.kt` (level, ability scores, walk speed). The sheet is created with the corrected value.
-- [ ] A file that is not valid JSON, or whose envelope is malformed, is rejected with a distinct message.
-- [ ] Rejection messages name the field, not the internal error type.
+- [x] A file that is not valid JSON, or whose envelope is malformed, is rejected with a distinct message.
+- [x] Rejection messages name the field, not the internal error type.
 
 A received file and a bundled preset go through the same mapper and the same policy. Two divergent behaviours over one format would be a standing source of bugs.
 
