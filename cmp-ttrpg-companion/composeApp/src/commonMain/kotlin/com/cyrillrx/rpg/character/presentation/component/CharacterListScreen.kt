@@ -80,7 +80,7 @@ fun CharacterListScreen(
         events = viewModel.events,
         onNavigateUpClicked = router::navigateUp,
         onCharacterClicked = router::openCharacterDetail,
-        onCharacterImported = router::openCharacterDetail,
+        onCharacterImported = router::openImportedCharacter,
         onNewCharacterClicked = router::openCreateCharacter,
         onQuickCreateClicked = router::openPresetGallery,
         onImportClicked = filePicker::pick,
@@ -97,7 +97,7 @@ fun CharacterListScreen(
     events: SharedFlow<CharacterListViewModel.Event>,
     onNavigateUpClicked: () -> Unit,
     onCharacterClicked: (Character) -> Unit,
-    onCharacterImported: (Character) -> Unit,
+    onCharacterImported: (character: Character, adjustmentCount: Int) -> Unit,
     onNewCharacterClicked: () -> Unit,
     onQuickCreateClicked: () -> Unit,
     onImportClicked: () -> Unit,
@@ -119,7 +119,8 @@ fun CharacterListScreen(
                     )
                 }
 
-                is CharacterListViewModel.Event.ImportSucceeded -> onCharacterImported(event.character)
+                is CharacterListViewModel.Event.ImportSucceeded ->
+                    onCharacterImported(event.character, event.adjustmentCount)
 
                 is CharacterListViewModel.Event.ImportFailed -> launch {
                     val field = event.failure.field?.let { getString(it) }
@@ -254,7 +255,7 @@ private fun CharacterListScreenPreview() {
         events = MutableSharedFlow(),
         onNavigateUpClicked = {},
         onCharacterClicked = {},
-        onCharacterImported = {},
+        onCharacterImported = { _, _ -> },
         onNewCharacterClicked = {},
         onQuickCreateClicked = {},
         onImportClicked = {},

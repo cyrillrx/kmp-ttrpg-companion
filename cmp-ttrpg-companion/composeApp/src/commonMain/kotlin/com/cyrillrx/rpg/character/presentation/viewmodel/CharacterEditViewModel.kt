@@ -41,6 +41,7 @@ class CharacterEditViewModel(
     private val appVersion: String = APP_VERSION,
     private val clock: Clock = Clock.System,
     private val timeZone: TimeZone = TimeZone.currentSystemDefault(),
+    adjustmentCount: Int = 0,
 ) : ViewModel() {
 
     val state: StateFlow<CharacterEditState>
@@ -51,6 +52,9 @@ class CharacterEditViewModel(
 
     val exportEvent: SharedFlow<ExportFile>
         field = MutableSharedFlow<ExportFile>(extraBufferCapacity = 1)
+
+    val pendingAdjustmentCount: StateFlow<Int>
+        field = MutableStateFlow(adjustmentCount)
 
     init {
         viewModelScope.launch {
@@ -158,6 +162,10 @@ class CharacterEditViewModel(
     fun exportCharacter() {
         val character = (state.value as? Loaded)?.character ?: return
         exportEvent.tryEmit(character.toExportFile(appVersion, clock.now(), timeZone))
+    }
+
+    fun onAdjustmentsReported() {
+        pendingAdjustmentCount.value = 0
     }
 
     private fun saveAbility(ability: AbilityScore, update: Abilities.(AbilityScore) -> Abilities) {

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="info_import_values_adjusted">
+        <item quantity="one">1 value from the file couldn't be kept as is.</item>
+        <item quantity="other">%1$d values from the file couldn't be kept as is.</item>
+    </plurals>
+</resources>

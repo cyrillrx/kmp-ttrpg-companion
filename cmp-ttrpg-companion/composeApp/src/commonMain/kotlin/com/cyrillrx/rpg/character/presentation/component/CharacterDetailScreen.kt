@@ -70,6 +70,7 @@ import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.Skills
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.launch
+import org.jetbrains.compose.resources.getPluralString
 import org.jetbrains.compose.resources.getString
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -78,6 +79,7 @@ import rpg_companion.composeapp.generated.resources.btn_back
 import rpg_companion.composeapp.generated.resources.btn_export
 import rpg_companion.composeapp.generated.resources.character_not_found
 import rpg_companion.composeapp.generated.resources.error_export_failed
+import rpg_companion.composeapp.generated.resources.info_import_values_adjusted
 import rpg_companion.composeapp.generated.resources.info_value_coerced
 
 @Composable
@@ -98,6 +100,14 @@ fun CharacterDetailScreen(
             }
             val message = getString(Res.string.info_value_coerced, from, to)
             snackbarHostState.showSnackbar(message)
+        }
+    }
+    LaunchedEffect(viewModel) {
+        viewModel.pendingAdjustmentCount.collect { count ->
+            if (count == 0) return@collect
+
+            viewModel.onAdjustmentsReported()
+            snackbarHostState.showSnackbar(getPluralString(Res.plurals.info_import_values_adjusted, count, count))
         }
     }
     val fileSharer = rememberFileSharer()

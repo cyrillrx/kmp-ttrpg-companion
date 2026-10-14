@@ -24,8 +24,9 @@ interface CharacterRoute {
     @Serializable
     data object List : NavKey
 
+    // TODO(#301): hand the adjustment count over once instead of persisting it in the route
     @Serializable
-    data class Detail(val characterId: String) : NavKey
+    data class Detail(val characterId: String, val adjustmentCount: Int = 0) : NavKey
 
     @Serializable
     data object Create : NavKey
@@ -57,7 +58,7 @@ fun EntryProviderScope<NavKey>.handleCharacterRoutes(
 
     entry<CharacterRoute.Detail> { route ->
         val router = CharacterRouterImpl(backStack)
-        val factory = CharacterEditViewModelFactory(route.characterId, characterRepository)
+        val factory = CharacterEditViewModelFactory(route.characterId, characterRepository, route.adjustmentCount)
         val viewModel = viewModel<CharacterEditViewModel>(key = route.characterId, factory = factory)
         CharacterDetailScreen(viewModel, router)
     }

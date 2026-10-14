@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="info_import_values_adjusted">
+        <item quantity="one">%1$d valeur du fichier n'a pas pu être conservée telle quelle.</item>
+        <item quantity="other">%1$d valeurs du fichier n'ont pas pu être conservées telles quelles.</item>
+    </plurals>
+</resources>
