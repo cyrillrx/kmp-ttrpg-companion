@@ -106,8 +106,8 @@ fun CharacterDetailScreen(
         viewModel.pendingAdjustmentCount.collect { count ->
             if (count == 0) return@collect
 
-            snackbarHostState.showSnackbar(getPluralString(Res.plurals.info_import_values_adjusted, count, count))
             viewModel.onAdjustmentsReported()
+            snackbarHostState.showSnackbar(getPluralString(Res.plurals.info_import_values_adjusted, count, count))
         }
     }
     val fileSharer = rememberFileSharer()
