@@ -20,6 +20,13 @@ class CharacterExportReaderTest {
     }
 
     @Test
+    fun `a file starting with a UTF-8 byte order mark reads back as the exported sheet`() {
+        val result = readCharacterExport("\uFEFF$exported")
+
+        assertEquals(Result.Success(Imported(SampleCharacterRepository.humanFighter(), emptyList())), result)
+    }
+
+    @Test
     fun `an out-of-range value is clamped and reported`() {
         val result = readCharacterExport(exported.replace(""""armorClass": 16""", """"armorClass": 5000"""))
 

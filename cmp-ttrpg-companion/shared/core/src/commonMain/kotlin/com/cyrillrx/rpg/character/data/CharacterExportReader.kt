@@ -14,10 +14,12 @@ import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.contentOrNull
 import kotlinx.serialization.json.intOrNull
 
+private const val UTF8_BYTE_ORDER_MARK = "\uFEFF"
+
 fun readCharacterExport(
     content: String,
 ): Result<Imported<Character, CharacterImportWarning>, CharacterFileImportError> {
-    val json = content.parseJsonOrNull()
+    val json = content.removePrefix(UTF8_BYTE_ORDER_MARK).parseJsonOrNull()
         ?: return Result.Failure(CharacterFileImportError.InvalidJson)
     val envelope = json as? JsonObject
         ?: return Result.Failure(CharacterFileImportError.MalformedEnvelope)
