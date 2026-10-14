@@ -9,7 +9,8 @@ import kotlin.reflect.KClass
 class CharacterEditViewModelFactory(
     private val characterId: String,
     private val characterRepository: CharacterRepository,
+    private val adjustmentCount: Int,
 ) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: KClass<T>, extras: CreationExtras): T =
-        CharacterEditViewModel(characterId, characterRepository) as T
+        CharacterEditViewModel(characterId, characterRepository, adjustmentCount = adjustmentCount) as T
 }

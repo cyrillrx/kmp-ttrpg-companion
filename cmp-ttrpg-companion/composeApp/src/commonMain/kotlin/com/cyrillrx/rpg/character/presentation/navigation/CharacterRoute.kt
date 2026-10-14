@@ -57,9 +57,9 @@ fun EntryProviderScope<NavKey>.handleCharacterRoutes(
 
     entry<CharacterRoute.Detail> { route ->
         val router = CharacterRouterImpl(backStack)
-        val factory = CharacterEditViewModelFactory(route.characterId, characterRepository)
+        val factory = CharacterEditViewModelFactory(route.characterId, characterRepository, route.adjustmentCount)
         val viewModel = viewModel<CharacterEditViewModel>(key = route.characterId, factory = factory)
-        CharacterDetailScreen(viewModel, router, route.adjustmentCount)
+        CharacterDetailScreen(viewModel, router)
     }
 
     entry<CharacterRoute.Create> {

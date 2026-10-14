@@ -70,7 +70,8 @@ class CharacterEditViewModelTest {
     private fun buildViewModel(
         characterId: String = fighter.id,
         repo: CharacterRepository,
-    ) = CharacterEditViewModel(characterId, repo, APP_VERSION, fixedClock, TimeZone.UTC)
+        adjustmentCount: Int = 0,
+    ) = CharacterEditViewModel(characterId, repo, APP_VERSION, fixedClock, TimeZone.UTC, adjustmentCount)
 
     private fun loadedCharacter(viewModel: CharacterEditViewModel): Character =
         assertIs<CharacterEditState.Loaded>(viewModel.state.value).character
@@ -652,6 +653,28 @@ class CharacterEditViewModelTest {
         viewModel.saveShortDescription("Thorin the Brave")
         advanceUntilIdle()
         assertEquals("Thorin the Brave", repo.get(fighter.id)?.resolveTranslation(currentLocale())?.shortDescription)
+    }
+
+    // ─── pendingAdjustmentCount ───────────────────────────────────────────────
+
+    @Test
+    fun `pendingAdjustmentCount is zero when the sheet was not imported`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(repo = repoWithFighter())
+        assertEquals(0, viewModel.pendingAdjustmentCount.value)
+    }
+
+    @Test
+    fun `pendingAdjustmentCount holds the import adjustments until reported`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(repo = repoWithFighter(), adjustmentCount = 3)
+        advanceUntilIdle()
+        assertEquals(3, viewModel.pendingAdjustmentCount.value)
+    }
+
+    @Test
+    fun `onAdjustmentsReported clears the pending adjustments`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel(repo = repoWithFighter(), adjustmentCount = 3)
+        viewModel.onAdjustmentsReported()
+        assertEquals(0, viewModel.pendingAdjustmentCount.value)
     }
 
     // ─── exportCharacter ──────────────────────────────────────────────────────

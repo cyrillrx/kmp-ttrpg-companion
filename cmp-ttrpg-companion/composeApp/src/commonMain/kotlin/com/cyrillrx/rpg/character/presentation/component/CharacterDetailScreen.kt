@@ -28,12 +28,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.rememberUpdatedState
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.pointer.pointerInput
@@ -89,11 +86,9 @@ import rpg_companion.composeapp.generated.resources.info_value_coerced
 fun CharacterDetailScreen(
     viewModel: CharacterEditViewModel,
     router: CharacterRouter,
-    adjustmentCount: Int = 0,
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     val snackbarHostState = remember { SnackbarHostState() }
-    ReportAdjustedValuesOnce(adjustmentCount, snackbarHostState)
     val distanceUnit by rememberUpdatedState(LocalDistanceUnit.current)
     LaunchedEffect(viewModel) {
         viewModel.coercedValueEvent.collect { event ->
@@ -105,6 +100,14 @@ fun CharacterDetailScreen(
             }
             val message = getString(Res.string.info_value_coerced, from, to)
             snackbarHostState.showSnackbar(message)
+        }
+    }
+    LaunchedEffect(viewModel) {
+        viewModel.pendingAdjustmentCount.collect { count ->
+            if (count == 0) return@collect
+
+            snackbarHostState.showSnackbar(getPluralString(Res.plurals.info_import_values_adjusted, count, count))
+            viewModel.onAdjustmentsReported()
         }
     }
     val fileSharer = rememberFileSharer()
@@ -157,18 +160,6 @@ fun CharacterDetailScreen(
             onExportClicked = viewModel::exportCharacter,
             onNavigateUpClicked = router::navigateUp,
         )
-    }
-}
-
-@Composable
-private fun ReportAdjustedValuesOnce(adjustmentCount: Int, snackbarHostState: SnackbarHostState) {
-    var reported by rememberSaveable { mutableStateOf(false) }
-    LaunchedEffect(Unit) {
-        if (adjustmentCount == 0 || reported) return@LaunchedEffect
-
-        val message = getPluralString(Res.plurals.info_import_values_adjusted, adjustmentCount, adjustmentCount)
-        snackbarHostState.showSnackbar(message)
-        reported = true
     }
 }
 
