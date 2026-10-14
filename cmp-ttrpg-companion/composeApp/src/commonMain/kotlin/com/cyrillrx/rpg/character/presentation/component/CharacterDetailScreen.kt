@@ -161,7 +161,6 @@ fun CharacterDetailScreen(
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun ReportAdjustedValuesOnce(adjustmentCount: Int, snackbarHostState: SnackbarHostState) {
     var reported by rememberSaveable { mutableStateOf(false) }
@@ -174,6 +173,7 @@ private fun ReportAdjustedValuesOnce(adjustmentCount: Int, snackbarHostState: Sn
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CharacterDetailScreen(
     state: CharacterEditState.Loaded,
