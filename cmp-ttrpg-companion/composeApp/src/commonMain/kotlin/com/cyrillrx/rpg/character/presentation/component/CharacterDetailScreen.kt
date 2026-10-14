@@ -168,9 +168,9 @@ private fun ReportAdjustedValuesOnce(adjustmentCount: Int, snackbarHostState: Sn
     LaunchedEffect(Unit) {
         if (adjustmentCount == 0 || reported) return@LaunchedEffect
 
-        reported = true
         val message = getPluralString(Res.plurals.info_import_values_adjusted, adjustmentCount, adjustmentCount)
         snackbarHostState.showSnackbar(message, duration = SnackbarDuration.Long)
+        reported = true
     }
 }
 
