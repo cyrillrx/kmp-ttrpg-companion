@@ -11,6 +11,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.outlined.CollectionsBookmark
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
@@ -54,7 +55,7 @@ import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.btn_create_collection
-import rpg_companion.composeapp.generated.resources.no_result_found
+import rpg_companion.composeapp.generated.resources.message_no_collection_yet
 import rpg_companion.composeapp.generated.resources.snackbar_collection_deleted
 import rpg_companion.composeapp.generated.resources.snackbar_error_creating_collection
 import rpg_companion.composeapp.generated.resources.snackbar_error_deleting_collection
@@ -157,7 +158,12 @@ fun UserCollectionsScreen(
         ) {
             when (val body = state.body) {
                 is UserCollectionsState.Body.Loading -> Loader()
-                is UserCollectionsState.Body.Empty -> ErrorLayout(Res.string.no_result_found)
+                is UserCollectionsState.Body.Empty -> EmptyCollectionLayout(
+                    icon = Icons.Outlined.CollectionsBookmark,
+                    message = stringResource(Res.string.message_no_collection_yet),
+                    btnText = stringResource(Res.string.btn_create_collection),
+                    onBtnClicked = { showCreateDialog = true },
+                )
                 is UserCollectionsState.Body.Error -> ErrorLayout(body.errorMessage)
                 is UserCollectionsState.Body.WithData -> UserCollections(
                     collections = body.collections,
