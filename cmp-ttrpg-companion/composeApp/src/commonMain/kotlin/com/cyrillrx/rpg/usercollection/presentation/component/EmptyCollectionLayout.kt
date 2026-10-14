@@ -28,25 +28,11 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 fun EmptyCollectionLayout(
     icon: ImageVector,
     message: String,
-    btnText: String,
-    onBtnClicked: () -> Unit,
-) {
-    EmptyCollectionLayout(icon = icon, message = message) {
-        Spacer(modifier = Modifier.height(spacingCommon))
-        Button(onClick = onBtnClicked) {
-            Text(text = btnText)
-        }
-    }
-}
-
-@Composable
-fun EmptyCollectionLayout(
-    icon: ImageVector,
-    message: String,
+    modifier: Modifier = Modifier,
     action: @Composable ColumnScope.() -> Unit = {},
 ) {
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
@@ -68,6 +54,14 @@ fun EmptyCollectionLayout(
     }
 }
 
+@Composable
+fun EmptyCollectionAction(text: String, onClick: () -> Unit) {
+    Spacer(modifier = Modifier.height(spacingCommon))
+    Button(onClick = onClick) {
+        Text(text = text)
+    }
+}
+
 @Preview
 @Composable
 private fun PreviewEmptyCollectionLayoutLight() {
@@ -86,8 +80,8 @@ private fun EmptyCollectionLayoutPreview(darkTheme: Boolean) {
         EmptyCollectionLayout(
             icon = Icons.AutoMirrored.Outlined.MenuBook,
             message = "The collection is empty",
-            btnText = "Browse spells",
-            onBtnClicked = {},
-        )
+        ) {
+            EmptyCollectionAction(text = "Browse spells", onClick = {})
+        }
     }
 }
