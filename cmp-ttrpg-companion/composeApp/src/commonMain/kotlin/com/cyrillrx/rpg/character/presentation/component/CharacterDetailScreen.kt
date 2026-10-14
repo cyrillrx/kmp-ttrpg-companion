@@ -21,6 +21,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.PrimaryTabRow
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Tab
@@ -28,9 +29,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.pointer.pointerInput
@@ -70,6 +74,7 @@ import com.cyrillrx.rpg.creature.domain.Creature
 import com.cyrillrx.rpg.creature.domain.Skills
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.launch
+import org.jetbrains.compose.resources.getPluralString
 import org.jetbrains.compose.resources.getString
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -78,15 +83,18 @@ import rpg_companion.composeapp.generated.resources.btn_back
 import rpg_companion.composeapp.generated.resources.btn_export
 import rpg_companion.composeapp.generated.resources.character_not_found
 import rpg_companion.composeapp.generated.resources.error_export_failed
+import rpg_companion.composeapp.generated.resources.info_import_values_adjusted
 import rpg_companion.composeapp.generated.resources.info_value_coerced
 
 @Composable
 fun CharacterDetailScreen(
     viewModel: CharacterEditViewModel,
     router: CharacterRouter,
+    adjustedValueCount: Int = 0,
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     val snackbarHostState = remember { SnackbarHostState() }
+    ReportAdjustedValuesOnce(adjustedValueCount, snackbarHostState)
     val distanceUnit by rememberUpdatedState(LocalDistanceUnit.current)
     LaunchedEffect(viewModel) {
         viewModel.coercedValueEvent.collect { event ->
@@ -154,6 +162,18 @@ fun CharacterDetailScreen(
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun ReportAdjustedValuesOnce(adjustedValueCount: Int, snackbarHostState: SnackbarHostState) {
+    var reported by rememberSaveable { mutableStateOf(false) }
+    LaunchedEffect(Unit) {
+        if (adjustedValueCount == 0 || reported) return@LaunchedEffect
+
+        reported = true
+        val message = getPluralString(Res.plurals.info_import_values_adjusted, adjustedValueCount, adjustedValueCount)
+        snackbarHostState.showSnackbar(message, duration = SnackbarDuration.Long)
+    }
+}
+
 @Composable
 fun CharacterDetailScreen(
     state: CharacterEditState.Loaded,

@@ -25,7 +25,7 @@ interface CharacterRoute {
     data object List : NavKey
 
     @Serializable
-    data class Detail(val characterId: String) : NavKey
+    data class Detail(val characterId: String, val adjustedValueCount: Int = 0) : NavKey
 
     @Serializable
     data object Create : NavKey
@@ -59,7 +59,7 @@ fun EntryProviderScope<NavKey>.handleCharacterRoutes(
         val router = CharacterRouterImpl(backStack)
         val factory = CharacterEditViewModelFactory(route.characterId, characterRepository)
         val viewModel = viewModel<CharacterEditViewModel>(key = route.characterId, factory = factory)
-        CharacterDetailScreen(viewModel, router)
+        CharacterDetailScreen(viewModel, router, route.adjustedValueCount)
     }
 
     entry<CharacterRoute.Create> {

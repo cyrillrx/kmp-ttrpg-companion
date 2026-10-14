@@ -8,6 +8,7 @@ import com.cyrillrx.rpg.core.navigation.navigateUp
 interface CharacterRouter {
     fun navigateUp()
     fun openCharacterDetail(character: Character)
+    fun openImportedCharacter(character: Character, adjustedValueCount: Int)
     fun openCreateCharacter()
     fun openPresetGallery()
 }
@@ -19,6 +20,10 @@ class CharacterRouterImpl(private val backStack: NavBackStack<NavKey>) : Charact
 
     override fun openCharacterDetail(character: Character) {
         backStack.add(CharacterRoute.Detail(character.id))
+    }
+
+    override fun openImportedCharacter(character: Character, adjustedValueCount: Int) {
+        backStack.add(CharacterRoute.Detail(character.id, adjustedValueCount))
     }
 
     override fun openCreateCharacter() {
