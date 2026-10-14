@@ -90,11 +90,11 @@ import rpg_companion.composeapp.generated.resources.info_value_coerced
 fun CharacterDetailScreen(
     viewModel: CharacterEditViewModel,
     router: CharacterRouter,
-    adjustedValueCount: Int = 0,
+    adjustmentCount: Int = 0,
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     val snackbarHostState = remember { SnackbarHostState() }
-    ReportAdjustedValuesOnce(adjustedValueCount, snackbarHostState)
+    ReportAdjustedValuesOnce(adjustmentCount, snackbarHostState)
     val distanceUnit by rememberUpdatedState(LocalDistanceUnit.current)
     LaunchedEffect(viewModel) {
         viewModel.coercedValueEvent.collect { event ->
@@ -163,13 +163,13 @@ fun CharacterDetailScreen(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun ReportAdjustedValuesOnce(adjustedValueCount: Int, snackbarHostState: SnackbarHostState) {
+private fun ReportAdjustedValuesOnce(adjustmentCount: Int, snackbarHostState: SnackbarHostState) {
     var reported by rememberSaveable { mutableStateOf(false) }
     LaunchedEffect(Unit) {
-        if (adjustedValueCount == 0 || reported) return@LaunchedEffect
+        if (adjustmentCount == 0 || reported) return@LaunchedEffect
 
         reported = true
-        val message = getPluralString(Res.plurals.info_import_values_adjusted, adjustedValueCount, adjustedValueCount)
+        val message = getPluralString(Res.plurals.info_import_values_adjusted, adjustmentCount, adjustmentCount)
         snackbarHostState.showSnackbar(message, duration = SnackbarDuration.Long)
     }
 }
