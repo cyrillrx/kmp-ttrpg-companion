@@ -97,7 +97,7 @@ fun CharacterListScreen(
     events: SharedFlow<CharacterListViewModel.Event>,
     onNavigateUpClicked: () -> Unit,
     onCharacterClicked: (Character) -> Unit,
-    onCharacterImported: (Character, Int) -> Unit,
+    onCharacterImported: (character: Character, adjustmentCount: Int) -> Unit,
     onNewCharacterClicked: () -> Unit,
     onQuickCreateClicked: () -> Unit,
     onImportClicked: () -> Unit,
