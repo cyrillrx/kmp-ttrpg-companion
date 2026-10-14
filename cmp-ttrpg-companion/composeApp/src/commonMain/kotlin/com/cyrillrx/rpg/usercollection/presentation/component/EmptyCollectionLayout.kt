@@ -2,9 +2,11 @@ package com.cyrillrx.rpg.usercollection.presentation.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.MenuBook
@@ -16,6 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
@@ -27,6 +30,20 @@ fun EmptyCollectionLayout(
     message: String,
     btnText: String,
     onBtnClicked: () -> Unit,
+) {
+    EmptyCollectionLayout(icon = icon, message = message) {
+        Spacer(modifier = Modifier.height(spacingCommon))
+        Button(onClick = onBtnClicked) {
+            Text(text = btnText)
+        }
+    }
+}
+
+@Composable
+fun EmptyCollectionLayout(
+    icon: ImageVector,
+    message: String,
+    action: @Composable ColumnScope.() -> Unit = {},
 ) {
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -44,11 +61,10 @@ fun EmptyCollectionLayout(
             text = message,
             color = MaterialTheme.colorScheme.onBackground,
             style = MaterialTheme.typography.bodyLarge,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.padding(horizontal = spacingCommon),
         )
-        Spacer(modifier = Modifier.height(spacingCommon))
-        Button(onClick = onBtnClicked) {
-            Text(text = btnText)
-        }
+        action()
     }
 }
 
