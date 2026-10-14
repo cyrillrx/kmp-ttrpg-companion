@@ -3,7 +3,6 @@ package com.cyrillrx.rpg.usercollection.presentation
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
-import com.cyrillrx.rpg.usercollection.presentation.component.EmptyCollectionAction
 import com.cyrillrx.rpg.usercollection.presentation.component.EmptyCollectionLayout
 import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
@@ -23,8 +22,8 @@ interface CollectionItemProvider<T> {
         EmptyCollectionLayout(
             icon = emptyLayoutIcon,
             message = stringResource(Res.string.message_collection_is_empty),
-        ) {
-            EmptyCollectionAction(text = stringResource(emptyLayoutBtnText), onClick = onEmptyLayoutBtnClicked)
-        }
+            btnText = stringResource(emptyLayoutBtnText),
+            onBtnClicked = onEmptyLayoutBtnClicked,
+        )
     }
 }

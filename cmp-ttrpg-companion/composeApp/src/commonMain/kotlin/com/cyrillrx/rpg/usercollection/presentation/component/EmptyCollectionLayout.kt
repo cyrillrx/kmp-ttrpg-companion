@@ -3,9 +3,7 @@ package com.cyrillrx.rpg.usercollection.presentation.component
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
@@ -28,13 +26,28 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 fun EmptyCollectionLayout(
     icon: ImageVector,
     message: String,
+    btnText: String,
+    onBtnClicked: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    EmptyCollectionLayout(icon = icon, message = message, modifier = modifier) {
+        Button(onClick = onBtnClicked) {
+            Text(text = btnText)
+        }
+    }
+}
+
+@Composable
+fun EmptyCollectionLayout(
+    icon: ImageVector,
+    message: String,
     modifier: Modifier = Modifier,
     action: @Composable ColumnScope.() -> Unit = {},
 ) {
     Column(
         modifier = modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
+        verticalArrangement = Arrangement.spacedBy(spacingCommon, Alignment.CenterVertically),
     ) {
         Icon(
             imageVector = icon,
@@ -42,7 +55,6 @@ fun EmptyCollectionLayout(
             modifier = Modifier.size(72.dp),
             tint = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f),
         )
-        Spacer(modifier = Modifier.height(spacingCommon))
         Text(
             text = message,
             color = MaterialTheme.colorScheme.onBackground,
@@ -51,14 +63,6 @@ fun EmptyCollectionLayout(
             modifier = Modifier.padding(horizontal = spacingCommon),
         )
         action()
-    }
-}
-
-@Composable
-fun EmptyCollectionAction(text: String, onClick: () -> Unit) {
-    Spacer(modifier = Modifier.height(spacingCommon))
-    Button(onClick = onClick) {
-        Text(text = text)
     }
 }
 
@@ -80,8 +84,8 @@ private fun EmptyCollectionLayoutPreview(darkTheme: Boolean) {
         EmptyCollectionLayout(
             icon = Icons.AutoMirrored.Outlined.MenuBook,
             message = "The collection is empty",
-        ) {
-            EmptyCollectionAction(text = "Browse spells", onClick = {})
-        }
+            btnText = "Browse spells",
+            onBtnClicked = {},
+        )
     }
 }
