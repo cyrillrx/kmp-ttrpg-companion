@@ -1,6 +1,6 @@
 # PRD-007 — Character Import & Export
 
-> **Status**: Draft | **Version**: 0.3 | **Last updated**: 2026-10-04
+> **Status**: Draft | **Version**: 0.4 | **Last updated**: 2026-10-14
 
 ## Overview
 
@@ -94,20 +94,20 @@ The standard media type is what keeps the file usable across mail, messaging and
 
 ### Import
 
-- [ ] The character list overflow menu offers an **Import** action, opening the platform file picker.
-- [ ] A valid file creates a new character sheet with a newly generated identifier.
-- [ ] Existing sheets are never modified or replaced by an import.
-- [ ] On success, the app opens the imported sheet.
-- [ ] Importing the same file twice creates two distinct sheets.
+- [x] The character list overflow menu offers an **Import** action, opening the platform file picker.
+- [x] A valid file creates a new character sheet with a newly generated identifier.
+- [x] Existing sheets are never modified or replaced by an import.
+- [x] On success, the app opens the imported sheet.
+- [x] Importing the same file twice creates two distinct sheets.
 
 ### Error Handling
 
 Import distinguishes what cannot be guessed from what has an obvious correction.
 
-- [ ] A missing required field, or a value the app does not recognise (unknown class, race, size, alignment, language), **rejects the file** and names the offending field. The sheet is not created, even partially.
-- [ ] A numeric value outside its valid range is **clamped and reported**, following the rules in `CreatureRulesExt.kt` (armor class, hit points, speeds) and `CharacterRulesExt.kt` (level, ability scores, walk speed). The sheet is created with the corrected value.
-- [ ] A file that is not valid JSON, or whose envelope is malformed, is rejected with a distinct message.
-- [ ] Rejection messages name the field, not the internal error type.
+- [x] A missing required field, or a value the app does not recognise (unknown class, race, size, alignment, language), **rejects the file** and names the offending field. The sheet is not created, even partially.
+- [x] A numeric value outside its valid range is **clamped and reported**, following the rules in `CreatureRulesExt.kt` (armor class, hit points, speeds) and `CharacterRulesExt.kt` (level, ability scores, walk speed). The sheet is created with the corrected value.
+- [x] A file that is not valid JSON, or whose envelope is malformed, is rejected with a distinct message.
+- [x] Rejection messages name the field, not the internal error type.
 
 A received file and a bundled preset go through the same mapper and the same policy. Two divergent behaviours over one format would be a standing source of bugs.
 
@@ -130,5 +130,5 @@ A received file and a bundled preset go through the same mapper and the same pol
 
 - Should the app declare a document type so a file can be opened from a file manager or a mail attachment? Rejected for this version: it requires per-platform type declarations, and is not reachable on Desktop without native packaging.
 - Should an imported file be able to join the preset gallery instead of becoming a sheet? Deferred until saving a sheet as a preset exists — the gallery is bundled resources today.
-- How is a clamped value **reported**? A one-off message as the sheet opens says it once and loses it; a marker carried by the sheet says it forever, including long after the value has been edited by hand. The ground is ready either way: `Character` is `@Serializable` and persisted as a JSON blob, so a field with a default needs no migration, and `TintedTag` is already the design system's flag component. The channel itself is #234's subject — today an adjustment only reaches a `println`, and coercions are not part of any `errors` list.
+- How is a clamped value **reported**? A one-off message as the sheet opens says it once and loses it; a marker carried by the sheet says it forever, including long after the value has been edited by hand. The ground is ready either way: `Character` is `@Serializable` and persisted as a JSON blob, so a field with a default needs no migration, and `TintedTag` is already the design system's flag component. The channel itself is #234's subject — today an adjustment only reaches a `println`, and coercions are not part of any `errors` list. **Settled** in #299: a one-off snackbar as the imported sheet opens, telling how many values from the file could not be kept as is — clamped values, but also dropped translations and unrecognised backgrounds.
 - Should a later version use `sourceId` to offer replacing an existing sheet rather than duplicating it?
