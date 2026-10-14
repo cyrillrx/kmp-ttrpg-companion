@@ -11,6 +11,7 @@ Automated flows are implemented with Maestro in `cmp-ttrpg-companion/.maestro/fl
 | UL-02 | Rename a collection from its detail screen         | The updated name is shown in the top bar      | ✅ `UL-02_rename-spell-collection.yaml`             |
 | UL-03 | Swipe to delete a collection, then undo            | The collection is restored after tapping Undo | ✅ `UL-03_swipe-to-delete-with-undo.yaml`           |
 | UL-04 | Add a spell to a collection, navigate back, verify | The spell appears in the collection detail    | ✅ `UL-04_add-spell-to-collection-and-verify.yaml`  |
+| UL-05 | Open the Spells collections before creating any    | The empty state reads "No collection yet"     | ✅ `UL-01_create-spell-collection.yaml`             |
 
 ## Spellbook Compendium
 
