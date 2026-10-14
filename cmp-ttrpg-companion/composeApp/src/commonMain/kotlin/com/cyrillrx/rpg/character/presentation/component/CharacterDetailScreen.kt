@@ -21,7 +21,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.PrimaryTabRow
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Tab
@@ -168,7 +167,7 @@ private fun ReportAdjustedValuesOnce(adjustmentCount: Int, snackbarHostState: Sn
         if (adjustmentCount == 0 || reported) return@LaunchedEffect
 
         val message = getPluralString(Res.plurals.info_import_values_adjusted, adjustmentCount, adjustmentCount)
-        snackbarHostState.showSnackbar(message, duration = SnackbarDuration.Long)
+        snackbarHostState.showSnackbar(message)
         reported = true
     }
 }
