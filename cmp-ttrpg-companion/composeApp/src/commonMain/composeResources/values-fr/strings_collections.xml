@@ -20,7 +20,7 @@
     <string name="btn_confirm">Confirmer</string>
     <string name="btn_cancel">Annuler</string>
 
-    <string name="message_no_collection_yet">Aucune collection pour l\'instant</string>
+    <string name="message_no_collection_yet">Aucune collection pour l'instant</string>
     <string name="message_collection_is_empty">La collection est vide</string>
 
     <string name="error_while_loading_collections">Erreur lors du chargement des collections.</string>
