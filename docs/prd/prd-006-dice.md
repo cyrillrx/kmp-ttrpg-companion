@@ -1,31 +1,37 @@
 # PRD-006 — Virtual Dice
 
-> **Status**: Draft | **Version**: 0.1 | **Last updated**: 2026-03-15
+> **Status**: Draft | **Version**: 0.2 | **Last updated**: 2026-10-15
 
 ## Overview
 
-The Virtual Dice module provides a fast, in-session dice rolling tool. It supports all standard TTRPG dice, cumulative multi-dice rolls, and a roll history log.
+The Virtual Dice module provides a fast, in-session dice rolling tool. It supports all standard TTRPG dice, cumulative multi-dice rolls with a modifier, advantage and disadvantage, and a roll history log.
 
 ## Goals
 
 - Provide a reliable, glanceable dice roller usable mid-session without leaving the app.
-- Support cumulative rolling (e.g. 2d6 + 1d4) with a running total.
+- Support cumulative rolling (e.g. 2d6 + 1d4 + 3) with a running total.
+- Roll any die with advantage or disadvantage, twice and keeping the higher or the lower, in one tap.
 - Keep a history of recent rolls for reference and transparency.
 
 ## User Stories
 
-| As a… | I want to…                                                | So that…                                                 |
-|-------|-----------------------------------------------------------|----------------------------------------------------------|
-| User  | Tap a die to roll it                                      | I get an instant result                                  |
-| User  | Tap multiple dice to accumulate a total                   | I can resolve complex rolls (e.g. 3d6 + 1d4) in one view |
-| User  | See the individual result of each die alongside the total | I can verify the roll                                    |
-| User  | Reset the current roll                                    | I can start a new roll without navigating away           |
-| User  | Browse my roll history                                    | I can refer back to a previous roll result               |
-| User  | Clear my roll history                                     | I can keep it relevant to the current session            |
+| As a… | I want to…                                                | So that…                                                        |
+|-------|-----------------------------------------------------------|-----------------------------------------------------------------|
+| User  | Tap a die to roll it                                      | I get an instant result                                         |
+| User  | Tap multiple dice to accumulate a total                   | I can resolve complex rolls (e.g. 3d6 + 1d4) in one view        |
+| User  | Add a modifier to the total                               | I can apply an ability or proficiency bonus without mental sums |
+| User  | Roll a die with advantage or disadvantage                 | I get the kept result without rolling twice and comparing       |
+| User  | See the individual result of each die alongside the total | I can verify the roll                                           |
+| User  | Remove one die from the current roll                      | I can fix a mistap without starting over                        |
+| User  | Reset the current roll                                    | I can start a new roll without navigating away                  |
+| User  | Browse my roll history                                    | I can refer back to a previous roll result                      |
+| User  | Clear my roll history                                     | I can keep it relevant to the current session                   |
 
 ## Supported Dice
 
 `d4`, `d6`, `d8`, `d10`, `d12`, `d20`, `d100`
+
+A `d100` is a single roll from 1 to 100, not a pair of percentile `d10`.
 
 ## Functional Requirements
 
@@ -40,32 +46,49 @@ The Virtual Dice module provides a fast, in-session dice rolling tool. It suppor
 ### Cumulative Rolling
 
 - [ ] Multiple dice can be added to the same roll pool sequentially.
-- [ ] Total is updated after each die is added.
+- [ ] Total is updated after each die is added or removed.
 - [ ] Each die in the pool shows its individual result (e.g. d20: 14, d6: 3 → Total: 17).
+- [ ] Any die can be removed from the pool on its own; the total follows.
+- [ ] A modifier, set with **−** and **+** controls, is added to the total. It can be negative and defaults to 0.
+
+### Advantage and Disadvantage
+
+- [ ] A **Normal**, **Advantage** or **Disadvantage** mode can be selected; it stays active until changed.
+- [ ] In Advantage or Disadvantage mode, adding any die rolls it twice and keeps the higher (advantage) or the lower (disadvantage).
+- [ ] Both results are shown, the discarded one visibly set apart, and only the kept one counts toward the total.
 
 ### Roll History
 
-- [ ] Each completed roll (before reset) is recorded in a history log.
-- [ ] The log entry shows: dice rolled, individual results, total, and timestamp.
+- [ ] The current roll pool, modifier included, is persisted locally, so closing the app does not lose it.
+- [ ] Resetting a non-empty pool records it in the history log. Resetting an empty pool records nothing.
+- [ ] The log entry shows: dice rolled, individual results (discarded ones included), modifier, total, and timestamp.
 - [ ] History is persisted locally across app restarts.
 - [ ] The user can manually clear the entire history.
-- [ ] History retention policy: TBD (see Open Questions).
+- [ ] History is a single global log, kept until cleared and capped at 500 entries: past the cap, the oldest entries are dropped.
+
+### Entry Point
+
+- [ ] The dice roller is reached from a section of the Home screen.
 
 ## Non-Functional Requirements
 
 - Roll result must appear in under 100ms after tap.
 - History must support at least 500 entries without degrading scroll performance.
-- Dice results must be cryptographically random or use a high-quality PRNG to ensure fairness.
+- Results come from the platform's default PRNG (`kotlin.random.Random`); the source is injectable so tests can fix the outcome.
+- The roll model lives in `shared/core` and does not assume a total is the sum of every die: a selection step between rolling and totalling carries advantage and disadvantage today, and roll-and-keep later. Combat actions and monster hit dice (`2d8+4`) can then reuse it.
+- The feature depends on no other feature's navigation, so it can later ship on its own (see Open Questions).
 
 ## Out of Scope
 
 - Custom dice notation input (e.g. typing `3d8+5`) — may be added in a future iteration.
+- Roll-and-keep with a keep threshold, as used by 7th Sea 3rd edition — a future iteration, which the selection step in the model is meant to accommodate.
 - Dice with custom face labels (e.g. Fate/Fudge dice) — may be added when supporting other game systems.
 - Sharing roll results with other players in real time.
 - 3D dice animation.
 
 ## Open Questions
 
-- How long should the roll history be retained? Options: session only, 7 days, indefinitely until manually cleared.
-- Should the history be scoped per campaign session or be a single global log?
-- Should there be a modifier field (e.g. +3 to add a bonus to the total)?
+- How long should the roll history be retained? Options: session only, 7 days, indefinitely until manually cleared. **Settled**: until cleared, capped at 500 entries.
+- Should the history be scoped per campaign session or be a single global log? **Settled** for now: a single global log, since campaigns do not exist yet; to revisit with [PRD-003 — Campaigns](prd-003-campaigns.md).
+- Should there be a modifier field (e.g. +3 to add a bonus to the total)? **Settled**: yes, a −/+ modifier on the pool.
+- Should the dice roller also ship as a standalone app? A second launcher activity in the same Android package gives it its own icon but shares the app's data and installation; a separate app needs its own application module on each target. Tracked as an idea to qualify under the mini-apps entry of the [roadmap](../roadmap.md) Exploration section.
