@@ -22,6 +22,7 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
+// TODO(#305): build the outlined variant on AppCard
 @Composable
 fun ActionCard(
     icon: ImageVector,

@@ -176,6 +176,7 @@ fun CharacterListScreen(
             Column(modifier = Modifier.weight(1f).fillMaxWidth()) {
                 when (val body = state.body) {
                     is CharacterListState.Body.Loading -> Loader()
+                    // TODO(#304): show an empty state instead of a search miss when the query is blank
                     is CharacterListState.Body.Empty -> EmptySearch(searchQuery = state.searchQuery)
                     is CharacterListState.Body.Error -> ErrorLayout(errorMessage = body.errorMessage)
                     is CharacterListState.Body.WithData ->
