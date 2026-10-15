@@ -145,6 +145,37 @@ class CampaignListViewModelTest {
     }
 
     @Test
+    fun `state is NoSearchResult when the query matches no campaign`() = runTest(testDispatcher) {
+        repository.save(Campaign("1", "Campaign 1", RuleSet.DND5E))
+        val viewModel = buildViewModel()
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        viewModel.filterByQuery("pathfinder")
+        advanceUntilIdle()
+
+        assertIs<CampaignListState.Body.NoSearchResult>(viewModel.state.value.body)
+    }
+
+    @Test
+    fun `state is Empty again when the query is cleared and no campaigns exist`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel()
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        viewModel.filterByQuery("dnd")
+        advanceUntilIdle()
+        viewModel.filterByQuery("")
+        advanceUntilIdle()
+
+        assertIs<CampaignListState.Body.Empty>(viewModel.state.value.body)
+    }
+
+    @Test
     fun `filterByQuery updates searchQuery in state`() = runTest(testDispatcher) {
         val viewModel = buildViewModel()
 

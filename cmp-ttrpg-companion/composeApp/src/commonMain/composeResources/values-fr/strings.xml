@@ -22,6 +22,9 @@
     <string name="label_campaign_name">Nom de la Campagne</string>
     <string name="label_campaign_rule_set">Système de Règles :</string>
     <string name="btn_create_campaign">Créer la Campagne</string>
+    <string name="btn_new_campaign">Nouvelle campagne</string>
+    <string name="btn_new_campaign_subtitle">Préparez votre prochaine aventure</string>
+    <string name="message_no_campaign_yet">Aucune campagne pour l'instant</string>
     <string name="error_empty_campaign_name">Le nom de la campagne doit être renseigné</string>
     <string name="error_undefined_rule_set">Le système de règles doit être renseigné</string>
     <string name="error_campaign_already_exists">Une Campagne avec le même nom existe déjà</string>

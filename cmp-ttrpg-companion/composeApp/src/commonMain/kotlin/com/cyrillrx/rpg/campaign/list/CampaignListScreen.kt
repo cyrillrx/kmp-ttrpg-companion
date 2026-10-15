@@ -11,8 +11,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material3.FloatingActionButton
-import androidx.compose.material3.Icon
+import androidx.compose.material.icons.outlined.Map
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -27,11 +26,14 @@ import com.cyrillrx.rpg.campaign.domain.Campaign
 import com.cyrillrx.rpg.campaign.domain.RuleSet
 import com.cyrillrx.rpg.campaign.list.viewmodel.CampaignListViewModel
 import com.cyrillrx.rpg.campaign.navigation.CampaignRouter
+import com.cyrillrx.rpg.core.presentation.component.ActionCard
 import com.cyrillrx.rpg.core.presentation.component.AppCard
 import com.cyrillrx.rpg.core.presentation.component.EmptySearch
+import com.cyrillrx.rpg.core.presentation.component.EmptyStateLayout
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.SearchBarWithBack
+import com.cyrillrx.rpg.core.presentation.component.accessibilityId
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
@@ -39,7 +41,10 @@ import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
+import rpg_companion.composeapp.generated.resources.btn_new_campaign
+import rpg_companion.composeapp.generated.resources.btn_new_campaign_subtitle
 import rpg_companion.composeapp.generated.resources.hint_search_campaign
+import rpg_companion.composeapp.generated.resources.message_no_campaign_yet
 
 @Composable
 fun CampaignListScreen(viewModel: CampaignListViewModel, router: CampaignRouter) {
@@ -75,28 +80,34 @@ fun CampaignListScreen(
                 onNavigateUpClicked = onNavigateUpClicked,
             )
         },
-        floatingActionButton = {
-            FloatingActionButton(
-                onClick = onCreateCampaignClicked,
-                containerColor = MaterialTheme.colorScheme.primaryContainer,
-            ) {
-                Icon(
-                    imageVector = Icons.Default.Add,
-                    tint = MaterialTheme.colorScheme.onPrimaryContainer,
-                    contentDescription = "Create campaign",
-                )
-            }
-        },
     ) { paddingValues ->
         Column(Modifier.padding(paddingValues).fillMaxSize()) {
-            when (val body = state.body) {
-                is CampaignListState.Body.Loading -> Loader()
-                is CampaignListState.Body.Empty -> EmptySearch(state.searchQuery)
-                is CampaignListState.Body.Error -> ErrorLayout(body.errorMessage)
-                is CampaignListState.Body.WithData -> CampaignItemList(
-                    campaigns = body.searchResults,
-                    onCampaignClicked = onCampaignClicked,
-                )
+            ActionCard(
+                icon = Icons.Filled.Add,
+                title = stringResource(Res.string.btn_new_campaign),
+                subtitle = stringResource(Res.string.btn_new_campaign_subtitle),
+                onClick = onCreateCampaignClicked,
+                filled = true,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(spacingMedium)
+                    .accessibilityId("btn_create_campaign"),
+            )
+
+            Column(modifier = Modifier.weight(1f).fillMaxWidth()) {
+                when (val body = state.body) {
+                    is CampaignListState.Body.Loading -> Loader()
+                    is CampaignListState.Body.Empty -> EmptyStateLayout(
+                        icon = Icons.Outlined.Map,
+                        message = stringResource(Res.string.message_no_campaign_yet),
+                    )
+                    is CampaignListState.Body.NoSearchResult -> EmptySearch(state.searchQuery)
+                    is CampaignListState.Body.Error -> ErrorLayout(body.errorMessage)
+                    is CampaignListState.Body.WithData -> CampaignItemList(
+                        campaigns = body.searchResults,
+                        onCampaignClicked = onCampaignClicked,
+                    )
+                }
             }
         }
     }
@@ -154,6 +165,11 @@ private val stateWithSampleData = CampaignListState(
     body = CampaignListState.Body.WithData(campaigns),
 )
 
+private val emptyState = CampaignListState(
+    searchQuery = "",
+    body = CampaignListState.Body.Empty,
+)
+
 @Preview
 @Composable
 private fun PreviewCampaignListScreenLight() {
@@ -167,5 +183,21 @@ private fun PreviewCampaignListScreenLight() {
 private fun PreviewCampaignListScreenDark() {
     AppThemePreview(darkTheme = true) {
         CampaignListScreen(stateWithSampleData, {}, {}, {}, {})
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewCampaignListScreenEmptyLight() {
+    AppThemePreview(darkTheme = false) {
+        CampaignListScreen(emptyState, {}, {}, {}, {})
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewCampaignListScreenEmptyDark() {
+    AppThemePreview(darkTheme = true) {
+        CampaignListScreen(emptyState, {}, {}, {}, {})
     }
 }

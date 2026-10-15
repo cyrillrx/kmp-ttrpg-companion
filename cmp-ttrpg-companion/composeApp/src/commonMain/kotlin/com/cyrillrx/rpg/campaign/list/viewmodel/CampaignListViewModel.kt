@@ -65,10 +65,10 @@ class CampaignListViewModel(
     private suspend fun fetchAndUpdateCampaigns(query: String) {
         val filter = CampaignFilter(query = query)
         val campaigns = repository.getAll(filter)
-        val body = if (campaigns.isEmpty()) {
-            CampaignListState.Body.Empty
-        } else {
-            CampaignListState.Body.WithData(campaigns)
+        val body = when {
+            campaigns.isNotEmpty() -> CampaignListState.Body.WithData(campaigns)
+            query.isBlank() -> CampaignListState.Body.Empty
+            else -> CampaignListState.Body.NoSearchResult
         }
         state.update { it.copy(body = body) }
     }
