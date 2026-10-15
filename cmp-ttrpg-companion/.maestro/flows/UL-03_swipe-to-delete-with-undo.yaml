@@ -7,7 +7,7 @@ appId: com.cyrillrx.rpg
 - tapOn:
     text: "Spells"
 - tapOn:
-    text: "Create"
+    id: "btn_create_collection"
 - tapOn:
     id: "input_collection_name"
 - inputText: "Collection to Delete"

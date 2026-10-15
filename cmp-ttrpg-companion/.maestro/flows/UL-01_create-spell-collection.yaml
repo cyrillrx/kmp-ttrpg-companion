@@ -9,7 +9,7 @@ appId: com.cyrillrx.rpg
 
 # Open the create-collection dialog
 - tapOn:
-    text: "Create"
+    id: "btn_create_collection"
 - tapOn:
     id: "input_collection_name"
 - inputText: "My Test Collection"

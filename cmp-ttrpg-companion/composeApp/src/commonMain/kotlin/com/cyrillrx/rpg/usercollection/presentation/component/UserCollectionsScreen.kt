@@ -11,8 +11,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material3.FloatingActionButton
-import androidx.compose.material3.Icon
+import androidx.compose.material.icons.outlined.CollectionsBookmark
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
@@ -32,12 +31,14 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.core.domain.StoredSortOrder
 import com.cyrillrx.rpg.core.presentation.OptimisticDeletions
+import com.cyrillrx.rpg.core.presentation.component.ActionCard
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.ScrollToTopOnChange
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
 import com.cyrillrx.rpg.core.presentation.component.StoredSortHeader
 import com.cyrillrx.rpg.core.presentation.component.SwipeToDelete
+import com.cyrillrx.rpg.core.presentation.component.accessibilityId
 import com.cyrillrx.rpg.core.presentation.component.dialog.CreateCollectionDialog
 import com.cyrillrx.rpg.core.presentation.component.rememberOptimisticDeleteHandler
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
@@ -53,8 +54,9 @@ import org.jetbrains.compose.resources.getString
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
-import rpg_companion.composeapp.generated.resources.btn_create_collection
-import rpg_companion.composeapp.generated.resources.no_result_found
+import rpg_companion.composeapp.generated.resources.btn_new_collection
+import rpg_companion.composeapp.generated.resources.btn_new_collection_subtitle
+import rpg_companion.composeapp.generated.resources.message_no_collection_yet
 import rpg_companion.composeapp.generated.resources.snackbar_collection_deleted
 import rpg_companion.composeapp.generated.resources.snackbar_error_creating_collection
 import rpg_companion.composeapp.generated.resources.snackbar_error_deleting_collection
@@ -139,33 +141,44 @@ fun UserCollectionsScreen(
                 onNavigateUpClicked = onNavigateUpClicked,
             )
         },
-        floatingActionButton = {
-            FloatingActionButton(onClick = { showCreateDialog = true }) {
-                Icon(
-                    Icons.Filled.Add,
-                    contentDescription = stringResource(Res.string.btn_create_collection),
-                )
-            }
-        },
         snackbarHost = { SnackbarHost(snackbarHostState) },
     ) { paddingValues ->
         Column(
             modifier = Modifier
                 .padding(paddingValues)
                 .fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            when (val body = state.body) {
-                is UserCollectionsState.Body.Loading -> Loader()
-                is UserCollectionsState.Body.Empty -> ErrorLayout(Res.string.no_result_found)
-                is UserCollectionsState.Body.Error -> ErrorLayout(body.errorMessage)
-                is UserCollectionsState.Body.WithData -> UserCollections(
-                    collections = body.collections,
-                    sortOrder = state.sortOrder,
-                    onSortOrderSelected = onSortOrderSelected,
-                    onCollectionClicked = onCollectionClicked,
-                    onDeleteCollection = onDeleteCollection,
-                )
+            ActionCard(
+                icon = Icons.Filled.Add,
+                title = stringResource(Res.string.btn_new_collection),
+                subtitle = stringResource(Res.string.btn_new_collection_subtitle),
+                onClick = { showCreateDialog = true },
+                filled = true,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(spacingMedium)
+                    .accessibilityId("btn_create_collection"),
+            )
+
+            Column(
+                modifier = Modifier.weight(1f).fillMaxWidth(),
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                when (val body = state.body) {
+                    is UserCollectionsState.Body.Loading -> Loader()
+                    is UserCollectionsState.Body.Empty -> EmptyCollectionLayout(
+                        icon = Icons.Outlined.CollectionsBookmark,
+                        message = stringResource(Res.string.message_no_collection_yet),
+                    )
+                    is UserCollectionsState.Body.Error -> ErrorLayout(body.errorMessage)
+                    is UserCollectionsState.Body.WithData -> UserCollections(
+                        collections = body.collections,
+                        sortOrder = state.sortOrder,
+                        onSortOrderSelected = onSortOrderSelected,
+                        onCollectionClicked = onCollectionClicked,
+                        onDeleteCollection = onDeleteCollection,
+                    )
+                }
             }
         }
     }
@@ -224,24 +237,34 @@ private fun UserCollections(
 @Preview
 @Composable
 private fun PreviewUserCollectionsScreenLight() {
-    UserCollectionsScreenPreview(false)
+    UserCollectionsScreenPreview(darkTheme = false, body = sampleBody())
 }
 
 @Preview
 @Composable
 private fun PreviewUserCollectionsScreenDark() {
-    UserCollectionsScreenPreview(true)
+    UserCollectionsScreenPreview(darkTheme = true, body = sampleBody())
 }
 
+@Preview
 @Composable
-private fun UserCollectionsScreenPreview(darkTheme: Boolean) {
+private fun PreviewUserCollectionsScreenEmptyLight() {
+    UserCollectionsScreenPreview(darkTheme = false, body = UserCollectionsState.Body.Empty)
+}
+
+@Preview
+@Composable
+private fun PreviewUserCollectionsScreenEmptyDark() {
+    UserCollectionsScreenPreview(darkTheme = true, body = UserCollectionsState.Body.Empty)
+}
+
+private fun sampleBody() = UserCollectionsState.Body.WithData(collections = SampleUserCollectionRepository.getAll())
+
+@Composable
+private fun UserCollectionsScreenPreview(darkTheme: Boolean, body: UserCollectionsState.Body) {
     AppThemePreview(darkTheme = darkTheme) {
         UserCollectionsScreen(
-            state = UserCollectionsState(
-                body = UserCollectionsState.Body.WithData(
-                    collections = SampleUserCollectionRepository.getAll(),
-                ),
-            ),
+            state = UserCollectionsState(body = body),
             title = stringResource(Res.string.title_spell_collections),
             events = MutableSharedFlow(),
             onNavigateUpClicked = {},
