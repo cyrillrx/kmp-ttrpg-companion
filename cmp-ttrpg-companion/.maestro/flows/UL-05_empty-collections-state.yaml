@@ -1,0 +1,12 @@
+appId: com.cyrillrx.rpg
+---
+- launchApp:
+    clearState: true
+
+# Navigate to My Collections
+- tapOn:
+    text: "Spells"
+
+# A first-time user sees the empty state, not an error
+- assertVisible:
+    text: "No collection yet"

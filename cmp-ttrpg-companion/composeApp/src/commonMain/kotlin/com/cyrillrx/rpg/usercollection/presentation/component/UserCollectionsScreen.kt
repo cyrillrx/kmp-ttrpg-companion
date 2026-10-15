@@ -38,6 +38,7 @@ import com.cyrillrx.rpg.core.presentation.component.ScrollToTopOnChange
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
 import com.cyrillrx.rpg.core.presentation.component.StoredSortHeader
 import com.cyrillrx.rpg.core.presentation.component.SwipeToDelete
+import com.cyrillrx.rpg.core.presentation.component.accessibilityId
 import com.cyrillrx.rpg.core.presentation.component.dialog.CreateCollectionDialog
 import com.cyrillrx.rpg.core.presentation.component.rememberOptimisticDeleteHandler
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
@@ -153,7 +154,10 @@ fun UserCollectionsScreen(
                 subtitle = stringResource(Res.string.btn_new_collection_subtitle),
                 onClick = { showCreateDialog = true },
                 filled = true,
-                modifier = Modifier.fillMaxWidth().padding(spacingMedium),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(spacingMedium)
+                    .accessibilityId("btn_create_collection"),
             )
 
             Column(

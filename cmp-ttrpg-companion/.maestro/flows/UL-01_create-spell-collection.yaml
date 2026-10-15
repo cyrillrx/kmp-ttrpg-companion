@@ -7,13 +7,9 @@ appId: com.cyrillrx.rpg
 - tapOn:
     text: "Spells"
 
-# A first-time user sees the empty state, not an error
-- assertVisible:
-    text: "No collection yet"
-
 # Open the create-collection dialog
 - tapOn:
-    text: "New Collection"
+    id: "btn_create_collection"
 - tapOn:
     id: "input_collection_name"
 - inputText: "My Test Collection"
