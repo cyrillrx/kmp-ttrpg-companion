@@ -53,12 +53,12 @@ import org.jetbrains.compose.resources.getString
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
+import rpg_companion.composeapp.generated.resources.btn_new_collection
+import rpg_companion.composeapp.generated.resources.btn_new_collection_subtitle
 import rpg_companion.composeapp.generated.resources.message_no_collection_yet
 import rpg_companion.composeapp.generated.resources.snackbar_collection_deleted
 import rpg_companion.composeapp.generated.resources.snackbar_error_creating_collection
 import rpg_companion.composeapp.generated.resources.snackbar_error_deleting_collection
-import rpg_companion.composeapp.generated.resources.title_create_collection
-import rpg_companion.composeapp.generated.resources.title_create_collection_subtitle
 import rpg_companion.composeapp.generated.resources.title_spell_collections
 
 @Composable
@@ -149,8 +149,8 @@ fun UserCollectionsScreen(
         ) {
             ActionCard(
                 icon = Icons.Filled.Add,
-                title = stringResource(Res.string.title_create_collection),
-                subtitle = stringResource(Res.string.title_create_collection_subtitle),
+                title = stringResource(Res.string.btn_new_collection),
+                subtitle = stringResource(Res.string.btn_new_collection_subtitle),
                 onClick = { showCreateDialog = true },
                 filled = true,
                 modifier = Modifier.fillMaxWidth().padding(spacingMedium),
