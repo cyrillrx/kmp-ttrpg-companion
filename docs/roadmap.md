@@ -120,3 +120,4 @@ For detailed feature specifications, see the [PRDs](prd/).
 > Ideas to qualify before they become phases.
 
 - [ ] Split the app into focused mini apps, each covering one subset (spells, items, creatures, characters)
+  - [ ] Qualify a standalone dice roller app - [PRD-006](prd/prd-006-dice.md), Open Questions
