@@ -32,6 +32,7 @@ import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.core.domain.StoredSortOrder
 import com.cyrillrx.rpg.core.presentation.OptimisticDeletions
 import com.cyrillrx.rpg.core.presentation.component.ActionCard
+import com.cyrillrx.rpg.core.presentation.component.EmptyStateLayout
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.ScrollToTopOnChange
@@ -166,7 +167,7 @@ fun UserCollectionsScreen(
             ) {
                 when (val body = state.body) {
                     is UserCollectionsState.Body.Loading -> Loader()
-                    is UserCollectionsState.Body.Empty -> EmptyCollectionLayout(
+                    is UserCollectionsState.Body.Empty -> EmptyStateLayout(
                         icon = Icons.Outlined.CollectionsBookmark,
                         message = stringResource(Res.string.message_no_collection_yet),
                     )
