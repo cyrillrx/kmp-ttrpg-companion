@@ -10,6 +10,10 @@ data class DiceTerm(val count: Int, val die: Die) {
 
 /** What to roll, such as `2d6 + 1d4 + 3`. */
 data class DiceExpression(val terms: List<DiceTerm>, val modifier: Int = 0) {
+    init {
+        require(terms.isNotEmpty()) { "Cannot roll an expression without dice" }
+    }
+
     operator fun plus(other: DiceExpression): DiceExpression =
         DiceExpression(terms + other.terms, modifier + other.modifier)
 

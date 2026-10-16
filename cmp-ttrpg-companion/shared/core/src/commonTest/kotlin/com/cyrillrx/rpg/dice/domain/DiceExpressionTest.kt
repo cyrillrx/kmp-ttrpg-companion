@@ -35,6 +35,11 @@ class DiceExpressionTest {
     }
 
     @Test
+    fun `an expression without dice is refused`() {
+        assertFailsWith<IllegalArgumentException> { DiceExpression(emptyList(), modifier = 3) }
+    }
+
+    @Test
     fun `rolling an expression rolls each die of each term and carries the modifier`() {
         val pool = (2.d6 + 1.d4 + 3).roll(FixedRandom(5, 2, 4))
 
