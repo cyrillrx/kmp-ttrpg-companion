@@ -40,7 +40,7 @@ import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.OverflowMenu
 import com.cyrillrx.rpg.core.presentation.component.ScrollToTopOnChange
-import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
+import com.cyrillrx.rpg.core.presentation.component.SearchBarWithBack
 import com.cyrillrx.rpg.core.presentation.component.StoredSortHeader
 import com.cyrillrx.rpg.core.presentation.component.SwipeToDelete
 import com.cyrillrx.rpg.core.presentation.component.rememberFilePicker
@@ -55,10 +55,10 @@ import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.btn_import
+import rpg_companion.composeapp.generated.resources.hint_search_character
 import rpg_companion.composeapp.generated.resources.message_no_character_yet
 import rpg_companion.composeapp.generated.resources.snackbar_character_deleted
 import rpg_companion.composeapp.generated.resources.snackbar_error_deleting_character
-import rpg_companion.composeapp.generated.resources.title_character_list
 
 @Composable
 fun CharacterListScreen(
@@ -83,6 +83,7 @@ fun CharacterListScreen(
         state = state,
         events = viewModel.events,
         onNavigateUpClicked = router::navigateUp,
+        onSearchQueryChanged = viewModel::filterByQuery,
         onCharacterClicked = router::openCharacterDetail,
         onCharacterImported = router::openImportedCharacter,
         onNewCharacterClicked = router::openCreateCharacter,
@@ -100,6 +101,7 @@ fun CharacterListScreen(
     state: CharacterListState,
     events: SharedFlow<CharacterListViewModel.Event>,
     onNavigateUpClicked: () -> Unit,
+    onSearchQueryChanged: (String) -> Unit,
     onCharacterClicked: (Character) -> Unit,
     onCharacterImported: (character: Character, adjustmentCount: Int) -> Unit,
     onNewCharacterClicked: () -> Unit,
@@ -148,8 +150,10 @@ fun CharacterListScreen(
 
     Scaffold(
         topBar = {
-            SimpleTopBar(
-                titleResource = Res.string.title_character_list,
+            SearchBarWithBack(
+                hint = stringResource(Res.string.hint_search_character),
+                query = state.searchQuery,
+                onQueryChanged = onSearchQueryChanged,
                 onNavigateUpClicked = onNavigateUpClicked,
                 actions = {
                     OverflowMenu { dismiss ->
@@ -264,14 +268,31 @@ private fun PreviewCharacterListScreenEmptyDark() {
     AppThemePreview(darkTheme = true) { CharacterListScreenPreview(CharacterListState.Body.Empty) }
 }
 
+@Preview
+@Composable
+private fun PreviewCharacterListScreenNoSearchResultLight() {
+    AppThemePreview(darkTheme = false) {
+        CharacterListScreenPreview(CharacterListState.Body.NoSearchResult, searchQuery = "Zorro")
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewCharacterListScreenNoSearchResultDark() {
+    AppThemePreview(darkTheme = true) {
+        CharacterListScreenPreview(CharacterListState.Body.NoSearchResult, searchQuery = "Zorro")
+    }
+}
+
 private fun sampleBody() = CharacterListState.Body.WithData(SampleCharacterRepository.getAll())
 
 @Composable
-private fun CharacterListScreenPreview(body: CharacterListState.Body) {
+private fun CharacterListScreenPreview(body: CharacterListState.Body, searchQuery: String = "") {
     CharacterListScreen(
-        state = CharacterListState(searchQuery = "", body = body),
+        state = CharacterListState(searchQuery = searchQuery, body = body),
         events = MutableSharedFlow(),
         onNavigateUpClicked = {},
+        onSearchQueryChanged = {},
         onCharacterClicked = {},
         onCharacterImported = { _, _ -> },
         onNewCharacterClicked = {},
