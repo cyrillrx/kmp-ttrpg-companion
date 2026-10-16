@@ -19,7 +19,8 @@ data class DiceExpression private constructor(private val countByDie: Map<Die, I
         .map { (die, count) -> DiceTerm(count, die) }
         .sortedByDescending { it.die.sides }
 
-    operator fun plus(other: DiceExpression): DiceExpression = invoke(terms + other.terms, modifier + other.modifier)
+    operator fun plus(other: DiceExpression): DiceExpression =
+        DiceExpression(terms + other.terms, modifier + other.modifier)
 
     operator fun plus(bonus: Int): DiceExpression = copy(modifier = modifier + bonus)
 
