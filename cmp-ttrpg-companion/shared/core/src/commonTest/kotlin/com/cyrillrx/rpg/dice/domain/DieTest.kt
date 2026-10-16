@@ -2,7 +2,6 @@ package com.cyrillrx.rpg.dice.domain
 
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertTrue
 
 class DieTest {
     @Test
@@ -11,14 +10,17 @@ class DieTest {
     }
 
     @Test
-    fun `every die rolls between one and its number of sides`() {
+    fun `every die can roll its highest face`() {
         Die.entries.forEach { die ->
-            val values = List(SAMPLE_SIZE) { die.roll().value }
-            assertTrue(values.all { it in 1..die.sides }, "$die rolled outside 1..${die.sides}")
+            assertEquals(die.sides, die.roll(FixedRandom(die.sides)).value)
         }
     }
 
-    private companion object {
-        const val SAMPLE_SIZE = 1_000
+    @Test
+    fun `every die can roll a one`() {
+        Die.entries.forEach { die ->
+            assertEquals(1, die.roll(FixedRandom(1)).value)
+        }
     }
+
 }
