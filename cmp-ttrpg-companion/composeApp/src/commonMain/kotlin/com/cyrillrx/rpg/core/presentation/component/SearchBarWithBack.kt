@@ -1,6 +1,7 @@
 package com.cyrillrx.rpg.core.presentation.component
 
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.widthIn
@@ -31,6 +32,7 @@ fun SearchBarWithBack(
     onNavigateUpClicked: () -> Unit,
     onFilterClicked: (() -> Unit)? = null,
     hasActiveFilters: Boolean = false,
+    actions: @Composable RowScope.() -> Unit = {},
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
@@ -66,6 +68,7 @@ fun SearchBarWithBack(
                 )
             }
         }
+        actions()
     }
 }
 
