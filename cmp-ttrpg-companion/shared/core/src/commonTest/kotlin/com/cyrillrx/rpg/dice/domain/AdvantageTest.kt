@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.dice.domain
 
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
 
 class AdvantageTest {
     @Test
@@ -24,5 +25,12 @@ class AdvantageTest {
 
         assertEquals(Die.D12, roll.die)
         assertEquals(9, roll.value)
+    }
+
+    @Test
+    fun `a double roll of two different dice fails`() {
+        assertFailsWith<IllegalArgumentException> {
+            DoubleRoll(kept = SimpleRoll(Die.D20, 15), discarded = SimpleRoll(Die.D6, 2))
+        }
     }
 }

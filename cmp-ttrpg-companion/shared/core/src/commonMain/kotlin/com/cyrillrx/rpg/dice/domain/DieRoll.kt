@@ -6,7 +6,15 @@ sealed interface DieRoll {
     val value: Int
 }
 
-data class SimpleRoll(override val die: Die, override val value: Int) : DieRoll
+data class SimpleRoll(override val die: Die, override val value: Int) : DieRoll {
+    init {
+        require(value in 1..die.sides) { "$die cannot roll $value" }
+    }
+}
 
 /** Two rolls of the same die, of which only [kept] counts. */
-data class DoubleRoll(val kept: SimpleRoll, val discarded: SimpleRoll) : DieRoll by kept
+data class DoubleRoll(val kept: SimpleRoll, val discarded: SimpleRoll) : DieRoll by kept {
+    init {
+        require(kept.die == discarded.die) { "Cannot keep a ${kept.die} over a ${discarded.die}" }
+    }
+}

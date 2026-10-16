@@ -2,6 +2,7 @@ package com.cyrillrx.rpg.dice.domain
 
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
 
 class DieTest {
     @Test
@@ -23,4 +24,9 @@ class DieTest {
         }
     }
 
+    @Test
+    fun `a roll outside the faces of its die fails`() {
+        assertFailsWith<IllegalArgumentException> { SimpleRoll(Die.D6, 7) }
+        assertFailsWith<IllegalArgumentException> { SimpleRoll(Die.D20, 0) }
+    }
 }
