@@ -20,7 +20,7 @@
     <!--  Campaign  -->
     <string name="title_create_campaign">Nouvelle campagne</string>
     <string name="label_campaign_name">Nom de la campagne</string>
-    <string name="label_campaign_rule_set">Système de Règles :</string>
+    <string name="label_campaign_rule_set">Système de règles :</string>
     <string name="btn_create_campaign">Créer la campagne</string>
     <string name="btn_new_campaign">Nouvelle campagne</string>
     <string name="btn_new_campaign_subtitle">Préparez votre prochaine aventure</string>
@@ -35,7 +35,7 @@
     <string name="ruleset_call_of_cthulhu_7e">L'appel de Cthulhu 7e</string>
     <string name="ruleset_vampire_the_masquerade_5e">Vampire : La Masquerade 5e</string>
     <string name="ruleset_other">Autre</string>
-    <string name="ruleset_undefined">Système de Règle non défini</string>
+    <string name="ruleset_undefined">Système de règles non défini</string>
 
     <string name="error_while_loading_campaign">Erreur lors du chargement des campagnes.</string>
     <string name="error_while_loading_characters">Erreur lors du chargement des Personnages Joueurs.</string>
