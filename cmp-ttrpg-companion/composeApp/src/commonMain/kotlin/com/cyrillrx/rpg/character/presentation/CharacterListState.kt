@@ -13,6 +13,7 @@ data class CharacterListState(
     sealed interface Body {
         data object Loading : Body
         data object Empty : Body
+        data object NoSearchResult : Body
         data class Error(val errorMessage: StringResource) : Body
         data class WithData(val searchResults: List<Stored<Character>>) : Body
     }

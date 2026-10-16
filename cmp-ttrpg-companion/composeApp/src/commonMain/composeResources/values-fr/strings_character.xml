@@ -12,6 +12,7 @@
     <string name="btn_new_character_subtitle">Assistant pas-à-pas</string>
     <string name="btn_quick_create">Création rapide</string>
     <string name="btn_quick_create_subtitle">Presets PJ &amp; PNJ</string>
+    <string name="message_no_character_yet">Aucun personnage pour l'instant</string>
 
     <!-- Character edit screen -->
     <string name="character_not_found">Personnage introuvable : %1$s</string>

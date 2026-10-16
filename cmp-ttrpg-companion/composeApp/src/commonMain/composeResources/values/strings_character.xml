@@ -12,6 +12,7 @@
     <string name="btn_new_character_subtitle">Step-by-step wizard</string>
     <string name="btn_quick_create">Quick Create</string>
     <string name="btn_quick_create_subtitle">PC &amp; NPC presets</string>
+    <string name="message_no_character_yet">No character yet</string>
 
     <!-- Character edit screen -->
     <string name="character_not_found">Character not found: %1$s</string>

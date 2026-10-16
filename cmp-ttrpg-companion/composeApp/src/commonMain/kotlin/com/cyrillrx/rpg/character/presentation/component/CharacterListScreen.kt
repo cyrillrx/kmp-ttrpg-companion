@@ -9,6 +9,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Person
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarDuration
@@ -33,6 +35,7 @@ import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.core.domain.StoredSortOrder
 import com.cyrillrx.rpg.core.presentation.OptimisticDeletions
 import com.cyrillrx.rpg.core.presentation.component.EmptySearch
+import com.cyrillrx.rpg.core.presentation.component.EmptyStateLayout
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.OverflowMenu
@@ -52,6 +55,7 @@ import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.btn_import
+import rpg_companion.composeapp.generated.resources.message_no_character_yet
 import rpg_companion.composeapp.generated.resources.snackbar_character_deleted
 import rpg_companion.composeapp.generated.resources.snackbar_error_deleting_character
 import rpg_companion.composeapp.generated.resources.title_character_list
@@ -177,8 +181,11 @@ fun CharacterListScreen(
             Column(modifier = Modifier.weight(1f).fillMaxWidth()) {
                 when (val body = state.body) {
                     is CharacterListState.Body.Loading -> Loader()
-                    // TODO(#304): show an empty state instead of a search miss when the query is blank
-                    is CharacterListState.Body.Empty -> EmptySearch(searchQuery = state.searchQuery)
+                    is CharacterListState.Body.Empty -> EmptyStateLayout(
+                        icon = Icons.Outlined.Person,
+                        message = stringResource(Res.string.message_no_character_yet),
+                    )
+                    is CharacterListState.Body.NoSearchResult -> EmptySearch(searchQuery = state.searchQuery)
                     is CharacterListState.Body.Error -> ErrorLayout(errorMessage = body.errorMessage)
                     is CharacterListState.Body.WithData ->
                         CharacterList(
@@ -236,23 +243,33 @@ private fun CharacterList(
 @Preview
 @Composable
 private fun PreviewCharacterListScreenLight() {
-    AppThemePreview(darkTheme = false) { CharacterListScreenPreview() }
+    AppThemePreview(darkTheme = false) { CharacterListScreenPreview(sampleBody()) }
 }
 
 @Preview
 @Composable
 private fun PreviewCharacterListScreenDark() {
-    AppThemePreview(darkTheme = true) { CharacterListScreenPreview() }
+    AppThemePreview(darkTheme = true) { CharacterListScreenPreview(sampleBody()) }
 }
 
+@Preview
 @Composable
-private fun CharacterListScreenPreview() {
+private fun PreviewCharacterListScreenEmptyLight() {
+    AppThemePreview(darkTheme = false) { CharacterListScreenPreview(CharacterListState.Body.Empty) }
+}
+
+@Preview
+@Composable
+private fun PreviewCharacterListScreenEmptyDark() {
+    AppThemePreview(darkTheme = true) { CharacterListScreenPreview(CharacterListState.Body.Empty) }
+}
+
+private fun sampleBody() = CharacterListState.Body.WithData(SampleCharacterRepository.getAll())
+
+@Composable
+private fun CharacterListScreenPreview(body: CharacterListState.Body) {
     CharacterListScreen(
-        state =
-            CharacterListState(
-                searchQuery = "",
-                body = CharacterListState.Body.WithData(SampleCharacterRepository.getAll()),
-            ),
+        state = CharacterListState(searchQuery = "", body = body),
         events = MutableSharedFlow(),
         onNavigateUpClicked = {},
         onCharacterClicked = {},

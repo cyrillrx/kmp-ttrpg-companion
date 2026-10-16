@@ -80,7 +80,14 @@ class CharacterListViewModel(
         state.update { current ->
             current.copy(
                 sortOrder = order,
-                body = if (current.body is CharacterListState.Body.WithData) sortedBody(order) else current.body,
+                body = if (current.body is CharacterListState.Body.WithData) {
+                    sortedBody(
+                        order,
+                        current.searchQuery,
+                    )
+                } else {
+                    current.body
+                },
             )
         }
         commitScope.launch {
@@ -206,21 +213,21 @@ class CharacterListViewModel(
      */
     private fun renderBodyIfLoaded() {
         val body = state.value.body
-        if (body !is CharacterListState.Body.WithData && body !is CharacterListState.Body.Empty) return
+        if (body is CharacterListState.Body.Loading || body is CharacterListState.Body.Error) return
 
         renderBody()
     }
 
     private fun renderBody() {
-        state.update { it.copy(body = sortedBody(it.sortOrder)) }
+        state.update { it.copy(body = sortedBody(it.sortOrder, it.searchQuery)) }
     }
 
-    private fun sortedBody(order: StoredSortOrder): CharacterListState.Body {
+    private fun sortedBody(order: StoredSortOrder, query: String): CharacterListState.Body {
         val visible = deletions.visible
-        return if (visible.isEmpty()) {
-            CharacterListState.Body.Empty
-        } else {
-            CharacterListState.Body.WithData(visible.applySort(order, locale))
+        return when {
+            visible.isNotEmpty() -> CharacterListState.Body.WithData(visible.applySort(order, locale))
+            query.isBlank() -> CharacterListState.Body.Empty
+            else -> CharacterListState.Body.NoSearchResult
         }
     }
 }

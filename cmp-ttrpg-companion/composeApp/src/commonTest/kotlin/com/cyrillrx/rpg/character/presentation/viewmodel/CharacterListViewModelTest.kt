@@ -115,6 +115,39 @@ class CharacterListViewModelTest {
     }
 
     @Test
+    fun `state is NoSearchResult when the query matches no character`() = runTest(testDispatcher) {
+        repository.save(SampleCharacterRepository.getAllValues().first())
+        val viewModel = buildViewModel()
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        viewModel.filterByQuery("zzz-no-such-character")
+        advanceUntilIdle()
+
+        assertIs<CharacterListState.Body.NoSearchResult>(viewModel.state.value.body)
+    }
+
+    @Test
+    fun `state is Empty again when the query is cleared and no characters exist`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel()
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        viewModel.filterByQuery("Borin")
+        advanceUntilIdle()
+        assertIs<CharacterListState.Body.NoSearchResult>(viewModel.state.value.body)
+
+        viewModel.filterByQuery("")
+        advanceUntilIdle()
+
+        assertIs<CharacterListState.Body.Empty>(viewModel.state.value.body)
+    }
+
+    @Test
     fun `silentRefresh updates state with fresh data without showing Loading`() = runTest(testDispatcher) {
         val character = SampleCharacterRepository.getAllValues().first()
         repository.save(character)
@@ -412,7 +445,7 @@ class CharacterListViewModelTest {
         gate.complete(Unit)
         advanceUntilIdle()
 
-        assertIs<CharacterListState.Body.Empty>(viewModel.state.value.body)
+        assertIs<CharacterListState.Body.NoSearchResult>(viewModel.state.value.body)
     }
 
     @Test
