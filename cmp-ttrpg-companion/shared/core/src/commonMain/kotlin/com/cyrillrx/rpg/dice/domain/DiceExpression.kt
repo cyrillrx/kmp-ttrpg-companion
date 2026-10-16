@@ -31,7 +31,6 @@ data class DiceExpression private constructor(private val countByDie: Map<Die, I
     }
 
     companion object {
-        /** Groups the terms by die, biggest die first, so that two expressions rolling the same dice are equal. */
         operator fun invoke(terms: List<DiceTerm>, modifier: Int = 0): DiceExpression {
             val countByDie = terms.groupingBy { it.die }.fold(0) { count, term -> count + term.count }
             return DiceExpression(countByDie, modifier)
