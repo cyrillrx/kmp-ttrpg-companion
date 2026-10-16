@@ -13,6 +13,7 @@ data class DiceTerm(val count: Int, val die: Die) {
 data class DiceExpression private constructor(val terms: List<DiceTerm>, val modifier: Int) {
     init {
         require(terms.isNotEmpty()) { "Cannot roll an expression without dice" }
+        require(terms == terms.groupedByDie()) { "Terms must be grouped by die, biggest first: $terms" }
     }
 
     operator fun plus(other: DiceExpression): DiceExpression = invoke(terms + other.terms, modifier + other.modifier)
