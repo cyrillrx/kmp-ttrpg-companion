@@ -125,7 +125,7 @@ private fun CampaignItemList(
         contentPadding = PaddingValues(spacingMedium),
         verticalArrangement = Arrangement.spacedBy(spacingSmall),
     ) {
-        items(campaigns) { campaign ->
+        items(campaigns, key = { it.id }) { campaign ->
             CampaignItem(
                 campaign = campaign,
                 onClick = { onCampaignClicked(campaign) },
