@@ -12,21 +12,21 @@ class RollPoolTest {
 
     @Test
     fun `an empty pool totals its modifier`() {
-        assertEquals(2, RollPool(modifier = 2).total)
+        assertEquals(2, RollPool(modifier = 2).total())
     }
 
     @Test
     fun `the total adds every roll and the modifier`() {
         val pool = RollPool().add(d20).add(d6).withModifier(-1)
 
-        assertEquals(16, pool.total)
+        assertEquals(16, pool.total())
     }
 
     @Test
     fun `only the kept roll of a double roll counts toward the total`() {
         val withAdvantage = DoubleRoll(kept = SimpleRoll(Die.D20, 18), discarded = SimpleRoll(Die.D20, 5))
 
-        assertEquals(21, RollPool().add(withAdvantage).add(d6).total)
+        assertEquals(21, RollPool().add(withAdvantage).add(d6).total())
     }
 
     @Test
@@ -43,11 +43,11 @@ class RollPoolTest {
 
     @Test
     fun `a pool with only a modifier is empty`() {
-        assertTrue(RollPool(modifier = 3).isEmpty)
+        assertTrue(RollPool(modifier = 3).isEmpty())
     }
 
     @Test
     fun `a pool with a roll is not empty`() {
-        assertFalse(RollPool().add(d6).isEmpty)
+        assertFalse(RollPool().add(d6).isEmpty())
     }
 }
