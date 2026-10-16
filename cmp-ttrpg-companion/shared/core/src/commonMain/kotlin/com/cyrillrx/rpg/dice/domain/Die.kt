@@ -1,5 +1,7 @@
 package com.cyrillrx.rpg.dice.domain
 
+import kotlin.random.Random
+
 enum class Die(val sides: Int) {
     D4(4),
     D6(6),
@@ -8,4 +10,7 @@ enum class Die(val sides: Int) {
     D12(12),
     D20(20),
     D100(100),
+    ;
+
+    fun roll(random: Random = Random.Default): SimpleRoll = SimpleRoll(this, random.nextInt(1, sides + 1))
 }

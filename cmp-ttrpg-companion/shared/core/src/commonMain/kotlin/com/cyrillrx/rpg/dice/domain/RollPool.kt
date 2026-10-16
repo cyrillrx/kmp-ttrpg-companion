@@ -1,9 +1,9 @@
 package com.cyrillrx.rpg.dice.domain
 
 data class RollPool(val rolls: List<DieRoll> = emptyList(), val modifier: Int = 0) {
-    val total: Int get() = rolls.sumOf { it.kept } + modifier
+    val total = rolls.sumOf { it.value } + modifier
 
-    val isEmpty: Boolean get() = rolls.isEmpty()
+    val isEmpty = rolls.isEmpty()
 
     fun add(roll: DieRoll): RollPool = copy(rolls = rolls + roll)
 
