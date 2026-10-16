@@ -1,7 +1,7 @@
 package com.cyrillrx.rpg.dice.domain
 
 /** A die and the value that counts toward a total. */
-interface DieRoll {
+sealed interface DieRoll {
     val die: Die
     val value: Int
 }
