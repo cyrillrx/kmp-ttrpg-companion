@@ -23,7 +23,7 @@ class CampaignListViewModel(
         field = MutableStateFlow(CampaignListState(searchQuery = "", body = CampaignListState.Body.Loading))
 
     init {
-        loadCampaigns(query = "")
+        activeJob = loadCampaigns(query = "")
     }
 
     fun filterByQuery(query: String) {
