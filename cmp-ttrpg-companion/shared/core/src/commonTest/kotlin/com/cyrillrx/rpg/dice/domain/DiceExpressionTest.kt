@@ -47,6 +47,11 @@ class DiceExpressionTest {
     }
 
     @Test
+    fun `a constant can come before the dice`() {
+        assertEquals(2.d6 + 5, 5 + 2.d6)
+    }
+
+    @Test
     fun `fewer than one die is refused`() {
         assertFailsWith<IllegalArgumentException> { 0.d6 }
     }

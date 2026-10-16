@@ -8,4 +8,6 @@ val Int.d12: DiceExpression get() = toDiceExpression(Die.D12)
 val Int.d20: DiceExpression get() = toDiceExpression(Die.D20)
 val Int.d100: DiceExpression get() = toDiceExpression(Die.D100)
 
+operator fun Int.plus(expression: DiceExpression): DiceExpression = expression + this
+
 private fun Int.toDiceExpression(die: Die): DiceExpression = DiceExpression(listOf(DiceTerm(this, die)))
