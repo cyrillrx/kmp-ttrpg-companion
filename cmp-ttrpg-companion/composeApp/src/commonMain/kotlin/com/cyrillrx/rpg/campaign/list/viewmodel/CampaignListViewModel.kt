@@ -18,12 +18,13 @@ class CampaignListViewModel(
     private val repository: CampaignRepository,
 ) : ViewModel() {
 
+    // TODO(#311): derive loads from a query flow instead of tracking the active job by hand
     private var activeJob: Job? = null
     val state: StateFlow<CampaignListState>
         field = MutableStateFlow(CampaignListState(searchQuery = "", body = CampaignListState.Body.Loading))
 
     init {
-        loadCampaigns(query = "")
+        activeJob = loadCampaigns(query = "")
     }
 
     fun filterByQuery(query: String) {
@@ -65,10 +66,10 @@ class CampaignListViewModel(
     private suspend fun fetchAndUpdateCampaigns(query: String) {
         val filter = CampaignFilter(query = query)
         val campaigns = repository.getAll(filter)
-        val body = if (campaigns.isEmpty()) {
-            CampaignListState.Body.Empty
-        } else {
-            CampaignListState.Body.WithData(campaigns)
+        val body = when {
+            campaigns.isNotEmpty() -> CampaignListState.Body.WithData(campaigns)
+            query.isBlank() -> CampaignListState.Body.Empty
+            else -> CampaignListState.Body.NoSearchResult
         }
         state.update { it.copy(body = body) }
     }

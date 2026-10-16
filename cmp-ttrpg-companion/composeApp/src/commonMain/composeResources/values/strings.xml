@@ -22,6 +22,9 @@
     <string name="label_campaign_name">Campaign name</string>
     <string name="label_campaign_rule_set">Rule Set:</string>
     <string name="btn_create_campaign">Create the Campaign</string>
+    <string name="btn_new_campaign">New Campaign</string>
+    <string name="btn_new_campaign_subtitle">Prepare your next adventure</string>
+    <string name="message_no_campaign_yet">No campaign yet</string>
     <string name="error_empty_campaign_name">The Campaign name must be filled</string>
     <string name="error_undefined_rule_set">The Rule Set must be filled</string>
     <string name="error_campaign_already_exists">A Campaign with the same name already exists</string>

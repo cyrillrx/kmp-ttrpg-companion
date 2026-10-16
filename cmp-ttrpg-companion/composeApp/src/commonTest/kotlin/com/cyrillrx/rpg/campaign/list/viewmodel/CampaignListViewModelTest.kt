@@ -5,6 +5,7 @@ import com.cyrillrx.rpg.campaign.domain.CampaignFilter
 import com.cyrillrx.rpg.campaign.domain.CampaignRepository
 import com.cyrillrx.rpg.campaign.domain.RuleSet
 import com.cyrillrx.rpg.campaign.list.CampaignListState
+import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
@@ -145,6 +146,57 @@ class CampaignListViewModelTest {
     }
 
     @Test
+    fun `state is NoSearchResult when the query matches no campaign`() = runTest(testDispatcher) {
+        repository.save(Campaign("1", "Campaign 1", RuleSet.DND5E))
+        val viewModel = buildViewModel()
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        viewModel.filterByQuery("pathfinder")
+        advanceUntilIdle()
+
+        assertIs<CampaignListState.Body.NoSearchResult>(viewModel.state.value.body)
+    }
+
+    @Test
+    fun `state is Empty again when the query is cleared and no campaigns exist`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel()
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        viewModel.filterByQuery("dnd")
+        advanceUntilIdle()
+        assertIs<CampaignListState.Body.NoSearchResult>(viewModel.state.value.body)
+
+        viewModel.filterByQuery("")
+        advanceUntilIdle()
+
+        assertIs<CampaignListState.Body.Empty>(viewModel.state.value.body)
+    }
+
+    @Test
+    fun `a search is not overwritten by the initial load returning after it`() = runTest(testDispatcher) {
+        val initialLoadGate = CompletableDeferred<Unit>()
+        val viewModel = buildViewModel(SlowUnfilteredCampaignRepository(initialLoadGate))
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+        viewModel.filterByQuery("xyz")
+        advanceUntilIdle()
+        initialLoadGate.complete(Unit)
+        advanceUntilIdle()
+
+        assertIs<CampaignListState.Body.NoSearchResult>(viewModel.state.value.body)
+    }
+
+    @Test
     fun `filterByQuery updates searchQuery in state`() = runTest(testDispatcher) {
         val viewModel = buildViewModel()
 
@@ -192,6 +244,18 @@ private class FailsOnSecondCallCampaignRepository : CampaignRepository {
     override suspend fun getAll(filter: CampaignFilter?): List<Campaign> {
         if (callCount++ == 0) return emptyList()
         error("Repository error")
+    }
+
+    override suspend fun get(id: String): Campaign? = null
+    override suspend fun save(campaign: Campaign) = Unit
+    override suspend fun delete(id: String) = Unit
+}
+
+private class SlowUnfilteredCampaignRepository(private val gate: CompletableDeferred<Unit>) : CampaignRepository {
+    override suspend fun getAll(filter: CampaignFilter?): List<Campaign> {
+        if (!filter?.query.isNullOrBlank()) return emptyList()
+        gate.await()
+        return listOf(Campaign("1", "Campaign 1", RuleSet.DND5E))
     }
 
     override suspend fun get(id: String): Campaign? = null
