@@ -10,11 +10,14 @@ data class DiceTerm(val count: Int, val die: Die) {
 
 /** What to roll, such as `1d20 + 3d6 + 1d4 + 3`. */
 @ConsistentCopyVisibility
-data class DiceExpression private constructor(val terms: List<DiceTerm>, val modifier: Int) {
+data class DiceExpression private constructor(private val countByDie: Map<Die, Int>, val modifier: Int) {
     init {
-        require(terms.isNotEmpty()) { "Cannot roll an expression without dice" }
-        require(terms == terms.groupedByDie()) { "Terms must be grouped by die, biggest first: $terms" }
+        require(countByDie.isNotEmpty()) { "Cannot roll an expression without dice" }
     }
+
+    val terms: List<DiceTerm> = countByDie
+        .map { (die, count) -> DiceTerm(count, die) }
+        .sortedByDescending { it.die.sides }
 
     operator fun plus(other: DiceExpression): DiceExpression = invoke(terms + other.terms, modifier + other.modifier)
 
@@ -29,11 +32,9 @@ data class DiceExpression private constructor(val terms: List<DiceTerm>, val mod
 
     companion object {
         /** Groups the terms by die, biggest die first, so that two expressions rolling the same dice are equal. */
-        operator fun invoke(terms: List<DiceTerm>, modifier: Int = 0): DiceExpression =
-            DiceExpression(terms.groupedByDie(), modifier)
-
-        private fun List<DiceTerm>.groupedByDie(): List<DiceTerm> = groupBy { it.die }
-            .map { (die, terms) -> DiceTerm(terms.sumOf { it.count }, die) }
-            .sortedByDescending { it.die.sides }
+        operator fun invoke(terms: List<DiceTerm>, modifier: Int = 0): DiceExpression {
+            val countByDie = terms.groupingBy { it.die }.fold(0) { count, term -> count + term.count }
+            return DiceExpression(countByDie, modifier)
+        }
     }
 }
