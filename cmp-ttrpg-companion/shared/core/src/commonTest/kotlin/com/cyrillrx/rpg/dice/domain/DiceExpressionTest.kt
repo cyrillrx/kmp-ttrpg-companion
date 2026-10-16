@@ -18,10 +18,27 @@ class DiceExpressionTest {
     }
 
     @Test
-    fun `adding expressions keeps each term in order and sums the modifiers`() {
-        val expression = (2.d6 + 1) + (1.d4 + 2)
+    fun `adding expressions sums the modifiers`() {
+        assertEquals(3, ((2.d6 + 1) + (1.d4 + 2)).modifier)
+    }
 
-        assertEquals(DiceExpression(listOf(DiceTerm(2, Die.D6), DiceTerm(1, Die.D4)), modifier = 3), expression)
+    @Test
+    fun `dice of the same type are grouped into one term`() {
+        assertEquals(3.d6, 2.d6 + 1.d6)
+    }
+
+    @Test
+    fun `terms are ordered from the biggest die to the smallest`() {
+        val expression = 1.d4 + 3.d6 + 1.d20
+
+        assertEquals(listOf(DiceTerm(1, Die.D20), DiceTerm(3, Die.D6), DiceTerm(1, Die.D4)), expression.terms)
+    }
+
+    @Test
+    fun `building an expression from terms groups and orders them too`() {
+        val terms = listOf(DiceTerm(1, Die.D6), DiceTerm(1, Die.D20), DiceTerm(2, Die.D6))
+
+        assertEquals(1.d20 + 3.d6, DiceExpression(terms))
     }
 
     @Test
