@@ -169,6 +169,8 @@ class CampaignListViewModelTest {
 
         viewModel.filterByQuery("dnd")
         advanceUntilIdle()
+        assertIs<CampaignListState.Body.NoSearchResult>(viewModel.state.value.body)
+
         viewModel.filterByQuery("")
         advanceUntilIdle()
 
