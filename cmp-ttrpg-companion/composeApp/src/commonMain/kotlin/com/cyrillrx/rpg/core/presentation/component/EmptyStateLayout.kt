@@ -16,8 +16,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
+import com.cyrillrx.rpg.core.presentation.theme.disabledContentAlpha
+import com.cyrillrx.rpg.core.presentation.theme.emptyStateIconSize
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
@@ -36,8 +37,8 @@ fun EmptyStateLayout(
         Icon(
             imageVector = icon,
             contentDescription = null,
-            modifier = Modifier.size(72.dp),
-            tint = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f),
+            modifier = Modifier.size(emptyStateIconSize),
+            tint = MaterialTheme.colorScheme.onSurface.copy(alpha = disabledContentAlpha),
         )
         Text(
             text = message,
