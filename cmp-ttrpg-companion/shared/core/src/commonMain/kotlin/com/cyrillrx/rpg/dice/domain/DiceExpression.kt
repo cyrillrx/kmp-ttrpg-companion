@@ -8,14 +8,14 @@ data class DiceTerm(val count: Int, val die: Die) {
     }
 }
 
-/** What to roll, such as `2d6 + 1d4 + 3`; rolling it gives a [RollPool]. */
+/** What to roll, such as `2d6 + 1d4 + 3`. */
 data class DiceExpression(val terms: List<DiceTerm>, val modifier: Int = 0) {
     operator fun plus(other: DiceExpression): DiceExpression =
         DiceExpression(terms + other.terms, modifier + other.modifier)
 
-    operator fun plus(modifier: Int): DiceExpression = copy(modifier = this.modifier + modifier)
+    operator fun plus(bonus: Int): DiceExpression = copy(modifier = modifier + bonus)
 
-    operator fun minus(modifier: Int): DiceExpression = plus(-modifier)
+    operator fun minus(penalty: Int): DiceExpression = plus(-penalty)
 
     fun roll(random: Random = Random.Default): RollPool {
         val rolls = terms.flatMap { term -> List(term.count) { term.die.roll(random) } }
