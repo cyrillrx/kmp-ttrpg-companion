@@ -8,6 +8,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 
+// TODO(#310): reject keys rememberSaveable cannot save
+
 /**
  * A bare `LaunchedEffect(key)` also runs when the list re-enters composition, e.g. on back navigation,
  * and would reset the scroll position the back stack just restored. Remembering the last [key] across

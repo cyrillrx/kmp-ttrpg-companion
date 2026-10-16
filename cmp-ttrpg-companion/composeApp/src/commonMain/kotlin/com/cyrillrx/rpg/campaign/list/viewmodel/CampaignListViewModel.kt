@@ -18,6 +18,7 @@ class CampaignListViewModel(
     private val repository: CampaignRepository,
 ) : ViewModel() {
 
+    // TODO(#311): derive loads from a query flow instead of tracking the active job by hand
     private var activeJob: Job? = null
     val state: StateFlow<CampaignListState>
         field = MutableStateFlow(CampaignListState(searchQuery = "", body = CampaignListState.Body.Loading))
