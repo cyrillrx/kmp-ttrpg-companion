@@ -1,6 +1,6 @@
 # PRD-006 — Virtual Dice
 
-> **Status**: Draft | **Version**: 0.2 | **Last updated**: 2026-10-15
+> **Status**: Draft | **Version**: 0.3 | **Last updated**: 2026-10-16
 
 ## Overview
 
@@ -75,13 +75,13 @@ A `d100` is a single roll from 1 to 100, not a pair of percentile `d10`.
 - Roll result must appear in under 100ms after tap.
 - History must support at least 500 entries without degrading scroll performance.
 - Results come from the platform's default PRNG (`kotlin.random.Random`); the source is injectable so tests can fix the outcome.
-- The roll model lives in `shared/core` and does not assume a total is the sum of every die: a selection step between rolling and totalling carries advantage and disadvantage today, and roll-and-keep later. Combat actions and monster hit dice (`2d8+4`) can then reuse it.
+- The roll model lives in `shared/core`, so combat actions and monster hit dice (`2d8+4`) can reuse it. A roll gives a die and a value, nothing more; advantage and disadvantage read two rolls and keep one. Later rules that interpret a set of rolls are separate objects that read the rolls without altering them.
 - The feature depends on no other feature's navigation, so it can later ship on its own (see Open Questions).
 
 ## Out of Scope
 
 - Custom dice notation input (e.g. typing `3d8+5`) — may be added in a future iteration.
-- Roll-and-keep with a keep threshold, as used by 7th Sea 3rd edition — a future iteration, which the selection step in the model is meant to accommodate.
+- Rules that interpret a set of rolls, such as roll-and-keep with a keep threshold (7th Sea 3rd edition) or counting only the 6s and the 1s on d6 (Free League games) — a future iteration, built on top of plain rolls.
 - Dice with custom face labels (e.g. Fate/Fudge dice) — may be added when supporting other game systems.
 - Sharing roll results with other players in real time.
 - 3D dice animation.
