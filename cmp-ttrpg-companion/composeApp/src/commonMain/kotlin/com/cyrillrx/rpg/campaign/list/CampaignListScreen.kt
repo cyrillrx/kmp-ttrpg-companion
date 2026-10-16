@@ -16,7 +16,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.Lifecycle
@@ -32,6 +31,7 @@ import com.cyrillrx.rpg.core.presentation.component.EmptySearch
 import com.cyrillrx.rpg.core.presentation.component.EmptyStateLayout
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
+import com.cyrillrx.rpg.core.presentation.component.ScrollToTopOnChange
 import com.cyrillrx.rpg.core.presentation.component.SearchBarWithBack
 import com.cyrillrx.rpg.core.presentation.component.accessibilityId
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
@@ -119,9 +119,7 @@ private fun CampaignItemList(
     onCampaignClicked: (Campaign) -> Unit,
 ) {
     val searchResultsListState = rememberLazyListState()
-    LaunchedEffect(campaigns) {
-        searchResultsListState.animateScrollToItem(0)
-    }
+    ScrollToTopOnChange(key = campaigns, listState = searchResultsListState)
 
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
