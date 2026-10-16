@@ -212,10 +212,13 @@ class CharacterListViewModel(
      * first and relies on its own fetch to render over it.
      */
     private fun renderBodyIfLoaded() {
-        val body = state.value.body
-        if (body is CharacterListState.Body.Loading || body is CharacterListState.Body.Error) return
-
-        renderBody()
+        when (state.value.body) {
+            is CharacterListState.Body.Loading, is CharacterListState.Body.Error -> return
+            is CharacterListState.Body.Empty,
+            is CharacterListState.Body.NoSearchResult,
+            is CharacterListState.Body.WithData,
+            -> renderBody()
+        }
     }
 
     private fun renderBody() {
