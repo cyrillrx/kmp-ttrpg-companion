@@ -4,6 +4,7 @@ import kotlin.random.Random
 
 data class DiceTerm(val count: Int, val die: Die) {
     init {
+        // TODO(#315): bound the dice count
         require(count >= 1) { "Cannot roll $count $die" }
     }
 }
