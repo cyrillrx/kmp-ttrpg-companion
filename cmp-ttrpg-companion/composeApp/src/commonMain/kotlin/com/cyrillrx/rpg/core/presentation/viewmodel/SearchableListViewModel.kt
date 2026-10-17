@@ -40,7 +40,7 @@ abstract class SearchableListViewModel<State : Any, Body : Any>(
 
     /** Reloads with the current filter, keeping what is shown if the read fails. Skipped while a load is pending. */
     fun silentRefresh() {
-        if (mutableState.value.body() == loadingBody()) return
+        if (updateJob?.isActive == true) return
 
         refresh(silent = true)
     }

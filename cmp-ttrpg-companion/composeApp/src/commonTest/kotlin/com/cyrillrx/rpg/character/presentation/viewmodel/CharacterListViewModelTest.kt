@@ -230,6 +230,29 @@ class CharacterListViewModelTest {
     }
 
     @Test
+    fun `a silent refresh during a pending search does not cancel it`() = runTest(testDispatcher) {
+        repository.save(SampleCharacterRepository.getAllValues().first())
+        val viewModel = buildViewModel()
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+        var scrollsToTop = 0
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.scrollToTopEvents.collect { scrollsToTop++ }
+        }
+
+        viewModel.filterByQuery("zzz-no-such-character")
+        viewModel.silentRefresh()
+        advanceUntilIdle()
+
+        assertEquals(expected = 1, actual = scrollsToTop)
+        assertIs<CharacterListState.Body.NoSearchResult>(viewModel.state.value.body)
+    }
+
+    @Test
     fun `filterByQuery updates searchQuery in state`() = runTest(testDispatcher) {
         val viewModel = buildViewModel()
 
