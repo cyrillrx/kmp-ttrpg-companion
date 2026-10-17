@@ -21,8 +21,10 @@ class OptimisticDeletions<Item>(private val identity: (Item) -> Any) {
     private val claimed = mutableListOf<Pending<Item>>()
     private var loaded: List<Item> = emptyList()
 
-    /** Deleted since the last [setLoaded]: a read that started before the delete would still hold them. */
-    private val deletedSinceLoad = mutableSetOf<Any>()
+    private var settleCount = 0L
+
+    /** Each deleted id with the [settleCount] it was deleted at, so a read can tell what was deleted while it ran. */
+    private val deletedAt = mutableMapOf<Any, Long>()
 
     /**
      * Recomputed on every read: read it inside a state update lambda, so a replayed update still renders
@@ -41,9 +43,17 @@ class OptimisticDeletions<Item>(private val identity: (Item) -> Any) {
         return ids
     }
 
-    fun setLoaded(items: List<Item>) {
-        loaded = items.filterNot { identity(it) in deletedSinceLoad }
-        deletedSinceLoad.clear()
+    /** Taken before a read and handed to [setLoaded], so the rows deleted while the read ran stay out. */
+    fun readStamp(): Long = settleCount
+
+    fun setLoaded(items: List<Item>, readStamp: Long? = null) {
+        if (readStamp == null) {
+            loaded = items
+            return
+        }
+
+        loaded = items.filterNot { (deletedAt[identity(it)] ?: return@filterNot false) > readStamp }
+        deletedAt.values.removeAll { it <= readStamp }
     }
 
     /** Null when [item] is not on screen, so a row the caller read from a stale list cannot be hidden. */
@@ -76,6 +86,6 @@ class OptimisticDeletions<Item>(private val identity: (Item) -> Any) {
 
         val deletedId = identity(pending.item)
         loaded = loaded.filterNot { identity(it) == deletedId }
-        deletedSinceLoad.add(deletedId)
+        deletedAt[deletedId] = ++settleCount
     }
 }

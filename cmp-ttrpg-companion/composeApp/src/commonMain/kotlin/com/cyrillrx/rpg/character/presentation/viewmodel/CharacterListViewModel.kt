@@ -194,7 +194,8 @@ class CharacterListViewModel(
 
     override suspend fun loadContent(): CharacterListState.Body {
         val query = state.value.searchQuery
-        deletions.setLoaded(repository.getAll(CharacterFilter(query = query)))
+        val readStamp = deletions.readStamp()
+        deletions.setLoaded(repository.getAll(CharacterFilter(query = query)), readStamp)
         loadedQuery = query
         return sortedBody(state.value.sortOrder)
     }
