@@ -28,6 +28,7 @@ data class DiceExpression private constructor(private val countByDie: Map<Die, I
 
     constructor(terms: List<DiceTerm>, modifier: Int = 0) : this(terms.countByDieBiggestFirst(), modifier)
 
+    // TODO(#320): combine without throwing past MAX_DICE_COUNT or MAX_MODIFIER
     operator fun plus(other: DiceExpression): DiceExpression =
         DiceExpression(terms + other.terms, modifier + other.modifier)
 
