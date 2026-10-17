@@ -9,6 +9,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Person
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarDuration
@@ -33,28 +35,33 @@ import com.cyrillrx.rpg.core.domain.Stored
 import com.cyrillrx.rpg.core.domain.StoredSortOrder
 import com.cyrillrx.rpg.core.presentation.OptimisticDeletions
 import com.cyrillrx.rpg.core.presentation.component.EmptySearch
+import com.cyrillrx.rpg.core.presentation.component.EmptyStateLayout
 import com.cyrillrx.rpg.core.presentation.component.ErrorLayout
 import com.cyrillrx.rpg.core.presentation.component.Loader
 import com.cyrillrx.rpg.core.presentation.component.OverflowMenu
 import com.cyrillrx.rpg.core.presentation.component.ScrollToTopOnChange
-import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
+import com.cyrillrx.rpg.core.presentation.component.ScrollToTopOnEvent
+import com.cyrillrx.rpg.core.presentation.component.SearchBarWithBack
 import com.cyrillrx.rpg.core.presentation.component.StoredSortHeader
 import com.cyrillrx.rpg.core.presentation.component.SwipeToDelete
 import com.cyrillrx.rpg.core.presentation.component.rememberFilePicker
 import com.cyrillrx.rpg.core.presentation.component.rememberOptimisticDeleteHandler
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.getString
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.btn_import
+import rpg_companion.composeapp.generated.resources.hint_search_character
+import rpg_companion.composeapp.generated.resources.message_no_character_yet
 import rpg_companion.composeapp.generated.resources.snackbar_character_deleted
 import rpg_companion.composeapp.generated.resources.snackbar_error_deleting_character
-import rpg_companion.composeapp.generated.resources.title_character_list
 
 @Composable
 fun CharacterListScreen(
@@ -79,6 +86,7 @@ fun CharacterListScreen(
         state = state,
         events = viewModel.events,
         onNavigateUpClicked = router::navigateUp,
+        onSearchQueryChanged = viewModel::filterByQuery,
         onCharacterClicked = router::openCharacterDetail,
         onCharacterImported = router::openImportedCharacter,
         onNewCharacterClicked = router::openCreateCharacter,
@@ -88,6 +96,7 @@ fun CharacterListScreen(
         onDeleteCharacterOptimistically = viewModel::deleteCharacterOptimistically,
         onUndoDeletion = viewModel::undoDeletion,
         onCommitDeletion = viewModel::commitDeletion,
+        scrollToTopEvents = viewModel.scrollToTopEvents,
     )
 }
 
@@ -96,6 +105,7 @@ fun CharacterListScreen(
     state: CharacterListState,
     events: SharedFlow<CharacterListViewModel.Event>,
     onNavigateUpClicked: () -> Unit,
+    onSearchQueryChanged: (String) -> Unit,
     onCharacterClicked: (Character) -> Unit,
     onCharacterImported: (character: Character, adjustmentCount: Int) -> Unit,
     onNewCharacterClicked: () -> Unit,
@@ -105,6 +115,7 @@ fun CharacterListScreen(
     onDeleteCharacterOptimistically: (Stored<Character>) -> OptimisticDeletions.Pending<Stored<Character>>?,
     onUndoDeletion: (OptimisticDeletions.Pending<Stored<Character>>) -> Unit,
     onCommitDeletion: (OptimisticDeletions.Pending<Stored<Character>>) -> Unit,
+    scrollToTopEvents: Flow<Unit> = emptyFlow(),
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
 
@@ -144,8 +155,10 @@ fun CharacterListScreen(
 
     Scaffold(
         topBar = {
-            SimpleTopBar(
-                titleResource = Res.string.title_character_list,
+            SearchBarWithBack(
+                hint = stringResource(Res.string.hint_search_character),
+                query = state.searchQuery,
+                onQueryChanged = onSearchQueryChanged,
                 onNavigateUpClicked = onNavigateUpClicked,
                 actions = {
                     OverflowMenu { dismiss ->
@@ -177,8 +190,11 @@ fun CharacterListScreen(
             Column(modifier = Modifier.weight(1f).fillMaxWidth()) {
                 when (val body = state.body) {
                     is CharacterListState.Body.Loading -> Loader()
-                    // TODO(#304): show an empty state instead of a search miss when the query is blank
-                    is CharacterListState.Body.Empty -> EmptySearch(searchQuery = state.searchQuery)
+                    is CharacterListState.Body.Empty -> EmptyStateLayout(
+                        icon = Icons.Outlined.Person,
+                        message = stringResource(Res.string.message_no_character_yet),
+                    )
+                    is CharacterListState.Body.NoSearchResult -> EmptySearch(searchQuery = body.query)
                     is CharacterListState.Body.Error -> ErrorLayout(errorMessage = body.errorMessage)
                     is CharacterListState.Body.WithData ->
                         CharacterList(
@@ -187,6 +203,7 @@ fun CharacterListScreen(
                             onSortOrderSelected = onSortOrderSelected,
                             onCharacterClicked = onCharacterClicked,
                             onDeleteCharacter = onDeleteCharacter,
+                            scrollToTopEvents = scrollToTopEvents,
                         )
                 }
             }
@@ -201,11 +218,13 @@ private fun CharacterList(
     onSortOrderSelected: (StoredSortOrder) -> Unit,
     onCharacterClicked: (Character) -> Unit,
     onDeleteCharacter: (Stored<Character>) -> Unit,
+    scrollToTopEvents: Flow<Unit>,
     modifier: Modifier = Modifier,
 ) {
     val listState = rememberLazyListState()
 
     ScrollToTopOnChange(key = sortOrder, listState = listState)
+    ScrollToTopOnEvent(events = scrollToTopEvents, listState = listState)
 
     LazyColumn(
         state = listState,
@@ -236,25 +255,52 @@ private fun CharacterList(
 @Preview
 @Composable
 private fun PreviewCharacterListScreenLight() {
-    AppThemePreview(darkTheme = false) { CharacterListScreenPreview() }
+    AppThemePreview(darkTheme = false) { CharacterListScreenPreview(sampleBody()) }
 }
 
 @Preview
 @Composable
 private fun PreviewCharacterListScreenDark() {
-    AppThemePreview(darkTheme = true) { CharacterListScreenPreview() }
+    AppThemePreview(darkTheme = true) { CharacterListScreenPreview(sampleBody()) }
 }
 
+@Preview
 @Composable
-private fun CharacterListScreenPreview() {
+private fun PreviewCharacterListScreenEmptyLight() {
+    AppThemePreview(darkTheme = false) { CharacterListScreenPreview(CharacterListState.Body.Empty) }
+}
+
+@Preview
+@Composable
+private fun PreviewCharacterListScreenEmptyDark() {
+    AppThemePreview(darkTheme = true) { CharacterListScreenPreview(CharacterListState.Body.Empty) }
+}
+
+@Preview
+@Composable
+private fun PreviewCharacterListScreenNoSearchResultLight() {
+    AppThemePreview(darkTheme = false) {
+        CharacterListScreenPreview(CharacterListState.Body.NoSearchResult("Zorro"), searchQuery = "Zorro")
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewCharacterListScreenNoSearchResultDark() {
+    AppThemePreview(darkTheme = true) {
+        CharacterListScreenPreview(CharacterListState.Body.NoSearchResult("Zorro"), searchQuery = "Zorro")
+    }
+}
+
+private fun sampleBody() = CharacterListState.Body.WithData(SampleCharacterRepository.getAll())
+
+@Composable
+private fun CharacterListScreenPreview(body: CharacterListState.Body, searchQuery: String = "") {
     CharacterListScreen(
-        state =
-            CharacterListState(
-                searchQuery = "",
-                body = CharacterListState.Body.WithData(SampleCharacterRepository.getAll()),
-            ),
+        state = CharacterListState(searchQuery = searchQuery, body = body),
         events = MutableSharedFlow(),
         onNavigateUpClicked = {},
+        onSearchQueryChanged = {},
         onCharacterClicked = {},
         onCharacterImported = { _, _ -> },
         onNewCharacterClicked = {},

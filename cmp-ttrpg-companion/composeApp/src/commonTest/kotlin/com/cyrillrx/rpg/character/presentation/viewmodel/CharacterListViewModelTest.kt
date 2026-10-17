@@ -26,6 +26,7 @@ import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.resetMain
+import kotlinx.coroutines.test.runCurrent
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
 import kotlinx.datetime.TimeZone
@@ -115,6 +116,40 @@ class CharacterListViewModelTest {
     }
 
     @Test
+    fun `state is NoSearchResult when the query matches no character`() = runTest(testDispatcher) {
+        repository.save(SampleCharacterRepository.getAllValues().first())
+        val viewModel = buildViewModel()
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        viewModel.filterByQuery("zzz-no-such-character")
+        advanceUntilIdle()
+
+        val body = assertIs<CharacterListState.Body.NoSearchResult>(viewModel.state.value.body)
+        assertEquals(expected = "zzz-no-such-character", actual = body.query)
+    }
+
+    @Test
+    fun `state is Empty again when the query is cleared and no characters exist`() = runTest(testDispatcher) {
+        val viewModel = buildViewModel()
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        viewModel.filterByQuery("Borin")
+        advanceUntilIdle()
+        assertIs<CharacterListState.Body.NoSearchResult>(viewModel.state.value.body)
+
+        viewModel.filterByQuery("")
+        advanceUntilIdle()
+
+        assertIs<CharacterListState.Body.Empty>(viewModel.state.value.body)
+    }
+
+    @Test
     fun `silentRefresh updates state with fresh data without showing Loading`() = runTest(testDispatcher) {
         val character = SampleCharacterRepository.getAllValues().first()
         repository.save(character)
@@ -145,13 +180,18 @@ class CharacterListViewModelTest {
 
     @Test
     fun `silentRefresh does nothing when state is already Loading`() = runTest(testDispatcher) {
-        val viewModel = buildViewModel()
+        val loadGate = CompletableDeferred<Unit>()
+        val repository = ScrambledCharacterRepository().apply { gate = loadGate }
+        val viewModel = buildViewModel(repository)
+        runCurrent()
 
         assertIs<CharacterListState.Body.Loading>(viewModel.state.value.body)
 
         viewModel.silentRefresh()
+        loadGate.complete(Unit)
+        advanceUntilIdle()
 
-        assertIs<CharacterListState.Body.Loading>(viewModel.state.value.body)
+        assertEquals(expected = 1, actual = repository.reads)
     }
 
     @Test
@@ -170,6 +210,145 @@ class CharacterListViewModelTest {
         advanceUntilIdle()
 
         assertIs<CharacterListState.Body.Empty>(viewModel.state.value.body)
+    }
+
+    @Test
+    fun `quick successive queries read the repository once after the debounce`() = runTest(testDispatcher) {
+        val repository = ScrambledCharacterRepository()
+        val viewModel = buildViewModel(repository)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+        val readsAfterLoad = repository.reads
+
+        viewModel.filterByQuery("M")
+        viewModel.filterByQuery("Mi")
+        viewModel.filterByQuery("Mid")
+
+        assertEquals(expected = "Mid", actual = viewModel.state.value.searchQuery)
+        assertIs<CharacterListState.Body.WithData>(viewModel.state.value.body)
+
+        advanceUntilIdle()
+
+        assertEquals(expected = readsAfterLoad + 1, actual = repository.reads)
+    }
+
+    @Test
+    fun `a silent refresh during a pending search does not cancel it`() = runTest(testDispatcher) {
+        repository.save(SampleCharacterRepository.getAllValues().first())
+        val viewModel = buildViewModel()
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+        var scrollsToTop = 0
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.scrollToTopEvents.collect { scrollsToTop++ }
+        }
+
+        viewModel.filterByQuery("zzz-no-such-character")
+        viewModel.silentRefresh()
+        advanceUntilIdle()
+
+        assertEquals(expected = 1, actual = scrollsToTop)
+        assertIs<CharacterListState.Body.NoSearchResult>(viewModel.state.value.body)
+    }
+
+    @Test
+    fun `a silent refresh restarts a pending one so the latest data wins`() = runTest(testDispatcher) {
+        val gatedRepository = GatedCharacterRepository()
+        val viewModel = buildViewModel(gatedRepository)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        val staleGate = CompletableDeferred<Unit>()
+        gatedRepository.gate = staleGate
+        viewModel.silentRefresh()
+        advanceUntilIdle()
+
+        gatedRepository.gate = null
+        gatedRepository.save(SampleCharacterRepository.getAllValues().first())
+        viewModel.silentRefresh()
+        advanceUntilIdle()
+
+        assertIs<CharacterListState.Body.WithData>(viewModel.state.value.body)
+    }
+
+    @Test
+    fun `a silent refresh during a pending search runs once the search lands`() = runTest(testDispatcher) {
+        val gatedRepository = GatedCharacterRepository()
+        val viewModel = buildViewModel(gatedRepository)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        val searchGate = CompletableDeferred<Unit>()
+        gatedRepository.gate = searchGate
+        viewModel.filterByQuery("Borin")
+        advanceUntilIdle()
+
+        gatedRepository.save(SampleCharacterRepository.getAllValues().first().copy(name = "Borin"))
+        viewModel.silentRefresh()
+        gatedRepository.gate = null
+        searchGate.complete(Unit)
+        advanceUntilIdle()
+
+        assertEquals(expected = listOf("Borin"), actual = viewModel.renderedNames())
+    }
+
+    @Test
+    fun `a query differing only by surrounding spaces does not search again`() = runTest(testDispatcher) {
+        val repository = ScrambledCharacterRepository()
+        val viewModel = buildViewModel(repository)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        viewModel.filterByQuery("Middle")
+        advanceUntilIdle()
+        val readsAfterSearch = repository.reads
+
+        viewModel.filterByQuery("Middle  ")
+        advanceUntilIdle()
+
+        assertEquals(expected = "Middle  ", actual = viewModel.state.value.searchQuery)
+        assertEquals(expected = readsAfterSearch, actual = repository.reads)
+    }
+
+    @Test
+    fun `typing the same query again retries a search that failed`() = runTest(testDispatcher) {
+        val repository = SwitchableCharacterRepository()
+        val viewModel = buildViewModel(repository)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        repository.failing = true
+        viewModel.filterByQuery("Borin")
+        advanceUntilIdle()
+        assertIs<CharacterListState.Body.Error>(viewModel.state.value.body)
+
+        repository.failing = false
+        viewModel.filterByQuery("Borin ")
+        advanceUntilIdle()
+
+        assertIs<CharacterListState.Body.NoSearchResult>(viewModel.state.value.body)
     }
 
     @Test
@@ -383,7 +562,7 @@ class CharacterListViewModelTest {
         }
 
     @Test
-    fun `a commit landing during a search does not replace the Loading body`() = runTest(testDispatcher) {
+    fun `a commit landing during a search does not overwrite the search result`() = runTest(testDispatcher) {
         val gatedRepository = GatedCharacterRepository()
         gatedRepository.save(SampleCharacterRepository.getAllValues().first())
 
@@ -402,17 +581,15 @@ class CharacterListViewModelTest {
         viewModel.filterByQuery("Borin")
         advanceUntilIdle()
 
-        assertIs<CharacterListState.Body.Loading>(viewModel.state.value.body)
-
         viewModel.commitDeletion(pending)
         advanceUntilIdle()
 
-        assertIs<CharacterListState.Body.Loading>(viewModel.state.value.body)
+        assertIs<CharacterListState.Body.Empty>(viewModel.state.value.body)
 
         gate.complete(Unit)
         advanceUntilIdle()
 
-        assertIs<CharacterListState.Body.Empty>(viewModel.state.value.body)
+        assertIs<CharacterListState.Body.NoSearchResult>(viewModel.state.value.body)
     }
 
     @Test
@@ -544,6 +721,29 @@ class CharacterListViewModelTest {
     }
 
     @Test
+    fun `a sort order set during a pending search applies when it lands`() = runTest(testDispatcher) {
+        val repository = ScrambledCharacterRepository()
+        val viewModel = buildViewModel(repository)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+
+        val gate = CompletableDeferred<Unit>()
+        repository.gate = gate
+        viewModel.filterByQuery("e")
+        advanceUntilIdle()
+
+        viewModel.setSortOrder(StoredSortOrder.NAME)
+        gate.complete(Unit)
+        advanceUntilIdle()
+
+        assertEquals(expected = listOf("Middle", "Newest", "Oldest"), actual = viewModel.renderedNames())
+    }
+
+    @Test
     fun `filterByQuery keeps the sort order`() = runTest(testDispatcher) {
         val viewModel = buildViewModel(ScrambledCharacterRepository())
 
@@ -554,7 +754,7 @@ class CharacterListViewModelTest {
         advanceUntilIdle()
 
         viewModel.setSortOrder(StoredSortOrder.NAME)
-        viewModel.filterByQuery("")
+        viewModel.filterByQuery("e")
         advanceUntilIdle()
 
         assertEquals(expected = StoredSortOrder.NAME, actual = viewModel.state.value.sortOrder)
@@ -684,8 +884,11 @@ private class ScrambledCharacterRepository : CharacterRepository {
     var reads = 0
         private set
 
+    var gate: CompletableDeferred<Unit>? = null
+
     override suspend fun getAll(filter: CharacterFilter?): List<Stored<Character>> {
         reads++
+        gate?.await()
         return listOf(
             stored("Middle", 2_000L),
             stored("Oldest", 1_000L),
@@ -735,6 +938,22 @@ private class FailsOnSecondCallCharacterRepository : CharacterRepository {
     override suspend fun delete(id: String) = Unit
 }
 
+private class SwitchableCharacterRepository : CharacterRepository {
+    private val delegate = RamCharacterRepository()
+
+    var failing = false
+
+    override suspend fun getAll(filter: CharacterFilter?): List<Stored<Character>> {
+        if (failing) error("Repository error")
+        return delegate.getAll(filter)
+    }
+
+    override suspend fun get(id: String): Character? = delegate.get(id)
+    override suspend fun getByIds(ids: List<String>): List<Character> = delegate.getByIds(ids)
+    override suspend fun save(character: Character) = delegate.save(character)
+    override suspend fun delete(id: String) = delegate.delete(id)
+}
+
 /** Suspends [getAll] until [gate] completes, so a commit can be observed while a load is still in flight. */
 private class GatedCharacterRepository : CharacterRepository {
     private val delegate = RamCharacterRepository()
@@ -742,8 +961,9 @@ private class GatedCharacterRepository : CharacterRepository {
     var gate: CompletableDeferred<Unit>? = null
 
     override suspend fun getAll(filter: CharacterFilter?): List<Stored<Character>> {
+        val characters = delegate.getAll(filter)
         gate?.await()
-        return delegate.getAll(filter)
+        return characters
     }
 
     override suspend fun get(id: String): Character? = delegate.get(id)

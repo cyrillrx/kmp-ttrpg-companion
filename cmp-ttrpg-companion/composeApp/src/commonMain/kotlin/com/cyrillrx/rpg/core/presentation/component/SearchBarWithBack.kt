@@ -1,9 +1,9 @@
 package com.cyrillrx.rpg.core.presentation.component
 
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
-import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.ArrowBack
 import androidx.compose.material.icons.filled.Tune
@@ -14,7 +14,6 @@ import androidx.compose.material3.minimumInteractiveComponentSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import org.jetbrains.compose.resources.stringResource
@@ -31,6 +30,7 @@ fun SearchBarWithBack(
     onNavigateUpClicked: () -> Unit,
     onFilterClicked: (() -> Unit)? = null,
     hasActiveFilters: Boolean = false,
+    actions: @Composable RowScope.() -> Unit = {},
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
@@ -50,7 +50,6 @@ fun SearchBarWithBack(
             onQueryChanged = onQueryChanged,
             modifier = Modifier
                 .weight(1f)
-                .widthIn(max = 400.dp)
                 .minimumInteractiveComponentSize(),
         )
         if (onFilterClicked != null) {
@@ -66,6 +65,7 @@ fun SearchBarWithBack(
                 )
             }
         }
+        actions()
     }
 }
 

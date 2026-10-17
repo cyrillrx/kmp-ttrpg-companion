@@ -145,6 +145,7 @@ class UserCollectionsViewModel(
         }
     }
 
+    // TODO(#319): build on SearchableListViewModel instead of a hand-kept load job
     fun silentRefresh() {
         if (state.value.body is UserCollectionsState.Body.Loading) return
         activeJob?.cancel()
@@ -181,7 +182,7 @@ class UserCollectionsViewModel(
         }
 
     private suspend fun fetchAndUpdateUserCollections() {
-        deletions.setLoaded(userCollectionRepository.getAll(collectionType))
+        deletions.reload { userCollectionRepository.getAll(collectionType) }
         renderBody()
     }
 

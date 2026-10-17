@@ -139,6 +139,7 @@ class CollectionDetailViewModel<T : Entity>(
         }
     }
 
+    // TODO(#319): build on SearchableListViewModel instead of a hand-kept load job
     fun silentRefresh() {
         if (state.value.body is CollectionDetailState.Body.Loading) return
         activeJob?.cancel()
@@ -170,11 +171,14 @@ class CollectionDetailViewModel<T : Entity>(
             }
         }
 
+    // TODO(#323): keep a refresh from writing an old name over a rename
     private suspend fun fetchDetail() {
-        val collection = userCollectionRepository.get(collectionId) ?: error("Could not find collection $collectionId")
-        state.update { it.copy(collectionName = collection.name) }
-
-        removals.setLoaded(repository.getByIds(collection.itemIds))
+        removals.reload {
+            val collection =
+                userCollectionRepository.get(collectionId) ?: error("Could not find collection $collectionId")
+            state.update { it.copy(collectionName = collection.name) }
+            repository.getByIds(collection.itemIds)
+        }
         renderBody()
     }
 
