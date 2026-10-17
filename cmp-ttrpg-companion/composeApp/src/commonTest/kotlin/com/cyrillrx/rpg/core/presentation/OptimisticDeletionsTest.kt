@@ -19,17 +19,17 @@ class OptimisticDeletionsTest {
     private val second = Row("2")
 
     @Test
-    fun `visible is the loaded list when nothing is hidden`() {
+    fun `visible is the loaded list when nothing is hidden`() = runTest {
         val subject = deletions()
-        subject.setLoaded(listOf(first, second))
+        subject.reload { listOf(first, second) }
 
         assertEquals(expected = listOf("1", "2"), actual = subject.visible.map { it.id })
     }
 
     @Test
-    fun `hide removes the item from visible`() {
+    fun `hide removes the item from visible`() = runTest {
         val subject = deletions()
-        subject.setLoaded(listOf(first, second))
+        subject.reload { listOf(first, second) }
 
         subject.hide(first)
 
@@ -37,9 +37,9 @@ class OptimisticDeletionsTest {
     }
 
     @Test
-    fun `undo restores the item`() {
+    fun `undo restores the item`() = runTest {
         val subject = deletions()
-        subject.setLoaded(listOf(first, second))
+        subject.reload { listOf(first, second) }
 
         val pending = assertNotNull(subject.hide(first))
 
@@ -48,9 +48,9 @@ class OptimisticDeletionsTest {
     }
 
     @Test
-    fun `a claimed item stays hidden while the repository call is in flight`() {
+    fun `a claimed item stays hidden while the repository call is in flight`() = runTest {
         val subject = deletions()
-        subject.setLoaded(listOf(first, second))
+        subject.reload { listOf(first, second) }
 
         val pending = assertNotNull(subject.hide(first))
         assertTrue(subject.claim(pending))
@@ -59,32 +59,32 @@ class OptimisticDeletionsTest {
     }
 
     @Test
-    fun `a reload landing during the commit does not bring the claimed item back`() {
+    fun `a reload landing during the commit does not bring the claimed item back`() = runTest {
         val subject = deletions()
-        subject.setLoaded(listOf(first, second))
+        subject.reload { listOf(first, second) }
 
         val pending = assertNotNull(subject.hide(first))
         subject.claim(pending)
-        subject.setLoaded(listOf(first, second))
+        subject.reload { listOf(first, second) }
 
         assertEquals(expected = listOf("2"), actual = subject.visible.map { it.id })
     }
 
     @Test
-    fun `an item is recognised across two reads that rebuilt it`() {
+    fun `an item is recognised across two reads that rebuilt it`() = runTest {
         val subject = deletions()
-        subject.setLoaded(listOf(first, second))
+        subject.reload { listOf(first, second) }
 
         subject.hide(first)
-        subject.setLoaded(listOf(Row("1"), Row("2")))
+        subject.reload { listOf(Row("1"), Row("2")) }
 
         assertEquals(expected = listOf("2"), actual = subject.visible.map { it.id })
     }
 
     @Test
-    fun `undo after claim is refused`() {
+    fun `undo after claim is refused`() = runTest {
         val subject = deletions()
-        subject.setLoaded(listOf(first))
+        subject.reload { listOf(first) }
 
         val pending = assertNotNull(subject.hide(first))
         subject.claim(pending)
@@ -93,9 +93,9 @@ class OptimisticDeletionsTest {
     }
 
     @Test
-    fun `claim after undo is refused`() {
+    fun `claim after undo is refused`() = runTest {
         val subject = deletions()
-        subject.setLoaded(listOf(first))
+        subject.reload { listOf(first) }
 
         val pending = assertNotNull(subject.hide(first))
         subject.undo(pending)
@@ -104,9 +104,9 @@ class OptimisticDeletionsTest {
     }
 
     @Test
-    fun `claim is one-shot`() {
+    fun `claim is one-shot`() = runTest {
         val subject = deletions()
-        subject.setLoaded(listOf(first))
+        subject.reload { listOf(first) }
 
         val pending = assertNotNull(subject.hide(first))
 
@@ -115,9 +115,9 @@ class OptimisticDeletionsTest {
     }
 
     @Test
-    fun `settling a successful commit drops the item from the loaded list`() {
+    fun `settling a successful commit drops the item from the loaded list`() = runTest {
         val subject = deletions()
-        subject.setLoaded(listOf(first, second))
+        subject.reload { listOf(first, second) }
 
         val pending = assertNotNull(subject.hide(first))
         subject.claim(pending)
@@ -127,9 +127,9 @@ class OptimisticDeletionsTest {
     }
 
     @Test
-    fun `settling a failed commit makes the item visible again`() {
+    fun `settling a failed commit makes the item visible again`() = runTest {
         val subject = deletions()
-        subject.setLoaded(listOf(first, second))
+        subject.reload { listOf(first, second) }
 
         val pending = assertNotNull(subject.hide(first))
         subject.claim(pending)
@@ -139,9 +139,9 @@ class OptimisticDeletionsTest {
     }
 
     @Test
-    fun `claimAll claims every hidden entry`() {
+    fun `claimAll claims every hidden entry`() = runTest {
         val subject = deletions()
-        subject.setLoaded(listOf(first, second))
+        subject.reload { listOf(first, second) }
 
         val pending = assertNotNull(subject.hide(first))
         subject.hide(second)
@@ -152,34 +152,34 @@ class OptimisticDeletionsTest {
     }
 
     @Test
-    fun `claimAll returns nothing when no entry is hidden`() {
+    fun `claimAll returns nothing when no entry is hidden`() = runTest {
         val subject = deletions()
-        subject.setLoaded(listOf(first))
+        subject.reload { listOf(first) }
 
         assertTrue(subject.claimAll().isEmpty())
     }
 
     @Test
-    fun `hiding a row that is already hidden is refused`() {
+    fun `hiding a row that is already hidden is refused`() = runTest {
         val subject = deletions()
-        subject.setLoaded(listOf(first))
+        subject.reload { listOf(first) }
         subject.hide(first)
 
         assertNull(subject.hide(first))
     }
 
     @Test
-    fun `hiding a row that is no longer loaded is refused`() {
+    fun `hiding a row that is no longer loaded is refused`() = runTest {
         val subject = deletions()
-        subject.setLoaded(listOf(second))
+        subject.reload { listOf(second) }
 
         assertNull(subject.hide(first))
     }
 
     @Test
-    fun `hiding a row rebuilt by a later read is accepted`() {
+    fun `hiding a row rebuilt by a later read is accepted`() = runTest {
         val subject = deletions()
-        subject.setLoaded(listOf(Row("1")))
+        subject.reload { listOf(Row("1")) }
 
         assertNotNull(subject.hide(first))
         assertTrue(subject.visible.isEmpty())
@@ -188,7 +188,7 @@ class OptimisticDeletionsTest {
     @Test
     fun `a reload whose read started before a delete does not bring the deleted item back`() = runTest {
         val subject = deletions()
-        subject.setLoaded(listOf(first, second))
+        subject.reload { listOf(first, second) }
 
         subject.reload {
             val pending = assertNotNull(subject.hide(first))
@@ -203,7 +203,7 @@ class OptimisticDeletionsTest {
     @Test
     fun `a reload whose read started after a delete shows the item again`() = runTest {
         val subject = deletions()
-        subject.setLoaded(listOf(first, second))
+        subject.reload { listOf(first, second) }
         val pending = assertNotNull(subject.hide(first))
         subject.claim(pending)
         subject.settle(pending, deleted = true)
@@ -216,7 +216,7 @@ class OptimisticDeletionsTest {
     @Test
     fun `a failed delete during a reload does not filter the item out`() = runTest {
         val subject = deletions()
-        subject.setLoaded(listOf(first, second))
+        subject.reload { listOf(first, second) }
 
         subject.reload {
             val pending = assertNotNull(subject.hide(first))

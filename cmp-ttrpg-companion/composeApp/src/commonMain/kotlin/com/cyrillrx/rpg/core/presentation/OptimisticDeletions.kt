@@ -43,17 +43,15 @@ class OptimisticDeletions<Item>(private val identity: (Item) -> Any) {
         return ids
     }
 
-    /** Loads what [read] returns, minus the rows deleted while it ran: a read that started earlier still holds them. */
+    /**
+     * Loads what [read] returns, minus the rows deleted while it ran: a read that started earlier still holds them.
+     * One reload at a time: the caller cancels a pending one before starting the next.
+     */
     suspend fun reload(read: suspend () -> List<Item>) {
         val startedAt = settleCount
         val items = read()
         loaded = items.filterNot { (deletedAt[identity(it)] ?: return@filterNot false) > startedAt }
         deletedAt.values.removeAll { it <= startedAt }
-    }
-
-    fun setLoaded(items: List<Item>) {
-        loaded = items
-        deletedAt.clear()
     }
 
     /** Null when [item] is not on screen, so a row the caller read from a stale list cannot be hidden. */
