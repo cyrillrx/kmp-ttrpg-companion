@@ -28,6 +28,12 @@ class DiceNotationTest {
     }
 
     @Test
+    fun `leading zeros are accepted on both sides of the d`() {
+        assertEquals(Result.Success(1.d6), DiceExpression.parse("01d6"))
+        assertEquals(Result.Success(1.d6), DiceExpression.parse("1d06"))
+    }
+
+    @Test
     fun `a die without a count is rolled once`() {
         assertEquals(Result.Success(1.d20), DiceExpression.parse("d20"))
     }

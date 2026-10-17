@@ -42,7 +42,8 @@ private fun String.toNotationPart(): Result<NotationPart, DiceNotationError> {
 private fun MatchResult.toDicePart(part: String): Result<NotationPart, DiceNotationError> {
     val (countText, sidesText) = destructured
     val count = countText.ifEmpty { "1" }.toIntOrNull()
-    val die = Die.entries.find { it.sides.toString() == sidesText }
+    val sides = sidesText.toIntOrNull()
+    val die = Die.entries.find { it.sides == sides }
     return when {
         count == 0 -> Result.Failure(DiceNotationError.ZeroDice(part))
         count == null || count > MAX_DICE_COUNT -> Result.Failure(DiceNotationError.TooManyDice)
