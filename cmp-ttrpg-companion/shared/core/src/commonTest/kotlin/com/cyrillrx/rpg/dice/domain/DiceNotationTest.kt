@@ -4,6 +4,7 @@ import com.cyrillrx.core.domain.Result
 import com.cyrillrx.rpg.creature.data.SampleMonsterRepository
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertIs
 
 class DiceNotationTest {
     @Test
@@ -47,8 +48,8 @@ class DiceNotationTest {
     @Test
     fun `every sample monster hit dice reads as a notation`() {
         SampleMonsterRepository.getAll().forEach { monster ->
-            val parsed = DiceExpression.parse(monster.hitDice)
-            assertEquals(monster.hitDice, (parsed as Result.Success).value.toString())
+            val parsed = assertIs<Result.Success<DiceExpression>>(DiceExpression.parse(monster.hitDice), monster.id)
+            assertEquals(monster.hitDice, parsed.value.toString())
         }
     }
 
