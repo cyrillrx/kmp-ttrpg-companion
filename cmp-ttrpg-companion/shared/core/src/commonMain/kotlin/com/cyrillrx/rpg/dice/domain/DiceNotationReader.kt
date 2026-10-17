@@ -46,14 +46,14 @@ private fun MatchResult.toDicePart(part: String): Result<NotationPart, DiceNotat
     val die = Die.entries.find { it.sides == sides }
     return when {
         count == 0 -> Result.Failure(DiceNotationError.ZeroDice(part))
-        count == null || count > MAX_DICE_COUNT -> Result.Failure(DiceNotationError.TooManyDice)
+        count == null || count > MAX_DICE_COUNT -> Result.Failure(DiceNotationError.TooManyDice(MAX_DICE_COUNT))
         die == null -> Result.Failure(DiceNotationError.UnsupportedDie("d$sidesText"))
         else -> Result.Success(NotationPart.Dice(DiceTerm(count, die)))
     }
 }
 
 private fun String.toConstantPart(isSubtracted: Boolean): Result<NotationPart, DiceNotationError> {
-    val value = toIntOrNull() ?: return Result.Failure(DiceNotationError.ModifierOutOfRange)
+    val value = toIntOrNull() ?: return Result.Failure(DiceNotationError.ModifierOutOfRange(MAX_MODIFIER))
 
     return Result.Success(NotationPart.Constant(if (isSubtracted) -value else value))
 }
@@ -63,8 +63,8 @@ private fun List<NotationPart>.toDiceExpression(): Result<DiceExpression, DiceNo
     val modifier = filterIsInstance<NotationPart.Constant>().sumOf { it.value.toLong() }
     return when {
         terms.isEmpty() -> Result.Failure(DiceNotationError.NoDice)
-        terms.sumOf { it.count } > MAX_DICE_COUNT -> Result.Failure(DiceNotationError.TooManyDice)
-        modifier !in -MAX_MODIFIER..MAX_MODIFIER -> Result.Failure(DiceNotationError.ModifierOutOfRange)
+        terms.sumOf { it.count } > MAX_DICE_COUNT -> Result.Failure(DiceNotationError.TooManyDice(MAX_DICE_COUNT))
+        modifier !in -MAX_MODIFIER..MAX_MODIFIER -> Result.Failure(DiceNotationError.ModifierOutOfRange(MAX_MODIFIER))
         else -> Result.Success(DiceExpression(terms, modifier.toInt()))
     }
 }
