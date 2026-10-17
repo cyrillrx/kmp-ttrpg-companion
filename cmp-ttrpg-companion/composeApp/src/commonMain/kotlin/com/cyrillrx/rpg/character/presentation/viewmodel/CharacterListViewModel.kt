@@ -128,7 +128,7 @@ class CharacterListViewModel(
     fun undoDeletion(pending: OptimisticDeletions.Pending<Stored<Character>>) {
         if (!deletions.undo(pending)) return
 
-        renderBodyIfLoaded()
+        renderBody()
     }
 
     fun commitDeletion(pending: OptimisticDeletions.Pending<Stored<Character>>) {
@@ -152,7 +152,7 @@ class CharacterListViewModel(
                 false
             }
             deletions.settle(pending, deleted)
-            renderBodyIfLoaded()
+            renderBody()
             if (!deleted) events.emit(Event.DeletionError(pending.item.value))
         }
     }
@@ -161,13 +161,9 @@ class CharacterListViewModel(
      * Rendering over a `Loading` or `Error` body would bury the pending fetch or the error message under the
      * previous read.
      */
-    private fun renderBodyIfLoaded() {
+    private fun renderBody() {
         if (!showsContent(state.value.body)) return
 
-        renderBody()
-    }
-
-    private fun renderBody() {
         mutableState.update { it.copy(body = sortedBody(it.sortOrder)) }
     }
 
