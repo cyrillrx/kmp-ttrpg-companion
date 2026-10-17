@@ -1,6 +1,7 @@
 package com.cyrillrx.rpg.dice.domain
 
 import com.cyrillrx.core.domain.Result
+import com.cyrillrx.rpg.core.domain.toSignedString
 import kotlin.random.Random
 
 const val MAX_DICE_COUNT = 100
@@ -41,10 +42,7 @@ data class DiceExpression private constructor(private val countByDie: Map<Die, I
 
     override fun toString(): String = buildString {
         append(terms.joinToString("+"))
-        when {
-            modifier > 0 -> append('+').append(modifier)
-            modifier < 0 -> append(modifier)
-        }
+        if (modifier != 0) append(modifier.toSignedString())
     }
 
     companion object {
