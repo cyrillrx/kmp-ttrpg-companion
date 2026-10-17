@@ -64,6 +64,7 @@ class CharacterListViewModel(
         refresh()
     }
 
+    // TODO(#324): move these search rules into SearchableListViewModel
     fun filterByQuery(query: String) {
         val searchChanged = query.trim() != state.value.searchQuery.trim()
         val searchFailed = state.value.body is CharacterListState.Body.Error

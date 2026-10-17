@@ -171,6 +171,7 @@ class CollectionDetailViewModel<T : Entity>(
             }
         }
 
+    // TODO(#323): keep a refresh from writing an old name over a rename
     private suspend fun fetchDetail() {
         removals.reload {
             val collection =
