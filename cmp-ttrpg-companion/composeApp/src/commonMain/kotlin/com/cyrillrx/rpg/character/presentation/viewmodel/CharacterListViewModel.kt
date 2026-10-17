@@ -157,7 +157,10 @@ class CharacterListViewModel(
         }
     }
 
-    /** Rendering over a `Loading` or `Error` body would bury the pending fetch or the error message under the previous read. */
+    /**
+     * Rendering over a `Loading` or `Error` body would bury the pending fetch or the error message under the
+     * previous read.
+     */
     private fun renderBodyIfLoaded() {
         if (!showsContent(state.value.body)) return
 
