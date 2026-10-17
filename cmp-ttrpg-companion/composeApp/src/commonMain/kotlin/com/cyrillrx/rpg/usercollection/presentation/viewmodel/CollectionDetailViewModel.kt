@@ -139,6 +139,7 @@ class CollectionDetailViewModel<T : Entity>(
         }
     }
 
+    // TODO(#319): build on SearchableListViewModel instead of a hand-kept load job
     fun silentRefresh() {
         if (state.value.body is CollectionDetailState.Body.Loading) return
         activeJob?.cancel()
