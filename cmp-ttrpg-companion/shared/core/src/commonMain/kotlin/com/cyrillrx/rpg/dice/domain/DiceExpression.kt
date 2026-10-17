@@ -6,6 +6,8 @@ import kotlin.random.Random
 const val MAX_DICE_COUNT = 100
 const val MAX_MODIFIER = 1000
 
+internal val biggestDieFirst: Comparator<Die> = compareByDescending { it.sides }
+
 data class DiceTerm(val count: Int, val die: Die) {
     init {
         require(count in 1..MAX_DICE_COUNT) { "Cannot roll $count $die" }
@@ -62,5 +64,5 @@ data class DiceExpression private constructor(private val countByDie: Map<Die, I
 private fun List<DiceTerm>.countByDieBiggestFirst(): Map<Die, Int> = groupingBy { it.die }
     .fold(0) { count, term -> count + term.count }
     .entries
-    .sortedByDescending { (die, _) -> die.sides }
+    .sortedWith(compareBy(biggestDieFirst) { it.key })
     .associate { (die, count) -> die to count }

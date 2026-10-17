@@ -60,6 +60,14 @@ class RollPoolTest {
     }
 
     @Test
+    fun `a pool groups its rolls by die from the biggest`() {
+        val otherD6 = SimpleRoll(Die.D6, 5)
+        val pool = RollPool(listOf(d6, d20, otherD6))
+
+        assertEquals(listOf(Die.D20 to listOf<DieRoll>(d20), Die.D6 to listOf(d6, otherD6)), pool.rollsByDie().toList())
+    }
+
+    @Test
     fun `a pool without dice has no expression`() {
         assertNull(RollPool(modifier = 3).toExpression())
     }

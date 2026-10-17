@@ -10,9 +10,14 @@ data class RollPool(val rolls: List<DieRoll> = emptyList(), val modifier: Int = 
 
     fun isEmpty(): Boolean = rolls.isEmpty()
 
-    /** What the pool rolled, such as `8d6+6`; null until a die is rolled. */
+    /** What the pool rolled, such as `8d6 + 6`; null until a die is rolled. */
     fun toExpression(): DiceExpression? =
         if (isEmpty()) null else DiceExpression(rolls.map { DiceTerm(1, it.die) }, modifier)
+
+    /** The rolls grouped by die, from the biggest as the notation reads. */
+    fun rollsByDie(): Map<Die, List<DieRoll>> = rolls.groupBy { it.die }.toList()
+        .sortedWith(compareBy(biggestDieFirst) { it.first })
+        .toMap()
 
     fun add(roll: DieRoll): RollPool = copy(rolls = rolls + roll)
 
