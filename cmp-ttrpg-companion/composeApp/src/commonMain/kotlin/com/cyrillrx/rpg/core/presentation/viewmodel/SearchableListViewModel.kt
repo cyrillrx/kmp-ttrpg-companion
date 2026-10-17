@@ -82,7 +82,10 @@ abstract class SearchableListViewModel<State : Any, Body : Any>(
                 errorBody()
             }
             mutableState.update { it.withBody(body) }
-            if (silentRefreshQueued) refresh(silent = true)
+            if (silentRefreshQueued) {
+                updateJob = null
+                refresh(silent = true)
+            }
         }
     }
 }
