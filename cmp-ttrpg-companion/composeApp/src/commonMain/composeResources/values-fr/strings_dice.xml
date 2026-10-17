@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="section_tools">Outils</string>
+    <string name="btn_dice_roller">Dés</string>
+    <string name="title_dice_roller">Lanceur de dés</string>
+
+    <string name="die_label">d%1$d</string>
+    <string name="die_count">×%1$d</string>
+    <string name="label_modifier">Modificateur</string>
+    <string name="message_tap_a_die">Touchez un dé pour le lancer</string>
+
+    <string name="btn_advantage">Avantage</string>
+    <string name="btn_disadvantage">Désavantage</string>
+    <string name="btn_remove_roll">Retirer %1$s : %2$d</string>
+    <string name="btn_remove_double_roll">Retirer %1$s : %2$d, %3$d écarté</string>
+    <string name="btn_decrease_modifier">Diminuer le modificateur</string>
+    <string name="btn_increase_modifier">Augmenter le modificateur</string>
+    <string name="btn_reset_roll">Réinitialiser</string>
+</resources>

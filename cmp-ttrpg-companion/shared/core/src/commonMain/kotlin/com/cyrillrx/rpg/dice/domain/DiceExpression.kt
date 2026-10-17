@@ -1,7 +1,6 @@
 package com.cyrillrx.rpg.dice.domain
 
 import com.cyrillrx.core.domain.Result
-import com.cyrillrx.rpg.core.domain.toSignedString
 import kotlin.random.Random
 
 const val MAX_DICE_COUNT = 100
@@ -45,8 +44,11 @@ data class DiceExpression private constructor(private val countByDie: Map<Die, I
 
     /** Writes the expression as a notation that [parse] reads back, from the biggest die. */
     fun toNotation(): String = buildString {
-        append(terms.joinToString("+", transform = DiceTerm::toNotation))
-        if (modifier != 0) append(modifier.toSignedString())
+        append(terms.joinToString(" + ", transform = DiceTerm::toNotation))
+        when {
+            modifier > 0 -> append(" + ").append(modifier)
+            modifier < 0 -> append(" - ").append(-modifier)
+        }
     }
 
     override fun toString(): String = toNotation()

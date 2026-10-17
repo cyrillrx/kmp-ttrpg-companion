@@ -10,7 +10,7 @@ The Virtual Dice module provides a fast, in-session dice rolling tool. It suppor
 
 - Provide a reliable, glanceable dice roller usable mid-session without leaving the app.
 - Support cumulative rolling (e.g. 2d6 + 1d4 + 3) with a running total.
-- Roll any die with advantage or disadvantage, twice and keeping the higher or the lower, in one tap.
+- Roll a d20 with advantage or disadvantage, twice and keeping the higher or the lower, in one tap.
 - Keep a history of recent rolls for reference and transparency.
 
 ## User Stories
@@ -20,7 +20,7 @@ The Virtual Dice module provides a fast, in-session dice rolling tool. It suppor
 | User  | Tap a die to roll it                                      | I get an instant result                                         |
 | User  | Tap multiple dice to accumulate a total                   | I can resolve complex rolls (e.g. 3d6 + 1d4) in one view        |
 | User  | Add a modifier to the total                               | I can apply an ability or proficiency bonus without mental sums |
-| User  | Roll a die with advantage or disadvantage                 | I get the kept result without rolling twice and comparing       |
+| User  | Roll a d20 with advantage or disadvantage                 | I get the kept result without rolling twice and comparing       |
 | User  | See the individual result of each die alongside the total | I can verify the roll                                           |
 | User  | Remove one die from the current roll                      | I can fix a mistap without starting over                        |
 | User  | Reset the current roll                                    | I can start a new roll without navigating away                  |
@@ -37,25 +37,24 @@ A `d100` is a single roll from 1 to 100, not a pair of percentile `d10`.
 
 ### Dice Rolling
 
-- [ ] Display all seven dice types as tappable buttons.
-- [ ] Tapping a die adds one roll of that die to the current roll pool.
-- [ ] The current roll pool shows each individual die result and the running total.
-- [ ] A **Reset** button clears the current roll pool.
-- [ ] Rolling is instantaneous with a visual result (animation optional).
+- [x] Display all seven dice types as tappable buttons.
+- [x] Tapping a die adds one roll of that die to the current roll pool.
+- [x] The current roll pool shows each individual die result and the running total.
+- [x] A **Reset** button clears the current roll pool.
+- [x] Rolling is instantaneous with a visual result (animation optional).
 
 ### Cumulative Rolling
 
-- [ ] Multiple dice can be added to the same roll pool sequentially.
-- [ ] Total is updated after each die is added or removed.
-- [ ] Each die in the pool shows its individual result (e.g. d20: 14, d6: 3 → Total: 17).
-- [ ] Any die can be removed from the pool on its own; the total follows.
-- [ ] A modifier, set with **−** and **+** controls, is added to the total. It can be negative and defaults to 0.
+- [x] Multiple dice can be added to the same roll pool sequentially.
+- [x] Total is updated after each die is added or removed.
+- [x] Each die in the pool shows its individual result (e.g. d20: 14, d6: 3 → Total: 17).
+- [x] Any die can be removed from the pool on its own; the total follows.
+- [x] A modifier, set with **−** and **+** controls, is added to the total. It can be negative and defaults to 0.
 
 ### Advantage and Disadvantage
 
-- [ ] A **Normal**, **Advantage** or **Disadvantage** mode can be selected; it stays active until changed.
-- [ ] In Advantage or Disadvantage mode, adding any die rolls it twice and keeps the higher (advantage) or the lower (disadvantage).
-- [ ] Both results are shown, the discarded one visibly set apart, and only the kept one counts toward the total.
+- [x] Two actions, **Advantage** and **Disadvantage**, each roll a d20 twice and keep the higher (advantage) or the lower (disadvantage); there is no mode to remember.
+- [x] Both results are shown, the discarded one visibly set apart, and only the kept one counts toward the total.
 
 ### Roll History
 
@@ -75,7 +74,7 @@ A `d100` is a single roll from 1 to 100, not a pair of percentile `d10`.
 
 ### Entry Point
 
-- [ ] The dice roller is reached from a section of the Home screen.
+- [x] The dice roller is reached from a section of the Home screen.
 
 ## Non-Functional Requirements
 
@@ -87,6 +86,7 @@ A `d100` is a single roll from 1 to 100, not a pair of percentile `d10`.
 
 ## Out of Scope
 
+- Advantage and disadvantage on dice other than the d20 — the roll model already supports any die, so it only needs a control if a game calls for it.
 - Typing a dice notation in the roller (e.g. `3d8+5`) — may be added in a future iteration, on top of the notation reader.
 - Finding dice notations inside free text, for instance to make them tappable on an item sheet — a future step built on the notation reader.
 - Rules that interpret a set of rolls, such as roll-and-keep with a keep threshold (7th Sea 3rd edition) or counting only the 6s and the 1s on d6 (Free League games) — a future iteration, built on top of plain rolls.
@@ -100,3 +100,4 @@ A `d100` is a single roll from 1 to 100, not a pair of percentile `d10`.
 - Should the history be scoped per campaign session or be a single global log? **Settled** for now: a single global log, since campaigns do not exist yet; to revisit with [PRD-003 — Campaigns](prd-003-campaigns.md).
 - Should there be a modifier field (e.g. +3 to add a bonus to the total)? **Settled**: yes, a −/+ modifier on the pool.
 - Should the dice roller also ship as a standalone app? A second launcher activity in the same Android package gives it its own icon but shares the app's data and installation; a separate app needs its own application module on each target. Tracked as an idea to qualify under the mini-apps entry of the [roadmap](../roadmap.md) Exploration section.
+- Should a d100 read as a tens die and a units die (00–90 plus 0–9), as rolled at the table, rather than the single number described under Supported Dice? Its rendering is to explore.

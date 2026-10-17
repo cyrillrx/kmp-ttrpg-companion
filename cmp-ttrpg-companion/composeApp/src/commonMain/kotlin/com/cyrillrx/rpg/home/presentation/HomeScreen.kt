@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -12,6 +13,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AutoAwesome
+import androidx.compose.material.icons.filled.Casino
 import androidx.compose.material.icons.filled.Diamond
 import androidx.compose.material.icons.filled.Pets
 import androidx.compose.material.icons.filled.Settings
@@ -50,12 +52,14 @@ import rpg_companion.composeapp.generated.resources.app_name
 import rpg_companion.composeapp.generated.resources.btn_bestiary
 import rpg_companion.composeapp.generated.resources.btn_bestiary_collections
 import rpg_companion.composeapp.generated.resources.btn_campaign_list
+import rpg_companion.composeapp.generated.resources.btn_dice_roller
 import rpg_companion.composeapp.generated.resources.btn_item_collections
 import rpg_companion.composeapp.generated.resources.btn_magical_items
 import rpg_companion.composeapp.generated.resources.btn_spell_book
 import rpg_companion.composeapp.generated.resources.btn_spell_collections
 import rpg_companion.composeapp.generated.resources.section_compendium
 import rpg_companion.composeapp.generated.resources.section_my_collections
+import rpg_companion.composeapp.generated.resources.section_tools
 import rpg_companion.composeapp.generated.resources.title_settings
 
 @Composable
@@ -115,6 +119,7 @@ private fun HomeDefault(state: HomeState, router: HomeRouter, modifier: Modifier
         CharacterPreviewSection(state, router, modifier = Modifier.fillMaxWidth())
         CompendiumSection(router, modifier = Modifier.fillMaxWidth())
         MyCollectionsSection(router, modifier = Modifier.fillMaxWidth())
+        ToolsSection(router, modifier = Modifier.fillMaxWidth())
     }
 }
 
@@ -136,6 +141,7 @@ private fun HomeWideScreen(state: HomeState, router: HomeRouter, modifier: Modif
             ) {
                 CompendiumSection(router, modifier = Modifier.fillMaxWidth())
                 MyCollectionsSection(router, modifier = Modifier.fillMaxWidth())
+                ToolsSection(router, modifier = Modifier.fillMaxWidth())
             }
         }
     }
@@ -213,6 +219,29 @@ private fun MyCollectionsSection(router: HomeRouter, modifier: Modifier = Modifi
     }
 }
 
+@Composable
+private fun ToolsSection(router: HomeRouter, modifier: Modifier = Modifier) {
+    Column(
+        verticalArrangement = Arrangement.spacedBy(spacingMedium),
+        modifier = modifier,
+    ) {
+        SectionHeader(title = stringResource(Res.string.section_tools))
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(spacingMedium),
+            modifier = Modifier.fillMaxWidth(),
+        ) {
+            IconLabelButton(
+                label = stringResource(Res.string.btn_dice_roller),
+                icon = Icons.Filled.Casino,
+                onClick = router::openDiceRoller,
+                modifier = Modifier.weight(1f),
+            )
+            // Keeps the button as wide as one of the three in the sections above.
+            Spacer(modifier = Modifier.weight(2f))
+        }
+    }
+}
+
 internal object PreviewHomeRouter : HomeRouter {
     override fun openCampaignList() {}
     override fun openCharacterSheetList() {}
@@ -225,6 +254,7 @@ internal object PreviewHomeRouter : HomeRouter {
     override fun openMySpellCollections() {}
     override fun openMyMagicalItemCollections() {}
     override fun openMyMonsterCollections() {}
+    override fun openDiceRoller() {}
     override fun openSettings() {}
 }
 
