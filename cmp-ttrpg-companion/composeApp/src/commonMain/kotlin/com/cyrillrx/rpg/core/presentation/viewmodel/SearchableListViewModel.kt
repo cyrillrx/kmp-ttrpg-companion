@@ -65,7 +65,11 @@ abstract class SearchableListViewModel<State : Any, Body : Any>(
             } catch (e: CancellationException) {
                 throw e
             } catch (e: Exception) {
-                if (silent) return@launch
+                if (silent) {
+                    // The shown content stays; only the refresh is lost.
+                    println("WARNING: silent list refresh failed: $e")
+                    return@launch
+                }
                 errorBody()
             }
             mutableState.update { it.withBody(body) }
