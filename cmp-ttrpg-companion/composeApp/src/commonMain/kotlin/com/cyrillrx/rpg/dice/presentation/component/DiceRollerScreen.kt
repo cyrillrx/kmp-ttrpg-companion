@@ -50,7 +50,6 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
-import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.cyrillrx.rpg.core.domain.toSignedString
 import com.cyrillrx.rpg.core.presentation.component.SimpleTopBar
@@ -59,10 +58,14 @@ import com.cyrillrx.rpg.core.presentation.theme.LocalHealthColors
 import com.cyrillrx.rpg.core.presentation.theme.borderAlpha
 import com.cyrillrx.rpg.core.presentation.theme.borderWidth
 import com.cyrillrx.rpg.core.presentation.theme.contentMaxWidth
+import com.cyrillrx.rpg.core.presentation.theme.dieLabelWidth
+import com.cyrillrx.rpg.core.presentation.theme.dieTileMinHeight
 import com.cyrillrx.rpg.core.presentation.theme.emptyStateIconAlpha
 import com.cyrillrx.rpg.core.presentation.theme.emptyStateIconSize
 import com.cyrillrx.rpg.core.presentation.theme.iconSizeMedium
 import com.cyrillrx.rpg.core.presentation.theme.iconSizeSmall
+import com.cyrillrx.rpg.core.presentation.theme.removeDieButtonSize
+import com.cyrillrx.rpg.core.presentation.theme.rollTileMinSize
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
@@ -96,11 +99,6 @@ import rpg_companion.composeapp.generated.resources.message_compose_then_roll
 import rpg_companion.composeapp.generated.resources.section_compose
 import rpg_companion.composeapp.generated.resources.section_d20_roll
 import rpg_companion.composeapp.generated.resources.title_dice_roller
-
-private val dieTileMinHeight = 64.dp
-private val rollTileMinSize = 40.dp
-private val dieLabelWidth = 48.dp
-private val removeDieButtonSize = 28.dp
 
 /** What the roller screen can ask for, grouped so the panel does not thread ten callbacks through each level. */
 class DiceRollerActions(
@@ -158,12 +156,12 @@ fun DiceRollerScreen(state: DiceRollerState, onNavigateUpClicked: () -> Unit, ac
                     horizontalArrangement = Arrangement.spacedBy(spacingCommon),
                     modifier = contentModifier.padding(spacingCommon),
                 ) {
-                    RollResultCard(state.lastRoll, modifier = Modifier.weight(1f).fillMaxHeight())
+                    RollResultCard(state, modifier = Modifier.weight(1f).fillMaxHeight())
                     ControlPanel(state, actions, MaterialTheme.shapes.large, Modifier.weight(1f))
                 }
             } else {
                 Column(modifier = contentModifier) {
-                    RollResultCard(state.lastRoll, modifier = Modifier.weight(1f).padding(spacingCommon))
+                    RollResultCard(state, modifier = Modifier.weight(1f).padding(spacingCommon))
                     ControlPanel(
                         state = state,
                         actions = actions,
@@ -177,7 +175,9 @@ fun DiceRollerScreen(state: DiceRollerState, onNavigateUpClicked: () -> Unit, ac
 }
 
 @Composable
-private fun RollResultCard(lastRoll: RollPool?, modifier: Modifier = Modifier) {
+private fun RollResultCard(state: DiceRollerState, modifier: Modifier = Modifier) {
+    val lastRoll = state.lastRoll
+
     Card(
         shape = MaterialTheme.shapes.large,
         border = BorderStroke(borderWidth, MaterialTheme.colorScheme.outline.copy(alpha = borderAlpha)),
@@ -200,7 +200,7 @@ private fun RollResultCard(lastRoll: RollPool?, modifier: Modifier = Modifier) {
                     style = MaterialTheme.typography.titleMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
-                RollTotal(lastRoll.total())
+                RollTotal(state.rollCount, lastRoll.total())
                 RollGroups(lastRoll)
             }
         }
@@ -208,13 +208,13 @@ private fun RollResultCard(lastRoll: RollPool?, modifier: Modifier = Modifier) {
 }
 
 @Composable
-private fun RollTotal(total: Int) {
+private fun RollTotal(rollCount: Int, total: Int) {
     AnimatedContent(
-        targetState = total,
+        targetState = rollCount to total,
         transitionSpec = {
             (slideInVertically { it } + fadeIn()) togetherWith (slideOutVertically { -it } + fadeOut())
         },
-    ) { value ->
+    ) { (_, value) ->
         Text(
             text = value.toString(),
             style = MaterialTheme.typography.displayLarge,
@@ -240,13 +240,10 @@ private fun NoRollYet() {
     }
 }
 
-/** One line per die, from the biggest as the notation reads. */
 @Composable
 private fun RollGroups(roll: RollPool) {
-    val rollsByDie = roll.rolls.groupBy { it.die }.entries.sortedByDescending { it.key.sides }
-
     Column(verticalArrangement = Arrangement.spacedBy(spacingMedium), modifier = Modifier.fillMaxWidth()) {
-        rollsByDie.forEach { (die, rolls) -> RollGroup(die, rolls) }
+        roll.rollsByDie().forEach { (die, rolls) -> RollGroup(die, rolls) }
     }
 }
 
@@ -335,7 +332,9 @@ private fun ControlPanel(
     Surface(color = MaterialTheme.colorScheme.surfaceContainerLow, shape = shape, modifier = modifier) {
         Column(
             verticalArrangement = Arrangement.spacedBy(spacingMedium),
-            modifier = Modifier.padding(spacingCommon),
+            modifier = Modifier
+                .verticalScroll(rememberScrollState())
+                .padding(spacingCommon),
         ) {
             Row(
                 horizontalArrangement = Arrangement.SpaceBetween,

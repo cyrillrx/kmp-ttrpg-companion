@@ -5,11 +5,15 @@ import com.cyrillrx.rpg.dice.domain.DiceTerm
 import com.cyrillrx.rpg.dice.domain.Die
 import com.cyrillrx.rpg.dice.domain.RollPool
 
-/** The dice being composed and the modifier shared with direct d20 rolls, plus the result of the last roll. */
+/**
+ * The dice being composed and the modifier shared with direct d20 rolls, plus the result of the last roll.
+ * [rollCount] tells two identical rolls apart.
+ */
 data class DiceRollerState(
     val countByDie: Map<Die, Int> = emptyMap(),
     val modifier: Int = 0,
     val lastRoll: RollPool? = null,
+    val rollCount: Int = 0,
 ) {
     fun diceCount(): Int = countByDie.values.sum()
 

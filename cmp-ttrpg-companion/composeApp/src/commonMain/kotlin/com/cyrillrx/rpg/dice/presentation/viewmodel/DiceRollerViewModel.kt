@@ -44,7 +44,7 @@ class DiceRollerViewModel(private val random: Random = Random.Default) : ViewMod
     fun roll() {
         val composition = state.value.composition() ?: return
 
-        state.update { it.copy(lastRoll = composition.roll(random)) }
+        state.update { it.copy(lastRoll = composition.roll(random), rollCount = it.rollCount + 1) }
     }
 
     fun rollD20() {
@@ -64,6 +64,6 @@ class DiceRollerViewModel(private val random: Random = Random.Default) : ViewMod
     }
 
     private fun rollDirectly(roll: DieRoll) {
-        state.update { it.copy(lastRoll = RollPool(listOf(roll), it.modifier)) }
+        state.update { it.copy(lastRoll = RollPool(listOf(roll), it.modifier), rollCount = it.rollCount + 1) }
     }
 }

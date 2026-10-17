@@ -12,6 +12,7 @@ import com.cyrillrx.rpg.dice.presentation.DiceRollerState
 import kotlin.random.Random
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertNotEquals
 import kotlin.test.assertNull
 
 class DiceRollerViewModelTest {
@@ -84,6 +85,17 @@ class DiceRollerViewModelTest {
         val state = viewModel.state.value
         assertEquals(RollPool(listOf(SimpleRoll(Die.D6, 4), SimpleRoll(Die.D6, 2)), modifier = 1), state.lastRoll)
         assertEquals(2.d6 + 1, state.composition())
+    }
+
+    @Test
+    fun `rolling the same result again still yields a new state`() {
+        val viewModel = DiceRollerViewModel(FixedRandom(14, 14))
+        viewModel.rollD20()
+        val firstRoll = viewModel.state.value
+
+        viewModel.rollD20()
+
+        assertNotEquals(firstRoll, viewModel.state.value)
     }
 
     @Test
