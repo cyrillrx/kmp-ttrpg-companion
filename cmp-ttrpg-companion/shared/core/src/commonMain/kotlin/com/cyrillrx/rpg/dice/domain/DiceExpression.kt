@@ -20,6 +20,9 @@ data class DiceExpression private constructor(private val countByDie: Map<Die, I
         .map { (die, count) -> DiceTerm(count, die) }
         .sortedByDescending { it.die.sides }
 
+    constructor(terms: List<DiceTerm>, modifier: Int = 0) :
+        this(terms.groupingBy { it.die }.fold(0) { count, term -> count + term.count }, modifier)
+
     operator fun plus(other: DiceExpression): DiceExpression =
         DiceExpression(terms + other.terms, modifier + other.modifier)
 
@@ -30,12 +33,5 @@ data class DiceExpression private constructor(private val countByDie: Map<Die, I
     fun roll(random: Random = Random.Default): RollPool {
         val rolls = terms.flatMap { term -> List(term.count) { term.die.roll(random) } }
         return RollPool(rolls, modifier)
-    }
-
-    companion object {
-        operator fun invoke(terms: List<DiceTerm>, modifier: Int = 0): DiceExpression {
-            val countByDie = terms.groupingBy { it.die }.fold(0) { count, term -> count + term.count }
-            return DiceExpression(countByDie, modifier)
-        }
     }
 }
