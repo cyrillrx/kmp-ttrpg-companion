@@ -18,6 +18,16 @@ class DiceNotationTest {
     }
 
     @Test
+    fun `non-breaking spaces around a sign are accepted`() {
+        assertEquals(Result.Success(2.d6 - 3), DiceExpression.parse("2d6 - 3"))
+    }
+
+    @Test
+    fun `a refused part is named without its spaces`() {
+        assertEquals(Result.Failure(DiceNotationError.SubtractedDice("-1d4")), DiceExpression.parse("2d6 - 1d4"))
+    }
+
+    @Test
     fun `a die without a count is rolled once`() {
         assertEquals(Result.Success(1.d20), DiceExpression.parse("d20"))
     }

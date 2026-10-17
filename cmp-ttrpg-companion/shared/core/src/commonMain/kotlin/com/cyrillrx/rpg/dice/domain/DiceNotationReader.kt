@@ -3,12 +3,11 @@ package com.cyrillrx.rpg.dice.domain
 import com.cyrillrx.core.domain.Result
 
 internal fun readDiceNotation(notation: String): Result<DiceExpression, DiceNotationError> {
-    val compact = notation.trim().replace(SPACES_AROUND_SIGN, "$1")
-    if (compact.isEmpty()) return Result.Failure(DiceNotationError.Blank)
+    if (notation.isBlank()) return Result.Failure(DiceNotationError.Blank)
 
     val parts = mutableListOf<NotationPart>()
-    for (text in compact.split(SIGN_BOUNDARY).filter(String::isNotEmpty)) {
-        when (val part = text.toNotationPart()) {
+    for (text in notation.split(SIGN_BOUNDARY).filterNot(String::isBlank)) {
+        when (val part = text.trim().toNotationPart()) {
             is Result.Success -> parts += part.value
             is Result.Failure -> return part
         }
@@ -21,21 +20,22 @@ private sealed interface NotationPart {
     data class Constant(val value: Int) : NotationPart
 }
 
-private val SPACES_AROUND_SIGN = Regex("""\s*([+-])\s*""")
 private val SIGN_BOUNDARY = Regex("(?=[+-])")
 private val DICE = Regex("""(\d*)[dD](\d+)""")
 private val CONSTANT = Regex("""\d+""")
 
 private fun String.toNotationPart(): Result<NotationPart, DiceNotationError> {
-    val isSubtracted = startsWith('-')
-    val body = if (first() == '+' || first() == '-') drop(1) else this
+    val sign = take(1).takeIf { it == "+" || it == "-" }.orEmpty()
+    val body = drop(sign.length).trim()
+    val part = sign + body
+    val isSubtracted = sign == "-"
     val dice = DICE.matchEntire(body)
     return when {
         body.isEmpty() -> Result.Failure(DiceNotationError.DanglingSign)
-        dice != null && isSubtracted -> Result.Failure(DiceNotationError.SubtractedDice(this))
-        dice != null -> dice.toDicePart(this)
+        dice != null && isSubtracted -> Result.Failure(DiceNotationError.SubtractedDice(part))
+        dice != null -> dice.toDicePart(part)
         CONSTANT.matches(body) -> body.toConstantPart(isSubtracted)
-        else -> Result.Failure(DiceNotationError.Unreadable(this))
+        else -> Result.Failure(DiceNotationError.Unreadable(part))
     }
 }
 
