@@ -8,6 +8,7 @@ import androidx.compose.animation.slideOutVertically
 import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
@@ -30,6 +31,7 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Casino
 import androidx.compose.material.icons.filled.Remove
 import androidx.compose.material.icons.filled.RestartAlt
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardColors
 import androidx.compose.material3.CardDefaults
@@ -45,6 +47,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
@@ -58,6 +61,8 @@ import com.cyrillrx.rpg.core.presentation.theme.borderWidth
 import com.cyrillrx.rpg.core.presentation.theme.contentMaxWidth
 import com.cyrillrx.rpg.core.presentation.theme.emptyStateIconAlpha
 import com.cyrillrx.rpg.core.presentation.theme.emptyStateIconSize
+import com.cyrillrx.rpg.core.presentation.theme.iconSizeMedium
+import com.cyrillrx.rpg.core.presentation.theme.iconSizeSmall
 import com.cyrillrx.rpg.core.presentation.theme.spacingCommon
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
 import com.cyrillrx.rpg.core.presentation.theme.spacingSmall
@@ -65,71 +70,77 @@ import com.cyrillrx.rpg.core.presentation.theme.widthExpandedMin
 import com.cyrillrx.rpg.dice.domain.Die
 import com.cyrillrx.rpg.dice.domain.DieRoll
 import com.cyrillrx.rpg.dice.domain.DoubleRoll
+import com.cyrillrx.rpg.dice.domain.MAX_DICE_COUNT
 import com.cyrillrx.rpg.dice.domain.MAX_MODIFIER
 import com.cyrillrx.rpg.dice.domain.RollPool
 import com.cyrillrx.rpg.dice.domain.SimpleRoll
+import com.cyrillrx.rpg.dice.presentation.DiceRollerState
 import com.cyrillrx.rpg.dice.presentation.navigation.DiceRouter
 import com.cyrillrx.rpg.dice.presentation.viewmodel.DiceRollerViewModel
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import rpg_companion.composeapp.generated.resources.Res
 import rpg_companion.composeapp.generated.resources.btn_advantage
+import rpg_companion.composeapp.generated.resources.btn_clear_composition
 import rpg_companion.composeapp.generated.resources.btn_decrease_modifier
 import rpg_companion.composeapp.generated.resources.btn_disadvantage
 import rpg_companion.composeapp.generated.resources.btn_increase_modifier
-import rpg_companion.composeapp.generated.resources.btn_remove_double_roll
-import rpg_companion.composeapp.generated.resources.btn_remove_roll
-import rpg_companion.composeapp.generated.resources.btn_reset_roll
+import rpg_companion.composeapp.generated.resources.btn_remove_die_of
+import rpg_companion.composeapp.generated.resources.btn_roll
+import rpg_companion.composeapp.generated.resources.btn_roll_composition
 import rpg_companion.composeapp.generated.resources.die_count
 import rpg_companion.composeapp.generated.resources.die_label
+import rpg_companion.composeapp.generated.resources.label_double_roll
 import rpg_companion.composeapp.generated.resources.label_modifier
-import rpg_companion.composeapp.generated.resources.message_tap_a_die
+import rpg_companion.composeapp.generated.resources.message_compose_then_roll
+import rpg_companion.composeapp.generated.resources.section_compose
+import rpg_companion.composeapp.generated.resources.section_d20_roll
 import rpg_companion.composeapp.generated.resources.title_dice_roller
 
 private val dieTileMinHeight = 64.dp
 private val rollTileMinSize = 40.dp
 private val dieLabelWidth = 48.dp
+private val removeDieButtonSize = 28.dp
+
+/** What the roller screen can ask for, grouped so the panel does not thread ten callbacks through each level. */
+class DiceRollerActions(
+    val onDieAdded: (Die) -> Unit,
+    val onDieRemoved: (Die) -> Unit,
+    val onRollClicked: () -> Unit,
+    val onD20Clicked: () -> Unit,
+    val onAdvantageClicked: () -> Unit,
+    val onDisadvantageClicked: () -> Unit,
+    val onModifierDecreased: () -> Unit,
+    val onModifierIncreased: () -> Unit,
+    val onClearClicked: () -> Unit,
+)
 
 @Composable
 fun DiceRollerScreen(viewModel: DiceRollerViewModel, router: DiceRouter) {
-    val pool by viewModel.pool.collectAsStateWithLifecycle()
+    val state by viewModel.state.collectAsStateWithLifecycle()
 
     DiceRollerScreen(
-        pool = pool,
+        state = state,
         onNavigateUpClicked = router::navigateUp,
-        onDieClicked = viewModel::roll,
-        onAdvantageClicked = viewModel::rollD20WithAdvantage,
-        onDisadvantageClicked = viewModel::rollD20WithDisadvantage,
-        onRollClicked = viewModel::remove,
-        onModifierDecreased = viewModel::decreaseModifier,
-        onModifierIncreased = viewModel::increaseModifier,
-        onResetClicked = viewModel::reset,
+        actions = DiceRollerActions(
+            onDieAdded = viewModel::addDie,
+            onDieRemoved = viewModel::removeDie,
+            onRollClicked = viewModel::roll,
+            onD20Clicked = viewModel::rollD20,
+            onAdvantageClicked = viewModel::rollD20WithAdvantage,
+            onDisadvantageClicked = viewModel::rollD20WithDisadvantage,
+            onModifierDecreased = viewModel::decreaseModifier,
+            onModifierIncreased = viewModel::increaseModifier,
+            onClearClicked = viewModel::clearComposition,
+        ),
     )
 }
 
 @Composable
-fun DiceRollerScreen(
-    pool: RollPool,
-    onNavigateUpClicked: () -> Unit,
-    onDieClicked: (Die) -> Unit,
-    onAdvantageClicked: () -> Unit,
-    onDisadvantageClicked: () -> Unit,
-    onRollClicked: (Int) -> Unit,
-    onModifierDecreased: () -> Unit,
-    onModifierIncreased: () -> Unit,
-    onResetClicked: () -> Unit,
-) {
+fun DiceRollerScreen(state: DiceRollerState, onNavigateUpClicked: () -> Unit, actions: DiceRollerActions) {
     Scaffold(
         topBar = {
-            SimpleTopBar(
-                titleResource = Res.string.title_dice_roller,
-                onNavigateUpClicked = onNavigateUpClicked,
-                actions = {
-                    IconButton(onClick = onResetClicked, enabled = !pool.isEmpty() || pool.modifier != 0) {
-                        Icon(Icons.Filled.RestartAlt, contentDescription = stringResource(Res.string.btn_reset_roll))
-                    }
-                },
-            )
+            SimpleTopBar(titleResource = Res.string.title_dice_roller, onNavigateUpClicked = onNavigateUpClicked)
         },
     ) { paddingValues ->
         BoxWithConstraints(
@@ -141,33 +152,23 @@ fun DiceRollerScreen(
                 .align(Alignment.TopCenter)
                 .widthIn(max = contentMaxWidth)
                 .fillMaxSize()
-            val controls: @Composable (Modifier, Shape) -> Unit = { modifier, shape ->
-                ControlPanel(
-                    pool = pool,
-                    onDieClicked = onDieClicked,
-                    onAdvantageClicked = onAdvantageClicked,
-                    onDisadvantageClicked = onDisadvantageClicked,
-                    onModifierDecreased = onModifierDecreased,
-                    onModifierIncreased = onModifierIncreased,
-                    shape = shape,
-                    modifier = modifier,
-                )
-            }
 
             if (maxWidth >= widthExpandedMin) {
                 Row(
                     horizontalArrangement = Arrangement.spacedBy(spacingCommon),
                     modifier = contentModifier.padding(spacingCommon),
                 ) {
-                    RollResultCard(pool, onRollClicked, modifier = Modifier.weight(1f).fillMaxHeight())
-                    controls(Modifier.weight(1f), MaterialTheme.shapes.large)
+                    RollResultCard(state.lastRoll, modifier = Modifier.weight(1f).fillMaxHeight())
+                    ControlPanel(state, actions, MaterialTheme.shapes.large, Modifier.weight(1f))
                 }
             } else {
                 Column(modifier = contentModifier) {
-                    RollResultCard(pool, onRollClicked, modifier = Modifier.weight(1f).padding(spacingCommon))
-                    controls(
-                        Modifier.fillMaxWidth(),
-                        MaterialTheme.shapes.large.copy(bottomStart = CornerSize(0), bottomEnd = CornerSize(0)),
+                    RollResultCard(state.lastRoll, modifier = Modifier.weight(1f).padding(spacingCommon))
+                    ControlPanel(
+                        state = state,
+                        actions = actions,
+                        shape = MaterialTheme.shapes.large.copy(bottomStart = CornerSize(0), bottomEnd = CornerSize(0)),
+                        modifier = Modifier.fillMaxWidth(),
                     )
                 }
             }
@@ -176,7 +177,7 @@ fun DiceRollerScreen(
 }
 
 @Composable
-private fun RollResultCard(pool: RollPool, onRollClicked: (Int) -> Unit, modifier: Modifier = Modifier) {
+private fun RollResultCard(lastRoll: RollPool?, modifier: Modifier = Modifier) {
     Card(
         shape = MaterialTheme.shapes.large,
         border = BorderStroke(borderWidth, MaterialTheme.colorScheme.outline.copy(alpha = borderAlpha)),
@@ -191,13 +192,17 @@ private fun RollResultCard(pool: RollPool, onRollClicked: (Int) -> Unit, modifie
                 .verticalScroll(rememberScrollState())
                 .padding(spacingCommon),
         ) {
-            Text(
-                text = pool.toExpression()?.toNotation().orEmpty(),
-                style = MaterialTheme.typography.titleMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-            RollTotal(pool.total())
-            if (pool.isEmpty()) EmptyRoll() else RollGroups(pool, onRollClicked)
+            if (lastRoll == null) {
+                NoRollYet()
+            } else {
+                Text(
+                    text = lastRoll.toExpression()?.toNotation().orEmpty(),
+                    style = MaterialTheme.typography.titleMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                RollTotal(lastRoll.total())
+                RollGroups(lastRoll)
+            }
         }
     }
 }
@@ -219,10 +224,11 @@ private fun RollTotal(total: Int) {
 }
 
 @Composable
-private fun EmptyRoll() {
+private fun NoRollYet() {
     Column(
         verticalArrangement = Arrangement.spacedBy(spacingMedium),
         horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier.padding(top = spacingCommon),
     ) {
         Icon(
             imageVector = Icons.Filled.Casino,
@@ -230,25 +236,23 @@ private fun EmptyRoll() {
             tint = MaterialTheme.colorScheme.onSurface.copy(alpha = emptyStateIconAlpha),
             modifier = Modifier.size(emptyStateIconSize),
         )
-        Text(text = stringResource(Res.string.message_tap_a_die), style = MaterialTheme.typography.bodyLarge)
+        Text(text = stringResource(Res.string.message_compose_then_roll), style = MaterialTheme.typography.bodyLarge)
     }
 }
 
-/** One line per die, from the biggest as the notation reads; each roll keeps its index in the pool. */
+/** One line per die, from the biggest as the notation reads. */
 @Composable
-private fun RollGroups(pool: RollPool, onRollClicked: (Int) -> Unit) {
-    val rollsByDie = pool.rolls.withIndex().groupBy { it.value.die }.entries.sortedByDescending { it.key.sides }
+private fun RollGroups(roll: RollPool) {
+    val rollsByDie = roll.rolls.groupBy { it.die }.entries.sortedByDescending { it.key.sides }
 
     Column(verticalArrangement = Arrangement.spacedBy(spacingMedium), modifier = Modifier.fillMaxWidth()) {
-        rollsByDie.forEach { (die, rolls) ->
-            RollGroup(die, rolls, onRollClicked)
-        }
+        rollsByDie.forEach { (die, rolls) -> RollGroup(die, rolls) }
     }
 }
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-private fun RollGroup(die: Die, rolls: List<IndexedValue<DieRoll>>, onRollClicked: (Int) -> Unit) {
+private fun RollGroup(die: Die, rolls: List<DieRoll>) {
     Row(verticalAlignment = Alignment.Top) {
         Text(
             text = stringResource(Res.string.die_label, die.sides),
@@ -262,28 +266,20 @@ private fun RollGroup(die: Die, rolls: List<IndexedValue<DieRoll>>, onRollClicke
             horizontalArrangement = Arrangement.spacedBy(spacingSmall),
             verticalArrangement = Arrangement.spacedBy(spacingSmall),
         ) {
-            rolls.forEach { (index, roll) -> RollTile(roll, onClick = { onRollClicked(index) }) }
+            rolls.forEach { roll -> RollTile(roll) }
         }
     }
 }
 
 @Composable
-private fun RollTile(roll: DieRoll, onClick: () -> Unit) {
-    val die = stringResource(Res.string.die_label, roll.die.sides)
-    val description = when (roll) {
-        is SimpleRoll -> stringResource(Res.string.btn_remove_roll, die, roll.value)
-        is DoubleRoll -> stringResource(Res.string.btn_remove_double_roll, die, roll.value, roll.discarded.value)
-    }
+private fun RollTile(roll: DieRoll) {
     Surface(
-        onClick = onClick,
         shape = MaterialTheme.shapes.small,
         color = MaterialTheme.colorScheme.surfaceContainerHigh,
-        modifier = Modifier
-            .sizeIn(minWidth = rollTileMinSize, minHeight = rollTileMinSize)
-            .semantics { contentDescription = description },
+        modifier = Modifier.sizeIn(minWidth = rollTileMinSize, minHeight = rollTileMinSize),
     ) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
+        Box(
+            contentAlignment = Alignment.Center,
             modifier = Modifier.padding(horizontal = spacingMedium, vertical = spacingSmall),
         ) {
             when (roll) {
@@ -296,7 +292,16 @@ private fun RollTile(roll: DieRoll, onClick: () -> Unit) {
 
 @Composable
 private fun DoubleRollContent(roll: DoubleRoll) {
-    Row(horizontalArrangement = Arrangement.spacedBy(spacingSmall)) {
+    val description = stringResource(
+        Res.string.label_double_roll,
+        stringResource(Res.string.die_label, roll.die.sides),
+        roll.kept.value,
+        roll.discarded.value,
+    )
+    Row(
+        horizontalArrangement = Arrangement.spacedBy(spacingSmall),
+        modifier = Modifier.semantics { contentDescription = description },
+    ) {
         Text(
             text = roll.kept.value.toString(),
             style = MaterialTheme.typography.titleMedium,
@@ -322,99 +327,132 @@ private fun rollColor(roll: SimpleRoll, against: SimpleRoll): Color = when {
 
 @Composable
 private fun ControlPanel(
-    pool: RollPool,
-    onDieClicked: (Die) -> Unit,
-    onAdvantageClicked: () -> Unit,
-    onDisadvantageClicked: () -> Unit,
-    onModifierDecreased: () -> Unit,
-    onModifierIncreased: () -> Unit,
+    state: DiceRollerState,
+    actions: DiceRollerActions,
     shape: Shape,
     modifier: Modifier = Modifier,
 ) {
     Surface(color = MaterialTheme.colorScheme.surfaceContainerLow, shape = shape, modifier = modifier) {
         Column(
-            verticalArrangement = Arrangement.spacedBy(spacingCommon),
+            verticalArrangement = Arrangement.spacedBy(spacingMedium),
             modifier = Modifier.padding(spacingCommon),
         ) {
-            ModifierStepper(pool.modifier, onModifierDecreased, onModifierIncreased)
-            DicePad(pool, onDieClicked, onAdvantageClicked, onDisadvantageClicked)
+            Row(
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.fillMaxWidth(),
+            ) {
+                Text(text = stringResource(Res.string.label_modifier), style = MaterialTheme.typography.titleSmall)
+                ModifierStepper(state.modifier, actions.onModifierDecreased, actions.onModifierIncreased)
+            }
+            SectionLabel(stringResource(Res.string.section_d20_roll))
+            DirectD20Row(actions)
+            SectionLabel(stringResource(Res.string.section_compose))
+            CompositionPad(state, actions)
+            RollButton(state, actions.onRollClicked)
         }
     }
 }
 
 @Composable
+private fun SectionLabel(text: String) {
+    Text(
+        text = text,
+        style = MaterialTheme.typography.labelLarge,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+        modifier = Modifier.padding(top = spacingSmall),
+    )
+}
+
+@Composable
 private fun ModifierStepper(modifier: Int, onDecreased: () -> Unit, onIncreased: () -> Unit) {
-    Row(
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier.fillMaxWidth(),
-    ) {
-        Text(text = stringResource(Res.string.label_modifier), style = MaterialTheme.typography.titleSmall)
-        Surface(shape = MaterialTheme.shapes.extraLarge, color = MaterialTheme.colorScheme.surfaceContainerHigh) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                IconButton(onClick = onDecreased, enabled = modifier > -MAX_MODIFIER) {
-                    Icon(Icons.Filled.Remove, contentDescription = stringResource(Res.string.btn_decrease_modifier))
-                }
-                Text(text = modifier.toSignedString(), style = MaterialTheme.typography.titleLarge)
-                IconButton(onClick = onIncreased, enabled = modifier < MAX_MODIFIER) {
-                    Icon(Icons.Filled.Add, contentDescription = stringResource(Res.string.btn_increase_modifier))
-                }
+    Surface(shape = MaterialTheme.shapes.extraLarge, color = MaterialTheme.colorScheme.surfaceContainerHigh) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            IconButton(onClick = onDecreased, enabled = modifier > -MAX_MODIFIER) {
+                Icon(Icons.Filled.Remove, contentDescription = stringResource(Res.string.btn_decrease_modifier))
+            }
+            Text(text = modifier.toSignedString(), style = MaterialTheme.typography.titleLarge)
+            IconButton(onClick = onIncreased, enabled = modifier < MAX_MODIFIER) {
+                Icon(Icons.Filled.Add, contentDescription = stringResource(Res.string.btn_increase_modifier))
             }
         }
     }
 }
 
-/** A fixed grid, so each die stays under the same spot whatever the width; the d20 sits last, framed by its variants. */
+/** Rolls at once with the current modifier: a d20 test only ever adds a bonus, never other dice. */
 @Composable
-private fun DicePad(
-    pool: RollPool,
-    onDieClicked: (Die) -> Unit,
-    onAdvantageClicked: () -> Unit,
-    onDisadvantageClicked: () -> Unit,
-) {
-    val countByDie = pool.rolls.groupingBy { it.die }.eachCount()
-    val enabled = !pool.isFull()
+private fun DirectD20Row(actions: DiceRollerActions) {
     val d20 = stringResource(Res.string.die_label, Die.D20.sides)
 
+    Row(horizontalArrangement = Arrangement.spacedBy(spacingMedium)) {
+        DieTile(
+            label = d20,
+            caption = stringResource(Res.string.btn_disadvantage),
+            onClick = actions.onDisadvantageClicked,
+            accent = MaterialTheme.colorScheme.error,
+            modifier = Modifier.weight(1f),
+        )
+        DieTile(
+            label = d20,
+            caption = "",
+            onClick = actions.onD20Clicked,
+            modifier = Modifier.weight(1f),
+        )
+        DieTile(
+            label = d20,
+            caption = stringResource(Res.string.btn_advantage),
+            onClick = actions.onAdvantageClicked,
+            accent = LocalHealthColors.current.heal,
+            modifier = Modifier.weight(1f),
+        )
+    }
+}
+
+/** A fixed grid, so each die stays under the same spot whatever the width. */
+@Composable
+private fun CompositionPad(state: DiceRollerState, actions: DiceRollerActions) {
+    val canAdd = state.diceCount() < MAX_DICE_COUNT
+    val rows = listOf(listOf(Die.D4, Die.D6, Die.D8, Die.D10), listOf(Die.D12, Die.D20, Die.D100))
+
     Column(verticalArrangement = Arrangement.spacedBy(spacingMedium)) {
-        listOf(listOf(Die.D4, Die.D6, Die.D8), listOf(Die.D10, Die.D12, Die.D100)).forEach { dice ->
+        rows.forEach { dice ->
             Row(horizontalArrangement = Arrangement.spacedBy(spacingMedium)) {
                 dice.forEach { die ->
+                    val count = state.countByDie[die] ?: 0
                     DieTile(
                         label = stringResource(Res.string.die_label, die.sides),
-                        caption = countCaption(countByDie[die] ?: 0),
-                        onClick = { onDieClicked(die) },
-                        enabled = enabled,
+                        caption = if (count > 0) stringResource(Res.string.die_count, count) else "",
+                        onClick = { actions.onDieAdded(die) },
+                        enabled = canAdd,
+                        onRemove = if (count > 0) ({ actions.onDieRemoved(die) }) else null,
+                        modifier = Modifier.weight(1f),
+                    )
+                }
+                if (dice == rows.last()) {
+                    DieTile(
+                        label = stringResource(Res.string.btn_clear_composition),
+                        caption = stringResource(Res.string.btn_clear_composition),
+                        onClick = actions.onClearClicked,
+                        enabled = state.countByDie.isNotEmpty(),
+                        icon = Icons.Filled.RestartAlt,
                         modifier = Modifier.weight(1f),
                     )
                 }
             }
         }
-        Row(horizontalArrangement = Arrangement.spacedBy(spacingMedium)) {
-            DieTile(
-                label = d20,
-                caption = stringResource(Res.string.btn_disadvantage),
-                onClick = onDisadvantageClicked,
-                enabled = enabled,
-                accent = MaterialTheme.colorScheme.error,
-                modifier = Modifier.weight(1f),
-            )
-            DieTile(
-                label = d20,
-                caption = countCaption(countByDie[Die.D20] ?: 0),
-                onClick = { onDieClicked(Die.D20) },
-                enabled = enabled,
-                modifier = Modifier.weight(1f),
-            )
-            DieTile(
-                label = d20,
-                caption = stringResource(Res.string.btn_advantage),
-                onClick = onAdvantageClicked,
-                enabled = enabled,
-                accent = LocalHealthColors.current.heal,
-                modifier = Modifier.weight(1f),
-            )
-        }
+    }
+}
+
+@Composable
+private fun RollButton(state: DiceRollerState, onClick: () -> Unit) {
+    val composition = state.composition()
+    Button(onClick = onClick, enabled = composition != null, modifier = Modifier.fillMaxWidth()) {
+        Icon(Icons.Filled.Casino, contentDescription = null, modifier = Modifier.size(iconSizeMedium))
+        Text(
+            text = composition?.let { stringResource(Res.string.btn_roll_composition, it.toNotation()) }
+                ?: stringResource(Res.string.btn_roll),
+            modifier = Modifier.padding(start = spacingMedium),
+        )
     }
 }
 
@@ -424,9 +462,11 @@ private fun DieTile(
     label: String,
     caption: String,
     onClick: () -> Unit,
-    enabled: Boolean,
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
     accent: Color? = null,
+    onRemove: (() -> Unit)? = null,
+    icon: ImageVector? = null,
 ) {
     Card(
         onClick = onClick,
@@ -438,20 +478,39 @@ private fun DieTile(
         elevation = CardDefaults.outlinedCardElevation(),
         modifier = modifier.heightIn(min = dieTileMinHeight),
     ) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center,
-            modifier = Modifier
-                .fillMaxWidth()
-                .heightIn(min = dieTileMinHeight)
-                .padding(spacingSmall),
-        ) {
-            Text(text = label, style = MaterialTheme.typography.titleLarge)
-            Text(
-                text = caption,
-                style = MaterialTheme.typography.labelMedium,
-                color = if (accent == null) MaterialTheme.colorScheme.tertiary else Color.Unspecified,
-            )
+        Box(modifier = Modifier.fillMaxWidth().heightIn(min = dieTileMinHeight)) {
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center,
+                modifier = Modifier
+                    .align(Alignment.Center)
+                    .padding(spacingSmall),
+            ) {
+                if (icon == null) {
+                    Text(text = label, style = MaterialTheme.typography.titleLarge)
+                } else {
+                    Icon(icon, contentDescription = null, modifier = Modifier.size(iconSizeMedium))
+                }
+                Text(
+                    text = caption,
+                    style = MaterialTheme.typography.labelMedium,
+                    color = if (accent == null) MaterialTheme.colorScheme.tertiary else Color.Unspecified,
+                )
+            }
+            onRemove?.let { remove ->
+                IconButton(
+                    onClick = remove,
+                    modifier = Modifier
+                        .align(Alignment.TopEnd)
+                        .size(removeDieButtonSize),
+                ) {
+                    Icon(
+                        imageVector = Icons.Filled.Remove,
+                        contentDescription = stringResource(Res.string.btn_remove_die_of, label),
+                        modifier = Modifier.size(iconSizeSmall),
+                    )
+                }
+            }
         }
     }
 }
@@ -464,49 +523,31 @@ private fun dieTileColors(accent: Color?): CardColors = if (accent == null) {
     CardDefaults.cardColors(containerColor = Color.Transparent, contentColor = accent)
 }
 
-@Composable
-private fun countCaption(count: Int): String = if (count > 0) stringResource(Res.string.die_count, count) else ""
-
-private val previewPool = RollPool(
-    rolls = listOf(
-        DoubleRoll(kept = SimpleRoll(Die.D20, 17), discarded = SimpleRoll(Die.D20, 3)),
-        SimpleRoll(Die.D6, 3),
-        SimpleRoll(Die.D6, 5),
-        SimpleRoll(Die.D6, 1),
-        DoubleRoll(kept = SimpleRoll(Die.D20, 4), discarded = SimpleRoll(Die.D20, 12)),
+private val previewState = DiceRollerState(
+    countByDie = mapOf(Die.D6 to 2),
+    modifier = 5,
+    lastRoll = RollPool(
+        rolls = listOf(DoubleRoll(kept = SimpleRoll(Die.D20, 17), discarded = SimpleRoll(Die.D20, 3))),
+        modifier = 5,
     ),
-    modifier = 2,
 )
 
-@Composable
-private fun DiceRollerScreenPreview(pool: RollPool) {
-    DiceRollerScreen(
-        pool = pool,
-        onNavigateUpClicked = {},
-        onDieClicked = {},
-        onAdvantageClicked = {},
-        onDisadvantageClicked = {},
-        onRollClicked = {},
-        onModifierDecreased = {},
-        onModifierIncreased = {},
-        onResetClicked = {},
-    )
-}
+private val previewActions = DiceRollerActions({}, {}, {}, {}, {}, {}, {}, {}, {})
 
 @Preview
 @Composable
 private fun PreviewDiceRollerScreenLight() {
-    AppThemePreview(darkTheme = false) { DiceRollerScreenPreview(previewPool) }
+    AppThemePreview(darkTheme = false) { DiceRollerScreen(previewState, onNavigateUpClicked = {}, previewActions) }
 }
 
 @Preview
 @Composable
 private fun PreviewDiceRollerScreenDark() {
-    AppThemePreview(darkTheme = true) { DiceRollerScreenPreview(previewPool) }
+    AppThemePreview(darkTheme = true) { DiceRollerScreen(previewState, onNavigateUpClicked = {}, previewActions) }
 }
 
 @Preview
 @Composable
 private fun PreviewDiceRollerScreenEmpty() {
-    AppThemePreview(darkTheme = true) { DiceRollerScreenPreview(RollPool()) }
+    AppThemePreview(darkTheme = true) { DiceRollerScreen(DiceRollerState(), onNavigateUpClicked = {}, previewActions) }
 }

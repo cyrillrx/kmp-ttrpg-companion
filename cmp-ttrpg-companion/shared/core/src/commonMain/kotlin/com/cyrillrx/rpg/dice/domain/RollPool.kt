@@ -10,8 +10,6 @@ data class RollPool(val rolls: List<DieRoll> = emptyList(), val modifier: Int = 
 
     fun isEmpty(): Boolean = rolls.isEmpty()
 
-    fun isFull(): Boolean = rolls.size == MAX_DICE_COUNT
-
     /** What the pool rolled, such as `8d6+6`; null until a die is rolled. */
     fun toExpression(): DiceExpression? =
         if (isEmpty()) null else DiceExpression(rolls.map { DiceTerm(1, it.die) }, modifier)

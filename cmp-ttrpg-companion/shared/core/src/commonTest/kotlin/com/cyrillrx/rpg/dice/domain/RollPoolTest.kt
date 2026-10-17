@@ -65,12 +65,6 @@ class RollPoolTest {
     }
 
     @Test
-    fun `a pool is full at the dice limit`() {
-        assertTrue(RollPool(List(MAX_DICE_COUNT) { d6 }).isFull())
-        assertFalse(RollPool(List(MAX_DICE_COUNT - 1) { d6 }).isFull())
-    }
-
-    @Test
     fun `more dice than the limit are refused`() {
         assertFailsWith<IllegalArgumentException> { RollPool(List(MAX_DICE_COUNT + 1) { d6 }) }
     }
