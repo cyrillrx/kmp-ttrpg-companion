@@ -21,6 +21,9 @@ class OptimisticDeletions<Item>(private val identity: (Item) -> Any) {
     private val claimed = mutableListOf<Pending<Item>>()
     private var loaded: List<Item> = emptyList()
 
+    /** Deleted since the last [setLoaded]: a read that started before the delete would still hold them. */
+    private val deletedSinceLoad = mutableSetOf<Any>()
+
     /**
      * Recomputed on every read: read it inside a state update lambda, so a replayed update still renders
      * the current list.
@@ -39,7 +42,8 @@ class OptimisticDeletions<Item>(private val identity: (Item) -> Any) {
     }
 
     fun setLoaded(items: List<Item>) {
-        loaded = items
+        loaded = items.filterNot { identity(it) in deletedSinceLoad }
+        deletedSinceLoad.clear()
     }
 
     /** Null when [item] is not on screen, so a row the caller read from a stale list cannot be hidden. */
@@ -72,5 +76,6 @@ class OptimisticDeletions<Item>(private val identity: (Item) -> Any) {
 
         val deletedId = identity(pending.item)
         loaded = loaded.filterNot { identity(it) == deletedId }
+        deletedSinceLoad.add(deletedId)
     }
 }

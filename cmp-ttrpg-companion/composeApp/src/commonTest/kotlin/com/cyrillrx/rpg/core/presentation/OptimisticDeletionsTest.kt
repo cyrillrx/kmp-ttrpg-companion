@@ -183,4 +183,44 @@ class OptimisticDeletionsTest {
         assertNotNull(subject.hide(first))
         assertTrue(subject.visible.isEmpty())
     }
+
+    @Test
+    fun `a read that started before a delete does not bring the deleted item back`() {
+        val subject = deletions()
+        subject.setLoaded(listOf(first, second))
+        val pending = assertNotNull(subject.hide(first))
+        subject.claim(pending)
+        subject.settle(pending, deleted = true)
+
+        subject.setLoaded(listOf(Row("1"), Row("2")))
+
+        assertEquals(expected = listOf("2"), actual = subject.visible.map { it.id })
+    }
+
+    @Test
+    fun `an item deleted before the previous read can appear again in a later one`() {
+        val subject = deletions()
+        subject.setLoaded(listOf(first, second))
+        val pending = assertNotNull(subject.hide(first))
+        subject.claim(pending)
+        subject.settle(pending, deleted = true)
+        subject.setLoaded(listOf(second))
+
+        subject.setLoaded(listOf(Row("1"), second))
+
+        assertEquals(expected = listOf("1", "2"), actual = subject.visible.map { it.id })
+    }
+
+    @Test
+    fun `a failed delete does not filter the item out of the next read`() {
+        val subject = deletions()
+        subject.setLoaded(listOf(first, second))
+        val pending = assertNotNull(subject.hide(first))
+        subject.claim(pending)
+        subject.settle(pending, deleted = false)
+
+        subject.setLoaded(listOf(first, second))
+
+        assertEquals(expected = listOf("1", "2"), actual = subject.visible.map { it.id })
+    }
 }
