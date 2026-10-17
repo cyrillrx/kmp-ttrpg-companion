@@ -172,14 +172,12 @@ class CollectionDetailViewModel<T : Entity>(
         }
 
     private suspend fun fetchDetail() {
-        var collectionName = ""
         removals.reload {
             val collection =
                 userCollectionRepository.get(collectionId) ?: error("Could not find collection $collectionId")
-            collectionName = collection.name
+            state.update { it.copy(collectionName = collection.name) }
             repository.getByIds(collection.itemIds)
         }
-        state.update { it.copy(collectionName = collectionName) }
         renderBody()
     }
 
