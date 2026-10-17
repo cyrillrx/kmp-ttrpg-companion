@@ -126,7 +126,8 @@ class CharacterListViewModelTest {
         viewModel.filterByQuery("zzz-no-such-character")
         advanceUntilIdle()
 
-        assertIs<CharacterListState.Body.NoSearchResult>(viewModel.state.value.body)
+        val body = assertIs<CharacterListState.Body.NoSearchResult>(viewModel.state.value.body)
+        assertEquals(expected = "zzz-no-such-character", actual = body.query)
     }
 
     @Test

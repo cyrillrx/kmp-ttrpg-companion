@@ -194,7 +194,7 @@ fun CharacterListScreen(
                         icon = Icons.Outlined.Person,
                         message = stringResource(Res.string.message_no_character_yet),
                     )
-                    is CharacterListState.Body.NoSearchResult -> EmptySearch(searchQuery = state.searchQuery)
+                    is CharacterListState.Body.NoSearchResult -> EmptySearch(searchQuery = body.query)
                     is CharacterListState.Body.Error -> ErrorLayout(errorMessage = body.errorMessage)
                     is CharacterListState.Body.WithData ->
                         CharacterList(
@@ -280,7 +280,7 @@ private fun PreviewCharacterListScreenEmptyDark() {
 @Composable
 private fun PreviewCharacterListScreenNoSearchResultLight() {
     AppThemePreview(darkTheme = false) {
-        CharacterListScreenPreview(CharacterListState.Body.NoSearchResult, searchQuery = "Zorro")
+        CharacterListScreenPreview(CharacterListState.Body.NoSearchResult("Zorro"), searchQuery = "Zorro")
     }
 }
 
@@ -288,7 +288,7 @@ private fun PreviewCharacterListScreenNoSearchResultLight() {
 @Composable
 private fun PreviewCharacterListScreenNoSearchResultDark() {
     AppThemePreview(darkTheme = true) {
-        CharacterListScreenPreview(CharacterListState.Body.NoSearchResult, searchQuery = "Zorro")
+        CharacterListScreenPreview(CharacterListState.Body.NoSearchResult("Zorro"), searchQuery = "Zorro")
     }
 }
 

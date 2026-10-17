@@ -171,7 +171,7 @@ class CharacterListViewModel(
         return when {
             visible.isNotEmpty() -> CharacterListState.Body.WithData(visible.applySort(order, locale))
             loadedQuery.isBlank() -> CharacterListState.Body.Empty
-            else -> CharacterListState.Body.NoSearchResult
+            else -> CharacterListState.Body.NoSearchResult(loadedQuery)
         }
     }
 
