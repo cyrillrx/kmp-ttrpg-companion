@@ -1,6 +1,5 @@
 package com.cyrillrx.rpg.character.presentation.viewmodel
 
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cyrillrx.core.domain.Result
 import com.cyrillrx.rpg.app.currentLocale
@@ -16,15 +15,13 @@ import com.cyrillrx.rpg.core.domain.StoredSortOrder
 import com.cyrillrx.rpg.core.domain.applySort
 import com.cyrillrx.rpg.core.presentation.OptimisticDeletions
 import com.cyrillrx.rpg.core.presentation.detachedCommitScope
+import com.cyrillrx.rpg.core.presentation.viewmodel.SearchableListViewModel
 import com.cyrillrx.rpg.settings.domain.UserPreferencesRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -39,16 +36,13 @@ class CharacterListViewModel(
     private val prefsRepository: UserPreferencesRepository,
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
     private val locale: String = currentLocale(),
-) : ViewModel() {
-
-    val state: StateFlow<CharacterListState>
-        field = MutableStateFlow(
-            CharacterListState(
-                searchQuery = "",
-                body = CharacterListState.Body.Loading,
-                sortOrder = prefsRepository.preferences.value.characterSortOrder,
-            ),
-        )
+) : SearchableListViewModel<CharacterListState, CharacterListState.Body>(
+        initialState = CharacterListState(
+            searchQuery = "",
+            body = CharacterListState.Body.Loading,
+            sortOrder = prefsRepository.preferences.value.characterSortOrder,
+        ),
+    ) {
 
     val events: SharedFlow<Event>
         field = MutableSharedFlow<Event>()
@@ -63,21 +57,19 @@ class CharacterListViewModel(
 
     private val commitScope = detachedCommitScope()
 
-    private var activeJob: Job? = null
-
     init {
-        activeJob = loadCharacters(query = "")
+        refresh()
     }
 
     fun filterByQuery(query: String) {
-        activeJob?.cancel()
-        activeJob = loadCharacters(query)
+        mutableState.update { it.copy(searchQuery = query) }
+        refresh(debounce = true, resetScroll = true)
     }
 
     fun setSortOrder(order: StoredSortOrder) {
         if (state.value.sortOrder == order) return
 
-        state.update { current ->
+        mutableState.update { current ->
             current.copy(
                 sortOrder = order,
                 body = if (current.body is CharacterListState.Body.WithData) {
@@ -127,12 +119,6 @@ class CharacterListViewModel(
         viewModelScope.launch { events.emit(Event.ImportFailed(CharacterImportFailure.Unexpected)) }
     }
 
-    fun silentRefresh() {
-        if (state.value.body is CharacterListState.Body.Loading) return
-        activeJob?.cancel()
-        activeJob = refreshCharacters()
-    }
-
     fun deleteCharacterOptimistically(stored: Stored<Character>): OptimisticDeletions.Pending<Stored<Character>>? {
         if (state.value.body !is CharacterListState.Body.WithData) return null
 
@@ -173,56 +159,15 @@ class CharacterListViewModel(
         }
     }
 
-    private fun refreshCharacters(): Job =
-        viewModelScope.launch {
-            try {
-                fetchAndUpdateCharacters(state.value.searchQuery)
-            } catch (e: CancellationException) {
-                throw e
-            } catch (e: Exception) {
-                // Keep existing state on refresh failure
-            }
-        }
+    /** Rendering over a `Loading` or `Error` body would bury the pending fetch or the error message under the previous read. */
+    private fun renderBodyIfLoaded() {
+        if (!showsContent(state.value.body)) return
 
-    private fun loadCharacters(query: String): Job =
-        viewModelScope.launch {
-            state.update { it.copy(searchQuery = query, body = CharacterListState.Body.Loading) }
-            try {
-                fetchAndUpdateCharacters(query)
-            } catch (e: CancellationException) {
-                throw e
-            } catch (e: Exception) {
-                state.update {
-                    it.copy(
-                        body = CharacterListState.Body.Error(errorMessage = Res.string.error_while_loading_characters),
-                    )
-                }
-            }
-        }
-
-    private suspend fun fetchAndUpdateCharacters(query: String) {
-        val filter = CharacterFilter(query = query)
-        deletions.setLoaded(repository.getAll(filter))
         renderBody()
     }
 
-    /**
-     * Rendering over a `Loading` or `Error` body would bury the pending fetch or the error message
-     * under the previous read. [renderBody] cannot hold the guard itself: a load sets `Loading`
-     * first and relies on its own fetch to render over it.
-     */
-    private fun renderBodyIfLoaded() {
-        when (state.value.body) {
-            is CharacterListState.Body.Loading, is CharacterListState.Body.Error -> return
-            is CharacterListState.Body.Empty,
-            is CharacterListState.Body.NoSearchResult,
-            is CharacterListState.Body.WithData,
-            -> renderBody()
-        }
-    }
-
     private fun renderBody() {
-        state.update { it.copy(body = sortedBody(it.sortOrder, it.searchQuery)) }
+        mutableState.update { it.copy(body = sortedBody(it.sortOrder, it.searchQuery)) }
     }
 
     private fun sortedBody(order: StoredSortOrder, query: String): CharacterListState.Body {
@@ -232,5 +177,28 @@ class CharacterListViewModel(
             query.isBlank() -> CharacterListState.Body.Empty
             else -> CharacterListState.Body.NoSearchResult
         }
+    }
+
+    override fun CharacterListState.body(): CharacterListState.Body = body
+
+    override fun CharacterListState.withBody(body: CharacterListState.Body): CharacterListState = copy(body = body)
+
+    override fun loadingBody(): CharacterListState.Body = CharacterListState.Body.Loading
+
+    override fun errorBody(): CharacterListState.Body =
+        CharacterListState.Body.Error(errorMessage = Res.string.error_while_loading_characters)
+
+    override fun showsContent(body: CharacterListState.Body): Boolean = when (body) {
+        is CharacterListState.Body.Loading, is CharacterListState.Body.Error -> false
+        is CharacterListState.Body.Empty,
+        is CharacterListState.Body.NoSearchResult,
+        is CharacterListState.Body.WithData,
+        -> true
+    }
+
+    override suspend fun loadContent(): CharacterListState.Body {
+        val current = state.value
+        deletions.setLoaded(repository.getAll(CharacterFilter(query = current.searchQuery)))
+        return sortedBody(current.sortOrder, current.searchQuery)
     }
 }

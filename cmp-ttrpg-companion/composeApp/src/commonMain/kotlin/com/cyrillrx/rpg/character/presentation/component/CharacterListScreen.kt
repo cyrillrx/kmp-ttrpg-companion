@@ -47,8 +47,10 @@ import com.cyrillrx.rpg.core.presentation.component.rememberFilePicker
 import com.cyrillrx.rpg.core.presentation.component.rememberOptimisticDeleteHandler
 import com.cyrillrx.rpg.core.presentation.theme.AppThemePreview
 import com.cyrillrx.rpg.core.presentation.theme.spacingMedium
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.getString
 import org.jetbrains.compose.resources.stringResource
@@ -93,6 +95,7 @@ fun CharacterListScreen(
         onDeleteCharacterOptimistically = viewModel::deleteCharacterOptimistically,
         onUndoDeletion = viewModel::undoDeletion,
         onCommitDeletion = viewModel::commitDeletion,
+        scrollToTopEvents = viewModel.scrollToTopEvents,
     )
 }
 
@@ -111,6 +114,7 @@ fun CharacterListScreen(
     onDeleteCharacterOptimistically: (Stored<Character>) -> OptimisticDeletions.Pending<Stored<Character>>?,
     onUndoDeletion: (OptimisticDeletions.Pending<Stored<Character>>) -> Unit,
     onCommitDeletion: (OptimisticDeletions.Pending<Stored<Character>>) -> Unit,
+    scrollToTopEvents: Flow<Unit> = emptyFlow(),
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
 
@@ -198,6 +202,7 @@ fun CharacterListScreen(
                             onSortOrderSelected = onSortOrderSelected,
                             onCharacterClicked = onCharacterClicked,
                             onDeleteCharacter = onDeleteCharacter,
+                            scrollToTopEvents = scrollToTopEvents,
                         )
                 }
             }
@@ -212,11 +217,15 @@ private fun CharacterList(
     onSortOrderSelected: (StoredSortOrder) -> Unit,
     onCharacterClicked: (Character) -> Unit,
     onDeleteCharacter: (Stored<Character>) -> Unit,
+    scrollToTopEvents: Flow<Unit>,
     modifier: Modifier = Modifier,
 ) {
     val listState = rememberLazyListState()
 
     ScrollToTopOnChange(key = sortOrder, listState = listState)
+    LaunchedEffect(Unit) {
+        scrollToTopEvents.collect { listState.scrollToItem(0) }
+    }
 
     LazyColumn(
         state = listState,

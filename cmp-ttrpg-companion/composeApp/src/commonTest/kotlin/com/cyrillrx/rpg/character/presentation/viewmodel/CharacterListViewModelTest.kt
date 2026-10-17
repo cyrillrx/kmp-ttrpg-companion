@@ -206,6 +206,30 @@ class CharacterListViewModelTest {
     }
 
     @Test
+    fun `quick successive queries read the repository once after the debounce`() = runTest(testDispatcher) {
+        val repository = ScrambledCharacterRepository()
+        val viewModel = buildViewModel(repository)
+
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) {
+            viewModel.state.collect {}
+        }
+
+        advanceUntilIdle()
+        val readsAfterLoad = repository.reads
+
+        viewModel.filterByQuery("M")
+        viewModel.filterByQuery("Mi")
+        viewModel.filterByQuery("Mid")
+
+        assertEquals(expected = "Mid", actual = viewModel.state.value.searchQuery)
+        assertIs<CharacterListState.Body.WithData>(viewModel.state.value.body)
+
+        advanceUntilIdle()
+
+        assertEquals(expected = readsAfterLoad + 1, actual = repository.reads)
+    }
+
+    @Test
     fun `filterByQuery updates searchQuery in state`() = runTest(testDispatcher) {
         val viewModel = buildViewModel()
 
@@ -416,7 +440,7 @@ class CharacterListViewModelTest {
         }
 
     @Test
-    fun `a commit landing during a search does not replace the Loading body`() = runTest(testDispatcher) {
+    fun `a commit landing during a search does not overwrite the search result`() = runTest(testDispatcher) {
         val gatedRepository = GatedCharacterRepository()
         gatedRepository.save(SampleCharacterRepository.getAllValues().first())
 
@@ -435,12 +459,8 @@ class CharacterListViewModelTest {
         viewModel.filterByQuery("Borin")
         advanceUntilIdle()
 
-        assertIs<CharacterListState.Body.Loading>(viewModel.state.value.body)
-
         viewModel.commitDeletion(pending)
         advanceUntilIdle()
-
-        assertIs<CharacterListState.Body.Loading>(viewModel.state.value.body)
 
         gate.complete(Unit)
         advanceUntilIdle()
