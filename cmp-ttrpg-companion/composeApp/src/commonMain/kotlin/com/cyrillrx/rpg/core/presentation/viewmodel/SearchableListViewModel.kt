@@ -26,6 +26,7 @@ abstract class SearchableListViewModel<State : Any, Body : Any>(
 
     private var updateJob: Job? = null
     private var updateJobIsSilent = false
+    private var updateJobReadStarted = false
     private var silentRefreshQueued = false
 
     protected abstract fun State.body(): Body
@@ -42,12 +43,12 @@ abstract class SearchableListViewModel<State : Any, Body : Any>(
 
     /**
      * Reloads with the current filter, keeping what is shown if the read fails. A pending silent refresh is
-     * restarted so the latest data wins; any other pending load is left to finish, then refreshed again, as
-     * its read may predate the change this refresh is for.
+     * restarted so the latest data wins; any other pending load is left to finish, then refreshed again when
+     * its read already started over shown content, as that read may predate the change this refresh is for.
      */
     fun silentRefresh() {
         if (updateJob?.isActive == true && !updateJobIsSilent) {
-            silentRefreshQueued = true
+            if (updateJobReadStarted && showsContent(mutableState.value.body())) silentRefreshQueued = true
             return
         }
 
@@ -57,6 +58,7 @@ abstract class SearchableListViewModel<State : Any, Body : Any>(
     protected fun refresh(debounce: Boolean = false, resetScroll: Boolean = false, silent: Boolean = false) {
         updateJob?.cancel()
         updateJobIsSilent = silent
+        updateJobReadStarted = false
         silentRefreshQueued = false
         updateJob = viewModelScope.launch {
             if (debounce) delay(SEARCH_DEBOUNCE_MS)
@@ -66,6 +68,7 @@ abstract class SearchableListViewModel<State : Any, Body : Any>(
                 mutableState.update { it.withBody(loadingBody()) }
             }
 
+            updateJobReadStarted = true
             val body = try {
                 loadContent()
             } catch (e: CancellationException) {

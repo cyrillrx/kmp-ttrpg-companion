@@ -26,6 +26,7 @@ import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.resetMain
+import kotlinx.coroutines.test.runCurrent
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
 import kotlinx.datetime.TimeZone
@@ -179,13 +180,18 @@ class CharacterListViewModelTest {
 
     @Test
     fun `silentRefresh does nothing when state is already Loading`() = runTest(testDispatcher) {
-        val viewModel = buildViewModel()
+        val loadGate = CompletableDeferred<Unit>()
+        val repository = ScrambledCharacterRepository().apply { gate = loadGate }
+        val viewModel = buildViewModel(repository)
+        runCurrent()
 
         assertIs<CharacterListState.Body.Loading>(viewModel.state.value.body)
 
         viewModel.silentRefresh()
+        loadGate.complete(Unit)
+        advanceUntilIdle()
 
-        assertIs<CharacterListState.Body.Loading>(viewModel.state.value.body)
+        assertEquals(expected = 1, actual = repository.reads)
     }
 
     @Test
