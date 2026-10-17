@@ -1,9 +1,7 @@
 package com.cyrillrx.rpg.core.presentation.component
 
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.widthIn
@@ -48,17 +46,15 @@ fun SearchBarWithBack(
                 contentDescription = stringResource(Res.string.btn_back),
             )
         }
-        Box(modifier = Modifier.weight(1f)) {
-            SearchBar(
-                hint = hint,
-                query = query,
-                onQueryChanged = onQueryChanged,
-                modifier = Modifier
-                    .widthIn(max = 400.dp)
-                    .fillMaxWidth()
-                    .minimumInteractiveComponentSize(),
-            )
-        }
+        SearchBar(
+            hint = hint,
+            query = query,
+            onQueryChanged = onQueryChanged,
+            modifier = Modifier
+                .weight(1f)
+                .widthIn(max = 400.dp)
+                .minimumInteractiveComponentSize(),
+        )
         if (onFilterClicked != null) {
             IconButton(onClick = onFilterClicked) {
                 Icon(
