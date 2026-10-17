@@ -58,6 +58,11 @@ class DiceNotationTest {
     }
 
     @Test
+    fun `a space inside a term is refused rather than joined`() {
+        assertEquals(Result.Failure(DiceNotationError.Unreadable("1d10 0")), DiceExpression.parse("1d10 0"))
+    }
+
+    @Test
     fun `a blank notation is refused`() {
         assertEquals(Result.Failure(DiceNotationError.Blank), DiceExpression.parse("  "))
     }

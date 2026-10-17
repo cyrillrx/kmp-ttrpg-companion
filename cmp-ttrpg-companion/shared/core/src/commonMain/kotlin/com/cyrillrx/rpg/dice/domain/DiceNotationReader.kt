@@ -3,7 +3,7 @@ package com.cyrillrx.rpg.dice.domain
 import com.cyrillrx.core.domain.Result
 
 internal fun readDiceNotation(notation: String): Result<DiceExpression, DiceNotationError> {
-    val compact = notation.filterNot(Char::isWhitespace)
+    val compact = notation.trim().replace(SPACES_AROUND_SIGN, "$1")
     if (compact.isEmpty()) return Result.Failure(DiceNotationError.Blank)
 
     val parts = mutableListOf<NotationPart>()
@@ -21,6 +21,7 @@ private sealed interface NotationPart {
     data class Constant(val value: Int) : NotationPart
 }
 
+private val SPACES_AROUND_SIGN = Regex("""\s*([+-])\s*""")
 private val SIGN_BOUNDARY = Regex("(?=[+-])")
 private val DICE = Regex("""(\d*)[dD](\d+)""")
 private val CONSTANT = Regex("""\d+""")

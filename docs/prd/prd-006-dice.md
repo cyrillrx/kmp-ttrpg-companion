@@ -68,7 +68,7 @@ A `d100` is a single roll from 1 to 100, not a pair of percentile `d10`.
 
 ### Dice Notation
 
-- [x] A notation such as `2d6 + 1d4 + 3` reads into a dice expression and writes back; spaces are ignored, `d` and `D` are both accepted, and `d20` stands for `1d20`.
+- [x] A notation such as `2d6 + 1d4 + 3` reads into a dice expression and writes back; spaces around a sign are ignored but a space inside a term is refused, `d` and `D` are both accepted, and `d20` stands for `1d20`.
 - [x] An expression holds at most 100 dice in total; a notation asking for more is refused.
 - [x] A notation that cannot be read is refused with its reason — blank, a sign with no term after it, zero dice, subtracted dice, an unsupported die, no dice at all, too many dice, a modifier out of range, or a part that is neither dice nor a number — and is never silently corrected.
 
