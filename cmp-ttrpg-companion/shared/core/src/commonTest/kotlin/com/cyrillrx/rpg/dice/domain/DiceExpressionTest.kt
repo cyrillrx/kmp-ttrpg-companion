@@ -35,6 +35,11 @@ class DiceExpressionTest {
     }
 
     @Test
+    fun `equal expressions print the same whatever the order they were written in`() {
+        assertEquals((1.d20 + 1.d4).toString(), (1.d4 + 1.d20).toString())
+    }
+
+    @Test
     fun `building an expression from terms groups and orders them too`() {
         val terms = listOf(DiceTerm(1, Die.D6), DiceTerm(1, Die.D20), DiceTerm(2, Die.D6))
 

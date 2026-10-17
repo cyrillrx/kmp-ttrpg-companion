@@ -16,12 +16,9 @@ data class DiceExpression private constructor(private val countByDie: Map<Die, I
         require(countByDie.isNotEmpty()) { "Cannot roll an expression without dice" }
     }
 
-    val terms: List<DiceTerm> = countByDie
-        .map { (die, count) -> DiceTerm(count, die) }
-        .sortedByDescending { it.die.sides }
+    val terms: List<DiceTerm> = countByDie.map { (die, count) -> DiceTerm(count, die) }
 
-    constructor(terms: List<DiceTerm>, modifier: Int = 0) :
-        this(terms.groupingBy { it.die }.fold(0) { count, term -> count + term.count }, modifier)
+    constructor(terms: List<DiceTerm>, modifier: Int = 0) : this(terms.countByDieBiggestFirst(), modifier)
 
     operator fun plus(other: DiceExpression): DiceExpression =
         DiceExpression(terms + other.terms, modifier + other.modifier)
@@ -35,3 +32,9 @@ data class DiceExpression private constructor(private val countByDie: Map<Die, I
         return RollPool(rolls, modifier)
     }
 }
+
+private fun List<DiceTerm>.countByDieBiggestFirst(): Map<Die, Int> = groupingBy { it.die }
+    .fold(0) { count, term -> count + term.count }
+    .entries
+    .sortedByDescending { (die, _) -> die.sides }
+    .associate { (die, count) -> die to count }
