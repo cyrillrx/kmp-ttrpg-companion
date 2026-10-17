@@ -1,6 +1,6 @@
 # PRD-006 — Virtual Dice
 
-> **Status**: Draft | **Version**: 0.3 | **Last updated**: 2026-10-16
+> **Status**: Draft | **Version**: 0.4 | **Last updated**: 2026-10-17
 
 ## Overview
 
@@ -66,6 +66,13 @@ A `d100` is a single roll from 1 to 100, not a pair of percentile `d10`.
 - [ ] The user can manually clear the entire history.
 - [ ] History is a single global log, kept until cleared and capped at 500 entries: past the cap, the oldest entries are dropped.
 
+### Dice Notation
+
+- [x] A notation such as `2d6 + 1d4 + 3` reads into a dice expression and writes back; spaces around a sign are ignored but a space inside a term is refused, `d` and `D` are both accepted, and `d20` stands for `1d20`.
+- [x] An expression holds at most 100 dice in total; a notation asking for more is refused.
+- [x] An expression's modifier stays within ±1000, enough for 100 dice with a +10 bonus each; a notation beyond it is refused.
+- [x] A notation that cannot be read is refused with its reason — blank, a sign with no term after it, zero dice, subtracted dice, an unsupported die, no dice at all, too many dice, a modifier out of range, or a part that is neither dice nor a number — and is never silently corrected. A refusal for going past a limit names that limit.
+
 ### Entry Point
 
 - [ ] The dice roller is reached from a section of the Home screen.
@@ -80,7 +87,8 @@ A `d100` is a single roll from 1 to 100, not a pair of percentile `d10`.
 
 ## Out of Scope
 
-- Custom dice notation input (e.g. typing `3d8+5`) — may be added in a future iteration.
+- Typing a dice notation in the roller (e.g. `3d8+5`) — may be added in a future iteration, on top of the notation reader.
+- Finding dice notations inside free text, for instance to make them tappable on an item sheet — a future step built on the notation reader.
 - Rules that interpret a set of rolls, such as roll-and-keep with a keep threshold (7th Sea 3rd edition) or counting only the 6s and the 1s on d6 (Free League games) — a future iteration, built on top of plain rolls.
 - Dice with custom face labels (e.g. Fate/Fudge dice) — may be added when supporting other game systems.
 - Sharing roll results with other players in real time.

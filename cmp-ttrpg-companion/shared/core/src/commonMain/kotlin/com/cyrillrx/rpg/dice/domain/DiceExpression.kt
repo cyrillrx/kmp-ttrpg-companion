@@ -1,12 +1,20 @@
 package com.cyrillrx.rpg.dice.domain
 
+import com.cyrillrx.core.domain.Result
+import com.cyrillrx.rpg.core.domain.toSignedString
 import kotlin.random.Random
+
+const val MAX_DICE_COUNT = 100
+const val MAX_MODIFIER = 1000
 
 data class DiceTerm(val count: Int, val die: Die) {
     init {
-        // TODO(#315): bound the dice count
-        require(count >= 1) { "Cannot roll $count $die" }
+        require(count in 1..MAX_DICE_COUNT) { "Cannot roll $count $die" }
     }
+
+    fun toNotation(): String = "${count}d${die.sides}"
+
+    override fun toString(): String = toNotation()
 }
 
 /** What to roll, such as `1d20 + 3d6 + 1d4 + 3`. */
@@ -14,12 +22,15 @@ data class DiceTerm(val count: Int, val die: Die) {
 data class DiceExpression private constructor(private val countByDie: Map<Die, Int>, val modifier: Int) {
     init {
         require(countByDie.isNotEmpty()) { "Cannot roll an expression without dice" }
+        require(countByDie.values.sum() <= MAX_DICE_COUNT) { "Cannot roll more than $MAX_DICE_COUNT dice" }
+        require(modifier in -MAX_MODIFIER..MAX_MODIFIER) { "Cannot add a modifier of $modifier" }
     }
 
     val terms: List<DiceTerm> = countByDie.map { (die, count) -> DiceTerm(count, die) }
 
     constructor(terms: List<DiceTerm>, modifier: Int = 0) : this(terms.countByDieBiggestFirst(), modifier)
 
+    // TODO(#320): combine without throwing past MAX_DICE_COUNT or MAX_MODIFIER
     operator fun plus(other: DiceExpression): DiceExpression =
         DiceExpression(terms + other.terms, modifier + other.modifier)
 
@@ -30,6 +41,19 @@ data class DiceExpression private constructor(private val countByDie: Map<Die, I
     fun roll(random: Random = Random.Default): RollPool {
         val rolls = terms.flatMap { term -> List(term.count) { term.die.roll(random) } }
         return RollPool(rolls, modifier)
+    }
+
+    /** Writes the expression as a notation that [parse] reads back, from the biggest die. */
+    fun toNotation(): String = buildString {
+        append(terms.joinToString("+", transform = DiceTerm::toNotation))
+        if (modifier != 0) append(modifier.toSignedString())
+    }
+
+    override fun toString(): String = toNotation()
+
+    companion object {
+        /** Reads a notation such as `2d6 + 1d4 + 3`; `d20` stands for `1d20`. */
+        fun parse(notation: String): Result<DiceExpression, DiceNotationError> = readDiceNotation(notation)
     }
 }
 

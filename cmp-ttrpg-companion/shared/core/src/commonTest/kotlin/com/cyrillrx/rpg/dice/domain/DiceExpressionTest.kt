@@ -36,7 +36,7 @@ class DiceExpressionTest {
 
     @Test
     fun `equal expressions print the same whatever the order they were written in`() {
-        assertEquals((1.d20 + 1.d4).toString(), (1.d4 + 1.d20).toString())
+        assertEquals((1.d20 + 1.d4).toNotation(), (1.d4 + 1.d20).toNotation())
     }
 
     @Test
@@ -59,6 +59,32 @@ class DiceExpressionTest {
     @Test
     fun `fewer than one die is refused`() {
         assertFailsWith<IllegalArgumentException> { 0.d6 }
+    }
+
+    @Test
+    fun `as many dice as the limit are accepted`() {
+        assertEquals(MAX_DICE_COUNT, MAX_DICE_COUNT.d6.terms.single().count)
+    }
+
+    @Test
+    fun `more dice than the limit in one term are refused`() {
+        assertFailsWith<IllegalArgumentException> { (MAX_DICE_COUNT + 1).d6 }
+    }
+
+    @Test
+    fun `more dice than the limit across terms are refused`() {
+        assertFailsWith<IllegalArgumentException> { MAX_DICE_COUNT.d6 + 1.d8 }
+    }
+
+    @Test
+    fun `a modifier up to the limit is accepted on either side`() {
+        assertEquals(MAX_MODIFIER, (1.d6 + MAX_MODIFIER).modifier)
+        assertEquals(-MAX_MODIFIER, (1.d6 - MAX_MODIFIER).modifier)
+    }
+
+    @Test
+    fun `a modifier beyond the limit is refused`() {
+        assertFailsWith<IllegalArgumentException> { 1.d6 + MAX_MODIFIER + 1 }
     }
 
     @Test
